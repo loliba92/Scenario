@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archives — Scénario</title>
+<meta name="description" content="Toutes les éditions passées de Scénario, classées par date.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --surface: #1a212b;
+    --surface-2: #212a35;
+    --hairline: #2c3644;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+    --favorable: #5e9c78;
+    --stable: #6f8fae;
+    --degrade: #bd6248;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  ::selection{ background: var(--gold); color: var(--ink); }
+
+  :focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header.masthead{
+    border-bottom: 1px solid var(--hairline);
+    padding: 28px 0 22px;
+  }
+
+  .masthead-row{
+    display:flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .wordmark{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+
+  .wordmark span{ color: var(--gold); }
+
+  .nav-link{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+  }
+
+  .nav-link:hover{
+    color: var(--paper);
+    border-bottom-color: var(--paper-dim);
+  }
+
+  .hero{
+    padding: 64px 0 40px;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .eyebrow{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    margin: 0 0 18px;
+  }
+
+  h1{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+  }
+
+  .dek{
+    font-size: 1.1rem;
+    color: var(--paper-dim);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  section.listing{ padding: 48px 0 64px; }
+
+  .entries{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .entry{
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .entry:first-child{ padding-top: 0; }
+
+  .entry-date{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.8rem;
+    color: var(--paper-dim);
+    min-width: 9ch;
+  }
+
+  .entry-tag{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    padding: 2px 9px;
+    white-space: nowrap;
+  }
+
+  .entry-title{
+    flex: 1 1 260px;
+    font-family: "Fraunces", serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+  }
+
+  .entry-title:hover{
+    border-bottom-color: var(--paper-dim);
+  }
+
+  footer{
+    border-top: 1px solid var(--hairline);
+    padding: 32px 0 48px;
+  }
+
+  footer .caveat{
+    font-size: 0.84rem;
+    color: var(--paper-dim);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <a class="wordmark" href="index.html">Scéna<span>rio</span></a>
+    <a class="nav-link" href="index.html">← Dernière édition</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Consultation</p>
+    <h1>Archives</h1>
+    <p class="dek">Toutes les éditions publiées, classées de la plus récente à la plus ancienne.</p>
+  </div>
+</section>
+
+<section class="listing">
+  <div class="wrap">
+    <ul class="entries">
+      <li class="entry">
+        <span class="entry-date">25.07.2026</span>
+        <span class="entry-tag">Samedi cool</span>
+        <a class="entry-title" href="archives/2026-07-25.html">Spider-Man contre Avengers : qui va sauver le box-office Marvel ?</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="caveat">Chaque édition reste figée à sa date de publication : les indicateurs et probabilités qui y figurent ne sont pas mis à jour rétroactivement.</p>
+  </div>
+</footer>
+
+</body>
+</html>
