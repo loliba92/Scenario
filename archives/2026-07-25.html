@@ -104,6 +104,35 @@
     border-bottom-color: var(--paper-dim);
   }
 
+  nav.topnav{
+    background: var(--surface);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  nav.topnav .wrap{
+    display: flex;
+    gap: 24px;
+    padding: 12px 24px;
+  }
+
+  .topnav a{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+  }
+
+  .topnav a:hover{ color: var(--paper); }
+
+  .topnav a[aria-current="page"]{
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
   /* ---------- Hero ---------- */
 
   .hero{
@@ -377,12 +406,16 @@
 <header class="masthead">
   <div class="wrap masthead-row">
     <a class="wordmark" href="../index.html" style="text-decoration:none;">Scéna<span>rio</span></a>
-    <div class="masthead-nav">
-      <a class="nav-link" href="../archives.html">Archives</a>
-      <div class="edition">Édition du 25 juillet 2026 · N°02</div>
-    </div>
+    <div class="edition">Édition du 25 juillet 2026 · N°02</div>
   </div>
 </header>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="../index.html">Accueil</a>
+    <a href="../archives.html" aria-current="page">Archives</a>
+  </div>
+</nav>
 
 <section class="hero">
   <div class="wrap">
