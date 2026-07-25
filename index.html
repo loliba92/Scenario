@@ -320,6 +320,34 @@
     border-bottom-color: var(--paper-dim);
   }
 
+  /* ---------- Lexique ---------- */
+
+  section.lexique{ padding: 8px 0 48px; }
+
+  .glossary{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 28px;
+    margin: 0;
+  }
+
+  @media (max-width: 640px){
+    .glossary{ grid-template-columns: 1fr; }
+  }
+
+  .glossary dt{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--gold);
+    margin: 0 0 3px;
+  }
+
+  .glossary dd{
+    font-size: 0.88rem;
+    color: var(--paper-dim);
+    margin: 0;
+  }
+
 </style>
 </head>
 <body>
@@ -336,15 +364,13 @@
     <p class="eyebrow">Samedi cool · cinéma & incertitude</p>
     <h1>Spider-Man contre Avengers : qui va sauver le box-office Marvel ?</h1>
 
-    <p class="dek">Marvel Studios, filiale du groupe Disney, produit depuis quinze ans les films de super-héros les plus rentables du cinéma — Avengers, Spider-Man, Iron Man et bien d'autres — tous reliés dans un même univers où les personnages se croisent d'un film à l'autre. Tom Holland incarne Spider-Man depuis 2016. Robert Downey Jr., qui jouait Iron Man jusqu'à sa mort à l'écran en 2019 dans Avengers : Endgame (le film qui avait alors battu tous les records d'entrées en salle), revient dans un nouveau rôle : le Docteur Fatalis, le grand méchant d'Avengers : Doomsday. Le « box-office », c'est simplement le total des recettes générées par un film en salles — l'indicateur numéro un de son succès commercial.</p>
+    <p class="dek">Marvel Studios, filiale du groupe Disney, produit depuis quinze ans les films de super-héros les plus rentables du cinéma — Avengers, Spider-Man, Iron Man et bien d'autres — tous reliés dans un même univers où les personnages se croisent d'un film à l'autre. Tom Holland incarne Spider-Man depuis 2016. Robert Downey Jr., qui jouait Iron Man jusqu'à sa mort à l'écran en 2019 dans Avengers : Endgame (le film qui avait alors battu tous les records d'entrées en salle), revient dans un nouveau rôle : le Docteur Fatalis, le grand méchant d'Avengers : Doomsday.</p>
 
-    <p class="dek">Spider-Man : Brand New Day débarque en salles le 31 juillet, une semaine tout juste après cette édition. Avengers : Doomsday, lui, arrive le 17 décembre. Disney présente les deux comme les locomotives capables de sauver un box-office 2026 déjà marqué par plusieurs gros échecs commerciaux — et une action Disney en baisse de 15 % depuis janvier.</p>
+    <p class="dek">Spider-Man : Brand New Day sort en salles le 31 juillet, une semaine après cette édition. Avengers : Doomsday arrive le 17 décembre. Disney présente les deux comme les films capables de sauver son année — 2026 a déjà connu plusieurs grosses productions qui ont fait un flop, et l'action Disney a perdu 15 % en Bourse depuis janvier. Marvel cherche à retrouver la ferveur perdue depuis Endgame : trop de sorties, des séries Disney+ qui diluent l'attention, un public plus dur à surprendre. Doomsday mise sur le retour événement de Robert Downey Jr. pour recréer cet effet ; Spider-Man : Brand New Day s'appuie sur la fidélité acquise par Tom Holland depuis dix ans.</p>
 
-    <p class="dek">Marvel cherche à retrouver la ferveur perdue depuis Endgame : trop de sorties, des séries Disney+ qui diluent l'attention, un public plus dur à surprendre. Doomsday mise sur le retour événement de Robert Downey Jr. pour recréer cet effet. Spider-Man : Brand New Day, lui, s'appuie sur la fidélité acquise par Tom Holland depuis dix ans — et sur le souvenir de Spider-Man : No Way Home (2021), qui avait à lui seul rapporté 260 millions de dollars lors de son premier week-end aux États-Unis.</p>
+    <p class="dek">Les signaux sont contradictoires. Dans les sondages grand public, 74 % misent sur Spider-Man comme plus gros succès de l'année, contre 15 % pour Doomsday — pénalisé par une sortie si tardive qu'il n'aura que deux semaines pour engranger des recettes 2026. Mais sur Polymarket, Doomsday est donné favori à 71-75 % pour le meilleur démarrage en salles de toute l'année, déjà porté par 16 millions de dollars de billets vendus à l'avance — un niveau rare cinq mois avant la sortie.</p>
 
-    <p class="dek">Les signaux sont contradictoires. Dans les sondages grand public, 74 % misent sur Spider-Man comme plus gros succès de l'année, contre 15 % pour Doomsday — pénalisé par une sortie si tardive qu'il n'aura que deux semaines pour engranger des recettes 2026. Mais sur Polymarket, un marché prédictif où les utilisateurs parient de l'argent réel sur l'issue d'événements (et qui reflète souvent mieux les attentes réelles qu'un simple sondage), Doomsday est donné favori à 71-75 % pour le meilleur démarrage en salles de toute l'année. Il est déjà porté par 16 millions de dollars de billets vendus à l'avance, un niveau rare cinq mois avant la sortie.</p>
-
-    <p class="dek">Pourquoi trois scénarios, et pas une prédiction unique ? Parce que les deux sources disponibles se contredisent frontalement : le grand public parie sur un gagnant, les marchés financiers parient sur l'autre. Et parce que la réponse aura un effet concret et mesurable : elle dira si Marvel garde encore le pouvoir de faire déplacer les foules en salle, ou si Disney doit revoir sa stratégie — avec des conséquences directes sur l'action du groupe et sur les salles de cinéma qui comptent sur ces deux sorties pour boucler leur année.</p>
+    <p class="dek">Pourquoi trois scénarios, et pas une prédiction unique ? Parce que les deux sources disponibles se contredisent frontalement : le grand public parie sur un gagnant, les marchés financiers parient sur l'autre. Et parce que la réponse aura un effet concret : elle dira si Marvel garde encore le pouvoir de faire déplacer les foules en salle, ou si Disney doit revoir sa stratégie — avec des conséquences directes sur l'action du groupe et sur les salles qui comptent sur ces deux sorties pour boucler leur année.</p>
 
     <div class="indicator-strip">
       <div class="indicator">
@@ -436,6 +462,27 @@
       </article>
 
     </div>
+  </div>
+</section>
+
+<section class="lexique">
+  <div class="wrap">
+    <p class="section-label">Pour ceux qui découvrent le sujet</p>
+    <h2 class="section-title">Petit lexique</h2>
+    <dl class="glossary">
+      <dt>Marvel Studios</dt>
+      <dd>Le studio de cinéma, propriété de Disney, qui produit les films de super-héros comme Avengers ou Spider-Man.</dd>
+      <dt>Box-office</dt>
+      <dd>Le total des recettes générées par un film dans les salles de cinéma — l'indicateur numéro un de son succès commercial.</dd>
+      <dt>Action (en Bourse)</dt>
+      <dd>Une part du capital d'une entreprise cotée, dont le prix varie selon la confiance des investisseurs.</dd>
+      <dt>Polymarket</dt>
+      <dd>Une plateforme où les internautes parient de l'argent réel sur l'issue d'événements réels, ce qui donne une estimation de probabilité.</dd>
+      <dt>Docteur Fatalis</dt>
+      <dd>Le grand méchant d'Avengers : Doomsday, joué par Robert Downey Jr.</dd>
+      <dt>Franchise</dt>
+      <dd>Une série de films qui partagent les mêmes personnages ou univers, exploités sur plusieurs volets.</dd>
+    </dl>
   </div>
 </section>
 
