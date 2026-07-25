@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact & à propos — Scénario</title>
+<meta name="description" content="Ce qu'est Scénario, et comment nous contacter.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --surface: #1a212b;
+    --surface-2: #212a35;
+    --hairline: #2c3644;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+    --favorable: #5e9c78;
+    --stable: #6f8fae;
+    --degrade: #bd6248;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  ::selection{ background: var(--gold); color: var(--ink); }
+
+  :focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header.masthead{
+    border-bottom: 1px solid var(--hairline);
+    padding: 28px 0 22px;
+  }
+
+  .masthead-row{
+    display:flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .wordmark{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+
+  .wordmark span{ color: var(--gold); }
+
+  nav.topnav{
+    background: var(--surface);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  nav.topnav .wrap{
+    display: flex;
+    gap: 24px;
+    padding: 12px 24px;
+  }
+
+  .topnav a{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+  }
+
+  .topnav a:hover{ color: var(--paper); }
+
+  .topnav a[aria-current="page"]{
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  .hero{
+    padding: 64px 0 40px;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .eyebrow{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    margin: 0 0 18px;
+  }
+
+  h1{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+  }
+
+  .dek{
+    font-size: 1.1rem;
+    color: var(--paper-dim);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  section.body-section{ padding: 48px 0; border-bottom: 1px solid var(--hairline); }
+  section.body-section:last-of-type{ border-bottom: none; }
+
+  .section-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--paper-dim);
+    margin: 0 0 8px;
+  }
+
+  .section-title{
+    font-family: "Fraunces", serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0 0 20px;
+  }
+
+  .body-section p{
+    max-width: 62ch;
+    color: var(--paper-dim);
+    margin: 0 0 16px;
+  }
+
+  .body-section p:last-child{ margin-bottom: 0; }
+
+  .body-section strong{ color: var(--paper); font-weight: 500; }
+
+  .rhythm-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 24px 0 0;
+    max-width: 62ch;
+  }
+
+  .rhythm-item{
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+
+  .rhythm-item .day{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .rhythm-item .topic{
+    font-size: 0.88rem;
+  }
+
+  .contact-box{
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    padding: 20px 22px;
+    max-width: 62ch;
+  }
+
+  .contact-box .field-label{
+    display:block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .contact-box .value{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 1rem;
+    color: var(--paper-dim);
+  }
+
+  footer{
+    border-top: 1px solid var(--hairline);
+    padding: 32px 0 48px;
+  }
+
+  footer .caveat{
+    font-size: 0.84rem;
+    color: var(--paper-dim);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <a class="wordmark" href="index.html">Scéna<span>rio</span></a>
+  </div>
+</header>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="index.html">Accueil</a>
+    <a href="archives.html">Archives</a>
+    <a href="contact.html" aria-current="page">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">À propos</p>
+    <h1>Contact & à propos</h1>
+    <p class="dek">Ce qu'est Scénario, et comment nous joindre.</p>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">Le projet</p>
+    <h2 class="section-title">Qu'est-ce que Scénario ?</h2>
+    <p>Scénario décrypte une actualité à forts enjeux et prend le parti de ne jamais prétendre en connaître l'issue à l'avance. Pour chaque sujet, on construit <strong>trois scénarios concrets</strong> — favorable, stable, dégradé — plutôt qu'une prédiction unique, avec à chaque fois une probabilité estimée, des indicateurs chiffrés et ce que ça changerait vraiment en France.</p>
+    <p>L'idée : remplacer l'incertitude floue de l'actualité par des repères clairs, sans jamais prétendre à une exactitude qu'aucune actualité en cours ne permet. Chaque coefficient de probabilité reste une estimation qualitative, jamais un calcul garanti.</p>
+    <p>Le ton et le niveau de détail s'adaptent au sujet du jour, mais l'exigence reste la même : vérifier les faits sur au moins deux sources avant de les avancer, expliquer les bases pour qui découvre le sujet, et ne jamais transformer une synthèse en conseil ou en prise de position.</p>
+    <div class="rhythm-grid">
+      <div class="rhythm-item"><span class="day">Lundi</span><span class="topic">Géopolitique & international</span></div>
+      <div class="rhythm-item"><span class="day">Mercredi</span><span class="topic">Actualité & politique française</span></div>
+      <div class="rhythm-item"><span class="day">Vendredi</span><span class="topic">Écologie</span></div>
+      <div class="rhythm-item"><span class="day">Samedi</span><span class="topic">Culture française</span></div>
+      <div class="rhythm-item"><span class="day">Dimanche</span><span class="topic">Culture internationale</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">Écrire à Scénario</p>
+    <h2 class="section-title">Nous contacter</h2>
+    <p>Une question, une correction à signaler, une suggestion de sujet ? Une adresse email dédiée arrive très bientôt — en attendant, cette page sera mise à jour dès qu'elle sera active.</p>
+    <div class="contact-box">
+      <span class="field-label">Email</span>
+      <span class="value">— à venir —</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="caveat">Scénario publie cinq éditions par semaine. Chaque édition reste figée à sa date de publication.</p>
+  </div>
+</footer>
+
+</body>
+</html>
