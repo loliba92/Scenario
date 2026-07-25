@@ -82,6 +82,28 @@
     letter-spacing: 0.08em;
   }
 
+  .masthead-nav{
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .nav-link{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+  }
+
+  .nav-link:hover{
+    color: var(--paper);
+    border-bottom-color: var(--paper-dim);
+  }
+
   /* ---------- Hero ---------- */
 
   .hero{
@@ -355,7 +377,10 @@
 <header class="masthead">
   <div class="wrap masthead-row">
     <div class="wordmark">Scéna<span>rio</span></div>
-    <div class="edition">Édition du 25 juillet 2026 · N°02</div>
+    <div class="masthead-nav">
+      <a class="nav-link" href="archives.html">Archives</a>
+      <div class="edition">Édition du 25 juillet 2026 · N°02</div>
+    </div>
   </div>
 </header>
 
@@ -491,7 +516,7 @@
     <p class="caveat">Les pourcentages et indicateurs sont des ordres de grandeur indicatifs, construits à partir de données réelles et de précédents comparables — pas des prévisions garanties ni des calculs statistiques certifiés.</p>
     <p class="section-label">Éditions précédentes</p>
     <ul class="archive-list">
-      <li><a href="#">Archive en construction — les éditions précédentes seront bientôt consultables</a></li>
+      <li><a href="archives.html">Voir toutes les éditions →</a></li>
     </ul>
   </div>
 </footer>
