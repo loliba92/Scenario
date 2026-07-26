@@ -31,7 +31,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 
 <!-- Faire tourner les domaines : cinéma, musique, jeux vidéo, littérature, spectacle… -->
 ## Culture française — samedi
-- [ ] Musique et IA : alors qu'une part croissante des morceaux en ligne est générée par des machines, quel avenir pour les artistes et la création française ? (à traiter objectivement) [musique]
+- [ ] Musique et IA : quel avenir pour la musique IA ? (à traiter objectivement) [musique]
 - [ ] Cinéma français : après une forte baisse des entrées en 2025, va-t-il rebondir ou poursuivre son déclin ? [cinéma]
 - [ ] Littérature et IA : avec les premiers livres écrits ou traduits par des IA, quel avenir pour les auteurs et traducteurs ? [littérature]
 
