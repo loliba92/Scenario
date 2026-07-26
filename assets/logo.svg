@@ -1,0 +1,20 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Scénario">
+  <!-- Tronc doré (le présent) qui se sépare -->
+  <path d="M57,96 L57,70 Q57,65 60,63" stroke="#cf9d4c"/>
+  <path d="M63,96 L63,70 Q63,65 60,63" stroke="#cf9d4c"/>
+
+  <!-- Flèche centrale — scénario stable (bleu) -->
+  <path d="M60,63 L60,55" stroke="#cf9d4c"/>
+  <path d="M60,55 L60,31" stroke="#6f8fae"/>
+  <path d="M55.8,38.9 L60,31 L64.2,38.9" stroke="#6f8fae"/>
+
+  <!-- Flèche gauche — scénario favorable (vert) -->
+  <path d="M60,63 L53.4,56.9" stroke="#cf9d4c"/>
+  <path d="M53.4,56.9 L34,39" stroke="#5e9c78"/>
+  <path d="M36.97,47.5 L34,39 L42.69,41.3" stroke="#5e9c78"/>
+
+  <!-- Flèche droite — scénario dégradé (terracotta) -->
+  <path d="M60,63 L66.6,56.9" stroke="#cf9d4c"/>
+  <path d="M66.6,56.9 L86,39" stroke="#bd6248"/>
+  <path d="M83.03,47.5 L86,39 L77.31,41.3" stroke="#bd6248"/>
+</svg>

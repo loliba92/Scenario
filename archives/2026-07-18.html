@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Scénario — L'actualité en trois hypothèses chiffrées</title>
+<link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
 <meta name="description" content="Deux fois par semaine, une actualité clé décryptée en trois scénarios chiffrés — pour comprendre ce qui pourrait vraiment changer.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,6 +74,19 @@
   }
 
   .wordmark span{ color: var(--gold); }
+
+  .brand{
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+
+  .brand-mark{
+    width: 30px;
+    height: 30px;
+    display: block;
+    flex: none;
+  }
 
   .edition{
     font-family: "JetBrains Mono", monospace;
@@ -454,7 +468,10 @@
 
 <header class="masthead">
   <div class="wrap masthead-row">
-    <a class="wordmark" href="../index.html" style="text-decoration:none;">Scéna<span>rio</span></a>
+    <div class="brand">
+      <img class="brand-mark" src="../assets/logo.svg" alt="">
+      <a class="wordmark" href="../index.html" style="text-decoration:none;">Scéna<span>rio</span></a>
+    </div>
     <div class="edition">Édition du 18 juillet 2026 · N°01</div>
   </div>
 </header>
