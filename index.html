@@ -255,23 +255,42 @@
   /* ---------- Scenario cards ---------- */
 
   .cards{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 18px;
-  }
-
-  @media (max-width: 820px){
-    .cards{ grid-template-columns: 1fr; }
   }
 
   .card{
     background: var(--surface);
     border: 1px solid var(--hairline);
     border-radius: 6px;
-    padding: 26px 22px 24px;
+    padding: 26px 26px 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .card-head{
+    flex: 0 0 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .card-body{
+    flex: 1 1 auto;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 18px;
+  }
+
+  @media (max-width: 720px){
+    .card{ flex-direction: column; gap: 18px; }
+    .card-head{ flex: 0 0 auto; width: 100%; }
   }
 
   .card[data-kind="favorable"]{ --accent: var(--favorable); }
@@ -491,6 +510,7 @@
     <div class="cards">
 
       <article class="card" data-kind="favorable">
+        <div class="card-head">
         <span class="kind-tag">Favorable</span>
         <div class="gauge">
           <svg viewBox="0 0 108 64">
@@ -501,6 +521,8 @@
         </div>
         <div class="gauge-word">Probable</div>
         <h3>🤝 Le juge laisse passer la fusion</h3>
+        </div>
+        <div class="card-body">
         <p class="why">La bataille judiciaire se termine par un feu vert au rachat : soit le procès sur le fond conclut que la fusion ne viole pas le droit de la concurrence — comme en 2018, quand un juge avait autorisé le rachat de Time Warner par AT&T malgré l'opposition du gouvernement américain — soit Paramount Skydance et les douze États trouvent un compromis, par exemple la cession d'une partie des activités câble ou de distribution en salle. Le rachat se conclut avant l'échéance de juin 2027 déjà fixée par les deux parties. <strong>C'est le scénario le plus probable des trois</strong>, car les principaux régulateurs fédéraux (justice américaine, Europe, Chine) ont déjà donné leur accord : il ne reste que la bataille des États. Plus probable qu'un blocage total, qui suppose que les États gagnent l'intégralité d'un procès et pas seulement une mesure d'urgence ; mais moins certain qu'il n'y paraît, car la juge a déjà jugé "probable" une violation du droit de la concurrence à ce stade préliminaire.</p>
         <hr class="divider">
         <div class="field">
@@ -511,9 +533,11 @@
           <span class="field-label">Concrètement en France</span>
           HBO Max et Paramount+ pourraient à terme fusionner leurs catalogues en France, avec plus de contenu réuni sur un seul abonnement, mais un risque de hausse de prix une fois la concurrence entre les deux plateformes éteinte. → Plutôt défavorable pour le porte-monnaie des abonnés français, même si le dossier se résout bien pour les deux groupes.
         </div>
+        </div>
       </article>
 
       <article class="card" data-kind="stable">
+        <div class="card-head">
         <span class="kind-tag">Stable</span>
         <div class="gauge">
           <svg viewBox="0 0 108 64">
@@ -524,6 +548,8 @@
         </div>
         <div class="gauge-word">Peu probable</div>
         <h3>⏳ Le procès traîne, le deal est gelé</h3>
+        </div>
+        <div class="card-body">
         <p class="why">Ni victoire ni défaite claire : le procès sur le fond s'étire sur de longs mois sans qu'aucune décision définitive ne tombe avant l'échéance fixée au 1er juin 2027, et les deux camps se contentent de repousser les échéances comme ils l'ont déjà fait le 24 juillet. Le rachat reste suspendu, et le propre projet de scission de Warner Bros. Discovery en deux entreprises séparées — "Warner Bros." et "Discovery Global" —, déjà annoncé avant l'offre de Paramount Skydance, reste lui aussi gelé en attendant. <strong>C'est le scénario le moins probable des trois</strong>, car l'accord du 24 juillet entre Paramount Skydance et les États fixe justement une date butoir qui pousse vers une résolution plutôt que vers un enlisement indéfini ; moins probable qu'un feu vert judiciaire, porté par des régulateurs fédéraux déjà favorables, et moins probable qu'un blocage net, puisqu'un procès sur le fond doit de toute façon se tenir avant juin 2027.</p>
         <hr class="divider">
         <div class="field">
@@ -534,9 +560,11 @@
           <span class="field-label">Concrètement en France</span>
           Aucun changement immédiat pour les abonnés HBO Max ou Paramount+ en France, mais aucune visibilité sur les futurs tournages, coproductions ou investissements des deux studios en Europe tant que leur avenir capitalistique n'est pas tranché. → Neutre pour la France à court terme, mais un statu quo qui a un coût pour les professionnels du secteur.
         </div>
+        </div>
       </article>
 
       <article class="card" data-kind="degrade">
+        <div class="card-head">
         <span class="kind-tag">Dégradé</span>
         <div class="gauge">
           <svg viewBox="0 0 108 64">
@@ -547,6 +575,8 @@
         </div>
         <div class="gauge-word">Probable</div>
         <h3>💥 Le juge bloque, le deal s'effondre</h3>
+        </div>
+        <div class="card-body">
         <p class="why">Le procès sur le fond donne raison aux douze États : la fusion est jugée trop dangereuse pour la concurrence dans la diffusion des films en salle et la télévision câblée, et Paramount Skydance doit abandonner son rachat à 110-111 milliards de dollars. Warner Bros. Discovery, qui avait mis en pause son propre projet de scission en deux entreprises en attendant l'issue du rachat, doit alors le relancer en urgence, affaibli et sans la solution de sortie que représentait la vente. <strong>Ce scénario est plus probable qu'un enlisement sans fin</strong>, car la juge a déjà estimé "probable" une violation du droit de la concurrence dès l'examen préliminaire — un signal défavorable pour Paramount Skydance qui pèse sur la suite du procès ; mais il reste moins probable qu'un feu vert final, car un blocage complet suppose que les États gagnent l'intégralité du procès, une barre plus haute qu'une simple mesure d'urgence, et parce que le précédent AT&T-Time Warner de 2018 montre qu'un juge fédéral peut aussi trancher en faveur d'une méga-fusion.</p>
         <hr class="divider">
         <div class="field">
@@ -556,6 +586,7 @@
         <div class="france-line">
           <span class="field-label">Concrètement en France</span>
           Une incertitude prolongée pèserait sur l'avenir de studios et de chaînes très présents en France (HBO Max, CNN, Discovery+), avec un risque que des entreprises affaiblies et séparées réduisent leurs investissements dans des productions ou coproductions européennes. → Plutôt défavorable pour l'offre culturelle disponible en France.
+        </div>
         </div>
       </article>
 
