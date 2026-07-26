@@ -39,4 +39,4 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 ## Culture internationale — dimanche
 - [ ] Musique & IA à l'échelle mondiale : ~1/3 des nouveaux titres générés par IA, procès à 3 Md$, lois en préparation — quel avenir possible pour la musique ? (à traiter objectivement, sans parti pris) [musique]
 - [ ] Hollywood perd-il la Chine ? Les films locaux captent ~80 % du box-office chinois — bascule durable du pouvoir culturel ? [cinéma]
-- [ ] Streaming : « fatigue d'abonnement » et virage vers la rentabilité — vers moins de contenu et des prix en hausse ? [séries / streaming]
+- [ ] Streaming : après la course aux abonnés et le virage vers la rentabilité, quel avenir pour le streaming ? [séries / streaming]
