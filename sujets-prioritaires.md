@@ -21,10 +21,15 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 <!-- Jour des lecteurs : recopier ici les meilleures suggestions reçues par email (scenariocontact75@gmail.com). À défaut, sujet le plus fort tous domaines confondus. -->
 - [ ]
 
-## Géopolitique / international — lundi & jeudi
+## Géopolitique / international — lundi
 - [ ] Iran et États-Unis : vers un accord durable, un cessez-le-feu sous tension ou une reprise de la guerre ?
 - [ ] Guerre en Ukraine : vers un cessez-le-feu, un front gelé ou une nouvelle escalade en 2026 ?
 - [ ] Taïwan : la tension entre les États-Unis et la Chine peut-elle dégénérer en conflit ouvert ?
+
+<!-- Enjeux sportifs & économiques, jamais la vie privée des sportifs. Sous-thèmes : football, rugby, tennis, JO, cyclisme, sports méca… -->
+## Sport — jeudi
+- [ ] Argent du Golfe dans le sport : jusqu'où l'Arabie saoudite va-t-elle transformer le football et les grands sports ? [football & économie]
+- [ ] Ligue 1 : le football français peut-il se relever de sa crise des droits TV ? [football]
 
 ## Actualité & politique française — mercredi
 - [ ] Présidentielle 2027 : à moins d'un an du vote, quels duels sont possibles au second tour ?
