@@ -17,6 +17,10 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 <!-- Un sujet ici est traité en priorité, quel que soit le registre du jour. À utiliser pour l'actu brûlante. -->
 - [ ]
 
+## Mardi — sujet libre (carte blanche, tous registres au choix)
+<!-- Aucun registre imposé : le sujet le plus fort (enjeu + incertitude) tous domaines confondus. -->
+- [ ]
+
 ## Géopolitique / international — lundi & jeudi
 - [ ] Iran et États-Unis : vers un accord durable, un cessez-le-feu sous tension ou une reprise de la guerre ?
 - [ ] Guerre en Ukraine : vers un cessez-le-feu, un front gelé ou une nouvelle escalade en 2026 ?
