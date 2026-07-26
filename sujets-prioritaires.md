@@ -25,6 +25,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 ## Actualité & politique française — mercredi
 - [ ] Présidentielle 2027 : à moins d'un an du vote, quels duels sont possibles au second tour ?
 - [ ] Budget 2027 : le gouvernement Lecornu peut-il survivre au vote du budget à l'automne ?
+- [ ] France fracturée : villes, banlieues et monde rural aux intérêts de plus en plus divergents — le pays peut-il encore se rassembler autour d'un projet commun ?
 
 ## Écologie — vendredi
 - [ ] Climat : avec un budget écologique en baisse, la France peut-elle encore tenir ses objectifs de 2030 ?
