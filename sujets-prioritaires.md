@@ -18,25 +18,25 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 - [ ]
 
 ## Géopolitique / international — lundi & jeudi
-- [ ] Guerre en Ukraine : vers un cessez-le-feu en 2026, un gel du front ou une nouvelle escalade ?
-- [ ] Taïwan : la rivalité USA–Chine peut-elle basculer d'une guerre froide technologique à une crise ouverte ?
+- [ ] Guerre en Ukraine : vers un cessez-le-feu, un front gelé ou une nouvelle escalade en 2026 ?
+- [ ] Taïwan : la tension entre les États-Unis et la Chine peut-elle dégénérer en conflit ouvert ?
 
 ## Actualité & politique française — mercredi
-- [ ] Présidentielle française 2027 : à ~10 mois de la finale, qui au second tour et pourquoi ? (3 scénarios de duel possible)
-- [ ] Budget 2027 : le gouvernement Lecornu peut-il survivre à l'examen du projet de loi de finances à l'automne ?
+- [ ] Présidentielle 2027 : à moins d'un an du vote, quels duels sont possibles au second tour ?
+- [ ] Budget 2027 : le gouvernement Lecornu peut-il survivre au vote du budget à l'automne ?
 
 ## Écologie — vendredi
-- [ ] Climat : budget « vert » raboté (Fonds vert ramené à 837 M€) et objectifs jugés insuffisants — la France peut-elle tenir sa trajectoire 2030 ?
-- [ ] Méga-feux de l'été 2026 : la France est-elle armée pour s'adapter au climat qui vient ?
+- [ ] Climat : avec un budget écologique en baisse, la France peut-elle encore tenir ses objectifs de 2030 ?
+- [ ] Méga-feux : après un été 2026 record, la France est-elle prête à s'adapter à des étés de plus en plus chauds ?
 
 <!-- Faire tourner les domaines : cinéma, musique, jeux vidéo, littérature, spectacle… -->
 ## Culture française — samedi
-- [ ] Musique & IA : ~39 % des titres mis en ligne chaque jour seraient générés par IA (données Deezer) — quel avenir possible pour les artistes et la création française ? (à traiter objectivement : menace, coexistence encadrée ou opportunité) [musique]
-- [ ] Cinéma français : 156 M d'entrées en 2025 (−13 %) mais rebond début 2026 — sursaut durable ou déclin de la fréquentation ? [cinéma]
-- [ ] Littérature : les livres écrits ou traduits par IA débarquent en librairie — quel avenir pour auteurs et traducteurs français ? [littérature]
+- [ ] Musique et IA : alors qu'une part croissante des morceaux en ligne est générée par des machines, quel avenir pour les artistes et la création française ? (à traiter objectivement) [musique]
+- [ ] Cinéma français : après une forte baisse des entrées en 2025, va-t-il rebondir ou poursuivre son déclin ? [cinéma]
+- [ ] Littérature et IA : avec les premiers livres écrits ou traduits par des machines, quel avenir pour les auteurs et traducteurs ? [littérature]
 
 <!-- Faire tourner les domaines : cinéma, musique, jeux vidéo, littérature, séries… -->
 ## Culture internationale — dimanche
-- [ ] Musique & IA à l'échelle mondiale : ~1/3 des nouveaux titres générés par IA, procès à 3 Md$, lois en préparation — quel avenir possible pour la musique ? (à traiter objectivement, sans parti pris) [musique]
-- [ ] Hollywood perd-il la Chine ? Les films locaux captent ~80 % du box-office chinois — bascule durable du pouvoir culturel ? [cinéma]
-- [ ] Streaming : après la course aux abonnés et le virage vers la rentabilité, quel avenir pour le streaming ? [séries / streaming]
+- [ ] Musique et IA dans le monde : entre procès géants et nouvelles lois, quel avenir pour la création musicale ? (à traiter objectivement) [musique]
+- [ ] Cinéma : Hollywood est-il en train de perdre le marché chinois, et avec quelles conséquences ? [cinéma]
+- [ ] Streaming vidéo : après la course aux abonnés, vers quel modèle vont les plateformes ? [séries / streaming]
