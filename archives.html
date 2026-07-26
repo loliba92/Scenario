@@ -171,34 +171,78 @@
     flex-direction: column;
   }
 
+  /* ---- Outils : recherche + filtres ---- */
+  .archive-tools{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0 0 30px;
+  }
+
+  .archive-search{
+    width: 100%;
+    max-width: 440px;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: 11px 14px;
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 0.95rem;
+  }
+  .archive-search::placeholder{ color: var(--paper-dim); }
+  .archive-search:focus{ outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  .tag-filters{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .filter-chip{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--paper-dim);
+    background: transparent;
+    border: 1px solid var(--hairline);
+    border-radius: 100px;
+    padding: 4px 12px;
+    cursor: pointer;
+    transition: color .15s, border-color .15s, background .15s;
+  }
+  .filter-chip:hover{ color: var(--paper); border-color: var(--paper-dim); }
+  .filter-chip.is-active{
+    color: var(--ink);
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  /* ---- Entrées ---- */
   .entry{
     display: flex;
-    align-items: baseline;
-    gap: 20px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
     padding: 20px 0;
     border-bottom: 1px solid var(--hairline);
   }
 
   .entry:first-child{ padding-top: 0; }
+  .entry.is-hidden{ display: none; }
+
+  .entry-main{
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
 
   .entry-date{
     font-family: "JetBrains Mono", monospace;
     font-size: 0.8rem;
     color: var(--paper-dim);
     min-width: 9ch;
-  }
-
-  .entry-tag{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--gold);
-    border: 1px solid var(--gold);
-    border-radius: 100px;
-    padding: 2px 9px;
-    white-space: nowrap;
   }
 
   .entry-title{
@@ -210,9 +254,46 @@
     border-bottom: 1px dotted transparent;
   }
 
-  .entry-title:hover{
-    border-bottom-color: var(--paper-dim);
+  .entry-title:hover{ border-bottom-color: var(--paper-dim); }
+
+  .entry-tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding-left: calc(9ch + 20px);
   }
+
+  @media (max-width: 560px){
+    .entry-tags{ padding-left: 0; }
+  }
+
+  .tag{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 100px;
+    padding: 2px 9px;
+    white-space: nowrap;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    transition: color .15s, border-color .15s;
+  }
+  .tag.theme{
+    border-color: var(--hairline);
+    color: var(--paper-dim);
+  }
+  .tag:hover{ border-color: var(--paper); color: var(--paper); }
+
+  .no-result{
+    color: var(--paper-dim);
+    font-size: 0.95rem;
+    padding: 10px 0;
+    display: none;
+  }
+  .no-result.is-shown{ display: block; }
 
   footer{
     border-top: 1px solid var(--hairline);
@@ -257,23 +338,46 @@
 
 <section class="listing">
   <div class="wrap">
-    <ul class="entries">
+    <div class="archive-tools">
+      <input id="archive-search" class="archive-search" type="search" placeholder="Rechercher une édition (titre, thème…)" aria-label="Rechercher dans les archives">
+      <div class="tag-filters" id="tag-filters"></div>
+    </div>
+
+    <ul class="entries" id="entries">
       <li class="entry">
-        <span class="entry-date">26.07.2026</span>
-        <span class="entry-tag">Dimanche culture internationale</span>
-        <a class="entry-title" href="archives/2026-07-26.html">HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ?</a>
+        <div class="entry-main">
+          <span class="entry-date">26.07.2026</span>
+          <a class="entry-title" href="archives/2026-07-26.html">HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ?</a>
+        </div>
+        <div class="entry-tags">
+          <button type="button" class="tag" data-tag="culture-internationale">Culture internationale</button>
+          <button type="button" class="tag theme" data-tag="medias">Médias</button>
+          <button type="button" class="tag theme" data-tag="economie">Économie</button>
+        </div>
       </li>
       <li class="entry">
-        <span class="entry-date">25.07.2026</span>
-        <span class="entry-tag">Samedi culture française</span>
-        <a class="entry-title" href="archives/2026-07-25.html">Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ?</a>
+        <div class="entry-main">
+          <span class="entry-date">25.07.2026</span>
+          <a class="entry-title" href="archives/2026-07-25.html">Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ?</a>
+        </div>
+        <div class="entry-tags">
+          <button type="button" class="tag" data-tag="culture-francaise">Culture française</button>
+          <button type="button" class="tag theme" data-tag="jeux-video">Jeux vidéo</button>
+          <button type="button" class="tag theme" data-tag="economie">Économie</button>
+        </div>
       </li>
       <li class="entry">
-        <span class="entry-date">18.07.2026</span>
-        <span class="entry-tag">Samedi cool</span>
-        <a class="entry-title" href="archives/2026-07-18.html">Spider-Man contre Avengers : qui va sauver le box-office Marvel ?</a>
+        <div class="entry-main">
+          <span class="entry-date">18.07.2026</span>
+          <a class="entry-title" href="archives/2026-07-18.html">Spider-Man contre Avengers : qui va sauver le box-office Marvel ?</a>
+        </div>
+        <div class="entry-tags">
+          <button type="button" class="tag" data-tag="culture-internationale">Culture internationale</button>
+          <button type="button" class="tag theme" data-tag="cinema">Cinéma</button>
+        </div>
       </li>
     </ul>
+    <p class="no-result" id="no-result">Aucune édition ne correspond à ta recherche.</p>
   </div>
 </section>
 
@@ -282,6 +386,73 @@
     <p class="caveat">Chaque édition reste figée à sa date de publication : les indicateurs et probabilités qui y figurent ne sont pas mis à jour rétroactivement.</p>
   </div>
 </footer>
+
+<script>
+  (function(){
+    var entries = Array.prototype.slice.call(document.querySelectorAll('#entries .entry'));
+    var searchInput = document.getElementById('archive-search');
+    var filtersBox = document.getElementById('tag-filters');
+    var noResult = document.getElementById('no-result');
+    var activeFilter = 'all';
+
+    function deburr(s){ return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); }
+
+    // Index chaque entrée (tags + texte recherchable), tags insensibles aux accents
+    var seen = {}, order = [];
+    entries.forEach(function(entry){
+      var tags = [], labels = [];
+      entry.querySelectorAll('.tag').forEach(function(b){
+        var t = b.dataset.tag;
+        tags.push(t);
+        labels.push(b.textContent);
+        if(!seen[t]){ seen[t] = b.textContent; order.push(t); }
+        b.addEventListener('click', function(){ setFilter(t); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      });
+      entry._tags = tags;
+      var title = entry.querySelector('.entry-title').textContent;
+      var date = entry.querySelector('.entry-date').textContent;
+      entry._text = deburr(title + ' ' + labels.join(' ') + ' ' + date);
+    });
+
+    // Construit les puces de filtre automatiquement depuis les tags présents
+    function makeChip(val, label){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'filter-chip';
+      b.dataset.filter = val;
+      b.textContent = label;
+      b.addEventListener('click', function(){ setFilter(val); });
+      return b;
+    }
+    var allChip = makeChip('all', 'Tout');
+    allChip.classList.add('is-active');
+    filtersBox.appendChild(allChip);
+    order.forEach(function(t){ filtersBox.appendChild(makeChip(t, seen[t])); });
+
+    function setFilter(val){
+      activeFilter = val;
+      filtersBox.querySelectorAll('.filter-chip').forEach(function(c){
+        c.classList.toggle('is-active', c.dataset.filter === val);
+      });
+      apply();
+    }
+
+    function apply(){
+      var q = deburr(searchInput.value.trim());
+      var visible = 0;
+      entries.forEach(function(entry){
+        var okFilter = (activeFilter === 'all') || entry._tags.indexOf(activeFilter) !== -1;
+        var okSearch = !q || entry._text.indexOf(q) !== -1;
+        var show = okFilter && okSearch;
+        entry.classList.toggle('is-hidden', !show);
+        if(show){ visible++; }
+      });
+      noResult.classList.toggle('is-shown', visible === 0);
+    }
+
+    searchInput.addEventListener('input', apply);
+  })();
+</script>
 
 </body>
 </html>
