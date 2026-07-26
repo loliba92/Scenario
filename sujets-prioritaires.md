@@ -17,8 +17,8 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 <!-- Un sujet ici est traité en priorité, quel que soit le registre du jour. À utiliser pour l'actu brûlante. -->
 - [ ]
 
-## Mardi — sujet libre (carte blanche, tous registres au choix)
-<!-- Aucun registre imposé : le sujet le plus fort (enjeu + incertitude) tous domaines confondus. -->
+## Mardi — carte blanche aux lecteurs (tous registres au choix)
+<!-- Jour des lecteurs : recopier ici les meilleures suggestions reçues par email (scenariocontact75@gmail.com). À défaut, sujet le plus fort tous domaines confondus. -->
 - [ ]
 
 ## Géopolitique / international — lundi & jeudi
