@@ -22,7 +22,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 - [ ]
 
 ## Actualité & politique française — mercredi
-- [ ]
+- [ ] Présidentielle française 2027 : à ~10 mois de la finale, qui au second tour et pourquoi ? (3 scénarios de duel possible)
 - [ ]
 
 ## Écologie — vendredi
