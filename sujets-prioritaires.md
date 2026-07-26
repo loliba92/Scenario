@@ -31,9 +31,13 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 - [ ] Budget 2027 : le gouvernement Lecornu peut-il survivre au vote du budget à l'automne ?
 - [ ] France fracturée : villes, banlieues et monde rural aux intérêts de plus en plus divergents — le pays peut-il encore se rassembler autour d'un projet commun ?
 
-## Écologie — vendredi
-- [ ] Climat : avec un budget écologique en baisse, la France peut-elle encore tenir ses objectifs de 2030 ?
-- [ ] Méga-feux : après un été 2026 record, la France est-elle prête à s'adapter à des étés de plus en plus chauds ?
+<!-- Faire tourner les sous-thèmes : climat & écologie, espace, IA & numérique, médecine & santé, énergie, recherche fondamentale… -->
+## Sciences — vendredi (climat & écologie, espace, IA, médecine, énergie…)
+- [ ] Climat : avec un budget écologique en baisse, la France peut-elle encore tenir ses objectifs de 2030 ? [climat & écologie]
+- [ ] Méga-feux : après un été 2026 record, la France est-elle prête à s'adapter à des étés de plus en plus chauds ? [climat & écologie]
+- [ ] Espace : la nouvelle course à la Lune (Artemis, Chine) débouchera-t-elle sur une présence humaine durable ? [espace]
+- [ ] Intelligence artificielle : la vague d'IA générative est-elle une révolution durable ou une bulle prête à éclater ? [IA & numérique]
+- [ ] Médecine : les traitements anti-obésité (type GLP-1) vont-ils transformer la santé publique ? [médecine & santé]
 
 <!-- Faire tourner les domaines : cinéma, musique, jeux vidéo, littérature, spectacle… -->
 ## Culture française — samedi
