@@ -30,7 +30,9 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 
 <!-- Enjeux sportifs & économiques, jamais la vie privée des sportifs. Sous-thèmes : football, rugby, tennis, JO, cyclisme, sports méca… -->
 ## Sport — jeudi
-- [ ] Cyclisme : des équipes qui peuvent disparaître si leur sponsor s'en va, et presque toujours les mêmes vainqueurs — le vélo professionnel peut-il changer pour rester passionnant ? [cyclisme & économie]
+- [ ] Cyclisme : des millions venant du Golfe pour réinventer le vélo — sauvetage ou implosion ? [cyclisme & économie]
+  <!-- Problématique : sous l'afflux d'argent du Golfe et les projets de réforme (type « One Cycling »), le cyclisme professionnel va-t-il se doter d'un modèle solide et d'un public plus large, rester dans son fragile statu quo, ou se déchirer entre son histoire et ses nouveaux investisseurs ? → 3 scénarios : favorable = la réforme se fait et stabilise le sport ; stable = statu quo, riches plus riches et petites équipes qui vacillent ; dégradé = l'argent divise (guerre de gouvernance, scission ou retrait, équipes qui disparaissent). -->
+
 - [ ] Argent du Golfe : l'Arabie saoudite met des milliards dans le sport — jusqu'où va-t-elle transformer le football et les grands championnats ? [football & économie]
 - [ ] Ligue 1 : privé d'une partie de l'argent de la télévision, le football français peut-il s'en sortir ? [football]
 
