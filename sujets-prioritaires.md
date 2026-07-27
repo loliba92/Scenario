@@ -28,7 +28,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 
 <!-- Enjeux sportifs & économiques, jamais la vie privée des sportifs. Sous-thèmes : football, rugby, tennis, JO, cyclisme, sports méca… -->
 ## Sport — jeudi
-- [ ] Cyclisme : équipes suspendues au bon vouloir de leurs mécènes, domination écrasante de Tadej Pogačar, projets de ligue fermée financée par le Golfe — le cyclisme professionnel peut-il réinventer son modèle économique et sportif ? [cyclisme & économie]
+- [ ] Cyclisme : des équipes qui peuvent disparaître si leur sponsor s'en va, et presque toujours les mêmes vainqueurs — le vélo professionnel peut-il changer pour rester passionnant ? [cyclisme & économie]
 - [ ] Argent du Golfe dans le sport : jusqu'où l'Arabie saoudite va-t-elle transformer le football et les grands sports ? [football & économie]
 - [ ] Ligue 1 : le football français peut-il se relever de sa crise des droits TV ? [football]
 
