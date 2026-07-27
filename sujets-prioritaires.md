@@ -36,6 +36,8 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 - [ ] Rugby : le sport des chocs peut-il devenir plus sûr sans se renier — et y survivre ? [rugby & santé]
   <!-- Problématique : rattrapé par un procès géant d'anciens joueurs sur les commotions cérébrales, le rugby peut-il rendre son jeu plus sûr sans le dénaturer et sécuriser son avenir ? → 3 scénarios : favorable = règles/protocoles adaptés, le sport se sécurise et protège son vivier de jeunes ; stable = demi-mesures, procès qui traîne, épée de Damoclès juridique et financière ; dégradé = verdict lourd, assureurs qui fuient, jeunes qui s'éloignent, le rugby se contracte. -->
 - [ ] Argent du Golfe : l'Arabie saoudite met des milliards dans le sport — jusqu'où va-t-elle transformer le football et les grands championnats ? [football & économie]
+- [ ] Coupe du monde XXL : jusqu'où la FIFA peut-elle agrandir son tournoi sans le casser ? [football & gouvernance]
+  <!-- Problématique : en gonflant la Coupe du monde (48 équipes en 2026, peut-être 64 en 2030), la FIFA ouvre-t-elle le foot au monde entier ou dilue-t-elle son plus grand trophée ? → 3 scénarios : favorable = format maîtrisé, plus de nations/fans/revenus sans perte d'intérêt ; stable = on reste à 48, l'idée des 64 est enterrée, le débat retombe ; dégradé = passage à 64+, matchs déséquilibrés, calendrier surchargé, joueurs épuisés, confédérations divisées, prestige dilué. -->
 - [ ] Ligue 1 : privé d'une partie de l'argent de la télévision, le football français peut-il s'en sortir ? [football]
 
 ## Actualité & politique française — mercredi
