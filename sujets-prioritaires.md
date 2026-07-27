@@ -19,7 +19,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 
 ## Mardi — carte blanche aux lecteurs (tous registres au choix)
 <!-- Jour des lecteurs : recopier ici les meilleures suggestions reçues par email (scenariocontact75@gmail.com). À défaut, sujet le plus fort tous domaines confondus. -->
-- [ ]
+- [ ] Milliardaires tout-puissants : les plus grandes fortunes de la tech pèsent sur les élections, les guerres, l'espace ou l'information — ont-elles désormais plus de pouvoir que des pays entiers ? [économie & société]
 
 ## Géopolitique / international — lundi
 - [x] Iran et États-Unis : vers un accord durable, un cessez-le-feu sous tension ou une reprise de la guerre ?
@@ -44,6 +44,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 - [ ] Espace : les États-Unis et la Chine relancent la course à la Lune — finira-t-on vraiment par y installer des humains pour de bon ? [espace]
 - [ ] Intelligence artificielle : ces programmes qui écrivent et dessinent tout seuls, vraie révolution ou bulle prête à éclater ? [IA & numérique]
 - [ ] Médecine : les nouveaux médicaments contre l'obésité (comme l'Ozempic) vont-ils changer la santé de millions de gens ? [médecine & santé]
+- [ ] Cancer : les nouveaux traitements et les premiers vaccins anticancer laissent espérer d'en guérir beaucoup plus — promesse réaliste ou espoir encore lointain ? [médecine & santé]
 
 <!-- Faire tourner les domaines : cinéma, musique, jeux vidéo, littérature, spectacle… -->
 ## Culture française — samedi
