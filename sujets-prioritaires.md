@@ -33,6 +33,8 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 - [ ] Cyclisme : des millions venant du Golfe pour réinventer le vélo — sauvetage ou implosion ? [cyclisme & économie]
   <!-- Problématique : sous l'afflux d'argent du Golfe et les projets de réforme (type « One Cycling »), le cyclisme professionnel va-t-il se doter d'un modèle solide et d'un public plus large, rester dans son fragile statu quo, ou se déchirer entre son histoire et ses nouveaux investisseurs ? → 3 scénarios : favorable = la réforme se fait et stabilise le sport ; stable = statu quo, riches plus riches et petites équipes qui vacillent ; dégradé = l'argent divise (guerre de gouvernance, scission ou retrait, équipes qui disparaissent). -->
 
+- [ ] Rugby : le sport des chocs peut-il devenir plus sûr sans se renier — et y survivre ? [rugby & santé]
+  <!-- Problématique : rattrapé par un procès géant d'anciens joueurs sur les commotions cérébrales, le rugby peut-il rendre son jeu plus sûr sans le dénaturer et sécuriser son avenir ? → 3 scénarios : favorable = règles/protocoles adaptés, le sport se sécurise et protège son vivier de jeunes ; stable = demi-mesures, procès qui traîne, épée de Damoclès juridique et financière ; dégradé = verdict lourd, assureurs qui fuient, jeunes qui s'éloignent, le rugby se contracte. -->
 - [ ] Argent du Golfe : l'Arabie saoudite met des milliards dans le sport — jusqu'où va-t-elle transformer le football et les grands championnats ? [football & économie]
 - [ ] Ligue 1 : privé d'une partie de l'argent de la télévision, le football français peut-il s'en sortir ? [football]
 
