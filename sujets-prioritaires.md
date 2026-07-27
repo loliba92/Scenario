@@ -19,7 +19,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 
 ## Mardi — carte blanche aux lecteurs (tous registres au choix)
 <!-- Jour des lecteurs : recopier ici les meilleures suggestions reçues par email (scenariocontact75@gmail.com). À défaut, sujet le plus fort tous domaines confondus. -->
-- [ ] Milliardaires tout-puissants : les plus grandes fortunes de la tech pèsent sur les élections, les guerres, l'espace ou l'information — ont-elles désormais plus de pouvoir que des pays entiers ? [économie & société]
+- [ ] Milliardaires, les nouveaux maîtres du monde ? Une poignée d'ultra-riches pèse aujourd'hui plus lourd que des pays entiers. [économie & société]
 
 ## Géopolitique / international — lundi
 - [x] Iran et États-Unis : vers un accord durable, un cessez-le-feu sous tension ou une reprise de la guerre ?
