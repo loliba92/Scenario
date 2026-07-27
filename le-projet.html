@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Scénario</title>
+<title>Le projet — Scénario</title>
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-<meta name="description" content="Comment joindre Scénario : email, corrections et la carte blanche du mardi.">
+<meta name="description" content="Ce qu'est Scénario : notre promesse, notre méthode et notre rythme de publication.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -175,28 +175,33 @@
 
   .body-section strong{ color: var(--paper); font-weight: 500; }
 
-  .contact-box{
-    background: var(--surface);
-    border: 1px solid var(--hairline);
-    border-radius: 6px;
-    padding: 20px 22px;
+  .rhythm-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 24px 0 0;
     max-width: 62ch;
   }
 
-  .contact-box .field-label{
-    display:block;
+  .rhythm-item{
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+
+  .rhythm-item .day{
     font-family: "JetBrains Mono", monospace;
     font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--gold);
-    margin-bottom: 6px;
+    display: block;
+    margin-bottom: 4px;
   }
 
-  .contact-box .value{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 1rem;
-    color: var(--paper-dim);
+  .rhythm-item .topic{
+    font-size: 0.88rem;
   }
 
   .cross-link{
@@ -241,38 +246,45 @@
   <div class="wrap">
     <a href="index.html">Accueil</a>
     <a href="archives.html">Archives</a>
-    <a href="le-projet.html">Le projet</a>
-    <a href="contact.html" aria-current="page">Contact</a>
+    <a href="le-projet.html" aria-current="page">Le projet</a>
+    <a href="contact.html">Contact</a>
   </div>
 </nav>
 
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow">Contact</p>
-    <h1>Nous contacter</h1>
-    <p class="dek">Une question, une correction à signaler, un sujet à proposer ? Écrivez-nous — nous lisons tous les messages.</p>
+    <p class="eyebrow">Le projet</p>
+    <h1>Qu'est-ce que Scénario ?</h1>
+    <p class="dek">Une actualité à forts enjeux, décryptée non pas en une prédiction, mais en <strong>trois futurs possibles</strong>.</p>
   </div>
 </section>
 
 <section class="body-section">
   <div class="wrap">
-    <p class="section-label">Écrire à Scénario</p>
-    <h2 class="section-title">Par email</h2>
-    <p>Pour une question, une erreur à corriger ou un simple retour, une seule adresse. Chaque message est lu.</p>
-    <div class="contact-box">
-      <span class="field-label">Email</span>
-      <span class="value"><a href="mailto:scenariocontact75@gmail.com">scenariocontact75@gmail.com</a></span>
+    <p class="section-label">Le projet</p>
+    <h2 class="section-title">Trois scénarios plutôt qu'une prédiction</h2>
+    <p>La plupart des supports d'information <strong>décrivent</strong> : ils posent les faits et expliquent où en est un sujet aujourd'hui. <strong>Scénario</strong> part du même socle, mais fait un pas de plus — il <strong>regarde vers l'avant</strong>, ou du moins vers ce à quoi la suite pourrait ressembler. Pas de boule de cristal : à partir de la seule information disponible aujourd'hui, on tente d'<strong>extrapoler trois futurs possibles</strong> plutôt que d'en deviner un seul.</p>
+    <p><strong>Scénario</strong> décrypte une actualité à forts enjeux et prend le parti de ne jamais prétendre en connaître l'issue à l'avance. Pour chaque sujet, on construit <strong>trois scénarios concrets</strong> — favorable, stable, dégradé — plutôt qu'une prédiction unique, avec à chaque fois une probabilité estimée, des indicateurs chiffrés et ce que ça changerait vraiment en France.</p>
+    <p>L'idée : remplacer l'incertitude floue de l'actualité par des repères clairs, sans jamais prétendre à une exactitude qu'aucune actualité en cours ne permet. Chaque coefficient de probabilité reste une estimation qualitative, jamais un calcul garanti.</p>
+    <p>Le ton et le niveau de détail s'adaptent au sujet du jour, mais l'exigence reste la même : vérifier les faits sur au moins deux sources avant de les avancer, expliquer les bases pour qui découvre le sujet, et ne jamais transformer une synthèse en conseil ou en prise de position.</p>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">Le rythme</p>
+    <h2 class="section-title">Une édition par jour, un registre par jour</h2>
+    <p>Sept éditions par semaine, chacune ancrée dans un domaine. De quoi retrouver ses repères d'un jour à l'autre, tout en balayant l'essentiel de l'actualité.</p>
+    <div class="rhythm-grid">
+      <div class="rhythm-item"><span class="day">Lundi</span><span class="topic">🌍 Géopolitique & international</span></div>
+      <div class="rhythm-item"><span class="day">Mardi</span><span class="topic">✍️ Carte blanche aux lecteurs</span></div>
+      <div class="rhythm-item"><span class="day">Mercredi</span><span class="topic">🇫🇷 Actualité & politique française</span></div>
+      <div class="rhythm-item"><span class="day">Jeudi</span><span class="topic">🏅 Sport</span></div>
+      <div class="rhythm-item"><span class="day">Vendredi</span><span class="topic">🔬 Sciences</span></div>
+      <div class="rhythm-item"><span class="day">Samedi</span><span class="topic">🎭 Culture française</span></div>
+      <div class="rhythm-item"><span class="day">Dimanche</span><span class="topic">🌐 Culture internationale</span></div>
     </div>
-  </div>
-</section>
-
-<section class="body-section">
-  <div class="wrap">
-    <p class="section-label">Le mardi, c'est vous</p>
-    <h2 class="section-title">Proposez le sujet du mardi</h2>
-    <p><strong>Chaque semaine, l'édition du mardi est en carte blanche aux lecteurs.</strong> Proposez-nous par email un sujet d'actualité à fort enjeu et forte incertitude, et nous en retenons un parmi les plus pertinents pour le passer au crible des trois scénarios.</p>
-    <p>Indiquez simplement le sujet et, si vous voulez, en une phrase pourquoi son issue vous semble encore incertaine.</p>
-    <a class="cross-link" href="le-projet.html">Comment nous travaillons → Le projet</a>
+    <a class="cross-link" href="contact.html">Une question ou un sujet à proposer ? → Contact</a>
   </div>
 </section>
 
