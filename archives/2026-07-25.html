@@ -165,6 +165,14 @@
     margin: 0 0 18px;
   }
 
+  .pubdate{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--paper-dim);
+    margin: 0 0 22px;
+  }
+
   h1{
     font-family: "Fraunces", serif;
     font-weight: 600;
@@ -490,6 +498,7 @@
   <div class="wrap">
     <p class="eyebrow">Samedi culture française · jeux vidéo & incertitude</p>
     <h1>Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ?</h1>
+    <p class="pubdate">Publié le 25 juillet 2026</p>
 
     <p class="dek">Ubisoft, c'est le studio français derrière Assassin's Creed, Far Cry ou Rainbow Six — l'un des plus gros éditeurs de jeux vidéo au monde, environ 17 000 salariés, siège à Saint-Mandé près de Paris. Tencent, l'acteur au cœur de l'actualité, est un géant chinois de la tech et du jeu vidéo, déjà actionnaire de plusieurs studios dans le monde.</p>
 
@@ -645,6 +654,17 @@
       setTimeout(function(){ el.style.strokeDashoffset = offset; }, 120);
     });
   });
+</script>
+
+<script>
+  (function(){
+    var ed = document.querySelector(".edition");
+    var pd = document.querySelector(".pubdate");
+    if (ed && pd) {
+      var m = ed.textContent.match(/Édition du\s+(.+?)\s+·/);
+      if (m) { pd.textContent = "Publié le " + m[1]; }
+    }
+  })();
 </script>
 
 </body>

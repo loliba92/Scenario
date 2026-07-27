@@ -163,6 +163,14 @@
     margin: 0 0 18px;
   }
 
+  .pubdate{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--paper-dim);
+    margin: 0 0 22px;
+  }
+
   h1{
     font-family: "Fraunces", serif;
     font-weight: 600;
@@ -488,6 +496,7 @@
   <div class="wrap">
     <p class="eyebrow">Samedi cool · cinéma & incertitude</p>
     <h1>Spider-Man contre Avengers : qui va sauver le box-office Marvel ?</h1>
+    <p class="pubdate">Publié le 18 juillet 2026</p>
 
     <p class="dek">Marvel Studios, filiale du groupe Disney, produit depuis quinze ans les films de super-héros les plus rentables du cinéma — Avengers, Spider-Man, Iron Man et bien d'autres — tous reliés dans un même univers où les personnages se croisent d'un film à l'autre. Tom Holland incarne Spider-Man depuis 2016. Robert Downey Jr., qui jouait Iron Man jusqu'à sa mort à l'écran en 2019 dans Avengers : Endgame (le film qui avait alors battu tous les records d'entrées en salle), revient dans un nouveau rôle : le Docteur Fatalis, le grand méchant d'Avengers : Doomsday.</p>
 
@@ -641,6 +650,17 @@
       setTimeout(function(){ el.style.strokeDashoffset = offset; }, 120);
     });
   });
+</script>
+
+<script>
+  (function(){
+    var ed = document.querySelector(".edition");
+    var pd = document.querySelector(".pubdate");
+    if (ed && pd) {
+      var m = ed.textContent.match(/Édition du\s+(.+?)\s+·/);
+      if (m) { pd.textContent = "Publié le " + m[1]; }
+    }
+  })();
 </script>
 
 </body>

@@ -165,6 +165,14 @@
     margin: 0 0 18px;
   }
 
+  .pubdate{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--paper-dim);
+    margin: 0 0 22px;
+  }
+
   h1{
     font-family: "Fraunces", serif;
     font-weight: 600;
@@ -490,6 +498,7 @@
   <div class="wrap">
     <p class="eyebrow">Dimanche culture internationale · cinéma & médias mondiaux</p>
     <h1>HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ?</h1>
+    <p class="pubdate">Publié le 26 juillet 2026</p>
 
     <div class="question-box">
       <span class="question-label">La question posée</span>
@@ -652,6 +661,17 @@
       setTimeout(function(){ el.style.strokeDashoffset = offset; }, 120);
     });
   });
+</script>
+
+<script>
+  (function(){
+    var ed = document.querySelector(".edition");
+    var pd = document.querySelector(".pubdate");
+    if (ed && pd) {
+      var m = ed.textContent.match(/Édition du\s+(.+?)\s+·/);
+      if (m) { pd.textContent = "Publié le " + m[1]; }
+    }
+  })();
 </script>
 
 </body>
