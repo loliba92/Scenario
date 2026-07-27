@@ -11,6 +11,8 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 - Ajoute / réordonne / supprime des lignes quand tu veux.
 - Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.
 
+> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.
+
 ---
 
 ## 🔥 Priorité absolue (n'importe quel jour, avant tout le reste)
