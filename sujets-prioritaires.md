@@ -22,7 +22,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 - [ ]
 
 ## Géopolitique / international — lundi
-- [ ] Iran et États-Unis : vers un accord durable, un cessez-le-feu sous tension ou une reprise de la guerre ?
+- [x] Iran et États-Unis : vers un accord durable, un cessez-le-feu sous tension ou une reprise de la guerre ?
 - [ ] Guerre en Ukraine : vers un cessez-le-feu, un front gelé ou une nouvelle escalade en 2026 ?
 - [ ] Taïwan : la tension entre les États-Unis et la Chine peut-elle dégénérer en conflit ouvert ?
 
