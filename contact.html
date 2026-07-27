@@ -199,6 +199,73 @@
     color: var(--paper-dim);
   }
 
+  .contact-form{
+    max-width: 62ch;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 4px 0 0;
+  }
+
+  .form-row{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-row label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+  }
+
+  .form-row input,
+  .form-row textarea{
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: 11px 14px;
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 0.95rem;
+  }
+
+  .form-row textarea{ min-height: 140px; resize: vertical; }
+
+  .form-row input:focus,
+  .form-row textarea:focus{ outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  .form-row input::placeholder,
+  .form-row textarea::placeholder{ color: var(--paper-dim); }
+
+  .submit-btn{
+    align-self: flex-start;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    background: var(--gold);
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+
+  .submit-btn:hover{ opacity: 0.9; }
+
+  .form-hint{ font-size: 0.8rem; color: var(--paper-dim); margin: 0; }
+
+  .form-sent{ font-size: 0.9rem; color: var(--favorable); margin: 0 0 8px; display: none; }
+
+  .form-alt{ font-size: 0.88rem; color: var(--paper-dim); margin: 22px 0 12px; }
+
+  .hp{ position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
   .cross-link{
     display: inline-block;
     margin-top: 28px;
@@ -257,8 +324,34 @@
 <section class="body-section">
   <div class="wrap">
     <p class="section-label">Écrire à Scénario</p>
-    <h2 class="section-title">Par email</h2>
-    <p>Pour une question, une erreur à corriger ou un simple retour, une seule adresse. Chaque message est lu.</p>
+    <h2 class="section-title">Envoyez-nous un message</h2>
+    <p>Une question, une erreur à corriger, un simple retour ? Remplissez le formulaire ci-dessous — chaque message est lu.</p>
+
+    <p class="form-sent" id="form-sent">Merci, votre message est bien parti. ✓</p>
+
+    <form class="contact-form" action="https://formsubmit.co/scenariocontact75@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Nouveau message via Scénario">
+      <input type="hidden" name="_next" value="https://loliba92.github.io/Scenario/contact.html?envoye=1">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="form-row">
+        <label for="nom">Votre nom (facultatif)</label>
+        <input id="nom" type="text" name="nom" placeholder="Comment vous appeler ?">
+      </div>
+      <div class="form-row">
+        <label for="email">Votre email</label>
+        <input id="email" type="email" name="email" required placeholder="Pour pouvoir vous répondre">
+      </div>
+      <div class="form-row">
+        <label for="message">Votre message</label>
+        <textarea id="message" name="message" required placeholder="Une question, une correction, un sujet à proposer…"></textarea>
+      </div>
+      <button class="submit-btn" type="submit">Envoyer</button>
+      <p class="form-hint">Vos coordonnées ne servent qu'à vous répondre, jamais à autre chose.</p>
+    </form>
+
+    <p class="form-alt">Vous préférez votre propre logiciel de messagerie ? Écrivez directement à :</p>
     <div class="contact-box">
       <span class="field-label">Email</span>
       <span class="value"><a href="mailto:scenariocontact75@gmail.com">scenariocontact75@gmail.com</a></span>
@@ -281,6 +374,13 @@
     <p class="caveat"><strong>Scénario</strong> publie une édition chaque jour. Chaque édition reste figée à sa date de publication.</p>
   </div>
 </footer>
+
+<script>
+  if (new URLSearchParams(location.search).get('envoye') === '1') {
+    var m = document.getElementById('form-sent');
+    if (m) { m.style.display = 'block'; m.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+  }
+</script>
 
 </body>
 </html>
