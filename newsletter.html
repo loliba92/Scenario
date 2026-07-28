@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Le projet — Scénario</title>
+<title>Newsletter — Scénario</title>
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-<meta name="description" content="Ce qu'est Scénario : notre promesse, notre méthode et notre rythme de publication.">
+<meta name="description" content="Recevez l'édition du jour de Scénario par email, juste après sa publication.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -96,6 +96,7 @@
     display: flex;
     gap: 24px;
     padding: 12px 24px;
+    flex-wrap: wrap;
   }
 
   .topnav a{
@@ -137,6 +138,7 @@
     line-height: 1.08;
     letter-spacing: -0.01em;
     margin: 0 0 16px;
+    max-width: 16ch;
   }
 
   .dek{
@@ -175,34 +177,87 @@
 
   .body-section strong{ color: var(--paper); font-weight: 500; }
 
-  .rhythm-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  .perks{
+    display: flex;
+    flex-direction: column;
     gap: 12px;
-    margin: 24px 0 0;
     max-width: 62ch;
+    margin: 24px 0 0;
+    padding: 0;
+    list-style: none;
   }
 
-  .rhythm-item{
-    background: var(--surface);
-    border: 1px solid var(--hairline);
-    border-radius: 6px;
-    padding: 12px 14px;
+  .perks li{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    color: var(--paper-dim);
+    font-size: 0.95rem;
   }
 
-  .rhythm-item .day{
+  .perks li::before{
+    content: "✓";
+    color: var(--favorable);
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  .subscribe-form{
+    max-width: 62ch;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 28px 0 0;
+  }
+
+  .form-row{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-row label{
     font-family: "JetBrains Mono", monospace;
     font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--gold);
-    display: block;
-    margin-bottom: 4px;
   }
 
-  .rhythm-item .topic{
-    font-size: 0.88rem;
+  .form-row input{
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: 11px 14px;
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 0.95rem;
   }
+
+  .form-row input:focus{ outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  .form-row input::placeholder{ color: var(--paper-dim); }
+
+  .submit-btn{
+    align-self: flex-start;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    background: var(--gold);
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+
+  .submit-btn:hover{ opacity: 0.9; }
+
+  .form-hint{ font-size: 0.8rem; color: var(--paper-dim); margin: 0; }
+
+  .hp{ position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
   .cross-link{
     display: inline-block;
@@ -246,46 +301,44 @@
   <div class="wrap">
     <a href="index.html">Accueil</a>
     <a href="archives.html">Archives</a>
-    <a href="le-projet.html" aria-current="page">Le projet</a>
-    <a href="newsletter.html">Newsletter</a>
+    <a href="le-projet.html">Le projet</a>
+    <a href="newsletter.html" aria-current="page">Newsletter</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
 
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow">Le projet</p>
-    <h1>Qu'est-ce que Scénario ?</h1>
-    <p class="dek">Une actualité à forts enjeux, décryptée non pas en une prédiction, mais en <strong>trois futurs possibles</strong>.</p>
+    <p class="eyebrow">Newsletter</p>
+    <h1>Recevez l'édition du jour par email</h1>
+    <p class="dek">Un email par jour, juste après la publication : la question du jour et les trois scénarios. Rien d'autre, jamais de spam.</p>
   </div>
 </section>
 
 <section class="body-section">
   <div class="wrap">
-    <p class="section-label">Le projet</p>
-    <h2 class="section-title">Trois scénarios plutôt qu'une prédiction</h2>
-    <p>La plupart des supports d'information <strong>décrivent</strong> : ils posent les faits et expliquent où en est un sujet aujourd'hui. <strong>Scénario</strong> part du même socle, mais fait un pas de plus — il <strong>regarde vers l'avant</strong>, ou du moins vers ce à quoi la suite pourrait ressembler. Pas de boule de cristal : à partir de la seule information disponible aujourd'hui, on tente d'<strong>extrapoler trois futurs possibles</strong> plutôt que d'en deviner un seul.</p>
-    <p><strong>Scénario</strong> décrypte une actualité à forts enjeux et prend le parti de ne jamais prétendre en connaître l'issue à l'avance. Pour chaque sujet, on construit <strong>trois scénarios concrets</strong> — favorable, stable, dégradé — plutôt qu'une prédiction unique, avec à chaque fois une probabilité estimée, des indicateurs chiffrés et ce que ça changerait vraiment en France.</p>
-    <p>L'idée : remplacer l'incertitude floue de l'actualité par des repères clairs, sans jamais prétendre à une exactitude qu'aucune actualité en cours ne permet. Chaque coefficient de probabilité reste une estimation qualitative, jamais un calcul garanti.</p>
-    <p>Le ton et le niveau de détail s'adaptent au sujet du jour, mais l'exigence reste la même : vérifier les faits sur au moins deux sources avant de les avancer, expliquer les bases pour qui découvre le sujet, et ne jamais transformer une synthèse en conseil ou en prise de position.</p>
-  </div>
-</section>
+    <p class="section-label">Comment ça marche</p>
+    <h2 class="section-title">Un email, chaque matin</h2>
+    <p>Chaque jour vers 7h15, dès qu'une nouvelle édition est publiée, vous la recevez directement dans votre boîte mail — plus besoin d'aller vérifier le site.</p>
+    <ul class="perks">
+      <li>Un seul email par jour, jamais plus</li>
+      <li>100 % gratuit, sans engagement</li>
+      <li>Désinscription en un clic, à tout moment</li>
+      <li>Votre email ne sert qu'à ça — jamais revendu, jamais partagé</li>
+    </ul>
 
-<section class="body-section">
-  <div class="wrap">
-    <p class="section-label">Le rythme</p>
-    <h2 class="section-title">Une édition par jour, un registre par jour</h2>
-    <p>Sept éditions par semaine, chacune ancrée dans un domaine. De quoi retrouver ses repères d'un jour à l'autre, tout en balayant l'essentiel de l'actualité.</p>
-    <div class="rhythm-grid">
-      <div class="rhythm-item"><span class="day">Lundi</span><span class="topic">🌍 Géopolitique & international</span></div>
-      <div class="rhythm-item"><span class="day">Mardi</span><span class="topic">✍️ Carte blanche aux lecteurs</span></div>
-      <div class="rhythm-item"><span class="day">Mercredi</span><span class="topic">🇫🇷 Actualité & politique française</span></div>
-      <div class="rhythm-item"><span class="day">Jeudi</span><span class="topic">🏅 Sport</span></div>
-      <div class="rhythm-item"><span class="day">Vendredi</span><span class="topic">🔬 Sciences</span></div>
-      <div class="rhythm-item"><span class="day">Samedi</span><span class="topic">🎭 Culture française</span></div>
-      <div class="rhythm-item"><span class="day">Dimanche</span><span class="topic">🌐 Culture internationale</span></div>
-    </div>
-    <a class="cross-link" href="contact.html">Une question ou un sujet à proposer ? → Contact</a>
+    <form class="subscribe-form" action="https://buttondown.com/api/emails/embed-subscribe/VOTRE-USERNAME-BUTTONDOWN" method="post">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" value="1" name="embed">
+      <div class="form-row">
+        <label for="email">Votre email</label>
+        <input id="email" type="email" name="email" required placeholder="vous@exemple.com">
+      </div>
+      <button class="submit-btn" type="submit">S'abonner</button>
+      <p class="form-hint">Un email de confirmation vous sera envoyé — pensez à cliquer dessus pour valider votre inscription.</p>
+    </form>
+
+    <a class="cross-link" href="le-projet.html">Comment nous travaillons → Le projet</a>
   </div>
 </section>
 

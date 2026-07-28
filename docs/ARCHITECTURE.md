@@ -21,6 +21,7 @@ index.html              L'édition du JOUR, et seulement elle. Écrasée chaque 
 archives.html           Liste de toutes les éditions passées (recherche + filtres client-side).
 archives/AAAA-MM-JJ.html Copie figée de chaque édition passée. Jamais remodifiée après publication.
 le-projet.html          Page « À propos » : mission, méthode, rythme des 7 jours.
+newsletter.html         Page d'inscription à la newsletter quotidienne (Buttondown).
 contact.html            Formulaire de contact (FormSubmit) + appel à la carte blanche du mardi.
 sujets-prioritaires.md  File d'attente éditoriale (voir plus bas).
 assets/logo.svg          Logo (3 flèches divergentes = les 3 scénarios).
@@ -155,13 +156,20 @@ Voir les échanges de session pour le détail, mais en résumé :
   payante) — décision et mise en place à finaliser.
 - Nom de domaine dédié (ex. lesscenarios.fr) avec redirection vers le site.
 - Amélioration de la recherche/découvrabilité et réflexion SEO/promotion.
-- **Newsletter par email** : permettre aux lecteurs de s'inscrire à une liste
-  de distribution et de recevoir une notification chaque matin à la
-  publication de l'édition du jour. Site 100 % statique (GitHub Pages, pas de
-  backend) → nécessite un service tiers dédié à l'envoi d'emails et à la
-  gestion des inscriptions (ex. Mailchimp, Brevo/Sendinblue, Buttondown,
-  ConvertKit — plusieurs ont un plan gratuit pour un petit volume), sur le
-  même principe que FormSubmit pour le formulaire de contact. Restera à
-  choisir l'outil, poser un formulaire d'inscription sur le site, et
-  brancher l'envoi automatique sur la routine quotidienne (probablement via
-  l'API du service choisi, déclenchée après la publication).
+- **Newsletter par email — en cours.** Outil choisi : **Buttondown**, parce
+  qu'il sait envoyer un email automatiquement à partir d'un flux **RSS**
+  (fonctionnalité « RSS-to-email », incluse dans son plan gratuit jusqu'à 100
+  abonnés, envois illimités) — on peut donc le brancher directement sur
+  `feed.xml`, déjà généré chaque jour pour Instagram, **sans modifier la
+  routine quotidienne** ni ajouter d'appel API.
+  - ✅ Fait : `newsletter.html` (page d'inscription, style du site, formulaire
+    Buttondown standard) + lien « Newsletter » dans le menu de toutes les
+    pages vivantes.
+  - ⏳ À faire : créer le compte Buttondown, remplacer le `VOTRE-USERNAME-BUTTONDOWN`
+    dans l'attribut `action` du formulaire de `newsletter.html` par le vrai
+    nom d'utilisateur, connecter Buttondown à `feed.xml` (RSS-to-email), et
+    décider du contenu de l'email envoyé — reprendre le teaser d'Instagram
+    (question + 3 scénarios sans les %, lien vers le site) ou passer à un
+    format plus complet puisque l'abonné a déjà consenti (moins besoin de
+    « forcer le clic » que sur les réseaux sociaux). `feed.xml` devra peut-être
+    évoluer pour porter un contenu email dédié, distinct de la légende Instagram.

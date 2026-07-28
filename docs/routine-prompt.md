@@ -103,7 +103,7 @@ Lister 2 à 4 liens vers les sources principales **effectivement consultées** p
 4. Écraser `index.html` avec cette nouvelle édition.
 5. Copier ce contenu dans `archives/AAAA-MM-JJ.html` (date du jour), puis y adapter tous les liens relatifs d'un niveau, en suivant exactement le même patron que les fichiers déjà présents dans `archives/`.
 6. Ouvrir `archives.html` et insérer une nouvelle entrée `<li class="entry">` tout en haut de la liste, en suivant EXACTEMENT le patron des entrées déjà présentes. Ne jamais supprimer ni modifier les entrées déjà présentes.
-7. Ne jamais modifier `contact.html`, `le-projet.html` ni aucun fichier déjà présent dans `archives/` daté d'un jour antérieur : une édition publiée est figée définitivement.
+7. Ne jamais modifier `contact.html`, `le-projet.html`, `newsletter.html` ni aucun fichier déjà présent dans `archives/` daté d'un jour antérieur : une édition publiée est figée définitivement.
 8. `git add`, `git commit` (message clair avec la date et le sujet), `git push origin main` directement.
 9. Terminer par un court résumé (sujet retenu, probabilités des 3 scénarios, ce qui a été publié) pour que l'historique de cette exécution reste lisible.
 
