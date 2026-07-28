@@ -141,3 +141,13 @@ Voir les échanges de session pour le détail, mais en résumé :
   payante) — décision et mise en place à finaliser.
 - Nom de domaine dédié (ex. lesscenarios.fr) avec redirection vers le site.
 - Amélioration de la recherche/découvrabilité et réflexion SEO/promotion.
+- **Newsletter par email** : permettre aux lecteurs de s'inscrire à une liste
+  de distribution et de recevoir une notification chaque matin à la
+  publication de l'édition du jour. Site 100 % statique (GitHub Pages, pas de
+  backend) → nécessite un service tiers dédié à l'envoi d'emails et à la
+  gestion des inscriptions (ex. Mailchimp, Brevo/Sendinblue, Buttondown,
+  ConvertKit — plusieurs ont un plan gratuit pour un petit volume), sur le
+  même principe que FormSubmit pour le formulaire de contact. Restera à
+  choisir l'outil, poser un formulaire d'inscription sur le site, et
+  brancher l'envoi automatique sur la routine quotidienne (probablement via
+  l'API du service choisi, déclenchée après la publication).
