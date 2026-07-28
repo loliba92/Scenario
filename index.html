@@ -399,6 +399,27 @@
     margin-bottom: 4px;
   }
 
+  .field ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .field li{
+    padding-left: 15px;
+    position: relative;
+  }
+
+  .field li::before{
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
   .france-line{
     background: var(--surface-2);
     border-radius: 4px;
@@ -582,7 +603,11 @@
         <hr class="divider">
         <div class="field">
           <span class="field-label">Indicateurs touchés</span>
-          Croissance de la fortune des milliardaires : nettement ralentie, de +16 %/an en 2025 vers un rythme de l'ordre de +3 à +6 %/an, proche de celui de l'économie mondiale. Recettes d'un impôt de 2 % : environ 200 à 250 milliards $/an dans le monde selon ses promoteurs, et de l'ordre de 15 à 25 milliards €/an pour la France (chiffres que le gouvernement juge très surévalués). Aucun pays n'a jamais appliqué une telle taxe mondiale : ce sont des ordres de grandeur, pas des prévisions garanties.
+          <ul>
+            <li>Croissance de la fortune des milliardaires : nettement ralentie, de +16 %/an en 2025 vers un rythme de l'ordre de +3 à +6 %/an, proche de celui de l'économie mondiale.</li>
+            <li>Recettes d'un impôt de 2 % : environ 200 à 250 milliards $/an dans le monde selon ses promoteurs, et de l'ordre de 15 à 25 milliards €/an pour la France (chiffres que le gouvernement juge très surévalués).</li>
+            <li>Aucun pays n'a jamais appliqué une telle taxe mondiale : ce sont des ordres de grandeur, pas des prévisions garanties.</li>
+          </ul>
         </div>
         <div class="france-line">
           <span class="field-label">Concrètement en France</span>
@@ -602,14 +627,19 @@
           <div class="gauge-num">50%</div>
         </div>
         <div class="gauge-word">Probable</div>
-        <h3>⚖️ La fortune grimpe, la taxe cale</h3>
+        <h3>⚖️ La fortune grimpe, la taxe reste bloquée</h3>
         </div>
         <div class="card-body">
         <p class="why">Rien de décisif ne change : aucun impôt mondial ne voit le jour, les pays en restent à des demi-mesures comme la version très allégée adoptée en France. La fortune des milliardaires continue de grimper, à un rythme fort mais un peu moins spectaculaire que le pic de 2025, et la concentration se poursuit tranquillement. <strong>C'est le scénario le plus probable des trois</strong>, tout simplement parce que c'est déjà ce qui se passe : le G20 n'a rien signé de contraignant, la taxe Zucman a été rejetée, et il n'y a besoin d'aucune décision pour que la tendance continue. Il est plus probable que le scénario favorable, qui exige une décision politique difficile et coordonnée ; et plus probable que l'emballement, qui suppose lui que le boom de l'IA se poursuive au même rythme sans le moindre coup d'arrêt.</p>
         <hr class="divider">
         <div class="field">
           <span class="field-label">Indicateurs touchés</span>
-          Fortune des milliardaires : poursuite de la hausse, de l'ordre de +6 à +12 %/an — moins que le pic de +16 % de 2025, mais toujours bien plus vite que la richesse mondiale (≈ +3 %/an). Nombre de milliardaires : nouveau record probable au-delà des 3 428 actuels. Recettes fiscales : la version diluée adoptée en France ne rapporte qu'une fraction de la version initiale. Ordres de grandeur indicatifs, pas des prévisions garanties.
+          <ul>
+            <li>Fortune des milliardaires : poursuite de la hausse, de l'ordre de +6 à +12 %/an — moins que le pic de +16 % de 2025, mais toujours bien plus vite que la richesse mondiale (≈ +3 %/an).</li>
+            <li>Nombre de milliardaires : nouveau record probable au-delà des 3 428 actuels.</li>
+            <li>Recettes fiscales : la version diluée adoptée en France ne rapporte qu'une fraction de la version initiale.</li>
+            <li>Ordres de grandeur indicatifs, pas des prévisions garanties.</li>
+          </ul>
         </div>
         <div class="france-line">
           <span class="field-label">Concrètement en France</span>
@@ -636,7 +666,12 @@
         <hr class="divider">
         <div class="field">
           <span class="field-label">Indicateurs touchés</span>
-          Fortune des milliardaires : poursuite voire accélération, de l'ordre de +15 à +25 %/an. Le seuil des 1 000 milliards $, déjà franchi une première fois par Musk en juin 2026, deviendrait un cap régulièrement dépassé plutôt qu'une exception ponctuelle. Attention : une telle envolée repose sur des valorisations boursières (IA, tech) jugées fragiles ; il n'existe pas de précédent fiable pour en chiffrer la suite, et un retournement des marchés reste possible. Ordres de grandeur, pas des prévisions.
+          <ul>
+            <li>Fortune des milliardaires : poursuite voire accélération, de l'ordre de +15 à +25 %/an.</li>
+            <li>Le seuil des 1 000 milliards $, déjà franchi une première fois par Musk en juin 2026, deviendrait un cap régulièrement dépassé plutôt qu'une exception ponctuelle.</li>
+            <li>Attention : une telle envolée repose sur des valorisations boursières (IA, tech) jugées fragiles ; il n'existe pas de précédent fiable pour en chiffrer la suite, et un retournement des marchés reste possible.</li>
+            <li>Ordres de grandeur, pas des prévisions.</li>
+          </ul>
         </div>
         <div class="france-line">
           <span class="field-label">Concrètement en France</span>
