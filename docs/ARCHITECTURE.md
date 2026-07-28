@@ -136,7 +136,21 @@ robots spammeurs.
 ## Ce qui reste à faire (suivi)
 
 Voir les échanges de session pour le détail, mais en résumé :
-- Google Analytics (mesure d'audience) — en attente d'un identifiant GA4.
+- **Mesure d'audience** : voir qui visite le site, pour suivre les progrès dans
+  le temps — nombre de visiteurs/jour, d'où ils viennent (Instagram, recherche
+  Google, lien direct, autre site), quelles pages et éditions marchent le
+  mieux, taux de retour. Deux options :
+  - **Google Analytics (GA4)** — gratuit, le plus complet, mais demande un
+    identifiant de mesure (`G-XXXXXXX`, à créer sur analytics.google.com) et,
+    juridiquement, un bandeau de consentement cookies (RGPD) puisqu'il dépose
+    des cookies de suivi.
+  - **Alternative « respectueuse de la vie privée »** (Plausible, Fathom,
+    GoatCounter…) — sans cookies, donc pas de bandeau de consentement requis,
+    tableau de bord plus simple (visiteurs, provenance, pages vues) ; gratuit
+    seulement chez GoatCounter, les autres sont payants (quelques €/mois) mais
+    beaucoup plus légers à mettre en place que GA4.
+  À trancher : gratuit + complet mais bandeau cookie (GA4), ou plus simple et
+  sans bandeau mais souvent payant (alternatives).
 - Automatisation Instagram bout-en-bout (Make + appli Meta, ou solution
   payante) — décision et mise en place à finaliser.
 - Nom de domaine dédié (ex. lesscenarios.fr) avec redirection vers le site.
