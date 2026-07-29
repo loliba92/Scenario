@@ -191,7 +191,17 @@ Voir les échanges de session pour le détail, mais en résumé :
   pour l'instant.
 - Nom de domaine dédié : **fait** — `lesscenarios.fr` acheté et configuré
   (voir plus haut).
-- Amélioration de la recherche/découvrabilité et réflexion SEO/promotion.
+- **SEO de base — fait.** `robots.txt` (autorise tout, pointe vers le
+  sitemap) et `sitemap.xml` (toutes les pages vivantes + toutes les archives)
+  ajoutés à la racine. `sitemap.xml` est maintenant mis à jour chaque jour
+  par la routine (nouvelle entrée d'archive + `lastmod` rafraîchi), voir
+  `docs/routine-prompt.md` étape technique 7. Reste à faire, de ton côté :
+  inscrire le site sur **Google Search Console** (vérification de propriété
+  du domaine, puis soumission du sitemap) pour accélérer l'indexation —
+  jusque-là Google finira par trouver le site tout seul, mais plus lentement.
+- Amélioration de la recherche/découvrabilité et réflexion SEO plus poussée
+  (contenu déjà bien structuré pour ça — titres clairs, meta descriptions par
+  page — donc peu de travail supplémentaire nécessaire ici).
 - **Mentions légales + politique de confidentialité** — fait. Deux pages
   dédiées (`mentions-legales.html`, `politique-de-confidentialite.html`),
   liées depuis le footer des 5 pages vivantes. Éditeur identifié (Olivier
