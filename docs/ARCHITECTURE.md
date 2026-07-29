@@ -159,28 +159,40 @@ vers une page FormSubmit externe. Un lien `mailto:` reste en repli.
 L'alias anonyme (plutôt que l'adresse email en clair) évite l'exposition aux
 robots spammeurs.
 
+## Mesure d'audience
+
+**GoatCounter** (gratuit, sans cookies, donc pas de bandeau de consentement
+RGPD requis) — compte `scenario` (scenariocontact75@gmail.com), tableau de
+bord sur `scenario.goatcounter.com`. Le script de suivi est posé juste avant
+`</body>` sur les 5 pages vivantes (`index.html`, `archives.html`,
+`le-projet.html`, `newsletter.html`, `contact.html`) :
+
+```html
+<script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+```
+
+Comme la routine quotidienne recopie `index.html` comme gabarit chaque matin,
+ce script se retrouve automatiquement dans chaque nouvelle édition — même
+mécanisme que les balises Open Graph, aucune instruction supplémentaire
+nécessaire dans `docs/routine-prompt.md`. Les archives déjà publiées avant
+cet ajout n'ont pas été modifiées (changement d'infrastructure mineur, pas
+crucial rétroactivement).
+
 ## Ce qui reste à faire (suivi)
 
 Voir les échanges de session pour le détail, mais en résumé :
-- **Mesure d'audience** : voir qui visite le site, pour suivre les progrès dans
-  le temps — nombre de visiteurs/jour, d'où ils viennent (Instagram, recherche
-  Google, lien direct, autre site), quelles pages et éditions marchent le
-  mieux, taux de retour. Deux options :
-  - **Google Analytics (GA4)** — gratuit, le plus complet, mais demande un
-    identifiant de mesure (`G-XXXXXXX`, à créer sur analytics.google.com) et,
-    juridiquement, un bandeau de consentement cookies (RGPD) puisqu'il dépose
-    des cookies de suivi.
-  - **Alternative « respectueuse de la vie privée »** (Plausible, Fathom,
-    GoatCounter…) — sans cookies, donc pas de bandeau de consentement requis,
-    tableau de bord plus simple (visiteurs, provenance, pages vues) ; gratuit
-    seulement chez GoatCounter, les autres sont payants (quelques €/mois) mais
-    beaucoup plus légers à mettre en place que GA4.
-  À trancher : gratuit + complet mais bandeau cookie (GA4), ou plus simple et
-  sans bandeau mais souvent payant (alternatives).
-- Automatisation Instagram bout-en-bout (Make + appli Meta, ou solution
-  payante) — décision et mise en place à finaliser.
-- Nom de domaine dédié (ex. lesscenarios.fr) avec redirection vers le site.
+- **Réseaux sociaux (LinkedIn/X)** : intégration native Buttondown testée —
+  ne fonctionne qu'avec un profil LinkedIn **personnel**, pas une Page
+  Entreprise (confirmé via `docs.buttondown.com/linkedin`). Mise en pause,
+  comme Instagram : peu d'intérêt de poster sous le nom personnel plutôt que
+  celui du projet. Une Page LinkedIn "Scénario" existe mais reste manuelle
+  pour l'instant.
+- Nom de domaine dédié : **fait** — `lesscenarios.fr` acheté et configuré
+  (voir plus haut).
 - Amélioration de la recherche/découvrabilité et réflexion SEO/promotion.
+- **Mentions légales + politique de confidentialité** — trou RGPD identifié
+  (collecte d'emails via la newsletter et le formulaire de contact sans
+  politique de confidentialité affichée) ; pas encore comblé.
 - **Newsletter par email — presque terminé.** Outil choisi : **Buttondown**
   (compte payant, plan Basic ~9$/mois — nécessaire pour le RSS-to-email, pas
   disponible en gratuit contrairement à ce qu'indiquaient plusieurs sources
