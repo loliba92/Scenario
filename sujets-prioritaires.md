@@ -41,7 +41,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 
 ## Actualité & politique française — mercredi
 - [ ] Présidentielle 2027 : à moins d'un an du vote, quels duels sont possibles au second tour ?
-- [ ] Budget 2027 : le gouvernement Lecornu peut-il survivre au vote du budget à l'automne ?
+- [x] Budget 2027 : le gouvernement Lecornu peut-il survivre au vote du budget à l'automne ?
 - [ ] France fracturée : grandes villes, banlieues et campagnes ne veulent plus tout à fait la même chose — le pays peut-il encore avancer ensemble ?
 
 <!-- Faire tourner les sous-thèmes : climat & écologie, espace, IA & numérique, médecine & santé, énergie, recherche fondamentale… -->
