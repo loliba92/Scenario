@@ -110,13 +110,15 @@ Lister 2 à 4 liens vers les sources principales **effectivement consultées** p
   <link>https://loliba92.github.io/Scenario/archives/{AAAA-MM-JJ}.html</link>
   <guid isPermaLink="false">scenario-{AAAA-MM-JJ}</guid>
   <pubDate>{date du jour au format RFC-822, ex. Wed, 29 Jul 2026 07:15:00 +0200}</pubDate>
-  <description><![CDATA[
-{même texte que la légende Instagram : emoji + accroche, la question du jour,
-les 3 scénarios avec leur emoji et leur titre SANS les probabilités, puis
-« Les 3 prévisions chiffrées sont sur le site 👉 {lien archive} », et les
-hashtags pertinents au sujet du jour}
-  ]]></description>
+  <description><![CDATA[{même texte que la légende Instagram : emoji + accroche, la question du jour, la
+suite du texte introductif, puis les 3 scénarios avec leur emoji et leur titre
+SANS les probabilités, puis « Les 3 prévisions chiffrées sont sur le site 👉
+{lien archive} — c'est gratuit. », et les hashtags pertinents au sujet du jour}]]></description>
 </item>
+```
+**Important — retours à la ligne en HTML, pas en texte brut.** Le CDATA de la description est interprété comme du HTML par Buttondown (c'est justement le rôle du CDATA en RSS) : un simple saut de ligne (`\n`) ne produit **aucun** retour à la ligne visuel, tout s'affiche à la suite en un seul paragraphe. Utiliser explicitement `<br>` : `<br><br>` entre deux paragraphes distincts (accroche / intro / liste des scénarios / CTA / hashtags), `<br>` simple entre les 3 lignes de scénarios consécutives. Exemple exact de structure à reproduire :
+```
+{emoji} {titre}<br><br>{paragraphe d'intro}<br>{emoji1} {scénario 1}<br>{emoji2} {scénario 2}<br>{emoji3} {scénario 3}<br><br>{phrase CTA vers le site}<br><br>{hashtags}
 ```
 Pas d'`<enclosure>` (image) pour l'instant — la génération automatique des cartes n'est pas encore branchée dans la routine, ce flux reste texte seul. Si le flux dépasse ~30 items, retirer les plus anciens **du flux XML uniquement** (jamais des fichiers `archives/` correspondants, qui restent figés).
 8. Ne jamais modifier `contact.html`, `le-projet.html`, `newsletter.html` ni aucun fichier déjà présent dans `archives/` daté d'un jour antérieur : une édition publiée est figée définitivement.
