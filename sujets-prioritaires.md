@@ -42,7 +42,17 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 ## Actualité & politique française — mercredi
 - [ ] Présidentielle 2027 : à moins d'un an du vote, quels duels sont possibles au second tour ?
 - [x] Budget 2027 : le gouvernement Lecornu peut-il survivre au vote du budget à l'automne ?
-- [ ] France fracturée : grandes villes, banlieues et campagnes ne veulent plus tout à fait la même chose — le pays peut-il encore avancer ensemble ?
+- [ ] France fracturée : grandes villes, banlieues et campagnes ne veulent plus tout à fait la même chose — le pays peut-il encore avancer ensemble ? [politique & société]
+- [ ] Électricité : avec la fin de l'ARENH, ta facture va-t-elle flamber ? [énergie & pouvoir d'achat]
+  <!-- Problématique : depuis le 1er janvier 2026, le mécanisme qui obligeait EDF à vendre son nucléaire à bas prix (42 €/MWh) a disparu, remplacé par le « Versement Nucléaire Universel ». Enjeu : la facture de ~30 millions de foyers. → Favorable = le nouveau système protège les factures, prix quasi stables ; stable = hausse modérée ; dégradé = flambée des prix de l'électricité. -->
+- [ ] Plans sociaux : le chômage va-t-il repartir à la hausse ? [emploi & industrie]
+  <!-- Problématique : vague de fermetures et de plans sociaux (Auchan, Michelin, Parisot…), ~130 000 emplois menacés ou supprimés entre sept. 2023 et mars 2026, malgré le discours sur la réindustrialisation. → Favorable = la réindustrialisation reprend, chômage contenu ; stable = stagnation ; dégradé = la vague s'amplifie, chômage en hausse. Nommer des entreprises, jamais des personnes privées. -->
+- [ ] Déserts médicaux : trouvera-t-on encore un médecin près de chez soi ? [santé & société]
+  <!-- Problématique : ~87 % du territoire serait en « fragilité médicale », désormais jusque dans les villes moyennes. De nouvelles mesures arrivent (études de santé dans chaque département, 3 700 internes déployés en sept. 2026, débat sur la régulation de l'installation). → Favorable = les mesures freinent la fracture ; stable = ça n'empire plus mais ne s'améliore pas ; dégradé = les départs en retraite l'emportent, la fracture s'aggrave. -->
+- [ ] Assurance chômage : le système peut-il tenir sans nouvelles coupes ? [emploi & finances sociales]
+  <!-- Problématique : déficit et endettement en hausse, pas de revalorisation des allocations au 1er juillet 2026 (refus du patronat). Enjeu de financement + pouvoir d'achat. → Favorable = retour vers l'équilibre ; stable = déficit géré au fil de l'eau ; dégradé = crise de financement et nouvelles coupes. -->
+- [ ] Facturation électronique obligatoire (septembre 2026) : les entreprises sont-elles prêtes ? [entreprises & numérique]
+  <!-- Problématique : la réforme devient obligatoire, mais ~9 entreprises sur 11 ne seraient pas prêtes. Risque de couac administratif pour les TPE/PME. → Favorable = transition en douceur ; stable = démarrage lent mais absorbé ; dégradé = pagaille, reports, trésoreries fragilisées. -->
 
 <!-- Faire tourner les sous-thèmes : climat & écologie, espace, IA & numérique, médecine & santé, énergie, recherche fondamentale… -->
 ## Sciences — vendredi (climat & écologie, espace, IA, médecine, énergie…)
