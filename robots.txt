@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /test/
 
 Sitemap: https://lesscenarios.fr/sitemap.xml
