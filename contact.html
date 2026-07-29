@@ -192,30 +192,6 @@
 
   .body-section strong{ color: var(--paper); font-weight: 500; }
 
-  .contact-box{
-    background: var(--surface);
-    border: 1px solid var(--hairline);
-    border-radius: 6px;
-    padding: 20px 22px;
-    max-width: 62ch;
-  }
-
-  .contact-box .field-label{
-    display:block;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--gold);
-    margin-bottom: 6px;
-  }
-
-  .contact-box .value{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 1rem;
-    color: var(--paper-dim);
-  }
-
   .contact-form{
     max-width: 62ch;
     display: flex;
@@ -278,8 +254,6 @@
   .form-hint{ font-size: 0.8rem; color: var(--paper-dim); margin: 0; }
 
   .form-sent{ font-size: 0.9rem; color: var(--favorable); margin: 0 0 8px; display: none; }
-
-  .form-alt{ font-size: 0.88rem; color: var(--paper-dim); margin: 22px 0 12px; }
 
   .hp{ position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
@@ -386,12 +360,6 @@
       <button class="submit-btn" type="submit">Envoyer</button>
       <p class="form-hint">Vos coordonnées ne servent qu'à vous répondre, jamais à autre chose.</p>
     </form>
-
-    <p class="form-alt">Vous préférez votre propre logiciel de messagerie ? Écrivez directement à :</p>
-    <div class="contact-box">
-      <span class="field-label">Email</span>
-      <span class="value"><a href="mailto:scenariocontact75@gmail.com">scenariocontact75@gmail.com</a></span>
-    </div>
   </div>
 </section>
 
@@ -455,7 +423,7 @@
       .catch(function(){
         if (sent) {
           sent.style.color = 'var(--degrade)';
-          sent.textContent = 'Envoi impossible pour le moment — écrivez-nous directement à scenariocontact75@gmail.com.';
+          sent.textContent = 'Envoi impossible pour le moment — réessayez dans quelques instants.';
           sent.style.display = 'block';
           sent.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
