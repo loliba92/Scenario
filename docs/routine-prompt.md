@@ -74,7 +74,7 @@ Ajouter aussi une traduction concrète côté France (impact quotidien : prix, p
 ### Étape 5 — Documentation finale
 Pour chaque scénario : coefficient de probabilité en % (somme des trois = 100 %) avec mot-repère (0-25 % peu probable, 26-50 % probable, 51-75 % assez probable, 76-100 % très probable) ; explication argumentée répondant à trois questions : qu'est-ce qui le rend plus probable, qu'est-ce qui le rend moins probable/fragile, et pourquoi plus ou moins réaliste que les deux autres (comparaison explicite entre les trois, pas isolée).
 
-Terminer par un lexique final : les mots/sigles/noms qui pourraient ne pas être connus de tous, définis en une phrase simple et concise chacun — sans redoublonner ce qui est déjà expliqué dans le texte.
+Terminer par un lexique final : les mots/sigles/noms qui pourraient ne pas être connus de tous, définis en une phrase simple et concise chacun — sans redoublonner ce qui est déjà expliqué dans le texte. **Chaque terme du lexique doit apparaître explicitement dans le texte de l'édition** — jamais un mot ou nom que le lexique est seul à mentionner, même si l'idée générale est évoquée ailleurs sans le terme exact.
 
 ### Étape 6 — Publication et archivage
 `index.html` = toujours l'édition du jour uniquement. `archives/AAAA-MM-JJ.html` = copie figée définitivement (jamais remodifiée ensuite, même si les faits évoluent). `archives.html` = liste de toutes les éditions, la plus récente en tête, avec date/registre/titre/lien.
