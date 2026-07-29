@@ -103,23 +103,20 @@ Lister 2 à 4 liens vers les sources principales **effectivement consultées** p
 4. Écraser `index.html` avec cette nouvelle édition.
 5. Copier ce contenu dans `archives/AAAA-MM-JJ.html` (date du jour), puis y adapter tous les liens relatifs d'un niveau, en suivant exactement le même patron que les fichiers déjà présents dans `archives/`.
 6. Ouvrir `archives.html` et insérer une nouvelle entrée `<li class="entry">` tout en haut de la liste, en suivant EXACTEMENT le patron des entrées déjà présentes. Ne jamais supprimer ni modifier les entrées déjà présentes.
-7. Mettre à jour `feed.xml` : insérer un nouvel `<item>` juste après les champs `<title>`/`<link>`/`<description>`/`<language>` du `<channel>`, **avant** les items précédents (ne jamais les supprimer — le flux garde son historique, comme `archives.html`). Ce flux alimente à la fois la légende Instagram et l'envoi automatique de la newsletter (Buttondown, RSS-to-email) : un nouvel item = un nouvel email envoyé aux abonnés le jour même.
+7. Mettre à jour `feed.xml` : insérer un nouvel `<item>` juste après les champs `<title>`/`<link>`/`<description>`/`<language>` du `<channel>`, **avant** les items précédents (ne jamais les supprimer — le flux garde son historique, comme `archives.html`). Ce flux alimente l'envoi automatique de la newsletter (Buttondown, RSS-to-email) : un nouvel item = un nouvel email envoyé aux abonnés le jour même. **Ce texte est spécifique à l'email — ce n'est pas un copier-coller de la légende Instagram** : contrairement à Instagram, un email supporte de vrais liens cliquables, donc ne jamais écrire « lien en bio » (ça n'a aucun sens hors Instagram, où c'est justement la seule option faute de lien cliquable dans le texte).
 ```xml
 <item>
   <title>{h1 du jour}</title>
   <link>https://loliba92.github.io/Scenario/archives/{AAAA-MM-JJ}.html</link>
   <guid isPermaLink="false">scenario-{AAAA-MM-JJ}</guid>
   <pubDate>{date du jour au format RFC-822, ex. Wed, 29 Jul 2026 07:15:00 +0200}</pubDate>
-  <description><![CDATA[{même texte que la légende Instagram : emoji + accroche, la question du jour, la
-suite du texte introductif, puis les 3 scénarios avec leur emoji et leur titre
-SANS les probabilités, puis « Les 3 prévisions chiffrées sont sur le site 👉
-{lien archive} — c'est gratuit. », et les hashtags pertinents au sujet du jour}]]></description>
+  <description><![CDATA[{emoji} {accroche + question du jour}<br><br>{paragraphe d'intro}<br>{emoji1} {scénario 1}<br>{emoji2} {scénario 2}<br>{emoji3} {scénario 3}<br><br>Lequel est le plus probable ? 👉 <a href="{lien archive du jour}">Lire les 3 prévisions chiffrées sur le site</a> — c'est gratuit.<br><br>{hashtags pertinents}]]></description>
 </item>
 ```
-**Important — retours à la ligne en HTML, pas en texte brut.** Le CDATA de la description est interprété comme du HTML par Buttondown (c'est justement le rôle du CDATA en RSS) : un simple saut de ligne (`\n`) ne produit **aucun** retour à la ligne visuel, tout s'affiche à la suite en un seul paragraphe. Utiliser explicitement `<br>` : `<br><br>` entre deux paragraphes distincts (accroche / intro / liste des scénarios / CTA / hashtags), `<br>` simple entre les 3 lignes de scénarios consécutives. Exemple exact de structure à reproduire :
-```
-{emoji} {titre}<br><br>{paragraphe d'intro}<br>{emoji1} {scénario 1}<br>{emoji2} {scénario 2}<br>{emoji3} {scénario 3}<br><br>{phrase CTA vers le site}<br><br>{hashtags}
-```
+**Toujours un vrai lien cliquable dans le CDATA** (`<a href="{lien archive du jour}">...</a>`, jamais juste du texte ni « lien en bio »), obligatoire — c'est le seul moyen pour un lecteur de l'email de rejoindre l'article complet.
+
+**Retours à la ligne en HTML, pas en texte brut.** Le CDATA de la description est interprété comme du HTML par Buttondown (c'est justement le rôle du CDATA en RSS) : un simple saut de ligne (`\n`) ne produit **aucun** retour à la ligne visuel, tout s'affiche à la suite en un seul paragraphe. Utiliser explicitement `<br>` : `<br><br>` entre deux paragraphes distincts, `<br>` simple entre les 3 lignes de scénarios consécutives — voir la structure exacte dans le bloc XML ci-dessus.
+
 Pas d'`<enclosure>` (image) pour l'instant — la génération automatique des cartes n'est pas encore branchée dans la routine, ce flux reste texte seul. Si le flux dépasse ~30 items, retirer les plus anciens **du flux XML uniquement** (jamais des fichiers `archives/` correspondants, qui restent figés).
 8. Ne jamais modifier `contact.html`, `le-projet.html`, `newsletter.html` ni aucun fichier déjà présent dans `archives/` daté d'un jour antérieur : une édition publiée est figée définitivement.
 9. `git add`, `git commit` (message clair avec la date et le sujet), `git push origin main` directement.
