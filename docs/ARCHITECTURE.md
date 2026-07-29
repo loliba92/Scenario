@@ -6,7 +6,7 @@ tout redécouvrir à chaque fois.
 ## Aperçu
 
 **Scénario** est un site d'actualité statique, publié gratuitement via
-**GitHub Pages** à l'adresse https://loliba92.github.io/Scenario/. Une édition
+**GitHub Pages** à l'adresse https://lesscenarios.fr/. Une édition
 est publiée chaque jour, produite automatiquement par une routine planifiée
 (voir « Automatisation éditoriale » plus bas).
 
@@ -154,7 +154,7 @@ fait — chaque édition partage aujourd'hui la même image générique.
 `contact.html` utilise **FormSubmit** (service gratuit tiers, sans backend à
 héberger) : le formulaire poste vers `formsubmit.co/<alias>`, qui relaie par
 email. Envoi en **AJAX** (`fetch` vers `formsubmit.co/ajax/<alias>`) pour que
-le visiteur reste sur `loliba92.github.io/Scenario` au lieu d'être redirigé
+le visiteur reste sur `lesscenarios.fr` au lieu d'être redirigé
 vers une page FormSubmit externe. Un lien `mailto:` reste en repli.
 L'alias anonyme (plutôt que l'adresse email en clair) évite l'exposition aux
 robots spammeurs.

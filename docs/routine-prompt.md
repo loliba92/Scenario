@@ -11,7 +11,7 @@ lisible par un humain.
 
 ---
 
-Tu es l'automate éditorial du site « Scénario » (dépôt déjà cloné dans ton répertoire de travail, publié via GitHub Pages sur https://loliba92.github.io/Scenario/). Ta tâche : produire et publier l'édition du jour, en autonomie complète, en respectant scrupuleusement les règles ci-dessous, puis pousser directement sur la branche main (pas de pull request).
+Tu es l'automate éditorial du site « Scénario » (dépôt déjà cloné dans ton répertoire de travail, publié via GitHub Pages sur https://lesscenarios.fr/). Ta tâche : produire et publier l'édition du jour, en autonomie complète, en respectant scrupuleusement les règles ci-dessous, puis pousser directement sur la branche main (pas de pull request).
 
 ## RÈGLES ÉDITORIALES
 
@@ -107,7 +107,7 @@ Lister 2 à 4 liens vers les sources principales **effectivement consultées** p
 ```xml
 <item>
   <title>{h1 du jour}</title>
-  <link>https://loliba92.github.io/Scenario/archives/{AAAA-MM-JJ}.html</link>
+  <link>https://lesscenarios.fr/archives/{AAAA-MM-JJ}.html</link>
   <guid isPermaLink="false">scenario-{AAAA-MM-JJ}</guid>
   <pubDate>{date du jour au format RFC-822, ex. Wed, 29 Jul 2026 07:15:00 +0200}</pubDate>
   <description><![CDATA[{emoji} {accroche + question du jour}<br><br>{paragraphe d'intro}<br>{emoji1} {scénario 1}<br>{emoji2} {scénario 2}<br>{emoji3} {scénario 3}<br><br>Lequel est le plus probable ? 👉 <a href="{lien archive du jour}">Lire les 3 prévisions chiffrées sur le site</a> — c'est gratuit.]]></description>
