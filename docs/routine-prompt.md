@@ -103,8 +103,24 @@ Lister 2 à 4 liens vers les sources principales **effectivement consultées** p
 4. Écraser `index.html` avec cette nouvelle édition.
 5. Copier ce contenu dans `archives/AAAA-MM-JJ.html` (date du jour), puis y adapter tous les liens relatifs d'un niveau, en suivant exactement le même patron que les fichiers déjà présents dans `archives/`.
 6. Ouvrir `archives.html` et insérer une nouvelle entrée `<li class="entry">` tout en haut de la liste, en suivant EXACTEMENT le patron des entrées déjà présentes. Ne jamais supprimer ni modifier les entrées déjà présentes.
-7. Ne jamais modifier `contact.html`, `le-projet.html`, `newsletter.html` ni aucun fichier déjà présent dans `archives/` daté d'un jour antérieur : une édition publiée est figée définitivement.
-8. `git add`, `git commit` (message clair avec la date et le sujet), `git push origin main` directement.
-9. Terminer par un court résumé (sujet retenu, probabilités des 3 scénarios, ce qui a été publié) pour que l'historique de cette exécution reste lisible.
+7. Mettre à jour `feed.xml` : insérer un nouvel `<item>` juste après les champs `<title>`/`<link>`/`<description>`/`<language>` du `<channel>`, **avant** les items précédents (ne jamais les supprimer — le flux garde son historique, comme `archives.html`). Ce flux alimente à la fois la légende Instagram et l'envoi automatique de la newsletter (Buttondown, RSS-to-email) : un nouvel item = un nouvel email envoyé aux abonnés le jour même.
+```xml
+<item>
+  <title>{h1 du jour}</title>
+  <link>https://loliba92.github.io/Scenario/archives/{AAAA-MM-JJ}.html</link>
+  <guid isPermaLink="false">scenario-{AAAA-MM-JJ}</guid>
+  <pubDate>{date du jour au format RFC-822, ex. Wed, 29 Jul 2026 07:15:00 +0200}</pubDate>
+  <description><![CDATA[
+{même texte que la légende Instagram : emoji + accroche, la question du jour,
+les 3 scénarios avec leur emoji et leur titre SANS les probabilités, puis
+« Les 3 prévisions chiffrées sont sur le site 👉 {lien archive} », et les
+hashtags pertinents au sujet du jour}
+  ]]></description>
+</item>
+```
+Pas d'`<enclosure>` (image) pour l'instant — la génération automatique des cartes n'est pas encore branchée dans la routine, ce flux reste texte seul. Si le flux dépasse ~30 items, retirer les plus anciens **du flux XML uniquement** (jamais des fichiers `archives/` correspondants, qui restent figés).
+8. Ne jamais modifier `contact.html`, `le-projet.html`, `newsletter.html` ni aucun fichier déjà présent dans `archives/` daté d'un jour antérieur : une édition publiée est figée définitivement.
+9. `git add`, `git commit` (message clair avec la date et le sujet), `git push origin main` directement.
+10. Terminer par un court résumé (sujet retenu, probabilités des 3 scénarios, ce qui a été publié) pour que l'historique de cette exécution reste lisible.
 
 Utilise WebSearch pour la recherche du sujet et la vérification factuelle (au moins deux sources distinctes recoupées). Respecte strictement les restrictions de l'étape 1.

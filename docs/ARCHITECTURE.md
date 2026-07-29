@@ -119,11 +119,14 @@ lien en bio — sans jamais dévoiler les chiffres, pour inciter au clic.
   manuelle.
 - `feed.json` — même contenu en JSON, pour un usage type Make/webhook.
 
-**État au 27 juillet 2026** : la génération des cartes n'est **pas encore
-branchée dans la routine quotidienne** — c'est fait manuellement pour l'instant.
-La publication Instagram automatique (Make + application Meta développeur, ou
-alternative payante type Publer Professional) est en cours de mise en place —
-voir la discussion et la décision à prendre dans le suivi de session.
+**État au 29 juillet 2026** : la génération des **cartes image** n'est **pas
+encore branchée dans la routine quotidienne** — c'est fait manuellement pour
+l'instant, donc pas d'image dans `feed.xml` (`<enclosure>` absent). En
+revanche, **la mise à jour texte de `feed.xml` fait maintenant partie du
+prompt de la routine** (nouvel item ajouté chaque jour : titre, lien, date,
+description au format teaser) — voir `docs/routine-prompt.md`, étape technique
+7. Ce même flux alimente désormais la **newsletter** (Buttondown, RSS-to-email,
+plan payant) en plus d'Instagram.
 
 ## Image de partage (Open Graph / Twitter Card)
 
@@ -178,20 +181,21 @@ Voir les échanges de session pour le détail, mais en résumé :
   payante) — décision et mise en place à finaliser.
 - Nom de domaine dédié (ex. lesscenarios.fr) avec redirection vers le site.
 - Amélioration de la recherche/découvrabilité et réflexion SEO/promotion.
-- **Newsletter par email — en cours.** Outil choisi : **Buttondown**, parce
-  qu'il sait envoyer un email automatiquement à partir d'un flux **RSS**
-  (fonctionnalité « RSS-to-email », incluse dans son plan gratuit jusqu'à 100
-  abonnés, envois illimités) — on peut donc le brancher directement sur
-  `feed.xml`, déjà généré chaque jour pour Instagram, **sans modifier la
-  routine quotidienne** ni ajouter d'appel API.
+- **Newsletter par email — presque terminé.** Outil choisi : **Buttondown**
+  (compte payant, plan Basic ~9$/mois — nécessaire pour le RSS-to-email, pas
+  disponible en gratuit contrairement à ce qu'indiquaient plusieurs sources
+  tierces, vérifié en pratique). Branché directement sur `feed.xml`, déjà
+  généré chaque jour (texte seul, voir plus haut).
   - ✅ Fait : `newsletter.html` (page d'inscription, style du site, formulaire
-    Buttondown standard) + lien « Newsletter » dans le menu de toutes les
-    pages vivantes.
-  - ⏳ À faire : créer le compte Buttondown, remplacer le `VOTRE-USERNAME-BUTTONDOWN`
-    dans l'attribut `action` du formulaire de `newsletter.html` par le vrai
-    nom d'utilisateur, connecter Buttondown à `feed.xml` (RSS-to-email), et
-    décider du contenu de l'email envoyé — reprendre le teaser d'Instagram
-    (question + 3 scénarios sans les %, lien vers le site) ou passer à un
-    format plus complet puisque l'abonné a déjà consenti (moins besoin de
-    « forcer le clic » que sur les réseaux sociaux). `feed.xml` devra peut-être
-    évoluer pour porter un contenu email dédié, distinct de la légende Instagram.
+    Buttondown standard, redirections configurées pour rester sur le site) +
+    lien « Newsletter » dans le menu de toutes les pages vivantes ; compte
+    Buttondown créé et passé en payant ; design (couleurs/polices) aligné à la
+    charte du site sur les pages web et email Buttondown ; connexion RSS-to-email
+    configurée (« Send an email », déclenchement à chaque nouvel item, template
+    « Rich ») ; mise à jour quotidienne de `feed.xml` ajoutée au prompt de la
+    routine (étape technique 7).
+  - ⏳ À faire : finaliser le template d'email (nettoyer les doublons du bloc
+    « Rich », vérifier l'objet/Subject), envoyer un email de test réel pour
+    valider le rendu bout en bout, puis coller la mise à jour de
+    `docs/routine-prompt.md` dans le prompt réel de la routine (comme toujours,
+    la doc n'est qu'une copie de référence).
