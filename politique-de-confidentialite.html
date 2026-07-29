@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Newsletter — Scénario</title>
+<title>Politique de confidentialité — Scénario</title>
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-<meta name="description" content="Recevez l'édition du jour de Scénario par email, juste après sa publication.">
+<meta name="description" content="Quelles données Scénario collecte, pourquoi, et comment les supprimer — expliqué simplement.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Scénario">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:url" content="https://lesscenarios.fr/newsletter.html">
-<meta property="og:title" content="Newsletter — Scénario">
-<meta property="og:description" content="Recevez l'édition du jour de Scénario par email, juste après sa publication.">
+<meta property="og:url" content="https://lesscenarios.fr/politique-de-confidentialite.html">
+<meta property="og:title" content="Politique de confidentialité — Scénario">
+<meta property="og:description" content="Quelles données Scénario collecte, pourquoi, et comment les supprimer — expliqué simplement.">
 <meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image.png">
 <meta property="og:image:width" content="1672">
 <meta property="og:image:height" content="941">
 <meta property="og:image:alt" content="Scénario — trois scénarios chiffrés pour chaque actualité : favorable, stable, dégradé.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Newsletter — Scénario">
-<meta name="twitter:description" content="Recevez l'édition du jour de Scénario par email, juste après sa publication.">
+<meta name="twitter:title" content="Politique de confidentialité — Scénario">
+<meta name="twitter:description" content="Quelles données Scénario collecte, pourquoi, et comment les supprimer — expliqué simplement.">
 <meta name="twitter:image" content="https://lesscenarios.fr/assets/social/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -154,7 +154,6 @@
     line-height: 1.08;
     letter-spacing: -0.01em;
     margin: 0 0 16px;
-    max-width: 16ch;
   }
 
   .dek{
@@ -193,12 +192,40 @@
 
   .body-section strong{ color: var(--paper); font-weight: 500; }
 
+  .data-card{
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    padding: 20px 22px;
+    max-width: 62ch;
+    margin: 0 0 14px;
+  }
+
+  .data-card:last-of-type{ margin-bottom: 0; }
+
+  .data-card .kind{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .data-card p{
+    margin: 0 0 8px;
+    font-size: 0.92rem;
+  }
+
+  .data-card p:last-child{ margin-bottom: 0; }
+
   .perks{
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     max-width: 62ch;
-    margin: 24px 0 0;
+    margin: 20px 0 0;
     padding: 0;
     list-style: none;
   }
@@ -217,63 +244,28 @@
     font-family: "JetBrains Mono", monospace;
   }
 
-  .subscribe-form{
+  .info-box{
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    padding: 20px 22px;
     max-width: 62ch;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin: 28px 0 0;
   }
 
-  .form-row{
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .form-row label{
+  .info-box .field-label{
+    display:block;
     font-family: "JetBrains Mono", monospace;
     font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--gold);
+    margin-bottom: 3px;
   }
 
-  .form-row input{
-    width: 100%;
-    background: var(--surface);
-    border: 1px solid var(--hairline);
-    border-radius: 8px;
-    padding: 11px 14px;
-    color: var(--paper);
-    font-family: "Inter", system-ui, sans-serif;
+  .info-box .value{
     font-size: 0.95rem;
+    color: var(--paper-dim);
   }
-
-  .form-row input:focus{ outline: 2px solid var(--gold); outline-offset: 2px; }
-
-  .form-row input::placeholder{ color: var(--paper-dim); }
-
-  .submit-btn{
-    align-self: flex-start;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--ink);
-    background: var(--gold);
-    border: 1px solid var(--gold);
-    border-radius: 100px;
-    padding: 10px 24px;
-    cursor: pointer;
-    transition: opacity .15s;
-  }
-
-  .submit-btn:hover{ opacity: 0.9; }
-
-  .form-hint{ font-size: 0.8rem; color: var(--paper-dim); margin: 0; }
-
-  .hp{ position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
   .cross-link{
     display: inline-block;
@@ -293,11 +285,17 @@
     padding: 32px 0 48px;
   }
 
+  footer .caveat{
+    font-size: 0.84rem;
+    color: var(--paper-dim);
+    max-width: 62ch;
+    margin: 0 0 16px;
+  }
+
   .legal-links{
     display: flex;
     gap: 18px;
     flex-wrap: wrap;
-    margin: 24px 0 0;
   }
 
   .legal-links a{
@@ -309,13 +307,6 @@
   }
 
   .legal-links a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
-
-  footer .caveat{
-    font-size: 0.84rem;
-    color: var(--paper-dim);
-    max-width: 62ch;
-    margin: 0;
-  }
 
 </style>
 </head>
@@ -335,43 +326,88 @@
     <a href="index.html">Accueil</a>
     <a href="archives.html">Archives</a>
     <a href="le-projet.html">Le projet</a>
-    <a href="newsletter.html" aria-current="page">Newsletter</a>
+    <a href="newsletter.html">Newsletter</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
 
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow">Newsletter</p>
-    <h1>Recevez l'édition du jour par email</h1>
-    <p class="dek">Un email par jour, juste après la publication : la question du jour et les trois scénarios. Rien d'autre, jamais de spam.</p>
+    <p class="eyebrow">Vos données</p>
+    <h1>Politique de confidentialité</h1>
+    <p class="dek">Ce site collecte le moins de données possible. Voici tout ce qu'il y a à savoir, sans jargon juridique.</p>
   </div>
 </section>
 
 <section class="body-section">
   <div class="wrap">
-    <p class="section-label">Comment ça marche</p>
-    <h2 class="section-title">Un email, chaque matin</h2>
-    <p>Chaque jour vers 7h15, dès qu'une nouvelle édition est publiée, vous la recevez directement dans votre boîte mail — plus besoin d'aller vérifier le site.</p>
+    <p class="section-label">En résumé</p>
+    <h2 class="section-title">Ce qu'il faut retenir</h2>
     <ul class="perks">
-      <li>Un seul email par jour, jamais plus</li>
-      <li>100 % gratuit, sans engagement</li>
-      <li>Désinscription en un clic, à tout moment</li>
-      <li>Votre email ne sert qu'à ça — jamais revendu, jamais partagé</li>
+      <li>Aucun cookie de traçage, nulle part sur le site</li>
+      <li>Vos données ne sont jamais vendues ni partagées avec des annonceurs</li>
+      <li>Trois cas seulement où une information est collectée, détaillés ci-dessous</li>
+      <li>Désinscription et suppression possibles à tout moment, en un clic ou un email</li>
     </ul>
+  </div>
+</section>
 
-    <form class="subscribe-form" action="https://buttondown.com/api/emails/embed-subscribe/scenario" method="post">
-      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <input type="hidden" value="1" name="embed">
-      <div class="form-row">
-        <label for="email">Votre email</label>
-        <input id="email" type="email" name="email" required placeholder="vous@exemple.com">
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">Cas n°1</p>
+    <h2 class="section-title">Si vous vous abonnez à la newsletter</h2>
+    <p>Quand vous laissez votre adresse email sur la <a href="newsletter.html">page d'abonnement</a>, elle est utilisée pour une seule chose : vous envoyer l'édition du jour. Elle est stockée chez <strong>Buttondown</strong>, le service qui gère l'envoi des emails (société américaine).</p>
+    <div class="data-card">
+      <span class="kind">Buttondown — envoi de la newsletter</span>
+      <p><strong>Donnée collectée :</strong> votre adresse email.</p>
+      <p><strong>Pourquoi :</strong> vous envoyer l'édition quotidienne.</p>
+      <p><strong>Combien de temps :</strong> tant que vous restez abonné.</p>
+      <p><strong>Pour arrêter :</strong> lien de désinscription en un clic, présent en bas de chaque email.</p>
+    </div>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">Cas n°2</p>
+    <h2 class="section-title">Si vous écrivez via le formulaire de contact</h2>
+    <p>Le <a href="contact.html">formulaire de contact</a> transmet votre nom (si vous le donnez), votre email et votre message à notre boîte mail, via <strong>FormSubmit</strong>, un service tiers qui relaie simplement le message (il ne le conserve pas).</p>
+    <div class="data-card">
+      <span class="kind">FormSubmit — formulaire de contact</span>
+      <p><strong>Données collectées :</strong> nom (facultatif), email, contenu du message.</p>
+      <p><strong>Pourquoi :</strong> pouvoir vous répondre.</p>
+      <p><strong>Combien de temps :</strong> le temps de traiter votre message, dans notre boîte mail.</p>
+      <p><strong>Pour supprimer :</strong> demandez-le simplement par email, à l'adresse ci-dessous.</p>
+    </div>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">Cas n°3</p>
+    <h2 class="section-title">Mesure d'audience du site</h2>
+    <p>Pour savoir combien de personnes lisent le site, on utilise <strong>GoatCounter</strong> — un outil de statistiques anonymes, sans cookie, qui ne permet pas de vous identifier individuellement. Il compte des visites (pages vues, provenance générale), pas des personnes.</p>
+    <div class="data-card">
+      <span class="kind">GoatCounter — statistiques de visite</span>
+      <p><strong>Donnée collectée :</strong> aucune donnée personnelle — visites comptées de façon anonyme et agrégée.</p>
+      <p><strong>Pourquoi :</strong> savoir quelles éditions intéressent, sans profiler qui que ce soit.</p>
+      <p><strong>Cookie déposé :</strong> aucun — c'est pour ça qu'il n'y a pas de bandeau de consentement sur ce site.</p>
+    </div>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">Vos droits</p>
+    <h2 class="section-title">Accéder, corriger ou supprimer vos données</h2>
+    <p>Conformément au RGPD, vous pouvez à tout moment demander à voir les données vous concernant, les faire corriger, ou les faire supprimer.</p>
+    <div class="info-box">
+      <div>
+        <span class="field-label">Pour exercer vos droits</span>
+        <span class="value"><a href="mailto:scenariocontact75@gmail.com">scenariocontact75@gmail.com</a> — ou le <a href="contact.html">formulaire de contact</a></span>
       </div>
-      <button class="submit-btn" type="submit">S'abonner</button>
-      <p class="form-hint">Un email de confirmation vous sera envoyé — pensez à cliquer dessus pour valider votre inscription.</p>
-    </form>
-
-    <a class="cross-link" href="le-projet.html">Comment nous travaillons → Le projet</a>
+    </div>
+    <a class="cross-link" href="mentions-legales.html">Qui édite ce site → Mentions légales</a>
   </div>
 </section>
 
@@ -380,7 +416,7 @@
     <p class="caveat"><strong>Scéna<span class="brand-rio">rio</span></strong> publie une édition chaque jour. Chaque édition reste figée à sa date de publication.</p>
     <div class="legal-links">
       <a href="mentions-legales.html">Mentions légales</a>
-      <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      <a href="politique-de-confidentialite.html" aria-current="page">Politique de confidentialité</a>
     </div>
   </div>
 </footer>

@@ -118,7 +118,7 @@ Lister 2 à 4 liens vers les sources principales **effectivement consultées** p
 **Retours à la ligne en HTML, pas en texte brut.** Le CDATA de la description est interprété comme du HTML par Buttondown (c'est justement le rôle du CDATA en RSS) : un simple saut de ligne (`\n`) ne produit **aucun** retour à la ligne visuel, tout s'affiche à la suite en un seul paragraphe. Utiliser explicitement `<br>` : `<br><br>` entre deux paragraphes distincts, `<br>` simple entre les 3 lignes de scénarios consécutives — voir la structure exacte dans le bloc XML ci-dessus.
 
 Pas d'`<enclosure>` (image) pour l'instant — la génération automatique des cartes n'est pas encore branchée dans la routine, ce flux reste texte seul. Si le flux dépasse ~30 items, retirer les plus anciens **du flux XML uniquement** (jamais des fichiers `archives/` correspondants, qui restent figés).
-8. Ne jamais modifier `contact.html`, `le-projet.html`, `newsletter.html` ni aucun fichier déjà présent dans `archives/` daté d'un jour antérieur : une édition publiée est figée définitivement.
+8. Ne jamais modifier `contact.html`, `le-projet.html`, `newsletter.html`, `mentions-legales.html`, `politique-de-confidentialite.html` ni aucun fichier déjà présent dans `archives/` daté d'un jour antérieur : une édition publiée est figée définitivement.
 9. `git add`, `git commit` (message clair avec la date et le sujet), `git push origin main` directement.
 10. Terminer par un court résumé (sujet retenu, probabilités des 3 scénarios, ce qui a été publié) pour que l'historique de cette exécution reste lisible.
 

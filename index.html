@@ -458,6 +458,23 @@
     margin: 0 0 24px;
   }
 
+  .legal-links{
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin: 24px 0 0;
+  }
+
+  .legal-links a{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+  }
+
+  .legal-links a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
+
   .archive-list{
     list-style: none;
     padding: 0;
@@ -747,6 +764,10 @@
     <ul class="archive-list">
       <li><a href="archives.html">Voir toutes les éditions →</a></li>
     </ul>
+    <div class="legal-links">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+    </div>
   </div>
 </footer>
 

@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Newsletter — Scénario</title>
+<title>Mentions légales — Scénario</title>
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-<meta name="description" content="Recevez l'édition du jour de Scénario par email, juste après sa publication.">
+<meta name="description" content="Qui édite Scénario, où le site est hébergé, et les règles de propriété intellectuelle.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Scénario">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:url" content="https://lesscenarios.fr/newsletter.html">
-<meta property="og:title" content="Newsletter — Scénario">
-<meta property="og:description" content="Recevez l'édition du jour de Scénario par email, juste après sa publication.">
+<meta property="og:url" content="https://lesscenarios.fr/mentions-legales.html">
+<meta property="og:title" content="Mentions légales — Scénario">
+<meta property="og:description" content="Qui édite Scénario, où le site est hébergé, et les règles de propriété intellectuelle.">
 <meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image.png">
 <meta property="og:image:width" content="1672">
 <meta property="og:image:height" content="941">
 <meta property="og:image:alt" content="Scénario — trois scénarios chiffrés pour chaque actualité : favorable, stable, dégradé.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Newsletter — Scénario">
-<meta name="twitter:description" content="Recevez l'édition du jour de Scénario par email, juste après sa publication.">
+<meta name="twitter:title" content="Mentions légales — Scénario">
+<meta name="twitter:description" content="Qui édite Scénario, où le site est hébergé, et les règles de propriété intellectuelle.">
 <meta name="twitter:image" content="https://lesscenarios.fr/assets/social/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -154,7 +154,6 @@
     line-height: 1.08;
     letter-spacing: -0.01em;
     margin: 0 0 16px;
-    max-width: 16ch;
   }
 
   .dek{
@@ -193,87 +192,31 @@
 
   .body-section strong{ color: var(--paper); font-weight: 500; }
 
-  .perks{
+  .info-box{
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    padding: 20px 22px;
+    max-width: 62ch;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    max-width: 62ch;
-    margin: 24px 0 0;
-    padding: 0;
-    list-style: none;
   }
 
-  .perks li{
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    color: var(--paper-dim);
-    font-size: 0.95rem;
-  }
-
-  .perks li::before{
-    content: "✓";
-    color: var(--favorable);
-    font-family: "JetBrains Mono", monospace;
-  }
-
-  .subscribe-form{
-    max-width: 62ch;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin: 28px 0 0;
-  }
-
-  .form-row{
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .form-row label{
+  .info-box .field-label{
+    display:block;
     font-family: "JetBrains Mono", monospace;
     font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--gold);
+    margin-bottom: 3px;
   }
 
-  .form-row input{
-    width: 100%;
-    background: var(--surface);
-    border: 1px solid var(--hairline);
-    border-radius: 8px;
-    padding: 11px 14px;
-    color: var(--paper);
-    font-family: "Inter", system-ui, sans-serif;
+  .info-box .value{
     font-size: 0.95rem;
+    color: var(--paper-dim);
   }
-
-  .form-row input:focus{ outline: 2px solid var(--gold); outline-offset: 2px; }
-
-  .form-row input::placeholder{ color: var(--paper-dim); }
-
-  .submit-btn{
-    align-self: flex-start;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--ink);
-    background: var(--gold);
-    border: 1px solid var(--gold);
-    border-radius: 100px;
-    padding: 10px 24px;
-    cursor: pointer;
-    transition: opacity .15s;
-  }
-
-  .submit-btn:hover{ opacity: 0.9; }
-
-  .form-hint{ font-size: 0.8rem; color: var(--paper-dim); margin: 0; }
-
-  .hp{ position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
   .cross-link{
     display: inline-block;
@@ -293,11 +236,17 @@
     padding: 32px 0 48px;
   }
 
+  footer .caveat{
+    font-size: 0.84rem;
+    color: var(--paper-dim);
+    max-width: 62ch;
+    margin: 0 0 16px;
+  }
+
   .legal-links{
     display: flex;
     gap: 18px;
     flex-wrap: wrap;
-    margin: 24px 0 0;
   }
 
   .legal-links a{
@@ -309,13 +258,6 @@
   }
 
   .legal-links a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
-
-  footer .caveat{
-    font-size: 0.84rem;
-    color: var(--paper-dim);
-    max-width: 62ch;
-    margin: 0;
-  }
 
 </style>
 </head>
@@ -335,43 +277,62 @@
     <a href="index.html">Accueil</a>
     <a href="archives.html">Archives</a>
     <a href="le-projet.html">Le projet</a>
-    <a href="newsletter.html" aria-current="page">Newsletter</a>
+    <a href="newsletter.html">Newsletter</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
 
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow">Newsletter</p>
-    <h1>Recevez l'édition du jour par email</h1>
-    <p class="dek">Un email par jour, juste après la publication : la question du jour et les trois scénarios. Rien d'autre, jamais de spam.</p>
+    <p class="eyebrow">Informations légales</p>
+    <h1>Mentions légales</h1>
+    <p class="dek">Qui édite ce site, où il est hébergé, et ce que vous pouvez faire (ou non) avec son contenu — en clair, sans jargon.</p>
   </div>
 </section>
 
 <section class="body-section">
   <div class="wrap">
-    <p class="section-label">Comment ça marche</p>
-    <h2 class="section-title">Un email, chaque matin</h2>
-    <p>Chaque jour vers 7h15, dès qu'une nouvelle édition est publiée, vous la recevez directement dans votre boîte mail — plus besoin d'aller vérifier le site.</p>
-    <ul class="perks">
-      <li>Un seul email par jour, jamais plus</li>
-      <li>100 % gratuit, sans engagement</li>
-      <li>Désinscription en un clic, à tout moment</li>
-      <li>Votre email ne sert qu'à ça — jamais revendu, jamais partagé</li>
-    </ul>
-
-    <form class="subscribe-form" action="https://buttondown.com/api/emails/embed-subscribe/scenario" method="post">
-      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <input type="hidden" value="1" name="embed">
-      <div class="form-row">
-        <label for="email">Votre email</label>
-        <input id="email" type="email" name="email" required placeholder="vous@exemple.com">
+    <p class="section-label">Qui édite ce site</p>
+    <h2 class="section-title">L'éditeur</h2>
+    <p>Scéna<span class="brand-rio">rio</span> est un site personnel, édité et publié par <strong>Olivier Bertrand</strong>, à titre individuel (pas une société). Il en est aussi le <strong>directeur de la publication</strong>, responsable du contenu diffusé.</p>
+    <div class="info-box">
+      <div>
+        <span class="field-label">Contact</span>
+        <span class="value"><a href="mailto:scenariocontact75@gmail.com">scenariocontact75@gmail.com</a> — ou le <a href="contact.html">formulaire de contact</a></span>
       </div>
-      <button class="submit-btn" type="submit">S'abonner</button>
-      <p class="form-hint">Un email de confirmation vous sera envoyé — pensez à cliquer dessus pour valider votre inscription.</p>
-    </form>
+    </div>
+  </div>
+</section>
 
-    <a class="cross-link" href="le-projet.html">Comment nous travaillons → Le projet</a>
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">Où le site est hébergé</p>
+    <h2 class="section-title">L'hébergeur</h2>
+    <p>Le site est hébergé gratuitement par <strong>GitHub Pages</strong>, un service de GitHub, Inc. — une société américaine.</p>
+    <div class="info-box">
+      <div>
+        <span class="field-label">Hébergeur</span>
+        <span class="value">GitHub, Inc. — 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">Ce que vous pouvez faire avec le contenu</p>
+    <h2 class="section-title">Propriété intellectuelle</h2>
+    <p>Les textes, analyses et scénarios publiés sur ce site sont des <strong>synthèses originales</strong> — vous pouvez les citer et y renvoyer (un lien, c'est toujours apprécié), mais pas les recopier intégralement ailleurs sans autorisation. Le logo, la mise en page et le nom « Scénario » appartiennent au site.</p>
+    <p>Les sources externes citées dans chaque édition (section « Sources ») appartiennent à leurs auteurs respectifs — on y renvoie, on ne les republie pas.</p>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">Une précision importante</p>
+    <h2 class="section-title">Ce que ce site n'est pas</h2>
+    <p>Les scénarios, probabilités et indicateurs publiés sont des <strong>ordres de grandeur indicatifs</strong>, construits à partir de sources réelles — jamais des prévisions garanties, ni un conseil (financier, juridique ou autre) sur lequel fonder une décision. À chacun de se faire son propre avis, avec ces repères en plus.</p>
+    <a class="cross-link" href="politique-de-confidentialite.html">Comment vos données sont traitées → Politique de confidentialité</a>
   </div>
 </section>
 
@@ -379,7 +340,7 @@
   <div class="wrap">
     <p class="caveat"><strong>Scéna<span class="brand-rio">rio</span></strong> publie une édition chaque jour. Chaque édition reste figée à sa date de publication.</p>
     <div class="legal-links">
-      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="mentions-legales.html" aria-current="page">Mentions légales</a>
       <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
     </div>
   </div>

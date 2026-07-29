@@ -314,6 +314,23 @@
     padding: 32px 0 48px;
   }
 
+  .legal-links{
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin: 24px 0 0;
+  }
+
+  .legal-links a{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+  }
+
+  .legal-links a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
+
   footer .caveat{
     font-size: 0.84rem;
     color: var(--paper-dim);
@@ -433,6 +450,10 @@
 <footer>
   <div class="wrap">
     <p class="caveat">Chaque édition reste figée à sa date de publication : les indicateurs et probabilités qui y figurent ne sont pas mis à jour rétroactivement.</p>
+    <div class="legal-links">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+    </div>
   </div>
 </footer>
 

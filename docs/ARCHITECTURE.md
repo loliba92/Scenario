@@ -23,6 +23,8 @@ archives/AAAA-MM-JJ.html Copie figée de chaque édition passée. Jamais remodif
 le-projet.html          Page « À propos » : mission, méthode, rythme des 7 jours.
 newsletter.html         Page d'inscription à la newsletter quotidienne (Buttondown).
 contact.html            Formulaire de contact (FormSubmit) + appel à la carte blanche du mardi.
+mentions-legales.html   Éditeur, hébergeur, propriété intellectuelle.
+politique-de-confidentialite.html  Données collectées (newsletter, contact, mesure d'audience), droits RGPD.
 sujets-prioritaires.md  File d'attente éditoriale (voir plus bas).
 assets/logo.svg          Logo (3 flèches divergentes = les 3 scénarios).
 assets/social/           Image de partage (Open Graph / Twitter Card), statique.
@@ -190,9 +192,13 @@ Voir les échanges de session pour le détail, mais en résumé :
 - Nom de domaine dédié : **fait** — `lesscenarios.fr` acheté et configuré
   (voir plus haut).
 - Amélioration de la recherche/découvrabilité et réflexion SEO/promotion.
-- **Mentions légales + politique de confidentialité** — trou RGPD identifié
-  (collecte d'emails via la newsletter et le formulaire de contact sans
-  politique de confidentialité affichée) ; pas encore comblé.
+- **Mentions légales + politique de confidentialité** — fait. Deux pages
+  dédiées (`mentions-legales.html`, `politique-de-confidentialite.html`),
+  liées depuis le footer des 5 pages vivantes. Éditeur identifié (Olivier
+  Bertrand), hébergeur GitHub Pages précisé, et les trois cas de collecte de
+  données détaillés simplement : newsletter (Buttondown), formulaire de
+  contact (FormSubmit), mesure d'audience (GoatCounter, anonyme, sans cookie
+  donc pas de bandeau de consentement nécessaire).
 - **Newsletter par email — presque terminé.** Outil choisi : **Buttondown**
   (compte payant, plan Basic ~9$/mois — nécessaire pour le RSS-to-email, pas
   disponible en gratuit contrairement à ce qu'indiquaient plusieurs sources
