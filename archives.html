@@ -213,6 +213,21 @@
     gap: 8px;
   }
 
+  .filter-row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .filter-row-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--paper-dim);
+  }
+
   .filter-chip{
     font-family: "JetBrains Mono", monospace;
     font-size: 0.7rem;
@@ -373,7 +388,14 @@
   <div class="wrap">
     <div class="archive-tools">
       <input id="archive-search" class="archive-search" type="search" placeholder="Rechercher une édition (titre, thème…)" aria-label="Rechercher dans les archives">
-      <div class="tag-filters" id="tag-filters"></div>
+      <div class="filter-row">
+        <span class="filter-row-label">Année</span>
+        <div class="tag-filters" id="year-filters"></div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-row-label">Thème</span>
+        <div class="tag-filters" id="tag-filters"></div>
+      </div>
     </div>
 
     <ul class="entries" id="entries">
@@ -461,47 +483,67 @@
   (function(){
     var entries = Array.prototype.slice.call(document.querySelectorAll('#entries .entry'));
     var searchInput = document.getElementById('archive-search');
-    var filtersBox = document.getElementById('tag-filters');
+    var tagFiltersBox = document.getElementById('tag-filters');
+    var yearFiltersBox = document.getElementById('year-filters');
     var noResult = document.getElementById('no-result');
-    var activeFilter = 'all';
+    var activeTagFilter = 'all';
+    var activeYearFilter = 'all';
 
     function deburr(s){ return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); }
 
-    // Index chaque entrée (tags + texte recherchable), tags insensibles aux accents
-    var seen = {}, order = [];
+    // Index chaque entrée (tags + année + texte recherchable), tags insensibles aux accents
+    var seenTags = {}, tagOrder = [];
+    var seenYears = {}, yearOrder = [];
     entries.forEach(function(entry){
       var tags = [], labels = [];
       entry.querySelectorAll('.tag').forEach(function(b){
         var t = b.dataset.tag;
         tags.push(t);
         labels.push(b.textContent);
-        if(!seen[t]){ seen[t] = b.textContent; order.push(t); }
-        b.addEventListener('click', function(){ setFilter(t); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        if(!seenTags[t]){ seenTags[t] = b.textContent; tagOrder.push(t); }
+        b.addEventListener('click', function(){ setTagFilter(t); window.scrollTo({ top: 0, behavior: 'smooth' }); });
       });
       entry._tags = tags;
       var title = entry.querySelector('.entry-title').textContent;
       var date = entry.querySelector('.entry-date').textContent;
+      var year = date.split('.')[2];
+      entry._year = year;
+      if(!seenYears[year]){ seenYears[year] = year; yearOrder.push(year); }
       entry._text = deburr(title + ' ' + labels.join(' ') + ' ' + date);
     });
+    yearOrder.sort().reverse(); // plus récente en premier
 
-    // Construit les puces de filtre automatiquement depuis les tags présents
-    function makeChip(val, label){
+    // Construit les puces de filtre automatiquement depuis les tags/années présents
+    function makeChip(container, val, label, onClick){
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'filter-chip';
       b.dataset.filter = val;
       b.textContent = label;
-      b.addEventListener('click', function(){ setFilter(val); });
+      b.addEventListener('click', onClick);
+      container.appendChild(b);
       return b;
     }
-    var allChip = makeChip('all', 'Tout');
-    allChip.classList.add('is-active');
-    filtersBox.appendChild(allChip);
-    order.forEach(function(t){ filtersBox.appendChild(makeChip(t, seen[t])); });
 
-    function setFilter(val){
-      activeFilter = val;
-      filtersBox.querySelectorAll('.filter-chip').forEach(function(c){
+    var allTagChip = makeChip(tagFiltersBox, 'all', 'Tout', function(){ setTagFilter('all'); });
+    allTagChip.classList.add('is-active');
+    tagOrder.forEach(function(t){ makeChip(tagFiltersBox, t, seenTags[t], function(){ setTagFilter(t); }); });
+
+    var allYearChip = makeChip(yearFiltersBox, 'all', 'Toutes', function(){ setYearFilter('all'); });
+    allYearChip.classList.add('is-active');
+    yearOrder.forEach(function(y){ makeChip(yearFiltersBox, y, y, function(){ setYearFilter(y); }); });
+
+    function setTagFilter(val){
+      activeTagFilter = val;
+      tagFiltersBox.querySelectorAll('.filter-chip').forEach(function(c){
+        c.classList.toggle('is-active', c.dataset.filter === val);
+      });
+      apply();
+    }
+
+    function setYearFilter(val){
+      activeYearFilter = val;
+      yearFiltersBox.querySelectorAll('.filter-chip').forEach(function(c){
         c.classList.toggle('is-active', c.dataset.filter === val);
       });
       apply();
@@ -511,9 +553,10 @@
       var q = deburr(searchInput.value.trim());
       var visible = 0;
       entries.forEach(function(entry){
-        var okFilter = (activeFilter === 'all') || entry._tags.indexOf(activeFilter) !== -1;
+        var okTag = (activeTagFilter === 'all') || entry._tags.indexOf(activeTagFilter) !== -1;
+        var okYear = (activeYearFilter === 'all') || entry._year === activeYearFilter;
         var okSearch = !q || entry._text.indexOf(q) !== -1;
-        var show = okFilter && okSearch;
+        var show = okTag && okYear && okSearch;
         entry.classList.toggle('is-hidden', !show);
         if(show){ visible++; }
       });
