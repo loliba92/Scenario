@@ -25,6 +25,7 @@ newsletter.html         Page d'inscription à la newsletter quotidienne (Buttond
 contact.html            Formulaire de contact (FormSubmit) + appel à la carte blanche du mardi.
 sujets-prioritaires.md  File d'attente éditoriale (voir plus bas).
 assets/logo.svg          Logo (3 flèches divergentes = les 3 scénarios).
+assets/social/           Image de partage (Open Graph / Twitter Card), statique.
 assets/cards/            Images pour la publication Instagram (voir plus bas).
 feed.xml / feed.json     Flux consommés par l'automatisation Instagram (voir plus bas).
 docs/                    Cette documentation + le prompt de la routine éditoriale.
@@ -123,6 +124,27 @@ branchée dans la routine quotidienne** — c'est fait manuellement pour l'insta
 La publication Instagram automatique (Make + application Meta développeur, ou
 alternative payante type Publer Professional) est en cours de mise en place —
 voir la discussion et la décision à prendre dans le suivi de session.
+
+## Image de partage (Open Graph / Twitter Card)
+
+`assets/social/og-image.png` (1672×941, généré par IA puis retouché à la main)
+est l'image affichée en aperçu quand un lien Scénario est partagé sur
+Slack, WhatsApp, X/Twitter, iMessage, etc. Statique et identique sur toutes
+les pages — contrairement aux cartes Instagram, elle ne change pas chaque
+jour.
+
+Les balises `og:*` et `twitter:*` sont posées dans le `<head>` des 5 pages
+vivantes (`index.html`, `archives.html`, `le-projet.html`, `contact.html`,
+`newsletter.html`), chacune avec son propre `og:title`/`og:description`
+repris du `<title>`/`<meta name="description">` de la page, mais la même
+image partout. Ces balises font partie du gabarit préservé par la routine
+quotidienne (elles ne changent jamais, comme le `<title>` et la description) —
+aucune instruction supplémentaire nécessaire dans `docs/routine-prompt.md`.
+
+**Piste future** : des images de partage spécifiques à chaque édition (avec
+le titre du jour incrusté) seraient possibles en réutilisant le pipeline déjà
+construit pour les cartes Instagram (`tools/gen_single.js`), mais ce n'est pas
+fait — chaque édition partage aujourd'hui la même image générique.
 
 ## Formulaire de contact
 
