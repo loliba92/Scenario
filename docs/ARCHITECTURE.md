@@ -183,19 +183,20 @@ crucial rétroactivement).
 ## Ce qui reste à faire (suivi)
 
 Voir les échanges de session pour le détail, mais en résumé :
-- **Emails de la newsletter qui arrivent en spam.** Constaté le 30 juillet
-  (premier envoi réel automatisé) : plusieurs abonnés reçoivent l'édition
-  dans leurs indésirables plutôt qu'en boîte de réception. À creuser :
-  - Authentification du domaine d'envoi (**SPF, DKIM, DMARC**) — Buttondown
-    propose généralement de connecter un domaine personnalisé pour l'envoi
-    (au lieu du domaine Buttondown par défaut), ce qui améliore nettement la
-    délivrabilité une fois les enregistrements DNS ajoutés.
-  - Réputation d'expéditeur encore neuve (compte tout juste créé, aucun
-    historique d'envoi) — s'améliore naturellement avec le temps et les
-    ouvertures/clics des abonnés.
-  - Contenu de l'email (emojis en nombre, lien unique répété) qui pourrait
-    déclencher certains filtres — à tester si le problème persiste après
-    authentification du domaine.
+- **Emails de la newsletter qui arrivent en spam — corrigé le 30 juillet.**
+  Constaté le 30 juillet (premier envoi réel automatisé) : plusieurs abonnés
+  recevaient l'édition dans leurs indésirables plutôt qu'en boîte de
+  réception. Corrections apportées :
+  - Domaine d'envoi dédié `newsletter.lesscenarios.fr` connecté à Buttondown
+    en **Managed setup** (DNS délégué via 2 enregistrements NS ajoutés côté
+    OVH) — Buttondown gère depuis l'authentification complète (SPF, DKIM,
+    DMARC) de ce sous-domaine.
+  - **Reply-to** configuré vers `scenariocontact75@gmail.com`, pour que les
+    réponses des lecteurs arrivent réellement quelque part (l'adresse
+    d'envoi elle-même ne reçoit aucun courrier entrant).
+  - Réputation d'expéditeur encore neuve (compte tout juste créé) — continue
+    de s'améliorer naturellement avec le temps et les ouvertures/clics des
+    abonnés, indépendamment de ce qui précède.
 - **Réseaux sociaux (LinkedIn/X)** : intégration native Buttondown testée —
   ne fonctionne qu'avec un profil LinkedIn **personnel**, pas une Page
   Entreprise (confirmé via `docs.buttondown.com/linkedin`). Mise en pause,
@@ -208,10 +209,9 @@ Voir les échanges de session pour le détail, mais en résumé :
   sitemap) et `sitemap.xml` (toutes les pages vivantes + toutes les archives)
   ajoutés à la racine. `sitemap.xml` est maintenant mis à jour chaque jour
   par la routine (nouvelle entrée d'archive + `lastmod` rafraîchi), voir
-  `docs/routine-prompt.md` étape technique 7. Reste à faire, de ton côté :
-  inscrire le site sur **Google Search Console** (vérification de propriété
-  du domaine, puis soumission du sitemap) pour accélérer l'indexation —
-  jusque-là Google finira par trouver le site tout seul, mais plus lentement.
+  `docs/routine-prompt.md` étape technique 7. **Google Search Console —
+  fait** (30 juillet 2026) : propriété du domaine `lesscenarios.fr`
+  vérifiée, sitemap soumis.
 - Amélioration de la recherche/découvrabilité et réflexion SEO plus poussée
   (contenu déjà bien structuré pour ça — titres clairs, meta descriptions par
   page — donc peu de travail supplémentaire nécessaire ici).
