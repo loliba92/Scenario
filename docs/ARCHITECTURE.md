@@ -197,12 +197,36 @@ Voir les échanges de session pour le détail, mais en résumé :
   - Réputation d'expéditeur encore neuve (compte tout juste créé) — continue
     de s'améliorer naturellement avec le temps et les ouvertures/clics des
     abonnés, indépendamment de ce qui précède.
-- **Réseaux sociaux (LinkedIn/X)** : intégration native Buttondown testée —
-  ne fonctionne qu'avec un profil LinkedIn **personnel**, pas une Page
-  Entreprise (confirmé via `docs.buttondown.com/linkedin`). Mise en pause,
-  comme Instagram : peu d'intérêt de poster sous le nom personnel plutôt que
-  celui du projet. Une Page LinkedIn "Scénario" existe mais reste manuelle
-  pour l'instant.
+- **LinkedIn et Instagram — à configurer correctement pour générer du trafic.**
+  Reprise en main le 30 juillet, après constat que rien n'était vraiment
+  actif :
+  - **LinkedIn** : l'intégration native Buttondown (auto-partage à chaque
+    envoi) ne fonctionne qu'avec un profil **personnel**, pas une Page
+    Entreprise (confirmé via `docs.buttondown.com/linkedin`). Solution
+    retenue : profil personnel renommé "Les Scenarios" (Suresnes,
+    Île-de-France), connecté à l'intégration Buttondown, avec un résumé
+    ("About") réécrit expliquant la genèse et le principe du projet. **Reste
+    à faire** : vérifier au prochain envoi (vendredi) qu'un post se crée
+    bien automatiquement ; construire un minimum de réseau/abonnés sur ce
+    profil (0 relation ≈ 0 diffusion, cf. "Découverte : 100 % dans le réseau,
+    1 membre touché" sur le premier post) ; réfléchir si la Page LinkedIn
+    "Scénario" (Entreprise, existante mais manuelle, jamais utilisée) a un
+    rôle à jouer en complément, ou si on l'abandonne pour se concentrer sur
+    le profil personnel.
+  - **Instagram** : pipeline technique déjà prêt (cartes 1080×1080 via
+    `tools/gen_single.js`/`gen_teaser.js`, `feed.xml`/`feed.json`, voir
+    section dédiée plus haut) mais **jamais branché à un vrai compte
+    Instagram** — pas de posting automatique en place à ce jour, génération
+    manuelle sans diffusion. **Reste à faire** : créer/activer le compte
+    Instagram "Scénario", brancher un outil d'automatisation (ex. Make,
+    Buffer, ou tout outil capable de lire `feed.xml`/`feed.json` avec
+    enclosure image) pour poster automatiquement la carte du jour, puis
+    suivre les mêmes statistiques (impressions, comptes touchés) pour
+    juger si ça génère du trafic vers `lesscenarios.fr`.
+  - Objectif commun : ces deux canaux ne servent à rien tant qu'ils n'ont
+    pas d'audience — la priorité court terme est de poster régulièrement et
+    de construire un minimum de réseau, pas seulement de brancher la
+    technique.
 - Nom de domaine dédié : **fait** — `lesscenarios.fr` acheté et configuré
   (voir plus haut).
 - **SEO de base — fait.** `robots.txt` (autorise tout, pointe vers le
