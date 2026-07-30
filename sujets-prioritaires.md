@@ -56,8 +56,8 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 
 <!-- Faire tourner les sous-thèmes : climat & écologie, espace, IA & numérique, médecine & santé, énergie, recherche fondamentale… -->
 ## Sciences — vendredi (climat & écologie, espace, IA, médecine, énergie…)
-- [ ] Climat : avec moins d'argent consacré à l'écologie, la France peut-elle encore tenir ses promesses pour 2030 ? [climat & écologie]
 - [ ] Méga-feux : après un été 2026 record, la France est-elle prête à s'adapter à des étés de plus en plus chauds ? [climat & écologie]
+- [ ] Climat : avec moins d'argent consacré à l'écologie, la France peut-elle encore tenir ses promesses pour 2030 ? [climat & écologie]
 - [ ] Espace : les États-Unis et la Chine relancent la course à la Lune — finira-t-on vraiment par y installer des humains pour de bon ? [espace]
 - [ ] Intelligence artificielle : ces programmes qui écrivent et dessinent tout seuls, vraie révolution ou bulle prête à éclater ? [IA & numérique]
 - [ ] Médecine : les nouveaux médicaments contre l'obésité (comme l'Ozempic) vont-ils changer la santé de millions de gens ? [médecine & santé]
