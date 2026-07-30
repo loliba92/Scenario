@@ -183,6 +183,19 @@ crucial rétroactivement).
 ## Ce qui reste à faire (suivi)
 
 Voir les échanges de session pour le détail, mais en résumé :
+- **Emails de la newsletter qui arrivent en spam.** Constaté le 30 juillet
+  (premier envoi réel automatisé) : plusieurs abonnés reçoivent l'édition
+  dans leurs indésirables plutôt qu'en boîte de réception. À creuser :
+  - Authentification du domaine d'envoi (**SPF, DKIM, DMARC**) — Buttondown
+    propose généralement de connecter un domaine personnalisé pour l'envoi
+    (au lieu du domaine Buttondown par défaut), ce qui améliore nettement la
+    délivrabilité une fois les enregistrements DNS ajoutés.
+  - Réputation d'expéditeur encore neuve (compte tout juste créé, aucun
+    historique d'envoi) — s'améliore naturellement avec le temps et les
+    ouvertures/clics des abonnés.
+  - Contenu de l'email (emojis en nombre, lien unique répété) qui pourrait
+    déclencher certains filtres — à tester si le problème persiste après
+    authentification du domaine.
 - **Réseaux sociaux (LinkedIn/X)** : intégration native Buttondown testée —
   ne fonctionne qu'avec un profil LinkedIn **personnel**, pas une Page
   Entreprise (confirmé via `docs.buttondown.com/linkedin`). Mise en pause,
