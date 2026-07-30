@@ -18,7 +18,7 @@ est **FormSubmit** (formulaire de contact) — voir plus bas.
 
 ```
 index.html              L'édition du JOUR, et seulement elle. Écrasée chaque matin.
-archives.html           Liste de toutes les éditions passées (recherche + filtres client-side).
+archives.html           Liste de toutes les éditions passées (recherche + filtres client-side + résumé dépliable des 3 scénarios par édition).
 archives/AAAA-MM-JJ.html Copie figée de chaque édition passée. Jamais remodifiée après publication.
 le-projet.html          Page « À propos » : mission, méthode, rythme des 7 jours.
 newsletter.html         Page d'inscription à la newsletter quotidienne (Buttondown).
@@ -60,6 +60,28 @@ détail éditorial complet) :
 Une date de publication (« Publié le … ») est affichée automatiquement sous le
 titre : elle est **déduite en JS** de la ligne du bandeau, donc jamais à saisir
 à la main.
+
+## Page Archives (`archives.html`)
+
+Chaque entrée de la liste porte un bouton **« Scénarios »** qui déplie, au clic,
+un résumé en 1-2 phrases des 3 scénarios de cette édition (favorable / stable /
+dégradé), en colonnes sur desktop et empilés sur mobile. Objectif : donner un
+aperçu du contenu sans obliger à ouvrir chaque archive. Accordéon en CSS pur
+(`grid-template-rows` 0fr → 1fr), sans dépendance JS externe — le clic ne fait
+que basculer une classe `is-expanded` sur l'entrée. Ce bloc est indépendant du
+système de recherche/filtres (les deux cohabitent sans conflit).
+
+**Pas d'emoji dans ce résumé** (contrairement aux `<h3>` des cartes de
+l'édition complète, qui gardent chacun leur emoji propre) : avec plusieurs
+éditions listées les unes sous les autres, des emojis différents à chaque
+ligne donnaient un effet visuel chargé (« sapin de Noël »). À la place, une
+flèche colorée fixe et cohérente sur toute la liste : `↑` vert (favorable),
+`→` bleu (stable), `↓` rouge (dégradé) — couleur héritée de la variable CSS
+`--accent` déjà posée par `data-kind` sur `.scenario-mini`.
+
+Ajouté depuis la routine quotidienne (voir `docs/routine-prompt.md`, étape
+technique 6) : chaque nouvelle édition doit inclure ce bloc dès sa publication,
+pas seulement le titre et les tags.
 
 ## File éditoriale (`sujets-prioritaires.md`)
 

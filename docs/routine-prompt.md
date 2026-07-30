@@ -81,7 +81,7 @@ Pour chaque scénario : coefficient de probabilité en % (somme des trois = 100 
 Terminer par un lexique final : les mots/sigles/noms qui pourraient ne pas être connus de tous, définis en une phrase simple et concise chacun — sans redoublonner ce qui est déjà expliqué dans le texte. **Chaque terme du lexique doit apparaître explicitement dans le texte de l'édition** — jamais un mot ou nom que le lexique est seul à mentionner, même si l'idée générale est évoquée ailleurs sans le terme exact.
 
 ### Étape 6 — Publication et archivage
-`index.html` = toujours l'édition du jour uniquement. `archives/AAAA-MM-JJ.html` = copie figée définitivement (jamais remodifiée ensuite, même si les faits évoluent). `archives.html` = liste de toutes les éditions, la plus récente en tête, avec date/registre/titre/lien.
+`index.html` = toujours l'édition du jour uniquement. `archives/AAAA-MM-JJ.html` = copie figée définitivement (jamais remodifiée ensuite, même si les faits évoluent). `archives.html` = liste de toutes les éditions, la plus récente en tête, avec date/registre/titre/lien, et pour chaque édition un résumé dépliable des 3 scénarios (voir étape technique 6).
 
 ### Style
 Public 15-35 ans en priorité sans exclure personne : phrases directes, comparaisons concrètes et proches du quotidien, aucun jargon jeune artificiel. Vocabulaire simple, ton pédagogique, phrases courtes, une idée par phrase. Rigueur factuelle identique quel que soit l'âge du lecteur.
@@ -106,7 +106,39 @@ Public 15-35 ans en priorité sans exclure personne : phrases directes, comparai
 Lister 2 à 4 liens vers les sources principales **effectivement consultées** pendant la recherche du jour — jamais une source non consultée ou approximative. Citer ses sources renforce la crédibilité du site (comme le fait tout média rigoureux) et ne constitue jamais un risque de plagiat tant que le texte de l'édition reste une synthèse originale, jamais une reprise verbatim. Le CSS de `.sources-list` existe déjà dans le gabarit (voir `index.html`) : ne pas le redéfinir, juste réutiliser le motif HTML ci-dessus.
 4. Écraser `index.html` avec cette nouvelle édition.
 5. Copier ce contenu dans `archives/AAAA-MM-JJ.html` (date du jour), puis y adapter tous les liens relatifs d'un niveau, en suivant exactement le même patron que les fichiers déjà présents dans `archives/`.
-6. Ouvrir `archives.html` et insérer une nouvelle entrée `<li class="entry">` tout en haut de la liste, en suivant EXACTEMENT le patron des entrées déjà présentes. Ne jamais supprimer ni modifier les entrées déjà présentes.
+6. Ouvrir `archives.html` et insérer une nouvelle entrée `<li class="entry">` tout en haut de la liste, en suivant EXACTEMENT le patron des entrées déjà présentes — y compris le bouton de bascule et le bloc dépliable des 3 scénarios qui l'accompagnent :
+```html
+<li class="entry">
+  <div class="entry-main">
+    <span class="entry-date">{JJ.MM.AAAA}</span>
+    <a class="entry-title" href="archives/{AAAA-MM-JJ}.html">{h1 du jour}</a>
+    <div class="entry-tags">
+      <button type="button" class="tag" data-tag="{registre}">{Registre}</button>
+      <!-- + 1-2 tags thématiques -->
+    </div>
+    <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-{AAAA-MM-JJ}">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
+  </div>
+  <div class="entry-scenarios" id="scenarios-{AAAA-MM-JJ}">
+    <div class="entry-scenarios-inner">
+      <div class="scenario-grid">
+        <div class="scenario-mini" data-kind="favorable">
+          <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↑</span> {titre du scénario favorable, sans emoji}</p>
+          <p class="scenario-mini-text">{1 à 2 phrases résumant l'idée du scénario}</p>
+        </div>
+        <div class="scenario-mini" data-kind="stable">
+          <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">→</span> {titre du scénario stable, sans emoji}</p>
+          <p class="scenario-mini-text">{1 à 2 phrases résumant l'idée du scénario}</p>
+        </div>
+        <div class="scenario-mini" data-kind="degrade">
+          <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↓</span> {titre du scénario dégradé, sans emoji}</p>
+          <p class="scenario-mini-text">{1 à 2 phrases résumant l'idée du scénario}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+```
+Le texte de chaque `scenario-mini-title` (hors flèche) doit reprendre le **même titre** que le `<h3>` de la carte correspondante dans l'édition du jour (`index.html`/l'archive), mais **sans son emoji** : ici, la flèche `↑`/`→`/`↓` (verte/bleue/rouge via `data-kind`, jamais un autre symbole) remplace systématiquement l'emoji propre à chaque édition, pour que la liste des archives garde un code visuel cohérent d'une ligne à l'autre plutôt qu'un emoji différent à chaque fois. Le `scenario-mini-text` est une **reformulation condensée en 1 à 2 phrases courtes** de l'idée centrale du paragraphe `why` de ce scénario — le mécanisme concret, pas les comparaisons de probabilité entre les trois scénarios ni un copier-coller du texte complet. Ne jamais supprimer ni modifier les entrées déjà présentes (ni leur bloc scénarios).
 7. Mettre à jour `sitemap.xml` (référencement Google) : ajouter une nouvelle entrée `<url>` pour `https://lesscenarios.fr/archives/{AAAA-MM-JJ}.html` (avec `<lastmod>` = date du jour, `<changefreq>never</changefreq>`, `<priority>0.6</priority>`), et mettre à jour le `<lastmod>` de l'entrée `https://lesscenarios.fr/` (toujours la date du jour, puisque c'est l'édition qui y est affichée) ainsi que celle de `https://lesscenarios.fr/archives.html`. Ne jamais supprimer les entrées `<url>` déjà présentes — même logique que `feed.xml` et `archives.html`, l'historique reste complet.
 8. Mettre à jour `feed.xml` : insérer un nouvel `<item>` juste après les champs `<title>`/`<link>`/`<description>`/`<language>` du `<channel>`, **avant** les items précédents (ne jamais les supprimer — le flux garde son historique, comme `archives.html`). Ce flux alimente l'envoi automatique de la newsletter (Buttondown, RSS-to-email) : un nouvel item = un nouvel email envoyé aux abonnés le jour même. **Ce texte est spécifique à l'email — ce n'est pas un copier-coller de la légende Instagram** : contrairement à Instagram, un email supporte de vrais liens cliquables, donc ne jamais écrire « lien en bio » (ça n'a aucun sens hors Instagram, où c'est justement la seule option faute de lien cliquable dans le texte). **Jamais de hashtags non plus** — ils servent à la découverte sur les réseaux sociaux, mais n'ont aucune fonction dans un email (personne ne « cherche » un email par hashtag) : ça ne fait qu'ajouter du bruit visuel en bas du message.
 ```xml

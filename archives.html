@@ -320,6 +320,80 @@
   }
   .no-result.is-shown{ display: block; }
 
+  /* ---- Bascule "Scénarios" (accordéon) ---- */
+  .entry-toggle{
+    display: flex;
+    align-items: center;
+    align-self: center;
+    gap: 6px;
+    margin-left: auto;
+    background: transparent;
+    border: 1px solid var(--hairline);
+    border-radius: 100px;
+    padding: 4px 12px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--paper-dim);
+    cursor: pointer;
+    transition: color .15s, border-color .15s;
+  }
+  .entry-toggle:hover{ color: var(--paper); border-color: var(--paper-dim); }
+  .entry.is-expanded .entry-toggle{ color: var(--gold); border-color: var(--gold); }
+
+  .entry-toggle-icon{
+    display: inline-block;
+    transition: transform .2s ease;
+  }
+  .entry.is-expanded .entry-toggle-icon{ transform: rotate(180deg); }
+
+  .entry-scenarios{
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .25s ease;
+  }
+  .entry.is-expanded .entry-scenarios{ grid-template-rows: 1fr; }
+
+  .entry-scenarios-inner{ min-height: 0; overflow: hidden; }
+
+  .scenario-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 18px 0 6px;
+  }
+
+  .scenario-mini{
+    --accent: var(--paper-dim);
+    border-left: 2px solid var(--accent);
+    padding-left: 12px;
+  }
+  .scenario-mini[data-kind="favorable"]{ --accent: var(--favorable); }
+  .scenario-mini[data-kind="stable"]{ --accent: var(--stable); }
+  .scenario-mini[data-kind="degrade"]{ --accent: var(--degrade); }
+
+  .scenario-mini-title{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 0.92rem;
+    margin: 0 0 4px;
+    color: var(--paper);
+  }
+
+  .scenario-mini-arrow{
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .scenario-mini-text{
+    font-size: 0.84rem;
+    color: var(--paper-dim);
+    margin: 0;
+    line-height: 1.5;
+  }
+
   footer{
     border-top: 1px solid var(--hairline);
     padding: 32px 0 48px;
@@ -404,6 +478,25 @@
             <button type="button" class="tag theme" data-tag="economie">Économie</button>
             <button type="button" class="tag theme" data-tag="geopolitique">Géopolitique</button>
           </div>
+          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-07-30">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
+        </div>
+        <div class="entry-scenarios" id="scenarios-2026-07-30">
+          <div class="entry-scenarios-inner">
+            <div class="scenario-grid">
+              <div class="scenario-mini" data-kind="favorable">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↑</span> Le retrait se fait proprement</p>
+                <p class="scenario-mini-text">LIV Golf trouve à temps de nouveaux financements, la transition se fait sans casse et le PIF recentre ses moyens sur le football.</p>
+              </div>
+              <div class="scenario-mini" data-kind="stable">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">→</span> Signaux contradictoires, flou permanent</p>
+                <p class="scenario-mini-text">Ni rééquilibrage clair ni retrait franc : le PIF navigue au coup par coup, sans jamais annoncer de plan net.</p>
+              </div>
+              <div class="scenario-mini" data-kind="degrade">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↓</span> Le calendrier serré ne tient pas</p>
+                <p class="scenario-mini-text">Le financement promis n'arrive pas à temps, le retrait s'étend à d'autres sports et Newcastle doit être cédé dans l'urgence.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </li>
       <li class="entry">
@@ -414,6 +507,25 @@
             <button type="button" class="tag" data-tag="actualite-francaise">Actualité française</button>
             <button type="button" class="tag theme" data-tag="politique">Politique</button>
             <button type="button" class="tag theme" data-tag="economie">Économie</button>
+          </div>
+          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-07-29">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
+        </div>
+        <div class="entry-scenarios" id="scenarios-2026-07-29">
+          <div class="entry-scenarios-inner">
+            <div class="scenario-grid">
+              <div class="scenario-mini" data-kind="favorable">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↑</span> Un budget négocié, le gouvernement tient</p>
+                <p class="scenario-mini-text">Un compromis avec le PS permet d'adopter le budget 2027, et Lecornu tient jusqu'à la présidentielle.</p>
+              </div>
+              <div class="scenario-mini" data-kind="stable">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">→</span> Le 49.3 sauve la mise, sous tension</p>
+                <p class="scenario-mini-text">Le gouvernement repasse en force au 49.3 et survit, mais avec un budget dilué et affaibli.</p>
+              </div>
+              <div class="scenario-mini" data-kind="degrade">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↓</span> Pas de budget, le gouvernement tombe</p>
+                <p class="scenario-mini-text">Une motion de censure passe, le gouvernement tombe et le déficit dérape faute de budget voté.</p>
+              </div>
+            </div>
           </div>
         </div>
       </li>
@@ -426,6 +538,25 @@
             <button type="button" class="tag theme" data-tag="economie">Économie</button>
             <button type="button" class="tag theme" data-tag="societe">Société</button>
           </div>
+          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-07-28">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
+        </div>
+        <div class="entry-scenarios" id="scenarios-2026-07-28">
+          <div class="entry-scenarios-inner">
+            <div class="scenario-grid">
+              <div class="scenario-mini" data-kind="favorable">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↑</span> Un impôt plancher freine la machine</p>
+                <p class="scenario-mini-text">Un impôt minimum mondial sur les grandes fortunes finit par s'imposer et ralentit la concentration des richesses.</p>
+              </div>
+              <div class="scenario-mini" data-kind="stable">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">→</span> La fortune grimpe, la taxe reste bloquée</p>
+                <p class="scenario-mini-text">Aucune taxe mondiale ne voit le jour : la fortune des ultra-riches continue de grimper sans rupture.</p>
+              </div>
+              <div class="scenario-mini" data-kind="degrade">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↓</span> La concentration s'emballe</p>
+                <p class="scenario-mini-text">Le boom de l'IA et la Bourse propulsent les plus grandes fortunes encore plus haut, sans le moindre frein politique.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </li>
       <li class="entry">
@@ -436,6 +567,25 @@
             <button type="button" class="tag" data-tag="geopolitique">Géopolitique</button>
             <button type="button" class="tag theme" data-tag="moyen-orient">Moyen-Orient</button>
             <button type="button" class="tag theme" data-tag="energie">Énergie</button>
+          </div>
+          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-07-27">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
+        </div>
+        <div class="entry-scenarios" id="scenarios-2026-07-27">
+          <div class="entry-scenarios-inner">
+            <div class="scenario-grid">
+              <div class="scenario-mini" data-kind="favorable">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↑</span> Un accord verrouille la trêve</p>
+                <p class="scenario-mini-text">Un compromis sur Ormuz et les sanctions transforme la trêve fragile en accord durable.</p>
+              </div>
+              <div class="scenario-mini" data-kind="stable">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">→</span> Ni guerre ni paix, la trêve traîne</p>
+                <p class="scenario-mini-text">La trêve tient tant bien que mal, sans accord ni rupture nette, comme depuis février.</p>
+              </div>
+              <div class="scenario-mini" data-kind="degrade">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↓</span> Les combats reprennent, Ormuz se ferme</p>
+                <p class="scenario-mini-text">Les négociations s'effondrent, les frappes reprennent et l'Iran ferme le détroit d'Ormuz.</p>
+              </div>
+            </div>
           </div>
         </div>
       </li>
@@ -448,6 +598,25 @@
             <button type="button" class="tag theme" data-tag="medias">Médias</button>
             <button type="button" class="tag theme" data-tag="economie">Économie</button>
           </div>
+          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-07-26">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
+        </div>
+        <div class="entry-scenarios" id="scenarios-2026-07-26">
+          <div class="entry-scenarios-inner">
+            <div class="scenario-grid">
+              <div class="scenario-mini" data-kind="favorable">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↑</span> Le juge laisse passer la fusion</p>
+                <p class="scenario-mini-text">La justice, ou un compromis avec les États, permet à la fusion de se conclure avant juin 2027.</p>
+              </div>
+              <div class="scenario-mini" data-kind="stable">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">→</span> Le procès traîne, le deal est gelé</p>
+                <p class="scenario-mini-text">Le procès s'étire sans décision : le rachat et la scission de Warner restent tous deux suspendus.</p>
+              </div>
+              <div class="scenario-mini" data-kind="degrade">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↓</span> Le juge bloque, le deal s'effondre</p>
+                <p class="scenario-mini-text">Les États gagnent le procès, la fusion à 110 milliards s'effondre et Warner doit relancer sa scission en urgence.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </li>
       <li class="entry">
@@ -459,6 +628,25 @@
             <button type="button" class="tag theme" data-tag="jeux-video">Jeux vidéo</button>
             <button type="button" class="tag theme" data-tag="economie">Économie</button>
           </div>
+          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-07-25">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
+        </div>
+        <div class="entry-scenarios" id="scenarios-2026-07-25">
+          <div class="entry-scenarios-inner">
+            <div class="scenario-grid">
+              <div class="scenario-mini" data-kind="favorable">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↑</span> Ubisoft s'en sort seul</p>
+                <p class="scenario-mini-text">Un nouveau succès redresse les comptes : Ubisoft n'a plus besoin de céder davantage de capital.</p>
+              </div>
+              <div class="scenario-mini" data-kind="stable">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">→</span> La vente à la découpe continue</p>
+                <p class="scenario-mini-text">Ubisoft continue de céder des parts de ses franchises à des investisseurs étrangers, sans rachat total.</p>
+              </div>
+              <div class="scenario-mini" data-kind="degrade">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↓</span> Le rachat total</p>
+                <p class="scenario-mini-text">La famille Guillemot finit par céder l'ensemble du groupe à Tencent ou un autre acteur étranger.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </li>
       <li class="entry">
@@ -468,6 +656,25 @@
           <div class="entry-tags">
             <button type="button" class="tag" data-tag="culture-internationale">Culture internationale</button>
             <button type="button" class="tag theme" data-tag="cinema">Cinéma</button>
+          </div>
+          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-07-18">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
+        </div>
+        <div class="entry-scenarios" id="scenarios-2026-07-18">
+          <div class="entry-scenarios-inner">
+            <div class="scenario-grid">
+              <div class="scenario-mini" data-kind="favorable">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↑</span> Le doublé parfait</p>
+                <p class="scenario-mini-text">Les deux films cartonnent et battent des records, un doublé aussi rare qu'Infinity War/Endgame en 2018-2019.</p>
+              </div>
+              <div class="scenario-mini" data-kind="stable">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">→</span> Correct, sans plus</p>
+                <p class="scenario-mini-text">Les deux films performent correctement, sans battre de record ni flop marquant.</p>
+              </div>
+              <div class="scenario-mini" data-kind="degrade">
+                <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↓</span> La fatigue Marvel confirmée</p>
+                <p class="scenario-mini-text">Les deux films déçoivent, confirmant un désamour croissant pour les grosses franchises.</p>
+              </div>
+            </div>
           </div>
         </div>
       </li>
@@ -571,6 +778,14 @@
     }
 
     searchInput.addEventListener('input', apply);
+
+    document.querySelectorAll('.entry-toggle').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var entry = btn.closest('.entry');
+        var expanded = entry.classList.toggle('is-expanded');
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      });
+    });
   })();
 </script>
 
