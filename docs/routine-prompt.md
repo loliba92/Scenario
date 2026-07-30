@@ -115,10 +115,12 @@ Lister 2 à 4 liens vers les sources principales **effectivement consultées** p
   <link>https://lesscenarios.fr/archives/{AAAA-MM-JJ}.html</link>
   <guid isPermaLink="false">scenario-{AAAA-MM-JJ}</guid>
   <pubDate>{date du jour au format RFC-822, ex. Wed, 29 Jul 2026 07:15:00 +0200}</pubDate>
-  <description><![CDATA[{emoji} {accroche + question du jour}<br><br>{paragraphe d'intro}<br>{emoji1} {scénario 1}<br>{emoji2} {scénario 2}<br>{emoji3} {scénario 3}<br><br>Lequel est le plus probable ? 👉 <a href="{lien archive du jour}">Lire les 3 prévisions chiffrées sur le site</a> — c'est gratuit.]]></description>
+  <description><![CDATA[{emoji} {accroche + question du jour}<br><br>{paragraphe d'intro}<br>{emoji1} {scénario 1}<br>{emoji2} {scénario 2}<br>{emoji3} {scénario 3}<br><br>Lequel est le plus probable ? 👉 <a href="{lien archive du jour}">Lire les 3 prévisions chiffrées sur le site</a> — c'est gratuit.<br><br>📮 Une question, une remarque ? Ne réponds pas à cet email (boîte non surveillée) — écris-nous plutôt via <a href="https://lesscenarios.fr/contact.html">la page Contact</a> du site.]]></description>
 </item>
 ```
 **Toujours un vrai lien cliquable dans le CDATA** (`<a href="{lien archive du jour}">...</a>`, jamais juste du texte ni « lien en bio »), obligatoire — c'est le seul moyen pour un lecteur de l'email de rejoindre l'article complet.
+
+**Toujours terminer la description par la ligne « Ne réponds pas à cet email »**, comme dans le modèle ci-dessus, avec le lien vers `https://lesscenarios.fr/contact.html`. L'adresse d'envoi (`contact@newsletter.lesscenarios.fr`) est hébergée sur un sous-domaine dédié à l'authentification de l'envoi (SPF/DKIM géré par Buttondown) : elle ne reçoit aucun courrier entrant. Sans cette ligne, un lecteur qui répond directement à l'email croit avoir contacté quelqu'un — mais le message part dans le vide.
 
 **Retours à la ligne en HTML, pas en texte brut.** Le CDATA de la description est interprété comme du HTML par Buttondown (c'est justement le rôle du CDATA en RSS) : un simple saut de ligne (`\n`) ne produit **aucun** retour à la ligne visuel, tout s'affiche à la suite en un seul paragraphe. Utiliser explicitement `<br>` : `<br><br>` entre deux paragraphes distincts, `<br>` simple entre les 3 lignes de scénarios consécutives — voir la structure exacte dans le bloc XML ci-dessus.
 
