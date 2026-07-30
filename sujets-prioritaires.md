@@ -30,7 +30,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 
 <!-- Enjeux sportifs & économiques, jamais la vie privée des sportifs. Sous-thèmes : football, rugby, tennis, JO, cyclisme, sports méca… -->
 ## Sport — jeudi
-- [ ] Argent du Golfe : l'Arabie saoudite est-elle en train d'acheter le sport mondial ? [sport & économie]
+- [x] Argent du Golfe : l'Arabie saoudite est-elle en train d'acheter le sport mondial ? [sport & économie]
   <!-- Problématique : des milliards du Golfe (Arabie saoudite en tête, via son fonds PIF) irriguent le football (Saudi Pro League, Mondial 2034), le cyclisme (réforme « One Cycling »), le golf, la boxe, la F1… Cet argent va-t-il moderniser et développer ces sports, s'y installer sans tout bouleverser, ou en prendre le contrôle au détriment de leur équilibre et de leur histoire ? → 3 scénarios : favorable = l'argent professionnalise et élargit le public sans mainmise ; stable = présence forte mais contenue, statu quo ; dégradé = prise de contrôle, ligues dissidentes, dépendance et contestation (sportswashing), gouvernance fracturée. -->
 
 - [ ] Rugby : le sport des chocs peut-il devenir plus sûr sans se renier — et y survivre ? [rugby & santé]
