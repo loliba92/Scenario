@@ -49,6 +49,8 @@ Restrictions absolues, même si le sujet correspond au registre du jour : jamais
 ### Étape 2 — La question posée
 Avant de rédiger le contexte, formuler explicitement en une seule phrase claire la question centrale que pose le sujet du jour — celle à laquelle les trois scénarios répondent chacun à leur manière. Cette question doit être visible dans un encart à part entière (voir Étape technique 3), pas seulement sous-entendue dans le texte.
 
+**Le h1 et cette question ne doivent jamais être une simple reformulation cosmétique l'un de l'autre.** Le h1 (titre, voir Étape technique 3) doit rester court et percutant ; la question posée (utilisée aussi comme accroche dans `feed.xml` : `<comments>` et le début de `<description>`) doit apporter une vraie information complémentaire — le contexte ou l'enjeu concret — pas juste le même titre avec un emoji ou une virgule en plus. Objectif : les deux doivent apporter chacun quelque chose de distinct quand ils sont lus l'un après l'autre (ex. sur les réseaux sociaux, où titre et accroche s'affichent souvent à la suite).
+
 ### Étape 3 — Vérification et rédaction du contexte
 Croiser au moins deux sources récentes et distinctes avant d'affirmer un fait, surtout pour tout ce qui évolue vite. Vérifier explicitement qu'un événement présenté comme en cours n'a pas déjà été remplacé par un développement plus récent contradictoire. Signaler toute contradiction entre sources plutôt que de trancher arbitrairement.
 
