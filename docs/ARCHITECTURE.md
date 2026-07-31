@@ -313,6 +313,28 @@ Voir les échanges de session pour le détail, mais en résumé :
       opérations Make (quota gratuit 1000/mois), privilégier un seul
       scénario avec deux sorties (LinkedIn + X) branchées sur le même
       déclencheur RSS plutôt que dupliquer la lecture du flux.
+  - **Identité visuelle de la Page LinkedIn "Scenario"** (id `136694258`)
+    faite le 31 juillet, gratuitement (généré en HTML/CSS + capture
+    Playwright, sans outil de design payant), en reprenant fidèlement les
+    couleurs/polices du site (Fraunces + JetBrains Mono, `--gold`,
+    `--favorable`/`--stable`/`--degrade`) et le mark existant
+    (`assets/logo.svg`, le tronc doré qui se divise en trois flèches) :
+    - Bannière 1128×191, contenu volontairement recentré avec de vraies
+      marges (le premier essai était trop proche des bords et empiétait
+      sur la zone où le logo rond de la page se superpose en bas à gauche).
+    - Logo carré (300×300, spec officielle LinkedIn) basé sur le mark
+      existant du site.
+    - Texte de la section "Vue d'ensemble" (About, 2000 caractères max)
+      rédigé dans la même voix que `le-projet.html` (aucune ligne
+      éditoriale, sources croisées, Olivier Bertrand).
+    - **Lien "LinkedIn ↗" ajouté au footer des 5 pages vivantes**
+      (`index.html`, `archives.html`, `le-projet.html`, `contact.html`,
+      `newsletter.html`), juste à côté du lien Telegram, vers
+      `linkedin.com/company/136694258/`. Comme pour Telegram, ce lien fait
+      partie du gabarit recopié chaque matin par la routine — aucune
+      instruction supplémentaire nécessaire dans `docs/routine-prompt.md`
+      pour le préserver. Non ajouté aux pages `archives/*.html` figées,
+      cohérent avec le choix déjà fait pour Telegram.
 - **Telegram — canal créé le 31 juillet, automatisation branchée.**
   Canal public `@scenario_fr`, bot `@scenario_fr_bot` créé via BotFather et
   ajouté comme administrateur (droit "Publier des messages"). Test manuel
