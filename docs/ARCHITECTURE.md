@@ -301,6 +301,18 @@ Voir les échanges de session pour le détail, mais en résumé :
       pré-cadré dans `sujets-prioritaires.md` (avec ses 3 scénarios), pas
       les jours d'auto-sélection dynamique — donc pas systématiquement
       applicable en l'état.
+    - **Idée notée le 31 juillet, pas encore implémentée** : ajouter X
+      (Twitter) comme canal supplémentaire, toujours via Make.com, sur le
+      même principe que LinkedIn (même module RSS `feed.xml` en entrée).
+      Différences à anticiper avant de configurer : (1) connexion X dans
+      Make nécessite un compte développeur X (gratuit, "Free tier", ~500
+      posts/mois — largement suffisant pour 1 post/jour), contrairement à
+      LinkedIn qui se connecte directement avec le compte perso ; (2) limite
+      de 280 caractères impose un format court dédié (titre + lien, sans la
+      description longue utilisée pour LinkedIn) ; (3) pour économiser les
+      opérations Make (quota gratuit 1000/mois), privilégier un seul
+      scénario avec deux sorties (LinkedIn + X) branchées sur le même
+      déclencheur RSS plutôt que dupliquer la lecture du flux.
 - **Telegram — canal créé le 31 juillet, automatisation branchée.**
   Canal public `@scenario_fr`, bot `@scenario_fr_bot` créé via BotFather et
   ajouté comme administrateur (droit "Publier des messages"). Test manuel
