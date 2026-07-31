@@ -259,6 +259,23 @@ Voir les échanges de session pour le détail, mais en résumé :
   post + sondage partent bien automatiquement en conditions réelles.
   WhatsApp Channels a été écarté pour l'instant (pas d'API officielle
   gratuite, seulement des services tiers payants et non garantis par Meta).
+  Promotion du canal aussi ajoutée dans le template email (`feed.xml`,
+  voir `docs/routine-prompt.md` étape technique 8) : une mention Telegram
+  avant l'invitation à répondre, pour que les abonnés email découvrent le
+  canal sans passer par `newsletter.html`.
+  **Canal soumis à l'annuaire TGStat** (tgstat.com, catégorie France /
+  français / News and media) le 31 juillet, pour être découvrable en
+  dehors du site.
+  **Point de vigilance soulevé le 31 juillet** : l'encart Telegram sur
+  `newsletter.html` (bordure + bouton plein) est visuellement plus marquant
+  que le formulaire email juste au-dessus, avec un risque de cannibaliser
+  les inscriptions email (canal gratuit et sans engagement vs formulaire
+  email) plutôt que de les compléter. Décision : garder l'email comme
+  canal principal (liste possédée, indépendante d'une plateforme tierce)
+  et traiter Telegram comme option secondaire complémentaire — sujet pas
+  encore tranché sur s'il faut rééquilibrer `newsletter.html` en
+  conséquence, et rester volontairement discret (lien simple, pas
+  d'encart) si un ajout est fait sur `index.html`.
   - **Instagram** : pipeline technique déjà prêt (cartes 1080×1080 via
     `tools/gen_single.js`/`gen_teaser.js`, `feed.xml`/`feed.json`, voir
     section dédiée plus haut) mais **jamais branché à un vrai compte
