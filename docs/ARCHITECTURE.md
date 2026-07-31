@@ -394,8 +394,10 @@ Voir les échanges de session pour le détail, mais en résumé :
     configurée (« Send an email », déclenchement à chaque nouvel item, template
     « Rich ») ; mise à jour quotidienne de `feed.xml` ajoutée au prompt de la
     routine (étape technique 7).
-  - ⏳ À faire : finaliser le template d'email (nettoyer les doublons du bloc
-    « Rich », vérifier l'objet/Subject), envoyer un email de test réel pour
-    valider le rendu bout en bout, puis coller la mise à jour de
-    `docs/routine-prompt.md` dans le prompt réel de la routine (comme toujours,
-    la doc n'est qu'une copie de référence).
+  - ✅ **Fait, vérifié le 31 juillet sur un envoi réel** : template d'email
+    propre (un seul bloc d'intro « Rich », pas de doublon), objet/Subject
+    correct (reprend le h1 du jour), retours à la ligne bien interprétés,
+    liens de désinscription/gestion d'abonnement présents. Email de test
+    réel reçu et vérifié bout en bout (édition du 31 juillet, 08h01). Le
+    prompt de la routine est aussi tenu à jour dans le trigger réel au fil
+    des sessions (dernière synchronisation vérifiée le 31 juillet, 16h36).
