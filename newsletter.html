@@ -256,10 +256,12 @@
 
   .submit-btn{
     align-self: flex-start;
+    display: inline-block;
     font-family: "JetBrains Mono", monospace;
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
+    text-decoration: none;
     color: var(--ink);
     background: var(--gold);
     border: 1px solid var(--gold);
@@ -270,6 +272,26 @@
   }
 
   .submit-btn:hover{ opacity: 0.9; }
+
+  .telegram-card{
+    border: 1px solid var(--gold);
+    border-radius: 14px;
+    padding: 28px;
+    margin: 24px 0 0;
+    max-width: 62ch;
+    background: var(--surface);
+  }
+
+  .telegram-card-title{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--paper);
+    margin: 0 0 12px;
+  }
+
+  .telegram-card p{ margin: 0 0 20px; }
+  .telegram-card p:last-of-type{ margin-bottom: 24px; }
 
   .form-hint{ font-size: 0.8rem; color: var(--paper-dim); margin: 0; }
 
@@ -378,10 +400,13 @@
 
 <section class="body-section">
   <div class="wrap">
-    <p class="section-label">Autre option</p>
-    <h2 class="section-title">Suivre sur Telegram</h2>
-    <p>Vous préférez Telegram à l'email ? Le canal <strong>Scénario</strong> reçoit la même chose chaque jour — la question du jour, un lien vers l'édition complète, et un petit sondage pour donner votre pronostic avant de découvrir les probabilités réelles.</p>
-    <a class="cross-link" href="https://t.me/scenario_fr" target="_blank" rel="noopener noreferrer">Rejoindre le canal Telegram →</a>
+    <p class="section-label">Bonus</p>
+    <h2 class="section-title">Devine le scénario avant de le découvrir</h2>
+    <div class="telegram-card">
+      <p class="telegram-card-title">🗳️ Un sondage chaque jour, avant la révélation</p>
+      <p>Sur le canal Telegram <strong>Scénario</strong>, votez pour le scénario — favorable, stable ou dégradé — que vous jugez le plus probable, <strong>avant même de lire l'édition</strong> et ses vraies probabilités. Vous recevez aussi le teaser du jour et le lien direct vers l'article complet.</p>
+      <a class="submit-btn" href="https://t.me/scenario_fr" target="_blank" rel="noopener noreferrer">Rejoindre le canal Telegram</a>
+    </div>
   </div>
 </section>
 
