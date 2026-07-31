@@ -240,6 +240,19 @@ Voir les échanges de session pour le détail, mais en résumé :
     post) ; réfléchir si la Page LinkedIn "Scénario" (Entreprise, existante
     mais manuelle, jamais utilisée) a un rôle à jouer en complément, ou si
     on l'abandonne pour se concentrer sur le profil personnel.
+- **Telegram — canal créé le 31 juillet, automatisation branchée.**
+  Canal public `@scenario_fr`, bot `@scenario_fr_bot` créé via BotFather et
+  ajouté comme administrateur (droit "Publier des messages"). Test manuel
+  d'envoi réussi (`sendMessage` via l'API Telegram). Étape ajoutée au prompt
+  de la routine (voir `docs/routine-prompt.md`, étape technique 9) : poste
+  un teaser + lien vers l'archive du jour à chaque publication.
+  **Reste à faire** : configurer la variable d'environnement
+  `TELEGRAM_BOT_TOKEN` (le token du bot, jamais en clair dans le dépôt qui
+  est public) côté environnement Claude Code Remote utilisé par le trigger
+  « Scénario », sans quoi la routine ignore silencieusement cette étape
+  (comportement voulu, pour ne jamais bloquer la publication principale).
+  WhatsApp Channels a été écarté pour l'instant (pas d'API officielle
+  gratuite, seulement des services tiers payants et non garantis par Meta).
   - **Instagram** : pipeline technique déjà prêt (cartes 1080×1080 via
     `tools/gen_single.js`/`gen_teaser.js`, `feed.xml`/`feed.json`, voir
     section dédiée plus haut) mais **jamais branché à un vrai compte

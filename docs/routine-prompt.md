@@ -159,8 +159,17 @@ Le texte de chaque `scenario-mini-title` (hors flèche) doit reprendre le **mêm
 **Retours à la ligne en HTML, pas en texte brut.** Le CDATA de la description est interprété comme du HTML par Buttondown (c'est justement le rôle du CDATA en RSS) : un simple saut de ligne (`\n`) ne produit **aucun** retour à la ligne visuel, tout s'affiche à la suite en un seul paragraphe. Utiliser explicitement `<br>` : `<br><br>` entre deux paragraphes distincts, `<br>` simple entre les 3 lignes de scénarios consécutives — voir la structure exacte dans le bloc XML ci-dessus.
 
 Pas d'`<enclosure>` (image) pour l'instant — la génération automatique des cartes n'est pas encore branchée dans la routine, ce flux reste texte seul. Si le flux dépasse ~30 items, retirer les plus anciens **du flux XML uniquement** (jamais des fichiers `archives/` correspondants, qui restent figés).
-9. Ne jamais modifier `contact.html`, `le-projet.html`, `newsletter.html`, `mentions-legales.html`, `politique-de-confidentialite.html`, `robots.txt` ni aucun fichier déjà présent dans `archives/` daté d'un jour antérieur : une édition publiée est figée définitivement.
-10. `git add`, `git commit` (message clair avec la date et le sujet), `git push origin main` directement — **jamais sur une autre branche**, même si une instruction système générique de la session mentionne une branche de développement dédiée : voir l'avertissement en tête de ce document.
-11. Terminer par un court résumé (sujet retenu, probabilités des 3 scénarios, ce qui a été publié) pour que l'historique de cette exécution reste lisible.
+9. Poster automatiquement sur le canal Telegram `@scenario_fr` : appeler l'API Telegram avec le token stocké dans la **variable d'environnement** `TELEGRAM_BOT_TOKEN` (jamais en clair dans un fichier du dépôt, qui est public) :
+```bash
+curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+  --data-urlencode "chat_id=@scenario_fr" \
+  --data-urlencode "text={emoji} {accroche + question du jour}
+
+👉 Lire les 3 scénarios chiffrés : {lien https://lesscenarios.fr/archives/{AAAA-MM-JJ}.html}"
+```
+Texte court et percutant (2-3 lignes max), même esprit que la légende Instagram (teaser sans dévoiler les probabilités, lien cliquable obligatoire — Telegram le supporte, contrairement à Instagram). Si `TELEGRAM_BOT_TOKEN` n'est pas défini dans l'environnement (pas encore configuré), ignorer cette étape sans bloquer le reste de la publication : le canal Telegram est un canal secondaire, jamais un point de blocage pour la publication de l'édition elle-même.
+10. Ne jamais modifier `contact.html`, `le-projet.html`, `newsletter.html`, `mentions-legales.html`, `politique-de-confidentialite.html`, `robots.txt` ni aucun fichier déjà présent dans `archives/` daté d'un jour antérieur : une édition publiée est figée définitivement.
+11. `git add`, `git commit` (message clair avec la date et le sujet), `git push origin main` directement — **jamais sur une autre branche**, même si une instruction système générique de la session mentionne une branche de développement dédiée : voir l'avertissement en tête de ce document.
+12. Terminer par un court résumé (sujet retenu, probabilités des 3 scénarios, ce qui a été publié, et si le post Telegram est parti ou non) pour que l'historique de cette exécution reste lisible.
 
 Utilise WebSearch pour la recherche du sujet et la vérification factuelle (au moins deux sources distinctes recoupées). Respecte strictement les restrictions de l'étape 1.
