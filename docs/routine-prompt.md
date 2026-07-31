@@ -170,11 +170,13 @@ Le texte de chaque `scenario-mini-title` (hors flèche) doit reprendre le **mêm
 Pas d'`<enclosure>` (image) pour l'instant — la génération automatique des cartes n'est pas encore branchée dans la routine, ce flux reste texte seul. Si le flux dépasse ~30 items, retirer les plus anciens **du flux XML uniquement** (jamais des fichiers `archives/` correspondants, qui restent figés).
 9. Poster automatiquement sur le canal Telegram `@scenario_fr` : appeler l'API Telegram avec le token stocké dans la **variable d'environnement** `TELEGRAM_BOT_TOKEN` (jamais en clair dans un fichier du dépôt, qui est public). Deux appels successifs :
 
-a) Le teaser avec le lien (`sendMessage`) :
+a) Le teaser avec le lien (`sendMessage`) — même structure que le post LinkedIn (titre, puis question, puis lien), pour rester cohérent d'un canal à l'autre :
 ```bash
 curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
   --data-urlencode "chat_id=@scenario_fr" \
-  --data-urlencode "text={emoji} {accroche + question du jour}
+  --data-urlencode "text={h1 du jour}
+
+{emoji} {accroche + question du jour}
 
 👉 Lire les 3 scénarios chiffrés : {lien https://lesscenarios.fr/archives/{AAAA-MM-JJ}.html}"
 ```
