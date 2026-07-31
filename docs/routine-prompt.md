@@ -149,10 +149,12 @@ Le texte de chaque `scenario-mini-title` (hors flèche) doit reprendre le **mêm
   <link>https://lesscenarios.fr/archives/{AAAA-MM-JJ}.html</link>
   <guid isPermaLink="false">scenario-{AAAA-MM-JJ}</guid>
   <pubDate>{date du jour au format RFC-822, ex. Wed, 29 Jul 2026 07:15:00 +0200}</pubDate>
-  <description><![CDATA[{emoji} {accroche + question du jour}<br><br>{paragraphe d'intro}<br>{emoji1} {scénario 1}<br>{emoji2} {scénario 2}<br>{emoji3} {scénario 3}<br><br>Lequel est le plus probable ? 👉 <a href="{lien archive du jour}">Lire les 3 prévisions chiffrées sur le site</a> — c'est gratuit.<br><br>📮 Une question, une remarque ? Réponds directement à cet email, on te lit.]]></description>
+  <description><![CDATA[{emoji} {accroche + question du jour}<br><br>{paragraphe d'intro}<br>{emoji1} {scénario 1}<br>{emoji2} {scénario 2}<br>{emoji3} {scénario 3}<br><br>Lequel est le plus probable ? 👉 <a href="{lien archive du jour}">Lire les 3 prévisions chiffrées sur le site</a> — c'est gratuit.<br><br>🗳️ Envie de voter avant de connaître les vraies probabilités ? Rejoins le canal Telegram : <a href="https://t.me/scenario_fr">t.me/scenario_fr</a><br><br>📮 Une question, une remarque ? Réponds directement à cet email, on te lit.]]></description>
 </item>
 ```
 **Toujours un vrai lien cliquable dans le CDATA** (`<a href="{lien archive du jour}">...</a>`, jamais juste du texte ni « lien en bio »), obligatoire — c'est le seul moyen pour un lecteur de l'email de rejoindre l'article complet.
+
+**Toujours inclure la mention Telegram avant l'invitation à répondre**, comme dans le modèle ci-dessus — c'est le principal levier de découverte du canal pour les abonnés email qui ne visitent pas forcément `newsletter.html`.
 
 **Toujours terminer la description par l'invitation à répondre**, comme dans le modèle ci-dessus. L'adresse d'envoi (`contact@newsletter.lesscenarios.fr`) a un reply-to configuré côté Buttondown vers une boîte réellement surveillée : une réponse directe à l'email fonctionne et arrive à destination, pas besoin de renvoyer vers la page Contact du site pour ça.
 
