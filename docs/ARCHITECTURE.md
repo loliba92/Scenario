@@ -236,26 +236,71 @@ Voir les échanges de session pour le détail, mais en résumé :
     déclencher l'auto-partage — il faut configurer une **Automation**
     dédiée (`buttondown.com/automations`), fonctionnalité réservée au plan
     **Standard** (26 $/mois, jugé trop cher pour ce besoin).
-    **Solution retenue et fonctionnelle depuis le 31 juillet : Make.com
-    (plan gratuit, ~1000 opérations/mois, largement suffisant pour 1
-    post/jour).** Scénario Make : module **RSS** ("Watch RSS feed items",
-    URL `https://lesscenarios.fr/feed.xml`, 1 item max, déclenché "Only new
-    items" pour ne traiter que les futures éditions) → module **LinkedIn**
-    ("Create a Company Text Post", posté sur la **Page LinkedIn "Scenario"**
-    — pas le profil personnel "Les Scenarios", finalement pas utilisé pour
-    cet automatisme). Contenu du post : phrase fixe d'intro + titre du jour
-    (`Title`) + lien (`URL`) — **jamais** le champ `Description` du flux RSS
-    (pensé pour l'email, avec des `<br>` non interprétés par LinkedIn et une
-    invitation à répondre à un email qui n'a pas de sens ici). Le scénario
-    Make doit rester **activé** (toggle "Every 15 minutes" ou fréquence
-    choisie) pour continuer à tourner automatiquement.
+    **Solution retenue et fonctionnelle depuis le 31 juillet : Make.com**
+    (plan gratuit, ~30-60 opérations/mois avec une vérification 1x/jour à
+    10h Paris plutôt qu'un intervalle court — un polling toutes les 15 min
+    aurait consommé ~1440 opérations/mois, largement au-dessus du quota
+    gratuit de 1000 : Make compte une opération à **chaque vérification**,
+    même sans nouvel item).
+
+    **Scénario Make final** : module **RSS** ("Watch RSS feed items", URL
+    `https://lesscenarios.fr/feed.xml`, 1 item max, déclenché **"From now
+    on"** pour ne traiter que les futures éditions, jamais l'historique) →
+    module **LinkedIn "Create a Company Text Post"**, posté sur la **Page
+    LinkedIn "Scenario"** (pas le profil personnel "Les Scenarios", non
+    utilisé pour cet automatisme) :
+    - **Content** : une simple phrase fixe d'intro ("🔥 Nouvelle édition
+      Scénario, à lire 👇") — le reste de l'info est porté par la carte Article
+      ci-dessous, pas la peine de dupliquer titre/lien dans le texte.
+    - **Media Type = Article**, avec **Link → URL** = champ `URL` du flux,
+      **Link → Title** = champ `Title`, **Link → Description** = champ
+      `Comments` (voir plus bas). Thumbnail laissé vide (LinkedIn récupère
+      l'image Open Graph du site automatiquement).
+    - Le champ `Description` brut du flux RSS n'est **jamais** utilisé
+      directement (pensé pour l'email : contient des `<br>` non interprétés
+      par LinkedIn et une invitation à répondre à un email qui n'a pas de
+      sens hors contexte email).
+    - **Point d'attention Make découvert en session** : le module RSS
+      générique ne reconnaît que les champs standards RSS 2.0 + deux
+      extensions prédéfinies (Google Merchant Center, iTunes) — impossible
+      d'exposer un champ personnalisé arbitraire (on a testé un
+      `<scenario:teaser>` avec namespace dédié : jamais détecté par Make).
+      Solution : détourner le champ standard **`<comments>`** (prévu à
+      l'origine pour un lien vers une page de commentaires) pour y mettre
+      en texte brut la question posée du jour — Make le reconnaît nativement,
+      aucune config supplémentaire. Voir `docs/routine-prompt.md`, étape
+      technique 8, et la nouvelle règle éditoriale de l'étape 2 : **la
+      question posée est rédigée une seule fois puis réutilisée mot pour
+      mot** dans l'encart du site, `<comments>`/`<description>` de
+      `feed.xml`, et le teaser Telegram — jamais reformulée différemment
+      d'un endroit à l'autre. Les 4 items déjà publiés au 31 juillet ont été
+      corrigés a posteriori dans `feed.xml` pour respecter cette règle
+      (leur `<comments>` avait dérivé de la vraie question affichée sur le
+      site).
+    - Autre règle ajoutée : **le h1 (titre) et la question posée ne
+      doivent jamais être une simple reformulation l'un de l'autre** —
+      constaté sur l'édition du 27 juillet (Iran/USA) où les deux étaient
+      quasi identiques, redondant une fois affichés l'un après l'autre sur
+      LinkedIn.
+    - **Piège de test à connaître** : la fonction "Rerun/Replay" de
+      l'historique Make **rejoue les données figées au moment de la
+      capture initiale** — si le champ `comments` n'existait pas encore
+      dans `feed.xml` à ce moment-là, le replay l'affiche vide même après
+      correction du flux et de la config. Seul un **vrai nouveau passage
+      RSS** (nouvel item jamais vu) reflète la configuration actuelle. Un
+      flux de test jetable (`feed-test.xml`, supprimé après usage) a servi
+      à valider ça sans attendre le lendemain ni polluer la vraie newsletter.
+    - Le scénario Make doit rester **activé** pour continuer à tourner
+      automatiquement.
 - **Telegram — canal créé le 31 juillet, automatisation branchée.**
   Canal public `@scenario_fr`, bot `@scenario_fr_bot` créé via BotFather et
   ajouté comme administrateur (droit "Publier des messages"). Test manuel
   d'envoi réussi (`sendMessage` + `sendPoll` via l'API Telegram). Étape
   ajoutée au prompt de la routine (voir `docs/routine-prompt.md`, étape
-  technique 9) : poste un teaser + lien vers l'archive du jour, suivi d'un
-  sondage natif (favorable/stable/dégradé) pour créer de l'engagement.
+  technique 9) : poste un teaser (titre + question posée + lien — même
+  structure que le post LinkedIn, alignée le 31 juillet pour rester
+  cohérente d'un canal à l'autre) suivi d'un sondage natif
+  (favorable/stable/dégradé) pour créer de l'engagement.
   **Fait le 31 juillet** : variable d'environnement `TELEGRAM_BOT_TOKEN`
   configurée côté environnement Claude Code Remote ("Default") utilisé par
   le trigger « Scénario » ; lien "Telegram ↗" ajouté au footer des 5 pages
