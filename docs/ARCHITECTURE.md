@@ -219,6 +219,8 @@ Voir les échanges de session pour le détail, mais en résumé :
   - Réputation d'expéditeur encore neuve (compte tout juste créé) — continue
     de s'améliorer naturellement avec le temps et les ouvertures/clics des
     abonnés, indépendamment de ce qui précède.
+  - **Confirmé fonctionnel le 31 juillet** : l'édition du jour envoyée
+    correctement depuis `contact@lesscenarios.fr`.
 - **LinkedIn et Instagram — à configurer correctement pour générer du trafic.**
   Reprise en main le 30 juillet, après constat que rien n'était vraiment
   actif :
@@ -227,14 +229,17 @@ Voir les échanges de session pour le détail, mais en résumé :
     Entreprise (confirmé via `docs.buttondown.com/linkedin`). Solution
     retenue : profil personnel renommé "Les Scenarios" (Suresnes,
     Île-de-France), connecté à l'intégration Buttondown, avec un résumé
-    ("About") réécrit expliquant la genèse et le principe du projet. **Reste
-    à faire** : vérifier au prochain envoi (vendredi) qu'un post se crée
-    bien automatiquement ; construire un minimum de réseau/abonnés sur ce
-    profil (0 relation ≈ 0 diffusion, cf. "Découverte : 100 % dans le réseau,
-    1 membre touché" sur le premier post) ; réfléchir si la Page LinkedIn
-    "Scénario" (Entreprise, existante mais manuelle, jamais utilisée) a un
-    rôle à jouer en complément, ou si on l'abandonne pour se concentrer sur
-    le profil personnel.
+    ("About") réécrit expliquant la genèse et le principe du projet.
+    **Testé le 31 juillet (envoi du jour) : toujours pas de post créé
+    automatiquement** — l'intégration reste cassée malgré la connexion.
+    **Reste à faire** : diagnostiquer pourquoi (reconnexion du compte
+    LinkedIn côté Buttondown ? permission manquante ? délai de propagation
+    plus long que prévu ?) ; en attendant, construire un minimum de
+    réseau/abonnés sur ce profil (0 relation ≈ 0 diffusion, cf.
+    "Découverte : 100 % dans le réseau, 1 membre touché" sur le premier
+    post) ; réfléchir si la Page LinkedIn "Scénario" (Entreprise, existante
+    mais manuelle, jamais utilisée) a un rôle à jouer en complément, ou si
+    on l'abandonne pour se concentrer sur le profil personnel.
   - **Instagram** : pipeline technique déjà prêt (cartes 1080×1080 via
     `tools/gen_single.js`/`gen_teaser.js`, `feed.xml`/`feed.json`, voir
     section dédiée plus haut) mais **jamais branché à un vrai compte
