@@ -270,6 +270,33 @@
 
   .cross-link:hover{ color: var(--paper); border-bottom-color: var(--paper); }
 
+  .channel-buttons{
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+
+  .btn-outline{
+    display: inline-block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    color: var(--gold);
+    background: transparent;
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    padding: 9px 22px;
+    transition: background .15s, color .15s;
+  }
+
+  .btn-outline:hover{
+    background: var(--gold);
+    color: var(--ink);
+  }
+
   footer{
     border-top: 1px solid var(--hairline);
     padding: 32px 0 48px;
@@ -370,6 +397,18 @@
     <p><strong>Chaque semaine, l'édition du mardi est en carte blanche aux lecteurs.</strong> Proposez-nous par email un sujet d'actualité à fort enjeu et forte incertitude, et nous en retenons un parmi les plus pertinents pour le passer au crible des trois scénarios.</p>
     <p>Indiquez simplement le sujet et, si vous voulez, en une phrase pourquoi son issue vous semble encore incertaine.</p>
     <a class="cross-link" href="le-projet.html">Comment nous travaillons → Le projet</a>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">Ailleurs aussi</p>
+    <h2 class="section-title">Joignables sur Telegram et LinkedIn</h2>
+    <p>En plus du site et de la newsletter, chaque édition est relayée sur Telegram (teaser et sondage chaque matin) et sur LinkedIn — deux façons simples de nous suivre ou de nous écrire.</p>
+    <div class="channel-buttons">
+      <a class="btn-outline" href="https://t.me/scenario_fr" target="_blank" rel="noopener noreferrer">Telegram ↗</a>
+      <a class="btn-outline" href="https://www.linkedin.com/company/136694258/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    </div>
   </div>
 </section>
 
