@@ -265,7 +265,16 @@ Voir les échanges de session pour le détail, mais en résumé :
   canal sans passer par `newsletter.html`.
   **Canal soumis à l'annuaire TGStat** (tgstat.com, catégorie France /
   français / News and media) le 31 juillet, pour être découvrable en
-  dehors du site.
+  dehors du site. Email de proposition préparé pour l'annuaire **ActuZones**
+  (actuzones@proton.me) — à envoyer manuellement. Deux autres annuaires
+  identifiés mais pas encore soumis : Lien Telegram (lientelegram.com,
+  fiche indexée Google) et Annuaire Telegram France (telegramfrance.com).
+  **Encart dédié ajouté sur `index.html`** (section `.telegram-promo`,
+  entre Sources et le footer) : bouton à bordure — volontairement moins
+  marquant qu'un bouton plein — puisque c'est la page la plus visitée du
+  site. Comme le lien du footer, cette section fait partie du gabarit
+  `index.html` recopié chaque matin, aucune instruction supplémentaire
+  nécessaire dans `docs/routine-prompt.md`.
   **Point de vigilance soulevé le 31 juillet** : l'encart Telegram sur
   `newsletter.html` (bordure + bouton plein) est visuellement plus marquant
   que le formulaire email juste au-dessus, avec un risque de cannibaliser
