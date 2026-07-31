@@ -292,6 +292,15 @@ Voir les échanges de session pour le détail, mais en résumé :
       à valider ça sans attendre le lendemain ni polluer la vraie newsletter.
     - Le scénario Make doit rester **activé** pour continuer à tourner
       automatiquement.
+    - **Idée notée le 31 juillet, pas encore implémentée** : faire porter
+      le sondage Telegram sur le sujet du **lendemain** plutôt que sur
+      celui du jour même, pour créer un effet d'attente ("reviens demain
+      voir si tu avais raison") au lieu d'un vote juste avant la révélation
+      immédiate des probabilités. Frein principal : la routine ne connaît
+      le sujet du lendemain à l'avance que les jours où il est déjà
+      pré-cadré dans `sujets-prioritaires.md` (avec ses 3 scénarios), pas
+      les jours d'auto-sélection dynamique — donc pas systématiquement
+      applicable en l'état.
 - **Telegram — canal créé le 31 juillet, automatisation branchée.**
   Canal public `@scenario_fr`, bot `@scenario_fr_bot` créé via BotFather et
   ajouté comme administrateur (droit "Publier des messages"). Test manuel
