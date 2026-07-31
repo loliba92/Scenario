@@ -231,15 +231,21 @@ Voir les échanges de session pour le détail, mais en résumé :
     Île-de-France), connecté à l'intégration Buttondown, avec un résumé
     ("About") réécrit expliquant la genèse et le principe du projet.
     **Testé le 31 juillet (envoi du jour) : toujours pas de post créé
-    automatiquement** — l'intégration reste cassée malgré la connexion.
-    **Reste à faire** : diagnostiquer pourquoi (reconnexion du compte
-    LinkedIn côté Buttondown ? permission manquante ? délai de propagation
-    plus long que prévu ?) ; en attendant, construire un minimum de
-    réseau/abonnés sur ce profil (0 relation ≈ 0 diffusion, cf.
-    "Découverte : 100 % dans le réseau, 1 membre touché" sur le premier
-    post) ; réfléchir si la Page LinkedIn "Scénario" (Entreprise, existante
-    mais manuelle, jamais utilisée) a un rôle à jouer en complément, ou si
-    on l'abandonne pour se concentrer sur le profil personnel.
+    automatiquement.** **Cause identifiée le 31 juillet (réponse du support
+    Buttondown, Anita)** : connecter l'intégration LinkedIn ne suffit pas à
+    déclencher l'auto-partage — il faut configurer une **Automation**
+    dédiée (`buttondown.com/automations`), fonctionnalité réservée au plan
+    **Standard** (au-dessus du Basic actuel). Ce n'est donc pas un bug, mais
+    une limitation du plan. **Décision en attente** : upgrader vers
+    Standard (coût à vérifier) pour débloquer l'auto-partage, ou abandonner
+    l'auto-partage LinkedIn et garder Telegram comme unique canal
+    secondaire automatisé. En parallèle, indépendamment de ce choix :
+    construire un minimum de réseau/abonnés sur le profil perso (0 relation
+    ≈ 0 diffusion, cf. "Découverte : 100 % dans le réseau, 1 membre touché"
+    sur le premier post) ; réfléchir si la Page LinkedIn "Scénario"
+    (Entreprise, existante mais manuelle, jamais utilisée) a un rôle à
+    jouer en complément, ou si on l'abandonne pour se concentrer sur le
+    profil personnel.
 - **Telegram — canal créé le 31 juillet, automatisation branchée.**
   Canal public `@scenario_fr`, bot `@scenario_fr_bot` créé via BotFather et
   ajouté comme administrateur (droit "Publier des messages"). Test manuel
