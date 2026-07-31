@@ -235,17 +235,20 @@ Voir les échanges de session pour le détail, mais en résumé :
     Buttondown, Anita)** : connecter l'intégration LinkedIn ne suffit pas à
     déclencher l'auto-partage — il faut configurer une **Automation**
     dédiée (`buttondown.com/automations`), fonctionnalité réservée au plan
-    **Standard** (au-dessus du Basic actuel). Ce n'est donc pas un bug, mais
-    une limitation du plan. **Décision en attente** : upgrader vers
-    Standard (coût à vérifier) pour débloquer l'auto-partage, ou abandonner
-    l'auto-partage LinkedIn et garder Telegram comme unique canal
-    secondaire automatisé. En parallèle, indépendamment de ce choix :
-    construire un minimum de réseau/abonnés sur le profil perso (0 relation
-    ≈ 0 diffusion, cf. "Découverte : 100 % dans le réseau, 1 membre touché"
-    sur le premier post) ; réfléchir si la Page LinkedIn "Scénario"
-    (Entreprise, existante mais manuelle, jamais utilisée) a un rôle à
-    jouer en complément, ou si on l'abandonne pour se concentrer sur le
-    profil personnel.
+    **Standard** (26 $/mois, jugé trop cher pour ce besoin).
+    **Solution retenue et fonctionnelle depuis le 31 juillet : Make.com
+    (plan gratuit, ~1000 opérations/mois, largement suffisant pour 1
+    post/jour).** Scénario Make : module **RSS** ("Watch RSS feed items",
+    URL `https://lesscenarios.fr/feed.xml`, 1 item max, déclenché "Only new
+    items" pour ne traiter que les futures éditions) → module **LinkedIn**
+    ("Create a Company Text Post", posté sur la **Page LinkedIn "Scenario"**
+    — pas le profil personnel "Les Scenarios", finalement pas utilisé pour
+    cet automatisme). Contenu du post : phrase fixe d'intro + titre du jour
+    (`Title`) + lien (`URL`) — **jamais** le champ `Description` du flux RSS
+    (pensé pour l'email, avec des `<br>` non interprétés par LinkedIn et une
+    invitation à répondre à un email qui n'a pas de sens ici). Le scénario
+    Make doit rester **activé** (toggle "Every 15 minutes" ou fréquence
+    choisie) pour continuer à tourner automatiquement.
 - **Telegram — canal créé le 31 juillet, automatisation branchée.**
   Canal public `@scenario_fr`, bot `@scenario_fr_bot` créé via BotFather et
   ajouté comme administrateur (droit "Publier des messages"). Test manuel
