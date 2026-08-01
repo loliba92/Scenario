@@ -99,7 +99,7 @@
   .version:last-child{ margin-bottom: 0; }
 
   .version-head{
-    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
     margin: 0 0 16px;
   }
   .version-tag{
@@ -110,6 +110,22 @@
   .version.is-update .version-tag{ background: var(--paper); }
   .version-date{ font-family: "JetBrains Mono", monospace; font-size: 0.85rem; color: var(--paper-dim); }
   .version-title{ font-family: "Fraunces", serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 16px; }
+
+  .version-toggle{
+    display: flex; align-items: center; gap: 6px; margin-left: auto;
+    background: transparent; border: 1px solid var(--hairline); border-radius: 100px;
+    padding: 4px 12px; font-family: "JetBrains Mono", monospace; font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.05em; color: var(--paper-dim);
+    cursor: pointer; transition: color .15s, border-color .15s;
+  }
+  .version-toggle:hover{ color: var(--paper); border-color: var(--paper-dim); }
+  .version.is-expanded .version-toggle{ color: var(--gold); border-color: var(--gold); }
+  .version-toggle-icon{ display: inline-block; transition: transform .2s ease; }
+  .version.is-expanded .version-toggle-icon{ transform: rotate(180deg); }
+
+  .version-content{ display: grid; grid-template-rows: 0fr; transition: grid-template-rows .25s ease; }
+  .version.is-expanded .version-content{ grid-template-rows: 1fr; }
+  .version-content-inner{ min-height: 0; overflow: hidden; }
 
   .version-body{
     background: var(--surface); border: 1px solid var(--hairline); border-radius: 8px;
@@ -218,33 +234,41 @@
 <section class="timeline">
   <div class="wrap">
 
-    <!-- V0 — toujours le rappel de l'édition d'origine, jamais modifié ensuite -->
+    <!-- V0 — toujours le rappel de l'édition d'origine, jamais modifié ensuite.
+         Repliée par défaut (voir JS en fin de fichier) : seule la dernière version
+         reste dépliée à l'arrivée sur la page, pour éviter un historique trop long
+         à faire défiler à chaque nouvelle mise à jour. -->
     <div class="version">
       <div class="version-head">
         <span class="version-tag">V0 — Point de départ</span>
         <span class="version-date">{DATE ORIGINE}</span>
+        <button type="button" class="version-toggle" aria-expanded="false" aria-controls="version-content-v0">Détails <span class="version-toggle-icon" aria-hidden="true">▾</span></button>
       </div>
-      <h2 class="version-title">{Titre court résumant la situation au départ}</h2>
-      <div class="version-body">
-        <p>{Rappel du contexte de l'édition d'origine — pourquoi le sujet posait question, en 1 paragraphe.}</p>
-        <div class="mini-scenarios">
-          <div class="mini-scenario" data-kind="favorable">
-            <p class="mini-scenario-title">{emoji} {Titre scénario favorable} <span class="mini-scenario-pct">{XX}%</span></p>
-            <p class="mini-scenario-text">{1-2 phrases résumant ce scénario, comme dans l'édition d'origine.}</p>
+      <div class="version-content" id="version-content-v0">
+        <div class="version-content-inner">
+        <h2 class="version-title">{Titre court résumant la situation au départ}</h2>
+        <div class="version-body">
+          <p>{Rappel du contexte de l'édition d'origine — pourquoi le sujet posait question, en 1 paragraphe.}</p>
+          <div class="mini-scenarios">
+            <div class="mini-scenario" data-kind="favorable">
+              <p class="mini-scenario-title">{emoji} {Titre scénario favorable} <span class="mini-scenario-pct">{XX}%</span></p>
+              <p class="mini-scenario-text">{1-2 phrases résumant ce scénario, comme dans l'édition d'origine.}</p>
+            </div>
+            <div class="mini-scenario" data-kind="stable">
+              <p class="mini-scenario-title">{emoji} {Titre scénario stable} <span class="mini-scenario-pct">{XX}%</span></p>
+              <p class="mini-scenario-text">{1-2 phrases résumant ce scénario, comme dans l'édition d'origine.}</p>
+            </div>
+            <div class="mini-scenario" data-kind="degrade">
+              <p class="mini-scenario-title">{emoji} {Titre scénario dégradé} <span class="mini-scenario-pct">{XX}%</span></p>
+              <p class="mini-scenario-text">{1-2 phrases résumant ce scénario, comme dans l'édition d'origine.}</p>
+            </div>
           </div>
-          <div class="mini-scenario" data-kind="stable">
-            <p class="mini-scenario-title">{emoji} {Titre scénario stable} <span class="mini-scenario-pct">{XX}%</span></p>
-            <p class="mini-scenario-text">{1-2 phrases résumant ce scénario, comme dans l'édition d'origine.}</p>
-          </div>
-          <div class="mini-scenario" data-kind="degrade">
-            <p class="mini-scenario-title">{emoji} {Titre scénario dégradé} <span class="mini-scenario-pct">{XX}%</span></p>
-            <p class="mini-scenario-text">{1-2 phrases résumant ce scénario, comme dans l'édition d'origine.}</p>
+          <div class="conclusion">
+            <span class="conclusion-label">Scénario jugé le plus probable à l'époque</span>
+            <p class="conclusion-headline">{emoji} {Phrase-clé courte résumant le scénario le plus probable au départ}.</p>
+            <p><strong>{emoji} {Nom du scénario} ({XX}%)</strong> — {pourquoi, en une phrase}.</p>
           </div>
         </div>
-        <div class="conclusion">
-          <span class="conclusion-label">Scénario jugé le plus probable à l'époque</span>
-          <p class="conclusion-headline">{emoji} {Phrase-clé courte résumant le scénario le plus probable au départ}.</p>
-          <p><strong>{emoji} {Nom du scénario} ({XX}%)</strong> — {pourquoi, en une phrase}.</p>
         </div>
       </div>
     </div>
@@ -255,9 +279,12 @@
       <div class="version-head">
         <span class="version-tag">V1 — Mise à jour</span>
         <span class="version-date">{DATE DE CETTE MISE À JOUR}</span>
+        <button type="button" class="version-toggle" aria-expanded="false" aria-controls="version-content-v1">Détails <span class="version-toggle-icon" aria-hidden="true">▾</span></button>
       </div>
-      <h2 class="version-title">{Titre court résumant ce qui a changé}</h2>
-      <div class="version-body">
+      <div class="version-content" id="version-content-v1">
+        <div class="version-content-inner">
+        <h2 class="version-title">{Titre court résumant ce qui a changé}</h2>
+        <div class="version-body">
         <p>{Ce qui s'est réellement passé depuis la version précédente — faits vérifiés, sources croisées, chiffres réels si disponibles.}</p>
         <div class="conclusion">
           <span class="conclusion-label">Conclusion vs {version précédente}</span>
@@ -312,8 +339,13 @@
           <p>{Quel scénario se confirme ou s'éloigne, en comparant explicitement à la version précédente — jamais un verdict isolé. Rester honnête si le sujet n'est pas encore tranché.}</p>
         </div>
         <p class="sources-note">Sources : <a href="{URL}" target="_blank" rel="noopener noreferrer">{Nom du média} ↗</a></p>
+        </div>
+        </div>
       </div>
     </div>
+
+    <!-- Pour un V2, V3... dupliquer ce bloc .version.is-update, changer son id
+         (version-content-v2, etc.) et le tag "V2 — Mise à jour". -->
 
   </div>
 </section>
@@ -329,6 +361,25 @@
     </div>
   </div>
 </footer>
+
+<script>
+  (function(){
+    var versions = Array.prototype.slice.call(document.querySelectorAll('.version'));
+    versions.forEach(function(v){
+      var btn = v.querySelector('.version-toggle');
+      btn.addEventListener('click', function(){
+        var expanded = v.classList.toggle('is-expanded');
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      });
+    });
+    // La dernière version (la plus récente) reste dépliée par défaut, les autres repliées.
+    if(versions.length){
+      var last = versions[versions.length - 1];
+      last.classList.add('is-expanded');
+      last.querySelector('.version-toggle').setAttribute('aria-expanded', 'true');
+    }
+  })();
+</script>
 
 <script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 

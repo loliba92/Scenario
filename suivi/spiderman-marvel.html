@@ -91,7 +91,7 @@
   .version:last-child{ margin-bottom: 0; }
 
   .version-head{
-    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
     margin: 0 0 16px;
   }
   .version-tag{
@@ -102,6 +102,22 @@
   .version.is-update .version-tag{ background: var(--paper); }
   .version-date{ font-family: "JetBrains Mono", monospace; font-size: 0.85rem; color: var(--paper-dim); }
   .version-title{ font-family: "Fraunces", serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 16px; }
+
+  .version-toggle{
+    display: flex; align-items: center; gap: 6px; margin-left: auto;
+    background: transparent; border: 1px solid var(--hairline); border-radius: 100px;
+    padding: 4px 12px; font-family: "JetBrains Mono", monospace; font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.05em; color: var(--paper-dim);
+    cursor: pointer; transition: color .15s, border-color .15s;
+  }
+  .version-toggle:hover{ color: var(--paper); border-color: var(--paper-dim); }
+  .version.is-expanded .version-toggle{ color: var(--gold); border-color: var(--gold); }
+  .version-toggle-icon{ display: inline-block; transition: transform .2s ease; }
+  .version.is-expanded .version-toggle-icon{ transform: rotate(180deg); }
+
+  .version-content{ display: grid; grid-template-rows: 0fr; transition: grid-template-rows .25s ease; }
+  .version.is-expanded .version-content{ grid-template-rows: 1fr; }
+  .version-content-inner{ min-height: 0; overflow: hidden; }
 
   .version-body{
     background: var(--surface); border: 1px solid var(--hairline); border-radius: 8px;
@@ -214,27 +230,32 @@
       <div class="version-head">
         <span class="version-tag">V0 — Point de départ</span>
         <span class="version-date">18 juillet 2026</span>
+        <button type="button" class="version-toggle" aria-expanded="false" aria-controls="version-content-v0">Détails <span class="version-toggle-icon" aria-hidden="true">▾</span></button>
       </div>
-      <h2 class="version-title">Trois scénarios avant la sortie de Spider-Man</h2>
-      <div class="version-body">
-        <p>Deux films devaient décider si Marvel retrouvait sa puissance d'avant : <strong>Spider-Man : Brand New Day</strong> (sortie le 31 juillet) et <strong>Avengers : Doomsday</strong> (sortie le 17 décembre). Le grand public misait à 74 % sur Spider-Man comme plus gros succès de l'année, mais les marchés prédictifs (Polymarket) donnaient Doomsday favori à 71-75 % pour le meilleur démarrage — deux signaux contradictoires, d'où trois scénarios plutôt qu'une prédiction unique.</p>
-        <div class="mini-scenarios">
-          <div class="mini-scenario" data-kind="favorable">
-            <p class="mini-scenario-title">🍿 Le doublé parfait <span class="mini-scenario-pct">25%</span></p>
-            <p class="mini-scenario-text">Les deux films cartonnent et battent des records. Ouverture Spider-Man visée : 220-260 M$. Ouverture Doomsday visée : 300-360 M$.</p>
+      <div class="version-content" id="version-content-v0">
+        <div class="version-content-inner">
+        <h2 class="version-title">Trois scénarios avant la sortie de Spider-Man</h2>
+        <div class="version-body">
+          <p>Deux films devaient décider si Marvel retrouvait sa puissance d'avant : <strong>Spider-Man : Brand New Day</strong> (sortie le 31 juillet) et <strong>Avengers : Doomsday</strong> (sortie le 17 décembre). Le grand public misait à 74 % sur Spider-Man comme plus gros succès de l'année, mais les marchés prédictifs (Polymarket) donnaient Doomsday favori à 71-75 % pour le meilleur démarrage — deux signaux contradictoires, d'où trois scénarios plutôt qu'une prédiction unique.</p>
+          <div class="mini-scenarios">
+            <div class="mini-scenario" data-kind="favorable">
+              <p class="mini-scenario-title">🍿 Le doublé parfait <span class="mini-scenario-pct">25%</span></p>
+              <p class="mini-scenario-text">Les deux films cartonnent et battent des records. Ouverture Spider-Man visée : 220-260 M$. Ouverture Doomsday visée : 300-360 M$.</p>
+            </div>
+            <div class="mini-scenario" data-kind="stable">
+              <p class="mini-scenario-title">😐 Correct, sans plus <span class="mini-scenario-pct">45%</span></p>
+              <p class="mini-scenario-text">Les deux films performent bien sans battre de record. Ouverture Spider-Man : 150-200 M$. Ouverture Doomsday : 200-250 M$.</p>
+            </div>
+            <div class="mini-scenario" data-kind="degrade">
+              <p class="mini-scenario-title">📉 La fatigue Marvel confirmée <span class="mini-scenario-pct">30%</span></p>
+              <p class="mini-scenario-text">Les deux films déçoivent. Ouverture Spider-Man sous les 150 M$. Ouverture Doomsday sous les 200 M$.</p>
+            </div>
           </div>
-          <div class="mini-scenario" data-kind="stable">
-            <p class="mini-scenario-title">😐 Correct, sans plus <span class="mini-scenario-pct">45%</span></p>
-            <p class="mini-scenario-text">Les deux films performent bien sans battre de record. Ouverture Spider-Man : 150-200 M$. Ouverture Doomsday : 200-250 M$.</p>
-          </div>
-          <div class="mini-scenario" data-kind="degrade">
-            <p class="mini-scenario-title">📉 La fatigue Marvel confirmée <span class="mini-scenario-pct">30%</span></p>
-            <p class="mini-scenario-text">Les deux films déçoivent. Ouverture Spider-Man sous les 150 M$. Ouverture Doomsday sous les 200 M$.</p>
+          <div class="conclusion">
+            <span class="conclusion-label">Scénario jugé le plus probable à l'époque</span>
+            <p><strong>😐 Correct, sans plus (45%)</strong> — les signaux contradictoires entre grand public et marchés financiers laissaient présager un résultat mitigé plutôt qu'un raz-de-marée dans un sens ou dans l'autre.</p>
           </div>
         </div>
-        <div class="conclusion">
-          <span class="conclusion-label">Scénario jugé le plus probable à l'époque</span>
-          <p><strong>😐 Correct, sans plus (45%)</strong> — les signaux contradictoires entre grand public et marchés financiers laissaient présager un résultat mitigé plutôt qu'un raz-de-marée dans un sens ou dans l'autre.</p>
         </div>
       </div>
     </div>
@@ -243,9 +264,12 @@
       <div class="version-head">
         <span class="version-tag">V1 — Mise à jour</span>
         <span class="version-date">1er août 2026</span>
+        <button type="button" class="version-toggle" aria-expanded="false" aria-controls="version-content-v1">Détails <span class="version-toggle-icon" aria-hidden="true">▾</span></button>
       </div>
-      <h2 class="version-title">Spider-Man est sorti : premiers résultats réels</h2>
-      <div class="version-body">
+      <div class="version-content" id="version-content-v1">
+        <div class="version-content-inner">
+        <h2 class="version-title">Spider-Man est sorti : premiers résultats réels</h2>
+        <div class="version-body">
         <p><strong>Spider-Man : Brand New Day</strong> est sorti le 31 juillet. Les premiers chiffres réels dépassent largement le scénario stable : <strong>72 M$ de recettes en avant-premières</strong>, un record absolu qui bat l'ancien record d'Avengers : Endgame (60 M$), puis un <strong>vendredi record à 167-173 M$</strong>. Les projections tablent désormais sur un week-end d'ouverture de <strong>260 à 330 M$</strong>, ce qui positionnerait le film au 2ᵉ rang de tous les temps pour un week-end d'ouverture aux États-Unis, juste derrière Endgame (357 M$) et devant Spider-Man : No Way Home.</p>
         <p>Côté <strong>Avengers : Doomsday</strong>, encore attendu pour le 17 décembre, les précommandes ouvertes le 20 juillet confirment la dynamique déjà notée dans l'édition d'origine : 16,5 M$ engrangés dès les premières 24 heures, deux fois plus vite que Deadpool &amp; Wolverine (2024) sur la même période. Un nouvel élément à surveiller : le film ne sera pas diffusé en IMAX aux États-Unis pendant ses trois premières semaines, une exclusivité accordée à Dune : Part Three.</p>
         <div class="conclusion">
@@ -295,6 +319,8 @@
           <p>Nouvelle estimation : <strong>favorable 25% → 45%</strong>, <strong>stable 45% → 40%</strong>, <strong>dégradé 30% → 15%</strong>. Sur son seul volet Spider-Man, le scénario <strong>🍿 favorable</strong> est en train de se confirmer, voire de le dépasser : l'ouverture projetée (260-330 M$) atteint ou dépasse le haut de la fourchette favorable (220-260 M$), loin au-dessus du scénario stable qu'on jugeait le plus probable au départ. Le scénario <strong>📉 dégradé recule fortement</strong> : il supposait que les deux films déçoivent, une hypothèse déjà écartée pour Spider-Man. Mais le tableau reste incomplet : Doomsday, l'autre moitié de la question posée le 18 juillet, ne sortira que dans plus de quatre mois — impossible de dire aujourd'hui si Marvel réussira le « doublé parfait » ou si Doomsday retombera vers un résultat plus proche du scénario stable. Prochaine mise à jour prévue après le week-end d'ouverture complet de Spider-Man, ou à l'approche de la sortie de Doomsday.</p>
         </div>
         <p class="sources-note">Sources : <a href="https://deadline.com/2026/07/box-office-spider-man-brand-new-day-1237014268/" target="_blank" rel="noopener noreferrer">Deadline ↗</a>, <a href="https://variety.com/2026/film/box-office/spider-man-brand-new-day-box-office-record-previews-1236824394/" target="_blank" rel="noopener noreferrer">Variety ↗</a>, <a href="https://www.thewrap.com/industry-news/box-office/avengers-doomsday-presales-first-day-infinity-vision/" target="_blank" rel="noopener noreferrer">TheWrap ↗</a></p>
+        </div>
+        </div>
       </div>
     </div>
 
@@ -312,6 +338,25 @@
     </div>
   </div>
 </footer>
+
+<script>
+  (function(){
+    var versions = Array.prototype.slice.call(document.querySelectorAll('.version'));
+    versions.forEach(function(v){
+      var btn = v.querySelector('.version-toggle');
+      btn.addEventListener('click', function(){
+        var expanded = v.classList.toggle('is-expanded');
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      });
+    });
+    // La dernière version (la plus récente) reste dépliée par défaut, les autres repliées.
+    if(versions.length){
+      var last = versions[versions.length - 1];
+      last.classList.add('is-expanded');
+      last.querySelector('.version-toggle').setAttribute('aria-expanded', 'true');
+    }
+  })();
+</script>
 
 <script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
