@@ -154,15 +154,13 @@ Le texte de chaque `scenario-mini-title` (hors flèche) doit reprendre le **mêm
   <guid isPermaLink="false">scenario-{AAAA-MM-JJ}</guid>
   <pubDate>{date du jour au format RFC-822, ex. Wed, 29 Jul 2026 07:15:00 +0200}</pubDate>
   <comments>{emoji} {accroche + question du jour}</comments>
-  <category>🟢 {titre court scénario favorable}</category>
-  <category>🔵 {titre court scénario stable}</category>
-  <category>🔴 {titre court scénario dégradé}</category>
+  <category>🟢 {titre court scénario favorable}|🔵 {titre court scénario stable}|🔴 {titre court scénario dégradé}</category>
   <description><![CDATA[{emoji} {accroche + question du jour}<br><br>{paragraphe d'intro}<br>{emoji1} {scénario 1}<br>{emoji2} {scénario 2}<br>{emoji3} {scénario 3}<br><br>Lequel est le plus probable ? 👉 <a href="{lien archive du jour}">Lire les 3 prévisions chiffrées sur le site</a> — c'est gratuit.<br><br>🗳️ Envie de voter avant de connaître les vraies probabilités ? Rejoins le canal Telegram : <a href="https://t.me/scenario_fr">t.me/scenario_fr</a><br><br>📮 Une question, une remarque ? Réponds directement à cet email, on te lit.]]></description>
 </item>
 ```
 **`<comments>` détourne un champ RSS standard** (normalement prévu pour un lien vers une page de commentaires) **pour porter, en texte brut, la même phrase d'accroche que le début de la Description** (`{emoji} {accroche + question du jour}`), sans le reste (paragraphe d'intro, scénarios, mentions Telegram/email). Choisi parce que Make (et la plupart des lecteurs RSS génériques) reconnaît nativement ce champ standard, contrairement à un champ personnalisé — pas de namespace à déclarer, aucune configuration supplémentaire côté outil tiers. Ne jamais y mettre autre chose que cette seule phrase d'accroche.
 
-**Les trois `<category>` portent les titres courts des 3 scénarios**, toujours dans le même ordre (favorable puis stable puis dégradé, jamais trié par probabilité), avec le même code couleur 🟢/🔵/🔴 que le reste du site — ils alimentent le sondage Telegram automatique (Make.com, voir `docs/ARCHITECTURE.md`). Contrairement à `<comments>`, `<category>` est un champ RSS 2.0 standard et **répétable** : pas de détournement ici, c'est son usage normal (des tags/catégories multiples par item). Reprendre les titres des `<h3>` de chaque carte scénario, sans leur emoji propre à l'édition (remplacé par 🟢/🔵/🔴), raccourcis si besoin pour rester lisibles en option de sondage.
+**`<category>` porte les titres courts des 3 scénarios, séparés par `|`**, toujours dans le même ordre (favorable puis stable puis dégradé, jamais trié par probabilité), avec le même code couleur 🟢/🔵/🔴 que le reste du site — ils alimentent le sondage Telegram automatique (Make.com, voir `docs/ARCHITECTURE.md`). **Une seule balise `<category>`, pas trois** : bien que `<category>` soit un champ RSS 2.0 standard et répétable en théorie, Make ne récupère qu'une seule occurrence quand la balise apparaît plusieurs fois dans le même item (testé et confirmé le 1er août) — d'où le choix d'un seul champ avec un séparateur `|`, que Make découpe ensuite avec sa fonction `split()`. Reprendre les titres des `<h3>` de chaque carte scénario, sans leur emoji propre à l'édition (remplacé par 🟢/🔵/🔴), raccourcis si besoin pour rester lisibles en option de sondage.
 
 **Toujours un vrai lien cliquable dans le CDATA** (`<a href="{lien archive du jour}">...</a>`, jamais juste du texte ni « lien en bio »), obligatoire — c'est le seul moyen pour un lecteur de l'email de rejoindre l'article complet.
 
