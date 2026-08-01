@@ -559,8 +559,13 @@ Voir les échanges de session pour le détail, mais en résumé :
   (première mise à jour) ; si elle existe déjà, ajouter uniquement une
   nouvelle version en dessous, jamais réécrire les précédentes ; vérifier
   les faits par une vraie recherche (même rigueur que pour une édition
-  normale, sources croisées) ; mettre à jour le badge et la date sur
-  `archives.html` ; vérifier visuellement avant de pousser.
+  normale, sources croisées) ; **donner une nouvelle estimation chiffrée
+  des 3 scénarios et l'afficher en comparatif visuel avant/après**
+  (`.pct-compare`, barres colorées V0 vs Vn, obligatoire à chaque mise à
+  jour — pas seulement une conclusion en texte, ajouté le 1er août après
+  retour utilisateur sur la première version jugée pas assez visuelle) ;
+  mettre à jour le badge et la date sur `archives.html` ; vérifier
+  visuellement avant de pousser.
   **`docs/routine-prompt.md` et le trigger automatique ne changent
   jamais pour ça** — le suivi reste entièrement manuel, déclenché
   seulement par une demande explicite de l'utilisateur en session.
