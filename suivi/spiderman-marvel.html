@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suivi — Spider-Man contre Avengers : où en est-on ? — Scénario</title>
+<link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+<meta name="description" content="Suivi dans le temps de l'édition du 18 juillet 2026 sur Spider-Man: Brand New Day et Avengers: Doomsday — chaque mise à jour s'ajoute à la précédente, rien n'est réécrit.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scénario">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://lesscenarios.fr/suivi/spiderman-marvel.html">
+<meta property="og:title" content="Suivi — Spider-Man contre Avengers : où en est-on ?">
+<meta property="og:description" content="Suivi dans le temps de l'édition du 18 juillet 2026 — chaque mise à jour s'ajoute à la précédente, rien n'est réécrit.">
+<meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --surface: #1a212b;
+    --surface-2: #212a35;
+    --hairline: #2c3644;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+    --favorable: #5e9c78;
+    --stable: #6f8fae;
+    --degrade: #bd6248;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+  ::selection{ background: var(--gold); color: var(--ink); }
+  :focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  .wrap{ max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+  header.masthead{ border-bottom: 1px solid var(--hairline); padding: 28px 0 22px; }
+  .masthead-row{ display:flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .wordmark{ font-family: "Fraunces", serif; font-weight: 600; font-size: 1.5rem; letter-spacing: 0.01em; text-decoration: none; }
+  .wordmark span{ color: var(--gold); }
+  .brand{ display: flex; align-items: center; gap: 11px; }
+  .brand-mark{ width: 30px; height: 30px; display: block; flex: none; }
+
+  nav.topnav{ background: var(--surface); border-bottom: 1px solid var(--hairline); }
+  nav.topnav .wrap{ display: flex; gap: 24px; padding: 12px 24px; flex-wrap: wrap; }
+  .topnav a{
+    font-family: "JetBrains Mono", monospace; font-size: 0.76rem; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--paper-dim); text-decoration: none;
+    border-bottom: 1px solid transparent; padding-bottom: 2px;
+  }
+  .topnav a:hover{ color: var(--paper); }
+  .topnav a[aria-current="page"]{ color: var(--gold); border-bottom-color: var(--gold); }
+
+  .hero{ padding: 56px 0 36px; border-bottom: 1px solid var(--hairline); }
+  .eyebrow{
+    font-family: "JetBrains Mono", monospace; font-size: 0.78rem; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gold); margin: 0 0 18px;
+  }
+  h1{
+    font-family: "Fraunces", serif; font-weight: 600; font-size: clamp(1.9rem, 4.6vw, 3rem);
+    line-height: 1.1; letter-spacing: -0.01em; margin: 0 0 16px;
+  }
+  .dek{ font-size: 1.05rem; color: var(--paper-dim); max-width: 62ch; margin: 0 0 14px; }
+  .dek:last-child{ margin-bottom: 0; }
+  .dek strong{ color: var(--paper); font-weight: 600; }
+
+  .origin-link{
+    display: inline-block; margin-top: 6px; font-family: "JetBrains Mono", monospace;
+    font-size: 0.82rem; color: var(--gold); text-decoration: none;
+    border-bottom: 1px dotted var(--gold); padding-bottom: 1px;
+  }
+  .origin-link:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
+  section.timeline{ padding: 48px 0 64px; }
+
+  .version{ margin: 0 0 40px; }
+  .version:last-child{ margin-bottom: 0; }
+
+  .version-head{
+    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    margin: 0 0 16px;
+  }
+  .version-tag{
+    font-family: "JetBrains Mono", monospace; font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink);
+    background: var(--gold); border-radius: 100px; padding: 3px 11px;
+  }
+  .version.is-update .version-tag{ background: var(--paper); }
+  .version-date{ font-family: "JetBrains Mono", monospace; font-size: 0.85rem; color: var(--paper-dim); }
+  .version-title{ font-family: "Fraunces", serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 16px; }
+
+  .version-body{
+    background: var(--surface); border: 1px solid var(--hairline); border-radius: 8px;
+    padding: 24px 26px;
+  }
+
+  .version-body p{ margin: 0 0 14px; color: var(--paper-dim); }
+  .version-body p:last-child{ margin-bottom: 0; }
+  .version-body strong{ color: var(--paper); font-weight: 600; }
+
+  .mini-scenarios{
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px; margin: 0 0 18px;
+  }
+  .mini-scenario{ --accent: var(--paper-dim); border-left: 2px solid var(--accent); padding-left: 12px; }
+  .mini-scenario[data-kind="favorable"]{ --accent: var(--favorable); }
+  .mini-scenario[data-kind="stable"]{ --accent: var(--stable); }
+  .mini-scenario[data-kind="degrade"]{ --accent: var(--degrade); }
+  .mini-scenario-title{ font-family: "Fraunces", serif; font-weight: 600; font-size: 0.95rem; margin: 0 0 4px; color: var(--paper); }
+  .mini-scenario-pct{ font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--accent); font-weight: 700; }
+  .mini-scenario-text{ font-size: 0.85rem; color: var(--paper-dim); margin: 4px 0 0; line-height: 1.5; }
+
+  .conclusion{
+    border-top: 1px dashed var(--hairline); margin-top: 18px; padding-top: 16px;
+  }
+  .conclusion-label{
+    display: block; font-family: "JetBrains Mono", monospace; font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin: 0 0 8px;
+  }
+
+  .sources-note{ font-size: 0.8rem; color: var(--paper-dim); margin-top: 14px; }
+  .sources-note a{ color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
+  .sources-note a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
+  footer{ border-top: 1px solid var(--hairline); padding: 32px 0 48px; }
+  footer .caveat{ font-size: 0.84rem; color: var(--paper-dim); max-width: 62ch; margin: 0; }
+  .legal-links{ display: flex; gap: 18px; flex-wrap: wrap; margin: 24px 0 0; }
+  .legal-links a{
+    font-family: "JetBrains Mono", monospace; font-size: 0.76rem; color: var(--paper-dim);
+    text-decoration: none; border-bottom: 1px dotted transparent;
+  }
+  .legal-links a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <div class="brand">
+      <img class="brand-mark" src="../assets/logo.svg" alt="">
+      <a class="wordmark" href="../index.html">Scéna<span>rio</span></a>
+    </div>
+  </div>
+</header>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="../index.html">Accueil</a>
+    <a href="../archives.html">Archives</a>
+    <a href="../le-projet.html">Le projet</a>
+    <a href="../newsletter.html">Newsletter</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Suivi d'un sujet</p>
+    <h1>Spider-Man contre Avengers : où en est-on ?</h1>
+    <p class="dek">Contrairement aux éditions du site, cette page <strong>n'est pas figée</strong> : elle s'allonge à chaque mise à jour, sans jamais réécrire ce qui a déjà été dit. Le point de départ reste toujours visible tel quel.</p>
+    <a class="origin-link" href="../archives/2026-07-18.html">Voir l'édition d'origine du 18 juillet 2026 →</a>
+  </div>
+</section>
+
+<section class="timeline">
+  <div class="wrap">
+
+    <div class="version">
+      <div class="version-head">
+        <span class="version-tag">V0 — Point de départ</span>
+        <span class="version-date">18 juillet 2026</span>
+      </div>
+      <h2 class="version-title">Trois scénarios avant la sortie de Spider-Man</h2>
+      <div class="version-body">
+        <p>Deux films devaient décider si Marvel retrouvait sa puissance d'avant : <strong>Spider-Man : Brand New Day</strong> (sortie le 31 juillet) et <strong>Avengers : Doomsday</strong> (sortie le 17 décembre). Le grand public misait à 74 % sur Spider-Man comme plus gros succès de l'année, mais les marchés prédictifs (Polymarket) donnaient Doomsday favori à 71-75 % pour le meilleur démarrage — deux signaux contradictoires, d'où trois scénarios plutôt qu'une prédiction unique.</p>
+        <div class="mini-scenarios">
+          <div class="mini-scenario" data-kind="favorable">
+            <p class="mini-scenario-title">🍿 Le doublé parfait <span class="mini-scenario-pct">25%</span></p>
+            <p class="mini-scenario-text">Les deux films cartonnent et battent des records. Ouverture Spider-Man visée : 220-260 M$. Ouverture Doomsday visée : 300-360 M$.</p>
+          </div>
+          <div class="mini-scenario" data-kind="stable">
+            <p class="mini-scenario-title">😐 Correct, sans plus <span class="mini-scenario-pct">45%</span></p>
+            <p class="mini-scenario-text">Les deux films performent bien sans battre de record. Ouverture Spider-Man : 150-200 M$. Ouverture Doomsday : 200-250 M$.</p>
+          </div>
+          <div class="mini-scenario" data-kind="degrade">
+            <p class="mini-scenario-title">📉 La fatigue Marvel confirmée <span class="mini-scenario-pct">30%</span></p>
+            <p class="mini-scenario-text">Les deux films déçoivent. Ouverture Spider-Man sous les 150 M$. Ouverture Doomsday sous les 200 M$.</p>
+          </div>
+        </div>
+        <div class="conclusion">
+          <span class="conclusion-label">Scénario jugé le plus probable à l'époque</span>
+          <p><strong>😐 Correct, sans plus (45%)</strong> — les signaux contradictoires entre grand public et marchés financiers laissaient présager un résultat mitigé plutôt qu'un raz-de-marée dans un sens ou dans l'autre.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="version is-update">
+      <div class="version-head">
+        <span class="version-tag">V1 — Mise à jour</span>
+        <span class="version-date">1er août 2026</span>
+      </div>
+      <h2 class="version-title">Spider-Man est sorti : premiers résultats réels</h2>
+      <div class="version-body">
+        <p><strong>Spider-Man : Brand New Day</strong> est sorti le 31 juillet. Les premiers chiffres réels dépassent largement le scénario stable : <strong>72 M$ de recettes en avant-premières</strong>, un record absolu qui bat l'ancien record d'Avengers : Endgame (60 M$), puis un <strong>vendredi record à 167-173 M$</strong>. Les projections tablent désormais sur un week-end d'ouverture de <strong>260 à 330 M$</strong>, ce qui positionnerait le film au 2ᵉ rang de tous les temps pour un week-end d'ouverture aux États-Unis, juste derrière Endgame (357 M$) et devant Spider-Man : No Way Home.</p>
+        <p>Côté <strong>Avengers : Doomsday</strong>, encore attendu pour le 17 décembre, les précommandes ouvertes le 20 juillet confirment la dynamique déjà notée dans l'édition d'origine : 16,5 M$ engrangés dès les premières 24 heures, deux fois plus vite que Deadpool &amp; Wolverine (2024) sur la même période. Un nouvel élément à surveiller : le film ne sera pas diffusé en IMAX aux États-Unis pendant ses trois premières semaines, une exclusivité accordée à Dune : Part Three.</p>
+        <div class="conclusion">
+          <span class="conclusion-label">Conclusion vs V0</span>
+          <p>Sur son seul volet Spider-Man, le scénario <strong>🍿 favorable (25% initialement, le moins probable des trois)</strong> est en train de se confirmer, voire de le dépasser : l'ouverture projetée (260-330 M$) atteint ou dépasse le haut de la fourchette favorable (220-260 M$), loin au-dessus du scénario stable qu'on jugeait le plus probable. Mais le tableau reste incomplet : Doomsday, l'autre moitié de la question posée le 18 juillet, ne sortira que dans plus de quatre mois — impossible de dire aujourd'hui si Marvel réussira le « doublé parfait » ou si Doomsday retombera vers un résultat plus proche du scénario stable. Prochaine mise à jour prévue après le week-end d'ouverture complet de Spider-Man, ou à l'approche de la sortie de Doomsday.</p>
+        </div>
+        <p class="sources-note">Sources : <a href="https://deadline.com/2026/07/box-office-spider-man-brand-new-day-1237014268/" target="_blank" rel="noopener noreferrer">Deadline ↗</a>, <a href="https://variety.com/2026/film/box-office/spider-man-brand-new-day-box-office-record-previews-1236824394/" target="_blank" rel="noopener noreferrer">Variety ↗</a>, <a href="https://www.thewrap.com/industry-news/box-office/avengers-doomsday-presales-first-day-infinity-vision/" target="_blank" rel="noopener noreferrer">TheWrap ↗</a></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="caveat">Cette page de suivi est mise à jour ponctuellement, à la main, quand un sujet a un enjeu qui dure dans le temps. Elle ne remplace jamais l'édition d'origine, qui reste figée à sa date de publication.</p>
+    <div class="legal-links">
+      <a href="https://t.me/scenario_fr" target="_blank" rel="noopener noreferrer">Telegram ↗</a>
+      <a href="https://www.linkedin.com/company/136694258/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <a href="../mentions-legales.html">Mentions légales</a>
+      <a href="../politique-de-confidentialite.html">Politique de confidentialité</a>
+    </div>
+  </div>
+</footer>
+
+<script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+</body>
+</html>

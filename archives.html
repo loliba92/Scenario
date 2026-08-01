@@ -320,6 +320,24 @@
   }
   .no-result.is-shown{ display: block; }
 
+  /* ---- Suivi (mise à jour d'un sujet dans le temps) ---- */
+  .suivi-badge{
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+    gap: 5px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    color: var(--gold);
+    text-decoration: none;
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    padding: 3px 11px;
+    margin-top: -2px;
+    transition: background .15s, color .15s;
+  }
+  .suivi-badge:hover{ background: var(--gold); color: var(--ink); }
+
   /* ---- Bascule "Scénarios" (accordéon) ---- */
   .entry-toggle{
     display: flex;
@@ -465,6 +483,13 @@
       <div class="filter-row">
         <span class="filter-row-label">Thème</span>
         <div class="tag-filters" id="tag-filters"></div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-row-label">Trier par</span>
+        <div class="tag-filters" id="sort-toggle">
+          <button type="button" class="filter-chip is-active" data-sort="pub">Date de publication</button>
+          <button type="button" class="filter-chip" data-sort="update">Dernière mise à jour</button>
+        </div>
       </div>
     </div>
 
@@ -708,7 +733,7 @@
           </div>
         </div>
       </li>
-      <li class="entry">
+      <li class="entry" data-last-update="2026-08-01">
         <div class="entry-main">
           <span class="entry-date">18.07.2026</span>
           <a class="entry-title" href="archives/2026-07-18.html">Spider-Man contre Avengers : qui va sauver le box-office Marvel ?</a>
@@ -718,6 +743,7 @@
           </div>
           <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-07-18">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
         </div>
+        <a class="suivi-badge" href="suivi/spiderman-marvel.html">🔄 Suivi mis à jour le 01.08.2026 →</a>
         <div class="entry-scenarios" id="scenarios-2026-07-18">
           <div class="entry-scenarios-inner">
             <div class="scenario-grid">
@@ -785,6 +811,11 @@
       entry._year = year;
       if(!seenYears[year]){ seenYears[year] = year; yearOrder.push(year); }
       entry._text = deburr(title + ' ' + labels.join(' ') + ' ' + date);
+      // Dates triables (JJ.MM.AAAA -> AAAA-MM-JJ) : publication, et dernière mise à jour
+      // si un suivi existe (data-last-update), sinon la publication sert aussi de référence.
+      var parts = date.split('.');
+      entry._pubSortable = parts[2] + '-' + parts[1] + '-' + parts[0];
+      entry._updateSortable = entry.dataset.lastUpdate || entry._pubSortable;
     });
     yearOrder.sort().reverse(); // plus récente en premier
 
@@ -839,6 +870,32 @@
     }
 
     searchInput.addEventListener('input', apply);
+
+    // Tri : date de publication (défaut, ordre du HTML) ou dernière mise à jour
+    // (un sujet ancien mais suivi récemment remonte en haut, mêlé aux éditions du jour).
+    var entriesList = document.getElementById('entries');
+    var sortToggle = document.getElementById('sort-toggle');
+    var activeSort = 'pub';
+
+    function applySort(){
+      var sorted = entries.slice().sort(function(a, b){
+        var ka = activeSort === 'update' ? a._updateSortable : a._pubSortable;
+        var kb = activeSort === 'update' ? b._updateSortable : b._pubSortable;
+        if(ka === kb){ return 0; }
+        return ka > kb ? -1 : 1; // plus récent en premier
+      });
+      sorted.forEach(function(entry){ entriesList.appendChild(entry); });
+    }
+
+    sortToggle.querySelectorAll('.filter-chip').forEach(function(chip){
+      chip.addEventListener('click', function(){
+        activeSort = chip.dataset.sort;
+        sortToggle.querySelectorAll('.filter-chip').forEach(function(c){
+          c.classList.toggle('is-active', c === chip);
+        });
+        applySort();
+      });
+    });
 
     document.querySelectorAll('.entry-toggle').forEach(function(btn){
       btn.addEventListener('click', function(){

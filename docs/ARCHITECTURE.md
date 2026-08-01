@@ -488,12 +488,12 @@ Voir les échanges de session pour le détail, mais en résumé :
   sûre, mais écartée aussi pour ne pas introduire un élément visuel non
   maîtrisé et casser la cohérence typographique actuelle du site (aucune
   photo nulle part aujourd'hui). Aucune action prévue pour l'instant.
-- **Pages de suivi par sujet — concept défini le 1er août, pas encore
-  implémenté.** Besoin identifié : certains sujets (budget 2027, Iran-USA,
-  méga-feux...) ont un enjeu qui dure bien au-delà de leur édition
-  d'origine, mais les archives sont figées définitivement (aucune édition
-  n'est jamais remodifiée) — donc aucun mécanisme actuel pour montrer
-  comment un scénario évolue dans le temps.
+- **Pages de suivi par sujet — implémenté et testé le 1er août avec un
+  premier vrai cas d'usage.** Besoin identifié : certains sujets (budget
+  2027, Iran-USA, méga-feux...) ont un enjeu qui dure bien au-delà de leur
+  édition d'origine, mais les archives sont figées définitivement (aucune
+  édition n'est jamais remodifiée) — donc aucun mécanisme actuel pour
+  montrer comment un scénario évolue dans le temps.
 
   **Mécanique retenue** :
   - Une nouvelle page par sujet suivi, `suivi/{sujet}.html`, **distincte**
@@ -529,5 +529,15 @@ Voir les échanges de session pour le détail, mais en résumé :
     remonte en haut, mélangé aux éditions du jour — réutilise le JS de
     recherche/filtre déjà en place, pas de nouvelle mécanique à inventer.
 
-  **Implémentation prévue plus tard**, une fois le concept revalidé —
-  rien construit à ce stade.
+  **Premier cas réel construit le 1er août** : `suivi/spiderman-marvel.html`,
+  suite de l'édition du 18 juillet ("Spider-Man contre Avengers : qui va
+  sauver le box-office Marvel ?"). V0 reprend les 3 scénarios d'origine
+  (favorable 25%, stable 45% jugé le plus probable, dégradé 30%). V1
+  (1er août) intègre les vrais résultats de la sortie de Spider-Man : Brand
+  New Day le 31 juillet (72 M$ de previews, record ; ouverture projetée
+  260-330 M$, 2ᵉ meilleur démarrage de tous les temps), qui dépasse le haut
+  de la fourchette du scénario favorable — avec une conclusion honnête
+  précisant que Doomsday (sortie en décembre) reste une inconnue, donc rien
+  n'est encore tranché sur l'ensemble du sujet. Badge + tri par fraîcheur
+  branchés sur `archives.html` et vérifiés visuellement (desktop + mobile).
+  Sert de modèle pour les prochains sujets suivis.
