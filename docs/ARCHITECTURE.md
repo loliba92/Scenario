@@ -627,15 +627,23 @@ Voir les échanges de session pour le détail, mais en résumé :
 
   **Détection automatique des sujets à mettre à jour, ajoutée le 1er
   août.** Une Routine dédiée (`trig_...`, hebdomadaire, distincte de la
-  routine éditoriale quotidienne) relit `docs/sujets-a-suivre.md` —
-  journal quotidien + suivis actifs — fait une recherche rapide sur les
-  sujets qui semblent encore ouverts, et **propose** une short-list de
-  sujets qui semblent mériter une page de suivi ou une mise à jour, avec
-  le fait déclencheur. **Ne crée et ne modifie jamais automatiquement une
-  page `suivi/*.html`, ni le fichier `sujets-a-suivre.md` lui-même** :
-  c'est un rapport, le "go" reste toujours une décision manuelle de
-  l'utilisateur. La routine fire dans la session en cours (pas une
-  session neuve), pour garder le contexte complet du site.
+  routine éditoriale quotidienne) relit `docs/sujets-a-suivre.md` : les
+  « Suivis actifs » systématiquement, et le « Journal des sujets publiés »
+  **limité aux 30 derniers jours** — au-delà, un sujet qui n'a pas justifié
+  de suivi dans le mois qui suit sa publication n'en a probablement pas
+  besoin rétroactivement (fenêtre volontairement bornée : sans ça, le
+  journal grossissant indéfiniment d'une ligne par jour, la recherche
+  hebdomadaire deviendrait de plus en plus lourde au fil des mois/années).
+  Fait une recherche rapide sur les sujets retenus, et **propose** une
+  short-list de sujets qui semblent mériter une page de suivi ou une mise
+  à jour, avec le fait déclencheur. **Ne crée et ne modifie jamais
+  automatiquement une page `suivi/*.html`, ni le fichier
+  `sujets-a-suivre.md` lui-même** : c'est un rapport, le "go" reste
+  toujours une décision manuelle de l'utilisateur. La routine fire dans la
+  session en cours (pas une session neuve), pour garder le contexte
+  complet du site — son rapport arrive donc comme message dans cette même
+  conversation, pas par email (choix confirmé le 1er août : la continuité
+  de contexte a été préférée à la notification automatique).
 
   **Anciennes versions repliées par défaut (accordéon), ajouté le 1er
   août.** Chaque bloc `.version` a un bouton `.version-toggle` ; seule la
