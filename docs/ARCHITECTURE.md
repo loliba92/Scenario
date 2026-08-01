@@ -361,11 +361,41 @@ Voir les échanges de session pour le détail, mais en résumé :
   L'ancienne étape `curl` a été retirée de `docs/routine-prompt.md` (étape
   technique 9 réécrite) : la routine n'a plus rien à faire pour Telegram,
   Make s'en charge dès qu'un nouvel item apparaît dans `feed.xml`.
-  **Reste à faire** : configurer concrètement les deux modules Telegram
-  dans le scénario Make existant (texte du teaser = `<comments>` du flux +
-  lien vers l'archive du jour, sondage = 3 options fixes "🟢/🔵/🔴", même
-  découpage que l'ancien `sendPoll`) et vérifier un envoi réel avant de
-  considérer le sujet clos.
+  **Fait et vérifié le 1er août — pipeline Telegram opérationnel via Make.**
+  Deux modules ajoutés à la suite du RSS dans le même scénario Make que
+  LinkedIn :
+  - **Telegram Bot → "Send a Text Message"** : `Chat ID` = `@scenario_fr`,
+    `Text` = `Title` + `Comments` + lien `URL`, connexion créée avec le
+    token du bot (`TELEGRAM_BOT_TOKEN`, collé une fois dans Make — pas de
+    problème réseau côté Make, contrairement à cette session).
+  - **Telegram Bot → "Make an API Call"** (pas de module natif "Create a
+    Poll" dans le connecteur Telegram de Make, malgré ce que l'API
+    Telegram permet) : `URL Method` = `sendPoll`, `Method` = `POST`,
+    `Body Type` = Map Body, avec un **Body composé à la main** :
+    `{"chat_id": "@scenario_fr", "question": "À ton avis, quel scénario l'emporte ?", "options": ["{{category}}"], "is_anonymous": true}`.
+  - **Piège découvert en configurant `options`** : Make **ne récupère
+    qu'une seule occurrence** d'un champ RSS répété (`<category>` mis 3
+    fois dans le même item) au lieu d'un tableau de 3 — confirmé avec un
+    flux de test 100% frais, donc pas un souci de cache. Insérer
+    directement le champ tableau (`Categories[]`) brut dans le JSON du
+    Body ne fonctionne pas non plus : Make le sérialise en texte simple
+    séparé par des virgules, pas en tableau JSON valide (`can't parse
+    options JSON object`), et la fonction `split()` de Make donne le même
+    résultat une fois insérée dans ce champ texte (pas de sérialisation
+    JSON automatique des tableaux dans le Body "Map Body"). **Solution
+    retenue** : une seule balise `<category>` par item dans `feed.xml`,
+    contenant déjà les 3 titres séparés par `","` (guillemet-virgule-
+    guillemet) — voir `docs/routine-prompt.md`, étape technique 8. Il
+    suffit alors d'entourer la pastille de guillemets et crochets **tapés
+    à la main** dans le Body (`["`+pastille+`"]`) pour obtenir un tableau
+    JSON valide, sans aucune fonction Make. Flux de test jetable
+    (`feed-test.xml`, supprimé après usage, comme pour LinkedIn) utilisé
+    pour valider chaque itération sans polluer le vrai flux ni attendre le
+    lendemain.
+  - Erreur `LinkedIn Content is a duplicate` rencontrée pendant les tests :
+    normal, LinkedIn refuse de reposter un contenu de test identique
+    plusieurs fois — sans rapport avec la config, LinkedIn fonctionne déjà
+    avec du vrai contenu quotidien.
   WhatsApp Channels a été écarté pour l'instant (pas d'API officielle
   gratuite, seulement des services tiers payants et non garantis par Meta).
   Promotion du canal aussi ajoutée dans le template email (`feed.xml`,
