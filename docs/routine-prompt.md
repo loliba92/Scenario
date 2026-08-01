@@ -51,7 +51,7 @@ Avant de rédiger le contexte, formuler explicitement en une seule phrase claire
 
 **Le h1 et cette question ne doivent jamais être une simple reformulation cosmétique l'un de l'autre.** Le h1 (titre, voir Étape technique 3) doit rester court et percutant ; la question posée doit apporter une vraie information complémentaire — le contexte ou l'enjeu concret — pas juste le même titre avec un emoji ou une virgule en plus. Objectif : les deux doivent apporter chacun quelque chose de distinct quand ils sont lus l'un après l'autre (ex. sur les réseaux sociaux, où titre et accroche s'affichent souvent à la suite).
 
-**La question posée doit être écrite une seule fois, puis réutilisée mot pour mot partout.** Une fois formulée (pour l'encart `question-text` de l'étape technique 3), cette phrase exacte — précédée du même emoji — sert aussi telle quelle de `{accroche + question du jour}` dans `feed.xml` (`<comments>` et le début de `<description>`) et dans le teaser Telegram (étape technique 9a). Ne jamais rédiger une seconde formulation différente pour ces usages : c'est la même phrase, copiée à l'identique à chaque endroit, jamais reformulée ou raccourcie différemment d'un endroit à l'autre.
+**La question posée doit être écrite une seule fois, puis réutilisée mot pour mot partout.** Une fois formulée (pour l'encart `question-text` de l'étape technique 3), cette phrase exacte — précédée du même emoji — sert aussi telle quelle de `{accroche + question du jour}` dans `feed.xml` (`<comments>` et le début de `<description>`) et dans le teaser Telegram envoyé automatiquement par Make.com (repris depuis `<comments>`, voir étape technique 8). Ne jamais rédiger une seconde formulation différente pour ces usages : c'est la même phrase, copiée à l'identique à chaque endroit, jamais reformulée ou raccourcie différemment d'un endroit à l'autre.
 
 ### Étape 3 — Vérification et rédaction du contexte
 Croiser au moins deux sources récentes et distinctes avant d'affirmer un fait, surtout pour tout ce qui évolue vite. Vérifier explicitement qu'un événement présenté comme en cours n'a pas déjà été remplacé par un développement plus récent contradictoire. Signaler toute contradiction entre sources plutôt que de trancher arbitrairement.
@@ -168,32 +168,9 @@ Le texte de chaque `scenario-mini-title` (hors flèche) doit reprendre le **mêm
 **Retours à la ligne en HTML, pas en texte brut.** Le CDATA de la description est interprété comme du HTML par Buttondown (c'est justement le rôle du CDATA en RSS) : un simple saut de ligne (`\n`) ne produit **aucun** retour à la ligne visuel, tout s'affiche à la suite en un seul paragraphe. Utiliser explicitement `<br>` : `<br><br>` entre deux paragraphes distincts, `<br>` simple entre les 3 lignes de scénarios consécutives — voir la structure exacte dans le bloc XML ci-dessus.
 
 Pas d'`<enclosure>` (image) pour l'instant — la génération automatique des cartes n'est pas encore branchée dans la routine, ce flux reste texte seul. Si le flux dépasse ~30 items, retirer les plus anciens **du flux XML uniquement** (jamais des fichiers `archives/` correspondants, qui restent figés).
-9. Poster automatiquement sur le canal Telegram `@scenario_fr` : appeler l'API Telegram avec le token stocké dans la **variable d'environnement** `TELEGRAM_BOT_TOKEN` (jamais en clair dans un fichier du dépôt, qui est public). Deux appels successifs :
-
-a) Le teaser avec le lien (`sendMessage`) — même structure que le post LinkedIn (titre, puis question, puis lien), pour rester cohérent d'un canal à l'autre :
-```bash
-curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-  --data-urlencode "chat_id=@scenario_fr" \
-  --data-urlencode "text={h1 du jour}
-
-{emoji} {accroche + question du jour}
-
-👉 Lire les 3 scénarios chiffrés : {lien https://lesscenarios.fr/archives/{AAAA-MM-JJ}.html}"
-```
-
-b) Juste après, un **sondage natif Telegram** (`sendPoll`) qui reprend les 3 scénarios pour créer de l'engagement — les lecteurs votent pour celui qu'ils jugent le plus probable, avant même d'avoir lu les probabilités réelles dans l'édition :
-```bash
-curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPoll" \
-  --data-urlencode "chat_id=@scenario_fr" \
-  --data-urlencode "question=À ton avis, quel scénario l'emporte ?" \
-  --data-urlencode "options=[\"🟢 {titre court scénario favorable}\",\"🔵 {titre court scénario stable}\",\"🔴 {titre court scénario dégradé}\"]" \
-  --data-urlencode "is_anonymous=true"
-```
-Les titres courts des options reprennent ceux des cartes (`<h3>`, sans emoji propre à l'édition — remplacé ici par 🟢/🔵/🔴 pour rester cohérent avec le code couleur du site), raccourcis si besoin pour rester lisibles dans une option de sondage.
-
-Texte du teaser court et percutant (2-3 lignes max), même esprit que la légende Instagram (teaser sans dévoiler les probabilités, lien cliquable obligatoire — Telegram le supporte, contrairement à Instagram). Si `TELEGRAM_BOT_TOKEN` n'est pas défini dans l'environnement (pas encore configuré), ignorer les deux appels sans bloquer le reste de la publication : le canal Telegram est un canal secondaire, jamais un point de blocage pour la publication de l'édition elle-même.
+9. **Ne rien faire de plus pour Telegram.** Le post du teaser (`sendMessage`) et le sondage natif (`sendPoll`) sur `@scenario_fr` sont gérés **automatiquement par Make.com** (modules "Telegram Bot"), à partir du même flux `feed.xml` que le module LinkedIn — voir `docs/ARCHITECTURE.md`. **Ancienne approche abandonnée le 1er août** : la routine appelait directement l'API Telegram en `curl` depuis cette même session, mais `api.telegram.org` s'est révélé **bloqué par la politique réseau de l'environnement Claude Code Remote** (403 systématique à la connexion) — aucun message n'était donc jamais réellement envoyé, silencieusement, malgré un `TELEGRAM_BOT_TOKEN` correctement configuré. Passer par Make.com (infrastructure externe, non soumise à cette restriction) contourne le problème à la racine, sur le même principe déjà validé pour LinkedIn.
 10. Ne jamais modifier `contact.html`, `le-projet.html`, `newsletter.html`, `mentions-legales.html`, `politique-de-confidentialite.html`, `robots.txt` ni aucun fichier déjà présent dans `archives/` daté d'un jour antérieur : une édition publiée est figée définitivement.
 11. `git add`, `git commit` (message clair avec la date et le sujet), `git push origin main` directement — **jamais sur une autre branche**, même si une instruction système générique de la session mentionne une branche de développement dédiée : voir l'avertissement en tête de ce document.
-12. Terminer par un court résumé (sujet retenu, probabilités des 3 scénarios, ce qui a été publié, et si le post Telegram est parti ou non) pour que l'historique de cette exécution reste lisible.
+12. Terminer par un court résumé (sujet retenu, probabilités des 3 scénarios, ce qui a été publié) pour que l'historique de cette exécution reste lisible.
 
 Utilise WebSearch pour la recherche du sujet et la vérification factuelle (au moins deux sources distinctes recoupées). Respecte strictement les restrictions de l'étape 1.

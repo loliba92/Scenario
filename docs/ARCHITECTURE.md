@@ -335,25 +335,37 @@ Voir les échanges de session pour le détail, mais en résumé :
       instruction supplémentaire nécessaire dans `docs/routine-prompt.md`
       pour le préserver. Non ajouté aux pages `archives/*.html` figées,
       cohérent avec le choix déjà fait pour Telegram.
-- **Telegram — canal créé le 31 juillet, automatisation branchée.**
+- **Telegram — canal créé le 31 juillet.**
   Canal public `@scenario_fr`, bot `@scenario_fr_bot` créé via BotFather et
   ajouté comme administrateur (droit "Publier des messages"). Test manuel
-  d'envoi réussi (`sendMessage` + `sendPoll` via l'API Telegram). Étape
-  ajoutée au prompt de la routine (voir `docs/routine-prompt.md`, étape
-  technique 9) : poste un teaser (titre + question posée + lien — même
-  structure que le post LinkedIn, alignée le 31 juillet pour rester
-  cohérente d'un canal à l'autre) suivi d'un sondage natif
-  (favorable/stable/dégradé) pour créer de l'engagement.
-  **Fait le 31 juillet** : variable d'environnement `TELEGRAM_BOT_TOKEN`
-  configurée côté environnement Claude Code Remote ("Default") utilisé par
-  le trigger « Scénario » ; lien "Telegram ↗" ajouté au footer des 5 pages
-  vivantes, et section dédiée "Suivre sur Telegram" sur `newsletter.html`
-  pour que les visiteurs découvrent le canal. Comme pour les balises OG et
-  GoatCounter, ce lien fait désormais partie du gabarit `index.html`
-  recopié chaque matin — aucune instruction supplémentaire nécessaire dans
-  `docs/routine-prompt.md` pour le préserver.
-  **Reste à faire** : vérifier au prochain déclenchement (1er août) que le
-  post + sondage partent bien automatiquement en conditions réelles.
+  d'envoi réussi le 31 juillet (`sendMessage` + `sendPoll` via l'API
+  Telegram, appelée à la main par l'utilisateur — pas depuis une session
+  Claude Code Remote).
+  **Panne découverte le 1er août** : la routine avait été configurée pour
+  appeler l'API Telegram directement en `curl` depuis sa propre session
+  (ancienne étape technique 9). Résultat : **aucun message n'est jamais
+  parti**, silencieusement — `api.telegram.org` s'est révélé **bloqué par
+  la politique réseau (egress) de l'environnement Claude Code Remote**
+  utilisé par le trigger « Scénario » (confirmé en reproduisant l'appel :
+  `CONNECT api.telegram.org:443` → `403 Forbidden` côté proxy de
+  l'environnement, "policy denial"), et ce indépendamment du bon
+  paramétrage de `TELEGRAM_BOT_TOKEN`. La consigne de ne jamais bloquer la
+  publication principale en cas d'échec masquait le problème : l'édition
+  partait normalement, seul le Telegram échouait en silence.
+  **Solution retenue le 1er août : basculer sur Make.com**, exactement
+  comme pour LinkedIn (voir plus haut) — modules natifs **"Telegram Bot"**
+  (Send a Text Message + Create a Poll), branchés sur le même module RSS
+  `feed.xml` déjà utilisé pour LinkedIn (un seul scénario Make, deux
+  sorties). L'appel API part alors depuis l'infrastructure de Make, non
+  soumise à la restriction réseau de l'environnement Claude Code Remote.
+  L'ancienne étape `curl` a été retirée de `docs/routine-prompt.md` (étape
+  technique 9 réécrite) : la routine n'a plus rien à faire pour Telegram,
+  Make s'en charge dès qu'un nouvel item apparaît dans `feed.xml`.
+  **Reste à faire** : configurer concrètement les deux modules Telegram
+  dans le scénario Make existant (texte du teaser = `<comments>` du flux +
+  lien vers l'archive du jour, sondage = 3 options fixes "🟢/🔵/🔴", même
+  découpage que l'ancien `sendPoll`) et vérifier un envoi réel avant de
+  considérer le sujet clos.
   WhatsApp Channels a été écarté pour l'instant (pas d'API officielle
   gratuite, seulement des services tiers payants et non garantis par Meta).
   Promotion du canal aussi ajoutée dans le template email (`feed.xml`,
