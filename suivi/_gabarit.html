@@ -194,10 +194,6 @@
     display: block; font-family: "JetBrains Mono", monospace; font-size: 0.7rem;
     text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin: 0 0 8px;
   }
-  .conclusion-headline{
-    font-family: "Fraunces", serif; font-weight: 600; font-size: 1.15rem;
-    color: var(--paper); line-height: 1.35; margin: 0 0 12px;
-  }
 
   .sources-note{ font-size: 0.8rem; color: var(--paper-dim); margin-top: 14px; }
   .sources-note a{ color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
@@ -296,7 +292,6 @@
           </div>
           <div class="conclusion">
             <span class="conclusion-label">Scénario jugé le plus probable à l'époque</span>
-            <p class="conclusion-headline">{emoji} {Phrase-clé courte résumant le scénario le plus probable au départ}.</p>
             <p><strong>{emoji} {Nom du scénario} ({XX}%)</strong> — {pourquoi, en une phrase}.</p>
           </div>
         </div>
@@ -353,10 +348,14 @@
              de ce mouvement, et expliquer simplement POURQUOI ce scénario-là
              précisément (quel fait concret l'explique) — pas une phrase vague
              du type "les choses évoluent". Le lecteur doit comprendre en une
-             lecture quelle est la vraie volatilité de la mise à jour. -->
+             lecture quelle est la vraie volatilité de la mise à jour.
+             MÊME STYLE que la conclusion de V0 : un <p> normal (pas de classe
+             à part), avec juste un <strong> sur l'amorce (emoji + verdict
+             court + %) suivi d'un tiret et de l'explication — jamais une
+             police ou une taille différente de V0. -->
         <div class="conclusion">
           <span class="conclusion-label">Conclusion vs {version précédente}</span>
-          <p class="conclusion-headline">{Nommer le scénario le plus volatil avec son chiffre exact (ex. "Le scénario X est celui qui bouge le plus (25% → 45%, +20 points)"), expliquer pourquoi en une phrase (quel fait précis l'explique), puis la nuance/incertitude restante s'il y en a une.}</p>
+          <p><strong>{emoji} {Verdict court, ex. "Favorable, +20 points"} ({nouveau %}%)</strong> — {le fait précis qui explique ce mouvement, puis la nuance/incertitude restante s'il y en a une}.</p>
         </div>
         <p class="sources-note">Sources : <a href="{URL}" target="_blank" rel="noopener noreferrer">{Nom du média} ↗</a></p>
         </div>
