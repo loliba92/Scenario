@@ -574,10 +574,46 @@ Voir les échanges de session pour le détail, mais en résumé :
   **L'intro de chaque mise à jour doit rester un seul paragraphe concis**,
   comme celui de V0 — pas plusieurs paragraphes détaillés, le détail
   factuel spécifique à chaque scénario va dans son propre commentaire de
-  carte, pas dans l'intro générale. Terminer par une conclusion générale
-  courte (ce qui reste incertain, quoi observer ensuite) ; mettre à jour
-  le badge et la date sur `archives.html` ; vérifier visuellement avant de
-  pousser.
+  carte, pas dans l'intro générale.
+
+  **Ordre du bloc obligatoirement identique à V0** (corrigé le 1er août
+  après retour utilisateur — l'ordre initial avait la conclusion *avant*
+  les cartes, l'inverse de V0) : intro → cartes `.mini-scenarios` → bloc
+  `.conclusion` (label + **une seule phrase**, jamais un gros paragraphe
+  après la grille). Ne pas dupliquer la conclusion en un "headline" avant
+  les cartes ET un paragraphe après — un seul emplacement, après la
+  grille, exactement comme V0.
+
+  **La conclusion doit nommer explicitement le scénario le plus volatil**
+  (ajouté le 1er août après retour utilisateur — une conclusion vague ne
+  suffit pas) : citer le scénario qui bouge le plus avec son écart exact
+  en points (ex. "favorable : 25% → 45%, +20 points"), expliquer en une
+  phrase le fait concret qui l'explique (ex. le succès du film,
+  pas juste "les choses évoluent"), puis la nuance/incertitude restante
+  s'il y en a une. Le lecteur doit comprendre la volatilité réelle de la
+  mise à jour en une seule lecture.
+
+  Mettre à jour le badge et la date sur `archives.html` ; vérifier
+  visuellement avant de pousser.
+
+  **Graphique d'évolution ajouté le 1er août**, fixe (non-repliable, choix
+  volontaire — le mettre dans l'accordéon irait à l'encontre de son but
+  d'aperçu immédiat), affiché juste après l'intro de la page et **avant**
+  "V0 — Point de départ". Courbes lissées (Catmull-Rom → Bézier cubique),
+  une par scénario (vert/bleu/rouge, mêmes couleurs que le reste du site),
+  légère zone de dégradé sous la courbe favorable, points + % en Fraunces
+  gras sur le dernier point. **N'apparaît qu'à partir de 2 versions**
+  (`evoData.length < 2` → pas de rendu) : un seul point ne montre aucune
+  évolution, pas la peine de l'afficher pour un sujet jamais mis à jour.
+  **Généré en JS pur (pas de librairie externe), avec tout le rendu
+  enveloppé dans un `try/catch`** : si les données sont mal formées (faute
+  de frappe en éditant le tableau `evoData` à la main), le graphique se
+  masque silencieusement au lieu de casser le reste de la page — risque
+  jugé faible (pas de dépendance réseau, pas de build) mais protection
+  ajoutée par précaution vu que ces données sont éditées à la main à
+  chaque mise à jour. Données à éditer : le tableau `evoData` en bas de
+  page (`{ label: "V2", date: "...", favorable: X, stable: Y, degrade: Z }`
+  — une ligne par version, ajouter simplement la ligne suivante).
 
   **Anciennes versions repliées par défaut (accordéon), ajouté le 1er
   août.** Chaque bloc `.version` a un bouton `.version-toggle` ; seule la

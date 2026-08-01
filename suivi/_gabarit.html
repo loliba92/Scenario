@@ -93,6 +93,34 @@
   }
   .origin-link:hover{ color: var(--paper); border-bottom-color: var(--paper); }
 
+  /* ---- Graphique d'évolution (aperçu global, avant V0) ---- */
+  section.evolution{ padding: 32px 0 8px; }
+  .evo-chart{
+    background: linear-gradient(180deg, var(--surface) 0%, #171e27 100%);
+    border: 1px solid var(--hairline); border-radius: 10px;
+    padding: 24px 26px 20px;
+  }
+  .evo-chart-label{
+    font-family: "JetBrains Mono", monospace; font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--paper-dim); margin: 0 0 4px;
+  }
+  .evo-chart-title{
+    font-family: "Fraunces", serif; font-size: 1.05rem; font-weight: 600;
+    color: var(--paper); margin: 0 0 18px;
+  }
+  .evo-chart svg{ display: block; width: 100%; height: auto; overflow: visible; }
+  .evo-line{ fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .evo-dot-outer{ fill: var(--ink); }
+  .evo-gridline{ stroke: var(--hairline); stroke-width: 1; stroke-dasharray: 2 3; }
+  .evo-axis-label{
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; fill: var(--paper-dim);
+    letter-spacing: 0.02em;
+  }
+  .evo-pct-label{ font-family: "Fraunces", serif; font-size: 15px; font-weight: 700; }
+  .evo-legend{ display: flex; gap: 20px; flex-wrap: wrap; margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--hairline); }
+  .evo-legend-item{ display: flex; align-items: center; gap: 7px; font-size: 0.8rem; color: var(--paper-dim); font-family: "JetBrains Mono", monospace; }
+  .evo-legend-dot{ width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+
   section.timeline{ padding: 48px 0 64px; }
 
   .version{ margin: 0 0 40px; }
@@ -215,6 +243,25 @@
   </div>
 </section>
 
+<!-- Graphique d'évolution : n'apparaît qu'à partir de la 1ère mise à jour
+     (le JS masque le rendu si evoData a moins de 2 entrées, voir plus bas —
+     inutile de le retirer manuellement pour V0 seul). Toujours FIXE, jamais
+     repliable dans un accordéon (perdrait son but d'aperçu immédiat). -->
+<section class="evolution">
+  <div class="wrap">
+    <div class="evo-chart">
+      <p class="evo-chart-label">Évolution</p>
+      <p class="evo-chart-title">Comment les probabilités ont bougé au fil des mises à jour</p>
+      <svg id="evo-svg" viewBox="0 0 600 210" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="evo-legend">
+        <span class="evo-legend-item"><span class="evo-legend-dot" style="background:var(--favorable)"></span>Favorable</span>
+        <span class="evo-legend-item"><span class="evo-legend-dot" style="background:var(--stable)"></span>Stable</span>
+        <span class="evo-legend-item"><span class="evo-legend-dot" style="background:var(--degrade)"></span>Dégradé</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="timeline">
   <div class="wrap">
 
@@ -273,35 +320,43 @@
              paragraphes détaillés. L'essentiel des faits, pas tout le détail :
              le détail par scénario va dans les mini-scenario-text plus bas. -->
         <p>{Ce qui s'est réellement passé depuis la version précédente, en une seule fois, concis — faits vérifiés, sources croisées, chiffres réels si disponibles.}</p>
+        <!-- Structure OBLIGATOIREMENT alignée sur V0 : intro, PUIS la grille de
+             cartes, PUIS le bloc conclusion (label + une phrase) — jamais l'inverse.
+             Reprendre le même format de cartes que V0 (pour rester cohérent), avec
+             une ligne d'évolution {ancien %} → flèche → {nouveau %} (flèche verte
+             is-up si ça monte, rouge is-down si ça descend, is-flat si inchangé)
+             et un commentaire COURT propre à CE scénario, toujours comparé à la
+             version immédiatement précédente (jamais toujours V0 — V2 se compare
+             à V1, V3 à V2, etc.). Toujours les 3 scénarios, dans l'ordre
+             favorable/stable/dégradé. Le total des nouveaux % doit faire 100%. -->
+        <div class="mini-scenarios">
+          <div class="mini-scenario" data-kind="favorable">
+            <p class="mini-scenario-title">{emoji} {Titre scénario favorable}</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">{nouveau %}%</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">(vs. {ancien %}% en {version précédente})</span></p>
+            <p class="mini-scenario-text">{Pourquoi ce scénario monte, descend ou reste stable, vs la version précédente — 1-2 phrases courtes.}</p>
+          </div>
+          <div class="mini-scenario" data-kind="stable">
+            <p class="mini-scenario-title">{emoji} {Titre scénario stable}</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">{nouveau %}%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. {ancien %}% en {version précédente})</span></p>
+            <p class="mini-scenario-text">{Pourquoi ce scénario monte, descend ou reste stable, vs la version précédente — 1-2 phrases courtes.}</p>
+          </div>
+          <div class="mini-scenario" data-kind="degrade">
+            <p class="mini-scenario-title">{emoji} {Titre scénario dégradé}</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">{nouveau %}%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. {ancien %}% en {version précédente})</span></p>
+            <p class="mini-scenario-text">{Pourquoi ce scénario monte, descend ou reste stable, vs la version précédente — 1-2 phrases courtes.}</p>
+          </div>
+        </div>
+        <!-- Une seule phrase de conclusion, comme V0 (pas un gros paragraphe) —
+             qui doit inclure la nuance/incertitude restante s'il y en a une. -->
+        <!-- La conclusion doit nommer explicitement le scénario qui bouge le
+             plus (le plus gros écart en points de %), donner le chiffre exact
+             de ce mouvement, et expliquer simplement POURQUOI ce scénario-là
+             précisément (quel fait concret l'explique) — pas une phrase vague
+             du type "les choses évoluent". Le lecteur doit comprendre en une
+             lecture quelle est la vraie volatilité de la mise à jour. -->
         <div class="conclusion">
           <span class="conclusion-label">Conclusion vs {version précédente}</span>
-          <p class="conclusion-headline">{Phrase-clé courte et percutante — l'essentiel de l'évolution en un coup d'œil, ex. "Le scénario X prend l'avantage" ou "Rien ne bouge, le scénario Y tient toujours".}</p>
-          <!-- Obligatoire à chaque mise à jour : reprendre le même format de cartes
-               que les mini-scenarios de V0 (pour rester lisible et cohérent), avec
-               une ligne d'évolution {ancien %} → flèche → {nouveau %} (flèche verte
-               is-up si ça monte, rouge is-down si ça descend, is-flat si inchangé)
-               et un commentaire COURT propre à CE scénario, toujours comparé à la
-               version immédiatement précédente (jamais toujours V0 — V2 se compare
-               à V1, V3 à V2, etc.). Toujours les 3 scénarios, dans l'ordre
-               favorable/stable/dégradé. Le total des nouveaux % doit faire 100%. -->
-          <div class="mini-scenarios">
-            <div class="mini-scenario" data-kind="favorable">
-              <p class="mini-scenario-title">{emoji} {Titre scénario favorable}</p>
-              <p class="mini-scenario-evolution"><span class="evo-current">{nouveau %}%</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">(vs. {ancien %}% en {version précédente})</span></p>
-              <p class="mini-scenario-text">{Pourquoi ce scénario monte, descend ou reste stable, vs la version précédente — 1-2 phrases courtes.}</p>
-            </div>
-            <div class="mini-scenario" data-kind="stable">
-              <p class="mini-scenario-title">{emoji} {Titre scénario stable}</p>
-              <p class="mini-scenario-evolution"><span class="evo-current">{nouveau %}%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. {ancien %}% en {version précédente})</span></p>
-              <p class="mini-scenario-text">{Pourquoi ce scénario monte, descend ou reste stable, vs la version précédente — 1-2 phrases courtes.}</p>
-            </div>
-            <div class="mini-scenario" data-kind="degrade">
-              <p class="mini-scenario-title">{emoji} {Titre scénario dégradé}</p>
-              <p class="mini-scenario-evolution"><span class="evo-current">{nouveau %}%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. {ancien %}% en {version précédente})</span></p>
-              <p class="mini-scenario-text">{Pourquoi ce scénario monte, descend ou reste stable, vs la version précédente — 1-2 phrases courtes.}</p>
-            </div>
-          </div>
-          <p>{Conclusion générale, courte : ce qui reste incertain, ce qu'il faudra observer pour la prochaine mise à jour. Rester honnête si le sujet n'est pas encore tranché.}</p>
+          <p class="conclusion-headline">{Nommer le scénario le plus volatil avec son chiffre exact (ex. "Le scénario X est celui qui bouge le plus (25% → 45%, +20 points)"), expliquer pourquoi en une phrase (quel fait précis l'explique), puis la nuance/incertitude restante s'il y en a une.}</p>
         </div>
         <p class="sources-note">Sources : <a href="{URL}" target="_blank" rel="noopener noreferrer">{Nom du média} ↗</a></p>
         </div>
@@ -344,6 +399,114 @@
       last.querySelector('.version-toggle').setAttribute('aria-expanded', 'true');
     }
   })();
+</script>
+
+<script>
+  // Graphique d'évolution : une entrée par version, dans l'ordre chronologique.
+  // Remplacer par les vraies valeurs de V0, puis ajouter une ligne à chaque
+  // nouvelle mise à jour (V1, V2...). Le graphique reste caché tant qu'il n'y
+  // a qu'une seule entrée (voir plus bas, evoData.length < 2).
+  try{
+    var evoData = [
+      { label: "V0", date: "{DATE ORIGINE COURTE}", favorable: {XX}, stable: {XX}, degrade: {XX} }
+      // { label: "V1", date: "{DATE V1 COURTE}", favorable: {XX}, stable: {XX}, degrade: {XX} },
+    ];
+
+    (function renderEvoChart(){
+      var svg = document.getElementById('evo-svg');
+      if(!svg || !evoData || evoData.length < 2) return; // pas d'évolution à montrer avec un seul point
+
+      var W = 600, H = 210;
+      var padL = 32, padR = 40, padT = 16, padB = 32;
+      var plotW = W - padL - padR;
+      var plotH = H - padT - padB;
+
+      function x(i){ return padL + (i / (evoData.length - 1)) * plotW; }
+      function y(v){ return padT + plotH - (v / 100) * plotH; }
+
+      var ns = "http://www.w3.org/2000/svg";
+      function el(tag, attrs){
+        var e = document.createElementNS(ns, tag);
+        for(var k in attrs){ e.setAttribute(k, attrs[k]); }
+        return e;
+      }
+
+      function smoothPath(pts){
+        if(pts.length < 2) return '';
+        if(pts.length === 2) return 'M' + pts[0][0] + ',' + pts[0][1] + ' L' + pts[1][0] + ',' + pts[1][1];
+        var d = 'M' + pts[0][0] + ',' + pts[0][1] + ' ';
+        for(var i = 0; i < pts.length - 1; i++){
+          var p0 = pts[i === 0 ? 0 : i - 1];
+          var p1 = pts[i];
+          var p2 = pts[i + 1];
+          var p3 = pts[i + 2 < pts.length ? i + 2 : i + 1];
+          var c1x = p1[0] + (p2[0] - p0[0]) / 6;
+          var c1y = p1[1] + (p2[1] - p0[1]) / 6;
+          var c2x = p2[0] - (p3[0] - p1[0]) / 6;
+          var c2y = p2[1] - (p3[1] - p1[1]) / 6;
+          d += 'C' + c1x + ',' + c1y + ' ' + c2x + ',' + c2y + ' ' + p2[0] + ',' + p2[1] + ' ';
+        }
+        return d;
+      }
+
+      var defs = el('defs', {});
+      var grad = el('linearGradient', { id: 'favGrad', x1: '0', y1: '0', x2: '0', y2: '1' });
+      grad.appendChild(el('stop', { offset: '0%', 'stop-color': 'var(--favorable)', 'stop-opacity': '0.28' }));
+      grad.appendChild(el('stop', { offset: '100%', 'stop-color': 'var(--favorable)', 'stop-opacity': '0' }));
+      defs.appendChild(grad);
+      svg.appendChild(defs);
+
+      [0, 25, 50, 75, 100].forEach(function(v){
+        var ly = y(v);
+        svg.appendChild(el('line', { x1: padL, x2: W - padR, y1: ly, y2: ly, class: 'evo-gridline' }));
+        var t = el('text', { x: padL - 8, y: ly + 3, class: 'evo-axis-label', 'text-anchor': 'end' });
+        t.textContent = v + '%';
+        svg.appendChild(t);
+      });
+
+      evoData.forEach(function(d, i){
+        var t = el('text', { x: x(i), y: H - 6, class: 'evo-axis-label', 'text-anchor': 'middle' });
+        t.textContent = d.label;
+        svg.appendChild(t);
+      });
+
+      var series = [
+        { key: 'degrade', color: 'var(--degrade)', fill: false },
+        { key: 'stable', color: 'var(--stable)', fill: false },
+        { key: 'favorable', color: 'var(--favorable)', fill: true }
+      ];
+
+      series.forEach(function(s){
+        var pts = evoData.map(function(d, i){ return [x(i), y(d[s.key])]; });
+        var path = smoothPath(pts);
+
+        if(s.fill){
+          var areaPath = path + ' L' + pts[pts.length - 1][0] + ',' + (padT + plotH) + ' L' + pts[0][0] + ',' + (padT + plotH) + ' Z';
+          svg.appendChild(el('path', { d: areaPath, fill: 'url(#favGrad)', stroke: 'none' }));
+        }
+
+        svg.appendChild(el('path', { d: path, class: 'evo-line', style: 'stroke:' + s.color }));
+
+        pts.forEach(function(p){
+          svg.appendChild(el('circle', { cx: p[0], cy: p[1], r: 5, class: 'evo-dot-outer' }));
+          svg.appendChild(el('circle', { cx: p[0], cy: p[1], r: 3.2, style: 'fill:' + s.color }));
+        });
+
+        var last = evoData[evoData.length - 1];
+        var lastPt = pts[pts.length - 1];
+        var t = el('text', {
+          x: lastPt[0] + 10, y: lastPt[1] + 5,
+          class: 'evo-pct-label', style: 'fill:' + s.color
+        });
+        t.textContent = last[s.key] + '%';
+        svg.appendChild(t);
+      });
+    })();
+  } catch(e){
+    // Si les données sont mal formées, on masque juste le graphique — jamais bloquer le reste de la page.
+    var chartEl = document.querySelector('section.evolution');
+    if(chartEl) chartEl.style.display = 'none';
+  }
 </script>
 
 <script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
