@@ -615,6 +615,18 @@ Voir les échanges de session pour le détail, mais en résumé :
   page (`{ label: "V2", date: "...", favorable: X, stable: Y, degrade: Z }`
   — une ligne par version, ajouter simplement la ligne suivante).
 
+  **Détection automatique des sujets à mettre à jour, ajoutée le 1er
+  août.** Une Routine dédiée (`trig_...`, hebdomadaire, distincte de la
+  routine éditoriale quotidienne) relit `docs/sujets-a-suivre.md` — une
+  liste courte des sujets à enjeu durable (créée à la main au fil des
+  éditions, pas remplie automatiquement) — fait une recherche rapide sur
+  chacun, et **propose** une short-list de sujets qui semblent mériter une
+  mise à jour, avec le fait déclencheur. **Ne crée et ne modifie jamais
+  automatiquement une page `suivi/*.html`** : c'est un rapport, le "go"
+  reste toujours une décision manuelle de l'utilisateur. La routine fire
+  dans la session en cours (pas une session neuve), pour garder le
+  contexte complet du site.
+
   **Anciennes versions repliées par défaut (accordéon), ajouté le 1er
   août.** Chaque bloc `.version` a un bouton `.version-toggle` ; seule la
   **dernière version** (la plus récente, toujours en bas du DOM) reste
