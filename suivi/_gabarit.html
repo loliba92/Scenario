@@ -1,0 +1,256 @@
+<!--
+  GABARIT — pages de suivi par sujet.
+  Ne JAMAIS publier ce fichier tel quel et ne jamais le modifier pour un cas
+  particulier. Pour un nouveau sujet suivi : copier ce fichier vers
+  suivi/{sujet}.html, puis remplacer chaque {PLACEHOLDER} par le vrai contenu.
+  Structure et CSS identiques à chaque fois — seul le texte change.
+  Voir docs/ARCHITECTURE.md, section "Pages de suivi par sujet".
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suivi — {TITRE DE LA QUESTION} — Scénario</title>
+<link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+<meta name="description" content="Suivi dans le temps de l'édition du {DATE ORIGINE} sur {SUJET} — chaque mise à jour s'ajoute à la précédente, rien n'est réécrit.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scénario">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://lesscenarios.fr/suivi/{sujet}.html">
+<meta property="og:title" content="Suivi — {TITRE DE LA QUESTION}">
+<meta property="og:description" content="Suivi dans le temps de l'édition du {DATE ORIGINE} — chaque mise à jour s'ajoute à la précédente, rien n'est réécrit.">
+<meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --surface: #1a212b;
+    --surface-2: #212a35;
+    --hairline: #2c3644;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+    --favorable: #5e9c78;
+    --stable: #6f8fae;
+    --degrade: #bd6248;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+  ::selection{ background: var(--gold); color: var(--ink); }
+  :focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  .wrap{ max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+  header.masthead{ border-bottom: 1px solid var(--hairline); padding: 28px 0 22px; }
+  .masthead-row{ display:flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .wordmark{ font-family: "Fraunces", serif; font-weight: 600; font-size: 1.5rem; letter-spacing: 0.01em; text-decoration: none; }
+  .wordmark span{ color: var(--gold); }
+  .brand{ display: flex; align-items: center; gap: 11px; }
+  .brand-mark{ width: 30px; height: 30px; display: block; flex: none; }
+
+  nav.topnav{ background: var(--surface); border-bottom: 1px solid var(--hairline); }
+  nav.topnav .wrap{ display: flex; gap: 24px; padding: 12px 24px; flex-wrap: wrap; }
+  .topnav a{
+    font-family: "JetBrains Mono", monospace; font-size: 0.76rem; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--paper-dim); text-decoration: none;
+    border-bottom: 1px solid transparent; padding-bottom: 2px;
+  }
+  .topnav a:hover{ color: var(--paper); }
+  .topnav a[aria-current="page"]{ color: var(--gold); border-bottom-color: var(--gold); }
+
+  .hero{ padding: 56px 0 36px; border-bottom: 1px solid var(--hairline); }
+  .eyebrow{
+    font-family: "JetBrains Mono", monospace; font-size: 0.78rem; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gold); margin: 0 0 18px;
+  }
+  h1{
+    font-family: "Fraunces", serif; font-weight: 600; font-size: clamp(1.9rem, 4.6vw, 3rem);
+    line-height: 1.1; letter-spacing: -0.01em; margin: 0 0 16px;
+  }
+  .dek{ font-size: 1.05rem; color: var(--paper-dim); max-width: 62ch; margin: 0 0 14px; }
+  .dek:last-child{ margin-bottom: 0; }
+  .dek strong{ color: var(--paper); font-weight: 600; }
+
+  .origin-link{
+    display: inline-block; margin-top: 6px; font-family: "JetBrains Mono", monospace;
+    font-size: 0.82rem; color: var(--gold); text-decoration: none;
+    border-bottom: 1px dotted var(--gold); padding-bottom: 1px;
+  }
+  .origin-link:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
+  section.timeline{ padding: 48px 0 64px; }
+
+  .version{ margin: 0 0 40px; }
+  .version:last-child{ margin-bottom: 0; }
+
+  .version-head{
+    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    margin: 0 0 16px;
+  }
+  .version-tag{
+    font-family: "JetBrains Mono", monospace; font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink);
+    background: var(--gold); border-radius: 100px; padding: 3px 11px;
+  }
+  .version.is-update .version-tag{ background: var(--paper); }
+  .version-date{ font-family: "JetBrains Mono", monospace; font-size: 0.85rem; color: var(--paper-dim); }
+  .version-title{ font-family: "Fraunces", serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 16px; }
+
+  .version-body{
+    background: var(--surface); border: 1px solid var(--hairline); border-radius: 8px;
+    padding: 24px 26px;
+  }
+
+  .version-body p{ margin: 0 0 14px; color: var(--paper-dim); }
+  .version-body p:last-child{ margin-bottom: 0; }
+  .version-body strong{ color: var(--paper); font-weight: 600; }
+
+  .mini-scenarios{
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px; margin: 0 0 18px;
+  }
+  .mini-scenario{ --accent: var(--paper-dim); border-left: 2px solid var(--accent); padding-left: 12px; }
+  .mini-scenario[data-kind="favorable"]{ --accent: var(--favorable); }
+  .mini-scenario[data-kind="stable"]{ --accent: var(--stable); }
+  .mini-scenario[data-kind="degrade"]{ --accent: var(--degrade); }
+  .mini-scenario-title{ font-family: "Fraunces", serif; font-weight: 600; font-size: 0.95rem; margin: 0 0 4px; color: var(--paper); }
+  .mini-scenario-pct{ font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--accent); font-weight: 700; }
+  .mini-scenario-text{ font-size: 0.85rem; color: var(--paper-dim); margin: 4px 0 0; line-height: 1.5; }
+
+  .conclusion{
+    border-top: 1px dashed var(--hairline); margin-top: 18px; padding-top: 16px;
+  }
+  .conclusion-label{
+    display: block; font-family: "JetBrains Mono", monospace; font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin: 0 0 8px;
+  }
+
+  .sources-note{ font-size: 0.8rem; color: var(--paper-dim); margin-top: 14px; }
+  .sources-note a{ color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
+  .sources-note a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
+  footer{ border-top: 1px solid var(--hairline); padding: 32px 0 48px; }
+  footer .caveat{ font-size: 0.84rem; color: var(--paper-dim); max-width: 62ch; margin: 0; }
+  .legal-links{ display: flex; gap: 18px; flex-wrap: wrap; margin: 24px 0 0; }
+  .legal-links a{
+    font-family: "JetBrains Mono", monospace; font-size: 0.76rem; color: var(--paper-dim);
+    text-decoration: none; border-bottom: 1px dotted transparent;
+  }
+  .legal-links a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <div class="brand">
+      <img class="brand-mark" src="../assets/logo.svg" alt="">
+      <a class="wordmark" href="../index.html">Scéna<span>rio</span></a>
+    </div>
+  </div>
+</header>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="../index.html">Accueil</a>
+    <a href="../archives.html">Archives</a>
+    <a href="../le-projet.html">Le projet</a>
+    <a href="../newsletter.html">Newsletter</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Suivi d'un sujet</p>
+    <h1>{TITRE DE LA QUESTION, ex. "Sujet : où en est-on ?"}</h1>
+    <p class="dek">Contrairement aux éditions du site, cette page <strong>n'est pas figée</strong> : elle s'allonge à chaque mise à jour, sans jamais réécrire ce qui a déjà été dit. Le point de départ reste toujours visible tel quel.</p>
+    <a class="origin-link" href="../archives/{AAAA-MM-JJ}.html">Voir l'édition d'origine du {DATE ORIGINE EN TOUTES LETTRES} →</a>
+  </div>
+</section>
+
+<section class="timeline">
+  <div class="wrap">
+
+    <!-- V0 — toujours le rappel de l'édition d'origine, jamais modifié ensuite -->
+    <div class="version">
+      <div class="version-head">
+        <span class="version-tag">V0 — Point de départ</span>
+        <span class="version-date">{DATE ORIGINE}</span>
+      </div>
+      <h2 class="version-title">{Titre court résumant la situation au départ}</h2>
+      <div class="version-body">
+        <p>{Rappel du contexte de l'édition d'origine — pourquoi le sujet posait question, en 1 paragraphe.}</p>
+        <div class="mini-scenarios">
+          <div class="mini-scenario" data-kind="favorable">
+            <p class="mini-scenario-title">{emoji} {Titre scénario favorable} <span class="mini-scenario-pct">{XX}%</span></p>
+            <p class="mini-scenario-text">{1-2 phrases résumant ce scénario, comme dans l'édition d'origine.}</p>
+          </div>
+          <div class="mini-scenario" data-kind="stable">
+            <p class="mini-scenario-title">{emoji} {Titre scénario stable} <span class="mini-scenario-pct">{XX}%</span></p>
+            <p class="mini-scenario-text">{1-2 phrases résumant ce scénario, comme dans l'édition d'origine.}</p>
+          </div>
+          <div class="mini-scenario" data-kind="degrade">
+            <p class="mini-scenario-title">{emoji} {Titre scénario dégradé} <span class="mini-scenario-pct">{XX}%</span></p>
+            <p class="mini-scenario-text">{1-2 phrases résumant ce scénario, comme dans l'édition d'origine.}</p>
+          </div>
+        </div>
+        <div class="conclusion">
+          <span class="conclusion-label">Scénario jugé le plus probable à l'époque</span>
+          <p><strong>{emoji} {Nom du scénario} ({XX}%)</strong> — {pourquoi, en une phrase}.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- V1, V2... — une nouvelle mise à jour = un nouveau bloc .version.is-update
+         ajouté EN DESSOUS du précédent, jamais une modification des blocs existants. -->
+    <div class="version is-update">
+      <div class="version-head">
+        <span class="version-tag">V1 — Mise à jour</span>
+        <span class="version-date">{DATE DE CETTE MISE À JOUR}</span>
+      </div>
+      <h2 class="version-title">{Titre court résumant ce qui a changé}</h2>
+      <div class="version-body">
+        <p>{Ce qui s'est réellement passé depuis la version précédente — faits vérifiés, sources croisées, chiffres réels si disponibles.}</p>
+        <div class="conclusion">
+          <span class="conclusion-label">Conclusion vs {version précédente}</span>
+          <p>{Quel scénario se confirme ou s'éloigne, en comparant explicitement à la version précédente — jamais un verdict isolé. Rester honnête si le sujet n'est pas encore tranché.}</p>
+        </div>
+        <p class="sources-note">Sources : <a href="{URL}" target="_blank" rel="noopener noreferrer">{Nom du média} ↗</a></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="caveat">Cette page de suivi est mise à jour ponctuellement, à la main, quand un sujet a un enjeu qui dure dans le temps. Elle ne remplace jamais l'édition d'origine, qui reste figée à sa date de publication.</p>
+    <div class="legal-links">
+      <a href="https://t.me/scenario_fr" target="_blank" rel="noopener noreferrer">Telegram ↗</a>
+      <a href="https://www.linkedin.com/company/136694258/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <a href="../mentions-legales.html">Mentions légales</a>
+      <a href="../politique-de-confidentialite.html">Politique de confidentialité</a>
+    </div>
+  </div>
+</footer>
+
+<script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+</body>
+</html>

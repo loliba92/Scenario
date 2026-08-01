@@ -541,21 +541,26 @@ Voir les échanges de session pour le détail, mais en résumé :
   n'est encore tranché sur l'ensemble du sujet. Badge + tri par fraîcheur
   branchés sur `archives.html` et vérifiés visuellement (desktop + mobile).
 
-  **`suivi/spiderman-marvel.html` est le gabarit** à réutiliser tel quel
-  pour chaque nouveau sujet suivi (même CSS, même structure `.version` —
-  tag V0/V1/V2..., date, titre, corps avec mini-cartes de scénarios
-  `.mini-scenarios` + bloc `.conclusion` — seul le contenu change). Pas de
-  fichier de gabarit séparé : ce premier fichier réel sert de référence.
+  **`suivi/_gabarit.html` est LE gabarit** (fichier dédié, jamais publié
+  ni lié depuis le site, avec des `{PLACEHOLDER}` explicites et un
+  commentaire d'avertissement en tête) — à réutiliser tel quel pour chaque
+  nouveau sujet suivi : copier ce fichier vers `suivi/{sujet}.html`, puis
+  remplacer chaque placeholder par le vrai contenu. Ne jamais repartir
+  d'un autre fichier `suivi/*.html` existant ni improviser une nouvelle
+  structure. `suivi/spiderman-marvel.html` reste le premier exemple réel
+  rempli à partir de ce gabarit, utile pour voir le rendu final, mais
+  **`_gabarit.html` est la source à copier**, pas lui.
 
   **Marche à suivre pour une mise à jour** (processus manuel, hors
   routine) : l'utilisateur donne le sujet à mettre à jour dans une
   session ; retrouver l'édition d'origine dans `archives/` ; si aucune
-  page `suivi/{sujet}.html` n'existe encore, la créer avec V0 (rappel de
-  l'édition d'origine) + V1 (première mise à jour) ; si elle existe déjà,
-  ajouter uniquement une nouvelle version en dessous, jamais réécrire les
-  précédentes ; vérifier les faits par une vraie recherche (même rigueur
-  que pour une édition normale, sources croisées) ; mettre à jour le badge
-  et la date sur `archives.html` ; vérifier visuellement avant de pousser.
+  page `suivi/{sujet}.html` n'existe encore, la créer à partir de
+  `suivi/_gabarit.html` avec V0 (rappel de l'édition d'origine) + V1
+  (première mise à jour) ; si elle existe déjà, ajouter uniquement une
+  nouvelle version en dessous, jamais réécrire les précédentes ; vérifier
+  les faits par une vraie recherche (même rigueur que pour une édition
+  normale, sources croisées) ; mettre à jour le badge et la date sur
+  `archives.html` ; vérifier visuellement avant de pousser.
   **`docs/routine-prompt.md` et le trigger automatique ne changent
   jamais pour ça** — le suivi reste entièrement manuel, déclenché
   seulement par une demande explicite de l'utilisateur en session.
