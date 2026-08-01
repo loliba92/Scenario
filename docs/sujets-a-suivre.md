@@ -1,15 +1,19 @@
 # Sujets à surveiller pour une page de suivi
 
-Liste de référence pour la vérification hebdomadaire automatique (voir
-`docs/ARCHITECTURE.md`, section "Pages de suivi par sujet"). Chaque semaine,
-une routine dédiée relit cette liste, fait une recherche rapide sur chaque
-sujet, et propose (sans jamais créer automatiquement) une short-list de
-sujets qui semblent mériter une mise à jour.
+Deux parties dans ce fichier :
 
-**Ajouter un sujet ici** dès qu'une édition a un enjeu qui dure dans le
-temps (une échéance connue à venir, une situation encore ouverte). Ne pas
-ajouter systématiquement chaque édition — seulement les sujets à enjeu
-durable, comme pour la décision de créer une page de suivi elle-même.
+- **Journal des sujets publiés** : alimenté automatiquement, chaque matin,
+  par la routine éditoriale quotidienne (une ligne par édition, la plus
+  récente en tête — voir `docs/routine-prompt.md`, étape 6bis). C'est la
+  base de données brute de tous les sujets ouverts, sans tri ni jugement.
+- **Suivis actifs** : tenu à la main, seulement les sujets qui ont
+  effectivement une page `suivi/*.html` dédiée.
+
+Chaque semaine, une routine dédiée (voir `docs/ARCHITECTURE.md`, section
+"Pages de suivi par sujet") relit le journal, fait une recherche rapide sur
+les sujets qui semblent encore ouverts, et propose (sans jamais rien créer
+ni modifier automatiquement) une short-list de sujets qui pourraient
+mériter une page de suivi ou une mise à jour.
 
 ---
 
@@ -26,7 +30,20 @@ durable, comme pour la décision de créer une page de suivi elle-même.
 
 ---
 
-## Sujets candidats (pas encore de page de suivi)
+## Journal des sujets publiés
 
-*(vide pour l'instant — à compléter au fil des éditions qui semblent avoir
-un enjeu durable)*
+Une ligne par édition, la plus récente en tête. Alimenté automatiquement
+chaque matin par la routine éditoriale — ne pas éditer le contenu de cette
+liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
+un sujet devenu manifestement sans suite (voir marche à suivre dans
+`docs/ARCHITECTURE.md`).
+
+- 01.08.2026 — [Musique : l'IA a-t-elle déjà gagné ?](../archives/2026-08-01.html)
+- 31.07.2026 — [Méga-feux : la France est-elle prête pour la suite ?](../archives/2026-07-31.html)
+- 30.07.2026 — [Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ?](../archives/2026-07-30.html)
+- 29.07.2026 — [Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?](../archives/2026-07-29.html)
+- 28.07.2026 — [Milliardaires : la richesse du monde peut-elle encore se partager ?](../archives/2026-07-28.html)
+- 27.07.2026 — [Iran–États-Unis : les armes se taisent, l'accord reste à trouver](../archives/2026-07-27.html)
+- 26.07.2026 — [HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ?](../archives/2026-07-26.html)
+- 25.07.2026 — [Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ?](../archives/2026-07-25.html)
+- 18.07.2026 — [Spider-Man contre Avengers : qui va sauver le box-office Marvel ?](../archives/2026-07-18.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.

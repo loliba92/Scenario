@@ -593,8 +593,10 @@ Voir les échanges de session pour le détail, mais en résumé :
   s'il y en a une. Le lecteur doit comprendre la volatilité réelle de la
   mise à jour en une seule lecture.
 
-  Mettre à jour le badge et la date sur `archives.html` ; vérifier
-  visuellement avant de pousser.
+  Mettre à jour le badge et la date sur `archives.html` ; mettre à jour
+  aussi l'entrée correspondante (ou la créer) dans la section « Suivis
+  actifs » de `docs/sujets-a-suivre.md` (dernière vérification, prochaine
+  échéance connue) ; vérifier visuellement avant de pousser.
 
   **Graphique d'évolution ajouté le 1er août**, fixe (non-repliable, choix
   volontaire — le mettre dans l'accordéon irait à l'encontre de son but
@@ -615,17 +617,25 @@ Voir les échanges de session pour le détail, mais en résumé :
   page (`{ label: "V2", date: "...", favorable: X, stable: Y, degrade: Z }`
   — une ligne par version, ajouter simplement la ligne suivante).
 
+  **Journal quotidien auto-alimenté, ajouté le 1er août.** Depuis cette
+  date, l'étape 6bis de `docs/routine-prompt.md` fait écrire par la
+  routine éditoriale **quotidienne** une ligne par édition (date + titre +
+  lien) tout en haut de la section « Journal des sujets publiés » de
+  `docs/sujets-a-suivre.md` — sans aucun jugement de sa part sur l'intérêt
+  du sujet, juste un journal brut, même logique que `archives.html`. Le
+  reste du fichier (section « Suivis actifs ») reste tenu à la main.
+
   **Détection automatique des sujets à mettre à jour, ajoutée le 1er
   août.** Une Routine dédiée (`trig_...`, hebdomadaire, distincte de la
-  routine éditoriale quotidienne) relit `docs/sujets-a-suivre.md` — une
-  liste courte des sujets à enjeu durable (créée à la main au fil des
-  éditions, pas remplie automatiquement) — fait une recherche rapide sur
-  chacun, et **propose** une short-list de sujets qui semblent mériter une
-  mise à jour, avec le fait déclencheur. **Ne crée et ne modifie jamais
-  automatiquement une page `suivi/*.html`** : c'est un rapport, le "go"
-  reste toujours une décision manuelle de l'utilisateur. La routine fire
-  dans la session en cours (pas une session neuve), pour garder le
-  contexte complet du site.
+  routine éditoriale quotidienne) relit `docs/sujets-a-suivre.md` —
+  journal quotidien + suivis actifs — fait une recherche rapide sur les
+  sujets qui semblent encore ouverts, et **propose** une short-list de
+  sujets qui semblent mériter une page de suivi ou une mise à jour, avec
+  le fait déclencheur. **Ne crée et ne modifie jamais automatiquement une
+  page `suivi/*.html`, ni le fichier `sujets-a-suivre.md` lui-même** :
+  c'est un rapport, le "go" reste toujours une décision manuelle de
+  l'utilisateur. La routine fire dans la session en cours (pas une
+  session neuve), pour garder le contexte complet du site.
 
   **Anciennes versions repliées par défaut (accordéon), ajouté le 1er
   août.** Chaque bloc `.version` a un bouton `.version-toggle` ; seule la
