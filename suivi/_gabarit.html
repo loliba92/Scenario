@@ -139,6 +139,10 @@
     display: block; font-family: "JetBrains Mono", monospace; font-size: 0.7rem;
     text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin: 0 0 8px;
   }
+  .conclusion-headline{
+    font-family: "Fraunces", serif; font-weight: 600; font-size: 1.15rem;
+    color: var(--paper); line-height: 1.35; margin: 0 0 12px;
+  }
 
   .sources-note{ font-size: 0.8rem; color: var(--paper-dim); margin-top: 14px; }
   .sources-note a{ color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
@@ -212,6 +216,7 @@
         </div>
         <div class="conclusion">
           <span class="conclusion-label">Scénario jugé le plus probable à l'époque</span>
+          <p class="conclusion-headline">{emoji} {Phrase-clé courte résumant le scénario le plus probable au départ}.</p>
           <p><strong>{emoji} {Nom du scénario} ({XX}%)</strong> — {pourquoi, en une phrase}.</p>
         </div>
       </div>
@@ -229,6 +234,7 @@
         <p>{Ce qui s'est réellement passé depuis la version précédente — faits vérifiés, sources croisées, chiffres réels si disponibles.}</p>
         <div class="conclusion">
           <span class="conclusion-label">Conclusion vs {version précédente}</span>
+          <p class="conclusion-headline">{Phrase-clé courte et percutante — l'essentiel de l'évolution en un coup d'œil, ex. "Le scénario X prend l'avantage" ou "Rien ne bouge, le scénario Y tient toujours".}</p>
           <p>{Quel scénario se confirme ou s'éloigne, en comparant explicitement à la version précédente — jamais un verdict isolé. Rester honnête si le sujet n'est pas encore tranché.}</p>
         </div>
         <p class="sources-note">Sources : <a href="{URL}" target="_blank" rel="noopener noreferrer">{Nom du média} ↗</a></p>
