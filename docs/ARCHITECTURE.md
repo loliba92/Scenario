@@ -540,4 +540,22 @@ Voir les échanges de session pour le détail, mais en résumé :
   précisant que Doomsday (sortie en décembre) reste une inconnue, donc rien
   n'est encore tranché sur l'ensemble du sujet. Badge + tri par fraîcheur
   branchés sur `archives.html` et vérifiés visuellement (desktop + mobile).
-  Sert de modèle pour les prochains sujets suivis.
+
+  **`suivi/spiderman-marvel.html` est le gabarit** à réutiliser tel quel
+  pour chaque nouveau sujet suivi (même CSS, même structure `.version` —
+  tag V0/V1/V2..., date, titre, corps avec mini-cartes de scénarios
+  `.mini-scenarios` + bloc `.conclusion` — seul le contenu change). Pas de
+  fichier de gabarit séparé : ce premier fichier réel sert de référence.
+
+  **Marche à suivre pour une mise à jour** (processus manuel, hors
+  routine) : l'utilisateur donne le sujet à mettre à jour dans une
+  session ; retrouver l'édition d'origine dans `archives/` ; si aucune
+  page `suivi/{sujet}.html` n'existe encore, la créer avec V0 (rappel de
+  l'édition d'origine) + V1 (première mise à jour) ; si elle existe déjà,
+  ajouter uniquement une nouvelle version en dessous, jamais réécrire les
+  précédentes ; vérifier les faits par une vraie recherche (même rigueur
+  que pour une édition normale, sources croisées) ; mettre à jour le badge
+  et la date sur `archives.html` ; vérifier visuellement avant de pousser.
+  **`docs/routine-prompt.md` et le trigger automatique ne changent
+  jamais pour ça** — le suivi reste entièrement manuel, déclenché
+  seulement par une demande explicite de l'utilisateur en session.
