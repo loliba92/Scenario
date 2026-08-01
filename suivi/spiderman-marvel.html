@@ -140,6 +140,17 @@
   .mini-scenario-pct{ font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--accent); font-weight: 700; }
   .mini-scenario-text{ font-size: 0.85rem; color: var(--paper-dim); margin: 4px 0 0; line-height: 1.5; }
 
+  .mini-scenario-evolution{
+    display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap;
+    font-family: "JetBrains Mono", monospace; margin: 2px 0 8px;
+  }
+  .evo-current{ font-size: 1.5rem; font-weight: 700; color: var(--paper); line-height: 1; }
+  .evo-arrow{ display: inline-block; font-weight: 700; font-size: 1.1rem; }
+  .evo-arrow.is-up{ color: var(--favorable); }
+  .evo-arrow.is-down{ color: var(--degrade); }
+  .evo-arrow.is-flat{ color: var(--paper-dim); }
+  .evo-prev{ font-size: 0.76rem; color: var(--paper-dim); font-weight: 400; }
+
   .conclusion{
     border-top: 1px dashed var(--hairline); margin-top: 18px; padding-top: 16px;
   }
@@ -150,33 +161,6 @@
   .conclusion-headline{
     font-family: "Fraunces", serif; font-weight: 600; font-size: 1.15rem;
     color: var(--paper); line-height: 1.35; margin: 0 0 12px;
-  }
-
-  /* ---- Comparatif visuel avant/après des 3 scénarios ---- */
-  .pct-compare{
-    display: flex; flex-direction: column; gap: 16px;
-    margin: 0 0 18px; padding: 18px; background: var(--surface-2); border-radius: 6px;
-  }
-  .pct-row{ --accent: var(--paper-dim); }
-  .pct-row[data-kind="favorable"]{ --accent: var(--favorable); }
-  .pct-row[data-kind="stable"]{ --accent: var(--stable); }
-  .pct-row[data-kind="degrade"]{ --accent: var(--degrade); }
-  .pct-row-label{
-    font-family: "Fraunces", serif; font-weight: 600; font-size: 0.9rem;
-    color: var(--paper); margin: 0 0 6px;
-  }
-  .pct-line{ display: flex; align-items: center; gap: 9px; margin-bottom: 3px; }
-  .pct-line:last-child{ margin-bottom: 0; }
-  .pct-line-tag{
-    width: 22px; flex: none; font-family: "JetBrains Mono", monospace;
-    font-size: 0.66rem; color: var(--paper-dim);
-  }
-  .pct-bar-track{ flex: 1 1 auto; height: 13px; background: var(--hairline); border-radius: 3px; overflow: hidden; }
-  .pct-bar-fill{ height: 100%; border-radius: 3px; background: var(--accent); }
-  .pct-line.is-before .pct-bar-fill{ opacity: 0.4; }
-  .pct-bar-value{
-    width: 38px; flex: none; text-align: right; font-family: "JetBrains Mono", monospace;
-    font-size: 0.76rem; color: var(--paper-dim);
   }
 
   .sources-note{ font-size: 0.8rem; color: var(--paper-dim); margin-top: 14px; }
@@ -270,53 +254,28 @@
         <div class="version-content-inner">
         <h2 class="version-title">Spider-Man est sorti : premiers résultats réels</h2>
         <div class="version-body">
-        <p><strong>Spider-Man : Brand New Day</strong> est sorti le 31 juillet. Les premiers chiffres réels dépassent largement le scénario stable : <strong>72 M$ de recettes en avant-premières</strong>, un record absolu qui bat l'ancien record d'Avengers : Endgame (60 M$), puis un <strong>vendredi record à 167-173 M$</strong>. Les projections tablent désormais sur un week-end d'ouverture de <strong>260 à 330 M$</strong>, ce qui positionnerait le film au 2ᵉ rang de tous les temps pour un week-end d'ouverture aux États-Unis, juste derrière Endgame (357 M$) et devant Spider-Man : No Way Home.</p>
-        <p>Côté <strong>Avengers : Doomsday</strong>, encore attendu pour le 17 décembre, les précommandes ouvertes le 20 juillet confirment la dynamique déjà notée dans l'édition d'origine : 16,5 M$ engrangés dès les premières 24 heures, deux fois plus vite que Deadpool &amp; Wolverine (2024) sur la même période. Un nouvel élément à surveiller : le film ne sera pas diffusé en IMAX aux États-Unis pendant ses trois premières semaines, une exclusivité accordée à Dune : Part Three.</p>
+        <p><strong>Spider-Man : Brand New Day</strong> est sorti le 31 juillet avec des chiffres record — <strong>72 M$ de previews</strong> et une ouverture projetée à <strong>260-330 M$</strong>, au-dessus même du scénario favorable. <strong>Avengers : Doomsday</strong>, toujours attendu le 17 décembre, confirme sa dynamique avec 16,5 M$ de précommandes en 24h, deux fois plus vite que Deadpool &amp; Wolverine (2024).</p>
         <div class="conclusion">
           <span class="conclusion-label">Conclusion vs V0</span>
           <p class="conclusion-headline">🍿 Spider-Man dépasse déjà le scénario favorable — Doomsday reste la vraie inconnue.</p>
-          <div class="pct-compare">
-            <div class="pct-row" data-kind="favorable">
-              <p class="pct-row-label">🍿 Le doublé parfait</p>
-              <div class="pct-line is-before">
-                <span class="pct-line-tag">V0</span>
-                <div class="pct-bar-track"><div class="pct-bar-fill" style="width:25%"></div></div>
-                <span class="pct-bar-value">25%</span>
-              </div>
-              <div class="pct-line">
-                <span class="pct-line-tag">V1</span>
-                <div class="pct-bar-track"><div class="pct-bar-fill" style="width:45%"></div></div>
-                <span class="pct-bar-value">45%</span>
-              </div>
+          <div class="mini-scenarios">
+            <div class="mini-scenario" data-kind="favorable">
+              <p class="mini-scenario-title">🍿 Le doublé parfait</p>
+              <p class="mini-scenario-evolution"><span class="evo-current">45%</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">(vs. 25% en V0)</span></p>
+              <p class="mini-scenario-text">Spider-Man dépasse déjà cette fourchette à lui seul (260-330 M$ projetés vs 220-260 M$ visés) — il ne manque plus qu'un Doomsday tout aussi fort en décembre pour confirmer le doublé.</p>
             </div>
-            <div class="pct-row" data-kind="stable">
-              <p class="pct-row-label">😐 Correct, sans plus</p>
-              <div class="pct-line is-before">
-                <span class="pct-line-tag">V0</span>
-                <div class="pct-bar-track"><div class="pct-bar-fill" style="width:45%"></div></div>
-                <span class="pct-bar-value">45%</span>
-              </div>
-              <div class="pct-line">
-                <span class="pct-line-tag">V1</span>
-                <div class="pct-bar-track"><div class="pct-bar-fill" style="width:40%"></div></div>
-                <span class="pct-bar-value">40%</span>
-              </div>
+            <div class="mini-scenario" data-kind="stable">
+              <p class="mini-scenario-title">😐 Correct, sans plus</p>
+              <p class="mini-scenario-evolution"><span class="evo-current">40%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. 45% en V0)</span></p>
+              <p class="mini-scenario-text">Recule légèrement : Spider-Man a déjà dépassé ce scénario à lui seul, mais il reste crédible si Doomsday atterrit dans une fourchette plus modeste en décembre.</p>
             </div>
-            <div class="pct-row" data-kind="degrade">
-              <p class="pct-row-label">📉 La fatigue Marvel confirmée</p>
-              <div class="pct-line is-before">
-                <span class="pct-line-tag">V0</span>
-                <div class="pct-bar-track"><div class="pct-bar-fill" style="width:30%"></div></div>
-                <span class="pct-bar-value">30%</span>
-              </div>
-              <div class="pct-line">
-                <span class="pct-line-tag">V1</span>
-                <div class="pct-bar-track"><div class="pct-bar-fill" style="width:15%"></div></div>
-                <span class="pct-bar-value">15%</span>
-              </div>
+            <div class="mini-scenario" data-kind="degrade">
+              <p class="mini-scenario-title">📉 La fatigue Marvel confirmée</p>
+              <p class="mini-scenario-evolution"><span class="evo-current">15%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. 30% en V0)</span></p>
+              <p class="mini-scenario-text">Recule fortement : l'hypothèse reposait sur deux films décevants, déjà écartée côté Spider-Man. Ne subsiste que si Doomsday déçoit nettement à lui seul.</p>
             </div>
           </div>
-          <p>Nouvelle estimation : <strong>favorable 25% → 45%</strong>, <strong>stable 45% → 40%</strong>, <strong>dégradé 30% → 15%</strong>. Sur son seul volet Spider-Man, le scénario <strong>🍿 favorable</strong> est en train de se confirmer, voire de le dépasser : l'ouverture projetée (260-330 M$) atteint ou dépasse le haut de la fourchette favorable (220-260 M$), loin au-dessus du scénario stable qu'on jugeait le plus probable au départ. Le scénario <strong>📉 dégradé recule fortement</strong> : il supposait que les deux films déçoivent, une hypothèse déjà écartée pour Spider-Man. Mais le tableau reste incomplet : Doomsday, l'autre moitié de la question posée le 18 juillet, ne sortira que dans plus de quatre mois — impossible de dire aujourd'hui si Marvel réussira le « doublé parfait » ou si Doomsday retombera vers un résultat plus proche du scénario stable. Prochaine mise à jour prévue après le week-end d'ouverture complet de Spider-Man, ou à l'approche de la sortie de Doomsday.</p>
+          <p>Le tableau reste incomplet : Doomsday, l'autre moitié de la question posée le 18 juillet, ne sortira que dans plus de quatre mois — impossible de dire aujourd'hui si Marvel réussira le « doublé parfait » ou si Doomsday retombera vers un résultat plus proche du scénario stable. Prochaine mise à jour prévue après le week-end d'ouverture complet de Spider-Man, ou à l'approche de la sortie de Doomsday.</p>
         </div>
         <p class="sources-note">Sources : <a href="https://deadline.com/2026/07/box-office-spider-man-brand-new-day-1237014268/" target="_blank" rel="noopener noreferrer">Deadline ↗</a>, <a href="https://variety.com/2026/film/box-office/spider-man-brand-new-day-box-office-record-previews-1236824394/" target="_blank" rel="noopener noreferrer">Variety ↗</a>, <a href="https://www.thewrap.com/industry-news/box-office/avengers-doomsday-presales-first-day-infinity-vision/" target="_blank" rel="noopener noreferrer">TheWrap ↗</a></p>
         </div>

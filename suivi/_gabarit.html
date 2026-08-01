@@ -148,6 +148,17 @@
   .mini-scenario-pct{ font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--accent); font-weight: 700; }
   .mini-scenario-text{ font-size: 0.85rem; color: var(--paper-dim); margin: 4px 0 0; line-height: 1.5; }
 
+  .mini-scenario-evolution{
+    display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap;
+    font-family: "JetBrains Mono", monospace; margin: 2px 0 8px;
+  }
+  .evo-current{ font-size: 1.5rem; font-weight: 700; color: var(--paper); line-height: 1; }
+  .evo-arrow{ display: inline-block; font-weight: 700; font-size: 1.1rem; }
+  .evo-arrow.is-up{ color: var(--favorable); }
+  .evo-arrow.is-down{ color: var(--degrade); }
+  .evo-arrow.is-flat{ color: var(--paper-dim); }
+  .evo-prev{ font-size: 0.76rem; color: var(--paper-dim); font-weight: 400; }
+
   .conclusion{
     border-top: 1px dashed var(--hairline); margin-top: 18px; padding-top: 16px;
   }
@@ -158,33 +169,6 @@
   .conclusion-headline{
     font-family: "Fraunces", serif; font-weight: 600; font-size: 1.15rem;
     color: var(--paper); line-height: 1.35; margin: 0 0 12px;
-  }
-
-  /* ---- Comparatif visuel avant/après des 3 scénarios ---- */
-  .pct-compare{
-    display: flex; flex-direction: column; gap: 16px;
-    margin: 0 0 18px; padding: 18px; background: var(--surface-2); border-radius: 6px;
-  }
-  .pct-row{ --accent: var(--paper-dim); }
-  .pct-row[data-kind="favorable"]{ --accent: var(--favorable); }
-  .pct-row[data-kind="stable"]{ --accent: var(--stable); }
-  .pct-row[data-kind="degrade"]{ --accent: var(--degrade); }
-  .pct-row-label{
-    font-family: "Fraunces", serif; font-weight: 600; font-size: 0.9rem;
-    color: var(--paper); margin: 0 0 6px;
-  }
-  .pct-line{ display: flex; align-items: center; gap: 9px; margin-bottom: 3px; }
-  .pct-line:last-child{ margin-bottom: 0; }
-  .pct-line-tag{
-    width: 22px; flex: none; font-family: "JetBrains Mono", monospace;
-    font-size: 0.66rem; color: var(--paper-dim);
-  }
-  .pct-bar-track{ flex: 1 1 auto; height: 13px; background: var(--hairline); border-radius: 3px; overflow: hidden; }
-  .pct-bar-fill{ height: 100%; border-radius: 3px; background: var(--accent); }
-  .pct-line.is-before .pct-bar-fill{ opacity: 0.4; }
-  .pct-bar-value{
-    width: 38px; flex: none; text-align: right; font-family: "JetBrains Mono", monospace;
-    font-size: 0.76rem; color: var(--paper-dim);
   }
 
   .sources-note{ font-size: 0.8rem; color: var(--paper-dim); margin-top: 14px; }
@@ -285,58 +269,39 @@
         <div class="version-content-inner">
         <h2 class="version-title">{Titre court résumant ce qui a changé}</h2>
         <div class="version-body">
-        <p>{Ce qui s'est réellement passé depuis la version précédente — faits vérifiés, sources croisées, chiffres réels si disponibles.}</p>
+        <!-- Un seul paragraphe concis, comme l'intro de V0 — pas deux ou trois
+             paragraphes détaillés. L'essentiel des faits, pas tout le détail :
+             le détail par scénario va dans les mini-scenario-text plus bas. -->
+        <p>{Ce qui s'est réellement passé depuis la version précédente, en une seule fois, concis — faits vérifiés, sources croisées, chiffres réels si disponibles.}</p>
         <div class="conclusion">
           <span class="conclusion-label">Conclusion vs {version précédente}</span>
           <p class="conclusion-headline">{Phrase-clé courte et percutante — l'essentiel de l'évolution en un coup d'œil, ex. "Le scénario X prend l'avantage" ou "Rien ne bouge, le scénario Y tient toujours".}</p>
-          <!-- Comparatif visuel obligatoire à chaque mise à jour : donner une nouvelle
-               estimation chiffrée des 3 scénarios (même logique que les probabilités
-               d'une édition normale — ordre de grandeur argumenté, pas un calcul
-               statistique certifié) et l'afficher en barres avant/après. Dupliquer
-               ce bloc .pct-row pour chacun des 3 scénarios, toujours dans l'ordre
-               favorable/stable/dégradé. Le total des V1 (ou Vn) doit faire 100%. -->
-          <div class="pct-compare">
-            <div class="pct-row" data-kind="favorable">
-              <p class="pct-row-label">{emoji} {Titre scénario favorable}</p>
-              <div class="pct-line is-before">
-                <span class="pct-line-tag">V0</span>
-                <div class="pct-bar-track"><div class="pct-bar-fill" style="width:{XX}%"></div></div>
-                <span class="pct-bar-value">{XX}%</span>
-              </div>
-              <div class="pct-line">
-                <span class="pct-line-tag">V1</span>
-                <div class="pct-bar-track"><div class="pct-bar-fill" style="width:{YY}%"></div></div>
-                <span class="pct-bar-value">{YY}%</span>
-              </div>
+          <!-- Obligatoire à chaque mise à jour : reprendre le même format de cartes
+               que les mini-scenarios de V0 (pour rester lisible et cohérent), avec
+               une ligne d'évolution {ancien %} → flèche → {nouveau %} (flèche verte
+               is-up si ça monte, rouge is-down si ça descend, is-flat si inchangé)
+               et un commentaire COURT propre à CE scénario, toujours comparé à la
+               version immédiatement précédente (jamais toujours V0 — V2 se compare
+               à V1, V3 à V2, etc.). Toujours les 3 scénarios, dans l'ordre
+               favorable/stable/dégradé. Le total des nouveaux % doit faire 100%. -->
+          <div class="mini-scenarios">
+            <div class="mini-scenario" data-kind="favorable">
+              <p class="mini-scenario-title">{emoji} {Titre scénario favorable}</p>
+              <p class="mini-scenario-evolution"><span class="evo-current">{nouveau %}%</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">(vs. {ancien %}% en {version précédente})</span></p>
+              <p class="mini-scenario-text">{Pourquoi ce scénario monte, descend ou reste stable, vs la version précédente — 1-2 phrases courtes.}</p>
             </div>
-            <div class="pct-row" data-kind="stable">
-              <p class="pct-row-label">{emoji} {Titre scénario stable}</p>
-              <div class="pct-line is-before">
-                <span class="pct-line-tag">V0</span>
-                <div class="pct-bar-track"><div class="pct-bar-fill" style="width:{XX}%"></div></div>
-                <span class="pct-bar-value">{XX}%</span>
-              </div>
-              <div class="pct-line">
-                <span class="pct-line-tag">V1</span>
-                <div class="pct-bar-track"><div class="pct-bar-fill" style="width:{YY}%"></div></div>
-                <span class="pct-bar-value">{YY}%</span>
-              </div>
+            <div class="mini-scenario" data-kind="stable">
+              <p class="mini-scenario-title">{emoji} {Titre scénario stable}</p>
+              <p class="mini-scenario-evolution"><span class="evo-current">{nouveau %}%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. {ancien %}% en {version précédente})</span></p>
+              <p class="mini-scenario-text">{Pourquoi ce scénario monte, descend ou reste stable, vs la version précédente — 1-2 phrases courtes.}</p>
             </div>
-            <div class="pct-row" data-kind="degrade">
-              <p class="pct-row-label">{emoji} {Titre scénario dégradé}</p>
-              <div class="pct-line is-before">
-                <span class="pct-line-tag">V0</span>
-                <div class="pct-bar-track"><div class="pct-bar-fill" style="width:{XX}%"></div></div>
-                <span class="pct-bar-value">{XX}%</span>
-              </div>
-              <div class="pct-line">
-                <span class="pct-line-tag">V1</span>
-                <div class="pct-bar-track"><div class="pct-bar-fill" style="width:{YY}%"></div></div>
-                <span class="pct-bar-value">{YY}%</span>
-              </div>
+            <div class="mini-scenario" data-kind="degrade">
+              <p class="mini-scenario-title">{emoji} {Titre scénario dégradé}</p>
+              <p class="mini-scenario-evolution"><span class="evo-current">{nouveau %}%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. {ancien %}% en {version précédente})</span></p>
+              <p class="mini-scenario-text">{Pourquoi ce scénario monte, descend ou reste stable, vs la version précédente — 1-2 phrases courtes.}</p>
             </div>
           </div>
-          <p>{Quel scénario se confirme ou s'éloigne, en comparant explicitement à la version précédente — jamais un verdict isolé. Rester honnête si le sujet n'est pas encore tranché.}</p>
+          <p>{Conclusion générale, courte : ce qui reste incertain, ce qu'il faudra observer pour la prochaine mise à jour. Rester honnête si le sujet n'est pas encore tranché.}</p>
         </div>
         <p class="sources-note">Sources : <a href="{URL}" target="_blank" rel="noopener noreferrer">{Nom du média} ↗</a></p>
         </div>
