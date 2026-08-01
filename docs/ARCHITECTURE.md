@@ -566,6 +566,20 @@ Voir les échanges de session pour le détail, mais en résumé :
   retour utilisateur sur la première version jugée pas assez visuelle) ;
   mettre à jour le badge et la date sur `archives.html` ; vérifier
   visuellement avant de pousser.
+
+  **Anciennes versions repliées par défaut (accordéon), ajouté le 1er
+  août.** Chaque bloc `.version` a un bouton `.version-toggle` ; seule la
+  **dernière version** (la plus récente, toujours en bas du DOM) reste
+  dépliée à l'arrivée sur la page — les précédentes sont repliées (tag +
+  date visibles, contenu masqué jusqu'au clic). Ajouté après retour
+  utilisateur : sans ça, la page devient un pavé à faire défiler dès la
+   3ᵉ ou 4ᵉ mise à jour d'un même sujet. Même mécanique CSS/JS que
+  l'accordéon des scénarios sur `archives.html` (`grid-template-rows`
+  0fr/1fr + classe `is-expanded`), rien de nouveau inventé. Pour un
+  nouveau V2/V3..., dupliquer un bloc `.version.is-update` du gabarit et
+  changer son `id` (`version-content-v2`, etc.) — le JS détecte
+  automatiquement le dernier bloc du DOM et le déplie, aucune autre
+  configuration nécessaire.
   **`docs/routine-prompt.md` et le trigger automatique ne changent
   jamais pour ça** — le suivi reste entièrement manuel, déclenché
   seulement par une demande explicite de l'utilisateur en session.
