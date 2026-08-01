@@ -560,12 +560,24 @@ Voir les échanges de session pour le détail, mais en résumé :
   nouvelle version en dessous, jamais réécrire les précédentes ; vérifier
   les faits par une vraie recherche (même rigueur que pour une édition
   normale, sources croisées) ; **donner une nouvelle estimation chiffrée
-  des 3 scénarios et l'afficher en comparatif visuel avant/après**
-  (`.pct-compare`, barres colorées V0 vs Vn, obligatoire à chaque mise à
-  jour — pas seulement une conclusion en texte, ajouté le 1er août après
-  retour utilisateur sur la première version jugée pas assez visuelle) ;
-  mettre à jour le badge et la date sur `archives.html` ; vérifier
-  visuellement avant de pousser.
+  des 3 scénarios, présentée comme des cartes `.mini-scenarios` (même
+  format que V0, pas un design différent)**, chacune avec une ligne
+  d'évolution bien visible : le **nouveau %** en gros (`.evo-current`),
+  une flèche colorée (`.evo-arrow` — verte `is-up` si ça monte, rouge
+  `is-down` si ça descend, grise `is-flat` si inchangé), et l'ancien %
+  entre parenthèses en petit (`.evo-prev`, ex. "(vs. 25% en V0)") —
+  **toujours comparé à la version immédiatement précédente**, jamais
+  systématiquement V0 (V2 se compare à V1, V3 à V2, etc.). Un commentaire
+  court par scénario explique pourquoi il monte/descend/reste stable.
+  Format remplacé le 1er août (l'essai précédent en barres `.pct-compare`
+  a été jugé pas assez lisible/scannable par rapport à V0, abandonné).
+  **L'intro de chaque mise à jour doit rester un seul paragraphe concis**,
+  comme celui de V0 — pas plusieurs paragraphes détaillés, le détail
+  factuel spécifique à chaque scénario va dans son propre commentaire de
+  carte, pas dans l'intro générale. Terminer par une conclusion générale
+  courte (ce qui reste incertain, quoi observer ensuite) ; mettre à jour
+  le badge et la date sur `archives.html` ; vérifier visuellement avant de
+  pousser.
 
   **Anciennes versions repliées par défaut (accordéon), ajouté le 1er
   août.** Chaque bloc `.version` a un bouton `.version-toggle` ; seule la
