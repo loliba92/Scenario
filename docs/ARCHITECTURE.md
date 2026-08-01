@@ -477,3 +477,14 @@ Voir les échanges de session pour le détail, mais en résumé :
     réel reçu et vérifié bout en bout (édition du 31 juillet, 08h01). Le
     prompt de la routine est aussi tenu à jour dans le trigger réel au fil
     des sessions (dernière synchronisation vérifiée le 31 juillet, 16h36).
+- **Photo dans les éditions — idée écartée le 1er août.** Discuté puis
+  volontairement abandonné : impossible d'utiliser une vraie photo de presse
+  trouvée pendant la recherche (droit d'auteur, republication non autorisée),
+  et générer une image IA "réaliste" est risqué vu que les sujets impliquent
+  souvent de vraies personnes (chefs d'État, dirigeants, sportifs...) —
+  problème de désinformation/deepfake pour un site qui se veut rigoureux
+  factuellement. Une illustration abstraite générée par IA (pas
+  photoréaliste, dans les couleurs de la marque) restait une option plus
+  sûre, mais écartée aussi pour ne pas introduire un élément visuel non
+  maîtrisé et casser la cohérence typographique actuelle du site (aucune
+  photo nulle part aujourd'hui). Aucune action prévue pour l'instant.
