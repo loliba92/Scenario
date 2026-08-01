@@ -583,3 +583,35 @@ Voir les échanges de session pour le détail, mais en résumé :
   **`docs/routine-prompt.md` et le trigger automatique ne changent
   jamais pour ça** — le suivi reste entièrement manuel, déclenché
   seulement par une demande explicite de l'utilisateur en session.
+- **Transparence IA (article 50 du règlement européen sur l'IA) — ajouté
+  le 1er août, obligation applicable à partir du 2 août 2026.** L'article
+  50(4) impose de signaler clairement un contenu texte généré par IA sur
+  un sujet d'intérêt public, sauf exemption pour un contenu ayant subi une
+  vraie relecture éditoriale humaine substantielle (pas une simple
+  approbation de forme) sous la responsabilité d'une personne identifiée.
+  Vu que la routine publie chaque édition en autonomie complète, sans
+  validation humaine séparée avant mise en ligne, cette exemption est
+  jugée trop fragile pour s'appuyer dessus — décision prise de toujours
+  afficher la mention de transparence plutôt que de tenter de revendiquer
+  l'exemption.
+  - **Mention ajoutée au footer de chaque édition** (`index.html`, et donc
+    aussi chaque `archives/AAAA-MM-JJ.html` future puisque la routine
+    recopie ce gabarit tel quel — même mécanisme que les liens
+    Telegram/LinkedIn, aucune instruction supplémentaire nécessaire dans
+    `docs/routine-prompt.md`) : `🤖 Recherche et rédaction assistées par
+    l'intelligence artificielle. En savoir plus sur notre méthode →`
+    (lien vers `le-projet.html`), juste après le caveat existant sur les
+    probabilités.
+  - **Ajouté rétroactivement aux 9 archives déjà publiées** (18 juillet
+    au 1er août) — exception au principe "une archive ne se modifie
+    jamais", au même titre que la correction du bilan pompiers : justifiée
+    ici parce que l'obligation légale porte sur le contenu déjà en ligne
+    au 2 août, pas seulement sur le contenu futur.
+  - **Section dédiée ajoutée à `mentions-legales.html`** ("Intelligence
+    artificielle et transparence", entre "L'éditeur" et "L'hébergeur") :
+    cite l'article 50, explique que chaque édition est produite par IA à
+    partir de sources vérifiées sous la responsabilité éditoriale
+    d'Olivier Bertrand, renvoie vers `le-projet.html` pour le détail du
+    processus. Formulation volontairement factuelle (ce qui est fait),
+    **jamais une revendication de conformité totale certifiée** — le sujet
+    reste juridiquement nuancé (voir l'analyse de l'exemption ci-dessus).
