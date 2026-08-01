@@ -488,3 +488,46 @@ Voir les échanges de session pour le détail, mais en résumé :
   sûre, mais écartée aussi pour ne pas introduire un élément visuel non
   maîtrisé et casser la cohérence typographique actuelle du site (aucune
   photo nulle part aujourd'hui). Aucune action prévue pour l'instant.
+- **Pages de suivi par sujet — concept défini le 1er août, pas encore
+  implémenté.** Besoin identifié : certains sujets (budget 2027, Iran-USA,
+  méga-feux...) ont un enjeu qui dure bien au-delà de leur édition
+  d'origine, mais les archives sont figées définitivement (aucune édition
+  n'est jamais remodifiée) — donc aucun mécanisme actuel pour montrer
+  comment un scénario évolue dans le temps.
+
+  **Mécanique retenue** :
+  - Une nouvelle page par sujet suivi, `suivi/{sujet}.html`, **distincte**
+    de l'archive d'origine (qui ne bouge jamais). N'existe pas tant
+    qu'aucune mise à jour n'a été demandée.
+  - Déclenchement **entièrement manuel** : l'utilisateur donne le "go"
+    (ex. « mets à jour le sujet Budget 2027 ») ; jamais automatique dans la
+    routine quotidienne, jamais une entrée systématique pour chaque
+    édition — volontairement réservé à une poignée de sujets à enjeu
+    durable, choisis à la main, pour ne pas se retrouver à gérer un
+    deuxième site.
+  - À la première demande, la page se crée avec **deux entrées d'un
+    coup** : (1) rappel de l'édition d'origine — résumé des 3 scénarios et
+    lequel était jugé le plus probable, avec lien vers l'archive figée ;
+    (2) la mise à jour du jour — ré-évaluation des 3 scénarios à la
+    lumière de ce qui s'est passé depuis, conclusion claire comparée à
+    l'entrée précédente.
+  - Chaque demande suivante ajoute une **nouvelle entrée en dessous**,
+    jamais une réécriture des précédentes (même logique que les
+    archives : on additionne, on ne remplace pas) — v0, v1, v2... jusqu'à
+    autant de mises à jour que nécessaire.
+
+  **Découverte** : pas de nouvel onglet dans le menu principal pour
+  l'instant (prématuré tant qu'il n'existe que 2-3 sujets suivis). À la
+  place :
+  - Un badge sur la ligne concernée dans `archives.html` (la liste
+    vivante, jamais la page individuelle figée) : `🔄 Suivi mis à jour le
+    {date} →`, avec la date de dernière mise à jour plutôt que la date de
+    publication.
+  - Un toggle de tri ajouté aux filtres existants de `archives.html`
+    (« Date de publication » / « Dernière mise à jour ») : en mode
+    « dernière mise à jour », un sujet ancien mais récemment mis à jour
+    remonte en haut, mélangé aux éditions du jour — réutilise le JS de
+    recherche/filtre déjà en place, pas de nouvelle mécanique à inventer.
+
+  **Implémentation prévue plus tard**, une fois le concept revalidé —
+  rien construit à ce stade.
