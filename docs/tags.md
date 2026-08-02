@@ -50,6 +50,7 @@ rapidement le bon tag — l'ordre du tableau n'a pas d'autre signification.
 | `litterature` | Littérature | Culture & divertissement |
 | `medias` | Médias | Culture & divertissement |
 | `sport-economie` | Sport & argent | Sport (hors registre du jeudi) |
+| `societe` | Société | Société |
 
 Note : `sport` existe déjà comme tag de registre (jeudi). Un sujet sportif traité un
 autre jour (ex. mardi carte blanche) prend `sport-economie` comme tag thématique
@@ -70,7 +71,15 @@ Si vraiment aucun tag de la liste ci-dessus ne convient au sujet du jour :
 
 ## Historique
 
-Les tags déjà posés sur des entrées `archives.html` existantes avant la mise en
-place de cette liste (ex. `streaming`, `societe`, `moyen-orient`) restent inchangés
-— on ne modifie jamais une entrée déjà publiée dans `archives.html`. Cette liste ne
-s'applique qu'aux nouvelles entrées à partir de sa création.
+Le 2 août 2026, à la création de cette liste, les 9 entrées déjà publiées dans
+`archives.html` ont été normalisées une seule fois pour repartir sur une base
+propre : `streaming` → `medias` (édition du 2 août), `moyen-orient` → `diplomatie`
+(édition du 27 juillet). `societe` (édition du 28 juillet) a été gardé tel quel et
+intégré à la liste ci-dessus plutôt que remplacé, le thème étant assez récurrent
+pour mériter son propre tag.
+
+**Ce fut une normalisation ponctuelle, pas une nouvelle règle.** À partir de
+maintenant, les entrées `archives.html` redeviennent figées comme le veut la
+routine (« ne jamais supprimer ni modifier les entrées déjà présentes ») : un tag
+mal choisi sur une future édition ne sera plus corrigé rétroactivement, d'où
+l'intérêt de bien choisir dans la liste fermée dès la publication.
