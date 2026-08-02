@@ -38,6 +38,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 02.08.2026 — [Musique IA : payer ou se battre ?](../archives/2026-08-02.html)
 - 01.08.2026 — [Musique : l'IA a-t-elle déjà gagné ?](../archives/2026-08-01.html)
 - 31.07.2026 — [Méga-feux : la France est-elle prête pour la suite ?](../archives/2026-07-31.html)
 - 30.07.2026 — [Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ?](../archives/2026-07-30.html)

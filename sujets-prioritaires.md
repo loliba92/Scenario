@@ -76,6 +76,6 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 
 <!-- Faire tourner les domaines : cinéma, musique, jeux vidéo, littérature, séries… -->
 ## Culture internationale — dimanche
-- [ ] Musique et IA dans le monde : entre procès géants et nouvelles lois, quel avenir pour la création musicale ? (à traiter objectivement) [musique]
+- [x] Musique et IA dans le monde : entre procès géants et nouvelles lois, quel avenir pour la création musicale ? (à traiter objectivement) [musique]
 - [ ] Cinéma : Hollywood est-il en train de perdre le marché chinois, et avec quelles conséquences ? [cinéma]
 - [ ] Streaming vidéo : après la course aux abonnés, comment Netflix et ses rivaux vont-ils gagner de l'argent demain ? [séries / streaming]
