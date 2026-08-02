@@ -72,7 +72,18 @@ Rédiger un résumé structuré, pas une chronologie, en se mettant à la place 
 
 Mettre en gras (balise `<strong>`) les faits et chiffres clés dans ces paragraphes (montants, dates charnières, noms d'acteurs déterminants) pour faciliter le repérage visuel — sans en abuser, un ou deux éléments par paragraphe suffisent.
 
+**Traduire tout de suite un terme technique, sans attendre le lexique.** Dès qu'un mot ou une notion technique (financière, juridique, sectorielle...) apparaît dans le corps du texte, ajouter juste derrière une courte définition en langage courant, entre parenthèses (3 à 8 mots, pas une phrase entière) — le lecteur ne doit jamais avoir besoin de sauter jusqu'au lexique en bas de page pour comprendre la phrase qu'il est en train de lire. Le lexique final reste utile pour une définition plus complète, mais n'est jamais la seule explication disponible. Exemple : « une marge opérationnelle **(la part de chaque euro de revenu qui devient du profit)** record de 29,5 % » plutôt que « une marge opérationnelle record de 29,5 % » tout court.
+
 **Lier vers une édition déjà publiée quand le sujet du jour en recoupe une.** Avant de rédiger, vérifier dans `archives.html` (ou le « Journal des sujets publiés » de `docs/sujets-a-suivre.md`) si un fait, une entreprise, un accord... mentionné dans le contexte du jour a déjà été traité en détail dans une édition précédente. Si oui, ne pas noyer le lien au milieu de la phrase factuelle : garder la phrase telle quelle, puis ajouter juste après une courte relance naturelle avec le lien dessus, du type — **« on avait déjà vu passer un sujet similaire, n'hésite pas à `<a href="{lien}">lire notre article</a>` pour en savoir plus »** — comme une remarque, pas comme si le lien faisait partie du fait lui-même. Exemple : une phrase qui mentionne en passant un rachat d'entreprise déjà couvert en détail trois éditions plus tôt se termine par cette relance avec le lien vers cette édition-là. Depuis `index.html` le lien est `archives/{AAAA-MM-JJ}.html`, depuis un fichier `archives/*.html` c'est directement `{AAAA-MM-JJ}.html` (même dossier, pas de préfixe). Le style CSS (`.dek a`) existe déjà dans le gabarit (voir `index.html`) : ne pas le redéfinir. Ne jamais forcer un lien artificiel si le recoupement n'est pas réel — seulement quand la mention renvoie vraiment au même fait déjà creusé ailleurs.
+
+**Dernier temps du contexte : un encart « Ce qu'on évalue », pas un simple paragraphe de conclusion vague.** Juste avant `indicator-strip`, ne pas terminer le contexte par une formule floue type « plusieurs trajectoires sont possibles » ou « la suite reste incertaine ». Utiliser à la place un encart dédié `<div class="stakes-box">` (même famille visuelle que `question-box` du haut de page, voir gabarit `index.html`) :
+```html
+<div class="stakes-box">
+  <span class="stakes-label">Ce qu'on évalue</span>
+  <p class="stakes-text">{phrase interrogative concrète et spécifique au sujet du jour, qui nomme explicitement ce que les 3 scénarios vont trancher}</p>
+</div>
+```
+La phrase doit être concrète, ancrée dans le sujet du jour, jamais une généralité interchangeable d'une édition à l'autre. Exemple : « Est-ce que cette hausse des prix va continuer sans faire fuir les abonnés, se stabiliser à un nouveau palier, ou au contraire provoquer une vague de résiliations qui forcerait les plateformes à faire marche arrière ? » Le style CSS (`.stakes-box`, `.stakes-label`, `.stakes-text`) existe déjà dans le gabarit : ne pas le redéfinir.
 
 Ajouter à la fin les indicateurs clés déjà touchés par ce sujet et leur niveau actuel (prix, indice boursier, taux...), quand la donnée existe et est trouvable.
 

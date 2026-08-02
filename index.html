@@ -240,6 +240,34 @@
     color: var(--paper);
   }
 
+  .stakes-box{
+    background: var(--surface);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin: 8px 0 32px;
+    max-width: 62ch;
+  }
+
+  .stakes-label{
+    display: block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin: 0 0 8px;
+  }
+
+  .stakes-text{
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+    color: var(--paper);
+  }
+
+  .stakes-text strong{ color: var(--paper); font-weight: 600; }
+
   .indicator-strip{
     display: flex;
     gap: 28px;
@@ -639,13 +667,16 @@
 
     <p class="dek">Netflix, Disney+, Max (l'ex-HBO Max), Amazon Prime Video, Peacock, Apple TV+... Ces plateformes de streaming se sont livré une guerre de quinze ans pour attirer un maximum d'abonnés, quitte à perdre de l'argent pendant des années. Cette course est officiellement terminée : Netflix, le plus gros acteur avec <strong>plus de 325 millions d'abonnés payants</strong>, a même arrêté de communiquer son nombre d'abonnés chaque trimestre en 2025 — la vraie bataille désormais, c'est la rentabilité.</p>
 
-    <p class="dek">Pour gagner de l'argent sans continuer à faire grossir le nombre d'abonnés, ces entreprises ont trouvé trois leviers : l'offre avec publicité, le sport en direct, et des hausses de prix régulières. Résultat pour Netflix : <strong>11 milliards de dollars</strong> de bénéfice net en 2025, une marge opérationnelle record de 29,5 %, et des revenus publicitaires qui doivent doubler pour atteindre 3 milliards de dollars en 2026. En mars, son abonnement standard est passé à <strong>19,99 dollars</strong> par mois aux États-Unis. Disney+ suit la même voie et vise une marge d'au moins 10 % en 2026.</p>
+    <p class="dek">Pour gagner de l'argent sans continuer à faire grossir le nombre d'abonnés, ces entreprises ont trouvé trois leviers : l'offre avec publicité, le sport en direct, et des hausses de prix régulières. Résultat pour Netflix : <strong>11 milliards de dollars</strong> de bénéfice net en 2025, une marge opérationnelle (la part de chaque euro de revenu qui devient du profit) record de 29,5 %, et des revenus publicitaires qui doivent doubler pour atteindre 3 milliards de dollars en 2026. En mars, son abonnement standard est passé à <strong>19,99 dollars</strong> par mois aux États-Unis. Disney+ suit la même voie et vise une marge d'au moins 10 % en 2026.</p>
 
     <p class="dek">Mais tout le monde ne réussit pas ce virage. Peacock, la plateforme du groupe américain Comcast, a encore perdu <strong>432 millions de dollars</strong> sur son dernier trimestre connu, et cumule <strong>plus de 10 milliards de dollars</strong> de pertes depuis son lancement en 2020 — un décalage qui pousse à des rapprochements forcés, comme le rachat en cours de Warner Bros. Discovery (propriétaire de Max) par Paramount Skydance, aujourd'hui bloqué par la justice de plusieurs États américains — on avait déjà vu passer un sujet similaire, n'hésite pas à <a href="archives/2026-07-26.html">lire notre article</a> pour en savoir plus. Autre stratégie commune : se disputer les droits de diffusion du sport en direct, seul contenu capable de faire rester les abonnés. Résultat pour les fans de foot américain : les matchs de NFL sont désormais éclatés entre Netflix, Amazon Prime Video, Peacock et Disney+, et il faut s'abonner aux quatre pour ne rien manquer.</p>
 
     <p class="dek">Ce qui rend la suite incertaine, c'est que ce nouveau modèle repose sur un pari risqué : faire payer plus les abonnés, pour moins de simplicité, sans les faire fuir. Or le streaming s'est justement développé, il y a quinze ans, en promettant l'inverse — moins cher et tout au même endroit que la télévision par câble. Rien ne garantit aujourd'hui que ce pari tienne dans la durée pour tous les acteurs, ni que les abonnés continuent d'accepter de payer plus pour moins de confort.</p>
 
-    <p class="dek">Entre des résultats déjà solides chez les plus gros, des pertes qui s'accumulent chez les plus fragiles, et une addition qui grimpe pour le spectateur, plusieurs trajectoires très différentes sont possibles pour l'argent du streaming dans les prochains mois.</p>
+    <div class="stakes-box">
+      <span class="stakes-label">Ce qu'on évalue</span>
+      <p class="stakes-text">Est-ce que cette hausse des prix va continuer sans faire fuir les abonnés, se stabiliser à un nouveau palier, ou au contraire provoquer une vague de résiliations qui forcerait les plateformes à faire marche arrière ?</p>
+    </div>
 
     <div class="indicator-strip">
       <div class="indicator">
