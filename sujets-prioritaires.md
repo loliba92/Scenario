@@ -76,6 +76,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 
 <!-- Faire tourner les domaines : cinéma, musique, jeux vidéo, littérature, séries… -->
 ## Culture internationale — dimanche
-- [x] Musique et IA dans le monde : entre procès géants et nouvelles lois, quel avenir pour la création musicale ? (à traiter objectivement) [musique]
+- [ ] Musique et IA dans le monde : entre procès géants et nouvelles lois, quel avenir pour la création musicale ? (à traiter objectivement) [musique]
+  <!-- Reporté le 2 août 2026 : trop proche du sujet de l'édition de la veille (samedi 1er août, "Musique : l'IA a-t-elle déjà gagné ?"), mêmes acteurs centraux (Suno, Udio, Gema) à un jour d'intervalle. À retraiter un autre dimanche, avec un vrai recul. -->
 - [ ] Cinéma : Hollywood est-il en train de perdre le marché chinois, et avec quelles conséquences ? [cinéma]
-- [ ] Streaming vidéo : après la course aux abonnés, comment Netflix et ses rivaux vont-ils gagner de l'argent demain ? [séries / streaming]
+- [x] Streaming vidéo : après la course aux abonnés, comment Netflix et ses rivaux vont-ils gagner de l'argent demain ? [séries / streaming]
