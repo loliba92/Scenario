@@ -146,6 +146,8 @@ Lister 2 à 4 liens vers les sources principales **effectivement consultées** p
   </div>
 </li>
 ```
+Pour le tag de registre et les 1-2 tags thématiques : lire d'abord `docs/tags.md`, la liste fermée de référence, et réutiliser un tag existant chaque fois que le sujet y rentre raisonnablement — ne jamais en inventer librement à chaque édition. Un tag n'est utile au lecteur que s'il regroupe plusieurs articles dans la durée ; en inventer un nouveau à chaque édition rend le filtre inutilisable. N'en créer un nouveau qu'en tout dernier recours, et dans ce cas l'ajouter aussitôt à `docs/tags.md` (même commit) pour qu'il soit réutilisé la prochaine fois plutôt que réinventé sous un autre nom.
+
 Le texte de chaque `scenario-mini-title` (hors flèche) doit reprendre le **même titre** que le `<h3>` de la carte correspondante dans l'édition du jour (`index.html`/l'archive), mais **sans son emoji** : ici, la flèche `↑`/`→`/`↓` (verte/bleue/rouge via `data-kind`, jamais un autre symbole) remplace systématiquement l'emoji propre à chaque édition, pour que la liste des archives garde un code visuel cohérent d'une ligne à l'autre plutôt qu'un emoji différent à chaque fois. Le `scenario-mini-text` est une **reformulation condensée en 1 à 2 phrases courtes** de l'idée centrale du paragraphe `why` de ce scénario — le mécanisme concret, pas les comparaisons de probabilité entre les trois scénarios ni un copier-coller du texte complet. Ne jamais supprimer ni modifier les entrées déjà présentes (ni leur bloc scénarios).
 6bis. Ajouter aussi une ligne pour l'édition du jour dans `docs/sujets-a-suivre.md`, section « Journal des sujets publiés », tout en haut de la liste (la plus récente en tête, même logique que `archives.html`) :
 ```markdown
