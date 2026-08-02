@@ -596,7 +596,43 @@ Voir les échanges de session pour le détail, mais en résumé :
   Mettre à jour le badge et la date sur `archives.html` ; mettre à jour
   aussi l'entrée correspondante (ou la créer) dans la section « Suivis
   actifs » de `docs/sujets-a-suivre.md` (dernière vérification, prochaine
-  échéance connue) ; vérifier visuellement avant de pousser.
+  échéance connue) ; ajouter aussi un item dans `feed-suivi.xml` (voir
+  section « Annonce des mises à jour sur Telegram/LinkedIn » ci-dessous)
+  pour que Make.com relaie l'annonce ; vérifier visuellement avant de
+  pousser.
+
+  **Annonce des mises à jour sur Telegram/LinkedIn, ajoutée le 2 août.**
+  Demande explicite de l'utilisateur : quand une page de suivi reçoit une
+  nouvelle version (V1, V2…), l'annoncer aussi sur Telegram et LinkedIn —
+  pas seulement sur le site. Mécanisme choisi : un **flux RSS séparé**,
+  `feed-suivi.xml` (racine du dépôt), volontairement distinct de
+  `feed.xml` (celui des éditions quotidiennes, qui alimente aussi la
+  newsletter Buttondown) pour ne **jamais déclencher d'email newsletter**
+  pour une mise à jour de suivi — l'utilisateur n'a demandé que Telegram
+  et LinkedIn. RSS plutôt qu'un webhook direct : cohérent avec la solution
+  déjà validée pour `feed.xml` (Make **poll** le flux, aucun appel sortant
+  requis depuis cette session — évite de retomber sur le blocage réseau
+  déjà rencontré avec `api.telegram.org` en appel direct, voir plus bas).
+
+  Format d'un item (mêmes conventions que `feed.xml` : `<comments>` porte
+  la phrase courte, `<description>` le CDATA complet avec un lien final) :
+  ```xml
+  <item>
+    <title>{Sujet} : un scénario a bougé</title>
+    <link>https://lesscenarios.fr/suivi/{sujet}.html#version-content-v{N}</link>
+    <guid isPermaLink="false">scenario-suivi-{sujet}-v{N}</guid>
+    <pubDate>{date de la mise à jour au format RFC-822}</pubDate>
+    <comments>{emoji} {verdict court de la conclusion, la phrase déjà écrite dans la page}</comments>
+    <description><![CDATA[{emoji} {même phrase}<br><br>{1-2 phrases : ce qui explique le mouvement}<br><br>Voir la mise à jour complète, scénario par scénario 👉 <a href="{lien vers la version}">lesscenarios.fr/suivi/{sujet}.html</a>]]></description>
+  </item>
+  ```
+  Ajouter le nouvel item **en haut** du flux (comme `feed.xml`/`archives.html`), ne jamais supprimer les précédents. Premier item réel ajouté le 2 août, rétroactivement, pour la mise à jour V1 de Spider-Man (1er août).
+
+  **Scénario Make.com à créer par l'utilisateur** (je ne peux pas configurer Make.com moi-même) — un **second scénario Make**, séparé de celui de `feed.xml`, même principe :
+  - Module **RSS "Watch RSS feed items"**, URL `https://lesscenarios.fr/feed-suivi.xml`, 1 item max, déclenché **"From now on"** (ou inclure l'historique si l'utilisateur veut aussi l'annonce rétroactive de Spider-Man V1). Fréquence de vérification basse (1x/jour suffit très largement, ces mises à jour sont rares et manuelles) pour rester très en dessous du quota gratuit Make (1000 opérations/mois).
+  - Module **Telegram Bot → "Send a Text Message"** : `Chat ID` = `@scenario_fr`, `Text` = `Title` + `Comments` + lien `URL` — mêmes connexions/token déjà configurés pour le scénario `feed.xml`, pas de nouvelle Telegram Bot connection à créer.
+  - Module **LinkedIn → "Create a Company Text Post"** sur la Page LinkedIn "Scenario" : `Content` = phrase fixe d'intro différente de celle des éditions ("🔄 Un sujet suivi vient d'être mis à jour 👇"), `Media Type = Article` avec `Link → URL/Title/Description` mappés sur les champs `URL`/`Title`/`Comments` du flux — même pattern que le scénario existant.
+  - **Pas de sondage (`sendPoll`) pour ce flux** : contrairement à une édition du jour, une mise à jour de suivi annonce un résultat déjà connu (les nouvelles probabilités), pas la peine de faire voter avant.
 
   **Graphique d'évolution ajouté le 1er août**, fixe (non-repliable, choix
   volontaire — le mettre dans l'accordéon irait à l'encontre de son but
