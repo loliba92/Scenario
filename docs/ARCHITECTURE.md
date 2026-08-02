@@ -628,11 +628,36 @@ Voir les échanges de session pour le détail, mais en résumé :
   ```
   Ajouter le nouvel item **en haut** du flux (comme `feed.xml`/`archives.html`), ne jamais supprimer les précédents. Premier item réel ajouté le 2 août, rétroactivement, pour la mise à jour V1 de Spider-Man (1er août).
 
-  **Scénario Make.com à créer par l'utilisateur** (je ne peux pas configurer Make.com moi-même) — un **second scénario Make**, séparé de celui de `feed.xml`, même principe :
-  - Module **RSS "Watch RSS feed items"**, URL `https://lesscenarios.fr/feed-suivi.xml`, 1 item max, déclenché **"From now on"** (ou inclure l'historique si l'utilisateur veut aussi l'annonce rétroactive de Spider-Man V1). Fréquence de vérification basse (1x/jour suffit très largement, ces mises à jour sont rares et manuelles) pour rester très en dessous du quota gratuit Make (1000 opérations/mois).
-  - Module **Telegram Bot → "Send a Text Message"** : `Chat ID` = `@scenario_fr`, `Text` = `Title` + `Comments` + lien `URL` — mêmes connexions/token déjà configurés pour le scénario `feed.xml`, pas de nouvelle Telegram Bot connection à créer.
-  - Module **LinkedIn → "Create a Company Text Post"** sur la Page LinkedIn "Scenario" : `Content` = phrase fixe d'intro différente de celle des éditions ("🔄 Un sujet suivi vient d'être mis à jour 👇"), `Media Type = Article` avec `Link → URL/Title/Description` mappés sur les champs `URL`/`Title`/`Comments` du flux — même pattern que le scénario existant.
-  - **Pas de sondage (`sendPoll`) pour ce flux** : contrairement à une édition du jour, une mise à jour de suivi annonce un résultat déjà connu (les nouvelles probabilités), pas la peine de faire voter avant.
+  **Fait et vérifié le 2 août — scénario Make créé, testé, opérationnel.**
+  Second scénario Make ("Scenario update topic : RSS -> LinkedIn/Telegram"),
+  séparé de celui de `feed.xml`, construit par duplication des modules
+  LinkedIn/Telegram existants puis réglage des textes propres à une
+  annonce de mise à jour (pas une nouvelle édition) :
+  - Module **RSS "Watch RSS feed items"**, URL `https://lesscenarios.fr/feed-suivi.xml`, 1 item max.
+  - **Fréquence : 1x/jour, 18h heure de Paris** — volontairement décalée
+    des 10h du scénario `feed.xml`, pour distinguer facilement les deux
+    dans l'historique Make en cas de debug. Largement suffisant vu que les
+    mises à jour de suivi sont rares et manuelles (voir plus haut :
+    pas de déclenchement "push" possible avec un flux RSS statique, donc
+    polling à basse fréquence pour rester très en dessous du quota
+    gratuit Make de 1000 opérations/mois).
+  - Module **Telegram Bot → "Send a Text Message"** (connexion "Scenario"
+    déjà existante, réutilisée) : `Chat ID` = `@scenario_fr`, `Text` =
+    `Title` + `Comments` + **« 👉 Voir la mise à jour complète : »** + `URL`
+    — reprise du module de `feed.xml`, avec cette seule phrase de clôture
+    changée (« Lire les 3 scénarios chiffrés » n'a pas de sens pour une
+    réévaluation, pas une nouvelle prédiction).
+  - Module **LinkedIn → "Create a Company Text Post"** (connexion "Olivier's
+    LinkedIn...", Page "Scenario", déjà existantes, réutilisées) : `Content`
+    = **« 🔄 Un sujet suivi vient d'être mis à jour 👇 »** + `Title` +
+    `Comments` + `URL` — reprise du module de `feed.xml`, avec cette
+    seule phrase d'intro changée (au lieu de « 🔥 Nouvelle édition
+    Scénario, à lire 👇 »).
+  - **Pas de sondage (`sendPoll`) pour ce flux** : contrairement à une
+    édition du jour, une mise à jour de suivi annonce un résultat déjà
+    connu (les nouvelles probabilités), pas la peine de faire voter avant.
+  - Test réel effectué avec l'item Spider-Man V1 déjà présent dans
+    `feed-suivi.xml` : envoi confirmé sur Telegram et LinkedIn.
 
   **Graphique d'évolution ajouté le 1er août**, fixe (non-repliable, choix
   volontaire — le mettre dans l'accordéon irait à l'encontre de son but
