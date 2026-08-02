@@ -30,6 +30,8 @@ Traiter ce sujet avec le format et les restrictions habituelles. Si le sujet imp
 Après publication réussie, cocher la case (`- [ ]` → `- [x]`) et l'inclure dans le commit.
 Si rien ne correspond, auto-sélection normale comme aujourd'hui.
 
+Étape 0bis — Anti-doublon avec la veille. Quel que soit le mode de sélection (sujet prioritaire ou auto-sélection), avant de valider définitivement le sujet du jour, vérifier l'édition de la veille (dernière entrée en tête de `archives.html`, ou dernière ligne du « Journal des sujets publiés » dans `docs/sujets-a-suivre.md`). Si le sujet candidat recoupe fortement celui de la veille — mêmes acteurs centraux, même événement déclencheur, même sujet de fond, même si l'angle ou le registre diffère techniquement — l'écarter et passer au candidat suivant (ligne suivante de la section concernée pour un sujet prioritaire, ou nouvelle recherche pour l'auto-sélection) plutôt que de publier deux jours de suite une variation du même sujet. Un chevauchement avec une édition plus ancienne que la veille n'est pas bloquant en soi.
+
 ### Étape 1 — Sélection automatique du sujet du jour
 Le sujet est sélectionné automatiquement selon le registre imposé par le jour de publication (heure de Paris) :
 - Lundi : géopolitique / international.
