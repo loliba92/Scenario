@@ -38,6 +38,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 03.08.2026 — [Ceuta : la frontière qui a craqué](../archives/2026-08-03.html)
 - 02.08.2026 — [Streaming : payer plus, avoir moins ?](../archives/2026-08-02.html)
 - 01.08.2026 — [Musique : l'IA a-t-elle déjà gagné ?](../archives/2026-08-01.html)
 - 31.07.2026 — [Méga-feux : la France est-elle prête pour la suite ?](../archives/2026-07-31.html)
