@@ -487,15 +487,22 @@ Voir les échanges de session pour le détail, mais en résumé :
   **Mécanique** : flux RSS séparé, `feed-weekly.xml` (racine du dépôt),
   totalement indépendant de `feed.xml` — un abonné à la quotidienne ne reçoit
   jamais l'hebdo, et inversement, sauf inscription explicite aux deux. Une
-  **nouvelle Routine automatique** tourne **chaque dimanche à 14h Paris**,
-  sans validation manuelle (choix de l'utilisateur, cohérent avec
-  l'automatisation complète du site). Modifiable directement via
-  `update_trigger` — précision du 3 août : la routine quotidienne l'est
-  tout autant (constaté en pratique, malgré une note plus ancienne dans ce
-  fichier qui affirmait le contraire), donc aucune des deux ne nécessite de
-  copier-coller manuel pour rester à jour. L'Automation Buttondown côté
-  RSS-to-email envoie l'email le dimanche soir : l'écart de quelques heures
-  laisse une marge confortable
+  **nouvelle Routine automatique** (créée par une session via `create_trigger`,
+  donc modifiable directement via `update_trigger`) tourne **chaque dimanche
+  à 14h Paris**, sans validation manuelle (choix de l'utilisateur, cohérent
+  avec l'automatisation complète du site). **Précision du 3 août, après une
+  tentative concrète** : la routine quotidienne, elle, **n'est pas**
+  modifiable directement via `update_trigger` — créée via `http_api` (hors
+  session), l'outil refuse explicitement toute mise à jour dessus (« this
+  routine was created via http_api, not by an agent »). Une session ne peut
+  qu'y lire son contenu (`list_triggers`) ou la désactiver, jamais réécrire
+  son prompt. Toute correction du prompt quotidien doit donc être recopiée
+  à la main par l'utilisateur depuis `docs/routine-prompt.md` vers la
+  routine réelle — contrairement à l'hebdo, entièrement autonome de ce
+  côté-là. (Une note antérieure de ce fichier affirmait par erreur que les
+  deux étaient modifiables directement ; corrigé après vérification.)
+  L'Automation Buttondown côté RSS-to-email envoie l'email le dimanche
+  soir : l'écart de quelques heures laisse une marge confortable
   entre la publication du récap dans `feed-weekly.xml` et l'envoi réel :
   1. Vérifie qu'un récap n'a pas déjà été publié cette semaine (dernier
      `<pubDate>` de `feed-weekly.xml`).
