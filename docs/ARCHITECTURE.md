@@ -477,6 +477,52 @@ Voir les échanges de session pour le détail, mais en résumé :
     réel reçu et vérifié bout en bout (édition du 31 juillet, 08h01). Le
     prompt de la routine est aussi tenu à jour dans le trigger réel au fil
     des sessions (dernière synchronisation vérifiée le 31 juillet, 16h36).
+- **Newsletter hebdomadaire « On refait le scénario de la semaine » — ajoutée le 3 août.**
+  Demande explicite de l'utilisateur : certains lecteurs préfèrent un récap
+  hebdomadaire plutôt que de suivre la quotidienne. Nom choisi pour éviter le
+  plagiat d'un concurrent qui utilise "on rembobine" — même idée (revenir sur
+  la semaine), formulation différente, dans l'esprit de la marque
+  ("refaire le scénario" ~ "refaire le match").
+
+  **Mécanique** : flux RSS séparé, `feed-weekly.xml` (racine du dépôt),
+  totalement indépendant de `feed.xml` — un abonné à la quotidienne ne reçoit
+  jamais l'hebdo, et inversement, sauf inscription explicite aux deux. Une
+  **nouvelle Routine automatique** (créée par une session, donc modifiable
+  directement via `update_trigger` — contrairement au trigger quotidien créé
+  hors session) tourne **chaque dimanche soir**, sans validation manuelle
+  (choix de l'utilisateur, cohérent avec l'automatisation complète du site) :
+  1. Vérifie qu'un récap n'a pas déjà été publié cette semaine (dernier
+     `<pubDate>` de `feed-weekly.xml`).
+  2. Relit les 7 dernières entrées du « Journal des sujets publiés »
+     (`docs/sujets-a-suivre.md`), lundi à dimanche de la semaine calendaire.
+  3. Ouvre chaque archive correspondante pour en extraire la matière du
+     récap (h1, question, scénario le plus probable) — jamais se contenter
+     du seul titre du journal, trop court pour un vrai résumé.
+  4. Rédige le récap dans un **ton fluide, naturel, presque friendly, sans
+     exagérer** — volontairement différent du ton plus posé de la
+     quotidienne. Un lien cliquable vers chaque archive citée, jamais un
+     jour mentionné sans son lien.
+  5. Insère un nouvel `<item>` en haut de `feed-weekly.xml` (historique
+     conservé, comme `feed.xml`), commit et push direct sur `main`.
+
+  **Pas de page dédiée sur le site** (décision du 3 août, pour démarrer
+  simple) : le contenu vit uniquement dans le flux RSS et l'email — aucune
+  page `hebdo.html` ni archive figée par semaine, contrairement aux
+  éditions quotidiennes. Réévaluable plus tard si le format prend.
+
+  **Pas de relais Telegram/LinkedIn** (décision du 3 août) : contrairement à
+  `feed-suivi.xml`, ce flux reste strictement newsletter email — pas de
+  second scénario Make à créer pour celui-ci.
+
+  **Côté Buttondown** (configuration à faire par l'utilisateur, hors
+  session) : deux inscriptions séparées sur `newsletter.html`, chacune avec
+  son propre formulaire vers `https://buttondown.com/api/emails/embed-subscribe/scenario`
+  — celui de l'hebdo ajoute un champ cadré `<input type="hidden" name="tag" value="hebdo">`
+  pour taguer l'abonné côté Buttondown. Il reste à créer, côté Buttondown,
+  une **Automation RSS-to-email** branchée sur `feed-weekly.xml` et filtrée
+  pour n'envoyer qu'aux abonnés portant le tag `hebdo` (à vérifier/adapter
+  selon les options réellement disponibles dans l'interface Buttondown —
+  non testé, cette session n'a pas accès à Buttondown).
 - **Photo dans les éditions — idée écartée le 1er août.** Discuté puis
   volontairement abandonné : impossible d'utiliser une vraie photo de presse
   trouvée pendant la recherche (droit d'auteur, republication non autorisée),

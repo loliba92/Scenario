@@ -5,20 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Newsletter — Scénario</title>
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-<meta name="description" content="Recevez l'édition du jour de Scénario par email, juste après sa publication.">
+<meta name="description" content="Recevez Scénario par email — chaque jour, ou le récap de la semaine chaque dimanche.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Scénario">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:url" content="https://lesscenarios.fr/newsletter.html">
 <meta property="og:title" content="Newsletter — Scénario">
-<meta property="og:description" content="Recevez l'édition du jour de Scénario par email, juste après sa publication.">
+<meta property="og:description" content="Recevez Scénario par email — chaque jour, ou le récap de la semaine chaque dimanche.">
 <meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image.png">
 <meta property="og:image:width" content="1672">
 <meta property="og:image:height" content="941">
 <meta property="og:image:alt" content="Scénario — trois scénarios chiffrés pour chaque actualité : favorable, stable, dégradé.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Newsletter — Scénario">
-<meta name="twitter:description" content="Recevez l'édition du jour de Scénario par email, juste après sa publication.">
+<meta name="twitter:description" content="Recevez Scénario par email — chaque jour, ou le récap de la semaine chaque dimanche.">
 <meta name="twitter:image" content="https://lesscenarios.fr/assets/social/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -365,14 +365,14 @@
 <section class="hero">
   <div class="wrap">
     <p class="eyebrow">Newsletter</p>
-    <h1>Recevez l'édition du jour par email</h1>
-    <p class="dek">Un email par jour, juste après la publication : la question du jour et les trois scénarios. Rien d'autre, jamais de spam.</p>
+    <h1>Recevez Scénario par email</h1>
+    <p class="dek">Deux formats, au choix — un email par jour, ou un récap de la semaine chaque dimanche soir. Rien d'autre, jamais de spam.</p>
   </div>
 </section>
 
 <section class="body-section">
   <div class="wrap">
-    <p class="section-label">Comment ça marche</p>
+    <p class="section-label">Quotidienne · Comment ça marche</p>
     <h2 class="section-title">Un email, chaque matin</h2>
     <p>Chaque jour vers 7h15, dès qu'une nouvelle édition est publiée, vous la recevez directement dans votre boîte mail — plus besoin d'aller vérifier le site.</p>
     <ul class="perks">
@@ -390,11 +390,37 @@
         <label for="email">Votre email</label>
         <input id="email" type="email" name="email" required placeholder="vous@exemple.com">
       </div>
-      <button class="submit-btn" type="submit">S'abonner</button>
+      <button class="submit-btn" type="submit">S'abonner à la quotidienne</button>
       <p class="form-hint">Un email de confirmation vous sera envoyé — pensez à cliquer dessus pour valider votre inscription. S'il n'arrive pas dans votre boîte de réception, vérifiez vos spams / courriers indésirables.</p>
     </form>
 
     <a class="cross-link" href="le-projet.html">Comment nous travaillons → Le projet</a>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">Hebdomadaire · Nouveau</p>
+    <h2 class="section-title">On refait le scénario de la semaine</h2>
+    <p>Un seul email, chaque dimanche soir : le récap des 7 sujets de la semaine, écrit dans un ton simple et vivant — pour celles et ceux qui préfèrent prendre du recul une fois par semaine plutôt que suivre au jour le jour.</p>
+    <ul class="perks">
+      <li>Un seul email par semaine, le dimanche soir</li>
+      <li>Les 7 sujets de la semaine, avec le lien vers chaque édition complète</li>
+      <li>100 % gratuit, sans engagement, désinscription en un clic</li>
+      <li>Indépendant de la quotidienne — abonnez-vous à l'une, à l'autre, ou aux deux</li>
+    </ul>
+
+    <form class="subscribe-form" action="https://buttondown.com/api/emails/embed-subscribe/scenario" method="post">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" value="1" name="embed">
+      <input type="hidden" name="tag" value="hebdo">
+      <div class="form-row">
+        <label for="email-hebdo">Votre email</label>
+        <input id="email-hebdo" type="email" name="email" required placeholder="vous@exemple.com">
+      </div>
+      <button class="submit-btn" type="submit">S'abonner à l'hebdo</button>
+      <p class="form-hint">Même principe que la quotidienne : email de confirmation à valider, désinscription en un clic à tout moment.</p>
+    </form>
   </div>
 </section>
 
