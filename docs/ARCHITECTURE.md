@@ -487,12 +487,15 @@ Voir les échanges de session pour le détail, mais en résumé :
   **Mécanique** : flux RSS séparé, `feed-weekly.xml` (racine du dépôt),
   totalement indépendant de `feed.xml` — un abonné à la quotidienne ne reçoit
   jamais l'hebdo, et inversement, sauf inscription explicite aux deux. Une
-  **nouvelle Routine automatique** (créée par une session, donc modifiable
-  directement via `update_trigger` — contrairement au trigger quotidien créé
-  hors session) tourne **chaque dimanche à 14h Paris**, sans validation
-  manuelle (choix de l'utilisateur, cohérent avec l'automatisation complète
-  du site). L'Automation Buttondown côté RSS-to-email envoie l'email le
-  dimanche soir : l'écart de quelques heures laisse une marge confortable
+  **nouvelle Routine automatique** tourne **chaque dimanche à 14h Paris**,
+  sans validation manuelle (choix de l'utilisateur, cohérent avec
+  l'automatisation complète du site). Modifiable directement via
+  `update_trigger` — précision du 3 août : la routine quotidienne l'est
+  tout autant (constaté en pratique, malgré une note plus ancienne dans ce
+  fichier qui affirmait le contraire), donc aucune des deux ne nécessite de
+  copier-coller manuel pour rester à jour. L'Automation Buttondown côté
+  RSS-to-email envoie l'email le dimanche soir : l'écart de quelques heures
+  laisse une marge confortable
   entre la publication du récap dans `feed-weekly.xml` et l'envoi réel :
   1. Vérifie qu'un récap n'a pas déjà été publié cette semaine (dernier
      `<pubDate>` de `feed-weekly.xml`).
