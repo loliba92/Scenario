@@ -498,10 +498,20 @@ Voir les échanges de session pour le détail, mais en résumé :
   3. Ouvre chaque archive correspondante pour en extraire la matière du
      récap (h1, question, scénario le plus probable) — jamais se contenter
      du seul titre du journal, trop court pour un vrai résumé.
-  4. Rédige le récap dans un **ton fluide, naturel, presque friendly, sans
-     exagérer** — volontairement différent du ton plus posé de la
-     quotidienne. Un lien cliquable vers chaque archive citée, jamais un
-     jour mentionné sans son lien.
+  4. Rédige le récap dans un **ton fluide et naturel, mais rigoureux —
+     jamais familier ni "cute"**. **Correction du 3 août** : le tout
+     premier exemple (basé sur la semaine du 27 juillet) partait sur un ton
+     trop familier ("Salut 👋") et une paraphrase vague et creuse ("on ne
+     tranche pas encore" pour désigner le scénario stable) — retour
+     utilisateur immédiat, corrigé aussitôt dans l'exemple et dans le
+     prompt de la routine. Règle retenue : **toujours le vocabulaire exact
+     déjà établi sur le site** — "le scénario stable/favorable/dégradé",
+     "jugé le plus probable", le pourcentage exact, le nom du scénario tel
+     qu'écrit dans son `<h3>` — jamais une reformulation de convenance.
+     Chaque sujet précise aussi le **registre du jour** (repris de
+     l'eyebrow de l'archive, ex. "Lundi, géopolitique international") pour
+     ancrer le sujet. Un lien cliquable vers chaque archive citée, jamais
+     un jour mentionné sans son lien.
   5. Insère un nouvel `<item>` en haut de `feed-weekly.xml` (historique
      conservé, comme `feed.xml`), commit et push direct sur `main`.
 
