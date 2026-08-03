@@ -489,8 +489,11 @@ Voir les échanges de session pour le détail, mais en résumé :
   jamais l'hebdo, et inversement, sauf inscription explicite aux deux. Une
   **nouvelle Routine automatique** (créée par une session, donc modifiable
   directement via `update_trigger` — contrairement au trigger quotidien créé
-  hors session) tourne **chaque dimanche soir**, sans validation manuelle
-  (choix de l'utilisateur, cohérent avec l'automatisation complète du site) :
+  hors session) tourne **chaque dimanche à 14h Paris**, sans validation
+  manuelle (choix de l'utilisateur, cohérent avec l'automatisation complète
+  du site). L'Automation Buttondown côté RSS-to-email envoie l'email le
+  dimanche soir : l'écart de quelques heures laisse une marge confortable
+  entre la publication du récap dans `feed-weekly.xml` et l'envoi réel :
   1. Vérifie qu'un récap n'a pas déjà été publié cette semaine (dernier
      `<pubDate>` de `feed-weekly.xml`).
   2. Relit les 7 dernières entrées du « Journal des sujets publiés »
