@@ -38,6 +38,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 04.08.2026 — [Gaza : la paix qui reste sur le papier](../archives/2026-08-04.html)
 - 03.08.2026 — [Ceuta : la frontière qui a craqué](../archives/2026-08-03.html)
 - 02.08.2026 — [Streaming : payer plus, avoir moins ?](../archives/2026-08-02.html)
 - 01.08.2026 — [Musique : l'IA a-t-elle déjà gagné ?](../archives/2026-08-01.html)
