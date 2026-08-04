@@ -646,6 +646,14 @@
     margin-top: 8px;
   }
 
+  .share-block .tomorrow-teaser{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--paper-dim);
+    max-width: none;
+    margin: 18px 0 0;
+  }
+
   button.btn-outline{
     cursor: pointer;
     appearance: none;
@@ -862,6 +870,7 @@
       <a class="btn-outline" id="share-whatsapp" href="#" target="_blank" rel="noopener noreferrer">Partager sur WhatsApp</a>
       <button class="btn-outline" id="share-copy" type="button">Copier le lien</button>
     </div>
+    <p class="tomorrow-teaser" id="tomorrow-teaser"></p>
   </div>
 </section>
 
@@ -911,6 +920,23 @@
 
     if (pd) {
       pd.textContent = [datePart, readingPart].filter(Boolean).join(" · ");
+    }
+
+    var registres = {
+      0: "🌐 culture internationale",
+      1: "🌍 géopolitique international",
+      2: "🎲 carte blanche",
+      3: "🇫🇷 actualité française",
+      4: "🏆 sport",
+      5: "🔬 sciences",
+      6: "🎬 culture française"
+    };
+    var parisNow = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Paris" }));
+    parisNow.setDate(parisNow.getDate() + 1);
+    var teaser = document.getElementById("tomorrow-teaser");
+    var label = registres[parisNow.getDay()];
+    if (teaser && label) {
+      teaser.textContent = "📅 Demain : " + label;
     }
   })();
 </script>
