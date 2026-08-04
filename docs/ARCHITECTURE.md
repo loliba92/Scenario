@@ -96,7 +96,7 @@ moins prioritaire).
   exception à la règle des archives figées pour ce cas précis.
 
 **Technique**
-- **P2 — Scalabilité de `archives.html`** — chaque jour, l'étape 6 de la
+- **P2 — Optimisation de `archives.html`** — chaque jour, l'étape 6 de la
   routine insère une nouvelle `<li class="entry">` en tête de liste, jamais
   retirée : le fichier grossit indéfiniment et contient déjà, pour chaque
   entrée, le HTML complet du bloc dépliable des 3 scénarios (pas juste un
