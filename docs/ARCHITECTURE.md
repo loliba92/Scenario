@@ -95,6 +95,21 @@ moins prioritaire).
   seulement un lien "précédente" (moins complet), soit accepter une
   exception à la règle des archives figées pour ce cas précis.
 
+**Technique**
+- **P2 — Scalabilité de `archives.html`** — chaque jour, l'étape 6 de la
+  routine insère une nouvelle `<li class="entry">` en tête de liste, jamais
+  retirée : le fichier grossit indéfiniment et contient déjà, pour chaque
+  entrée, le HTML complet du bloc dépliable des 3 scénarios (pas juste un
+  résumé). À 12 entrées le fichier fait déjà ~1000 lignes ; à l'échelle
+  d'une année (365 éditions), la page deviendra lourde à charger et pénible
+  à maintenir en un seul fichier plat. Repéré le 4 août (retour
+  utilisateur), pas urgent aujourd'hui mais à anticiper avant que ça
+  devienne un vrai problème. Pistes à trancher plus tard : pagination
+  (N derniers jours + lien "voir plus" ou découpage par mois/année), ou
+  chargement différé du contenu dépliable en JS plutôt que tout inliner au
+  HTML. Nécessite de revoir l'étape 6 de `docs/routine-prompt.md` en
+  conséquence une fois la piste choisie.
+
 **Contenu**
 - **Images de partage par édition** — **écarté définitivement le 4 août**
   (risque deepfake sur des sujets impliquant de vraies personnes, décision
