@@ -127,6 +127,17 @@ Public 15-35 ans en priorité sans exclure personne : phrases directes, comparai
 </section>
 ```
 Lister 2 à 4 liens vers les sources principales **effectivement consultées** pendant la recherche du jour — jamais une source non consultée ou approximative. Citer ses sources renforce la crédibilité du site (comme le fait tout média rigoureux) et ne constitue jamais un risque de plagiat tant que le texte de l'édition reste une synthèse originale, jamais une reprise verbatim. Le CSS de `.sources-list` existe déjà dans le gabarit (voir `index.html`) : ne pas le redéfinir, juste réutiliser le motif HTML ci-dessus.
+
+3bis. **Mettre à jour les balises `<head>` avec le contenu du jour — jamais laisser le tagline générique du site.** Bug trouvé le 4 août (retour utilisateur, en partageant l'édition du jour sur LinkedIn) : `<title>`, `og:title`, `og:description`, `twitter:title`, `twitter:description` et `meta name="description"` étaient restés au tagline générique ("Scénario — L'actualité en trois scénarios chiffrés") sur `index.html` **et** sur toutes les archives déjà publiées, alors qu'ils devraient refléter le sujet du jour — LinkedIn (et tout outil qui lit les balises Open Graph plutôt qu'un texte fourni directement, contrairement à WhatsApp) affichait donc une carte de partage générique au lieu du titre réel de l'édition. Remplacer, dans le `<head>` du gabarit :
+- `<title>{h1 du jour} — Scénario</title>`
+- `<meta name="description" content="{la question posée, sans son emoji}">`
+- `<meta property="og:type" content="article">` (au lieu de `website`)
+- `<meta property="og:title" content="{h1 du jour} — Scénario">`
+- `<meta property="og:description" content="{la question posée, sans son emoji}">`
+- `<meta name="twitter:title" content="{h1 du jour} — Scénario">`
+- `<meta name="twitter:description" content="{la question posée, sans son emoji}">`
+
+Ne jamais réécrire une nouvelle phrase pour la description : reprendre exactement la question posée déjà rédigée à l'étape 2 (celle aussi utilisée dans `question-text`, `<comments>` et le teaser Telegram), juste sans l'emoji de tête. `og:image`/`twitter:image` restent inchangés (image générique, pas d'image par édition — voir `docs/ARCHITECTURE.md`). `og:url` reste `https://lesscenarios.fr/` sur `index.html` (c'est sa vraie URL), mais devient `https://lesscenarios.fr/archives/{AAAA-MM-JJ}.html` une fois copié dans l'archive (étape 5) — ne pas oublier de l'adapter à ce moment-là, en même temps que les autres liens relatifs.
 4. Écraser `index.html` avec cette nouvelle édition.
 5. Copier ce contenu dans `archives/AAAA-MM-JJ.html` (date du jour), puis y adapter tous les liens relatifs d'un niveau, en suivant exactement le même patron que les fichiers déjà présents dans `archives/`.
 6. Ouvrir `archives.html` et insérer une nouvelle entrée `<li class="entry">` tout en haut de la liste, en suivant EXACTEMENT le patron des entrées déjà présentes — y compris le bouton de bascule et le bloc dépliable des 3 scénarios qui l'accompagnent :
