@@ -928,3 +928,14 @@ Voir les échanges de session pour le détail, mais en résumé :
     processus. Formulation volontairement factuelle (ce qui est fait),
     **jamais une revendication de conformité totale certifiée** — le sujet
     reste juridiquement nuancé (voir l'analyse de l'exemption ci-dessus).
+  - **Question tranchée le 4 août : pas de mention IA sur LinkedIn/Telegram/
+    email, volontairement.** Ces canaux ne publient qu'un titre, un teaser
+    et une question, qui pointent vers l'article — pas le contenu de fond
+    lui-même. La divulgation vit là où le lecteur rencontre vraiment le
+    texte généré (l'article, déjà couvert ci-dessus), pas sur chaque
+    fragment promotionnel qui y mène. Décision aussi motivée par la
+    proportionnalité : une mention "IA" sur chaque post finirait par
+    ressembler à du bruit plutôt qu'à de l'info utile. Pas un avis
+    juridique certifié (ni l'utilisateur ni Claude ne sont juristes) —
+    à rouvrir si le sujet devient sensible ou si le volume d'audience
+    change significativement.
