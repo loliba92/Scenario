@@ -265,19 +265,42 @@ plan payant) en plus d'Instagram.
 
 ## Image de partage (Open Graph / Twitter Card)
 
-`assets/social/og-image.png` (1672×941, généré par IA puis retouché à la main)
-est l'image affichée en aperçu quand un lien Scénario est partagé sur
-Slack, WhatsApp, X/Twitter, iMessage, etc. Statique et identique sur toutes
-les pages — contrairement aux cartes Instagram, elle ne change pas chaque
-jour.
+`assets/social/og-image.png` (1672×941) est l'image affichée en aperçu
+quand un lien Scénario est partagé sur Slack, WhatsApp, X/Twitter,
+LinkedIn, Facebook, iMessage, etc. Statique et identique sur toutes les
+pages — contrairement aux cartes Instagram, elle ne change pas chaque jour.
+
+**Refondue le 4 août** (retour utilisateur : l'ancienne version — photo IA
+d'une route au coucher de soleil + légende en petit texte — devenait
+illisible une fois réduite à la taille réelle d'une vignette de partage).
+Nouvelle version en format "poster", construite en HTML/CSS et capturée via
+Playwright (même méthode que la bannière LinkedIn, sans outil de design
+payant) : logo (le tronc doré qui se divise en trois flèches, repris tel
+quel de `assets/logo.svg`), wordmark "Scéna**rio**" en très grand, slogan
+"L'avenir en 3 scénarios." et la légende Favorable/Stable/Dégradé avec les
+mêmes flèches que le reste du site (↑/→/↓). Chaque itération vérifiée par
+export en miniature 320px et 160px avant validation, pour s'assurer que le
+texte reste lisible même tout petit — c'était justement le défaut de
+l'ancienne version. Fichier aussi ~6x plus léger (1,7 Mo → ~260 Ko, aplats
+de couleur plutôt qu'une photo). Source HTML de travail non conservée dans
+le dépôt (fichier temporaire de session) — à refaire à l'identique si besoin
+d'un futur ajustement, en repartant des couleurs/polices déjà documentées
+dans ce fichier (`--gold`, `--favorable`/`--stable`/`--degrade`, Fraunces +
+JetBrains Mono).
 
 Les balises `og:*` et `twitter:*` sont posées dans le `<head>` des 5 pages
 vivantes (`index.html`, `archives.html`, `le-projet.html`, `contact.html`,
 `newsletter.html`), chacune avec son propre `og:title`/`og:description`
 repris du `<title>`/`<meta name="description">` de la page, mais la même
-image partout. Ces balises font partie du gabarit préservé par la routine
-quotidienne (elles ne changent jamais, comme le `<title>` et la description) —
-aucune instruction supplémentaire nécessaire dans `docs/routine-prompt.md`.
+image partout. **Correction du 4 août** : sur `index.html` (l'édition du
+jour), ces balises doivent être mises à jour à chaque édition pour
+refléter le sujet du jour — voir étape 3bis de `docs/routine-prompt.md`.
+Une ancienne version de cette doc affirmait à tort que ces balises ne
+changeaient jamais ; en pratique elles étaient restées au tagline
+générique sur toutes les éditions jusqu'au bug découvert ce jour-là (carte
+LinkedIn générique au lieu du titre réel). Sur les 4 autres pages vivantes
+(pages fixes, pas d'édition quotidienne), les balises restent bien
+statiques, aucune instruction de routine nécessaire pour elles.
 
 **Piste future** : des images de partage spécifiques à chaque édition (avec
 le titre du jour incrusté) seraient possibles en réutilisant le pipeline déjà
