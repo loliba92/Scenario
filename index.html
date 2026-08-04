@@ -639,6 +639,26 @@
     color: var(--ink);
   }
 
+  /* ---------- Partage ---------- */
+
+  section.share-block{
+    padding: 32px 0 48px;
+    border-top: 1px dashed var(--hairline);
+  }
+
+  .share-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  button.btn-outline{
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
 </style>
 </head>
 <body>
@@ -846,6 +866,19 @@
   </div>
 </section>
 
+<section class="share-block">
+  <div class="wrap">
+    <p class="section-label">Partager</p>
+    <h2 class="section-title">Faire circuler cette édition</h2>
+    <div class="share-row">
+      <a class="btn-outline" id="share-x" href="#" target="_blank" rel="noopener noreferrer">Partager sur X</a>
+      <a class="btn-outline" id="share-linkedin" href="#" target="_blank" rel="noopener noreferrer">Partager sur LinkedIn</a>
+      <a class="btn-outline" id="share-whatsapp" href="#" target="_blank" rel="noopener noreferrer">Partager sur WhatsApp</a>
+      <button class="btn-outline" id="share-copy" type="button">Copier le lien</button>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <p class="caveat">Les pourcentages et indicateurs sont des ordres de grandeur indicatifs, construits à partir de données réelles et de précédents comparables — pas des prévisions garanties ni des calculs statistiques certifiés.</p>
@@ -880,6 +913,38 @@
     if (ed && pd) {
       var m = ed.textContent.match(/Édition du\s+(.+?)\s+·/);
       if (m) { pd.textContent = "Publié le " + m[1]; }
+    }
+  })();
+</script>
+
+<script>
+  (function(){
+    var pageUrl = window.location.href;
+    var titleEl = document.querySelector("h1");
+    var pageTitle = titleEl ? titleEl.textContent.trim() : document.title;
+    var encodedUrl = encodeURIComponent(pageUrl);
+    var encodedTitle = encodeURIComponent(pageTitle);
+
+    var xBtn = document.getElementById("share-x");
+    if (xBtn) xBtn.href = "https://twitter.com/intent/tweet?url=" + encodedUrl + "&text=" + encodedTitle;
+
+    var liBtn = document.getElementById("share-linkedin");
+    if (liBtn) liBtn.href = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodedUrl;
+
+    var waBtn = document.getElementById("share-whatsapp");
+    if (waBtn) waBtn.href = "https://api.whatsapp.com/send?text=" + encodedTitle + "%20" + encodedUrl;
+
+    var copyBtn = document.getElementById("share-copy");
+    if (copyBtn){
+      copyBtn.addEventListener("click", function(){
+        if (navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(pageUrl).then(function(){
+            var original = copyBtn.textContent;
+            copyBtn.textContent = "Lien copié ✓";
+            setTimeout(function(){ copyBtn.textContent = original; }, 2000);
+          });
+        }
+      });
     }
   })();
 </script>
