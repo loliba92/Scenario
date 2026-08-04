@@ -35,7 +35,13 @@ moins prioritaire).
   (retour utilisateur : deux sections quasi identiques l'une sous
   l'autre) — un seul bloc "Rejoindre et faire circuler", bouton Telegram
   en premier suivi des boutons de partage ; CSS `.telegram-promo`
-  obsolète retiré.
+  obsolète retiré. **Déplacé une seconde fois le même jour** (retour
+  utilisateur : boutons tout en bas de page = besoin de scroller, moins
+  accessible) — le partage est maintenant une ligne discrète juste sous
+  `.pubdate` (haut de page), style `.share-inline` repris de `.sources-note`
+  des pages de suivi (texte gold, soulignement pointillé, pas de gros
+  boutons). Le bloc du bas reprend son titre d'origine "Vote avant de
+  connaître le résultat" et ne garde que "Rejoindre le canal Telegram".
 - **P1 — X (Twitter)** comme canal supplémentaire, via Make.com sur le
   même flux `feed.xml` que LinkedIn/Telegram — **en cours, pris en charge
   par l'utilisateur le 4 août** (création du compte développeur X + config
