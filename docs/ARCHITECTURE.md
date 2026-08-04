@@ -21,20 +21,16 @@ retrouver éparpillées dans le reste du document. Mise à jour au 4 août.
 
 **Distribution / automatisation**
 - **X (Twitter)** comme canal supplémentaire, via Make.com sur le même
-  flux `feed.xml` que LinkedIn/Telegram — idée notée le 31 juillet,
-  jamais implémentée (détail dans « Ce qui reste à faire », section
-  LinkedIn/Instagram). Nécessite un compte développeur X (gratuit,
-  largement suffisant pour 1 post/jour).
-- **Sondage Telegram sur le sujet du lendemain** plutôt que du jour même
-  (effet « reviens demain vérifier ») — bloqué par le fait que le sujet
-  du lendemain n'est connu à l'avance que les jours pré-cadrés dans
-  `sujets-prioritaires.md`, pas les jours d'auto-sélection.
+  flux `feed.xml` que LinkedIn/Telegram — **en cours, pris en charge par
+  l'utilisateur le 4 août** (création du compte développeur X + config
+  Make.com, même principe que LinkedIn : un seul scénario, deux sorties
+  branchées sur le même déclencheur RSS). Rien à faire côté code/routine
+  pour l'instant, `feed.xml` fournit déjà tout le nécessaire.
 
 **Contenu**
-- **Images de partage par édition** (au lieu de l'image OG générique
-  unique) — piste notée, écartée pour l'instant par choix éditorial
-  (risque deepfake/incohérence visuelle, voir plus bas), réévaluable si
-  un format non-photoréaliste convainc un jour.
+- **Images de partage par édition** — **écarté définitivement le 4 août**
+  (risque deepfake sur des sujets impliquant de vraies personnes, décision
+  ferme, ne pas reproposer).
 
 **À surveiller (pas une tâche, un dossier ouvert)**
 - **Arabie saoudite / sport** — candidat à une première page de suivi
