@@ -141,7 +141,7 @@ Lister 2 à 4 liens vers les sources principales **effectivement consultées** p
 Ne jamais réécrire une nouvelle phrase pour la description : reprendre exactement la question posée déjà rédigée à l'étape 2 (celle aussi utilisée dans `question-text`, `<comments>` et le teaser Telegram), juste sans l'emoji de tête. `og:image`/`twitter:image` restent inchangés (image générique, pas d'image par édition — voir `docs/ARCHITECTURE.md`). `og:url` reste `https://lesscenarios.fr/` sur `index.html` (c'est sa vraie URL), mais devient `https://lesscenarios.fr/archives/{AAAA-MM-JJ}.html` une fois copié dans l'archive (étape 5) — ne pas oublier de l'adapter à ce moment-là, en même temps que les autres liens relatifs. `<meta property="article:author" content="Scénario">` est déjà présent dans le gabarit et reste identique tous les jours (ajouté le 4 août 2026 suite à un retour Facebook Sharing Debugger signalant "No author found" / "No publication date found") : ne pas y toucher, juste vérifier qu'il est bien recopié tel quel dans `index.html` et dans l'archive.
 4. Écraser `index.html` avec cette nouvelle édition.
 5. Copier ce contenu dans `archives/AAAA-MM-JJ.html` (date du jour), puis y adapter tous les liens relatifs d'un niveau, en suivant exactement le même patron que les fichiers déjà présents dans `archives/`.
-6. Ouvrir `archives.html` et insérer une nouvelle entrée `<li class="entry">` tout en haut de la liste, en suivant EXACTEMENT le patron des entrées déjà présentes — y compris le bouton de bascule et le bloc dépliable des 3 scénarios qui l'accompagnent :
+6. Ouvrir `archives.html` et insérer une nouvelle entrée `<li class="entry">` tout en haut de la liste, en suivant EXACTEMENT le patron des entrées déjà présentes :
 ```html
 <li class="entry">
   <div class="entry-main">
@@ -153,29 +153,33 @@ Ne jamais réécrire une nouvelle phrase pour la description : reprendre exactem
     </div>
     <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-{AAAA-MM-JJ}">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
   </div>
-  <div class="entry-scenarios" id="scenarios-{AAAA-MM-JJ}">
-    <div class="entry-scenarios-inner">
-      <div class="scenario-grid">
-        <div class="scenario-mini" data-kind="favorable">
-          <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↑</span> {titre du scénario favorable, sans emoji}</p>
-          <p class="scenario-mini-text">{1 à 2 phrases résumant l'idée du scénario}</p>
-        </div>
-        <div class="scenario-mini" data-kind="stable">
-          <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">→</span> {titre du scénario stable, sans emoji}</p>
-          <p class="scenario-mini-text">{1 à 2 phrases résumant l'idée du scénario}</p>
-        </div>
-        <div class="scenario-mini" data-kind="degrade">
-          <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↓</span> {titre du scénario dégradé, sans emoji}</p>
-          <p class="scenario-mini-text">{1 à 2 phrases résumant l'idée du scénario}</p>
-        </div>
-      </div>
-    </div>
+  <div class="entry-scenarios" id="scenarios-{AAAA-MM-JJ}" data-fragment="archives/fragments/{AAAA-MM-JJ}.html">
+    <div class="entry-scenarios-inner"></div>
   </div>
 </li>
 ```
 Pour le tag de registre et les 1-2 tags thématiques : lire d'abord `docs/tags.md`, la liste fermée de référence, et réutiliser un tag existant chaque fois que le sujet y rentre raisonnablement — ne jamais en inventer librement à chaque édition. Un tag n'est utile au lecteur que s'il regroupe plusieurs articles dans la durée ; en inventer un nouveau à chaque édition rend le filtre inutilisable. N'en créer un nouveau qu'en tout dernier recours, et dans ce cas l'ajouter aussitôt à `docs/tags.md` (même commit) pour qu'il soit réutilisé la prochaine fois plutôt que réinventé sous un autre nom.
 
-Le texte de chaque `scenario-mini-title` (hors flèche) doit reprendre le **même titre** que le `<h3>` de la carte correspondante dans l'édition du jour (`index.html`/l'archive), mais **sans son emoji** : ici, la flèche `↑`/`→`/`↓` (verte/bleue/rouge via `data-kind`, jamais un autre symbole) remplace systématiquement l'emoji propre à chaque édition, pour que la liste des archives garde un code visuel cohérent d'une ligne à l'autre plutôt qu'un emoji différent à chaque fois. Le `scenario-mini-text` est une **reformulation condensée en 1 à 2 phrases courtes** de l'idée centrale du paragraphe `why` de ce scénario — le mécanisme concret, pas les comparaisons de probabilité entre les trois scénarios ni un copier-coller du texte complet. Ne jamais supprimer ni modifier les entrées déjà présentes (ni leur bloc scénarios).
+**Le bloc dépliable des 3 scénarios ne va plus dans `archives.html` lui-même** (changement du 4 août, retour utilisateur : le fichier grossissait indéfiniment, une nouvelle entrée par jour jamais retirée). Il va dans un fichier séparé `archives/fragments/{AAAA-MM-JJ}.html`, chargé par le JS d'`archives.html` uniquement quand le lecteur clique sur "Scénarios" (`fetch` à la demande, voir le `<script>` en bas d'`archives.html`) — l'entrée dans la liste principale reste donc légère quel que soit le nombre d'éditions accumulées. Créer ce fichier avec exactement ce contenu :
+```html
+<div class="scenario-grid">
+  <div class="scenario-mini" data-kind="favorable">
+    <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↑</span> <span class="scenario-mini-pct">{X}%</span> {titre du scénario favorable, sans emoji}</p>
+    <p class="scenario-mini-text">{1 à 2 phrases résumant l'idée du scénario}</p>
+  </div>
+  <div class="scenario-mini" data-kind="stable">
+    <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">→</span> <span class="scenario-mini-pct">{X}%</span> {titre du scénario stable, sans emoji}</p>
+    <p class="scenario-mini-text">{1 à 2 phrases résumant l'idée du scénario}</p>
+  </div>
+  <div class="scenario-mini" data-kind="degrade">
+    <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↓</span> <span class="scenario-mini-pct">{X}%</span> {titre du scénario dégradé, sans emoji}</p>
+    <p class="scenario-mini-text">{1 à 2 phrases résumant l'idée du scénario}</p>
+  </div>
+</div>
+```
+Chaque `{X}%` reprend exactement le `gauge-num` déjà calculé à l'étape 2-4 pour ce scénario dans l'édition du jour — jamais une nouvelle estimation, juste la même valeur recopiée (ajouté le 4 août, retour utilisateur : les probabilités manquaient dans la liste des archives).
+
+Le texte de chaque `scenario-mini-title` (hors flèche et pourcentage) doit reprendre le **même titre** que le `<h3>` de la carte correspondante dans l'édition du jour (`index.html`/l'archive), mais **sans son emoji** : ici, la flèche `↑`/`→`/`↓` (verte/bleue/rouge via `data-kind`, jamais un autre symbole) remplace systématiquement l'emoji propre à chaque édition, pour que la liste des archives garde un code visuel cohérent d'une ligne à l'autre plutôt qu'un emoji différent à chaque fois. Le `scenario-mini-text` est une **reformulation condensée en 1 à 2 phrases courtes** de l'idée centrale du paragraphe `why` de ce scénario — le mécanisme concret, pas les comparaisons de probabilité entre les trois scénarios ni un copier-coller du texte complet. Ne jamais supprimer ni modifier les entrées déjà présentes dans `archives.html`, ni les fichiers déjà présents dans `archives/fragments/`.
 6bis. Ajouter aussi une ligne pour l'édition du jour dans `docs/sujets-a-suivre.md`, section « Journal des sujets publiés », tout en haut de la liste (la plus récente en tête, même logique que `archives.html`) :
 ```markdown
 - {JJ.MM.AAAA} — [{h1 du jour}](../archives/{AAAA-MM-JJ}.html)
