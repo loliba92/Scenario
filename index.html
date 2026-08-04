@@ -715,7 +715,7 @@
     <p class="eyebrow">Mardi, sujet libre · Gaza et l'accord de désarmement</p>
     <h1>Gaza : la paix qui reste sur le papier</h1>
     <p class="pubdate">Publié le 4 août 2026</p>
-    <p class="share-inline">Partager : <a href="#" id="share-x">X</a>, <a href="#" id="share-linkedin">LinkedIn</a>, <a href="#" id="share-whatsapp">WhatsApp</a>, <a href="#" id="share-telegram">Telegram</a>, <button type="button" id="share-copy">copier le lien</button></p>
+    <p class="share-inline">Partager : <a href="#" id="share-x">X</a>, <a href="#" id="share-facebook">Facebook</a>, <a href="#" id="share-linkedin">LinkedIn</a>, <a href="#" id="share-whatsapp">WhatsApp</a>, <a href="#" id="share-telegram">Telegram</a>, <button type="button" id="share-copy">copier le lien</button></p>
 
     <div class="question-box">
       <span class="question-label">La question posée</span>
@@ -974,6 +974,9 @@
 
     var xBtn = document.getElementById("share-x");
     if (xBtn) xBtn.href = "https://twitter.com/intent/tweet?url=" + encodedUrl + "&text=" + encodedTitle;
+
+    var fbBtn = document.getElementById("share-facebook");
+    if (fbBtn) fbBtn.href = "https://www.facebook.com/sharer/sharer.php?u=" + encodedUrl;
 
     var liBtn = document.getElementById("share-linkedin");
     if (liBtn) liBtn.href = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodedUrl;
