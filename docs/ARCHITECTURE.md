@@ -31,7 +31,11 @@ moins prioritaire).
   sans avoir besoin de synchroniser le prompt de la routine réelle.
   Testé desktop + mobile via Playwright avant publication. S'applique à
   partir de la prochaine édition (les archives déjà publiées restent
-  figées).
+  figées). **Fusionné avec l'ancien bloc `.telegram-promo`** le même jour
+  (retour utilisateur : deux sections quasi identiques l'une sous
+  l'autre) — un seul bloc "Rejoindre et faire circuler", bouton Telegram
+  en premier suivi des boutons de partage ; CSS `.telegram-promo`
+  obsolète retiré.
 - **P1 — X (Twitter)** comme canal supplémentaire, via Make.com sur le
   même flux `feed.xml` que LinkedIn/Telegram — **en cours, pris en charge
   par l'utilisateur le 4 août** (création du compte développeur X + config
