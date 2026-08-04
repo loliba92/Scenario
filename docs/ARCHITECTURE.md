@@ -53,6 +53,20 @@ moins prioritaire).
   affiche les derniers posts du canal directement sur le site, donne à
   voir l'activité réelle avant de cliquer pour rejoindre. Pas encore
   implémenté.
+- **[FAIT le 4 août] Groupe de discussion Telegram lié au canal** — jusque
+  là le canal était en diffusion pure, aucune interaction possible côté
+  lecteur. Un groupe dédié "Scenario - Discussion" a été créé et lié au
+  canal `@scenario_fr` via Telegram (Gérer le canal → Discussion → Add),
+  100% côté app Telegram, rien à toucher côté code/routine. Chaque post
+  affiche désormais un compteur de commentaires qui renvoie vers un fil
+  dédié dans ce groupe. **Point à noter :** la liaison ne s'applique qu'aux
+  posts publiés *après* le lien — pas de rétroactivité automatique
+  confirmée sur les posts antérieurs au 4 août, contrairement à ce qui
+  était supposé au départ. Vérifié via la prévisualisation web publique
+  `t.me/s/scenario_fr` plutôt que l'API bot (plus simple, pas besoin de
+  token). Nécessite une présence de modération humaine occasionnelle une
+  fois que le groupe aura du trafic (pas un coût ponctuel comme le reste
+  de cette liste, un coût récurrent).
 - **[FAIT le 4 août] Teaser du registre du lendemain** ("📅 Demain : 🇫🇷
   actualité française") sous les boutons de partage — `index.html`,
   `#tomorrow-teaser`. **Correction d'estimation** : contrairement à ce qui
