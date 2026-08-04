@@ -47,13 +47,14 @@ moins prioritaire).
   affiche les derniers posts du canal directement sur le site, donne à
   voir l'activité réelle avant de cliquer pour rejoindre. Pas encore
   implémenté.
-- **P2 — Teaser du registre du lendemain** ("Demain : sport ⚽") en bas de
-  chaque édition et/ou sur `newsletter.html` — la grille des registres est
-  fixe (lundi géopolitique, mardi carte blanche...), donc calculable sans
-  recherche supplémentaire. Crée un réflexe de retour quotidien. Pas
-  encore implémenté ; nécessite une petite instruction dans
-  `docs/routine-prompt.md` (contenu dynamique, contrairement aux boutons
-  de partage) + synchronisation manuelle de la routine réelle.
+- **[FAIT le 4 août] Teaser du registre du lendemain** ("📅 Demain : 🇫🇷
+  actualité française") sous les boutons de partage — `index.html`,
+  `#tomorrow-teaser`. **Correction d'estimation** : contrairement à ce qui
+  était noté ici, ça ne nécessite **pas** de toucher la routine — la
+  grille des registres est fixe par jour de semaine (lundi géopolitique,
+  mardi carte blanche...), donc calculable 100 % côté client en JS à
+  partir de la date du jour + 1 (heure de Paris), exactement comme les
+  boutons de partage et le temps de lecture. Testé avec Playwright.
 
 **UX**
 - **[FAIT le 4 août] Temps de lecture estimé** sous le titre de chaque
