@@ -118,6 +118,23 @@ moins prioritaire).
   principal garde le badge plein. `docs/routine-prompt.md` (étape 6) mis à
   jour pour ce nouveau format. Testé (recherche, filtres, tri, chargement
   de fragment) via Playwright avant publication.
+- **P2 — Découpage de `archives.html` par année, à faire avant fin 2026** —
+  la solution du 4 août (fragments à la demande) règle le poids téléchargé
+  par visite, mais pas le fait que `archives.html` reste un fichier unique
+  qui grossit indéfiniment (une ligne de plus par jour, jamais retirée) ni
+  le coût d'indexation JS (recherche/filtres/tri) qui reste `O(n)` sur
+  toutes les entrées à chaque chargement — pas gênant aujourd'hui, mais pas
+  illimité. **Direction retenue (retour utilisateur, 4 août) :** filtrer
+  par année avec l'année en cours sélectionnée par défaut ; changer d'année
+  charge la liste de cette année-là (un fichier par année, ex.
+  `archives-2025.html`, `archives-2026.html`...) plutôt qu'un unique
+  fichier qui contient tout. Reprend le filtre "Année" déjà présent dans
+  l'UI actuelle (aujourd'hui un simple filtre d'affichage sur un seul
+  fichier) pour en faire un vrai changement de page/fichier. À trancher
+  avant implémentation : URL de chaque année (`archives.html?annee=2025`
+  ou fichiers séparés), comportement du sélecteur (rechargement de page vs
+  fetch), et impact sur l'étape 6 de la routine (écrire dans le fichier de
+  l'année en cours, créer un nouveau fichier au changement d'année).
 
 **Contenu**
 - **Images de partage par édition** — **écarté définitivement le 4 août**
