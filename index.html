@@ -185,8 +185,34 @@
     font-size: 0.78rem;
     letter-spacing: 0.02em;
     color: var(--paper-dim);
+    margin: 0 0 8px;
+  }
+
+  .share-inline{
+    font-size: 0.8rem;
+    color: var(--paper-dim);
     margin: 0 0 22px;
   }
+
+  .share-inline a{
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--gold);
+  }
+
+  .share-inline a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
+  .share-inline button{
+    font: inherit;
+    color: var(--gold);
+    background: none;
+    border: none;
+    border-bottom: 1px dotted var(--gold);
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .share-inline button:hover{ color: var(--paper); border-bottom-color: var(--paper); }
 
   h1{
     font-family: "Fraunces", serif;
@@ -689,6 +715,7 @@
     <p class="eyebrow">Mardi, sujet libre · Gaza et l'accord de désarmement</p>
     <h1>Gaza : la paix qui reste sur le papier</h1>
     <p class="pubdate">Publié le 4 août 2026</p>
+    <p class="share-inline">Partager : <a href="#" id="share-x">X</a>, <a href="#" id="share-linkedin">LinkedIn</a>, <a href="#" id="share-whatsapp">WhatsApp</a>, <button type="button" id="share-copy">copier le lien</button></p>
 
     <div class="question-box">
       <span class="question-label">La question posée</span>
@@ -861,14 +888,10 @@
 <section class="share-block">
   <div class="wrap">
     <p class="section-label">En plus</p>
-    <h2 class="section-title">Rejoindre et faire circuler</h2>
+    <h2 class="section-title">Vote avant de connaître le résultat</h2>
     <p>Chaque jour, un sondage sur notre canal Telegram : vote pour le scénario que tu juges le plus probable avant même de découvrir les vraies probabilités ci-dessus.</p>
     <div class="share-row">
       <a class="btn-outline" href="https://t.me/scenario_fr" target="_blank" rel="noopener noreferrer">Rejoindre le canal Telegram</a>
-      <a class="btn-outline" id="share-x" href="#" target="_blank" rel="noopener noreferrer">Partager sur X</a>
-      <a class="btn-outline" id="share-linkedin" href="#" target="_blank" rel="noopener noreferrer">Partager sur LinkedIn</a>
-      <a class="btn-outline" id="share-whatsapp" href="#" target="_blank" rel="noopener noreferrer">Partager sur WhatsApp</a>
-      <button class="btn-outline" id="share-copy" type="button">Copier le lien</button>
     </div>
     <p class="tomorrow-teaser" id="tomorrow-teaser"></p>
   </div>
