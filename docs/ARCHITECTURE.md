@@ -14,6 +14,53 @@ Aucun backend, aucune base de données : tout est fait de fichiers HTML/CSS/JS
 statiques, servis tels quels par GitHub Pages. Le seul service externe utilisé
 est **FormSubmit** (formulaire de contact) — voir plus bas.
 
+## Backlog
+
+Idées et tâches ouvertes, consolidées ici pour ne pas avoir à les
+retrouver éparpillées dans le reste du document. Mise à jour au 4 août.
+
+**Distribution / automatisation**
+- **X (Twitter)** comme canal supplémentaire, via Make.com sur le même
+  flux `feed.xml` que LinkedIn/Telegram — idée notée le 31 juillet,
+  jamais implémentée (détail dans « Ce qui reste à faire », section
+  LinkedIn/Instagram). Nécessite un compte développeur X (gratuit,
+  largement suffisant pour 1 post/jour).
+- **Sondage Telegram sur le sujet du lendemain** plutôt que du jour même
+  (effet « reviens demain vérifier ») — bloqué par le fait que le sujet
+  du lendemain n'est connu à l'avance que les jours pré-cadrés dans
+  `sujets-prioritaires.md`, pas les jours d'auto-sélection.
+
+**Contenu**
+- **Images de partage par édition** (au lieu de l'image OG générique
+  unique) — piste notée, écartée pour l'instant par choix éditorial
+  (risque deepfake/incohérence visuelle, voir plus bas), réévaluable si
+  un format non-photoréaliste convainc un jour.
+
+**À surveiller (pas une tâche, un dossier ouvert)**
+- **Arabie saoudite / sport** — candidat à une première page de suivi
+  (retrait du financement LIV Golf par le PIF, tension avec l'investissement
+  massif dans le football), mis en attente volontairement le 3 août pour
+  accumuler plus de développements avant de lancer une première page. La
+  routine hebdo de veille (« Détection sujets à suivre ») le re-signalera
+  si ça bouge.
+
+**À vérifier**
+- **Config Buttondown de l'hebdo** : l'envoi du dimanche soir fonctionne
+  (confirmé par l'utilisateur), mais le filtrage précis par tag `hebdo`
+  côté Automation Buttondown n'a jamais été confirmé explicitement dans
+  cette doc — à valider que les abonnés de la quotidienne ne reçoivent
+  pas aussi l'hebdo par erreur (et inversement).
+
+**Idées explicitement écartées** (pour mémoire, ne pas reproposer sans
+nouvel élément) : fil d'actualité scrollable façon LinkedIn/Instagram
+(pas assez de densité avec 1 édition/jour, sans réel gain vs
+`archives.html`) ; comptes utilisateurs, likes, commentaires sur site
+(coût backend/modération/RGPD trop élevé vs bénéfice, l'interaction
+sociale reste sur Telegram) ; WhatsApp Channels (pas d'API officielle
+gratuite) ; dépôt GitHub privé ou dossier privé séparé pour les docs
+internes (coût opérationnel — routine à synchroniser sur deux dépôts —
+jugé disproportionné vu qu'aucun contenu n'est réellement sensible).
+
 ## Structure des fichiers
 
 ```
