@@ -96,19 +96,28 @@ moins prioritaire).
   exception à la règle des archives figées pour ce cas précis.
 
 **Technique**
-- **P2 — Optimisation de `archives.html`** — chaque jour, l'étape 6 de la
-  routine insère une nouvelle `<li class="entry">` en tête de liste, jamais
-  retirée : le fichier grossit indéfiniment et contient déjà, pour chaque
-  entrée, le HTML complet du bloc dépliable des 3 scénarios (pas juste un
-  résumé). À 12 entrées le fichier fait déjà ~1000 lignes ; à l'échelle
-  d'une année (365 éditions), la page deviendra lourde à charger et pénible
-  à maintenir en un seul fichier plat. Repéré le 4 août (retour
-  utilisateur), pas urgent aujourd'hui mais à anticiper avant que ça
-  devienne un vrai problème. Pistes à trancher plus tard : pagination
-  (N derniers jours + lien "voir plus" ou découpage par mois/année), ou
-  chargement différé du contenu dépliable en JS plutôt que tout inliner au
-  HTML. Nécessite de revoir l'étape 6 de `docs/routine-prompt.md` en
-  conséquence une fois la piste choisie.
+- **[FAIT le 4 août] Optimisation de `archives.html`** — repéré le 4 août
+  (retour utilisateur) : chaque jour, l'étape 6 de la routine insérait une
+  nouvelle `<li class="entry">` en tête de liste, jamais retirée, avec le
+  HTML complet du bloc dépliable des 3 scénarios inliné pour chaque entrée
+  (pas juste un résumé) — à 12 entrées le fichier faisait déjà ~1000
+  lignes, un problème de fond de perf/maintenance à l'échelle d'une année
+  de publication. **Solution retenue : chargement différé en JS.** Le bloc
+  dépliable de chaque entrée sort de `archives.html` vers un petit fichier
+  séparé `archives/fragments/{AAAA-MM-JJ}.html`, chargé via `fetch()`
+  uniquement quand le lecteur clique sur "Scénarios" (et mis en cache côté
+  DOM ensuite, `data-loaded` sur `.entry-scenarios`) — l'entrée dans la
+  liste principale reste donc légère, quel que soit le nombre d'éditions
+  accumulées. Les 12 éditions déjà publiées ont été migrées vers ce format
+  (script Python ponctuel, pas conservé). **Au passage** (même retour
+  utilisateur) : ajout du pourcentage de chaque scénario (déjà calculé
+  côté édition, simplement recopié) à côté de la flèche dans les
+  fragments ; et design moins touffu — les tags thématiques secondaires
+  perdent leur pastille pleine au profit d'un style texte souligné
+  pointillé (comme les liens de sources), seul le tag de registre
+  principal garde le badge plein. `docs/routine-prompt.md` (étape 6) mis à
+  jour pour ce nouveau format. Testé (recherche, filtres, tri, chargement
+  de fragment) via Playwright avant publication.
 
 **Contenu**
 - **Images de partage par édition** — **écarté définitivement le 4 août**
