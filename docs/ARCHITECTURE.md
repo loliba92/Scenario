@@ -18,14 +18,62 @@ est **FormSubmit** (formulaire de contact) — voir plus bas.
 
 Idées et tâches ouvertes, consolidées ici pour ne pas avoir à les
 retrouver éparpillées dans le reste du document. Mise à jour au 4 août.
+Priorités P1 (fort impact, faible coût) à P3 (utile mais plus lourd ou
+moins prioritaire).
 
 **Distribution / automatisation**
-- **X (Twitter)** comme canal supplémentaire, via Make.com sur le même
-  flux `feed.xml` que LinkedIn/Telegram — **en cours, pris en charge par
-  l'utilisateur le 4 août** (création du compte développeur X + config
+- **[FAIT le 4 août] Boutons de partage** (X, LinkedIn, WhatsApp, copier
+  le lien) sur chaque édition — `index.html`, section `.share-block`,
+  juste avant le footer. 100 % statique/générique : les liens sont
+  construits côté client en JS à partir de l'URL et du `<h1>` de la page,
+  donc **aucune donnée à générer par la routine quotidienne** — elle sera
+  reproduite automatiquement comme le reste du gabarit (structure/CSS),
+  sans avoir besoin de synchroniser le prompt de la routine réelle.
+  Testé desktop + mobile via Playwright avant publication. S'applique à
+  partir de la prochaine édition (les archives déjà publiées restent
+  figées).
+- **P1 — X (Twitter)** comme canal supplémentaire, via Make.com sur le
+  même flux `feed.xml` que LinkedIn/Telegram — **en cours, pris en charge
+  par l'utilisateur le 4 août** (création du compte développeur X + config
   Make.com, même principe que LinkedIn : un seul scénario, deux sorties
-  branchées sur le même déclencheur RSS). Rien à faire côté code/routine
-  pour l'instant, `feed.xml` fournit déjà tout le nécessaire.
+  branchées sur le même déclencheur RSS). Rien à faire côté code/routine,
+  `feed.xml` fournit déjà tout le nécessaire.
+- **P2 — Widget Telegram embarqué** sur `newsletter.html` (widget officiel
+  `t.me/s/scenario_fr`, embeddable via `<script>`, statique/gratuit) :
+  affiche les derniers posts du canal directement sur le site, donne à
+  voir l'activité réelle avant de cliquer pour rejoindre. Pas encore
+  implémenté.
+- **P2 — Teaser du registre du lendemain** ("Demain : sport ⚽") en bas de
+  chaque édition et/ou sur `newsletter.html` — la grille des registres est
+  fixe (lundi géopolitique, mardi carte blanche...), donc calculable sans
+  recherche supplémentaire. Crée un réflexe de retour quotidien. Pas
+  encore implémenté ; nécessite une petite instruction dans
+  `docs/routine-prompt.md` (contenu dynamique, contrairement aux boutons
+  de partage) + synchronisation manuelle de la routine réelle.
+
+**UX**
+- **P1 — Temps de lecture estimé** en tête d'édition ("~4 min de
+  lecture") — calcul simple à partir du nombre de mots, mais nécessite
+  une instruction dans `docs/routine-prompt.md` (contenu dynamique par
+  édition) + sync manuelle de la routine réelle. Pas encore implémenté.
+- **P2 — Sommaire ancré** (Contexte / Scénarios / Sources) en haut de
+  chaque édition, pour sauter directement aux scénarios sur les éditions
+  longues — surtout utile mobile. Effort modéré (ancres + petit
+  composant de nav), reste dans le gabarit statique comme les boutons de
+  partage, pas de sync routine nécessaire. Pas encore implémenté.
+- **P3 — Recherche en texte intégral** sur `archives.html` (la recherche
+  actuelle ne porte a priori que sur titres/tags, pas le contenu complet
+  des éditions) — demande de générer un index de recherche à la
+  publication, donc touche la routine quotidienne (plus lourd, plus
+  fragile vu la difficulté de synchronisation déjà rencontrée). Pas
+  encore implémenté.
+- **P3 — Navigation "édition suivante"** en bas de chaque archive — le
+  lien "précédente" est toujours facile (le jour d'avant est connu au
+  moment de publier), mais "suivante" obligerait à retoucher l'archive de
+  la veille une fois figée, ce qui va à l'encontre de la règle "une
+  archive ne se modifie jamais". À trancher avant d'implémenter : soit
+  seulement un lien "précédente" (moins complet), soit accepter une
+  exception à la règle des archives figées pour ce cas précis.
 
 **Contenu**
 - **Images de partage par édition** — **écarté définitivement le 4 août**
