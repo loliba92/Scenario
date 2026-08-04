@@ -896,9 +896,21 @@
   (function(){
     var ed = document.querySelector(".edition");
     var pd = document.querySelector(".pubdate");
+    var datePart = "";
     if (ed && pd) {
       var m = ed.textContent.match(/Édition du\s+(.+?)\s+·/);
-      if (m) { pd.textContent = "Publié le " + m[1]; }
+      if (m) { datePart = "Publié le " + m[1]; }
+    }
+
+    var contentEls = document.querySelectorAll(".dek, .why, dd");
+    var text = "";
+    contentEls.forEach(function(el){ text += " " + el.textContent; });
+    var words = text.trim().split(/\s+/).filter(Boolean).length;
+    var minutes = words ? Math.max(1, Math.round(words / 200)) : 0;
+    var readingPart = minutes ? "~" + minutes + " min de lecture" : "";
+
+    if (pd) {
+      pd.textContent = [datePart, readingPart].filter(Boolean).join(" · ");
     }
   })();
 </script>
