@@ -56,10 +56,19 @@ moins prioritaire).
   de partage) + synchronisation manuelle de la routine réelle.
 
 **UX**
-- **P1 — Temps de lecture estimé** en tête d'édition ("~4 min de
-  lecture") — calcul simple à partir du nombre de mots, mais nécessite
-  une instruction dans `docs/routine-prompt.md` (contenu dynamique par
-  édition) + sync manuelle de la routine réelle. Pas encore implémenté.
+- **[FAIT le 4 août] Temps de lecture estimé** sous le titre de chaque
+  édition. Deux volets :
+  - **Site** : 100 % client (`index.html`, même script que `.pubdate`) —
+    compte les mots de `.dek`/`.why`/`dd`, 200 mots/minute, arrondi,
+    minimum 1 min. Aucune sync routine nécessaire, déjà en ligne.
+  - **Email (`feed.xml`)** : la même valeur doit apparaître dans la
+    description envoyée par Buttondown — texte statique dans un email,
+    donc calculée par la routine (`docs/routine-prompt.md`, commande
+    `grep`+`wc -w` sur `archives/{date}.html`, même méthode que le JS du
+    site pour que les deux chiffres correspondent toujours). **Nécessite
+    la synchronisation manuelle de la routine quotidienne réelle**
+    (comme pour les corrections précédentes) — pas encore fait côté
+    trigger réel au moment d'écrire cette ligne.
 - **P2 — Sommaire ancré** (Contexte / Scénarios / Sources) en haut de
   chaque édition, pour sauter directement aux scénarios sur les éditions
   longues — surtout utile mobile. Effort modéré (ancres + petit
