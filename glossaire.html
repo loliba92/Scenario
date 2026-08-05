@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glossaire — Scénario</title>
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<meta name="description" content="Tous les termes techniques expliqués dans les éditions de Scénario, classés par ordre alphabétique.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scénario">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://lesscenarios.fr/glossaire.html">
+<meta property="og:title" content="Glossaire — Scénario">
+<meta property="og:description" content="Tous les termes techniques expliqués dans les éditions de Scénario, classés par ordre alphabétique.">
+<meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image.png">
+<meta property="og:image:width" content="2508">
+<meta property="og:image:height" content="1412">
+<meta property="og:image:alt" content="Scénario — trois scénarios chiffrés pour chaque actualité : favorable, stable, dégradé.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Glossaire — Scénario">
+<meta name="twitter:description" content="Tous les termes techniques expliqués dans les éditions de Scénario, classés par ordre alphabétique.">
+<meta name="twitter:image" content="https://lesscenarios.fr/assets/social/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --surface: #1a212b;
+    --surface-2: #212a35;
+    --hairline: #2c3644;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+    --favorable: #5e9c78;
+    --stable: #6f8fae;
+    --degrade: #bd6248;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  ::selection{ background: var(--gold); color: var(--ink); }
+
+  :focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header.masthead{
+    border-bottom: 1px solid var(--hairline);
+    padding: 28px 0 22px;
+  }
+
+  .masthead-row{
+    display:flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .wordmark{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+
+  .wordmark span{ color: var(--gold); }
+
+  .brand{
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+
+  .brand-mark{
+    width: 30px;
+    height: 30px;
+    display: block;
+    flex: none;
+  }
+
+  nav.topnav{
+    background: var(--surface);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  nav.topnav .wrap{
+    display: flex;
+    gap: 24px;
+    padding: 12px 24px;
+    flex-wrap: wrap;
+  }
+
+  .topnav a{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+  }
+
+  .topnav a:hover{ color: var(--paper); }
+
+  .topnav a[aria-current="page"]{
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  .hero{
+    padding: 64px 0 40px;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .eyebrow{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    margin: 0 0 18px;
+  }
+
+  h1{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+  }
+
+  .dek{
+    font-size: 1.1rem;
+    color: var(--paper-dim);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  section.listing{ padding: 48px 0 64px; }
+
+  /* ---- Outils : recherche + filtres ---- */
+  .glossary-tools{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0 0 34px;
+  }
+
+  .glossary-search{
+    width: 100%;
+    max-width: 440px;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: 11px 14px;
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 0.95rem;
+  }
+  .glossary-search::placeholder{ color: var(--paper-dim); }
+  .glossary-search:focus{ outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  .filter-row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .filter-row-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--paper-dim);
+  }
+
+  .domain-filters{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .filter-chip{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--paper-dim);
+    background: transparent;
+    border: 1px solid var(--hairline);
+    border-radius: 100px;
+    padding: 4px 12px;
+    cursor: pointer;
+    transition: color .15s, border-color .15s, background .15s;
+  }
+  .filter-chip:hover{ color: var(--paper); border-color: var(--paper-dim); }
+  .filter-chip.is-active{
+    color: var(--ink);
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  /* ---- Entrées du lexique ---- */
+  .lex-list{ margin: 0; padding: 0; }
+
+  .lex-entry{
+    padding: 18px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .lex-entry:first-child{ padding-top: 0; }
+  .lex-entry.is-hidden{ display: none; }
+
+  .lex-term{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin: 0 0 6px;
+    color: var(--paper);
+  }
+
+  .lex-def{
+    margin: 0 0 10px;
+    color: var(--paper-dim);
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .lex-meta{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .lex-domain{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 100px;
+    padding: 2px 9px;
+    white-space: nowrap;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+  }
+
+  .lex-source{
+    font-size: 0.78rem;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--paper-dim);
+  }
+  .lex-source:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
+  .no-result{
+    color: var(--paper-dim);
+    font-size: 0.95rem;
+    padding: 10px 0;
+    display: none;
+  }
+  .no-result.is-shown{ display: block; }
+
+  footer{
+    border-top: 1px solid var(--hairline);
+    padding: 32px 0 48px;
+  }
+
+  .legal-links{
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin: 24px 0 0;
+  }
+
+  .legal-links a{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+  }
+
+  .legal-links a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
+
+  footer .caveat{
+    font-size: 0.84rem;
+    color: var(--paper-dim);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <div class="brand">
+      <img class="brand-mark" src="assets/logo.svg" alt="">
+      <a class="wordmark" href="index.html">Scéna<span>rio</span></a>
+    </div>
+  </div>
+</header>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="index.html">Accueil</a>
+    <a href="archives.html">Archives</a>
+    <a href="le-projet.html">Le projet</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Consultation</p>
+    <h1>Glossaire</h1>
+    <p class="dek">Tous les termes techniques expliqués dans les éditions de Scénario, réunis en un seul endroit — classés par ordre alphabétique, cherchables par mot ou par domaine.</p>
+  </div>
+</section>
+
+<section class="listing">
+  <div class="wrap">
+    <div class="glossary-tools">
+      <input id="glossary-search" class="glossary-search" type="search" placeholder="Rechercher un terme…" aria-label="Rechercher dans le glossaire">
+      <div class="filter-row">
+        <span class="filter-row-label">Domaine</span>
+        <div class="domain-filters" id="domain-filters"></div>
+      </div>
+    </div>
+
+    <dl class="lex-list" id="lex-list">
+      <div class="lex-entry" id="lex-a400m">
+        <dt class="lex-term">A400M</dt>
+        <dd class="lex-def">Avion de transport militaire de l'armée française, exceptionnellement équipé cet été d'un kit pour larguer de l'eau sur les feux.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Sciences &amp; environnement</span>
+          <a class="lex-source" href="archives/2026-07-31.html">Vu dans : Méga-feux : la France est-elle prête pour la suite ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-action-en-bourse">
+        <dt class="lex-term">Action (en Bourse)</dt>
+        <dd class="lex-def">Une part du capital d'une entreprise cotée, dont le prix varie selon la confiance des investisseurs.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span>
+          <a class="lex-source" href="archives/2026-07-18.html">Vu dans : Spider-Man contre Avengers : qui va sauver le box-office Marvel ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-agence-de-notation">
+        <dt class="lex-term">Agence de notation</dt>
+        <dd class="lex-def">Société (Fitch, Moody's, S&amp;P) qui note la solidité financière d'un pays ; une mauvaise note renchérit ses emprunts.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Politique &amp; institutions</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-29.html">Vu dans : Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-aide-etat">
+        <dt class="lex-term">Aide d'État</dt>
+        <dd class="lex-def">Un soutien financier public à une entreprise, encadré par des règles européennes strictes pour ne pas fausser la concurrence entre pays de l'UE.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Sciences &amp; environnement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-08-05.html">Vu dans : EPR2 : le nucléaire français à l'heure de vérité →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-article-49-3">
+        <dt class="lex-term">Article 49.3</dt>
+        <dd class="lex-def">Outil de la Constitution qui permet au gouvernement de faire adopter une loi sans vote des députés — mais qui l'expose aussitôt à une motion de censure.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Politique &amp; institutions</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-29.html">Vu dans : Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-asnr">
+        <dt class="lex-term">ASNR</dt>
+        <dd class="lex-def">L'Autorité de sûreté nucléaire et de radioprotection, le gendarme public qui vérifie que les centrales françaises sont sûres avant de les autoriser.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Sciences &amp; environnement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-08-05.html">Vu dans : EPR2 : le nucléaire français à l'heure de vérité →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-at-t-time-warner">
+        <dt class="lex-term">AT&amp;T-Time Warner</dt>
+        <dd class="lex-def">Un précédent de 2018 : un juge avait autorisé cette fusion malgré une plainte du gouvernement américain, un cas souvent cité dans ce dossier.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-26.html">Vu dans : HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-baril">
+        <dt class="lex-term">Baril</dt>
+        <dd class="lex-def">L'unité de mesure de référence du pétrole, égale à environ 159 litres.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">International</span><span class="lex-domain">Sciences &amp; environnement</span>
+          <a class="lex-source" href="archives/2026-07-27.html">Vu dans : Iran–États-Unis : les armes se taisent, l'accord reste à trouver →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-blocus-naval">
+        <dt class="lex-term">Blocus naval</dt>
+        <dd class="lex-def">Un dispositif militaire qui empêche les navires d'entrer dans les ports d'un pays ou d'en sortir — ici imposé par les États-Unis à l'Iran.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">International</span><span class="lex-domain">Sciences &amp; environnement</span>
+          <a class="lex-source" href="archives/2026-07-27.html">Vu dans : Iran–États-Unis : les armes se taisent, l'accord reste à trouver →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-box-office">
+        <dt class="lex-term">Box-office</dt>
+        <dd class="lex-def">Le total des recettes générées par un film dans les salles de cinéma — l'indicateur numéro un de son succès commercial.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span>
+          <a class="lex-source" href="archives/2026-07-18.html">Vu dans : Spider-Man contre Avengers : qui va sauver le box-office Marvel ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-brent">
+        <dt class="lex-term">Brent</dt>
+        <dd class="lex-def">Le principal prix de référence du pétrole utilisé en Europe, exprimé en dollars par baril.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">International</span><span class="lex-domain">Sciences &amp; environnement</span>
+          <a class="lex-source" href="archives/2026-07-27.html">Vu dans : Iran–États-Unis : les armes se taisent, l'accord reste à trouver →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-canadair">
+        <dt class="lex-term">Canadair</dt>
+        <dd class="lex-def">Avion bombardier d'eau capable d'écoper directement en mer ou sur un lac pour recharger sa cuve, utilisé par la Sécurité civile française.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Sciences &amp; environnement</span>
+          <a class="lex-source" href="archives/2026-07-31.html">Vu dans : Méga-feux : la France est-elle prête pour la suite ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-capitalisation-boursiere">
+        <dt class="lex-term">Capitalisation boursière</dt>
+        <dd class="lex-def">La valeur totale d'une entreprise en Bourse : le prix d'une action multiplié par le nombre d'actions.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-25.html">Vu dans : Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-centcom">
+        <dt class="lex-term">CENTCOM</dt>
+        <dd class="lex-def">Le commandement militaire des États-Unis chargé de tout le Moyen-Orient, qui conduit les opérations contre l'Iran.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">International</span><span class="lex-domain">Sciences &amp; environnement</span>
+          <a class="lex-source" href="archives/2026-07-27.html">Vu dans : Iran–États-Unis : les armes se taisent, l'accord reste à trouver →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-concurrence-fiscale">
+        <dt class="lex-term">Concurrence fiscale</dt>
+        <dd class="lex-def">La course entre pays qui baissent leurs impôts pour attirer, ou retenir, les grandes fortunes et les entreprises.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Société</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-28.html">Vu dans : Milliardaires : la richesse du monde peut-elle encore se partager ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-conseil-de-paix">
+        <dt class="lex-term">Conseil de paix</dt>
+        <dd class="lex-def">L'organe créé par le plan de Donald Trump pour piloter la sortie de guerre à Gaza : désarmement, retrait israélien et reconstruction.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">International</span>
+          <a class="lex-source" href="archives/2026-08-04.html">Vu dans : Gaza : la paix qui reste sur le papier →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-cfd">
+        <dt class="lex-term">Contrat pour différence (CfD)</dt>
+        <dd class="lex-def">Un contrat qui garantit à EDF un prix fixe pour son électricité pendant 40 ans : l'État complète la différence si le prix de marché est plus bas, et récupère le trop-perçu s'il est plus haut.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Sciences &amp; environnement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-08-05.html">Vu dans : EPR2 : le nucléaire français à l'heure de vérité →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-cour-supreme-espagnole">
+        <dt class="lex-term">Cour suprême espagnole</dt>
+        <dd class="lex-def">La plus haute juridiction civile et pénale d'Espagne, dont les arrêts s'imposent à toutes les autres cours du pays.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">International</span>
+          <a class="lex-source" href="archives/2026-08-03.html">Vu dans : Ceuta : la frontière qui a craqué →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-dfi">
+        <dt class="lex-term">Décision finale d'investissement (DFI)</dt>
+        <dd class="lex-def">Le feu vert définitif du conseil d'administration d'EDF pour lancer réellement la construction et engager les dépenses.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Sciences &amp; environnement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-08-05.html">Vu dans : EPR2 : le nucléaire français à l'heure de vérité →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-deficit-public">
+        <dt class="lex-term">Déficit public</dt>
+        <dd class="lex-def">La différence entre ce que l'État et les administrations dépensent et ce qu'ils gagnent sur une année ; il se comble en empruntant.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Politique &amp; institutions</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-29.html">Vu dans : Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-discovery-global">
+        <dt class="lex-term">Discovery Global</dt>
+        <dd class="lex-def">Le nom prévu pour la future entreprise séparée qui regrouperait les chaînes câblées de Warner Bros. Discovery (CNN, TNT Sports...), un projet de scission mis en pause par le rachat.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-26.html">Vu dans : HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-dissolution">
+        <dt class="lex-term">Dissolution</dt>
+        <dd class="lex-def">Décision du président de mettre fin à l'Assemblée nationale pour provoquer de nouvelles élections législatives.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Politique &amp; institutions</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-29.html">Vu dans : Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-distribution-en-salle-wide-release">
+        <dt class="lex-term">Distribution en salle ("wide-release")</dt>
+        <dd class="lex-def">Le marché de la diffusion des films sur un grand nombre d'écrans de cinéma en même temps, au cœur de l'argument des États contre la fusion.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-26.html">Vu dans : HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-docteur-fatalis">
+        <dt class="lex-term">Docteur Fatalis</dt>
+        <dd class="lex-def">Le grand méchant d'Avengers : Doomsday, joué par Robert Downey Jr.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span>
+          <a class="lex-source" href="archives/2026-07-18.html">Vu dans : Spider-Man contre Avengers : qui va sauver le box-office Marvel ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-doj-department-of-justice">
+        <dt class="lex-term">DOJ (Department of Justice)</dt>
+        <dd class="lex-def">Le ministère de la Justice américain, l'autorité fédérale qui examine aussi les fusions sous l'angle de la concurrence, et qui a déjà validé ce dossier.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-26.html">Vu dans : HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-droits-de-diffusion">
+        <dt class="lex-term">Droits de diffusion</dt>
+        <dd class="lex-def">Autorisation payante, souvent exclusive, qu'une plateforme achète pour diffuser en direct une compétition sportive.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-08-02.html">Vu dans : Streaming : payer plus, avoir moins ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-enclave">
+        <dt class="lex-term">Enclave</dt>
+        <dd class="lex-def">Un territoire qui appartient à un pays mais se trouve séparé de lui, à l'intérieur ou aux portes d'un autre État — ici, l'Espagne en sol marocain.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">International</span>
+          <a class="lex-source" href="archives/2026-08-03.html">Vu dans : Ceuta : la frontière qui a craqué →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-espace-schengen">
+        <dt class="lex-term">Espace Schengen</dt>
+        <dd class="lex-def">Zone de 29 pays européens qui ont supprimé les contrôles à leurs frontières intérieures pour permettre la libre circulation des personnes.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">International</span>
+          <a class="lex-source" href="archives/2026-08-03.html">Vu dans : Ceuta : la frontière qui a craqué →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-fonds-souverain">
+        <dt class="lex-term">Fonds souverain</dt>
+        <dd class="lex-def">Fonds d'investissement public, alimenté par les revenus d'un État (souvent pétroliers), qui place cet argent dans des actifs à travers le monde.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-30.html">Vu dans : Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-fonds-vert">
+        <dt class="lex-term">Fonds vert</dt>
+        <dd class="lex-def">Enveloppe budgétaire de l'État qui finance des projets locaux de transition écologique, dont une partie de la reconstruction forestière.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Sciences &amp; environnement</span>
+          <a class="lex-source" href="archives/2026-07-31.html">Vu dans : Méga-feux : la France est-elle prête pour la suite ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-force-internationale-de-stabilisation">
+        <dt class="lex-term">Force internationale de stabilisation</dt>
+        <dd class="lex-def">Une force multinationale prévue par l'accord pour sécuriser Gaza après le retrait israélien, à la place de l'armée israélienne et du Hamas.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">International</span>
+          <a class="lex-source" href="archives/2026-08-04.html">Vu dans : Gaza : la paix qui reste sur le papier →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-france-foret-2100">
+        <dt class="lex-term">France Forêt 2100</dt>
+        <dd class="lex-def">Programme public lancé le 21 juillet 2026 pour orienter l'argent public et privé vers la reconstruction et l'adaptation des forêts françaises.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Sciences &amp; environnement</span>
+          <a class="lex-source" href="archives/2026-07-31.html">Vu dans : Méga-feux : la France est-elle prête pour la suite ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-franchise">
+        <dt class="lex-term">Franchise</dt>
+        <dd class="lex-def">Une série de films qui partagent les mêmes personnages ou univers, exploités sur plusieurs volets.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span>
+          <a class="lex-source" href="archives/2026-07-18.html">Vu dans : Spider-Man contre Avengers : qui va sauver le box-office Marvel ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-g20">
+        <dt class="lex-term">G20</dt>
+        <dd class="lex-def">Le groupe des vingt principales économies de la planète, qui se réunit pour coordonner les grandes décisions économiques.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Société</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-28.html">Vu dans : Milliardaires : la richesse du monde peut-elle encore se partager ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-gema">
+        <dt class="lex-term">Gema</dt>
+        <dd class="lex-def">Équivalent allemand de la Sacem, qui gère les droits d'auteur des compositeurs et auteurs en Allemagne.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Tech &amp; numérique</span>
+          <a class="lex-source" href="archives/2026-08-01.html">Vu dans : Musique : l'IA a-t-elle déjà gagné ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-guide-supreme">
+        <dt class="lex-term">Guide suprême</dt>
+        <dd class="lex-def">Le chef politique et religieux qui détient le dernier mot en Iran, au-dessus même du président de la République.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">International</span><span class="lex-domain">Sciences &amp; environnement</span>
+          <a class="lex-source" href="archives/2026-07-27.html">Vu dans : Iran–États-Unis : les armes se taisent, l'accord reste à trouver →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-holding-patrimoniale">
+        <dt class="lex-term">Holding patrimoniale</dt>
+        <dd class="lex-def">Société qui sert à détenir et gérer la fortune d'une famille, souvent pour en optimiser la fiscalité.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Société</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-28.html">Vu dans : Milliardaires : la richesse du monde peut-elle encore se partager ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-impot-plancher">
+        <dt class="lex-term">Impôt plancher</dt>
+        <dd class="lex-def">Un minimum d'impôt garanti — ici au moins 2 % de la fortune chaque année —, quel que soit ce qu'on paie déjà par ailleurs.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Société</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-28.html">Vu dans : Milliardaires : la richesse du monde peut-elle encore se partager ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-liv-golf">
+        <dt class="lex-term">LIV Golf</dt>
+        <dd class="lex-def">Circuit de golf professionnel créé et financé par le PIF en 2021, rival du PGA Tour américain.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-30.html">Vu dans : Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-loi-speciale">
+        <dt class="lex-term">Loi spéciale</dt>
+        <dd class="lex-def">Texte d'urgence qui autorise l'État à continuer de percevoir l'impôt et de fonctionner quand aucun budget n'a été voté à temps.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Politique &amp; institutions</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-29.html">Vu dans : Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-marge-operationnelle">
+        <dt class="lex-term">Marge opérationnelle</dt>
+        <dd class="lex-def">Part du chiffre d'affaires qui reste en bénéfice une fois les coûts d'exploitation payés — un indicateur clé de rentabilité.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-08-02.html">Vu dans : Streaming : payer plus, avoir moins ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-marvel-studios">
+        <dt class="lex-term">Marvel Studios</dt>
+        <dd class="lex-def">Le studio de cinéma, propriété de Disney, qui produit les films de super-héros comme Avengers ou Spider-Man.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span>
+          <a class="lex-source" href="archives/2026-07-18.html">Vu dans : Spider-Man contre Avengers : qui va sauver le box-office Marvel ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-max">
+        <dt class="lex-term">Max</dt>
+        <dd class="lex-def">Nouveau nom de HBO Max, la plateforme de streaming du groupe Warner Bros. Discovery, aujourd'hui en cours de rachat.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-08-02.html">Vu dans : Streaming : payer plus, avoir moins ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-mediation">
+        <dt class="lex-term">Médiation</dt>
+        <dd class="lex-def">Le rôle d'un pays tiers — ici Oman, le Qatar ou le Pakistan — qui transmet les messages entre deux camps qui refusent de se parler en direct.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">International</span><span class="lex-domain">Sciences &amp; environnement</span>
+          <a class="lex-source" href="archives/2026-07-27.html">Vu dans : Iran–États-Unis : les armes se taisent, l'accord reste à trouver →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-memorandum-d-entente">
+        <dt class="lex-term">Mémorandum d'entente</dt>
+        <dd class="lex-def">Un accord préliminaire qui fixe un cadre et un calendrier de négociation, sans avoir encore la valeur d'un accord de paix définitif.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">International</span><span class="lex-domain">Sciences &amp; environnement</span>
+          <a class="lex-source" href="archives/2026-07-27.html">Vu dans : Iran–États-Unis : les armes se taisent, l'accord reste à trouver →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-motion-de-censure">
+        <dt class="lex-term">Motion de censure</dt>
+        <dd class="lex-def">Vote par lequel les députés peuvent renverser le gouvernement ; il faut la majorité absolue (289 voix) pour qu'elle réussisse.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Politique &amp; institutions</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-29.html">Vu dans : Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-ncag">
+        <dt class="lex-term">NCAG</dt>
+        <dd class="lex-def">Le Comité national pour l'administration de Gaza, un groupe de technocrates palestiniens censé reprendre l'administration civile à la place du Hamas.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">International</span>
+          <a class="lex-source" href="archives/2026-08-04.html">Vu dans : Gaza : la paix qui reste sur le papier →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-niche-parlementaire">
+        <dt class="lex-term">Niche parlementaire</dt>
+        <dd class="lex-def">Journée réservée à l'Assemblée nationale pendant laquelle un groupe politique choisit lui-même les textes qui seront débattus.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Tech &amp; numérique</span>
+          <a class="lex-source" href="archives/2026-08-01.html">Vu dans : Musique : l'IA a-t-elle déjà gagné ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-oat">
+        <dt class="lex-term">OAT</dt>
+        <dd class="lex-def">Obligation assimilable du Trésor : le titre de dette que la France vend aux investisseurs pour se financer. Son taux est le prix de l'emprunt.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Politique &amp; institutions</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-29.html">Vu dans : Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-offre-avec-publicite">
+        <dt class="lex-term">Offre avec publicité</dt>
+        <dd class="lex-def">Abonnement moins cher où des publicités sont diffusées pendant les programmes, en échange d'un prix réduit.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-08-02.html">Vu dans : Streaming : payer plus, avoir moins ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-onf">
+        <dt class="lex-term">ONF</dt>
+        <dd class="lex-def">Office national des forêts : l'organisme public qui gère et entretient la majorité des forêts publiques en France.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Sciences &amp; environnement</span>
+          <a class="lex-source" href="archives/2026-07-31.html">Vu dans : Méga-feux : la France est-elle prête pour la suite ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-ordonnance-de-restriction-temporaire">
+        <dt class="lex-term">Ordonnance de restriction temporaire</dt>
+        <dd class="lex-def">Une décision judiciaire d'urgence qui gèle provisoirement une action — ici la fusion — le temps qu'un juge examine l'affaire plus en détail.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-26.html">Vu dans : HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-paramount-skydance">
+        <dt class="lex-term">Paramount Skydance</dt>
+        <dd class="lex-def">Groupe américain propriétaire de Paramount Pictures, CBS et Paramount+, en train de racheter Warner Bros. Discovery.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-08-02.html">Vu dans : Streaming : payer plus, avoir moins ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-patrimoine-net">
+        <dt class="lex-term">Patrimoine net</dt>
+        <dd class="lex-def">Tout ce qu'une personne possède (entreprises, actions, immobilier, argent…) une fois ses dettes déduites.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Société</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-28.html">Vu dans : Milliardaires : la richesse du monde peut-elle encore se partager ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-peacock">
+        <dt class="lex-term">Peacock</dt>
+        <dd class="lex-def">Plateforme de streaming du groupe américain Comcast (NBCUniversal), toujours largement déficitaire malgré son lancement en 2020.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-08-02.html">Vu dans : Streaming : payer plus, avoir moins ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-pib">
+        <dt class="lex-term">PIB</dt>
+        <dd class="lex-def">Produit intérieur brut : la valeur de tout ce qu'un pays produit en un an, l'étalon pour mesurer la taille d'une économie.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Société</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-28.html">Vu dans : Milliardaires : la richesse du monde peut-elle encore se partager ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-pif">
+        <dt class="lex-term">PIF</dt>
+        <dd class="lex-def">Le fonds souverain d'investissement de l'Arabie saoudite, qui rachète Electronic Arts pour 55 milliards de dollars.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-25.html">Vu dans : Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ? →</a><a class="lex-source" href="archives/2026-07-30.html">Vu dans : Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-plan-social">
+        <dt class="lex-term">Plan social</dt>
+        <dd class="lex-def">Un plan de suppressions de postes décidé par une entreprise en difficulté.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-25.html">Vu dans : Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-plf">
+        <dt class="lex-term">PLF</dt>
+        <dd class="lex-def">Projet de loi de finances : le budget de l'État soumis chaque automne au Parlement — ce qu'il prévoit de dépenser et de percevoir l'année suivante.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Politique &amp; institutions</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-29.html">Vu dans : Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-polymarket">
+        <dt class="lex-term">Polymarket</dt>
+        <dd class="lex-def">Une plateforme où les internautes parient de l'argent réel sur l'issue d'événements réels, ce qui donne une estimation de probabilité.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span>
+          <a class="lex-source" href="archives/2026-07-18.html">Vu dans : Spider-Man contre Avengers : qui va sauver le box-office Marvel ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-presomption-d-utilisation">
+        <dt class="lex-term">Présomption d'utilisation</dt>
+        <dd class="lex-def">Principe juridique proposé qui inverserait la charge de la preuve : ce serait à l'IA de prouver qu'elle n'a pas utilisé une œuvre, et non à l'artiste de le démontrer.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Tech &amp; numérique</span>
+          <a class="lex-source" href="archives/2026-08-01.html">Vu dans : Musique : l'IA a-t-elle déjà gagné ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-prime-de-risque-petrole">
+        <dt class="lex-term">Prime de risque (pétrole)</dt>
+        <dd class="lex-def">La part du prix du baril qui ne reflète pas l'offre et la demande, mais la seule peur d'une rupture d'approvisionnement.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">International</span><span class="lex-domain">Sciences &amp; environnement</span>
+          <a class="lex-source" href="archives/2026-07-27.html">Vu dans : Iran–États-Unis : les armes se taisent, l'accord reste à trouver →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-procureurs-generaux-des-etats">
+        <dt class="lex-term">Procureurs généraux des États</dt>
+        <dd class="lex-def">Les plus hauts responsables juridiques de chaque État américain, qui peuvent porter plainte au nom de leurs citoyens contre une fusion jugée dangereuse pour la concurrence.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-26.html">Vu dans : HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-retour-a-chaud">
+        <dt class="lex-term">Retour à chaud</dt>
+        <dd class="lex-def">Renvoi immédiat d'un migrant intercepté à la frontière, sans passer par une procédure d'examen individuelle.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">International</span>
+          <a class="lex-source" href="archives/2026-08-03.html">Vu dans : Ceuta : la frontière qui a craqué →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-sacem">
+        <dt class="lex-term">Sacem</dt>
+        <dd class="lex-def">Société qui collecte et redistribue les droits d'auteur des compositeurs et auteurs de musique en France.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Tech &amp; numérique</span>
+          <a class="lex-source" href="archives/2026-08-01.html">Vu dans : Musique : l'IA a-t-elle déjà gagné ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-skydance">
+        <dt class="lex-term">Skydance</dt>
+        <dd class="lex-def">La société de production dirigée par David Ellison, qui a fusionné avec Paramount début 2026 pour former Paramount Skydance.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-26.html">Vu dans : HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-sportswashing">
+        <dt class="lex-term">Sportswashing</dt>
+        <dd class="lex-def">Stratégie consistant à utiliser le sport pour redorer l'image d'un pays critiqué sur d'autres plans (droits humains, libertés...).</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-30.html">Vu dans : Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-spread">
+        <dt class="lex-term">Spread</dt>
+        <dd class="lex-def">L'écart entre le taux d'emprunt de la France et celui de l'Allemagne, jugée très sûre ; plus il est large, plus les marchés se méfient de la France.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Politique &amp; institutions</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-29.html">Vu dans : Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-suno">
+        <dt class="lex-term">Suno</dt>
+        <dd class="lex-def">Entreprise américaine derrière l'un des outils les plus utilisés pour générer des chansons complètes avec l'intelligence artificielle.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Tech &amp; numérique</span>
+          <a class="lex-source" href="archives/2026-08-01.html">Vu dans : Musique : l'IA a-t-elle déjà gagné ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-taxe-zucman">
+        <dt class="lex-term">Taxe Zucman</dt>
+        <dd class="lex-def">Du nom de l'économiste Gabriel Zucman : projet d'impôt d'au moins 2 % par an sur les patrimoines dépassant 100 millions d'euros.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Société</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-28.html">Vu dans : Milliardaires : la richesse du monde peut-elle encore se partager ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-tencent">
+        <dt class="lex-term">Tencent</dt>
+        <dd class="lex-def">Un géant chinois de la tech et du jeu vidéo, déjà actionnaire de nombreux studios dans le monde.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-25.html">Vu dans : Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-trillionaire">
+        <dt class="lex-term">Trillionaire</dt>
+        <dd class="lex-def">Mot anglais désignant une personne dont la fortune atteint 1 000 milliards de dollars (mille milliards) — un cap franchi pour la première fois par Elon Musk en juin 2026.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Société</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-28.html">Vu dans : Milliardaires : la richesse du monde peut-elle encore se partager ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-ubisoft">
+        <dt class="lex-term">Ubisoft</dt>
+        <dd class="lex-def">Le studio français de jeux vidéo derrière Assassin's Creed, Far Cry ou Rainbow Six.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-25.html">Vu dans : Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-udio">
+        <dt class="lex-term">Udio</dt>
+        <dd class="lex-def">Autre plateforme américaine de génération de musique par IA, elle aussi visée par des procès de maisons de disques.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Tech &amp; numérique</span>
+          <a class="lex-source" href="archives/2026-08-01.html">Vu dans : Musique : l'IA a-t-elle déjà gagné ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-vantage-studio">
+        <dt class="lex-term">Vantage Studio</dt>
+        <dd class="lex-def">La filiale créée fin 2025 par Ubisoft pour regrouper ses franchises les plus précieuses : Assassin's Creed, Far Cry, Rainbow Six.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Culture &amp; divertissement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-25.html">Vu dans : Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ? →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-vnu">
+        <dt class="lex-term">Versement Nucléaire Universel (VNU)</dt>
+        <dd class="lex-def">Le mécanisme qui fixe depuis janvier 2026 le prix auquel EDF vend son électricité nucléaire existante aux autres fournisseurs, et qui influence directement la facture des ménages.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Sciences &amp; environnement</span><span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-08-05.html">Vu dans : EPR2 : le nucléaire français à l'heure de vérité →</a>
+        </div>
+      </div>
+      <div class="lex-entry" id="lex-vision-2030">
+        <dt class="lex-term">Vision 2030</dt>
+        <dd class="lex-def">Plan officiel de transformation économique de l'Arabie saoudite, pour réduire sa dépendance au pétrole — le sport en est l'une des vitrines.</dd>
+        <div class="lex-meta">
+          <span class="lex-domain">Économie &amp; entreprises</span>
+          <a class="lex-source" href="archives/2026-07-30.html">Vu dans : Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ? →</a>
+        </div>
+      </div>
+    </dl>
+    <p class="no-result" id="no-result">Aucun terme ne correspond à ta recherche.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="caveat">Ce glossaire est alimenté au fil des éditions : un terme n'y apparaît que le jour où il a servi à expliquer une actualité.</p>
+    <div class="legal-links">
+      <a href="https://t.me/scenario_fr" target="_blank" rel="noopener noreferrer">Telegram ↗</a>
+      <a href="https://www.linkedin.com/company/136694258/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var entries = Array.prototype.slice.call(document.querySelectorAll('#lex-list .lex-entry'));
+    var searchInput = document.getElementById('glossary-search');
+    var domainFiltersBox = document.getElementById('domain-filters');
+    var noResult = document.getElementById('no-result');
+    var activeDomainFilter = 'all';
+
+    function deburr(s){ return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
+
+    // Index chaque entrée (domaines + texte recherchable)
+    var seenDomains = {}, domainOrder = [];
+    entries.forEach(function(entry){
+      var domains = [];
+      entry.querySelectorAll('.lex-domain').forEach(function(el){
+        var d = el.textContent.trim();
+        domains.push(d);
+        if(!seenDomains[d]){ seenDomains[d] = d; domainOrder.push(d); }
+      });
+      entry._domains = domains;
+      var term = entry.querySelector('.lex-term').textContent;
+      var def = entry.querySelector('.lex-def').textContent;
+      entry._text = deburr(term + ' ' + def);
+    });
+    domainOrder.sort();
+
+    function makeChip(container, val, label, onClick){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'filter-chip';
+      b.dataset.filter = val;
+      b.textContent = label;
+      b.addEventListener('click', onClick);
+      container.appendChild(b);
+      return b;
+    }
+
+    var allChip = makeChip(domainFiltersBox, 'all', 'Tous', function(){ setDomainFilter('all'); });
+    allChip.classList.add('is-active');
+    domainOrder.forEach(function(d){ makeChip(domainFiltersBox, d, d, function(){ setDomainFilter(d); }); });
+
+    function setDomainFilter(val){
+      activeDomainFilter = val;
+      domainFiltersBox.querySelectorAll('.filter-chip').forEach(function(c){
+        c.classList.toggle('is-active', c.dataset.filter === val);
+      });
+      apply();
+    }
+
+    function apply(){
+      var q = deburr(searchInput.value.trim());
+      var visible = 0;
+      entries.forEach(function(entry){
+        var okDomain = (activeDomainFilter === 'all') || entry._domains.indexOf(activeDomainFilter) !== -1;
+        var okSearch = !q || entry._text.indexOf(q) !== -1;
+        var show = okDomain && okSearch;
+        entry.classList.toggle('is-hidden', !show);
+        if(show){ visible++; }
+      });
+      noResult.classList.toggle('is-shown', visible === 0);
+    }
+
+    searchInput.addEventListener('input', apply);
+  })();
+</script>
+
+<script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+</body>
+</html>

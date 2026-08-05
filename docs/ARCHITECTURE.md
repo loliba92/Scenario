@@ -111,12 +111,28 @@ moins prioritaire).
   icônes compactes dans la même ligne, pas un nouveau bloc imposant.
   Effort modéré (SVG inline ou police d'icônes + CSS), reste 100% dans le
   gabarit statique. Pas encore implémenté.
-- **P2/P3 — Glossaire** — inspiré du même exemple brief.eco (lien
-  "Glossaire" dans son footer email), une page qui définit les termes
-  récurrents utilisés dans les éditions (jargon économique/géopolitique).
-  Pas encore cadré : reste à définir le périmètre (combien de termes pour
-  démarrer, structure de la page, lien depuis quelles pages) avant
-  d'estimer l'effort. Pas encore implémenté.
+- **[FAIT le 5 août] Glossaire** — inspiré du même exemple brief.eco (lien
+  "Glossaire" dans son footer email). En creusant le sujet, une bonne
+  partie du travail existait déjà sans que ce soit documenté ici : chaque
+  édition a son propre petit lexique en bas de page (`.lex-ref`, `<dl
+  class="glossary">`), avec des renvois cliquables depuis le texte —
+  mécanisme déjà décrit dans `docs/routine-prompt.md` avant ce jour.
+  Ce qui manquait, et qui est fait maintenant : une page `glossaire.html`
+  qui agrège tous ces termes au même endroit — recherche texte, filtre par
+  domaine (réutilise la colonne « Domaine » de `docs/tags.md`, mêmes
+  puces de filtre que `archives.html`), tri alphabétique, et un lien
+  « Vu dans : {édition} → » vers l'édition d'origine de chaque terme.
+  **Rétro-rempli une fois** (script Python ponctuel, pas conservé) à
+  partir des 13 éditions déjà publiées — 77 termes récupérés, y compris
+  ceux des éditions antérieures au système `.lex-ref` (format `<dt>` sans
+  `id`, slug regénéré depuis le terme). **Lié à la routine** via une
+  nouvelle étape 6ter (`docs/routine-prompt.md`) : purement mécanique,
+  copie conditionnelle du terme+définition déjà rédigés pour le lexique
+  du jour vers `glossaire.html` s'il n'y est pas déjà — aucune nouvelle
+  rédaction, aucun jugement éditorial ajouté. Mentionné avec un lien dans
+  `le-projet.html` (section « Vocabulaire »), et référencé dans
+  `sitemap.xml`. Testé (recherche, filtre, rendu mobile) via Playwright
+  avant publication.
 - **P3 — Recherche en texte intégral** sur `archives.html` (la recherche
   actuelle ne porte a priori que sur titres/tags, pas le contenu complet
   des éditions) — demande de générer un index de recherche à la

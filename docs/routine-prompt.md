@@ -185,7 +185,21 @@ Le texte de chaque `scenario-mini-title` (hors flèche et pourcentage) doit repr
 - {JJ.MM.AAAA} — [{h1 du jour}](../archives/{AAAA-MM-JJ}.html)
 ```
 C'est un simple journal, pas une évaluation : ne pas juger si le sujet mérite ou non une page de suivi, ne rien écrire de plus que la ligne ci-dessus. Une routine hebdomadaire séparée relit ce journal et propose une short-list (voir `docs/ARCHITECTURE.md`, section « Pages de suivi par sujet »). Ne jamais toucher aux autres sections de ce fichier (« Suivis actifs »).
-7. Mettre à jour `sitemap.xml` (référencement Google) : ajouter une nouvelle entrée `<url>` pour `https://lesscenarios.fr/archives/{AAAA-MM-JJ}.html` (avec `<lastmod>` = date du jour, `<changefreq>never</changefreq>`, `<priority>0.6</priority>`), et mettre à jour le `<lastmod>` de l'entrée `https://lesscenarios.fr/` (toujours la date du jour, puisque c'est l'édition qui y est affichée) ainsi que celle de `https://lesscenarios.fr/archives.html`. Ne jamais supprimer les entrées `<url>` déjà présentes — même logique que `feed.xml` et `archives.html`, l'historique reste complet.
+6ter. Reporter chaque terme du lexique du jour dans `glossaire.html` (ajouté le 5 août, retour utilisateur — page qui agrège tous les termes déjà expliqués, cherchable et filtrable par domaine). Purement mécanique, aucune nouvelle rédaction : pour chaque `<dt id="lex-{slug}">` de l'édition du jour, vérifier si ce `id="lex-{slug}"` existe déjà quelque part dans `glossaire.html`.
+- **S'il existe déjà** (terme déjà défini un autre jour) : ne rien faire, ne jamais dupliquer ni modifier l'entrée existante — elle garde son premier lien source.
+- **S'il n'existe pas** : l'ajouter dans `<dl class="lex-list" id="lex-list">`, à la bonne place alphabétique (insensible aux accents/majuscules — « État » se classe comme « etat »), avec exactement ce format :
+```html
+<div class="lex-entry" id="lex-{slug}">
+  <dt class="lex-term">{Terme}</dt>
+  <dd class="lex-def">{la même définition que dans le lexique de l'édition du jour, mot pour mot}</dd>
+  <div class="lex-meta">
+    <span class="lex-domain">{Domaine}</span>
+    <a class="lex-source" href="archives/{AAAA-MM-JJ}.html">Vu dans : {h1 du jour} →</a>
+  </div>
+</div>
+```
+`{Domaine}` reprend la colonne « Domaine » de `docs/tags.md` pour le(s) tag(s) thématique(s) de l'édition du jour (pas le tag de registre) — un `<span class="lex-domain">` par domaine distinct si l'édition a plusieurs tags thématiques de domaines différents. Ne jamais inventer un domaine hors de cette liste fermée.
+7. Mettre à jour `sitemap.xml` (référencement Google) : ajouter une nouvelle entrée `<url>` pour `https://lesscenarios.fr/archives/{AAAA-MM-JJ}.html` (avec `<lastmod>` = date du jour, `<changefreq>never</changefreq>`, `<priority>0.6</priority>`), et mettre à jour le `<lastmod>` de l'entrée `https://lesscenarios.fr/` (toujours la date du jour, puisque c'est l'édition qui y est affichée) ainsi que celle de `https://lesscenarios.fr/archives.html`. Si l'étape 6ter a ajouté au moins un nouveau terme à `glossaire.html`, mettre aussi à jour le `<lastmod>` de son entrée (sinon la laisser telle quelle). Ne jamais supprimer les entrées `<url>` déjà présentes — même logique que `feed.xml` et `archives.html`, l'historique reste complet.
 8. Mettre à jour `feed.xml` : insérer un nouvel `<item>` juste après les champs `<title>`/`<link>`/`<description>`/`<language>` du `<channel>`, **avant** les items précédents (ne jamais les supprimer — le flux garde son historique, comme `archives.html`). Ce flux alimente l'envoi automatique de la newsletter (Buttondown, RSS-to-email) : un nouvel item = un nouvel email envoyé aux abonnés le jour même. **Ce texte est spécifique à l'email — ce n'est pas un copier-coller de la légende Instagram** : contrairement à Instagram, un email supporte de vrais liens cliquables, donc ne jamais écrire « lien en bio » (ça n'a aucun sens hors Instagram, où c'est justement la seule option faute de lien cliquable dans le texte). **Jamais de hashtags non plus** — ils servent à la découverte sur les réseaux sociaux, mais n'ont aucune fonction dans un email (personne ne « cherche » un email par hashtag) : ça ne fait qu'ajouter du bruit visuel en bas du message.
 ```xml
 <item>
