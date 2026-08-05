@@ -130,9 +130,11 @@ moins prioritaire).
   copie conditionnelle du terme+définition déjà rédigés pour le lexique
   du jour vers `glossaire.html` s'il n'y est pas déjà — aucune nouvelle
   rédaction, aucun jugement éditorial ajouté. Mentionné avec un lien dans
-  `le-projet.html` (section « Vocabulaire »), et référencé dans
-  `sitemap.xml`. Testé (recherche, filtre, rendu mobile) via Playwright
-  avant publication.
+  `le-projet.html` (section « Vocabulaire »), référencé dans
+  `sitemap.xml`, et **ajouté au menu principal** de toutes les pages
+  (retour utilisateur le jour même) entre "Archives" et "Le projet".
+  Testé (recherche, filtre, rendu mobile) via Playwright avant
+  publication.
 - **P3 — Recherche en texte intégral** sur `archives.html` (la recherche
   actuelle ne porte a priori que sur titres/tags, pas le contenu complet
   des éditions) — demande de générer un index de recherche à la
