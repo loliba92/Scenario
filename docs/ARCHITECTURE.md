@@ -43,11 +43,17 @@ moins prioritaire).
   boutons). Le bloc du bas reprend son titre d'origine "Vote avant de
   connaître le résultat" et ne garde que "Rejoindre le canal Telegram".
 - **P1 — X (Twitter)** comme canal supplémentaire, via Make.com sur le
-  même flux `feed.xml` que LinkedIn/Telegram — **en cours, pris en charge
-  par l'utilisateur le 4 août** (création du compte développeur X + config
-  Make.com, même principe que LinkedIn : un seul scénario, deux sorties
-  branchées sur le même déclencheur RSS). Rien à faire côté code/routine,
-  `feed.xml` fournit déjà tout le nécessaire.
+  même flux `feed.xml` que LinkedIn/Telegram. **Pas commencé** (corrigé le
+  5 août : une note précédente disait "pris en charge le 4 août", c'était
+  inexact — rien n'a encore été créé côté X). Étapes restantes, toutes
+  hors dépôt/code : créer un compte X dédié (pas le compte personnel,
+  même logique que la page LinkedIn/le canal Telegram) → créer un compte
+  développeur sur ce compte dédié (developer.x.com) → générer les clés
+  API → connecter Make.com avec ces clés → ajouter une 3e sortie sur le
+  scénario Make.com existant (même déclencheur RSS que LinkedIn/Telegram),
+  avec un texte court (`<title>` + lien, pas la `<description>` complète
+  qui dépasse largement la limite de 280 caractères de X). Rien à faire
+  côté code/routine, `feed.xml` fournit déjà tout le nécessaire.
 - **P2 — Widget Telegram embarqué** sur `newsletter.html` (widget officiel
   `t.me/s/scenario_fr`, embeddable via `<script>`, statique/gratuit) :
   affiche les derniers posts du canal directement sur le site, donne à
