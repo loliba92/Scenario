@@ -598,6 +598,19 @@
 
   section.lexique{ padding: 8px 0 48px; }
 
+  .cross-link{
+    display: inline-block;
+    margin-top: 20px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.82rem;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--gold);
+    padding-bottom: 1px;
+  }
+
+  .cross-link:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
   .glossary{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -914,6 +927,7 @@
       <dt id="lex-vnu">Versement Nucléaire Universel (VNU)</dt>
       <dd>Le mécanisme qui fixe depuis janvier 2026 le prix auquel EDF vend son électricité nucléaire existante aux autres fournisseurs, et qui influence directement la facture des ménages.</dd>
     </dl>
+    <a class="cross-link" href="glossaire.html">Voir tous les termes déjà expliqués → Glossaire</a>
   </div>
 </section>
 
