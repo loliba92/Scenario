@@ -22,19 +22,6 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 ## Mardi — carte blanche aux lecteurs (tous registres au choix)
 <!-- Jour des lecteurs : recopier ici les meilleures suggestions reçues par email (scenariocontact75@gmail.com). À défaut, sujet le plus fort tous domaines confondus. -->
 - [x] Milliardaires, les nouveaux maîtres du monde ? Une poignée d'ultra-riches pèse aujourd'hui plus lourd que des pays entiers. [économie & société]
-- [ ] Croissance mondiale : l'économie mondiale peut-elle éviter le ralentissement ? [économie]
-- [ ] Inflation : l'inflation est-elle définitivement vaincue ? [économie]
-- [ ] Taux d'intérêt : les banques centrales peuvent-elles baisser durablement les taux ? [économie & finance]
-- [ ] Dette mondiale : la dette devient-elle la prochaine crise financière ? [économie & finance]
-- [ ] Marchés financiers : la hausse des marchés est-elle durable ? [économie & finance]
-- [ ] Dollar : le dollar peut-il perdre son statut dominant ? [économie & finance]
-- [ ] Or : l'or est-il redevenu la valeur refuge ultime ? [économie & finance]
-- [ ] Bitcoin : le bitcoin devient-il un actif institutionnel ? [économie & finance]
-- [ ] Big Tech : les géants technologiques sont-ils trop puissants ? [économie & numérique]
-- [ ] Pétrole : le pétrole peut-il redevenir un choc mondial ? [économie & énergie]
-- [ ] Démographie : le vieillissement devient-il le défi majeur des économies développées ? [société & économie]
-- [ ] Inégalités : les écarts sociaux vont-ils exploser ? [économie & société]
-- [ ] Luxe : le luxe peut-il continuer sa croissance ? [économie]
 
 ## Géopolitique / international — lundi
 - [x] Crise migratoire de Ceuta : l'Espagne et la France peuvent-elles contenir la pression migratoire sans faire vaciller l'espace Schengen ? [migration & UE]
