@@ -22,6 +22,19 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 ## Mardi — carte blanche aux lecteurs (tous registres au choix)
 <!-- Jour des lecteurs : recopier ici les meilleures suggestions reçues par email (scenariocontact75@gmail.com). À défaut, sujet le plus fort tous domaines confondus. -->
 - [x] Milliardaires, les nouveaux maîtres du monde ? Une poignée d'ultra-riches pèse aujourd'hui plus lourd que des pays entiers. [économie & société]
+- [ ] Croissance mondiale : l'économie mondiale peut-elle éviter le ralentissement ? [économie]
+- [ ] Inflation : l'inflation est-elle définitivement vaincue ? [économie]
+- [ ] Taux d'intérêt : les banques centrales peuvent-elles baisser durablement les taux ? [économie & finance]
+- [ ] Dette mondiale : la dette devient-elle la prochaine crise financière ? [économie & finance]
+- [ ] Marchés financiers : la hausse des marchés est-elle durable ? [économie & finance]
+- [ ] Dollar : le dollar peut-il perdre son statut dominant ? [économie & finance]
+- [ ] Or : l'or est-il redevenu la valeur refuge ultime ? [économie & finance]
+- [ ] Bitcoin : le bitcoin devient-il un actif institutionnel ? [économie & finance]
+- [ ] Big Tech : les géants technologiques sont-ils trop puissants ? [économie & numérique]
+- [ ] Pétrole : le pétrole peut-il redevenir un choc mondial ? [économie & énergie]
+- [ ] Démographie : le vieillissement devient-il le défi majeur des économies développées ? [société & économie]
+- [ ] Inégalités : les écarts sociaux vont-ils exploser ? [économie & société]
+- [ ] Luxe : le luxe peut-il continuer sa croissance ? [économie]
 
 ## Géopolitique / international — lundi
 - [x] Crise migratoire de Ceuta : l'Espagne et la France peuvent-elles contenir la pression migratoire sans faire vaciller l'espace Schengen ? [migration & UE]
@@ -33,6 +46,8 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
   <!-- Suivi de l'édition du 27 juillet. Vérifier en priorité l'état réel du terrain à la date de rédaction (accord conclu, trêve toujours fragile, ou combats repris et détroit d'Ormuz fermé) avant de recadrer les 3 scénarios pour la suite. -->
 - [ ] Guerre en Ukraine : les combats peuvent-ils s'arrêter, rester bloqués sans vainqueur, ou repartir de plus belle en 2026 ?
 - [ ] Taïwan : cette île que la Chine veut récupérer peut-elle provoquer une guerre entre Pékin et les États-Unis ?
+- [ ] Guerre commerciale USA-Chine : la mondialisation entre-t-elle dans une nouvelle guerre froide économique ? [géopolitique & économie]
+- [ ] Nouvel ordre mondial : la domination occidentale est-elle remise en cause par un monde de plus en plus multipolaire ? [géopolitique]
 
 <!-- Enjeux sportifs & économiques, jamais la vie privée des sportifs. Sous-thèmes : football, rugby, tennis, JO, cyclisme, sports méca… -->
 ## Sport — jeudi
@@ -63,6 +78,16 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
   <!-- Problématique : déficit et endettement en hausse, pas de revalorisation des allocations au 1er juillet 2026 (refus du patronat). Enjeu de financement + pouvoir d'achat. → Favorable = retour vers l'équilibre ; stable = déficit géré au fil de l'eau ; dégradé = crise de financement et nouvelles coupes. -->
 - [ ] Facturation électronique obligatoire (septembre 2026) : les entreprises sont-elles prêtes ? [entreprises & numérique]
   <!-- Problématique : la réforme devient obligatoire, mais ~9 entreprises sur 11 ne seraient pas prêtes. Risque de couac administratif pour les TPE/PME. → Favorable = transition en douceur ; stable = démarrage lent mais absorbé ; dégradé = pagaille, reports, trésoreries fragilisées. -->
+- [ ] Déficit français : la France peut-elle réduire ses déficits ? [économie & finances publiques]
+- [ ] Dette française : la dette française devient-elle un risque majeur ? [économie & finances publiques]
+- [ ] Pouvoir d'achat : les Français vont-ils retrouver du pouvoir d'achat ? [économie & société]
+- [ ] Immobilier français : le marché immobilier a-t-il touché son point bas ? [économie & société]
+- [ ] Industrie française : la France peut-elle se réindustrialiser ? [emploi & industrie]
+- [ ] Agriculture française : le modèle agricole est-il durable ? [agriculture]
+- [ ] Narcotrafic : l'État peut-il reprendre le contrôle ? [sécurité & justice]
+- [ ] Violence des mineurs : la violence des jeunes devient-elle une crise majeure ? [société & sécurité]
+- [ ] Terrorisme : la menace terroriste revient-elle ? [sécurité]
+- [ ] Police & justice : l'État peut-il garantir la sécurité ? [sécurité & justice]
 
 <!-- Faire tourner les sous-thèmes : climat & écologie, espace, IA & numérique, médecine & santé, énergie, recherche fondamentale… -->
 ## Sciences — vendredi (climat & écologie, espace, IA, médecine, énergie…)
@@ -73,6 +98,20 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 - [ ] Intelligence artificielle : ces programmes qui écrivent et dessinent tout seuls, vraie révolution ou bulle prête à éclater ? [IA & numérique]
 - [ ] Médecine : les nouveaux médicaments contre l'obésité (comme l'Ozempic) vont-ils changer la santé de millions de gens ? [médecine & santé]
 - [ ] Cancer : les nouveaux traitements et les premiers vaccins anticancer laissent espérer d'en guérir beaucoup plus — promesse réaliste ou espoir encore lointain ? [médecine & santé]
+- [ ] Nvidia & puces IA : la demande mondiale en puissance de calcul peut-elle continuer sur ce rythme ? [IA & numérique]
+- [ ] IA et emploi : l'intelligence artificielle va-t-elle détruire ou transformer le travail ? [IA & numérique]
+- [ ] Robotique : les robots vont-ils vraiment entrer dans notre quotidien ? [IA & numérique]
+- [ ] Voiture autonome : la voiture sans conducteur devient-elle réelle à grande échelle ? [IA & numérique]
+- [ ] Cybersécurité : la prochaine crise mondiale sera-t-elle numérique ? [IA & numérique]
+- [ ] Transition énergétique : peut-on sortir des fossiles sans casser la croissance ? [énergie & climat]
+- [ ] Climat mondial : peut-on encore limiter les conséquences du changement climatique à l'échelle de la planète ? [climat & écologie]
+- [ ] Eau : l'eau devient-elle la prochaine ressource stratégique ? [climat & écologie]
+- [ ] Longévité : sommes-nous au début d'une révolution de l'espérance de vie ? [médecine & santé]
+- [ ] Antibiotiques : la résistance bactérienne sera-t-elle la prochaine crise sanitaire mondiale ? [médecine & santé]
+- [ ] Santé mondiale : sommes-nous prêts pour une nouvelle pandémie ? [médecine & santé]
+- [ ] Médecine et IA : l'intelligence artificielle va-t-elle transformer les soins ? [médecine & IA]
+- [ ] IA artistique : l'IA va-t-elle remplacer les créateurs (au-delà de la musique) ? [IA & numérique]
+- [ ] Automobile électrique : la voiture électrique va-t-elle finir par dominer le marché ? [énergie & industrie]
 
 <!-- Faire tourner les domaines : cinéma, musique, jeux vidéo, littérature, spectacle… -->
 ## Culture française — samedi
@@ -86,3 +125,5 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
   <!-- Reporté le 2 août 2026 : trop proche du sujet de l'édition de la veille (samedi 1er août, "Musique : l'IA a-t-elle déjà gagné ?"), mêmes acteurs centraux (Suno, Udio, Gema) à un jour d'intervalle. À retraiter un autre dimanche, avec un vrai recul. -->
 - [ ] Cinéma : Hollywood est-il en train de perdre le marché chinois, et avec quelles conséquences ? [cinéma]
 - [x] Streaming vidéo : après la course aux abonnés, comment Netflix et ses rivaux vont-ils gagner de l'argent demain ? [séries / streaming]
+- [ ] Cinéma mondial : le cinéma peut-il survivre face au streaming ? [cinéma]
+- [ ] Art contemporain : le marché de l'art change-t-il d'époque ? [art]
