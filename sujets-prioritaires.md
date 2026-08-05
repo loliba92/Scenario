@@ -24,6 +24,18 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 - [x] Milliardaires, les nouveaux maîtres du monde ? Une poignée d'ultra-riches pèse aujourd'hui plus lourd que des pays entiers. [économie & société]
 
 ## Géopolitique / international — lundi
+- [ ] Croissance mondiale : l'économie mondiale peut-elle éviter le ralentissement ? [économie]
+- [ ] Inflation : l'inflation est-elle définitivement vaincue ? [économie]
+- [ ] Taux d'intérêt : les banques centrales peuvent-elles baisser durablement les taux ? [économie & finance]
+- [ ] Dette mondiale : la dette devient-elle la prochaine crise financière ? [économie & finance]
+- [ ] Marchés financiers : la hausse des marchés est-elle durable ? [économie & finance]
+- [ ] Dollar : le dollar peut-il perdre son statut dominant ? [économie & finance]
+- [ ] Or : l'or est-il redevenu la valeur refuge ultime ? [économie & finance]
+- [ ] Bitcoin : le bitcoin devient-il un actif institutionnel ? [économie & finance]
+- [ ] Pétrole : le pétrole peut-il redevenir un choc mondial ? [économie & énergie]
+- [ ] Démographie : le vieillissement devient-il le défi majeur des économies développées ? [société & économie]
+- [ ] Inégalités : les écarts sociaux vont-ils exploser ? [économie & société]
+- [ ] Luxe : le luxe peut-il continuer sa croissance ? [économie]
 - [x] Crise migratoire de Ceuta : l'Espagne et la France peuvent-elles contenir la pression migratoire sans faire vaciller l'espace Schengen ? [migration & UE]
   <!-- Problématique : fin juillet-début août 2026, un afflux massif de migrants (environ 60 000 personnes selon l'Espagne) a tenté de franchir la frontière entre le Maroc et l'enclave espagnole de Ceuta, faisant au moins 67 morts (noyades et une bousculade mortelle sur une digue de protection). L'Espagne a annoncé la construction d'une barrière de 500 mètres en mer et affirme avoir renvoyé la quasi-totalité des migrants vers le Maroc. Côté français, le ministre de l'Intérieur Laurent Nuñez a exclu toute suspension de Schengen avec l'Espagne, mais maintient des contrôles renforcés à la frontière franco-espagnole « aussi longtemps que nécessaire ». Source déclenchante : https://www.lefigaro.fr/international/mort-de-67-migrants-l-espagne-sous-pression-espace-schengen-ce-que-l-on-sait-de-la-vague-migratoire-a-ceuta-20260801 — vérifier l'état le plus récent (bilan humain, mesures espagnoles et françaises, position du Maroc et de l'UE) avant de rédiger, le dossier évolue vite. → 3 scénarios : favorable = la pression migratoire retombe, la coopération Maroc-Espagne-France se stabilise sans mesure d'exception ; stable = tensions récurrentes mais contenues, contrôles renforcés maintenus des deux côtés sans remise en cause de Schengen ; dégradé = nouveaux afflux massifs et nouveaux drames humains, qui relancent au niveau européen le débat sur une suspension ou une réforme de Schengen. -->
 - [ ] Droits de douane de Trump : le mur tarifaire américain va-t-il tenir jusqu'à fin 2026 ? [géopolitique & économie]
@@ -78,6 +90,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 
 <!-- Faire tourner les sous-thèmes : climat & écologie, espace, IA & numérique, médecine & santé, énergie, recherche fondamentale… -->
 ## Sciences — vendredi (climat & écologie, espace, IA, médecine, énergie…)
+- [ ] Big Tech : les géants technologiques sont-ils trop puissants ? [économie & numérique]
 - [x] Méga-feux : après un été 2026 record, la France est-elle prête à s'adapter à des étés de plus en plus chauds ? [climat & écologie]
   <!-- Problématique : l'été 2026 a vu des feux hors norme dans les Landes et en Gironde (plus de 32 000 hectares brûlés rien que pour le feu de Saumos, 167 000+ personnes évacuées, 240 habitations détruites, plus de 2 750 pompiers mobilisés), avec un bilan humain lourd côté secours : 4 sapeurs-pompiers morts cet été (un le 8 juillet en Savoie, emporté par la chute d'un bloc rocheux, deux le 21 juillet en combattant le feu près de l'aéroport de Bordeaux-Mérignac, un pompier volontaire le 27 juillet dans un accident lié à une mission de prévention en Bouches-du-Rhône), et 84 pompiers blessés. Dans la continuité des grands incendies de 2022 mais avec une ampleur qui interroge : la France peut-elle vraiment s'adapter à des étés de plus en plus secs et chauds, ou ces méga-feux deviennent-ils la nouvelle norme sans réponse suffisante — y compris pour la sécurité de ceux qui les combattent ? → 3 scénarios : favorable = un vrai virage, presque un cas d'école : plan national ambitieux et financé sur la durée (doublement des moyens aériens et humains, reforestation résiliente, urbanisme repensé dans les zones à risque), au point que la France devienne une référence en Europe et que les méga-feux redeviennent rares même les étés les plus chauds ; stable = pas de vrai financement dédié ni de plan structurel, on continue à réagir feu après feu (renforts ponctuels type post-2022) sans anticipation ; dégradé = la sécheresse et l'extension des zones à risque (au-delà du Sud-Ouest historique) dépassent la capacité d'adaptation, avec des feux qui s'aggravent d'année en année. Traité et publié le 31 juillet 2026 (voir archives/2026-07-31.html). -->
 - [ ] Climat : avec moins d'argent consacré à l'écologie, la France peut-elle encore tenir ses promesses pour 2030 ? [climat & écologie]
