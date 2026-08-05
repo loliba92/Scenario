@@ -191,30 +191,46 @@
   }
 
   .share-inline{
-    font-size: 0.8rem;
-    color: var(--paper-dim);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
     margin: 0 0 22px;
   }
 
-  .share-inline a{
-    color: var(--gold);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--gold);
+  .share-inline-label{
+    font-size: 0.8rem;
+    color: var(--paper-dim);
+    margin-right: 2px;
   }
 
-  .share-inline a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
-
+  .share-inline a,
   .share-inline button{
-    font: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
     color: var(--gold);
     background: none;
-    border: none;
-    border-bottom: 1px dotted var(--gold);
+    border: 1px solid var(--hairline);
+    border-radius: 100px;
     padding: 0;
     cursor: pointer;
+    text-decoration: none;
+    transition: color .15s, border-color .15s;
   }
 
-  .share-inline button:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+  .share-inline a svg,
+  .share-inline button svg{ width: 15px; height: 15px; }
+
+  .share-inline a:hover,
+  .share-inline button:hover{ color: var(--paper); border-color: var(--paper-dim); }
+
+  .share-inline button .share-icon-check{ display: none; }
+  .share-inline button.is-copied .share-icon-link{ display: none; }
+  .share-inline button.is-copied .share-icon-check{ display: inline-flex; }
+  .share-inline button.is-copied{ color: var(--favorable); border-color: var(--favorable); }
 
   h1{
     font-family: "Fraunces", serif;
@@ -717,7 +733,28 @@
     <p class="eyebrow">Mercredi actualité française · Nucléaire : le programme EPR2</p>
     <h1>EPR2 : le nucléaire français à l'heure de vérité</h1>
     <p class="pubdate">Publié le 5 août 2026</p>
-    <p class="share-inline">Partager : <a href="#" id="share-x">X ↗</a>, <a href="#" id="share-facebook">Facebook ↗</a>, <a href="#" id="share-linkedin">LinkedIn ↗</a>, <a href="#" id="share-whatsapp">WhatsApp ↗</a>, <a href="#" id="share-telegram">Telegram ↗</a>, <button type="button" id="share-copy">copier le lien</button></p>
+    <p class="share-inline">
+      <span class="share-inline-label">Partager :</span>
+      <a href="#" id="share-x" aria-label="Partager sur X" title="Partager sur X">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5L19 19M19 5L5 19"/></svg>
+      </a>
+      <a href="#" id="share-facebook" aria-label="Partager sur Facebook" title="Partager sur Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15 4h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h2.6l.4-4H13V8a1 1 0 0 1 1-1h2V4z"/></svg>
+      </a>
+      <a href="#" id="share-linkedin" aria-label="Partager sur LinkedIn" title="Partager sur LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6" cy="6" r="2"/><rect x="4.5" y="10" width="3" height="9"/><path d="M11 10h3v1.5c.7-1 1.8-1.8 3.3-1.8 2.6 0 4.2 1.7 4.2 5.1V19h-3v-3.7c0-1.6-.6-2.6-1.9-2.6-1 0-1.6.7-1.9 1.4-.1.3-.1.6-.1 1V19h-3V10z"/></svg>
+      </a>
+      <a href="#" id="share-whatsapp" aria-label="Partager sur WhatsApp" title="Partager sur WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.4L3 21l4.8-1.2A9 9 0 1 0 12 3zm4.7 12.4c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.7.8 1.8.1.1.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+      </a>
+      <a href="#" id="share-telegram" aria-label="Partager sur Telegram" title="Partager sur Telegram">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 12l19-9-7 19-3-7-6-3z"/></svg>
+      </a>
+      <button type="button" id="share-copy" aria-label="Copier le lien" title="Copier le lien">
+        <svg class="share-icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1-1"/></svg>
+        <svg class="share-icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>
+      </button>
+    </p>
 
     <div class="question-box">
       <span class="question-label">La question posée</span>
@@ -998,9 +1035,14 @@
       copyBtn.addEventListener("click", function(){
         if (navigator.clipboard && navigator.clipboard.writeText){
           navigator.clipboard.writeText(pageUrl).then(function(){
-            var original = copyBtn.textContent;
-            copyBtn.textContent = "Lien copié ✓";
-            setTimeout(function(){ copyBtn.textContent = original; }, 2000);
+            copyBtn.classList.add("is-copied");
+            copyBtn.setAttribute("aria-label", "Lien copié");
+            copyBtn.setAttribute("title", "Lien copié");
+            setTimeout(function(){
+              copyBtn.classList.remove("is-copied");
+              copyBtn.setAttribute("aria-label", "Copier le lien");
+              copyBtn.setAttribute("title", "Copier le lien");
+            }, 2000);
           });
         }
       });
