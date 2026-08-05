@@ -101,6 +101,22 @@ moins prioritaire).
   longues — surtout utile mobile. Effort modéré (ancres + petit
   composant de nav), reste dans le gabarit statique comme les boutons de
   partage, pas de sync routine nécessaire. Pas encore implémenté.
+- **P2 — Icônes pour les boutons de partage** — inspiré d'un exemple
+  brief.eco vu le 5 août (retour utilisateur : "pas l'idée de recopier,
+  mais j'aime bien les icônes"), remplacer le texte "X, Facebook,
+  LinkedIn..." de `.share-inline` par de petites icônes (glyphes fins,
+  cohérents avec le style du site — pas les logos couleur officiels des
+  plateformes). Attention à ne pas revenir sur la décision du 4 août
+  (position discrète juste sous le titre, pas de gros boutons) : des
+  icônes compactes dans la même ligne, pas un nouveau bloc imposant.
+  Effort modéré (SVG inline ou police d'icônes + CSS), reste 100% dans le
+  gabarit statique. Pas encore implémenté.
+- **P2/P3 — Glossaire** — inspiré du même exemple brief.eco (lien
+  "Glossaire" dans son footer email), une page qui définit les termes
+  récurrents utilisés dans les éditions (jargon économique/géopolitique).
+  Pas encore cadré : reste à définir le périmètre (combien de termes pour
+  démarrer, structure de la page, lien depuis quelles pages) avant
+  d'estimer l'effort. Pas encore implémenté.
 - **P3 — Recherche en texte intégral** sur `archives.html` (la recherche
   actuelle ne porte a priori que sur titres/tags, pas le contenu complet
   des éditions) — demande de générer un index de recherche à la
