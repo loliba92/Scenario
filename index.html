@@ -973,6 +973,24 @@
 <script>
   (function(){
     var pageUrl = window.location.href;
+    // Sur index.html (pas sur une archive), l'URL de la page est toujours la
+    // même (l'accueil) alors que le contenu change chaque jour : la première
+    // fois qu'une plateforme (Telegram, Facebook, LinkedIn...) scrape cette
+    // URL pour générer un aperçu, elle met en cache ce résultat — l'aperçu
+    // partagé reste alors celui de l'édition du jour du scrape, plus vieux
+    // au fil du temps, même si le site a changé depuis. L'URL pérenne et
+    // sans ce problème est celle de l'archive du jour, qui ne change jamais
+    // après publication. Bug trouvé le 5 août (retour utilisateur, partage
+    // Telegram de l'édition EPR2 affichant l'aperçu de l'édition Gaza de la
+    // veille) : les boutons de partage doivent donc utiliser cette URL
+    // d'archive plutôt que `location.href` quand on n'est pas déjà dessus.
+    if (window.location.pathname.indexOf("/archives/") === -1) {
+      var parisNow = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Paris" }));
+      var yyyy = parisNow.getFullYear();
+      var mm = String(parisNow.getMonth() + 1).padStart(2, "0");
+      var dd = String(parisNow.getDate()).padStart(2, "0");
+      pageUrl = "https://lesscenarios.fr/archives/" + yyyy + "-" + mm + "-" + dd + ".html";
+    }
     var titleEl = document.querySelector("h1");
     var pageTitle = titleEl ? titleEl.textContent.trim() : document.title;
     var encodedUrl = encodeURIComponent(pageUrl);
