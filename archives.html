@@ -454,6 +454,9 @@
     gap: 6px;
   }
 
+  .weekly-recaps-list li:nth-child(n+5){ display: none; }
+  .weekly-recaps-list.is-expanded li:nth-child(n+5){ display: block; }
+
   .weekly-recaps-list a{
     font-family: "JetBrains Mono", monospace;
     font-size: 0.84rem;
@@ -463,6 +466,23 @@
   }
 
   .weekly-recaps-list a:hover{ border-bottom-style: solid; }
+
+  .weekly-recaps-toggle{
+    display: none;
+    margin-top: 10px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--paper-dim);
+    cursor: pointer;
+  }
+
+  .weekly-recaps-toggle.is-shown{ display: inline-block; }
+  .weekly-recaps-toggle:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
 
   footer{
     border-top: 1px solid var(--hairline);
@@ -528,9 +548,10 @@
 <section class="weekly-recaps">
   <div class="wrap">
     <p class="weekly-recaps-label">Récaps hebdo</p>
-    <ul class="weekly-recaps-list">
+    <ul class="weekly-recaps-list" id="weekly-recaps-list">
       <li><a href="hebdo/2026-08-02.html">27 juillet – 2 août 2026</a></li>
     </ul>
+    <button type="button" class="weekly-recaps-toggle" id="weekly-recaps-toggle">Voir les semaines précédentes</button>
   </div>
 </section>
 
@@ -948,6 +969,23 @@
           });
         }
       });
+    });
+  })();
+</script>
+
+<script>
+  (function(){
+    var list = document.getElementById('weekly-recaps-list');
+    var toggle = document.getElementById('weekly-recaps-toggle');
+    if (!list || !toggle) return;
+    var count = list.querySelectorAll('li').length;
+    if (count > 4) {
+      toggle.classList.add('is-shown');
+      toggle.textContent = 'Voir les ' + (count - 4) + ' semaines précédentes';
+    }
+    toggle.addEventListener('click', function(){
+      list.classList.add('is-expanded');
+      toggle.classList.remove('is-shown');
     });
   })();
 </script>
