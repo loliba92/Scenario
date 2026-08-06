@@ -431,58 +431,106 @@
     line-height: 1.5;
   }
 
-  section.weekly-recaps{
-    padding: 28px 0;
-    border-bottom: 1px solid var(--hairline);
+  /* ---- Entrée récap hebdo (dans la même liste que les éditions) ---- */
+  .entry-weekly-badge{
+    display: inline-flex;
+    align-self: flex-start;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    padding: 2px 9px;
+    white-space: nowrap;
   }
 
-  .weekly-recaps-label{
+  .day-block{
+    padding: 20px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .day-block:first-child{ padding-top: 0; }
+  .day-block:last-child{ border-bottom: none; padding-bottom: 4px; }
+
+  .day-head{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 0 0 6px;
+  }
+
+  .day-eyebrow{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+  }
+
+  .day-link{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--gold);
+    white-space: nowrap;
+  }
+  .day-link:hover{ border-bottom-style: solid; }
+
+  .day-title{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.02rem;
+    line-height: 1.3;
+    margin: 0 0 6px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px dotted transparent;
+  }
+  .day-title:hover{ border-bottom-color: var(--paper-dim); }
+
+  .day-context{
+    font-size: 0.82rem;
+    color: var(--paper-dim);
+    max-width: 62ch;
+    margin: 0 0 10px;
+  }
+
+  .scenario-list{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .scenario-row{
+    --accent: var(--paper-dim);
+    display: flex;
+    align-items: baseline;
+    gap: 9px;
+    font-size: 0.84rem;
+  }
+  .scenario-row[data-kind="favorable"]{ --accent: var(--favorable); }
+  .scenario-row[data-kind="stable"]{ --accent: var(--stable); }
+  .scenario-row[data-kind="degrade"]{ --accent: var(--degrade); }
+
+  .scenario-arrow{ color: var(--accent); font-weight: 700; width: 1em; }
+  .scenario-pct{ font-family: "JetBrains Mono", monospace; font-weight: 700; color: var(--accent); min-width: 3.2ch; }
+  .scenario-label{ color: var(--paper-dim); }
+  .scenario-row.is-winner .scenario-label{ color: var(--paper); font-weight: 600; }
+
+  .week-conclusion{ padding: 20px 0 4px; }
+  .week-conclusion-label{
     font-family: "JetBrains Mono", monospace;
     font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--paper-dim);
-    margin: 0 0 10px;
-  }
-
-  .weekly-recaps-list{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .weekly-recaps-list li:nth-child(n+5){ display: none; }
-  .weekly-recaps-list.is-expanded li:nth-child(n+5){ display: block; }
-
-  .weekly-recaps-list a{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.84rem;
     color: var(--gold);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--gold);
+    margin: 0 0 8px;
   }
-
-  .weekly-recaps-list a:hover{ border-bottom-style: solid; }
-
-  .weekly-recaps-toggle{
-    display: none;
-    margin-top: 10px;
-    background: transparent;
-    border: none;
-    padding: 0;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.76rem;
-    color: var(--paper-dim);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--paper-dim);
-    cursor: pointer;
-  }
-
-  .weekly-recaps-toggle.is-shown{ display: inline-block; }
-  .weekly-recaps-toggle:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
+  .week-conclusion p{ font-size: 0.9rem; color: var(--paper); max-width: 62ch; margin: 0; }
 
   footer{
     border-top: 1px solid var(--hairline);
@@ -545,15 +593,6 @@
   </div>
 </section>
 
-<section class="weekly-recaps">
-  <div class="wrap">
-    <p class="weekly-recaps-label">Récaps hebdo</p>
-    <ul class="weekly-recaps-list" id="weekly-recaps-list">
-      <li><a href="hebdo/2026-08-02.html">27 juillet – 2 août 2026</a></li>
-    </ul>
-    <button type="button" class="weekly-recaps-toggle" id="weekly-recaps-toggle">Voir les semaines précédentes</button>
-  </div>
-</section>
 
 <section class="listing">
   <div class="wrap">
@@ -656,6 +695,19 @@
           <div class="entry-scenarios-inner">
             
           </div>
+        </div>
+      </li>
+      <li class="entry entry-weekly">
+        <div class="entry-main">
+          <span class="entry-date">02.08.2026</span>
+          <a class="entry-title" href="hebdo/2026-08-02.html">On refait le scénario de la semaine — 27 juillet au 2 août</a>
+          <div class="entry-tags">
+            <span class="entry-weekly-badge">Récap de la semaine</span>
+          </div>
+          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-hebdo-2026-08-02">Les 7 jours <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
+        </div>
+        <div class="entry-scenarios" id="scenarios-hebdo-2026-08-02" data-fragment="hebdo/fragments/2026-08-02.html">
+          <div class="entry-scenarios-inner"></div>
         </div>
       </li>
       <li class="entry">
@@ -969,23 +1021,6 @@
           });
         }
       });
-    });
-  })();
-</script>
-
-<script>
-  (function(){
-    var list = document.getElementById('weekly-recaps-list');
-    var toggle = document.getElementById('weekly-recaps-toggle');
-    if (!list || !toggle) return;
-    var count = list.querySelectorAll('li').length;
-    if (count > 4) {
-      toggle.classList.add('is-shown');
-      toggle.textContent = 'Voir les ' + (count - 4) + ' semaines précédentes';
-    }
-    toggle.addEventListener('click', function(){
-      list.classList.add('is-expanded');
-      toggle.classList.remove('is-shown');
     });
   })();
 </script>
