@@ -360,7 +360,7 @@ plan payant) en plus d'Instagram.
 
 ## Image de partage (Open Graph / Twitter Card)
 
-`assets/social/og-image.png` (1672×941) est l'image affichée en aperçu
+`assets/social/og-image-v2.png` (2508×1412) est l'image affichée en aperçu
 quand un lien Scénario est partagé sur Slack, WhatsApp, X/Twitter,
 LinkedIn, Facebook, iMessage, etc. Statique et identique sur toutes les
 pages — contrairement aux cartes Instagram, elle ne change pas chaque jour.
@@ -382,6 +382,25 @@ le dépôt (fichier temporaire de session) — à refaire à l'identique si beso
 d'un futur ajustement, en repartant des couleurs/polices déjà documentées
 dans ce fichier (`--gold`, `--favorable`/`--stable`/`--degrade`, Fraunces +
 JetBrains Mono).
+
+**Renommée `og-image.png` → `og-image-v2.png` le 6 août** (bug confirmé :
+Telegram affichait encore une version très ancienne de l'image sur une
+édition jamais partagée avant). Cause : certaines plateformes mettent en
+cache l'URL de l'IMAGE elle-même, indépendamment de la page qui la
+référence — tant que le nom de fichier ne change pas, une plateforme qui a
+déjà vu cette URL une fois ne la re-télécharge jamais, même après une refonte
+complète du visuel. Le contenu de l'image n'a pas changé lors de ce
+renommage, seul le nom de fichier a changé (et les ~14 pages HTML qui le
+référencent), pour forcer tous les caches plateforme à repartir de zéro.
+**Règle à suivre pour tout futur remplacement visuel de cette image** :
+toujours changer le nom de fichier (`v3`, `v4`, ...) en même temps que le
+contenu, jamais réutiliser le même nom — sinon le même bug de cache se
+reproduira. Limite connue : ce renommage ne corrige que les partages
+FUTURS ; un lien déjà partagé (ex. un message Telegram déjà envoyé) garde
+l'aperçu qu'il avait au moment du partage, il n'y a pas de correction
+rétroactive possible côté Scénario (Facebook propose un « Sharing Debugger »
+et LinkedIn un « Post Inspector » pour forcer un rafraîchissement au cas par
+cas ; Telegram n'a pas d'équivalent public).
 
 Les balises `og:*` et `twitter:*` sont posées dans le `<head>` des 5 pages
 vivantes (`index.html`, `archives.html`, `le-projet.html`, `contact.html`,
