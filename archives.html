@@ -431,6 +431,39 @@
     line-height: 1.5;
   }
 
+  section.weekly-recaps{
+    padding: 28px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .weekly-recaps-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--paper-dim);
+    margin: 0 0 10px;
+  }
+
+  .weekly-recaps-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .weekly-recaps-list a{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.84rem;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--gold);
+  }
+
+  .weekly-recaps-list a:hover{ border-bottom-style: solid; }
+
   footer{
     border-top: 1px solid var(--hairline);
     padding: 32px 0 48px;
@@ -489,6 +522,15 @@
     <p class="eyebrow">Consultation</p>
     <h1>Archives</h1>
     <p class="dek">Toutes les éditions publiées, classées de la plus récente à la plus ancienne.</p>
+  </div>
+</section>
+
+<section class="weekly-recaps">
+  <div class="wrap">
+    <p class="weekly-recaps-label">Récaps hebdo</p>
+    <ul class="weekly-recaps-list">
+      <li><a href="hebdo/2026-08-02.html">27 juillet – 2 août 2026</a></li>
+    </ul>
   </div>
 </section>
 

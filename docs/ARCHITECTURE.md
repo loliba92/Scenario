@@ -776,14 +776,37 @@ Voir les échanges de session pour le détail, mais en résumé :
   5. Insère un nouvel `<item>` en haut de `feed-weekly.xml` (historique
      conservé, comme `feed.xml`), commit et push direct sur `main`.
 
-  **Pas de page dédiée sur le site** (décision du 3 août, pour démarrer
-  simple) : le contenu vit uniquement dans le flux RSS et l'email — aucune
-  page `hebdo.html` ni archive figée par semaine, contrairement aux
-  éditions quotidiennes. Réévaluable plus tard si le format prend.
+  **Page dédiée ajoutée le 6 août** (retour utilisateur : besoin d'un lien
+  stable à partager sur les réseaux, pas juste l'email/RSS). Revient sur la
+  décision du 3 août ci-dessous. **Mécanique retenue**, symétrique aux
+  éditions quotidiennes : une page figée par semaine, `hebdo/{AAAA-MM-JJ}.html`
+  (date = le dimanche du récap), qui ne bouge plus une fois publiée. Reprend
+  le même contenu que l'`<item>` de `feed-weekly.xml`, mis en page avec le
+  même système visuel que le reste du site (mêmes variables CSS, polices,
+  masthead/nav/footer identiques à `archives.html`) — voir le fichier lui-même
+  pour le détail exact des classes (`.day-block`, `.day-context`,
+  `.scenario-list`/`.scenario-row`, `.week-conclusion`). Pour chacun des 7
+  jours : eyebrow (registre), titre lié à l'archive complète, la question
+  posée du jour (`.day-context`, reprise de `.question-text` de l'archive
+  citée — sert de contexte, "ce qu'on évalue"), puis les 3 scénarios en
+  liste compacte (flèche + pourcentage + libellé, le plus probable en gras
+  via `.is-winner` plutôt qu'un encadré — **premier jet en grille à cartes
+  bordées jugé "trop lourd" par l'utilisateur, remplacé par cette liste plus
+  légère**). Une conclusion de semaine tout en bas. `<link>` de l'`<item>`
+  RSS pointe désormais vers cette page précise (plus `archives.html` en
+  générique). Découverte sur le site : section **"Récaps hebdo"** ajoutée
+  dans `archives.html`, juste après le hero, liste compacte séparée des
+  éditions quotidiennes (contenu différent, pas mélangé à la liste
+  principale) — la routine hebdo ajoute une ligne à cette liste à chaque
+  passage, en plus de créer la page. Toujours **pas d'entrée dans le menu
+  principal** (prématuré, un seul récap existant pour l'instant). Entrée
+  ajoutée aussi dans `sitemap.xml` (`changefreq: never`, comme les archives
+  quotidiennes, `priority: 0.5`).
 
-  **Pas de relais Telegram/LinkedIn** (décision du 3 août) : contrairement à
-  `feed-suivi.xml`, ce flux reste strictement newsletter email — pas de
-  second scénario Make à créer pour celui-ci.
+  **Pas de relais Telegram/LinkedIn/X automatique** (décision du 3 août,
+  toujours valable) : contrairement à `feed-suivi.xml`, ce flux ne déclenche
+  aucun scénario Make. L'utilisateur partage le lien de la page `hebdo/*.html`
+  manuellement sur les réseaux quand il le souhaite.
 
   **Côté Buttondown** (configuration à faire par l'utilisateur, hors
   session) : deux inscriptions séparées sur `newsletter.html`, chacune avec
