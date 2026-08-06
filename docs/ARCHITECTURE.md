@@ -828,10 +828,15 @@ Voir les échanges de session pour le détail, mais en résumé :
   du contenu plus bas dans la liste — aucune collision possible avec
   l'entrée hebdo positionnée ailleurs dans le fil.
 
-  **Pas de relais Telegram/LinkedIn/X automatique** (décision du 3 août,
-  toujours valable) : contrairement à `feed-suivi.xml`, ce flux ne déclenche
-  aucun scénario Make. L'utilisateur partage le lien de la page `hebdo/*.html`
-  manuellement sur les réseaux quand il le souhaite.
+  **Revenu sur la décision du 3 août — relais Telegram/LinkedIn/X ajouté
+  le 6 août.** Un scénario Make dédié ("Scenario Weekly : RSS -> Réseaux
+  Sociaux"), séparé de "Daily", tourne sur `feed-weekly.xml` — même
+  structure que "Daily" : RSS "Watch" (1 item max) → Router → LinkedIn
+  "Create a Company Text Post" / Telegram "Send a Text Message" / Buffer
+  "Create a status update" (X). Textes adaptés au format hebdo (`Title` +
+  `Comments` + "Lire le récap ici/complet" + `URL`, pas d'invitation à
+  voter/sondage Telegram contrairement à "Daily" — pas de sens pour un
+  récap). Sauvegarde complète : `assets/make/scenario-weekly.blueprint.json`.
 
   **Côté Buttondown** (configuration à faire par l'utilisateur, hors
   session) : deux inscriptions séparées sur `newsletter.html`, chacune avec
