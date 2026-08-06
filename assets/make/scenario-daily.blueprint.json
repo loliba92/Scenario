@@ -1,0 +1,1597 @@
+{
+    "name": "Scenario Daily : RSS -> Reseau Sociaux",
+    "flow": [
+        {
+            "id": 4,
+            "module": "rss:TriggerNewArticle",
+            "version": 4,
+            "parameters": {
+                "url": "https://lesscenarios.fr/feed.xml",
+                "gzip": true,
+                "include": [],
+                "password": "",
+                "username": "",
+                "maxResults": 1
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": -693,
+                    "y": -277,
+                    "name": "RSS DAILY"
+                },
+                "restore": {},
+                "parameters": [
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of returned items",
+                        "required": true
+                    },
+                    {
+                        "name": "username",
+                        "type": "text",
+                        "label": "User name"
+                    },
+                    {
+                        "name": "password",
+                        "type": "text",
+                        "label": "Password"
+                    },
+                    {
+                        "name": "include",
+                        "type": "select",
+                        "label": "Process RSS fields",
+                        "multiple": true,
+                        "validate": {
+                            "enum": [
+                                "google-merchant-center",
+                                "itunes"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "gzip",
+                        "type": "boolean",
+                        "label": "Request compressed content",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "title",
+                        "type": "text",
+                        "label": "Title"
+                    },
+                    {
+                        "name": "description",
+                        "type": "text",
+                        "label": "Description"
+                    },
+                    {
+                        "name": "summary",
+                        "type": "text",
+                        "label": "Summary"
+                    },
+                    {
+                        "name": "author",
+                        "type": "text",
+                        "label": "Author"
+                    },
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL"
+                    },
+                    {
+                        "name": "dateUpdated",
+                        "type": "date",
+                        "label": "Date updated"
+                    },
+                    {
+                        "name": "dateCreated",
+                        "type": "date",
+                        "label": "Date created"
+                    },
+                    {
+                        "name": "comments",
+                        "type": "url",
+                        "label": "Comments"
+                    },
+                    {
+                        "name": "image",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "Name"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Image"
+                    },
+                    {
+                        "name": "categories",
+                        "spec": {
+                            "type": "text"
+                        },
+                        "type": "array",
+                        "label": "Categories"
+                    },
+                    {
+                        "name": "source",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "Name"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Source"
+                    },
+                    {
+                        "name": "enclosures",
+                        "spec": [
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "Type"
+                            },
+                            {
+                                "name": "length",
+                                "type": "number",
+                                "label": "Length"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Enclosures"
+                    },
+                    {
+                        "help": "Other RSS fields. All values are in text format.",
+                        "name": "rssFields",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "title"
+                            },
+                            {
+                                "name": "link",
+                                "type": "text",
+                                "label": "link"
+                            },
+                            {
+                                "name": "guid",
+                                "type": "text",
+                                "label": "guid"
+                            },
+                            {
+                                "name": "pubdate",
+                                "type": "text",
+                                "label": "pubdate"
+                            },
+                            {
+                                "name": "comments",
+                                "type": "text",
+                                "label": "comments"
+                            },
+                            {
+                                "name": "category",
+                                "type": "text",
+                                "label": "category"
+                            },
+                            {
+                                "name": "description",
+                                "type": "text",
+                                "label": "description"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "RSS fields"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 9,
+            "module": "builtin:BasicRouter",
+            "version": 1,
+            "mapper": null,
+            "metadata": {
+                "designer": {
+                    "x": -508,
+                    "y": -158
+                }
+            },
+            "routes": [
+                {
+                    "flow": [
+                        {
+                            "id": 7,
+                            "module": "linkedin:CreateTextShare",
+                            "version": 2,
+                            "parameters": {
+                                "__IMTCONN__": 9443289
+                            },
+                            "mapper": {
+                                "type": "ARTICLE",
+                                "media": {
+                                    "title": "{{4.title}}",
+                                    "thumbnail": {},
+                                    "description": "{{4.comments}}",
+                                    "originalUrl": "{{4.url}}"
+                                },
+                                "content": "🔥 Nouvelle édition Scénario, à lire 👇 {{newline}}{{newline}}{{4.title}}{{newline}}{{newline}}{{4.comments}}{{newline}}{{newline}}👉 Lire l'analyse complète : {{4.url}}",
+                                "visibility": "PUBLIC",
+                                "organization": "urn:li:organization:136694258",
+                                "feedDistribution": "MAIN_FEED",
+                                "isReshareDisabledByAuthor": false
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": -208,
+                                    "y": -608
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "type": {
+                                            "mode": "chose",
+                                            "label": "Article"
+                                        },
+                                        "media": {
+                                            "nested": {
+                                                "thumbnail": {
+                                                    "collapsed": true
+                                                }
+                                            }
+                                        },
+                                        "mentions": {
+                                            "mode": "chose"
+                                        },
+                                        "visibility": {
+                                            "mode": "chose",
+                                            "label": "Public"
+                                        },
+                                        "organization": {
+                                            "mode": "chose",
+                                            "label": "Scenario"
+                                        },
+                                        "feedDistribution": {
+                                            "mode": "chose",
+                                            "label": "Main feed"
+                                        },
+                                        "isReshareDisabledByAuthor": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "linkedin2"
+                                            },
+                                            "label": "Olivier's LinkedIn connection (Olivier BERTRAND)"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:linkedin2,linkedin-openid",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "organization",
+                                        "type": "select",
+                                        "label": "Company",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "content",
+                                        "type": "text",
+                                        "label": "Content",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "mentions",
+                                        "spec": [
+                                            {
+                                                "name": "entity",
+                                                "type": "select",
+                                                "label": "Entity",
+                                                "options": [
+                                                    {
+                                                        "label": "Person",
+                                                        "value": "member",
+                                                        "nested": [
+                                                            {
+                                                                "help": "For example, `urn:li:person:1234`. Only mention someone with a connection to the authenticated user.",
+                                                                "name": "urn",
+                                                                "type": "text",
+                                                                "label": "Entity URN",
+                                                                "required": true
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "label": "Company",
+                                                        "value": "company",
+                                                        "nested": [
+                                                            {
+                                                                "help": "For example, `urn:li:organization:123456`.",
+                                                                "name": "urn",
+                                                                "type": "text",
+                                                                "label": "Entity URN",
+                                                                "required": true
+                                                            }
+                                                        ]
+                                                    }
+                                                ],
+                                                "required": true
+                                            },
+                                            {
+                                                "name": "name",
+                                                "type": "text",
+                                                "label": "Entity Name",
+                                                "required": true
+                                            },
+                                            {
+                                                "name": "start",
+                                                "type": "number",
+                                                "label": "Start",
+                                                "required": true
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Mentions"
+                                    },
+                                    {
+                                        "name": "type",
+                                        "type": "select",
+                                        "label": "Media Type",
+                                        "validate": {
+                                            "enum": [
+                                                "ARTICLE"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "visibility",
+                                        "type": "select",
+                                        "label": "Visibility",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "PUBLIC",
+                                                "LOGGED_IN"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "feedDistribution",
+                                        "type": "select",
+                                        "label": "Feed Distribution",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "MAIN_FEED",
+                                                "NONE"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "isReshareDisabledByAuthor",
+                                        "type": "boolean",
+                                        "label": "Is Reshare Disabled",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "media",
+                                        "spec": [
+                                            {
+                                                "name": "originalUrl",
+                                                "type": "url",
+                                                "label": "URL",
+                                                "required": true
+                                            },
+                                            {
+                                                "name": "title",
+                                                "type": "text",
+                                                "label": "Title",
+                                                "required": true,
+                                                "validate": {
+                                                    "max": 400
+                                                }
+                                            },
+                                            {
+                                                "name": "description",
+                                                "type": "text",
+                                                "label": "Description",
+                                                "validate": {
+                                                    "max": 4086
+                                                }
+                                            },
+                                            {
+                                                "name": "thumbnail",
+                                                "spec": [
+                                                    {
+                                                        "name": "fileName",
+                                                        "type": "text",
+                                                        "label": "File name"
+                                                    },
+                                                    {
+                                                        "name": "data",
+                                                        "type": "buffer",
+                                                        "label": "Data"
+                                                    },
+                                                    {
+                                                        "name": "thumbnailAltText",
+                                                        "type": "text",
+                                                        "label": "Thumbnail Alt Text",
+                                                        "validate": {
+                                                            "max": 4086
+                                                        }
+                                                    }
+                                                ],
+                                                "type": "collection",
+                                                "label": "Thumbnail"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Link"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 8,
+                            "module": "telegram:SendReplyMessage",
+                            "version": 1,
+                            "parameters": {
+                                "__IMTCONN__": 9454355
+                            },
+                            "mapper": {
+                                "text": "{{4.title}}{{newline}}{{newline}}{{4.comments}}{{newline}}{{newline}}👉 Lire les 3 scénarios chiffrés :\n{{4.url}}",
+                                "chatId": "@scenario_fr",
+                                "parseMode": "",
+                                "replyMarkup": "",
+                                "messageThreadId": "",
+                                "replyToMessageId": "",
+                                "disableNotification": false,
+                                "replyMarkupAssembleType": "reply_markup_enter"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": -208,
+                                    "y": -308
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "parseMode": {
+                                            "label": "Empty"
+                                        },
+                                        "disableNotification": {
+                                            "mode": "chose"
+                                        },
+                                        "replyMarkupAssembleType": {
+                                            "label": "Enter the Reply Markup"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "telegram"
+                                            },
+                                            "label": "Scenario"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:telegram",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "chatId",
+                                        "type": "text",
+                                        "label": "Chat ID",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "text",
+                                        "type": "text",
+                                        "label": "Text",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "messageThreadId",
+                                        "type": "number",
+                                        "label": "Message Thread ID"
+                                    },
+                                    {
+                                        "name": "parseMode",
+                                        "type": "select",
+                                        "label": "Parse Mode",
+                                        "validate": {
+                                            "enum": [
+                                                "Markdown",
+                                                "HTML"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "disableNotification",
+                                        "type": "boolean",
+                                        "label": "Disable Notifications"
+                                    },
+                                    {
+                                        "name": "disableWebPagePreview",
+                                        "type": "boolean",
+                                        "label": "Disable Link Previews"
+                                    },
+                                    {
+                                        "name": "replyToMessageId",
+                                        "type": "number",
+                                        "label": "Original Message ID"
+                                    },
+                                    {
+                                        "name": "replyMarkupAssembleType",
+                                        "type": "select",
+                                        "label": "Enter/Assemble the Reply Markup Field",
+                                        "validate": {
+                                            "enum": [
+                                                "reply_markup_enter",
+                                                "reply_markup_assemble"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "replyMarkup",
+                                        "type": "text",
+                                        "label": "Reply Markup"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 10,
+                            "module": "telegram:UniversalAPICall",
+                            "version": 1,
+                            "parameters": {
+                                "__IMTCONN__": 9454355
+                            },
+                            "mapper": {
+                                "qs": [],
+                                "body": "{\"chat_id\": \"@scenario_fr\", \"question\": \"À ton avis, quel scénario l'emporte ?\", \"options\":  [\"{{4.categories[]}}\"], \"is_anonymous\": true}",
+                                "method": "POST",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "bodyType": "mapped_body",
+                                "urlMethod": "sendPoll"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 319,
+                                    "y": -202
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "method": {
+                                            "label": "POST"
+                                        },
+                                        "headers": {
+                                            "items": [
+                                                null
+                                            ]
+                                        },
+                                        "bodyType": {
+                                            "label": "Map Body"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "telegram"
+                                            },
+                                            "label": "Scenario"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:telegram",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "urlMethod",
+                                        "type": "text",
+                                        "label": "URL Method",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "method",
+                                        "type": "select",
+                                        "label": "Method",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "GET",
+                                                "POST",
+                                                "PUT",
+                                                "PATCH",
+                                                "DELETE"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "headers",
+                                        "spec": [
+                                            {
+                                                "name": "key",
+                                                "type": "text",
+                                                "label": "Key"
+                                            },
+                                            {
+                                                "name": "value",
+                                                "type": "text",
+                                                "label": "Value"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Headers"
+                                    },
+                                    {
+                                        "name": "qs",
+                                        "spec": [
+                                            {
+                                                "name": "key",
+                                                "type": "text",
+                                                "label": "Key"
+                                            },
+                                            {
+                                                "name": "value",
+                                                "type": "text",
+                                                "label": "Value"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Query String"
+                                    },
+                                    {
+                                        "name": "bodyType",
+                                        "type": "select",
+                                        "label": "Body Type",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "assembled_body",
+                                                "mapped_body"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "body",
+                                        "type": "any",
+                                        "label": "Body"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 14,
+                            "module": "buffer:ActionCreateStatus",
+                            "version": 2,
+                            "parameters": {
+                                "account": 9580775
+                            },
+                            "mapper": {
+                                "text": "{{4.title}}{{newline}}Scénario : chaque jour, un sujet d'actu décrypté en 3 scénarios chiffrés{{newline}}Lire l'article :{{newline}}{{4.url}}",
+                                "type": "now",
+                                "shorten": true,
+                                "useMedia": false,
+                                "attachment": false,
+                                "profileIds": [
+                                    "6a7480e899afb44349119553"
+                                ]
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": -208,
+                                    "y": -8
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "type": {
+                                            "label": "Post immediately "
+                                        },
+                                        "shorten": {
+                                            "mode": "chose"
+                                        },
+                                        "attachment": {
+                                            "mode": "chose"
+                                        },
+                                        "profileIds": {
+                                            "mode": "chose",
+                                            "label": [
+                                                "6a7480e899afb44349119553"
+                                            ]
+                                        }
+                                    },
+                                    "parameters": {
+                                        "account": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "buffer"
+                                            },
+                                            "label": "Olivier's Buffer connection (scenarios.actu)"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "account",
+                                        "type": "account:buffer",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "profileIds",
+                                        "type": "select",
+                                        "label": "Profiles",
+                                        "multiple": true,
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "text",
+                                        "type": "text",
+                                        "label": "Text",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "type",
+                                        "type": "select",
+                                        "label": "Publication",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "now",
+                                                "top",
+                                                "queue",
+                                                "scheduled"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "useMedia",
+                                        "type": "boolean",
+                                        "label": "Attach media to the update",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "shorten",
+                                        "type": "boolean",
+                                        "label": "Shorten links within text",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "attachment",
+                                        "type": "boolean",
+                                        "label": "Attach links in the text as media",
+                                        "required": true
+                                    }
+                                ],
+                                "advanced": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 30,
+                            "module": "rss:ActionReadArticles",
+                            "version": 4,
+                            "parameters": {
+                                "include": []
+                            },
+                            "mapper": {
+                                "url": "https://lesscenarios.fr/feed-suivi.xml",
+                                "username": "",
+                                "password": "",
+                                "filterDateFrom": "",
+                                "filterDateTo": "",
+                                "maxResults": "1",
+                                "gzip": true
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": -514,
+                                    "y": 234,
+                                    "name": "RSS SUIVI"
+                                },
+                                "restore": {},
+                                "parameters": [
+                                    {
+                                        "name": "include",
+                                        "type": "select",
+                                        "label": "Process RSS fields",
+                                        "multiple": true,
+                                        "validate": {
+                                            "enum": [
+                                                "google-merchant-center",
+                                                "itunes"
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "url",
+                                        "type": "url",
+                                        "label": "URL",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "username",
+                                        "type": "text",
+                                        "label": "User name"
+                                    },
+                                    {
+                                        "name": "password",
+                                        "type": "text",
+                                        "label": "Password"
+                                    },
+                                    {
+                                        "name": "filterDateFrom",
+                                        "type": "date",
+                                        "label": "Date from"
+                                    },
+                                    {
+                                        "name": "filterDateTo",
+                                        "type": "date",
+                                        "label": "Date to "
+                                    },
+                                    {
+                                        "name": "maxResults",
+                                        "type": "number",
+                                        "label": "Maximum number of returned items",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "gzip",
+                                        "type": "boolean",
+                                        "label": "Request compressed content",
+                                        "required": true
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "title",
+                                        "type": "text",
+                                        "label": "Title"
+                                    },
+                                    {
+                                        "name": "description",
+                                        "type": "text",
+                                        "label": "Description"
+                                    },
+                                    {
+                                        "name": "summary",
+                                        "type": "text",
+                                        "label": "Summary"
+                                    },
+                                    {
+                                        "name": "author",
+                                        "type": "text",
+                                        "label": "Author"
+                                    },
+                                    {
+                                        "name": "url",
+                                        "type": "url",
+                                        "label": "URL"
+                                    },
+                                    {
+                                        "name": "dateUpdated",
+                                        "type": "date",
+                                        "label": "Date updated"
+                                    },
+                                    {
+                                        "name": "dateCreated",
+                                        "type": "date",
+                                        "label": "Date created"
+                                    },
+                                    {
+                                        "name": "comments",
+                                        "type": "url",
+                                        "label": "Comments"
+                                    },
+                                    {
+                                        "name": "image",
+                                        "type": "collection",
+                                        "label": "Image",
+                                        "spec": [
+                                            {
+                                                "name": "title",
+                                                "label": "Name",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "name": "url",
+                                                "label": "URL",
+                                                "type": "url"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "categories",
+                                        "type": "array",
+                                        "label": "Categories",
+                                        "spec": {
+                                            "type": "text"
+                                        }
+                                    },
+                                    {
+                                        "name": "source",
+                                        "type": "collection",
+                                        "label": "Source",
+                                        "spec": [
+                                            {
+                                                "name": "title",
+                                                "label": "Name",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "name": "url",
+                                                "label": "URL",
+                                                "type": "url"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "enclosures",
+                                        "type": "array",
+                                        "label": "Enclosures",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "label": "URL",
+                                                "type": "url"
+                                            },
+                                            {
+                                                "name": "type",
+                                                "label": "Type",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "name": "length",
+                                                "label": "Length",
+                                                "type": "number"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "rssFields",
+                                        "label": "RSS fields",
+                                        "help": "Other RSS fields. All values are in text format.",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "title",
+                                                "label": "title",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "name": "link",
+                                                "label": "link",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "name": "guid",
+                                                "label": "guid",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "name": "pubdate",
+                                                "label": "pubdate",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "name": "comments",
+                                                "label": "comments",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "name": "description",
+                                                "label": "description",
+                                                "type": "text"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 18,
+                            "module": "builtin:BasicRouter",
+                            "version": 1,
+                            "mapper": null,
+                            "metadata": {
+                                "designer": {
+                                    "x": -278,
+                                    "y": 369
+                                }
+                            },
+                            "routes": [
+                                {
+                                    "flow": [
+                                        {
+                                            "id": 22,
+                                            "module": "linkedin:CreateTextShare",
+                                            "version": 2,
+                                            "parameters": {
+                                                "__IMTCONN__": 9443289
+                                            },
+                                            "mapper": {
+                                                "organization": "urn:li:organization:136694258",
+                                                "content": "🔄 Un sujet suivi vient d'être mis à jour 👇 {{newline}}{{newline}}{{30.title}}{{newline}}{{newline}}{{30.comments}}{{newline}}{{newline}}👉 Lire l'analyse complète : {{30.url}}",
+                                                "type": "ARTICLE",
+                                                "visibility": "PUBLIC",
+                                                "feedDistribution": "MAIN_FEED",
+                                                "isReshareDisabledByAuthor": false,
+                                                "media": {
+                                                    "originalUrl": "{{30.url}}",
+                                                    "title": "{{30.title}}",
+                                                    "description": "{{30.comments}}",
+                                                    "thumbnail": {}
+                                                }
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 295,
+                                                    "y": 354
+                                                },
+                                                "restore": {
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "label": "Olivier's LinkedIn connection (Olivier BERTRAND)",
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "linkedin2"
+                                                            }
+                                                        }
+                                                    },
+                                                    "expect": {
+                                                        "organization": {
+                                                            "mode": "chose",
+                                                            "label": "Scenario"
+                                                        },
+                                                        "mentions": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "type": {
+                                                            "mode": "chose",
+                                                            "label": "Article"
+                                                        },
+                                                        "visibility": {
+                                                            "mode": "chose",
+                                                            "label": "Public"
+                                                        },
+                                                        "feedDistribution": {
+                                                            "mode": "chose",
+                                                            "label": "Main feed"
+                                                        },
+                                                        "isReshareDisabledByAuthor": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "media": {
+                                                            "nested": {
+                                                                "thumbnail": {
+                                                                    "collapsed": true
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:linkedin2,linkedin-openid",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "name": "organization",
+                                                        "type": "select",
+                                                        "label": "Company",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "content",
+                                                        "type": "text",
+                                                        "label": "Content",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "mentions",
+                                                        "type": "array",
+                                                        "label": "Mentions",
+                                                        "spec": [
+                                                            {
+                                                                "name": "entity",
+                                                                "type": "select",
+                                                                "label": "Entity",
+                                                                "options": [
+                                                                    {
+                                                                        "label": "Person",
+                                                                        "value": "member",
+                                                                        "nested": [
+                                                                            {
+                                                                                "help": "For example, `urn:li:person:1234`. Only mention someone with a connection to the authenticated user.",
+                                                                                "name": "urn",
+                                                                                "type": "text",
+                                                                                "label": "Entity URN",
+                                                                                "required": true
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "label": "Company",
+                                                                        "value": "company",
+                                                                        "nested": [
+                                                                            {
+                                                                                "help": "For example, `urn:li:organization:123456`.",
+                                                                                "name": "urn",
+                                                                                "type": "text",
+                                                                                "label": "Entity URN",
+                                                                                "required": true
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ],
+                                                                "required": true
+                                                            },
+                                                            {
+                                                                "name": "name",
+                                                                "type": "text",
+                                                                "label": "Entity Name",
+                                                                "required": true
+                                                            },
+                                                            {
+                                                                "name": "start",
+                                                                "type": "number",
+                                                                "label": "Start",
+                                                                "required": true
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "type",
+                                                        "type": "select",
+                                                        "label": "Media Type",
+                                                        "validate": {
+                                                            "enum": [
+                                                                "ARTICLE"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "visibility",
+                                                        "type": "select",
+                                                        "label": "Visibility",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "PUBLIC",
+                                                                "LOGGED_IN"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "feedDistribution",
+                                                        "type": "select",
+                                                        "label": "Feed Distribution",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "MAIN_FEED",
+                                                                "NONE"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "isReshareDisabledByAuthor",
+                                                        "type": "boolean",
+                                                        "label": "Is Reshare Disabled",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "media",
+                                                        "type": "collection",
+                                                        "label": "Link",
+                                                        "spec": [
+                                                            {
+                                                                "name": "originalUrl",
+                                                                "type": "url",
+                                                                "label": "URL",
+                                                                "required": true
+                                                            },
+                                                            {
+                                                                "name": "title",
+                                                                "type": "text",
+                                                                "label": "Title",
+                                                                "validate": {
+                                                                    "max": 400
+                                                                },
+                                                                "required": true
+                                                            },
+                                                            {
+                                                                "name": "description",
+                                                                "type": "text",
+                                                                "label": "Description",
+                                                                "validate": {
+                                                                    "max": 4086
+                                                                }
+                                                            },
+                                                            {
+                                                                "name": "thumbnail",
+                                                                "type": "collection",
+                                                                "label": "Thumbnail",
+                                                                "spec": [
+                                                                    {
+                                                                        "name": "fileName",
+                                                                        "type": "text",
+                                                                        "label": "File name"
+                                                                    },
+                                                                    {
+                                                                        "name": "data",
+                                                                        "type": "buffer",
+                                                                        "label": "Data"
+                                                                    },
+                                                                    {
+                                                                        "name": "thumbnailAltText",
+                                                                        "type": "text",
+                                                                        "label": "Thumbnail Alt Text",
+                                                                        "validate": {
+                                                                            "max": 4086
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "flow": [
+                                        {
+                                            "id": 23,
+                                            "module": "telegram:SendReplyMessage",
+                                            "version": 1,
+                                            "parameters": {
+                                                "__IMTCONN__": 9454355
+                                            },
+                                            "mapper": {
+                                                "chatId": "@scenario_fr",
+                                                "text": "{{30.title}}{{newline}}{{newline}}{{30.comments}}{{newline}}{{newline}}👉 Voir la mise à jour  :\n{{30.url}}",
+                                                "messageThreadId": "",
+                                                "parseMode": "",
+                                                "disableNotification": false,
+                                                "replyToMessageId": "",
+                                                "replyMarkupAssembleType": "reply_markup_enter",
+                                                "replyMarkup": ""
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 236,
+                                                    "y": 635
+                                                },
+                                                "restore": {
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "label": "Scenario",
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "telegram"
+                                                            }
+                                                        }
+                                                    },
+                                                    "expect": {
+                                                        "parseMode": {
+                                                            "label": "Empty"
+                                                        },
+                                                        "disableNotification": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "replyMarkupAssembleType": {
+                                                            "label": "Enter the Reply Markup"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:telegram",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "name": "chatId",
+                                                        "type": "text",
+                                                        "label": "Chat ID",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "text",
+                                                        "type": "text",
+                                                        "label": "Text",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "messageThreadId",
+                                                        "type": "number",
+                                                        "label": "Message Thread ID"
+                                                    },
+                                                    {
+                                                        "name": "parseMode",
+                                                        "type": "select",
+                                                        "label": "Parse Mode",
+                                                        "validate": {
+                                                            "enum": [
+                                                                "Markdown",
+                                                                "HTML"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "disableNotification",
+                                                        "type": "boolean",
+                                                        "label": "Disable Notifications"
+                                                    },
+                                                    {
+                                                        "name": "disableWebPagePreview",
+                                                        "type": "boolean",
+                                                        "label": "Disable Link Previews"
+                                                    },
+                                                    {
+                                                        "name": "replyToMessageId",
+                                                        "type": "number",
+                                                        "label": "Original Message ID"
+                                                    },
+                                                    {
+                                                        "name": "replyMarkupAssembleType",
+                                                        "type": "select",
+                                                        "label": "Enter/Assemble the Reply Markup Field",
+                                                        "validate": {
+                                                            "enum": [
+                                                                "reply_markup_enter",
+                                                                "reply_markup_assemble"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "replyMarkup",
+                                                        "type": "text",
+                                                        "label": "Reply Markup"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "flow": [
+                                        {
+                                            "id": 24,
+                                            "module": "buffer:ActionCreateStatus",
+                                            "version": 2,
+                                            "parameters": {
+                                                "account": 9580775
+                                            },
+                                            "mapper": {
+                                                "profileIds": [
+                                                    "6a7480e899afb44349119553"
+                                                ],
+                                                "text": "🔄 Un sujet suivi vient d'être mis à jour 👇{{newline}}{{30.title}}{{newline}}👉 Lire l'analyse complète : {{newline}}{{30.url}}",
+                                                "type": "now",
+                                                "useMedia": false,
+                                                "shorten": true,
+                                                "attachment": false
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": -83,
+                                                    "y": 744
+                                                },
+                                                "restore": {
+                                                    "parameters": {
+                                                        "account": {
+                                                            "label": "Olivier's Buffer connection (scenarios.actu)",
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "buffer"
+                                                            }
+                                                        }
+                                                    },
+                                                    "expect": {
+                                                        "profileIds": {
+                                                            "mode": "chose",
+                                                            "label": [
+                                                                "6a7480e899afb44349119553"
+                                                            ]
+                                                        },
+                                                        "type": {
+                                                            "label": "Post immediately "
+                                                        },
+                                                        "shorten": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "attachment": {
+                                                            "mode": "chose"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "account",
+                                                        "type": "account:buffer",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "name": "profileIds",
+                                                        "type": "select",
+                                                        "label": "Profiles",
+                                                        "required": true,
+                                                        "multiple": true
+                                                    },
+                                                    {
+                                                        "name": "text",
+                                                        "type": "text",
+                                                        "label": "Text",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "type",
+                                                        "type": "select",
+                                                        "label": "Publication",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "now",
+                                                                "top",
+                                                                "queue",
+                                                                "scheduled"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "useMedia",
+                                                        "type": "boolean",
+                                                        "label": "Attach media to the update",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "shorten",
+                                                        "type": "boolean",
+                                                        "label": "Shorten links within text",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "attachment",
+                                                        "type": "boolean",
+                                                        "label": "Attach links in the text as media",
+                                                        "required": true
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu1.make.com",
+        "notes": [
+            {
+                "moduleIds": [
+                    14
+                ],
+                "content": "<p>Buffer =&gt; X Twittter</p><p>Voir Buffer.com pour plus d'info </p>",
+                "isFilterNote": false,
+                "metadata": {
+                    "color": "#9138FE"
+                }
+            },
+            {
+                "moduleIds": [
+                    4
+                ],
+                "content": "<p>RSS feed reading</p><p></p>",
+                "isFilterNote": false,
+                "metadata": {
+                    "color": "#9138FE"
+                }
+            }
+        ]
+    }
+}

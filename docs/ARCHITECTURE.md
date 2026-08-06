@@ -42,18 +42,27 @@ moins prioritaire).
   des pages de suivi (texte gold, soulignement pointillé, pas de gros
   boutons). Le bloc du bas reprend son titre d'origine "Vote avant de
   connaître le résultat" et ne garde que "Rejoindre le canal Telegram".
-- **P1 — X (Twitter)** comme canal supplémentaire, via Make.com sur le
-  même flux `feed.xml` que LinkedIn/Telegram. **Pas commencé** (corrigé le
-  5 août : une note précédente disait "pris en charge le 4 août", c'était
-  inexact — rien n'a encore été créé côté X). Étapes restantes, toutes
-  hors dépôt/code : créer un compte X dédié (pas le compte personnel,
-  même logique que la page LinkedIn/le canal Telegram) → créer un compte
-  développeur sur ce compte dédié (developer.x.com) → générer les clés
-  API → connecter Make.com avec ces clés → ajouter une 3e sortie sur le
-  scénario Make.com existant (même déclencheur RSS que LinkedIn/Telegram),
-  avec un texte court (`<title>` + lien, pas la `<description>` complète
-  qui dépasse largement la limite de 280 caractères de X). Rien à faire
-  côté code/routine, `feed.xml` fournit déjà tout le nécessaire.
+- **X (Twitter) comme canal supplémentaire — fait et vérifié le 6 août,
+  mais pas par la voie prévue.** Le plan initial (connexion directe
+  Make ↔ API X via un compte développeur) a été tenté puis abandonné :
+  Make a supprimé son app native "X (Twitter)" le 3 avril 2025 (API X
+  passée payante), et la reconstruction manuelle en HTTP OAuth 2.0 +
+  PKCE dans Make (Authorize/Token URI, code_challenge/code_verifier,
+  Client ID/Secret du compte développeur X) a buté sur des échecs de
+  connexion répétés ("Accounts verify failed", "Something went wrong")
+  malgré une config conforme à la doc officielle Make — cause exacte non
+  identifiée, abandonné après plusieurs tentatives. **Solution retenue :
+  Buffer**, gratuit (3 canaux, 10 posts programmés par canal, largement
+  suffisant pour 1 post/jour), qui gère lui-même sa propre app développeur
+  X — aucune clé API à fournir. Module Make natif **Buffer → "Create a
+  status update"**, ajouté comme 3e sortie du Router existant (même
+  déclencheur RSS `feed.xml`), `Text` = `Title` + une phrase fixe de
+  contexte ("Scénario : chaque jour, un sujet d'actu décrypté en 3
+  scénarios chiffrés") + "Lire l'article :" + `URL` — jamais la
+  `Description`/`Comments` complète, largement au-dessus des 280
+  caractères de X certains jours (vérifié sur les 10 dernières éditions :
+  8 sur 10 auraient dépassé la limite rien qu'avec Titre + Comments).
+  Voir aussi la sauvegarde du scénario Make complet plus bas.
 - **P2 — Widget Telegram embarqué** sur `newsletter.html` (widget officiel
   `t.me/s/scenario_fr`, embeddable via `<script>`, statique/gratuit) :
   affiche les derniers posts du canal directement sur le site, donne à
@@ -549,18 +558,11 @@ Voir les échanges de session pour le détail, mais en résumé :
       pré-cadré dans `sujets-prioritaires.md` (avec ses 3 scénarios), pas
       les jours d'auto-sélection dynamique — donc pas systématiquement
       applicable en l'état.
-    - **Idée notée le 31 juillet, pas encore implémentée** : ajouter X
-      (Twitter) comme canal supplémentaire, toujours via Make.com, sur le
-      même principe que LinkedIn (même module RSS `feed.xml` en entrée).
-      Différences à anticiper avant de configurer : (1) connexion X dans
-      Make nécessite un compte développeur X (gratuit, "Free tier", ~500
-      posts/mois — largement suffisant pour 1 post/jour), contrairement à
-      LinkedIn qui se connecte directement avec le compte perso ; (2) limite
-      de 280 caractères impose un format court dédié (titre + lien, sans la
-      description longue utilisée pour LinkedIn) ; (3) pour économiser les
-      opérations Make (quota gratuit 1000/mois), privilégier un seul
-      scénario avec deux sorties (LinkedIn + X) branchées sur le même
-      déclencheur RSS plutôt que dupliquer la lecture du flux.
+    - **X (Twitter) ajouté le 6 août, via Buffer plutôt que l'API X
+      directe** — voir la section dédiée dans le backlog plus haut pour le
+      détail de ce qui a été tenté puis abandonné côté API X, et
+      `assets/make/scenario-daily.blueprint.json` pour la config exacte
+      du module Buffer.
   - **Identité visuelle de la Page LinkedIn "Scenario"** (id `136694258`)
     faite le 31 juillet, gratuitement (généré en HTML/CSS + capture
     Playwright, sans outil de design payant), en reprenant fidèlement les
@@ -1004,6 +1006,32 @@ Voir les échanges de session pour le détail, mais en résumé :
     pas de déclenchement "push" possible avec un flux RSS statique, donc
     polling à basse fréquence pour rester très en dessous du quota
     gratuit Make de 1000 opérations/mois).
+
+  **Fusionné dans le scénario "Daily" le 6 août** (retour utilisateur :
+  le plan gratuit Make est limité à 2 scénarios actifs simultanément, et
+  l'ajout de Buffer/X avait fait passer le compte à 3). Le module RSS
+  dédié à `feed-suivi.xml` a été **remplacé par un module "Retrieve RSS
+  feed items"** (action normale, pas un déclencheur — contrairement à
+  "Watch", elle peut être placée n'importe où dans un scénario, pas
+  seulement en premier module) et rattaché comme **4e branche du Router**
+  du scénario "Daily" existant, avec son propre sous-Router vers
+  LinkedIn/Telegram/Buffer. Résultat : 2 scénarios actifs au total
+  ("Daily" fusionné + "Weekly"), reste sur le plan gratuit Make. Détail
+  technique et texte exact des modules : voir la sauvegarde JSON du
+  scénario, `assets/make/scenario-daily.blueprint.json` (exportée le
+  6 août, à ré-exporter et remplacer si le scénario est modifié par la
+  suite — pas de synchronisation automatique).
+
+  **⚠️ Point de vigilance non résolu au 6 août** : "Retrieve RSS feed
+  items" n'a pas de mémoire des items déjà vus (contrairement à "Watch"
+  sur `feed.xml`) — à chaque exécution du scénario "Daily" (1x/jour), il
+  renvoie le dernier item de `feed-suivi.xml` **qu'il ait déjà été traité
+  ou non**. Sans déduplication, ça veut dire **reposter la même mise à
+  jour de suivi tous les jours** tant qu'aucune nouvelle mise à jour
+  n'est publiée, plutôt qu'une seule fois. Pas encore corrigé — solution
+  envisagée : ajouter un module **Data Store** (mémorise les `guid` déjà
+  postés) + un **Filter** juste après "Retrieve" qui ne laisse passer
+  que les items dont le `guid` n'est pas déjà connu.
   - Module **Telegram Bot → "Send a Text Message"** (connexion "Scenario"
     déjà existante, réutilisée) : `Chat ID` = `@scenario_fr`, `Text` =
     `Title` + `Comments` + **« 👉 Voir la mise à jour complète : »** + `URL`
