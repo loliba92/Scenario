@@ -432,19 +432,9 @@
   }
 
   /* ---- Entrée récap hebdo (dans la même liste que les éditions) ---- */
-  .entry-weekly-badge{
-    display: inline-flex;
-    align-self: flex-start;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.66rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--gold);
-    border: 1px solid var(--gold);
-    border-radius: 100px;
-    padding: 2px 9px;
-    white-space: nowrap;
-  }
+  /* Le badge "Récap de la semaine" réutilise .tag (voir plus haut) et
+     fonctionne comme une puce de filtre normale, data-tag="hebdo" — clic
+     dessus = ne montrer que l'historique des récaps hebdo. */
 
   .day-block{
     padding: 20px 0;
@@ -702,7 +692,7 @@
           <span class="entry-date">02.08.2026</span>
           <a class="entry-title" href="hebdo/2026-08-02.html">On refait le scénario de la semaine — 27 juillet au 2 août</a>
           <div class="entry-tags">
-            <span class="entry-weekly-badge">Récap de la semaine</span>
+            <button type="button" class="tag entry-weekly-badge" data-tag="hebdo">Récap de la semaine</button>
           </div>
           <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-hebdo-2026-08-02">Les 7 jours <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
         </div>

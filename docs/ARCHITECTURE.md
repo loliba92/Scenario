@@ -794,14 +794,37 @@ Voir les échanges de session pour le détail, mais en résumé :
   bordées jugé "trop lourd" par l'utilisateur, remplacé par cette liste plus
   légère**). Une conclusion de semaine tout en bas. `<link>` de l'`<item>`
   RSS pointe désormais vers cette page précise (plus `archives.html` en
-  générique). Découverte sur le site : section **"Récaps hebdo"** ajoutée
-  dans `archives.html`, juste après le hero, liste compacte séparée des
-  éditions quotidiennes (contenu différent, pas mélangé à la liste
-  principale) — la routine hebdo ajoute une ligne à cette liste à chaque
-  passage, en plus de créer la page. Toujours **pas d'entrée dans le menu
-  principal** (prématuré, un seul récap existant pour l'instant). Entrée
-  ajoutée aussi dans `sitemap.xml` (`changefreq: never`, comme les archives
-  quotidiennes, `priority: 0.5`).
+  générique).
+
+  **Découverte sur le site — deux itérations le 6 août.** Premier essai :
+  section "Récaps hebdo" séparée en haut de `archives.html`, liste à part
+  des éditions quotidiennes. Retour utilisateur : grossirait indéfiniment au
+  fil des semaines et repousserait la liste des éditions quotidiennes de
+  plus en plus bas — pas tenable à long terme. Remplacé par une intégration
+  directe dans le fil `#entries` : le récap devient une **entrée comme les
+  autres**, positionnée chronologiquement juste après l'entrée de l'édition
+  quotidienne du dimanche correspondant (classe `entry-weekly` en plus de
+  `entry`), avec un badge "Récap de la semaine" (`<button class="tag
+  entry-weekly-badge" data-tag="hebdo">` — réutilise le système de tags
+  existant, apparaît donc aussi comme puce de filtre cliquable : **c'est ce
+  qui permet de retrouver l'historique complet des récaps hebdo** en un
+  clic, sans liste dédiée qui grossit à part) et un accordéon **"Les 7
+  jours ▾"** (au lieu de "Scénarios ▾") qui charge en lazy-load
+  `hebdo/fragments/{date}.html` — même mécanique que
+  `archives/fragments/{date}.html`, un fragment séparé par semaine
+  (uniquement les 7 `.day-block` + `.week-conclusion`, sans
+  masthead/nav/footer) pour ne pas alourdir `archives.html`. Le lien du
+  titre de l'entrée continue de pointer vers la page dédiée
+  `hebdo/{date}.html` (toujours utile pour le partage réseaux sociaux — un
+  lien stable, pas juste un aperçu inline). Toujours **pas d'entrée dans le
+  menu principal** (prématuré, un seul récap existant pour l'instant).
+  Entrée ajoutée aussi dans `sitemap.xml` (`changefreq: never`, comme les
+  archives quotidiennes, `priority: 0.5`).
+
+  **La routine quotidienne (7h15) n'a besoin d'aucune adaptation** : elle
+  insère toujours sa nouvelle entrée en tête de `#entries`, sans se soucier
+  du contenu plus bas dans la liste — aucune collision possible avec
+  l'entrée hebdo positionnée ailleurs dans le fil.
 
   **Pas de relais Telegram/LinkedIn/X automatique** (décision du 3 août,
   toujours valable) : contrairement à `feed-suivi.xml`, ce flux ne déclenche
