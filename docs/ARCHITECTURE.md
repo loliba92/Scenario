@@ -1202,8 +1202,8 @@ Voir les échanges de session pour le détail, mais en résumé :
 
   **Détection automatique des sujets à mettre à jour, ajoutée le 1er
   août, passée en seuil chiffré + email le 7 août.** Une Routine dédiée
-  (`trig_01BYYviSQge2CDcYkzBbYcjT`, **lundi/jeudi/vendredi**, 8h UTC ~10h
-  Paris, distincte de la routine éditoriale) relit
+  (`trig_01BYYviSQge2CDcYkzBbYcjT`, **lundi/jeudi/vendredi/samedi**, 8h
+  UTC ~10h Paris, distincte de la routine éditoriale) relit
   `docs/sujets-a-suivre.md` : les « Suivis actifs » systématiquement, et
   le « Journal des sujets publiés » **limité aux 30 derniers jours** —
   au-delà, un sujet qui n'a pas justifié de suivi dans le mois qui suit sa
@@ -1211,10 +1211,10 @@ Voir les échanges de session pour le détail, mais en résumé :
   volontairement bornée : sans ça, le journal grossissant indéfiniment
   d'une ligne par jour, la recherche deviendrait de plus en plus lourde au
   fil des mois/années). D'abord passée en quotidien le même jour, puis
-  ramenée à 3x/semaine (lundi/jeudi/vendredi) par précaution sur la
-  consommation — pas de visibilité précise sur le coût en tokens d'un
-  passage quotidien, l'utilisateur a préféré rester prudent tant que ce
-  n'est pas confirmé.
+  ramenée à lundi/jeudi/vendredi par précaution sur la consommation — pas
+  de visibilité précise sur le coût en tokens d'un passage quotidien,
+  l'utilisateur a préféré rester prudent tant que ce n'est pas confirmé —
+  puis samedi ajouté juste après (4x/semaine au final).
 
   Pour chaque « Suivi actif », depuis le 7 août la routine ne se contente
   plus d'un jugement qualitatif ("il y a du neuf ou pas") : elle **réestime
