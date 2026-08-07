@@ -1202,8 +1202,10 @@ Voir les échanges de session pour le détail, mais en résumé :
 
   **Détection automatique des sujets à mettre à jour, ajoutée le 1er
   août, passée en seuil chiffré + email le 7 août.** Une Routine dédiée
-  (`trig_01BYYviSQge2CDcYkzBbYcjT`, **lundi/jeudi/vendredi/samedi**, 8h
-  UTC ~10h Paris, distincte de la routine éditoriale) relit
+  (`trig_01BYYviSQge2CDcYkzBbYcjT`, **lundi/jeudi/vendredi/samedi, 18h
+  UTC ~20h Paris (le soir, pour ne pas se superposer à la routine
+  éditoriale du matin et étaler la charge)**, distincte de la routine
+  éditoriale) relit
   `docs/sujets-a-suivre.md` : les « Suivis actifs » systématiquement, et
   le « Journal des sujets publiés » **limité aux 30 derniers jours** —
   au-delà, un sujet qui n'a pas justifié de suivi dans le mois qui suit sa
