@@ -295,6 +295,46 @@
 
   .form-hint{ font-size: 0.8rem; color: var(--paper-dim); margin: 0; }
 
+  .form-checkboxes{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-checkbox{
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: 13px 16px;
+    cursor: pointer;
+    transition: border-color .15s;
+  }
+
+  .form-checkbox:has(input:checked){ border-color: var(--gold); }
+
+  .form-checkbox input[type="checkbox"]{
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    accent-color: var(--gold);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .form-checkbox-text{ display: flex; flex-direction: column; gap: 2px; }
+
+  .form-checkbox-title{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 0.98rem;
+    color: var(--paper);
+  }
+
+  .form-checkbox-sub{ font-size: 0.82rem; color: var(--paper-dim); }
+
   .hp{ position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
   .cross-link{
@@ -409,19 +449,6 @@
       <li>Si un email n'arrive pas, pensez à vérifier vos spams (surtout les premiers jours)</li>
     </ul>
 
-    <form class="subscribe-form" action="https://buttondown.com/api/emails/embed-subscribe/scenario" method="post">
-      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <input type="hidden" value="1" name="embed">
-      <input type="hidden" name="metadata__subscription_type" value="quotidien">
-      <div class="form-row">
-        <label for="email">Votre email</label>
-        <input id="email" type="email" name="email" required placeholder="vous@exemple.com">
-      </div>
-      <button class="submit-btn" type="submit">S'abonner à la quotidienne</button>
-      <p class="form-hint">Un email de confirmation vous sera envoyé — pensez à cliquer dessus pour valider votre inscription. S'il n'arrive pas dans votre boîte de réception, vérifiez vos spams / courriers indésirables.</p>
-    </form>
-
-    <a class="cross-link" href="le-projet.html">Comment nous travaillons → Le projet</a>
   </div>
 </section>
 
@@ -434,20 +461,43 @@
       <li>Un seul email par semaine, le dimanche soir</li>
       <li>Les 7 sujets de la semaine, avec le lien vers chaque édition complète</li>
       <li>100 % gratuit, sans engagement, désinscription en un clic</li>
-      <li>Indépendant de la quotidienne — abonnez-vous à l'une, à l'autre, ou aux deux</li>
+      <li>Indépendant de la quotidienne — cochez l'une, l'autre, ou les deux ci-dessous</li>
     </ul>
+  </div>
+</section>
 
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">S'abonner</p>
+    <h2 class="section-title">Quelle formule pour vous ?</h2>
     <form class="subscribe-form" action="https://buttondown.com/api/emails/embed-subscribe/scenario" method="post">
       <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <input type="hidden" value="1" name="embed">
-      <input type="hidden" name="metadata__subscription_type" value="hebdo">
-      <div class="form-row">
-        <label for="email-hebdo">Votre email</label>
-        <input id="email-hebdo" type="email" name="email" required placeholder="vous@exemple.com">
+      <div class="form-checkboxes">
+        <label class="form-checkbox">
+          <input type="checkbox" name="tags" value="quotidien" checked>
+          <span class="form-checkbox-text">
+            <span class="form-checkbox-title">Édition quotidienne</span>
+            <span class="form-checkbox-sub">Un email chaque matin, dès qu'une édition est publiée</span>
+          </span>
+        </label>
+        <label class="form-checkbox">
+          <input type="checkbox" name="tags" value="hebdo">
+          <span class="form-checkbox-text">
+            <span class="form-checkbox-title">Récap hebdomadaire</span>
+            <span class="form-checkbox-sub">Un email chaque dimanche soir, les 7 sujets de la semaine</span>
+          </span>
+        </label>
       </div>
-      <button class="submit-btn" type="submit">S'abonner à l'hebdo</button>
-      <p class="form-hint">Même principe que la quotidienne : email de confirmation à valider, désinscription en un clic à tout moment.</p>
+      <div class="form-row">
+        <label for="email">Votre email</label>
+        <input id="email" type="email" name="email" required placeholder="vous@exemple.com">
+      </div>
+      <button class="submit-btn" type="submit">S'abonner</button>
+      <p class="form-hint">Un email de confirmation vous sera envoyé — pensez à cliquer dessus pour valider votre inscription. S'il n'arrive pas dans votre boîte de réception, vérifiez vos spams / courriers indésirables. Cochez au moins une des deux formules.</p>
     </form>
+
+    <a class="cross-link" href="le-projet.html">Comment nous travaillons → Le projet</a>
   </div>
 </section>
 
