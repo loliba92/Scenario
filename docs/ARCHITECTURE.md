@@ -895,26 +895,31 @@ Voir les échanges de session pour le détail, mais en résumé :
     via Playwright à partir de `assets/logo.svg`) pour le champ
     `publisher.logo` — Google déconseille le SVG pour ce champ.
   - Appliqué rétroactivement aux 3 dernières archives qui avaient déjà des
-    balises `<head>` correctes par édition (05, 06, 07 août — voir bug ci-
-    dessous). Pas appliqué aux archives antérieures au 5 août (voir point
-    suivant).
+    balises `<head>` correctes par édition (05, 06, 07 août).
 
-  **Bug préexistant découvert au passage, non corrigé pour l'instant** :
-  les 10 archives du 18 juillet au 4 août inclus ont encore le tagline
-  générique dans `<title>`/`og:title`/`meta description`
-  ("Scénario — L'actualité en trois hypothèses/scénarios chiffrés" au lieu
-  du titre réel de l'édition), et aucune n'a de
-  `article:published_time`. Le fix du 4 août (voir étape technique 3bis
-  de `docs/routine-prompt.md`) n'a en réalité commencé à s'appliquer qu'à
-  partir de l'édition du **5 août**, pas rétroactivement, et pas même sur
-  l'édition du 4 août elle-même malgré la date du fix. Conséquence : ces
-  10 pages partagées sur LinkedIn/réseaux affichent une carte générique
-  au lieu du vrai titre, et elles n'ont pas non plus de JSON-LD
-  aujourd'hui puisque les données nécessaires (titre réel, date de
-  publication) n'y sont pas exploitables telles quelles. Correction
-  possible sur demande — nécessite d'aller relire le `<h1>` et la
-  question posée dans le corps de chacune des 10 pages (pas juste un
-  copier-coller mécanique).
+  **[FAIT le 7 août] Bug préexistant corrigé rétroactivement sur les 12
+  archives du 18 juillet au 4 août inclus** (pas 10 comme d'abord estimé —
+  recompté en travaillant dessus). Avant correction : tagline générique
+  dans `<title>`/`meta description` ("Scénario — L'actualité en trois
+  hypothèses/scénarios chiffrés"), et pour les 10 plus anciennes (18
+  juillet au 2 août), **aucune balise Open Graph/Twitter Card du tout** —
+  pas juste un contenu générique, les balises étaient absentes. Le fix du
+  4 août (étape technique 3bis de `docs/routine-prompt.md`) n'avait en
+  réalité commencé à s'appliquer qu'à partir de l'édition du 5 août, pas
+  rétroactivement.
+
+  Reconstruit pour les 12 : titre réel, meta description (question posée
+  extraite du corps de la page — ou rédigée à partir du `dek` pour les 2
+  toutes premières éditions, 18 et 25 juillet, qui datent d'avant
+  l'existence du bloc "question posée" dédié), bloc Open Graph/Twitter
+  complet aligné sur le gabarit actuel, `article:author`/
+  `article:published_time`, et JSON-LD `NewsArticle`. **Dates de
+  publication** : 8 des 12 confirmées par le `pubDate` réel encore présent
+  dans `feed.xml` (27, 29, 30, 31 juillet, 1er, 2, 3, 4 août) ; les 4
+  autres (18, 25, 26, 28 juillet, absentes de `feed.xml`) n'ont pas de
+  trace fiable de l'heure réelle de publication — estimées à 07:15:00
+  (heure standard du site), une approximation raisonnable mais non
+  garantie exacte à la minute près.
   - **Reste à faire côté utilisateur** : créer/configurer un compte
     **Google Publisher Center** pour `lesscenarios.fr` (déclaration de la
     publication — nom, sections, logo) — ne se fait pas via API/session,
