@@ -155,6 +155,30 @@ Lister 2 à 4 liens vers les sources principales **effectivement consultées** p
 - `<meta property="article:published_time" content="{AAAA-MM-JJ}T{heure réelle du push, format HH:MM:SS}+02:00">` (même règle que le `<pubDate>` du flux RSS plus haut : l'heure réelle du push, jamais une valeur figée — voir le bug du 4 août sur `<pubDate>`)
 
 Ne jamais réécrire une nouvelle phrase pour la description : reprendre exactement la question posée déjà rédigée à l'étape 2 (celle aussi utilisée dans `question-text`, `<comments>` et le teaser Telegram), juste sans l'emoji de tête. `og:image`/`twitter:image` restent inchangés (image générique, pas d'image par édition — voir `docs/ARCHITECTURE.md`). `og:url` reste `https://lesscenarios.fr/` sur `index.html` (c'est sa vraie URL), mais devient `https://lesscenarios.fr/archives/{AAAA-MM-JJ}.html` une fois copié dans l'archive (étape 5) — ne pas oublier de l'adapter à ce moment-là, en même temps que les autres liens relatifs. `<meta property="article:author" content="Scénario">` est déjà présent dans le gabarit et reste identique tous les jours (ajouté le 4 août 2026 suite à un retour Facebook Sharing Debugger signalant "No author found" / "No publication date found") : ne pas y toucher, juste vérifier qu'il est bien recopié tel quel dans `index.html` et dans l'archive.
+
+**Données structurées `NewsArticle` (JSON-LD), ajoutées le 7 août pour l'éligibilité Google Actualités.** Juste avant `<link rel="preconnect" href="https://fonts.googleapis.com">` dans le `<head>`, un bloc `<script type="application/ld+json">` avec ce schéma exact (seuls `mainEntityOfPage.@id`, `headline`, `description`, `datePublished`/`dateModified` changent d'un jour à l'autre — tout le reste est fixe) :
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "{og:url de la page}" },
+  "headline": "{h1 du jour, sans le suffixe « — Scénario »}",
+  "description": "{la question posée, sans son emoji — même phrase que meta description}",
+  "image": ["https://lesscenarios.fr/assets/social/og-image-v2.png"],
+  "datePublished": "{même valeur que article:published_time}",
+  "dateModified": "{même valeur que article:published_time}",
+  "inLanguage": "fr-FR",
+  "author": { "@type": "Organization", "name": "Scénario", "url": "https://lesscenarios.fr/le-projet.html" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Scénario",
+    "logo": { "@type": "ImageObject", "url": "https://lesscenarios.fr/assets/logo-512.png", "width": 512, "height": 512 }
+  }
+}
+</script>
+```
+`mainEntityOfPage.@id` suit la même règle que `og:url` : `https://lesscenarios.fr/` sur `index.html`, `https://lesscenarios.fr/archives/{AAAA-MM-JJ}.html` une fois copié dans l'archive (étape 5) — à adapter à ce moment-là comme les autres liens. Le reste du bloc (`image`, `author`, `publisher`) ne change jamais, ne pas y toucher.
 4. Écraser `index.html` avec cette nouvelle édition.
 5. Copier ce contenu dans `archives/AAAA-MM-JJ.html` (date du jour), puis y adapter tous les liens relatifs d'un niveau, en suivant exactement le même patron que les fichiers déjà présents dans `archives/`.
 6. Ouvrir `archives.html` et insérer une nouvelle entrée `<li class="entry">` tout en haut de la liste, en suivant EXACTEMENT le patron des entrées déjà présentes :

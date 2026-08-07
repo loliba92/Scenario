@@ -876,6 +876,51 @@ Voir les échanges de session pour le détail, mais en résumé :
 - Amélioration de la recherche/découvrabilité et réflexion SEO plus poussée
   (contenu déjà bien structuré pour ça — titres clairs, meta descriptions par
   page — donc peu de travail supplémentaire nécessaire ici).
+- **[FAIT le 7 août] Données structurées `NewsArticle` (JSON-LD), pour
+  l'éligibilité Google Actualités.** Depuis 2019 Google n'a plus de
+  "soumission" avec validation humaine pour Google News — inclusion
+  automatique si le site est crawlable et respecte les règles de contenu
+  (déjà largement le cas : auteur identifié, dates claires, transparence
+  IA, pages légales). Le manque technique principal identifié : aucune
+  page n'avait de données structurées `NewsArticle`, le signal principal
+  que Google utilise pour distinguer un article d'actualité d'une page
+  web classique. Ajouté :
+  - Bloc `<script type="application/ld+json">` dans le `<head>` de
+    `index.html` et de chaque archive (headline, description, image,
+    `datePublished`/`dateModified`, auteur, éditeur) — voir le schéma
+    exact et les règles de reproduction quotidienne dans
+    `docs/routine-prompt.md` (nouveau paragraphe après l'étape technique
+    3bis).
+  - Nouveau logo carré `assets/logo-512.png` (512×512, fond blanc, généré
+    via Playwright à partir de `assets/logo.svg`) pour le champ
+    `publisher.logo` — Google déconseille le SVG pour ce champ.
+  - Appliqué rétroactivement aux 3 dernières archives qui avaient déjà des
+    balises `<head>` correctes par édition (05, 06, 07 août — voir bug ci-
+    dessous). Pas appliqué aux archives antérieures au 5 août (voir point
+    suivant).
+
+  **Bug préexistant découvert au passage, non corrigé pour l'instant** :
+  les 10 archives du 18 juillet au 4 août inclus ont encore le tagline
+  générique dans `<title>`/`og:title`/`meta description`
+  ("Scénario — L'actualité en trois hypothèses/scénarios chiffrés" au lieu
+  du titre réel de l'édition), et aucune n'a de
+  `article:published_time`. Le fix du 4 août (voir étape technique 3bis
+  de `docs/routine-prompt.md`) n'a en réalité commencé à s'appliquer qu'à
+  partir de l'édition du **5 août**, pas rétroactivement, et pas même sur
+  l'édition du 4 août elle-même malgré la date du fix. Conséquence : ces
+  10 pages partagées sur LinkedIn/réseaux affichent une carte générique
+  au lieu du vrai titre, et elles n'ont pas non plus de JSON-LD
+  aujourd'hui puisque les données nécessaires (titre réel, date de
+  publication) n'y sont pas exploitables telles quelles. Correction
+  possible sur demande — nécessite d'aller relire le `<h1>` et la
+  question posée dans le corps de chacune des 10 pages (pas juste un
+  copier-coller mécanique).
+  - **Reste à faire côté utilisateur** : créer/configurer un compte
+    **Google Publisher Center** pour `lesscenarios.fr` (déclaration de la
+    publication — nom, sections, logo) — ne se fait pas via API/session,
+    nécessite le compte Google personnel de l'utilisateur. Pas de délai
+    garanti pour l'apparition dans Google Actualités/Discover une fois
+    la partie technique en place, généralement plusieurs semaines.
 - **Mentions légales + politique de confidentialité** — fait. Deux pages
   dédiées (`mentions-legales.html`, `politique-de-confidentialite.html`),
   liées depuis le footer des 5 pages vivantes. Éditeur identifié (Olivier
