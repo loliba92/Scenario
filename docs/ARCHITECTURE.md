@@ -931,7 +931,7 @@ Voir les échanges de session pour le détail, mais en résumé :
     français) + logos carrés fournis en fond blanc et fond noir (512 et
     1000px, `assets/logo-512.png`/`logo-1000.png` et leurs variantes
     `-black`), générés via Playwright à partir de `assets/logo.svg`.
-  - **P3 — Suivi à reprendre plus tard** : vérifier le rendu du JSON-LD
+  - **P1 — Suivi Publisher Center, priorité relevée le 7 août** : vérifier le rendu du JSON-LD
     via le **Rich Results Test** de Google (search.google.com/test/rich-
     results) une fois le déploiement propagé, et rester disponible si
     Publisher Center demande une étape de configuration supplémentaire
