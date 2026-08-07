@@ -926,6 +926,16 @@ Voir les échanges de session pour le détail, mais en résumé :
     nécessite le compte Google personnel de l'utilisateur. Pas de délai
     garanti pour l'apparition dans Google Actualités/Discover une fois
     la partie technique en place, généralement plusieurs semaines.
+  - **[FAIT le 7 août]** Publication ajoutée sur Google Publisher Center
+    par l'utilisateur (`lesscenarios.fr`, Nom = « Scénario », France,
+    français) + logos carrés fournis en fond blanc et fond noir (512 et
+    1000px, `assets/logo-512.png`/`logo-1000.png` et leurs variantes
+    `-black`), générés via Playwright à partir de `assets/logo.svg`.
+  - **P3 — Suivi à reprendre plus tard** : vérifier le rendu du JSON-LD
+    via le **Rich Results Test** de Google (search.google.com/test/rich-
+    results) une fois le déploiement propagé, et rester disponible si
+    Publisher Center demande une étape de configuration supplémentaire
+    (sections, etc.).
 - **Mentions légales + politique de confidentialité** — fait. Deux pages
   dédiées (`mentions-legales.html`, `politique-de-confidentialite.html`),
   liées depuis le footer des 5 pages vivantes. Éditeur identifié (Olivier
