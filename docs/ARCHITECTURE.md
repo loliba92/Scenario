@@ -141,28 +141,42 @@ moins prioritaire).
   (`=hebdo`) voyait la seconde valeur écraser la première, alors que la
   page promettait explicitement de pouvoir s'abonner aux deux.
 
-  **Fix appliqué** : un seul formulaire (section "S'abonner", après les
-  deux blocs explicatifs quotidienne/hebdo), avec deux cases à cocher —
-  `<input type="checkbox" name="tags" value="quotidien" checked>` et
-  `<input type="checkbox" name="tags" value="hebdo">` — plutôt que deux
-  formulaires distincts avec un champ email chacun. Cocher les deux
-  soumet `tags=quotidien&tags=hebdo` en une seule requête ; HTML gère
-  nativement les cases décochées (simplement absentes du POST), aucun JS
-  requis pour la validation groupée. `tags` est **additif** côté
-  Buttondown (confirmé via leur doc officielle : une resoumission ajoute
-  le nouveau tag aux tags déjà présents sur l'abonné, ne les remplace
-  jamais) — contrairement à `metadata`, donc même quelqu'un qui
-  s'était déjà inscrit une fois peut revenir cocher l'autre case sans
-  perdre son premier abonnement. "Quotidienne" pré-coché par défaut
-  (format historique/principal), "Hebdo" à cocher explicitement.
+  **Fix appliqué** : un seul formulaire (section "S'abonner", juste après
+  le hero, avant les deux blocs explicatifs quotidienne/hebdo), avec deux
+  cases à cocher — `<input type="checkbox" name="metadata__quotidien"
+  value="oui" checked>` et `<input type="checkbox" name="metadata__hebdo"
+  value="oui">` — plutôt que deux formulaires distincts avec un champ
+  email chacun et un seul champ `metadata__subscription_type` partagé.
+  Le point clé du fix : ce sont désormais **deux clés metadata
+  différentes** (`quotidien` et `hebdo`) au lieu d'une seule clé
+  (`subscription_type`) à valeur unique — donc cocher les deux soumet
+  `metadata__quotidien=oui&metadata__hebdo=oui` en une seule requête, et
+  chaque clé est indépendante côté Buttondown, aucune ne peut écraser
+  l'autre. HTML gère nativement les cases décochées (simplement absentes
+  du POST), aucun JS requis. "Quotidienne" pré-coché par défaut (format
+  historique/principal), "Hebdo" à cocher explicitement.
+
+  **Point de vigilance non vérifié cette session** : une case décochée
+  n'envoie rien du tout (pas de `metadata__hebdo=non`, juste l'absence du
+  champ) — donc si un abonné qui avait déjà `metadata__hebdo=oui`
+  resoumet le formulaire avec seulement "Quotidienne" coché, il n'est pas
+  garanti que Buttondown efface l'ancienne valeur `hebdo=oui` (un champ
+  omis dans une requête peut être ignoré plutôt qu'interprété comme "à
+  vider", selon leur implémentation). Pour l'usage principal (première
+  inscription, ou ajouter une deuxième formule) ça fonctionne très bien ;
+  le cas "se désabonner d'une seule formule en resoumettant le
+  formulaire" reste à tester/confirmer.
 
   **Reste à faire, côté Buttondown (hors session, pas d'accès à
   l'interface)** : adapter les deux Automations RSS-to-email
-  (quotidienne et hebdo) pour filtrer sur `tags` plutôt que sur
-  `metadata.subscription_type` — sinon le nouveau formulaire pousse le
-  bon tag mais les envois ne le respectent pas encore. Noms des tags
-  (`quotidien`/`hebdo`) à ajuster si besoin par l'utilisateur côté
-  Buttondown.
+  (quotidienne et hebdo) pour filtrer sur `metadata.quotidien == "oui"` /
+  `metadata.hebdo == "oui"` plutôt que sur l'ancien
+  `metadata.subscription_type` — sinon le nouveau formulaire pousse les
+  bonnes valeurs mais les envois ne les respectent pas encore. Noms des
+  clés (`quotidien`/`hebdo`) à ajuster si besoin par l'utilisateur côté
+  Buttondown. Migrer aussi les abonnés existants qui n'ont que l'ancien
+  `metadata.subscription_type` (pas les nouvelles clés) pour qu'ils ne
+  s'arrêtent pas de recevoir d'emails une fois le filtre changé.
 - **P2 — Widget Telegram embarqué** sur `newsletter.html` (widget officiel
   `t.me/s/scenario_fr`, embeddable via `<script>`, statique/gratuit) :
   affiche les derniers posts du canal directement sur le site, donne à
@@ -941,13 +955,14 @@ Voir les échanges de session pour le détail, mais en résumé :
   **Côté Buttondown** (configuration à faire par l'utilisateur, hors
   session) : un seul formulaire sur `newsletter.html` depuis le 7 août
   (voir « Bug corrigé + UX simplifiée » plus haut dans le backlog), deux
-  cases à cocher (`tags=quotidien` / `tags=hebdo`) plutôt que deux
-  formulaires séparés avec un champ `metadata`. Il reste à créer, côté
-  Buttondown, une **Automation RSS-to-email** branchée sur
-  `feed-weekly.xml` et filtrée pour n'envoyer qu'aux abonnés portant le
-  tag `hebdo` (à vérifier/adapter selon les options réellement
-  disponibles dans l'interface Buttondown — non testé, cette session n'a
-  pas accès à Buttondown).
+  cases à cocher — deux clés `metadata` séparées et indépendantes
+  (`metadata__quotidien=oui` / `metadata__hebdo=oui`) plutôt qu'un seul
+  champ `metadata__subscription_type` partagé qui s'écrasait. Il reste à
+  créer, côté Buttondown, une **Automation RSS-to-email** branchée sur
+  `feed-weekly.xml` et filtrée pour n'envoyer qu'aux abonnés dont
+  `metadata.hebdo == "oui"` (à vérifier/adapter selon les options
+  réellement disponibles dans l'interface Buttondown — non testé, cette
+  session n'a pas accès à Buttondown).
 - **Photo dans les éditions — idée écartée le 1er août.** Discuté puis
   volontairement abandonné : impossible d'utiliser une vraie photo de presse
   trouvée pendant la recherche (droit d'auteur, republication non autorisée),
