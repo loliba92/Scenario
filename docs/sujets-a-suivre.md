@@ -38,6 +38,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 07.08.2026 — [Big Tech face à la justice](../archives/2026-08-07.html)
 - 06.08.2026 — [FIFA : la présidence d'Infantino vacille](../archives/2026-08-06.html)
 - 05.08.2026 — [EPR2 : le nucléaire français à l'heure de vérité](../archives/2026-08-05.html)
 - 04.08.2026 — [Gaza : la paix qui reste sur le papier](../archives/2026-08-04.html)
