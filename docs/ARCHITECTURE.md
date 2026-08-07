@@ -177,6 +177,16 @@ moins prioritaire).
   `metadata.quotidien`/`metadata.hebdo` — confirmée par l'utilisateur. Le
   bug d'abonnement simultané quotidien+hebdo est donc entièrement réglé,
   formulaire, Automations et base d'abonnés existante alignés.
+- **P3 — Version anglaise du site, idée du 7 août, à reprendre dans
+  quelques mois.** Garder la version française telle quelle (pas de
+  remplacement) et ajouter une version anglaise en parallèle, avec sa
+  propre routine dédiée pour la production (traduction et/ou rédaction
+  directe en anglais — à trancher le moment venu). Rien de tranché à ce
+  stade : ni l'architecture (sous-dossier `en/` ? sous-domaine ? champ de
+  langue par édition ?), ni si la routine anglaise republie les mêmes
+  sujets que la française ou en sélectionne d'autres, ni le rythme de
+  publication. Explicitement mis de côté par l'utilisateur pour être
+  rediscuté plus tard — ne pas commencer sans un go explicite.
 - **P2 — Widget Telegram embarqué** sur `newsletter.html` (widget officiel
   `t.me/s/scenario_fr`, embeddable via `<script>`, statique/gratuit) :
   affiche les derniers posts du canal directement sur le site, donne à
