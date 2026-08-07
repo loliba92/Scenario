@@ -1201,24 +1201,56 @@ Voir les échanges de session pour le détail, mais en résumé :
   reste du fichier (section « Suivis actifs ») reste tenu à la main.
 
   **Détection automatique des sujets à mettre à jour, ajoutée le 1er
-  août.** Une Routine dédiée (`trig_...`, hebdomadaire, distincte de la
-  routine éditoriale quotidienne) relit `docs/sujets-a-suivre.md` : les
-  « Suivis actifs » systématiquement, et le « Journal des sujets publiés »
-  **limité aux 30 derniers jours** — au-delà, un sujet qui n'a pas justifié
-  de suivi dans le mois qui suit sa publication n'en a probablement pas
-  besoin rétroactivement (fenêtre volontairement bornée : sans ça, le
-  journal grossissant indéfiniment d'une ligne par jour, la recherche
-  hebdomadaire deviendrait de plus en plus lourde au fil des mois/années).
-  Fait une recherche rapide sur les sujets retenus, et **propose** une
-  short-list de sujets qui semblent mériter une page de suivi ou une mise
-  à jour, avec le fait déclencheur. **Ne crée et ne modifie jamais
-  automatiquement une page `suivi/*.html`, ni le fichier
-  `sujets-a-suivre.md` lui-même** : c'est un rapport, le "go" reste
-  toujours une décision manuelle de l'utilisateur. La routine fire dans la
-  session en cours (pas une session neuve), pour garder le contexte
-  complet du site — son rapport arrive donc comme message dans cette même
-  conversation, pas par email (choix confirmé le 1er août : la continuité
-  de contexte a été préférée à la notification automatique).
+  août, passée en quotidien + seuil chiffré + email le 7 août.** Une
+  Routine dédiée (`trig_01BYYviSQge2CDcYkzBbYcjT`, **quotidienne**, 8h UTC
+  ~10h Paris, distincte de la routine éditoriale) relit
+  `docs/sujets-a-suivre.md` : les « Suivis actifs » systématiquement, et
+  le « Journal des sujets publiés » **limité aux 30 derniers jours** —
+  au-delà, un sujet qui n'a pas justifié de suivi dans le mois qui suit sa
+  publication n'en a probablement pas besoin rétroactivement (fenêtre
+  volontairement bornée : sans ça, le journal grossissant indéfiniment
+  d'une ligne par jour, la recherche quotidienne deviendrait de plus en
+  plus lourde au fil des mois/années).
+
+  Pour chaque « Suivi actif », depuis le 7 août la routine ne se contente
+  plus d'un jugement qualitatif ("il y a du neuf ou pas") : elle **réestime
+  chiffre à l'appui** la probabilité de chaque scénario (même sérieux
+  méthodologique qu'une édition normale), la compare à la dernière version
+  publiée (`evoData` de `suivi/{sujet}.html`), et marque **⚠️ seuil
+  franchi** si l'écart atteint **≥ 20 points** sur au moins un scénario,
+  ou qu'un événement rend un scénario clairement caduc/résolu. Pour les
+  entrées du journal (pas encore de page dédiée), le jugement reste
+  qualitatif — pas de probabilité de référence à comparer.
+
+  **Ne crée et ne modifie jamais automatiquement une page `suivi/*.html`,
+  ni le fichier `sujets-a-suivre.md` lui-même** : c'est toujours un
+  rapport de veille, jamais une publication — le "go" reste une décision
+  manuelle de l'utilisateur, donnée ensuite dans la session principale du
+  site. Ce point n'a pas changé le 7 août malgré la demande initiale d'une
+  possible auto-publication au-delà du seuil : refusé côté conception,
+  discuté avec l'utilisateur, parce que réévaluer un seuil chiffré à
+  chaque passage ne garantit pas d'écarter le bruit (une estimation peut
+  varier un peu sans vrai fait nouveau), et parce que le rôle éditorial du
+  site ("il choisit les sujets, encadre la vérification et tranche le
+  ton", voir `le-projet.html`) suppose justement un passage humain avant
+  publication.
+
+  **Notification par email, ajoutée le 7 août.** Avant cette date, la
+  routine tournait attachée à la session principale (`persist_session`),
+  pour garder le contexte du site — son rapport arrivait comme message
+  dans cette même conversation. Recréée le 7 août en mode **session neuve
+  à chaque déclenchement** (`create_new_session_on_fire: true`), seul mode
+  qui permette la notification par email native des Routines
+  (`notifications: {email: true}`) : la session neuve n'a plus besoin de
+  contexte de conversation puisque tout ce qu'il lui faut est déjà dans le
+  dépôt (`docs/sujets-a-suivre.md`, pages `suivi/*.html`). Le prompt
+  demande explicitement de répondre uniquement "RAS aujourd'hui." et de
+  s'arrêter là quand rien n'est notable, pour que l'email de notification
+  (généré côté plateforme selon si le run est jugé "noteworthy") reste
+  silencieux les jours sans rien à signaler — comportement non garanti à
+  100 %, la logique de "noteworthy" étant décidée côté plateforme, pas par
+  la routine elle-même ; à confirmer empiriquement dans les jours qui
+  suivent.
 
   **Anciennes versions repliées par défaut (accordéon), ajouté le 1er
   août.** Chaque bloc `.version` a un bouton `.version-toggle` ; seule la
