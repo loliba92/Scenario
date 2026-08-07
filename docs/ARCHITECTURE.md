@@ -131,6 +131,26 @@ moins prioritaire).
   trancher surtout le contenu affiché vu que le weekly porte sur 7 sujets
   et pas 3 scénarios d'un seul sujet (image récap titre+date seule ? une
   sélection des 7 sujets ? format encore à définir). Pas commencé.
+- **P1 — Bug : impossible de s'abonner à la fois à la quotidienne et à
+  l'hebdo, malgré la promesse faite sur `newsletter.html`** ("Indépendant
+  de la quotidienne — abonnez-vous à l'une, à l'autre, ou aux deux").
+  Trouvé le 7 août. **Cause** : les deux formulaires utilisent
+  `<input type="hidden" name="metadata__subscription_type" value="...">`
+  — un champ **metadata** Buttondown, à valeur unique par abonné. Un
+  même email qui s'inscrit d'abord à la quotidienne (`metadata__subscription_type=quotidien`)
+  puis à l'hebdo (`metadata__subscription_type=hebdo`) voit la seconde
+  valeur écraser la première : au final un seul des deux "camps" est
+  retenu côté Buttondown, jamais les deux. **Fix identifié, pas encore
+  appliqué** : remplacer `metadata__subscription_type` par un vrai champ
+  `tags` (`<input type="hidden" name="tags" value="quotidien">` /
+  `value="hebdo"`) sur les deux formulaires de `newsletter.html` — les
+  tags Buttondown sont **additifs** d'une soumission à l'autre
+  (confirmé via la doc Buttondown : une resoumission ajoute le nouveau
+  tag aux tags déjà présents sur l'abonné, ne les remplace jamais),
+  contrairement à `metadata`. Nécessite aussi d'adapter les deux
+  Automations RSS-to-email (quotidienne et hebdo) pour filtrer sur
+  `tags` plutôt que sur `metadata.subscription_type` — configuration
+  Buttondown, hors session (pas d'accès direct à l'interface).
 - **P2 — Widget Telegram embarqué** sur `newsletter.html` (widget officiel
   `t.me/s/scenario_fr`, embeddable via `<script>`, statique/gratuit) :
   affiche les derniers posts du canal directement sur le site, donne à
@@ -908,13 +928,18 @@ Voir les échanges de session pour le détail, mais en résumé :
 
   **Côté Buttondown** (configuration à faire par l'utilisateur, hors
   session) : deux inscriptions séparées sur `newsletter.html`, chacune avec
-  son propre formulaire vers `https://buttondown.com/api/emails/embed-subscribe/scenario`
-  — celui de l'hebdo ajoute un champ cadré `<input type="hidden" name="tag" value="hebdo">`
-  pour taguer l'abonné côté Buttondown. Il reste à créer, côté Buttondown,
-  une **Automation RSS-to-email** branchée sur `feed-weekly.xml` et filtrée
-  pour n'envoyer qu'aux abonnés portant le tag `hebdo` (à vérifier/adapter
-  selon les options réellement disponibles dans l'interface Buttondown —
-  non testé, cette session n'a pas accès à Buttondown).
+  son propre formulaire vers `https://buttondown.com/api/emails/embed-subscribe/scenario`.
+  **Correction du 7 août, la description ci-dessus était inexacte** :
+  dans le code réel, les deux formulaires utilisent
+  `<input type="hidden" name="metadata__subscription_type" value="quotidien|hebdo">`,
+  pas un champ `tag` — voir le bug ouvert plus haut dans le backlog
+  (« Impossible de s'abonner aux deux »). Il reste à créer, côté
+  Buttondown, une **Automation RSS-to-email** branchée sur
+  `feed-weekly.xml` et filtrée pour n'envoyer qu'aux abonnés concernés
+  (à adapter selon le champ retenu après correction du bug — `tags`
+  plutôt que `metadata` — et selon les options réellement disponibles
+  dans l'interface Buttondown — non testé, cette session n'a pas accès à
+  Buttondown).
 - **Photo dans les éditions — idée écartée le 1er août.** Discuté puis
   volontairement abandonné : impossible d'utiliser une vraie photo de presse
   trouvée pendant la recherche (droit d'auteur, republication non autorisée),
