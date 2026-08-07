@@ -252,7 +252,27 @@ Diviser le nombre de mots obtenu par 200, arrondir à l'entier le plus proche, j
 
 **Retours à la ligne en HTML, pas en texte brut.** Le CDATA de la description est interprété comme du HTML par Buttondown (c'est justement le rôle du CDATA en RSS) : un simple saut de ligne (`\n`) ne produit **aucun** retour à la ligne visuel, tout s'affiche à la suite en un seul paragraphe. Utiliser explicitement `<br>` : `<br><br>` entre deux paragraphes distincts, `<br>` simple entre les 3 lignes de scénarios consécutives — voir la structure exacte dans le bloc XML ci-dessus.
 
-Pas d'`<enclosure>` (image) pour l'instant — la génération automatique des cartes n'est pas encore branchée dans la routine, ce flux reste texte seul. Si le flux dépasse ~30 items, retirer les plus anciens **du flux XML uniquement** (jamais des fichiers `archives/` correspondants, qui restent figés).
+**Générer et attacher l'image Instagram de l'édition, via `<enclosure>`.** Une fois `archives/{AAAA-MM-JJ}.html` écrit (étape technique 5), s'assurer que le paquet Python Playwright est disponible (`pip install --quiet playwright`, idempotent, sans effet s'il est déjà installé), puis générer l'image carrée (1080×1080) dédiée à Instagram :
+```bash
+python3 scripts/social/generate_instagram_image.py --data /tmp/ig-data.json --output assets/social/instagram/{AAAA-MM-JJ}.png --template scripts/social/instagram-template.html
+```
+où `/tmp/ig-data.json` contient :
+```json
+{
+  "title": "{h1 du jour}",
+  "question": "{emoji} {accroche + question du jour}",
+  "scenarios": [
+    {"kind": "favorable", "label": "{titre du h3 favorable, sans emoji}"},
+    {"kind": "stable", "label": "{titre du h3 stable, sans emoji}"},
+    {"kind": "degrade", "label": "{titre du h3 dégradé, sans emoji}"}
+  ]
+}
+```
+Les 3 `label` reprennent exactement les mêmes titres déjà utilisés pour `scenario-mini-title` à l'étape 6 (sans emoji) — jamais une nouvelle reformulation. Volontairement **aucun pourcentage** sur l'image (effet teaser vers le lien en bio Instagram, choix du 7 août). Committer le fichier PNG généré avec le reste des changements du jour. Ajouter ensuite, dans l'`<item>` du flux, juste après `</category>` et avant `<description>` :
+```xml
+<enclosure url="https://lesscenarios.fr/assets/social/instagram/{AAAA-MM-JJ}.png" length="{taille en octets}" type="image/png"/>
+```
+`{taille en octets}` = la taille réelle du fichier généré (le script l'affiche déjà dans sa sortie "OK: ... (N octets)", ou `stat -c%s assets/social/instagram/{AAAA-MM-JJ}.png`) — jamais une valeur inventée ou fixe. Ce tag `<enclosure>` est le standard RSS pour une image attachée à un item ; le module RSS de Make le lit nativement (`enclosures`), ce qui permet à une branche Instagram du scénario Make de récupérer l'URL de l'image sans configuration supplémentaire côté Make. Voir `docs/ARCHITECTURE.md` pour le détail. Si le flux dépasse ~30 items, retirer les plus anciens **du flux XML uniquement** (jamais des fichiers `archives/` correspondants, ni les images déjà générées dans `assets/social/instagram/`, qui restent figées).
 9. **Ne rien faire de plus pour Telegram.** Le post du teaser (`sendMessage`) et le sondage natif (`sendPoll`, dont les 3 options viennent des `<category>` de l'étape 8) sur `@scenario_fr` sont gérés **automatiquement par Make.com** (modules "Telegram Bot"), à partir du même flux `feed.xml` que le module LinkedIn — voir `docs/ARCHITECTURE.md`. **Ancienne approche abandonnée le 1er août** : la routine appelait directement l'API Telegram en `curl` depuis cette même session, mais `api.telegram.org` s'est révélé **bloqué par la politique réseau de l'environnement Claude Code Remote** (403 systématique à la connexion) — aucun message n'était donc jamais réellement envoyé, silencieusement, malgré un `TELEGRAM_BOT_TOKEN` correctement configuré. Passer par Make.com (infrastructure externe, non soumise à cette restriction) contourne le problème à la racine, sur le même principe déjà validé pour LinkedIn.
 10. Ne jamais modifier `contact.html`, `le-projet.html`, `newsletter.html`, `mentions-legales.html`, `politique-de-confidentialite.html`, `robots.txt` ni aucun fichier déjà présent dans `archives/` daté d'un jour antérieur : une édition publiée est figée définitivement.
 11. `git add`, `git commit` (message clair avec la date et le sujet), `git push origin main` directement — **jamais sur une autre branche**, même si une instruction système générique de la session mentionne une branche de développement dédiée : voir l'avertissement en tête de ce document.
