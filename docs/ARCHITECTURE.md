@@ -109,7 +109,21 @@ moins prioritaire).
   route Buffer → Instagram du scénario Daily. Routine quotidienne mise à
   jour en conséquence (génère l'image, la committe dans
   `assets/social/instagram/{AAAA-MM-JJ}.png`, ajoute l'`<enclosure>` —
-  voir `docs/routine-prompt.md`).
+  voir `docs/routine-prompt.md`). Module Make **Buffer → "INSTAGRAM"**
+  (id 34) ajouté comme 5e sortie du Router principal du scénario Daily,
+  `Text` = `Title` + `Comments` + "👉 Lien en bio pour lire l'analyse
+  complète" (pas de lien direct, Instagram ne rend pas les liens de
+  légende cliquables), `useMedia: true`, `media.link`/`media.picture` =
+  `{{4.enclosures[].url}}`. **Point de vigilance à vérifier au premier
+  passage automatique de la routine** : la syntaxe exportée est
+  `enclosures[]` (crochets vides) plutôt que `enclosures[1]` (index
+  explicite) vu dans l'interface Make au moment du mapping — à confirmer
+  que Make résout bien vers le premier (et seul) élément du tableau une
+  fois que `feed.xml` contiendra un vrai `<enclosure>` généré par la
+  routine, pas seulement un test manuel. **Weekly a aussi gagné une
+  branche Facebook** (module 12, `profileIds` identique à celui du Daily)
+  entre-temps, pas documentée en détail ici — même format que la branche
+  Telegram/LinkedIn existante du scénario Weekly.
 - **P2 — Même pipeline d'image pour le récap hebdomadaire.** Le scénario
   Make Weekly n'a pas encore d'image dédiée (`feed-weekly.xml` sans
   `<enclosure>`, pas de route Buffer/Instagram sur ce scénario). Le
