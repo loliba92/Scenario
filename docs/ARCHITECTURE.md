@@ -167,16 +167,17 @@ moins prioritaire).
   le cas "se désabonner d'une seule formule en resoumettant le
   formulaire" reste à tester/confirmer.
 
-  **Reste à faire, côté Buttondown (hors session, pas d'accès à
-  l'interface)** : adapter les deux Automations RSS-to-email
-  (quotidienne et hebdo) pour filtrer sur `metadata.quotidien == "oui"` /
-  `metadata.hebdo == "oui"` plutôt que sur l'ancien
-  `metadata.subscription_type` — sinon le nouveau formulaire pousse les
-  bonnes valeurs mais les envois ne les respectent pas encore. Noms des
-  clés (`quotidien`/`hebdo`) à ajuster si besoin par l'utilisateur côté
-  Buttondown. Migrer aussi les abonnés existants qui n'ont que l'ancien
-  `metadata.subscription_type` (pas les nouvelles clés) pour qu'ils ne
-  s'arrêtent pas de recevoir d'emails une fois le filtre changé.
+  **[FAIT le 7 août, côté Buttondown]** les deux Automations RSS-to-email
+  (quotidienne et hebdo) sont configurées pour filtrer sur
+  `metadata.quotidien == "oui"` / `metadata.hebdo == "oui"` — confirmé
+  par l'utilisateur. Le nouveau formulaire (deux metadata séparées) et le
+  filtre des Automations sont maintenant alignés de bout en bout.
+
+  **Reste à faire, côté Buttondown (hors session)** : migrer les abonnés
+  existants qui n'ont que l'ancien `metadata.subscription_type` (pas les
+  nouvelles clés `quotidien`/`hebdo`) pour qu'ils ne s'arrêtent pas de
+  recevoir d'emails maintenant que les Automations filtrent sur les
+  nouvelles clés.
 - **P2 — Widget Telegram embarqué** sur `newsletter.html` (widget officiel
   `t.me/s/scenario_fr`, embeddable via `<script>`, statique/gratuit) :
   affiche les derniers posts du canal directement sur le site, donne à
@@ -952,17 +953,18 @@ Voir les échanges de session pour le détail, mais en résumé :
   voter/sondage Telegram contrairement à "Daily" — pas de sens pour un
   récap). Sauvegarde complète : `assets/make/scenario-weekly.blueprint.json`.
 
-  **Côté Buttondown** (configuration à faire par l'utilisateur, hors
-  session) : un seul formulaire sur `newsletter.html` depuis le 7 août
-  (voir « Bug corrigé + UX simplifiée » plus haut dans le backlog), deux
-  cases à cocher — deux clés `metadata` séparées et indépendantes
-  (`metadata__quotidien=oui` / `metadata__hebdo=oui`) plutôt qu'un seul
-  champ `metadata__subscription_type` partagé qui s'écrasait. Il reste à
-  créer, côté Buttondown, une **Automation RSS-to-email** branchée sur
-  `feed-weekly.xml` et filtrée pour n'envoyer qu'aux abonnés dont
-  `metadata.hebdo == "oui"` (à vérifier/adapter selon les options
-  réellement disponibles dans l'interface Buttondown — non testé, cette
-  session n'a pas accès à Buttondown).
+  **Côté Buttondown [FAIT le 7 août]** : un seul formulaire sur
+  `newsletter.html` depuis le 7 août (voir « Bug corrigé + UX simplifiée »
+  plus haut dans le backlog), deux cases à cocher — deux clés `metadata`
+  séparées et indépendantes (`metadata__quotidien=oui` /
+  `metadata__hebdo=oui`) plutôt qu'un seul champ
+  `metadata__subscription_type` partagé qui s'écrasait. Les deux
+  Automations RSS-to-email (dont celle branchée sur `feed-weekly.xml`)
+  sont configurées et filtrent bien sur `metadata.quotidien == "oui"` /
+  `metadata.hebdo == "oui"` — confirmé par l'utilisateur. Reste à migrer
+  les abonnés existants qui n'ont que l'ancien
+  `metadata.subscription_type` (voir note complète plus haut dans le
+  backlog).
 - **Photo dans les éditions — idée écartée le 1er août.** Discuté puis
   volontairement abandonné : impossible d'utiliser une vraie photo de presse
   trouvée pendant la recherche (droit d'auteur, republication non autorisée),
