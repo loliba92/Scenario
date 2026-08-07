@@ -114,13 +114,12 @@ moins prioritaire).
   `Text` = `Title` + `Comments` + "👉 Lien en bio pour lire l'analyse
   complète" (pas de lien direct, Instagram ne rend pas les liens de
   légende cliquables), `useMedia: true`, `media.link`/`media.picture` =
-  `{{4.enclosures[].url}}`. **Point de vigilance à vérifier au premier
-  passage automatique de la routine** : la syntaxe exportée est
-  `enclosures[]` (crochets vides) plutôt que `enclosures[1]` (index
-  explicite) vu dans l'interface Make au moment du mapping — à confirmer
-  que Make résout bien vers le premier (et seul) élément du tableau une
-  fois que `feed.xml` contiendra un vrai `<enclosure>` généré par la
-  routine, pas seulement un test manuel. **Weekly a aussi gagné une
+  `{{4.enclosures[].url}}`. **[Vérifié et validé le 7 août]** : la
+  syntaxe `enclosures[]` (crochets vides, plutôt que `enclosures[1]`
+  index explicite vu dans l'interface Make au moment du mapping) résout
+  bien vers le premier (et seul) élément du tableau une fois `feed.xml`
+  alimenté par un vrai `<enclosure>` généré par la routine — confirmé par
+  l'utilisateur, plus un point de vigilance. **Weekly a aussi gagné une
   branche Facebook** (module 12, `profileIds` identique à celui du Daily)
   entre-temps, pas documentée en détail ici — même format que la branche
   Telegram/LinkedIn existante du scénario Weekly.
@@ -173,11 +172,11 @@ moins prioritaire).
   par l'utilisateur. Le nouveau formulaire (deux metadata séparées) et le
   filtre des Automations sont maintenant alignés de bout en bout.
 
-  **Reste à faire, côté Buttondown (hors session)** : migrer les abonnés
-  existants qui n'ont que l'ancien `metadata.subscription_type` (pas les
-  nouvelles clés `quotidien`/`hebdo`) pour qu'ils ne s'arrêtent pas de
-  recevoir d'emails maintenant que les Automations filtrent sur les
-  nouvelles clés.
+  **[FAIT le 7 août]** migration des abonnés existants qui n'avaient que
+  l'ancien `metadata.subscription_type` vers les nouvelles clés
+  `metadata.quotidien`/`metadata.hebdo` — confirmée par l'utilisateur. Le
+  bug d'abonnement simultané quotidien+hebdo est donc entièrement réglé,
+  formulaire, Automations et base d'abonnés existante alignés.
 - **P2 — Widget Telegram embarqué** sur `newsletter.html` (widget officiel
   `t.me/s/scenario_fr`, embeddable via `<script>`, statique/gratuit) :
   affiche les derniers posts du canal directement sur le site, donne à
