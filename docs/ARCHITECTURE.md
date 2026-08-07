@@ -63,6 +63,28 @@ moins prioritaire).
   caractères de X certains jours (vérifié sur les 10 dernières éditions :
   8 sur 10 auraient dépassé la limite rien qu'avec Titre + Comments).
   Voir aussi la sauvegarde du scénario Make complet plus bas.
+- **[FAIT le 7 août] Facebook comme canal supplémentaire**, via le même
+  Buffer que X (aucune nouvelle app développeur à créer). La Page
+  Facebook "Scénario" existait déjà, créée automatiquement par Meta lors
+  du passage du compte Instagram dédié en compte pro (une Page Facebook
+  ne peut pas exister sans profil admin — c'est le profil perso qui sert
+  d'admin, la Page reste une entité publique séparée). Connectée à Buffer
+  comme 2e canal (sur les 3 gratuits, X étant le 1er). Nouveau module
+  Make natif **Buffer → "Create a status update"**, 4e sortie du Router
+  existant (même déclencheur RSS `feed.xml`). Contrairement à X, Facebook
+  n'a pas de limite de caractères contraignante : `Text` reprend donc le
+  format riche façon LinkedIn plutôt que le format minimal de X —
+  `Title` + `Comments` complet + lien, avec l'accroche "🔥 Nouvelle
+  édition Scénario, à lire 👇" et la formule de clôture "👉 Lire l'analyse
+  complète : `URL`". Testé via "Run this module" dans Make : la fenêtre
+  de test manuel de Make a renvoyé une erreur "Value is not a valid URL
+  address" sur le champ `Comments` — **faux positif propre à la saisie de
+  données de test**, dû au fait que la norme RSS 2.0 définit `<comments>`
+  comme devant contenir une URL (page de commentaires), alors que ce flux
+  détourne le tag pour y mettre du texte libre ; n'affecte pas le
+  fonctionnement réel, ce même champ étant déjà utilisé sans problème par
+  la branche LinkedIn en production. Contournement : saisir une URL
+  factice dans la fenêtre de test pour passer la validation.
 - **P2 — Widget Telegram embarqué** sur `newsletter.html` (widget officiel
   `t.me/s/scenario_fr`, embeddable via `<script>`, statique/gratuit) :
   affiche les derniers posts du canal directement sur le site, donne à
