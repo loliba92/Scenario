@@ -134,7 +134,7 @@
   }
 
   .hero{
-    padding: 64px 0 40px;
+    padding: 36px 0 24px;
     border-bottom: 1px solid var(--hairline);
   }
 
@@ -144,16 +144,16 @@
     text-transform: uppercase;
     letter-spacing: 0.14em;
     color: var(--gold);
-    margin: 0 0 18px;
+    margin: 0 0 10px;
   }
 
   h1{
     font-family: "Fraunces", serif;
     font-weight: 600;
-    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    font-size: clamp(1.9rem, 5vw, 3.4rem);
     line-height: 1.08;
     letter-spacing: -0.01em;
-    margin: 0 0 16px;
+    margin: 0 0 8px;
     max-width: 16ch;
   }
 
@@ -164,7 +164,7 @@
     margin: 0;
   }
 
-  section.body-section{ padding: 48px 0; border-bottom: 1px solid var(--hairline); }
+  section.body-section{ padding: 32px 0; border-bottom: 1px solid var(--hairline); }
   section.body-section:last-of-type{ border-bottom: none; }
 
   .section-label{
@@ -180,7 +180,7 @@
     font-family: "Fraunces", serif;
     font-size: 1.6rem;
     font-weight: 600;
-    margin: 0 0 20px;
+    margin: 0 0 14px;
   }
 
   .body-section p{
@@ -221,8 +221,8 @@
     max-width: 62ch;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin: 28px 0 0;
+    gap: 12px;
+    margin: 18px 0 0;
   }
 
   .form-row{
@@ -298,7 +298,7 @@
   .form-checkboxes{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
   }
 
   .form-checkbox{
@@ -308,7 +308,7 @@
     background: var(--surface);
     border: 1px solid var(--hairline);
     border-radius: 8px;
-    padding: 13px 16px;
+    padding: 10px 14px;
     cursor: pointer;
     transition: border-color .15s;
   }
@@ -432,44 +432,13 @@
   <div class="wrap">
     <p class="eyebrow">Newsletter</p>
     <h1>Recevez Scénario par email</h1>
-    <p class="dek">Deux formats, au choix — un email par jour, ou un récap de la semaine chaque dimanche soir. Rien d'autre, jamais de spam.</p>
-  </div>
-</section>
-
-<section class="body-section">
-  <div class="wrap">
-    <p class="section-label">Quotidienne · Comment ça marche</p>
-    <h2 class="section-title">Un email, chaque matin</h2>
-    <p>Chaque jour vers 7h15, dès qu'une nouvelle édition est publiée, vous la recevez directement dans votre boîte mail — plus besoin d'aller vérifier le site.</p>
-    <ul class="perks">
-      <li>Un seul email par jour, jamais plus</li>
-      <li>100 % gratuit, sans engagement</li>
-      <li>Désinscription en un clic, à tout moment</li>
-      <li>Votre email ne sert qu'à ça — jamais revendu, jamais partagé</li>
-      <li>Si un email n'arrive pas, pensez à vérifier vos spams (surtout les premiers jours)</li>
-    </ul>
-
-  </div>
-</section>
-
-<section class="body-section">
-  <div class="wrap">
-    <p class="section-label">Hebdomadaire · Nouveau</p>
-    <h2 class="section-title">On refait le scénario de la semaine</h2>
-    <p>Un seul email, chaque dimanche soir : le récap des 7 sujets de la semaine, écrit dans un ton simple et vivant — pour celles et ceux qui préfèrent prendre du recul une fois par semaine plutôt que suivre au jour le jour.</p>
-    <ul class="perks">
-      <li>Un seul email par semaine, le dimanche soir</li>
-      <li>Les 7 sujets de la semaine, avec le lien vers chaque édition complète</li>
-      <li>100 % gratuit, sans engagement, désinscription en un clic</li>
-      <li>Indépendant de la quotidienne — cochez l'une, l'autre, ou les deux ci-dessous</li>
-    </ul>
   </div>
 </section>
 
 <section class="body-section">
   <div class="wrap">
     <p class="section-label">S'abonner</p>
-    <h2 class="section-title">Quelle formule pour vous ?</h2>
+    <h2 class="section-title">Quotidienne, hebdo, ou les deux</h2>
     <form class="subscribe-form" action="https://buttondown.com/api/emails/embed-subscribe/scenario" method="post">
       <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <input type="hidden" value="1" name="embed">
@@ -478,7 +447,7 @@
           <input type="checkbox" name="tags" value="quotidien" checked>
           <span class="form-checkbox-text">
             <span class="form-checkbox-title">Édition quotidienne</span>
-            <span class="form-checkbox-sub">Un email chaque matin, dès qu'une édition est publiée</span>
+            <span class="form-checkbox-sub">Un email chaque matin — parfois un peu plus si un sujet déjà traité est mis à jour</span>
           </span>
         </label>
         <label class="form-checkbox">
@@ -496,6 +465,36 @@
       <button class="submit-btn" type="submit">S'abonner</button>
       <p class="form-hint">Un email de confirmation vous sera envoyé — pensez à cliquer dessus pour valider votre inscription. S'il n'arrive pas dans votre boîte de réception, vérifiez vos spams / courriers indésirables. Cochez au moins une des deux formules.</p>
     </form>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">Quotidienne · Comment ça marche</p>
+    <h2 class="section-title">Un email, chaque matin</h2>
+    <p>Chaque jour vers 7h15, dès qu'une nouvelle édition est publiée, vous la recevez directement dans votre boîte mail — plus besoin d'aller vérifier le site.</p>
+    <ul class="perks">
+      <li>Un email par jour pour chaque nouvelle édition</li>
+      <li>Parfois un email de plus dans la journée si un sujet déjà traité fait l'objet d'un suivi/mise à jour — ça reste rare, jamais plus d'un ou deux par jour</li>
+      <li>100 % gratuit, sans engagement</li>
+      <li>Désinscription en un clic, à tout moment</li>
+      <li>Votre email ne sert qu'à ça — jamais revendu, jamais partagé</li>
+      <li>Si un email n'arrive pas, pensez à vérifier vos spams (surtout les premiers jours)</li>
+    </ul>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">Hebdomadaire · Nouveau</p>
+    <h2 class="section-title">On refait le scénario de la semaine</h2>
+    <p>Un seul email, chaque dimanche soir : le récap des 7 sujets de la semaine, écrit dans un ton simple et vivant — pour celles et ceux qui préfèrent prendre du recul une fois par semaine plutôt que suivre au jour le jour.</p>
+    <ul class="perks">
+      <li>Un seul email par semaine, le dimanche soir</li>
+      <li>Les 7 sujets de la semaine, avec le lien vers chaque édition complète</li>
+      <li>100 % gratuit, sans engagement, désinscription en un clic</li>
+      <li>Indépendant de la quotidienne — cochable en plus, dans le même formulaire</li>
+    </ul>
 
     <a class="cross-link" href="le-projet.html">Comment nous travaillons → Le projet</a>
   </div>
