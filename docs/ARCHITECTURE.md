@@ -22,6 +22,20 @@ Priorités P1 (fort impact, faible coût) à P3 (utile mais plus lourd ou
 moins prioritaire).
 
 **Distribution / automatisation**
+- **P2 — WhatsApp comme canal de diffusion automatisé, idée du 7 août.**
+  Buffer limite à 3 connecteurs gratuits (déjà pris par X, Facebook,
+  Instagram) — passer par un 4e connecteur Buffer serait payant. Option
+  écartée : créer un second compte Buffer gratuit avec une autre adresse
+  email pour contourner la limite — risque réel de détection (même site
+  `lesscenarios.fr`, mêmes réseaux sociaux liés, probablement même
+  appareil/IP) et de suspension des comptes liés, ce qui casserait aussi
+  X/Facebook/Instagram qui tournent déjà bien ; non recommandé, écarté
+  après discussion. **Piste retenue à explorer** : brancher WhatsApp
+  directement dans Make.com via son module natif **WhatsApp Business
+  Cloud API** (comme Telegram/LinkedIn aujourd'hui), sans passer par
+  Buffer du tout — nécessite un compte WhatsApp Business + accès à l'API
+  Cloud Meta (gratuit jusqu'à un certain volume de messages). Pas encore
+  configuré, à reprendre quand l'utilisateur veut avancer dessus.
 - **[FAIT le 4 août] Boutons de partage** (X, LinkedIn, WhatsApp, copier
   le lien) sur chaque édition — `index.html`, section `.share-block`,
   juste avant le footer. 100 % statique/générique : les liens sont
