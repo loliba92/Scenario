@@ -95,6 +95,28 @@ moins prioritaire).
   nettoyer) — une ligne vide en trop à l'affichage, sans impact
   fonctionnel. Blueprint à jour sauvegardé dans
   `assets/make/scenario-daily.blueprint.json`.
+- **[FAIT le 7 août] Image Instagram générée par édition** — pipeline
+  HTML/CSS + Playwright (`scripts/social/generate_instagram_image.py` +
+  `scripts/social/instagram-template.html`), image carrée 1080×1080 avec
+  le titre et les 3 titres de scénarios (couleur + flèche par scénario),
+  **sans pourcentages ni question/contexte** — deux choix volontaires du
+  7 août : pas de pourcentages (effet teaser vers le lien en bio) et pas
+  de question (retour utilisateur : restait illisible sur mobile même en
+  grossissant le texte plusieurs fois) — le contexte reste porté par
+  `<comments>`/la légende du post, pas par le visuel. Publiée via un tag
+  RSS `<enclosure>` standard ajouté à chaque `<item>` de `feed.xml`, lu
+  nativement par le module RSS de Make (`enclosures`), branché sur une
+  route Buffer → Instagram du scénario Daily. Routine quotidienne mise à
+  jour en conséquence (génère l'image, la committe dans
+  `assets/social/instagram/{AAAA-MM-JJ}.png`, ajoute l'`<enclosure>` —
+  voir `docs/routine-prompt.md`).
+- **P2 — Même pipeline d'image pour le récap hebdomadaire.** Le scénario
+  Make Weekly n'a pas encore d'image dédiée (`feed-weekly.xml` sans
+  `<enclosure>`, pas de route Buffer/Instagram sur ce scénario). Le
+  script/template devraient être largement réutilisables tels quels — à
+  trancher surtout le contenu affiché vu que le weekly porte sur 7 sujets
+  et pas 3 scénarios d'un seul sujet (image récap titre+date seule ? une
+  sélection des 7 sujets ? format encore à définir). Pas commencé.
 - **P2 — Widget Telegram embarqué** sur `newsletter.html` (widget officiel
   `t.me/s/scenario_fr`, embeddable via `<script>`, statique/gratuit) :
   affiche les derniers posts du canal directement sur le site, donne à
