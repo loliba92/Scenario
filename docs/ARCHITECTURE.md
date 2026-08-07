@@ -151,6 +151,12 @@ moins prioritaire).
   Automations RSS-to-email (quotidienne et hebdo) pour filtrer sur
   `tags` plutôt que sur `metadata.subscription_type` — configuration
   Buttondown, hors session (pas d'accès direct à l'interface).
+  **Ajouté le 7 août — simplifier la saisie en même temps que le fix** :
+  au lieu des deux formulaires séparés actuels (deux champs email à
+  remplir si on veut les deux), passer à un **seul formulaire** avec un
+  choix Quotidienne / Hebdo / Les deux (cases à cocher ou boutons), un
+  seul champ email, qui pousse les bons `tags` (un ou deux) en une seule
+  soumission plutôt que deux inscriptions distinctes.
 - **P2 — Widget Telegram embarqué** sur `newsletter.html` (widget officiel
   `t.me/s/scenario_fr`, embeddable via `<script>`, statique/gratuit) :
   affiche les derniers posts du canal directement sur le site, donne à
