@@ -84,7 +84,17 @@ moins prioritaire).
   détourne le tag pour y mettre du texte libre ; n'affecte pas le
   fonctionnement réel, ce même champ étant déjà utilisé sans problème par
   la branche LinkedIn en production. Contournement : saisir une URL
-  factice dans la fenêtre de test pour passer la validation.
+  factice dans la fenêtre de test pour passer la validation. **Même
+  branche ajoutée sur la sous-route "RSS SUIVI"** (module 33, mises à
+  jour de sujets suivis) avec le même `profileIds`, donc les deux
+  circuits (édition quotidienne et suivi) publient sur la Page Facebook.
+  **Point de vigilance mineur non bloquant** : le champ `Text` du module
+  32 (édition quotidienne) contient un unique retour à la ligne parasite
+  avant `{{4.title}}` (un mélange entre la touche Entrée et la pastille
+  `{{newline}}` du champ Make, malgré plusieurs allers-retours pour le
+  nettoyer) — une ligne vide en trop à l'affichage, sans impact
+  fonctionnel. Blueprint à jour sauvegardé dans
+  `assets/make/scenario-daily.blueprint.json`.
 - **P2 — Widget Telegram embarqué** sur `newsletter.html` (widget officiel
   `t.me/s/scenario_fr`, embeddable via `<script>`, statique/gratuit) :
   affiche les derniers posts du canal directement sur le site, donne à
