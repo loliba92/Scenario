@@ -201,6 +201,30 @@ moins prioritaire).
   l'utilisateur pour être rediscutées plus tard — ne rien commencer sans
   un go explicite**, y compris la variante légère malgré son coût
   d'implémentation plus faible.
+
+  **Points à réfléchir avant de lancer quoi que ce soit (ajoutés le 7
+  août, sur demande explicite de l'utilisateur — "tout doit être pensé
+  d'abord")** :
+  - **Précision et cohérence de la traduction** : les termes récurrents du
+    site (favorable/stable/dégradé, "scénario", les formulations types du
+    caveat probabilités, etc.) doivent être traduits de façon strictement
+    identique à chaque édition — envisager un **glossaire de référence**
+    (fichier dédié, ex. `docs/glossaire-en.md`) que la routine anglaise
+    consulterait systématiquement, plutôt que de laisser chaque traduction
+    réinventer sa propre formulation.
+  - **Archives** : décider si la traduction s'applique seulement aux
+    éditions futures, ou s'il faut aussi traduire rétroactivement les
+    archives françaises existantes (`archives/*.html`) — et si oui,
+    lesquelles et avec quelle méthode de contrôle qualité vu le volume.
+  - **Pages légales en anglais** : si une vraie version anglaise du site
+    voit le jour (pas juste la variante "posts X"), `politique-de-
+    confidentialite.html` et les mentions légales doivent avoir un
+    équivalent anglais tout aussi rigoureux — pas une simple traduction
+    automatique vu la sensibilité RGPD/juridique de ce contenu.
+  - Plus généralement, ne pas sous-estimer la variante "légère" (feed-en
+    vers X) sur ce point : même un simple post traduit doit rester
+    juridiquement/factuellement aussi rigoureux que l'édition française
+    d'origine, pas une traduction approximative.
 - **P2 — Widget Telegram embarqué** sur `newsletter.html` (widget officiel
   `t.me/s/scenario_fr`, embeddable via `<script>`, statique/gratuit) :
   affiche les derniers posts du canal directement sur le site, donne à
