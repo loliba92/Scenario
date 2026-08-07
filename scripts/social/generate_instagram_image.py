@@ -17,7 +17,6 @@ Usage:
 data.json:
 {
   "title": "FIFA : la présidence d'Infantino vacille",
-  "question": "🤔 Infantino peut-il regagner la confiance de l'UEFA avant l'élection de mars 2027 ?",
   "scenarios": [
     {"kind": "favorable", "label": "Infantino regagne la confiance"},
     {"kind": "stable", "label": "La méfiance dure, il reste en poste"},
@@ -27,7 +26,10 @@ data.json:
 
 Champs "kind" attendus : favorable | stable | degrade (détermine la
 couleur et la flèche ↑/→/↓). Pas de pourcentages dans l'image — c'est
-volontaire (effet teaser vers le lien en bio).
+volontaire (effet teaser vers le lien en bio). Pas de question/contexte
+non plus sur l'image (retiré le 7 août, retour utilisateur : illisible
+sur mobile même agrandi) — le contexte/la question va dans la légende
+du post (`{{4.Comments}}`), pas sur le visuel.
 """
 import argparse
 import html
@@ -54,7 +56,7 @@ def build_scenario_rows(scenarios):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--data", required=True, help="Chemin vers le JSON (title + question + scenarios)")
+    ap.add_argument("--data", required=True, help="Chemin vers le JSON (title + scenarios)")
     ap.add_argument("--output", required=True, help="Chemin du PNG de sortie")
     ap.add_argument("--template", required=True, help="Chemin du template HTML")
     args = ap.parse_args()
@@ -63,13 +65,11 @@ def main():
     template = Path(args.template).read_text(encoding="utf-8")
 
     title_html = html.escape(data["title"])
-    question_html = html.escape(data["question"])
     rows_html = build_scenario_rows(data["scenarios"])
 
     final_html = (
         template
         .replace("__TITLE__", title_html)
-        .replace("__QUESTION__", question_html)
         .replace("__SCENARIO_ROWS__", rows_html)
     )
 

@@ -260,7 +260,6 @@ où `/tmp/ig-data.json` contient :
 ```json
 {
   "title": "{h1 du jour}",
-  "question": "{emoji} {accroche + question du jour}",
   "scenarios": [
     {"kind": "favorable", "label": "{titre du h3 favorable, sans emoji}"},
     {"kind": "stable", "label": "{titre du h3 stable, sans emoji}"},
@@ -268,7 +267,7 @@ où `/tmp/ig-data.json` contient :
   ]
 }
 ```
-Les 3 `label` reprennent exactement les mêmes titres déjà utilisés pour `scenario-mini-title` à l'étape 6 (sans emoji) — jamais une nouvelle reformulation. Volontairement **aucun pourcentage** sur l'image (effet teaser vers le lien en bio Instagram, choix du 7 août). Committer le fichier PNG généré avec le reste des changements du jour. Ajouter ensuite, dans l'`<item>` du flux, juste après `</category>` et avant `<description>` :
+Les 3 `label` reprennent exactement les mêmes titres déjà utilisés pour `scenario-mini-title` à l'étape 6 (sans emoji) — jamais une nouvelle reformulation. Volontairement **aucun pourcentage** sur l'image (effet teaser vers le lien en bio Instagram, choix du 7 août), et volontairement **pas de question/contexte non plus** sur l'image (retiré le 7 août, retour utilisateur : illisible sur mobile même en gros, même en une seule fois agrandi une première fois) — seuls le titre et les 3 titres de scénarios y figurent, en gros caractères ; le contexte/la question reste porté par `<comments>` et sert de légende au post (pas un doublon à écrire ici). Committer le fichier PNG généré avec le reste des changements du jour. Ajouter ensuite, dans l'`<item>` du flux, juste après `</category>` et avant `<description>` :
 ```xml
 <enclosure url="https://lesscenarios.fr/assets/social/instagram/{AAAA-MM-JJ}.png" length="{taille en octets}" type="image/png"/>
 ```
