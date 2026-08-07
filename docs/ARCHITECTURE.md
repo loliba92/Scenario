@@ -185,8 +185,22 @@ moins prioritaire).
   stade : ni l'architecture (sous-dossier `en/` ? sous-domaine ? champ de
   langue par édition ?), ni si la routine anglaise republie les mêmes
   sujets que la française ou en sélectionne d'autres, ni le rythme de
-  publication. Explicitement mis de côté par l'utilisateur pour être
-  rediscuté plus tard — ne pas commencer sans un go explicite.
+  publication.
+
+  **Variante plus légère envisagée le même jour** (pas de site anglais
+  complet, juste une distribution anglophone) : ajouter à la routine
+  principale une traduction du titre + du commentaire de chaque édition,
+  publiée dans un nouveau `feed-en.xml` séparé de `feed.xml`, branché
+  côté Make sur une route Buffer dédiée qui poste **uniquement sur X**
+  (pas Telegram/LinkedIn/Facebook/Instagram) — parce que l'audience X est
+  jugée nettement plus anglophone que le reste des canaux. Pas de
+  nouvelles pages HTML anglaises dans cette variante, juste un post X en
+  anglais en plus du post français existant.
+
+  **Les deux options restent explicitement mises de côté par
+  l'utilisateur pour être rediscutées plus tard — ne rien commencer sans
+  un go explicite**, y compris la variante légère malgré son coût
+  d'implémentation plus faible.
 - **P2 — Widget Telegram embarqué** sur `newsletter.html` (widget officiel
   `t.me/s/scenario_fr`, embeddable via `<script>`, statique/gratuit) :
   affiche les derniers posts du canal directement sur le site, donne à
