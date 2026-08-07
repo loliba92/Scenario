@@ -249,6 +249,17 @@
     border-color: var(--gold);
   }
 
+  /* La puce "Récap de la semaine" est épinglée juste après "Tout" (voir JS)
+     plutôt que noyée dans le tri alphabétique des thèmes, avec une bordure
+     dorée pour se distinguer des puces thème neutres au premier coup d'œil. */
+  .filter-chip.filter-chip-weekly{
+    color: var(--gold);
+    border-color: var(--gold);
+    margin-right: 6px;
+  }
+  .filter-chip.filter-chip-weekly:hover{ background: var(--gold); color: var(--ink); }
+  .filter-chip.filter-chip-weekly.is-active{ color: var(--ink); background: var(--gold); }
+
   /* ---- Entrées ---- */
   .entry{
     display: flex;
@@ -922,7 +933,17 @@
 
     var allTagChip = makeChip(tagFiltersBox, 'all', 'Tout', function(){ setTagFilter('all'); });
     allTagChip.classList.add('is-active');
-    tagOrder.forEach(function(t){ makeChip(tagFiltersBox, t, seenTags[t], function(){ setTagFilter(t); }); });
+    // Le récap hebdo est un type d'entrée à part (pas un thème comme les autres) :
+    // on l'épingle juste après "Tout", avec un style distinct, plutôt que de le
+    // laisser se fondre au hasard dans l'ordre d'apparition des thèmes.
+    if(seenTags['hebdo']){
+      var weeklyChip = makeChip(tagFiltersBox, 'hebdo', seenTags['hebdo'], function(){ setTagFilter('hebdo'); });
+      weeklyChip.classList.add('filter-chip-weekly');
+    }
+    tagOrder.forEach(function(t){
+      if(t === 'hebdo') return;
+      makeChip(tagFiltersBox, t, seenTags[t], function(){ setTagFilter(t); });
+    });
 
     var allYearChip = makeChip(yearFiltersBox, 'all', 'Toutes', function(){ setYearFilter('all'); });
     allYearChip.classList.add('is-active');
