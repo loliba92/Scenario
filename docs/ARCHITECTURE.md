@@ -236,6 +236,22 @@ moins prioritaire).
   un go explicite**, y compris la variante légère malgré son coût
   d'implémentation plus faible.
 
+  **Troisième variante proposée le 8 août, comparée aux deux
+  précédentes** : traduire l'édition complète chaque jour + un
+  sélecteur de langue (drapeau FR/EN) sur le site, sans routine séparée
+  ni nouvelle sélection de sujets. Coût jugé **plus élevé que la
+  variante légère**, pas plus faible malgré une apparente simplicité :
+  traduire toute une édition (contexte + 3 cartes + indicateurs +
+  lexique + sources) avec la même rigueur terminologique revient
+  quasiment à doubler la rédaction quotidienne, et double la surface à
+  maintenir à chaque futur ajustement du gabarit (JSON-LD, sommaire,
+  "L'essentiel", balises `feed.xml`... tout ce qui a été touché le
+  8 août aurait dû l'être deux fois). Les questions d'architecture
+  restent aussi entières (sous-dossier/sous-domaine/toggle). Recommandé
+  par l'utilisateur : si un jour une distribution anglophone est
+  vraiment lancée, commencer par la variante légère pour tester
+  l'intérêt réel avant d'investir dans un site bilingue complet.
+
   **Points à réfléchir avant de lancer quoi que ce soit (ajoutés le 7
   août, sur demande explicite de l'utilisateur — "tout doit être pensé
   d'abord")** :
