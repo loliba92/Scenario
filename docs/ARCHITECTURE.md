@@ -357,6 +357,14 @@ moins prioritaire).
   ouverture, avant l'issue probable et le signal à surveiller. Passe de
   "2-3 phrases" à "3-4 phrases" en conséquence.
 
+  **Retouché une 3e fois le 8 août, retour utilisateur** : la structure
+  n'était pas assez marquée (partait trop vite sur la conclusion) —
+  imposé 3 temps distincts et dans cet ordre : problématique / contexte
+  / conclusion (issue probable + signal). Et un sujet vague repéré dans
+  le premier essai ("la fréquentation" sans préciser de quoi) — toujours
+  nommer précisément le sujet dans la phrase de contexte, ne jamais
+  présumer que le lecteur a déjà lu le reste de la page.
+
   **Aussi ajouté le 8 août : le même texte dans `feed.xml`**, dans
   l'`<item>` du jour (texte brut, sans balisage HTML) — disponible pour
   un usage futur côté Make.com, demande explicite de l'utilisateur
