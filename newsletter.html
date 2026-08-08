@@ -293,6 +293,29 @@
   .telegram-card p{ margin: 0 0 20px; }
   .telegram-card p:last-of-type{ margin-bottom: 24px; }
 
+  .telegram-widget-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+    margin: 28px 0 10px;
+  }
+
+  .telegram-widget-frame{
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 62ch;
+  }
+
+  .telegram-widget-frame iframe{
+    display: block;
+    width: 100%;
+    height: 480px;
+    border: 0;
+  }
+
   .form-hint{ font-size: 0.8rem; color: var(--paper-dim); margin: 0; }
 
   .form-checkboxes{
@@ -508,6 +531,10 @@
       <p class="telegram-card-title">🗳️ Un sondage chaque jour, avant la révélation</p>
       <p>Sur le canal Telegram <strong>Scénario</strong>, votez pour le scénario — favorable, stable ou dégradé — que vous jugez le plus probable, <strong>avant même de lire l'édition</strong> et ses vraies probabilités. Vous recevez aussi le teaser du jour et le lien direct vers l'article complet.</p>
       <a class="submit-btn" href="https://t.me/scenario_fr" target="_blank" rel="noopener noreferrer">Rejoindre le canal Telegram</a>
+    </div>
+    <p class="telegram-widget-label">Les derniers posts du canal, en direct :</p>
+    <div class="telegram-widget-frame">
+      <iframe src="https://t.me/s/scenario_fr" loading="lazy" title="Derniers posts du canal Telegram Scénario"></iframe>
     </div>
   </div>
 </section>
