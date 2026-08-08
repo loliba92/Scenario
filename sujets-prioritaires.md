@@ -116,7 +116,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 <!-- Faire tourner les domaines : cinéma, musique, jeux vidéo, littérature, spectacle… -->
 ## Culture française — samedi
 - [x] Musique et IA : des chansons créées par ordinateur débarquent — quel avenir pour les artistes en chair et en os ? (à traiter objectivement) [musique]
-- [ ] Cinéma français : après une forte baisse des entrées en 2025, va-t-il rebondir ou poursuivre son déclin ? [cinéma]
+- [x] Cinéma français : après une forte baisse des entrées en 2025, va-t-il rebondir ou poursuivre son déclin ? [cinéma]
 - [ ] Littérature et IA : avec les premiers livres écrits ou traduits par des IA, quel avenir pour les auteurs et traducteurs ? [littérature]
 
 <!-- Faire tourner les domaines : cinéma, musique, jeux vidéo, littérature, séries… -->
