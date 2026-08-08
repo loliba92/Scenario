@@ -257,17 +257,29 @@ moins prioritaire).
     vers X) sur ce point : même un simple post traduit doit rester
     juridiquement/factuellement aussi rigoureux que l'édition française
     d'origine, pas une traduction approximative.
-- **[FAIT le 8 août, à confirmer visuellement] Widget Telegram embarqué**
-  sur `newsletter.html`, section "Bonus", juste sous la carte existante.
-  Implémenté via `<iframe src="https://t.me/s/scenario_fr">` — la page
-  publique prévue par Telegram pour ce type d'intégration (statique,
-  gratuite, pas de script/clé API contrairement à ce qui était supposé
-  au départ dans ce backlog). **Rendu non vérifiable en session** (accès
-  réseau à `t.me` bloqué par le proxy de l'environnement sandbox) — à
-  confirmer visuellement une fois déployé, notamment que Telegram
-  n'envoie pas d'en-tête `X-Frame-Options`/CSP qui bloquerait
-  l'affichage en iframe (peu probable vu que c'est la page conçue pour
-  ça, mais pas testé en pratique par cette session).
+- **P2 — Widget Telegram embarqué : tenté et abandonné le 8 août,
+  Telegram bloque l'iframe.** Essayé via `<iframe src="https://t.me/s/
+  scenario_fr">`, la page publique du canal — supposée faite pour ce
+  genre d'intégration d'après plusieurs tutoriels tiers trouvés en
+  recherche. **Confirmé en prod par l'utilisateur : "t.me n'autorise pas
+  la connexion"** — Telegram envoie un en-tête (`X-Frame-Options` ou CSP
+  `frame-ancestors`) qui bloque l'affichage de `t.me/s/*` en iframe
+  depuis un site tiers. Retiré immédiatement (mieux vaut rien qu'une
+  icône d'erreur visible à chaque visiteur).
+
+  **Alternatives pour une prochaine tentative, aucune n'est aussi simple
+  que l'idée de départ** :
+  - Le vrai widget officiel Telegram (`telegram-widget.js`,
+    `data-telegram-post="canal/id"`) n'affiche **qu'un seul post fixe
+    par son ID**, pas un flux des derniers posts en direct — il
+    faudrait choisir 1-3 posts à la main et mettre à jour l'ID
+    régulièrement (perd l'aspect "automatique").
+  - Services tiers (SociableKit, Elfsight, Common Ninja...) : proxient
+    le contenu Telegram sur leur propre domaine pour contourner le
+    blocage, mais payants/limités en gratuit — contredit l'exigence
+    "statique/gratuit" de ce backlog à l'origine.
+  - Non retenu pour l'instant : le lien "Rejoindre le canal Telegram"
+    existant reste la seule option côté `newsletter.html`.
 - **[FAIT le 4 août] Groupe de discussion Telegram lié au canal** — jusque
   là le canal était en diffusion pure, aucune interaction possible côté
   lecteur. Un groupe dédié "Scenario - Discussion" a été créé et lié au
