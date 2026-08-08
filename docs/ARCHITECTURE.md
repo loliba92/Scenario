@@ -333,15 +333,31 @@ moins prioritaire).
   plutôt qu'en haut : moins redondant avec `question-box`/`stakes-box`
   qui font déjà ce travail de cadrage en haut de page, et comble un vrai
   vide qui n'existait pas (rien ne reliait les 3 scénarios entre eux
-  après lecture). Contenu : 2-3 phrases nommant le scénario le plus
-  probable + un signal concret à surveiller pour basculer vers un autre
-  — jamais une répétition des paragraphes `why` des cartes. Libellé
-  « L'essentiel » retenu plutôt que « Conclusion » (jugé trop tranché
-  pour un site qui pèse 3 issues sans en affirmer une), **nom encore
-  ouvert à ajustement par l'utilisateur**. Ajouté à `index.html` +
-  `archives/2026-08-08.html` + `docs/routine-prompt.md` (reproduction
-  quotidienne — nécessite le copier-coller manuel habituel dans la
-  routine live, `trig_0176spj7P7E9fyTs1XBkQBWF`).
+  après lecture). Contenu : 2-3 phrases décrivant l'issue la plus
+  probable + un signal concret à surveiller pour basculer vers une
+  autre — jamais une répétition des paragraphes `why` des cartes.
+  Libellé « L'essentiel » retenu plutôt que « Conclusion » (jugé trop
+  tranché pour un site qui pèse 3 issues sans en affirmer une), **nom
+  encore ouvert à ajustement par l'utilisateur**.
+
+  **Corrigé le 8 août même jour, retour utilisateur** : ne jamais
+  écrire les labels bruts "favorable"/"stable"/"dégradé" dans ce
+  bloc — le lecteur ne connaît pas forcément ce que chaque label
+  recouvre pour ce sujet précis (contrairement à quelqu'un qui vient de
+  lire les 3 cartes en détail juste au-dessus). Décrire l'issue en
+  langage concret à la place (ex. "le rebond se maintient sur un rythme
+  soutenu" plutôt que "le scénario stable").
+
+  **Aussi ajouté le 8 août : le même texte dans `feed.xml`**, tag
+  `<essentiel>` non standard dans l'`<item>` du jour (texte brut, sans
+  balisage HTML) — disponible pour un usage futur côté Make.com,
+  demande explicite de l'utilisateur ("on ne sait jamais"), pas encore
+  branché sur un module particulier.
+
+  Ajouté à `index.html` + `archives/2026-08-08.html` + `feed.xml` +
+  `docs/routine-prompt.md` (reproduction quotidienne — nécessite le
+  copier-coller manuel habituel dans la routine live,
+  `trig_0176spj7P7E9fyTs1XBkQBWF`).
 - **P2 — Icônes pour les boutons de partage** — inspiré d'un exemple
   brief.eco vu le 5 août (retour utilisateur : "pas l'idée de recopier,
   mais j'aime bien les icônes"), remplacer le texte "X, Facebook,
