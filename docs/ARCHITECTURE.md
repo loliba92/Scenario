@@ -317,10 +317,12 @@ moins prioritaire).
     la synchronisation manuelle de la routine quotidienne réelle**
     (comme pour les corrections précédentes) — pas encore fait côté
     trigger réel au moment d'écrire cette ligne.
-- **[FAIT le 8 août] Sommaire ancré** (Contexte / Scénarios / Sources) en
-  haut de chaque édition — `nav.toc`, juste après les boutons de partage.
-  Ancres `id` sur les 3 sections (`.hero`, `.scenarios`, `.sources`),
-  défilement fluide natif déjà en place. Ajouté à `index.html` +
+- **[FAIT le 8 août] Sommaire ancré** (Contexte / Scénarios / Lexique /
+  Sources) en haut de chaque édition — `nav.toc`, juste après les
+  boutons de partage. Ancres `id` sur les 4 sections (`.hero`,
+  `.scenarios`, `.lexique`, `.sources`, dans l'ordre réel de la page —
+  Lexique ajouté après coup, oublié dans la première passe), défilement
+  fluide natif déjà en place. Ajouté à `index.html` +
   `archives/2026-08-08.html`, et à `docs/routine-prompt.md` pour
   reproduction automatique chaque jour (bloc fixe, jamais de contenu
   variable). Vérifié visuellement + clic testé via Playwright.
