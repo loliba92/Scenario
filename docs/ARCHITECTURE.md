@@ -1644,18 +1644,53 @@ Voir les échanges de session pour le détail, mais en résumé :
   entrées du journal (pas encore de page dédiée), le jugement reste
   qualitatif — pas de probabilité de référence à comparer.
 
-  **Ne crée et ne modifie jamais automatiquement une page `suivi/*.html`,
-  ni le fichier `sujets-a-suivre.md` lui-même** : c'est toujours un
-  rapport de veille, jamais une publication — le "go" reste une décision
-  manuelle de l'utilisateur, donnée ensuite dans la session principale du
-  site. Ce point n'a pas changé le 7 août malgré la demande initiale d'une
-  possible auto-publication au-delà du seuil : refusé côté conception,
-  discuté avec l'utilisateur, parce que réévaluer un seuil chiffré à
-  chaque passage ne garantit pas d'écarter le bruit (une estimation peut
-  varier un peu sans vrai fait nouveau), et parce que le rôle éditorial du
-  site ("il choisit les sujets, encadre la vérification et tranche le
-  ton", voir `le-projet.html`) suppose justement un passage humain avant
-  publication.
+  **Ne créait et ne modifiait jamais automatiquement une page
+  `suivi/*.html`, ni `sujets-a-suivre.md`, jusqu'au 8 août** : c'était
+  jusque-là toujours un rapport de veille, jamais une publication — le
+  "go" restait une décision manuelle de l'utilisateur, donnée ensuite
+  dans la session principale du site. Ce point n'avait pas changé le
+  7 août malgré une première demande d'auto-publication au-delà du
+  seuil : refusé côté conception à ce moment-là, parce que réévaluer un
+  seuil chiffré à chaque passage ne garantit pas d'écarter le bruit (une
+  estimation peut varier un peu sans vrai fait nouveau), et parce que le
+  rôle éditorial du site suppose un passage humain avant publication.
+
+  **Revenu sur cette décision le 8 août, à la lumière d'un cas réel.**
+  Le jour même, la page de suivi FIFA/Infantino avait été créée
+  manuellement (voir plus haut) alors que l'écart réel (-10 points sur
+  le scénario favorable) restait sous le seuil de 20 points et que
+  l'édition d'origine datait de seulement 2 jours — un exemple concret
+  du bruit que le seuil chiffré seul ne suffit pas à écarter, exactement
+  l'objection soulevée le 7 août. Plutôt qu'abandonner l'idée
+  d'auto-publication, l'utilisateur a proposé un garde-fou supplémentaire
+  qui répond directement à cette objection : **auto-publier au plus un
+  seul sujet par passage** (le plus crédible, jamais tous les sujets
+  éligibles), **jamais un sujet dont le point de référence (dernière
+  version publiée, ou édition d'origine si pas encore de page de suivi)
+  a moins de 10 jours** — pour laisser un développement se confirmer
+  avant d'y réagir, plutôt que de publier sur un pic de bruit médiatique
+  du jour même. Avec cette règle, le cas FIFA du 8 août n'aurait de
+  toute façon pas été auto-publié (double filtre : écart sous 20 points
+  ET référence à 2 jours). Deuxième objection du 7 août (le rôle
+  éditorial suppose un passage humain avant publication) : reste vraie
+  en soi, mais l'utilisateur accepte explicitement le compromis —
+  vérification a posteriori plutôt qu'a priori, avec rollback git en
+  filet de sécurité si une auto-publication s'avère fausse.
+
+  **La clôture (🏁, voir point 2bis du prompt) reste dans tous les cas
+  une décision manuelle**, même pour le sujet retenu pour
+  l'auto-publication — seule la mise à jour normale (nouvelle version
+  ou nouvelle page) est concernée par l'automatisation, jamais le
+  passage d'un sujet en "VF — Résolu". Cohérent avec la règle posée le
+  8 août sur la clôture elle-même (fait vérifié requis, jamais un
+  franchissement de seuil interne, pour éviter l'auto-évaluation).
+
+  **Prompt de cette routine documenté dans un fichier dédié depuis le
+  8 août** : `docs/routine-detection-prompt.md`, sur le même principe
+  que `docs/routine-prompt.md` pour la routine éditoriale quotidienne —
+  sauf que ce trigger (`created_via: meta_mcp`) est directement éditable
+  via `update_trigger`, pas besoin du cycle copier-coller manuel requis
+  pour la routine quotidienne (`created_via: http_api`).
 
   **Notification par email, ajoutée le 7 août.** Avant cette date, la
   routine tournait attachée à la session principale (`persist_session`),
