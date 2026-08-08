@@ -22,7 +22,25 @@ Priorités P1 (fort impact, faible coût) à P3 (utile mais plus lourd ou
 moins prioritaire).
 
 **Distribution / automatisation**
-- **P2 — WhatsApp comme canal de diffusion automatisé, idée du 7 août.**
+- **P1 — Finaliser l'image de pub Instagram "Suis @scenarios.actu", en pause le 8 août faute de crédits IA.**
+  Base : `assets/social/instagram-ads/follow-cta-v1.png` (gabarit maison,
+  identique visuellement aux posts quotidiens), envoyée à l'utilisateur
+  avec un prompt pour l'améliorer via un outil IA photo externe (fond
+  plus premium, effet "flux de données"). Deux résultats reçus le 8 août,
+  tous deux avec des défauts à corriger avant utilisation :
+  - Version avec bullets "Gratuit"/"Sans pub"/pourcentages : **à écarter
+    telle quelle** — renomme "Stable" en "Scénario central" et "Dégradé"
+    en "Scénario défavorable" (casse le vocabulaire du site, toujours
+    Favorable/Stable/Dégradé), et affiche des pourcentages 35/45/20
+    inventés par l'IA, sans rapport avec de vraies données.
+  - Version plus sobre (garde Favorable/Stable/Dégradé intacts) : plus
+    proche du bon résultat, mais un chiffre parasite illisible traîne
+    dans le fond (artefact IA) — à régénérer en précisant explicitement
+    "no numbers, no extra text in the background". Contient aussi une
+    ligne ajoutée "Gratuit et sans pub" non présente dans l'original, à
+    valider ou retirer.
+  **Repris le [date à compléter] une fois les crédits IA renouvelés** —
+  utilisateur à relancer explicitely, il n'a plus de crédits le 8 août.
   Buffer limite à 3 connecteurs gratuits (déjà pris par X, Facebook,
   Instagram) — passer par un 4e connecteur Buffer serait payant. Option
   écartée : créer un second compte Buffer gratuit avec une autre adresse
