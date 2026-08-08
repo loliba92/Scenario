@@ -1247,6 +1247,46 @@ Voir les échanges de session pour le détail, mais en résumé :
   pour que Make.com relaie l'annonce ; vérifier visuellement avant de
   pousser.
 
+  **Clôture d'un sujet suivi, décidée le 8 août — pas un nouveau
+  système, un état final sur celui-ci.** Réflexion menée avec
+  l'utilisateur sur un « track record » (mesurer si les scénarios
+  publiés se réalisent vraiment) : plutôt que construire une page/base
+  séparée, un sujet suivi peut simplement se **clôturer** — sa dernière
+  version devient définitive.
+
+  - **Condition de clôture : un fait réel, vérifié et sourcé, confirme
+    clairement lequel des 3 scénarios s'est réalisé** — jamais le seul
+    franchissement d'un seuil de probabilité interne (idée écartée après
+    discussion : une probabilité élevée reste notre propre confiance, pas
+    un fait vérifié ; clôturer dessus risquerait de figer un verdict
+    juste avant un retournement, et s'apparente à de l'auto-évaluation).
+    Un seuil de probabilité franchi (≥ 80% ou ≤ 20% sur un scénario) ou
+    une échéance connue atteinte servent de **déclencheur pour aller
+    vérifier**, pas de critère de clôture en eux-mêmes.
+  - Cette version finale suit le même format que les autres (cartes
+    `.mini-scenarios`, comparaison à la version précédente), mais son
+    titre de version est explicitement marqué **« VF — Résolu »**
+    (au lieu de « V2 », « V3»...) et son texte d'intro doit rappeler en
+    une phrase ce qui avait été prédit en V0 (quel scénario était jugé
+    le plus probable, à quel %) avant de dire ce qui s'est réellement
+    passé — le contraste prédiction/réalité doit être lisible sans avoir
+    à remonter voir V0 soi-même.
+  - **Badge changé sur `archives.html` et sur la page elle-même** :
+    `✅ Résolu le {date}` à la place de `🔄 Suivi mis à jour le {date}`.
+  - **Une fois clôturé, le sujet sort de la section « Suivis actifs »**
+    de `docs/sujets-a-suivre.md` (plus besoin de le repasser en revue à
+    chaque passage de la routine de détection) — mais la page
+    `suivi/{sujet}.html` elle-même reste en ligne en permanence, comme
+    une archive, jamais supprimée.
+  - **Processus toujours entièrement manuel** : comme pour toute mise à
+    jour de suivi, la clôture n'est jamais automatique — la routine de
+    détection (voir plus bas) peut la **signaler** comme probable, la
+    décision et la rédaction restent celles de l'utilisateur en session.
+  - Pas de page d'index dédiée ("track record") pour l'instant — trop tôt
+    vu le faible nombre de sujets suivis actuellement. À reconsidérer une
+    fois plusieurs sujets réellement résolus (voir aussi la section
+    Backlog en tête de ce document).
+
   **Annonce des mises à jour sur Telegram/LinkedIn, ajoutée le 2 août.**
   Demande explicite de l'utilisateur : quand une page de suivi reçoit une
   nouvelle version (V1, V2…), l'annoncer aussi sur Telegram et LinkedIn —
