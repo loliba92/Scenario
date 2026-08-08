@@ -588,6 +588,24 @@
     color: var(--accent);
   }
 
+  .field-name{
+    display: block;
+    font-size: 0.82rem;
+    color: var(--paper-dim);
+    margin-bottom: 2px;
+  }
+
+  .evo-current{ font-size: 1.5rem; font-weight: 700; color: var(--paper); line-height: 1; }
+  .evo-arrow{ display: inline-block; font-weight: 700; font-size: 1.1rem; }
+  .evo-arrow.is-up{ color: var(--favorable); }
+  .evo-arrow.is-down{ color: var(--degrade); }
+  .evo-arrow.is-flat{ color: var(--paper-dim); }
+  .evo-prev{ font-size: 0.76rem; color: var(--paper-dim); font-weight: 400; }
+
+  .field li .evo-current{ font-size: 1.15rem; }
+  .field li .evo-arrow{ font-size: 0.95rem; }
+  .field li .evo-prev{ font-size: 0.74rem; }
+
   .france-line{
     background: var(--surface-2);
     border-radius: 4px;
@@ -896,6 +914,10 @@
         <span class="label">Cumul des entrées, janvier-juillet 2026</span>
         <span class="value">~107,9 M <span class="delta">▲ nettement au-dessus du rythme de 2025</span></span>
       </div>
+      <div class="indicator">
+        <span class="label">Part de marché des films français en 2025</span>
+        <span class="value">37,9 % <span class="delta">— le KPI suivi dans les 3 scénarios ci-dessous</span></span>
+      </div>
     </div>
 
   </div>
@@ -932,9 +954,14 @@
         <div class="field">
           <span class="field-label">Indicateurs touchés</span>
           <ul>
-            <li>Fréquentation totale en France en 2026 (156,79 M en 2025) : au-dessus de 185 M d'entrées sur l'année, soit +18 à +25 %.</li>
-            <li>Part de marché des films français (37,9 % en 2025) : remonte au-dessus de 40 %.</li>
-            <li>Écart avec le record pré-Covid de 2019 (213,3 M d'entrées) : se réduit sous les 15 %.</li>
+            <li>
+              <span class="field-name">Fréquentation totale en 2026</span>
+              <span class="evo-current">185 M+</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">(vs 156,79 M en 2025)</span>
+            </li>
+            <li>
+              <span class="field-name">Part de marché des films français</span>
+              <span class="evo-current">40 %+</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">(vs 37,9 % en 2025)</span>
+            </li>
             <li>Ordres de grandeur indicatifs, pas des prévisions garanties.</li>
           </ul>
         </div>
@@ -964,9 +991,14 @@
         <div class="field">
           <span class="field-label">Indicateurs touchés</span>
           <ul>
-            <li>Fréquentation totale en 2026 : entre 165 et 180 M d'entrées, soit +5 à +15 % par rapport à 2025.</li>
-            <li>Part de marché des films français : stable autour de 37-39 %, proche du niveau de 2025.</li>
-            <li>Nombre de films dépassant 1 million d'entrées sur l'année : en légère hausse, mais toujours porté par une poignée de locomotives.</li>
+            <li>
+              <span class="field-name">Fréquentation totale en 2026</span>
+              <span class="evo-current">165-180 M</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">(vs 156,79 M en 2025)</span>
+            </li>
+            <li>
+              <span class="field-name">Part de marché des films français</span>
+              <span class="evo-current">37-39 %</span> <span class="evo-arrow is-flat">→</span> <span class="evo-prev">(vs 37,9 % en 2025)</span>
+            </li>
             <li>Ordres de grandeur indicatifs, pas des prévisions garanties.</li>
           </ul>
         </div>
@@ -996,9 +1028,14 @@
         <div class="field">
           <span class="field-label">Indicateurs touchés</span>
           <ul>
-            <li>Fréquentation totale en 2026 : proche de celle de 2025 (156,79 M), soit 0 à +5 % seulement sur l'année.</li>
-            <li>Part de marché des films français : recul sous 35 %, un nouveau plus bas.</li>
-            <li>Spectateurs perdus en 2025 par rapport à 2024 (-24 millions) : toujours pas rattrapés fin 2026.</li>
+            <li>
+              <span class="field-name">Fréquentation totale en 2026</span>
+              <span class="evo-current">~157 M</span> <span class="evo-arrow is-flat">→</span> <span class="evo-prev">(vs 156,79 M en 2025)</span>
+            </li>
+            <li>
+              <span class="field-name">Part de marché des films français</span>
+              <span class="evo-current">&lt;35 %</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs 37,9 % en 2025)</span>
+            </li>
             <li>Ordres de grandeur indicatifs, pas des prévisions garanties.</li>
           </ul>
         </div>
