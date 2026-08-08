@@ -542,6 +542,20 @@ moins prioritaire).
   `archives/2026-08-08.html`, vérifiés visuellement (desktop + mobile)
   via Playwright, et documentés dans `docs/routine-prompt.md` pour que
   les prochaines éditions reproduisent directement ce format.
+- **[FAIT le 8 août] Retire la ligne `.ai-disclosure` du footer**
+  ("🤖 Recherche et rédaction assistées par l'intelligence artificielle.
+  En savoir plus sur notre méthode →"), retour utilisateur : devenue
+  redondante avec la footnote `.indicators-note` ajoutée juste au-dessus
+  le même jour (même lien "En savoir plus sur notre méthode →" vers
+  `le-projet.html`, qui contient de toute façon la mention complète de
+  l'IA dans sa section "Qui fait Scénario"). Retiré de `index.html` et
+  `archives/2026-08-08.html` (paragraphe + CSS associé) — **pas retiré
+  des 15 autres archives déjà publiées**, qui n'ont pas la nouvelle
+  footnote et n'ont donc pas ce doublon (archives figées, pas de raison
+  de les toucher). Rien à changer dans `docs/routine-prompt.md` : cette
+  ligne n'était jamais mentionnée explicitement dans le prompt, juste
+  héritée du gabarit `index.html` recopié tel quel — sa suppression du
+  gabarit suffit à ce qu'elle disparaisse des prochaines éditions.
 - **P1 — Rendre visible le dernier sujet de suivi mis à jour, sans avoir
   à aller sur `archives.html` et cliquer le filtre "Dernière mise à
   jour".** Constat de l'utilisateur le 8 août : aujourd'hui, un sujet
