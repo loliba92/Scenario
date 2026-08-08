@@ -388,16 +388,15 @@ moins prioritaire).
   `docs/routine-prompt.md` (reproduction quotidienne — nécessite le
   copier-coller manuel habituel dans la routine live,
   `trig_0176spj7P7E9fyTs1XBkQBWF`).
-- **P2 — Icônes pour les boutons de partage** — inspiré d'un exemple
-  brief.eco vu le 5 août (retour utilisateur : "pas l'idée de recopier,
-  mais j'aime bien les icônes"), remplacer le texte "X, Facebook,
-  LinkedIn..." de `.share-inline` par de petites icônes (glyphes fins,
-  cohérents avec le style du site — pas les logos couleur officiels des
-  plateformes). Attention à ne pas revenir sur la décision du 4 août
-  (position discrète juste sous le titre, pas de gros boutons) : des
-  icônes compactes dans la même ligne, pas un nouveau bloc imposant.
-  Effort modéré (SVG inline ou police d'icônes + CSS), reste 100% dans le
-  gabarit statique. Pas encore implémenté.
+- **[FAIT, non daté précisément — repéré et corrigé le 8 août] Icônes
+  pour les boutons de partage** — inspiré d'un exemple brief.eco vu le
+  5 août. `.share-inline` utilise déjà des icônes SVG inline fines
+  (X, Facebook, LinkedIn, WhatsApp, Telegram, copier le lien), pas de
+  texte ni de logos couleur officiels des plateformes — position
+  discrète juste sous le titre, conforme à la décision du 4 août. Cette
+  entrée était restée non cochée par erreur alors que le travail avait
+  déjà été fait entre le 5 et le 8 août ; repéré en vérifiant l'état
+  réel du code plutôt que de se fier au backlog seul.
 - **[FAIT le 5 août] Glossaire** — inspiré du même exemple brief.eco (lien
   "Glossaire" dans son footer email). En creusant le sujet, une bonne
   partie du travail existait déjà sans que ce soit documenté ici : chaque
