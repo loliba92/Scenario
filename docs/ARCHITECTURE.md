@@ -542,6 +542,33 @@ moins prioritaire).
   `archives/2026-08-08.html`, vérifiés visuellement (desktop + mobile)
   via Playwright, et documentés dans `docs/routine-prompt.md` pour que
   les prochaines éditions reproduisent directement ce format.
+- **P1 — Rendre visible le dernier sujet de suivi mis à jour, sans avoir
+  à aller sur `archives.html` et cliquer le filtre "Dernière mise à
+  jour".** Constat de l'utilisateur le 8 août : aujourd'hui, un sujet
+  suivi vient d'être mis à jour ou une nouvelle page créée (badge 🔄 sur
+  `archives.html`), mais rien ne le signale sur `index.html` — un
+  visiteur qui arrive sur le site n'a aucun moyen de le savoir sans
+  déjà connaître le mécanisme des pages de suivi et aller chercher le
+  filtre. D'autant plus vrai maintenant que la routine de détection peut
+  publier une mise à jour de façon autonome (voir plus haut, "Sélection
+  et publication automatique") — un lecteur régulier n'a alors aucun
+  signal visible d'un changement survenu le soir même.
+
+  **Piste à explorer** : un petit indicateur permanent, visible depuis
+  la page d'accueil (`index.html`), du type `🔄 Suivi : {Sujet} mis à
+  jour le {date} →` pointant directement vers `suivi/{sujet}.html` —
+  même esprit que le badge déjà en place sur `archives.html`, réutilisé
+  à un endroit où il sera vu sans action de la part du visiteur (ex.
+  juste sous le sommaire ancré, ou dans le nav). Complexité principale à
+  trancher : `index.html` est régénéré chaque matin par la routine
+  éditoriale quotidienne, mais une mise à jour de suivi peut survenir à
+  tout moment (manuellement, ou désormais automatiquement le soir) — il
+  faut donc que **le mécanisme qui publie une mise à jour de suivi
+  touche aussi cet indicateur sur `index.html`** (et idéalement sur les
+  archives déjà publiées, via un fragment/include partagé plutôt qu'une
+  édition à la main de chaque fichier), pas seulement `archives.html`
+  comme aujourd'hui. À concevoir avant d'implémenter — pas encore
+  commencé.
 
 **Technique**
 - **[FAIT le 4 août] Optimisation de `archives.html`** — repéré le 4 août
@@ -1460,8 +1487,9 @@ Voir les échanges de session pour le détail, mais en résumé :
     fois plusieurs sujets réellement résolus (voir aussi la section
     Backlog en tête de ce document).
 
-  **Piste à approfondir plus tard (notée le 8 août, discussion à
-  reprendre) : préciser le déclencheur idéal de clôture.** L'utilisateur
+  **P1 — Piste à approfondir plus tard (notée le 8 août, passée en P1
+  le 8 août, discussion à reprendre) : préciser le déclencheur idéal de
+  clôture.** L'utilisateur
   propose que la clôture soit idéalement déclenchée quand **un événement
   concret déjà nommé dans la définition d'un des 3 scénarios se
   réalise** (ex. une démission, une motion de défiance effectivement
