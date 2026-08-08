@@ -351,6 +351,12 @@ moins prioritaire).
   langage concret à la place (ex. "le rebond se maintient sur un rythme
   soutenu" plutôt que "le scénario stable").
 
+  **Complété le 8 août, encore le même jour** : le bloc doit être
+  **autonome**, lisible sans avoir lu le reste de l'article (partage,
+  extrait...) — ajout d'une phrase de contexte/problématique en
+  ouverture, avant l'issue probable et le signal à surveiller. Passe de
+  "2-3 phrases" à "3-4 phrases" en conséquence.
+
   **Aussi ajouté le 8 août : le même texte dans `feed.xml`**, dans
   l'`<item>` du jour (texte brut, sans balisage HTML) — disponible pour
   un usage futur côté Make.com, demande explicite de l'utilisateur
