@@ -28,6 +28,16 @@ mériter une page de suivi ou une mise à jour.
   Doomsday.
   Dernière vérification : 1er août 2026 (V1).
 
+- **FIFA : la crise autour d'Infantino** (édition du 6 août 2026)
+  Suivi existant : `suivi/fifa-infantino.html` (V0 + V1 au 8 août).
+  Prochaine échéance connue : date limite de candidature à la présidence
+  de la FIFA le **18 novembre 2026**, puis élection le **18 mars 2027**.
+  À surveiller aussi : un éventuel dépôt formel de motion de défiance par
+  l'UEFA (déclencherait un congrès extraordinaire sous 3 mois), l'entrée
+  en lice d'un candidat de poids (Montagliani, Ceferin...), et toute
+  suite donnée au scandale du paiement UEFA à une ex-employée.
+  Dernière vérification : 8 août 2026 (V1).
+
 ---
 
 ## Journal des sujets publiés
@@ -40,7 +50,7 @@ un sujet devenu manifestement sans suite (voir marche à suivre dans
 
 - 08.08.2026 — [Le cinéma reprend des couleurs](../archives/2026-08-08.html)
 - 07.08.2026 — [Big Tech face à la justice](../archives/2026-08-07.html)
-- 06.08.2026 — [FIFA : la présidence d'Infantino vacille](../archives/2026-08-06.html)
+- 06.08.2026 — [FIFA : la présidence d'Infantino vacille](../archives/2026-08-06.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.
 - 05.08.2026 — [EPR2 : le nucléaire français à l'heure de vérité](../archives/2026-08-05.html)
 - 04.08.2026 — [Gaza : la paix qui reste sur le papier](../archives/2026-08-04.html)
 - 03.08.2026 — [Ceuta : la frontière qui a craqué](../archives/2026-08-03.html)

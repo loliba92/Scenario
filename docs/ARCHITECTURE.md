@@ -1460,6 +1460,24 @@ Voir les échanges de session pour le détail, mais en résumé :
     fois plusieurs sujets réellement résolus (voir aussi la section
     Backlog en tête de ce document).
 
+  **Deuxième cas réel construit le 8 août** : `suivi/fifa-infantino.html`,
+  suite de l'édition du 6 août ("FIFA : la présidence d'Infantino
+  vacille"), déclenché par un sujet remonté par la routine de détection
+  du soir (voir plus bas) plutôt que par une demande spontanée. V0 reprend
+  les 3 scénarios d'origine (favorable 20%, stable 45% jugé le plus
+  probable, dégradé 35%). V1 (8 août) intègre les développements réels
+  des 7-8 août — UEFA confirmant avoir « perdu confiance », FIFPRO
+  dénonçant un « abus de pouvoir présidentiel », le scandale du paiement
+  UEFA à une ex-employée, et surtout l'appui public de la CAF (unanime),
+  de l'Argentine et du Mexique à Infantino — avec une conclusion qui
+  nomme le scénario le plus volatil (favorable, -10 points) tout en
+  distinguant ce qui relève de la rhétorique (durcissement du ton UEFA,
+  dégradé +5) de ce qui relève d'un fait structurant pour le vote
+  (bloc de 111 voix désormais confirmé publiquement, stable +5). Badge +
+  tri par fraîcheur branchés sur `archives.html`, entrée « Suivis actifs »
+  ajoutée dans `docs/sujets-a-suivre.md`, item ajouté dans
+  `feed-suivi.xml`, tout vérifié visuellement (desktop + mobile).
+
   **Annonce des mises à jour sur Telegram/LinkedIn, ajoutée le 2 août.**
   Demande explicite de l'utilisateur : quand une page de suivi reçoit une
   nouvelle version (V1, V2…), l'annoncer aussi sur Telegram et LinkedIn —
