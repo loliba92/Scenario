@@ -251,6 +251,28 @@
   .share-inline button.is-copied .share-icon-check{ display: inline-flex; }
   .share-inline button.is-copied{ color: var(--favorable); border-color: var(--favorable); }
 
+  .toc{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 24px;
+  }
+
+  .toc a{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border: 1px solid var(--hairline);
+    border-radius: 100px;
+    padding: 6px 14px;
+    transition: color .15s, border-color .15s;
+  }
+
+  .toc a:hover{ color: var(--paper); border-color: var(--paper-dim); }
+
   h1{
     font-family: "Fraunces", serif;
     font-weight: 600;
@@ -786,7 +808,7 @@
   </div>
 </nav>
 
-<section class="hero">
+<section class="hero" id="contexte">
   <div class="wrap">
     <p class="eyebrow">Samedi culture française · Un an après la pire fréquentation depuis 1997</p>
     <h1>Le cinéma reprend des couleurs</h1>
@@ -813,6 +835,12 @@
         <svg class="share-icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>
       </button>
     </p>
+
+    <nav class="toc" aria-label="Sommaire de l'édition">
+      <a href="#contexte">Contexte</a>
+      <a href="#scenarios">Scénarios</a>
+      <a href="#sources">Sources</a>
+    </nav>
 
     <div class="question-box">
       <span class="question-label">La question posée</span>
@@ -845,7 +873,7 @@
   </div>
 </section>
 
-<section class="scenarios">
+<section class="scenarios" id="scenarios">
   <div class="wrap">
     <p class="section-label">Favorable, stable ou dégradé</p>
     <h2 class="section-title">Rebond durable, reprise à moitié, ou nouvelle chute ?</h2>
@@ -977,7 +1005,7 @@
   </div>
 </section>
 
-<section class="sources">
+<section class="sources" id="sources">
   <div class="wrap">
     <p class="section-label">Pour aller plus loin</p>
     <h2 class="section-title">Sources</h2>
