@@ -172,17 +172,15 @@ Lister 2 à 4 liens vers les sources principales **effectivement consultées** p
 
 **Le libellé de cette section est « Pour aller plus loin », pas « Pour vérifier par vous-même »** (changé le 5 août, retour utilisateur : "vérifier" sous-entend que le contenu n'est pas fiable en soi, ça ne rassure pas — alors que citer ses sources devrait au contraire inspirer confiance). Ne jamais revenir à l'ancien libellé.
 
-**Sommaire ancré, ajouté le 8 août, complété le même jour avec « Essentiel ».** Juste après le bloc `share-inline` (les boutons de partage) et avant `question-box`, un bloc fixe — toujours les 5 mêmes ancres, jamais de contenu variable :
+**Sommaire ancré, ajouté le 8 août, simplifié le même jour à 3 tags.** Juste après le bloc `share-inline` (les boutons de partage) et avant `question-box`, un bloc fixe — toujours les 3 mêmes ancres, jamais de contenu variable :
 ```html
 <nav class="toc" aria-label="Sommaire de l'édition">
-  <a href="#contexte">Contexte</a>
   <a href="#scenarios">Scénarios</a>
-  <a href="#essentiel">Essentiel</a>
-  <a href="#lexique">Lexique</a>
-  <a href="#sources">Sources</a>
+  <a href="#essentiel">L'essentiel</a>
+  <a href="#lexique">Référence</a>
 </nav>
 ```
-Pour que ça fonctionne, ajouter l'`id` correspondant, dans l'ordre réel où les éléments apparaissent sur la page : `<section class="hero" id="contexte">`, `<section class="scenarios" id="scenarios">`, `<div class="essentiel-box" id="essentiel">` (voir plus bas — l'`id` va directement sur ce bloc, pas sur `section.scenarios` qui l'englobe, pour sauter précisément dessus plutôt qu'au début des cartes), `<section class="lexique" id="lexique">`, `<section class="sources" id="sources">` — le reste de leurs classes ne change pas. Le CSS `.toc` existe déjà dans le gabarit (voir `index.html`) : ne pas le redéfinir. Le défilement fluide est déjà géré globalement (`html{ scroll-behavior: smooth; }`), rien à ajouter pour ça.
+**Simplifié le 8 août (retour utilisateur)** : une première version avait 5 ancres (Contexte / Scénarios / Essentiel / Lexique / Sources) — ramenée à 3 pour tenir sur une seule ligne en mobile. « Contexte » retiré (juste en dessous du sommaire, redondant). « Lexique » et « Sources » fusionnés en un seul tag « Référence », qui pointe vers `#lexique` (le premier des deux dans l'ordre de la page — l'utilisateur prévoit de fusionner les deux sections elles-mêmes plus tard, pas encore fait). Pour que ça fonctionne, ajouter l'`id` correspondant sur : `<section class="scenarios" id="scenarios">`, `<div class="essentiel-box" id="essentiel">` (l'`id` va directement sur ce bloc, pas sur `section.scenarios` qui l'englobe, pour sauter précisément dessus plutôt qu'au début des cartes), `<section class="lexique" id="lexique">` — le reste de leurs classes ne change pas. Le CSS `.toc` existe déjà dans le gabarit (voir `index.html`) : ne pas le redéfinir. Le défilement fluide est déjà géré globalement (`html{ scroll-behavior: smooth; }`), rien à ajouter pour ça.
 
 3bis. **Mettre à jour les balises `<head>` avec le contenu du jour — jamais laisser le tagline générique du site.** Bug trouvé le 4 août (retour utilisateur, en partageant l'édition du jour sur LinkedIn) : `<title>`, `og:title`, `og:description`, `twitter:title`, `twitter:description` et `meta name="description"` étaient restés au tagline générique ("Scénario — L'actualité en trois scénarios chiffrés") sur `index.html` **et** sur toutes les archives déjà publiées, alors qu'ils devraient refléter le sujet du jour — LinkedIn (et tout outil qui lit les balises Open Graph plutôt qu'un texte fourni directement, contrairement à WhatsApp) affichait donc une carte de partage générique au lieu du titre réel de l'édition. Remplacer, dans le `<head>` du gabarit :
 - `<title>{h1 du jour} — Scénario</title>`

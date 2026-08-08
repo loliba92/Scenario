@@ -317,18 +317,23 @@ moins prioritaire).
     la synchronisation manuelle de la routine quotidienne réelle**
     (comme pour les corrections précédentes) — pas encore fait côté
     trigger réel au moment d'écrire cette ligne.
-- **[FAIT le 8 août] Sommaire ancré** (Contexte / Scénarios / Essentiel /
-  Lexique / Sources) en haut de chaque édition — `nav.toc`, juste après
-  les boutons de partage. Ancres `id` sur les 5 éléments, dans l'ordre
-  réel de la page (`.hero`, `.scenarios`, `.essentiel-box`, `.lexique`,
-  `.sources` — Lexique puis Essentiel ajoutés après coup, oubliés dans
-  la première passe ; l'`id` d'Essentiel va directement sur
-  `.essentiel-box`, pas sur `section.scenarios` qui l'englobe, pour
-  sauter précisément dessus), défilement fluide natif déjà en place.
-  Ajouté à `index.html` + `archives/2026-08-08.html`, et à
-  `docs/routine-prompt.md` pour reproduction automatique chaque jour
-  (bloc fixe, jamais de contenu variable). Vérifié visuellement + clic
-  testé via Playwright.
+- **[FAIT le 8 août] Sommaire ancré**, en haut de chaque édition —
+  `nav.toc`, juste après les boutons de partage. Passé par plusieurs
+  versions le même jour : d'abord 3 ancres (Contexte/Scénarios/Sources),
+  puis Lexique ajouté (oublié dans la première passe) puis Essentiel
+  (5 ancres au total), **puis simplifié en fin de journée à 3 tags
+  définitifs** sur retour utilisateur : `Scénarios` / `L'essentiel` /
+  `Référence` — Contexte retiré (redondant, juste en dessous du
+  sommaire), Lexique et Sources fusionnés en un seul tag "Référence"
+  (pointe vers `#lexique`, le premier des deux — fusion des sections
+  elles-mêmes prévue plus tard par l'utilisateur, pas encore faite).
+  Padding/gap/taille resserrés pour que les 3 tags tiennent sur une
+  ligne à 390px de large (mobile) — la version à 5 tags avait déjà ce
+  problème avant même la simplification. Ajouté à `index.html` +
+  `archives/2026-08-08.html`, et à `docs/routine-prompt.md` pour
+  reproduction automatique chaque jour (bloc fixe, jamais de contenu
+  variable). Vérifié visuellement (desktop + mobile 390px) + clic testé
+  via Playwright.
 - **[FAIT le 8 août] Bloc de synthèse « L'essentiel », après les 3
   scénarios.** Idée initiale (« résumé 1 minute en haut d'article »)
   suggérée par un retour externe (voir revue du 8 août plus haut) —
