@@ -1266,16 +1266,43 @@ Voir les échanges de session pour le détail, mais en résumé :
   6 août, à ré-exporter et remplacer si le scénario est modifié par la
   suite — pas de synchronisation automatique).
 
-  **⚠️ Point de vigilance non résolu au 6 août** : "Retrieve RSS feed
+  **[FAIT le 8 août] Bug de répétition corrigé** — "Retrieve RSS feed
   items" n'a pas de mémoire des items déjà vus (contrairement à "Watch"
-  sur `feed.xml`) — à chaque exécution du scénario "Daily" (1x/jour), il
-  renvoie le dernier item de `feed-suivi.xml` **qu'il ait déjà été traité
-  ou non**. Sans déduplication, ça veut dire **reposter la même mise à
-  jour de suivi tous les jours** tant qu'aucune nouvelle mise à jour
-  n'est publiée, plutôt qu'une seule fois. Pas encore corrigé — solution
-  envisagée : ajouter un module **Data Store** (mémorise les `guid` déjà
-  postés) + un **Filter** juste après "Retrieve" qui ne laisse passer
-  que les items dont le `guid` n'est pas déjà connu.
+  sur `feed.xml`), donc à chaque exécution du scénario "Daily" (1x/jour)
+  il renvoyait le dernier item de `feed-suivi.xml` **qu'il ait déjà été
+  traité ou non**, ce qui repostait la même mise à jour de suivi tous les
+  jours tant qu'aucune nouvelle n'était publiée.
+
+  **Fix appliqué** : champ `filterDateFrom` du module 30 (RSS SUIVI),
+  jusque-là vide, rempli avec une formule dynamique qui ne retient que les
+  items publiés dans les dernières ~24-48h glissantes :
+  ```
+  {{parseDate(formatDate(addDays(now; -1); "YYYY-MM-DD"); "YYYY-MM-DD")}}
+  ```
+  (= hier à minuit, recalculé à chaque exécution). Une première version de
+  l'idée comparait à "aujourd'hui" plutôt que "hier" — écartée après
+  retour utilisateur : une mise à jour de suivi publiée en fin de journée,
+  après le passage quotidien du scénario (~7h15), n'aurait alors jamais
+  été reprise (le lendemain, "aujourd'hui" ne correspond plus à sa date de
+  publication). La fenêtre glissante sur 2 jours corrige ce cas.
+
+  **Testé et vérifié le 8 août** : sur l'item Spider-Man déjà présent
+  (`pubDate` du 1er août), `Date from` calculé à `7 août 2026 00:00` — la
+  fenêtre de 24-48h l'exclut bien puisqu'il date de plus d'une semaine,
+  confirmant que le filtre fonctionne.
+
+  **Limite résiduelle assumée, non corrigée** : la fenêtre de 2 jours peut
+  provoquer un **doublon** (pas un silence, contrairement à l'ancienne
+  version) si une mise à jour est publiée **avant** l'heure de passage du
+  scénario le jour même — elle tomberait alors dans la fenêtre glissante
+  deux exécutions de suite. Risque jugé faible et accepté en connaissance
+  de cause (mises à jour de suivi rares, manuelles) plutôt que de mettre
+  en place la solution plus lourde (Data Store mémorisant les `guid` déjà
+  postés, immunisée à tout problème de fenêtre temporelle) — envisageable
+  plus tard si des doublons sont effectivement constatés en pratique.
+  - **Reste à faire** : réexporter `assets/make/scenario-daily.blueprint.json`
+    pour refléter ce changement (pas fait automatiquement, l'utilisateur
+    doit le réexporter depuis Make après modification).
   - Module **Telegram Bot → "Send a Text Message"** (connexion "Scenario"
     déjà existante, réutilisée) : `Chat ID` = `@scenario_fr`, `Text` =
     `Title` + `Comments` + **« 👉 Voir la mise à jour complète : »** + `URL`
