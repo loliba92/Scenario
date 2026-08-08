@@ -252,6 +252,29 @@ moins prioritaire).
   vraiment lancée, commencer par la variante légère pour tester
   l'intérêt réel avant d'investir dans un site bilingue complet.
 
+  **Compromis recommandé, proposé le 8 août — réutiliser "L'essentiel"
+  plutôt que traduire l'édition entière.** Idée née de la discussion sur
+  l'architecture ("pas clair pour moi", demande explicite d'un compromis
+  simple archi/token/besoin) : traduire uniquement le bloc "L'essentiel"
+  (3-4 phrases, déjà rédigé chaque jour pour une autre raison) plutôt que
+  toute l'édition. Concrètement :
+  - **Coût** : marginal — une fraction du texte d'une édition complète,
+    pas un doublement de la rédaction quotidienne.
+  - **Architecture** : reste dans le paradigme statique actuel, un
+    sous-dossier `en/` avec une simple page listant les "L'essentiel" du
+    jour et des précédents en anglais, chacun lié vers l'édition
+    française complète ("Read the full analysis (in French)"). Pas de
+    gabarit à dupliquer, pas de JSON-LD/sommaire à traduire.
+  - **Besoin couvert** : un vrai point d'entrée anglophone (SEO, partage
+    X) sans prétendre à un site bilingue complet — le lecteur qui veut
+    aller plus loin retombe sur le français, où la traduction passive du
+    navigateur (déjà en place, gratuite) prend le relais si besoin.
+  - Remplacerait la variante légère du 7 août (feed-en.xml → X
+    uniquement) par quelque chose de plus visible sur le site lui-même,
+    sans en augmenter le coût.
+  **Toujours en P3, aucun développement commencé — juste la piste la
+  plus claire identifiée à ce jour si le sujet est repris.**
+
   **Points à réfléchir avant de lancer quoi que ce soit (ajoutés le 7
   août, sur demande explicite de l'utilisateur — "tout doit être pensé
   d'abord")** :
