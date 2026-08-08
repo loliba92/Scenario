@@ -257,11 +257,17 @@ moins prioritaire).
     vers X) sur ce point : même un simple post traduit doit rester
     juridiquement/factuellement aussi rigoureux que l'édition française
     d'origine, pas une traduction approximative.
-- **P2 — Widget Telegram embarqué** sur `newsletter.html` (widget officiel
-  `t.me/s/scenario_fr`, embeddable via `<script>`, statique/gratuit) :
-  affiche les derniers posts du canal directement sur le site, donne à
-  voir l'activité réelle avant de cliquer pour rejoindre. Pas encore
-  implémenté.
+- **[FAIT le 8 août, à confirmer visuellement] Widget Telegram embarqué**
+  sur `newsletter.html`, section "Bonus", juste sous la carte existante.
+  Implémenté via `<iframe src="https://t.me/s/scenario_fr">` — la page
+  publique prévue par Telegram pour ce type d'intégration (statique,
+  gratuite, pas de script/clé API contrairement à ce qui était supposé
+  au départ dans ce backlog). **Rendu non vérifiable en session** (accès
+  réseau à `t.me` bloqué par le proxy de l'environnement sandbox) — à
+  confirmer visuellement une fois déployé, notamment que Telegram
+  n'envoie pas d'en-tête `X-Frame-Options`/CSP qui bloquerait
+  l'affichage en iframe (peu probable vu que c'est la page conçue pour
+  ça, mais pas testé en pratique par cette session).
 - **[FAIT le 4 août] Groupe de discussion Telegram lié au canal** — jusque
   là le canal était en diffusion pure, aucune interaction possible côté
   lecteur. Un groupe dédié "Scenario - Discussion" a été créé et lié au
