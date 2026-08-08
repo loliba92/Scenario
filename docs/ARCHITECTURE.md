@@ -348,11 +348,19 @@ moins prioritaire).
   langage concret à la place (ex. "le rebond se maintient sur un rythme
   soutenu" plutôt que "le scénario stable").
 
-  **Aussi ajouté le 8 août : le même texte dans `feed.xml`**, tag
-  `<essentiel>` non standard dans l'`<item>` du jour (texte brut, sans
-  balisage HTML) — disponible pour un usage futur côté Make.com,
-  demande explicite de l'utilisateur ("on ne sait jamais"), pas encore
-  branché sur un module particulier.
+  **Aussi ajouté le 8 août : le même texte dans `feed.xml`**, dans
+  l'`<item>` du jour (texte brut, sans balisage HTML) — disponible pour
+  un usage futur côté Make.com, demande explicite de l'utilisateur
+  ("on ne sait jamais"), pas encore branché sur un module particulier.
+  **Balise `<essentiel>` (inventée) remplacée le même jour par
+  `<source url="{lien de l'édition}">`** — retour utilisateur : besoin
+  d'une balise normée exploitable dans Make, `<essentiel>` n'existant
+  pas dans le spec RSS 2.0 risquait de ne pas apparaître au mapping.
+  `<source>` existe dans le spec (normalement le flux d'origine d'un
+  item republié), inutilisée ailleurs dans ce flux, détournée ici avec
+  son attribut `url` obligatoire rempli. Le champ "Summary" visible côté
+  Make n'était pas une option valable : juste un alias généré à partir
+  de `<description>`, pas un champ indépendant.
 
   Ajouté à `index.html` + `archives/2026-08-08.html` + `feed.xml` +
   `docs/routine-prompt.md` (reproduction quotidienne — nécessite le
