@@ -317,11 +317,13 @@ moins prioritaire).
     la synchronisation manuelle de la routine quotidienne réelle**
     (comme pour les corrections précédentes) — pas encore fait côté
     trigger réel au moment d'écrire cette ligne.
-- **P2 — Sommaire ancré** (Contexte / Scénarios / Sources) en haut de
-  chaque édition, pour sauter directement aux scénarios sur les éditions
-  longues — surtout utile mobile. Effort modéré (ancres + petit
-  composant de nav), reste dans le gabarit statique comme les boutons de
-  partage, pas de sync routine nécessaire. Pas encore implémenté.
+- **[FAIT le 8 août] Sommaire ancré** (Contexte / Scénarios / Sources) en
+  haut de chaque édition — `nav.toc`, juste après les boutons de partage.
+  Ancres `id` sur les 3 sections (`.hero`, `.scenarios`, `.sources`),
+  défilement fluide natif déjà en place. Ajouté à `index.html` +
+  `archives/2026-08-08.html`, et à `docs/routine-prompt.md` pour
+  reproduction automatique chaque jour (bloc fixe, jamais de contenu
+  variable). Vérifié visuellement + clic testé via Playwright.
 - **P2 — Icônes pour les boutons de partage** — inspiré d'un exemple
   brief.eco vu le 5 août (retour utilisateur : "pas l'idée de recopier,
   mais j'aime bien les icônes"), remplacer le texte "X, Facebook,
