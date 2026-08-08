@@ -317,15 +317,18 @@ moins prioritaire).
     la synchronisation manuelle de la routine quotidienne réelle**
     (comme pour les corrections précédentes) — pas encore fait côté
     trigger réel au moment d'écrire cette ligne.
-- **[FAIT le 8 août] Sommaire ancré** (Contexte / Scénarios / Lexique /
-  Sources) en haut de chaque édition — `nav.toc`, juste après les
-  boutons de partage. Ancres `id` sur les 4 sections (`.hero`,
-  `.scenarios`, `.lexique`, `.sources`, dans l'ordre réel de la page —
-  Lexique ajouté après coup, oublié dans la première passe), défilement
-  fluide natif déjà en place. Ajouté à `index.html` +
-  `archives/2026-08-08.html`, et à `docs/routine-prompt.md` pour
-  reproduction automatique chaque jour (bloc fixe, jamais de contenu
-  variable). Vérifié visuellement + clic testé via Playwright.
+- **[FAIT le 8 août] Sommaire ancré** (Contexte / Scénarios / Essentiel /
+  Lexique / Sources) en haut de chaque édition — `nav.toc`, juste après
+  les boutons de partage. Ancres `id` sur les 5 éléments, dans l'ordre
+  réel de la page (`.hero`, `.scenarios`, `.essentiel-box`, `.lexique`,
+  `.sources` — Lexique puis Essentiel ajoutés après coup, oubliés dans
+  la première passe ; l'`id` d'Essentiel va directement sur
+  `.essentiel-box`, pas sur `section.scenarios` qui l'englobe, pour
+  sauter précisément dessus), défilement fluide natif déjà en place.
+  Ajouté à `index.html` + `archives/2026-08-08.html`, et à
+  `docs/routine-prompt.md` pour reproduction automatique chaque jour
+  (bloc fixe, jamais de contenu variable). Vérifié visuellement + clic
+  testé via Playwright.
 - **[FAIT le 8 août] Bloc de synthèse « L'essentiel », après les 3
   scénarios.** Idée initiale (« résumé 1 minute en haut d'article »)
   suggérée par un retour externe (voir revue du 8 août plus haut) —
