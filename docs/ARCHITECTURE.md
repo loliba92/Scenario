@@ -326,6 +326,22 @@ moins prioritaire).
   `archives/2026-08-08.html`, et à `docs/routine-prompt.md` pour
   reproduction automatique chaque jour (bloc fixe, jamais de contenu
   variable). Vérifié visuellement + clic testé via Playwright.
+- **[FAIT le 8 août] Bloc de synthèse « L'essentiel », après les 3
+  scénarios.** Idée initiale (« résumé 1 minute en haut d'article »)
+  suggérée par un retour externe (voir revue du 8 août plus haut) —
+  discutée avec l'utilisateur et déplacée **en bas**, après `div.cards`,
+  plutôt qu'en haut : moins redondant avec `question-box`/`stakes-box`
+  qui font déjà ce travail de cadrage en haut de page, et comble un vrai
+  vide qui n'existait pas (rien ne reliait les 3 scénarios entre eux
+  après lecture). Contenu : 2-3 phrases nommant le scénario le plus
+  probable + un signal concret à surveiller pour basculer vers un autre
+  — jamais une répétition des paragraphes `why` des cartes. Libellé
+  « L'essentiel » retenu plutôt que « Conclusion » (jugé trop tranché
+  pour un site qui pèse 3 issues sans en affirmer une), **nom encore
+  ouvert à ajustement par l'utilisateur**. Ajouté à `index.html` +
+  `archives/2026-08-08.html` + `docs/routine-prompt.md` (reproduction
+  quotidienne — nécessite le copier-coller manuel habituel dans la
+  routine live, `trig_0176spj7P7E9fyTs1XBkQBWF`).
 - **P2 — Icônes pour les boutons de partage** — inspiré d'un exemple
   brief.eco vu le 5 août (retour utilisateur : "pas l'idée de recopier,
   mais j'aime bien les icônes"), remplacer le texte "X, Facebook,
