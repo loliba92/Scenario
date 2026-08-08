@@ -506,6 +506,43 @@ moins prioritaire).
   de jugement que pour "L'essentiel" : un outil de plus, pas une case à
   cocher automatiquement. Pas encore implémenté.
 
+- **[FAIT le 8 août] Cohérence des KPI entre `indicator-strip` et les 3
+  cartes, après une analyse approfondie demandée par l'utilisateur**
+  ("réfléchit deep" sur le fait que les indicateurs des 3 cartes ne
+  semblaient pas cohérents avec les KPI mentionnés plus haut dans
+  l'article). Bug trouvé : le 3e indicateur de chaque carte "Indicateurs
+  touchés" était différent d'un scénario à l'autre (chacun sa propre
+  statistique, jamais réutilisée ailleurs) — le lecteur avait
+  l'impression que chaque carte inventait son propre tableau de bord.
+  Corrigé : exactement 2 KPI fixes, identiques dans les 3 cartes et déjà
+  vus dans `indicator-strip`, au format visuel `.evo-current`/
+  `.evo-arrow`/`.evo-prev` réutilisé du graphique d'évolution des pages
+  de suivi (plus scannable qu'une phrase, utile vu que le lecteur est
+  déjà à ~60% de la page). Appliqué à `index.html` et
+  `archives/2026-08-08.html` (commit `d5d88d9`), documenté dans
+  `docs/routine-prompt.md` pour les prochaines éditions.
+
+- **[FAIT le 8 août] Lisibilité des 3 cartes de scénarios**, deux
+  changements demandés par l'utilisateur à la suite de l'analyse
+  ci-dessus ("il faut que ça soit plus facile à lire, plus agréable") :
+  - Le disclaimer "Ordres de grandeur indicatifs, pas des prévisions
+    garanties" était répété une fois par carte (3 fois au total, en
+    dernier `<li>` de chaque liste d'indicateurs) — pur bruit répétitif.
+    Factorisé en une seule footnote sous les 3 cartes
+    (`<p class="indicators-note">`), avec un lien "En savoir plus sur
+    notre méthode" vers `le-projet.html`, sans mention de l'IA.
+  - Le paragraphe `why` de chaque carte était un seul bloc de 100-180
+    mots, avec la comparaison de probabilité aux deux autres scénarios
+    noyée à la fin — mur de texte difficile à parcourir, d'autant que le
+    lecteur y arrive déjà à ~60% de la page. Scindé en 2 `<p class="why">`
+    consécutifs : le récit factuel, puis la comparaison de probabilité
+    isolée visuellement (léger séparateur en pointillés).
+
+  Les deux changements sont appliqués à `index.html` et
+  `archives/2026-08-08.html`, vérifiés visuellement (desktop + mobile)
+  via Playwright, et documentés dans `docs/routine-prompt.md` pour que
+  les prochaines éditions reproduisent directement ce format.
+
 **Technique**
 - **[FAIT le 4 août] Optimisation de `archives.html`** — repéré le 4 août
   (retour utilisateur) : chaque jour, l'étape 6 de la routine insérait une
