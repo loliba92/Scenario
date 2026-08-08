@@ -155,13 +155,15 @@ moins prioritaire).
   branche Facebook** (module 12, `profileIds` identique à celui du Daily)
   entre-temps, pas documentée en détail ici — même format que la branche
   Telegram/LinkedIn existante du scénario Weekly.
-- **P2 — Même pipeline d'image pour le récap hebdomadaire.** Le scénario
-  Make Weekly n'a pas encore d'image dédiée (`feed-weekly.xml` sans
-  `<enclosure>`, pas de route Buffer/Instagram sur ce scénario). Le
-  script/template devraient être largement réutilisables tels quels — à
-  trancher surtout le contenu affiché vu que le weekly porte sur 7 sujets
-  et pas 3 scénarios d'un seul sujet (image récap titre+date seule ? une
-  sélection des 7 sujets ? format encore à définir). Pas commencé.
+- **Image Instagram pour le récap hebdomadaire — écarté le 8 août.**
+  Envisagé un temps (voir plus haut : pipeline daily), abandonné après
+  discussion : le gabarit existant (titre + 3 scénarios d'**un seul**
+  sujet) ne colle pas au format weekly (7 sujets différents), demanderait
+  une vraie refonte visuelle pour un gain d'engagement plus faible
+  (1x/semaine vs 1x/jour) — et le weekly a déjà une distribution sociale
+  sans image dédiée (Telegram/LinkedIn/X via Buffer, ajoutée le 6 août).
+  `feed-weekly.xml` reste donc sans `<enclosure>`, pas de route
+  Buffer/Instagram sur ce scénario Make.
 - **[FAIT le 7 août] Bug corrigé + UX simplifiée : abonnement
   quotidienne + hebdo en une seule fois.** Trouvé le même jour : les deux
   formulaires séparés de `newsletter.html` utilisaient
