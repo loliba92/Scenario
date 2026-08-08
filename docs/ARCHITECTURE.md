@@ -1460,6 +1460,20 @@ Voir les échanges de session pour le détail, mais en résumé :
     fois plusieurs sujets réellement résolus (voir aussi la section
     Backlog en tête de ce document).
 
+  **Piste à approfondir plus tard (notée le 8 août, discussion à
+  reprendre) : préciser le déclencheur idéal de clôture.** L'utilisateur
+  propose que la clôture soit idéalement déclenchée quand **un événement
+  concret déjà nommé dans la définition d'un des 3 scénarios se
+  réalise** (ex. une démission, une motion de défiance effectivement
+  déposée...) — un événement qui, de fait, ferait techniquement passer
+  ce scénario à ~100%. Cohérent avec la règle déjà posée ci-dessus (fait
+  réel requis, jamais un seuil de probabilité interne) : ça ne la
+  change pas, ça précise ce qui compte comme "fait réel" — pas
+  n'importe quel développement notable, mais spécifiquement un des
+  événements-jalons déjà écrits dans les scénarios eux-mêmes. Pas encore
+  intégré au prompt de la routine de détection ; à retravailler ensemble
+  avant de l'ajouter.
+
   **Deuxième cas réel construit le 8 août** : `suivi/fifa-infantino.html`,
   suite de l'édition du 6 août ("FIFA : la présidence d'Infantino
   vacille"), déclenché par un sujet remonté par la routine de détection
