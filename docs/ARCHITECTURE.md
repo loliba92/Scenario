@@ -475,6 +475,36 @@ moins prioritaire).
   archive ne se modifie jamais". À trancher avant d'implémenter : soit
   seulement un lien "précédente" (moins complet), soit accepter une
   exception à la règle des archives figées pour ce cas précis.
+- **P2 — Graphiques injectés dans le contexte de l'édition, idée du 8
+  août (retour externe, revue de Geok).** Aujourd'hui le contexte
+  (`.dek`) est uniquement du texte + `indicator-strip` (1-2 chiffres
+  isolés) — pas de vraie visualisation de tendance (ex. fréquentation
+  ou part de marché sur plusieurs années), alors que ce genre de
+  comparaison apparaît déjà régulièrement dans les paragraphes en prose
+  (ex. l'édition du 8 août citait 156,79 M / 174,52 M / le plateau
+  2023-2024 à 181 M — une vraie série chiffrée, racontée en phrase au
+  lieu d'être montrée).
+
+  **Comment faire, sans réinventer un système** : le site a déjà deux
+  précédents de graphiques SVG générés dynamiquement en JS à partir d'un
+  petit tableau de données — les jauges `.gauge` (arc de cercle par
+  scénario) et surtout le graphique d'évolution des pages de suivi
+  (`renderEvoChart()` dans `suivi/_gabarit.html`, qui lit un tableau
+  `evoData` et calcule tout le SVG lui-même, sans que la routine ait à
+  faire le moindre calcul de coordonnées). La piste la plus simple :
+  généraliser ce même principe en un **graphique en barres** (plus
+  adapté que des courbes pour des comparaisons ponctuelles type "par
+  an") dans le gabarit `index.html`, que la routine alimenterait juste
+  avec un petit tableau `[{label, value}, ...]` — toute la génération
+  SVG resterait dans une fonction JS réutilisable, comme aujourd'hui.
+
+  **Point de jugement à ne pas oublier** : ne pas rendre ça systématique
+  chaque jour — seulement quand le contexte contient une vraie série
+  chiffrée comparable (plusieurs points dans le temps ou plusieurs
+  catégories), pas forcer un graphique là où 1-2 chiffres isolés
+  suffisent (`indicator-strip` reste approprié pour ce cas). Même logique
+  de jugement que pour "L'essentiel" : un outil de plus, pas une case à
+  cocher automatiquement. Pas encore implémenté.
 
 **Technique**
 - **[FAIT le 4 août] Optimisation de `archives.html`** — repéré le 4 août
