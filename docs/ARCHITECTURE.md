@@ -17,7 +17,7 @@ est **FormSubmit** (formulaire de contact) — voir plus bas.
 ## Backlog
 
 Idées et tâches ouvertes, consolidées ici pour ne pas avoir à les
-retrouver éparpillées dans le reste du document. Mise à jour au 4 août.
+retrouver éparpillées dans le reste du document. Mise à jour au 8 août.
 Priorités P1 (fort impact, faible coût) à P3 (utile mais plus lourd ou
 moins prioritaire).
 
@@ -593,6 +593,18 @@ moins prioritaire).
   principal garde le badge plein. `docs/routine-prompt.md` (étape 6) mis à
   jour pour ce nouveau format. Testé (recherche, filtres, tri, chargement
   de fragment) via Playwright avant publication.
+- **[FAIT le 7 août] Lien Instagram (@scenarios.actu) dans le bloc
+  "Suivez-nous" du footer**, même style que les icônes existantes
+  (Telegram/LinkedIn/X/Facebook). `index.html` étant le gabarit recopié
+  tel quel par la routine quotidienne, les futures éditions l'héritent
+  automatiquement — aucune modification de `docs/routine-prompt.md`
+  nécessaire. Ajouté sur les 16 pages statiques concernées (archives
+  publiées, `contact.html`, `glossaire.html`, `le-projet.html`,
+  `newsletter.html`, `hebdo/2026-08-02.html`, gabarits de suivi...).
+  **Au passage, bug préexistant repéré et corrigé** :
+  `archives/2026-08-07.html` n'avait pas encore le lien Facebook (figée
+  avant son ajout plus tôt dans la journée) — ordre des icônes uniformisé
+  partout : Telegram, LinkedIn, X, Facebook, Instagram.
 - **P2 — Découpage de `archives.html` par année, à faire avant fin 2026** —
   la solution du 4 août (fragments à la demande) règle le poids téléchargé
   par visite, mais pas le fait que `archives.html` reste un fichier unique
@@ -612,6 +624,17 @@ moins prioritaire).
   l'année en cours, créer un nouveau fichier au changement d'année).
 
 **Contenu**
+- **[FAIT le 7 août] `le-projet.html` : le rôle technique porte sur la
+  méthode, pas juste le site.** Retour utilisateur : la phrase décrivant
+  le rôle technique d'Olivier Bertrand ("il conçoit et veille au bon
+  fonctionnement du site") sous-vendait le travail réel — la partie la
+  plus substantielle est la **méthode quantitative des scénarios**
+  (probabilités, indicateurs, critères de bascule), le site n'en étant
+  que le vecteur de diffusion. Reformulé : "il conçoit et fiabilise la
+  méthode quantitative qui structure les scénarios — probabilités,
+  indicateurs, critères de bascule — ainsi que la gestion du site qui
+  les diffuse." Rôle éditorial (choix des sujets, vérification, ton)
+  inchangé juste après.
 - **Images de partage par édition** — **écarté définitivement le 4 août**
   (risque deepfake sur des sujets impliquant de vraies personnes, décision
   ferme, ne pas reproposer).
@@ -625,11 +648,10 @@ moins prioritaire).
   si ça bouge.
 
 **À vérifier**
-- **Config Buttondown de l'hebdo** : l'envoi du dimanche soir fonctionne
-  (confirmé par l'utilisateur), mais le filtrage précis par tag `hebdo`
-  côté Automation Buttondown n'a jamais été confirmé explicitement dans
-  cette doc — à valider que les abonnés de la quotidienne ne reçoivent
-  pas aussi l'hebdo par erreur (et inversement).
+- *(vide au 8 août — le dernier point ouvert ici, le filtrage Buttondown
+  quotidien/hebdo, est résolu depuis le passage aux metadata
+  `quotidien`/`hebdo` séparées le 7 août, confirmé par l'utilisateur ;
+  voir plus bas, section Newsletter.)*
 
 **Idées explicitement écartées** (pour mémoire, ne pas reproposer sans
 nouvel élément) : fil d'actualité scrollable façon LinkedIn/Instagram
@@ -1319,10 +1341,11 @@ Voir les échanges de session pour le détail, mais en résumé :
   `metadata__subscription_type` partagé qui s'écrasait. Les deux
   Automations RSS-to-email (dont celle branchée sur `feed-weekly.xml`)
   sont configurées et filtrent bien sur `metadata.quotidien == "oui"` /
-  `metadata.hebdo == "oui"` — confirmé par l'utilisateur. Reste à migrer
-  les abonnés existants qui n'ont que l'ancien
-  `metadata.subscription_type` (voir note complète plus haut dans le
-  backlog).
+  `metadata.hebdo == "oui"` — confirmé par l'utilisateur. **[FAIT le
+  7 août]** la migration des abonnés existants (ancien
+  `metadata.subscription_type`) vers les nouvelles clés est également
+  confirmée (voir note complète plus haut dans le backlog) — plus rien
+  en attente côté Buttondown sur ce point.
 - **Photo dans les éditions — idée écartée le 1er août.** Discuté puis
   volontairement abandonné : impossible d'utiliser une vraie photo de presse
   trouvée pendant la recherche (droit d'auteur, republication non autorisée),
