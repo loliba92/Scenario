@@ -38,12 +38,17 @@ moins prioritaire).
   formats sauvegardés :
   - `assets/social/instagram-ads/follow-cta-v2-square.png` (1:1, 1254×1254)
   - `assets/social/instagram-ads/follow-cta-v2-4x5.png` (4:5, 1122×1402 — format demandé en second, généralement préférable sur le fil Instagram pour l'espace vertical)
+  - `assets/social/instagram-ads/follow-cta-v3-4x5.png` (4:5, 1122×1402 —
+    variante envoyée juste après avec un léger semis d'étoiles en fond ;
+    pas un doublon exact du v2-4x5, à comparer avant de choisir laquelle
+    utiliser).
 
-  **Point de vigilance mineur, non corrigé** : sur la version 4:5, le
-  rayon doré central passe juste derrière "LESSCENARIOS.FR" en bas —
-  reste lisible mais contraste réduit à cet endroit précis (texte doré
-  sur lueur dorée). Pas bloquant, à améliorer si besoin d'une future
-  itération (baisser l'intensité du rayon à cette hauteur).
+  **Point de vigilance mineur, non corrigé (présent sur les deux
+  versions 4:5)** : le rayon doré central passe juste derrière
+  "LESSCENARIOS.FR" en bas — reste lisible mais contraste réduit à cet
+  endroit précis (texte doré sur lueur dorée). Pas bloquant, à améliorer
+  si besoin d'une future itération (baisser l'intensité du rayon à cette
+  hauteur).
   Diffusion pas encore branchée (image prête, pas encore poussée en pub
   Meta/Instagram par l'utilisateur).
 - **P2 — WhatsApp comme canal de distribution supplémentaire.** Buffer
