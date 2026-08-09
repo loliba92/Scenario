@@ -111,6 +111,30 @@ moins prioritaire).
   `addDays(now; -1)`) du module 30, resté en attente de ré-export depuis
   sa correction — `assets/make/scenario-daily.blueprint.json` mis à jour
   avec ce blueprint.
+- **[FAIT le 9 août] Bug trouvé et corrigé : champ image vide sur le
+  module Instagram (Buffer), empêchait la publication.** Repéré via le
+  log d'exécution Make du 9 août (run 10h00) : dans le routeur du
+  circuit Daily, les modules 32 (Facebook) et 34 (Instagram) n'avaient
+  **aucune ligne d'opération** (juste initialisé/finalisé), contrairement
+  aux autres modules — signe qu'ils n'étaient jamais réellement exécutés
+  ce matin-là. Cause trouvée en ouvrant la config du module Buffer
+  Instagram (34) : le champ **« Link to an image »** était vide, alors
+  que le blueprint de référence l'attend mappé sur `{{4.enclosures[].url}}`
+  — sans image, Instagram (qui exige un média, contrairement à Facebook)
+  ne pouvait pas publier. Corrigé par l'utilisateur en remappant `Link`,
+  `Title`, `Description` et `Link to an image` sur `4.Enclosures[]:URL` /
+  `4.Title` / `4.Comments` — testé avec succès le jour même (post
+  Instagram publié avec la bonne image composite du 9 août, titre et
+  légende corrects).
+  **Point d'attention à garder en tête, pas encore résolu formellement** :
+  même avec `type: now` côté Make, Buffer a placé le post en **file
+  d'attente pour 21h09** au lieu de le publier immédiatement — un
+  comportement Buffer/Instagram plus contraint que X/Facebook (créneau
+  de file d'attente du canal, pas forcément lié à l'heure du scénario
+  Make à 10h00). À publier manuellement via "Partager maintenant" dans
+  Buffer si besoin d'un post immédiat, ou reconfigurer les créneaux de la
+  file d'attente Instagram côté Buffer pour qu'ils tombent plus tôt dans
+  la journée.
 - **[FAIT le 7 août] Facebook comme canal supplémentaire**, via le même
   Buffer que X (aucune nouvelle app développeur à créer). La Page
   Facebook "Scénario" existait déjà, créée automatiquement par Meta lors
