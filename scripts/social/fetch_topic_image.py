@@ -45,7 +45,12 @@ def search_pexels(query: str, count: int, api_key: str) -> list[dict]:
     })
     req = urllib.request.Request(
         f"{PEXELS_SEARCH_URL}?{params}",
-        headers={"Authorization": api_key},
+        headers={
+            "Authorization": api_key,
+            # Sans User-Agent explicite, urllib envoie "Python-urllib/x.y",
+            # que Cloudflare bloque côté Pexels (403 / error code 1010).
+            "User-Agent": "Scenario/1.0 (lesscenarios.fr)",
+        },
     )
     with urllib.request.urlopen(req, timeout=20) as resp:
         data = json.loads(resp.read().decode("utf-8"))
