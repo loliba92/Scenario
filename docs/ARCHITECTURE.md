@@ -51,6 +51,34 @@ moins prioritaire).
   hauteur).
   Diffusion pas encore branchée (image prête, pas encore poussée en pub
   Meta/Instagram par l'utilisateur).
+
+  **Retiré le 9 août : la phrase "👉 Suis @scenarios.actu".** Retour
+  utilisateur : l'image doit être réutilisable sur plusieurs plateformes
+  (Instagram, X...) qui n'ont pas le même identifiant de compte — un CTA
+  avec un handle spécifique n'a donc plus sa place sur ce visuel
+  générique. **Pas régénéré via l'outil IA** (économise des crédits) :
+  retiré directement en local par interpolation verticale simple
+  (script Python ponctuel, pas conservé) — pour chaque colonne de
+  pixels, la bande contenant le texte est remplacée par un dégradé
+  entre la ligne juste au-dessus et celle juste en dessous, ce qui se
+  fond naturellement dans la lueur de la route en arrière-plan. Fichiers
+  renommés en conséquence (`follow-cta-*` ne convenait plus) :
+  - `assets/social/instagram-ads/brand-teaser-square.png` (1:1)
+  - `assets/social/instagram-ads/brand-teaser-4x5-v2.png` (4:5, base v2)
+  - `assets/social/instagram-ads/brand-teaser-4x5-v3.png` (4:5, base v3
+    avec étoiles)
+
+  **Piège rencontré et corrigé** : la bande de texte n'est pas à la même
+  hauteur d'un fichier à l'autre (généré indépendamment par l'outil IA
+  externe à chaque fois) — appliquer la bande détectée sur le fichier v3
+  (y≈1019-1047) au fichier v2 (texte en réalité à y≈967-991) a d'abord
+  produit un résultat raté (texte à moitié effacé, effet de stries). Fix :
+  détecter la bande de texte **séparément pour chaque fichier**
+  (recherche des pixels de la couleur dorée du texte, `#cf9d4c` avec
+  tolérance) avant de choisir la zone à interpoler. Les 3 fichiers
+  originaux `follow-cta-v2-*`/`v3-4x5.png` (avec la phrase) restent aussi
+  dans le dépôt, au cas où une version avec CTA spécifique Instagram soit
+  utile un jour.
 - **P2 — WhatsApp comme canal de distribution supplémentaire.** Buffer
   limite à 3 connecteurs gratuits (déjà pris par X, Facebook,
   Instagram) — passer par un 4e connecteur Buffer serait payant. Option
