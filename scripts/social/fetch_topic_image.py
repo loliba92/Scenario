@@ -17,16 +17,32 @@ Principe non négociable : mots-clés THÉMATIQUES/GÉNÉRIQUES uniquement
 nom d'une personne réelle, pour ne jamais laisser une photo générique
 suggérer qu'elle représente un individu précis.
 
-Toujours en ANGLAIS, et toujours des CONCEPTS reformulés — jamais le
-titre de l'édition recopié tel quel, ni des mots-clés bruts type noms
-propres/marques/acronymes (ex. "Suno", "IA"). Pexels indexe ses photos
-par tags anglais descriptifs, pas par recherche sémantique : un nom
-propre ou un acronyme français ne matche aucun tag et fait retomber la
-recherche sur un mot isolé, avec des résultats hors-sujet à la clé.
-Partir des 2-3 idées clés du sujet et les traduire en scène visuelle
-générique, ex. pour un sujet "IA + musique + procès" :
+Toujours en ANGLAIS de préférence, et toujours des CONCEPTS reformulés
+— jamais le titre de l'édition recopié tel quel, ni des mots-clés bruts
+type noms propres/marques/acronymes (ex. "Suno", "IA"). Pexels indexe
+ses photos par tags descriptifs écrits par les photographes (catalogue
+anglais bien plus riche), pas par recherche sémantique : un nom propre
+ou un acronyme ne matche aucun tag, dans aucune langue, et fait
+retomber la recherche sur un mot isolé, avec des résultats hors-sujet
+à la clé. Partir des 2-3 idées clés du sujet et les traduire en scène
+visuelle générique, ex. pour un sujet "IA + musique + procès" :
     mauvais : "IA Suno musique"            -> portraits sans rapport
     bon      : "artificial intelligence music technology" -> studio/MAO
+
+Repli en français : testé avec le paramètre `locale=fr-FR` de l'API,
+ça ne change RIEN à la pertinence du matching (seuls les libellés
+affichés se traduisent) — mais des mots du dictionnaire français
+COURANTS (ex. "intelligence artificielle musique procès") matchent
+correctement, à condition de rester sur des noms communs, jamais des
+noms propres/acronymes. Utile si l'anglais ne sort rien de convaincant,
+mais l'anglais reste le premier réflexe (catalogue plus large).
+
+Attention, Pexels n'a quasi rien qui combine visuellement deux concepts
+distincts à la fois (ex. "IA" + "musique") : une requête composée sort
+souvent soit des illustrations IA génériques sans lien avec le second
+concept, soit l'inverse. Mieux vaut chercher chaque concept séparément
+et choisir/trancher humainement plutôt que d'empiler les mots-clés en
+espérant un résultat qui coche les deux cases.
 
 Usage:
     export PEXELS_API_KEY=...  (déjà en variable d'environnement normalement)
@@ -48,12 +64,15 @@ import urllib.parse
 PEXELS_SEARCH_URL = "https://api.pexels.com/v1/search"
 
 
-def search_pexels(query: str, count: int, api_key: str) -> list[dict]:
-    params = urllib.parse.urlencode({
+def search_pexels(query: str, count: int, api_key: str, color: str | None = None) -> list[dict]:
+    params_dict = {
         "query": query,
         "per_page": count,
         "orientation": "square",
-    })
+    }
+    if color:
+        params_dict["color"] = color
+    params = urllib.parse.urlencode(params_dict)
     req = urllib.request.Request(
         f"{PEXELS_SEARCH_URL}?{params}",
         headers={
@@ -77,6 +96,13 @@ def main():
     parser.add_argument("query", help="Mots-clés thématiques en anglais, ex. 'football stadium'")
     parser.add_argument("--count", type=int, default=5, help="Nombre de candidats à télécharger (défaut 5)")
     parser.add_argument("--out", default="/tmp/topic-image-candidates", help="Dossier de sortie")
+    parser.add_argument(
+        "--color", default=None,
+        help="Filtre couleur dominante Pexels (optionnel), ex. 'gray' ou un hex "
+             "comme 'cf9d4c' (or) / 'ece7da' (papier) pour coller à la charte du "
+             "site. Valeurs nommées : red, orange, yellow, green, turquoise, "
+             "blue, violet, pink, brown, black, gray, white.",
+    )
     args = parser.parse_args()
 
     if any(c in args.query for c in "àâäéèêëïîôöùûüçÀÂÄÉÈÊËÏÎÔÖÙÛÜÇ"):
@@ -97,7 +123,7 @@ def main():
     os.makedirs(args.out, exist_ok=True)
 
     try:
-        photos = search_pexels(args.query, args.count, api_key)
+        photos = search_pexels(args.query, args.count, api_key, color=args.color)
     except Exception as e:
         print(f"ERREUR lors de la recherche Pexels : {e}", file=sys.stderr)
         sys.exit(1)
@@ -122,6 +148,7 @@ def main():
             "photographer": photo.get("photographer"),
             "pexels_url": photo.get("url"),
             "query": args.query,
+            "color": args.color,
         }
         credits.append(credit)
         print(f"  candidat {i} : {dest}  (photo par {credit['photographer']}, {credit['pexels_url']})")
