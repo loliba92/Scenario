@@ -837,7 +837,15 @@ nouvel élément) : fil d'actualité scrollable façon LinkedIn/Instagram
 sociale reste sur Telegram) ; WhatsApp Channels (pas d'API officielle
 gratuite) ; dépôt GitHub privé ou dossier privé séparé pour les docs
 internes (coût opérationnel — routine à synchroniser sur deux dépôts —
-jugé disproportionné vu qu'aucun contenu n'est réellement sensible).
+jugé disproportionné vu qu'aucun contenu n'est réellement sensible) ;
+remplacer la question posée (`.day-context`) par le texte "L'essentiel"
+dans le récap hebdomadaire (`hebdo/*.html`) — proposé et écarté le
+9 août, la conclusion de "L'essentiel" ferait doublon avec la liste des
+3 scénarios juste en dessous (gagnant déjà en gras via `.is-winner`) ;
+question gardée, elle sépare proprement la mise en tension (question
+ouverte) de la résolution (scénarios). Piste alternative notée si le
+besoin revient : reprendre seulement la dernière phrase de "L'essentiel"
+(l'issue probable + le signal à surveiller), pas le bloc complet.
 
 ## Structure des fichiers
 
