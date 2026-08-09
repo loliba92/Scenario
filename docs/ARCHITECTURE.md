@@ -213,14 +213,29 @@ moins prioritaire).
     par un humain vers `assets/social/topic-images/{date}.jpg` +
     provenance — geste toujours volontaire.
 
-  **Pas encore testé** : `PEXELS_API_KEY` n'était pas visible dans la
-  session où la clé a été configurée (les variables d'environnement
-  Claude Code Remote ne s'appliquent qu'aux nouvelles sessions) — à
-  tester dès qu'une session la voit. **Périmètre volontairement limité
-  aux sessions interactives pour l'instant** (retour utilisateur : pas
-  encore branché sur la routine quotidienne automatique/sans supervision
-  à 7h15, le temps de valider ensemble que ça fonctionne bien) —
-  `docs/routine-prompt.md` non modifié à ce stade.
+  **Testé le 9 août, deux problèmes trouvés :**
+  - **Bug corrigé** : `search_pexels()` dans `fetch_topic_image.py`
+    n'envoyait pas de `User-Agent` sur la requête de recherche —
+    `urllib` utilisait alors son défaut (`Python-urllib/x.y`), bloqué
+    par Cloudflare côté Pexels (403, error code 1010). Corrigé en
+    ajoutant le même `User-Agent` que celui déjà utilisé pour
+    `download()`. La recherche `/v1/search` fonctionne bien maintenant
+    (clé API valide, quota ~24 300/25 000 au test).
+  - **Bloquant restant, pas un bug de script** : le téléchargement des
+    images (`images.pexels.com`) échoue avec un 403 renvoyé par la
+    **passerelle réseau de l'environnement Claude Code Remote**
+    (`connect_rejected`, refus de policy egress) — alors que
+    `api.pexels.com` est autorisé. Il faut ajouter `images.pexels.com`
+    (et éventuellement `www.pexels.com`) à la liste des domaines
+    autorisés en sortie dans les paramètres réseau de l'environnement,
+    puis relancer une session pour que le changement s'applique — un
+    simple redémarrage de session sans ce changement ne suffit pas,
+    la clé API n'étant plus en cause ici.
+  - **Périmètre volontairement limité aux sessions interactives pour
+    l'instant** (retour utilisateur : pas encore branché sur la routine
+    quotidienne automatique/sans supervision à 7h15, le temps de
+    valider ensemble que ça fonctionne bien une fois le blocage réseau
+    levé) — `docs/routine-prompt.md` non modifié à ce stade.
 
   **Reste à faire une fois testé** : brancher le fichier obtenu dans
   `feed.xml` (`<enclosure>`) et les meta `og:image`/`twitter:image`/
