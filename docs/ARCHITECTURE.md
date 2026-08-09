@@ -171,6 +171,63 @@ moins prioritaire).
   branche Facebook** (module 12, `profileIds` identique à celui du Daily)
   entre-temps, pas documentée en détail ici — même format que la branche
   Telegram/LinkedIn existante du scénario Weekly.
+- **P1 — Image custom par sujet (Pexels), en cours de construction le
+  8 août — script écrit, pas encore testé.** Idée de l'utilisateur :
+  remplacer le visuel généré (titre + 3 scénarios) par une vraie photo
+  libre de droits liée au thème du jour, quand une bonne correspond, à
+  la fois pour l'image des posts sociaux (Instagram/X/Facebook) et pour
+  l'image de partage OG/Twitter Card (aujourd'hui statique,
+  `og-image-v2.png`) — sinon garder le visuel généré actuel en repli.
+
+  **Principe non négociable, explicitement posé par l'utilisateur : zéro
+  risque.** Contrainte directe avec la décision du 1er août ("Photo dans
+  les éditions", écartée pour risque de droit d'auteur) — même risque
+  ici, potentiellement pire (posts sociaux publics). Résolu en limitant
+  la source à des banques **explicitement libres de droits, usage
+  commercial autorisé sans ambiguïté** : **Pexels** retenu en premier
+  (API officielle uniquement, jamais de scraping — irait contre leurs
+  conditions d'utilisation, donc un risque même minime). Wikimedia
+  Commons volontairement écarté pour l'instant (licences mixtes sur la
+  plateforme, plus de risque de mal filtrer qu'avec Pexels/Unsplash qui
+  n'hébergent que du contenu déjà autorisé). Unsplash gardé en option
+  pour plus tard si besoin d'une deuxième source.
+
+  **Compte développeur Pexels créé par l'utilisateur le 8 août**, clé
+  API stockée en **variable d'environnement** (`PEXELS_API_KEY`) côté
+  Claude Code Remote — jamais dans le dépôt (public sur GitHub).
+
+  **Garde-fous construits dans les scripts** (`scripts/social/
+  fetch_topic_image.py` + `scripts/social/use_topic_image.py`) :
+  - Recherche par **mots-clés thématiques génériques en anglais**
+    uniquement (ex. "football stadium", "oil tanker"), **jamais le nom
+    d'une personne réelle** — pour ne jamais laisser une photo générique
+    suggérer qu'elle représente un individu précis.
+  - `fetch_topic_image.py` télécharge plusieurs candidats (jamais un
+    choix automatique) dans un dossier temporaire, avec une fiche
+    `credits.json` (photographe, lien Pexels, requête) pour traçabilité,
+    même si la licence Pexels n'exige pas d'attribution.
+  - Revue visuelle obligatoire en session (regarder les candidats avant
+    tout usage) — si rien de pertinent, ne rien utiliser, garder le
+    visuel généré habituel.
+  - `use_topic_image.py` ne fait que committer le candidat déjà choisi
+    par un humain vers `assets/social/topic-images/{date}.jpg` +
+    provenance — geste toujours volontaire.
+
+  **Pas encore testé** : `PEXELS_API_KEY` n'était pas visible dans la
+  session où la clé a été configurée (les variables d'environnement
+  Claude Code Remote ne s'appliquent qu'aux nouvelles sessions) — à
+  tester dès qu'une session la voit. **Périmètre volontairement limité
+  aux sessions interactives pour l'instant** (retour utilisateur : pas
+  encore branché sur la routine quotidienne automatique/sans supervision
+  à 7h15, le temps de valider ensemble que ça fonctionne bien) —
+  `docs/routine-prompt.md` non modifié à ce stade.
+
+  **Reste à faire une fois testé** : brancher le fichier obtenu dans
+  `feed.xml` (`<enclosure>`) et les meta `og:image`/`twitter:image`/
+  JSON-LD `image` de l'édition du jour (remplace la valeur utilisée
+  aujourd'hui pour l'image générée) — pas encore automatisé, à faire à
+  la main la première fois pour valider le rendu avant d'envisager
+  d'intégrer ça dans la routine.
 - **Image Instagram pour le récap hebdomadaire — écarté le 8 août.**
   Envisagé un temps (voir plus haut : pipeline daily), abandonné après
   discussion : le gabarit existant (titre + 3 scénarios d'**un seul**
