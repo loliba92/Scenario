@@ -1457,6 +1457,25 @@ Voir les échanges de session pour le détail, mais en résumé :
   5. Insère un nouvel `<item>` en haut de `feed-weekly.xml` (historique
      conservé, comme `feed.xml`), commit et push direct sur `main`.
 
+  **Tag `<comments>` ajouté le 6 août** (retour utilisateur), pour la
+  même raison que sur `feed.xml` : séparer un texte court réutilisable
+  (aperçu, réseau social) du HTML complet de `<description>`, sans avoir
+  à le parser. Porte la phrase d'ouverture/conclusion de semaine rédigée
+  à l'étape 3, en texte brut — identique au premier paragraphe de la
+  `<description>` mais sans les balises `<br>`. Appliqué rétroactivement
+  à l'item déjà publié (2 août).
+
+  **Prompt de cette routine documenté dans un fichier dédié depuis le
+  9 août** : `docs/routine-hebdo-prompt.md`, même principe que
+  `docs/routine-prompt.md`/`docs/routine-detection-prompt.md` — trigger
+  `trig_01SE6daCsV38jPUXf82DC7TF` (créé via `meta_mcp`, directement
+  éditable via `update_trigger`, pas besoin du cycle copier-coller
+  manuel de la routine éditoriale quotidienne). Ce fichier miroir
+  n'existait pas encore alors que la routine tournait déjà depuis
+  plusieurs semaines — trou comblé après un retour utilisateur qui
+  redonnait ce correctif du 6 août pour vérification, l'occasion de
+  s'apercevoir qu'aucune copie de référence n'existait.
+
   **Page dédiée ajoutée le 6 août** (retour utilisateur : besoin d'un lien
   stable à partager sur les réseaux, pas juste l'email/RSS). Revient sur la
   décision du 3 août ci-dessous. **Mécanique retenue**, symétrique aux
