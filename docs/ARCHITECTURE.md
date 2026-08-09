@@ -95,6 +95,24 @@ moins prioritaire).
   caractères de X certains jours (vérifié sur les 10 dernières éditions :
   8 sur 10 auraient dépassé la limite rien qu'avec Titre + Comments).
   Voir aussi la sauvegarde du scénario Make complet plus bas.
+- **P1 — Attacher l'image Instagram aux posts X et Facebook, demandé le
+  8 août.** Les deux passent par le même module Buffer "Create a status
+  update" que la branche Instagram (module 34, qui utilise déjà
+  `useMedia: true` + `media.picture` = `{{4.enclosures[].url}}`) — donc
+  même champ à ajouter, aucun nouveau connecteur ni clé API. **LinkedIn
+  volontairement exclu** (retour utilisateur, 8 août) : le module
+  LinkedIn poste en **Media Type = Article** (carte de lien cliquable,
+  image OG du site récupérée automatiquement) plutôt qu'une image
+  uploadée — passer en Image ferait perdre cette carte cliquable, jugé
+  moins bon pour driver du trafic vers le site. **Config manuelle côté
+  Make, pas faisable depuis cette session** (pas de connecteur Make dans
+  les outils disponibles) : sur le module X (3ᵉ sortie du Router) et le
+  module Facebook (4ᵉ sortie, module 32 pour le circuit Daily, module 33
+  pour RSS SUIVI), section Media → ajouter un item, `Picture` = même
+  mapping que le module Instagram. Pas encore confirmé fait par
+  l'utilisateur — re-exporter `assets/make/scenario-daily.blueprint.json`
+  une fois validé (comme pour le fix `filterDateFrom`, toujours en
+  attente lui aussi).
 - **[FAIT le 7 août] Facebook comme canal supplémentaire**, via le même
   Buffer que X (aucune nouvelle app développeur à créer). La Page
   Facebook "Scénario" existait déjà, créée automatiquement par Meta lors
