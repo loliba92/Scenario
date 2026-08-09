@@ -95,24 +95,22 @@ moins prioritaire).
   caractères de X certains jours (vérifié sur les 10 dernières éditions :
   8 sur 10 auraient dépassé la limite rien qu'avec Titre + Comments).
   Voir aussi la sauvegarde du scénario Make complet plus bas.
-- **P1 — Attacher l'image Instagram aux posts X et Facebook, demandé le
-  8 août.** Les deux passent par le même module Buffer "Create a status
-  update" que la branche Instagram (module 34, qui utilise déjà
-  `useMedia: true` + `media.picture` = `{{4.enclosures[].url}}`) — donc
-  même champ à ajouter, aucun nouveau connecteur ni clé API. **LinkedIn
-  volontairement exclu** (retour utilisateur, 8 août) : le module
-  LinkedIn poste en **Media Type = Article** (carte de lien cliquable,
-  image OG du site récupérée automatiquement) plutôt qu'une image
-  uploadée — passer en Image ferait perdre cette carte cliquable, jugé
-  moins bon pour driver du trafic vers le site. **Config manuelle côté
-  Make, pas faisable depuis cette session** (pas de connecteur Make dans
-  les outils disponibles) : sur le module X (3ᵉ sortie du Router) et le
-  module Facebook (4ᵉ sortie, module 32 pour le circuit Daily, module 33
-  pour RSS SUIVI), section Media → ajouter un item, `Picture` = même
-  mapping que le module Instagram. Pas encore confirmé fait par
-  l'utilisateur — re-exporter `assets/make/scenario-daily.blueprint.json`
-  une fois validé (comme pour le fix `filterDateFrom`, toujours en
-  attente lui aussi).
+- **[FAIT le 8 août] Image Instagram attachée aux posts X et Facebook**
+  (circuit Daily). Modules 14 (X) et 32 (Facebook), même mapping que la
+  branche Instagram : `useMedia: true`, `media.picture` =
+  `{{4.enclosures[].url}}`. **LinkedIn volontairement exclu** (retour
+  utilisateur) : le module LinkedIn poste en **Media Type = Article**
+  (carte de lien cliquable, image OG du site récupérée automatiquement)
+  plutôt qu'une image uploadée — passer en Image ferait perdre cette
+  carte cliquable, jugé moins bon pour driver du trafic vers le site.
+  **Pas fait sur le circuit RSS SUIVI** (modules 24/33, toujours
+  `useMedia: false`) : `feed-suivi.xml` ne porte pas de tag `<enclosure>`
+  à ce jour, rien à mapper — pas demandé, laissé tel quel. Confirmé via
+  le blueprint Make ré-exporté par l'utilisateur le 8 août, qui a aussi
+  capturé au passage le fix `filterDateFrom` (fenêtre glissante
+  `addDays(now; -1)`) du module 30, resté en attente de ré-export depuis
+  sa correction — `assets/make/scenario-daily.blueprint.json` mis à jour
+  avec ce blueprint.
 - **[FAIT le 7 août] Facebook comme canal supplémentaire**, via le même
   Buffer que X (aucune nouvelle app développeur à créer). La Page
   Facebook "Scénario" existait déjà, créée automatiquement par Meta lors
@@ -1627,9 +1625,9 @@ Voir les échanges de session pour le détail, mais en résumé :
   LinkedIn/Telegram/Buffer. Résultat : 2 scénarios actifs au total
   ("Daily" fusionné + "Weekly"), reste sur le plan gratuit Make. Détail
   technique et texte exact des modules : voir la sauvegarde JSON du
-  scénario, `assets/make/scenario-daily.blueprint.json` (exportée le
-  6 août, à ré-exporter et remplacer si le scénario est modifié par la
-  suite — pas de synchronisation automatique).
+  scénario, `assets/make/scenario-daily.blueprint.json` (dernier export
+  à jour au 8 août — à ré-exporter et remplacer si le scénario est
+  modifié par la suite, pas de synchronisation automatique).
 
   **[FAIT le 8 août] Bug de répétition corrigé** — "Retrieve RSS feed
   items" n'a pas de mémoire des items déjà vus (contrairement à "Watch"
@@ -1665,9 +1663,10 @@ Voir les échanges de session pour le détail, mais en résumé :
   en place la solution plus lourde (Data Store mémorisant les `guid` déjà
   postés, immunisée à tout problème de fenêtre temporelle) — envisageable
   plus tard si des doublons sont effectivement constatés en pratique.
-  - **Reste à faire** : réexporter `assets/make/scenario-daily.blueprint.json`
-    pour refléter ce changement (pas fait automatiquement, l'utilisateur
-    doit le réexporter depuis Make après modification).
+  - **[FAIT le 8 août]** `assets/make/scenario-daily.blueprint.json`
+    réexporté par l'utilisateur et mis à jour dans le dépôt — reflète ce
+    fix ainsi que l'ajout de l'image sur les posts X/Facebook (voir
+    backlog en tête de ce document).
   - Module **Telegram Bot → "Send a Text Message"** (connexion "Scenario"
     déjà existante, réutilisée) : `Chat ID` = `@scenario_fr`, `Text` =
     `Title` + `Comments` + **« 👉 Voir la mise à jour complète : »** + `URL`
