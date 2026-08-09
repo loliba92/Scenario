@@ -22,26 +22,65 @@ Priorités P1 (fort impact, faible coût) à P3 (utile mais plus lourd ou
 moins prioritaire).
 
 **Distribution / automatisation**
-- **P1 — Finaliser l'image de pub Instagram "Suis @scenarios.actu", en pause le 8 août faute de crédits IA.**
-  Base : `assets/social/instagram-ads/follow-cta-v1.png` (gabarit maison,
-  identique visuellement aux posts quotidiens), envoyée à l'utilisateur
-  avec un prompt pour l'améliorer via un outil IA photo externe (fond
-  plus premium, effet "flux de données"). Deux résultats reçus le 8 août,
-  tous deux avec des défauts à corriger avant utilisation :
-  - Version avec bullets "Gratuit"/"Sans pub"/pourcentages : **à écarter
-    telle quelle** — renomme "Stable" en "Scénario central" et "Dégradé"
-    en "Scénario défavorable" (casse le vocabulaire du site, toujours
-    Favorable/Stable/Dégradé), et affiche des pourcentages 35/45/20
-    inventés par l'IA, sans rapport avec de vraies données.
-  - Version plus sobre (garde Favorable/Stable/Dégradé intacts) : plus
-    proche du bon résultat, mais un chiffre parasite illisible traîne
-    dans le fond (artefact IA) — à régénérer en précisant explicitement
-    "no numbers, no extra text in the background". Contient aussi une
-    ligne ajoutée "Gratuit et sans pub" non présente dans l'original, à
-    valider ou retirer.
-  **Repris le [date à compléter] une fois les crédits IA renouvelés** —
-  utilisateur à relancer explicitely, il n'a plus de crédits le 8 août.
-  Buffer limite à 3 connecteurs gratuits (déjà pris par X, Facebook,
+- **[FAIT le 9 août] Image de pub Instagram "Suis @scenarios.actu"
+  finalisée.** Base : `assets/social/instagram-ads/follow-cta-v1.png`
+  (gabarit maison, identique visuellement aux posts quotidiens). Deux
+  premiers résultats du 8 août écartés (vocabulaire des scénarios
+  renommé sur l'un, chiffre parasite dans le fond sur l'autre — voir
+  historique dans le diff, plus la peine de le détailler ici). **Repris
+  le 9 août** une fois les crédits IA renouvelés, avec un nouveau
+  concept demandé par l'utilisateur : une route qui se sépare en trois
+  (verte/bleue/rouge, tronc doré) plutôt qu'un simple fond texturé —
+  reprend visuellement le tronc/branches du logo du site. Prompt
+  construit avec les mêmes garde-fous stricts que les tentatives
+  précédentes (aucune modification du texte, aucun chiffre/texte
+  inventé) + la nouvelle direction créative. Résultat validé, deux
+  formats sauvegardés :
+  - `assets/social/instagram-ads/follow-cta-v2-square.png` (1:1, 1254×1254)
+  - `assets/social/instagram-ads/follow-cta-v2-4x5.png` (4:5, 1122×1402 — format demandé en second, généralement préférable sur le fil Instagram pour l'espace vertical)
+  - `assets/social/instagram-ads/follow-cta-v3-4x5.png` (4:5, 1122×1402 —
+    variante envoyée juste après avec un léger semis d'étoiles en fond ;
+    pas un doublon exact du v2-4x5, à comparer avant de choisir laquelle
+    utiliser).
+
+  **Point de vigilance mineur, non corrigé (présent sur les deux
+  versions 4:5)** : le rayon doré central passe juste derrière
+  "LESSCENARIOS.FR" en bas — reste lisible mais contraste réduit à cet
+  endroit précis (texte doré sur lueur dorée). Pas bloquant, à améliorer
+  si besoin d'une future itération (baisser l'intensité du rayon à cette
+  hauteur).
+  Diffusion pas encore branchée (image prête, pas encore poussée en pub
+  Meta/Instagram par l'utilisateur).
+
+  **Retiré le 9 août : la phrase "👉 Suis @scenarios.actu".** Retour
+  utilisateur : l'image doit être réutilisable sur plusieurs plateformes
+  (Instagram, X...) qui n'ont pas le même identifiant de compte — un CTA
+  avec un handle spécifique n'a donc plus sa place sur ce visuel
+  générique. **Pas régénéré via l'outil IA** (économise des crédits) :
+  retiré directement en local par interpolation verticale simple
+  (script Python ponctuel, pas conservé) — pour chaque colonne de
+  pixels, la bande contenant le texte est remplacée par un dégradé
+  entre la ligne juste au-dessus et celle juste en dessous, ce qui se
+  fond naturellement dans la lueur de la route en arrière-plan. Fichiers
+  renommés en conséquence (`follow-cta-*` ne convenait plus) :
+  - `assets/social/instagram-ads/brand-teaser-square.png` (1:1)
+  - `assets/social/instagram-ads/brand-teaser-4x5-v2.png` (4:5, base v2)
+  - `assets/social/instagram-ads/brand-teaser-4x5-v3.png` (4:5, base v3
+    avec étoiles)
+
+  **Piège rencontré et corrigé** : la bande de texte n'est pas à la même
+  hauteur d'un fichier à l'autre (généré indépendamment par l'outil IA
+  externe à chaque fois) — appliquer la bande détectée sur le fichier v3
+  (y≈1019-1047) au fichier v2 (texte en réalité à y≈967-991) a d'abord
+  produit un résultat raté (texte à moitié effacé, effet de stries). Fix :
+  détecter la bande de texte **séparément pour chaque fichier**
+  (recherche des pixels de la couleur dorée du texte, `#cf9d4c` avec
+  tolérance) avant de choisir la zone à interpoler. Les 3 fichiers
+  originaux `follow-cta-v2-*`/`v3-4x5.png` (avec la phrase) restent aussi
+  dans le dépôt, au cas où une version avec CTA spécifique Instagram soit
+  utile un jour.
+- **P2 — WhatsApp comme canal de distribution supplémentaire.** Buffer
+  limite à 3 connecteurs gratuits (déjà pris par X, Facebook,
   Instagram) — passer par un 4e connecteur Buffer serait payant. Option
   écartée : créer un second compte Buffer gratuit avec une autre adresse
   email pour contourner la limite — risque réel de détection (même site
@@ -812,7 +851,15 @@ nouvel élément) : fil d'actualité scrollable façon LinkedIn/Instagram
 sociale reste sur Telegram) ; WhatsApp Channels (pas d'API officielle
 gratuite) ; dépôt GitHub privé ou dossier privé séparé pour les docs
 internes (coût opérationnel — routine à synchroniser sur deux dépôts —
-jugé disproportionné vu qu'aucun contenu n'est réellement sensible).
+jugé disproportionné vu qu'aucun contenu n'est réellement sensible) ;
+remplacer la question posée (`.day-context`) par le texte "L'essentiel"
+dans le récap hebdomadaire (`hebdo/*.html`) — proposé et écarté le
+9 août, la conclusion de "L'essentiel" ferait doublon avec la liste des
+3 scénarios juste en dessous (gagnant déjà en gras via `.is-winner`) ;
+question gardée, elle sépare proprement la mise en tension (question
+ouverte) de la résolution (scénarios). Piste alternative notée si le
+besoin revient : reprendre seulement la dernière phrase de "L'essentiel"
+(l'issue probable + le signal à surveiller), pas le bloc complet.
 
 ## Structure des fichiers
 
@@ -1423,6 +1470,25 @@ Voir les échanges de session pour le détail, mais en résumé :
      un jour mentionné sans son lien.
   5. Insère un nouvel `<item>` en haut de `feed-weekly.xml` (historique
      conservé, comme `feed.xml`), commit et push direct sur `main`.
+
+  **Tag `<comments>` ajouté le 6 août** (retour utilisateur), pour la
+  même raison que sur `feed.xml` : séparer un texte court réutilisable
+  (aperçu, réseau social) du HTML complet de `<description>`, sans avoir
+  à le parser. Porte la phrase d'ouverture/conclusion de semaine rédigée
+  à l'étape 3, en texte brut — identique au premier paragraphe de la
+  `<description>` mais sans les balises `<br>`. Appliqué rétroactivement
+  à l'item déjà publié (2 août).
+
+  **Prompt de cette routine documenté dans un fichier dédié depuis le
+  9 août** : `docs/routine-hebdo-prompt.md`, même principe que
+  `docs/routine-prompt.md`/`docs/routine-detection-prompt.md` — trigger
+  `trig_01SE6daCsV38jPUXf82DC7TF` (créé via `meta_mcp`, directement
+  éditable via `update_trigger`, pas besoin du cycle copier-coller
+  manuel de la routine éditoriale quotidienne). Ce fichier miroir
+  n'existait pas encore alors que la routine tournait déjà depuis
+  plusieurs semaines — trou comblé après un retour utilisateur qui
+  redonnait ce correctif du 6 août pour vérification, l'occasion de
+  s'apercevoir qu'aucune copie de référence n'existait.
 
   **Page dédiée ajoutée le 6 août** (retour utilisateur : besoin d'un lien
   stable à partager sur les réseaux, pas juste l'email/RSS). Revient sur la
