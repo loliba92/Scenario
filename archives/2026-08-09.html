@@ -362,31 +362,6 @@
 
   .stakes-text strong{ color: var(--paper); font-weight: 600; }
 
-  /* Récap "qui a réglé avec qui" ajouté le 9 août (retour utilisateur :
-     l'indicateur "3 sur 6 combinaisons" ne se comprenait pas sans faire le
-     calcul soi-même) — mêmes composants .stakes-box/.stakes-label/.stakes-text
-     que la boîte "Ce qu'on évalue", complétés d'une liste à puces. */
-  .recap-list{
-    list-style: none;
-    margin: 10px 0 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .recap-list li{
-    font-size: 0.95rem;
-    color: var(--paper);
-  }
-  .recap-list strong{ font-weight: 600; }
-
-  .recap-total{
-    font-size: 0.95rem;
-    color: var(--paper);
-    margin: 10px 0 0;
-  }
-  .recap-total strong{ color: var(--gold); font-weight: 600; }
-
   .essentiel-box{
     background: var(--surface);
     border: 1px solid var(--gold);
@@ -923,21 +898,7 @@
 
     <p class="dek">Chaque jour, les utilisateurs de <strong>Suno</strong><a class="lex-ref" href="#lex-suno" aria-label="Voir la définition dans le lexique">*</a> génèrent environ <strong>7 millions de chansons</strong> grâce à l'intelligence artificielle — de quoi recréer tout le catalogue de Spotify toutes les deux semaines. En face, trois maisons de disques se partagent l'essentiel de la musique enregistrée dans le monde : Universal Music, Sony Music et Warner Music, surnommées les <strong>majors</strong><a class="lex-ref" href="#lex-majors" aria-label="Voir la définition dans le lexique">*</a>. Depuis juin 2024, elles poursuivent en justice Suno et <strong>Udio</strong><a class="lex-ref" href="#lex-udio" aria-label="Voir la définition dans le lexique">*</a>, l'autre grand nom de la musique par IA, accusés d'avoir entraîné leurs modèles sur des millions de chansons protégées sans autorisation ni paiement. On avait déjà creusé cette vague de musique générée par IA — notamment la part qu'elle représente désormais sur des plateformes comme Deezer — dans notre édition du 1<sup>er</sup> août, <a href="../archives/2026-08-01.html">à lire ici</a>.</p>
 
-    <p class="dek">Deux ans plus tard, le front s'est fissuré. <strong>Warner Music</strong> a fait la paix avec les deux plateformes fin 2025 — avec Udio le 19 novembre, puis avec Suno le 25, en échange notamment du rachat par Suno du service de billetterie Songkick — et prépare avec elles de nouvelles versions « sous licence » pour 2026. <strong>Universal Music</strong> a réglé le 29 octobre 2025 avec Udio, qui devient un jardin fermé<a class="lex-ref" href="#lex-walled-garden" aria-label="Voir la définition dans le lexique">*</a> où les morceaux créés ne peuvent plus être téléchargés ni exportés — mais continue de poursuivre Suno. Seule <strong>Sony Music</strong> n'a transigé avec aucune des deux plateformes : elle a même déposé, le 20 juillet 2026, une nouvelle plainte contre Udio portant sur plus de <strong>30 000 titres</strong>, après qu'un juge lui a refusé le droit d'élargir sa plainte initiale.</p>
-
-    <div class="stakes-box">
-      <span class="stakes-label">Qui a réglé avec qui</span>
-      <p class="stakes-text">3 majors (Universal, Sony, Warner) × 2 plateformes IA (Suno, Udio) = <strong>6 duos possibles</strong>. Où en est chacun au 9 août 2026 :</p>
-      <ul class="recap-list">
-        <li>🤝 <strong>Warner</strong> ↔ Udio — accord signé (19 nov. 2025)</li>
-        <li>🤝 <strong>Warner</strong> ↔ Suno — accord signé (25 nov. 2025)</li>
-        <li>🤝 <strong>Universal</strong> ↔ Udio — accord signé (29 oct. 2025)</li>
-        <li>⚖️ <strong>Universal</strong> ↔ Suno — procès en cours, à Boston (avec Sony)</li>
-        <li>⚖️ <strong>Sony</strong> ↔ Udio — procès en cours (nouvelle plainte le 20 juil. 2026)</li>
-        <li>⚖️ <strong>Sony</strong> ↔ Suno — procès en cours, à Boston (avec Universal)</li>
-      </ul>
-      <p class="recap-total">→ <strong>3 accords signés sur les 6 duos possibles</strong> — c'est ce chiffre que reprend l'indicateur plus bas.</p>
-    </div>
+    <p class="dek">Deux ans plus tard, le front s'est fissuré — sans que les trois majors avancent au même rythme. Trois maisons de disques face à deux plateformes, cela fait <strong>six duos à régler un par un</strong> : <strong>Warner Music</strong> a fait la paix avec les deux — Udio le 19 novembre 2025, puis Suno le 25, en échange notamment du rachat par Suno du service de billetterie Songkick — et prépare avec elles de nouvelles versions « sous licence » pour 2026. <strong>Universal Music</strong> a réglé le 29 octobre 2025 avec Udio, qui devient un jardin fermé<a class="lex-ref" href="#lex-walled-garden" aria-label="Voir la définition dans le lexique">*</a> où les morceaux créés ne peuvent plus être téléchargés ni exportés — mais continue de poursuivre Suno. Seule <strong>Sony Music</strong> n'a transigé avec aucune des deux plateformes : elle a même déposé, le 20 juillet 2026, une nouvelle plainte contre Udio portant sur plus de <strong>30 000 titres</strong>, après qu'un juge lui a refusé le droit d'élargir sa plainte initiale. Au compteur : <strong>3 accords signés sur les 6 duos possibles</strong> — le chiffre repris plus bas dans l'indicateur.</p>
 
     <p class="dek">Le procès le plus lourd reste celui de Sony et Universal contre Suno, à Boston : en mai 2026, les deux maisons de disques ont demandé à l'étendre de 560 à <strong>61 026 titres</strong> identifiés dans les données d'entraînement de Suno, ce qui ferait grimper les dommages-intérêts légaux<a class="lex-ref" href="#lex-dommages-interets-legaux" aria-label="Voir la définition dans le lexique">*</a> potentiels à plus de <strong>9 milliards de dollars</strong>, contre 84 millions dans la plainte initiale. Suno conteste cette extension ; le juge n'a pas encore tranché, et les dépôts de conclusions ne sont attendus que pour avril 2027 — un signe que ce procès ne sera pas réglé de sitôt.</p>
 
