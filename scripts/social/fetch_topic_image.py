@@ -17,6 +17,17 @@ Principe non négociable : mots-clés THÉMATIQUES/GÉNÉRIQUES uniquement
 nom d'une personne réelle, pour ne jamais laisser une photo générique
 suggérer qu'elle représente un individu précis.
 
+Toujours en ANGLAIS, et toujours des CONCEPTS reformulés — jamais le
+titre de l'édition recopié tel quel, ni des mots-clés bruts type noms
+propres/marques/acronymes (ex. "Suno", "IA"). Pexels indexe ses photos
+par tags anglais descriptifs, pas par recherche sémantique : un nom
+propre ou un acronyme français ne matche aucun tag et fait retomber la
+recherche sur un mot isolé, avec des résultats hors-sujet à la clé.
+Partir des 2-3 idées clés du sujet et les traduire en scène visuelle
+générique, ex. pour un sujet "IA + musique + procès" :
+    mauvais : "IA Suno musique"            -> portraits sans rapport
+    bon      : "artificial intelligence music technology" -> studio/MAO
+
 Usage:
     export PEXELS_API_KEY=...  (déjà en variable d'environnement normalement)
     python3 scripts/social/fetch_topic_image.py "football stadium crowd" \\
@@ -67,6 +78,13 @@ def main():
     parser.add_argument("--count", type=int, default=5, help="Nombre de candidats à télécharger (défaut 5)")
     parser.add_argument("--out", default="/tmp/topic-image-candidates", help="Dossier de sortie")
     args = parser.parse_args()
+
+    if any(c in args.query for c in "àâäéèêëïîôöùûüçÀÂÄÉÈÊËÏÎÔÖÙÛÜÇ"):
+        print(f"ATTENTION : la requête « {args.query} » contient des accents "
+              "français. Pexels indexe ses photos en anglais par concepts "
+              "génériques, pas par recherche sémantique sur le titre — "
+              "reformule en 2-3 mots-clés anglais (voir docstring du script) "
+              "pour de meilleurs résultats.\n", file=sys.stderr)
 
     api_key = os.environ.get("PEXELS_API_KEY")
     if not api_key:
