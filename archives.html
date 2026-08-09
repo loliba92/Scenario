@@ -221,6 +221,43 @@
     gap: 10px;
   }
 
+  /* La ligne "Thème" est plus haute que les autres (plusieurs lignes de
+     domaines empilées) : on aligne son label en haut plutôt qu'au centre. */
+  .filter-row-themes{ align-items: flex-start; }
+
+  /* ---- Filtre thème regroupé par domaine ----
+     Un domaine (= tag de registre : Sport, Géopolitique…) par ligne, avec son
+     libellé en doré et ses sous-thèmes observés dans les entrées en clair
+     juste à côté — reprend le même code couleur que sur chaque entrée
+     (tag principal doré / tags thème en clair) plutôt qu'un unique tas de
+     puces mélangées. */
+  #theme-filters{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tag-domains{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .tag-domain-row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .filter-chip-domain{
+    color: var(--gold);
+    border-color: var(--gold);
+    flex: none;
+  }
+  .filter-chip-domain:hover{ background: var(--gold); color: var(--ink); }
+  .filter-chip-domain.is-active{ color: var(--ink); background: var(--gold); }
+
   .filter-row-label{
     font-family: "JetBrains Mono", monospace;
     font-size: 0.7rem;
@@ -632,9 +669,12 @@
         <span class="filter-row-label">Année</span>
         <div class="tag-filters" id="year-filters"></div>
       </div>
-      <div class="filter-row">
+      <div class="filter-row filter-row-themes">
         <span class="filter-row-label">Thème</span>
-        <div class="tag-filters" id="tag-filters"></div>
+        <div id="theme-filters">
+          <div class="tag-filters" id="tag-filters"></div>
+          <div class="tag-domains" id="tag-domains"></div>
+        </div>
       </div>
       <div class="filter-row">
         <span class="filter-row-label">Trier par</span>
@@ -966,7 +1006,9 @@
   (function(){
     var entries = Array.prototype.slice.call(document.querySelectorAll('#entries .entry'));
     var searchInput = document.getElementById('archive-search');
-    var tagFiltersBox = document.getElementById('tag-filters');
+    var themeFiltersWrap = document.getElementById('theme-filters');
+    var topRow = document.getElementById('tag-filters');
+    var domainsBox = document.getElementById('tag-domains');
     var yearFiltersBox = document.getElementById('year-filters');
     var noResult = document.getElementById('no-result');
     // Filtre thème multi-sélection : ensemble de tags actifs, vide = "Tout".
@@ -979,15 +1021,32 @@
     // Index chaque entrée (tags + année + texte recherchable), tags insensibles aux accents
     var seenTags = {}, tagOrder = [];
     var seenYears = {}, yearOrder = [];
+    // Regroupement du filtre thème par domaine : chaque entrée porte un tag
+    // de registre (ex. "sport", pastille .tag doré, sans classe .theme) et
+    // 1-2 tags thématiques (.tag.theme, pastille claire) — voir docs/tags.md.
+    // On reconstitue ici quels sous-thèmes ont été vus sous quel registre,
+    // pour afficher une ligne par registre au lieu d'un tas de puces.
+    var domainGroups = {}, domainOrder = [];
     entries.forEach(function(entry){
       var tags = [], labels = [];
+      var mainTag = null, subTags = [];
       entry.querySelectorAll('.tag').forEach(function(b){
         var t = b.dataset.tag;
         tags.push(t);
         labels.push(b.textContent);
         if(!seenTags[t]){ seenTags[t] = b.textContent; tagOrder.push(t); }
         b.addEventListener('click', function(){ toggleTagFilter(t); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        if(t !== 'hebdo' && t !== 'revise'){
+          if(b.classList.contains('theme')){ subTags.push(t); } else { mainTag = t; }
+        }
       });
+      if(mainTag){
+        if(!domainGroups[mainTag]){ domainGroups[mainTag] = { order: [], set: {} }; domainOrder.push(mainTag); }
+        var group = domainGroups[mainTag];
+        subTags.forEach(function(s){
+          if(!group.set[s]){ group.set[s] = true; group.order.push(s); }
+        });
+      }
       entry._tags = tags;
       var title = entry.querySelector('.entry-title').textContent;
       var date = entry.querySelector('.entry-date').textContent;
@@ -1015,23 +1074,40 @@
       return b;
     }
 
-    var allTagChip = makeChip(tagFiltersBox, 'all', 'Tout', function(){ toggleTagFilter('all'); });
+    var allTagChip = makeChip(topRow, 'all', 'Tout', function(){ toggleTagFilter('all'); });
     allTagChip.classList.add('is-active');
     // Le récap hebdo et "Sujet révisé" sont des types d'entrée à part (pas
     // des domaines comme les autres) : on les épingle juste après "Tout",
     // avec un style distinct, plutôt que de les laisser se fondre au hasard
     // dans l'ordre d'apparition des thèmes.
     if(seenTags['hebdo']){
-      var weeklyChip = makeChip(tagFiltersBox, 'hebdo', seenTags['hebdo'], function(){ toggleTagFilter('hebdo'); });
+      var weeklyChip = makeChip(topRow, 'hebdo', seenTags['hebdo'], function(){ toggleTagFilter('hebdo'); });
       weeklyChip.classList.add('filter-chip-weekly');
     }
     if(seenTags['revise']){
-      var reviseChip = makeChip(tagFiltersBox, 'revise', seenTags['revise'], function(){ toggleTagFilter('revise'); });
+      var reviseChip = makeChip(topRow, 'revise', seenTags['revise'], function(){ toggleTagFilter('revise'); });
       reviseChip.classList.add('filter-chip-revise');
     }
-    tagOrder.forEach(function(t){
-      if(t === 'hebdo' || t === 'revise') return;
-      makeChip(tagFiltersBox, t, seenTags[t], function(){ toggleTagFilter(t); });
+
+    // Ordre canonique des registres (docs/tags.md, section 1) ; tout tag de
+    // registre imprévu (nouveau, pas encore documenté) est ajouté à la fin
+    // plutôt que d'être perdu.
+    var registreCanonicalOrder = ['geopolitique', 'carte-blanche', 'actualite-francaise', 'sport', 'sciences', 'culture-francaise', 'culture-internationale'];
+    var orderedDomains = registreCanonicalOrder.filter(function(t){ return domainGroups[t]; });
+    domainOrder.forEach(function(t){ if(orderedDomains.indexOf(t) === -1){ orderedDomains.push(t); } });
+
+    orderedDomains.forEach(function(mainTag){
+      var row = document.createElement('div');
+      row.className = 'tag-domain-row';
+      var domainChip = makeChip(row, mainTag, seenTags[mainTag], function(){ toggleTagFilter(mainTag); });
+      domainChip.classList.add('filter-chip-domain');
+      var subBox = document.createElement('div');
+      subBox.className = 'tag-filters';
+      domainGroups[mainTag].order.forEach(function(sub){
+        makeChip(subBox, sub, seenTags[sub], function(){ toggleTagFilter(sub); });
+      });
+      row.appendChild(subBox);
+      domainsBox.appendChild(row);
     });
 
     var allYearChip = makeChip(yearFiltersBox, 'all', 'Toutes', function(){ setYearFilter('all'); });
@@ -1050,7 +1126,7 @@
       } else {
         activeTagFilters.add(val);
       }
-      tagFiltersBox.querySelectorAll('.filter-chip').forEach(function(c){
+      themeFiltersWrap.querySelectorAll('.filter-chip').forEach(function(c){
         var f = c.dataset.filter;
         var active = (f === 'all') ? (activeTagFilters.size === 0) : activeTagFilters.has(f);
         c.classList.toggle('is-active', active);
