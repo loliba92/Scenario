@@ -679,33 +679,36 @@ moins prioritaire).
   ligne n'était jamais mentionnée explicitement dans le prompt, juste
   héritée du gabarit `index.html` recopié tel quel — sa suppression du
   gabarit suffit à ce qu'elle disparaisse des prochaines éditions.
-- **P1 — Rendre visible le dernier sujet de suivi mis à jour, sans avoir
-  à aller sur `archives.html` et cliquer le filtre "Dernière mise à
-  jour".** Constat de l'utilisateur le 8 août : aujourd'hui, un sujet
-  suivi vient d'être mis à jour ou une nouvelle page créée (badge 🔄 sur
-  `archives.html`), mais rien ne le signale sur `index.html` — un
-  visiteur qui arrive sur le site n'a aucun moyen de le savoir sans
-  déjà connaître le mécanisme des pages de suivi et aller chercher le
-  filtre. D'autant plus vrai maintenant que la routine de détection peut
-  publier une mise à jour de façon autonome (voir plus haut, "Sélection
-  et publication automatique") — un lecteur régulier n'a alors aucun
-  signal visible d'un changement survenu le soir même.
+- **[FAIT le 9 août] Rendre visible le dernier sujet de suivi mis à jour
+  et le dernier récap hebdo, sans avoir à aller sur `archives.html`.**
+  Constat de l'utilisateur le 8 août : un sujet suivi mis à jour (badge
+  🔄 sur `archives.html`) n'était signalé nulle part sur `index.html` —
+  un visiteur régulier n'avait aucun moyen de le savoir sans déjà
+  connaître le mécanisme et aller chercher le filtre. Étendu le 9 août
+  (retour utilisateur) au dernier récap hebdomadaire, avec le même
+  besoin de visibilité.
 
-  **Piste à explorer** : un petit indicateur permanent, visible depuis
-  la page d'accueil (`index.html`), du type `🔄 Suivi : {Sujet} mis à
-  jour le {date} →` pointant directement vers `suivi/{sujet}.html` —
-  même esprit que le badge déjà en place sur `archives.html`, réutilisé
-  à un endroit où il sera vu sans action de la part du visiteur (ex.
-  juste sous le sommaire ancré, ou dans le nav). Complexité principale à
-  trancher : `index.html` est régénéré chaque matin par la routine
-  éditoriale quotidienne, mais une mise à jour de suivi peut survenir à
-  tout moment (manuellement, ou désormais automatiquement le soir) — il
-  faut donc que **le mécanisme qui publie une mise à jour de suivi
-  touche aussi cet indicateur sur `index.html`** (et idéalement sur les
-  archives déjà publiées, via un fragment/include partagé plutôt qu'une
-  édition à la main de chaque fichier), pas seulement `archives.html`
-  comme aujourd'hui. À concevoir avant d'implémenter — pas encore
-  commencé.
+  **Implémenté** : une bande `.top-updates` juste sous la nav (avant le
+  hero), toujours visible sans scroll — deux badges pill (même style que
+  `.suivi-badge` sur `archives.html`, réutilisé pour cohérence visuelle) :
+  `🔄 Suivi mis à jour · {Sujet} →` vers `suivi/{sujet}.html`, et
+  `🗓️ Récap de la semaine · {période} →` vers `hebdo/{date}.html`.
+  Testé visuellement desktop + mobile (Playwright) avant publication.
+
+  **Mécanisme de mise à jour, tranché le 9 août** : ce bloc fait partie
+  de la **structure générale du gabarit** que la routine quotidienne
+  reproduit tel quel chaque matin (même règle que le nav/footer) — son
+  **contenu** (quel suivi, quel récap) n'est cependant *pas* régénéré à
+  chaque édition, seulement quand un sujet suivi reçoit une nouvelle
+  version ou qu'un nouveau récap hebdo est publié. **Reste à faire**,
+  volontairement pas traité ce soir pour rester scope : brancher la
+  mise à jour de ce bloc dans le geste qui publie une nouvelle version
+  de suivi (actuellement manuel/en session) et dans la routine hebdo
+  (`trig_01SE6daCsV38jPUXf82DC7TF`), pour que ce soit automatique plutôt
+  que de compter sur une session future qui y pense. En attendant, à
+  mettre à jour à la main sur `index.html` à chaque nouvelle version de
+  suivi ou nouveau récap hebdo — un oubli laisse juste un lien vers
+  l'avant-dernière mise à jour, jamais un lien cassé.
 
 **Technique**
 - **[FAIT le 4 août] Optimisation de `archives.html`** — repéré le 4 août

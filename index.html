@@ -185,6 +185,40 @@
     border-bottom-color: var(--gold);
   }
 
+  /* ---------- Bande "mises à jour" (suivi actif + récap hebdo) ---------- */
+  /* Reproduit tel quel par la routine quotidienne (fait partie de la
+     structure générale du gabarit) — le contenu (quel suivi, quel récap)
+     n'est mis à jour qu'au moment où un sujet suivi reçoit une nouvelle
+     version, ou qu'un nouveau récap hebdo est publié, pas à chaque
+     édition quotidienne. Voir docs/ARCHITECTURE.md. */
+  .top-updates{
+    background: var(--surface);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .top-updates .wrap{
+    display: flex;
+    gap: 10px;
+    padding: 10px 24px;
+    flex-wrap: wrap;
+  }
+
+  .update-badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    color: var(--gold);
+    text-decoration: none;
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    padding: 3px 11px;
+    transition: background .15s, color .15s;
+  }
+
+  .update-badge:hover{ background: var(--gold); color: var(--ink); }
+
   /* ---------- Hero ---------- */
 
   .hero{
@@ -856,6 +890,13 @@
     <a href="contact.html">Contact</a>
   </div>
 </nav>
+
+<div class="top-updates">
+  <div class="wrap">
+    <a class="update-badge" href="suivi/fifa-infantino.html">🔄 Suivi mis à jour · FIFA : la présidence d'Infantino vacille →</a>
+    <a class="update-badge" href="hebdo/2026-08-02.html">🗓️ Récap de la semaine · 27 juillet au 2 août →</a>
+  </div>
+</div>
 
 <section class="hero" id="contexte">
   <div class="wrap">
