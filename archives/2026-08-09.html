@@ -294,6 +294,34 @@
 
   .dek strong{ color: var(--paper); font-weight: 600; }
 
+  /* Liste à puces dans le contexte (pas seulement dans les cartes de
+     scénarios) — même motif que .field li plus bas dans ce fichier (tiret
+     coloré), pour un passage dense à lire d'un coup d'œil plutôt qu'en
+     phrase continue. */
+  .dek-list{
+    list-style: none;
+    margin: 0 0 20px;
+    padding: 0;
+    max-width: 62ch;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .dek-list li{
+    font-size: 1.1rem;
+    line-height: 1.55;
+    color: var(--paper-dim);
+    padding-left: 20px;
+    position: relative;
+  }
+  .dek-list li::before{
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+  .dek-list strong{ color: var(--paper); font-weight: 600; }
+
   .dek a{ color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
   .dek a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
 
@@ -898,7 +926,18 @@
 
     <p class="dek">Chaque jour, les utilisateurs de <strong>Suno</strong><a class="lex-ref" href="#lex-suno" aria-label="Voir la définition dans le lexique">*</a> génèrent environ <strong>7 millions de chansons</strong> grâce à l'intelligence artificielle — de quoi recréer tout le catalogue de Spotify toutes les deux semaines. En face, trois maisons de disques se partagent l'essentiel de la musique enregistrée dans le monde : Universal Music, Sony Music et Warner Music, surnommées les <strong>majors</strong><a class="lex-ref" href="#lex-majors" aria-label="Voir la définition dans le lexique">*</a>. Depuis juin 2024, elles poursuivent en justice Suno et <strong>Udio</strong><a class="lex-ref" href="#lex-udio" aria-label="Voir la définition dans le lexique">*</a>, l'autre grand nom de la musique par IA, accusés d'avoir entraîné leurs modèles sur des millions de chansons protégées sans autorisation ni paiement. On avait déjà creusé cette vague de musique générée par IA — notamment la part qu'elle représente désormais sur des plateformes comme Deezer — dans notre édition du 1<sup>er</sup> août, <a href="../archives/2026-08-01.html">à lire ici</a>.</p>
 
-    <p class="dek">Deux ans plus tard, le front s'est fissuré — sans que les trois majors avancent au même rythme. Trois maisons de disques face à deux plateformes, cela fait <strong>six duos à régler un par un</strong> : <strong>Warner Music</strong> a fait la paix avec les deux — Udio le 19 novembre 2025, puis Suno le 25, en échange notamment du rachat par Suno du service de billetterie Songkick — et prépare avec elles de nouvelles versions « sous licence » pour 2026. <strong>Universal Music</strong> a réglé le 29 octobre 2025 avec Udio, qui devient un jardin fermé<a class="lex-ref" href="#lex-walled-garden" aria-label="Voir la définition dans le lexique">*</a> où les morceaux créés ne peuvent plus être téléchargés ni exportés — mais continue de poursuivre Suno. Seule <strong>Sony Music</strong> n'a transigé avec aucune des deux plateformes : elle a même déposé, le 20 juillet 2026, une nouvelle plainte contre Udio portant sur <strong>30 117 titres</strong>, jusqu'à <strong>4,5 milliards de dollars</strong> de dommages-intérêts légaux<a class="lex-ref" href="#lex-dommages-interets-legaux" aria-label="Voir la définition dans le lexique">*</a> potentiels (150 000 dollars par titre, le plafond légal), après qu'un juge lui a refusé le droit d'élargir sa plainte initiale contre Udio. Au compteur : <strong>3 accords signés sur les 6 duos possibles</strong> — le chiffre repris plus bas dans l'indicateur.</p>
+    <p class="dek">Deux ans plus tard, le front s'est fissuré — sans que les trois majors avancent au même rythme. Trois maisons de disques face à deux plateformes, cela fait <strong>six duos à régler un par un</strong> :</p>
+
+    <ul class="dek-list">
+      <li>🤝 <strong>Warner ↔ Udio</strong> — accord signé le 19 novembre 2025</li>
+      <li>🤝 <strong>Warner ↔ Suno</strong> — accord signé le 25 novembre 2025, en échange notamment du rachat par Suno du service de billetterie Songkick ; de nouvelles versions « sous licence » sont prévues avec les deux plateformes pour 2026</li>
+      <li>🤝 <strong>Universal ↔ Udio</strong> — accord signé le 29 octobre 2025, qui fait d'Udio un jardin fermé<a class="lex-ref" href="#lex-walled-garden" aria-label="Voir la définition dans le lexique">*</a> où les morceaux créés ne peuvent plus être téléchargés ni exportés</li>
+      <li>⚖️ <strong>Universal ↔ Suno</strong> — procès toujours en cours, à Boston (avec Sony)</li>
+      <li>⚖️ <strong>Sony ↔ Udio</strong> — nouvelle plainte déposée le 20 juillet 2026 : <strong>30 117 titres</strong>, jusqu'à <strong>4,5 milliards de dollars</strong> de dommages-intérêts légaux<a class="lex-ref" href="#lex-dommages-interets-legaux" aria-label="Voir la définition dans le lexique">*</a> potentiels (150 000 dollars par titre, le plafond légal), après qu'un juge a refusé à Sony le droit d'élargir sa plainte initiale contre Udio</li>
+      <li>⚖️ <strong>Sony ↔ Suno</strong> — procès toujours en cours, à Boston (avec Universal)</li>
+    </ul>
+
+    <p class="dek">Au compteur : <strong>3 accords signés sur les 6 duos possibles</strong> — le chiffre repris plus bas dans l'indicateur.</p>
 
     <p class="dek">Le procès le plus lourd reste celui de Sony et Universal contre Suno, à Boston : en mai 2026, les deux maisons de disques ont demandé à l'étendre de 560 à <strong>61 026 titres</strong> identifiés dans les données d'entraînement de Suno, ce qui ferait grimper les dommages-intérêts légaux potentiels à plus de <strong>9 milliards de dollars</strong> (même plafond de 150 000 dollars par titre), contre 84 millions dans la plainte initiale. Suno conteste cette extension ; le juge n'a pas encore tranché, et les dépôts de conclusions ne sont attendus que pour avril 2027 — un signe que ce procès ne sera pas réglé de sitôt. En additionnant les deux procès en cours (9 milliards contre Suno, 4,5 milliards contre Udio), l'exposition judiciaire cumulée de Sony et Universal atteint environ <strong>13,5 milliards de dollars</strong> — le chiffre de l'indicateur plus haut.</p>
 
