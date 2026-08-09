@@ -22,26 +22,32 @@ Priorités P1 (fort impact, faible coût) à P3 (utile mais plus lourd ou
 moins prioritaire).
 
 **Distribution / automatisation**
-- **P1 — Finaliser l'image de pub Instagram "Suis @scenarios.actu", en pause le 8 août faute de crédits IA.**
-  Base : `assets/social/instagram-ads/follow-cta-v1.png` (gabarit maison,
-  identique visuellement aux posts quotidiens), envoyée à l'utilisateur
-  avec un prompt pour l'améliorer via un outil IA photo externe (fond
-  plus premium, effet "flux de données"). Deux résultats reçus le 8 août,
-  tous deux avec des défauts à corriger avant utilisation :
-  - Version avec bullets "Gratuit"/"Sans pub"/pourcentages : **à écarter
-    telle quelle** — renomme "Stable" en "Scénario central" et "Dégradé"
-    en "Scénario défavorable" (casse le vocabulaire du site, toujours
-    Favorable/Stable/Dégradé), et affiche des pourcentages 35/45/20
-    inventés par l'IA, sans rapport avec de vraies données.
-  - Version plus sobre (garde Favorable/Stable/Dégradé intacts) : plus
-    proche du bon résultat, mais un chiffre parasite illisible traîne
-    dans le fond (artefact IA) — à régénérer en précisant explicitement
-    "no numbers, no extra text in the background". Contient aussi une
-    ligne ajoutée "Gratuit et sans pub" non présente dans l'original, à
-    valider ou retirer.
-  **Repris le [date à compléter] une fois les crédits IA renouvelés** —
-  utilisateur à relancer explicitely, il n'a plus de crédits le 8 août.
-  Buffer limite à 3 connecteurs gratuits (déjà pris par X, Facebook,
+- **[FAIT le 9 août] Image de pub Instagram "Suis @scenarios.actu"
+  finalisée.** Base : `assets/social/instagram-ads/follow-cta-v1.png`
+  (gabarit maison, identique visuellement aux posts quotidiens). Deux
+  premiers résultats du 8 août écartés (vocabulaire des scénarios
+  renommé sur l'un, chiffre parasite dans le fond sur l'autre — voir
+  historique dans le diff, plus la peine de le détailler ici). **Repris
+  le 9 août** une fois les crédits IA renouvelés, avec un nouveau
+  concept demandé par l'utilisateur : une route qui se sépare en trois
+  (verte/bleue/rouge, tronc doré) plutôt qu'un simple fond texturé —
+  reprend visuellement le tronc/branches du logo du site. Prompt
+  construit avec les mêmes garde-fous stricts que les tentatives
+  précédentes (aucune modification du texte, aucun chiffre/texte
+  inventé) + la nouvelle direction créative. Résultat validé, deux
+  formats sauvegardés :
+  - `assets/social/instagram-ads/follow-cta-v2-square.png` (1:1, 1254×1254)
+  - `assets/social/instagram-ads/follow-cta-v2-4x5.png` (4:5, 1122×1402 — format demandé en second, généralement préférable sur le fil Instagram pour l'espace vertical)
+
+  **Point de vigilance mineur, non corrigé** : sur la version 4:5, le
+  rayon doré central passe juste derrière "LESSCENARIOS.FR" en bas —
+  reste lisible mais contraste réduit à cet endroit précis (texte doré
+  sur lueur dorée). Pas bloquant, à améliorer si besoin d'une future
+  itération (baisser l'intensité du rayon à cette hauteur).
+  Diffusion pas encore branchée (image prête, pas encore poussée en pub
+  Meta/Instagram par l'utilisateur).
+- **P2 — WhatsApp comme canal de distribution supplémentaire.** Buffer
+  limite à 3 connecteurs gratuits (déjà pris par X, Facebook,
   Instagram) — passer par un 4e connecteur Buffer serait payant. Option
   écartée : créer un second compte Buffer gratuit avec une autre adresse
   email pour contourner la limite — risque réel de détection (même site
