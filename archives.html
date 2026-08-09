@@ -190,8 +190,8 @@
   .archive-tools{
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin: 0 0 30px;
+    gap: 12px;
+    margin: 0 0 26px;
   }
 
   .archive-search{
@@ -221,42 +221,70 @@
     gap: 10px;
   }
 
-  /* La ligne "Thème" est plus haute que les autres (plusieurs lignes de
-     domaines empilées) : on aligne son label en haut plutôt qu'au centre. */
+  /* La ligne "Thème" peut s'étendre sur plusieurs lignes (registre + panneau
+     domaines) : on aligne son label en haut plutôt qu'au centre. */
   .filter-row-themes{ align-items: flex-start; }
 
-  /* ---- Filtre thème regroupé par domaine ----
-     Un domaine (= tag de registre : Sport, Géopolitique…) par ligne, avec son
-     libellé en doré et ses sous-thèmes observés dans les entrées en clair
-     juste à côté — reprend le même code couleur que sur chaque entrée
-     (tag principal doré / tags thème en clair) plutôt qu'un unique tas de
-     puces mélangées. */
-  #theme-filters{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  /* Puces "registre" (Sport, Géopolitique…) : même doré que le tag principal
+     sur chaque entrée, affichées directement dans la ligne du haut avec
+     "Tout" — un seul tag de registre par entrée, pas de sous-niveau ici. */
+  .filter-chip-registre{
+    color: var(--gold);
+    border-color: var(--gold);
   }
+  .filter-chip-registre:hover{ background: var(--gold); color: var(--ink); }
+  .filter-chip-registre.is-active{ color: var(--ink); background: var(--gold); }
+
+  /* ---- Détail par domaine (repliable) ----
+     Les ~20 tags thématiques sont nombreux : cachés par défaut pour ne pas
+     allonger la page (voir bouton .theme-domains-toggle, même logique que
+     l'accordéon "Scénarios" de chaque entrée). Une fois ouvert, un domaine
+     par ligne — libellé en doré (voir docs/tags.md §2), ses tags en clair
+     juste à côté, sans doublon puisque chaque tag n'appartient qu'à un seul
+     domaine dans cette liste. */
+  .theme-domains-toggle{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    padding: 2px 0;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--paper-dim);
+    text-decoration: underline dotted;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+  .theme-domains-toggle:hover{ color: var(--paper); }
+  .theme-domains-toggle-icon{ display: inline-block; transition: transform .2s ease; }
+  .theme-domains-toggle[aria-expanded="true"] .theme-domains-toggle-icon{ transform: rotate(180deg); }
 
   .tag-domains{
-    display: flex;
+    display: none;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
+    margin-top: 6px;
   }
+  .tag-domains.is-open{ display: flex; }
 
   .tag-domain-row{
     display: flex;
-    align-items: center;
+    align-items: baseline;
     flex-wrap: wrap;
     gap: 8px;
   }
 
-  .filter-chip-domain{
+  .tag-domain-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     color: var(--gold);
-    border-color: var(--gold);
-    flex: none;
+    white-space: nowrap;
   }
-  .filter-chip-domain:hover{ background: var(--gold); color: var(--ink); }
-  .filter-chip-domain.is-active{ color: var(--ink); background: var(--gold); }
 
   .filter-row-label{
     font-family: "JetBrains Mono", monospace;
@@ -673,6 +701,9 @@
         <span class="filter-row-label">Thème</span>
         <div id="theme-filters">
           <div class="tag-filters" id="tag-filters"></div>
+          <button type="button" class="theme-domains-toggle" id="theme-domains-toggle" aria-expanded="false" aria-controls="tag-domains">
+            Détail par domaine <span class="theme-domains-toggle-icon" aria-hidden="true">▾</span>
+          </button>
           <div class="tag-domains" id="tag-domains"></div>
         </div>
       </div>
@@ -1021,32 +1052,15 @@
     // Index chaque entrée (tags + année + texte recherchable), tags insensibles aux accents
     var seenTags = {}, tagOrder = [];
     var seenYears = {}, yearOrder = [];
-    // Regroupement du filtre thème par domaine : chaque entrée porte un tag
-    // de registre (ex. "sport", pastille .tag doré, sans classe .theme) et
-    // 1-2 tags thématiques (.tag.theme, pastille claire) — voir docs/tags.md.
-    // On reconstitue ici quels sous-thèmes ont été vus sous quel registre,
-    // pour afficher une ligne par registre au lieu d'un tas de puces.
-    var domainGroups = {}, domainOrder = [];
     entries.forEach(function(entry){
       var tags = [], labels = [];
-      var mainTag = null, subTags = [];
       entry.querySelectorAll('.tag').forEach(function(b){
         var t = b.dataset.tag;
         tags.push(t);
         labels.push(b.textContent);
         if(!seenTags[t]){ seenTags[t] = b.textContent; tagOrder.push(t); }
         b.addEventListener('click', function(){ toggleTagFilter(t); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-        if(t !== 'hebdo' && t !== 'revise'){
-          if(b.classList.contains('theme')){ subTags.push(t); } else { mainTag = t; }
-        }
       });
-      if(mainTag){
-        if(!domainGroups[mainTag]){ domainGroups[mainTag] = { order: [], set: {} }; domainOrder.push(mainTag); }
-        var group = domainGroups[mainTag];
-        subTags.forEach(function(s){
-          if(!group.set[s]){ group.set[s] = true; group.order.push(s); }
-        });
-      }
       entry._tags = tags;
       var title = entry.querySelector('.entry-title').textContent;
       var date = entry.querySelector('.entry-date').textContent;
@@ -1089,26 +1103,68 @@
       reviseChip.classList.add('filter-chip-revise');
     }
 
-    // Ordre canonique des registres (docs/tags.md, section 1) ; tout tag de
-    // registre imprévu (nouveau, pas encore documenté) est ajouté à la fin
-    // plutôt que d'être perdu.
+    // Tags de registre (docs/tags.md §1, ordre canonique) : un seul par
+    // entrée, affiché directement dans la ligne du haut à côté de "Tout",
+    // en doré comme sur les entrées.
     var registreCanonicalOrder = ['geopolitique', 'carte-blanche', 'actualite-francaise', 'sport', 'sciences', 'culture-francaise', 'culture-internationale'];
-    var orderedDomains = registreCanonicalOrder.filter(function(t){ return domainGroups[t]; });
-    domainOrder.forEach(function(t){ if(orderedDomains.indexOf(t) === -1){ orderedDomains.push(t); } });
+    registreCanonicalOrder.forEach(function(t){
+      if(!seenTags[t]){ return; }
+      makeChip(topRow, t, seenTags[t], function(){ toggleTagFilter(t); }).classList.add('filter-chip-registre');
+    });
 
-    orderedDomains.forEach(function(mainTag){
+    // Domaines des tags thématiques (docs/tags.md §2) : table figée, à tenir
+    // à jour en même temps que ce fichier — chaque tag n'y apparaît qu'une
+    // fois, donc pas de doublon possible dans le panneau ci-dessous, à
+    // l'inverse d'un regroupement déduit des associations par entrée (un même
+    // sous-thème peut avoir été utilisé sous plusieurs registres différents).
+    var themeDomains = [
+      { label: 'Économie & entreprises', tags: ['economie', 'entreprises', 'emploi'] },
+      { label: 'Politique & institutions', tags: ['politique', 'justice'] },
+      { label: 'International', tags: ['diplomatie', 'defense', 'immigration'] },
+      { label: 'Sciences & environnement', tags: ['energie', 'climat', 'sante', 'espace'] },
+      { label: 'Tech & numérique', tags: ['intelligence-artificielle', 'numerique'] },
+      { label: 'Culture & divertissement', tags: ['cinema', 'musique', 'jeux-video', 'litterature', 'medias'] },
+      { label: 'Sport & argent', tags: ['sport-economie'] },
+      { label: 'Société', tags: ['societe'] }
+    ];
+    var mappedThemeTags = {};
+    themeDomains.forEach(function(d){ d.tags.forEach(function(t){ mappedThemeTags[t] = true; }); });
+    // Filet de sécurité : un tag thématique utilisé sur une entrée mais oublié
+    // dans la table ci-dessus (désynchro avec tags.md) atterrit ici plutôt que
+    // de disparaître silencieusement du panneau.
+    var strayTags = tagOrder.filter(function(t){
+      return t !== 'hebdo' && t !== 'revise' && registreCanonicalOrder.indexOf(t) === -1 && !mappedThemeTags[t];
+    });
+    if(strayTags.length){ themeDomains.push({ label: 'Autres', tags: strayTags }); }
+
+    themeDomains.forEach(function(d){
+      var present = d.tags.filter(function(t){ return seenTags[t]; });
+      if(!present.length){ return; }
       var row = document.createElement('div');
       row.className = 'tag-domain-row';
-      var domainChip = makeChip(row, mainTag, seenTags[mainTag], function(){ toggleTagFilter(mainTag); });
-      domainChip.classList.add('filter-chip-domain');
+      var label = document.createElement('span');
+      label.className = 'tag-domain-label';
+      label.textContent = d.label;
+      row.appendChild(label);
       var subBox = document.createElement('div');
       subBox.className = 'tag-filters';
-      domainGroups[mainTag].order.forEach(function(sub){
-        makeChip(subBox, sub, seenTags[sub], function(){ toggleTagFilter(sub); });
-      });
+      present.forEach(function(t){ makeChip(subBox, t, seenTags[t], function(){ toggleTagFilter(t); }); });
       row.appendChild(subBox);
       domainsBox.appendChild(row);
     });
+
+    // Panneau détail par domaine replié par défaut (une vingtaine de tags
+    // d'un coup, ça alourdit trop la page si c'est ouvert d'office) —
+    // même logique que l'accordéon "Scénarios" de chaque entrée.
+    var domainsToggle = document.getElementById('theme-domains-toggle');
+    if(domainsBox.children.length){
+      domainsToggle.addEventListener('click', function(){
+        var open = domainsBox.classList.toggle('is-open');
+        domainsToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    } else {
+      domainsToggle.hidden = true;
+    }
 
     var allYearChip = makeChip(yearFiltersBox, 'all', 'Toutes', function(){ setYearFilter('all'); });
     allYearChip.classList.add('is-active');
