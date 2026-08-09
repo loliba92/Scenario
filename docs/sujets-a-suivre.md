@@ -48,6 +48,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 09.08.2026 — [Musique IA : la note grimpe à 9 milliards](../archives/2026-08-09.html)
 - 08.08.2026 — [Le cinéma reprend des couleurs](../archives/2026-08-08.html)
 - 07.08.2026 — [Big Tech face à la justice](../archives/2026-08-07.html)
 - 06.08.2026 — [FIFA : la présidence d'Infantino vacille](../archives/2026-08-06.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.
