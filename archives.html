@@ -969,7 +969,9 @@
     var tagFiltersBox = document.getElementById('tag-filters');
     var yearFiltersBox = document.getElementById('year-filters');
     var noResult = document.getElementById('no-result');
-    var activeTagFilter = 'all';
+    // Filtre thème multi-sélection : ensemble de tags actifs, vide = "Tout".
+    // Une édition passe le filtre si elle porte au moins un des tags cochés (OR).
+    var activeTagFilters = new Set();
     var activeYearFilter = 'all';
 
     function deburr(s){ return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); }
@@ -984,7 +986,7 @@
         tags.push(t);
         labels.push(b.textContent);
         if(!seenTags[t]){ seenTags[t] = b.textContent; tagOrder.push(t); }
-        b.addEventListener('click', function(){ setTagFilter(t); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        b.addEventListener('click', function(){ toggleTagFilter(t); window.scrollTo({ top: 0, behavior: 'smooth' }); });
       });
       entry._tags = tags;
       var title = entry.querySelector('.entry-title').textContent;
@@ -1013,33 +1015,45 @@
       return b;
     }
 
-    var allTagChip = makeChip(tagFiltersBox, 'all', 'Tout', function(){ setTagFilter('all'); });
+    var allTagChip = makeChip(tagFiltersBox, 'all', 'Tout', function(){ toggleTagFilter('all'); });
     allTagChip.classList.add('is-active');
     // Le récap hebdo et "Sujet révisé" sont des types d'entrée à part (pas
     // des domaines comme les autres) : on les épingle juste après "Tout",
     // avec un style distinct, plutôt que de les laisser se fondre au hasard
     // dans l'ordre d'apparition des thèmes.
     if(seenTags['hebdo']){
-      var weeklyChip = makeChip(tagFiltersBox, 'hebdo', seenTags['hebdo'], function(){ setTagFilter('hebdo'); });
+      var weeklyChip = makeChip(tagFiltersBox, 'hebdo', seenTags['hebdo'], function(){ toggleTagFilter('hebdo'); });
       weeklyChip.classList.add('filter-chip-weekly');
     }
     if(seenTags['revise']){
-      var reviseChip = makeChip(tagFiltersBox, 'revise', seenTags['revise'], function(){ setTagFilter('revise'); });
+      var reviseChip = makeChip(tagFiltersBox, 'revise', seenTags['revise'], function(){ toggleTagFilter('revise'); });
       reviseChip.classList.add('filter-chip-revise');
     }
     tagOrder.forEach(function(t){
       if(t === 'hebdo' || t === 'revise') return;
-      makeChip(tagFiltersBox, t, seenTags[t], function(){ setTagFilter(t); });
+      makeChip(tagFiltersBox, t, seenTags[t], function(){ toggleTagFilter(t); });
     });
 
     var allYearChip = makeChip(yearFiltersBox, 'all', 'Toutes', function(){ setYearFilter('all'); });
     allYearChip.classList.add('is-active');
     yearOrder.forEach(function(y){ makeChip(yearFiltersBox, y, y, function(){ setYearFilter(y); }); });
 
-    function setTagFilter(val){
-      activeTagFilter = val;
+    // Un clic sur "Tout" réinitialise la sélection ; un clic sur une puce
+    // thème l'ajoute/l'enlève de la sélection sans toucher aux autres, ce
+    // qui permet de cocher plusieurs thèmes à la fois (ex. "Économie" +
+    // "Diplomatie").
+    function toggleTagFilter(val){
+      if(val === 'all'){
+        activeTagFilters.clear();
+      } else if(activeTagFilters.has(val)){
+        activeTagFilters.delete(val);
+      } else {
+        activeTagFilters.add(val);
+      }
       tagFiltersBox.querySelectorAll('.filter-chip').forEach(function(c){
-        c.classList.toggle('is-active', c.dataset.filter === val);
+        var f = c.dataset.filter;
+        var active = (f === 'all') ? (activeTagFilters.size === 0) : activeTagFilters.has(f);
+        c.classList.toggle('is-active', active);
       });
       apply();
     }
@@ -1056,7 +1070,7 @@
       var q = deburr(searchInput.value.trim());
       var visible = 0;
       entries.forEach(function(entry){
-        var okTag = (activeTagFilter === 'all') || entry._tags.indexOf(activeTagFilter) !== -1;
+        var okTag = (activeTagFilters.size === 0) || entry._tags.some(function(t){ return activeTagFilters.has(t); });
         var okYear = (activeYearFilter === 'all') || entry._year === activeYearFilter;
         var okSearch = !q || entry._text.indexOf(q) !== -1;
         var show = okTag && okYear && okSearch;
@@ -1100,7 +1114,7 @@
     // une page suivi précise à chaque nouvelle version (ajouté le 9 août).
     var urlTag = new URLSearchParams(location.search).get('tag');
     if (urlTag && seenTags[urlTag]) {
-      setTagFilter(urlTag);
+      toggleTagFilter(urlTag);
       if (urlTag === 'revise') {
         var updateChip = sortToggle.querySelector('[data-sort="update"]');
         if (updateChip) { updateChip.click(); }
