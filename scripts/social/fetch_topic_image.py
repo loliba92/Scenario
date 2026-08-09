@@ -37,12 +37,21 @@ correctement, à condition de rester sur des noms communs, jamais des
 noms propres/acronymes. Utile si l'anglais ne sort rien de convaincant,
 mais l'anglais reste le premier réflexe (catalogue plus large).
 
-Attention, Pexels n'a quasi rien qui combine visuellement deux concepts
-distincts à la fois (ex. "IA" + "musique") : une requête composée sort
-souvent soit des illustrations IA génériques sans lien avec le second
-concept, soit l'inverse. Mieux vaut chercher chaque concept séparément
-et choisir/trancher humainement plutôt que d'empiler les mots-clés en
-espérant un résultat qui coche les deux cases.
+Une requête composée sur deux concepts distincts (ex. "IA" + "musique")
+sort souvent des résultats faibles — mais corrigé le 9 août : ce n'est
+PAS que ces photos combinées n'existent pas sur Pexels, c'est que le
+script forçait avant `orientation=square` sur la RECHERCHE elle-même,
+ce qui écarte une bonne partie du catalogue (donc du classement par
+pertinence) avant même d'avoir pu voir les meilleurs candidats — trouvé
+en comparant avec l'appli Pexels, qui ne filtre pas par défaut et sort
+de bien meilleurs résultats sur la même requête. Recherche maintenant
+SANS filtre d'orientation ; le format carré (pour usage Instagram) est
+appliqué après coup, au téléchargement, sur la photo déjà choisie pour
+sa pertinence — voir `square_crop_url()`.
+
+Si malgré ça une requête composée ne sort toujours rien de bon, chercher
+chaque concept séparément et choisir/trancher humainement reste une
+option valable — mais commencer par la requête composée sans a priori.
 
 Usage:
     export PEXELS_API_KEY=...  (déjà en variable d'environnement normalement)
@@ -65,10 +74,16 @@ PEXELS_SEARCH_URL = "https://api.pexels.com/v1/search"
 
 
 def search_pexels(query: str, count: int, api_key: str, color: str | None = None) -> list[dict]:
+    # Pas de filtre "orientation" ici : testé le 9 août, forcer
+    # orientation=square sur la RECHERCHE écarte une bonne partie du
+    # catalogue (donc du classement par pertinence) avant même d'avoir
+    # pu voir les meilleurs candidats — l'appli Pexels ne filtre pas non
+    # plus par défaut. Le format carré est appliqué ensuite au moment du
+    # téléchargement (voir square_crop_url), sur l'image déjà choisie
+    # pour sa pertinence plutôt que pour son ratio d'origine.
     params_dict = {
         "query": query,
         "per_page": count,
-        "orientation": "square",
     }
     if color:
         params_dict["color"] = color
@@ -83,6 +98,15 @@ def search_pexels(query: str, count: int, api_key: str, color: str | None = None
     with urllib.request.urlopen(req, timeout=20) as resp:
         data = json.loads(resp.read().decode("utf-8"))
     return data.get("photos", [])
+
+
+def square_crop_url(original_url: str, size: int = 1080) -> str:
+    """Construit l'URL de rognage carré Pexels à partir de la photo
+    d'origine (quel que soit son ratio natif), via les paramètres
+    d'image du CDN Pexels — testé le 9 août, fonctionne sur n'importe
+    quelle photo, pas besoin qu'elle soit carrée nativement."""
+    sep = "&" if "?" in original_url else "?"
+    return f"{original_url}{sep}auto=compress&cs=tinysrgb&fit=crop&w={size}&h={size}"
 
 
 def download(url: str, dest_path: str) -> None:
@@ -135,7 +159,7 @@ def main():
 
     credits = []
     for i, photo in enumerate(photos, start=1):
-        img_url = photo["src"]["large"]
+        img_url = square_crop_url(photo["src"]["original"])
         dest = os.path.join(args.out, f"candidate-{i}.jpg")
         try:
             download(img_url, dest)
