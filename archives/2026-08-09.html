@@ -362,6 +362,31 @@
 
   .stakes-text strong{ color: var(--paper); font-weight: 600; }
 
+  /* Récap "qui a réglé avec qui" ajouté le 9 août (retour utilisateur :
+     l'indicateur "3 sur 6 combinaisons" ne se comprenait pas sans faire le
+     calcul soi-même) — mêmes composants .stakes-box/.stakes-label/.stakes-text
+     que la boîte "Ce qu'on évalue", complétés d'une liste à puces. */
+  .recap-list{
+    list-style: none;
+    margin: 10px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .recap-list li{
+    font-size: 0.95rem;
+    color: var(--paper);
+  }
+  .recap-list strong{ font-weight: 600; }
+
+  .recap-total{
+    font-size: 0.95rem;
+    color: var(--paper);
+    margin: 10px 0 0;
+  }
+  .recap-total strong{ color: var(--gold); font-weight: 600; }
+
   .essentiel-box{
     background: var(--surface);
     border: 1px solid var(--gold);
@@ -900,6 +925,20 @@
 
     <p class="dek">Deux ans plus tard, le front s'est fissuré. <strong>Warner Music</strong> a fait la paix avec les deux plateformes fin 2025 — avec Udio le 19 novembre, puis avec Suno le 25, en échange notamment du rachat par Suno du service de billetterie Songkick — et prépare avec elles de nouvelles versions « sous licence » pour 2026. <strong>Universal Music</strong> a réglé le 29 octobre 2025 avec Udio, qui devient un jardin fermé<a class="lex-ref" href="#lex-walled-garden" aria-label="Voir la définition dans le lexique">*</a> où les morceaux créés ne peuvent plus être téléchargés ni exportés — mais continue de poursuivre Suno. Seule <strong>Sony Music</strong> n'a transigé avec aucune des deux plateformes : elle a même déposé, le 20 juillet 2026, une nouvelle plainte contre Udio portant sur plus de <strong>30 000 titres</strong>, après qu'un juge lui a refusé le droit d'élargir sa plainte initiale.</p>
 
+    <div class="stakes-box">
+      <span class="stakes-label">Qui a réglé avec qui</span>
+      <p class="stakes-text">3 majors (Universal, Sony, Warner) × 2 plateformes IA (Suno, Udio) = <strong>6 duos possibles</strong>. Où en est chacun au 9 août 2026 :</p>
+      <ul class="recap-list">
+        <li>🤝 <strong>Warner</strong> ↔ Udio — accord signé (19 nov. 2025)</li>
+        <li>🤝 <strong>Warner</strong> ↔ Suno — accord signé (25 nov. 2025)</li>
+        <li>🤝 <strong>Universal</strong> ↔ Udio — accord signé (29 oct. 2025)</li>
+        <li>⚖️ <strong>Universal</strong> ↔ Suno — procès en cours, à Boston (avec Sony)</li>
+        <li>⚖️ <strong>Sony</strong> ↔ Udio — procès en cours (nouvelle plainte le 20 juil. 2026)</li>
+        <li>⚖️ <strong>Sony</strong> ↔ Suno — procès en cours, à Boston (avec Universal)</li>
+      </ul>
+      <p class="recap-total">→ <strong>3 accords signés sur les 6 duos possibles</strong> — c'est ce chiffre que reprend l'indicateur plus bas.</p>
+    </div>
+
     <p class="dek">Le procès le plus lourd reste celui de Sony et Universal contre Suno, à Boston : en mai 2026, les deux maisons de disques ont demandé à l'étendre de 560 à <strong>61 026 titres</strong> identifiés dans les données d'entraînement de Suno, ce qui ferait grimper les dommages-intérêts légaux<a class="lex-ref" href="#lex-dommages-interets-legaux" aria-label="Voir la définition dans le lexique">*</a> potentiels à plus de <strong>9 milliards de dollars</strong>, contre 84 millions dans la plainte initiale. Suno conteste cette extension ; le juge n'a pas encore tranché, et les dépôts de conclusions ne sont attendus que pour avril 2027 — un signe que ce procès ne sera pas réglé de sitôt.</p>
 
     <p class="dek">Le rapport de force ne se joue pas qu'aux États-Unis. Le 31 juillet 2026, un tribunal de Munich a donné raison à la <strong>Gema</strong><a class="lex-ref" href="#lex-gema" aria-label="Voir la définition dans le lexique">*</a>, l'équivalent allemand de la Sacem, contre Suno — la première décision de justice européenne sur le sujet, qui affirme surtout que le droit de l'UE s'applique dès qu'une IA sert des utilisateurs européens, peu importe où ses modèles ont été entraînés. Deux jours plus tard, le 2 août 2026, l'article 50 de la loi européenne sur l'intelligence artificielle (l'<strong>AI Act</strong><a class="lex-ref" href="#lex-ai-act" aria-label="Voir la définition dans le lexique">*</a>) est entré en vigueur : toute IA qui génère de la musique doit désormais signaler ce contenu de façon détectable par une machine, sous peine d'une amende pouvant atteindre <strong>15 millions d'euros ou 3 % de son chiffre d'affaires mondial</strong>.</p>
@@ -910,7 +949,7 @@
 
     <div class="indicator-strip">
       <div class="indicator">
-        <span class="label">Accords de licence signés (majors ↔ Suno/Udio, sur 6 combinaisons possibles)</span>
+        <span class="label">Accords de licence signés (3 majors × 2 plateformes IA = 6 duos possibles)</span>
         <span class="value">3 sur 6 <span class="delta">▲ contre 0 en 2024, année du dépôt des plaintes</span></span>
       </div>
       <div class="indicator">
@@ -1051,7 +1090,7 @@
 
     <div class="essentiel-box" id="essentiel">
       <span class="essentiel-label">L'essentiel</span>
-      <p class="essentiel-text">Le combat entre maisons de disques et IA musicales va-t-il déboucher sur un marché mondial encadré, ou rester une guerre de tranchées sans fin ? Sony réclame à elle seule jusqu'à <strong>9 milliards de dollars</strong> à Suno devant la justice américaine, alors qu'Universal et Warner ont déjà signé des accords de licence avec les deux plateformes. Le scénario le plus probable <strong>(55%)</strong> : le bras de fer s'installe dans la durée, sans nouveau verdict avant 2027 et sans que Sony ne cède. Signal à surveiller : la décision du juge de Boston sur l'extension du procès Suno aux 61 026 titres, attendue avant l'échéance des dépôts de conclusions fixée au 9 avril 2027.</p>
+      <p class="essentiel-text">Le combat entre maisons de disques et IA musicales va-t-il déboucher sur un marché mondial encadré, ou rester une guerre de tranchées sans fin ? Sony et Universal réclament ensemble jusqu'à <strong>9 milliards de dollars</strong> à Suno devant la justice américaine, alors que Warner, elle, a déjà réglé avec les deux plateformes et qu'Universal a par ailleurs signé avec Udio seul — <strong>3 accords de licence sur les 6 duos majors ↔ IA possibles</strong> à ce jour. Le scénario le plus probable <strong>(55%)</strong> : le bras de fer s'installe dans la durée, sans nouveau verdict avant 2027 et sans que Sony ne cède. Signal à surveiller : la décision du juge de Boston sur l'extension du procès Suno aux 61 026 titres, attendue avant l'échéance des dépôts de conclusions fixée au 9 avril 2027.</p>
     </div>
 
   </div>
