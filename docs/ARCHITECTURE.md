@@ -171,8 +171,8 @@ moins prioritaire).
   branche Facebook** (module 12, `profileIds` identique à celui du Daily)
   entre-temps, pas documentée en détail ici — même format que la branche
   Telegram/LinkedIn existante du scénario Weekly.
-- **P1 — Image custom par sujet (Pexels), en cours de construction le
-  8 août — script écrit, pas encore testé.** Idée de l'utilisateur :
+- **P1 — Image custom par sujet (Pexels), testée le 9 août puis branchée
+  sur la routine automatique le même jour.** Idée de l'utilisateur :
   remplacer le visuel généré (titre + 3 scénarios) par une vraie photo
   libre de droits liée au thème du jour, quand une bonne correspond, à
   la fois pour l'image des posts sociaux (Instagram/X/Facebook) et pour
@@ -198,29 +198,55 @@ moins prioritaire).
 
   **Garde-fous construits dans les scripts** (`scripts/social/
   fetch_topic_image.py` + `scripts/social/use_topic_image.py`) :
-  - Recherche par **mots-clés thématiques génériques en anglais**
-    uniquement (ex. "football stadium", "oil tanker"), **jamais le nom
-    d'une personne réelle** — pour ne jamais laisser une photo générique
-    suggérer qu'elle représente un individu précis.
+  - Recherche par **mots-clés thématiques génériques**, de préférence en
+    anglais (catalogue Pexels plus riche), français courant accepté en
+    repli — **jamais un nom propre, une marque ou un acronyme isolé**
+    (ex. "Suno", "IA"), qui ne matche aucun tag Pexels et sort des
+    résultats hors-sujet ; **jamais le nom d'une personne réelle** — pour
+    ne jamais laisser une photo générique suggérer qu'elle représente un
+    individu précis.
   - `fetch_topic_image.py` télécharge plusieurs candidats (jamais un
     choix automatique) dans un dossier temporaire, avec une fiche
     `credits.json` (photographe, lien Pexels, requête) pour traçabilité,
-    même si la licence Pexels n'exige pas d'attribution.
-  - Revue visuelle obligatoire en session (regarder les candidats avant
-    tout usage) — si rien de pertinent, ne rien utiliser, garder le
-    visuel généré habituel.
+    même si la licence Pexels n'exige pas d'attribution. Recherche sans
+    filtre `orientation` (bug trouvé le 9 août : le forcer sur
+    `orientation=square` écartait une bonne partie du catalogue avant
+    même le classement par pertinence) — le format carré est appliqué
+    après coup, au téléchargement, via les paramètres d'image du CDN
+    Pexels (`square_crop_url()`).
+  - Revue visuelle obligatoire avant tout usage (regarder les candidats,
+    Read tool) — si rien de pertinent, ne rien utiliser, garder le
+    visuel généré habituel. Reste vrai même en routine automatique/sans
+    supervision : c'est l'agent qui exécute la routine qui fait cette
+    revue à ce moment-là, pas un humain en direct — mais le principe
+    "jamais un choix mécanique sur le premier résultat, jamais forcer
+    une photo médiocre" reste non négociable.
   - `use_topic_image.py` ne fait que committer le candidat déjà choisi
-    par un humain vers `assets/social/topic-images/{date}.jpg` +
-    provenance — geste toujours volontaire.
+    vers `assets/social/topic-images/{date}.jpg` + provenance — geste
+    toujours volontaire, jamais automatique en amont de cette revue.
 
-  **Pas encore testé** : `PEXELS_API_KEY` n'était pas visible dans la
-  session où la clé a été configurée (les variables d'environnement
-  Claude Code Remote ne s'appliquent qu'aux nouvelles sessions) — à
-  tester dès qu'une session la voit. **Périmètre volontairement limité
-  aux sessions interactives pour l'instant** (retour utilisateur : pas
-  encore branché sur la routine quotidienne automatique/sans supervision
-  à 7h15, le temps de valider ensemble que ça fonctionne bien) —
-  `docs/routine-prompt.md` non modifié à ce stade.
+  **Incrustation titre + scénarios sur la photo (ajouté le 9 août,
+  retour utilisateur), `scripts/social/instagram-photo-template.html`** :
+  au lieu d'une photo nue, le rendu final reprend l'identité visuelle du
+  template généré habituel (logo, titre en gros, 3 scénarios dans un
+  encart noir avec le code couleur habituel vert/bleu/rouge) mais avec
+  la vraie photo en fond plutôt que le dégradé uni, dégradés noirs en
+  haut et en bas de l'image pour garder tout le texte lisible.
+  `generate_instagram_image.py --photo {chemin}` gère l'incrustation
+  (photo encodée en data URI, injectée dans le template via
+  `__PHOTO_SRC__`) — strictement rétrocompatible, le comportement par
+  défaut (sans `--photo`) reste identique au pixel près à avant le
+  9 août.
+
+  **Branché sur la routine quotidienne automatique le 9 août**
+  (`docs/routine-prompt.md`, étape technique 8) : la routine tente
+  désormais une photo Pexels avant de générer l'image Instagram, et
+  retombe silencieusement sur le visuel généré habituel si rien ne
+  convient (aucun candidat pertinent, ou `fetch_topic_image.py` en
+  échec) — jamais bloquant pour la publication du jour. Si une photo est
+  retenue, `og:image`/`twitter:image`/le champ `image` du JSON-LD sont
+  aussi mis à jour vers cette image composite (1080×1080) au lieu de
+  l'image générique statique `og-image-v2.png`.
 
   **Reste à faire une fois testé** : brancher le fichier obtenu dans
   `feed.xml` (`<enclosure>`) et les meta `og:image`/`twitter:image`/
