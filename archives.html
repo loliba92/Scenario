@@ -249,16 +249,20 @@
     border-color: var(--gold);
   }
 
-  /* La puce "Récap de la semaine" est épinglée juste après "Tout" (voir JS)
-     plutôt que noyée dans le tri alphabétique des thèmes, avec une bordure
-     dorée pour se distinguer des puces thème neutres au premier coup d'œil. */
-  .filter-chip.filter-chip-weekly{
+  /* Les puces "Récap de la semaine" et "Sujet révisé" sont épinglées juste
+     après "Tout" (voir JS) plutôt que noyées dans le tri alphabétique des
+     thèmes — ce ne sont pas des domaines, avec une bordure dorée pour se
+     distinguer des puces thème neutres au premier coup d'œil. */
+  .filter-chip.filter-chip-weekly,
+  .filter-chip.filter-chip-revise{
     color: var(--gold);
     border-color: var(--gold);
     margin-right: 6px;
   }
-  .filter-chip.filter-chip-weekly:hover{ background: var(--gold); color: var(--ink); }
-  .filter-chip.filter-chip-weekly.is-active{ color: var(--ink); background: var(--gold); }
+  .filter-chip.filter-chip-weekly:hover,
+  .filter-chip.filter-chip-revise:hover{ background: var(--gold); color: var(--ink); }
+  .filter-chip.filter-chip-weekly.is-active,
+  .filter-chip.filter-chip-revise.is-active{ color: var(--ink); background: var(--gold); }
 
   /* ---- Entrées ---- */
   .entry{
@@ -1011,15 +1015,20 @@
 
     var allTagChip = makeChip(tagFiltersBox, 'all', 'Tout', function(){ setTagFilter('all'); });
     allTagChip.classList.add('is-active');
-    // Le récap hebdo est un type d'entrée à part (pas un thème comme les autres) :
-    // on l'épingle juste après "Tout", avec un style distinct, plutôt que de le
-    // laisser se fondre au hasard dans l'ordre d'apparition des thèmes.
+    // Le récap hebdo et "Sujet révisé" sont des types d'entrée à part (pas
+    // des domaines comme les autres) : on les épingle juste après "Tout",
+    // avec un style distinct, plutôt que de les laisser se fondre au hasard
+    // dans l'ordre d'apparition des thèmes.
     if(seenTags['hebdo']){
       var weeklyChip = makeChip(tagFiltersBox, 'hebdo', seenTags['hebdo'], function(){ setTagFilter('hebdo'); });
       weeklyChip.classList.add('filter-chip-weekly');
     }
+    if(seenTags['revise']){
+      var reviseChip = makeChip(tagFiltersBox, 'revise', seenTags['revise'], function(){ setTagFilter('revise'); });
+      reviseChip.classList.add('filter-chip-revise');
+    }
     tagOrder.forEach(function(t){
-      if(t === 'hebdo') return;
+      if(t === 'hebdo' || t === 'revise') return;
       makeChip(tagFiltersBox, t, seenTags[t], function(){ setTagFilter(t); });
     });
 
