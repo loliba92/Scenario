@@ -694,6 +694,7 @@
             <button type="button" class="tag" data-tag="sport">Sport</button>
             <button type="button" class="tag theme" data-tag="politique">Politique</button>
             <button type="button" class="tag theme" data-tag="economie">Économie</button>
+            <button type="button" class="tag" data-tag="revise">Sujet révisé</button>
           </div>
           <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-06">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
         </div>
@@ -923,6 +924,7 @@
           <div class="entry-tags">
             <button type="button" class="tag" data-tag="culture-internationale">Culture internationale</button>
             <button type="button" class="tag theme" data-tag="cinema">Cinéma</button>
+            <button type="button" class="tag" data-tag="revise">Sujet révisé</button>
           </div>
           <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-07-18">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
         </div>
@@ -1082,6 +1084,19 @@
         applySort();
       });
     });
+
+    // Lien direct depuis index.html (bande "Sujet révisé") vers un filtre déjà
+    // appliqué au chargement, ex. archives.html?tag=revise — pointe toujours
+    // vers le dernier sujet révisé sans avoir à maintenir un lien statique vers
+    // une page suivi précise à chaque nouvelle version (ajouté le 9 août).
+    var urlTag = new URLSearchParams(location.search).get('tag');
+    if (urlTag && seenTags[urlTag]) {
+      setTagFilter(urlTag);
+      if (urlTag === 'revise') {
+        var updateChip = sortToggle.querySelector('[data-sort="update"]');
+        if (updateChip) { updateChip.click(); }
+      }
+    }
 
     document.querySelectorAll('.entry-toggle').forEach(function(btn){
       btn.addEventListener('click', function(){

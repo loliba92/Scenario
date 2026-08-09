@@ -186,38 +186,36 @@
   }
 
   /* ---------- Bande "mises à jour" (suivi actif + récap hebdo) ---------- */
-  /* Reproduit tel quel par la routine quotidienne (fait partie de la
-     structure générale du gabarit) — le contenu (quel suivi, quel récap)
-     n'est mis à jour qu'au moment où un sujet suivi reçoit une nouvelle
-     version, ou qu'un nouveau récap hebdo est publié, pas à chaque
-     édition quotidienne. Voir docs/ARCHITECTURE.md. */
+  /* Reproduite telle quelle par la routine quotidienne (fait partie de la
+     structure générale du gabarit). Le lien "Sujet révisé" pointe vers un
+     filtre archives.html?tag=revise toujours à jour tout seul (voir JS
+     d'archives.html) ; le lien "Récap de la semaine" reste à mettre à jour
+     à la main vers le dernier hebdo publié. Voir docs/ARCHITECTURE.md.
+     Allégée le 9 août (retour utilisateur : version pill trop lourde) —
+     simple ligne de texte, même style discret que les liens .dek. */
   .top-updates{
-    background: var(--surface);
     border-bottom: 1px solid var(--hairline);
   }
 
   .top-updates .wrap{
     display: flex;
-    gap: 10px;
-    padding: 10px 24px;
-    flex-wrap: wrap;
-  }
-
-  .update-badge{
-    display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
+    padding: 7px 24px;
+    flex-wrap: wrap;
     font-family: "JetBrains Mono", monospace;
     font-size: 0.72rem;
-    color: var(--gold);
-    text-decoration: none;
-    border: 1px solid var(--gold);
-    border-radius: 100px;
-    padding: 3px 11px;
-    transition: background .15s, color .15s;
   }
 
-  .update-badge:hover{ background: var(--gold); color: var(--ink); }
+  .update-link{
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--gold);
+  }
+
+  .update-link:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
+  .top-updates .sep{ color: var(--paper-dim); opacity: .5; }
 
   /* ---------- Hero ---------- */
 
@@ -893,8 +891,9 @@
 
 <div class="top-updates">
   <div class="wrap">
-    <a class="update-badge" href="suivi/fifa-infantino.html">🔄 Suivi mis à jour · FIFA : la présidence d'Infantino vacille →</a>
-    <a class="update-badge" href="hebdo/2026-08-02.html">🗓️ Récap de la semaine · 27 juillet au 2 août →</a>
+    <a class="update-link" href="archives.html?tag=revise">🔄 Sujet révisé →</a>
+    <span class="sep">·</span>
+    <a class="update-link" href="hebdo/2026-08-02.html">🗓️ Récap de la semaine →</a>
   </div>
 </div>
 

@@ -688,27 +688,38 @@ moins prioritaire).
   (retour utilisateur) au dernier récap hebdomadaire, avec le même
   besoin de visibilité.
 
-  **Implémenté** : une bande `.top-updates` juste sous la nav (avant le
-  hero), toujours visible sans scroll — deux badges pill (même style que
-  `.suivi-badge` sur `archives.html`, réutilisé pour cohérence visuelle) :
-  `🔄 Suivi mis à jour · {Sujet} →` vers `suivi/{sujet}.html`, et
-  `🗓️ Récap de la semaine · {période} →` vers `hebdo/{date}.html`.
-  Testé visuellement desktop + mobile (Playwright) avant publication.
+  **Implémenté, allégé une première fois le même soir** (retour
+  utilisateur : version pill initiale trop lourde visuellement) : une
+  bande `.top-updates` juste sous la nav (avant le hero), toujours
+  visible sans scroll — deux liens texte discrets (même style que les
+  liens `.dek`, gold + soulignement pointillé, pas de pill/bordure) :
+  `🔄 Sujet révisé →` et `🗓️ Récap de la semaine →`. Testé visuellement
+  desktop + mobile (Playwright) avant publication.
 
-  **Mécanisme de mise à jour, tranché le 9 août** : ce bloc fait partie
-  de la **structure générale du gabarit** que la routine quotidienne
-  reproduit tel quel chaque matin (même règle que le nav/footer) — son
-  **contenu** (quel suivi, quel récap) n'est cependant *pas* régénéré à
-  chaque édition, seulement quand un sujet suivi reçoit une nouvelle
-  version ou qu'un nouveau récap hebdo est publié. **Reste à faire**,
-  volontairement pas traité ce soir pour rester scope : brancher la
-  mise à jour de ce bloc dans le geste qui publie une nouvelle version
-  de suivi (actuellement manuel/en session) et dans la routine hebdo
-  (`trig_01SE6daCsV38jPUXf82DC7TF`), pour que ce soit automatique plutôt
-  que de compter sur une session future qui y pense. En attendant, à
-  mettre à jour à la main sur `index.html` à chaque nouvelle version de
-  suivi ou nouveau récap hebdo — un oubli laisse juste un lien vers
-  l'avant-dernière mise à jour, jamais un lien cassé.
+  **Lien "Sujet révisé" rendu générique et durable** (idée utilisateur,
+  9 août) — pointe vers `archives.html?tag=revise` plutôt que vers une
+  page `suivi/{sujet}.html` précise. Mécanisme : un nouveau tag non
+  thématique `data-tag="revise"` (« Sujet révisé »), ajouté sur les
+  entrées `archives.html` qui portent déjà un `.suivi-badge` (même
+  logique que le tag spécial `hebdo` existant, capté automatiquement par
+  le JS de filtrage — aucune modif JS nécessaire côté tags). Un petit
+  script lit `?tag=revise` dans l'URL au chargement d'`archives.html` et
+  applique automatiquement le filtre + le tri "Dernière mise à jour" —
+  donc ce lien pointe **toujours** vers le sujet réellement le plus
+  récemment révisé, sans jamais avoir besoin d'être remis à jour sur
+  `index.html`. Le seul entretien requis : ajouter le tag `revise` sur
+  l'entrée concernée dans `archives.html` au moment de publier une
+  nouvelle version de suivi — un geste déjà nécessaire pour poser le
+  `.suivi-badge` lui-même, donc pas de travail supplémentaire.
+
+  **Lien "Récap de la semaine" reste manuel** (pas la même demande de
+  généricité de l'utilisateur) : à mettre à jour à la main sur
+  `index.html` vers le dernier `hebdo/{date}.html`, à chaque nouvelle
+  publication. Un oubli laisse un lien vers l'avant-dernier récap,
+  jamais un lien cassé. **Piste pour aller plus loin, non demandée mais
+  cohérente avec le mécanisme "revise"** : appliquer la même approche
+  (tag + filtre générique) au récap hebdo si ça devient gênant — pas
+  fait, pas nécessaire tant que le rythme reste hebdomadaire.
 
 **Technique**
 - **[FAIT le 4 août] Optimisation de `archives.html`** — repéré le 4 août
