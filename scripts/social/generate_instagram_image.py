@@ -30,8 +30,19 @@ volontaire (effet teaser vers le lien en bio). Pas de question/contexte
 non plus sur l'image (retiré le 7 août, retour utilisateur : illisible
 sur mobile même agrandi) — le contexte/la question va dans la légende
 du post (`{{4.Comments}}`), pas sur le visuel.
+
+Option --photo (ajoutée le 9 août) : incruste titre + scénarios sur une
+vraie photo Pexels du sujet du jour (voir fetch_topic_image.py /
+use_topic_image.py) au lieu du fond dégradé uni, avec
+scripts/social/instagram-photo-template.html (dégradés haut/bas +
+encart noir pour les scénarios, mêmes couleurs que d'habitude). Purement
+optionnel et manuel — la routine quotidienne automatique n'appelle
+jamais --photo, elle continue d'utiliser exactement le même template et
+comportement qu'avant. Ne pas câbler dans docs/routine-prompt.md ni les
+blueprints Make tant que ce n'est pas validé sur plusieurs éditions.
 """
 import argparse
+import base64
 import html
 import json
 import sys
@@ -59,6 +70,13 @@ def main():
     ap.add_argument("--data", required=True, help="Chemin vers le JSON (title + scenarios)")
     ap.add_argument("--output", required=True, help="Chemin du PNG de sortie")
     ap.add_argument("--template", required=True, help="Chemin du template HTML")
+    ap.add_argument(
+        "--photo", default=None,
+        help="Optionnel : chemin vers une photo (ex. assets/social/topic-images/"
+             "{date}.jpg) à incruster en fond, à la place du dégradé uni. "
+             "Nécessite un template avec le marqueur __PHOTO_SRC__, ex. "
+             "scripts/social/instagram-photo-template.html.",
+    )
     args = ap.parse_args()
 
     data = json.loads(Path(args.data).read_text(encoding="utf-8"))
@@ -72,6 +90,19 @@ def main():
         .replace("__TITLE__", title_html)
         .replace("__SCENARIO_ROWS__", rows_html)
     )
+
+    if "__PHOTO_SRC__" in final_html:
+        if not args.photo:
+            sys.exit("ERREUR : le template attend une photo (__PHOTO_SRC__) mais --photo n'a pas été fourni.")
+        photo_path = Path(args.photo)
+        ext = photo_path.suffix.lstrip(".").lower() or "jpeg"
+        if ext == "jpg":
+            ext = "jpeg"
+        data_uri = f"data:image/{ext};base64,{base64.b64encode(photo_path.read_bytes()).decode()}"
+        final_html = final_html.replace("__PHOTO_SRC__", data_uri)
+    elif args.photo:
+        print("ATTENTION : --photo fourni mais le template n'a pas de marqueur "
+              "__PHOTO_SRC__ — ignoré, image générée sans photo.", file=sys.stderr)
 
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
