@@ -510,6 +510,16 @@ moins prioritaire).
   mardi carte blanche...), donc calculable 100 % côté client en JS à
   partir de la date du jour + 1 (heure de Paris), exactement comme les
   boutons de partage et le temps de lecture. Testé avec Playwright.
+- **P3 — Brief audio quotidien (TTS), idée du 10 août (brainstorm "out
+  of the box" demandé par l'utilisateur).** Le format (question + 3
+  scénarios + probabilités) se prête bien à un résumé audio très court
+  (60-90 secondes), généré automatiquement par synthèse vocale et
+  distribué en `<enclosure>` audio dans un flux — même mécanisme déjà
+  utilisé pour les images (`feed.xml`), juste un autre type de fichier.
+  Ouvre un canal (trajet, assistant vocal) que peu de petits médias
+  exploitent. Pas chiffré : choix d'un outil TTS (coût, qualité voix
+  française), script de génération, où l'héberger/le référencer. Pas
+  urgent, à explorer si le reste du backlog P1/P2 est traité.
 
 **UX**
 - **[FAIT le 4 août] Temps de lecture estimé** sous le titre de chaque
@@ -876,6 +886,17 @@ moins prioritaire).
   ou fichiers séparés), comportement du sélecteur (rechargement de page vs
   fetch), et impact sur l'étape 6 de la routine (écrire dans le fichier de
   l'année en cours, créer un nouveau fichier au changement d'année).
+- **P3 — Données ouvertes / API publique, idée du 10 août (brainstorm
+  "out of the box").** `feed.json` existe déjà en JSON structuré
+  (question, scénarios, probabilités) chaque jour — le documenter comme
+  un flux public **stable** (schéma figé, page dédiée "Données
+  ouvertes" avec un exemple et les règles de compatibilité) permettrait
+  à des tiers (chercheurs, devs, dashboards) de le réutiliser sans rien
+  demander. Coût quasi nul (la donnée existe déjà), bon capital de
+  sérieux/goodwill, peu de médias de cette taille le font. À trancher :
+  garantie de stabilité du schéma dans le temps (breaking changes =
+  casse les intégrations tierces), et si `feed.json` actuel (pensé pour
+  Make/webhook) convient tel quel ou mérite un format dédié plus propre.
 
 **Contenu**
 - **[FAIT le 7 août] `le-projet.html` : le rôle technique porte sur la
@@ -1019,6 +1040,50 @@ moins prioritaire).
     (`docs/routine-detection-prompt.md`), prévoir un prompt dédié
     versionné (ex. `docs/routine-verif-prompt.md`) et un trigger Claude
     Code Remote séparé plutôt que d'alourdir `docs/routine-prompt.md`.
+- **P2 — Tableau de bord "Le monde en ce moment", idée du 10 août
+  (brainstorm "out of the box").** Agréger toutes les pages
+  `suivi/{sujet}.html` actives sur une seule page (petites jauges côte
+  à côte), plutôt que de les découvrir une par une via `archives.html`.
+  Recombine des données déjà publiées — pas de nouveau pipeline de
+  fond, surtout du template lisant les `data-pct`/dates déjà présents
+  dans chaque page suivi. Bonne valeur perçue pour un coût modéré : le
+  candidat le plus rapide à livrer parmi les idées "out of the box" du
+  10 août. À trancher : génération statique par la routine hebdo
+  (`docs/routine-detection-prompt.md`, qui touche déjà aux suivis) ou
+  page 100% JS qui `fetch` chaque suivi actif au chargement.
+- **P3 — Carte de pari partageable, sans backend, idée du 10 août
+  (même brainstorm).** Une URL du type
+  `parier.html?edition=2026-08-10&choix=stable` générant une carte
+  "j'ai parié sur Stable, reviens le {date de clôture} pour voir si
+  j'avais raison" — état encodé entièrement dans l'URL (query string),
+  aucune base de données, compatible avec le principe zéro-backend du
+  site. Transforme un lecteur passif en participant avec une raison
+  concrète de revenir, et un objet naturellement partageable. Joue sur
+  la même mécanique "deviner avant de savoir" déjà au cœur du site
+  (vote Telegram). Pas chiffré : design de la carte (probablement même
+  moteur HTML/CSS→capture que les cartes Instagram), calcul de la date
+  de clôture (pas toujours définie pour un sujet suivi).
+- **P3 — Confronter à un vrai marché de prédiction (Polymarket,
+  Metaculus, Kalshi...), idée du 10 août (même brainstorm).** Quand un
+  marché liquide existe sur le sujet du jour, ajouter une ligne du type
+  "Le marché de prédiction {nom} donne {X}% — nous {Y}%." Validation
+  externe, différenciant. **Explicitement opportuniste, jamais
+  systématique** : ne marche que pour certains sujets (géopolitique,
+  financier surtout), pas de recherche supplémentaire imposée à la
+  routine du matin si rien de pertinent n'existe — même logique de
+  repli silencieux que pour la photo Pexels du sujet (voir plus haut).
+- **P3 — Page de calibration ("avions-nous raison, au global"), idée du
+  10 août (même brainstorm).** Différent d'une simple statistique
+  "X% de bons scénarios" (déjà écartée comme trop simpliste dans la
+  revue du 10 août, voir plus haut section UX) : une vraie **courbe de
+  calibration** façon prévisionnistes sérieux — parmi tous les
+  scénarios résolus (pages `suivi/` clôturées), regrouper par tranche
+  de probabilité annoncée (ex. "70-80%") et montrer le taux de
+  réalisation réel observé dans cette tranche. Transparence que
+  quasiment aucun média ne pratique, cohérent avec l'identité
+  méthodologique du site. **Bloqué par le volume** : pas encore assez
+  de clôtures pour que la statistique ait un sens — à revisiter dans
+  plusieurs mois, une fois `suivi/` accumulé assez de cas résolus.
 
 **À surveiller (pas une tâche, un dossier ouvert)**
 - **Arabie saoudite / sport** — candidat à une première page de suivi
