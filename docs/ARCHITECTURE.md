@@ -918,6 +918,23 @@ moins prioritaire).
   - Pas de coût récurrent supplémentaire : un seul appel HTTP de plus par
     jour (le recadrage large), zéro nouvelle revue humaine/agent, zéro
     nouvelle dépendance.
+  - **« Photo d'illustration. » ajouté en tête de légende le jour même**
+    (retour utilisateur, question posée sur la pertinence de la photo
+    pour Google Actualités/le partage). Constat : la recherche Pexels se
+    fait par mots-clés thématiques génériques (jamais le lieu/la scène
+    exacte du sujet — voir docstring de `fetch_topic_image.py`, principe
+    non négociable pour le zéro-risque deepfake), donc la photo retenue
+    n'est presque jamais littéralement l'événement/le lieu de l'article
+    — concrètement le 10 août, une photo du détroit du **Bosphore**
+    utilisée pour un article sur le détroit d'**Ormuz** (deux détroits
+    différents, l'un en Turquie, l'autre entre l'Iran et la péninsule
+    arabique). Pas un mensonge (légende/alt restent factuellement
+    exacts sur ce qu'est la photo), mais une ambiguïté possible pour un
+    lecteur pressé qui suppose que l'image illustre littéralement le
+    fait relaté — évitée avec cette mention, systématique et non
+    négociable dans `docs/routine-prompt.md` désormais (jamais retirée
+    ni reformulée), cohérente avec l'exigence de rigueur factuelle du
+    site. Appliqué à `index.html` et `archives/2026-08-10.html`.
 - **P1 — Routine de re-vérification matinale de l'article du jour, idée
   du 10 août.** Objectif : après la publication du matin (routine
   quotidienne à 7h00 heure de Paris, voir plus bas « Automatisation
