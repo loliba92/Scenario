@@ -2,7 +2,8 @@
 
 Ce fichier est la copie de référence du prompt envoyé chaque jour par la routine
 planifiée (Claude Code Remote, trigger **« Scénario »**, `trig_0176spj7P7E9fyTs1XBkQBWF`,
-cron `15 5 * * *` UTC = 7h15 heure de Paris). C'est ce texte qui pilote la sélection
+cron `0 5 * * *` UTC = 7h00 heure de Paris — avancée de 7h15 le 10 août).
+C'est ce texte qui pilote la sélection
 du sujet, la rédaction et la publication automatique de chaque édition.
 
 Si tu modifies le comportement de la routine (via `update_trigger` côté Claude Code

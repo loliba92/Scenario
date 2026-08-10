@@ -850,7 +850,7 @@ moins prioritaire).
   la routine quotidienne).
 - **P1 — Routine de re-vérification matinale de l'article du jour, idée
   du 10 août.** Objectif : après la publication du matin (routine
-  quotidienne à 7h15 heure de Paris, voir plus bas « Automatisation
+  quotidienne à 7h00 heure de Paris, voir plus bas « Automatisation
   éditoriale »), une seconde routine planifiée relirait l'édition du jour
   déjà publiée pour vérifier les faits, le style, et la cohérence des
   éléments entre eux et avec les sources (dates, chiffres, noms), puis
@@ -858,7 +858,7 @@ moins prioritaire).
   nécessaire.
 
   **Points à trancher avant implémentation** :
-  - Horaire : assez tard après 7h15 pour laisser la routine principale se
+  - Horaire : assez tard après 7h00 pour laisser la routine principale se
     terminer et le contenu se stabiliser (ex. 9h-10h heure de Paris), sans
     trop tarder pour rester utile si une erreur est repérée tôt.
   - Une archive figée n'est en principe **jamais** remodifiée après
@@ -996,9 +996,10 @@ un trait permanent ou un fait déjà acquis.
 ## Automatisation éditoriale (la routine quotidienne)
 
 Une **routine planifiée** (Claude Code Remote, nommée « Scénario »,
-`trig_0176spj7P7E9fyTs1XBkQBWF`) se déclenche chaque jour à **7h15 heure de
-Paris** (`15 5 * * *` en UTC — ⚠️ à ajuster de ±1h lors des changements
-d'heure hiver/été, le cron ne s'ajuste pas tout seul).
+`trig_0176spj7P7E9fyTs1XBkQBWF`) se déclenche chaque jour à **7h00 heure de
+Paris** (`0 5 * * *` en UTC — ⚠️ à ajuster de ±1h lors des changements
+d'heure hiver/été, le cron ne s'ajuste pas tout seul). **Avancée de 7h15 à
+7h00 le 10 août** (décision utilisateur).
 
 Elle exécute le prompt archivé dans `docs/routine-prompt.md` : sélection du
 sujet (étape 0 → file prioritaire, sinon auto-sélection par registre),
@@ -1580,7 +1581,7 @@ Voir les échanges de session pour le détail, mais en résumé :
   Entrée ajoutée aussi dans `sitemap.xml` (`changefreq: never`, comme les
   archives quotidiennes, `priority: 0.5`).
 
-  **La routine quotidienne (7h15) n'a besoin d'aucune adaptation** : elle
+  **La routine quotidienne (7h00) n'a besoin d'aucune adaptation** : elle
   insère toujours sa nouvelle entrée en tête de `#entries`, sans se soucier
   du contenu plus bas dans la liste — aucune collision possible avec
   l'entrée hebdo positionnée ailleurs dans le fil.
@@ -1877,7 +1878,7 @@ Voir les échanges de session pour le détail, mais en résumé :
   (= hier à minuit, recalculé à chaque exécution). Une première version de
   l'idée comparait à "aujourd'hui" plutôt que "hier" — écartée après
   retour utilisateur : une mise à jour de suivi publiée en fin de journée,
-  après le passage quotidien du scénario (~7h15), n'aurait alors jamais
+  après le passage quotidien du scénario (~7h00), n'aurait alors jamais
   été reprise (le lendemain, "aujourd'hui" ne correspond plus à sa date de
   publication). La fenêtre glissante sur 2 jours corrige ce cas.
 
