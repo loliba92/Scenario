@@ -339,8 +339,40 @@
   .lex-ref:hover{ color: var(--paper); }
 
   .article-image{ margin: 28px 0 32px; }
-  .article-image img{ width: 100%; height: auto; display: block; border-radius: 6px; }
-  .article-image-caption{ font-size: 0.8rem; color: var(--paper-dim); margin-top: 10px; }
+  .article-image-photo-wrap{
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+  }
+  .article-image-photo{
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .article-image-scrim{
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(16,21,28,.82) 0%, rgba(16,21,28,.08) 26%, rgba(16,21,28,.08) 56%, rgba(16,21,28,.92) 100%);
+  }
+  .article-image-masthead{
+    position: absolute; top: 18px; left: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .article-image-logo{ width: 26px; height: 26px; display: block; }
+  .article-image-wordmark{
+    font-family: "Fraunces", serif; font-weight: 600; font-size: 1.05rem; color: var(--paper);
+  }
+  .article-image-wordmark span{ color: var(--gold); }
+  .article-image-title{
+    position: absolute; left: 20px; right: 20px; bottom: 18px; margin: 0;
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: clamp(1.15rem, 3vw, 1.65rem);
+    line-height: 1.15;
+    color: var(--paper);
+  }
+  .article-image-caption{ font-size: 0.8rem; color: var(--paper-dim); margin: 10px 0 0; }
   .article-image-caption a{ color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
   .article-image-caption a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
 
@@ -938,7 +970,15 @@
     </nav>
 
     <figure class="article-image">
-      <img src="assets/social/topic-images/2026-08-10-wide.jpg" alt="Un pétrolier photographié depuis les airs, naviguant dans le détroit du Bosphore, bordé par une ville.">
+      <div class="article-image-photo-wrap">
+        <img class="article-image-photo" src="assets/social/topic-images/2026-08-10-wide.jpg" alt="Un pétrolier photographié depuis les airs, naviguant dans le détroit du Bosphore, bordé par une ville.">
+        <div class="article-image-scrim"></div>
+        <div class="article-image-masthead">
+          <img class="article-image-logo" src="assets/logo.svg" alt="">
+          <span class="article-image-wordmark">Scéna<span>rio</span></span>
+        </div>
+        <p class="article-image-title" aria-hidden="true">La croissance mondiale ne tient qu'à un fil</p>
+      </div>
       <figcaption class="article-image-caption">Photo : Julien Goettelmann / <a href="https://www.pexels.com/photo/aerial-view-of-cargo-ship-in-bosphorus-strait-28966472/" target="_blank" rel="noopener noreferrer">Pexels ↗</a></figcaption>
     </figure>
 
