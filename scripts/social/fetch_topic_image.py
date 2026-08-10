@@ -100,13 +100,19 @@ def search_pexels(query: str, count: int, api_key: str, color: str | None = None
     return data.get("photos", [])
 
 
-def square_crop_url(original_url: str, size: int = 1080) -> str:
-    """Construit l'URL de rognage carré Pexels à partir de la photo
-    d'origine (quel que soit son ratio natif), via les paramètres
-    d'image du CDN Pexels — testé le 9 août, fonctionne sur n'importe
-    quelle photo, pas besoin qu'elle soit carrée nativement."""
+def crop_url(original_url: str, w: int, h: int) -> str:
+    """Construit l'URL de rognage Pexels à partir de la photo d'origine
+    (quel que soit son ratio natif), via les paramètres d'image du CDN
+    Pexels — testé le 9 août (variante carrée), fonctionne sur
+    n'importe quelle photo/ratio, pas besoin qu'elle soit déjà au bon
+    format nativement."""
     sep = "&" if "?" in original_url else "?"
-    return f"{original_url}{sep}auto=compress&cs=tinysrgb&fit=crop&w={size}&h={size}"
+    return f"{original_url}{sep}auto=compress&cs=tinysrgb&fit=crop&w={w}&h={h}"
+
+
+def square_crop_url(original_url: str, size: int = 1080) -> str:
+    """Rognage carré (image Instagram) — cas particulier de crop_url()."""
+    return crop_url(original_url, size, size)
 
 
 def download(url: str, dest_path: str) -> None:
@@ -171,6 +177,7 @@ def main():
             "file": dest,
             "photographer": photo.get("photographer"),
             "pexels_url": photo.get("url"),
+            "original_url": photo.get("src", {}).get("original"),
             "query": args.query,
             "color": args.color,
         }

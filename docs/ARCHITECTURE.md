@@ -317,6 +317,11 @@ moins prioritaire).
   aujourd'hui pour l'image générée) — pas encore automatisé, à faire à
   la main la première fois pour valider le rendu avant d'envisager
   d'intégrer ça dans la routine.
+
+  **Étendu le 10 août** avec un second recadrage 16:9 de la même photo
+  (pour l'affichage dans le corps de l'article, pas juste le social/OG)
+  — voir l'entrée dédiée « [FAIT le 10 août] Image dans le corps de
+  l'article » plus haut dans ce backlog pour le détail.
 - **Image Instagram pour le récap hebdomadaire — écarté le 8 août.**
   Envisagé un temps (voir plus haut : pipeline daily), abandonné après
   discussion : le gabarit existant (titre + 3 scénarios d'**un seul**
@@ -828,26 +833,58 @@ moins prioritaire).
 - **Images de partage par édition** — **écarté définitivement le 4 août**
   (risque deepfake sur des sujets impliquant de vraies personnes, décision
   ferme, ne pas reproposer).
-- **P1 — Image dans le corps de l'article, idée du 10 août (retour
-  utilisateur : apporterait plus d'adoption).** Aujourd'hui aucune image
-  n'accompagne le texte de l'édition — `assets/social/` ne porte qu'une
-  image de partage générique, statique et indépendante du sujet du jour
-  (voir plus bas, section « Image de partage »). L'idée ici est
-  différente : une illustration liée au sujet du jour, insérée dans le
-  corps de l'article lui-même (probablement en tête de page, sous le
-  `.question-box` ou dans le `.dek`).
+- **[FAIT le 10 août] Image dans le corps de l'article.** Idée du 10 août
+  (retour utilisateur : apporterait plus d'adoption), passée en P1 puis
+  implémentée le jour même. **Piste initiale abandonnée en cours de
+  route** : la première proposition (illustration générique/abstraite
+  par registre, générée une fois et réutilisée) rouvrait sans le savoir
+  un débat déjà tranché le 1er août (« Photo dans les éditions », voir
+  plus bas) — une illustration IA abstraite y avait déjà été envisagée
+  puis écartée, pour une raison de cohérence de design (introduire un
+  élément visuel non maîtrisé), pas seulement de risque.
 
-  **Tension à trancher avec la décision juste au-dessus** : « Images de
-  partage par édition » a été écartée définitivement le 4 août pour
-  risque de deepfake sur des sujets impliquant de vraies personnes. Une
-  image dans le corps de l'article rouvrirait le même risque si elle
-  représente des personnes ou des scènes factuelles réelles générées par
-  IA — à clarifier avant d'avancer : privilégier une illustration
-  générique/symbolique (pas de visage, pas de scène inventée présentée
-  comme réelle) plutôt qu'une image « photo-réaliste » du sujet, pour ne
-  pas rouvrir ce risque. Pas encore chiffré (coût de génération/hébergement
-  par édition, cohérence visuelle avec le gabarit, impact sur le temps de
-  la routine quotidienne).
+  **Solution retenue : réutiliser tel quel le pipeline Pexels déjà
+  construit le 8-9 août** (voir plus bas, entrée « Image custom par
+  sujet (Pexels) ») plutôt qu'en inventer un nouveau — la photo du jour
+  y est déjà sourcée avec zéro risque (mots-clés thématiques génériques,
+  jamais de personne réelle, revue visuelle obligatoire avant usage,
+  repli silencieux si rien ne convient) et déjà commitée chaque jour
+  dans `assets/social/topic-images/{date}.jpg`, mais seulement utilisée
+  jusqu'ici pour les meta `og:image`/`twitter:image` et le post
+  Instagram — jamais visible par un lecteur du site. Le seul vrai
+  manque était donc la restitution, pas le sourcing.
+
+  **Ajouté le 10 août** :
+  - `scripts/social/fetch_topic_image.py` : `square_crop_url()` généralisée
+    en `crop_url(url, w, h)` ; `original_url` (URL source Pexels) ajoutée
+    à `credits.json` pour permettre un second recadrage plus tard sans
+    nouvelle recherche.
+  - `scripts/social/use_topic_image.py` : télécharge en plus un recadrage
+    **16:9 (1600×900)** de la même photo déjà validée, vers
+    `assets/social/topic-images/{date}-wide.jpg` — pas de nouvelle revue
+    visuelle nécessaire (c'est un recrop, pas un nouveau candidat) ;
+    silencieusement absent si `original_url` manque ou si le
+    téléchargement échoue, jamais bloquant.
+  - Gabarit (`index.html`, `docs/routine-prompt.md` étape technique 8) :
+    bloc `<figure class="article-image">` inséré entre le sommaire
+    (`.toc`) et le `.question-box`, légende discrète en dessous
+    (« Photo : {photographe} / Pexels ↗ », style repris de
+    `.sources-note`) — `alt` réutilise la description déjà écrite pour
+    `og:image:alt`, aucune rédaction en double. Contenue dans la largeur
+    de la colonne (`.wrap`, 920px), pas plein écran, cohérent avec
+    l'esprit typographique du site. Testé desktop + mobile via Playwright
+    avant publication.
+  - **Appliqué à l'édition du jour** (10 août, sujet Ormuz/croissance
+    mondiale — la photo déjà retenue par la routine ce matin-là, un
+    pétrolier vu du ciel dans le Bosphore, colle bien au sujet) :
+    `index.html` mis à jour avec la vraie photo. **`archives/2026-08-10.html`
+    volontairement laissée telle quelle** (déjà figée avant ce
+    changement) — même règle que pour les boutons de partage du 4 août :
+    une édition déjà publiée n'est jamais remodifiée, la fonctionnalité
+    s'applique à partir de la prochaine édition.
+  - Pas de coût récurrent supplémentaire : un seul appel HTTP de plus par
+    jour (le recadrage large), zéro nouvelle revue humaine/agent, zéro
+    nouvelle dépendance.
 - **P1 — Routine de re-vérification matinale de l'article du jour, idée
   du 10 août.** Objectif : après la publication du matin (routine
   quotidienne à 7h00 heure de Paris, voir plus bas « Automatisation
