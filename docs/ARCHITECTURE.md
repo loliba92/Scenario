@@ -888,7 +888,14 @@ moins prioritaire).
     `aria-hidden` donc jamais lu par un lecteur d'écran de toute façon ;
     le fondu du bas de la photo a été retiré avec lui (plus nécessaire
     sans texte à faire ressortir), seul le fondu du haut reste, pour le
-    masthead. Testé desktop + mobile via Playwright avant chaque
+    masthead. **Masthead resserré dans le coin le jour même** (retour
+    utilisateur, `top: 22px`/`left: 24px` → `top: 10px`/`left: 12px`) —
+    aucune valeur codée en dur dans `docs/routine-prompt.md`, seulement
+    la classe `.article-image-masthead` : le style vit entièrement dans
+    le `<style>` du gabarit `index.html`, recopié tel quel chaque matin
+    (étape technique 3), donc ce réglage se reproduit automatiquement
+    sans rien à changer dans le prompt. Testé desktop + mobile via
+    Playwright avant chaque
     publication.
   - **Appliqué à l'édition du jour** (10 août, sujet Ormuz/croissance
     mondiale — la photo déjà retenue par la routine ce matin-là, un
