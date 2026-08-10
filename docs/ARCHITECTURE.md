@@ -873,18 +873,23 @@ moins prioritaire).
     `og:image:alt`, aucune rédaction en double. Contenue dans la largeur
     de la colonne (`.wrap`, 920px), pas plein écran, cohérent avec
     l'esprit typographique du site. **Habillage repris le 10 août sur
-    demande utilisateur, même style que la carte Instagram** (voir
+    demande utilisateur, inspiré de la carte Instagram** (voir
     `scripts/social/instagram-photo-template.html`) : fondu noir en
-    dégradé CSS en haut et en bas de la photo (`.article-image-scrim`,
-    même teinte `--ink`), masthead logo + wordmark « Scéna**rio** » en
-    haut à gauche (réutilise `assets/logo.svg`, déjà utilisé dans
-    l'en-tête du site), titre de l'édition en gros (Fraunces) en bas —
+    dégradé CSS en haut de la photo (`.article-image-scrim`, même teinte
+    `--ink`), masthead logo + wordmark « Scéna**rio** » en haut à gauche
+    (réutilise `assets/logo.svg`, déjà utilisé dans l'en-tête du site) —
     **du vrai texte en overlay CSS, pas une image composite pré-rendue**
     comme pour Instagram (pas de nouvelle étape de génération/script,
-    toujours la même photo `-wide.jpg`) ; le titre en overlay est
-    décoratif (`aria-hidden="true"`), le `<h1>` sémantique de la page
-    reste la seule source lue par un lecteur d'écran, pas de doublon.
-    Testé desktop + mobile via Playwright avant publication.
+    toujours la même photo `-wide.jpg`). Taille du logo/wordmark ajustée
+    deux fois le jour même (trop petit, puis un peu trop gros) avant de
+    se stabiliser. **Titre en overlay essayé puis retiré le jour même**
+    (retour utilisateur) : redondant avec le `<h1>` réel juste au-dessus
+    sur la page — n'apportait qu'une répétition visuelle, déjà marqué
+    `aria-hidden` donc jamais lu par un lecteur d'écran de toute façon ;
+    le fondu du bas de la photo a été retiré avec lui (plus nécessaire
+    sans texte à faire ressortir), seul le fondu du haut reste, pour le
+    masthead. Testé desktop + mobile via Playwright avant chaque
+    publication.
   - **Appliqué à l'édition du jour** (10 août, sujet Ormuz/croissance
     mondiale — la photo déjà retenue par la routine ce matin-là, un
     pétrolier vu du ciel dans le Bosphore, colle bien au sujet) :
