@@ -780,6 +780,49 @@ moins prioritaire).
   cohérente avec le mécanisme "revise"** : appliquer la même approche
   (tag + filtre générique) au récap hebdo si ça devient gênant — pas
   fait, pas nécessaire tant que le rythme reste hebdomadaire.
+- **P2 — « Signaux à surveiller » par scénario, idée du 10 août (retour
+  d'une revue externe ChatGPT sur le site, filtrée — voir plus bas
+  pourquoi la majorité de cette revue ne retenait rien de neuf).**
+  Aujourd'hui chaque carte a des "Indicateurs touchés" (des chiffres
+  déjà mesurés), mais pas de liste explicite et falsifiable écrite au
+  moment de la publication du type "voici ce qui confirmerait ce
+  scénario précis" — différent des pages `suivi/{sujet}.html`, qui
+  réestiment après coup sans grille de lecture pré-écrite. Exemple pour
+  l'édition du 10 août (Ormuz/croissance) : scénario favorable →
+  réouverture du détroit, Brent < 75 $ ; scénario dégradé → nouvelles
+  attaques, Brent > 120 $. Intérêt concret, pas juste cosmétique :
+  donnerait à la routine de re-vérification matinale (voir plus haut,
+  idée du 10 août) et à la veille hebdo (`docs/routine-detection-
+  prompt.md`) des critères écrits d'avance à vérifier, plutôt que de
+  réestimer à l'aveugle à chaque passage. Pas encore chiffré (emplacement
+  dans la carte, longueur, cohérence avec les indicateurs déjà présents
+  pour ne pas dupliquer).
+- **P2 — Phrase d'accroche du concept sous le masthead, idée du 10
+  août (même origine).** Un primo-visiteur découvre aujourd'hui le
+  principe "1 question → 3 scénarios chiffrés" en lisant l'article du
+  jour — rien ne l'explique avant. Ajouter une phrase courte sous
+  "Scénario" dans le masthead (`index.html`, avant le premier article)
+  résoudrait ça à faible coût, sans reconstruire la page d'accueil.
+  **Explicitement pas retenu en revanche** : refondre `index.html` en
+  vraie page marketing séparée (hero, "comment ça marche", CTA) —
+  `index.html` **est** l'édition du jour par principe assumé du site,
+  une vitrine séparée casserait ça pour un gain déjà largement couvert
+  par `le-projet.html` (page "À propos" existante) et `archives.html`
+  (liste + filtres déjà en place).
+
+  **Note sur la source de ces deux idées** : revue complète d'un tiers
+  (ChatGPT) sur le site, challengée avant d'en retenir quoi que ce soit
+  — la majorité de ses propositions ("créer" un logo 1→3, des
+  catégories, un vote Telegram avant résultat, une page "avions-nous
+  raison") redécouvraient des fonctionnalités déjà en prod (logo
+  actuel, `docs/tags.md`, sondage Telegram natif `sendPoll` sur
+  `@scenario_fr`, pages `suivi/`) — signe qu'elle n'avait exploré que la
+  home + un article, pas le reste du site. Une proposition (afficher le
+  scénario central tout en haut, avant le contexte) a été explicitement
+  écartée : contraire à la tension "deviner avant de savoir" déjà
+  cultivée par le site (bloc "Vote avant de connaître le résultat" +
+  sondage Telegram automatique, justement pensés pour que le lecteur
+  parie avant de lire la résolution).
 
 **Technique**
 - **[FAIT le 4 août] Optimisation de `archives.html`** — repéré le 4 août
