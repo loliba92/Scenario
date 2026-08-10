@@ -48,6 +48,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 10.08.2026 — [La croissance mondiale ne tient qu'à un fil](../archives/2026-08-10.html)
 - 09.08.2026 — [Musique IA : la note grimpe à 9 milliards](../archives/2026-08-09.html)
 - 08.08.2026 — [Le cinéma reprend des couleurs](../archives/2026-08-08.html)
 - 07.08.2026 — [Big Tech face à la justice](../archives/2026-08-07.html)

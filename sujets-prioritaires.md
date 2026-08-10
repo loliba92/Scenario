@@ -24,7 +24,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 - [x] Milliardaires, les nouveaux maîtres du monde ? Une poignée d'ultra-riches pèse aujourd'hui plus lourd que des pays entiers. [économie & société]
 
 ## Géopolitique / international — lundi
-- [ ] Croissance mondiale : l'économie mondiale peut-elle éviter le ralentissement ? [économie]
+- [x] Croissance mondiale : l'économie mondiale peut-elle éviter le ralentissement ? [économie]
 - [ ] Inflation : l'inflation est-elle définitivement vaincue ? [économie]
 - [ ] Taux d'intérêt : les banques centrales peuvent-elles baisser durablement les taux ? [économie & finance]
 - [ ] Dette mondiale : la dette devient-elle la prochaine crise financière ? [économie & finance]
