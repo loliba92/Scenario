@@ -17,7 +17,7 @@ est **FormSubmit** (formulaire de contact) — voir plus bas.
 ## Backlog
 
 Idées et tâches ouvertes, consolidées ici pour ne pas avoir à les
-retrouver éparpillées dans le reste du document. Mise à jour au 8 août.
+retrouver éparpillées dans le reste du document. Mise à jour au 10 août.
 Priorités P1 (fort impact, faible coût) à P3 (utile mais plus lourd ou
 moins prioritaire).
 
@@ -828,6 +828,51 @@ moins prioritaire).
 - **Images de partage par édition** — **écarté définitivement le 4 août**
   (risque deepfake sur des sujets impliquant de vraies personnes, décision
   ferme, ne pas reproposer).
+- **P2 — Image dans le corps de l'article, idée du 10 août (retour
+  utilisateur : apporterait plus d'adoption).** Aujourd'hui aucune image
+  n'accompagne le texte de l'édition — `assets/social/` ne porte qu'une
+  image de partage générique, statique et indépendante du sujet du jour
+  (voir plus bas, section « Image de partage »). L'idée ici est
+  différente : une illustration liée au sujet du jour, insérée dans le
+  corps de l'article lui-même (probablement en tête de page, sous le
+  `.question-box` ou dans le `.dek`).
+
+  **Tension à trancher avec la décision juste au-dessus** : « Images de
+  partage par édition » a été écartée définitivement le 4 août pour
+  risque de deepfake sur des sujets impliquant de vraies personnes. Une
+  image dans le corps de l'article rouvrirait le même risque si elle
+  représente des personnes ou des scènes factuelles réelles générées par
+  IA — à clarifier avant d'avancer : privilégier une illustration
+  générique/symbolique (pas de visage, pas de scène inventée présentée
+  comme réelle) plutôt qu'une image « photo-réaliste » du sujet, pour ne
+  pas rouvrir ce risque. Pas encore chiffré (coût de génération/hébergement
+  par édition, cohérence visuelle avec le gabarit, impact sur le temps de
+  la routine quotidienne).
+- **P2 — Routine de re-vérification matinale de l'article du jour, idée
+  du 10 août.** Objectif : après la publication du matin (routine
+  quotidienne à 7h15 heure de Paris, voir plus bas « Automatisation
+  éditoriale »), une seconde routine planifiée relirait l'édition du jour
+  déjà publiée pour vérifier les faits, le style, et la cohérence des
+  éléments entre eux et avec les sources (dates, chiffres, noms), puis
+  corrigerait `index.html` (et l'archive figée correspondante) si
+  nécessaire.
+
+  **Points à trancher avant implémentation** :
+  - Horaire : assez tard après 7h15 pour laisser la routine principale se
+    terminer et le contenu se stabiliser (ex. 9h-10h heure de Paris), sans
+    trop tarder pour rester utile si une erreur est repérée tôt.
+  - Une archive figée n'est en principe **jamais** remodifiée après
+    publication (règle rappelée à plusieurs endroits de ce document) —
+    une correction par cette routine serait une exception délibérée à
+    cette règle, réservée à une erreur factuelle ou de cohérence, jamais
+    à une retouche du fond éditorial.
+  - Portée de la vérification : re-croiser les chiffres/dates/noms cités
+    dans le texte avec les sources déjà utilisées à la rédaction (pas une
+    nouvelle recherche web complète à chaque fois).
+  - Comme pour la routine hebdo de détection
+    (`docs/routine-detection-prompt.md`), prévoir un prompt dédié
+    versionné (ex. `docs/routine-verif-prompt.md`) et un trigger Claude
+    Code Remote séparé plutôt que d'alourdir `docs/routine-prompt.md`.
 
 **À surveiller (pas une tâche, un dossier ouvert)**
 - **Arabie saoudite / sport** — candidat à une première page de suivi
