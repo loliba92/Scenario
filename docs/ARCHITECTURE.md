@@ -828,7 +828,7 @@ moins prioritaire).
 - **Images de partage par édition** — **écarté définitivement le 4 août**
   (risque deepfake sur des sujets impliquant de vraies personnes, décision
   ferme, ne pas reproposer).
-- **P2 — Image dans le corps de l'article, idée du 10 août (retour
+- **P1 — Image dans le corps de l'article, idée du 10 août (retour
   utilisateur : apporterait plus d'adoption).** Aujourd'hui aucune image
   n'accompagne le texte de l'édition — `assets/social/` ne porte qu'une
   image de partage générique, statique et indépendante du sujet du jour
@@ -848,7 +848,7 @@ moins prioritaire).
   pas rouvrir ce risque. Pas encore chiffré (coût de génération/hébergement
   par édition, cohérence visuelle avec le gabarit, impact sur le temps de
   la routine quotidienne).
-- **P2 — Routine de re-vérification matinale de l'article du jour, idée
+- **P1 — Routine de re-vérification matinale de l'article du jour, idée
   du 10 août.** Objectif : après la publication du matin (routine
   quotidienne à 7h15 heure de Paris, voir plus bas « Automatisation
   éditoriale »), une seconde routine planifiée relirait l'édition du jour
