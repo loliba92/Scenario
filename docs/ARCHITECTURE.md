@@ -900,11 +900,21 @@ moins prioritaire).
   - **Appliqué à l'édition du jour** (10 août, sujet Ormuz/croissance
     mondiale — la photo déjà retenue par la routine ce matin-là, un
     pétrolier vu du ciel dans le Bosphore, colle bien au sujet) :
-    `index.html` mis à jour avec la vraie photo. **`archives/2026-08-10.html`
-    volontairement laissée telle quelle** (déjà figée avant ce
-    changement) — même règle que pour les boutons de partage du 4 août :
-    une édition déjà publiée n'est jamais remodifiée, la fonctionnalité
-    s'applique à partir de la prochaine édition.
+    `index.html` **et `archives/2026-08-10.html`** mis à jour avec la
+    vraie photo (CSS + bloc HTML, chemins ajustés en `../assets/...`
+    depuis l'archive). **Décision initiale corrigée en cours de
+    session** (retour utilisateur, l'archive avait été oubliée) : la
+    règle « une archive ne se modifie jamais »
+    (`docs/routine-prompt.md`, étape 10) protège les archives **datées
+    d'un jour antérieur** — pas l'archive du jour même, produite par la
+    même exécution de routine qu'`index.html` quelques heures plus tôt.
+    Contrairement aux boutons de partage du 4 août (appliqués à partir
+    de la prochaine édition, sur une archive déjà ancienne), ici
+    l'archive du 10 août aurait sinon perdu la photo dès le lendemain
+    matin (`index.html` écrasé par la routine, seule
+    `archives/2026-08-10.html` restant comme trace permanente de cette
+    édition) — pas le comportement voulu pour du contenu produit le
+    jour même.
   - Pas de coût récurrent supplémentaire : un seul appel HTTP de plus par
     jour (le recadrage large), zéro nouvelle revue humaine/agent, zéro
     nouvelle dépendance.
