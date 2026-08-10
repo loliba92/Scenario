@@ -1040,17 +1040,54 @@ moins prioritaire).
     (`docs/routine-detection-prompt.md`), prévoir un prompt dédié
     versionné (ex. `docs/routine-verif-prompt.md`) et un trigger Claude
     Code Remote séparé plutôt que d'alourdir `docs/routine-prompt.md`.
-- **P2 — Tableau de bord "Le monde en ce moment", idée du 10 août
-  (brainstorm "out of the box").** Agréger toutes les pages
-  `suivi/{sujet}.html` actives sur une seule page (petites jauges côte
-  à côte), plutôt que de les découvrir une par une via `archives.html`.
-  Recombine des données déjà publiées — pas de nouveau pipeline de
-  fond, surtout du template lisant les `data-pct`/dates déjà présents
-  dans chaque page suivi. Bonne valeur perçue pour un coût modéré : le
-  candidat le plus rapide à livrer parmi les idées "out of the box" du
-  10 août. À trancher : génération statique par la routine hebdo
-  (`docs/routine-detection-prompt.md`, qui touche déjà aux suivis) ou
-  page 100% JS qui `fetch` chaque suivi actif au chargement.
+- **P2 — Heatmap "Le monde en ce moment" par domaine, idée du 10 août
+  (brainstorm "out of the box"), méthode affinée en discussion le jour
+  même.** Partie d'une simple agrégation de jauges, recentrée sur une
+  question plus précise et plus utile : **ce domaine (géopolitique,
+  économie, tech...) est-il en ce moment plutôt favorable ou
+  défavorable pour la France ?** — un score par domaine, mis à jour
+  **mensuellement** (pas besoin de fraîcheur quotidienne pour une vue
+  d'ensemble).
+
+  **Méthode de calcul retenue (espérance mathématique, pas un simple
+  choix de case)** :
+  1. Chaque carte de scénario (favorable/stable/dégradé) se termine
+     déjà, en pratique, par une phrase fixe — vérifié sur l'édition du
+     10 août, les 3 cartes finissent bien par exactement l'une de ces
+     3 formes : *"→ Plutôt favorable pour la France."* / *"→ Neutre
+     pour la France."* / *"→ Plutôt défavorable pour la France."* —
+     une habitude de rédaction déjà là, **pas encore imposée
+     formellement** dans `docs/routine-prompt.md` (à corriger : rendre
+     cette formule de clôture obligatoire, toujours l'une des 3, plus
+     un attribut machine-lisible `data-france-impact="favorable|
+     neutre|defavorable"` sur le `.france-line` pour ne pas avoir à
+     reparser du texte libre au moment du calcul mensuel).
+  2. Valeur par scénario : Favorable = +1, Neutre = 0, Défavorable = −1.
+  3. **Score du sujet = Σ (probabilité du scénario × valeur France de
+     ce scénario)** — une vraie espérance, pas juste la valeur du
+     scénario le plus probable. Exemple réel avec l'édition du 10 août
+     (20 % favorable / 55 % stable-neutre / 25 % dégradé-défavorable) :
+     `(0,20×+1) + (0,55×0) + (0,25×−1) = −0,05` — proche de zéro,
+     légèrement négatif, cohérent avec "surtout stable, avec un risque
+     de queue".
+  4. **Score du domaine = moyenne des scores de tous les sujets actifs
+     de ce domaine** (suivis actifs + éditions récentes sans suivi
+     dédié) — la moyenne redevient pertinente maintenant que le score
+     par sujet est un nombre continu entre −1 et +1, pas une catégorie
+     (piste initiale "prendre le plus récent" abandonnée pour cette
+     raison).
+  5. Affichage : un score par domaine sur une échelle continue, coloré
+     (rouge vers −1, gris vers 0, vert vers +1) — pas de matrice à deux
+     axes (Monde vs France envisagé un temps, simplifié : uniquement
+     l'angle France, plus lisible et plus utile).
+
+  Recombine des données déjà publiées (probabilités déjà calculées,
+  ligne France déjà écrite) — le seul vrai ajout est la formalisation
+  de la formule de clôture + l'attribut machine-lisible, pas un nouveau
+  pipeline de recherche. À trancher avant implémentation : génération
+  par un job mensuel dédié (nouveau trigger Claude Code Remote,
+  fréquence mensuelle) vs page 100% JS qui recalcule à la volée à
+  partir des pages déjà publiées.
 - **P3 — Carte de pari partageable, sans backend, idée du 10 août
   (même brainstorm).** Une URL du type
   `parier.html?edition=2026-08-10&choix=stable` générant une carte
