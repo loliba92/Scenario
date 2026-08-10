@@ -93,6 +93,24 @@ moins prioritaire).
   Buffer du tout — nécessite un compte WhatsApp Business + accès à l'API
   Cloud Meta (gratuit jusqu'à un certain volume de messages). Pas encore
   configuré, à reprendre quand l'utilisateur veut avancer dessus.
+- **P2 — Stratégie de pub payante (Meta/Instagram, X), discutée le 10
+  août.** Pistes évoquées : petit budget test (5-10 €/jour) sur Meta Ads
+  Manager (Instagram + Facebook), ciblage par centres d'intérêt
+  ("actualité", "géopolitique", 15-35 ans, France), pointant directement
+  vers `newsletter.html` plutôt que le site en général — Meta jugé plus
+  mature/moins cher au clic que X Ads pour démarrer. Nécessite un vrai
+  tracking de conversion (UTM / pixel) avant de dépenser, pour savoir si
+  les clics se transforment en abonnés. **Pas encore lancé côté ads
+  payantes.** En parallèle, pistes de distribution gratuite listées le
+  même jour : soumission du site à Google Actualités (fondations déjà
+  posées, voir schéma NewsArticle plus bas dans ce backlog), annuaire
+  [DataNewsletters](https://www.datanewsletters.com/inscription-annuaire-newsletters),
+  [Feedspot](https://rss.feedspot.com/) et Flipboard pour `feed.xml`.
+  **Action manuelle déjà en cours côté utilisateur, en dehors de toute
+  automatisation du dépôt** : envoi d'invitations Instagram (inviter des
+  contacts à suivre le compte) pour faire grossir l'audience avant
+  d'envisager de la pub payante — pas de suivi chiffré dans ce dépôt,
+  démarche manuelle côté utilisateur.
 - **P3 — Giveaway "abonne-toi à la newsletter = tirage au sort", idée du
   10 août.** Objectif : faire croître la base newsletter (MailerLite,
   **1 seul abonné actuellement**) via un jeu-concours simple. **Écarté
