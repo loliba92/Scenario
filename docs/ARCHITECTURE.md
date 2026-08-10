@@ -93,6 +93,20 @@ moins prioritaire).
   Buffer du tout — nécessite un compte WhatsApp Business + accès à l'API
   Cloud Meta (gratuit jusqu'à un certain volume de messages). Pas encore
   configuré, à reprendre quand l'utilisateur veut avancer dessus.
+- **P3 — Giveaway "abonne-toi à la newsletter = tirage au sort", idée du
+  10 août.** Objectif : faire croître la base newsletter (MailerLite,
+  **1 seul abonné actuellement**) via un jeu-concours simple. **Écarté
+  pour l'instant** : avec une base aussi faible, l'effet réseau d'un
+  giveaway (partages, viralité) est quasi nul — priorité d'abord à la
+  distribution sur les canaux existants (site, Telegram, réseaux) pour
+  bâtir une vraie base avant d'investir dans un lot. À reprendre une
+  fois quelques dizaines/centaines d'abonnés atteints. Pistes de lot
+  déjà discutées, du moins cher au plus engageant : goodies Scénario
+  (sticker/mug), accès "premium" gratuit à vie si le site se monétise un
+  jour, un livre géopolitique marquant, un an d'abonnement à un média de
+  référence (Le Monde, Courrier International...), ou une carte cadeau
+  généraliste. Mécanique du jeu (règles, page d'inscription, tirage) pas
+  encore conçue.
 - **[FAIT le 4 août] Boutons de partage** (X, LinkedIn, WhatsApp, copier
   le lien) sur chaque édition — `index.html`, section `.share-block`,
   juste avant le footer. 100 % statique/générique : les liens sont
