@@ -673,6 +673,22 @@ moins prioritaire).
   de jugement que pour "L'essentiel" : un outil de plus, pas une case à
   cocher automatiquement. Pas encore implémenté.
 
+  **Déclencheur précisé le 10 août (retour utilisateur)** : le cas le
+  plus net n'est pas n'importe quelle série chiffrée, c'est un **indice
+  ou indicateur coté suivi dans le temps** — Brent, CAC 40, taux
+  directeur d'une banque centrale, taux de change, inflation, etc. —
+  déjà cité avec plusieurs valeurs dans le contexte de l'édition.
+  Exemple concret déjà publié : l'édition du 10 août cite le **Brent**
+  à « 72 dollars en juin, plus de 100 dollars le 23 juillet, environ 84
+  dollars début août, contre 69 dollars en moyenne sur 2025 » —
+  exactement le genre de série qui gagnerait à être montrée en graphique
+  plutôt que racontée en phrase. Un indice coté a un avantage pratique
+  sur une série chiffrée générique : ses valeurs successives sont déjà
+  extraites et vérifiées pour la rédaction du `.dek` (pas de recherche
+  supplémentaire pour construire le tableau `[{label, value}, ...]`),
+  donc un bon premier périmètre pour livrer une v1 simple avant
+  d'envisager d'élargir à d'autres types de séries chiffrées.
+
 - **[FAIT le 8 août] Cohérence des KPI entre `indicator-strip` et les 3
   cartes, après une analyse approfondie demandée par l'utilisateur**
   ("réfléchit deep" sur le fait que les indicateurs des 3 cartes ne
