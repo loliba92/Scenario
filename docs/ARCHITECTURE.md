@@ -871,6 +871,41 @@ moins prioritaire).
   cultivée par le site (bloc "Vote avant de connaître le résultat" +
   sondage Telegram automatique, justement pensés pour que le lecteur
   parie avant de lire la résolution).
+- **[FAIT le 9 août, complété le 11 août] Prompt de la routine
+  quotidienne allégé de 42%**, demandé par l'utilisateur pour réduire le
+  coût en tokens (~17k tokens auparavant, sans aucun cache d'un jour à
+  l'autre puisque la routine repart d'un conteneur neuf chaque matin —
+  donc facturé en entier tous les jours). `docs/routine-prompt.md`
+  gardait, pour chaque correction ajoutée au fil des semaines, son
+  historique complet ("erreur corrigée le X, retour utilisateur : …",
+  exemple avant/après détaillé) — utile pour un humain qui relit le
+  fichier, mais pas nécessaire à l'agent qui exécute la routine chaque
+  jour (qui a besoin de la règle finale, pas du récit). Cet historique
+  était de toute façon déjà dupliqué dans ce document. **Retiré du
+  prompt live, gardé ici** : toutes les dates/"retour utilisateur"/
+  exemples avant-après purement justificatifs retirés du texte envoyé à
+  la routine, en ne gardant que la règle opérationnelle finale (format
+  HTML/XML exact, conditions, exemples qui enseignent une calibration
+  comme "la taxe cale" → "la taxe reste bloquée", ceux-là gardés).
+  Résultat : ~17k → ~10k tokens (-42%), vérifié bloc de code HTML/XML par
+  bloc de code HTML/XML pour garantir qu'aucun format ni règle
+  structurelle n'a été perdu. `docs/routine-prompt.md` reste la version
+  complète comme toujours ; c'est la version allégée (sans le texte
+  explicatif du haut du fichier ni les dates de correction) qui est
+  collée dans la routine live (`http_api`, toujours copier-coller
+  manuel, pas d'`update_trigger` possible). **Modèle de la routine
+  (Sonnet) volontairement inchangé** — passer à un modèle moins cher a
+  été écarté (tâche de jugement éditorial non supervisée, publication
+  directe sans relecture humaine, risque de réintroduire des défauts
+  d'écriture déjà corrigés plusieurs fois cette session) ; seul le
+  prompt a été optimisé, pas le modèle. **Complété le 11 août** : la
+  première passe (9 août) avait été construite avant l'ajout de la bande
+  `.top-updates`, de l'exception `.dek-list` et de l'image dans le corps
+  de l'article (les trois entrées juste au-dessus) — un rebase l'a
+  révélé (conflit contre `main`, qui avait avancé entre-temps), la
+  passe corrigée réintègre les trois règles, toujours vérifiée bloc de
+  code par bloc de code (22 blocs au total désormais) contre la version
+  complète de `docs/routine-prompt.md`.
 
 **Technique**
 - **[FAIT le 4 août] Optimisation de `archives.html`** — repéré le 4 août
