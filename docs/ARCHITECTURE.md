@@ -1393,6 +1393,31 @@ description au format teaser) — voir `docs/routine-prompt.md`, étape techniqu
 7. Ce même flux alimente désormais la **newsletter** (Buttondown, RSS-to-email,
 plan payant) en plus d'Instagram.
 
+**[FAIT le 11 août] Image visible dans la newsletter Buttondown.** Constat
+de l'utilisateur : rien ne garantissait que l'image Instagram (portée par
+`<enclosure>` depuis le 7-9 août) s'affiche réellement dans l'email envoyé
+par Buttondown — utile seulement à Make/Instagram jusque-là. Vérification
+d'abord tentée via la documentation officielle Buttondown, bloquée depuis
+cet environnement (`docs.buttondown.com` et `buttondown.com` inaccessibles,
+égress réseau). Test réel fait par l'utilisateur dans l'éditeur du corps
+d'email Buttondown : le champ `item.enclosure` **existe bien** côté moteur
+de template (`{% if item.enclosure %}` déjà présent, vide, dans le gabarit
+par défaut), mais coller une balise `<img src="{{ item.enclosure.url }}">`
+dans ce champ ne l'affiche pas — l'éditeur du corps est un champ de texte
+enrichi qui affiche le HTML tapé à la main tel quel (texte littéral), il
+n'interprète que les jetons `{{ }}`/`{% %}` propres à Buttondown, pas de
+l'HTML arbitraire.
+
+**Solution retenue : mettre la balise `<img>` directement dans le CDATA de
+`<description>` de `feed.xml`**, pas dans le gabarit Buttondown — ce
+chemin-là est déjà confirmé interprété comme HTML par Buttondown (c'est
+comme ça que les `<br>` fonctionnent déjà dans les emails envoyés). URL
+identique à celle de l'`<enclosure>` de l'`<item>`
+(`assets/social/instagram/{AAAA-MM-JJ}.png`), placée en tout premier
+élément du CDATA. Documenté dans `docs/routine-prompt.md`, étape technique
+8. Pas de changement nécessaire côté Buttondown ; l'utilisateur a retiré le
+bloc `<img>` inutile qu'il avait testé dans l'éditeur du corps d'email.
+
 ## Image de partage (Open Graph / Twitter Card)
 
 `assets/social/og-image-v2.png` (2508×1412) est l'image affichée en aperçu
