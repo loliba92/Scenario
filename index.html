@@ -326,6 +326,34 @@
 
   .dek strong{ color: var(--paper); font-weight: 600; }
 
+  /* Liste à puces dans le contexte (pas seulement dans les cartes de
+     scénarios) — même motif que .field li plus bas dans ce fichier (tiret
+     coloré), pour un passage dense à lire d'un coup d'œil plutôt qu'en
+     phrase continue. */
+  .dek-list{
+    list-style: none;
+    margin: 0 0 20px;
+    padding: 0;
+    max-width: 62ch;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .dek-list li{
+    font-size: 1.1rem;
+    line-height: 1.55;
+    color: var(--paper-dim);
+    padding-left: 20px;
+    position: relative;
+  }
+  .dek-list li::before{
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+  .dek-list strong{ color: var(--paper); font-weight: 600; }
+
   .dek a{ color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
   .dek a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
 

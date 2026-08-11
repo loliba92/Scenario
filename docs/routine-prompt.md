@@ -84,7 +84,7 @@ Rédiger un résumé structuré, pas une chronologie, pour un lecteur qui ne con
 - Déclencheur : une vraie matrice (N entités × M options qui se recoupent toutes), pas un simple paragraphe qui contient plusieurs faits.
 - Plafond : **une seule liste par édition** dans le contexte. Si le sujet du jour en réclamerait une deuxième, retravailler l'angle plutôt qu'empiler les listes.
 - Encadrée par de la prose : une phrase d'intro juste avant, une phrase de synthèse juste après — jamais tout le contexte transformé en liste.
-- CSS : classe `.dek-list` (même motif de tiret coloré que `.field li` des cartes, sans dépendance à `--accent`) — voir `archives/2026-08-09.html` pour un exemple. Ne pas en redéfinir une variante par édition.
+- CSS : classe `.dek-list` (même motif de tiret coloré que `.field li` des cartes, sans dépendance à `--accent`) — voir `archives/2026-08-09.html` pour un exemple. Ne pas en redéfinir une variante par édition. **Vérifier qu'elle est bien présente dans le `<style>` d'`index.html` avant de s'appuyer sur « déjà dans le gabarit »** : classe utilisée seulement certains jours (pas tous), donc pas garantie d'avoir survécu à la copie des éditions sans matrice depuis le 9 août — si absente, la recopier telle quelle depuis `archives/2026-08-09.html` plutôt que d'improviser une variante.
 
 `<strong>` sur les faits/chiffres clés (montants, dates charnières, acteurs déterminants), un ou deux par paragraphe, sans abuser.
 
