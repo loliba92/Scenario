@@ -244,6 +244,32 @@ moins prioritaire).
   le post et le lien arrivait en dernier). Mis à jour dans
   `assets/make/scenario-daily.blueprint.json` pour rester synchronisé
   avec la config réelle du module.
+- **[FAIT le 11 août] Teaser des posts sociaux (circuit Daily) : bascule
+  de `{{4.comments}}` vers `{{4.source.title}}` ("L'essentiel"), retour
+  utilisateur.** `<comments>` dans `feed.xml` ne porte que la question
+  brute du jour ; `<source>` est censé porter "L'essentiel" (voir plus
+  haut, §UX du 8 août) — un résumé autonome et chiffré (issue la plus
+  probable avec son %, signal concret à surveiller), **conçu justement
+  pour ce genre d'usage** ("Autonome, lisible seul... partage, extrait",
+  `docs/routine-prompt.md`). Bien plus percutant comme teaser.
+  **Bug trouvé au passage** : sur l'édition du 11 août, `<source>`
+  contenait par erreur le texte de "Ce qu'on évalue" (`.stakes-text`,
+  qui a sa place légitime ailleurs — second paragraphe de la
+  `<description>` de `feed.xml`) au lieu de "L'essentiel". Vérifié sur
+  les éditions du 8, 9 et 10 août : uniquement un accroc isolé du 11,
+  pas un bug systémique de la routine — corrigé directement dans
+  `feed.xml` (le `<source>` du 11 août contient maintenant le vrai texte
+  "L'essentiel" de la page, sans les balises `<strong>`).
+  **Champ basculé sur `{{4.source.title}}`** dans les modules Telegram
+  (id 8), Instagram (id 34), Facebook (id 32) et LinkedIn (id 53) du
+  circuit Daily — uniquement, pas la branche RSS SUIVI (modules 23/24/
+  33/22, toujours sur `{{30.comments}}`, non demandé). **X/Twitter
+  volontairement exclu** : "L'essentiel" fait ~700-750 caractères selon
+  les jours, très au-dessus de la limite de 280 caractères de X (le
+  module 14 n'utilisait déjà pas `{{4.comments}}`, juste un tagline fixe
+  générique) — l'utilisateur gère ce module lui-même directement dans
+  Make plutôt que de risquer un échec de publication.
+  `assets/make/scenario-daily.blueprint.json` mis à jour en conséquence.
 - **[FAIT le 9 août] Bug trouvé et corrigé : champ image vide sur le
   module Instagram (Buffer), empêchait la publication.** Repéré via le
   log d'exécution Make du 9 août (run 10h00) : dans le routeur du

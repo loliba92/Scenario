@@ -246,7 +246,7 @@
                                 "__IMTCONN__": 9454355
                             },
                             "mapper": {
-                                "text": "{{4.title}}{{newline}}{{newline}}{{4.comments}}{{newline}}{{newline}}👉 Lire les 3 scénarios chiffrés :\n{{4.url}}",
+                                "text": "{{4.title}}{{newline}}{{newline}}{{4.source.title}}{{newline}}{{newline}}👉 Lire les 3 scénarios chiffrés :\n{{4.url}}",
                                 "chatId": "@scenario_fr",
                                 "parseMode": "",
                                 "replyMarkup": "",
@@ -715,7 +715,7 @@
                                 "account": 9580775
                             },
                             "mapper": {
-                                "text": "{{4.title}}{{newline}}{{newline}}{{4.comments}}{{newline}}{{newline}}👉 Lien en bio pour lire l'analyse complète",
+                                "text": "{{4.title}}{{newline}}{{newline}}{{4.source.title}}{{newline}}{{newline}}👉 Lien en bio pour lire l'analyse complète",
                                 "type": "now",
                                 "media": {
                                     "link": "{{4.enclosures[].url}}",
@@ -895,7 +895,7 @@
                                 "account": 9580775
                             },
                             "mapper": {
-                                "text": "{{4.title}}{{newline}}{{newline}}{{4.comments}}{{4.author}}{{newline}}{{newline}}👉 Lire l'analyse complète : {{4.url}}\n",
+                                "text": "{{4.title}}{{newline}}{{newline}}{{4.source.title}}{{4.author}}{{newline}}{{newline}}👉 Lire l'analyse complète : {{4.url}}\n",
                                 "type": "now",
                                 "media": {
                                     "link": "{{4.enclosures[].url}}",
@@ -1925,7 +1925,7 @@
                                 "organization": "urn:li:organization:136694258",
                                 "method": "link",
                                 "title": "{{4.title}}",
-                                "content": "👉 Lire l'analyse complète : {{4.url}}{{newline}}{{newline}}{{4.title}}{{newline}}{{newline}}{{4.comments}}{{newline}}",
+                                "content": "👉 Lire l'analyse complète : {{4.url}}{{newline}}{{newline}}{{4.title}}{{newline}}{{newline}}{{4.source.title}}{{newline}}",
                                 "visibility": "PUBLIC",
                                 "feedDistribution": "MAIN_FEED",
                                 "isReshareDisabledByAuthor": false,

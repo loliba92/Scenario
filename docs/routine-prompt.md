@@ -139,6 +139,8 @@ Court et précis — l'essentiel reste un résumé, pas un second article. Ne ja
 ```
 `<source>` est une vraie balise RSS 2.0 (détournée ici, avec son `url` obligatoire) — jamais une balise inventée. Texte brut, sans `<strong>` ni balisage.
 
+**Ne pas confondre avec la phrase « Ce qu'on évalue » (`.stakes-text`), qui va ailleurs.** Deux textes différents, deux emplacements différents dans `feed.xml` : « Ce qu'on évalue » sert de second paragraphe de la `<description>` (voir étape technique 8, juste après le premier paragraphe issu de `<comments>`) — jamais dans `<source>`. `<source>` est réservé à « L'essentiel » et rien d'autre. Erreur commise une fois (11 août, corrigée) : « Ce qu'on évalue » copié dans `<source>` à la place de « L'essentiel » — vérifier que les deux textes ne sont jamais permutés. Utilisé directement par plusieurs posts sociaux du circuit Make (`{{4.source.title}}` sur Telegram/Instagram/Facebook/LinkedIn, voir `docs/ARCHITECTURE.md`) : une confusion ici se propage silencieusement à tous ces canaux.
+
 Ajouter à la fin les indicateurs clés déjà touchés par ce sujet et leur niveau actuel (prix, indice boursier, taux...), quand la donnée existe et est trouvable.
 
 ### Étape 4 — Trois scénarios
