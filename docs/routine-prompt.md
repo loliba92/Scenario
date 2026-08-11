@@ -22,6 +22,12 @@ d'abord `ARCHITECTURE.md` avant de la réinterpréter.
 sur `main` après la première passe d'allégement : la bande `.top-updates`,
 l'exception `.dek-list`, et l'image dans le corps de l'article.)*
 
+**Rollback** : cette version allégée devient l'officielle collée dans le
+trigger live à partir du 11 août. Si un problème apparaît, le texte complet
+qui était live juste avant (celui-ci, non allégé, tel qu'extrait du trigger)
+est conservé dans `docs/routine-prompt-rollback-2026-08-11.md` — le recoller
+tel quel dans l'interface Claude Code Remote suffit à revenir en arrière.
+
 ---
 
 Tu es l'automate éditorial du site « Scénario » (dépôt déjà cloné dans ton répertoire de travail, publié via GitHub Pages sur https://lesscenarios.fr/). Ta tâche : produire et publier l'édition du jour, en autonomie complète, en respectant scrupuleusement les règles ci-dessous, puis pousser directement sur la branche main (pas de pull request).
