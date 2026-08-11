@@ -269,7 +269,25 @@ moins prioritaire).
   module 14 n'utilisait déjà pas `{{4.comments}}`, juste un tagline fixe
   générique) — l'utilisateur gère ce module lui-même directement dans
   Make plutôt que de risquer un échec de publication.
-  `assets/make/scenario-daily.blueprint.json` mis à jour en conséquence.
+  **Revu le même jour, par plateforme, sur le critère « boucle de
+  curiosité vs lien qui fonctionne vraiment »** : `source` (L'essentiel)
+  donne déjà l'issue probable et son % dans le post — ça satisfait la
+  curiosité sur place, ce qui n'incite au clic que si ce clic mène
+  vraiment quelque part. Or **le lien "en bio" d'Instagram pointe vers
+  l'index du site (l'édition du jour courant), pas vers l'article
+  précis du post** — cassé par construction pour quiconque consulte un
+  post après le jour J (usage courant sur Instagram : scroller un
+  profil). Sur Instagram, un clic ne marchant pas de toute façon passé
+  le jour J, mieux vaut un post autonome qui arrête le scroll
+  (`source`) plutôt qu'une question ouverte qui pousse vers un clic
+  cassé. **Telegram, Facebook et LinkedIn ont un lien direct, cliquable,
+  qui pointe vers l'article précis** (`{{4.url}}`, valide quel que soit
+  le jour de lecture) — là, la boucle de curiosité fonctionne vraiment :
+  `comments` (question ouverte, sans le %) pousse à un clic qui mène
+  quelque part. **Décision finale : `source` uniquement sur Instagram
+  (id 34) ; `comments` repassé sur Telegram (id 8), Facebook (id 32) et
+  LinkedIn (id 53).** `assets/make/scenario-daily.blueprint.json` mis à
+  jour en conséquence.
 - **[FAIT le 9 août] Bug trouvé et corrigé : champ image vide sur le
   module Instagram (Buffer), empêchait la publication.** Repéré via le
   log d'exécution Make du 9 août (run 10h00) : dans le routeur du
