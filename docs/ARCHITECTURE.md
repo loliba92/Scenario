@@ -293,6 +293,33 @@ moins prioritaire).
   volontairement absents de l'image (effet teaser vers le lien en bio,
   décision du 7 août inchangée) — seul le choix "pas de question" a été
   révisé, avec une solution différente de celle rejetée à l'époque.
+
+  **[FAIT le 11 août] Rééquilibrage des tailles de texte sur le gabarit
+  avec photo, retour utilisateur juste après l'ajout de l'accroche.**
+  Trois allers-retours successifs : le titre paraissait trop discret
+  (ratio titre/masthead de seulement 1,4× sur ce gabarit, contre 1,8×
+  sur le gabarit sans photo — la hiérarchie visuelle ne mettait pas
+  assez en avant l'élément censé accrocher le regard en premier), puis
+  les 3 options de scénario paraissaient trop petites une fois le titre
+  agrandi à 96px, puis retour final demandant de revenir sur une taille
+  plus petite pour limiter le recours au tronquage et de réduire un peu
+  le titre. Valeurs finales retenues après vérification par rendu réel
+  (titre court d'aujourd'hui + un label de scénario volontairement bien
+  trop long, pour confirmer que le garde-fou de troncature reste un
+  filet de sécurité rarement déclenché en usage normal plutôt que la
+  norme) : titre 80px→88px, texte des options 29px→31px, flèches
+  32px→34px. **Garde-fou ajouté à cette occasion** (repéré comme risque
+  avant même d'être demandé, et conservé malgré le retour en arrière sur
+  les tailles) : chaque option de scénario est maintenant forcée sur une
+  seule ligne (`white-space: nowrap` + `text-overflow: ellipsis` sur un
+  nouveau `<span class="label">` dans `generate_instagram_image.py`) —
+  un label trop long tronque proprement avec `…` plutôt que de passer à
+  la ligne et casser l'alignement avec la flèche. Testé avec un label
+  délibérément bien trop long pour confirmer le comportement, et avec le
+  contenu réel du jour pour confirmer qu'aux tailles finales retenues,
+  un label normal tient sur une ligne sans jamais avoir besoin du
+  tronquage. Même garde-fou ajouté au gabarit sans photo par cohérence,
+  sans changer ses tailles de police (déjà plus grandes : 40px/44px).
 - **P1 — Image custom par sujet (Pexels), testée le 9 août puis branchée
   sur la routine automatique le même jour.** Idée de l'utilisateur :
   remplacer le visuel généré (titre + 3 scénarios) par une vraie photo

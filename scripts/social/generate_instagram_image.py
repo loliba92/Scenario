@@ -67,7 +67,7 @@ def build_scenario_rows(scenarios):
         label = html.escape(s["label"])
         rows.append(
             f'<div class="scenario-row" data-kind="{kind}">'
-            f'<span class="arrow">{arrow}</span>{label}'
+            f'<span class="arrow">{arrow}</span><span class="label">{label}</span>'
             f'</div>'
         )
     return "\n    ".join(rows)
