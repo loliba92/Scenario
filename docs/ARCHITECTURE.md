@@ -232,6 +232,18 @@ moins prioritaire).
   (module 22, toujours en Article/vignette vide) — voir entrée backlog
   dédiée plus bas, qui bloque de toute façon sur l'absence d'`<enclosure>`
   dans `feed-suivi.xml`.
+  **Réordonnancement du texte du post, même jour** (retour utilisateur) :
+  sur un post Image natif, contrairement à l'Article, le lien vers
+  l'article n'est cliquable que dans le texte — donc s'il arrive après le
+  titre et le contexte, il finit caché derrière le "…voir plus" de
+  LinkedIn. Lien déplacé en toute première ligne, titre et contexte
+  repoussés en dessous — l'utilisateur a configuré directement dans Make
+  : `content` = `"👉 Lire l'analyse complète : {{4.url}}{{newline}}
+  {{newline}}{{4.title}}{{newline}}{{newline}}{{4.comments}}{{newline}}"`
+  (auparavant l'accroche "🔥 Nouvelle édition Scénario, à lire 👇" ouvrait
+  le post et le lien arrivait en dernier). Mis à jour dans
+  `assets/make/scenario-daily.blueprint.json` pour rester synchronisé
+  avec la config réelle du module.
 - **[FAIT le 9 août] Bug trouvé et corrigé : champ image vide sur le
   module Instagram (Buffer), empêchait la publication.** Repéré via le
   log d'exécution Make du 9 août (run 10h00) : dans le routeur du
