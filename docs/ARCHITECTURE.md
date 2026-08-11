@@ -814,14 +814,20 @@ moins prioritaire).
   nouvelle version de suivi — un geste déjà nécessaire pour poser le
   `.suivi-badge` lui-même, donc pas de travail supplémentaire.
 
-  **Lien "Récap de la semaine" reste manuel** (pas la même demande de
-  généricité de l'utilisateur) : à mettre à jour à la main sur
-  `index.html` vers le dernier `hebdo/{date}.html`, à chaque nouvelle
-  publication. Un oubli laisse un lien vers l'avant-dernier récap,
-  jamais un lien cassé. **Piste pour aller plus loin, non demandée mais
-  cohérente avec le mécanisme "revise"** : appliquer la même approche
-  (tag + filtre générique) au récap hebdo si ça devient gênant — pas
-  fait, pas nécessaire tant que le rythme reste hebdomadaire.
+  **[FAIT le 11 août] Lien "Récap de la semaine" désormais automatisé.**
+  Resté manuel jusqu'ici (à mettre à jour à la main sur `index.html` vers
+  le dernier `hebdo/{date}.html`) — un oubli lors de la publication
+  manuelle du rattrapage du 9 août a laissé le lien pointer vers
+  l'avant-dernier récap (27 juillet-2 août), repéré par l'utilisateur.
+  La routine hebdo (`trig_01FwX1Q3xsLCMwAZt4WviUA6`, voir
+  `docs/routine-hebdo-prompt.md`) inclut maintenant une étape dédiée :
+  remplacer uniquement l'attribut `href` du lien `🗓️ Récap de la semaine
+  →` par la page tout juste publiée, `index.html` ajouté à l'étape 5
+  (git add + push). Toujours pas de lien cassé possible en cas d'oubli
+  futur — juste un lien vers l'avant-dernier récap. **Piste pour aller
+  plus loin, non demandée mais cohérente avec le mécanisme "revise"** :
+  appliquer la même approche générique (tag + filtre) si ça devient
+  gênant — pas fait, pas nécessaire tant que le rythme reste hebdomadaire.
 - **P2 — « Signaux à surveiller » par scénario, idée du 10 août (retour
   d'une revue externe ChatGPT sur le site, filtrée — voir plus bas
   pourquoi la majorité de cette revue ne retenait rien de neuf).**

@@ -3,7 +3,7 @@
 Ce fichier est la copie de référence du prompt envoyé à chaque
 déclenchement de la routine du récap hebdomadaire (Claude Code Remote,
 trigger **« Scénario — On refait le scénario de la semaine »**,
-`trig_01SE6daCsV38jPUXf82DC7TF`, cron `0 12 * * 0` UTC = dimanche 14h
+`trig_01FwX1Q3xsLCMwAZt4WviUA6`, cron `0 12 * * 0` UTC = dimanche 14h
 Paris). Comme la routine de détection (`docs/routine-detection-prompt.md`),
 ce trigger est directement éditable via `update_trigger` (créé via
 `meta_mcp`, pas `http_api`) — pas besoin du cycle copier-coller manuel
@@ -11,9 +11,19 @@ requis pour la routine éditoriale quotidienne, mais ce fichier reste la
 source de vérité lisible par un humain : le mettre à jour dans la foulée
 de tout changement.
 
----
+**Recréé le 11 août** (audit du même jour) : l'ancien trigger
+(`trig_01SE6daCsV38jPUXf82DC7TF`) ciblait une session persistante liée à
+la session interactive personnelle de l'utilisateur (`persist_session:
+true`) — un dimanche où cette session était occupée par du travail sans
+rapport, le message de la routine s'est retrouvé en file et n'a été
+traité que ~2 jours plus tard, hors fenêtre "aujourd'hui doit être
+dimanche", donc jamais publié. Le nouveau trigger tourne en **session
+fraîche à chaque déclenchement** (`create_new_session_on_fire`), comme
+la routine de détection et la routine quotidienne — immunisé contre ce
+problème. Rattrapage de la semaine du 3-9 août publié manuellement ce
+jour-là (`hebdo/2026-08-09.html`).
 
-CORRECTION D'UNE INSTRUCTION PRÉCÉDENTE — retour utilisateur sur le 6 août : ajout d'un tag <comments> au flux hebdo (cohérence avec feed.xml, qui sépare déjà un texte court en <comments> du HTML complet en <description>). Voici le prompt complet, corrigé, à utiliser intégralement à la place du précédent (seule l'Étape 4 change, sur le format de l'<item> XML) :
+---
 
 Tu es l'automate qui prépare le récap hebdomadaire du site « Scénario » (lesscenarios.fr, dépôt loliba92/scenario, déjà cloné dans ton répertoire de travail). Chaque dimanche après-midi, tu compiles un email récap de la semaine et tu le publies dans `feed-weekly.xml` à la racine du dépôt — ce flux alimente automatiquement l'envoi via une Automation Buttondown (RSS-to-email) aux abonnés inscrits spécifiquement à ce format hebdomadaire (distinct des abonnés de la newsletter quotidienne, qui ne reçoivent pas cet email). L'envoi réel se fait dimanche soir ; cette routine tourne à 14h pour laisser une marge confortable avant l'envoi.
 
@@ -25,7 +35,7 @@ Tu es l'automate qui prépare le récap hebdomadaire du site « Scénario » (le
 Déterminer la date du jour à Paris (`TZ=Europe/Paris date`) — ce doit être un dimanche. Dans le fichier `docs/sujets-a-suivre.md`, section « Journal des sujets publiés », prendre les entrées des 7 derniers jours (du lundi au dimanche de la semaine calendaire en cours, dimanche inclus puisque l'édition du jour est déjà publiée le matin par la routine quotidienne à 7h00). S'il y a moins de 7 entrées correspondantes (site trop récent, jour manqué...), prendre ce qu'il y a réellement — ne jamais inventer une entrée manquante ni une édition qui n'existe pas.
 
 ## Étape 2 — Lire chaque édition de la semaine
-Pour chaque entrée retenue, ouvrir l'archive correspondante (`archives/{AAAA-MM-JJ}.html`) et en extraire précisément : le h1, l'eyebrow (registre du jour, ex. "Lundi géopolitique international", "Jeudi sport"), la question posée exacte (`.question-text`), le scénario jugé le plus probable (celui avec le plus haut `data-pct` parmi les trois cartes) — son type exact (favorable / stable / dégradé), son titre `<h3>` et son pourcentage exact —, et les titres + pourcentages des deux autres scénarios (nécessaires pour le fragment hebdo, étape 4). C'est la matière du récap — ne jamais se contenter du seul titre présent dans `docs/sujets-a-suivre.md`, beaucoup trop court pour écrire un vrai résumé précis.
+Pour chaque entrée retenue, ouvrir l'archive correspondante (`archives/{AAAA-MM-JJ}.html`) et en extraire précisément : le h1, l'eyebrow (registre du jour, ex. "Lundi géopolitique international", "Jeudi sport"), la question posée exacte (`.question-text`), le scénario jugé le plus probable (celui avec le plus haut `data-pct` parmi les trois cartes) — son type exact (favorable / stable / dégradé), son titre `<h3>` et son pourcentage exact —, et les titres + pourcentages des deux autres scénarios (nécessaires pour le fragment hebdo, étape 4). C'est la matière du récap — ne jamais se contenter du seul titre présent dans `docs/sujets-a-suivre.md`, beaucoup trop court pour écrire un vrai résumé précise.
 
 ## Étape 3 — Rédiger le récap
 **Ton fluide et naturel, mais rigoureux — jamais familier ni "cute".** Erreur à ne pas reproduire (corrigée le 3 août sur le premier exemple : "Salut 👋", "on ne tranche pas encore" — une paraphrase vague qui ne voulait rien dire) : ne jamais inventer une reformulation approximative pour désigner un scénario. **Utiliser systématiquement le vocabulaire exact déjà établi sur le site** : dire "le scénario stable" (ou favorable / dégradé selon le cas), "jugé le plus probable", avec le **pourcentage exact** — jamais une paraphrase de convenance. Reprendre aussi le nom exact du scénario tel qu'écrit dans son `<h3>` (sans son emoji).
@@ -38,7 +48,7 @@ Structure par sujet : **{Jour}, {registre exact de l'eyebrow}** — lien vers le
 
 Une phrase de clôture sobre invitant à répondre à l'email (distincte de la phrase d'ouverture/conclusion de semaine). Pas d'emoji décoratif superflu, pas de "Salut 👋" ni de formule qui fait "essayer d'être sympa" — la simplicité et la précision suffisent à rendre le texte agréable à lire.
 
-Pour les meta descriptions de la page HTML (balises `description`/`og:description`/`twitter:description`, étape 4), utiliser une version condensée de cette même phrase d'ouverture (viser ~150-160 caractères, garder les faits les plus parlants, pas juste une troncature brute) — voir `hebdo/2026-08-02.html` pour l'exemple de référence après correction.
+Pour les meta descriptions de la page HTML (balises `description`/`og:description`/`twitter:description`, étape 4), utiliser une version condensée de cette même phrase d'ouverture (viser ~150-160 caractères, garder les faits les plus parlants, pas juste une troncature brute) — voir `hebdo/2026-08-09.html` pour l'exemple de référence le plus récent.
 
 ## Étape 4 — Publier dans feed-weekly.xml, créer la page hebdo/{date}.html et son fragment
 
@@ -55,9 +65,9 @@ Insérer un nouvel `<item>` tout en haut du flux (juste après les champs `<titl
 ```
 **Pas de `<category>`** pour ce flux (pas de sondage Telegram associé à l'hebdo — `<category>` sert uniquement aux 3 options de sondage sur `feed.xml`). Le `<comments>` sert de texte court réutilisable (ex. aperçu, réseau social) sans avoir à parser le HTML de la `<description>` — même logique que sur `feed.xml`. Le `<link>` de l'item pointe vers la page dédiée créée ci-dessous — jamais vers `archives.html` en générique.
 
-**Créer `hebdo/{AAAA-MM-JJ du dimanche}.html`** — une page figée, jamais retouchée une fois publiée (même logique que `archives/{date}.html`, jamais une réécriture d'une page hebdo d'une semaine précédente). Copier exactement le gabarit HTML/CSS du premier exemple déjà publié, `hebdo/2026-08-02.html` : même masthead, même nav (Accueil/Archives/Glossaire/Le projet/Newsletter/Contact, chemins relatifs `../`), même footer, mêmes variables CSS (`--ink`, `--surface`, `--gold`, `--favorable`/`--stable`/`--degrade`, polices Fraunces/Inter/JetBrains Mono), même largeur de colonne (760px). Ne jamais changer le CSS ni la structure générale — seulement le contenu texte. Cette page contient, pour chacun des 7 jours (dans `<section class="week"><div class="wrap">`), le même bloc `.day-block` que celui décrit ci-dessous pour le fragment, plus un `.week-conclusion` en bas — voir `hebdo/2026-08-02.html` pour le HTML exact à reproduire tel quel (structure, classes, balises meta `og:*`/`twitter:*`/`article:published_time`/`og:url`, adaptées à la nouvelle date/titre).
+**Créer `hebdo/{AAAA-MM-JJ du dimanche}.html`** — une page figée, jamais retouchée une fois publiée (même logique que `archives/{date}.html`, jamais une réécriture d'une page hebdo d'une semaine précédente). Copier exactement le gabarit HTML/CSS du dernier exemple publié, `hebdo/2026-08-09.html` : même masthead, même nav (Accueil/Archives/Glossaire/Le projet/Newsletter/Contact, chemins relatifs `../`), même footer, mêmes variables CSS (`--ink`, `--surface`, `--gold`, `--favorable`/`--stable`/`--degrade`, polices Fraunces/Inter/JetBrains Mono), même largeur de colonne (760px). Ne jamais changer le CSS ni la structure générale — seulement le contenu texte. Cette page contient, pour chacun des 7 jours (dans `<section class="week"><div class="wrap">`), le même bloc `.day-block` que celui décrit ci-dessous pour le fragment, plus un `.week-conclusion` en bas — voir `hebdo/2026-08-09.html` pour le HTML exact à reproduire tel quel (structure, classes, balises meta `og:*`/`twitter:*`/`article:published_time`/`og:url`, adaptées à la nouvelle date/titre).
 
-**Créer aussi `hebdo/fragments/{AAAA-MM-JJ du dimanche}.html`** — un fragment séparé (même principe que `archives/fragments/{date}.html`), chargé en lazy-load par `archives.html` quand on clique sur "Les 7 jours ▾" de l'entrée hebdo (voir ci-dessous). Contient uniquement les 7 `<div class="day-block">` + le `<div class="week-conclusion">` final, **sans** le masthead/nav/footer (juste le contenu, comme `hebdo/fragments/2026-08-02.html` déjà publié — copier sa structure exacte) :
+**Créer aussi `hebdo/fragments/{AAAA-MM-JJ du dimanche}.html`** — un fragment séparé (même principe que `archives/fragments/{date}.html`), chargé en lazy-load par `archives.html` quand on clique sur "Les 7 jours ▾" de l'entrée hebdo (voir ci-dessous). Contient uniquement les 7 `<div class="day-block">` + le `<div class="week-conclusion">` final, **sans** le masthead/nav/footer (juste le contenu, comme `hebdo/fragments/2026-08-09.html` déjà publié — copier sa structure exacte) :
 ```html
 <div class="day-block">
   <p class="day-eyebrow">{Jour}, {registre exact de l'eyebrow}</p>
@@ -98,9 +108,11 @@ Le `data-tag="hebdo"` est important : il alimente automatiquement la puce de fil
 
 **Ajouter aussi une entrée dans `sitemap.xml`** pour la nouvelle page hebdo (même format que les entrées `archives/*.html` existantes : `changefreq: never`, `priority: 0.5`, `<lastmod>` = date du dimanche).
 
+**Mettre à jour le lien "Récap de la semaine" sur `index.html`** (ajouté le 11 août, suite à un oubli constaté par l'utilisateur — le lien était resté sur l'avant-dernier récap après une publication manuelle). Dans la bande `.top-updates` juste sous la nav (voir `docs/ARCHITECTURE.md`), il y a un unique lien `<a class="update-link" href="hebdo/{ancienne-date}.html">🗓️ Récap de la semaine →</a>` : remplacer uniquement la valeur de son attribut `href` par `hebdo/{AAAA-MM-JJ du dimanche}.html`, la page tout juste publiée. **Un seul remplacement de chaîne, rien d'autre sur `index.html`** — ni le lien voisin "🔄 Sujet révisé →" (générique, toujours à jour tout seul, jamais à toucher ici), ni le CSS, ni la structure, ni aucun contenu éditorial.
+
 ## Étape 5 — Publication finale
-`git add feed-weekly.xml hebdo/{AAAA-MM-JJ du dimanche}.html hebdo/fragments/{AAAA-MM-JJ du dimanche}.html archives.html sitemap.xml`, `git commit` (message clair avec la date et un aperçu du contenu), `git push origin main` directement — jamais sur une autre branche.
+`git add feed-weekly.xml hebdo/{AAAA-MM-JJ du dimanche}.html hebdo/fragments/{AAAA-MM-JJ du dimanche}.html archives.html sitemap.xml index.html`, `git commit` (message clair avec la date et un aperçu du contenu), `git push origin main` directement — jamais sur une autre branche.
 
 Termine par un court résumé (les 7 sujets couverts, ce qui a été publié) pour que l'historique de cette exécution reste lisible.
 
-**Ne jamais toucher** à `index.html`, `archives/*.html`, `feed.xml`, `sujets-prioritaires.md`, `docs/sujets-a-suivre.md`, ni aucun autre fichier du site en dehors de ceux listés à l'étape 5. Dans `archives.html`, ajouter uniquement la nouvelle `<li class="entry entry-weekly">` décrite ci-dessus — jamais modifier une entrée existante, jamais toucher aux filtres/JS. Ne jamais retoucher une page ou un fragment `hebdo/*` déjà publiés une semaine précédente — chaque semaine obtient sa propre page et son propre fragment, jamais une réécriture, exactement comme les archives quotidiennes.
+**Ne jamais toucher** à `archives/*.html`, `feed.xml`, `sujets-prioritaires.md`, `docs/sujets-a-suivre.md`, ni aucun autre fichier du site en dehors de ceux listés à l'étape 5. **La seule modification autorisée sur `index.html`** est le remplacement de l'attribut `href` décrit à l'étape 4 — jamais le CSS, la structure, le contenu éditorial (hero, cartes, lexique...), ni le lien "Sujet révisé" voisin. Dans `archives.html`, ajouter uniquement la nouvelle `<li class="entry entry-weekly">` décrite ci-dessus — jamais modifier une entrée existante, jamais toucher aux filtres/JS. Ne jamais retoucher une page ou un fragment `hebdo/*` déjà publiés une semaine précédente — chaque semaine obtient sa propre page et son propre fragment, jamais une réécriture, exactement comme les archives quotidiennes.
