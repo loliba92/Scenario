@@ -1811,6 +1811,22 @@ Voir les échanges de session pour le détail, mais en résumé :
   routine réelle — contrairement à l'hebdo, entièrement autonome de ce
   côté-là. (Une note antérieure de ce fichier affirmait par erreur que les
   deux étaient modifiables directement ; corrigé après vérification.)
+  **Précision du 11 août sur la marche à suivre pour ce copier-coller
+  manuel** : dans `docs/routine-prompt.md`, seul le texte **après** la
+  ligne `---` est le prompt réellement envoyé à la routine live — tout ce
+  qui précède (titre, explication du fichier, mentions "version allégée
+  depuis le 9 août", lien vers le fichier de rollback) est de la
+  documentation à l'usage d'un humain qui lit le fichier, jamais collé
+  dans le trigger. **Convention adoptée le 11 août** (demande explicite
+  de l'utilisateur, par souci d'économie) : la session met à jour
+  `docs/routine-prompt.md` directement sur GitHub (`main`) et signale
+  juste que c'est fait — c'est à l'utilisateur d'aller chercher le
+  fichier lui-même sur GitHub et de faire le copier-coller. Ne plus
+  envoyer de fichier texte séparé pour ça (ancienne pratique de ce
+  8 août : plusieurs fichiers `routine-quotidienne-allegee*.txt` envoyés
+  un par un à chaque correction, source de confusion sur la version
+  réellement à jour).
+
   L'Automation Buttondown côté RSS-to-email envoie l'email le dimanche
   soir : l'écart de quelques heures laisse une marge confortable
   entre la publication du récap dans `feed-weekly.xml` et l'envoi réel :
