@@ -185,6 +185,53 @@ moins prioritaire).
   `addDays(now; -1)`) du module 30, resté en attente de ré-export depuis
   sa correction — `assets/make/scenario-daily.blueprint.json` mis à jour
   avec ce blueprint.
+- **[FAIT le 11 août] Décision du 8 août inversée : LinkedIn a maintenant
+  une vraie image, en abandonnant le format Article au profit d'un post
+  Image natif.** Repéré le 11 août : un post LinkedIn réel de l'édition
+  du jour n'affichait aucune photo (carte de lien Article sans vignette,
+  malgré un montage binaire déjà en place — module `http:DownloadFile` id
+  52 → module `linkedin:CreateTextShare` id 7, `media.thumbnail.data`
+  mappé). Diagnostic en plusieurs étapes avec l'utilisateur :
+  1. D'abord attribué à un bug de déploiement du site ce jour-là (site
+     indisponible au moment où LinkedIn scanne l'URL) — cause réelle mais
+     partielle.
+  2. Un second post de test (site de nouveau opérationnel) a bien affiché
+     une image, mais **en petite vignette carrée**, jamais en grande
+     bannière — ce qui a orienté à tort vers une hypothèse de format
+     d'image (carré 1080×1080 vs paysage 1.91:1 attendu par LinkedIn pour
+     les grandes cartes).
+  3. **Cause réelle, précisée par l'utilisateur** : pas un problème de
+     format d'image, mais de **type de post**. Le module `CreateTextShare`
+     en `type: ARTICLE` ne peut poster qu'une carte de lien (avec vignette
+     toujours petite, quelle que soit l'image fournie) — jamais une
+     grande image native dans le fil. Pour une vraie grande photo, il
+     faut un module LinkedIn différent, pas une option du module Article.
+
+  **Solution appliquée** : remplacement complet, sur la branche LinkedIn
+  du circuit Daily, du duo module 52 (`http:DownloadFile`) + module 7
+  (`linkedin:CreateTextShare`, type Article) par un **nouveau module
+  unique, `linkedin:CreateCompanyImagePost` (id 53)** :
+  - `method: "link"` — upload par URL directement, plus besoin du module
+    HTTP intermédiaire (le module Image Post télécharge lui-même).
+  - `url: {{4.enclosures[].url}}` — même champ que Twitter/Instagram/
+    Facebook.
+  - `organization: urn:li:organization:136694258` — même page qu'avant.
+  - `content` : même texte qu'avant (titre + accroche + lien vers
+    l'article) — le lien reste cliquable dans le texte du post, mais il
+    n'y a plus de carte de prévisualisation à côté (compromis assumé :
+    grande photo native, contre carte de lien cliquable perdue — inverse
+    du choix du 8 août, qui privilégiait alors la carte cliquable).
+  Erreur intermédiaire rencontrée et corrigée par l'utilisateur en
+  configurant lui-même le module : avait d'abord choisi **"Create a User
+  Image Post"** (poste en tant que profil personnel, erreur API "Member
+  permissions must be used when using person as owner") au lieu de
+  **"Create a Company Image Post"** (poste sur la page entreprise,
+  cohérent avec tous les autres modules du scénario). Blueprint Make
+  ré-exporté et validé le 11 août, `assets/make/scenario-daily.blueprint.json`
+  mis à jour en conséquence. **Pas encore fait sur la branche RSS SUIVI**
+  (module 22, toujours en Article/vignette vide) — voir entrée backlog
+  dédiée plus bas, qui bloque de toute façon sur l'absence d'`<enclosure>`
+  dans `feed-suivi.xml`.
 - **[FAIT le 9 août] Bug trouvé et corrigé : champ image vide sur le
   module Instagram (Buffer), empêchait la publication.** Repéré via le
   log d'exécution Make du 9 août (run 10h00) : dans le routeur du
@@ -629,33 +676,6 @@ moins prioritaire).
   contenu RSS, ou une restriction sur les domaines d'images autorisés —
   pas vérifiable depuis cet environnement, `docs.buttondown.com` et
   `buttondown.com` étant bloqués par le réseau).
-- **P3 — Image sur les posts LinkedIn "sujet suivi" (`feed-suivi.xml`),
-  repéré le 11 août en vérifiant le blueprint Make ré-exporté par
-  l'utilisateur.** Le module LinkedIn de la branche RSS SUIVI (id 22)
-  tente de mapper `media.title`/`media.description` mais laisse
-  `media.thumbnail: {}` vide, sans aucun module HTTP en amont pour aller
-  chercher une image — contrairement à la branche quotidienne (module 52
-  `http:DownloadFile` → module 7 LinkedIn), qui a déjà le bon montage.
-  Résultat : tous les posts LinkedIn "🔄 Un sujet suivi vient d'être mis
-  à jour" partent sans photo, systématiquement (pas un incident ponctuel
-  — un vrai trou structurel). Cause racine : `feed-suivi.xml` ne porte
-  aucun tag `<enclosure>` à ce jour (confirmé le 8 août, déjà noté
-  plus haut — "pas demandé, laissé tel quel").
-  **Décision utilisateur du 11 août : pas de correctif dans la
-  précipitation.** L'image à utiliser doit être **celle du sujet
-  d'origine, réutilisée telle quelle** — jamais une nouvelle image
-  générée spécifiquement pour la mise à jour de suivi (le sujet suivi
-  n'a pas son propre visuel distinct, il prolonge l'édition initiale).
-  Concrètement, ça suppose : ajouter un tag `<enclosure>` à chaque item
-  de `feed-suivi.xml`, pointant vers
-  `assets/social/instagram/{date de l'édition initiale}.png` (pas la
-  date de la mise à jour de suivi) — retrouvable via le lien de
-  l'archive d'origine déjà présent dans le contenu du sujet suivi.
-  Implique de mettre à jour `docs/routine-detection-prompt.md` (étape
-  de publication dans `feed-suivi.xml`) pour que la routine sache
-  toujours retrouver et référencer la bonne image d'origine, puis
-  refaire le montage HTTP + thumbnail sur le module LinkedIn 22 (même
-  recette que 52→7). Pas fait maintenant, à traiter posément.
   **Mise à jour le 11 août, après-midi** : `docs.buttondown.com`
   exceptionnellement accessible depuis cette session — doc officielle
   consultée directement. Deux corrections à la piste ci-dessus : (1) la
@@ -675,6 +695,35 @@ moins prioritaire).
   un vrai test ; si l'aperçu Buttondown lui-même ne montre rien non plus,
   l'utilisateur contactera directement le support Buttondown plutôt que
   de continuer à deviner de l'extérieur du compte.
+- **P3 — Image sur les posts LinkedIn "sujet suivi" (`feed-suivi.xml`),
+  repéré le 11 août en vérifiant le blueprint Make ré-exporté par
+  l'utilisateur.** Le module LinkedIn de la branche RSS SUIVI (id 22)
+  tente de mapper `media.title`/`media.description` mais laisse
+  `media.thumbnail: {}` vide, sans aucun module en amont pour aller
+  chercher une image — contrairement à la branche quotidienne, qui poste
+  maintenant une vraie image via `linkedin:CreateCompanyImagePost`
+  (module 53, voir l'entrée dédiée plus haut). Résultat : tous les posts
+  LinkedIn "🔄 Un sujet suivi vient d'être mis à jour" partent sans photo,
+  systématiquement (pas un incident ponctuel — un vrai trou structurel).
+  Cause racine : `feed-suivi.xml` ne porte aucun tag `<enclosure>` à ce
+  jour (confirmé le 8 août, déjà noté plus haut — "pas demandé, laissé
+  tel quel").
+  **Décision utilisateur du 11 août : pas de correctif dans la
+  précipitation.** L'image à utiliser doit être **celle du sujet
+  d'origine, réutilisée telle quelle** — jamais une nouvelle image
+  générée spécifiquement pour la mise à jour de suivi (le sujet suivi
+  n'a pas son propre visuel distinct, il prolonge l'édition initiale).
+  Concrètement, ça suppose : ajouter un tag `<enclosure>` à chaque item
+  de `feed-suivi.xml`, pointant vers
+  `assets/social/instagram/{date de l'édition initiale}.png` (pas la
+  date de la mise à jour de suivi) — retrouvable via le lien de
+  l'archive d'origine déjà présent dans le contenu du sujet suivi.
+  Implique de mettre à jour `docs/routine-detection-prompt.md` (étape
+  de publication dans `feed-suivi.xml`) pour que la routine sache
+  toujours retrouver et référencer la bonne image d'origine, puis
+  remplacer le module LinkedIn 22 (actuellement `CreateTextShare` type
+  Article) par un `CreateCompanyImagePost` en `method: link`, même
+  recette que le module 53. Pas fait maintenant, à traiter posément.
 
 **UX**
 - **[FAIT le 4 août] Temps de lecture estimé** sous le titre de chaque
