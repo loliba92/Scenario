@@ -17,6 +17,7 @@ Usage:
 data.json:
 {
   "title": "FIFA : la présidence d'Infantino vacille",
+  "hook": "Le vote de défiance approche : Infantino peut-il tenir ?",
   "scenarios": [
     {"kind": "favorable", "label": "Infantino regagne la confiance"},
     {"kind": "stable", "label": "La méfiance dure, il reste en poste"},
@@ -26,10 +27,17 @@ data.json:
 
 Champs "kind" attendus : favorable | stable | degrade (détermine la
 couleur et la flèche ↑/→/↓). Pas de pourcentages dans l'image — c'est
-volontaire (effet teaser vers le lien en bio). Pas de question/contexte
-non plus sur l'image (retiré le 7 août, retour utilisateur : illisible
-sur mobile même agrandi) — le contexte/la question va dans la légende
-du post (`{{4.Comments}}`), pas sur le visuel.
+volontaire (effet teaser vers le lien en bio).
+
+"hook" (ajouté le 11 août, retour utilisateur) : une accroche courte
+(≤ 12 mots, une seule ligne à l'écran), affichée sous le titre, en doré.
+Ce n'est PAS la question posée du site (bien trop longue pour tenir
+lisiblement — c'est justement ce qui avait été retiré le 7 août) : une
+phrase distincte, courte et percutante, écrite spécifiquement pour cette
+image, qui donne juste assez de contexte pour qu'un lecteur qui scrolle
+sans lire la légende ni cliquer le lien en bio comprenne l'enjeu.
+Toujours vérifier le rendu à taille mobile réelle (~350px de large)
+avant de considérer une accroche comme acceptable.
 
 Option --photo (ajoutée le 9 août) : incruste titre + scénarios sur une
 vraie photo Pexels du sujet du jour (voir fetch_topic_image.py /
@@ -90,6 +98,11 @@ def main():
         .replace("__TITLE__", title_html)
         .replace("__SCENARIO_ROWS__", rows_html)
     )
+
+    if "__HOOK__" in final_html:
+        if "hook" not in data:
+            sys.exit("ERREUR : le template attend une accroche (__HOOK__) mais le JSON n'a pas de champ \"hook\".")
+        final_html = final_html.replace("__HOOK__", html.escape(data["hook"]))
 
     if "__PHOTO_SRC__" in final_html:
         if not args.photo:

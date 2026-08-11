@@ -266,6 +266,33 @@ moins prioritaire).
   branche Facebook** (module 12, `profileIds` identique à celui du Daily)
   entre-temps, pas documentée en détail ici — même format que la branche
   Telegram/LinkedIn existante du scénario Weekly.
+
+  **[FAIT le 11 août] Accroche courte (`hook`) réintroduite sous le
+  titre — sans reproduire l'échec du 7 août.** Constat de l'utilisateur
+  sur la publication du 11 août : Instagram est un usage très rapide,
+  personne ne lit la légende ni ne va cliquer le lien en bio, donc le
+  visuel seul (titre + 3 scénarios sans contexte) reste trop abstrait
+  pour comprendre l'enjeu au premier regard. Le 7 août, une tentative
+  d'ajouter la question posée du site directement sur l'image avait été
+  retirée le jour même car illisible sur mobile, même agrandie — mais la
+  question posée fait souvent 30-45 mots (une phrase complète), bien
+  trop pour tenir sur une image déjà occupée par titre + 3 scénarios.
+  **La différence cette fois : `hook` n'est jamais un extrait ou un
+  copier-coller de la question posée, mais une phrase distincte, écrite
+  spécifiquement pour l'image, plafonnée à ~12 mots et une seule ligne
+  à l'écran.** Testé avant validation par rendu réel recadré à la taille
+  d'affichage mobile (~350px de large dans le fil Instagram, pas
+  seulement le PNG 1080×1080 plein format) — lisible sans problème à
+  cette taille, contrairement à la tentative du 7 août. Ajouté aux deux
+  gabarits (`instagram-photo-template.html` : sous le titre, `.hook`
+  36px doré ; `instagram-template.html` : même principe à 44px, cohérent
+  avec les tailles plus grandes de ce gabarit) et au script
+  `generate_instagram_image.py` (nouveau champ `hook` du JSON, erreur
+  explicite si absent alors que le gabarit l'attend). Documenté dans
+  `docs/routine-prompt.md`, étape technique 8. Les pourcentages restent
+  volontairement absents de l'image (effet teaser vers le lien en bio,
+  décision du 7 août inchangée) — seul le choix "pas de question" a été
+  révisé, avec une solution différente de celle rejetée à l'époque.
 - **P1 — Image custom par sujet (Pexels), testée le 9 août puis branchée
   sur la routine automatique le même jour.** Idée de l'utilisateur :
   remplacer le visuel généré (titre + 3 scénarios) par une vraie photo

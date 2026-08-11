@@ -359,6 +359,7 @@ python3 scripts/social/generate_instagram_image.py --data /tmp/ig-data.json --ou
 ```json
 {
   "title": "{h1 du jour}",
+  "hook": "{accroche courte, voir ci-dessous}",
   "scenarios": [
     {"kind": "favorable", "label": "{titre du h3 favorable, sans emoji}"},
     {"kind": "stable", "label": "{titre du h3 stable, sans emoji}"},
@@ -366,7 +367,9 @@ python3 scripts/social/generate_instagram_image.py --data /tmp/ig-data.json --ou
   ]
 }
 ```
-Les 3 `label` reprennent exactement les titres déjà utilisés pour `scenario-mini-title` (étape 6), sans emoji. Volontairement **aucun pourcentage** sur l'image (effet teaser), et **pas de question/contexte** (illisible sur mobile) — seuls titre + 3 titres de scénarios, en gros. Committer le PNG (et la photo + fiche de provenance le cas échéant). Ajouter dans l'`<item>`, juste après `</category>` et avant `<description>` :
+Les 3 `label` reprennent exactement les titres déjà utilisés pour `scenario-mini-title` (étape 6), sans emoji. Volontairement **aucun pourcentage** sur l'image (effet teaser).
+
+**`hook` : une accroche courte affichée sous le titre, en doré, ≤ 12 mots et tenant sur une seule ligne à l'écran.** Ce n'est **jamais** un copier-coller de la question posée (bien trop longue pour tenir lisiblement — c'est justement ce qui a été retiré le 7 août après un premier essai illisible sur mobile) : une phrase courte et percutante, rédigée spécifiquement pour cette image, qui donne juste assez de contexte pour qu'un lecteur qui scrolle sans lire la légende ni cliquer le lien en bio comprenne l'enjeu du sujet. Committer le PNG (et la photo + fiche de provenance le cas échéant). Ajouter dans l'`<item>`, juste après `</category>` et avant `<description>` :
 ```xml
 <enclosure url="https://lesscenarios.fr/assets/social/instagram/{AAAA-MM-JJ}.png" length="{taille en octets}" type="image/png"/>
 ```
