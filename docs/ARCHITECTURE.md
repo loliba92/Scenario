@@ -629,6 +629,33 @@ moins prioritaire).
   contenu RSS, ou une restriction sur les domaines d'images autorisés —
   pas vérifiable depuis cet environnement, `docs.buttondown.com` et
   `buttondown.com` étant bloqués par le réseau).
+- **P3 — Image sur les posts LinkedIn "sujet suivi" (`feed-suivi.xml`),
+  repéré le 11 août en vérifiant le blueprint Make ré-exporté par
+  l'utilisateur.** Le module LinkedIn de la branche RSS SUIVI (id 22)
+  tente de mapper `media.title`/`media.description` mais laisse
+  `media.thumbnail: {}` vide, sans aucun module HTTP en amont pour aller
+  chercher une image — contrairement à la branche quotidienne (module 52
+  `http:DownloadFile` → module 7 LinkedIn), qui a déjà le bon montage.
+  Résultat : tous les posts LinkedIn "🔄 Un sujet suivi vient d'être mis
+  à jour" partent sans photo, systématiquement (pas un incident ponctuel
+  — un vrai trou structurel). Cause racine : `feed-suivi.xml` ne porte
+  aucun tag `<enclosure>` à ce jour (confirmé le 8 août, déjà noté
+  plus haut — "pas demandé, laissé tel quel").
+  **Décision utilisateur du 11 août : pas de correctif dans la
+  précipitation.** L'image à utiliser doit être **celle du sujet
+  d'origine, réutilisée telle quelle** — jamais une nouvelle image
+  générée spécifiquement pour la mise à jour de suivi (le sujet suivi
+  n'a pas son propre visuel distinct, il prolonge l'édition initiale).
+  Concrètement, ça suppose : ajouter un tag `<enclosure>` à chaque item
+  de `feed-suivi.xml`, pointant vers
+  `assets/social/instagram/{date de l'édition initiale}.png` (pas la
+  date de la mise à jour de suivi) — retrouvable via le lien de
+  l'archive d'origine déjà présent dans le contenu du sujet suivi.
+  Implique de mettre à jour `docs/routine-detection-prompt.md` (étape
+  de publication dans `feed-suivi.xml`) pour que la routine sache
+  toujours retrouver et référencer la bonne image d'origine, puis
+  refaire le montage HTTP + thumbnail sur le module LinkedIn 22 (même
+  recette que 52→7). Pas fait maintenant, à traiter posément.
   **Mise à jour le 11 août, après-midi** : `docs.buttondown.com`
   exceptionnellement accessible depuis cette session — doc officielle
   consultée directement. Deux corrections à la piste ci-dessus : (1) la
