@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vérifiez votre email — Scénario</title>
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<meta name="robots" content="noindex,follow">
+<meta name="description" content="Un email de confirmation vient de vous être envoyé — cliquez sur le lien qu'il contient pour valider votre inscription à Scénario.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scénario">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://lesscenarios.fr/confirmez-votre-email.html">
+<meta property="og:title" content="Vérifiez votre email — Scénario">
+<meta property="og:description" content="Un email de confirmation vient de vous être envoyé — cliquez sur le lien qu'il contient pour valider votre inscription à Scénario.">
+<meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
+<meta property="og:image:width" content="2508">
+<meta property="og:image:height" content="1412">
+<meta property="og:image:alt" content="Scénario — trois scénarios chiffrés pour chaque actualité : favorable, stable, dégradé.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vérifiez votre email — Scénario">
+<meta name="twitter:description" content="Un email de confirmation vient de vous être envoyé — cliquez sur le lien qu'il contient pour valider votre inscription à Scénario.">
+<meta name="twitter:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --surface: #1a212b;
+    --surface-2: #212a35;
+    --hairline: #2c3644;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+    --favorable: #5e9c78;
+    --stable: #6f8fae;
+    --degrade: #bd6248;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  ::selection{ background: var(--gold); color: var(--ink); }
+
+  :focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header.masthead{
+    border-bottom: 1px solid var(--hairline);
+    padding: 28px 0 22px;
+  }
+
+  .masthead-row{
+    display:flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .wordmark{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+
+  .wordmark span{ color: var(--gold); }
+
+  .brand-rio{ color: var(--gold); }
+
+  .brand{
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+
+  .brand-mark{
+    width: 30px;
+    height: 30px;
+    display: block;
+    flex: none;
+  }
+
+  nav.topnav{
+    background: var(--surface);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  nav.topnav .wrap{
+    display: flex;
+    gap: 24px;
+    padding: 12px 24px;
+    flex-wrap: wrap;
+  }
+
+  .topnav a{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+  }
+
+  .topnav a:hover{ color: var(--paper); }
+
+  .topnav a[aria-current="page"]{
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  .hero{
+    padding: 64px 0 40px;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .eyebrow{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    margin: 0 0 18px;
+  }
+
+  h1{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+    max-width: 16ch;
+  }
+
+  .dek{
+    font-size: 1.1rem;
+    color: var(--paper-dim);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  section.body-section{ padding: 48px 0; border-bottom: 1px solid var(--hairline); }
+  section.body-section:last-of-type{ border-bottom: none; }
+
+  .section-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--paper-dim);
+    margin: 0 0 8px;
+  }
+
+  .section-title{
+    font-family: "Fraunces", serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0 0 20px;
+  }
+
+  .body-section p{
+    max-width: 62ch;
+    color: var(--paper-dim);
+    margin: 0 0 16px;
+  }
+
+  .body-section p:last-child{ margin-bottom: 0; }
+
+  .body-section strong{ color: var(--paper); font-weight: 500; }
+
+  .perks{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 62ch;
+    margin: 24px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .perks li{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    color: var(--paper-dim);
+    font-size: 0.95rem;
+  }
+
+  .perks li::before{
+    content: "✓";
+    color: var(--favorable);
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  .submit-btn{
+    align-self: flex-start;
+    display: inline-block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--gold);
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+
+  .submit-btn:hover{ opacity: 0.9; }
+
+  .telegram-card{
+    border: 1px solid var(--gold);
+    border-radius: 14px;
+    padding: 28px;
+    margin: 24px 0 0;
+    max-width: 62ch;
+    background: var(--surface);
+  }
+
+  .telegram-card-title{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--paper);
+    margin: 0 0 12px;
+  }
+
+  .telegram-card p{ margin: 0 0 20px; }
+  .telegram-card p:last-of-type{ margin-bottom: 24px; }
+
+  .cross-link{
+    display: inline-block;
+    margin-top: 28px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.82rem;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--gold);
+    padding-bottom: 1px;
+  }
+
+  .cross-link:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
+  footer{
+    border-top: 1px solid var(--hairline);
+    padding: 32px 0 48px;
+  }
+
+  .social-links{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 24px 0 0;
+  }
+  .social-links-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    color: var(--paper-dim);
+  }
+  .social-links a{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+  }
+  .social-links a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
+  .social-links svg{ display: block; flex-shrink: 0; }
+
+  .legal-links{
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin: 24px 0 0;
+  }
+
+  .legal-links a{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+  }
+
+  .legal-links a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
+
+  footer .caveat{
+    font-size: 0.84rem;
+    color: var(--paper-dim);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <div class="brand">
+      <img class="brand-mark" src="assets/logo.svg" alt="">
+      <a class="wordmark" href="index.html">Scéna<span>rio</span></a>
+    </div>
+  </div>
+</header>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="index.html">Accueil</a>
+    <a href="archives.html">Archives</a>
+    <a href="glossaire.html">Glossaire</a>
+    <a href="le-projet.html">Le projet</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Newsletter · Dernière étape</p>
+    <h1>Vérifiez votre boîte mail</h1>
+    <p class="dek">Un email de confirmation vient de partir vers l'adresse que vous avez indiquée — cliquez sur le lien qu'il contient pour valider votre inscription.</p>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">Pourquoi cette étape</p>
+    <h2 class="section-title">Confirmez votre inscription</h2>
+    <p>Sans ce clic, vous ne recevrez aucun email — c'est notre garde-fou contre les inscriptions par erreur ou les adresses mal orthographiées. L'opération ne prend que quelques secondes.</p>
+    <ul class="perks">
+      <li>Vérifiez votre boîte de réception, expéditeur Scénario / Buttondown</li>
+      <li>Pas de trace ? Regardez du côté des spams / courriers indésirables</li>
+      <li>Toujours rien après quelques minutes ? Retentez l'inscription depuis la page <a href="newsletter.html">Newsletter</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">En attendant</p>
+    <h2 class="section-title">Devine le scénario avant de le découvrir</h2>
+    <div class="telegram-card">
+      <p class="telegram-card-title">🗳️ Un sondage chaque jour, avant la révélation</p>
+      <p>Sur le canal Telegram <strong>Scénario</strong>, votez pour le scénario — favorable, stable ou dégradé — que vous jugez le plus probable, <strong>avant même de lire l'édition</strong> et ses vraies probabilités.</p>
+      <a class="submit-btn" href="https://t.me/scenario_fr" target="_blank" rel="noopener noreferrer">Rejoindre le canal Telegram</a>
+    </div>
+    <a class="cross-link" href="index.html">Voir l'édition du jour en attendant → Accueil</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="caveat"><strong>Scéna<span class="brand-rio">rio</span></strong> publie une édition chaque jour. Chaque édition reste figée à sa date de publication.</p>
+    <div class="social-links">
+      <span class="social-links-label">Suivez-nous sur :</span>
+      <a href="https://t.me/scenario_fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Telegram</a>
+      <a href="https://www.linkedin.com/company/136694258/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"></rect><circle cx="7.7" cy="7.6" r="1.3" fill="currentColor"></circle><line x1="7.7" y1="10.6" x2="7.7" y2="17.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></line><path d="M11.6 17.3v-4.2c0-1.5 1-2.4 2.3-2.4s2.3.9 2.3 2.4v4.2M11.6 10.6v.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg> LinkedIn</a>
+      <a href="https://x.com/scenario_fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="4" x2="20" y2="20"></line><line x1="20" y1="4" x2="4" y2="20"></line></svg> X</a>
+      <a href="https://www.facebook.com/share/1DZVhe3KtR/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="6" fill="#000" stroke="currentColor" stroke-width="1"></rect><rect x="10.3" y="9.5" width="2.4" height="9" fill="#fff"></rect><rect x="10.3" y="6" width="4.7" height="2.6" rx="1" fill="#fff"></rect><rect x="7.8" y="11.6" width="6.5" height="2" fill="#fff"></rect></svg> Facebook</a>
+      <a href="https://www.instagram.com/scenarios.actu/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> Instagram</a>
+    </div>
+    <div class="legal-links">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+    </div>
+  </div>
+</footer>
+
+<script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+</body>
+</html>

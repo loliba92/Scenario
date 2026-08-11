@@ -12,12 +12,15 @@ est publiée chaque jour, produite automatiquement par une routine planifiée
 
 Aucun backend, aucune base de données : tout est fait de fichiers HTML/CSS/JS
 statiques, servis tels quels par GitHub Pages. Le seul service externe utilisé
-est **FormSubmit** (formulaire de contact) — voir plus bas.
+est **FormSubmit** (formulaire de contact) — voir plus bas. Fichier `.nojekyll`
+à la racine (ajouté le 11 août, voir backlog « Technique ») : désactive
+explicitement le build Jekyll par défaut de GitHub Pages, pour que ce principe
+« servis tels quels » soit réellement garanti, pas juste supposé.
 
 ## Backlog
 
 Idées et tâches ouvertes, consolidées ici pour ne pas avoir à les
-retrouver éparpillées dans le reste du document. Mise à jour au 10 août.
+retrouver éparpillées dans le reste du document. Mise à jour au 11 août.
 Priorités P1 (fort impact, faible coût) à P3 (utile mais plus lourd ou
 moins prioritaire).
 
@@ -626,6 +629,25 @@ moins prioritaire).
   contenu RSS, ou une restriction sur les domaines d'images autorisés —
   pas vérifiable depuis cet environnement, `docs.buttondown.com` et
   `buttondown.com` étant bloqués par le réseau).
+  **Mise à jour le 11 août, après-midi** : `docs.buttondown.com`
+  exceptionnellement accessible depuis cette session — doc officielle
+  consultée directement. Deux corrections à la piste ci-dessus : (1) la
+  bonne variable est `{{ item.enclosure }}` (l'URL directement, pas un
+  objet — `item.enclosure.url` n'existe pas, d'où l'échec du tout premier
+  test) ; (2) le bon endroit pour ce tag est le **template RSS-to-email**
+  dédié (écran distinct, propre au flux), pas l'éditeur du corps d'un
+  email ponctuel testé initialement. Correctif appliqué au bon endroit
+  avec la bonne syntaxe par l'utilisateur — **toujours rien affiché**,
+  même résultat que l'essai `<img>` dans le CDATA de `<description>`.
+  Les deux méthodes donnant exactement le même résultat nul (aucune
+  trace, pas même une icône cassée) renforce l'hypothèse de départ :
+  cause commune en amont (item déjà traité par Buttondown avant les deux
+  correctifs), pas un problème de syntaxe. **Confirmé par l'utilisateur**
+  : l'édition du 11 août était bien déjà partie avant les deux essais.
+  Plan retenu, inchangé : attendre l'item réellement neuf du 12 août pour
+  un vrai test ; si l'aperçu Buttondown lui-même ne montre rien non plus,
+  l'utilisateur contactera directement le support Buttondown plutôt que
+  de continuer à deviner de l'extérieur du compte.
 
 **UX**
 - **[FAIT le 4 août] Temps de lecture estimé** sous le titre de chaque
@@ -1016,6 +1038,29 @@ moins prioritaire).
   `archives/2026-08-07.html` n'avait pas encore le lien Facebook (figée
   avant son ajout plus tôt dans la journée) — ordre des icônes uniformisé
   partout : Telegram, LinkedIn, X, Facebook, Instagram.
+- **[FAIT le 11 août] Site figé en silence ~1h par un bug de build Jekyll —
+  `.nojekyll` ajouté.** Repéré en creusant un 404 sur les deux nouvelles
+  pages de redirection Buttondown (voir « Distribution / automatisation »
+  plus bas) : GitHub Pages exécutait par défaut son build Jekyll classique
+  sur ce dépôt (jamais désactivé jusque-là, alors que le site est
+  purement statique — voir « Aperçu »). Ce build passe **tous les `.md` du
+  dépôt** dans le moteur Liquid, y compris `docs/ARCHITECTURE.md` : le
+  paragraphe décrivant en prose la syntaxe Buttondown `{% if item.enclosure
+  %}` (plus bas dans ce même backlog) a été interprété comme un vrai tag
+  Liquid jamais refermé par un `{% endif %}`, provoquant une
+  `Liquid::SyntaxError` fatale à chaque build.
+  **Conséquence passée inaperçue un moment** : tout déploiement échouait
+  silencieusement depuis le commit ayant introduit ce paragraphe (~11h37) —
+  plusieurs pushes suivants, dont l'ajout des deux pages de redirection
+  Buttondown, sont restés invisibles en ligne, le site public restant figé
+  sur le dernier build réussi. **Fix : fichier `.nojekyll` ajouté à la
+  racine** — désactive complètement le traitement Jekyll/Liquid, cohérent
+  avec le principe déjà documenté (« servis tels quels »). Déploiement
+  suivant confirmé réussi (`pages build and deployment`, conclusion
+  `success` vérifiée via l'API GitHub Actions) et pages vérifiées en ligne
+  par l'utilisateur. **Le risque est neutralisé définitivement** par
+  `.nojekyll`, mais éviter par prudence, à l'avenir, de coller du texte
+  brut ressemblant à `{% %}`/`{{ }}` dans les fichiers `.md` du dépôt.
 - **P2 — Découpage de `archives.html` par année, à faire avant fin 2026** —
   la solution du 4 août (fragments à la demande) règle le poids téléchargé
   par visite, mais pas le fait que `archives.html` reste un fichier unique
@@ -1309,6 +1354,8 @@ archives.html           Liste de toutes les éditions passées (recherche + filt
 archives/AAAA-MM-JJ.html Copie figée de chaque édition passée. Jamais remodifiée après publication.
 le-projet.html          Page « À propos » : mission, méthode, rythme des 7 jours.
 newsletter.html         Page d'inscription à la newsletter quotidienne (Buttondown).
+confirmez-votre-email.html  Redirection Buttondown "After subscribing" (avant clic sur le lien de confirmation), ajoutée le 11 août.
+bienvenue.html          Redirection Buttondown "After confirming" (inscription validée), ajoutée le 11 août.
 contact.html            Formulaire de contact (FormSubmit) + appel à la carte blanche du mardi.
 mentions-legales.html   Éditeur, hébergeur, propriété intellectuelle.
 politique-de-confidentialite.html  Données collectées (newsletter, contact, mesure d'audience), droits RGPD.
@@ -1440,30 +1487,49 @@ description au format teaser) — voir `docs/routine-prompt.md`, étape techniqu
 7. Ce même flux alimente désormais la **newsletter** (Buttondown, RSS-to-email,
 plan payant) en plus d'Instagram.
 
-**[FAIT le 11 août] Image visible dans la newsletter Buttondown.** Constat
-de l'utilisateur : rien ne garantissait que l'image Instagram (portée par
+**[EN COURS le 11 août] Image visible dans la newsletter Buttondown —
+deux tentatives, aucune concluante pour l'instant.** Constat de
+l'utilisateur : rien ne garantissait que l'image Instagram (portée par
 `<enclosure>` depuis le 7-9 août) s'affiche réellement dans l'email envoyé
-par Buttondown — utile seulement à Make/Instagram jusque-là. Vérification
-d'abord tentée via la documentation officielle Buttondown, bloquée depuis
-cet environnement (`docs.buttondown.com` et `buttondown.com` inaccessibles,
-égress réseau). Test réel fait par l'utilisateur dans l'éditeur du corps
-d'email Buttondown : le champ `item.enclosure` **existe bien** côté moteur
-de template (`{% if item.enclosure %}` déjà présent, vide, dans le gabarit
-par défaut), mais coller une balise `<img src="{{ item.enclosure.url }}">`
-dans ce champ ne l'affiche pas — l'éditeur du corps est un champ de texte
-enrichi qui affiche le HTML tapé à la main tel quel (texte littéral), il
-n'interprète que les jetons `{{ }}`/`{% %}` propres à Buttondown, pas de
-l'HTML arbitraire.
+par Buttondown — utile seulement à Make/Instagram jusque-là.
 
-**Solution retenue : mettre la balise `<img>` directement dans le CDATA de
-`<description>` de `feed.xml`**, pas dans le gabarit Buttondown — ce
-chemin-là est déjà confirmé interprété comme HTML par Buttondown (c'est
-comme ça que les `<br>` fonctionnent déjà dans les emails envoyés). URL
-identique à celle de l'`<enclosure>` de l'`<item>`
-(`assets/social/instagram/{AAAA-MM-JJ}.png`), placée en tout premier
-élément du CDATA. Documenté dans `docs/routine-prompt.md`, étape technique
-8. Pas de changement nécessaire côté Buttondown ; l'utilisateur a retiré le
-bloc `<img>` inutile qu'il avait testé dans l'éditeur du corps d'email.
+**Tentative 1 — éditeur du corps d'email.** Vérification d'abord tentée via
+la documentation officielle Buttondown, bloquée depuis cet environnement à
+ce moment-là (`docs.buttondown.com`/`buttondown.com` inaccessibles). Test
+réel fait par l'utilisateur dans l'éditeur du corps d'un email ponctuel :
+le tag `{% if item.enclosure %}` était déjà présent, vide, dans le gabarit
+par défaut, mais coller `<img src="{{ item.enclosure.url }}">` dans ce
+champ ne l'affichait pas — l'éditeur du corps d'un email est un champ de
+texte enrichi qui affiche le HTML tapé à la main tel quel (texte littéral),
+sans l'interpréter.
+
+**Tentative 2 — `<img>` dans le CDATA de `<description>`.** Solution de
+repli : balise `<img>` mise directement dans le CDATA de `<description>`
+de `feed.xml`, en tout premier élément, même URL que l'`<enclosure>` de
+l'`<item>` — ce chemin étant confirmé interprété comme HTML par Buttondown
+(comme les `<br>` déjà présents). Documenté dans `docs/routine-prompt.md`,
+étape technique 8.
+
+**Correctif à la tentative 1, l'après-midi même** : `docs.buttondown.com`
+exceptionnellement accessible depuis cette session — doc officielle
+consultée directement. La vraie syntaxe est `{{ item.enclosure }}` (l'URL
+directement, `item.enclosure.url` n'existe pas) et le bon endroit est le
+**template RSS-to-email** dédié, un écran distinct de l'éditeur du corps
+d'un email ponctuel testé en tentative 1. Réappliqué au bon endroit avec
+la bonne syntaxe — **toujours rien affiché**, résultat identique à la
+tentative 2.
+
+**Diagnostic retenu : les deux tentatives ont probablement échoué pour la
+même raison, indépendante de leur contenu.** L'édition du 11 août (`guid
+scenario-2026-08-11`) avait déjà été traitée/envoyée par Buttondown avant
+que l'une ou l'autre tentative n'existe — Buttondown semble se fier au
+`<guid>` pour détecter la nouveauté d'un item, pas au contenu réellement
+présent dans le flux à l'instant où on le relit. Modifier après coup le
+contenu d'un item déjà vu n'a donc aucune chance de changer quoi que ce
+soit à un envoi déjà parti. Ni la syntaxe du template ni l'approche CDATA
+ne sont donc invalidées par ce test — juste non concluantes. Suivi complet
+dans le backlog « Distribution / automatisation », entrée « Image en tête
+de la newsletter Buttondown ».
 
 ## Image de partage (Open Graph / Twitter Card)
 
@@ -1872,13 +1938,26 @@ Voir les échanges de session pour le détail, mais en résumé :
   tierces, vérifié en pratique). Branché directement sur `feed.xml`, déjà
   généré chaque jour (texte seul, voir plus haut).
   - ✅ Fait : `newsletter.html` (page d'inscription, style du site, formulaire
-    Buttondown standard, redirections configurées pour rester sur le site) +
-    lien « Newsletter » dans le menu de toutes les pages vivantes ; compte
-    Buttondown créé et passé en payant ; design (couleurs/polices) aligné à la
-    charte du site sur les pages web et email Buttondown ; connexion RSS-to-email
-    configurée (« Send an email », déclenchement à chaque nouvel item, template
-    « Rich ») ; mise à jour quotidienne de `feed.xml` ajoutée au prompt de la
-    routine (étape technique 7).
+    Buttondown standard) + lien « Newsletter » dans le menu de toutes les
+    pages vivantes ; compte Buttondown créé et passé en payant ; design
+    (couleurs/polices) aligné à la charte du site sur les pages web et email
+    Buttondown ; connexion RSS-to-email configurée (« Send an email »,
+    déclenchement à chaque nouvel item, template « Rich ») ; mise à jour
+    quotidienne de `feed.xml` ajoutée au prompt de la routine (étape
+    technique 7).
+  - ✅ **[FAIT le 11 août] Pages de redirection dédiées, au lieu des pages
+    génériques utilisées jusque-là.** Réglages Buttondown → Subscribing →
+    Redirects : « After subscribing » (avant confirmation) pointait vers
+    `newsletter.html`, « After confirming » (inscription validée) vers la
+    page d'accueil. Remplacés par deux pages dédiées, même gabarit visuel
+    que le reste du site, `noindex` (pages transactionnelles) :
+    `confirmez-votre-email.html` (invite à vérifier la boîte mail/les
+    spams, bonus Telegram en attendant) et `bienvenue.html` (confirme
+    l'inscription active, ce qui va être reçu, CTA vers l'édition du jour).
+    Déploiement d'abord bloqué par le bug Jekyll (voir backlog
+    « Technique ») — vérifié en ligne par l'utilisateur une fois `.nojekyll`
+    poussé. Champs Buttondown mis à jour par l'utilisateur avec les deux
+    nouvelles URLs.
   - ✅ **Fait, vérifié le 31 juillet sur un envoi réel** : template d'email
     propre (un seul bloc d'intro « Rich », pas de doublon), objet/Subject
     correct (reprend le h1 du jour), retours à la ligne bien interprétés,
