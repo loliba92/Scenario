@@ -284,10 +284,22 @@ moins prioritaire).
   qui pointe vers l'article précis** (`{{4.url}}`, valide quel que soit
   le jour de lecture) — là, la boucle de curiosité fonctionne vraiment :
   `comments` (question ouverte, sans le %) pousse à un clic qui mène
-  quelque part. **Décision finale : `source` uniquement sur Instagram
-  (id 34) ; `comments` repassé sur Telegram (id 8), Facebook (id 32) et
-  LinkedIn (id 53).** `assets/make/scenario-daily.blueprint.json` mis à
-  jour en conséquence.
+  quelque part. **Décision intermédiaire : `source` uniquement sur
+  Instagram (id 34) ; `comments` repassé sur Telegram (id 8), Facebook
+  (id 32) et LinkedIn (id 53).**
+  **Revu une seconde fois le 11 août, LinkedIn seulement** : retour
+  utilisateur — même sur LinkedIn (lien qui fonctionne), le réflexe
+  dominant reste le scroll, pas le clic ; la minorité vraiment
+  intéressée cliquera de toute façon (le lien est en tête du post,
+  visible sans dépasser le "…voir plus"), le reste continue à faire
+  défiler. Mieux vaut donc que le post lui-même apporte de la valeur
+  pour cette majorité qui ne cliquera pas — même logique qu'Instagram.
+  **Décision finale : `source` sur Instagram (id 34) et LinkedIn
+  (id 53) ; `comments` uniquement sur Telegram (id 8) et Facebook
+  (id 32).** Au passage, corrigé sur le module LinkedIn : un `/` parasite
+  et un espace superflu introduits par erreur lors d'une réédition
+  manuelle dans Make, retirés du texte de référence.
+  `assets/make/scenario-daily.blueprint.json` mis à jour en conséquence.
 - **[FAIT le 9 août] Bug trouvé et corrigé : champ image vide sur le
   module Instagram (Buffer), empêchait la publication.** Repéré via le
   log d'exécution Make du 9 août (run 10h00) : dans le routeur du
