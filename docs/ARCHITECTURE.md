@@ -579,6 +579,26 @@ moins prioritaire).
   exploitent. Pas chiffré : choix d'un outil TTS (coût, qualité voix
   française), script de génération, où l'héberger/le référencer. Pas
   urgent, à explorer si le reste du backlog P1/P2 est traité.
+- **P3 — Image en tête de la newsletter Buttondown, implémentée le 11
+  août mais non testable pour l'instant.** Balise `<img>` déjà ajoutée en
+  tête du CDATA de `<description>` dans `feed.xml` (voir
+  `docs/routine-prompt.md`, étape technique 8) — pointe vers la même URL
+  que l'`<enclosure>` Instagram. Techniquement en place, mais **jamais
+  vérifiée en conditions réelles** : impossible de tester sans risque le
+  11 août, l'item du jour (`guid scenario-2026-08-11`) ayant déjà été
+  traité et envoyé par Buttondown avant l'ajout de la balise — modifier
+  le contenu d'un item déjà traité ne déclenche pas de nouvel envoi côté
+  Buttondown, qui semble se fier au `<guid>` pour détecter la nouveauté,
+  pas au contenu réellement présent dans le flux à l'instant T. Fabriquer
+  un faux item pour forcer un test aurait envoyé un vrai email de test
+  aux vrais abonnés — écarté pour ce risque. **À vérifier passivement** à
+  la prochaine édition (le 12 août normalement) : regarder si l'image
+  apparaît bien dans le vrai email envoyé ce jour-là. Si toujours absente
+  malgré un item réellement nouveau, revoir l'hypothèse (peut-être un
+  sanitizer HTML côté Buttondown qui retire les balises `<img>` du
+  contenu RSS, ou une restriction sur les domaines d'images autorisés —
+  pas vérifiable depuis cet environnement, `docs.buttondown.com` et
+  `buttondown.com` étant bloqués par le réseau).
 
 **UX**
 - **[FAIT le 4 août] Temps de lecture estimé** sous le titre de chaque
