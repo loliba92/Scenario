@@ -2,7 +2,7 @@
 
 Ce fichier est la copie de référence du prompt envoyé chaque jour par la routine
 planifiée (Claude Code Remote, trigger **« Scénario »**, `trig_0176spj7P7E9fyTs1XBkQBWF`,
-cron `15 5 * * *` UTC = 7h15 heure de Paris). C'est ce texte qui pilote la sélection
+cron `0 5 * * *` UTC = 7h00 heure de Paris). C'est ce texte qui pilote la sélection
 du sujet, la rédaction et la publication automatique de chaque édition.
 
 Si tu modifies le comportement de la routine (via `update_trigger` côté Claude Code
@@ -17,6 +17,10 @@ retour utilisateur exact, exemple avant/après détaillé) a été retiré d'ici
 reste disponible dans `docs/ARCHITECTURE.md` pour qui veut comprendre le
 pourquoi. Si une règle ci-dessous semble mal calibrée en pratique, vérifier
 d'abord `ARCHITECTURE.md` avant de la réinterpréter.
+
+*(Mis à jour le 11 août pour réintégrer trois règles ajoutées les 9-10 août
+sur `main` après la première passe d'allégement : la bande `.top-updates`,
+l'exception `.dek-list`, et l'image dans le corps de l'article.)*
 
 ---
 
@@ -68,7 +72,13 @@ Croiser au moins deux sources récentes et distinctes avant d'affirmer un fait. 
 
 **Relecture stylistique : simple, court, pour Monsieur Tout-le-Monde.** Chaque titre de scénario, phrase clé et comparaison doit sonner naturel, compréhensible du premier coup. Le lecteur cible n'est pas un spécialiste. Préférer toujours des phrases courtes et des mots simples à une formule qui se veut habile mais sonne artificielle (ex. éviter « la taxe cale » — un impôt ne « cale » pas comme un moteur ; préférer « la taxe reste bloquée »). Se méfier en particulier des titres `<h3>`, les plus courts et donc les plus à risque. En cas de doute entre un mot littéraire et un mot courant, toujours le courant.
 
-Rédiger un résumé structuré, pas une chronologie, pour un lecteur qui ne connaît rien au sujet ni à son univers : jamais présumer une culture commune. Couvrir brièvement : les bases pour comprendre qui sont les acteurs ; la situation actuelle, son enjeu central, ce que chaque acteur veut/évite ; les causes de fond ; pourquoi l'issue est incertaine ; pourquoi ce sujet se prête à trois scénarios distincts (explicite, visible). Pas de liste de dates. 4 à 6 paragraphes courts maximum, chaque phrase utile.
+Rédiger un résumé structuré, pas une chronologie, pour un lecteur qui ne connaît rien au sujet ni à son univers : jamais présumer une culture commune. Couvrir brièvement : les bases pour comprendre qui sont les acteurs ; la situation actuelle, son enjeu central, ce que chaque acteur veut/évite ; les causes de fond ; pourquoi l'issue est incertaine ; pourquoi ce sujet se prête à trois scénarios distincts (explicite, visible). Pas de liste de dates. 4 à 6 paragraphes courts maximum, chaque phrase utile — le narratif reste majoritaire dans le contexte.
+
+**Exception au « pas de liste » ci-dessus : une liste à puces est autorisée dans le contexte, mais seulement pour une vraie matrice de faits parallèles** — plusieurs entités face à plusieurs acteurs ou options, avec pour chaque combinaison un statut discret et comparable (exemple : 3 maisons de disques × 2 plateformes IA, soit 6 duos, chacun accord signé ou procès en cours — une phrase qui tente d'énumérer ça en continu force le lecteur à recompter lui-même). Pas un blanc-seing pour segmenter dès que 2-3 faits s'enchaînent : le narratif reste le format par défaut, la liste est l'exception.
+- Déclencheur : une vraie matrice (N entités × M options qui se recoupent toutes), pas un simple paragraphe qui contient plusieurs faits.
+- Plafond : **une seule liste par édition** dans le contexte. Si le sujet du jour en réclamerait une deuxième, retravailler l'angle plutôt qu'empiler les listes.
+- Encadrée par de la prose : une phrase d'intro juste avant, une phrase de synthèse juste après — jamais tout le contexte transformé en liste.
+- CSS : classe `.dek-list` (même motif de tiret coloré que `.field li` des cartes, sans dépendance à `--accent`) — voir `archives/2026-08-09.html` pour un exemple. Ne pas en redéfinir une variante par édition.
 
 `<strong>` sur les faits/chiffres clés (montants, dates charnières, acteurs déterminants), un ou deux par paragraphe, sans abuser.
 
@@ -148,7 +158,7 @@ Public 15-35 ans en priorité sans exclure personne : phrases directes, comparai
 ## INSTRUCTIONS TECHNIQUES DE PUBLICATION
 
 1. Déterminer la date et le jour de la semaine à Paris (`TZ=Europe/Paris date`). En déduire le registre (grille étape 1). Vérifier que l'édition du jour n'a pas déjà été publiée sur `main` : si c'est le cas, s'arrêter là.
-2. Lire `index.html` actuel : gabarit de design exact à reproduire. Ne jamais changer le CSS ni la structure HTML générale — seulement le contenu texte et les valeurs.
+2. Lire `index.html` actuel : gabarit de design exact à reproduire. Ne jamais changer le CSS ni la structure HTML générale — seulement le contenu texte et les valeurs. **La bande `.top-updates` juste sous la nav (liens "🔄 Sujet révisé" / "🗓️ Récap de la semaine") fait partie de cette structure générale à reproduire telle quelle** — recopier les deux `<a class="update-link">` à l'identique. Le lien "Sujet révisé" pointe toujours vers `archives.html?tag=revise` (filtre générique, toujours à jour tout seul — ne jamais le changer). Le lien "Récap de la semaine" pointe vers le dernier `hebdo/{date}.html` publié : sa mise à jour est un geste séparé, pas une tâche de la routine quotidienne — recopier tel quel, ne jamais le recalculer ni le deviner.
 3. Construire la nouvelle édition en remplissant ce gabarit : édition (date en toutes lettres + numéro = précédente + 1), eyebrow (registre), h1 (court et percutant), `<div class="question-box">` juste après le h1 (span.question-label "La question posée" + p.question-text avec ❓ + question du jour), paragraphes `.dek` (4-6 courts, `<strong>` sur faits clés), `indicator-strip` (2-3 indicateurs chiffrés, dans `section.hero` — voir cohérence des KPI plus bas), bandeau scénarios dans `<section class="scenarios">` (`p.section-label` = « Favorable, stable ou dégradé » ; `h2.section-title` = reformulation courte et pédagogique de la question), `<div class="stakes-box">` juste avant `div.cards`, les 3 cartes `.card[data-kind=favorable|stable|degrade]` complètes (jauge `data-pct` + nombre cohérents, mot-repère, titre+emoji, `why` avec comparaison explicite, indicateurs **en liste à puces** `<ul><li>` — voir cohérence des KPI plus bas —, ligne France avec synthèse), section lexique (dt/dd), puis — avant le footer, même traitement visuel que « Petit lexique », jamais noyée dans le footer — une `<section class="sources">` :
 ```html
 <section class="sources">
@@ -357,6 +367,22 @@ Les 3 `label` reprennent exactement les titres déjà utilisés pour `scenario-m
 `{taille en octets}` = taille réelle du fichier (le script l'affiche, ou `stat -c%s`), jamais une valeur inventée. Si le flux dépasse ~30 items, retirer les plus anciens **du flux XML uniquement** (jamais les fichiers `archives/` ni les images déjà générées).
 
 **Si une photo a été retenue, mettre à jour `og:image`/`og:image:width`/`og:image:height`/`og:image:alt`/`twitter:image` et le `image` du JSON-LD — sur `index.html` ET `archives/{AAAA-MM-JJ}.html`** : remplacer par `https://lesscenarios.fr/assets/social/instagram/{AAAA-MM-JJ}.png`, largeur/hauteur `1080`/`1080`, `og:image:alt` = courte description factuelle de la photo. **Si aucune photo retenue, ne rien changer** (reste sur l'image générique).
+
+**Image dans le corps de l'article — habillage inspiré de la carte Instagram (fondu noir en haut, masthead logo+wordmark en haut à gauche), sans le titre.** Si `use_topic_image.py` a produit `assets/social/topic-images/{AAAA-MM-JJ}-wide.jpg` (recadrage 16:9 de la même photo déjà validée — voir docstring du script), insérer ce bloc dans `index.html`, **entre `</nav>` (fin du sommaire `.toc`) et `<div class="question-box">`** :
+```html
+<figure class="article-image">
+  <div class="article-image-photo-wrap">
+    <img class="article-image-photo" src="assets/social/topic-images/{AAAA-MM-JJ}-wide.jpg" alt="{description factuelle courte de la photo}">
+    <div class="article-image-scrim"></div>
+    <div class="article-image-masthead">
+      <img class="article-image-logo" src="assets/logo.svg" alt="">
+      <span class="article-image-wordmark">Scéna<span>rio</span></span>
+    </div>
+  </div>
+  <figcaption class="article-image-caption">Photo d'illustration. {photographe} / <a href="{pexels_url}" target="_blank" rel="noopener noreferrer">Pexels ↗</a></figcaption>
+</figure>
+```
+**Pas de titre dans l'image** : le `<h1>` réel est déjà affiché juste au-dessus — un titre en overlay n'apporterait qu'une redondance visuelle, jamais lue par un lecteur d'écran (`aria-hidden`). Seul le fondu du haut (juste assez pour le masthead) est gardé — pas de fondu marqué en bas. `{description factuelle courte}` : la même que celle déjà rédigée pour `og:image:alt`, pas une nouvelle rédaction. `{photographe}`/`{pexels_url}` viennent de la fiche de provenance (`assets/social/topic-images/{AAAA-MM-JJ}.json`). **« Photo d'illustration. » en tête de légende, toujours, mot pour mot, jamais retiré ni reformulé** : la recherche Pexels se fait par mots-clés thématiques génériques, jamais le lieu/la scène exacte du sujet du jour — la photo retenue n'est donc presque jamais littéralement l'événement/le lieu dont parle l'article (ex. une photo du détroit du Bosphore utilisée pour un article sur le détroit d'Ormuz, deux détroits différents). Cette mention lève toute ambiguïté pour un lecteur qui suppose que la photo illustre littéralement le fait relaté. Styles `.article-image*` déjà dans le gabarit. **Si aucun fichier `-wide.jpg` n'existe**, ne rien insérer : l'article reste sans image, jamais bloquant pour la publication. Reporter le même bloc (ou son absence) sur `archives/{AAAA-MM-JJ}.html`.
 
 9. **Ne rien faire de plus pour Telegram.** Le teaser (`sendMessage`) et le sondage natif (`sendPoll`, options venant du `<category>`) sur `@scenario_fr` sont gérés automatiquement par Make.com à partir de `feed.xml` (voir `docs/ARCHITECTURE.md`) — jamais d'appel direct à l'API Telegram depuis cette session (`api.telegram.org` bloqué par la politique réseau de l'environnement).
 10. Ne jamais modifier `contact.html`, `le-projet.html`, `newsletter.html`, `mentions-legales.html`, `politique-de-confidentialite.html`, `robots.txt`, ni aucun fichier déjà présent dans `archives/` daté d'un jour antérieur.
