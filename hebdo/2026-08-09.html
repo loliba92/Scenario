@@ -161,6 +161,111 @@
 
   section.week{ padding: 8px 0 56px; }
 
+  .week-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+
+  @media (max-width: 620px){
+    .week-grid{ grid-template-columns: 1fr; }
+  }
+
+  .day-card{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .day-card-eyebrow{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+    margin: 0 0 8px;
+  }
+
+  .day-card-image-link{ display:block; line-height:0; }
+
+  .day-card-image{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+    border: 1px solid var(--hairline);
+  }
+
+  .day-card-noimage{
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
+    border: 1px solid var(--hairline);
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .day-card-noimage-title{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    color: var(--paper);
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+  }
+
+  .day-card-noimage-title:hover{ border-bottom-color: var(--paper-dim); }
+
+  .day-card-toggle{
+    align-self: flex-start;
+    margin-top: 10px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--paper-dim);
+    background: none;
+    border: 1px solid var(--hairline);
+    border-radius: 100px;
+    padding: 5px 12px;
+    cursor: pointer;
+  }
+
+  .day-card-toggle:hover{ color: var(--paper); border-color: var(--paper-dim); }
+  .day-card-toggle[aria-expanded="true"]{ color: var(--gold); border-color: var(--gold); }
+
+  .day-card-toggle-icon{
+    display: inline-block;
+    transition: transform .18s ease;
+  }
+  .day-card-toggle[aria-expanded="true"] .day-card-toggle-icon{ transform: rotate(180deg); }
+
+  .day-card-detail{
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .22s ease;
+  }
+  .day-card-detail.is-open{ grid-template-rows: 1fr; }
+
+  .day-card-detail-inner{ min-height: 0; overflow: hidden; }
+
+  .day-card-context{
+    font-size: 0.86rem;
+    color: var(--paper-dim);
+    margin: 12px 0 12px;
+  }
+
+  .day-card .scenario-list{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
   .day-block{
     padding: 24px 0;
     border-bottom: 1px solid var(--hairline);
@@ -363,109 +468,147 @@
 <section class="week">
   <div class="wrap">
 
-    <div class="day-block">
-      <div class="day-head">
-        <span class="day-eyebrow">Lundi, géopolitique international</span>
-        <a class="day-link" href="../archives/2026-08-03.html">Lire l'édition →</a>
-      </div>
-      <a class="day-title" href="../archives/2026-08-03.html">Ceuta : la frontière qui a craqué</a>
-      <p class="day-context">❓ Depuis jeudi, 60 000 personnes ont franchi la frontière entre le Maroc et l'enclave espagnole de Ceuta, laissant au moins 72 morts et poussant l'Italie à fermer temporairement Schengen avec l'Espagne : l'Europe va-t-elle contenir cette crise sans toucher à la libre circulation, ou Ceuta est-elle en train de rouvrir le débat sur les frontières intérieures de l'UE ?</p>
+<div class="week-grid">
+
+<div class="day-card">
+  <p class="day-card-eyebrow">Lundi, géopolitique international</p>
+  <a class="day-card-image-link" href="../archives/2026-08-03.html">
+    <img class="day-card-image" src="../assets/social/instagram/default.png" alt="Ceuta : la frontière qui a craqué" loading="lazy">
+  </a>
+  <button type="button" class="day-card-toggle" aria-expanded="false" aria-controls="detail-2026-08-03">Voir le détail <span class="day-card-toggle-icon" aria-hidden="true">▾</span></button>
+  <div class="day-card-detail" id="detail-2026-08-03">
+    <div class="day-card-detail-inner">
+      <p class="day-card-context">❓ Depuis jeudi, 60 000 personnes ont franchi la frontière entre le Maroc et l'enclave espagnole de Ceuta, laissant au moins 72 morts et poussant l'Italie à fermer temporairement Schengen avec l'Espagne : l'Europe va-t-elle contenir cette crise sans toucher à la libre circulation, ou Ceuta est-elle en train de rouvrir le débat sur les frontières intérieures de l'UE ?</p>
       <div class="scenario-list">
         <p class="scenario-row" data-kind="favorable"><span class="scenario-arrow" aria-hidden="true">↑</span><span class="scenario-pct">20%</span><span class="scenario-label">Maroc et Espagne referment la brèche</span></p>
         <p class="scenario-row is-winner" data-kind="stable"><span class="scenario-arrow" aria-hidden="true">→</span><span class="scenario-pct">50%</span><span class="scenario-label">Les frontières se resserrent, sans rupture</span></p>
         <p class="scenario-row" data-kind="degrade"><span class="scenario-arrow" aria-hidden="true">↓</span><span class="scenario-pct">30%</span><span class="scenario-label">Une nouvelle vague fait vaciller Schengen</span></p>
       </div>
+      <a class="day-link" href="../archives/2026-08-03.html">Lire l'édition →</a>
     </div>
+  </div>
+</div>
 
-    <div class="day-block">
-      <div class="day-head">
-        <span class="day-eyebrow">Mardi, sujet libre</span>
-        <a class="day-link" href="../archives/2026-08-04.html">Lire l'édition →</a>
-      </div>
-      <a class="day-title" href="../archives/2026-08-04.html">Gaza : la paix qui reste sur le papier</a>
-      <p class="day-context">❓ Après près de deux ans de guerre et au moins 73 350 morts, le Hamas a accepté le 31 juillet de rendre ses armes en échange d'un retrait israélien — mais Israël a fait savoir le 3 août avoir de « sérieuses préoccupations » et les frappes continuent : l'accord va-t-il vraiment démarrer, ou reste-t-il un accord signé sur le papier ?</p>
+<div class="day-card">
+  <p class="day-card-eyebrow">Mardi, sujet libre</p>
+  <a class="day-card-image-link" href="../archives/2026-08-04.html">
+    <img class="day-card-image" src="../assets/social/instagram/default.png" alt="Gaza : la paix qui reste sur le papier" loading="lazy">
+  </a>
+  <button type="button" class="day-card-toggle" aria-expanded="false" aria-controls="detail-2026-08-04">Voir le détail <span class="day-card-toggle-icon" aria-hidden="true">▾</span></button>
+  <div class="day-card-detail" id="detail-2026-08-04">
+    <div class="day-card-detail-inner">
+      <p class="day-card-context">❓ Après près de deux ans de guerre et au moins 73 350 morts, le Hamas a accepté le 31 juillet de rendre ses armes en échange d'un retrait israélien — mais Israël a fait savoir le 3 août avoir de « sérieuses préoccupations » et les frappes continuent : l'accord va-t-il vraiment démarrer, ou reste-t-il un accord signé sur le papier ?</p>
       <div class="scenario-list">
         <p class="scenario-row" data-kind="favorable"><span class="scenario-arrow" aria-hidden="true">↑</span><span class="scenario-pct">20%</span><span class="scenario-label">Le compromis passe, le retrait démarre</span></p>
         <p class="scenario-row is-winner" data-kind="stable"><span class="scenario-arrow" aria-hidden="true">→</span><span class="scenario-pct">50%</span><span class="scenario-label">L'accord reste bloqué sur le papier</span></p>
         <p class="scenario-row" data-kind="degrade"><span class="scenario-arrow" aria-hidden="true">↓</span><span class="scenario-pct">30%</span><span class="scenario-label">Les négociations s'effondrent, les frappes reprennent</span></p>
       </div>
+      <a class="day-link" href="../archives/2026-08-04.html">Lire l'édition →</a>
     </div>
+  </div>
+</div>
 
-    <div class="day-block">
-      <div class="day-head">
-        <span class="day-eyebrow">Mercredi, actualité française</span>
-        <a class="day-link" href="../archives/2026-08-05.html">Lire l'édition →</a>
-      </div>
-      <a class="day-title" href="../archives/2026-08-05.html">EPR2 : le nucléaire français à l'heure de vérité</a>
-      <p class="day-context">❓ Six nouveaux réacteurs nucléaires à 83 milliards d'euros, une enquête de Bruxelles sur les aides versées à EDF, et une décision finale attendue avant la fin de l'année : le programme EPR2 va-t-il tenir son calendrier, ou est-il en train de dérailler ?</p>
+<div class="day-card">
+  <p class="day-card-eyebrow">Mercredi, actualité française</p>
+  <a class="day-card-image-link" href="../archives/2026-08-05.html">
+    <img class="day-card-image" src="../assets/social/instagram/default.png" alt="EPR2 : le nucléaire français à l'heure de vérité" loading="lazy">
+  </a>
+  <button type="button" class="day-card-toggle" aria-expanded="false" aria-controls="detail-2026-08-05">Voir le détail <span class="day-card-toggle-icon" aria-hidden="true">▾</span></button>
+  <div class="day-card-detail" id="detail-2026-08-05">
+    <div class="day-card-detail-inner">
+      <p class="day-card-context">❓ Six nouveaux réacteurs nucléaires à 83 milliards d'euros, une enquête de Bruxelles sur les aides versées à EDF, et une décision finale attendue avant la fin de l'année : le programme EPR2 va-t-il tenir son calendrier, ou est-il en train de dérailler ?</p>
       <div class="scenario-list">
         <p class="scenario-row" data-kind="favorable"><span class="scenario-arrow" aria-hidden="true">↑</span><span class="scenario-pct">20%</span><span class="scenario-label">Bruxelles valide, le calendrier tient</span></p>
         <p class="scenario-row is-winner" data-kind="stable"><span class="scenario-arrow" aria-hidden="true">→</span><span class="scenario-pct">50%</span><span class="scenario-label">La décision glisse, le programme survit</span></p>
         <p class="scenario-row" data-kind="degrade"><span class="scenario-arrow" aria-hidden="true">↓</span><span class="scenario-pct">30%</span><span class="scenario-label">Bruxelles bloque, le chantier dérape</span></p>
       </div>
+      <a class="day-link" href="../archives/2026-08-05.html">Lire l'édition →</a>
     </div>
+  </div>
+</div>
 
-    <div class="day-block">
-      <div class="day-head">
-        <span class="day-eyebrow">Jeudi, sport</span>
-        <a class="day-link" href="../archives/2026-08-06.html">Lire l'édition →</a>
-      </div>
-      <a class="day-title" href="../archives/2026-08-06.html">FIFA : la présidence d'Infantino vacille</a>
-      <p class="day-context">❓ Après avoir dû abandonner en catastrophe son projet de vendre un bout de la Coupe du monde à des investisseurs privés, Gianni Infantino peut-il regagner la confiance de l'UEFA et des autres fédérations avant l'élection à la présidence de la FIFA prévue le 18 mars 2027 ?</p>
+<div class="day-card">
+  <p class="day-card-eyebrow">Jeudi, sport</p>
+  <a class="day-card-image-link" href="../archives/2026-08-06.html">
+    <img class="day-card-image" src="../assets/social/instagram/default.png" alt="FIFA : la présidence d'Infantino vacille" loading="lazy">
+  </a>
+  <button type="button" class="day-card-toggle" aria-expanded="false" aria-controls="detail-2026-08-06">Voir le détail <span class="day-card-toggle-icon" aria-hidden="true">▾</span></button>
+  <div class="day-card-detail" id="detail-2026-08-06">
+    <div class="day-card-detail-inner">
+      <p class="day-card-context">❓ Après avoir dû abandonner en catastrophe son projet de vendre un bout de la Coupe du monde à des investisseurs privés, Gianni Infantino peut-il regagner la confiance de l'UEFA et des autres fédérations avant l'élection à la présidence de la FIFA prévue le 18 mars 2027 ?</p>
       <div class="scenario-list">
         <p class="scenario-row" data-kind="favorable"><span class="scenario-arrow" aria-hidden="true">↑</span><span class="scenario-pct">20%</span><span class="scenario-label">Infantino regagne la confiance</span></p>
         <p class="scenario-row is-winner" data-kind="stable"><span class="scenario-arrow" aria-hidden="true">→</span><span class="scenario-pct">45%</span><span class="scenario-label">La méfiance dure, Infantino reste</span></p>
         <p class="scenario-row" data-kind="degrade"><span class="scenario-arrow" aria-hidden="true">↓</span><span class="scenario-pct">35%</span><span class="scenario-label">L'UEFA déclenche la motion de défiance</span></p>
       </div>
+      <a class="day-link" href="../archives/2026-08-06.html">Lire l'édition →</a>
     </div>
+  </div>
+</div>
 
-    <div class="day-block">
-      <div class="day-head">
-        <span class="day-eyebrow">Vendredi, sciences</span>
-        <a class="day-link" href="../archives/2026-08-07.html">Lire l'édition →</a>
-      </div>
-      <a class="day-title" href="../archives/2026-08-07.html">Big Tech face à la justice</a>
-      <p class="day-context">❓ Après avoir perdu deux procès antitrust d'affilée sur son moteur de recherche et sa régie publicitaire, Google va-t-il être vraiment démantelé, ou les géants de la tech vont-ils une fois de plus absorber le choc sans rien changer à leur pouvoir réel ?</p>
+<div class="day-card">
+  <p class="day-card-eyebrow">Vendredi, sciences</p>
+  <a class="day-card-image-link" href="../archives/2026-08-07.html">
+    <img class="day-card-image" src="../assets/social/instagram/2026-08-07.png" alt="Big Tech face à la justice" loading="lazy">
+  </a>
+  <button type="button" class="day-card-toggle" aria-expanded="false" aria-controls="detail-2026-08-07">Voir le détail <span class="day-card-toggle-icon" aria-hidden="true">▾</span></button>
+  <div class="day-card-detail" id="detail-2026-08-07">
+    <div class="day-card-detail-inner">
+      <p class="day-card-context">❓ Après avoir perdu deux procès antitrust d'affilée sur son moteur de recherche et sa régie publicitaire, Google va-t-il être vraiment démantelé, ou les géants de la tech vont-ils une fois de plus absorber le choc sans rien changer à leur pouvoir réel ?</p>
       <div class="scenario-list">
         <p class="scenario-row" data-kind="favorable"><span class="scenario-arrow" aria-hidden="true">↑</span><span class="scenario-pct">20%</span><span class="scenario-label">Google est vraiment démantelé</span></p>
         <p class="scenario-row is-winner" data-kind="stable"><span class="scenario-arrow" aria-hidden="true">→</span><span class="scenario-pct">50%</span><span class="scenario-label">Les procès s'éternisent, rien ne change</span></p>
         <p class="scenario-row" data-kind="degrade"><span class="scenario-arrow" aria-hidden="true">↓</span><span class="scenario-pct">30%</span><span class="scenario-label">La justice recule, Big Tech gagne</span></p>
       </div>
+      <a class="day-link" href="../archives/2026-08-07.html">Lire l'édition →</a>
     </div>
+  </div>
+</div>
 
-    <div class="day-block">
-      <div class="day-head">
-        <span class="day-eyebrow">Samedi, culture française</span>
-        <a class="day-link" href="../archives/2026-08-08.html">Lire l'édition →</a>
-      </div>
-      <a class="day-title" href="../archives/2026-08-08.html">Le cinéma reprend des couleurs</a>
-      <p class="day-context">❓ Après une chute historique de la fréquentation en 2025 (-13,6 %, plus bas niveau depuis 1997 hors Covid), le rebond spectaculaire du début 2026 va-t-il tenir toute l'année, ou n'est-ce qu'un sursaut avant un nouveau recul ?</p>
+<div class="day-card">
+  <p class="day-card-eyebrow">Samedi, culture française</p>
+  <a class="day-card-image-link" href="../archives/2026-08-08.html">
+    <img class="day-card-image" src="../assets/social/instagram/2026-08-08.png" alt="Le cinéma reprend des couleurs" loading="lazy">
+  </a>
+  <button type="button" class="day-card-toggle" aria-expanded="false" aria-controls="detail-2026-08-08">Voir le détail <span class="day-card-toggle-icon" aria-hidden="true">▾</span></button>
+  <div class="day-card-detail" id="detail-2026-08-08">
+    <div class="day-card-detail-inner">
+      <p class="day-card-context">❓ Après une chute historique de la fréquentation en 2025 (-13,6 %, plus bas niveau depuis 1997 hors Covid), le rebond spectaculaire du début 2026 va-t-il tenir toute l'année, ou n'est-ce qu'un sursaut avant un nouveau recul ?</p>
       <div class="scenario-list">
         <p class="scenario-row" data-kind="favorable"><span class="scenario-arrow" aria-hidden="true">↑</span><span class="scenario-pct">30%</span><span class="scenario-label">Le rebond tient jusqu'à la fin de l'année</span></p>
         <p class="scenario-row is-winner" data-kind="stable"><span class="scenario-arrow" aria-hidden="true">→</span><span class="scenario-pct">45%</span><span class="scenario-label">La reprise s'arrête à mi-chemin</span></p>
         <p class="scenario-row" data-kind="degrade"><span class="scenario-arrow" aria-hidden="true">↓</span><span class="scenario-pct">25%</span><span class="scenario-label">Le rebond s'arrête à la rentrée</span></p>
       </div>
+      <a class="day-link" href="../archives/2026-08-08.html">Lire l'édition →</a>
     </div>
+  </div>
+</div>
 
-    <div class="day-block">
-      <div class="day-head">
-        <span class="day-eyebrow">Dimanche, culture internationale</span>
-        <a class="day-link" href="../archives/2026-08-09.html">Lire l'édition →</a>
-      </div>
-      <a class="day-title" href="../archives/2026-08-09.html">Musique IA : la note grimpe à 9 milliards</a>
-      <p class="day-context">❓ Alors que Sony réclame jusqu'à 9 milliards de dollars à Suno devant la justice américaine pendant qu'Universal et Warner ont préféré signer des accords de licence, et qu'une loi européenne impose depuis le 2 août l'étiquetage de toute musique générée par IA, la création musicale mondiale bascule-t-elle vers un marché sous licence, ou reste-t-elle prise entre procès interminables et flot incontrôlé ?</p>
+<div class="day-card">
+  <p class="day-card-eyebrow">Dimanche, culture internationale</p>
+  <a class="day-card-image-link" href="../archives/2026-08-09.html">
+    <img class="day-card-image" src="../assets/social/instagram/2026-08-09.png" alt="Musique IA : la note grimpe à 9 milliards" loading="lazy">
+  </a>
+  <button type="button" class="day-card-toggle" aria-expanded="false" aria-controls="detail-2026-08-09">Voir le détail <span class="day-card-toggle-icon" aria-hidden="true">▾</span></button>
+  <div class="day-card-detail" id="detail-2026-08-09">
+    <div class="day-card-detail-inner">
+      <p class="day-card-context">❓ Alors que Sony réclame jusqu'à 9 milliards de dollars à Suno devant la justice américaine pendant qu'Universal et Warner ont préféré signer des accords de licence, et qu'une loi européenne impose depuis le 2 août l'étiquetage de toute musique générée par IA, la création musicale mondiale bascule-t-elle vers un marché sous licence, ou reste-t-elle prise entre procès interminables et flot incontrôlé ?</p>
       <div class="scenario-list">
         <p class="scenario-row" data-kind="favorable"><span class="scenario-arrow" aria-hidden="true">↑</span><span class="scenario-pct">15%</span><span class="scenario-label">Tous les grands labels finissent par signer</span></p>
         <p class="scenario-row is-winner" data-kind="stable"><span class="scenario-arrow" aria-hidden="true">→</span><span class="scenario-pct">55%</span><span class="scenario-label">Le bras de fer s'installe dans la durée</span></p>
         <p class="scenario-row" data-kind="degrade"><span class="scenario-arrow" aria-hidden="true">↓</span><span class="scenario-pct">30%</span><span class="scenario-label">Aucun verdict, le flot ne faiblit pas</span></p>
       </div>
+      <a class="day-link" href="../archives/2026-08-09.html">Lire l'édition →</a>
     </div>
+  </div>
+</div>
 
-    <div class="week-conclusion">
-      <p class="week-conclusion-label">Conclusion de la semaine</p>
-      <p>Cette semaine, plusieurs dossiers avancent sans se conclure : à Ceuta, la fermeture temporaire de Schengen contient la crise migratoire sans rouvrir le débat sur les frontières intérieures de l'UE ; à Gaza, l'accord de désarmement signé fin juillet reste sur le papier après les réserves israéliennes du 3 août ; le programme nucléaire EPR2 attend toujours le feu vert de Bruxelles avant la fin de l'année ; et dans la musique, Sony réclame 9 milliards de dollars à Suno pendant qu'Universal et Warner ont choisi la voie des accords de licence. Le fil commun de la semaine : des rapports de force qui se prolongent, sans qu'aucun ne bascule franchement.</p>
-    </div>
+</div>
 
+<div class="week-conclusion">
+  <p class="week-conclusion-label">Conclusion de la semaine</p>
+  <p>Cette semaine, plusieurs dossiers avancent sans se conclure : à Ceuta, la fermeture temporaire de Schengen contient la crise migratoire sans rouvrir le débat sur les frontières intérieures de l'UE ; à Gaza, l'accord de désarmement signé fin juillet reste sur le papier après les réserves israéliennes du 3 août ; le programme nucléaire EPR2 attend toujours le feu vert de Bruxelles avant la fin de l'année ; et dans la musique, Sony réclame 9 milliards de dollars à Suno pendant qu'Universal et Warner ont choisi la voie des accords de licence. Le fil commun de la semaine : des rapports de force qui se prolongent, sans qu'aucun ne bascule franchement.</p>
+</div>
   </div>
 </section>
 
@@ -486,6 +629,17 @@
     </div>
   </div>
 </footer>
+
+<script>
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.day-card-toggle');
+    if (!btn) return;
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    var detail = document.getElementById(btn.getAttribute('aria-controls'));
+    if (detail) detail.classList.toggle('is-open', !expanded);
+  });
+</script>
 
 </body>
 </html>

@@ -591,6 +591,103 @@
   .scenario-label{ color: var(--paper-dim); }
   .scenario-row.is-winner .scenario-label{ color: var(--paper); font-weight: 600; }
 
+  /* Grille récap hebdo avec vignettes (voir docs/ARCHITECTURE.md, "Vignettes
+     Instagram sur le récap hebdo") — même structure que hebdo/{date}.html,
+     dupliquée ici car ce fragment est injecté tel quel dans cette page. */
+  .week-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 560px){
+    .week-grid{ grid-template-columns: 1fr; }
+  }
+
+  .day-card{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .day-card-eyebrow{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+    margin: 0 0 8px;
+  }
+
+  .day-card-image-link{ display:block; line-height:0; }
+
+  .day-card-image{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    border: 1px solid var(--hairline);
+  }
+
+  .day-card-noimage{
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    border: 1px solid var(--hairline);
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    text-align: center;
+  }
+
+  .day-card-noimage-title{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.02rem;
+    line-height: 1.3;
+    color: var(--paper);
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+  }
+  .day-card-noimage-title:hover{ border-bottom-color: var(--paper-dim); }
+
+  .day-card-toggle{
+    align-self: flex-start;
+    margin-top: 10px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--paper-dim);
+    background: none;
+    border: 1px solid var(--hairline);
+    border-radius: 100px;
+    padding: 4px 11px;
+    cursor: pointer;
+  }
+  .day-card-toggle:hover{ color: var(--paper); border-color: var(--paper-dim); }
+  .day-card-toggle[aria-expanded="true"]{ color: var(--gold); border-color: var(--gold); }
+
+  .day-card-toggle-icon{ display: inline-block; transition: transform .18s ease; }
+  .day-card-toggle[aria-expanded="true"] .day-card-toggle-icon{ transform: rotate(180deg); }
+
+  .day-card-detail{
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .22s ease;
+  }
+  .day-card-detail.is-open{ grid-template-rows: 1fr; }
+  .day-card-detail-inner{ min-height: 0; overflow: hidden; }
+
+  .day-card-context{
+    font-size: 0.82rem;
+    color: var(--paper-dim);
+    margin: 10px 0 10px;
+  }
+
+  .day-card .scenario-list{ margin-bottom: 8px; }
+
   .week-conclusion{ padding: 20px 0 4px; }
   .week-conclusion-label{
     font-family: "JetBrains Mono", monospace;
@@ -1299,6 +1396,19 @@
         if (updateChip) { updateChip.click(); }
       }
     }
+
+    // Accordéon imbriqué "Voir le détail" à l'intérieur du fragment récap
+    // hebdo (chargé dynamiquement ci-dessous) : délégation sur document
+    // puisque les boutons .day-card-toggle n'existent pas encore au moment
+    // où ce script s'exécute (voir docs/ARCHITECTURE.md).
+    document.addEventListener('click', function(e){
+      var btn = e.target.closest('.day-card-toggle');
+      if (!btn) return;
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      var detail = document.getElementById(btn.getAttribute('aria-controls'));
+      if (detail) detail.classList.toggle('is-open', !expanded);
+    });
 
     document.querySelectorAll('.entry-toggle').forEach(function(btn){
       btn.addEventListener('click', function(){

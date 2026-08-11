@@ -924,6 +924,79 @@ moins prioritaire).
   plus loin, non demandée mais cohérente avec le mécanisme "revise"** :
   appliquer la même approche générique (tag + filtre) si ça devient
   gênant — pas fait, pas nécessaire tant que le rythme reste hebdomadaire.
+
+  **[FAIT le 11 août] Vignettes Instagram sur le récap hebdo, grille 2
+  colonnes + accordéon.** Trois allers-retours de retour utilisateur sur
+  la même idée de départ ("mettre l'image de chaque jour, discret, sans
+  allonger la page") :
+  1. Premier essai : petite vignette carrée (84px) accolée au texte de
+     chaque `.day-block` (image à gauche, texte à droite, `display:flex`
+     sur le bloc). Fonctionnait mais jugé "trop petit vu en plus gros" —
+     rollback demandé vers une vraie mise en page en colonnes.
+  2. Deuxième essai : vignette agrandie à 160px (110px mobile), toujours
+     accolée au texte de chaque jour empilé verticalement. Meilleur, mais
+     l'utilisateur a proposé une idée différente en cours de route : "que
+     les images qui contiennent le titre etc [...] deux jours par ligne
+     [...] et on clique sur un bouton qui ouvre en accordéon".
+  3. **Design retenu** : chaque jour devient une `.day-card` affichée
+     dans une grille 2 colonnes (`.week-grid`, repasse à 1 colonne sous
+     620px). L'image Instagram du jour (1080×1080, déjà générée
+     quotidiennement — voir `scripts/social/generate_instagram_image.py`)
+     est affichée en pleine largeur de la carte (`aspect-ratio:1/1`,
+     cliquable vers l'archive) : comme cette image contient déjà le
+     titre + les 3 options de scénario (sans les pourcentages, teaser
+     volontaire — décision du 7 août), elle tient lieu de résumé visuel
+     complet sans texte additionnel. Un bouton "Voir le détail ▾" ouvre
+     un accordéon (même mécanique CSS `grid-template-rows: 0fr → 1fr`
+     que `.entry-scenarios` sur `archives.html`, juste dupliquée en local
+     à l'intérieur de chaque carte) révélant la question exacte, les 3
+     pourcentages et le lien "Lire l'édition →" — l'information qui
+     manque volontairement à l'image. Résultat mesuré sur la page
+     `hebdo/2026-08-09.html` : hauteur totale de page repliée réduite de
+     ~26 % par rapport à la V1 (vignette simple), malgré des images bien
+     plus grandes visuellement.
+  Limite connue, acceptée : dans la grille 2 colonnes, si une carte se
+  déplie et sa voisine sur la même rangée reste repliée, la rangée CSS
+  Grid garde la hauteur de la plus haute — un peu de vide apparaît à
+  côté de la carte repliée. Comportement standard de CSS Grid (pas un
+  vrai masonry), rien de cassé, juste pas parfaitement compact dans ce
+  cas précis.
+
+  **Image par défaut** (`assets/social/instagram/default.png`, generée
+  une fois via Playwright — logo + baseline "Le futur en 3 scénarios"
+  sur le fond dégradé habituel, sans titre puisque générique) : utilisée
+  quand l'image réelle d'un jour manque. Cas concret le 11 août : les
+  éditions du 3 au 6 août datent d'avant l'existence de la génération
+  d'image Instagram (ajoutée le 7 août), donc `hebdo/2026-08-09.html`
+  (qui couvre le 3-9 août) a 4 jours sur 7 avec l'image par défaut et 3
+  avec la vraie image du jour — mélange assumé, temporaire par nature
+  (toutes les semaines à partir du 16 août auront 7 vraies images,
+  puisque la routine quotidienne génère déjà cette image pour chaque
+  édition). Le champ `alt` de l'`<img>` reste toujours le vrai titre du
+  jour même quand l'image est générique, pour l'accessibilité.
+
+  **Portée de la retouche** : contrairement à la règle habituelle "une
+  page hebdo publiée n'est jamais retouchée" (réservée aux changements de
+  contenu éditorial, jamais aux évolutions de présentation), l'utilisateur
+  a explicitement demandé de rétrofiter la page actuellement en ligne
+  (`hebdo/2026-08-09.html` + son fragment) plutôt que d'attendre le
+  prochain récap — c'est cette page qui est en fait visible depuis le
+  lien `.top-updates` de `index.html`. `hebdo/2026-08-02.html` (semaine
+  précédente, plus visible nulle part) n'a pas été touché.
+
+  **Implémentation** : CSS + JS de la grille dupliqués à trois endroits
+  qui doivent rester synchronisés — `hebdo/2026-08-09.html` (page figée),
+  `archives.html` (car le fragment hebdo y est injecté dynamiquement dans
+  `.entry-scenarios-inner`, donc `archives.html` porte sa propre copie du
+  CSS `.week-grid`/`.day-card*` et un gestionnaire de clic délégué sur
+  `document` pour `.day-card-toggle`, puisque ces boutons n'existent pas
+  encore au moment où le script s'exécute), et `docs/routine-hebdo-
+  prompt.md` (instructions + exemples HTML mis à jour pour que la routine
+  du 16 août génère directement ce format — trigger `meta_mcp`, synchronisé
+  via `update_trigger` le jour même). Vérifié sans bug : rendu Playwright
+  desktop/mobile sur les trois fichiers, accordéon imbriqué testé dans le
+  contexte réel de `archives.html` (clic sur "Les 7 jours ▾" puis sur
+  "Voir le détail" à l'intérieur du fragment chargé), aucune image cassée.
 - **P2 — « Signaux à surveiller » par scénario, idée du 10 août (retour
   d'une revue externe ChatGPT sur le site, filtrée — voir plus bas
   pourquoi la majorité de cette revue ne retenait rien de neuf).**
