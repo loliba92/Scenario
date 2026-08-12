@@ -294,6 +294,34 @@
 
   .dek strong{ color: var(--paper); font-weight: 600; }
 
+  /* Liste à puces dans le contexte (pas seulement dans les cartes de
+     scénarios) — même motif que .field li plus bas dans ce fichier (tiret
+     coloré), pour un passage dense à lire d'un coup d'œil plutôt qu'en
+     phrase continue. */
+  .dek-list{
+    list-style: none;
+    margin: 0 0 20px;
+    padding: 0;
+    max-width: 62ch;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .dek-list li{
+    font-size: 1.1rem;
+    line-height: 1.55;
+    color: var(--paper-dim);
+    padding-left: 20px;
+    position: relative;
+  }
+  .dek-list li::before{
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+  .dek-list strong{ color: var(--paper); font-weight: 600; }
+
   .dek a{ color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
   .dek a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
 
@@ -906,7 +934,16 @@
 
     <p class="dek">Le secteur reste pourtant fragile. Les charges et les loyers des salles continuent d'augmenter, et les plateformes de streaming — qui financent désormais environ <strong>25 %</strong> de la fiction française, soit 1,2 milliard d'euros par an — changent les habitudes de consommation, même si la chronologie des médias<a class="lex-ref" href="#lex-chronologie-des-medias" aria-label="Voir la définition dans le lexique">*</a> protège encore largement les salles obscures. Le solde des ouvertures et fermetures de cinémas reste quasi stable, avec seulement 5 à 6 salles de moins que l'an dernier — signe que la crise n'a pas (encore) vidé les salles pour de bon.</p>
 
-    <p class="dek">Reste une inconnue de taille : la rentrée. L'automne est traditionnellement une saison plus calme pour les salles, et le calendrier des mois à venir s'appuie beaucoup sur de grosses sorties américaines — le nouveau Tom Cruise, une adaptation de science-fiction signée Ridley Scott, et <strong>Dune : Messiah</strong> de Denis Villeneuve le 18 décembre — plutôt que sur de nouveaux triomphes français. Le rebond du premier semestre doit aussi beaucoup à un effet de comparaison avec une année 2025 historiquement basse : plus l'année avance, plus cet effet s'estompe. Personne ne peut donc dire aujourd'hui si 2026 confirme un vrai retournement de tendance ou si ce sursaut retombera une fois l'été passé — exactement le genre de situation où les chiffres pointent dans deux directions selon la période observée, qui se prête à l'exercice des trois scénarios.</p>
+    <p class="dek">Reste une inconnue de taille : la rentrée. L'automne est traditionnellement une saison plus calme pour les salles, et le calendrier des mois à venir s'appuie beaucoup sur de grosses sorties américaines plutôt que sur de nouveaux triomphes français. Les sorties mondiales qui vont peser le plus lourd dans la balance :</p>
+
+    <ul class="dek-list">
+      <li>🎬 <strong>Le nouveau film de Tom Cruise</strong> — sortie mondiale prévue à l'automne 2026, date encore à préciser</li>
+      <li>🎬 <strong>Une adaptation de science-fiction signée Ridley Scott</strong> — sortie mondiale prévue à l'automne-hiver 2026, date encore à préciser</li>
+      <li>🎬 <strong>Avengers : Doomsday</strong> — sortie mondiale le 17 décembre 2026, précommandes déjà deux fois plus rapides que Deadpool &amp; Wolverine (2024)</li>
+      <li>🎬 <strong>Dune : Messiah</strong> (Denis Villeneuve) — sortie mondiale le 18 décembre 2026</li>
+    </ul>
+
+    <p class="dek">Le rebond du premier semestre doit aussi beaucoup à un effet de comparaison avec une année 2025 historiquement basse : plus l'année avance, plus cet effet s'estompe. Personne ne peut donc dire aujourd'hui si 2026 confirme un vrai retournement de tendance ou si ce sursaut retombera une fois l'été passé — exactement le genre de situation où les chiffres pointent dans deux directions selon la période observée, qui se prête à l'exercice des trois scénarios.</p>
 
     <div class="indicator-strip">
       <div class="indicator">
