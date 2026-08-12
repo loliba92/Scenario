@@ -1690,15 +1690,26 @@ moins prioritaire).
     2. Disque tricolore avec flèche découpée dedans (masque SVG),
        positionné en bas à gauche — visuel jugé bon, mais retour
        utilisateur : mauvais emplacement, "pas moderne".
-    3. **[FAIT, retenu] Triangle tricolore en haut à droite** (coin
-       libre, le masthead occupe le haut à gauche) : `clip-path:
-       polygon(100% 0, 100% 100%, 0 0)` sur un dégradé diagonal
-       bleu/blanc/rouge, grosse flèche ▲/▼ (couleur favorable/dégradé)
-       à l'intérieur + petit texte "Δ France". Pas de pourcentage ni de
-       mot d'intensité sur l'image — même logique que "pas de
-       pourcentages dans l'image, effet teaser" déjà en place pour le
-       reste du gabarit ; le mot d'intensité (léger/assez/très) reste
-       réservé à L'essentiel et au feed.
+    3. Triangle tricolore en haut à droite (coin libre, le masthead
+       occupe le haut à gauche) : `clip-path: polygon(100% 0, 100% 100%,
+       0 0)` sur un dégradé diagonal bleu/blanc/rouge, grosse flèche ▲/▼
+       à l'intérieur + petit texte "Δ France". **Retour utilisateur :
+       trop "drapeau", évoque une esthétique identitaire ("France
+       d'abord") non désirée — même en étant discret par la taille, le
+       drapeau plein cadre reste trop connoté.**
+    4. **[FAIT, retenu] Marque discrète, sans imagerie nationale** :
+       abandon total du drapeau. Reprend le vocabulaire visuel déjà
+       existant du site (même esprit que les jauges `.gauge` des
+       cartes) — petit anneau fin (cercle, pas de tricolore), flèche
+       pleine ▲/▼ à l'intérieur, couleur = `--favorable`/`--degrade`
+       (les 2 couleurs déjà utilisées partout ailleurs pour "positif/
+       négatif" sur ce site, pas une nouvelle imagerie). Texte "Δ
+       France" en petit, `--paper-dim`. ~60px de diamètre, coin haut-
+       droit — nettement plus petit et sobre que le triangle. Pas de
+       pourcentage ni de mot d'intensité sur l'image — même logique que
+       "pas de pourcentages dans l'image, effet teaser" déjà en place
+       pour le reste du gabarit ; le mot d'intensité (léger/assez/très)
+       reste réservé à L'essentiel et au feed.
     **Implémenté uniquement sur `instagram-photo-template.html`, pas sur
     le gabarit par défaut** (`instagram-template.html`, celui de la
     routine automatique) : testé, le budget vertical/horizontal du

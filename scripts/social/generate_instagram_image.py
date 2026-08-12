@@ -70,20 +70,30 @@ from pathlib import Path
 
 ARROWS = {"favorable": "↑", "stable": "→", "degrade": "↓"}
 
-_DELTA_ARROWS = {"positif": "▲", "negatif": "▼"}
+# Triangle plein, dessiné en path pour un rendu net à petite taille —
+# pointe vers le haut ou le bas selon le sens du score, dans un cercle
+# 72x72 (voir build_delta_badge).
+_DELTA_ARROW_PATHS = {
+    "positif": "M36,23 L49,43 L23,43 Z",
+    "negatif": "M36,49 L49,29 L23,29 Z",
+}
 
 
 def build_delta_badge(delta):
-    """Coin Δ France : triangle tricolore (bleu/blanc/rouge) découpé en
-    haut à droite de l'image (clip-path CSS), avec une flèche de sens
-    en gros à l'intérieur. Remplace l'ancien badge en pastille (jugé
-    trop faible, puis mal placé — voir docs/ARCHITECTURE.md)."""
+    """Marque Δ France, discrète : petit anneau (même langage visuel que
+    les jauges .gauge des cartes de scénario) avec une flèche pleine
+    haut/bas, couleur favorable/dégradé — déjà le vocabulaire du site,
+    aucune imagerie supplémentaire ajoutée. Remplace le triangle
+    tricolore (retour utilisateur : trop "drapeau", pas assez discret —
+    voir docs/ARCHITECTURE.md)."""
     direction = delta["direction"]
-    arrow = _DELTA_ARROWS.get(direction, _DELTA_ARROWS["positif"])
-    return f'''<div class="delta-corner" data-kind="{html.escape(direction)}">
-      <div class="delta-corner-flag"></div>
-      <div class="delta-corner-arrow">{arrow}</div>
-      <div class="delta-corner-label">Δ France</div>
+    arrow_path = _DELTA_ARROW_PATHS.get(direction, _DELTA_ARROW_PATHS["positif"])
+    return f'''<div class="delta-mark" data-kind="{html.escape(direction)}">
+      <svg viewBox="0 0 72 72" width="60" height="60">
+        <circle cx="36" cy="36" r="32" class="delta-mark-ring"/>
+        <path d="{arrow_path}" class="delta-mark-arrow"/>
+      </svg>
+      <span class="delta-mark-label">Δ France</span>
     </div>'''
 
 
