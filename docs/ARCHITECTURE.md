@@ -1683,24 +1683,29 @@ moins prioritaire).
     du sens et de l'accroche")** : `__DELTA_BADGE__` ajouté à
     `scripts/social/generate_instagram_image.py` (champ optionnel
     `data["delta"] = {"direction": "positif|negatif", "label": "..."}`,
-    repli silencieux si absent, même logique que `--photo`). **Premier
-    visuel jugé trop faible par l'utilisateur ("un badge pauvre") —
-    refait en disque tricolore (bleu/blanc/rouge) avec la flèche de sens
-    découpée à même le disque via un masque SVG** (pas une icône posée à
-    côté du texte) : `build_delta_badge()` construit le SVG (clipPath
-    circulaire + mask en forme de flèche haut/bas), texte "Δ FRANCE" +
-    mot en gros à côté (Fraunces, couleur accent). **Implémenté
-    uniquement sur `instagram-photo-template.html`, pas sur le gabarit
-    par défaut** (`instagram-template.html`, celui de la routine
-    automatique) : testé, le budget vertical du gabarit par défaut est
-    déjà tendu par le titre (1-3 lignes selon le jour) — toute tentative
-    d'ajouter le badge (même ligne que le footer, ligne séparée en
-    absolu, empilé dans le footer) a fait chevaucher soit le masthead
-    soit le CTA. Le gabarit photo a assez de marge (testé avec une vraie
-    photo, aucun chevauchement). Cohérent avec le statut déjà manuel/
-    optionnel de `--photo` — la routine quotidienne automatique n'est
-    pas affectée, aucun risque de casser la génération d'image de tous
-    les jours pour un gain visuel sur les jours où une photo est utilisée.
+    repli silencieux si absent, même logique que `--photo`). **Trois
+    itérations visuelles le même jour, sur retours utilisateur
+    successifs** :
+    1. Pastille texte + bordure fine — jugée "pauvre".
+    2. Disque tricolore avec flèche découpée dedans (masque SVG),
+       positionné en bas à gauche — visuel jugé bon, mais retour
+       utilisateur : mauvais emplacement, "pas moderne".
+    3. **[FAIT, retenu] Triangle tricolore en haut à droite** (coin
+       libre, le masthead occupe le haut à gauche) : `clip-path:
+       polygon(100% 0, 100% 100%, 0 0)` sur un dégradé diagonal
+       bleu/blanc/rouge, grosse flèche ▲/▼ (couleur favorable/dégradé)
+       à l'intérieur + petit texte "Δ France". Pas de pourcentage ni de
+       mot d'intensité sur l'image — même logique que "pas de
+       pourcentages dans l'image, effet teaser" déjà en place pour le
+       reste du gabarit ; le mot d'intensité (léger/assez/très) reste
+       réservé à L'essentiel et au feed.
+    **Implémenté uniquement sur `instagram-photo-template.html`, pas sur
+    le gabarit par défaut** (`instagram-template.html`, celui de la
+    routine automatique) : testé, le budget vertical/horizontal du
+    gabarit par défaut est déjà tendu par le titre (1-3 lignes selon le
+    jour), risque de chevauchement non vérifié pour ce gabarit-là.
+    Cohérent avec le statut déjà manuel/optionnel de `--photo` — la
+    routine quotidienne automatique n'est pas affectée.
 - **P3 — Carte de pari partageable, sans backend, idée du 10 août
   (même brainstorm).** Une URL du type
   `parier.html?edition=2026-08-10&choix=stable` générant une carte

@@ -29,15 +29,17 @@ Champs "kind" attendus : favorable | stable | degrade (détermine la
 couleur et la flèche ↑/→/↓). Pas de pourcentages dans l'image — c'est
 volontaire (effet teaser vers le lien en bio).
 
-Champ optionnel "delta" (ajouté le 12 août) : badge Δ France en bas de
-l'image, ex. {"direction": "negatif", "label": "Léger négatif"}.
-"direction" attendu : positif | negatif (jamais neutre, voir
-docs/routine-prompt.md). Purement décoratif — si absent du JSON, le
-badge disparaît silencieusement (même repli que --photo), aucune
-erreur. Supporté uniquement par instagram-photo-template.html (marge
-suffisante) — le gabarit par défaut (fond dégradé, sans photo) n'a pas
-le marqueur __DELTA_BADGE__ : budget vertical déjà tendu par le titre
-1-3 lignes, testé, tout ajout y fait chevaucher le CTA.
+Champ optionnel "delta" (ajouté le 12 août) : triangle Δ France en
+haut à droite de l'image, ex. {"direction": "negatif", "label": "Léger
+négatif"} ("label" gardé dans le JSON pour cohérence avec L'essentiel/
+feed.xml, mais pas affiché sur l'image — seule la flèche ▲/▼ y figure,
+même logique que "pas de pourcentages dans l'image"). "direction"
+attendu : positif | negatif (jamais neutre, voir docs/routine-
+prompt.md). Purement décoratif — si absent du JSON, disparaît
+silencieusement (même repli que --photo), aucune erreur. Supporté
+uniquement par instagram-photo-template.html (le gabarit par défaut
+n'a pas le marqueur __DELTA_BADGE__, budget vertical déjà tendu par le
+titre 1-3 lignes — voir docs/ARCHITECTURE.md).
 
 "hook" (ajouté le 11 août, retour utilisateur) : une accroche courte
 (≤ 12 mots, une seule ligne à l'écran), affichée sous le titre, en doré.
@@ -68,42 +70,20 @@ from pathlib import Path
 
 ARROWS = {"favorable": "↑", "stable": "→", "degrade": "↓"}
 
-# Flèche découpée dans le disque tricolore du badge Δ France (voir
-# build_delta_badge) — chevron + hampe, 64x64, pointe vers le haut ou
-# le bas selon le sens du score.
-_DELTA_ARROW_PATHS = {
-    "positif": "M32,15 L46,31 L37,31 L37,49 L27,49 L27,31 L18,31 Z",
-    "negatif": "M32,49 L46,33 L37,33 L37,15 L27,15 L27,33 L18,33 Z",
-}
+_DELTA_ARROWS = {"positif": "▲", "negatif": "▼"}
 
 
 def build_delta_badge(delta):
-    """Badge Δ France : disque tricolore (bleu/blanc/rouge) avec la
-    flèche de sens directement découpée dedans (masque SVG, pas une
-    icône posée à côté) — plus texte du mot en gros à côté."""
+    """Coin Δ France : triangle tricolore (bleu/blanc/rouge) découpé en
+    haut à droite de l'image (clip-path CSS), avec une flèche de sens
+    en gros à l'intérieur. Remplace l'ancien badge en pastille (jugé
+    trop faible, puis mal placé — voir docs/ARCHITECTURE.md)."""
     direction = delta["direction"]
-    arrow_path = _DELTA_ARROW_PATHS.get(direction, _DELTA_ARROW_PATHS["positif"])
-    label = html.escape(delta["label"])
-    return f'''<div class="delta-badge" data-kind="{html.escape(direction)}">
-      <svg class="delta-badge-icon" viewBox="0 0 64 64" width="60" height="60">
-        <defs>
-          <clipPath id="deltaFlagClip"><circle cx="32" cy="32" r="30"/></clipPath>
-          <mask id="deltaArrowCut">
-            <rect width="64" height="64" fill="white"/>
-            <path d="{arrow_path}" fill="black"/>
-          </mask>
-        </defs>
-        <g clip-path="url(#deltaFlagClip)" mask="url(#deltaArrowCut)">
-          <rect x="2" y="2" width="20" height="60" fill="#2a4d8f"/>
-          <rect x="22" y="2" width="20" height="60" fill="#ece7da"/>
-          <rect x="42" y="2" width="20" height="60" fill="#bd6248"/>
-        </g>
-        <circle class="delta-badge-ring" cx="32" cy="32" r="30" fill="none" stroke-width="3"/>
-      </svg>
-      <div class="delta-badge-text">
-        <span class="delta-badge-label">Δ France</span>
-        <span class="delta-badge-word">{label}</span>
-      </div>
+    arrow = _DELTA_ARROWS.get(direction, _DELTA_ARROWS["positif"])
+    return f'''<div class="delta-corner" data-kind="{html.escape(direction)}">
+      <div class="delta-corner-flag"></div>
+      <div class="delta-corner-arrow">{arrow}</div>
+      <div class="delta-corner-label">Δ France</div>
     </div>'''
 
 

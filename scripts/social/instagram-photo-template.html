@@ -96,9 +96,6 @@
   .scenario-row[data-kind="degrade"]{ border-color: var(--degrade); }
   .scenario-row[data-kind="degrade"] .arrow{ color: var(--degrade); }
 
-  .footer-row{
-    display:flex; flex-direction:column; align-items:flex-start; gap:14px;
-  }
   .footer{
     display:flex; align-items:baseline; gap:14px;
     font-size:19px; letter-spacing:0.08em; text-transform:uppercase;
@@ -107,29 +104,42 @@
   .footer .sep{ color: var(--paper-dim); opacity:.5; }
   .footer .url{ color: var(--paper-dim); }
 
-  /* Badge Δ France, optionnel (voir __DELTA_BADGE__ / build_delta_badge()
-     dans generate_instagram_image.py) — disque tricolore avec la flèche
-     de sens découpée dedans (masque SVG), pas une icône posée à côté. */
-  .delta-badge{
-    display:flex; align-items:center; gap:18px;
+  /* Coin Δ France, optionnel (voir __DELTA_BADGE__ / build_delta_badge()
+     dans generate_instagram_image.py) — triangle tricolore en haut à
+     droite (le masthead occupe le haut à gauche, coin libre), flèche de
+     sens en gros à l'intérieur. */
+  .delta-corner{
+    position:absolute; top:0; right:0;
+    width:230px; height:230px;
+    z-index:3;
+    overflow:hidden;
   }
-  .delta-badge-ring{ stroke: var(--accent); }
-  .delta-badge[data-kind="positif"]{ --accent: var(--favorable); }
-  .delta-badge[data-kind="negatif"]{ --accent: var(--degrade); }
-  .delta-badge-text{
-    display:flex; flex-direction:column; gap:2px;
+  .delta-corner-flag{
+    position:absolute; inset:0;
+    clip-path: polygon(100% 0, 100% 100%, 0 0);
+    background: linear-gradient(135deg,
+      #2a4d8f 0%, #2a4d8f 33%,
+      #ece7da 33%, #ece7da 66%,
+      #bd6248 66%, #bd6248 100%);
+    box-shadow: -10px 10px 28px rgba(0,0,0,.4);
   }
-  .delta-badge-label{
+  .delta-corner-arrow{
+    position:absolute; top:30px; right:26px;
+    font-size:46px;
+    line-height:1;
     font-family:"JetBrains Mono", monospace;
-    font-weight:700; font-size:18px;
-    letter-spacing:0.06em; text-transform:uppercase;
-    color: var(--paper-dim);
+    text-shadow: 0 2px 8px rgba(0,0,0,.55);
   }
-  .delta-badge-word{
-    font-family:"Fraunces", serif;
-    font-weight:900; font-size:32px;
-    color: var(--accent);
+  .delta-corner-label{
+    position:absolute; top:84px; right:22px;
+    font-family:"JetBrains Mono", monospace;
+    font-weight:700; font-size:16px;
+    letter-spacing:0.05em; text-transform:uppercase;
+    color: var(--ink);
+    text-shadow: 0 1px 4px rgba(255,255,255,.25);
   }
+  .delta-corner[data-kind="positif"] .delta-corner-arrow{ color: var(--favorable); }
+  .delta-corner[data-kind="negatif"] .delta-corner-arrow{ color: var(--degrade); }
 </style></head>
 <body>
   <img class="photo" src="__PHOTO_SRC__">
@@ -152,6 +162,8 @@
     <div class="word">Scéna<span class="rio">rio</span></div>
   </div>
 
+  __DELTA_BADGE__
+
   <div class="content">
     <div class="headline">__TITLE__</div>
 
@@ -161,9 +173,6 @@
       __SCENARIO_ROWS__
     </div>
 
-    <div class="footer-row">
-      __DELTA_BADGE__
-      <div class="footer"><span class="tagline">Le futur en 3 scénarios</span><span class="sep">·</span><span class="url">lesscenarios.fr</span></div>
-    </div>
+    <div class="footer"><span class="tagline">Le futur en 3 scénarios</span><span class="sep">·</span><span class="url">lesscenarios.fr</span></div>
   </div>
 </body></html>
