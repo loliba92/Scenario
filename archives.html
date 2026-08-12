@@ -1257,8 +1257,11 @@
 
     // Tags de registre (docs/tags.md §1, ordre canonique) : un seul par
     // entrée, affiché directement dans la ligne du haut à côté de "Tout",
-    // en doré comme sur les entrées.
-    var registreCanonicalOrder = ['geopolitique', 'carte-blanche', 'actualite-francaise', 'sport', 'sciences', 'culture-francaise', 'culture-internationale'];
+    // en doré comme sur les entrées. `culture-francaise`/`culture-internationale`
+    // sont des tags historiques (avant la fusion du 12 août 2026) : gardés en
+    // fin de liste pour que les vieilles éditions restent filtrables, jamais
+    // utilisés sur une nouvelle édition (voir docs/tags.md).
+    var registreCanonicalOrder = ['geopolitique', 'carte-blanche', 'actualite-francaise', 'sport', 'sciences', 'culture', 'economie-mondiale', 'culture-francaise', 'culture-internationale'];
     registreCanonicalOrder.forEach(function(t){
       if(!seenTags[t]){ return; }
       makeChip(topRow, t, seenTags[t], function(){ toggleTagFilter(t); }).classList.add('filter-chip-registre');
@@ -1306,8 +1309,8 @@
     });
 
     // Bouton "Détail par domaine" ajouté à la fin de #tag-filters pour
-    // rester sur la même ligne que les puces de registre (juste après
-    // "Culture internationale"), plutôt que sur une ligne à part. Le
+    // rester sur la même ligne que les puces de registre (juste après la
+    // dernière puce affichée), plutôt que sur une ligne à part. Le
     // panneau qu'il ouvre reste replié par défaut (une vingtaine de tags
     // d'un coup, ça alourdit trop la page si c'est ouvert d'office) — même
     // logique que l'accordéon "Scénarios" de chaque entrée.

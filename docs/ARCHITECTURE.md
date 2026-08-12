@@ -1324,6 +1324,62 @@ moins prioritaire).
   Make/webhook) convient tel quel ou mérite un format dédié plus propre.
 
 **Contenu**
+- **[FAIT le 12 août] Restructuration des registres du week-end (retour
+  utilisateur).** Deux constats croisés le même jour : (1) `sujets-prioritaires.md`
+  montrait samedi (culture française) et dimanche (culture internationale)
+  quasi vides (1 et 3 sujets restants), alors que lundi (géopolitique/international)
+  débordait avec 17 sujets en attente, dont la moitié purement économiques
+  (inflation, taux, dette, marchés, dollar, or, bitcoin, pétrole…) mélangés aux
+  vrais sujets géopolitiques (Ukraine, Taïwan, Iran, guerre commerciale) dans un
+  seul slot hebdomadaire. Décision : fusionner culture française + culture
+  internationale en un seul registre **`culture`** (samedi) — la frontière
+  France/international était de toute façon souvent artificielle (Ubisoft est
+  français mais mondial, Netflix est international mais touche les abonnés
+  français) — et utiliser la case libérée pour un nouveau registre
+  **`économie & finance mondiale`** (dimanche), qui récupère les sujets
+  économiques auparavant tassés sous lundi. Lundi redevient un registre
+  géopolitique plus resserré (conflits, diplomatie, rapports de force entre
+  États).
+
+  **Règle de classement pour un sujet à cheval sur les deux** (guerre
+  commerciale, tarifs douaniers…) : l'enjeu central est un rapport de force
+  entre États → géopolitique/lundi ; l'enjeu central est un indicateur chiffré
+  ou un marché → économie/dimanche. Deux cas tranchés à titre d'exemple lors de
+  la restructuration : "Guerre commerciale USA-Chine" reste en géopolitique
+  (framing État contre État) ; "Droits de douane de Trump" part en économie
+  (contenu réel = batailles judiciaires et recettes tarifaires, pas un rapport
+  de force diplomatique).
+
+  **Fichiers modifiés** : `sujets-prioritaires.md` (sections renommées/scindées/
+  fusionnées, 80 sujets répartis à l'identique, aucun perdu) ; `docs/tags.md`
+  §1 (nouveaux tags `culture`/`economie-mondiale`, `culture-francaise`/
+  `culture-internationale` marqués historiques — **jamais retaggées
+  rétroactivement**, conformément à la règle déjà en place dans ce fichier) ;
+  `archives.html` (`registreCanonicalOrder` étendu aux deux nouveaux tags, les
+  deux tags historiques restent en fin de liste pour que le filtre continue de
+  fonctionner sur les vieilles éditions) ; `docs/routine-prompt.md` (grille de
+  l'étape 1, mapping des tons — dimanche rejoint désormais lundi/mercredi côté
+  sobriété plutôt que jeudi/samedi) ; `index.html` (script "Demain : {registre}",
+  mapping JS des jours) ; `le-projet.html` (grille publique `.rhythm-grid`,
+  visible des lecteurs).
+
+  **Non modifié, volontairement** : les archives déjà publiées
+  (`archives/*.html`), les récaps hebdo déjà publiés (`hebdo/*.html`,
+  `feed-weekly.xml`) et le rollback `docs/routine-prompt-rollback-2026-08-11.md`
+  gardent leurs anciens libellés de registre ("culture française", "culture
+  internationale", "géopolitique international") — ce sont des enregistrements
+  historiques exacts de ce qui a été publié à l'époque, jamais retouchés
+  rétroactivement (même principe que pour les tags).
+
+  **Point non résolu** : le trigger live de la routine quotidienne
+  (`trig_0176spj7P7E9fyTs1XBkQBWF`) tourne sur un prompt figé, stocké côté
+  Claude Code Remote, qui doit être resynchronisé à la main avec
+  `docs/routine-prompt.md` après cette édition (voir l'entrée backlog
+  "Technique" sur `.list-box` du 12 août pour le même problème de
+  synchronisation, déjà rencontré une fois ce jour-là) — la session n'a pas les
+  droits `update_trigger` sur ce trigger (créé via `http_api`, pas par un
+  agent).
+
 - **[FAIT le 7 août] `le-projet.html` : le rôle technique porte sur la
   méthode, pas juste le site.** Retour utilisateur : la phrase décrivant
   le rôle technique d'Olivier Bertrand ("il conçoit et veille au bon

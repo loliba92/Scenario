@@ -20,8 +20,29 @@ Fixé par le jour de publication — voir `docs/routine-prompt.md`, Étape 1.
 | `actualite-francaise` | Actualité française |
 | `sport` | Sport |
 | `sciences` | Sciences |
-| `culture-francaise` | Culture française |
-| `culture-internationale` | Culture internationale |
+| `culture` | Culture |
+| `economie-mondiale` | Économie mondiale |
+
+**Tags historiques, à ne plus utiliser pour une nouvelle édition** — conservés
+uniquement pour que le filtre d'`archives.html` continue à fonctionner sur les
+éditions déjà publiées avec l'ancien registre (jamais retaggées
+rétroactivement, voir « Historique » en bas de page) :
+
+| `data-tag` | Libellé | Utilisé jusqu'au |
+|---|---|---|
+| `culture-francaise` | Culture française | 12 août 2026 |
+| `culture-internationale` | Culture internationale | 12 août 2026 |
+
+**Restructuration du 12 août 2026 (retour utilisateur).** Deux changements
+liés : (1) `culture-francaise` (samedi) et `culture-internationale` (dimanche)
+fusionnent en un seul registre `culture` (samedi) — la frontière
+France/international était souvent artificielle, et les deux files étaient
+clairsemées ; (2) la case libérée par cette fusion sert à un nouveau registre
+`economie-mondiale` (dimanche), séparé de `geopolitique` (lundi) qui mélangeait
+jusque-là géopolitique dure et économie mondiale dans un seul slot surchargé.
+Voir `sujets-prioritaires.md` (section « Géopolitique — lundi ») pour la règle
+de classement des sujets à cheval sur les deux (guerres commerciales, tarifs
+douaniers…), et `docs/ARCHITECTURE.md` pour le détail de la décision.
 
 ## 2. Tags thématiques (1 à 2 en plus du tag de registre)
 
