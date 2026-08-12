@@ -798,13 +798,39 @@ moins prioritaire).
   `docs/routine-detection-prompt.md` mis à jour pour que les prochaines
   mises à jour de suivi incluent systématiquement cette balise.
 
-  **Reste à faire, côté utilisateur dans Make.com (pas modifiable depuis
-  cette session — aucun fichier blueprint pour la branche suivi dans ce
-  dépôt)** : remplacer le module LinkedIn 22 (actuellement
-  `CreateTextShare` type Article) par un `CreateCompanyImagePost` en
-  `method: link`, même recette que le module 53 de la branche
-  quotidienne — pour qu'il aille effectivement lire le nouveau tag
-  `<enclosure>` plutôt que de continuer à poster sans image.
+  **[FAIT le 12 août, clôturé] Fait côté utilisateur dans Make.com** :
+  module LinkedIn 22 (`CreateTextShare`) remplacé par le module 54
+  (`CreateCompanyImagePost`, `method: link`), même recette que le module
+  53 de la branche quotidienne ; modules Facebook (33) et X/Twitter (24)
+  passés en `useMedia: true` avec `{{30.enclosures[].url}}` ; nouveau
+  module Instagram (56, même profil que le module 34) ajouté sur la
+  branche RSS SUIVI. Confirmé via le blueprint ré-exporté par
+  l'utilisateur le 12 août, resynchronisé dans
+  `assets/make/scenario-daily.blueprint.json`. Le circuit RSS SUIVI est
+  donc désormais câblé pour l'image sur les 4 réseaux, plus de trou
+  structurel.
+
+  **3 erreurs de texte repérées dans ce même export, à corriger
+  directement dans Make (pas dans ce dépôt)** :
+  - **Module 56 (Instagram RSS SUIVI)** : `text` et `media.description`
+    utilisent `{{30.source.title}}`, un champ qui n'existe pas —
+    `feed-suivi.xml` n'a jamais porté de balise `<source>` (contrairement
+    à `feed.xml`). Le résumé partira vide sur chaque post. À remplacer
+    par `{{30.comments}}`, déjà utilisé correctement par les modules
+    23/24/33.
+  - **Module 54 (LinkedIn RSS SUIVI)** : le lien `{{30.url}}` arrive en
+    2ᵉ ligne, après l'accroche "🔄 Scenario: Un sujet suivi vient d'être
+    mis à jour 👇" — recrée exactement le bug de troncature LinkedIn
+    corrigé le 8 août sur le module 53 (lien caché derrière "…voir plus"
+    s'il n'est pas sur la toute première ligne d'un post Image). À
+    réordonner : lien en premier, puis titre, puis `{{30.comments}}`.
+  - **Module 53 (LinkedIn Daily)** : `/` littéral parasite juste avant
+    `{{4.source.title}}` (`{{newline}}{{newline}}/{{4.source.title}}`),
+    s'affichera `/Après le feu vert judiciaire...`. À retirer.
+  - Point mineur non bloquant, module 32 (Facebook Daily) :
+    `{{4.comments}}{{4.author}}` collés sans séparateur — invisible en
+    pratique car `feed.xml` ne porte aucune balise `<author>` (toujours
+    vide), mais à nettoyer si ce champ est un jour renseigné.
 
 **UX**
 - **[FAIT le 4 août] Temps de lecture estimé** sous le titre de chaque
