@@ -763,35 +763,48 @@ moins prioritaire).
   un vrai test ; si l'aperçu Buttondown lui-même ne montre rien non plus,
   l'utilisateur contactera directement le support Buttondown plutôt que
   de continuer à deviner de l'extérieur du compte.
-- **P3 — Image sur les posts LinkedIn "sujet suivi" (`feed-suivi.xml`),
-  repéré le 11 août en vérifiant le blueprint Make ré-exporté par
-  l'utilisateur.** Le module LinkedIn de la branche RSS SUIVI (id 22)
-  tente de mapper `media.title`/`media.description` mais laisse
-  `media.thumbnail: {}` vide, sans aucun module en amont pour aller
-  chercher une image — contrairement à la branche quotidienne, qui poste
-  maintenant une vraie image via `linkedin:CreateCompanyImagePost`
+- **[MOITIÉ FAITE le 12 août] Image sur les posts LinkedIn "sujet suivi"
+  (`feed-suivi.xml`), repéré le 11 août en vérifiant le blueprint Make
+  ré-exporté par l'utilisateur.** Le module LinkedIn de la branche RSS
+  SUIVI (id 22) tente de mapper `media.title`/`media.description` mais
+  laisse `media.thumbnail: {}` vide, sans aucun module en amont pour
+  aller chercher une image — contrairement à la branche quotidienne, qui
+  poste maintenant une vraie image via `linkedin:CreateCompanyImagePost`
   (module 53, voir l'entrée dédiée plus haut). Résultat : tous les posts
   LinkedIn "🔄 Un sujet suivi vient d'être mis à jour" partent sans photo,
   systématiquement (pas un incident ponctuel — un vrai trou structurel).
   Cause racine : `feed-suivi.xml` ne porte aucun tag `<enclosure>` à ce
   jour (confirmé le 8 août, déjà noté plus haut — "pas demandé, laissé
   tel quel").
-  **Décision utilisateur du 11 août : pas de correctif dans la
-  précipitation.** L'image à utiliser doit être **celle du sujet
-  d'origine, réutilisée telle quelle** — jamais une nouvelle image
-  générée spécifiquement pour la mise à jour de suivi (le sujet suivi
-  n'a pas son propre visuel distinct, il prolonge l'édition initiale).
-  Concrètement, ça suppose : ajouter un tag `<enclosure>` à chaque item
-  de `feed-suivi.xml`, pointant vers
-  `assets/social/instagram/{date de l'édition initiale}.png` (pas la
-  date de la mise à jour de suivi) — retrouvable via le lien de
-  l'archive d'origine déjà présent dans le contenu du sujet suivi.
-  Implique de mettre à jour `docs/routine-detection-prompt.md` (étape
-  de publication dans `feed-suivi.xml`) pour que la routine sache
-  toujours retrouver et référencer la bonne image d'origine, puis
-  remplacer le module LinkedIn 22 (actuellement `CreateTextShare` type
-  Article) par un `CreateCompanyImagePost` en `method: link`, même
-  recette que le module 53. Pas fait maintenant, à traiter posément.
+
+  **Décision du 11 août révisée le 12 août.** Le plan initial (réutiliser
+  l'image de l'édition d'origine, `assets/social/instagram/{date
+  d'origine}.png`) supposait qu'une telle image existe toujours — faux
+  pour les deux suivis actuels : la génération d'image Instagram n'existe
+  que depuis le **7 août**, et Spider-Man (18 juillet) comme FIFA
+  (6 août) sont tous les deux antérieurs, donc sans image d'origine à
+  réutiliser. Entre-temps (12 août), chaque page de suivi a reçu sa
+  **propre** image Pexels dédiée (`assets/social/topic-images/suivi-
+  {sujet}[.jpg/-wide.jpg]`, voir plus haut section « Pages de suivi par
+  sujet ») — devenue de fait la seule image disponible pour ces deux
+  sujets, et la plus cohérente à réutiliser ici (déjà visible sur la page
+  elle-même, un seul visuel par sujet suivi plutôt que deux qui
+  pourraient diverger).
+
+  **Fait le 12 août** : `<enclosure>` ajoutée aux deux items existants de
+  `feed-suivi.xml`, pointant vers `suivi-{sujet}.jpg` (taille réelle des
+  fichiers, pas inventée) ; gabarit d'item mis à jour dans la section
+  « Annonce des mises à jour sur Telegram/LinkedIn » ci-dessous ;
+  `docs/routine-detection-prompt.md` mis à jour pour que les prochaines
+  mises à jour de suivi incluent systématiquement cette balise.
+
+  **Reste à faire, côté utilisateur dans Make.com (pas modifiable depuis
+  cette session — aucun fichier blueprint pour la branche suivi dans ce
+  dépôt)** : remplacer le module LinkedIn 22 (actuellement
+  `CreateTextShare` type Article) par un `CreateCompanyImagePost` en
+  `method: link`, même recette que le module 53 de la branche
+  quotidienne — pour qu'il aille effectivement lire le nouveau tag
+  `<enclosure>` plutôt que de continuer à poster sans image.
 
 **UX**
 - **[FAIT le 4 août] Temps de lecture estimé** sous le titre de chaque
@@ -2720,9 +2733,20 @@ Voir les échanges de session pour le détail, mais en résumé :
     <guid isPermaLink="false">scenario-suivi-{sujet}-v{N}</guid>
     <pubDate>{date de la mise à jour au format RFC-822}</pubDate>
     <comments>{emoji} {verdict court de la conclusion, la phrase déjà écrite dans la page}</comments>
+    <enclosure url="https://lesscenarios.fr/assets/social/topic-images/suivi-{sujet}.jpg" length="{taille réelle en octets}" type="image/jpeg"/>
     <description><![CDATA[{emoji} {même phrase}<br><br>{1-2 phrases : ce qui explique le mouvement}<br><br>Voir la mise à jour complète, scénario par scénario 👉 <a href="{lien vers la version}">lesscenarios.fr/suivi/{sujet}.html</a>]]></description>
   </item>
   ```
+  **`<enclosure>` ajoutée le 12 août** — voir l'entrée backlog dédiée
+  (« Image sur les posts LinkedIn "sujet suivi" ») pour le détail complet
+  et la partie Make.com restant à faire côté utilisateur. Toujours le
+  fichier `suivi-{sujet}.jpg` (carré, celui déjà utilisé pour le sticker
+  photo de la page — pas le `-wide.jpg`, réservé à l'image en tête
+  d'article), `{taille réelle en octets}` = taille du fichier sur disque
+  (`stat -c%s`), jamais une valeur inventée. Si la page de suivi n'a pas
+  encore d'image (candidat Pexels jamais trouvé), omettre `<enclosure>`
+  entièrement — jamais bloquant pour publier l'item.
+
   Ajouter le nouvel item **en haut** du flux (comme `feed.xml`/`archives.html`), ne jamais supprimer les précédents. Premier item réel ajouté le 2 août, rétroactivement, pour la mise à jour V1 de Spider-Man (1er août).
 
   **Fait et vérifié le 2 août — scénario Make créé, testé, opérationnel.**
