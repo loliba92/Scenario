@@ -1724,28 +1724,32 @@ moins prioritaire).
        seules 3 étoiles ne montrent qu'un seul côté à la fois —
        "l'échelle doit toujours être la même quelle que soit la
        situation".**
-    7. **[FAIT, retenu] Échelle fixe à 6 étoiles (3 défavorable + 3
-       favorable, toujours les 6 visibles) + flèche qui pointe sur le
-       cran du jour.** Corrige l'itération 6 : ce n'est plus 1-3 étoiles
-       d'une seule couleur qui apparaissent/disparaissent selon le
-       score, mais une **règle graduée constante** (`★★★｜★★★`, jamais
-       redessinée différemment d'un jour à l'autre) sur laquelle une
-       petite flèche ▲ vient pointer la position du jour — index 0/1/2 =
-       défavorable très/assez/léger (le plus loin du centre = le plus
-       intense), index 3/4/5 = favorable léger/assez/très. Une seule
-       étoile (celle visée) et la flèche sont en couleur pleine
-       (`--favorable`/`--degrade`, couleurs déjà utilisées ailleurs sur
-       le site) ; les 5 autres restent grises, toujours visibles — le
-       lecteur voit toujours le même repère de référence, seule la
-       position de la flèche change. `_delta_scale_positions()` calcule
-       les coordonnées x (écart plus large entre l'étoile −1 et l'étoile
-       +1 pour bien séparer les deux camps). Couleurs SVG écrites en hex
-       fixe (`_FAVORABLE_HEX`/`_DEGRADE_HEX`), pas en `var(--x)` : un
-       attribut `fill="var(--x)"` sur un `<path>` généré côté serveur ne
-       se résout pas de façon fiable hors d'un attribut `style` — bug
-       explicitement testé et évité ici. Contrat JSON inchangé depuis
-       l'itération 6 : `data["delta"]` porte `direction`/`intensity`
-       (1-3)/`label`.
+    7. Échelle fixe à 6 étoiles avec une seule étoile visée + flèche qui
+       pointe dessus (les 5 autres restent grises). **Retour
+       utilisateur, le jour même : mauvaise lecture — "ici c'est très
+       positif, tout doit être coché, tu dois avoir les six".**
+       L'utilisateur voulait un remplissage **cumulatif**, pas une seule
+       étoile isolée.
+    8. **[FAIT, retenu] Remplissage cumulatif de gauche à droite, sur
+       une position 1-6 unique.** Corrige l'itération 7 : les étoiles
+       `1..position` sont pleines, le reste gris — pas juste celle
+       visée. Position calculée à partir de sens + intensité :
+       1 = très défavorable (1 étoile rouge) ... 3 = léger défavorable
+       (3 étoiles rouges) ... 4 = léger favorable (3 rouges + 1 verte)
+       ... 6 = très favorable (les 6 pleines, 3 rouges + 3 vertes).
+       Couleur figée par index (0-2 rouge, 3-5 vert), pas par le sens du
+       jour — c'est le nombre d'étoiles pleines qui porte l'information,
+       pas une couleur qui changerait de camp. Flèche supprimée
+       (redondante : la limite du remplissage indique déjà la position,
+       comme une jauge/note classique). `_delta_scale_positions()`
+       calcule toujours les coordonnées x (écart plus large entre
+       l'étoile 3 et l'étoile 4 pour bien séparer les deux camps).
+       Couleurs SVG toujours en hex fixe (`_FAVORABLE_HEX`/
+       `_DEGRADE_HEX`), pas en `var(--x)` — un attribut `fill="var(--x)"`
+       sur un `<path>` généré côté serveur ne se résout pas de façon
+       fiable hors d'un attribut `style`, bug testé et évité. Contrat
+       JSON inchangé depuis l'itération 6 : `data["delta"]` porte
+       `direction`/`intensity` (1-3)/`label`.
     **Implémenté uniquement sur `instagram-photo-template.html`, pas sur
     le gabarit par défaut** (`instagram-template.html`, celui de la
     routine automatique) : testé, le budget vertical/horizontal du

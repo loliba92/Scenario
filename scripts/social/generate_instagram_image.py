@@ -111,41 +111,34 @@ def build_delta_badge(delta):
     """Carte "France Impact" : petit drapeau (icône de label, pas un
     fond plein cadre — évite le côté trop identitaire du triangle
     tricolore précédent, voir docs/ARCHITECTURE.md) + une échelle fixe
-    de 6 étoiles (3 défavorable, 3 favorable, TOUJOURS les 6 visibles —
-    retour utilisateur : l'échelle doit être la même quelle que soit la
-    situation) avec une flèche qui pointe sur le cran du jour + le mot
-    en toutes lettres. Même recette de carte que .essentiel-box/
-    .list-box (fond surface, bordure, ombre légère)."""
+    de 6 étoiles remplies de façon CUMULATIVE de gauche à droite (pas
+    une seule étoile isolée + flèche — retour utilisateur explicite :
+    position 1 = très défavorable (1 étoile rouge) ... position 6 =
+    très favorable (les 6 étoiles, 3 rouges + 3 vertes, toutes pleines)
+    + le mot en toutes lettres. Même recette de carte que
+    .essentiel-box/.list-box (fond surface, bordure, ombre légère)."""
     direction = delta["direction"]
     intensity = max(1, min(3, int(delta.get("intensity", 1))))
     label = html.escape(delta["label"])
 
     xs = _delta_scale_positions()
     total_w = xs[-1] + _STAR_W
-    arrow_gap, arrow_h = 7, 11
-    total_h = _STAR_W + arrow_gap + arrow_h
+    total_h = _STAR_W
 
-    # index 0,1,2 = défavorable très/assez/léger (le plus loin du centre
-    # = le plus intense) ; index 3,4,5 = favorable léger/assez/très.
-    target = (3 - intensity) if direction == "negatif" else (2 + intensity)
+    # position 1..6 sur l'échelle : 1-3 = défavorable très/assez/léger,
+    # 4-6 = favorable léger/assez/très. Toutes les étoiles <= position
+    # sont pleines (rouge si index<3, vert sinon) ; le reste est gris.
+    position = (4 - intensity) if direction == "negatif" else (3 + intensity)
 
     stars = []
     for i, x in enumerate(xs):
         side_hex = _DEGRADE_HEX if i < 3 else _FAVORABLE_HEX
-        fill = side_hex if i == target else _STAR_EMPTY
+        fill = side_hex if (i + 1) <= position else _STAR_EMPTY
         stars.append(f'<g transform="translate({x},0)"><path d="{_STAR_PATH}" fill="{fill}"/></g>')
-
-    target_cx = xs[target] + _STAR_W / 2
-    arrow_y = _STAR_W + arrow_gap
-    arrow_hex = _DEGRADE_HEX if direction == "negatif" else _FAVORABLE_HEX
-    arrow = (
-        f'<path d="M{target_cx - 7},{arrow_y + arrow_h} L{target_cx + 7},{arrow_y + arrow_h} '
-        f'L{target_cx},{arrow_y} Z" fill="{arrow_hex}"/>'
-    )
 
     scale_svg = (
         f'<svg class="delta-mark-scale" viewBox="0 0 {total_w} {total_h}" '
-        f'width="{total_w}" height="{total_h}">{"".join(stars)}{arrow}</svg>'
+        f'width="{total_w}" height="{total_h}">{"".join(stars)}</svg>'
     )
 
     return f'''<div class="delta-mark" data-kind="{html.escape(direction)}">
