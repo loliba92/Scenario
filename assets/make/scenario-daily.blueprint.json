@@ -895,21 +895,21 @@
                                 "account": 9580775
                             },
                             "mapper": {
-                                "text": "{{4.title}}{{newline}}{{newline}}{{4.comments}}{{4.author}}{{newline}}{{newline}}👉 Lire l'analyse complète : {{4.url}}\n",
+                                "profileIds": [
+                                    "6a75903399afb443491a91a5"
+                                ],
+                                "text": "{{4.title}}{{newline}}{{newline}}{{4.comments}}{{newline}}{{newline}}👉 Lire l'analyse complète : {{4.url}}\n",
                                 "type": "now",
+                                "useMedia": true,
+                                "shorten": true,
+                                "attachment": false,
                                 "media": {
                                     "link": "{{4.enclosures[].url}}",
                                     "title": "{{4.title}}",
+                                    "description": "{{4.description}}",
                                     "picture": "{{4.enclosures[].url}}",
-                                    "thumbnail": "",
-                                    "description": "{{4.description}}"
-                                },
-                                "shorten": true,
-                                "useMedia": true,
-                                "attachment": false,
-                                "profileIds": [
-                                    "6a75903399afb443491a91a5"
-                                ]
+                                    "thumbnail": ""
+                                }
                             },
                             "metadata": {
                                 "designer": {
@@ -918,9 +918,30 @@
                                     "name": "Facebook"
                                 },
                                 "restore": {
+                                    "parameters": {
+                                        "account": {
+                                            "label": "Olivier's Buffer connection (scenarios.actu)",
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "buffer"
+                                            }
+                                        }
+                                    },
                                     "expect": {
+                                        "profileIds": {
+                                            "mode": "chose",
+                                            "label": [
+                                                "6a75903399afb443491a91a5"
+                                            ]
+                                        },
                                         "type": {
                                             "label": "Post immediately "
+                                        },
+                                        "shorten": {
+                                            "mode": "chose"
+                                        },
+                                        "attachment": {
+                                            "mode": "chose"
                                         },
                                         "media": {
                                             "nested": {
@@ -930,37 +951,16 @@
                                                 "title": {
                                                     "collapsed": true
                                                 },
+                                                "description": {
+                                                    "collapsed": true
+                                                },
                                                 "picture": {
                                                     "collapsed": true
                                                 },
                                                 "thumbnail": {
                                                     "collapsed": true
-                                                },
-                                                "description": {
-                                                    "collapsed": true
                                                 }
                                             }
-                                        },
-                                        "shorten": {
-                                            "mode": "chose"
-                                        },
-                                        "attachment": {
-                                            "mode": "chose"
-                                        },
-                                        "profileIds": {
-                                            "mode": "chose",
-                                            "label": [
-                                                "6a75903399afb443491a91a5"
-                                            ]
-                                        }
-                                    },
-                                    "parameters": {
-                                        "account": {
-                                            "data": {
-                                                "scoped": "true",
-                                                "connection": "buffer"
-                                            },
-                                            "label": "Olivier's Buffer connection (scenarios.actu)"
                                         }
                                     }
                                 },
@@ -977,8 +977,8 @@
                                         "name": "profileIds",
                                         "type": "select",
                                         "label": "Profiles",
-                                        "multiple": true,
-                                        "required": true
+                                        "required": true,
+                                        "multiple": true
                                     },
                                     {
                                         "name": "text",
@@ -1020,6 +1020,8 @@
                                     },
                                     {
                                         "name": "media",
+                                        "type": "collection",
+                                        "label": "Media",
                                         "spec": [
                                             {
                                                 "name": "link",
@@ -1046,9 +1048,7 @@
                                                 "type": "url",
                                                 "label": "Thumbnail"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Media"
+                                        ]
                                     }
                                 ]
                             }
@@ -1450,21 +1450,21 @@
                                                 "account": 9580775
                                             },
                                             "mapper": {
-                                                "profileIds": [
-                                                    "6a7480e899afb44349119553"
-                                                ],
                                                 "text": "🔄 Un sujet suivi vient d'être mis à jour 👇{{newline}}{{30.title}}{{newline}}👉 Lire l'analyse complète: {{newline}}{{30.url}}",
                                                 "type": "now",
-                                                "useMedia": true,
-                                                "shorten": true,
-                                                "attachment": false,
                                                 "media": {
                                                     "link": "{{30.enclosures[].url}}",
                                                     "title": "{{30.title}}",
-                                                    "description": "{{30.comments}}",
                                                     "picture": "{{30.enclosures[].url}}",
-                                                    "thumbnail": ""
-                                                }
+                                                    "thumbnail": "",
+                                                    "description": "{{30.comments}}"
+                                                },
+                                                "shorten": true,
+                                                "useMedia": true,
+                                                "attachment": false,
+                                                "profileIds": [
+                                                    "6a7480e899afb44349119553"
+                                                ]
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -1473,30 +1473,9 @@
                                                     "name": "Twitter "
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "account": {
-                                                            "label": "Olivier's Buffer connection (scenarios.actu)",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "buffer"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
-                                                        "profileIds": {
-                                                            "mode": "chose",
-                                                            "label": [
-                                                                "6a7480e899afb44349119553"
-                                                            ]
-                                                        },
                                                         "type": {
                                                             "label": "Post immediately "
-                                                        },
-                                                        "shorten": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "attachment": {
-                                                            "mode": "chose"
                                                         },
                                                         "media": {
                                                             "nested": {
@@ -1506,13 +1485,34 @@
                                                                 "title": {
                                                                     "collapsed": true
                                                                 },
-                                                                "description": {
+                                                                "picture": {
                                                                     "collapsed": true
                                                                 },
-                                                                "picture": {
+                                                                "description": {
                                                                     "collapsed": true
                                                                 }
                                                             }
+                                                        },
+                                                        "shorten": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "attachment": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "profileIds": {
+                                                            "mode": "chose",
+                                                            "label": [
+                                                                "6a7480e899afb44349119553"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "account": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "buffer"
+                                                            },
+                                                            "label": "Olivier's Buffer connection (scenarios.actu)"
                                                         }
                                                     }
                                                 },
@@ -1529,8 +1529,8 @@
                                                         "name": "profileIds",
                                                         "type": "select",
                                                         "label": "Profiles",
-                                                        "required": true,
-                                                        "multiple": true
+                                                        "multiple": true,
+                                                        "required": true
                                                     },
                                                     {
                                                         "name": "text",
@@ -1572,8 +1572,6 @@
                                                     },
                                                     {
                                                         "name": "media",
-                                                        "type": "collection",
-                                                        "label": "Media",
                                                         "spec": [
                                                             {
                                                                 "name": "link",
@@ -1600,7 +1598,9 @@
                                                                 "type": "url",
                                                                 "label": "Thumbnail"
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Media"
                                                     }
                                                 ]
                                             }
@@ -1617,21 +1617,21 @@
                                                 "account": 9580775
                                             },
                                             "mapper": {
-                                                "profileIds": [
-                                                    "6a75903399afb443491a91a5"
-                                                ],
                                                 "text": "{{30.title}}{{newline}}{{newline}}{{30.comments}}{{newline}}{{newline}}👉 Voir la mise à jour : {{30.url}}",
                                                 "type": "now",
-                                                "useMedia": true,
-                                                "shorten": true,
-                                                "attachment": false,
                                                 "media": {
                                                     "link": "{{30.enclosures[].url}}",
                                                     "title": "{{30.title}}",
-                                                    "description": "{{30.comments}}",
                                                     "picture": "{{30.enclosures[].url}}",
-                                                    "thumbnail": ""
-                                                }
+                                                    "thumbnail": "",
+                                                    "description": "{{30.comments}}"
+                                                },
+                                                "shorten": true,
+                                                "useMedia": true,
+                                                "attachment": false,
+                                                "profileIds": [
+                                                    "6a75903399afb443491a91a5"
+                                                ]
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -1640,30 +1640,9 @@
                                                     "name": "Facebook "
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "account": {
-                                                            "label": "Olivier's Buffer connection (scenarios.actu)",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "buffer"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
-                                                        "profileIds": {
-                                                            "mode": "chose",
-                                                            "label": [
-                                                                "6a75903399afb443491a91a5"
-                                                            ]
-                                                        },
                                                         "type": {
                                                             "label": "Post immediately "
-                                                        },
-                                                        "shorten": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "attachment": {
-                                                            "mode": "chose"
                                                         },
                                                         "media": {
                                                             "nested": {
@@ -1673,13 +1652,34 @@
                                                                 "title": {
                                                                     "collapsed": true
                                                                 },
-                                                                "description": {
+                                                                "picture": {
                                                                     "collapsed": true
                                                                 },
-                                                                "picture": {
+                                                                "description": {
                                                                     "collapsed": true
                                                                 }
                                                             }
+                                                        },
+                                                        "shorten": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "attachment": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "profileIds": {
+                                                            "mode": "chose",
+                                                            "label": [
+                                                                "6a75903399afb443491a91a5"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "account": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "buffer"
+                                                            },
+                                                            "label": "Olivier's Buffer connection (scenarios.actu)"
                                                         }
                                                     }
                                                 },
@@ -1696,8 +1696,8 @@
                                                         "name": "profileIds",
                                                         "type": "select",
                                                         "label": "Profiles",
-                                                        "required": true,
-                                                        "multiple": true
+                                                        "multiple": true,
+                                                        "required": true
                                                     },
                                                     {
                                                         "name": "text",
@@ -1739,8 +1739,6 @@
                                                     },
                                                     {
                                                         "name": "media",
-                                                        "type": "collection",
-                                                        "label": "Media",
                                                         "spec": [
                                                             {
                                                                 "name": "link",
@@ -1767,7 +1765,9 @@
                                                                 "type": "url",
                                                                 "label": "Thumbnail"
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Media"
                                                     }
                                                 ]
                                             }
@@ -1787,7 +1787,7 @@
                                                 "organization": "urn:li:organization:136694258",
                                                 "method": "link",
                                                 "title": "{{30.title}}",
-                                                "content": "🔄 Scenario: Un sujet suivi vient d'être mis à jour 👇 {{newline}}Lire la mise à jour complète : {{30.url}}{{newline}}{{30.title}}{{newline}}{{newline}}{{30.comments}}",
+                                                "content": "👉 Mise à jour d'un nouveau sujet: {{30.url}}{{newline}}{{newline}}{{30.title}}{{newline}}{{newline}}{{30.comments}}",
                                                 "visibility": "PUBLIC",
                                                 "feedDistribution": "MAIN_FEED",
                                                 "isReshareDisabledByAuthor": false,
@@ -1927,21 +1927,21 @@
                                                 "account": 9580775
                                             },
                                             "mapper": {
-                                                "profileIds": [
-                                                    "6a67a2cc4b2d03035f4e3e01"
-                                                ],
                                                 "text": "Sujet mis à jour:{{newline}}{{30.title}}{{newline}}{{newline}}{{30.source.title}}{{newline}}{{newline}}👉 Lien en bio pour lire l'analyse complète",
                                                 "type": "now",
-                                                "useMedia": true,
-                                                "shorten": true,
-                                                "attachment": false,
                                                 "media": {
                                                     "link": "{{30.enclosures[].url}}",
                                                     "title": "{{30.title}}",
-                                                    "description": "{{30.source.title}}",
                                                     "picture": "{{30.enclosures[].url}}",
-                                                    "thumbnail": ""
-                                                }
+                                                    "thumbnail": "",
+                                                    "description": "{{30.source.title}}"
+                                                },
+                                                "shorten": true,
+                                                "useMedia": true,
+                                                "attachment": false,
+                                                "profileIds": [
+                                                    "6a67a2cc4b2d03035f4e3e01"
+                                                ]
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -1950,30 +1950,9 @@
                                                     "name": "INSTAGRAM"
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "account": {
-                                                            "label": "Olivier's Buffer connection (scenarios.actu)",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "buffer"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
-                                                        "profileIds": {
-                                                            "mode": "chose",
-                                                            "label": [
-                                                                "6a67a2cc4b2d03035f4e3e01"
-                                                            ]
-                                                        },
                                                         "type": {
                                                             "label": "Post immediately "
-                                                        },
-                                                        "shorten": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "attachment": {
-                                                            "mode": "chose"
                                                         },
                                                         "media": {
                                                             "nested": {
@@ -1987,6 +1966,27 @@
                                                                     "collapsed": true
                                                                 }
                                                             }
+                                                        },
+                                                        "shorten": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "attachment": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "profileIds": {
+                                                            "mode": "chose",
+                                                            "label": [
+                                                                "6a67a2cc4b2d03035f4e3e01"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "account": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "buffer"
+                                                            },
+                                                            "label": "Olivier's Buffer connection (scenarios.actu)"
                                                         }
                                                     }
                                                 },
@@ -2003,8 +2003,8 @@
                                                         "name": "profileIds",
                                                         "type": "select",
                                                         "label": "Profiles",
-                                                        "required": true,
-                                                        "multiple": true
+                                                        "multiple": true,
+                                                        "required": true
                                                     },
                                                     {
                                                         "name": "text",
@@ -2046,8 +2046,6 @@
                                                     },
                                                     {
                                                         "name": "media",
-                                                        "type": "collection",
-                                                        "label": "Media",
                                                         "spec": [
                                                             {
                                                                 "name": "link",
@@ -2074,7 +2072,9 @@
                                                                 "type": "url",
                                                                 "label": "Thumbnail"
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Media"
                                                     }
                                                 ],
                                                 "advanced": true
@@ -2096,14 +2096,14 @@
                                 "__IMTCONN__": 9443289
                             },
                             "mapper": {
-                                "url": "{{4.enclosures[].url}}",
-                                "title": "{{4.title}}",
-                                "method": "link",
-                                "content": "👉 Lire l'analyse complète : {{4.url}} {{newline}}{{newline}}{{4.title}}{{newline}}{{newline}}/{{4.source.title}}",
-                                "visibility": "PUBLIC",
                                 "organization": "urn:li:organization:136694258",
+                                "method": "link",
+                                "title": "{{4.title}}",
+                                "content": "👉 Lire l'analyse complète : {{4.url}}{{newline}}{{newline}}{{4.title}}{{newline}}{{newline}}{{4.source.title}}",
+                                "visibility": "PUBLIC",
                                 "feedDistribution": "MAIN_FEED",
-                                "isReshareDisabledByAuthor": false
+                                "isReshareDisabledByAuthor": false,
+                                "url": "{{4.enclosures[].url}}"
                             },
                             "metadata": {
                                 "designer": {
@@ -2111,7 +2111,20 @@
                                     "y": -728
                                 },
                                 "restore": {
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "label": "Olivier's LinkedIn connection (Olivier BERTRAND)",
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "linkedin2"
+                                            }
+                                        }
+                                    },
                                     "expect": {
+                                        "organization": {
+                                            "mode": "chose",
+                                            "label": "Scenario"
+                                        },
                                         "method": {
                                             "label": "Upload by link"
                                         },
@@ -2119,25 +2132,12 @@
                                             "mode": "chose",
                                             "label": "Anyone"
                                         },
-                                        "organization": {
-                                            "mode": "chose",
-                                            "label": "Scenario"
-                                        },
                                         "feedDistribution": {
                                             "mode": "chose",
                                             "label": "Main feed"
                                         },
                                         "isReshareDisabledByAuthor": {
                                             "mode": "chose"
-                                        }
-                                    },
-                                    "parameters": {
-                                        "__IMTCONN__": {
-                                            "data": {
-                                                "scoped": "true",
-                                                "connection": "linkedin2"
-                                            },
-                                            "label": "Olivier's LinkedIn connection (Olivier BERTRAND)"
                                         }
                                     }
                                 },

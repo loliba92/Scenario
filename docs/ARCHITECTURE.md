@@ -810,27 +810,25 @@ moins prioritaire).
   donc désormais câblé pour l'image sur les 4 réseaux, plus de trou
   structurel.
 
-  **3 erreurs de texte repérées dans ce même export, à corriger
-  directement dans Make (pas dans ce dépôt)** :
-  - **Module 56 (Instagram RSS SUIVI)** : `text` et `media.description`
-    utilisent `{{30.source.title}}`, un champ qui n'existe pas —
-    `feed-suivi.xml` n'a jamais porté de balise `<source>` (contrairement
-    à `feed.xml`). Le résumé partira vide sur chaque post. À remplacer
-    par `{{30.comments}}`, déjà utilisé correctement par les modules
-    23/24/33.
-  - **Module 54 (LinkedIn RSS SUIVI)** : le lien `{{30.url}}` arrive en
-    2ᵉ ligne, après l'accroche "🔄 Scenario: Un sujet suivi vient d'être
-    mis à jour 👇" — recrée exactement le bug de troncature LinkedIn
-    corrigé le 8 août sur le module 53 (lien caché derrière "…voir plus"
-    s'il n'est pas sur la toute première ligne d'un post Image). À
-    réordonner : lien en premier, puis titre, puis `{{30.comments}}`.
-  - **Module 53 (LinkedIn Daily)** : `/` littéral parasite juste avant
-    `{{4.source.title}}` (`{{newline}}{{newline}}/{{4.source.title}}`),
-    s'affichera `/Après le feu vert judiciaire...`. À retirer.
-  - Point mineur non bloquant, module 32 (Facebook Daily) :
-    `{{4.comments}}{{4.author}}` collés sans séparateur — invisible en
-    pratique car `feed.xml` ne porte aucune balise `<author>` (toujours
-    vide), mais à nettoyer si ce champ est un jour renseigné.
+  **3 erreurs de texte repérées dans cet export, corrigées à 2/3 dans un
+  second export le 12 août** :
+  - ✅ **[FAIT] Module 54 (LinkedIn RSS SUIVI)** : le lien `{{30.url}}`
+    était en 2ᵉ ligne, derrière l'accroche — recréait le bug de
+    troncature LinkedIn corrigé le 8 août sur le module 53 (lien caché
+    derrière "…voir plus" s'il n'est pas sur la toute première ligne d'un
+    post Image). Remonté en première ligne, confirmé dans le second
+    export.
+  - ✅ **[FAIT] Module 53 (LinkedIn Daily)** : `/` littéral parasite
+    juste avant `{{4.source.title}}` retiré, confirmé dans le second
+    export. Bonus au passage : `{{4.author}}` (toujours vide, aucune
+    balise `<author>` dans `feed.xml`) a aussi disparu du module 32
+    (Facebook Daily), qui ne le portait plus besoin de signaler.
+  - ❌ **[TOUJOURS OUVERT] Module 56 (Instagram RSS SUIVI)** : `text` et
+    `media.description` utilisent toujours `{{30.source.title}}`, un
+    champ qui n'existe pas — `feed-suivi.xml` n'a jamais porté de balise
+    `<source>` (contrairement à `feed.xml`). Le résumé partira vide sur
+    chaque post. À remplacer par `{{30.comments}}`, déjà utilisé
+    correctement par les modules 23/24/33.
 
 **UX**
 - **[FAIT le 4 août] Temps de lecture estimé** sous le titre de chaque
