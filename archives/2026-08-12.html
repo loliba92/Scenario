@@ -497,14 +497,30 @@
     border-top: 1px solid var(--hairline);
   }
 
-  .delta-gauge{ position: relative; width: 108px; height: 64px; flex: 0 0 108px; }
-  .delta-gauge svg{ width: 100%; height: 100%; overflow: visible; }
+  .delta-gauge{ position: relative; width: 108px; height: 78px; flex: 0 0 108px; }
+  .delta-gauge svg{ width: 100%; height: 64px; overflow: visible; display: block; }
   .delta-gauge-track{ fill: none; stroke-width: 10; stroke-linecap: round; }
   .delta-gauge-marker{
     fill: var(--paper);
     stroke: var(--ink);
     stroke-width: 2;
     transition: cx 1.1s cubic-bezier(.16,.8,.3,1), cy 1.1s cubic-bezier(.16,.8,.3,1);
+  }
+  /* Repère dans la jauge, sur 2 lignes contenues dans la largeur de la
+     boîte (108px) — jamais nowrap/débordant, voir docs/ARCHITECTURE.md
+     pour l'historique des essais précédents (débordement, une seule
+     ligne trop tassée...). Redondant avec .delta-word dans la phrase,
+     volontairement : un repère visuel rapide sur la jauge + le mot
+     développé et coloré dans le texte. */
+  .delta-gauge-word{
+    display: block;
+    margin-top: 4px;
+    text-align: center;
+    line-height: 1.2;
+    font-size: 0.66rem;
+    color: var(--paper-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
   }
 
   /* flex: 1 1 220px, pas juste "1" : force le retour à la ligne sous la
@@ -1302,6 +1318,7 @@
             <path class="delta-gauge-track" d="M9,58 A45,45 0 0,1 99,58" stroke="url(#deltaGrad)"/>
             <circle class="delta-gauge-marker" data-score="-0.15" cx="54" cy="13" r="5"/>
           </svg>
+          <div class="delta-gauge-word">Léger négatif</div>
         </div>
         <p class="essentiel-text delta-text"><svg class="delta-flag" viewBox="0 0 21 15" width="16" height="11" aria-hidden="true"><rect x="0" y="0" width="7" height="15" fill="#2a4d8f"/><rect x="7" y="0" width="7" height="15" fill="#ece7da"/><rect x="14" y="0" width="7" height="15" fill="#bd6248"/></svg> <strong>Notre évaluation de l'impact pour la France : <span class="delta-word">léger négatif</span>.</strong> Le risque d'un blocage politique aggravé (35 %) pèse un peu plus que la chance d'un paysage plus lisible (20 %) — le scénario central (45 %) reste de toute façon un statu quo sans grand changement.</p>
       </div>

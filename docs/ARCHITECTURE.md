@@ -1811,18 +1811,25 @@ moins prioritaire).
         relatifs `../` propres à `archives/` — diff final vérifié : ne
         restent que les différences légitimes (canonical/OG, nav
         `aria-current`, lien `.dek` sans préfixe `archives/`).
-    12. **[FAIT, retenu] Mot du sens retiré de la jauge, coloré
-        directement dans la phrase.** Retour utilisateur, le jour même :
-        "léger négatif" apparaissait deux fois (légende sous la jauge +
-        dans la phrase), redondant. `.delta-gauge-word` supprimé — la
-        jauge redevient purement visuelle (arc + repère), sans texte
-        dedans. Le mot est maintenant un `<span class="delta-word">`
-        dans la phrase elle-même, coloré via `data-kind="positif|
-        negatif"` sur `.delta-france` (favorable = vert, dégradé =
-        rouge — mêmes couleurs déjà utilisées partout ailleurs, aucune
-        nouvelle imagerie). Répercuté sur `archives/2026-08-12.html` en
-        même temps qu'`index.html` et `docs/routine-prompt.md`, comme
-        pour l'itération 11.
+    12. Mot du sens retiré de la jauge, coloré directement dans la
+        phrase. Retour utilisateur : "léger négatif" apparaissait deux
+        fois (légende sous la jauge + dans la phrase), redondant.
+        `.delta-gauge-word` supprimé, mot déplacé en `<span
+        class="delta-word">` coloré via `data-kind` sur `.delta-france`.
+        **Retour utilisateur, le jour même : reconsidéré — "tu peux pas
+        mettre léger négatif à l'intérieur de la jauge sur 2 lignes ?"**
+    13. **[FAIT, retenu] Le mot revient dans la jauge, en plus du mot
+        coloré dans la phrase — les deux, pas l'un ou l'autre.**
+        `.delta-gauge-word` réintroduit, mais cette fois **en flux
+        normal sous l'arc** (plus en `position: absolute`) avec
+        `.delta-gauge` élargi à 78px de hauteur (64px pour l'arc + place
+        réservée pour le mot) — wrap naturel sur autant de lignes que
+        nécessaire dans les 108px de large, jamais de `nowrap` ni
+        d'offset négatif (les deux avaient causé les débordements des
+        itérations précédentes). Le `<span class="delta-word">` coloré
+        dans la phrase reste inchangé. Répercuté sur
+        `archives/2026-08-12.html` et `docs/routine-prompt.md` en même
+        temps qu'`index.html`, comme pour l'itération 11.
     **Implémenté uniquement sur `instagram-photo-template.html`, pas sur
     le gabarit par défaut** (`instagram-template.html`, celui de la
     routine automatique) : testé, le budget vertical/horizontal du
