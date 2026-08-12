@@ -104,30 +104,44 @@
   .footer .sep{ color: var(--paper-dim); opacity:.5; }
   .footer .url{ color: var(--paper-dim); }
 
-  /* Marque Δ France, optionnelle (voir __DELTA_BADGE__ / build_delta_badge()
-     dans generate_instagram_image.py) — discrète, même vocabulaire
-     visuel que les jauges .gauge des cartes (anneau fin + couleur
-     favorable/dégradé), pas de nouvelle imagerie. Coin haut-droit,
-     libre (masthead à gauche). */
+  /* Carte Δ France, optionnelle (voir __DELTA_BADGE__ / build_delta_badge()
+     dans generate_instagram_image.py) — même recette que .essentiel-box/
+     .list-box (fond surface, bordure, ombre légère), anneau + flèche
+     pleine (couleur favorable/dégradé, vocabulaire déjà utilisé ailleurs
+     sur le site) à côté du mot en gros. Coin haut-droit, libre (masthead
+     à gauche). */
   .delta-mark{
-    position:absolute; top:44px; right:52px;
-    display:flex; flex-direction:column; align-items:center; gap:8px;
+    position:absolute; top:44px; right:44px;
+    display:flex; align-items:center; gap:16px;
+    background: rgba(16,21,28,0.72);
+    border: 1px solid rgba(236,231,218,0.16);
+    border-radius: 16px;
+    padding: 16px 26px 16px 18px;
+    box-shadow: 0 10px 28px rgba(0,0,0,.4);
     z-index:3;
   }
   .delta-mark-ring{
-    fill: rgba(16,21,28,0.5);
+    fill: rgba(236,231,218,0.06);
     stroke: var(--accent);
-    stroke-width: 2.5;
+    stroke-width: 3;
   }
   .delta-mark-arrow{ fill: var(--accent); }
   .delta-mark[data-kind="positif"]{ --accent: var(--favorable); }
   .delta-mark[data-kind="negatif"]{ --accent: var(--degrade); }
+  .delta-mark-text{
+    display:flex; flex-direction:column; gap:3px;
+  }
   .delta-mark-label{
     font-family:"JetBrains Mono", monospace;
-    font-weight:700; font-size:14px;
+    font-weight:700; font-size:16px;
     letter-spacing:0.07em; text-transform:uppercase;
     color: var(--paper-dim);
-    text-shadow: 0 1px 5px rgba(0,0,0,.6);
+  }
+  .delta-mark-word{
+    font-family:"Fraunces", serif;
+    font-weight:900; font-size:28px;
+    line-height:1.1;
+    color: var(--accent);
   }
 </style></head>
 <body>

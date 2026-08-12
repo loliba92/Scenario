@@ -74,26 +74,30 @@ ARROWS = {"favorable": "↑", "stable": "→", "degrade": "↓"}
 # pointe vers le haut ou le bas selon le sens du score, dans un cercle
 # 72x72 (voir build_delta_badge).
 _DELTA_ARROW_PATHS = {
-    "positif": "M36,23 L49,43 L23,43 Z",
-    "negatif": "M36,49 L49,29 L23,29 Z",
+    "positif": "M36,22 L50,44 L22,44 Z",
+    "negatif": "M36,50 L50,28 L22,28 Z",
 }
 
 
 def build_delta_badge(delta):
-    """Marque Δ France, discrète : petit anneau (même langage visuel que
-    les jauges .gauge des cartes de scénario) avec une flèche pleine
-    haut/bas, couleur favorable/dégradé — déjà le vocabulaire du site,
-    aucune imagerie supplémentaire ajoutée. Remplace le triangle
-    tricolore (retour utilisateur : trop "drapeau", pas assez discret —
-    voir docs/ARCHITECTURE.md)."""
+    """Carte Δ France : même recette que .essentiel-box/.list-box déjà
+    utilisée ailleurs sur le site (fond surface, bordure, ombre légère)
+    — anneau + flèche pleine (couleur favorable/dégradé, vocabulaire
+    déjà là, aucune imagerie nouvelle) à côté du mot en gros. Remplace
+    la marque seule (retour utilisateur : trop petite, pas assez
+    professionnelle — voir docs/ARCHITECTURE.md)."""
     direction = delta["direction"]
     arrow_path = _DELTA_ARROW_PATHS.get(direction, _DELTA_ARROW_PATHS["positif"])
+    label = html.escape(delta["label"])
     return f'''<div class="delta-mark" data-kind="{html.escape(direction)}">
-      <svg viewBox="0 0 72 72" width="60" height="60">
+      <svg viewBox="0 0 72 72" width="52" height="52">
         <circle cx="36" cy="36" r="32" class="delta-mark-ring"/>
         <path d="{arrow_path}" class="delta-mark-arrow"/>
       </svg>
-      <span class="delta-mark-label">Δ France</span>
+      <div class="delta-mark-text">
+        <span class="delta-mark-label">Δ France</span>
+        <span class="delta-mark-word">{label}</span>
+      </div>
     </div>'''
 
 

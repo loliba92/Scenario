@@ -1697,19 +1697,23 @@ moins prioritaire).
        trop "drapeau", évoque une esthétique identitaire ("France
        d'abord") non désirée — même en étant discret par la taille, le
        drapeau plein cadre reste trop connoté.**
-    4. **[FAIT, retenu] Marque discrète, sans imagerie nationale** :
-       abandon total du drapeau. Reprend le vocabulaire visuel déjà
-       existant du site (même esprit que les jauges `.gauge` des
-       cartes) — petit anneau fin (cercle, pas de tricolore), flèche
-       pleine ▲/▼ à l'intérieur, couleur = `--favorable`/`--degrade`
-       (les 2 couleurs déjà utilisées partout ailleurs pour "positif/
-       négatif" sur ce site, pas une nouvelle imagerie). Texte "Δ
-       France" en petit, `--paper-dim`. ~60px de diamètre, coin haut-
-       droit — nettement plus petit et sobre que le triangle. Pas de
-       pourcentage ni de mot d'intensité sur l'image — même logique que
-       "pas de pourcentages dans l'image, effet teaser" déjà en place
-       pour le reste du gabarit ; le mot d'intensité (léger/assez/très)
-       reste réservé à L'essentiel et au feed.
+    4. Marque discrète, sans imagerie nationale — abandon total du
+       drapeau, petit anneau fin (~60px) avec flèche ▲/▼ pleine, couleur
+       `--favorable`/`--degrade`, juste le texte "Δ France" en petit en
+       dessous. **Retour utilisateur : trop petit, "pas très
+       professionnel".**
+    5. **[FAIT, retenu] Carte, même recette que `.essentiel-box`/
+       `.list-box`** (fond surface semi-opaque, bordure fine, ombre
+       légère) — reprend l'anneau + flèche de l'itération 4 (toujours
+       aucune imagerie nationale, mêmes couleurs favorable/dégradé déjà
+       utilisées ailleurs) mais dans un vrai conteneur avec le mot
+       affiché en grand à côté (Fraunces, gras, couleur accent) plutôt
+       que seul en petit texte flottant. Meilleur équilibre : assez
+       présent pour ne pas paraître anecdotique, toujours sans bandeau
+       ni symbole identitaire. Pas de pourcentage sur l'image (reste
+       réservé à L'essentiel/au feed) — seul le mot d'intensité
+       (léger/assez/très + sens) y figure désormais, contrairement aux
+       itérations 3-4 qui n'affichaient que la flèche.
     **Implémenté uniquement sur `instagram-photo-template.html`, pas sur
     le gabarit par défaut** (`instagram-template.html`, celui de la
     routine automatique) : testé, le budget vertical/horizontal du
