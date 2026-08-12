@@ -229,6 +229,36 @@
 
   .dek strong{ color: var(--paper); font-weight: 600; }
 
+  .article-image{ margin: 22px 0 28px; }
+  .article-image-photo-wrap{
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+  }
+  .article-image-photo{
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .article-image-scrim{
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(16,21,28,.97) 0%, rgba(16,21,28,.75) 16%, rgba(16,21,28,.3) 32%, transparent 50%, transparent 100%);
+  }
+  .article-image-masthead{
+    position: absolute; top: 4px; left: 6px;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .article-image-logo{ width: 33px; height: 33px; display: block; }
+  .article-image-wordmark{
+    font-family: "Fraunces", serif; font-weight: 600; font-size: clamp(1.15rem, 2.3vw, 1.5rem); color: var(--paper);
+  }
+  .article-image-wordmark span{ color: var(--gold); }
+  .article-image-caption{ font-size: 0.8rem; color: var(--paper-dim); margin: 10px 0 0; }
+  .article-image-caption a{ color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
+  .article-image-caption a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
   .question-box{
     background: var(--surface);
     border-left: 3px solid var(--gold);
@@ -598,6 +628,20 @@
     <p class="eyebrow">Mardi carte blanche · Milliardaires & richesse mondiale</p>
     <h1>Milliardaires : la richesse du monde peut-elle encore se partager ?</h1>
     <p class="pubdate">Publié le 28 juillet 2026</p>
+
+    <!-- Image ajoutée le 12 août (rétroactif, lien Pexels fourni par
+         l'utilisateur, pas de recherche par mots-clés cette fois). -->
+    <figure class="article-image">
+      <div class="article-image-photo-wrap">
+        <img class="article-image-photo" src="../assets/social/topic-images/2026-07-28-wide.jpg" alt="Voitures de luxe garées devant une villa de style méditerranéen.">
+        <div class="article-image-scrim"></div>
+        <div class="article-image-masthead">
+          <img class="article-image-logo" src="../assets/logo.svg" alt="">
+          <span class="article-image-wordmark">Scéna<span>rio</span></span>
+        </div>
+      </div>
+      <figcaption class="article-image-caption">Photo d'illustration. Matías Castillo / <a href="https://www.pexels.com/photo/luxury-cars-in-front-of-mediterranean-style-mansion-30836233/" target="_blank" rel="noopener noreferrer">Pexels ↗</a></figcaption>
+    </figure>
 
     <div class="question-box">
       <span class="question-label">La question posée</span>
