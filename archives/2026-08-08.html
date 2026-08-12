@@ -294,34 +294,6 @@
 
   .dek strong{ color: var(--paper); font-weight: 600; }
 
-  /* Liste à puces dans le contexte (pas seulement dans les cartes de
-     scénarios) — même motif que .field li plus bas dans ce fichier (tiret
-     coloré), pour un passage dense à lire d'un coup d'œil plutôt qu'en
-     phrase continue. */
-  .dek-list{
-    list-style: none;
-    margin: 0 0 20px;
-    padding: 0;
-    max-width: 62ch;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .dek-list li{
-    font-size: 1.1rem;
-    line-height: 1.55;
-    color: var(--paper-dim);
-    padding-left: 20px;
-    position: relative;
-  }
-  .dek-list li::before{
-    content: "–";
-    position: absolute;
-    left: 0;
-    color: var(--gold);
-  }
-  .dek-list strong{ color: var(--paper); font-weight: 600; }
-
   .dek a{ color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
   .dek a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
 
@@ -417,6 +389,84 @@
   }
 
   .essentiel-text strong{ color: var(--paper); font-weight: 600; }
+
+  /* ---------- Encart liste (sorties, classements...) ---------- */
+  /* Composant réutilisable pour toute liste mise en avant dans un article —
+     même recette que .essentiel-box (fond surface, bordure dorée, label
+     JetBrains Mono) mais pensé pour une liste d'items scannables plutôt
+     qu'un paragraphe. Le repère (.list-box-rank) accepte un numéro
+     (classement) ou un emoji (liste non classée) selon le contexte. */
+  .list-box{
+    background: var(--surface);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    padding: 22px 26px 6px;
+    margin: 0 0 28px;
+    max-width: 62ch;
+  }
+
+  .list-box-label{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin: 0 0 4px;
+  }
+
+  .list-box-items{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .list-box-items li{
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 14px 0;
+    border-top: 1px dashed var(--hairline);
+  }
+
+  .list-box-rank{
+    flex: none;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--gold);
+    min-width: 1.7em;
+  }
+
+  .list-box-body{
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .list-box-title{
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--paper);
+  }
+
+  .list-box-meta{
+    display: block;
+    font-size: 0.86rem;
+    color: var(--paper-dim);
+    margin-top: 3px;
+    line-height: 1.45;
+  }
+
+  .list-box-foot{
+    font-size: 0.86rem;
+    color: var(--paper-dim);
+    padding: 14px 0 16px;
+    border-top: 1px dashed var(--hairline);
+    margin: 0;
+  }
 
   .indicator-strip{
     display: flex;
@@ -930,35 +980,124 @@
 
     <p class="dek">Sauf que 2026 change complètement la donne. Sur les sept premiers mois de l'année, environ <strong>107,9 millions d'entrées</strong> ont déjà été comptabilisées en France, un rythme nettement supérieur à celui de 2025. Le premier trimestre a progressé de <strong>14 %</strong>, et juillet a bondi de <strong>22,6 %</strong> sur un an. Sur l'année glissante<a class="lex-ref" href="#lex-annee-glissante" aria-label="Voir la définition dans le lexique">*</a> allant d'août 2025 à juillet 2026, la fréquentation atteint <strong>174,52 millions d'entrées</strong>, contre 167,56 millions un an plus tôt — un vrai rebond porté notamment par « Marsupilami », la comédie française de Philippe Lacheau, qui a dépassé les <strong>6,1 millions d'entrées</strong> et s'est imposée comme l'un des gros succès français de l'année.</p>
 
-    <p class="dek">Fin juillet a justement livré deux temps forts qui expliquent une bonne partie du bond de juillet : <strong>L'Odyssée</strong>, le péplum de Christopher Nolan avec Matt Damon, sorti le 15 juillet, a réalisé le <strong>3ᵉ meilleur premier jour de l'année</strong> (232 972 entrées) ; puis <a href="../suivi/spiderman-marvel.html"><strong>Spider-Man : Brand New Day</strong></a>, sorti le 31 juillet, a signé le <strong>9ᵉ meilleur démarrage hebdomadaire de l'histoire du box-office français</strong> avec <strong>3,24 millions d'entrées</strong> en une semaine sur seulement 665 copies — la meilleure sortie de film de super-héros depuis Avengers : Endgame en 2019.</p>
+    <p class="dek">Fin juillet a justement livré deux temps forts qui expliquent une bonne partie du bond de juillet : <strong>L'Odyssée</strong>, le péplum de Christopher Nolan avec Matt Damon, sorti le 15 juillet, a réalisé le <strong>3ᵉ meilleur premier jour de l'année</strong> (232 972 entrées) ; puis <a href="../suivi/spiderman-marvel.html"><strong>Spider-Man : Brand New Day</strong></a>, sorti le 29 juillet, a signé le <strong>9ᵉ meilleur démarrage hebdomadaire de l'histoire du box-office français</strong> avec <strong>3,24 millions d'entrées</strong> en une semaine sur seulement 665 copies — la meilleure sortie de film de super-héros depuis Avengers : Endgame en 2019.</p>
 
-    <p class="dek">Ces deux succès ne sont pas des cas isolés : voici, à ce jour (12 août 2026), le classement des dix films qui ont fait le plus d'entrées en France depuis le début de l'année :</p>
+    <p class="dek">Ces deux succès ne sont pas des cas isolés : voici, à ce jour (12 août 2026), le classement des dix films qui ont fait le plus d'entrées en France depuis le début de l'année.</p>
 
-    <ul class="dek-list">
-      <li><strong>1. Marsupilami</strong> — 6,11 millions d'entrées (Philippe Lacheau, sorti le 4 février)</li>
-      <li><strong>2. Super Mario Galaxy, le film</strong> — 5,64 millions d'entrées (sorti le 1ᵉʳ avril)</li>
-      <li><strong>3. Michael</strong> — 5,58 millions d'entrées (biopic de Michael Jackson par Antoine Fuqua, sorti le 22 avril)</li>
-      <li><strong>4. L'Odyssée</strong> — 4,69 millions d'entrées au 9 août, chiffre encore en hausse (sorti le 15 juillet) — a depuis franchi les 5 millions, devenant le plus gros succès de la carrière de Christopher Nolan en France</li>
-      <li><strong>5. Spider-Man : Brand New Day</strong> — 4,65 millions d'entrées cumulées au 9 août, toujours à l'affiche (sorti le 29 juillet)</li>
-      <li><strong>6. Toy Story 5</strong> — 4,07 millions d'entrées (sorti le 17 juin)</li>
-      <li><strong>7. Le Diable s'habille en Prada 2</strong> — 2,83 millions d'entrées (sorti le 29 avril)</li>
-      <li><strong>8. Des Minions et des Monstres</strong> — 2,65 millions d'entrées (sorti le 24 juin)</li>
-      <li><strong>9. La Bataille de Gaulle – Partie 1 : L'âge de fer</strong> — 2,46 millions d'entrées (Antonin Baudry, sorti le 3 juin)</li>
-      <li><strong>10. Gourou</strong> — 2,04 millions d'entrées (Yann Gozlan, avec Pierre Niney, sorti le 28 janvier)</li>
-    </ul>
-
-    <p class="dek">Classement encore mouvant : L'Odyssée, Spider-Man : Brand New Day et Toy Story 5, tous trois toujours en salles, pourraient encore grimper — voire se dépasser l'un l'autre — dans les prochaines semaines.</p>
+    <div class="list-box">
+      <span class="list-box-label">🏆 Top 10 des entrées 2026, à ce jour</span>
+      <ul class="list-box-items">
+        <li>
+          <span class="list-box-rank">01</span>
+          <span class="list-box-body">
+            <span class="list-box-title">Marsupilami</span>
+            <span class="list-box-meta">6,11 millions d'entrées — Philippe Lacheau, sorti le 4 février</span>
+          </span>
+        </li>
+        <li>
+          <span class="list-box-rank">02</span>
+          <span class="list-box-body">
+            <span class="list-box-title">Super Mario Galaxy, le film</span>
+            <span class="list-box-meta">5,64 millions d'entrées — sorti le 1ᵉʳ avril</span>
+          </span>
+        </li>
+        <li>
+          <span class="list-box-rank">03</span>
+          <span class="list-box-body">
+            <span class="list-box-title">Michael</span>
+            <span class="list-box-meta">5,58 millions d'entrées — biopic de Michael Jackson par Antoine Fuqua, sorti le 22 avril</span>
+          </span>
+        </li>
+        <li>
+          <span class="list-box-rank">04</span>
+          <span class="list-box-body">
+            <span class="list-box-title">L'Odyssée</span>
+            <span class="list-box-meta">4,69 millions d'entrées au 9 août, en hausse — sorti le 15 juillet — a depuis franchi les 5 millions, devenant le plus gros succès de la carrière de Christopher Nolan en France</span>
+          </span>
+        </li>
+        <li>
+          <span class="list-box-rank">05</span>
+          <span class="list-box-body">
+            <span class="list-box-title">Spider-Man : Brand New Day</span>
+            <span class="list-box-meta">4,65 millions d'entrées cumulées au 9 août, toujours à l'affiche — sorti le 29 juillet</span>
+          </span>
+        </li>
+        <li>
+          <span class="list-box-rank">06</span>
+          <span class="list-box-body">
+            <span class="list-box-title">Toy Story 5</span>
+            <span class="list-box-meta">4,07 millions d'entrées — sorti le 17 juin</span>
+          </span>
+        </li>
+        <li>
+          <span class="list-box-rank">07</span>
+          <span class="list-box-body">
+            <span class="list-box-title">Le Diable s'habille en Prada 2</span>
+            <span class="list-box-meta">2,83 millions d'entrées — sorti le 29 avril</span>
+          </span>
+        </li>
+        <li>
+          <span class="list-box-rank">08</span>
+          <span class="list-box-body">
+            <span class="list-box-title">Des Minions et des Monstres</span>
+            <span class="list-box-meta">2,65 millions d'entrées — sorti le 24 juin</span>
+          </span>
+        </li>
+        <li>
+          <span class="list-box-rank">09</span>
+          <span class="list-box-body">
+            <span class="list-box-title">La Bataille de Gaulle – Partie 1 : L'âge de fer</span>
+            <span class="list-box-meta">2,46 millions d'entrées — Antonin Baudry, sorti le 3 juin</span>
+          </span>
+        </li>
+        <li>
+          <span class="list-box-rank">10</span>
+          <span class="list-box-body">
+            <span class="list-box-title">Gourou</span>
+            <span class="list-box-meta">2,04 millions d'entrées — Yann Gozlan, avec Pierre Niney, sorti le 28 janvier</span>
+          </span>
+        </li>
+      </ul>
+      <p class="list-box-foot">Classement encore mouvant : L'Odyssée, Spider-Man : Brand New Day et Toy Story 5, tous trois toujours en salles, pourraient encore grimper — voire se dépasser l'un l'autre — dans les prochaines semaines.</p>
+    </div>
 
     <p class="dek">Le secteur reste pourtant fragile. Les charges et les loyers des salles continuent d'augmenter, et les plateformes de streaming — qui financent désormais environ <strong>25 %</strong> de la fiction française, soit 1,2 milliard d'euros par an — changent les habitudes de consommation, même si la chronologie des médias<a class="lex-ref" href="#lex-chronologie-des-medias" aria-label="Voir la définition dans le lexique">*</a> protège encore largement les salles obscures. Le solde des ouvertures et fermetures de cinémas reste quasi stable, avec seulement 5 à 6 salles de moins que l'an dernier — signe que la crise n'a pas (encore) vidé les salles pour de bon.</p>
 
-    <p class="dek">Reste une inconnue de taille : la rentrée. L'automne est traditionnellement une saison plus calme pour les salles, et le calendrier des mois à venir s'appuie beaucoup sur de grosses sorties américaines plutôt que sur de nouveaux triomphes français. Les sorties mondiales qui vont peser le plus lourd dans la balance :</p>
+    <p class="dek">Reste une inconnue de taille : la rentrée. L'automne est traditionnellement une saison plus calme pour les salles, et le calendrier des mois à venir s'appuie beaucoup sur de grosses sorties américaines plutôt que sur de nouveaux triomphes français.</p>
 
-    <ul class="dek-list">
-      <li>🎬 <strong>Le nouveau film de Tom Cruise</strong> — sortie mondiale prévue à l'automne 2026, date encore à préciser</li>
-      <li>🎬 <strong>Une adaptation de science-fiction signée Ridley Scott</strong> — sortie mondiale prévue à l'automne-hiver 2026, date encore à préciser</li>
-      <li>🎬 <strong>Avengers : Doomsday</strong> — sortie mondiale le 17 décembre 2026, précommandes déjà deux fois plus rapides que Deadpool &amp; Wolverine (2024)</li>
-      <li>🎬 <strong>Dune : Messiah</strong> (Denis Villeneuve) — sortie mondiale le 18 décembre 2026</li>
-    </ul>
+    <div class="list-box">
+      <span class="list-box-label">🎬 Les sorties qui vont peser sur la rentrée</span>
+      <ul class="list-box-items">
+        <li>
+          <span class="list-box-rank">🗓️</span>
+          <span class="list-box-body">
+            <span class="list-box-title">The Dog Stars</span>
+            <span class="list-box-meta">Ridley Scott, avec Jacob Elordi, Josh Brolin et Margaret Qualley — sortie mondiale le 26 août 2026</span>
+          </span>
+        </li>
+        <li>
+          <span class="list-box-rank">🗓️</span>
+          <span class="list-box-body">
+            <span class="list-box-title">Digger</span>
+            <span class="list-box-meta">Alejandro González Iñárritu, avec Tom Cruise — sortie mondiale le 30 septembre 2026</span>
+          </span>
+        </li>
+        <li>
+          <span class="list-box-rank">🗓️</span>
+          <span class="list-box-body">
+            <span class="list-box-title">Avengers : Doomsday</span>
+            <span class="list-box-meta">Sortie mondiale le 17 décembre 2026 — précommandes déjà deux fois plus rapides que Deadpool &amp; Wolverine (2024)</span>
+          </span>
+        </li>
+        <li>
+          <span class="list-box-rank">🗓️</span>
+          <span class="list-box-body">
+            <span class="list-box-title">Dune : Messiah</span>
+            <span class="list-box-meta">Denis Villeneuve — sortie mondiale le 18 décembre 2026</span>
+          </span>
+        </li>
+      </ul>
+    </div>
 
     <p class="dek">Le rebond du premier semestre doit aussi beaucoup à un effet de comparaison avec une année 2025 historiquement basse : plus l'année avance, plus cet effet s'estompe. Personne ne peut donc dire aujourd'hui si 2026 confirme un vrai retournement de tendance ou si ce sursaut retombera une fois l'été passé — exactement le genre de situation où les chiffres pointent dans deux directions selon la période observée, qui se prête à l'exercice des trois scénarios.</p>
 
