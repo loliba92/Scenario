@@ -48,6 +48,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 12.08.2026 — [2027 : un favori, une opposition éclatée](../archives/2026-08-12.html)
 - 11.08.2026 — [L'Éthiopie veut sa mer, au risque de la guerre](../archives/2026-08-11.html)
 - 10.08.2026 — [La croissance mondiale ne tient qu'à un fil](../archives/2026-08-10.html)
 - 09.08.2026 — [Musique IA : la note grimpe à 9 milliards](../archives/2026-08-09.html)
