@@ -1718,20 +1718,34 @@ moins prioritaire).
        petit texte flottant. **Retour utilisateur, positif sur la
        carte, mais ré-ouvert le jour même** après un brainstorm avec
        ChatGPT sur un système d'étoiles d'intensité + un petit drapeau.
-    6. **[FAIT, retenu] « France Impact » — drapeau en icône de label +
-       3 étoiles d'intensité.** Reprend la carte de l'itération 5, mais
-       remplace l'anneau/flèche par : un **petit drapeau tricolore en
-       icône devant le nom** (20×14px, simple repère visuel façon
-       sélecteur de pays/langue — pas un fond plein cadre, la leçon de
-       l'itération 3 reste appliquée : le drapeau ne doit jamais dominer
-       la carte) + **3 étoiles pleines/vides** (path SVG standard),
-       colorées `--favorable`/`--degrade` selon le sens, nombre
-       d'étoiles pleines = intensité (`léger` = 1, `assez` = 2, `très` =
-       3 — mêmes seuils que `docs/routine-prompt.md`). Contrat JSON
-       étendu : `data["delta"]` porte maintenant `intensity` (1-3) en
-       plus de `direction`/`label`, pour ne jamais reparser le mot texte
-       — le nombre d'étoiles vient d'un entier explicite, pas d'un
-       "léger"/"assez"/"très" à interpréter côté script.
+    6. « France Impact » — drapeau en icône de label + 3 étoiles
+       d'intensité pleines/vides (une seule couleur à la fois, côté
+       favorable ou dégradé). **Retour utilisateur, le jour même :
+       seules 3 étoiles ne montrent qu'un seul côté à la fois —
+       "l'échelle doit toujours être la même quelle que soit la
+       situation".**
+    7. **[FAIT, retenu] Échelle fixe à 6 étoiles (3 défavorable + 3
+       favorable, toujours les 6 visibles) + flèche qui pointe sur le
+       cran du jour.** Corrige l'itération 6 : ce n'est plus 1-3 étoiles
+       d'une seule couleur qui apparaissent/disparaissent selon le
+       score, mais une **règle graduée constante** (`★★★｜★★★`, jamais
+       redessinée différemment d'un jour à l'autre) sur laquelle une
+       petite flèche ▲ vient pointer la position du jour — index 0/1/2 =
+       défavorable très/assez/léger (le plus loin du centre = le plus
+       intense), index 3/4/5 = favorable léger/assez/très. Une seule
+       étoile (celle visée) et la flèche sont en couleur pleine
+       (`--favorable`/`--degrade`, couleurs déjà utilisées ailleurs sur
+       le site) ; les 5 autres restent grises, toujours visibles — le
+       lecteur voit toujours le même repère de référence, seule la
+       position de la flèche change. `_delta_scale_positions()` calcule
+       les coordonnées x (écart plus large entre l'étoile −1 et l'étoile
+       +1 pour bien séparer les deux camps). Couleurs SVG écrites en hex
+       fixe (`_FAVORABLE_HEX`/`_DEGRADE_HEX`), pas en `var(--x)` : un
+       attribut `fill="var(--x)"` sur un `<path>` généré côté serveur ne
+       se résout pas de façon fiable hors d'un attribut `style` — bug
+       explicitement testé et évité ici. Contrat JSON inchangé depuis
+       l'itération 6 : `data["delta"]` porte `direction`/`intensity`
+       (1-3)/`label`.
     **Implémenté uniquement sur `instagram-photo-template.html`, pas sur
     le gabarit par défaut** (`instagram-template.html`, celui de la
     routine automatique) : testé, le budget vertical/horizontal du

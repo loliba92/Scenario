@@ -84,25 +84,74 @@ _DELTA_FLAG_SVG = (
 )
 
 
+# Couleurs figées (hex, pas var()) : un attribut SVG fill="var(--x)" ne
+# se résout pas de façon fiable hors d'un attribut style — testé, voir
+# docs/ARCHITECTURE.md. Doit rester synchronisé avec :root du template.
+_FAVORABLE_HEX = "#5e9c78"
+_DEGRADE_HEX = "#bd6248"
+_STAR_EMPTY = "rgba(236,231,218,0.18)"
+
+_STAR_W = 24
+_STAR_GAP = 4
+_CENTER_GAP = 16
+
+
+def _delta_scale_positions():
+    """x de chaque étoile sur les 6 (3 défavorable + 3 favorable), avec
+    un espace un peu plus large au centre pour bien séparer les 2 camps."""
+    xs = []
+    x = 0
+    for i in range(6):
+        xs.append(x)
+        x += _STAR_W + (_CENTER_GAP if i == 2 else _STAR_GAP)
+    return xs
+
+
 def build_delta_badge(delta):
     """Carte "France Impact" : petit drapeau (icône de label, pas un
     fond plein cadre — évite le côté trop identitaire du triangle
-    tricolore précédent, voir docs/ARCHITECTURE.md) + 3 étoiles
-    d'intensité (léger/assez/très = 1/2/3, coloré favorable/dégradé) +
-    le mot en toutes lettres. Même recette de carte que .essentiel-box/
+    tricolore précédent, voir docs/ARCHITECTURE.md) + une échelle fixe
+    de 6 étoiles (3 défavorable, 3 favorable, TOUJOURS les 6 visibles —
+    retour utilisateur : l'échelle doit être la même quelle que soit la
+    situation) avec une flèche qui pointe sur le cran du jour + le mot
+    en toutes lettres. Même recette de carte que .essentiel-box/
     .list-box (fond surface, bordure, ombre légère)."""
     direction = delta["direction"]
     intensity = max(1, min(3, int(delta.get("intensity", 1))))
     label = html.escape(delta["label"])
-    stars = "".join(
-        f'<svg class="delta-star{"" if i < intensity else " delta-star-empty"}" '
-        f'viewBox="0 0 24 24" width="22" height="22"><path d="{_STAR_PATH}"/></svg>'
-        for i in range(3)
+
+    xs = _delta_scale_positions()
+    total_w = xs[-1] + _STAR_W
+    arrow_gap, arrow_h = 7, 11
+    total_h = _STAR_W + arrow_gap + arrow_h
+
+    # index 0,1,2 = défavorable très/assez/léger (le plus loin du centre
+    # = le plus intense) ; index 3,4,5 = favorable léger/assez/très.
+    target = (3 - intensity) if direction == "negatif" else (2 + intensity)
+
+    stars = []
+    for i, x in enumerate(xs):
+        side_hex = _DEGRADE_HEX if i < 3 else _FAVORABLE_HEX
+        fill = side_hex if i == target else _STAR_EMPTY
+        stars.append(f'<g transform="translate({x},0)"><path d="{_STAR_PATH}" fill="{fill}"/></g>')
+
+    target_cx = xs[target] + _STAR_W / 2
+    arrow_y = _STAR_W + arrow_gap
+    arrow_hex = _DEGRADE_HEX if direction == "negatif" else _FAVORABLE_HEX
+    arrow = (
+        f'<path d="M{target_cx - 7},{arrow_y + arrow_h} L{target_cx + 7},{arrow_y + arrow_h} '
+        f'L{target_cx},{arrow_y} Z" fill="{arrow_hex}"/>'
     )
+
+    scale_svg = (
+        f'<svg class="delta-mark-scale" viewBox="0 0 {total_w} {total_h}" '
+        f'width="{total_w}" height="{total_h}">{"".join(stars)}{arrow}</svg>'
+    )
+
     return f'''<div class="delta-mark" data-kind="{html.escape(direction)}">
       <div class="delta-mark-text">
         <span class="delta-mark-label">{_DELTA_FLAG_SVG} France Impact</span>
-        <span class="delta-mark-stars">{stars}</span>
+        {scale_svg}
         <span class="delta-mark-word">{label}</span>
       </div>
     </div>'''
