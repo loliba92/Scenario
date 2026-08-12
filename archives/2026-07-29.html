@@ -569,6 +569,36 @@
     border-bottom-color: var(--paper-dim);
   }
 
+  .article-image{ margin: 22px 0 28px; }
+  .article-image-photo-wrap{
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+  }
+  .article-image-photo{
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .article-image-scrim{
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(16,21,28,.97) 0%, rgba(16,21,28,.75) 16%, rgba(16,21,28,.3) 32%, transparent 50%, transparent 100%);
+  }
+  .article-image-masthead{
+    position: absolute; top: 4px; left: 6px;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .article-image-logo{ width: 33px; height: 33px; display: block; }
+  .article-image-wordmark{
+    font-family: "Fraunces", serif; font-weight: 600; font-size: clamp(1.15rem, 2.3vw, 1.5rem); color: var(--paper);
+  }
+  .article-image-wordmark span{ color: var(--gold); }
+  .article-image-caption{ font-size: 0.8rem; color: var(--paper-dim); margin: 10px 0 0; }
+  .article-image-caption a{ color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
+  .article-image-caption a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
 </style>
 </head>
 <body>
@@ -603,6 +633,18 @@
       <span class="question-label">La question posée</span>
       <p class="question-text">❓ Cet automne, le gouvernement de Sébastien Lecornu réussira-t-il à faire adopter un budget 2027, survivra-t-il de justesse à coups de 49.3 comme l'an dernier, ou tombera-t-il faute d'accord, à quelques mois de la présidentielle ?</p>
     </div>
+
+    <figure class="article-image">
+      <div class="article-image-photo-wrap">
+        <img class="article-image-photo" src="../assets/social/topic-images/2026-07-29-wide.jpg" alt="Colonnes architecturales sculptées dans un intérieur historique orné, évoquant la solennité des institutions.">
+        <div class="article-image-scrim"></div>
+        <div class="article-image-masthead">
+          <img class="article-image-logo" src="../assets/logo.svg" alt="">
+          <span class="article-image-wordmark">Scéna<span>rio</span></span>
+        </div>
+      </div>
+      <figcaption class="article-image-caption">Photo d'illustration. Cihat Dede / <a href="https://www.pexels.com/photo/elegant-architectural-columns-in-historical-building-37441914/" target="_blank" rel="noopener noreferrer">Pexels ↗</a></figcaption>
+    </figure>
 
     <p class="dek">Chaque automne, le gouvernement présente au Parlement le <strong>budget de l'État</strong> pour l'année suivante — le <strong>projet de loi de finances (PLF)</strong> : combien il va dépenser, et avec quel argent. Celui de <strong>2027 sera débattu à l'automne 2026</strong>. Le Premier ministre, <strong>Sébastien Lecornu</strong>, dirige un gouvernement sans majorité à l'Assemblée : aucun camp n'a assez de députés pour voter un budget tout seul.</p>
 
