@@ -1608,7 +1608,93 @@ moins prioritaire).
   pipeline de recherche. À trancher avant implémentation : génération
   par un job mensuel dédié (nouveau trigger Claude Code Remote,
   fréquence mensuelle) vs page 100% JS qui recalcule à la volée à
-  partir des pages déjà publiées.
+  partir des pages déjà publiées. **Toujours pas implémenté en tant que
+  heatmap** (le job mensuel ci-dessus reste à trancher), mais la formule
+  elle-même a été reprise et implémentée par article le 12 août — voir
+  entrée « Δ France » juste en dessous, qui prépare le terrain pour ce
+  chantier sans le construire.
+
+- **[FAIT le 12 août] Δ France — indice de sens pondéré pour la France,
+  ajouté dans « L'essentiel ».** Reprend telle quelle la formule
+  ci-dessus (espérance mathématique : `score = Σ probabilité × valeur`,
+  valeur = +1 favorable / 0 stable / −1 dégradé), appliquée par article
+  plutôt que par domaine — demande explicite de l'utilisateur le 12 août
+  ("je veux un truc super simple"), après plusieurs allers-retours sur
+  le nom et l'échelle.
+
+  **Nom retenu : « Δ France »** (delta). "Boussole France" rejeté par
+  l'utilisateur ("trop bateau"). Alternatives écartées : "Le Poids
+  France" (plus parlant mais moins distinctif), "La Jauge France"
+  (confusion possible avec les jauges déjà existantes par scénario).
+
+  **Échelle, décidée après calibrage sur les 5 éditions qui avaient déjà
+  "L'essentiel" (8-12 août)** : un premier seuil à ±0,3 ne différenciait
+  rien (les 5 scores réels tombaient tous entre +0,05 et −0,20, aucun ne
+  dépassait ±0,3) —**seuil resserré à ±0,10**, et **retour utilisateur :
+  pas de case "neutre"** (jugée non informative), remplacée par un sens
+  toujours signé + une intensité : `|score| < 0,30` → léger,
+  `0,30-0,50` → assez, `≥ 0,50` → très (ex. « léger négatif », « assez
+  positif »). Le chiffre brut n'est jamais montré au lecteur, seuls le
+  mot et la jauge le sont.
+
+  **Limite méthodologique explicitement posée par l'utilisateur et
+  actée avant l'implémentation** (échange du 12 août) : le score compare
+  valablement le *sens et l'ampleur pondérés* entre sujets (deux scores
+  proches = deux sujets qui penchent pareil), mais **ne mesure jamais
+  l'enjeu réel** — un −0,15 sur un dossier économique n'est pas "aussi
+  grave" qu'un −0,15 sur un conflit géopolitique. **Jamais de classement
+  ou de "pire score du mois" construit à partir de ce seul chiffre.**
+  Biais supplémentaires discutés et acceptés en connaissance de cause :
+  la formule est symétrique (+1/−1) alors que gains et pertes réels ne
+  le sont pas forcément (risque de queue) ; la classification
+  favorable/stable/dégradé de chaque scénario reste un jugement
+  éditorial, le chiffre lui donne une précision qu'elle n'a pas
+  vraiment. Pas de garde-fou technique contre ces biais (au-delà de la
+  règle écrite dans `docs/routine-prompt.md`) — **limite connue et
+  assumée, pas résolue : de la documentation, pas du code, ne protège
+  pas d'un oubli** (point soulevé par l'utilisateur).
+
+  **Implémentation** :
+  - `index.html` : CSS `.delta-france`/`.delta-gauge*` (jauge en arc
+    continu, dégradé SVG rouge→or→vert, repère positionné par script
+    via `data-score` sur `.delta-gauge-marker`, même géométrie que les
+    jauges `.gauge` par scénario) ; `.essentiel-box` découpée en
+    plusieurs `<p class="essentiel-text">` (un par item : problématique
+    / contexte / conclusion / signal à surveiller) au lieu d'un seul
+    bloc — demande utilisateur explicite ("il faut découper en
+    paragraphe") ; `data-france-impact="favorable|stable|degrade"`
+    ajouté sur chaque `.france-line` (calcul fiable, pas de parsing de
+    texte libre — le texte des `.france-line` varie beaucoup d'une
+    édition à l'autre, vérifié sur les 20 archives, 55 sur 105 ne
+    suivaient pas une formule figée). Appliqué à l'édition du 12 août
+    (score réel : 20/45/35 → −0,15 → « léger négatif »), pas de retrofit
+    sur les archives déjà figées (8-11 août) — seule l'édition du jour,
+    pas encore archivée au moment du calibrage, a servi de test réel.
+  - `feed.xml` : même texte dans `<source>`, découpé en paragraphes
+    séparés par de vrais doubles retours à la ligne (pas de `<br>`,
+    aucune balise XML ajoutée — structure du flux inchangée comme
+    demandé) + paragraphe Δ France ajouté à la fin. Corrige au passage
+    l'illisibilité des légendes Instagram/LinkedIn/Facebook qui
+    reprenaient `{{4.source.title}}` en un seul bloc de 700+ caractères.
+  - `docs/routine-prompt.md` : étape 3 réécrite avec le gabarit HTML
+    complet, la méthode de calcul, l'échelle, la portée (jamais de
+    classement), et le format `<source>` en paragraphes.
+  - **Badge sur l'image Instagram, demande utilisateur ("ça apporterait
+    du sens et de l'accroche")** : `__DELTA_BADGE__` ajouté à
+    `scripts/social/generate_instagram_image.py` (champ optionnel
+    `data["delta"] = {"direction": "positif|negatif", "label": "..."}`,
+    repli silencieux si absent, même logique que `--photo`). **Implémenté
+    uniquement sur `instagram-photo-template.html`, pas sur le gabarit
+    par défaut** (`instagram-template.html`, celui de la routine
+    automatique) : testé, le budget vertical du gabarit par défaut est
+    déjà tendu par le titre (1-3 lignes selon le jour) — toute tentative
+    d'ajouter le badge (même ligne que le footer, ligne séparée en
+    absolu, empilé dans le footer) a fait chevaucher soit le masthead
+    soit le CTA. Le gabarit photo a assez de marge (testé avec une vraie
+    photo, aucun chevauchement). Cohérent avec le statut déjà manuel/
+    optionnel de `--photo` — la routine quotidienne automatique n'est
+    pas affectée, aucun risque de casser la génération d'image de tous
+    les jours pour un gain visuel sur les jours où une photo est utilisée.
 - **P3 — Carte de pari partageable, sans backend, idée du 10 août
   (même brainstorm).** Une URL du type
   `parier.html?edition=2026-08-10&choix=stable` générant une carte

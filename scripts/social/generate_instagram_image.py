@@ -29,6 +29,16 @@ Champs "kind" attendus : favorable | stable | degrade (détermine la
 couleur et la flèche ↑/→/↓). Pas de pourcentages dans l'image — c'est
 volontaire (effet teaser vers le lien en bio).
 
+Champ optionnel "delta" (ajouté le 12 août) : badge Δ France en bas de
+l'image, ex. {"direction": "negatif", "label": "Léger négatif"}.
+"direction" attendu : positif | negatif (jamais neutre, voir
+docs/routine-prompt.md). Purement décoratif — si absent du JSON, le
+badge disparaît silencieusement (même repli que --photo), aucune
+erreur. Supporté uniquement par instagram-photo-template.html (marge
+suffisante) — le gabarit par défaut (fond dégradé, sans photo) n'a pas
+le marqueur __DELTA_BADGE__ : budget vertical déjà tendu par le titre
+1-3 lignes, testé, tout ajout y fait chevaucher le CTA.
+
 "hook" (ajouté le 11 août, retour utilisateur) : une accroche courte
 (≤ 12 mots, une seule ligne à l'écran), affichée sous le titre, en doré.
 Ce n'est PAS la question posée du site (bien trop longue pour tenir
@@ -116,6 +126,17 @@ def main():
     elif args.photo:
         print("ATTENTION : --photo fourni mais le template n'a pas de marqueur "
               "__PHOTO_SRC__ — ignoré, image générée sans photo.", file=sys.stderr)
+
+    if "__DELTA_BADGE__" in final_html:
+        delta = data.get("delta")
+        if delta:
+            badge_html = (
+                f'<div class="delta-badge" data-kind="{html.escape(delta["direction"])}">'
+                f'Δ France · {html.escape(delta["label"])}</div>'
+            )
+        else:
+            badge_html = ""
+        final_html = final_html.replace("__DELTA_BADGE__", badge_html)
 
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)

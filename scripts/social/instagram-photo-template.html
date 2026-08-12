@@ -96,6 +96,9 @@
   .scenario-row[data-kind="degrade"]{ border-color: var(--degrade); }
   .scenario-row[data-kind="degrade"] .arrow{ color: var(--degrade); }
 
+  .footer-row{
+    display:flex; flex-direction:column; align-items:flex-start; gap:14px;
+  }
   .footer{
     display:flex; align-items:baseline; gap:14px;
     font-size:19px; letter-spacing:0.08em; text-transform:uppercase;
@@ -103,6 +106,19 @@
   .footer .tagline{ color: var(--gold); font-weight:700; }
   .footer .sep{ color: var(--paper-dim); opacity:.5; }
   .footer .url{ color: var(--paper-dim); }
+
+  /* Badge Δ France, optionnel (voir __DELTA_BADGE__ / generate_instagram_image.py) */
+  .delta-badge{
+    display:flex; align-items:center; gap:9px;
+    font-family:"JetBrains Mono", monospace;
+    font-weight:700; font-size:22px;
+    padding: 10px 20px;
+    border-radius: 100px;
+    border: 2px solid var(--accent);
+    color: var(--paper);
+  }
+  .delta-badge[data-kind="positif"]{ --accent: var(--favorable); }
+  .delta-badge[data-kind="negatif"]{ --accent: var(--degrade); }
 </style></head>
 <body>
   <img class="photo" src="__PHOTO_SRC__">
@@ -134,6 +150,9 @@
       __SCENARIO_ROWS__
     </div>
 
-    <div class="footer"><span class="tagline">Le futur en 3 scénarios</span><span class="sep">·</span><span class="url">lesscenarios.fr</span></div>
+    <div class="footer-row">
+      __DELTA_BADGE__
+      <div class="footer"><span class="tagline">Le futur en 3 scénarios</span><span class="sep">·</span><span class="url">lesscenarios.fr</span></div>
+    </div>
   </div>
 </body></html>
