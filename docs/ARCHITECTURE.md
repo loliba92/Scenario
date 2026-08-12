@@ -1752,6 +1752,26 @@ moins prioritaire).
        fiable hors d'un attribut `style`, bug testé et évité. Contrat
        JSON inchangé depuis l'itération 6 : `data["delta"]` porte
        `direction`/`intensity` (1-3)/`label`.
+    10. **[FAIT, retenu] Mécanisme confirmé (6 étoiles, 1-3 dégradé /
+        4-6 favorable) + clarification du message : "notre évaluation",
+        pas un fait.** Retour utilisateur, le jour même : ambiguïté sur
+        ce que "France Impact : léger négatif" affirme — est-ce la
+        question posée par le sujet qui est favorable/défavorable, ou
+        l'appréciation de la rédaction ? Corrigé à 3 endroits en même
+        temps, pour rester cohérent :
+        - **Page + feed** : la phrase passe de "France Impact : {mot}."
+          à **"Notre évaluation de l'impact pour la France : {mot}."**
+          — jamais raccourci en retour, `docs/routine-prompt.md` mis à
+          jour avec une règle explicite dessus.
+        - **Image** : une légende **"Notre évaluation"** (petites
+          capitales, discrète) ajoutée entre les étoiles et le mot en
+          gros — le nom "France Impact" reste en haut (identifie l'axe
+          mesuré), la légende clarifie que ce qui suit est une
+          appréciation, pas une mesure.
+        Le mécanisme des étoiles lui-même (échelle 1-6, 1-3 dégradé/4-6
+        favorable, couleur uniforme par sens) n'a pas changé — confirmé
+        par l'utilisateur comme correct, seule la clarté du message
+        autour était à retravailler.
     **Implémenté uniquement sur `instagram-photo-template.html`, pas sur
     le gabarit par défaut** (`instagram-template.html`, celui de la
     routine automatique) : testé, le budget vertical/horizontal du

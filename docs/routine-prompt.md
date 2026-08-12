@@ -144,7 +144,7 @@ Phrase concrète, ancrée dans le sujet du jour, jamais une généralité interc
       </svg>
       <div class="delta-gauge-word">{Mot}</div>
     </div>
-    <p class="essentiel-text delta-text"><strong>France Impact : {mot}.</strong> {phrase expliquant pourquoi}</p>
+    <p class="essentiel-text delta-text"><strong>Notre évaluation de l'impact pour la France : {mot}.</strong> {phrase expliquant pourquoi}</p>
   </div>
 </div>
 ```
@@ -158,6 +158,8 @@ Phrase concrète, ancrée dans le sujet du jour, jamais une généralité interc
 Court et précis — l'essentiel reste un résumé, pas un second article. Ne jamais répéter mot pour mot ce qui est déjà dit dans les `why` des cartes — c'est une synthèse qui relie contexte et scénarios, pas un résumé de l'un d'eux. CSS (`.essentiel-box`, `.essentiel-label`, `.essentiel-text`, `.delta-france`, `.delta-gauge*`) déjà dans le gabarit. Libellé « L'essentiel » volontairement neutre (pas « Conclusion ») — ne pas le changer de sa propre initiative.
 
 **France Impact — indice de sens pondéré pour la France, dernier paragraphe de « L'essentiel ».** Calcul : `score = Σ (probabilité du scénario × valeur France de ce scénario)`, valeur = +1 favorable / 0 stable / −1 dégradé (les 3 probabilités et les 3 classifications sont déjà écrites dans les cartes juste au-dessus, aucune nouvelle recherche). **Jamais de mot "neutre"** — toujours un sens (positif/négatif), avec une intensité selon l'ampleur : `|score| < 0,30` → léger, `0,30 à 0,50` → assez, `≥ 0,50` → très (ex. « léger négatif », « assez positif », « très négatif »). Le chiffre brut n'est jamais montré au lecteur, seuls le mot et la jauge le sont. La phrase qui suit le mot **explique toujours le pourquoi**, en citant les probabilités clés (pas juste répéter le mot) — voir `archives/2026-08-12.html` pour un exemple réel. `data-score="{score}"` sur `.delta-gauge-marker` = le score brut avec le signe (ex. `-0.15`) ; `{Mot}` dans `.delta-gauge-word` = le même mot en toutes lettres avec majuscule (ex. « Léger négatif »).
+
+**Toujours cadrer comme une évaluation, jamais comme un fait.** Retour utilisateur explicite : rien ne doit laisser croire que "léger négatif" est une vérité objective plutôt qu'une appréciation pondérée de la rédaction. D'où le "Notre évaluation de l'impact pour la France :" en toutes lettres dans la phrase (page + feed), et la légende "Notre évaluation" affichée entre les étoiles et le mot sur l'image (voir `scripts/social/generate_instagram_image.py`, `build_delta_badge()`). Ne jamais raccourcir cette formulation en un simple "France Impact : {mot}." qui pourrait se lire comme un fait établi.
 
 **Portée du chiffre — jamais un classement ou une mesure d'importance.** France Impact compare valablement le sens et l'ampleur pondérés entre sujets (deux scores proches = deux sujets qui penchent pareil, dans la même mesure) — mais ne mesure jamais l'enjeu réel d'un sujet (un −0,15 sur un dossier économique n'est pas « aussi grave » qu'un −0,15 sur un conflit géopolitique). Ne jamais construire de classement, de « pire score du mois » ou de comparaison d'importance à partir de ce seul chiffre.
 
@@ -173,7 +175,7 @@ Court et précis — l'essentiel reste un résumé, pas un second article. Ne ja
 
 {Signal à surveiller}
 
-France Impact : {mot}. {phrase expliquant pourquoi}</source>
+Notre évaluation de l'impact pour la France : {mot}. {phrase expliquant pourquoi}</source>
 ```
 `<source>` est une vraie balise RSS 2.0 (détournée ici, avec son `url` obligatoire) — jamais une balise inventée, jamais de nouvelle balise ajoutée pour France Impact (même `<source>`, structure du flux inchangée). Texte brut, sans `<strong>` ni balisage HTML — **mais avec de vrais doubles retours à la ligne entre chaque paragraphe** (comme ci-dessus), pas un seul bloc continu : c'est ce texte qui alimente `{{4.source.title}}` sur les légendes Instagram/LinkedIn/Facebook (voir `docs/ARCHITECTURE.md`), illisible en un seul bloc sur ces formats.
 

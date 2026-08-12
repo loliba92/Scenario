@@ -117,8 +117,12 @@ def build_delta_badge(delta):
     **Couleur des étoiles pleines = sens du jour, pas la position** :
     toutes rouges si négatif, toutes vertes si favorable (retour
     utilisateur explicite : pas de mélange rouge+vert sur un seul
-    score) — plus le mot en toutes lettres. Même recette de carte que
-    .essentiel-box/.list-box (fond surface, bordure, ombre légère)."""
+    score). **Caption "Notre évaluation" ajoutée devant le mot**
+    (retour utilisateur : ambiguïté possible entre "c'est un fait" et
+    "c'est notre appréciation pondérée" — jamais laisser croire que
+    France Impact énonce une vérité plutôt qu'une estimation). Même
+    recette de carte que .essentiel-box/.list-box (fond surface,
+    bordure, ombre légère)."""
     direction = delta["direction"]
     intensity = max(1, min(3, int(delta.get("intensity", 1))))
     label = html.escape(delta["label"])
@@ -148,6 +152,7 @@ def build_delta_badge(delta):
       <div class="delta-mark-text">
         <span class="delta-mark-label">{_DELTA_FLAG_SVG} France Impact</span>
         {scale_svg}
+        <span class="delta-mark-caption">Notre évaluation</span>
         <span class="delta-mark-word">{label}</span>
       </div>
     </div>'''
