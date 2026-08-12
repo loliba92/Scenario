@@ -1773,6 +1773,44 @@ moins prioritaire).
         favorable, couleur uniforme par sens) n'a pas changé — confirmé
         par l'utilisateur comme correct, seule la clarté du message
         autour était à retravailler.
+    11. **[FAIT, retenu] Bugs d'affichage repérés sur la page réelle
+        (capture d'écran fournie par l'utilisateur) + petit drapeau
+        ajouté sur la page.** Trois corrections successives sur
+        `.delta-france`/`.delta-gauge*` dans `index.html` :
+        - **Mot du repère ("LÉGER NÉGATIF") débordant de la jauge** —
+          il vivait en légende sous l'arc dans le flux normal, ce qui le
+          faisait déborder de la boîte de 108px. Repositionné en
+          `position: absolute` **dans le creux de l'arc lui-même**
+          (même principe que `.gauge-num` des cartes de scénario) —
+          d'abord élargi avec un offset négatif (aggravait le
+          débordement, corrigé), puis réduit en taille de police pour
+          tenir sur une seule ligne sans déborder.
+        - **Colonne de texte trop étroite à certaines largeurs d'écran**
+          (capture utilisateur avec police système agrandie — le seuil
+          fixe `@media (max-width: 480px)` ne se déclenchait pas dans ce
+          cas précis, le texte se retrouvait compressé mot par mot à
+          côté de la jauge). Remplacé par `.delta-france{ flex-wrap:
+          wrap }` + `.delta-text{ flex: 1 1 220px; min-width: 220px }` —
+          le texte repasse sous la jauge dès qu'il manque de place,
+          quelle que soit la cause (largeur d'écran, zoom, taille de
+          police système), plus robuste qu'un seuil fixe. Testé à
+          390/500/600/900px.
+        - **Petit drapeau ajouté devant "Notre évaluation..."** dans le
+          paragraphe (suggestion utilisateur, même drapeau 3 bandes que
+          sur l'image) — cohérence visuelle page/image.
+        **Répercuté sur `archives/2026-08-12.html`** (pas seulement
+        `index.html`) suite à une question directe de l'utilisateur
+        ("tu le mets sur index et archive du jour ?") : l'archive du
+        jour datait de ce matin, avant l'ajout de France Impact **et**
+        de `.list-box` (chantier des sorties cinéma, même journée) —
+        les deux CSS étaient absentes, ainsi que la mise à jour de la
+        grille des registres (dimanche/lundi/samedi). Resynchronisé
+        chirurgicalement (CSS, attributs `data-france-impact`, bloc
+        essentiel, JS, objet `registres`) plutôt que de réécrire le
+        fichier depuis `index.html`, pour ne pas casser les chemins
+        relatifs `../` propres à `archives/` — diff final vérifié : ne
+        restent que les différences légitimes (canonical/OG, nav
+        `aria-current`, lien `.dek` sans préfixe `archives/`).
     **Implémenté uniquement sur `instagram-photo-template.html`, pas sur
     le gabarit par défaut** (`instagram-template.html`, celui de la
     routine automatique) : testé, le budget vertical/horizontal du

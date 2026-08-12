@@ -480,6 +480,138 @@
 
   .essentiel-text strong{ color: var(--paper); font-weight: 600; }
 
+  .essentiel-text + .essentiel-text{ margin-top: 12px; }
+
+  /* Delta France — indice de sens pondéré des 3 scénarios pour la France,
+     dernier paragraphe de L'essentiel. Jauge en arc continu (dégradé
+     rouge→or→vert, même géométrie que .gauge des cartes) avec un repère
+     positionné par script à l'endroit du score (-1 à +1). Voir
+     docs/ARCHITECTURE.md pour la méthode de calcul et les seuils. */
+  .delta-france{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .delta-gauge{ position: relative; width: 108px; height: 64px; flex: 0 0 108px; }
+  .delta-gauge svg{ width: 100%; height: 100%; overflow: visible; }
+  .delta-gauge-track{ fill: none; stroke-width: 10; stroke-linecap: round; }
+  .delta-gauge-marker{
+    fill: var(--paper);
+    stroke: var(--ink);
+    stroke-width: 2;
+    transition: cx 1.1s cubic-bezier(.16,.8,.3,1), cy 1.1s cubic-bezier(.16,.8,.3,1);
+  }
+  /* Mot du repère dans le graphique lui-même (creux de l'arc), pas en
+     légende flottante à côté — évite qu'il ne colle au paragraphe juste
+     en dessous une fois la carte empilée en colonne sur mobile. */
+  .delta-gauge-word{
+    position: absolute;
+    bottom: -14px;
+    left: 0; right: 0;
+    text-align: center;
+    line-height: 1.25;
+    font-size: 0.66rem;
+    color: var(--paper-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  /* flex: 1 1 220px, pas juste "1" : force le retour à la ligne sous la
+     jauge dès que la colonne de texte tomberait sous ~220px, plutôt que
+     de dépendre d'un seul seuil de largeur d'écran fixe (ne marchait pas
+     avec un zoom de texte système, une tablette, etc. — repéré via un
+     retour utilisateur avec la police système agrandie). */
+  .delta-text{ margin: 0; flex: 1 1 220px; min-width: 220px; }
+  .delta-text .delta-flag{ border-radius: 2px; vertical-align: 1px; margin-right: 2px; }
+
+  @media (prefers-reduced-motion: reduce){
+    .delta-gauge-marker{ transition: none; }
+  }
+
+  /* ---------- Encart liste (sorties, classements...) ---------- */
+  /* Composant réutilisable pour toute liste mise en avant dans un article —
+     même recette que .essentiel-box (fond surface, bordure dorée, label
+     JetBrains Mono) mais pensé pour une liste d'items scannables plutôt
+     qu'un paragraphe. Le repère (.list-box-rank) accepte un numéro
+     (classement) ou un emoji (liste non classée) selon le contexte.
+     Voir docs/ARCHITECTURE.md pour l'usage détaillé. */
+  .list-box{
+    background: var(--surface);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    padding: 22px 26px 6px;
+    margin: 0 0 28px;
+    max-width: 62ch;
+  }
+
+  .list-box-label{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin: 0 0 4px;
+  }
+
+  .list-box-items{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .list-box-items li{
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 14px 0;
+    border-top: 1px dashed var(--hairline);
+  }
+
+  .list-box-rank{
+    flex: none;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--gold);
+    min-width: 1.7em;
+  }
+
+  .list-box-body{
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .list-box-title{
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--paper);
+  }
+
+  .list-box-meta{
+    display: block;
+    font-size: 0.86rem;
+    color: var(--paper-dim);
+    margin-top: 3px;
+    line-height: 1.45;
+  }
+
+  .list-box-foot{
+    font-size: 0.86rem;
+    color: var(--paper-dim);
+    padding: 14px 0 16px;
+    border-top: 1px dashed var(--hairline);
+    margin: 0;
+  }
+
   .indicator-strip{
     display: flex;
     gap: 28px;
@@ -1072,7 +1204,7 @@
             </li>
           </ul>
         </div>
-        <div class="france-line">
+        <div class="france-line" data-france-impact="favorable">
           <span class="field-label">Concrètement en France</span>
           Un paysage plus lisible faciliterait la formation d'une majorité claire après le vote, avec un effet positif potentiel sur la confiance des investisseurs et la capacité à voter des réformes sans blocage permanent. → Plutôt favorable pour la France.
         </div>
@@ -1109,7 +1241,7 @@
             </li>
           </ul>
         </div>
-        <div class="france-line">
+        <div class="france-line" data-france-impact="stable">
           <span class="field-label">Concrètement en France</span>
           La donne actuelle — Assemblée sans majorité, gouvernements négociés texte par texte — se prolonge jusqu'au vote, sans amélioration ni aggravation nette pour les ménages et les entreprises qui vivent déjà avec cette incertitude depuis 2024. → Neutre pour la France.
         </div>
@@ -1146,7 +1278,7 @@
             </li>
           </ul>
         </div>
-        <div class="france-line">
+        <div class="france-line" data-france-impact="degrade">
           <span class="field-label">Concrètement en France</span>
           Une fragmentation record et une incertitude judiciaire prolongée sur la candidate en tête des sondages nourriraient un climat d'instabilité politique aggravé, avec un risque accru pour la confiance des marchés, déjà nerveux depuis les crises budgétaires de 2024-2025. → Plutôt défavorable pour la France.
         </div>
@@ -1159,7 +1291,27 @@
 
     <div class="essentiel-box" id="essentiel">
       <span class="essentiel-label">L'essentiel</span>
-      <p class="essentiel-text">Après le feu vert judiciaire du 7 juillet à la candidature de Marine Le Pen, la présidentielle 2027 va-t-elle se jouer sur un vrai duel, ou le paysage politique français continue-t-il de s'éclater en dizaines de candidatures rivales ? Le <strong>Rassemblement national</strong> domine déjà les sondages du premier tour, entre <strong>32 et 37 %</strong>, porté par une droite et une gauche toutes deux divisées entre plusieurs prétendants qui refusent de s'unir. Le scénario le plus probable <strong>(45 %)</strong> : chacun des deux blocs reste sur ses divisions actuelles jusqu'au vote, sans nouvel accord ni aggravation de la fragmentation. Signal à surveiller : la décision de la Cour de cassation sur le pourvoi de Marine Le Pen, qu'elle a promis de rendre avant le premier tour d'avril 2027.</p>
+      <p class="essentiel-text">Après le feu vert judiciaire du 7 juillet à la candidature de Marine Le Pen, la présidentielle 2027 va-t-elle se jouer sur un vrai duel, ou le paysage politique français continue-t-il de s'éclater en dizaines de candidatures rivales ?</p>
+      <p class="essentiel-text">Le <strong>Rassemblement national</strong> domine déjà les sondages du premier tour, entre <strong>32 et 37 %</strong>, porté par une droite et une gauche toutes deux divisées entre plusieurs prétendants qui refusent de s'unir.</p>
+      <p class="essentiel-text">Le scénario le plus probable <strong>(45 %)</strong> : chacun des deux blocs reste sur ses divisions actuelles jusqu'au vote, sans nouvel accord ni aggravation de la fragmentation.</p>
+      <p class="essentiel-text">Signal à surveiller : la décision de la Cour de cassation sur le pourvoi de Marine Le Pen, qu'elle a promis de rendre avant le premier tour d'avril 2027.</p>
+      <div class="delta-france">
+        <div class="delta-gauge">
+          <svg viewBox="0 0 108 64">
+            <defs>
+              <linearGradient id="deltaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:var(--degrade)"/>
+                <stop offset="50%" style="stop-color:var(--stable)"/>
+                <stop offset="100%" style="stop-color:var(--favorable)"/>
+              </linearGradient>
+            </defs>
+            <path class="delta-gauge-track" d="M9,58 A45,45 0 0,1 99,58" stroke="url(#deltaGrad)"/>
+            <circle class="delta-gauge-marker" data-score="-0.15" cx="54" cy="13" r="5"/>
+          </svg>
+          <div class="delta-gauge-word">Léger négatif</div>
+        </div>
+        <p class="essentiel-text delta-text"><svg class="delta-flag" viewBox="0 0 21 15" width="16" height="11" aria-hidden="true"><rect x="0" y="0" width="7" height="15" fill="#2a4d8f"/><rect x="7" y="0" width="7" height="15" fill="#ece7da"/><rect x="14" y="0" width="7" height="15" fill="#bd6248"/></svg> <strong>Notre évaluation de l'impact pour la France : léger négatif.</strong> Le risque d'un blocage politique aggravé (35 %) pèse un peu plus que la chance d'un paysage plus lisible (20 %) — le scénario central (45 %) reste de toute façon un statu quo sans grand changement.</p>
+      </div>
     </div>
 
   </div>
@@ -1240,6 +1392,16 @@
       setTimeout(function(){ el.style.strokeDashoffset = offset; }, 120);
     });
   });
+
+  document.querySelectorAll('.delta-gauge-marker').forEach(function(el){
+    var score = parseFloat(el.dataset.score);
+    var angleRad = (90 - score * 90) * Math.PI / 180;
+    var cx = 54 + 45 * Math.cos(angleRad);
+    var cy = 58 - 45 * Math.sin(angleRad);
+    requestAnimationFrame(function(){
+      setTimeout(function(){ el.setAttribute('cx', cx); el.setAttribute('cy', cy); }, 120);
+    });
+  });
 </script>
 
 <script>
@@ -1264,13 +1426,13 @@
     }
 
     var registres = {
-      0: "🌐 culture internationale",
-      1: "🌍 géopolitique international",
+      0: "📈 économie & finance mondiale",
+      1: "🌍 géopolitique",
       2: "🎲 carte blanche",
       3: "🇫🇷 actualité française",
       4: "🏆 sport",
       5: "🔬 sciences",
-      6: "🎬 culture française"
+      6: "🎬 culture"
     };
     var parisNow = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Paris" }));
     parisNow.setDate(parisNow.getDate() + 1);

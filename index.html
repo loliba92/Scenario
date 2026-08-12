@@ -489,6 +489,7 @@
      docs/ARCHITECTURE.md pour la méthode de calcul et les seuils. */
   .delta-france{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 18px;
     margin-top: 16px;
@@ -505,20 +506,28 @@
     stroke-width: 2;
     transition: cx 1.1s cubic-bezier(.16,.8,.3,1), cy 1.1s cubic-bezier(.16,.8,.3,1);
   }
+  /* Mot du repère dans le graphique lui-même (creux de l'arc), pas en
+     légende flottante à côté — évite qu'il ne colle au paragraphe juste
+     en dessous une fois la carte empilée en colonne sur mobile. */
   .delta-gauge-word{
+    position: absolute;
+    bottom: -14px;
+    left: 0; right: 0;
     text-align: center;
-    font-size: 0.76rem;
+    line-height: 1.25;
+    font-size: 0.66rem;
     color: var(--paper-dim);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-top: 2px;
+    letter-spacing: 0.03em;
   }
 
-  .delta-text{ margin: 0; }
-
-  @media (max-width: 480px){
-    .delta-france{ flex-direction: column; align-items: flex-start; }
-  }
+  /* flex: 1 1 220px, pas juste "1" : force le retour à la ligne sous la
+     jauge dès que la colonne de texte tomberait sous ~220px, plutôt que
+     de dépendre d'un seul seuil de largeur d'écran fixe (ne marchait pas
+     avec un zoom de texte système, une tablette, etc. — repéré via un
+     retour utilisateur avec la police système agrandie). */
+  .delta-text{ margin: 0; flex: 1 1 220px; min-width: 220px; }
+  .delta-text .delta-flag{ border-radius: 2px; vertical-align: 1px; margin-right: 2px; }
 
   @media (prefers-reduced-motion: reduce){
     .delta-gauge-marker{ transition: none; }
@@ -1301,7 +1310,7 @@
           </svg>
           <div class="delta-gauge-word">Léger négatif</div>
         </div>
-        <p class="essentiel-text delta-text"><strong>Notre évaluation de l'impact pour la France : léger négatif.</strong> Le risque d'un blocage politique aggravé (35 %) pèse un peu plus que la chance d'un paysage plus lisible (20 %) — le scénario central (45 %) reste de toute façon un statu quo sans grand changement.</p>
+        <p class="essentiel-text delta-text"><svg class="delta-flag" viewBox="0 0 21 15" width="16" height="11" aria-hidden="true"><rect x="0" y="0" width="7" height="15" fill="#2a4d8f"/><rect x="7" y="0" width="7" height="15" fill="#ece7da"/><rect x="14" y="0" width="7" height="15" fill="#bd6248"/></svg> <strong>Notre évaluation de l'impact pour la France : léger négatif.</strong> Le risque d'un blocage politique aggravé (35 %) pèse un peu plus que la chance d'un paysage plus lisible (20 %) — le scénario central (45 %) reste de toute façon un statu quo sans grand changement.</p>
       </div>
     </div>
 
