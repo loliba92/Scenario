@@ -1612,6 +1612,49 @@ Une date de publication (« Publié le … ») est affichée automatiquement sou
 titre : elle est **déduite en JS** de la ligne du bandeau, donc jamais à saisir
 à la main.
 
+### Encart liste (`.list-box`) — [AJOUTÉ le 12 août]
+
+Composant CSS pour toute liste mise en avant dans le corps d'un article (top,
+calendrier de sorties, classement...), ajouté au gabarit `index.html` à
+l'occasion de l'édition du 8 août sur la fréquentation cinéma. **À réutiliser
+systématiquement** dès qu'une liste mérite d'être détachée du texte courant —
+ne pas revenir à de simples puces `<ul>` dans un `.dek` pour ce cas d'usage.
+
+Même recette visuelle que `.essentiel-box` (fond `--surface`, bordure pleine
+dorée, rayon 10px, label en JetBrains Mono majuscules) mais pensée pour des
+items scannables plutôt qu'un paragraphe :
+
+```html
+<div class="list-box">
+  <span class="list-box-label">🏆 Top 10 des entrées 2026, à ce jour</span>
+  <ul class="list-box-items">
+    <li>
+      <span class="list-box-rank">01</span>
+      <span class="list-box-body">
+        <span class="list-box-title">Marsupilami</span>
+        <span class="list-box-meta">6,11 millions d'entrées — sorti le 4 février</span>
+      </span>
+    </li>
+    <!-- ... -->
+  </ul>
+  <p class="list-box-foot">Note optionnelle sous la liste (ex. classement encore mouvant).</p>
+</div>
+```
+
+- `.list-box-rank` accepte soit un **numéro** (`01`, `02`...) pour un
+  classement, soit un **emoji** pour une liste non ordonnée (calendrier de
+  sorties, checklist...) — jamais les deux mélangés dans le même encart.
+- `.list-box-title` porte le nom de l'item (film, chiffre, événement...),
+  `.list-box-meta` la ligne de détail en dessous (date, source, contexte).
+- `.list-box-foot`, optionnel, pour une précision qui s'applique à
+  l'ensemble de la liste plutôt qu'à un item (ex. « classement encore
+  mouvant, ces films sont encore en salles »).
+- Remplace `.dek-list` (tiret doré, liste dense **dans** un paragraphe
+  `.dek`, sans encadré) pour toute nouvelle liste — retour utilisateur du
+  12 août : design jugé pas assez soigné/cohérent avec le reste du gabarit.
+  `.dek-list` reste présent dans quelques éditions passées (9 et 12 août)
+  mais ne doit plus être utilisé pour du nouveau contenu.
+
 ## Page Archives (`archives.html`)
 
 Chaque entrée de la liste porte un bouton **« Scénarios »** qui déplie, au clic,

@@ -480,6 +480,85 @@
 
   .essentiel-text strong{ color: var(--paper); font-weight: 600; }
 
+  /* ---------- Encart liste (sorties, classements...) ---------- */
+  /* Composant réutilisable pour toute liste mise en avant dans un article —
+     même recette que .essentiel-box (fond surface, bordure dorée, label
+     JetBrains Mono) mais pensé pour une liste d'items scannables plutôt
+     qu'un paragraphe. Le repère (.list-box-rank) accepte un numéro
+     (classement) ou un emoji (liste non classée) selon le contexte.
+     Voir docs/ARCHITECTURE.md pour l'usage détaillé. */
+  .list-box{
+    background: var(--surface);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    padding: 22px 26px 6px;
+    margin: 0 0 28px;
+    max-width: 62ch;
+  }
+
+  .list-box-label{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin: 0 0 4px;
+  }
+
+  .list-box-items{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .list-box-items li{
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 14px 0;
+    border-top: 1px dashed var(--hairline);
+  }
+
+  .list-box-rank{
+    flex: none;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--gold);
+    min-width: 1.7em;
+  }
+
+  .list-box-body{
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .list-box-title{
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--paper);
+  }
+
+  .list-box-meta{
+    display: block;
+    font-size: 0.86rem;
+    color: var(--paper-dim);
+    margin-top: 3px;
+    line-height: 1.45;
+  }
+
+  .list-box-foot{
+    font-size: 0.86rem;
+    color: var(--paper-dim);
+    padding: 14px 0 16px;
+    border-top: 1px dashed var(--hairline);
+    margin: 0;
+  }
+
   .indicator-strip{
     display: flex;
     gap: 28px;
