@@ -1683,7 +1683,13 @@ moins prioritaire).
     du sens et de l'accroche")** : `__DELTA_BADGE__` ajouté à
     `scripts/social/generate_instagram_image.py` (champ optionnel
     `data["delta"] = {"direction": "positif|negatif", "label": "..."}`,
-    repli silencieux si absent, même logique que `--photo`). **Implémenté
+    repli silencieux si absent, même logique que `--photo`). **Premier
+    visuel jugé trop faible par l'utilisateur ("un badge pauvre") —
+    refait en disque tricolore (bleu/blanc/rouge) avec la flèche de sens
+    découpée à même le disque via un masque SVG** (pas une icône posée à
+    côté du texte) : `build_delta_badge()` construit le SVG (clipPath
+    circulaire + mask en forme de flèche haut/bas), texte "Δ FRANCE" +
+    mot en gros à côté (Fraunces, couleur accent). **Implémenté
     uniquement sur `instagram-photo-template.html`, pas sur le gabarit
     par défaut** (`instagram-template.html`, celui de la routine
     automatique) : testé, le budget vertical du gabarit par défaut est

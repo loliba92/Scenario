@@ -107,15 +107,28 @@
   .footer .sep{ color: var(--paper-dim); opacity:.5; }
   .footer .url{ color: var(--paper-dim); }
 
-  /* Badge Δ France, optionnel (voir __DELTA_BADGE__ / generate_instagram_image.py) */
+  /* Badge Δ France, optionnel (voir __DELTA_BADGE__ / build_delta_badge()
+     dans generate_instagram_image.py) — disque tricolore avec la flèche
+     de sens découpée dedans (masque SVG), pas une icône posée à côté. */
   .delta-badge{
-    display:flex; align-items:center; gap:9px;
+    display:flex; align-items:center; gap:18px;
+  }
+  .delta-badge-ring{ stroke: var(--accent); }
+  .delta-badge[data-kind="positif"]{ --accent: var(--favorable); }
+  .delta-badge[data-kind="negatif"]{ --accent: var(--degrade); }
+  .delta-badge-text{
+    display:flex; flex-direction:column; gap:2px;
+  }
+  .delta-badge-label{
     font-family:"JetBrains Mono", monospace;
-    font-weight:700; font-size:22px;
-    padding: 10px 20px;
-    border-radius: 100px;
-    border: 2px solid var(--accent);
-    color: var(--paper);
+    font-weight:700; font-size:18px;
+    letter-spacing:0.06em; text-transform:uppercase;
+    color: var(--paper-dim);
+  }
+  .delta-badge-word{
+    font-family:"Fraunces", serif;
+    font-weight:900; font-size:32px;
+    color: var(--accent);
   }
   .delta-badge[data-kind="positif"]{ --accent: var(--favorable); }
   .delta-badge[data-kind="negatif"]{ --accent: var(--degrade); }

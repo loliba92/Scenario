@@ -68,6 +68,44 @@ from pathlib import Path
 
 ARROWS = {"favorable": "↑", "stable": "→", "degrade": "↓"}
 
+# Flèche découpée dans le disque tricolore du badge Δ France (voir
+# build_delta_badge) — chevron + hampe, 64x64, pointe vers le haut ou
+# le bas selon le sens du score.
+_DELTA_ARROW_PATHS = {
+    "positif": "M32,15 L46,31 L37,31 L37,49 L27,49 L27,31 L18,31 Z",
+    "negatif": "M32,49 L46,33 L37,33 L37,15 L27,15 L27,33 L18,33 Z",
+}
+
+
+def build_delta_badge(delta):
+    """Badge Δ France : disque tricolore (bleu/blanc/rouge) avec la
+    flèche de sens directement découpée dedans (masque SVG, pas une
+    icône posée à côté) — plus texte du mot en gros à côté."""
+    direction = delta["direction"]
+    arrow_path = _DELTA_ARROW_PATHS.get(direction, _DELTA_ARROW_PATHS["positif"])
+    label = html.escape(delta["label"])
+    return f'''<div class="delta-badge" data-kind="{html.escape(direction)}">
+      <svg class="delta-badge-icon" viewBox="0 0 64 64" width="60" height="60">
+        <defs>
+          <clipPath id="deltaFlagClip"><circle cx="32" cy="32" r="30"/></clipPath>
+          <mask id="deltaArrowCut">
+            <rect width="64" height="64" fill="white"/>
+            <path d="{arrow_path}" fill="black"/>
+          </mask>
+        </defs>
+        <g clip-path="url(#deltaFlagClip)" mask="url(#deltaArrowCut)">
+          <rect x="2" y="2" width="20" height="60" fill="#2a4d8f"/>
+          <rect x="22" y="2" width="20" height="60" fill="#ece7da"/>
+          <rect x="42" y="2" width="20" height="60" fill="#bd6248"/>
+        </g>
+        <circle class="delta-badge-ring" cx="32" cy="32" r="30" fill="none" stroke-width="3"/>
+      </svg>
+      <div class="delta-badge-text">
+        <span class="delta-badge-label">Δ France</span>
+        <span class="delta-badge-word">{label}</span>
+      </div>
+    </div>'''
+
 
 def build_scenario_rows(scenarios):
     rows = []
@@ -129,13 +167,7 @@ def main():
 
     if "__DELTA_BADGE__" in final_html:
         delta = data.get("delta")
-        if delta:
-            badge_html = (
-                f'<div class="delta-badge" data-kind="{html.escape(delta["direction"])}">'
-                f'Δ France · {html.escape(delta["label"])}</div>'
-            )
-        else:
-            badge_html = ""
+        badge_html = build_delta_badge(delta) if delta else ""
         final_html = final_html.replace("__DELTA_BADGE__", badge_html)
 
     output_path = Path(args.output)
