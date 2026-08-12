@@ -1730,18 +1730,20 @@ moins prioritaire).
        positif, tout doit être coché, tu dois avoir les six".**
        L'utilisateur voulait un remplissage **cumulatif**, pas une seule
        étoile isolée.
-    8. **[FAIT, retenu] Remplissage cumulatif de gauche à droite, sur
-       une position 1-6 unique.** Corrige l'itération 7 : les étoiles
-       `1..position` sont pleines, le reste gris — pas juste celle
-       visée. Position calculée à partir de sens + intensité :
-       1 = très défavorable (1 étoile rouge) ... 3 = léger défavorable
-       (3 étoiles rouges) ... 4 = léger favorable (3 rouges + 1 verte)
-       ... 6 = très favorable (les 6 pleines, 3 rouges + 3 vertes).
-       Couleur figée par index (0-2 rouge, 3-5 vert), pas par le sens du
-       jour — c'est le nombre d'étoiles pleines qui porte l'information,
-       pas une couleur qui changerait de camp. Flèche supprimée
-       (redondante : la limite du remplissage indique déjà la position,
-       comme une jauge/note classique). `_delta_scale_positions()`
+    8. Remplissage cumulatif de gauche à droite, sur une position 1-6
+       unique — les étoiles `1..position` sont pleines, le reste gris,
+       plus de flèche isolée. Mais couleur figée par index (0-2 rouge,
+       3-5 vert) : un score "léger favorable" (position 4) affichait
+       3 étoiles rouges + 1 verte. **Retour utilisateur, le jour même :
+       pas de mélange — toutes rouges si négatif, toutes vertes si
+       favorable.**
+    9. **[FAIT, retenu] Couleur des étoiles pleines = sens du jour, pas
+       la position.** Corrige l'itération 8 : la position 1-6 (calculée
+       pareil : 1 = très défavorable ... 6 = très favorable) détermine
+       toujours **combien** d'étoiles sont pleines, mais leur couleur est
+       désormais uniforme — rouge (`_DEGRADE_HEX`) si `direction ==
+       "negatif"`, vert (`_FAVORABLE_HEX`) si `"positif"`, jamais les
+       deux mélangées sur un même score. `_delta_scale_positions()`
        calcule toujours les coordonnées x (écart plus large entre
        l'étoile 3 et l'étoile 4 pour bien séparer les deux camps).
        Couleurs SVG toujours en hex fixe (`_FAVORABLE_HEX`/

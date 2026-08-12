@@ -113,9 +113,11 @@ def build_delta_badge(delta):
     tricolore précédent, voir docs/ARCHITECTURE.md) + une échelle fixe
     de 6 étoiles remplies de façon CUMULATIVE de gauche à droite (pas
     une seule étoile isolée + flèche — retour utilisateur explicite :
-    position 1 = très défavorable (1 étoile rouge) ... position 6 =
-    très favorable (les 6 étoiles, 3 rouges + 3 vertes, toutes pleines)
-    + le mot en toutes lettres. Même recette de carte que
+    position 1 = très défavorable ... position 6 = très favorable).
+    **Couleur des étoiles pleines = sens du jour, pas la position** :
+    toutes rouges si négatif, toutes vertes si favorable (retour
+    utilisateur explicite : pas de mélange rouge+vert sur un seul
+    score) — plus le mot en toutes lettres. Même recette de carte que
     .essentiel-box/.list-box (fond surface, bordure, ombre légère)."""
     direction = delta["direction"]
     intensity = max(1, min(3, int(delta.get("intensity", 1))))
@@ -127,13 +129,14 @@ def build_delta_badge(delta):
 
     # position 1..6 sur l'échelle : 1-3 = défavorable très/assez/léger,
     # 4-6 = favorable léger/assez/très. Toutes les étoiles <= position
-    # sont pleines (rouge si index<3, vert sinon) ; le reste est gris.
+    # sont pleines, dans la couleur du sens du jour (pas mélangées) ; le
+    # reste est gris.
     position = (4 - intensity) if direction == "negatif" else (3 + intensity)
+    filled_hex = _DEGRADE_HEX if direction == "negatif" else _FAVORABLE_HEX
 
     stars = []
     for i, x in enumerate(xs):
-        side_hex = _DEGRADE_HEX if i < 3 else _FAVORABLE_HEX
-        fill = side_hex if (i + 1) <= position else _STAR_EMPTY
+        fill = filled_hex if (i + 1) <= position else _STAR_EMPTY
         stars.append(f'<g transform="translate({x},0)"><path d="{_STAR_PATH}" fill="{fill}"/></g>')
 
     scale_svg = (
