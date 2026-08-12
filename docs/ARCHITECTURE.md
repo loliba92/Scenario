@@ -823,12 +823,15 @@ moins prioritaire).
     export. Bonus au passage : `{{4.author}}` (toujours vide, aucune
     balise `<author>` dans `feed.xml`) a aussi disparu du module 32
     (Facebook Daily), qui ne le portait plus besoin de signaler.
-  - ❌ **[TOUJOURS OUVERT] Module 56 (Instagram RSS SUIVI)** : `text` et
-    `media.description` utilisent toujours `{{30.source.title}}`, un
-    champ qui n'existe pas — `feed-suivi.xml` n'a jamais porté de balise
-    `<source>` (contrairement à `feed.xml`). Le résumé partira vide sur
-    chaque post. À remplacer par `{{30.comments}}`, déjà utilisé
-    correctement par les modules 23/24/33.
+  - ✅ **[FAIT le 12 août] Module 56 (Instagram RSS SUIVI)** : `text` et
+    `media.description` passés de `{{30.source.title}}` (champ inexistant
+    — `feed-suivi.xml` n'a jamais porté de balise `<source>`,
+    contrairement à `feed.xml`) à `{{30.comments}}`, comme les modules
+    23/24/33. Confirmé dans un 3ᵉ export le 12 août.
+
+  **Les 3 erreurs de ce lot sont maintenant corrigées.** Circuit RSS
+  SUIVI entièrement câblé (image + texte) sur les 4 réseaux, aligné avec
+  le circuit Daily.
 
 **UX**
 - **[FAIT le 4 août] Temps de lecture estimé** sous le titre de chaque
