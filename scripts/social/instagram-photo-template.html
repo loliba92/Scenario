@@ -104,42 +104,40 @@
   .footer .sep{ color: var(--paper-dim); opacity:.5; }
   .footer .url{ color: var(--paper-dim); }
 
-  /* Carte Δ France, optionnelle (voir __DELTA_BADGE__ / build_delta_badge()
-     dans generate_instagram_image.py) — même recette que .essentiel-box/
-     .list-box (fond surface, bordure, ombre légère), anneau + flèche
-     pleine (couleur favorable/dégradé, vocabulaire déjà utilisé ailleurs
-     sur le site) à côté du mot en gros. Coin haut-droit, libre (masthead
-     à gauche). */
+  /* Carte "France Impact", optionnelle (voir __DELTA_BADGE__ /
+     build_delta_badge() dans generate_instagram_image.py) — même
+     recette que .essentiel-box/.list-box (fond surface, bordure, ombre
+     légère). Petit drapeau en icône de label (pas un fond plein cadre)
+     + 3 étoiles d'intensité colorées favorable/dégradé + le mot en
+     toutes lettres. Coin haut-droit, libre (masthead à gauche). */
   .delta-mark{
     position:absolute; top:44px; right:44px;
-    display:flex; align-items:center; gap:16px;
     background: rgba(16,21,28,0.72);
     border: 1px solid rgba(236,231,218,0.16);
     border-radius: 16px;
-    padding: 16px 26px 16px 18px;
+    padding: 18px 26px;
     box-shadow: 0 10px 28px rgba(0,0,0,.4);
     z-index:3;
   }
-  .delta-mark-ring{
-    fill: rgba(236,231,218,0.06);
-    stroke: var(--accent);
-    stroke-width: 3;
-  }
-  .delta-mark-arrow{ fill: var(--accent); }
   .delta-mark[data-kind="positif"]{ --accent: var(--favorable); }
   .delta-mark[data-kind="negatif"]{ --accent: var(--degrade); }
   .delta-mark-text{
-    display:flex; flex-direction:column; gap:3px;
+    display:flex; flex-direction:column; align-items:flex-end; gap:6px;
   }
   .delta-mark-label{
+    display:flex; align-items:center; gap:8px;
     font-family:"JetBrains Mono", monospace;
-    font-weight:700; font-size:16px;
-    letter-spacing:0.07em; text-transform:uppercase;
+    font-weight:700; font-size:15px;
+    letter-spacing:0.06em; text-transform:uppercase;
     color: var(--paper-dim);
   }
+  .delta-flag{ border-radius:2px; flex-shrink:0; }
+  .delta-mark-stars{ display:flex; gap:4px; }
+  .delta-star{ fill: var(--accent); }
+  .delta-star-empty{ fill: rgba(236,231,218,0.18); }
   .delta-mark-word{
     font-family:"Fraunces", serif;
-    font-weight:900; font-size:28px;
+    font-weight:900; font-size:26px;
     line-height:1.1;
     color: var(--accent);
   }

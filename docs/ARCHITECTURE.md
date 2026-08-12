@@ -1622,10 +1622,17 @@ moins prioritaire).
   ("je veux un truc super simple"), après plusieurs allers-retours sur
   le nom et l'échelle.
 
-  **Nom retenu : « Δ France »** (delta). "Boussole France" rejeté par
-  l'utilisateur ("trop bateau"). Alternatives écartées : "Le Poids
-  France" (plus parlant mais moins distinctif), "La Jauge France"
+  **Nom retenu initialement : « Δ France »** (delta). "Boussole France"
+  rejeté par l'utilisateur ("trop bateau"). Alternatives écartées : "Le
+  Poids France" (plus parlant mais moins distinctif), "La Jauge France"
   (confusion possible avec les jauges déjà existantes par scénario).
+  **Renommé « France Impact » le même jour**, après un brainstorm de
+  l'utilisateur avec ChatGPT sur le visuel de la carte image (voir
+  itération 6 plus bas) — repris partout pour rester cohérent entre la
+  page, `feed.xml` et l'image (`index.html`, `feed.xml`,
+  `docs/routine-prompt.md` mis à jour). Les identifiants internes
+  (`delta-france`, `delta-gauge*`, `build_delta_badge()`...) gardent
+  "delta" en interne, seul le texte visible par le lecteur change.
 
   **Échelle, décidée après calibrage sur les 5 éditions qui avaient déjà
   "L'essentiel" (8-12 août)** : un premier seuil à ±0,3 ne différenciait
@@ -1702,18 +1709,29 @@ moins prioritaire).
        `--favorable`/`--degrade`, juste le texte "Δ France" en petit en
        dessous. **Retour utilisateur : trop petit, "pas très
        professionnel".**
-    5. **[FAIT, retenu] Carte, même recette que `.essentiel-box`/
-       `.list-box`** (fond surface semi-opaque, bordure fine, ombre
-       légère) — reprend l'anneau + flèche de l'itération 4 (toujours
-       aucune imagerie nationale, mêmes couleurs favorable/dégradé déjà
-       utilisées ailleurs) mais dans un vrai conteneur avec le mot
-       affiché en grand à côté (Fraunces, gras, couleur accent) plutôt
-       que seul en petit texte flottant. Meilleur équilibre : assez
-       présent pour ne pas paraître anecdotique, toujours sans bandeau
-       ni symbole identitaire. Pas de pourcentage sur l'image (reste
-       réservé à L'essentiel/au feed) — seul le mot d'intensité
-       (léger/assez/très + sens) y figure désormais, contrairement aux
-       itérations 3-4 qui n'affichaient que la flèche.
+    5. Carte, même recette que `.essentiel-box`/`.list-box` (fond
+       surface semi-opaque, bordure fine, ombre légère) — reprend
+       l'anneau + flèche de l'itération 4 (toujours aucune imagerie
+       nationale, mêmes couleurs favorable/dégradé déjà utilisées
+       ailleurs) mais dans un vrai conteneur avec le mot affiché en
+       grand à côté (Fraunces, gras, couleur accent) plutôt que seul en
+       petit texte flottant. **Retour utilisateur, positif sur la
+       carte, mais ré-ouvert le jour même** après un brainstorm avec
+       ChatGPT sur un système d'étoiles d'intensité + un petit drapeau.
+    6. **[FAIT, retenu] « France Impact » — drapeau en icône de label +
+       3 étoiles d'intensité.** Reprend la carte de l'itération 5, mais
+       remplace l'anneau/flèche par : un **petit drapeau tricolore en
+       icône devant le nom** (20×14px, simple repère visuel façon
+       sélecteur de pays/langue — pas un fond plein cadre, la leçon de
+       l'itération 3 reste appliquée : le drapeau ne doit jamais dominer
+       la carte) + **3 étoiles pleines/vides** (path SVG standard),
+       colorées `--favorable`/`--degrade` selon le sens, nombre
+       d'étoiles pleines = intensité (`léger` = 1, `assez` = 2, `très` =
+       3 — mêmes seuils que `docs/routine-prompt.md`). Contrat JSON
+       étendu : `data["delta"]` porte maintenant `intensity` (1-3) en
+       plus de `direction`/`label`, pour ne jamais reparser le mot texte
+       — le nombre d'étoiles vient d'un entier explicite, pas d'un
+       "léger"/"assez"/"très" à interpréter côté script.
     **Implémenté uniquement sur `instagram-photo-template.html`, pas sur
     le gabarit par défaut** (`instagram-template.html`, celui de la
     routine automatique) : testé, le budget vertical/horizontal du

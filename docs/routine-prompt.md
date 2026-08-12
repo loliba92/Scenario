@@ -144,7 +144,7 @@ Phrase concrète, ancrée dans le sujet du jour, jamais une généralité interc
       </svg>
       <div class="delta-gauge-word">{Mot}</div>
     </div>
-    <p class="essentiel-text delta-text"><strong>Δ France : {mot}.</strong> {phrase expliquant pourquoi}</p>
+    <p class="essentiel-text delta-text"><strong>France Impact : {mot}.</strong> {phrase expliquant pourquoi}</p>
   </div>
 </div>
 ```
@@ -153,15 +153,15 @@ Phrase concrète, ancrée dans le sujet du jour, jamais une généralité interc
 2. **Contexte** : le fait chiffré clé qui motive la question, en une phrase. **Toujours nommer précisément le sujet**, jamais un nom vague qui suppose que le lecteur a déjà lu le reste (ex. jamais « la fréquentation » seul → « la fréquentation des salles de cinéma françaises »).
 3. **Conclusion** : l'issue la plus probable avec son %, **en langage concret** (chiffres, conséquence réelle) — **jamais juste le mot "favorable"/"stable"/"dégradé" seul** (mauvais : « le scénario stable (45%) reste le plus probable » ; bon : « le rebond se maintient sur un rythme soutenu sans s'accélérer (45%) »).
 4. **Signal à surveiller**, sur sa propre ligne, séparé de la conclusion : événement concret et vérifiable (événement daté, publication de chiffres, décision attendue — pas une généralité du type « il faudra voir »).
-5. **Δ France** — voir juste en dessous.
+5. **France Impact** — voir juste en dessous.
 
 Court et précis — l'essentiel reste un résumé, pas un second article. Ne jamais répéter mot pour mot ce qui est déjà dit dans les `why` des cartes — c'est une synthèse qui relie contexte et scénarios, pas un résumé de l'un d'eux. CSS (`.essentiel-box`, `.essentiel-label`, `.essentiel-text`, `.delta-france`, `.delta-gauge*`) déjà dans le gabarit. Libellé « L'essentiel » volontairement neutre (pas « Conclusion ») — ne pas le changer de sa propre initiative.
 
-**Δ France — indice de sens pondéré pour la France, dernier paragraphe de « L'essentiel ».** Calcul : `score = Σ (probabilité du scénario × valeur France de ce scénario)`, valeur = +1 favorable / 0 stable / −1 dégradé (les 3 probabilités et les 3 classifications sont déjà écrites dans les cartes juste au-dessus, aucune nouvelle recherche). **Jamais de mot "neutre"** — toujours un sens (positif/négatif), avec une intensité selon l'ampleur : `|score| < 0,30` → léger, `0,30 à 0,50` → assez, `≥ 0,50` → très (ex. « léger négatif », « assez positif », « très négatif »). Le chiffre brut n'est jamais montré au lecteur, seuls le mot et la jauge le sont. La phrase qui suit le mot **explique toujours le pourquoi**, en citant les probabilités clés (pas juste répéter le mot) — voir `archives/2026-08-12.html` pour un exemple réel. `data-score="{score}"` sur `.delta-gauge-marker` = le score brut avec le signe (ex. `-0.15`) ; `{Mot}` dans `.delta-gauge-word` = le même mot en toutes lettres avec majuscule (ex. « Léger négatif »).
+**France Impact — indice de sens pondéré pour la France, dernier paragraphe de « L'essentiel ».** Calcul : `score = Σ (probabilité du scénario × valeur France de ce scénario)`, valeur = +1 favorable / 0 stable / −1 dégradé (les 3 probabilités et les 3 classifications sont déjà écrites dans les cartes juste au-dessus, aucune nouvelle recherche). **Jamais de mot "neutre"** — toujours un sens (positif/négatif), avec une intensité selon l'ampleur : `|score| < 0,30` → léger, `0,30 à 0,50` → assez, `≥ 0,50` → très (ex. « léger négatif », « assez positif », « très négatif »). Le chiffre brut n'est jamais montré au lecteur, seuls le mot et la jauge le sont. La phrase qui suit le mot **explique toujours le pourquoi**, en citant les probabilités clés (pas juste répéter le mot) — voir `archives/2026-08-12.html` pour un exemple réel. `data-score="{score}"` sur `.delta-gauge-marker` = le score brut avec le signe (ex. `-0.15`) ; `{Mot}` dans `.delta-gauge-word` = le même mot en toutes lettres avec majuscule (ex. « Léger négatif »).
 
-**Portée du chiffre — jamais un classement ou une mesure d'importance.** Δ France compare valablement le sens et l'ampleur pondérés entre sujets (deux scores proches = deux sujets qui penchent pareil, dans la même mesure) — mais ne mesure jamais l'enjeu réel d'un sujet (un −0,15 sur un dossier économique n'est pas « aussi grave » qu'un −0,15 sur un conflit géopolitique). Ne jamais construire de classement, de « pire score du mois » ou de comparaison d'importance à partir de ce seul chiffre.
+**Portée du chiffre — jamais un classement ou une mesure d'importance.** France Impact compare valablement le sens et l'ampleur pondérés entre sujets (deux scores proches = deux sujets qui penchent pareil, dans la même mesure) — mais ne mesure jamais l'enjeu réel d'un sujet (un −0,15 sur un dossier économique n'est pas « aussi grave » qu'un −0,15 sur un conflit géopolitique). Ne jamais construire de classement, de « pire score du mois » ou de comparaison d'importance à partir de ce seul chiffre.
 
-**`.france-line` de chaque carte doit porter l'attribut `data-france-impact="favorable|stable|degrade"`** (en plus du texte déjà écrit), pour que Δ France se calcule à partir d'un attribut fiable plutôt que de reparser le texte libre de la phrase France (qui varie beaucoup d'une édition à l'autre).
+**`.france-line` de chaque carte doit porter l'attribut `data-france-impact="favorable|stable|degrade"`** (en plus du texte déjà écrit), pour que France Impact se calcule à partir d'un attribut fiable plutôt que de reparser le texte libre de la phrase France (qui varie beaucoup d'une édition à l'autre).
 
 **Même texte repris dans `feed.xml`, mais découpé en paragraphes** : une fois « L'essentiel » rédigé, ajouter dans l'`<item>` du jour, juste après `<category>`, avant `<enclosure>` :
 ```html
@@ -173,9 +173,9 @@ Court et précis — l'essentiel reste un résumé, pas un second article. Ne ja
 
 {Signal à surveiller}
 
-Δ France : {mot}. {phrase expliquant pourquoi}</source>
+France Impact : {mot}. {phrase expliquant pourquoi}</source>
 ```
-`<source>` est une vraie balise RSS 2.0 (détournée ici, avec son `url` obligatoire) — jamais une balise inventée, jamais de nouvelle balise ajoutée pour Δ France (même `<source>`, structure du flux inchangée). Texte brut, sans `<strong>` ni balisage HTML — **mais avec de vrais doubles retours à la ligne entre chaque paragraphe** (comme ci-dessus), pas un seul bloc continu : c'est ce texte qui alimente `{{4.source.title}}` sur les légendes Instagram/LinkedIn/Facebook (voir `docs/ARCHITECTURE.md`), illisible en un seul bloc sur ces formats.
+`<source>` est une vraie balise RSS 2.0 (détournée ici, avec son `url` obligatoire) — jamais une balise inventée, jamais de nouvelle balise ajoutée pour France Impact (même `<source>`, structure du flux inchangée). Texte brut, sans `<strong>` ni balisage HTML — **mais avec de vrais doubles retours à la ligne entre chaque paragraphe** (comme ci-dessus), pas un seul bloc continu : c'est ce texte qui alimente `{{4.source.title}}` sur les légendes Instagram/LinkedIn/Facebook (voir `docs/ARCHITECTURE.md`), illisible en un seul bloc sur ces formats.
 
 **Ne pas confondre avec la phrase « Ce qu'on évalue » (`.stakes-text`), qui va ailleurs.** Deux textes différents, deux emplacements différents dans `feed.xml` : « Ce qu'on évalue » sert de second paragraphe de la `<description>` (voir étape technique 8, juste après le premier paragraphe issu de `<comments>`) — jamais dans `<source>`. `<source>` est réservé à « L'essentiel » et rien d'autre. Erreur commise une fois (11 août, corrigée) : « Ce qu'on évalue » copié dans `<source>` à la place de « L'essentiel » — vérifier que les deux textes ne sont jamais permutés. Utilisé directement par plusieurs posts sociaux du circuit Make (`{{4.source.title}}` sur Telegram/Instagram/Facebook/LinkedIn, voir `docs/ARCHITECTURE.md`) : une confusion ici se propage silencieusement à tous ces canaux.
 
@@ -188,7 +188,7 @@ Nom court résumant le mécanisme central (ce qui se passe concrètement, pas un
 
 Pour chaque scénario : indicateurs concrets réellement touchés, avec estimation chiffrée de l'évolution (fourchette en %, pas juste une direction), calibrée sur le niveau actuel réel et des précédents comparables réels — si aucun précédent fiable, le dire plutôt qu'inventer un chiffre. Toujours préciser qu'il s'agit d'ordres de grandeur indicatifs, pas des prévisions garanties (voir factorisation en footnote, étape technique).
 
-Traduction concrète côté France (impact quotidien : prix, pouvoir d'achat, emploi...) et synthèse en une phrase (plutôt favorable / plutôt défavorable / neutre pour la France, jamais un conseil d'action) dans `.france-line`, avec l'attribut `data-france-impact="favorable|stable|degrade"` correspondant (sert au calcul de Δ France, voir étape 3).
+Traduction concrète côté France (impact quotidien : prix, pouvoir d'achat, emploi...) et synthèse en une phrase (plutôt favorable / plutôt défavorable / neutre pour la France, jamais un conseil d'action) dans `.france-line`, avec l'attribut `data-france-impact="favorable|stable|degrade"` correspondant (sert au calcul de France Impact, voir étape 3).
 
 ### Étape 5 — Documentation finale
 Pour chaque scénario : coefficient de probabilité en % (somme des trois = 100 %) avec mot-repère (0-25 % peu probable, 26-50 % probable, 51-75 % assez probable, 76-100 % très probable) ; explication argumentée répondant à trois questions : qu'est-ce qui le rend plus probable, qu'est-ce qui le rend moins probable/fragile, pourquoi plus ou moins réaliste que les deux autres (comparaison explicite).

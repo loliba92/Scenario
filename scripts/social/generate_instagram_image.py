@@ -29,17 +29,18 @@ Champs "kind" attendus : favorable | stable | degrade (détermine la
 couleur et la flèche ↑/→/↓). Pas de pourcentages dans l'image — c'est
 volontaire (effet teaser vers le lien en bio).
 
-Champ optionnel "delta" (ajouté le 12 août) : triangle Δ France en
-haut à droite de l'image, ex. {"direction": "negatif", "label": "Léger
-négatif"} ("label" gardé dans le JSON pour cohérence avec L'essentiel/
-feed.xml, mais pas affiché sur l'image — seule la flèche ▲/▼ y figure,
-même logique que "pas de pourcentages dans l'image"). "direction"
-attendu : positif | negatif (jamais neutre, voir docs/routine-
-prompt.md). Purement décoratif — si absent du JSON, disparaît
-silencieusement (même repli que --photo), aucune erreur. Supporté
-uniquement par instagram-photo-template.html (le gabarit par défaut
-n'a pas le marqueur __DELTA_BADGE__, budget vertical déjà tendu par le
-titre 1-3 lignes — voir docs/ARCHITECTURE.md).
+Champ optionnel "delta" (ajouté le 12 août, plusieurs itérations
+visuelles le même jour — voir docs/ARCHITECTURE.md) : carte "France
+Impact" en haut à droite de l'image, ex. {"direction": "negatif",
+"intensity": 1, "label": "Léger négatif"}. "direction" attendu :
+positif | negatif (jamais neutre) ; "intensity" 1/2/3 = léger/assez/
+très (mêmes seuils que docs/routine-prompt.md, ±0,10/±0,30/±0,50) —
+détermine le nombre d'étoiles pleines sur 3. "label" affiché tel quel
+en toutes lettres sous les étoiles. Purement décoratif — si absent du
+JSON, disparaît silencieusement (même repli que --photo), aucune
+erreur. Supporté uniquement par instagram-photo-template.html (le
+gabarit par défaut n'a pas le marqueur __DELTA_BADGE__, budget vertical
+déjà tendu par le titre 1-3 lignes — voir docs/ARCHITECTURE.md).
 
 "hook" (ajouté le 11 août, retour utilisateur) : une accroche courte
 (≤ 12 mots, une seule ligne à l'écran), affichée sous le titre, en doré.
@@ -70,32 +71,38 @@ from pathlib import Path
 
 ARROWS = {"favorable": "↑", "stable": "→", "degrade": "↓"}
 
-# Triangle plein, dessiné en path pour un rendu net à petite taille —
-# pointe vers le haut ou le bas selon le sens du score, dans un cercle
-# 72x72 (voir build_delta_badge).
-_DELTA_ARROW_PATHS = {
-    "positif": "M36,22 L50,44 L22,44 Z",
-    "negatif": "M36,50 L50,28 L22,28 Z",
-}
+# Étoile pleine, path standard 5 branches (viewBox 24x24), réutilisée
+# pour les 3 crans d'intensité de "France Impact" (voir build_delta_badge).
+_STAR_PATH = "M12 2 L14.9 8.6 L22 9.3 L16.5 14.1 L18.2 21 L12 17.3 L5.8 21 L7.5 14.1 L2 9.3 L9.1 8.6 Z"
+
+_DELTA_FLAG_SVG = (
+    '<svg class="delta-flag" viewBox="0 0 21 15" width="20" height="14" aria-hidden="true">'
+    '<rect x="0" y="0" width="7" height="15" fill="#2a4d8f"/>'
+    '<rect x="7" y="0" width="7" height="15" fill="#ece7da"/>'
+    '<rect x="14" y="0" width="7" height="15" fill="#bd6248"/>'
+    '</svg>'
+)
 
 
 def build_delta_badge(delta):
-    """Carte Δ France : même recette que .essentiel-box/.list-box déjà
-    utilisée ailleurs sur le site (fond surface, bordure, ombre légère)
-    — anneau + flèche pleine (couleur favorable/dégradé, vocabulaire
-    déjà là, aucune imagerie nouvelle) à côté du mot en gros. Remplace
-    la marque seule (retour utilisateur : trop petite, pas assez
-    professionnelle — voir docs/ARCHITECTURE.md)."""
+    """Carte "France Impact" : petit drapeau (icône de label, pas un
+    fond plein cadre — évite le côté trop identitaire du triangle
+    tricolore précédent, voir docs/ARCHITECTURE.md) + 3 étoiles
+    d'intensité (léger/assez/très = 1/2/3, coloré favorable/dégradé) +
+    le mot en toutes lettres. Même recette de carte que .essentiel-box/
+    .list-box (fond surface, bordure, ombre légère)."""
     direction = delta["direction"]
-    arrow_path = _DELTA_ARROW_PATHS.get(direction, _DELTA_ARROW_PATHS["positif"])
+    intensity = max(1, min(3, int(delta.get("intensity", 1))))
     label = html.escape(delta["label"])
+    stars = "".join(
+        f'<svg class="delta-star{"" if i < intensity else " delta-star-empty"}" '
+        f'viewBox="0 0 24 24" width="22" height="22"><path d="{_STAR_PATH}"/></svg>'
+        for i in range(3)
+    )
     return f'''<div class="delta-mark" data-kind="{html.escape(direction)}">
-      <svg viewBox="0 0 72 72" width="52" height="52">
-        <circle cx="36" cy="36" r="32" class="delta-mark-ring"/>
-        <path d="{arrow_path}" class="delta-mark-arrow"/>
-      </svg>
       <div class="delta-mark-text">
-        <span class="delta-mark-label">Δ France</span>
+        <span class="delta-mark-label">{_DELTA_FLAG_SVG} France Impact</span>
+        <span class="delta-mark-stars">{stars}</span>
         <span class="delta-mark-word">{label}</span>
       </div>
     </div>'''
