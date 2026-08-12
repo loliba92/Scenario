@@ -1744,9 +1744,10 @@ moins prioritaire).
        désormais uniforme — rouge (`_DEGRADE_HEX`) si `direction ==
        "negatif"`, vert (`_FAVORABLE_HEX`) si `"positif"`, jamais les
        deux mélangées sur un même score. `_delta_scale_positions()`
-       calcule toujours les coordonnées x (écart plus large entre
-       l'étoile 3 et l'étoile 4 pour bien séparer les deux camps).
-       Couleurs SVG toujours en hex fixe (`_FAVORABLE_HEX`/
+       calcule toujours les coordonnées x — écart d'abord un peu plus
+       large entre l'étoile 3 et l'étoile 4, **retiré le jour même**
+       (retour utilisateur : "pas besoin"), espacement régulier sur les
+       6 depuis. Couleurs SVG toujours en hex fixe (`_FAVORABLE_HEX`/
        `_DEGRADE_HEX`), pas en `var(--x)` — un attribut `fill="var(--x)"`
        sur un `<path>` généré côté serveur ne se résout pas de façon
        fiable hors d'un attribut `style`, bug testé et évité. Contrat

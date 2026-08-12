@@ -93,17 +93,17 @@ _STAR_EMPTY = "rgba(236,231,218,0.18)"
 
 _STAR_W = 24
 _STAR_GAP = 4
-_CENTER_GAP = 16
 
 
 def _delta_scale_positions():
-    """x de chaque étoile sur les 6 (3 défavorable + 3 favorable), avec
-    un espace un peu plus large au centre pour bien séparer les 2 camps."""
+    """x de chaque étoile sur les 6, espacement régulier — pas de
+    séparation visuelle particulière entre la 3e et la 4e (retour
+    utilisateur : inutile)."""
     xs = []
     x = 0
     for i in range(6):
         xs.append(x)
-        x += _STAR_W + (_CENTER_GAP if i == 2 else _STAR_GAP)
+        x += _STAR_W + _STAR_GAP
     return xs
 
 
