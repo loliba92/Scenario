@@ -39,7 +39,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 - [ ] Nouvel ordre mondial : la domination occidentale est-elle remise en cause par un monde de plus en plus multipolaire ? [géopolitique]
 
 <!-- Enjeux sportifs & économiques, jamais la vie privée des sportifs. Sous-thèmes : football, rugby, tennis, JO, cyclisme, sports méca… -->
-## Sport — jeudi
+## Sport — dimanche
 - [x] Argent du Golfe : l'Arabie saoudite est-elle en train d'acheter le sport mondial ? [sport & économie]
   <!-- Problématique : des milliards du Golfe (Arabie saoudite en tête, via son fonds PIF) irriguent le football (Saudi Pro League, Mondial 2034), le cyclisme (réforme « One Cycling »), le golf, la boxe, la F1… Cet argent va-t-il moderniser et développer ces sports, s'y installer sans tout bouleverser, ou en prendre le contrôle au détriment de leur équilibre et de leur histoire ? → 3 scénarios : favorable = l'argent professionnalise et élargit le public sans mainmise ; stable = présence forte mais contenue, statu quo ; dégradé = prise de contrôle, ligues dissidentes, dépendance et contestation (sportswashing), gouvernance fracturée. -->
 
@@ -147,7 +147,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 - [ ] Cinéma mondial : le cinéma peut-il survivre face au streaming ? [cinéma]
 - [ ] Art contemporain : le marché de l'art change-t-il d'époque ? [art]
 
-## Économie & finance mondiale — dimanche
+## Économie & finance mondiale — jeudi
 <!-- Faire tourner les sous-thèmes : marchés financiers, monnaies (dollar, or, bitcoin), dette et taux d'intérêt, matières premières (pétrole, énergie), entreprises et secteurs à l'échelle mondiale, inégalités, démographie économique, luxe et consommation… Nouveau registre créé le 12 août (retour utilisateur), scindé de l'ancien slot "Géopolitique / international — lundi" qui mélangeait géopolitique dure et économie mondiale — voir la note dans la section Géopolitique — lundi pour la règle de classement des sujets à cheval sur les deux. -->
 - [x] Croissance mondiale : l'économie mondiale peut-elle éviter le ralentissement ? [économie]
 - [ ] Inflation : l'inflation est-elle définitivement vaincue ? [économie]

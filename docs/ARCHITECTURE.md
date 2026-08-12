@@ -1420,6 +1420,43 @@ moins prioritaire).
   droits `update_trigger` sur ce trigger (créé via `http_api`, pas par un
   agent).
 
+- **[FAIT le 12 août, même jour] Sport et Économie & finance mondiale
+  permutés entre jeudi et dimanche (retour utilisateur).** Repris juste
+  après la restructuration ci-dessus, sur le même principe : "plus
+  logique de mettre des sujets plus légers le week-end". **Sport passe de
+  jeudi à dimanche, Économie & finance mondiale de dimanche à jeudi** —
+  Culture (samedi) inchangée. Urgent le jour même : le 13 août (lendemain)
+  tombe un jeudi, donc le nouveau mapping doit être effectif avant la
+  prochaine exécution de la routine (7h Paris).
+
+  **Fichiers modifiés, même liste que la restructuration précédente** :
+  `docs/routine-prompt.md` (grille de l'étape 1 — Jeudi devient économie,
+  Dimanche devient sport ; mapping des tons — jeudi rejoint lundi/mercredi
+  côté sobriété, dimanche rejoint samedi côté ton enlevé ; **texte donné à
+  l'utilisateur pour collage manuel dans le trigger live, urgence
+  oblige**) ; `sujets-prioritaires.md` (en-têtes de section `## Sport` et
+  `## Économie & finance mondiale` seulement — le contenu des sujets
+  reste dans sa section, aucun sujet déplacé) ; `docs/tags.md` (notes sur
+  `sport-economie` et le registre `sport`, jour mis à jour) ; `index.html`
+  + `archives/2026-08-12.html` (script "Demain : {registre}", mapping JS
+  des jours — indices 0 et 4 permutés) ; `le-projet.html` (grille publique
+  `.rhythm-grid`).
+
+  **Non modifié, volontairement** : les 20 archives déjà publiées
+  gardent leur ancien mapping JS "Demain : {registre}" (déjà le cas pour
+  la restructuration samedi/dimanche du même jour — voir juste au-dessus,
+  même raisonnement : widget calculé côté client à partir de la date
+  réelle du visiteur, techniquement daté sur les vieilles pages, mais
+  jamais mis à jour rétroactivement par choix déjà établi).
+
+  **Pondération France Impact par registre (discussion en cours, pas
+  encore implémentée)** : le principe proposé le même jour ("ascenseur
+  descend vite, escalier remonte lentement" — poids asymétrique −1,5/+1
+  pour géopolitique/économie/actualité française, ±1 pour le reste) reste
+  valable tel quel après cette permutation — la règle est associée au
+  **nom du registre**, pas au jour de la semaine, donc aucun ajustement
+  nécessaire de ce côté-là.
+
 - **[FAIT le 7 août] `le-projet.html` : le rôle technique porte sur la
   méthode, pas juste le site.** Retour utilisateur : la phrase décrivant
   le rôle technique d'Olivier Bertrand ("il conçoit et veille au bon

@@ -38,8 +38,11 @@ liés : (1) `culture-francaise` (samedi) et `culture-internationale` (dimanche)
 fusionnent en un seul registre `culture` (samedi) — la frontière
 France/international était souvent artificielle, et les deux files étaient
 clairsemées ; (2) la case libérée par cette fusion sert à un nouveau registre
-`economie-mondiale` (dimanche), séparé de `geopolitique` (lundi) qui mélangeait
-jusque-là géopolitique dure et économie mondiale dans un seul slot surchargé.
+`economie-mondiale`, séparé de `geopolitique` (lundi) qui mélangeait jusque-là
+géopolitique dure et économie mondiale dans un seul slot surchargé.
+**[CHANGÉ le 12 août, même jour] `economie-mondiale` déplacé de dimanche à
+jeudi, `sport` de jeudi à dimanche** — retour utilisateur : sujets plus légers
+le week-end.
 Voir `sujets-prioritaires.md` (section « Géopolitique — lundi ») pour la règle
 de classement des sujets à cheval sur les deux (guerres commerciales, tarifs
 douaniers…), et `docs/ARCHITECTURE.md` pour le détail de la décision.
@@ -70,10 +73,10 @@ rapidement le bon tag — l'ordre du tableau n'a pas d'autre signification.
 | `jeux-video` | Jeux vidéo | Culture & divertissement |
 | `litterature` | Littérature | Culture & divertissement |
 | `medias` | Médias | Culture & divertissement |
-| `sport-economie` | Sport & argent | Sport (hors registre du jeudi) |
+| `sport-economie` | Sport & argent | Sport (hors registre du dimanche) |
 | `societe` | Société | Société |
 
-Note : `sport` existe déjà comme tag de registre (jeudi). Un sujet sportif traité un
+Note : `sport` existe déjà comme tag de registre (dimanche). Un sujet sportif traité un
 autre jour (ex. mardi carte blanche) prend `sport-economie` comme tag thématique
 plutôt que de réutiliser `sport`, pour ne pas mélanger les deux usages dans le
 filtre.
