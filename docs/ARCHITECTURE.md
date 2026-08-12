@@ -1655,6 +1655,19 @@ items scannables plutôt qu'un paragraphe :
   `.dek-list` reste présent dans quelques éditions passées (9 et 12 août)
   mais ne doit plus être utilisé pour du nouveau contenu.
 
+**Vérification post-ajout (12 août, retour utilisateur « routine copié
+collé vérifie ») :** en comparant le `<style>` des archives 09→12 août,
+`.dek-list` était bien présente et utilisée le 9, puis **absente du CSS**
+(pas juste inutilisée) les 10 et 11 août, avant de réapparaître le 12 —
+preuve concrète que le gabarit `index.html` ne recopie pas fiablement une
+classe CSS un jour où le contenu ne s'en sert pas, malgré la consigne
+« ne jamais changer le CSS ». Correctifs appliqués : règle explicite ajoutée
+à l'étape technique 2 de `docs/routine-prompt.md` (recopier le `<style>`
+intégralement, sans filtrer sur l'usage du jour) ; `.list-box` confirmée
+présente dans le `index.html` courant (vérifié après ce commit). À
+recontrôler après quelques éditions sans liste pour confirmer que la classe
+survit désormais.
+
 ## Page Archives (`archives.html`)
 
 Chaque entrée de la liste porte un bouton **« Scénarios »** qui déplie, au clic,
