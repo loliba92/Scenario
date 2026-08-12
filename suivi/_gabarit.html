@@ -93,6 +93,41 @@
   }
   .origin-link:hover{ color: var(--paper); border-bottom-color: var(--paper); }
 
+  /* Image d'illustration — même habillage que .article-image sur index.html
+     (fondu noir + masthead), même process de récupération (fetch_topic_image.py
+     puis use_topic_image.py, voir docs/ARCHITECTURE.md § "Pages de suivi par
+     sujet"). Une seule image par page de suivi, fixée à la création (V0),
+     jamais renouvelée à chaque mise à jour. */
+  .article-image{ margin: 22px 0 28px; }
+  .article-image-photo-wrap{
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+  }
+  .article-image-photo{
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .article-image-scrim{
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(16,21,28,.97) 0%, rgba(16,21,28,.75) 16%, rgba(16,21,28,.3) 32%, transparent 50%, transparent 100%);
+  }
+  .article-image-masthead{
+    position: absolute; top: 4px; left: 6px;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .article-image-logo{ width: 33px; height: 33px; display: block; }
+  .article-image-wordmark{
+    font-family: "Fraunces", serif; font-weight: 600; font-size: clamp(1.15rem, 2.3vw, 1.5rem); color: var(--paper);
+  }
+  .article-image-wordmark span{ color: var(--gold); }
+  .article-image-caption{ font-size: 0.8rem; color: var(--paper-dim); margin: 10px 0 0; }
+  .article-image-caption a{ color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
+  .article-image-caption a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
   /* ---- Graphique d'évolution (aperçu global, avant V0) ---- */
   section.evolution{ padding: 32px 0 8px; }
   .evo-chart{
@@ -259,6 +294,28 @@
   <div class="wrap">
     <p class="eyebrow">Suivi d'un sujet</p>
     <h1>{TITRE DE LA QUESTION, ex. "Sujet : où en est-on ?"}</h1>
+
+    <!-- Image d'illustration — optionnelle, insérée seulement si un candidat
+         Pexels convenable a été trouvé au moment de créer CETTE page (V0),
+         même process que l'article quotidien (fetch_topic_image.py puis
+         use_topic_image.py — voir docs/ARCHITECTURE.md). Fichiers rangés sous
+         assets/social/topic-images/suivi-{sujet}[-wide].jpg (préfixe "suivi-"
+         pour ne jamais entrer en collision avec les images datées des éditions
+         quotidiennes). Une seule fois, jamais régénérée aux mises à jour
+         suivantes (V1, V2...). Si aucun candidat ne convient, supprimer ce
+         bloc entièrement — jamais bloquant pour la création de la page. -->
+    <figure class="article-image">
+      <div class="article-image-photo-wrap">
+        <img class="article-image-photo" src="../assets/social/topic-images/suivi-{sujet}-wide.jpg" alt="{description factuelle courte de la photo}">
+        <div class="article-image-scrim"></div>
+        <div class="article-image-masthead">
+          <img class="article-image-logo" src="../assets/logo.svg" alt="">
+          <span class="article-image-wordmark">Scéna<span>rio</span></span>
+        </div>
+      </div>
+      <figcaption class="article-image-caption">Photo d'illustration. {photographe} / <a href="{pexels_url}" target="_blank" rel="noopener noreferrer">Pexels ↗</a></figcaption>
+    </figure>
+
     <p class="dek">Contrairement aux éditions du site, cette page <strong>n'est pas figée</strong> : elle s'allonge à chaque mise à jour, sans jamais réécrire ce qui a déjà été dit. Le point de départ reste toujours visible tel quel.</p>
     <a class="origin-link" href="../archives/{AAAA-MM-JJ}.html">Voir l'édition d'origine du {DATE ORIGINE EN TOUTES LETTRES} →</a>
   </div>

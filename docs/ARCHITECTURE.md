@@ -2543,12 +2543,44 @@ Voir les échanges de session pour le détail, mais en résumé :
   rempli à partir de ce gabarit, utile pour voir le rendu final, mais
   **`_gabarit.html` est la source à copier**, pas lui.
 
+  **[AJOUTÉ le 12 août] Image d'illustration, à la création de la page
+  uniquement.** Retour utilisateur : même process que l'image Pexels des
+  éditions quotidiennes (voir « Générer et attacher l'image Instagram » /
+  « Image dans le corps de l'article » dans `docs/routine-prompt.md`), mais
+  appliqué **une seule fois, à la création de la page** (V0) — jamais
+  régénérée aux mises à jour suivantes (V1, V2...), pour éviter qu'un sujet
+  suivi sur plusieurs mois accumule une galerie de photos disparates. Étapes,
+  seulement quand une page `suivi/{sujet}.html` **n'existe pas encore** :
+  1. Construire 1 à 3 mots-clés thématiques génériques (même règle que pour
+     l'édition quotidienne — jamais le titre recopié tel quel, jamais un nom
+     propre isolé).
+  2. `python3 scripts/social/fetch_topic_image.py "{mots-clés}" --count 5 --out /tmp/topic-image-candidates`
+     puis choisir le meilleur candidat à l'œil (mêmes garde-fous : écarter
+     tout visage reconnaissable, tout candidat hors-sujet).
+  3. `python3 scripts/social/use_topic_image.py {candidat choisi} --date suivi-{sujet} --credits /tmp/topic-image-candidates/credits.json`
+     — utiliser `suivi-{sujet}` (pas une date) comme identifiant, pour que les
+     fichiers atterrissent sous `assets/social/topic-images/suivi-{sujet}.jpg`
+     / `-wide.jpg` / `.json`, jamais en collision avec les images datées des
+     éditions quotidiennes.
+  4. Insérer le bloc `<figure class="article-image">` déjà présent dans
+     `suivi/_gabarit.html` (CSS et HTML identiques à `index.html`, chemins
+     relatifs adaptés avec `../`), remplir `alt`/`{photographe}`/`{pexels_url}`
+     à partir de la fiche de provenance JSON.
+  5. **Si aucun candidat ne convient (ou si le script échoue), retirer le bloc
+     `<figure class="article-image">` entièrement** — jamais bloquant pour la
+     création de la page, exactement comme pour l'édition quotidienne.
+
+  Sur une page qui existe déjà (ajout d'une V1, V2...), ne jamais retoucher
+  l'image en place — elle reste celle choisie à la création, même si le sujet
+  a beaucoup évolué depuis.
+
   **Marche à suivre pour une mise à jour** (processus manuel, hors
   routine) : l'utilisateur donne le sujet à mettre à jour dans une
   session ; retrouver l'édition d'origine dans `archives/` ; si aucune
   page `suivi/{sujet}.html` n'existe encore, la créer à partir de
   `suivi/_gabarit.html` avec V0 (rappel de l'édition d'origine) + V1
-  (première mise à jour) ; si elle existe déjà, ajouter uniquement une
+  (première mise à jour) — **et l'image d'illustration si applicable, voir
+  ci-dessus** ; si elle existe déjà, ajouter uniquement une
   nouvelle version en dessous, jamais réécrire les précédentes ; vérifier
   les faits par une vraie recherche (même rigueur que pour une édition
   normale, sources croisées) ; **donner une nouvelle estimation chiffrée
