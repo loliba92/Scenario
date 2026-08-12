@@ -1811,6 +1811,18 @@ moins prioritaire).
         relatifs `../` propres à `archives/` — diff final vérifié : ne
         restent que les différences légitimes (canonical/OG, nav
         `aria-current`, lien `.dek` sans préfixe `archives/`).
+    12. **[FAIT, retenu] Mot du sens retiré de la jauge, coloré
+        directement dans la phrase.** Retour utilisateur, le jour même :
+        "léger négatif" apparaissait deux fois (légende sous la jauge +
+        dans la phrase), redondant. `.delta-gauge-word` supprimé — la
+        jauge redevient purement visuelle (arc + repère), sans texte
+        dedans. Le mot est maintenant un `<span class="delta-word">`
+        dans la phrase elle-même, coloré via `data-kind="positif|
+        negatif"` sur `.delta-france` (favorable = vert, dégradé =
+        rouge — mêmes couleurs déjà utilisées partout ailleurs, aucune
+        nouvelle imagerie). Répercuté sur `archives/2026-08-12.html` en
+        même temps qu'`index.html` et `docs/routine-prompt.md`, comme
+        pour l'itération 11.
     **Implémenté uniquement sur `instagram-photo-template.html`, pas sur
     le gabarit par défaut** (`instagram-template.html`, celui de la
     routine automatique) : testé, le budget vertical/horizontal du

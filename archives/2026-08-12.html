@@ -506,20 +506,6 @@
     stroke-width: 2;
     transition: cx 1.1s cubic-bezier(.16,.8,.3,1), cy 1.1s cubic-bezier(.16,.8,.3,1);
   }
-  /* Mot du repère dans le graphique lui-même (creux de l'arc), pas en
-     légende flottante à côté — évite qu'il ne colle au paragraphe juste
-     en dessous une fois la carte empilée en colonne sur mobile. */
-  .delta-gauge-word{
-    position: absolute;
-    bottom: -14px;
-    left: 0; right: 0;
-    text-align: center;
-    line-height: 1.25;
-    font-size: 0.66rem;
-    color: var(--paper-dim);
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-  }
 
   /* flex: 1 1 220px, pas juste "1" : force le retour à la ligne sous la
      jauge dès que la colonne de texte tomberait sous ~220px, plutôt que
@@ -528,6 +514,14 @@
      retour utilisateur avec la police système agrandie). */
   .delta-text{ margin: 0; flex: 1 1 220px; min-width: 220px; }
   .delta-text .delta-flag{ border-radius: 2px; vertical-align: 1px; margin-right: 2px; }
+  /* Mot du sens ("léger négatif"...) coloré directement dans la phrase
+     plutôt qu'en légende séparée sous la jauge — retour utilisateur :
+     plus de doublon, un seul endroit où le mot apparaît. Couleur fixée
+     par data-kind sur .delta-france (favorable/dégradé déjà utilisées
+     partout ailleurs sur le site). */
+  .delta-word{ color: var(--paper); }
+  .delta-france[data-kind="positif"] .delta-word{ color: var(--favorable); }
+  .delta-france[data-kind="negatif"] .delta-word{ color: var(--degrade); }
 
   @media (prefers-reduced-motion: reduce){
     .delta-gauge-marker{ transition: none; }
@@ -1295,7 +1289,7 @@
       <p class="essentiel-text">Le <strong>Rassemblement national</strong> domine déjà les sondages du premier tour, entre <strong>32 et 37 %</strong>, porté par une droite et une gauche toutes deux divisées entre plusieurs prétendants qui refusent de s'unir.</p>
       <p class="essentiel-text">Le scénario le plus probable <strong>(45 %)</strong> : chacun des deux blocs reste sur ses divisions actuelles jusqu'au vote, sans nouvel accord ni aggravation de la fragmentation.</p>
       <p class="essentiel-text">Signal à surveiller : la décision de la Cour de cassation sur le pourvoi de Marine Le Pen, qu'elle a promis de rendre avant le premier tour d'avril 2027.</p>
-      <div class="delta-france">
+      <div class="delta-france" data-kind="negatif">
         <div class="delta-gauge">
           <svg viewBox="0 0 108 64">
             <defs>
@@ -1308,9 +1302,8 @@
             <path class="delta-gauge-track" d="M9,58 A45,45 0 0,1 99,58" stroke="url(#deltaGrad)"/>
             <circle class="delta-gauge-marker" data-score="-0.15" cx="54" cy="13" r="5"/>
           </svg>
-          <div class="delta-gauge-word">Léger négatif</div>
         </div>
-        <p class="essentiel-text delta-text"><svg class="delta-flag" viewBox="0 0 21 15" width="16" height="11" aria-hidden="true"><rect x="0" y="0" width="7" height="15" fill="#2a4d8f"/><rect x="7" y="0" width="7" height="15" fill="#ece7da"/><rect x="14" y="0" width="7" height="15" fill="#bd6248"/></svg> <strong>Notre évaluation de l'impact pour la France : léger négatif.</strong> Le risque d'un blocage politique aggravé (35 %) pèse un peu plus que la chance d'un paysage plus lisible (20 %) — le scénario central (45 %) reste de toute façon un statu quo sans grand changement.</p>
+        <p class="essentiel-text delta-text"><svg class="delta-flag" viewBox="0 0 21 15" width="16" height="11" aria-hidden="true"><rect x="0" y="0" width="7" height="15" fill="#2a4d8f"/><rect x="7" y="0" width="7" height="15" fill="#ece7da"/><rect x="14" y="0" width="7" height="15" fill="#bd6248"/></svg> <strong>Notre évaluation de l'impact pour la France : <span class="delta-word">léger négatif</span>.</strong> Le risque d'un blocage politique aggravé (35 %) pèse un peu plus que la chance d'un paysage plus lisible (20 %) — le scénario central (45 %) reste de toute façon un statu quo sans grand changement.</p>
       </div>
     </div>
 
