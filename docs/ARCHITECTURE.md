@@ -1946,9 +1946,18 @@ moins prioritaire).
   l'utilisateur réapprovisionne une liste de chiffres vérifiés — pas
   supprimé du concept, juste absent du cycle actif pour l'instant.
 
+  **[FAIT le 13 août] Trigger créé** : `trig_01A1XU5Kpc4QWzApjZPqcKpj`,
+  cron `0 16 * * 2,5` UTC = **mardi et vendredi 18h Paris** (2x/semaine,
+  cadence de lancement choisie par l'utilisateur, à ramener à 1x/semaine
+  plus tard si besoin via `update_trigger` — utilisable directement,
+  `created_via: meta_mcp`). Session fraîche à chaque déclenchement, même
+  principe que l'Inspecteur : prompt court qui renvoie vers
+  `docs/routine-pub-prompt.md` comme source de vérité. Premier passage
+  prévu vendredi 14 août.
+
   **Reste à faire** : décider si `citation-13` (Einstein, retirée plus
-  tôt le même jour) doit être vérifiée sérieusement puis réintégrée,
-  créer le trigger Claude Code Remote correspondant.
+  tôt le même jour) doit être vérifiée sérieusement puis réintégrée —
+  rien d'autre ne bloque, la routine est live.
 - **P2 — Heatmap "Le monde en ce moment" par domaine, idée du 10 août
   (brainstorm "out of the box"), méthode affinée en discussion le jour
   même.** Partie d'une simple agrégation de jauges, recentrée sur une
