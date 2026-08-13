@@ -243,6 +243,23 @@ citation nominative pour rester honnête. Fait écho à l'idée de pondération
 asymétrique du France Impact, encore à l'état de discussion dans
 `docs/ARCHITECTURE.md` (pas implémentée).*
 
+### citation-13 `[attribution à vérifier — risque élevé]`
+- eyebrow: UNE CITATION
+- message: « Le hasard, c'est Dieu\nqui se promène incognito. »
+- attribution: — Albert Einstein
+- cta: 👉 Abonne-toi, on démêle le vrai du hasard
+
+*Version française de "Coincidence is God's way of remaining anonymous" —
+l'une des citations les plus fréquemment attribuées à Einstein en ligne
+**sans source primaire confirmée** (aucune trace dans ses écrits ou sa
+correspondance authentifiée retrouvée par les sites de vérification de
+citations). Ajoutée sur demande explicite de l'utilisateur (13 août),
+malgré ce risque signalé — à vérifier plus sérieusement qu'une entrée
+`[attribution à vérifier]` classique avant toute mise en rotation, ou à
+publier volontairement avec une attribution assouplie ("citation souvent
+attribuée à Einstein") plutôt qu'une affirmation ferme si le doute
+persiste.*
+
 ## 3. Questions à la communauté (rotation C)
 
 Objectif : faire réagir, pas informer — engagement direct, notamment pour
