@@ -7,7 +7,7 @@ message ni une citation elle-même** — voir la justification dans
 `docs/ARCHITECTURE.md` (risque de citation mal attribuée ou inventée par un
 LLM, déjà identifié pendant la conception de cette routine).
 
-**Statut : brouillon, pas encore validé pour publication.** Deux points à
+**Statut : brouillon, pas encore validé pour publication.** Points à
 trancher avant de mettre cette liste en service :
 1. Les lignes marquées `[à confirmer]` dans la section Manifeste font une
    affirmation sur le modèle économique (pas de sponsor, etc.) que je ne
@@ -15,14 +15,23 @@ trancher avant de mettre cette liste en service :
 2. Les citations marquées `[attribution à vérifier]` dans la section
    Citations ont une attribution courante mais pas 100 % certaine — à
    vérifier une source primaire avant publication, ou à retirer.
+3. **Toutes les entrées de la section 4 (Le saviez-vous) sont marquées
+   `[chiffre à vérifier]`** — ordres de grandeur retenus de mémoire, pas
+   revérifiés sur la source primaire au moment de la rédaction. Vu que
+   toute la crédibilité du site repose sur la justesse des chiffres,
+   **aucune ne doit passer en rotation sans une vérification par une
+   vraie source (WebFetch ou lecture manuelle) au moins une fois** —
+   après quoi le chiffre est figé (même règle que pour une citation :
+   on ne le revérifie pas à chaque utilisation, juste avant sa première
+   mise en rotation).
 
 ## Format d'une entrée
 
 ```
 ### {id unique, court, jamais réutilisé même si l'entrée est retirée}
 - eyebrow: {texte affiché en haut de l'image, MAJUSCULES}
-- message: {texte principal, \n autorisé pour forcer un saut de ligne}
-- attribution: {optionnel, uniquement pour les citations, ex. "— Louis Pasteur"}
+- message: {texte principal, \n autorisé pour forcer un saut de ligne, **mot** pour surligner en doré}
+- attribution: {optionnel, citations : "— Auteur" / chiffres : "— Source, année"}
 - cta: {optionnel, ligne d'appel à l'action sous le message}
 ```
 
@@ -135,14 +144,83 @@ identifié) — à vérifier ou à retirer avant publication.*
 présocratique transmis indirectement) — thème de l'impermanence/incertitude,
 pas du hasard au sens strict, mais reste pertinent pour la ligne éditoriale.*
 
+## 3. Questions à la communauté (rotation C)
+
+Objectif : faire réagir, pas informer — engagement direct, notamment pour
+alimenter le mardi "carte blanche" (sujet libre suggéré par les lecteurs).
+Jamais de chiffre ni de citation ici, juste une question ouverte.
+
+### question-01
+- eyebrow: À VOUS DE JOUER
+- message: Quel sujet libre voudrais-tu voir décrypté\nen 3 scénarios mardi prochain ?
+- cta: 👉 Dis-le en commentaire
+
+*Sollicite directement des idées pour le registre "carte blanche" du
+mardi — voir `docs/routine-prompt.md`, Étape 1.*
+
+### question-02
+- eyebrow: À VOUS DE JOUER
+- message: Une question qui te trotte dans la tête\net dont tu voudrais 3 scénarios chiffrés ?
+- cta: 👉 On lit tous les commentaires
+
+*Variante plus ouverte de question-01, pas limitée au mardi.*
+
+### question-03
+- eyebrow: À VOUS DE JOUER
+- message: Parmi les 3 scénarios de la semaine,\nlequel t'a le plus surpris ?
+- cta: 👉 Dis-nous lequel
+
+*Réagit sur du contenu déjà publié plutôt que de solliciter une nouvelle
+idée — variante utile pour ne pas répéter le même type de question à
+chaque publication.*
+
+## 4. Le saviez-vous — chiffres et projection à 10 ans (rotation D)
+
+Objectif : un chiffre simple et concret, toujours prolongé par une
+question ouverte sur ce que ça implique dans 10 ans — jamais un chiffre
+seul sans mise en perspective.
+
+### chiffre-01 `[chiffre à vérifier]`
+- eyebrow: LE SAVIEZ-VOUS ?
+- message: En 1960, la France comptait plus de **4 actifs**\npour 1 retraité. Aujourd'hui, un peu moins de 2.
+- cta: 👉 Dans 10 ans, comment financer les retraites ?
+
+*Ordre de grandeur courant (données historiques type INSEE/COR) — chiffre
+exact et année précise à vérifier sur une source primaire avant mise en
+rotation, voir point 3 ci-dessus.*
+
+### chiffre-02 `[chiffre à vérifier]`
+- eyebrow: LE SAVIEZ-VOUS ?
+- message: La population mondiale devrait franchir\nles **9,7 milliards** d'habitants vers 2050.
+- cta: 👉 Dans 10 ans, quel monde pour l'accueillir ?
+
+*Ordre de grandeur ONU (World Population Prospects) — à vérifier sur la
+publication la plus récente avant mise en rotation.*
+
+### chiffre-03 `[chiffre à vérifier]`
+- eyebrow: LE SAVIEZ-VOUS ?
+- message: Le seuil des **+1,5°C** de réchauffement\npourrait être franchi dès le début des années 2030.
+- cta: 👉 Dans 10 ans, où en sera-t-on vraiment ?
+
+*Ordre de grandeur GIEC — à vérifier sur le dernier rapport avant mise en
+rotation (les projections évoluent d'un rapport à l'autre).*
+
 ## Règle de rotation
 
-La routine avance dans chaque liste (Manifeste, Citations) indépendamment,
-dans l'ordre où les entrées apparaissent ci-dessus, sans répéter avant
-d'avoir fait le tour de la liste entière — voir `docs/routine-pub-prompt.md`
-pour le mécanisme exact (état de rotation stocké où et comment). Alterner
-les deux catégories une semaine sur deux plutôt que de les mélanger au
-hasard, pour garder un rythme reconnaissable.
+La routine avance dans chaque liste (Manifeste, Citations, Questions,
+Chiffres) indépendamment, dans l'ordre où les entrées apparaissent
+ci-dessus, sans répéter avant d'avoir fait le tour de la liste entière —
+voir `docs/routine-pub-prompt.md` pour le mécanisme exact (déduit de
+l'historique déjà publié dans `feed-pub.xml`, pas de fichier d'état
+séparé). Faire tourner les 4 catégories dans cet ordre fixe (Manifeste →
+Citation → Question → Chiffre → Manifeste...) plutôt que de les mélanger
+au hasard, pour garder un rythme reconnaissable.
+
+**Fréquence.** Cadence de croisière : 1 publication/semaine. **Au
+lancement, fréquence volontairement plus élevée** (décision utilisateur du
+13 août, pas de chiffre arrêté) le temps de construire l'habitude —
+ajustée à la main via `update_trigger` sur le trigger "Scénario — Pub
+hebdo", pas un mécanisme automatique dans la routine elle-même.
 
 **Ajouter une entrée** : lui donner un id qui ne sera jamais réutilisé,
 même après suppression (traçabilité de l'historique de rotation). Ne

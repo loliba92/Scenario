@@ -1758,11 +1758,52 @@ moins prioritaire).
   et pages suivi/hebdo) donc le crédit doit vivre directement dans le
   texte du post, pas en légende sur une page.
 
-  **Reste à faire** : trancher le gabarit final (V1/V2/V3/V4), constituer
-  la banque de secours de photos, valider les entrées `[à confirmer]` de
-  `docs/pub-messages.md`, créer `feed-pub.xml`, écrire `docs/routine-pub-
-  prompt.md` (mécanisme de rotation sans répétition à définir), créer le
-  trigger Claude Code Remote correspondant.
+  **Gabarit tranché le 13 août : V4 (hybride)** —
+  `scripts/social/pub-template-v4-hybride.html` devient le gabarit
+  définitif, étendu de 2 à 4 couleurs d'accent (une par catégorie, voir
+  ci-dessous) : or (manifeste), bleu (citation), vert (question),
+  orange (chiffre) — mêmes teintes que `--favorable`/`--stable`/
+  `--degrade` déjà utilisées partout ailleurs sur le site.
+
+  **2 catégories supplémentaires ajoutées le 13 août (retour
+  utilisateur)**, la banque `docs/pub-messages.md` passe de 2 à 4
+  sections :
+  - **Questions à la communauté** : engagement pur, pas de fait à
+    vérifier — notamment pour solliciter des idées de sujets pour le
+    mardi "carte blanche".
+  - **Le saviez-vous** : un chiffre simple, toujours prolongé par une
+    question prospective à 10 ans (ex. financement des retraites). Même
+    discipline que les citations, en plus stricte : **toutes les entrées
+    sont marquées `[chiffre à vérifier]`** au moment de la rédaction
+    (ordres de grandeur de mémoire, pas revérifiés) — aucune ne doit
+    passer en rotation avant vérification sur une source primaire, la
+    crédibilité du site reposant justement sur la justesse des chiffres.
+  Rotation : cycle fixe manifeste → citation → question → chiffre →
+  manifeste..., déduit de l'historique déjà publié dans `feed-pub.xml`
+  (pas de fichier d'état séparé) — voir `docs/routine-pub-prompt.md`.
+
+  **Crédit photo, précisé le 13 août : jamais dans le texte visible du
+  post.** L'utilisateur l'ajoutera lui-même en commentaire du post une
+  fois publié. La routine consigne quand même le photographe/lien Pexels
+  dans un commentaire HTML invisible (`<!-- credit: ... -->`) en fin de
+  `<description>` du flux, et le redonne en clair dans son résumé final
+  de session pour que l'utilisateur puisse le recopier facilement.
+
+  **Fréquence** : 1x/semaine en croisière, plus fréquente au lancement
+  (pas de chiffre arrêté) — piloté uniquement par le cron du trigger,
+  aucune logique de fréquence dans le prompt lui-même.
+
+  **[FAIT le 13 août] `feed-pub.xml` créé** (scaffold, aucun item encore)
+  et **`docs/routine-pub-prompt.md` rédigé** (étapes : garde-fou
+  anti-doublon 20h, choix déterministe catégorie/entrée/photo, génération
+  image, construction de l'item, résumé final avec crédit en clair).
+
+  **Reste à faire** : constituer la banque de secours de photos
+  (`assets/social/pub-photos/`, pas encore créée — la routine s'arrêtera
+  et signalera si aucune photo récente d'article n'est disponible et que
+  ce dossier est vide), valider les entrées `[à confirmer]`/`[chiffre à
+  vérifier]` de `docs/pub-messages.md`, créer le trigger Claude Code
+  Remote correspondant.
 - **P2 — Heatmap "Le monde en ce moment" par domaine, idée du 10 août
   (brainstorm "out of the box"), méthode affinée en discussion le jour
   même.** Partie d'une simple agrégation de jauges, recentrée sur une

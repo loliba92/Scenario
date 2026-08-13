@@ -1,0 +1,151 @@
+# Prompt de la routine « Scénario — Pub hebdo »
+
+Ce fichier est la copie de référence du prompt envoyé par la routine "pub"
+(Claude Code Remote, trigger **« Scénario — Pub hebdo »**, `{id à
+compléter une fois le trigger créé}`). Créé par un agent
+(`create_trigger`), donc directement éditable via `update_trigger` — ce
+fichier reste la source de vérité lisible par un humain : le mettre à jour
+dans la foulée de tout changement.
+
+**Objectif : rappeler l'identité du projet et faire réagir la communauté**
+entre deux éditions quotidiennes — jamais un sujet d'actualité (ça reste le
+rôle de `feed.xml`). Contenu organique, pas de budget publicitaire (à ne
+pas confondre avec la piste "pub payante" listée séparément dans
+`docs/ARCHITECTURE.md`).
+
+**Cadence : 1x/semaine en croisière, plus fréquente au lancement.** Pas de
+logique de fréquence dans ce prompt — la cadence réelle est pilotée
+uniquement par le cron du trigger, ajusté à la main par l'utilisateur.
+Cette routine n'a qu'une règle de sécurité (étape 0) pour éviter un doublon
+si elle est déclenchée deux fois trop rapprochées.
+
+**Économie de tokens** — même logique que `docs/routine-inspection-
+prompt.md` : le choix de la catégorie, de l'entrée et de la photo (étapes
+1 à 3) est **entièrement déterministe** (lecture de fichiers + petits
+scripts, aucun jugement éditorial requis) — ne pas "réfléchir" dessus,
+suivre la procédure telle quelle. Le seul endroit qui demande un peu de
+jugement est la rédaction du texte du post final (étape 5), et encore :
+il recopie du texte déjà écrit, il ne compose rien depuis zéro.
+
+---
+
+**La cible du push est toujours `main`, sans exception.**
+
+**Avant de commencer : `git pull origin main`.**
+
+## Étape 0 — Garde-fou anti-doublon
+
+Lire le `<pubDate>` du premier `<item>` de `feed-pub.xml` (le plus récent,
+toujours en tête). S'il date de moins de 20h, s'arrêter proprement sans
+rien publier — protège contre un double déclenchement rapproché, sans
+verrouiller une cadence figée (contrairement à `docs/routine-hebdo-
+prompt.md` qui vérifie "cette semaine civile" : ici la fréquence peut
+changer, un simple délai minimal suffit).
+
+## Étape 1 — Déterminer la catégorie et l'entrée
+
+1. Lister tous les `<guid>` de `feed-pub.xml`, format `scenario-pub-
+   {id-entrée}` (ex. `scenario-pub-manifeste-03`) — le préfixe avant le
+   premier tiret après "pub-" donne la catégorie (`manifeste`, `citation`,
+   `question`, `chiffre`).
+2. **Catégorie du jour** : cycle fixe `manifeste → citation → question →
+   chiffre → manifeste...`. Prendre la catégorie du `<guid>` le plus
+   récent (premier `<item>`), avancer d'un cran dans le cycle. Si
+   `feed-pub.xml` n'a encore aucun item, commencer par `manifeste`.
+3. Dans `docs/pub-messages.md`, section de cette catégorie : lister les
+   entrées dans l'ordre où elles apparaissent, **en écartant celles encore
+   marquées `[à confirmer]` / `[attribution à vérifier]` / `[chiffre à
+   vérifier]`** — ne jamais publier une entrée non validée, quel que soit
+   son tour dans la rotation.
+4. Parmi les entrées restantes de cette catégorie : trouver l'id du
+   dernier `<guid>` publié dans cette catégorie (peut remonter à plusieurs
+   items en arrière dans `feed-pub.xml`, puisque les catégories
+   alternent). L'entrée à publier aujourd'hui est **la suivante dans
+   l'ordre du fichier après celle-là** (retour au début de la liste si on
+   était sur la dernière) — jamais répéter avant d'avoir fait le tour
+   complet de la catégorie. Si la catégorie n'a jamais été publiée, prendre
+   la première entrée de la liste.
+5. **Si toutes les entrées d'une catégorie sont encore marquées comme non
+   validées** (aucune disponible) : passer à la catégorie suivante du
+   cycle pour cette exécution, et le signaler dans le résumé final —
+   jamais bloquer toute la routine pour ça, jamais publier une entrée non
+   validée pour combler.
+
+## Étape 2 — Choisir la photo (jamais de recherche Pexels en direct)
+
+**Règle non négociable, héritée de `scripts/social/fetch_topic_image.py`** :
+cette routine ne cherche et ne choisit jamais une photo sur Pexels
+elle-même. Elle réutilise uniquement une image déjà validée par un humain.
+
+1. Regarder `assets/social/topic-images/` : parmi les fichiers `{date}.jpg`
+   des 7 derniers jours qui ont un `.json` associé (photographe connu),
+   préférer celui qui n'a pas déjà servi à un post `feed-pub.xml` récent
+   (grep les commentaires HTML `<!-- credit: -->` du flux, voir étape 4).
+   Si tous ont déjà servi, réutiliser quand même le plus récent — mieux
+   qu'aucune image.
+2. Si aucune photo n'existe dans les 7 derniers jours : chercher dans la
+   banque de secours pré-validée (`assets/social/pub-photos/`, **pas
+   encore constituée au moment de la rédaction de ce prompt** — si le
+   dossier n'existe pas ou est vide, s'arrêter sans publier et le signaler
+   dans le résumé final plutôt que de publier sans image ou d'improviser
+   une recherche Pexels).
+3. Noter le chemin de la photo choisie et le contenu de son `.json`
+   (`photographer`, `pexels_url`) pour l'étape 4.
+
+## Étape 3 — Générer l'image
+
+```
+python3 scripts/social/generate_pub_image.py \
+  --data {json temporaire avec eyebrow/message/attribution/cta de l'entrée choisie, "accent": "{catégorie}"} \
+  --output assets/social/pub/{AAAA-MM-JJ}.png \
+  --template scripts/social/pub-template-v4-hybride.html \
+  --photo {photo choisie à l'étape 2}
+```
+
+`eyebrow`/`message`/`attribution`/`cta` sont recopiés **tels quels** depuis
+`docs/pub-messages.md` — jamais reformulés, jamais traduits, jamais
+"améliorés" à la volée.
+
+## Étape 4 — Construire l'item `feed-pub.xml`
+
+Ajouter en tête (le plus récent en premier, jamais réordonner les items
+existants) :
+
+```xml
+<item>
+  <title>{message de l'entrée, \n remplacés par un espace, ** retirés, tronqué proprement si besoin}</title>
+  <link>{lien selon la catégorie, voir ci-dessous}</link>
+  <guid isPermaLink="false">scenario-pub-{id-entrée}-{AAAA-MM-JJ}</guid>
+  <pubDate>{date/heure actuelles, format RFC 822, fuseau Europe/Paris}</pubDate>
+  <comments>{eyebrow}\n\n{message sans **}{, \n\nattribution si présente}</comments>
+  <enclosure url="https://lesscenarios.fr/assets/social/pub/{AAAA-MM-JJ}.png" length="{taille réelle du fichier}" type="image/png"/>
+  <description><![CDATA[{même contenu que <comments>, mise en forme <br> au lieu de \n}{cta si présent}<!-- credit: {photographer} — {pexels_url} -->]]></description>
+</item>
+```
+
+**Lien selon la catégorie** : `manifeste` → `https://lesscenarios.fr/le-
+projet.html`, `citation`/`chiffre` → `https://lesscenarios.fr/`,
+`question` → `https://lesscenarios.fr/contact.html`.
+
+**Le crédit photo n'apparaît JAMAIS dans le texte visible du post**
+(ni `<comments>`, ni le texte lisible de `<description>`) — décision
+utilisateur du 13 août : le crédit est ajouté à la main par l'utilisateur
+en commentaire du post une fois publié, pas par cette routine. Le
+commentaire HTML `<!-- credit: ... -->` en fin de `<description>` sert
+uniquement à ce que la routine (et l'utilisateur, en lisant le flux) sache
+quelle photo/quel photographe a été utilisé — invisible dans un lecteur
+RSS ou sur les réseaux, jamais affiché publiquement par ce mécanisme.
+
+## Étape 5 — Résumé final
+
+Toujours terminer par un message court et explicite :
+- Catégorie et entrée publiées (id).
+- Photo utilisée + **le nom du photographe et le lien Pexels, en clair,
+  pour que l'utilisateur puisse le recopier en commentaire du post** —
+  c'est le seul endroit où cette information doit apparaître en texte
+  visible dans la réponse de la routine.
+- Si une catégorie a été sautée faute d'entrée validée (étape 1.5), ou si
+  la routine s'est arrêtée faute de photo (étape 2.2), le dire
+  explicitement plutôt que de rester silencieux.
+
+Commit avec un message préfixé `[pub]`, push sur `main`.
