@@ -1573,31 +1573,64 @@ moins prioritaire).
     négociable dans `docs/routine-prompt.md` désormais (jamais retirée
     ni reformulée), cohérente avec l'exigence de rigueur factuelle du
     site. Appliqué à `index.html` et `archives/2026-08-10.html`.
-- **P1 — Routine de re-vérification matinale de l'article du jour, idée
-  du 10 août.** Objectif : après la publication du matin (routine
-  quotidienne à 7h00 heure de Paris, voir plus bas « Automatisation
-  éditoriale »), une seconde routine planifiée relirait l'édition du jour
-  déjà publiée pour vérifier les faits, le style, et la cohérence des
-  éléments entre eux et avec les sources (dates, chiffres, noms), puis
-  corrigerait `index.html` (et l'archive figée correspondante) si
-  nécessaire.
+- **[FAIT le 12 août, prompt rédigé — trigger pas encore créé] Routine
+  « Inspecteur » de re-vérification matinale, idée du 10 août, détaillée
+  et rédigée le 12 août (retour utilisateur).** Objectif reformulé plus
+  précisément le 12 août : **améliorer l'accuracy** des articles, jamais
+  retoucher un choix éditorial (scénario, probabilité, angle). Horaire
+  tranché : **routine principale avancée à 6h00 Paris, Inspecteur à
+  7h00 Paris** (1h d'écart — à confirmer empiriquement une fois la durée
+  réelle de la routine principale observée sur quelques jours).
 
-  **Points à trancher avant implémentation** :
-  - Horaire : assez tard après 7h00 pour laisser la routine principale se
-    terminer et le contenu se stabiliser (ex. 9h-10h heure de Paris), sans
-    trop tarder pour rester utile si une erreur est repérée tôt.
-  - Une archive figée n'est en principe **jamais** remodifiée après
-    publication (règle rappelée à plusieurs endroits de ce document) —
-    une correction par cette routine serait une exception délibérée à
-    cette règle, réservée à une erreur factuelle ou de cohérence, jamais
-    à une retouche du fond éditorial.
-  - Portée de la vérification : re-croiser les chiffres/dates/noms cités
-    dans le texte avec les sources déjà utilisées à la rédaction (pas une
-    nouvelle recherche web complète à chaque fois).
-  - Comme pour la routine hebdo de détection
-    (`docs/routine-detection-prompt.md`), prévoir un prompt dédié
-    versionné (ex. `docs/routine-verif-prompt.md`) et un trigger Claude
-    Code Remote séparé plutôt que d'alourdir `docs/routine-prompt.md`.
+  **Deux niveaux de correction, tranchés le 12 août** :
+  - **Corrigé seul, sans demander** (mécanique, sans ambiguïté) : CSS
+    tronqué, désync `index.html`/archive du jour, `data-france-impact`/
+    `data-kind` qui ne correspond pas au texte adjacent, incohérence
+    numérique interne non ambiguë (majorité claire, ex. "9" à 3 endroits
+    contre "10" à un seul), label brut oublié dans L'essentiel, "Notre
+    évaluation" raccourci. **Plus, ajout du même jour (retour
+    utilisateur) : réécriture de phrases pour la clarté/pédagogie**, avec
+    des garde-fous stricts — jamais de perte de chiffre/date/nom/lien de
+    causalité, jamais de suppression d'information, uniquement la forme,
+    chaque réécriture journalée en avant/après complet (seule catégorie
+    de correction qui touche à la formulation, donc la plus auditable).
+  - **Signalé seulement, jamais corrigé seul** : probabilités qui ne
+    somment pas à 100 %, incohérence numérique ambiguë, écart entre un
+    chiffre cité et sa source déjà citée (la source a pu changer depuis
+    la rédaction), terme de lexique orphelin — tout ce qui touche à un
+    choix éditorial même indirectement.
+
+  **Vérification des chiffres contre les sources, tranchée le 12 août**
+  (question ouverte de l'utilisateur : "doit-on ouvrir les sources web et
+  vérifier ?") : oui, mais **bornée aux sources déjà citées** dans la
+  section `<section class="sources">` de l'article — jamais une nouvelle
+  recherche sur le sujet. 3 à 5 chiffres les plus structurants seulement,
+  pas chaque virgule. Source injoignable = signalé "non re-vérifiable",
+  jamais bloquant.
+
+  **Limite honnête actée** : si les posts sociaux et la newsletter
+  partent peu après la publication de 6h (via `feed.xml`), ils sont déjà
+  envoyés au moment où l'Inspecteur passe à 7h — une correction ne peut
+  rattraper que le site, pas ce qui a déjà circulé.
+
+  **Journal séparé** : `docs/inspection-log.md`, une entrée par passage
+  même sans rien à signaler — volontairement distinct de ce fichier pour
+  ne pas noyer le journal éditorial dans du contrôle qualité quotidien.
+
+  **Fichiers créés le 12 août** : `docs/routine-inspection-prompt.md`
+  (prompt complet, structure calquée sur `docs/routine-detection-
+  prompt.md`) et `docs/inspection-log.md` (squelette).
+
+  **Reste à faire** : créer le trigger Claude Code Remote lui-même
+  (`create_trigger`, cron `0 5 * * *` UTC = 7h Paris l'été) — pas encore
+  fait, en attente de relecture du prompt par l'utilisateur avant de
+  lancer un agent quotidien autonome avec droit d'édition sur le site.
+  Une fois créé par un agent (pas `http_api`), `update_trigger` devrait
+  rester utilisable directement, contrairement au trigger principal.
+  **La routine principale doit aussi être avancée à 6h Paris** — hors de
+  portée de cette session (`update_trigger` refusé sur ce trigger précis,
+  créé via `http_api` — voir plus haut) : à faire manuellement par
+  l'utilisateur dans l'interface Claude Code Remote.
 - **P2 — Heatmap "Le monde en ce moment" par domaine, idée du 10 août
   (brainstorm "out of the box"), méthode affinée en discussion le jour
   même.** Partie d'une simple agrégation de jauges, recentrée sur une
