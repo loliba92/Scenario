@@ -1699,6 +1699,70 @@ moins prioritaire).
   manuellement par l'utilisateur dans l'interface Claude Code Remote. Une
   fois fait, rapprocher aussi l'Inspecteur de 8h à 7h Paris (celui-là,
   `update_trigger` fonctionne).
+- **[EN COURS, idée et conception du 13 août] Routine "pub" hebdomadaire —
+  rappel d'identité (manifeste) et citations sur le hasard/l'incertitude.**
+  Distincte de la piste "pub payante" ci-dessus (P2, Meta Ads) : ici,
+  contenu organique récurrent, pas de budget publicitaire. Objectif :
+  combler l'absence de tout contenu qui parle du projet lui-même entre
+  deux éditions — rétention de la communauté déjà abonnée, pas
+  acquisition. **Cadence tranchée : 1x/semaine, toutes les plateformes**
+  (Instagram/Facebook/LinkedIn), via un nouveau flux RSS dédié que
+  l'utilisateur capturera dans Make comme les autres flux existants.
+
+  **Banque de contenu** : `docs/pub-messages.md`, liste fermée et curée à
+  la main (6 messages manifeste + 6 citations pour l'instant, brouillon).
+  **Décision de principe importante** : la routine ne génère/n'invente
+  **jamais** un message ni une citation elle-même au moment de l'exécution
+  — risque de citation mal attribuée ou inventée par un LLM, déjà identifié
+  en concevant l'Inspecteur (voir plus haut). Elle pioche uniquement dans
+  cette liste, en rotation. 2 messages manifeste et 2 citations sont
+  marqués `[à confirmer]`/`[attribution à vérifier]`, pas encore validés.
+
+  **Gabarit visuel — 4 pistes explorées le 13 août** (voir
+  `scripts/social/pub-template-v{1..4}-*.html` +
+  `scripts/social/generate_pub_image.py`), photo de fond + fondu noir +
+  mot-clé en doré (`**mot**` dans le JSON) plutôt qu'un fond uni comme
+  envisagé au départ (retour utilisateur) :
+  - V1 sobre : photo à peine suggérée (voile 86%), liseré de couleur.
+  - V2 carte : dégradé plus travaillé, cadre fin façon `.essentiel-box`,
+    grand guillemet doré en filigrane pour les citations.
+  - V3 poster : voile plus léger, teinte duotone couleur, typographie
+    plus grande, masthead réduit à l'icône seule.
+  - V4 hybride (cadre+guillemet de V2 + typo/teinte de V3), proposé pour
+    trancher une hésitation explicite de l'utilisateur entre V2 et V3.
+  **Pas encore de choix final arrêté.** Correction appliquée aux 4 :
+  l'URL `lesscenarios.fr` du footer ne doit pas passer en capitales
+  (`text-transform:lowercase` sur `.footer .url` seulement, le tagline
+  garde les majuscules).
+
+  **Source de la photo, tranchée le 13 août (question explicite : "qui
+  choisit l'image ?").** Conflit identifié avec la règle non négociable
+  de `fetch_topic_image.py` ("ne choisit JAMAIS automatiquement une image
+  finale [...] la sélection reste toujours un geste humain/en session") —
+  une routine hebdomadaire autonome ne peut pas chercher et choisir seule
+  sur Pexels sans validation. **Résolu : la routine réutilise une photo
+  déjà choisie à la main cette semaine-là pour un article quotidien**
+  (`assets/social/topic-images/{date}.jpg` + `.json` associé, déjà
+  validée par l'utilisateur, déjà liée à l'actualité réelle de la
+  semaine) — avec repli sur une petite banque de secours pré-validée si
+  aucune photo n'a été choisie cette semaine-là (banque pas encore
+  constituée). Aucun appel Pexels en direct par cette routine.
+
+  **Crédit photo dans le feed** : puisque la photo est réutilisée depuis
+  `assets/social/topic-images/`, le nom du photographe est déjà connu
+  (champ `photographer` du `.json` associé, aucun nouvel appel Pexels
+  nécessaire) — à reporter dans le `<description>` de l'item du nouveau
+  flux (`feed-pub.xml`, pas encore créé), en fin de texte, sur le modèle
+  des légendes déjà utilisées sous les photos d'articles ("Photographe /
+  Pexels"). Pas de page web dédiée à ce post (contrairement aux articles
+  et pages suivi/hebdo) donc le crédit doit vivre directement dans le
+  texte du post, pas en légende sur une page.
+
+  **Reste à faire** : trancher le gabarit final (V1/V2/V3/V4), constituer
+  la banque de secours de photos, valider les entrées `[à confirmer]` de
+  `docs/pub-messages.md`, créer `feed-pub.xml`, écrire `docs/routine-pub-
+  prompt.md` (mécanisme de rotation sans répétition à définir), créer le
+  trigger Claude Code Remote correspondant.
 - **P2 — Heatmap "Le monde en ce moment" par domaine, idée du 10 août
   (brainstorm "out of the box"), méthode affinée en discussion le jour
   même.** Partie d'une simple agrégation de jauges, recentrée sur une
