@@ -40,5 +40,11 @@
     "photographer": "Arina Dmitrieva",
     "pexels_url": "https://www.pexels.com/photo/silhouette-of-people-on-mountain-during-sunset-13894047/",
     "query": "mountain trail running sunrise landscape"
+  },
+  {
+    "file": "generique-foret.jpg",
+    "photographer": "Nikola Tomašić",
+    "pexels_url": "https://www.pexels.com/fr-fr/photo/nature-foret-arbres-profond-17032447/",
+    "query": "forêt neutre, hors registre — pour posts sans lien avec un jour/domaine précis (ex. remerciements, annonces ponctuelles)"
   }
 ]
