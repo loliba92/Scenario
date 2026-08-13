@@ -51,8 +51,72 @@ proprement sans rien inspecter — pas de fallback sur l'édition de la veille.
    `.gauge*`, `.france-line`). Si une classe manque entièrement du
    `<style>` alors qu'elle est utilisée dans le corps de la page (bug déjà
    rencontré deux fois avec `.dek-list`/`.list-box` — voir
-   `docs/ARCHITECTURE.md`), la recopier depuis le gabarit de référence
-   (dernière archive connue qui la contient intégralement).
+   `docs/ARCHITECTURE.md`), la recopier.
+
+   **D'où recopier — deux cas différents, ne pas traiter pareil :**
+   - `.essentiel-box`, `.stakes-box`, `.question-box`, `.list-box*`,
+     `.article-image*`, `.card`, `.gauge*` : blocs stables, sans
+     historique de changement récent — recopier depuis la dernière
+     archive connue qui les contient intégralement, comme avant.
+   - `.delta-france`, `.delta-gauge*`, `.delta-word`, `.delta-flag` :
+     **ne jamais recopier depuis une archive**, même récente — ce groupe
+     a changé de forme cinq fois en une seule soirée (12 août, voir
+     `docs/ARCHITECTURE.md`), donc une archive un peu ancienne peut
+     contenir une version dépassée ou buguée sans que rien ne le signale.
+     Recopier exactement le bloc ci-dessous à la place — c'est la version
+     canonique, tenue à jour manuellement dans ce fichier avec la même
+     discipline que `docs/routine-prompt.md` : si ce groupe de classes
+     change à nouveau sur le site, ce bloc doit être mis à jour dans le
+     même commit, sinon l'inspecteur se met à "corriger" vers une version
+     obsolète.
+
+     ```css
+     .delta-france{
+       display: flex;
+       flex-wrap: wrap;
+       align-items: center;
+       gap: 18px;
+       margin-top: 16px;
+       padding-top: 16px;
+       border-top: 1px solid var(--hairline);
+     }
+     .delta-gauge{ position: relative; width: 108px; height: 78px; flex: 0 0 108px; }
+     .delta-gauge svg{ width: 100%; height: 64px; overflow: visible; display: block; }
+     .delta-gauge-track{ fill: none; stroke-width: 10; stroke-linecap: round; }
+     .delta-gauge-marker{
+       fill: var(--paper);
+       stroke: var(--ink);
+       stroke-width: 2;
+       transition: cx 1.1s cubic-bezier(.16,.8,.3,1), cy 1.1s cubic-bezier(.16,.8,.3,1);
+     }
+     .delta-gauge-word{
+       display: block;
+       margin-top: 4px;
+       text-align: center;
+       line-height: 1.2;
+       font-size: 0.66rem;
+       color: var(--paper-dim);
+       text-transform: uppercase;
+       letter-spacing: 0.03em;
+     }
+     .delta-text{ margin: 0; flex: 1 1 220px; min-width: 220px; }
+     .delta-text .delta-flag{ border-radius: 2px; vertical-align: 1px; margin-right: 2px; }
+     .delta-word{ color: var(--paper); }
+     .delta-france[data-kind="positif"] .delta-word{ color: var(--favorable); }
+     .delta-france[data-kind="negatif"] .delta-word{ color: var(--degrade); }
+     @media (prefers-reduced-motion: reduce){
+       .delta-gauge-marker{ transition: none; }
+     }
+     ```
+
+     Rappel structurel (pour vérifier que le HTML autour, pas seulement le
+     CSS, est complet) : le marqueur SVG est `<circle class="delta-gauge-marker"
+     data-score="{score}" .../>` dans un `<path class="delta-gauge-track"
+     stroke="url(#deltaGrad)"/>`, lui-même dans un `<linearGradient
+     id="deltaGrad">` à 3 stops (rouge → or → vert). Si le dégradé ou le
+     `data-score` manque, c'est le HTML qui est tronqué, pas seulement le
+     CSS — traiter ça comme une désynchronisation (point 2), pas comme ce
+     point-ci.
 
 2. **`index.html` et `archives/{date}.html` désynchronisés.** Diff des deux
    fichiers, chemins relatifs `../` et différences canonical/OG/nav
@@ -65,15 +129,31 @@ proprement sans rien inspecter — pas de fallback sur l'édition de la veille.
    l'inverse), corriger l'**attribut** pour qu'il corresponde au texte —
    jamais le contraire, le texte rédigé est la source de vérité.
 
-4. **Incohérence numérique interne non ambiguë.** Si un même chiffre/fait
-   est cité à plusieurs endroits de l'article (dek, cartes, indicator-
-   strip, L'essentiel, lexique, sources) avec des valeurs différentes —
-   ex. « 9 milliards » à un endroit, « 10 milliards » ailleurs pour le même
-   chiffre — et qu'une valeur est clairement majoritaire (3 occurrences
-   contre 1), corriger l'occurrence isolée pour qu'elle corresponde aux
-   autres. **Si le partage est égal ou ambigu (2 contre 2, ou deux chiffres
-   qui pourraient légitimement désigner deux choses différentes), ne pas
-   trancher seul — passer en signalement (section suivante).**
+4. **Incohérence numérique interne non ambiguë — même fait, même
+   périmètre, pas juste le même chiffre qui apparaît deux fois.** Avant
+   de comparer deux occurrences d'un nombre, vérifier qu'elles désignent
+   bien **le même fait avec le même périmètre** (même entité, même somme
+   de choses, même unité) — pas seulement une correspondance de chiffres.
+   **Contre-exemple réel qui a failli être traité à tort** (édition du 9
+   août, article Musique IA) : l'article citait « 9 milliards » (procès
+   Sony seul contre Suno) puis, plus bas dans les scénarios, « 13,5
+   milliards » — ce n'était pas une incohérence : le texte additionnait
+   lui-même « 9 milliards contre Suno, 4,5 milliards contre Udio » pour
+   Sony **et** Universal combinés. Deux faits différents, deux périmètres
+   différents, chiffres tous les deux exacts. Une correction automatique
+   sur la seule base "9 ≠ 13,5" aurait cassé un article juste.
+   Concrètement : lire la phrase autour de chaque occurrence et confirmer
+   qu'elles portent sur le même sujet + les mêmes entités + la même
+   opération (un chiffre seul vs. une somme de plusieurs chiffres n'est
+   **pas** une incohérence) avant de considérer qu'il y a un écart à
+   corriger. Seulement si, après cette vérification, il s'agit
+   effectivement du même fait cité avec deux valeurs différentes, et
+   qu'une valeur est clairement majoritaire (3 occurrences contre 1),
+   corriger l'occurrence isolée pour qu'elle corresponde aux autres.
+   **Si le partage est égal ou ambigu (2 contre 2, un doute sur le
+   périmètre, ou deux chiffres qui pourraient légitimement désigner deux
+   choses différentes), ne pas trancher seul — passer en signalement
+   (section suivante).**
 
 5. **Label brut oublié dans L'essentiel.** Si "favorable"/"stable"/
    "dégradé" apparaît tel quel dans le texte de `.essentiel-text` (règle
@@ -136,9 +216,45 @@ proprement sans rien inspecter — pas de fallback sur l'édition de la veille.
      probablement un problème de fond à traiter à la rédaction, pas à
      l'inspection.
 
-Chaque correction de cette liste est commitée avec un message préfixé
-`[inspecteur]`, et une ligne est ajoutée à `docs/inspection-log.md` (voir
-plus bas) — jamais de correction silencieuse sans trace.
+## Auto-vérification obligatoire après chaque correction, avant tout commit
+
+**Aucune correction ci-dessus ne se commite directement.** Toute la soirée
+du 12 août, chaque édition manuelle a été suivie d'une vérification (balance
+des balises, souvent une capture Playwright) avant d'être poussée — cette
+routine doit avoir la même discipline sur ses propres corrections, sinon un
+agent qui "corrige" seul, tous les jours, sans jamais se relire est le vrai
+risque d'automatisation. Rester bon marché : ces vérifications sont toutes
+déterministes, aucune ne demande une relecture LLM du fichier entier.
+
+Après avoir appliqué un correctif (points 1 à 8), avant de commiter :
+
+1. **Balise HTML équilibrée.** Script Python court (`html.parser` ou
+   équivalent) sur le(s) fichier(s) modifié(s) : aucune balise ouverte non
+   fermée, aucun mismatch d'imbrication.
+2. **`index.html` et `archives/{date}.html` toujours synchronisés après le
+   correctif.** Rejouer le diff du point 2 — un correctif appliqué sur un
+   seul des deux fichiers par erreur doit être détecté ici, pas laissé pour
+   le lendemain.
+3. **Pour un correctif du point 1 (CSS/structure de la jauge) uniquement**
+   — le seul type de correction qui touche vraiment la mise en page, pas
+   seulement du texte : une capture Playwright ciblée sur `.delta-france`
+   (pas la page entière) pour confirmer visuellement l'absence de
+   débordement, mot coupé ou chevauchement, avant de commiter. Les
+   correctifs des points 2 à 8 sont uniquement textuels/attributs — pas
+   de capture nécessaire, la vérification 1-2 suffit.
+4. **Si une de ces vérifications échoue** : annuler le correctif
+   (`git checkout -- <fichier(s) concernés>`, jamais un reset plus large),
+   consigner l'entrée dans `docs/inspection-log.md` sous « Signalé pour
+   revue humaine » (pas « Corrigé automatiquement »), en précisant quelle
+   vérification a échoué et pourquoi la correction n'a pas été appliquée.
+   **Ne jamais commiter un correctif qui a échoué à sa propre
+   vérification, même partiellement.**
+
+Chaque correction de cette liste, une fois validée par ce qui précède, est
+commitée avec un message préfixé `[inspecteur]`, et une ligne est ajoutée à
+`docs/inspection-log.md` (voir plus bas) — jamais de correction silencieuse
+sans trace, et jamais de correction commitée sans être passée par cette
+auto-vérification.
 
 ## Ce qui est seulement signalé, jamais corrigé seul
 

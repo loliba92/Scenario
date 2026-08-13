@@ -1636,10 +1636,51 @@ moins prioritaire).
   (prompt complet, structure calquée sur `docs/routine-detection-
   prompt.md`) et `docs/inspection-log.md` (squelette).
 
+  **Relecture critique du prompt, même soir (12 août) — 4 lacunes
+  soulevées, 3 corrigées dans le fichier** (la 4ᵉ, moins prioritaire,
+  reste ouverte) :
+  1. **Référence CSS trop vague** pour le groupe `.delta-france`/
+     `.delta-gauge*`/`.delta-word`/`.delta-flag` — "recopier depuis la
+     dernière archive qui la contient" est risqué car ce groupe précis a
+     changé de forme **cinq fois dans la même soirée** ; une archive même
+     récente peut contenir une version dépassée. Corrigé : le bloc CSS
+     canonique de ce groupe est maintenant recopié texte pour texte
+     directement dans `docs/routine-inspection-prompt.md`, à tenir à jour
+     manuellement (même discipline que `docs/routine-prompt.md`) — les
+     autres classes surveillées (`.essentiel-box`, `.list-box*`, etc.),
+     stables depuis longtemps, restent sur la règle "recopier depuis la
+     dernière archive".
+  2. **Incohérence numérique : la règle ne vérifiait que le chiffre, pas
+     le fait.** Repéré via un exemple réel de la soirée même
+     (`archives/2026-08-09.html`, article Musique IA) : "9 milliards"
+     (Sony seul contre Suno) et "13,5 milliards" (Sony + Universal
+     combinés contre Suno + Udio, sommés dans le texte lui-même) —
+     ce n'était pas une erreur, mais une règle naïve sur la seule
+     correspondance de chiffres aurait pu "corriger" un article juste.
+     Corrigé : le point 4 exige maintenant de confirmer même fait/même
+     périmètre/même opération avant toute comparaison, avec cet exemple
+     réel écrit dans le prompt pour fixer le seuil.
+  3. **Aucune auto-vérification après une correction, avant de commiter.**
+     Toute la soirée, chaque édition manuelle a été suivie d'un contrôle
+     (balise HTML équilibrée, souvent une capture Playwright) avant d'être
+     poussée — le prompt ne l'imposait pas à l'Inspecteur sur ses propres
+     corrections. Corrigé : nouvelle section obligatoire — balance des
+     balises + re-vérification de la sync index/archive après chaque
+     correctif, plus une capture Playwright ciblée pour les correctifs
+     touchant la mise en page (point 1 CSS) uniquement ; tout échec de
+     vérification annule le correctif (`git checkout`) et bascule
+     l'entrée en "signalé pour revue humaine" plutôt que de commiter
+     quelque chose de non validé.
+  4. **(Non traitée, moins urgente)** Pas de limite explicite sur le
+     nombre de corrections "mécaniques" (points 1-7) par édition, alors
+     que le point 8 (clarté) en a une (3 max) — à rouvrir si l'usage
+     réel montre qu'une édition accumule beaucoup de petits correctifs
+     le même jour.
+
   **Reste à faire** : créer le trigger Claude Code Remote lui-même
   (`create_trigger`, cron `0 5 * * *` UTC = 7h Paris l'été) — pas encore
-  fait, en attente de relecture du prompt par l'utilisateur avant de
-  lancer un agent quotidien autonome avec droit d'édition sur le site.
+  fait, en attente de validation finale du prompt par l'utilisateur avant
+  de lancer un agent quotidien autonome avec droit d'édition sur le site.
   Une fois créé par un agent (pas `http_api`), `update_trigger` devrait
   rester utilisable directement, contrairement au trigger principal.
   **La routine principale doit aussi être avancée à 6h Paris** — hors de
