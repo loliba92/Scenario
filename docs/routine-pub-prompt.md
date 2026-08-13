@@ -176,11 +176,20 @@ existants) :
   <link>{lien selon la catégorie, voir ci-dessous}</link>
   <guid isPermaLink="false">scenario-pub-{id-entrée}-{AAAA-MM-JJ}</guid>
   <pubDate>{date/heure actuelles, format RFC 822, fuseau Europe/Paris}</pubDate>
-  <comments>{eyebrow}\n\n{message sans **}{, \n\nattribution si présente}</comments>
+  <comments>{eyebrow}\n\n{message sans **}{, \n\nattribution si présente}{\n\ncta si présent}</comments>
   <enclosure url="https://lesscenarios.fr/assets/social/pub/{AAAA-MM-JJ}.png" length="{taille réelle du fichier}" type="image/png"/>
-  <description><![CDATA[{même contenu que <comments>, mise en forme <br> au lieu de \n}{cta si présent}<!-- credit: {photographer} — {pexels_url} -->]]></description>
+  <description><![CDATA[{même contenu que <comments>, mise en forme <br> au lieu de \n}<!-- credit: {photographer} — {pexels_url} -->]]></description>
 </item>
 ```
+
+**Le CTA doit être dans `<comments>`, pas seulement dans `<description>`**
+(corrigé le 13 août, bug repéré en relisant le blueprint Make de
+l'utilisateur) — les 4 modules réseaux (Twitter/Facebook/LinkedIn/
+Instagram) utilisent tous `{{comments}}` pour le texte du post, jamais
+`{{description}}`. Un CTA absent de `<comments>` ne serait donc **jamais
+posté nulle part**, alors que le CTA est justement l'élément central de
+la règle "dénominateur commun" (voir `docs/pub-messages.md`) — sans lui,
+chaque post perd sa raison d'être orientée croissance.
 
 **Lien selon la catégorie** : `manifeste` → `https://lesscenarios.fr/le-
 projet.html`, `citation`/`futur` → `https://lesscenarios.fr/`,
