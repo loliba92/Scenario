@@ -153,29 +153,61 @@ Lille, 1854, très largement documentée.*
 édition de référence avant publication — formule très reprise, parfois de
 façon approximative.*
 
-### citation-05 `[attribution à vérifier]`
+### citation-05 `[retiré le 13 août]`
+*Était : « Le doute n'est pas une condition agréable, mais la certitude
+est absurde. » — Voltaire. Retiré : trop littéraire/abstrait pour "monsieur
+tout le monde" (retour utilisateur du 13 août), en plus d'une attribution
+disputée. Remplacé par citation-07/08/09/10 ci-dessous. Id jamais réutilisé
+(voir "Règle de rotation"), gardé en trace ici plutôt que supprimé.*
+
+### citation-06 `[retiré le 13 août]`
+*Était : « On ne se baigne jamais deux fois dans le même fleuve. » —
+Héraclite. Retiré : trop philosophique/mélancolique pour "monsieur tout le
+monde" (retour utilisateur du 13 août). Remplacé par citation-07/08/09/10
+ci-dessous. Id jamais réutilisé, gardé en trace ici plutôt que supprimé.*
+
+### citation-07
 - eyebrow: UNE CITATION
-- message: « Le doute n'est pas une condition agréable,\nmais la certitude est absurde. »
-- attribution: — Voltaire
-- cta: 👉 Abonne-toi, on t'aide à y voir clair
+- message: « La fortune sourit aux audacieux. »
+- attribution: — Proverbe latin
+- cta: 👉 Abonne-toi, ose regarder plus loin
 
-*Attribution très répandue mais disputée par certains chercheurs (parfois
-présentée comme une paraphrase plutôt qu'une citation exacte d'un texte
-identifié) — à vérifier ou à retirer avant publication. Ton plutôt
-désabusé — moins "positif" au sens de la règle du 13 août, gardée pour
-l'instant, CTA ajouté pour compenser.*
+*Proche du vers de Virgile "Audentes Fortuna iuvat" (Énéide, X.284) — rendu
+en proverbe latin plutôt qu'attribué nommément à Virgile, la formule
+française circule surtout comme dicton, pas comme citation exacte d'un
+texte précis. Simple, court, positif — bon fit "monsieur tout le monde".*
 
-### citation-06
+### citation-08
 - eyebrow: UNE CITATION
-- message: « On ne se baigne jamais deux fois\ndans le même fleuve. »
-- attribution: — Héraclite
-- cta: 👉 Abonne-toi, suis ce qui change
+- message: « Il y a plusieurs chemins\npour aller au sommet de la montagne. »
+- attribution: — Proverbe chinois
+- cta: 👉 Abonne-toi, explore les 3 chemins
 
-*Fragment antique, formulation reconstituée (normal pour un fragment
-présocratique transmis indirectement) — thème de l'impermanence/incertitude,
-pas du hasard au sens strict, mais reste pertinent pour la ligne éditoriale.
-Ton plutôt mélancolique — moins "positif" au sens de la règle du 13 août,
-gardée pour l'instant, CTA ajouté pour compenser.*
+*Attribuée à "la sagesse chinoise" comme beaucoup de proverbes de ce type
+en circulation en Occident — origine textuelle précise non retracée,
+présentée comme un dicton populaire plutôt qu'une citation d'auteur
+identifié. Image simple et parlante, colle bien à l'idée des 3 scénarios.*
+
+### citation-09 `[attribution à vérifier]`
+- eyebrow: UNE CITATION
+- message: « On ne subit pas l'avenir,\non le fait. »
+- attribution: — Georges Bernanos
+- cta: 👉 Abonne-toi, fais partie de la suite
+
+*Citation courante attribuée à Bernanos — texte source exact (lequel de ses
+essais) à vérifier avant mise en rotation. Courte, directe, très "appel à
+l'action" — bon fit avec le CTA.*
+
+### citation-10 `[attribution à vérifier]`
+- eyebrow: UNE CITATION
+- message: « Le futur n'est pas ce qui va arriver,\nc'est ce que nous allons faire. »
+- attribution: — Henri Bergson
+- cta: 👉 Abonne-toi, prépare ce qui vient
+
+*Idée fidèle à la philosophie de Bergson (temps, liberté, action) mais
+formulation exacte/texte source à vérifier avant mise en rotation — risque
+de paraphrase plutôt que citation exacte, comme souvent avec les citations
+philosophiques qui circulent en ligne.*
 
 ## 3. Questions à la communauté (rotation C)
 
