@@ -12,6 +12,10 @@
     --stable: #6f8fae;
     --favorable: #5e9c78;
     --degrade: #bd6248;
+    /* 5e couleur, réservée à la catégorie "futur" — même registre
+       désaturé que les 4 autres, aucune n'était disponible pour une
+       5e catégorie sans se marcher dessus. */
+    --futur: #9b7fc0;
   }
   *{ box-sizing: border-box; margin:0; padding:0; }
   html,body{ width:1080px; height:1080px; }
@@ -27,14 +31,16 @@
     position:absolute; inset:0;
     background: linear-gradient(180deg, rgba(16,21,28,0.32) 0%, rgba(16,21,28,0.58) 52%, rgba(16,21,28,0.92) 100%);
   }
-  /* 4 catégories, 4 couleurs d'accent (mêmes teintes que le reste du
-     site) : manifeste = or (identité), citation = bleu (calme/sagesse),
-     question = vert (invitation à réagir), chiffre = orange (attire
-     l'oeil sur un fait qui mérite qu'on s'arrête dessus). */
+  /* 5 catégories, 5 couleurs d'accent : manifeste = or (identité),
+     citation = bleu (calme/sagesse), question = vert (invitation à
+     réagir), chiffre = orange (attire l'oeil sur un fait qui mérite
+     qu'on s'arrête dessus), futur = violet (projection, distinct des
+     4 couleurs déjà utilisées ailleurs sur le site). */
   .tint{ position:absolute; inset:0; mix-blend-mode: color; background: var(--gold); opacity:0.18; }
   body[data-accent="citation"] .tint{ background: var(--stable); }
   body[data-accent="question"] .tint{ background: var(--favorable); }
   body[data-accent="chiffre"] .tint{ background: var(--degrade); }
+  body[data-accent="futur"] .tint{ background: var(--futur); }
 
   /* Cadre fin + grand guillemet, repris de V2 */
   .frame{ position:absolute; inset:36px; border: 2px solid rgba(236,231,218,0.22); z-index:1; pointer-events:none; }
@@ -70,6 +76,7 @@
   body[data-accent="citation"] .eyebrow{ background: var(--stable); }
   body[data-accent="question"] .eyebrow{ background: var(--favorable); }
   body[data-accent="chiffre"] .eyebrow{ background: var(--degrade); }
+  body[data-accent="futur"] .eyebrow{ background: var(--futur); }
 
   /* Typo plus grande et plus lourde, repris de V3 */
   .message{
@@ -80,6 +87,7 @@
   body[data-accent="citation"] .message .hl{ color: var(--stable); }
   body[data-accent="question"] .message .hl{ color: var(--favorable); }
   body[data-accent="chiffre"] .message .hl{ color: var(--degrade); }
+  body[data-accent="futur"] .message .hl{ color: var(--futur); }
 
   .attribution{ font-family:"Inter", sans-serif; font-weight:600; font-size: 34px; color: var(--paper-dim); margin-top: 28px; }
   .cta{ font-family: "JetBrains Mono", monospace; font-weight:700; font-size: 32px; color: var(--gold); margin-top:46px; }

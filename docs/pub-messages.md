@@ -205,16 +205,75 @@ publication la plus récente avant mise en rotation.*
 *Ordre de grandeur GIEC — à vérifier sur le dernier rapport avant mise en
 rotation (les projections évoluent d'un rapport à l'autre).*
 
+## 5. Grands futurs — les inventions qui pourraient changer le quotidien (rotation E)
+
+Objectif : projeter, jamais affirmer. Des technologies réelles, déjà en
+développement ou en test — pas de science-fiction, pas d'invention
+imaginaire — mais dont l'arrivée et l'impact restent incertains.
+
+**Règle non négociable : toujours au conditionnel.** Jamais "la voiture
+n'aura plus besoin de toi", toujours "la voiture pourrait ne plus avoir
+besoin de toi" — même exigence que le reste du site (une probabilité
+n'est jamais une certitude). Une entrée rédigée à l'indicatif/futur simple
+("sera", "va révolutionner", "changera") doit être reformulée avant
+d'entrer dans cette liste, jamais publiée telle quelle.
+
+**Vigilance particulière sur le survol technologique ("hype").** Ce
+secteur (quantique, fusion, IA, longévité...) a un long historique
+d'annonces "dans 10 ans" jamais tenues — vérifier que la technologie
+citée a un vrai jalon concret déjà atteint (essai clinique en cours,
+prototype fonctionnel, calendrier annoncé par un acteur sérieux), pas
+seulement un concept ou une promesse marketing. **Toutes les entrées sont
+marquées `[à vérifier]`** au moment de la rédaction, même discipline que
+la section 4 : à sourcer avant la première mise en rotation.
+
+### futur-01 `[à vérifier]`
+- eyebrow: GRAND FUTUR
+- message: Dans 10 ans, la voiture pourrait\nne plus jamais avoir besoin de toi au volant.
+- cta: 👉 Prêt à lâcher le volant ?
+
+*Conduite autonome (niveaux 4/5) — déjà des services réels limités
+(robotaxis) dans quelques villes ; généralisation et calendrier réel à
+vérifier avant mise en rotation.*
+
+### futur-02 `[à vérifier]`
+- eyebrow: GRAND FUTUR
+- message: Et si l'énergie devenait presque illimitée ?\nPlusieurs projets de fusion nucléaire visent une première électricité commerciale d'ici les années 2030.
+- cta: 👉 Dans 10 ans, on y sera ?
+
+*Fusion nucléaire — jalons réels (ITER et projets privés) mais calendrier
+historiquement optimiste dans ce secteur ; vérifier l'état d'avancement
+le plus récent avant mise en rotation.*
+
+### futur-03 `[à vérifier]`
+- eyebrow: GRAND FUTUR
+- message: Des chercheurs pensent qu'on pourrait bientôt\nralentir le vieillissement biologique, pas seulement le soigner.
+- cta: 👉 Dans 10 ans, on vivra comment ?
+
+*Recherche sur la longévité (essais en cours sur plusieurs molécules) —
+encore au stade expérimental, formulation "des chercheurs pensent"
+volontairement prudente ; vérifier l'état des essais avant mise en
+rotation.*
+
+### futur-04 `[à vérifier]`
+- eyebrow: GRAND FUTUR
+- message: L'ordinateur quantique pourrait un jour résoudre\nen minutes des calculs impossibles pour un supercalculateur classique.
+- cta: 👉 Dans 10 ans, à quoi ça servira vraiment ?
+
+*Informatique quantique — progrès réels mais usages pratiques encore
+limités à des cas de niche ; vérifier qu'aucune annonce trop optimiste
+ne s'est glissée dans la formulation avant mise en rotation.*
+
 ## Règle de rotation
 
 La routine avance dans chaque liste (Manifeste, Citations, Questions,
-Chiffres) indépendamment, dans l'ordre où les entrées apparaissent
-ci-dessus, sans répéter avant d'avoir fait le tour de la liste entière —
-voir `docs/routine-pub-prompt.md` pour le mécanisme exact (déduit de
-l'historique déjà publié dans `feed-pub.xml`, pas de fichier d'état
-séparé). Faire tourner les 4 catégories dans cet ordre fixe (Manifeste →
-Citation → Question → Chiffre → Manifeste...) plutôt que de les mélanger
-au hasard, pour garder un rythme reconnaissable.
+Chiffres, Grands futurs) indépendamment, dans l'ordre où les entrées
+apparaissent ci-dessus, sans répéter avant d'avoir fait le tour de la
+liste entière — voir `docs/routine-pub-prompt.md` pour le mécanisme exact
+(déduit de l'historique déjà publié dans `feed-pub.xml`, pas de fichier
+d'état séparé). Faire tourner les 5 catégories dans cet ordre fixe
+(Manifeste → Citation → Question → Chiffre → Grand futur → Manifeste...)
+plutôt que de les mélanger au hasard, pour garder un rythme reconnaissable.
 
 **Fréquence.** Cadence de croisière : 1 publication/semaine. **Au
 lancement, fréquence volontairement plus élevée** (décision utilisateur du

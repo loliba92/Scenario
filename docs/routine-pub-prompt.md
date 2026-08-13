@@ -47,16 +47,21 @@ changer, un simple délai minimal suffit).
 1. Lister tous les `<guid>` de `feed-pub.xml`, format `scenario-pub-
    {id-entrée}` (ex. `scenario-pub-manifeste-03`) — le préfixe avant le
    premier tiret après "pub-" donne la catégorie (`manifeste`, `citation`,
-   `question`, `chiffre`).
+   `question`, `chiffre`, `futur`).
 2. **Catégorie du jour** : cycle fixe `manifeste → citation → question →
-   chiffre → manifeste...`. Prendre la catégorie du `<guid>` le plus
-   récent (premier `<item>`), avancer d'un cran dans le cycle. Si
+   chiffre → futur → manifeste...`. Prendre la catégorie du `<guid>` le
+   plus récent (premier `<item>`), avancer d'un cran dans le cycle. Si
    `feed-pub.xml` n'a encore aucun item, commencer par `manifeste`.
 3. Dans `docs/pub-messages.md`, section de cette catégorie : lister les
    entrées dans l'ordre où elles apparaissent, **en écartant celles encore
    marquées `[à confirmer]` / `[attribution à vérifier]` / `[chiffre à
-   vérifier]`** — ne jamais publier une entrée non validée, quel que soit
-   son tour dans la rotation.
+   vérifier]` / `[à vérifier]`** — ne jamais publier une entrée non
+   validée, quel que soit son tour dans la rotation. Pour la catégorie
+   `futur` en particulier, vérifier aussi que le texte recopié est bien
+   **au conditionnel** ("pourrait", "devrait" — jamais "sera", "va
+   révolutionner") : une entrée à l'indicatif/futur simple ne doit jamais
+   être publiée telle quelle, même si elle n'est plus marquée `[à
+   vérifier]` (erreur de relecture possible lors de la validation).
 4. Parmi les entrées restantes de cette catégorie : trouver l'id du
    dernier `<guid>` publié dans cette catégorie (peut remonter à plusieurs
    items en arrière dans `feed-pub.xml`, puisque les catégories
@@ -124,7 +129,7 @@ existants) :
 ```
 
 **Lien selon la catégorie** : `manifeste` → `https://lesscenarios.fr/le-
-projet.html`, `citation`/`chiffre` → `https://lesscenarios.fr/`,
+projet.html`, `citation`/`chiffre`/`futur` → `https://lesscenarios.fr/`,
 `question` → `https://lesscenarios.fr/contact.html`.
 
 **Le crédit photo n'apparaît JAMAIS dans le texte visible du post**

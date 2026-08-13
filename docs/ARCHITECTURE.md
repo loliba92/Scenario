@@ -1798,12 +1798,28 @@ moins prioritaire).
   anti-doublon 20h, choix déterministe catégorie/entrée/photo, génération
   image, construction de l'item, résumé final avec crédit en clair).
 
+  **5e catégorie ajoutée le 13 août : Grands futurs** — inventions/
+  technologies réelles déjà en développement qui pourraient changer le
+  quotidien (voiture autonome, fusion nucléaire, longévité, informatique
+  quantique...). **Règle non négociable : toujours au conditionnel**
+  ("pourrait", jamais "sera"/"va révolutionner") — même exigence
+  épistémique que le reste du site (une probabilité n'est jamais une
+  certitude). Vigilance particulière sur le survol technologique
+  ("hype") : un secteur avec un long historique d'annonces "dans 10 ans"
+  jamais tenues (quantique, fusion...) — exiger un vrai jalon concret
+  déjà atteint, pas seulement une promesse marketing. Toutes les entrées
+  marquées `[à vérifier]`, même discipline que la section chiffres.
+  Cycle de rotation étendu à 5 : manifeste → citation → question →
+  chiffre → futur → manifeste... 5e couleur d'accent ajoutée au gabarit
+  V4, violet (`--futur: #9b7fc0`), pour ne pas se marcher sur les 4
+  couleurs déjà prises par les autres catégories.
+
   **Reste à faire** : constituer la banque de secours de photos
   (`assets/social/pub-photos/`, pas encore créée — la routine s'arrêtera
   et signalera si aucune photo récente d'article n'est disponible et que
-  ce dossier est vide), valider les entrées `[à confirmer]`/`[chiffre à
-  vérifier]` de `docs/pub-messages.md`, créer le trigger Claude Code
-  Remote correspondant.
+  ce dossier est vide), valider les entrées `[à confirmer]`/`[attribution
+  à vérifier]`/`[chiffre à vérifier]`/`[à vérifier]` de `docs/pub-
+  messages.md`, créer le trigger Claude Code Remote correspondant.
 - **P2 — Heatmap "Le monde en ce moment" par domaine, idée du 10 août
   (brainstorm "out of the box"), méthode affinée en discussion le jour
   même.** Partie d'une simple agrégation de jauges, recentrée sur une
