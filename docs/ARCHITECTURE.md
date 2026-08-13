@@ -1608,6 +1608,21 @@ moins prioritaire).
   pas chaque virgule. Source injoignable = signalé "non re-vérifiable",
   jamais bloquant.
 
+  **Économie de tokens, ajoutée le 12 août (retour utilisateur : "l'idée
+  n'est pas de défoncer nos tokens").** Le vrai levier n'est pas de
+  réduire le nombre de vérifications mais de **remplacer la lecture/
+  raisonnement LLM par des outils déterministes** (`grep`/`diff`/script
+  Python court) partout où c'est possible : sur les 8 points de la
+  section "Corrigé seul", **6 ne demandent aucun jugement** (CSS
+  manquant, désync index/archive, attribut incohérent, incohérence
+  numérique non ambiguë, label brut, "France Impact" raccourci) — un
+  motif ou un diff suffit à les détecter, pas la peine de charger le
+  fichier entier dans le contexte du modèle pour ça. Seuls **2 points**
+  (clarté/pédagogie, chiffres contre sources) demandent une vraie lecture
+  LLM. Plafonds explicites ajoutés pour ces deux points précis : **3
+  réécritures de clarté maximum par édition**, **5 appels WebFetch
+  maximum** pour la vérification des chiffres.
+
   **Limite honnête actée** : si les posts sociaux et la newsletter
   partent peu après la publication de 6h (via `feed.xml`), ils sont déjà
   envoyés au moment où l'Inspecteur passe à 7h — une correction ne peut

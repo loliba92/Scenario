@@ -16,6 +16,17 @@ principale, et corrige ce qui est mécaniquement faux ou incohérent. Elle
 n'a jamais le droit de changer un choix éditorial (quel scénario, quelle
 probabilité, quel angle) — seulement de rattraper une erreur.
 
+**Économie de tokens — consigne explicite, cette routine tourne tous les
+jours indéfiniment.** Pour les points 1 à 7 de la section « Corrigé seul »
+ci-dessous, **utiliser des outils déterministes (Bash : `grep`, `diff`,
+un script Python court) plutôt que de lire le fichier entier et de
+raisonner dessus** — aucun de ces 7 points ne demande de jugement, un
+diff ou une recherche de motif suffit pour détecter le problème ; ne
+lire/réécrire en détail que le passage concerné une fois un problème
+localisé. **Seuls 2 points demandent une vraie lecture LLM** : le point 8
+(clarté/pédagogie) et la vérification des chiffres contre les sources —
+tout le reste doit rester bon marché.
+
 ---
 
 **Important — la cible du push est toujours `main`, sans exception.** Même
@@ -118,6 +129,12 @@ proprement sans rien inspecter — pas de fallback sur l'édition de la veille.
      cas, pas une passe de réécriture générale) — l'objectif est de
      rattraper les phrases qui gênent réellement la compréhension, pas de
      remanier le style d'un article déjà correct.
+   - **Plafond : 3 réécritures maximum par édition.** Si plus de 3 phrases
+     semblent à retravailler, ne prendre que les 3 pires et signaler les
+     autres pour une prochaine fois plutôt que de tout réécrire d'un coup
+     — coûte cher et un article qui a besoin de plus de 3 réécritures a
+     probablement un problème de fond à traiter à la rédaction, pas à
+     l'inspection.
 
 Chaque correction de cette liste est commitée avec un message préfixé
 `[inspecteur]`, et une ligne est ajoutée à `docs/inspection-log.md` (voir
@@ -145,7 +162,10 @@ section `<section class="sources">` de l'édition du jour — ceux déjà cités
 par la routine principale, jamais une nouvelle recherche sur le sujet.
 Repérer les **3 à 5 chiffres les plus structurants** de l'article (ceux qui
 portent l'argument central, pas chaque virgule) et vérifier qu'ils
-correspondent à ce que dit la source qui les appuie.
+correspondent à ce que dit la source qui les appuie. **Plafond : 5 appels
+WebFetch maximum par édition**, un par chiffre à vérifier — si la section
+sources contient plus de 5 liens, ne fetcher que ceux qui appuient les
+chiffres retenus, ignorer les autres.
 
 - Si un chiffre ne correspond pas à sa source : signaler (jamais corriger
   seul, voir ci-dessus) — préciser le chiffre publié, ce que dit la source
