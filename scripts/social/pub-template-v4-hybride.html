@@ -19,59 +19,58 @@
     position:absolute; inset:0;
     background-image:url(__PHOTO_SRC__);
     background-size:cover; background-position:center;
-    filter: saturate(0.9);
   }
-  /* Dégradé plus présent qu'en v1 : la photo respire en haut, le texte
-     reste toujours lisible en bas où il se trouve. */
+  /* Voile façon V3 (la photo respire), teinte douce façon V3 aussi */
   .scrim{
     position:absolute; inset:0;
-    background: linear-gradient(180deg,
-      rgba(16,21,28,0.42) 0%,
-      rgba(16,21,28,0.62) 38%,
-      rgba(16,21,28,0.93) 78%);
+    background: linear-gradient(180deg, rgba(16,21,28,0.32) 0%, rgba(16,21,28,0.58) 52%, rgba(16,21,28,0.92) 100%);
   }
+  .tint{ position:absolute; inset:0; mix-blend-mode: color; background: var(--gold); opacity:0.18; }
+  body[data-accent="citation"] .tint{ background: var(--stable); }
 
-  /* Cadre fin — reprend le traitement "carte" déjà utilisé sur le site
-     (.essentiel-box, .list-box : fond + bordure) pour que l'image se
-     lise comme une carte de citation, pas juste une photo légendée. */
+  /* Cadre fin + grand guillemet, repris de V2 */
   .frame{ position:absolute; inset:36px; border: 2px solid rgba(236,231,218,0.22); z-index:1; pointer-events:none; }
-
-  /* Grand guillemet décoratif, seulement pour les citations */
   .quote-glyph{
-    position:absolute; top:120px; left:88px; z-index:1;
-    font-family:"Fraunces", serif; font-weight:900; font-size:340px; line-height:1;
-    color: rgba(207,157,76,0.16);
+    position:absolute; top:96px; left:80px; z-index:1;
+    font-family:"Fraunces", serif; font-weight:900; font-size:300px; line-height:1;
+    color: rgba(207,157,76,0.20);
     display:none;
   }
-  body[data-accent="citation"] .quote-glyph{ display:block; }
+  body[data-accent="citation"] .quote-glyph{ display:block; color: rgba(111,143,174,0.24); }
 
   .content{
     position:relative; z-index:2;
     width:100%; height:100%;
     display:flex; flex-direction:column; justify-content:flex-end;
     font-family: "JetBrains Mono", monospace;
-    padding: 84px 96px 90px;
+    padding: 80px 92px 88px;
   }
 
-  .masthead{ display:flex; align-items:center; gap:16px; position:absolute; top:56px; left:96px; z-index:2; }
+  .masthead{ display:flex; align-items:center; gap:16px; position:absolute; top:56px; left:92px; z-index:2; }
   .masthead svg{ width:56px; height:56px; }
   .masthead .word{ font-family:"Fraunces", serif; font-weight:700; font-size:40px; color: var(--paper); }
   .masthead .word .rio{ color: var(--gold); }
 
-  /* Pastille pleine, plus affirmée que le contour de la v1 */
+  /* Pastille pleine, repris de V2 */
   .eyebrow{
     display:inline-block; align-self:flex-start;
     font-family:"JetBrains Mono", monospace; font-weight:700; font-size: 24px;
     letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink);
     background: var(--gold); border-radius: 40px; padding: 10px 26px;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
   }
-  body[data-accent="citation"] .eyebrow{ background: var(--stable); color: var(--ink); }
+  body[data-accent="citation"] .eyebrow{ background: var(--stable); }
 
-  .message{ font-family:"Fraunces", serif; font-weight:700; font-size: 72px; line-height:1.2; letter-spacing:-0.01em; color: var(--paper); }
+  /* Typo plus grande et plus lourde, repris de V3 */
+  .message{
+    font-family:"Fraunces", serif; font-weight:900; font-size: 86px; line-height:1.1;
+    letter-spacing:-0.02em; color: var(--paper); max-width: 900px;
+  }
   .message .hl{ color: var(--gold); }
+  body[data-accent="citation"] .message .hl{ color: var(--stable); }
+
   .attribution{ font-family:"Inter", sans-serif; font-weight:600; font-size: 34px; color: var(--paper-dim); margin-top: 28px; }
-  .cta{ font-family: "JetBrains Mono", monospace; font-weight:700; font-size: 32px; color: var(--gold); margin-top:48px; }
+  .cta{ font-family: "JetBrains Mono", monospace; font-weight:700; font-size: 32px; color: var(--gold); margin-top:46px; }
 
   .footer{
     display:flex; align-items:baseline; gap:14px; font-size:22px;
@@ -83,6 +82,7 @@
 </style></head>
 <body data-accent="__ACCENT__">
   <div class="photo-bg"></div>
+  <div class="tint"></div>
   <div class="scrim"></div>
   <div class="frame"></div>
   <div class="quote-glyph">“</div>
