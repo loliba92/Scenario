@@ -1,0 +1,114 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+    --stable: #6f8fae;
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html,body{ width:1080px; height:1080px; }
+  body{ background: var(--ink); position:relative; overflow:hidden; }
+
+  .photo-bg{
+    position:absolute; inset:0;
+    background-image:url(__PHOTO_SRC__);
+    background-size:cover; background-position:center;
+    filter: saturate(0.9);
+  }
+  /* Dégradé plus présent qu'en v1 : la photo respire en haut, le texte
+     reste toujours lisible en bas où il se trouve. */
+  .scrim{
+    position:absolute; inset:0;
+    background: linear-gradient(180deg,
+      rgba(16,21,28,0.42) 0%,
+      rgba(16,21,28,0.62) 38%,
+      rgba(16,21,28,0.93) 78%);
+  }
+
+  /* Cadre fin — reprend le traitement "carte" déjà utilisé sur le site
+     (.essentiel-box, .list-box : fond + bordure) pour que l'image se
+     lise comme une carte de citation, pas juste une photo légendée. */
+  .frame{ position:absolute; inset:36px; border: 2px solid rgba(236,231,218,0.22); z-index:1; pointer-events:none; }
+
+  /* Grand guillemet décoratif, seulement pour les citations */
+  .quote-glyph{
+    position:absolute; top:120px; left:88px; z-index:1;
+    font-family:"Fraunces", serif; font-weight:900; font-size:340px; line-height:1;
+    color: rgba(207,157,76,0.16);
+    display:none;
+  }
+  body[data-accent="citation"] .quote-glyph{ display:block; }
+
+  .content{
+    position:relative; z-index:2;
+    width:100%; height:100%;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    font-family: "JetBrains Mono", monospace;
+    padding: 84px 96px 90px;
+  }
+
+  .masthead{ display:flex; align-items:center; gap:16px; position:absolute; top:56px; left:96px; z-index:2; }
+  .masthead svg{ width:56px; height:56px; }
+  .masthead .word{ font-family:"Fraunces", serif; font-weight:700; font-size:40px; color: var(--paper); }
+  .masthead .word .rio{ color: var(--gold); }
+
+  /* Pastille pleine, plus affirmée que le contour de la v1 */
+  .eyebrow{
+    display:inline-block; align-self:flex-start;
+    font-family:"JetBrains Mono", monospace; font-weight:700; font-size: 24px;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink);
+    background: var(--gold); border-radius: 40px; padding: 10px 26px;
+    margin-bottom: 36px;
+  }
+  body[data-accent="citation"] .eyebrow{ background: var(--stable); color: var(--ink); }
+
+  .message{ font-family:"Fraunces", serif; font-weight:700; font-size: 72px; line-height:1.2; letter-spacing:-0.01em; color: var(--paper); }
+  .message .hl{ color: var(--gold); }
+  .attribution{ font-family:"Inter", sans-serif; font-weight:600; font-size: 34px; color: var(--paper-dim); margin-top: 28px; }
+  .cta{ font-family: "JetBrains Mono", monospace; font-weight:700; font-size: 32px; color: var(--gold); margin-top:48px; }
+
+  .footer{
+    display:flex; align-items:baseline; gap:14px; font-size:22px;
+    letter-spacing:0.08em; text-transform:uppercase; margin-top:44px;
+  }
+  .footer .tagline{ color: var(--gold); font-weight:700; }
+  .footer .sep{ color: var(--paper-dim); opacity:.5; }
+  .footer .url{ color: var(--paper-dim); }
+</style></head>
+<body data-accent="__ACCENT__">
+  <div class="photo-bg"></div>
+  <div class="scrim"></div>
+  <div class="frame"></div>
+  <div class="quote-glyph">“</div>
+  <div class="content">
+    <div class="masthead">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M57,96 L57,70 Q57,65 60,63" stroke="#cf9d4c"/>
+        <path d="M63,96 L63,70 Q63,65 60,63" stroke="#cf9d4c"/>
+        <path d="M60,63 L60,55" stroke="#cf9d4c"/>
+        <path d="M60,55 L60,31" stroke="#6f8fae"/>
+        <path d="M55.8,38.9 L60,31 L64.2,38.9" stroke="#6f8fae"/>
+        <path d="M60,63 L53.4,56.9" stroke="#cf9d4c"/>
+        <path d="M53.4,56.9 L34,39" stroke="#5e9c78"/>
+        <path d="M36.97,47.5 L34,39 L42.69,41.3" stroke="#5e9c78"/>
+        <path d="M60,63 L66.6,56.9" stroke="#cf9d4c"/>
+        <path d="M66.6,56.9 L86,39" stroke="#bd6248"/>
+        <path d="M83.03,47.5 L86,39 L77.31,41.3" stroke="#bd6248"/>
+      </svg>
+      <div class="word">Scéna<span class="rio">rio</span></div>
+    </div>
+
+    <div class="eyebrow">__EYEBROW__</div>
+    <div class="message">__MESSAGE__</div>
+    <div class="attribution">__ATTRIBUTION__</div>
+    <div class="cta">__CTA__</div>
+
+    <div class="footer"><span class="tagline">Le futur en 3 scénarios</span><span class="sep">·</span><span class="url">lesscenarios.fr</span></div>
+  </div>
+</body></html>
