@@ -1908,11 +1908,37 @@ moins prioritaire).
   en post social) est bien plus faible que sur l'Inspecteur, qui édite le
   site lui-même.
 
-  **Reste à faire** : valider les entrées `[à confirmer]`/`[attribution
-  à vérifier]`/`[chiffre à vérifier]`/`[à vérifier]` de `docs/pub-
-  messages.md` (plus nombreuses désormais, vu que les faits précis de
-  "Grands futurs" demandent tous une vérification), créer le trigger
-  Claude Code Remote correspondant.
+  **[FAIT le 13 août] Nettoyage : toutes les entrées non confirmées
+  retirées** (retour utilisateur : "enlève les trucs qui sont pas
+  confirmé"), plutôt que de les laisser trainer en attente de
+  vérification. 16 entrées retirées : `manifeste-05/06` (affirmations sur
+  le modèle économique), `citation-04/09/10` (Anatole France, Bernanos,
+  Bergson — attribution non confirmée), `citation-13` (Einstein "Dieu qui
+  se promène incognito" — retirée malgré la demande explicite de
+  l'utilisateur de l'ajouter plus tôt dans la journée, son statut de
+  citation la plus fréquemment mal attribuée à Einstein en ligne restant
+  inchangé ; à ré-ajouter seulement après une vraie vérification si
+  souhaité), `chiffre-01/02/03` (retraites, population 2050, +1,5°C),
+  `futur-01` à `futur-07` (les 7 entrées, remplacées par de simples
+  exemples de calibrage dans la prose, plus des entrées prêtes à
+  publier).
+
+  **Conséquence directe : 2 catégories vides.**
+  - **Section 4 (chiffres) : bloquante.** Pas de mécanisme de recherche à
+    la volée pour cette catégorie (contrairement à "futur") — elle ne
+    publiera rien tant que personne n'y ajoute une entrée vérifiée à la
+    main. `docs/routine-pub-prompt.md` la traite comme n'importe quelle
+    catégorie sans entrée disponible : passée, signalée, jamais bloquant
+    pour le reste du cycle.
+  - **Section 5 (grands futurs) : pas bloquante.** C'est justement la
+    catégorie conçue le jour même pour repartir de zéro et se
+    réapprovisionner elle-même via recherche (voir plus haut) — une
+    section vide au départ est son état normal, pas une anomalie.
+
+  **Reste à faire** : réapprovisionner la section 4 (chiffres) à la main
+  avant qu'elle ne publie quoi que ce soit, décider si `citation-13`
+  (Einstein) doit être vérifiée sérieusement puis réintégrée, créer le
+  trigger Claude Code Remote correspondant.
 - **P2 — Heatmap "Le monde en ce moment" par domaine, idée du 10 août
   (brainstorm "out of the box"), méthode affinée en discussion le jour
   même.** Partie d'une simple agrégation de jauges, recentrée sur une

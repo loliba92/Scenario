@@ -75,8 +75,9 @@ changer, un simple délai minimal suffit).
    complet de la catégorie. Si la catégorie n'a jamais été publiée, prendre
    la première entrée de la liste.
 5. **Si toutes les entrées d'une catégorie sont encore marquées comme non
-   validées** (aucune disponible) : passer à la catégorie suivante du
-   cycle pour cette exécution, et le signaler dans le résumé final —
+   validées, ou si la section est vide** (aucune disponible) : passer à
+   la catégorie suivante du cycle pour cette exécution, et le signaler
+   dans le résumé final —
    jamais bloquer toute la routine pour ça, jamais publier une entrée non
    validée pour combler.
 6. **Cas particulier de la catégorie `futur` — pas une simple rotation
@@ -100,7 +101,13 @@ changer, un simple délai minimal suffit).
      ressemble trop à une entrée déjà publiée récemment : reprendre une
      entrée déjà en liste (même logique de rotation que les autres
      catégories, étape 4 ci-dessus) plutôt que de bloquer ou de publier
-     un fait mal vérifié.
+     un fait mal vérifié. **Au 13 août, la section 5 de `docs/pub-
+     messages.md` est vide** (entrées initiales retirées, aucune
+     vérifiée) — ce repli n'est donc pas disponible tant qu'au moins une
+     entrée n'a pas été ajoutée par l'option a). Si la recherche échoue
+     et qu'aucun repli n'existe : passer à la catégorie suivante du cycle
+     pour cette exécution et le signaler dans le résumé final (même
+     traitement que l'étape 1, point 5, pour les autres catégories).
    - Dans les deux cas, jamais de fait inventé sans source — la seule
      différence avec les 4 autres catégories est que la source peut être
      trouvée au moment de la publication plutôt qu'être uniquement

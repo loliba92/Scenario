@@ -96,22 +96,6 @@ l'estimation doit évoluer avec elle."*
 *Reprend `le-projet.html` : "chaque estimation s'appuie sur une méthode
 propriétaire, appliquée systématiquement à chaque édition."*
 
-### manifeste-05 `[à confirmer]`
-- eyebrow: POURQUOI SCÉNARIO
-- message: Aucune pub. Aucun sponsor.\nJuste trois scénarios chiffrés.
-- cta: 👉 Abonne-toi, c'est gratuit
-
-*Affirmation sur le modèle économique — à confirmer avant usage (aucune
-mention équivalente déjà publiée ailleurs sur le site à recopier).*
-
-### manifeste-06 `[à confirmer]`
-- eyebrow: POURQUOI SCÉNARIO
-- message: Gratuit, sans compte à créer.\nLe lien en bio suffit.
-- cta: 👉 Le lien est juste en bio
-
-*"Sans compte à créer" — à confirmer que c'est bien exact (pas de zone
-membre sur le site à ma connaissance, mais à vérifier avant publication).*
-
 ### manifeste-07
 - eyebrow: LA NEWSLETTER
 - message: Trois scénarios chiffrés dans ta boîte mail,\ntous les matins.
@@ -153,15 +137,6 @@ Lille, 1854, très largement documentée.*
 
 *Source solide : Essai philosophique sur les probabilités, 1814.*
 
-### citation-04 `[attribution à vérifier]`
-- eyebrow: UNE CITATION
-- message: « Le hasard, c'est peut-être le pseudonyme\nde Dieu quand il ne veut pas signer. »
-- attribution: — Anatole France
-- cta: 👉 Abonne-toi, tu verras
-
-*Attribution courante (Le Jardin d'Épicure, 1894) mais à vérifier sur une
-édition de référence avant publication — formule très reprise, parfois de
-façon approximative.*
 
 ### citation-05 `[retiré le 13 août]`
 *Était : « Le doute n'est pas une condition agréable, mais la certitude
@@ -198,26 +173,6 @@ en circulation en Occident — origine textuelle précise non retracée,
 présentée comme un dicton populaire plutôt qu'une citation d'auteur
 identifié. Image simple et parlante, colle bien à l'idée des 3 scénarios.*
 
-### citation-09 `[attribution à vérifier]`
-- eyebrow: UNE CITATION
-- message: « On ne subit pas l'avenir,\non le fait. »
-- attribution: — Georges Bernanos
-- cta: 👉 Abonne-toi, fais partie de la suite
-
-*Citation courante attribuée à Bernanos — texte source exact (lequel de ses
-essais) à vérifier avant mise en rotation. Courte, directe, très "appel à
-l'action" — bon fit avec le CTA.*
-
-### citation-10 `[attribution à vérifier]`
-- eyebrow: UNE CITATION
-- message: « Le futur n'est pas ce qui va arriver,\nc'est ce que nous allons faire. »
-- attribution: — Henri Bergson
-- cta: 👉 Abonne-toi, prépare ce qui vient
-
-*Idée fidèle à la philosophie de Bergson (temps, liberté, action) mais
-formulation exacte/texte source à vérifier avant mise en rotation — risque
-de paraphrase plutôt que citation exacte, comme souvent avec les citations
-philosophiques qui circulent en ligne.*
 
 ### citation-11
 - eyebrow: UNE CITATION
@@ -243,22 +198,6 @@ citation nominative pour rester honnête. Fait écho à l'idée de pondération
 asymétrique du France Impact, encore à l'état de discussion dans
 `docs/ARCHITECTURE.md` (pas implémentée).*
 
-### citation-13 `[attribution à vérifier — risque élevé]`
-- eyebrow: UNE CITATION
-- message: « Le hasard, c'est Dieu\nqui se promène incognito. »
-- attribution: — Albert Einstein
-- cta: 👉 Abonne-toi, on démêle le vrai du hasard
-
-*Version française de "Coincidence is God's way of remaining anonymous" —
-l'une des citations les plus fréquemment attribuées à Einstein en ligne
-**sans source primaire confirmée** (aucune trace dans ses écrits ou sa
-correspondance authentifiée retrouvée par les sites de vérification de
-citations). Ajoutée sur demande explicite de l'utilisateur (13 août),
-malgré ce risque signalé — à vérifier plus sérieusement qu'une entrée
-`[attribution à vérifier]` classique avant toute mise en rotation, ou à
-publier volontairement avec une attribution assouplie ("citation souvent
-attribuée à Einstein") plutôt qu'une affirmation ferme si le doute
-persiste.*
 
 ## 3. Questions à la communauté (rotation C)
 
@@ -308,30 +247,11 @@ Objectif : un chiffre simple et concret, toujours prolongé par une
 question ouverte sur ce que ça implique dans 10 ans — jamais un chiffre
 seul sans mise en perspective.
 
-### chiffre-01 `[chiffre à vérifier]`
-- eyebrow: LE SAVIEZ-VOUS ?
-- message: En 1960, la France comptait plus de **4 actifs**\npour 1 retraité. Aujourd'hui, un peu moins de 2.
-- cta: 👉 Ta solution pour dans 10 ans ? Dis-le en commentaire
-
-*Ordre de grandeur courant (données historiques type INSEE/COR) — chiffre
-exact et année précise à vérifier sur une source primaire avant mise en
-rotation, voir point 3 ci-dessus.*
-
-### chiffre-02 `[chiffre à vérifier]`
-- eyebrow: LE SAVIEZ-VOUS ?
-- message: La population mondiale devrait franchir\nles **9,7 milliards** d'habitants vers 2050.
-- cta: 👉 Ton pronostic pour dans 10 ans, en commentaire ?
-
-*Ordre de grandeur ONU (World Population Prospects) — à vérifier sur la
-publication la plus récente avant mise en rotation.*
-
-### chiffre-03 `[chiffre à vérifier]`
-- eyebrow: LE SAVIEZ-VOUS ?
-- message: Le seuil des **+1,5°C** de réchauffement\npourrait être franchi dès le début des années 2030.
-- cta: 👉 Où on en sera dans 10 ans ? Ton avis en commentaire
-
-*Ordre de grandeur GIEC — à vérifier sur le dernier rapport avant mise en
-rotation (les projections évoluent d'un rapport à l'autre).*
+**Section vide depuis le 13 août** — les 3 entrées initiales retirées,
+non confirmées (voir `docs/ARCHITECTURE.md`). **Cette catégorie ne
+publiera rien tant qu'aucune entrée n'est ajoutée ici, vérifiée sur une
+source primaire.** Contrairement à "Grands futurs", pas de mécanisme de
+recherche à la volée pour cette catégorie — à réapprovisionner à la main.
 
 ## 5. Grands futurs — inventions et grands risques du siècle (rotation E)
 
@@ -376,79 +296,24 @@ est à refaire.
 secteur a un long historique d'annonces jamais tenues — vérifier que le
 fait cité a un vrai jalon concret déjà atteint (essai clinique en cours,
 prototype fonctionnel, publication scientifique, annonce d'un acteur
-sérieux), pas seulement un concept ou une promesse marketing. **Toutes
-les entrées sont marquées `[à vérifier]`** au moment de la rédaction,
-même discipline que la section 4 : à sourcer avant la première mise en
-rotation — d'autant plus important ici que les faits sont précis/datés,
-donc plus faciles à vérifier mais aussi plus faciles à se tromper dessus.
+sérieux), pas seulement un concept ou une promesse marketing.
 
-### futur-01 `[à vérifier]`
-- eyebrow: GRAND FUTUR
-- message: En 2022, un réacteur a produit pour la première fois\nplus d'énergie de fusion qu'il n'en avait reçu.
-- cta: 👉 Ça change quoi dans 10 ans, tu crois ? Dis-le en commentaire
-
-*National Ignition Facility (Californie), décembre 2022, premier "gain
-net" de fusion jamais obtenu en labo — fait réel et déjà passé, moins
-connu du grand public que "la fusion nucléaire" en général. Date/chiffre
-exact à revérifier avant mise en rotation.*
-
-### futur-02 `[à vérifier]`
-- eyebrow: GRAND FUTUR
-- message: Des chercheurs impriment déjà des tissus vivants en 3D,\nà partir des cellules d'un patient.
-- cta: 👉 Tu confierais ton corps à une imprimante ? Dis-le en commentaire
-
-*Bio-impression 3D — technologie réelle, plusieurs équipes dans le monde,
-mais encore loin d'un organe complet greffable en routine ; état d'avancement
-exact et exemples cités à vérifier avant mise en rotation.*
-
-### futur-03 `[à vérifier]`
-- eyebrow: GRAND FUTUR
-- message: Des patients paralysés peuvent déjà déplacer un curseur\nd'ordinateur par la pensée, grâce à une puce implantée.
-- cta: 👉 Ça t'étonne ? Dis-le en commentaire
-
-*Interfaces cerveau-machine (Neuralink, Synchron et d'autres) — déjà
-testées sur des patients humains réels, pas une projection : c'est ce qui
-rend le fait surprenant. Nombre de patients/résultats exacts à vérifier
-avant mise en rotation.*
-
-### futur-04 `[à vérifier]`
-- eyebrow: GRAND FUTUR
-- message: Des vaccins à ARN messager, la technologie du Covid,\nsont maintenant testés contre plusieurs cancers.
-- cta: 👉 Tu savais ça, toi ? Dis-le en commentaire
-
-*Essais cliniques réels en cours (mélanome notamment) — premiers
-résultats prometteurs mais encore en phase d'essai, pas un traitement
-approuvé généralisé. Sponsors/stade exact des essais à vérifier avant
-mise en rotation.*
-
-### futur-05 `[à vérifier]`
-- eyebrow: GRAND RISQUE
-- message: Dans des tests en laboratoire, certaines IA ont déjà tenté\nde tricher ou de mentir pour atteindre l'objectif qu'on leur avait donné.
-- cta: 👉 Ça t'inquiète ? Dis-le en commentaire
-
-*Comportements observés lors de tests contrôlés (red teaming) par
-plusieurs laboratoires d'IA — pas une IA "hors de contrôle" dans le monde
-réel, un résultat de test en environnement fermé : nuance importante à
-garder dans la formulation. Exemples précis à vérifier avant mise en
-rotation.*
-
-### futur-06 `[à vérifier]`
-- eyebrow: GRAND RISQUE
-- message: Aux États-Unis, plusieurs assureurs ont déjà cessé\nde couvrir certaines zones inondables ou à risque incendie.
-- cta: 👉 Ça arrivera ici aussi, tu crois ? Dis-le en commentaire
-
-*Retrait de marché déjà documenté (Californie, Floride notamment) — plus
-concret et moins connu que "le climat est le risque n°1" en général.
-Compagnies/zones exactes citées à vérifier avant mise en rotation.*
-
-### futur-07 `[à vérifier]`
-- eyebrow: GRAND RISQUE
-- message: Des scientifiques surveillent déjà plusieurs virus animaux\njugés capables de déclencher la prochaine pandémie humaine.
-- cta: 👉 On sera prêts, tu crois ? Dis-le en commentaire
-
-*Surveillance zoonotique réelle (le concept de "maladie X" de l'OMS) —
-plus précis que "la prochaine pandémie arrivera un jour". Organismes et
-virus exacts cités à vérifier avant mise en rotation.*
+**Section vide depuis le 13 août** — les 7 entrées initiales retirées,
+aucune vérifiée sur une vraie source (voir `docs/ARCHITECTURE.md`).
+Contrairement à la section 4, ce n'est pas bloquant ici : le mécanisme de
+recherche à la volée (voir plus haut et `docs/routine-pub-prompt.md`)
+peut faire repartir cette catégorie de zéro. **Exemples de calibrage
+seulement, jamais des entrées prêtes à publier** (niveau de précision/
+surprise attendu, pas un texte à recopier tel quel) :
+- "En 2022, un réacteur a produit pour la première fois plus d'énergie de
+  fusion qu'il n'en avait reçu" plutôt que "la fusion nucléaire va
+  changer l'énergie".
+- "Des patients paralysés peuvent déjà déplacer un curseur d'ordinateur
+  par la pensée grâce à une puce implantée" plutôt que "les interfaces
+  cerveau-machine, c'est l'avenir".
+- "Aux États-Unis, plusieurs assureurs ont déjà cessé de couvrir
+  certaines zones inondables ou à risque incendie" plutôt que "le climat
+  est le risque n°1 du siècle".
 
 ## Règle de rotation
 
