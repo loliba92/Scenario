@@ -6,6 +6,44 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-08-13 (correctif a posteriori, signalé par l'utilisateur) — La détente pétrolière / Le statu quo tendu / La rechute inflationniste
+**Contexte** : hors passage automatique de la routine — l'utilisateur a signalé
+en conversation que le 1er `.dek` de l'article (juste après `.question-text`)
+contenait un registre bizarre, en rupture avec le reste du site : tutoiement
+direct du lecteur ("ton argent") et une tournure jugée peu naturelle
+("avait fini par refluer"). Vérifié que ce `.dek` est le seul endroit du
+site à basculer en tutoiement (grep sur `\bton \|\bta \|\btu \b` — le seul
+autre "tu" du site est dans le bloc Telegram, `.share-block`, où l'adresse
+directe est volontaire). Réécriture forme uniquement : aucun chiffre, aucune
+date, aucun nom propre, aucun lien de cause à effet modifié.
+**Corrigé automatiquement** : `index.html` et `archives/2026-08-13.html`
+(les deux, resynchronisés).
+**Réécritures de clarté** (avant/après complet) :
+- Avant : « L'inflation, c'est la hausse générale des prix : quand elle
+  grimpe, ton argent achète moins qu'avant — un café, un plein d'essence,
+  un loyer. Après le pic de 2022-2023, elle avait fini par refluer presque
+  partout dans le monde, et les banques centrales pensaient avoir gagné la
+  partie. Mi-2026, la tendance s'est brutalement inversée : la guerre entre
+  les États-Unis et l'Iran, qui dure depuis le 28 février 2026, a rouvert
+  le dossier en faisant flamber le prix du pétrole. »
+  Après : « L'inflation, c'est la hausse générale des prix : quand elle
+  grimpe, le pouvoir d'achat baisse — un café, un plein d'essence, un loyer
+  coûtent plus cher qu'avant. Après le pic de 2022-2023, elle était
+  retombée presque partout dans le monde, et les banques centrales
+  pensaient avoir gagné la partie. Mi-2026, la tendance s'est brutalement
+  inversée : la guerre entre les États-Unis et l'Iran, qui dure depuis le
+  28 février 2026, a rouvert le dossier en faisant flamber le prix du
+  pétrole. »
+**Auto-vérification** : balises HTML équilibrées (script `html.parser`) sur
+les deux fichiers modifiés — OK. Diff `index.html` vs
+`archives/2026-08-13.html` rejoué après correctif — toujours synchronisés
+(seules différences : chemins relatifs `../`, canonical/OG/nav, légitimes).
+**Signalé pour revue humaine** : rien de nouveau (voir entrées des passages
+automatiques ci-dessous pour le signalement sources non re-vérifiables,
+toujours valable).
+
+---
+
 ## 2026-08-13 (2e passage) — La détente pétrolière / Le statu quo tendu / La rechute inflationniste
 **Second déclenchement du trigger le même jour** — `index.html`,
 `archives/2026-08-13.html` et ce journal n'ont pas bougé depuis le passage

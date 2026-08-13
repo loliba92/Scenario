@@ -184,9 +184,18 @@ proprement sans rien inspecter — pas de fallback sur l'édition de la veille.
    lecteur qui découvre le sujet : phrase de plus de 40-50 mots avec
    plusieurs subordonnées, sigle/terme technique utilisé sans explication
    ni renvoi `.lex-ref`, tournure abstraite là où un chiffre ou un exemple
-   concret existe déjà ailleurs dans l'article. Réécrire **uniquement la
-   forme** — découper la phrase, alléger la syntaxe, remplacer un mot
-   savant par un mot courant.
+   concret existe déjà ailleurs dans l'article, **ou rupture de registre**
+   (tutoiement direct du lecteur — "ton", "ta", "tu" — dans un paragraphe
+   par ailleurs écrit à la troisième personne comme le reste du site ; cas
+   réel du 13 août, `docs/inspection-log.md`, "ton argent achète moins
+   qu'avant" au lieu d'une formulation impersonnelle). Détection bon marché
+   pour ce dernier cas précis, avant toute lecture LLM : `grep -n '\bton
+   \|\bta \|\btu \b'` sur `index.html`, en excluant les correspondances
+   situées dans `.share-block` (le bloc Telegram tutoie volontairement le
+   lecteur — seule exception légitime du site, ne pas la "corriger").
+   Réécrire **uniquement la forme** — découper la phrase, alléger la
+   syntaxe, remplacer un mot savant par un mot courant, repasser à la
+   troisième personne en cas de rupture de registre.
 
    **Règles strictes, jamais négociables** :
    - Chaque chiffre, date, nom propre et lien de cause à effet de la
