@@ -26,6 +26,10 @@ scripts, aucun jugement éditorial requis) — ne pas "réfléchir" dessus,
 suivre la procédure telle quelle. Le seul endroit qui demande un peu de
 jugement est la rédaction du texte du post final (étape 5), et encore :
 il recopie du texte déjà écrit, il ne compose rien depuis zéro.
+**Exception : la catégorie `futur`** (étape 1, point 6) peut demander une
+vraie recherche (WebFetch, 3 appels max, uniquement quand c'est son tour
+dans le cycle — 1 fois sur 5) — volontaire, pour éviter qu'une liste figée
+devienne prévisible, voir la justification dans cette section.
 
 ---
 
@@ -75,6 +79,32 @@ changer, un simple délai minimal suffit).
    cycle pour cette exécution, et le signaler dans le résumé final —
    jamais bloquer toute la routine pour ça, jamais publier une entrée non
    validée pour combler.
+6. **Cas particulier de la catégorie `futur` — pas une simple rotation
+   fermée** (retour utilisateur du 13 août : une liste qui tourne en
+   boucle devient vite prévisible pour cette catégorie précise). Deux
+   options, dans cet ordre de préférence :
+   - **a) Rechercher et rédiger un nouveau fait.** WebFetch une source
+     fiable (media scientifique/économique sérieux, organisme officiel,
+     publication de recherche — jamais un blog ou un site non identifié),
+     **3 appels WebFetch maximum** pour cette étape. Le fait doit être
+     **précis, daté, spécifique** — jamais une généralité déjà connue
+     (voir la règle "pas de trucs bateau" dans `docs/pub-messages.md`,
+     section 5) — et rédigé **au conditionnel** pour tout ce qui n'est
+     pas encore arrivé. Si trouvé et vérifié : l'ajouter en tant que
+     nouvelle entrée à la fin de la section 5 de `docs/pub-messages.md`
+     (id suivant non utilisé, `futur-{N}`), **avec sa source (URL) en
+     plus de l'`attribution`** habituelle, dans le même commit que la
+     publication du post. Utiliser cette entrée pour le post du jour.
+   - **b) Repli sur la liste existante.** Si la recherche ne trouve rien
+     d'assez solide dans le budget de 3 appels, ou si le sujet trouvé
+     ressemble trop à une entrée déjà publiée récemment : reprendre une
+     entrée déjà en liste (même logique de rotation que les autres
+     catégories, étape 4 ci-dessus) plutôt que de bloquer ou de publier
+     un fait mal vérifié.
+   - Dans les deux cas, jamais de fait inventé sans source — la seule
+     différence avec les 4 autres catégories est que la source peut être
+     trouvée au moment de la publication plutôt qu'être uniquement
+     pré-validée en session.
 
 ## Étape 2 — Choisir la photo (jamais de recherche Pexels en direct)
 

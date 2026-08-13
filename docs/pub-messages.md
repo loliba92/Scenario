@@ -342,6 +342,19 @@ développement/déjà documentées, pas de science-fiction ni de
 catastrophisme gratuit, mais dont l'arrivée et l'impact restent
 incertains.
 
+**Mécanisme différent des 4 autres catégories — pas une liste fermée qui
+tourne en boucle** (retour utilisateur du 13 août : "je ferai pas une
+liste ferme sinon ça tourne et c'est boring"). Les entrées ci-dessous
+servent de **calibrage** (le niveau de précision/surprise attendu, voir
+règle juste en dessous) plutôt que d'un stock fixe à épuiser avant de
+répéter. Voir `docs/routine-pub-prompt.md` pour le mécanisme exact : à
+chaque tour de cette catégorie, la routine peut soit reprendre une entrée
+existante pas trop récemment utilisée, soit **chercher et rédiger un
+nouveau fait, à condition de le vérifier par une vraie source (WebFetch)
+avant de l'écrire** — jamais une invention libre comme pour les autres
+catégories. Toute nouvelle entrée ajoutée porte sa source (URL) en plus
+du texte, et reste soumise aux mêmes règles non négociables ci-dessous.
+
 **Règle non négociable : toujours au conditionnel** pour tout ce qui
 n'est pas encore arrivé. Jamais "la voiture n'aura plus besoin de toi",
 toujours "la voiture pourrait ne plus avoir besoin de toi" — même

@@ -1889,6 +1889,25 @@ moins prioritaire).
   suit un peu l'actualité tech/science hausse les épaules ("ça, je le
   savais déjà"), l'entrée est à refaire.
 
+  **Mécanisme changé le 13 août, dans la foulée : plus une liste fermée
+  pour cette catégorie précise.** Retour utilisateur direct : "je ferai
+  pas une liste ferme sinon ça tourne et c'est boring". Contrairement aux
+  4 autres catégories (banque curée, jamais de génération par la
+  routine — risque de citation/chiffre inventé déjà établi), la catégorie
+  `futur` peut désormais **chercher un nouveau fait à chaque tour**
+  (WebFetch, 3 appels max, uniquement 1 fois sur 5 dans le cycle) plutôt
+  que de piocher uniquement dans un stock fixe. Garde-fous : toujours une
+  vraie source vérifiée avant d'écrire (jamais une invention libre comme
+  le reste des 4 catégories), repli sur la liste existante si la
+  recherche ne trouve rien de solide, nouvelle entrée toujours ajoutée
+  avec sa source (URL) dans `docs/pub-messages.md` — la banque grandit
+  organiquement dans le temps plutôt que de tourner en boucle sur un
+  stock figé. Seule catégorie de toute la routine "pub" où une vraie
+  recherche LLM est nécessaire — accepté comme coût raisonnable vu que ça
+  ne se déclenche qu'1 fois sur 5, et que le risque (mauvais fait publié
+  en post social) est bien plus faible que sur l'Inspecteur, qui édite le
+  site lui-même.
+
   **Reste à faire** : valider les entrées `[à confirmer]`/`[attribution
   à vérifier]`/`[chiffre à vérifier]`/`[à vérifier]` de `docs/pub-
   messages.md` (plus nombreuses désormais, vu que les faits précis de
