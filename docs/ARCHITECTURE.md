@@ -1935,10 +1935,20 @@ moins prioritaire).
     réapprovisionner elle-même via recherche (voir plus haut) — une
     section vide au départ est son état normal, pas une anomalie.
 
-  **Reste à faire** : réapprovisionner la section 4 (chiffres) à la main
-  avant qu'elle ne publie quoi que ce soit, décider si `citation-13`
-  (Einstein) doit être vérifiée sérieusement puis réintégrée, créer le
-  trigger Claude Code Remote correspondant.
+  **[FAIT le 13 août] Catégorie "Le saviez-vous" (chiffres) retirée
+  entièrement** — retour utilisateur : "on enlève la section chiffres on
+  a assez pour démarrer". Section supprimée de `docs/pub-messages.md`,
+  cycle de rotation réduit à 4 catégories (`manifeste → citation →
+  question → futur`), toutes les références dans `docs/routine-pub-
+  prompt.md` mises à jour (liste des catégories, cycle, lien par
+  catégorie). Renumérotée : "Grands futurs" devient la section 4
+  (`rotation D`), plus la section 5. Réintroductible plus tard si
+  l'utilisateur réapprovisionne une liste de chiffres vérifiés — pas
+  supprimé du concept, juste absent du cycle actif pour l'instant.
+
+  **Reste à faire** : décider si `citation-13` (Einstein, retirée plus
+  tôt le même jour) doit être vérifiée sérieusement puis réintégrée,
+  créer le trigger Claude Code Remote correspondant.
 - **P2 — Heatmap "Le monde en ce moment" par domaine, idée du 10 août
   (brainstorm "out of the box"), méthode affinée en discussion le jour
   même.** Partie d'une simple agrégation de jauges, recentrée sur une

@@ -7,23 +7,13 @@ message ni une citation elle-même** — voir la justification dans
 `docs/ARCHITECTURE.md` (risque de citation mal attribuée ou inventée par un
 LLM, déjà identifié pendant la conception de cette routine).
 
-**Statut : brouillon, pas encore validé pour publication.** Points à
-trancher avant de mettre cette liste en service :
-1. Les lignes marquées `[à confirmer]` dans la section Manifeste font une
-   affirmation sur le modèle économique (pas de sponsor, etc.) que je ne
-   peux pas vérifier moi-même — à valider ou reformuler avant usage.
-2. Les citations marquées `[attribution à vérifier]` dans la section
-   Citations ont une attribution courante mais pas 100 % certaine — à
-   vérifier une source primaire avant publication, ou à retirer.
-3. **Toutes les entrées de la section 4 (Le saviez-vous) sont marquées
-   `[chiffre à vérifier]`** — ordres de grandeur retenus de mémoire, pas
-   revérifiés sur la source primaire au moment de la rédaction. Vu que
-   toute la crédibilité du site repose sur la justesse des chiffres,
-   **aucune ne doit passer en rotation sans une vérification par une
-   vraie source (WebFetch ou lecture manuelle) au moins une fois** —
-   après quoi le chiffre est figé (même règle que pour une citation :
-   on ne le revérifie pas à chaque utilisation, juste avant sa première
-   mise en rotation).
+**Statut au 13 août : validée pour démarrer.** 4 catégories actives
+(Manifeste, Citations, Questions, Grands futurs) — toutes les entrées
+encore incertaines ont été retirées plutôt que laissées en attente de
+vérification (voir `docs/ARCHITECTURE.md`). La catégorie "Le saviez-vous"
+(chiffres) a été retirée entièrement le 13 août, jugée pas indispensable
+pour démarrer — à réintroduire plus tard si besoin, voir
+`docs/ARCHITECTURE.md`.
 
 ## Dénominateur commun (règle du 13 août)
 
@@ -241,19 +231,7 @@ scrollant que question-01 (retiré). Retour utilisateur du 13 août ;
 variante "quel est ton rêve" écartée par l'utilisateur lui-même comme
 trop convenue.*
 
-## 4. Le saviez-vous — chiffres et projection à 10 ans (rotation D)
-
-Objectif : un chiffre simple et concret, toujours prolongé par une
-question ouverte sur ce que ça implique dans 10 ans — jamais un chiffre
-seul sans mise en perspective.
-
-**Section vide depuis le 13 août** — les 3 entrées initiales retirées,
-non confirmées (voir `docs/ARCHITECTURE.md`). **Cette catégorie ne
-publiera rien tant qu'aucune entrée n'est ajoutée ici, vérifiée sur une
-source primaire.** Contrairement à "Grands futurs", pas de mécanisme de
-recherche à la volée pour cette catégorie — à réapprovisionner à la main.
-
-## 5. Grands futurs — inventions et grands risques du siècle (rotation E)
+## 4. Grands futurs — inventions et grands risques du siècle (rotation D)
 
 Objectif : projeter, jamais affirmer. Deux angles dans la même catégorie
 — des inventions qui pourraient changer le quotidien et des grands
@@ -318,13 +296,16 @@ surprise attendu, pas un texte à recopier tel quel) :
 ## Règle de rotation
 
 La routine avance dans chaque liste (Manifeste, Citations, Questions,
-Chiffres, Grands futurs) indépendamment, dans l'ordre où les entrées
-apparaissent ci-dessus, sans répéter avant d'avoir fait le tour de la
-liste entière — voir `docs/routine-pub-prompt.md` pour le mécanisme exact
-(déduit de l'historique déjà publié dans `feed-pub.xml`, pas de fichier
-d'état séparé). Faire tourner les 5 catégories dans cet ordre fixe
-(Manifeste → Citation → Question → Chiffre → Grand futur → Manifeste...)
-plutôt que de les mélanger au hasard, pour garder un rythme reconnaissable.
+Grands futurs) indépendamment, dans l'ordre où les entrées apparaissent
+ci-dessus, sans répéter avant d'avoir fait le tour de la liste entière —
+voir `docs/routine-pub-prompt.md` pour le mécanisme exact (déduit de
+l'historique déjà publié dans `feed-pub.xml`, pas de fichier d'état
+séparé). Faire tourner les 4 catégories dans cet ordre fixe (Manifeste →
+Citation → Question → Grand futur → Manifeste...) plutôt que de les
+mélanger au hasard, pour garder un rythme reconnaissable. **Catégorie
+"Le saviez-vous" (chiffres) retirée le 13 août**, jugée pas indispensable
+pour démarrer — à réintroduire dans le cycle si l'utilisateur la
+réapprovisionne un jour, voir `docs/ARCHITECTURE.md`.
 
 **Fréquence.** Cadence de croisière : 1 publication/semaine. **Au
 lancement, fréquence volontairement plus élevée** (décision utilisateur du

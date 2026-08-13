@@ -28,7 +28,7 @@ jugement est la rédaction du texte du post final (étape 5), et encore :
 il recopie du texte déjà écrit, il ne compose rien depuis zéro.
 **Exception : la catégorie `futur`** (étape 1, point 6) peut demander une
 vraie recherche (WebFetch, 3 appels max, uniquement quand c'est son tour
-dans le cycle — 1 fois sur 5) — volontaire, pour éviter qu'une liste figée
+dans le cycle — 1 fois sur 4) — volontaire, pour éviter qu'une liste figée
 devienne prévisible, voir la justification dans cette section.
 
 ---
@@ -51,17 +51,19 @@ changer, un simple délai minimal suffit).
 1. Lister tous les `<guid>` de `feed-pub.xml`, format `scenario-pub-
    {id-entrée}` (ex. `scenario-pub-manifeste-03`) — le préfixe avant le
    premier tiret après "pub-" donne la catégorie (`manifeste`, `citation`,
-   `question`, `chiffre`, `futur`).
+   `question`, `futur`).
 2. **Catégorie du jour** : cycle fixe `manifeste → citation → question →
-   chiffre → futur → manifeste...`. Prendre la catégorie du `<guid>` le
-   plus récent (premier `<item>`), avancer d'un cran dans le cycle. Si
-   `feed-pub.xml` n'a encore aucun item, commencer par `manifeste`.
+   futur → manifeste...`. Prendre la catégorie du `<guid>` le plus récent
+   (premier `<item>`), avancer d'un cran dans le cycle. Si `feed-pub.xml`
+   n'a encore aucun item, commencer par `manifeste`. **Catégorie
+   "chiffre" retirée le 13 août** — plus dans le cycle, ne pas la
+   chercher dans `docs/pub-messages.md` (section supprimée).
 3. Dans `docs/pub-messages.md`, section de cette catégorie : lister les
    entrées dans l'ordre où elles apparaissent, **en écartant celles encore
-   marquées `[à confirmer]` / `[attribution à vérifier]` / `[chiffre à
-   vérifier]` / `[à vérifier]`** — ne jamais publier une entrée non
-   validée, quel que soit son tour dans la rotation. Pour la catégorie
-   `futur` en particulier, vérifier aussi que le texte recopié est bien
+   marquées `[à confirmer]` / `[attribution à vérifier]` / `[à
+   vérifier]`** — ne jamais publier une entrée non validée, quel que soit
+   son tour dans la rotation. Pour la catégorie `futur` en particulier,
+   vérifier aussi que le texte recopié est bien
    **au conditionnel** ("pourrait", "devrait" — jamais "sera", "va
    révolutionner") : une entrée à l'indicatif/futur simple ne doit jamais
    être publiée telle quelle, même si elle n'est plus marquée `[à
@@ -90,9 +92,9 @@ changer, un simple délai minimal suffit).
      **3 appels WebFetch maximum** pour cette étape. Le fait doit être
      **précis, daté, spécifique** — jamais une généralité déjà connue
      (voir la règle "pas de trucs bateau" dans `docs/pub-messages.md`,
-     section 5) — et rédigé **au conditionnel** pour tout ce qui n'est
+     section 4) — et rédigé **au conditionnel** pour tout ce qui n'est
      pas encore arrivé. Si trouvé et vérifié : l'ajouter en tant que
-     nouvelle entrée à la fin de la section 5 de `docs/pub-messages.md`
+     nouvelle entrée à la fin de la section 4 de `docs/pub-messages.md`
      (id suivant non utilisé, `futur-{N}`), **avec sa source (URL) en
      plus de l'`attribution`** habituelle, dans le même commit que la
      publication du post. Utiliser cette entrée pour le post du jour.
@@ -101,7 +103,7 @@ changer, un simple délai minimal suffit).
      ressemble trop à une entrée déjà publiée récemment : reprendre une
      entrée déjà en liste (même logique de rotation que les autres
      catégories, étape 4 ci-dessus) plutôt que de bloquer ou de publier
-     un fait mal vérifié. **Au 13 août, la section 5 de `docs/pub-
+     un fait mal vérifié. **Au 13 août, la section 4 de `docs/pub-
      messages.md` est vide** (entrées initiales retirées, aucune
      vérifiée) — ce repli n'est donc pas disponible tant qu'au moins une
      entrée n'a pas été ajoutée par l'option a). Si la recherche échoue
@@ -175,7 +177,7 @@ existants) :
 ```
 
 **Lien selon la catégorie** : `manifeste` → `https://lesscenarios.fr/le-
-projet.html`, `citation`/`chiffre`/`futur` → `https://lesscenarios.fr/`,
+projet.html`, `citation`/`futur` → `https://lesscenarios.fr/`,
 `question` → `https://lesscenarios.fr/contact.html`.
 
 **Le crédit photo n'apparaît JAMAIS dans le texte visible du post**
