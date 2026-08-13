@@ -162,6 +162,11 @@ python3 scripts/social/generate_pub_image.py \
 
 ## Étape 4 — Construire l'item `feed-pub.xml`
 
+**Mettre à jour `<lastBuildDate>` du `<channel>`** (juste après
+`<language>`) avec la date/heure actuelles, même format RFC 822 que les
+`<pubDate>` — à chaque publication, sans exception, même règle que
+l'ajout d'item ci-dessous.
+
 Ajouter en tête (le plus récent en premier, jamais réordonner les items
 existants) :
 
