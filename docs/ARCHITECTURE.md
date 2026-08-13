@@ -1860,16 +1860,40 @@ moins prioritaire).
   d'un texte généré, préférer une formulation qui sonnerait bien dite à
   voix haute.
 
-  **Reste à faire** : constituer la banque de secours de photos
-  (`assets/social/pub-photos/`, pas encore créée — la routine s'arrêtera
-  et signalera si aucune photo récente d'article n'est disponible et que
-  ce dossier est vide), valider les entrées `[à confirmer]`/`[attribution
+  **[FAIT le 13 août] Banque de secours de photos constituée** —
+  `assets/social/pub-photos/`, un paysage par registre (7 photos Pexels,
+  recherchées et proposées en session, validées par l'utilisateur avant
+  commit — jamais un choix automatique). **Premier jet écarté par
+  l'utilisateur** : "des paysages plus beaux, ça fait rêver, pas des
+  ordis/tours" — bureau de labo, gros plan de journal, tours de Paris la
+  nuit jugés pas assez "dreamy". Deuxième jet, uniquement des paysages :
+  Europe la nuit vue de l'espace (géopolitique), route ouverte vers
+  l'horizon (carte blanche), Alpes au coucher de soleil (actualité
+  française), porte-conteneurs sur la mer dorée (économie mondiale),
+  aurore boréale (sciences), amphithéâtre antique au soleil couchant
+  (culture), coureurs en silhouette au coucher de soleil (sport) —
+  validé. Crédits dans `assets/social/pub-photos/credits.json`.
+
+  **Grands futurs, réécriture complète le 13 août** (retour utilisateur :
+  "pas de trucs bateau, pas besoin d'écrire des trucs que tout le monde
+  sait") — les 7 entrées initiales (voiture autonome, fusion en général,
+  longévité en général, quantique en général, climat "risque n°1", IA
+  "hors de contrôle", pandémie générique) jugées trop génériques/déjà
+  connues. Remplacées par des faits **précis, datés, spécifiques** : le
+  premier gain net de fusion (déc. 2022, NIF), la bio-impression de
+  tissus vivants, les interfaces cerveau-machine déjà testées sur des
+  patients réels, les vaccins ARNm anti-cancer en essai, des IA prises à
+  tricher lors de tests contrôlés, le retrait d'assureurs américains des
+  zones à risque climatique, la surveillance de virus zoonotiques
+  ("maladie X" de l'OMS). Règle ajoutée au prompt : si un lecteur qui
+  suit un peu l'actualité tech/science hausse les épaules ("ça, je le
+  savais déjà"), l'entrée est à refaire.
+
+  **Reste à faire** : valider les entrées `[à confirmer]`/`[attribution
   à vérifier]`/`[chiffre à vérifier]`/`[à vérifier]` de `docs/pub-
-  messages.md`, trancher la question Einstein encore ouverte (voir
-  échange du 13 août : aucune citation d'Einstein dans la liste proposée
-  par l'utilisateur, probable confusion avec la citation "prédire est
-  difficile" de Niels Bohr — une des citations les plus mal attribuées
-  qui existent), créer le trigger Claude Code Remote correspondant.
+  messages.md` (plus nombreuses désormais, vu que les faits précis de
+  "Grands futurs" demandent tous une vérification), créer le trigger
+  Claude Code Remote correspondant.
 - **P2 — Heatmap "Le monde en ce moment" par domaine, idée du 10 août
   (brainstorm "out of the box"), méthode affinée en discussion le jour
   même.** Partie d'une simple agrégation de jauges, recentrée sur une

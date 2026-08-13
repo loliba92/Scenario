@@ -1,0 +1,44 @@
+[
+  {
+    "file": "geopolitique.jpg",
+    "photographer": "Zelch Csaba",
+    "pexels_url": "https://www.pexels.com/photo/stunning-aerial-view-of-europe-at-night-30596262/",
+    "query": "world map night lights earth satellite"
+  },
+  {
+    "file": "carte-blanche.jpg",
+    "photographer": "Francesco Ungaro",
+    "pexels_url": "https://www.pexels.com/photo/the-sun-is-shining-on-an-empty-road-28202556/",
+    "query": "open road horizon sunrise landscape"
+  },
+  {
+    "file": "actualite-francaise.jpg",
+    "photographer": "Amaury Chacun",
+    "pexels_url": "https://www.pexels.com/photo/barren-sunlit-peaks-of-mountains-17745347/",
+    "query": "french alps mountains landscape sunrise"
+  },
+  {
+    "file": "economie-mondiale.jpg",
+    "photographer": "Robert So",
+    "pexels_url": "https://www.pexels.com/photo/cargo-ship-sailing-under-evening-sky-14392676/",
+    "query": "container ship ocean sunset harbor"
+  },
+  {
+    "file": "sciences.jpg",
+    "photographer": "Aedrian Salazar",
+    "pexels_url": "https://www.pexels.com/photo/stunning-aurora-borealis-in-night-sky-28920480/",
+    "query": "aurora borealis night sky stars"
+  },
+  {
+    "file": "culture.jpg",
+    "photographer": "YEŞ",
+    "pexels_url": "https://www.pexels.com/photo/sunset-over-an-ancient-theatre-11105516/",
+    "query": "ancient amphitheater ruins sunset"
+  },
+  {
+    "file": "sport.jpg",
+    "photographer": "Arina Dmitrieva",
+    "pexels_url": "https://www.pexels.com/photo/silhouette-of-people-on-mountain-during-sunset-13894047/",
+    "query": "mountain trail running sunrise landscape"
+  }
+]

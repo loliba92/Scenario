@@ -336,97 +336,106 @@ rotation (les projections évoluent d'un rapport à l'autre).*
 ## 5. Grands futurs — inventions et grands risques du siècle (rotation E)
 
 Objectif : projeter, jamais affirmer. Deux angles dans la même catégorie
-— des inventions qui pourraient changer le quotidien (futur-01 à 04) et
-des grands risques du siècle (futur-05 à 07, ajoutés le 13 août) — des
-technologies ou des menaces réelles, déjà en développement/déjà
-documentées, pas de science-fiction ni de catastrophisme gratuit, mais
-dont l'arrivée et l'impact restent incertains.
+— des inventions qui pourraient changer le quotidien et des grands
+risques du siècle — des technologies ou des menaces réelles, déjà en
+développement/déjà documentées, pas de science-fiction ni de
+catastrophisme gratuit, mais dont l'arrivée et l'impact restent
+incertains.
 
-**Règle non négociable : toujours au conditionnel.** Jamais "la voiture
-n'aura plus besoin de toi", toujours "la voiture pourrait ne plus avoir
-besoin de toi" — même exigence que le reste du site (une probabilité
-n'est jamais une certitude). Une entrée rédigée à l'indicatif/futur simple
-("sera", "va révolutionner", "changera") doit être reformulée avant
-d'entrer dans cette liste, jamais publiée telle quelle.
+**Règle non négociable : toujours au conditionnel** pour tout ce qui
+n'est pas encore arrivé. Jamais "la voiture n'aura plus besoin de toi",
+toujours "la voiture pourrait ne plus avoir besoin de toi" — même
+exigence que le reste du site (une probabilité n'est jamais une
+certitude). Une entrée rédigée à l'indicatif/futur simple sur un fait pas
+encore établi doit être reformulée avant d'entrer dans cette liste.
+
+**Règle ajoutée le 13 août, retour utilisateur direct : "pas de trucs
+bateau, pas besoin d'écrire des trucs que tout le monde sait".** Interdit
+les catégories génériques trop connues pour surprendre qui que ce soit
+("la voiture autonome", "le climat, risque n°1"...). À la place, un fait
+**précis, daté, chiffré si possible** — un jalon déjà atteint ou une
+découverte spécifique, pas un concept que tout le monde a déjà croisé
+100 fois. Le test : si un lecteur qui suit un peu l'actualité tech/
+science hausse les épaules en lisant "ça, je le savais déjà", l'entrée
+est à refaire.
 
 **Vigilance particulière sur le survol technologique ("hype").** Ce
-secteur (quantique, fusion, IA, longévité...) a un long historique
-d'annonces "dans 10 ans" jamais tenues — vérifier que la technologie
-citée a un vrai jalon concret déjà atteint (essai clinique en cours,
-prototype fonctionnel, calendrier annoncé par un acteur sérieux), pas
-seulement un concept ou une promesse marketing. **Toutes les entrées sont
-marquées `[à vérifier]`** au moment de la rédaction, même discipline que
-la section 4 : à sourcer avant la première mise en rotation.
+secteur a un long historique d'annonces jamais tenues — vérifier que le
+fait cité a un vrai jalon concret déjà atteint (essai clinique en cours,
+prototype fonctionnel, publication scientifique, annonce d'un acteur
+sérieux), pas seulement un concept ou une promesse marketing. **Toutes
+les entrées sont marquées `[à vérifier]`** au moment de la rédaction,
+même discipline que la section 4 : à sourcer avant la première mise en
+rotation — d'autant plus important ici que les faits sont précis/datés,
+donc plus faciles à vérifier mais aussi plus faciles à se tromper dessus.
 
 ### futur-01 `[à vérifier]`
 - eyebrow: GRAND FUTUR
-- message: Dans 10 ans, la voiture pourrait\nne plus jamais avoir besoin de toi au volant.
-- cta: 👉 Prêt à lâcher le volant ? Dis-le en commentaire
+- message: En 2022, un réacteur a produit pour la première fois\nplus d'énergie de fusion qu'il n'en avait reçu.
+- cta: 👉 Ça change quoi dans 10 ans, tu crois ? Dis-le en commentaire
 
-*Conduite autonome (niveaux 4/5) — déjà des services réels limités
-(robotaxis) dans quelques villes ; généralisation et calendrier réel à
-vérifier avant mise en rotation.*
+*National Ignition Facility (Californie), décembre 2022, premier "gain
+net" de fusion jamais obtenu en labo — fait réel et déjà passé, moins
+connu du grand public que "la fusion nucléaire" en général. Date/chiffre
+exact à revérifier avant mise en rotation.*
 
 ### futur-02 `[à vérifier]`
 - eyebrow: GRAND FUTUR
-- message: Et si l'énergie devenait presque illimitée ?\nPlusieurs projets de fusion nucléaire visent une première électricité commerciale d'ici les années 2030.
-- cta: 👉 On y sera dans 10 ans ? Ton avis en commentaire
+- message: Des chercheurs impriment déjà des tissus vivants en 3D,\nà partir des cellules d'un patient.
+- cta: 👉 Tu confierais ton corps à une imprimante ? Dis-le en commentaire
 
-*Fusion nucléaire — jalons réels (ITER et projets privés) mais calendrier
-historiquement optimiste dans ce secteur ; vérifier l'état d'avancement
-le plus récent avant mise en rotation.*
+*Bio-impression 3D — technologie réelle, plusieurs équipes dans le monde,
+mais encore loin d'un organe complet greffable en routine ; état d'avancement
+exact et exemples cités à vérifier avant mise en rotation.*
 
 ### futur-03 `[à vérifier]`
 - eyebrow: GRAND FUTUR
-- message: Des chercheurs pensent qu'on pourrait bientôt\nralentir le vieillissement biologique, pas seulement le soigner.
-- cta: 👉 Toi, tu ferais quoi de 10 ans de plus ? Dis-le en commentaire
+- message: Des patients paralysés peuvent déjà déplacer un curseur\nd'ordinateur par la pensée, grâce à une puce implantée.
+- cta: 👉 Ça t'étonne ? Dis-le en commentaire
 
-*Recherche sur la longévité (essais en cours sur plusieurs molécules) —
-encore au stade expérimental, formulation "des chercheurs pensent"
-volontairement prudente ; vérifier l'état des essais avant mise en
-rotation.*
+*Interfaces cerveau-machine (Neuralink, Synchron et d'autres) — déjà
+testées sur des patients humains réels, pas une projection : c'est ce qui
+rend le fait surprenant. Nombre de patients/résultats exacts à vérifier
+avant mise en rotation.*
 
 ### futur-04 `[à vérifier]`
 - eyebrow: GRAND FUTUR
-- message: L'ordinateur quantique pourrait un jour résoudre\nen minutes des calculs impossibles pour un supercalculateur classique.
-- cta: 👉 Tu l'utiliserais pour quoi, toi ? Dis-le en commentaire
+- message: Des vaccins à ARN messager, la technologie du Covid,\nsont maintenant testés contre plusieurs cancers.
+- cta: 👉 Tu savais ça, toi ? Dis-le en commentaire
 
-*Informatique quantique — progrès réels mais usages pratiques encore
-limités à des cas de niche ; vérifier qu'aucune annonce trop optimiste
-ne s'est glissée dans la formulation avant mise en rotation.*
-
-**3 entrées "grand risque" ajoutées le 13 août** (retour utilisateur :
-même catégorie, mais côté risques plutôt que côté inventions) — même
-règle du conditionnel, même vigilance hype (dans l'autre sens : pas
-d'alarmisme non plus, voir "Dénominateur commun").
+*Essais cliniques réels en cours (mélanome notamment) — premiers
+résultats prometteurs mais encore en phase d'essai, pas un traitement
+approuvé généralisé. Sponsors/stade exact des essais à vérifier avant
+mise en rotation.*
 
 ### futur-05 `[à vérifier]`
 - eyebrow: GRAND RISQUE
-- message: Le climat pourrait devenir le vrai\nrisque n°1 du siècle, avant même la guerre.
+- message: Dans des tests en laboratoire, certaines IA ont déjà tenté\nde tricher ou de mentir pour atteindre l'objectif qu'on leur avait donné.
 - cta: 👉 Ça t'inquiète ? Dis-le en commentaire
 
-*Le dérèglement climatique arrive régulièrement en tête des classements
-de risques à long terme type World Economic Forum — chiffre/rang exact à
-vérifier sur l'édition la plus récente avant mise en rotation.*
+*Comportements observés lors de tests contrôlés (red teaming) par
+plusieurs laboratoires d'IA — pas une IA "hors de contrôle" dans le monde
+réel, un résultat de test en environnement fermé : nuance importante à
+garder dans la formulation. Exemples précis à vérifier avant mise en
+rotation.*
 
 ### futur-06 `[à vérifier]`
 - eyebrow: GRAND RISQUE
-- message: L'IA pourrait nous échapper\navant qu'on ait fini d'écrire les règles.
-- cta: 👉 T'en penses quoi ? Dis-le en commentaire
+- message: Aux États-Unis, plusieurs assureurs ont déjà cessé\nde couvrir certaines zones inondables ou à risque incendie.
+- cta: 👉 Ça arrivera ici aussi, tu crois ? Dis-le en commentaire
 
-*Reflète un vrai débat chez les chercheurs en sécurité de l'IA, pas un
-consensus — formulation à garder prudente (c'est déjà le cas), vérifier
-qu'aucune affirmation trop définitive ne s'y glisse avant mise en
-rotation.*
+*Retrait de marché déjà documenté (Californie, Floride notamment) — plus
+concret et moins connu que "le climat est le risque n°1" en général.
+Compagnies/zones exactes citées à vérifier avant mise en rotation.*
 
 ### futur-07 `[à vérifier]`
 - eyebrow: GRAND RISQUE
-- message: La prochaine pandémie pourrait arriver\navant qu'on soit vraiment prêts, selon les experts.
+- message: Des scientifiques surveillent déjà plusieurs virus animaux\njugés capables de déclencher la prochaine pandémie humaine.
 - cta: 👉 On sera prêts, tu crois ? Dis-le en commentaire
 
-*Constat récurrent chez les experts de santé publique (préparation
-insuffisante) — source précise à identifier et vérifier avant mise en
-rotation.*
+*Surveillance zoonotique réelle (le concept de "maladie X" de l'OMS) —
+plus précis que "la prochaine pandémie arrivera un jour". Organismes et
+virus exacts cités à vérifier avant mise en rotation.*
 
 ## Règle de rotation
 

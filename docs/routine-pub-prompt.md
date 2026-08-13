@@ -88,12 +88,21 @@ elle-même. Elle réutilise uniquement une image déjà validée par un humain.
    (grep les commentaires HTML `<!-- credit: -->` du flux, voir étape 4).
    Si tous ont déjà servi, réutiliser quand même le plus récent — mieux
    qu'aucune image.
-2. Si aucune photo n'existe dans les 7 derniers jours : chercher dans la
-   banque de secours pré-validée (`assets/social/pub-photos/`, **pas
-   encore constituée au moment de la rédaction de ce prompt** — si le
-   dossier n'existe pas ou est vide, s'arrêter sans publier et le signaler
-   dans le résumé final plutôt que de publier sans image ou d'improviser
-   une recherche Pexels).
+2. Si aucune photo n'existe dans les 7 derniers jours : utiliser la
+   banque de secours pré-validée, `assets/social/pub-photos/` — un
+   paysage par registre (`geopolitique.jpg`, `carte-blanche.jpg`,
+   `actualite-francaise.jpg`, `economie-mondiale.jpg`, `sciences.jpg`,
+   `culture.jpg`, `sport.jpg`), crédits dans le `credits.json` du même
+   dossier (liste d'objets `file`/`photographer`/`pexels_url`, même
+   format que `assets/social/topic-images/`). Prendre celle qui
+   correspond au registre du jour de publication (voir la grille
+   `docs/routine-prompt.md`, Étape 1, pour associer le jour de la
+   semaine au registre) — si le jour ne tombe sur aucun registre fixe
+   (cas rare), prendre la photo du registre le moins utilisé récemment
+   dans `feed-pub.xml`. Si même cette banque de secours est vide ou
+   introuvable, s'arrêter sans publier et le signaler dans le résumé
+   final plutôt que de publier sans image ou d'improviser une recherche
+   Pexels.
 3. Noter le chemin de la photo choisie et le contenu de son `.json`
    (`photographer`, `pexels_url`) pour l'étape 4.
 
