@@ -1827,12 +1827,49 @@ moins prioritaire).
   moins "positives" en ton — gardées avec CTA compensatoire, décision de
   les retirer ou non laissée à l'utilisateur.
 
+  **Enrichissement du 13 août (retour utilisateur), 3 ajouts** :
+  1. Manifeste : `manifeste-07`, message dédié à l'inscription newsletter
+     (canal distinct de "s'abonner" sur les réseaux) — "100% réalisable,
+     jamais de science-fiction".
+  2. Citations : 2 dictons populaires plutôt que des citations d'auteur —
+     `citation-11` (slogan réel de la Française des Jeux, "100% des
+     gagnants ont tenté leur chance", assumé comme slogan et non déguisé
+     en citation ; sujet sensible jeu d'argent, à retirer si ça pose
+     problème en relecture) et `citation-12` ("on descend par l'ascenseur,
+     on remonte par l'escalier", dicton de trader, pas d'auteur nommé —
+     fait écho à l'idée de pondération asymétrique du France Impact,
+     encore non implémentée, voir plus haut dans ce backlog).
+  3. Grands futurs : 3 nouvelles entrées `futur-05/06/07` côté **grands
+     risques du siècle** (climat, IA, pandémie) en plus des 4 déjà
+     existantes côté inventions — même catégorie/rotation, même règle du
+     conditionnel obligatoire, et vigilance dans les deux sens (ni hype
+     ni alarmisme, voir "Dénominateur commun").
+  4. Questions : `question-01` (proposer un sujet) retiré — retour
+     utilisateur : "on n'en sait rien, les gens scrollent", une question
+     qui demande de construire une idée ne marche pas dans un feed.
+     Remplacé par `question-04` ("le vrai risque pour la société dans 10
+     ans"), qui demande un avis plutôt qu'une proposition. Variante "quel
+     est ton rêve" écartée par l'utilisateur lui-même comme trop convenue.
+
+  **Ton, retour utilisateur du 13 août : "moins IA style, plus naturel".**
+  Passe de nettoyage sur les CTA les plus répétitifs — le même "Abonne-toi,
+  c'est gratuit" recopié presque identique sur 6+ entrées manifeste/
+  citations, varié en formulations plus naturelles et propres à chaque
+  entrée plutôt qu'un gabarit recopié. Vigilance à garder pour toute
+  future entrée : éviter la construction trop symétrique/générique typique
+  d'un texte généré, préférer une formulation qui sonnerait bien dite à
+  voix haute.
+
   **Reste à faire** : constituer la banque de secours de photos
   (`assets/social/pub-photos/`, pas encore créée — la routine s'arrêtera
   et signalera si aucune photo récente d'article n'est disponible et que
   ce dossier est vide), valider les entrées `[à confirmer]`/`[attribution
   à vérifier]`/`[chiffre à vérifier]`/`[à vérifier]` de `docs/pub-
-  messages.md`, créer le trigger Claude Code Remote correspondant.
+  messages.md`, trancher la question Einstein encore ouverte (voir
+  échange du 13 août : aucune citation d'Einstein dans la liste proposée
+  par l'utilisateur, probable confusion avec la citation "prédire est
+  difficile" de Niels Bohr — une des citations les plus mal attribuées
+  qui existent), créer le trigger Claude Code Remote correspondant.
 - **P2 — Heatmap "Le monde en ce moment" par domaine, idée du 10 août
   (brainstorm "out of the box"), méthode affinée en discussion le jour
   même.** Partie d'une simple agrégation de jauges, recentrée sur une

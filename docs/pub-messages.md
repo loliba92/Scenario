@@ -107,10 +107,20 @@ mention équivalente déjà publiée ailleurs sur le site à recopier).*
 ### manifeste-06 `[à confirmer]`
 - eyebrow: POURQUOI SCÉNARIO
 - message: Gratuit, sans compte à créer.\nLe lien en bio suffit.
-- cta: 👉 Abonne-toi, c'est gratuit
+- cta: 👉 Le lien est juste en bio
 
 *"Sans compte à créer" — à confirmer que c'est bien exact (pas de zone
 membre sur le site à ma connaissance, mais à vérifier avant publication).*
+
+### manifeste-07
+- eyebrow: LA NEWSLETTER
+- message: Trois scénarios chiffrés dans ta boîte mail,\ntous les matins.
+- cta: 👉 Inscris-toi, 100% réalisable, jamais de science-fiction
+
+*Objectif spécifique : pousser l'inscription à la newsletter (canal
+distinct de "s'abonner" sur les réseaux) — retour utilisateur du 13 août.
+"100% réalisable" reprend l'esprit du site : des scénarios bornés par des
+faits, jamais de spéculation gratuite.*
 
 ## 2. Citations — le hasard et l'incertitude (rotation B)
 
@@ -139,7 +149,7 @@ Lille, 1854, très largement documentée.*
 - eyebrow: UNE CITATION
 - message: « La théorie des probabilités n'est, au fond,\nque le bon sens réduit au calcul. »
 - attribution: — Pierre-Simon de Laplace
-- cta: 👉 Abonne-toi, c'est gratuit
+- cta: 👉 Abonne-toi, on fait le calcul pour toi
 
 *Source solide : Essai philosophique sur les probabilités, 1814.*
 
@@ -147,7 +157,7 @@ Lille, 1854, très largement documentée.*
 - eyebrow: UNE CITATION
 - message: « Le hasard, c'est peut-être le pseudonyme\nde Dieu quand il ne veut pas signer. »
 - attribution: — Anatole France
-- cta: 👉 Abonne-toi, c'est gratuit
+- cta: 👉 Abonne-toi, tu verras
 
 *Attribution courante (Le Jardin d'Épicure, 1894) mais à vérifier sur une
 édition de référence avant publication — formule très reprise, parfois de
@@ -209,26 +219,52 @@ formulation exacte/texte source à vérifier avant mise en rotation — risque
 de paraphrase plutôt que citation exacte, comme souvent avec les citations
 philosophiques qui circulent en ligne.*
 
+### citation-11
+- eyebrow: UNE CITATION
+- message: « 100 % des gagnants ont tenté leur chance. »
+- attribution: — Slogan historique de la Française des Jeux
+- cta: 👉 On a tenté la nôtre en lançant Scénario. Abonne-toi.
+
+*Pas une citation d'auteur mais un slogan publicitaire réel (FDJ) —
+assumé comme tel dans l'attribution plutôt que déguisé en citation. Sujet
+sensible (loterie/jeu d'argent) : à utiliser au second degré sur le thème
+du hasard, jamais comme une incitation à jouer — si ça pose un problème
+en le relisant à froid, le retirer plutôt que le garder par principe.*
+
+### citation-12
+- eyebrow: UNE CITATION
+- message: « On descend toujours par l'ascenseur,\net on remonte par l'escalier. »
+- attribution: — dicton de trader
+- cta: 👉 On te dit où en est la remontée. Abonne-toi.
+
+*Dicton de salle de marché sur l'asymétrie chute rapide / reprise lente —
+pas d'auteur précis identifiable, présenté comme un dicton plutôt qu'une
+citation nominative pour rester honnête. Fait écho à l'idée de pondération
+asymétrique du France Impact, encore à l'état de discussion dans
+`docs/ARCHITECTURE.md` (pas implémentée).*
+
 ## 3. Questions à la communauté (rotation C)
 
 Objectif : faire réagir, pas informer — engagement direct, notamment pour
 alimenter le mardi "carte blanche" (sujet libre suggéré par les lecteurs).
 Jamais de chiffre ni de citation ici, juste une question ouverte.
 
-### question-01
-- eyebrow: À VOUS DE JOUER
-- message: Quel sujet libre voudrais-tu voir décrypté\nen 3 scénarios mardi prochain ?
-- cta: 👉 Dis-le en commentaire
-
-*Sollicite directement des idées pour le registre "carte blanche" du
-mardi — voir `docs/routine-prompt.md`, Étape 1.*
+### question-01 `[retiré le 13 août]`
+*Était : "Quel sujet libre voudrais-tu voir décrypté en 3 scénarios mardi
+prochain ?" Retiré : retour utilisateur direct — "on n'en sait rien, les
+gens scrollent", une question qui demande de proposer un sujet de zéro
+ne marche pas dans un feed qu'on parcourt vite. Remplacé par question-04
+ci-dessous, qui demande un avis plutôt qu'une idée à construire. Id
+jamais réutilisé, gardé en trace ici.*
 
 ### question-02
 - eyebrow: À VOUS DE JOUER
 - message: Une question qui te trotte dans la tête\net dont tu voudrais 3 scénarios chiffrés ?
 - cta: 👉 On lit tous les commentaires
 
-*Variante plus ouverte de question-01, pas limitée au mardi.*
+*Reste plus légère qu'une demande de sujet construit (question-01,
+retiré) : elle part de ce que le lecteur a déjà en tête plutôt que de lui
+demander de réfléchir à un sujet.*
 
 ### question-03
 - eyebrow: À VOUS DE JOUER
@@ -238,6 +274,16 @@ mardi — voir `docs/routine-prompt.md`, Étape 1.*
 *Réagit sur du contenu déjà publié plutôt que de solliciter une nouvelle
 idée — variante utile pour ne pas répéter le même type de question à
 chaque publication.*
+
+### question-04
+- eyebrow: À VOUS DE JOUER
+- message: Pour toi, c'est quoi le vrai risque\npour la société dans 10 ans ?
+- cta: 👉 Dis-le en commentaire
+
+*Demande un avis, pas une idée à construire — plus facile à répondre en
+scrollant que question-01 (retiré). Retour utilisateur du 13 août ;
+variante "quel est ton rêve" écartée par l'utilisateur lui-même comme
+trop convenue.*
 
 ## 4. Le saviez-vous — chiffres et projection à 10 ans (rotation D)
 
@@ -270,11 +316,14 @@ publication la plus récente avant mise en rotation.*
 *Ordre de grandeur GIEC — à vérifier sur le dernier rapport avant mise en
 rotation (les projections évoluent d'un rapport à l'autre).*
 
-## 5. Grands futurs — les inventions qui pourraient changer le quotidien (rotation E)
+## 5. Grands futurs — inventions et grands risques du siècle (rotation E)
 
-Objectif : projeter, jamais affirmer. Des technologies réelles, déjà en
-développement ou en test — pas de science-fiction, pas d'invention
-imaginaire — mais dont l'arrivée et l'impact restent incertains.
+Objectif : projeter, jamais affirmer. Deux angles dans la même catégorie
+— des inventions qui pourraient changer le quotidien (futur-01 à 04) et
+des grands risques du siècle (futur-05 à 07, ajoutés le 13 août) — des
+technologies ou des menaces réelles, déjà en développement/déjà
+documentées, pas de science-fiction ni de catastrophisme gratuit, mais
+dont l'arrivée et l'impact restent incertains.
 
 **Règle non négociable : toujours au conditionnel.** Jamais "la voiture
 n'aura plus besoin de toi", toujours "la voiture pourrait ne plus avoir
@@ -328,6 +377,39 @@ rotation.*
 *Informatique quantique — progrès réels mais usages pratiques encore
 limités à des cas de niche ; vérifier qu'aucune annonce trop optimiste
 ne s'est glissée dans la formulation avant mise en rotation.*
+
+**3 entrées "grand risque" ajoutées le 13 août** (retour utilisateur :
+même catégorie, mais côté risques plutôt que côté inventions) — même
+règle du conditionnel, même vigilance hype (dans l'autre sens : pas
+d'alarmisme non plus, voir "Dénominateur commun").
+
+### futur-05 `[à vérifier]`
+- eyebrow: GRAND RISQUE
+- message: Le climat pourrait devenir le vrai\nrisque n°1 du siècle, avant même la guerre.
+- cta: 👉 Ça t'inquiète ? Dis-le en commentaire
+
+*Le dérèglement climatique arrive régulièrement en tête des classements
+de risques à long terme type World Economic Forum — chiffre/rang exact à
+vérifier sur l'édition la plus récente avant mise en rotation.*
+
+### futur-06 `[à vérifier]`
+- eyebrow: GRAND RISQUE
+- message: L'IA pourrait nous échapper\navant qu'on ait fini d'écrire les règles.
+- cta: 👉 T'en penses quoi ? Dis-le en commentaire
+
+*Reflète un vrai débat chez les chercheurs en sécurité de l'IA, pas un
+consensus — formulation à garder prudente (c'est déjà le cas), vérifier
+qu'aucune affirmation trop définitive ne s'y glisse avant mise en
+rotation.*
+
+### futur-07 `[à vérifier]`
+- eyebrow: GRAND RISQUE
+- message: La prochaine pandémie pourrait arriver\navant qu'on soit vraiment prêts, selon les experts.
+- cta: 👉 On sera prêts, tu crois ? Dis-le en commentaire
+
+*Constat récurrent chez les experts de santé publique (préparation
+insuffisante) — source précise à identifier et vérifier avant mise en
+rotation.*
 
 ## Règle de rotation
 
