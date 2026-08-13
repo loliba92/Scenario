@@ -1677,16 +1677,28 @@ moins prioritaire).
      réel montre qu'une édition accumule beaucoup de petits correctifs
      le même jour.
 
-  **Reste à faire** : créer le trigger Claude Code Remote lui-même
-  (`create_trigger`, cron `0 5 * * *` UTC = 7h Paris l'été) — pas encore
-  fait, en attente de validation finale du prompt par l'utilisateur avant
-  de lancer un agent quotidien autonome avec droit d'édition sur le site.
-  Une fois créé par un agent (pas `http_api`), `update_trigger` devrait
-  rester utilisable directement, contrairement au trigger principal.
-  **La routine principale doit aussi être avancée à 6h Paris** — hors de
-  portée de cette session (`update_trigger` refusé sur ce trigger précis,
-  créé via `http_api` — voir plus haut) : à faire manuellement par
-  l'utilisateur dans l'interface Claude Code Remote.
+  **Trigger créé le 13 août** : `trig_015wbeqHwALMg3EsUaZcRoWp`, via
+  `create_trigger` (`created_via: meta_mcp`) donc `update_trigger`
+  utilisable directement pour lui, contrairement au trigger principal.
+  Session fraîche à chaque déclenchement (`create_new_session_on_fire`),
+  prompt volontairement court : renvoie vers `docs/routine-inspection-
+  prompt.md` comme source de vérité plutôt que de dupliquer le texte dans
+  le trigger lui-même (éviter le même problème de dérive que le trigger
+  principal, où deux copies existent et doivent être resynchronisées à la
+  main). **Horaire provisoire : `0 6 * * *` UTC = 8h Paris**, pas 7h comme
+  prévu initialement (retour utilisateur du 13 août : "tu le mets à 8h
+  Paris time pour l'instant") — le temps que la routine principale soit
+  avancée à 6h Paris ; rapprocher l'Inspecteur à 7h une fois ce
+  rapprochement fait, pour revenir à 1h d'écart. Pas de connecteurs MCP
+  attachés (Gmail/Calendar/Drive/MailerLite) : l'Inspecteur n'en a pas
+  besoin, seulement des outils de base (Bash/Read/Write/Edit/WebFetch).
+
+  **Reste à faire** : **la routine principale doit être avancée à 6h
+  Paris** — hors de portée de cette session (`update_trigger` refusé sur
+  ce trigger précis, créé via `http_api` — voir plus haut) : à faire
+  manuellement par l'utilisateur dans l'interface Claude Code Remote. Une
+  fois fait, rapprocher aussi l'Inspecteur de 8h à 7h Paris (celui-là,
+  `update_trigger` fonctionne).
 - **P2 — Heatmap "Le monde en ce moment" par domaine, idée du 10 août
   (brainstorm "out of the box"), méthode affinée en discussion le jour
   même.** Partie d'une simple agrégation de jauges, recentrée sur une

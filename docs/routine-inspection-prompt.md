@@ -2,13 +2,18 @@
 
 Ce fichier est la copie de référence du prompt envoyé chaque jour par la
 routine d'inspection (Claude Code Remote, trigger **« Scénario —
-Inspecteur »**, `{id à compléter une fois le trigger créé}`, cron `0 5 * * *`
-UTC = 7h00 heure de Paris — 1h après la routine éditoriale principale à 6h
-Paris). Contrairement au prompt de la routine éditoriale (`docs/routine-
-prompt.md`), ce trigger est créé par un agent (`create_trigger`), donc
-directement éditable via `update_trigger` — pas de cycle copier-coller
-manuel, mais ce fichier reste la source de vérité lisible par un humain : le
-mettre à jour dans la foulée de tout changement.
+Inspecteur »**, `trig_015wbeqHwALMg3EsUaZcRoWp`, cron `0 6 * * *` UTC = 8h00
+heure de Paris **— horaire provisoire créé le 13 août**, tant que la routine
+principale (`trig_0176spj7P7E9fyTs1XBkQBWF`) reste elle-même à 7h Paris
+(`0 5 * * *`, non encore avancée à 6h — hors de portée de cet agent, `update_
+trigger` refusé sur ce trigger précis, à faire manuellement par
+l'utilisateur). Une fois la routine principale avancée à 6h Paris,
+rapprocher l'Inspecteur à 7h Paris (`0 5 * * *`) comme prévu initialement —
+1h d'écart, pas 2. Contrairement au prompt de la routine éditoriale
+(`docs/routine-prompt.md`), ce trigger a été créé par un agent
+(`create_trigger`), donc directement éditable via `update_trigger` — pas de
+cycle copier-coller manuel, mais ce fichier reste la source de vérité
+lisible par un humain : le mettre à jour dans la foulée de tout changement.
 
 **Objectif : améliorer l'accuracy des articles, pas leur ligne éditoriale.**
 Cette routine relit l'édition du jour, déjà publiée par la routine
