@@ -1,0 +1,120 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html,body{ width:1080px; height:1080px; }
+  body{
+    background:
+      radial-gradient(circle at 20% 10%, rgba(207,157,76,0.18), transparent 45%),
+      radial-gradient(circle at 85% 95%, rgba(111,143,174,0.15), transparent 45%),
+      var(--ink);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    font-family: "JetBrains Mono", monospace;
+    position:relative;
+    overflow:hidden;
+    padding: 76px 96px;
+  }
+  .masthead{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    position:absolute;
+    top:48px; left:84px;
+  }
+  .masthead svg{ width:78px; height:78px; }
+  .masthead .word{
+    font-family:"Fraunces", serif;
+    font-weight:700;
+    font-size:58px;
+    color: var(--paper);
+  }
+  .masthead .word .rio{ color: var(--gold); }
+
+  .eyebrow{
+    font-family:"JetBrains Mono", monospace;
+    font-weight:700;
+    font-size: 30px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 36px;
+  }
+
+  .message{
+    font-family:"Fraunces", serif;
+    font-weight:700;
+    font-size: 76px;
+    line-height:1.22;
+    letter-spacing:-0.01em;
+    color: var(--paper);
+  }
+
+  .attribution{
+    font-family:"Inter", sans-serif;
+    font-weight:600;
+    font-size: 36px;
+    color: var(--paper-dim);
+    margin-top: 32px;
+  }
+
+  .cta{
+    font-family: "JetBrains Mono", monospace;
+    font-weight:700;
+    font-size: 34px;
+    color: var(--gold);
+    margin-top:56px;
+  }
+
+  .footer{
+    position:absolute;
+    bottom:52px; left:84px;
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    font-size:22px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  .footer .tagline{ color: var(--gold); font-weight:700; }
+  .footer .sep{ color: var(--paper-dim); opacity:.5; }
+  .footer .url{ color: var(--paper-dim); }
+</style></head>
+<body>
+  <div class="masthead">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M57,96 L57,70 Q57,65 60,63" stroke="#cf9d4c"/>
+      <path d="M63,96 L63,70 Q63,65 60,63" stroke="#cf9d4c"/>
+      <path d="M60,63 L60,55" stroke="#cf9d4c"/>
+      <path d="M60,55 L60,31" stroke="#6f8fae"/>
+      <path d="M55.8,38.9 L60,31 L64.2,38.9" stroke="#6f8fae"/>
+      <path d="M60,63 L53.4,56.9" stroke="#cf9d4c"/>
+      <path d="M53.4,56.9 L34,39" stroke="#5e9c78"/>
+      <path d="M36.97,47.5 L34,39 L42.69,41.3" stroke="#5e9c78"/>
+      <path d="M60,63 L66.6,56.9" stroke="#cf9d4c"/>
+      <path d="M66.6,56.9 L86,39" stroke="#bd6248"/>
+      <path d="M83.03,47.5 L86,39 L77.31,41.3" stroke="#bd6248"/>
+    </svg>
+    <div class="word">Scéna<span class="rio">rio</span></div>
+  </div>
+
+  <div class="eyebrow">__EYEBROW__</div>
+
+  <div class="message">__MESSAGE__</div>
+
+  <div class="attribution">__ATTRIBUTION__</div>
+
+  <div class="cta">__CTA__</div>
+
+  <div class="footer"><span class="tagline">Le futur en 3 scénarios</span><span class="sep">·</span><span class="url">lesscenarios.fr</span></div>
+</body></html>
