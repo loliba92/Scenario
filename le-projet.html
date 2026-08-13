@@ -242,6 +242,28 @@
 
   .cross-link:hover{ color: var(--paper); border-bottom-color: var(--paper); }
 
+  .toc{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 22px 0 0;
+  }
+
+  .toc a{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border: 1px solid var(--hairline);
+    border-radius: 100px;
+    padding: 6px 12px;
+    transition: color .15s, border-color .15s;
+  }
+
+  .toc a:hover{ color: var(--paper); border-color: var(--paper-dim); }
+
   footer{
     border-top: 1px solid var(--hairline);
     padding: 32px 0 48px;
@@ -325,10 +347,20 @@
     <p class="eyebrow">Le projet</p>
     <h1>Qu'est-ce que Scéna<span class="brand-rio">rio</span> ?</h1>
     <p class="dek">Une actualité à forts enjeux, décryptée non pas en une prédiction, mais en <strong>trois futurs possibles</strong>.</p>
+    <nav class="toc" aria-label="Sommaire de la page">
+      <a href="#principe">Le principe</a>
+      <a href="#probabilite">C'est quoi, une probabilité ?</a>
+      <a href="#scenarios">Favorable / stable / dégradé</a>
+      <a href="#suivi">Le suivi</a>
+      <a href="#public">Pour qui</a>
+      <a href="#equipe">Qui fait Scénario</a>
+      <a href="#rythme">Le rythme</a>
+      <a href="#glossaire-section">Vocabulaire</a>
+    </nav>
   </div>
 </section>
 
-<section class="body-section">
+<section class="body-section" id="principe">
   <div class="wrap">
     <p class="section-label">Le projet</p>
     <h2 class="section-title">Trois scénarios plutôt qu'une prédiction</h2>
@@ -339,7 +371,24 @@
   </div>
 </section>
 
-<section class="body-section">
+<section class="body-section" id="probabilite">
+  <div class="wrap">
+    <p class="section-label">Notions de base</p>
+    <h2 class="section-title">Une probabilité, c'est quoi au juste ?</h2>
+    <p>Une probabilité, c'est simplement un chiffre entre <strong>0 %</strong> et <strong>100 %</strong> qui dit à quel point un événement a des chances de se produire, avec ce qu'on sait aujourd'hui. Ce n'est <strong>ni une prédiction, ni une garantie</strong> : c'est une estimation, qui peut se tromper, et qui a vocation à changer si la situation évolue.</p>
+    <p>L'exemple le plus parlant reste la météo : quand un bulletin annonce <strong>« 70 % de chances de pluie demain »</strong>, ça ne veut pas dire qu'il va forcément pleuvoir, ni qu'il pleuvra sur 70 % du territoire. Ça veut dire que dans des conditions très proches, la pluie est arrivée environ <strong>7 fois sur 10</strong> par le passé. Les 30 % restants — un ciel qui reste sec — restent, eux aussi, tout à fait possibles : une probabilité n'élimine jamais l'autre issue, elle la rend juste moins fréquente.</p>
+    <div class="rhythm-grid">
+      <div class="rhythm-item"><span class="day">0 %</span><span class="topic">Impossible</span><span class="rhythm-note">Ça n'arrive jamais, dans ce cadre.</span></div>
+      <div class="rhythm-item"><span class="day">50 %</span><span class="topic">Pile ou face</span><span class="rhythm-note">Autant de chances que le contraire se produise.</span></div>
+      <div class="rhythm-item"><span class="day">100 %</span><span class="topic">Certain</span><span class="rhythm-note">Rarissime tant qu'une actualité est en cours.</span></div>
+    </div>
+    <p>Sur <strong>Scéna<span class="brand-rio">rio</span></strong>, chaque édition affiche trois probabilités — une par scénario — qui s'additionnent toujours autour de <strong>100 %</strong> : plus l'une monte, plus les deux autres redescendent mécaniquement. Un mot d'ambiance accompagne chaque chiffre (<em>peu probable</em>, <em>assez probable</em>, <em>probable</em>) pour une lecture rapide, mais c'est toujours le pourcentage qui fait foi — le mot n'est qu'un raccourci de lecture.</p>
+    <p>Voilà pour la théorie. Le principe est le même sur <strong>Scéna<span class="brand-rio">rio</span></strong>, avec une exigence en plus : ce chiffre n'est jamais une intuition. Comment on le construit, édition après édition, est détaillé juste après.</p>
+    <a class="cross-link" href="#scenarios">Voir comment on calcule les nôtres →</a>
+  </div>
+</section>
+
+<section class="body-section" id="scenarios">
   <div class="wrap">
     <p class="section-label">Les trois scénarios</p>
     <h2 class="section-title">Favorable, stable, dégradé : par rapport à quoi ?</h2>
@@ -350,7 +399,7 @@
   </div>
 </section>
 
-<section class="body-section">
+<section class="body-section" id="suivi">
   <div class="wrap">
     <p class="section-label">Le suivi</p>
     <h2 class="section-title">Une probabilité, ça se réévalue</h2>
@@ -362,7 +411,7 @@
   </div>
 </section>
 
-<section class="body-section">
+<section class="body-section" id="public">
   <div class="wrap">
     <p class="section-label">Pour qui</p>
     <h2 class="section-title">À qui s'adresse Scénario ?</h2>
@@ -373,18 +422,18 @@
   </div>
 </section>
 
-<section class="body-section">
+<section class="body-section" id="equipe">
   <div class="wrap">
     <p class="section-label">Qui fait Scénario</p>
-    <h2 class="section-title">Une personne, un cadre de travail strict</h2>
-    <p><strong>Scéna<span class="brand-rio">rio</span></strong> est porté par <strong>Olivier Bertrand</strong>, directeur technique et éditorial du projet — spécialiste finance, data et assurance dans son activité principale, des métiers où l'on chiffre l'incertitude plutôt que de deviner un seul avenir, exactement l'idée derrière ce projet.</p>
-    <p>Deux rôles, jamais séparés : côté technique, il conçoit et fiabilise la méthode quantitative qui structure les scénarios — probabilités, indicateurs, critères de bascule — ainsi que la gestion du site qui les diffuse. Côté éditorial, il choisit les sujets, encadre la vérification et tranche le ton de chaque publication. Cette double casquette n'est pas un choix de facilité : c'est ce qui garantit que la rigueur technique et la rigueur du fond avancent toujours au même rythme, sans qu'aucune des deux ne prenne le pas sur l'autre.</p>
-    <p>Chaque édition suit un processus de vérification strict (sources croisées, relecture factuelle et stylistique avant publication), produit avec l'appui de l'intelligence artificielle pour la recherche et la rédaction. La rigueur des faits reste la même, quel que soit l'outil utilisé pour les rassembler.</p>
+    <h2 class="section-title">Une direction éditoriale, un cadre de travail strict</h2>
+    <p><strong>Scéna<span class="brand-rio">rio</span></strong> est dirigé par <strong>Olivier Bertrand</strong>, directeur technique et éditorial du projet — spécialiste finance, data et assurance dans son activité principale, des métiers où l'on chiffre l'incertitude plutôt que de deviner un seul avenir, exactement l'idée derrière ce projet.</p>
+    <p>Deux fonctions, jamais séparées : côté technique, la conception et la fiabilisation de la méthode quantitative qui structure les scénarios — probabilités, indicateurs, critères de bascule — ainsi que la gestion du site qui les diffuse. Côté éditorial, le choix des sujets, l'encadrement de la vérification et le ton de chaque publication. Cette double exigence n'est pas un choix de facilité : c'est ce qui garantit que la rigueur technique et la rigueur du fond avancent toujours au même rythme, sans qu'aucune des deux ne prenne le pas sur l'autre.</p>
+    <p>Chaque édition suit un processus de vérification strict — sources croisées, relecture factuelle et stylistique avant publication — produit avec l'appui de l'intelligence artificielle pour la recherche et la rédaction. La rigueur des faits reste la même, quel que soit l'outil utilisé pour les rassembler.</p>
     <p>Le choix des sujets est une décision <strong>éditoriale, pas politique</strong> : <strong>Scéna<span class="brand-rio">rio</span></strong> ne défend aucune ligne, ni de gauche ni de droite, aucun parti pris. Chaque sujet est retenu parce qu'il pose une vraie question — celle qu'on se pose en lisant l'actualité — jamais pour orienter une opinion.</p>
   </div>
 </section>
 
-<section class="body-section">
+<section class="body-section" id="rythme">
   <div class="wrap">
     <p class="section-label">Le rythme</p>
     <h2 class="section-title">Une édition par jour, un registre par jour</h2>
@@ -402,7 +451,7 @@
   </div>
 </section>
 
-<section class="body-section">
+<section class="body-section" id="glossaire-section">
   <div class="wrap">
     <p class="section-label">Vocabulaire</p>
     <h2 class="section-title">Un glossaire qui s'enrichit chaque jour</h2>
