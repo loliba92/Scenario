@@ -3,7 +3,18 @@
   <channel>
     <title>Scénario — Le rendez-vous hebdo</title>
     <link>https://lesscenarios.fr/</link>
-    <description>Chaque semaine : pourquoi Scénario, une citation sur le hasard, une question à la communauté ou un chiffre à 10 ans — jamais un sujet d'actualité, ça reste dans feed.xml.</description>
+    <description>2x/semaine : pourquoi Scénario, une citation sur le hasard, une question à la communauté ou un grand futur — jamais un sujet d'actualité, ça reste dans feed.xml.</description>
     <language>fr</language>
+    <item>
+      <title>Gratuit. Indépendant. Ni de gauche ni de droite.</title>
+      <link>https://lesscenarios.fr/le-projet.html</link>
+      <guid isPermaLink="false">scenario-pub-manifeste-01-2026-08-13</guid>
+      <pubDate>Thu, 13 Aug 2026 08:04:00 +0200</pubDate>
+      <comments>POURQUOI SCÉNARIO
+
+Gratuit. Indépendant. Ni de gauche ni de droite.</comments>
+      <enclosure url="https://lesscenarios.fr/assets/social/pub/2026-08-13.png" length="1101139" type="image/png"/>
+      <description><![CDATA[POURQUOI SCÉNARIO<br><br>Gratuit. Indépendant. Ni de gauche ni de droite.<br><br>👉 Abonne-toi, c'est gratuit<!-- credit: Zifeng Xiong — https://www.pexels.com/photo/cargo-ships-anchored-at-coastal-port-under-blue-sky-33284879/ -->]]></description>
+    </item>
   </channel>
 </rss>
