@@ -96,6 +96,23 @@ distinct de "s'abonner" sur les réseaux) — retour utilisateur du 13 août.
 "100% réalisable" reprend l'esprit du site : des scénarios bornés par des
 faits, jamais de spéculation gratuite.*
 
+### manifeste-08
+- eyebrow: LA SEMAINE SCÉNARIO
+- message: Un jour, un regard différent.\nGéopolitique, économie, sciences, culture, sport...
+- cta: 👉 Abonne-toi, découvre le programme complet
+
+*Reprend le rythme hebdomadaire déjà publié sur `le-projet.html` ("Sept
+éditions par semaine, chacune ancrée dans un domaine") — objectif :
+montrer la diversité des sujets traités plutôt qu'un simple rappel
+d'identité. Reste un aperçu représentatif, pas la liste exhaustive des 7
+jours (dont le mardi "carte blanche aux lecteurs") : le gabarit texte
+actuel (`pub-template-v4-hybride.html`) est pensé pour 1-2 lignes courtes,
+pas un tableau à 7 lignes — le programme complet reste sur `le-projet.html`,
+d'où le lien du CTA (catégorie manifeste → `le-projet.html`, voir
+`docs/routine-pub-prompt.md`). Une vraie carte-grille avec les 7 jours
+demanderait un nouveau gabarit sans photo de fond, hors du pipeline actuel
+— à faire séparément si utile.*
+
 ## 2. Citations — le hasard et l'incertitude (rotation B)
 
 Objectif : varier le feed avec du contenu plus léger/partageable, en lien
