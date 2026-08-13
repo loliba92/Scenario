@@ -264,6 +264,31 @@
 
   .toc a:hover{ color: var(--paper); border-color: var(--paper-dim); }
 
+  .perks{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 62ch;
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .perks li{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    color: var(--paper-dim);
+    font-size: 0.95rem;
+  }
+
+  .perks li::before{
+    content: "✓";
+    color: var(--favorable);
+    font-family: "JetBrains Mono", monospace;
+    flex: none;
+  }
+
   footer{
     border-top: 1px solid var(--hairline);
     padding: 32px 0 48px;
@@ -367,7 +392,12 @@
     <p>La plupart des supports d'information <strong>décrivent</strong> : ils posent les faits et expliquent où en est un sujet aujourd'hui. <strong>Scéna<span class="brand-rio">rio</span></strong> part du même socle, mais fait un pas de plus — il <strong>regarde vers l'avant</strong>, ou du moins vers ce à quoi la suite pourrait ressembler. Pas de boule de cristal : à partir de la seule information disponible aujourd'hui, on tente d'<strong>extrapoler trois futurs possibles</strong> plutôt que d'en deviner un seul.</p>
     <p><strong>Scéna<span class="brand-rio">rio</span></strong> décrypte une actualité à forts enjeux et prend le parti de ne jamais prétendre en connaître l'issue à l'avance. Pour chaque sujet, on construit <strong>trois scénarios concrets</strong> — favorable, stable, dégradé — plutôt qu'une prédiction unique, avec à chaque fois une probabilité estimée, des indicateurs chiffrés et ce que ça changerait vraiment en France.</p>
     <p>L'idée : remplacer l'incertitude floue de l'actualité par des repères clairs, sans jamais prétendre à une exactitude qu'aucune actualité en cours ne permet. Chaque coefficient de probabilité reste une estimation qualitative, jamais un calcul garanti.</p>
-    <p>Le ton et le niveau de détail s'adaptent au sujet du jour, mais l'exigence reste la même : vérifier les faits sur au moins deux sources avant de les avancer, expliquer les bases pour qui découvre le sujet, et ne jamais transformer une synthèse en conseil ou en prise de position.</p>
+    <p>Le ton et le niveau de détail s'adaptent au sujet du jour, mais l'exigence reste la même :</p>
+    <ul class="perks">
+      <li>Vérifier les faits sur au moins deux sources avant de les avancer</li>
+      <li>Expliquer les bases pour qui découvre le sujet</li>
+      <li>Ne jamais transformer une synthèse en conseil ou en prise de position</li>
+    </ul>
   </div>
 </section>
 
@@ -395,7 +425,13 @@
     <p>Ces trois mots ne désignent jamais un camp qui l'emporterait sur un autre — un sujet géopolitique ou économique implique presque toujours plusieurs parties aux intérêts opposés, et « favorable » ne prend jamais parti pour l'une d'elles. Les trois scénarios évaluent une seule chose : la trajectoire de la <strong>question posée</strong> en tête de chaque édition, celle affichée dans l'encart « Ce qu'on évalue ».</p>
     <p><strong>Favorable</strong> : la tension ou l'incertitude au cœur du sujet se résout plutôt bien — pas forcément sans reste, mais dans le sens d'un apaisement ou d'une clarification. <strong>Stable</strong> : rien ne se résout ni ne s'aggrave nettement, le statu quo se prolonge — ce qui peut avoir un coût réel même sans rupture visible. <strong>Dégradé</strong> : la tension s'aggrave, la situation se complique ou se détériore nettement. Le sens exact de chacun varie d'un sujet à l'autre : c'est justement le rôle de l'encart « Ce qu'on évalue » de le préciser noir sur blanc pour l'édition du jour.</p>
     <p>La ligne <strong>« Ce que ça change en France »</strong>, à la fin de chaque carte, est le seul endroit où un point de vue localisé est pris — c'est elle qui dit si ce scénario précis serait plutôt positif, négatif ou neutre côté France. Les noms des trois scénarios eux-mêmes restent volontairement génériques, pour garder un sens quel que soit le sujet du jour.</p>
-    <p>Les probabilités affichées ne sortent pas d'un tirage au hasard : chaque estimation s'appuie sur une méthode propriétaire, appliquée systématiquement à chaque édition, qui croise plusieurs axes — recoupement de sources récentes, comparaison avec des précédents similaires, poids des intérêts et contraintes de chaque acteur en présence, et cohérence d'ensemble entre les trois scénarios, jamais évalués isolément les uns des autres.</p>
+    <p>Les probabilités affichées ne sortent pas d'un tirage au hasard : chaque estimation s'appuie sur une méthode propriétaire, appliquée systématiquement à chaque édition, qui croise plusieurs axes :</p>
+    <ul class="perks">
+      <li>Recoupement de sources récentes</li>
+      <li>Comparaison avec des précédents similaires</li>
+      <li>Poids des intérêts et contraintes de chaque acteur en présence</li>
+      <li>Cohérence d'ensemble entre les trois scénarios, jamais évalués isolément les uns des autres</li>
+    </ul>
   </div>
 </section>
 
@@ -415,10 +451,12 @@
   <div class="wrap">
     <p class="section-label">Pour qui</p>
     <h2 class="section-title">À qui s'adresse Scénario ?</h2>
-    <p>À tout le monde qui préfère comprendre l'actualité plutôt que la subir — avec quelques publics pour qui l'exercice est particulièrement utile.</p>
-    <p><strong>Aux lycéens et étudiants</strong>, en particulier en HGGSP, en SES ou en culture générale — et à leurs professeurs, qui peuvent y trouver un support de discussion en classe : <strong>Scéna<span class="brand-rio">rio</span></strong> n'apporte pas une réponse toute faite, mais entraîne à raisonner comme on le fait en cours — peser le pour et le contre, mesurer les incertitudes, comprendre quels indicateurs peuvent être impactés, comparer plusieurs issues possibles plutôt qu'en retenir une seule. Une méthode utile bien au-delà d'un seul sujet.</p>
-    <p><strong>À qui veut se faire un avis sans se le faire dicter</strong> par un titre ou un fil d'actualité qui tranche déjà à sa place : chaque édition explique le contexte, présente plusieurs issues possibles avec leurs probabilités, et donne de quoi se faire sa propre opinion — jamais une conclusion imposée.</p>
-    <p><strong>À qui doit anticiper pour agir</strong> — un professionnel, un élu ou un décideur public, un citoyen engagé : comprendre comment une situation peut évoluer si rien ne change est le point de départ pour se positionner en connaissance de cause, que ce soit pour légiférer, entreprendre ou voter — sans jamais indiquer dans quel sens, ce qui rend l'exercice utile quel que soit le bord qu'on défend.</p>
+    <p>À tout le monde qui préfère comprendre l'actualité plutôt que la subir — avec quelques publics pour qui l'exercice est particulièrement utile :</p>
+    <ul class="perks">
+      <li><strong>Aux lycéens et étudiants</strong>, en particulier en HGGSP, en SES ou en culture générale — et à leurs professeurs, qui peuvent y trouver un support de discussion en classe : <strong>Scéna<span class="brand-rio">rio</span></strong> n'apporte pas une réponse toute faite, mais entraîne à raisonner comme on le fait en cours — peser le pour et le contre, mesurer les incertitudes, comparer plusieurs issues possibles plutôt qu'en retenir une seule.</li>
+      <li><strong>À qui veut se faire un avis sans se le faire dicter</strong> par un titre ou un fil d'actualité qui tranche déjà à sa place : chaque édition explique le contexte, présente plusieurs issues possibles avec leurs probabilités, et donne de quoi se faire sa propre opinion — jamais une conclusion imposée.</li>
+      <li><strong>À qui doit anticiper pour agir</strong> — un professionnel, un élu ou un décideur public, un citoyen engagé : comprendre comment une situation peut évoluer si rien ne change est le point de départ pour se positionner en connaissance de cause, sans jamais indiquer dans quel sens.</li>
+    </ul>
   </div>
 </section>
 
@@ -427,7 +465,12 @@
     <p class="section-label">Qui fait Scénario</p>
     <h2 class="section-title">Une direction éditoriale, un cadre de travail strict</h2>
     <p><strong>Scéna<span class="brand-rio">rio</span></strong> est dirigé par <strong>Olivier Bertrand</strong>, directeur technique et éditorial du projet — spécialiste finance, data et assurance dans son activité principale, des métiers où l'on chiffre l'incertitude plutôt que de deviner un seul avenir, exactement l'idée derrière ce projet.</p>
-    <p>Deux fonctions, jamais séparées : côté technique, la conception et la fiabilisation de la méthode quantitative qui structure les scénarios — probabilités, indicateurs, critères de bascule — ainsi que la gestion du site qui les diffuse. Côté éditorial, le choix des sujets, l'encadrement de la vérification et le ton de chaque publication. Cette double exigence n'est pas un choix de facilité : c'est ce qui garantit que la rigueur technique et la rigueur du fond avancent toujours au même rythme, sans qu'aucune des deux ne prenne le pas sur l'autre.</p>
+    <p>Deux fonctions, jamais séparées :</p>
+    <ul class="perks">
+      <li><strong>Technique</strong> — conception et fiabilisation de la méthode quantitative qui structure les scénarios (probabilités, indicateurs, critères de bascule), ainsi que la gestion du site qui les diffuse.</li>
+      <li><strong>Éditorial</strong> — choix des sujets, encadrement de la vérification, ton de chaque publication.</li>
+    </ul>
+    <p>Cette double exigence n'est pas un choix de facilité : c'est ce qui garantit que la rigueur technique et la rigueur du fond avancent toujours au même rythme, sans qu'aucune des deux ne prenne le pas sur l'autre.</p>
     <p>Chaque édition suit un processus de vérification strict — sources croisées, relecture factuelle et stylistique avant publication — produit avec l'appui de l'intelligence artificielle pour la recherche et la rédaction. La rigueur des faits reste la même, quel que soit l'outil utilisé pour les rassembler.</p>
     <p>Le choix des sujets est une décision <strong>éditoriale, pas politique</strong> : <strong>Scéna<span class="brand-rio">rio</span></strong> ne défend aucune ligne, ni de gauche ni de droite, aucun parti pris. Chaque sujet est retenu parce qu'il pose une vraie question — celle qu'on se pose en lisant l'actualité — jamais pour orienter une opinion.</p>
   </div>
