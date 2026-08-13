@@ -1814,6 +1814,19 @@ moins prioritaire).
   V4, violet (`--futur: #9b7fc0`), pour ne pas se marcher sur les 4
   couleurs déjà prises par les autres catégories.
 
+  **Règle transversale ajoutée le 13 août : "dénominateur commun"
+  engageant/positif/orienté croissance.** Chaque entrée, toutes
+  catégories confondues, doit se terminer par un CTA qui pousse à agir
+  (abonnement, commentaire) — pas rester un simple rappel d'identité
+  passif ; le ton reste positif/curieux même sur un sujet sérieux
+  (retraites, climat), jamais alarmiste. CTA ajouté/renforcé sur toutes
+  les entrées existantes (manifeste → "Abonne-toi, c'est gratuit" ;
+  citations → CTA d'abonnement ajouté à toutes ; chiffres/futurs → CTA
+  reformulé pour inviter explicitement à commenter plutôt qu'une question
+  purement rhétorique). 2 citations (Voltaire, Héraclite) repérées comme
+  moins "positives" en ton — gardées avec CTA compensatoire, décision de
+  les retirer ou non laissée à l'utilisateur.
+
   **Reste à faire** : constituer la banque de secours de photos
   (`assets/social/pub-photos/`, pas encore créée — la routine s'arrêtera
   et signalera si aucune photo récente d'article n'est disponible et que

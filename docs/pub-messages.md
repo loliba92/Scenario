@@ -25,6 +25,27 @@ trancher avant de mettre cette liste en service :
    on ne le revérifie pas à chaque utilisation, juste avant sa première
    mise en rotation).
 
+## Dénominateur commun (règle du 13 août)
+
+Quelle que soit la catégorie, chaque entrée doit être **engageante,
+positive dans le ton, et orientée croissance** (gagner des
+abonnés/auditeurs) — pas seulement un rappel d'identité passif. Concrètement :
+- **Toujours un CTA qui pousse à agir**, pas juste "lesscenarios.fr" en
+  signature : s'abonner, commenter, réagir. Un chiffre ou une citation qui
+  se termine sans inviter de réaction rate la moitié de l'objectif.
+- **Le ton reste positif/curieux même sur un sujet sérieux** (retraites,
+  climat...) — jamais alarmiste. La question qui suit un chiffre doit
+  donner envie de répondre, pas juste constater un problème.
+- Ça ne change rien à la rigueur déjà en place (jamais de fait inventé,
+  toujours au conditionnel pour les "grands futurs", etc.) — seulement la
+  façon dont chaque message se termine et invite à réagir.
+
+**2 citations existantes repérées comme moins alignées avec "positif"**
+(`citation-05`, Voltaire — ton plutôt désabusé ; `citation-06`, Héraclite —
+mélancolique) : gardées pour l'instant, CTA ajouté pour les rendre plus
+engageantes, mais à toi de dire si tu préfères les retirer/remplacer par
+des citations plus toniques.
+
 ## Format d'une entrée
 
 ```
@@ -37,14 +58,15 @@ trancher avant de mettre cette liste en service :
 
 ## 1. Manifeste — pourquoi Scénario (rotation A)
 
-Objectif : rappeler ce qui différencie le projet, pour la rétention de la
-communauté déjà abonnée — jamais un ton commercial, la même sobriété que le
-reste du site.
+Objectif : rappeler ce qui différencie le projet et convertir en abonné —
+pas juste de la rétention passive (voir "Dénominateur commun" ci-dessus) —
+jamais un ton commercial pour autant, la même sobriété que le reste du
+site.
 
 ### manifeste-01
 - eyebrow: POURQUOI SCÉNARIO
 - message: Gratuit. Indépendant.\nNi de gauche ni de droite.
-- cta: 👉 lesscenarios.fr
+- cta: 👉 Abonne-toi, c'est gratuit
 
 *Reprend mot pour mot la ligne éditoriale de `le-projet.html` : "ne défend
 aucune ligne, ni de gauche ni de droite, aucun parti pris."*
@@ -52,7 +74,7 @@ aucune ligne, ni de gauche ni de droite, aucun parti pris."*
 ### manifeste-02
 - eyebrow: POURQUOI SCÉNARIO
 - message: On ne prédit pas l'avenir.\nOn chiffre l'incertitude.
-- cta: 👉 lesscenarios.fr
+- cta: 👉 Abonne-toi, c'est gratuit
 
 *Reprend l'idée de `le-projet.html` : "des métiers où l'on chiffre
 l'incertitude plutôt que de deviner un seul avenir."*
@@ -60,7 +82,7 @@ l'incertitude plutôt que de deviner un seul avenir."*
 ### manifeste-03
 - eyebrow: POURQUOI SCÉNARIO
 - message: Une probabilité n'est jamais gravée dans le marbre.\nQuand les faits changent, elle change.
-- cta: 👉 Suivi mis à jour dès qu'un scénario bouge
+- cta: 👉 Abonne-toi, suis chaque mise à jour
 
 *Reprend `le-projet.html` : "Un pourcentage donné dans une édition n'est
 pas une vérité gravée dans le marbre [...]. Quand la situation évolue,
@@ -69,7 +91,7 @@ l'estimation doit évoluer avec elle."*
 ### manifeste-04
 - eyebrow: POURQUOI SCÉNARIO
 - message: Pas de tirage au hasard.\nUne méthode, appliquée à chaque édition.
-- cta: 👉 lesscenarios.fr
+- cta: 👉 Abonne-toi, c'est gratuit
 
 *Reprend `le-projet.html` : "chaque estimation s'appuie sur une méthode
 propriétaire, appliquée systématiquement à chaque édition."*
@@ -77,7 +99,7 @@ propriétaire, appliquée systématiquement à chaque édition."*
 ### manifeste-05 `[à confirmer]`
 - eyebrow: POURQUOI SCÉNARIO
 - message: Aucune pub. Aucun sponsor.\nJuste trois scénarios chiffrés.
-- cta: 👉 lesscenarios.fr
+- cta: 👉 Abonne-toi, c'est gratuit
 
 *Affirmation sur le modèle économique — à confirmer avant usage (aucune
 mention équivalente déjà publiée ailleurs sur le site à recopier).*
@@ -85,7 +107,7 @@ mention équivalente déjà publiée ailleurs sur le site à recopier).*
 ### manifeste-06 `[à confirmer]`
 - eyebrow: POURQUOI SCÉNARIO
 - message: Gratuit, sans compte à créer.\nLe lien en bio suffit.
-- cta: 👉 lesscenarios.fr
+- cta: 👉 Abonne-toi, c'est gratuit
 
 *"Sans compte à créer" — à confirmer que c'est bien exact (pas de zone
 membre sur le site à ma connaissance, mais à vérifier avant publication).*
@@ -93,12 +115,14 @@ membre sur le site à ma connaissance, mais à vérifier avant publication).*
 ## 2. Citations — le hasard et l'incertitude (rotation B)
 
 Objectif : varier le feed avec du contenu plus léger/partageable, en lien
-thématique avec le projet, sans ton commercial du tout.
+thématique avec le projet, sans ton commercial — mais toujours avec un CTA
+qui invite à s'abonner ou réagir (voir "Dénominateur commun" ci-dessus).
 
 ### citation-01
 - eyebrow: UNE CITATION
 - message: « Le hasard ne favorise que les esprits préparés. »
 - attribution: — Louis Pasteur
+- cta: 👉 Abonne-toi, prépare-toi chaque jour
 
 *Source solide : formule d'une conférence de Pasteur à l'université de
 Lille, 1854, très largement documentée.*
@@ -107,6 +131,7 @@ Lille, 1854, très largement documentée.*
 - eyebrow: UNE CITATION
 - message: « Il y a des choses qui dépendent de nous,\net d'autres qui n'en dépendent pas. »
 - attribution: — Épictète
+- cta: 👉 Abonne-toi, concentre-toi sur ce qui compte
 
 *Source solide : ouverture du Manuel d'Épictète.*
 
@@ -114,6 +139,7 @@ Lille, 1854, très largement documentée.*
 - eyebrow: UNE CITATION
 - message: « La théorie des probabilités n'est, au fond,\nque le bon sens réduit au calcul. »
 - attribution: — Pierre-Simon de Laplace
+- cta: 👉 Abonne-toi, c'est gratuit
 
 *Source solide : Essai philosophique sur les probabilités, 1814.*
 
@@ -121,6 +147,7 @@ Lille, 1854, très largement documentée.*
 - eyebrow: UNE CITATION
 - message: « Le hasard, c'est peut-être le pseudonyme\nde Dieu quand il ne veut pas signer. »
 - attribution: — Anatole France
+- cta: 👉 Abonne-toi, c'est gratuit
 
 *Attribution courante (Le Jardin d'Épicure, 1894) mais à vérifier sur une
 édition de référence avant publication — formule très reprise, parfois de
@@ -130,19 +157,25 @@ façon approximative.*
 - eyebrow: UNE CITATION
 - message: « Le doute n'est pas une condition agréable,\nmais la certitude est absurde. »
 - attribution: — Voltaire
+- cta: 👉 Abonne-toi, on t'aide à y voir clair
 
 *Attribution très répandue mais disputée par certains chercheurs (parfois
 présentée comme une paraphrase plutôt qu'une citation exacte d'un texte
-identifié) — à vérifier ou à retirer avant publication.*
+identifié) — à vérifier ou à retirer avant publication. Ton plutôt
+désabusé — moins "positif" au sens de la règle du 13 août, gardée pour
+l'instant, CTA ajouté pour compenser.*
 
 ### citation-06
 - eyebrow: UNE CITATION
 - message: « On ne se baigne jamais deux fois\ndans le même fleuve. »
 - attribution: — Héraclite
+- cta: 👉 Abonne-toi, suis ce qui change
 
 *Fragment antique, formulation reconstituée (normal pour un fragment
 présocratique transmis indirectement) — thème de l'impermanence/incertitude,
-pas du hasard au sens strict, mais reste pertinent pour la ligne éditoriale.*
+pas du hasard au sens strict, mais reste pertinent pour la ligne éditoriale.
+Ton plutôt mélancolique — moins "positif" au sens de la règle du 13 août,
+gardée pour l'instant, CTA ajouté pour compenser.*
 
 ## 3. Questions à la communauté (rotation C)
 
@@ -183,7 +216,7 @@ seul sans mise en perspective.
 ### chiffre-01 `[chiffre à vérifier]`
 - eyebrow: LE SAVIEZ-VOUS ?
 - message: En 1960, la France comptait plus de **4 actifs**\npour 1 retraité. Aujourd'hui, un peu moins de 2.
-- cta: 👉 Dans 10 ans, comment financer les retraites ?
+- cta: 👉 Ta solution pour dans 10 ans ? Dis-le en commentaire
 
 *Ordre de grandeur courant (données historiques type INSEE/COR) — chiffre
 exact et année précise à vérifier sur une source primaire avant mise en
@@ -192,7 +225,7 @@ rotation, voir point 3 ci-dessus.*
 ### chiffre-02 `[chiffre à vérifier]`
 - eyebrow: LE SAVIEZ-VOUS ?
 - message: La population mondiale devrait franchir\nles **9,7 milliards** d'habitants vers 2050.
-- cta: 👉 Dans 10 ans, quel monde pour l'accueillir ?
+- cta: 👉 Ton pronostic pour dans 10 ans, en commentaire ?
 
 *Ordre de grandeur ONU (World Population Prospects) — à vérifier sur la
 publication la plus récente avant mise en rotation.*
@@ -200,7 +233,7 @@ publication la plus récente avant mise en rotation.*
 ### chiffre-03 `[chiffre à vérifier]`
 - eyebrow: LE SAVIEZ-VOUS ?
 - message: Le seuil des **+1,5°C** de réchauffement\npourrait être franchi dès le début des années 2030.
-- cta: 👉 Dans 10 ans, où en sera-t-on vraiment ?
+- cta: 👉 Où on en sera dans 10 ans ? Ton avis en commentaire
 
 *Ordre de grandeur GIEC — à vérifier sur le dernier rapport avant mise en
 rotation (les projections évoluent d'un rapport à l'autre).*
@@ -230,7 +263,7 @@ la section 4 : à sourcer avant la première mise en rotation.
 ### futur-01 `[à vérifier]`
 - eyebrow: GRAND FUTUR
 - message: Dans 10 ans, la voiture pourrait\nne plus jamais avoir besoin de toi au volant.
-- cta: 👉 Prêt à lâcher le volant ?
+- cta: 👉 Prêt à lâcher le volant ? Dis-le en commentaire
 
 *Conduite autonome (niveaux 4/5) — déjà des services réels limités
 (robotaxis) dans quelques villes ; généralisation et calendrier réel à
@@ -239,7 +272,7 @@ vérifier avant mise en rotation.*
 ### futur-02 `[à vérifier]`
 - eyebrow: GRAND FUTUR
 - message: Et si l'énergie devenait presque illimitée ?\nPlusieurs projets de fusion nucléaire visent une première électricité commerciale d'ici les années 2030.
-- cta: 👉 Dans 10 ans, on y sera ?
+- cta: 👉 On y sera dans 10 ans ? Ton avis en commentaire
 
 *Fusion nucléaire — jalons réels (ITER et projets privés) mais calendrier
 historiquement optimiste dans ce secteur ; vérifier l'état d'avancement
@@ -248,7 +281,7 @@ le plus récent avant mise en rotation.*
 ### futur-03 `[à vérifier]`
 - eyebrow: GRAND FUTUR
 - message: Des chercheurs pensent qu'on pourrait bientôt\nralentir le vieillissement biologique, pas seulement le soigner.
-- cta: 👉 Dans 10 ans, on vivra comment ?
+- cta: 👉 Toi, tu ferais quoi de 10 ans de plus ? Dis-le en commentaire
 
 *Recherche sur la longévité (essais en cours sur plusieurs molécules) —
 encore au stade expérimental, formulation "des chercheurs pensent"
@@ -258,7 +291,7 @@ rotation.*
 ### futur-04 `[à vérifier]`
 - eyebrow: GRAND FUTUR
 - message: L'ordinateur quantique pourrait un jour résoudre\nen minutes des calculs impossibles pour un supercalculateur classique.
-- cta: 👉 Dans 10 ans, à quoi ça servira vraiment ?
+- cta: 👉 Tu l'utiliserais pour quoi, toi ? Dis-le en commentaire
 
 *Informatique quantique — progrès réels mais usages pratiques encore
 limités à des cas de niche ; vérifier qu'aucune annonce trop optimiste
