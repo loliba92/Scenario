@@ -3514,19 +3514,39 @@ Voir les échanges de session pour le détail, mais en résumé :
     <guid isPermaLink="false">scenario-suivi-{sujet}-v{N}</guid>
     <pubDate>{date de la mise à jour au format RFC-822}</pubDate>
     <comments>{emoji} {verdict court de la conclusion, la phrase déjà écrite dans la page}</comments>
-    <enclosure url="https://lesscenarios.fr/assets/social/topic-images/suivi-{sujet}.jpg" length="{taille réelle en octets}" type="image/jpeg"/>
+    <enclosure url="https://lesscenarios.fr/assets/social/suivi/{sujet}-v{N}.png" length="{taille réelle en octets}" type="image/png"/>
     <description><![CDATA[{emoji} {même phrase}<br><br>{1-2 phrases : ce qui explique le mouvement}<br><br>Voir la mise à jour complète, scénario par scénario 👉 <a href="{lien vers la version}">lesscenarios.fr/suivi/{sujet}.html</a>]]></description>
   </item>
   ```
   **`<enclosure>` ajoutée le 12 août** — voir l'entrée backlog dédiée
   (« Image sur les posts LinkedIn "sujet suivi" ») pour le détail complet
-  et la partie Make.com restant à faire côté utilisateur. Toujours le
-  fichier `suivi-{sujet}.jpg` (carré, celui déjà utilisé pour le sticker
-  photo de la page — pas le `-wide.jpg`, réservé à l'image en tête
-  d'article), `{taille réelle en octets}` = taille du fichier sur disque
-  (`stat -c%s`), jamais une valeur inventée. Si la page de suivi n'a pas
-  encore d'image (candidat Pexels jamais trouvé), omettre `<enclosure>`
-  entièrement — jamais bloquant pour publier l'item.
+  et la partie Make.com restant à faire côté utilisateur.
+
+  **[MIS À JOUR le 14 août] L'image n'est plus la photo brute.** Retour
+  utilisateur : une simple photo Pexels sans rien dessus n'était "pas
+  clean". Désormais, à chaque nouvelle version publiée (V1, V2...),
+  générer une image composée avec `scripts/social/generate_suivi_image.py`
+  + `scripts/social/suivi-template.html` (logo — même taille que le
+  daily — + pastille "🔄 Suivi mis à jour" + titre du sujet + la
+  conclusion, sur la photo `suivi-{sujet}.jpg` déjà en place, jamais
+  retouchée elle-même) :
+  ```
+  python3 scripts/social/generate_suivi_image.py \
+    --data {json temporaire avec "topic" et "conclusion"} \
+    --output assets/social/suivi/{sujet}-v{N}.png \
+    --template scripts/social/suivi-template.html \
+    --photo assets/social/topic-images/suivi-{sujet}.jpg
+  ```
+  `"conclusion"` = reprendre **tel quel** le texte déjà mis dans
+  `<comments>` (voir règle juste en dessous — jamais mener avec la seule
+  étiquette de catégorie). Un fichier PNG par version (`-v{N}.png`,
+  jamais écrasé) plutôt qu'un seul fichier réutilisé, pour garder
+  l'historique des visuels alignés sur l'historique des versions.
+  `{taille réelle en octets}` = taille de ce PNG généré (`stat -c%s`),
+  jamais une valeur inventée. Si la photo source
+  (`suivi-{sujet}.jpg`) n'existe pas pour ce sujet, omettre `<enclosure>`
+  entièrement — jamais bloquant pour publier l'item, exactement comme
+  avant.
 
   Ajouter le nouvel item **en haut** du flux (comme `feed.xml`/`archives.html`), ne jamais supprimer les précédents. Premier item réel ajouté le 2 août, rétroactivement, pour la mise à jour V1 de Spider-Man (1er août).
 
