@@ -161,6 +161,111 @@
 
   section.week{ padding: 8px 0 56px; }
 
+  .week-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+
+  @media (max-width: 620px){
+    .week-grid{ grid-template-columns: 1fr; }
+  }
+
+  .day-card{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .day-card-eyebrow{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+    margin: 0 0 8px;
+  }
+
+  .day-card-image-link{ display:block; line-height:0; }
+
+  .day-card-image{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+    border: 1px solid var(--hairline);
+  }
+
+  .day-card-noimage{
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
+    border: 1px solid var(--hairline);
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .day-card-noimage-title{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    color: var(--paper);
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+  }
+
+  .day-card-noimage-title:hover{ border-bottom-color: var(--paper-dim); }
+
+  .day-card-toggle{
+    align-self: flex-start;
+    margin-top: 10px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--paper-dim);
+    background: none;
+    border: 1px solid var(--hairline);
+    border-radius: 100px;
+    padding: 5px 12px;
+    cursor: pointer;
+  }
+
+  .day-card-toggle:hover{ color: var(--paper); border-color: var(--paper-dim); }
+  .day-card-toggle[aria-expanded="true"]{ color: var(--gold); border-color: var(--gold); }
+
+  .day-card-toggle-icon{
+    display: inline-block;
+    transition: transform .18s ease;
+  }
+  .day-card-toggle[aria-expanded="true"] .day-card-toggle-icon{ transform: rotate(180deg); }
+
+  .day-card-detail{
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .22s ease;
+  }
+  .day-card-detail.is-open{ grid-template-rows: 1fr; }
+
+  .day-card-detail-inner{ min-height: 0; overflow: hidden; }
+
+  .day-card-context{
+    font-size: 0.86rem;
+    color: var(--paper-dim);
+    margin: 12px 0 12px;
+  }
+
+  .day-card .scenario-list{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
   .day-block{
     padding: 24px 0;
     border-bottom: 1px solid var(--hairline);
@@ -363,109 +468,145 @@
 <section class="week">
   <div class="wrap">
 
-    <div class="day-block">
-      <div class="day-head">
-        <span class="day-eyebrow">Lundi, géopolitique international</span>
-        <a class="day-link" href="../archives/2026-07-27.html">Lire l'édition →</a>
-      </div>
-      <a class="day-title" href="../archives/2026-07-27.html">Iran–États-Unis : les armes se taisent, l'accord reste à trouver</a>
-      <p class="day-context">❓ Après cinq mois de guerre et plusieurs cessez-le-feu rompus, les négociations en cours déboucheront-elles sur un accord durable, sur une trêve sous tension sans vraie paix, ou sur une nouvelle reprise des combats ?</p>
+<div class="week-grid">
+
+<div class="day-card">
+  <p class="day-card-eyebrow">Lundi, géopolitique international</p>
+  <a class="day-card-image-link" href="../archives/2026-07-27.html">
+    <img class="day-card-image" src="../assets/social/instagram/2026-07-27.png" alt="Iran–États-Unis : les armes se taisent, l'accord reste à trouver" loading="lazy">
+  </a>
+  <button type="button" class="day-card-toggle" aria-expanded="false" aria-controls="detail-2026-07-27">Voir le détail <span class="day-card-toggle-icon" aria-hidden="true">▾</span></button>
+  <div class="day-card-detail" id="detail-2026-07-27">
+    <div class="day-card-detail-inner">
+      <p class="day-card-context">❓ Après cinq mois de guerre et plusieurs cessez-le-feu rompus, les négociations en cours déboucheront-elles sur un accord durable, sur une trêve sous tension sans vraie paix, ou sur une nouvelle reprise des combats ?</p>
       <div class="scenario-list">
         <p class="scenario-row" data-kind="favorable"><span class="scenario-arrow" aria-hidden="true">↑</span><span class="scenario-pct">30%</span><span class="scenario-label">Un accord verrouille la trêve</span></p>
         <p class="scenario-row is-winner" data-kind="stable"><span class="scenario-arrow" aria-hidden="true">→</span><span class="scenario-pct">45%</span><span class="scenario-label">Ni guerre ni paix, la trêve traîne</span></p>
         <p class="scenario-row" data-kind="degrade"><span class="scenario-arrow" aria-hidden="true">↓</span><span class="scenario-pct">25%</span><span class="scenario-label">Les combats reprennent, Ormuz se ferme</span></p>
       </div>
+      <a class="day-link" href="../archives/2026-07-27.html">Lire l'édition →</a>
     </div>
+  </div>
+</div>
 
-    <div class="day-block">
-      <div class="day-head">
-        <span class="day-eyebrow">Mardi, carte blanche</span>
-        <a class="day-link" href="../archives/2026-07-28.html">Lire l'édition →</a>
-      </div>
-      <a class="day-title" href="../archives/2026-07-28.html">Milliardaires : la richesse du monde peut-elle encore se partager ?</a>
-      <p class="day-context">❓ Alors que la fortune des milliardaires bat record sur record — plus de 20 000 milliards de dollars —, la concentration des richesses va-t-elle être freinée par de nouveaux impôts, se poursuivre au rythme actuel, ou s'accélérer encore ?</p>
+<div class="day-card">
+  <p class="day-card-eyebrow">Mardi, carte blanche</p>
+  <a class="day-card-image-link" href="../archives/2026-07-28.html">
+    <img class="day-card-image" src="../assets/social/instagram/2026-07-28.png" alt="Milliardaires : la richesse du monde peut-elle encore se partager ?" loading="lazy">
+  </a>
+  <button type="button" class="day-card-toggle" aria-expanded="false" aria-controls="detail-2026-07-28">Voir le détail <span class="day-card-toggle-icon" aria-hidden="true">▾</span></button>
+  <div class="day-card-detail" id="detail-2026-07-28">
+    <div class="day-card-detail-inner">
+      <p class="day-card-context">❓ Alors que la fortune des milliardaires bat record sur record — plus de 20 000 milliards de dollars —, la concentration des richesses va-t-elle être freinée par de nouveaux impôts, se poursuivre au rythme actuel, ou s'accélérer encore ?</p>
       <div class="scenario-list">
         <p class="scenario-row" data-kind="favorable"><span class="scenario-arrow" aria-hidden="true">↑</span><span class="scenario-pct">20%</span><span class="scenario-label">Un impôt plancher freine la machine</span></p>
         <p class="scenario-row is-winner" data-kind="stable"><span class="scenario-arrow" aria-hidden="true">→</span><span class="scenario-pct">50%</span><span class="scenario-label">La fortune grimpe, la taxe reste bloquée</span></p>
         <p class="scenario-row" data-kind="degrade"><span class="scenario-arrow" aria-hidden="true">↓</span><span class="scenario-pct">30%</span><span class="scenario-label">La concentration s'emballe</span></p>
       </div>
+      <a class="day-link" href="../archives/2026-07-28.html">Lire l'édition →</a>
     </div>
+  </div>
+</div>
 
-    <div class="day-block">
-      <div class="day-head">
-        <span class="day-eyebrow">Mercredi, actualité française</span>
-        <a class="day-link" href="../archives/2026-07-29.html">Lire l'édition →</a>
-      </div>
-      <a class="day-title" href="../archives/2026-07-29.html">Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?</a>
-      <p class="day-context">❓ Cet automne, le gouvernement de Sébastien Lecornu réussira-t-il à faire adopter un budget 2027, survivra-t-il de justesse à coups de 49.3 comme l'an dernier, ou tombera-t-il faute d'accord, à quelques mois de la présidentielle ?</p>
+<div class="day-card">
+  <p class="day-card-eyebrow">Mercredi, actualité française</p>
+  <a class="day-card-image-link" href="../archives/2026-07-29.html">
+    <img class="day-card-image" src="../assets/social/instagram/2026-07-29.png" alt="Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?" loading="lazy">
+  </a>
+  <button type="button" class="day-card-toggle" aria-expanded="false" aria-controls="detail-2026-07-29">Voir le détail <span class="day-card-toggle-icon" aria-hidden="true">▾</span></button>
+  <div class="day-card-detail" id="detail-2026-07-29">
+    <div class="day-card-detail-inner">
+      <p class="day-card-context">❓ Cet automne, le gouvernement de Sébastien Lecornu réussira-t-il à faire adopter un budget 2027, survivra-t-il de justesse à coups de 49.3 comme l'an dernier, ou tombera-t-il faute d'accord, à quelques mois de la présidentielle ?</p>
       <div class="scenario-list">
         <p class="scenario-row" data-kind="favorable"><span class="scenario-arrow" aria-hidden="true">↑</span><span class="scenario-pct">20%</span><span class="scenario-label">Un budget négocié, le gouvernement tient</span></p>
         <p class="scenario-row is-winner" data-kind="stable"><span class="scenario-arrow" aria-hidden="true">→</span><span class="scenario-pct">50%</span><span class="scenario-label">Le 49.3 sauve la mise, sous tension</span></p>
         <p class="scenario-row" data-kind="degrade"><span class="scenario-arrow" aria-hidden="true">↓</span><span class="scenario-pct">30%</span><span class="scenario-label">Pas de budget, le gouvernement tombe</span></p>
       </div>
+      <a class="day-link" href="../archives/2026-07-29.html">Lire l'édition →</a>
     </div>
+  </div>
+</div>
 
-    <div class="day-block">
-      <div class="day-head">
-        <span class="day-eyebrow">Jeudi, sport</span>
-        <a class="day-link" href="../archives/2026-07-30.html">Lire l'édition →</a>
-      </div>
-      <a class="day-title" href="../archives/2026-07-30.html">Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ?</a>
-      <p class="day-context">❓ Après avoir dépensé des dizaines de milliards dans le sport mondial, l'Arabie saoudite est-elle en train de se retirer, de resserrer son emprise sur le football, ou va-t-elle au contraire l'étendre partout ?</p>
+<div class="day-card">
+  <p class="day-card-eyebrow">Jeudi, sport</p>
+  <a class="day-card-image-link" href="../archives/2026-07-30.html">
+    <img class="day-card-image" src="../assets/social/instagram/2026-07-30.png" alt="Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ?" loading="lazy">
+  </a>
+  <button type="button" class="day-card-toggle" aria-expanded="false" aria-controls="detail-2026-07-30">Voir le détail <span class="day-card-toggle-icon" aria-hidden="true">▾</span></button>
+  <div class="day-card-detail" id="detail-2026-07-30">
+    <div class="day-card-detail-inner">
+      <p class="day-card-context">❓ Après avoir dépensé des dizaines de milliards dans le sport mondial, l'Arabie saoudite est-elle en train de se retirer, de resserrer son emprise sur le football, ou va-t-elle au contraire l'étendre partout ?</p>
       <div class="scenario-list">
         <p class="scenario-row" data-kind="favorable"><span class="scenario-arrow" aria-hidden="true">↑</span><span class="scenario-pct">25%</span><span class="scenario-label">Le retrait se fait proprement</span></p>
         <p class="scenario-row is-winner" data-kind="stable"><span class="scenario-arrow" aria-hidden="true">→</span><span class="scenario-pct">45%</span><span class="scenario-label">Signaux contradictoires, flou permanent</span></p>
         <p class="scenario-row" data-kind="degrade"><span class="scenario-arrow" aria-hidden="true">↓</span><span class="scenario-pct">30%</span><span class="scenario-label">Le calendrier serré ne tient pas</span></p>
       </div>
+      <a class="day-link" href="../archives/2026-07-30.html">Lire l'édition →</a>
     </div>
+  </div>
+</div>
 
-    <div class="day-block">
-      <div class="day-head">
-        <span class="day-eyebrow">Vendredi, sciences</span>
-        <a class="day-link" href="../archives/2026-07-31.html">Lire l'édition →</a>
-      </div>
-      <a class="day-title" href="../archives/2026-07-31.html">Méga-feux : la France est-elle prête pour la suite ?</a>
-      <p class="day-context">❓ Après l'été le plus dévastateur en vingt ans, la France va-t-elle enfin construire un vrai plan contre les méga-feux, ou continuera-t-elle à réagir dans l'urgence, feu après feu ?</p>
+<div class="day-card">
+  <p class="day-card-eyebrow">Vendredi, sciences</p>
+  <a class="day-card-image-link" href="../archives/2026-07-31.html">
+    <img class="day-card-image" src="../assets/social/instagram/2026-07-31.png" alt="Méga-feux : la France est-elle prête pour la suite ?" loading="lazy">
+  </a>
+  <button type="button" class="day-card-toggle" aria-expanded="false" aria-controls="detail-2026-07-31">Voir le détail <span class="day-card-toggle-icon" aria-hidden="true">▾</span></button>
+  <div class="day-card-detail" id="detail-2026-07-31">
+    <div class="day-card-detail-inner">
+      <p class="day-card-context">❓ Après l'été le plus dévastateur en vingt ans, la France va-t-elle enfin construire un vrai plan contre les méga-feux, ou continuera-t-elle à réagir dans l'urgence, feu après feu ?</p>
       <div class="scenario-list">
         <p class="scenario-row" data-kind="favorable"><span class="scenario-arrow" aria-hidden="true">↑</span><span class="scenario-pct">18%</span><span class="scenario-label">Le pays investit, les feux reculent</span></p>
         <p class="scenario-row is-winner" data-kind="stable"><span class="scenario-arrow" aria-hidden="true">→</span><span class="scenario-pct">47%</span><span class="scenario-label">On répare, mais sans plan d'ensemble</span></p>
         <p class="scenario-row" data-kind="degrade"><span class="scenario-arrow" aria-hidden="true">↓</span><span class="scenario-pct">35%</span><span class="scenario-label">La sécheresse gagne du terrain</span></p>
       </div>
+      <a class="day-link" href="../archives/2026-07-31.html">Lire l'édition →</a>
     </div>
+  </div>
+</div>
 
-    <div class="day-block">
-      <div class="day-head">
-        <span class="day-eyebrow">Samedi, culture française</span>
-        <a class="day-link" href="../archives/2026-08-01.html">Lire l'édition →</a>
-      </div>
-      <a class="day-title" href="../archives/2026-08-01.html">Musique : l'IA a-t-elle déjà gagné ?</a>
-      <p class="day-context">❓ Alors que plus de la moitié des nouveaux titres envoyés chaque jour à Deezer sont désormais entièrement composés par une IA, et que la loi censée protéger les artistes est bloquée à l'Assemblée nationale, la musique faite par des humains peut-elle encore résister ?</p>
+<div class="day-card">
+  <p class="day-card-eyebrow">Samedi, culture française</p>
+  <a class="day-card-image-link" href="../archives/2026-08-01.html">
+    <img class="day-card-image" src="../assets/social/instagram/2026-08-01.png" alt="Musique : l'IA a-t-elle déjà gagné ?" loading="lazy">
+  </a>
+  <button type="button" class="day-card-toggle" aria-expanded="false" aria-controls="detail-2026-08-01">Voir le détail <span class="day-card-toggle-icon" aria-hidden="true">▾</span></button>
+  <div class="day-card-detail" id="detail-2026-08-01">
+    <div class="day-card-detail-inner">
+      <p class="day-card-context">❓ Alors que plus de la moitié des nouveaux titres envoyés chaque jour à Deezer sont désormais entièrement composés par une IA, et que la loi censée protéger les artistes est bloquée à l'Assemblée nationale, la musique faite par des humains peut-elle encore résister ?</p>
       <div class="scenario-list">
         <p class="scenario-row" data-kind="favorable"><span class="scenario-arrow" aria-hidden="true">↑</span><span class="scenario-pct">20%</span><span class="scenario-label">La loi passe, les artistes sont payés</span></p>
         <p class="scenario-row is-winner" data-kind="stable"><span class="scenario-arrow" aria-hidden="true">→</span><span class="scenario-pct">45%</span><span class="scenario-label">Ni loi ni chaos, un flou qui dure</span></p>
         <p class="scenario-row" data-kind="degrade"><span class="scenario-arrow" aria-hidden="true">↓</span><span class="scenario-pct">35%</span><span class="scenario-label">Le flot d'IA submerge la musique humaine</span></p>
       </div>
+      <a class="day-link" href="../archives/2026-08-01.html">Lire l'édition →</a>
     </div>
+  </div>
+</div>
 
-    <div class="day-block">
-      <div class="day-head">
-        <span class="day-eyebrow">Dimanche, culture internationale</span>
-        <a class="day-link" href="../archives/2026-08-02.html">Lire l'édition →</a>
-      </div>
-      <a class="day-title" href="../archives/2026-08-02.html">Streaming : payer plus, avoir moins ?</a>
-      <p class="day-context">❓ Netflix a augmenté son abonnement standard de 2 dollars en mars, Disney+ jusqu'à 3 dollars : après avoir promis moins cher et tout au même endroit, le streaming est-il en train de devenir exactement ce qu'il devait remplacer ?</p>
+<div class="day-card">
+  <p class="day-card-eyebrow">Dimanche, culture internationale</p>
+  <a class="day-card-image-link" href="../archives/2026-08-02.html">
+    <img class="day-card-image" src="../assets/social/instagram/2026-08-02.png" alt="Streaming : payer plus, avoir moins ?" loading="lazy">
+  </a>
+  <button type="button" class="day-card-toggle" aria-expanded="false" aria-controls="detail-2026-08-02">Voir le détail <span class="day-card-toggle-icon" aria-hidden="true">▾</span></button>
+  <div class="day-card-detail" id="detail-2026-08-02">
+    <div class="day-card-detail-inner">
+      <p class="day-card-context">❓ Netflix a augmenté son abonnement standard de 2 dollars en mars, Disney+ jusqu'à 3 dollars : après avoir promis moins cher et tout au même endroit, le streaming est-il en train de devenir exactement ce qu'il devait remplacer ?</p>
       <div class="scenario-list">
         <p class="scenario-row" data-kind="favorable"><span class="scenario-arrow" aria-hidden="true">↑</span><span class="scenario-pct">25%</span><span class="scenario-label">Le pari de la pub et du sport paie</span></p>
         <p class="scenario-row is-winner" data-kind="stable"><span class="scenario-arrow" aria-hidden="true">→</span><span class="scenario-pct">45%</span><span class="scenario-label">Les gros gagnent, les petits trinquent</span></p>
         <p class="scenario-row" data-kind="degrade"><span class="scenario-arrow" aria-hidden="true">↓</span><span class="scenario-pct">30%</span><span class="scenario-label">Trop cher, les abonnés décrochent</span></p>
       </div>
+      <a class="day-link" href="../archives/2026-08-02.html">Lire l'édition →</a>
     </div>
+  </div>
+</div>
 
-    <div class="week-conclusion">
-      <p class="week-conclusion-label">Conclusion de la semaine</p>
-      <p>Cette semaine, aucun des sept dossiers n'a vraiment basculé : le budget 2027 reste suspendu à un probable 49.3, l'Arabie saoudite envoie des signaux contradictoires sur le sport, les méga-feux se combattent encore au coup par coup sans plan structurel, la musique IA continue de grignoter du terrain sans que la loi tranche. Le fil commun de la semaine : des tensions réelles, mais aucun dénouement net.</p>
-    </div>
-
+<div class="week-conclusion">
+  <p class="week-conclusion-label">Conclusion de la semaine</p>
+  <p>Cette semaine, aucun des sept dossiers n'a vraiment basculé : le budget 2027 reste suspendu à un probable 49.3, l'Arabie saoudite envoie des signaux contradictoires sur le sport, les méga-feux se combattent encore au coup par coup sans plan structurel, la musique IA continue de grignoter du terrain sans que la loi tranche. Le fil commun de la semaine : des tensions réelles, mais aucun dénouement net.</p>
+</div>
   </div>
 </section>
 
@@ -486,6 +627,17 @@
     </div>
   </div>
 </footer>
+
+<script>
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.day-card-toggle');
+    if (!btn) return;
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    var detail = document.getElementById(btn.getAttribute('aria-controls'));
+    if (detail) detail.classList.toggle('is-open', !expanded);
+  });
+</script>
 
 </body>
 </html>
