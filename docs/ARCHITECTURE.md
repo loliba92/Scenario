@@ -1997,6 +1997,33 @@ moins prioritaire).
     jour (`chiffre` → l'édition source elle-même, seule catégorie sans
     page de destination fixe).
 
+  **[FAIT le 14 août] Sélection de la catégorie : cycle qui avance
+  remplacé par une table jour → catégorie fixe.** Retour utilisateur
+  direct : "voici le calendrier systématique, tu ne pourras pas te
+  perdre" — l'ancien mécanisme (déduire la catégorie suivante à partir du
+  dernier `<guid>` publié dans `feed-pub.xml`, puis avancer d'un cran
+  dans un cycle fixe) marchait, mais restait une inférence à chaque
+  exécution, donc un point de fragilité évitable. Remplacé par une table
+  explicite (même principe que le calendrier des éditions quotidiennes,
+  `docs/routine-prompt.md`) :
+
+  | Jour | Catégorie |
+  |---|---|
+  | Dimanche | `manifeste` |
+  | Mardi | `citation` |
+  | Jeudi | `futur` |
+  | Vendredi | `manifeste` |
+  | Samedi | `chiffre` |
+
+  **`question` volontairement absente de cette table** — catégorie
+  dormante, pas supprimée (ses entrées restent dans `docs/pub-
+  messages.md`, section 3). Le trigger "Scénario — Pub hebdo" est passé
+  le même jour à 5x/semaine (`0 16 * * 0,2,4,5,6` UTC — dimanche, mardi,
+  jeudi, vendredi, samedi), un jour de calendrier par jour de trigger,
+  aucun jour de la table n'est orphelin de déclenchement et
+  inversement. Mis à jour : `docs/routine-pub-prompt.md` (étape 1, point
+  2), `docs/pub-messages.md` (section "Règle de rotation").
+
   **[FAIT le 13 août] Trigger créé** : `trig_01A1XU5Kpc4QWzApjZPqcKpj`,
   cron `0 16 * * 2,5` UTC = **mardi et vendredi 18h Paris** (2x/semaine,
   cadence de lancement choisie par l'utilisateur, à ramener à 1x/semaine

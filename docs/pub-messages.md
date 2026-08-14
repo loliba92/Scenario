@@ -385,21 +385,33 @@ tour, pas de stock à préremplir.
 
 ## Règle de rotation
 
-La routine avance dans chaque liste (Manifeste, Citations, Le
-saviez-vous, Questions, Grands futurs) indépendamment, dans l'ordre où
-les entrées apparaissent ci-dessus, sans répéter avant d'avoir fait le
-tour de la liste entière — voir `docs/routine-pub-prompt.md` pour le
-mécanisme exact (déduit de l'historique déjà publié dans `feed-pub.xml`,
-pas de fichier d'état séparé). Faire tourner les 5 catégories dans cet
-ordre fixe (Manifeste → Citation → Le saviez-vous → Question → Grand
-futur → Manifeste...) plutôt que de les mélanger au hasard, pour garder
-un rythme reconnaissable. **Catégorie "Le saviez-vous" (chiffres)
-réintégrée au cycle le 14 août**, avec un mécanisme d'extraction (voir
-section 5 ci-dessus) plutôt que la liste fermée retirée le 13 août — voir
-`docs/ARCHITECTURE.md` pour l'historique de la décision. **Placée juste
-après Citation dans le cycle (pas en dernier)** — retour utilisateur du
-14 août, pour que le nouveau mécanisme sorte tôt plutôt qu'après un tour
-complet des 4 autres catégories.
+**Catégorie déterminée par le jour de la semaine, pas par un cycle qui
+avance** (changement du 14 août, retour utilisateur direct : "voici le
+calendrier systématique, tu ne pourras pas te perdre" — remplace
+l'ancien mécanisme où la routine déduisait la catégorie suivante à
+partir du dernier `<guid>` publié, jugé trop sujet à erreur). Table
+complète et mécanisme dans `docs/routine-pub-prompt.md`, étape 1 :
+
+| Jour | Catégorie |
+|---|---|
+| Dimanche | Manifeste |
+| Mardi | Citation |
+| Jeudi | Grand futur |
+| Vendredi | Manifeste |
+| Samedi | Le saviez-vous |
+
+**"Questions" n'est dans aucun jour de cette table — catégorie
+dormante**, pas supprimée : ses entrées (section 3) restent en place,
+prêtes si l'utilisateur lui redonne un créneau plus tard.
+
+Dans chaque catégorie, la routine avance dans sa propre liste
+indépendamment (l'ordre où les entrées apparaissent ci-dessus, sans
+répéter avant d'avoir fait le tour) — ça, ça n'a pas changé, seule la
+façon de déterminer *quelle* catégorie traiter aujourd'hui a été
+remplacée. **Catégorie "Le saviez-vous" (chiffres) réintégrée le
+14 août**, avec un mécanisme d'extraction (voir section 5 ci-dessus)
+plutôt que la liste fermée retirée le 13 août — voir
+`docs/ARCHITECTURE.md` pour l'historique de la décision.
 
 **Fréquence.** Cadence de croisière visée : 1 publication/semaine. **Au
 lancement, fréquence volontairement plus élevée** le temps de construire

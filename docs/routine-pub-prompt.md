@@ -53,14 +53,26 @@ changer, un simple délai minimal suffit).
    {id-entrée}` (ex. `scenario-pub-manifeste-03`) — le préfixe avant le
    premier tiret après "pub-" donne la catégorie (`manifeste`, `citation`,
    `question`, `futur`, `chiffre`).
-2. **Catégorie du jour** : cycle fixe `manifeste → citation → chiffre →
-   question → futur → manifeste...`. Prendre la catégorie du `<guid>` le
-   plus récent (premier `<item>`), avancer d'un cran dans le cycle. Si
-   `feed-pub.xml` n'a encore aucun item, commencer par `manifeste`.
-   **Catégorie "chiffre" réintégrée le 14 août**, placée juste après
-   `citation` (pas en fin de cycle) pour qu'elle sorte tôt — nouveau
-   mécanisme d'extraction (voir point 7 ci-dessous), ne pas la traiter
-   comme une simple liste dans `docs/pub-messages.md`, section 5.
+2. **Catégorie du jour : table jour → catégorie fixe** (remplace
+   l'ancien mécanisme "cycle qui avance d'un cran", retour utilisateur du
+   14 août — trop de risque de se tromper en déduisant la catégorie du
+   dernier item publié). Déterminer le jour de la semaine **à l'heure de
+   Paris** au moment du déclenchement, puis :
+
+   | Jour | Catégorie |
+   |---|---|
+   | Dimanche | `manifeste` |
+   | Mardi | `citation` |
+   | Jeudi | `futur` |
+   | Vendredi | `manifeste` |
+   | Samedi | `chiffre` |
+
+   **`question` n'est pas dans cette table — catégorie dormante**, pas
+   supprimée : ses entrées restent dans `docs/pub-messages.md` section 3,
+   à réactiver si l'utilisateur lui redonne un jour. Si la routine se
+   déclenche un jour absent de cette table (changement de cron non
+   répercuté ici), s'arrêter et signaler l'écart plutôt que de deviner
+   une catégorie.
 3. Dans `docs/pub-messages.md`, section de cette catégorie : lister les
    entrées dans l'ordre où elles apparaissent, **en écartant celles encore
    marquées `[à confirmer]` / `[attribution à vérifier]` / `[à
