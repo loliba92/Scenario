@@ -136,13 +136,27 @@ changer, un simple délai minimal suffit).
      nombre de personnes, date marquante...). Écarter les chiffres
      purement techniques sans impact narratif (ex. un simple numéro
      d'article de loi) — privilégier ceux qui frappent (pertes humaines,
-     ampleur financière, record historique...).
-   - **c) Choisir et recopier tel quel.** Sélectionner la phrase la plus
-     marquante parmi les candidates (seul endroit où un peu de jugement
-     éditorial entre en jeu dans cette catégorie) — **jamais reformulée,
-     jamais le chiffre recalculé ou arrondi différemment**. Extraire le
-     chiffre seul pour le champ `stat`, garder la phrase complète pour
-     `message`.
+     ampleur financière, record historique...). **Préférer `.essentiel-
+     text` à `.dek`** quand les deux ont un candidat valable : c'est déjà
+     la version résumée/simplifiée de l'édition, donc plus proche du ton
+     recherché ici.
+   - **c) Choisir simple, court, pédagogique — et recopier tel quel.**
+     Retenue **pas seulement la plus marquante, mais celle qui se
+     comprend seule, en une lecture, sans connaître le reste de
+     l'édition** (règle explicite du 14 août : "les phrases doivent être
+     simples, assez courtes et pédagogiques"). Écarter les phrases à
+     clauses multiples, jargon non expliqué, ou qui empilent plusieurs
+     chiffres à la fois — une seule idée, un seul chiffre, une phrase
+     qu'on comprend en scrollant. Si la phrase candidate est trop longue
+     mais contient un segment autonome et complet (ex. une proposition
+     séparée par une virgule qui a son sens toute seule), il est permis
+     de **ne garder que ce segment** — jamais reformulé, jamais un mot
+     changé ou ajouté, seulement raccourci à une frontière naturelle
+     (virgule, point-virgule), avec au besoin une majuscule initiale et
+     un point final ajoutés pour qu'il se lise comme une phrase complète.
+     **Le chiffre lui-même n'est jamais recalculé ni arrondi
+     différemment.** Extraire le chiffre seul pour le champ `stat`,
+     garder la phrase (ou le segment) retenu pour `message`.
    - **d) Journaliser.** Ajouter l'entrée utilisée à la fin de la
      section 5 de `docs/pub-messages.md` (id `chiffre-{AAAA-MM-JJ}`,
      jamais réutilisé), avec le lien vers l'édition source, dans le même

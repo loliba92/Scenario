@@ -346,13 +346,21 @@ exacte) :**
    autres catégories) et les éditions publiées il y a moins de 24h (leur
    laisser le temps d'un passage par la routine Inspecteur avant d'être
    citées ailleurs).
-4. Choisir la phrase la plus marquante parmi les candidates restantes —
-   seul endroit où un peu de jugement éditorial entre en jeu, jamais sur
-   le chiffre lui-même.
-5. Recopier la phrase **mot pour mot, jamais reformulée** (même
-   discipline que les citations) — le chiffre extrait seul alimente le
-   champ `stat` (affiché en très grand), la phrase complète alimente
-   `message` (contexte, affiché en dessous).
+4. Choisir, parmi les candidates restantes, **la phrase la plus simple,
+   courte et pédagogique — pas seulement la plus marquante** (règle du
+   14 août) : une seule idée, un seul chiffre, compréhensible seule sans
+   avoir lu le reste de l'édition. Écarter les phrases à clauses
+   multiples ou au jargon non expliqué. Préférer `.essentiel-text` à
+   `.dek` quand les deux ont un candidat valable — déjà écrit dans un
+   registre plus simple.
+5. Recopier **mot pour mot, jamais reformulée** (même discipline que les
+   citations) — le chiffre extrait seul alimente le champ `stat` (affiché
+   en très grand), la phrase alimente `message` (contexte, affiché en
+   dessous). Si la phrase source est trop longue mais contient un segment
+   autonome complet, on peut **ne garder que ce segment** (coupé à une
+   virgule/point-virgule, avec majuscule initiale et point final ajoutés
+   si besoin) — jamais un mot changé, déplacé ou ajouté, seulement
+   raccourci.
 6. Journaliser l'entrée utilisée dans ce fichier après publication (id
    `chiffre-{AAAA-MM-JJ}`, jamais réutilisé), avec un lien vers l'édition
    source — même logique de traçabilité que les entrées `futur-{N}`.
