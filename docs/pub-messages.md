@@ -30,11 +30,9 @@ abonnés/auditeurs) — pas seulement un rappel d'identité passif. Concrètemen
   toujours au conditionnel pour les "grands futurs", etc.) — seulement la
   façon dont chaque message se termine et invite à réagir.
 
-**2 citations existantes repérées comme moins alignées avec "positif"**
-(`citation-05`, Voltaire — ton plutôt désabusé ; `citation-06`, Héraclite —
-mélancolique) : gardées pour l'instant, CTA ajouté pour les rendre plus
-engageantes, mais à toi de dire si tu préfères les retirer/remplacer par
-des citations plus toniques.
+*(Note du 13 août sur citation-05/citation-06 retirée le 14 août —
+périmée : les deux ont depuis été retirées, voir la section Citations
+ci-dessous.)*
 
 ## Format d'une entrée
 
@@ -112,6 +110,21 @@ d'où le lien du CTA (catégorie manifeste → `le-projet.html`, voir
 `docs/routine-pub-prompt.md`). Une vraie carte-grille avec les 7 jours
 demanderait un nouveau gabarit sans photo de fond, hors du pipeline actuel
 — à faire séparément si utile.*
+
+### manifeste-09
+- eyebrow: LES 3 SCÉNARIOS
+- message: **Favorable**. **Stable**. **Dégradé**.\nTrois issues chiffrées, jamais une prédiction unique.
+- cta: 👉 Découvre comment on les définit
+
+*Ajouté le 14 août — reprend le principe central de `le-projet.html`
+§ « Les trois scénarios » : jamais une prédiction unique, trois issues
+chiffrées et réévaluées dans le temps. Les définitions détaillées
+(favorable = la tension se résout plutôt bien, stable = le statu quo se
+prolonge, dégradé = la situation se détériore nettement) tiennent sur
+la page elle-même, pas sur l'image — le gabarit pub n'a la place que
+pour un teaser (voir manifeste-08, même logique). Le CTA renvoie vers
+`le-projet.html` via le lien automatique de la catégorie manifeste
+(voir `docs/routine-pub-prompt.md`).*
 
 ## 2. Citations — le hasard et l'incertitude (rotation B)
 
