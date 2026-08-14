@@ -132,14 +132,12 @@ Objectif : varier le feed avec du contenu plus léger/partageable, en lien
 thématique avec le projet, sans ton commercial — mais toujours avec un CTA
 qui invite à s'abonner ou réagir (voir "Dénominateur commun" ci-dessus).
 
-### citation-01
-- eyebrow: UNE CITATION
-- message: « Le hasard ne favorise que les esprits préparés. »
-- attribution: — Louis Pasteur
-- cta: 👉 Abonne-toi, prépare-toi chaque jour
-
-*Source solide : formule d'une conférence de Pasteur à l'université de
-Lille, 1854, très largement documentée.*
+### citation-01 `[retiré le 14 août]`
+*Était : « Le hasard ne favorise que les esprits préparés. » — Louis
+Pasteur. Retiré : retour utilisateur direct — "il est plat et nul",
+jugée trop convenue/attendue malgré une source solide (conférence de
+Pasteur à l'université de Lille, 1854). Id jamais réutilisé, gardé en
+trace ici.*
 
 ### citation-02
 - eyebrow: UNE CITATION

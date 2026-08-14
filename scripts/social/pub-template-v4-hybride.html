@@ -111,21 +111,19 @@
   body[data-accent="futur"] .eyebrow{ background: var(--futur); }
 
   /* Typo plus grande et plus lourde, repris de V3. */
-  /* Passé en blanc pur le 14 août (retour utilisateur) — --paper (crème)
-     manque un peu de punch en grand format sur une photo, le blanc pur
-     tranche plus net. Choix local à ce gabarit, --paper reste inchangé
-     partout ailleurs sur le site. */
   .message{
     font-family:"Fraunces", serif; font-weight:900; font-size: 86px; line-height:1.1;
     letter-spacing:-0.02em; color: #ffffff; max-width: 900px;
   }
   .message .hl{ color: var(--gold); }
-  /* Bleu éclairci le 14 août pour la citation (retour utilisateur :
-     "le texte en bleu, on ne le voit pas" — simple, pas d'ombre) —
-     --stable (#6f8fae) se fondait dans un ciel bleu ; un bleu plus clair
-     ressort nettement mieux sur une photo, seule cette utilisation
-     change (le reste du site garde --stable tel quel). */
-  body[data-accent="citation"] .message .hl{ color: #bcd6ef; }
+  /* Citation entière passée en bleu clair le 14 août (retour utilisateur :
+     "citation en bleu clair") — même bleu que l'attribution (#bcd6ef),
+     cohérence complète du bloc citation. Le mot surligné passe en blanc
+     pour garder un vrai contraste avec le reste de la phrase, sinon plus
+     aucune distinction visuelle entre le mot mis en avant et le texte
+     autour (les deux étaient au même bleu). */
+  body[data-accent="citation"] .message{ color: #bcd6ef; }
+  body[data-accent="citation"] .message .hl{ color: #ffffff; }
   body[data-accent="question"] .message .hl{ color: var(--favorable); }
   body[data-accent="chiffre"] .message .hl{ color: var(--degrade); }
   body[data-accent="futur"] .message .hl{ color: var(--futur); }
