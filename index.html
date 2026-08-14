@@ -764,15 +764,31 @@
     justify-content: space-between;
   }
 
+  /* Style "point plein" ajouté le 14 août (retour utilisateur, option C
+     validée sur mockup — code couleur qui scanne vite façon feu
+     tricolore, sans pastille pleine/badge qui aurait fait trop "app
+     mobile"). Mots (favorable/stable/dégradé) et palette (--favorable/
+     --stable/--degrade) inchangés — habillage visuel uniquement,
+     jamais appliqué rétroactivement aux archives déjà publiées. */
   .kind-tag{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.72rem;
+    font-weight: 700;
+    font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--accent);
-    border: 1px solid var(--accent);
-    border-radius: 100px;
-    padding: 3px 10px;
+  }
+  .kind-tag::before{
+    content: "";
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+    flex-shrink: 0;
   }
 
   /* gauge */
