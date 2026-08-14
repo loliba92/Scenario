@@ -29,15 +29,16 @@
   /* Voile allégé le 14 août (retour utilisateur : "trop pastel, trop de
      filtre") — la photo doit rester le sujet visuel, le voile juste ce
      qu'il faut pour que le texte du bas reste lisible.
-     **Plateau du haut rajouté le 14 août (2e retour)** : le voile allégé
-     ne laissait plus assez de noir sous le logo sur les photos claires
-     — même correctif que suivi-template.html (bande quasi opaque 0-16%
-     pour que le logo entier repose sur du noir), avant de retomber sur
-     le même dégradé léger qu'avant pour laisser la photo respirer au
-     milieu. */
+     **Vrai bandeau noir rajouté le 14 août (3e retour : "pas beau,
+     essaie plutôt un bandeau noir en haut, tu as oublié le dégradé")**
+     — le plateau à 0.94 précédent laissait encore transparaître la
+     couleur de la photo (pas un vrai noir). Ici : noir plein (opacité 1,
+     0-12%) en bandeau net sous le logo, un vrai dégradé qui le fait
+     fondre dans la photo (12-24%), puis retour au voile léger existant
+     pour laisser la photo respirer au milieu. */
   .scrim{
     position:absolute; inset:0;
-    background: linear-gradient(180deg, rgba(16,21,28,0.94) 0%, rgba(16,21,28,0.94) 16%, rgba(16,21,28,0.14) 30%, rgba(16,21,28,0.38) 55%, rgba(16,21,28,0.86) 100%);
+    background: linear-gradient(180deg, rgba(16,21,28,1) 0%, rgba(16,21,28,1) 12%, rgba(16,21,28,0) 24%, rgba(16,21,28,0.14) 30%, rgba(16,21,28,0.38) 55%, rgba(16,21,28,0.86) 100%);
   }
   /* 5 catégories, 5 couleurs d'accent : manifeste = or (identité),
      citation = bleu (calme/sagesse), question = vert (invitation à
