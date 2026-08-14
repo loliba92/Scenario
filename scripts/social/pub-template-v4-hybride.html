@@ -111,9 +111,13 @@
   body[data-accent="futur"] .eyebrow{ background: var(--futur); }
 
   /* Typo plus grande et plus lourde, repris de V3. */
+  /* Passé en blanc pur le 14 août (retour utilisateur) — --paper (crème)
+     manque un peu de punch en grand format sur une photo, le blanc pur
+     tranche plus net. Choix local à ce gabarit, --paper reste inchangé
+     partout ailleurs sur le site. */
   .message{
     font-family:"Fraunces", serif; font-weight:900; font-size: 86px; line-height:1.1;
-    letter-spacing:-0.02em; color: var(--paper); max-width: 900px;
+    letter-spacing:-0.02em; color: #ffffff; max-width: 900px;
   }
   .message .hl{ color: var(--gold); }
   /* Bleu éclairci le 14 août pour la citation (retour utilisateur :
@@ -126,7 +130,12 @@
   body[data-accent="chiffre"] .message .hl{ color: var(--degrade); }
   body[data-accent="futur"] .message .hl{ color: var(--futur); }
 
-  .attribution{ font-family:"Inter", sans-serif; font-weight:600; font-size: 34px; color: var(--paper-dim); margin-top: 28px; }
+  /* Attribution passée dans le même bleu clair que le mot surligné
+     (#bcd6ef, ligne .hl citation ci-dessus) — retour utilisateur : "le
+     même". Change le repère visuel de "texte secondaire discret" vers
+     "signature de la citation" — cohérent avec le mot mis en avant dans
+     la phrase juste au-dessus. */
+  .attribution{ font-family:"Inter", sans-serif; font-weight:600; font-size: 34px; color: #bcd6ef; margin-top: 28px; }
   .cta{ font-family: "JetBrains Mono", monospace; font-weight:700; font-size: 32px; color: var(--gold); margin-top:46px; }
 
   /* Repositionné le 14 août (retour utilisateur : "c'est une footnote,
