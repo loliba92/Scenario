@@ -333,7 +333,7 @@
   .entry{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     gap: 16px;
     padding: 20px 0;
     border-bottom: 1px solid var(--hairline);
@@ -345,8 +345,11 @@
   /* Vraie photo du sujet si elle existe, sinon un paysage pré-validé du
      registre (assets/social/pub-photos/) — jamais de logo générique, voir
      docs/ARCHITECTURE.md § « Vignette d'archive ». Au même niveau que le
-     titre, centrée verticalement sur l'ensemble du bloc texte (retour
-     utilisateur du 14 août : pas au-dessus, à côté). */
+     titre : .entry en align-items flex-start (pas center) pour que
+     l'image reste ancrée en haut, alignée sur date/titre, même quand
+     l'accordéon Scénarios s'ouvre et allonge .entry-body — avec center
+     elle se recentrait sur toute la hauteur dépliée et retombait au
+     milieu des cartes de scénarios (retour utilisateur du 14 août). */
   .entry-thumb{
     width: 56px;
     height: 56px;
