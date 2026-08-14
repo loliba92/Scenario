@@ -2446,6 +2446,43 @@ dans le texte plutôt que de bloc de synthèse) :
   introduction, pour ne pas revivre le même bug de disparition silencieuse
   du `<style>` un jour sans focus « Comprendre ».
 
+### Vignette d'archive (`.entry-thumb`) — [AJOUTÉ le 14 août]
+
+Chaque entrée de `archives.html` porte une petite photo carrée
+(`assets/social/archive-thumbs/{date}.jpg`, 144px source, affichée à 56px
+— 44px sous 560px), générée par
+`scripts/social/generate_archive_thumbnail.py` :
+
+```bash
+python3 scripts/social/generate_archive_thumbnail.py --date {AAAA-MM-JJ} --registre {registre}
+```
+
+**Source de l'image, jamais une nouvelle recherche Pexels** — même
+principe que `fetch_topic_image.py`/`routine-pub-prompt.md` :
+1. `assets/social/topic-images/{date}.jpg` si l'édition a une photo de
+   sujet retenue (17/22 éditions au 14 août).
+2. Sinon `assets/social/pub-photos/{registre}.jpg` — la même banque de
+   secours pré-validée qu'utilise déjà la routine Pub (un paysage par
+   registre). `culture-francaise`/`culture-internationale` (tags
+   historiques) retombent tous les deux sur `culture.jpg`.
+
+Recadrage centré en carré (`ImageOps.fit`, Pillow), export JPEG qualité
+72 : quelques Ko par vignette (116 Ko pour les 22 premières réunies) au
+lieu des centaines de Ko/plusieurs Mo des sources.
+
+**Disposition volontairement empilée, jamais alignée à côté du titre**
+(retour utilisateur du 14 août, après un premier essai où l'image était
+alignée avec le texte : « ça fait gros »). `.entry` reste en
+`flex-direction: column` (déjà le cas avant cet ajout) ; `.entry-thumb`
+est le premier enfant, suivi d'un nouveau `<div class="entry-body">` qui
+regroupe `.entry-main` et `.entry-scenarios` (auparavant enfants directs
+de `.entry`) pour que la vignette reste hors de ce sous-groupe. `alt=""`
+volontairement vide (le titre adjacent porte déjà l'information).
+
+**Backfill** : les 22 éditions existantes au 14 août ont été traitées en
+une passe. 5 d'entre elles (06/08, 04/08, 27/07, 26/07, 18/07) n'avaient
+pas de photo de sujet et utilisent la banque de secours par registre.
+
 ## Page Archives (`archives.html`)
 
 Chaque entrée de la liste porte un bouton **« Scénarios »** qui déplie, au clic,

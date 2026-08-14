@@ -322,9 +322,17 @@ Ne jamais réécrire une nouvelle phrase pour la description : reprendre exactem
 
 4. Écraser `index.html` avec la nouvelle édition.
 5. Copier dans `archives/AAAA-MM-JJ.html`, adapter tous les liens relatifs d'un niveau, même patron que les fichiers déjà présents.
-6. Insérer une nouvelle entrée `<li class="entry">` tout en haut d'`archives.html`, patron exact des entrées existantes :
+6. **Générer la vignette d'archive avant de construire l'entrée** [AJOUTÉ le 14 août] :
+```bash
+python3 scripts/social/generate_archive_thumbnail.py --date {AAAA-MM-JJ} --registre {registre}
+```
+Choisit automatiquement `assets/social/topic-images/{AAAA-MM-JJ}.jpg` si l'étape « Image Pexels du sujet » plus haut en a retenu une, sinon retombe sur la photo pré-validée du registre dans `assets/social/pub-photos/` (voir docstring du script) — jamais de nouvelle recherche, jamais de logo générique. Écrit `assets/social/archive-thumbs/{AAAA-MM-JJ}.jpg` (carré 144px, quelques Ko). Committer ce fichier avec le reste de l'édition.
+
+Insérer une nouvelle entrée `<li class="entry">` tout en haut d'`archives.html`, patron exact des entrées existantes :
 ```html
 <li class="entry">
+  <img class="entry-thumb" src="assets/social/archive-thumbs/{AAAA-MM-JJ}.jpg" alt="" loading="lazy" width="64" height="64">
+  <div class="entry-body">
   <div class="entry-main">
     <span class="entry-date">{JJ.MM.AAAA}</span>
     <a class="entry-title" href="archives/{AAAA-MM-JJ}.html">{h1 du jour}</a>
@@ -337,8 +345,11 @@ Ne jamais réécrire une nouvelle phrase pour la description : reprendre exactem
   <div class="entry-scenarios" id="scenarios-{AAAA-MM-JJ}" data-fragment="archives/fragments/{AAAA-MM-JJ}.html">
     <div class="entry-scenarios-inner"></div>
   </div>
+  </div>
 </li>
 ```
+**`alt=""` volontairement vide** : le titre juste à côté (`.entry-title`) porte déjà l'information, une vignette purement illustrative n'a rien à ajouter pour un lecteur d'écran — éviter la redondance. `width`/`height` fixes à 64 (CSS les réduit ensuite à 56px, 44px sous 560px) : évite un saut de mise en page pendant le chargement (`loading="lazy"`). CSS `.entry-thumb`/`.entry-body` déjà dans le gabarit d'`archives.html` — **vignette volontairement empilée au-dessus du texte, jamais alignée à côté du titre** (retour utilisateur du 14 août : une image large à côté du texte alourdit la ligne). Ne jamais changer cette disposition sans nouveau retour explicite.
+
 Pour le tag de registre et 1-2 tags thématiques : lire d'abord `docs/tags.md` (liste fermée), réutiliser un tag existant chaque fois que possible — n'en créer un nouveau qu'en dernier recours, et l'ajouter aussitôt à `docs/tags.md`.
 
 **Le bloc dépliable des 3 scénarios va dans `archives/fragments/{AAAA-MM-JJ}.html`** (chargé par le JS d'`archives.html` au clic sur "Scénarios"), pas dans `archives.html` lui-même :
