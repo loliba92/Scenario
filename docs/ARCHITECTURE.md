@@ -3392,6 +3392,25 @@ Voir les échanges de session pour le détail, mais en résumé :
   s'il y en a une. Le lecteur doit comprendre la volatilité réelle de la
   mise à jour en une seule lecture.
 
+  **Jamais l'étiquette de catégorie brute (favorable/stable/dégradé)
+  seule en tête de phrase, sans dire ce qu'elle recouvre concrètement**
+  (ajouté le 14 août après retour utilisateur — cas réel :
+  "⏳ Stable en forte hausse, +20 points (45%)" jugé incompréhensible,
+  "stable *quoi* ?"). "Favorable"/"dégradé" passent presque toujours
+  (le sens général — bonne/mauvaise nouvelle — se devine), mais
+  "stable" ne dit jamais de quoi il s'agit : toujours remplacer
+  l'étiquette par le titre concret du scénario (celui déjà écrit dans
+  sa carte `.mini-scenario-title`, ex. "Le procès traîne, le deal
+  reste gelé"), pas le nom de la catégorie interne. Corrigé rétro-
+  activement sur `suivi/warner-paramount.html` et l'item correspondant
+  de `feed-suivi.xml` le jour même. Vaut pour la conclusion sur la page
+  ET pour `<comments>`/`<description>` de `feed-suivi.xml` (et donc
+  pour l'image générée par `generate_suivi_image.py`, qui réutilise ce
+  même texte tel quel) — dans les deux cas, un lecteur qui n'a jamais
+  ouvert la page doit comprendre en une seule phrase *pourquoi* il y a
+  une mise à jour, sans avoir à deviner ce que "stable" signifie pour
+  ce sujet précis.
+
   Mettre à jour le badge et la date sur `archives.html` ; mettre à jour
   aussi l'entrée correspondante (ou la créer) dans la section « Suivis
   actifs » de `docs/sujets-a-suivre.md` (dernière vérification, prochaine

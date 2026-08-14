@@ -48,12 +48,18 @@
   /* Pastille "sujet du jour" ajoutée le 14 août (retour utilisateur :
      cohérence avec la pastille de catégorie des images de pub) — même
      recette (JetBrains Mono, fond plein, coins arrondis), toujours dorée
-     ici puisque le daily n'a pas de catégories à distinguer par couleur. */
-  .eyebrow{
-    align-self:flex-start;
-    font-family:"JetBrains Mono", monospace; font-weight:700; font-size: 24px;
+     ici puisque le daily n'a pas de catégories à distinguer par couleur.
+     **Repositionnée le 14 août** : d'abord posée en tête du bloc de
+     contenu centré verticalement, elle finissait collée sous le logo
+     (le bloc centré démarre haut quand le titre est long) — retour
+     utilisateur "le tag est sur le logo". Déplacée dans la même ligne
+     que le masthead (voir HTML), position fixe garantie, ne dépend plus
+     de la hauteur du titre. */
+  .masthead .eyebrow{
+    font-family:"JetBrains Mono", monospace; font-weight:700; font-size: 22px;
     letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink);
-    background: var(--gold); border-radius: 40px; padding: 10px 26px;
+    background: var(--gold); border-radius: 40px; padding: 9px 22px;
+    margin-left: 4px;
   }
 
   .headline{
@@ -141,9 +147,8 @@
       <path d="M83.03,47.5 L86,39 L77.31,41.3" stroke="#bd6248"/>
     </svg>
     <div class="word">Scéna<span class="rio">rio</span></div>
+    <div class="eyebrow">Sujet du jour</div>
   </div>
-
-  <div class="eyebrow">Sujet du jour</div>
 
   <div class="headline">__TITLE__</div>
 
