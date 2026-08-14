@@ -129,9 +129,16 @@
   .attribution{ font-family:"Inter", sans-serif; font-weight:600; font-size: 34px; color: var(--paper-dim); margin-top: 28px; }
   .cta{ font-family: "JetBrains Mono", monospace; font-weight:700; font-size: 32px; color: var(--gold); margin-top:46px; }
 
+  /* Repositionné le 14 août (retour utilisateur : "c'est une footnote,
+     c'est tout en bas") — depuis que .content est centré verticalement
+     (voir plus haut), le footer suivait le bloc de texte et finissait
+     n'importe où au milieu de l'image. Sorti du flux, ancré en bas comme
+     une vraie note de bas de page, indépendant de la position du texte
+     au-dessus. */
   .footer{
+    position:absolute; left:92px; right:92px; bottom:88px; z-index:2;
     display:flex; align-items:baseline; gap:14px; font-size:22px;
-    letter-spacing:0.08em; text-transform:uppercase; margin-top:44px;
+    letter-spacing:0.08em; text-transform:uppercase;
   }
   .footer .tagline{ color: var(--gold); font-weight:700; }
   .footer .sep{ color: var(--paper-dim); opacity:.5; }
