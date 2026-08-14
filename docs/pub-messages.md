@@ -242,14 +242,12 @@ jamais réutilisé, gardé en trace ici.*
 retiré) : elle part de ce que le lecteur a déjà en tête plutôt que de lui
 demander de réfléchir à un sujet.*
 
-### question-03
-- eyebrow: À VOUS DE JOUER
-- message: Parmi les 3 scénarios de la semaine,\nlequel t'a le plus surpris ?
-- cta: 👉 Dis-nous lequel
-
-*Réagit sur du contenu déjà publié plutôt que de solliciter une nouvelle
-idée — variante utile pour ne pas répéter le même type de question à
-chaque publication.*
+### question-03 `[retiré le 14 août]`
+*Était : "Parmi les 3 scénarios de la semaine, lequel t'a le plus
+surpris ?" Retiré : retour utilisateur direct — "ça veut rien dire",
+question trop floue/abstraite pour un lecteur qui scrolle (aucun des 3
+scénarios d'une semaine donnée n'est nommément rappelé, la question ne
+tient pas seule dans un post). Id jamais réutilisé, gardé en trace ici.*
 
 ### question-04
 - eyebrow: À VOUS DE JOUER
