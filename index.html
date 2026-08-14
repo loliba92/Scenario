@@ -424,6 +424,45 @@
     color: var(--paper);
   }
 
+  /* Encart pédagogique en aparté dans le corps d'un article — même recette
+     que .question-box (fond surface, filet doré à gauche, radius 4px),
+     mais label "Comprendre" pour une explication de fond plutôt qu'une
+     question ou un enjeu. */
+  .comprendre-box{
+    background: var(--surface);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin: 24px 0 0;
+    max-width: 62ch;
+  }
+
+  .comprendre-label{
+    display: block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin: 0 0 8px;
+  }
+
+  .comprendre-lead{
+    font-family: "Fraunces", serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.35;
+    margin: 0 0 10px;
+    color: var(--paper);
+  }
+
+  .comprendre-text{
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin: 0;
+    color: var(--paper-dim);
+  }
+
   .stakes-box{
     background: var(--surface);
     border-left: 3px solid var(--gold);
@@ -1167,6 +1206,12 @@
         <span class="label">Facture économique de l'été 2026</span>
         <span class="value">10-15 Md€ <span class="delta">— estimation du ministère, 0,3 à 0,5 point de PIB</span></span>
       </div>
+    </div>
+
+    <div class="comprendre-box">
+      <span class="comprendre-label">Comprendre</span>
+      <p class="comprendre-lead">Ces dépenses ressemblent à une économie de guerre : elles ne rendent personne plus riche, elles évitent seulement de perdre ce qu'on a déjà.</p>
+      <p class="comprendre-text">Climatiser un hôpital, renforcer un réseau électrique : ce n'est pas un investissement qui fait grandir l'économie, comme la formation ou la recherche. C'est une dépense défensive, qui maintient le niveau de vie actuel face à une menace qui, elle, s'aggrave chaque année.</p>
     </div>
 
   </div>
