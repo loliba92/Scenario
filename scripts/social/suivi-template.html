@@ -22,14 +22,18 @@
     background-image:url(__PHOTO_SRC__);
     background-size:cover; background-position:center;
   }
-  /* Même voile que le gabarit pub v4 depuis le 14 août (retour
-     utilisateur commun aux deux : "cohérence", photo qui reste le sujet
-     visuel, voile juste assez fort pour la lisibilité du texte du bas). */
+  /* Voile propre au suivi, plus marqué que le gabarit pub v4 — retour
+     utilisateur du 14 août : contrairement à pub (validé tel quel), le
+     suivi porte un paragraphe entier (conclusion), pas une phrase
+     courte, et a besoin d'un vrai dégradé noir en haut (logo + pastille)
+     et d'un assombrissement plus général pour que le texte ressorte.
+     Toujours une fenêtre plus claire au milieu pour laisser la photo
+     respirer un minimum. */
   .scrim{
     position:absolute; inset:0;
-    background: linear-gradient(180deg, rgba(16,21,28,0.14) 0%, rgba(16,21,28,0.38) 55%, rgba(16,21,28,0.86) 100%);
+    background: linear-gradient(180deg, rgba(16,21,28,0.58) 0%, rgba(16,21,28,0.22) 18%, rgba(16,21,28,0.24) 34%, rgba(16,21,28,0.58) 52%, rgba(16,21,28,0.92) 100%);
   }
-  .tint{ position:absolute; inset:0; mix-blend-mode: color; background: var(--gold); opacity:0.08; }
+  .tint{ position:absolute; inset:0; mix-blend-mode: color; background: var(--gold); opacity:0.14; }
 
   .frame{ position:absolute; inset:36px; border: 2px solid rgba(236,231,218,0.22); z-index:1; pointer-events:none; }
 
