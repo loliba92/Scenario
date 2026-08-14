@@ -28,6 +28,17 @@ mériter une page de suivi ou une mise à jour.
   Doomsday.
   Dernière vérification : 1er août 2026 (V1).
 
+- **HBO Max, CNN, Batman : la mégafusion Paramount–Warner** (édition du 26
+  juillet 2026)
+  Suivi existant : `suivi/warner-paramount.html` (V0 + V1 au 14 août).
+  Prochaine échéance connue : procès antitrust fixé du **2 au 19 mars
+  2027** devant la juge Araceli Martínez-Olguín ; engagement des parties à
+  ne pas conclure le rachat avant **juin 2027** au plus tard. À surveiller
+  aussi : tout règlement à l'amiable avant le procès, toute nouvelle
+  concession de Paramount à d'autres régulateurs, et l'évolution du
+  cumul des pénalités (~7 M$/jour depuis le 1er octobre).
+  Dernière vérification : 14 août 2026 (V1).
+
 - **FIFA : la crise autour d'Infantino** (édition du 6 août 2026)
   Suivi existant : `suivi/fifa-infantino.html` (V0 + V1 au 8 août).
   Prochaine échéance connue : date limite de candidature à la présidence
@@ -67,6 +78,6 @@ un sujet devenu manifestement sans suite (voir marche à suivre dans
 - 29.07.2026 — [Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?](../archives/2026-07-29.html)
 - 28.07.2026 — [Milliardaires : la richesse du monde peut-elle encore se partager ?](../archives/2026-07-28.html)
 - 27.07.2026 — [Iran–États-Unis : les armes se taisent, l'accord reste à trouver](../archives/2026-07-27.html)
-- 26.07.2026 — [HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ?](../archives/2026-07-26.html)
+- 26.07.2026 — [HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ?](../archives/2026-07-26.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.
 - 25.07.2026 — [Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ?](../archives/2026-07-25.html)
 - 18.07.2026 — [Spider-Man contre Avengers : qui va sauver le box-office Marvel ?](../archives/2026-07-18.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.
