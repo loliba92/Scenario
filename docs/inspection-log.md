@@ -49,10 +49,15 @@ correctif — toujours synchronisés (mêmes écarts légitimes qu'avant
 correctif, rien de nouveau). Correctif hors point 1 (texte uniquement) :
 pas de capture Playwright nécessaire.
 **Signalé pour revue humaine** :
-- Source Météo-France (bilan climatique juin 2026, citée en bas de page)
-  injoignable — `WebFetch` renvoie une erreur HTTP 503. Non re-vérifiable
-  ce passage-ci ; à retenter au prochain passage plutôt que de chercher une
-  source de remplacement.
+- ~~Source Météo-France (bilan climatique juin 2026, citée en bas de page)
+  injoignable — `WebFetch` renvoie une erreur HTTP 503.~~ **Résolu le même
+  jour** (retenté hors passage automatique, sur demande de l'utilisateur) :
+  la source répond maintenant. Les 3 faits qu'elle appuie correspondent à
+  l'article — 72 départements en vigilance rouge canicule le 25 juin,
+  pointes >40°C (43,8°C à Saintes, 42,7°C à Cognac, 42,5°C à Bordeaux),
+  "totalement inédit depuis la création de la Vigilance Canicule en 2004".
+  Rien à corriger. Signalement clos, plus rien en attente sur cette
+  édition.
 - Les 3 autres chiffres structurants vérifiés (Santé publique France :
   5 764 morts en excès, +36 % — exact ; ministère de la Transition
   écologique via L'EnerGeek : 10-15 Md€ de facture été — exact ;
