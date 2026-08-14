@@ -48,6 +48,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 14.08.2026 — [Canicules à répétition : qui paie l'addition ?](../archives/2026-08-14.html)
 - 13.08.2026 — [Inflation : le pétrole rebat les cartes](../archives/2026-08-13.html)
 - 12.08.2026 — [2027 : un favori, une opposition éclatée](../archives/2026-08-12.html)
 - 11.08.2026 — [L'Éthiopie veut sa mer, au risque de la guerre](../archives/2026-08-11.html)
