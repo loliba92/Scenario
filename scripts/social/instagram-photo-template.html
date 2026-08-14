@@ -48,6 +48,16 @@
     flex-direction:column;
     gap:24px;
   }
+  /* Pastille "sujet du jour", même recette que instagram-template.html
+     (ajoutée le 14 août pour la cohérence avec la pastille de catégorie
+     des images de pub). */
+  .eyebrow{
+    align-self:flex-start;
+    font-family:"JetBrains Mono", monospace; font-weight:700; font-size: 22px;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink);
+    background: var(--gold); border-radius: 40px; padding: 9px 24px;
+  }
+
   .headline{
     font-family:"Fraunces", serif;
     font-weight:900;
@@ -172,6 +182,8 @@
   __DELTA_BADGE__
 
   <div class="content">
+    <div class="eyebrow">Sujet du jour</div>
+
     <div class="headline">__TITLE__</div>
 
     <div class="hook">__HOOK__</div>

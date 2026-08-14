@@ -45,6 +45,17 @@
   }
   .masthead .word .rio{ color: var(--gold); }
 
+  /* Pastille "sujet du jour" ajoutée le 14 août (retour utilisateur :
+     cohérence avec la pastille de catégorie des images de pub) — même
+     recette (JetBrains Mono, fond plein, coins arrondis), toujours dorée
+     ici puisque le daily n'a pas de catégories à distinguer par couleur. */
+  .eyebrow{
+    align-self:flex-start;
+    font-family:"JetBrains Mono", monospace; font-weight:700; font-size: 24px;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink);
+    background: var(--gold); border-radius: 40px; padding: 10px 26px;
+  }
+
   .headline{
     font-family:"Fraunces", serif;
     font-weight:900;
@@ -131,6 +142,8 @@
     </svg>
     <div class="word">Scéna<span class="rio">rio</span></div>
   </div>
+
+  <div class="eyebrow">Sujet du jour</div>
 
   <div class="headline">__TITLE__</div>
 

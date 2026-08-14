@@ -2,7 +2,7 @@
 <html><head><meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink: #10151c;
@@ -12,10 +12,6 @@
     --stable: #6f8fae;
     --favorable: #5e9c78;
     --degrade: #bd6248;
-    /* 5e couleur, réservée à la catégorie "futur" — même registre
-       désaturé que les 4 autres, aucune n'était disponible pour une
-       5e catégorie sans se marcher dessus. */
-    --futur: #9b7fc0;
   }
   *{ box-sizing: border-box; margin:0; padding:0; }
   html,body{ width:1080px; height:1080px; }
@@ -26,35 +22,16 @@
     background-image:url(__PHOTO_SRC__);
     background-size:cover; background-position:center;
   }
-  /* Voile allégé le 14 août (retour utilisateur : "trop pastel, trop de
-     filtre") — la photo doit rester le sujet visuel, le voile juste ce
-     qu'il faut pour que le texte du bas reste lisible. */
+  /* Même voile que le gabarit pub v4 depuis le 14 août (retour
+     utilisateur commun aux deux : "cohérence", photo qui reste le sujet
+     visuel, voile juste assez fort pour la lisibilité du texte du bas). */
   .scrim{
     position:absolute; inset:0;
     background: linear-gradient(180deg, rgba(16,21,28,0.14) 0%, rgba(16,21,28,0.38) 55%, rgba(16,21,28,0.86) 100%);
   }
-  /* 5 catégories, 5 couleurs d'accent : manifeste = or (identité),
-     citation = bleu (calme/sagesse), question = vert (invitation à
-     réagir), chiffre = orange (attire l'oeil sur un fait qui mérite
-     qu'on s'arrête dessus), futur = violet (projection, distinct des
-     4 couleurs déjà utilisées ailleurs sur le site). Opacité réduite le
-     14 août (même retour utilisateur) — la teinte doit rester une
-     signature discrète, pas délaver la photo. */
   .tint{ position:absolute; inset:0; mix-blend-mode: color; background: var(--gold); opacity:0.08; }
-  body[data-accent="citation"] .tint{ background: var(--stable); }
-  body[data-accent="question"] .tint{ background: var(--favorable); }
-  body[data-accent="chiffre"] .tint{ background: var(--degrade); }
-  body[data-accent="futur"] .tint{ background: var(--futur); }
 
-  /* Cadre fin + grand guillemet, repris de V2 */
   .frame{ position:absolute; inset:36px; border: 2px solid rgba(236,231,218,0.22); z-index:1; pointer-events:none; }
-  .quote-glyph{
-    position:absolute; top:96px; left:80px; z-index:1;
-    font-family:"Fraunces", serif; font-weight:900; font-size:300px; line-height:1;
-    color: rgba(207,157,76,0.20);
-    display:none;
-  }
-  body[data-accent="citation"] .quote-glyph{ display:block; color: rgba(111,143,174,0.24); }
 
   .content{
     position:relative; z-index:2;
@@ -64,15 +41,17 @@
     padding: 80px 92px 88px;
   }
 
-  /* Taille alignée sur le gabarit daily le 14 août (retour utilisateur :
-     "le logo est trop petit... tout doit être cohérent") — même 78px/58px
-     que instagram-template.html, seule référence de cohérence inter-images. */
+  /* Même taille que instagram-template.html (78px/58px) — retour
+     utilisateur du 14 août : le logo de ce gabarit doit matcher celui
+     du daily, pas rester une taille à part. */
   .masthead{ display:flex; align-items:center; gap:16px; position:absolute; top:48px; left:80px; z-index:2; }
   .masthead svg{ width:78px; height:78px; }
   .masthead .word{ font-family:"Fraunces", serif; font-weight:700; font-size:58px; color: var(--paper); }
   .masthead .word .rio{ color: var(--gold); }
 
-  /* Pastille pleine, repris de V2 */
+  /* Pastille "mise à jour" — même recette que .eyebrow sur le gabarit
+     pub/daily (JetBrains Mono, fond plein, coins arrondis), reprise du
+     retour utilisateur du 14 août ("mettre un petit tag mise à jour"). */
   .eyebrow{
     display:inline-block; align-self:flex-start;
     font-family:"JetBrains Mono", monospace; font-weight:700; font-size: 24px;
@@ -80,24 +59,20 @@
     background: var(--gold); border-radius: 40px; padding: 10px 26px;
     margin-bottom: 32px;
   }
-  body[data-accent="citation"] .eyebrow{ background: var(--stable); }
-  body[data-accent="question"] .eyebrow{ background: var(--favorable); }
-  body[data-accent="chiffre"] .eyebrow{ background: var(--degrade); }
-  body[data-accent="futur"] .eyebrow{ background: var(--futur); }
 
-  /* Typo plus grande et plus lourde, repris de V3 */
-  .message{
-    font-family:"Fraunces", serif; font-weight:900; font-size: 86px; line-height:1.1;
-    letter-spacing:-0.02em; color: var(--paper); max-width: 900px;
+  .topic{
+    font-family:"Fraunces", serif; font-weight:900; font-size: 52px; line-height:1.12;
+    letter-spacing:-0.01em; color: var(--paper); max-width: 880px;
   }
-  .message .hl{ color: var(--gold); }
-  body[data-accent="citation"] .message .hl{ color: var(--stable); }
-  body[data-accent="question"] .message .hl{ color: var(--favorable); }
-  body[data-accent="chiffre"] .message .hl{ color: var(--degrade); }
-  body[data-accent="futur"] .message .hl{ color: var(--futur); }
 
-  .attribution{ font-family:"Inter", sans-serif; font-weight:600; font-size: 34px; color: var(--paper-dim); margin-top: 28px; }
-  .cta{ font-family: "JetBrains Mono", monospace; font-weight:700; font-size: 32px; color: var(--gold); margin-top:46px; }
+  /* La conclusion (texte déjà écrit dans feed-suivi.xml <comments>) est
+     une phrase complète, pas un titre court comme sur le gabarit pub —
+     Inter plutôt que Fraunces, taille plus modeste pour rester lisible
+     sur 3-4 lignes. */
+  .conclusion{
+    font-family:"Inter", sans-serif; font-weight:600; font-size: 40px; line-height:1.35;
+    color: var(--paper); max-width: 880px; margin-top: 22px;
+  }
 
   .footer{
     display:flex; align-items:baseline; gap:14px; font-size:22px;
@@ -107,12 +82,11 @@
   .footer .sep{ color: var(--paper-dim); opacity:.5; }
   .footer .url{ color: var(--paper-dim); text-transform: lowercase; }
 </style></head>
-<body data-accent="__ACCENT__">
+<body>
   <div class="photo-bg"></div>
   <div class="tint"></div>
   <div class="scrim"></div>
   <div class="frame"></div>
-  <div class="quote-glyph">“</div>
   <div class="content">
     <div class="masthead">
       <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round">
@@ -131,10 +105,9 @@
       <div class="word">Scéna<span class="rio">rio</span></div>
     </div>
 
-    <div class="eyebrow">__EYEBROW__</div>
-    <div class="message">__MESSAGE__</div>
-    <div class="attribution">__ATTRIBUTION__</div>
-    <div class="cta">__CTA__</div>
+    <div class="eyebrow">🔄 Suivi mis à jour</div>
+    <div class="topic">__TOPIC__</div>
+    <div class="conclusion">__CONCLUSION__</div>
 
     <div class="footer"><span class="tagline">Le futur en 3 scénarios</span><span class="sep">·</span><span class="url">lesscenarios.fr</span></div>
   </div>
