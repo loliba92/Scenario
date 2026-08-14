@@ -2501,6 +2501,29 @@ remplissage du gabarit, écrasement d'`index.html`, création de l'archive
 figée, mise à jour d'`archives.html`, puis `git commit` + `git push` direct
 sur `main` (pas de pull request).
 
+**Mode pointeur depuis le 14 août** (retour utilisateur : trop de
+copier-coller manuel à chaque évolution du prompt). Jusque-là, le texte
+complet de `docs/routine-prompt.md` était collé en dur dans le trigger —
+toute évolution de la routine demandait un aller-retour manuel dans
+l'interface Claude Code Remote, en plus du commit du fichier. Le trigger
+contient désormais un court prompt fixe (~1 Ko, mêmes 5 étapes que le
+prompt-pointeur de l'Inspecteur ci-dessous) qui se contente de faire
+`git pull origin main` puis de lire et appliquer `docs/routine-prompt.md`
+dans son intégralité. **`docs/routine-prompt.md` est donc la source de
+vérité vivante** : un commit + push sur `main` suffit à changer le
+comportement de la routine dès sa prochaine exécution, plus de
+copier-coller après la bascule initiale.
+
+**Limite vérifiée le 14 août** : `trig_0176spj7P7E9fyTs1XBkQBWF` a été créé
+via l'API HTTP, pas par un agent (`create_trigger`) — `update_trigger` y
+est refusé pour tout agent (message exact : *« this routine was created
+via "http_api", not by an agent »*). La bascule initiale vers le mode
+pointeur, et toute future modification du texte fixe du pointeur
+lui-même (pas du contenu qu'il pointe), reste donc un geste manuel de
+l'utilisateur dans l'interface — rare, puisque les règles éditoriales et
+techniques ordinaires vivent désormais entièrement dans
+`docs/routine-prompt.md`.
+
 ## Branches Git
 
 - `main` — branche servie par GitHub Pages, toujours à jour.

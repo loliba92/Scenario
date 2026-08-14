@@ -1,13 +1,24 @@
 # Prompt de la routine éditoriale « Scénario »
 
-Ce fichier est la copie de référence du prompt envoyé chaque jour par la routine
-planifiée (Claude Code Remote, trigger **« Scénario »**, `trig_0176spj7P7E9fyTs1XBkQBWF`,
-cron `0 5 * * *` UTC = 7h00 heure de Paris). C'est ce texte qui pilote la sélection
-du sujet, la rédaction et la publication automatique de chaque édition.
+**[BASCULÉ le 14 août, retour utilisateur — mode pointeur, même méthode que
+`docs/routine-inspection-prompt.md`.]** Le trigger **« Scénario »**
+(`trig_0176spj7P7E9fyTs1XBkQBWF`, cron `0 5 * * *` UTC = 7h00 heure de
+Paris) ne contient plus le prompt complet en dur. Il contient un court
+prompt-pointeur (~1 Ko, voir `docs/ARCHITECTURE.md` § « Automatisation
+éditoriale ») qui dit à la routine de faire `git pull origin main` puis de
+lire **ce fichier** intégralement (tout ce qui suit le séparateur `---`
+ci-dessous) et de l'appliquer tel quel. **Conséquence directe : ce fichier
+est la source de vérité vivante, pas une copie.** Le modifier ici (commit +
+push sur `main`) suffit à changer le comportement de la routine dès sa
+prochaine exécution — plus aucun copier-coller manuel dans l'interface
+Claude Code Remote après la bascule initiale.
 
-Si tu modifies le comportement de la routine (via `update_trigger` côté Claude Code
-Remote), mets ce fichier à jour dans la foulée pour qu'il reste la source de vérité
-lisible par un humain.
+**Limite connue** : ce trigger a été créé via l'API HTTP, pas par un agent
+(`create_trigger`) — `update_trigger` y est refusé pour un agent, quel qu'il
+soit (vérifié le 14 août). Modifier le **prompt-pointeur lui-même** (son
+texte fixe, pas le contenu édité ici) reste donc un geste manuel, mais
+c'est un geste rare : seulement si la mécanique du pointeur change, jamais
+pour une règle éditoriale ou technique ordinaire — celles-ci vivent ici.
 
 **Version allégée depuis le 9 août** (retour utilisateur : réduire le coût en
 tokens de la routine, ~17k tokens auparavant, aucun cache d'un jour à l'autre
