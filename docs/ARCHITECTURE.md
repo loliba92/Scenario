@@ -1947,6 +1947,56 @@ moins prioritaire).
   l'utilisateur réapprovisionne une liste de chiffres vérifiés — pas
   supprimé du concept, juste absent du cycle actif pour l'instant.
 
+  **[FAIT le 14 août] Catégorie "Le saviez-vous" (chiffres) réintégrée,
+  avec un mécanisme différent de la version retirée le 13 août** — retour
+  utilisateur : des pubs automatiques qui reprennent un fait/chiffre fort
+  déjà publié dans une édition (ex. un bilan chiffré d'une canicule), pas
+  une liste à approvisionner à la main. **Différence clé avec la version
+  retirée** : l'ancienne liste demandait à l'utilisateur de fournir des
+  chiffres pré-vérifiés un par un (jamais réamorcée, bloquante). La
+  nouvelle version **extrait un chiffre déjà publié et déjà vérifié**
+  (sources croisées, relecture) directement depuis `archives/*.html` —
+  jamais une génération ou un calcul par la routine, seulement une
+  citation verbatim d'un fait qui a déjà passé le processus éditorial du
+  site. Ça élimine le risque de fait inventé par un LLM déjà identifié
+  comme raison de retrait de plusieurs entrées le 13 août
+  (`citation-04/09/10`, `chiffre-01/02/03`).
+
+  Décisions prises avec l'utilisateur (3 questions posées, 3 réponses) :
+  - **Source** : éditions quotidiennes uniquement (`archives/*.html`),
+    jamais les pages de suivi ni le récap hebdo — le contenu le plus
+    dense en chiffres vérifiés, le plus simple à scanner.
+  - **Gabarit** : nouveau template dédié plutôt que réutiliser
+    `pub-template-v4-hybride.html` — le chiffre doit être l'élément
+    visuel dominant, pas noyé dans un texte sur une photo.
+  - **Rotation** : 5e catégorie dans le cycle existant (`manifeste →
+    citation → question → futur → chiffre → manifeste...`), pas un
+    rythme séparé — garde une cadence de publication prévisible plutôt
+    que d'ajouter une fréquence à gérer en plus.
+
+  Implémenté :
+  - `scripts/social/pub-template-v5-stat.html` — nouveau gabarit sans
+    photo, chiffre en très grand (accent orange, même couleur "chiffre"
+    déjà réservée dans `pub-template-v4-hybride.html`), phrase de
+    contexte en dessous.
+  - `scripts/social/generate_pub_image.py` — ajoute un champ optionnel
+    `stat` (placeholder `__STAT__`), rétrocompatible : les autres
+    gabarits n'ont pas ce placeholder, le `.replace()` ne fait rien sur
+    eux.
+  - `docs/pub-messages.md`, nouvelle section 5 : décrit le mécanisme
+    d'extraction (scan des éditions des ~30 derniers jours, chiffres mis
+    en `<strong>` dans `.dek`/`.essentiel-text`, exclusion des éditions
+    trop récentes <24h ou déjà citées, recopie mot pour mot) plutôt
+    qu'une liste fermée — section volontairement vide au lancement,
+    comme "Grands futurs" le 13 août (pas bloquant, le scan la
+    réalimente à chaque tour).
+  - `docs/routine-pub-prompt.md` : cycle mis à jour partout (5
+    catégories), nouveau point 7 dans l'étape 1 (procédure d'extraction
+    complète), étape 2 (photo) sautée pour cette catégorie, étape 3
+    (génération) avec la commande dédiée, table des liens étape 4 mise à
+    jour (`chiffre` → l'édition source elle-même, seule catégorie sans
+    page de destination fixe).
+
   **[FAIT le 13 août] Trigger créé** : `trig_01A1XU5Kpc4QWzApjZPqcKpj`,
   cron `0 16 * * 2,5` UTC = **mardi et vendredi 18h Paris** (2x/semaine,
   cadence de lancement choisie par l'utilisateur, à ramener à 1x/semaine

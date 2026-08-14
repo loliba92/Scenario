@@ -321,19 +321,74 @@ surprise attendu, pas un texte à recopier tel quel) :
   certaines zones inondables ou à risque incendie" plutôt que "le climat
   est le risque n°1 du siècle".
 
+## 5. Le saviez-vous — un chiffre qui marque (rotation E)
+
+**Réintroduite le 14 août, à la demande de l'utilisateur, avec un
+mécanisme différent de la version retirée le 13 août.** L'ancienne
+version (voir `docs/ARCHITECTURE.md`) était une liste fermée à
+approvisionner à la main, jamais réamorcée faute de temps. Cette fois :
+**jamais un chiffre inventé ou recalculé — toujours extrait tel quel
+d'une édition déjà publiée sur `lesscenarios.fr`, donc déjà vérifiée par
+le processus éditorial normal (sources croisées, relecture) avant même
+d'atterrir ici.** Ça élimine le risque qui avait fait retirer citation-04/
+09/10 et chiffre-01/02/03 le 13 août (fait/citation mal attribué ou
+inventé par un LLM) : on ne génère rien, on cite.
+
+**Mécanisme (voir `docs/routine-pub-prompt.md` pour la procédure
+exacte) :**
+1. Scanner les éditions quotidiennes publiées dans les ~30 derniers jours
+   (`archives/*.html`), jamais les pages de suivi ni le récap hebdo.
+2. Repérer les phrases de `.dek` ou `.essentiel-text` contenant un
+   chiffre mis en évidence (`<strong>`) — un pourcentage, un montant, un
+   nombre de personnes, une date marquante, etc.
+3. Écarter les éditions dont le chiffre a déjà servi dans un post
+   "chiffre" précédent (déduit de `feed-pub.xml`, même logique que les
+   autres catégories) et les éditions publiées il y a moins de 24h (leur
+   laisser le temps d'un passage par la routine Inspecteur avant d'être
+   citées ailleurs).
+4. Choisir la phrase la plus marquante parmi les candidates restantes —
+   seul endroit où un peu de jugement éditorial entre en jeu, jamais sur
+   le chiffre lui-même.
+5. Recopier la phrase **mot pour mot, jamais reformulée** (même
+   discipline que les citations) — le chiffre extrait seul alimente le
+   champ `stat` (affiché en très grand), la phrase complète alimente
+   `message` (contexte, affiché en dessous).
+6. Journaliser l'entrée utilisée dans ce fichier après publication (id
+   `chiffre-{AAAA-MM-JJ}`, jamais réutilisé), avec un lien vers l'édition
+   source — même logique de traçabilité que les entrées `futur-{N}`.
+
+**Format spécifique à cette catégorie** (s'ajoute au format standard) :
+```
+- stat: {le chiffre seul, tel qu'affiché dans l'édition source}
+- source: {lien vers l'édition d'origine}
+```
+Le lien du post pointe vers l'édition source elle-même (pas
+`le-projet.html` ni la page d'accueil) — contrairement aux autres
+catégories, voir la table des liens dans `docs/routine-pub-prompt.md`.
+
+**Gabarit dédié** : `scripts/social/pub-template-v5-stat.html` — pas de
+photo, le chiffre en très grand est le seul élément visuel fort. Ne pas
+utiliser `pub-template-v4-hybride.html` pour cette catégorie (le chiffre
+serait noyé dans le texte).
+
+**Section vide au lancement** — comme "Grands futurs" le 13 août, ce
+n'est pas bloquant : le mécanisme de scan alimente la catégorie à chaque
+tour, pas de stock à préremplir.
+
 ## Règle de rotation
 
 La routine avance dans chaque liste (Manifeste, Citations, Questions,
-Grands futurs) indépendamment, dans l'ordre où les entrées apparaissent
-ci-dessus, sans répéter avant d'avoir fait le tour de la liste entière —
-voir `docs/routine-pub-prompt.md` pour le mécanisme exact (déduit de
-l'historique déjà publié dans `feed-pub.xml`, pas de fichier d'état
-séparé). Faire tourner les 4 catégories dans cet ordre fixe (Manifeste →
-Citation → Question → Grand futur → Manifeste...) plutôt que de les
-mélanger au hasard, pour garder un rythme reconnaissable. **Catégorie
-"Le saviez-vous" (chiffres) retirée le 13 août**, jugée pas indispensable
-pour démarrer — à réintroduire dans le cycle si l'utilisateur la
-réapprovisionne un jour, voir `docs/ARCHITECTURE.md`.
+Grands futurs, Le saviez-vous) indépendamment, dans l'ordre où les
+entrées apparaissent ci-dessus, sans répéter avant d'avoir fait le tour
+de la liste entière — voir `docs/routine-pub-prompt.md` pour le
+mécanisme exact (déduit de l'historique déjà publié dans `feed-pub.xml`,
+pas de fichier d'état séparé). Faire tourner les 5 catégories dans cet
+ordre fixe (Manifeste → Citation → Question → Grand futur → Le
+saviez-vous → Manifeste...) plutôt que de les mélanger au hasard, pour
+garder un rythme reconnaissable. **Catégorie "Le saviez-vous" (chiffres)
+réintégrée au cycle le 14 août**, avec un mécanisme d'extraction (voir
+section 5 ci-dessus) plutôt que la liste fermée retirée le 13 août — voir
+`docs/ARCHITECTURE.md` pour l'historique de la décision.
 
 **Fréquence.** Cadence de croisière : 1 publication/semaine. **Au
 lancement, fréquence volontairement plus élevée** (décision utilisateur du

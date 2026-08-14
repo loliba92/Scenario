@@ -1,0 +1,113 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+    /* Même orange que l'accent "chiffre" déjà défini dans
+       pub-template-v4-hybride.html (var(--degrade)) — cohérence de
+       couleur avec le reste du gabarit pub, même hors rotation photo. */
+    --stat: #bd6248;
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html,body{ width:1080px; height:1080px; }
+  body{
+    background:
+      radial-gradient(circle at 15% 8%, rgba(189,98,72,0.16), transparent 45%),
+      radial-gradient(circle at 90% 92%, rgba(207,157,76,0.12), transparent 45%),
+      var(--ink);
+    position:relative;
+    overflow:hidden;
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  .masthead{ display:flex; align-items:center; gap:16px; position:absolute; top:56px; left:88px; z-index:2; }
+  .masthead svg{ width:56px; height:56px; }
+  .masthead .word{ font-family:"Fraunces", serif; font-weight:700; font-size:40px; color: var(--paper); }
+  .masthead .word .rio{ color: var(--gold); }
+
+  .content{
+    position:relative;
+    width:100%; height:100%;
+    display:flex; flex-direction:column; justify-content:center; align-items:flex-start;
+    padding: 84px 92px;
+  }
+
+  /* Pastille pleine, même traitement que les autres gabarits pub —
+     orange ici, couleur "chiffre" déjà réservée dans v4-hybride. */
+  .eyebrow{
+    display:inline-block;
+    font-family:"JetBrains Mono", monospace; font-weight:700; font-size: 24px;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink);
+    background: var(--stat); border-radius: 40px; padding: 10px 26px;
+    margin-bottom: 40px;
+  }
+
+  /* Le chiffre : le vrai sujet de l'image, en très grand, jamais recalculé
+     ni arrondi différemment — copié tel quel depuis l'édition source. */
+  .stat{
+    font-family:"Fraunces", serif; font-weight:900; font-size: 236px; line-height:0.92;
+    letter-spacing:-0.02em; color: var(--stat);
+    max-width: 920px;
+  }
+
+  /* La phrase d'origine, complète, autour du chiffre — recopiée mot pour
+     mot depuis l'édition (même discipline que les citations : jamais
+     reformulée). C'est elle qui donne le contexte et la crédibilité. */
+  .message{
+    font-family:"Fraunces", serif; font-weight:600; font-size: 44px; line-height:1.28;
+    letter-spacing:-0.005em; color: var(--paper);
+    max-width: 820px;
+    margin-top: 30px;
+  }
+  .message .hl{ color: var(--stat); }
+
+  .attribution{
+    font-family:"JetBrains Mono", monospace; font-weight:400; font-size: 26px;
+    color: var(--paper-dim); margin-top: 34px;
+  }
+
+  .cta{ font-family: "JetBrains Mono", monospace; font-weight:700; font-size: 32px; color: var(--gold); margin-top:40px; }
+
+  .footer{
+    position:absolute; bottom:52px; left:92px;
+    display:flex; align-items:baseline; gap:14px; font-size:22px;
+    letter-spacing:0.08em; text-transform:uppercase;
+  }
+  .footer .tagline{ color: var(--gold); font-weight:700; }
+  .footer .sep{ color: var(--paper-dim); opacity:.5; }
+  .footer .url{ color: var(--paper-dim); text-transform: lowercase; }
+</style></head>
+<body>
+  <div class="masthead">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M57,96 L57,70 Q57,65 60,63" stroke="#cf9d4c"/>
+      <path d="M63,96 L63,70 Q63,65 60,63" stroke="#cf9d4c"/>
+      <path d="M60,63 L60,55" stroke="#cf9d4c"/>
+      <path d="M60,55 L60,31" stroke="#6f8fae"/>
+      <path d="M55.8,38.9 L60,31 L64.2,38.9" stroke="#6f8fae"/>
+      <path d="M60,63 L53.4,56.9" stroke="#cf9d4c"/>
+      <path d="M53.4,56.9 L34,39" stroke="#5e9c78"/>
+      <path d="M36.97,47.5 L34,39 L42.69,41.3" stroke="#5e9c78"/>
+      <path d="M60,63 L66.6,56.9" stroke="#cf9d4c"/>
+      <path d="M66.6,56.9 L86,39" stroke="#bd6248"/>
+      <path d="M83.03,47.5 L86,39 L77.31,41.3" stroke="#bd6248"/>
+    </svg>
+    <div class="word">Scéna<span class="rio">rio</span></div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">__EYEBROW__</div>
+    <div class="stat">__STAT__</div>
+    <div class="message">__MESSAGE__</div>
+    <div class="attribution">__ATTRIBUTION__</div>
+    <div class="cta">__CTA__</div>
+  </div>
+
+  <div class="footer"><span class="tagline">Le futur en 3 scénarios</span><span class="sep">·</span><span class="url">lesscenarios.fr</span></div>
+</body></html>

@@ -70,6 +70,11 @@ def main():
 
     accent_html = html.escape(data.get("accent", "manifeste"))
 
+    # "stat" : optionnel, seulement utilisé par pub-template-v5-stat.html
+    # (catégorie "Le saviez-vous") — le chiffre affiché en très grand,
+    # recopié tel quel depuis l'édition source, jamais recalculé ici.
+    stat_html = html.escape(data.get("stat", ""))
+
     final_html = (
         template
         .replace("__EYEBROW__", eyebrow_html)
@@ -77,6 +82,7 @@ def main():
         .replace("__ATTRIBUTION__", attribution_html)
         .replace("__CTA__", cta_html)
         .replace("__ACCENT__", accent_html)
+        .replace("__STAT__", stat_html)
     )
 
     if "__PHOTO_SRC__" in final_html:

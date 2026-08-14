@@ -52,13 +52,14 @@ changer, un simple délai minimal suffit).
 1. Lister tous les `<guid>` de `feed-pub.xml`, format `scenario-pub-
    {id-entrée}` (ex. `scenario-pub-manifeste-03`) — le préfixe avant le
    premier tiret après "pub-" donne la catégorie (`manifeste`, `citation`,
-   `question`, `futur`).
+   `question`, `futur`, `chiffre`).
 2. **Catégorie du jour** : cycle fixe `manifeste → citation → question →
-   futur → manifeste...`. Prendre la catégorie du `<guid>` le plus récent
-   (premier `<item>`), avancer d'un cran dans le cycle. Si `feed-pub.xml`
-   n'a encore aucun item, commencer par `manifeste`. **Catégorie
-   "chiffre" retirée le 13 août** — plus dans le cycle, ne pas la
-   chercher dans `docs/pub-messages.md` (section supprimée).
+   futur → chiffre → manifeste...`. Prendre la catégorie du `<guid>` le
+   plus récent (premier `<item>`), avancer d'un cran dans le cycle. Si
+   `feed-pub.xml` n'a encore aucun item, commencer par `manifeste`.
+   **Catégorie "chiffre" réintégrée le 14 août** avec un nouveau
+   mécanisme d'extraction (voir point 7 ci-dessous) — ne pas la traiter
+   comme une simple liste dans `docs/pub-messages.md`, section 5.
 3. Dans `docs/pub-messages.md`, section de cette catégorie : lister les
    entrées dans l'ordre où elles apparaissent, **en écartant celles encore
    marquées `[à confirmer]` / `[attribution à vérifier]` / `[à
@@ -68,7 +69,9 @@ changer, un simple délai minimal suffit).
    **au conditionnel** ("pourrait", "devrait" — jamais "sera", "va
    révolutionner") : une entrée à l'indicatif/futur simple ne doit jamais
    être publiée telle quelle, même si elle n'est plus marquée `[à
-   vérifier]` (erreur de relecture possible lors de la validation).
+   vérifier]` (erreur de relecture possible lors de la validation). Comme
+   `futur`, la catégorie `chiffre` n'est pas une simple liste à parcourir
+   — passer directement au point 7 ci-dessous pour son mécanisme propre.
 4. Parmi les entrées restantes de cette catégorie : trouver l'id du
    dernier `<guid>` publié dans cette catégorie (peut remonter à plusieurs
    items en arrière dans `feed-pub.xml`, puisque les catégories
@@ -115,8 +118,44 @@ changer, un simple délai minimal suffit).
      différence avec les 4 autres catégories est que la source peut être
      trouvée au moment de la publication plutôt qu'être uniquement
      pré-validée en session.
+7. **Cas particulier de la catégorie `chiffre` — extraction, jamais
+   génération** (réintroduite le 14 août, voir `docs/pub-messages.md`
+   section 5 pour le détail complet). Contrairement à `futur`, aucune
+   recherche externe : le chiffre vient toujours d'une édition déjà
+   publiée sur le site, donc déjà vérifiée par le processus éditorial
+   normal.
+   - **a) Lister les éditions récentes.** Parcourir `archives/*.html` des
+     ~30 derniers jours, en excluant celles publiées il y a moins de 24h
+     (laisser le temps d'un passage Inspecteur avant réutilisation) et
+     celles dont un chiffre a déjà servi dans un post `chiffre` précédent
+     (déduit des `<link>` déjà présents dans les items `scenario-pub-
+     chiffre-*` de `feed-pub.xml`).
+   - **b) Repérer les phrases à chiffre fort.** Dans les paragraphes
+     `.dek` et `.essentiel-text` de chaque édition candidate, chercher les
+     phrases contenant un `<strong>` autour d'un chiffre (%, montant,
+     nombre de personnes, date marquante...). Écarter les chiffres
+     purement techniques sans impact narratif (ex. un simple numéro
+     d'article de loi) — privilégier ceux qui frappent (pertes humaines,
+     ampleur financière, record historique...).
+   - **c) Choisir et recopier tel quel.** Sélectionner la phrase la plus
+     marquante parmi les candidates (seul endroit où un peu de jugement
+     éditorial entre en jeu dans cette catégorie) — **jamais reformulée,
+     jamais le chiffre recalculé ou arrondi différemment**. Extraire le
+     chiffre seul pour le champ `stat`, garder la phrase complète pour
+     `message`.
+   - **d) Journaliser.** Ajouter l'entrée utilisée à la fin de la
+     section 5 de `docs/pub-messages.md` (id `chiffre-{AAAA-MM-JJ}`,
+     jamais réutilisé), avec le lien vers l'édition source, dans le même
+     commit que la publication du post.
+   - **e) Si aucune édition candidate n'a de chiffre exploitable** (rare) :
+     passer à la catégorie suivante du cycle pour cette exécution, même
+     traitement que l'étape 1, point 5.
 
 ## Étape 2 — Choisir la photo (jamais de recherche Pexels en direct)
+
+**Catégorie `chiffre` : étape à sauter entièrement** — `pub-template-v5-
+stat.html` n'utilise aucune photo (`__PHOTO_SRC__` absent du gabarit),
+passer directement à l'étape 3.
 
 **Règle non négociable, héritée de `scripts/social/fetch_topic_image.py`** :
 cette routine ne cherche et ne choisit jamais une photo sur Pexels
@@ -148,6 +187,7 @@ elle-même. Elle réutilise uniquement une image déjà validée par un humain.
 
 ## Étape 3 — Générer l'image
 
+Pour les catégories `manifeste`/`citation`/`question`/`futur` :
 ```
 python3 scripts/social/generate_pub_image.py \
   --data {json temporaire avec eyebrow/message/attribution/cta de l'entrée choisie, "accent": "{catégorie}"} \
@@ -156,9 +196,17 @@ python3 scripts/social/generate_pub_image.py \
   --photo {photo choisie à l'étape 2}
 ```
 
-`eyebrow`/`message`/`attribution`/`cta` sont recopiés **tels quels** depuis
-`docs/pub-messages.md` — jamais reformulés, jamais traduits, jamais
-"améliorés" à la volée.
+Pour la catégorie `chiffre` — gabarit dédié, pas de `--photo` :
+```
+python3 scripts/social/generate_pub_image.py \
+  --data {json temporaire avec eyebrow/stat/message/attribution/cta de l'entrée extraite} \
+  --output assets/social/pub/{AAAA-MM-JJ}.png \
+  --template scripts/social/pub-template-v5-stat.html
+```
+
+`eyebrow`/`message`/`attribution`/`cta` (et `stat` pour la catégorie
+`chiffre`) sont recopiés **tels quels** depuis `docs/pub-messages.md` —
+jamais reformulés, jamais traduits, jamais "améliorés" à la volée.
 
 ## Étape 4 — Construire l'item `feed-pub.xml`
 
@@ -193,7 +241,10 @@ chaque post perd sa raison d'être orientée croissance.
 
 **Lien selon la catégorie** : `manifeste` → `https://lesscenarios.fr/le-
 projet.html`, `citation`/`futur` → `https://lesscenarios.fr/`,
-`question` → `https://lesscenarios.fr/contact.html`.
+`question` → `https://lesscenarios.fr/contact.html`, `chiffre` → l'URL de
+l'édition source elle-même (ex. `https://lesscenarios.fr/archives/2026-
+08-10.html`) — seule catégorie qui ne renvoie pas vers une page fixe,
+puisque chaque post cite une édition différente.
 
 **Le crédit photo n'apparaît JAMAIS dans le texte visible du post**
 (ni `<comments>`, ni le texte lisible de `<description>`) — décision
