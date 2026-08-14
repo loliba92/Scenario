@@ -37,12 +37,18 @@
      **4e retour, même jour : le dégradé retombait à 0 avant de remonter
      à 0.14, créant un "saut de couleur" (bande de photo brute totalement
      sans voile, visible comme un défaut).** Corrigé : un seul dégradé
-     continu du noir plein (opacité 1) jusqu'au niveau minimum du voile
-     (0.14, jamais 0), sans palier intermédiaire à zéro — plus aucune
-     rupture visible dans la transition. */
+     continu du noir plein jusqu'au niveau minimum du voile (0.14, jamais
+     0), sans palier intermédiaire à zéro.
+     **5e retour, même jour : "réduit un peu le noir du début pour éviter
+     l'effet double couleur noir/bleu"** — le palier plein (opacité 1) sur
+     10% donnait un bloc de noir uni trop net à côté du bleu du ciel,
+     lu comme deux couleurs empilées plutôt qu'un fondu. Retiré le
+     palier : la courbe descend en continu dès 0% (0.90 en haut, jamais
+     un vrai noir plat), pour une transition progressive du logo vers la
+     photo plutôt qu'un bloc suivi d'une chute. */
   .scrim{
     position:absolute; inset:0;
-    background: linear-gradient(180deg, rgba(16,21,28,1) 0%, rgba(16,21,28,1) 10%, rgba(16,21,28,0.14) 26%, rgba(16,21,28,0.38) 55%, rgba(16,21,28,0.86) 100%);
+    background: linear-gradient(180deg, rgba(16,21,28,0.90) 0%, rgba(16,21,28,0.68) 10%, rgba(16,21,28,0.30) 18%, rgba(16,21,28,0.14) 26%, rgba(16,21,28,0.38) 55%, rgba(16,21,28,0.86) 100%);
   }
   /* 5 catégories, 5 couleurs d'accent : manifeste = or (identité),
      citation = bleu (calme/sagesse), question = vert (invitation à
