@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suivi — Iran–États-Unis : la trêve tient-elle encore ? — Scénario</title>
+<link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+<meta name="description" content="Suivi dans le temps de l'édition du 27 juillet 2026 sur la trêve Iran–États-Unis et le détroit d'Ormuz — chaque mise à jour s'ajoute à la précédente, rien n'est réécrit.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scénario">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://lesscenarios.fr/suivi/iran-usa.html">
+<meta property="og:title" content="Suivi — Iran–États-Unis : la trêve tient-elle encore ?">
+<meta property="og:description" content="Suivi dans le temps de l'édition du 27 juillet 2026 — chaque mise à jour s'ajoute à la précédente, rien n'est réécrit.">
+<meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --surface: #1a212b;
+    --surface-2: #212a35;
+    --hairline: #2c3644;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+    --favorable: #5e9c78;
+    --stable: #6f8fae;
+    --degrade: #bd6248;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+  ::selection{ background: var(--gold); color: var(--ink); }
+  :focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  .wrap{ max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+  header.masthead{ border-bottom: 1px solid var(--hairline); padding: 28px 0 22px; }
+  .masthead-row{ display:flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .wordmark{ font-family: "Fraunces", serif; font-weight: 600; font-size: 1.5rem; letter-spacing: 0.01em; text-decoration: none; }
+  .wordmark span{ color: var(--gold); }
+  .brand{ display: flex; align-items: center; gap: 11px; }
+  .brand-mark{ width: 30px; height: 30px; display: block; flex: none; }
+
+  nav.topnav{ background: var(--surface); border-bottom: 1px solid var(--hairline); }
+  nav.topnav .wrap{ display: flex; gap: 24px; padding: 12px 24px; flex-wrap: wrap; }
+  .topnav a{
+    font-family: "JetBrains Mono", monospace; font-size: 0.76rem; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--paper-dim); text-decoration: none;
+    border-bottom: 1px solid transparent; padding-bottom: 2px;
+  }
+  .topnav a:hover{ color: var(--paper); }
+  .topnav a[aria-current="page"]{ color: var(--gold); border-bottom-color: var(--gold); }
+
+  .hero{ padding: 56px 0 36px; border-bottom: 1px solid var(--hairline); }
+  .eyebrow{
+    font-family: "JetBrains Mono", monospace; font-size: 0.78rem; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gold); margin: 0 0 18px;
+  }
+  h1{
+    font-family: "Fraunces", serif; font-weight: 600; font-size: clamp(1.9rem, 4.6vw, 3rem);
+    line-height: 1.1; letter-spacing: -0.01em; margin: 0 0 16px;
+  }
+  .dek{ font-size: 1.05rem; color: var(--paper-dim); max-width: 62ch; margin: 0 0 14px; }
+  .dek:last-child{ margin-bottom: 0; }
+  .dek strong{ color: var(--paper); font-weight: 600; }
+
+  .origin-link{
+    display: inline-block; margin-top: 6px; font-family: "JetBrains Mono", monospace;
+    font-size: 0.82rem; color: var(--gold); text-decoration: none;
+    border-bottom: 1px dotted var(--gold); padding-bottom: 1px;
+  }
+  .origin-link:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
+  .article-image{ margin: 22px 0 28px; }
+  .article-image-photo-wrap{
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+  }
+  .article-image-photo{
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .article-image-scrim{
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(16,21,28,.97) 0%, rgba(16,21,28,.75) 16%, rgba(16,21,28,.3) 32%, transparent 50%, transparent 100%);
+  }
+  .article-image-masthead{
+    position: absolute; top: 4px; left: 6px;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .article-image-logo{ width: 33px; height: 33px; display: block; }
+  .article-image-wordmark{
+    font-family: "Fraunces", serif; font-weight: 600; font-size: clamp(1.15rem, 2.3vw, 1.5rem); color: var(--paper);
+  }
+  .article-image-wordmark span{ color: var(--gold); }
+  .article-image-caption{ font-size: 0.8rem; color: var(--paper-dim); margin: 10px 0 0; }
+  .article-image-caption a{ color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
+  .article-image-caption a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
+  /* ---- Graphique d'évolution (aperçu global, avant V0) ---- */
+  section.evolution{ padding: 32px 0 8px; }
+  .evo-chart{
+    background: linear-gradient(180deg, var(--surface) 0%, #171e27 100%);
+    border: 1px solid var(--hairline); border-radius: 10px;
+    padding: 24px 26px 20px;
+  }
+  .evo-chart-label{
+    font-family: "JetBrains Mono", monospace; font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--paper-dim); margin: 0 0 4px;
+  }
+  .evo-chart-title{
+    font-family: "Fraunces", serif; font-size: 1.05rem; font-weight: 600;
+    color: var(--paper); margin: 0 0 18px;
+  }
+  .evo-chart svg{ display: block; width: 100%; height: auto; overflow: visible; }
+  .evo-line{ fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .evo-dot-outer{ fill: var(--ink); }
+  .evo-gridline{ stroke: var(--hairline); stroke-width: 1; stroke-dasharray: 2 3; }
+  .evo-axis-label{
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; fill: var(--paper-dim);
+    letter-spacing: 0.02em;
+  }
+  .evo-pct-label{ font-family: "Fraunces", serif; font-size: 15px; font-weight: 700; }
+  .evo-legend{ display: flex; gap: 20px; flex-wrap: wrap; margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--hairline); }
+  .evo-legend-item{ display: flex; align-items: center; gap: 7px; font-size: 0.8rem; color: var(--paper-dim); font-family: "JetBrains Mono", monospace; }
+  .evo-legend-dot{ width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+
+  section.timeline{ padding: 48px 0 64px; }
+
+  .version{ margin: 0 0 40px; }
+  .version:last-child{ margin-bottom: 0; }
+
+  .version-head{
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    margin: 0 0 16px;
+  }
+  .version-tag{
+    font-family: "JetBrains Mono", monospace; font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink);
+    background: var(--gold); border-radius: 100px; padding: 3px 11px;
+  }
+  .version.is-update .version-tag{ background: var(--paper); }
+  .version-date{ font-family: "JetBrains Mono", monospace; font-size: 0.85rem; color: var(--paper-dim); }
+  .version-title{ font-family: "Fraunces", serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 16px; }
+
+  .version-toggle{
+    display: flex; align-items: center; gap: 6px; margin-left: auto;
+    background: transparent; border: 1px solid var(--hairline); border-radius: 100px;
+    padding: 4px 12px; font-family: "JetBrains Mono", monospace; font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.05em; color: var(--paper-dim);
+    cursor: pointer; transition: color .15s, border-color .15s;
+  }
+  .version-toggle:hover{ color: var(--paper); border-color: var(--paper-dim); }
+  .version.is-expanded .version-toggle{ color: var(--gold); border-color: var(--gold); }
+  .version-toggle-icon{ display: inline-block; transition: transform .2s ease; }
+  .version.is-expanded .version-toggle-icon{ transform: rotate(180deg); }
+
+  .version-content{ display: grid; grid-template-rows: 0fr; transition: grid-template-rows .25s ease; }
+  .version.is-expanded .version-content{ grid-template-rows: 1fr; }
+  .version-content-inner{ min-height: 0; overflow: hidden; }
+
+  .version-body{
+    background: var(--surface); border: 1px solid var(--hairline); border-radius: 8px;
+    padding: 24px 26px;
+  }
+
+  .version-body p{ margin: 0 0 14px; color: var(--paper-dim); }
+  .version-body p:last-child{ margin-bottom: 0; }
+  .version-body strong{ color: var(--paper); font-weight: 600; }
+
+  .mini-scenarios{
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px; margin: 0 0 18px;
+  }
+  .mini-scenario{ --accent: var(--paper-dim); border-left: 2px solid var(--accent); padding-left: 12px; }
+  .mini-scenario[data-kind="favorable"]{ --accent: var(--favorable); }
+  .mini-scenario[data-kind="stable"]{ --accent: var(--stable); }
+  .mini-scenario[data-kind="degrade"]{ --accent: var(--degrade); }
+  .mini-scenario-title{ font-family: "Fraunces", serif; font-weight: 600; font-size: 0.95rem; margin: 0 0 4px; color: var(--paper); }
+  .mini-scenario-pct{ font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--accent); font-weight: 700; }
+  .mini-scenario-text{ font-size: 0.85rem; color: var(--paper-dim); margin: 4px 0 0; line-height: 1.5; }
+
+  .mini-scenario-evolution{
+    display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap;
+    font-family: "JetBrains Mono", monospace; margin: 2px 0 8px;
+  }
+  .evo-current{ font-size: 1.5rem; font-weight: 700; color: var(--paper); line-height: 1; }
+  .evo-arrow{ display: inline-block; font-weight: 700; font-size: 1.1rem; }
+  .evo-arrow.is-up{ color: var(--favorable); }
+  .evo-arrow.is-down{ color: var(--degrade); }
+  .evo-arrow.is-flat{ color: var(--paper-dim); }
+  .evo-prev{ font-size: 0.76rem; color: var(--paper-dim); font-weight: 400; }
+
+  .conclusion{
+    border-top: 1px dashed var(--hairline); margin-top: 18px; padding-top: 16px;
+  }
+  .conclusion-label{
+    display: block; font-family: "JetBrains Mono", monospace; font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin: 0 0 8px;
+  }
+
+  .sources-note{ font-size: 0.8rem; color: var(--paper-dim); margin-top: 14px; }
+  .sources-note a{ color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
+  .sources-note a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
+  footer{ border-top: 1px solid var(--hairline); padding: 32px 0 48px; }
+  footer .caveat{ font-size: 0.84rem; color: var(--paper-dim); max-width: 62ch; margin: 0; }
+    .social-links{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 24px 0 0;
+  }
+  .social-links-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    color: var(--paper-dim);
+  }
+  .social-links a{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+  }
+  .social-links a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
+  .social-links svg{ display: block; flex-shrink: 0; }
+
+  .legal-links{ display: flex; gap: 18px; flex-wrap: wrap; margin: 24px 0 0; }
+  .legal-links a{
+    font-family: "JetBrains Mono", monospace; font-size: 0.76rem; color: var(--paper-dim);
+    text-decoration: none; border-bottom: 1px dotted transparent;
+  }
+  .legal-links a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <div class="brand">
+      <img class="brand-mark" src="../assets/logo.svg" alt="">
+      <a class="wordmark" href="../index.html">Scéna<span>rio</span></a>
+    </div>
+  </div>
+</header>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="../index.html">Accueil</a>
+    <a href="../archives.html">Archives</a>
+    <a href="../le-projet.html">Le projet</a>
+    <a href="../newsletter.html">Newsletter</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Suivi d'un sujet</p>
+    <h1>Iran–États-Unis : la trêve tient-elle encore ?</h1>
+
+    <figure class="article-image">
+      <div class="article-image-photo-wrap">
+        <img class="article-image-photo" src="../assets/social/topic-images/suivi-iran-usa-wide.jpg" alt="Une flotte de pétroliers et cargos à l'ancre au large, au coucher du soleil.">
+        <div class="article-image-scrim"></div>
+        <div class="article-image-masthead">
+          <img class="article-image-logo" src="../assets/logo.svg" alt="">
+          <span class="article-image-wordmark">Scéna<span>rio</span></span>
+        </div>
+      </div>
+      <figcaption class="article-image-caption">Photo d'illustration. İrfan Simsar / <a href="https://www.pexels.com/photo/scenic-maritime-traffic-on-bosporus-at-sunset-32237794/" target="_blank" rel="noopener noreferrer">Pexels ↗</a></figcaption>
+    </figure>
+
+    <p class="dek">Contrairement aux éditions du site, cette page <strong>n'est pas figée</strong> : elle s'allonge à chaque mise à jour, sans jamais réécrire ce qui a déjà été dit. Le point de départ reste toujours visible tel quel.</p>
+    <a class="origin-link" href="../archives/2026-07-27.html">Voir l'édition d'origine du 27 juillet 2026 →</a>
+  </div>
+</section>
+
+<section class="evolution">
+  <div class="wrap">
+    <div class="evo-chart">
+      <p class="evo-chart-label">Évolution</p>
+      <p class="evo-chart-title">Comment les probabilités ont bougé au fil des mises à jour</p>
+      <svg id="evo-svg" viewBox="0 0 600 210" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="evo-legend">
+        <span class="evo-legend-item"><span class="evo-legend-dot" style="background:var(--favorable)"></span>Favorable</span>
+        <span class="evo-legend-item"><span class="evo-legend-dot" style="background:var(--stable)"></span>Stable</span>
+        <span class="evo-legend-item"><span class="evo-legend-dot" style="background:var(--degrade)"></span>Dégradé</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="timeline">
+  <div class="wrap">
+
+    <div class="version">
+      <div class="version-head">
+        <span class="version-tag">V0 — Point de départ</span>
+        <span class="version-date">27 juillet 2026</span>
+        <button type="button" class="version-toggle" aria-expanded="false" aria-controls="version-content-v0">Détails <span class="version-toggle-icon" aria-hidden="true">▾</span></button>
+      </div>
+      <div class="version-content" id="version-content-v0">
+        <div class="version-content-inner">
+        <h2 class="version-title">Trois scénarios pour la trêve Iran–États-Unis</h2>
+        <div class="version-body">
+          <p>Le 17 juin 2026, Iran et États-Unis avaient signé un mémorandum d'entente en 14 points : une fenêtre de 60 jours — jusqu'à la mi-août — pour négocier la libre circulation à Ormuz, le nucléaire et les sanctions, en échange d'un passage sûr des navires. Après une escalade mi-juillet (frappes américaines quasi quotidiennes), les frappes avaient été suspendues autour du 25 juillet et des discussions via Oman avaient repris, faisant refluer le prix du pétrole — mais le blocus naval américain restait actif et l'Iran réclamait un nouveau régime de péages à Ormuz jugé inacceptable par Washington et Oman.</p>
+          <div class="mini-scenarios">
+            <div class="mini-scenario" data-kind="favorable">
+              <p class="mini-scenario-title">🕊️ Un accord verrouille la trêve <span class="mini-scenario-pct">30%</span></p>
+              <p class="mini-scenario-text">Un compromis est trouvé sur Ormuz avant la mi-août, les sanctions et le blocus sont levés, la trêve devient durable et ouvre une vraie discussion sur le nucléaire.</p>
+            </div>
+            <div class="mini-scenario" data-kind="stable">
+              <p class="mini-scenario-title">⚖️ Ni guerre ni paix, la trêve traîne <span class="mini-scenario-pct">45%</span></p>
+              <p class="mini-scenario-text">Aucun accord solide ni retour à la guerre ouverte : la trêve tient tant bien que mal, la fenêtre de 60 jours est prolongée, le blocus s'éternise.</p>
+            </div>
+            <div class="mini-scenario" data-kind="degrade">
+              <p class="mini-scenario-title">🔥 Les combats reprennent, Ormuz se ferme <span class="mini-scenario-pct">25%</span></p>
+              <p class="mini-scenario-text">Les négociations s'effondrent, les frappes américaines reprennent à plein régime, l'Iran ferme ou menace crédiblement de fermer le détroit d'Ormuz.</p>
+            </div>
+          </div>
+          <div class="conclusion">
+            <span class="conclusion-label">Scénario jugé le plus probable à l'époque</span>
+            <p><strong>⚖️ Ni guerre ni paix, la trêve traîne (45%)</strong> — c'était très précisément le schéma des cinq derniers mois, des cessez-le-feu qui se brisent puis renaissent grâce aux médiateurs, et le mémorandum prévoyait lui-même la possibilité de prolonger le délai.</p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="version is-update">
+      <div class="version-head">
+        <span class="version-tag">V1 — Mise à jour</span>
+        <span class="version-date">14 août 2026</span>
+        <button type="button" class="version-toggle" aria-expanded="false" aria-controls="version-content-v1">Détails <span class="version-toggle-icon" aria-hidden="true">▾</span></button>
+      </div>
+      <div class="version-content" id="version-content-v1">
+        <div class="version-content-inner">
+        <h2 class="version-title">L'escalade a repris, le mémorandum arrive à échéance</h2>
+        <div class="version-body">
+        <p>La désescalade de fin juillet a fait long feu : dès le 29 juillet, les États-Unis ont repris une vague lourde de frappes après un tir de missile iranien contre une base américaine en Jordanie. L'accord technique trouvé début août avec Oman sur une route de navigation à Ormuz interdit en fait les navires américains et israéliens, et Washington a répliqué le 7 août par de nouvelles sanctions bancaires contre l'Iran. Le 12 août, Trump a revendiqué le « contrôle total » d'Ormuz et un blocus naval qu'il compte garder — à l'inverse de l'esprit du mémorandum du 17 juin —, menaçant l'Iran d'être « anéanti » ; Téhéran a répliqué en déclarant le détroit sous son contrôle. Le trafic maritime s'est effondré à environ 8 navires par semaine (contre ~130 par jour avant-guerre) et le baril est remonté à plus de 90 dollars, effaçant tout le repli de début août — tandis que le mémorandum du 17 juin arrive à échéance vers le 16 août, dans un climat où le CENTCOM pousserait pour de nouvelles frappes contre les infrastructures énergétiques iraniennes.</p>
+        <div class="mini-scenarios">
+          <div class="mini-scenario" data-kind="favorable">
+            <p class="mini-scenario-title">🕊️ Un accord verrouille la trêve</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">10%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. 30% en V0)</span></p>
+            <p class="mini-scenario-text">S'effondre : la reprise des frappes dès le 29 juillet et les nouvelles sanctions du 7 août montrent l'inverse d'un compromis en cours, alors que la fenêtre du mémorandum expire dans deux jours.</p>
+          </div>
+          <div class="mini-scenario" data-kind="stable">
+            <p class="mini-scenario-title">⚖️ Ni guerre ni paix, la trêve traîne</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">45%</span> <span class="evo-arrow is-flat">→</span> <span class="evo-prev">(vs. 45% en V0)</span></p>
+            <p class="mini-scenario-text">Reste le scénario médian : malgré l'escalade, aucune guerre ouverte n'a formellement repris et les canaux de médiation (Oman) restent actifs, même s'ils tournent au ralenti.</p>
+          </div>
+          <div class="mini-scenario" data-kind="degrade">
+            <p class="mini-scenario-title">🔥 Les combats reprennent, Ormuz se ferme</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">45%</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">(vs. 25% en V0)</span></p>
+            <p class="mini-scenario-text">Progresse fortement : trafic maritime quasi à l'arrêt, blocus revendiqué comme permanent par Trump, pétrole reparti à la hausse, et le CENTCOM pousserait pour de nouvelles frappes.</p>
+          </div>
+        </div>
+        <div class="conclusion">
+          <span class="conclusion-label">Conclusion vs V0</span>
+          <p><strong>🔥 Les combats reprennent, Ormuz se ferme, +20 points (45%)</strong> — la reprise des frappes américaines le 29 juillet, le durcissement des positions (Trump revendiquant un blocus permanent) et l'effondrement du trafic maritime à Ormuz (~8 navires/semaine contre ~130/jour avant-guerre) rendent ce scénario aussi probable désormais que le statu quo. Le favorable recule symétriquement (30% → 10%) : un accord semble hors de portée à l'approche de l'échéance du mémorandum, vers le 16 août. Rien n'est encore acté pour autant — aucune fermeture totale d'Ormuz n'est confirmée à ce stade, et les canaux de médiation via Oman restent, au moins nominalement, ouverts.</p>
+        </div>
+        <p class="sources-note">Sources : <a href="https://www.axios.com/2026/07/29/us-airstrikes-iran-trump-resume" target="_blank" rel="noopener noreferrer">Axios ↗</a>, <a href="https://www.bloomberg.com/news/articles/2026-08-12/trump-claims-hormuz-control-as-us-iran-harden-their-positions" target="_blank" rel="noopener noreferrer">Bloomberg ↗</a>, <a href="https://www.cbsnews.com/live-updates/iran-war-us-donald-trump-strait-hormuz-traffic-falls-houthis-kill-red-sea/" target="_blank" rel="noopener noreferrer">CBS News ↗</a>, <a href="https://www.npr.org/2026/08/07/nx-s1-5923962/iran-says-agreement-with-oman-for-strait-of-hormuz-prohibits-u-s-and-israeli-vessels" target="_blank" rel="noopener noreferrer">NPR ↗</a></p>
+        </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="caveat">Cette page de suivi est mise à jour ponctuellement, à la main, quand un sujet a un enjeu qui dure dans le temps. Elle ne remplace jamais l'édition d'origine, qui reste figée à sa date de publication.</p>
+    <div class="social-links">
+      <span class="social-links-label">Suivez-nous sur :</span>
+      <a href="https://t.me/scenario_fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Telegram</a>
+      <a href="https://www.linkedin.com/company/136694258/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"></rect><circle cx="7.7" cy="7.6" r="1.3" fill="currentColor"></circle><line x1="7.7" y1="10.6" x2="7.7" y2="17.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></line><path d="M11.6 17.3v-4.2c0-1.5 1-2.4 2.3-2.4s2.3.9 2.3 2.4v4.2M11.6 10.6v.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg> LinkedIn</a>
+      <a href="https://x.com/scenario_fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="4" x2="20" y2="20"></line><line x1="20" y1="4" x2="4" y2="20"></line></svg> X</a>
+      <a href="https://www.facebook.com/share/1DZVhe3KtR/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="6" fill="#000" stroke="currentColor" stroke-width="1"></rect><rect x="10.3" y="9.5" width="2.4" height="9" fill="#fff"></rect><rect x="10.3" y="6" width="4.7" height="2.6" rx="1" fill="#fff"></rect><rect x="7.8" y="11.6" width="6.5" height="2" fill="#fff"></rect></svg> Facebook</a>
+      <a href="https://www.instagram.com/scenarios.actu/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> Instagram</a>
+    </div>
+    <div class="legal-links">
+      <a href="../mentions-legales.html">Mentions légales</a>
+      <a href="../politique-de-confidentialite.html">Politique de confidentialité</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var versions = Array.prototype.slice.call(document.querySelectorAll('.version'));
+    versions.forEach(function(v){
+      var btn = v.querySelector('.version-toggle');
+      btn.addEventListener('click', function(){
+        var expanded = v.classList.toggle('is-expanded');
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      });
+    });
+    // La dernière version (la plus récente) reste dépliée par défaut, les autres repliées.
+    if(versions.length){
+      var last = versions[versions.length - 1];
+      last.classList.add('is-expanded');
+      last.querySelector('.version-toggle').setAttribute('aria-expanded', 'true');
+    }
+  })();
+</script>
+
+<script>
+  // Graphique d'évolution : une entrée par version, dans l'ordre chronologique.
+  // Pour ajouter une nouvelle version (V2, V3...), ajouter juste une ligne ici.
+  try{
+    var evoData = [
+      { label: "V0", date: "27 juil.", favorable: 30, stable: 45, degrade: 25 },
+      { label: "V1", date: "14 août", favorable: 10, stable: 45, degrade: 45 }
+    ];
+
+    (function renderEvoChart(){
+      var svg = document.getElementById('evo-svg');
+      if(!svg || !evoData || evoData.length < 2) return; // pas d'évolution à montrer avec un seul point
+
+      var W = 600, H = 210;
+      var padL = 32, padR = 40, padT = 16, padB = 32;
+      var plotW = W - padL - padR;
+      var plotH = H - padT - padB;
+
+      function x(i){ return padL + (i / (evoData.length - 1)) * plotW; }
+      function y(v){ return padT + plotH - (v / 100) * plotH; }
+
+      var ns = "http://www.w3.org/2000/svg";
+      function el(tag, attrs){
+        var e = document.createElementNS(ns, tag);
+        for(var k in attrs){ e.setAttribute(k, attrs[k]); }
+        return e;
+      }
+
+      function smoothPath(pts){
+        if(pts.length < 2) return '';
+        if(pts.length === 2) return 'M' + pts[0][0] + ',' + pts[0][1] + ' L' + pts[1][0] + ',' + pts[1][1];
+        var d = 'M' + pts[0][0] + ',' + pts[0][1] + ' ';
+        for(var i = 0; i < pts.length - 1; i++){
+          var p0 = pts[i === 0 ? 0 : i - 1];
+          var p1 = pts[i];
+          var p2 = pts[i + 1];
+          var p3 = pts[i + 2 < pts.length ? i + 2 : i + 1];
+          var c1x = p1[0] + (p2[0] - p0[0]) / 6;
+          var c1y = p1[1] + (p2[1] - p0[1]) / 6;
+          var c2x = p2[0] - (p3[0] - p1[0]) / 6;
+          var c2y = p2[1] - (p3[1] - p1[1]) / 6;
+          d += 'C' + c1x + ',' + c1y + ' ' + c2x + ',' + c2y + ' ' + p2[0] + ',' + p2[1] + ' ';
+        }
+        return d;
+      }
+
+      var defs = el('defs', {});
+      var grad = el('linearGradient', { id: 'favGrad', x1: '0', y1: '0', x2: '0', y2: '1' });
+      grad.appendChild(el('stop', { offset: '0%', 'stop-color': 'var(--favorable)', 'stop-opacity': '0.28' }));
+      grad.appendChild(el('stop', { offset: '100%', 'stop-color': 'var(--favorable)', 'stop-opacity': '0' }));
+      defs.appendChild(grad);
+      svg.appendChild(defs);
+
+      [0, 25, 50, 75, 100].forEach(function(v){
+        var ly = y(v);
+        svg.appendChild(el('line', { x1: padL, x2: W - padR, y1: ly, y2: ly, class: 'evo-gridline' }));
+        var t = el('text', { x: padL - 8, y: ly + 3, class: 'evo-axis-label', 'text-anchor': 'end' });
+        t.textContent = v + '%';
+        svg.appendChild(t);
+      });
+
+      evoData.forEach(function(d, i){
+        var t = el('text', { x: x(i), y: H - 6, class: 'evo-axis-label', 'text-anchor': 'middle' });
+        t.textContent = d.label;
+        svg.appendChild(t);
+      });
+
+      var series = [
+        { key: 'degrade', color: 'var(--degrade)', fill: false },
+        { key: 'stable', color: 'var(--stable)', fill: false },
+        { key: 'favorable', color: 'var(--favorable)', fill: true }
+      ];
+
+      series.forEach(function(s){
+        var pts = evoData.map(function(d, i){ return [x(i), y(d[s.key])]; });
+        var path = smoothPath(pts);
+
+        if(s.fill){
+          var areaPath = path + ' L' + pts[pts.length - 1][0] + ',' + (padT + plotH) + ' L' + pts[0][0] + ',' + (padT + plotH) + ' Z';
+          svg.appendChild(el('path', { d: areaPath, fill: 'url(#favGrad)', stroke: 'none' }));
+        }
+
+        svg.appendChild(el('path', { d: path, class: 'evo-line', style: 'stroke:' + s.color }));
+
+        pts.forEach(function(p){
+          svg.appendChild(el('circle', { cx: p[0], cy: p[1], r: 5, class: 'evo-dot-outer' }));
+          svg.appendChild(el('circle', { cx: p[0], cy: p[1], r: 3.2, style: 'fill:' + s.color }));
+        });
+
+        var last = evoData[evoData.length - 1];
+        var lastPt = pts[pts.length - 1];
+        var t = el('text', {
+          x: lastPt[0] + 10, y: lastPt[1] + 5,
+          class: 'evo-pct-label', style: 'fill:' + s.color
+        });
+        t.textContent = last[s.key] + '%';
+        svg.appendChild(t);
+      });
+    })();
+  } catch(e){
+    // Si les données sont mal formées, on masque juste le graphique — jamais bloquer le reste de la page.
+    var chartEl = document.querySelector('section.evolution');
+    if(chartEl) chartEl.style.display = 'none';
+  }
+</script>
+
+<script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+</body>
+</html>

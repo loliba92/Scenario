@@ -49,6 +49,18 @@ mériter une page de suivi ou une mise à jour.
   suite donnée au scandale du paiement UEFA à une ex-employée.
   Dernière vérification : 8 août 2026 (V1).
 
+- **Iran–États-Unis : la trêve tient-elle encore ?** (édition du 27
+  juillet 2026)
+  Suivi existant : `suivi/iran-usa.html` (V0 + V1 au 14 août).
+  Prochaine échéance connue : le mémorandum d'entente du 17 juin 2026
+  arrive à échéance vers le **16 août 2026** (fenêtre de 60 jours). À
+  surveiller aussi : toute fermeture confirmée (même partielle) du
+  détroit d'Ormuz, une reprise de frappes contre les infrastructures
+  énergétiques iraniennes évoquée par le CENTCOM, et l'évolution du
+  trafic maritime (effondré à ~8 navires/semaine au 14 août contre ~130
+  par jour avant-guerre).
+  Dernière vérification : 14 août 2026 (V1).
+
 ---
 
 ## Journal des sujets publiés
@@ -77,7 +89,7 @@ un sujet devenu manifestement sans suite (voir marche à suivre dans
 - 30.07.2026 — [Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ?](../archives/2026-07-30.html)
 - 29.07.2026 — [Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?](../archives/2026-07-29.html)
 - 28.07.2026 — [Milliardaires : la richesse du monde peut-elle encore se partager ?](../archives/2026-07-28.html)
-- 27.07.2026 — [Iran–États-Unis : les armes se taisent, l'accord reste à trouver](../archives/2026-07-27.html)
+- 27.07.2026 — [Iran–États-Unis : les armes se taisent, l'accord reste à trouver](../archives/2026-07-27.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.
 - 26.07.2026 — [HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ?](../archives/2026-07-26.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.
 - 25.07.2026 — [Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ?](../archives/2026-07-25.html)
 - 18.07.2026 — [Spider-Man contre Avengers : qui va sauver le box-office Marvel ?](../archives/2026-07-18.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.
