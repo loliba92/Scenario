@@ -2024,6 +2024,28 @@ moins prioritaire).
   inversement. Mis à jour : `docs/routine-pub-prompt.md` (étape 1, point
   2), `docs/pub-messages.md` (section "Règle de rotation").
 
+  **[FAIT le 14 août] Routines déplacées à la nuit pour ventiler la
+  charge.** Retour utilisateur direct : "est-ce que la routine pub etc
+  peuvent tourner la nuit pour ventiler la charge". Avant ce changement,
+  Pub hebdo et Détection tournaient toutes les deux en soirée (18h et
+  20h Paris), proches l'une de l'autre et de la fin de journée ; Daily
+  (6h) et Inspecteur (6h50) restaient groupées le matin. Nouveau
+  planning, toutes routines Scénario confondues :
+
+  | Heure Paris | Routine | Trigger | Cron UTC |
+  |---|---|---|---|
+  | 0h00 | Détection sujets à suivre | `trig_01BYYviSQge2CDcYkzBbYcjT` | `0 0 * * 1,4,5,6` |
+  | 2h00 | Pub hebdo | `trig_01A1XU5Kpc4QWzApjZPqcKpj` | `0 2 * * 0,2,4,5,6` |
+  | 6h00 | Daily (routine éditoriale principale) | `trig_0176spj7P7E9fyTs1XBkQBWF` | `0 4 * * *` *(inchangé)* |
+  | 7h00 | Inspecteur | `trig_015wbeqHwALMg3EsUaZcRoWp` | `0 5 * * *` |
+
+  Ordre choisi pour garder un espacement régulier (2h entre chaque) tout
+  en respectant les deux ancres demandées par l'utilisateur (Daily 6h,
+  Inspecteur 7h) et en gardant les mêmes jours de la semaine qu'avant
+  pour Pub et Détection (seule l'heure change). Mis à jour :
+  `docs/routine-pub-prompt.md`, `docs/routine-detection-prompt.md`,
+  `docs/routine-inspection-prompt.md` (en-têtes).
+
   **[FAIT le 13 août] Trigger créé** : `trig_01A1XU5Kpc4QWzApjZPqcKpj`,
   cron `0 16 * * 2,5` UTC = **mardi et vendredi 18h Paris** (2x/semaine,
   cadence de lancement choisie par l'utilisateur, à ramener à 1x/semaine
@@ -3770,10 +3792,9 @@ Voir les échanges de session pour le détail, mais en résumé :
 
   **Détection automatique des sujets à mettre à jour, ajoutée le 1er
   août, passée en seuil chiffré + email le 7 août.** Une Routine dédiée
-  (`trig_01BYYviSQge2CDcYkzBbYcjT`, **lundi/jeudi/vendredi/samedi, 18h
-  UTC ~20h Paris (le soir, pour ne pas se superposer à la routine
-  éditoriale du matin et étaler la charge)**, distincte de la routine
-  éditoriale) relit
+  (`trig_01BYYviSQge2CDcYkzBbYcjT`, **lundi/jeudi/vendredi/samedi, 0h UTC
+  ~2h Paris (la nuit — déplacée du soir le 14 août, voir plus bas)**,
+  distincte de la routine éditoriale) relit
   `docs/sujets-a-suivre.md` : les « Suivis actifs » systématiquement, et
   le « Journal des sujets publiés » **limité aux 30 derniers jours** —
   au-delà, un sujet qui n'a pas justifié de suivi dans le mois qui suit sa

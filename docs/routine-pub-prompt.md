@@ -2,11 +2,13 @@
 
 Ce fichier est la copie de référence du prompt envoyé par la routine "pub"
 (Claude Code Remote, trigger **« Scénario — Pub hebdo »**,
-`trig_01A1XU5Kpc4QWzApjZPqcKpj`, cron `0 16 * * 2,5` UTC = mardi et
-vendredi 18h Paris — heure d'été). Créé par un agent (`create_trigger`),
-donc directement éditable via `update_trigger` — ce fichier reste la
-source de vérité lisible par un humain : le mettre à jour dans la foulée
-de tout changement.
+`trig_01A1XU5Kpc4QWzApjZPqcKpj`, cron `0 2 * * 0,2,4,5,6` UTC =
+dimanche/mardi/jeudi/vendredi/samedi 2h Paris — heure d'été, déplacé de
+18h le 14 août pour ventiler la charge nocturne, voir
+`docs/ARCHITECTURE.md`). Créé par un agent (`create_trigger`), donc
+directement éditable via `update_trigger` — ce fichier reste la source de
+vérité lisible par un humain : le mettre à jour dans la foulée de tout
+changement.
 
 **Objectif : rappeler l'identité du projet et faire réagir la communauté**
 entre deux éditions quotidiennes — jamais un sujet d'actualité (ça reste le

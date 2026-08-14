@@ -3,8 +3,10 @@
 Ce fichier est la copie de référence du prompt envoyé à chaque déclenchement
 de la routine de veille (Claude Code Remote, trigger **« Scénario —
 Détection sujets à suivre »**, `trig_01BYYviSQge2CDcYkzBbYcjT`, cron
-`0 18 * * 1,4,5,6` UTC = lundi/jeudi/vendredi/samedi 18h UTC, ~20h Paris).
-Contrairement au prompt de la routine éditoriale quotidienne
+`0 0 * * 1,4,5,6` UTC = lundi/jeudi/vendredi/samedi 0h UTC, ~2h Paris —
+déplacé de 20h le 14 août pour ventiler la charge nocturne, voir
+`docs/ARCHITECTURE.md`). Contrairement au prompt de la routine éditoriale
+quotidienne
 (`docs/routine-prompt.md`), ce trigger est directement éditable via
 `update_trigger` (créé via `meta_mcp`, pas `http_api`) — pas besoin du
 cycle copier-coller manuel, mais ce fichier reste la source de vérité
