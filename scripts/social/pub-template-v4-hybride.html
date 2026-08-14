@@ -115,7 +115,10 @@
     font-family:"Fraunces", serif; font-weight:900; font-size: 86px; line-height:1.1;
     letter-spacing:-0.02em; color: #ffffff; max-width: 900px;
   }
-  .message .hl{ color: var(--gold); }
+  /* Ombre légère ajoutée le 14 août, uniquement sur le mot surligné —
+     filet de sécurité pour le cas rare d'un flare de soleil dans la
+     zone de texte (rien de visible sur une photo normale). */
+  .message .hl{ color: var(--gold); text-shadow: 0 2px 10px rgba(16,21,28,0.55); }
   /* Citation entière passée en bleu clair le 14 août (retour utilisateur :
      "citation en bleu clair") — même bleu que l'attribution (#bcd6ef),
      cohérence complète du bloc citation. Le mot surligné passe en blanc
