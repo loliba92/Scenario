@@ -32,9 +32,14 @@
      passe de 0.58 à 0.78 et s'étend plus loin (0-24% au lieu de 0-18%)
      avant la fenêtre claire, pour que le logo/mot "Scénario" ressorte
      nettement quelle que soit la photo, pas seulement lisible de justesse. */
+  /* [3e renfort, 14 août] "le logo doit quasiment être sur un fond
+     noir" — bande du haut quasi opaque (0.97) sur 0-16%, plus un vrai
+     plateau (pas juste un pic ponctuel) pour que le logo entier (svg +
+     mot + pastille) repose sur du noir, pas sur un dégradé encore
+     translucide à son niveau. */
   .scrim{
     position:absolute; inset:0;
-    background: linear-gradient(180deg, rgba(16,21,28,0.90) 0%, rgba(16,21,28,0.36) 28%, rgba(16,21,28,0.38) 40%, rgba(16,21,28,0.65) 55%, rgba(16,21,28,0.95) 100%);
+    background: linear-gradient(180deg, rgba(16,21,28,0.97) 0%, rgba(16,21,28,0.97) 16%, rgba(16,21,28,0.34) 30%, rgba(16,21,28,0.38) 42%, rgba(16,21,28,0.65) 56%, rgba(16,21,28,0.96) 100%);
   }
   .tint{ position:absolute; inset:0; mix-blend-mode: color; background: var(--gold); opacity:0.18; }
 
