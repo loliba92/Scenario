@@ -2532,6 +2532,35 @@ s'affiche sur le site.
 problématique à **issue ouverte**, tranchable en 3 scénarios chiffrés — jamais
 un trait permanent ou un fait déjà acquis.
 
+## Règle emoji (ajoutée le 14 août, retour utilisateur)
+
+Retour utilisateur direct : « ce que je n'aime pas ce sont les emojis, ça
+manque de sérieux ». Décision, appliquée aux **futures** éditions/pages
+uniquement — jamais retouchée rétroactivement sur les archives déjà
+publiées (même logique que le changement de style des pastilles
+`.kind-tag`, voir plus bas) :
+
+- **Supprimés (décoratif, aucune fonction)** : l'emoji devant chaque
+  `<h3>` de carte scénario (`docs/routine-prompt.md` étape 4) ; le ❓
+  devant la question dans `.question-box` (le label « La question
+  posée » suffit) ; l'emoji de repère dans `.list-box-rank` (toujours un
+  numéro désormais) ; l'emoji d'ouverture du teaser dans `<comments>`/
+  `<description>` de `feed.xml` et de `feed-suivi.xml`.
+- **Gardés, usage volontairement restreint** : 👉 uniquement devant un
+  vrai lien d'appel à l'action (s'abonner, lire l'article) — repère de
+  navigation fonctionnel, pas une décoration.
+- **Gardés, cas à part** : le code couleur 🟢/🔵/🔴 du `<category>` de
+  `feed.xml` (options du sondage Telegram) — équivalent fonctionnel du
+  point coloré `.kind-tag` sur le site, seul moyen de distinguer les 3
+  options par couleur dans l'UI d'un sondage Telegram (pas de CSS
+  possible) ; le tag "🔄 Suivi mis à jour" sur les images de suivi/pub
+  (icône de badge, pas un emoji noyé dans une phrase — voir
+  `scripts/social/suivi-template.html`).
+
+`docs/routine-hebdo-prompt.md` avait déjà cette règle depuis le 3 août
+(« pas d'emoji décoratif superflu, pas de "Salut 👋" ») — cohérent avec
+le reste du site, pas un changement pour ce fichier-là.
+
 ## Automatisation éditoriale (la routine quotidienne)
 
 Une **routine planifiée** (Claude Code Remote, nommée « Scénario »,
@@ -3513,9 +3542,9 @@ Voir les échanges de session pour le détail, mais en résumé :
     <link>https://lesscenarios.fr/suivi/{sujet}.html#version-content-v{N}</link>
     <guid isPermaLink="false">scenario-suivi-{sujet}-v{N}</guid>
     <pubDate>{date de la mise à jour au format RFC-822}</pubDate>
-    <comments>{emoji} {verdict court de la conclusion, la phrase déjà écrite dans la page}</comments>
+    <comments>{verdict court de la conclusion, la phrase déjà écrite dans la page}</comments>
     <enclosure url="https://lesscenarios.fr/assets/social/suivi/{sujet}-v{N}.png" length="{taille réelle en octets}" type="image/png"/>
-    <description><![CDATA[{emoji} {même phrase}<br><br>{1-2 phrases : ce qui explique le mouvement}<br><br>Voir la mise à jour complète, scénario par scénario 👉 <a href="{lien vers la version}">lesscenarios.fr/suivi/{sujet}.html</a>]]></description>
+    <description><![CDATA[{même phrase}<br><br>{1-2 phrases : ce qui explique le mouvement}<br><br>Voir la mise à jour complète, scénario par scénario 👉 <a href="{lien vers la version}">lesscenarios.fr/suivi/{sujet}.html</a>]]></description>
   </item>
   ```
   **`<enclosure>` ajoutée le 12 août** — voir l'entrée backlog dédiée
