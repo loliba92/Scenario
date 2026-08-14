@@ -332,8 +332,9 @@
   /* ---- Entrées ---- */
   .entry{
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
     padding: 20px 0;
     border-bottom: 1px solid var(--hairline);
   }
@@ -343,22 +344,25 @@
 
   /* Vraie photo du sujet si elle existe, sinon un paysage pré-validé du
      registre (assets/social/pub-photos/) — jamais de logo générique, voir
-     docs/ARCHITECTURE.md § « Vignette d'archive ». Volontairement petite
-     et empilée au-dessus du texte plutôt qu'alignée à côté — un thumbnail
-     large à côté du titre alourdit la ligne (retour utilisateur du 14
-     août) ; ici c'est un repère visuel discret, pas une carte photo. */
+     docs/ARCHITECTURE.md § « Vignette d'archive ». Au même niveau que le
+     titre, centrée verticalement sur l'ensemble du bloc texte (retour
+     utilisateur du 14 août : pas au-dessus, à côté). */
   .entry-thumb{
     width: 56px;
     height: 56px;
+    flex: none;
     border-radius: 8px;
     object-fit: cover;
     background: var(--surface);
   }
 
   /* Regroupe entry-main + entry-scenarios (auparavant enfants directs de
-     .entry) pour laisser .entry-thumb au-dessus, hors de ce sous-groupe —
-     même gap que .entry avant l'ajout de la vignette. */
+     .entry) pour que .entry-thumb reste hors de ce sous-groupe, à côté
+     plutôt qu'au-dessus — même gap que .entry avant l'ajout de la
+     vignette. */
   .entry-body{
+    flex: 1 1 auto;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
