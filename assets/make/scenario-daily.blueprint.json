@@ -259,7 +259,7 @@
                             "metadata": {
                                 "designer": {
                                     "x": -181,
-                                    "y": -1013
+                                    "y": -1313
                                 },
                                 "restore": {
                                     "expect": {
@@ -517,8 +517,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -17,
-                                    "y": -710,
+                                    "x": -181,
+                                    "y": -1013,
                                     "name": "X Twitter"
                                 },
                                 "restore": {
@@ -690,7 +690,7 @@
                             "metadata": {
                                 "designer": {
                                     "x": -181,
-                                    "y": -413
+                                    "y": -713
                                 },
                                 "restore": {},
                                 "expect": [
@@ -870,7 +870,7 @@
                             "metadata": {
                                 "designer": {
                                     "x": -181,
-                                    "y": -113
+                                    "y": -413
                                 },
                                 "restore": {},
                                 "expect": [
@@ -908,7 +908,7 @@
                                     "title": "",
                                     "description": "",
                                     "picture": "{{4.enclosures[].url}}",
-                                    "thumbnail": ""
+                                    "thumbnail": "{{4.enclosures[].url}}"
                                 }
                             },
                             "metadata": {
@@ -952,6 +952,9 @@
                                                     "collapsed": true
                                                 },
                                                 "description": {
+                                                    "collapsed": true
+                                                },
+                                                "picture": {
                                                     "collapsed": true
                                                 },
                                                 "thumbnail": {
@@ -1065,8 +1068,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -446,
-                                    "y": 54
+                                    "x": -181,
+                                    "y": -113
                                 },
                                 "restore": {},
                                 "expect": [
@@ -1340,8 +1343,8 @@
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": 188,
-                                                    "y": 728
+                                                    "x": 476,
+                                                    "y": 348
                                                 },
                                                 "restore": {
                                                     "expect": {
@@ -1466,8 +1469,8 @@
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": -107,
-                                                    "y": 855,
+                                                    "x": 368,
+                                                    "y": 626,
                                                     "name": "Twitter "
                                                 },
                                                 "restore": {
@@ -1628,13 +1631,13 @@
                                                     "title": "{{30.title}}",
                                                     "description": "{{30.comments}}",
                                                     "picture": "{{30.enclosures[].url}}",
-                                                    "thumbnail": ""
+                                                    "thumbnail": "{{30.enclosures[].url}}"
                                                 }
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": -423,
-                                                    "y": 825,
+                                                    "x": 96,
+                                                    "y": 717,
                                                     "name": "Facebook "
                                                 },
                                                 "restore": {
@@ -1793,8 +1796,8 @@
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": 495,
-                                                    "y": 290
+                                                    "x": 423,
+                                                    "y": -149
                                                 },
                                                 "restore": {
                                                     "expect": {
@@ -1943,8 +1946,8 @@
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": 460,
-                                                    "y": 546,
+                                                    "x": 475,
+                                                    "y": 95,
                                                     "name": "INSTAGRAM"
                                                 },
                                                 "restore": {
@@ -2102,8 +2105,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -687,
-                                    "y": -728
+                                    "x": -446,
+                                    "y": 23
                                 },
                                 "restore": {
                                     "expect": {
@@ -2233,8 +2236,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -1853,
-                                    "y": 83
+                                    "x": -680,
+                                    "y": -146
                                 },
                                 "restore": {},
                                 "expect": [
@@ -2242,11 +2245,11 @@
                                         "name": "duration",
                                         "type": "uinteger",
                                         "label": "Delay",
+                                        "required": true,
                                         "validate": {
-                                            "min": 1,
-                                            "max": 300
-                                        },
-                                        "required": true
+                                            "max": 300,
+                                            "min": 1
+                                        }
                                     }
                                 ]
                             }
@@ -2260,17 +2263,17 @@
                             },
                             "mapper": {
                                 "url": "https://lesscenarios.fr/feed-pub.xml",
-                                "username": "",
+                                "gzip": true,
                                 "password": "",
-                                "filterDateFrom": "{{parseDate(formatDate(addDays(now; -1); \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}",
-                                "filterDateTo": "",
+                                "username": "",
                                 "maxResults": "1",
-                                "gzip": true
+                                "filterDateTo": "",
+                                "filterDateFrom": "{{parseDate(formatDate(addDays(now; -1); \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}"
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -1565,
-                                    "y": 275,
+                                    "x": -1048,
+                                    "y": 8,
                                     "name": "RSS PUB"
                                 },
                                 "restore": {},
@@ -2371,110 +2374,110 @@
                                     },
                                     {
                                         "name": "image",
-                                        "type": "collection",
-                                        "label": "Image",
                                         "spec": [
                                             {
                                                 "name": "title",
-                                                "label": "Name",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "Name"
                                             },
                                             {
                                                 "name": "url",
-                                                "label": "URL",
-                                                "type": "url"
+                                                "type": "url",
+                                                "label": "URL"
                                             }
-                                        ]
+                                        ],
+                                        "type": "collection",
+                                        "label": "Image"
                                     },
                                     {
                                         "name": "categories",
-                                        "type": "array",
-                                        "label": "Categories",
                                         "spec": {
                                             "type": "text"
-                                        }
+                                        },
+                                        "type": "array",
+                                        "label": "Categories"
                                     },
                                     {
                                         "name": "source",
-                                        "type": "collection",
-                                        "label": "Source",
                                         "spec": [
                                             {
                                                 "name": "title",
-                                                "label": "Name",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "Name"
                                             },
                                             {
                                                 "name": "url",
-                                                "label": "URL",
-                                                "type": "url"
+                                                "type": "url",
+                                                "label": "URL"
                                             }
-                                        ]
+                                        ],
+                                        "type": "collection",
+                                        "label": "Source"
                                     },
                                     {
                                         "name": "enclosures",
-                                        "type": "array",
-                                        "label": "Enclosures",
                                         "spec": [
                                             {
                                                 "name": "url",
-                                                "label": "URL",
-                                                "type": "url"
+                                                "type": "url",
+                                                "label": "URL"
                                             },
                                             {
                                                 "name": "type",
-                                                "label": "Type",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "Type"
                                             },
                                             {
                                                 "name": "length",
-                                                "label": "Length",
-                                                "type": "number"
+                                                "type": "number",
+                                                "label": "Length"
                                             }
-                                        ]
+                                        ],
+                                        "type": "array",
+                                        "label": "Enclosures"
                                     },
                                     {
-                                        "name": "rssFields",
-                                        "label": "RSS fields",
                                         "help": "Other RSS fields. All values are in text format.",
-                                        "type": "collection",
+                                        "name": "rssFields",
                                         "spec": [
                                             {
                                                 "name": "title",
-                                                "label": "title",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "title"
                                             },
                                             {
                                                 "name": "link",
-                                                "label": "link",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "link"
                                             },
                                             {
                                                 "name": "guid",
-                                                "label": "guid",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "guid"
                                             },
                                             {
                                                 "name": "pubdate",
-                                                "label": "pubdate",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "pubdate"
                                             },
                                             {
                                                 "name": "comments",
-                                                "label": "comments",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "comments"
                                             },
                                             {
                                                 "name": "enclosure",
-                                                "label": "enclosure",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "enclosure"
                                             },
                                             {
                                                 "name": "description",
-                                                "label": "description",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "description"
                                             }
-                                        ]
+                                        ],
+                                        "type": "collection",
+                                        "label": "RSS fields"
                                     }
                                 ]
                             }
@@ -2501,22 +2504,22 @@
                                                 "account": 9580775
                                             },
                                             "mapper": {
-                                                "profileIds": [
-                                                    "6a7480e899afb44349119553"
-                                                ],
                                                 "text": "{{58.comments}}{{newline}}{{newline}}Plus d'info ici : {{58.rssFields.link}}",
                                                 "type": "scheduled",
-                                                "useMedia": true,
-                                                "shorten": true,
-                                                "attachment": false,
-                                                "dateScheduled": "{{addHours(now; 6)}}",
                                                 "media": {
                                                     "link": "{{58.enclosures[].url}}",
                                                     "title": "{{58.title}}",
-                                                    "description": "{{58.comments}}",
                                                     "picture": "{{58.enclosures[].url}}",
-                                                    "thumbnail": ""
-                                                }
+                                                    "thumbnail": "",
+                                                    "description": "{{58.comments}}"
+                                                },
+                                                "shorten": true,
+                                                "useMedia": true,
+                                                "attachment": false,
+                                                "profileIds": [
+                                                    "6a7480e899afb44349119553"
+                                                ],
+                                                "dateScheduled": "{{addHours(now; 6)}}"
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -2525,30 +2528,9 @@
                                                     "name": "Twitter "
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "account": {
-                                                            "label": "Olivier's Buffer connection (scenarios.actu)",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "buffer"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
-                                                        "profileIds": {
-                                                            "mode": "chose",
-                                                            "label": [
-                                                                "6a7480e899afb44349119553"
-                                                            ]
-                                                        },
                                                         "type": {
                                                             "label": "Post an update at scheduled date and time"
-                                                        },
-                                                        "shorten": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "attachment": {
-                                                            "mode": "chose"
                                                         },
                                                         "media": {
                                                             "nested": {
@@ -2558,13 +2540,34 @@
                                                                 "title": {
                                                                     "collapsed": true
                                                                 },
-                                                                "description": {
+                                                                "picture": {
                                                                     "collapsed": true
                                                                 },
-                                                                "picture": {
+                                                                "description": {
                                                                     "collapsed": true
                                                                 }
                                                             }
+                                                        },
+                                                        "shorten": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "attachment": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "profileIds": {
+                                                            "mode": "chose",
+                                                            "label": [
+                                                                "6a7480e899afb44349119553"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "account": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "buffer"
+                                                            },
+                                                            "label": "Olivier's Buffer connection (scenarios.actu)"
                                                         }
                                                     }
                                                 },
@@ -2581,8 +2584,8 @@
                                                         "name": "profileIds",
                                                         "type": "select",
                                                         "label": "Profiles",
-                                                        "required": true,
-                                                        "multiple": true
+                                                        "multiple": true,
+                                                        "required": true
                                                     },
                                                     {
                                                         "name": "text",
@@ -2630,8 +2633,6 @@
                                                     },
                                                     {
                                                         "name": "media",
-                                                        "type": "collection",
-                                                        "label": "Media",
                                                         "spec": [
                                                             {
                                                                 "name": "link",
@@ -2658,7 +2659,9 @@
                                                                 "type": "url",
                                                                 "label": "Thumbnail"
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Media"
                                                     }
                                                 ]
                                             }
@@ -2689,7 +2692,7 @@
                                                     "title": "{{58.title}}",
                                                     "description": "{{58.comments}}",
                                                     "picture": "{{58.enclosures[].url}}",
-                                                    "thumbnail": ""
+                                                    "thumbnail": "{{58.enclosures[].url}}"
                                                 }
                                             },
                                             "metadata": {
@@ -2849,14 +2852,14 @@
                                                 "__IMTCONN__": 9443289
                                             },
                                             "mapper": {
-                                                "organization": "urn:li:organization:136694258",
-                                                "method": "link",
+                                                "url": "{{58.enclosures[].url}}",
                                                 "title": "{{58.title}}",
+                                                "method": "link",
                                                 "content": "{{58.comments}}",
                                                 "visibility": "PUBLIC",
+                                                "organization": "urn:li:organization:136694258",
                                                 "feedDistribution": "MAIN_FEED",
-                                                "isReshareDisabledByAuthor": false,
-                                                "url": "{{58.enclosures[].url}}"
+                                                "isReshareDisabledByAuthor": false
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -2864,20 +2867,7 @@
                                                     "y": 319
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "label": "Olivier's LinkedIn connection (Olivier BERTRAND)",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "linkedin2"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
-                                                        "organization": {
-                                                            "mode": "chose",
-                                                            "label": "Scenario"
-                                                        },
                                                         "method": {
                                                             "label": "Upload by link"
                                                         },
@@ -2885,12 +2875,25 @@
                                                             "mode": "chose",
                                                             "label": "Anyone"
                                                         },
+                                                        "organization": {
+                                                            "mode": "chose",
+                                                            "label": "Scenario"
+                                                        },
                                                         "feedDistribution": {
                                                             "mode": "chose",
                                                             "label": "Main feed"
                                                         },
                                                         "isReshareDisabledByAuthor": {
                                                             "mode": "chose"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "linkedin2"
+                                                            },
+                                                            "label": "Olivier's LinkedIn connection (Olivier BERTRAND)"
                                                         }
                                                     }
                                                 },
@@ -2997,7 +3000,7 @@
                                                 "useMedia": true,
                                                 "shorten": true,
                                                 "attachment": false,
-                                                "dateScheduled": "{{addHours(now; 1)}}",
+                                                "dateScheduled": "{{addHours(now; 6)}}",
                                                 "media": {
                                                     "link": "{{58.enclosures[].url}}",
                                                     "title": "{{58.title}}",
