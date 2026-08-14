@@ -348,7 +348,7 @@ Insérer une nouvelle entrée `<li class="entry">` tout en haut d'`archives.html
   </div>
 </li>
 ```
-**`alt=""` volontairement vide** : le titre juste à côté (`.entry-title`) porte déjà l'information, une vignette purement illustrative n'a rien à ajouter pour un lecteur d'écran — éviter la redondance. `width`/`height` fixes à 64 (CSS les réduit ensuite à 56px, 44px sous 560px) : évite un saut de mise en page pendant le chargement (`loading="lazy"`). CSS `.entry-thumb`/`.entry-body` déjà dans le gabarit d'`archives.html` — **vignette volontairement empilée au-dessus du texte, jamais alignée à côté du titre** (retour utilisateur du 14 août : une image large à côté du texte alourdit la ligne). Ne jamais changer cette disposition sans nouveau retour explicite.
+**`alt=""` volontairement vide** : le titre juste à côté (`.entry-title`) porte déjà l'information, une vignette purement illustrative n'a rien à ajouter pour un lecteur d'écran — éviter la redondance. `width`/`height` fixes à 64 (CSS les réduit ensuite à 56px, 44px sous 560px) : évite un saut de mise en page pendant le chargement (`loading="lazy"`). CSS `.entry-thumb`/`.entry-body` déjà dans le gabarit d'`archives.html` — **vignette au même niveau que le titre, sur la même ligne** (`.entry` en `flex-direction: row`, image centrée verticalement sur l'ensemble du bloc texte) — un premier réglage l'avait empilée au-dessus par erreur de lecture du retour utilisateur, corrigé le 14 août. Ne jamais changer cette disposition sans nouveau retour explicite.
 
 Pour le tag de registre et 1-2 tags thématiques : lire d'abord `docs/tags.md` (liste fermée), réutiliser un tag existant chaque fois que possible — n'en créer un nouveau qu'en dernier recours, et l'ajouter aussitôt à `docs/tags.md`.
 

@@ -2470,14 +2470,22 @@ Recadrage centré en carré (`ImageOps.fit`, Pillow), export JPEG qualité
 72 : quelques Ko par vignette (116 Ko pour les 22 premières réunies) au
 lieu des centaines de Ko/plusieurs Mo des sources.
 
-**Disposition volontairement empilée, jamais alignée à côté du titre**
-(retour utilisateur du 14 août, après un premier essai où l'image était
-alignée avec le texte : « ça fait gros »). `.entry` reste en
-`flex-direction: column` (déjà le cas avant cet ajout) ; `.entry-thumb`
-est le premier enfant, suivi d'un nouveau `<div class="entry-body">` qui
-regroupe `.entry-main` et `.entry-scenarios` (auparavant enfants directs
-de `.entry`) pour que la vignette reste hors de ce sous-groupe. `alt=""`
-volontairement vide (le titre adjacent porte déjà l'information).
+**Disposition : au même niveau que le titre, sur la même ligne.**
+`.entry` passe en `flex-direction: row` (`column` à l'origine, avant cet
+ajout), `align-items: center` — `.entry-thumb` et un nouveau
+`<div class="entry-body">` (qui regroupe `.entry-main` et
+`.entry-scenarios`, auparavant enfants directs de `.entry`) sont deux
+enfants côte à côte, l'image centrée verticalement sur toute la hauteur
+du bloc texte. `alt=""` volontairement vide (le titre adjacent porte déjà
+l'information).
+
+**Un premier réglage l'avait empilée au-dessus du texte** (mauvaise
+lecture d'un retour utilisateur ambigu — « tu ne peux pas aligner l'image
+au texte sinon ça fait gros » lu comme *« ne l'aligne pas »* plutôt que
+*« tu n'as pas réussi à l'aligner, et le résultat fait gros »*). Retour
+utilisateur explicite juste après : « l'image doit être au même niveau »
+— corrigé le 14 août, vérifié en layout réel (bounding box Playwright,
+pas juste à l'œil) sur desktop et mobile (380px) avant de repousser.
 
 **Backfill** : les 22 éditions existantes au 14 août ont été traitées en
 une passe. 5 d'entre elles (06/08, 04/08, 27/07, 26/07, 18/07) n'avaient
