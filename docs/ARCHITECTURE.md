@@ -2405,6 +2405,47 @@ présente dans le `index.html` courant (vérifié après ce commit). À
 recontrôler après quelques éditions sans liste pour confirmer que la classe
 survit désormais.
 
+### Encart « Comprendre » (`.comprendre-box`) — [AJOUTÉ le 14 août]
+
+Composant pour donner au lecteur **une** clé de lecture qui change sa
+manière de voir le sujet — un mécanisme, une distinction ou une analogie,
+jamais une définition (déjà le rôle du lexique). Ajouté à l'occasion de
+l'édition du 14 août sur les canicules, pour porter l'idée que les
+dépenses climatiques (Fonds vert, adaptation) fonctionnent comme une
+économie de guerre : une dépense défensive qui maintient le niveau de vie
+actuel plutôt qu'un investissement qui le fait progresser.
+
+Même recette visuelle que `.question-box` (fond `--surface`, filet doré
+3px à gauche, radius 4px — plus léger que la bordure pleine 10px de
+`.essentiel-box`/`.list-box`, cohérent avec son rôle d'aparté ponctuel
+dans le texte plutôt que de bloc de synthèse) :
+
+```html
+<div class="comprendre-box">
+  <span class="comprendre-label">Comprendre</span>
+  <p class="comprendre-lead">Ces dépenses ressemblent à une économie de guerre : elles ne rendent personne plus riche, elles évitent seulement de perdre ce qu'on a déjà.</p>
+  <p class="comprendre-text">Climatiser un hôpital, renforcer un réseau électrique : ce n'est pas un investissement qui fait grandir l'économie, comme la formation ou la recherche. C'est une dépense défensive, qui maintient le niveau de vie actuel face à une menace qui, elle, s'aggrave chaque année. Reste que l'arbitrage budgétaire entre ces deux logiques — investir pour faire grandir l'économie, ou dépenser pour la protéger — est souvent difficile à trancher, faute de moyens pour financer les deux à la fois.</p>
+</div>
+```
+
+- **Optionnel, un focus maximum par édition** — voir `docs/routine-prompt.md`
+  pour les critères de sélection du focus et le format strict (lead ≤ 30
+  mots, un seul paragraphe ≤ 70 mots). Ne pas en fabriquer un les jours où
+  le sujet n'a pas de vrai point de confusion à éclaircir — même risque
+  que `.list-box` plaqué sans vraie matrice.
+- **Placement appris par l'usage, pas par la conception initiale** : la
+  première version (édition du 14 août) avait été placée en fin de
+  section, juste avant `indicator-strip`/le titre des scénarios — retour
+  utilisateur : ça se lisait comme un ajout secondaire plutôt qu'une
+  explication éclairant le texte. Déplacé dans le fil des `.dek`, juste
+  après le paragraphe qui introduit le fait justifiant l'analogie. Toujours
+  placer ainsi pour les prochaines éditions, pas en bout de bloc.
+- **Classe optionnelle, même piège de troncature que `.list-box`/`.dek-list`**
+  (voir plus haut) : ajoutée à la liste de classes vérifiées par la routine
+  d'inspection (`docs/routine-inspection-prompt.md`, point 1) dès son
+  introduction, pour ne pas revivre le même bug de disparition silencieuse
+  du `<style>` un jour sans focus « Comprendre ».
+
 ## Page Archives (`archives.html`)
 
 Chaque entrée de la liste porte un bouton **« Scénarios »** qui déplie, au clic,

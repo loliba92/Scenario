@@ -51,18 +51,22 @@ proprement sans rien inspecter — pas de fallback sur l'édition de la veille.
 
 1. **CSS tronqué.** Comparer le bloc `<style>` d'`index.html` à la liste des
    classes attendues (`.essentiel-box`, `.stakes-box`, `.question-box`,
-   `.list-box*`, `.delta-france`, `.delta-gauge*`, `.delta-word`,
-   `.delta-flag`, `.article-image*` si une image est présente, `.card`,
-   `.gauge*`, `.france-line`). Si une classe manque entièrement du
-   `<style>` alors qu'elle est utilisée dans le corps de la page (bug déjà
-   rencontré deux fois avec `.dek-list`/`.list-box` — voir
-   `docs/ARCHITECTURE.md`), la recopier.
+   `.list-box*`, `.comprendre-box*`, `.delta-france`, `.delta-gauge*`,
+   `.delta-word`, `.delta-flag`, `.article-image*` si une image est
+   présente, `.card`, `.gauge*`, `.france-line`). Si une classe manque
+   entièrement du `<style>` alors qu'elle est utilisée dans le corps de la
+   page (bug déjà rencontré deux fois avec `.dek-list`/`.list-box` — voir
+   `docs/ARCHITECTURE.md`), la recopier. **`.comprendre-box*` est une
+   classe optionnelle comme `.list-box*` — utilisée seulement certaines
+   éditions, donc exposée au même risque de disparaître silencieusement du
+   `<style>` un jour sans focus « Comprendre » ; ne pas la retirer de cette
+   liste même après plusieurs éditions consécutives sans l'utiliser.**
 
    **D'où recopier — deux cas différents, ne pas traiter pareil :**
    - `.essentiel-box`, `.stakes-box`, `.question-box`, `.list-box*`,
-     `.article-image*`, `.card`, `.gauge*` : blocs stables, sans
-     historique de changement récent — recopier depuis la dernière
-     archive connue qui les contient intégralement, comme avant.
+     `.comprendre-box*`, `.article-image*`, `.card`, `.gauge*` : blocs
+     stables, sans historique de changement récent — recopier depuis la
+     dernière archive connue qui les contient intégralement, comme avant.
    - `.delta-france`, `.delta-gauge*`, `.delta-word`, `.delta-flag` :
      **ne jamais recopier depuis une archive**, même récente — ce groupe
      a changé de forme cinq fois en une seule soirée (12 août, voir
