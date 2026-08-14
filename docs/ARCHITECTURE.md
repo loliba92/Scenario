@@ -1261,22 +1261,23 @@ moins prioritaire).
   complète de `docs/routine-prompt.md`.
 
 **Technique**
-- **[À VÉRIFIER le 14 août] `.list-box` survit-elle à la copie quotidienne
-  du gabarit sur une édition qui n'en a pas besoin ?** Contexte complet
-  dans la section « Encart liste (`.list-box`) » plus haut dans ce
-  document : la classe équivalente `.dek-list` a disparu du `<style>`
-  d'`index.html` les 10 et 11 août (deux jours sans liste dans le
-  contexte), avant de réapparaître le 12. Correctif appliqué le 12 août :
-  règle explicite ajoutée à l'étape technique 2 de
+- **[FAIT le 14 août] `.list-box` survit à la copie quotidienne du
+  gabarit sur une édition qui n'en a pas besoin — confirmé sur 2 jours.**
+  Contexte complet dans la section « Encart liste (`.list-box`) » plus
+  haut dans ce document : la classe équivalente `.dek-list` avait disparu
+  du `<style>` d'`index.html` les 10 et 11 août (deux jours sans liste
+  dans le contexte), avant de réapparaître le 12. Correctif appliqué le
+  12 août : règle explicite ajoutée à l'étape technique 2 de
   `docs/routine-prompt.md` (recopier le `<style>` intégralement, jamais au
-  prorata de ce que le contenu du jour utilise). **Reste à confirmer sur
-  des éditions réelles** : vérifier, une fois les archives du 13 et du 14
-  août publiées, que `.list-box` (et `.dek-list`) sont toujours présentes
-  dans leur `<style>` même si aucune des deux éditions n'a de liste dans le
-  contexte. Si l'une des deux a disparu, la règle du 12 août n'a pas
-  suffi — il faudra un garde-fou plus fort qu'une instruction en prose
-  (ex. étape de diff automatique du `<style>` avant publication, ou script
-  de vérification a posteriori).
+  prorata de ce que le contenu du jour utilise). **Vérification faite le
+  14 août** sur les deux éditions publiées depuis le correctif
+  (`archives/2026-08-13.html`, `archives/2026-08-14.html`, ni l'une ni
+  l'autre n'utilisant `.list-box` dans son contenu) : `.list-box` (10
+  occurrences) et `.dek-list` (4 occurrences) présentes intégralement dans
+  les deux `<style>`, identiques à `index.html` — aucune régression, la
+  règle du 12 août tient sur 2 jours consécutifs. Problème considéré
+  résolu ; pas de garde-fou automatique supplémentaire nécessaire pour
+  l'instant (à rouvrir si le symptôme revient malgré cette règle).
 - **[FAIT le 4 août] Optimisation de `archives.html`** — repéré le 4 août
   (retour utilisateur) : chaque jour, l'étape 6 de la routine insérait une
   nouvelle `<li class="entry">` en tête de liste, jamais retirée, avec le
