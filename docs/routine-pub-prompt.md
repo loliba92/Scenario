@@ -53,12 +53,13 @@ changer, un simple délai minimal suffit).
    {id-entrée}` (ex. `scenario-pub-manifeste-03`) — le préfixe avant le
    premier tiret après "pub-" donne la catégorie (`manifeste`, `citation`,
    `question`, `futur`, `chiffre`).
-2. **Catégorie du jour** : cycle fixe `manifeste → citation → question →
-   futur → chiffre → manifeste...`. Prendre la catégorie du `<guid>` le
+2. **Catégorie du jour** : cycle fixe `manifeste → citation → chiffre →
+   question → futur → manifeste...`. Prendre la catégorie du `<guid>` le
    plus récent (premier `<item>`), avancer d'un cran dans le cycle. Si
    `feed-pub.xml` n'a encore aucun item, commencer par `manifeste`.
-   **Catégorie "chiffre" réintégrée le 14 août** avec un nouveau
-   mécanisme d'extraction (voir point 7 ci-dessous) — ne pas la traiter
+   **Catégorie "chiffre" réintégrée le 14 août**, placée juste après
+   `citation` (pas en fin de cycle) pour qu'elle sorte tôt — nouveau
+   mécanisme d'extraction (voir point 7 ci-dessous), ne pas la traiter
    comme une simple liste dans `docs/pub-messages.md`, section 5.
 3. Dans `docs/pub-messages.md`, section de cette catégorie : lister les
    entrées dans l'ordre où elles apparaissent, **en écartant celles encore

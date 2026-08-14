@@ -385,18 +385,21 @@ tour, pas de stock à préremplir.
 
 ## Règle de rotation
 
-La routine avance dans chaque liste (Manifeste, Citations, Questions,
-Grands futurs, Le saviez-vous) indépendamment, dans l'ordre où les
-entrées apparaissent ci-dessus, sans répéter avant d'avoir fait le tour
-de la liste entière — voir `docs/routine-pub-prompt.md` pour le
+La routine avance dans chaque liste (Manifeste, Citations, Le
+saviez-vous, Questions, Grands futurs) indépendamment, dans l'ordre où
+les entrées apparaissent ci-dessus, sans répéter avant d'avoir fait le
+tour de la liste entière — voir `docs/routine-pub-prompt.md` pour le
 mécanisme exact (déduit de l'historique déjà publié dans `feed-pub.xml`,
 pas de fichier d'état séparé). Faire tourner les 5 catégories dans cet
-ordre fixe (Manifeste → Citation → Question → Grand futur → Le
-saviez-vous → Manifeste...) plutôt que de les mélanger au hasard, pour
-garder un rythme reconnaissable. **Catégorie "Le saviez-vous" (chiffres)
+ordre fixe (Manifeste → Citation → Le saviez-vous → Question → Grand
+futur → Manifeste...) plutôt que de les mélanger au hasard, pour garder
+un rythme reconnaissable. **Catégorie "Le saviez-vous" (chiffres)
 réintégrée au cycle le 14 août**, avec un mécanisme d'extraction (voir
 section 5 ci-dessus) plutôt que la liste fermée retirée le 13 août — voir
-`docs/ARCHITECTURE.md` pour l'historique de la décision.
+`docs/ARCHITECTURE.md` pour l'historique de la décision. **Placée juste
+après Citation dans le cycle (pas en dernier)** — retour utilisateur du
+14 août, pour que le nouveau mécanisme sorte tôt plutôt qu'après un tour
+complet des 4 autres catégories.
 
 **Fréquence.** Cadence de croisière visée : 1 publication/semaine. **Au
 lancement, fréquence volontairement plus élevée** le temps de construire
@@ -404,9 +407,14 @@ l'habitude et pendant la période de croissance de la chaîne — ajustée à
 la main via `update_trigger` sur le trigger "Scénario — Pub hebdo", pas
 un mécanisme automatique dans la routine elle-même.
 - 13 août : 2x/semaine (mardi, vendredi, 18h Paris).
-- 14 août : passée à **4x/semaine** (dimanche, mardi, jeudi, vendredi,
-  18h Paris — `0 16 * * 0,2,4,5` UTC), retour utilisateur explicite pour
-  pousser la visibilité pendant la croissance. À redescendre vers 1x/
+- 14 août (1er ajustement) : passée à **4x/semaine** (dimanche, mardi,
+  jeudi, vendredi, 18h Paris — `0 16 * * 0,2,4,5` UTC), retour
+  utilisateur explicite pour pousser la visibilité pendant la croissance.
+- 14 août (2e ajustement, même jour) : **samedi ajouté, 5x/semaine**
+  (dimanche, mardi, jeudi, vendredi, samedi, 18h Paris —
+  `0 16 * * 0,2,4,5,6` UTC), pour que le post du lendemain (15 août,
+  samedi) tombe sur la catégorie `chiffre` fraîchement réintégrée — voir
+  aussi le réordonnancement du cycle ci-dessus. À redescendre vers 1x/
   semaine une fois la phase de lancement passée, pas de date arrêtée.
 
 **Ajouter une entrée** : lui donner un id qui ne sera jamais réutilisé,
