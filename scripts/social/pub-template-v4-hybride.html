@@ -63,6 +63,14 @@
   body[data-accent="chiffre"] .tint{ background: var(--degrade); }
   body[data-accent="futur"] .tint{ background: var(--futur); }
 
+  /* Filtre noir uniforme ajouté le 14 août (retour utilisateur : "ajoute
+     un filtre noir par dessus pour estomper l'image") — en plus du
+     dégradé du .scrim (qui varie selon la hauteur), une couche plate qui
+     assombrit toute la photo de façon égale, y compris la zone centrale
+     qui restait très claire. Léger : la photo doit rester identifiable,
+     juste moins criarde. */
+  .dim{ position:absolute; inset:0; background: rgba(16,21,28,0.20); }
+
   /* Cadre fin + grand guillemet, repris de V2 */
   .frame{ position:absolute; inset:36px; border: 2px solid rgba(236,231,218,0.22); z-index:1; pointer-events:none; }
   .quote-glyph{
@@ -155,6 +163,7 @@
 <body data-accent="__ACCENT__">
   <div class="photo-bg"></div>
   <div class="tint"></div>
+  <div class="dim"></div>
   <div class="scrim"></div>
   <div class="frame"></div>
   <div class="quote-glyph">“</div>
