@@ -398,11 +398,16 @@ réintégrée au cycle le 14 août**, avec un mécanisme d'extraction (voir
 section 5 ci-dessus) plutôt que la liste fermée retirée le 13 août — voir
 `docs/ARCHITECTURE.md` pour l'historique de la décision.
 
-**Fréquence.** Cadence de croisière : 1 publication/semaine. **Au
-lancement, fréquence volontairement plus élevée** (décision utilisateur du
-13 août, pas de chiffre arrêté) le temps de construire l'habitude —
-ajustée à la main via `update_trigger` sur le trigger "Scénario — Pub
-hebdo", pas un mécanisme automatique dans la routine elle-même.
+**Fréquence.** Cadence de croisière visée : 1 publication/semaine. **Au
+lancement, fréquence volontairement plus élevée** le temps de construire
+l'habitude et pendant la période de croissance de la chaîne — ajustée à
+la main via `update_trigger` sur le trigger "Scénario — Pub hebdo", pas
+un mécanisme automatique dans la routine elle-même.
+- 13 août : 2x/semaine (mardi, vendredi, 18h Paris).
+- 14 août : passée à **4x/semaine** (dimanche, mardi, jeudi, vendredi,
+  18h Paris — `0 16 * * 0,2,4,5` UTC), retour utilisateur explicite pour
+  pousser la visibilité pendant la croissance. À redescendre vers 1x/
+  semaine une fois la phase de lancement passée, pas de date arrêtée.
 
 **Ajouter une entrée** : lui donner un id qui ne sera jamais réutilisé,
 même après suppression (traçabilité de l'historique de rotation). Ne
