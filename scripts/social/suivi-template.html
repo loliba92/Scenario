@@ -27,13 +27,16 @@
      suivi porte un paragraphe entier (conclusion), pas une phrase
      courte, et a besoin d'un vrai dégradé noir en haut (logo + pastille)
      et d'un assombrissement plus général pour que le texte ressorte.
-     Toujours une fenêtre plus claire au milieu pour laisser la photo
-     respirer un minimum. */
+     **Renforcé une 2e fois le 14 août** (retour : "plus de dégradé
+     encore plus, il faut qu'on voit bien Scénario logo") — la zone haute
+     passe de 0.58 à 0.78 et s'étend plus loin (0-24% au lieu de 0-18%)
+     avant la fenêtre claire, pour que le logo/mot "Scénario" ressorte
+     nettement quelle que soit la photo, pas seulement lisible de justesse. */
   .scrim{
     position:absolute; inset:0;
-    background: linear-gradient(180deg, rgba(16,21,28,0.58) 0%, rgba(16,21,28,0.22) 18%, rgba(16,21,28,0.24) 34%, rgba(16,21,28,0.58) 52%, rgba(16,21,28,0.92) 100%);
+    background: linear-gradient(180deg, rgba(16,21,28,0.90) 0%, rgba(16,21,28,0.36) 28%, rgba(16,21,28,0.38) 40%, rgba(16,21,28,0.65) 55%, rgba(16,21,28,0.95) 100%);
   }
-  .tint{ position:absolute; inset:0; mix-blend-mode: color; background: var(--gold); opacity:0.14; }
+  .tint{ position:absolute; inset:0; mix-blend-mode: color; background: var(--gold); opacity:0.18; }
 
   .frame{ position:absolute; inset:36px; border: 2px solid rgba(236,231,218,0.22); z-index:1; pointer-events:none; }
 
