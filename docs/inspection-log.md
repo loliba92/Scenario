@@ -6,6 +6,63 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-08-15 — Traduction littéraire, le métier en sursis ?
+**Vérifié** : cohérence interne (probabilités 20+50+30=100 %, `data-france-
+impact`/`data-kind` vs texte `.france-line` pour les 3 cartes — favorable→
+« Plutôt favorable », stable→« Neutre », dégradé→« Plutôt défavorable » —
+et `data-kind="negatif"` du bloc `.delta-france` cohérent avec « léger
+négatif »), présence des classes CSS attendues dans `<style>` (dont
+`.delta-france`/`.delta-gauge*`/`.delta-word`/`.delta-flag`, bloc identique
+à la version canonique de `docs/routine-inspection-prompt.md` une fois
+commentaires et indentation normalisés) et intégrité du dégradé SVG à 3
+stops avec `data-score`, sync `index.html` vs `archives/2026-08-15.html`
+(`diff` complet — écarts : chemins relatifs `archives/` vs direct,
+canonical/`og:url`/`mainEntityOfPage`, `aria-current`, et le lien interne
+vers l'archive du 1er août — `archives/2026-08-01.html` dans `index.html`
+contre `2026-08-01.html` dans l'archive, même schéma de chemin relatif que
+les autres liens, confirmé cohérent avec le même type de lien dans
+`archives/2026-08-12.html`/`13`/`14` — tous légitimes), lexique (5
+`.lex-ref` ↔ 5 entrées, aucun terme orphelin dans un sens ou l'autre),
+incohérence numérique interne (3 c€/9,6 c€ cohérents sur les 3 occurrences,
+dates 8 avril/11 juin/décembre 2026 cohérentes partout, « une vingtaine »
+vs « plusieurs dizaines » de traductrices explicitement attribuées à deux
+sources différentes — pas une incohérence), label brut absent de
+`.essentiel-text`, formulation « Notre évaluation de l'impact pour la
+France » intacte, style des paragraphes `.dek`/`.why`/`.essentiel-text`
+(plusieurs phrases de 40-52 mots mais lisibles ; une phrase à 74 mots dans
+le `.dek` sur la loi Darcos correspond à un gabarit de renvoi « on avait
+déjà vu passer un sujet similaire (...) n'hésite pas à lire notre article
+(...) » réutilisé à l'identique sur plusieurs éditions passées — 2026-08-02,
+2026-08-14 deux fois — traité comme un gabarit éditorial établi, pas une
+maladresse isolée du jour, donc non retouché ; aucune rupture de registre,
+`grep '\bton \|\bta \|\btu \b'` ne remonte que le `.share-block`, exception
+légitime), 4 chiffres/faits structurants vérifiés contre les 4 sources
+citées (voir détail ci-dessous).
+**Corrigé automatiquement** : rien.
+**Réécritures de clarté** (avant/après complet pour chacune, ou "aucune") :
+aucune.
+**Signalé pour revue humaine** : la date « Adoptée par le Sénat le 8 avril
+2026 » (loi Darcos) n'a pu être confirmée par aucune des 4 sources citées —
+Mind Media, la source la plus pertinente pour cette loi, ne couvre que le
+blocage du 11 juin à l'Assemblée nationale (confirmé exact : « plus de 100
+amendements ») sans mentionner l'étape sénatoriale. Pas une erreur avérée,
+juste non re-vérifiable avec les sources disponibles ; plafond des 5
+`WebFetch` atteint pour ce passage (2 appels sur Mind Media, 1 chacun sur
+Livres Hebdo, Actualitté, Publishing Perspectives). Chiffres vérifiés et
+conformes aux sources : « 3 centimes du mot » (Livres Hebdo + Actualitté),
+« une vingtaine (...) plusieurs dizaines » de traductrices (Livres Hebdo),
+« 1,5 milliard de dollars » + « environ 3 000 dollars par livre » Anthropic
+(Publishing Perspectives — léger écart de nuance, la source dit « as much
+as $3,000 » (maximum) contre « environ » dans l'article, cohérent avec la
+moyenne réelle 1,5 Md$/~500 000 œuvres ≈ 3 000 $, pas assez significatif
+pour un signalement séparé), « 11 juin 2026 » + « plus de 100 amendements »
+blocage Assemblée (Mind Media, exact). Limite horaire notée pour mémoire :
+édition publiée ~1h avant ce passage, posts sociaux déjà partis via
+`feed.xml` au moment de l'inspection — sans conséquence aujourd'hui
+puisqu'aucune correction n'a été nécessaire.
+
+---
+
 ## 2026-08-14 — L'addition de l'été / Le rattrapage à moitié / La panne budgétaire
 **Vérifié** : cohérence interne (probabilités 25+45+30=100 %, `data-france-
 impact`/`data-kind` vs texte `.france-line` pour les 3 cartes, présence des
