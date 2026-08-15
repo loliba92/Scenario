@@ -114,21 +114,57 @@ moins prioritaire).
   contacts à suivre le compte) pour faire grossir l'audience avant
   d'envisager de la pub payante — pas de suivi chiffré dans ce dépôt,
   démarche manuelle côté utilisateur.
-- **P2 — Générer les posts "pub" en Reel plutôt qu'en image statique,
-  idée du 15 août.** Motivation : reach nettement supérieur aux posts
-  statiques sur Instagram (et de plus en plus sur Facebook). **Bloqué
-  par une contrainte API vérifiée le 15 août** : l'Instagram Content
+- **P1 — Threads, Bluesky, Mastodon comme canaux supplémentaires, idée
+  du 15 août.** Critère de sélection posé le même jour : ne retenir que
+  les réseaux dont le format colle **déjà** à ce que produit le pipeline
+  (texte court + lien + image carrée) — zéro nouveau format de contenu à
+  inventer, contrairement à la vidéo (voir Reels/TikTok ci-dessous).
+  - **Threads** : même connexion Meta déjà branchée pour Instagram/
+    Facebook natifs (`Olivier's Facebook connection`) — juste un module
+    supplémentaire sur le Router, même texte que la branche X. Coût
+    marginal quasi nul.
+  - **Bluesky** : format identique à X (texte + lien + image), et
+    audience en pleine migration vers cette plateforme au moment de la
+    discussion (journalistes, lectorat actu/géopolitique) — bon rapport
+    effort/pertinence pour l'audience visée par Scénario.
+  - **Mastodon** : même logique/format que Bluesky, audience plus
+    réduite mais technophile/engagée — priorité un cran en dessous des
+    deux précédents mais même coût nul si fait en même temps.
+  - **Écartés du même passage, mauvais fit avec le sujet (actu/
+    géopolitique quotidienne, pas de pipeline vidéo)** : Pinterest
+    (visuel evergreen, pas de l'actu), Reddit (pas un canal de diffusion
+    automatisable proprement — soumission communautaire avec règles
+    anti-spam strictes, risque de ban si posté automatiquement),
+    Discord/YouTube (chantiers différents : communauté à modérer /
+    vidéo à produire, hors périmètre "quasi gratuit à ajouter").
+  Pas encore implémenté, aucune connexion Make créée à ce stade — à
+  construire quand l'utilisateur veut avancer dessus (même schéma que
+  Threads/Facebook/Instagram : module natif si disponible, sinon Buffer
+  en repli si Buffer supporte le réseau et qu'il reste de la place sur
+  le plan gratuit).
+- **P2 — Générer les posts "pub" en Reel plutôt qu'en image statique
+  (et, dans la même logique, TikTok), idée du 15 août.** Motivation :
+  reach nettement supérieur aux posts statiques sur Instagram (et de
+  plus en plus sur Facebook) ; TikTok rejoint ce chantier plutôt que
+  d'être une piste séparée, pour la même raison technique. **Bloqué par
+  une contrainte API vérifiée le 15 août** : l'Instagram Content
   Publishing API exige `media_type=REELS` + un vrai `video_url` (mp4/
   mov) — aucun moyen de publier un Reel à partir d'une simple image via
   l'API (la conversion "photo → reel" visible dans l'app Instagram se
-  fait côté app, pas via l'API/Make). Pour avancer, il faudrait ajouter
-  une étape de génération vidéo (ex. léger zoom/pan sur la carte
+  fait côté app, pas via l'API/Make). TikTok a la même contrainte de
+  base (plateforme 100% vidéo native) — donc les deux attendent la même
+  chose : une étape de génération vidéo (ex. léger zoom/pan sur la carte
   `assets/social/pub/{date}.png` existante, 4-6 secondes, avec ou sans
   musique, exporté en mp4) en amont de `generate_pub_image.py`, avant de
   pouvoir brancher le module Make natif **Instagram for Business →
-  "Create a reel post"**. Pas encore scopé en détail (outil de rendu
-  vidéo à choisir, durée, musique ou silence) — à reprendre quand
-  l'utilisateur veut avancer dessus.
+  "Create a reel post"** (et, pour TikTok, son propre module natif —
+  pas encore vérifié dans Make). **TikTok demande en plus une vraie
+  adaptation éditoriale** (format rapide/punchy, souvent une voix ou une
+  personnalité à l'écran) — plus qu'un nouveau canal, un nouveau format
+  de contenu à concevoir, à ne pas sous-estimer même une fois la brique
+  vidéo technique résolue. Pas encore scopé en détail (outil de rendu
+  vidéo à choisir, durée, musique ou silence, adaptation TikTok) — à
+  reprendre quand l'utilisateur veut investir dans la vidéo.
 - **P3 — Giveaway "abonne-toi à la newsletter = tirage au sort", idée du
   10 août.** Objectif : faire croître la base newsletter (MailerLite,
   **1 seul abonné actuellement**) via un jeu-concours simple. **Écarté
