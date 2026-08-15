@@ -61,6 +61,18 @@ mériter une page de suivi ou une mise à jour.
   par jour avant-guerre).
   Dernière vérification : 14 août 2026 (V1).
 
+- **Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ?**
+  (édition du 30 juillet 2026)
+  Suivi existant : `suivi/arabie-saoudite-sport.html` (V0 + V1 au 15
+  août, publiée automatiquement par la routine de détection — écart de
+  +20 points sur le scénario favorable). Prochaine échéance connue :
+  clôture visée en septembre 2026 pour l'accord LIV Golf avec son
+  nouvel investisseur principal (identité et montant encore non
+  divulgués à ce stade). À surveiller aussi : toute clarification
+  officielle du PIF sur le reste de son portefeuille sportif (boxe,
+  MMA, F1, Newcastle United).
+  Dernière vérification : 15 août 2026 (V1).
+
 ---
 
 ## Journal des sujets publiés
@@ -86,7 +98,7 @@ un sujet devenu manifestement sans suite (voir marche à suivre dans
 - 02.08.2026 — [Streaming : payer plus, avoir moins ?](../archives/2026-08-02.html)
 - 01.08.2026 — [Musique : l'IA a-t-elle déjà gagné ?](../archives/2026-08-01.html)
 - 31.07.2026 — [Méga-feux : la France est-elle prête pour la suite ?](../archives/2026-07-31.html)
-- 30.07.2026 — [Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ?](../archives/2026-07-30.html)
+- 30.07.2026 — [Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ?](../archives/2026-07-30.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.
 - 29.07.2026 — [Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?](../archives/2026-07-29.html)
 - 28.07.2026 — [Milliardaires : la richesse du monde peut-elle encore se partager ?](../archives/2026-07-28.html)
 - 27.07.2026 — [Iran–États-Unis : les armes se taisent, l'accord reste à trouver](../archives/2026-07-27.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.
