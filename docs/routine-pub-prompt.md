@@ -37,9 +37,20 @@ devienne prévisible, voir la justification dans cette section.
 
 ---
 
-**La cible du push est toujours `main`, sans exception.**
+**La cible du push est toujours `main`, sans exception** — même si
+l'environnement d'exécution assigne une autre branche de session par
+défaut (ex. `claude/xxx`) : y committer n'est pas une alternative, `main`
+reste la seule cible de contenu.
 
 **Avant de commencer : `git pull origin main`.**
+
+**Après le push sur `main` (étape 5) : pousser aussi la branche de
+session locale vers son propre remote** (`git push -u origin
+{nom-de-la-branche-de-session}`), pour satisfaire le stop hook local qui
+signale les commits non poussés sur cette branche — ajouté le 15 août
+après un retour utilisateur ("assure-toi que ce sera fait la prochaine
+fois"). C'est un simple miroir de suivi, jamais une pull request, et ça
+ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
 
 ## Étape 1 — Déterminer la catégorie et l'entrée
 
@@ -309,4 +320,7 @@ Toujours terminer par un message court et explicite :
   la routine s'est arrêtée faute de photo (étape 2.2), le dire
   explicitement plutôt que de rester silencieux.
 
-Commit avec un message préfixé `[pub]`, push sur `main`.
+Commit avec un message préfixé `[pub]`, push sur `main`, puis pousser la
+branche de session locale vers son propre remote (voir la note en tête
+de fichier) — dans cet ordre, `main` reste la cible de contenu, la
+branche de session n'est qu'un miroir.
