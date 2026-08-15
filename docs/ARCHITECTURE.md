@@ -114,6 +114,21 @@ moins prioritaire).
   contacts à suivre le compte) pour faire grossir l'audience avant
   d'envisager de la pub payante — pas de suivi chiffré dans ce dépôt,
   démarche manuelle côté utilisateur.
+- **P2 — Générer les posts "pub" en Reel plutôt qu'en image statique,
+  idée du 15 août.** Motivation : reach nettement supérieur aux posts
+  statiques sur Instagram (et de plus en plus sur Facebook). **Bloqué
+  par une contrainte API vérifiée le 15 août** : l'Instagram Content
+  Publishing API exige `media_type=REELS` + un vrai `video_url` (mp4/
+  mov) — aucun moyen de publier un Reel à partir d'une simple image via
+  l'API (la conversion "photo → reel" visible dans l'app Instagram se
+  fait côté app, pas via l'API/Make). Pour avancer, il faudrait ajouter
+  une étape de génération vidéo (ex. léger zoom/pan sur la carte
+  `assets/social/pub/{date}.png` existante, 4-6 secondes, avec ou sans
+  musique, exporté en mp4) en amont de `generate_pub_image.py`, avant de
+  pouvoir brancher le module Make natif **Instagram for Business →
+  "Create a reel post"**. Pas encore scopé en détail (outil de rendu
+  vidéo à choisir, durée, musique ou silence) — à reprendre quand
+  l'utilisateur veut avancer dessus.
 - **P3 — Giveaway "abonne-toi à la newsletter = tirage au sort", idée du
   10 août.** Objectif : faire croître la base newsletter (MailerLite,
   **1 seul abonné actuellement**) via un jeu-concours simple. **Écarté
