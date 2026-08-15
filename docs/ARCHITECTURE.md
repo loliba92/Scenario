@@ -119,32 +119,29 @@ moins prioritaire).
   les réseaux dont le format colle **déjà** à ce que produit le pipeline
   (texte court + lien + image carrée) — zéro nouveau format de contenu à
   inventer, contrairement à la vidéo (voir Reels/TikTok ci-dessous).
-  - **Threads** : même connexion Meta déjà branchée pour Instagram/
-    Facebook natifs (`Olivier's Facebook connection`) — juste un module
-    supplémentaire sur le Router, même texte que la branche X. Coût
-    marginal quasi nul **si un module natif existe** — non confirmé côté
-    Make au 15 août (recherches web inconclusives, aucun module trouvé
-    dans le catalogue) : à vérifier directement dans la barre de
-    recherche des apps Make avant de s'engager dessus. Repli possible :
-    Buffer (à vérifier s'il supporte Threads) ou l'API Threads de Meta
-    en HTTP/OAuth manuel — moins recommandé, vu l'expérience déjà vécue
-    avec X (tentative OAuth manuelle abandonnée après échecs répétés).
-  - **Bluesky** : format identique à X (texte + lien + image), et
-    audience en pleine migration vers cette plateforme au moment de la
-    discussion (journalistes, lectorat actu/géopolitique) — bon rapport
-    effort/pertinence pour l'audience visée par Scénario. **Pas de
-    module natif confirmé côté Make** (même statut que Threads,
-    correction du 15 août après une fausse confirmation dans une version
-    précédente de cette note) — **mais passe par Buffer**, confirmé par
-    l'utilisateur. Bonus pratique : Facebook étant désormais entièrement
-    natif (Daily/SUIVI/PUB, voir plus haut), le canal Buffer autrefois
-    utilisé pour Facebook (profil `6a75903399afb443491a91a5`, plus
-    aucun module ne le référence dans le blueprint actuel) est
-    probablement libre — Bluesky pourrait le récupérer sans dépasser la
-    limite de 3 canaux gratuits Buffer, à vérifier côté utilisateur.
-  - **Mastodon** : même logique/format que Bluesky, audience plus
-    réduite mais technophile/engagée — priorité un cran en dessous des
-    deux précédents mais même coût nul si fait en même temps.
+  - ✅ **[FAIT le 15 août] Bluesky** — branché sur les 3 circuits (Daily/
+    RSS SUIVI/RSS PUB), au final via un **module Make natif**
+    (`bluesky:createAPost`/`bluesky:uploadMedia`, contrairement à la
+    supposition initiale du même jour qui pensait devoir passer par
+    Buffer faute de module natif trouvé) — voir le détail technique
+    complet (upload en blob, facets, limite 300 caractères, 3 bugs
+    corrigés) dans la section RSS PUB/blueprint ci-dessus.
+  - **Threads** — toujours en attente. Même connexion Meta déjà branchée
+    pour Instagram/Facebook natifs (`Olivier's Facebook connection`) —
+    coût marginal quasi nul **si un module natif existe**, mais non
+    confirmé côté Make au 15 août (recherches web inconclusives, aucun
+    module trouvé dans le catalogue ; vu que Bluesky s'est finalement
+    révélé disponible nativement malgré une recherche tout aussi
+    inconcluante au départ, ne pas conclure trop vite à l'absence de
+    Threads — juste vérifier directement dans la barre de recherche des
+    apps Make). Repli possible si vraiment absent : Buffer (à vérifier
+    s'il supporte Threads) ou l'API Threads de Meta en HTTP/OAuth manuel
+    — moins recommandé, vu l'expérience déjà vécue avec X (tentative
+    OAuth manuelle abandonnée après échecs répétés). **Remis à plus
+    tard, retour utilisateur du 15 août.**
+  - **Mastodon** — toujours en attente, même logique/format que Bluesky,
+    audience plus réduite mais technophile/engagée — priorité un cran
+    en dessous de Threads.
   - **Écartés du même passage, mauvais fit avec le sujet (actu/
     géopolitique quotidienne, pas de pipeline vidéo)** : Pinterest
     (visuel evergreen, pas de l'actu), Reddit (pas un canal de diffusion
@@ -152,11 +149,10 @@ moins prioritaire).
     anti-spam strictes, risque de ban si posté automatiquement),
     Discord/YouTube (chantiers différents : communauté à modérer /
     vidéo à produire, hors périmètre "quasi gratuit à ajouter").
-  Pas encore implémenté, aucune connexion Make créée à ce stade — à
-  construire quand l'utilisateur veut avancer dessus (même schéma que
-  Threads/Facebook/Instagram : module natif si disponible, sinon Buffer
-  en repli si Buffer supporte le réseau et qu'il reste de la place sur
-  le plan gratuit).
+  Threads/Mastodon : pas encore implémentés — à construire quand
+  l'utilisateur veut avancer dessus (même méthode que pour Bluesky :
+  module natif si disponible, sinon Buffer en repli si Buffer supporte
+  le réseau et qu'il reste de la place sur le plan gratuit).
 - **P2 — Générer les posts "pub" en Reel plutôt qu'en image statique
   (et, dans la même logique, TikTok), idée du 15 août.** Motivation :
   reach nettement supérieur aux posts statiques sur Instagram (et de
