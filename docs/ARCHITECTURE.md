@@ -3343,6 +3343,20 @@ Voir les échanges de session pour le détail, mais en résumé :
     l'utilisateur). Reste disponible si Publisher Center demande une
     étape de configuration supplémentaire (sections, etc.), sinon ce
     point est clos.
+  - **[VÉRIFIÉ le 15 août] Toujours aucune apparition dans Google
+    Actualités** — Search Console, rapport Performances filtré "Type de
+    recherche : Actualités", fenêtre 3 mois (28/07 au 13/08) : **0 clic,
+    0 impression** sur toute la période, y compris depuis la config
+    Publisher Center du 7 août (J+8 au moment du check). Pas forcément
+    alarmant à ce stade — Google annonce lui-même un délai "généralement
+    plusieurs semaines", et 8 jours reste court — mais c'est la première
+    vérification factuelle du sujet depuis la mise en place technique,
+    à recroiser dans quelques semaines plutôt que de supposer que ça a
+    fonctionné sans donnée pour le confirmer. **Prochaine étape** : même
+    check dans Search Console vers fin août/début septembre ; si
+    toujours à 0 à ce moment-là, creuser une cause technique plus
+    profonde (fréquence de crawl, `robots.txt`, sitemap news, volume de
+    contenu jugé insuffisant par Google) plutôt que d'attendre encore.
 - **Mentions légales + politique de confidentialité** — fait. Deux pages
   dédiées (`mentions-legales.html`, `politique-de-confidentialite.html`),
   liées depuis le footer des 5 pages vivantes. Éditeur identifié (Olivier
