@@ -1023,17 +1023,17 @@
                             },
                             "mapper": {
                                 "url": "https://lesscenarios.fr/feed-suivi.xml",
-                                "gzip": true,
-                                "password": "",
                                 "username": "",
+                                "password": "",
+                                "filterDateFrom": "{{parseDate(formatDate(addDays(now; -1); \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}",
+                                "filterDateTo": "{{parseDate(formatDate(now; \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}",
                                 "maxResults": "1",
-                                "filterDateTo": "{{parseDate(formatDate(addDays(now; -1); \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}",
-                                "filterDateFrom": "{{parseDate(formatDate(addDays(now; -1); \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}"
+                                "gzip": true
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -305,
-                                    "y": 208,
+                                    "x": -6,
+                                    "y": -447,
                                     "name": "RSS SUIVI"
                                 },
                                 "restore": {},
@@ -1042,7 +1042,13 @@
                                         "name": "include",
                                         "type": "select",
                                         "label": "Process RSS fields",
-                                        "multiple": true
+                                        "multiple": true,
+                                        "validate": {
+                                            "enum": [
+                                                "google-merchant-center",
+                                                "itunes"
+                                            ]
+                                        }
                                     }
                                 ],
                                 "expect": [
@@ -1128,110 +1134,110 @@
                                     },
                                     {
                                         "name": "image",
+                                        "type": "collection",
+                                        "label": "Image",
                                         "spec": [
                                             {
                                                 "name": "title",
-                                                "type": "text",
-                                                "label": "Name"
+                                                "label": "Name",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "url",
-                                                "type": "url",
-                                                "label": "URL"
+                                                "label": "URL",
+                                                "type": "url"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Image"
+                                        ]
                                     },
                                     {
                                         "name": "categories",
+                                        "type": "array",
+                                        "label": "Categories",
                                         "spec": {
                                             "type": "text"
-                                        },
-                                        "type": "array",
-                                        "label": "Categories"
+                                        }
                                     },
                                     {
                                         "name": "source",
+                                        "type": "collection",
+                                        "label": "Source",
                                         "spec": [
                                             {
                                                 "name": "title",
-                                                "type": "text",
-                                                "label": "Name"
+                                                "label": "Name",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "url",
-                                                "type": "url",
-                                                "label": "URL"
+                                                "label": "URL",
+                                                "type": "url"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Source"
+                                        ]
                                     },
                                     {
                                         "name": "enclosures",
+                                        "type": "array",
+                                        "label": "Enclosures",
                                         "spec": [
                                             {
                                                 "name": "url",
-                                                "type": "url",
-                                                "label": "URL"
+                                                "label": "URL",
+                                                "type": "url"
                                             },
                                             {
                                                 "name": "type",
-                                                "type": "text",
-                                                "label": "Type"
+                                                "label": "Type",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "length",
-                                                "type": "number",
-                                                "label": "Length"
+                                                "label": "Length",
+                                                "type": "number"
                                             }
-                                        ],
-                                        "type": "array",
-                                        "label": "Enclosures"
+                                        ]
                                     },
                                     {
-                                        "help": "Other RSS fields. All values are in text format.",
                                         "name": "rssFields",
+                                        "label": "RSS fields",
+                                        "help": "Other RSS fields. All values are in text format.",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "title",
-                                                "type": "text",
-                                                "label": "title"
+                                                "label": "title",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "link",
-                                                "type": "text",
-                                                "label": "link"
+                                                "label": "link",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "guid",
-                                                "type": "text",
-                                                "label": "guid"
+                                                "label": "guid",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "pubdate",
-                                                "type": "text",
-                                                "label": "pubdate"
+                                                "label": "pubdate",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "comments",
-                                                "type": "text",
-                                                "label": "comments"
-                                            },
-                                            {
-                                                "name": "description",
-                                                "type": "text",
-                                                "label": "description"
+                                                "label": "comments",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "enclosure",
-                                                "type": "text",
-                                                "label": "enclosure"
+                                                "label": "enclosure",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "name": "description",
+                                                "label": "description",
+                                                "type": "text"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "RSS fields"
+                                        ]
                                     }
                                 ]
                             }
@@ -2190,22 +2196,22 @@
                                                     "images": [
                                                         {
                                                             "alt": "{{30.comments}}",
-                                                            "mimeType": "image/png",
-                                                            "$link": "{{84.blob.ref.`$link`}}",
                                                             "size": "{{84.blob.size}}",
+                                                            "$link": "{{84.blob.ref.`$link`}}",
                                                             "width": "{{84.med_width}}",
-                                                            "height": "{{84.med_height}}"
+                                                            "height": "{{84.med_height}}",
+                                                            "mimeType": "image/png"
                                                         }
                                                     ]
                                                 },
                                                 "facets": [
                                                     {
-                                                        "inputMode": "byKeyword",
                                                         "feature": {
-                                                            "$type": "app.bsky.richtext.facet#link",
-                                                            "uri": "{{30.url}}"
+                                                            "uri": "{{30.url}}",
+                                                            "$type": "app.bsky.richtext.facet#link"
                                                         },
-                                                        "keyword": "ici"
+                                                        "keyword": "ici",
+                                                        "inputMode": "byKeyword"
                                                     }
                                                 ]
                                             },
@@ -2215,15 +2221,6 @@
                                                     "y": 1546
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "label": "Olivier's Bluesky connection (scenario-actu.bsky.social)",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "bluesky"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
                                                         "embed": {
                                                             "nested": {
@@ -2251,11 +2248,6 @@
                                                             "mode": "chose",
                                                             "items": [
                                                                 {
-                                                                    "inputMode": {
-                                                                        "mode": "chose",
-                                                                        "collapsed": true,
-                                                                        "label": "By key word"
-                                                                    },
                                                                     "feature": {
                                                                         "nested": {
                                                                             "$type": {
@@ -2266,9 +2258,23 @@
                                                                     },
                                                                     "keyword": {
                                                                         "collapsed": true
+                                                                    },
+                                                                    "inputMode": {
+                                                                        "mode": "chose",
+                                                                        "label": "By key word",
+                                                                        "collapsed": true
                                                                     }
                                                                 }
                                                             ]
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "bluesky"
+                                                            },
+                                                            "label": "Olivier's Bluesky connection (scenario-actu.bsky.social)"
                                                         }
                                                     }
                                                 },
@@ -2285,15 +2291,13 @@
                                                         "name": "text",
                                                         "type": "text",
                                                         "label": "Text",
+                                                        "required": true,
                                                         "validate": {
                                                             "max": 300
-                                                        },
-                                                        "required": true
+                                                        }
                                                     },
                                                     {
                                                         "name": "embed",
-                                                        "type": "collection",
-                                                        "label": "Media",
                                                         "spec": [
                                                             {
                                                                 "name": "$type",
@@ -2310,12 +2314,8 @@
                                                             },
                                                             {
                                                                 "name": "images",
-                                                                "type": "array",
-                                                                "label": "Images",
-                                                                "validate": {
-                                                                    "maxItems": 4
-                                                                },
                                                                 "spec": {
+                                                                    "name": "value",
                                                                     "spec": [
                                                                         {
                                                                             "name": "alt",
@@ -2371,17 +2371,22 @@
                                                                         }
                                                                     ],
                                                                     "type": "collection",
-                                                                    "label": "Image",
-                                                                    "name": "value"
+                                                                    "label": "Image"
+                                                                },
+                                                                "type": "array",
+                                                                "label": "Images",
+                                                                "validate": {
+                                                                    "maxItems": 4
                                                                 }
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Media"
                                                     },
                                                     {
                                                         "name": "langs",
-                                                        "type": "array",
-                                                        "label": "Languages",
                                                         "spec": {
+                                                            "name": "value",
                                                             "type": "select",
                                                             "label": "Language",
                                                             "options": [
@@ -2533,15 +2538,15 @@
                                                                     "label": "Tagalog",
                                                                     "value": "tl"
                                                                 }
-                                                            ],
-                                                            "name": "value"
-                                                        }
+                                                            ]
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Languages"
                                                     },
                                                     {
                                                         "name": "facets",
-                                                        "type": "array",
-                                                        "label": "Facets",
                                                         "spec": {
+                                                            "name": "value",
                                                             "spec": [
                                                                 {
                                                                     "name": "inputMode",
@@ -2663,9 +2668,10 @@
                                                                 }
                                                             ],
                                                             "type": "collection",
-                                                            "label": "Facet",
-                                                            "name": "value"
-                                                        }
+                                                            "label": "Facet"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Facets"
                                                     }
                                                 ],
                                                 "advanced": true
@@ -2856,12 +2862,12 @@
                             },
                             "mapper": {
                                 "url": "https://lesscenarios.fr/feed-pub.xml",
-                                "gzip": true,
-                                "password": "",
                                 "username": "",
+                                "password": "",
+                                "filterDateFrom": "{{parseDate(formatDate(addDays(now; -1); \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}",
+                                "filterDateTo": "{{parseDate(formatDate(now; \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}",
                                 "maxResults": "1",
-                                "filterDateTo": "{{parseDate(formatDate(addDays(now; -1); \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}",
-                                "filterDateFrom": "{{parseDate(formatDate(addDays(now; -1); \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}"
+                                "gzip": true
                             },
                             "metadata": {
                                 "designer": {
@@ -2875,7 +2881,13 @@
                                         "name": "include",
                                         "type": "select",
                                         "label": "Process RSS fields",
-                                        "multiple": true
+                                        "multiple": true,
+                                        "validate": {
+                                            "enum": [
+                                                "google-merchant-center",
+                                                "itunes"
+                                            ]
+                                        }
                                     }
                                 ],
                                 "expect": [
@@ -2961,110 +2973,110 @@
                                     },
                                     {
                                         "name": "image",
+                                        "type": "collection",
+                                        "label": "Image",
                                         "spec": [
                                             {
                                                 "name": "title",
-                                                "type": "text",
-                                                "label": "Name"
+                                                "label": "Name",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "url",
-                                                "type": "url",
-                                                "label": "URL"
+                                                "label": "URL",
+                                                "type": "url"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Image"
+                                        ]
                                     },
                                     {
                                         "name": "categories",
+                                        "type": "array",
+                                        "label": "Categories",
                                         "spec": {
                                             "type": "text"
-                                        },
-                                        "type": "array",
-                                        "label": "Categories"
+                                        }
                                     },
                                     {
                                         "name": "source",
+                                        "type": "collection",
+                                        "label": "Source",
                                         "spec": [
                                             {
                                                 "name": "title",
-                                                "type": "text",
-                                                "label": "Name"
+                                                "label": "Name",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "url",
-                                                "type": "url",
-                                                "label": "URL"
+                                                "label": "URL",
+                                                "type": "url"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Source"
+                                        ]
                                     },
                                     {
                                         "name": "enclosures",
+                                        "type": "array",
+                                        "label": "Enclosures",
                                         "spec": [
                                             {
                                                 "name": "url",
-                                                "type": "url",
-                                                "label": "URL"
+                                                "label": "URL",
+                                                "type": "url"
                                             },
                                             {
                                                 "name": "type",
-                                                "type": "text",
-                                                "label": "Type"
+                                                "label": "Type",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "length",
-                                                "type": "number",
-                                                "label": "Length"
+                                                "label": "Length",
+                                                "type": "number"
                                             }
-                                        ],
-                                        "type": "array",
-                                        "label": "Enclosures"
+                                        ]
                                     },
                                     {
-                                        "help": "Other RSS fields. All values are in text format.",
                                         "name": "rssFields",
+                                        "label": "RSS fields",
+                                        "help": "Other RSS fields. All values are in text format.",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "title",
-                                                "type": "text",
-                                                "label": "title"
+                                                "label": "title",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "link",
-                                                "type": "text",
-                                                "label": "link"
+                                                "label": "link",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "guid",
-                                                "type": "text",
-                                                "label": "guid"
+                                                "label": "guid",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "pubdate",
-                                                "type": "text",
-                                                "label": "pubdate"
+                                                "label": "pubdate",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "comments",
-                                                "type": "text",
-                                                "label": "comments"
+                                                "label": "comments",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "enclosure",
-                                                "type": "text",
-                                                "label": "enclosure"
+                                                "label": "enclosure",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "description",
-                                                "type": "text",
-                                                "label": "description"
+                                                "label": "description",
+                                                "type": "text"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "RSS fields"
+                                        ]
                                     }
                                 ]
                             }
@@ -3900,22 +3912,22 @@
                                                     "images": [
                                                         {
                                                             "alt": "{{58.comments}}",
-                                                            "mimeType": "image/png",
-                                                            "$link": "{{82.blob.ref.`$link`}}",
                                                             "size": "{{82.blob.size}}",
+                                                            "$link": "{{82.blob.ref.`$link`}}",
                                                             "width": "{{82.med_width}}",
-                                                            "height": "{{82.med_height}}"
+                                                            "height": "{{82.med_height}}",
+                                                            "mimeType": "image/png"
                                                         }
                                                     ]
                                                 },
                                                 "facets": [
                                                     {
-                                                        "inputMode": "byKeyword",
                                                         "feature": {
-                                                            "$type": "app.bsky.richtext.facet#link",
-                                                            "uri": "{{58.url}}"
+                                                            "uri": "{{58.url}}",
+                                                            "$type": "app.bsky.richtext.facet#link"
                                                         },
-                                                        "keyword": "ici"
+                                                        "keyword": "ici",
+                                                        "inputMode": "byKeyword"
                                                     }
                                                 ]
                                             },
@@ -3925,15 +3937,6 @@
                                                     "y": 1329
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "label": "Olivier's Bluesky connection (scenario-actu.bsky.social)",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "bluesky"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
                                                         "embed": {
                                                             "nested": {
@@ -3961,10 +3964,6 @@
                                                             "mode": "chose",
                                                             "items": [
                                                                 {
-                                                                    "inputMode": {
-                                                                        "mode": "chose",
-                                                                        "label": "By key word"
-                                                                    },
                                                                     "feature": {
                                                                         "nested": {
                                                                             "$type": {
@@ -3972,9 +3971,22 @@
                                                                                 "label": "Link"
                                                                             }
                                                                         }
+                                                                    },
+                                                                    "inputMode": {
+                                                                        "mode": "chose",
+                                                                        "label": "By key word"
                                                                     }
                                                                 }
                                                             ]
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "bluesky"
+                                                            },
+                                                            "label": "Olivier's Bluesky connection (scenario-actu.bsky.social)"
                                                         }
                                                     }
                                                 },
@@ -3991,15 +4003,13 @@
                                                         "name": "text",
                                                         "type": "text",
                                                         "label": "Text",
+                                                        "required": true,
                                                         "validate": {
                                                             "max": 300
-                                                        },
-                                                        "required": true
+                                                        }
                                                     },
                                                     {
                                                         "name": "embed",
-                                                        "type": "collection",
-                                                        "label": "Media",
                                                         "spec": [
                                                             {
                                                                 "name": "$type",
@@ -4016,12 +4026,8 @@
                                                             },
                                                             {
                                                                 "name": "images",
-                                                                "type": "array",
-                                                                "label": "Images",
-                                                                "validate": {
-                                                                    "maxItems": 4
-                                                                },
                                                                 "spec": {
+                                                                    "name": "value",
                                                                     "spec": [
                                                                         {
                                                                             "name": "alt",
@@ -4077,17 +4083,22 @@
                                                                         }
                                                                     ],
                                                                     "type": "collection",
-                                                                    "label": "Image",
-                                                                    "name": "value"
+                                                                    "label": "Image"
+                                                                },
+                                                                "type": "array",
+                                                                "label": "Images",
+                                                                "validate": {
+                                                                    "maxItems": 4
                                                                 }
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Media"
                                                     },
                                                     {
                                                         "name": "langs",
-                                                        "type": "array",
-                                                        "label": "Languages",
                                                         "spec": {
+                                                            "name": "value",
                                                             "type": "select",
                                                             "label": "Language",
                                                             "options": [
@@ -4239,15 +4250,15 @@
                                                                     "label": "Tagalog",
                                                                     "value": "tl"
                                                                 }
-                                                            ],
-                                                            "name": "value"
-                                                        }
+                                                            ]
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Languages"
                                                     },
                                                     {
                                                         "name": "facets",
-                                                        "type": "array",
-                                                        "label": "Facets",
                                                         "spec": {
+                                                            "name": "value",
                                                             "spec": [
                                                                 {
                                                                     "name": "inputMode",
@@ -4369,9 +4380,10 @@
                                                                 }
                                                             ],
                                                             "type": "collection",
-                                                            "label": "Facet",
-                                                            "name": "value"
-                                                        }
+                                                            "label": "Facet"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Facets"
                                                     }
                                                 ],
                                                 "advanced": true
