@@ -2414,22 +2414,22 @@
                                                 "account": 9580775
                                             },
                                             "mapper": {
-                                                "text": "{{58.comments}}{{newline}}{{newline}}Plus d'info ici : {{58.rssFields.link}}",
-                                                "type": "scheduled",
-                                                "media": {
-                                                    "link": "{{58.enclosures[].url}}",
-                                                    "title": "{{58.title}}",
-                                                    "picture": "{{58.enclosures[].url}}",
-                                                    "thumbnail": "",
-                                                    "description": "{{58.comments}}"
-                                                },
-                                                "shorten": true,
-                                                "useMedia": true,
-                                                "attachment": false,
                                                 "profileIds": [
                                                     "6a7480e899afb44349119553"
                                                 ],
-                                                "dateScheduled": "{{addHours(now; 6)}}"
+                                                "text": "{{58.comments}}{{newline}}{{newline}}Plus d'info ici : {{58.rssFields.link}}",
+                                                "type": "scheduled",
+                                                "useMedia": true,
+                                                "shorten": true,
+                                                "attachment": false,
+                                                "dateScheduled": "{{addHours(now; 6)}}",
+                                                "media": {
+                                                    "link": "{{58.enclosures[].url}}",
+                                                    "title": "{{58.title}}",
+                                                    "description": "{{58.comments}}",
+                                                    "picture": "{{58.enclosures[].url}}",
+                                                    "thumbnail": ""
+                                                }
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -2438,9 +2438,30 @@
                                                     "name": "Twitter "
                                                 },
                                                 "restore": {
+                                                    "parameters": {
+                                                        "account": {
+                                                            "label": "Olivier's Buffer connection (scenarios.actu)",
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "buffer"
+                                                            }
+                                                        }
+                                                    },
                                                     "expect": {
+                                                        "profileIds": {
+                                                            "mode": "chose",
+                                                            "label": [
+                                                                "6a7480e899afb44349119553"
+                                                            ]
+                                                        },
                                                         "type": {
                                                             "label": "Post an update at scheduled date and time"
+                                                        },
+                                                        "shorten": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "attachment": {
+                                                            "mode": "chose"
                                                         },
                                                         "media": {
                                                             "nested": {
@@ -2450,34 +2471,13 @@
                                                                 "title": {
                                                                     "collapsed": true
                                                                 },
-                                                                "picture": {
+                                                                "description": {
                                                                     "collapsed": true
                                                                 },
-                                                                "description": {
+                                                                "picture": {
                                                                     "collapsed": true
                                                                 }
                                                             }
-                                                        },
-                                                        "shorten": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "attachment": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "profileIds": {
-                                                            "mode": "chose",
-                                                            "label": [
-                                                                "6a7480e899afb44349119553"
-                                                            ]
-                                                        }
-                                                    },
-                                                    "parameters": {
-                                                        "account": {
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "buffer"
-                                                            },
-                                                            "label": "Olivier's Buffer connection (scenarios.actu)"
                                                         }
                                                     }
                                                 },
@@ -2494,8 +2494,8 @@
                                                         "name": "profileIds",
                                                         "type": "select",
                                                         "label": "Profiles",
-                                                        "multiple": true,
-                                                        "required": true
+                                                        "required": true,
+                                                        "multiple": true
                                                     },
                                                     {
                                                         "name": "text",
@@ -2543,6 +2543,8 @@
                                                     },
                                                     {
                                                         "name": "media",
+                                                        "type": "collection",
+                                                        "label": "Media",
                                                         "spec": [
                                                             {
                                                                 "name": "link",
@@ -2569,9 +2571,7 @@
                                                                 "type": "url",
                                                                 "label": "Thumbnail"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Media"
+                                                        ]
                                                     }
                                                 ]
                                             }
@@ -2596,7 +2596,7 @@
                                                     }
                                                 ],
                                                 "message": "{{58.comments}}{{newline}}{{newline}}Plus d'info ici : {{58.rssFields.link}}",
-                                                "date": "{{addHours(now; 3)}}"
+                                                "date": "{{addHours(now; 6)}}"
                                             },
                                             "metadata": {
                                                 "designer": {

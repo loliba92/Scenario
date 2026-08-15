@@ -841,35 +841,48 @@ moins prioritaire).
   Buffer vers les modules Make natifs**, à la demande de l'utilisateur
   après avoir réussi la connexion directe : module 68
   (`instagram-business:CreatePostPhoto`, `accountId`
-  `17841439844206886`) et module 66 (`facebook-pages:CreatePost`,
+  `17841439844206886`) et module 70 (`facebook-pages:CreatePostWithPhotos`,
   `page_id` `1134876509719728`), même connexion Facebook réutilisée pour
   les deux (`Olivier's Facebook connection`). **X (module 14) reste sur
   Buffer** — pas de solution native depuis le retrait de l'app X de Make
-  (voir plus haut). **Point de vigilance non résolu** : l'API Instagram
-  Content Publishing exige un JPEG (`PNG` refusé, vérifié sur la doc
-  officielle Meta le 15 août), or `assets/social/instagram/{date}.png`
-  est un PNG — le module 68 pointe directement sur ce PNG
-  (`{{4.enclosures[].url}}`), risque réel d'échec à confirmer par le
-  premier run réel. Pas encore de conversion JPEG ajoutée aux scripts de
-  génération.
+  (voir plus haut). Facebook est passé par deux itérations le même jour :
+  d'abord `facebook-pages:CreatePost` (champ `link`, publie un lien avec
+  vignette), puis remplacé par `facebook-pages:CreatePostWithPhotos`
+  (upload direct via `Photos` > `Use a photo URL`) pour poster une vraie
+  photo au lieu d'une carte-lien — confirmé fonctionnel par l'utilisateur.
+  **Point de vigilance Instagram, résolu en pratique** : l'API Content
+  Publishing documente "JPEG only" (`PNG` refusé selon la doc officielle
+  Meta, vérifiée le 15 août), or `assets/social/instagram/{date}.png` est
+  bien un PNG et le module 68 pointe dessus tel quel
+  (`{{4.enclosures[].url}}`) — **confirmé fonctionnel par l'utilisateur
+  au run réel du 15 août**, donc soit l'API est plus permissive que sa
+  doc, soit il y a une conversion silencieuse côté Make/Meta. Pas de
+  conversion JPEG ajoutée aux scripts de génération, pas nécessaire tant
+  que ça continue à passer — à surveiller si un run échoue un jour sur ce
+  point précis.
 
   **[FAIT le 15 août] Nouvelle branche "RSS PUB" ajoutée au scénario
   Daily** — 6e branche du Router principal (après un délai de 120s,
   module 57), lit `feed-pub.xml` (module 58, fenêtre "hier uniquement"
-  ci-dessus) et distribue vers **X (Buffer,
-  module 61), Facebook (Buffer, module 62), LinkedIn (natif, module 63)
-  et Instagram (Buffer, module 64)** — pas de branche Telegram pour cette
-  catégorie (cohérent avec `docs/routine-pub-prompt.md`, qui ne mentionne
-  jamais Telegram pour les posts "pub"). **Les 3 branches Buffer sont
-  programmées `dateScheduled: {{addHours(now; 6)}}`** — publication
-  décalée de 6h après le déclenchement du scénario, précisément pour
-  éviter que le post "pub" (quand il y en a un) n'arrive groupé avec le
-  post quotidien à la même heure — objectif direct de la discussion du
-  15 août sur l'étalement des publications. `feed-pub.xml` a donc
-  désormais un vrai canal de diffusion automatisé côté Make, ce qui
-  n'était pas le cas jusqu'ici (le fichier existait mais rien ne le
-  consommait). Blueprint resynchronisé dans
-  `assets/make/scenario-daily.blueprint.json`.
+  ci-dessus) et distribue vers **X (Buffer, module 61), Facebook
+  (`facebook-pages:CreatePostWithPhotos`, module 71), LinkedIn (natif,
+  module 63) et Instagram (Buffer, module 64)** — pas de branche Telegram
+  pour cette catégorie (cohérent avec `docs/routine-pub-prompt.md`, qui
+  ne mentionne jamais Telegram pour les posts "pub"). **Les 4 branches
+  sont programmées ~6h après le déclenchement** (`dateScheduled`/`date` =
+  `{{addHours(now; 6)}}` sur les 4 modules 61/64/71 + Publish date natif
+  pour Facebook) — publication décalée pour éviter que le post "pub"
+  (quand il y en a un) n'arrive groupé avec le post quotidien à la même
+  heure, objectif direct de la discussion du 15 août sur l'étalement des
+  publications. **Coquille corrigée le 15 août** : le module 71
+  (Facebook) était resté à `addHours(now; 3)` (copié depuis la branche
+  RSS SUIVI) au lieu de `6` comme ses voisins X/Instagram de la même
+  branche — repéré à la relecture du blueprint, corrigé côté Make et
+  confirmé dans l'export suivant. `feed-pub.xml` a donc désormais un vrai
+  canal de diffusion automatisé côté Make, ce qui n'était pas le cas
+  jusqu'ici (le fichier existait mais rien ne le consommait). Blueprint
+  resynchronisé dans `assets/make/scenario-daily.blueprint.json`
+  (3 exports successifs le 15 août, dernier fait foi).
 
   **3 erreurs de texte repérées dans cet export, corrigées à 2/3 dans un
   second export le 12 août** :
