@@ -898,9 +898,11 @@ moins prioritaire).
   donc désormais câblé pour l'image sur les 4 réseaux, plus de trou
   structurel.
 
-  **[FAIT le 15 août] Fenêtre de dates "hier uniquement" généralisée à
-  tous les modules `rss:ActionReadArticles`** (RSS SUIVI id 30, et RSS
-  PUB id 58 ci-dessous) — `filterDateFrom` **et** `filterDateTo` =
+  **[FAIT le 15 août, puis CASSÉ par le même changement — bug repéré et
+  corrigé le 15 août également] Fenêtre de dates "hier uniquement"
+  généralisée à tous les modules `rss:ActionReadArticles`** (RSS SUIVI
+  id 30, et RSS PUB id 58 ci-dessous) — `filterDateFrom` **et**
+  `filterDateTo` mis à la **même** formule
   `{{parseDate(formatDate(addDays(now; -1); "YYYY-MM-DD"); "YYYY-MM-DD")}}`
   (les deux bornes sur la veille, pas seulement `filterDateFrom`). Choix
   motivé : ces modules n'ont pas de mémoire entre deux exécutions
@@ -909,6 +911,28 @@ moins prioritaire).
   réseaux deux jours de suite (repli "hier + aujourd'hui" testé mais
   écarté : avec "Maximum number of returned items" = 1, un item resterait
   éligible sur 2 exécutions consécutives).
+
+  **Bug** : `filterDateFrom` et `filterDateTo` avec la **même** formule
+  donnent la **même valeur exacte** (minuit hier, à la milliseconde
+  près) — un intervalle de largeur nulle, pas une journée. Comme la
+  comparaison porte sur un vrai datetime et que le `pubDate` réel d'un
+  item RSS a toujours une heure (ex. `20:00:00 +0200`, jamais
+  `00:00:00`), **aucun item ne peut jamais matcher** : le filtre
+  bloquait silencieusement tout, sur RSS SUIVI comme RSS PUB. Repéré
+  via le module inspector Make (les deux champs affichaient très
+  visiblement la formule identique), pas via un item manquant en
+  sortie — modules bien "stoppés" (0 item), pas en erreur.
+
+  **Fix** : `filterDateTo` seul passe de `addDays(now; -1)` à `now` (on
+  retire juste le `-1`, `filterDateFrom` ne change pas) —
+  `{{parseDate(formatDate(now; "YYYY-MM-DD"); "YYYY-MM-DD")}}` (minuit
+  **aujourd'hui**). L'intervalle devient minuit hier → minuit
+  aujourd'hui, soit exactement les 24h de "hier" en entier, ce qui
+  restaure l'effet voulu (filtre anti-répétition sur la veille) sans
+  revenir à l'ancien souci de fenêtre glissante ouverte. À appliquer à
+  la main dans Make sur les deux modules concernés (RSS SUIVI id 30 et
+  RSS PUB id 58) — seul le champ `Date to` change, `Date from` reste
+  identique sur les deux.
 
   **[FAIT le 15 août] Instagram et Facebook du circuit Daily migrés de
   Buffer vers les modules Make natifs**, à la demande de l'utilisateur
@@ -3756,6 +3780,25 @@ Voir les échanges de session pour le détail, mais en résumé :
   ouvert la page doit comprendre en une seule phrase *pourquoi* il y a
   une mise à jour, sans avoir à deviner ce que "stable" signifie pour
   ce sujet précis.
+
+  **Le titre du scénario lui-même ne doit pas non plus ouvrir la
+  phrase, affiné le 15 août après retour utilisateur** (cas réel :
+  "🎯 Le retrait se fait proprement, +20 points (45%)" jugé tout aussi
+  incompréhensible en tête que l'étiquette brute — le règlement du
+  14 août évitait "stable" seul, mais un titre de scénario reformulé
+  reste souvent trop abstrait hors contexte de sa carte). Toujours
+  ouvrir la phrase par le **fait concret** — l'événement réel qui
+  explique le mouvement (ex. "LIV Golf a trouvé un nouvel investisseur
+  principal") — puis seulement ensuite nommer le scénario concerné et
+  son écart en points, jamais l'inverse. Corrigé rétroactivement sur
+  `suivi/arabie-saoudite-sport.html` et l'item correspondant de
+  `feed-suivi.xml` le jour même : "🎯 LIV Golf trouve un nouvel
+  investisseur, +20 points (45%)" plutôt que "🎯 Le retrait se fait
+  proprement, +20 points (45%)". Même périmètre que la règle du
+  14 août (page ET `<comments>`/`<description>` de `feed-suivi.xml`,
+  donc l'image générée) — les titres de `.mini-scenario-title` sur les
+  cartes individuelles restent inchangés, cette règle ne vaut que pour
+  la phrase de conclusion/verdict.
 
   Mettre à jour le badge et la date sur `archives.html` ; mettre à jour
   aussi l'entrée correspondante (ou la créer) dans la section « Suivis
