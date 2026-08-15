@@ -935,6 +935,55 @@ moins prioritaire).
   resynchronisé dans `assets/make/scenario-daily.blueprint.json`
   (3 exports successifs le 15 août, dernier fait foi).
 
+  **[FAIT le 15 août] Bluesky branché sur les 3 circuits (Daily/RSS
+  SUIVI/RSS PUB)**, via le module natif Make (`Olivier's Bluesky
+  connection`, `scenario-actu.bsky.social`) — confirme la piste P1 notée
+  plus haut (« Threads, Bluesky, Mastodon »). Détails techniques
+  spécifiques à Bluesky (protocole AT, différent de Meta/Buffer) :
+  - **Limite de 300 caractères** sur le champ `Text` — le texte
+    quotidien (module 80, branche Daily) réutilise donc la formule
+    courte déjà éprouvée pour X (`{{4.title}}` + tagline fixe + CTA),
+    jamais `{{4.comments}}` complet qui dépasserait la limite la plupart
+    des jours. La branche RSS PUB (module 83) utilise en revanche
+    `{{58.comments}}` complet (eyebrow + message + attribution + CTA) —
+    safe ici car le contenu "pub" est conçu court par nature (voir
+    `docs/pub-messages.md`).
+  - **Photo : upload en 2 temps, pas une simple URL.** Contrairement à
+    Meta/Buffer, l'API Bluesky exige d'uploader l'image comme un "blob"
+    séparé avant de l'attacher au post — chaîne à 3 modules par branche :
+    `http:DownloadFile` (récupère le fichier depuis `{{X.enclosures[].url}}`)
+    → `bluesky:uploadMedia` (upload, renvoie un CID/`blob.ref`) →
+    `bluesky:createAPost` (`embed.$type: app.bsky.embed.images`, référence
+    le blob renvoyé). Testé d'abord avec `embed.$type: app.bsky.embed.external`
+    (simple lien avec URL/titre/description, sans upload) — **confirmé
+    par l'utilisateur que ça n'affiche aucune vignette** quand l'URL
+    pointe directement sur un fichier image plutôt qu'une page HTML
+    (pas de balises `og:image` à scraper) ; abandonné au profit du vrai
+    upload.
+  - **Lien cliquable : "facets", pas d'auto-détection d'URL dans le
+    texte.** Une URL en texte brut reste du texte inerte sur Bluesky —
+    il faut un "facet" (`app.bsky.richtext.facet#link`) qui associe
+    explicitement un sous-texte (`keyword`) à une URL cible (`feature.uri`).
+    Convention retenue : le mot **"ici"** dans le texte (ex. "📖 L'article
+    est ici") sert d'ancre cliquable plutôt que d'afficher l'URL brute —
+    plus propre visuellement que le lien nu utilisé sur X/Facebook.
+  - **3 problèmes trouvés et corrigés en cours de route** (relecture
+    du blueprint le 15 août, 2 allers-retours) :
+    1. Module 85 (RSS SUIVI) : le texte ne contenait pas le mot "ici"
+       alors que son facet le cherchait — lien resté non cliquable
+       jusqu'à correction du texte.
+    2. Module 83 (RSS PUB) : utilisait par erreur la tagline de la
+       branche Daily ("Scénario : chaque jour, un sujet d'actu décrypté
+       en 3 scénarios chiffrés") au lieu de `{{58.comments}}` — contenu
+       hors sujet pour un post "pub" (perdait l'eyebrow/attribution/CTA
+       propres à chaque entrée). Corrigé pour reprendre `{{58.comments}}`.
+    3. Module orphelin (id 77, premier essai en `embed.external`) resté
+       dans le blueprint après le passage à `embed.images` — signalé par
+       Make lui-même ("not connected to the flow"), sans impact
+       fonctionnel mais supprimé pour la propreté du scénario.
+    Les 3 branches (modules 80/85/83) vérifiées cohérentes dans l'export
+    final avant resynchronisation.
+
   **3 erreurs de texte repérées dans cet export, corrigées à 2/3 dans un
   second export le 12 août** :
   - ✅ **[FAIT] Module 54 (LinkedIn RSS SUIVI)** : le lien `{{30.url}}`

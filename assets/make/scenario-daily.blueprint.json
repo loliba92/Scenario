@@ -258,8 +258,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -181,
-                                    "y": -1313
+                                    "x": -371,
+                                    "y": -2221
                                 },
                                 "restore": {
                                     "expect": {
@@ -376,8 +376,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": 219,
-                                    "y": -1324
+                                    "x": 122,
+                                    "y": -2195
                                 },
                                 "restore": {
                                     "expect": {
@@ -517,8 +517,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -181,
-                                    "y": -1013,
+                                    "x": -812,
+                                    "y": -1897,
                                     "name": "X Twitter"
                                 },
                                 "restore": {
@@ -667,8 +667,8 @@
                                     "mapper": {},
                                     "metadata": {
                                         "designer": {
-                                            "x": 224,
-                                            "y": -969
+                                            "x": -726,
+                                            "y": -2240
                                         },
                                         "restore": {}
                                     }
@@ -689,8 +689,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -181,
-                                    "y": -713
+                                    "x": -371,
+                                    "y": -1621
                                 },
                                 "restore": {},
                                 "expect": [
@@ -721,8 +721,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": 253,
-                                    "y": -664
+                                    "x": 44,
+                                    "y": -1758
                                 },
                                 "restore": {
                                     "expect": {
@@ -828,8 +828,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -181,
-                                    "y": -413
+                                    "x": -371,
+                                    "y": -1321
                                 },
                                 "restore": {},
                                 "expect": [
@@ -865,8 +865,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": 159,
-                                    "y": -352
+                                    "x": 91,
+                                    "y": -1294
                                 },
                                 "restore": {
                                     "expect": {
@@ -996,8 +996,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -340,
-                                    "y": -257
+                                    "x": -371,
+                                    "y": -1021
                                 },
                                 "restore": {},
                                 "expect": [
@@ -1243,8 +1243,8 @@
                             "mapper": null,
                             "metadata": {
                                 "designer": {
-                                    "x": 93,
-                                    "y": 217
+                                    "x": 32,
+                                    "y": 517
                                 }
                             },
                             "routes": [
@@ -1270,8 +1270,8 @@
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": 476,
-                                                    "y": 348
+                                                    "x": 393,
+                                                    "y": -533
                                                 },
                                                 "restore": {
                                                     "expect": {
@@ -1397,8 +1397,8 @@
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": 368,
-                                                    "y": 626,
+                                                    "x": 393,
+                                                    "y": -233,
                                                     "name": "Twitter "
                                                 },
                                                 "restore": {
@@ -1552,36 +1552,23 @@
                                                 "__IMTCONN__": 9820069
                                             },
                                             "mapper": {
-                                                "page_id": "1134876509719728",
+                                                "date": "{{addHours(now; 3)}}",
                                                 "photos": [
                                                     {
-                                                        "type": "url",
-                                                        "url": "{{30.enclosures[].url}}"
+                                                        "url": "{{30.enclosures[].url}}",
+                                                        "type": "url"
                                                     }
                                                 ],
                                                 "message": "{{30.title}}{{newline}}{{newline}}{{30.comments}}{{newline}}{{newline}}👉 Voir la mise à jour : {{30.url}}",
-                                                "date": "{{addHours(now; 3)}}"
+                                                "page_id": "1134876509719728"
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": -34,
-                                                    "y": 620
+                                                    "x": 393,
+                                                    "y": 67
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "label": "Olivier's Facebook connection (Olivier Bertrand Loliba)",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "facebook"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
-                                                        "page_id": {
-                                                            "mode": "chose",
-                                                            "label": "Scénario"
-                                                        },
                                                         "photos": {
                                                             "mode": "chose",
                                                             "items": [
@@ -1592,6 +1579,19 @@
                                                                     }
                                                                 }
                                                             ]
+                                                        },
+                                                        "page_id": {
+                                                            "mode": "chose",
+                                                            "label": "Scénario"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "facebook"
+                                                            },
+                                                            "label": "Olivier's Facebook connection (Olivier Bertrand Loliba)"
                                                         }
                                                     }
                                                 },
@@ -1612,13 +1612,6 @@
                                                     },
                                                     {
                                                         "name": "photos",
-                                                        "type": "array",
-                                                        "label": "Photos",
-                                                        "validate": {
-                                                            "maxItems": 30,
-                                                            "minItems": 1
-                                                        },
-                                                        "required": true,
                                                         "spec": [
                                                             {
                                                                 "name": "type",
@@ -1666,7 +1659,14 @@
                                                                 "type": "text",
                                                                 "label": "Image caption"
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "array",
+                                                        "label": "Photos",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "maxItems": 30,
+                                                            "minItems": 1
+                                                        }
                                                     },
                                                     {
                                                         "name": "message",
@@ -1705,8 +1705,8 @@
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": 423,
-                                                    "y": -149
+                                                    "x": 393,
+                                                    "y": 367
                                                 },
                                                 "restore": {
                                                     "expect": {
@@ -1856,8 +1856,8 @@
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": 475,
-                                                    "y": 95,
+                                                    "x": 393,
+                                                    "y": 667,
                                                     "name": "INSTAGRAM"
                                                 },
                                                 "restore": {
@@ -1995,6 +1995,683 @@
                                             }
                                         }
                                     ]
+                                },
+                                {
+                                    "flow": [
+                                        {
+                                            "id": 86,
+                                            "module": "http:DownloadFile",
+                                            "version": 4,
+                                            "parameters": {
+                                                "authenticationType": "noAuth"
+                                            },
+                                            "mapper": {
+                                                "url": "{{30.enclosures[].url}}",
+                                                "shareCookies": false,
+                                                "stopOnHttpError": true
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 131,
+                                                    "y": 1071,
+                                                    "name": "Download Daily image"
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "headers": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "shareCookies": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "queryParameters": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "stopOnHttpError": {
+                                                            "mode": "chose"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "authenticationType": {
+                                                            "label": "No authenticationUse when no credentials are required for the request."
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "authenticationType",
+                                                        "type": "select",
+                                                        "label": "Authentication type",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "noAuth",
+                                                                "apiKey",
+                                                                "basicAuth",
+                                                                "oAuth"
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "name": "url",
+                                                        "type": "url",
+                                                        "label": "URL",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "stopOnHttpError",
+                                                        "type": "boolean",
+                                                        "label": "Return error if HTTP request fails",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "shareCookies",
+                                                        "type": "boolean",
+                                                        "label": "Share cookies with other HTTP modules",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "headers",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "spec": [
+                                                                {
+                                                                    "name": "name",
+                                                                    "type": "text",
+                                                                    "label": "Name",
+                                                                    "required": true,
+                                                                    "validate": {
+                                                                        "pattern": "^[-!#$%&'*+.^_`|~0-9A-Za-z]+$"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "name": "value",
+                                                                    "type": "text",
+                                                                    "label": "Value"
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Header"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Headers"
+                                                    },
+                                                    {
+                                                        "name": "queryParameters",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "spec": [
+                                                                {
+                                                                    "name": "name",
+                                                                    "type": "text",
+                                                                    "label": "Name",
+                                                                    "required": true
+                                                                },
+                                                                {
+                                                                    "name": "value",
+                                                                    "type": "text",
+                                                                    "label": "Value"
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Parameter"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Query parameters"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "id": 84,
+                                            "module": "bluesky:uploadMedia",
+                                            "version": 1,
+                                            "parameters": {
+                                                "__IMTCONN__": 9821351
+                                            },
+                                            "mapper": {
+                                                "data": "{{86.data}}",
+                                                "filename": "{{86.fileName}}"
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 37,
+                                                    "y": 1341
+                                                },
+                                                "restore": {
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "bluesky"
+                                                            },
+                                                            "label": "Olivier's Bluesky connection (scenario-actu.bsky.social)"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:bluesky",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "name": "filename",
+                                                        "type": "filename",
+                                                        "label": "File name",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "data",
+                                                        "type": "buffer",
+                                                        "label": "Data",
+                                                        "required": true
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "id": 85,
+                                            "module": "bluesky:createAPost",
+                                            "version": 1,
+                                            "parameters": {
+                                                "__IMTCONN__": 9821351
+                                            },
+                                            "filter": null,
+                                            "mapper": {
+                                                "text": "🔄 Un sujet suivi vient d'être mis à jour 👇{{newline}}{{30.title}}{{newline}}{{newline}}📖 Plus d'info ici",
+                                                "embed": {
+                                                    "$type": "app.bsky.embed.images",
+                                                    "images": [
+                                                        {
+                                                            "alt": "{{30.comments}}",
+                                                            "mimeType": "image/png",
+                                                            "$link": "{{84.blob.ref.`$link`}}",
+                                                            "size": "{{84.blob.size}}",
+                                                            "width": "{{84.med_width}}",
+                                                            "height": "{{84.med_height}}"
+                                                        }
+                                                    ]
+                                                },
+                                                "facets": [
+                                                    {
+                                                        "inputMode": "byKeyword",
+                                                        "feature": {
+                                                            "$type": "app.bsky.richtext.facet#link",
+                                                            "uri": "{{30.url}}"
+                                                        },
+                                                        "keyword": "ici"
+                                                    }
+                                                ]
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": -367,
+                                                    "y": 1546
+                                                },
+                                                "restore": {
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "label": "Olivier's Bluesky connection (scenario-actu.bsky.social)",
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "bluesky"
+                                                            }
+                                                        }
+                                                    },
+                                                    "expect": {
+                                                        "embed": {
+                                                            "nested": {
+                                                                "$type": {
+                                                                    "mode": "chose",
+                                                                    "label": "Images"
+                                                                },
+                                                                "images": {
+                                                                    "mode": "chose",
+                                                                    "items": [
+                                                                        {
+                                                                            "mimeType": {
+                                                                                "mode": "chose",
+                                                                                "label": "PNG image"
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "langs": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "facets": {
+                                                            "mode": "chose",
+                                                            "items": [
+                                                                {
+                                                                    "inputMode": {
+                                                                        "mode": "chose",
+                                                                        "collapsed": true,
+                                                                        "label": "By key word"
+                                                                    },
+                                                                    "feature": {
+                                                                        "nested": {
+                                                                            "$type": {
+                                                                                "mode": "chose",
+                                                                                "label": "Link"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "keyword": {
+                                                                        "collapsed": true
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:bluesky",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "name": "text",
+                                                        "type": "text",
+                                                        "label": "Text",
+                                                        "validate": {
+                                                            "max": 300
+                                                        },
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "embed",
+                                                        "type": "collection",
+                                                        "label": "Media",
+                                                        "spec": [
+                                                            {
+                                                                "name": "$type",
+                                                                "type": "select",
+                                                                "label": "Media type",
+                                                                "validate": {
+                                                                    "enum": [
+                                                                        "app.bsky.embed.external",
+                                                                        "app.bsky.embed.images",
+                                                                        "app.bsky.embed.video",
+                                                                        "app.bsky.embed.record"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "name": "images",
+                                                                "type": "array",
+                                                                "label": "Images",
+                                                                "validate": {
+                                                                    "maxItems": 4
+                                                                },
+                                                                "spec": {
+                                                                    "spec": [
+                                                                        {
+                                                                            "name": "alt",
+                                                                            "type": "text",
+                                                                            "label": "Image description",
+                                                                            "required": true
+                                                                        },
+                                                                        {
+                                                                            "name": "mimeType",
+                                                                            "type": "select",
+                                                                            "label": "Image type",
+                                                                            "options": [
+                                                                                {
+                                                                                    "label": "JPEG image",
+                                                                                    "value": "image/jpeg"
+                                                                                },
+                                                                                {
+                                                                                    "label": "PNG image",
+                                                                                    "value": "image/png"
+                                                                                },
+                                                                                {
+                                                                                    "label": "WEBP image",
+                                                                                    "value": "image/webp"
+                                                                                },
+                                                                                {
+                                                                                    "label": "Other",
+                                                                                    "value": "application/octet-stream"
+                                                                                }
+                                                                            ],
+                                                                            "required": true,
+                                                                            "validate": false
+                                                                        },
+                                                                        {
+                                                                            "name": "$link",
+                                                                            "type": "text",
+                                                                            "label": "Image identifier",
+                                                                            "required": true
+                                                                        },
+                                                                        {
+                                                                            "name": "size",
+                                                                            "type": "uinteger",
+                                                                            "label": "Size"
+                                                                        },
+                                                                        {
+                                                                            "name": "width",
+                                                                            "type": "uinteger",
+                                                                            "label": "Width"
+                                                                        },
+                                                                        {
+                                                                            "name": "height",
+                                                                            "type": "uinteger",
+                                                                            "label": "Height"
+                                                                        }
+                                                                    ],
+                                                                    "type": "collection",
+                                                                    "label": "Image",
+                                                                    "name": "value"
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "langs",
+                                                        "type": "array",
+                                                        "label": "Languages",
+                                                        "spec": {
+                                                            "type": "select",
+                                                            "label": "Language",
+                                                            "options": [
+                                                                {
+                                                                    "label": "English",
+                                                                    "value": "en"
+                                                                },
+                                                                {
+                                                                    "label": "English (United States)",
+                                                                    "value": "en-US"
+                                                                },
+                                                                {
+                                                                    "label": "English (United Kingdom)",
+                                                                    "value": "en-GB"
+                                                                },
+                                                                {
+                                                                    "label": "French",
+                                                                    "value": "fr"
+                                                                },
+                                                                {
+                                                                    "label": "French (Canada)",
+                                                                    "value": "fr-CA"
+                                                                },
+                                                                {
+                                                                    "label": "Spanish",
+                                                                    "value": "es"
+                                                                },
+                                                                {
+                                                                    "label": "Spanish (Spain)",
+                                                                    "value": "es-ES"
+                                                                },
+                                                                {
+                                                                    "label": "German",
+                                                                    "value": "de"
+                                                                },
+                                                                {
+                                                                    "label": "German (Germany)",
+                                                                    "value": "de-DE"
+                                                                },
+                                                                {
+                                                                    "label": "Thai",
+                                                                    "value": "th"
+                                                                },
+                                                                {
+                                                                    "label": "Chinese",
+                                                                    "value": "zh"
+                                                                },
+                                                                {
+                                                                    "label": "Chinese (Simplified)",
+                                                                    "value": "zh-CN"
+                                                                },
+                                                                {
+                                                                    "label": "Chinese (Traditional)",
+                                                                    "value": "zh-TW"
+                                                                },
+                                                                {
+                                                                    "label": "Japanese",
+                                                                    "value": "ja"
+                                                                },
+                                                                {
+                                                                    "label": "Korean",
+                                                                    "value": "ko"
+                                                                },
+                                                                {
+                                                                    "label": "Arabic",
+                                                                    "value": "ar"
+                                                                },
+                                                                {
+                                                                    "label": "Russian",
+                                                                    "value": "ru"
+                                                                },
+                                                                {
+                                                                    "label": "Portuguese",
+                                                                    "value": "pt"
+                                                                },
+                                                                {
+                                                                    "label": "Portuguese (Brazil)",
+                                                                    "value": "pt-BR"
+                                                                },
+                                                                {
+                                                                    "label": "Italian",
+                                                                    "value": "it"
+                                                                },
+                                                                {
+                                                                    "label": "Dutch",
+                                                                    "value": "nl"
+                                                                },
+                                                                {
+                                                                    "label": "Hindi",
+                                                                    "value": "hi"
+                                                                },
+                                                                {
+                                                                    "label": "Swedish",
+                                                                    "value": "sv"
+                                                                },
+                                                                {
+                                                                    "label": "Norwegian",
+                                                                    "value": "no"
+                                                                },
+                                                                {
+                                                                    "label": "Finnish",
+                                                                    "value": "fi"
+                                                                },
+                                                                {
+                                                                    "label": "Danish",
+                                                                    "value": "da"
+                                                                },
+                                                                {
+                                                                    "label": "Turkish",
+                                                                    "value": "tr"
+                                                                },
+                                                                {
+                                                                    "label": "Greek",
+                                                                    "value": "el"
+                                                                },
+                                                                {
+                                                                    "label": "Polish",
+                                                                    "value": "pl"
+                                                                },
+                                                                {
+                                                                    "label": "Czech",
+                                                                    "value": "cs"
+                                                                },
+                                                                {
+                                                                    "label": "Hungarian",
+                                                                    "value": "hu"
+                                                                },
+                                                                {
+                                                                    "label": "Bulgarian",
+                                                                    "value": "bg"
+                                                                },
+                                                                {
+                                                                    "label": "Ukrainian",
+                                                                    "value": "uk"
+                                                                },
+                                                                {
+                                                                    "label": "Vietnamese",
+                                                                    "value": "vi"
+                                                                },
+                                                                {
+                                                                    "label": "Indonesian",
+                                                                    "value": "id"
+                                                                },
+                                                                {
+                                                                    "label": "Malay",
+                                                                    "value": "ms"
+                                                                },
+                                                                {
+                                                                    "label": "Tagalog",
+                                                                    "value": "tl"
+                                                                }
+                                                            ],
+                                                            "name": "value"
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "facets",
+                                                        "type": "array",
+                                                        "label": "Facets",
+                                                        "spec": {
+                                                            "spec": [
+                                                                {
+                                                                    "name": "inputMode",
+                                                                    "type": "select",
+                                                                    "label": "Input mode",
+                                                                    "options": [
+                                                                        {
+                                                                            "label": "Indices",
+                                                                            "value": "indices",
+                                                                            "nested": [
+                                                                                {
+                                                                                    "help": "Specifies the substring of **Text** to which the facet applies",
+                                                                                    "name": "index",
+                                                                                    "spec": [
+                                                                                        {
+                                                                                            "help": "The starting character index of the substring. Index count starts from `0`.",
+                                                                                            "name": "byteStart",
+                                                                                            "type": "number",
+                                                                                            "label": "Start index",
+                                                                                            "required": true
+                                                                                        },
+                                                                                        {
+                                                                                            "help": "The ending character index (exclusive).",
+                                                                                            "name": "byteEnd",
+                                                                                            "type": "number",
+                                                                                            "label": "End index",
+                                                                                            "required": true
+                                                                                        }
+                                                                                    ],
+                                                                                    "type": "collection",
+                                                                                    "label": "Index"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "label": "By key word",
+                                                                            "value": "byKeyword",
+                                                                            "nested": [
+                                                                                {
+                                                                                    "help": "The substring marked as a link, mention or hashtag.",
+                                                                                    "name": "keyword",
+                                                                                    "type": "text",
+                                                                                    "label": "Keyword",
+                                                                                    "required": true
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ],
+                                                                    "required": true
+                                                                },
+                                                                {
+                                                                    "name": "feature",
+                                                                    "spec": [
+                                                                        {
+                                                                            "name": "$type",
+                                                                            "type": "select",
+                                                                            "label": "Type",
+                                                                            "options": [
+                                                                                {
+                                                                                    "label": "Link",
+                                                                                    "value": "app.bsky.richtext.facet#link",
+                                                                                    "nested": [
+                                                                                        {
+                                                                                            "name": "uri",
+                                                                                            "type": "url",
+                                                                                            "label": "URL",
+                                                                                            "required": true
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "label": "Mention",
+                                                                                    "value": "app.bsky.richtext.facet#mention",
+                                                                                    "nested": [
+                                                                                        {
+                                                                                            "rpc": {
+                                                                                                "url": "rpc://bluesky/1/searchPeopleByQuery",
+                                                                                                "label": "Profile finder",
+                                                                                                "parameters": [
+                                                                                                    {
+                                                                                                        "text": "If you don't see the result you're looking for, try more specific search criteria.",
+                                                                                                        "type": "banner",
+                                                                                                        "theme": "info"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "help": "Text to search by display name, description, or handle.",
+                                                                                                        "name": "query",
+                                                                                                        "type": "text",
+                                                                                                        "label": "Search query"
+                                                                                                    }
+                                                                                                ]
+                                                                                            },
+                                                                                            "help": "The DID of account to be mentioned.",
+                                                                                            "name": "did",
+                                                                                            "type": "text",
+                                                                                            "label": "DID",
+                                                                                            "required": true
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "label": "Tag",
+                                                                                    "value": "app.bsky.richtext.facet#tag",
+                                                                                    "nested": [
+                                                                                        {
+                                                                                            "name": "tag",
+                                                                                            "type": "text",
+                                                                                            "label": "Hashtag",
+                                                                                            "required": true
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            ],
+                                                                            "required": true
+                                                                        }
+                                                                    ],
+                                                                    "type": "collection",
+                                                                    "label": "Feature"
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Facet",
+                                                            "name": "value"
+                                                        }
+                                                    }
+                                                ],
+                                                "advanced": true
+                                            }
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -2021,8 +2698,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -661,
-                                    "y": -407
+                                    "x": -964,
+                                    "y": -1570
                                 },
                                 "restore": {
                                     "expect": {
@@ -2152,8 +2829,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -1041,
-                                    "y": -529
+                                    "x": -371,
+                                    "y": -421
                                 },
                                 "restore": {},
                                 "expect": [
@@ -2399,8 +3076,8 @@
                             "mapper": null,
                             "metadata": {
                                 "designer": {
-                                    "x": -1314,
-                                    "y": 246
+                                    "x": -1364,
+                                    "y": 210
                                 }
                             },
                             "routes": [
@@ -2414,54 +3091,33 @@
                                                 "account": 9580775
                                             },
                                             "mapper": {
-                                                "profileIds": [
-                                                    "6a7480e899afb44349119553"
-                                                ],
                                                 "text": "{{58.comments}}{{newline}}{{newline}}Plus d'info ici : {{58.rssFields.link}}",
                                                 "type": "scheduled",
-                                                "useMedia": true,
-                                                "shorten": true,
-                                                "attachment": false,
-                                                "dateScheduled": "{{addHours(now; 6)}}",
                                                 "media": {
                                                     "link": "{{58.enclosures[].url}}",
                                                     "title": "{{58.title}}",
-                                                    "description": "{{58.comments}}",
                                                     "picture": "{{58.enclosures[].url}}",
-                                                    "thumbnail": ""
-                                                }
+                                                    "thumbnail": "",
+                                                    "description": "{{58.comments}}"
+                                                },
+                                                "shorten": true,
+                                                "useMedia": true,
+                                                "attachment": false,
+                                                "profileIds": [
+                                                    "6a7480e899afb44349119553"
+                                                ],
+                                                "dateScheduled": "{{addHours(now; 6)}}"
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": -1441,
-                                                    "y": 657,
+                                                    "x": -1851,
+                                                    "y": 582,
                                                     "name": "Twitter "
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "account": {
-                                                            "label": "Olivier's Buffer connection (scenarios.actu)",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "buffer"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
-                                                        "profileIds": {
-                                                            "mode": "chose",
-                                                            "label": [
-                                                                "6a7480e899afb44349119553"
-                                                            ]
-                                                        },
                                                         "type": {
                                                             "label": "Post an update at scheduled date and time"
-                                                        },
-                                                        "shorten": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "attachment": {
-                                                            "mode": "chose"
                                                         },
                                                         "media": {
                                                             "nested": {
@@ -2471,13 +3127,34 @@
                                                                 "title": {
                                                                     "collapsed": true
                                                                 },
-                                                                "description": {
+                                                                "picture": {
                                                                     "collapsed": true
                                                                 },
-                                                                "picture": {
+                                                                "description": {
                                                                     "collapsed": true
                                                                 }
                                                             }
+                                                        },
+                                                        "shorten": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "attachment": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "profileIds": {
+                                                            "mode": "chose",
+                                                            "label": [
+                                                                "6a7480e899afb44349119553"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "account": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "buffer"
+                                                            },
+                                                            "label": "Olivier's Buffer connection (scenarios.actu)"
                                                         }
                                                     }
                                                 },
@@ -2494,8 +3171,8 @@
                                                         "name": "profileIds",
                                                         "type": "select",
                                                         "label": "Profiles",
-                                                        "required": true,
-                                                        "multiple": true
+                                                        "multiple": true,
+                                                        "required": true
                                                     },
                                                     {
                                                         "name": "text",
@@ -2543,8 +3220,6 @@
                                                     },
                                                     {
                                                         "name": "media",
-                                                        "type": "collection",
-                                                        "label": "Media",
                                                         "spec": [
                                                             {
                                                                 "name": "link",
@@ -2571,7 +3246,9 @@
                                                                 "type": "url",
                                                                 "label": "Thumbnail"
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Media"
                                                     }
                                                 ]
                                             }
@@ -2588,36 +3265,23 @@
                                                 "__IMTCONN__": 9820069
                                             },
                                             "mapper": {
-                                                "page_id": "1134876509719728",
+                                                "date": "{{addHours(now; 6)}}",
                                                 "photos": [
                                                     {
-                                                        "type": "url",
-                                                        "url": "{{58.enclosures[].url}}"
+                                                        "url": "{{58.enclosures[].url}}",
+                                                        "type": "url"
                                                     }
                                                 ],
                                                 "message": "{{58.comments}}{{newline}}{{newline}}Plus d'info ici : {{58.rssFields.link}}",
-                                                "date": "{{addHours(now; 6)}}"
+                                                "page_id": "1134876509719728"
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": -1629,
-                                                    "y": 240
+                                                    "x": -898,
+                                                    "y": 615
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "label": "Olivier's Facebook connection (Olivier Bertrand Loliba)",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "facebook"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
-                                                        "page_id": {
-                                                            "mode": "chose",
-                                                            "label": "Scénario"
-                                                        },
                                                         "photos": {
                                                             "mode": "chose",
                                                             "items": [
@@ -2628,6 +3292,19 @@
                                                                     }
                                                                 }
                                                             ]
+                                                        },
+                                                        "page_id": {
+                                                            "mode": "chose",
+                                                            "label": "Scénario"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "facebook"
+                                                            },
+                                                            "label": "Olivier's Facebook connection (Olivier Bertrand Loliba)"
                                                         }
                                                     }
                                                 },
@@ -2648,13 +3325,6 @@
                                                     },
                                                     {
                                                         "name": "photos",
-                                                        "type": "array",
-                                                        "label": "Photos",
-                                                        "validate": {
-                                                            "maxItems": 30,
-                                                            "minItems": 1
-                                                        },
-                                                        "required": true,
                                                         "spec": [
                                                             {
                                                                 "name": "type",
@@ -2702,7 +3372,14 @@
                                                                 "type": "text",
                                                                 "label": "Image caption"
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "array",
+                                                        "label": "Photos",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "maxItems": 30,
+                                                            "minItems": 1
+                                                        }
                                                     },
                                                     {
                                                         "name": "message",
@@ -2741,8 +3418,8 @@
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": -912,
-                                                    "y": 319
+                                                    "x": -1014,
+                                                    "y": 246
                                                 },
                                                 "restore": {
                                                     "expect": {
@@ -2889,8 +3566,8 @@
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": -1050,
-                                                    "y": 606,
+                                                    "x": -1518,
+                                                    "y": 663,
                                                     "name": "INSTAGRAM"
                                                 },
                                                 "restore": {
@@ -3028,8 +3705,1354 @@
                                             }
                                         }
                                     ]
+                                },
+                                {
+                                    "flow": [
+                                        {
+                                            "id": 81,
+                                            "module": "http:DownloadFile",
+                                            "version": 4,
+                                            "parameters": {
+                                                "authenticationType": "noAuth"
+                                            },
+                                            "mapper": {
+                                                "url": "{{58.enclosures[].url}}",
+                                                "shareCookies": false,
+                                                "stopOnHttpError": true
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": -1310,
+                                                    "y": 937,
+                                                    "name": "Download PUB image"
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "headers": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "shareCookies": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "queryParameters": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "stopOnHttpError": {
+                                                            "mode": "chose"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "authenticationType": {
+                                                            "label": "No authenticationUse when no credentials are required for the request."
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "authenticationType",
+                                                        "type": "select",
+                                                        "label": "Authentication type",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "noAuth",
+                                                                "apiKey",
+                                                                "basicAuth",
+                                                                "oAuth"
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "name": "url",
+                                                        "type": "url",
+                                                        "label": "URL",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "stopOnHttpError",
+                                                        "type": "boolean",
+                                                        "label": "Return error if HTTP request fails",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "shareCookies",
+                                                        "type": "boolean",
+                                                        "label": "Share cookies with other HTTP modules",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "headers",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "spec": [
+                                                                {
+                                                                    "name": "name",
+                                                                    "type": "text",
+                                                                    "label": "Name",
+                                                                    "required": true,
+                                                                    "validate": {
+                                                                        "pattern": "^[-!#$%&'*+.^_`|~0-9A-Za-z]+$"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "name": "value",
+                                                                    "type": "text",
+                                                                    "label": "Value"
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Header"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Headers"
+                                                    },
+                                                    {
+                                                        "name": "queryParameters",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "spec": [
+                                                                {
+                                                                    "name": "name",
+                                                                    "type": "text",
+                                                                    "label": "Name",
+                                                                    "required": true
+                                                                },
+                                                                {
+                                                                    "name": "value",
+                                                                    "type": "text",
+                                                                    "label": "Value"
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Parameter"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Query parameters"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "id": 82,
+                                            "module": "bluesky:uploadMedia",
+                                            "version": 1,
+                                            "parameters": {
+                                                "__IMTCONN__": 9821351
+                                            },
+                                            "mapper": {
+                                                "data": "{{81.data}}",
+                                                "filename": "{{81.fileName}}"
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": -1614,
+                                                    "y": 1144
+                                                },
+                                                "restore": {
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "bluesky"
+                                                            },
+                                                            "label": "Olivier's Bluesky connection (scenario-actu.bsky.social)"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:bluesky",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "name": "filename",
+                                                        "type": "filename",
+                                                        "label": "File name",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "data",
+                                                        "type": "buffer",
+                                                        "label": "Data",
+                                                        "required": true
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "id": 83,
+                                            "module": "bluesky:createAPost",
+                                            "version": 1,
+                                            "parameters": {
+                                                "__IMTCONN__": 9821351
+                                            },
+                                            "filter": null,
+                                            "mapper": {
+                                                "text": "{{58.comments}}{{newline}}{{newline}}📖 Plus d'info ici",
+                                                "embed": {
+                                                    "$type": "app.bsky.embed.images",
+                                                    "images": [
+                                                        {
+                                                            "alt": "{{58.comments}}",
+                                                            "mimeType": "image/png",
+                                                            "$link": "{{82.blob.ref.`$link`}}",
+                                                            "size": "{{82.blob.size}}",
+                                                            "width": "{{82.med_width}}",
+                                                            "height": "{{82.med_height}}"
+                                                        }
+                                                    ]
+                                                },
+                                                "facets": [
+                                                    {
+                                                        "inputMode": "byKeyword",
+                                                        "feature": {
+                                                            "$type": "app.bsky.richtext.facet#link",
+                                                            "uri": "{{58.url}}"
+                                                        },
+                                                        "keyword": "ici"
+                                                    }
+                                                ]
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": -1861,
+                                                    "y": 1329
+                                                },
+                                                "restore": {
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "label": "Olivier's Bluesky connection (scenario-actu.bsky.social)",
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "bluesky"
+                                                            }
+                                                        }
+                                                    },
+                                                    "expect": {
+                                                        "embed": {
+                                                            "nested": {
+                                                                "$type": {
+                                                                    "mode": "chose",
+                                                                    "label": "Images"
+                                                                },
+                                                                "images": {
+                                                                    "mode": "chose",
+                                                                    "items": [
+                                                                        {
+                                                                            "mimeType": {
+                                                                                "mode": "chose",
+                                                                                "label": "PNG image"
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "langs": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "facets": {
+                                                            "mode": "chose",
+                                                            "items": [
+                                                                {
+                                                                    "inputMode": {
+                                                                        "mode": "chose",
+                                                                        "label": "By key word"
+                                                                    },
+                                                                    "feature": {
+                                                                        "nested": {
+                                                                            "$type": {
+                                                                                "mode": "chose",
+                                                                                "label": "Link"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:bluesky",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "name": "text",
+                                                        "type": "text",
+                                                        "label": "Text",
+                                                        "validate": {
+                                                            "max": 300
+                                                        },
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "embed",
+                                                        "type": "collection",
+                                                        "label": "Media",
+                                                        "spec": [
+                                                            {
+                                                                "name": "$type",
+                                                                "type": "select",
+                                                                "label": "Media type",
+                                                                "validate": {
+                                                                    "enum": [
+                                                                        "app.bsky.embed.external",
+                                                                        "app.bsky.embed.images",
+                                                                        "app.bsky.embed.video",
+                                                                        "app.bsky.embed.record"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "name": "images",
+                                                                "type": "array",
+                                                                "label": "Images",
+                                                                "validate": {
+                                                                    "maxItems": 4
+                                                                },
+                                                                "spec": {
+                                                                    "spec": [
+                                                                        {
+                                                                            "name": "alt",
+                                                                            "type": "text",
+                                                                            "label": "Image description",
+                                                                            "required": true
+                                                                        },
+                                                                        {
+                                                                            "name": "mimeType",
+                                                                            "type": "select",
+                                                                            "label": "Image type",
+                                                                            "options": [
+                                                                                {
+                                                                                    "label": "JPEG image",
+                                                                                    "value": "image/jpeg"
+                                                                                },
+                                                                                {
+                                                                                    "label": "PNG image",
+                                                                                    "value": "image/png"
+                                                                                },
+                                                                                {
+                                                                                    "label": "WEBP image",
+                                                                                    "value": "image/webp"
+                                                                                },
+                                                                                {
+                                                                                    "label": "Other",
+                                                                                    "value": "application/octet-stream"
+                                                                                }
+                                                                            ],
+                                                                            "required": true,
+                                                                            "validate": false
+                                                                        },
+                                                                        {
+                                                                            "name": "$link",
+                                                                            "type": "text",
+                                                                            "label": "Image identifier",
+                                                                            "required": true
+                                                                        },
+                                                                        {
+                                                                            "name": "size",
+                                                                            "type": "uinteger",
+                                                                            "label": "Size"
+                                                                        },
+                                                                        {
+                                                                            "name": "width",
+                                                                            "type": "uinteger",
+                                                                            "label": "Width"
+                                                                        },
+                                                                        {
+                                                                            "name": "height",
+                                                                            "type": "uinteger",
+                                                                            "label": "Height"
+                                                                        }
+                                                                    ],
+                                                                    "type": "collection",
+                                                                    "label": "Image",
+                                                                    "name": "value"
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "langs",
+                                                        "type": "array",
+                                                        "label": "Languages",
+                                                        "spec": {
+                                                            "type": "select",
+                                                            "label": "Language",
+                                                            "options": [
+                                                                {
+                                                                    "label": "English",
+                                                                    "value": "en"
+                                                                },
+                                                                {
+                                                                    "label": "English (United States)",
+                                                                    "value": "en-US"
+                                                                },
+                                                                {
+                                                                    "label": "English (United Kingdom)",
+                                                                    "value": "en-GB"
+                                                                },
+                                                                {
+                                                                    "label": "French",
+                                                                    "value": "fr"
+                                                                },
+                                                                {
+                                                                    "label": "French (Canada)",
+                                                                    "value": "fr-CA"
+                                                                },
+                                                                {
+                                                                    "label": "Spanish",
+                                                                    "value": "es"
+                                                                },
+                                                                {
+                                                                    "label": "Spanish (Spain)",
+                                                                    "value": "es-ES"
+                                                                },
+                                                                {
+                                                                    "label": "German",
+                                                                    "value": "de"
+                                                                },
+                                                                {
+                                                                    "label": "German (Germany)",
+                                                                    "value": "de-DE"
+                                                                },
+                                                                {
+                                                                    "label": "Thai",
+                                                                    "value": "th"
+                                                                },
+                                                                {
+                                                                    "label": "Chinese",
+                                                                    "value": "zh"
+                                                                },
+                                                                {
+                                                                    "label": "Chinese (Simplified)",
+                                                                    "value": "zh-CN"
+                                                                },
+                                                                {
+                                                                    "label": "Chinese (Traditional)",
+                                                                    "value": "zh-TW"
+                                                                },
+                                                                {
+                                                                    "label": "Japanese",
+                                                                    "value": "ja"
+                                                                },
+                                                                {
+                                                                    "label": "Korean",
+                                                                    "value": "ko"
+                                                                },
+                                                                {
+                                                                    "label": "Arabic",
+                                                                    "value": "ar"
+                                                                },
+                                                                {
+                                                                    "label": "Russian",
+                                                                    "value": "ru"
+                                                                },
+                                                                {
+                                                                    "label": "Portuguese",
+                                                                    "value": "pt"
+                                                                },
+                                                                {
+                                                                    "label": "Portuguese (Brazil)",
+                                                                    "value": "pt-BR"
+                                                                },
+                                                                {
+                                                                    "label": "Italian",
+                                                                    "value": "it"
+                                                                },
+                                                                {
+                                                                    "label": "Dutch",
+                                                                    "value": "nl"
+                                                                },
+                                                                {
+                                                                    "label": "Hindi",
+                                                                    "value": "hi"
+                                                                },
+                                                                {
+                                                                    "label": "Swedish",
+                                                                    "value": "sv"
+                                                                },
+                                                                {
+                                                                    "label": "Norwegian",
+                                                                    "value": "no"
+                                                                },
+                                                                {
+                                                                    "label": "Finnish",
+                                                                    "value": "fi"
+                                                                },
+                                                                {
+                                                                    "label": "Danish",
+                                                                    "value": "da"
+                                                                },
+                                                                {
+                                                                    "label": "Turkish",
+                                                                    "value": "tr"
+                                                                },
+                                                                {
+                                                                    "label": "Greek",
+                                                                    "value": "el"
+                                                                },
+                                                                {
+                                                                    "label": "Polish",
+                                                                    "value": "pl"
+                                                                },
+                                                                {
+                                                                    "label": "Czech",
+                                                                    "value": "cs"
+                                                                },
+                                                                {
+                                                                    "label": "Hungarian",
+                                                                    "value": "hu"
+                                                                },
+                                                                {
+                                                                    "label": "Bulgarian",
+                                                                    "value": "bg"
+                                                                },
+                                                                {
+                                                                    "label": "Ukrainian",
+                                                                    "value": "uk"
+                                                                },
+                                                                {
+                                                                    "label": "Vietnamese",
+                                                                    "value": "vi"
+                                                                },
+                                                                {
+                                                                    "label": "Indonesian",
+                                                                    "value": "id"
+                                                                },
+                                                                {
+                                                                    "label": "Malay",
+                                                                    "value": "ms"
+                                                                },
+                                                                {
+                                                                    "label": "Tagalog",
+                                                                    "value": "tl"
+                                                                }
+                                                            ],
+                                                            "name": "value"
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "facets",
+                                                        "type": "array",
+                                                        "label": "Facets",
+                                                        "spec": {
+                                                            "spec": [
+                                                                {
+                                                                    "name": "inputMode",
+                                                                    "type": "select",
+                                                                    "label": "Input mode",
+                                                                    "options": [
+                                                                        {
+                                                                            "label": "Indices",
+                                                                            "value": "indices",
+                                                                            "nested": [
+                                                                                {
+                                                                                    "help": "Specifies the substring of **Text** to which the facet applies",
+                                                                                    "name": "index",
+                                                                                    "spec": [
+                                                                                        {
+                                                                                            "help": "The starting character index of the substring. Index count starts from `0`.",
+                                                                                            "name": "byteStart",
+                                                                                            "type": "number",
+                                                                                            "label": "Start index",
+                                                                                            "required": true
+                                                                                        },
+                                                                                        {
+                                                                                            "help": "The ending character index (exclusive).",
+                                                                                            "name": "byteEnd",
+                                                                                            "type": "number",
+                                                                                            "label": "End index",
+                                                                                            "required": true
+                                                                                        }
+                                                                                    ],
+                                                                                    "type": "collection",
+                                                                                    "label": "Index"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "label": "By key word",
+                                                                            "value": "byKeyword",
+                                                                            "nested": [
+                                                                                {
+                                                                                    "help": "The substring marked as a link, mention or hashtag.",
+                                                                                    "name": "keyword",
+                                                                                    "type": "text",
+                                                                                    "label": "Keyword",
+                                                                                    "required": true
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ],
+                                                                    "required": true
+                                                                },
+                                                                {
+                                                                    "name": "feature",
+                                                                    "spec": [
+                                                                        {
+                                                                            "name": "$type",
+                                                                            "type": "select",
+                                                                            "label": "Type",
+                                                                            "options": [
+                                                                                {
+                                                                                    "label": "Link",
+                                                                                    "value": "app.bsky.richtext.facet#link",
+                                                                                    "nested": [
+                                                                                        {
+                                                                                            "name": "uri",
+                                                                                            "type": "url",
+                                                                                            "label": "URL",
+                                                                                            "required": true
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "label": "Mention",
+                                                                                    "value": "app.bsky.richtext.facet#mention",
+                                                                                    "nested": [
+                                                                                        {
+                                                                                            "rpc": {
+                                                                                                "url": "rpc://bluesky/1/searchPeopleByQuery",
+                                                                                                "label": "Profile finder",
+                                                                                                "parameters": [
+                                                                                                    {
+                                                                                                        "text": "If you don't see the result you're looking for, try more specific search criteria.",
+                                                                                                        "type": "banner",
+                                                                                                        "theme": "info"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "help": "Text to search by display name, description, or handle.",
+                                                                                                        "name": "query",
+                                                                                                        "type": "text",
+                                                                                                        "label": "Search query"
+                                                                                                    }
+                                                                                                ]
+                                                                                            },
+                                                                                            "help": "The DID of account to be mentioned.",
+                                                                                            "name": "did",
+                                                                                            "type": "text",
+                                                                                            "label": "DID",
+                                                                                            "required": true
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "label": "Tag",
+                                                                                    "value": "app.bsky.richtext.facet#tag",
+                                                                                    "nested": [
+                                                                                        {
+                                                                                            "name": "tag",
+                                                                                            "type": "text",
+                                                                                            "label": "Hashtag",
+                                                                                            "required": true
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            ],
+                                                                            "required": true
+                                                                        }
+                                                                    ],
+                                                                    "type": "collection",
+                                                                    "label": "Feature"
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Facet",
+                                                            "name": "value"
+                                                        }
+                                                    }
+                                                ],
+                                                "advanced": true
+                                            }
+                                        }
+                                    ]
                                 }
                             ]
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 78,
+                            "module": "http:DownloadFile",
+                            "version": 4,
+                            "parameters": {
+                                "authenticationType": "noAuth"
+                            },
+                            "mapper": {
+                                "url": "{{4.enclosures[].url}}",
+                                "shareCookies": false,
+                                "stopOnHttpError": true
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": -973,
+                                    "y": -938,
+                                    "name": "Download Daily image"
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "headers": {
+                                            "mode": "chose"
+                                        },
+                                        "shareCookies": {
+                                            "mode": "chose"
+                                        },
+                                        "queryParameters": {
+                                            "mode": "chose"
+                                        },
+                                        "stopOnHttpError": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "authenticationType": {
+                                            "label": "No authenticationUse when no credentials are required for the request."
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "authenticationType",
+                                        "type": "select",
+                                        "label": "Authentication type",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "noAuth",
+                                                "apiKey",
+                                                "basicAuth",
+                                                "oAuth"
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "url",
+                                        "type": "url",
+                                        "label": "URL",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "stopOnHttpError",
+                                        "type": "boolean",
+                                        "label": "Return error if HTTP request fails",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "shareCookies",
+                                        "type": "boolean",
+                                        "label": "Share cookies with other HTTP modules",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "headers",
+                                        "spec": {
+                                            "name": "value",
+                                            "spec": [
+                                                {
+                                                    "name": "name",
+                                                    "type": "text",
+                                                    "label": "Name",
+                                                    "required": true,
+                                                    "validate": {
+                                                        "pattern": "^[-!#$%&'*+.^_`|~0-9A-Za-z]+$"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "value",
+                                                    "type": "text",
+                                                    "label": "Value"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Header"
+                                        },
+                                        "type": "array",
+                                        "label": "Headers"
+                                    },
+                                    {
+                                        "name": "queryParameters",
+                                        "spec": {
+                                            "name": "value",
+                                            "spec": [
+                                                {
+                                                    "name": "name",
+                                                    "type": "text",
+                                                    "label": "Name",
+                                                    "required": true
+                                                },
+                                                {
+                                                    "name": "value",
+                                                    "type": "text",
+                                                    "label": "Value"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Parameter"
+                                        },
+                                        "type": "array",
+                                        "label": "Query parameters"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 79,
+                            "module": "bluesky:uploadMedia",
+                            "version": 1,
+                            "parameters": {
+                                "__IMTCONN__": 9821351
+                            },
+                            "mapper": {
+                                "data": "{{78.data}}",
+                                "filename": "{{78.fileName}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": -1277,
+                                    "y": -731
+                                },
+                                "restore": {
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "bluesky"
+                                            },
+                                            "label": "Olivier's Bluesky connection (scenario-actu.bsky.social)"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:bluesky",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "filename",
+                                        "type": "filename",
+                                        "label": "File name",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "data",
+                                        "type": "buffer",
+                                        "label": "Data",
+                                        "required": true
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 80,
+                            "module": "bluesky:createAPost",
+                            "version": 1,
+                            "parameters": {
+                                "__IMTCONN__": 9821351
+                            },
+                            "filter": null,
+                            "mapper": {
+                                "text": "{{4.title}}{{newline}}{{newline}}Scénario : chaque jour, un sujet d'actu décrypté en 3 scénarios chiffrés{{newline}}{{newline}}📖 L'article est ici",
+                                "embed": {
+                                    "$type": "app.bsky.embed.images",
+                                    "images": [
+                                        {
+                                            "alt": "{{4.comments}}",
+                                            "size": "{{79.blob.size}}",
+                                            "$link": "{{79.blob.ref.`$link`}}",
+                                            "width": "{{79.med_width}}",
+                                            "height": "{{79.med_height}}",
+                                            "mimeType": "image/png"
+                                        }
+                                    ]
+                                },
+                                "facets": [
+                                    {
+                                        "feature": {
+                                            "uri": "{{4.url}}",
+                                            "$type": "app.bsky.richtext.facet#link"
+                                        },
+                                        "keyword": "ici",
+                                        "inputMode": "byKeyword"
+                                    }
+                                ]
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": -1524,
+                                    "y": -546
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "embed": {
+                                            "nested": {
+                                                "$type": {
+                                                    "mode": "chose",
+                                                    "label": "Images"
+                                                },
+                                                "images": {
+                                                    "mode": "chose",
+                                                    "items": [
+                                                        {
+                                                            "mimeType": {
+                                                                "mode": "chose",
+                                                                "label": "PNG image"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "langs": {
+                                            "mode": "chose"
+                                        },
+                                        "facets": {
+                                            "mode": "chose",
+                                            "items": [
+                                                {
+                                                    "feature": {
+                                                        "nested": {
+                                                            "$type": {
+                                                                "mode": "chose",
+                                                                "label": "Link"
+                                                            }
+                                                        }
+                                                    },
+                                                    "inputMode": {
+                                                        "mode": "chose",
+                                                        "label": "By key word"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "bluesky"
+                                            },
+                                            "label": "Olivier's Bluesky connection (scenario-actu.bsky.social)"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:bluesky",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "text",
+                                        "type": "text",
+                                        "label": "Text",
+                                        "required": true,
+                                        "validate": {
+                                            "max": 300
+                                        }
+                                    },
+                                    {
+                                        "name": "embed",
+                                        "spec": [
+                                            {
+                                                "name": "$type",
+                                                "type": "select",
+                                                "label": "Media type",
+                                                "validate": {
+                                                    "enum": [
+                                                        "app.bsky.embed.external",
+                                                        "app.bsky.embed.images",
+                                                        "app.bsky.embed.video",
+                                                        "app.bsky.embed.record"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "name": "images",
+                                                "spec": {
+                                                    "name": "value",
+                                                    "spec": [
+                                                        {
+                                                            "name": "alt",
+                                                            "type": "text",
+                                                            "label": "Image description",
+                                                            "required": true
+                                                        },
+                                                        {
+                                                            "name": "mimeType",
+                                                            "type": "select",
+                                                            "label": "Image type",
+                                                            "options": [
+                                                                {
+                                                                    "label": "JPEG image",
+                                                                    "value": "image/jpeg"
+                                                                },
+                                                                {
+                                                                    "label": "PNG image",
+                                                                    "value": "image/png"
+                                                                },
+                                                                {
+                                                                    "label": "WEBP image",
+                                                                    "value": "image/webp"
+                                                                },
+                                                                {
+                                                                    "label": "Other",
+                                                                    "value": "application/octet-stream"
+                                                                }
+                                                            ],
+                                                            "required": true,
+                                                            "validate": false
+                                                        },
+                                                        {
+                                                            "name": "$link",
+                                                            "type": "text",
+                                                            "label": "Image identifier",
+                                                            "required": true
+                                                        },
+                                                        {
+                                                            "name": "size",
+                                                            "type": "uinteger",
+                                                            "label": "Size"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Image"
+                                                },
+                                                "type": "array",
+                                                "label": "Images",
+                                                "validate": {
+                                                    "maxItems": 4
+                                                }
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Media"
+                                    },
+                                    {
+                                        "name": "langs",
+                                        "spec": {
+                                            "name": "value",
+                                            "type": "select",
+                                            "label": "Language",
+                                            "options": [
+                                                {
+                                                    "label": "English",
+                                                    "value": "en"
+                                                },
+                                                {
+                                                    "label": "English (United States)",
+                                                    "value": "en-US"
+                                                },
+                                                {
+                                                    "label": "English (United Kingdom)",
+                                                    "value": "en-GB"
+                                                },
+                                                {
+                                                    "label": "French",
+                                                    "value": "fr"
+                                                },
+                                                {
+                                                    "label": "French (Canada)",
+                                                    "value": "fr-CA"
+                                                },
+                                                {
+                                                    "label": "Spanish",
+                                                    "value": "es"
+                                                },
+                                                {
+                                                    "label": "Spanish (Spain)",
+                                                    "value": "es-ES"
+                                                },
+                                                {
+                                                    "label": "German",
+                                                    "value": "de"
+                                                },
+                                                {
+                                                    "label": "German (Germany)",
+                                                    "value": "de-DE"
+                                                },
+                                                {
+                                                    "label": "Thai",
+                                                    "value": "th"
+                                                },
+                                                {
+                                                    "label": "Chinese",
+                                                    "value": "zh"
+                                                },
+                                                {
+                                                    "label": "Chinese (Simplified)",
+                                                    "value": "zh-CN"
+                                                },
+                                                {
+                                                    "label": "Chinese (Traditional)",
+                                                    "value": "zh-TW"
+                                                },
+                                                {
+                                                    "label": "Japanese",
+                                                    "value": "ja"
+                                                },
+                                                {
+                                                    "label": "Korean",
+                                                    "value": "ko"
+                                                },
+                                                {
+                                                    "label": "Arabic",
+                                                    "value": "ar"
+                                                },
+                                                {
+                                                    "label": "Russian",
+                                                    "value": "ru"
+                                                },
+                                                {
+                                                    "label": "Portuguese",
+                                                    "value": "pt"
+                                                },
+                                                {
+                                                    "label": "Portuguese (Brazil)",
+                                                    "value": "pt-BR"
+                                                },
+                                                {
+                                                    "label": "Italian",
+                                                    "value": "it"
+                                                },
+                                                {
+                                                    "label": "Dutch",
+                                                    "value": "nl"
+                                                },
+                                                {
+                                                    "label": "Hindi",
+                                                    "value": "hi"
+                                                },
+                                                {
+                                                    "label": "Swedish",
+                                                    "value": "sv"
+                                                },
+                                                {
+                                                    "label": "Norwegian",
+                                                    "value": "no"
+                                                },
+                                                {
+                                                    "label": "Finnish",
+                                                    "value": "fi"
+                                                },
+                                                {
+                                                    "label": "Danish",
+                                                    "value": "da"
+                                                },
+                                                {
+                                                    "label": "Turkish",
+                                                    "value": "tr"
+                                                },
+                                                {
+                                                    "label": "Greek",
+                                                    "value": "el"
+                                                },
+                                                {
+                                                    "label": "Polish",
+                                                    "value": "pl"
+                                                },
+                                                {
+                                                    "label": "Czech",
+                                                    "value": "cs"
+                                                },
+                                                {
+                                                    "label": "Hungarian",
+                                                    "value": "hu"
+                                                },
+                                                {
+                                                    "label": "Bulgarian",
+                                                    "value": "bg"
+                                                },
+                                                {
+                                                    "label": "Ukrainian",
+                                                    "value": "uk"
+                                                },
+                                                {
+                                                    "label": "Vietnamese",
+                                                    "value": "vi"
+                                                },
+                                                {
+                                                    "label": "Indonesian",
+                                                    "value": "id"
+                                                },
+                                                {
+                                                    "label": "Malay",
+                                                    "value": "ms"
+                                                },
+                                                {
+                                                    "label": "Tagalog",
+                                                    "value": "tl"
+                                                }
+                                            ]
+                                        },
+                                        "type": "array",
+                                        "label": "Languages"
+                                    },
+                                    {
+                                        "name": "facets",
+                                        "spec": {
+                                            "name": "value",
+                                            "spec": [
+                                                {
+                                                    "name": "inputMode",
+                                                    "type": "select",
+                                                    "label": "Input mode",
+                                                    "options": [
+                                                        {
+                                                            "label": "Indices",
+                                                            "value": "indices",
+                                                            "nested": [
+                                                                {
+                                                                    "help": "Specifies the substring of **Text** to which the facet applies",
+                                                                    "name": "index",
+                                                                    "spec": [
+                                                                        {
+                                                                            "help": "The starting character index of the substring. Index count starts from `0`.",
+                                                                            "name": "byteStart",
+                                                                            "type": "number",
+                                                                            "label": "Start index",
+                                                                            "required": true
+                                                                        },
+                                                                        {
+                                                                            "help": "The ending character index (exclusive).",
+                                                                            "name": "byteEnd",
+                                                                            "type": "number",
+                                                                            "label": "End index",
+                                                                            "required": true
+                                                                        }
+                                                                    ],
+                                                                    "type": "collection",
+                                                                    "label": "Index"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "label": "By key word",
+                                                            "value": "byKeyword",
+                                                            "nested": [
+                                                                {
+                                                                    "help": "The substring marked as a link, mention or hashtag.",
+                                                                    "name": "keyword",
+                                                                    "type": "text",
+                                                                    "label": "Keyword",
+                                                                    "required": true
+                                                                }
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "required": true
+                                                },
+                                                {
+                                                    "name": "feature",
+                                                    "spec": [
+                                                        {
+                                                            "name": "$type",
+                                                            "type": "select",
+                                                            "label": "Type",
+                                                            "options": [
+                                                                {
+                                                                    "label": "Link",
+                                                                    "value": "app.bsky.richtext.facet#link",
+                                                                    "nested": [
+                                                                        {
+                                                                            "name": "uri",
+                                                                            "type": "url",
+                                                                            "label": "URL",
+                                                                            "required": true
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "label": "Mention",
+                                                                    "value": "app.bsky.richtext.facet#mention",
+                                                                    "nested": [
+                                                                        {
+                                                                            "rpc": {
+                                                                                "url": "rpc://bluesky/1/searchPeopleByQuery",
+                                                                                "label": "Profile finder",
+                                                                                "parameters": [
+                                                                                    {
+                                                                                        "text": "If you don't see the result you're looking for, try more specific search criteria.",
+                                                                                        "type": "banner",
+                                                                                        "theme": "info"
+                                                                                    },
+                                                                                    {
+                                                                                        "help": "Text to search by display name, description, or handle.",
+                                                                                        "name": "query",
+                                                                                        "type": "text",
+                                                                                        "label": "Search query"
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            "help": "The DID of account to be mentioned.",
+                                                                            "name": "did",
+                                                                            "type": "text",
+                                                                            "label": "DID",
+                                                                            "required": true
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "label": "Tag",
+                                                                    "value": "app.bsky.richtext.facet#tag",
+                                                                    "nested": [
+                                                                        {
+                                                                            "name": "tag",
+                                                                            "type": "text",
+                                                                            "label": "Hashtag",
+                                                                            "required": true
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            "required": true
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Feature"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Facet"
+                                        },
+                                        "type": "array",
+                                        "label": "Facets"
+                                    }
+                                ],
+                                "advanced": true
+                            }
                         }
                     ]
                 }
