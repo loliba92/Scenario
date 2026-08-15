@@ -810,6 +810,18 @@ moins prioritaire).
   donc désormais câblé pour l'image sur les 4 réseaux, plus de trou
   structurel.
 
+  **[FAIT le 15 août] Fenêtre de dates du module RSS SUIVI (id 30)
+  resserrée à "hier uniquement"** — `filterDateFrom` =
+  `{{parseDate(formatDate(addDays(now; -1); "YYYY-MM-DD"); "YYYY-MM-DD")}}`,
+  `filterDateTo` laissé vide. Choix motivé : ce module n'a pas de mémoire
+  entre deux exécutions (contrairement à un trigger "Watch"), donc c'est
+  la fenêtre de dates elle-même qui doit empêcher qu'un même item de
+  `feed-suivi.xml` soit republié sur les réseaux deux jours de suite
+  (repli "hier + aujourd'hui" testé mais écarté : avec "Maximum number
+  of returned items" = 1, un item resterait éligible sur 2 exécutions
+  consécutives). Confirmé et resynchronisé dans
+  `assets/make/scenario-daily.blueprint.json`.
+
   **3 erreurs de texte repérées dans cet export, corrigées à 2/3 dans un
   second export le 12 août** :
   - ✅ **[FAIT] Module 54 (LinkedIn RSS SUIVI)** : le lien `{{30.url}}`

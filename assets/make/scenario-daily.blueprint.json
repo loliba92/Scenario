@@ -16,8 +16,8 @@
             "mapper": {},
             "metadata": {
                 "designer": {
-                    "x": -1649,
-                    "y": -490,
+                    "x": -1339,
+                    "y": -1144,
                     "name": "RSS DAILY"
                 },
                 "restore": {},
@@ -231,8 +231,8 @@
             "mapper": null,
             "metadata": {
                 "designer": {
-                    "x": -481,
-                    "y": -263
+                    "x": -671,
+                    "y": -1171
                 }
             },
             "routes": [
@@ -733,8 +733,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": 161,
-                                    "y": -488,
+                                    "x": 420,
+                                    "y": -638,
                                     "name": "INSTAGRAM"
                                 },
                                 "restore": {
@@ -913,8 +913,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -1157,
-                                    "y": -666,
+                                    "x": 144,
+                                    "y": -415,
                                     "name": "Facebook"
                                 },
                                 "restore": {
@@ -1068,8 +1068,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -181,
-                                    "y": -113
+                                    "x": -340,
+                                    "y": -257
                                 },
                                 "restore": {},
                                 "expect": [
@@ -1104,8 +1104,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -158,
-                                    "y": 246,
+                                    "x": -305,
+                                    "y": 208,
                                     "name": "RSS SUIVI"
                                 },
                                 "restore": {},
@@ -1451,194 +1451,28 @@
                                                 "account": 9580775
                                             },
                                             "mapper": {
+                                                "profileIds": [
+                                                    "6a7480e899afb44349119553"
+                                                ],
                                                 "text": "🔄 Un sujet suivi vient d'être mis à jour 👇{{newline}}{{30.title}}{{newline}}👉 Lire l'analyse complète: {{newline}}{{30.url}}",
-                                                "type": "now",
+                                                "type": "scheduled",
+                                                "useMedia": true,
+                                                "shorten": true,
+                                                "attachment": false,
+                                                "dateScheduled": "{{addHours(now; 3)}}",
                                                 "media": {
                                                     "link": "{{30.enclosures[].url}}",
                                                     "title": "{{30.title}}",
+                                                    "description": "{{30.comments}}",
                                                     "picture": "{{30.enclosures[].url}}",
-                                                    "thumbnail": "",
-                                                    "description": "{{30.comments}}"
-                                                },
-                                                "shorten": true,
-                                                "useMedia": true,
-                                                "attachment": false,
-                                                "profileIds": [
-                                                    "6a7480e899afb44349119553"
-                                                ]
+                                                    "thumbnail": ""
+                                                }
                                             },
                                             "metadata": {
                                                 "designer": {
                                                     "x": 368,
                                                     "y": 626,
                                                     "name": "Twitter "
-                                                },
-                                                "restore": {
-                                                    "expect": {
-                                                        "type": {
-                                                            "label": "Post immediately "
-                                                        },
-                                                        "media": {
-                                                            "nested": {
-                                                                "link": {
-                                                                    "collapsed": true
-                                                                },
-                                                                "title": {
-                                                                    "collapsed": true
-                                                                },
-                                                                "picture": {
-                                                                    "collapsed": true
-                                                                },
-                                                                "description": {
-                                                                    "collapsed": true
-                                                                }
-                                                            }
-                                                        },
-                                                        "shorten": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "attachment": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "profileIds": {
-                                                            "mode": "chose",
-                                                            "label": [
-                                                                "6a7480e899afb44349119553"
-                                                            ]
-                                                        }
-                                                    },
-                                                    "parameters": {
-                                                        "account": {
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "buffer"
-                                                            },
-                                                            "label": "Olivier's Buffer connection (scenarios.actu)"
-                                                        }
-                                                    }
-                                                },
-                                                "parameters": [
-                                                    {
-                                                        "name": "account",
-                                                        "type": "account:buffer",
-                                                        "label": "Connection",
-                                                        "required": true
-                                                    }
-                                                ],
-                                                "expect": [
-                                                    {
-                                                        "name": "profileIds",
-                                                        "type": "select",
-                                                        "label": "Profiles",
-                                                        "multiple": true,
-                                                        "required": true
-                                                    },
-                                                    {
-                                                        "name": "text",
-                                                        "type": "text",
-                                                        "label": "Text",
-                                                        "required": true
-                                                    },
-                                                    {
-                                                        "name": "type",
-                                                        "type": "select",
-                                                        "label": "Publication",
-                                                        "required": true,
-                                                        "validate": {
-                                                            "enum": [
-                                                                "now",
-                                                                "top",
-                                                                "queue",
-                                                                "scheduled"
-                                                            ]
-                                                        }
-                                                    },
-                                                    {
-                                                        "name": "useMedia",
-                                                        "type": "boolean",
-                                                        "label": "Attach media to the update",
-                                                        "required": true
-                                                    },
-                                                    {
-                                                        "name": "shorten",
-                                                        "type": "boolean",
-                                                        "label": "Shorten links within text",
-                                                        "required": true
-                                                    },
-                                                    {
-                                                        "name": "attachment",
-                                                        "type": "boolean",
-                                                        "label": "Attach links in the text as media",
-                                                        "required": true
-                                                    },
-                                                    {
-                                                        "name": "media",
-                                                        "spec": [
-                                                            {
-                                                                "name": "link",
-                                                                "type": "url",
-                                                                "label": "Link"
-                                                            },
-                                                            {
-                                                                "name": "title",
-                                                                "type": "text",
-                                                                "label": "Title"
-                                                            },
-                                                            {
-                                                                "name": "description",
-                                                                "type": "text",
-                                                                "label": "Description"
-                                                            },
-                                                            {
-                                                                "name": "picture",
-                                                                "type": "url",
-                                                                "label": "Link to an image"
-                                                            },
-                                                            {
-                                                                "name": "thumbnail",
-                                                                "type": "url",
-                                                                "label": "Thumbnail"
-                                                            }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Media"
-                                                    }
-                                                ]
-                                            }
-                                        }
-                                    ]
-                                },
-                                {
-                                    "flow": [
-                                        {
-                                            "id": 33,
-                                            "module": "buffer:ActionCreateStatus",
-                                            "version": 2,
-                                            "parameters": {
-                                                "account": 9580775
-                                            },
-                                            "mapper": {
-                                                "profileIds": [
-                                                    "6a75903399afb443491a91a5"
-                                                ],
-                                                "text": "{{30.title}}{{newline}}{{newline}}{{30.comments}}{{newline}}{{newline}}👉 Voir la mise à jour : {{30.url}}",
-                                                "type": "now",
-                                                "useMedia": true,
-                                                "shorten": true,
-                                                "attachment": false,
-                                                "media": {
-                                                    "link": "{{30.enclosures[].url}}",
-                                                    "title": "{{30.title}}",
-                                                    "description": "{{30.comments}}",
-                                                    "picture": "{{30.enclosures[].url}}",
-                                                    "thumbnail": "{{30.enclosures[].url}}"
-                                                }
-                                            },
-                                            "metadata": {
-                                                "designer": {
-                                                    "x": 96,
-                                                    "y": 717,
-                                                    "name": "Facebook "
                                                 },
                                                 "restore": {
                                                     "parameters": {
@@ -1654,11 +1488,11 @@
                                                         "profileIds": {
                                                             "mode": "chose",
                                                             "label": [
-                                                                "6a75903399afb443491a91a5"
+                                                                "6a7480e899afb44349119553"
                                                             ]
                                                         },
                                                         "type": {
-                                                            "label": "Post immediately "
+                                                            "label": "Post an update at scheduled date and time"
                                                         },
                                                         "shorten": {
                                                             "mode": "chose"
@@ -1736,6 +1570,186 @@
                                                         "name": "attachment",
                                                         "type": "boolean",
                                                         "label": "Attach links in the text as media",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "dateScheduled",
+                                                        "type": "date",
+                                                        "label": "Date scheduled",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "media",
+                                                        "type": "collection",
+                                                        "label": "Media",
+                                                        "spec": [
+                                                            {
+                                                                "name": "link",
+                                                                "type": "url",
+                                                                "label": "Link"
+                                                            },
+                                                            {
+                                                                "name": "title",
+                                                                "type": "text",
+                                                                "label": "Title"
+                                                            },
+                                                            {
+                                                                "name": "description",
+                                                                "type": "text",
+                                                                "label": "Description"
+                                                            },
+                                                            {
+                                                                "name": "picture",
+                                                                "type": "url",
+                                                                "label": "Link to an image"
+                                                            },
+                                                            {
+                                                                "name": "thumbnail",
+                                                                "type": "url",
+                                                                "label": "Thumbnail"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "flow": [
+                                        {
+                                            "id": 33,
+                                            "module": "buffer:ActionCreateStatus",
+                                            "version": 2,
+                                            "parameters": {
+                                                "account": 9580775
+                                            },
+                                            "mapper": {
+                                                "profileIds": [
+                                                    "6a75903399afb443491a91a5"
+                                                ],
+                                                "text": "{{30.title}}{{newline}}{{newline}}{{30.comments}}{{newline}}{{newline}}👉 Voir la mise à jour : {{30.url}}",
+                                                "type": "scheduled",
+                                                "useMedia": true,
+                                                "shorten": true,
+                                                "attachment": false,
+                                                "dateScheduled": "{{addHours(now; 3)}}",
+                                                "media": {
+                                                    "link": "{{30.enclosures[].url}}",
+                                                    "title": "{{30.title}}",
+                                                    "description": "{{30.comments}}",
+                                                    "picture": "{{30.enclosures[].url}}",
+                                                    "thumbnail": "{{30.enclosures[].url}}"
+                                                }
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 96,
+                                                    "y": 717,
+                                                    "name": "Facebook "
+                                                },
+                                                "restore": {
+                                                    "parameters": {
+                                                        "account": {
+                                                            "label": "Olivier's Buffer connection (scenarios.actu)",
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "buffer"
+                                                            }
+                                                        }
+                                                    },
+                                                    "expect": {
+                                                        "profileIds": {
+                                                            "mode": "chose",
+                                                            "label": [
+                                                                "6a75903399afb443491a91a5"
+                                                            ]
+                                                        },
+                                                        "type": {
+                                                            "label": "Post an update at scheduled date and time"
+                                                        },
+                                                        "shorten": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "attachment": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "media": {
+                                                            "nested": {
+                                                                "link": {
+                                                                    "collapsed": true
+                                                                },
+                                                                "title": {
+                                                                    "collapsed": true
+                                                                },
+                                                                "description": {
+                                                                    "collapsed": true
+                                                                },
+                                                                "picture": {
+                                                                    "collapsed": true
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "account",
+                                                        "type": "account:buffer",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "name": "profileIds",
+                                                        "type": "select",
+                                                        "label": "Profiles",
+                                                        "required": true,
+                                                        "multiple": true
+                                                    },
+                                                    {
+                                                        "name": "text",
+                                                        "type": "text",
+                                                        "label": "Text",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "type",
+                                                        "type": "select",
+                                                        "label": "Publication",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "now",
+                                                                "top",
+                                                                "queue",
+                                                                "scheduled"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "useMedia",
+                                                        "type": "boolean",
+                                                        "label": "Attach media to the update",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "shorten",
+                                                        "type": "boolean",
+                                                        "label": "Shorten links within text",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "attachment",
+                                                        "type": "boolean",
+                                                        "label": "Attach links in the text as media",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "dateScheduled",
+                                                        "type": "date",
+                                                        "label": "Date scheduled",
                                                         "required": true
                                                     },
                                                     {
@@ -1928,21 +1942,22 @@
                                                 "account": 9580775
                                             },
                                             "mapper": {
+                                                "profileIds": [
+                                                    "6a67a2cc4b2d03035f4e3e01"
+                                                ],
                                                 "text": "Sujet mis à jour:{{newline}}{{30.title}}{{newline}}{{newline}}{{30.comments}}{{newline}}{{newline}}👉 Lien en bio pour lire l'analyse complète",
-                                                "type": "now",
+                                                "type": "scheduled",
+                                                "useMedia": true,
+                                                "shorten": true,
+                                                "attachment": false,
+                                                "dateScheduled": "{{addHours(now; 3)}}",
                                                 "media": {
                                                     "link": "{{30.enclosures[].url}}",
                                                     "title": "{{30.title}}",
+                                                    "description": "{{30.comments}}",
                                                     "picture": "{{30.enclosures[].url}}",
-                                                    "thumbnail": "",
-                                                    "description": "{{30.comments}}"
-                                                },
-                                                "shorten": true,
-                                                "useMedia": true,
-                                                "attachment": false,
-                                                "profileIds": [
-                                                    "6a67a2cc4b2d03035f4e3e01"
-                                                ]
+                                                    "thumbnail": ""
+                                                }
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -1951,9 +1966,30 @@
                                                     "name": "INSTAGRAM"
                                                 },
                                                 "restore": {
+                                                    "parameters": {
+                                                        "account": {
+                                                            "label": "Olivier's Buffer connection (scenarios.actu)",
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "buffer"
+                                                            }
+                                                        }
+                                                    },
                                                     "expect": {
+                                                        "profileIds": {
+                                                            "mode": "chose",
+                                                            "label": [
+                                                                "6a67a2cc4b2d03035f4e3e01"
+                                                            ]
+                                                        },
                                                         "type": {
-                                                            "label": "Post immediately "
+                                                            "label": "Post an update at scheduled date and time"
+                                                        },
+                                                        "shorten": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "attachment": {
+                                                            "mode": "chose"
                                                         },
                                                         "media": {
                                                             "nested": {
@@ -1964,27 +2000,6 @@
                                                                     "collapsed": true
                                                                 }
                                                             }
-                                                        },
-                                                        "shorten": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "attachment": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "profileIds": {
-                                                            "mode": "chose",
-                                                            "label": [
-                                                                "6a67a2cc4b2d03035f4e3e01"
-                                                            ]
-                                                        }
-                                                    },
-                                                    "parameters": {
-                                                        "account": {
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "buffer"
-                                                            },
-                                                            "label": "Olivier's Buffer connection (scenarios.actu)"
                                                         }
                                                     }
                                                 },
@@ -2001,8 +2016,8 @@
                                                         "name": "profileIds",
                                                         "type": "select",
                                                         "label": "Profiles",
-                                                        "multiple": true,
-                                                        "required": true
+                                                        "required": true,
+                                                        "multiple": true
                                                     },
                                                     {
                                                         "name": "text",
@@ -2043,7 +2058,15 @@
                                                         "required": true
                                                     },
                                                     {
+                                                        "name": "dateScheduled",
+                                                        "type": "date",
+                                                        "label": "Date scheduled",
+                                                        "required": true
+                                                    },
+                                                    {
                                                         "name": "media",
+                                                        "type": "collection",
+                                                        "label": "Media",
                                                         "spec": [
                                                             {
                                                                 "name": "link",
@@ -2070,9 +2093,7 @@
                                                                 "type": "url",
                                                                 "label": "Thumbnail"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Media"
+                                                        ]
                                                     }
                                                 ],
                                                 "advanced": true
@@ -2105,8 +2126,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -446,
-                                    "y": 23
+                                    "x": -661,
+                                    "y": -407
                                 },
                                 "restore": {
                                     "expect": {
@@ -2236,8 +2257,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -680,
-                                    "y": -146
+                                    "x": -1041,
+                                    "y": -529
                                 },
                                 "restore": {},
                                 "expect": [
@@ -2263,12 +2284,12 @@
                             },
                             "mapper": {
                                 "url": "https://lesscenarios.fr/feed-pub.xml",
-                                "gzip": true,
-                                "password": "",
                                 "username": "",
-                                "maxResults": "1",
+                                "password": "",
+                                "filterDateFrom": "{{parseDate(formatDate(addDays(now; -1); \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}",
                                 "filterDateTo": "",
-                                "filterDateFrom": "{{parseDate(formatDate(addDays(now; -1); \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}"
+                                "maxResults": "1",
+                                "gzip": true
                             },
                             "metadata": {
                                 "designer": {
@@ -2374,110 +2395,110 @@
                                     },
                                     {
                                         "name": "image",
+                                        "type": "collection",
+                                        "label": "Image",
                                         "spec": [
                                             {
                                                 "name": "title",
-                                                "type": "text",
-                                                "label": "Name"
+                                                "label": "Name",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "url",
-                                                "type": "url",
-                                                "label": "URL"
+                                                "label": "URL",
+                                                "type": "url"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Image"
+                                        ]
                                     },
                                     {
                                         "name": "categories",
+                                        "type": "array",
+                                        "label": "Categories",
                                         "spec": {
                                             "type": "text"
-                                        },
-                                        "type": "array",
-                                        "label": "Categories"
+                                        }
                                     },
                                     {
                                         "name": "source",
+                                        "type": "collection",
+                                        "label": "Source",
                                         "spec": [
                                             {
                                                 "name": "title",
-                                                "type": "text",
-                                                "label": "Name"
+                                                "label": "Name",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "url",
-                                                "type": "url",
-                                                "label": "URL"
+                                                "label": "URL",
+                                                "type": "url"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Source"
+                                        ]
                                     },
                                     {
                                         "name": "enclosures",
+                                        "type": "array",
+                                        "label": "Enclosures",
                                         "spec": [
                                             {
                                                 "name": "url",
-                                                "type": "url",
-                                                "label": "URL"
+                                                "label": "URL",
+                                                "type": "url"
                                             },
                                             {
                                                 "name": "type",
-                                                "type": "text",
-                                                "label": "Type"
+                                                "label": "Type",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "length",
-                                                "type": "number",
-                                                "label": "Length"
+                                                "label": "Length",
+                                                "type": "number"
                                             }
-                                        ],
-                                        "type": "array",
-                                        "label": "Enclosures"
+                                        ]
                                     },
                                     {
-                                        "help": "Other RSS fields. All values are in text format.",
                                         "name": "rssFields",
+                                        "label": "RSS fields",
+                                        "help": "Other RSS fields. All values are in text format.",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "title",
-                                                "type": "text",
-                                                "label": "title"
+                                                "label": "title",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "link",
-                                                "type": "text",
-                                                "label": "link"
+                                                "label": "link",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "guid",
-                                                "type": "text",
-                                                "label": "guid"
+                                                "label": "guid",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "pubdate",
-                                                "type": "text",
-                                                "label": "pubdate"
+                                                "label": "pubdate",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "comments",
-                                                "type": "text",
-                                                "label": "comments"
+                                                "label": "comments",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "enclosure",
-                                                "type": "text",
-                                                "label": "enclosure"
+                                                "label": "enclosure",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "description",
-                                                "type": "text",
-                                                "label": "description"
+                                                "label": "description",
+                                                "type": "text"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "RSS fields"
+                                        ]
                                     }
                                 ]
                             }
