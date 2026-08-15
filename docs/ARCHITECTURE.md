@@ -122,11 +122,19 @@ moins prioritaire).
   - **Threads** : même connexion Meta déjà branchée pour Instagram/
     Facebook natifs (`Olivier's Facebook connection`) — juste un module
     supplémentaire sur le Router, même texte que la branche X. Coût
-    marginal quasi nul.
+    marginal quasi nul **si un module natif existe** — non confirmé côté
+    Make au 15 août (recherches web inconclusives, aucun module trouvé
+    dans le catalogue) : à vérifier directement dans la barre de
+    recherche des apps Make avant de s'engager dessus. Repli possible :
+    Buffer (à vérifier s'il supporte Threads) ou l'API Threads de Meta
+    en HTTP/OAuth manuel — moins recommandé, vu l'expérience déjà vécue
+    avec X (tentative OAuth manuelle abandonnée après échecs répétés).
   - **Bluesky** : format identique à X (texte + lien + image), et
     audience en pleine migration vers cette plateforme au moment de la
     discussion (journalistes, lectorat actu/géopolitique) — bon rapport
-    effort/pertinence pour l'audience visée par Scénario.
+    effort/pertinence pour l'audience visée par Scénario. **Module natif
+    confirmé disponible côté Make par l'utilisateur le 15 août** — prêt
+    à construire, aucun blocage identifié.
   - **Mastodon** : même logique/format que Bluesky, audience plus
     réduite mais technophile/engagée — priorité un cran en dessous des
     deux précédents mais même coût nul si fait en même temps.
