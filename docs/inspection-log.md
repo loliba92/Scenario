@@ -48,7 +48,14 @@ blocage du 11 juin à l'Assemblée nationale (confirmé exact : « plus de 100
 amendements ») sans mentionner l'étape sénatoriale. Pas une erreur avérée,
 juste non re-vérifiable avec les sources disponibles ; plafond des 5
 `WebFetch` atteint pour ce passage (2 appels sur Mind Media, 1 chacun sur
-Livres Hebdo, Actualitté, Publishing Perspectives). Chiffres vérifiés et
+Livres Hebdo, Actualitté, Publishing Perspectives).
+**Suivi (même jour, hors passage)** : signalement résolu — l'utilisateur a
+transmis le dossier législatif officiel de l'Assemblée nationale
+(`assemblee-nationale.fr/dyn/17/dossiers/DLR5L17N53359`), qui confirme
+l'adoption au Sénat le **8 avril 2026** en première lecture (dépôt au Sénat
+le 12 décembre 2025, rapport de commission le 1er avril, adoption le 8
+avril, dépôt à l'Assemblée le 9 avril). La date publiée sur le site était
+donc exacte ; aucune correction nécessaire. Chiffres vérifiés et
 conformes aux sources : « 3 centimes du mot » (Livres Hebdo + Actualitté),
 « une vingtaine (...) plusieurs dizaines » de traductrices (Livres Hebdo),
 « 1,5 milliard de dollars » + « environ 3 000 dollars par livre » Anthropic
