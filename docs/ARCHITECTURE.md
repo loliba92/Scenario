@@ -3352,11 +3352,19 @@ Voir les échanges de session pour le détail, mais en résumé :
     plusieurs semaines", et 8 jours reste court — mais c'est la première
     vérification factuelle du sujet depuis la mise en place technique,
     à recroiser dans quelques semaines plutôt que de supposer que ça a
-    fonctionné sans donnée pour le confirmer. **Prochaine étape** : même
-    check dans Search Console vers fin août/début septembre ; si
-    toujours à 0 à ce moment-là, creuser une cause technique plus
-    profonde (fréquence de crawl, `robots.txt`, sitemap news, volume de
-    contenu jugé insuffisant par Google) plutôt que d'attendre encore.
+    fonctionné sans donnée pour le confirmer. **Prochain check :
+    15 septembre 2026** (1 mois jour pour jour après cette vérification,
+    demande explicite de l'utilisateur le 15 août) — même filtre Search
+    Console (Type de recherche : Actualités). Si toujours à 0 à cette
+    date, creuser une cause technique plus profonde (fréquence de
+    crawl, `robots.txt`, sitemap news, volume de contenu jugé
+    insuffisant par Google) plutôt que d'attendre encore. **Pas de
+    rappel automatisé mis en place pour cette date** — les outils de
+    planification disponibles dans cette session (cron/wakeup) ne
+    tiennent pas au-delà de 7 jours, contrairement aux triggers
+    persistants type "Scénario — Pub hebdo" gérés hors session ; ce
+    repère reste donc à surveiller manuellement (ou via une routine
+    dédiée si l'utilisateur veut en créer une).
 - **Mentions légales + politique de confidentialité** — fait. Deux pages
   dédiées (`mentions-legales.html`, `politique-de-confidentialite.html`),
   liées depuis le footer des 5 pages vivantes. Éditeur identifié (Olivier
