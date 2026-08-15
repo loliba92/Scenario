@@ -374,14 +374,37 @@ Le lien du post pointe vers l'édition source elle-même (pas
 `le-projet.html` ni la page d'accueil) — contrairement aux autres
 catégories, voir la table des liens dans `docs/routine-pub-prompt.md`.
 
-**Gabarit dédié** : `scripts/social/pub-template-v5-stat.html` — pas de
-photo, le chiffre en très grand est le seul élément visuel fort. Ne pas
-utiliser `pub-template-v4-hybride.html` pour cette catégorie (le chiffre
-serait noyé dans le texte).
+**Gabarit dédié** : `scripts/social/pub-template-v5-stat.html` — chiffre
+en très grand par-dessus la photo de l'**édition source elle-même**
+(changé le 15 août : auparavant fond uni sans photo, désormais
+`assets/social/topic-images/{date de l'édition}.jpg`, voir
+`docs/routine-pub-prompt.md` étape 2 pour le mécanisme et le repli si
+cette image n'existe plus). Ne pas utiliser `pub-template-v4-hybride.html`
+pour cette catégorie (le chiffre serait noyé dans le texte).
 
 **Section vide au lancement** — comme "Grands futurs" le 13 août, ce
 n'est pas bloquant : le mécanisme de scan alimente la catégorie à chaque
 tour, pas de stock à préremplir.
+
+### chiffre-2026-08-15
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 24 %
+- message: Le prix du pétrole a bondi de 24 % depuis février à cause du blocage du détroit d'Ormuz.
+- attribution: — lesscenarios.fr, 13 août 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-08-13.html
+- photo: `assets/social/topic-images/2026-08-13.jpg` (crédit : Zifeng
+  Xiong — https://www.pexels.com/photo/cargo-ships-anchored-at-coastal-port-under-blue-sky-33284879/),
+  photo de l'édition source elle-même — premier post à utiliser le
+  mécanisme photo ajouté le 15 août.
+
+*Extrait tel quel de `.essentiel-text` dans l'édition du 13 août
+("Le prix du pétrole a bondi de 24 % depuis février à cause du blocage
+du détroit d'Ormuz, et l'inflation américaine ressort déjà à 3,4 % sur
+un an, loin de l'objectif de 2 % des banques centrales.") — segment
+coupé à la première virgule (frontière naturelle avant "et"), point
+final ajouté, aucun mot changé ni déplacé. Première entrée de cette
+catégorie depuis sa réintroduction du 14 août.*
 
 ## Règle de rotation
 

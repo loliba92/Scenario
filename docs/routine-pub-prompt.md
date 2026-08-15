@@ -19,8 +19,9 @@ pas confondre avec la piste "pub payante" listée séparément dans
 **Cadence : 1x/semaine en croisière, plus fréquente au lancement.** Pas de
 logique de fréquence dans ce prompt — la cadence réelle est pilotée
 uniquement par le cron du trigger, ajusté à la main par l'utilisateur.
-Cette routine n'a qu'une règle de sécurité (étape 0) pour éviter un doublon
-si elle est déclenchée deux fois trop rapprochées.
+Ancien garde-fou anti-doublon (20h minimum entre deux publications) retiré
+le 15 août à la demande de l'utilisateur — la routine publie désormais à
+chaque déclenchement, sans vérifier l'écart avec la dernière publication.
 
 **Économie de tokens** — même logique que `docs/routine-inspection-
 prompt.md` : le choix de la catégorie, de l'entrée et de la photo (étapes
@@ -39,15 +40,6 @@ devienne prévisible, voir la justification dans cette section.
 **La cible du push est toujours `main`, sans exception.**
 
 **Avant de commencer : `git pull origin main`.**
-
-## Étape 0 — Garde-fou anti-doublon
-
-Lire le `<pubDate>` du premier `<item>` de `feed-pub.xml` (le plus récent,
-toujours en tête). S'il date de moins de 20h, s'arrêter proprement sans
-rien publier — protège contre un double déclenchement rapproché, sans
-verrouiller une cadence figée (contrairement à `docs/routine-hebdo-
-prompt.md` qui vérifie "cette semaine civile" : ici la fréquence peut
-changer, un simple délai minimal suffit).
 
 ## Étape 1 — Déterminer la catégorie et l'entrée
 
@@ -182,11 +174,30 @@ changer, un simple délai minimal suffit).
 
 ## Étape 2 — Choisir la photo (jamais de recherche Pexels en direct)
 
-**Catégorie `chiffre` : étape à sauter entièrement** — `pub-template-v5-
-stat.html` n'utilise aucune photo (`__PHOTO_SRC__` absent du gabarit),
-passer directement à l'étape 3.
+**Catégorie `chiffre` : mécanisme dédié, pas la rotation ci-dessous**
+(changé le 15 août, retour utilisateur — le fond doit être la photo de
+l'édition dont le chiffre est extrait, pas une photo de banque
+générique sans rapport direct). `pub-template-v5-stat.html` utilise
+désormais une photo :
+1. Chemin déterministe : `assets/social/topic-images/{date de l'édition
+   source, AAAA-MM-JJ}.jpg`, avec son `.json` associé pour le crédit
+   (`photographer`, `pexels_url`) — la même image que celle déjà
+   utilisée par l'édition elle-même sur le site, jamais une recherche
+   ou un autre choix.
+2. Si cette édition n'a pas (ou plus) de fichier `.jpg`/`.json`
+   correspondant dans `assets/social/topic-images/` (rare, les images
+   les plus anciennes peuvent avoir été purgées) : revenir à l'étape 1,
+   point 7a, et écarter cette édition candidate au profit de la
+   suivante qui a bien son image associée. Si aucune édition candidate
+   sur les ~30 jours n'a de `.jpg`/`.json` associé : replier sur la
+   règle générale ci-dessous (points 1-2) comme pour les autres
+   catégories plutôt que de bloquer.
+3. Passer directement à l'étape 3 avec cette photo (jamais l'étape 2,
+   points 1-2 ci-dessous, sauf repli du point 2 ci-dessus).
 
-**Règle non négociable, héritée de `scripts/social/fetch_topic_image.py`** :
+**Règle non négociable, héritée de `scripts/social/fetch_topic_image.py`**
+(catégories `manifeste`/`citation`/`question`/`futur`, et repli `chiffre`
+ci-dessus) :
 cette routine ne cherche et ne choisit jamais une photo sur Pexels
 elle-même. Elle réutilise uniquement une image déjà validée par un humain.
 
@@ -225,12 +236,14 @@ python3 scripts/social/generate_pub_image.py \
   --photo {photo choisie à l'étape 2}
 ```
 
-Pour la catégorie `chiffre` — gabarit dédié, pas de `--photo` :
+Pour la catégorie `chiffre` — gabarit dédié, `--photo` = photo de
+l'édition source (étape 2 ci-dessus, jamais une autre photo) :
 ```
 python3 scripts/social/generate_pub_image.py \
   --data {json temporaire avec eyebrow/stat/message/attribution/cta de l'entrée extraite} \
   --output assets/social/pub/{AAAA-MM-JJ}.png \
-  --template scripts/social/pub-template-v5-stat.html
+  --template scripts/social/pub-template-v5-stat.html \
+  --photo assets/social/topic-images/{date de l'édition source}.jpg
 ```
 
 `eyebrow`/`message`/`attribution`/`cta` (et `stat` pour la catégorie
