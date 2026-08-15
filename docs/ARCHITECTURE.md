@@ -132,9 +132,16 @@ moins prioritaire).
   - **Bluesky** : format identique à X (texte + lien + image), et
     audience en pleine migration vers cette plateforme au moment de la
     discussion (journalistes, lectorat actu/géopolitique) — bon rapport
-    effort/pertinence pour l'audience visée par Scénario. **Module natif
-    confirmé disponible côté Make par l'utilisateur le 15 août** — prêt
-    à construire, aucun blocage identifié.
+    effort/pertinence pour l'audience visée par Scénario. **Pas de
+    module natif confirmé côté Make** (même statut que Threads,
+    correction du 15 août après une fausse confirmation dans une version
+    précédente de cette note) — **mais passe par Buffer**, confirmé par
+    l'utilisateur. Bonus pratique : Facebook étant désormais entièrement
+    natif (Daily/SUIVI/PUB, voir plus haut), le canal Buffer autrefois
+    utilisé pour Facebook (profil `6a75903399afb443491a91a5`, plus
+    aucun module ne le référence dans le blueprint actuel) est
+    probablement libre — Bluesky pourrait le récupérer sans dépasser la
+    limite de 3 canaux gratuits Buffer, à vérifier côté utilisateur.
   - **Mastodon** : même logique/format que Bluesky, audience plus
     réduite mais technophile/engagée — priorité un cran en dessous des
     deux précédents mais même coût nul si fait en même temps.
