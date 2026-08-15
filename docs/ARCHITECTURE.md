@@ -114,6 +114,32 @@ moins prioritaire).
   contacts à suivre le compte) pour faire grossir l'audience avant
   d'envisager de la pub payante — pas de suivi chiffré dans ce dépôt,
   démarche manuelle côté utilisateur.
+- **P3 — Flux RSS dérivé, propre pour les vrais lecteurs RSS, idée du
+  15 août.** Constat vérifié via le W3C Feed Validator ce jour-là :
+  `feed.xml` **ne valide pas** — erreur critique répétée sur chaque item
+  ("Invalid character in a URI") parce que `<comments>` contient le
+  texte complet du post social (accents, retours à la ligne, emojis) au
+  lieu d'une URL, comme l'exige la spec RSS 2.0. Cause : `{{comments}}`
+  est le champ que **tous les modules Make** (Telegram/X/Facebook/
+  Instagram/LinkedIn/Bluesky, sur les 3 flux) utilisent pour le texte du
+  post — un vrai lecteur RSS strict rejette ça, Make s'en moque
+  complètement. Avertissements secondaires : `style="max-width..."`
+  inline dans le HTML de `<description>` (signalé "potentiellement
+  dangereux" par le validateur), et pas de `<atom:link rel="self">`.
+  **Décision du 15 août : ne jamais toucher `feed.xml`/`feed-pub.xml`/
+  `feed-suivi.xml` pour corriger ça** — ce sont les 3 flux dont dépend
+  tout le pipeline Make (voir plus haut), le risque de casser des
+  automatisations qui marchent dépasse largement le bénéfice d'une
+  conformité RSS que personne n'exploite aujourd'hui en tant
+  qu'abonné réel. **Piste retenue à la place** : un script séparé (même
+  esprit que `scripts/social/generate_*.py`) qui **lit** `feed.xml`
+  (lecture seule, jamais d'écriture dessus) et génère un flux dérivé
+  propre — `<comments>` retiré ou remplacé par une vraie URL,
+  `<atom:link rel="self">` ajouté, warning `style` nettoyé si besoin —
+  destiné aux vrais lecteurs RSS et à la soumission Feedspot/
+  DataNewsletters/Flipboard ci-dessus. Pas encore scopé (nom de fichier,
+  fréquence de génération, où le lier depuis le site) — à reprendre
+  quand l'utilisateur veut avancer dessus, aucune urgence.
 - **P1 — Threads, Bluesky, Mastodon comme canaux supplémentaires, idée
   du 15 août.** Critère de sélection posé le même jour : ne retenir que
   les réseaux dont le format colle **déjà** à ce que produit le pipeline
