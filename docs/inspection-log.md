@@ -6,6 +6,97 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-08-16 — Rugby : le choc de trop ?
+**Vérifié** : cohérence interne (probabilités 20+45+35=100 %, `data-france-
+impact`/`data-kind` vs texte `.france-line` pour les 3 cartes — favorable→
+« Plutôt favorable », stable→« Neutre », dégradé→« Plutôt défavorable » —
+et `data-kind="negatif"` du bloc `.delta-france` cohérent avec « léger
+négatif »), présence des classes CSS attendues dans `<style>` (dont
+`.delta-france`/`.delta-gauge*`/`.delta-word`/`.delta-flag`, bloc identique
+à la version canonique de `docs/routine-inspection-prompt.md` une fois
+commentaires et indentation normalisés) et intégrité du dégradé SVG à 3
+stops avec `data-score`, sync `index.html` vs `archives/2026-08-16.html`
+(`diff` complet — écarts : `og:url`/`mainEntityOfPage`, `aria-current` sur
+la nav Accueil/Archives — tous légitimes), lexique (4 `.lex-ref` ↔ 4
+entrées : ETC, choc sous-commotionnel, action de groupe, HIA — aucun terme
+orphelin dans un sens ou l'autre), incohérence numérique interne (561
+plaignants, 95 % de rejet potentiel, 63 % de baisse des contacts,
+1 000+ anciens joueurs, 20/45/35 % — cohérents à chaque occurrence, aucun
+faux positif type "9 vs 13,5 milliards"), label brut absent de
+`.essentiel-text` (la seule occurrence de « stable » désigne le nom de la
+carte de scénario, pas une description France non reformulée), formulation
+« Notre évaluation de l'impact pour la France » intacte (jamais raccourcie
+en "France Impact :"), rupture de registre (`grep` `\bton \|\bta \|\btu \b`
+— une seule occurrence, dans `.share-block`, exception légitime), style des
+paragraphes `.dek`/`.why`/`.essentiel-text` (3 phrases > 40 mots
+retravaillées, voir ci-dessous), 3 chiffres vérifiés contre 3 sources sur 4
+(voir signalements).
+**Corrigé automatiquement** : rien (aucun problème mécanique détecté aux
+points 1 à 7).
+**Réécritures de clarté** (avant/après complet pour chacune) :
+- Avant : « Après due diligence, Leigh Day (ou un autre cabinet) reprend
+  officiellement le dossier avant la prochaine audience ; s'appuyant sur la
+  position du juge Cook, qui a explicitement écarté toute responsabilité
+  des plaignants, le tribunal accepte de sauver l'essentiel des 561
+  premières plaintes malgré le vice de procédure de Richard Boardman. »
+  Après : « Après due diligence, Leigh Day (ou un autre cabinet) reprend
+  officiellement le dossier avant la prochaine audience. Le juge Cook a
+  explicitement écarté toute responsabilité des plaignants ; en s'appuyant
+  sur cette position, le tribunal accepte de sauver l'essentiel des 561
+  premières plaintes malgré le vice de procédure de Richard Boardman. »
+  (carte « Favorable », scission de la proposition participiale en
+  suspens sur 15 mots avant son sujet réel — tous les chiffres/noms
+  conservés à l'identique.)
+- Avant : « Le Top 14 et le rugby d'élite n'y sont pas encore soumis : au-
+  delà des premiers essais lancés avec le Championnat du monde U20 en
+  Géorgie, les commotions des professionnels restent gérées par le
+  protocole d'évaluation immédiate sur le terrain, le HIA*, sans
+  changement de la hauteur de plaquage à ce niveau. »
+  Après : « Le Top 14 et le rugby d'élite n'y sont pas encore soumis. Seule
+  exception : les premiers essais lancés avec le Championnat du monde U20
+  en Géorgie. En dehors de ce cas, les commotions des professionnels
+  restent gérées par le protocole d'évaluation immédiate sur le terrain, le
+  HIA*, sans changement de la hauteur de plaquage à ce niveau. »
+  (paragraphe FFR, levée de l'ambiguïté de « au-delà de » — exception ou
+  progression ? — en 3 phrases courtes plutôt qu'une ; renvoi lexique HIA
+  conservé.)
+- Avant : « En parallèle, la baisse des contacts tête contre tête mesurée
+  en France depuis 2019 (-63 %) se confirme à l'échelle des dix fédérations
+  qui ont suivi son exemple, et les premiers essais en élite (Championnat
+  du monde U20) donnent des résultats encourageants qui ouvrent la voie à
+  une extension au rugby professionnel. »
+  Après : « En parallèle, la baisse des contacts tête contre tête mesurée
+  en France depuis 2019 (-63 %) se confirme à l'échelle des dix fédérations
+  qui ont suivi son exemple. Les premiers essais en élite (Championnat du
+  monde U20) donnent aussi des résultats encourageants, qui ouvrent la voie
+  à une extension au rugby professionnel. »
+  (carte « Favorable », scission au point de coordination « et » entre
+  deux faits distincts — chiffre -63 % et renvoi U20 conservés.)
+
+  Auto-vérification après application (balise HTML équilibrée sur
+  `index.html`/`archives/2026-08-16.html` via `html.parser`, aucune erreur ;
+  re-diff index/archive toujours limité aux écarts légitimes) : passée,
+  correctifs commités.
+**Signalé pour revue humaine** :
+- Source `rugbyamateur.fr` (World Rugby officialise l'abaissement de la
+  hauteur de plaquage chez les amateurs) : l'article cite « plus de
+  150 000 plaquages étudiés en deux ans », la source dit « rien que sur les
+  18 derniers mois, 150 000 plaquages ont été analysés » — le chiffre
+  (150 000) est exact, mais la période (18 mois ≈ 1,5 an, pas 2 ans) ne
+  correspond pas exactement. Écart mineur sur une donnée secondaire (pas un
+  des 2-3 chiffres centraux de l'article), signalé sans correction.
+- Source `braininjurygroup.co.uk` (New Rugby Tackle Height Law 2026) : non
+  re-vérifiable, `WebFetch` renvoie un contenu vide malgré 2 tentatives —
+  signalé comme "source non re-vérifiable", pas de recherche de
+  remplacement.
+- Les 3 autres chiffres structurants vérifiés (95 % de rejet potentiel des
+  plaintes + nom du juge Cook via Planète Rugby et Minute Sports ; « plus
+  d'un millier d'anciens joueurs » via Minute Sports ; 63 % de baisse des
+  contacts + « dix fédérations » via rugbyamateur.fr) correspondent tous à
+  ce que disent les sources.
+
+---
+
 ## 2026-08-15 — Traduction littéraire, le métier en sursis ?
 **Vérifié** : cohérence interne (probabilités 20+50+30=100 %, `data-france-
 impact`/`data-kind` vs texte `.france-line` pour les 3 cartes — favorable→
