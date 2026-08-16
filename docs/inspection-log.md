@@ -6,6 +6,50 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-08-16 (édition manuelle, hors routine) — Rugby : le choc de trop ?
+**Pas un passage automatisé de l'Inspecteur** — retour direct de
+l'utilisateur en conversation (« la problématique n'est pas claire du tout
+qu'est-ce qu'on teste exactement... on se perd ») sur la clarté de la
+"question posée" et de "ce qu'on évalue". Ce type de changement touche
+l'angle éditorial (portée de "favorable/stable/dégradé", cadrage de la
+question) — hors du mandat de la routine automatisée (`docs/routine-
+inspection-prompt.md`), qui n'a jamais le droit d'y toucher seule.
+Correction faite ici avec l'accord explicite de l'utilisateur ("Go"), pas
+en autonomie.
+**Diagnostic** : la "question posée" fusionnait deux dossiers distincts
+(procès britannique sur des commotions passées vs nouvelle règle de
+plaquage née en France, mondiale pour les amateurs seulement) sans jamais
+préciser leur portée géographique respective — d'où la confusion
+rapportée ("Le process, la règle, c'est en France, au UK, dans le
+monde.."). Confusion secondaire sur le terme "contacts tête contre tête",
+jamais expliqué malgré 4 occurrences dans l'article.
+**Corrigé** (avec accord explicite, pas en autonomie) :
+- `.question-text` et `.stakes-text` réécrits dans `index.html`,
+  `archives/2026-08-16.html`, les 4 balises meta (`description`,
+  `og:description`, `twitter:description`, JSON-LD) et `feed.xml`
+  (`<comments>` + `<description>`) — pour nommer explicitement les deux
+  dossiers et leur portée géographique (procès → justice britannique ;
+  règle → née en France, mondiale amateurs seulement, pas encore élite).
+  Chaque chiffre/date/nom propre/lien de cause à effet de la version
+  d'origine conservé à l'identique, aucune information supprimée —
+  seulement des précisions géographiques ajoutées et la question scindée
+  en phrases plus courtes.
+- Ajout d'une entrée de lexique "Contact tête contre tête" (`index.html` +
+  archive) avec `.lex-ref` sur la première occurrence (baisse de -63 %
+  mesurée en France) — 5 entrées désormais (ETC, choc sous-commotionnel,
+  action de groupe, contact tête contre tête, HIA).
+  Auto-vérification après application : balise HTML équilibrée
+  (`html.parser`, aucune erreur), sync index/archive toujours limitée aux
+  écarts légitimes, `feed.xml` toujours XML bien formé
+  (`xml.dom.minidom`) — passée, correctifs commités.
+**Limite honnête** : le contenu de `feed.xml` (question + "ce qu'on
+évalue") a très probablement déjà été diffusé sur Telegram/Instagram/
+Facebook/LinkedIn/newsletter avant cette conversation — mis à jour pour la
+cohérence du flux et des lecteurs futurs, mais ne rattrape pas ce qui est
+déjà parti.
+
+---
+
 ## 2026-08-16 — Rugby : le choc de trop ?
 **Vérifié** : cohérence interne (probabilités 20+45+35=100 %, `data-france-
 impact`/`data-kind` vs texte `.france-line` pour les 3 cartes — favorable→
