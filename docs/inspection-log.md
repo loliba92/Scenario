@@ -6,6 +6,41 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-08-16 (édition manuelle #2, hors routine) — Rugby : le choc de trop ?
+**Pas un passage automatisé** — suite de la conversation précédente.
+L'utilisateur a demandé pourquoi Nick Gregson affirme que « les commotions
+vont exploser dans le rugby amateur » avec la règle retenue par la RFU
+(hauteur de la taille). En creusant la question, une erreur de ma part en
+conversation (« la taille, plus haut que le sternum ») a été corrigée
+(anatomiquement, la taille est plus basse que le sternum, donc la règle
+anglaise est plus stricte, pas plus permissive) — et un vrai trou dans le
+raisonnement de l'article a été identifié : le texte citait le précédent du
+Championship Cup 2018-2019 sans jamais expliquer pourquoi une règle plus
+stricte avait pu faire augmenter les commotions plutôt que les baisser.
+**Recherche effectuée** (avec l'accord explicite de l'utilisateur, option
+« je fais une recherche courte ») : 2 `WebSearch` + vérification croisée sur
+2 `WebFetch` (`talkingrugbyunion.co.uk`, source retenue et citée ;
+`feeds.bbci.co.uk`, lien mort mais corroboré par le contenu du snippet de
+recherche) pour documenter le mécanisme réel de la hausse de 2018-2019.
+**Corrigé** (avec accord explicite, pas en autonomie) : le paragraphe sur
+le précédent anglais (`index.html` + `archives/2026-08-16.html`) précise
+désormais le chiffre exact (+67 % de commotions) et le mécanisme attesté
+par Nigel Melville (alors DG de la RFU) — les commotions étaient concentrées
+dans les situations où plaqueur et porteur du ballon se pliaient tous les
+deux à la taille au moment du contact, rapprochant leurs têtes au lieu de
+les écarter, un effet secondaire que l'essai n'était pas conçu pour
+anticiper. La conclusion d'origine (« l'inverse exact du résultat obtenu
+par la FFR ») est conservée à l'identique. Source ajoutée à la section
+`sources` des deux fichiers (Talking Rugby Union).
+Auto-vérification après application : balise HTML équilibrée (`html.parser`,
+aucune erreur), sync index/archive toujours limitée aux écarts légitimes —
+passée, correctif commité.
+**Non touché** : `feed.xml` ne contient pas ce paragraphe (vérifié par
+recherche de la citation de Nick Gregson) — aucune mise à jour nécessaire
+côté flux.
+
+---
+
 ## 2026-08-16 (édition manuelle, hors routine) — Rugby : le choc de trop ?
 **Pas un passage automatisé de l'Inspecteur** — retour direct de
 l'utilisateur en conversation (« la problématique n'est pas claire du tout
