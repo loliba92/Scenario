@@ -2,22 +2,20 @@
 
 Ce fichier est la copie de référence du prompt envoyé par la routine "pub"
 (Claude Code Remote, trigger **« Scénario — Pub hebdo »**,
-`trig_01A1XU5Kpc4QWzApjZPqcKpj`, cron `0 2 * * 0,2,4,5,6` UTC =
-dimanche/mardi/jeudi/vendredi/samedi 2h Paris — heure d'été, déplacé de
-18h le 14 août pour ventiler la charge nocturne, voir
-`docs/ARCHITECTURE.md`). Créé par un agent (`create_trigger`), donc
-directement éditable via `update_trigger` — ce fichier reste la source de
-vérité lisible par un humain : le mettre à jour dans la foulée de tout
-changement.
+`trig_01A1XU5Kpc4QWzApjZPqcKpj`, cron **quotidien** (`0 2 * * *` UTC =
+4h Paris heure d'été) depuis le 17 août — l'utilisateur est passé de 5
+jours/semaine à tous les jours, voir `docs/ARCHITECTURE.md`). Créé par un
+agent (`create_trigger`), donc directement éditable via `update_trigger`
+— ce fichier reste la source de vérité lisible par un humain : le mettre
+à jour dans la foulée de tout changement.
 
-**17 août : lundi ajouté à la table jour → catégorie ci-dessous
-(`chiffre`), à la demande de l'utilisateur.** Ce fichier ne peut pas
-appeler `update_trigger` lui-même (pas d'accès à cet outil depuis une
-session lancée par le trigger) — le cron ci-dessus (`0,2,4,5,6`, donc
-sans lundi = `1`) reste à mettre à jour séparément par l'utilisateur pour
-que le déclenchement ait réellement lieu ce jour-là. Tant que ce n'est pas
-fait, la ligne `Lundi` ci-dessous restera comme `question` : documentée
-mais dormante, faute de déclenchement.
+**17 août : cron passé à quotidien par l'utilisateur** (résout la note
+précédente sur lundi, qui restait dormant faute de déclenchement — ce
+n'est plus le cas). Table jour → catégorie complétée en conséquence
+(mercredi ajouté) et repli explicite ajouté pour tout jour qui y
+manquerait quand même (voir point 2 ci-dessous) : consigne utilisateur du
+17 août, remplace l'ancien réflexe "s'arrêter et signaler" par défaut sur
+`chiffre` plutôt que de bloquer la routine.
 
 **Objectif : rappeler l'identité du projet et faire réagir la communauté**
 entre deux éditions quotidiennes — jamais un sujet d'actualité (ça reste le
@@ -25,12 +23,13 @@ rôle de `feed.xml`). Contenu organique, pas de budget publicitaire (à ne
 pas confondre avec la piste "pub payante" listée séparément dans
 `docs/ARCHITECTURE.md`).
 
-**Cadence : 1x/semaine en croisière, plus fréquente au lancement.** Pas de
-logique de fréquence dans ce prompt — la cadence réelle est pilotée
-uniquement par le cron du trigger, ajusté à la main par l'utilisateur.
-Ancien garde-fou anti-doublon (20h minimum entre deux publications) retiré
-le 15 août à la demande de l'utilisateur — la routine publie désormais à
-chaque déclenchement, sans vérifier l'écart avec la dernière publication.
+**Cadence : quotidienne depuis le 17 août** (auparavant 1x/semaine en
+croisière, plus fréquente au lancement). Pas de logique de fréquence dans
+ce prompt — la cadence réelle est pilotée uniquement par le cron du
+trigger, ajusté à la main par l'utilisateur. Ancien garde-fou anti-doublon
+(20h minimum entre deux publications) retiré le 15 août à la demande de
+l'utilisateur — la routine publie désormais à chaque déclenchement, sans
+vérifier l'écart avec la dernière publication.
 
 **Économie de tokens** — même logique que `docs/routine-inspection-
 prompt.md` : le choix de la catégorie, de l'entrée et de la photo (étapes
@@ -78,16 +77,20 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
    | Dimanche | `manifeste` |
    | Lundi | `chiffre` |
    | Mardi | `citation` |
+   | Mercredi | `chiffre` |
    | Jeudi | `futur` |
    | Vendredi | `manifeste` |
    | Samedi | `chiffre` |
 
    **`question` n'est pas dans cette table — catégorie dormante**, pas
    supprimée : ses entrées restent dans `docs/pub-messages.md` section 3,
-   à réactiver si l'utilisateur lui redonne un jour. Si la routine se
-   déclenche un jour absent de cette table (changement de cron non
-   répercuté ici), s'arrêter et signaler l'écart plutôt que de deviner
-   une catégorie.
+   à réactiver si l'utilisateur lui redonne un jour. **Si la routine se
+   déclenche malgré tout un jour absent de cette table** (nouveau jour de
+   la semaine ajouté au cron sans que cette table soit mise à jour) :
+   consigne du 17 août, remplace l'ancien réflexe "s'arrêter et signaler"
+   — **utiliser `chiffre` par défaut** pour ce jour plutôt que de bloquer
+   la routine, et le mentionner quand même dans le résumé final (étape 5)
+   pour que l'écart de doc soit visible et corrigé.
 3. Dans `docs/pub-messages.md`, section de cette catégorie : lister les
    entrées dans l'ordre où elles apparaissent, **en écartant celles encore
    marquées `[à confirmer]` / `[attribution à vérifier]` / `[à
