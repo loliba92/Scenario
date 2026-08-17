@@ -10,7 +10,9 @@ sens pour Scénario — à condition de partir d'un format hebdomadaire déjà
 existant, de cibler d'abord le public déjà identifié (lycéens/profs), et de
 tester gratuitement avant d'envisager un objet payant. Un quotidien papier
 serait, en revanche, une mauvaise idée pour ce projet, pour des raisons
-structurelles détaillées ci-dessous.
+structurelles détaillées ci-dessous. **Cadence retenue pour l'objet payant,
+si on y arrive (Phase 3) : trimestriel** (arbitré le 17 août) plutôt que
+mensuel — voir le détail plus bas.
 
 ## Pourquoi pas un quotidien papier
 
@@ -70,12 +72,36 @@ qui testent en vrai. Rester gratuit à ce stade — l'objectif est la
 légitimité et la base d'utilisateurs, pas encore le revenu.
 
 **Phase 3 — Objet imprimé payant**
-Si la demande est confirmée : pas un quotidien, mais un objet trimestriel ou
-annuel (« Cahier Scénario ») qui reprend les scénarios majeurs de la période
-et boucle la promesse de suivi en revenant sur ce qui s'est réellement passé.
-Impression à la demande (aucun stock à avancer), vendu en précommande,
+Si la demande est confirmée : pas un quotidien, mais un objet — **cadence
+trimestriel arbitrée le 17 août** (plutôt que mensuel ou annuel) — « Cahier
+Scénario » qui reprend les scénarios majeurs de la période et boucle la
+promesse de suivi en revenant sur ce qui s'est réellement passé. Impression
+à la demande (aucun stock à avancer), vendu en précommande/abonnement,
 ciblant écoles/lycées en priorité et lecteurs engagés en second. C'est le
 premier flux de revenu récurrent au-delà du don libre.
+
+Le trimestriel a été préféré au mensuel pour une raison d'économie
+d'expédition : sur un objet aussi léger (~40 pages), le port pèse presque
+autant que l'impression, quelle que soit la quantité de contenu dans
+l'enveloppe — grouper 3 mois de contenu (~100-120 pages) en un seul envoi
+répartit ce coût fixe sur davantage de pages, au lieu de le payer 3 fois. Ça
+correspond aussi mieux au rythme d'un lycée (période scolaire) qu'un envoi
+mensuel.
+
+**Prix indicatif retenu** (à confirmer une fois un vrai devis d'expédition
+obtenu — voir « Repères de coûts » ci-dessous) : **12-15 € TTC le numéro,
+~45-55 €/an en abonnement** pour un lecteur individuel ; tarif dégressif à
+l'unité pour les commandes groupées lycée/CDI (meilleure économie
+d'expédition sur un envoi groupé à une seule adresse).
+
+**Brique technique envisagée pour l'abonnement récurrent** (à construire
+seulement une fois la Phase 3 lancée, pas avant) : **Steady** (ou Stripe
+Billing) pour la gestion des abonnés et le prélèvement récurrent, relié via
+**Make.com** (déjà utilisé pour le reste du pipeline éditorial) à l'API
+d'impression à la demande (**Gelato** ou **Pumbo**) qui reçoit chaque
+trimestre le PDF + la liste des adresses des abonnés actifs et expédie
+directement chez chacun. Aucun service unique ne fait les deux (facturation
+récurrente + impression/envoi) en une seule brique.
 
 ## Repères de coûts (indicatif)
 

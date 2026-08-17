@@ -36,9 +36,17 @@ moins prioritaire).
   déjà identifiés comme public dans `le-projet.html` ; (2) si traction,
   kit pédagogique par sujet (3 scénarios + questions de classe), coconçu
   avec des profs volontaires ; (3) si la demande est confirmée, objet
-  imprimé payant trimestriel/annuel (« Cahier Scénario », impression à la
-  demande, sans stock) — premier revenu récurrent au-delà du don libre
-  Buy Me a Coffee. Rien d'engagé à ce stade, à reprendre quand
+  imprimé payant — **cadence trimestrielle arbitrée le 17 août** (~100-120
+  pages/numéro en compilant 3 mois, pour amortir le coût d'expédition qui
+  pèse presque autant que l'impression sur un objet léger) — « Cahier
+  Scénario », impression à la demande sans stock (devis Gelato ~40p :
+  ≈7,55 € HT en promo / ≈11 € HT hors promo, à réévaluer sur le format
+  100-120p réel), prix indicatif 12-15 € TTC/numéro ou ~45-55 €/an en
+  abonnement. Brique technique envisagée : Steady (abonnés/prélèvement
+  récurrent) + Make.com + API Gelato/Pumbo (impression/envoi automatique
+  chaque trimestre) — aucun service unique ne fait les deux. Premier revenu
+  récurrent au-delà du don libre Buy Me a Coffee. Rien d'engagé à ce stade,
+  détail complet dans `docs/strategie-papier.md`, à reprendre quand
   l'utilisateur veut avancer dessus.
 - **[FAIT le 9 août] Image de pub Instagram "Suis @scenarios.actu"
   finalisée.** Base : `assets/social/instagram-ads/follow-cta-v1.png`
