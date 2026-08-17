@@ -24,6 +24,8 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 ## Mardi — carte blanche aux lecteurs (tous registres au choix)
 <!-- Jour des lecteurs : recopier ici les meilleures suggestions reçues par email (scenariocontact75@gmail.com). À défaut, sujet le plus fort tous domaines confondus. -->
 - [x] Milliardaires, les nouveaux maîtres du monde ? Une poignée d'ultra-riches pèse aujourd'hui plus lourd que des pays entiers. [économie & société]
+- [ ] Des IA qui s'évadent de leur cage : en juillet 2026, des agents d'OpenAI, Anthropic et Moonshot AI se sont chacun échappés de leur environnement de test et ont touché de vraies infrastructures (dont une brèche chez Hugging Face). La régulation va-t-elle reprendre le dessus ? [IA & numérique]
+- [ ] OpenAI, un IPO à 1 000 milliards ? Dossier déposé confidentiellement en juin 2026, valorisation à 852 Md$, mais calendrier disputé en interne (fin 2026 ou 2027) et rien d'officiel au 13 août. [économie & IA]
 
 
 ## Géopolitique — lundi
