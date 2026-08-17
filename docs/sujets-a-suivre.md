@@ -83,6 +83,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 17.08.2026 — [Ormuz : la trêve a expiré](../archives/2026-08-17.html)
 - 16.08.2026 — [Rugby : le choc de trop ?](../archives/2026-08-16.html)
 - 15.08.2026 — [Traduction littéraire : le métier en sursis ?](../archives/2026-08-15.html)
 - 14.08.2026 — [Canicules à répétition : qui paie l'addition ?](../archives/2026-08-14.html)
