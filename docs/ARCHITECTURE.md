@@ -31,9 +31,15 @@ moins prioritaire).
   `docs/strategie-papier.md`. En résumé : pas de quotidien imprimé (charge
   solo trop lourde, et incompatible avec le mécanisme de suivi/
   réévaluation des probabilités, cœur différenciant du projet), mais un
-  format ponctuel a du sens en partant du hebdo déjà existant. Stratégie
-  par étapes : (1) PDF hebdo imprimable gratuit, ciblé profs HGGSP/SES
-  déjà identifiés comme public dans `le-projet.html` ; (2) si traction,
+  format ponctuel a du sens en partant du hebdo déjà existant. **Objectif
+  posé en Phase 0 (tranché le 17 août) : d'abord le développement de la
+  marque, le revenu ne vient qu'en Phase 3.** Stratégie par étapes : (1)
+  PDF hebdo, **en freemium** (précisé le 17 août) — réservé aux abonnés de
+  la newsletter gratuite déjà existante (Buttondown, `newsletter.html`),
+  pas de téléchargement public libre, pour transformer chaque diffusion en
+  inscription qualifiée à la base d'abonnés plutôt qu'un fichier diffusé
+  dans le vide ; ciblé profs HGGSP/SES déjà identifiés comme public dans
+  `le-projet.html` ; (2) si traction,
   kit pédagogique par sujet (3 scénarios + questions de classe), coconçu
   avec des profs volontaires ; (3) si la demande est confirmée, objet
   imprimé payant — **cadence trimestrielle arbitrée le 17 août** (~100-120

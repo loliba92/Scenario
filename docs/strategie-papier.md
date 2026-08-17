@@ -53,17 +53,32 @@ mensuel — voir le détail plus bas.
 
 ## Stratégie proposée (par étapes, risque croissant)
 
-**Phase 0 — Cadrage (objectif du papier)**
-Trancher en amont si le papier sert d'abord la notoriété/pédagogie ou d'abord
-un revenu. Les deux sont compatibles, mais l'ordre des priorités change la
-conception du premier jet.
+**Phase 0 — Cadrage (objectif du papier) — tranché le 17 août**
+Le papier sert d'abord la **notoriété/développement de la marque**, pas le
+revenu — le revenu (Phase 3) ne vient qu'une fois la base d'abonnés et la
+légitimité construites. Conséquence directe sur la Phase 1 : ne pas
+brûler la Phase 1 sur un simple test d'appétence, en faire un vrai levier de
+croissance de la marque.
 
-**Phase 1 — PDF hebdo imprimable, gratuit**
+**Phase 1 — PDF hebdo, en freemium (pas en libre accès) — précisé le 17
+août**
 Transformer l'édition hebdo existante en PDF sobre (1–2 pages, charte
-`--paper`/`--ink`/`--gold`), diffusé gratuitement sur les canaux déjà en
-place (Telegram, LinkedIn, newsletter), avec un appel explicite aux
-enseignants HGGSP/SES déjà identifiés comme public cible. Mesurer :
-téléchargements, retours spontanés, demandes de profs.
+`--paper`/`--ink`/`--gold`), mais **réservé aux abonnés** — pas de
+téléchargement public sans friction. L'inscription utilise l'infrastructure
+déjà en place (formulaire newsletter Buttondown sur `newsletter.html`,
+« 100 % gratuit, sans engagement ») : rester abonné à la lettre gratuite est
+la seule condition pour recevoir le PDF, aucun nouvel outil à mettre en
+place. Diffusion de l'appel sur les canaux déjà actifs (Telegram, LinkedIn),
+avec un appel explicite aux enseignants HGGSP/SES déjà identifiés comme
+public cible.
+
+Ce choix sert directement l'objectif de marque tranché en Phase 0 : chaque
+téléchargement de PDF devient une **inscription qualifiée** à la base
+d'abonnés (l'actif qui sera réutilisé en Phase 3 pour vendre le Cahier
+payant), pas juste un fichier diffusé dans le vide. Mesurer : nombre
+d'inscriptions générées par l'appel PDF (pas juste des téléchargements),
+taux de rétention de ces nouveaux abonnés, retours spontanés et demandes de
+profs.
 
 **Phase 2 — Kit pédagogique**
 Si la Phase 1 accroche : une fiche imprimable par sujet (3 scénarios +
