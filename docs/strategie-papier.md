@@ -77,6 +77,15 @@ Impression à la demande (aucun stock à avancer), vendu en précommande,
 ciblant écoles/lycées en priorité et lecteurs engagés en second. C'est le
 premier flux de revenu récurrent au-delà du don libre.
 
+## Repères de coûts (indicatif)
+
+- **Devis Gelato**, brochure cousue ~40 pages (format papier discuté pour un
+  cahier mensuel) : coût d'impression unitaire **≈ 7,55 € HT en tarif promo,
+  sinon ≈ 11 € HT hors promo**. Hors frais d'expédition, hors marge de vente.
+  À reconfirmer une fois le nombre de pages et le tirage réellement arrêtés
+  (ce chiffre ne vaut que pour la fourchette ~40 pages évoquée en Phase 3) —
+  noté ici comme ordre de grandeur, pas comme devis final.
+
 ## À éviter
 
 - Lancer un objet payant avant d'avoir testé gratuitement la demande.
