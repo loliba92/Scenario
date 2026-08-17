@@ -406,6 +406,26 @@ coupé à la première virgule (frontière naturelle avant "et"), point
 final ajouté, aucun mot changé ni déplacé. Première entrée de cette
 catégorie depuis sa réintroduction du 14 août.*
 
+### chiffre-2026-08-17
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 32-37 %
+- message: Le Rassemblement national domine déjà les sondages du premier tour, entre 32 et 37 %.
+- attribution: — lesscenarios.fr, 12 août 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-08-12.html
+- photo: `assets/social/topic-images/2026-08-12.jpg` (crédit : Element5
+  Digital — https://www.pexels.com/photo/person-dropping-paper-on-box-1550337/),
+  photo de l'édition source elle-même.
+
+*Extrait tel quel de `.essentiel-text` dans l'édition du 12 août
+("Le Rassemblement national domine déjà les sondages du premier tour,
+entre 32 et 37 %, porté par une droite et une gauche toutes deux
+divisées entre plusieurs prétendants qui refusent de s'unir.") — segment
+coupé à la deuxième virgule (frontière naturelle avant "porté par"),
+point final ajouté, aucun mot changé ni déplacé. Premier post publié un
+lundi, cron passé quotidien le 17 août (voir `docs/routine-pub-
+prompt.md`).*
+
 ## Règle de rotation
 
 **Catégorie déterminée par le jour de la semaine, pas par un cycle qui
@@ -418,7 +438,9 @@ complète et mécanisme dans `docs/routine-pub-prompt.md`, étape 1 :
 | Jour | Catégorie |
 |---|---|
 | Dimanche | Manifeste |
+| Lundi | Le saviez-vous |
 | Mardi | Citation |
+| Mercredi | Le saviez-vous |
 | Jeudi | Grand futur |
 | Vendredi | Manifeste |
 | Samedi | Le saviez-vous |
