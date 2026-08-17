@@ -25,6 +25,21 @@ Priorités P1 (fort impact, faible coût) à P3 (utile mais plus lourd ou
 moins prioritaire).
 
 **Distribution / automatisation**
+- **P3 — Déclinaison papier de Scénario, idée du 17 août.** Question posée
+  par l'utilisateur : faut-il décliner Scénario en version papier, et si
+  oui comment. Avis et stratégie détaillés dans
+  `docs/strategie-papier.md`. En résumé : pas de quotidien imprimé (charge
+  solo trop lourde, et incompatible avec le mécanisme de suivi/
+  réévaluation des probabilités, cœur différenciant du projet), mais un
+  format ponctuel a du sens en partant du hebdo déjà existant. Stratégie
+  par étapes : (1) PDF hebdo imprimable gratuit, ciblé profs HGGSP/SES
+  déjà identifiés comme public dans `le-projet.html` ; (2) si traction,
+  kit pédagogique par sujet (3 scénarios + questions de classe), coconçu
+  avec des profs volontaires ; (3) si la demande est confirmée, objet
+  imprimé payant trimestriel/annuel (« Cahier Scénario », impression à la
+  demande, sans stock) — premier revenu récurrent au-delà du don libre
+  Buy Me a Coffee. Rien d'engagé à ce stade, à reprendre quand
+  l'utilisateur veut avancer dessus.
 - **[FAIT le 9 août] Image de pub Instagram "Suis @scenarios.actu"
   finalisée.** Base : `assets/social/instagram-ads/follow-cta-v1.png`
   (gabarit maison, identique visuellement aux posts quotidiens). Deux
