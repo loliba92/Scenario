@@ -225,6 +225,19 @@ Pour chaque scénario : indicateurs concrets réellement touchés, avec estimati
 
 Traduction concrète côté France (impact quotidien : prix, pouvoir d'achat, emploi...) et synthèse en une phrase (**bon / pas bon pour la France — jamais "neutre"**, jamais un conseil d'action) dans `.france-line`, avec l'attribut `data-france-impact="favorable|degrade"` correspondant, **jugé indépendamment de la nature du scénario** (favorable/stable/dégradé ne se traduit pas mécaniquement en favorable/stable/degrade côté France — voir étape 3 pour la règle complète et l'exemple du 17 août).
 
+**Repère visuel favorable/défavorable sur `.france-line`, ajouté le 17 août (retour utilisateur : « ça doit rester pro et discret mais voyant rapidement »).** Deux éléments, tous deux pilotés automatiquement par `data-france-impact` (aucune classe CSS supplémentaire à choisir à la main) :
+- Un filet de couleur à gauche du bloc (`border-left`, `--favorable` vert ou `--degrade` rouge/terracotta — jamais `--accent`, qui reste la couleur du scénario lui-même, un axe différent).
+- Une flèche colorée dans la phrase, à la place du `→` générique : remplacer par `<span class="evo-arrow is-up">↑</span>` (favorable) ou `<span class="evo-arrow is-down">↓</span>` (degrade) — réutilise telles quelles les classes déjà définies pour les indicateurs chiffrés (`is-up`/`is-down`/`is-flat`, voir étape technique), pas de nouvelle classe ni d'emoji (cohérent avec le refus des emoji sur les scénarios, 14 août).
+
+Exemple (favorable) :
+```html
+<div class="france-line" data-france-impact="favorable">
+  <span class="field-label">Concrètement en France</span>
+  {phrase descriptive}. <span class="evo-arrow is-up">↑</span> Plutôt favorable pour la France.
+</div>
+```
+Même structure pour `degrade`, avec `is-down`/`↓`/« Plutôt défavorable pour la France. ». CSS ajoutée une fois dans le gabarit (`.france-line[data-france-impact="favorable"]{ border-left-color: var(--favorable); }` / idem `degrade`) — rien à toucher édition après édition, seul l'attribut + la flèche changent selon le jugement du jour.
+
 **Lisibilité des `why`, de « Ce qu'on évalue » et de « L'essentiel » [AJOUTÉ le 17 août, retour utilisateur : « le style est confus, pas facile à suivre »].** Ces trois blocs sont ceux que le lecteur presse (il saute souvent le contexte pour aller droit aux cartes) : ils doivent donc rester lisibles d'une seule traite, sans effort de reconstruction.
 
 - **Une idée par phrase, jamais de phrase à tiroirs.** Bannir la construction qui empile déclencheur + option A + option B + plusieurs conséquences dans la même phrase avec tirets et parenthèses imbriquées. Découper en phrases courtes qui suivent l'ordre chronologique ou logique, plutôt que de tout comprimer en un seul bloc. Mauvais : « L'impasse se confirme officiellement, les nouvelles sanctions entrent en vigueur, et l'un des deux camps franchit le seuil — une frappe américaine, ou une attaque iranienne — le détroit se ferme, le trafic tombe à zéro et le baril dépasse 100 dollars. » Bon : « Aucun accord n'est trouvé. Les sanctions entrent en vigueur. Puis l'un des deux camps passe à l'acte. Le détroit se ferme presque entièrement. Le trafic tombe proche de zéro. Le baril dépasse 100 dollars. »

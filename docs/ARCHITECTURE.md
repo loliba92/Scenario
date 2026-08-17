@@ -2419,6 +2419,20 @@ moins prioritaire).
   probablement déjà consommé par les canaux sociaux/newsletter du matin
   au moment de la correction) — à trancher séparément si besoin.
 
+  **Repère visuel favorable/défavorable ajouté sur `.france-line`, même
+  jour** — retour utilisateur direct : la classification devait « rester
+  pro et discret mais voyant rapidement », pas seulement lisible dans le
+  texte. Filet de couleur à gauche du bloc + flèche colorée dans la
+  phrase (`↑`/`↓` remplaçant le `→` générique), tous deux pilotés par
+  `data-france-impact` — aucun emoji (cohérent avec le refus des emoji
+  sur les scénarios, 14 août), pas de nouvelle classe CSS : la flèche
+  réutilise `.evo-arrow.is-up`/`.is-down`, déjà en place pour les
+  indicateurs chiffrés. Appliqué sur `index.html` et
+  `archives/2026-08-17.html`, gabarit documenté dans
+  `docs/routine-prompt.md` pour les prochaines éditions — **pas de
+  retrofit sur les archives antérieures au 17 août** (même principe que
+  pour le score lui-même, voir juste au-dessus).
+
   **Implémentation** :
   - `index.html` : CSS `.delta-france`/`.delta-gauge*` (jauge en arc
     continu, dégradé SVG rouge→or→vert, repère positionné par script

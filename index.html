@@ -898,9 +898,21 @@
   .france-line{
     background: var(--surface-2);
     border-radius: 4px;
-    padding: 10px 12px;
+    padding: 10px 12px 10px 13px;
     font-size: 0.88rem;
+    /* Repère visuel favorable/défavorable pour la France, discret mais
+       lisible au premier coup d'œil — ajouté le 17 août (retour
+       utilisateur). Filet de couleur + flèche réutilisent la palette et
+       les classes .evo-arrow déjà utilisées pour les indicateurs
+       chiffrés (même code couleur --favorable/--degrade), plutôt que
+       d'inventer un nouveau système. Couleur pilotée par
+       data-france-impact, jamais par --accent (la couleur du scénario
+       lui-même) : les deux jugements sont désormais indépendants, voir
+       docs/routine-prompt.md. */
+    border-left: 3px solid var(--paper-dim);
   }
+  .france-line[data-france-impact="favorable"]{ border-left-color: var(--favorable); }
+  .france-line[data-france-impact="degrade"]{ border-left-color: var(--degrade); }
 
   .france-line .field-label{ color: var(--accent); }
 
@@ -1286,7 +1298,7 @@
         </div>
         <div class="france-line" data-france-impact="favorable">
           <span class="field-label">Concrètement en France</span>
-          Une désescalade, même partielle, desserrerait la pression sur les prix de l'énergie en France, où carburants et gaz restent chers depuis février. → Plutôt favorable pour la France.
+          Une désescalade, même partielle, desserrerait la pression sur les prix de l'énergie en France, où carburants et gaz restent chers depuis février. <span class="evo-arrow is-up">↑</span> Plutôt favorable pour la France.
         </div>
         </div>
       </article>
@@ -1323,7 +1335,7 @@
         </div>
         <div class="france-line" data-france-impact="degrade">
           <span class="field-label">Concrètement en France</span>
-          Le statu quo maintient une facture énergétique élevée mais sans nouveau choc immédiat pour les ménages et entreprises françaises. → Plutôt défavorable pour la France.
+          Le statu quo maintient une facture énergétique élevée mais sans nouveau choc immédiat pour les ménages et entreprises françaises. <span class="evo-arrow is-down">↓</span> Plutôt défavorable pour la France.
         </div>
         </div>
       </article>
@@ -1360,7 +1372,7 @@
         </div>
         <div class="france-line" data-france-impact="degrade">
           <span class="field-label">Concrètement en France</span>
-          Un baril au-delà de 100 dollars renchérirait directement l'essence et le chauffage en France, à l'approche d'un hiver déjà sous tension budgétaire. → Plutôt défavorable pour la France.
+          Un baril au-delà de 100 dollars renchérirait directement l'essence et le chauffage en France, à l'approche d'un hiver déjà sous tension budgétaire. <span class="evo-arrow is-down">↓</span> Plutôt défavorable pour la France.
         </div>
         </div>
       </article>
