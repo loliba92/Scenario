@@ -42,12 +42,18 @@ moins prioritaire).
   Scénario », impression à la demande sans stock (devis Gelato ~40p :
   ≈7,55 € HT en promo / ≈11 € HT hors promo, à réévaluer sur le format
   100-120p réel), prix indicatif 12-15 € TTC/numéro ou ~45-55 €/an en
-  abonnement. Brique technique envisagée : Steady (abonnés/prélèvement
-  récurrent) + Make.com + API Gelato/Pumbo (impression/envoi automatique
-  chaque trimestre) — aucun service unique ne fait les deux. Premier revenu
-  récurrent au-delà du don libre Buy Me a Coffee. Rien d'engagé à ce stade,
-  détail complet dans `docs/strategie-papier.md`, à reprendre quand
-  l'utilisateur veut avancer dessus.
+  abonnement. **Automatisation maison écartée le 17 août** (Steady/Stripe +
+  Make.com + API Gelato/Pumbo construits et maintenus en solo) : un bug de
+  RPA sur ce pipeline touche des abonnés déjà payés (adresse, envoi,
+  prélèvement), risque jugé trop lourd à porter seul — **décision de
+  déléguer** la chaîne abonnement/impression/envoi à un prestataire externe
+  (routeur presse spécialisé, ou plateforme d'abonnement avec intégration
+  impression déjà maintenue par un tiers plutôt qu'un scénario Make.com
+  fait main). Impact prix à revoir une fois un devis de fulfillment obtenu
+  (commission/tarif au pli non inclus dans le 12-15 € TTC calculé en DIY).
+  Premier revenu récurrent au-delà du don libre Buy Me a Coffee. Rien
+  d'engagé à ce stade, détail complet dans `docs/strategie-papier.md`, à
+  reprendre quand l'utilisateur veut avancer dessus.
 - **[FAIT le 9 août] Image de pub Instagram "Suis @scenarios.actu"
   finalisée.** Base : `assets/social/instagram-ads/follow-cta-v1.png`
   (gabarit maison, identique visuellement aux posts quotidiens). Deux

@@ -94,14 +94,33 @@ obtenu — voir « Repères de coûts » ci-dessous) : **12-15 € TTC le numér
 l'unité pour les commandes groupées lycée/CDI (meilleure économie
 d'expédition sur un envoi groupé à une seule adresse).
 
-**Brique technique envisagée pour l'abonnement récurrent** (à construire
-seulement une fois la Phase 3 lancée, pas avant) : **Steady** (ou Stripe
-Billing) pour la gestion des abonnés et le prélèvement récurrent, relié via
-**Make.com** (déjà utilisé pour le reste du pipeline éditorial) à l'API
-d'impression à la demande (**Gelato** ou **Pumbo**) qui reçoit chaque
-trimestre le PDF + la liste des adresses des abonnés actifs et expédie
-directement chez chacun. Aucun service unique ne fait les deux (facturation
-récurrente + impression/envoi) en une seule brique.
+**Brique technique — automatisation maison écartée, décision du 17 août.**
+Le montage Steady/Stripe + Make.com + API Gelato/Pumbo envisagé plus haut
+est abandonné en tant que solution **construite et maintenue par
+l'utilisateur** : un bug de RPA sur le pipeline éditorial retarde au pire
+une édition, alors qu'un bug sur ce pipeline-ci touche des abonnés qui ont
+payé (mauvaise adresse, numéro non envoyé, double prélèvement) — un niveau
+de risque opérationnel différent, à ne pas faire porter en solo sur une
+automatisation maison. **Décision : déléguer** la chaîne abonnement +
+impression + envoi à un prestataire externe plutôt que la construire et la
+faire tourner soi-même. Deux pistes à évaluer avant de lancer la Phase 3 :
+
+- **Un routeur/prestataire de fulfillment presse** (agence spécialisée
+  abonnement + impression + mise sous pli + envoi, modèle courant pour la
+  presse indépendante française) : on leur fournit le PDF chaque trimestre
+  et la liste d'abonnés, ils gèrent l'impression et l'expédition de bout en
+  bout — coût par exemplaire plus élevé qu'en DIY, mais aucune
+  automatisation à maintenir.
+- **Une plateforme d'abonnement avec intégration impression déjà
+  maintenue par l'éditeur** (ex. Shopify + application officielle Gelato,
+  plutôt qu'un scénario Make.com construit à la main) : réduit le risque en
+  s'appuyant sur une intégration entretenue par un tiers plutôt qu'une
+  automatisation propriétaire, sans aller jusqu'à un routeur complet.
+
+Conséquence sur le prix : la marge calculée plus haut (12-15 € TTC) supposait
+une automatisation à coût quasi nul ; un prestataire de fulfillment prend
+une commission ou un tarif au pli, à intégrer dans le prix final une fois un
+devis obtenu — **à revoir avant de communiquer un prix définitif**.
 
 ## Repères de coûts (indicatif)
 
