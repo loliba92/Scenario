@@ -94,7 +94,13 @@ Pour chaque scénario (favorable, puis stable, puis dégradé) :
   explicitement plutôt que d'inventer un ordre de grandeur non fondé.
 - Une **traduction concrète côté France** quand elle existe (prix,
   pouvoir d'achat, emploi...), toujours descriptive, jamais un conseil
-  d'action.
+  d'action. **Ce jugement (bon/pas bon pour la France) est indépendant
+  de la nature du scénario** (favorable/stable/dégradé décrit où va la
+  situation, pas ce qu'elle vaut pour la France) — un scénario "stable"
+  qui maintient un coût déjà là (prix élevés, accès restreint...) reste
+  mauvais pour la France même sans aggravation supplémentaire, jamais
+  "neutre" par défaut. Détail complet et exemple dans
+  `docs/routine-prompt.md` (étape 3, France Impact).
 
 ### 3.3 — Attribution des probabilités : les facteurs pesés
 

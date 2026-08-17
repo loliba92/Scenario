@@ -2393,6 +2393,32 @@ moins prioritaire).
   assumée, pas résolue : de la documentation, pas du code, ne protège
   pas d'un oubli** (point soulevé par l'utilisateur).
 
+  **[FAIT le 17 août] Biais corrigé : la valeur France de "stable"
+  n'était pas censée être 0 par défaut.** Un des biais "acceptés en
+  connaissance de cause" ci-dessus s'est concrètement matérialisé :
+  l'édition du 17 août (détroit d'Ormuz) classait son scénario stable
+  "Neutre pour la France" alors que son propre texte disait "facture
+  énergétique élevée" — la valeur France (+1/−1) avait été déduite
+  mécaniquement de la nature du scénario (stable → 0) au lieu d'être
+  jugée sur l'état réel qu'il décrit. Retour utilisateur direct, avec
+  l'exemple du jour à l'appui. Deux questions différentes, à ne plus
+  confondre : la nature du scénario (favorable/stable/dégradé) dit où va
+  la situation ; la valeur France dit si l'état qui en résulte est bon
+  ou mauvais pour la France — un statu quo qui maintient un coût déjà
+  là n'est jamais neutre. **Formule changée : valeur France strictement
+  binaire (+1/−1, jamais 0)**, jugée indépendamment pour chaque
+  scénario ; `data-france-impact` n'accepte plus que `favorable|degrade`
+  (`stable` retiré des valeurs possibles). Mis à jour :
+  `docs/routine-prompt.md` (étape 3, règle complète + cet exemple),
+  `docs/methodologie-probabilites.md` (renvoi). **Corrigé
+  rétroactivement sur `index.html` et `archives/2026-08-17.html`**
+  (le seul cas concerné à ce jour) : score −0,45 (« assez négatif ») →
+  −0,80 (« très négatif »), `.france-line` du scénario stable passée en
+  `data-france-impact="degrade"` / "Plutôt défavorable pour la France."
+  **`feed.xml` non corrigé** (texte dupliqué dans `<source>`,
+  probablement déjà consommé par les canaux sociaux/newsletter du matin
+  au moment de la correction) — à trancher séparément si besoin.
+
   **Implémentation** :
   - `index.html` : CSS `.delta-france`/`.delta-gauge*` (jauge en arc
     continu, dégradé SVG rouge→or→vert, repère positionné par script
