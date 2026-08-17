@@ -11,8 +11,13 @@
     --gold: #cf9d4c;
     /* Même orange que l'accent "chiffre" déjà défini dans
        pub-template-v4-hybride.html (var(--degrade)) — cohérence de
-       couleur avec le reste du gabarit pub, même hors rotation photo. */
-    --stat: #bd6248;
+       couleur avec le reste du gabarit pub, même hors rotation photo.
+       Éclairci le 17 août (retour utilisateur : le ton d'origine,
+       #bd6248, manquait de contraste sur le fond déjà sombre — surtout
+       visible sur les photos claires où le chiffre géant se noyait
+       presque dans l'image). Contraste WCAG contre le fond sombre passé
+       de 4.4:1 à ~8:1. */
+    --stat: #ff8b5e;
   }
   *{ box-sizing: border-box; margin:0; padding:0; }
   html,body{ width:1080px; height:1080px; }

@@ -2217,6 +2217,21 @@ moins prioritaire).
     jour (`chiffre` → l'édition source elle-même, seule catégorie sans
     page de destination fixe).
 
+  **[FAIT le 17 août] Couleur du chiffre géant éclaircie, trop peu de
+  contraste.** Retour utilisateur direct sur le premier post publié un
+  lundi (`chiffre-2026-08-17`) : le ton d'origine (`--stat: #bd6248`,
+  un terracotta assez sombre) se noyait dans le fond déjà sombre du
+  gabarit, surtout sur les photos claires (peu de scrim visible derrière
+  le chiffre). Remplacé par `#ff8b5e`, un corail plus lumineux — contraste
+  WCAG contre un fond sombre passé de 4.4:1 à ~8:1. Changé dans
+  `scripts/social/pub-template-v5-stat.html` (`--stat`, seul gabarit qui
+  rend réellement la catégorie `chiffre`) et, par cohérence, dans
+  `scripts/social/pub-template-v4-hybride.html` (`--degrade`, même
+  couleur documentée comme identique dans le commentaire du gabarit v5,
+  même si ce template ne rend plus `chiffre` depuis le 15 août).
+  L'image déjà publiée le jour même (`assets/social/pub/2026-08-17.png`)
+  a été régénérée avec la nouvelle couleur et recommittée.
+
   **[FAIT le 14 août] Sélection de la catégorie : cycle qui avance
   remplacé par une table jour → catégorie fixe.** Retour utilisateur
   direct : "voici le calendrier systématique, tu ne pourras pas te
