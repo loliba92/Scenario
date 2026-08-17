@@ -10,6 +10,15 @@ directement éditable via `update_trigger` — ce fichier reste la source de
 vérité lisible par un humain : le mettre à jour dans la foulée de tout
 changement.
 
+**17 août : lundi ajouté à la table jour → catégorie ci-dessous
+(`chiffre`), à la demande de l'utilisateur.** Ce fichier ne peut pas
+appeler `update_trigger` lui-même (pas d'accès à cet outil depuis une
+session lancée par le trigger) — le cron ci-dessus (`0,2,4,5,6`, donc
+sans lundi = `1`) reste à mettre à jour séparément par l'utilisateur pour
+que le déclenchement ait réellement lieu ce jour-là. Tant que ce n'est pas
+fait, la ligne `Lundi` ci-dessous restera comme `question` : documentée
+mais dormante, faute de déclenchement.
+
 **Objectif : rappeler l'identité du projet et faire réagir la communauté**
 entre deux éditions quotidiennes — jamais un sujet d'actualité (ça reste le
 rôle de `feed.xml`). Contenu organique, pas de budget publicitaire (à ne
@@ -67,6 +76,7 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
    | Jour | Catégorie |
    |---|---|
    | Dimanche | `manifeste` |
+   | Lundi | `chiffre` |
    | Mardi | `citation` |
    | Jeudi | `futur` |
    | Vendredi | `manifeste` |
