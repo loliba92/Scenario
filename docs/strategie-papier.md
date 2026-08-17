@@ -117,6 +117,31 @@ faire tourner soi-même. Deux pistes à évaluer avant de lancer la Phase 3 :
   s'appuyant sur une intégration entretenue par un tiers plutôt qu'une
   automatisation propriétaire, sans aller jusqu'à un routeur complet.
 
+**Risque de péremption des sujets sur 3 mois — soulevé le 17 août.** Un
+sujet traité en semaine 1 du trimestre peut être tranché (ou dépassé) au
+moment où le lecteur reçoit le cahier en semaine 12-13. Deux cas, deux
+traitements :
+
+- **Sujet résolu pendant le trimestre** : ce n'est pas un problème, c'est le
+  format voulu — le cahier revient dessus en rétrospective (« voici les 3
+  scénarios posés, voici ce qui s'est réellement passé »), qui boucle la
+  promesse de suivi et sert d'argument de calibration/transparence.
+- **Sujet encore ouvert en fin de trimestre** : ne jamais réimprimer les
+  probabilités du jour de publication d'origine si elles sont datées de
+  plusieurs semaines — reprendre la **dernière version réévaluée** (page de
+  suivi) au moment du bouclage. Un sujet resté ouvert et jamais réévalué
+  depuis sa publication d'origine est **écarté de la sélection finale**
+  plutôt que republié avec une exactitude qu'on n'a plus — même exigence que
+  celle déjà affichée sur le site (« jamais prétendre à une exactitude
+  qu'aucune actualité en cours ne permet »).
+
+**Conséquence sur le calendrier de fabrication** : la sélection des sujets
+du numéro ne doit pas se figer au fil du trimestre, mais se faire dans les
+**derniers jours avant l'envoi en impression** — un vrai bouclage de fin de
+trimestre (comme un magazine classique), pas une compilation progressive
+au fil de l'eau. Ça minimise le délai entre « dernière info connue » et
+« réception par le lecteur ».
+
 Conséquence sur le prix : la marge calculée plus haut (12-15 € TTC) supposait
 une automatisation à coût quasi nul ; un prestataire de fulfillment prend
 une commission ou un tarif au pli, à intégrer dans le prix final une fois un
