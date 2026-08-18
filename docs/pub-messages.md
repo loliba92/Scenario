@@ -113,12 +113,18 @@ demanderait un nouveau gabarit sans photo de fond, hors du pipeline actuel
 
 ### manifeste-09
 - eyebrow: LES 3 SCÉNARIOS
-- message: **Favorable**. **Stable**. **Dégradé**.\nTrois issues chiffrées, jamais une prédiction unique.
+- message: Rien n'est écrit à l'avance.\n**Favorable**, **stable**, **dégradé** : trois chemins possibles, jamais une prophétie.
 - cta: 👉 Découvre comment on les définit
 
-*Ajouté le 14 août — reprend le principe central de `le-projet.html`
-§ « Les trois scénarios » : jamais une prédiction unique, trois issues
-chiffrées et réévaluées dans le temps. Les définitions détaillées
+*Ajouté le 14 août, reformulé le 18 août (retour utilisateur : le
+premier jet — "Trois issues chiffrées, jamais une prédiction unique" —
+était trop clinique, demandait quelque chose de plus spirituel) — garde
+le principe central de `le-projet.html` § « Les trois scénarios »
+(jamais une prédiction unique, trois issues chiffrées et réévaluées dans
+le temps) mais ouvre sur "rien n'est écrit à l'avance" et referme sur
+"prophétie" plutôt que "prédiction", pour se démarquer de manifeste-02
+("On ne prédit pas l'avenir. On chiffre l'incertitude.") déjà publié le
+16 août avec un vocabulaire proche. Les définitions détaillées
 (favorable = la tension se résout plutôt bien, stable = le statu quo se
 prolonge, dégradé = la situation se détériore nettement) tiennent sur
 la page elle-même, pas sur l'image — le gabarit pub n'a la place que
