@@ -148,6 +148,27 @@ de la catégorie `manifeste` (`le-projet.html`), pas celle de `question`
 en commentaire sur le réseau social, ce qui reste cohérent même si le
 clic renvoie vers la page projet plutôt que la page contact.*
 
+### manifeste-11
+- eyebrow: SOUTENEZ SCÉNARIO
+- message: Partager Scénario autour de vous, c'est le plus simple des coups de pouce pour nous aider à grandir.
+- cta: 👉 Soutenez-nous ici : buymeacoffee.com/scenario
+- cta-image: 👉 Soutenez-nous — lien ci-dessous
+- link: https://buymeacoffee.com/scenario
+
+*Créée le 18 août comme catégorie séparée (`soutien`, samedi), repliée
+le même jour dans `manifeste` à la demande de l'utilisateur — logique
+attendue : pas de jour dédié, juste une entrée de plus dans la rotation
+`manifeste` (dimanche/vendredi), au même titre que manifeste-01…10.
+Adaptée d'un rappel Buy Me a Coffee reçu côté créateur ("Your fans are
+waiting!..."), reformulée pour s'adresser au lecteur plutôt qu'au
+créateur. **Champ `link` (nouveau, optionnel)** : override le lien par
+défaut de la catégorie (`le-projet.html` pour `manifeste`) — sans lui,
+ce post perdrait sa seule raison d'être (rediriger vers la page de don)
+en renvoyant vers la page projet comme toutes les autres entrées
+manifeste. Voir `docs/routine-pub-prompt.md`, étape 4, pour la règle
+générale : si une entrée définit `link`, il prime sur le lien
+automatique de sa catégorie.*
+
 ## 2. Citations — le hasard et l'incertitude (rotation B)
 
 Objectif : varier le feed avec du contenu plus léger/partageable, en lien
@@ -448,43 +469,14 @@ point final ajouté, aucun mot changé ni déplacé. Premier post publié un
 lundi, cron passé quotidien le 17 août (voir `docs/routine-pub-
 prompt.md`).*
 
-## 6. Soutenez Scénario — Buy Me a Coffee (rotation F)
+## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
-Objectif différent des 5 catégories ci-dessus : pas un rappel d'identité
-ni un contenu léger à partager, mais une demande directe de soutien
-(partage/don via Buy Me a Coffee). Ajoutée le 18 août à la demande de
-l'utilisateur.
-
-**18 août, correction same-day** : une première tentative a publié cette
-catégorie en plus du post `citation` déjà sorti le même jour — l'automatisation
-réseaux sociaux (blueprint Make) ne gère qu'**1 seul post/jour**, donc 2
-items dans `feed-pub.xml` le même jour casse la publication. Le post en
-trop a été retiré du flux (revert), l'entrée `soutien-01` reste ici en
-banque, et la catégorie a été intégrée à la table jour → catégorie de
-`docs/routine-pub-prompt.md` pour respecter la cadence 1/jour — voir ce
-fichier pour le jour retenu.
-
-**Champ `cta-image` (spécifique à cette catégorie)** : retour utilisateur
-du 18 août — une URL écrite en dur sur l'image PNG n'est pas cliquable
-(l'image n'est qu'une pièce jointe), donc inutile voire trompeuse dessus.
-Le `cta` normal (avec l'URL) reste utilisé tel quel dans `<comments>`/
-`<description>` (texte du post, sous l'image, cliquable ou copiable selon
-la plateforme) — mais **pour la génération de l'image uniquement**
-(étape 3 de `docs/routine-pub-prompt.md`), utiliser `cta-image` à la
-place de `cta` dans le JSON passé à `generate_pub_image.py`. Champ
-optionnel : si absent pour une future entrée d'une autre catégorie,
-utiliser `cta` pour les deux comme d'habitude.
-
-### soutien-01
-- eyebrow: SOUTENEZ SCÉNARIO
-- message: Partager Scénario autour de vous, c'est le plus simple des coups de pouce pour nous aider à grandir.
-- cta: 👉 Soutenez-nous ici : buymeacoffee.com/scenario
-- cta-image: 👉 Soutenez-nous — lien ci-dessous
-
-*Adapté par l'utilisateur le 18 août d'un rappel Buy Me a Coffee reçu
-côté créateur ("Your fans are waiting!..."), reformulé pour s'adresser
-au lecteur plutôt qu'au créateur. Lien du post : buymeacoffee.com/scenario
-(seule catégorie qui pointe hors lesscenarios.fr).*
+*Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
+jour dans la catégorie `manifeste` à la demande de l'utilisateur — voir
+`manifeste-11` en section 1. Le champ `cta-image` introduit ici (URL non
+cliquable écrite sur l'image) reste documenté en étape 3 de
+`docs/routine-pub-prompt.md`, désormais comme règle générale plutôt que
+spécifique à cette catégorie retirée.*
 
 ## Règle de rotation
 
@@ -508,6 +500,12 @@ complète et mécanisme dans `docs/routine-pub-prompt.md`, étape 1 :
 **"Questions" n'est dans aucun jour de cette table — catégorie
 dormante**, pas supprimée : ses entrées (section 3) restent en place,
 prêtes si l'utilisateur lui redonne un créneau plus tard.
+
+**"Soutien" (Buy Me a Coffee) n'a pas non plus de ligne dédiée** — testé
+un temps sur samedi le 18 août, puis replié le même jour dans `Manifeste`
+(entrée `manifeste-11`, section 1) à la demande de l'utilisateur : il
+sort donc les dimanches/vendredis, quand c'est le tour de `manifeste`
+dans sa propre rotation interne, pas selon un jour fixe à lui.
 
 Dans chaque catégorie, la routine avance dans sa propre liste
 indépendamment (l'ordre où les entrées apparaissent ci-dessus, sans

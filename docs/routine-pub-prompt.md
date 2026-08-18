@@ -65,7 +65,7 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
 1. Lister tous les `<guid>` de `feed-pub.xml`, format `scenario-pub-
    {id-entrée}` (ex. `scenario-pub-manifeste-03`) — le préfixe avant le
    premier tiret après "pub-" donne la catégorie (`manifeste`, `citation`,
-   `question`, `futur`, `chiffre`, `soutien`).
+   `question`, `futur`, `chiffre`).
 2. **Catégorie du jour : table jour → catégorie fixe** (remplace
    l'ancien mécanisme "cycle qui avance d'un cran", retour utilisateur du
    14 août — trop de risque de se tromper en déduisant la catégorie du
@@ -80,16 +80,16 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
    | Mercredi | `chiffre` |
    | Jeudi | `futur` |
    | Vendredi | `manifeste` |
-   | Samedi | `soutien` |
+   | Samedi | `chiffre` |
 
-   **Samedi passé de `chiffre` à `soutien` le 18 août** (voir
-   `docs/pub-messages.md` section 6) — `chiffre` reste couvert 2x/semaine
-   (lundi, mercredi), et le samedi (plus de temps disponible côté lecteur)
-   semble un meilleur créneau pour une demande de soutien que pour un
-   énième chiffre. **1 seul post/jour, sans exception** — cette catégorie
-   ne doit jamais s'ajouter à celle du jour, seulement la remplacer à son
-   tour dans la table (correction du 18 août, après une première tentative
-   qui avait publié 2 items le même jour et cassé l'automatisation réseaux
+   **18 août — catégorie "soutien" (Buy Me a Coffee) testée un temps sur
+   samedi, puis repliée dans `manifeste`** (retour utilisateur direct :
+   pas de jour dédié, juste une entrée de plus dans la rotation
+   `manifeste`) — voir `manifeste-11` dans `docs/pub-messages.md`. Samedi
+   redevient donc `chiffre` comme avant le 18 août. **1 seul post/jour,
+   sans exception** — reste vrai en général : n'ajouter aucune catégorie
+   en plus de celle du jour (leçon du 18 août : une première tentative
+   avait publié 2 items le même jour et cassé l'automatisation réseaux
    sociaux, qui ne traite qu'1 post/jour).
 
    **`question` n'est pas dans cette table — catégorie dormante**, pas
@@ -285,7 +285,8 @@ python3 scripts/social/generate_pub_image.py \
 jamais reformulés, jamais traduits, jamais "améliorés" à la volée.
 
 **Principe à respecter : jamais d'URL écrite en dur sur l'image**
-(retour utilisateur du 18 août, catégorie `soutien`) — une image PNG
+(retour utilisateur du 18 août, entrée `manifeste-11` "Soutenez
+Scénario") — une image PNG
 n'est pas cliquable, une URL affichée dessus est donc inutile voire
 trompeuse (elle donne l'impression d'un lien alors qu'il faut la
 retaper à la main). Si le `cta` d'une entrée contient une URL, utiliser
@@ -333,9 +334,16 @@ projet.html`, `citation`/`futur` → `https://lesscenarios.fr/`,
 `question` → `https://lesscenarios.fr/contact.html`, `chiffre` → l'URL de
 l'édition source elle-même (ex. `https://lesscenarios.fr/archives/2026-
 08-10.html`) — seule catégorie qui ne renvoie pas vers une page fixe,
-puisque chaque post cite une édition différente. `soutien` →
-`https://buymeacoffee.com/scenario` — seule catégorie qui renvoie hors
-`lesscenarios.fr`, cohérent avec son objectif (don/partage direct).
+puisque chaque post cite une édition différente.
+
+**Exception : champ `link` sur une entrée précise, dans
+`docs/pub-messages.md`** (ajouté le 18 août, `manifeste-11`) — quand une
+entrée a besoin de pointer ailleurs que le lien par défaut de sa
+catégorie (ex. une entrée `manifeste` qui doit renvoyer vers
+`buymeacoffee.com/scenario` plutôt que `le-projet.html`), ce champ
+optionnel prime sur la règle générale ci-dessus. Vérifier sa présence
+avant d'appliquer le lien par défaut de la catégorie ; l'utiliser tel
+quel, jamais reformulé.
 
 **Le crédit photo n'apparaît JAMAIS dans le texte visible du post**
 (ni `<comments>`, ni le texte lisible de `<description>`) — décision
