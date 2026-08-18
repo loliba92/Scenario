@@ -132,6 +132,22 @@ pour un teaser (voir manifeste-08, même logique). Le CTA renvoie vers
 `le-projet.html` via le lien automatique de la catégorie manifeste
 (voir `docs/routine-pub-prompt.md`).*
 
+### manifeste-10
+- eyebrow: À VOUS DE JOUER
+- message: Une question qui te trotte dans la tête\net dont tu voudrais 3 scénarios chiffrés ?
+- cta: 👉 On lit tous les commentaires
+
+*Déplacée depuis la catégorie `question` (dormante) le 18 août, à la
+demande de l'utilisateur — était `question-02`, voir la trace dans la
+section 3 ci-dessous. Reste plus légère qu'une demande de sujet construit
+(l'ancien `question-01`, retiré) : elle part de ce que le lecteur a déjà
+en tête plutôt que de lui demander de réfléchir à un sujet. **Point
+d'attention du déplacement** : le lien du post suit désormais la règle
+de la catégorie `manifeste` (`le-projet.html`), pas celle de `question`
+(`contact.html`) — le CTA "On lit tous les commentaires" invite à réagir
+en commentaire sur le réseau social, ce qui reste cohérent même si le
+clic renvoie vers la page projet plutôt que la page contact.*
+
 ## 2. Citations — le hasard et l'incertitude (rotation B)
 
 Objectif : varier le feed avec du contenu plus léger/partageable, en lien
@@ -239,14 +255,14 @@ ne marche pas dans un feed qu'on parcourt vite. Remplacé par question-04
 ci-dessous, qui demande un avis plutôt qu'une idée à construire. Id
 jamais réutilisé, gardé en trace ici.*
 
-### question-02
-- eyebrow: À VOUS DE JOUER
-- message: Une question qui te trotte dans la tête\net dont tu voudrais 3 scénarios chiffrés ?
-- cta: 👉 On lit tous les commentaires
-
-*Reste plus légère qu'une demande de sujet construit (question-01,
-retiré) : elle part de ce que le lecteur a déjà en tête plutôt que de lui
-demander de réfléchir à un sujet.*
+### question-02 `[déplacé vers manifeste-10 le 18 août]`
+*Était : eyebrow "À VOUS DE JOUER", message "Une question qui te trotte
+dans la tête, et dont tu voudrais 3 scénarios chiffrés ?", cta "On lit
+tous les commentaires". Déplacé à la demande de l'utilisateur (18 août)
+vers la catégorie `manifeste`, voir manifeste-10 en section 1 pour le
+contenu actuel. Id jamais réutilisé, gardé en trace ici — la catégorie
+`question` reste par ailleurs dormante (voir `docs/routine-pub-
+prompt.md`).*
 
 ### question-03 `[retiré le 14 août]`
 *Était : "Parmi les 3 scénarios de la semaine, lequel t'a le plus
