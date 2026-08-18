@@ -426,6 +426,26 @@ point final ajouté, aucun mot changé ni déplacé. Premier post publié un
 lundi, cron passé quotidien le 17 août (voir `docs/routine-pub-
 prompt.md`).*
 
+## 6. Soutenez Scénario — Buy Me a Coffee (hors calendrier hebdo)
+
+Objectif différent des 5 catégories ci-dessus : pas un rappel d'identité
+ni un contenu léger à partager, mais une demande directe de soutien
+(partage/don via Buy Me a Coffee). Ajoutée le 18 août à la demande de
+l'utilisateur, en dehors de la table jour → catégorie de
+`docs/routine-pub-prompt.md` — publiée à la main quand l'utilisateur le
+demande explicitement, pas insérée dans la rotation automatique
+quotidienne sauf décision ultérieure de l'utilisateur.
+
+### soutien-01
+- eyebrow: SOUTENEZ SCÉNARIO
+- message: Partager Scénario autour de vous, c'est le plus simple des coups de pouce pour nous aider à grandir.
+- cta: 👉 Soutenez-nous ici : buymeacoffee.com/scenario
+
+*Adapté par l'utilisateur le 18 août d'un rappel Buy Me a Coffee reçu
+côté créateur ("Your fans are waiting!..."), reformulé pour s'adresser
+au lecteur plutôt qu'au créateur. Lien du post : buymeacoffee.com/scenario
+(seule catégorie qui pointe hors lesscenarios.fr).*
+
 ## Règle de rotation
 
 **Catégorie déterminée par le jour de la semaine, pas par un cycle qui
