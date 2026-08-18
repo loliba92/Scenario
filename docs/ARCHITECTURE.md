@@ -149,6 +149,26 @@ moins prioritaire).
   contacts à suivre le compte) pour faire grossir l'audience avant
   d'envisager de la pub payante — pas de suivi chiffré dans ce dépôt,
   démarche manuelle côté utilisateur.
+- **P2 — Référencer Scénario sur Google pour augmenter la recherche,
+  question posée le 18 août.** Utilisateur en train de configurer une
+  campagne Google Ads Performance Max (`ads.google.com`, erreur bloquante
+  rencontrée : description à 120 caractères pour une limite de 90, et
+  minimum 2 descriptions requises). Avis donné : Performance Max
+  déconseillé pour démarrer — campagne automatisée en boîte noire, a
+  besoin d'un historique de conversions déjà solide (pixel/tracking
+  mature) pour bien apprendre ; sur un compte tout neuf elle risque de
+  brûler du budget sans bon ciblage. Alternative recommandée si pub
+  payante Google : campagne Search classique sur mots-clés précis (marque
+  + intention, ex. "newsletter actu décryptage") pour plus de contrôle et
+  un CPC plus prévisible. Distinction posée avec l'utilisateur :
+  "référencement" (SEO organique et gratuit) ≠ Google Ads (payant) — le
+  vrai levier durable et gratuit pour lesscenarios.fr est le SEO
+  (contenu indexable, balises meta, sitemap, vitesse de chargement),
+  complémentaire des pistes gratuites déjà listées ci-dessus (Google
+  Actualités, DataNewsletters, Feedspot, Flipboard). **Pas encore
+  lancé côté ads ni côté SEO** — à reprendre quand l'utilisateur veut
+  avancer : soit corriger les descriptions de la campagne PMax en cours,
+  soit prioriser un audit SEO gratuit avant tout budget pub.
 - **P3 — Flux RSS dérivé, propre pour les vrais lecteurs RSS, idée du
   15 août.** Constat vérifié via le W3C Feed Validator ce jour-là :
   `feed.xml` **ne valide pas** — erreur critique répétée sur chaque item
