@@ -50,6 +50,24 @@ Une phrase de clôture sobre invitant à répondre à l'email (distincte de la p
 
 Pour les meta descriptions de la page HTML (balises `description`/`og:description`/`twitter:description`, étape 4), utiliser une version condensée de cette même phrase d'ouverture (viser ~150-160 caractères, garder les faits les plus parlants, pas juste une troncature brute) — voir `hebdo/2026-08-09.html` pour l'exemple de référence le plus récent.
 
+## Étape 3bis — Générer l'image du récap (og:image)
+
+**Ajouté le 18 août** (retour utilisateur : le récap hebdo utilisait jusque-là l'image générique `og-image-v2.png`, jamais dédiée à la semaine). Générer l'image carrée avec `scripts/social/generate_hebdo_image.py` :
+```
+python3 scripts/social/generate_hebdo_image.py \
+    --data data.json \
+    --output assets/social/hebdo/{AAAA-MM-JJ du dimanche}.png
+```
+avec `data.json` :
+```json
+{
+  "weekrange": "{ex. \"3 → 9 août\"}",
+  "message": "{la version condensée ~150-160 caractères déjà rédigée juste au-dessus}",
+  "cta": "👉 Lire le récap complet"
+}
+```
+**La photo de fond et le gabarit sont fixés en dur dans le script** (`assets/social/hebdo-bg.jpg`, toujours la même — voir `assets/social/hebdo-photo-credit.json` pour le crédit) : contrairement aux images par sujet/pub, il n'y a rien à choisir ni à faire vérifier chaque semaine, juste fournir le texte de la semaine. Ne jamais changer cette photo sans un retour explicite de l'utilisateur en ce sens.
+
 ## Étape 4 — Publier dans feed-weekly.xml, créer la page hebdo/{date}.html et son fragment
 
 Insérer un nouvel `<item>` tout en haut du flux (juste après les champs `<title>`/`<link>`/`<description>`/`<language>` du `<channel>`), **avant** les items précédents — ne jamais les supprimer, l'historique reste complet comme pour `feed.xml` :
@@ -65,7 +83,7 @@ Insérer un nouvel `<item>` tout en haut du flux (juste après les champs `<titl
 ```
 **Pas de `<category>`** pour ce flux (pas de sondage Telegram associé à l'hebdo — `<category>` sert uniquement aux 3 options de sondage sur `feed.xml`). Le `<comments>` sert de texte court réutilisable (ex. aperçu, réseau social) sans avoir à parser le HTML de la `<description>` — même logique que sur `feed.xml`. Le `<link>` de l'item pointe vers la page dédiée créée ci-dessous — jamais vers `archives.html` en générique.
 
-**Créer `hebdo/{AAAA-MM-JJ du dimanche}.html`** — une page figée, jamais retouchée une fois publiée (même logique que `archives/{date}.html`, jamais une réécriture d'une page hebdo d'une semaine précédente). Copier exactement le gabarit HTML/CSS du dernier exemple publié, `hebdo/2026-08-09.html` : même masthead, même nav (Accueil/Archives/Glossaire/Le projet/Newsletter/Contact, chemins relatifs `../`), même footer, mêmes variables CSS (`--ink`, `--surface`, `--gold`, `--favorable`/`--stable`/`--degrade`, polices Fraunces/Inter/JetBrains Mono), même largeur de colonne (760px). Ne jamais changer le CSS ni la structure générale — seulement le contenu texte. Cette page contient, pour chacun des 7 jours (dans `<section class="week"><div class="wrap">`), la même carte `.day-card` que celle décrite ci-dessous pour le fragment, à l'intérieur d'une `<div class="week-grid">`, plus un `.week-conclusion` en bas — voir `hebdo/2026-08-09.html` pour le HTML exact à reproduire tel quel (structure, classes, balises meta `og:*`/`twitter:*`/`article:published_time`/`og:url`, adaptées à la nouvelle date/titre). **Ajouter aussi le petit `<script>` en bas de page** (juste avant `</body>`) qui gère le clic sur `.day-card-toggle` — copier tel quel depuis `hebdo/2026-08-09.html`.
+**Créer `hebdo/{AAAA-MM-JJ du dimanche}.html`** — une page figée, jamais retouchée une fois publiée (même logique que `archives/{date}.html`, jamais une réécriture d'une page hebdo d'une semaine précédente). Copier exactement le gabarit HTML/CSS du dernier exemple publié, `hebdo/2026-08-09.html` : même masthead, même nav (Accueil/Archives/Glossaire/Le projet/Newsletter/Contact, chemins relatifs `../`), même footer, mêmes variables CSS (`--ink`, `--surface`, `--gold`, `--favorable`/`--stable`/`--degrade`, polices Fraunces/Inter/JetBrains Mono), même largeur de colonne (760px). Ne jamais changer le CSS ni la structure générale — seulement le contenu texte. Cette page contient, pour chacun des 7 jours (dans `<section class="week"><div class="wrap">`), la même carte `.day-card` que celle décrite ci-dessous pour le fragment, à l'intérieur d'une `<div class="week-grid">`, plus un `.week-conclusion` en bas — voir `hebdo/2026-08-09.html` pour le HTML exact à reproduire tel quel (structure, classes, balises meta `og:*`/`twitter:*`/`article:published_time`/`og:url`, adaptées à la nouvelle date/titre). **Exception depuis le 18 août** : `og:image`/`twitter:image` (et `og:image:width`/`og:image:height`) ne pointent plus vers `og-image-v2.png` — remplacer par `https://lesscenarios.fr/assets/social/hebdo/{AAAA-MM-JJ du dimanche}.png` généré à l'étape 3bis, largeur/hauteur 1080×1080. **Ajouter aussi le petit `<script>` en bas de page** (juste avant `</body>`) qui gère le clic sur `.day-card-toggle` — copier tel quel depuis `hebdo/2026-08-09.html`.
 
 **[Grille avec vignettes + accordéon, ajouté le 11 août, retour utilisateur : "l'image pour chaque jour possible, discret, sans allonger la page" puis "une colonne images / une colonne texte" puis "deux jours par ligne, accordéon pour le détail".]** Chaque jour est une `.day-card` affichée dans une grille 2 colonnes (`.week-grid`, 1 colonne en dessous de 620px) : l'image Instagram du jour (qui contient déjà le titre + les 3 options — voir `scripts/social/generate_instagram_image.py`) tient lieu de résumé visuel, avec un bouton "Voir le détail ▾" qui déplie la question exacte + les pourcentages + le lien vers l'archive (ces informations ne sont pas dans l'image, volontairement — voir `docs/ARCHITECTURE.md`). Comme la routine quotidienne génère déjà `assets/social/instagram/{AAAA-MM-JJ}.png` pour chaque édition (voir `docs/routine-prompt.md`), les 7 jours de la semaine ont normalement tous une image réelle — utiliser `assets/social/instagram/default.png` (image générique, juste le logo + la baseline) uniquement si l'image d'un jour particulier manque vraiment (ex. génération ratée ce jour-là).
 
@@ -124,7 +142,7 @@ Le `data-tag="hebdo"` est important : il alimente automatiquement la puce de fil
 **Mettre à jour le lien "Récap de la semaine" sur `index.html`** (ajouté le 11 août, suite à un oubli constaté par l'utilisateur — le lien était resté sur l'avant-dernier récap après une publication manuelle). Dans la bande `.top-updates` juste sous la nav (voir `docs/ARCHITECTURE.md`), il y a un unique lien `<a class="update-link" href="hebdo/{ancienne-date}.html">🗓️ Récap de la semaine →</a>` : remplacer uniquement la valeur de son attribut `href` par `hebdo/{AAAA-MM-JJ du dimanche}.html`, la page tout juste publiée. **Un seul remplacement de chaîne, rien d'autre sur `index.html`** — ni le lien voisin "🔄 Sujet révisé →" (générique, toujours à jour tout seul, jamais à toucher ici), ni le CSS, ni la structure, ni aucun contenu éditorial.
 
 ## Étape 5 — Publication finale
-`git add feed-weekly.xml hebdo/{AAAA-MM-JJ du dimanche}.html hebdo/fragments/{AAAA-MM-JJ du dimanche}.html archives.html sitemap.xml index.html`, `git commit` (message clair avec la date et un aperçu du contenu), `git push origin main` directement — jamais sur une autre branche.
+`git add feed-weekly.xml hebdo/{AAAA-MM-JJ du dimanche}.html hebdo/fragments/{AAAA-MM-JJ du dimanche}.html archives.html sitemap.xml index.html assets/social/hebdo/{AAAA-MM-JJ du dimanche}.png`, `git commit` (message clair avec la date et un aperçu du contenu), `git push origin main` directement — jamais sur une autre branche.
 
 Termine par un court résumé (les 7 sujets couverts, ce qui a été publié) pour que l'historique de cette exécution reste lisible.
 
