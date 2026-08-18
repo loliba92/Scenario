@@ -65,7 +65,7 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
 1. Lister tous les `<guid>` de `feed-pub.xml`, format `scenario-pub-
    {id-entrée}` (ex. `scenario-pub-manifeste-03`) — le préfixe avant le
    premier tiret après "pub-" donne la catégorie (`manifeste`, `citation`,
-   `question`, `futur`, `chiffre`).
+   `question`, `futur`, `chiffre`, `soutien`).
 2. **Catégorie du jour : table jour → catégorie fixe** (remplace
    l'ancien mécanisme "cycle qui avance d'un cran", retour utilisateur du
    14 août — trop de risque de se tromper en déduisant la catégorie du
@@ -80,7 +80,17 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
    | Mercredi | `chiffre` |
    | Jeudi | `futur` |
    | Vendredi | `manifeste` |
-   | Samedi | `chiffre` |
+   | Samedi | `soutien` |
+
+   **Samedi passé de `chiffre` à `soutien` le 18 août** (voir
+   `docs/pub-messages.md` section 6) — `chiffre` reste couvert 2x/semaine
+   (lundi, mercredi), et le samedi (plus de temps disponible côté lecteur)
+   semble un meilleur créneau pour une demande de soutien que pour un
+   énième chiffre. **1 seul post/jour, sans exception** — cette catégorie
+   ne doit jamais s'ajouter à celle du jour, seulement la remplacer à son
+   tour dans la table (correction du 18 août, après une première tentative
+   qui avait publié 2 items le même jour et cassé l'automatisation réseaux
+   sociaux, qui ne traite qu'1 post/jour).
 
    **`question` n'est pas dans cette table — catégorie dormante**, pas
    supprimée : ses entrées restent dans `docs/pub-messages.md` section 3,
@@ -274,6 +284,19 @@ python3 scripts/social/generate_pub_image.py \
 `chiffre`) sont recopiés **tels quels** depuis `docs/pub-messages.md` —
 jamais reformulés, jamais traduits, jamais "améliorés" à la volée.
 
+**Principe à respecter : jamais d'URL écrite en dur sur l'image**
+(retour utilisateur du 18 août, catégorie `soutien`) — une image PNG
+n'est pas cliquable, une URL affichée dessus est donc inutile voire
+trompeuse (elle donne l'impression d'un lien alors qu'il faut la
+retaper à la main). Si le `cta` d'une entrée contient une URL, utiliser
+pour l'image le champ `cta-image` de cette entrée s'il existe (variante
+sans URL, voir `docs/pub-messages.md` section 6 pour l'exemple), et
+garder `cta` (avec l'URL) pour `<comments>`/`<description>` à l'étape 4
+— c'est là, dans le texte du post sous l'image, que l'URL est cliquable
+ou copiable. Sans `cta-image` disponible pour une entrée qui en aurait
+besoin, ne pas en improviser un à la volée : signaler le manque dans le
+résumé final plutôt que d'écrire une URL sur l'image.
+
 ## Étape 4 — Construire l'item `feed-pub.xml`
 
 **Mettre à jour `<lastBuildDate>` du `<channel>`** (juste après
@@ -310,7 +333,9 @@ projet.html`, `citation`/`futur` → `https://lesscenarios.fr/`,
 `question` → `https://lesscenarios.fr/contact.html`, `chiffre` → l'URL de
 l'édition source elle-même (ex. `https://lesscenarios.fr/archives/2026-
 08-10.html`) — seule catégorie qui ne renvoie pas vers une page fixe,
-puisque chaque post cite une édition différente.
+puisque chaque post cite une édition différente. `soutien` →
+`https://buymeacoffee.com/scenario` — seule catégorie qui renvoie hors
+`lesscenarios.fr`, cohérent avec son objectif (don/partage direct).
 
 **Le crédit photo n'apparaît JAMAIS dans le texte visible du post**
 (ni `<comments>`, ni le texte lisible de `<description>`) — décision

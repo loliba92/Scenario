@@ -426,20 +426,38 @@ point final ajouté, aucun mot changé ni déplacé. Premier post publié un
 lundi, cron passé quotidien le 17 août (voir `docs/routine-pub-
 prompt.md`).*
 
-## 6. Soutenez Scénario — Buy Me a Coffee (hors calendrier hebdo)
+## 6. Soutenez Scénario — Buy Me a Coffee (rotation F)
 
 Objectif différent des 5 catégories ci-dessus : pas un rappel d'identité
 ni un contenu léger à partager, mais une demande directe de soutien
 (partage/don via Buy Me a Coffee). Ajoutée le 18 août à la demande de
-l'utilisateur, en dehors de la table jour → catégorie de
-`docs/routine-pub-prompt.md` — publiée à la main quand l'utilisateur le
-demande explicitement, pas insérée dans la rotation automatique
-quotidienne sauf décision ultérieure de l'utilisateur.
+l'utilisateur.
+
+**18 août, correction same-day** : une première tentative a publié cette
+catégorie en plus du post `citation` déjà sorti le même jour — l'automatisation
+réseaux sociaux (blueprint Make) ne gère qu'**1 seul post/jour**, donc 2
+items dans `feed-pub.xml` le même jour casse la publication. Le post en
+trop a été retiré du flux (revert), l'entrée `soutien-01` reste ici en
+banque, et la catégorie a été intégrée à la table jour → catégorie de
+`docs/routine-pub-prompt.md` pour respecter la cadence 1/jour — voir ce
+fichier pour le jour retenu.
+
+**Champ `cta-image` (spécifique à cette catégorie)** : retour utilisateur
+du 18 août — une URL écrite en dur sur l'image PNG n'est pas cliquable
+(l'image n'est qu'une pièce jointe), donc inutile voire trompeuse dessus.
+Le `cta` normal (avec l'URL) reste utilisé tel quel dans `<comments>`/
+`<description>` (texte du post, sous l'image, cliquable ou copiable selon
+la plateforme) — mais **pour la génération de l'image uniquement**
+(étape 3 de `docs/routine-pub-prompt.md`), utiliser `cta-image` à la
+place de `cta` dans le JSON passé à `generate_pub_image.py`. Champ
+optionnel : si absent pour une future entrée d'une autre catégorie,
+utiliser `cta` pour les deux comme d'habitude.
 
 ### soutien-01
 - eyebrow: SOUTENEZ SCÉNARIO
 - message: Partager Scénario autour de vous, c'est le plus simple des coups de pouce pour nous aider à grandir.
 - cta: 👉 Soutenez-nous ici : buymeacoffee.com/scenario
+- cta-image: 👉 Soutenez-nous — lien ci-dessous
 
 *Adapté par l'utilisateur le 18 août d'un rappel Buy Me a Coffee reçu
 côté créateur ("Your fans are waiting!..."), reformulé pour s'adresser
