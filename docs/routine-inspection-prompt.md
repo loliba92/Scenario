@@ -280,9 +280,16 @@ proprement sans rien inspecter — pas de fallback sur l'édition de la veille.
 
    **Si aucune image du jour n'existe du tout** (ni fichiers, ni fiche de
    provenance, ni bloc `<figure>` dans le HTML) : **ne jamais lancer de
-   nouvelle recherche Pexels depuis cette routine** — la recherche +
-   revue visuelle de candidats reste réservée à la routine éditoriale
-   principale (`docs/routine-prompt.md`). Utiliser directement la banque
+   nouvelle recherche Pexels depuis cette routine** — pas parce que
+   Pexels serait indisponible (vérifié le 18 août : la clé API répond
+   normalement dans cet environnement), mais par choix de périmètre :
+   choisir une vraie photo pertinente pour le sujet du jour demande une
+   revue visuelle de candidats, un geste à saveur éditoriale qui reste
+   réservé à la routine principale, qui tourne avec supervision — pas à
+   l'inspecteur, qui répare sans jamais rien décider côté contenu. La
+   routine principale (`docs/routine-prompt.md`) reste seule responsable
+   d'aller chercher une photo dédiée sur Pexels ; l'inspecteur n'est
+   qu'un filet de sécurité mécanique. Utiliser directement la banque
    de secours pré-validée par registre, déjà utilisée pour le même usage
    par `scripts/social/generate_archive_thumbnail.py` (voir
    `docs/ARCHITECTURE.md`) : `assets/social/pub-photos/{registre}.jpg`,
