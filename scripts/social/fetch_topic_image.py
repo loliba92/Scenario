@@ -3,15 +3,34 @@
 Cherche des images libres de droits pour illustrer le sujet du jour, et
 télécharge les meilleurs candidats pour revue visuelle avant usage.
 
-**Source par défaut : Pixabay (basculé le 19 août 2026).** Pexels reste
-disponible (`--source pexels`) mais n'est plus la source par défaut : son
-téléchargement (`images.pexels.com`) est bloqué par la politique d'egress
-réseau de cet environnement depuis début août (recherche `api.pexels.com`
-OK, mais le téléchargement échoue systématiquement en routine automatique
-— voir `docs/ARCHITECTURE.md`, backlog, entrée « Ajouter Pixabay comme
-seconde source d'image »). Pixabay a été testé en conditions réelles le
-19 août : recherche ET téléchargement fonctionnent tous les deux dans cet
-environnement.
+**Source par défaut : Pexels (revenu au premier plan le 19 août 2026
+après un aller-retour le même jour).** Chronologie complète, pour
+comprendre pourquoi ce n'est pas un choix figé : la recherche Pexels a
+échoué le matin (3 timeouts consécutifs), Pixabay a été branché comme
+nouveau défaut ; deux tests éditoriaux réels sur Pixabay ont ensuite
+donné des résultats décevants (photomontages stock clichetés sur
+"cybersecurity", résultats systématiquement allemands sur "french
+government politics" malgré le mot "french") ; un retest de Pexels
+l'après-midi même a montré que recherche ET téléchargement fonctionnent
+en fait parfaitement (3/3 essais), avec un catalogue nettement mieux
+ciblé (ex. "french national assembly building paris" → vraies photos de
+l'Assemblée nationale/Palais Bourbon en tête de résultats). **Conclusion
+retenue : le blocage réseau documenté le 9 août sur `images.pexels.com`
+n'était pas permanent — plutôt intermittent, contrairement à ce que la
+première investigation laissait penser.**
+
+**Décision finale (retour utilisateur du 19 août) : pas de bascule
+automatique vers Pixabay.** Si Pexels échoue (recherche ou tous les
+téléchargements), ce script ne retourne aucun candidat et **la routine
+principale retombe directement sur la photo par défaut du registre**
+(`assets/social/pub-photos/{registre}.jpg`, voir docs/routine-prompt.md,
+étape « Image du sujet ») — jamais sur Pixabay. La routine Inspecteur
+applique le même repli en filet de sécurité redondant (point 9,
+docs/routine-inspection-prompt.md) si jamais aucune image n'existe du
+tout après la routine principale — « ceinture et bretelles ». Pixabay
+reste dormant : code fonctionnel et testé (`--source pixabay`), gardé
+au cas où Pexels redevienne inaccessible durablement, mais plus appelé
+automatiquement pour l'instant.
 
 Ne choisit JAMAIS automatiquement une image finale — ce script ne fait
 que proposer des candidats téléchargés localement (jamais un simple
@@ -189,66 +208,36 @@ def download(url: str, dest_path: str) -> None:
         f.write(resp.read())
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("query", help="Mots-clés thématiques en anglais, ex. 'football stadium'")
-    parser.add_argument("--count", type=int, default=5, help="Nombre de candidats à télécharger (défaut 5)")
-    parser.add_argument("--out", default="/tmp/topic-image-candidates", help="Dossier de sortie")
-    parser.add_argument(
-        "--source", choices=["pixabay", "pexels"], default="pixabay",
-        help="Banque d'images à interroger (défaut : pixabay — voir docstring pour pourquoi Pexels "
-             "est dormant dans cet environnement).",
-    )
-    parser.add_argument(
-        "--color", default=None,
-        help="Filtre couleur dominante (optionnel), vocabulaire différent selon --source : "
-             "Pexels accepte des noms (red, orange, ..., violet, brown) ou un hex ('cf9d4c') ; "
-             "Pixabay accepte une liste fermée différente (voir search_pixabay()), pas de hex.",
-    )
-    args = parser.parse_args()
+def api_key_for(source: str) -> tuple[str | None, str]:
+    """Retourne (clé, nom de la variable d'environnement) pour une source."""
+    env_var_name = "PIXABAY_KEY" if source == "pixabay" else "PEXELS_API_KEY"
+    return os.environ.get(env_var_name), env_var_name
 
-    if any(c in args.query for c in "àâäéèêëïîôöùûüçÀÂÄÉÈÊËÏÎÔÖÙÛÜÇ"):
-        print(f"ATTENTION : la requête « {args.query} » contient des accents "
-              "français. Les deux banques indexent leurs photos en anglais par "
-              "concepts génériques, pas par recherche sémantique sur le titre — "
-              "reformule en 2-3 mots-clés anglais (voir docstring du script) "
-              "pour de meilleurs résultats.\n", file=sys.stderr)
 
-    if args.source == "pixabay":
-        api_key = os.environ.get("PIXABAY_KEY")
-        env_var_name = "PIXABAY_KEY"
-    else:
-        api_key = os.environ.get("PEXELS_API_KEY")
-        env_var_name = "PEXELS_API_KEY"
-
-    if not api_key:
-        print(f"ERREUR : {env_var_name} absente de l'environnement. "
-              "Vérifie la config de l'environnement Claude Code Remote "
-              "(variable ajoutée récemment, nécessite une session neuve).",
-              file=sys.stderr)
-        sys.exit(1)
-
-    os.makedirs(args.out, exist_ok=True)
-
+def fetch_candidates(source: str, query: str, count: int, out_dir: str, color: str | None, api_key: str) -> list[dict]:
+    """Cherche + télécharge les candidats pour UNE source. Retourne une
+    liste de fiches credit (vide si la recherche échoue ou si aucun
+    téléchargement n'aboutit) — ne lève jamais d'exception, pour que
+    l'orchestration `auto` de main() puisse basculer proprement sur
+    l'autre source."""
     try:
-        if args.source == "pixabay":
-            results = search_pixabay(args.query, args.count, api_key, color=args.color)
+        if source == "pixabay":
+            results = search_pixabay(query, count, api_key, color=color)
         else:
-            results = search_pexels(args.query, args.count, api_key, color=args.color)
+            results = search_pexels(query, count, api_key, color=color)
     except Exception as e:
-        print(f"ERREUR lors de la recherche {args.source} : {e}", file=sys.stderr)
-        sys.exit(1)
+        print(f"ERREUR lors de la recherche {source} : {e}", file=sys.stderr)
+        return []
 
     if not results:
-        print(f"Aucun résultat {args.source} pour « {args.query} ». "
-              "Pas de candidat — garder le visuel généré habituel.")
-        sys.exit(0)
+        print(f"Aucun résultat {source} pour « {query} ».")
+        return []
 
     credits = []
     for i, item in enumerate(results, start=1):
-        dest = os.path.join(args.out, f"candidate-{i}.jpg")
+        dest = os.path.join(out_dir, f"candidate-{i}.jpg")
 
-        if args.source == "pexels":
+        if source == "pexels":
             img_url = square_crop_url(item["src"]["original"])
             try:
                 download(img_url, dest)
@@ -262,13 +251,13 @@ def main():
                 "photographer": item.get("photographer"),
                 "pexels_url": item.get("url"),
                 "original_url": item.get("src", {}).get("original"),
-                "query": args.query,
-                "color": args.color,
+                "query": query,
+                "color": color,
             }
             print(f"  candidat {i} : {dest}  (photo par {credit['photographer']}, {credit['pexels_url']})")
 
         else:  # pixabay
-            raw_dest = os.path.join(args.out, f"candidate-{i}-raw.jpg")
+            raw_dest = os.path.join(out_dir, f"candidate-{i}-raw.jpg")
             large_url = item.get("largeImageURL") or item.get("webformatURL")
             try:
                 download(large_url, raw_dest)
@@ -287,12 +276,61 @@ def main():
                 "large_image_url": large_url,
                 "image_width": item.get("imageWidth"),
                 "image_height": item.get("imageHeight"),
-                "query": args.query,
-                "color": args.color,
+                "query": query,
+                "color": color,
             }
             print(f"  candidat {i} : {dest}  (photo par {credit['photographer']}, {credit['pixabay_url']})")
 
         credits.append(credit)
+
+    return credits
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("query", help="Mots-clés thématiques en anglais, ex. 'football stadium'")
+    parser.add_argument("--count", type=int, default=5, help="Nombre de candidats à télécharger (défaut 5)")
+    parser.add_argument("--out", default="/tmp/topic-image-candidates", help="Dossier de sortie")
+    parser.add_argument(
+        "--source", choices=["pexels", "pixabay"], default="pexels",
+        help="Banque à interroger (défaut : pexels — meilleur catalogue, voir docstring). "
+             "Pixabay reste dormant (`--source pixabay`, code fonctionnel et testé) mais n'est "
+             "plus appelé automatiquement en repli : si Pexels échoue, la routine principale "
+             "retombe directement sur la photo par défaut du registre (assets/social/pub-photos/), "
+             "pas sur Pixabay — voir docs/routine-prompt.md, étape « Image du sujet ».",
+    )
+    parser.add_argument(
+        "--color", default=None,
+        help="Filtre couleur dominante (optionnel), vocabulaire différent selon la source utilisée : "
+             "Pexels accepte des noms (red, orange, ..., violet, brown) ou un hex ('cf9d4c') ; "
+             "Pixabay accepte une liste fermée différente (voir search_pixabay()), pas de hex.",
+    )
+    args = parser.parse_args()
+
+    if any(c in args.query for c in "àâäéèêëïîôöùûüçÀÂÄÉÈÊËÏÎÔÖÙÛÜÇ"):
+        print(f"ATTENTION : la requête « {args.query} » contient des accents "
+              "français. Les deux banques indexent leurs photos en anglais par "
+              "concepts génériques, pas par recherche sémantique sur le titre — "
+              "reformule en 2-3 mots-clés anglais (voir docstring du script) "
+              "pour de meilleurs résultats.\n", file=sys.stderr)
+
+    os.makedirs(args.out, exist_ok=True)
+
+    api_key, env_var_name = api_key_for(args.source)
+    if not api_key:
+        print(f"ERREUR : {env_var_name} absente de l'environnement. "
+              "Vérifie la config de l'environnement Claude Code Remote "
+              "(variable ajoutée récemment, nécessite une session neuve).",
+              file=sys.stderr)
+        sys.exit(1)
+
+    credits = fetch_candidates(args.source, args.query, args.count, args.out, args.color, api_key)
+
+    if not credits:
+        print(f"\nAucun candidat {args.source} obtenu. Pas de candidat — retomber sur la photo "
+              "par défaut du registre (assets/social/pub-photos/), voir docs/routine-prompt.md, "
+              "étape « Image du sujet » — jamais bloquant pour la publication.")
+        sys.exit(0)
 
     with open(os.path.join(args.out, "credits.json"), "w", encoding="utf-8") as f:
         json.dump(credits, f, ensure_ascii=False, indent=2)

@@ -649,12 +649,12 @@ moins prioritaire).
   (pour l'affichage dans le corps de l'article, pas juste le social/OG)
   — voir l'entrée dédiée « [FAIT le 10 août] Image dans le corps de
   l'article » plus haut dans ce backlog pour le détail.
-- **[FAIT le 19 août] Pixabay branché comme source par défaut pour
-  l'image du sujet, Pexels gardé en dormant.** Idée de l'utilisateur
-  après l'échec Pexels du matin même (3 timeouts réseau consécutifs,
-  publication sans photo, repli manuel sur la banque de secours — voir
-  `docs/inspection-log.md`, entrée du 19 août) : « j'ai l'impression que
-  c'est mieux que Pexels ».
+- **[FAIT le 19 août, aller-retour le même jour] Pexels reste la source
+  par défaut de l'image du sujet ; Pixabay codé et testé, mais gardé
+  dormant.** Idée de l'utilisateur après l'échec Pexels du matin même
+  (3 timeouts réseau consécutifs, publication sans photo, repli manuel
+  sur la banque de secours — voir `docs/inspection-log.md`, entrée du
+  19 août) : « j'ai l'impression que c'est mieux que Pexels ».
 
   **Faisabilité testée en session avec une clé API fournie par
   l'utilisateur** (un premier test sans clé valide avait donné un faux
@@ -740,6 +740,39 @@ moins prioritaire).
   par requête, pas de requêtes automatisées en masse (« systematic mass
   downloads not allowed ») — compatible avec l'usage prévu (1
   recherche/jour max en routine).
+
+  **Retest de Pexels l'après-midi même, suite aux deux échecs Pixabay
+  ci-dessus** : recherche (`api.pexels.com`) et téléchargement
+  (`images.pexels.com`, avec et sans paramètres de query dans l'URL) ont
+  fonctionné à chaque essai (3/3, avec le vrai code de
+  `fetch_topic_image.py --source pexels`, pas juste `curl`). Catalogue
+  nettement mieux ciblé qu'observé sur Pixabay : la requête « french
+  national assembly building paris » a renvoyé en tête de vraies photos
+  de l'Assemblée nationale/Palais Bourbon (le même bâtiment que la photo
+  fournie manuellement par l'utilisateur, sous un autre angle). **Le
+  blocage réseau documenté le 9 août sur `images.pexels.com` n'est donc
+  pas permanent — plutôt intermittent** (cause exacte non identifiée :
+  peut-être un throttling ponctuel côté Pexels/Cloudflare, peut-être une
+  variation de la politique d'egress selon les sessions — pas
+  d'explication définitive à ce stade, seulement le constat empirique
+  d'un échec le matin puis 3 succès consécutifs l'après-midi).
+
+  **Décision finale, tranchée avec l'utilisateur : retour à Pexels comme
+  seule source active par défaut, pas de bascule automatique vers
+  Pixabay.** En cas d'échec Pexels (recherche ou tous les
+  téléchargements), la routine principale retombe **directement** sur la
+  photo par défaut du registre (`assets/social/pub-photos/{registre}.jpg`)
+  — même repli que celui déjà utilisé pour la vignette d'archive et pour
+  le point 9 de l'Inspecteur — plutôt que de publier sans image en
+  attendant le passage de l'Inspecteur une heure plus tard. **« Ceinture
+  et bretelles »** : la routine principale applique ce repli en premier
+  (voir `docs/routine-prompt.md`, étape « Image du sujet », point 4) ;
+  le point 9 de l'Inspecteur (`docs/routine-inspection-prompt.md`) reste
+  en filet de sécurité redondant si jamais aucune image n'existe malgré
+  tout après la routine principale. Pixabay reste dormant :
+  implémentation complète et testée dans `fetch_topic_image.py`/
+  `use_topic_image.py` (`--source pixabay`), gardée au cas où Pexels
+  redevienne inaccessible durablement, mais plus appelée automatiquement.
 - **Image Instagram pour le récap hebdomadaire — écarté le 8 août.**
   Envisagé un temps (voir plus haut : pipeline daily), abandonné après
   discussion : le gabarit existant (titre + 3 scénarios d'**un seul**
