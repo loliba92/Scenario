@@ -1655,6 +1655,31 @@
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
+
+  var onesignalBtn = document.getElementById("onesignal-subscribe-btn");
+  var onesignalLabel = onesignalBtn ? onesignalBtn.querySelector(".btn-label") : null;
+  var onesignalReady = false;
+
+  function onesignalSetLabel(text) {
+    if (onesignalLabel) onesignalLabel.textContent = text;
+  }
+
+  // Le clic est branché tout de suite, indépendamment du SDK — si le SDK
+  // OneSignal n'a pas fini de charger (ou pas chargé du tout, bloqueur de
+  // pub par ex.), le bouton le signale au lieu de ne rien faire.
+  if (onesignalBtn) {
+    onesignalBtn.addEventListener("click", function () {
+      if (!onesignalReady || !window.OneSignal) {
+        onesignalSetLabel("Le service de notifications n'a pas pu charger (bloqueur de pub ?)");
+        return;
+      }
+      onesignalSetLabel("Activation…");
+      window.OneSignal.Notifications.requestPermission().catch(function (err) {
+        onesignalSetLabel("Erreur : " + (err && err.message ? err.message : String(err)));
+      });
+    });
+  }
+
   OneSignalDeferred.push(function (OneSignal) {
     // Nettoie un éventuel abonnement Web Push posé par un test précédent
     // avec une autre clé VAPID — sinon OneSignal ne peut pas créer le sien
@@ -1674,23 +1699,20 @@
         serviceWorkerPath: "../sw.js",
       });
     }).then(function () {
-      var btn = document.getElementById("onesignal-subscribe-btn");
-      if (!btn) return;
-      var label = btn.querySelector(".btn-label");
+      onesignalReady = true;
 
       function updateBtn() {
         if (OneSignal.Notifications.permission) {
-          if (label) label.textContent = "Notifications activées ✓";
-          btn.disabled = true;
+          onesignalSetLabel("Notifications activées ✓");
+          if (onesignalBtn) onesignalBtn.disabled = true;
         }
       }
       updateBtn();
 
-      btn.addEventListener("click", function () {
-        OneSignal.Notifications.requestPermission();
-      });
-
       OneSignal.Notifications.addEventListener("permissionChange", updateBtn);
+    }).catch(function (err) {
+      onesignalSetLabel("Erreur d'initialisation OneSignal");
+      console.error("OneSignal init failed:", err);
     });
   });
 </script>
