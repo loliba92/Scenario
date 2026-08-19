@@ -1735,7 +1735,9 @@
 
       OneSignal.Notifications.addEventListener("permissionChange", updateBtn);
     }).catch(function (err) {
-      onesignalSetLabel("Erreur d'initialisation OneSignal");
+      onesignalSetLabel(
+        "Erreur d'initialisation : " + (err && err.message ? err.message : String(err))
+      );
       console.error("OneSignal init failed:", err);
     });
   });
