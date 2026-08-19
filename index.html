@@ -1656,9 +1656,23 @@
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(function (OneSignal) {
-    OneSignal.init({
-      appId: "1f47412d-5688-4ce7-8288-df1ed44bdad3",
-      serviceWorkerPath: "sw.js",
+    // Nettoie un éventuel abonnement Web Push posé par un test précédent
+    // avec une autre clé VAPID — sinon OneSignal ne peut pas créer le sien
+    // sur le même service worker (un seul abonnement actif à la fois).
+    var cleanup = "serviceWorker" in navigator
+      ? navigator.serviceWorker.ready
+          .then(function (registration) { return registration.pushManager.getSubscription(); })
+          .then(function (existingSub) {
+            if (existingSub) return existingSub.unsubscribe();
+          })
+          .catch(function () {})
+      : Promise.resolve();
+
+    cleanup.then(function () {
+      return OneSignal.init({
+        appId: "1f47412d-5688-4ce7-8288-df1ed44bdad3",
+        serviceWorkerPath: "sw.js",
+      });
     }).then(function () {
       var btn = document.getElementById("onesignal-subscribe-btn");
       if (!btn) return;
