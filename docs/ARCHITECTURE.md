@@ -649,6 +649,63 @@ moins prioritaire).
   (pour l'affichage dans le corps de l'article, pas juste le social/OG)
   — voir l'entrée dédiée « [FAIT le 10 août] Image dans le corps de
   l'article » plus haut dans ce backlog pour le détail.
+- **P1 — Ajouter Pixabay comme seconde source d'image (en plus de/à la
+  place de Pexels), idée du 19 août, retour utilisateur : « j'ai
+  l'impression que c'est mieux que Pexels ».** Déclencheur : la
+  recherche Pexels a échoué (3 timeouts réseau consécutifs) le matin du
+  19 août sur l'édition du jour, forçant une publication sans photo puis
+  un repli manuel sur la banque de secours par registre — voir
+  `docs/inspection-log.md`, entrée du 19 août.
+
+  **Faisabilité testée en session le 19 août avec une clé API fournie
+  par l'utilisateur — verdict positif, contrairement à un premier test
+  sans clé qui avait donné un faux négatif** (403 sur des URLs
+  génériques/non authentifiées, à tort attribué au blocage réseau
+  d'egress qui touche `images.pexels.com`). Avec une vraie clé et de
+  vraies URLs retournées par une recherche :
+  - `https://pixabay.com/api/?key=...&q=...` (recherche) : répond
+    normalement, JSON complet (photographe, dimensions, `pageURL` pour
+    l'attribution, plusieurs tailles d'image).
+  - `https://pixabay.com/get/{...}_640.jpg` (`webformatURL`/
+    `largeImageURL`, la vraie image) : **téléchargement réussi, HTTP
+    200, vrai JPEG** — testé en direct dans cette session.
+  - `https://cdn.pixabay.com/photo/...` (`previewURL`, vignette) :
+    téléchargement réussi aussi.
+  - **Différence clé avec Pexels** : le domaine qui sert les images
+    (`pixabay.com/get/...` et `cdn.pixabay.com`) n'est *pas* bloqué par
+    la politique d'egress de cet environnement — contrairement à
+    `images.pexels.com`, dont le blocage (documenté le 9 août, jamais
+    levé depuis) est la cause probable des échecs répétés de recherche/
+    téléchargement Pexels en routine automatique.
+
+  **Reste à faire avant d'intégrer** :
+  1. Créer une variable d'environnement `PIXABAY_API_KEY` côté Claude
+     Code Remote (même principe que `PEXELS_API_KEY`, §"Compte
+     développeur Pexels" ci-dessus) — **jamais commiter la clé dans le
+     dépôt**, public sur GitHub. Une clé de test a été fournie par
+     l'utilisateur directement dans la conversation le 19 août ; elle a
+     servi uniquement à valider la faisabilité dans cette session, pas
+     stockée dans le dépôt — à ressaisir proprement en variable
+     d'environnement si retenue.
+  2. Décider du rôle exact : Pixabay en **remplacement** de Pexels
+     (source unique, plus fiable dans cet environnement), ou en
+     **second essai** après un échec Pexels (garde le catalogue Pexels
+     en premier choix, Pixabay en filet de secours) — à trancher avec
+     l'utilisateur, pas une décision purement technique.
+  3. Adapter `fetch_topic_image.py`/`use_topic_image.py` (ou créer des
+     variantes) : même principe de mots-clés génériques/pas de nom
+     propre, même revue visuelle humaine/agent obligatoire avant usage
+     (aucun choix automatique), mais fiche de provenance différente
+     (`pageURL` Pixabay au lieu de `pexels_url`, champ `user`/
+     `user_id` au lieu de `photographer` seul — voir le format déjà
+     utilisé le 19 août dans `assets/social/topic-images/2026-08-19.json`
+     pour la photo Assemblée nationale fournie manuellement ce jour-là,
+     à titre d'exemple de fiche adaptée à Pixabay).
+  4. Vérifier les conditions Pixabay avant intégration en routine
+     automatique sans supervision : cache 24h obligatoire par requête,
+     pas de requêtes automatisées en masse (« systematic mass
+     downloads not allowed ») — compatible avec l'usage prévu (1
+     recherche/jour max), mais à relire en entier avant de brancher.
 - **Image Instagram pour le récap hebdomadaire — écarté le 8 août.**
   Envisagé un temps (voir plus haut : pipeline daily), abandonné après
   discussion : le gabarit existant (titre + 3 scénarios d'**un seul**
