@@ -6,6 +6,97 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-08-19 — 2027 sous influence : piratages russes et algorithme de Musk
+**Vérifié** : cohérence interne (CSS/`.style` complet dont `.delta-france`/
+`.delta-gauge*`/`.delta-word`/`.delta-flag` et structure du dégradé SVG à 3
+stops, sync `index.html` vs `archives/2026-08-19.html`, `data-france-
+impact`/`data-kind` vs texte `.france-line` sur les 3 cartes, incohérences
+numériques internes — « 6 » opérations, « 2 » enquêtes, « 50 %"/« 25 % »
+des scénarios, « 21 juillet », « huit mois » : toutes cohérentes, aucune
+vraie incohérence), label brut favorable/stable/dégradé absent de
+`.essentiel-text`, formulation « Notre évaluation de l'impact pour la
+France » intacte, lexique (4 `.lex-ref` ↔ 4 entrées VIGINUM/SGDN/
+Deepfake/DSA, aucun terme orphelin), image de l'article/du feed (point 9,
+voir ci-dessous), style des paragraphes `.dek`/`.why`/`.essentiel-text`
+(dont tutoiement — grep `ton /ta /tu ` propre hors `.share-block`), 2
+chiffres/faits structurants vérifiés contre 2 des 4 sources citées (voir
+ci-dessous).
+
+**Corrigé automatiquement** :
+- Point 9 (image article/feed) : déjà corrigé entre-temps par une autre
+  session (commit `120f0dc`, hors routine automatisée) avant que cette
+  routine ne pousse — aucune image du jour n'existait (ni fichiers, ni
+  fiche de provenance, ni `<figure>`), repli sur la banque de secours par
+  registre `assets/social/pub-photos/actualite-francaise.jpg` (recadrages
+  carré 1080×1080 + large 1600×900, fiche de provenance, bloc `<figure>` +
+  meta `og:image`/`twitter:image`/JSON-LD sur les deux fichiers). Revérifié
+  par cette routine avant de poursuivre : balises HTML équilibrées, sync
+  index/archive intacte, formats JPEG réels conformes à l'extension (`file`).
+  Détail complet dans l'entrée du même jour juste en dessous.
+- Point 8 (clarté) : 3 réécritures (plafond atteint), voir ci-dessous.
+
+**Réécritures de clarté** (avant/après complet pour chacune) :
+- Avant : « À l'approche du scrutin, l'ingérence prend deux visages très
+  différents : d'un côté, des piratages et des campagnes de désinformation
+  attribués à la Russie visent directement des responsables politiques ;
+  de l'autre, Elon Musk pèse ouvertement sur le débat depuis sa plateforme
+  X, dont l'algorithme est soupçonné de favoriser certains candidats. »
+  Après : « À l'approche du scrutin, l'ingérence prend deux visages très
+  différents. D'un côté, des piratages et des campagnes de désinformation
+  attribués à la Russie visent directement des responsables politiques. De
+  l'autre, Elon Musk pèse ouvertement sur le débat depuis sa plateforme X,
+  dont l'algorithme est soupçonné de favoriser certains candidats. »
+- Avant : « Édouard Philippe a été visé par de faux articles générés par
+  IA évoquant une maladie imaginaire ; Raphaël Glucksmann et sa compagne
+  Léa Salamé ont été ciblés par une opération que le SGDN relie
+  directement au renseignement militaire russe — faux site imitant le
+  média Blast, vidéo truquée du journaliste Edwy Plenel, fausse accusation
+  de corruption. »
+  Après : « Édouard Philippe a été visé par de faux articles générés par
+  IA évoquant une maladie imaginaire. Raphaël Glucksmann et sa compagne
+  Léa Salamé ont été ciblés par une opération que le SGDN relie
+  directement au renseignement militaire russe : faux site imitant le
+  média Blast, vidéo truquée du journaliste Edwy Plenel, fausse accusation
+  de corruption. »
+- Avant : « Le ministre de l'Intérieur Laurent Nuñez a déposé le 22
+  juillet un projet de loi qui triple les peines pour faux contenus
+  électoraux (prison 1→3 ans, amende 15 000→45 000 €), crée une
+  circonstance aggravante d'ingérence étrangère (jusqu'à 6 ans) et étend
+  le référé électoral à tous les scrutins. »
+  Après : « Le ministre de l'Intérieur Laurent Nuñez a déposé le 22
+  juillet un projet de loi qui comporte trois mesures. Il triple les
+  peines pour faux contenus électoraux (prison 1→3 ans, amende
+  15 000→45 000 €). Il crée aussi une circonstance aggravante d'ingérence
+  étrangère (jusqu'à 6 ans) et étend le référé électoral à tous les
+  scrutins. »
+
+  Aucun chiffre/date/nom propre/lien de cause à effet perdu. `.question-
+  text`, `.france-line` et `.essentiel-text` non touchés. Auto-vérification
+  avant commit : balises HTML équilibrées, index/archive resynchronisés
+  (diff identique sur les deux fichiers) — correctif textuel, pas de
+  capture Playwright nécessaire.
+
+**Signalé pour revue humaine** :
+- 3 candidats de plus à une réécriture de clarté, non appliqués (plafond
+  atteint) : phrase Volet 1 sur le piratage du compte X/défiguration du
+  site RN (43 mots), phrase Volet 2 Tondelier/Musk (comma splice, 44
+  mots), 1ʳᵉ phrase `.why` du scénario favorable (40 mots, juste au-dessus
+  du seuil bas) — à revoir un prochain passage si le style reste un
+  problème récurrent sur cette édition.
+- 2 des 4 sources citées en bas de page sont non re-vérifiables depuis cet
+  environnement : `https://siecledigital.fr/...manipulation-presumee-de-
+  lalgorithme-sur-x/` et `https://www.franceinfo.fr/politique/passe-d-
+  armes-sur-x-entre-marine-tondelier-et-elon-musk_8139509.html` renvoient
+  HTTP 403 (pas des liens morts côté site, blocage constaté depuis cet
+  environnement). Les 2 sources restantes (Touteleurope, LCP) confirment
+  bien les faits qu'elles appuient (attribution SGDN/GRU de l'opération
+  Glucksmann, détail du faux site Blast/vidéo Plenel/fausse accusation ;
+  contenu et dates du projet de loi Nuñez du 22 juillet) — aucun chiffre
+  ne les contredit. Aucune tentative de re-choisir une source de
+  remplacement.
+
+---
+
 ## 2026-08-19 (hors routine automatisée) — application du point 9 sur l'édition du jour
 **Pas un passage automatisé** — suite de la conversation en cours avec
 l'utilisateur, qui a demandé de gérer côté routine Inspecteur le fait que
