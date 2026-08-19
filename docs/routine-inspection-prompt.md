@@ -20,15 +20,20 @@ n'a jamais le droit de changer un choix éditorial (quel scénario, quelle
 probabilité, quel angle) — seulement de rattraper une erreur.
 
 **Économie de tokens — consigne explicite, cette routine tourne tous les
-jours indéfiniment.** Pour les points 1 à 7 de la section « Corrigé seul »
-ci-dessous, **utiliser des outils déterministes (Bash : `grep`, `diff`,
-un script Python court) plutôt que de lire le fichier entier et de
-raisonner dessus** — aucun de ces 7 points ne demande de jugement, un
-diff ou une recherche de motif suffit pour détecter le problème ; ne
-lire/réécrire en détail que le passage concerné une fois un problème
-localisé. **Seuls 2 points demandent une vraie lecture LLM** : le point 8
-(clarté/pédagogie) et la vérification des chiffres contre les sources —
-tout le reste doit rester bon marché.
+jours indéfiniment.** Pour les points 1 à 7 et 9 de la section « Corrigé
+seul » ci-dessous, **utiliser des outils déterministes (Bash : `grep`,
+`diff`, `file`, un script Python court) plutôt que de lire le fichier
+entier et de raisonner dessus** — aucun de ces points ne demande de
+jugement, un diff, une recherche de motif ou une inspection de fichier
+binaire suffit pour détecter le problème ; ne lire/réécrire en détail que
+le passage concerné une fois un problème localisé. Le point 9 (image de
+l'article/du feed) reste dans cette catégorie bon marché même quand il
+recrée un fichier : la source utilisée en repli (banque de secours par
+registre) est déjà pré-validée, donc jamais de nouvelle recherche Pexels
+ni de revue visuelle de candidats à faire ici. **Seuls 2 points demandent
+une vraie lecture LLM** : le point 8 (clarté/pédagogie) et la
+vérification des chiffres contre les sources — tout le reste doit rester
+bon marché.
 
 ---
 
@@ -232,6 +237,72 @@ proprement sans rien inspecter — pas de fallback sur l'édition de la veille.
      probablement un problème de fond à traiter à la rédaction, pas à
      l'inspection.
 
+9. **Image de l'article et image du feed absente ou mal formée.** Deux
+   fichiers sont attendus pour l'édition du jour :
+   `assets/social/topic-images/{AAAA-MM-JJ}.jpg` (carré 1080×1080 — sert
+   pour `og:image`/`og:image:width`/`og:image:height`/`twitter:image`/le
+   `"image"` du JSON-LD, donc pour tout ce qui « fait le feed » quand
+   l'édition est partagée) et
+   `assets/social/topic-images/{AAAA-MM-JJ}-wide.jpg` (16:9 1600×900 —
+   utilisé dans le bloc `<figure class="article-image">` en tête
+   d'article, quand il existe). Voir `docs/ARCHITECTURE.md`, section
+   « Image dans le corps de l'article », et `docs/routine-prompt.md`,
+   étape technique 8, pour le détail du gabarit HTML.
+
+   **Vérification, entièrement déterministe (aucune lecture LLM
+   nécessaire)** :
+   - Les deux fichiers existent-ils, taille de fichier > 0 ?
+   - **Le format réel du fichier correspond-il à son extension** (`file
+     assets/social/topic-images/{date}*.jpg`, ou équivalent Python
+     `Pillow`/`imghdr`) — bug réel rencontré le 18 août : les deux
+     fichiers `.jpg` du jour contenaient en réalité des octets PNG
+     (`file` reportait « PNG image data »), parce que la photo Pexels
+     source était elle-même un `.png` côté CDN et que `crop_url()`
+     (`scripts/social/fetch_topic_image.py` et
+     `scripts/social/use_topic_image.py`) ne force aucun format de
+     sortie. Un fichier renommé `.jpg` mais toujours PNG à l'intérieur
+     peut faire échouer un lecteur de flux RSS/validateur Open Graph
+     strict qui fait confiance à l'extension plutôt qu'au contenu — pas
+     juste un détail cosmétique.
+   - Dimensions cohérentes avec l'usage (carré ≈ 1080×1080, large ≈
+     1600×900, tolérance de quelques px selon le recadrage).
+   - Toutes les références pointent bien vers ces deux fichiers et sont
+     cohérentes entre elles sur `index.html`/`archives/{date}.html` :
+     `og:image`, `twitter:image`, `"image"` du JSON-LD, et le `src` du
+     bloc `<figure class="article-image">` — même logique de
+     synchronisation que le point 2, étendue aux références image.
+
+   **Si un problème mécanique est trouvé et que la fiche de provenance
+   `{AAAA-MM-JJ}.json` (avec `original_url`) existe encore** : régénérer
+   le ou les fichiers cassés depuis cette même source (recadrage +
+   réencodage JPEG propre, en forçant le format de sortie) — la photo
+   déjà choisie ne change pas, seul le fichier corrompu est reproduit.
+
+   **Si aucune image du jour n'existe du tout** (ni fichiers, ni fiche de
+   provenance, ni bloc `<figure>` dans le HTML) : **ne jamais lancer de
+   nouvelle recherche Pexels depuis cette routine** — la recherche +
+   revue visuelle de candidats reste réservée à la routine éditoriale
+   principale (`docs/routine-prompt.md`). Utiliser directement la banque
+   de secours pré-validée par registre, déjà utilisée pour le même usage
+   par `scripts/social/generate_archive_thumbnail.py` (voir
+   `docs/ARCHITECTURE.md`) : `assets/social/pub-photos/{registre}.jpg`,
+   où `{registre}` est déduit du `data-tag`/de l'eyebrow de l'édition du
+   jour (`geopolitique`, `carte-blanche`, `actualite-francaise`,
+   `economie-mondiale`, `sciences`, `culture`, `sport` — `culture-
+   francaise`/`culture-internationale` pointent vers `culture.jpg`,
+   alias déjà en place). Recadrer cette photo de secours en carré
+   1080×1080 et en large 1600×900 vers `{AAAA-MM-JJ}.jpg`/`{AAAA-MM-JJ}-
+   wide.jpg`, écrire `{AAAA-MM-JJ}.json` en reprenant le photographe et
+   le `pexels_url` déjà connus dans
+   `assets/social/pub-photos/credits.json` pour ce registre (ajouter une
+   note explicite « origine : banque de secours par registre, pas une
+   photo dédiée au sujet du jour » — jamais faire croire que c'est une
+   photo choisie pour ce sujet précis), puis insérer/mettre à jour le
+   bloc `<figure class="article-image">` (légende « Photo d'illustration.
+   » obligatoire en tête, comme toujours, voir `docs/routine-prompt.md`)
+   et les meta `og:image`/`twitter:image`/JSON-LD `"image"`, sur
+   `index.html` **et** `archives/{AAAA-MM-JJ}.html`.
+
 ## Auto-vérification obligatoire après chaque correction, avant tout commit
 
 **Aucune correction ci-dessus ne se commite directement.** Toute la soirée
@@ -242,7 +313,7 @@ agent qui "corrige" seul, tous les jours, sans jamais se relire est le vrai
 risque d'automatisation. Rester bon marché : ces vérifications sont toutes
 déterministes, aucune ne demande une relecture LLM du fichier entier.
 
-Après avoir appliqué un correctif (points 1 à 8), avant de commiter :
+Après avoir appliqué un correctif (points 1 à 9), avant de commiter :
 
 1. **Balise HTML équilibrée.** Script Python court (`html.parser` ou
    équivalent) sur le(s) fichier(s) modifié(s) : aucune balise ouverte non
@@ -251,11 +322,19 @@ Après avoir appliqué un correctif (points 1 à 8), avant de commiter :
    correctif.** Rejouer le diff du point 2 — un correctif appliqué sur un
    seul des deux fichiers par erreur doit être détecté ici, pas laissé pour
    le lendemain.
-3. **Pour un correctif du point 1 (CSS/structure de la jauge) uniquement**
-   — le seul type de correction qui touche vraiment la mise en page, pas
-   seulement du texte : une capture Playwright ciblée sur `.delta-france`
-   (pas la page entière) pour confirmer visuellement l'absence de
-   débordement, mot coupé ou chevauchement, avant de commiter. Les
+3. **Pour un correctif du point 1 (CSS/structure de la jauge) ou du point 9
+   (image recréée ou régénérée) uniquement** — les deux seuls types de
+   correction qui touchent vraiment la mise en page, pas seulement du
+   texte : une capture Playwright ciblée sur `.delta-france` (point 1) ou
+   sur `.article-image` (point 9) — pas la page entière — pour confirmer
+   visuellement l'absence de débordement, mot coupé ou chevauchement, et
+   pour le point 9 que l'image s'affiche réellement (pas d'icône « image
+   cassée », pas de zone vide), avant de commiter. Pour un correctif du
+   point 9 qui régénère un fichier binaire sans toucher le HTML autour
+   (cas « fichier cassé mais fiche de provenance intacte »), vérifier en
+   plus que le format réel du fichier régénéré correspond bien à son
+   extension (`file`) avant la capture — inutile de lancer Playwright sur
+   un fichier qui échouerait de toute façon à ce contrôle basique. Les
    correctifs des points 2 à 8 sont uniquement textuels/attributs — pas
    de capture nécessaire, la vérification 1-2 suffit.
 4. **Si une de ces vérifications échoue** : annuler le correctif

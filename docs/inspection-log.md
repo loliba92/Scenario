@@ -6,6 +6,60 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-08-18 (3e passage, hors routine automatisée) — mise à jour du prompt
+**Pas un passage automatisé** — suite de la conversation précédente.
+L'utilisateur a demandé d'ajouter à `docs/routine-inspection-prompt.md` une
+étape de vérification de l'image de l'article/du feed (présente, bien
+formée), avec création + ajout automatique si manquante — en précisant
+explicitement de ne jamais rechercher sur Pexels pour cette étape, mais de
+reprendre les photos par défaut déjà choisies par registre
+(`assets/social/pub-photos/{registre}.jpg`, banque déjà utilisée par
+`scripts/social/generate_archive_thumbnail.py`).
+
+**Ajouté** : nouveau point 9 dans la section « Corrigé seul » de
+`docs/routine-inspection-prompt.md` — vérifie l'existence, le format réel
+(vs extension) et les dimensions des deux fichiers
+`assets/social/topic-images/{date}.jpg` (carré, sert au feed/og:image) et
+`{date}-wide.jpg` (large, sert dans l'article), ainsi que la cohérence de
+toutes leurs références (`og:image`/`twitter:image`/JSON-LD/`<figure>`).
+Répare depuis la fiche de provenance existante si possible, sinon retombe
+sur la banque de secours par registre — jamais de nouvel appel Pexels
+dans cette routine. Section auto-vérification (point 3) étendue pour
+exiger une capture Playwright ciblée sur `.article-image` quand ce point
+9 recrée ou remplace l'image.
+
+**Test réel effectué en écrivant ce point** (pas juste une règle
+théorique) : vérification lancée sur l'édition du jour elle-même —
+`file`/Pillow ont révélé que les deux fichiers `2026-08-18.jpg` et
+`2026-08-18-wide.jpg`, malgré leur extension, contenaient en réalité des
+octets **PNG** (la photo Pexels source était un `.png` côté CDN, et
+`crop_url()` dans `fetch_topic_image.py`/`use_topic_image.py` ne force
+aucun format de sortie). Dimensions correctes (1080×1080 et 1600×900) et
+fiche de provenance intacte (`2026-08-18.json`, `original_url` présent) —
+cas « fichier cassé, provenance récupérable » du point 9 : contenu
+réencodé proprement en JPEG réel (mêmes dimensions, même contenu visuel,
+qualité 88) plutôt que retéléchargé, pour ne pas risquer un recadrage
+légèrement différent. Bénéfice de bord : taille des fichiers divisée par
+~7 (1,9 Mo → 280 Ko pour le large, 1,6 Mo → 234 Ko pour le carré).
+Vérifié visuellement (Read tool) après réencodage — image intacte,
+correspond toujours à l'`alt`/la légende existants. Aucun changement
+HTML nécessaire (mêmes noms de fichiers, mêmes chemins déjà référencés
+partout).
+
+**Corrigé automatiquement** : `assets/social/topic-images/2026-08-18.jpg`
+et `2026-08-18-wide.jpg` réencodés en JPEG réel.
+
+**Signalé pour revue humaine** : le bug racine (Pexels peut servir du PNG
+via une URL de recadrage `.jpg` quand la photo source est un `.png`,
+`crop_url()` ne force pas le format de sortie) reste présent dans
+`scripts/social/fetch_topic_image.py` et `scripts/social/use_topic_image.py`
+— non corrigé ici (scripts de la routine éditoriale principale, hors
+périmètre de l'inspecteur), mais à corriger un jour pour éviter que le
+même problème se reproduise sur une prochaine édition avec une photo
+source PNG.
+
+---
+
 ## 2026-08-18 (2e passage, hors routine automatisée) — IA : la cage a craqué
 **Pas un passage automatisé** — suite de la conversation précédente.
 L'utilisateur a signalé que les paragraphes `.dek` sur OpenAI, Anthropic et
