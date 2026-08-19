@@ -6,6 +6,48 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-08-19 (hors routine automatisée) — application du point 9 sur l'édition du jour
+**Pas un passage automatisé** — suite de la conversation en cours avec
+l'utilisateur, qui a demandé de gérer côté routine Inspecteur le fait que
+l'édition du jour (« 2027 sous influence ») avait été publiée sans image
+(recherche Pexels du sujet en échec ce matin-là : 3 timeouts réseau
+consécutifs sur `fetch_topic_image.py`, voir conversation). Cas exact
+prévu par le nouveau point 9 (`docs/routine-inspection-prompt.md`,
+ajouté un peu plus tôt le même jour par une autre session) : « aucune
+image du jour n'existe du tout ».
+
+**Corrigé, en appliquant le point 9 à la lettre** : aucune nouvelle
+recherche Pexels lancée. Repli sur la banque de secours par registre
+(`assets/social/pub-photos/actualite-francaise.jpg`, déjà utilisée par
+`generate_archive_thumbnail.py` pour la vignette du jour) :
+- Recadrages écrits vers `assets/social/topic-images/2026-08-19.jpg`
+  (carré 1080×1080, copie directe — la source est déjà à ce format) et
+  `2026-08-19-wide.jpg` (large 1600×900 — bande centrale de la source
+  carrée, upscalée ; pas de version paysage native disponible
+  localement pour cette banque). Formats réels vérifiés (`file`) : vrais
+  JPEG, pas de mismatch extension/contenu.
+- Fiche de provenance `2026-08-19.json` écrite avec le photographe/lien
+  Pexels déjà connus (`assets/social/pub-photos/credits.json`) et une
+  note explicite « banque de secours par registre, pas une photo dédiée
+  au sujet du jour ».
+- Bloc `<figure class="article-image">` inséré sur `index.html` et
+  `archives/2026-08-19.html` (légende « Photo d'illustration. » en tête,
+  comme toujours). `og:image`/`og:image:width`/`og:image:height`/
+  `og:image:alt`/`twitter:image`/`"image"` JSON-LD mis à jour sur les
+  deux fichiers, remplaçant l'image générique par défaut.
+
+**Non touché, hors périmètre du point 9** : l'image Instagram déjà
+publiée (`assets/social/instagram/2026-08-19.png`, template sans photo)
+et son `<enclosure>`/CDATA dans `feed.xml` — déjà envoyés aux abonnés au
+moment de la publication initiale, pas rétroactivement réécrits.
+
+**Auto-vérification** : balises HTML équilibrées sur les deux fichiers
+(`html.parser`), capture Playwright ciblée sur `.article-image` —
+image affichée correctement, pas d'icône cassée, masthead et légende
+lisibles, aucun débordement.
+
+---
+
 ## 2026-08-18 (3e passage, hors routine automatisée) — mise à jour du prompt
 **Pas un passage automatisé** — suite de la conversation précédente.
 L'utilisateur a demandé d'ajouter à `docs/routine-inspection-prompt.md` une
