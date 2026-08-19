@@ -510,6 +510,31 @@ Les 3 `label` reprennent exactement les titres déjà utilisés pour `scenario-m
 9. **Ne rien faire de plus pour Telegram.** Le teaser (`sendMessage`) et le sondage natif (`sendPoll`, options venant du `<category>`) sur `@scenario_fr` sont gérés automatiquement par Make.com à partir de `feed.xml` (voir `docs/ARCHITECTURE.md`) — jamais d'appel direct à l'API Telegram depuis cette session (`api.telegram.org` bloqué par la politique réseau de l'environnement).
 10. Ne jamais modifier `contact.html`, `le-projet.html`, `newsletter.html`, `mentions-legales.html`, `politique-de-confidentialite.html`, `robots.txt`, ni aucun fichier déjà présent dans `archives/` daté d'un jour antérieur.
 11. `git add`, `git commit` (message clair avec date et sujet), `git push origin main` directement — **jamais sur une autre branche**.
-12. Terminer par un court résumé (sujet retenu, probabilités des 3 scénarios, ce qui a été publié).
+11bis. **Envoyer la notification push (OneSignal), une fois le site en ligne — jamais avant le push.** `ONESIGNAL_REST_API_KEY` en variable d'environnement (même mécanisme que `PEXELS_API_KEY`/`PIXABAY_KEY`) : si absente, sauter cette étape sans bloquer la publication — la notif est un bonus, jamais une condition de publication. App ID en clair, public, sans risque : `1f47412d-5688-4ce7-8288-df1ed44bdad3`.
+
+```
+python3 -c "
+import os, json, urllib.request
+key = os.environ.get('ONESIGNAL_REST_API_KEY')
+if not key:
+    raise SystemExit(0)
+payload = json.dumps({
+    'app_id': '1f47412d-5688-4ce7-8288-df1ed44bdad3',
+    'included_segments': ['Subscribed Users'],
+    'headings': {'en': 'Scénario'},
+    'contents': {'en': '{h1 du jour, mot pour mot}'},
+    'url': 'https://lesscenarios.fr/',
+}).encode()
+req = urllib.request.Request(
+    'https://api.onesignal.com/notifications?c=push',
+    data=payload,
+    headers={'Authorization': f'Key {key}', 'Content-Type': 'application/json'},
+)
+print(urllib.request.urlopen(req).read().decode())
+"
+```
+
+`contents` = h1 du jour recopié tel quel, jamais une nouvelle phrase rédigée pour l'occasion (même logique que `<source>`/l'essentiel ailleurs dans ce document). `headings` reste toujours « Scénario », jamais reformulé. `url` pointe vers l'accueil (édition du jour), pas vers l'archive. Si la requête échoue (réseau, clé invalide, erreur OneSignal) : logger l'erreur dans le résumé final (étape 12), ne jamais retenter en boucle, ne jamais faire échouer la routine pour ça — la publication elle-même (étape 11) est déjà faite et irréversible à ce stade.
+12. Terminer par un court résumé (sujet retenu, probabilités des 3 scénarios, ce qui a été publié, résultat de l'envoi push le cas échéant).
 
 Utilise WebSearch pour la recherche du sujet et la vérification factuelle (au moins deux sources distinctes recoupées). Respecte strictement les restrictions de l'étape 1.
