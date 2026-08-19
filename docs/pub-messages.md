@@ -469,6 +469,30 @@ point final ajouté, aucun mot changé ni déplacé. Premier post publié un
 lundi, cron passé quotidien le 17 août (voir `docs/routine-pub-
 prompt.md`).*
 
+### chiffre-2026-08-19
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 3,0 %
+- message: Le FMI a maintenu sa prévision de croissance mondiale pour 2026 à 3,0 % en juillet.
+- attribution: — lesscenarios.fr, 10 août 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-08-10.html
+- photo: `assets/social/topic-images/2026-08-10.jpg` (crédit : Julien
+  Goettelmann — https://www.pexels.com/photo/aerial-view-of-cargo-ship-in-bosphorus-strait-28966472/),
+  photo de l'édition source elle-même.
+
+*Extrait tel quel de `.essentiel-text` dans l'édition du 10 août
+("Le FMI a maintenu sa prévision de croissance mondiale pour 2026 à
+3,0 % en juillet, mais seulement grâce au boom des investissements dans
+l'intelligence artificielle, qui compense un pétrole redevenu cher...")
+— segment coupé à la première virgule (frontière naturelle avant "mais
+seulement"), point final ajouté, aucun mot changé ni déplacé. Éditions
+du 12 et 13 août déjà utilisées pour cette catégorie (chiffre-2026-08-17
+et chiffre-2026-08-15) ; édition du 18 août écartée (moins de 24h) ;
+éditions du 17 et 16 août candidates mais sans phrase autonome à un seul
+chiffre assez simple (respectivement pétrole/Ormuz avec plusieurs
+chiffres empilés, et rugby/commotions avec chiffres nécessitant du
+contexte pour se comprendre seuls).*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
