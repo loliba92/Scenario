@@ -5,7 +5,14 @@
  * vient du réseau comme d'habitude (le site est mis à jour plusieurs
  * fois par jour, jamais question de servir une version en cache par
  * défaut). Le cache ne sert que si le réseau échoue.
+ *
+ * Fusionné avec le service worker de OneSignal (notifications push) —
+ * importScripts en premier, comme demandé par leur doc : partage ce
+ * fichier plutôt que d'avoir deux service workers qui se disputent le
+ * même scope. Voir OneSignal.init({ serviceWorkerPath: "sw.js" }) côté
+ * page.
  */
+importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
 
 const CACHE_NAME = "scenario-shell-v1";
 const SHELL_ASSETS = [

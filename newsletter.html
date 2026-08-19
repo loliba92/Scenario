@@ -602,5 +602,15 @@
 <script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
 <script src="assets/pwa-install.js" defer></script>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(function (OneSignal) {
+    OneSignal.init({
+      appId: "1f47412d-5688-4ce7-8288-df1ed44bdad3",
+      serviceWorkerPath: "sw.js",
+    });
+  });
+</script>
 </body>
 </html>
