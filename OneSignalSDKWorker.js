@@ -9,8 +9,14 @@
  * Fusionné avec le service worker de OneSignal (notifications push) —
  * importScripts en premier, comme demandé par leur doc : partage ce
  * fichier plutôt que d'avoir deux service workers qui se disputent le
- * même scope. Voir OneSignal.init({ serviceWorkerPath: "sw.js" }) côté
- * page.
+ * même scope.
+ *
+ * Nom de fichier imposé par OneSignal (OneSignalSDKWorker.js, pas
+ * sw.js) : `serviceWorkerPath` dans OneSignal.init() ne suffisait pas
+ * à lui seul à faire pointer leur SDK ailleurs — repéré le 19 août via
+ * une erreur 404 sur OneSignalSDKWorker.js malgré la config custom,
+ * probablement figé côté dashboard par l'assistant "Typical site".
+ * Plus simple d'aligner le nom de fichier que de creuser plus loin.
  */
 importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
 

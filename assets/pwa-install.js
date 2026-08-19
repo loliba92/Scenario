@@ -176,7 +176,7 @@
 
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function () {
-      navigator.serviceWorker.register(BASE_PREFIX + "sw.js", { scope: BASE_PREFIX || "/" }).catch(function () {});
+      navigator.serviceWorker.register(BASE_PREFIX + "OneSignalSDKWorker.js", { scope: BASE_PREFIX || "/" }).catch(function () {});
     });
   }
 })();
