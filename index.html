@@ -1687,7 +1687,9 @@
               onesignalSetLabel("Notifications activées ✓");
               onesignalBtn.disabled = true;
             } else {
-              onesignalSetLabel("Refusé ou bloqué — vérifie les autorisations du site (icône à côté de l'URL)");
+              onesignalSetLabel(
+                "Refusé (état navigateur : " + (window.Notification ? window.Notification.permission : "API absente") + ")"
+              );
             }
           }, 600);
         });
