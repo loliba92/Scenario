@@ -13,9 +13,12 @@
   },
   {
     "file": "actualite-francaise.jpg",
-    "photographer": "Amaury Chacun",
-    "pexels_url": "https://www.pexels.com/photo/barren-sunlit-peaks-of-mountains-17745347/",
-    "query": "french alps mountains landscape sunrise"
+    "photographer": "aslanbutlercontact",
+    "source": "Pixabay",
+    "source_url": "https://pixabay.com/users/aslanbutlercontact-1486943/",
+    "license": "Pixabay License — libre d'usage commercial, attribution non obligatoire mais fournie",
+    "query": "Façade de l'Assemblée nationale (Palais Bourbon), Paris, au crépuscule",
+    "note": "Remplace la photo précédente (Alpes, Amaury Chacun/Pexels) le 19 août 2026 — retour utilisateur : photo hors sujet pour le registre actualité française, celle-ci (Assemblée nationale) est spécifique au registre plutôt que générique paysage."
   },
   {
     "file": "economie-mondiale.jpg",

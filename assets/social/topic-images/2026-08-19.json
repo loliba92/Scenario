@@ -1,7 +1,9 @@
 {
   "file": "actualite-francaise.jpg",
-  "photographer": "Amaury Chacun",
-  "pexels_url": "https://www.pexels.com/photo/barren-sunlit-peaks-of-mountains-17745347/",
-  "query": "french alps mountains landscape sunrise",
-  "note": "origine : banque de secours par registre (assets/social/pub-photos/actualite-francaise.jpg), pas une photo dédiée au sujet du jour — recherche Pexels du sujet indisponible ce matin-là (timeout réseau), ajoutée a posteriori par la routine Inspecteur (point 9, docs/routine-inspection-prompt.md)."
+  "photographer": "aslanbutlercontact",
+  "source": "Pixabay",
+  "source_url": "https://pixabay.com/users/aslanbutlercontact-1486943/",
+  "license": "Pixabay License — libre d'usage commercial, attribution non obligatoire mais fournie",
+  "query": "Façade de l'Assemblée nationale (Palais Bourbon), Paris, au crépuscule",
+  "note": "Photo fournie directement par l'utilisateur (pas une recherche Pexels), ajoutée à la banque de secours par registre assets/social/pub-photos/actualite-francaise.jpg puis appliquée à cette édition — remplace la photo de secours générique (Alpes) utilisée initialement par la routine Inspecteur."
 }

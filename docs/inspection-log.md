@@ -137,6 +137,32 @@ moment de la publication initiale, pas rétroactivement réécrits.
 image affichée correctement, pas d'icône cassée, masthead et légende
 lisibles, aucun débordement.
 
+**Suite, même jour** : l'utilisateur a fourni directement une photo de la
+façade de l'Assemblée nationale (Pixabay, aslanbutlercontact) et a
+demandé de l'utiliser à la place du repli générique (Alpes) — jugée plus
+pertinente pour le registre actualité française qu'un paysage neutre.
+Remplace :
+- `assets/social/pub-photos/actualite-francaise.jpg` (nouvelle photo par
+  défaut du registre, pour toutes les prochaines éditions qui y
+  retomberaient) + entrée `credits.json` correspondante (source Pixabay,
+  pas Pexels — champs adaptés : `source`, `source_url`, `license`).
+- `assets/social/topic-images/2026-08-19.jpg`/`-wide.jpg`/`.json` de
+  l'édition du jour, recadrés depuis la même photo (source 2000×1607,
+  meilleure résolution que l'ancien repli carré).
+- `og:image:alt`/`twitter:image` (inchangée dans son URL, changée dans
+  son contenu) et légende `<figure class="article-image">` sur
+  `index.html` et `archives/2026-08-19.html`.
+- Vignette d'archive régénérée (`generate_archive_thumbnail.py --force`).
+- Image Instagram régénérée avec le template photo (`instagram-photo-
+  template.html`) — l'utilisateur a précisé que les posts Instagram
+  partent plus tard (~9h), le remplacement n'a donc pas d'effet sur un
+  post déjà envoyé. `feed.xml` : `<enclosure length>` mis à jour avec la
+  nouvelle taille de fichier.
+
+Revérifié après remplacement : sync index.html/archive (diff limité aux
+différences de chemin attendues), HTML équilibré, capture Playwright de
+`.article-image`.
+
 ---
 
 ## 2026-08-18 (3e passage, hors routine automatisée) — mise à jour du prompt
