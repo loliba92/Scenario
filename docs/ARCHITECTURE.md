@@ -678,15 +678,19 @@ moins prioritaire).
     levé depuis) est la cause probable des échecs répétés de recherche/
     téléchargement Pexels en routine automatique.
 
-  **Reste à faire avant d'intégrer** :
-  1. Créer une variable d'environnement `PIXABAY_API_KEY` côté Claude
-     Code Remote (même principe que `PEXELS_API_KEY`, §"Compte
-     développeur Pexels" ci-dessus) — **jamais commiter la clé dans le
-     dépôt**, public sur GitHub. Une clé de test a été fournie par
-     l'utilisateur directement dans la conversation le 19 août ; elle a
-     servi uniquement à valider la faisabilité dans cette session, pas
-     stockée dans le dépôt — à ressaisir proprement en variable
-     d'environnement si retenue.
+  **[FAIT le 19 août] Variable d'environnement créée par l'utilisateur :
+  `PIXABAY_KEY`** (nom différent de `PEXELS_API_KEY`, pas de suffixe
+  `_API` — à utiliser tel quel dans les scripts, ne pas renommer).
+  **Pas visible dans la session qui l'a testée** : comme pour
+  `PEXELS_API_KEY` en son temps (§"Compte développeur Pexels"
+  ci-dessus), les variables d'environnement Claude Code Remote ne
+  s'appliquent qu'aux nouvelles sessions — seule une session démarrée
+  après l'ajout la verra. **Jamais commiter la valeur de la clé dans le
+  dépôt**, public sur GitHub, même si l'utilisateur a précisé qu'il
+  s'agit d'une clé Pixabay « publique » (rate-limitée par clé, pas un
+  secret aussi sensible qu'une clé de paiement) — même prudence
+  appliquée par cohérence avec `PEXELS_API_KEY`. Vérifié après coup :
+  la valeur ne traîne dans aucun fichier suivi par git.
   2. Décider du rôle exact : Pixabay en **remplacement** de Pexels
      (source unique, plus fiable dans cet environnement), ou en
      **second essai** après un échec Pexels (garde le catalogue Pexels
