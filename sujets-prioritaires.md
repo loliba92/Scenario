@@ -64,7 +64,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 
 
 ## Actualité & politique française — mercredi
-- [ ] Piratages russes, algorithme de Musk : la présidentielle 2027 peut-elle échapper à l'ingérence ? [politique & numérique]
+- [x] Piratages russes, algorithme de Musk : la présidentielle 2027 peut-elle échapper à l'ingérence ? [politique & numérique]
   <!-- Ajouté le 12 août, recherche utilisateur (franceinfo, Touteleurope, Meduza, L'essentiel/20 minutes, Public Sénat, CNEWS, ZATAZ, Journal du Coin/Le Devoir, Le Monde, Europe Infos, LCP, La Voix de France, Monde Numérique — Le Monde bloqué par le proxy réseau de cet environnement, mêmes faits recoupés via les autres sources). **Fusionné le 12 août (retour utilisateur) avec un second sujet initialement distinct sur Musk/X** : les deux volets partagent la même toile de fond (ingérence dans la présidentielle 2027) et auraient produit deux éditions qui se marchent dessus — un seul sujet, deux mécanismes bien distincts à traiter ensemble (piratage/désinformation illégale d'un État étranger vs. influence légale mais contestée du propriétaire d'une plateforme).
 
     Problématique : à huit mois du premier tour (18 avril 2027), l'ingérence dans la campagne prend deux visages très différents.
