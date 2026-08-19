@@ -13,7 +13,11 @@
   var SCRIPT_SRC = THIS_SCRIPT ? THIS_SCRIPT.getAttribute("src") || "" : "";
   var BASE_PREFIX = SCRIPT_SRC.replace(/assets\/pwa-install\.js.*$/, "");
 
-  var STORAGE_KEY = "scenario-install-dismissed-until";
+  // Clé versionnée (v2) : invalide les anciens flags posés par le bug
+  // où une installation était aussi enregistrée comme un refus de 14
+  // jours (voir appinstalled plus bas) — sans ça, quiconque a déjà
+  // installé puis désinstallé resterait bloqué jusqu'à expiration.
+  var STORAGE_KEY = "scenario-install-dismissed-until-v2";
   var DISMISS_DAYS = 14;
   var SHOW_DELAY_MS = 4000;
 
@@ -160,7 +164,10 @@
     });
 
     window.addEventListener("appinstalled", function () {
-      rememberDismissal();
+      // Pas de rememberDismissal() ici : isStandalone() suffit déjà à
+      // masquer le bandeau tant que l'app est installée. Un dismiss de
+      // 14 jours resterait actif après une désinstallation et
+      // empêcherait le bandeau de revenir.
       hideBanner();
     });
   }
