@@ -1675,23 +1675,31 @@
       }
       onesignalSetLabel("Activation…");
       window.OneSignal.Notifications.requestPermission()
+        .then(function () {
+          // requestPermission() n'accorde que la permission navigateur —
+          // il faut explicitement inscrire l'abonnement côté OneSignal en
+          // plus, sinon la permission est accordée mais aucun abonné
+          // n'est jamais créé côté serveur.
+          if (window.OneSignal.Notifications.permission) {
+            return window.OneSignal.User.PushSubscription.optIn();
+          }
+        })
         .catch(function (err) {
           onesignalSetLabel("Erreur : " + (err && err.message ? err.message : String(err)));
         })
         .then(function () {
-          // Vérifie l'état réel après coup plutôt que de se fier au seul
-          // événement permissionChange, qui ne se déclenche pas toujours
-          // si la permission était déjà tranchée (refusée) auparavant.
           setTimeout(function () {
-            if (window.OneSignal.Notifications.permission) {
+            if (window.OneSignal.User.PushSubscription.optedIn) {
               onesignalSetLabel("Notifications activées ✓");
               onesignalBtn.disabled = true;
+            } else if (window.OneSignal.Notifications.permission) {
+              onesignalSetLabel("Permission accordée, inscription en cours…");
             } else {
               onesignalSetLabel(
                 "Refusé (état navigateur : " + (window.Notification ? window.Notification.permission : "API absente") + ")"
               );
             }
-          }, 600);
+          }, 800);
         });
     });
   }
