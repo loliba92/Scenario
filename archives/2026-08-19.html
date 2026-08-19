@@ -196,8 +196,11 @@
      filtre archives.html?tag=revise toujours à jour tout seul (voir JS
      d'archives.html) ; le lien "Récap de la semaine" est mis à jour par
      la routine hebdo elle-même (11 août). Voir docs/ARCHITECTURE.md.
-     Allégée le 9 août (retour utilisateur : version pill trop lourde) —
-     simple ligne de texte, même style discret que les liens .dek. */
+     Repassée en bouton .btn-outline le 19 août (retour utilisateur :
+     mêmes boutons que "Nous suivre"/Telegram/café) — annule la version
+     texte simple adoptée le 9 août (retour de l'époque : "version pill
+     trop lourde"). Si ça redevient trop chargé visuellement, revenir à
+     un lien texte plutôt qu'une nouvelle variante de bouton. */
   .top-updates{
     border-bottom: 1px solid var(--hairline);
   }
@@ -206,21 +209,9 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 7px 24px;
+    padding: 14px 24px;
     flex-wrap: wrap;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.72rem;
   }
-
-  .update-link{
-    color: var(--gold);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--gold);
-  }
-
-  .update-link:hover{ color: var(--paper); border-bottom-color: var(--paper); }
-
-  .top-updates .sep{ color: var(--paper-dim); opacity: .5; }
 
   /* ---------- Hero ---------- */
 
@@ -1177,9 +1168,8 @@
 
 <div class="top-updates">
   <div class="wrap">
-    <a class="update-link" href="../archives.html?tag=revise">🔄 Sujet révisé →</a>
-    <span class="sep">·</span>
-    <a class="update-link" href="../hebdo/2026-08-16.html">🗓️ Récap de la semaine →</a>
+    <a class="btn-outline" href="../archives.html?tag=revise"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8"/><path d="M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16"/><path d="M4 20v-4h4"/></svg> Sujet révisé</a>
+    <a class="btn-outline" href="../hebdo/2026-08-16.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg> Récap de la semaine</a>
   </div>
 </div>
 
