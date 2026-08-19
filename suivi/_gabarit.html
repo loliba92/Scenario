@@ -64,7 +64,9 @@
   .brand-mark{ width: 30px; height: 30px; display: block; flex: none; }
 
   nav.topnav{ background: var(--surface); border-bottom: 1px solid var(--hairline); }
-  nav.topnav .wrap{ display: flex; gap: 24px; padding: 12px 24px; flex-wrap: wrap; }
+  nav.topnav .wrap{ display: flex; gap: 16px; padding: 12px 24px; overflow-x: auto; scrollbar-width: none; }
+  nav.topnav .wrap::-webkit-scrollbar{ display: none; }
+  .topnav a{ flex-shrink: 0; }
   .topnav a{
     display: inline-flex; align-items: center; gap: 6px;
     font-family: "JetBrains Mono", monospace; font-size: 0.76rem; text-transform: uppercase;

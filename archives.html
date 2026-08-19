@@ -123,10 +123,15 @@
 
   nav.topnav .wrap{
     display: flex;
-    gap: 24px;
+    gap: 16px;
     padding: 12px 24px;
-    flex-wrap: wrap;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
+
+  nav.topnav .wrap::-webkit-scrollbar{ display: none; }
+
+  .topnav a{ flex-shrink: 0; }
 
   .topnav a{
     display: inline-flex;
