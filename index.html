@@ -1491,6 +1491,17 @@
   </div>
 </section>
 
+<section class="share-block" id="notifications">
+  <div class="wrap">
+    <p class="section-label">Notifications</p>
+    <h2 class="section-title">Recevoir l'édition du jour en notification</h2>
+    <p>Un rappel sur ton téléphone dès qu'une nouvelle édition est publiée — désactivable à tout moment.</p>
+    <div class="share-row">
+      <button type="button" id="onesignal-subscribe-btn" class="btn-outline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg> <span class="btn-label">Activer les notifications</span></button>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <p class="footer-meta">
@@ -1648,6 +1659,24 @@
     OneSignal.init({
       appId: "1f47412d-5688-4ce7-8288-df1ed44bdad3",
       serviceWorkerPath: "sw.js",
+    }).then(function () {
+      var btn = document.getElementById("onesignal-subscribe-btn");
+      if (!btn) return;
+      var label = btn.querySelector(".btn-label");
+
+      function updateBtn() {
+        if (OneSignal.Notifications.permission) {
+          if (label) label.textContent = "Notifications activées ✓";
+          btn.disabled = true;
+        }
+      }
+      updateBtn();
+
+      btn.addEventListener("click", function () {
+        OneSignal.Notifications.requestPermission();
+      });
+
+      OneSignal.Notifications.addEventListener("permissionChange", updateBtn);
     });
   });
 </script>
