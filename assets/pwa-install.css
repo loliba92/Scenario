@@ -1,0 +1,114 @@
+/* Bandeau "Installer l'application" — fichier partagé par toutes les
+   pages (voir assets/pwa-install.js). Couleurs recopiées en dur depuis
+   les variables du site (--ink #10151c, --surface #1a212b, --hairline
+   #2c3644, --paper #ece7da, --paper-dim #a9a89c, --gold #cf9d4c) : ce
+   fichier est chargé indépendamment du <style> de chaque page. */
+
+.pwa-install-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: -140px;
+  z-index: 9999;
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #1a212b;
+  border: 1px solid #2c3644;
+  border-top: 3px solid #cf9d4c;
+  border-radius: 10px;
+  padding: 14px 12px 14px 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  font-family: "Inter", system-ui, sans-serif;
+  transition: bottom 0.35s ease, opacity 0.35s ease;
+  opacity: 0;
+}
+
+.pwa-install-banner.is-visible {
+  bottom: 16px;
+  opacity: 1;
+}
+
+.pwa-install-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 9px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.pwa-install-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.pwa-install-title {
+  margin: 0 0 3px;
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: #ece7da;
+}
+
+.pwa-install-text {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #a9a89c;
+}
+
+.pwa-install-text strong {
+  color: #ece7da;
+  font-weight: 600;
+}
+
+.pwa-install-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.pwa-install-btn {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #10151c;
+  background: #cf9d4c;
+  border: 1px solid #cf9d4c;
+  border-radius: 100px;
+  padding: 8px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+
+.pwa-install-btn:hover {
+  opacity: 0.9;
+}
+
+.pwa-install-dismiss {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  color: #a9a89c;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 6px;
+}
+
+.pwa-install-dismiss:hover {
+  color: #ece7da;
+}
+
+@media (max-width: 480px) {
+  .pwa-install-banner {
+    left: 10px;
+    right: 10px;
+  }
+}

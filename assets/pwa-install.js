@@ -1,0 +1,175 @@
+/*
+ * Bandeau "Installer l'application" — partagé par toutes les pages.
+ * Chrome/Android/Edge : capte beforeinstallprompt et affiche un bouton
+ * "Installer" personnalisé. iOS Safari : n'a pas d'API d'installation
+ * programmatique, on affiche juste l'astuce "Partager → Sur l'écran
+ * d'accueil". Ne s'affiche jamais si déjà installé, et se souvient
+ * d'un refus pendant DISMISS_DAYS jours (localStorage).
+ */
+(function () {
+  "use strict";
+
+  var THIS_SCRIPT = document.currentScript;
+  var SCRIPT_SRC = THIS_SCRIPT ? THIS_SCRIPT.getAttribute("src") || "" : "";
+  var BASE_PREFIX = SCRIPT_SRC.replace(/assets\/pwa-install\.js.*$/, "");
+
+  var STORAGE_KEY = "scenario-install-dismissed-until";
+  var DISMISS_DAYS = 14;
+  var SHOW_DELAY_MS = 4000;
+
+  function isStandalone() {
+    return (
+      (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) ||
+      window.navigator.standalone === true
+    );
+  }
+
+  function isDismissed() {
+    try {
+      var until = localStorage.getItem(STORAGE_KEY);
+      return !!until && Date.now() < Number(until);
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function rememberDismissal() {
+    try {
+      localStorage.setItem(STORAGE_KEY, String(Date.now() + DISMISS_DAYS * 24 * 60 * 60 * 1000));
+    } catch (e) {}
+  }
+
+  function isIos() {
+    return /iphone|ipad|ipod/i.test(window.navigator.userAgent) && !window.MSStream;
+  }
+
+  function isIosSafari() {
+    var ua = window.navigator.userAgent;
+    return isIos() && /safari/i.test(ua) && !/crios|fxios|edgios/i.test(ua);
+  }
+
+  var deferredPrompt = null;
+  var bannerEl = null;
+
+  function buildBanner(kind) {
+    var el = document.createElement("div");
+    el.className = "pwa-install-banner";
+    el.setAttribute("role", "dialog");
+    el.setAttribute("aria-label", "Installer l'application Scénario");
+
+    var body = document.createElement("div");
+    body.className = "pwa-install-body";
+
+    var title = document.createElement("p");
+    title.className = "pwa-install-title";
+    title.textContent = "Installer Scénario";
+    body.appendChild(title);
+
+    var text = document.createElement("p");
+    text.className = "pwa-install-text";
+    if (kind === "ios") {
+      text.innerHTML =
+        'Appuyez sur <strong>Partager</strong> puis <strong>Sur l’écran d’accueil</strong>.';
+    } else {
+      text.textContent = "Accédez à l’édition du jour en un geste, depuis votre écran d’accueil.";
+    }
+    body.appendChild(text);
+
+    var icon = document.createElement("img");
+    icon.className = "pwa-install-icon";
+    icon.src = BASE_PREFIX + "assets/icon-192.png";
+    icon.alt = "";
+    icon.width = 40;
+    icon.height = 40;
+
+    var actions = document.createElement("div");
+    actions.className = "pwa-install-actions";
+
+    if (kind !== "ios") {
+      var installBtn = document.createElement("button");
+      installBtn.type = "button";
+      installBtn.className = "pwa-install-btn";
+      installBtn.textContent = "Installer";
+      installBtn.addEventListener("click", function () {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice
+          .catch(function () {})
+          .then(function () {
+            deferredPrompt = null;
+            hideBanner();
+          });
+      });
+      actions.appendChild(installBtn);
+    }
+
+    var dismissBtn = document.createElement("button");
+    dismissBtn.type = "button";
+    dismissBtn.className = "pwa-install-dismiss";
+    dismissBtn.setAttribute("aria-label", "Fermer");
+    dismissBtn.innerHTML = "&times;";
+    dismissBtn.addEventListener("click", function () {
+      rememberDismissal();
+      hideBanner();
+    });
+    actions.appendChild(dismissBtn);
+
+    el.appendChild(icon);
+    el.appendChild(body);
+    el.appendChild(actions);
+    return el;
+  }
+
+  function showBanner(kind) {
+    if (bannerEl || isStandalone() || isDismissed()) return;
+    bannerEl = buildBanner(kind);
+    document.body.appendChild(bannerEl);
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        if (bannerEl) bannerEl.classList.add("is-visible");
+      });
+    });
+  }
+
+  function hideBanner() {
+    if (!bannerEl) return;
+    var el = bannerEl;
+    bannerEl = null;
+    el.classList.remove("is-visible");
+    setTimeout(function () {
+      if (el.parentNode) el.parentNode.removeChild(el);
+    }, 350);
+  }
+
+  function init() {
+    if (isStandalone() || isDismissed()) return;
+
+    if (isIosSafari()) {
+      setTimeout(function () {
+        showBanner("ios");
+      }, SHOW_DELAY_MS);
+      return;
+    }
+
+    window.addEventListener("beforeinstallprompt", function (event) {
+      event.preventDefault();
+      deferredPrompt = event;
+      setTimeout(function () {
+        showBanner("chromium");
+      }, SHOW_DELAY_MS);
+    });
+
+    window.addEventListener("appinstalled", function () {
+      rememberDismissal();
+      hideBanner();
+    });
+  }
+
+  init();
+
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register(BASE_PREFIX + "sw.js", { scope: BASE_PREFIX || "/" }).catch(function () {});
+    });
+  }
+})();
