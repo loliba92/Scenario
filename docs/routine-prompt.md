@@ -351,7 +351,7 @@ Ne jamais réécrire une nouvelle phrase pour la description : reprendre exactem
 ```bash
 python3 scripts/social/generate_archive_thumbnail.py --date {AAAA-MM-JJ} --registre {registre}
 ```
-Choisit automatiquement `assets/social/topic-images/{AAAA-MM-JJ}.jpg` si l'étape « Image Pexels du sujet » plus haut en a retenu une, sinon retombe sur la photo pré-validée du registre dans `assets/social/pub-photos/` (voir docstring du script) — jamais de nouvelle recherche, jamais de logo générique. Écrit `assets/social/archive-thumbs/{AAAA-MM-JJ}.jpg` (carré 144px, quelques Ko). Committer ce fichier avec le reste de l'édition.
+Choisit automatiquement `assets/social/topic-images/{AAAA-MM-JJ}.jpg` si l'étape « Image du sujet » plus haut en a retenu une, sinon retombe sur la photo pré-validée du registre dans `assets/social/pub-photos/` (voir docstring du script) — jamais de nouvelle recherche, jamais de logo générique. Écrit `assets/social/archive-thumbs/{AAAA-MM-JJ}.jpg` (carré 144px, quelques Ko). Committer ce fichier avec le reste de l'édition.
 
 Insérer une nouvelle entrée `<li class="entry">` tout en haut d'`archives.html`, patron exact des entrées existantes :
 ```html
@@ -447,13 +447,13 @@ Toujours un vrai lien cliquable dans le CDATA (jamais juste du texte ni « lien 
 
 **Retours à la ligne en HTML, pas en texte brut** — un `\n` seul ne produit aucun retour visuel dans le CDATA (interprété comme HTML par Buttondown). `<br><br>` entre paragraphes, `<br>` simple entre les 3 lignes de scénarios.
 
-**Image Pexels du sujet (essai avant l'image générée).** Une fois `archives/{AAAA-MM-JJ}.html` écrit, tenter une vraie photo libre de droits avant de retomber sur le visuel généré :
+**Image du sujet — Pixabay par défaut depuis le 19 août (essai avant l'image générée).** Une fois `archives/{AAAA-MM-JJ}.html` écrit, tenter une vraie photo libre de droits avant de retomber sur le visuel généré :
 1. Construire 1 à 3 mots-clés **thématiques génériques**, jamais le titre recopié tel quel, jamais un nom propre/marque/acronyme isolé (voir docstring de `fetch_topic_image.py` pour les exemples bon/mauvais). Anglais en premier réflexe (catalogue plus riche), français courant en repli (noms communs seulement). Requête combinant les 2-3 concepts clés plutôt que séparés.
-2. `PEXELS_API_KEY` déjà en variable d'environnement :
+2. `PIXABAY_KEY` déjà en variable d'environnement (`fetch_topic_image.py` interroge Pixabay par défaut depuis le 19 août — Pexels reste disponible en dormant via `--source pexels`/`PEXELS_API_KEY`, mais son téléchargement est bloqué par la politique d'egress réseau de cet environnement, voir `docs/ARCHITECTURE.md`, backlog) :
 ```bash
 python3 scripts/social/fetch_topic_image.py "{mots-clés}" --count 5 --out /tmp/topic-image-candidates
 ```
-3. Regarder chaque candidat (Read tool), choisir le plus pertinent — jamais un choix mécanique sur le premier résultat. Écarter tout candidat avec un visage reconnaissable ou pouvant laisser croire qu'il représente une personne réelle liée au sujet, et tout candidat hors-sujet ou de mauvaise qualité. **Si aucun candidat ne convient (ou si le script échoue), s'arrêter là sans bloquer la publication** — passer directement à la génération sans photo.
+3. Regarder chaque candidat (Read tool), choisir le plus pertinent — jamais un choix mécanique sur le premier résultat. Écarter tout candidat avec un visage reconnaissable ou pouvant laisser croire qu'il représente une personne réelle liée au sujet, tout candidat hors-sujet ou de mauvaise qualité, **et tout candidat de type photomontage stock clicheté (icônes de cadenas flottantes, texte incrusté dans l'image, mains désincarnées touchant un hologramme) — testé le 19 août sur des mots-clés cybersécurité/piratage : le catalogue Pixabay en sort davantage que Pexels sur ce type de requête, aucun des 5 premiers résultats n'était utilisable ce jour-là.** **Pour un sujet franco-français, vérifier le drapeau/la langue visible sur chaque candidat, pas seulement la pertinence thématique de surface** — testé le 19 août : une requête générique « french government politics election » a renvoyé 5 candidats allemands (Bundestag, urne/bulletin en allemand), catalogue Pixabay visiblement biaisé vers du contenu allemand sur ce type de requête politique générique en anglais ; préférer un symbole français explicitement nommé (« french parliament », « french flag government », « paris landmark government ») plutôt qu'un mot-clé « politique »/« élection » seul. **Si aucun candidat ne convient (ou si le script échoue), s'arrêter là sans bloquer la publication** — passer directement à la génération sans photo.
 4. Si un candidat convient :
 ```bash
 python3 scripts/social/use_topic_image.py {candidat choisi} --date {AAAA-MM-JJ} --credits /tmp/topic-image-candidates/credits.json
