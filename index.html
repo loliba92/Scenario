@@ -1491,6 +1491,18 @@
   </div>
 </section>
 
+<section class="share-block" id="notifications-test">
+  <div class="wrap">
+    <p class="section-label">En test</p>
+    <h2 class="section-title">Notifications push (démo)</h2>
+    <p>Étape de test avant mise en service : active les notifications ci-dessous, puis envoie le code généré pour recevoir une notification test.</p>
+    <div class="share-row">
+      <button type="button" id="push-subscribe-btn" class="btn-outline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg> Activer les notifications</button>
+    </div>
+    <textarea id="push-subscribe-output" readonly aria-label="Code d'abonnement aux notifications" style="display:none; width:100%; margin-top:14px; min-height:90px; background:var(--surface); border:1px solid var(--hairline); border-radius:8px; padding:10px; color:var(--paper-dim); font-family:'JetBrains Mono',monospace; font-size:0.7rem; box-sizing:border-box;"></textarea>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <p class="footer-meta">
@@ -1641,5 +1653,6 @@
 <script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
 <script src="assets/pwa-install.js" defer></script>
+<script src="assets/push-subscribe.js" defer></script>
 </body>
 </html>
