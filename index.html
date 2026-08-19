@@ -1674,9 +1674,23 @@
         return;
       }
       onesignalSetLabel("Activation…");
-      window.OneSignal.Notifications.requestPermission().catch(function (err) {
-        onesignalSetLabel("Erreur : " + (err && err.message ? err.message : String(err)));
-      });
+      window.OneSignal.Notifications.requestPermission()
+        .catch(function (err) {
+          onesignalSetLabel("Erreur : " + (err && err.message ? err.message : String(err)));
+        })
+        .then(function () {
+          // Vérifie l'état réel après coup plutôt que de se fier au seul
+          // événement permissionChange, qui ne se déclenche pas toujours
+          // si la permission était déjà tranchée (refusée) auparavant.
+          setTimeout(function () {
+            if (window.OneSignal.Notifications.permission) {
+              onesignalSetLabel("Notifications activées ✓");
+              onesignalBtn.disabled = true;
+            } else {
+              onesignalSetLabel("Refusé ou bloqué — vérifie les autorisations du site (icône à côté de l'URL)");
+            }
+          }, 600);
+        });
     });
   }
 
