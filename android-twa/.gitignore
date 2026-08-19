@@ -1,0 +1,11 @@
+# Ne JAMAIS committer la clé de signature ou les builds générés —
+# le keystore est la clé maîtresse de l'app sur le Play Store, à garder
+# uniquement en local / dans un gestionnaire de secrets personnel.
+*.keystore
+*.jks
+key.properties
+build/
+app/build/
+.gradle/
+*.aab
+*.apk

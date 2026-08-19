@@ -1,0 +1,27 @@
+{
+  "packageId": "fr.lesscenarios.app",
+  "host": "lesscenarios.fr",
+  "name": "Scénario",
+  "launcherName": "Scénario",
+  "display": "standalone",
+  "themeColor": "#10151c",
+  "navigationColor": "#10151c",
+  "navigationColorDark": "#10151c",
+  "navigationDividerColor": "#2c3644",
+  "navigationDividerColorDark": "#2c3644",
+  "backgroundColor": "#10151c",
+  "enableNotifications": false,
+  "startUrl": "/",
+  "iconUrl": "https://lesscenarios.fr/assets/icon-512.png",
+  "webManifestUrl": "https://lesscenarios.fr/manifest.webmanifest",
+  "fallbackType": "customtabs",
+  "orientation": "portrait",
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "appVersion": "1",
+  "appVersionCode": 1,
+  "signingKey": {
+    "path": "./android.keystore",
+    "alias": "scenario"
+  }
+}
