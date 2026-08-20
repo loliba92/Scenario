@@ -3657,6 +3657,32 @@ Voir les échanges de session pour le détail, mais en résumé :
     persistants type "Scénario — Pub hebdo" gérés hors session ; ce
     repère reste donc à surveiller manuellement (ou via une routine
     dédiée si l'utilisateur veut en créer une).
+
+  **[FAIT le 21 août] Audit SEO déclenché par un retour utilisateur ("je
+  recherche sur Google et je ne remonte jamais").** Vérification directe :
+  le domaine n'apparaît dans aucune recherche (`site:lesscenarios.fr` et le
+  nom de domaine entre guillemets, testés via WebSearch, zéro résultat) —
+  diagnostic posé comme un problème d'**indexation/confiance d'un domaine
+  encore jeune** (moins d'un mois, aucun backlink externe), cohérent avec
+  le 0 clic/0 impression déjà constaté le 15 août sur Search Console
+  (Actualités), pas un problème de configuration technique cassée. Deux
+  vraies lacunes techniques trouvées et corrigées, malgré le travail SEO
+  déjà fait par ailleurs (Search Console, sitemap, `NewsArticle`, Publisher
+  Center — voir plus haut) :
+  - **Aucune balise `<link rel="canonical">` nulle part sur le site**
+    (seul `og:url` existait, qui sert au partage social, pas à
+    l'indexation). Ajoutée sur `index.html`, les 28 archives et les pages
+    statiques vivantes (voir `docs/routine-prompt.md`, nouveau paragraphe
+    après l'étape technique 3bis, pour la règle de reproduction
+    quotidienne). `index.html` pointe vers l'archive du jour (pas vers
+    lui-même) puisque son contenu n'est qu'un miroir temporaire.
+  - **Meta description trop longue** (184 caractères sur l'édition du 20
+    août, tronquée par Google au-delà de ~155-160) — raccourcie pour cette
+    édition, règle de longueur ajoutée à la routine pour les prochaines.
+  - Le vrai levier à ce stade reste les **liens externes** (backlinks),
+    pas plus de balises — évoqué dans la même conversation à propos de la
+    croissance d'audience (contact profs SES/HGGSP, Reddit ciblé...), les
+    deux sujets se recoupent.
 - **Mentions légales + politique de confidentialité** — fait. Deux pages
   dédiées (`mentions-legales.html`, `politique-de-confidentialite.html`),
   liées depuis le footer des 5 pages vivantes. Éditeur identifié (Olivier
