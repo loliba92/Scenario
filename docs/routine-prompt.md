@@ -265,6 +265,12 @@ Lexique final : mots/sigles/noms pouvant ne pas être connus, définis en une ph
 ### Style
 Public 15-35 ans en priorité sans exclure personne : phrases directes, comparaisons concrètes et proches du quotidien, aucun jargon jeune artificiel. Vocabulaire simple, ton pédagogique, phrases courtes, une idée par phrase. Rigueur factuelle identique quel que soit l'âge du lecteur.
 
+**Éviter les tournures qui sonnent artificielles/« IA » [AJOUTÉ le 21 août 2026, retour utilisateur : « fait pas ton IA avec des tournures bizarres »].** Deux pièges vus en édition réelle (encart Comprendre du 20 août sur le crack spread diesel, corrigé deux fois avant d'être juste) :
+- **Affirmation suivie d'une négation abrupte dans la phrase d'après** (« X sert de Y pour Z... Ce n'est plus vrai : [fait]. ») — lu comme incohérent, l'air de se contredire soi-même à quelques mots d'écart. Préférer une structure concessive directe en une seule respiration : « D'ordinaire, [mécanisme] : [conséquence attendue]. Mais le {date}, [fait qui change la donne]. »
+- **Durcir une source nuancée en claim absolu.** Si la source dit « incomplet »/« moins clair », ne pas l'écrire « ne suffit plus »/« est cassé » — rester au niveau de certitude réel de la source, jamais plus fort ni plus dramatique qu'elle.
+- Mauvais : « Le brut sert de boussole pour anticiper l'inflation, car les marges de raffinage restent stables. Ce n'est plus vrai : [fait]. » Bon : « D'ordinaire, les marges de raffinage bougent peu : suivre le brut suffit à peu près à projeter l'inflation à venir. Mais le 17 août, [fait]. »
+- Relire chaque encart/paragraphe à voix haute une fois rédigé : si une phrase sonne comme un rebondissement artificiel plutôt qu'une explication qui coule, la reformuler avant de publier.
+
 ## INSTRUCTIONS TECHNIQUES DE PUBLICATION
 
 1. Déterminer la date et le jour de la semaine à Paris (`TZ=Europe/Paris date`). En déduire le registre (grille étape 1). Vérifier que l'édition du jour n'a pas déjà été publiée sur `main` : si c'est le cas, s'arrêter là.
