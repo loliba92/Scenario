@@ -1197,17 +1197,21 @@
     -webkit-appearance: none;
   }
 
-  /* Rappel notifications compact, ajouté le 21 août juste après
-     "L'essentiel" — retour utilisateur : le seul bouton d'activation
-     existant vit tout en bas de page (section #notifications), après
-     lexique/sources/partage, jamais vu par la plupart des lecteurs qui
-     ne scrollent pas jusque-là. Ce bloc-ci vise le moment où le lecteur
-     vient de finir l'essentiel de l'édition, le plus engagé qu'il sera.
-     Même bouton, même action (classe partagée .onesignal-subscribe-btn,
-     voir le script OneSignal en bas de page) — les deux se synchronisent
-     ensemble, jamais dupliqués en deux abonnements distincts. Le bloc du
-     bas reste en place pour les lecteurs qui l'auraient manqué ici. */
-  .notif-inline{
+  /* Rappel "Reste informé" compact, ajouté le 21 août juste après
+     "L'essentiel", fusionné le même jour avec un lien newsletter (retour
+     utilisateur : "j'aime bien ton option B" — un seul bloc à 2 actions
+     plutôt que d'empiler plusieurs box séparées). Retour utilisateur
+     d'origine : le seul bouton d'activation des notifications vivait
+     tout en bas de page (section #notifications), après lexique/sources/
+     partage, jamais vu par la plupart des lecteurs. Ce bloc-ci vise le
+     moment où le lecteur vient de finir l'essentiel de l'édition, le
+     plus engagé qu'il sera. Telegram volontairement absent de ce bloc
+     (retour utilisateur : le mécanisme de vote ne fonctionne pas
+     actuellement, sujets trop complexes pour ce format — pas de mise en
+     avant supplémentaire tant que ce n'est pas réglé). Nom `.follow-*`
+     réutilisé de la section "Nous suivre" déjà présente ailleurs sur le
+     site (glossaire.html, contact.html...), même famille de composant. */
+  .follow-inline{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1219,12 +1223,17 @@
     padding: 16px 22px;
     margin: 20px 0 0;
   }
-  .notif-inline-text{
+  .follow-inline-text{
     margin: 0;
     font-size: 0.92rem;
     color: var(--paper-dim);
   }
-  .notif-inline .btn-outline{ flex-shrink: 0; }
+  .follow-inline-actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .follow-inline .btn-outline{ flex-shrink: 0; }
 
 </style>
 </head>
@@ -1504,9 +1513,12 @@
       </div>
     </div>
 
-    <div class="notif-inline">
-      <p class="notif-inline-text">Envie d'un rappel demain matin ?</p>
-      <button type="button" class="onesignal-subscribe-btn btn-outline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg> <span class="btn-label">Activer les notifications</span></button>
+    <div class="follow-inline">
+      <p class="follow-inline-text">Reste informé de la prochaine édition :</p>
+      <div class="follow-inline-actions">
+        <button type="button" class="onesignal-subscribe-btn btn-outline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg> <span class="btn-label">Activer les notifications</span></button>
+        <a class="btn-outline" href="newsletter.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M4.5 7 12 12.5 19.5 7"/></svg> Newsletter</a>
+      </div>
     </div>
 
   </div>
