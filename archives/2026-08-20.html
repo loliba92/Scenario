@@ -123,6 +123,38 @@
     gap: 11px;
   }
 
+  /* Icône notifications dans le masthead, ajoutée le 21 août — 3e point
+     d'entrée vers le même abonnement OneSignal (avec le rappel compact
+     après "L'essentiel" et le bloc dédié en bas de page), celui-ci visible
+     dès le chargement, avant tout scroll. Icône seule, pas de .btn-label
+     (le script gère déjà l'absence de label — voir onesignalSetLabel) :
+     le retour d'état passe par l'attribut title (tooltip) à la place. */
+  .masthead-right{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .masthead-notif-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    color: var(--gold);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: background .15s, color .15s;
+  }
+  .masthead-notif-btn:hover{ background: var(--gold); color: var(--ink); }
+  .masthead-notif-btn:disabled{ opacity: .5; cursor: default; }
+  .masthead-notif-btn svg{ display: block; }
+
   .brand-mark{
     width: 30px;
     height: 30px;
@@ -1186,7 +1218,10 @@
       <img class="brand-mark" src="../assets/logo.svg" alt="">
       <div class="wordmark">Scéna<span>rio</span></div>
     </div>
-    <div class="edition">Édition du 20 août 2026 · N°28</div>
+    <div class="masthead-right">
+      <div class="edition">Édition du 20 août 2026 · N°28</div>
+      <button type="button" class="onesignal-subscribe-btn masthead-notif-btn" aria-label="Activer les notifications" title="Activer les notifications"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg></button>
+    </div>
   </div>
 </header>
 
@@ -1689,6 +1724,9 @@
     onesignalBtns.forEach(function (btn) {
       var label = btn.querySelector(".btn-label");
       if (label) label.textContent = text;
+      // Le bouton icône du masthead n'a pas de .btn-label visible — son
+      // retour d'état passe par le title (tooltip au survol/appui long).
+      btn.title = text;
     });
   }
 
