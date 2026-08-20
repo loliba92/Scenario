@@ -1147,6 +1147,35 @@
     -webkit-appearance: none;
   }
 
+  /* Rappel notifications compact, ajouté le 21 août juste après
+     "L'essentiel" — retour utilisateur : le seul bouton d'activation
+     existant vit tout en bas de page (section #notifications), après
+     lexique/sources/partage, jamais vu par la plupart des lecteurs qui
+     ne scrollent pas jusque-là. Ce bloc-ci vise le moment où le lecteur
+     vient de finir l'essentiel de l'édition, le plus engagé qu'il sera.
+     Même bouton, même action (classe partagée .onesignal-subscribe-btn,
+     voir le script OneSignal en bas de page) — les deux se synchronisent
+     ensemble, jamais dupliqués en deux abonnements distincts. Le bloc du
+     bas reste en place pour les lecteurs qui l'auraient manqué ici. */
+  .notif-inline{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px 20px;
+    background: var(--surface);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 16px 22px;
+    margin: 20px 0 0;
+  }
+  .notif-inline-text{
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--paper-dim);
+  }
+  .notif-inline .btn-outline{ flex-shrink: 0; }
+
 </style>
 </head>
 <body>
@@ -1422,6 +1451,11 @@
       </div>
     </div>
 
+    <div class="notif-inline">
+      <p class="notif-inline-text">Envie d'un rappel demain matin ?</p>
+      <button type="button" class="onesignal-subscribe-btn btn-outline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg> <span class="btn-label">Activer les notifications</span></button>
+    </div>
+
   </div>
 </section>
 
@@ -1492,7 +1526,7 @@
     <h2 class="section-title">Recevoir l'édition du jour en notification</h2>
     <p>Un rappel sur ton téléphone dès qu'une nouvelle édition est publiée — désactivable à tout moment.</p>
     <div class="share-row">
-      <button type="button" id="onesignal-subscribe-btn" class="btn-outline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg> <span class="btn-label">Activer les notifications</span></button>
+      <button type="button" id="onesignal-subscribe-btn" class="onesignal-subscribe-btn btn-outline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg> <span class="btn-label">Activer les notifications</span></button>
     </div>
   </div>
 </section>
@@ -1642,18 +1676,31 @@
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
 
-  var onesignalBtn = document.getElementById("onesignal-subscribe-btn");
-  var onesignalLabel = onesignalBtn ? onesignalBtn.querySelector(".btn-label") : null;
+  // Depuis le 21 août : 2 boutons possibles sur la page (rappel compact
+  // après "L'essentiel" + bloc dédié en bas de page, ajouté pour la
+  // conversion — le bloc du bas est trop loin dans le scroll pour la
+  // plupart des lecteurs). Les deux déclenchent la même action et se
+  // synchronisent ensemble (classe partagée .onesignal-subscribe-btn),
+  // jamais deux abonnements distincts.
+  var onesignalBtns = Array.prototype.slice.call(document.querySelectorAll(".onesignal-subscribe-btn"));
   var onesignalReady = false;
 
   function onesignalSetLabel(text) {
-    if (onesignalLabel) onesignalLabel.textContent = text;
+    onesignalBtns.forEach(function (btn) {
+      var label = btn.querySelector(".btn-label");
+      if (label) label.textContent = text;
+    });
   }
 
-  // Le clic est branché tout de suite, indépendamment du SDK — si le SDK
-  // OneSignal n'a pas fini de charger (ou pas chargé du tout, bloqueur de
-  // pub par ex.), le bouton le signale au lieu de ne rien faire.
-  if (onesignalBtn) {
+  function onesignalDisableAll() {
+    onesignalBtns.forEach(function (btn) { btn.disabled = true; });
+  }
+
+  // Le clic est branché tout de suite sur chaque bouton, indépendamment
+  // du SDK — si le SDK OneSignal n'a pas fini de charger (ou pas chargé
+  // du tout, bloqueur de pub par ex.), le bouton le signale au lieu de ne
+  // rien faire.
+  onesignalBtns.forEach(function (onesignalBtn) {
     onesignalBtn.addEventListener("click", function () {
       if (!onesignalReady || !window.OneSignal) {
         onesignalSetLabel("Le service de notifications n'a pas pu charger (bloqueur de pub ?)");
@@ -1677,7 +1724,7 @@
           setTimeout(function () {
             if (window.OneSignal.User.PushSubscription.optedIn) {
               onesignalSetLabel("Notifications activées ✓");
-              onesignalBtn.disabled = true;
+              onesignalDisableAll();
             } else if (window.OneSignal.Notifications.permission) {
               onesignalSetLabel("Permission accordée, inscription en cours…");
             } else {
@@ -1688,7 +1735,7 @@
           }, 800);
         });
     });
-  }
+  });
 
   OneSignalDeferred.push(function (OneSignal) {
     // Nettoie un éventuel abonnement Web Push posé par un test précédent
@@ -1714,7 +1761,7 @@
       function updateBtn() {
         if (OneSignal.Notifications.permission) {
           onesignalSetLabel("Notifications activées ✓");
-          if (onesignalBtn) onesignalBtn.disabled = true;
+          onesignalDisableAll();
         }
       }
       updateBtn();
