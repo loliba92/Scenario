@@ -163,7 +163,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 <!-- Faire tourner les sous-thèmes : marchés financiers, monnaies (dollar, or, bitcoin), dette et taux d'intérêt, matières premières (pétrole, énergie), entreprises et secteurs à l'échelle mondiale, inégalités, démographie économique, luxe et consommation… Nouveau registre créé le 12 août (retour utilisateur), scindé de l'ancien slot "Géopolitique / international — lundi" qui mélangeait géopolitique dure et économie mondiale — voir la note dans la section Géopolitique — lundi pour la règle de classement des sujets à cheval sur les deux. -->
 - [x] Croissance mondiale : l'économie mondiale peut-elle éviter le ralentissement ? [économie]
 - [x] Inflation : l'inflation est-elle définitivement vaincue ? [économie]
-- [ ] Taux d'intérêt : les banques centrales peuvent-elles baisser durablement les taux ? [économie & finance]
+- [x] Taux d'intérêt : les banques centrales peuvent-elles baisser durablement les taux ? [économie & finance]
 - [ ] Dette mondiale : la dette devient-elle la prochaine crise financière ? [économie & finance]
 - [ ] Marchés financiers : la hausse des marchés est-elle durable ? [économie & finance]
 - [ ] Dollar : le dollar peut-il perdre son statut dominant ? [économie & finance]
