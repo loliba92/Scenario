@@ -6,6 +6,79 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-08-20 — Taux d'intérêt : la Fed et la BCE face au choc pétrolier
+**Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 20 août
+2026), cohérence interne (probabilités 20+50+30=100 %, `data-france-
+impact`/`data-kind` vs texte `.france-line` sur les 3 cartes, `delta-france`
+data-kind="negatif" vs mot de jauge « Très négatif » vs texte cohérents,
+CSS complet dont `.delta-france`/`.delta-gauge*`/`.delta-word`/`.delta-
+flag` et structure du dégradé SVG à 3 stops/marqueur `data-score`, `.list-
+box`/`.comprendre-box` présents dans `<style>` bien que `.list-box` non
+utilisé cette édition), sync `index.html` vs `archives/2026-08-20.html`
+(seuls écarts : canonical/OG/nav, légitimes), label brut favorable/stable/
+dégradé absent de `.essentiel-text` (occurrences « le favorable »/« le
+scénario dégradé » dans `.delta-text` sont des références aux cartes, pas
+le label brut — motif déjà présent dans l'édition du 19 août), formulation
+« Notre évaluation de l'impact pour la France » intacte, lexique (4 `.lex-
+ref` ↔ 4 entrées brent/fomc/stagflation/taux-directeur, aucun terme
+orphelin), image de l'article/du feed (point 9, voir ci-dessous), style des
+paragraphes `.dek`/`.why`/`.essentiel-text` (tutoiement — grep `ton /ta /tu
+` propre hors `.share-block` ; lecture LLM des phrases longues), 3 chiffres/
+faits structurants vérifiés contre 3 des 4 sources citées (voir ci-dessous).
+
+**Point 9 (image)** : `topic-images/2026-08-20.jpg` (1080×1080) et
+`-wide.jpg` (1600×900) présents, `file` confirme un vrai JPEG dans les deux
+cas (pas de PNG renommé), dimensions correctes, fiche de provenance
+`2026-08-20.json` cohérente (photographe Julien Goettelmann, `pexels_url`),
+toutes les références (`og:image`, `og:image:width/height`, `twitter:image`,
+JSON-LD `"image"`, `<figure class="article-image">`) synchronisées entre
+`index.html` et l'archive. Rien à corriger.
+
+**Corrigé automatiquement** :
+- Point 8 (clarté/registre) : une phrase du `.dek` sur le détroit d'Ormuz
+  mélangeait la voix impersonnelle du site (« on le suit depuis juillet »)
+  et une adresse directe au lecteur à l'impératif (« n'hésite pas à lire
+  notre suivi »), en plus d'être un phrase-fleuve à subordonnées empilées
+  (57 mots). Corrigée en forme uniquement (voix impersonnelle rétablie,
+  phrase coupée en deux) sur `index.html` et `archives/2026-08-20.html` —
+  aucun chiffre, date, nom propre ou lien de cause à effet perdu, lien
+  `suivi/iran-usa.html` conservé.
+
+**Réécritures de clarté** (avant/après complet, 1 sur le plafond de 3) :
+- Avant : « Ce choc pétrolier, on le suit depuis juillet : le détroit
+  d'Ormuz, par lequel transite d'ordinaire un cinquième du pétrole mondial,
+  reste fermé, l'Iran ayant réaffirmé le 18 août ne pas vouloir le rouvrir
+  tant que les États-Unis ne tiennent pas leurs engagements — on avait déjà
+  suivi cette crise, n'hésite pas à lire notre suivi pour en savoir plus. »
+  Après : « Ce choc pétrolier, on le suit depuis juillet : le détroit
+  d'Ormuz, par lequel transite d'ordinaire un cinquième du pétrole mondial,
+  reste fermé. L'Iran a réaffirmé le 18 août ne pas vouloir le rouvrir tant
+  que les États-Unis ne tiennent pas leurs engagements — on avait déjà
+  suivi cette crise, voir notre suivi pour en savoir plus. »
+
+**Auto-vérification** : balises HTML équilibrées (script Python,
+`index.html` et l'archive), sync index/archive rejouée après correctif
+(mêmes seuls écarts canonical/OG/nav) — aucune capture Playwright requise
+(correctif purement textuel, hors points 1/9).
+
+**Signalé pour revue humaine** :
+- Chiffre non re-vérifiable : source CNBC
+  (`cnbc.com/2026/07/29/fed-rate-decision-july-2026.html`, citée pour le
+  vote FOMC 9 contre 3 et la fourchette 3,50-3,75 %) renvoie une erreur 403
+  (accès bloqué côté site, pas un lien mort) — non re-vérifiée ce passage-
+  ci. Les 3 autres chiffres vérifiés (BCE 2,00 %→2,25 % le 11 juin, chocs
+  pétroliers ~2x plus d'impact en zone euro qu'aux États-Unis, tarifs
+  douaniers ~1 point de pourcentage d'inflation selon la Fed de Dallas)
+  correspondent exactement à leurs sources (ING, Investing.com/BofA,
+  Fortune).
+- Rappel limite : édition publiée ~1h avant ce passage, les posts sociaux
+  (Telegram/réseaux/newsletter) sont probablement déjà partis via
+  `feed.xml` au moment de ce correctif — celui-ci ne portait pas sur un
+  chiffre donc pas de correction déjà diffusée à rattraper, mais le
+  correctif ne profite qu'aux lecteurs suivants du site.
+
+---
+
 ## 2026-08-19 — 2027 sous influence : piratages russes et algorithme de Musk
 **Vérifié** : cohérence interne (CSS/`.style` complet dont `.delta-france`/
 `.delta-gauge*`/`.delta-word`/`.delta-flag` et structure du dégradé SVG à 3
