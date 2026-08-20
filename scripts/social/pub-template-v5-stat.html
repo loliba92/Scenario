@@ -39,16 +39,15 @@
     background-size:cover; background-position:center;
   }
   /* Voile renforcé le 21 août (retour utilisateur, analyse design vs
-     comptes concurrents) : le contenu est désormais poussé en bas de
-     cadre (voir .content), pas centré sur toute la hauteur — la photo
-     doit rester lisible en haut (comme la composition "sujet net en
-     haut, texte sur voile sombre en bas" des posts qui marchent), avec
-     un voile beaucoup plus soutenu uniquement sur le tiers bas où vit
-     le texte. Avant : 0.58 -> 0.9 sur toute la hauteur (le texte
-     flottait au milieu d'une photo encore bien visible partout). */
+     comptes concurrents), puis contenu recentré le même jour (2e retour :
+     "au milieu plutôt") — le bloc de texte peut donc retomber n'importe
+     où sur la hauteur selon la longueur du titre, le voile doit rester
+     assez soutenu partout plutôt que concentré sur un seul tiers.
+     Toujours plus sombre qu'avant le 21 août (0.58 de base) pour
+     garder le titre lisible même sur une photo chargée. */
   .scrim{
     position:absolute; inset:0;
-    background: linear-gradient(180deg, rgba(16,21,28,0.05) 0%, rgba(16,21,28,0.25) 35%, rgba(16,21,28,0.84) 55%, rgba(16,21,28,0.97) 100%);
+    background: linear-gradient(180deg, rgba(16,21,28,0.32) 0%, rgba(16,21,28,0.58) 28%, rgba(16,21,28,0.86) 55%, rgba(16,21,28,0.93) 100%);
   }
   .tint{ position:absolute; inset:0; mix-blend-mode: color; background: var(--stat); opacity:0.1; }
 
@@ -57,21 +56,21 @@
   .masthead .word{ font-family:"Fraunces", serif; font-weight:700; font-size:40px; color: var(--paper); }
   .masthead .word .rio{ color: var(--gold); }
 
-  /* Contenu poussé en bas de cadre (retour utilisateur du 21 août :
-     "trop de blocs de texte empilés, laisser la photo respirer en
-     haut") — avant : justify-content:center, le texte flottait au
-     milieu. Un seul bloc visuel maintenant : pastille + un unique
-     titre qui porte le chiffre en évidence (voir .headline ci-dessous,
-     fusion de l'ancien duo .stat + .message qui répétait deux fois le
-     même chiffre). Attribution et CTA retirés de l'image : ils
-     restent dans la légende du post (<comments> du flux, voir
-     docs/routine-pub-prompt.md étape 4) — l'image gagne en impact,
-     rien n'est perdu côté lecteur puisque la légende s'affiche sous le
-     post sur toutes les plateformes. */
+  /* Contenu recentré verticalement (retour utilisateur du 21 août,
+     après un premier essai avec le texte poussé en bas de cadre —
+     revenu à justify-content:center, titre agrandi pour plus d'impact).
+     Un seul bloc visuel : pastille + un unique titre qui porte le
+     chiffre en évidence (voir .headline ci-dessous, fusion de l'ancien
+     duo .stat + .message qui répétait deux fois le même chiffre).
+     Attribution et CTA retirés de l'image : ils restent dans la légende
+     du post (<comments> du flux, voir docs/routine-pub-prompt.md
+     étape 4) — l'image gagne en impact, rien n'est perdu côté lecteur
+     puisque la légende s'affiche sous le post sur toutes les
+     plateformes. */
   .content{
     position:relative;
     width:100%; height:100%;
-    display:flex; flex-direction:column; justify-content:flex-end; align-items:flex-start;
+    display:flex; flex-direction:column; justify-content:center; align-items:flex-start;
     padding: 84px 92px 96px;
   }
 
@@ -95,7 +94,7 @@
      affichaient le même chiffre deux fois, une redondance repérée en
      comparant à des comptes qui font une seule accroche nette. */
   .headline{
-    font-family:"Fraunces", serif; font-weight:700; font-size: 60px; line-height:1.16;
+    font-family:"Fraunces", serif; font-weight:700; font-size: 72px; line-height:1.14;
     letter-spacing:-0.008em; color: var(--paper);
     max-width: 880px;
   }
