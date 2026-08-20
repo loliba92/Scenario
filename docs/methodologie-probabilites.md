@@ -99,8 +99,8 @@ Pour chaque scénario (favorable, puis stable, puis dégradé) :
   situation, pas ce qu'elle vaut pour la France) — un scénario "stable"
   qui maintient un coût déjà là (prix élevés, accès restreint...) reste
   mauvais pour la France même sans aggravation supplémentaire, jamais
-  "neutre" par défaut. Détail complet et exemple dans
-  `docs/routine-prompt.md` (étape 3, France Impact).
+  "neutre" par défaut. Détail complet et méthode de calcul en section 8
+  ci-dessous.
 
 ### 3.3 — Attribution des probabilités : les facteurs pesés
 
@@ -222,3 +222,94 @@ isolément. »* C'est exactement la phrase déjà publiée sur `le-projet.html`
 (section « Favorable, stable, dégradé : par rapport à quoi ? ») — elle
 donne du sens à la démarche sans exposer la mécanique fine décrite plus
 haut.
+
+## 8. France Impact : l'indice de sens pondéré
+
+Un second calcul, distinct de l'attribution des trois probabilités
+(section 3.3) : une fois les trois scénarios notés et leur valeur France
+jugée (+1/−1 chacun, voir 3.2), un seul indice en résume le sens pondéré
+pour la France. Affiché en dernier paragraphe de « L'essentiel » sur
+chaque édition (jauge + mot), jamais le chiffre brut.
+
+### 8.1 — Calcul
+
+```
+score = Σ (probabilité du scénario × valeur France de ce scénario)
+```
+
+Les trois probabilités sont celles déjà fixées en 3.3, aucune nouvelle
+estimation. La valeur France de chaque scénario est **toujours +1 ou −1,
+jamais 0** — voir 3.2 pour le jugement lui-même (indépendant de la nature
+favorable/stable/dégradé du scénario).
+
+**Exemple réel** (édition du 20 août 2026, « Taux : marche arrière ») :
+favorable 20 % (+1), stable 50 % (−1, un statu quo qui prolonge un coût
+déjà là — voir la règle du scénario stable en 3.2), dégradé 30 % (−1).
+`score = 0,20×1 + 0,50×(−1) + 0,30×(−1) = 0,20 − 0,80 = −0,60`.
+
+### 8.2 — Référence : normal/pré-crise, pas « pas pire qu'aujourd'hui »
+
+La valeur France de chaque scénario se juge **par rapport à une situation
+normale ou pré-crise réelle**, jamais seulement par rapport à la
+situation du jour de rédaction. Sur un sujet de crise déjà en cours, la
+situation actuelle est souvent déjà dégradée : un scénario stable qui la
+prolonge sans l'aggraver resterait faussement neutre si on le jugeait
+seulement contre « aujourd'hui ». D'où la règle systématique : un
+scénario stable qui maintient un coût déjà là (prix élevés, accès
+restreint, activité au ralenti…) est **toujours −1**, jamais 0, même
+« juste pas pire qu'hier ».
+
+### 8.3 — Mot-repère et intensité
+
+Comme les probabilités (section 4), le score n'est jamais montré tel
+quel — un mot qualitatif, avec une intensité selon l'ampleur :
+
+| `|score|` | Intensité |
+|---|---|
+| < 0,50 | Léger |
+| 0,50 à 0,80 | Assez |
+| ≥ 0,80 | Très |
+
+**[Seuils resserrés le 20 août 2026, retour utilisateur — anciens seuils :
+0,30 / 0,50.]** Avec trois scénarios et une valeur France en ±1 chacun, la
+plupart des scores réels tombent déjà entre 0,30 et 0,60 dès qu'un
+scénario domine un peu (ex. quatre éditions d'affilée en « très négatif »
+du 17 au 20 août 2026, sur des scores de −0,50 à −0,80) : les anciens
+seuils faisaient ressortir « très » quasi tous les jours, ce qui videait
+le mot de son pouvoir discriminant — un lecteur régulier ne pouvait plus
+distinguer un jour vraiment extrême d'un jour ordinaire. Les nouveaux
+seuils réservent « très » aux cas où un ou deux scénarios dominent
+vraiment nettement.
+
+Comme pour les mots-repères de probabilité (section 4), ces seuils ne
+sont pas calculés — ce sont des garde-fous pour garder au mot un vrai
+pouvoir discriminant d'une édition à l'autre.
+
+**Jamais de mot « neutre »** : le score a toujours un signe (sauf cas
+d'égalité parfaite 0,00, en pratique quasi jamais atteint avec des
+probabilités à trois chiffres), donc toujours un sens affiché — positif
+ou négatif.
+
+**Aucune retouche rétroactive** : un changement de seuils ou de méthode
+ne s'applique qu'aux éditions publiées à partir de ce changement — les
+mots déjà publiés sur des éditions passées ne sont jamais recalculés ni
+remplacés (même logique que les tags historiques, `docs/tags.md` §
+Historique).
+
+### 8.4 — Cadrage : une évaluation, jamais un fait
+
+Le score est une appréciation pondérée de la rédaction, pas une mesure
+objective — toujours présenté comme tel : « Notre évaluation de l'impact
+pour la France : {mot}. », jamais raccourci en une affirmation qui
+sonnerait comme un fait établi. La phrase qui suit explique toujours le
+*pourquoi* en citant les probabilités clés, jamais une simple répétition
+du mot.
+
+### 8.5 — Portée et limites
+
+Le score compare valablement le **sens** et l'**ampleur pondérée** entre
+deux sujets (deux scores proches = deux sujets qui penchent pareil, dans
+la même mesure) — il ne mesure jamais l'**enjeu réel** d'un sujet. Un
+−0,15 sur un dossier économique n'est pas « aussi grave » qu'un −0,15 sur
+un conflit géopolitique : l'indice ne sert jamais à construire un
+classement d'éditions ni un « pire score du mois ».
