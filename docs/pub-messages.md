@@ -364,6 +364,31 @@ surprise attendu, pas un texte à recopier tel quel) :
   certaines zones inondables ou à risque incendie" plutôt que "le climat
   est le risque n°1 du siècle".
 
+### futur-01
+- eyebrow: GRAND FUTUR
+- message: Depuis mai 2025, des camions **sans chauffeur**\nroulent déjà avec du fret entre Dallas et Houston.
+- attribution: — Aurora Innovation, mai 2025
+- cta: 👉 Abonne-toi, on suit ces bascules au quotidien
+- source: https://aurora.tech/blog
+- photo: `assets/social/topic-images/2026-08-19.jpg` (crédit : aslanbutlercontact,
+  Pixabay — https://pixabay.com/users/aslanbutlercontact-1486943/), photo de
+  rotation générique (pas liée au sujet du post, mécanisme normal des
+  catégories hors `chiffre`, voir `docs/routine-pub-prompt.md`).
+
+*Première entrée de cette catégorie depuis sa remise à zéro le 13 août —
+trouvée le 20 août via WebFetch (1er appel : `en.wikipedia.org/wiki/
+Aurora_Innovation`, qui synthétise plusieurs jalons datés ; 2e appel :
+`aurora.tech/blog`, confirme l'annonce officielle "Aurora Begins
+Commercial Driverless Trucking in Texas", 1er mai 2025 — jalon retenu
+pour le message ; 3e appel : `ir.aurora.tech`, n'a rien apporté de plus
+précis). Jalon déjà atteint (camions déjà en service commercial sans
+chauffeur), donc rédigé à l'indicatif comme les exemples de calibrage
+ci-dessus — pas une projection. Les chiffres plus précis vus sur
+Wikipedia (nombre exact de camions, miles parcourus, objectif de fin
+d'année) n'ont pas pu être recoupés sur une deuxième source primaire dans
+le budget de 3 appels : volontairement laissés hors du message plutôt que
+publiés sur une seule source tertiaire.*
+
 ## 5. Le saviez-vous — un chiffre qui marque (rotation E)
 
 **Réintroduite le 14 août, à la demande de l'utilisateur, avec un
