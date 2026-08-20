@@ -2376,6 +2376,34 @@ moins prioritaire).
     jour (`chiffre` → l'édition source elle-même, seule catégorie sans
     page de destination fixe).
 
+  **[FAIT le 21 août] Refonte du gabarit : chiffre géant séparé retiré,
+  attribution/CTA retirés de l'image.** Retour utilisateur après analyse
+  comparative avec des comptes concurrents (posts "chiffre choc" sur
+  Instagram) : le gabarit empilait 6 blocs de texte (pastille, chiffre
+  géant seul, phrase complète qui répétait le même chiffre, attribution,
+  CTA, tagline) contre 2-3 chez les comptes qui performent — et affichait
+  deux fois le même chiffre (bloc `.stat` géant + `.hl` dans `.message`).
+  - `scripts/social/pub-template-v5-stat.html` : `.stat` et `.message`
+    fusionnés en un seul `.headline` (la phrase d'origine, avec le
+    chiffre surligné en gras/orange dans son flux naturel — testé
+    d'abord en `display:block` isolé, abandonné car ça laissait des mots
+    orphelins avant le chiffre). `.attribution`/`.cta` retirés du HTML :
+    ils restent dans la légende du post (`<comments>` de `feed-pub.xml`,
+    voir `docs/routine-pub-prompt.md` étape 4) — rien n'est perdu côté
+    lecteur, l'image gagne juste en impact visuel. `.content` passé de
+    `justify-content:center` à `flex-end` (texte poussé en bas, la photo
+    respire en haut, composition proche des posts comparés) et `.scrim`
+    renforcé sur le tiers bas (0.84-0.97 au lieu de 0.58-0.9 sur toute la
+    hauteur) pour garder le texte lisible même sur une photo chargée.
+  - `scripts/social/generate_pub_image.py` : surlignage du chiffre dans
+    `message` désormais automatique (`stat` cherché tel quel dans le
+    texte, entouré de `**` avant formatage) si l'entrée n'a pas déjà
+    marqué `**` à la main — l'auteur d'une entrée `chiffre` n'a plus
+    besoin d'ajouter ce marquage lui-même.
+  - Rétrocompatible : les entrées existantes de `docs/pub-messages.md`
+    (champs `stat`/`message`/`attribution`/`cta`) n'ont pas besoin d'être
+    réécrites, seul le rendu visuel change.
+
   **[FAIT le 17 août] Couleur du chiffre géant éclaircie, trop peu de
   contraste.** Retour utilisateur direct sur le premier post publié un
   lundi (`chiffre-2026-08-17`) : le ton d'origine (`--stat: #bd6248`,

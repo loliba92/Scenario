@@ -38,11 +38,17 @@
     background-image:url(__PHOTO_SRC__);
     background-size:cover; background-position:center;
   }
-  /* Voile plus soutenu qu'en v4 : ici le contenu (chiffre géant compris)
-     occupe tout le cadre vertical, pas seulement le bas de l'image. */
+  /* Voile renforcé le 21 août (retour utilisateur, analyse design vs
+     comptes concurrents) : le contenu est désormais poussé en bas de
+     cadre (voir .content), pas centré sur toute la hauteur — la photo
+     doit rester lisible en haut (comme la composition "sujet net en
+     haut, texte sur voile sombre en bas" des posts qui marchent), avec
+     un voile beaucoup plus soutenu uniquement sur le tiers bas où vit
+     le texte. Avant : 0.58 -> 0.9 sur toute la hauteur (le texte
+     flottait au milieu d'une photo encore bien visible partout). */
   .scrim{
     position:absolute; inset:0;
-    background: linear-gradient(180deg, rgba(16,21,28,0.58) 0%, rgba(16,21,28,0.66) 40%, rgba(16,21,28,0.9) 100%);
+    background: linear-gradient(180deg, rgba(16,21,28,0.05) 0%, rgba(16,21,28,0.25) 35%, rgba(16,21,28,0.84) 55%, rgba(16,21,28,0.97) 100%);
   }
   .tint{ position:absolute; inset:0; mix-blend-mode: color; background: var(--stat); opacity:0.1; }
 
@@ -51,11 +57,22 @@
   .masthead .word{ font-family:"Fraunces", serif; font-weight:700; font-size:40px; color: var(--paper); }
   .masthead .word .rio{ color: var(--gold); }
 
+  /* Contenu poussé en bas de cadre (retour utilisateur du 21 août :
+     "trop de blocs de texte empilés, laisser la photo respirer en
+     haut") — avant : justify-content:center, le texte flottait au
+     milieu. Un seul bloc visuel maintenant : pastille + un unique
+     titre qui porte le chiffre en évidence (voir .headline ci-dessous,
+     fusion de l'ancien duo .stat + .message qui répétait deux fois le
+     même chiffre). Attribution et CTA retirés de l'image : ils
+     restent dans la légende du post (<comments> du flux, voir
+     docs/routine-pub-prompt.md étape 4) — l'image gagne en impact,
+     rien n'est perdu côté lecteur puisque la légende s'affiche sous le
+     post sur toutes les plateformes. */
   .content{
     position:relative;
     width:100%; height:100%;
-    display:flex; flex-direction:column; justify-content:center; align-items:flex-start;
-    padding: 84px 92px;
+    display:flex; flex-direction:column; justify-content:flex-end; align-items:flex-start;
+    padding: 84px 92px 96px;
   }
 
   /* Pastille pleine, même traitement que les autres gabarits pub —
@@ -65,34 +82,30 @@
     font-family:"JetBrains Mono", monospace; font-weight:700; font-size: 24px;
     letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink);
     background: var(--stat); border-radius: 40px; padding: 10px 26px;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
 
-  /* Le chiffre : le vrai sujet de l'image, en très grand, jamais recalculé
-     ni arrondi différemment — copié tel quel depuis l'édition source. */
-  .stat{
-    font-family:"Fraunces", serif; font-weight:900; font-size: 236px; line-height:0.92;
-    letter-spacing:-0.02em; color: var(--stat);
-    max-width: 920px;
+  /* Titre unique : la phrase d'origine, recopiée mot pour mot depuis
+     l'édition (même discipline que les citations : jamais reformulée),
+     avec le chiffre qu'elle contient mis en évidence par le script de
+     génération (voir generate_pub_image.py, surlignage automatique du
+     champ "stat" dans "message" pour ce gabarit — plus besoin de
+     marquer ** à la main). Remplace le duo .stat (chiffre géant seul)
+     + .message (phrase complète en dessous) du 15 août : les deux
+     affichaient le même chiffre deux fois, une redondance repérée en
+     comparant à des comptes qui font une seule accroche nette. */
+  .headline{
+    font-family:"Fraunces", serif; font-weight:700; font-size: 60px; line-height:1.16;
+    letter-spacing:-0.008em; color: var(--paper);
+    max-width: 880px;
   }
-
-  /* La phrase d'origine, complète, autour du chiffre — recopiée mot pour
-     mot depuis l'édition (même discipline que les citations : jamais
-     reformulée). C'est elle qui donne le contexte et la crédibilité. */
-  .message{
-    font-family:"Fraunces", serif; font-weight:600; font-size: 44px; line-height:1.28;
-    letter-spacing:-0.005em; color: var(--paper);
-    max-width: 820px;
-    margin-top: 30px;
-  }
-  .message .hl{ color: var(--stat); }
-
-  .attribution{
-    font-family:"JetBrains Mono", monospace; font-weight:400; font-size: 26px;
-    color: var(--paper-dim); margin-top: 34px;
-  }
-
-  .cta{ font-family: "JetBrains Mono", monospace; font-weight:700; font-size: 32px; color: var(--gold); margin-top:40px; }
+  /* Le chiffre lui-même : gras et en couleur, dans le flux naturel de
+     la phrase (pas isolé sur sa propre ligne — testé le 21 août, un
+     retour à la ligne forcé laissait des mots orphelins du type "à"
+     tout seuls juste avant, moins lisible qu'un simple contraste de
+     couleur/graisse au fil du texte). Un seul repère visuel fort par
+     image, jamais recalculé ni arrondi différemment. */
+  .headline .hl{ font-weight:900; color: var(--stat); }
 
   .footer{
     position:absolute; bottom:52px; left:92px;
@@ -126,10 +139,7 @@
 
   <div class="content">
     <div class="eyebrow">__EYEBROW__</div>
-    <div class="stat">__STAT__</div>
-    <div class="message">__MESSAGE__</div>
-    <div class="attribution">__ATTRIBUTION__</div>
-    <div class="cta">__CTA__</div>
+    <div class="headline">__MESSAGE__</div>
   </div>
 
   <div class="footer"><span class="tagline">Le futur en 3 scénarios</span><span class="sep">·</span><span class="url">lesscenarios.fr</span></div>

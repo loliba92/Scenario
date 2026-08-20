@@ -44,6 +44,12 @@ ci-dessous.)*
 - cta: {optionnel, ligne d'appel à l'action sous le message}
 ```
 
+**Catégorie `chiffre` : `attribution`/`cta` ne s'affichent plus sur
+l'image** depuis la refonte du 21 août du gabarit dédié
+(`pub-template-v5-stat.html`) — toujours à renseigner dans l'entrée, ils
+passent directement dans la légende du post (`<comments>` de
+`feed-pub.xml`), pas perdus, juste pas dupliqués sur le visuel.
+
 ## 1. Manifeste — pourquoi Scénario (rotation A)
 
 Objectif : rappeler ce qui différencie le projet et convertir en abonné —
@@ -442,9 +448,12 @@ Le lien du post pointe vers l'édition source elle-même (pas
 `le-projet.html` ni la page d'accueil) — contrairement aux autres
 catégories, voir la table des liens dans `docs/routine-pub-prompt.md`.
 
-**Gabarit dédié** : `scripts/social/pub-template-v5-stat.html` — chiffre
-en très grand par-dessus la photo de l'**édition source elle-même**
-(changé le 15 août : auparavant fond uni sans photo, désormais
+**Gabarit dédié** : `scripts/social/pub-template-v5-stat.html` — un
+titre unique (la phrase d'origine, chiffre surligné en gras/orange
+automatiquement dans son flux, plus de bloc chiffre géant séparé qui
+répétait le même chiffre deux fois — refonte du 21 août) par-dessus la
+photo de l'**édition source elle-même** (changé le 15 août : auparavant
+fond uni sans photo, désormais
 `assets/social/topic-images/{date de l'édition}.jpg`, voir
 `docs/routine-pub-prompt.md` étape 2 pour le mécanisme et le repli si
 cette image n'existe plus). Ne pas utiliser `pub-template-v4-hybride.html`

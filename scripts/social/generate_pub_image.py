@@ -64,16 +64,25 @@ def main():
             out.append(f'<span class="hl">{part}</span>' if idx % 2 == 1 else part)
         return "".join(out).replace("\n", "<br>")
 
-    message_html = _format_message(data["message"])
+    # "stat" : optionnel, seulement utilisé par pub-template-v5-stat.html
+    # (catégorie "Le saviez-vous") — le chiffre tel quel depuis l'édition
+    # source, jamais recalculé ici. Depuis le 21 août, le gabarit v5-stat
+    # n'affiche plus ce chiffre en double (bloc géant séparé + répété
+    # dans la phrase) : "stat" sert seulement à repérer automatiquement
+    # où le surligner *dans* "message", pour que l'auteur de l'entrée
+    # n'ait pas besoin d'ajouter des ** à la main. Si l'entrée a déjà
+    # marqué le chiffre manuellement (** présent), on ne touche à rien.
+    raw_message = data["message"]
+    stat_val = data.get("stat", "")
+    if stat_val and "**" not in raw_message and stat_val in raw_message:
+        raw_message = raw_message.replace(stat_val, f"**{stat_val}**", 1)
+
+    message_html = _format_message(raw_message)
     attribution_html = html.escape(data.get("attribution", ""))
     cta_html = html.escape(data.get("cta", ""))
 
     accent_html = html.escape(data.get("accent", "manifeste"))
-
-    # "stat" : optionnel, seulement utilisé par pub-template-v5-stat.html
-    # (catégorie "Le saviez-vous") — le chiffre affiché en très grand,
-    # recopié tel quel depuis l'édition source, jamais recalculé ici.
-    stat_html = html.escape(data.get("stat", ""))
+    stat_html = html.escape(stat_val)
 
     final_html = (
         template
