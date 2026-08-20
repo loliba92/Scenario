@@ -1744,6 +1744,56 @@ moins prioritaire).
   Make/webhook) convient tel quel ou mérite un format dédié plus propre.
 
 **Contenu**
+- **[FAIT le 20 août] Guide pédagogique ajouté (`guide-pedagogique.html`),
+  suite à un retour d'audit fait par un LLM externe sur le site.**
+  L'utilisateur a soumis un feedback généré par un autre LLM listant des
+  pistes d'amélioration. Comparaison faite point par point avec l'état réel
+  du dépôt avant d'agir : plusieurs suggestions étaient déjà en place
+  (jauges de probabilité, graphiques d'évolution dans `suivi/`, recherche/
+  filtres sur `archives.html`/`glossaire.html`, tests mobile systématiques
+  via Playwright, point d'entrée SEO anglophone), et une (commentaires/
+  comptes utilisateurs/likes sur le site) rejoint une idée déjà **écartée**
+  plus haut dans ce backlog ("Idées explicitement écartées" — coût
+  backend/modération/RGPD trop élevé pour un site 100% statique sans
+  backend, interaction sociale déjà déportée sur Telegram) : pas
+  reproposée. Une piste — guide pratique "comment lire un scénario / s'en
+  servir en classe" — répondait à un vrai manque : `le-projet.html`
+  explique la mission et la méthode mais ne donne pas de méthode
+  actionnable pour un usage en classe (HGGSP/SES), public déjà identifié
+  comme cible. Page ajoutée, même gabarit visuel que `le-projet.html`
+  (mêmes tokens CSS, mêmes fonts, même nav/footer/bloc "Nous suivre") :
+  4 étapes de lecture d'une édition, rappel condensé de ce qu'est une
+  probabilité (renvoi vers `le-projet.html#probabilite` pour le détail),
+  pistes d'exercice concrètes pour une classe (débat structuré 3 groupes,
+  vérification a posteriori via une page de suivi, transposition de la
+  méthode à un sujet du programme). Reliée depuis `le-projet.html`
+  (section "Pour qui", nouveau `.cross-link`) et ajoutée à `sitemap.xml`
+  (priority 0.4, changefreq monthly). **Pas ajoutée au menu `.topnav`
+  commun** : ce nav est dupliqué dans toutes les pages y compris les
+  archives figées (`archives/AAAA-MM-JJ.html`, jamais remodifiées après
+  publication) et probablement encodé dans le prompt de routine — l'y
+  ajouter demanderait de mettre à jour le gabarit généré chaque jour, pas
+  fait ici faute de toucher `docs/routine-prompt.md` sans validation
+  explicite. La page reste donc accessible par lien direct (comme
+  `mentions-legales.html`, `confirmez-votre-email.html`), pas depuis le nav
+  principal — à revoir si le besoin de visibilité se confirme.
+
+  **Idées du même audit notées mais pas implémentées, faute de décision
+  utilisateur sur la priorité :**
+  - **P2 — Partenariats éducatifs formels** avec établissements scolaires/
+    universitaires pour intégrer Scénario comme ressource pédagogique
+    officielle. Rien de construit ; le guide pédagogique ci-dessus est un
+    prérequis naturel avant de démarcher qui que ce soit.
+  - **P2 — Audit SEO régulier.** Pas de process récurrent identifié dans ce
+    dépôt à ce jour au-delà des balises meta déjà systématiques par page.
+  - **P3 — Newsletter enrichie** (Q&A avec le créateur, aperçus des sujets
+    à venir) — au-delà de l'édition quotidienne déjà envoyée via
+    Buttondown (`newsletter.html`).
+
+  Pour mémoire, deux autres pistes du même feedback existaient déjà
+  ailleurs dans ce backlog et n'ont donc pas été redupliquées ici : brief
+  audio quotidien (TTS) — voir plus bas, P3 — et déclinaison
+  papier/abonnement premium — voir `docs/strategie-papier.md`.
 - **[FAIT le 12 août] Restructuration des registres du week-end (retour
   utilisateur).** Deux constats croisés le même jour : (1) `sujets-prioritaires.md`
   montrait samedi (culture française) et dimanche (culture internationale)
