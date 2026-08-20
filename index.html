@@ -197,6 +197,7 @@
   nav.topnav{
     background: var(--surface);
     border-bottom: 1px solid var(--hairline);
+    position: relative;
   }
 
   nav.topnav .wrap{
@@ -208,6 +209,23 @@
   }
 
   nav.topnav .wrap::-webkit-scrollbar{ display: none; }
+
+  /* Dégradé de bord, ajouté le 21 août — retour utilisateur : la nav
+     scrolle horizontalement sur mobile (elle contient plus d'items que
+     l'écran n'en affiche, ex. "Newsletter" reste hors champ) mais sans
+     scrollbar visible (`scrollbar-width: none` ci-dessus), donc rien ne
+     signale qu'il y a plus à voir. Ce voile ne fait qu'indiquer visuellement
+     qu'on peut glisser — aucun nouveau lien ni bloc ajouté. */
+  nav.topnav::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 32px;
+    background: linear-gradient(90deg, transparent, var(--surface));
+    pointer-events: none;
+  }
 
   .topnav a{ flex-shrink: 0; }
 
