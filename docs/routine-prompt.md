@@ -193,6 +193,15 @@ Phrase concrète, ancrée dans le sujet du jour, jamais une généralité interc
 
 Court et précis — l'essentiel reste un résumé, pas un second article. Ne jamais répéter mot pour mot ce qui est déjà dit dans les `why` des cartes — c'est une synthèse qui relie contexte et scénarios, pas un résumé de l'un d'eux. CSS (`.essentiel-box`, `.essentiel-label`, `.essentiel-text`, `.delta-france`, `.delta-gauge*`, `.delta-word`, `.delta-flag`) déjà dans le gabarit. Libellé « L'essentiel » volontairement neutre (pas « Conclusion ») — ne pas le changer de sa propre initiative.
 
+**Rappel notifications compact, ajouté le 21 août [structure générale, à reproduire tel quel chaque jour, comme la bande `.top-updates`].** Retour utilisateur : le seul bouton d'activation des notifications vivait tout en bas de page (section `#notifications`, après lexique/sources/partage), jamais vu par la plupart des lecteurs. Un second point d'entrée, identique en fonction, juste après `</div>` qui ferme `.essentiel-box` (toujours à l'intérieur de `section.scenarios`, avant la fermeture de `div.wrap`/`section`) :
+```html
+<div class="notif-inline">
+  <p class="notif-inline-text">Envie d'un rappel demain matin ?</p>
+  <button type="button" class="onesignal-subscribe-btn btn-outline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg> <span class="btn-label">Activer les notifications</span></button>
+</div>
+```
+**Texte `.notif-inline-text` toujours identique, jamais réécrit par édition** (« Envie d'un rappel demain matin ? ») — un texte qui varierait casserait la reconnaissance visuelle d'un bloc générique. Le bouton du bas de page (`#notifications`) garde son `id="onesignal-subscribe-btn"` **en plus de** la classe `onesignal-subscribe-btn` désormais partagée par les deux boutons — ne pas retirer cet `id`, ne pas en ajouter un second identique sur le bloc compact (un seul `id` par page, la classe suffit pour le script). CSS `.notif-inline`/`.notif-inline-text` déjà dans le gabarit (même piège de recopie intégrale du `<style>` que `.list-box`/`.comprendre-box`, voir plus bas). Le script OneSignal en bas de page boucle déjà sur tous les éléments `.onesignal-subscribe-btn` trouvés — rien à adapter dans le JS d'une édition à l'autre, seulement recopier le bloc HTML ci-dessus au bon endroit.
+
 **France Impact — indice de sens pondéré pour la France, dernier paragraphe de « L'essentiel ».** Calcul : `score = Σ (probabilité du scénario × valeur France de ce scénario)`, valeur = **+1 si ce scénario est bon pour la France, −1 sinon — jamais 0** (les 3 probabilités sont déjà écrites dans les cartes juste au-dessus, aucune nouvelle recherche ; ce qui détermine +1 ou −1 pour chaque scénario est expliqué juste en dessous). **Jamais de mot "neutre"** — toujours un sens (positif/négatif), avec une intensité selon l'ampleur : `|score| < 0,50` → léger, `0,50 à 0,80` → assez, `≥ 0,80` → très (ex. « léger négatif », « assez positif », « très négatif »). **[CHANGÉ le 20 août, retour utilisateur — seuils resserrés, anciens seuils 0,30/0,50]** Avec 3 scénarios et une valeur France en +1/−1 par scénario, la plupart des scores tombaient déjà entre 0,30 et 0,60 en pratique (ex. quatre éditions d'affilée en « très négatif » du 17 au 20 août, sur des scores de -0,50 à -0,80) : les anciens seuils faisaient ressortir « très » presque tous les jours dès qu'un scénario dominait un peu, ce qui videait le mot de son pouvoir discriminant. Réservé désormais aux cas où le score est vraiment extrême. **Ne jamais retoucher rétroactivement les mots déjà publiés dans une édition passée** (même logique que `docs/tags.md` § Historique) — seules les éditions à partir du 20 août appliquent la nouvelle échelle. Le chiffre brut n'est jamais montré au lecteur, seuls le mot et la jauge le sont. La phrase qui suit le mot **explique toujours le pourquoi**, en citant les probabilités clés (pas juste répéter le mot) — voir `archives/2026-08-12.html` pour un exemple réel. `data-score="{score}"` sur `.delta-gauge-marker` = le score brut avec le signe (ex. `-0.15`).
 
 **La valeur France (+1/−1) de chaque scénario est un jugement indépendant, jamais déduit automatiquement de sa nature (favorable/stable/dégradé).** Ce sont deux questions différentes : la nature du scénario dit *où va la situation* à partir d'aujourd'hui (elle s'améliore, ne bouge pas, ou empire) ; la valeur France dit *si l'état qui en résulte est bon ou mauvais pour la France*. Elles coïncident la plupart du temps (un scénario favorable améliore en général les choses pour la France, un dégradé les empire), **sauf pour "stable" quand le point de départ est déjà dégradé** : un statu quo qui maintient un coût déjà là (prix élevés, accès restreint, activité au ralenti...) sans l'aggraver davantage n'est pas neutre pour la France, c'est **toujours −1** — juste pas pire qu'hier. Toujours évaluer la valeur France d'un scénario par rapport à une **référence normale/pré-crise réelle**, jamais seulement par rapport à la situation d'aujourd'hui (déjà dégradée sur un sujet de crise en cours, ce qui rendrait "pas pire qu'aujourd'hui" trompeusement neutre). **Corrigé le 17 août** (retour utilisateur, exemple concret sur `archives/2026-08-17.html` : le scénario stable du sujet Ormuz classait sa `.france-line` "Neutre pour la France" alors que son propre texte disait "facture énergétique élevée" — la valeur aurait dû être −1, pas 0 ; avec l'ancien calcul le score du jour donnait -0,45 (« assez négatif »), il serait passé à -0,80 (« très négatif ») avec la bonne valeur).
@@ -526,12 +535,29 @@ Les 3 `label` reprennent exactement les titres déjà utilisés pour `scenario-m
 11. `git add`, `git commit` (message clair avec date et sujet), `git push origin main` directement — **jamais sur une autre branche**.
 11bis. **Envoyer la notification push (OneSignal), une fois le site en ligne — jamais avant le push.** `ONESIGNAL_REST_API_KEY` en variable d'environnement (même mécanisme que `PEXELS_API_KEY`/`PIXABAY_KEY`) : si absente, sauter cette étape sans bloquer la publication — la notif est un bonus, jamais une condition de publication. App ID en clair, public, sans risque : `1f47412d-5688-4ce7-8288-df1ed44bdad3`.
 
+**Journaliser systématiquement le résultat dans `docs/notif-log.md`, succès ou échec [AJOUTÉ le 21 août, retour utilisateur].** Avant ce journal, la seule façon de savoir si un envoi était vraiment parti était d'interroger l'API OneSignal directement — fait une fois le 21 août pour découvrir qu'aucune trace n'existait nulle part dans le dépôt. Le script ci-dessous fait les deux (envoi + écriture de la ligne de journal) en un seul geste :
+
 ```
 python3 -c "
-import os, json, urllib.request
+import os, json, urllib.request, urllib.error
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+date_str = datetime.now(ZoneInfo('Europe/Paris')).strftime('%Y-%m-%d')
+log_path = 'docs/notif-log.md'
+log = open(log_path, encoding='utf-8').read()
+marker = '---\n'
+idx = log.index(marker) + len(marker)
+
+def write_log(line):
+    new_log = log[:idx] + line + '\n' + log[idx:]
+    open(log_path, 'w', encoding='utf-8').write(new_log)
+
 key = os.environ.get('ONESIGNAL_REST_API_KEY')
 if not key:
+    write_log(f'{date_str} — ⚠️ clé API absente dans l\'environnement de la routine, étape sautée')
     raise SystemExit(0)
+
 payload = json.dumps({
     'app_id': '1f47412d-5688-4ce7-8288-df1ed44bdad3',
     'included_segments': ['Subscribed Users'],
@@ -544,11 +570,17 @@ req = urllib.request.Request(
     data=payload,
     headers={'Authorization': f'Key {key}', 'Content-Type': 'application/json'},
 )
-print(urllib.request.urlopen(req).read().decode())
+try:
+    resp = json.loads(urllib.request.urlopen(req).read().decode())
+    write_log(f'{date_str} — ✅ notification créée (id \`{resp.get(\"id\", \"?\")}\`)')
+    print(resp)
+except (urllib.error.URLError, urllib.error.HTTPError) as e:
+    write_log(f'{date_str} — ❌ échec de l\'envoi : {e}')
+    print('ERREUR OneSignal :', e)
 "
 ```
 
-`contents` = h1 du jour recopié tel quel, jamais une nouvelle phrase rédigée pour l'occasion (même logique que `<source>`/l'essentiel ailleurs dans ce document). `headings` reste toujours « Scénario », jamais reformulé. `url` pointe vers l'accueil (édition du jour), pas vers l'archive. Si la requête échoue (réseau, clé invalide, erreur OneSignal) : logger l'erreur dans le résumé final (étape 12), ne jamais retenter en boucle, ne jamais faire échouer la routine pour ça — la publication elle-même (étape 11) est déjà faite et irréversible à ce stade.
+`contents` = h1 du jour recopié tel quel, jamais une nouvelle phrase rédigée pour l'occasion (même logique que `<source>`/l'essentiel ailleurs dans ce document). `headings` reste toujours « Scénario », jamais reformulé. `url` pointe vers l'accueil (édition du jour), pas vers l'archive. Si la requête échoue (réseau, clé invalide, erreur OneSignal) : la ligne ❌ dans le journal suffit, ne jamais retenter en boucle, ne jamais faire échouer la routine pour ça — la publication elle-même (étape 11) est déjà faite et irréversible à ce stade. **Committer `docs/notif-log.md`** juste après (`git add docs/notif-log.md && git commit -m "Journal notif push {date}" && git push origin main`) — un commit séparé, minime, qui ne bloque jamais la publication déjà faite à l'étape 11 même s'il échoue lui-même (le signaler dans le résumé final si c'est le cas, sans retenter).
 12. Terminer par un court résumé (sujet retenu, probabilités des 3 scénarios, ce qui a été publié, résultat de l'envoi push le cas échéant).
 
 Utilise WebSearch pour la recherche du sujet et la vérification factuelle (au moins deux sources distinctes recoupées). Respecte strictement les restrictions de l'étape 1.
