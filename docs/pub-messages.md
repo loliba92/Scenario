@@ -310,6 +310,12 @@ trop convenue.*
 
 ## 4. Grands futurs — inventions et grands risques du siècle (rotation D)
 
+**Catégorie dormante depuis le 21 août** (retour utilisateur direct :
+abandon pour l'instant, remplacée par "Le saviez-vous" le jeudi dans la
+table de rotation ci-dessous) — pas supprimée, le mécanisme de recherche
+et les entrées déjà présentes restent en place, prêtes à être réactivées
+si l'utilisateur lui redonne un jour.
+
 Objectif : projeter, jamais affirmer. Deux angles dans la même catégorie
 — des inventions qui pourraient changer le quotidien et des grands
 risques du siècle — des technologies ou des menaces réelles, déjà en
@@ -551,13 +557,16 @@ complète et mécanisme dans `docs/routine-pub-prompt.md`, étape 1 :
 | Lundi | Le saviez-vous |
 | Mardi | Citation |
 | Mercredi | Le saviez-vous |
-| Jeudi | Grand futur |
+| Jeudi | Le saviez-vous |
 | Vendredi | Manifeste |
 | Samedi | Le saviez-vous |
 
-**"Questions" n'est dans aucun jour de cette table — catégorie
-dormante**, pas supprimée : ses entrées (section 3) restent en place,
-prêtes si l'utilisateur lui redonne un créneau plus tard.
+**21 août : "Grands futurs" mise en pause, jeudi repasse sur "Le
+saviez-vous".** Retour utilisateur direct : abandon de "Grand futur" pour
+l'instant. **"Questions" et "Grands futurs" ne sont dans aucun jour de
+cette table — catégories dormantes**, pas supprimées : leurs entrées
+(sections 3 et 4) restent en place, prêtes si l'utilisateur leur redonne
+un créneau plus tard.
 
 **"Soutien" (Buy Me a Coffee) n'a pas non plus de ligne dédiée** — testé
 un temps sur samedi le 18 août, puis replié le même jour dans `Manifeste`

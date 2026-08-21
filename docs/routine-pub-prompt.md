@@ -17,6 +17,14 @@ manquerait quand même (voir point 2 ci-dessous) : consigne utilisateur du
 17 août, remplace l'ancien réflexe "s'arrêter et signaler" par défaut sur
 `chiffre` plutôt que de bloquer la routine.
 
+**21 août : catégorie `futur` mise en pause, remplacée par `chiffre` le
+jeudi.** Retour utilisateur direct : abandon de "Grand futur" pour
+l'instant. Table jour → catégorie mise à jour (point 2 ci-dessous) —
+`futur` n'est plus assignée à aucun jour, même traitement que `question`
+(catégorie dormante, pas supprimée : le mécanisme de recherche du point 6
+et les entrées déjà présentes dans `docs/pub-messages.md` section 4
+restent en place, prêts à être réactivés plus tard).
+
 **Objectif : rappeler l'identité du projet et faire réagir la communauté**
 entre deux éditions quotidiennes — jamais un sujet d'actualité (ça reste le
 rôle de `feed.xml`). Contenu organique, pas de budget publicitaire (à ne
@@ -40,8 +48,12 @@ jugement est la rédaction du texte du post final (étape 5), et encore :
 il recopie du texte déjà écrit, il ne compose rien depuis zéro.
 **Exception : la catégorie `futur`** (étape 1, point 6) peut demander une
 vraie recherche (WebFetch, 3 appels max, uniquement quand c'est son tour
-dans le cycle — 1 fois sur 4) — volontaire, pour éviter qu'une liste figée
-devienne prévisible, voir la justification dans cette section.
+dans le cycle) — volontaire, pour éviter qu'une liste figée devienne
+prévisible, voir la justification dans cette section. **Catégorie
+dormante depuis le 21 août** (voir note en tête de fichier) : ce point
+reste décrit ici pour le jour où elle sera réactivée, mais ne se
+déclenche plus en pratique tant que `futur` n'a pas de jour dans la
+table du point 2.
 
 ---
 
@@ -78,7 +90,7 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
    | Lundi | `chiffre` |
    | Mardi | `citation` |
    | Mercredi | `chiffre` |
-   | Jeudi | `futur` |
+   | Jeudi | `chiffre` |
    | Vendredi | `manifeste` |
    | Samedi | `chiffre` |
 
@@ -92,11 +104,14 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
    avait publié 2 items le même jour et cassé l'automatisation réseaux
    sociaux, qui ne traite qu'1 post/jour).
 
-   **`question` n'est pas dans cette table — catégorie dormante**, pas
-   supprimée : ses entrées restent dans `docs/pub-messages.md` section 3,
-   à réactiver si l'utilisateur lui redonne un jour. **Si la routine se
-   déclenche malgré tout un jour absent de cette table** (nouveau jour de
-   la semaine ajouté au cron sans que cette table soit mise à jour) :
+   **`question` et `futur` ne sont pas dans cette table — catégories
+   dormantes**, pas supprimées : leurs entrées restent dans `docs/pub-
+   messages.md` (sections 3 et 4), à réactiver si l'utilisateur leur
+   redonne un jour (`futur` retirée de la table le 21 août, jeudi
+   reprend désormais `chiffre` — voir la note en tête de fichier). **Si
+   la routine se déclenche malgré tout un jour absent de cette table**
+   (nouveau jour de la semaine ajouté au cron sans que cette table soit
+   mise à jour) :
    consigne du 17 août, remplace l'ancien réflexe "s'arrêter et signaler"
    — **utiliser `chiffre` par défaut** pour ce jour plutôt que de bloquer
    la routine, et le mentionner quand même dans le résumé final (étape 5)

@@ -986,6 +986,20 @@
       var m = ed.textContent.match(/Édition du\s+(.+?)\s+·/);
       if (m) { pd.textContent = "Publié le " + m[1]; }
     }
+
+    if (pd) {
+      var rcPath = location.pathname.replace(/^\//, "");
+      fetch("https://scenario.goatcounter.com/counter/" + rcPath + ".json")
+        .then(function(r){ return r.ok ? r.json() : null; })
+        .then(function(d){
+          var n = d && parseInt(d.count, 10);
+          if (n) {
+            var base = pd.textContent || "";
+            pd.textContent = base ? base + " \u00b7 Lu " + n.toLocaleString("fr-FR") + " fois" : "Lu " + n.toLocaleString("fr-FR") + " fois";
+          }
+        })
+        .catch(function(){});
+    }
   })();
 </script>
 

@@ -2506,6 +2506,30 @@ moins prioritaire).
     (champs `stat`/`message`/`attribution`/`cta`) n'ont pas besoin d'être
     réécrites, seul le rendu visuel change.
 
+  **[FAIT le 21 août] Catégorie `futur` ("Grands futurs") mise en
+  pause, jeudi repasse sur `chiffre`.** Retour utilisateur direct :
+  abandon de "Grand futur" pour l'instant, à remplacer par `chiffre`
+  dans la table jour → catégorie. Traitée comme `question` (catégorie
+  dormante, pas supprimée) : le mécanisme de recherche à la volée
+  (étape 1, point 6 de `docs/routine-pub-prompt.md`) et les entrées déjà
+  présentes dans `docs/pub-messages.md` (section 4) restent en place,
+  prêts à être réactivés si l'utilisateur redonne un jour à `futur`.
+  Nouvelle table jour → catégorie (jeudi seul changement) :
+
+  | Jour | Catégorie |
+  |---|---|
+  | Dimanche | `manifeste` |
+  | Lundi | `chiffre` |
+  | Mardi | `citation` |
+  | Mercredi | `chiffre` |
+  | Jeudi | `chiffre` |
+  | Vendredi | `manifeste` |
+  | Samedi | `chiffre` |
+
+  Mis à jour : `docs/routine-pub-prompt.md` (en-tête + étape 1, points 2
+  et l'exception `futur` de la section "Économie de tokens"),
+  `docs/pub-messages.md` (section 4 + "Règle de rotation").
+
   **[FAIT le 17 août] Couleur du chiffre géant éclaircie, trop peu de
   contraste.** Retour utilisateur direct sur le premier post publié un
   lundi (`chiffre-2026-08-17`) : le ton d'origine (`--stat: #bd6248`,
@@ -3434,6 +3458,44 @@ mécanisme que les balises Open Graph, aucune instruction supplémentaire
 nécessaire dans `docs/routine-prompt.md`. Les archives déjà publiées avant
 cet ajout n'ont pas été modifiées (changement d'infrastructure mineur, pas
 crucial rétroactivement).
+
+**[FAIT le 21 août] Compteur de lecture par article ("Lu X fois"), demande
+utilisateur directe.** Idée initiale : Google Search Console — écartée
+après réflexion (ne compte que les clics venant de la recherche Google,
+pas Telegram/newsletter/réseaux qui sont les principaux canaux du site ;
+décalage de plusieurs jours ; aucun accès API disponible dans la session).
+**GoatCounter, déjà en place pour la mesure d'audience générale (voir
+ci-dessus), a un mécanisme fait pour exactement ce besoin** : un compteur
+public par chemin, `https://scenario.goatcounter.com/counter/{chemin}.json`
+→ `{"count": "...", "count_unique": "..."}`, utilisable directement en JS
+côté client, sans clé API, cohérent avec le principe zéro-backend du site.
+Ce compteur public est **désactivé par défaut** (403 *"Need to enable the
+'allow using the visitor counter' setting"*) — activé manuellement par
+l'utilisateur le 21 août dans `scenario.goatcounter.com` → Settings, testé
+et confirmé fonctionnel après coup (ex. `archives/2026-08-18.html` → 2
+lectures au moment du test).
+
+**Implémentation** : le script existant qui construit `.pubdate` (déjà
+présent sur chaque édition — voir le mécanisme "Publié le {date} · ~{N}
+min de lecture" documenté dans `docs/routine-prompt.md` de facto via le
+gabarit, pas une instruction écrite séparément) reçoit un second appel
+`fetch` asynchrone qui va chercher `{count}` sur le chemin exact de la
+page courante (`location.pathname`, sans le `/` initial) et l'ajoute en
+troisième segment, même séparateur (" · ") : "Publié le 17 août 2026 ·
+~4 min de lecture · Lu 2 fois". Rien affiché si la requête échoue ou si
+`count` vaut 0 (page trop récente, pas encore de visite) — pas de "Lu 0
+fois" trompeur sur une édition qui vient de sortir. Utilise `count`
+(nombre total de vues), pas `count_unique` (visiteurs uniques) : plus
+proche du sens littéral "lu X fois". Appliqué à `index.html` et aux 26
+archives existantes (deux variantes de script legacy selon l'ancienneté
+de la page — voir historique du "temps de lecture" — les deux ont reçu le
+même ajout). Comme pour le script de suivi GoatCounter lui-même, ce bloc
+fait partie du gabarit recopié chaque matin : aucune instruction
+supplémentaire nécessaire dans `docs/routine-prompt.md` pour que les
+futures éditions l'aient automatiquement. **Périmètre volontairement
+limité aux éditions quotidiennes** (`index.html`/`archives/*.html`) — pas
+étendu à `suivi/*.html` ni `hebdo/*.html`, structure de page différente,
+à faire séparément si le besoin se confirme.
 
 ## Ce qui reste à faire (suivi)
 
