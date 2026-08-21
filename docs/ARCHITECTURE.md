@@ -1213,6 +1213,42 @@ moins prioritaire).
   le circuit Daily.
 
 **UX**
+- **[FAIT le 21 août] Bug corrigé : le bouton notifications se
+  verrouillait sur un faux positif ("Notifications activées ✓") sans
+  jamais créer d'abonnement OneSignal réel, retour utilisateur ("j'ai
+  rien reçu ce matin").** Diagnostic par élimination : `docs/notif-log.md`
+  montrait l'envoi du jour rejeté par l'API OneSignal
+  (`All included players are not subscribed`, 0 abonné malgré 2 players
+  enregistrés) ; côté utilisateur, permission navigateur bien accordée
+  (vérifié pas à pas : Android Chrome, réglages du site, réglages
+  Android) sans que ça change quoi que ce soit côté OneSignal. **Cause
+  trouvée dans `index.html`** : la fonction `updateBtn()` du bloc
+  `OneSignalDeferred` ne vérifiait que `OneSignal.Notifications.permission`
+  (permission **navigateur**) pour afficher "✓ activées" et désactiver le
+  bouton — jamais `OneSignal.User.PushSubscription.optedIn` (abonnement
+  **OneSignal** réel, qui nécessite un appel explicite à
+  `PushSubscription.optIn()`). Un utilisateur ayant accordé la permission
+  autrement que via un clic sur ce bouton précis (ex. directement dans les
+  réglages du navigateur, comme ici) se retrouvait donc avec un bouton
+  verrouillé en faux "✓", sans abonnement créé, sans moyen de relancer
+  puisque le bouton était désactivé. **Correctif** : `updateBtn()` vérifie
+  désormais `PushSubscription.optedIn` en premier ; si la permission est
+  accordée mais l'abonnement absent, il appelle lui-même
+  `PushSubscription.optIn()` sans redemander la permission (label
+  "Finalisation de l'abonnement…" pendant l'opération), et un listener
+  `PushSubscription.addEventListener("change", updateBtn)` a été ajouté en
+  plus du `permissionChange` déjà présent. **Corrigé uniquement dans
+  `index.html`** (page vivante, écrasée chaque matin — le correctif se
+  propage donc automatiquement aux prochaines éditions). **Pas corrigé
+  dans les 3 archives déjà publiées avec le même bug**
+  (`archives/2026-08-19.html`, `2026-08-20.html`, `2026-08-21.html`,
+  copiées avant le correctif) : conformément à la règle « jamais remodifiée
+  après publication », question explicitement laissée à l'utilisateur —
+  correctif technique donc discutable comme exception, pas encore
+  tranché au moment d'écrire cette ligne. **Confirmé résolu par
+  l'utilisateur** après un test réel (vidage des données de l'app +
+  nouvelle acceptation de la permission → notification de test bien
+  reçue).
 - **[FAIT le 4 août] Temps de lecture estimé** sous le titre de chaque
   édition. Deux volets :
   - **Site** : 100 % client (`index.html`, même script que `.pubdate`) —
