@@ -3529,6 +3529,53 @@ par date), mais plus aucune pollution croisée entre articles. Corrigé
 sur les 30 fichiers concernés (`index.html` + 29 archives) avant même le
 premier passage en production de la version bugguée.
 
+**[FAIT le 21 août] Graphique de croissance de l'audience sur
+`le-projet.html`, demande utilisateur directe.** Nouvelle section
+`#audience`, juste avant le bloc "Nous suivre" (preuve de croissance
+concrète juste au-dessus de l'appel à s'abonner) — courbe en escalier des
+lectures d'éditions cumulées depuis le lancement, réutilisant le composant
+`.dc-chart-box` (voir `docs/routine-prompt.md`, section "Horloge de
+l'Apocalypse") en **variante "favorable"** (bordure/couleur vertes plutôt
+que `--degrade`, la série est positive ici, pas alarmante).
+
+**Périmètre : lectures d'éditions uniquement, pas le trafic total du
+site.** Décidé avec l'utilisateur après avoir vérifié les deux options : le
+total site (`/api/v0/stats/total`) mélange les pages fonctionnelles
+(contact, inscription newsletter, `le-projet.html` lui-même) avec les
+vraies lectures d'articles — moins honnête que ce que la section prétend
+montrer ("l'audience qui lit Scénario"). Calcul : chemins `/api/v0/paths`
+filtrés sur `^/archives/(\d{4}-\d{2}-\d{2})\.html(\?.*)?$`, variantes avec
+query string (ex. `?trk=feed_main-feed-card_...`, ajoutée par certains
+liens entrants) regroupées avec le chemin propre du même article plutôt que
+comptées séparément — sinon sous-comptage silencieux, même famille de biais
+que celui corrigé plus haut sur `index.html`.
+
+**Source des données : l'API authentifiée GoatCounter, pas le compteur
+public.** Le compteur public utilisé pour le "Lu X fois" par article (voir
+plus haut) ne donne qu'un total cumulé instantané, sans historique — inutile
+pour reconstruire une courbe dans le temps. L'utilisateur a généré un token
+API (lecture seule, `[Username] → API` sur `scenario.goatcounter.com` — pas
+sous "Paramètres" comme deviné à tort deux fois de suite avant vérification
+via la doc officielle, https://www.goatcounter.com/help/api). **Le token
+n'est stocké nulle part dans ce dépôt** (public, servi par GitHub Pages) :
+il vit uniquement dans le prompt du trigger CCR "Scénario — Audience",
+configuration privée côté Claude Code Remote. Testé en direct avant
+implémentation : historique réel disponible depuis le tout premier hit du
+site, 2026-07-29 — pas besoin d'attendre des semaines pour une courbe
+parlante, `/api/v0/stats/hits` donne un vrai cumul jour par jour depuis le
+lancement (1 lecture le 30 juillet → 181 le 21 août, premier jeu de
+données utilisé).
+
+**Nouvelle routine hebdomadaire** — trigger "Scénario — Audience", prompt
+de référence `docs/routine-audience-prompt.md` (même principe que les
+autres routines : fichier public = toute la logique, sauf le token,
+uniquement dans la config privée du trigger). Régénère le tableau `data`/
+`xLabels` du script `#audience-svg` et le texte associé (chiffre en gras,
+`.dc-chart-lead`, `aria-label`, label du dernier point) à chaque passage —
+ne touche jamais au CSS ni à la structure de la section. Vérification
+visuelle Playwright recommandée à chaque passage (composant déjà en place,
+mais un chevauchement de labels reste possible si la série s'accélère).
+
 ## Ce qui reste à faire (suivi)
 
 Voir les échanges de session pour le détail, mais en résumé :
