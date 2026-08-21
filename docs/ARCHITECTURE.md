@@ -3480,22 +3480,54 @@ présent sur chaque édition — voir le mécanisme "Publié le {date} · ~{N}
 min de lecture" documenté dans `docs/routine-prompt.md` de facto via le
 gabarit, pas une instruction écrite séparément) reçoit un second appel
 `fetch` asynchrone qui va chercher `{count}` sur le chemin exact de la
-page courante (`location.pathname`, sans le `/` initial) et l'ajoute en
-troisième segment, même séparateur (" · ") : "Publié le 17 août 2026 ·
-~4 min de lecture · Lu 2 fois". Rien affiché si la requête échoue ou si
-`count` vaut 0 (page trop récente, pas encore de visite) — pas de "Lu 0
-fois" trompeur sur une édition qui vient de sortir. Utilise `count`
-(nombre total de vues), pas `count_unique` (visiteurs uniques) : plus
-proche du sens littéral "lu X fois". Appliqué à `index.html` et aux 26
-archives existantes (deux variantes de script legacy selon l'ancienneté
-de la page — voir historique du "temps de lecture" — les deux ont reçu le
-même ajout). Comme pour le script de suivi GoatCounter lui-même, ce bloc
-fait partie du gabarit recopié chaque matin : aucune instruction
-supplémentaire nécessaire dans `docs/routine-prompt.md` pour que les
-futures éditions l'aient automatiquement. **Périmètre volontairement
-limité aux éditions quotidiennes** (`index.html`/`archives/*.html`) — pas
-étendu à `suivi/*.html` ni `hebdo/*.html`, structure de page différente,
-à faire séparément si le besoin se confirme.
+page courante et l'ajoute en troisième segment, même séparateur (" · ") :
+"Publié le 17 août 2026 · ~4 min de lecture · Lu 2 fois". Rien affiché si
+la requête échoue ou si `count` vaut 0 (page trop récente, pas encore de
+visite) — pas de "Lu 0 fois" trompeur sur une édition qui vient de
+sortir. Utilise `count` (nombre total de vues), pas `count_unique`
+(visiteurs uniques) : plus proche du sens littéral "lu X fois". Appliqué
+à `index.html` et aux 26 archives existantes au moment de l'ajout (deux
+variantes de script legacy selon l'ancienneté de la page — voir
+historique du "temps de lecture" — les deux ont reçu le même ajout), puis
+complété sur les 3 archives publiées sur `main` entre-temps
+(2026-08-19/20/21) au moment du merge. Comme pour le script de suivi
+GoatCounter lui-même, ce bloc fait partie du gabarit recopié chaque
+matin : aucune instruction supplémentaire nécessaire dans
+`docs/routine-prompt.md` pour que les futures éditions l'aient
+automatiquement. **Périmètre volontairement limité aux éditions
+quotidiennes** (`index.html`/`archives/*.html`) — pas étendu à
+`suivi/*.html` ni `hebdo/*.html`, structure de page différente, à faire
+séparément si le besoin se confirme.
+
+**Correction le 21 août, même jour — biais `index.html` vs
+`archives/{date}.html`, repéré par l'utilisateur.** La version initiale
+utilisait `location.pathname` pour construire le chemin interrogé —
+correct sur une page d'archive (chemin stable, propre à cet article),
+mais faux sur `index.html` : ce chemin (`/` ou `/index.html`) est
+**le même tous les jours**, donc son compteur GoatCounter cumule le
+trafic de la page d'accueil depuis le tout début du site, pas seulement
+celui de l'édition du jour — testé : 121 vues sur `/` contre 105 sur
+`/index.html`, deux chemins déjà distincts entre eux, et aucun des deux
+propre à un seul article. **Première piste envisagée et rejetée** :
+sommer les 3 compteurs (`/`, `index.html`, `archives/{date}.html`) —
+rejetée par l'utilisateur avant implémentation, à raison : ça aurait
+additionné l'historique complet de la page d'accueil (tous les articles
+jamais publiés) au compteur d'un seul article, une **sur-estimation**
+massive plutôt qu'une correction. **Solution retenue** : chaque page du
+site porte déjà une balise `<link rel="canonical" href="https://
+lesscenarios.fr/archives/{date}.html">` pointant vers l'URL permanente de
+l'article — y compris `index.html`, dont le canonical pointe vers
+l'archive du jour, pas vers lui-même. Le script lit ce chemin canonique
+plutôt que `location.pathname` (repli sur `location.pathname` uniquement
+si la balise est absente, cas qui ne devrait jamais arriver vu qu'elle
+est déjà systématique sur le site). Résultat : `index.html` et
+`archives/{date}.html` affichent désormais toujours le même chiffre,
+celui de l'URL permanente de l'article — reste un léger sous-comptage du
+trafic homepage/bookmark direct (non rattrapable rétroactivement, l'API
+GoatCounter ne donne qu'un total cumulé par chemin, pas de répartition
+par date), mais plus aucune pollution croisée entre articles. Corrigé
+sur les 30 fichiers concernés (`index.html` + 29 archives) avant même le
+premier passage en production de la version bugguée.
 
 ## Ce qui reste à faire (suivi)
 

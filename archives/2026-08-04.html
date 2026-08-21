@@ -939,7 +939,10 @@
     }
 
     if (pd) {
-      var rcPath = location.pathname.replace(/^\//, "");
+      var rcCanon = document.querySelector('link[rel="canonical"]');
+      var rcPath = rcCanon
+        ? rcCanon.getAttribute("href").replace(/^https?:\/\/[^/]+\//, "")
+        : location.pathname.replace(/^\//, "");
       fetch("https://scenario.goatcounter.com/counter/" + rcPath + ".json")
         .then(function(r){ return r.ok ? r.json() : null; })
         .then(function(d){
