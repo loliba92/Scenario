@@ -20,3 +20,4 @@ vérifier sans requêter l'API directement, d'où ce journal).
 La plus récente en tête.
 
 ---
+2026-08-21 — ❌ requête acceptée par l'API (HTTP 200) mais aucune notification créée : réponse `{'id': '', 'errors': ['All included players are not subscribed']}` — aucun abonné OneSignal actif à ce jour, id vide
