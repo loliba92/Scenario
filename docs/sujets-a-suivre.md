@@ -89,6 +89,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 21.08.2026 — [Le Grand Filtre](../archives/2026-08-21.html)
 - 20.08.2026 — [Taux : marche arrière](../archives/2026-08-20.html)
 - 19.08.2026 — [2027 sous influence](../archives/2026-08-19.html)
 - 18.08.2026 — [IA : la cage a craqué](../archives/2026-08-18.html)
