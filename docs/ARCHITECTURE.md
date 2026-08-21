@@ -1780,6 +1780,22 @@ moins prioritaire).
   Make/webhook) convient tel quel ou mérite un format dédié plus propre.
 
 **Contenu**
+- **[FAIT le 21 août] Graphique en escalier pour série historique longue,
+  industrialisé comme composant réutilisable (retour utilisateur : « pas
+  systématiquement mais quand c'est utile »).** Première utilisation :
+  Horloge de l'Apocalypse depuis 1947 sur l'édition « Le Grand Filtre »
+  (`.dc-chart-box`, voir plus haut le 21 août pour le détail complet de
+  cette première implémentation). Plutôt que de laisser ce composant en
+  one-shot, la recette complète (critères de déclenchement, format,
+  gabarit CSS/SVG/JS, vérification) a été documentée dans
+  `docs/routine-prompt.md` juste après la section `.comprendre-box`, pour
+  qu'une future édition puisse le reprendre sans repartir de zéro — mais
+  **strictement optionnel et sous 3 critères cumulatifs** (source fiable
+  et complète, 8-10+ points réels sur 10+ ans, série qui éclaire
+  directement la question du jour), pas un composant à caser
+  systématiquement. CSS pas ajouté au gabarit de base (contrairement à
+  `.comprendre-box`, utilisé trop rarement pour ça) : à copier depuis
+  `index.html`/`archives/2026-08-21.html` le jour où c'est pertinent.
 - **[FAIT le 20 août] Guide pédagogique ajouté (`guide-pedagogique.html`),
   suite à un retour d'audit fait par un LLM externe sur le site.**
   L'utilisateur a soumis un feedback généré par un autre LLM listant des
