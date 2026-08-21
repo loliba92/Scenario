@@ -2252,6 +2252,30 @@ moins prioritaire).
     jour (`chiffre` → l'édition source elle-même, seule catégorie sans
     page de destination fixe).
 
+  **[FAIT le 21 août] Catégorie `futur` ("Grands futurs") mise en
+  pause, jeudi repasse sur `chiffre`.** Retour utilisateur direct :
+  abandon de "Grand futur" pour l'instant, à remplacer par `chiffre`
+  dans la table jour → catégorie. Traitée comme `question` (catégorie
+  dormante, pas supprimée) : le mécanisme de recherche à la volée
+  (étape 1, point 6 de `docs/routine-pub-prompt.md`) et les entrées déjà
+  présentes dans `docs/pub-messages.md` (section 4) restent en place,
+  prêts à être réactivés si l'utilisateur redonne un jour à `futur`.
+  Nouvelle table jour → catégorie (jeudi seul changement) :
+
+  | Jour | Catégorie |
+  |---|---|
+  | Dimanche | `manifeste` |
+  | Lundi | `chiffre` |
+  | Mardi | `citation` |
+  | Mercredi | `chiffre` |
+  | Jeudi | `chiffre` |
+  | Vendredi | `manifeste` |
+  | Samedi | `chiffre` |
+
+  Mis à jour : `docs/routine-pub-prompt.md` (en-tête + étape 1, points 2
+  et l'exception `futur` de la section "Économie de tokens"),
+  `docs/pub-messages.md` (section 4 + "Règle de rotation").
+
   **[FAIT le 17 août] Couleur du chiffre géant éclaircie, trop peu de
   contraste.** Retour utilisateur direct sur le premier post publié un
   lundi (`chiffre-2026-08-17`) : le ton d'origine (`--stat: #bd6248`,
