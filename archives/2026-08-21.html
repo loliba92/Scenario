@@ -1898,14 +1898,26 @@
       onesignalReady = true;
 
       function updateBtn() {
-        if (OneSignal.Notifications.permission) {
+        if (OneSignal.User.PushSubscription.optedIn) {
           onesignalSetLabel("Notifications activées ✓");
           onesignalDisableAll();
+        } else if (OneSignal.Notifications.permission) {
+          // Permission navigateur déjà accordée (ex. via les réglages du
+          // navigateur plutôt que via ce bouton) mais abonnement OneSignal
+          // jamais finalisé : on le complète nous-mêmes, sans redemander la
+          // permission — sinon le bouton se désactivait à tort en affichant
+          // "activées" sans qu'aucun abonnement n'ait jamais été créé côté
+          // serveur (bug constaté le 21 août, retour utilisateur).
+          onesignalSetLabel("Finalisation de l'abonnement…");
+          OneSignal.User.PushSubscription.optIn().catch(function (err) {
+            onesignalSetLabel("Erreur : " + (err && err.message ? err.message : String(err)));
+          });
         }
       }
       updateBtn();
 
       OneSignal.Notifications.addEventListener("permissionChange", updateBtn);
+      OneSignal.User.PushSubscription.addEventListener("change", updateBtn);
     }).catch(function (err) {
       onesignalSetLabel(
         "Erreur d'initialisation : " + (err && err.message ? err.message : String(err))
