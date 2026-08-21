@@ -20,13 +20,19 @@ mériter une page de suivi ou une mise à jour.
 ## Suivis actifs
 
 - **Spider-Man contre Avengers** (édition du 18 juillet 2026)
-  Suivi existant : `suivi/spiderman-marvel.html` (V0 + V1 au 1er août).
+  Suivi existant : `suivi/spiderman-marvel.html` (V0 + V1 au 1er août +
+  V2 au 21 août, publiée automatiquement par la routine de détection —
+  écart de +27 points sur le scénario favorable). V2 intègre le résultat
+  définitif du week-end d'ouverture de Spider-Man : Brand New Day
+  (360 M$, record absolu d'ouverture domestique devant Avengers: Endgame)
+  et les précommandes record d'Avengers : Doomsday (ouverture projetée
+  400-450 M$).
   Prochaine échéance connue : sortie d'**Avengers : Doomsday** le
-  **17 décembre 2026**. À surveiller aussi : résultats complets du
-  week-end d'ouverture de Spider-Man : Brand New Day (au-delà du vendredi
-  déjà couvert en V1), et toute nouvelle donnée de précommandes pour
-  Doomsday.
-  Dernière vérification : 1er août 2026 (V1).
+  **18 décembre 2026** (date corrigée en V2 — plusieurs sources récentes
+  donnent le 18, pas le 17 comme indiqué à l'origine). À surveiller
+  aussi : toute nouvelle donnée de précommandes ou de tracking à
+  l'approche de la sortie.
+  Dernière vérification : 21 août 2026 (V2).
 
 - **HBO Max, CNN, Batman : la mégafusion Paramount–Warner** (édition du 26
   juillet 2026)
