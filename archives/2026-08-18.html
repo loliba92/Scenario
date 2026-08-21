@@ -1524,6 +1524,20 @@
       pd.textContent = [datePart, readingPart].filter(Boolean).join(" · ");
     }
 
+    if (pd) {
+      var rcPath = location.pathname.replace(/^\//, "");
+      fetch("https://scenario.goatcounter.com/counter/" + rcPath + ".json")
+        .then(function(r){ return r.ok ? r.json() : null; })
+        .then(function(d){
+          var n = d && parseInt(d.count, 10);
+          if (n) {
+            var base = pd.textContent || "";
+            pd.textContent = base ? base + " · Lu " + n.toLocaleString("fr-FR") + " fois" : "Lu " + n.toLocaleString("fr-FR") + " fois";
+          }
+        })
+        .catch(function(){});
+    }
+
     var registres = {
       0: "🏆 sport",
       1: "🌍 géopolitique",
