@@ -6,6 +6,88 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-08-21 — Le Grand Filtre
+**Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 21 août
+2026), classes CSS attendues présentes dans `<style>` (dont `.delta-france`/
+`.delta-gauge*`/`.delta-word`/`.delta-flag` — bloc comparé caractère pour
+caractère à la version canonique de `docs/routine-inspection-prompt.md`,
+identique — et structure HTML du dégradé SVG à 3 stops + `data-score`
+intacte), sync `index.html` vs `archives/2026-08-21.html` (`diff` complet —
+seuls écarts : chemins `../`/relatifs internes, `canonical`/`og:url`/
+`mainEntityOfPage`, `aria-current` nav — tous légitimes), `data-france-
+impact`/`data-kind` cohérents avec le texte `.france-line` adjacent sur les
+3 cartes (favorable/favorable/dégradé, tous alignés avec la conclusion "Plutôt
+favorable"/"Plutôt défavorable pour la France" du texte), probabilités
+30+45+25=100 %, incohérences numériques internes (85 s ×5, 17 % ×5, 10 %
+sous-composante de 17 % cohérente, 75 % = somme correcte de 30+45) — aucune
+trouvée, label brut favorable/stable/dégradé absent de `.essentiel-text`,
+formulation "Notre évaluation de l'impact pour la France" intacte (aucune
+occurrence raccourcie de "France Impact :"), lexique (5 `.lex-ref` ↔ 5
+entrées biais-anthropique/horloge-de-lapocalypse/paradoxe-de-fermi/risque-
+existentiel/seti, aucun terme orphelin), image de l'article/du feed (point
+9, voir ci-dessous), style des paragraphes `.dek`/`.why`/`.essentiel-text`
+(tutoiement — grep `ton /ta /tu ` propre : les 2 occurrences restantes sont
+dans des sections `.share-block`, exception légitime ; lecture LLM des
+phrases longues, voir réécriture ci-dessous), 5 chiffres/faits structurants
+vérifiés contre 2 des 4 sources citées (voir ci-dessous).
+
+**Point 9 (image)** : `topic-images/2026-08-21.jpg` (1080×1080) et
+`-wide.jpg` (1600×900) présents, `file` confirme un vrai JPEG dans les deux
+cas (pas de PNG renommé), dimensions correctes, toutes les références
+(`og:image`, `twitter:image`, JSON-LD `"image"`, `<figure
+class="article-image">`) cohérentes entre elles et identiques entre
+`index.html` et l'archive. Rien à corriger.
+
+**Vérification des chiffres contre les sources citées** (2 des 4 URLs de
+la section Sources fetchées, 5 chiffres retenus, sous le plafond de 5
+WebFetch) :
+- Bulletin of the Atomic Scientists — 2026 Doomsday Clock Statement :
+  "85 secondes avant minuit" et date du 27 janvier 2026 confirmées à
+  l'identique.
+- Toby Ord — The Precipice Revisited : "1 sur 10" pour l'IA non maîtrisée
+  confirmé, "1 sur 1 000" pour le nucléaire et pour le climat pris
+  isolément confirmés chacun. Le "1 sur 6" cité dans l'article est
+  explicitement attribué au livre *The Precipice* (2020, actualisé 2024)
+  et non à cette page web précise — vérifié que la page ne prétend pas
+  autre chose (elle ne redonne pas de chiffre combiné global, cohérent
+  avec l'attribution de l'article) : pas une incohérence.
+
+**Corrigé automatiquement** :
+- Réécriture de clarté (1, sous le plafond de 3) — voir détail ci-dessous.
+
+**Réécritures de clarté** (avant/après complet pour chacune, ou "aucune") :
+- Avant : « L'étape la plus dure sur le chemin d'une civilisation
+  technologique n'est pas devant nous, elle est déjà loin derrière :
+  l'apparition de la vie elle-même, ou le passage de cellules simples à des
+  cellules complexes (l'hypothèse dite de la « Terre rare »), des sauts
+  biologiques extraordinairement improbables que la Terre a réussis presque
+  par hasard il y a des milliards d'années. »
+  Après : « L'étape la plus dure sur le chemin d'une civilisation
+  technologique n'est pas devant nous : elle est déjà loin derrière. Il
+  s'agit de l'apparition de la vie elle-même, ou du passage de cellules
+  simples à des cellules complexes — c'est l'hypothèse dite de la « Terre
+  rare ». Ce sont des sauts biologiques extraordinairement improbables, que
+  la Terre a pourtant réussis presque par hasard il y a des milliards
+  d'années. »
+  (Phrase de 61 mots avec liste à deux branches + parenthèse + proposition
+  relative finale — découpée en 3 phrases sans perte d'aucun chiffre, nom
+  propre ou lien de cause à effet ; paragraphe `.why` de la carte
+  "favorable", pas un paragraphe protégé par une règle stricte du prompt
+  principal. Appliquée à l'identique dans `index.html` et
+  `archives/2026-08-21.html` — absente de `feed.xml`, rien à resynchroniser
+  là.)
+
+**Auto-vérification avant commit** : balise HTML équilibrée (script Python
+`html.parser`, aucun mismatch/tag non fermé sur `index.html` et l'archive
+après le correctif), sync `index.html`/`archives/2026-08-21.html` rejouée
+après correctif (phrase réécrite identique des deux côtés, aucun nouvel
+écart hors chemins relatifs/nav déjà connus) — correctif uniquement
+textuel (point 8), pas de capture Playwright nécessaire.
+
+**Signalé pour revue humaine** : rien.
+
+---
+
 ## 2026-08-20 — Taux d'intérêt : la Fed et la BCE face au choc pétrolier
 **Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 20 août
 2026), cohérence interne (probabilités 20+50+30=100 %, `data-france-
