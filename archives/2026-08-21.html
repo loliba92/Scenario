@@ -736,6 +736,64 @@
     border-top: 1px dashed var(--hairline);
   }
 
+  /* ---- Horloge de l'Apocalypse : graphique depuis 1947 (même recette
+     que .comprendre-box pour l'encart, gabarit SVG inspiré de .evo-chart
+     des pages de suivi, adapté à une série longue/irrégulière). ---- */
+  .dc-chart-box{
+    background: var(--surface);
+    border-left: 3px solid var(--degrade);
+    border-radius: 4px;
+    padding: 20px 22px 18px;
+    margin: 28px 0 0;
+    margin-left: -22px;
+  }
+
+  .dc-chart-label{
+    display: block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--degrade);
+    margin: 0 0 8px;
+  }
+
+  .dc-chart-lead{
+    font-family: "Fraunces", serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.35;
+    margin: 0 0 14px;
+    color: var(--paper);
+  }
+
+  .dc-chart-box svg{ display: block; width: 100%; height: auto; overflow: visible; }
+  .dc-line{ fill: none; stroke: var(--degrade); stroke-width: 2; stroke-linejoin: round; }
+  .dc-dot{ fill: var(--ink); stroke: var(--degrade); stroke-width: 2; }
+  .dc-dot.is-highlight{ fill: var(--degrade); stroke: var(--paper); stroke-width: 1.5; }
+  .dc-gridline{ stroke: var(--hairline); stroke-width: 1; stroke-dasharray: 2 3; }
+  .dc-axis{ stroke: var(--hairline); stroke-width: 1; }
+  .dc-axis-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9.5px;
+    fill: var(--paper-dim);
+  }
+  .dc-point-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .dc-point-label.is-favorable{ fill: var(--favorable); }
+  .dc-point-label.is-degrade{ fill: var(--degrade); }
+
+  .dc-chart-caption{
+    font-size: 0.8rem;
+    color: var(--paper-dim);
+    margin: 12px 0 0;
+    padding-top: 12px;
+    border-top: 1px dashed var(--hairline);
+  }
+
   .indicator{
     display:flex;
     flex-direction: column;
@@ -1429,6 +1487,13 @@
       </div>
     </div>
 
+    <div class="dc-chart-box">
+      <span class="dc-chart-label">Repère historique</span>
+      <p class="dc-chart-lead">L'Horloge de l'Apocalypse, tenue par le <em>Bulletin of the Atomic Scientists</em> depuis 1947, résume en un seul chiffre symbolique l'avis d'un comité d'experts sur la proximité d'une catastrophe globale — nucléaire à l'origine, élargie depuis au climat, aux pandémies et à l'IA.</p>
+      <svg id="dc-svg" viewBox="0 0 700 240" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Évolution de l'Horloge de l'Apocalypse de 7 minutes avant minuit en 1947 à 85 secondes avant minuit en 2026"></svg>
+      <p class="dc-chart-caption">Chaque palier tient jusqu'à la prochaine annonce du comité — pas de mouvement continu, seulement des révisions ponctuelles. Depuis 2020, le comité réévalue chaque année ; avant, l'écart entre deux annonces pouvait dépasser dix ans.</p>
+    </div>
+
   </div>
 </section>
 
@@ -1622,6 +1687,7 @@
     <ul class="sources-list">
       <li><a href="https://thebulletin.org/doomsday-clock/2026-statement/" target="_blank" rel="noopener noreferrer">Bulletin of the Atomic Scientists — 2026 Doomsday Clock Statement ↗</a></li>
       <li><a href="https://thebulletin.org/doomsday-clock/2026-statement/disruptive-technologies/" target="_blank" rel="noopener noreferrer">Bulletin of the Atomic Scientists — Disruptive Technologies ↗</a></li>
+      <li><a href="https://thebulletin.org/doomsday-clock/timeline/" target="_blank" rel="noopener noreferrer">Bulletin of the Atomic Scientists — Doomsday Clock Timeline (1947-2026) ↗</a></li>
       <li><a href="https://www.tobyord.com/writing/the-precipice-revisited" target="_blank" rel="noopener noreferrer">Toby Ord — The Precipice Revisited ↗</a></li>
       <li><a href="https://www.astronomy.com/science/the-great-filter-a-possible-solution-to-the-fermi-paradox/" target="_blank" rel="noopener noreferrer">Astronomy.com — The Great Filter: A possible solution to the Fermi Paradox ↗</a></li>
     </ul>
@@ -1702,6 +1768,85 @@
       setTimeout(function(){ el.setAttribute('cx', cx); el.setAttribute('cy', cy); }, 120);
     });
   });
+
+  // Horloge de l'Apocalypse depuis 1947 — graphique en escalier (la valeur
+  // tient jusqu'à la prochaine annonce du comité, jamais d'interpolation
+  // continue). Données : thebulletin.org/doomsday-clock/timeline/ (voir
+  // Sources en bas de l'édition). Année, secondes avant minuit.
+  (function () {
+    var svg = document.getElementById('dc-svg');
+    if (!svg) return;
+
+    var data = [
+      [1947, 420], [1949, 180], [1953, 120], [1960, 420], [1963, 720],
+      [1968, 420], [1969, 600], [1972, 720], [1974, 540], [1980, 420],
+      [1981, 240], [1984, 180], [1988, 360], [1990, 600], [1991, 1020],
+      [1995, 840], [1998, 540], [2002, 420], [2007, 300], [2010, 360],
+      [2012, 300], [2015, 180], [2016, 180], [2017, 150], [2018, 120],
+      [2019, 120], [2020, 100], [2021, 100], [2022, 100], [2023, 90],
+      [2024, 90], [2025, 89], [2026, 85]
+    ];
+
+    var W = 700, H = 240, padL = 40, padR = 12, padT = 14, padB = 30;
+    var minYear = data[0][0], maxYear = data[data.length - 1][0];
+    var yMax = 1080; // 18 min, palier rond au-dessus du record de 1991 (1020 s)
+
+    function xPos(year) { return padL + (year - minYear) / (maxYear - minYear) * (W - padL - padR); }
+    function yPos(sec) { return padT + (1 - sec / yMax) * (H - padT - padB); }
+
+    var NS = 'http://www.w3.org/2000/svg';
+    function svgEl(tag, attrs) {
+      var e = document.createElementNS(NS, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      return e;
+    }
+
+    for (var m = 3; m <= 18; m += 3) {
+      var ly = yPos(m * 60);
+      svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: ly, y2: ly, class: 'dc-gridline' }));
+      var gLbl = svgEl('text', { x: padL - 8, y: ly + 3, class: 'dc-axis-label', 'text-anchor': 'end' });
+      gLbl.textContent = m + ' min';
+      svg.appendChild(gLbl);
+    }
+
+    [1947, 1960, 1974, 1991, 2007, 2019, 2026].forEach(function (yr) {
+      var yLbl = svgEl('text', { x: xPos(yr), y: H - padB + 16, class: 'dc-axis-label', 'text-anchor': 'middle' });
+      yLbl.textContent = yr;
+      svg.appendChild(yLbl);
+    });
+    svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: H - padB, y2: H - padB, class: 'dc-axis' }));
+
+    var path = 'M ' + xPos(data[0][0]) + ' ' + yPos(data[0][1]);
+    for (var i = 1; i < data.length; i++) {
+      path += ' L ' + xPos(data[i][0]) + ' ' + yPos(data[i - 1][1]);
+      path += ' L ' + xPos(data[i][0]) + ' ' + yPos(data[i][1]);
+    }
+    svg.appendChild(svgEl('path', { d: path, class: 'dc-line' }));
+
+    data.forEach(function (d, i) {
+      var isLast = i === data.length - 1;
+      var isPeak = d[0] === 1991;
+      var dot = svgEl('circle', {
+        cx: xPos(d[0]), cy: yPos(d[1]), r: isLast ? 5 : 3,
+        class: 'dc-dot' + (isLast ? ' is-highlight' : '')
+      });
+      var title = svgEl('title', {});
+      title.textContent = d[0] + ' — ' + (d[1] >= 120 ? (d[1] / 60) + ' min avant minuit' : d[1] + ' secondes avant minuit');
+      dot.appendChild(title);
+      svg.appendChild(dot);
+
+      if (isPeak) {
+        var pLbl = svgEl('text', { x: xPos(d[0]), y: yPos(d[1]) - 10, class: 'dc-point-label is-favorable', 'text-anchor': 'middle' });
+        pLbl.textContent = '17 min — record de recul';
+        svg.appendChild(pLbl);
+      }
+      if (isLast) {
+        var lLbl = svgEl('text', { x: xPos(d[0]), y: yPos(d[1]) - 28, class: 'dc-point-label is-degrade', 'text-anchor': 'end' });
+        lLbl.textContent = "85 s aujourd'hui";
+        svg.appendChild(lLbl);
+      }
+    });
+  })();
 </script>
 
 <script>
