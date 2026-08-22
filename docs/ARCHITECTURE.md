@@ -1638,6 +1638,44 @@ moins prioritaire).
   passe corrigée réintègre les trois règles, toujours vérifiée bloc de
   code par bloc de code (22 blocs au total désormais) contre la version
   complète de `docs/routine-prompt.md`.
+- **P1 — Sur `archives.html`, un sujet révisé doit pointer vers sa
+  dernière mise à jour plutôt que vers la V0, ajouté le 22 août.** Retour
+  utilisateur : aujourd'hui, pour un sujet qui a une page de suivi (badge
+  `🔄 Suivi mis à jour le {date} →`), le lien principal de la carte
+  (`.entry-title`) pointe toujours vers l'archive figée (V0), et le badge
+  suivi n'est qu'un lien secondaire à côté — ça pousse le lecteur vers la
+  version la plus datée plutôt que vers celle qui reflète l'état réel du
+  sujet. À inverser : quand un suivi existe, le lien principal doit
+  pointer vers `suivi/{sujet}.html` (sa dernière version, donc sans ancre
+  de version précise puisque le JS de la page déplie déjà la plus récente
+  par défaut), et un bouton distinct plus discret « V0 (première édition)
+  » doit apparaître à côté pour qui veut retrouver l'archive d'origine
+  telle quelle. Concerne uniquement les entrées avec `data-last-update`/
+  `suivi-badge` déjà présent ; ne change rien pour les sujets sans page de
+  suivi.
+- **P1 — Vocabulaire « V0 » à uniformiser sur les pages de suivi, ajouté
+  le 22 août.** Une fois le lien principal d'`archives.html` pointant
+  vers la dernière mise à jour (point ci-dessus), le lecteur atterrit
+  directement sur une page `suivi/{sujet}.html` sans être passé par
+  l'archive d'origine. Le lien `.origin-link` en haut de page (« Voir
+  l'édition d'origine du {date} → ») doit donc explicitement nommer la
+  V0 dans notre propre vocabulaire (déjà utilisé partout ailleurs sur la
+  page : `.version-tag` « V0 — Point de départ », légende du graphique
+  d'évolution) — par exemple « Voir la V0 (édition d'origine) du {date}
+  → » — pour que le lecteur comprenne tout de suite que c'est le même
+  objet que les « V0 »/« V1 »/« V2 » qu'il va croiser plus bas dans la
+  timeline, pas une référence externe distincte.
+- **P1 — Rappel de la problématique au-dessus du graphique d'évolution,
+  ajouté le 22 août.** Même logique que les deux points ci-dessus : si le
+  lecteur arrive directement sur la dernière mise à jour sans être passé
+  par la V0, il peut manquer le contexte de base — de quel sujet/quelle
+  question il s'agit, pourquoi le site le suit. Actuellement, la
+  section `evolution` (juste avant la timeline) ne montre que le graphique
+  et sa légende, sans rappel de la question posée à l'origine. Ajouter
+  une ou deux phrases de cadrage au-dessus du graphique (la question de
+  départ, en langage clair — pas un simple recopiage du H1) pour que la
+  page reste autonome, même consultée en sautant directement sur la
+  dernière version.
 
 **Technique**
 - **[FAIT le 14 août] `.list-box` survit à la copie quotidienne du
