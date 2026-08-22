@@ -533,6 +533,34 @@ chiffre assez simple (respectivement pétrole/Ormuz avec plusieurs
 chiffres empilés, et rugby/commotions avec chiffres nécessitant du
 contexte pour se comprendre seuls).*
 
+### chiffre-2026-08-22
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 5 764 décès en excès
+- message: Rien que sur l'épisode du 17 juin au 2 juillet, Santé publique France a recensé au moins 5 764 décès en excès.
+- attribution: — lesscenarios.fr, 14 août 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-08-14.html
+- photo: `assets/social/topic-images/2026-08-14.jpg` (crédit : Fatih
+  Turan — https://www.pexels.com/photo/a-city-during-sunset-12413177/),
+  photo de l'édition source elle-même.
+
+*Extrait tel quel de `.dek` dans l'édition du 14 août ("Rien que sur
+l'épisode du 17 juin au 2 juillet, Santé publique France a recensé au
+moins 5 764 décès en excès, soit 36 % de morts en plus que d'habitude
+sur la période — un chiffre qui approche déjà le record de l'été 2022
+(6 969 morts), atteint ici en deux semaines à peine.") — segment coupé
+à la première virgule (frontière naturelle avant "soit 36 %"), point
+final ajouté, aucun mot changé ni déplacé ; édition sans
+`.essentiel-text` exploitable en un seul chiffre (plusieurs stats
+empilées : 10-15 milliards d'euros, 5 764 morts, budget divisé par
+trois). Éditions du 10, 12 et 13 août déjà utilisées pour cette
+catégorie ; édition du 21 août écartée (moins de 24h) ; édition du
+4 août candidate solide sur le fond (bilan Gaza, 73 350 morts) mais
+écartée faute de fichier `.jpg`/`.json` associé dans
+`assets/social/topic-images/` (retour à l'étape 1.7a, voir
+`docs/routine-pub-prompt.md` étape 2.2) ; édition du 6 août également
+sans image associée.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
