@@ -4176,6 +4176,26 @@ Voir les échanges de session pour le détail, mais en résumé :
     « dernière mise à jour », un sujet ancien mais récemment mis à jour
     remonte en haut, mélangé aux éditions du jour — réutilise le JS de
     recherche/filtre déjà en place, pas de nouvelle mécanique à inventer.
+  - **[AJOUTÉ le 22 août, retour utilisateur — la puce `.entry-date` en
+    tête d'entrée affichait toujours la date de publication, ce qui
+    donnait l'impression qu'un sujet révisé n'avait « pas été mis à
+    jour » au premier coup d'œil, même avec le badge juste en dessous.]**
+    **La puce `.entry-date` d'une entrée révisée doit afficher la date de
+    la dernière mise à jour, pas la date de publication d'origine** —
+    même valeur que celle du badge juste en dessous (redondance
+    volontaire, la puce est ce qu'on voit en premier). Pour ne pas casser
+    le tri « Date de publication » ni le filtre par année (qui lisent
+    tous les deux `.entry-date` par défaut), ajouter en plus l'attribut
+    `data-pub-date="{AAAA-MM-JJ d'origine}"` sur le `<li class="entry">`
+    — le JS d'`archives.html` s'en sert comme vraie date de publication
+    dès qu'il est présent, indépendamment de ce qu'affiche la puce.
+    Concrètement, à chaque mise à jour d'un badge existant (ou à sa toute
+    première création) : `<li class="entry" data-last-update="{AAAA-MM-JJ
+    du jour}" data-pub-date="{AAAA-MM-JJ de l'édition d'origine}">`, puis
+    `<span class="entry-date">{JJ.MM.AAAA du jour}</span>` (au lieu de la
+    date de publication). Voir `suivi/spiderman-marvel.html` /
+    l'entrée du 18.07.2026 dans `archives.html` pour l'exemple de
+    référence.
 
   **Premier cas réel construit le 1er août** : `suivi/spiderman-marvel.html`,
   suite de l'édition du 18 juillet ("Spider-Man contre Avengers : qui va

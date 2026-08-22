@@ -1462,11 +1462,11 @@
         </div>
         </div>
       </li>
-      <li class="entry" data-last-update="2026-08-21">
+      <li class="entry" data-last-update="2026-08-21" data-pub-date="2026-07-18">
         <img class="entry-thumb" src="assets/social/archive-thumbs/2026-07-18.jpg" alt="" loading="lazy" width="64" height="64">
         <div class="entry-body">
         <div class="entry-main">
-          <span class="entry-date">18.07.2026</span>
+          <span class="entry-date">21.08.2026</span>
           <a class="entry-title" href="archives/2026-07-18.html">Spider-Man contre Avengers : qui va sauver le box-office Marvel ?</a>
           <div class="entry-tags">
             <button type="button" class="tag" data-tag="culture-internationale">Culture internationale</button>
@@ -1542,16 +1542,25 @@
       });
       entry._tags = tags;
       var title = entry.querySelector('.entry-title').textContent;
+      // .entry-date affiche la date de mise à jour (pas la publication) pour un
+      // sujet révisé : dans ce cas la vraie date de publication vit à part dans
+      // data-pub-date (AAAA-MM-JJ), pour que tri "Date de publication" et filtre
+      // année restent corrects même si la puce visible montre une autre date.
       var date = entry.querySelector('.entry-date').textContent;
-      var year = date.split('.')[2];
+      var parts = date.split('.');
+      var displayedIso = parts[2] + '-' + parts[1] + '-' + parts[0];
+      var pubIso = entry.dataset.pubDate || displayedIso;
+      var year = pubIso.split('-')[0];
       entry._year = year;
       if(!seenYears[year]){ seenYears[year] = year; yearOrder.push(year); }
-      entry._text = deburr(title + ' ' + labels.join(' ') + ' ' + date);
-      // Dates triables (JJ.MM.AAAA -> AAAA-MM-JJ) : publication, et dernière mise à jour
-      // si un suivi existe (data-last-update), sinon la publication sert aussi de référence.
-      var parts = date.split('.');
-      entry._pubSortable = parts[2] + '-' + parts[1] + '-' + parts[0];
-      entry._updateSortable = entry.dataset.lastUpdate || entry._pubSortable;
+      var pubDateFr = entry.dataset.pubDate ? pubIso.split('-').reverse().join('.') : date;
+      entry._text = deburr(title + ' ' + labels.join(' ') + ' ' + date + ' ' + pubDateFr);
+      // Dates triables : publication (toujours la vraie date d'édition, jamais
+      // celle affichée si le sujet a été révisé) et dernière mise à jour (un
+      // suivi existe via data-last-update, sinon la publication sert aussi de
+      // référence).
+      entry._pubSortable = pubIso;
+      entry._updateSortable = entry.dataset.lastUpdate || displayedIso;
     });
     yearOrder.sort().reverse(); // plus récente en premier
 
