@@ -4,10 +4,18 @@ Une ligne par tentative d'envoi de la notification push quotidienne (étape
 11bis de `docs/routine-prompt.md`), succès ou échec. Sert à vérifier après
 coup si l'envoi est bien parti **sans avoir à interroger l'API OneSignal
 directement** — ce qu'il a fallu faire le 21 août pour comprendre qu'aucune
-notification n'était visible côté OneSignal pour l'édition du jour (la
-cause s'est révélée être les notifications désactivées côté utilisateur,
-pas un bug de la routine — mais rien dans le dépôt ne permettait de le
-vérifier sans requêter l'API directement, d'où ce journal).
+notification n'était visible côté OneSignal pour l'édition du jour.
+
+**Cause réelle, identifiée le 22 août (corrigée dans `docs/routine-prompt.md`)** :
+le script ciblait `included_segments: ['Subscribed Users']`, un nom de
+segment qui n'existe pas dans cette app OneSignal (nomenclature actuelle :
+`Active Subscriptions`, etc. — `Subscribed Users` est l'ancien nom de l'API
+v1). L'API renvoyait donc un HTTP 200 sans toucher personne
+(`errors: ['All included players are not subscribed']`, `id` vide), et le
+script loggait à tort un ✅ dès que la requête HTTP réussissait, sans
+vérifier ce champ — d'où l'hypothèse initiale erronée d'un abonné
+désactivé côté utilisateur, écartée depuis (l'abonnement était et reste
+valide, confirmé par un envoi manuel réussi le 22 août).
 
 **Format d'une ligne** : `{AAAA-MM-JJ} — {✅/⚠️/❌} {résultat}`
 - ✅ : notification créée côté OneSignal (id renvoyé par l'API).
