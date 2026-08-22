@@ -67,6 +67,22 @@ mériter une page de suivi ou une mise à jour.
   par jour avant-guerre).
   Dernière vérification : 14 août 2026 (V1).
 
+- **Le cinéma reprend des couleurs** (édition du 8 août 2026)
+  Suivi existant : `suivi/cinema-france.html` (V0 + V1 au 22 août, publiée
+  automatiquement par la routine de détection — écart de -32 points sur
+  le scénario stable, +20 points sur le dégradé). V1 intègre le record
+  absolu de fréquentation estivale (semaine du 29 juillet-4 août, 6,5 M
+  d'entrées) et la tenue dans la durée de « L'Odyssée » et « Spider-Man :
+  Brand New Day » (chacun >6 M d'entrées), qui invalident quasiment le
+  scénario d'un rebond qui s'essoufflerait dès l'été.
+  Prochaine échéance connue : la rentrée cinéma (sorties américaines de
+  fin août à décembre — The Dog Stars, Digger, Avengers : Doomsday, Dune :
+  Messiah), seule inconnue restante pour savoir si le rebond annuel tient
+  (bilan CNC attendu en début d'année 2027). À surveiller aussi : toute
+  mise à jour du classement des entrées 2026 et de la part de marché du
+  cinéma français.
+  Dernière vérification : 22 août 2026 (V1).
+
 - **Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ?**
   (édition du 30 juillet 2026)
   Suivi existant : `suivi/arabie-saoudite-sport.html` (V0 + V1 au 15
@@ -102,7 +118,7 @@ un sujet devenu manifestement sans suite (voir marche à suivre dans
 - 11.08.2026 — [L'Éthiopie veut sa mer, au risque de la guerre](../archives/2026-08-11.html)
 - 10.08.2026 — [La croissance mondiale ne tient qu'à un fil](../archives/2026-08-10.html)
 - 09.08.2026 — [Musique IA : la note grimpe à 9 milliards](../archives/2026-08-09.html)
-- 08.08.2026 — [Le cinéma reprend des couleurs](../archives/2026-08-08.html)
+- 08.08.2026 — [Le cinéma reprend des couleurs](../archives/2026-08-08.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.
 - 07.08.2026 — [Big Tech face à la justice](../archives/2026-08-07.html)
 - 06.08.2026 — [FIFA : la présidence d'Infantino vacille](../archives/2026-08-06.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.
 - 05.08.2026 — [EPR2 : le nucléaire français à l'heure de vérité](../archives/2026-08-05.html)
