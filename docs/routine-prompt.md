@@ -593,7 +593,7 @@ if not key:
 
 payload = json.dumps({
     'app_id': '1f47412d-5688-4ce7-8288-df1ed44bdad3',
-    'included_segments': ['Subscribed Users'],
+    'included_segments': ['Active Subscriptions'],
     'headings': {'en': 'Scénario'},
     'contents': {'en': '{h1 du jour, mot pour mot}'},
     'url': 'https://lesscenarios.fr/',
@@ -605,15 +605,19 @@ req = urllib.request.Request(
 )
 try:
     resp = json.loads(urllib.request.urlopen(req).read().decode())
-    write_log(f'{date_str} — ✅ notification créée (id \`{resp.get(\"id\", \"?\")}\`)')
-    print(resp)
+    if resp.get('errors') or not resp.get('id'):
+        write_log(f'{date_str} — ❌ requête acceptée par l\'API mais aucune notification créée : {resp}')
+        print('ERREUR OneSignal (réponse sans erreur HTTP mais sans envoi réel) :', resp)
+    else:
+        write_log(f'{date_str} — ✅ notification créée (id \`{resp[\"id\"]}\`)')
+        print(resp)
 except (urllib.error.URLError, urllib.error.HTTPError) as e:
     write_log(f'{date_str} — ❌ échec de l\'envoi : {e}')
     print('ERREUR OneSignal :', e)
 "
 ```
 
-`contents` = h1 du jour recopié tel quel, jamais une nouvelle phrase rédigée pour l'occasion (même logique que `<source>`/l'essentiel ailleurs dans ce document). `headings` reste toujours « Scénario », jamais reformulé. `url` pointe vers l'accueil (édition du jour), pas vers l'archive. Si la requête échoue (réseau, clé invalide, erreur OneSignal) : la ligne ❌ dans le journal suffit, ne jamais retenter en boucle, ne jamais faire échouer la routine pour ça — la publication elle-même (étape 11) est déjà faite et irréversible à ce stade. **Committer `docs/notif-log.md`** juste après (`git add docs/notif-log.md && git commit -m "Journal notif push {date}" && git push origin main`) — un commit séparé, minime, qui ne bloque jamais la publication déjà faite à l'étape 11 même s'il échoue lui-même (le signaler dans le résumé final si c'est le cas, sans retenter).
+`contents` = h1 du jour recopié tel quel, jamais une nouvelle phrase rédigée pour l'occasion (même logique que `<source>`/l'essentiel ailleurs dans ce document). `headings` reste toujours « Scénario », jamais reformulé. `url` pointe vers l'accueil (édition du jour), pas vers l'archive. `included_segments` cible `'Active Subscriptions'` — nomenclature actuelle de l'app OneSignal du site (vérifiée via l'API le 22 août : `Total/Active/Inactive/Engaged Subscriptions`, pas de segment `Subscribed Users` — l'ancien nom de l'API v1, absent de cette app, cause du bug corrigé ce jour-là où la requête réussissait en HTTP 200 sans toucher personne). **Toujours vérifier `errors`/`id` vide dans la réponse avant de logger un ✅** — un HTTP 200 ne garantit pas qu'un envoi a réellement eu lieu (voir le `if` ci-dessus). Si la requête échoue (réseau, clé invalide, erreur OneSignal, ou 200 sans envoi réel) : la ligne ❌ dans le journal suffit, ne jamais retenter en boucle, ne jamais faire échouer la routine pour ça — la publication elle-même (étape 11) est déjà faite et irréversible à ce stade. **Committer `docs/notif-log.md`** juste après (`git add docs/notif-log.md && git commit -m "Journal notif push {date}" && git push origin main`) — un commit séparé, minime, qui ne bloque jamais la publication déjà faite à l'étape 11 même s'il échoue lui-même (le signaler dans le résumé final si c'est le cas, sans retenter).
 12. Terminer par un court résumé (sujet retenu, probabilités des 3 scénarios, ce qui a été publié, résultat de l'envoi push le cas échéant).
 
 Utilise WebSearch pour la recherche du sujet et la vérification factuelle (au moins deux sources distinctes recoupées). Respecte strictement les restrictions de l'étape 1.
