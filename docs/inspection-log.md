@@ -6,6 +6,133 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-08-22 — Hollywood décroche en Chine
+**Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 22 août
+2026), classes CSS attendues présentes dans `<style>` (dont
+`.delta-france`/`.delta-gauge*`/`.delta-word`/`.delta-flag` — bloc comparé
+caractère pour caractère à la version canonique de
+`docs/routine-inspection-prompt.md`, identique — et structure HTML du
+dégradé SVG à 3 stops + `data-score` intacte, `.comprendre-box*` absente
+cette édition mais toujours dans `<style>` comme requis), sync
+`index.html` vs `archives/2026-08-22.html` (`diff` complet, rejoué après
+correctif — seuls écarts : chemins relatifs internes selon la profondeur
+du fichier, `canonical`/`og:url`/`mainEntityOfPage`, `aria-current` nav —
+tous légitimes), `data-france-impact`/`data-kind` cohérents avec le texte
+`.france-line` adjacent sur les 3 cartes (favorable/favorable/dégradé,
+tous alignés avec « Plutôt favorable »/« Plutôt défavorable pour la
+France » du texte adjacent — le `data-kind="stable"` de la 2e carte avec
+`data-france-impact="favorable"` n'est pas une incohérence, ce sont deux
+axes distincts, probabilité du scénario vs. impact France), probabilités
+30+45+25=100 %, incohérence numérique interne (40,6 % répété 3 fois pour
+le même fait/périmètre — recul du box-office chinois au 1er semestre
+2026 — cohérent à chaque occurrence ; les 6 occurrences de « 25 % »
+désignent des faits différents — taux de reversement référence 2025,
+probabilité du scénario dégradé, jauge de la carte — chacune cohérente
+dans son propre contexte, pas une incohérence), label brut
+favorable/stable/dégradé absent de `.essentiel-text` (les occurrences
+« favorable et stable » dans `.delta-text` sont des références aux
+cartes, motif déjà rencontré les jours précédents — voir entrées du 19 et
+20 août), formulation « Notre évaluation de l'impact pour la France »
+intacte, lexique (3 `.lex-ref` ↔ 3 entrées avant correctif, aucun terme
+orphelin), rupture de registre (`grep '\bton \|\bta \|\btu \b'` — 2
+occurrences, toutes deux dans `.share-block`, exception légitime),
+style des paragraphes `.dek`/`.why`/`.essentiel-text` (lecture LLM des
+phrases longues, voir réécritures ci-dessous), 3 chiffres/faits
+structurants vérifiés contre 2 des 4 sources citées (voir ci-dessous).
+
+**Point 9 (image)** : `topic-images/2026-08-22.jpg` (1080×1080) et
+`-wide.jpg` (1600×900) présents, `file` confirme un vrai JPEG dans les
+deux cas (pas de PNG renommé), dimensions correctes. `<figure
+class="article-image">` pointe bien vers `-wide.jpg`, cohérent entre
+`index.html` et l'archive. `og:image`/`twitter:image`/JSON-LD `"image"`
+pointent vers `assets/social/instagram/2026-08-22.png` plutôt que vers
+`topic-images/2026-08-22.jpg` — vérifié que ce n'est pas une
+désynchronisation : les 3 métas sont cohérentes entre elles (même
+fichier, dimensions déclarées 1080×1080 = dimensions réelles du PNG,
+`og:image:alt` = `alt` du `<figure>`) et ce même motif (méta social sur
+le PNG Instagram plutôt que le JPG topic-images malgré la présence des
+deux fichiers) existe déjà sur plusieurs éditions précédentes (10-14
+août), pas une anomalie propre à ce jour. Rien à corriger.
+
+**Vérification des chiffres contre les sources citées** (2 des 4 URLs de
+la section Sources fetchées, 4 appels `WebFetch` sur le plafond de 5) :
+- ABC News — *China to limit number of American films imported* :
+  quota de 34 films/an depuis 2015 (contre 20 auparavant) confirmé,
+  droits de douane à 145 % confirmés, annonce de la National Film
+  Administration de « réduire modérément » les importations confirmée
+  (datée du 10 avril 2025 par la source, cohérent avec le « dès avril
+  2025 » de l'article).
+- CGTN (22 février) — *China becomes world's top box office market* :
+  confirme que la Chine a dépassé l'Amérique du Nord au box-office
+  cumulé le 22 février 2026, cohérent avec l'article.
+- CGTN (21 août) — *40 Days, $1.5 billion box office* : **le chiffre de
+  « 40,6 % » de recul du box-office chinois au 1er semestre 2026 (cité 3
+  fois dans l'article — `.dek`, `.essentiel-text`, `.why` de la carte
+  dégradée) n'apparaît nulle part dans cette source** — l'article cité
+  ne parle que de records positifs (26,6 milliards de yuans cumulés au
+  21 août, 10,9 milliards sur l'été), aucun pourcentage, aucune
+  comparaison 2025/2026. Signalé ci-dessous, pas corrigé seul.
+
+**Corrigé automatiquement** :
+- 2 réécritures de clarté (sous le plafond de 3, voir détail ci-dessous),
+  dont l'ajout d'une entrée de lexique (`tentpole`) pour un terme
+  technique jusque-là non expliqué.
+
+**Réécritures de clarté** (avant/après complet pour chacune) :
+- Avant : « Le quota chinois reste fixé à 34 films américains à partage
+  de recettes par an, comme depuis 2015, mais de moins en moins de
+  studios utilisent ce créneau à plein : beaucoup de sorties américaines
+  ordinaires, hors tentpole, restent boudées côté chinois ou snobées côté
+  studio — un cadre de studio résumait la situation cet été en expliquant
+  que sortir un film milieu de gamme en Chine ne rapporte tout simplement
+  plus assez pour en valoir la peine. »
+  Après : « Le quota chinois reste fixé à 34 films américains à partage
+  de recettes par an, comme depuis 2015, mais de moins en moins de
+  studios utilisent ce créneau à plein. Beaucoup de sorties américaines
+  ordinaires, hors tentpole*, restent boudées côté chinois ou snobées
+  côté studio — un cadre de studio résumait la situation cet été en
+  expliquant que sortir un film milieu de gamme en Chine ne rapporte tout
+  simplement plus assez pour en valoir la peine. »
+  Phrase de 78 mots scindée en deux (le « : » reliait deux idées
+  distinctes) ; « tentpole » (terme technique non expliqué) reçoit un
+  `.lex-ref` vers une nouvelle entrée de lexique (« Tentpole ») plutôt que
+  d'être retiré.
+- Avant : « Le prochain vrai test grandeur nature arrive dès la fin de
+  l'année, avec la sortie d'Avengers: Doomsday le 18 décembre 2026 — un
+  duel Marvel qu'on suit déjà de près ailleurs sur le site, voir notre
+  page de suivi Spider-Man contre Avengers, et dont le résultat en Chine
+  en dira long sur la capacité de Hollywood à enchaîner les coups
+  d'éclat plutôt que d'en réussir un seul, isolé. »
+  Après : « Le prochain vrai test grandeur nature arrive dès la fin de
+  l'année, avec la sortie d'Avengers: Doomsday le 18 décembre 2026 — un
+  duel Marvel qu'on suit déjà de près ailleurs sur le site, voir notre
+  page de suivi Spider-Man contre Avengers. Son résultat en Chine en
+  dira long sur la capacité de Hollywood à enchaîner les coups d'éclat
+  plutôt que d'en réussir un seul, isolé. »
+  La clause finale « et dont... » (comma splice après un lien inséré en
+  incise) devient une phrase indépendante ; lien et ancre inchangés.
+
+**Auto-vérification** : balises HTML équilibrées sur `index.html` et
+`archives/2026-08-22.html` (script Python `html.parser`, pile vide en
+fin de parcours, aucun mismatch) ; diff `index.html` vs
+`archives/2026-08-22.html` rejoué après correctif — toujours synchronisés
+(mêmes écarts légitimes qu'avant correctif, rien de nouveau) ; lexique
+rejoué après ajout — 4 `.lex-ref` ↔ 4 `<dt>`/4 `<dd>` sur les deux
+fichiers, aucun terme orphelin. Correctifs uniquement textuels (point 8) —
+pas de capture Playwright nécessaire.
+
+**Signalé pour revue humaine** : le chiffre « 40,6 % » (recul du
+box-office chinois au 1er semestre 2026, cité 3 fois dans l'article) ne
+correspond à rien dans la source CGTN du 21 août citée en bas de page —
+cette source ne fournit aucun pourcentage ni comparaison 2025/2026, ses
+chiffres sont exclusivement positifs (26,6 milliards de yuans cumulés au
+21 août 2026, 10,9 milliards sur l'été). Soit le chiffre s'appuie sur une
+autre source non citée, soit la source a été mal associée à cette
+affirmation précise — à vérifier côté rédaction. URL :
+https://news.cgtn.com/news/2026-08-21/40-Days-1-5-billion-box-office-What-s-next-for-Chinese-films--1PN33sN6tos/p.html
+
+---
+
 ## 2026-08-21 — Le Grand Filtre
 **Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 21 août
 2026), classes CSS attendues présentes dans `<style>` (dont `.delta-france`/
