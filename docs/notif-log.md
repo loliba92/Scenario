@@ -28,6 +28,7 @@ valide, confirmé par un envoi manuel réussi le 22 août).
 La plus récente en tête.
 
 ---
+2026-08-23 — ✅ notification créée (id `9236068f-d7ea-4868-91e7-0e0fe887ae2d`)
 2026-08-22 — ✅ test manuel post-fix, notification créée (id `14681449-6080-4304-bbc5-bbfc73f25690`) — confirme que `included_segments: ['Active Subscriptions']` fonctionne, cause racine réglée
 2026-08-22 — ❌ requête acceptée par l'API (HTTP 200) mais aucune notification créée : réponse `{'id': '', 'errors': ['All included players are not subscribed']}` — aucun abonné OneSignal actif à ce jour, id vide
 2026-08-21 — ❌ requête acceptée par l'API (HTTP 200) mais aucune notification créée : réponse `{'id': '', 'errors': ['All included players are not subscribed']}` — aucun abonné OneSignal actif à ce jour, id vide
