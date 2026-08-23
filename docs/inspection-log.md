@@ -131,6 +131,21 @@ explicite d'un calcul éditorial plausible ; pas signalé comme écart.
   acceptable telle quelle ou mérite un chiffre distinct pour la carte
   compromis.
 
+  **Résolu le 23 août, en conversation avec l'utilisateur** : le KPI
+  identique est confirmé volontaire (format à 64 équipes défini par la
+  proposition elle-même, indépendant de la méthode négociée/imposée) —
+  pas de chiffre distinct à inventer. Décision : rendre le chevauchement
+  visible directement au niveau du tableau d'indicateurs, pas seulement
+  dans l'encart Comprendre plus haut. Une note (`.indicators-note`) a été
+  ajoutée sous les indicateurs des cartes compromis et dégradé, sur
+  `index.html` **et** `archives/2026-08-23.html` (commit `c632b7c`) :
+  « Même chiffre que le scénario [dégradé/favorable] ci-dessous/ci-dessus
+  — c'est la méthode qui les distingue, pas le format final (voir «
+  Comprendre » plus haut). » Correction hors périmètre mécanique de
+  l'inspecteur (touche à la présentation d'un choix éditorial), donc
+  appliquée manuellement avec confirmation explicite de l'utilisateur,
+  pas par la routine automatisée.
+
 ---
 
 ## 2026-08-22 — Hollywood décroche en Chine
