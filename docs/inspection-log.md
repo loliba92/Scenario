@@ -6,6 +6,87 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-08-23 — Le pari XXL du Mondial 2030
+**Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 23 août
+2026), classes CSS attendues présentes dans `<style>` (dont
+`.delta-france`/`.delta-gauge*`/`.delta-word`/`.delta-flag` — bloc comparé
+caractère pour caractère à la version canonique de
+`docs/routine-inspection-prompt.md`, identique — et structure HTML du
+dégradé SVG à 3 stops + `data-score` intacte, `.comprendre-box*` bien
+présente dans `<style>` bien qu'utilisée cette édition-ci pour le focus
+« Comprendre »), sync `index.html` vs `archives/2026-08-23.html` (`diff`
+complet — seuls écarts : `og:url`/`mainEntityOfPage` selon canonical/
+archive, légitimes), `data-france-impact`/`data-kind` cohérents avec le
+texte `.france-line` adjacent sur les 3 cartes (favorable/favorable/
+dégradé, tous alignés avec « Plutôt favorable »/« Plutôt défavorable pour
+la France » du texte adjacent) et avec `.delta-word` (« léger positif »
+cohérent avec `data-kind="positif"`), probabilités 20+45+35=100 %,
+incohérences numériques internes (48/64 équipes, 104/128 matchs, dates 14
+août/11 septembre — cohérents à chaque occurrence, même fait même
+périmètre), label brut favorable/stable/dégradé absent de
+`.essentiel-text` proprement dit (les occurrences « favorable et stable »
+dans `.delta-text` sont des références aux cartes, motif déjà rencontré
+les jours précédents), formulation « Notre évaluation de l'impact pour la
+France » intacte, lexique (4 `.lex-ref` ↔ 4 entrées, aucun terme
+orphelin), rupture de registre (`grep '\bton \|\bta \|\btu \b'` — 2
+occurrences, toutes deux dans `.share-block`, exception légitime), style
+des paragraphes `.dek`/`.why`/`.essentiel-text` (lecture des phrases de
+plus de 40 mots, voir réécritures ci-dessous), 4 chiffres/faits
+structurants vérifiés contre 3 des 4 sources citées (voir ci-dessous).
+
+**Point 9 (image)** : `topic-images/2026-08-23.jpg` (1080×1080) et
+`-wide.jpg` (1600×900) présents, `file` confirme un vrai JPEG dans les
+deux cas (pas de PNG renommé), dimensions correctes. `<figure
+class="article-image">` pointe bien vers `-wide.jpg`, cohérent entre
+`index.html` et l'archive. `og:image`/`twitter:image`/JSON-LD `"image"`
+pointent vers `assets/social/instagram/2026-08-23.png` plutôt que vers
+`topic-images/2026-08-23.jpg` — même motif déjà vérifié le 22 août (et
+les jours précédents), les 3 métas cohérentes entre elles et avec l'`alt`
+du `<figure>`. Rien à corriger.
+
+**Réécritures de clarté** (avant/après complet pour chacune, ou
+"aucune") :
+aucune — plusieurs phrases dans `.dek`/`.why` dépassaient 40-50 mots
+(listes parallèles à 3 éléments, structures « soit... ; soit... ; soit... »
+ou comparatifs simples), mais aucune jugée assez gênante pour la
+compréhension pour justifier une réécriture : ce sont des énumérations ou
+des comparaisons à un seul niveau de subordination, pas des phrases à
+plusieurs subordonnées imbriquées comme les cas déjà corrigés
+précédemment (voir entrées antérieures). Le paragraphe `.essentiel-text`
+de 60 mots fait partie des 3 dernières phrases de la structure
+problématique/contexte/conclusion/signal — non éligible de toute façon.
+
+**Vérification des chiffres contre les sources citées** (3 des 4 URLs de
+la section Sources fetchées avec succès, 4 appels `WebFetch` sur le
+plafond de 5) :
+- Al Jazeera — *FIFA studying impact of expanding to 64 teams* : décision
+  sur le choix de l'agence le 14 août, conclusions attendues le 11
+  septembre 2026, format 2026 confirmé à 48 équipes/104 matchs — conforme
+  à l'article.
+- Foot Mercato (décision attendue le 14 août) : décision le 14 août,
+  48→64 équipes pour 2030 — conforme.
+- Foot Mercato (gros coup dur pour le projet) : opposition confirmée de
+  l'UEFA et de l'AFC, réticence des trois pays hôtes (Espagne, Portugal,
+  Maroc), origine CONMEBOL/Alejandro Domínguez pour le centenaire —
+  conforme à l'article (l'opposition de la CONCACAF, citée dans
+  l'article, n'est pas mentionnée par cette source précise, mais n'est
+  pas non plus contredite — pas traité comme un écart).
+- ESPN — *UEFA's Čeferin calls 64-team plan 'bad idea'* : page renvoyée
+  vide par `WebFetch` (contenu non récupéré, probable blocage
+  d'accès) — **signalée comme source non re-vérifiable**, pas de
+  chiffre de cet article vérifié ce passage-ci.
+
+Le nombre de matchs de la phase finale à 128 pour un format à 64 équipes
+n'est confirmé explicitement par aucune des sources (elles confirment
+seulement le format actuel à 104 matchs pour 48 équipes) — ce n'est pas
+une contradiction, seulement une absence de confirmation externe
+explicite d'un calcul éditorial plausible ; pas signalé comme écart.
+
+**Signalé pour revue humaine** : source ESPN non re-vérifiable ce
+passage-ci (voir ci-dessus) ; à retenter lors d'un prochain passage.
+
+---
+
 ## 2026-08-22 — Hollywood décroche en Chine
 **Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 22 août
 2026), classes CSS attendues présentes dans `<style>` (dont
