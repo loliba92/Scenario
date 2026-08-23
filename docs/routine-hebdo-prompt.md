@@ -69,11 +69,22 @@ Insérer un nouvel `<item>` tout en haut du flux (après `<title>`/`<link>`/`<de
 ```
 **Pas de `<category>`** pour ce flux (pas de sondage Telegram sur l'hebdo). Le `<comments>` sert de texte court réutilisable (aperçu, réseau social). Le `<link>` de l'item pointe vers la page dédiée créée ci-dessous — jamais vers `archives.html` en générique.
 
-**Créer `hebdo/{AAAA-MM-JJ du dimanche}.html`** — page figée, jamais retouchée une fois publiée. Copier exactement le gabarit HTML/CSS du dernier exemple publié, `hebdo/2026-08-09.html` : même masthead/nav/footer, mêmes variables CSS (`--ink`, `--surface`, `--gold`, `--favorable`/`--stable`/`--degrade`, polices Fraunces/Inter/JetBrains Mono), même largeur de colonne (760px). Ne jamais changer le CSS ni la structure — seulement le contenu texte. Pour chacun des 7 jours (dans `<section class="week"><div class="wrap">`), la même carte `.day-card` que le fragment ci-dessous, dans `<div class="week-grid">`, plus un `.week-conclusion` en bas — voir `hebdo/2026-08-09.html` pour le HTML exact (structure, classes, meta `og:*`/`twitter:*`/`article:published_time`/`og:url` adaptées à la nouvelle date/titre). **Ajouter aussi le `<script>` en bas de page** (avant `</body>`) qui gère le clic sur `.day-card-toggle` — copier tel quel.
+**Créer `hebdo/{AAAA-MM-JJ du dimanche}.html`** — page figée, jamais retouchée une fois publiée. Copier exactement le gabarit HTML/CSS du dernier exemple publié, `hebdo/2026-08-23.html` **[gabarit changé le 23 août — voir ci-dessous]** : même masthead/nav/footer, mêmes variables CSS (`--ink`, `--surface`, `--gold`, `--favorable`/`--stable`/`--degrade`, polices Fraunces/Inter/JetBrains Mono), même largeur de colonne (760px). Ne jamais changer le CSS ni la structure — seulement le contenu texte. Dans `<section class="week"><div class="wrap">`, **le résumé vient en premier** (`.week-conclusion.week-conclusion-lead`, gabarit ci-dessous), **puis** `<div class="week-grid">` avec les 7 `.day-card` (même carte que le fragment ci-dessous) — voir `hebdo/2026-08-23.html` pour le HTML exact (structure, classes, meta `og:*`/`twitter:*`/`article:published_time`/`og:url` adaptées à la nouvelle date/titre). **Ajouter aussi le `<script>` en bas de page** (avant `</body>`) qui gère le clic sur `.day-card-toggle` — copier tel quel.
 
-Chaque jour est une `.day-card` dans une grille 2 colonnes (`.week-grid`, 1 colonne sous 620px) : l'image Instagram du jour (déjà générée par la routine quotidienne dans `assets/social/instagram/{AAAA-MM-JJ}.png` — voir `docs/routine-prompt.md`) tient lieu de résumé visuel, avec un bouton « Voir le détail ▾ » qui déplie la question exacte + pourcentages + lien vers l'archive. Utiliser `assets/social/instagram/default.png` (logo + baseline) uniquement si l'image d'un jour manque vraiment.
+Chaque jour est une `.day-card` dans une grille 2 colonnes (`.week-grid`, 1 colonne sous 620px) : l'image Instagram du jour (déjà générée par la routine quotidienne dans `assets/social/instagram/{AAAA-MM-JJ}.png` — voir `docs/routine-prompt.md`) tient lieu de résumé visuel, avec un bouton « Voir le détail ▾ » qui déplie la question exacte + les 3 scénarios détaillés + lien vers l'archive. Utiliser `assets/social/instagram/default.png` (logo + baseline) uniquement si l'image d'un jour manque vraiment.
 
-**Créer aussi `hebdo/fragments/{AAAA-MM-JJ du dimanche}.html`** — fragment séparé (même principe que `archives/fragments/{date}.html`), chargé en lazy-load par `archives.html` sur clic « Les 7 jours ▾ ». Contient uniquement `<div class="week-grid">` avec les 7 `<div class="day-card">` + `<div class="week-conclusion">` final après la fermeture de `.week-grid`, **sans** masthead/nav/footer (voir `hebdo/fragments/2026-08-09.html`) :
+**Le résumé du haut de page** (« Conclusion de la semaine ») reprend le style de l'encart « L'essentiel » des éditions quotidiennes (`.essentiel-box` dans `archives/*.html`) : encart encadré (fond `--surface`, bordure `--gold`, coins arrondis), pas un simple paragraphe en bas de page comme avant le 23 août :
+```html
+<div class="week-conclusion week-conclusion-lead">
+  <p class="week-conclusion-label">Conclusion de la semaine</p>
+  <p>{la phrase d'ouverture rédigée à l'étape 3 — identique au <comments> du flux}</p>
+</div>
+```
+Ce bloc vient **juste après `<div class="wrap">`, avant `<div class="week-grid">`** — jamais après, jamais en bas de page.
+
+**Pour chaque scénario détaillé de chaque jour, réutiliser tel quel le contenu déjà écrit pour `archives/fragments/{AAAA-MM-JJ}.html`** (généré par la routine quotidienne — voir `docs/routine-prompt.md`) : les 3 `<div class="scenario-mini">` avec leur titre, pourcentage **et leur phrase `.scenario-mini-text` qui explique ce que signifie le scénario** — jamais juste un titre + un pourcentage sans explication. Ne pas réécrire ces phrases : copier-coller depuis le fragment archive du jour cité, il existe déjà pour chacune des 7 éditions de la semaine.
+
+**Créer aussi `hebdo/fragments/{AAAA-MM-JJ du dimanche}.html`** — fragment séparé (même principe que `archives/fragments/{date}.html`), chargé en lazy-load par `archives.html` sur clic « Les 7 jours ▾ ». Contient, **dans cet ordre** : `<div class="week-conclusion week-conclusion-lead">` (résumé, gabarit ci-dessus) **en premier**, puis `<div class="week-grid">` avec les 7 `<div class="day-card">`, **sans** masthead/nav/footer (voir `hebdo/fragments/2026-08-23.html`) :
 ```html
 <div class="day-card">
   <p class="day-card-eyebrow">{Jour}, {registre exact de l'eyebrow}</p>
@@ -84,10 +95,19 @@ Chaque jour est une `.day-card` dans une grille 2 colonnes (`.week-grid`, 1 colo
   <div class="day-card-detail" id="detail-{AAAA-MM-JJ}">
     <div class="day-card-detail-inner">
       <p class="day-card-context">{`.question-text` exacte de l'archive citée, avec son ❓ de tête}</p>
-      <div class="scenario-list">
-        <p class="scenario-row{ is-winner si c'est le plus probable}" data-kind="favorable"><span class="scenario-arrow" aria-hidden="true">↑</span><span class="scenario-pct">{X}%</span><span class="scenario-label">{titre exact de la carte favorable}</span></p>
-        <p class="scenario-row{ is-winner si c'est le plus probable}" data-kind="stable"><span class="scenario-arrow" aria-hidden="true">→</span><span class="scenario-pct">{X}%</span><span class="scenario-label">{titre exact de la carte stable}</span></p>
-        <p class="scenario-row{ is-winner si c'est le plus probable}" data-kind="degrade"><span class="scenario-arrow" aria-hidden="true">↓</span><span class="scenario-pct">{X}%</span><span class="scenario-label">{titre exact de la carte dégradé}</span></p>
+      <div class="scenario-grid">
+        <div class="scenario-mini" data-kind="favorable">
+          <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↑</span> <span class="scenario-mini-pct">{X}%</span> {titre exact de la carte favorable}</p>
+          <p class="scenario-mini-text">{copié tel quel depuis archives/fragments/{AAAA-MM-JJ}.html}</p>
+        </div>
+        <div class="scenario-mini" data-kind="stable">
+          <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">→</span> <span class="scenario-mini-pct">{X}%</span> {titre exact de la carte stable}</p>
+          <p class="scenario-mini-text">{copié tel quel depuis archives/fragments/{AAAA-MM-JJ}.html}</p>
+        </div>
+        <div class="scenario-mini" data-kind="degrade">
+          <p class="scenario-mini-title"><span class="scenario-mini-arrow" aria-hidden="true">↓</span> <span class="scenario-mini-pct">{X}%</span> {titre exact de la carte dégradé}</p>
+          <p class="scenario-mini-text">{copié tel quel depuis archives/fragments/{AAAA-MM-JJ}.html}</p>
+        </div>
       </div>
       <a class="day-link" href="archives/{AAAA-MM-JJ}.html">Lire l'édition →</a>
     </div>
@@ -96,14 +116,7 @@ Chaque jour est une `.day-card` dans une grille 2 colonnes (`.week-grid`, 1 colo
 ```
 Si l'image du jour manque, remplacer uniquement le bloc `<a class="day-card-image-link">...</a>` par `src="assets/social/instagram/default.png"` — le reste ne change pas.
 
-**Dans ce fragment, les liens `href`/`src` sont relatifs à la racine du site** (sans `../`) — différent de la page `hebdo/{date}.html` elle-même qui utilise `../archives/...` et `../assets/...`. Ne pas confondre. **`is-winner` va uniquement sur le `<p class="scenario-row">` du scénario au plus haut pourcentage** (jamais deux, jamais aucun). Les 7 cartes à la suite, lundi en premier. Après `.week-grid` :
-```html
-<div class="week-conclusion">
-  <p class="week-conclusion-label">Conclusion de la semaine</p>
-  <p>{la phrase d'ouverture rédigée à l'étape 3 — identique au <comments> du flux}</p>
-</div>
-```
-`archives.html` porte déjà tout le CSS/JS nécessaires pour ce fragment — rien à y modifier en dehors de la nouvelle `<li class="entry entry-weekly">` ci-dessous.
+**Dans ce fragment, les liens `href`/`src` sont relatifs à la racine du site** (sans `../`) — différent de la page `hebdo/{date}.html` elle-même qui utilise `../archives/...` et `../assets/...`. Ne pas confondre. Plus de notion de « scénario gagnant » à marquer dans ce gabarit (pas d'`is-winner`) : les 3 scénarios sont affichés à plat avec leur pourcentage et leur explication, comme dans `.scenario-grid`/`.scenario-mini` sur les pages d'archives — le pourcentage suffit à repérer le plus probable. Les 7 cartes à la suite, lundi en premier. `archives.html` porte déjà tout le CSS/JS nécessaires pour ce fragment (`.week-conclusion-lead`, `.scenario-grid`, `.scenario-mini*` y sont déjà définis) — rien à y modifier en dehors de la nouvelle `<li class="entry entry-weekly">` ci-dessous.
 
 **Ajouter une nouvelle entrée dans `archives.html`**, dans `<ul class="entries" id="entries">`. **Positionnement : toujours juste EN DESSOUS de l'entrée de l'édition quotidienne de CE dimanche** (déjà en tête de liste). Repérer le `<li class="entry">` dont `<span class="entry-date">` correspond à la date du jour, insérer juste après son `</li>` :
 ```html

@@ -736,6 +736,7 @@
   }
 
   .day-card .scenario-list{ margin-bottom: 8px; }
+  .day-card .scenario-grid{ gap: 12px; margin-bottom: 8px; }
 
   .week-conclusion{ padding: 20px 0 4px; }
   .week-conclusion-label{
@@ -747,6 +748,18 @@
     margin: 0 0 8px;
   }
   .week-conclusion p{ font-size: 0.9rem; color: var(--paper); max-width: 62ch; margin: 0; }
+
+  /* Version "en tête" du récap hebdo : même bloc que .week-conclusion mais
+     encadré comme .essentiel-box (archives/*.html), affiché avant la grille
+     des 7 jours au lieu d'après. */
+  .week-conclusion-lead{
+    background: var(--surface);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin: 0 0 24px;
+  }
+  .week-conclusion-lead p{ max-width: none; }
 
   footer{
     border-top: 1px solid var(--hairline);
