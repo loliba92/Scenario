@@ -352,6 +352,12 @@ proprement sans rien inspecter — pas de fallback sur l'édition de la veille.
     trancher seul — signaler** plutôt que d'inventer un chiffre au
     hasard, même juste pour "faire 3 valeurs différentes" : un chiffre
     KPI reste un fait projeté, pas une variable de mise en forme.
+    **Même si l'article explique déjà lui-même le chevauchement quelque
+    part (`.comprendre-box` ou ailleurs) — ça ne change rien, signaler
+    quand même** (voir le piège du 23 août dans la section "Ce qui est
+    seulement signalé" plus bas : une explication trouvée dans le texte
+    n'est pas une autorisation de classer sans suite, elle est un
+    argument de plus à transmettre à la revue humaine).
     Correction journalée avec l'avant/après complet dans
     `docs/inspection-log.md`, même discipline que le point 8.
 
@@ -427,6 +433,21 @@ auto-vérification.
 Les signalements sont ajoutés à `docs/inspection-log.md`, jamais poussés
 comme modification du site — un signalement n'est jamais un commit sur
 `index.html`/l'archive.
+
+**Piège déjà rencontré (édition du 23 août) — trouver une explication ne
+dispense pas de signaler.** Un doublon complet de KPI (point 10, cartes
+« compromis » et « dégradé » toutes deux à 64 équipes/128 matchs) a été
+classé à tort « non-anomalie, rien à signaler » au premier passage, au
+motif que le `.comprendre-box` de l'article expliquait déjà lui-même ce
+chevauchement. C'est une erreur de raisonnement à ne pas reproduire :
+**repérer soi-même une explication éditoriale plausible dans le texte de
+l'article (ou ailleurs) ne dispense jamais du signalement** pour un point
+classé « signaler » ci-dessus ou au point 4/10 — l'inspecteur n'a pas
+autorité pour décider que cette explication suffit à clore le sujet, seule
+la rédaction le peut. Cette explication trouvée est elle-même à reporter
+telle quelle dans le signalement (« l'article l'explique déjà via X »),
+comme argument transmis à la revue humaine, jamais comme motif pour
+sauter l'entrée « Signalé pour revue humaine » du journal.
 
 ## Vérification des chiffres contre les sources déjà citées
 
