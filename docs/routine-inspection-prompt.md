@@ -20,20 +20,23 @@ n'a jamais le droit de changer un choix éditorial (quel scénario, quelle
 probabilité, quel angle) — seulement de rattraper une erreur.
 
 **Économie de tokens — consigne explicite, cette routine tourne tous les
-jours indéfiniment.** Pour les points 1 à 7 et 9 de la section « Corrigé
-seul » ci-dessous, **utiliser des outils déterministes (Bash : `grep`,
-`diff`, `file`, un script Python court) plutôt que de lire le fichier
-entier et de raisonner dessus** — aucun de ces points ne demande de
-jugement, un diff, une recherche de motif ou une inspection de fichier
-binaire suffit pour détecter le problème ; ne lire/réécrire en détail que
-le passage concerné une fois un problème localisé. Le point 9 (image de
-l'article/du feed) reste dans cette catégorie bon marché même quand il
-recrée un fichier : la source utilisée en repli (banque de secours par
-registre) est déjà pré-validée, donc jamais de nouvelle recherche Pexels
-ni de revue visuelle de candidats à faire ici. **Seuls 2 points demandent
-une vraie lecture LLM** : le point 8 (clarté/pédagogie) et la
-vérification des chiffres contre les sources — tout le reste doit rester
-bon marché.
+jours indéfiniment.** Pour les points 1 à 7, 9 et 10 de la section
+« Corrigé seul » ci-dessous, **utiliser des outils déterministes (Bash :
+`grep`, `diff`, `file`, un script Python court) plutôt que de lire le
+fichier entier et de raisonner dessus** — la détection de chacun de ces
+points ne demande aucun jugement, un diff, une recherche de motif, une
+extraction de valeurs ou une inspection de fichier binaire suffit ; ne
+lire/réécrire en détail que le passage concerné une fois un problème
+localisé (les points 4 et 10 gardent malgré tout un volet correction qui
+peut demander un peu de jugement une fois le problème localisé — c'est la
+détection qui doit rester bon marché, pas nécessairement la correction).
+Le point 9 (image de l'article/du feed) reste dans cette catégorie bon
+marché même quand il recrée un fichier : la source utilisée en repli
+(banque de secours par registre) est déjà pré-validée, donc jamais de
+nouvelle recherche Pexels ni de revue visuelle de candidats à faire ici.
+**Seuls 2 points demandent une vraie lecture LLM dès la détection** : le
+point 8 (clarté/pédagogie) et la vérification des chiffres contre les
+sources — tout le reste doit rester bon marché.
 
 ---
 
@@ -310,6 +313,48 @@ proprement sans rien inspecter — pas de fallback sur l'édition de la veille.
    et les meta `og:image`/`twitter:image`/JSON-LD `"image"`, sur
    `index.html` **et** `archives/{AAAA-MM-JJ}.html`.
 
+10. **[AJOUTÉ le 23 août, demande explicite de l'utilisateur] Deux
+    scénarios indiscernables sur leurs KPI projetés.** Chaque carte de
+    scénario porte exactement les mêmes 2 indicateurs (`.field-name`
+    identiques dans les 3 cartes, voir `docs/ARCHITECTURE.md`), chacun
+    avec une valeur projetée par scénario (`.evo-current`). L'intérêt de
+    ces indicateurs est justement de rendre visible en quoi les 3
+    scénarios diffèrent concrètement — si deux cartes affichent
+    **exactement les mêmes valeurs `.evo-current` sur leurs deux
+    indicateurs à la fois**, les deux scénarios sont numériquement
+    indiscernables, même si leur récit (`.why`) et leur probabilité
+    diffèrent. Exemple de ce qui est attendu (édition du 22 août,
+    Hollywood/Chine) : quota ≈30/34/≈20 et taux de reversement
+    ≈30 %/≈25 %/≈18 % sur les 3 cartes — chaque scénario a sa propre
+    paire de valeurs, aucune ne se répète à l'identique sur les deux
+    indicateurs en même temps.
+
+    **Vérification, mécanique** : extraire les `.evo-current` des 3
+    cartes pour chacun des 2 indicateurs (même ordre que `.field-name`)
+    et comparer les 3 cartes deux à deux. Un chevauchement sur un seul
+    des deux indicateurs n'est **pas** un problème en soi (deux
+    scénarios peuvent légitimement partager un point de départ sur un
+    indicateur tout en divergeant sur l'autre) — seul un doublon
+    **complet** (les deux `.evo-current` identiques entre deux cartes)
+    déclenche une correction.
+
+    **Correction, prudente** : modifier uniquement la ou les valeurs
+    `.evo-current`/`.evo-prev`/`.evo-arrow` du scénario dupliqué le moins
+    probable des deux (jamais les probabilités, le `data-kind`, le texte
+    `.why`/`.france-line`, ou l'autre scénario) — ajuster le chiffre dans
+    le sens déjà cohérent avec son propre `.evo-arrow` et avec l'écart
+    déjà visible entre les 2 autres cartes sur ce même indicateur (rester
+    dans le même ordre de grandeur que la progression existante, ne pas
+    inventer une rupture). **Si aucun ajustement plausible et cohérent ne
+    se dégage naturellement** (par exemple : les 3 scénarios sont censés
+    partager la même valeur de départ pour une raison éditoriale
+    légitime, ou le sens de l'ajustement n'est pas évident), **ne pas
+    trancher seul — signaler** plutôt que d'inventer un chiffre au
+    hasard, même juste pour "faire 3 valeurs différentes" : un chiffre
+    KPI reste un fait projeté, pas une variable de mise en forme.
+    Correction journalée avec l'avant/après complet dans
+    `docs/inspection-log.md`, même discipline que le point 8.
+
 ## Auto-vérification obligatoire après chaque correction, avant tout commit
 
 **Aucune correction ci-dessus ne se commite directement.** Toute la soirée
@@ -320,7 +365,7 @@ agent qui "corrige" seul, tous les jours, sans jamais se relire est le vrai
 risque d'automatisation. Rester bon marché : ces vérifications sont toutes
 déterministes, aucune ne demande une relecture LLM du fichier entier.
 
-Après avoir appliqué un correctif (points 1 à 9), avant de commiter :
+Après avoir appliqué un correctif (points 1 à 10), avant de commiter :
 
 1. **Balise HTML équilibrée.** Script Python court (`html.parser` ou
    équivalent) sur le(s) fichier(s) modifié(s) : aucune balise ouverte non
@@ -329,7 +374,14 @@ Après avoir appliqué un correctif (points 1 à 9), avant de commiter :
    correctif.** Rejouer le diff du point 2 — un correctif appliqué sur un
    seul des deux fichiers par erreur doit être détecté ici, pas laissé pour
    le lendemain.
-3. **Pour un correctif du point 1 (CSS/structure de la jauge) ou du point 9
+3. **Pour un correctif du point 10 (KPI ajusté) uniquement** : revérifier
+   que le nouvel `.evo-current` reste cohérent avec son propre
+   `.evo-arrow` (`is-up`/`is-down`/`is-flat` doit toujours correspondre au
+   sens réel de l'écart avec `.evo-prev` après l'ajustement, pas seulement
+   avant) et que les 3 cartes restent bien 3 valeurs distinctes sur les
+   deux indicateurs à la fois — rejouer la comparaison du point 10 après
+   correctif, pas seulement avant.
+4. **Pour un correctif du point 1 (CSS/structure de la jauge) ou du point 9
    (image recréée ou régénérée) uniquement** — les deux seuls types de
    correction qui touchent vraiment la mise en page, pas seulement du
    texte : une capture Playwright ciblée sur `.delta-france` (point 1) ou
@@ -342,9 +394,10 @@ Après avoir appliqué un correctif (points 1 à 9), avant de commiter :
    plus que le format réel du fichier régénéré correspond bien à son
    extension (`file`) avant la capture — inutile de lancer Playwright sur
    un fichier qui échouerait de toute façon à ce contrôle basique. Les
-   correctifs des points 2 à 8 sont uniquement textuels/attributs — pas
-   de capture nécessaire, la vérification 1-2 suffit.
-4. **Si une de ces vérifications échoue** : annuler le correctif
+   correctifs des points 2 à 8 et 10 sont uniquement textuels/attributs —
+   pas de capture Playwright nécessaire, les vérifications 1-2 (et 3 pour
+   le point 10) suffisent.
+5. **Si une de ces vérifications échoue** : annuler le correctif
    (`git checkout -- <fichier(s) concernés>`, jamais un reset plus large),
    consigner l'entrée dans `docs/inspection-log.md` sous « Signalé pour
    revue humaine » (pas « Corrigé automatiquement »), en précisant quelle
@@ -363,6 +416,8 @@ auto-vérification.
 - Les 3 probabilités des scénarios ne somment pas à 100 % — corriger
   laquelle des trois change le sens éditorial, ce n'est pas mécanique.
 - Incohérence numérique interne ambiguë (voir point 4 ci-dessus).
+- KPI dupliqué entre deux scénarios sans ajustement plausible et cohérent
+  (voir point 10 ci-dessus).
 - Écart entre un chiffre cité dans l'article et sa source déjà citée en bas
   de page (voir section suivante) — la source a pu être mise à jour depuis
   la rédaction, ce n'est pas automatiquement l'article qui a tort.
