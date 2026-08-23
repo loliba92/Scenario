@@ -1,0 +1,582 @@
+<title>À cheval en Irlande</title>
+<style>
+  :root{
+    --bg: #F4E4C9;
+    --bg-alt: #ECD5AC;
+    --ink: #2B1710;
+    --ink-soft: #5B3F2E;
+    --ink-faint: #7A5C46;
+    --accent: #8C2F3D;
+    --accent-2: #D98A2B;
+    --hairline: #D8BD8C;
+    --sky-top: #6E2F45;
+    --sky-mid: #C8622F;
+    --sky-horizon: #F3B24A;
+    --equine: #241209;
+    --shadow: 0 20px 46px -22px rgba(60,26,10,0.5);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg: #1B1220;
+      --bg-alt: #271A2B;
+      --ink: #F3E4C9;
+      --ink-soft: #C9AE8C;
+      --ink-faint: #8E7660;
+      --accent: #E0839A;
+      --accent-2: #F0B04C;
+      --hairline: #3A2A3E;
+      --sky-top: #150C1E;
+      --sky-mid: #4A2038;
+      --sky-horizon: #C97A3A;
+      --equine: #0E0805;
+      --shadow: 0 20px 50px -20px rgba(0,0,0,0.7);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg: #1B1220;
+    --bg-alt: #271A2B;
+    --ink: #F3E4C9;
+    --ink-soft: #C9AE8C;
+    --ink-faint: #8E7660;
+    --accent: #E0839A;
+    --accent-2: #F0B04C;
+    --hairline: #3A2A3E;
+    --sky-top: #150C1E;
+    --sky-mid: #4A2038;
+    --sky-horizon: #C97A3A;
+    --equine: #0E0805;
+    --shadow: 0 20px 50px -20px rgba(0,0,0,0.7);
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Vollkorn", Georgia, "Times New Roman", serif;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection{ background: var(--accent-2); color: var(--equine); }
+  :focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; }
+  img,svg{ display: block; max-width: 100%; }
+  a{ color: inherit; }
+
+  h1,h2,h3{
+    font-family: "Bodoni Moda", Georgia, serif;
+    font-weight: 700;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  .eyebrow{
+    font-family: "Jost", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* ---------- masthead ---------- */
+  .masthead{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.15rem clamp(1.25rem, 4vw, 3rem);
+  }
+  .wordmark{
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: "Bodoni Moda", Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 0.01em;
+  }
+  .wordmark svg{ color: var(--accent); flex: none; }
+  .tagline{
+    font-family: "Jost", sans-serif;
+    font-size: 0.74rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-faint);
+    font-style: italic;
+    display: none;
+  }
+  @media (min-width: 640px){ .tagline{ display: block; } }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position: relative;
+    overflow: hidden;
+    min-height: min(94vh, 780px);
+    display: flex;
+    align-items: flex-end;
+  }
+  .hero-art{ position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero-art svg{ width: 100%; height: 100%; }
+  .hero-scrim{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 42%, var(--bg) 96%);
+  }
+  .hero-credit{
+    position: absolute;
+    left: clamp(1.25rem, 4vw, 3rem);
+    bottom: 0.9rem;
+    font-family: "Vollkorn", serif;
+    font-style: italic;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+  }
+  .hero-content{
+    position: relative;
+    z-index: 1;
+    padding: 0 clamp(1.25rem, 4vw, 3rem) clamp(2.2rem, 5vw, 3.5rem);
+    max-width: 880px;
+  }
+  .hero-content h1{
+    font-style: italic;
+    font-size: clamp(2.5rem, 5.4vw + 1rem, 5rem);
+    line-height: 1.02;
+    margin: 0.65rem 0 1rem;
+    color: var(--ink);
+  }
+  .hero-dek{
+    font-size: 1.18rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    max-width: 42ch;
+    margin: 0 0 1.3rem;
+  }
+  .meta-row{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem 1.3rem;
+    font-family: "Jost", sans-serif;
+    font-size: 0.76rem;
+    letter-spacing: 0.03em;
+    color: var(--ink-faint);
+  }
+  .meta-row span:not(:last-child)::after{
+    content: "·";
+    margin-left: 1.3rem;
+    color: var(--hairline);
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .hero-content > *{ animation: rise 1s cubic-bezier(.22,.9,.32,1) both; }
+    .hero-content .eyebrow{ animation-delay: 0.02s; }
+    .hero-content h1{ animation-delay: 0.1s; }
+    .hero-content .hero-dek{ animation-delay: 0.2s; }
+    .hero-content .meta-row{ animation-delay: 0.3s; }
+    @keyframes rise{
+      from{ opacity: 0; transform: translateY(16px); }
+      to{ opacity: 1; transform: translateY(0); }
+    }
+    .mane-strand{ animation: sway 4.5s ease-in-out infinite; }
+    .mane-strand.s2{ animation-delay: 0.3s; animation-duration: 5.2s; }
+    .mane-strand.s3{ animation-delay: 0.6s; animation-duration: 4.8s; }
+    .mane-strand.s4{ animation-delay: 0.15s; animation-duration: 5.6s; }
+    .mane-strand.s5{ animation-delay: 0.45s; animation-duration: 6s; }
+    @keyframes sway{
+      0%,100%{ transform: rotate(-2.4deg); }
+      50%{ transform: rotate(2deg); }
+    }
+  }
+
+  /* ---------- article body ---------- */
+  .article-inner{
+    max-width: 700px;
+    margin: 0 auto;
+    padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 4vw, 1.5rem) 0;
+  }
+  .lede{
+    font-size: 1.22rem;
+    color: var(--ink-soft);
+    margin: 0 0 1.4rem;
+  }
+  .lede::first-letter{
+    font-family: "Bodoni Moda", Georgia, serif;
+    font-weight: 700;
+    font-size: 3.6rem;
+    float: left;
+    line-height: 0.8;
+    margin: 0.12rem 0.55rem 0 0;
+    color: var(--accent);
+  }
+
+  .flourish{
+    display: flex;
+    justify-content: center;
+    margin: 2.4rem 0;
+    color: var(--accent-2);
+  }
+  .flourish svg{ width: 70px; height: 18px; }
+
+  .body-block{ margin: 0 0 2.4rem; }
+  .body-block h2{
+    font-size: 1.65rem;
+    font-style: italic;
+    margin-bottom: 0.9rem;
+    color: var(--ink);
+  }
+  .body-block p{ font-size: 1.07rem; margin: 0 0 1rem; }
+  .body-block p:last-child{ margin-bottom: 0; }
+
+  blockquote{
+    margin: 2.8rem 0;
+    padding: 0.3rem 0 0.3rem 1.5rem;
+    border-left: 3px solid var(--accent-2);
+    font-family: "Bodoni Moda", Georgia, serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+  blockquote cite{
+    display: block;
+    font-family: "Jost", sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 0.8rem;
+  }
+
+  /* ---------- itinerary rail ---------- */
+  .itinerary{ margin: 3.2rem 0; }
+  .itinerary .eyebrow{ display: block; margin-bottom: 1.1rem; }
+  .day-scroll{
+    display: flex;
+    gap: 0.9rem;
+    overflow-x: auto;
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.5rem;
+    scrollbar-width: thin;
+  }
+  .day-card{
+    flex: 0 0 auto;
+    width: 172px;
+    background: var(--bg-alt);
+    border-radius: 4px;
+    padding: 1rem 1.1rem;
+    border-top: 2px solid var(--accent-2);
+  }
+  .day-card .day-num{
+    font-family: "Jost", sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.09em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .day-card p{
+    font-family: "Vollkorn", serif;
+    font-size: 0.94rem;
+    color: var(--ink-soft);
+    margin: 0.5rem 0 0;
+    line-height: 1.42;
+  }
+  .map-wrap{ display: flex; gap: 1.7rem; align-items: center; flex-wrap: wrap; }
+  .map-svg{ width: 220px; flex: none; color: var(--ink-faint); }
+  .map-svg .route{ stroke: var(--accent); }
+  .map-svg .pin{ fill: var(--accent); }
+  .map-svg .pin-label{ font-family: "Jost", sans-serif; font-size: 7.5px; fill: var(--ink-soft); }
+  .map-note{ font-size: 0.86rem; font-style: italic; color: var(--ink-faint); max-width: 32ch; }
+
+  /* ---------- two-col: encadré + à retenir ---------- */
+  .two-col{ display: grid; grid-template-columns: 1fr; gap: 1.6rem; margin: 3.2rem 0; }
+  @media (min-width: 620px){ .two-col{ grid-template-columns: 1fr 1fr; } }
+  .card{
+    background: var(--bg-alt);
+    border-radius: 6px;
+    padding: 1.6rem 1.7rem;
+    position: relative;
+  }
+  .card--stitched::before{
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border: 1px dashed color-mix(in srgb, var(--accent) 55%, transparent);
+    border-radius: 3px;
+    pointer-events: none;
+  }
+  .card h3{
+    font-family: "Bodoni Moda", serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    margin-bottom: 1.1rem;
+    color: var(--ink);
+  }
+  .dl-grid{ display: grid; grid-template-columns: auto 1fr; gap: 0.6rem 1.1rem; font-size: 0.93rem; }
+  .dl-grid dt{
+    font-family: "Jost", sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    align-self: start;
+    padding-top: 0.15rem;
+  }
+  .dl-grid dd{ margin: 0; color: var(--ink); }
+  .retenir-list{ margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+  .retenir-list li{ font-size: 0.95rem; padding-left: 1.35rem; position: relative; color: var(--ink-soft); }
+  .retenir-list li::before{
+    content: "";
+    position: absolute; left: 0; top: 0.55em;
+    width: 0.55rem; height: 2px;
+    background: var(--accent-2);
+  }
+
+  .verif-note{
+    margin: 2.6rem 0;
+    font-family: "Vollkorn", serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--ink-faint);
+    text-align: center;
+    max-width: 52ch;
+    margin-inline: auto;
+  }
+
+  .conclusion{
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin: 0 0 3rem;
+  }
+
+  /* ---------- related ---------- */
+  .related{ background: var(--bg-alt); padding: clamp(2.5rem, 6vw, 3.5rem) 0 4rem; }
+  .related .article-inner{ padding-top: 0; max-width: 780px; }
+  .related h2{ font-family: "Bodoni Moda", serif; font-style: italic; font-size: 1.3rem; margin-bottom: 1.4rem; }
+  .related-grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.1rem; }
+  .related-card{
+    display: block;
+    padding: 1.25rem 1.35rem;
+    background: var(--bg);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .related-card:hover{ transform: translateY(-3px); box-shadow: var(--shadow); }
+  .related-card .eyebrow{ display: block; margin-bottom: 0.6rem; }
+  .related-card p{
+    font-family: "Bodoni Moda", serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .related-card:hover p{ color: var(--accent); }
+
+  footer{
+    padding: 2rem clamp(1.25rem, 4vw, 3rem) 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-family: "Jost", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    color: var(--ink-faint);
+  }
+</style>
+
+<header class="masthead">
+  <div class="wordmark">
+    <svg viewBox="0 0 48 48" width="24" height="24" aria-hidden="true">
+      <path d="M24 6c-9 0-15 7-15 16 0 6 2 10 5 13l3-3c-2-2-4-5-4-10 0-7 4.5-12 11-12s11 5 11 12c0 5-2 8-4 10l3 3c3-3 5-7 5-13 0-9-6-16-15-16z" fill="none" stroke="currentColor" stroke-width="3"/>
+    </svg>
+    Crinière
+  </div>
+  <span class="tagline">— le magazine qui donne envie de partir à cheval</span>
+</header>
+
+<section class="hero">
+  <div class="hero-art">
+    <svg viewBox="0 0 1200 760" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Illustration d'une tête de cheval au vent, silhouette dorée sur un ciel de crépuscule">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="var(--sky-top)"/>
+          <stop offset="55%" stop-color="var(--sky-mid)"/>
+          <stop offset="100%" stop-color="var(--sky-horizon)"/>
+        </linearGradient>
+        <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="var(--sky-horizon)" stop-opacity="0.95"/>
+          <stop offset="100%" stop-color="var(--sky-horizon)" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1200" height="760" fill="url(#sky)"/>
+      <circle cx="900" cy="230" r="300" fill="url(#sun)"/>
+      <g transform="translate(140,60) scale(1.02)">
+        <g class="mane-strand s1" style="transform-origin:800px 120px" stroke="var(--accent-2)" stroke-width="10" stroke-linecap="round" fill="none">
+          <path d="M800,120 C760,90 700,70 640,80 C600,88 560,110 530,150"/>
+        </g>
+        <g class="mane-strand s2" style="transform-origin:760px 150px" stroke="var(--accent)" stroke-width="12" stroke-linecap="round" fill="none">
+          <path d="M760,150 C700,130 640,120 580,140 C540,155 500,180 470,215"/>
+        </g>
+        <g class="mane-strand s3" style="transform-origin:710px 190px" stroke="var(--accent)" stroke-width="13" stroke-linecap="round" fill="none" opacity="0.92">
+          <path d="M710,190 C650,175 590,175 535,200 C495,220 460,250 435,285"/>
+        </g>
+        <g class="mane-strand s4" style="transform-origin:660px 235px" stroke="var(--equine)" stroke-width="14" stroke-linecap="round" fill="none" opacity="0.85">
+          <path d="M660,235 C600,225 545,232 495,258 C455,280 420,310 400,345"/>
+        </g>
+        <g class="mane-strand s5" style="transform-origin:615px 280px" stroke="var(--equine)" stroke-width="15" stroke-linecap="round" fill="none" opacity="0.75">
+          <path d="M615,280 C560,278 510,290 465,315 C428,336 395,365 375,400"/>
+        </g>
+        <path d="M815,108 C845,112 868,126 878,148 C896,172 910,198 920,224 C908,236 894,242 880,240 C864,238 852,232 842,230 C822,226 812,248 810,264 C792,284 770,308 748,338 C712,386 686,414 664,442 L606,436 C592,398 588,356 598,318 C610,272 630,232 658,196 C688,158 722,132 758,118 C778,110 798,106 815,108 Z" fill="var(--equine)"/>
+        <path d="M795,102 L812,66 L828,104 Z" fill="var(--equine)"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hero-scrim"></div>
+  <span class="hero-credit">Illustration éditoriale — Agent Images, généré, usage interne, 23/08/2026</span>
+  <div class="hero-content">
+    <span class="eyebrow">Voyager à cheval — Irlande</span>
+    <h1>Partir à cheval en Irlande, la crinière au vent</h1>
+    <p class="hero-dek">Sept jours sur les poneys connemara, entre tourbières et galops sur le sable de l'Atlantique — le voyage dont tous les cavaliers rêvent.</p>
+    <div class="meta-row">
+      <span>6 min de lecture</span>
+      <span>Mis à jour le 23 août 2026</span>
+      <span>Niveau : confirmé</span>
+    </div>
+  </div>
+</section>
+
+<main>
+  <article class="article-inner">
+    <p class="lede">Au bout de l'Europe, là où l'Atlantique cogne contre les falaises du Connemara, une poignée de centres équestres font encore galoper leurs poneys sur le sable mouillé, à marée basse. Ici, le cheval n'est pas un loisir du dimanche : c'est une façon de traverser un paysage que la route ne raconte pas — tourbières, murets de pierre sèche, plages désertes balayées par le vent. Une semaine à cheval en Irlande n'a rien d'un circuit organisé au pas ; c'est une immersion physique dans l'un des derniers grands espaces sauvages d'Europe de l'Ouest.</p>
+
+    <div class="flourish" aria-hidden="true">
+      <svg viewBox="0 0 70 18"><path d="M2 9 C 14 -2, 22 20, 35 9 C 48 -2, 56 20, 68 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+
+    <div class="body-block">
+      <h2>Le Connemara, terre de poneys et de tourbières</h2>
+      <p>Le Connemara occupe l'angle nord-ouest du comté de Galway : une lande de bruyère et de tourbe, cerclée de lacs et de murets de pierre sèche montés sans mortier, où les fermes se comptent encore en moutons et en poneys. C'est un terrain exigeant — sol spongieux, cailloux affleurants, dénivelés courts mais fréquents — qui a façonné une race de chevaux plutôt qu'un simple décor de carte postale.</p>
+      <p>La région reste peu peuplée : sur plusieurs heures de selle, on croise davantage de moutons que de voitures. C'est précisément ce qui rend le voyage à cheval juste, ici — la seule façon de vraiment sentir la distance entre deux hameaux, plutôt que de la traverser en quelques minutes de route côtière.</p>
+    </div>
+
+    <section class="itinerary">
+      <span class="eyebrow">Itinéraire — sept jours</span>
+      <div class="day-scroll">
+        <div class="day-card"><span class="day-num">Jour 1</span><p>Arrivée à Galway, prise de contact avec les chevaux.</p></div>
+        <div class="day-card"><span class="day-num">Jour 2–3</span><p>Connemara profond : tourbières et murets de pierre.</p></div>
+        <div class="day-card"><span class="day-num">Jour 4</span><p>Roundstone : galop sur le sable, marée basse.</p></div>
+        <div class="day-card"><span class="day-num">Jour 5</span><p>Renvyle, criques sauvages et falaises basses.</p></div>
+        <div class="day-card"><span class="day-num">Jour 6–7</span><p>Killary Harbour, dernier fjord d'Irlande. Retour.</p></div>
+      </div>
+      <div class="map-wrap">
+        <svg class="map-svg" viewBox="0 0 220 170" role="img" aria-label="Carte simplifiée de l'itinéraire dans le Connemara">
+          <path d="M20 40 C 10 60, 8 90, 18 115 C 26 138, 45 150, 68 148 C 92 146, 100 130, 118 128 C 140 126, 155 110, 158 88 C 160 66, 148 48, 128 42 C 108 36, 96 48, 78 44 C 58 40, 40 24, 20 40 Z" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.5"/>
+          <path class="route" d="M40 48 C 55 68, 60 92, 76 108 C 90 122, 108 118, 128 96" fill="none" stroke-width="1.6" stroke-dasharray="3 4"/>
+          <g class="pin"><circle cx="40" cy="48" r="3.2"/><text class="pin-label" x="46" y="46">Galway</text></g>
+          <g class="pin"><circle cx="55" cy="72" r="3.2"/><text class="pin-label" x="61" y="70">Connemara</text></g>
+          <g class="pin"><circle cx="62" cy="98" r="3.2"/><text class="pin-label" x="30" y="102">Roundstone</text></g>
+          <g class="pin"><circle cx="82" cy="110" r="3.2"/><text class="pin-label" x="88" y="114">Renvyle</text></g>
+          <g class="pin"><circle cx="128" cy="96" r="3.2"/><text class="pin-label" x="134" y="94">Killary</text></g>
+        </svg>
+        <p class="map-note">Carte illustrative, tracé simplifié — à remplacer par les données réelles de l'organisateur avant publication.</p>
+      </div>
+    </section>
+
+    <div class="body-block">
+      <h2>Le connemara, un pur produit du terrain</h2>
+      <p>Le poney connemara — 1,30 à 1,42 m au garrot — a été sélectionné sur ce sol précis : pied sûr sur la tourbe détrempée, endurance sur de longues distances au pas et au trot, tempérament calme malgré un terrain accidenté. Il n'a rien d'un poney de manège ; c'est un cheval de travail, historiquement utilisé pour tirer la charrette autant que pour être monté.</p>
+      <p>Pour le cavalier de voyage, cette robustesse change tout : pas besoin d'un cheval « de compétition » pour ce terrain, et le rythme des sorties peut rester soutenu — trot et galop chaque jour — sans épuiser la monture.</p>
+    </div>
+
+    <blockquote>
+      « Le silence n'existe pas ici : juste le vent, le bruit sourd des sabots sur la tourbe, et parfois une bécassine qui s'envole devant nous. »
+      <cite>Carnet de route — centre équestre du Connemara</cite>
+    </blockquote>
+
+    <div class="body-block">
+      <h2>Où dormir : fermes, cottages et haras d'accueil</h2>
+      <p>Les centres qui organisent ce type de séjour hébergent en général en cottage ou en petite ferme rénovée, avec les chevaux au pré juste derrière. On est loin de l'hôtel : douches partagées, cuisine commune, dîners pris avec les guides. C'est une partie du charme du voyage, mais à annoncer clairement avant réservation — certains cavaliers découvrent ce niveau de confort sur place, et le regrettent.</p>
+      <p>Quelques adresses proposent une nuit « confort » en fin de séjour, généralement à Galway, pour souffler avant le retour.</p>
+    </div>
+
+    <div class="flourish" aria-hidden="true">
+      <svg viewBox="0 0 70 18"><path d="M2 9 C 14 -2, 22 20, 35 9 C 48 -2, 56 20, 68 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+
+    <div class="two-col">
+      <div class="card card--stitched">
+        <h3>Encadré pratique</h3>
+        <dl class="dl-grid">
+          <dt>Durée</dt><dd>7 jours / 6 nuits</dd>
+          <dt>Niveau</dt><dd>Cavalier confirmé — 2 à 3 h de selle/jour</dd>
+          <dt>Budget</dt><dd>1 400 – 1 900 € (vol non inclus)</dd>
+          <dt>Saison</dt><dd>Mai à septembre</dd>
+          <dt>À prévoir</dt><dd>Pantalon d'équitation imperméable, casque personnel, crème solaire</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <h3>À retenir</h3>
+        <ul class="retenir-list">
+          <li>Les poneys connemara sont sélectionnés pour leur pied sûr sur la tourbe — pas besoin d'un cheval « de compétition ».</li>
+          <li>La météo change en quelques minutes : mieux vaut plusieurs couches légères qu'un seul gros imperméable.</li>
+          <li>Les centres sérieux limitent les groupes à 6–8 cavaliers pour préserver le rythme du galop sur la plage.</li>
+          <li>Le galop sur la plage dépend de la marée : réserver son créneau à l'avance.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="verif-note">Informations recoupées avant publication auprès de l'office de tourisme irlandais, d'un centre équestre local du Connemara et de la presse équestre spécialisée.</p>
+
+    <p class="conclusion">Le Connemara n'est pas la destination la plus confortable pour un premier galop en vacances — c'est justement pourquoi elle reste l'une des plus mémorables. Ceux qui en reviennent ne racontent pas un itinéraire, mais une semaine où le cheval a redonné son échelle réelle à un paysage.</p>
+  </article>
+
+  <section class="related">
+    <div class="article-inner">
+      <h2>À lire aussi</h2>
+      <div class="related-grid">
+        <a class="related-card" href="#">
+          <span class="eyebrow">Le monde du cheval</span>
+          <p>Le connemara, ce pur produit du vent et de la tourbe</p>
+        </a>
+        <a class="related-card" href="#">
+          <span class="eyebrow">Conseil</span>
+          <p>Bien préparer son premier grand voyage à cheval</p>
+        </a>
+        <a class="related-card" href="#">
+          <span class="eyebrow">Matériel</span>
+          <p>Randonnée à cheval : ce qu'il faut vraiment emporter</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>Crinière — maquette de démonstration</span>
+  <span>Modèle de page « sujet » — voir docs/nouveaux-projets/media-equestre-ia.md</span>
+</footer>
+
+<script>
+  (function(){
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+    var art = document.querySelector('.hero-art');
+    if (!art) return;
+    var ticking = false;
+    function apply(){
+      var y = window.scrollY || 0;
+      art.style.transform = 'translateY(' + (y * 0.15) + 'px)';
+      ticking = false;
+    }
+    window.addEventListener('scroll', function(){
+      if (!ticking){ window.requestAnimationFrame(apply); ticking = true; }
+    }, { passive: true });
+  })();
+</script>
