@@ -566,58 +566,20 @@ Les 3 `label` reprennent exactement les titres déjà utilisés pour `scenario-m
 9. **Ne rien faire de plus pour Telegram.** Le teaser (`sendMessage`) et le sondage natif (`sendPoll`, options venant du `<category>`) sur `@scenario_fr` sont gérés automatiquement par Make.com à partir de `feed.xml` (voir `docs/ARCHITECTURE.md`) — jamais d'appel direct à l'API Telegram depuis cette session (`api.telegram.org` bloqué par la politique réseau de l'environnement).
 10. Ne jamais modifier `contact.html`, `le-projet.html`, `newsletter.html`, `mentions-legales.html`, `politique-de-confidentialite.html`, `robots.txt`, ni aucun fichier déjà présent dans `archives/` daté d'un jour antérieur.
 11. `git add`, `git commit` (message clair avec date et sujet), `git push origin main` directement — **jamais sur une autre branche**.
-11bis. **Envoyer la notification push (OneSignal), une fois le site en ligne — jamais avant le push.** `ONESIGNAL_REST_API_KEY` en variable d'environnement (même mécanisme que `PEXELS_API_KEY`/`PIXABAY_KEY`) : si absente, sauter cette étape sans bloquer la publication — la notif est un bonus, jamais une condition de publication. App ID en clair, public, sans risque : `1f47412d-5688-4ce7-8288-df1ed44bdad3`.
-
-**Journaliser systématiquement le résultat dans `docs/notif-log.md`, succès ou échec [AJOUTÉ le 21 août, retour utilisateur].** Avant ce journal, la seule façon de savoir si un envoi était vraiment parti était d'interroger l'API OneSignal directement — fait une fois le 21 août pour découvrir qu'aucune trace n'existait nulle part dans le dépôt. Le script ci-dessous fait les deux (envoi + écriture de la ligne de journal) en un seul geste :
-
-```
-python3 -c "
-import os, json, urllib.request, urllib.error
-from datetime import datetime
-from zoneinfo import ZoneInfo
-
-date_str = datetime.now(ZoneInfo('Europe/Paris')).strftime('%Y-%m-%d')
-log_path = 'docs/notif-log.md'
-log = open(log_path, encoding='utf-8').read()
-marker = '---\n'
-idx = log.index(marker) + len(marker)
-
-def write_log(line):
-    new_log = log[:idx] + line + '\n' + log[idx:]
-    open(log_path, 'w', encoding='utf-8').write(new_log)
-
-key = os.environ.get('ONESIGNAL_REST_API_KEY')
-if not key:
-    write_log(f'{date_str} — ⚠️ clé API absente dans l\'environnement de la routine, étape sautée')
-    raise SystemExit(0)
-
-payload = json.dumps({
-    'app_id': '1f47412d-5688-4ce7-8288-df1ed44bdad3',
-    'included_segments': ['Active Subscriptions'],
-    'headings': {'en': 'Scénario'},
-    'contents': {'en': '{h1 du jour, mot pour mot}'},
-    'url': 'https://lesscenarios.fr/',
-}).encode()
-req = urllib.request.Request(
-    'https://api.onesignal.com/notifications?c=push',
-    data=payload,
-    headers={'Authorization': f'Key {key}', 'Content-Type': 'application/json'},
-)
-try:
-    resp = json.loads(urllib.request.urlopen(req).read().decode())
-    if resp.get('errors') or not resp.get('id'):
-        write_log(f'{date_str} — ❌ requête acceptée par l\'API mais aucune notification créée : {resp}')
-        print('ERREUR OneSignal (réponse sans erreur HTTP mais sans envoi réel) :', resp)
-    else:
-        write_log(f'{date_str} — ✅ notification créée (id \`{resp[\"id\"]}\`)')
-        print(resp)
-except (urllib.error.URLError, urllib.error.HTTPError) as e:
-    write_log(f'{date_str} — ❌ échec de l\'envoi : {e}')
-    print('ERREUR OneSignal :', e)
-"
-```
-
-`contents` = h1 du jour recopié tel quel, jamais une nouvelle phrase rédigée pour l'occasion (même logique que `<source>`/l'essentiel ailleurs dans ce document). `headings` reste toujours « Scénario », jamais reformulé. `url` pointe vers l'accueil (édition du jour), pas vers l'archive. `included_segments` cible `'Active Subscriptions'` — nomenclature actuelle de l'app OneSignal du site (vérifiée via l'API le 22 août : `Total/Active/Inactive/Engaged Subscriptions`, pas de segment `Subscribed Users` — l'ancien nom de l'API v1, absent de cette app, cause du bug corrigé ce jour-là où la requête réussissait en HTTP 200 sans toucher personne). **Toujours vérifier `errors`/`id` vide dans la réponse avant de logger un ✅** — un HTTP 200 ne garantit pas qu'un envoi a réellement eu lieu (voir le `if` ci-dessus). Si la requête échoue (réseau, clé invalide, erreur OneSignal, ou 200 sans envoi réel) : la ligne ❌ dans le journal suffit, ne jamais retenter en boucle, ne jamais faire échouer la routine pour ça — la publication elle-même (étape 11) est déjà faite et irréversible à ce stade. **Committer `docs/notif-log.md`** juste après (`git add docs/notif-log.md && git commit -m "Journal notif push {date}" && git push origin main`) — un commit séparé, minime, qui ne bloque jamais la publication déjà faite à l'étape 11 même s'il échoue lui-même (le signaler dans le résumé final si c'est le cas, sans retenter).
-12. Terminer par un court résumé (sujet retenu, probabilités des 3 scénarios, ce qui a été publié, résultat de l'envoi push le cas échéant).
+~~11bis. Envoyer la notification push (OneSignal) depuis cette routine.~~
+**Retiré le 23 août (retour utilisateur) — l'envoi push est désormais géré par
+Make.com, pas par cette routine.** Le scénario Make qui poste déjà sur
+Telegram/Twitter/Instagram/Facebook/LinkedIn/Bluesky à partir de `feed.xml`
+inclut maintenant un module OneSignal (branche « Daily », même
+`app_id`/`included_segments: ['Active Subscriptions']`/`headings: {"en":
+"Scénario"}` que l'ancien script Python de cette routine (voir historique
+dans `docs/notif-log.md`), mais `contents`/`url` tirés directement de
+l'item RSS plutôt que ressaisis). **Ne jamais réintroduire
+l'appel OneSignal direct depuis cette session** — ça recréerait le double
+envoi (une notif de la routine + une de Make) qui a motivé ce retrait.
+`docs/notif-log.md` n'est plus tenu à jour par cette routine pour cette
+raison ; le suivi des envois se fait maintenant côté Make/dashboard
+OneSignal directement.
+12. Terminer par un court résumé (sujet retenu, probabilités des 3 scénarios, ce qui a été publié).
 
 Utilise WebSearch pour la recherche du sujet et la vérification factuelle (au moins deux sources distinctes recoupées). Respecte strictement les restrictions de l'étape 1.

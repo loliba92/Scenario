@@ -1,10 +1,24 @@
 # Journal des notifications push (OneSignal)
 
+**Journal clos le 23 août — l'envoi push est passé de cette routine à
+Make.com.** L'ancienne étape 11bis (script Python ci-dessous, appelé par
+la routine éditoriale) a été retirée de `docs/routine-prompt.md` : un
+module OneSignal dans le scénario Make qui poste déjà sur les réseaux
+sociaux depuis `feed.xml` envoie maintenant la notification (branche
+« Daily »), pour éviter le double envoi. Les entrées ci-dessous restent
+comme historique du diagnostic qui a mené jusque-là (segment mal nommé,
+`received` peu fiable, etc.) — plus aucune nouvelle ligne n'est ajoutée
+par cette routine à partir de cette date. Le suivi des envois se fait
+désormais côté Make/dashboard OneSignal.
+
+---
+
 Une ligne par tentative d'envoi de la notification push quotidienne (étape
-11bis de `docs/routine-prompt.md`), succès ou échec. Sert à vérifier après
-coup si l'envoi est bien parti **sans avoir à interroger l'API OneSignal
-directement** — ce qu'il a fallu faire le 21 août pour comprendre qu'aucune
-notification n'était visible côté OneSignal pour l'édition du jour.
+11bis de `docs/routine-prompt.md`, retirée depuis), succès ou échec. Sert à
+vérifier après coup si l'envoi est bien parti **sans avoir à interroger
+l'API OneSignal directement** — ce qu'il a fallu faire le 21 août pour
+comprendre qu'aucune notification n'était visible côté OneSignal pour
+l'édition du jour.
 
 **Cause réelle, identifiée le 22 août (corrigée dans `docs/routine-prompt.md`)** :
 le script ciblait `included_segments: ['Subscribed Users']`, un nom de
