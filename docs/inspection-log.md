@@ -32,7 +32,32 @@ orphelin), rupture de registre (`grep '\bton \|\bta \|\btu \b'` — 2
 occurrences, toutes deux dans `.share-block`, exception légitime), style
 des paragraphes `.dek`/`.why`/`.essentiel-text` (lecture des phrases de
 plus de 40 mots, voir réécritures ci-dessous), 4 chiffres/faits
-structurants vérifiés contre 3 des 4 sources citées (voir ci-dessous).
+structurants vérifiés contre 3 des 4 sources citées (voir ci-dessous),
+KPI projetés des 3 cartes (point 10, ajouté en cours de journée — voir
+ci-dessous).
+
+**Point 10 (KPI projetés dupliqués, ajouté en cours de journée du 23 août
+— voir commit `c633a3b`, prompt relu après coup pour ne pas laisser ce
+point de côté)** : `.evo-current` extraits des 3 cartes — carte 1
+(compromis, 20 %) : 64 équipes / 128 matchs ; carte 2 (stable, 45 %) : 48
+équipes / 104 matchs ; carte 3 (dégradé, 35 %) : 64 équipes / 128 matchs.
+Doublon **complet** entre les cartes 1 et 3 sur les deux indicateurs à la
+fois — le cas mécanique que ce point est censé détecter. **Vérifié avant
+toute correction, et volontairement non corrigé** : le `.comprendre-box`
+de l'article explique lui-même explicitement ce chevauchement (« Deux des
+trois scénarios de cette édition aboutissent exactement au même chiffre —
+64 équipes, 128 matchs — [...] Ce qui change, c'est la méthode »). Les
+deux indicateurs ne sont pas des projections de modèle indépendantes du
+scénario (comme le quota/taux de reversement de l'exemple du 22 août) :
+« 64 équipes » et « 128 matchs » sont la définition même du format à 64
+équipes évoqué par les deux scénarios, négocié ou imposé — les deux
+aboutissent logiquement au même chiffre, qui ne dépend pas de la méthode.
+Inventer une valeur différente pour l'un des deux casserait un fait
+juste. Conformément au garde-fou du point 10 (« si aucun ajustement
+plausible ne se dégage, signaler plutôt qu'inventer un chiffre ») : pas
+de correction, et pas signalé comme anomalie non plus puisque l'article
+explique déjà lui-même ce chevauchement — un signalement ferait double
+emploi avec ce que le lecteur voit déjà dans le corps de l'article.
 
 **Point 9 (image)** : `topic-images/2026-08-23.jpg` (1080×1080) et
 `-wide.jpg` (1600×900) présents, `file` confirme un vrai JPEG dans les
