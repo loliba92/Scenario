@@ -42,22 +42,30 @@ point de côté)** : `.evo-current` extraits des 3 cartes — carte 1
 (compromis, 20 %) : 64 équipes / 128 matchs ; carte 2 (stable, 45 %) : 48
 équipes / 104 matchs ; carte 3 (dégradé, 35 %) : 64 équipes / 128 matchs.
 Doublon **complet** entre les cartes 1 et 3 sur les deux indicateurs à la
-fois — le cas mécanique que ce point est censé détecter. **Vérifié avant
-toute correction, et volontairement non corrigé** : le `.comprendre-box`
-de l'article explique lui-même explicitement ce chevauchement (« Deux des
-trois scénarios de cette édition aboutissent exactement au même chiffre —
-64 équipes, 128 matchs — [...] Ce qui change, c'est la méthode »). Les
-deux indicateurs ne sont pas des projections de modèle indépendantes du
-scénario (comme le quota/taux de reversement de l'exemple du 22 août) :
-« 64 équipes » et « 128 matchs » sont la définition même du format à 64
-équipes évoqué par les deux scénarios, négocié ou imposé — les deux
-aboutissent logiquement au même chiffre, qui ne dépend pas de la méthode.
-Inventer une valeur différente pour l'un des deux casserait un fait
-juste. Conformément au garde-fou du point 10 (« si aucun ajustement
-plausible ne se dégage, signaler plutôt qu'inventer un chiffre ») : pas
-de correction, et pas signalé comme anomalie non plus puisque l'article
-explique déjà lui-même ce chevauchement — un signalement ferait double
-emploi avec ce que le lecteur voit déjà dans le corps de l'article.
+fois — le cas mécanique que ce point est censé détecter. **Pas de
+correction appliquée** : le scénario dupliqué le moins probable des deux
+est la carte 1 (compromis, 20 %), mais son KPI ne peut pas être ajusté
+sans casser le fait qu'elle décrit elle-même — « un compromis à **64
+équipes** » n'a pas de sens avec un autre chiffre que 64, ce n'est pas une
+valeur de modèle libre comme le quota/taux de reversement de l'exemple du
+22 août. Aucun ajustement plausible ne se dégage donc naturellement.
+**Corrigé une erreur de jugement du premier passage aujourd'hui** :
+initialement classé "rien à signaler" au motif que le `.comprendre-box`
+de l'article explique déjà ce chevauchement (« Deux des trois scénarios
+de cette édition aboutissent exactement au même chiffre — 64 équipes, 128
+matchs — [...] Ce qui change, c'est la méthode »). C'était trancher seul
+sur un point que la règle demande explicitement de signaler dans ce cas
+précis (« les 3 scénarios sont censés partager la même valeur de départ
+pour une raison éditoriale légitime [...] ne pas trancher seul —
+signaler »), même quand une explication légitime existe déjà dans
+l'article — l'inspecteur n'a pas autorité pour décider que cette
+explication suffit, seule une revue humaine peut confirmer que
+l'indiscernabilité des deux cartes sur ce plan est acceptée en l'état ou
+mériterait un ajustement éditorial (par exemple : donner à la carte
+compromis un chiffre intermédiaire, si un format négocié pouvait
+plausiblement retenir moins de 64 équipes ou une phase finale à moins de
+128 matchs — un choix de contenu, pas mécanique). Voir "Signalé pour
+revue humaine" ci-dessous.
 
 **Point 9 (image)** : `topic-images/2026-08-23.jpg` (1080×1080) et
 `-wide.jpg` (1600×900) présents, `file` confirme un vrai JPEG dans les
@@ -107,8 +115,21 @@ seulement le format actuel à 104 matchs pour 48 équipes) — ce n'est pas
 une contradiction, seulement une absence de confirmation externe
 explicite d'un calcul éditorial plausible ; pas signalé comme écart.
 
-**Signalé pour revue humaine** : source ESPN non re-vérifiable ce
-passage-ci (voir ci-dessus) ; à retenter lors d'un prochain passage.
+**Signalé pour revue humaine** :
+- Source ESPN non re-vérifiable ce passage-ci (voir ci-dessus) ; à
+  retenter lors d'un prochain passage.
+- **Point 10** : les cartes « compromis » (favorable, 20 %) et « 64
+  équipes envers et contre tous » (dégradé, 35 %) affichent des KPI
+  projetés strictement identiques (64 équipes / 128 matchs sur les deux
+  indicateurs) — indiscernables sur ce plan, même si leur récit,
+  probabilité et impact France (`.france-line`) diffèrent. L'article
+  l'explique déjà lui-même dans son `.comprendre-box`, et aucun
+  ajustement chiffré ne se dégage naturellement côté inspecteur (voir
+  ci-dessus), donc pas de correction automatique — mais l'inspecteur n'a
+  pas autorité pour décider seul que cette explication suffit à clore le
+  sujet. À la rédaction de trancher si cette indiscernabilité est
+  acceptable telle quelle ou mérite un chiffre distinct pour la carte
+  compromis.
 
 ---
 
