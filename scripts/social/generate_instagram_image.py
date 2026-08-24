@@ -17,8 +17,7 @@ Usage:
 data.json:
 {
   "title": "FIFA : la présidence d'Infantino vacille",
-  "hook": "Le vote de défiance approche : Infantino peut-il tenir ?",
-  "context": "Tout dépend du vote de défiance de la FIFA, dans les prochaines semaines.",
+  "context": "Le vote de défiance approche. Tout dépend de la décision de l'UEFA dans les prochaines semaines.",
   "scenarios": [
     {"kind": "favorable", "label": "Infantino regagne la confiance"},
     {"kind": "stable", "label": "La méfiance dure, il reste en poste"},
@@ -33,17 +32,25 @@ seule ne "parle" qu'à qui connaît déjà le code du site). Pas de
 pourcentages dans l'image — c'est volontaire (effet teaser vers le
 lien en bio).
 
-"context" (ajouté le 24 août, retour utilisateur : les 3 scénarios
-seuls se lisaient comme un code, sans rappel de ce qui est évalué,
-pour un lecteur qui découvre le sujet en scrollant) : une phrase
-courte et factuelle (≤ 16 mots), affichée juste au-dessus des 3
-scénarios, qui dit explicitement ce qui va déterminer l'issue —
-jamais un copier-coller de .stakes-box du site (bien trop long). Voir
-docs/routine-prompt.md pour la méthode de rédaction, y compris pour
-"hook" et les "label" des scénarios : wording simple, direct, sans
-métaphore littéraire, compréhensible par quelqu'un qui ne connaît rien
-au sujet (le teaser doit se suffire à lui-même, contrairement aux
-titres de cartes du site qui vivent à côté du paragraphe "why").
+"context" : un paragraphe de contexte affiché sous le titre, 1-2
+phrases courtes (≤ 24 mots au total), qui donne juste assez de contexte
+pour qu'un lecteur qui scrolle sans lire la légende ni cliquer le lien
+en bio comprenne l'enjeu du sujet ET ce qui va déterminer l'issue.
+Recycler en priorité la meta description/og:description de l'édition
+(déjà rédigée, déjà pensée pour être compréhensible hors contexte)
+plutôt que d'en écrire une nouvelle — voir docs/routine-prompt.md.
+Jamais un copier-coller de la question posée ou de .stakes-box du site
+(bien trop longs pour tenir lisiblement). Remplace depuis le 24 août les
+anciens champs séparés "hook" (accroche dorée) + "context" (ligne de
+contexte grise) — retour utilisateur : deux légendes de couleurs
+différentes l'une sous l'autre "fait brouillon" ; un seul paragraphe,
+une seule couleur. Voir docs/routine-prompt.md pour la méthode de
+rédaction, y compris pour les "label" des scénarios : wording simple,
+direct, sans métaphore littéraire, compréhensible par quelqu'un qui ne
+connaît rien au sujet (le teaser doit se suffire à lui-même,
+contrairement aux titres de cartes du site qui vivent à côté du
+paragraphe "why"). Toujours vérifier le rendu à taille mobile réelle
+(~350px de large) avant de considérer un wording comme acceptable.
 
 Champ optionnel "delta" (ajouté le 12 août, plusieurs itérations
 visuelles le même jour — voir docs/ARCHITECTURE.md) : carte "France
@@ -57,16 +64,6 @@ JSON, disparaît silencieusement (même repli que --photo), aucune
 erreur. Supporté uniquement par instagram-photo-template.html (le
 gabarit par défaut n'a pas le marqueur __DELTA_BADGE__, budget vertical
 déjà tendu par le titre 1-3 lignes — voir docs/ARCHITECTURE.md).
-
-"hook" (ajouté le 11 août, retour utilisateur) : une accroche courte
-(≤ 12 mots, une seule ligne à l'écran), affichée sous le titre, en doré.
-Ce n'est PAS la question posée du site (bien trop longue pour tenir
-lisiblement — c'est justement ce qui avait été retiré le 7 août) : une
-phrase distincte, courte et percutante, écrite spécifiquement pour cette
-image, qui donne juste assez de contexte pour qu'un lecteur qui scrolle
-sans lire la légende ni cliquer le lien en bio comprenne l'enjeu.
-Toujours vérifier le rendu à taille mobile réelle (~350px de large)
-avant de considérer une accroche comme acceptable.
 
 Option --photo (ajoutée le 9 août) : incruste titre + scénarios sur une
 vraie photo Pexels du sujet du jour (voir fetch_topic_image.py /
@@ -221,14 +218,9 @@ def main():
         .replace("__SCENARIO_ROWS__", rows_html)
     )
 
-    if "__HOOK__" in final_html:
-        if "hook" not in data:
-            sys.exit("ERREUR : le template attend une accroche (__HOOK__) mais le JSON n'a pas de champ \"hook\".")
-        final_html = final_html.replace("__HOOK__", html.escape(data["hook"]))
-
     if "__CONTEXT__" in final_html:
         if "context" not in data:
-            sys.exit("ERREUR : le template attend une ligne de contexte (__CONTEXT__) mais le JSON n'a pas de champ \"context\".")
+            sys.exit("ERREUR : le template attend un paragraphe de contexte (__CONTEXT__) mais le JSON n'a pas de champ \"context\".")
         final_html = final_html.replace("__CONTEXT__", html.escape(data["context"]))
 
     if "__PHOTO_SRC__" in final_html:

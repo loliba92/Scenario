@@ -69,30 +69,20 @@
     text-wrap: balance;
   }
 
-  .hook{
-    font-family:"Inter", sans-serif;
-    font-weight:600;
-    font-size: 36px;
-    line-height:1.3;
-    color: var(--gold);
-    text-wrap: balance;
-  }
-
-  /* Ligne de contexte, ajoutée le 24 août (retour utilisateur : les 3
-     scénarios seuls, sans rappel de ce qui est évalué, se lisent comme
-     un code — un lecteur qui découvre le sujet en scrollant ne raccroche
-     à rien). Une phrase courte et factuelle ("Ce qu'on évalue : ..."),
-     jamais un copier-coller de .stakes-box du site (bien trop long) —
-     voir docs/routine-prompt.md pour le format attendu. */
-  .context-line{
+  /* Paragraphe de contexte, ajoutée le 24 août puis fusionné en un seul
+     bloc le même jour (retour utilisateur : accroche dorée + ligne de
+     contexte grise l'une sous l'autre faisait deux légendes de couleurs
+     différentes qui se concurrencent, "ça fait brouillon"). Un seul
+     paragraphe, une seule couleur, 1-2 phrases courtes — voir
+     docs/routine-prompt.md pour le format attendu. */
+  .context{
     font-family:"Inter", sans-serif;
     font-weight:500;
-    font-size: 24px;
-    line-height:1.4;
-    color: var(--paper-dim);
+    font-size: 32px;
+    line-height:1.35;
+    color: var(--paper);
     text-wrap: balance;
   }
-  .context-line strong{ color: var(--paper); font-weight:700; }
 
   .scenario-box{
     background: var(--ink);
@@ -214,9 +204,7 @@
   <div class="content">
     <div class="headline">__TITLE__</div>
 
-    <div class="hook">__HOOK__</div>
-
-    <div class="context-line">__CONTEXT__</div>
+    <div class="context">__CONTEXT__</div>
 
     <div class="scenario-box">
       __SCENARIO_ROWS__

@@ -72,28 +72,19 @@
     margin-top: 20px;
   }
 
-  .hook{
-    font-family:"Inter", sans-serif;
-    font-weight:600;
-    font-size: 44px;
-    line-height:1.3;
-    color: var(--gold);
-    margin-top: 8px;
-  }
-
-  /* Ligne de contexte, ajoutée le 24 août — même recette et même
-     raison d'être que sur instagram-photo-template.html : une phrase
-     courte et factuelle qui rappelle ce qui est évalué avant les 3
-     scénarios, pour qu'ils ne se lisent pas comme un code isolé. */
-  .context-line{
+  /* Paragraphe de contexte, ajouté le 24 août puis fusionné en un seul
+     bloc le même jour — voir instagram-photo-template.html pour la
+     raison (accroche dorée + ligne grise l'une sous l'autre faisait
+     deux légendes de couleurs différentes, "ça fait brouillon"). Un
+     seul paragraphe, une seule couleur, 1-2 phrases courtes. */
+  .context{
     font-family:"Inter", sans-serif;
     font-weight:500;
-    font-size: 30px;
-    line-height:1.4;
-    color: var(--paper-dim);
+    font-size: 38px;
+    line-height:1.35;
+    color: var(--paper);
     margin-top: 20px;
   }
-  .context-line strong{ color: var(--paper); font-weight:700; }
 
   .scenarios{
     display:flex;
@@ -177,9 +168,7 @@
 
   <div class="headline">__TITLE__</div>
 
-  <div class="hook">__HOOK__</div>
-
-  <div class="context-line">__CONTEXT__</div>
+  <div class="context">__CONTEXT__</div>
 
   <div class="scenarios">
     __SCENARIO_ROWS__
