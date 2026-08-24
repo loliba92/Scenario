@@ -1327,7 +1327,18 @@
      texte clair resterait quasi invisible sur la page blanche imprimée
      (beaucoup de navigateurs n'impriment pas les couleurs de fond par
      défaut). Redéfinir --paper/--ink/--surface ici suffit, tout le CSS du
-     site les consomme déjà via var(--paper) etc. */
+     site les consomme déjà via var(--paper) etc.
+     Densité resserrée le 24 août (retour utilisateur : moins de pages,
+     pour un rendu correct avec l'option navigateur/imprimante « 2 pages
+     par feuille », qu'on ne peut pas forcer depuis une page web — c'est
+     un réglage du dialogue d'impression, pas du CSS). `html{font-size}`
+     rétrécit d'un coup toutes les tailles en rem (quasi tout le fichier),
+     et les paddings/margins des encarts sont resserrés en plus. Chaque
+     encart à bordure gauche accentuée (question-box/stakes-box/
+     comprendre-box/dc-chart-box) utilise `margin-left: -22px` pour
+     déborder jusqu'au bord — ne jamais réécrire leur `margin` en
+     raccourci ici, ça écraserait ce -22px et casserait l'alignement :
+     ajuster seulement margin-top/margin-bottom en propriétés séparées. */
   @media print{
     :root{
       --ink: #ffffff;
@@ -1337,19 +1348,37 @@
       --surface-2: #f0f0f0;
       --hairline: #cccccc;
     }
-    body{ background: #fff; }
+    html{ font-size: 82%; }
+    body{ background: #fff; line-height: 1.4; }
     header.masthead, nav.topnav, .top-updates, .toc, .share-inline,
     .article-image, .follow-inline, section.lexique, section.sources,
     section.share-block, footer{ display: none !important; }
     .wrap{ max-width: 100%; padding: 0; }
     section.hero, section.scenarios{ padding: 0; border: none; }
-    h1{ font-size: 20pt; margin: 0 0 4pt; }
+    h1{ font-size: 16pt; margin: 0 0 4pt; }
     .eyebrow{ margin-bottom: 6pt; }
     .pubdate{ margin-bottom: 10pt; }
+    .dek{ margin-bottom: 10px; }
+    .dek:last-of-type{ margin-bottom: 14px; }
+    .question-box{ padding: 10px 14px; margin-bottom: 14px; }
+    .stakes-box{ padding: 10px 14px; margin-top: 0; margin-bottom: 14px; }
+    .comprendre-box{ padding: 10px 14px; margin-top: 10px; margin-bottom: 10px; }
+    .dc-chart-box{ padding: 10px 14px; margin-top: 14px; }
+    .list-box{ padding: 14px 16px 2px; margin-bottom: 14px; }
+    .list-box-items li{ padding: 8px 0; }
+    .indicator-strip{ padding-top: 10px; gap: 16px; }
+    .section-title{ margin-bottom: 12px; }
+    .cards{ gap: 10px; }
+    .card{ padding: 14px 16px; gap: 16px; }
+    .card-head{ flex: 0 0 140px; gap: 8px; }
+    .gauge{ width: 70px; height: 42px; margin: 2px auto 0; }
+    .essentiel-box{ margin-top: 14px; padding: 14px 16px; }
+    .essentiel-text + .essentiel-text{ margin-top: 8px; }
+    .france-line{ padding: 8px 10px; }
     .list-box, .comprendre-box, .dc-chart-box, .card, .essentiel-box{
       break-inside: avoid;
     }
-    @page{ margin: 14mm; }
+    @page{ margin: 12mm; }
   }
 </style>
 </head>
