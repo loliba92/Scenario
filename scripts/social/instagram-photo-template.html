@@ -78,6 +78,22 @@
     text-wrap: balance;
   }
 
+  /* Ligne de contexte, ajoutée le 24 août (retour utilisateur : les 3
+     scénarios seuls, sans rappel de ce qui est évalué, se lisent comme
+     un code — un lecteur qui découvre le sujet en scrollant ne raccroche
+     à rien). Une phrase courte et factuelle ("Ce qu'on évalue : ..."),
+     jamais un copier-coller de .stakes-box du site (bien trop long) —
+     voir docs/routine-prompt.md pour le format attendu. */
+  .context-line{
+    font-family:"Inter", sans-serif;
+    font-weight:500;
+    font-size: 24px;
+    line-height:1.4;
+    color: var(--paper-dim);
+    text-wrap: balance;
+  }
+  .context-line strong{ color: var(--paper); font-weight:700; }
+
   .scenario-box{
     background: var(--ink);
     border: 1px solid rgba(236,231,218,0.12);
@@ -90,22 +106,34 @@
   .scenario-row{
     display:flex;
     align-items:center;
-    gap:18px;
+    gap:14px;
     font-family:"Inter", sans-serif;
     font-weight:700;
-    font-size:31px;
+    font-size:29px;
     color: var(--paper);
     padding: 4px 0 4px 22px;
     border-left: 6px solid transparent;
   }
   .scenario-row .arrow{ font-family:"JetBrains Mono", monospace; font-size:34px; flex-shrink:0; }
+  /* Mot explicite (Favorable/Stable/Dégradé), ajouté le 24 août à côté
+     de la flèche — retour utilisateur : la couleur/flèche seule ne
+     "parle" qu'à qui connaît déjà le code du site. Le mot en toutes
+     lettres rend chaque ligne compréhensible isolément. */
+  .scenario-row .kind-word{
+    font-family:"JetBrains Mono", monospace;
+    font-weight:700;
+    font-size:18px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    flex-shrink:0;
+  }
   .scenario-row .label{ flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .scenario-row[data-kind="favorable"]{ border-color: var(--favorable); }
-  .scenario-row[data-kind="favorable"] .arrow{ color: var(--favorable); }
+  .scenario-row[data-kind="favorable"] .arrow, .scenario-row[data-kind="favorable"] .kind-word{ color: var(--favorable); }
   .scenario-row[data-kind="stable"]{ border-color: var(--stable); }
-  .scenario-row[data-kind="stable"] .arrow{ color: var(--stable); }
+  .scenario-row[data-kind="stable"] .arrow, .scenario-row[data-kind="stable"] .kind-word{ color: var(--stable); }
   .scenario-row[data-kind="degrade"]{ border-color: var(--degrade); }
-  .scenario-row[data-kind="degrade"] .arrow{ color: var(--degrade); }
+  .scenario-row[data-kind="degrade"] .arrow, .scenario-row[data-kind="degrade"] .kind-word{ color: var(--degrade); }
 
   .footer{
     display:flex; align-items:baseline; gap:14px;
@@ -187,6 +215,8 @@
     <div class="headline">__TITLE__</div>
 
     <div class="hook">__HOOK__</div>
+
+    <div class="context-line">__CONTEXT__</div>
 
     <div class="scenario-box">
       __SCENARIO_ROWS__

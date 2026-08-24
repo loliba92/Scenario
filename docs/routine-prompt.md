@@ -531,16 +531,19 @@ python3 scripts/social/generate_instagram_image.py --data /tmp/ig-data.json --ou
 {
   "title": "{h1 du jour}",
   "hook": "{accroche courte, voir ci-dessous}",
+  "context": "{ligne de contexte courte, voir ci-dessous}",
   "scenarios": [
-    {"kind": "favorable", "label": "{titre du h3 favorable, sans emoji}"},
-    {"kind": "stable", "label": "{titre du h3 stable, sans emoji}"},
-    {"kind": "degrade", "label": "{titre du h3 dégradé, sans emoji}"}
+    {"kind": "favorable", "label": "{reformulation courte et simple du scénario favorable}"},
+    {"kind": "stable", "label": "{reformulation courte et simple du scénario stable}"},
+    {"kind": "degrade", "label": "{reformulation courte et simple du scénario dégradé}"}
   ]
 }
 ```
-Les 3 `label` reprennent exactement les titres déjà utilisés pour `scenario-mini-title` (étape 6), sans emoji. Volontairement **aucun pourcentage** sur l'image (effet teaser).
+Volontairement **aucun pourcentage** sur l'image (effet teaser). Le mot du scénario (Favorable/Stable/Dégradé) s'affiche déjà en toutes lettres à côté de la flèche colorée (généré automatiquement par le script à partir de `kind`, rien à écrire pour ça).
 
-**`hook` : une accroche courte affichée sous le titre, en doré, ≤ 12 mots et tenant sur une seule ligne à l'écran.** Ce n'est **jamais** un copier-coller de la question posée (bien trop longue pour tenir lisiblement — c'est justement ce qui a été retiré le 7 août après un premier essai illisible sur mobile) : une phrase courte et percutante, rédigée spécifiquement pour cette image, qui donne juste assez de contexte pour qu'un lecteur qui scrolle sans lire la légende ni cliquer le lien en bio comprenne l'enjeu du sujet. Committer le PNG (et la photo + fiche de provenance le cas échéant). Ajouter dans l'`<item>`, juste après `</category>` et avant `<description>` :
+**Wording de `hook`, `context` et des 3 `label` : à rédiger spécifiquement pour l'image, jamais un copier-coller du site.** Retour utilisateur explicite (24 août, feedback d'une lectrice jeune) : les scénarios repris tels quels depuis les titres de cartes du site (`scenario-mini-title`, étape 6) se lisent comme un code une fois isolés sur l'image — ces titres sont écrits pour vivre juste au-dessus du paragraphe `why` et de la jauge chiffrée, pas seuls sur un teaser. Sur l'image, personne n'a ce contexte : écrire donc une **reformulation courte et simple** de chaque scénario (même idée, mots simples, sans métaphore ni image littéraire qui suppose de connaître déjà le sujet — ex. préférer « Un accord de paix est signé » à « Une trêve qui tient enfin », préférer « Les combats continuent au même rythme » à « Le front s'enterre pour l'hiver »), compréhensible par quelqu'un qui découvre le sujet en scrollant, sans avoir lu l'article ni la légende. Même exigence pour `hook` : une phrase courte et percutante (≤ 12 mots, une seule ligne à l'écran), **jamais** un copier-coller de la question posée (bien trop longue pour tenir lisiblement — c'est justement ce qui a été retiré le 7 août après un premier essai illisible sur mobile), qui donne juste assez de contexte pour comprendre l'enjeu du sujet.
+
+**`context` (ajouté le 24 août) : une phrase courte et factuelle (≤ 16 mots), affichée juste au-dessus des 3 scénarios, qui dit explicitement ce qui va déterminer l'issue** — jamais un copier-coller de `.stakes-box` du site (bien trop long). Rôle : sans elle, les 3 lignes de scénarios manquent de point d'ancrage pour qui n'a pas lu le `hook` avec attention. Exemple pour l'édition Ukraine du 24 août : « Tout dépend de l'issue des pourparlers menés par les États-Unis. » Committer le PNG (et la photo + fiche de provenance le cas échéant). Ajouter dans l'`<item>`, juste après `</category>` et avant `<description>` :
 ```xml
 <enclosure url="https://lesscenarios.fr/assets/social/instagram/{AAAA-MM-JJ}.png" length="{taille en octets}" type="image/png"/>
 ```

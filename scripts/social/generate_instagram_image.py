@@ -18,6 +18,7 @@ data.json:
 {
   "title": "FIFA : la présidence d'Infantino vacille",
   "hook": "Le vote de défiance approche : Infantino peut-il tenir ?",
+  "context": "Tout dépend du vote de défiance de la FIFA, dans les prochaines semaines.",
   "scenarios": [
     {"kind": "favorable", "label": "Infantino regagne la confiance"},
     {"kind": "stable", "label": "La méfiance dure, il reste en poste"},
@@ -26,8 +27,23 @@ data.json:
 }
 
 Champs "kind" attendus : favorable | stable | degrade (détermine la
-couleur et la flèche ↑/→/↓). Pas de pourcentages dans l'image — c'est
-volontaire (effet teaser vers le lien en bio).
+couleur, la flèche ↑/→/↓, et le mot affiché en toutes lettres à côté de
+la flèche — ajouté le 24 août, retour utilisateur : la flèche colorée
+seule ne "parle" qu'à qui connaît déjà le code du site). Pas de
+pourcentages dans l'image — c'est volontaire (effet teaser vers le
+lien en bio).
+
+"context" (ajouté le 24 août, retour utilisateur : les 3 scénarios
+seuls se lisaient comme un code, sans rappel de ce qui est évalué,
+pour un lecteur qui découvre le sujet en scrollant) : une phrase
+courte et factuelle (≤ 16 mots), affichée juste au-dessus des 3
+scénarios, qui dit explicitement ce qui va déterminer l'issue —
+jamais un copier-coller de .stakes-box du site (bien trop long). Voir
+docs/routine-prompt.md pour la méthode de rédaction, y compris pour
+"hook" et les "label" des scénarios : wording simple, direct, sans
+métaphore littéraire, compréhensible par quelqu'un qui ne connaît rien
+au sujet (le teaser doit se suffire à lui-même, contrairement aux
+titres de cartes du site qui vivent à côté du paragraphe "why").
 
 Champ optionnel "delta" (ajouté le 12 août, plusieurs itérations
 visuelles le même jour — voir docs/ARCHITECTURE.md) : carte "France
@@ -70,6 +86,10 @@ import sys
 from pathlib import Path
 
 ARROWS = {"favorable": "↑", "stable": "→", "degrade": "↓"}
+# Mot affiché à côté de la flèche (ajouté le 24 août, retour utilisateur :
+# la flèche colorée seule ne "parle" qu'à qui connaît déjà le code du
+# site — voir docs/routine-prompt.md).
+KIND_LABELS = {"favorable": "Favorable", "stable": "Stable", "degrade": "Dégradé"}
 
 # Étoile pleine, path standard 5 branches (viewBox 24x24), réutilisée
 # pour les 3 crans d'intensité de "France Impact" (voir build_delta_badge).
@@ -163,10 +183,13 @@ def build_scenario_rows(scenarios):
     for s in scenarios:
         kind = s["kind"]
         arrow = ARROWS.get(kind, "→")
+        kind_word = KIND_LABELS.get(kind, kind.capitalize())
         label = html.escape(s["label"])
         rows.append(
             f'<div class="scenario-row" data-kind="{kind}">'
-            f'<span class="arrow">{arrow}</span><span class="label">{label}</span>'
+            f'<span class="arrow">{arrow}</span>'
+            f'<span class="kind-word">{kind_word}</span>'
+            f'<span class="label">{label}</span>'
             f'</div>'
         )
     return "\n    ".join(rows)
@@ -202,6 +225,11 @@ def main():
         if "hook" not in data:
             sys.exit("ERREUR : le template attend une accroche (__HOOK__) mais le JSON n'a pas de champ \"hook\".")
         final_html = final_html.replace("__HOOK__", html.escape(data["hook"]))
+
+    if "__CONTEXT__" in final_html:
+        if "context" not in data:
+            sys.exit("ERREUR : le template attend une ligne de contexte (__CONTEXT__) mais le JSON n'a pas de champ \"context\".")
+        final_html = final_html.replace("__CONTEXT__", html.escape(data["context"]))
 
     if "__PHOTO_SRC__" in final_html:
         if not args.photo:
