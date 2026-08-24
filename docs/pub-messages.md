@@ -561,6 +561,31 @@ catégorie ; édition du 21 août écartée (moins de 24h) ; édition du
 `docs/routine-pub-prompt.md` étape 2.2) ; édition du 6 août également
 sans image associée.*
 
+### chiffre-2026-08-24
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 1 chance sur 6
+- message: Le philosophe Toby Ord (Oxford) chiffre à environ 1 chance sur 6 le risque qu'une catastrophe mette fin à l'aventure humaine d'ici la fin du siècle.
+- attribution: — lesscenarios.fr, 21 août 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-08-21.html
+- photo: `assets/social/topic-images/2026-08-21.jpg` (crédit : Gabriel
+  Mihalcea — https://www.pexels.com/photo/a-silhouette-of-an-observatory-under-a-starry-night-sky-12290473/),
+  photo de l'édition source elle-même.
+
+*Extrait tel quel de `.essentiel-text` dans l'édition du 21 août
+("Le philosophe Toby Ord (Oxford) chiffre à environ 1 chance sur 6 le
+risque qu'une catastrophe mette fin à l'aventure humaine d'ici la fin
+du siècle, avec l'intelligence artificielle non maîtrisée comme facteur
+dominant (environ 1 sur 10), loin devant le nucléaire ou le climat pris
+isolément.") — segment coupé à la première virgule (frontière naturelle
+avant "avec l'intelligence artificielle"), point final ajouté, aucun
+mot changé ni déplacé. Éditions du 10, 12, 13 et 14 août déjà utilisées
+pour cette catégorie ; édition du 23 août écartée (moins de 24h).
+Éditions du 15 au 22 août (hors 21) parcourues mais écartées faute de
+phrase autonome à un seul chiffre assez simple (clauses multiples ou
+chiffres empilés — Ormuz/pétrole, Fed/BCE, ingérence électorale,
+box-office chinois...).*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
