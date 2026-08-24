@@ -1317,15 +1317,14 @@
   .follow-btn svg{ display: block; flex-shrink: 0; }
   #nous-suivre .share-row{ gap: 8px; }
 
-  /* Impression en 1 page, ajoutée le 24 août — bouton discret dans le
-     masthead, à côté de l'icône notifications (déclenche juste
-     window.print(), voir le script en bas de page). Plutôt que de tenter
-     de faire tenir tout l'article (corps de texte, lexique, sources...)
-     sur une page, on imprime la version déjà condensée pensée pour ça :
-     l'en-tête + .essentiel-box, avec les 3 scénarios réduits à une ligne
-     (nom, %, titre — .card-body masqué). Le site est en thème sombre
-     (texte clair sur fond sombre) : sans reprise des variables couleur,
-     le texte clair resterait quasi invisible sur la page blanche imprimée
+  /* Impression, ajoutée le 24 août — bouton discret dans le masthead, à
+     côté de l'icône notifications (déclenche juste window.print(), voir
+     le script en bas de page). Imprime l'article complet (corps de
+     texte, scénarios détaillés, L'essentiel) : seuls la nav, le partage,
+     l'image, le lexique, les sources et le footer sont masqués (pas
+     l'objectif de la lecture papier). Le site est en thème sombre (texte
+     clair sur fond sombre) : sans reprise des variables couleur, le
+     texte clair resterait quasi invisible sur la page blanche imprimée
      (beaucoup de navigateurs n'impriment pas les couleurs de fond par
      défaut). Redéfinir --paper/--ink/--surface ici suffit, tout le CSS du
      site les consomme déjà via var(--paper) etc. */
@@ -1335,45 +1334,21 @@
       --paper: #10151c;
       --paper-dim: #4a4a4a;
       --surface: #ffffff;
+      --surface-2: #f0f0f0;
       --hairline: #cccccc;
     }
     body{ background: #fff; }
     header.masthead, nav.topnav, .top-updates, .toc, .share-inline,
-    .article-image, .question-box, .dek, .list-box, .comprendre-box,
-    .indicator-strip, .dc-chart-box, .stakes-box, .card-body,
-    .indicators-note, .follow-inline, section.lexique, section.sources,
+    .article-image, .follow-inline, section.lexique, section.sources,
     section.share-block, footer{ display: none !important; }
     .wrap{ max-width: 100%; padding: 0; }
     section.hero, section.scenarios{ padding: 0; border: none; }
     h1{ font-size: 20pt; margin: 0 0 4pt; }
     .eyebrow{ margin-bottom: 6pt; }
     .pubdate{ margin-bottom: 10pt; }
-    .cards{ gap: 4pt; }
-    .card{
-      flex-direction: row;
-      align-items: baseline;
-      gap: 10pt;
-      padding: 5pt 0;
-      border: none;
-      border-bottom: 1px solid var(--hairline);
-      border-radius: 0;
-      background: transparent;
+    .list-box, .comprendre-box, .dc-chart-box, .card, .essentiel-box{
       break-inside: avoid;
     }
-    .card-head{
-      flex: 0 0 auto;
-      flex-direction: row;
-      align-items: baseline;
-      text-align: left;
-      width: auto;
-      gap: 8pt;
-    }
-    .gauge{ width: auto; height: auto; margin: 0; }
-    .gauge svg{ display: none; }
-    .gauge-num{ position: static; font-size: 12pt; }
-    .card h3{ font-size: 11pt; text-align: left; }
-    .essentiel-box{ margin-top: 10pt; break-inside: avoid; }
-    .delta-gauge{ display: none; }
     @page{ margin: 14mm; }
   }
 </style>
