@@ -6,6 +6,71 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-08-24 — Ukraine : ni paix ni victoire
+**Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 24 août
+2026), classes CSS attendues présentes dans `<style>` (dont
+`.delta-france`/`.delta-gauge*`/`.delta-word`/`.delta-flag` — bloc canonique
+intact au caractère près, structure SVG dégradé 3 stops + `data-score`
+complète), sync `index.html` vs `archives/2026-08-24.html` (`diff` complet
+— seul écart : `mainEntityOfPage` JSON-LD, légitime comme `canonical`/
+`og:url`), `data-france-impact`/`data-kind` cohérents avec le texte
+`.france-line` adjacent pour les 3 cartes (favorable/défavorable/
+défavorable), probabilités 20+45+35=100 %, label brut favorable/stable/
+dégradé absent de `.essentiel-text` (les occurrences de "stable"/"dégradé"/
+"favorable" qui y apparaissent nomment les scénarios eux-mêmes, pas une
+description brute de l'impact France), formulation "Notre évaluation de
+l'impact pour la France" intacte (page et `feed.xml`), lexique (2
+`.lex-ref` ↔ 2 entrées, aucun terme orphelin dans un sens ou l'autre),
+absence de rupture de registre (`grep '\bton \|\bta \|\btu \b'` : seules
+occurrences dans `.share-block`, légitimes), cohérence numérique interne
+(missiles 376/288/192, territoire russe 19 % de référence sur les 3
+cartes, 15/50 ans repris à l'identique dek↔scénario favorable — aucune
+incohérence du type point 4), les 2 indicateurs `.evo-current` des 3
+cartes (missiles, territoire) tous distincts deux à deux (pas de doublon
+complet, point 10), image de l'édition (`assets/social/topic-images/
+2026-08-24.jpg` 1080×1080 et `-wide.jpg` 1600×900, `file` confirme un vrai
+JPEG sous les deux extensions, références `og:image`/`twitter:image`/
+JSON-LD `image`/`<figure class="article-image">` cohérentes entre
+`index.html`, l'archive et `feed.xml` — voir note ci-dessous), 4 chiffres
+vérifiés contre les 3 sources ouvertes (missiles 376/288/192 et 745 km²
+Dnipropetrovsk via Al Jazeera, 57 % d'Ukrainiens opposés à céder le Donbas
+via The Moscow Times — voir signalement pour les 15/50 ans).
+**Note (pas un signalement, pour info)** : `docs/routine-inspection-
+prompt.md` (point 9) décrit `assets/social/topic-images/{date}.jpg` comme
+la source d'`og:image`/`twitter:image`/JSON-LD `image` — en pratique,
+depuis le 9-10 août (`docs/ARCHITECTURE.md`), ces meta pointent vers
+l'image composite `assets/social/instagram/{date}.png` (photo + titre +
+scénarios incrustés), qui est bien reproduite/cohérente sur les 3 fichiers
+ce jour. Rien à corriger sur le site, juste un écart de formulation entre
+le prompt de la routine et l'architecture actuelle, à corriger dans
+`docs/routine-inspection-prompt.md` lui-même à l'occasion (hors périmètre
+de ce passage, qui ne touche que le contenu de l'édition).
+**Corrigé automatiquement** : rien — aucune anomalie mécanique détectée
+sur les points 1 à 10.
+**Réécritures de clarté** (avant/après complet pour chacune, ou "aucune") :
+aucune. 4 phrases de plus de 40-50 mots repérées dans `.dek`/`.why`/
+`.essentiel-text` mais aucune jugée réellement gênante pour la
+compréhension (structure claire par deux-points/tirets/énumération
+parallèle "soit... soit... soit...", tous les termes techniques déjà
+couverts par un `.lex-ref`, aucune rupture de registre) ; l'une d'elles
+("Les pourparlers menés par Washington butent...") est de toute façon dans
+le paragraphe "contexte" protégé de `.essentiel-text`, jamais retouché.
+**Signalé pour revue humaine** : la durée des garanties de sécurité citée
+dans le `.dek` et le scénario favorable ("quinze ans... quand Kyiv en
+réclame jusqu'à cinquante", "au-delà des quinze ans initialement
+proposés") n'a été retrouvée dans aucune des 3 sources ouvertes, y compris
+l'article Kyiv Independent dédié précisément aux garanties de sécurité
+(vérifié deux fois avec des prompts différents) — plafond de 5 `WebFetch`
+atteint avant d'avoir pu confirmer ce chiffre ailleurs ; à revérifier si
+la source exacte est retrouvée. Secondaire : le chiffre "745 km²" repris
+sans réserve dans le `.dek` est bien celui cité par Al Jazeera, mais cet
+article précise que c'est une revendication ukrainienne, l'ISW l'évaluant
+plus prudemment à 627 km² — pas une erreur de chiffre à proprement parler
+(745 est bien dans la source), mais à garder en tête si la rédaction
+souhaite nuancer.
+
+---
+
 ## 2026-08-23 — Le pari XXL du Mondial 2030
 **Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 23 août
 2026), classes CSS attendues présentes dans `<style>` (dont
