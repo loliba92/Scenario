@@ -1316,6 +1316,66 @@
   .follow-btn:hover{ background: var(--gold); color: var(--ink); }
   .follow-btn svg{ display: block; flex-shrink: 0; }
   #nous-suivre .share-row{ gap: 8px; }
+
+  /* Impression en 1 page, ajoutée le 24 août — bouton discret dans le
+     masthead, à côté de l'icône notifications (déclenche juste
+     window.print(), voir le script en bas de page). Plutôt que de tenter
+     de faire tenir tout l'article (corps de texte, lexique, sources...)
+     sur une page, on imprime la version déjà condensée pensée pour ça :
+     l'en-tête + .essentiel-box, avec les 3 scénarios réduits à une ligne
+     (nom, %, titre — .card-body masqué). Le site est en thème sombre
+     (texte clair sur fond sombre) : sans reprise des variables couleur,
+     le texte clair resterait quasi invisible sur la page blanche imprimée
+     (beaucoup de navigateurs n'impriment pas les couleurs de fond par
+     défaut). Redéfinir --paper/--ink/--surface ici suffit, tout le CSS du
+     site les consomme déjà via var(--paper) etc. */
+  @media print{
+    :root{
+      --ink: #ffffff;
+      --paper: #10151c;
+      --paper-dim: #4a4a4a;
+      --surface: #ffffff;
+      --hairline: #cccccc;
+    }
+    body{ background: #fff; }
+    header.masthead, nav.topnav, .top-updates, .toc, .share-inline,
+    .article-image, .question-box, .dek, .list-box, .comprendre-box,
+    .indicator-strip, .dc-chart-box, .stakes-box, .card-body,
+    .indicators-note, .follow-inline, section.lexique, section.sources,
+    section.share-block, footer{ display: none !important; }
+    .wrap{ max-width: 100%; padding: 0; }
+    section.hero, section.scenarios{ padding: 0; border: none; }
+    h1{ font-size: 20pt; margin: 0 0 4pt; }
+    .eyebrow{ margin-bottom: 6pt; }
+    .pubdate{ margin-bottom: 10pt; }
+    .cards{ gap: 4pt; }
+    .card{
+      flex-direction: row;
+      align-items: baseline;
+      gap: 10pt;
+      padding: 5pt 0;
+      border: none;
+      border-bottom: 1px solid var(--hairline);
+      border-radius: 0;
+      background: transparent;
+      break-inside: avoid;
+    }
+    .card-head{
+      flex: 0 0 auto;
+      flex-direction: row;
+      align-items: baseline;
+      text-align: left;
+      width: auto;
+      gap: 8pt;
+    }
+    .gauge{ width: auto; height: auto; margin: 0; }
+    .gauge svg{ display: none; }
+    .gauge-num{ position: static; font-size: 12pt; }
+    .card h3{ font-size: 11pt; text-align: left; }
+    .essentiel-box{ margin-top: 10pt; break-inside: avoid; }
+    .delta-gauge{ display: none; }
+    @page{ margin: 14mm; }
+  }
 </style>
 </head>
 <body>
@@ -1329,6 +1389,7 @@
     <div class="masthead-right">
       <div class="edition">Édition du 24 août 2026 · N°32</div>
       <button type="button" class="onesignal-subscribe-btn masthead-notif-btn" aria-label="Activer les notifications" title="Activer les notifications"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg></button>
+      <button type="button" id="print-page" class="masthead-notif-btn" aria-label="Imprimer en 1 page" title="Imprimer en 1 page"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 9V4.5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1V9"/><rect x="4.5" y="9" width="15" height="7" rx="1.3"/><path d="M7 14h10v5.5a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V14Z"/></svg></button>
     </div>
   </div>
 </header>
@@ -1950,6 +2011,9 @@
         }
       });
     }
+
+    var printBtn = document.getElementById("print-page");
+    if (printBtn) printBtn.addEventListener("click", function(){ window.print(); });
   })();
 </script>
 
