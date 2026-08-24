@@ -530,17 +530,19 @@ python3 scripts/social/generate_instagram_image.py --data /tmp/ig-data.json --ou
 ```json
 {
   "title": "{h1 du jour}",
-  "hook": "{accroche courte, voir ci-dessous}",
+  "context": "{paragraphe de contexte, voir ci-dessous}",
   "scenarios": [
-    {"kind": "favorable", "label": "{titre du h3 favorable, sans emoji}"},
-    {"kind": "stable", "label": "{titre du h3 stable, sans emoji}"},
-    {"kind": "degrade", "label": "{titre du h3 dégradé, sans emoji}"}
+    {"kind": "favorable", "label": "{reformulation courte et simple du scénario favorable}"},
+    {"kind": "stable", "label": "{reformulation courte et simple du scénario stable}"},
+    {"kind": "degrade", "label": "{reformulation courte et simple du scénario dégradé}"}
   ]
 }
 ```
-Les 3 `label` reprennent exactement les titres déjà utilisés pour `scenario-mini-title` (étape 6), sans emoji. Volontairement **aucun pourcentage** sur l'image (effet teaser).
+Volontairement **aucun pourcentage** sur l'image (effet teaser). Le mot du scénario (Favorable/Stable/Dégradé) s'affiche déjà en toutes lettres à côté de la flèche colorée (généré automatiquement par le script à partir de `kind`, rien à écrire pour ça).
 
-**`hook` : une accroche courte affichée sous le titre, en doré, ≤ 12 mots et tenant sur une seule ligne à l'écran.** Ce n'est **jamais** un copier-coller de la question posée (bien trop longue pour tenir lisiblement — c'est justement ce qui a été retiré le 7 août après un premier essai illisible sur mobile) : une phrase courte et percutante, rédigée spécifiquement pour cette image, qui donne juste assez de contexte pour qu'un lecteur qui scrolle sans lire la légende ni cliquer le lien en bio comprenne l'enjeu du sujet. Committer le PNG (et la photo + fiche de provenance le cas échéant). Ajouter dans l'`<item>`, juste après `</category>` et avant `<description>` :
+**Wording de `context` et des 3 `label` : à rédiger spécifiquement pour l'image, jamais un copier-coller du site.** Retour utilisateur explicite (24 août, feedback d'une lectrice jeune) : les scénarios repris tels quels depuis les titres de cartes du site (`scenario-mini-title`, étape 6) se lisent comme un code une fois isolés sur l'image — ces titres sont écrits pour vivre juste au-dessus du paragraphe `why` et de la jauge chiffrée, pas seuls sur un teaser. Sur l'image, personne n'a ce contexte : écrire donc une **reformulation courte et simple** de chaque scénario (même idée, mots simples, sans métaphore ni image littéraire qui suppose de connaître déjà le sujet — ex. préférer « Un accord de paix est signé » à « Une trêve qui tient enfin », préférer « Les combats continuent au même rythme » à « Le front s'enterre pour l'hiver »), compréhensible par quelqu'un qui découvre le sujet en scrollant, sans avoir lu l'article ni la légende.
+
+**`context` : UNE SEULE question simple et factuelle affichée sous le titre, jamais une phrase de mise en scène.** Deuxième retour utilisateur le même jour : une phrase du type « les pourparlers américains butent sur le Donbas : cessez-le-feu proche, guerre gelée, ou embrasement avant l'hiver ? » fait trop d'image (journalistique, scène plantée) et surtout **reformule déjà les 3 scénarios dans la phrase elle-même**, alors qu'ils sont juste en dessous dans l'encart — redondant. Ce qu'il faut : la question brute que les 3 scénarios répondent, rien de plus, posée simplement. **Recycler `h2.section-title`** (déjà écrit à l'étape 3 comme « reformulation courte et pédagogique de la question », donc déjà calibré pour ça) **plutôt que la meta `description`/`og:description`** (trop narrative, elle raconte le contexte au lieu de poser la question) **ou la question posée brute** (trop longue). Recopier `h2.section-title` verbatim. Structure finale de l'image : titre → **question simple** → les 3 réponses possibles (scénarios). **Remplace depuis le 24 août les anciens champs séparés `hook` (accroche dorée) + `context` (ligne de contexte grise) sur deux lignes** — premier retour utilisateur le même jour : deux légendes de couleurs différentes l'une sous l'autre « ça fait brouillon » ; un seul paragraphe, une seule couleur. Exemple pour l'édition Ukraine du 24 août (`h2.section-title` recyclé tel quel) : « La guerre en Ukraine va-t-elle enfin s'arrêter ? » Committer le PNG (et la photo + fiche de provenance le cas échéant). Ajouter dans l'`<item>`, juste après `</category>` et avant `<description>` :
 ```xml
 <enclosure url="https://lesscenarios.fr/assets/social/instagram/{AAAA-MM-JJ}.png" length="{taille en octets}" type="image/png"/>
 ```
