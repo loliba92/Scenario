@@ -105,6 +105,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 24.08.2026 — [Ukraine : ni paix ni victoire](../archives/2026-08-24.html)
 - 23.08.2026 — [Le pari XXL du Mondial 2030](../archives/2026-08-23.html)
 - 22.08.2026 — [Hollywood décroche en Chine](../archives/2026-08-22.html)
 - 21.08.2026 — [Le Grand Filtre](../archives/2026-08-21.html)

@@ -40,7 +40,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 - [x] Iran et États-Unis : vers un accord durable, un cessez-le-feu sous tension ou une reprise de la guerre ?
 - [x] Iran–États-Unis, une semaine après : la trêve du 27 juillet a-t-elle tenu, ou le scénario dégradé (reprise des frappes, fermeture d'Ormuz) est-il en train de se réaliser ? [géopolitique]
   <!-- Suivi de l'édition du 27 juillet. Vérifier en priorité l'état réel du terrain à la date de rédaction (accord conclu, trêve toujours fragile, ou combats repris et détroit d'Ormuz fermé) avant de recadrer les 3 scénarios pour la suite. -->
-- [ ] Guerre en Ukraine : les combats peuvent-ils s'arrêter, rester bloqués sans vainqueur, ou repartir de plus belle en 2026 ?
+- [x] Guerre en Ukraine : les combats peuvent-ils s'arrêter, rester bloqués sans vainqueur, ou repartir de plus belle en 2026 ?
 - [ ] Taïwan : cette île que la Chine veut récupérer peut-elle provoquer une guerre entre Pékin et les États-Unis ?
 - [ ] Guerre commerciale USA-Chine : la mondialisation entre-t-elle dans une nouvelle guerre froide économique ? [géopolitique & économie]
 - [ ] Nouvel ordre mondial : la domination occidentale est-elle remise en cause par un monde de plus en plus multipolaire ? [géopolitique]
