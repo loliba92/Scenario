@@ -1481,6 +1481,13 @@
       </div>
     </div>
 
+    <div class="dc-chart-box">
+      <span class="dc-chart-label">Territoire ukrainien sous contrôle russe, 2014-2026</span>
+      <p class="dc-chart-lead">Après les grands bonds de 2022, le front est quasiment figé depuis quatre ans.</p>
+      <svg id="dc-svg" viewBox="0 0 700 240" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Graphique en escalier : pourcentage du territoire ukrainien sous contrôle russe entre 2014 et 2026, de 7 % à un pic de 27 % en mars 2022 puis un plateau autour de 18-19 % depuis fin 2022."></svg>
+      <p class="dc-chart-caption">Chaque palier tient jusqu'au prochain changement significatif du front — pas de mouvement continu entre deux points. Sources : agrégation Institute for the Study of War (ISW), CSIS — voir Sources en bas de l'édition.</p>
+    </div>
+
   </div>
 </section>
 
@@ -1670,6 +1677,7 @@
       <li><a href="https://www.pbs.org/newshour/politics/u-s-offers-ukraine-15-year-security-guarantee-as-part-of-peace-plan-zelenskyy-says" target="_blank" rel="noopener noreferrer">PBS NewsHour — U.S. offers Ukraine 15-year security guarantee as part of peace plan, Zelenskyy says ↗</a></li>
       <li><a href="https://www.aljazeera.com/news/2026/8/14/ukraine-liberates-dnipropetrovsk-as-russia-intensifies-missile-attacks" target="_blank" rel="noopener noreferrer">Al Jazeera — Russian ballistic attacks intensify as Kyiv claims Dnipropetrovsk advance ↗</a></li>
       <li><a href="https://www.aljazeera.com/news/2026/8/18/putins-illusion-of-victory-russia-ramps-up-missile-attacks-on-ukraine" target="_blank" rel="noopener noreferrer">Al Jazeera — Putin's 'illusion of victory:' Russia ramps up missile attacks on Ukraine ↗</a></li>
+      <li><a href="https://www.csis.org/analysis/russia-ukraine-war-10-charts" target="_blank" rel="noopener noreferrer">CSIS — Russia-Ukraine War in 10 Charts (série complète du graphique territoire) ↗</a></li>
     </ul>
   </div>
 </section>
@@ -1749,30 +1757,28 @@
     });
   });
 
-  // Horloge de l'Apocalypse depuis 1947 — graphique en escalier (la valeur
-  // tient jusqu'à la prochaine annonce du comité, jamais d'interpolation
-  // continue). Données : thebulletin.org/doomsday-clock/timeline/ (voir
-  // Sources en bas de l'édition). Année, secondes avant minuit.
+  // Territoire ukrainien sous contrôle russe, 2014-2026 — graphique en
+  // escalier (la valeur tient jusqu'au prochain changement significatif du
+  // front, jamais d'interpolation continue). Données croisées : Institute
+  // for the Study of War (agrégé par Russia Matters et Ukraine War
+  // Analytics), CSIS (voir Sources en bas de l'édition). Année (fraction
+  // pour les points de 2022, année charnière à plusieurs paliers), % du
+  // territoire ukrainien sous contrôle russe.
   (function () {
     var svg = document.getElementById('dc-svg');
     if (!svg) return;
 
     var data = [
-      [1947, 420], [1949, 180], [1953, 120], [1960, 420], [1963, 720],
-      [1968, 420], [1969, 600], [1972, 720], [1974, 540], [1980, 420],
-      [1981, 240], [1984, 180], [1988, 360], [1990, 600], [1991, 1020],
-      [1995, 840], [1998, 540], [2002, 420], [2007, 300], [2010, 360],
-      [2012, 300], [2015, 180], [2016, 180], [2017, 150], [2018, 120],
-      [2019, 120], [2020, 100], [2021, 100], [2022, 100], [2023, 90],
-      [2024, 90], [2025, 89], [2026, 85]
+      [2014, 7], [2022.15, 27], [2022.27, 22], [2022.68, 19], [2022.84, 18],
+      [2023, 18], [2024, 18.5], [2025, 19.3], [2026, 19]
     ];
 
     var W = 700, H = 240, padL = 40, padR = 12, padT = 14, padB = 30;
     var minYear = data[0][0], maxYear = data[data.length - 1][0];
-    var yMax = 1080; // 18 min, palier rond au-dessus du record de 1991 (1020 s)
+    var yMax = 30; // palier rond au-dessus du pic de mars 2022 (27 %)
 
     function xPos(year) { return padL + (year - minYear) / (maxYear - minYear) * (W - padL - padR); }
-    function yPos(sec) { return padT + (1 - sec / yMax) * (H - padT - padB); }
+    function yPos(pct) { return padT + (1 - pct / yMax) * (H - padT - padB); }
 
     var NS = 'http://www.w3.org/2000/svg';
     function svgEl(tag, attrs) {
@@ -1781,15 +1787,15 @@
       return e;
     }
 
-    for (var m = 3; m <= 18; m += 3) {
-      var ly = yPos(m * 60);
+    for (var pct = 5; pct <= 30; pct += 5) {
+      var ly = yPos(pct);
       svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: ly, y2: ly, class: 'dc-gridline' }));
       var gLbl = svgEl('text', { x: padL - 8, y: ly + 3, class: 'dc-axis-label', 'text-anchor': 'end' });
-      gLbl.textContent = m + ' min';
+      gLbl.textContent = pct + ' %';
       svg.appendChild(gLbl);
     }
 
-    [1947, 1960, 1974, 1991, 2007, 2019, 2026].forEach(function (yr) {
+    [2014, 2022, 2023, 2024, 2025, 2026].forEach(function (yr) {
       var yLbl = svgEl('text', { x: xPos(yr), y: H - padB + 16, class: 'dc-axis-label', 'text-anchor': 'middle' });
       yLbl.textContent = yr;
       svg.appendChild(yLbl);
@@ -1805,24 +1811,24 @@
 
     data.forEach(function (d, i) {
       var isLast = i === data.length - 1;
-      var isPeak = d[0] === 1991;
+      var isPeak = d[0] === 2022.15;
       var dot = svgEl('circle', {
         cx: xPos(d[0]), cy: yPos(d[1]), r: isLast ? 5 : 3,
         class: 'dc-dot' + (isLast ? ' is-highlight' : '')
       });
       var title = svgEl('title', {});
-      title.textContent = d[0] + ' — ' + (d[1] >= 120 ? (d[1] / 60) + ' min avant minuit' : d[1] + ' secondes avant minuit');
+      title.textContent = (d[0] === 2022.15 ? 'Mars 2022' : d[0] === 2022.27 ? 'Avril 2022' : d[0] === 2022.68 ? 'Septembre 2022' : d[0] === 2022.84 ? 'Novembre 2022' : Math.round(d[0])) + ' — ' + d[1] + ' % du territoire ukrainien';
       dot.appendChild(title);
       svg.appendChild(dot);
 
       if (isPeak) {
-        var pLbl = svgEl('text', { x: xPos(d[0]), y: yPos(d[1]) - 10, class: 'dc-point-label is-favorable', 'text-anchor': 'middle' });
-        pLbl.textContent = '17 min — record de recul';
+        var pLbl = svgEl('text', { x: xPos(d[0]), y: yPos(d[1]) - 10, class: 'dc-point-label is-degrade', 'text-anchor': 'middle' });
+        pLbl.textContent = '27 % — pic de mars 2022';
         svg.appendChild(pLbl);
       }
       if (isLast) {
-        var lLbl = svgEl('text', { x: xPos(d[0]), y: yPos(d[1]) - 28, class: 'dc-point-label is-degrade', 'text-anchor': 'end' });
-        lLbl.textContent = "85 s aujourd'hui";
+        var lLbl = svgEl('text', { x: xPos(d[0]), y: yPos(d[1]) - 14, class: 'dc-point-label is-degrade', 'text-anchor': 'end' });
+        lLbl.textContent = "19 % aujourd'hui";
         svg.appendChild(lLbl);
       }
     });
