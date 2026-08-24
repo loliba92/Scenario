@@ -17,7 +17,7 @@ Usage:
 data.json:
 {
   "title": "FIFA : la présidence d'Infantino vacille",
-  "context": "Le vote de défiance approche. Tout dépend de la décision de l'UEFA dans les prochaines semaines.",
+  "context": "Infantino peut-il tenir jusqu'au bout de son mandat ?",
   "scenarios": [
     {"kind": "favorable", "label": "Infantino regagne la confiance"},
     {"kind": "stable", "label": "La méfiance dure, il reste en poste"},
@@ -32,15 +32,15 @@ seule ne "parle" qu'à qui connaît déjà le code du site). Pas de
 pourcentages dans l'image — c'est volontaire (effet teaser vers le
 lien en bio).
 
-"context" : un paragraphe de contexte affiché sous le titre, 1-2
-phrases courtes (≤ 24 mots au total), qui donne juste assez de contexte
-pour qu'un lecteur qui scrolle sans lire la légende ni cliquer le lien
-en bio comprenne l'enjeu du sujet ET ce qui va déterminer l'issue.
-Recycler en priorité la meta description/og:description de l'édition
-(déjà rédigée, déjà pensée pour être compréhensible hors contexte)
-plutôt que d'en écrire une nouvelle — voir docs/routine-prompt.md.
-Jamais un copier-coller de la question posée ou de .stakes-box du site
-(bien trop longs pour tenir lisiblement). Remplace depuis le 24 août les
+"context" : UNE SEULE question simple et factuelle affichée sous le
+titre — jamais une phrase de mise en scène qui reformule déjà les 3
+scénarios (ils sont juste en dessous, dans l'encart : redondant, et
+"fait trop d'image"). Recycler h2.section-title de l'édition (déjà
+écrit comme reformulation courte et pédagogique de la question, donc
+déjà calibré pour ça) plutôt que la meta description/og:description
+(trop narrative) ou la question posée brute (trop longue) — voir
+docs/routine-prompt.md. Structure finale : titre → question simple →
+les 3 réponses possibles (scénarios). Remplace depuis le 24 août les
 anciens champs séparés "hook" (accroche dorée) + "context" (ligne de
 contexte grise) — retour utilisateur : deux légendes de couleurs
 différentes l'une sous l'autre "fait brouillon" ; un seul paragraphe,
