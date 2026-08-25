@@ -243,6 +243,17 @@ se suivaient pas à l'origine). Une coupe individuellement correcte peut
 rendre l'ensemble bancal une fois assemblé — la relecture porte sur
 l'article complet, pas sur chaque coupe isolément.
 
+**Exemple réel qui a motivé cette règle** (retour utilisateur, 25 août) :
+le scénario « Dégradé » de P.02 mentionnait « le même schéma que Huawei et
+la 5G il y a une décennie » — référence correcte dans l'article original,
+où un paragraphe (coupé pour tenir sur une page) expliquait l'analogie.
+Une fois ce paragraphe supprimé, la phrase restait dans la carte scénario
+sans plus rien pour l'expliquer — incompréhensible pour qui n'a lu que le
+papier. Corrigé en rendant la phrase autonome : « comme la 5G Huawei, qui
+avait verrouillé des dizaines de pays avant que le risque ne soit mesuré »
+— le contexte minimal nécessaire tient dans la phrase elle-même plutôt que
+de dépendre d'un paragraphe qui a pu disparaître ailleurs sur la page.
+
 Design **mis en pause ici, validé par l'utilisateur** — la suite n'est pas
 un chantier visuel mais un chantier de **contenu** : voir « Prochaine
 étape » ci-dessous.
