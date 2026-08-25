@@ -1383,3 +1383,37 @@ Aucun chiffre n'a donc pu être comparé à sa source ce passage-ci ; à
 revérifier lors d'un prochain passage si l'accès réseau le permet.
 
 ---
+
+## 2026-08-25 (correction en direct, post-inspection) — chiffre de trafic chinois obsolète
+**Contexte** : suite au passage automatique du matin (voir entrée ci-dessus,
+signalement sur l'écart 45 %/59,6 %), l'utilisateur a demandé une
+vérification complémentaire en conversation directe, avec des pistes
+apportées par un autre assistant (Grok) à confirmer avant toute correction.
+**Vérifié** (recherche web + `WebFetch` sur sources primaires, hors budget
+de la routine automatique puisque conversation directe) : la part chinoise
+du trafic OpenRouter (développeurs/entreprises, même périmètre que
+l'article) a largement dépassé 45 % depuis avril 2026 — Dataconomy (25
+février 2026) la donne déjà à 61 %, eWeek/Bloomberg (24 juillet 2026) à
+60 % avec un pic à 63 % début juillet. Confirmé par plusieurs titres
+indépendants (Yahoo Finance, Fortune, TechBriefly) sur la même période.
+Le chiffre « désormais 45 % » de `.essentiel-text` (repris tel quel dans
+`feed.xml`) était donc obsolète au moment de la publication — contrairement
+au signalement du matin, l'écart n'était pas une ambiguïté de périmètre
+mais une vraie donnée périmée. La répartition par labo du `.list-box`
+(somme 59,6 %) s'est révélée être la donnée la plus proche de la réalité.
+**Corrigé** (urgence : diffusion `feed.xml` imminente) : `.essentiel-text`
+et le `.dek` d'`index.html`/`archives/2026-08-25.html`, ainsi que le texte
+équivalent dans `feed.xml`, mis à jour vers « plus de 60 % » (sourcé
+Dataconomy/Bloomberg), en conservant explicitement la mention « 45 % en
+avril 2026 » pour ne pas perdre le point de comparaison historique déjà
+présent. **Non touché, volontairement** : les probabilités des 3
+scénarios, leurs `.evo-current`/`.evo-prev` (base « 45 %, référence avril
+2026 »), le texte `.why`/`.france-line` des cartes — ce sont des choix
+éditoriaux, hors mandat de cette correction.
+**Question de fond transmise à la rédaction, non tranchée ici** : la base
+de départ du tableau d'indicateurs (45 %, avril 2026) sert de référence aux
+3 scénarios projetés (40 %/58 %/70 %) ; si le trafic réel dépassait déjà
+58-63 % au moment de la publication, le scénario « stable » (le plus
+probable, 45 %) décrit peut-être un état déjà largement atteint plutôt
+qu'une trajectoire encore incertaine. À réévaluer par la rédaction, pas par
+cette correction ponctuelle.
