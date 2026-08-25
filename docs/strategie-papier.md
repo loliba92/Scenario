@@ -198,8 +198,14 @@ haute résolution pour l'impression, plutôt que le recadrage carré
 article déjà publié (« IA chinoise : cadeau ou piège ? », édition du 25 août
 2026) et de sa photo Pexels déjà en place, sans rien inventer :
 - **P.01 Couverture** — photo plein cadre (pas juste un bloc central),
-  dégradé sombre progressif pour la lisibilité, titre + accroche + tags +
-  **agenda** (« Dans ce numéro ») ancrés en bas de page.
+  dégradé sombre progressif pour la lisibilité (assombri une deuxième fois
+  le 25 août, retour utilisateur : le premier passage laissait le texte
+  trop proche du bord clair de la photo — le noir descend maintenant plus
+  tôt et devient opaque autour de 80 % de hauteur), titre + accroche + tags
+  + **agenda numéroté et daté** (« Dans ce numéro ») ancré en bas de page.
+  L'agenda liste les **vrais titres** des éditions déjà publiées dans ce
+  registre thématique plutôt que des intitulés inventés pour remplir —
+  voir point de volume ci-dessous.
 - **P.02 Le dossier** — tient sur une seule page : image + texte + rail de
   statistiques + encart « Ce qu'on évalue » + les 3 scénarios chiffrés +
   **encart « L'essentiel » en bas**, qui reprend la synthèse déjà écrite
@@ -232,13 +238,19 @@ un chantier visuel mais un chantier de **contenu** : voir « Prochaine
 **Prochaine étape (pas encore commencée)** : réfléchir à la sélection et à
 la consolidation du contenu sur un trimestre entier, pas juste sur un seul
 article de démonstration. Points à trancher :
-- **Volume réel disponible.** Un registre n'a qu'un créneau par semaine
-  (`docs/tags.md`) → ~12-13 éditions par trimestre pour le registre en fil
-  rouge. À rapprocher du gabarit ~100-120 pages visé en Phase 3 (compilation
-  3 mois toutes rubriques) pour voir combien de pages ça représente
-  réellement une fois mis en forme (dossier + L'essentiel par sujet), et
-  combien de place ça laisse aux 1-2 pages de consolidation des autres
-  registres.
+- **Volume réel disponible — déjà mesuré le 25 août, pas juste théorique.**
+  Scénario n'a qu'un mois d'existence : 37 éditions publiées au total, dont
+  seulement **6 taguées « intelligence-artificielle »** (`archives.html`,
+  `data-tag`) — pas encore les ~12-13/trimestre attendus en rythme de
+  croisière (1 créneau/semaine par registre, voir `docs/tags.md`). La
+  maquette de couverture assume cet écart plutôt que de le masquer :
+  l'agenda affiche les 6 vrais titres avec une note explicite (« un
+  trimestre complet en réunira une douzaine »). Point à retrancher une
+  fois que le site aura tourné un trimestre plein : recompter, et
+  rapprocher du gabarit ~100-120 pages visé en Phase 3 (compilation 3 mois
+  toutes rubriques) pour voir combien de pages ça représente réellement
+  une fois mis en forme (dossier + L'essentiel par sujet), et combien de
+  place ça laisse aux 1-2 pages de consolidation des autres registres.
 - **Critère de sélection/tri.** Tous les sujets du trimestre ne méritent pas
   forcément un dossier complet — sur quel critère trier (scénario tranché
   vs encore ouvert, richesse de la réévaluation, résonance déjà mesurée
@@ -253,7 +265,15 @@ article de démonstration. Points à trancher :
 - **Ordre de rotation des registres** sur l'année (quel registre en fil
   rouge pour quel trimestre).
 
-## Repères de coûts (indicatif)
+**État final de la maquette (session du 25 août, close ici pour la
+soirée)** : https://claude.ai/code/artifact/d5e72207-faf4-4b9d-b0ed-24ccaa21e626
+— 2 planches A4, nom « Les Cahiers de Scénario », toutes les décisions
+ci-dessus appliquées. Design validé par l'utilisateur, **rien à reprendre
+dessus par défaut** — ne pas relancer un travail visuel sans une demande
+explicite. **Reprendre directement sur les 4 points de « Prochaine étape »
+ci-dessus** (contenu, pas mise en page).
+
+
 
 - **Devis Gelato**, brochure cousue ~40 pages (format papier discuté pour un
   cahier mensuel) : coût d'impression unitaire **≈ 7,55 € HT en tarif promo,
