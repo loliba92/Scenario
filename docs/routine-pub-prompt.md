@@ -369,6 +369,43 @@ uniquement à ce que la routine (et l'utilisateur, en lisant le flux) sache
 quelle photo/quel photographe a été utilisé — invisible dans un lecteur
 RSS ou sur les réseaux, jamais affiché publiquement par ce mécanisme.
 
+**Garde-fou obligatoire : valider le XML avant tout commit** (ajouté le
+25 août — incident réel : l'item `citation-03` du 25 août avait été
+écrit avec un CDATA non fermé sur `<description>` — `]]>` manquant
+avant `</description>`. Ce genre d'erreur ne casse pas le XML au sens
+strict — `xmllint --noout` ne remonte aucune erreur, un CDATA mal fermé
+reste syntaxiquement valide, juste mal "scopé" — mais un CDATA ouvert
+avale tout le texte qui suit, y compris l'`<item>` entier suivant, qui
+disparaît alors pour tout parseur XML strict, dont celui utilisé par
+Make côté automatisation réseaux sociaux : l'édition suivante n'était
+donc jamais postée, sans qu'aucune erreur ne soit visible dans le
+fichier lui-même. Repéré seulement parce que l'utilisateur a remarqué
+l'absence d'un item dans Make.**
+
+Après avoir écrit le nouvel item (et avant `git add`/`git commit`),
+valider systématiquement avec ce script (jamais sauter cette étape,
+même si la modification semble triviale) :
+
+```python
+import xml.etree.ElementTree as ET
+tree = ET.parse("feed-pub.xml")
+items = tree.getroot().find("channel").findall("item")
+assert len(items) == {nombre d'items avant ajout} + 1, f"attendu {n+1}, trouvé {len(items)}"
+# vérifier que le nouvel item ne contient pas le texte d'un autre item
+# (signe d'un CDATA/tag mal fermé qui aurait tout avalé)
+guids = [it.find("guid").text for it in items]
+assert len(guids) == len(set(guids)), "guid en double"
+print("OK —", len(items), "items, tous distincts")
+```
+
+Si l'assertion échoue (nombre d'items inattendu, ou contenu d'un item
+qui déborde visiblement sur le suivant en le lisant) : **ne pas
+committer**, chercher la balise mal fermée (`]]>` manquant sur une
+`<description>` en CDATA est la cause la plus probable, vue l'incident
+du 25 août) et corriger avant de relancer la validation. Un
+`xmllint --noout feed-pub.xml` qui passe **ne suffit pas** à lui seul —
+il ne détecte pas ce type d'erreur, voir l'incident ci-dessus.
+
 ## Étape 5 — Résumé final
 
 Toujours terminer par un message court et explicite :
