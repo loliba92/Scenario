@@ -202,15 +202,25 @@ article déjà publié (« IA chinoise : cadeau ou piège ? », édition du 25 a
   **agenda** (« Dans ce numéro ») ancrés en bas de page.
 - **P.02 Le dossier** — tient sur une seule page : image + texte + rail de
   statistiques + encart « Ce qu'on évalue » + les 3 scénarios chiffrés +
-  **encart « L'essentiel » en bas** (fond encre, bordure or — même recette
-  que le site), qui reprend la synthèse déjà écrite pour l'édition
-  originale. C'est ce bloc, avec son chiffre mis à jour (>60 % vs 45 % à la
-  publication), qui joue le rôle de « mise à jour » du sujet sur une seule
-  planche — pas une page de suivi séparée avec un historique V0/V1/V2 qui
-  n'existe pas encore pour un sujet publié le jour même (une première
-  tentative avait réutilisé une page de suivi existante sur un *autre*
-  sujet, FIFA/Infantino, pour illustrer le mécanisme de rétrospective —
-  écarté en retour utilisateur : casse la cohérence thématique du numéro).
+  **encart « L'essentiel » en bas**, qui reprend la synthèse déjà écrite
+  pour l'édition originale. C'est ce bloc, avec son chiffre mis à jour
+  (>60 % vs 45 % à la publication), qui joue le rôle de « mise à jour » du
+  sujet sur une seule planche — pas une page de suivi séparée avec un
+  historique V0/V1/V2 qui n'existe pas encore pour un sujet publié le jour
+  même (une première tentative avait réutilisé une page de suivi existante
+  sur un *autre* sujet, FIFA/Infantino, pour illustrer le mécanisme de
+  rétrospective — écarté en retour utilisateur : casse la cohérence
+  thématique du numéro).
+- **Format retenu pour les encarts « Ce qu'on évalue » et « L'essentiel »**
+  (validé le 25 août, après deux allers-retours) : **le même pour les
+  deux** — fond `#ddd4bd` (dérivé du papier, discret) et bordure gauche or
+  de 3px, jamais une boîte pleine bordure ni un fond encre/sombre. Un
+  premier essai en fond encre (repris du site, où l'encart tranche sur un
+  fond sombre) a été écarté : illisible/trop tranché sur une page papier
+  claire. Un deuxième essai en ivoire clair dédié a aussi été écarté : trop
+  jaune. La bonne réponse était plus simple — réutiliser tel quel le format
+  déjà en place pour « Ce qu'on évalue » plutôt que d'en inventer un
+  nouveau pour « L'essentiel ».
 - Charte graphique = exactement celle du site (Fraunces/Inter/JetBrains
   Mono, `--ink`/`--paper`/`--gold`/`--favorable`/`--stable`/`--degrade`),
   aucune rupture graphique avec le digital.
