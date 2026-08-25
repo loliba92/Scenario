@@ -6,6 +6,107 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-08-25 — IA chinoise : cadeau ou piège ?
+**Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 25 août
+2026), classes CSS attendues présentes dans `<style>` et utilisées dans le
+corps (dont `.delta-france`/`.delta-gauge*`/`.delta-word`/`.delta-flag`,
+bloc canonique intact), sync `index.html` vs `archives/2026-08-25.html`
+(`diff` normalisé — seuls écarts : chemins `../`, `canonical`/`og:url`,
+`aria-current`, tous légitimes), `data-france-impact`/`data-kind` cohérents
+avec le texte `.france-line` adjacent sur les 3 cartes, probabilités
+20+45+35 = 100 %, label brut favorable/stable/dégradé absent de
+`.essentiel-text`, formulation « Notre évaluation de l'impact pour la
+France » intacte, lexique (3 `.lex-ref` ↔ 3 entrées, `distillation` /
+`poids-ouverts` / `verrouillage-technologique`, aucun terme orphelin dans
+un sens ou l'autre), absence de tutoiement hors `.share-block` (une seule
+occurrence de "ton" trouvée, dans un commentaire HTML de développement, pas
+dans du texte lecteur), KPI des 3 cartes (point 10 : paires `.evo-current`
+distinctes sur les 2 indicateurs — 40 %/45 %, 58 %/60 %, 70 %/68 % — aucun
+doublon complet), image de l'article et du feed (`topic-images/2026-08-
+25.jpg` 1080×1080 et `-wide.jpg` 1600×900, formats JPEG réels conformes à
+l'extension, `og:image`/`twitter:image`/JSON-LD cohérents entre eux et
+identiques entre `index.html` et l'archive — pointent vers
+`assets/social/instagram/2026-08-25.png`, PNG réel 1080×1080 conforme,
+comportement cohérent avec `docs/ARCHITECTURE.md` même si ça diffère du
+chemin `topic-images/*.jpg` décrit au point 9 du prompt — rien de cassé,
+pas traité comme une anomalie), 3 chiffres structurants vérifiés contre
+sources déjà citées (voir détail ci-dessous).
+**Corrigé automatiquement** : 3 réécritures de clarté (plafond du point 8
+atteint, voir détail ci-dessous) sur `index.html` et
+`archives/2026-08-25.html` — aucune autre correction mécanique nécessaire
+ce passage-ci (rien à corriger sur les points 1 à 7, 9, 10).
+**Réécritures de clarté** (avant/après complet pour chacune) :
+- Avant : « Pour la Chine, rendre ses modèles gratuits et ouverts est une
+  stratégie assumée : plus un modèle chinois devient la base sur laquelle
+  les développeurs du monde entier construisent leurs propres outils, plus
+  la Chine gagne en influence sur les standards techniques de demain — un
+  peu comme les équipements 5G bon marché de Huawei avaient permis à la
+  Chine de s'installer dans les réseaux télécoms de dizaines de pays avant
+  que les gouvernements occidentaux n'en mesurent le risque de
+  verrouillage technologique. »
+  Après : « Pour la Chine, rendre ses modèles gratuits et ouverts est une
+  stratégie assumée : plus un modèle chinois devient la base sur laquelle
+  les développeurs du monde entier construisent leurs propres outils, plus
+  la Chine gagne en influence sur les standards techniques de demain. C'est
+  le même mécanisme qu'avec les équipements 5G bon marché de Huawei : ils
+  avaient permis à la Chine de s'installer dans les réseaux télécoms de
+  dizaines de pays, avant même que les gouvernements occidentaux n'en
+  mesurent le risque de verrouillage technologique. »
+- Avant : « La tension est montée d'un cran le 22 juillet, quand Michael
+  Kratsios, le conseiller scientifique et technologique de la Maison-
+  Blanche, a accusé la start-up chinoise Moonshot AI d'avoir siphonné en
+  secret les réponses du modèle Fable d'Anthropic pour construire Kimi K3,
+  son propre modèle en poids ouverts publié six jours plus tôt. »
+  Après : « La tension est montée d'un cran le 22 juillet. Ce jour-là,
+  Michael Kratsios, le conseiller scientifique et technologique de la
+  Maison-Blanche, a accusé la start-up chinoise Moonshot AI d'avoir
+  siphonné en secret les réponses du modèle Fable d'Anthropic pour
+  construire Kimi K3, son propre modèle en poids ouverts publié six jours
+  plus tôt. »
+- Avant : « La dépendance s'accélère plutôt qu'elle ne se stabilise : de
+  plus en plus d'outils de développement et de services cloud occidentaux
+  sont construits directement sur des modèles chinois, rendant un retour
+  en arrière coûteux et lent — le même schéma que les équipements télécoms
+  Huawei il y a une décennie. »
+  Après : « La dépendance s'accélère plutôt qu'elle ne se stabilise : de
+  plus en plus d'outils de développement et de services cloud occidentaux
+  sont construits directement sur des modèles chinois. Un retour en
+  arrière devient coûteux et lent — le même schéma que les équipements
+  télécoms Huawei il y a une décennie. »
+**Signalé pour revue humaine** :
+- Incohérence numérique potentielle, périmètre/date ambigus (point 4) :
+  la somme des parts individuelles des 6 labos chinois listés dans le
+  `.list-box` (Xiaomi 21,1 % + Alibaba 13,9 % + MiniMax 8,1 % + Zhipu 5,6 %
+  + DeepSeek 5,6 % + StepFun 5,3 % = 59,6 %) dépasse largement le chiffre
+  « 45 % » utilisé ailleurs dans l'article comme part chinoise totale du
+  trafic mondial, y compris dans `.essentiel-text` où il est présenté avec
+  le mot « désormais » (laissant entendre une valeur actuelle). Vérification
+  faite auprès de la source citée (Digital Applied, Q2 2026, seule source
+  couvrant ces chiffres) : les deux chiffres sont réels et proviennent bien
+  de cette source, mais le rapport lui-même précise que « Chinese share
+  crossed 45% of OpenRouter traffic » (un seuil franchi, cohérent avec la
+  date « avril 2026 » explicitement donnée dans le `.dek`), tandis que la
+  répartition par labo vient du rapport Q2 2026 dans son ensemble — donc
+  potentiellement plus récente, ce qui expliquerait une somme déjà
+  supérieure. Le `.list-box-foot` de l'article reste littéralement exact
+  (« plus de 45 % ») mais `.essentiel-text` (« désormais 45 % ») entre en
+  tension avec sa propre répartition détaillée plus haut dans le même
+  article. Périmètre temporel exact non tranchable depuis cet inspecteur —
+  ne pas corriger seul, à trancher par la rédaction (reformuler
+  « désormais » en « en avril 2026 », ou mettre à jour l'agrégat, selon ce
+  que confirme la source complète).
+- Source « CNBC — Nvidia, Microsoft, Meta warn against 'premature
+  restrictions' of open-weight models » non re-vérifiable ce passage-ci :
+  `WebFetch` renvoie HTTP 403 Forbidden (blocage probable côté CNBC, pas
+  une politique réseau de la session — à la différence des blocages
+  `EGRESS_BLOCKED` rencontrés lors de passages précédents sur d'autres
+  domaines). Le chiffre qu'elle est censée appuyer (plus de 25 entreprises,
+  dont Mistral, signataires d'une lettre commune à Washington fin juillet)
+  n'a donc pas pu être confirmé ce passage-ci ; pas de source de
+  remplacement cherchée, à revérifier lors d'un prochain passage.
+
+---
+
 ## 2026-08-24 — Ukraine : ni paix ni victoire
 **Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 24 août
 2026), classes CSS attendues présentes dans `<style>` (dont
