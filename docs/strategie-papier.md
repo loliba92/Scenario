@@ -162,6 +162,87 @@ une automatisation à coût quasi nul ; un prestataire de fulfillment prend
 une commission ou un tarif au pli, à intégrer dans le prix final une fois un
 devis obtenu — **à revoir avant de communiquer un prix définitif**.
 
+## Focus thématique et identité « Les Cahiers de Scénario » — retour du 25 août 2026
+
+**Question posée** : décliner le Cahier trimestriel avec un **focus thématique
+tournant** (ex. un trimestre « Intelligence artificielle », un autre
+« Sciences »...) plutôt qu'un simple compilateur chronologique toutes
+rubriques confondues, avec de vraies photos pour en faire un objet éditorial
+soigné.
+
+**Avis retenu** : oui pour le focus thématique, mais **sans casser la cadence
+trimestrielle déjà actée** (raison d'expédition — voir plus haut) ni la
+diversité de lectorat. Formule proposée : chaque numéro met en avant **un
+registre en fil rouge** (dossier principal + rétrospective) et garde 1-2
+pages de consolidation pour les autres registres, pour ne pas perdre les
+lecteurs qui ne suivent pas le registre du trimestre. Rythme de rotation
+des registres (lequel en T1/T2/T3/T4) **pas encore tranché** — à faire une
+fois la sélection de contenu du premier numéro cadrée (voir « Prochaine
+étape » plus bas).
+
+**Nom retenu pour l'objet** : **Les Cahiers de Scénario** (au pluriel,
+collection) — remplace le nom de travail générique « Cahier Scénario » /
+« Cahier trimestriel » utilisé plus haut dans ce document.
+
+**Photos : Pexels, déjà en place, coût nul.** Pas de nouvel outil à
+construire — `scripts/social/fetch_topic_image.py` (déjà utilisé pour les
+visuels du site) sert de base : recherche par mots-clés thématiques
+génériques, jamais de nom de personne réelle, choix humain systématique,
+crédit photographe consigné. Licence Pexels compatible usage commercial/
+impression, sans attribution obligatoire (mais fournie par bonne pratique).
+Seul ajustement à prévoir le moment venu : exporter l'`original_url` en
+haute résolution pour l'impression, plutôt que le recadrage carré
+1080×1080 pensé pour Instagram.
+
+**Maquette de validation** — deux planches A4 construites à partir d'un vrai
+article déjà publié (« IA chinoise : cadeau ou piège ? », édition du 25 août
+2026) et de sa photo Pexels déjà en place, sans rien inventer :
+- **P.01 Couverture** — photo plein cadre (pas juste un bloc central),
+  dégradé sombre progressif pour la lisibilité, titre + accroche + tags +
+  **agenda** (« Dans ce numéro ») ancrés en bas de page.
+- **P.02 Le dossier** — tient sur une seule page : image + texte + rail de
+  statistiques + encart « Ce qu'on évalue » + les 3 scénarios chiffrés +
+  **encart « L'essentiel » en bas** (fond encre, bordure or — même recette
+  que le site), qui reprend la synthèse déjà écrite pour l'édition
+  originale. C'est ce bloc, avec son chiffre mis à jour (>60 % vs 45 % à la
+  publication), qui joue le rôle de « mise à jour » du sujet sur une seule
+  planche — pas une page de suivi séparée avec un historique V0/V1/V2 qui
+  n'existe pas encore pour un sujet publié le jour même (une première
+  tentative avait réutilisé une page de suivi existante sur un *autre*
+  sujet, FIFA/Infantino, pour illustrer le mécanisme de rétrospective —
+  écarté en retour utilisateur : casse la cohérence thématique du numéro).
+- Charte graphique = exactement celle du site (Fraunces/Inter/JetBrains
+  Mono, `--ink`/`--paper`/`--gold`/`--favorable`/`--stable`/`--degrade`),
+  aucune rupture graphique avec le digital.
+
+Design **mis en pause ici, validé par l'utilisateur** — la suite n'est pas
+un chantier visuel mais un chantier de **contenu** : voir « Prochaine
+étape » ci-dessous.
+
+**Prochaine étape (pas encore commencée)** : réfléchir à la sélection et à
+la consolidation du contenu sur un trimestre entier, pas juste sur un seul
+article de démonstration. Points à trancher :
+- **Volume réel disponible.** Un registre n'a qu'un créneau par semaine
+  (`docs/tags.md`) → ~12-13 éditions par trimestre pour le registre en fil
+  rouge. À rapprocher du gabarit ~100-120 pages visé en Phase 3 (compilation
+  3 mois toutes rubriques) pour voir combien de pages ça représente
+  réellement une fois mis en forme (dossier + L'essentiel par sujet), et
+  combien de place ça laisse aux 1-2 pages de consolidation des autres
+  registres.
+- **Critère de sélection/tri.** Tous les sujets du trimestre ne méritent pas
+  forcément un dossier complet — sur quel critère trier (scénario tranché
+  vs encore ouvert, richesse de la réévaluation, résonance déjà mesurée
+  côté audience/réseaux) ?
+- **Suivi au fil du trimestre plutôt qu'au bouclage.** Repérer les bons
+  candidats de dossier au fur et à mesure des publications (liste courte
+  tenue à jour) plutôt que de relire ~90 éditions à froid en fin de
+  trimestre.
+- **Sujets encore ouverts en fin de trimestre** : la règle déjà actée plus
+  haut (reprendre la dernière version réévaluée, écarter si jamais
+  réévalué depuis la publication d'origine) s'applique directement ici.
+- **Ordre de rotation des registres** sur l'année (quel registre en fil
+  rouge pour quel trimestre).
+
 ## Repères de coûts (indicatif)
 
 - **Devis Gelato**, brochure cousue ~40 pages (format papier discuté pour un
