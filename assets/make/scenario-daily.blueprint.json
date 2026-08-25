@@ -231,8 +231,8 @@
             "mapper": null,
             "metadata": {
                 "designer": {
-                    "x": -671,
-                    "y": -1171
+                    "x": -1039,
+                    "y": -1294
                 }
             },
             "routes": [
@@ -258,8 +258,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -371,
-                                    "y": -2221
+                                    "x": -739,
+                                    "y": -2494
                                 },
                                 "restore": {
                                     "expect": {
@@ -517,8 +517,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -812,
-                                    "y": -1897,
+                                    "x": -739,
+                                    "y": -2194,
                                     "name": "X Twitter"
                                 },
                                 "restore": {
@@ -667,8 +667,8 @@
                                     "mapper": {},
                                     "metadata": {
                                         "designer": {
-                                            "x": -726,
-                                            "y": -2240
+                                            "x": -912,
+                                            "y": -2253
                                         },
                                         "restore": {}
                                     }
@@ -679,34 +679,6 @@
                 },
                 {
                     "flow": [
-                        {
-                            "id": 37,
-                            "module": "util:FunctionSleep",
-                            "version": 1,
-                            "parameters": {},
-                            "mapper": {
-                                "duration": "30"
-                            },
-                            "metadata": {
-                                "designer": {
-                                    "x": -371,
-                                    "y": -1621
-                                },
-                                "restore": {},
-                                "expect": [
-                                    {
-                                        "name": "duration",
-                                        "type": "uinteger",
-                                        "label": "Delay",
-                                        "required": true,
-                                        "validate": {
-                                            "max": 300,
-                                            "min": 1
-                                        }
-                                    }
-                                ]
-                            }
-                        },
                         {
                             "id": 68,
                             "module": "instagram-business:CreatePostPhoto",
@@ -721,8 +693,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": 44,
-                                    "y": -1758
+                                    "x": -739,
+                                    "y": -1894
                                 },
                                 "restore": {
                                     "expect": {
@@ -819,34 +791,6 @@
                 {
                     "flow": [
                         {
-                            "id": 41,
-                            "module": "util:FunctionSleep",
-                            "version": 1,
-                            "parameters": {},
-                            "mapper": {
-                                "duration": "60"
-                            },
-                            "metadata": {
-                                "designer": {
-                                    "x": -371,
-                                    "y": -1321
-                                },
-                                "restore": {},
-                                "expect": [
-                                    {
-                                        "name": "duration",
-                                        "type": "uinteger",
-                                        "label": "Delay",
-                                        "required": true,
-                                        "validate": {
-                                            "max": 300,
-                                            "min": 1
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
                             "id": 70,
                             "module": "facebook-pages:CreatePostWithPhotos",
                             "version": 6,
@@ -865,8 +809,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": 91,
-                                    "y": -1294
+                                    "x": -739,
+                                    "y": -1594
                                 },
                                 "restore": {
                                     "expect": {
@@ -992,12 +936,12 @@
                             "version": 1,
                             "parameters": {},
                             "mapper": {
-                                "duration": "90"
+                                "duration": "30"
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -371,
-                                    "y": -1021
+                                    "x": -739,
+                                    "y": -1294
                                 },
                                 "restore": {},
                                 "expect": [
@@ -1023,12 +967,12 @@
                             },
                             "mapper": {
                                 "url": "https://lesscenarios.fr/feed-suivi.xml",
-                                "username": "",
+                                "gzip": true,
                                 "password": "",
-                                "filterDateFrom": "{{parseDate(formatDate(addDays(now; -1); \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}",
-                                "filterDateTo": "{{parseDate(formatDate(now; \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}",
+                                "username": "",
                                 "maxResults": "1",
-                                "gzip": true
+                                "filterDateTo": "{{parseDate(formatDate(now; \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}",
+                                "filterDateFrom": "{{parseDate(formatDate(addDays(now; -1); \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}"
                             },
                             "metadata": {
                                 "designer": {
@@ -1134,110 +1078,110 @@
                                     },
                                     {
                                         "name": "image",
-                                        "type": "collection",
-                                        "label": "Image",
                                         "spec": [
                                             {
                                                 "name": "title",
-                                                "label": "Name",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "Name"
                                             },
                                             {
                                                 "name": "url",
-                                                "label": "URL",
-                                                "type": "url"
+                                                "type": "url",
+                                                "label": "URL"
                                             }
-                                        ]
+                                        ],
+                                        "type": "collection",
+                                        "label": "Image"
                                     },
                                     {
                                         "name": "categories",
-                                        "type": "array",
-                                        "label": "Categories",
                                         "spec": {
                                             "type": "text"
-                                        }
+                                        },
+                                        "type": "array",
+                                        "label": "Categories"
                                     },
                                     {
                                         "name": "source",
-                                        "type": "collection",
-                                        "label": "Source",
                                         "spec": [
                                             {
                                                 "name": "title",
-                                                "label": "Name",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "Name"
                                             },
                                             {
                                                 "name": "url",
-                                                "label": "URL",
-                                                "type": "url"
+                                                "type": "url",
+                                                "label": "URL"
                                             }
-                                        ]
+                                        ],
+                                        "type": "collection",
+                                        "label": "Source"
                                     },
                                     {
                                         "name": "enclosures",
-                                        "type": "array",
-                                        "label": "Enclosures",
                                         "spec": [
                                             {
                                                 "name": "url",
-                                                "label": "URL",
-                                                "type": "url"
+                                                "type": "url",
+                                                "label": "URL"
                                             },
                                             {
                                                 "name": "type",
-                                                "label": "Type",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "Type"
                                             },
                                             {
                                                 "name": "length",
-                                                "label": "Length",
-                                                "type": "number"
+                                                "type": "number",
+                                                "label": "Length"
                                             }
-                                        ]
+                                        ],
+                                        "type": "array",
+                                        "label": "Enclosures"
                                     },
                                     {
-                                        "name": "rssFields",
-                                        "label": "RSS fields",
                                         "help": "Other RSS fields. All values are in text format.",
-                                        "type": "collection",
+                                        "name": "rssFields",
                                         "spec": [
                                             {
                                                 "name": "title",
-                                                "label": "title",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "title"
                                             },
                                             {
                                                 "name": "link",
-                                                "label": "link",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "link"
                                             },
                                             {
                                                 "name": "guid",
-                                                "label": "guid",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "guid"
                                             },
                                             {
                                                 "name": "pubdate",
-                                                "label": "pubdate",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "pubdate"
                                             },
                                             {
                                                 "name": "comments",
-                                                "label": "comments",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "comments"
                                             },
                                             {
                                                 "name": "enclosure",
-                                                "label": "enclosure",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "enclosure"
                                             },
                                             {
                                                 "name": "description",
-                                                "label": "description",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "description"
                                             }
-                                        ]
+                                        ],
+                                        "type": "collection",
+                                        "label": "RSS fields"
                                     }
                                 ]
                             }
@@ -1276,8 +1220,8 @@
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": 393,
-                                                    "y": -533
+                                                    "x": 332,
+                                                    "y": -383
                                                 },
                                                 "restore": {
                                                     "expect": {
@@ -1403,8 +1347,8 @@
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": 393,
-                                                    "y": -233,
+                                                    "x": 332,
+                                                    "y": -83,
                                                     "name": "Twitter "
                                                 },
                                                 "restore": {
@@ -1544,7 +1488,27 @@
                                                         "label": "Media"
                                                     }
                                                 ]
-                                            }
+                                            },
+                                            "onerror": [
+                                                {
+                                                    "id": 89,
+                                                    "module": "builtin:Ignore",
+                                                    "version": 1,
+                                                    "parameters": {},
+                                                    "filter": {
+                                                        "name": "Catch all",
+                                                        "conditions": []
+                                                    },
+                                                    "mapper": {},
+                                                    "metadata": {
+                                                        "designer": {
+                                                            "x": 832,
+                                                            "y": -234
+                                                        },
+                                                        "restore": {}
+                                                    }
+                                                }
+                                            ]
                                         }
                                     ]
                                 },
@@ -1570,8 +1534,8 @@
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": 393,
-                                                    "y": 67
+                                                    "x": 332,
+                                                    "y": 217
                                                 },
                                                 "restore": {
                                                     "expect": {
@@ -1711,8 +1675,8 @@
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": 393,
-                                                    "y": 367
+                                                    "x": 332,
+                                                    "y": 517
                                                 },
                                                 "restore": {
                                                     "expect": {
@@ -1862,8 +1826,8 @@
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": 393,
-                                                    "y": 667,
+                                                    "x": 332,
+                                                    "y": 817,
                                                     "name": "INSTAGRAM"
                                                 },
                                                 "restore": {
@@ -2018,8 +1982,8 @@
                                             },
                                             "metadata": {
                                                 "designer": {
-                                                    "x": 131,
-                                                    "y": 1071,
+                                                    "x": 332,
+                                                    "y": 1117,
                                                     "name": "Download Daily image"
                                                 },
                                                 "restore": {
@@ -2678,6 +2642,268 @@
                                             }
                                         }
                                     ]
+                                },
+                                {
+                                    "flow": [
+                                        {
+                                            "id": 94,
+                                            "module": "onesignal:notification",
+                                            "version": 1,
+                                            "parameters": {
+                                                "__IMTCONN__": 10093874
+                                            },
+                                            "mapper": {
+                                                "url": "{{30.url}}",
+                                                "type": "push",
+                                                "contents": [
+                                                    {
+                                                        "text": "{{30.title}}{{newline}}{{newline}}{{30.comments}}",
+                                                        "language": "en"
+                                                    }
+                                                ],
+                                                "included_segments": [
+                                                    "Active Subscriptions"
+                                                ]
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 265,
+                                                    "y": -809
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "type": {
+                                                            "mode": "chose",
+                                                            "label": "Push"
+                                                        },
+                                                        "filters": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "contents": {
+                                                            "mode": "chose",
+                                                            "items": [
+                                                                {
+                                                                    "text": {
+                                                                        "collapsed": true
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        "included_segments": {
+                                                            "mode": "chose",
+                                                            "label": [
+                                                                "Active Subscriptions"
+                                                            ]
+                                                        },
+                                                        "additionalParameters": {
+                                                            "mode": "chose"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "onesignal"
+                                                            },
+                                                            "label": "Olivier's OneSignal connection (App ID: 1f47412d-5688-4ce7-8288-df1ed44bdad3 | Organization API key NOT available)"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:onesignal",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "name": "type",
+                                                        "type": "select",
+                                                        "label": "Notification type",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "email",
+                                                                "push",
+                                                                "sms"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "included_segments",
+                                                        "type": "select",
+                                                        "label": "Included segments",
+                                                        "multiple": true,
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "template_id",
+                                                        "type": "text",
+                                                        "label": "Template ID"
+                                                    },
+                                                    {
+                                                        "name": "filters",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "spec": [
+                                                                {
+                                                                    "name": "field",
+                                                                    "type": "text",
+                                                                    "label": "Field"
+                                                                },
+                                                                {
+                                                                    "name": "key",
+                                                                    "type": "text",
+                                                                    "label": "Key"
+                                                                },
+                                                                {
+                                                                    "name": "relation",
+                                                                    "type": "text",
+                                                                    "label": "Relation"
+                                                                },
+                                                                {
+                                                                    "name": "value",
+                                                                    "type": "text",
+                                                                    "label": "Value"
+                                                                },
+                                                                {
+                                                                    "name": "operator",
+                                                                    "type": "text",
+                                                                    "label": "Operator"
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Filter"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Filters"
+                                                    },
+                                                    {
+                                                        "name": "additionalParameters",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "spec": [
+                                                                {
+                                                                    "name": "key",
+                                                                    "type": "text",
+                                                                    "label": "Parameter Name",
+                                                                    "required": true
+                                                                },
+                                                                {
+                                                                    "name": "type",
+                                                                    "type": "select",
+                                                                    "label": "Input Type",
+                                                                    "options": [
+                                                                        {
+                                                                            "label": "Text",
+                                                                            "value": "text",
+                                                                            "nested": [
+                                                                                {
+                                                                                    "name": "value",
+                                                                                    "type": "text",
+                                                                                    "label": "Parameter Value"
+                                                                                }
+                                                                            ],
+                                                                            "default": true
+                                                                        },
+                                                                        {
+                                                                            "label": "Number",
+                                                                            "value": "number",
+                                                                            "nested": [
+                                                                                {
+                                                                                    "name": "value",
+                                                                                    "type": "number",
+                                                                                    "label": "Parameter Value"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "label": "Boolean",
+                                                                            "value": "boolean",
+                                                                            "nested": [
+                                                                                {
+                                                                                    "name": "value",
+                                                                                    "type": "boolean",
+                                                                                    "label": "Parameter Value"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "label": "Date",
+                                                                            "value": "date",
+                                                                            "nested": [
+                                                                                {
+                                                                                    "name": "value",
+                                                                                    "type": "date",
+                                                                                    "label": "Parameter Value"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "label": "Any",
+                                                                            "value": "any",
+                                                                            "nested": [
+                                                                                {
+                                                                                    "name": "value",
+                                                                                    "type": "any",
+                                                                                    "label": "Parameter Value"
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Input Parameter"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Other Input Parameters"
+                                                    },
+                                                    {
+                                                        "name": "contents",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "spec": [
+                                                                {
+                                                                    "name": "language",
+                                                                    "type": "text",
+                                                                    "label": "Language",
+                                                                    "required": true
+                                                                },
+                                                                {
+                                                                    "name": "text",
+                                                                    "type": "text",
+                                                                    "label": "Notification text",
+                                                                    "required": true
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Translation"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Contents",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "minItems": 1
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "data",
+                                                        "type": "text",
+                                                        "label": "Data"
+                                                    },
+                                                    {
+                                                        "name": "url",
+                                                        "type": "url",
+                                                        "label": "URL"
+                                                    }
+                                                ],
+                                                "advanced": true
+                                            }
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -2704,8 +2930,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -964,
-                                    "y": -1570
+                                    "x": -739,
+                                    "y": -994
                                 },
                                 "restore": {
                                     "expect": {
@@ -2831,12 +3057,12 @@
                             "version": 1,
                             "parameters": {},
                             "mapper": {
-                                "duration": "120"
+                                "duration": "60"
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -371,
-                                    "y": -421
+                                    "x": -739,
+                                    "y": -694
                                 },
                                 "restore": {},
                                 "expect": [
@@ -2862,17 +3088,17 @@
                             },
                             "mapper": {
                                 "url": "https://lesscenarios.fr/feed-pub.xml",
-                                "username": "",
+                                "gzip": true,
                                 "password": "",
-                                "filterDateFrom": "{{parseDate(formatDate(addDays(now; -1); \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}",
-                                "filterDateTo": "{{parseDate(formatDate(now; \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}",
+                                "username": "",
                                 "maxResults": "1",
-                                "gzip": true
+                                "filterDateTo": "{{parseDate(formatDate(now; \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}",
+                                "filterDateFrom": "{{parseDate(formatDate(addDays(now; -1); \"YYYY-MM-DD\"); \"YYYY-MM-DD\")}}"
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -1048,
-                                    "y": 8,
+                                    "x": -1147,
+                                    "y": -102,
                                     "name": "RSS PUB"
                                 },
                                 "restore": {},
@@ -2973,110 +3199,110 @@
                                     },
                                     {
                                         "name": "image",
-                                        "type": "collection",
-                                        "label": "Image",
                                         "spec": [
                                             {
                                                 "name": "title",
-                                                "label": "Name",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "Name"
                                             },
                                             {
                                                 "name": "url",
-                                                "label": "URL",
-                                                "type": "url"
+                                                "type": "url",
+                                                "label": "URL"
                                             }
-                                        ]
+                                        ],
+                                        "type": "collection",
+                                        "label": "Image"
                                     },
                                     {
                                         "name": "categories",
-                                        "type": "array",
-                                        "label": "Categories",
                                         "spec": {
                                             "type": "text"
-                                        }
+                                        },
+                                        "type": "array",
+                                        "label": "Categories"
                                     },
                                     {
                                         "name": "source",
-                                        "type": "collection",
-                                        "label": "Source",
                                         "spec": [
                                             {
                                                 "name": "title",
-                                                "label": "Name",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "Name"
                                             },
                                             {
                                                 "name": "url",
-                                                "label": "URL",
-                                                "type": "url"
+                                                "type": "url",
+                                                "label": "URL"
                                             }
-                                        ]
+                                        ],
+                                        "type": "collection",
+                                        "label": "Source"
                                     },
                                     {
                                         "name": "enclosures",
-                                        "type": "array",
-                                        "label": "Enclosures",
                                         "spec": [
                                             {
                                                 "name": "url",
-                                                "label": "URL",
-                                                "type": "url"
+                                                "type": "url",
+                                                "label": "URL"
                                             },
                                             {
                                                 "name": "type",
-                                                "label": "Type",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "Type"
                                             },
                                             {
                                                 "name": "length",
-                                                "label": "Length",
-                                                "type": "number"
+                                                "type": "number",
+                                                "label": "Length"
                                             }
-                                        ]
+                                        ],
+                                        "type": "array",
+                                        "label": "Enclosures"
                                     },
                                     {
-                                        "name": "rssFields",
-                                        "label": "RSS fields",
                                         "help": "Other RSS fields. All values are in text format.",
-                                        "type": "collection",
+                                        "name": "rssFields",
                                         "spec": [
                                             {
                                                 "name": "title",
-                                                "label": "title",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "title"
                                             },
                                             {
                                                 "name": "link",
-                                                "label": "link",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "link"
                                             },
                                             {
                                                 "name": "guid",
-                                                "label": "guid",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "guid"
                                             },
                                             {
                                                 "name": "pubdate",
-                                                "label": "pubdate",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "pubdate"
                                             },
                                             {
                                                 "name": "comments",
-                                                "label": "comments",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "comments"
                                             },
                                             {
                                                 "name": "enclosure",
-                                                "label": "enclosure",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "enclosure"
                                             },
                                             {
                                                 "name": "description",
-                                                "label": "description",
-                                                "type": "text"
+                                                "type": "text",
+                                                "label": "description"
                                             }
-                                        ]
+                                        ],
+                                        "type": "collection",
+                                        "label": "RSS fields"
                                     }
                                 ]
                             }
@@ -3263,7 +3489,27 @@
                                                         "label": "Media"
                                                     }
                                                 ]
-                                            }
+                                            },
+                                            "onerror": [
+                                                {
+                                                    "id": 91,
+                                                    "module": "builtin:Ignore",
+                                                    "version": 1,
+                                                    "parameters": {},
+                                                    "filter": {
+                                                        "name": "Catch all",
+                                                        "conditions": []
+                                                    },
+                                                    "mapper": {},
+                                                    "metadata": {
+                                                        "designer": {
+                                                            "x": -2129,
+                                                            "y": 658
+                                                        },
+                                                        "restore": {}
+                                                    }
+                                                }
+                                            ]
                                         }
                                     ]
                                 },
@@ -4411,8 +4657,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": -973,
-                                    "y": -938,
+                                    "x": -1052,
+                                    "y": -630,
                                     "name": "Download Daily image"
                                 },
                                 "restore": {
@@ -5061,6 +5307,269 @@
                                         },
                                         "type": "array",
                                         "label": "Facets"
+                                    }
+                                ],
+                                "advanced": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 92,
+                            "module": "onesignal:notification",
+                            "version": 1,
+                            "parameters": {
+                                "__IMTCONN__": 10093874
+                            },
+                            "filter": null,
+                            "mapper": {
+                                "url": "{{4.url}}",
+                                "type": "push",
+                                "contents": [
+                                    {
+                                        "text": "{{4.title}}{{newline}}{{newline}}{{4.comments}}",
+                                        "language": "en"
+                                    }
+                                ],
+                                "included_segments": [
+                                    "Active Subscriptions"
+                                ]
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": -1197,
+                                    "y": -1606
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "url": {
+                                            "collapsed": true
+                                        },
+                                        "type": {
+                                            "mode": "chose",
+                                            "label": "Push"
+                                        },
+                                        "filters": {
+                                            "mode": "chose"
+                                        },
+                                        "contents": {
+                                            "mode": "chose",
+                                            "items": [
+                                                null
+                                            ]
+                                        },
+                                        "included_segments": {
+                                            "mode": "chose",
+                                            "label": [
+                                                "Active Subscriptions"
+                                            ],
+                                            "collapsed": true
+                                        },
+                                        "additionalParameters": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "onesignal"
+                                            },
+                                            "label": "Olivier's OneSignal connection (App ID: 1f47412d-5688-4ce7-8288-df1ed44bdad3 | Organization API key NOT available)"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:onesignal",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "type",
+                                        "type": "select",
+                                        "label": "Notification type",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "email",
+                                                "push",
+                                                "sms"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "included_segments",
+                                        "type": "select",
+                                        "label": "Included segments",
+                                        "multiple": true,
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "template_id",
+                                        "type": "text",
+                                        "label": "Template ID"
+                                    },
+                                    {
+                                        "name": "filters",
+                                        "spec": {
+                                            "name": "value",
+                                            "spec": [
+                                                {
+                                                    "name": "field",
+                                                    "type": "text",
+                                                    "label": "Field"
+                                                },
+                                                {
+                                                    "name": "key",
+                                                    "type": "text",
+                                                    "label": "Key"
+                                                },
+                                                {
+                                                    "name": "relation",
+                                                    "type": "text",
+                                                    "label": "Relation"
+                                                },
+                                                {
+                                                    "name": "value",
+                                                    "type": "text",
+                                                    "label": "Value"
+                                                },
+                                                {
+                                                    "name": "operator",
+                                                    "type": "text",
+                                                    "label": "Operator"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Filter"
+                                        },
+                                        "type": "array",
+                                        "label": "Filters"
+                                    },
+                                    {
+                                        "name": "additionalParameters",
+                                        "spec": {
+                                            "name": "value",
+                                            "spec": [
+                                                {
+                                                    "name": "key",
+                                                    "type": "text",
+                                                    "label": "Parameter Name",
+                                                    "required": true
+                                                },
+                                                {
+                                                    "name": "type",
+                                                    "type": "select",
+                                                    "label": "Input Type",
+                                                    "options": [
+                                                        {
+                                                            "label": "Text",
+                                                            "value": "text",
+                                                            "nested": [
+                                                                {
+                                                                    "name": "value",
+                                                                    "type": "text",
+                                                                    "label": "Parameter Value"
+                                                                }
+                                                            ],
+                                                            "default": true
+                                                        },
+                                                        {
+                                                            "label": "Number",
+                                                            "value": "number",
+                                                            "nested": [
+                                                                {
+                                                                    "name": "value",
+                                                                    "type": "number",
+                                                                    "label": "Parameter Value"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "label": "Boolean",
+                                                            "value": "boolean",
+                                                            "nested": [
+                                                                {
+                                                                    "name": "value",
+                                                                    "type": "boolean",
+                                                                    "label": "Parameter Value"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "label": "Date",
+                                                            "value": "date",
+                                                            "nested": [
+                                                                {
+                                                                    "name": "value",
+                                                                    "type": "date",
+                                                                    "label": "Parameter Value"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "label": "Any",
+                                                            "value": "any",
+                                                            "nested": [
+                                                                {
+                                                                    "name": "value",
+                                                                    "type": "any",
+                                                                    "label": "Parameter Value"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Input Parameter"
+                                        },
+                                        "type": "array",
+                                        "label": "Other Input Parameters"
+                                    },
+                                    {
+                                        "name": "contents",
+                                        "spec": {
+                                            "name": "value",
+                                            "spec": [
+                                                {
+                                                    "name": "language",
+                                                    "type": "text",
+                                                    "label": "Language",
+                                                    "required": true
+                                                },
+                                                {
+                                                    "name": "text",
+                                                    "type": "text",
+                                                    "label": "Notification text",
+                                                    "required": true
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Translation"
+                                        },
+                                        "type": "array",
+                                        "label": "Contents",
+                                        "required": true,
+                                        "validate": {
+                                            "minItems": 1
+                                        }
+                                    },
+                                    {
+                                        "name": "data",
+                                        "type": "text",
+                                        "label": "Data"
+                                    },
+                                    {
+                                        "name": "url",
+                                        "type": "url",
+                                        "label": "URL"
                                     }
                                 ],
                                 "advanced": true
