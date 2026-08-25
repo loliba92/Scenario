@@ -231,6 +231,18 @@ article déjà publié (« IA chinoise : cadeau ou piège ? », édition du 25 a
   Mono, `--ink`/`--paper`/`--gold`/`--favorable`/`--stable`/`--degrade`),
   aucune rupture graphique avec le digital.
 
+**Règle éditoriale pour l'adaptation du texte au papier** (ajoutée le 25
+août) : caser un article déjà écrit dans le gabarit A4 demande de couper
+des phrases/paragraphes pour la place (voir P.02 ci-dessus) — **ne pas
+trop retoucher le texte d'origine** (rester le plus proche possible des
+phrases déjà écrites et validées pour l'édition digitale, pas une
+réécriture), mais **toujours relire l'ensemble une fois les coupes faites**
+pour vérifier que l'article coupé reste cohérent (pas de référence à une
+phrase supprimée, pas de transition cassée entre deux paragraphes qui ne
+se suivaient pas à l'origine). Une coupe individuellement correcte peut
+rendre l'ensemble bancal une fois assemblé — la relecture porte sur
+l'article complet, pas sur chaque coupe isolément.
+
 Design **mis en pause ici, validé par l'utilisateur** — la suite n'est pas
 un chantier visuel mais un chantier de **contenu** : voir « Prochaine
 étape » ci-dessous.
