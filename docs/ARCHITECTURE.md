@@ -2955,6 +2955,52 @@ moins prioritaire).
   méthodologique du site. **Bloqué par le volume** : pas encore assez
   de clôtures pour que la statistique ait un sens — à revisiter dans
   plusieurs mois, une fois `suivi/` accumulé assez de cas résolus.
+- **P2 — Faire remonter le vote quotidien sur le site en plus de Telegram,
+  idée du 26 août (retour utilisateur).** Constat : le sondage Telegram
+  natif (`sendPoll`, généré depuis `<category>` de `feed.xml` via
+  Make.com — voir plus haut et `docs/ARCHITECTURE.md` section
+  Automatisation éditoriale) **fonctionne techniquement très bien**,
+  mais ne touche que les abonnés du canal `@scenario_fr` — une fraction
+  minime du lectorat réel de l'édition. Le problème n'est donc pas le
+  mécanisme (déjà écarté comme piste le 10 août, voir plus haut "vote
+  Telegram" dans la revue tierce), mais la portée : exposer la même
+  question "deviner avant de savoir" à *tous* les lecteurs de
+  `index.html`, pas aux seuls abonnés Telegram.
+  Mécanisme envisagé (zéro backend, cohérent avec le principe du site) :
+  un clic sur un des 3 choix (favorable/stable/dégradé) envoie un
+  événement GoatCounter côté client
+  (`window.goatcounter.count({ path, title, event: true })`) — aucune
+  config supplémentaire nécessaire, le compteur public GoatCounter est
+  déjà activé sur le compte (voir section "Mesure d'audience" plus bas,
+  activé le 21 août pour "Lu X fois"). Un flag `localStorage` empêche le
+  double-vote immédiat dans le même navigateur — dissuasif, pas une
+  vraie protection anti-bourrage (contournable en navigation privée ou
+  sur un autre appareil), jugé suffisant pour un site sans compte
+  utilisateur. **Non tranché : afficher ou non un pourcentage en direct
+  aux lecteurs.** Deux options identifiées, avec un vrai compromis entre
+  les deux : chemins datés (un chemin GoatCounter distinct par jour et
+  par choix) permettent de relire le score du jour côté client via le
+  même endpoint public `/counter/{chemin}.json` que "Lu X fois", au prix
+  d'une nouvelle entrée par jour × 3 choix dans le dashboard GoatCounter
+  (~1000/an, à terme ça noie la liste des pages) ; chemins fixes (un
+  seul par choix) gardent un dashboard propre mais ne permettent de
+  consulter le score que soi-même dans GoatCounter (total cumulé depuis
+  toujours côté API publique, pas de filtre par date sans clé API) — pas
+  de pourcentage affichable en direct sur le site dans ce cas. Si
+  implémenté, réutiliser le chemin déjà calculé par le script
+  `.pubdate` (`rcPath`, dérivé du `<link rel="canonical">`) plutôt
+  qu'une clé basée sur la seule date, pour ne pas confondre accueil et
+  archive du même jour ; garder le code couleur 🟢/🔵/🔴 déjà en place
+  pour ces 3 choix (sondage Telegram, `.kind-tag`) plutôt qu'une 4e
+  couleur pour "stable". Point de vigilance si ça avance : le bloc
+  devra être ajouté à `docs/routine-prompt.md` comme composant fixe
+  (même traitement que `.follow-inline`), sinon il disparaît dès le
+  lendemain — la routine repart d'un conteneur neuf chaque matin, sans
+  mémoire des ajouts non documentés. **Décidé le 26 août : le bloc
+  "Vote avant de connaître le résultat" (Telegram) reste inchangé en
+  parallèle** — le vote sur site viendrait s'ajouter, pas remplacer.
+  **Pas décidé** : l'affichage live ou non des pourcentages — réflexion
+  ouverte, à trancher avant toute implémentation.
 
 **À surveiller (pas une tâche, un dossier ouvert)**
 - **Arabie saoudite / sport** — candidat à une première page de suivi
