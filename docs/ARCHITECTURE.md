@@ -1613,6 +1613,40 @@ moins prioritaire).
   réestimer à l'aveugle à chaque passage. Pas encore chiffré (emplacement
   dans la carte, longueur, cohérence avec les indicateurs déjà présents
   pour ne pas dupliquer).
+
+  **Précisé le 26 août (retour utilisateur) : mécanisme de stockage et de
+  déclenchement.** Repart d'un constat vérifié dans `docs/routine-
+  prompt.md` ("Cohérence des KPI") : ce n'est pas un cas particulier,
+  **chaque** édition (tout registre confondu) fixe déjà exactement 2 KPI
+  avec une valeur de référence, et chiffre pour chacun des 3 scénarios
+  une estimation d'évolution de ces mêmes 2 KPI — la donnée brute existe
+  donc systématiquement, il ne manque que le seuil explicite par
+  scénario (ce que ce P2 propose) et un endroit où le relire plus tard.
+  Deux points tranchés pour éviter de recréer les problèmes déjà vécus
+  ailleurs sur ce dépôt :
+  - **Stockage en journal markdown, pas en base JSON à schéma strict.**
+    Réutiliser le même principe que le "Journal des sujets publiés" de
+    `docs/sujets-a-suivre.md` (alimenté automatiquement chaque matin,
+    "sans tri ni jugement") plutôt qu'un nouveau fichier JSON structuré :
+    une routine qui repart d'un conteneur neuf chaque matin et mute un
+    fichier à schéma rigide reproduit le même risque qui a déjà cassé
+    `feed.xml` une fois (CDATA non fermé, garde-fou de validation ajouté
+    après coup) — un format texte permissif tolère une erreur de
+    formatage sans corrompre tout l'historique.
+  - **Le franchissement d'un seuil propose une révision, il ne publie
+    jamais de verdict seul.** Un KPI qui franchit son seuil ne prouve pas
+    mécaniquement que le scénario narratif associé s'est réalisé (le
+    Brent peut dépasser 120 $ pour une raison sans rapport avec le
+    scénario dégradé écrit). Le rôle de la veille hebdo serait donc
+    d'ajouter cette vérification de seuil à ce qu'elle fait déjà pour
+    `suivi/` — et de **proposer** une création/mise à jour de page
+    `suivi/{sujet}.html` quand un seuil est franchi, jamais de la
+    publier automatiquement (même règle "sans jamais rien créer ni
+    modifier automatiquement" déjà en place pour cette routine).
+  Toujours pas chiffré côté implémentation (emplacement exact du journal,
+  format de la ligne, quelle étape précise de `docs/routine-detection-
+  prompt.md` porte la vérification) — réflexion de direction, pas encore
+  une spec prête à coder.
 - **P2 — Phrase d'accroche du concept sous le masthead, idée du 10
   août (même origine).** Un primo-visiteur découvre aujourd'hui le
   principe "1 question → 3 scénarios chiffrés" en lisant l'article du
