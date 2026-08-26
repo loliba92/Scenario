@@ -105,6 +105,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 26.08.2026 — [Retraites : la patate chaude de 2027](../archives/2026-08-26.html)
 - 25.08.2026 — [IA chinoise : cadeau ou piège ?](../archives/2026-08-25.html)
 - 24.08.2026 — [Ukraine : ni paix ni victoire](../archives/2026-08-24.html)
 - 23.08.2026 — [Le pari XXL du Mondial 2030](../archives/2026-08-23.html)
