@@ -586,6 +586,32 @@ phrase autonome à un seul chiffre assez simple (clauses multiples ou
 chiffres empilés — Ormuz/pétrole, Fed/BCE, ingérence électorale,
 box-office chinois...).*
 
+### chiffre-2026-08-26
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 376 missiles
+- message: En juillet, la Russie a tiré 376 missiles sur l'Ukraine — un record depuis mai 2022.
+- attribution: — lesscenarios.fr, 24 août 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-08-24.html
+- photo: `assets/social/topic-images/2026-08-24.jpg` (crédit : Алесь
+  Усцінаў — https://www.pexels.com/photo/demolished-residential-building-11734711/),
+  photo de l'édition source elle-même.
+
+*Extrait tel quel de `.dek` dans l'édition du 24 août ("En juillet, la
+Russie a tiré 376 missiles sur l'Ukraine — un record depuis mai 2022,
+contre 288 en mars et 192 un an plus tôt.") — segment coupé à la
+virgule avant "contre 288" (frontière naturelle, chiffres empilés
+écartés), point final ajouté, aucun mot changé ni déplacé ; édition
+sans `.essentiel-text` exploitable en un seul chiffre (45 % nécessite le
+contexte du scénario, 80/20 % de l'évaluation d'impact nécessitent aussi
+le contexte des trois scénarios). Éditions du 10, 12, 13, 14 et 21 août
+déjà utilisées pour cette catégorie ; édition du 25 août écartée (moins
+de 24h). Éditions du 15 au 23 août (hors 21) parcourues mais écartées
+faute de phrase autonome à un seul chiffre assez simple (mêmes limites
+que le tour précédent, plus 745 km²/627 km² empilés dans l'édition du
+24 elle-même sur un autre paragraphe, et 57 % des Ukrainiens qui ne se
+comprend qu'en connaissant le blocage sur le Donbas).*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
