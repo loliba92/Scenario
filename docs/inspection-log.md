@@ -6,6 +6,67 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-08-26 — Retraites : la patate chaude de 2027
+**Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 26 août
+2026), CSS complet (`.essentiel-box`, `.stakes-box`, `.question-box`,
+`.list-box`, `.comprendre-box`, `.delta-france`/`.delta-gauge*`/
+`.delta-word`/`.delta-flag` — bloc canonique intact — `.article-image*`,
+`.card`, `.gauge*`, `.france-line` toutes présentes dans `<style>`),
+sync `index.html`/`archives/2026-08-26.html` (seules différences : chemins
+relatifs `../`, `canonical`/`og:url`, `aria-current` de nav — toutes
+légitimes), `data-france-impact`/`data-kind` cohérents avec le texte
+`.france-line` des 3 cartes, incohérences numériques internes (déficit COR
+2,4 %/1,4 %, désindexation 1,5/3/6 Md€ répétés dek/why/essentiel-text/KPI —
+tous cohérents entre eux), probabilités 20+50+30=100 %, label brut
+favorable/stable/dégradé absent de `.essentiel-text`, formulation "Notre
+évaluation de l'impact pour la France" intacte, lexique (3 `.lex-ref` ↔ 3
+entrées, aucun terme orphelin), 2 KPI (`déficit du système`, `économies de
+la désindexation`) distincts sur les 3 cartes deux à deux (aucun doublon
+complet), image du jour (`assets/social/topic-images/2026-08-26.jpg` et
+`-wide.jpg`, vrais JPEG 1080×1080/1600×900, fiche de provenance Pexels
+présente, `og:image`/`twitter:image`/JSON-LD pointant vers le composite
+Instagram `assets/social/instagram/2026-08-26.png` — comportement documenté
+dans `docs/ARCHITECTURE.md`, pas une désynchronisation), style des
+paragraphes `.dek`/`.why`/`.essentiel-text` (plusieurs phrases dépassent 40
+mots mais restent lisibles — énumérations parallèles ou éléments factuels
+enchaînés, sans rupture de registre — `grep` tutoiement hors `.share-block`
+: rien trouvé), 4 chiffres/faits vérifiés contre les sources déjà citées
+(3 fetchées avec succès sur 4, plafond de 5 `WebFetch` atteint).
+**Corrigé automatiquement** : rien.
+**Réécritures de clarté** (avant/après complet pour chacune, ou "aucune") :
+aucune — aucune phrase jugée assez gênante pour justifier une réécriture
+malgré plusieurs phrases longues (voir "Vérifié" ci-dessus).
+**Signalé pour revue humaine** :
+- Le chiffre-clé « déficit du système de retraites à 2,4 % du PIB en 2070,
+  contre 1,4 % un an plus tôt (COR, 3 août 2026) », repris dans `.dek`, les
+  3 `.why` et `.essentiel-text`, ne se retrouve dans aucune des 4 sources
+  citées en bas de page — vérifié spécifiquement sur MoneyVox (l'article le
+  plus proche du sujet retraites/rentrée politique), qui ne contient ni le
+  chiffre ni la date du 3 août 2026. Les 2 chiffres n'apparaissent pas non
+  plus dans LCP (positions des candidats) ni Orange Actu (désindexation).
+  Le chiffre est plausible (cohérent avec les rapports COR connus) mais
+  n'est pas re-vérifiable depuis les 4 sources listées telles quelles —
+  probablement une source COR primaire non ajoutée à la liste. À vérifier
+  par la rédaction, ou ajouter la source COR directe à la section
+  `sources`.
+- La source CNEWS (`cnews.fr/.../ce-que-lon-sait-deja-sur-le-premier-
+  debat-...`) renvoie HTTP 403 depuis cet environnement — source non
+  re-vérifiable ce passage-ci (pas nécessairement un lien mort côté site,
+  peut-être un blocage anti-bot). Le fait qu'elle appuie (date du débat du
+  27 août face au Medef) n'a donc pas pu être confirmé.
+- Chiffres confirmés sans réserve : les 3 montants de désindexation (1,5 /
+  3 / 6 Md€ selon le seuil retenu, 2 000-3 000 €) correspondent exactement
+  à l'article Orange Actu cité, y compris le taux d'inflation de 2 % pris
+  pour hypothèse sur le scénario du gel total. Positions des candidats
+  (Mélenchon 60 ans, Retailleau 65 ans, Attal suppression de l'âge légal)
+  confirmées par LCP ; nuance mineure non bloquante sur Philippe (LCP ne
+  confirme explicitement que 67 ans, l'article évoque "66 ou 67 ans") et
+  sur Le Pen (LCP mentionne aussi 60 ans comme position possible, en plus
+  des 62 ans repris dans l'article) — écarts trop mineurs pour être
+  qualifiés d'erreur factuelle, mentionnés ici par transparence.
+
+---
+
 ## 2026-08-25 — IA chinoise : cadeau ou piège ?
 **Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 25 août
 2026), classes CSS attendues présentes dans `<style>` et utilisées dans le
