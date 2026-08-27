@@ -4176,6 +4176,27 @@ les refaire à neuf ; les tickets réellement nouveaux sont retenus ensuite.
   section « Qui fait Scénario » — nom, double casquette
   technique/éditoriale). Le manque réel est visuel (aucune photo) et de
   ton (peu de 1ʳᵉ personne), pas un chantier de création.
+- **Documenter les révisions importantes (« +20 points parce que… »)**
+  [rattrapé le 27 août — oublié dans la première passe de cet audit] :
+  le mécanisme existe déjà dans `docs/routine-detection-prompt.md` —
+  tout écart ≥ 20 points sur un scénario déclenche un marqueur
+  **⚠️ seuil franchi**, publié avec les chiffres avant/après. Rien à
+  construire, juste continuer à l'appliquer.
+
+### Bloqué par le volume (même prérequis que calibration/score historique)
+
+- **« Scénario à l'épreuve du temps » — montrer les scénarios passés et
+  leur évolution jusqu'au résultat final** [rattrapé le 27 août — oublié
+  dans la première passe de cet audit]. Le mécanisme de fond existe déjà
+  (une page `suivi/` clôturée raconte exactement ça, V0 → … → clôture
+  avec le fait qui tranche) — ce qui manque, c'est une **vitrine** qui
+  les rassemble, distincte de « Suivis actifs ». Vérifié le 27 août :
+  **aucun suivi n'a encore été clôturé** (`docs/sujets-a-suivre.md` ne
+  liste qu'une clôture visée, en septembre 2026, pas encore atteinte) —
+  une vitrine n'aurait donc rien à montrer aujourd'hui. Même prérequis
+  que la calibration (10 août) et le score historique : attendre que
+  `suivi/` accumule de vrais cas clôturés avant de construire quoi que
+  ce soit ici.
 
 ### Contradiction à lever avant de prioriser le participatif
 
@@ -4265,6 +4286,29 @@ mardi participatif en dépendrait probablement.
   encore et qui conditionne aussi bien ce ticket que la calibration et
   les données ouvertes. À documenter comme un prérequis commun aux
   trois, pas trois chantiers indépendants.
+- **P1/P2 — Créer « Nos erreurs / enseignements » [rattrapé le 27 août —
+  oublié dans la première passe de cet audit, aucune trace ailleurs dans
+  le dépôt].** Une page ou section qui assume les scénarios où
+  l'estimation s'est trompée et ce que ça a changé dans la méthode —
+  aucun équivalent existant, contrairement à la plupart des autres
+  tickets de cet audit. Sert la même crédibilité que la calibration,
+  mais n'a pas son prérequis de volume : une erreur peut être documentée
+  dès qu'elle est constatée sur un suivi révisé (`suivi/` marque déjà
+  `⚠️ seuil franchi` quand une estimation bouge fort — cette page raconte
+  *pourquoi* on s'était trompé, pas seulement *que* l'estimation a
+  changé). Pas de piste de contenu encore identifiée dans le dépôt tel
+  qu'il est aujourd'hui — reste à cadrer avant de lancer.
+- **P2 — Créer une boucle réseaux → site → newsletter [rattrapé le 27
+  août — oublié dans la première passe de cet audit].** Vérifié le 27
+  août : aucun des canaux sociaux automatisés (Telegram, Instagram,
+  LinkedIn, Facebook, Bluesky, X — pipeline Make.com décrit plus haut
+  dans ce backlog) ne mentionne la newsletter dans ses légendes/teasers,
+  seulement un lien vers l'article. Objectif du ticket : transformer les
+  réseaux en acquisition d'abonnés, pas seulement en diffusion de
+  lecture. Piste la moins chère : ajouter une ligne d'appel newsletter
+  dans le gabarit de légende déjà utilisé pour Telegram/Instagram (même
+  bloc que le rappel `.follow-inline` du site, juste reformulé pour un
+  post social) plutôt que construire un nouveau canal.
 
 ## Déclinaison papier — « Les Cahiers de Scénario »
 
