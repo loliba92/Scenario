@@ -162,7 +162,194 @@ une automatisation à coût quasi nul ; un prestataire de fulfillment prend
 une commission ou un tarif au pli, à intégrer dans le prix final une fois un
 devis obtenu — **à revoir avant de communiquer un prix définitif**.
 
-## Repères de coûts (indicatif)
+## Focus thématique et identité « Les Cahiers de Scénario » — retour du 25 août 2026
+
+**Question posée** : décliner le Cahier trimestriel avec un **focus thématique
+tournant** (ex. un trimestre « Intelligence artificielle », un autre
+« Sciences »...) plutôt qu'un simple compilateur chronologique toutes
+rubriques confondues, avec de vraies photos pour en faire un objet éditorial
+soigné.
+
+**Avis retenu** : oui pour le focus thématique, mais **sans casser la cadence
+trimestrielle déjà actée** (raison d'expédition — voir plus haut) ni la
+diversité de lectorat. Formule proposée : chaque numéro met en avant **un
+registre en fil rouge** (dossier principal + rétrospective) et garde 1-2
+pages de consolidation pour les autres registres, pour ne pas perdre les
+lecteurs qui ne suivent pas le registre du trimestre. Rythme de rotation
+des registres (lequel en T1/T2/T3/T4) **pas encore tranché** — à faire une
+fois la sélection de contenu du premier numéro cadrée (voir « Prochaine
+étape » plus bas).
+
+**Nom retenu pour l'objet** : **Les Cahiers de Scénario** (au pluriel,
+collection) — remplace le nom de travail générique « Cahier Scénario » /
+« Cahier trimestriel » utilisé plus haut dans ce document.
+
+**Photos : Pexels, déjà en place, coût nul.** Pas de nouvel outil à
+construire — `scripts/social/fetch_topic_image.py` (déjà utilisé pour les
+visuels du site) sert de base : recherche par mots-clés thématiques
+génériques, jamais de nom de personne réelle, choix humain systématique,
+crédit photographe consigné. Licence Pexels compatible usage commercial/
+impression, sans attribution obligatoire (mais fournie par bonne pratique).
+Seul ajustement à prévoir le moment venu : exporter l'`original_url` en
+haute résolution pour l'impression, plutôt que le recadrage carré
+1080×1080 pensé pour Instagram.
+
+**Maquette de validation** — deux planches A4 construites à partir d'un vrai
+article déjà publié (« IA chinoise : cadeau ou piège ? », édition du 25 août
+2026) et de sa photo Pexels déjà en place, sans rien inventer :
+- **P.01 Couverture** — photo plein cadre (pas juste un bloc central),
+  dégradé sombre progressif pour la lisibilité (assombri une deuxième fois
+  le 25 août, retour utilisateur : le premier passage laissait le texte
+  trop proche du bord clair de la photo — le noir descend maintenant plus
+  tôt et devient opaque autour de 80 % de hauteur), titre + accroche + tags
+  + **agenda numéroté et daté** (« Dans ce numéro ») ancré en bas de page.
+  L'agenda liste les **vrais titres** des éditions déjà publiées dans ce
+  registre thématique plutôt que des intitulés inventés pour remplir —
+  voir point de volume ci-dessous.
+- **P.02 Le dossier** — tient sur une seule page : image + texte + rail de
+  statistiques + encart « Ce qu'on évalue » + les 3 scénarios chiffrés +
+  **encart « L'essentiel » en bas**, qui reprend la synthèse déjà écrite
+  pour l'édition originale. C'est ce bloc, avec son chiffre mis à jour
+  (>60 % vs 45 % à la publication), qui joue le rôle de « mise à jour » du
+  sujet sur une seule planche — pas une page de suivi séparée avec un
+  historique V0/V1/V2 qui n'existe pas encore pour un sujet publié le jour
+  même (une première tentative avait réutilisé une page de suivi existante
+  sur un *autre* sujet, FIFA/Infantino, pour illustrer le mécanisme de
+  rétrospective — écarté en retour utilisateur : casse la cohérence
+  thématique du numéro).
+- **Format retenu pour les encarts « Ce qu'on évalue » et « L'essentiel »**
+  (validé le 25 août, après deux allers-retours) : **le même pour les
+  deux** — fond `#ddd4bd` (dérivé du papier, discret) et bordure gauche or
+  de 3px, jamais une boîte pleine bordure ni un fond encre/sombre. Un
+  premier essai en fond encre (repris du site, où l'encart tranche sur un
+  fond sombre) a été écarté : illisible/trop tranché sur une page papier
+  claire. Un deuxième essai en ivoire clair dédié a aussi été écarté : trop
+  jaune. La bonne réponse était plus simple — réutiliser tel quel le format
+  déjà en place pour « Ce qu'on évalue » plutôt que d'en inventer un
+  nouveau pour « L'essentiel ».
+- Charte graphique = exactement celle du site (Fraunces/Inter/JetBrains
+  Mono, `--ink`/`--paper`/`--gold`/`--favorable`/`--stable`/`--degrade`),
+  aucune rupture graphique avec le digital.
+
+**Règle éditoriale pour l'adaptation du texte au papier** (ajoutée le 25
+août) : caser un article déjà écrit dans le gabarit A4 demande de couper
+des phrases/paragraphes pour la place (voir P.02 ci-dessus) — **ne pas
+trop retoucher le texte d'origine** (rester le plus proche possible des
+phrases déjà écrites et validées pour l'édition digitale, pas une
+réécriture), mais **toujours relire l'ensemble une fois les coupes faites**
+pour vérifier que l'article coupé reste cohérent (pas de référence à une
+phrase supprimée, pas de transition cassée entre deux paragraphes qui ne
+se suivaient pas à l'origine). Une coupe individuellement correcte peut
+rendre l'ensemble bancal une fois assemblé — la relecture porte sur
+l'article complet, pas sur chaque coupe isolément.
+
+**Exemple réel qui a motivé cette règle** (retour utilisateur, 25 août) :
+le scénario « Dégradé » de P.02 mentionnait « le même schéma que Huawei et
+la 5G il y a une décennie » — référence correcte dans l'article original,
+où un paragraphe (coupé pour tenir sur une page) expliquait l'analogie.
+Une fois ce paragraphe supprimé, la phrase restait dans la carte scénario
+sans plus rien pour l'expliquer — incompréhensible pour qui n'a lu que le
+papier. Corrigé en rendant la phrase autonome : « comme la 5G Huawei, qui
+avait verrouillé des dizaines de pays avant que le risque ne soit mesuré »
+— le contexte minimal nécessaire tient dans la phrase elle-même plutôt que
+de dépendre d'un paragraphe qui a pu disparaître ailleurs sur la page.
+
+Design **mis en pause ici, validé par l'utilisateur** — la suite n'est pas
+un chantier visuel mais un chantier de **contenu** : voir « Prochaine
+étape » ci-dessous.
+
+**Prochaine étape (pas encore commencée)** : réfléchir à la sélection et à
+la consolidation du contenu sur un trimestre entier, pas juste sur un seul
+article de démonstration. Points à trancher :
+- **Volume réel disponible — déjà mesuré le 25 août, pas juste théorique.**
+  Scénario n'a qu'un mois d'existence : 37 éditions publiées au total, dont
+  seulement **6 taguées « intelligence-artificielle »** (`archives.html`,
+  `data-tag`) — pas encore les ~12-13/trimestre attendus en rythme de
+  croisière (1 créneau/semaine par registre, voir `docs/tags.md`). La
+  maquette de couverture assume cet écart plutôt que de le masquer :
+  l'agenda affiche les 6 vrais titres avec une note explicite (« un
+  trimestre complet en réunira une douzaine »). Point à retrancher une
+  fois que le site aura tourné un trimestre plein : recompter, et
+  rapprocher du gabarit ~100-120 pages visé en Phase 3 (compilation 3 mois
+  toutes rubriques) pour voir combien de pages ça représente réellement
+  une fois mis en forme (dossier + L'essentiel par sujet), et combien de
+  place ça laisse aux 1-2 pages de consolidation des autres registres.
+- **Critère de sélection/tri.** Tous les sujets du trimestre ne méritent pas
+  forcément un dossier complet — sur quel critère trier (scénario tranché
+  vs encore ouvert, richesse de la réévaluation, résonance déjà mesurée
+  côté audience/réseaux) ?
+- **Suivi au fil du trimestre plutôt qu'au bouclage.** Repérer les bons
+  candidats de dossier au fur et à mesure des publications (liste courte
+  tenue à jour) plutôt que de relire ~90 éditions à froid en fin de
+  trimestre.
+- **Sujets encore ouverts en fin de trimestre** : la règle déjà actée plus
+  haut (reprendre la dernière version réévaluée, écarter si jamais
+  réévalué depuis la publication d'origine) s'applique directement ici.
+- **Ordre de rotation des registres** sur l'année (quel registre en fil
+  rouge pour quel trimestre).
+
+**État final de la maquette (session du 25 août, close ici pour la
+soirée)** — versionnée dans ce dépôt :
+`docs/mockups/cahier-scenario-2026-08-25.html` (s'ouvre tel quel dans un
+navigateur, imprimable A4 via Ctrl/Cmd+P). Aussi publiée comme Artifact
+(peut avoir divergé si retouchée depuis côté Artifact sans re-synchro
+vers le fichier versionné) :
+https://claude.ai/code/artifact/d5e72207-faf4-4b9d-b0ed-24ccaa21e626
+— 2 planches A4, nom « Les Cahiers de Scénario », toutes les décisions
+ci-dessus appliquées. Design validé par l'utilisateur, **rien à reprendre
+dessus par défaut** — ne pas relancer un travail visuel sans une demande
+explicite. **Reprendre directement sur les 4 points de « Prochaine étape »
+ci-dessus** (contenu, pas mise en page).
+
+## Routine de fabrication d'un numéro — première version (25 août)
+
+Pas encore une routine automatisée (comme `docs/routine-prompt.md` pour
+l'édition quotidienne) — un mode opératoire manuel, écrit à partir de ce
+qui a été appris en construisant la maquette du 25 août, pour ne pas
+redécouvrir les mêmes pièges au prochain numéro.
+
+1. **Choisir le registre en fil rouge du trimestre.** Voir « Ordre de
+   rotation des registres » ci-dessus (pas encore tranché) — poser le
+   choix avant de commencer la sélection.
+2. **Lister les éditions du registre publiées sur le trimestre.**
+   `archives.html`, filtrer par `data-tag` du registre et par les tags
+   thématiques associés (voir `docs/tags.md`). Ne pas se fier à un seul
+   tag isolé : le dossier de test du 25 août (« IA chinoise ») était en
+   registre « Carte blanche » avec les tags thématiques « Intelligence
+   artificielle » + « Diplomatie » — croiser les deux pour ne rater
+   aucune édition pertinente.
+3. **Trier avant de mettre en page.** Critère pas encore figé (voir
+   « Prochaine étape » ci-dessus, point 2) — mais ne pas caser un sujet
+   dans le numéro seulement parce qu'il existe : un dossier complet a un
+   coût de mise en page (voir point 5).
+4. **Pour chaque sujet retenu, partir de l'édition digitale publiée, pas
+   d'une page blanche.** Récupérer dek, chiffres, scénarios, `L'essentiel`
+   directement depuis `archives/AAAA-MM-JJ.html` — voir la structure de
+   `docs/mockups/cahier-scenario-2026-08-25.html` (P.02) comme gabarit de
+   référence pour où va quoi (kicker, image, rail de stats, encart « Ce
+   qu'on évalue », 3 scénarios, encart « L'essentiel »).
+5. **Couper le texte pour tenir dans le gabarit, puis relire l'ensemble.**
+   Règle déjà posée plus haut : ne pas trop retoucher le texte d'origine,
+   mais toujours relire l'article complet une fois les coupes faites —
+   voir l'exemple Huawei ci-dessus, une référence restée dans une carte
+   scénario après la coupe du paragraphe qui l'expliquait ailleurs sur la
+   page.
+6. **Photo : Pexels, workflow existant.** `scripts/social/fetch_topic_image.py`
+   — voir plus haut. Exporter l'image choisie en haute résolution
+   (`original_url` du `credits.json`), pas le recadrage carré Instagram.
+7. **Mise à jour de la couverture** : titre, accroche, tags, et surtout
+   l'**agenda** — vrais titres et vraies dates des dossiers retenus à
+   l'étape 3, jamais des intitulés inventés pour remplir (voir le choix
+   fait le 25 août : afficher franchement le nombre réel de dossiers
+   disponibles plutôt que d'en simuler douze).
+8. **Assembler et vérifier le gabarit A4** avant de considérer le numéro
+   prêt : chaque planche tient bien sur une page (`min-height:297mm`,
+   overflow visible pour repérer un débordement plutôt que le perdre
+   silencieusement), dégradé de couverture assez sombre pour la lecture,
+   format des encarts identique partout (`Ce qu'on évalue` / `L'essentiel`
+   : fond `#ddd4bd`, bordure gauche or — jamais deux styles différents).
+
+
 
 - **Devis Gelato**, brochure cousue ~40 pages (format papier discuté pour un
   cahier mensuel) : coût d'impression unitaire **≈ 7,55 € HT en tarif promo,
