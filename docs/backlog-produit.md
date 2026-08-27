@@ -76,19 +76,23 @@ mardi participatif en dépendrait probablement.
 
 ### Tickets réellement nouveaux, retenus
 
-- **P0 — Clarifier « probabilité à l'instant T ».** Rendre visible, au
-  niveau de l'édition elle-même (pas seulement dans `le-projet.html`),
-  que les probabilités reflètent l'information disponible à la
-  publication et sont vouées à être réévaluées — pas une prédiction
-  figée. `le-projet.html` porte déjà un caveat proche (« Chaque édition
-  reste figée à sa date de publication ») : l'adapter plutôt que
-  réinventer une formulation.
-- **P0 — Ajouter « Pourquoi cette probabilité ? ».** Rendre plus
-  visibles, notamment sur les pages `suivi/`, les facteurs qui font
-  monter/baisser un scénario d'une version à l'autre — la logique existe
-  déjà au niveau de chaque édition (`why`, comparaison explicite entre
-  les 3 scénarios, `docs/routine-prompt.md` étape 5) mais n'est pas
-  systématiquement reprise lors d'une révision `suivi/`.
+- **[FAIT le 27 août] P0 — Clarifier « probabilité à l'instant T ».**
+  Rendu visible directement sous les 3 scénarios de chaque édition, pas
+  seulement dans `le-projet.html` : le disclaimer fixe `.indicators-note`
+  (`docs/routine-prompt.md`) dit désormais explicitement que les
+  probabilités sont « estimées avec l'information disponible à la
+  publication et réévaluées si la situation change ». Appliqué
+  rétroactivement à l'édition du 27 août (`index.html` +
+  `archives/2026-08-27.html`).
+- **[FAIT le 27 août] P0 — Ajouter « Pourquoi cette probabilité ? ».**
+  La logique existait déjà en grande partie dans `suivi/_gabarit.html`
+  (chaque `mini-scenario-text` doit dire pourquoi un scénario
+  monte/descend/reste stable, la conclusion doit nommer le fait qui
+  explique le plus gros mouvement) — mais seulement dans les commentaires
+  HTML du gabarit, jamais explicité dans le texte de la routine elle-même.
+  Ajouté dans `docs/routine-detection-prompt.md` : l'exigence de nommer
+  le fait (ou son absence) s'applique désormais aux 3 `mini-scenario-text`
+  de chaque nouvelle version, pas seulement à la conclusion.
 - **P0 — Distinguer Faits / Analyse / Scénarios.** La séparation existe
   déjà implicitement dans la structure (`.dek` = faits/contexte,
   `.comprendre-box` = analyse, cartes = scénarios) mais sans étiquetage
@@ -96,19 +100,30 @@ mardi participatif en dépendrait probablement.
   `.section-label` déjà nombreux (« Favorable, stable ou dégradé »,
   « Pour ceux qui découvrent le sujet »...) — un balisage léger plutôt
   qu'une re-architecture de la mise en page.
-- **P0 — Renforcer « Notre méthode ».** `le-projet.html` a déjà une
-  section méthode (« Les probabilités affichées ne sortent pas d'un
-  tirage au hasard... ») — préciser/étoffer, pas créer.
+- **[FAIT le 27 août] P0 — Renforcer « Notre méthode ».** `le-projet.html`
+  avait déjà une section méthode (« Les probabilités affichées ne
+  sortent pas d'un tirage au hasard... ») avec ses 4 axes en liste — ajouté
+  un paragraphe de clôture qui explicite que c'est un jugement structuré,
+  pas un algorithme, pour ne jamais laisser croire à une précision
+  scientifique que les faits du jour ne permettent pas.
 - **P0/P1 — Rattrapage historique, ticket ajouté ici (absent du backlog
   externe).** Les 4 tickets ci-dessus ne précisent pas s'ils s'appliquent
   aux futures éditions seulement ou aussi aux 35 déjà publiées. Décision
   à prendre avant de lancer : sans rattrapage, le site aura un
   avant/après visible pendant des mois (archives figées, jamais
   remodifiées après publication).
+- **[FAIT le 27 août] CTA newsletter — sorti du ticket groupé ci-dessous,
+  traité seul (wording only, zéro coût).** `.follow-inline-text` (bloc
+  compact réutilisé chaque édition, `docs/routine-prompt.md`) reformulé
+  en impératif : « Ne rate pas la prochaine édition : » au lieu de
+  « Reste informé de la prochaine édition : ». Ajouté un sous-titre à
+  `newsletter.html` (gratuit/sans spam/résiliable en un clic) qui
+  manquait sous le h1. Appliqué rétroactivement à l'édition du 27 août.
 - **P1 — Optimiser les titres SEO / développer le glossaire / pages
-  thématiques / maillage interne / CTA newsletter.** Tickets valides,
-  effort raisonnable. Point de départ déjà favorable, pas de
-  construction ex nihilo : glossaire déjà alimenté chaque jour (étape
+  thématiques / maillage interne.** Tickets valides, effort raisonnable
+  mais pas du texte seul (page/template à construire). Point de départ
+  déjà favorable, pas de construction ex nihilo : glossaire déjà
+  alimenté chaque jour (étape
   6ter de `docs/routine-prompt.md`), tags fermés dans `docs/tags.md`
   réutilisables pour des pages thématiques, filtre
   `archives.html?tag=X` déjà en place comme brique de départ pour le
