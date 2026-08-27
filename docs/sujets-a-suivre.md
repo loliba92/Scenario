@@ -95,6 +95,20 @@ mériter une page de suivi ou une mise à jour.
   MMA, F1, Newcastle United).
   Dernière vérification : 15 août 2026 (V1).
 
+- **Ceuta : la frontière qui a craqué** (édition du 3 août 2026)
+  Suivi existant : `suivi/ceuta-schengen.html` (V0 + V1 au 27 août,
+  publiée automatiquement par la routine de détection — écart de +32
+  points sur le scénario dégradé). V1 intègre la suspension de Schengen
+  entre l'Italie et l'Espagne (Rome le 31 juillet, Madrid en réplique le
+  7 août), l'échec d'une désescalade mi-août, et le ralliement de cinq
+  pays supplémentaires (Finlande, Pays-Bas, Danemark, République
+  tchèque, Suède) à la ligne dure italienne.
+  Prochaine échéance connue : aucune date institutionnelle fixe ; à
+  surveiller, la levée ou non des contrôles réciproques Italie-Espagne,
+  toute nouvelle vague de passages à Ceuta ou Melilla, et un éventuel
+  élargissement à d'autres pays de l'espace Schengen.
+  Dernière vérification : 27 août 2026 (V1).
+
 ---
 
 ## Journal des sujets publiés
@@ -105,6 +119,8 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 27.08.2026 — [Dette américaine : le mur des 40 000 milliards](../archives/2026-08-27.html)
+- 26.08.2026 — [Retraites : la patate chaude de 2027](../archives/2026-08-26.html)
 - 25.08.2026 — [IA chinoise : cadeau ou piège ?](../archives/2026-08-25.html)
 - 24.08.2026 — [Ukraine : ni paix ni victoire](../archives/2026-08-24.html)
 - 23.08.2026 — [Le pari XXL du Mondial 2030](../archives/2026-08-23.html)
@@ -127,7 +143,7 @@ un sujet devenu manifestement sans suite (voir marche à suivre dans
 - 06.08.2026 — [FIFA : la présidence d'Infantino vacille](../archives/2026-08-06.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.
 - 05.08.2026 — [EPR2 : le nucléaire français à l'heure de vérité](../archives/2026-08-05.html)
 - 04.08.2026 — [Gaza : la paix qui reste sur le papier](../archives/2026-08-04.html)
-- 03.08.2026 — [Ceuta : la frontière qui a craqué](../archives/2026-08-03.html)
+- 03.08.2026 — [Ceuta : la frontière qui a craqué](../archives/2026-08-03.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.
 - 02.08.2026 — [Streaming : payer plus, avoir moins ?](../archives/2026-08-02.html)
 - 01.08.2026 — [Musique : l'IA a-t-elle déjà gagné ?](../archives/2026-08-01.html)
 - 31.07.2026 — [Méga-feux : la France est-elle prête pour la suite ?](../archives/2026-07-31.html)

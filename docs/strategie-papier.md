@@ -289,12 +289,65 @@ article de démonstration. Points à trancher :
   rouge pour quel trimestre).
 
 **État final de la maquette (session du 25 août, close ici pour la
-soirée)** : https://claude.ai/code/artifact/d5e72207-faf4-4b9d-b0ed-24ccaa21e626
+soirée)** — versionnée dans ce dépôt :
+`docs/mockups/cahier-scenario-2026-08-25.html` (s'ouvre tel quel dans un
+navigateur, imprimable A4 via Ctrl/Cmd+P). Aussi publiée comme Artifact
+(peut avoir divergé si retouchée depuis côté Artifact sans re-synchro
+vers le fichier versionné) :
+https://claude.ai/code/artifact/d5e72207-faf4-4b9d-b0ed-24ccaa21e626
 — 2 planches A4, nom « Les Cahiers de Scénario », toutes les décisions
 ci-dessus appliquées. Design validé par l'utilisateur, **rien à reprendre
 dessus par défaut** — ne pas relancer un travail visuel sans une demande
 explicite. **Reprendre directement sur les 4 points de « Prochaine étape »
 ci-dessus** (contenu, pas mise en page).
+
+## Routine de fabrication d'un numéro — première version (25 août)
+
+Pas encore une routine automatisée (comme `docs/routine-prompt.md` pour
+l'édition quotidienne) — un mode opératoire manuel, écrit à partir de ce
+qui a été appris en construisant la maquette du 25 août, pour ne pas
+redécouvrir les mêmes pièges au prochain numéro.
+
+1. **Choisir le registre en fil rouge du trimestre.** Voir « Ordre de
+   rotation des registres » ci-dessus (pas encore tranché) — poser le
+   choix avant de commencer la sélection.
+2. **Lister les éditions du registre publiées sur le trimestre.**
+   `archives.html`, filtrer par `data-tag` du registre et par les tags
+   thématiques associés (voir `docs/tags.md`). Ne pas se fier à un seul
+   tag isolé : le dossier de test du 25 août (« IA chinoise ») était en
+   registre « Carte blanche » avec les tags thématiques « Intelligence
+   artificielle » + « Diplomatie » — croiser les deux pour ne rater
+   aucune édition pertinente.
+3. **Trier avant de mettre en page.** Critère pas encore figé (voir
+   « Prochaine étape » ci-dessus, point 2) — mais ne pas caser un sujet
+   dans le numéro seulement parce qu'il existe : un dossier complet a un
+   coût de mise en page (voir point 5).
+4. **Pour chaque sujet retenu, partir de l'édition digitale publiée, pas
+   d'une page blanche.** Récupérer dek, chiffres, scénarios, `L'essentiel`
+   directement depuis `archives/AAAA-MM-JJ.html` — voir la structure de
+   `docs/mockups/cahier-scenario-2026-08-25.html` (P.02) comme gabarit de
+   référence pour où va quoi (kicker, image, rail de stats, encart « Ce
+   qu'on évalue », 3 scénarios, encart « L'essentiel »).
+5. **Couper le texte pour tenir dans le gabarit, puis relire l'ensemble.**
+   Règle déjà posée plus haut : ne pas trop retoucher le texte d'origine,
+   mais toujours relire l'article complet une fois les coupes faites —
+   voir l'exemple Huawei ci-dessus, une référence restée dans une carte
+   scénario après la coupe du paragraphe qui l'expliquait ailleurs sur la
+   page.
+6. **Photo : Pexels, workflow existant.** `scripts/social/fetch_topic_image.py`
+   — voir plus haut. Exporter l'image choisie en haute résolution
+   (`original_url` du `credits.json`), pas le recadrage carré Instagram.
+7. **Mise à jour de la couverture** : titre, accroche, tags, et surtout
+   l'**agenda** — vrais titres et vraies dates des dossiers retenus à
+   l'étape 3, jamais des intitulés inventés pour remplir (voir le choix
+   fait le 25 août : afficher franchement le nombre réel de dossiers
+   disponibles plutôt que d'en simuler douze).
+8. **Assembler et vérifier le gabarit A4** avant de considérer le numéro
+   prêt : chaque planche tient bien sur une page (`min-height:297mm`,
+   overflow visible pour repérer un débordement plutôt que le perdre
+   silencieusement), dégradé de couverture assez sombre pour la lecture,
+   format des encarts identique partout (`Ce qu'on évalue` / `L'essentiel`
+   : fond `#ddd4bd`, bordure gauche or — jamais deux styles différents).
 
 
 

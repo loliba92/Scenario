@@ -6,6 +6,163 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-08-27 — Dette : le mur des 40 000 milliards
+**Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 27 août
+2026), CSS complet (`.essentiel-box`, `.stakes-box`, `.question-box`,
+`.list-box`, `.comprendre-box` absente cette édition (pas de focus
+« Comprendre » séparé, conforme), `.delta-france`/`.delta-gauge*`/
+`.delta-word`/`.delta-flag` — bloc canonique intact, dégradé SVG à 3 stops
+et `data-score="-0.60"` présents —, `.article-image*`, `.card`, `.gauge*`,
+`.france-line` toutes présentes dans `<style>`), sync `index.html`/
+`archives/2026-08-27.html` (seules différences : chemins relatifs `../`,
+`canonical`/`og:url`/`mainEntityOfPage`, `aria-current` de nav — toutes
+légitimes), `data-france-impact`/`data-kind` cohérents avec le texte
+`.france-line` des 3 cartes (favorable/dégradé/dégradé, texte assorti) et
+avec le `delta-france` (`data-kind="negatif"`, mot "assez négatif"),
+incohérence numérique interne : aucune trouvée (taux à 30 ans 5,34 % pic du
+19 août → 5,2 % fin août cohérent avec le KPI stable ≈5,2 %, KPI favorable
+≈4,65 % cohérent avec le `.why` "4,6-4,7 %", KPI dégradé ≈5,8 % cohérent
+avec le `.why` "5,5 %, voire 6 %", dette 40 000 Md$ répétée essentiel/dek
+cohérente avec la base 40 100 Md$ des 3 cartes), probabilités
+20+50+30=100 %, label brut favorable/stable/dégradé absent des 4
+paragraphes `.essentiel-text` structurés (les 3 occurrences trouvées sont
+dans le paragraphe `.delta-text`, qui nomme les 3 scénarios par leur
+catégorie depuis au moins une semaine d'éditions consécutives — vérifié sur
+les archives du 20 au 26 août, ce n'est pas le cas visé par ce point),
+formulation "Notre évaluation de l'impact pour la France" intacte, lexique
+(3 `.lex-ref` ↔ 3 entrées : prime-de-terme, rachat-de-dette,
+bond-vigilantes, aucun terme orphelin), 2 KPI (taux à 30 ans, dette
+fédérale fin 2027) distincts sur les 3 cartes deux à deux (aucun doublon
+complet), image du jour (`assets/social/topic-images/2026-08-27.jpg` et
+`-wide.jpg`, vrais JPEG 1080×1080/1600×900 confirmés par `file`, fiche de
+provenance Pexels présente, `og:image`/`twitter:image`/JSON-LD pointant
+vers le composite Instagram `assets/social/instagram/2026-08-27.png`, vrai
+PNG 1080×1080 — comportement documenté dans `docs/ARCHITECTURE.md` et
+observé chaque jour depuis le 22 août, pas une désynchronisation), style
+des paragraphes `.dek`/`.why`/`.essentiel-text` (`grep` tutoiement hors
+`.share-block` : 2 occurrences restantes toutes deux légitimement dans
+`.share-block` — Telegram/notifications —, 1 dans un commentaire HTML non
+rendu ; plusieurs phrases dépassent 40-50 mots, revues une à une, voir
+"Réécritures de clarté" ci-dessous), 4 chiffres structurants vérifiés
+contre les 4 sources déjà citées (5 `WebFetch` utilisés sur le plafond de
+5, un deuxième passage sur PrimeRates pour préciser la date exacte).
+**Corrigé automatiquement** : rien côté points 1 à 7, 9, 10 (aucune
+anomalie mécanique trouvée) — seule la réécriture de clarté ci-dessous.
+**Réécritures de clarté** (avant/après complet pour chacune) : 1 réécriture
+(sur un plafond de 3) — seule phrase jugée réellement gênante parmi celles
+qui dépassaient 40-50 mots, les autres restant lisibles malgré leur
+longueur (structure en `soit/soit/soit` parallèle du `.dek`, asides entre
+tirets, énumérations factuelles) :
+- Avant : « **C'est le scénario le moins probable des trois** : il suppose
+  à la fois un compromis budgétaire crédible au Congrès — rare en année
+  pré-électorale — et une demande extérieure qui se rétablit alors qu'elle
+  s'érode depuis plusieurs années ; plus optimiste que le stable, qui
+  n'exige aucun de ces deux sursauts, et bien plus que le dégradé, qui part
+  de la même fragilité sans réponse efficace. »
+  Après : « **C'est le scénario le moins probable des trois** : il suppose
+  à la fois un compromis budgétaire crédible au Congrès — rare en année
+  pré-électorale — et une demande extérieure qui se rétablit, alors qu'elle
+  s'érode depuis plusieurs années. Il reste plus optimiste que le stable,
+  qui n'exige aucun de ces deux sursauts, et plus encore que le dégradé,
+  qui part de la même fragilité sans réponse efficace. »
+  (scission au point-virgule en deux phrases, aucun chiffre/date/nom propre
+  concerné dans ce passage — seule la syntaxe change ; appliquée à
+  l'identique sur `index.html` et `archives/2026-08-27.html`, vérifiée
+  balisage équilibré + sync avant commit.)
+**Signalé pour revue humaine** :
+- Le chiffre « la dette de tous les pays du monde réunis dépasse
+  310 000 milliards de dollars — environ 95 % du PIB de la planète »
+  (`.dek`) semble mélanger deux périmètres différents : la source IMF citée
+  en premier (Moniteur des finances publiques, avril 2026) confirme bien
+  "94 % du PIB mondial en 2025 → 100 % dès 2029" (quasi identique au "95 %
+  / 100 % dès 2029" de l'article, écart d'1 point négligeable) **mais ne
+  fournit aucun montant en dollars** — le rapport IMF porte sur la dette
+  publique (~94-95 % du PIB mondial, donc plutôt de l'ordre de
+  100 000 milliards $ vu un PIB mondial ≈110 000 Md$), alors que
+  « 310 000 milliards de dollars » correspond typiquement à la dette
+  mondiale tous secteurs confondus (public + privé + entreprises, ~330 %
+  du PIB selon les suivis usuels type IIF) — deux mesures différentes
+  présentées comme équivalentes dans la même phrase. Le chiffre en dollars
+  n'est pas vérifiable via la source IMF citée telle quelle ; possible
+  confusion de périmètre à l'écriture, à trancher par la rédaction (pas
+  une correction mécanique).
+- Source OCDE (`oecd.org/.../global-debt-report-2026...`, citée pour "61
+  000 milliards $ d'encours souverain en 2025" et "~4 000 milliards $ de
+  besoins d'emprunt net en 2026") : HTTP 503 ce passage-ci — signalée comme
+  "source non re-vérifiable", pas de recherche de remplacement.
+- Source CNBC (`cnbc.com/.../treasury-announces-upscaled-buyback-operation
+  -for-longer-term-debt...`, citée pour "rachats de dette longue du Trésor,
+  au moins 4 milliards $ par opération, mi-août") : HTTP 403 ce passage-ci
+  (probable blocage anti-bot, même schéma que CNEWS le 26 août) — signalée
+  comme "source non re-vérifiable".
+- Chiffre confirmé sans réserve : « dette fédérale des États-Unis vient de
+  franchir les 40 000 milliards de dollars » — source PrimeRates montre
+  39 890 Md$ au 7 août 2026, en hausse d'environ 7,2 Md$/jour ; extrapolé
+  sur les 20 jours suivants jusqu'au 27 août, ça donne ≈ 40 030 Md$ —
+  cohérent avec le franchissement du seuil annoncé par l'article à la date
+  de publication, aucune correction nécessaire.
+
+## 2026-08-26 — Retraites : la patate chaude de 2027
+**Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 26 août
+2026), CSS complet (`.essentiel-box`, `.stakes-box`, `.question-box`,
+`.list-box`, `.comprendre-box`, `.delta-france`/`.delta-gauge*`/
+`.delta-word`/`.delta-flag` — bloc canonique intact — `.article-image*`,
+`.card`, `.gauge*`, `.france-line` toutes présentes dans `<style>`),
+sync `index.html`/`archives/2026-08-26.html` (seules différences : chemins
+relatifs `../`, `canonical`/`og:url`, `aria-current` de nav — toutes
+légitimes), `data-france-impact`/`data-kind` cohérents avec le texte
+`.france-line` des 3 cartes, incohérences numériques internes (déficit COR
+2,4 %/1,4 %, désindexation 1,5/3/6 Md€ répétés dek/why/essentiel-text/KPI —
+tous cohérents entre eux), probabilités 20+50+30=100 %, label brut
+favorable/stable/dégradé absent de `.essentiel-text`, formulation "Notre
+évaluation de l'impact pour la France" intacte, lexique (3 `.lex-ref` ↔ 3
+entrées, aucun terme orphelin), 2 KPI (`déficit du système`, `économies de
+la désindexation`) distincts sur les 3 cartes deux à deux (aucun doublon
+complet), image du jour (`assets/social/topic-images/2026-08-26.jpg` et
+`-wide.jpg`, vrais JPEG 1080×1080/1600×900, fiche de provenance Pexels
+présente, `og:image`/`twitter:image`/JSON-LD pointant vers le composite
+Instagram `assets/social/instagram/2026-08-26.png` — comportement documenté
+dans `docs/ARCHITECTURE.md`, pas une désynchronisation), style des
+paragraphes `.dek`/`.why`/`.essentiel-text` (plusieurs phrases dépassent 40
+mots mais restent lisibles — énumérations parallèles ou éléments factuels
+enchaînés, sans rupture de registre — `grep` tutoiement hors `.share-block`
+: rien trouvé), 4 chiffres/faits vérifiés contre les sources déjà citées
+(3 fetchées avec succès sur 4, plafond de 5 `WebFetch` atteint).
+**Corrigé automatiquement** : rien.
+**Réécritures de clarté** (avant/après complet pour chacune, ou "aucune") :
+aucune — aucune phrase jugée assez gênante pour justifier une réécriture
+malgré plusieurs phrases longues (voir "Vérifié" ci-dessus).
+**Signalé pour revue humaine** :
+- Le chiffre-clé « déficit du système de retraites à 2,4 % du PIB en 2070,
+  contre 1,4 % un an plus tôt (COR, 3 août 2026) », repris dans `.dek`, les
+  3 `.why` et `.essentiel-text`, ne se retrouve dans aucune des 4 sources
+  citées en bas de page — vérifié spécifiquement sur MoneyVox (l'article le
+  plus proche du sujet retraites/rentrée politique), qui ne contient ni le
+  chiffre ni la date du 3 août 2026. Les 2 chiffres n'apparaissent pas non
+  plus dans LCP (positions des candidats) ni Orange Actu (désindexation).
+  Le chiffre est plausible (cohérent avec les rapports COR connus) mais
+  n'est pas re-vérifiable depuis les 4 sources listées telles quelles —
+  probablement une source COR primaire non ajoutée à la liste. À vérifier
+  par la rédaction, ou ajouter la source COR directe à la section
+  `sources`.
+- La source CNEWS (`cnews.fr/.../ce-que-lon-sait-deja-sur-le-premier-
+  debat-...`) renvoie HTTP 403 depuis cet environnement — source non
+  re-vérifiable ce passage-ci (pas nécessairement un lien mort côté site,
+  peut-être un blocage anti-bot). Le fait qu'elle appuie (date du débat du
+  27 août face au Medef) n'a donc pas pu être confirmé.
+- Chiffres confirmés sans réserve : les 3 montants de désindexation (1,5 /
+  3 / 6 Md€ selon le seuil retenu, 2 000-3 000 €) correspondent exactement
+  à l'article Orange Actu cité, y compris le taux d'inflation de 2 % pris
+  pour hypothèse sur le scénario du gel total. Positions des candidats
+  (Mélenchon 60 ans, Retailleau 65 ans, Attal suppression de l'âge légal)
+  confirmées par LCP ; nuance mineure non bloquante sur Philippe (LCP ne
+  confirme explicitement que 67 ans, l'article évoque "66 ou 67 ans") et
+  sur Le Pen (LCP mentionne aussi 60 ans comme position possible, en plus
+  des 62 ans repris dans l'article) — écarts trop mineurs pour être
+  qualifiés d'erreur factuelle, mentionnés ici par transparence.
+
+---
+
 ## 2026-08-25 — IA chinoise : cadeau ou piège ?
 **Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 25 août
 2026), classes CSS attendues présentes dans `<style>` et utilisées dans le
