@@ -166,7 +166,7 @@ Si la section du jour est vide ou tout est coché → elle repasse en **auto-sé
 - [x] Croissance mondiale : l'économie mondiale peut-elle éviter le ralentissement ? [économie]
 - [x] Inflation : l'inflation est-elle définitivement vaincue ? [économie]
 - [x] Taux d'intérêt : les banques centrales peuvent-elles baisser durablement les taux ? [économie & finance]
-- [ ] Dette mondiale : la dette devient-elle la prochaine crise financière ? [économie & finance]
+- [x] Dette mondiale : la dette devient-elle la prochaine crise financière ? [économie & finance]
 - [ ] Marchés financiers : la hausse des marchés est-elle durable ? [économie & finance]
 - [ ] Dollar : le dollar peut-il perdre son statut dominant ? [économie & finance]
 - [ ] Or : l'or est-il redevenu la valeur refuge ultime ? [économie & finance]
