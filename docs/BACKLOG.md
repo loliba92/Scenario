@@ -4225,12 +4225,15 @@ mardi participatif en dépendrait probablement.
   un paragraphe de clôture qui explicite que c'est un jugement structuré,
   pas un algorithme, pour ne jamais laisser croire à une précision
   scientifique que les faits du jour ne permettent pas.
-- **P0/P1 — Rattrapage historique, ticket ajouté ici (absent du backlog
-  externe).** Les 4 tickets ci-dessus ne précisent pas s'ils s'appliquent
-  aux futures éditions seulement ou aussi aux 35 déjà publiées. Décision
-  à prendre avant de lancer : sans rattrapage, le site aura un
-  avant/après visible pendant des mois (archives figées, jamais
-  remodifiées après publication).
+- **[TRANCHÉ le 27 août, retour utilisateur : « non »] Rattrapage
+  historique — écarté.** Les 4 tickets ci-dessus (probabilité à l'instant
+  T, pourquoi cette probabilité, méthode, CTA newsletter) s'appliquent
+  seulement à partir de l'édition du 27 août : les 34 éditions
+  précédentes ne sont pas reprises. Assumé comme décision, pas comme un
+  oubli — l'avant/après entre archives anciennes et nouvelles reste
+  cohérent avec la règle générale « archives figées, jamais remodifiées
+  après publication ». Ne pas rouvrir ce chantier sans nouveau retour
+  explicite.
 - **[FAIT le 27 août] CTA newsletter — sorti du ticket groupé ci-dessous,
   traité seul (wording only, zéro coût).** `.follow-inline-text` (bloc
   compact réutilisé chaque édition, `docs/routine-prompt.md`) reformulé
@@ -4247,10 +4250,14 @@ mardi participatif en dépendrait probablement.
   réutilisables pour des pages thématiques, filtre
   `archives.html?tag=X` déjà en place comme brique de départ pour le
   maillage.
-- **P2 (préalable), puis P2 — Vote sur site, puis mardi participatif.**
-  Trancher d'abord le point ouvert de l'entrée du 26 août plus haut dans ce backlog (pourcentage en direct ou non), implémenter le
-  vote sur site, **puis seulement** cadrer un « mardi participatif »
-  (créer, pas renforcer) une fois ce socle posé.
+- **P2 → dépriorisé le 27 août (retour utilisateur : « pas urgent
+  ça ») — Vote sur site, puis mardi participatif.** Reste ouvert, mais
+  plus sur la liste des prochains chantiers pour l'instant : ne pas
+  relancer de son propre chef, attendre un nouveau retour explicite.
+  Quand ça redevient prioritaire : trancher d'abord le point ouvert de
+  l'entrée du 26 août plus haut dans ce backlog (pourcentage en direct ou
+  non), implémenter le vote sur site, **puis seulement** cadrer un
+  « mardi participatif » (créer, pas renforcer) une fois ce socle posé.
 - **P3 — Score historique de Scénario.** Nouveau par rapport à l'existant
   (la calibration du 10 août mesure la justesse globale, pas un score de
   suivi dans le temps) — mais dépend du même préalable qu'elle : un
