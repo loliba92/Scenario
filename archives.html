@@ -509,12 +509,31 @@
 
   .entry-scenarios-inner{ min-height: 0; overflow: hidden; }
 
+  .fragment-question{
+    font-size: 0.86rem;
+    color: var(--paper);
+    line-height: 1.5;
+    margin: 18px 0 0;
+  }
+
+  .fragment-question-label{
+    display: block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
   .scenario-grid{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 16px;
     padding: 18px 0 6px;
   }
+
+  .fragment-question + .scenario-grid{ padding-top: 10px; }
 
   .scenario-mini{
     --accent: var(--paper-dim);
