@@ -884,26 +884,23 @@
      pleine largeur créent trop de scroll ("scroll fatigué"). À partir de
      860px, .cards passe en ligne et chaque .card repasse en layout
      colonne interne (même motif que le fallback mobile ci-dessus : tête
-     centrée au-dessus du corps, pas à côté). .cards s'élargit au-delà des
-     920px du .wrap ambiant (jusqu'à 1320px, via la technique de
-     "breakout" ci-dessous) pour que chaque colonne reste confortable à
-     lire (~400px sur un écran large plutôt que ~280px si on restait dans
-     920px) — seule cette rangée s'élargit, le reste de la page (contexte,
-     essentiel...) garde sa largeur de lecture habituelle. Sous 860px,
-     comportement strictement inchangé (cartes empilées comme avant).
-     Scopé à `screen` explicitement pour ne jamais interférer avec
-     `@media print` plus bas (qui a son propre layout de carte compact,
-     indépendant de la largeur d'écran au moment de l'impression). */
+     centrée au-dessus du corps, pas à côté). .cards reste dans les 920px
+     du .wrap ambiant (colonnes ~280px) pour garder la même largeur que le
+     reste de la page (contexte, essentiel...) — un premier essai avait
+     élargi la rangée jusqu'à 1320px (colonnes ~400px) via un breakout
+     hors du .wrap, mais retour utilisateur : ça cassait l'alignement avec
+     les boîtes juste en dessous (L'essentiel, la note "Ordres de
+     grandeur"...), donc abandonné. L'essentiel du gain contre le scroll
+     vient du passage en 3 colonnes lui-même, pas de la largeur des
+     colonnes. Sous 860px, comportement strictement inchangé (cartes
+     empilées comme avant). Scopé à `screen` explicitement pour ne jamais
+     interférer avec `@media print` plus bas (qui a son propre layout de
+     carte compact, indépendant de la largeur d'écran au moment de
+     l'impression). */
   @media screen and (min-width: 860px){
     .cards{
       flex-direction: row;
       align-items: stretch;
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
-      margin-right: calc(50% - 50vw);
-      padding-left: max(24px, calc((100vw - 1320px) / 2));
-      padding-right: max(24px, calc((100vw - 1320px) / 2));
-      box-sizing: border-box;
     }
     .card{ flex: 1 1 0; flex-direction: column; gap: 16px; padding: 22px 20px 20px; }
     .card-head{ flex: 0 0 auto; width: 100%; }
