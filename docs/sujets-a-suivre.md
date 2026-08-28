@@ -128,6 +128,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 28.08.2026 — [Climat 2030 : la France peut-elle encore tenir parole ?](../archives/2026-08-28.html)
 - 27.08.2026 — [Dette américaine : le mur des 40 000 milliards](../archives/2026-08-27.html)
 - 26.08.2026 — [Retraites : la patate chaude de 2027](../archives/2026-08-26.html)
 - 25.08.2026 — [IA chinoise : cadeau ou piège ?](../archives/2026-08-25.html)
