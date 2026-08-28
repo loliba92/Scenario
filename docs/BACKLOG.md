@@ -4383,6 +4383,19 @@ mardi participatif en dépendrait probablement.
   comprendrait-il ce qui se passe ? »). Non repris sur les titres déjà
   publiés (même logique que les autres tickets de l'audit du 27 août) —
   s'applique aux éditions à partir du 28 août.
+- **[FAIT le 28 août] Français naturel partout, pas seulement sur les
+  encarts Comprendre.** Retour utilisateur, même jour : « les tournures
+  doivent être en français naturel, pas de style IA, parfois tournure
+  tordue ». La règle anti-« IA » du 21 août (`docs/routine-prompt.md`,
+  Style) ne couvrait que deux pièges précis vus sur un encart Comprendre
+  (négation abrupte après une affirmation, source nuancée durcie en
+  claim absolu) — étendue à toute phrase de l'édition, avec 3 nouveaux
+  symptômes à repérer : subordonnée enchâssée au milieu d'une phrase
+  plutôt qu'un ordre naturel, connecteurs lourds empilés (« de fait »,
+  « il convient de noter que »...), formulation en creux/double négation
+  là où l'affirmation directe est plus claire. Même test que pour les
+  titres de scénario (ticket ci-dessus, même jour) : « je dirais ça
+  comme ça, à voix haute, dans une conversation normale ? »
 
 ## Déclinaison papier — « Les Cahiers de Scénario »
 
