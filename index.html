@@ -907,6 +907,13 @@
     }
     .card{ flex: 1 1 0; flex-direction: column; gap: 16px; padding: 22px 20px 20px; }
     .card-head{ flex: 0 0 auto; width: 100%; }
+    /* Les 3 titres de scénarios n'ont pas la même longueur ("La rallonge
+       promise passe l'automne" passe sur 2 lignes, les deux autres sur 1) :
+       sans hauteur réservée, le card-body de chaque carte démarrait à une
+       hauteur différente selon la carte, cassant l'alignement de la
+       rangée. On réserve systématiquement la hauteur de 2 lignes (line-
+       height hérité 1.55 × 2). */
+    .card-head h3{ min-height: 3.1em; display: flex; align-items: center; justify-content: center; }
   }
 
   .card[data-kind="favorable"]{ --accent: var(--favorable); }
