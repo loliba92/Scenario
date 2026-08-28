@@ -6,6 +6,119 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-08-28 — Climat 2030 : la France peut-elle encore tenir parole ?
+**Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 28 août
+2026), CSS complet (`.essentiel-box`, `.stakes-box`, `.question-box`,
+`.list-box`, `.comprendre-box`, `.delta-france`/`.delta-gauge*`/
+`.delta-word`/`.delta-flag` — bloc canonique intact, dégradé SVG à 3 stops
+et `data-score="-0.60"` présents —, `.article-image*`, `.card`, `.gauge*`,
+`.france-line` toutes présentes dans `<style>`), sync `index.html`/
+`archives/2026-08-28.html` (seules différences : chemins relatifs `../`,
+`canonical`/`mainEntityOfPage`/`aria-current` de nav — toutes légitimes),
+`data-france-impact`/`data-kind` cohérents avec le texte `.france-line`
+des 3 cartes (favorable/dégradé/dégradé, texte assorti) et avec le
+`delta-france` (`data-kind="negatif"`, mot "assez négatif"), incohérence
+numérique interne : aucune trouvée (Fonds vert 2,5 Md€ 2024 → 1,15 Md€
+2025 → 837 M€ 2026 cohérent essentiel/dek/indicateur ; mission Écologie
+"≈30 Md€" du `.why` favorable compatible avec le "28,7 à 30,3 Md€" du
+`.dek` — approximation vs. chiffre précis, pas une incohérence ; rythme de
+baisse des émissions 1,5 %/an cohérent entre `.dek` et KPI stable), label
+brut favorable/stable/dégradé absent de `.essentiel-text` proprement dit
+(les 2 occurrences "stable et dégradé" dans `.delta-text` nomment les
+cartes elles-mêmes, motif déjà rencontré les jours précédents),
+formulation "Notre évaluation de l'impact pour la France" intacte,
+lexique (3 `.lex-ref` ↔ 3 entrées — SNBC/HCC/Fonds vert —, `MaPrimeRénov'`
+a une 4e entrée sans `.lex-ref` mais le terme apparaît bien 4 fois dans le
+texte, conforme à la règle "chaque terme du lexique doit apparaître dans
+le texte", aucun terme orphelin dans un sens ou l'autre), probabilités
+20+45+35=100 %, absence de tutoiement hors `.share-block` (2 occurrences
+de "ton" trouvées, toutes deux dans `.share-block`), 2 KPI (`Fonds vert
+(2027)`, `Rythme annuel de baisse des émissions`) distincts sur les 3
+cartes deux à deux (aucun doublon complet), image du jour
+(`assets/social/topic-images/2026-08-28.jpg` 1080×1080 et
+`-wide.jpg` 1600×900, JPEG réel confirmé par `file`, fiche de provenance
+`2026-08-28.json` présente), meta `og:image`/`twitter:image`/JSON-LD
+`"image"` pointant vers `assets/social/instagram/2026-08-28.png` (PNG réel
+confirmé 1080×1080, cohérent entre `index.html` et l'archive — image
+finale composée, différente du `topic-images/*.jpg` brut, conforme au
+fonctionnement décrit dans `docs/routine-prompt.md`).
+
+**Corrigé automatiquement** : 1 réécriture de clarté (voir ci-dessous) —
+aucune autre anomalie mécanique trouvée sur les points 1 à 7, 9, 10.
+
+**Réécritures de clarté** (avant/après complet, 1 sur un plafond de 3) :
+- Avant : « La France a déjà payé cet été le prix de son retard
+  d'adaptation — entre méga-feux et canicules à répétition, on avait déjà
+  vu passer un sujet similaire sur qui paie la facture de ces canicules à
+  répétition (à lire ici), un poste que le Fonds vert est justement censé
+  financer en partie. »
+  Après : « La France a déjà payé cet été le prix de son retard
+  d'adaptation — entre méga-feux et canicules à répétition, la question de
+  qui paie la facture de ces épisodes a déjà été traitée (à lire ici), un
+  poste que le Fonds vert est justement censé financer en partie. »
+  Raison : répétition de "canicules à répétition" à quinze mots
+  d'intervalle dans la même phrase, et tournure de transition vague ("on
+  avait déjà vu passer un sujet similaire sur") — aucune date, aucun
+  chiffre, aucun nom propre ni le lien lui-même (`archives/2026-08-14.html`)
+  ne changent. Appliqué identiquement sur `index.html` et
+  `archives/2026-08-28.html` (seule différence : chemin relatif du lien,
+  comme pour le reste de la page). Vérifié après coup : balises HTML
+  toujours équilibrées sur les deux fichiers (`html.parser`), `index.html`/
+  `archives/2026-08-28.html` toujours synchronisés (rejeu du diff, mêmes
+  différences légitimes qu'avant correctif) — correctif purement textuel,
+  pas de capture Playwright nécessaire.
+
+**Vérification des chiffres contre les sources citées** (4 des 4 URLs de
+la section Sources fetchées, 5 appels `WebFetch` sur le plafond de 5, un
+deuxième passage ciblé sur franceinfo) :
+- franceinfo (HCC, ralentissement de l'action climatique) : confirme "1,8
+  %" (baisse 2024, "insuffisant") et confirme un chiffre proche de "6,8 %"
+  (6,7 % d'émissions territoriales brutes en moins, 2023) — cohérent avec
+  l'article. **Mais les deux chiffres les plus structurants de toute
+  l'édition, cités dans `.dek` et repris dans `.essentiel-text`, "1,5 %"
+  (rythme réel 2024-2025) et "4,5 % nécessaires" (objectif -50 % en 2030),
+  n'apparaissent pas du tout dans cette source** (vérifié deux fois avec
+  des prompts différents ; la source dit seulement que le rythme "devra
+  doubler", sans chiffrer la cible) — signalé ci-dessous.
+- Réseau Action Climat (budget 2026, carton rouge) : mentionne "la baisse
+  du Fonds vert" comme signal inquiétant mais ne donne pas le montant
+  exact — ni confirmation ni contradiction du chiffre "837 millions
+  d'euros" repris dans l'article.
+- I4CE (billet PLF 2026) : ne contient pas les chiffres "87 milliards
+  d'euros par an" / "52 milliards de dépense publique" attribués à I4CE
+  dans le `.dek` — la page renvoie vers d'autres publications I4CE
+  (Panorama des financements climat) pour ce type de chiffre.
+- Europe 1 (budget 2027, premiers arbitrages) : confirme que les crédits
+  de la mission augmentent d'1,5 milliard d'euros (compatible avec le
+  passage de 28,7 à 30,3 Md€ cité dans le `.dek`, à 0,2 Md€ près) mais ne
+  contient pas les montants totaux exacts ("30,3 milliards", "Fonds vert à
+  1 milliard") tels quels.
+  Plafond de 5 `WebFetch` atteint : les 3 derniers chiffres n'ont été
+  vérifiés que contre 1 source chacun (celle jugée la plus pertinente),
+  pas contre les 4 sources citées.
+
+**Signalé pour revue humaine** :
+- Chiffre-clé non confirmé dans la source la plus pertinente : « la France
+  ne réduit ses émissions de gaz à effet de serre que de 1,5 % par an,
+  contre 4,5 % nécessaires » (`.dek` et `.essentiel-text`) — absent de
+  l'article franceinfo sur l'alerte du Haut Conseil pour le Climat, la
+  source la plus directement liée à ce chiffre parmi les 4 citées (vérifié
+  deux fois). Ce n'est pas une contradiction (la source ne dit rien de
+  contraire), mais l'absence totale des deux valeurs dans la source dédiée
+  au sujet mérite une vérification humaine — plafond `WebFetch` atteint
+  avant de pouvoir tester les 3 autres sources pour ce chiffre précis.
+- Chiffres non re-vérifiables faute de confirmation explicite dans la
+  seule source testée chacun (plafond `WebFetch` atteint, pas de
+  contradiction trouvée non plus) : "837 millions d'euros" (Fonds vert
+  2026, testé contre Réseau Action Climat), "87 milliards / 52 milliards"
+  (I4CE, testé contre le billet PLF 2026 lui-même), "30,3 milliards
+  d'euros" / "Fonds vert à 1 milliard" (mission Écologie 2027, testé
+  contre Europe 1). À revérifier lors d'un prochain passage, idéalement
+  contre une autre source ou contre la publication I4CE dédiée
+  ("Panorama des financements climat").
+
+---
+
 ## 2026-08-27 — Dette : le mur des 40 000 milliards
 **Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 27 août
 2026), CSS complet (`.essentiel-box`, `.stakes-box`, `.question-box`,
