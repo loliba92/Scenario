@@ -140,20 +140,6 @@
      RSS (<description> du channel, feed.xml) plutôt qu'une nouvelle
      formulation. Dans le bandeau .masthead, donc présente sur toutes les
      pages du site sans exception — peu importe la page d'atterrissage. */
-  .brand-tagline{
-    font-size: 0.74rem;
-    color: var(--paper-dim);
-    opacity: 0.62;
-    margin: 0;
-    padding-left: 12px;
-    margin-left: 4px;
-    border-left: 1px solid var(--hairline);
-  }
-
-  @media (max-width: 340px){
-    .brand-tagline{ display: none; }
-  }
-
   /* Icône notifications dans le masthead, ajoutée le 21 août — 3e point
      d'entrée vers le même abonnement OneSignal (avec le rappel compact
      après "L'essentiel" et le bloc dédié en bas de page), celui-ci visible
@@ -352,34 +338,22 @@
   }
   .intro-banner-close:hover{ color: var(--paper); }
 
-  .intro-banner-kinds{
+  .intro-banner-body{
     display: flex;
-    gap: 18px;
-    margin: 0 0 14px;
-    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
   }
 
-  .intro-kind{
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-family: "JetBrains Mono", monospace;
-    font-weight: 700;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--paper-dim);
-  }
-  .intro-kind::before{
-    content: "";
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
+  .intro-banner-icon{
+    width: 52px;
+    height: 52px;
     flex-shrink: 0;
+    margin-top: 4px;
   }
-  .intro-kind[data-kind="favorable"]::before{ background: var(--favorable); box-shadow: 0 0 6px var(--favorable); }
-  .intro-kind[data-kind="stable"]::before{ background: var(--stable); box-shadow: 0 0 6px var(--stable); }
-  .intro-kind[data-kind="degrade"]::before{ background: var(--degrade); box-shadow: 0 0 6px var(--degrade); }
+
+  @media (max-width: 480px){
+    .intro-banner-icon{ display: none; }
+  }
 
   .intro-banner-lead{
     font-family: "Fraunces", serif;
@@ -1538,7 +1512,6 @@
       <div class="brand-row">
         <img class="brand-mark" src="assets/logo.svg" alt="">
         <div class="wordmark">Scéna<span>rio</span></div>
-        <p class="brand-tagline">Chaque jour, une actualité clé décryptée en trois scénarios chiffrés.</p>
       </div>
       <div class="edition">Édition du 28 août 2026 · N°36</div>
     </div>
@@ -1574,13 +1547,13 @@
     <button type="button" class="intro-banner-close" id="intro-banner-close" aria-label="Fermer ce message">
       <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5L19 19M19 5L5 19"/></svg>
     </button>
-    <p class="intro-banner-kinds">
-      <span class="intro-kind" data-kind="favorable">Favorable</span>
-      <span class="intro-kind" data-kind="stable">Stable</span>
-      <span class="intro-kind" data-kind="degrade">Dégradé</span>
-    </p>
-    <p class="intro-banner-lead">Chaque actualité a trois avenirs possibles. On les chiffre, chaque jour.</p>
-    <p class="intro-banner-text">Scénario explore un sujet clé et estime où il va — pas ce qu'il s'est passé. Trois scénarios chiffrés, une probabilité pour chacun, réévaluée si la situation change.</p>
+    <div class="intro-banner-body">
+      <img class="intro-banner-icon" src="assets/logo.svg" alt="" aria-hidden="true">
+      <div>
+        <p class="intro-banner-lead">L'actu, oui. Et après ?</p>
+        <p class="intro-banner-text">Chaque jour, un sujet qui compte, décortiqué en trois scénarios chiffrés, avec une probabilité pour chacun. Jamais figée : elle évolue si la situation change.</p>
+      </div>
+    </div>
   </div>
 </div>
 
