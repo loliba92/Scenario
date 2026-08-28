@@ -4328,6 +4328,26 @@ mardi participatif en dépendrait probablement.
   dans le gabarit de légende déjà utilisé pour Telegram/Instagram (même
   bloc que le rappel `.follow-inline` du site, juste reformulé pour un
   post social) plutôt que construire un nouveau canal.
+- **[FAIT le 28 août] Accroche du site dans le masthead — nouveau ticket,
+  hors des 23 de l'audit du 27 août.** Retour utilisateur : un premier
+  visiteur qui atterrit directement sur l'édition du jour (cas le plus
+  fréquent, `index.html` sert à la fois d'accueil et d'article) ne
+  comprend pas ce qu'est Scénario sans cliquer sur « Le projet » — « on
+  aime un appart dans les 20 premières secondes sinon on zappe à
+  jamais ». `le-projet.html` expliquait déjà très bien le concept, mais
+  ça demandait un clic que la plupart des visiteurs ne font jamais.
+  Ajouté au `.masthead` (donc sur *toutes* les pages, peu importe la
+  page d'atterrissage) : une accroche discrète à droite du logo/wordmark
+  (mot pour mot la description du flux RSS, `feed.xml`), et l'édition du
+  jour (`.edition`) sortie de `.masthead-right` vers une seconde ligne
+  sous le logo — retour utilisateur en cours de session : « l'inverse,
+  édition en ligne 2, la phrase de pitch à droite de Scénario mais plus
+  discrète plus foncée ». Appliqué **rétroactivement aux 59 pages du
+  site** (contrairement aux tickets éditoriaux de l'audit du 27 août) :
+  élément de marque/structure, pas de contenu éditorial figé — la
+  cohérence de marque prime, un visiteur peut atterrir sur n'importe
+  quelle ancienne archive. Détail technique dans `docs/routine-prompt.md`
+  (étape technique 3).
 
 ## Déclinaison papier — « Les Cahiers de Scénario »
 

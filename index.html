@@ -103,7 +103,7 @@
 
   .masthead-row{
     display:flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
     gap: 16px;
     flex-wrap: wrap;
@@ -120,8 +120,38 @@
 
   .brand{
     display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .brand-row{
+    display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    row-gap: 4px;
     gap: 11px;
+  }
+
+  /* Accroche du site, ajoutée le 28 août (retour utilisateur : un premier
+     visiteur qui atterrit directement sur l'édition du jour — cas le plus
+     fréquent, index.html sert à la fois d'accueil et d'article — n'a
+     aucun repère pour comprendre ce qu'est Scénario sans cliquer sur
+     "Le projet"). Reprend mot pour mot la description officielle du flux
+     RSS (<description> du channel, feed.xml) plutôt qu'une nouvelle
+     formulation. Dans le bandeau .masthead, donc présente sur toutes les
+     pages du site sans exception — peu importe la page d'atterrissage. */
+  .brand-tagline{
+    font-size: 0.74rem;
+    color: var(--paper-dim);
+    opacity: 0.62;
+    margin: 0;
+    padding-left: 12px;
+    margin-left: 4px;
+    border-left: 1px solid var(--hairline);
+  }
+
+  @media (max-width: 340px){
+    .brand-tagline{ display: none; }
   }
 
   /* Icône notifications dans le masthead, ajoutée le 21 août — 3e point
@@ -165,7 +195,7 @@
 
   .edition{
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.78rem;
+    font-size: 0.74rem;
     color: var(--paper-dim);
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -1420,11 +1450,14 @@
 <header class="masthead">
   <div class="wrap masthead-row">
     <div class="brand">
-      <img class="brand-mark" src="assets/logo.svg" alt="">
-      <div class="wordmark">Scéna<span>rio</span></div>
+      <div class="brand-row">
+        <img class="brand-mark" src="assets/logo.svg" alt="">
+        <div class="wordmark">Scéna<span>rio</span></div>
+        <p class="brand-tagline">Chaque jour, une actualité clé décryptée en trois scénarios chiffrés.</p>
+      </div>
+      <div class="edition">Édition du 28 août 2026 · N°36</div>
     </div>
     <div class="masthead-right">
-      <div class="edition">Édition du 28 août 2026 · N°36</div>
       <button type="button" class="onesignal-subscribe-btn masthead-notif-btn" aria-label="Activer les notifications" title="Activer les notifications"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg></button>
       <button type="button" id="print-page" class="masthead-notif-btn" aria-label="Imprimer en 1 page" title="Imprimer en 1 page"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 9V4.5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1V9"/><rect x="4.5" y="9" width="15" height="7" rx="1.3"/><path d="M7 14h10v5.5a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V14Z"/></svg></button>
     </div>

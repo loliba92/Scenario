@@ -311,14 +311,27 @@ Public 15-35 ans en priorité sans exclure personne : phrases directes, comparai
 1. Déterminer la date et le jour de la semaine à Paris (`TZ=Europe/Paris date`). En déduire le registre (grille étape 1). Vérifier que l'édition du jour n'a pas déjà été publiée sur `main` : si c'est le cas, s'arrêter là.
 2. Lire `index.html` actuel : gabarit de design exact à reproduire. Ne jamais changer le CSS ni la structure HTML générale — seulement le contenu texte et les valeurs. **La bande `.top-updates` juste sous la nav (boutons "Sujet révisé" / "Récap de la semaine", en `.btn-outline` avec icône SVG depuis le 19 août — plus d'emoji) fait partie de cette structure générale à reproduire telle quelle** — recopier les deux `<a class="btn-outline">` (icône SVG + texte) à l'identique. Le lien "Sujet révisé" pointe toujours vers `archives.html?tag=revise` (filtre générique, toujours à jour tout seul — ne jamais le changer). Le lien "Récap de la semaine" pointe vers le dernier `hebdo/{date}.html` publié : sa mise à jour est un geste séparé, pas une tâche de la routine quotidienne — recopier tel quel, ne jamais le recalculer ni le deviner.
 
-   **Icône notifications dans le masthead, ajoutée le 21 août [structure générale, même statut que `.top-updates`]** — 3e point d'entrée vers l'abonnement OneSignal (avec le rappel compact après "L'essentiel" et le bloc dédié en bas de page), visible dès le chargement sans scroll. `.brand` et `.edition` sont désormais tous deux enfants de `<div class="masthead-right">` à droite du `.brand` logo, avec le bouton icône juste après `.edition` :
+   **Icône notifications dans le masthead, ajoutée le 21 août [structure générale, même statut que `.top-updates`]** — 3e point d'entrée vers l'abonnement OneSignal (avec le rappel compact après "L'essentiel" et le bloc dédié en bas de page), visible dès le chargement sans scroll. `<div class="masthead-right">` à droite du `.brand` logo contient les boutons icône (notifications + impression) :
    ```html
    <div class="masthead-right">
-     <div class="edition">{Édition}</div>
      <button type="button" class="onesignal-subscribe-btn masthead-notif-btn" aria-label="Activer les notifications" title="Activer les notifications"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg></button>
+     <button type="button" id="print-page" class="masthead-notif-btn" aria-label="Imprimer en 1 page" title="Imprimer en 1 page"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 9V4.5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1V9"/><rect x="4.5" y="9" width="15" height="7" rx="1.3"/><path d="M7 14h10v5.5a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V14Z"/></svg></button>
    </div>
    ```
-   Icône seule, **jamais de `.btn-label` sur ce bouton** — le script OneSignal boucle déjà sur tous les `.onesignal-subscribe-btn` de la page et écrit le retour d'état dans l'attribut `title` en plus du `.btn-label` (voir `onesignalSetLabel`), donc rien à adapter pour ce 3e bouton. CSS `.masthead-right`/`.masthead-notif-btn` déjà dans le gabarit (même piège de recopie intégrale du `<style>` que les autres classes listées ci-dessous).
+   Icônes seules, **jamais de `.btn-label` sur ces boutons** — le script OneSignal boucle déjà sur tous les `.onesignal-subscribe-btn` de la page et écrit le retour d'état dans l'attribut `title` en plus du `.btn-label` (voir `onesignalSetLabel`), donc rien à adapter pour ce bouton. CSS `.masthead-right`/`.masthead-notif-btn` déjà dans le gabarit (même piège de recopie intégrale du `<style>` que les autres classes listées ci-dessous).
+
+   **Accroche du site + repositionnement de l'édition dans `.brand`, ajoutés le 28 août [structure générale, même statut que `.top-updates` — retour utilisateur : un premier visiteur qui atterrit directement sur l'édition du jour (cas le plus fréquent, `index.html` sert à la fois d'accueil et d'article) n'a aucun repère pour comprendre ce qu'est Scénario sans cliquer sur "Le projet" — « on l'aime dans les 20 premières secondes sinon on zappe »].** `.brand` passe en deux lignes : la première (`.brand-row`) porte logo + wordmark + une accroche discrète reprenant **mot pour mot** la description officielle du flux RSS (`<description>` du channel, `feed.xml`) ; la seconde porte `.edition`, sortie de `.masthead-right` (qui ne contient plus que les deux boutons icône) :
+   ```html
+   <div class="brand">
+     <div class="brand-row">
+       <img class="brand-mark" src="assets/logo.svg" alt="">
+       <div class="wordmark">Scéna<span>rio</span></div>
+       <p class="brand-tagline">Chaque jour, une actualité clé décryptée en trois scénarios chiffrés.</p>
+     </div>
+     <div class="edition">{Édition}</div>
+   </div>
+   ```
+   Ne jamais reformuler cette phrase d'une édition à l'autre. Repose sur toutes les pages du site (pas seulement `index.html`) — présent dans le `.masthead` partagé par `archives.html`, `glossaire.html`, `le-projet.html`, les pages `suivi/`, `hebdo/`, etc., avec les mêmes classes `.brand-row`/`.brand-tagline` (les pages sans édition n'ont simplement pas le second enfant `.edition`). CSS `.brand-tagline`/`.brand-row` déjà dans le gabarit — masquée sous 340px (`@media (max-width: 340px)`), sinon repasse naturellement à la ligne (`.brand-row` en `flex-wrap: wrap`) plutôt que de disparaître, pour rester visible sur mobile — c'est justement le point de départ de ce retour utilisateur.
 
    **Dégradé de bord sur `nav.topnav` (`nav.topnav::after`), ajouté le 21 août** — la nav défile horizontalement sur mobile (plus d'items que l'écran n'en affiche, ex. "Newsletter") sans scrollbar visible (`scrollbar-width: none`), donc rien ne signalait qu'il y avait plus à voir. CSS uniquement, aucune balise HTML à reproduire — fait déjà partie du bloc `<style>` recopié intégralement.
 

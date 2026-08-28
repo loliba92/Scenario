@@ -96,7 +96,7 @@
 
   .masthead-row{
     display:flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
     gap: 16px;
     flex-wrap: wrap;
@@ -113,9 +113,32 @@
 
   .brand{
     display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .brand-row{
+    display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    row-gap: 4px;
     gap: 11px;
   }
+
+  .brand-tagline{
+    font-size: 0.74rem;
+    color: var(--paper-dim);
+    opacity: 0.62;
+    margin: 0;
+    padding-left: 12px;
+    margin-left: 4px;
+    border-left: 1px solid var(--hairline);
+  }
+
+  @media (max-width: 340px){
+    .brand-tagline{ display: none; }
+  }
+
 
   .brand-mark{
     width: 30px;
@@ -683,10 +706,13 @@
 <header class="masthead">
   <div class="wrap masthead-row">
     <div class="brand">
-      <img class="brand-mark" src="../assets/logo.svg" alt="">
-      <a class="wordmark" href="../index.html" style="text-decoration:none;">Scéna<span>rio</span></a>
+      <div class="brand-row">
+        <img class="brand-mark" src="../assets/logo.svg" alt="">
+        <a class="wordmark" href="../index.html" style="text-decoration:none;">Scéna<span>rio</span></a>
+        <p class="brand-tagline">Chaque jour, une actualité clé décryptée en trois scénarios chiffrés.</p>
+      </div>
+      <div class="edition">Édition du 1er août 2026 · N°09</div>
     </div>
-    <div class="edition">Édition du 1er août 2026 · N°09</div>
   </div>
 </header>
 

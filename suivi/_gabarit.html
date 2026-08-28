@@ -64,10 +64,13 @@
   .wrap{ max-width: 920px; margin: 0 auto; padding: 0 24px; }
 
   header.masthead{ border-bottom: 1px solid var(--hairline); padding: 28px 0 22px; }
-  .masthead-row{ display:flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .masthead-row{ display:flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   .wordmark{ font-family: "Fraunces", serif; font-weight: 600; font-size: 1.5rem; letter-spacing: 0.01em; text-decoration: none; }
   .wordmark span{ color: var(--gold); }
-  .brand{ display: flex; align-items: center; gap: 11px; }
+  .brand{ display: flex; flex-direction: column; gap: 3px; }
+  .brand-row{ display: flex; align-items: center; flex-wrap: wrap; row-gap: 4px; gap: 11px; }
+  .brand-tagline{ font-size: 0.74rem; color: var(--paper-dim); opacity: 0.62; margin: 0; padding-left: 12px; margin-left: 4px; border-left: 1px solid var(--hairline); }
+  @media (max-width: 340px){ .brand-tagline{ display: none; } }
   .brand-mark{ width: 30px; height: 30px; display: block; flex: none; }
 
   nav.topnav{ background: var(--surface); border-bottom: 1px solid var(--hairline); }
@@ -298,8 +301,11 @@
 <header class="masthead">
   <div class="wrap masthead-row">
     <div class="brand">
-      <img class="brand-mark" src="../assets/logo.svg" alt="">
-      <a class="wordmark" href="../index.html">Scéna<span>rio</span></a>
+      <div class="brand-row">
+        <img class="brand-mark" src="../assets/logo.svg" alt="">
+        <a class="wordmark" href="../index.html">Scéna<span>rio</span></a>
+        <p class="brand-tagline">Chaque jour, une actualité clé décryptée en trois scénarios chiffrés.</p>
+      </div>
     </div>
   </div>
 </header>
