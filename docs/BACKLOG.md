@@ -4247,6 +4247,18 @@ mardi participatif en dépendrait probablement.
   l'édition du 28 août (`index.html` + `archives/2026-08-28.html`) ;
   non repris sur les éditions antérieures, même logique que les autres
   tickets de cet audit (voir plus haut, « rattrapage historique — écarté »).
+- **[FAIT le 28 août] Étendre le même balisage à la newsletter (retour
+  utilisateur : « la lecture doit être plus simple »).** Extension directe
+  du ticket ci-dessus à l'email : la Description de `feed.xml` enchaînait
+  question, `.stakes-text` et 3 titres de scénarios sans aucune étiquette
+  ni fait chiffré. Restructurée en 3 blocs labellisés — « La question
+  posée : », « Les faits : » (nouveau, 2ᵉ paragraphe de L'essentiel repris
+  mot pour mot, remplace `.stakes-text` jugée redondante ici), « Les 3
+  scénarios : » (+ émoji couleur 🟢/🔵/🔴 par ligne, même code que
+  `<category>`). Détail dans `docs/routine-prompt.md`, étape technique 8.
+  Appliqué à partir de l'édition du 29 août — l'email du 28 août était déjà
+  envoyé au moment de ce ticket, `feed.xml` n'est jamais retouché sur un
+  item déjà consommé.
 - **[FAIT le 27 août] P0 — Renforcer « Notre méthode ».** `le-projet.html`
   avait déjà une section méthode (« Les probabilités affichées ne
   sortent pas d'un tirage au hasard... ») avec ses 4 axes en liste — ajouté

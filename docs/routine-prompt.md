@@ -496,7 +496,7 @@ Simple journal, pas une évaluation — ne rien écrire de plus. Ne jamais touch
   <pubDate>{heure réelle au moment de cette étape, format RFC-822}</pubDate>
   <comments>{accroche + question du jour}</comments>
   <category>🟢 {titre court scénario favorable}","🔵 {titre court scénario stable}","🔴 {titre court scénario dégradé}</category>
-  <description><![CDATA[<img src="https://lesscenarios.fr/assets/social/instagram/{AAAA-MM-JJ}.png" alt="{h1 du jour}" style="max-width:100%;width:100%;height:auto;"><br><br>{accroche + question du jour}<br><br>{phrase "Ce qu'on évalue"}<br>{scénario 1}<br>{scénario 2}<br>{scénario 3}<br><br>Lequel est le plus probable ? 👉 <a href="{lien archive du jour}">Lire les 3 prévisions chiffrées sur le site</a> — c'est gratuit (~{X} min de lecture).<br><br>Envie de voter avant de connaître les vraies probabilités ? Rejoins le canal Telegram : <a href="https://t.me/scenario_fr">t.me/scenario_fr</a><br><br>Une question, une remarque ? Réponds directement à cet email, on te lit.]]></description>
+  <description><![CDATA[<img src="https://lesscenarios.fr/assets/social/instagram/{AAAA-MM-JJ}.png" alt="{h1 du jour}" style="max-width:100%;width:100%;height:auto;"><br><br>La question posée : {accroche + question du jour}<br><br>Les faits : {Contexte — 2e paragraphe de L'essentiel, mot pour mot}<br><br>Les 3 scénarios :<br>🟢 {scénario 1}<br>🔵 {scénario 2}<br>🔴 {scénario 3}<br><br>Lequel est le plus probable ? 👉 <a href="{lien archive du jour}">Lire les 3 prévisions chiffrées sur le site</a> — c'est gratuit (~{X} min de lecture).<br><br>Envie de voter avant de connaître les vraies probabilités ? Rejoins le canal Telegram : <a href="https://t.me/scenario_fr">t.me/scenario_fr</a><br><br>Une question, une remarque ? Réponds directement à cet email, on te lit.]]></description>
 </item>
 ```
 Texte spécifique à l'email, pas un copier-coller de la légende Instagram : jamais « lien en bio » (n'a de sens que sur Instagram), jamais de hashtags (aucune fonction dans un email).
@@ -507,7 +507,14 @@ grep -oP '(?<=<p class="dek">).*?(?=</p>)|(?<=<p class="why">).*?(?=</p>)|(?<=<d
 ```
 Diviser par 200, arrondir, jamais en dessous de 1.
 
-`<comments>` = uniquement `{accroche + question du jour}` en texte brut, rien d'autre. Le second paragraphe de la Description reprend **mot pour mot** `.stakes-text` ("Ce qu'on évalue"), jamais un paragraphe réécrit à part.
+`<comments>` = uniquement `{accroche + question du jour}` en texte brut, rien d'autre.
+
+**Description structurée en 3 blocs étiquetés — Question / Faits / Scénarios [AJOUTÉ le 28 août, retour utilisateur : « la lecture doit être plus simple »].** Avant cette date, la Description enchaînait accroche+question, `.stakes-text` et les 3 titres de scénarios sans aucune étiquette ni fait chiffré — même retour que celui qui a motivé le kicker `.section-label` « Les faits » sur le site (étape technique 3 plus haut), appliqué ici à l'email. Trois lignes labellisées, dans cet ordre, chacune précédée d'un double `<br>` :
+1. **« La question posée : »** + `{accroche + question du jour}` — même texte que `<comments>`, reprise mot pour mot.
+2. **« Les faits : »** + le **2ᵉ paragraphe de L'essentiel** (Contexte, le fait chiffré clé), repris **mot pour mot** — jamais `.stakes-text` (« Ce qu'on évalue »), retiré de la Description à cette date : redondant avec la question qui précède et les 3 scénarios qui suivent, un fait concret est plus utile ici qu'une reformulation en 3 sous-questions.
+3. **« Les 3 scénarios :»** suivi d'un `<br>` simple puis des 3 titres, chacun précédé de son émoji couleur (🟢/🔵/🔴, même code que `<category>`) — remplace les 3 lignes nues sans repère visuel utilisées jusque-là.
+
+Ne pas réécrire ces trois libellés d'une édition à l'autre : toujours exactement « La question posée : », « Les faits : », « Les 3 scénarios : ». Appliqué à partir de l'édition du 28 août ; les éditions précédentes dans `feed.xml` ne sont pas retouchées (emails déjà envoyés, aucune valeur à corriger un flux déjà consommé).
 
 `<category>` : titres courts des 3 scénarios séparés par `","` (pas `|`), toujours favorable/stable/dégradé dans cet ordre, code couleur 🟢/🔵/🔴. **Une seule balise `<category>`, pas trois** (Make ne récupère qu'une occurrence). Reprendre les titres `<h3>` sans emoji propre, raccourcis si besoin. **Chaque option doit se comprendre seule avec seulement les infos déjà données dans le teaser** (`<comments>`) — jamais un mot/raccourci qui suppose d'avoir lu l'article complet ; si une option du `<category>` repose sur un mot qui n'apparaît pas dans le teaser, la reformuler en clair.
 
