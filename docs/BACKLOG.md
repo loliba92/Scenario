@@ -4367,6 +4367,22 @@ mardi participatif en dépendrait probablement.
   rétroactivement aux archives existantes, contrairement aux tickets
   éditoriaux de l'audit du 27 août. Détail technique dans
   `docs/routine-prompt.md` (étape technique 3).
+- **[FAIT le 28 août] Titres de scénarios : toujours littéraux, jamais
+  une image ambiguë.** Retour utilisateur : « les titres manquent de
+  clarté, tu utilises toujours des images qui créent une ambiguïté non
+  voulue » — choisir les 3 titres « de façon claire et pragmatique ».
+  La règle « la taxe cale » existait déjà (Style, `docs/routine-prompt.md`)
+  mais restait un exemple isolé, pas un test systématique pour les
+  titres `<h3>` des cartes. Renforcée à l'étape 4 : 4 catégories à
+  écarter avec exemples avant/après (métaphores de guerre/nature,
+  portes figurées, idiomes tronqués, personnification d'un objet
+  abstrait — ex. réels retrouvés dans les archives : « Le front
+  s'enterre pour l'hiver », « La porte reste entrouverte », « [Le
+  dossier] sort de l'ornière », « La loi patiente ») + un test rapide
+  avant validation (« un lecteur qui ne lit que ce titre, seul,
+  comprendrait-il ce qui se passe ? »). Non repris sur les titres déjà
+  publiés (même logique que les autres tickets de l'audit du 27 août) —
+  s'applique aux éditions à partir du 28 août.
 
 ## Déclinaison papier — « Les Cahiers de Scénario »
 
