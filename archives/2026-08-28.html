@@ -879,6 +879,37 @@
     .card-head{ flex: 0 0 auto; width: 100%; }
   }
 
+  /* ---------- Cartes de scénarios en 3 colonnes (desktop) ---------- */
+  /* Ajouté le 28 août 2026, retour utilisateur : trois cartes empilées en
+     pleine largeur créent trop de scroll ("scroll fatigué"). À partir de
+     860px, .cards passe en ligne et chaque .card repasse en layout
+     colonne interne (même motif que le fallback mobile ci-dessus : tête
+     centrée au-dessus du corps, pas à côté). .cards s'élargit au-delà des
+     920px du .wrap ambiant (jusqu'à 1320px, via la technique de
+     "breakout" ci-dessous) pour que chaque colonne reste confortable à
+     lire (~400px sur un écran large plutôt que ~280px si on restait dans
+     920px) — seule cette rangée s'élargit, le reste de la page (contexte,
+     essentiel...) garde sa largeur de lecture habituelle. Sous 860px,
+     comportement strictement inchangé (cartes empilées comme avant).
+     Scopé à `screen` explicitement pour ne jamais interférer avec
+     `@media print` plus bas (qui a son propre layout de carte compact,
+     indépendant de la largeur d'écran au moment de l'impression). */
+  @media screen and (min-width: 860px){
+    .cards{
+      flex-direction: row;
+      align-items: stretch;
+      max-width: 1320px;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      padding-left: max(24px, calc((100vw - 1320px) / 2));
+      padding-right: max(24px, calc((100vw - 1320px) / 2));
+      box-sizing: border-box;
+    }
+    .card{ flex: 1 1 0; flex-direction: column; gap: 16px; padding: 22px 20px 20px; }
+    .card-head{ flex: 0 0 auto; width: 100%; }
+  }
+
   .card[data-kind="favorable"]{ --accent: var(--favorable); }
   .card[data-kind="stable"]{ --accent: var(--stable); }
   .card[data-kind="degrade"]{ --accent: var(--degrade); }
@@ -1730,23 +1761,11 @@
 </section>
 
 
-<section class="share-block">
-  <div class="wrap">
-    <p class="section-label">En plus</p>
-    <h2 class="section-title">Vote avant de connaître le résultat</h2>
-    <p>Chaque jour, un sondage sur notre canal Telegram : vote pour le scénario que tu juges le plus probable avant même de découvrir les vraies probabilités ci-dessus.</p>
-    <div class="share-row">
-      <a class="btn-outline" href="https://t.me/scenario_fr" target="_blank" rel="noopener noreferrer">Rejoindre le canal Telegram</a>
-      <a class="btn-outline" href="https://buymeacoffee.com/scenario" target="_blank" rel="noopener noreferrer">☕ Nous offrir un café</a>
-    </div>
-  </div>
-</section>
-
 <section class="share-block" id="nous-suivre">
   <div class="wrap">
-    <p class="section-label">Nous suivre</p>
-    <h2 class="section-title">Un scénario par jour, où vous êtes déjà</h2>
-    <p>La question du jour et l'essentiel de l'édition, repris en format court entre deux parutions.</p>
+    <p class="section-label">Reste connecté</p>
+    <h2 class="section-title">Vote avant le résultat, retrouve-nous partout</h2>
+    <p>Chaque jour, un sondage sur notre canal Telegram : vote pour le scénario que tu juges le plus probable avant même de découvrir les vraies probabilités ci-dessus.</p>
     <div class="share-row">
       <a class="follow-btn" href="https://x.com/scenario_fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="4" x2="20" y2="20"></line><line x1="20" y1="4" x2="4" y2="20"></line></svg> X</a>
       <a class="follow-btn" href="https://bsky.app/profile/scenario-actu.bsky.social" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"></path></svg> Bluesky</a>
@@ -1755,16 +1774,9 @@
       <a class="follow-btn" href="https://www.instagram.com/scenarios.actu/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> Instagram</a>
       <a class="follow-btn" href="https://t.me/scenario_fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M2 12l19-9-7 19-3-7-6-3z"/></svg> Telegram</a>
     </div>
-  </div>
-</section>
-
-<section class="share-block" id="notifications">
-  <div class="wrap">
-    <p class="section-label">Notifications</p>
-    <h2 class="section-title">Recevoir l'édition du jour en notification</h2>
-    <p>Un rappel sur ton téléphone dès qu'une nouvelle édition est publiée — désactivable à tout moment.</p>
-    <div class="share-row">
+    <div class="share-row" style="margin-top:14px">
       <button type="button" id="onesignal-subscribe-btn" class="onesignal-subscribe-btn btn-outline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg> <span class="btn-label">Activer les notifications</span></button>
+      <a class="btn-outline" href="https://buymeacoffee.com/scenario" target="_blank" rel="noopener noreferrer">☕ Nous offrir un café</a>
     </div>
   </div>
 </section>
