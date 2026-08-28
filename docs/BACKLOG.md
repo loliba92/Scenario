@@ -4233,13 +4233,20 @@ mardi participatif en dépendrait probablement.
   Ajouté dans `docs/routine-detection-prompt.md` : l'exigence de nommer
   le fait (ou son absence) s'applique désormais aux 3 `mini-scenario-text`
   de chaque nouvelle version, pas seulement à la conclusion.
-- **P0 — Distinguer Faits / Analyse / Scénarios.** La séparation existe
-  déjà implicitement dans la structure (`.dek` = faits/contexte,
-  `.comprendre-box` = analyse, cartes = scénarios) mais sans étiquetage
-  explicite. Point de vigilance à l'exécution : ne pas dupliquer les
-  `.section-label` déjà nombreux (« Favorable, stable ou dégradé »,
-  « Pour ceux qui découvrent le sujet »...) — un balisage léger plutôt
-  qu'une re-architecture de la mise en page.
+- **[FAIT le 28 août] P0 — Distinguer Faits / Analyse / Scénarios.** La
+  séparation existait déjà implicitement dans la structure (`.dek` =
+  faits/contexte, `.comprendre-box` = analyse, cartes = scénarios) mais
+  sans étiquetage explicite. Seul le récit factuel n'avait aucun
+  kicker (`.comprendre-box` a déjà « Comprendre », les cartes ont déjà
+  `p.section-label` « Favorable, stable ou dégradé » + l'ancre
+  `#scenarios` du sommaire) : ajouté un kicker `<p class="section-label">
+  Les faits</p>` une seule fois, juste après `question-box` et avant le
+  premier `.dek` — réutilise la classe déjà stylée, zéro CSS nouvelle,
+  pas de re-architecture. Documenté dans `docs/routine-prompt.md` (étape
+  technique 3) pour que la routine le reproduise chaque jour. Appliqué à
+  l'édition du 28 août (`index.html` + `archives/2026-08-28.html`) ;
+  non repris sur les éditions antérieures, même logique que les autres
+  tickets de cet audit (voir plus haut, « rattrapage historique — écarté »).
 - **[FAIT le 27 août] P0 — Renforcer « Notre méthode ».** `le-projet.html`
   avait déjà une section méthode (« Les probabilités affichées ne
   sortent pas d'un tirage au hasard... ») avec ses 4 axes en liste — ajouté
