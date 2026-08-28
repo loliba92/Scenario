@@ -4328,26 +4328,45 @@ mardi participatif en dépendrait probablement.
   dans le gabarit de légende déjà utilisé pour Telegram/Instagram (même
   bloc que le rappel `.follow-inline` du site, juste reformulé pour un
   post social) plutôt que construire un nouveau canal.
-- **[FAIT le 28 août] Accroche du site dans le masthead — nouveau ticket,
-  hors des 23 de l'audit du 27 août.** Retour utilisateur : un premier
-  visiteur qui atterrit directement sur l'édition du jour (cas le plus
-  fréquent, `index.html` sert à la fois d'accueil et d'article) ne
-  comprend pas ce qu'est Scénario sans cliquer sur « Le projet » — « on
-  aime un appart dans les 20 premières secondes sinon on zappe à
-  jamais ». `le-projet.html` expliquait déjà très bien le concept, mais
-  ça demandait un clic que la plupart des visiteurs ne font jamais.
-  Ajouté au `.masthead` (donc sur *toutes* les pages, peu importe la
-  page d'atterrissage) : une accroche discrète à droite du logo/wordmark
-  (mot pour mot la description du flux RSS, `feed.xml`), et l'édition du
-  jour (`.edition`) sortie de `.masthead-right` vers une seconde ligne
-  sous le logo — retour utilisateur en cours de session : « l'inverse,
-  édition en ligne 2, la phrase de pitch à droite de Scénario mais plus
-  discrète plus foncée ». Appliqué **rétroactivement aux 59 pages du
-  site** (contrairement aux tickets éditoriaux de l'audit du 27 août) :
-  élément de marque/structure, pas de contenu éditorial figé — la
-  cohérence de marque prime, un visiteur peut atterrir sur n'importe
-  quelle ancienne archive. Détail technique dans `docs/routine-prompt.md`
-  (étape technique 3).
+- **[FAIT le 28 août] Faire comprendre Scénario à un premier visiteur —
+  nouveau ticket, hors des 23 de l'audit du 27 août.** Retour
+  utilisateur : un premier visiteur qui atterrit directement sur
+  l'édition du jour (cas le plus fréquent, `index.html` sert à la fois
+  d'accueil et d'article) ne comprend pas ce qu'est Scénario sans
+  cliquer sur « Le projet » — « on aime un appart dans les 20 premières
+  secondes sinon on zappe à jamais ».
+
+  Trois itérations en session, chacune sur retour utilisateur direct :
+  1. Accroche texte discrète dans le masthead (`.brand-tagline`), à
+     droite du logo/wordmark, reprenant mot pour mot la description du
+     flux RSS — jugée trop faible (« bof c'est moyen non ? »), **retirée
+     le même jour** de l'ensemble des 59 pages où elle avait été
+     déployée.
+  2. Remplacée par un vrai bandeau d'accueil (`.intro-banner`) — bien
+     plus visible, texte retravaillé (« soit cool mais pro » →
+     « L'actu, oui. Et après ? »), avec 3 pastilles textuelles
+     « Favorable / Stable / Dégradé ».
+  3. Pastilles retirées à leur tour (retour utilisateur : « tu
+     répètes », déjà dit une ligne plus bas par les vraies cartes de
+     l'article) et remplacées par le **logo du site en grand** — le
+     tronc qui se sépare en 3 flèches vert/bleu/terracotta est déjà,
+     par construction, la représentation visuelle des 3 scénarios.
+
+  Bandeau visible **une seule fois par navigateur** (localStorage, clé
+  partagée par tout le site — vu une fois n'importe où, jamais revu
+  ailleurs), fermeture manuelle possible. `.edition` sorti de
+  `.masthead-right` vers une seconde ligne sous le logo (conservé des
+  itérations précédentes, jamais remis en cause).
+
+  Déployé sur `index.html`, `archives.html` et les 36 `archives/*.html`
+  existantes (retour utilisateur : « archives.html et les archives
+  individuelles ») — pas sur `glossaire.html`/`le-projet.html`/`suivi/`/
+  `hebdo/`, portée volontairement plus restreinte que l'accroche texte
+  abandonnée à l'étape 1 (qui, elle, avait couvert les 59 pages).
+  Élément de structure, pas de contenu éditorial figé : appliqué
+  rétroactivement aux archives existantes, contrairement aux tickets
+  éditoriaux de l'audit du 27 août. Détail technique dans
+  `docs/routine-prompt.md` (étape technique 3).
 
 ## Déclinaison papier — « Les Cahiers de Scénario »
 

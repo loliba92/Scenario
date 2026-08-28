@@ -1129,6 +1129,80 @@
     -webkit-appearance: none;
   }
 
+  /* ---------- Bandeau d'accueil (premier passage uniquement) ---------- */
+  /* Ajouté le 28 août, retour utilisateur : un premier visiteur qui
+     atterrit sur l'édition du jour ne comprend pas ce qu'est Scénario
+     sans lire ou cliquer ailleurs — « on l'aime dans les 20 premières
+     secondes sinon on zappe à jamais ». Visible une seule fois par
+     navigateur (localStorage, voir le script en bas de page), jamais
+     revu ensuite — server-rendu avec l'attribut `hidden`, dévoilé par le
+     script seulement si le visiteur ne l'a jamais fermé/vu. Icône du
+     logo (tronc qui se sépare en 3 flèches favorable/stable/dégradé)
+     plutôt que les libellés en toutes lettres, déjà répétés une ligne
+     plus bas par les vraies cartes de l'article — retour utilisateur du
+     28 août : « tu répètes ». */
+  .intro-banner{
+    background: var(--surface);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .intro-banner-inner{
+    position: relative;
+    padding: 30px 24px 28px;
+  }
+
+  .intro-banner-close{
+    position: absolute;
+    top: 14px;
+    right: 24px;
+    display: flex;
+    background: none;
+    border: none;
+    padding: 6px;
+    color: var(--paper-dim);
+    cursor: pointer;
+  }
+  .intro-banner-close:hover{ color: var(--paper); }
+
+  .intro-banner-body{
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .intro-banner-icon{
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  @media (max-width: 480px){
+    .intro-banner-icon{ display: none; }
+  }
+
+  .intro-banner-lead{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 1.32;
+    max-width: 34ch;
+    margin: 0 0 10px;
+  }
+
+  .intro-banner-text{
+    font-size: 0.94rem;
+    color: var(--paper-dim);
+    line-height: 1.55;
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  @media (max-width: 560px){
+    .intro-banner-inner{ padding: 24px 20px 22px; padding-right: 46px; }
+    .intro-banner-lead{ font-size: 1.18rem; }
+  }
+
 </style>
 </head>
 <body>
@@ -1162,6 +1236,21 @@
     <a class="update-link" href="../archives.html?tag=revise">🔄 Sujet révisé →</a>
     <span class="sep">·</span>
     <a class="update-link" href="../hebdo/2026-08-09.html">🗓️ Récap de la semaine →</a>
+  </div>
+</div>
+
+<div class="intro-banner" id="intro-banner" hidden>
+  <div class="wrap intro-banner-inner">
+    <button type="button" class="intro-banner-close" id="intro-banner-close" aria-label="Fermer ce message">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5L19 19M19 5L5 19"/></svg>
+    </button>
+    <div class="intro-banner-body">
+      <img class="intro-banner-icon" src="../assets/logo.svg" alt="" aria-hidden="true">
+      <div>
+        <p class="intro-banner-lead">L'actu, oui. Et après ?</p>
+        <p class="intro-banner-text">Chaque jour, un sujet qui compte, décortiqué en trois scénarios chiffrés, avec une probabilité pour chacun. Jamais figée : elle évolue si la situation change.</p>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1614,5 +1703,34 @@
 
 <script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
+<script>
+  // Bandeau d'accueil premier passage, ajouté le 28 août. Rendu masqué
+  // (attribut hidden) côté HTML pour ne jamais clignoter chez les
+  // lecteurs qui reviennent — dévoilé ici seulement si la clé n'existe
+  // pas encore dans localStorage. Marqué comme vu dès l'affichage (pas
+  // besoin d'attendre la fermeture) : un lecteur qui scrolle direct vers
+  // l'article ne doit pas le revoir à sa prochaine visite.
+  (function(){
+    var KEY = "scenario_intro_seen";
+    var banner = document.getElementById("intro-banner");
+    if (!banner) return;
+    try {
+      if (!localStorage.getItem(KEY)) {
+        banner.hidden = false;
+        localStorage.setItem(KEY, "1");
+      }
+    } catch (e) {
+      // localStorage indisponible (navigation privée stricte, etc.) :
+      // le bandeau reste masqué par défaut, pas d'erreur visible.
+    }
+    var closeBtn = document.getElementById("intro-banner-close");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function(){
+        banner.hidden = true;
+      });
+    }
+  })();
+</script>
 </body>
 </html>
+

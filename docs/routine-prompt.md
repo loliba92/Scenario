@@ -320,18 +320,58 @@ Public 15-35 ans en priorité sans exclure personne : phrases directes, comparai
    ```
    Icônes seules, **jamais de `.btn-label` sur ces boutons** — le script OneSignal boucle déjà sur tous les `.onesignal-subscribe-btn` de la page et écrit le retour d'état dans l'attribut `title` en plus du `.btn-label` (voir `onesignalSetLabel`), donc rien à adapter pour ce bouton. CSS `.masthead-right`/`.masthead-notif-btn` déjà dans le gabarit (même piège de recopie intégrale du `<style>` que les autres classes listées ci-dessous).
 
-   **Accroche du site + repositionnement de l'édition dans `.brand`, ajoutés le 28 août [structure générale, même statut que `.top-updates` — retour utilisateur : un premier visiteur qui atterrit directement sur l'édition du jour (cas le plus fréquent, `index.html` sert à la fois d'accueil et d'article) n'a aucun repère pour comprendre ce qu'est Scénario sans cliquer sur "Le projet" — « on l'aime dans les 20 premières secondes sinon on zappe »].** `.brand` passe en deux lignes : la première (`.brand-row`) porte logo + wordmark + une accroche discrète reprenant **mot pour mot** la description officielle du flux RSS (`<description>` du channel, `feed.xml`) ; la seconde porte `.edition`, sortie de `.masthead-right` (qui ne contient plus que les deux boutons icône) :
+   **Repositionnement de l'édition dans `.brand`, ajouté le 28 août [structure générale, même statut que `.top-updates`].** `.brand` passe en deux lignes : la première (`.brand-row`) porte logo + wordmark ; la seconde porte `.edition`, sortie de `.masthead-right` (qui ne contient plus que les deux boutons icône) :
    ```html
    <div class="brand">
      <div class="brand-row">
        <img class="brand-mark" src="assets/logo.svg" alt="">
        <div class="wordmark">Scéna<span>rio</span></div>
-       <p class="brand-tagline">Chaque jour, une actualité clé décryptée en trois scénarios chiffrés.</p>
      </div>
      <div class="edition">{Édition}</div>
    </div>
    ```
-   Ne jamais reformuler cette phrase d'une édition à l'autre. Repose sur toutes les pages du site (pas seulement `index.html`) — présent dans le `.masthead` partagé par `archives.html`, `glossaire.html`, `le-projet.html`, les pages `suivi/`, `hebdo/`, etc., avec les mêmes classes `.brand-row`/`.brand-tagline` (les pages sans édition n'ont simplement pas le second enfant `.edition`). CSS `.brand-tagline`/`.brand-row` déjà dans le gabarit — masquée sous 340px (`@media (max-width: 340px)`), sinon repasse naturellement à la ligne (`.brand-row` en `flex-wrap: wrap`) plutôt que de disparaître, pour rester visible sur mobile — c'est justement le point de départ de ce retour utilisateur.
+   Repose sur toutes les pages du site (pas seulement `index.html`) — présent dans le `.masthead` partagé par `archives.html`, `glossaire.html`, `le-projet.html`, les pages `suivi/`, `hebdo/`, etc. (les pages sans édition n'ont simplement pas le second enfant `.edition`). **Essai retiré le même jour** : une accroche texte (`.brand-tagline`) avait d'abord été ajoutée ici, à droite du wordmark — retour utilisateur : trop discrète pour avoir un vrai impact (« bof c'est moyen non ? »), retirée au profit du bandeau d'accueil ci-dessous, bien plus visible. Ne pas la réintroduire.
+
+   **Bandeau d'accueil premier passage (`.intro-banner`), ajouté le 28 août [structure générale — retour utilisateur : un premier visiteur qui atterrit directement sur l'édition du jour (cas le plus fréquent, `index.html` sert à la fois d'accueil et d'article) n'a aucun repère pour comprendre ce qu'est Scénario — « on l'aime dans les 20 premières secondes sinon on zappe à jamais »].** Juste après `.top-updates` (ou juste après `</nav>` sur les pages sans `.top-updates`, ex. `archives.html`), avant la section suivante :
+   ```html
+   <div class="intro-banner" id="intro-banner" hidden>
+     <div class="wrap intro-banner-inner">
+       <button type="button" class="intro-banner-close" id="intro-banner-close" aria-label="Fermer ce message">
+         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5L19 19M19 5L5 19"/></svg>
+       </button>
+       <div class="intro-banner-body">
+         <img class="intro-banner-icon" src="assets/logo.svg" alt="" aria-hidden="true">
+         <div>
+           <p class="intro-banner-lead">L'actu, oui. Et après ?</p>
+           <p class="intro-banner-text">Chaque jour, un sujet qui compte, décortiqué en trois scénarios chiffrés, avec une probabilité pour chacun. Jamais figée : elle évolue si la situation change.</p>
+         </div>
+       </div>
+     </div>
+   </div>
+   ```
+   **Icône du logo (le tronc qui se sépare en 3 flèches favorable/stable/dégradé) plutôt que les libellés écrits en toutes lettres** — un essai précédent avec 3 pastilles « Favorable/Stable/Dégradé » a été retiré le même jour (retour utilisateur : « tu répètes », déjà dit une ligne plus bas par les vraies cartes de l'article). Ne jamais reformuler le texte du bandeau d'une édition à l'autre — fixe, comme `.top-updates`.
+
+   **Visible une seule fois par navigateur, jamais revu ensuite** (localStorage, clé `scenario_intro_seen`, partagée par tout le site — vu une fois sur n'importe quelle page, jamais revu sur les autres). Rendu masqué par défaut côté HTML (attribut `hidden`) pour ne jamais clignoter chez un lecteur qui revient (cas majoritaire) ; ce script, déjà dans le gabarit, doit être présent avant `</body>` sur chaque page qui a le bandeau :
+   ```html
+   <script>
+     (function(){
+       var KEY = "scenario_intro_seen";
+       var banner = document.getElementById("intro-banner");
+       if (!banner) return;
+       try {
+         if (!localStorage.getItem(KEY)) {
+           banner.hidden = false;
+           localStorage.setItem(KEY, "1");
+         }
+       } catch (e) {}
+       var closeBtn = document.getElementById("intro-banner-close");
+       if (closeBtn) {
+         closeBtn.addEventListener("click", function(){ banner.hidden = true; });
+       }
+     })();
+   </script>
+   ```
+   CSS `.intro-banner*` déjà dans le gabarit — icône masquée sous 480px (`@media (max-width: 480px)`), faute de place sur mobile. Présent sur `index.html`, `archives.html` et chaque `archives/{AAAA-MM-JJ}.html` — pas sur `glossaire.html`/`le-projet.html`/`suivi/`/`hebdo/` (retour utilisateur du 28 août : seulement « archives.html et les archives individuelles », pas généralisé plus loin). Une nouvelle édition copie ce bloc tel quel depuis `index.html` de la veille, sans y toucher — même piège de troncature que les autres classes optionnelles listées plus haut si le `<style>` n'est pas recopié intégralement.
 
    **Dégradé de bord sur `nav.topnav` (`nav.topnav::after`), ajouté le 21 août** — la nav défile horizontalement sur mobile (plus d'items que l'écran n'en affiche, ex. "Newsletter") sans scrollbar visible (`scrollbar-width: none`), donc rien ne signalait qu'il y avait plus à voir. CSS uniquement, aucune balise HTML à reproduire — fait déjà partie du bloc `<style>` recopié intégralement.
 
