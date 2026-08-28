@@ -318,6 +318,91 @@
 
   .top-updates .btn-outline svg{ width: 12px; height: 12px; }
 
+  /* ---------- Bandeau d'accueil (premier passage uniquement) ---------- */
+  /* Ajouté le 28 août, retour utilisateur : un premier visiteur qui
+     atterrit sur l'édition du jour ne comprend pas ce qu'est Scénario
+     sans lire ou cliquer ailleurs — « on l'aime dans les 20 premières
+     secondes sinon on zappe à jamais ». Visible une seule fois par
+     navigateur (localStorage, voir le script en bas de page), jamais
+     revu ensuite — server-rendu avec l'attribut `hidden`, dévoilé par le
+     script seulement si le visiteur ne l'a jamais fermé/vu. Reprend le
+     code couleur des cartes de scénarios (favorable/stable/dégradé) pour
+     se lire comme la signature visuelle du site, pas comme un bandeau
+     publicitaire de plus. */
+  .intro-banner{
+    background: var(--surface);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .intro-banner-inner{
+    position: relative;
+    padding: 30px 24px 28px;
+  }
+
+  .intro-banner-close{
+    position: absolute;
+    top: 14px;
+    right: 24px;
+    display: flex;
+    background: none;
+    border: none;
+    padding: 6px;
+    color: var(--paper-dim);
+    cursor: pointer;
+  }
+  .intro-banner-close:hover{ color: var(--paper); }
+
+  .intro-banner-kinds{
+    display: flex;
+    gap: 18px;
+    margin: 0 0 14px;
+    flex-wrap: wrap;
+  }
+
+  .intro-kind{
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+  }
+  .intro-kind::before{
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .intro-kind[data-kind="favorable"]::before{ background: var(--favorable); box-shadow: 0 0 6px var(--favorable); }
+  .intro-kind[data-kind="stable"]::before{ background: var(--stable); box-shadow: 0 0 6px var(--stable); }
+  .intro-kind[data-kind="degrade"]::before{ background: var(--degrade); box-shadow: 0 0 6px var(--degrade); }
+
+  .intro-banner-lead{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 1.32;
+    max-width: 34ch;
+    margin: 0 0 10px;
+  }
+
+  .intro-banner-text{
+    font-size: 0.94rem;
+    color: var(--paper-dim);
+    line-height: 1.55;
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  @media (max-width: 560px){
+    .intro-banner-inner{ padding: 24px 20px 22px; padding-right: 46px; }
+    .intro-banner-lead{ font-size: 1.18rem; }
+  }
+
   /* ---------- Hero ---------- */
 
   .hero{
@@ -1484,6 +1569,21 @@
   </div>
 </div>
 
+<div class="intro-banner" id="intro-banner" hidden>
+  <div class="wrap intro-banner-inner">
+    <button type="button" class="intro-banner-close" id="intro-banner-close" aria-label="Fermer ce message">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5L19 19M19 5L5 19"/></svg>
+    </button>
+    <p class="intro-banner-kinds">
+      <span class="intro-kind" data-kind="favorable">Favorable</span>
+      <span class="intro-kind" data-kind="stable">Stable</span>
+      <span class="intro-kind" data-kind="degrade">Dégradé</span>
+    </p>
+    <p class="intro-banner-lead">Chaque actualité a trois avenirs possibles. On les chiffre, chaque jour.</p>
+    <p class="intro-banner-text">Scénario explore un sujet clé et estime où il va — pas ce qu'il s'est passé. Trois scénarios chiffrés, une probabilité pour chacun, réévaluée si la situation change.</p>
+  </div>
+</div>
+
 <section class="hero" id="contexte">
   <div class="wrap">
     <p class="eyebrow">Vendredi, sciences</p>
@@ -2172,6 +2272,35 @@
       console.error("OneSignal init failed:", err);
     });
   });
+</script>
+
+<script>
+  // Bandeau d'accueil premier passage, ajouté le 28 août. Rendu masqué
+  // (attribut hidden) côté HTML pour ne jamais clignoter chez les
+  // lecteurs qui reviennent — dévoilé ici seulement si la clé n'existe
+  // pas encore dans localStorage. Marqué comme vu dès l'affichage (pas
+  // besoin d'attendre la fermeture) : un lecteur qui scrolle direct vers
+  // l'article ne doit pas le revoir à sa prochaine visite.
+  (function(){
+    var KEY = "scenario_intro_seen";
+    var banner = document.getElementById("intro-banner");
+    if (!banner) return;
+    try {
+      if (!localStorage.getItem(KEY)) {
+        banner.hidden = false;
+        localStorage.setItem(KEY, "1");
+      }
+    } catch (e) {
+      // localStorage indisponible (navigation privée stricte, etc.) :
+      // le bandeau reste masqué par défaut, pas d'erreur visible.
+    }
+    var closeBtn = document.getElementById("intro-banner-close");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function(){
+        banner.hidden = true;
+      });
+    }
+  })();
 </script>
 </body>
 </html>
