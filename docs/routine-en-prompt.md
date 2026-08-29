@@ -244,8 +244,16 @@ dans cet ordre :
    label` du bouton de fermeture.
 4. **Hero** : eyebrow (jour + registre), `<h1>`, `.pubdate` (texte
    affiché par défaut, même si un script le regénère ensuite — voir point
-   7 ci-dessous), légende de la photo (`.article-image-caption`,
-   `alt` de l'image), `.question-box` (label + texte), sommaire (`.toc`).
+   7 ci-dessous), `alt` de l'image, `.question-box` (label + texte),
+   sommaire (`.toc`). **Depuis le 29 août, eyebrow/`<h1>`/`.pubdate` sont
+   dans `.article-image-overlay` à l'intérieur de `<figure
+   class="article-image">` (cover plein écran) si une image a été
+   retenue côté FR — sinon en texte simple dans `.wrap` comme avant, voir
+   `docs/routine-prompt.md` pour les deux structures possibles ; traduire
+   la même structure que celle utilisée côté FR, ne pas en changer.** La
+   légende de la photo n'est plus dans le corps de l'article
+   (`.article-image-caption` n'existe plus) : elle vit désormais dans
+   `<footer>` sous `.footer-photo-credit` — voir point 10 plus bas.
 5. **Corps de l'article** : tous les `.dek`, `.list-box` (label, items,
    pied), `.comprendre-box` (label, lead, texte), `.indicator-strip`
    (labels + valeurs, convertir `Md$` → `B`/`$`, virgule décimale
@@ -270,9 +278,16 @@ dans cet ordre :
 9. **Sources** : label de section — **les titres d'articles source
    restent tels quels** (déjà en anglais dans la version française pour
    des sources anglophones, ou dans leur langue d'origine).
-10. **Bloc « Nous suivre »** et **footer** : tous les libellés visibles,
-    les liens externes (réseaux sociaux, Buy Me a Coffee) restent
-    identiques (mêmes comptes, pas de version anglaise séparée).
+10. **Bloc « Nous suivre »** et **footer** : tous les libellés visibles
+    — y compris la phrase de transition « Retrouve-nous aussi sur tous
+    nos réseaux : » [ajoutée le 29 août] avant la rangée de boutons
+    sociaux, et `.footer-photo-credit` dans `<footer>` (« Photo
+    d'illustration. » toujours en tête, mot pour mot, voir
+    `docs/routine-prompt.md`) si une image a été retenue côté FR. **La
+    ligne `.footer-meta` (« Voir toutes les éditions » / « Demain : ... »)
+    a été retirée le 29 août, ne pas la traduire ni la recréer.** Les
+    liens externes (réseaux sociaux, Buy Me a Coffee) restent identiques
+    (mêmes comptes, pas de version anglaise séparée).
 
 ## Étape 3 — Traduire les chaînes visibles dans le JavaScript
 
@@ -287,8 +302,10 @@ après l'étape 2 :
 - Le texte du temps de lecture (« ~X min de lecture » → « ~X min read »)
   et du compteur de lectures (« Lu X fois » → « Read X times »,
   `toLocaleString("fr-FR")` → `toLocaleString("en-US")`).
-- La table des registres du lendemain (`registres`, jours 0-6) et le
-  préfixe « 📅 Demain : » → « 📅 Tomorrow: ».
+  **[RETIRÉ le 29 août]** Le bloc `registres`/`#tomorrow-teaser`
+  (registre du lendemain, préfixe « 📅 Demain : ») a été supprimé du JS
+  ce jour-là avec `.footer-meta` — rien à traduire ici, ne pas le
+  recréer.
 - Le script de partage : la détection de page archive doit chercher
   `/en/archives/` (pas `/archives/`) dans `location.pathname`, et l'URL de
   repli construite doit pointer vers
