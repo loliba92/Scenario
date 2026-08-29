@@ -593,21 +593,28 @@
     z-index: 2;
     padding-bottom: 30px;
   }
-  /* L'eyebrow en pastille plutôt qu'en simple texte + text-shadow,
-     ajouté le 29 août — retour utilisateur : "Samedi, culture" en or sur
-     la photo passait inaperçu ("trop ton sur ton"), et une ombre portée
-     ne suffit pas à garantir la lisibilité puisque la photo change
-     chaque jour (parfois dorée/chaude, comme ici). Un fond plein
-     derrière le texte règle le problème une fois pour toutes, quelle
-     que soit la photo — même langage visuel que .kind-tag/
-     .masthead-notif-btn (pastille sombre, bordure or). */
+  /* L'eyebrow a besoin d'un fond derrière le texte, ajouté le 29 août —
+     retour utilisateur : "Samedi, culture" en or sur la photo passait
+     inaperçu ("trop ton sur ton"), et une ombre portée ne suffit pas à
+     garantir la lisibilité puisque la photo change chaque jour (parfois
+     dorée/chaude, comme ici). Première version en pastille ronde façon
+     .masthead-notif-btn jugée "pas belle" le même jour (retour
+     utilisateur : trop badge d'appli, pas assez distingué) — remplacée
+     par le langage visuel déjà utilisé pour les encarts du site
+     (.question-box/.stakes-box/.comprendre-box : filet doré à gauche,
+     radius 4px), plus discret et cohérent avec l'identité éditoriale.
+     Fond en verre dépoli (`backdrop-filter: blur`) plutôt qu'un aplat
+     plein, pour rester léger visuellement tout en gardant un contraste
+     garanti quelle que soit la photo du jour. */
   .article-image-overlay .eyebrow{
     display: inline-flex;
     align-items: center;
-    background: rgba(16,21,28,.7);
-    border: 1px solid rgba(207,157,76,.55);
-    border-radius: 100px;
-    padding: 5px 13px;
+    background: rgba(16,21,28,.58);
+    backdrop-filter: blur(7px) saturate(140%);
+    -webkit-backdrop-filter: blur(7px) saturate(140%);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 6px 14px;
   }
   .article-image-overlay h1{
     color: var(--paper);

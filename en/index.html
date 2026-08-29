@@ -583,17 +583,24 @@
     z-index: 2;
     padding-bottom: 30px;
   }
-  /* Eyebrow as a solid chip rather than plain text + shadow, added
-     Aug 29 — a shadow alone doesn't guarantee legibility since the
-     cover photo changes every day (warm-toned photos can wash out gold
-     text). A solid backdrop fixes it regardless of the photo. */
+  /* The eyebrow needs a backdrop behind the text, added Aug 29 — a
+     shadow alone doesn't guarantee legibility since the cover photo
+     changes every day (warm-toned photos can wash out gold text). First
+     version as a round chip (mirrors .masthead-notif-btn) judged "not
+     pretty" the same day — replaced with the site's own callout visual
+     language (.question-box/.stakes-box/.comprendre-box: gold left
+     accent, radius 4px), more discreet and on-brand. Frosted-glass
+     backdrop (backdrop-filter: blur) rather than a flat fill, to stay
+     visually light while still guaranteeing contrast on any photo. */
   .article-image-overlay .eyebrow{
     display: inline-flex;
     align-items: center;
-    background: rgba(16,21,28,.7);
-    border: 1px solid rgba(207,157,76,.55);
-    border-radius: 100px;
-    padding: 5px 13px;
+    background: rgba(16,21,28,.58);
+    backdrop-filter: blur(7px) saturate(140%);
+    -webkit-backdrop-filter: blur(7px) saturate(140%);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 6px 14px;
   }
   .article-image-overlay h1{
     color: var(--paper);
