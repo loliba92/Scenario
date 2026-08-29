@@ -675,6 +675,19 @@ raison ; le suivi des envois se fait maintenant côté Make/dashboard
 OneSignal directement.
 12. Terminer par un court résumé (sujet retenu, probabilités des 3 scénarios, ce qui a été publié, **et la décision graphique — voir juste en dessous**).
 
+13. **[AJOUTÉ le 29 août 2026, retour utilisateur] Traduction anglaise de
+    l'édition du jour.** Une fois l'édition française publiée sur `main`
+    (étape 11 ci-dessus terminée, push confirmé) : produire aussi la
+    version anglaise — `en/index.html`, `archive-en/{AAAA-MM-JJ}.html`,
+    item ajouté à `feed-en.xml`, `sitemap.xml` mis à jour. Procédure
+    complète et détaillée : `docs/routine-en-prompt.md` (ne pas la
+    reproduire ici). Rappel du principe non négociable : **traduction
+    fidèle du contenu français déjà validé, jamais une nouvelle
+    recherche ni une rédaction indépendante en anglais** — voir
+    `docs/strategie-anglais.md` pour le cadrage complet. Toujours dans un
+    commit séparé de l'édition française (préfixe `[en]`), poussé après
+    elle, jamais avant ni dans le même commit.
+
 **Traçabilité de la décision graphique, toujours, même quand la réponse est non [AJOUTÉ le 25 août 2026, retour utilisateur].** Le résumé de l'étape 12 doit toujours contenir une ligne explicite sur `.dc-chart-box` : soit « Graphique : [KPI retenu], [N] points, [source] », soit « Graphique : aucun — [KPI 1] et [KPI 2] ne passent pas [le(s) critère(s) manquant(s)] ». Même chose dans le message de commit. But : éviter d'avoir à reconstituer après coup, en cherchant dans le diff ou en recherchant soi-même si les données existaient, si l'évaluation a réellement eu lieu ce jour-là ou si le sujet a simplement été passé sous silence — l'absence de graphique doit toujours être une décision visible, jamais une simple absence de trace.
 
 Utilise WebSearch pour la recherche du sujet et la vérification factuelle (au moins deux sources distinctes recoupées). Respecte strictement les restrictions de l'étape 1.

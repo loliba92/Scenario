@@ -74,25 +74,37 @@ moins prioritaire).
   - Décommissionner Buttondown seulement une fois la bascule confirmée
     fonctionnelle (double-run temporaire recommandé plutôt qu'une coupure
     nette).
-- **P3 — Version anglaise du site, idée du 29 août.** Retour utilisateur :
-  « il faudrait élargir et proposer une version anglaise, à voir comment
-  on peut faire proprement et simplement » — piste posée, rien de tranché.
-  Questions à trancher avant de cadrer un plan :
-  - **Portée** : traduire l'édition quotidienne en continu (double la
-    charge éditoriale chaque jour, currently un seul rédacteur/routine),
-    ou seulement les pages statiques (`le-projet.html`, `glossaire.html`,
-    accueil) avec un sous-ensemble d'archives choisies ?
-  - **Structure d'URL** : sous-domaine (`en.lesscenarios.fr`), chemin
-    (`lesscenarios.fr/en/`), ou domaine séparé — impact SEO (`hreflang`)
-    et sur toute l'infrastructure actuelle qui suppose une seule langue
-    (routine, `feed.xml`, sitemap, Make.com).
-  - **Traduction automatisée ou éditoriale** : si l'édition du jour est
-    traduite, par quel mécanisme (appel LLM dédié après publication FR ?
-    même routine, deux sorties ?) et avec quel contrôle qualité — un
-    French-first traduit à la va-vite dessert la marque autant qu'il
-    l'étend.
-  Rien à construire tant que ces choix ne sont pas faits — sujet à
-  reprendre en session dédiée avec l'utilisateur avant tout code.
+- **P3 — [FAIT — MVP lancé le 29 août] Version anglaise du site.** Retour
+  utilisateur du 29 août : « il faudrait élargir et proposer une version
+  anglaise, à voir comment on peut faire proprement et simplement », puis
+  directive concrète le même jour : « tu fais ta routine classique et tu
+  fais la traduction fr vers en, on stocke cette version dans archive-en
+  avec un feed-en.xml ». Décisions et scope détaillés dans
+  `docs/strategie-anglais.md` ; procédure de traduction documentée dans
+  `docs/routine-en-prompt.md`. En résumé :
+  - **Portée retenue** : traduction FR→EN de l'édition quotidienne
+    uniquement — jamais de rédaction indépendante en anglais, jamais de
+    nouvelle recherche/nouveaux chiffres. Pages statiques
+    (`le-projet.html`, `glossaire.html`...) pas encore traduites,
+    prochaine étape si l'audience confirme l'hypothèse.
+  - **Structure d'URL retenue** : chemin, pas sous-domaine —
+    `lesscenarios.fr/en/` (édition du jour, miroir d'`index.html`) et
+    `lesscenarios.fr/archive-en/AAAA-MM-JJ.html` (archives, miroir
+    d'`archives/AAAA-MM-JJ.html`), même relation à deux niveaux que la
+    version française.
+  - **Mécanisme retenu** : traduction manuelle/assistée après coup, à la
+    suite de la routine française quotidienne, jamais en parallèle ni
+    avant — voir `docs/routine-en-prompt.md` pour la procédure complète
+    (traduction section par section, y compris les chaînes générées par
+    JS, jamais de reformulation du fond déjà validé côté français).
+  - **Diffusion** : `feed-en.xml` (flux RSS dédié, `<language>en</language>`),
+    `sitemap.xml` mis à jour. Pas encore de comptes réseaux sociaux
+    anglophones ni de diffusion Make.com dédiée — à revoir une fois
+    l'audience mesurée.
+  - **Première édition traduite** : « Global Cinema: Can It Survive
+    Streaming? » (2026-08-29), `en/index.html` +
+    `archive-en/2026-08-29.html` + item `feed-en.xml`. Sert de validation
+    du pipeline avant généralisation.
 - **P3 — Déclinaison papier de Scénario, idée du 17 août.** Question posée
   par l'utilisateur : faut-il décliner Scénario en version papier, et si
   oui comment. Avis et stratégie détaillés dans
@@ -897,15 +909,23 @@ moins prioritaire).
   `metadata.quotidien`/`metadata.hebdo` — confirmée par l'utilisateur. Le
   bug d'abonnement simultané quotidien+hebdo est donc entièrement réglé,
   formulaire, Automations et base d'abonnés existante alignés.
-- **P3 — Version anglaise du site, idée du 7 août, à reprendre dans
-  quelques mois.** Garder la version française telle quelle (pas de
-  remplacement) et ajouter une version anglaise en parallèle, avec sa
-  propre routine dédiée pour la production (traduction et/ou rédaction
-  directe en anglais — à trancher le moment venu). Rien de tranché à ce
-  stade : ni l'architecture (sous-dossier `en/` ? sous-domaine ? champ de
-  langue par édition ?), ni si la routine anglaise republie les mêmes
-  sujets que la française ou en sélectionne d'autres, ni le rythme de
-  publication.
+- **P3 — Version anglaise du site, idée du 7 août — [SUPERSÉDÉ le 29
+  août, voir le ticket "[FAIT — MVP lancé le 29 août]" plus haut dans ce
+  fichier et `docs/strategie-anglais.md`].** Discussion d'origine
+  conservée ci-dessous pour mémoire (les alternatives écartées et les
+  points de vigilance identifiés le 7-8 août restent utiles pour la
+  suite — notamment les pages légales en anglais et la traduction
+  rétroactive des archives, deux questions encore ouvertes) — l'option
+  effectivement retenue le 29 août est un chemin (`en/`/`archive-en/`),
+  traduction de l'édition du jour uniquement, pas le "compromis
+  L'essentiel seul" envisagé le 8 août ci-dessous. Garder la version
+  française telle quelle (pas de remplacement) et ajouter une version
+  anglaise en parallèle, avec sa propre routine dédiée pour la production
+  (traduction et/ou rédaction directe en anglais — à trancher le moment
+  venu). Rien de tranché à ce stade : ni l'architecture (sous-dossier
+  `en/` ? sous-domaine ? champ de langue par édition ?), ni si la routine
+  anglaise republie les mêmes sujets que la française ou en sélectionne
+  d'autres, ni le rythme de publication.
 
   **Variante plus légère envisagée le même jour** (pas de site anglais
   complet, juste une distribution anglophone) : ajouter à la routine
