@@ -144,6 +144,38 @@ moins prioritaire).
     citées par l'édition du 29 août, plus les deux fichiers FR
     correspondants retrofités avec le bouton de langue. Procédure :
     `docs/routine-en-prompt.md` § « Étape 1bis ».
+  - **P2 — Traduire `hebdo/{AAAA-MM-JJ}.html` (récap de la semaine), idée
+    du 29 août.** Retour utilisateur : « il faudrait le faire si tu le
+    fais en 5 minutes tu fais now » — évalué le jour même : **pas un
+    travail de 5 minutes**, donc passé en ticket plutôt qu'improvisé.
+    Scope déjà posé pour ne pas repartir de zéro :
+    - **Volume réel** (mesuré sur `hebdo/2026-08-23.html`, gabarit type) :
+      1 paragraphe de conclusion (~150 mots) + 7 cartes jour, chacune
+      question + 3 mini-scénarios (titre + 1-2 phrases) — une trentaine
+      de blocs de texte courts, plus masthead/nav/footer/scripts déjà
+      connus. Plus léger qu'un article complet (pas de dek/essentiel-box/
+      lexique/sources/list-box) mais pas négligeable — grossièrement la
+      moitié du volume d'un article déjà traduit.
+    - **Question de scope non tranchée à régler avant de commencer** :
+      chaque carte a un lien « Lire l'édition → » vers
+      `archives/{AAAA-MM-JJ}.html` de la semaine concernée. Sur les 7
+      dates d'une semaine donnée, seule une poignée aura une traduction
+      déjà faite (cascade des éditions citées, voir ticket ci-dessus) —
+      la plupart pointeraient donc vers du français même sur une page
+      par ailleurs en anglais. **Recommandation** : ne pas déclencher de
+      cascade automatique sur ces liens hebdo (7 articles complets d'un
+      coup serait disproportionné) — les laisser pointer vers le
+      français par défaut, sauf si une traduction existe déjà pour cette
+      date précise (même logique que les liens `suivi/`/`hebdo/` déjà
+      laissés en français à l'intérieur des articles quotidiens). À
+      confirmer avec l'utilisateur avant de commencer, pas à trancher
+      seul en cours de traduction.
+    - **Cadence à traiter** : contrairement aux 3 articles déjà traduits
+      (ponctuels), `hebdo/` est produit **chaque semaine** — si celui-ci
+      est traduit, se pose la question de le faire aussi pour les
+      suivants (nouvelle étape récurrente dans `docs/routine-hebdo-
+      prompt.md`, symétrique à l'étape 13 de `docs/routine-prompt.md`) —
+      pas juste un geste ponctuel sur l'édition du 23 août.
 - **P3 — Déclinaison papier de Scénario, idée du 17 août.** Question posée
   par l'utilisateur : faut-il décliner Scénario en version papier, et si
   oui comment. Avis et stratégie détaillés dans

@@ -106,6 +106,11 @@ tout en testant l'hypothèse d'audience avant d'investir dans un pipeline
   article ponctuel à traduire une fois — l'engagement de charge éditoriale
   est d'une autre nature que les 3 articles déjà traduits. À revoir, comme
   le reste, une fois un vrai signal de trafic sur `en/`.
+  **Suite le même jour** : retour utilisateur, veut qu'on le fasse « si tu
+  le fais en 5 minutes tu fais now » — évalué et jugé pas assez rapide
+  pour être improvisé sans casser le rythme du reste (voir le ticket
+  dédié dans `docs/BACKLOG.md` pour le scope détaillé et l'estimation).
+  Passé en ticket backlog structuré plutôt que fait à la volée.
 - Pas de version anglaise du compte OneSignal (le bouton de notification
   reste branché sur le même `appId`, donc sur la même liste d'abonnés que
   la version française).
