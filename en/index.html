@@ -389,7 +389,7 @@
   /* ---------- Hero ---------- */
 
   .hero{
-    padding: 64px 0 40px;
+    padding: 0 0 40px;
     border-bottom: 1px solid var(--hairline);
   }
 
@@ -533,35 +533,83 @@
   }
   .lex-ref:hover{ color: var(--paper); }
 
-  .article-image{ margin: 28px 0 32px; }
+  /* Full-bleed cover, redesign of Aug 29 (mirrors index.html — see its
+     comment for the full rationale): edge-to-edge photo (100vw, no
+     max-width cap on purpose — unlike the scenario cards breakout, this
+     cover doesn't need a width ceiling), headline overlaid at the
+     bottom on a dark gradient. .article-image stays hidden at print
+     (see the @media print hide list), so no impact on the 1-page PDF. */
+  .article-image{ margin: 0 0 32px; }
   .article-image-photo-wrap{
     position: relative;
-    border-radius: 6px;
     overflow: hidden;
-    aspect-ratio: 16 / 9;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    height: min(64vh, 600px);
+    min-height: 340px;
   }
   .article-image-photo{
     position: absolute; inset: 0;
     width: 100%; height: 100%;
     object-fit: cover;
     display: block;
+    animation: cover-reveal 1.2s ease-out both;
+  }
+  @keyframes cover-reveal{
+    from{ opacity: 0; transform: scale(1.045); }
+    to{ opacity: 1; transform: scale(1); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .article-image-photo{ animation: none; }
   }
   .article-image-scrim{
     position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(16,21,28,.97) 0%, rgba(16,21,28,.75) 16%, rgba(16,21,28,.3) 32%, transparent 50%, transparent 100%);
+    background: linear-gradient(180deg, rgba(16,21,28,.8) 0%, rgba(16,21,28,.18) 24%, rgba(16,21,28,.08) 46%, rgba(16,21,28,.62) 72%, rgba(16,21,28,.97) 100%);
   }
   .article-image-masthead{
-    position: absolute; top: 4px; left: 6px;
+    position: absolute; top: 18px; left: 24px;
     display: flex; align-items: center; gap: 7px;
+    z-index: 2;
   }
   .article-image-logo{ width: 33px; height: 33px; display: block; }
   .article-image-wordmark{
     font-family: "Fraunces", serif; font-weight: 600; font-size: clamp(1.15rem, 2.3vw, 1.5rem); color: var(--paper);
   }
   .article-image-wordmark span{ color: var(--gold); }
-  .article-image-caption{ font-size: 0.8rem; color: var(--paper-dim); margin: 10px 0 0; }
-  .article-image-caption a{ color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
-  .article-image-caption a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
+  .article-image-overlay{
+    position: absolute; left: 0; right: 0; bottom: 0;
+    z-index: 2;
+    padding-bottom: 30px;
+  }
+  /* Eyebrow as a solid chip rather than plain text + shadow, added
+     Aug 29 — a shadow alone doesn't guarantee legibility since the
+     cover photo changes every day (warm-toned photos can wash out gold
+     text). A solid backdrop fixes it regardless of the photo. */
+  .article-image-overlay .eyebrow{
+    display: inline-flex;
+    align-items: center;
+    background: rgba(16,21,28,.7);
+    border: 1px solid rgba(207,157,76,.55);
+    border-radius: 100px;
+    padding: 5px 13px;
+  }
+  .article-image-overlay h1{
+    color: var(--paper);
+    max-width: 20ch;
+    text-shadow: 0 3px 22px rgba(0,0,0,.6);
+  }
+  .article-image-overlay .pubdate{
+    color: rgba(236,231,218,.78);
+    margin: 0;
+    text-shadow: 0 2px 12px rgba(0,0,0,.55);
+  }
+  @media (max-width: 720px){
+    .article-image-photo-wrap{ height: min(52vh, 440px); min-height: 300px; }
+    .article-image-overlay{ padding-bottom: 22px; }
+    .article-image-overlay h1{ max-width: none; }
+  }
 
   .question-box{
     background: var(--surface);
@@ -1200,27 +1248,19 @@
   .indicators-note a{ color: var(--paper-dim); text-decoration: underline; text-decoration-style: dotted; }
   .indicators-note a:hover{ color: var(--paper); }
 
-  /* Ligne méta compacte (archives + prochaine édition) — remplace l'ancien
-     duo "section-label + archive-list" jugé redondant (le label et
-     l'unique lien disaient la même chose). Même famille visuelle que
-     .indicator .label : JetBrains Mono discret. */
-  .footer-meta{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-    margin: 20px 0 0;
+  /* Cover photo credit, moved down to a footnote Aug 29 (mirrors
+     index.html) — the old "See all editions / tomorrow" meta line
+     (.footer-meta) was removed the same day (duplicate of "Archives"
+     already in the nav, "tomorrow" judged not worth it). Only line of
+     this kind in the footer now — never bring the other one back. */
+  .footer-photo-credit{
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     color: var(--paper-dim);
+    margin: 0;
   }
-  .footer-meta a{
-    color: var(--paper-dim);
-    text-decoration: none;
-    border-bottom: 1px dotted transparent;
-  }
-  .footer-meta a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
-  .footer-meta .sep{ opacity: .5; }
+  .footer-photo-credit a{ color: var(--paper-dim); text-decoration: underline; text-decoration-style: dotted; }
+  .footer-photo-credit a:hover{ color: var(--paper); }
 
   /* Barre du bas — mentions légales, séparée du reste du footer par un
      filet (même motif que .indicator-strip plus haut dans l'article).
@@ -1564,10 +1604,22 @@
 </div>
 
 <section class="hero" id="contexte">
+  <figure class="article-image">
+    <div class="article-image-photo-wrap">
+      <img class="article-image-photo" src="../assets/social/topic-images/2026-08-29-wide.jpg" alt="A hand holds a remote in front of a blurred screen, in a living room at night.">
+      <div class="article-image-scrim"></div>
+      <div class="article-image-masthead">
+        <img class="article-image-logo" src="../assets/logo.svg" alt="">
+        <span class="article-image-wordmark">Scéna<span>rio</span></span>
+      </div>
+      <div class="article-image-overlay wrap">
+        <p class="eyebrow">Saturday, Culture</p>
+        <h1>Global Cinema: Can It Survive Streaming?</h1>
+        <p class="pubdate">Published August 29, 2026</p>
+      </div>
+    </div>
+  </figure>
   <div class="wrap">
-    <p class="eyebrow">Saturday, Culture</p>
-    <h1>Global Cinema: Can It Survive Streaming?</h1>
-    <p class="pubdate">Published August 29, 2026</p>
     <p class="share-inline">
       <span class="share-inline-label">Share:</span>
       <a href="#" id="share-x" aria-label="Share on X" title="Share on X">
@@ -1596,18 +1648,6 @@
       <a href="#essentiel">The essentials</a>
       <a href="#lexique">Reference</a>
     </nav>
-
-    <figure class="article-image">
-      <div class="article-image-photo-wrap">
-        <img class="article-image-photo" src="../assets/social/topic-images/2026-08-29-wide.jpg" alt="A hand holds a remote in front of a blurred screen, in a living room at night.">
-        <div class="article-image-scrim"></div>
-        <div class="article-image-masthead">
-          <img class="article-image-logo" src="../assets/logo.svg" alt="">
-          <span class="article-image-wordmark">Scéna<span>rio</span></span>
-        </div>
-      </div>
-      <figcaption class="article-image-caption">Illustration photo. Towfiqu barbhuiya / <a href="https://www.pexels.com/photo/person-holding-black-remote-control-11594553/" target="_blank" rel="noopener noreferrer">Pexels ↗</a></figcaption>
-    </figure>
 
     <div class="question-box">
       <span class="question-label">The question</span>
@@ -1892,6 +1932,7 @@
     <p class="section-label">Stay connected</p>
     <h2 class="section-title">Vote before you see the outcome — find us everywhere</h2>
     <p>Every day, a poll on our Telegram channel: vote for the scenario you think is most likely before seeing the real probabilities above.</p>
+    <p>Find us on all our channels too:</p>
     <div class="share-row">
       <a class="follow-btn" href="https://x.com/scenario_fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="4" x2="20" y2="20"></line><line x1="20" y1="4" x2="4" y2="20"></line></svg> X</a>
       <a class="follow-btn" href="https://bsky.app/profile/scenario-actu.bsky.social" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"></path></svg> Bluesky</a>
@@ -1909,11 +1950,7 @@
 
 <footer>
   <div class="wrap">
-    <p class="footer-meta">
-      <a href="../archives.html">See all editions →</a>
-      <span class="sep">·</span>
-      <span id="tomorrow-teaser"></span>
-    </p>
+    <p class="footer-photo-credit">Illustration photo. Towfiqu barbhuiya / <a href="https://www.pexels.com/photo/person-holding-black-remote-control-11594553/" target="_blank" rel="noopener noreferrer">Pexels ↗</a></p>
     <div class="footer-bottom">
       <div class="legal-links">
         <span class="legal-links-label">Want to know more about our policies?</span>
@@ -2055,23 +2092,6 @@
           }
         })
         .catch(function(){});
-    }
-
-    var registres = {
-      0: "🏆 sports",
-      1: "🌍 geopolitics",
-      2: "🎲 wildcard",
-      3: "🇫🇷 French news",
-      4: "📈 global economy & finance",
-      5: "🔬 science",
-      6: "🎬 culture"
-    };
-    var parisNow = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Paris" }));
-    parisNow.setDate(parisNow.getDate() + 1);
-    var teaser = document.getElementById("tomorrow-teaser");
-    var label = registres[parisNow.getDay()];
-    if (teaser && label) {
-      teaser.textContent = "📅 Tomorrow: " + label;
     }
   })();
 </script>

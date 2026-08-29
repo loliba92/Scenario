@@ -593,8 +593,21 @@
     z-index: 2;
     padding-bottom: 30px;
   }
+  /* L'eyebrow en pastille plutôt qu'en simple texte + text-shadow,
+     ajouté le 29 août — retour utilisateur : "Samedi, culture" en or sur
+     la photo passait inaperçu ("trop ton sur ton"), et une ombre portée
+     ne suffit pas à garantir la lisibilité puisque la photo change
+     chaque jour (parfois dorée/chaude, comme ici). Un fond plein
+     derrière le texte règle le problème une fois pour toutes, quelle
+     que soit la photo — même langage visuel que .kind-tag/
+     .masthead-notif-btn (pastille sombre, bordure or). */
   .article-image-overlay .eyebrow{
-    text-shadow: 0 2px 14px rgba(0,0,0,.55);
+    display: inline-flex;
+    align-items: center;
+    background: rgba(16,21,28,.7);
+    border: 1px solid rgba(207,157,76,.55);
+    border-radius: 100px;
+    padding: 5px 13px;
   }
   .article-image-overlay h1{
     color: var(--paper);
@@ -611,10 +624,6 @@
     .article-image-overlay{ padding-bottom: 22px; }
     .article-image-overlay h1{ max-width: none; }
   }
-
-  .article-image-caption{ font-size: 0.8rem; color: var(--paper-dim); margin: 12px 0 0; }
-  .article-image-caption a{ color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
-  .article-image-caption a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
 
   .question-box{
     background: var(--surface);
@@ -1253,27 +1262,25 @@
   .indicators-note a{ color: var(--paper-dim); text-decoration: underline; text-decoration-style: dotted; }
   .indicators-note a:hover{ color: var(--paper); }
 
-  /* Ligne méta compacte (archives + prochaine édition) — remplace l'ancien
-     duo "section-label + archive-list" jugé redondant (le label et
-     l'unique lien disaient la même chose). Même famille visuelle que
-     .indicator .label : JetBrains Mono discret. */
-  .footer-meta{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-    margin: 20px 0 0;
+  /* Crédit de la photo de couverture, redescendu en footnote tout en bas
+     de page le 29 août — retour utilisateur : juste sous le cover plein
+     écran, "Photo d'illustration..." étalait le crédit trop tôt, avant
+     même le premier mot de l'article ("on ne voit que ça"). JetBrains
+     Mono discret pour rester de la mention légale, pas un élément à
+     lire. Seule ligne de ce type dans le footer désormais : la ligne
+     "Voir toutes les éditions / Demain : ..." (ex-.footer-meta) a été
+     retirée le même jour — retour utilisateur, doublon avec "Archives"
+     déjà dans la nav, "Demain" jugé anecdotique, et surtout deux lignes
+     de mention légère l'une sous l'autre donnaient l'impression de deux
+     footnotes plutôt qu'une seule. Ne pas la réintroduire. */
+  .footer-photo-credit{
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     color: var(--paper-dim);
+    margin: 0;
   }
-  .footer-meta a{
-    color: var(--paper-dim);
-    text-decoration: none;
-    border-bottom: 1px dotted transparent;
-  }
-  .footer-meta a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
-  .footer-meta .sep{ opacity: .5; }
+  .footer-photo-credit a{ color: var(--paper-dim); text-decoration: underline; text-decoration-style: dotted; }
+  .footer-photo-credit a:hover{ color: var(--paper); }
 
   /* Barre du bas — mentions légales, séparée du reste du footer par un
      filet (même motif que .indicator-strip plus haut dans l'article).
@@ -1631,7 +1638,6 @@
         <p class="pubdate">Publié le 29 août 2026</p>
       </div>
     </div>
-    <figcaption class="article-image-caption wrap">Photo d'illustration. Towfiqu barbhuiya / <a href="https://www.pexels.com/photo/person-holding-black-remote-control-11594553/" target="_blank" rel="noopener noreferrer">Pexels ↗</a></figcaption>
   </figure>
   <div class="wrap">
     <p class="share-inline">
@@ -1946,6 +1952,7 @@
     <p class="section-label">Reste connecté</p>
     <h2 class="section-title">Vote avant le résultat, retrouve-nous partout</h2>
     <p>Chaque jour, un sondage sur notre canal Telegram : vote pour le scénario que tu juges le plus probable avant même de découvrir les vraies probabilités ci-dessus.</p>
+    <p>Retrouve-nous aussi sur tous nos réseaux :</p>
     <div class="share-row">
       <a class="follow-btn" href="https://x.com/scenario_fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="4" x2="20" y2="20"></line><line x1="20" y1="4" x2="4" y2="20"></line></svg> X</a>
       <a class="follow-btn" href="https://bsky.app/profile/scenario-actu.bsky.social" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"></path></svg> Bluesky</a>
@@ -1963,11 +1970,7 @@
 
 <footer>
   <div class="wrap">
-    <p class="footer-meta">
-      <a href="archives.html">Voir toutes les éditions →</a>
-      <span class="sep">·</span>
-      <span id="tomorrow-teaser"></span>
-    </p>
+    <p class="footer-photo-credit">Photo d'illustration. Towfiqu barbhuiya / <a href="https://www.pexels.com/photo/person-holding-black-remote-control-11594553/" target="_blank" rel="noopener noreferrer">Pexels ↗</a></p>
     <div class="footer-bottom">
       <div class="legal-links">
         <span class="legal-links-label">Envie d'en savoir plus sur nos règles ?</span>
@@ -2109,23 +2112,6 @@
           }
         })
         .catch(function(){});
-    }
-
-    var registres = {
-      0: "🏆 sport",
-      1: "🌍 géopolitique",
-      2: "🎲 carte blanche",
-      3: "🇫🇷 actualité française",
-      4: "📈 économie & finance mondiale",
-      5: "🔬 sciences",
-      6: "🎬 culture"
-    };
-    var parisNow = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Paris" }));
-    parisNow.setDate(parisNow.getDate() + 1);
-    var teaser = document.getElementById("tomorrow-teaser");
-    var label = registres[parisNow.getDay()];
-    if (teaser && label) {
-      teaser.textContent = "📅 Demain : " + label;
     }
   })();
 </script>
