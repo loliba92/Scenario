@@ -635,6 +635,35 @@ empilés écartés), point final ajouté, aucun mot changé ni déplacé.
 catégorie ; édition du 26 août écartée (moins de 24h, publiée la veille
 à 06h30).*
 
+### chiffre-2026-08-29
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 34 par an
+- message: Le quota chinois de films étrangers à partage de recettes reste fixé à 34 par an depuis 2015.
+- attribution: — lesscenarios.fr, 22 août 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-08-22.html
+- photo: `assets/social/topic-images/2026-08-22.jpg` (crédit : İNZİLE
+  DAL — https://www.pexels.com/photo/photo-of-a-cinema-hall-14746411/),
+  photo de l'édition source elle-même.
+
+*Extrait tel quel de `.essentiel-text` dans l'édition du 22 août ("Le
+quota chinois de films étrangers à partage de recettes reste fixé à
+34 par an depuis 2015 — un levier que Pékin peut resserrer du jour au
+lendemain, comme annoncé dès avril 2025 en rétorsion aux droits de
+douane de Trump — mais même sans lui, de moins en moins de films
+américains ordinaires rapportent assez en Chine pour justifier le
+détour.") — segment coupé au premier tiret (frontière naturelle avant
+"un levier que Pékin..."), point final ajouté, aucun mot changé ni
+déplacé ; édition sans chiffre exploitable plus simple par ailleurs
+(40,6 % nécessite le contexte du semestre, 45 % celui du scénario).
+Éditions du 10, 12, 13, 14, 21, 24 et 25 août déjà utilisées pour
+cette catégorie ; édition du 28 août écartée (moins de 24h). Éditions
+du 23, 26 et 27 août parcourues mais écartées faute de phrase autonome
+à un seul chiffre assez simple (FIFA/48-64 équipes avec plusieurs
+chiffres empilés ; retraites/COR avec plusieurs chiffres empilés ;
+dette américaine avec plusieurs chiffres empilés et pronoms sans
+antécédent hors contexte).*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
