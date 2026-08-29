@@ -175,6 +175,18 @@
   .masthead-notif-btn:disabled{ opacity: .5; cursor: default; }
   .masthead-notif-btn svg{ display: block; }
 
+  /* Séparateur entre le groupe "notifications/impression" et le groupe
+     "sujet révisé/récap hebdo", ajouté le 29 août quand ces deux derniers
+     ont rejoint la même ligne (fusionnés depuis la bande .top-updates,
+     retour utilisateur : doit tenir sur une seule ligne y compris en
+     mobile). Simple trait vertical fin, purement visuel (aria-hidden). */
+  .masthead-divider{
+    width: 1px;
+    height: 20px;
+    background: var(--hairline);
+    flex-shrink: 0;
+  }
+
   /* Bouton de bascule de langue dans le masthead, ajouté le 29 août —
      retour utilisateur : il manquait un moyen évident de passer du
      français à l'anglais et inversement. Même recette visuelle que
@@ -301,41 +313,6 @@
     border-bottom-color: var(--gold);
   }
 
-  /* ---------- Bande "mises à jour" (suivi actif + récap hebdo) ---------- */
-  /* Reproduite telle quelle par la routine quotidienne (fait partie de la
-     structure générale du gabarit). Le lien "Sujet révisé" pointe vers un
-     filtre archives.html?tag=revise toujours à jour tout seul (voir JS
-     d'archives.html) ; le lien "Récap de la semaine" est mis à jour par
-     la routine hebdo elle-même (11 août). Voir docs/ARCHITECTURE.md.
-     Repassée en bouton .btn-outline le 19 août (retour utilisateur :
-     mêmes boutons que "Nous suivre"/Telegram/café) — annule la version
-     texte simple adoptée le 9 août (retour de l'époque : "version pill
-     trop lourde"). Si ça redevient trop chargé visuellement, revenir à
-     un lien texte plutôt qu'une nouvelle variante de bouton. */
-  .top-updates{
-    border-bottom: 1px solid var(--hairline);
-  }
-
-  .top-updates .wrap{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 24px;
-    flex-wrap: wrap;
-  }
-
-  /* Version compacte du bouton ici : le même .btn-outline qu'ailleurs,
-     mais en plus petit — cette bande est lue avant même le titre, un
-     bouton pleine taille y prend trop de place (retour du 9 août, voir
-     commentaire au-dessus). */
-  .top-updates .btn-outline{
-    padding: 6px 14px;
-    font-size: 0.7rem;
-    gap: 5px;
-  }
-
-  .top-updates .btn-outline svg{ width: 12px; height: 12px; }
-
   /* ---------- Bandeau d'accueil (premier passage uniquement) ---------- */
   /* Ajouté le 28 août, retour utilisateur : un premier visiteur qui
      atterrit sur l'édition du jour ne comprend pas ce qu'est Scénario
@@ -412,7 +389,7 @@
   /* ---------- Hero ---------- */
 
   .hero{
-    padding: 64px 0 40px;
+    padding: 0 0 40px;
     border-bottom: 1px solid var(--hairline);
   }
 
@@ -556,35 +533,104 @@
   }
   .lex-ref:hover{ color: var(--paper); }
 
-  .article-image{ margin: 28px 0 32px; }
+  /* Cover plein écran, refonte du 29 août — retour utilisateur : la page
+     manquait de "whoua", d'impact visuel dès l'arrivée. Avant : photo en
+     petit format (16/9, largeur de lecture 920px) au milieu du hero,
+     avec le titre en texte simple au-dessus. Après : la photo passe en
+     plein bleed (100vw, edge-to-edge — cas où il ne faut PAS plafonner
+     avec un max-width, contrairement au breakout des cartes de
+     scénarios plus bas : voir le commentaire sur .cards, ce cover n'a
+     justement pas besoin d'un point de rupture, on veut un vrai edge-to-
+     edge quelle que soit la largeur d'écran) et le titre (eyebrow + h1 +
+     date) vient en incrustation, ancré en bas de l'image sur un dégradé
+     sombre — traitement "couverture de magazine". Logo en filigrane en
+     haut à gauche, comme avant. Le sujet de la légende (figcaption)
+     redescend sous l'image, à la largeur de lecture habituelle
+     (`.wrap`). Scopé à `screen` : `.article-image` reste masqué en
+     impression (voir liste `@media print` plus bas), donc aucun impact
+     sur le PDF 1 page. */
+  .article-image{ margin: 0 0 32px; }
   .article-image-photo-wrap{
     position: relative;
-    border-radius: 6px;
     overflow: hidden;
-    aspect-ratio: 16 / 9;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    height: min(64vh, 600px);
+    min-height: 340px;
   }
   .article-image-photo{
     position: absolute; inset: 0;
     width: 100%; height: 100%;
     object-fit: cover;
     display: block;
+    animation: cover-reveal 1.2s ease-out both;
+  }
+  @keyframes cover-reveal{
+    from{ opacity: 0; transform: scale(1.045); }
+    to{ opacity: 1; transform: scale(1); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .article-image-photo{ animation: none; }
   }
   .article-image-scrim{
     position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(16,21,28,.97) 0%, rgba(16,21,28,.75) 16%, rgba(16,21,28,.3) 32%, transparent 50%, transparent 100%);
+    background: linear-gradient(180deg, rgba(16,21,28,.82) 0%, rgba(16,21,28,.16) 26%, rgba(16,21,28,.06) 42%, rgba(16,21,28,.55) 60%, rgba(16,21,28,.9) 80%, rgba(16,21,28,1) 100%);
   }
   .article-image-masthead{
-    position: absolute; top: 4px; left: 6px;
+    position: absolute; top: 18px; left: 24px;
     display: flex; align-items: center; gap: 7px;
+    z-index: 2;
   }
   .article-image-logo{ width: 33px; height: 33px; display: block; }
   .article-image-wordmark{
     font-family: "Fraunces", serif; font-weight: 600; font-size: clamp(1.15rem, 2.3vw, 1.5rem); color: var(--paper);
   }
   .article-image-wordmark span{ color: var(--gold); }
-  .article-image-caption{ font-size: 0.8rem; color: var(--paper-dim); margin: 10px 0 0; }
-  .article-image-caption a{ color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
-  .article-image-caption a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
+  .article-image-overlay{
+    position: absolute; left: 0; right: 0; bottom: 0;
+    z-index: 2;
+    padding-bottom: 30px;
+  }
+  /* L'eyebrow a besoin d'un fond derrière le texte, ajouté le 29 août —
+     retour utilisateur : "Samedi, culture" en or sur la photo passait
+     inaperçu ("trop ton sur ton"), et une ombre portée ne suffit pas à
+     garantir la lisibilité puisque la photo change chaque jour (parfois
+     dorée/chaude, comme ici). Première version en pastille ronde façon
+     .masthead-notif-btn jugée "pas belle" le même jour (retour
+     utilisateur : trop badge d'appli, pas assez distingué) — remplacée
+     par le langage visuel déjà utilisé pour les encarts du site
+     (.question-box/.stakes-box/.comprendre-box : filet doré à gauche,
+     radius 4px), plus discret et cohérent avec l'identité éditoriale.
+     Fond en verre dépoli (`backdrop-filter: blur`) plutôt qu'un aplat
+     plein, pour rester léger visuellement tout en gardant un contraste
+     garanti quelle que soit la photo du jour. */
+  .article-image-overlay .eyebrow{
+    display: inline-flex;
+    align-items: center;
+    background: rgba(16,21,28,.58);
+    backdrop-filter: blur(7px) saturate(140%);
+    -webkit-backdrop-filter: blur(7px) saturate(140%);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 6px 14px;
+  }
+  .article-image-overlay h1{
+    color: var(--paper);
+    max-width: 20ch;
+    text-shadow: 0 3px 22px rgba(0,0,0,.6);
+  }
+  .article-image-overlay .pubdate{
+    color: rgba(236,231,218,.78);
+    margin: 0;
+    text-shadow: 0 2px 12px rgba(0,0,0,.55);
+  }
+  @media (max-width: 720px){
+    .article-image-photo-wrap{ height: min(52vh, 440px); min-height: 300px; }
+    .article-image-overlay{ padding-bottom: 22px; }
+    .article-image-overlay h1{ max-width: none; }
+  }
 
   .question-box{
     background: var(--surface);
@@ -1223,27 +1269,31 @@
   .indicators-note a{ color: var(--paper-dim); text-decoration: underline; text-decoration-style: dotted; }
   .indicators-note a:hover{ color: var(--paper); }
 
-  /* Ligne méta compacte (archives + prochaine édition) — remplace l'ancien
-     duo "section-label + archive-list" jugé redondant (le label et
-     l'unique lien disaient la même chose). Même famille visuelle que
-     .indicator .label : JetBrains Mono discret. */
-  .footer-meta{
-    display: flex;
-    flex-wrap: wrap;
+  /* Crédit de la photo de couverture, redescendu en footnote tout en bas
+     de page le 29 août — retour utilisateur : juste sous le cover plein
+     écran, "Photo d'illustration..." étalait le crédit trop tôt, avant
+     même le premier mot de l'article ("on ne voit que ça"). JetBrains
+     Mono discret pour rester de la mention légale, pas un élément à
+     lire. **Déplacée le même jour à l'intérieur de `.footer-bottom`**
+     (retour utilisateur : posée juste au-dessus avec son propre filet de
+     séparation, elle donnait l'impression de deux footnotes empilées au
+     lieu d'une seule) — désormais dans le même bloc, sous le même filet,
+     que les mentions légales : une seule note en bas de page. Icône
+     appareil photo ajoutée devant le texte le même jour (retour
+     utilisateur, "pour faire plus joli"), toujours la même quel que soit
+     le sujet du jour — décoration fixe, pas une icône par photo. */
+  .footer-photo-credit{
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
-    margin: 20px 0 0;
+    gap: 6px;
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     color: var(--paper-dim);
+    margin: 0;
   }
-  .footer-meta a{
-    color: var(--paper-dim);
-    text-decoration: none;
-    border-bottom: 1px dotted transparent;
-  }
-  .footer-meta a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
-  .footer-meta .sep{ opacity: .5; }
+  .footer-photo-credit svg{ flex-shrink: 0; display: block; }
+  .footer-photo-credit a{ color: var(--paper-dim); text-decoration: underline; text-decoration-style: dotted; }
+  .footer-photo-credit a:hover{ color: var(--paper); }
 
   /* Barre du bas — mentions légales, séparée du reste du footer par un
      filet (même motif que .indicator-strip plus haut dans l'article).
@@ -1504,7 +1554,7 @@
     }
     html{ font-size: 82%; }
     body{ background: #fff; line-height: 1.4; }
-    header.masthead, nav.topnav, .top-updates, .toc, .share-inline,
+    header.masthead, nav.topnav, .toc, .share-inline,
     .article-image, .follow-inline, section.lexique, section.sources,
     section.share-block, footer{ display: none !important; }
     .wrap{ max-width: 100%; padding: 0; }
@@ -1551,6 +1601,9 @@
       <a href="../en/archives/2026-08-29.html" class="masthead-lang-btn" aria-label="Read this edition in English" title="Read this edition in English">EN</a>
             <button type="button" class="onesignal-subscribe-btn masthead-notif-btn" aria-label="Activer les notifications" title="Activer les notifications"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg></button>
       <button type="button" id="print-page" class="masthead-notif-btn" aria-label="Imprimer en 1 page" title="Imprimer en 1 page"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 9V4.5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1V9"/><rect x="4.5" y="9" width="15" height="7" rx="1.3"/><path d="M7 14h10v5.5a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V14Z"/></svg></button>
+      <span class="masthead-divider" aria-hidden="true"></span>
+      <a class="masthead-notif-btn" href="../archives.html?tag=revise" aria-label="Sujet révisé" title="Sujet révisé"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8"/><path d="M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16"/><path d="M4 20v-4h4"/></svg></a>
+      <a class="masthead-notif-btn" href="../hebdo/2026-08-23.html" aria-label="Récap de la semaine" title="Récap de la semaine"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg></a>
     </div>
   </div>
 </header>
@@ -1568,13 +1621,6 @@
   </div>
 </nav>
 
-<div class="top-updates">
-  <div class="wrap">
-    <a class="btn-outline" href="../archives.html?tag=revise"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8"/><path d="M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16"/><path d="M4 20v-4h4"/></svg> Sujet révisé</a>
-    <a class="btn-outline" href="../hebdo/2026-08-23.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg> Récap de la semaine</a>
-  </div>
-</div>
-
 <div class="intro-banner" id="intro-banner" hidden>
   <div class="wrap intro-banner-inner">
     <button type="button" class="intro-banner-close" id="intro-banner-close" aria-label="Fermer ce message">
@@ -1591,10 +1637,22 @@
 </div>
 
 <section class="hero" id="contexte">
+  <figure class="article-image">
+    <div class="article-image-photo-wrap">
+      <img class="article-image-photo" src="../assets/social/topic-images/2026-08-29-wide.jpg" alt="Une main actionne une télécommande devant un écran flouté, dans un salon en soirée.">
+      <div class="article-image-scrim"></div>
+      <div class="article-image-masthead">
+        <img class="article-image-logo" src="../assets/logo.svg" alt="">
+        <span class="article-image-wordmark">Scéna<span>rio</span></span>
+      </div>
+      <div class="article-image-overlay wrap">
+        <p class="eyebrow">Samedi, culture</p>
+        <h1>Cinéma mondial : peut-il survivre au streaming ?</h1>
+        <p class="pubdate">Publié le 29 août 2026</p>
+      </div>
+    </div>
+  </figure>
   <div class="wrap">
-    <p class="eyebrow">Samedi, culture</p>
-    <h1>Cinéma mondial : peut-il survivre au streaming ?</h1>
-    <p class="pubdate">Publié le 29 août 2026</p>
     <p class="share-inline">
       <span class="share-inline-label">Partager :</span>
       <a href="#" id="share-x" aria-label="Partager sur X" title="Partager sur X">
@@ -1623,18 +1681,6 @@
       <a href="#essentiel">L'essentiel</a>
       <a href="#lexique">Référence</a>
     </nav>
-
-    <figure class="article-image">
-      <div class="article-image-photo-wrap">
-        <img class="article-image-photo" src="../assets/social/topic-images/2026-08-29-wide.jpg" alt="Une main actionne une télécommande devant un écran flouté, dans un salon en soirée.">
-        <div class="article-image-scrim"></div>
-        <div class="article-image-masthead">
-          <img class="article-image-logo" src="../assets/logo.svg" alt="">
-          <span class="article-image-wordmark">Scéna<span>rio</span></span>
-        </div>
-      </div>
-      <figcaption class="article-image-caption">Photo d'illustration. Towfiqu barbhuiya / <a href="https://www.pexels.com/photo/person-holding-black-remote-control-11594553/" target="_blank" rel="noopener noreferrer">Pexels ↗</a></figcaption>
-    </figure>
 
     <div class="question-box">
       <span class="question-label">La question posée</span>
@@ -1919,6 +1965,7 @@
     <p class="section-label">Reste connecté</p>
     <h2 class="section-title">Vote avant le résultat, retrouve-nous partout</h2>
     <p>Chaque jour, un sondage sur notre canal Telegram : vote pour le scénario que tu juges le plus probable avant même de découvrir les vraies probabilités ci-dessus.</p>
+    <p>Retrouve-nous aussi sur tous nos réseaux :</p>
     <div class="share-row">
       <a class="follow-btn" href="https://x.com/scenario_fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="4" x2="20" y2="20"></line><line x1="20" y1="4" x2="4" y2="20"></line></svg> X</a>
       <a class="follow-btn" href="https://bsky.app/profile/scenario-actu.bsky.social" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"></path></svg> Bluesky</a>
@@ -1936,12 +1983,8 @@
 
 <footer>
   <div class="wrap">
-    <p class="footer-meta">
-      <a href="../archives.html">Voir toutes les éditions →</a>
-      <span class="sep">·</span>
-      <span id="tomorrow-teaser"></span>
-    </p>
     <div class="footer-bottom">
+      <p class="footer-photo-credit"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5a1.5 1.5 0 0 1 1.5-1.5h2l1-1.5h7l1 1.5h2A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5Z"/><circle cx="12" cy="12.5" r="3.2"/></svg> Photo d'illustration. Towfiqu barbhuiya / <a href="https://www.pexels.com/photo/person-holding-black-remote-control-11594553/" target="_blank" rel="noopener noreferrer">Pexels ↗</a></p>
       <div class="legal-links">
         <span class="legal-links-label">Envie d'en savoir plus sur nos règles ?</span>
         <a href="../mentions-legales.html">Mentions légales</a>
@@ -2082,23 +2125,6 @@
           }
         })
         .catch(function(){});
-    }
-
-    var registres = {
-      0: "🏆 sport",
-      1: "🌍 géopolitique",
-      2: "🎲 carte blanche",
-      3: "🇫🇷 actualité française",
-      4: "📈 économie & finance mondiale",
-      5: "🔬 sciences",
-      6: "🎬 culture"
-    };
-    var parisNow = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Paris" }));
-    parisNow.setDate(parisNow.getDate() + 1);
-    var teaser = document.getElementById("tomorrow-teaser");
-    var label = registres[parisNow.getDay()];
-    if (teaser && label) {
-      teaser.textContent = "📅 Demain : " + label;
     }
   })();
 </script>
