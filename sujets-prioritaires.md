@@ -165,7 +165,7 @@ Volet fiscal/légal à creuser (repéré le 27 août, à revérifier/actualiser 
   <!-- Reporté le 2 août 2026 : trop proche du sujet de l'édition de la veille (samedi 1er août, "Musique : l'IA a-t-elle déjà gagné ?"), mêmes acteurs centraux (Suno, Udio, Gema) à un jour d'intervalle. À retraiter un autre dimanche, avec un vrai recul. -->
 - [x] Cinéma : Hollywood est-il en train de perdre le marché chinois, et avec quelles conséquences ? [cinéma]
 - [x] Streaming vidéo : après la course aux abonnés, comment Netflix et ses rivaux vont-ils gagner de l'argent demain ? [séries / streaming]
-- [ ] Cinéma mondial : le cinéma peut-il survivre face au streaming ? [cinéma]
+- [x] Cinéma mondial : le cinéma peut-il survivre face au streaming ? [cinéma]
 - [ ] Art contemporain : le marché de l'art change-t-il d'époque ? [art]
 
 ## Économie & finance mondiale — jeudi
