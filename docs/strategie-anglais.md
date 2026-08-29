@@ -95,6 +95,17 @@ tout en testant l'hypothèse d'audience avant d'investir dans un pipeline
   `glossaire.html`, `le-projet.html` — seules les **annonces** de mise à
   jour (`en/feed-suivi.xml`) sont traduites depuis le 29 août, pas les
   pages de suivi vers lesquelles elles renvoient (voir section suivante).
+  **`hebdo/` (récap de la semaine) — question posée et tranchée le 29
+  août** : reste en français pour l'instant, décision explicite (pas un
+  oubli). Le bouton « Weekly recap » sur les pages EN continue de pointer
+  vers le récap français. Deux raisons : (1) ce n'est pas couvert par la
+  règle de cascade des articles cités (§ « Extension le même jour »
+  ci-dessus, qui ne porte que sur `archives/AAAA-MM-JJ.html`) — l'étendre
+  serait un élargissement de scope, pas une application de la règle déjà
+  actée ; (2) c'est un objet **récurrent** (chaque semaine), pas un
+  article ponctuel à traduire une fois — l'engagement de charge éditoriale
+  est d'une autre nature que les 3 articles déjà traduits. À revoir, comme
+  le reste, une fois un vrai signal de trafic sur `en/`.
 - Pas de version anglaise du compte OneSignal (le bouton de notification
   reste branché sur le même `appId`, donc sur la même liste d'abonnés que
   la version française).
