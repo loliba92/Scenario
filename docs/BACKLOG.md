@@ -27,6 +27,12 @@ moins prioritaire).
   vérification avant de couper Buttondown, sans se retrouver à tout
   faire dans l'urgence des derniers jours du forfait.
 
+  **Rappel programmé posé le 29 août 2026** (`trig_01Ntw6KBaiZsCFh4th7iPosP`,
+  déclenchement unique le 1er avril 2027, nouvelle session dédiée) —
+  relit ce ticket et fait le point avec l'utilisateur avant d'entamer
+  quoi que ce soit de technique. Pas la peine de recréer un rappel
+  manuellement d'ici là.
+
   Constat utilisateur : Buttondown est payant (déjà noté
   plus bas dans ce fichier, section RSS-to-email), OneSignal permet
   aussi l'envoi d'e-mails et c'est gratuit — pas besoin de payer deux
