@@ -66,13 +66,20 @@ premier.
 2. Corriger tous les chemins relatifs devenus faux d'un niveau
    (`en/` est un dossier de premier niveau, comme `index.html` à la
    racine, mais un cran plus profond) : préfixer `../` devant tous les
-   liens vers `assets/`, `manifest.webmanifest`, et toutes les pages du
-   premier niveau (`archives.html`, `glossaire.html`, `le-projet.html`,
+   liens vers `assets/`, et toutes les pages du premier niveau
+   (`archives.html`, `glossaire.html`, `le-projet.html`,
    `newsletter.html`, `contact.html`, `mentions-legales.html`,
    `politique-de-confidentialite.html`), ainsi que les liens internes de
    l'article vers `archives/AAAA-MM-JJ.html`, `suivi/*.html`,
    `hebdo/AAAA-MM-JJ.html`. Ne pas toucher aux URLs absolues
    (`https://...`) ni aux ancres internes (`#scenarios`, `#essentiel`...).
+   **Exception : `manifest.webmanifest`** — ne pas pointer vers celui de
+   la racine (nom/description en français) mais vers `en/manifest.
+   webmanifest` (créé le 29 août, nom/description en anglais, `lang:
+   "en"`, `start_url`/`id`: `/en/`) : depuis `en/index.html`, `href=
+   "manifest.webmanifest"` (même dossier) ; depuis `en/archives/AAAA-MM-
+   JJ.html`, `href="../manifest.webmanifest"` (un cran au-dessus, comme
+   pour `en/index.html`).
 
 ## Étape 1bis — Traduire aussi les articles référencés [AJOUTÉ le 29 août
 2026]

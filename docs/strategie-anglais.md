@@ -227,6 +227,74 @@ jamais les trois en un seul passage automatique.
 - Revoir la question de l'image sociale (texte en dur en français) si la
   diffusion sociale anglophone démarre.
 
+## Bandeau d'installation PWA + manifest — corrigé le 29 août 2026
+
+Retour utilisateur : « l'application, le popup en français, possible de
+mettre en anglais aussi ? même popup ». Deux éléments partagés
+site-entier (chargés par les 33 pages du site, y compris les 4 pages
+anglaises) portaient un texte uniquement français :
+
+- **`assets/pwa-install.js`** (bandeau « Installer l'application ») —
+  rendu bilingue : la langue suit `document.documentElement.lang` de la
+  page courante (déjà correct partout), aucun second fichier à
+  maintenir. Toutes les chaînes (titre, texte, bouton Installer,
+  fermeture, astuce iOS) ont un équivalent anglais.
+- **`manifest.webmanifest`** (nom/description de l'app, consulté par le
+  navigateur au moment d'installer) — un second fichier créé,
+  `en/manifest.webmanifest` (description en anglais, `lang: "en"`,
+  `start_url`/`id`: `/en/` pour que l'app installée depuis une page
+  anglaise s'ouvre sur `en/`, `scope` resté `/` pour que les liens vers
+  des pages françaises restent dans l'app installée plutôt que de sortir
+  vers le navigateur). Les 3 pages EN qui chargent déjà un manifest
+  (`en/index.html`, `en/archives/2026-08-22.html`, `en/archives/2026-
+  08-29.html`) pointent maintenant vers ce fichier plutôt que celui de la
+  racine. Procédure pour les prochaines pages EN : `docs/routine-en-
+  prompt.md`, étape 1, point 2.
+
+## Audit UX du parcours anglais — 29 août 2026
+
+Retour utilisateur : « analyse le site et dis-moi ce qu'il faut ajuster
+pour le best journey en anglais ». Constat principal, au-delà du popup
+et du manifest ci-dessus :
+
+**Le plus gros trou : aucun point d'entrée vers `en/` en dehors des 3
+articles déjà traduits.** Un lecteur qui atterrit sur `archives.html`
+(liste complète), `le-projet.html`, `glossaire.html`, `contact.html`,
+`newsletter.html`, ou n'importe quelle édition passée non traduite, n'a
+**aucun moyen de découvrir que le site a une version anglaise** — le
+bouton `.masthead-lang-btn` n'existe que sur les 3 pages où une
+traduction a été construite (retour utilisateur/routine, jamais
+générique). Un moteur de recherche anglophone qui indexerait par exemple
+`en/index.html` et proposerait `archives.html` en résultat lié ne
+donnerait donc aucun chemin retour vers l'anglais. **Pas corrigé
+aujourd'hui** — solution la plus simple à évaluer : un lien `EN` discret
+et permanent quelque part dans le masthead de `archives.html` (et
+éventuellement des autres pages statiques), pointant vers `en/` sans
+prétendre qu'une traduction existe pour le contenu affiché. Mérite un
+vrai choix de placement/design avant d'être fait à la volée — à discuter.
+
+**Autres points relevés, déjà connus/documentés, pas de nouvelle action
+aujourd'hui :**
+- Push OneSignal : un abonné depuis `en/` reçoit des notifications en
+  français (même segment que le site FR) — voir § « Stratégie réseaux
+  sociaux » ci-dessous.
+- `newsletter.html` reste en français — un lecteur EN qui clique sur
+  « Newsletter » depuis une page anglaise atterrit sur un formulaire
+  français, cohérent avec la décision déjà prise de ne pas traduire les
+  pages statiques pour l'instant.
+- `archives.html` ne signale visuellement aucune des 3 éditions déjà
+  traduites (pas de badge « EN disponible » sur les entrées concernées)
+  — améliorerait la découvrabilité mais touche une page avec sa propre
+  logique de filtres/badges déjà en place, à ne pas modifier à la légère.
+
+**Vérifié et déjà correct, aucune action nécessaire :**
+- `robots.txt` n'exclut pas `/en/` (`Allow: /`).
+- Les 4 pages EN ont leurs balises `hreflang` correctes (voir plus haut).
+- Formats de date/nombre/devise déjà adaptés dans le contenu traduit
+  ($ vs €, point décimal vs virgule).
+- Aucune autre chaîne française en dur repérée dans les scripts/CSS
+  partagés au-delà du popup et du manifest ci-dessus.
+
 ## Stratégie réseaux sociaux — analyse du 29 août 2026
 
 Retour utilisateur : « il faut réfléchir à la stratégie anglaise sur les

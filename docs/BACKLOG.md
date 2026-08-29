@@ -176,6 +176,28 @@ moins prioritaire).
       suivants (nouvelle étape récurrente dans `docs/routine-hebdo-
       prompt.md`, symétrique à l'étape 13 de `docs/routine-prompt.md`) —
       pas juste un geste ponctuel sur l'édition du 23 août.
+  - **[FAIT le 29 août] Popup d'installation PWA + manifest bilingues.**
+    Retour utilisateur : « le popup en français, possible de mettre en
+    anglais aussi ? ». `assets/pwa-install.js` détecte maintenant la
+    langue de la page (`document.documentElement.lang`) et affiche le
+    bon texte, sans fichier dupliqué. `en/manifest.webmanifest` créé
+    (nom/description en anglais). Détail : `docs/strategie-anglais.md`
+    § « Bandeau d'installation PWA + manifest ».
+  - **P2 — Point d'entrée EN visible en dehors des 3 articles déjà
+    traduits, relevé le 29 août (audit UX).** Aujourd'hui, `.masthead-
+    lang-btn` (bouton EN) n'existe que sur les pages où une traduction a
+    été construite — `archives.html`, `le-projet.html`, `glossaire.html`,
+    `contact.html`, `newsletter.html` et toutes les éditions passées non
+    traduites n'offrent aucun moyen de découvrir `en/`. Pas commencé —
+    nécessite un vrai choix de placement/design (lien discret dans le
+    masthead de `archives.html` a minima) avant d'être fait, voir
+    `docs/strategie-anglais.md` § « Audit UX du parcours anglais ».
+  - **P3 — Badge « EN disponible » sur `archives.html`, relevé le 29
+    août (audit UX).** Aucune des 3 entrées déjà traduites n'est
+    signalée visuellement dans la liste des éditions. Améliorerait la
+    découvrabilité mais touche une page avec sa propre logique de
+    filtres/badges déjà en place (suivi, révisé...) — à ne pas modifier
+    sans réflexion sur l'intégration visuelle.
 - **P3 — Déclinaison papier de Scénario, idée du 17 août.** Question posée
   par l'utilisateur : faut-il décliner Scénario en version papier, et si
   oui comment. Avis et stratégie détaillés dans

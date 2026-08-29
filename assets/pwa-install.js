@@ -5,9 +5,36 @@
  * programmatique, on affiche juste l'astuce "Partager → Sur l'écran
  * d'accueil". Ne s'affiche jamais si déjà installé, et se souvient
  * d'un refus pendant DISMISS_DAYS jours (localStorage).
+ *
+ * Bilingue depuis le 29 août (retour utilisateur : "le popup en
+ * français, possible de mettre en anglais aussi ?") — un seul script
+ * partagé par les pages FR et EN, la langue du texte suit
+ * `document.documentElement.lang` (déjà correct sur chaque page,
+ * "fr"/"en") plutôt qu'un second fichier dupliqué à maintenir.
  */
 (function () {
   "use strict";
+
+  var LANG = (document.documentElement.lang || "fr").slice(0, 2) === "en" ? "en" : "fr";
+  var STRINGS = {
+    fr: {
+      dialogLabel: "Installer l'application Scénario",
+      title: "Installer Scénario",
+      iosText: 'Appuyez sur <strong>Partager</strong> puis <strong>Sur l’écran d’accueil</strong>.',
+      text: "Accédez à l’édition du jour en un geste, depuis votre écran d’accueil.",
+      install: "Installer",
+      dismiss: "Fermer",
+    },
+    en: {
+      dialogLabel: "Install the Scénario app",
+      title: "Install Scénario",
+      iosText: 'Tap <strong>Share</strong> then <strong>Add to Home Screen</strong>.',
+      text: "Get to the day's edition in one tap, from your home screen.",
+      install: "Install",
+      dismiss: "Close",
+    },
+  };
+  var T = STRINGS[LANG];
 
   var THIS_SCRIPT = document.currentScript;
   var SCRIPT_SRC = THIS_SCRIPT ? THIS_SCRIPT.getAttribute("src") || "" : "";
@@ -59,23 +86,22 @@
     var el = document.createElement("div");
     el.className = "pwa-install-banner";
     el.setAttribute("role", "dialog");
-    el.setAttribute("aria-label", "Installer l'application Scénario");
+    el.setAttribute("aria-label", T.dialogLabel);
 
     var body = document.createElement("div");
     body.className = "pwa-install-body";
 
     var title = document.createElement("p");
     title.className = "pwa-install-title";
-    title.textContent = "Installer Scénario";
+    title.textContent = T.title;
     body.appendChild(title);
 
     var text = document.createElement("p");
     text.className = "pwa-install-text";
     if (kind === "ios") {
-      text.innerHTML =
-        'Appuyez sur <strong>Partager</strong> puis <strong>Sur l’écran d’accueil</strong>.';
+      text.innerHTML = T.iosText;
     } else {
-      text.textContent = "Accédez à l’édition du jour en un geste, depuis votre écran d’accueil.";
+      text.textContent = T.text;
     }
     body.appendChild(text);
 
@@ -93,7 +119,7 @@
       var installBtn = document.createElement("button");
       installBtn.type = "button";
       installBtn.className = "pwa-install-btn";
-      installBtn.textContent = "Installer";
+      installBtn.textContent = T.install;
       installBtn.addEventListener("click", function () {
         if (!deferredPrompt) return;
         deferredPrompt.prompt();
@@ -110,7 +136,7 @@
     var dismissBtn = document.createElement("button");
     dismissBtn.type = "button";
     dismissBtn.className = "pwa-install-dismiss";
-    dismissBtn.setAttribute("aria-label", "Fermer");
+    dismissBtn.setAttribute("aria-label", T.dismiss);
     dismissBtn.innerHTML = "&times;";
     dismissBtn.addEventListener("click", function () {
       rememberDismissal();
