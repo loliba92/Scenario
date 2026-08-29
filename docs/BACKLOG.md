@@ -10,8 +10,17 @@ Priorités P1 (fort impact, faible coût) à P3 (utile mais plus lourd ou
 moins prioritaire).
 
 **Distribution / automatisation**
-- **P2 — Migrer la newsletter email de Buttondown vers OneSignal, idée
-  du 29 août.** Constat utilisateur : Buttondown est payant (déjà noté
+- **P3 — En standby [dépriorisé le 29 août, retour utilisateur : « pour
+  l'instant standby »] — Migrer la newsletter email de Buttondown vers
+  OneSignal, idée du 29 août.** **Bloquant identifié le même jour :
+  forfait Buttondown déjà payé pour 12 mois** — pas d'intérêt à migrer
+  tant que ce forfait n'est pas arrivé à échéance ; passé de P2 à P3 et
+  gelé pour ce motif, pas par manque d'intérêt. Ne pas relancer de
+  son propre chef — attendre soit l'échéance du forfait, soit un retour
+  utilisateur explicite. Reste ci-dessous, cadré et prêt à reprendre
+  (deux points déjà vérifiés) quand le moment sera venu.
+
+  Constat utilisateur : Buttondown est payant (déjà noté
   plus bas dans ce fichier, section RSS-to-email), OneSignal permet
   aussi l'envoi d'e-mails et c'est gratuit — pas besoin de payer deux
   outils pour deux canaux (push + email) qui peuvent tenir sur un seul.
