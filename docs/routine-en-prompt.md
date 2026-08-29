@@ -360,9 +360,14 @@ navigateur, pas de redirection).
    - `en/archives/{AAAA-MM-JJ}.html` → lien vers
      `../../archives/{AAAA-MM-JJ}.html`, même libellé/attributs.
    La classe CSS `.masthead-lang-btn` est déjà dans le `<style>` des
-   quatre fichiers (voir `docs/routine-prompt.md`, section « Icône
-   notifications dans le masthead ») — ne jamais la re-déclarer, seulement
-   ajouter le lien `<a>` lui-même s'il manque encore.
+   quatre fichiers (voir `docs/routine-prompt.md`, section « Ligne
+   `.masthead-right` ») — ne jamais la re-déclarer, seulement ajouter le
+   lien `<a>` lui-même s'il manque encore. Depuis le 29 août,
+   `.masthead-right` contient aussi un séparateur `.masthead-divider` et
+   les liens "Sujet révisé"/"Récap de la semaine" (ex-bande
+   `.top-updates`, supprimée ce jour-là) : `.masthead-lang-btn` reste le
+   tout premier enfant, avant la cloche notifications — ne rien changer
+   à l'ordre des éléments qui suivent.
 2. **Ajouter les balises `hreflang` dans `<head>`, juste après
    `<link rel="canonical">`**, sur les mêmes quatre fichiers :
    ```html
