@@ -3,3 +3,4 @@ Allow: /
 Disallow: /test/
 
 Sitemap: https://lesscenarios.fr/sitemap.xml
+Sitemap: https://lesscenarios.fr/sitemap-news.xml
