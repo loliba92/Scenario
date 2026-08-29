@@ -561,6 +561,25 @@ Simple journal, pas une évaluation — ne rien écrire de plus. Ne jamais touch
 
 7. Mettre à jour `sitemap.xml` : nouvelle entrée `<url>` pour l'archive du jour (`<lastmod>` = date du jour, `changefreq: never`, `priority: 0.6`), mettre à jour `<lastmod>` de `https://lesscenarios.fr/` et `archives.html`. Si 6ter a ajouté un terme à `glossaire.html`, mettre aussi à jour son `<lastmod>`. Ne jamais supprimer les entrées existantes.
 
+7bis. **Mettre à jour `sitemap-news.xml`, ajouté le 29 août 2026 pour l'indexation Google Actualités** [retour utilisateur : les articles n'apparaissaient pas sur Google Actualités — cause racine identifiée : le site n'était même pas indexé en recherche classique (jamais soumis à Search Console), corrigé côté utilisateur ; ce sitemap dédié est la seconde partie du correctif, recommandée par Google pour une reprise rapide des nouveaux articles]. Contrairement à `sitemap.xml` (toutes les éditions, jamais purgé), **`sitemap-news.xml` ne garde que les articles des dernières 48h** — c'est la spécification officielle du protocole Google News sitemap, pas une convention du site. Chaque jour :
+    - Ajouter une entrée `<url>` pour l'archive du jour, avec l'URL canonique (`archives/{AAAA-MM-JJ}.html`, jamais `index.html`) :
+      ```xml
+      <url>
+        <loc>https://lesscenarios.fr/archives/{AAAA-MM-JJ}.html</loc>
+        <news:news>
+          <news:publication>
+            <news:name>Scénario</news:name>
+            <news:language>fr</news:language>
+          </news:publication>
+          <news:publication_date>{AAAA-MM-JJ}T06:30:00+02:00</news:publication_date>
+          <news:title>{h1 du jour}</news:title>
+        </news:news>
+      </url>
+      ```
+    - **Retirer toute entrée dont `news:publication_date` a plus de 48h** — à la différence de `sitemap.xml`, ici la purge est la règle, pas l'exception. En pratique le fichier ne garde donc que 2 entrées la plupart des jours (aujourd'hui + hier).
+    - `{h1 du jour}` = le même texte que `headline` dans le JSON-LD `NewsArticle` de l'archive concernée, jamais reformulé.
+    - Le fichier ne concerne que l'édition française quotidienne — pas les `hebdo/`, `suivi/`, ni les pages EN (`docs/routine-en-prompt.md` a son propre besoin le cas échéant, non couvert ici).
+
 8. Mettre à jour `feed.xml` : nouvel `<item>` en haut (avant les précédents, jamais supprimés) :
 ```xml
 <item>
