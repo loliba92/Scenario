@@ -281,10 +281,15 @@ dans cet ordre :
 10. **Bloc « Nous suivre »** et **footer** : tous les libellés visibles
     — y compris la phrase de transition « Retrouve-nous aussi sur tous
     nos réseaux : » [ajoutée le 29 août] avant la rangée de boutons
-    sociaux, et `.footer-photo-credit` dans `<footer>` (« Photo
+    sociaux, et `.footer-photo-credit` dans `<footer>` (texte « Photo
     d'illustration. » toujours en tête, mot pour mot, voir
-    `docs/routine-prompt.md`) si une image a été retenue côté FR. **La
-    ligne `.footer-meta` (« Voir toutes les éditions » / « Demain : ... »)
+    `docs/routine-prompt.md`) si une image a été retenue côté FR. **Ce
+    `<p>` vit à l'intérieur de `.footer-bottom`, juste avant
+    `.legal-links` [placement corrigé le 29 août] — jamais juste
+    au-dessus avec son propre filet, ça lit comme deux footnotes.**
+    L'icône appareil photo (`<svg>`) devant le texte reste identique,
+    ne pas la traduire ni la changer. **La ligne `.footer-meta` (« Voir
+    toutes les éditions » / « Demain : ... »)
     a été retirée le 29 août, ne pas la traduire ni la recréer.** Les
     liens externes (réseaux sociaux, Buy Me a Coffee) restent identiques
     (mêmes comptes, pas de version anglaise séparée).

@@ -1274,18 +1274,24 @@
      écran, "Photo d'illustration..." étalait le crédit trop tôt, avant
      même le premier mot de l'article ("on ne voit que ça"). JetBrains
      Mono discret pour rester de la mention légale, pas un élément à
-     lire. Seule ligne de ce type dans le footer désormais : la ligne
-     "Voir toutes les éditions / Demain : ..." (ex-.footer-meta) a été
-     retirée le même jour — retour utilisateur, doublon avec "Archives"
-     déjà dans la nav, "Demain" jugé anecdotique, et surtout deux lignes
-     de mention légère l'une sous l'autre donnaient l'impression de deux
-     footnotes plutôt qu'une seule. Ne pas la réintroduire. */
+     lire. **Déplacée le même jour à l'intérieur de `.footer-bottom`**
+     (retour utilisateur : posée juste au-dessus avec son propre filet de
+     séparation, elle donnait l'impression de deux footnotes empilées au
+     lieu d'une seule) — désormais dans le même bloc, sous le même filet,
+     que les mentions légales : une seule note en bas de page. Icône
+     appareil photo ajoutée devant le texte le même jour (retour
+     utilisateur, "pour faire plus joli"), toujours la même quel que soit
+     le sujet du jour — décoration fixe, pas une icône par photo. */
   .footer-photo-credit{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-family: "JetBrains Mono", monospace;
     font-size: 0.76rem;
     color: var(--paper-dim);
     margin: 0;
   }
+  .footer-photo-credit svg{ flex-shrink: 0; display: block; }
   .footer-photo-credit a{ color: var(--paper-dim); text-decoration: underline; text-decoration-style: dotted; }
   .footer-photo-credit a:hover{ color: var(--paper); }
 
@@ -1977,8 +1983,8 @@
 
 <footer>
   <div class="wrap">
-    <p class="footer-photo-credit">Photo d'illustration. Towfiqu barbhuiya / <a href="https://www.pexels.com/photo/person-holding-black-remote-control-11594553/" target="_blank" rel="noopener noreferrer">Pexels ↗</a></p>
     <div class="footer-bottom">
+      <p class="footer-photo-credit"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5a1.5 1.5 0 0 1 1.5-1.5h2l1-1.5h7l1 1.5h2A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5Z"/><circle cx="12" cy="12.5" r="3.2"/></svg> Photo d'illustration. Towfiqu barbhuiya / <a href="https://www.pexels.com/photo/person-holding-black-remote-control-11594553/" target="_blank" rel="noopener noreferrer">Pexels ↗</a></p>
       <div class="legal-links">
         <span class="legal-links-label">Envie d'en savoir plus sur nos règles ?</span>
         <a href="mentions-legales.html">Mentions légales</a>
