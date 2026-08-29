@@ -1259,14 +1259,22 @@
   /* Cover photo credit, moved down to a footnote Aug 29 (mirrors
      index.html) — the old "See all editions / tomorrow" meta line
      (.footer-meta) was removed the same day (duplicate of "Archives"
-     already in the nav, "tomorrow" judged not worth it). Only line of
-     this kind in the footer now — never bring the other one back. */
+     already in the nav, "tomorrow" judged not worth it). Moved inside
+     `.footer-bottom` the same day too — sitting just above with its own
+     divider, it read as two stacked footnotes instead of one; now under
+     the same rule as the legal links, a single footnote. Camera icon
+     added in front the same day, always the same regardless of the
+     day's photo — a fixed decoration, not a per-photo icon. */
   .footer-photo-credit{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-family: "JetBrains Mono", monospace;
     font-size: 0.76rem;
     color: var(--paper-dim);
     margin: 0;
   }
+  .footer-photo-credit svg{ flex-shrink: 0; display: block; }
   .footer-photo-credit a{ color: var(--paper-dim); text-decoration: underline; text-decoration-style: dotted; }
   .footer-photo-credit a:hover{ color: var(--paper); }
 
@@ -1958,8 +1966,8 @@
 
 <footer>
   <div class="wrap">
-    <p class="footer-photo-credit">Illustration photo. Towfiqu barbhuiya / <a href="https://www.pexels.com/photo/person-holding-black-remote-control-11594553/" target="_blank" rel="noopener noreferrer">Pexels ↗</a></p>
     <div class="footer-bottom">
+      <p class="footer-photo-credit"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5a1.5 1.5 0 0 1 1.5-1.5h2l1-1.5h7l1 1.5h2A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5Z"/><circle cx="12" cy="12.5" r="3.2"/></svg> Illustration photo. Towfiqu barbhuiya / <a href="https://www.pexels.com/photo/person-holding-black-remote-control-11594553/" target="_blank" rel="noopener noreferrer">Pexels ↗</a></p>
       <div class="legal-links">
         <span class="legal-links-label">Want to know more about our policies?</span>
         <a href="../../mentions-legales.html">Legal notice</a>
