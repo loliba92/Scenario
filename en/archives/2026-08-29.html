@@ -175,6 +175,18 @@
   .masthead-notif-btn:disabled{ opacity: .5; cursor: default; }
   .masthead-notif-btn svg{ display: block; }
 
+  /* Separator between the "notifications/print" group and the "updated
+     topic/weekly recap" group, added Aug 29 when the latter two joined
+     this row (merged from the old .top-updates bar, user feedback: must
+     fit on a single line even on mobile). Plain vertical hairline, purely
+     visual (aria-hidden). */
+  .masthead-divider{
+    width: 1px;
+    height: 20px;
+    background: var(--hairline);
+    flex-shrink: 0;
+  }
+
   /* Bouton de bascule de langue dans le masthead, ajouté le 29 août —
      retour utilisateur : il manquait un moyen évident de passer du
      français à l'anglais et inversement. Même recette visuelle que
@@ -301,40 +313,6 @@
     border-bottom-color: var(--gold);
   }
 
-  /* ---------- Bande "mises à jour" (suivi actif + récap hebdo) ---------- */
-  /* Reproduite telle quelle par la routine quotidienne (fait partie de la
-     structure générale du gabarit). Le lien "Sujet révisé" pointe vers un
-     filtre archives.html?tag=revise toujours à jour tout seul (voir JS
-     d'archives.html) ; le lien "Récap de la semaine" est mis à jour par
-     la routine hebdo elle-même (11 août). Voir docs/ARCHITECTURE.md.
-     Repassée en bouton .btn-outline le 19 août (retour utilisateur :
-     mêmes boutons que "Nous suivre"/Telegram/café) — annule la version
-     texte simple adoptée le 9 août (retour de l'époque : "version pill
-     trop lourde"). Si ça redevient trop chargé visuellement, revenir à
-     un lien texte plutôt qu'une nouvelle variante de bouton. */
-  .top-updates{
-    border-bottom: 1px solid var(--hairline);
-  }
-
-  .top-updates .wrap{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 24px;
-    flex-wrap: wrap;
-  }
-
-  /* Version compacte du bouton ici : le même .btn-outline qu'ailleurs,
-     mais en plus petit — cette bande est lue avant même le titre, un
-     bouton pleine taille y prend trop de place (retour du 9 août, voir
-     commentaire au-dessus). */
-  .top-updates .btn-outline{
-    padding: 6px 14px;
-    font-size: 0.7rem;
-    gap: 5px;
-  }
-
-  .top-updates .btn-outline svg{ width: 12px; height: 12px; }
 
   /* ---------- Bandeau d'accueil (premier passage uniquement) ---------- */
   /* Ajouté le 28 août, retour utilisateur : un premier visiteur qui
@@ -1504,7 +1482,7 @@
     }
     html{ font-size: 82%; }
     body{ background: #fff; line-height: 1.4; }
-    header.masthead, nav.topnav, .top-updates, .toc, .share-inline,
+    header.masthead, nav.topnav, .toc, .share-inline,
     .article-image, .follow-inline, section.lexique, section.sources,
     section.share-block, footer{ display: none !important; }
     .wrap{ max-width: 100%; padding: 0; }
@@ -1551,6 +1529,9 @@
       <a href="../../archives/2026-08-29.html" class="masthead-lang-btn" aria-label="Lire en français" title="Lire en français">FR</a>
             <button type="button" class="onesignal-subscribe-btn masthead-notif-btn" aria-label="Enable notifications" title="Enable notifications"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg></button>
       <button type="button" id="print-page" class="masthead-notif-btn" aria-label="Print on 1 page" title="Print on 1 page"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 9V4.5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1V9"/><rect x="4.5" y="9" width="15" height="7" rx="1.3"/><path d="M7 14h10v5.5a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V14Z"/></svg></button>
+      <span class="masthead-divider" aria-hidden="true"></span>
+      <a class="masthead-notif-btn" href="../../archives.html?tag=revise" aria-label="Updated topic" title="Updated topic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8"/><path d="M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16"/><path d="M4 20v-4h4"/></svg></a>
+      <a class="masthead-notif-btn" href="../../hebdo/2026-08-23.html" aria-label="Weekly recap" title="Weekly recap"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg></a>
     </div>
   </div>
 </header>
@@ -1567,13 +1548,6 @@
     <a href="https://buymeacoffee.com/scenario" target="_blank" rel="noopener noreferrer" style="color:var(--gold)"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v6a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4Z"/><path d="M16 10.5h1.5a2 2 0 0 1 0 4H16"/><path d="M8.5 4.5c-.6.7-.6 1.3 0 2M12 4.5c-.6.7-.6 1.3 0 2"/></svg> Support us</a>
   </div>
 </nav>
-
-<div class="top-updates">
-  <div class="wrap">
-    <a class="btn-outline" href="../../archives.html?tag=revise"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8"/><path d="M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16"/><path d="M4 20v-4h4"/></svg> Updated topic</a>
-    <a class="btn-outline" href="../../hebdo/2026-08-23.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg> Weekly recap</a>
-  </div>
-</div>
 
 <div class="intro-banner" id="intro-banner" hidden>
   <div class="wrap intro-banner-inner">
