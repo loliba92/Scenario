@@ -53,6 +53,30 @@ l'entête `.edition`/`.pubdate` d'`index.html`. Si la date ne correspond pas
 à aujourd'hui (routine principale en retard ou échouée), s'arrêter
 proprement sans rien inspecter — pas de fallback sur l'édition de la veille.
 
+**[AJOUTÉ le 29 août 2026] Si une traduction anglaise existe pour
+l'édition du jour, répercuter toute correction dessus aussi.** La
+traduction (`en/index.html`, `en/archives/{AAAA-MM-JJ}.html` — voir
+`docs/routine-en-prompt.md`) est produite juste après la publication
+française, donc **avant** le passage de cette routine une heure plus
+tard : une correction apportée ici à `index.html`/`archives/{AAAA-MM-JJ}.
+html` sans la répercuter laisserait l'anglais désynchronisé (chiffre
+corrigé côté FR, resté faux côté EN). Avant de commencer :
+1. Vérifier si `en/index.html` existe et porte la même date que
+   l'édition du jour (`.edition`/`.pubdate`, même vérification qu'au
+   point ci-dessus) — sinon, aucune traduction à maintenir aujourd'hui,
+   ignorer les points 2-3 ci-dessous.
+2. Pour chaque correction effective apportée à `index.html`/`archives/
+   {AAAA-MM-JJ}.html` (jamais pour un point simplement signalé, non
+   corrigé) : appliquer **la même correction, traduite**, sur
+   `en/index.html` et `en/archives/{AAAA-MM-JJ}.html` — un correctif
+   ciblé sur le passage concerné, jamais une retraduction complète du
+   fichier. Si la correction touche un chiffre déjà repris ailleurs dans
+   l'édition (indicateur, essentiel-box, image sociale...), le corriger
+   à tous les endroits concernés côté EN aussi, comme côté FR.
+3. Mentionner explicitement dans le message final si des corrections ont
+   été répercutées côté EN, et lesquelles — jamais silencieux sur ce
+   point, pour que l'écart entre les deux versions reste traçable.
+
 ## Ce qui est corrigé seul, sans demander (mécanique, sans ambiguïté)
 
 1. **CSS tronqué.** Comparer le bloc `<style>` d'`index.html` à la liste des
@@ -495,10 +519,17 @@ sync index/archive, lexique), style, N chiffres contre sources.
 - Avant : « {phrase originale} »
   Après : « {phrase réécrite} »
 **Signalé pour revue humaine** : {liste, ou "rien"}.
+**Répercuté côté EN** : {liste des corrections mirrorées sur `en/
+index.html`/`en/archives/{AAAA-MM-JJ}.html`, "rien à répercuter"
+si aucune correction n'a été faite côté FR, ou "pas de traduction
+pour cette date" si `en/` n'existe pas pour l'édition du jour}.
 ```
 
 ## Message final
 
 Toujours terminer par un résumé court : ce qui a été vérifié, ce qui a été
 corrigé, ce qui a été signalé — même s'il n'y a rien à signaler, le dire
-explicitement plutôt que de rester silencieux.
+explicitement plutôt que de rester silencieux. **Toujours inclure la
+ligne « Répercuté côté EN »** (voir le point ajouté juste après la
+vérification de date en tête de fichier), même quand la réponse est
+« rien à répercuter » ou « pas de traduction pour cette date ».
