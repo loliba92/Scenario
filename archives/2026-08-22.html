@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hollywood décroche en Chine — Scénario</title>
 <link rel="canonical" href="https://lesscenarios.fr/archives/2026-08-22.html">
+<link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/2026-08-22.html">
+<link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/2026-08-22.html">
+<link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/2026-08-22.html">
 <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#10151c">
@@ -164,6 +167,29 @@
   .masthead-notif-btn:hover{ background: var(--gold); color: var(--ink); }
   .masthead-notif-btn:disabled{ opacity: .5; cursor: default; }
   .masthead-notif-btn svg{ display: block; }
+
+  /* Bouton de bascule de langue dans le masthead, ajouté le 29 août —
+     même recette que .masthead-notif-btn, libellé texte à la place d'une
+     icône. Voir docs/routine-en-prompt.md § « Étape 4bis ». */
+  .masthead-lang-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    padding: 0 13px;
+    flex-shrink: 0;
+    background: transparent;
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    color: var(--gold);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: background .15s, color .15s;
+  }
+  .masthead-lang-btn:hover{ background: var(--gold); color: var(--ink); }
 
   .brand-mark{
     width: 30px;
@@ -1412,6 +1438,7 @@
       <div class="edition">Édition du 22 août 2026 · N°30</div>
     </div>
     <div class="masthead-right">
+      <a href="../en/archives/2026-08-22.html" class="masthead-lang-btn" aria-label="Read this edition in English" title="Read this edition in English">EN</a>
       <button type="button" class="onesignal-subscribe-btn masthead-notif-btn" aria-label="Activer les notifications" title="Activer les notifications"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg></button>
     </div>
   </div>

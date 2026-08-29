@@ -134,6 +134,16 @@ moins prioritaire).
     `docs/strategie-anglais.md` § « UX de bascule entre langues » pour les
     deux réserves (sensibilité RGPD/juridique, dépendance au glossaire
     resté hors scope) avant de s'y lancer.
+  - **[FAIT le 29 août, même jour] Traduction en cascade des articles
+    cités.** Retour utilisateur (« les liens qui font référence à nos
+    précédents articles doivent aussi pointer sur la version anglaise si
+    elle existe ») — un lien de l'édition du jour vers une édition passée
+    pointe désormais vers `en/archives/...`, traduite à la volée si besoin
+    (un seul niveau de cascade). Deux éditions traduites pour valider :
+    `archives/2026-08-08.html` et `archives/2026-08-22.html`, toutes deux
+    citées par l'édition du 29 août, plus les deux fichiers FR
+    correspondants retrofités avec le bouton de langue. Procédure :
+    `docs/routine-en-prompt.md` § « Étape 1bis ».
 - **P3 — Déclinaison papier de Scénario, idée du 17 août.** Question posée
   par l'utilisateur : faut-il décliner Scénario en version papier, et si
   oui comment. Avis et stratégie détaillés dans

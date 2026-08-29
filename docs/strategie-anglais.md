@@ -158,6 +158,26 @@ langue par défaut** : pas de détection de langue navigateur, pas de
 redirection automatique — le bouton offre un accès direct, jamais un
 choix imposé.
 
+**Extension le même jour : traduction en cascade des articles cités.**
+Retour utilisateur : « les liens qui font référence à nos précédents
+articles doivent aussi pointer sur la version anglaise si elle existe, du
+coup il faudrait générer la version anglaise dans archive des articles
+que tu mentionnes dans l'édition du jour ». Règle actée : un lien de
+l'édition du jour vers une édition passée (`archives/AAAA-MM-JJ.html`)
+pointe désormais toujours vers l'équivalent `en/archives/AAAA-MM-JJ.html`
+— traduit à la volée s'il ne l'était pas encore, jamais laissé pointer
+vers le français par défaut. Un seul niveau de cascade (les liens internes
+de l'article ainsi traduit vers une *troisième* édition restent en
+français pour cette fois, voir `docs/routine-en-prompt.md` § « Étape
+1bis »). Deux éditions passées traduites ce jour-là pour valider le
+mécanisme (toutes deux citées par l'édition du 29 août) :
+- `archives/2026-08-08.html` (« Le cinéma reprend des couleurs » → « French
+  Cinema Bounces Back ») — gabarit plus ancien (avant le masthead moderne
+  du 21 août), traduit et retrofité avec le bouton de langue en CSS
+  minimal ad hoc plutôt qu'en rétrofitant tout le masthead.
+- `archives/2026-08-22.html` (« Hollywood décroche en Chine » → « Hollywood
+  Is Losing China »).
+
 **Question ouverte, posée par l'utilisateur le 29 août, pas encore
 tranchée** : traduire aussi `le-projet.html` et les pages légales
 (`mentions-legales.html`, `politique-de-confidentialite.html`) en
@@ -190,6 +210,33 @@ jamais les trois en un seul passage automatique.
   seulement après.
 - Revoir la question de l'image sociale (texte en dur en français) si la
   diffusion sociale anglophone démarre.
+
+## Stratégie réseaux sociaux — analyse du 29 août 2026
+
+Retour utilisateur : « il faut réfléchir à la stratégie anglaise sur les
+réseaux sociaux, dois-je créer un nouveau compte, fais la liste des
+réseaux où on est et analyse chacun ». État des lieux (tous les comptes
+actuels sont mono-langue, français) :
+
+| Réseau | Constat | Recommandation |
+|---|---|---|
+| Telegram (@scenario_fr) | Le nom du canal signale « FR », pas de segmentation par langue possible dans un même canal | Nouveau canal dédié **seulement si** `en/feed.xml` montre une vraie traction — mélanger casserait l'expérience des abonnés FR actuels |
+| X (@scenario_fr) | Portée la plus internationale des 6 réseaux, tolère bien le bilingue sur un même compte | **Tester sur le compte existant d'abord** — poster le lien EN de temps en temps, coût quasi nul, premier signal d'engagement avant tout nouveau handle |
+| Bluesky | Petite audience mais historiquement plus anglophone | Même logique que X, tester sur le compte existant |
+| LinkedIn (page entreprise) | Audience pro multilingue, posts plus unitaires qu'un flux identitaire | Tester sur la page existante |
+| Facebook | Audience proche des abonnés FR existants, pas de stratégie payante ciblée EN | Priorité basse |
+| Instagram (@scenarios.actu) | **Le plus coûteux à adapter** : le texte des visuels (pub/suivi) est incrusté dans l'image, pas un sous-titre séparé — la brique technique existe déjà (gabarits `-en.html`, voir extension du 29 août) mais pas branchée à un compte dédié | À revoir seulement après validation de la demande |
+| Newsletter (Buttondown) | Une seule liste FR, segmenter coûte une Automation supplémentaire | À traiter dans la même fenêtre que la migration OneSignal (standby jusqu'à avril 2027, voir `docs/BACKLOG.md`) |
+| Push OneSignal | ⚠️ **Point découvert en répondant à cette question** : le bouton notifications sur `en/index.html` utilise le même `appId`/segment que le site français — un lecteur anglophone abonné depuis `en/` reçoit des notifications **en français**. Angle mort du MVP, pas un choix voulu. | Documenté ici ; vraie solution = segments/tags OneSignal par langue, chantier séparé, pas commencé |
+
+**Recommandation d'ensemble : ne créer aucun nouveau compte pour
+l'instant.** La chaîne déjà en place (`en/feed.xml` → Make.com, une fois
+branché) suffit à mesurer une vraie demande sans coût de gestion
+supplémentaire. Les deux gestes à coût quasi nul et utiles dès
+maintenant : tester des posts EN ponctuels sur X et Bluesky depuis les
+comptes existants, et traiter le trou OneSignal ci-dessus comme une
+limite documentée. Tout le reste (canal Telegram dédié, compte Instagram
+EN, liste newsletter séparée) attend un vrai signal de trafic sur `en/`.
 
 ## À éviter
 

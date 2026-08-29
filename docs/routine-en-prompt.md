@@ -74,6 +74,51 @@ premier.
    `hebdo/AAAA-MM-JJ.html`. Ne pas toucher aux URLs absolues
    (`https://...`) ni aux ancres internes (`#scenarios`, `#essentiel`...).
 
+## Étape 1bis — Traduire aussi les articles référencés [AJOUTÉ le 29 août
+2026]
+
+Retour utilisateur : « les liens qui font référence à nos précédents
+articles doivent aussi pointer sur la version anglaise si elle existe, du
+coup il faudrait générer la version anglaise dans archive des articles
+que tu mentionnes dans l'édition du jour ». Règle : **un lien vers une
+autre édition (`archives/AAAA-MM-JJ.html`) ne doit jamais rester pointé
+vers le français si l'article visé est traduit — et doit être traduit
+lui-même s'il ne l'est pas encore et qu'il est cité par l'édition du
+jour.**
+
+1. **Repérer tous les liens internes vers `archives/AAAA-MM-JJ.html`**
+   dans le corps de `index.html` (pas `suivi/*.html` ni
+   `hebdo/AAAA-MM-JJ.html` — ces pages restent hors scope, voir
+   `docs/strategie-anglais.md`).
+2. **Pour chaque édition citée, vérifier si `en/archives/AAAA-MM-JJ.html`
+   existe déjà.** Si oui, passer directement au point 4.
+3. **Si elle n'existe pas encore : la traduire d'abord**, en suivant
+   exactement les étapes 1 à 8 de ce document appliquées à cette
+   édition passée plutôt qu'à l'édition du jour (copier `archives/AAAA-
+   MM-JJ.html` vers `en/archives/AAAA-MM-JJ.html`, corriger les chemins
+   pour son niveau de profondeur — voir étape 4 plus bas, traduire tout
+   le contenu, ajouter le bouton de bascule de langue + `hreflang` sur
+   les deux fichiers FR et EN, ajouter l'entrée `sitemap.xml`). **Ne pas
+   suivre récursivement les liens internes de cet article traduit vers
+   une troisième édition** — un seul niveau de traduction déclenchée par
+   citation, pas une chaîne sans fin ; si cet article cité en cite
+   lui-même un autre, laisser ce lien tel quel vers le français pour
+   cette fois (à traiter, le cas échéant, le jour où cette édition plus
+   ancienne est elle-même citée directement par une nouvelle traduction).
+4. **Réécrire le lien dans `en/index.html` (et dans `en/archives/AAAA-
+   MM-JJ.html` une fois créé à l'étape 4 ci-dessous) pour qu'il pointe
+   vers `en/archives/{date citée}.html`.** Comme les deux fichiers
+   vivent dans le même dossier `en/archives/`, le lien entre eux est un
+   simple nom de fichier sans préfixe (`{date}.html`) — jamais un chemin
+   relatif vers le français. Depuis `en/index.html` (un niveau
+   au-dessus), le lien est `archives/{date}.html` (descend dans le
+   sous-dossier, pas de `../`).
+5. **Mettre à jour aussi tout flux qui cite cette édition** —
+   `en/feed-pub.xml` en particulier (catégorie `chiffre`, voir
+   `docs/routine-pub-prompt.md`) peut déjà contenir un `<link>` vers la
+   version française d'une édition qui vient d'être traduite : le
+   remplacer par l'équivalent `en/archives/...` dans ce cas.
+
 ## Étape 2 — Traduire le contenu
 
 Parcourir `en/index.html` section par section (balises `<head>` puis corps
@@ -313,6 +358,15 @@ après le commit de l'édition française du jour, jamais avant, jamais dans
 le même commit (même si ce commit-ci modifie aussi les deux fichiers
 français, ce sont des ajouts ciblés — bouton + `hreflang` —, jamais une
 réédition du contenu déjà publié).
+
+**Si l'étape 1bis a traduit une ou plusieurs éditions passées** (article
+cité par l'édition du jour, pas encore traduit) : inclure dans le même
+commit `en/archives/{date citée}.html` pour chacune, la retouche
+rétroactive de `archives/{date citée}.html` (bouton + `hreflang`), et
+toute entrée `en/feed-pub.xml`/`sitemap.xml` mise à jour en conséquence
+(étape 1bis, points 4-5). Toujours un seul commit `[en]` pour l'ensemble
+de la traduction du jour, articles cités compris — jamais un commit par
+article traduit.
 
 ## Étape 9 — Résumé final
 
