@@ -1687,3 +1687,106 @@ de départ du tableau d'indicateurs (45 %, avril 2026) sert de référence aux
 probable, 45 %) décrit peut-être un état déjà largement atteint plutôt
 qu'une trajectoire encore incertaine. À réévaluer par la rédaction, pas par
 cette correction ponctuelle.
+
+---
+
+## 2026-08-29 — Le cinéma en salle peut-il continuer de résister à la pression du streaming ?
+**Vérifié** : cohérence interne (probabilités 30+45+25=100 %, `data-france-
+impact`/`data-kind` vs texte `.france-line` sur les 3 cartes, présence des
+classes CSS attendues dans `<style>` dont `.delta-france`/`.delta-gauge*`/
+`.delta-word`/`.delta-flag` — bloc canonique conforme mot pour mot à la
+référence de `docs/routine-inspection-prompt.md` — et intégrité du
+dégradé SVG à 3 stops + `data-score`), sync `index.html` vs
+`archives/2026-08-29.html` (seuls écarts : chemins relatifs internes et
+`og:url`/`mainEntityOfPage`, légitimes), lexique (4 `.lex-ref` ↔ 4 entrées,
+aucun terme orphelin dans un sens ou l'autre), label brut favorable/stable/
+dégradé absent des 4 paragraphes `.essentiel-text`, formulation "Notre
+évaluation de l'impact pour la France" intacte partout (aucune occurrence
+raccourcie en "France Impact :"), absence de tutoiement hors `.share-block`
+(grep ciblé), les 2 indicateurs `.evo-current` des 3 cartes de scénario
+(box-office mondial, fenêtre d'exclusivité) tous distincts deux à deux —
+aucun doublon complet, image de l'article et du feed (`assets/social/
+topic-images/2026-08-29.jpg` 1080×1080, `-wide.jpg` 1600×900, `assets/
+social/instagram/2026-08-29.png` 1080×1080 pour og:image/twitter:image/
+JSON-LD) présentes, format réel conforme à l'extension (`file`), toutes
+les références cohérentes entre `index.html` et l'archive, style des
+paragraphes `.dek`/`.why`/`.essentiel-text` (3 phrases > 45 mots réécrites,
+voir ci-dessous), 4 chiffres structurants vérifiés contre les sources
+citées (34,7 Md$ box-office 2026, fenêtre de 45 jours et l'annonce
+Universal "sept week-ends/~49 jours dès 2027", 32 %/16 % AP-NORC
+streaming vs salle, dette AMC/refinancement 2029).
+**Corrigé automatiquement** : rien côté faits/attributs — seules les 3
+réécritures de clarté ci-dessous (point 8).
+**Réécritures de clarté** (avant/après complet pour chacune, plafond 3/3
+atteint) :
+- Avant : « AMC, le premier exploitant mondial, portait encore près de 4
+  milliards de dollars de dette fin 2025 ; la chaîne a depuis refinancé une
+  partie de cette dette et repoussé ses prochaines échéances à 2029, portée
+  par des revenus et un excédent brut d'exploitation record au deuxième
+  trimestre 2026. »
+  Après : « AMC, le premier exploitant mondial, portait encore près de 4
+  milliards de dollars de dette fin 2025. Depuis, la chaîne a refinancé une
+  partie de cette dette et repoussé ses prochaines échéances à 2029, portée
+  par des revenus et un excédent brut d'exploitation record au deuxième
+  trimestre 2026. »
+- Avant : « Selon une enquête du AP-NORC Center menée fin août 2025, 32 %
+  des adultes américains regardent un film récent en streaming au moins
+  une fois par mois, contre seulement 16 % qui vont au cinéma avec cette
+  fréquence — les adultes de moins de 45 ans font les deux plus souvent
+  que leurs aînés, sans pour autant délaisser les salles. »
+  Après : « Selon une enquête du AP-NORC Center menée fin août 2025, 32 %
+  des adultes américains regardent un film récent en streaming au moins
+  une fois par mois, contre seulement 16 % qui vont au cinéma avec cette
+  fréquence. Les adultes de moins de 45 ans font les deux plus souvent que
+  leurs aînés, sans pour autant délaisser les salles. »
+- Avant : « Ce mouvement mondial se retrouve aussi en France, où 2026
+  s'annonce comme la meilleure année en salle depuis 2019 : la fédération
+  des exploitants (FNCF) projette 190 millions d'entrées sur l'année,
+  contre 156,8 millions en 2025 — un rebond qu'on avait déjà vu se
+  dessiner cet été, voir [lien archive du 8 août] et [lien page de suivi
+  cinéma français]. »
+  Après : « Ce mouvement mondial se retrouve aussi en France, où 2026
+  s'annonce comme la meilleure année en salle depuis 2019 : la fédération
+  des exploitants (FNCF) projette 190 millions d'entrées sur l'année,
+  contre 156,8 millions en 2025. C'est un rebond qu'on avait déjà vu se
+  dessiner cet été, voir [lien archive du 8 août] et [lien page de suivi
+  cinéma français]. »
+  (Autres candidats repérés mais non retenus, en dessous du plafond de 3 :
+  la phrase "Voilà pourquoi ce sujet se prête à trois scénarios chiffrés..."
+  du même `.dek` et la phrase d'ouverture du scénario "stable" dans `.why`,
+  toutes deux > 45 mots mais construites en énumération parallèle claire
+  malgré la longueur — jugées lisibles telles quelles, pas retravaillées.)
+**Signalé pour revue humaine** :
+1. Écart chiffre/source — l'article affirme (`.essentiel-text` "Signal à
+   surveiller", `.list-box` Universal, et le `.why` des scénarios
+   favorable/stable) qu'Universal, déjà à 45 jours d'exclusivité
+   actuellement, prévoit de passer à "sept week-ends d'exclusivité
+   (environ 49 jours) dès 2027". La source citée pour cette partie de
+   l'article (The Wrap, https://www.thewrap.com/creative-content/movies/
+   theatrical-windows-box-office-45-days/, vérifiée par `WebFetch`) décrit
+   au contraire Universal remplaçant sa fenêtre de 17 jours par une fenêtre
+   de **45 jours à partir de 2027** — aucune mention d'un passage à sept
+   week-ends ni d'~49 jours n'a été trouvée dans cette source (recherche
+   ciblée sur ces termes, réponse négative explicite). Soit la source du
+   chiffre "49 jours" est ailleurs et non citée dans la section sources
+   de l'édition, soit le chiffre est à vérifier/corriger côté rédaction —
+   ce n'est pas mécanique, l'inspecteur ne tranche pas. Ce chiffre porte
+   la mention "Signal à surveiller" de L'essentiel, donc probablement déjà
+   diffusé sur les réseaux sociaux/newsletter avant ce passage (voir
+   "Limite à connaître" du prompt) — une correction ne rattraperait que le
+   site pour les lecteurs suivants, pas les canaux déjà envoyés.
+2. Source non re-vérifiable — Screen Daily (34,7 Md$ box-office 2026,
+   https://www.screendaily.com/news/gower-street-decreases-2026-global-
+   box-office-forecast-to-347bn/5215572.article) : `WebFetch` renvoie
+   HTTP 405 Method Not Allowed. Chiffre non comparé à sa source ce
+   passage-ci.
+3. Source non re-vérifiable — The Hollywood Reporter (dette AMC ~4 Md$
+   fin 2025, refinancement 2029, https://www.hollywoodreporter.com/
+   business/business-news/amc-theatres-refinancing-deal-2029-1235954760/) :
+   redirection 307 vers `tollbit.hollywoodreporter.com`, puis HTTP 402
+   Payment Required (paywall) sur l'URL redirigée. Chiffre non comparé à
+   sa source ce passage-ci.
+   (Chiffre AP-NORC 32 %/16 % : vérifié, conforme à la source. Plafond de
+   5 appels `WebFetch` légèrement dépassé — 6 appels au total pour
+   traiter ces 4 chiffres, dont 2 tentatives sur des redirections/reformu-
+   lations de la même URL — à discipliner davantage au prochain passage.)
