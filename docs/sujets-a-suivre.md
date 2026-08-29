@@ -94,15 +94,22 @@ mériter une page de suivi ou une mise à jour.
 
 - **Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ?**
   (édition du 30 juillet 2026)
-  Suivi existant : `suivi/arabie-saoudite-sport.html` (V0 + V1 au 15
-  août, publiée automatiquement par la routine de détection — écart de
-  +20 points sur le scénario favorable). Prochaine échéance connue :
-  clôture visée en septembre 2026 pour l'accord LIV Golf avec son
-  nouvel investisseur principal (identité et montant encore non
-  divulgués à ce stade). À surveiller aussi : toute clarification
-  officielle du PIF sur le reste de son portefeuille sportif (boxe,
-  MMA, F1, Newcastle United).
-  Dernière vérification : 15 août 2026 (V1).
+  Suivi existant : `suivi/arabie-saoudite-sport.html` (V0 + V1 au 15 août
+  + V2 au 29 août, publiée automatiquement par la routine de détection —
+  écart de -20 points sur le scénario favorable, +22 points sur le
+  dégradé). V2 intègre la dégradation financière sévère de LIV Golf
+  depuis la mi-août malgré l'accord d'investisseur du 5 août : dotation
+  de la finale de saison divisée par deux, joueurs non payés à
+  Bedminster, licenciements massifs, quatre poursuites de prestataires
+  impayés, et un PDG (Scott O'Neil) qui n'exclut plus la faillite.
+  Prochaine échéance connue : clôture visée en septembre 2026 pour
+  l'accord LIV Golf avec son nouvel investisseur principal (identité
+  rapportée par la presse — Ted Goldthorpe/BC Partners — mais toujours
+  non confirmée officiellement par LIV). À surveiller aussi : l'issue
+  des quatre poursuites en cours, tout dépôt de bilan, et toute
+  clarification officielle du PIF sur le reste de son portefeuille
+  sportif (boxe, MMA, F1, Newcastle United).
+  Dernière vérification : 29 août 2026 (V2).
 
 - **Ceuta : la frontière qui a craqué** (édition du 3 août 2026)
   Suivi existant : `suivi/ceuta-schengen.html` (V0 + V1 au 27 août,

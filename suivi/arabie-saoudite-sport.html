@@ -391,6 +391,44 @@
       </div>
     </div>
 
+    <div class="version is-update">
+      <div class="version-head">
+        <span class="version-tag">V2 — Mise à jour</span>
+        <span class="version-date">29 août 2026</span>
+        <button type="button" class="version-toggle" aria-expanded="false" aria-controls="version-content-v2">Détails <span class="version-toggle-icon" aria-hidden="true">▾</span></button>
+      </div>
+      <div class="version-content" id="version-content-v2">
+        <div class="version-content-inner">
+        <h2 class="version-title">LIV Golf licencie en masse et n'exclut plus la faillite, malgré l'accord d'investisseur</h2>
+        <div class="version-body">
+        <p>Coup dur pour le scénario optimiste de V1 : malgré l'accord trouvé le 5 août avec un nouvel investisseur principal, LIV Golf traverse depuis la mi-août une passe financière sévère. La dotation de sa finale de saison a été divisée par deux (20 M$ → 10,1 M$ le 18 août), des joueurs n'ont pas été payés à Bedminster, la ligue a licencié la majorité de ses salariés fin août, et quatre poursuites judiciaires de prestataires impayés (dont Fantasy Interactive, ~993 000 $) ont été déposées entre le 18 et le 28 août. Le PDG Scott O'Neil lui-même n'exclut plus l'option d'une faillite. Côté PIF, aucune clarification officielle nouvelle sur le reste de son portefeuille sportif (boxe, MMA, F1, Newcastle United) n'a été trouvée depuis le 15 août — le démenti d'Alalshikh cité en V1 reste la source la plus récente sur ce volet.</p>
+        <div class="mini-scenarios">
+          <div class="mini-scenario" data-kind="favorable">
+            <p class="mini-scenario-title">🎯 Le retrait se fait proprement</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">25%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. 45% en V1)</span></p>
+            <p class="mini-scenario-text">Recule fortement : malgré l'accord d'investisseur de début août, la dotation de la finale de saison a été divisée par deux et des joueurs restent impayés à Bedminster — la transition n'a plus rien de « propre ».</p>
+          </div>
+          <div class="mini-scenario" data-kind="stable">
+            <p class="mini-scenario-title">⚖️ Signaux contradictoires, flou permanent</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">33%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. 35% en V1)</span></p>
+            <p class="mini-scenario-text">Quasi stable : le flou persiste, mais pour d'autres raisons qu'en V1 — l'identité du nouvel investisseur (rapportée par la presse, non confirmée officiellement par LIV) et l'accord définitif restent en suspens à l'approche de la clôture visée en septembre.</p>
+          </div>
+          <div class="mini-scenario" data-kind="degrade">
+            <p class="mini-scenario-title">🔥 Le calendrier serré ne tient pas</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">42%</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">(vs. 20% en V1)</span></p>
+            <p class="mini-scenario-text">Bondit : quatre poursuites de prestataires impayés, licenciement de la majorité des salariés et un PDG qui n'exclut plus la faillite — exactement le scénario d'urgence que V1 jugeait le moins probable.</p>
+          </div>
+        </div>
+        <div class="conclusion">
+          <span class="conclusion-label">Conclusion vs V1</span>
+          <p><strong>LIV Golf licencie la majorité de son personnel et n'exclut plus la faillite, le calendrier serré ne tient pas +22 points (42%)</strong> — l'accord d'investisseur annoncé le 5 août n'a pas empêché une dégradation financière sévère depuis la mi-août : dotation de la finale de saison divisée par deux, joueurs non payés à Bedminster, quatre poursuites de prestataires impayés et licenciements massifs, avec un PDG, Scott O'Neil, qui n'exclut plus l'option d'une faillite. Le retrait « propre » salué en V1 recule à 25% (-20 points) et se fait dépasser par ce scénario d'urgence.</p>
+        </div>
+        <p class="sources-note">Sources : <a href="https://www.espn.com/golf/story/_/id/49732918/liv-golf-scales-back-operations-eye-creating-liv-20" target="_blank" rel="noopener noreferrer">ESPN ↗</a>, <a href="https://golf.com/news/liv-golf-financial-woes-lawsuit/" target="_blank" rel="noopener noreferrer">GOLF.com ↗</a>, <a href="https://www.cnn.com/2026/08/26/sport/pga-tour-liv-golf-future" target="_blank" rel="noopener noreferrer">CNN ↗</a>, <a href="https://www.golfdigest.com/story/liv-golf-payouts-slash-lawsuit-payments-2026" target="_blank" rel="noopener noreferrer">Golf Digest ↗</a></p>
+        </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -443,7 +481,8 @@
   try{
     var evoData = [
       { label: "V0", date: "30 juil.", favorable: 25, stable: 45, degrade: 30 },
-      { label: "V1", date: "15 août", favorable: 45, stable: 35, degrade: 20 }
+      { label: "V1", date: "15 août", favorable: 45, stable: 35, degrade: 20 },
+      { label: "V2", date: "29 août", favorable: 25, stable: 33, degrade: 42 }
     ];
 
     (function renderEvoChart(){
