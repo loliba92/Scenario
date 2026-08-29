@@ -105,6 +105,15 @@ moins prioritaire).
     Streaming? » (2026-08-29), `en/index.html` +
     `archive-en/2026-08-29.html` + item `feed-en.xml`. Sert de validation
     du pipeline avant généralisation.
+  - **[FAIT le 29 août, même jour] Extension aux routines auxiliaires** :
+    `feed-pub-en.xml` (miroir anglais de `feed-pub.xml`, image régénérée
+    avec la même photo mais un gabarit anglais dédié
+    `pub-template-v{N}-*-en.html`) et `feed-suivi-en.xml` (miroir anglais
+    de `feed-suivi.xml`, même logique, `suivi-template-en.html`) — voir
+    `docs/routine-en-prompt.md` §§ « Traduction des posts pub » /
+    « Traduction des mises à jour de suivi ». **Glossaire en anglais
+    explicitement écarté** (retour utilisateur direct : « on ne fait pas
+    le glossaire en anglais »), voir `docs/strategie-anglais.md`.
 - **P3 — Déclinaison papier de Scénario, idée du 17 août.** Question posée
   par l'utilisateur : faut-il décliner Scénario en version papier, et si
   oui comment. Avis et stratégie détaillés dans

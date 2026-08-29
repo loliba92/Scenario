@@ -1,0 +1,131 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+    --stable: #6f8fae;
+    --favorable: #5e9c78;
+    --degrade: #bd6248;
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html,body{ width:1080px; height:1080px; }
+  body{ background: var(--ink); position:relative; overflow:hidden; }
+
+  .photo-bg{
+    position:absolute; inset:0;
+    background-image:url(__PHOTO_SRC__);
+    background-size:cover; background-position:center;
+  }
+  /* Voile propre au suivi, plus marqué que le gabarit pub v4 — retour
+     utilisateur du 14 août : contrairement à pub (validé tel quel), le
+     suivi porte un paragraphe entier (conclusion), pas une phrase
+     courte, et a besoin d'un vrai dégradé noir en haut (logo + pastille)
+     et d'un assombrissement plus général pour que le texte ressorte.
+     **Renforcé une 2e fois le 14 août** (retour : "plus de dégradé
+     encore plus, il faut qu'on voit bien Scénario logo") — la zone haute
+     passe de 0.58 à 0.78 et s'étend plus loin (0-24% au lieu de 0-18%)
+     avant la fenêtre claire, pour que le logo/mot "Scénario" ressorte
+     nettement quelle que soit la photo, pas seulement lisible de justesse. */
+  /* [3e renfort, 14 août] "le logo doit quasiment être sur un fond
+     noir" — bande du haut quasi opaque (0.97) sur 0-16%, plus un vrai
+     plateau (pas juste un pic ponctuel) pour que le logo entier (svg +
+     mot + pastille) repose sur du noir, pas sur un dégradé encore
+     translucide à son niveau. */
+  .scrim{
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(16,21,28,0.97) 0%, rgba(16,21,28,0.97) 16%, rgba(16,21,28,0.34) 30%, rgba(16,21,28,0.38) 42%, rgba(16,21,28,0.65) 56%, rgba(16,21,28,0.96) 100%);
+  }
+  .tint{ position:absolute; inset:0; mix-blend-mode: color; background: var(--gold); opacity:0.18; }
+
+  .frame{ position:absolute; inset:36px; border: 2px solid rgba(236,231,218,0.22); z-index:1; pointer-events:none; }
+
+  .content{
+    position:relative; z-index:2;
+    width:100%; height:100%;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    font-family: "JetBrains Mono", monospace;
+    padding: 80px 92px 88px;
+  }
+
+  /* Même taille que instagram-template.html (78px/58px) — retour
+     utilisateur du 14 août : le logo de ce gabarit doit matcher celui
+     du daily, pas rester une taille à part. */
+  .masthead{ display:flex; align-items:center; gap:16px; position:absolute; top:48px; left:80px; z-index:2; }
+  .masthead svg{ width:78px; height:78px; filter: drop-shadow(0 2px 10px rgba(16,21,28,0.55)); }
+  /* Même ombre portée que pub-template-v4-hybride.html, ajoutée le
+     14 août : garantit le contraste du logo indépendamment de la
+     luminosité de la photo (ex. ciel clair), sans revenir à un voile
+     plus lourd. */
+  .masthead .word{ font-family:"Fraunces", serif; font-weight:700; font-size:58px; color: var(--paper); text-shadow: 0 2px 10px rgba(16,21,28,0.55); }
+  .masthead .word .rio{ color: var(--gold); }
+
+  /* Pastille "mise à jour" — même recette que .eyebrow sur le gabarit
+     pub/daily (JetBrains Mono, fond plein, coins arrondis), reprise du
+     retour utilisateur du 14 août ("mettre un petit tag mise à jour"). */
+  .eyebrow{
+    display:inline-block; align-self:flex-start;
+    font-family:"JetBrains Mono", monospace; font-weight:700; font-size: 24px;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink);
+    background: var(--gold); border-radius: 40px; padding: 10px 26px;
+    margin-bottom: 32px;
+  }
+
+  /* Taille remontée le 14 août (retour utilisateur : "un peu plus gros") */
+  .topic{
+    font-family:"Fraunces", serif; font-weight:900; font-size: 66px; line-height:1.1;
+    letter-spacing:-0.015em; color: var(--paper); max-width: 900px; margin-bottom: 6px;
+  }
+
+  /* La conclusion (texte déjà écrit dans feed-suivi.xml <comments>) est
+     une phrase complète, pas un titre court comme sur le gabarit pub —
+     Inter plutôt que Fraunces, taille plus modeste pour rester lisible
+     sur 3-4 lignes. */
+  .conclusion{
+    font-family:"Inter", sans-serif; font-weight:600; font-size: 40px; line-height:1.35;
+    color: var(--paper); max-width: 880px; margin-top: 22px;
+  }
+
+  .footer{
+    display:flex; align-items:baseline; gap:14px; font-size:22px;
+    letter-spacing:0.08em; text-transform:uppercase; margin-top:44px;
+  }
+  .footer .tagline{ color: var(--gold); font-weight:700; }
+  .footer .sep{ color: var(--paper-dim); opacity:.5; }
+  .footer .url{ color: var(--paper-dim); text-transform: lowercase; }
+</style></head>
+<body>
+  <div class="photo-bg"></div>
+  <div class="tint"></div>
+  <div class="scrim"></div>
+  <div class="frame"></div>
+  <div class="content">
+    <div class="masthead">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M57,96 L57,70 Q57,65 60,63" stroke="#cf9d4c"/>
+        <path d="M63,96 L63,70 Q63,65 60,63" stroke="#cf9d4c"/>
+        <path d="M60,63 L60,55" stroke="#cf9d4c"/>
+        <path d="M60,55 L60,31" stroke="#6f8fae"/>
+        <path d="M55.8,38.9 L60,31 L64.2,38.9" stroke="#6f8fae"/>
+        <path d="M60,63 L53.4,56.9" stroke="#cf9d4c"/>
+        <path d="M53.4,56.9 L34,39" stroke="#5e9c78"/>
+        <path d="M36.97,47.5 L34,39 L42.69,41.3" stroke="#5e9c78"/>
+        <path d="M60,63 L66.6,56.9" stroke="#cf9d4c"/>
+        <path d="M66.6,56.9 L86,39" stroke="#bd6248"/>
+        <path d="M83.03,47.5 L86,39 L77.31,41.3" stroke="#bd6248"/>
+      </svg>
+      <div class="word">Scéna<span class="rio">rio</span></div>
+    </div>
+
+    <div class="eyebrow">🔄 Update</div>
+    <div class="topic">__TOPIC__</div>
+    <div class="conclusion">__CONCLUSION__</div>
+
+    <div class="footer"><span class="tagline">The future in 3 scenarios</span><span class="sep">·</span><span class="url">lesscenarios.fr</span></div>
+  </div>
+</body></html>

@@ -70,14 +70,49 @@ tout en testant l'hypothèse d'audience avant d'investir dans un pipeline
 
 - Pas de traduction rétroactive des éditions passées — seule l'édition du
   jour de bascule (29 août 2026) a été traduite pour valider le pipeline.
+- **Pas de glossaire en anglais — confirmé explicitement par l'utilisateur
+  le 29 août** (« on n'a pas pensé au glossaire en anglais pour l'instant
+  on ne fait pas le glossaire en anglais »). `glossaire.html` n'est pas
+  traduit ; le lien « Glossary » de `en/index.html` continue de pointer
+  vers la page française. Ne pas improviser de traduction ad hoc des
+  termes du lexique ailleurs sur le site anglais.
 - Pas de compte Telegram/X/Instagram anglophone dédié, pas de diffusion
   Make.com vers des canaux anglais — la diffusion reste à définir une fois
   le format validé (voir « Prochaine étape »).
-- Pas de traduction des pages `suivi/`, `hebdo/`, `glossaire.html`,
-  `le-projet.html`.
+- Pas de traduction des pages `suivi/*.html` elles-mêmes, `hebdo/`,
+  `glossaire.html`, `le-projet.html` — seules les **annonces** de mise à
+  jour (`feed-suivi-en.xml`) sont traduites depuis le 29 août, pas les
+  pages de suivi vers lesquelles elles renvoient (voir section suivante).
 - Pas de version anglaise du compte OneSignal (le bouton de notification
   reste branché sur le même `appId`, donc sur la même liste d'abonnés que
   la version française).
+
+## Extension du 29 août : posts pub et mises à jour de suivi
+
+Suite directe du MVP ci-dessus, même jour, retour utilisateur : « les pub
+il faudrait aussi faire feed-pub-en avec la même image mais traduit en
+anglais [...] et les mise à jour pareil je pense avec un feed adapté en
+anglais ». Même principe que l'édition quotidienne (traduction, jamais
+rédaction indépendante) étendu aux deux routines auxiliaires :
+
+- **`feed-pub-en.xml`** — miroir anglais de `feed-pub.xml`. Chaque post
+  (manifeste/citation/question/futur/chiffre) est traduit, et son image
+  régénérée avec **la même photo** que la version française mais un
+  gabarit anglais dédié (`scripts/social/pub-template-v{N}-*-en.html`,
+  simple copie du gabarit français avec le bandeau bas de page traduit —
+  aucune autre différence). Images stockées dans
+  `assets/social/pub-en/`. Procédure : `docs/routine-en-prompt.md` §
+  « Traduction des posts pub ».
+- **`feed-suivi-en.xml`** — miroir anglais de `feed-suivi.xml` (annonces
+  de mise à jour, pas les pages `suivi/*.html` elles-mêmes — voir
+  ci-dessus). Même logique : image régénérée avec la même photo source et
+  un gabarit anglais dédié (`scripts/social/suivi-template-en.html`),
+  stockée dans `assets/social/suivi-en/`. Le lien de l'item continue de
+  pointer vers la page de suivi française (non traduite) — limite connue,
+  cohérente avec le reste du MVP.
+- **Première paire d'items traduits** (29 août, validation du mécanisme) :
+  le post « chiffre » du jour (quota chinois de films, `feed-pub.xml`) et
+  la mise à jour Arabie saoudite/sport V2 (`feed-suivi.xml`).
 
 ## Routine de production — première version (29 août)
 

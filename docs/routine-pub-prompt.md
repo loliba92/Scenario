@@ -406,6 +406,23 @@ du 25 août) et corriger avant de relancer la validation. Un
 `xmllint --noout feed-pub.xml` qui passe **ne suffit pas** à lui seul —
 il ne détecte pas ce type d'erreur, voir l'incident ci-dessus.
 
+## Étape 4bis — Miroir anglais dans `feed-pub-en.xml` [AJOUTÉ le 29 août 2026]
+
+Une fois l'item français ajouté à `feed-pub.xml` (étape 4) : traduire
+`eyebrow`/`message`/`attribution`/`cta` (et `stat` pour la catégorie
+`chiffre`) et ajouter l'item correspondant à `feed-pub-en.xml` (`<guid>` =
+`scenario-pub-en-{id-entrée}-{AAAA-MM-JJ}`, `<link>` selon la même règle
+par catégorie que l'étape 4 — vers la page française si elle n'a pas
+d'équivalent anglais, ce qui est le cas de la plupart des cibles à ce
+stade). Régénérer l'image avec la même photo mais le gabarit anglais
+(`scripts/social/pub-template-v4-hybride-en.html` ou `scripts/social/
+pub-template-v5-stat-en.html` selon la catégorie, jamais les gabarits
+français — seule différence : le bandeau « Le futur en 3 scénarios » /
+« 🔄 Suivi mis à jour » traduit en dur, tout le reste identique), sortie
+dans `assets/social/pub-en/{AAAA-MM-JJ}.png`. Procédure complète :
+`docs/routine-en-prompt.md` § « Traduction des posts pub ». Toujours après
+l'item français, jamais avant, jamais dans le même commit.
+
 ## Étape 5 — Résumé final
 
 Toujours terminer par un message court et explicite :

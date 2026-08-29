@@ -10,6 +10,26 @@ jamais avant ni en parallèle. Ce fichier est la copie de référence de cette
 `docs/strategie-anglais.md` pour le cadrage stratégique complet (pourquoi
 une traduction et pas une rédaction indépendante, ce qui est hors scope).
 
+**Étendu le 29 août 2026 aux deux routines auxiliaires** — retour
+utilisateur : « les pub il faudrait aussi faire feed-pub-en... et les mise
+à jour pareil ». Ce fichier couvre donc trois miroirs anglais distincts,
+chacun appelé depuis la routine française correspondante :
+1. **Édition quotidienne** (ci-dessous) — appelée depuis `docs/routine-
+   prompt.md`, étape 13.
+2. **Posts pub** (§ « Traduction des posts pub » en bas de ce fichier) —
+   appelée depuis `docs/routine-pub-prompt.md`, étape 4bis.
+3. **Mises à jour de suivi** (§ « Traduction des mises à jour de suivi »
+   en bas de ce fichier) — appelée depuis `docs/routine-detection-
+   prompt.md`, point 4.
+
+**Explicitement hors scope, confirmé le 29 août 2026 : pas de glossaire en
+anglais.** Retour utilisateur direct : « on n'a pas pensé au glossaire en
+anglais pour l'instant on ne fait pas le glossaire en anglais » — ne pas
+traduire `glossaire.html`, ni improviser une traduction ad hoc des termes
+du lexique dans les pages traduites. `en/index.html` continue de pointer
+son lien « Glossary » vers la page française existante (`../glossaire.
+html`), comme documenté dans `docs/strategie-anglais.md`.
+
 **Principe non négociable : traduire, jamais rerédiger.** Cette routine ne
 fait aucune recherche, ne choisit aucun nouveau chiffre, ne réévalue aucune
 probabilité et n'invente aucun titre de scénario — elle reprend
@@ -230,3 +250,96 @@ Toujours terminer par un message court et explicite : édition traduite
 traduction (ex. une expression française sans équivalent direct, un choix
 de formulation ambigu tranché à la volée) — pour que l'utilisateur puisse
 relire ces points en particulier plutôt que la traduction complète.
+
+---
+
+## Traduction des posts pub
+
+Appelée depuis `docs/routine-pub-prompt.md`, étape 4bis, une fois l'item
+français ajouté à `feed-pub.xml`. Même principe non négociable qu'en tête
+de ce fichier : traduire les champs déjà rédigés, jamais en composer de
+nouveaux.
+
+1. **Traduire les champs texte** de l'entrée utilisée
+   (`eyebrow`/`message`/`attribution`/`cta`, et `stat` pour la catégorie
+   `chiffre` — le chiffre lui-même ne change jamais, seule son unité si
+   nécessaire). Le `message` garde son balisage `**mot**` (mise en
+   évidence) exactement aux mêmes endroits sémantiques que la version
+   française, pas nécessairement à la même position littérale dans la
+   phrase (l'ordre des mots change en anglais).
+2. **Gabarit anglais dédié, jamais le gabarit français.** Chaque template
+   `scripts/social/pub-template-v{N}-*.html` a un jumeau `-en.html` (ex.
+   `pub-template-v5-stat-en.html`) — copie exacte sauf le bandeau bas de
+   page « Le futur en 3 scénarios » → « The future in 3 scenarios »,
+   seule chaîne du template non passée en paramètre. Si un nouveau
+   gabarit `pub-template-vN-*.html` est créé côté français sans jumeau
+   `-en.html` : le dupliquer avec cette même unique traduction avant de
+   l'utiliser ici, jamais improviser une image sans l'équivalent anglais
+   du bandeau.
+3. **Régénérer l'image, même photo, gabarit anglais** :
+   ```
+   python3 scripts/social/generate_pub_image.py \
+     --data {json temporaire, champs traduits} \
+     --output assets/social/pub-en/{AAAA-MM-JJ}.png \
+     --template scripts/social/pub-template-v{N}-*-en.html \
+     --photo {exactement la même photo qu'à l'étape 2/3 de la routine française}
+   ```
+4. **Ajouter l'item à `feed-pub-en.xml`** — même structure que l'item
+   français ajouté à `feed-pub.xml` (voir `docs/routine-pub-prompt.md`,
+   étape 4, pour le détail complet du format), traduit :
+   - `<guid>` = `scenario-pub-en-{id-entrée}-{AAAA-MM-JJ}`.
+   - `<link>` : même règle par catégorie que la version française — la
+     page cible n'a pour l'instant presque jamais d'équivalent anglais
+     (seule exception à ce jour : la catégorie `chiffre`, si jamais elle
+     cite l'édition du 29 août ou une édition future traduite, doit
+     pointer vers `archive-en/{AAAA-MM-JJ}.html` plutôt que
+     `archives/{AAAA-MM-JJ}.html`) — sinon garder le lien français tel
+     quel, jamais un lien inventé.
+   - `<enclosure>` vers `https://lesscenarios.fr/assets/social/pub-en/
+     {AAAA-MM-JJ}.png`, taille réelle du fichier généré à l'étape 3.
+   - Le commentaire de crédit photo (`<!-- credit: ... -->`) reste
+     identique — même photographe, même photo.
+5. **Valider le XML avant de committer** — même garde-fou que
+   `docs/routine-pub-prompt.md`, étape 4 (CDATA mal fermé = item suivant
+   avalé silencieusement).
+
+## Traduction des mises à jour de suivi
+
+Appelée depuis `docs/routine-detection-prompt.md`, point 4, une fois
+l'item français ajouté à `feed-suivi.xml`. Même principe non négociable :
+traduire le topic/la conclusion/le paragraphe de contexte déjà rédigés,
+jamais réévaluer les scénarios ou reformuler le fond.
+
+1. **Traduire** `topic` (titre du sujet suivi) et `conclusion` (la phrase
+   qui démarre par le fait concret, jamais par l'étiquette de catégorie
+   brute ni le titre du scénario seul — même règle que la version
+   française, voir `docs/routine-detection-prompt.md` point 4) — et, pour
+   `feed-suivi-en.xml`, le paragraphe de contexte complet de la
+   `<description>`.
+2. **Gabarit anglais dédié** : `scripts/social/suivi-template-en.html`,
+   jumeau de `suivi-template.html` avec deux chaînes traduites en dur
+   (bandeau bas de page identique aux gabarits pub, et le tag « 🔄 Suivi
+   mis à jour » → « 🔄 Update »).
+3. **Régénérer l'image, même photo source, gabarit anglais** :
+   ```
+   python3 scripts/social/generate_suivi_image.py \
+     --data {topic+conclusion traduits} \
+     --output assets/social/suivi-en/{sujet}-v{N}.png \
+     --template scripts/social/suivi-template-en.html \
+     --photo assets/social/topic-images/suivi-{sujet}.jpg
+   ```
+   Si la routine française a omis `<enclosure>` faute de photo source
+   (voir `docs/routine-detection-prompt.md` point 52) : omettre aussi
+   l'image et l'`<enclosure>` côté anglais, jamais improviser une autre
+   photo.
+4. **Ajouter l'item à `feed-suivi-en.xml`** — même structure que l'item
+   français, traduite :
+   - `<guid>` = `scenario-suivi-en-{sujet}-v{N}`.
+   - `<link>` : reste vers la page `suivi/{sujet}.html` française (ancre
+     `#version-content-v{N}` incluse) — ces pages ne sont pas traduites,
+     voir `docs/strategie-anglais.md`. Un lecteur anglophone qui clique
+     retombe sur du français, limite connue et acceptée du MVP.
+   - `<enclosure>` vers `https://lesscenarios.fr/assets/social/suivi-en/
+     {sujet}-v{N}.png` (si générée à l'étape 3).
+5. **Valider le XML avant de committer**, même garde-fou qu'ailleurs dans
+   ce fichier.

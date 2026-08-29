@@ -1,0 +1,145 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+    /* Même orange que l'accent "chiffre" déjà défini dans
+       pub-template-v4-hybride.html (var(--degrade)) — cohérence de
+       couleur avec le reste du gabarit pub, même hors rotation photo.
+       Éclairci le 17 août (retour utilisateur : le ton d'origine,
+       #bd6248, manquait de contraste sur le fond déjà sombre — surtout
+       visible sur les photos claires où le chiffre géant se noyait
+       presque dans l'image). Contraste WCAG contre le fond sombre passé
+       de 4.4:1 à ~8:1. */
+    --stat: #ff8b5e;
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html,body{ width:1080px; height:1080px; }
+  body{
+    background: var(--ink);
+    position:relative;
+    overflow:hidden;
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  /* Fond photo ajouté le 15 août à la demande de l'utilisateur : le
+     post "chiffre" reprend la photo de l'édition source elle-même
+     (assets/social/topic-images/{date-édition}.jpg), pas une photo de
+     la banque générique — cohérence visuelle directe avec l'article
+     cité. Même structure photo-bg/scrim que pub-template-v4-hybride. */
+  .photo-bg{
+    position:absolute; inset:0;
+    background-image:url(__PHOTO_SRC__);
+    background-size:cover; background-position:center;
+  }
+  /* Voile renforcé le 21 août (retour utilisateur, analyse design vs
+     comptes concurrents), puis contenu recentré le même jour (2e retour :
+     "au milieu plutôt") — le bloc de texte peut donc retomber n'importe
+     où sur la hauteur selon la longueur du titre, le voile doit rester
+     assez soutenu partout plutôt que concentré sur un seul tiers.
+     Toujours plus sombre qu'avant le 21 août (0.58 de base) pour
+     garder le titre lisible même sur une photo chargée. */
+  .scrim{
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(16,21,28,0.32) 0%, rgba(16,21,28,0.58) 28%, rgba(16,21,28,0.86) 55%, rgba(16,21,28,0.93) 100%);
+  }
+  .tint{ position:absolute; inset:0; mix-blend-mode: color; background: var(--stat); opacity:0.1; }
+
+  .masthead{ display:flex; align-items:center; gap:16px; position:absolute; top:56px; left:88px; z-index:2; }
+  .masthead svg{ width:56px; height:56px; }
+  .masthead .word{ font-family:"Fraunces", serif; font-weight:700; font-size:40px; color: var(--paper); }
+  .masthead .word .rio{ color: var(--gold); }
+
+  /* Contenu recentré verticalement (retour utilisateur du 21 août,
+     après un premier essai avec le texte poussé en bas de cadre —
+     revenu à justify-content:center, titre agrandi pour plus d'impact).
+     Un seul bloc visuel : pastille + un unique titre qui porte le
+     chiffre en évidence (voir .headline ci-dessous, fusion de l'ancien
+     duo .stat + .message qui répétait deux fois le même chiffre).
+     Attribution et CTA retirés de l'image : ils restent dans la légende
+     du post (<comments> du flux, voir docs/routine-pub-prompt.md
+     étape 4) — l'image gagne en impact, rien n'est perdu côté lecteur
+     puisque la légende s'affiche sous le post sur toutes les
+     plateformes. */
+  .content{
+    position:relative;
+    width:100%; height:100%;
+    display:flex; flex-direction:column; justify-content:center; align-items:flex-start;
+    padding: 84px 92px 96px;
+  }
+
+  /* Pastille pleine, même traitement que les autres gabarits pub —
+     orange ici, couleur "chiffre" déjà réservée dans v4-hybride. */
+  .eyebrow{
+    display:inline-block;
+    font-family:"JetBrains Mono", monospace; font-weight:700; font-size: 24px;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink);
+    background: var(--stat); border-radius: 40px; padding: 10px 26px;
+    margin-bottom: 32px;
+  }
+
+  /* Titre unique : la phrase d'origine, recopiée mot pour mot depuis
+     l'édition (même discipline que les citations : jamais reformulée),
+     avec le chiffre qu'elle contient mis en évidence par le script de
+     génération (voir generate_pub_image.py, surlignage automatique du
+     champ "stat" dans "message" pour ce gabarit — plus besoin de
+     marquer ** à la main). Remplace le duo .stat (chiffre géant seul)
+     + .message (phrase complète en dessous) du 15 août : les deux
+     affichaient le même chiffre deux fois, une redondance repérée en
+     comparant à des comptes qui font une seule accroche nette. */
+  .headline{
+    font-family:"Fraunces", serif; font-weight:700; font-size: 72px; line-height:1.14;
+    letter-spacing:-0.008em; color: var(--paper);
+    max-width: 880px;
+  }
+  /* Le chiffre lui-même : gras et en couleur, dans le flux naturel de
+     la phrase (pas isolé sur sa propre ligne — testé le 21 août, un
+     retour à la ligne forcé laissait des mots orphelins du type "à"
+     tout seuls juste avant, moins lisible qu'un simple contraste de
+     couleur/graisse au fil du texte). Un seul repère visuel fort par
+     image, jamais recalculé ni arrondi différemment. */
+  .headline .hl{ font-weight:900; color: var(--stat); }
+
+  .footer{
+    position:absolute; bottom:52px; left:92px;
+    display:flex; align-items:baseline; gap:14px; font-size:22px;
+    letter-spacing:0.08em; text-transform:uppercase;
+  }
+  .footer .tagline{ color: var(--gold); font-weight:700; }
+  .footer .sep{ color: var(--paper-dim); opacity:.5; }
+  .footer .url{ color: var(--paper-dim); text-transform: lowercase; }
+</style></head>
+<body>
+  <div class="photo-bg"></div>
+  <div class="scrim"></div>
+  <div class="tint"></div>
+  <div class="masthead">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M57,96 L57,70 Q57,65 60,63" stroke="#cf9d4c"/>
+      <path d="M63,96 L63,70 Q63,65 60,63" stroke="#cf9d4c"/>
+      <path d="M60,63 L60,55" stroke="#cf9d4c"/>
+      <path d="M60,55 L60,31" stroke="#6f8fae"/>
+      <path d="M55.8,38.9 L60,31 L64.2,38.9" stroke="#6f8fae"/>
+      <path d="M60,63 L53.4,56.9" stroke="#cf9d4c"/>
+      <path d="M53.4,56.9 L34,39" stroke="#5e9c78"/>
+      <path d="M36.97,47.5 L34,39 L42.69,41.3" stroke="#5e9c78"/>
+      <path d="M60,63 L66.6,56.9" stroke="#cf9d4c"/>
+      <path d="M66.6,56.9 L86,39" stroke="#bd6248"/>
+      <path d="M83.03,47.5 L86,39 L77.31,41.3" stroke="#bd6248"/>
+    </svg>
+    <div class="word">Scéna<span class="rio">rio</span></div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">__EYEBROW__</div>
+    <div class="headline">__MESSAGE__</div>
+  </div>
+
+  <div class="footer"><span class="tagline">The future in 3 scenarios</span><span class="sep">·</span><span class="url">lesscenarios.fr</span></div>
+</body></html>
