@@ -29,18 +29,24 @@ moins prioritaire).
   intégrations (cohérent avec le choix déjà fait pour le push le 23
   août — voir plus bas, « Retiré le 23 août »).
 
-  Pas encore cadré techniquement, à vérifier avant de lancer :
-  - Confirmer les capacités et limites réelles du plan gratuit OneSignal
-    pour l'envoi d'e-mails (volume, domaine expéditeur, deliverabilité) —
-    l'affirmation « c'est gratuit » vient de l'utilisateur, à valider
-    côté OneSignal avant tout engagement.
+  **Deux points vérifiés côté utilisateur le 29 août, plus des blocants :**
+  - **Plan gratuit OneSignal, confirmé** : gratuit en dessous de 10 000
+    contacts. Base d'abonnés actuelle très réduite (« 3 pelés » — retour
+    utilisateur), largement sous le seuil : migration sans risque de
+    tomber sur un palier payant.
+  - **Migration des abonnés existants, confirmée possible** : OneSignal
+    accepte l'import de la liste de destinataires par CSV — export
+    Buttondown → import OneSignal, pas de réinscription à demander aux
+    abonnés actuels.
+
+  Reste à vérifier avant de lancer :
+  - Domaine expéditeur et deliverabilité réelle des e-mails OneSignal
+    (pas seulement le volume/prix) — non couvert par les deux points
+    ci-dessus.
   - Le contenu de l'email reprendrait la structure Question/Faits/
     Scénarios déjà en place dans la Description de `feed.xml` depuis le
     28 août (voir plus bas dans ce fichier), pas à reconstruire.
-  - **Migration des abonnés existants** : Buttondown et OneSignal ne
-    partagent pas la même base — il faudra exporter la liste Buttondown
-    et l'importer dans OneSignal (ou proposer une re-inscription), et
-    prévoir la bascule de `newsletter.html`/`confirmez-votre-email.html`/
+  - Prévoir la bascule de `newsletter.html`/`confirmez-votre-email.html`/
     `bienvenue.html` (aujourd'hui branchés sur le flux d'inscription
     Buttondown) vers le flux d'inscription e-mail OneSignal.
   - Décommissionner Buttondown seulement une fois la bascule confirmée
