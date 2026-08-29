@@ -145,15 +145,49 @@ existante (`docs/routine-prompt.md`). Le principe reste : traduire, jamais
 rerédiger indépendamment ; jamais publier l'anglais avant que le français
 soit validé et publié.
 
+## UX de bascule entre langues — ajouté le 29 août 2026
+
+Retour utilisateur : « il manque des trucs sur l'ux pour bien gérer
+français et anglais, français reste le prioritaire et défaut ». Première
+brique posée le jour même : un bouton `EN`/`FR` dans le masthead
+(`.masthead-lang-btn`, voir `docs/routine-en-prompt.md` § « Étape 4bis »)
+sur les quatre pages de l'édition traduite du jour, plus des balises
+`hreflang` (`fr`/`en`/`x-default` → toujours la version française) dans
+le `<head>` des quatre mêmes pages. **Français reste explicitement la
+langue par défaut** : pas de détection de langue navigateur, pas de
+redirection automatique — le bouton offre un accès direct, jamais un
+choix imposé.
+
+**Question ouverte, posée par l'utilisateur le 29 août, pas encore
+tranchée** : traduire aussi `le-projet.html` et les pages légales
+(`mentions-legales.html`, `politique-de-confidentialite.html`) en
+anglais, avec un bouton de bascule FR/EN dessus. Pas commencé — deux
+raisons de ne pas se lancer sans un go explicite :
+- **Sensibilité RGPD/juridique** des pages légales, déjà relevée dans une
+  discussion antérieure sur le sujet (voir `docs/BACKLOG.md`, ticket
+  anglais du 7 août archivé) : une traduction automatique de ce contenu
+  précis n'est pas un simple exercice de style, une imprécision peut avoir
+  une vraie conséquence juridique — mérite une relecture dédiée, pas le
+  même traitement que le contenu éditorial.
+- **`glossaire.html` reste explicitement hors scope** (voir plus haut) —
+  `le-projet.html` cite et s'appuie sur des termes du glossaire par
+  endroits ; le traduire sans le glossaire peut laisser des renvois
+  bancals à vérifier au cas par cas.
+Si l'utilisateur confirme vouloir avancer là-dessus : traiter dans une
+session dédiée, `le-projet.html` en premier (page la plus lue, explique le
+site), les deux pages légales ensuite avec une relecture spécifique,
+jamais les trois en un seul passage automatique.
+
 ## Prochaine étape (pas encore commencée)
 
 - Mesurer l'audience réelle sur `en/` et `en/feed.xml` sur plusieurs
   semaines avant d'investir davantage (traduire les pages statiques,
   ouvrir des canaux sociaux dédiés).
-- Si l'hypothèse se confirme : traduire `le-projet.html` et
-  `glossaire.html` en priorité (ce sont les deux pages qui expliquent le
-  site à un nouveau lecteur), puis seulement ensuite envisager des comptes
-  sociaux anglophones dédiés.
+- Si l'hypothèse se confirme : traduire `le-projet.html` en priorité
+  (page qui explique le site à un nouveau lecteur) — voir la question
+  ouverte juste au-dessus pour les pages légales, et le glossaire qui
+  reste hors scope. Envisager des comptes sociaux anglophones dédiés
+  seulement après.
 - Revoir la question de l'image sociale (texte en dur en français) si la
   diffusion sociale anglophone démarre.
 

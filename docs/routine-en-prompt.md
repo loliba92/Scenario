@@ -198,6 +198,59 @@ Puis, comme côté français :
    archive doit chercher `/en/archives/` dans `location.pathname`
    (cohérent avec l'étape 3, pas `/archive-en/`).
 
+## Étape 4bis — Bouton de bascule de langue + `hreflang` [AJOUTÉ le 29
+août 2026]
+
+Retour utilisateur : « il manque des trucs sur l'ux pour bien gérer
+français et anglais, français reste le prioritaire et défaut » — deux
+liens de bascule ajoutés à chaque édition traduite, jamais un simple lien
+vers l'accueil de l'autre langue. **Français reste la langue par défaut du
+site** : ce bouton n'existe que pour offrir un accès direct, jamais pour
+rediriger automatiquement un visiteur (pas de détection de langue
+navigateur, pas de redirection).
+
+1. **Ajouter `.masthead-lang-btn` dans `<div class="masthead-right">`,
+   avant le bouton notifications**, sur les **quatre** fichiers de
+   l'édition du jour (les deux français, retouchés rétroactivement — ils
+   ont été publiés avant que la traduction existe — et les deux anglais,
+   déjà en cours de création à cette étape) :
+   - `index.html` (racine) → lien vers `en/archives/{AAAA-MM-JJ}.html`,
+     libellé `EN`, `aria-label`/`title` = « Read this edition in English ».
+   - `archives/{AAAA-MM-JJ}.html` → lien vers
+     `../en/archives/{AAAA-MM-JJ}.html`, même libellé/attributs.
+   - `en/index.html` → lien vers `../index.html` (l'accueil français),
+     libellé `FR`, `aria-label`/`title` = « Lire en français ».
+   - `en/archives/{AAAA-MM-JJ}.html` → lien vers
+     `../../archives/{AAAA-MM-JJ}.html`, même libellé/attributs.
+   La classe CSS `.masthead-lang-btn` est déjà dans le `<style>` des
+   quatre fichiers (voir `docs/routine-prompt.md`, section « Icône
+   notifications dans le masthead ») — ne jamais la re-déclarer, seulement
+   ajouter le lien `<a>` lui-même s'il manque encore.
+2. **Ajouter les balises `hreflang` dans `<head>`, juste après
+   `<link rel="canonical">`**, sur les mêmes quatre fichiers :
+   ```html
+   <link rel="alternate" hreflang="fr" href="https://lesscenarios.fr/archives/{AAAA-MM-JJ}.html">
+   <link rel="alternate" hreflang="en" href="https://lesscenarios.fr/en/archives/{AAAA-MM-JJ}.html">
+   <link rel="alternate" hreflang="x-default" href="https://lesscenarios.fr/archives/{AAAA-MM-JJ}.html">
+   ```
+   Même trio sur les quatre fichiers (`index.html`/`archives/...` côté
+   français, `en/index.html`/`en/archives/...` côté anglais) — seul l'ordre
+   des deux premières lignes change selon la langue du fichier (celle du
+   fichier courant en premier n'a pas d'importance pour le SEO, mais reste
+   la convention adoptée le 29 août pour la lisibilité). `x-default`
+   pointe toujours vers la version française — **français reste la langue
+   par défaut du site**, jamais l'anglaise.
+3. **Vérifier l'équilibrage des balises** sur les quatre fichiers après
+   modification (même garde-fou qu'à l'étape 7 plus bas), puis valider
+   visuellement le masthead des quatre pages (capture Playwright ciblée
+   sur `header.masthead` suffit, pas besoin de la page entière).
+
+**Jours sans traduction (routine EN sautée ce jour-là)** : ne jamais
+ajouter ce bouton ni ces balises sur les pages françaises du jour — un
+lien vers une page anglaise qui n'existe pas casserait la navigation.
+Cette étape ne s'exécute que lorsque les étapes 1 à 4 ci-dessus ont
+effectivement produit une traduction ce jour-là.
+
 ## Étape 5 — Ajouter l'item à `en/feed.xml`
 
 Même structure que `feed.xml` (voir `docs/routine-prompt.md`, étape
@@ -252,11 +305,14 @@ la date du jour, et ajouter une nouvelle entrée pour
 ## Étape 8 — Commit et push
 
 Un seul commit couvrant `en/index.html`, `en/archives/AAAA-MM-JJ.html`,
-`en/feed.xml`, `sitemap.xml` (préfixe `[en]`), après `git fetch origin
-main` + rebase si des commits concurrents sont arrivés entre-temps —
-mêmes règles que les autres routines de ce projet. Toujours après le
-commit de l'édition française du jour, jamais avant, jamais dans le même
-commit.
+`en/feed.xml`, `sitemap.xml`, **et les retouches rétroactives de l'étape
+4bis sur `index.html`/`archives/AAAA-MM-JJ.html`** (préfixe `[en]`), après
+`git fetch origin main` + rebase si des commits concurrents sont arrivés
+entre-temps — mêmes règles que les autres routines de ce projet. Toujours
+après le commit de l'édition française du jour, jamais avant, jamais dans
+le même commit (même si ce commit-ci modifie aussi les deux fichiers
+français, ce sont des ajouts ciblés — bouton + `hreflang` —, jamais une
+réédition du contenu déjà publié).
 
 ## Étape 9 — Résumé final
 

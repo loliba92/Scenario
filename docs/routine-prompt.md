@@ -336,6 +336,8 @@ Public 15-35 ans en priorité sans exclure personne : phrases directes, comparai
    ```
    Icônes seules, **jamais de `.btn-label` sur ces boutons** — le script OneSignal boucle déjà sur tous les `.onesignal-subscribe-btn` de la page et écrit le retour d'état dans l'attribut `title` en plus du `.btn-label` (voir `onesignalSetLabel`), donc rien à adapter pour ce bouton. CSS `.masthead-right`/`.masthead-notif-btn` déjà dans le gabarit (même piège de recopie intégrale du `<style>` que les autres classes listées ci-dessous).
 
+   **[AJOUTÉ le 29 août 2026] Bouton de bascule de langue (`.masthead-lang-btn`) — CSS dans le gabarit, mais bouton ajouté seulement par la routine EN, jamais par cette routine.** La classe CSS `.masthead-lang-btn` (juste après `.masthead-notif-btn` dans le `<style>`) fait partie du gabarit à recopier comme le reste du `<style>` — mais **ne jamais ajouter le lien `<a class="masthead-lang-btn">` lui-même dans `.masthead-right` depuis cette routine** : au moment où cette routine publie `index.html`, la traduction anglaise du jour n'existe pas encore (elle est produite après, voir étape 13 plus bas), donc aucune cible valide vers laquelle pointer. C'est la routine EN (`docs/routine-en-prompt.md`) qui ajoute ce bouton rétroactivement sur `index.html` et `archives/{AAAA-MM-JJ}.html`, une fois la traduction publiée — jamais cette routine-ci.
+
    **Repositionnement de l'édition dans `.brand`, ajouté le 28 août [structure générale, même statut que `.top-updates`].** `.brand` passe en deux lignes : la première (`.brand-row`) porte logo + wordmark ; la seconde porte `.edition`, sortie de `.masthead-right` (qui ne contient plus que les deux boutons icône) :
    ```html
    <div class="brand">

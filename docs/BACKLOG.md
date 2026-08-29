@@ -114,6 +114,26 @@ moins prioritaire).
     « Traduction des mises à jour de suivi ». **Glossaire en anglais
     explicitement écarté** (retour utilisateur direct : « on ne fait pas
     le glossaire en anglais »), voir `docs/strategie-anglais.md`.
+  - **[FAIT le 29 août, même jour] Réarborescence sous `en/`** : retour
+    utilisateur (« archive-en à la racine, j'aurais mis plutôt dans le
+    folder en ») — `archive-en/` → `en/archives/`, `feed-en.xml` →
+    `en/feed.xml`, `feed-pub-en.xml` → `en/feed-pub.xml`,
+    `feed-suivi-en.xml` → `en/feed-suivi.xml`, `assets/social/pub-en/` →
+    `en/assets/social/pub/`, `assets/social/suivi-en/` →
+    `en/assets/social/suivi/`. Toute l'adresse d'une page anglaise est
+    désormais son équivalent français avec `en/` ajouté après le domaine.
+  - **[FAIT le 29 août, même jour] Bouton de bascule FR/EN + `hreflang`**
+    : retour utilisateur (« il manque des trucs sur l'ux pour bien gérer
+    français et anglais, français reste le prioritaire et défaut ») —
+    `.masthead-lang-btn` (EN sur les pages françaises, FR sur les pages
+    anglaises) ajouté sur les 4 fichiers de l'édition traduite du jour +
+    balises `hreflang` (`x-default` toujours vers le français). Détail :
+    `docs/routine-en-prompt.md` § « Étape 4bis ». **Question ouverte, pas
+    tranchée** : traduire aussi `le-projet.html` et les pages légales
+    (mentions légales, confidentialité) avec ce même bouton — voir
+    `docs/strategie-anglais.md` § « UX de bascule entre langues » pour les
+    deux réserves (sensibilité RGPD/juridique, dépendance au glossaire
+    resté hors scope) avant de s'y lancer.
 - **P3 — Déclinaison papier de Scénario, idée du 17 août.** Question posée
   par l'utilisateur : faut-il décliner Scénario en version papier, et si
   oui comment. Avis et stratégie détaillés dans
