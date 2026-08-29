@@ -13,12 +13,19 @@ moins prioritaire).
 - **P3 — En standby [dépriorisé le 29 août, retour utilisateur : « pour
   l'instant standby »] — Migrer la newsletter email de Buttondown vers
   OneSignal, idée du 29 août.** **Bloquant identifié le même jour :
-  forfait Buttondown déjà payé pour 12 mois** — pas d'intérêt à migrer
-  tant que ce forfait n'est pas arrivé à échéance ; passé de P2 à P3 et
-  gelé pour ce motif, pas par manque d'intérêt. Ne pas relancer de
-  son propre chef — attendre soit l'échéance du forfait, soit un retour
-  utilisateur explicite. Reste ci-dessous, cadré et prêt à reprendre
-  (deux points déjà vérifiés) quand le moment sera venu.
+  forfait Buttondown déjà payé jusqu'au 29 juillet 2027** — pas d'intérêt
+  à migrer tant que ce forfait n'est pas arrivé à échéance ; passé de P2
+  à P3 et gelé pour ce motif, pas par manque d'intérêt. Ne pas relancer
+  de son propre chef avant cette date — sauf retour utilisateur explicite
+  entre-temps. Reste ci-dessous, cadré et prêt à reprendre (deux points
+  déjà vérifiés) quand le moment sera venu.
+
+  **Échéance à retenir : reprendre ce ticket en avril-mai 2027 au plus
+  tard** (retour utilisateur du 29 août), pour laisser assez de marge
+  avant l'échéance du 29 juillet 2027 — export CSV Buttondown, import
+  OneSignal, bascule des pages d'inscription et double-run de
+  vérification avant de couper Buttondown, sans se retrouver à tout
+  faire dans l'urgence des derniers jours du forfait.
 
   Constat utilisateur : Buttondown est payant (déjà noté
   plus bas dans ce fichier, section RSS-to-email), OneSignal permet
