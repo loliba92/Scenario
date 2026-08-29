@@ -22,21 +22,33 @@ tout en testant l'hypothèse d'audience avant d'investir dans un pipeline
 - **Mécanisme** : traduction, pas duplication du travail éditorial. La
   version anglaise n'existe que parce que la version française existe déjà
   — elle est produite après elle, à partir d'elle, jamais en parallèle.
-- **Arborescence** : `en/index.html` (édition du jour en anglais, miroir de
-  `index.html`) + `archive-en/AAAA-MM-JJ.html` (archive, miroir de
-  `archives/AAAA-MM-JJ.html`) — même relation à deux niveaux que la version
-  française (`index.html` → `archives/AAAA-MM-JJ.html`), mêmes règles de
-  chemins relatifs (`en/` et `archive-en/` sont tous deux à la racine, donc
-  au même niveau de profondeur : les chemins `../assets/...`,
-  `../glossaire.html`, etc. sont identiques dans les deux dossiers).
-- **Flux RSS dédié** : `feed-en.xml`, même structure que `feed.xml`
+- **Arborescence — revue le 29 août, retour utilisateur** (« j'aurais mis
+  plutôt dans le folder en, plus facile à s'y retrouver [...] tout ce qui
+  est anglais dans le folder en mais même structure même nom de folder que
+  le fr, pour juste avoir "en" à ajouter dans l'adresse ») : tout le
+  contenu anglais vit **sous `en/`**, avec exactement les mêmes noms de
+  dossiers que côté français — `en/index.html` (édition du jour, miroir de
+  `index.html`) et `en/archives/AAAA-MM-JJ.html` (archive, miroir de
+  `archives/AAAA-MM-JJ.html`). L'adresse d'une page anglaise est donc
+  toujours celle de son équivalent français avec `en/` ajouté juste après
+  le domaine (ex. `lesscenarios.fr/archives/2026-08-29.html` →
+  `lesscenarios.fr/en/archives/2026-08-29.html`), jamais un nom de dossier
+  différent (l'ancien `archive-en/` à la racine, essai initial du 29 août,
+  a été abandonné pour cette raison). Conséquence sur les chemins relatifs
+  : `en/archives/` est un niveau **plus profond** que `en/` (comme
+  `archives/` l'est par rapport à la racine côté français) — un fichier
+  dans `en/archives/` remonte donc de deux crans (`../../assets/...`,
+  `../../glossaire.html`...) là où `en/index.html` n'en remonte qu'un
+  (`../assets/...`), exactement la même règle de profondeur que
+  `archives/AAAA-MM-JJ.html` vs `index.html` côté français.
+- **Flux RSS dédié** : `en/feed.xml`, même structure que `feed.xml`
   (channel + un `<item>` par édition traduite), `<language>en</language>`,
-  liens pointant vers `archive-en/`. Flux séparé plutôt qu\'un `<language>`
+  liens pointant vers `en/archives/`. Flux séparé plutôt qu\'un `<language>`
   mixte dans `feed.xml` — un lecteur abonné au flux anglais ne doit jamais
   recevoir un item en français, et inversement.
 - **`sitemap.xml`** : `en/` référencé comme page vivante
   (`changefreq: daily`, priorité 0.9 — juste sous la home FR), chaque
-  `archive-en/AAAA-MM-JJ.html` en `changefreq: never` comme son équivalent
+  `en/archives/AAAA-MM-JJ.html` en `changefreq: never` comme son équivalent
   français.
 - **Pages statiques non traduites pour l'instant** (glossaire, le-projet,
   archives.html, newsletter, contact, mentions légales...) : tous les liens
@@ -61,7 +73,7 @@ tout en testant l'hypothèse d'audience avant d'investir dans un pipeline
   de chances de se recouper, et dupliquer la clé aurait ajouté de la
   complexité pour un cas limite.
 - **Canonical / Open Graph / JSON-LD** : `en/index.html` pointe vers
-  `archive-en/AAAA-MM-JJ.html` (canonical) et `https://lesscenarios.fr/en/`
+  `en/archives/AAAA-MM-JJ.html` (canonical) et `https://lesscenarios.fr/en/`
   (`og:url`, `@id`), exactement le même schéma que la version française
   (`index.html` → `archives/AAAA-MM-JJ.html` / `https://lesscenarios.fr/`).
   `og:locale`/`inLanguage` passés à `en_US`/`en-US`.
@@ -81,7 +93,7 @@ tout en testant l'hypothèse d'audience avant d'investir dans un pipeline
   le format validé (voir « Prochaine étape »).
 - Pas de traduction des pages `suivi/*.html` elles-mêmes, `hebdo/`,
   `glossaire.html`, `le-projet.html` — seules les **annonces** de mise à
-  jour (`feed-suivi-en.xml`) sont traduites depuis le 29 août, pas les
+  jour (`en/feed-suivi.xml`) sont traduites depuis le 29 août, pas les
   pages de suivi vers lesquelles elles renvoient (voir section suivante).
 - Pas de version anglaise du compte OneSignal (le bouton de notification
   reste branché sur le même `appId`, donc sur la même liste d'abonnés que
@@ -95,24 +107,34 @@ anglais [...] et les mise à jour pareil je pense avec un feed adapté en
 anglais ». Même principe que l'édition quotidienne (traduction, jamais
 rédaction indépendante) étendu aux deux routines auxiliaires :
 
-- **`feed-pub-en.xml`** — miroir anglais de `feed-pub.xml`. Chaque post
+- **`en/feed-pub.xml`** — miroir anglais de `feed-pub.xml`. Chaque post
   (manifeste/citation/question/futur/chiffre) est traduit, et son image
   régénérée avec **la même photo** que la version française mais un
   gabarit anglais dédié (`scripts/social/pub-template-v{N}-*-en.html`,
   simple copie du gabarit français avec le bandeau bas de page traduit —
   aucune autre différence). Images stockées dans
-  `assets/social/pub-en/`. Procédure : `docs/routine-en-prompt.md` §
+  `en/assets/social/pub/`. Procédure : `docs/routine-en-prompt.md` §
   « Traduction des posts pub ».
-- **`feed-suivi-en.xml`** — miroir anglais de `feed-suivi.xml` (annonces
+- **`en/feed-suivi.xml`** — miroir anglais de `feed-suivi.xml` (annonces
   de mise à jour, pas les pages `suivi/*.html` elles-mêmes — voir
   ci-dessus). Même logique : image régénérée avec la même photo source et
   un gabarit anglais dédié (`scripts/social/suivi-template-en.html`),
-  stockée dans `assets/social/suivi-en/`. Le lien de l'item continue de
+  stockée dans `en/assets/social/suivi/`. Le lien de l'item continue de
   pointer vers la page de suivi française (non traduite) — limite connue,
   cohérente avec le reste du MVP.
 - **Première paire d'items traduits** (29 août, validation du mécanisme) :
   le post « chiffre » du jour (quota chinois de films, `feed-pub.xml`) et
   la mise à jour Arabie saoudite/sport V2 (`feed-suivi.xml`).
+
+**Réarborescence sous `en/`, même jour (voir « Arborescence » plus haut).**
+Ces deux flux et leurs images ont été créés une première fois à la racine
+(`feed-pub-en.xml`/`feed-suivi-en.xml`, `assets/social/pub-en/`/
+`assets/social/suivi-en/`), puis déplacés le jour même sous `en/`
+(`en/feed-pub.xml`/`en/feed-suivi.xml`, `en/assets/social/pub/`/
+`en/assets/social/suivi/`) pour rester cohérents avec la règle « tout
+l'anglais sous `en/`, mêmes noms de dossiers que le français ». Toute
+référence à l'ancien emplacement dans l'historique de ce dépôt est
+obsolète.
 
 ## Routine de production — première version (29 août)
 
@@ -125,7 +147,7 @@ soit validé et publié.
 
 ## Prochaine étape (pas encore commencée)
 
-- Mesurer l'audience réelle sur `en/` et `feed-en.xml` sur plusieurs
+- Mesurer l'audience réelle sur `en/` et `en/feed.xml` sur plusieurs
   semaines avant d'investir davantage (traduire les pages statiques,
   ouvrir des canaux sociaux dédiés).
 - Si l'hypothèse se confirme : traduire `le-projet.html` et

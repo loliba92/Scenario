@@ -85,7 +85,7 @@ dans cet ordre :
    description, image:alt), `og:locale` → `en_US`, le bloc JSON-LD
    (`headline`, `description`, `inLanguage` → `en-US`).
    - `<link rel="canonical">` → pointe vers l'archive anglaise du jour,
-     `https://lesscenarios.fr/archive-en/AAAA-MM-JJ.html` (jamais vers
+     `https://lesscenarios.fr/en/archives/AAAA-MM-JJ.html` (jamais vers
      `en/index.html` lui-même — même logique que la version française,
      dont le canonical d'`index.html` pointe vers `archives/AAAA-MM-JJ.html`).
    - `og:url` et le `@id` du JSON-LD → `https://lesscenarios.fr/en/`
@@ -153,9 +153,9 @@ après l'étape 2 :
 - La table des registres du lendemain (`registres`, jours 0-6) et le
   préfixe « 📅 Demain : » → « 📅 Tomorrow: ».
 - Le script de partage : la détection de page archive doit chercher
-  `/archive-en/` (pas `/archives/`) dans `location.pathname`, et l'URL de
-  repli construite doit pointer vers `https://lesscenarios.fr/archive-
-  en/AAAA-MM-JJ.html`. Les textes « Lien copié »/« Copier le lien » →
+  `/en/archives/` (pas `/archives/`) dans `location.pathname`, et l'URL de
+  repli construite doit pointer vers
+  `https://lesscenarios.fr/en/archives/AAAA-MM-JJ.html`. Les textes « Lien copié »/« Copier le lien » →
   « Link copied »/« Copy link ».
 - Les libellés du graphique en escalier (`Md$` → `$...B`, les deux
   légendes de points « record pré-pandémie » et « (prévision), encore
@@ -167,23 +167,38 @@ après l'étape 2 :
 Les commentaires de code (`//`, `/* */`) peuvent rester en français —
 invisibles pour le lecteur, pas de valeur à les traduire systématiquement.
 
-## Étape 4 — Créer `archive-en/AAAA-MM-JJ.html`
+## Étape 4 — Créer `en/archives/AAAA-MM-JJ.html`
+
+**Toute l'arborescence anglaise vit sous `en/`, mêmes noms de dossiers
+qu'en français** (retour utilisateur du 29 août : « tout ce qui est
+anglais dans le folder en, mais même structure même nom de folder que le
+fr, pour juste avoir "en" à ajouter dans l'adresse ») — jamais un dossier
+séparé à la racine comme l'ancien `archive-en/` (essai initial, abandonné
+le jour même). `en/archives/` est donc **un niveau plus profond que
+`en/`**, exactement comme `archives/` l'est par rapport à la racine côté
+français.
 
 Copier `en/index.html` (une fois traduit et validé) vers
-`archive-en/AAAA-MM-JJ.html`. `en/` et `archive-en/` sont tous deux des
-dossiers de premier niveau (même profondeur) : **aucun chemin relatif ne
-change** entre les deux fichiers, à trois exceptions près (même logique
-que `archives/AAAA-MM-JJ.html` par rapport à `index.html` côté français) :
+`en/archives/AAAA-MM-JJ.html`, puis corriger les chemins relatifs pour ce
+cran de profondeur supplémentaire (même logique que l'étape 1, point 2,
+mais un `../` de plus partout : `../assets/...` → `../../assets/...`,
+`../glossaire.html` → `../../glossaire.html`, etc.), à l'exception du lien
+« Home » du topnav qui reste à un seul `../` (`../index.html` — depuis
+`en/archives/`, `en/index.html` n'est qu'un cran au-dessus, pas deux).
+Puis, comme côté français :
 
 1. `canonical`, `og:url` et le `@id` JSON-LD → l'URL de cette archive
-   elle-même, `https://lesscenarios.fr/archive-en/AAAA-MM-JJ.html`
+   elle-même, `https://lesscenarios.fr/en/archives/AAAA-MM-JJ.html`
    (remplace la version « home » posée à l'étape 2).
-2. Le lien « Home » du topnav → `../en/index.html` (au lieu de
-   `index.html`, qui pointait vers lui-même sur la page du jour) — garder
+2. Le lien « Home » du topnav → `../index.html` (au lieu de `index.html`,
+   qui pointait vers lui-même sur la page du jour) — garder
    `aria-current="page"` dessus, même si ce n'est plus littéralement la
    page courante (même choix que la version française).
+3. Le script de partage (voir étape 3 ci-dessus) : la détection de page
+   archive doit chercher `/en/archives/` dans `location.pathname`
+   (cohérent avec l'étape 3, pas `/archive-en/`).
 
-## Étape 5 — Ajouter l'item à `feed-en.xml`
+## Étape 5 — Ajouter l'item à `en/feed.xml`
 
 Même structure que `feed.xml` (voir `docs/routine-prompt.md`, étape
 technique 8, pour le détail du format 3 blocs), traduite :
@@ -191,14 +206,14 @@ technique 8, pour le détail du format 3 blocs), traduite :
 ```xml
 <item>
   <title>{titre anglais}</title>
-  <link>https://lesscenarios.fr/archive-en/AAAA-MM-JJ.html</link>
+  <link>https://lesscenarios.fr/en/archives/AAAA-MM-JJ.html</link>
   <guid isPermaLink="false">scenario-en-AAAA-MM-JJ</guid>
   <pubDate>{même date/heure que l'item correspondant de feed.xml}</pubDate>
   <comments>{question-text traduite}</comments>
   <category>🟢 {titre scénario 1}","🔵 {titre scénario 2}","🔴 {titre scénario 3}</category>
   <enclosure url="https://lesscenarios.fr/assets/social/instagram/AAAA-MM-JJ.png" length="{même taille que l'item FR}" type="image/png"/>
   <description><![CDATA[{image + La question posée/The question + Les faits/The facts + Les 3 scénarios/The 3 scenarios, CTA traduits}]]></description>
-  <source url="https://lesscenarios.fr/archive-en/AAAA-MM-JJ.html">{texte de L'essentiel traduit, mêmes 4 paragraphes}</source>
+  <source url="https://lesscenarios.fr/en/archives/AAAA-MM-JJ.html">{texte de L'essentiel traduit, mêmes 4 paragraphes}</source>
 </item>
 ```
 
@@ -211,14 +226,14 @@ disparaître silencieusement tout ce qui suit pour un parseur strict.
 
 Mettre à jour le `<lastmod>` de l'entrée `https://lesscenarios.fr/en/` à
 la date du jour, et ajouter une nouvelle entrée pour
-`https://lesscenarios.fr/archive-en/AAAA-MM-JJ.html`
+`https://lesscenarios.fr/en/archives/AAAA-MM-JJ.html`
 (`changefreq: never`, `priority: 0.6` — mêmes valeurs que les entrées
 `archives/AAAA-MM-JJ.html`).
 
 ## Étape 7 — Valider avant de committer
 
 1. **Vérifier qu'aucun texte visible en français ne subsiste** dans
-   `en/index.html` et `archive-en/AAAA-MM-JJ.html` — chercher les
+   `en/index.html` et `en/archives/AAAA-MM-JJ.html` — chercher les
    caractères accentués français (`àâäéèêëïîôöùûüç...`) en dehors des
    commentaires de code, du nom de marque « Scénario » (jamais traduit,
    reste la marque du site dans les deux langues) et des noms propres
@@ -228,7 +243,7 @@ la date du jour, et ajouter une nouvelle entrée pour
    même nombre d'ouvertures que de fermetures.
 3. **Vérification visuelle** : servir le dossier en local
    (`python3 -m http.server`) et prendre une capture Playwright des deux
-   pages (`en/index.html`, `archive-en/AAAA-MM-JJ.html`) — utiliser
+   pages (`en/index.html`, `en/archives/AAAA-MM-JJ.html`) — utiliser
    `wait_until="domcontentloaded"` plutôt que `networkidle` (les CDN
    externes — OneSignal, Google Fonts, goatcounter — ne sont pas
    joignables depuis l'environnement d'exécution et bloqueraient
@@ -236,8 +251,8 @@ la date du jour, et ajouter une nouvelle entrée pour
 
 ## Étape 8 — Commit et push
 
-Un seul commit couvrant `en/index.html`, `archive-en/AAAA-MM-JJ.html`,
-`feed-en.xml`, `sitemap.xml` (préfixe `[en]`), après `git fetch origin
+Un seul commit couvrant `en/index.html`, `en/archives/AAAA-MM-JJ.html`,
+`en/feed.xml`, `sitemap.xml` (préfixe `[en]`), après `git fetch origin
 main` + rebase si des commits concurrents sont arrivés entre-temps —
 mêmes règles que les autres routines de ce projet. Toujours après le
 commit de l'édition française du jour, jamais avant, jamais dans le même
@@ -280,11 +295,11 @@ nouveaux.
    ```
    python3 scripts/social/generate_pub_image.py \
      --data {json temporaire, champs traduits} \
-     --output assets/social/pub-en/{AAAA-MM-JJ}.png \
+     --output en/assets/social/pub/{AAAA-MM-JJ}.png \
      --template scripts/social/pub-template-v{N}-*-en.html \
      --photo {exactement la même photo qu'à l'étape 2/3 de la routine française}
    ```
-4. **Ajouter l'item à `feed-pub-en.xml`** — même structure que l'item
+4. **Ajouter l'item à `en/feed-pub.xml`** — même structure que l'item
    français ajouté à `feed-pub.xml` (voir `docs/routine-pub-prompt.md`,
    étape 4, pour le détail complet du format), traduit :
    - `<guid>` = `scenario-pub-en-{id-entrée}-{AAAA-MM-JJ}`.
@@ -292,10 +307,10 @@ nouveaux.
      page cible n'a pour l'instant presque jamais d'équivalent anglais
      (seule exception à ce jour : la catégorie `chiffre`, si jamais elle
      cite l'édition du 29 août ou une édition future traduite, doit
-     pointer vers `archive-en/{AAAA-MM-JJ}.html` plutôt que
+     pointer vers `en/archives/{AAAA-MM-JJ}.html` plutôt que
      `archives/{AAAA-MM-JJ}.html`) — sinon garder le lien français tel
      quel, jamais un lien inventé.
-   - `<enclosure>` vers `https://lesscenarios.fr/assets/social/pub-en/
+   - `<enclosure>` vers `https://lesscenarios.fr/en/assets/social/pub/
      {AAAA-MM-JJ}.png`, taille réelle du fichier généré à l'étape 3.
    - Le commentaire de crédit photo (`<!-- credit: ... -->`) reste
      identique — même photographe, même photo.
@@ -314,7 +329,7 @@ jamais réévaluer les scénarios ou reformuler le fond.
    qui démarre par le fait concret, jamais par l'étiquette de catégorie
    brute ni le titre du scénario seul — même règle que la version
    française, voir `docs/routine-detection-prompt.md` point 4) — et, pour
-   `feed-suivi-en.xml`, le paragraphe de contexte complet de la
+   `en/feed-suivi.xml`, le paragraphe de contexte complet de la
    `<description>`.
 2. **Gabarit anglais dédié** : `scripts/social/suivi-template-en.html`,
    jumeau de `suivi-template.html` avec deux chaînes traduites en dur
@@ -324,7 +339,7 @@ jamais réévaluer les scénarios ou reformuler le fond.
    ```
    python3 scripts/social/generate_suivi_image.py \
      --data {topic+conclusion traduits} \
-     --output assets/social/suivi-en/{sujet}-v{N}.png \
+     --output en/assets/social/suivi/{sujet}-v{N}.png \
      --template scripts/social/suivi-template-en.html \
      --photo assets/social/topic-images/suivi-{sujet}.jpg
    ```
@@ -332,14 +347,14 @@ jamais réévaluer les scénarios ou reformuler le fond.
    (voir `docs/routine-detection-prompt.md` point 52) : omettre aussi
    l'image et l'`<enclosure>` côté anglais, jamais improviser une autre
    photo.
-4. **Ajouter l'item à `feed-suivi-en.xml`** — même structure que l'item
+4. **Ajouter l'item à `en/feed-suivi.xml`** — même structure que l'item
    français, traduite :
    - `<guid>` = `scenario-suivi-en-{sujet}-v{N}`.
    - `<link>` : reste vers la page `suivi/{sujet}.html` française (ancre
      `#version-content-v{N}` incluse) — ces pages ne sont pas traduites,
      voir `docs/strategie-anglais.md`. Un lecteur anglophone qui clique
      retombe sur du français, limite connue et acceptée du MVP.
-   - `<enclosure>` vers `https://lesscenarios.fr/assets/social/suivi-en/
+   - `<enclosure>` vers `https://lesscenarios.fr/en/assets/social/suivi/
      {sujet}-v{N}.png` (si générée à l'étape 3).
 5. **Valider le XML avant de committer**, même garde-fou qu'ailleurs dans
    ce fichier.

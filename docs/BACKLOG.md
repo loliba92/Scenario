@@ -79,7 +79,7 @@ moins prioritaire).
   anglaise, à voir comment on peut faire proprement et simplement », puis
   directive concrète le même jour : « tu fais ta routine classique et tu
   fais la traduction fr vers en, on stocke cette version dans archive-en
-  avec un feed-en.xml ». Décisions et scope détaillés dans
+  avec un en/feed.xml ». Décisions et scope détaillés dans
   `docs/strategie-anglais.md` ; procédure de traduction documentée dans
   `docs/routine-en-prompt.md`. En résumé :
   - **Portée retenue** : traduction FR→EN de l'édition quotidienne
@@ -89,7 +89,7 @@ moins prioritaire).
     prochaine étape si l'audience confirme l'hypothèse.
   - **Structure d'URL retenue** : chemin, pas sous-domaine —
     `lesscenarios.fr/en/` (édition du jour, miroir d'`index.html`) et
-    `lesscenarios.fr/archive-en/AAAA-MM-JJ.html` (archives, miroir
+    `lesscenarios.fr/en/archives/AAAA-MM-JJ.html` (archives, miroir
     d'`archives/AAAA-MM-JJ.html`), même relation à deux niveaux que la
     version française.
   - **Mécanisme retenu** : traduction manuelle/assistée après coup, à la
@@ -97,18 +97,18 @@ moins prioritaire).
     avant — voir `docs/routine-en-prompt.md` pour la procédure complète
     (traduction section par section, y compris les chaînes générées par
     JS, jamais de reformulation du fond déjà validé côté français).
-  - **Diffusion** : `feed-en.xml` (flux RSS dédié, `<language>en</language>`),
+  - **Diffusion** : `en/feed.xml` (flux RSS dédié, `<language>en</language>`),
     `sitemap.xml` mis à jour. Pas encore de comptes réseaux sociaux
     anglophones ni de diffusion Make.com dédiée — à revoir une fois
     l'audience mesurée.
   - **Première édition traduite** : « Global Cinema: Can It Survive
     Streaming? » (2026-08-29), `en/index.html` +
-    `archive-en/2026-08-29.html` + item `feed-en.xml`. Sert de validation
+    `en/archives/2026-08-29.html` + item `en/feed.xml`. Sert de validation
     du pipeline avant généralisation.
   - **[FAIT le 29 août, même jour] Extension aux routines auxiliaires** :
-    `feed-pub-en.xml` (miroir anglais de `feed-pub.xml`, image régénérée
+    `en/feed-pub.xml` (miroir anglais de `feed-pub.xml`, image régénérée
     avec la même photo mais un gabarit anglais dédié
-    `pub-template-v{N}-*-en.html`) et `feed-suivi-en.xml` (miroir anglais
+    `pub-template-v{N}-*-en.html`) et `en/feed-suivi.xml` (miroir anglais
     de `feed-suivi.xml`, même logique, `suivi-template-en.html`) — voir
     `docs/routine-en-prompt.md` §§ « Traduction des posts pub » /
     « Traduction des mises à jour de suivi ». **Glossaire en anglais
@@ -925,7 +925,7 @@ moins prioritaire).
   points de vigilance identifiés le 7-8 août restent utiles pour la
   suite — notamment les pages légales en anglais et la traduction
   rétroactive des archives, deux questions encore ouvertes) — l'option
-  effectivement retenue le 29 août est un chemin (`en/`/`archive-en/`),
+  effectivement retenue le 29 août est un chemin (`en/`/`en/archives/`),
   traduction de l'édition du jour uniquement, pas le "compromis
   L'essentiel seul" envisagé le 8 août ci-dessous. Garder la version
   française telle quelle (pas de remplacement) et ajouter une version
@@ -939,7 +939,7 @@ moins prioritaire).
   **Variante plus légère envisagée le même jour** (pas de site anglais
   complet, juste une distribution anglophone) : ajouter à la routine
   principale une traduction du titre + du commentaire de chaque édition,
-  publiée dans un nouveau `feed-en.xml` séparé de `feed.xml`, branché
+  publiée dans un nouveau `en/feed.xml` séparé de `feed.xml`, branché
   côté Make sur une route Buffer dédiée qui poste **uniquement sur X**
   (pas Telegram/LinkedIn/Facebook/Instagram) — parce que l'audience X est
   jugée nettement plus anglophone que le reste des canaux. Pas de
@@ -984,7 +984,7 @@ moins prioritaire).
     X) sans prétendre à un site bilingue complet — le lecteur qui veut
     aller plus loin retombe sur le français, où la traduction passive du
     navigateur (déjà en place, gratuite) prend le relais si besoin.
-  - Remplacerait la variante légère du 7 août (feed-en.xml → X
+  - Remplacerait la variante légère du 7 août (en/feed.xml → X
     uniquement) par quelque chose de plus visible sur le site lui-même,
     sans en augmenter le coût.
   **Toujours en P3, aucun développement commencé — juste la piste la

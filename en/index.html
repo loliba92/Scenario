@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Global Cinema: Can It Survive Streaming? — Scénario</title>
-<link rel="canonical" href="https://lesscenarios.fr/archive-en/2026-08-29.html">
+<link rel="canonical" href="https://lesscenarios.fr/en/archives/2026-08-29.html">
 <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
 <link rel="manifest" href="../manifest.webmanifest">
 <meta name="theme-color" content="#10151c">
@@ -2084,12 +2084,12 @@
     // Telegram de l'édition EPR2 affichant l'aperçu de l'édition Gaza de la
     // veille) : les boutons de partage doivent donc utiliser cette URL
     // d'archive plutôt que `location.href` quand on n'est pas déjà dessus.
-    if (window.location.pathname.indexOf("/archive-en/") === -1) {
+    if (window.location.pathname.indexOf("/en/archives/") === -1) {
       var parisNow = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Paris" }));
       var yyyy = parisNow.getFullYear();
       var mm = String(parisNow.getMonth() + 1).padStart(2, "0");
       var dd = String(parisNow.getDate()).padStart(2, "0");
-      pageUrl = "https://lesscenarios.fr/archive-en/" + yyyy + "-" + mm + "-" + dd + ".html";
+      pageUrl = "https://lesscenarios.fr/en/archives/" + yyyy + "-" + mm + "-" + dd + ".html";
     }
     var titleEl = document.querySelector("h1");
     var pageTitle = titleEl ? titleEl.textContent.trim() : document.title;

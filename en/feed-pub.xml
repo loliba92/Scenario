@@ -3,7 +3,7 @@
   <channel>
     <title>Scénario — The weekly rendez-vous</title>
     <link>https://lesscenarios.fr/en/</link>
-    <description>English translation of feed-pub.xml: why Scénario, a quote on chance and uncertainty, a question to the community, or a striking number — never a news story, that stays in feed-en.xml.</description>
+    <description>English translation of feed-pub.xml: why Scénario, a quote on chance and uncertainty, a question to the community, or a striking number — never a news story, that stays in en/feed.xml.</description>
     <language>en</language>
     <lastBuildDate>Sat, 29 Aug 2026 04:09:19 +0200</lastBuildDate>
     <item>
@@ -18,7 +18,7 @@ China's foreign revenue-sharing film quota has stayed fixed at 34 per year since
 — lesscenarios.fr, August 22, 2026
 
 👉 Subscribe, one striking number every day</comments>
-      <enclosure url="https://lesscenarios.fr/assets/social/pub-en/2026-08-29.png" length="527899" type="image/png"/>
+      <enclosure url="https://lesscenarios.fr/en/assets/social/pub/2026-08-29.png" length="527899" type="image/png"/>
       <description><![CDATA[DID YOU KNOW<br><br>China's foreign revenue-sharing film quota has stayed fixed at 34 per year since 2015.<br><br>— lesscenarios.fr, August 22, 2026<br><br>👉 Subscribe, one striking number every day<!-- credit: İNZİLE DAL — https://www.pexels.com/photo/photo-of-a-cinema-hall-14746411/ -->]]></description>
     </item>
   </channel>

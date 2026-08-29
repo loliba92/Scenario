@@ -678,8 +678,8 @@ OneSignal directement.
 13. **[AJOUTÉ le 29 août 2026, retour utilisateur] Traduction anglaise de
     l'édition du jour.** Une fois l'édition française publiée sur `main`
     (étape 11 ci-dessus terminée, push confirmé) : produire aussi la
-    version anglaise — `en/index.html`, `archive-en/{AAAA-MM-JJ}.html`,
-    item ajouté à `feed-en.xml`, `sitemap.xml` mis à jour. Procédure
+    version anglaise — `en/index.html`, `en/archives/{AAAA-MM-JJ}.html`,
+    item ajouté à `en/feed.xml`, `sitemap.xml` mis à jour. Procédure
     complète et détaillée : `docs/routine-en-prompt.md` (ne pas la
     reproduire ici). Rappel du principe non négociable : **traduction
     fidèle du contenu français déjà validé, jamais une nouvelle
