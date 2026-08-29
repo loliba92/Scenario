@@ -125,6 +125,23 @@ jour.**
    `docs/routine-pub-prompt.md`) peut déjà contenir un `<link>` vers la
    version française d'une édition qui vient d'être traduite : le
    remplacer par l'équivalent `en/archives/...` dans ce cas.
+6. **[AJOUTÉ le 29 août] Ajouter le badge `EN` sur `archives.html`**
+   pour toute édition traduite (celle du jour comme celle(s) traduites
+   par cascade à l'étape 3) — jamais de bouton de bascule générique sur
+   cette page elle-même (voir `docs/strategie-anglais.md` § « Audit UX
+   du parcours anglais » pour le raisonnement complet) :
+   ```html
+   <a class="entry-lang-badge" href="en/archives/{AAAA-MM-JJ}.html" aria-label="Read this edition in English" title="Read this edition in English">EN</a>
+   ```
+   À insérer juste après `<a class="entry-title" href="archives/{AAAA-
+   MM-JJ}.html">...</a>` de l'entrée correspondante, dans `.entry-main`.
+   La classe CSS `.entry-lang-badge` est déjà dans le `<style>` de
+   `archives.html` (ajoutée le 29 août) — ne jamais utiliser `.tag` pour
+   ce badge, même visuellement proche : le JS de filtre de la page
+   indexe `.tag`/`data-tag` sur chaque entrée, un badge sans `data-tag`
+   sous cette classe casserait le filtre (tag fantôme « undefined »).
+   L'accordéon « Scénarios ▾ » de l'entrée n'est jamais traduit, quel
+   que soit l'article — voir la même justification.
 
 ## Étape 2 — Traduire le contenu
 

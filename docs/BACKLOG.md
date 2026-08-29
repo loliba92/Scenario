@@ -183,21 +183,26 @@ moins prioritaire).
     bon texte, sans fichier dupliqué. `en/manifest.webmanifest` créé
     (nom/description en anglais). Détail : `docs/strategie-anglais.md`
     § « Bandeau d'installation PWA + manifest ».
-  - **P2 — Point d'entrée EN visible en dehors des 3 articles déjà
-    traduits, relevé le 29 août (audit UX).** Aujourd'hui, `.masthead-
-    lang-btn` (bouton EN) n'existe que sur les pages où une traduction a
-    été construite — `archives.html`, `le-projet.html`, `glossaire.html`,
-    `contact.html`, `newsletter.html` et toutes les éditions passées non
-    traduites n'offrent aucun moyen de découvrir `en/`. Pas commencé —
-    nécessite un vrai choix de placement/design (lien discret dans le
-    masthead de `archives.html` a minima) avant d'être fait, voir
-    `docs/strategie-anglais.md` § « Audit UX du parcours anglais ».
-  - **P3 — Badge « EN disponible » sur `archives.html`, relevé le 29
-    août (audit UX).** Aucune des 3 entrées déjà traduites n'est
-    signalée visuellement dans la liste des éditions. Améliorerait la
-    découvrabilité mais touche une page avec sa propre logique de
-    filtres/badges déjà en place (suivi, révisé...) — à ne pas modifier
-    sans réflexion sur l'intégration visuelle.
+  - **[FAIT le 29 août, même jour] Badge EN sur `archives.html`, fusionne
+    les deux tickets ci-dessus (point d'entrée EN + badge de
+    découvrabilité).** Retour utilisateur : « sur archive on garde
+    archive [en français] mais on peut ajouter un lien EN pour les
+    articles où c'est dispo ». Décision actée : `archives.html` (page,
+    filtres, accordéon « Scénarios ▾ ») **reste entièrement en
+    français** — pas de bascule de langue sur cette page. Seul ajout :
+    un badge `.entry-lang-badge` (pilule dorée, même famille visuelle
+    que `.masthead-lang-btn`) à côté du titre de chaque entrée déjà
+    traduite, lien direct vers `en/archives/{AAAA-MM-JJ}.html`. Classe
+    CSS volontairement distincte de `.tag` (pas `data-tag`) pour ne pas
+    perturber le JS de filtrage qui indexe `.tag` sur chaque entrée —
+    vérifié : aucun tag fantôme « undefined » enregistré, filtre intact.
+    **L'accordéon reste toujours en français**, même sur une entrée
+    traduite : dupliquer le fragment de scénarios en anglais aurait
+    demandé un vrai second système de fragments pour un gain marginal —
+    le badge EN emmène déjà vers l'article complet, plus riche que
+    l'aperçu de l'accordéon. Procédure pour les prochains articles
+    traduits : ajouter le badge sur `archives.html` en même temps que le
+    reste de l'étape 1bis (voir `docs/routine-en-prompt.md`).
 - **P3 — Déclinaison papier de Scénario, idée du 17 août.** Question posée
   par l'utilisateur : faut-il décliner Scénario en version papier, et si
   oui comment. Avis et stratégie détaillés dans

@@ -257,21 +257,32 @@ Retour utilisateur : « analyse le site et dis-moi ce qu'il faut ajuster
 pour le best journey en anglais ». Constat principal, au-delà du popup
 et du manifest ci-dessus :
 
-**Le plus gros trou : aucun point d'entrée vers `en/` en dehors des 3
-articles déjà traduits.** Un lecteur qui atterrit sur `archives.html`
-(liste complète), `le-projet.html`, `glossaire.html`, `contact.html`,
-`newsletter.html`, ou n'importe quelle édition passée non traduite, n'a
-**aucun moyen de découvrir que le site a une version anglaise** — le
-bouton `.masthead-lang-btn` n'existe que sur les 3 pages où une
-traduction a été construite (retour utilisateur/routine, jamais
-générique). Un moteur de recherche anglophone qui indexerait par exemple
-`en/index.html` et proposerait `archives.html` en résultat lié ne
-donnerait donc aucun chemin retour vers l'anglais. **Pas corrigé
-aujourd'hui** — solution la plus simple à évaluer : un lien `EN` discret
-et permanent quelque part dans le masthead de `archives.html` (et
-éventuellement des autres pages statiques), pointant vers `en/` sans
-prétendre qu'une traduction existe pour le contenu affiché. Mérite un
-vrai choix de placement/design avant d'être fait à la volée — à discuter.
+**Le plus gros trou, corrigé le même jour : `archives.html` ne signalait
+aucune des 3 éditions déjà traduites.** Retour utilisateur : « sur
+archive on garde archive [en français] mais on peut ajouter un lien EN
+pour les articles où c'est dispo ». Solution retenue, volontairement
+minimale :
+- `archives.html` **reste entièrement en français** — page, filtres,
+  accordéon « Scénarios ▾ » compris. Pas de bascule de langue sur cette
+  page, jamais de bouton `EN`/`FR` générique dans son masthead.
+- Un badge `.entry-lang-badge` (pilule dorée, même famille visuelle que
+  `.masthead-lang-btn`) apparaît à côté du titre de chaque entrée déjà
+  traduite, lien direct vers `en/archives/{AAAA-MM-JJ}.html`.
+- **L'accordéon reste toujours en français**, même sur une entrée
+  traduite — dupliquer son fragment de contenu en anglais aurait demandé
+  un second système de fragments pour un gain marginal, le badge EN
+  emmène déjà vers l'article complet (bien plus riche que l'aperçu de
+  l'accordéon).
+- Classe CSS distincte de `.tag` (pas de `data-tag`) : le JS de filtre
+  de `archives.html` indexe `.tag`/`data-tag` sur chaque entrée pour
+  construire la liste des filtres — une classe partagée aurait ajouté un
+  tag fantôme « undefined » et détourné le clic vers le filtre au lieu
+  de la navigation. Vérifié après coup : aucun tag fantôme, filtre
+  intact.
+
+Procédure pour les prochains articles traduits : ajouter ce badge sur
+`archives.html` en même temps que le reste de la traduction (voir
+`docs/routine-en-prompt.md`, étape 1bis).
 
 **Autres points relevés, déjà connus/documentés, pas de nouvelle action
 aujourd'hui :**
@@ -282,10 +293,11 @@ aujourd'hui :**
   « Newsletter » depuis une page anglaise atterrit sur un formulaire
   français, cohérent avec la décision déjà prise de ne pas traduire les
   pages statiques pour l'instant.
-- `archives.html` ne signale visuellement aucune des 3 éditions déjà
-  traduites (pas de badge « EN disponible » sur les entrées concernées)
-  — améliorerait la découvrabilité mais touche une page avec sa propre
-  logique de filtres/badges déjà en place, à ne pas modifier à la légère.
+- Les autres pages statiques (`le-projet.html`, `glossaire.html`,
+  `contact.html`) et les éditions passées non traduites n'ont toujours
+  aucun point d'entrée vers `en/` — non traité aujourd'hui, `archives.html`
+  était le point d'entrée jugé prioritaire (page la plus consultée après
+  l'accueil).
 
 **Vérifié et déjà correct, aucune action nécessaire :**
 - `robots.txt` n'exclut pas `/en/` (`Allow: /`).

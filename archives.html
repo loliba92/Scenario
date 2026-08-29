@@ -423,6 +423,34 @@
 
   .entry-title:hover{ border-bottom-color: var(--paper-dim); }
 
+  /* Badge EN, ajouté le 29 août — lien direct vers l'article traduit
+     pour les 3 éditions qui en ont un. Classe distincte de .tag
+     volontairement : le JS de filtre lit `.tag`/`data-tag` sur chaque
+     entrée (voir plus bas) pour construire la liste des filtres — un
+     badge sans data-tag sous cette classe casserait ce mécanisme
+     (tag "undefined" fantôme + clic qui déclenche le filtre au lieu de
+     naviguer). Page/accordéon restent en français ; ce badge est le
+     seul élément anglais de archives.html, jamais un vrai bouton de
+     bascule de langue pour la page elle-même. */
+  .entry-lang-badge{
+    display: inline-flex;
+    align-items: center;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 100px;
+    padding: 2px 9px;
+    white-space: nowrap;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    transition: background .15s, color .15s;
+  }
+  .entry-lang-badge:hover{ background: var(--gold); color: var(--ink); }
+
   .entry-tags{
     display: flex;
     flex-wrap: wrap;
@@ -1014,6 +1042,7 @@
         <div class="entry-main">
           <span class="entry-date">29.08.2026</span>
           <a class="entry-title" href="archives/2026-08-29.html">Cinéma mondial : peut-il survivre au streaming ?</a>
+          <a class="entry-lang-badge" href="en/archives/2026-08-29.html" aria-label="Read this edition in English" title="Read this edition in English">EN</a>
           <div class="entry-tags">
             <button type="button" class="tag" data-tag="culture">Culture</button>
             <button type="button" class="tag theme" data-tag="cinema">Cinéma</button>
@@ -1156,6 +1185,7 @@
         <div class="entry-main">
           <span class="entry-date">22.08.2026</span>
           <a class="entry-title" href="archives/2026-08-22.html">Hollywood décroche en Chine</a>
+          <a class="entry-lang-badge" href="en/archives/2026-08-22.html" aria-label="Read this edition in English" title="Read this edition in English">EN</a>
           <div class="entry-tags">
             <button type="button" class="tag" data-tag="culture">Culture</button>
             <button type="button" class="tag theme" data-tag="cinema">Cinéma</button>
@@ -1433,6 +1463,7 @@
         <div class="entry-main">
           <span class="entry-date">08.08.2026</span>
           <a class="entry-title" href="archives/2026-08-08.html">Le cinéma reprend des couleurs</a>
+          <a class="entry-lang-badge" href="en/archives/2026-08-08.html" aria-label="Read this edition in English" title="Read this edition in English">EN</a>
           <div class="entry-tags">
             <button type="button" class="tag" data-tag="culture-francaise">Culture française</button>
             <button type="button" class="tag theme" data-tag="cinema">Cinéma</button>
