@@ -47,6 +47,34 @@ voir `docs/routine-prompt.md`, étape 4). Mais elle reste bornée : aucune
 recherche externe, aucun WebFetch, uniquement de la lecture/écriture de
 fichiers locaux.
 
+**[AJOUTÉ le 29 août] Garde-fou : mieux vaut sauter l'anglais du jour
+qu'en publier une version cassée ou à moitié faite.** Cette étape
+compte désormais beaucoup de sous-étapes (traduction complète, cascade
+vers les articles cités, badge `archives.html`, bouton de langue +
+`hreflang` sur 4 fichiers minimum, image sociale régénérée, item
+`feed.xml`) — plus qu'une simple traduction ponctuelle. **Étape 8 fait
+exprès un seul commit final** : tant qu'il n'a pas lieu, rien n'est
+publié, donc s'arrêter en cours de route sans committer est déjà sûr en
+soi, pas seulement un pis-aller. En conséquence :
+- Si le budget (temps, tokens) semble insuffisant pour finir
+  proprement toutes les étapes 1 à 8 (traduction + cascade éventuelle +
+  validations), **s'arrêter sans committer plutôt que de pousser un
+  résultat partiel** — jamais un `en/index.html` sans son
+  `en/archives/AAAA-MM-JJ.html`, jamais un bouton de langue sans sa
+  cible, jamais une balise `hreflang` posée sur un seul des quatre
+  fichiers attendus.
+- **Cascade (étape 1bis) : plafonnée à 1 édition passée par jour.** Si
+  l'édition du jour cite plus d'une édition non encore traduite,
+  traduire seulement la première rencontrée dans le corps du texte,
+  laisser les autres liens tels quels vers le français pour cette fois
+  (elles seront traduites le jour où elles seront citées seules, ou
+  directement dans une session dédiée) — et le signaler dans le résumé
+  final (étape 9). Ne jamais laisser le volume de cascade dicter un
+  travail bâclé sur l'édition du jour elle-même.
+- Dans les deux cas, le signaler clairement dans le résumé remonté à
+  l'utilisateur (étape 9, ou l'équivalent du jour si l'étape n'a même
+  pas pu démarrer) — jamais silencieux sur un jour sans traduction.
+
 ---
 
 **La cible du push est toujours `main`, sans exception** — mêmes règles que
@@ -112,6 +140,11 @@ jour.**
    lui-même un autre, laisser ce lien tel quel vers le français pour
    cette fois (à traiter, le cas échéant, le jour où cette édition plus
    ancienne est elle-même citée directement par une nouvelle traduction).
+   **Plafond : 1 édition passée traduite par cascade et par jour** (voir
+   le garde-fou en tête de ce fichier) — si plusieurs éditions non
+   traduites sont citées le même jour, ne traduire que la première
+   rencontrée dans le corps du texte, laisser les autres liens vers le
+   français, et le signaler dans le résumé final (étape 9).
 4. **Réécrire le lien dans `en/index.html` (et dans `en/archives/AAAA-
    MM-JJ.html` une fois créé à l'étape 4 ci-dessous) pour qu'il pointe
    vers `en/archives/{date citée}.html`.** Comme les deux fichiers
@@ -368,8 +401,8 @@ technique 8, pour le détail du format 3 blocs), traduite :
   <pubDate>{même date/heure que l'item correspondant de feed.xml}</pubDate>
   <comments>{question-text traduite}</comments>
   <category>🟢 {titre scénario 1}","🔵 {titre scénario 2}","🔴 {titre scénario 3}</category>
-  <enclosure url="https://lesscenarios.fr/assets/social/instagram/AAAA-MM-JJ.png" length="{même taille que l'item FR}" type="image/png"/>
-  <description><![CDATA[{image + La question posée/The question + Les faits/The facts + Les 3 scénarios/The 3 scenarios, CTA traduits}]]></description>
+  <enclosure url="https://lesscenarios.fr/en/assets/social/instagram/AAAA-MM-JJ.png" length="{taille réelle du fichier EN généré à l'étape 1bis point 7 — jamais celle de l'image française}" type="image/png"/>
+  <description><![CDATA[{<img src="https://lesscenarios.fr/en/assets/social/instagram/AAAA-MM-JJ.png" ...> même image, + The question/The facts/The 3 scenarios, CTA traduits}]]></description>
   <source url="https://lesscenarios.fr/en/archives/AAAA-MM-JJ.html">{texte de L'essentiel traduit, mêmes 4 paragraphes}</source>
 </item>
 ```
