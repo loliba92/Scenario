@@ -87,6 +87,9 @@ ARROWS = {"favorable": "↑", "stable": "→", "degrade": "↓"}
 # la flèche colorée seule ne "parle" qu'à qui connaît déjà le code du
 # site — voir docs/routine-prompt.md).
 KIND_LABELS = {"favorable": "Favorable", "stable": "Stable", "degrade": "Dégradé"}
+# Variante anglaise (ajoutée le 29 août pour les images sociales EN,
+# voir docs/routine-en-prompt.md) — sélectionnée via --lang en.
+KIND_LABELS_EN = {"favorable": "Favorable", "stable": "Stable", "degrade": "Degraded"}
 
 # Étoile pleine, path standard 5 branches (viewBox 24x24), réutilisée
 # pour les 3 crans d'intensité de "France Impact" (voir build_delta_badge).
@@ -124,7 +127,7 @@ def _delta_scale_positions():
     return xs
 
 
-def build_delta_badge(delta):
+def build_delta_badge(delta, lang="fr"):
     """Carte "France Impact" : petit drapeau (icône de label, pas un
     fond plein cadre — évite le côté trop identitaire du triangle
     tricolore précédent, voir docs/ARCHITECTURE.md) + une échelle fixe
@@ -165,22 +168,24 @@ def build_delta_badge(delta):
         f'width="{total_w}" height="{total_h}">{"".join(stars)}</svg>'
     )
 
+    caption = "Our assessment" if lang == "en" else "Notre évaluation"
     return f'''<div class="delta-mark" data-kind="{html.escape(direction)}">
       <div class="delta-mark-text">
         <span class="delta-mark-label">{_DELTA_FLAG_SVG} France Impact</span>
         {scale_svg}
-        <span class="delta-mark-caption">Notre évaluation</span>
+        <span class="delta-mark-caption">{caption}</span>
         <span class="delta-mark-word">{label}</span>
       </div>
     </div>'''
 
 
-def build_scenario_rows(scenarios):
+def build_scenario_rows(scenarios, lang="fr"):
     rows = []
     for s in scenarios:
         kind = s["kind"]
         arrow = ARROWS.get(kind, "→")
-        kind_word = KIND_LABELS.get(kind, kind.capitalize())
+        labels = KIND_LABELS_EN if lang == "en" else KIND_LABELS
+        kind_word = labels.get(kind, kind.capitalize())
         label = html.escape(s["label"])
         rows.append(
             f'<div class="scenario-row" data-kind="{kind}">'
@@ -204,13 +209,23 @@ def main():
              "Nécessite un template avec le marqueur __PHOTO_SRC__, ex. "
              "scripts/social/instagram-photo-template.html.",
     )
+    ap.add_argument(
+        "--lang", default="fr", choices=["fr", "en"],
+        help="Langue des libellés générés par ce script (KIND_LABELS, "
+             "France Impact) — ajouté le 29 août pour les images sociales "
+             "EN, voir docs/routine-en-prompt.md. N'affecte PAS title/"
+             "context/scenario[].label : ces champs viennent déjà traduits "
+             "du JSON --data. Utiliser un --template *-en.html en plus "
+             "(bandeau/tagline en dur dans le gabarit, pas piloté par ce "
+             "flag).",
+    )
     args = ap.parse_args()
 
     data = json.loads(Path(args.data).read_text(encoding="utf-8"))
     template = Path(args.template).read_text(encoding="utf-8")
 
     title_html = html.escape(data["title"])
-    rows_html = build_scenario_rows(data["scenarios"])
+    rows_html = build_scenario_rows(data["scenarios"], lang=args.lang)
 
     final_html = (
         template
@@ -238,7 +253,7 @@ def main():
 
     if "__DELTA_BADGE__" in final_html:
         delta = data.get("delta")
-        badge_html = build_delta_badge(delta) if delta else ""
+        badge_html = build_delta_badge(delta, lang=args.lang) if delta else ""
         final_html = final_html.replace("__DELTA_BADGE__", badge_html)
 
     output_path = Path(args.output)

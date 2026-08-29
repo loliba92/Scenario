@@ -1,0 +1,215 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+    --favorable: #5e9c78;
+    --stable: #6f8fae;
+    --degrade: #bd6248;
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html,body{ width:1080px; height:1080px; }
+  body{
+    position:relative;
+    overflow:hidden;
+    font-family: "JetBrains Mono", monospace;
+    background: var(--ink);
+  }
+  .photo{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+  }
+  .scrim{
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(16,21,28,0.85) 0%, rgba(16,21,28,0.45) 12%, rgba(16,21,28,0.08) 26%, rgba(16,21,28,0.55) 44%, rgba(16,21,28,0.94) 58%, var(--ink) 100%);
+  }
+  .masthead{
+    position:absolute; top:44px; left:76px;
+    display:flex; align-items:center; gap:20px;
+    z-index:2;
+  }
+  .masthead svg{ width:78px; height:78px; }
+  .masthead .word{
+    font-family:"Fraunces", serif; font-weight:700; font-size:58px; color: var(--paper);
+  }
+  .masthead .word .rio{ color: var(--gold); }
+
+  .content{
+    position:absolute; left:76px; right:76px; bottom:44px;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+  }
+  /* Pastille "sujet du jour", même recette que instagram-template.html.
+     Rattachée à la ligne du masthead (pas au bloc .content, ancré en bas
+     et de hauteur variable) — même correction du 14 août que sur
+     instagram-template.html, pour ne jamais risquer de toucher le logo. */
+  .masthead .eyebrow{
+    font-family:"JetBrains Mono", monospace; font-weight:700; font-size: 22px;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink);
+    background: var(--gold); border-radius: 40px; padding: 9px 24px;
+    margin-left: 4px;
+  }
+
+  .headline{
+    font-family:"Fraunces", serif;
+    font-weight:900;
+    font-size: 88px;
+    line-height:1.04;
+    letter-spacing:-0.01em;
+    color: var(--paper);
+    text-wrap: balance;
+  }
+
+  /* Paragraphe de contexte, ajoutée le 24 août puis fusionné en un seul
+     bloc le même jour (retour utilisateur : accroche dorée + ligne de
+     contexte grise l'une sous l'autre faisait deux légendes de couleurs
+     différentes qui se concurrencent, "ça fait brouillon"). Un seul
+     paragraphe, une seule couleur, 1-2 phrases courtes — voir
+     docs/routine-prompt.md pour le format attendu. */
+  .context{
+    font-family:"Inter", sans-serif;
+    font-weight:500;
+    font-size: 32px;
+    line-height:1.35;
+    color: var(--paper);
+    text-wrap: balance;
+  }
+
+  .scenario-box{
+    background: var(--ink);
+    border: 1px solid rgba(236,231,218,0.12);
+    border-radius: 18px;
+    padding: 26px 30px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .scenario-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-family:"Inter", sans-serif;
+    font-weight:700;
+    font-size:29px;
+    color: var(--paper);
+    padding: 4px 0 4px 22px;
+    border-left: 6px solid transparent;
+  }
+  .scenario-row .arrow{ font-family:"JetBrains Mono", monospace; font-size:34px; flex-shrink:0; }
+  /* Mot explicite (Favorable/Stable/Dégradé), ajouté le 24 août à côté
+     de la flèche — retour utilisateur : la couleur/flèche seule ne
+     "parle" qu'à qui connaît déjà le code du site. Le mot en toutes
+     lettres rend chaque ligne compréhensible isolément. */
+  .scenario-row .kind-word{
+    font-family:"JetBrains Mono", monospace;
+    font-weight:700;
+    font-size:18px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    flex-shrink:0;
+  }
+  .scenario-row .label{ flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .scenario-row[data-kind="favorable"]{ border-color: var(--favorable); }
+  .scenario-row[data-kind="favorable"] .arrow, .scenario-row[data-kind="favorable"] .kind-word{ color: var(--favorable); }
+  .scenario-row[data-kind="stable"]{ border-color: var(--stable); }
+  .scenario-row[data-kind="stable"] .arrow, .scenario-row[data-kind="stable"] .kind-word{ color: var(--stable); }
+  .scenario-row[data-kind="degrade"]{ border-color: var(--degrade); }
+  .scenario-row[data-kind="degrade"] .arrow, .scenario-row[data-kind="degrade"] .kind-word{ color: var(--degrade); }
+
+  .footer{
+    display:flex; align-items:baseline; gap:14px;
+    font-size:19px; letter-spacing:0.08em; text-transform:uppercase;
+  }
+  .footer .tagline{ color: var(--gold); font-weight:700; }
+  .footer .sep{ color: var(--paper-dim); opacity:.5; }
+  .footer .url{ color: var(--paper-dim); }
+
+  /* Carte "France Impact", optionnelle (voir __DELTA_BADGE__ /
+     build_delta_badge() dans generate_instagram_image.py) — même
+     recette que .essentiel-box/.list-box (fond surface, bordure, ombre
+     légère). Petit drapeau en icône de label (pas un fond plein cadre)
+     + 3 étoiles d'intensité colorées favorable/dégradé + le mot en
+     toutes lettres. Coin haut-droit, libre (masthead à gauche). */
+  .delta-mark{
+    position:absolute; top:44px; right:44px;
+    background: rgba(16,21,28,0.72);
+    border: 1px solid rgba(236,231,218,0.16);
+    border-radius: 16px;
+    padding: 18px 26px;
+    box-shadow: 0 10px 28px rgba(0,0,0,.4);
+    z-index:3;
+  }
+  .delta-mark[data-kind="positif"]{ --accent: var(--favorable); }
+  .delta-mark[data-kind="negatif"]{ --accent: var(--degrade); }
+  .delta-mark-text{
+    display:flex; flex-direction:column; align-items:flex-end; gap:6px;
+  }
+  .delta-mark-label{
+    display:flex; align-items:center; gap:8px;
+    font-family:"JetBrains Mono", monospace;
+    font-weight:700; font-size:15px;
+    letter-spacing:0.06em; text-transform:uppercase;
+    color: var(--paper-dim);
+  }
+  .delta-flag{ border-radius:2px; flex-shrink:0; }
+  .delta-mark-scale{ display:block; margin: 2px 0; }
+  .delta-mark-caption{
+    font-family:"JetBrains Mono", monospace;
+    font-weight:700; font-size:12px;
+    letter-spacing:0.06em; text-transform:uppercase;
+    color: var(--paper-dim);
+    opacity:.75;
+  }
+  .delta-mark-word{
+    font-family:"Fraunces", serif;
+    font-weight:900; font-size:26px;
+    line-height:1.1;
+    margin-top:-2px;
+    color: var(--accent);
+  }
+</style></head>
+<body>
+  <img class="photo" src="__PHOTO_SRC__">
+  <div class="scrim"></div>
+
+  <div class="masthead">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M57,96 L57,70 Q57,65 60,63" stroke="#cf9d4c"/>
+      <path d="M63,96 L63,70 Q63,65 60,63" stroke="#cf9d4c"/>
+      <path d="M60,63 L60,55" stroke="#cf9d4c"/>
+      <path d="M60,55 L60,31" stroke="#6f8fae"/>
+      <path d="M55.8,38.9 L60,31 L64.2,38.9" stroke="#6f8fae"/>
+      <path d="M60,63 L53.4,56.9" stroke="#cf9d4c"/>
+      <path d="M53.4,56.9 L34,39" stroke="#5e9c78"/>
+      <path d="M36.97,47.5 L34,39 L42.69,41.3" stroke="#5e9c78"/>
+      <path d="M60,63 L66.6,56.9" stroke="#cf9d4c"/>
+      <path d="M66.6,56.9 L86,39" stroke="#bd6248"/>
+      <path d="M83.03,47.5 L86,39 L77.31,41.3" stroke="#bd6248"/>
+    </svg>
+    <div class="word">Scéna<span class="rio">rio</span></div>
+    <div class="eyebrow">Today's topic</div>
+  </div>
+
+  __DELTA_BADGE__
+
+  <div class="content">
+    <div class="headline">__TITLE__</div>
+
+    <div class="context">__CONTEXT__</div>
+
+    <div class="scenario-box">
+      __SCENARIO_ROWS__
+    </div>
+
+    <div class="footer"><span class="tagline">The future in 3 scenarios</span><span class="sep">·</span><span class="url">lesscenarios.fr</span></div>
+  </div>
+</body></html>

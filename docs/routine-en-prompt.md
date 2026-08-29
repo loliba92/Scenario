@@ -142,6 +142,41 @@ jour.**
    sous cette classe casserait le filtre (tag fantôme « undefined »).
    L'accordéon « Scénarios ▾ » de l'entrée n'est jamais traduit, quel
    que soit l'article — voir la même justification.
+7. **[AJOUTÉ le 29 août] Régénérer l'image sociale en anglais** — sinon
+   `og:image`/`twitter:image` de la page EN affichent l'image du jour
+   avec du texte français incrusté (repéré par l'utilisateur en
+   partageant un lien sur X). Ne jamais réutiliser l'image française
+   telle quelle.
+   ```
+   python3 scripts/social/generate_instagram_image.py \
+     --data {json temporaire, title/context/scenario[].label traduits} \
+     --output en/assets/social/instagram/{AAAA-MM-JJ}.png \
+     --template scripts/social/instagram-photo-template-en.html \
+     --photo assets/social/topic-images/{AAAA-MM-JJ}.jpg \
+     --lang en
+   ```
+   `title`/`context`/les 3 `label` viennent du JSON, traduits comme le
+   reste de l'article — jamais mot à mot si le résultat déborde du
+   cadre (l'anglais est souvent plus long que le français à sens égal,
+   vérifier le rendu et raccourcir si un label est coupé). `--lang en`
+   pilote uniquement les libellés internes au script (Favorable/Stable/
+   Degraded, "Our assessment" du badge France Impact) — jamais utiliser
+   `--template` sans son suffixe `-en.html` (bandeau « Sujet du jour »/
+   tagline resteraient en français, ce ne sont pas des `__PLACEHOLDER__`
+   pilotés par le JSON). Utiliser `instagram-template-en.html` (fond
+   dégradé uni) plutôt que la variante `-photo` seulement si l'édition
+   française d'origine n'utilisait pas `--photo` non plus. Mettre à jour
+   `og:image`/`og:image:width`/`og:image:height`/`twitter:image`/le
+   `image` du JSON-LD sur `en/index.html` et `en/archives/AAAA-MM-JJ.
+   html`, ainsi que l'`<enclosure>`/`<img src>` de `en/feed.xml` (taille
+   réelle du nouveau fichier, pas celle de l'image française).
+   **`og:image:alt` reste inchangé** (déjà traduit à l'étape 2, décrit la
+   photo elle-même, pas le texte incrusté). Si l'édition traduite est
+   plus ancienne et utilisait une image générique plutôt qu'une carte
+   par article (ex. `assets/social/og-image-v2.png`, sans script de
+   génération connu) : ne pas en fabriquer une version anglaise à la
+   volée — signaler dans le résumé final, limite connue documentée dans
+   `docs/strategie-anglais.md`.
 
 ## Étape 2 — Traduire le contenu
 

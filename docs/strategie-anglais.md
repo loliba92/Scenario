@@ -59,12 +59,33 @@ tout en testant l'hypothèse d'audience avant d'investir dans un pipeline
   connue et acceptée du MVP, pas un bug. Prochaine itération si l'audience
   anglaise confirme l'hypothèse : traduire au moins `le-projet.html` et
   `glossaire.html`, les deux pages qui expliquent ce qu'est le site.
-- **Image sociale non retraitée** : `en/index.html` réutilise l'image
-  Instagram déjà générée pour l'édition française du jour
-  (`assets/social/instagram/AAAA-MM-JJ.png`), qui peut porter du texte en
-  français si le visuel en contient. Acceptable pour un MVP texte — à
-  revoir si un jour une variante anglaise de la chaîne de génération
-  d'images sociales est envisagée (hors scope actuel).
+- **[CORRIGÉ le 29 août] Image sociale retraitée en anglais.** Retour
+  utilisateur, après avoir remarqué que l'image `og:image`/`twitter:
+  image` des pages EN affichait du texte français en dur (titre, 3
+  scénarios, tagline incrustés dans les pixels) : « c'est normal ou
+  bug ? ». Réponse : ni un oubli silencieux ni un vrai bug — décision
+  MVP documentée ici, mais jamais corrigée jusqu'à ce jour. Corrigé :
+  - `scripts/social/generate_instagram_image.py` accepte un flag
+    `--lang en` (défaut `fr`) qui bascule `KIND_LABELS` (Favorable/
+    Stable/Degraded) et le libellé "Our assessment" du badge France
+    Impact — `title`/`context`/`scenario[].label` restent pilotés par
+    le JSON `--data`, déjà traduits à l'appel (pas de logique de
+    traduction dans le script lui-même).
+  - Deux gabarits jumeaux créés : `scripts/social/instagram-template-
+    en.html` et `scripts/social/instagram-photo-template-en.html` — seule
+    différence avec les gabarits français : bandeau "Sujet du jour" →
+    "Today's topic" et tagline "Le futur en 3 scénarios" → "The future
+    in 3 scenarios" en dur, traduits.
+  - Image régénérée pour l'édition du 29 août :
+    `en/assets/social/instagram/2026-08-29.png` (même photo de fond que
+    la version française, titre/contexte/3 labels traduits — labels
+    réécrits courts pour tenir sur une ligne, l'anglais est souvent plus
+    long que le français à sens égal). `en/index.html`,
+    `en/archives/2026-08-29.html` et `en/feed.xml`
+    (`og:image`/`twitter:image`/JSON-LD/`<enclosure>`/`<description>`)
+    pointent désormais vers cette image plutôt que la version française.
+  - Procédure pour les prochaines éditions traduites : `docs/routine-en-
+    prompt.md`, étape 1bis, point 7.
 - **`localStorage` du bandeau d'accueil partagé entre FR et EN.** La clé
   `scenario_intro_seen` (voir `docs/routine-prompt.md`) n'est pas dupliquée
   par langue : un lecteur qui a déjà vu le bandeau en français ne le
@@ -224,8 +245,11 @@ jamais les trois en un seul passage automatique.
   ouverte juste au-dessus pour les pages légales, et le glossaire qui
   reste hors scope. Envisager des comptes sociaux anglophones dédiés
   seulement après.
-- Revoir la question de l'image sociale (texte en dur en français) si la
-  diffusion sociale anglophone démarre.
+- Image sociale déjà corrigée le 29 août (voir § dédié plus haut) — reste
+  à faire : régénérer les images EN des deux éditions traduites par
+  cascade (`archives/2026-08-08.html`, `archives/2026-08-22.html`), pas
+  encore fait, jamais bloquant tant que ces pages ne sont pas partagées
+  sur les réseaux sociaux.
 
 ## Bandeau d'installation PWA + manifest — corrigé le 29 août 2026
 
