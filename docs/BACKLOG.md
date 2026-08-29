@@ -10,6 +10,61 @@ Priorités P1 (fort impact, faible coût) à P3 (utile mais plus lourd ou
 moins prioritaire).
 
 **Distribution / automatisation**
+- **P2 — Migrer la newsletter email de Buttondown vers OneSignal, idée
+  du 29 août.** Constat utilisateur : Buttondown est payant (déjà noté
+  plus bas dans ce fichier, section RSS-to-email), OneSignal permet
+  aussi l'envoi d'e-mails et c'est gratuit — pas besoin de payer deux
+  outils pour deux canaux (push + email) qui peuvent tenir sur un seul.
+  Deux options de déclenchement envisagées par l'utilisateur :
+  1. La routine (ou un script) appelle directement l'API e-mail
+     OneSignal quand `feed.xml` est mis à jour.
+  2. Le scénario Make.com existant, qui surveille déjà `feed.xml` pour
+     poster sur Telegram/Instagram/Facebook/LinkedIn/Bluesky/X et
+     déclenche déjà le **push** OneSignal (branche « Daily », voir
+     `docs/routine-prompt.md`, étape technique 11), ajoute un module
+     e-mail OneSignal sur ce même déclencheur.
+
+  **Option retenue par l'utilisateur : la 2, pour centraliser tous les
+  flux vers les lecteurs dans Make** plutôt que d'éparpiller les
+  intégrations (cohérent avec le choix déjà fait pour le push le 23
+  août — voir plus bas, « Retiré le 23 août »).
+
+  Pas encore cadré techniquement, à vérifier avant de lancer :
+  - Confirmer les capacités et limites réelles du plan gratuit OneSignal
+    pour l'envoi d'e-mails (volume, domaine expéditeur, deliverabilité) —
+    l'affirmation « c'est gratuit » vient de l'utilisateur, à valider
+    côté OneSignal avant tout engagement.
+  - Le contenu de l'email reprendrait la structure Question/Faits/
+    Scénarios déjà en place dans la Description de `feed.xml` depuis le
+    28 août (voir plus bas dans ce fichier), pas à reconstruire.
+  - **Migration des abonnés existants** : Buttondown et OneSignal ne
+    partagent pas la même base — il faudra exporter la liste Buttondown
+    et l'importer dans OneSignal (ou proposer une re-inscription), et
+    prévoir la bascule de `newsletter.html`/`confirmez-votre-email.html`/
+    `bienvenue.html` (aujourd'hui branchés sur le flux d'inscription
+    Buttondown) vers le flux d'inscription e-mail OneSignal.
+  - Décommissionner Buttondown seulement une fois la bascule confirmée
+    fonctionnelle (double-run temporaire recommandé plutôt qu'une coupure
+    nette).
+- **P3 — Version anglaise du site, idée du 29 août.** Retour utilisateur :
+  « il faudrait élargir et proposer une version anglaise, à voir comment
+  on peut faire proprement et simplement » — piste posée, rien de tranché.
+  Questions à trancher avant de cadrer un plan :
+  - **Portée** : traduire l'édition quotidienne en continu (double la
+    charge éditoriale chaque jour, currently un seul rédacteur/routine),
+    ou seulement les pages statiques (`le-projet.html`, `glossaire.html`,
+    accueil) avec un sous-ensemble d'archives choisies ?
+  - **Structure d'URL** : sous-domaine (`en.lesscenarios.fr`), chemin
+    (`lesscenarios.fr/en/`), ou domaine séparé — impact SEO (`hreflang`)
+    et sur toute l'infrastructure actuelle qui suppose une seule langue
+    (routine, `feed.xml`, sitemap, Make.com).
+  - **Traduction automatisée ou éditoriale** : si l'édition du jour est
+    traduite, par quel mécanisme (appel LLM dédié après publication FR ?
+    même routine, deux sorties ?) et avec quel contrôle qualité — un
+    French-first traduit à la va-vite dessert la marque autant qu'il
+    l'étend.
+  Rien à construire tant que ces choix ne sont pas faits — sujet à
+  reprendre en session dédiée avec l'utilisateur avant tout code.
 - **P3 — Déclinaison papier de Scénario, idée du 17 août.** Question posée
   par l'utilisateur : faut-il décliner Scénario en version papier, et si
   oui comment. Avis et stratégie détaillés dans
