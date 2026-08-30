@@ -67,36 +67,19 @@ self.addEventListener("fetch", (event) => {
   );
 });
 
-/* ---------- Notifications push ---------- */
-
-self.addEventListener("push", (event) => {
-  let data = {};
-  try {
-    data = event.data ? event.data.json() : {};
-  } catch (e) {
-    data = { title: "Scénario", body: event.data ? event.data.text() : "" };
-  }
-
-  const title = data.title || "Scénario";
-  const options = {
-    body: data.body || "",
-    icon: "/assets/icon-192.png",
-    badge: "/assets/icon-192.png",
-    data: { url: data.url || "/" },
-  };
-
-  event.waitUntil(self.registration.showNotification(title, options));
-});
-
-self.addEventListener("notificationclick", (event) => {
-  event.notification.close();
-  const url = (event.notification.data && event.notification.data.url) || "/";
-  event.waitUntil(
-    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((windowClients) => {
-      for (const client of windowClients) {
-        if (client.url === url && "focus" in client) return client.focus();
-      }
-      if (self.clients.openWindow) return self.clients.openWindow(url);
-    })
-  );
-});
+/* ---------- Notifications push ----------
+ * [CORRIGÉ le 30 août 2026, retour utilisateur : "je reçois bien la
+ * notification avec le titre mais j'en reçois 1 autre vide".] Ce
+ * fichier a longtemps défini son propre gestionnaire `push` en plus de
+ * l'`importScripts` OneSignal ci-dessus — hors `addEventListener`
+ * s'empile, il ne remplace jamais un listener existant : les DEUX
+ * gestionnaires tournaient à chaque notification. Celui d'OneSignal
+ * (dans OneSignalSDK.sw.js) décode correctement leur charge utile
+ * propriétaire et affiche la vraie notification (titre + texte). Le
+ * nôtre, plus bas, tentait de reparser la même charge utile en JSON
+ * simple `{title, body, url}` — un format qui ne correspond pas à
+ * celui d'OneSignal — retombait donc sur ses valeurs par défaut
+ * ("Scénario", corps vide) et affichait une seconde notification,
+ * creuse, à chaque envoi. Supprimé : OneSignal gère déjà `push` et
+ * `notificationclick` (ouverture/focus de l'URL de la notif) tout
+ * seul via l'`importScripts` plus haut, rien à dupliquer ici. */
