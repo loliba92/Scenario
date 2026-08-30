@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://lesscenarios.fr/archives/2026-08-30.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
+      <news:publication_date>2026-08-30T07:10:00+02:00</news:publication_date>
+      <news:title>Ligue 1 : le foot français peut-il survivre à l'effondrement de ses droits TV ?</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://lesscenarios.fr/archives/2026-08-29.html</loc>
     <news:news>
       <news:publication>
@@ -10,17 +21,6 @@
       </news:publication>
       <news:publication_date>2026-08-29T06:30:00+02:00</news:publication_date>
       <news:title>Cinéma mondial : peut-il survivre au streaming ?</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://lesscenarios.fr/archives/2026-08-28.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Scénario</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-08-28T06:30:00+02:00</news:publication_date>
-      <news:title>Climat 2030 : la France peut-elle encore tenir parole ?</news:title>
     </news:news>
   </url>
 </urlset>
