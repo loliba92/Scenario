@@ -1265,17 +1265,23 @@
      the same rule as the legal links, a single footnote. Camera icon
      added in front the same day, always the same regardless of the
      day's photo — a fixed decoration, not a per-photo icon. */
+  /* [CORRIGÉ le 30 août 2026, retour utilisateur : sur mobile, le crédit
+     passait sur 2 lignes avec "Pexels" isolé tout à droite, illisible.]
+     display: inline-flex sur toute la ligne empêchait le texte de
+     s'enrouler normalement : le lien restait un item flex à part,
+     poussé en bout de ligne au lieu de suivre le texte. Flux inline
+     normal à la place (icône alignée au fil du texte via
+     vertical-align) : tout s'enroule ensemble comme un paragraphe
+     classique. */
   .footer-photo-credit{
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
     font-family: "JetBrains Mono", monospace;
     font-size: 0.76rem;
+    line-height: 1.6;
     color: var(--paper-dim);
     margin: 0;
   }
-  .footer-photo-credit svg{ flex-shrink: 0; display: block; }
-  .footer-photo-credit a{ color: var(--paper-dim); text-decoration: underline; text-decoration-style: dotted; }
+  .footer-photo-credit svg{ width: 14px; height: 14px; vertical-align: -2px; margin-right: 3px; }
+  .footer-photo-credit a{ color: var(--paper-dim); text-decoration: underline; text-decoration-style: dotted; white-space: nowrap; }
   .footer-photo-credit a:hover{ color: var(--paper); }
 
   /* Barre du bas — mentions légales, séparée du reste du footer par un
