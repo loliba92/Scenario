@@ -71,12 +71,19 @@
   }
 
   function isIos() {
-    return /iphone|ipad|ipod/i.test(window.navigator.userAgent) && !window.MSStream;
-  }
-
-  function isIosSafari() {
     var ua = window.navigator.userAgent;
-    return isIos() && /safari/i.test(ua) && !/crios|fxios|edgios/i.test(ua);
+    if (/iphone|ipad|ipod/i.test(ua) && !window.MSStream) return true;
+    // iPadOS masque son user agent en "Macintosh" par défaut depuis la
+    // version 13 (option système "Demander la version pour ordinateur",
+    // activée d'office sur iPad, suivie aussi par Chrome/Firefox iOS) :
+    // la regex ci-dessus ne matche alors plus rien. Repli recommandé par
+    // Apple — un "Mac" tactile n'existe pas, donc un Mac qui répond au
+    // toucher est forcément un iPad.
+    return (
+      /macintosh/i.test(ua) &&
+      "ontouchend" in document &&
+      navigator.maxTouchPoints > 1
+    );
   }
 
   var deferredPrompt = null;
@@ -174,7 +181,19 @@
   function init() {
     if (isStandalone() || isDismissed()) return;
 
-    if (isIosSafari()) {
+    // [CORRIGÉ le 30 août 2026, retour utilisateur : bandeau jamais vu
+    // dans Chrome sur iPad.] Restait limité à Safari (via isIosSafari(),
+    // qui excluait explicitement CriOS/FxiOS/EdgiOS) : Chrome/Firefox/
+    // Edge sur iOS tombaient alors dans la branche beforeinstallprompt
+    // plus bas, un événement que WebKit ne déclenche jamais — ni dans
+    // Safari, ni dans aucun autre navigateur iOS, tous obligatoirement
+    // bâtis sur WebKit. Résultat : aucun bandeau du tout hors Safari. Le
+    // geste "Partager → Sur l'écran d'accueil" est proposé par la
+    // feuille de partage système (UIActivityViewController), disponible
+    // depuis n'importe quel navigateur iOS, pas seulement Safari — donc
+    // montrer ces instructions dès qu'on est sur iOS/iPadOS, quel que
+    // soit le navigateur.
+    if (isIos()) {
       setTimeout(function () {
         showBanner("ios");
       }, SHOW_DELAY_MS);
