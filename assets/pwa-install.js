@@ -20,7 +20,7 @@
     fr: {
       dialogLabel: "Installer l'application Scénario",
       title: "Installer Scénario",
-      iosText: 'Ce bandeau n’a pas de bouton : appuyez sur l’icône Partager {icon} de votre navigateur (pas ici), puis sur <strong>Sur l’écran d’accueil</strong>.',
+      iosText: 'Ce bandeau n’a pas de bouton : appuyez sur l’icône Partager {icon} de votre navigateur (pas ici), puis sur <strong>Sur l’écran d’accueil</strong> — parfois caché sous « En voir plus ».',
       text: "Accédez à l’édition du jour en un geste, depuis votre écran d’accueil.",
       install: "Installer",
       dismiss: "Fermer",
@@ -28,7 +28,7 @@
     en: {
       dialogLabel: "Install the Scénario app",
       title: "Install Scénario",
-      iosText: 'This banner has no button: tap your browser’s own Share icon {icon} (not here), then <strong>Add to Home Screen</strong>.',
+      iosText: 'This banner has no button: tap your browser’s own Share icon {icon} (not here), then <strong>Add to Home Screen</strong> — sometimes tucked under “More”.',
       text: "Get to the day's edition in one tap, from your home screen.",
       install: "Install",
       dismiss: "Close",
