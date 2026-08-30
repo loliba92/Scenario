@@ -20,7 +20,7 @@
     fr: {
       dialogLabel: "Installer l'application Scénario",
       title: "Installer Scénario",
-      iosText: 'Appuyez sur <strong>Partager</strong> puis <strong>Sur l’écran d’accueil</strong>.',
+      iosText: 'Ce bandeau n’a pas de bouton : appuyez sur l’icône Partager {icon} de votre navigateur (pas ici), puis sur <strong>Sur l’écran d’accueil</strong>.',
       text: "Accédez à l’édition du jour en un geste, depuis votre écran d’accueil.",
       install: "Installer",
       dismiss: "Fermer",
@@ -28,13 +28,26 @@
     en: {
       dialogLabel: "Install the Scénario app",
       title: "Install Scénario",
-      iosText: 'Tap <strong>Share</strong> then <strong>Add to Home Screen</strong>.',
+      iosText: 'This banner has no button: tap your browser’s own Share icon {icon} (not here), then <strong>Add to Home Screen</strong>.',
       text: "Get to the day's edition in one tap, from your home screen.",
       install: "Install",
       dismiss: "Close",
     },
   };
   var T = STRINGS[LANG];
+
+  // Icône "Partager" iOS (carré + flèche vers le haut), insérée dans
+  // iosText à la place de {icon} — repère visuel pour que le lecteur
+  // reconnaisse la vraie icône dans la barre de son navigateur, plutôt
+  // que de chercher un bouton dans ce bandeau (qui n'en a pas : iOS
+  // n'offre aucune API pour déclencher l'installation depuis la page,
+  // voir le commentaire plus bas sur isIos()). [AJOUTÉ le 30 août 2026,
+  // retour utilisateur : "je clique et ça fait rien" — le bandeau
+  // s'affichait bien mais rien n'indiquait qu'il fallait chercher ce
+  // bouton ailleurs, dans le navigateur lui-même.]
+  var IOS_SHARE_ICON =
+    '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px" aria-hidden="true"><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/><rect x="5" y="9" width="14" height="12" rx="2"/></svg>';
+  T.iosText = T.iosText.replace("{icon}", IOS_SHARE_ICON);
 
   var THIS_SCRIPT = document.currentScript;
   var SCRIPT_SRC = THIS_SCRIPT ? THIS_SCRIPT.getAttribute("src") || "" : "";
