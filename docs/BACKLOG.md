@@ -4497,6 +4497,28 @@ mardi participatif en dépendrait probablement.
   réutilisables pour des pages thématiques, filtre
   `archives.html?tag=X` déjà en place comme brique de départ pour le
   maillage.
+  **[FAIT le 31 août — volet « pages thématiques / maillage interne »]**
+  Le filtre `archives.html?tag=X` ne produit aucune URL crawlable par
+  Google (JS pur, même adresse) — ajouté en complément : 6 pages
+  statiques crawlables sous `themes/{slug}.html`, une par "domaine" de
+  `docs/tags.md` §2 (regroupement déjà utilisé par le panneau "Détail par
+  domaine" d'`archives.html`), chacune listant avec un vrai lien `<a>`
+  tous les articles du domaine — c'est ça le maillage interne. Générées
+  par `scripts/seo/generate_theme_pages.py` (idempotent, à relancer après
+  chaque nouvelle édition taggée pour que les pages restent à jour — pas
+  encore branché à la routine quotidienne, geste manuel pour l'instant).
+  Seuls les domaines avec ≥ 8 articles retenus (Économie & entreprises,
+  International, Sciences & environnement, Culture & divertissement,
+  Politique & institutions, Tech & numérique) — `Société` et `Sport &
+  argent` exclus, trop peu d'articles (contenu "thin"). Découverte via un
+  nouveau bloc "Explorer par thème" sur `archives.html` (additif, ne
+  touche pas au filtre JS existant ni au nav commun `.topnav`/
+  `docs/routine-prompt.md`, même précédent que `guide-pedagogique.html`
+  plus haut). Les 6 URLs ajoutées à `sitemap.xml`. Pages en français
+  uniquement, pas de `en/themes/` — cohérent avec le MVP anglais qui ne
+  traduit pas encore les pages statiques secondaires (voir
+  `docs/strategie-anglais.md`). **Volet "titres SEO" de ce ticket
+  toujours ouvert** (pas traité aujourd'hui).
 - **P2 → dépriorisé le 27 août (retour utilisateur : « pas urgent
   ça ») — Vote sur site, puis mardi participatif.** Reste ouvert, mais
   plus sur la liste des prochains chantiers pour l'instant : ne pas

@@ -959,6 +959,15 @@
     .intro-banner-lead{ font-size: 1.18rem; }
   }
 
+  /* ---- Explorer par thème (scripts/seo/generate_theme_pages.py) : liens
+     vers les 6 pages thématiques statiques (maillage interne SEO), réutilise
+     .follow-block-label/.follow-block-row/.follow-btn déjà stylées plus bas
+     pour la section "Nous suivre". ---- */
+  .theme-explorer{
+    padding: 24px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+
 </style>
 </head>
 <body>
@@ -1010,6 +1019,19 @@
   </div>
 </section>
 
+<section class="theme-explorer">
+  <div class="wrap">
+    <p class="follow-block-label">Explorer par thème</p>
+    <div class="follow-block-row">
+      <a class="follow-btn" href="themes/economie-entreprises.html">Économie &amp; entreprises</a>
+      <a class="follow-btn" href="themes/international.html">International</a>
+      <a class="follow-btn" href="themes/sciences-environnement.html">Sciences &amp; environnement</a>
+      <a class="follow-btn" href="themes/culture-divertissement.html">Culture &amp; divertissement</a>
+      <a class="follow-btn" href="themes/politique-institutions.html">Politique &amp; institutions</a>
+      <a class="follow-btn" href="themes/tech-numerique.html">Tech &amp; numérique</a>
+    </div>
+  </div>
+</section>
 
 <section class="listing">
   <div class="wrap">
