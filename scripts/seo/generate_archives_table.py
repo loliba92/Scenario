@@ -2,7 +2,7 @@
 """Génère une nouvelle archives.html avec tableau auto-construit à partir des données d'articles.
 
 Ce script remplace le manuel archives.html par un tableau structuré:
-  Date | Domaine | Titre | Problématique | Évaluation | France Impact
+  Date | Titre | Problématique | Évaluation | France Impact | Domaine
 
 Idempotent — peut être relancé après chaque nouvel article pour mettre à jour le tableau.
 """
@@ -14,7 +14,6 @@ from collections import defaultdict
 
 ROOT = Path(__file__).resolve().parents[2]
 ARCHIVES_DIR = ROOT / "archives"
-FRAGMENTS_DIR = ROOT / "archives" / "fragments"
 GLOSSAIRE_HTML = ROOT / "glossaire.html"
 ARCHIVES_HTML = ROOT / "archives.html"
 SITE_URL = "https://lesscenarios.fr"
@@ -35,8 +34,9 @@ ARCHIVES_TABLE_CSS = """
   /* ---- Archives table (scripts/seo/generate_archives_table.py) ---- */
   .archives-table {
     width: 100%;
+    max-width: 1200px;
+    margin: 32px auto;
     border-collapse: collapse;
-    margin: 32px 0;
     font-size: 0.90rem;
     line-height: 1.6;
     background: var(--surface);
@@ -53,13 +53,19 @@ ARCHIVES_TABLE_CSS = """
 
   .archives-table th {
     padding: 14px 12px;
-    text-align: left;
+    text-align: center;
     font-weight: 700;
     font-family: "JetBrains Mono", monospace;
     font-size: 0.70rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--gold);
+  }
+
+  .archives-table th:first-child,
+  .archives-table th:nth-child(2),
+  .archives-table th:nth-child(3) {
+    text-align: left;
   }
 
   .archives-table tbody tr {
@@ -77,7 +83,7 @@ ARCHIVES_TABLE_CSS = """
 
   .archives-table td {
     padding: 12px;
-    vertical-align: top;
+    vertical-align: middle;
   }
 
   .archives-table .col-date {
@@ -88,10 +94,23 @@ ARCHIVES_TABLE_CSS = """
     white-space: nowrap;
     flex-shrink: 0;
     letter-spacing: 0.02em;
+    text-align: center;
+  }
+
+  .archives-table .col-domain {
+    font-size: 0.75rem;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    color: var(--gold);
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    text-align: center;
   }
 
   .archives-table .col-title {
-    min-width: 220px;
+    min-width: 280px;
   }
 
   .archives-table .col-title a {
@@ -129,55 +148,39 @@ ARCHIVES_TABLE_CSS = """
     background: rgba(218, 165, 32, 0.08);
   }
 
-  .archives-table .col-question {
-    font-size: 0.85rem;
-    color: var(--paper);
-    font-style: italic;
-    min-width: 320px;
-  }
-
-  .archives-table .col-kpis {
-    font-size: 0.80rem;
-    color: var(--paper-dim);
-    font-family: "JetBrains Mono", monospace;
-    line-height: 1.5;
-    min-width: 280px;
-  }
-
   .archives-table .col-eval {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    text-align: center;
   }
 
   .archives-table .eval-badge {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 5px 10px;
+    justify-content: center;
+    gap: 4px;
+    padding: 6px 12px;
     border-radius: 4px;
     font-weight: 600;
-    font-size: 0.70rem;
+    font-size: 0.75rem;
     font-family: "JetBrains Mono", monospace;
     white-space: nowrap;
   }
 
   .archives-table .eval-badge.eval-favorable {
-    background: rgba(76, 175, 80, 0.12);
-    color: #4CAF50;
-    border: 1px solid rgba(76, 175, 80, 0.3);
+    background: rgba(94, 156, 120, 0.12);
+    color: #5e9c78;
+    border: 1px solid rgba(94, 156, 120, 0.3);
   }
 
   .archives-table .eval-badge.eval-stable {
-    background: rgba(255, 193, 7, 0.12);
-    color: #FFC107;
-    border: 1px solid rgba(255, 193, 7, 0.3);
+    background: rgba(111, 143, 174, 0.12);
+    color: #6f8fae;
+    border: 1px solid rgba(111, 143, 174, 0.3);
   }
 
   .archives-table .eval-badge.eval-degrade {
-    background: rgba(244, 67, 54, 0.12);
-    color: #F44336;
-    border: 1px solid rgba(244, 67, 54, 0.3);
+    background: rgba(189, 98, 72, 0.12);
+    color: #bd6248;
+    border: 1px solid rgba(189, 98, 72, 0.3);
   }
 
   .archives-table .eval-label {
@@ -191,29 +194,39 @@ ARCHIVES_TABLE_CSS = """
     font-size: 0.75rem;
   }
 
-  .archives-table .eval-text {
-    color: var(--paper);
-    font-style: italic;
-    font-family: "Inter", sans-serif;
-    font-size: 0.85rem;
-    font-weight: 500;
-  }
-
   .archives-table .col-france {
-    font-size: 0.88rem;
-    color: var(--paper);
-    min-width: 300px;
+    text-align: center;
   }
 
-  .archives-table .col-domain {
+  .archives-table .france-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: 600;
     font-size: 0.75rem;
     font-family: "JetBrains Mono", monospace;
-    font-weight: 600;
-    color: var(--gold);
     white-space: nowrap;
-    flex-shrink: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+  }
+
+  .archives-table .france-badge.france-favorable {
+    background: rgba(94, 156, 120, 0.12);
+    color: #5e9c78;
+    border: 1px solid rgba(94, 156, 120, 0.3);
+  }
+
+  .archives-table .france-badge.france-stable {
+    background: rgba(111, 143, 174, 0.12);
+    color: #6f8fae;
+    border: 1px solid rgba(111, 143, 174, 0.3);
+  }
+
+  .archives-table .france-badge.france-degrade {
+    background: rgba(189, 98, 72, 0.12);
+    color: #bd6248;
+    border: 1px solid rgba(189, 98, 72, 0.3);
   }
 
   @media (max-width: 1200px) {
@@ -224,24 +237,41 @@ ARCHIVES_TABLE_CSS = """
     .archives-table td {
       padding: 10px 10px;
     }
-    .archives-table .eval-badge {
-      flex-direction: column;
-      gap: 2px;
-      padding: 4px 8px;
-    }
   }
 
   @media (max-width: 768px) {
     .archives-table {
       font-size: 0.80rem;
+      margin: 20px auto;
     }
     .archives-table th,
     .archives-table td {
       padding: 8px;
     }
-    .archives-table .col-question,
-    .archives-table .col-france {
+    .archives-table th:nth-child(4),
+    .archives-table td:nth-child(4) {
       display: none;
+    }
+    .archives-table .eval-badge,
+    .archives-table .france-badge {
+      flex-direction: column;
+      gap: 2px;
+      padding: 5px 10px;
+      font-size: 0.70rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .archives-table {
+      font-size: 0.75rem;
+      margin: 16px auto;
+    }
+    .archives-table th,
+    .archives-table td {
+      padding: 6px;
+    }
+    .archives-table .col-title a {
+      font-size: 0.85rem;
     }
   }
 """
@@ -295,19 +325,17 @@ def extract_france_impact(text, most_probable_kind):
         return None
 
     card_content = card_m.group(1)
-    # Extrait le contenu complet du france-line, jusqu'à la fermeture
     france_m = re.search(
-        r'<div class="france-line"[^>]*>.*?<span class="field-label">Concrètement en France</span>\s*(.*?)</div>',
+        r'<div class="france-line"[^>]*>.*?<span class="field-label">Concrètement en France</span>\s*([^<]+)',
         card_content,
         re.DOTALL,
     )
     if france_m:
-        # Extrait tout le contenu (texte + flèche + impact)
-        content = france_m.group(1).strip()
-        # Nettoie les balises HTML internes mais garde le texte
-        content = re.sub(r'<[^>]+>', '', content)
-        content = re.sub(r'\s+', ' ', content).strip()
-        return html.unescape(content)
+        # Extrait juste la première phrase, avant l'emoji
+        text = france_m.group(1).strip()
+        # Enlève l'emoji et le texte qui suit
+        text = re.sub(r'\s*[↑↓]\s*.*', '', text)
+        return html.unescape(text)
     return None
 
 
@@ -319,23 +347,29 @@ def extract_domain(text):
     return None
 
 
-def extract_scenario_texts(iso_date):
-    """Extrait les 3 phrases courtes des scénarios du fragment."""
-    fragment_path = FRAGMENTS_DIR / f"{iso_date}.html"
-    if not fragment_path.exists():
-        return None, None, None
+def extract_france_judgment(france_text):
+    """Extrait le jugement France Impact (Favorable/Dégradé/Stable) du texte complet.
 
-    text = fragment_path.read_text(encoding="utf-8")
-    # Extrait les 3 scenario-mini-text
-    matches = re.findall(r'<p class="scenario-mini-text">([^<]+)</p>', text)
+    Exemple:
+      "↓ Plutôt défavorable pour la France" → "Dégradé"
+      "↑ Plutôt favorable pour la France" → "Favorable"
+      "→ Impact stable pour la France" → "Stable"
+    """
+    if not france_text:
+        return None
 
-    if len(matches) >= 3:
-        return (
-            html.unescape(matches[0]),
-            html.unescape(matches[1]),
-            html.unescape(matches[2])
-        )
-    return None, None, None
+    # Normalise le texte
+    text_lower = france_text.lower()
+
+    # Détecte le jugement
+    if "favorable" in text_lower:
+        return "Favorable"
+    elif "défavorable" in text_lower:
+        return "Dégradé"
+    elif "stable" in text_lower:
+        return "Stable"
+
+    return None
 
 
 def get_most_probable_scenario(scenarios):
@@ -344,46 +378,6 @@ def get_most_probable_scenario(scenarios):
         return (None, None, None)
     best = max(scenarios, key=lambda x: x[1])
     return best[:2]  # Retourne juste (kind, pct), pas france_impact
-
-
-def extract_kpis(text, most_probable_kind):
-    """Extrait les KPIs (indicateurs touchés) du scénario le plus probable."""
-    # Cherche le card correspondant au kind le plus probable
-    pattern = rf'<article class="card" data-kind="{re.escape(most_probable_kind)}"[^>]*>(.*?)</article>'
-    card_m = re.search(pattern, text, re.DOTALL)
-    if not card_m:
-        return None
-
-    card_content = card_m.group(1)
-
-    # Cherche le bloc des indicateurs touchés
-    kpis_block = re.search(
-        r'<span class="field-label">Indicateurs touchés</span>\s*<ul>(.*?)</ul>',
-        card_content,
-        re.DOTALL
-    )
-    if not kpis_block:
-        return None
-
-    kpis_list = []
-    # Extrait chaque <li> avec le format: nom, valeur future, valeur actuelle
-    for li_match in re.finditer(
-        r'<li>\s*<span class="field-name">([^<]+)</span>\s*'
-        r'<span class="evo-current">([^<]+)</span>.*?'
-        r'<span class="evo-prev">\(vs\s*([^)]+)\)',
-        kpis_block.group(1),
-        re.DOTALL
-    ):
-        name = li_match.group(1).strip()
-        future = li_match.group(2).strip()
-        current = li_match.group(3).strip()
-        kpis_list.append({
-            "name": name,
-            "future": future,
-            "current": current
-        })
-
-    return kpis_list if kpis_list else None
 
 
 def parse_article(file_path):
@@ -396,21 +390,12 @@ def parse_article(file_path):
     scenarios = extract_scenarios(text)
     domain = extract_domain(text)
 
-    # Extrait le scénario le plus probable (avec titre)
-    if scenarios:
-        best = max(scenarios, key=lambda x: x[1])
-        kind, pct, scenario_title = best
-    else:
-        kind, pct, scenario_title = None, None, None
+    # Extrait le scénario le plus probable
+    best_scenario = get_most_probable_scenario(scenarios)
+    kind, pct = best_scenario if best_scenario[0] else (None, None)
 
     # Extrait france_impact du scénario le plus probable
     france_impact = extract_france_impact(text, kind) if kind else None
-
-    # Extrait les KPIs (indicateurs touchés) du scénario le plus probable
-    kpis = extract_kpis(text, kind) if kind else None
-
-    # Extrait les 3 phrases courtes des scénarios depuis le fragment
-    scenario_text_1, scenario_text_2, scenario_text_3 = extract_scenario_texts(iso_date)
 
     return {
         "iso_date": iso_date,
@@ -418,13 +403,8 @@ def parse_article(file_path):
         "question": question,
         "scenario_kind": kind,
         "scenario_pct": pct,
-        "scenario_title": scenario_title,
         "france_impact": france_impact,
-        "kpis": kpis,
         "domain": domain,
-        "scenario_text_1": scenario_text_1,
-        "scenario_text_2": scenario_text_2,
-        "scenario_text_3": scenario_text_3,
     }
 
 
@@ -445,60 +425,48 @@ def get_scenario_label(kind):
 
 
 def render_table_row(article):
-    """Rend une ligne du tableau."""
+    """Rend une ligne du tableau avec 5 colonnes: Date | Domaine | Titre | Notre scénario | Quel impact pour la France."""
     domain_label = DOMAIN_LABELS.get(article["domain"], article["domain"])
 
-    # Problématique : texte complet, pas tronqué
-    question_html = (
-        html.escape(article["question"])
-        if article["question"]
-        else "(question non trouvée)"
-    )
-
-    # Évaluation : badge de couleur + nom du scénario + % + titre
+    # Notre scénario : badge de couleur + % SEULEMENT (pas de texte du scénario)
     kind = article["scenario_kind"]
     pct = article["scenario_pct"]
-    scenario_title = html.escape(article["scenario_title"]) if article["scenario_title"] else "?"
 
-    if kind and pct and scenario_title:
+    if kind and pct:
         scenario_label = get_scenario_label(kind)
-        # Badge de couleur avec le type de scénario
+        # Badge de couleur avec SEULEMENT le label et le pourcentage
         eval_html = f'''<span class="eval-badge eval-{kind}" data-kind="{kind}">
       <span class="eval-label">{scenario_label}</span>
       <span class="eval-pct">{pct}%</span>
-    </span>
-    <span class="eval-text">{scenario_title}</span>'''
+    </span>'''
     else:
-        eval_html = "?"
+        eval_html = "<span class=\"eval-badge\">?</span>"
 
-    # France Impact : texte complet
-    france_html = (
-        html.escape(article["france_impact"])
-        if article["france_impact"]
-        else "(impact non trouvé)"
-    )
+    # France Impact : badge de couleur avec SEULEMENT le jugement (pas le texte complet)
+    france_text = article["france_impact"]
+    france_judgment = extract_france_judgment(france_text)
 
-    # KPIs : indicateurs touchés du scénario probable
-    kpis_html = ""
-    if article["kpis"]:
-        kpi_lines = []
-        for kpi in article["kpis"]:
-            line = f'{html.escape(kpi["name"])}: {html.escape(kpi["future"])} (vs {html.escape(kpi["current"])})'
-            kpi_lines.append(line)
-        kpis_html = "<br>".join(kpi_lines)
+    if france_judgment:
+        # Mappe le jugement à une classe CSS compatible
+        judgment_kind = france_judgment.lower()
+        if judgment_kind == "favorable":
+            judgment_class = "france-favorable"
+        elif judgment_kind == "dégradé":
+            judgment_class = "france-degrade"
+        else:
+            judgment_class = "france-stable"
+        france_html = f'<span class="france-badge {judgment_class}">{france_judgment}</span>'
     else:
-        kpis_html = "(indicateurs non trouvés)"
+        france_html = "<span class=\"france-badge\">?</span>"
 
     # Lien EN (toujours ajouter le badge)
     en_link = f' <a href="en/archives/{article["iso_date"]}.html" title="Read in English" class="lang-badge">EN</a>'
 
-    # Ordre : Date | Domaine | Titre | Problématique | KPIs | Notre scénario | France Impact
+    # Ordre simplifiée : Date | Domaine | Titre | Notre scénario | Quel impact pour la France
     return f"""    <tr>
       <td class="col-date">{format_date_display(article["iso_date"])}</td>
       <td class="col-domain">{domain_label}</td>
       <td class="col-title"><a href="archives/{article["iso_date"]}.html">{html.escape(article["title"])}</a>{en_link}</td>
-      <td class="col-question">{question_html}</td>
-      <td class="col-kpis">{kpis_html}</td>
       <td class="col-eval">{eval_html}</td>
       <td class="col-france">{france_html}</td>
     </tr>"""
@@ -537,12 +505,10 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
     <thead>
       <tr>
         <th style="width: 80px;">Date</th>
-        <th style="width: 150px;">Domaine</th>
-        <th style="width: 250px;">Titre</th>
-        <th style="width: 300px;">Ce qu'on évalue</th>
-        <th style="width: 280px;">KPIs</th>
-        <th style="width: 120px;">Notre scénario</th>
-        <th style="width: 250px;">Quel impact pour la France</th>
+        <th style="width: 140px;">Domaine</th>
+        <th style="flex: 1; min-width: 300px;">Titre</th>
+        <th style="width: 140px;">Notre scénario</th>
+        <th style="width: 140px;">Quel impact pour la France</th>
       </tr>
     </thead>
     <tbody>
@@ -610,7 +576,7 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
   <div class="wrap">
     <p class="eyebrow">Archives</p>
     <h1>Toutes les éditions</h1>
-    <p class="dek">Retrouvez toutes nos analyses de l'actualité avec 3 scénarios chiffrés : favorable, stable, dégradé. Cliquez sur le titre pour voir l'analyse complète.</p>
+    <p class="dek">{len(articles)} éditions de Scénario — chacune analyse un sujet d'actualité avec 3 scénarios chiffrés : favorable, stable, dégradé. Cliquez sur le titre pour voir l'analyse complète.</p>
   </div>
 </section>
 

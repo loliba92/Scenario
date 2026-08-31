@@ -384,8 +384,9 @@
   /* ---- Archives table (scripts/seo/generate_archives_table.py) ---- */
   .archives-table {
     width: 100%;
+    max-width: 1200px;
+    margin: 32px auto;
     border-collapse: collapse;
-    margin: 32px 0;
     font-size: 0.90rem;
     line-height: 1.6;
     background: var(--surface);
@@ -402,13 +403,19 @@
 
   .archives-table th {
     padding: 14px 12px;
-    text-align: left;
+    text-align: center;
     font-weight: 700;
     font-family: "JetBrains Mono", monospace;
     font-size: 0.70rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--gold);
+  }
+
+  .archives-table th:first-child,
+  .archives-table th:nth-child(2),
+  .archives-table th:nth-child(3) {
+    text-align: left;
   }
 
   .archives-table tbody tr {
@@ -426,7 +433,7 @@
 
   .archives-table td {
     padding: 12px;
-    vertical-align: top;
+    vertical-align: middle;
   }
 
   .archives-table .col-date {
@@ -437,10 +444,23 @@
     white-space: nowrap;
     flex-shrink: 0;
     letter-spacing: 0.02em;
+    text-align: center;
+  }
+
+  .archives-table .col-domain {
+    font-size: 0.75rem;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    color: var(--gold);
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    text-align: center;
   }
 
   .archives-table .col-title {
-    min-width: 220px;
+    min-width: 280px;
   }
 
   .archives-table .col-title a {
@@ -478,55 +498,39 @@
     background: rgba(218, 165, 32, 0.08);
   }
 
-  .archives-table .col-question {
-    font-size: 0.85rem;
-    color: var(--paper);
-    font-style: italic;
-    min-width: 320px;
-  }
-
-  .archives-table .col-kpis {
-    font-size: 0.80rem;
-    color: var(--paper-dim);
-    font-family: "JetBrains Mono", monospace;
-    line-height: 1.5;
-    min-width: 280px;
-  }
-
   .archives-table .col-eval {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    text-align: center;
   }
 
   .archives-table .eval-badge {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 5px 10px;
+    justify-content: center;
+    gap: 4px;
+    padding: 6px 12px;
     border-radius: 4px;
     font-weight: 600;
-    font-size: 0.70rem;
+    font-size: 0.75rem;
     font-family: "JetBrains Mono", monospace;
     white-space: nowrap;
   }
 
   .archives-table .eval-badge.eval-favorable {
-    background: rgba(76, 175, 80, 0.12);
-    color: #4CAF50;
-    border: 1px solid rgba(76, 175, 80, 0.3);
+    background: rgba(94, 156, 120, 0.12);
+    color: #5e9c78;
+    border: 1px solid rgba(94, 156, 120, 0.3);
   }
 
   .archives-table .eval-badge.eval-stable {
-    background: rgba(255, 193, 7, 0.12);
-    color: #FFC107;
-    border: 1px solid rgba(255, 193, 7, 0.3);
+    background: rgba(111, 143, 174, 0.12);
+    color: #6f8fae;
+    border: 1px solid rgba(111, 143, 174, 0.3);
   }
 
   .archives-table .eval-badge.eval-degrade {
-    background: rgba(244, 67, 54, 0.12);
-    color: #F44336;
-    border: 1px solid rgba(244, 67, 54, 0.3);
+    background: rgba(189, 98, 72, 0.12);
+    color: #bd6248;
+    border: 1px solid rgba(189, 98, 72, 0.3);
   }
 
   .archives-table .eval-label {
@@ -540,29 +544,39 @@
     font-size: 0.75rem;
   }
 
-  .archives-table .eval-text {
-    color: var(--paper);
-    font-style: italic;
-    font-family: "Inter", sans-serif;
-    font-size: 0.85rem;
-    font-weight: 500;
-  }
-
   .archives-table .col-france {
-    font-size: 0.88rem;
-    color: var(--paper);
-    min-width: 300px;
+    text-align: center;
   }
 
-  .archives-table .col-domain {
+  .archives-table .france-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: 600;
     font-size: 0.75rem;
     font-family: "JetBrains Mono", monospace;
-    font-weight: 600;
-    color: var(--gold);
     white-space: nowrap;
-    flex-shrink: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+  }
+
+  .archives-table .france-badge.france-favorable {
+    background: rgba(94, 156, 120, 0.12);
+    color: #5e9c78;
+    border: 1px solid rgba(94, 156, 120, 0.3);
+  }
+
+  .archives-table .france-badge.france-stable {
+    background: rgba(111, 143, 174, 0.12);
+    color: #6f8fae;
+    border: 1px solid rgba(111, 143, 174, 0.3);
+  }
+
+  .archives-table .france-badge.france-degrade {
+    background: rgba(189, 98, 72, 0.12);
+    color: #bd6248;
+    border: 1px solid rgba(189, 98, 72, 0.3);
   }
 
   @media (max-width: 1200px) {
@@ -573,24 +587,41 @@
     .archives-table td {
       padding: 10px 10px;
     }
-    .archives-table .eval-badge {
-      flex-direction: column;
-      gap: 2px;
-      padding: 4px 8px;
-    }
   }
 
   @media (max-width: 768px) {
     .archives-table {
       font-size: 0.80rem;
+      margin: 20px auto;
     }
     .archives-table th,
     .archives-table td {
       padding: 8px;
     }
-    .archives-table .col-question,
-    .archives-table .col-france {
+    .archives-table th:nth-child(4),
+    .archives-table td:nth-child(4) {
       display: none;
+    }
+    .archives-table .eval-badge,
+    .archives-table .france-badge {
+      flex-direction: column;
+      gap: 2px;
+      padding: 5px 10px;
+      font-size: 0.70rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .archives-table {
+      font-size: 0.75rem;
+      margin: 16px auto;
+    }
+    .archives-table th,
+    .archives-table td {
+      padding: 6px;
+    }
+    .archives-table .col-title a {
+      font-size: 0.85rem;
     }
   }
 </style>
@@ -635,7 +666,7 @@
   <div class="wrap">
     <p class="eyebrow">Archives</p>
     <h1>Toutes les éditions</h1>
-    <p class="dek">Retrouvez toutes nos analyses de l'actualité avec 3 scénarios chiffrés : favorable, stable, dégradé. Cliquez sur le titre pour voir l'analyse complète.</p>
+    <p class="dek">39 éditions de Scénario — chacune analyse un sujet d'actualité avec 3 scénarios chiffrés : favorable, stable, dégradé. Cliquez sur le titre pour voir l'analyse complète.</p>
   </div>
 </section>
 
@@ -645,12 +676,10 @@
     <thead>
       <tr>
         <th style="width: 80px;">Date</th>
-        <th style="width: 150px;">Domaine</th>
-        <th style="width: 250px;">Titre</th>
-        <th style="width: 300px;">Ce qu'on évalue</th>
-        <th style="width: 280px;">KPIs</th>
-        <th style="width: 120px;">Notre scénario</th>
-        <th style="width: 250px;">Quel impact pour la France</th>
+        <th style="width: 140px;">Domaine</th>
+        <th style="flex: 1; min-width: 300px;">Titre</th>
+        <th style="width: 140px;">Notre scénario</th>
+        <th style="width: 140px;">Quel impact pour la France</th>
       </tr>
     </thead>
     <tbody>
@@ -658,508 +687,391 @@
       <td class="col-date">31.08.2026</td>
       <td class="col-domain">International</td>
       <td class="col-title"><a href="archives/2026-08-31.html">Islande : après le non à l&#x27;UE, qui va la protéger ?</a> <a href="en/archives/2026-08-31.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">Le 29 août, 52,8 % des Islandais ont rejeté la réouverture des négociations d&#x27;adhésion à l&#x27;Union européenne, alors que Donald Trump maintient la pression sur le Groenland voisin. Sans l&#x27;UE et sans armée propre, l&#x27;Islande peut-elle sécuriser durablement sa position dans l&#x27;Arctique en misant sur les États-Unis et l&#x27;OTAN, ou ce choix va-t-il l&#x27;isoler davantage face aux appétits stratégiques croissants sur la région ?</td>
-      <td class="col-kpis">Dépenses de défense: ≈ 0,2-0,5 % du PIB (vs 0 %, 2026)<br>Soutien à l&#x27;adhésion UE: ≈ 45-50 % de « oui » (vs 47,2 %, 2026)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Le statu quo laisse la sécurité de l&#x27;Arctique nord reposer sur un accord bilatéral vieux de 75 ans, sans les garanties nouvelles que réclament les tensions sur le Groenland — une fragilité qui touche aussi les intérêts français dans la région (câbles sous-marins, recherche polaire).</span></td>
-      <td class="col-france">Le statu quo laisse la sécurité de l&#x27;Arctique nord reposer sur un accord bilatéral vieux de 75 ans, sans les garanties nouvelles que réclament les tensions sur le Groenland — une fragilité qui touche aussi les intérêts français dans la région (câbles sous-marins, recherche polaire). ↓ Plutôt défavorable pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">30.08.2026</td>
       <td class="col-domain">Économie & entreprises</td>
       <td class="col-title"><a href="archives/2026-08-30.html">Ligue 1 : le foot français peut-il survivre à l&#x27;effondrement de ses droits TV ?</a> <a href="en/archives/2026-08-30.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">Après l&#x27;effondrement des droits TV et la chute continue des ressources des clubs, la Ligue 1 va-t-elle retrouver un modèle économique stable, se maintenir tant bien que mal à ce niveau réduit, ou voir plusieurs clubs sombrer financièrement ?</td>
-      <td class="col-kpis">Abonnés Ligue 1+: ≈ 1,2-1,3 M (vs 1,1 M, 2026)<br>Recettes TV domestiques: ≈ 170-190 M€ (vs 170,1 M€, 2026-2027)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Le championnat reste installé nettement sous ses standards d&#x27;avant-crise, avec moins de moyens pour former et retenir les talents — un écart qui continue de se creuser avec la Premier League anglaise.</span></td>
-      <td class="col-france">Le championnat reste installé nettement sous ses standards d&#x27;avant-crise, avec moins de moyens pour former et retenir les talents — un écart qui continue de se creuser avec la Premier League anglaise. ↓ Plutôt défavorable pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">29.08.2026</td>
       <td class="col-domain">Culture & divertissement</td>
       <td class="col-title"><a href="archives/2026-08-29.html">Cinéma mondial : peut-il survivre au streaming ?</a> <a href="en/archives/2026-08-29.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">Les studios ont fixé une nouvelle règle commune : 45 jours d&#x27;exclusivité en salle avant le streaming. Le box-office mondial vise sa meilleure année depuis 2019, mais les grandes chaînes de cinéma restent lourdement endettées et les plus jeunes spectateurs préfèrent de plus en plus attendre le streaming : cette trêve suffira-t-elle à sauver durablement les salles ?</td>
-      <td class="col-kpis">Box-office mondial: ≈ 34-36 Md$ (vs 34,7 Md$, 2026)<br>Fenêtre d&#x27;exclusivité salle: 45 jours (vs 45 jours, 2026)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Le rythme actuel — déjà la meilleure année en salle en France depuis 2019 — se prolonge sans rupture, ce qui profite aux exploitants comme au financement du cinéma national via la taxe sur les billets (TSA)</span></td>
-      <td class="col-france">Le rythme actuel — déjà la meilleure année en salle en France depuis 2019 — se prolonge sans rupture, ce qui profite aux exploitants comme au financement du cinéma national via la taxe sur les billets (TSA)*. ↑ Plutôt favorable pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">28.08.2026</td>
       <td class="col-domain">Sciences & environnement</td>
       <td class="col-title"><a href="archives/2026-08-28.html">Climat 2030 : la France peut-elle encore tenir parole ?</a> <a href="en/archives/2026-08-28.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">Avec un rythme de réduction des émissions trois fois trop lent et un Fonds vert divisé par trois en deux ans, la France a-t-elle encore les moyens de tenir son objectif de -50 % d&#x27;ici 2030 ?</td>
-      <td class="col-kpis">Fonds vert (2027): ≈ 900 M€ (vs 837 M€, 2026)<br>Rythme annuel de baisse des émissions: ≈ 1,5-1,8 %/an (vs 1,5 %/an, 2024-2025)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Le rythme de rénovation reste trop lent pour faire vraiment baisser les factures de chauffage des ménages, et les collectivités continuent de manquer de moyens pour adapter écoles et hôpitaux aux prochaines canicules.</span></td>
-      <td class="col-france">Le rythme de rénovation reste trop lent pour faire vraiment baisser les factures de chauffage des ménages, et les collectivités continuent de manquer de moyens pour adapter écoles et hôpitaux aux prochaines canicules. ↓ Plutôt défavorable pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">27.08.2026</td>
       <td class="col-domain">Économie & entreprises</td>
       <td class="col-title"><a href="archives/2026-08-27.html">Dette américaine : le mur des 40 000 milliards</a> <a href="en/archives/2026-08-27.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">Alors que le taux des emprunts d&#x27;État américains à 30 ans a grimpé à son plus haut niveau depuis 2007 et que les trois grandes agences de notation ont désormais toutes dégradé la note des États-Unis, le marché obligataire le plus important au monde peut-il encaisser cette pression sans faire basculer la dette mondiale dans une vraie crise de confiance ?</td>
-      <td class="col-kpis">Taux des emprunts américains à 30 ans: ≈ 5,2 % (vs 5,18 %, fin août 2026)<br>Dette fédérale des États-Unis (fin 2027): ≈ 43 500 Md$ (vs 40 100 Md$, août 2026)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
-    </span>
-    <span class="eval-text">Des taux américains élevés continuent de tirer vers le haut les taux mondiaux, France comprise : l&#x27;OAT à 10 ans, déjà proche de 4,1 % à la mi-août, resterait sous pression, sans amélioration.</span></td>
-      <td class="col-france">Des taux américains élevés continuent de tirer vers le haut les taux mondiaux, France comprise : l&#x27;OAT à 10 ans, déjà proche de 4,1 % à la mi-août, resterait sous pression, sans amélioration. ↓ Plutôt défavorable pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">26.08.2026</td>
       <td class="col-domain">Politique & institutions</td>
       <td class="col-title"><a href="archives/2026-08-26.html">Retraites : la patate chaude de 2027</a> <a href="en/archives/2026-08-26.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">Le dossier des retraites, suspendu par la loi jusqu&#x27;en janvier 2028, va-t-il rester gelé jusqu&#x27;à la présidentielle de 2027, ou s&#x27;invite-t-il déjà dans la campagne dès cet automne ?</td>
-      <td class="col-kpis">Âge conjoncturel moyen de départ: 62 ans et 9 mois (vs 62 ans et 9 mois, DREES 2023)<br>Économies de la désindexation (budget 2027): 3 Md€ (vs 3 Md€, piste médiane en discussion)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
-    </span>
-    <span class="eval-text">Rien n&#x27;est réglé avant l&#x27;élection : les Français qui approchent de la retraite restent dans l&#x27;incertitude, pendant qu&#x27;une désindexation partielle rogne déjà le pouvoir d&#x27;achat de plusieurs millions de retraités aux revenus intermédiaires.</span></td>
-      <td class="col-france">Rien n&#x27;est réglé avant l&#x27;élection : les Français qui approchent de la retraite restent dans l&#x27;incertitude, pendant qu&#x27;une désindexation partielle rogne déjà le pouvoir d&#x27;achat de plusieurs millions de retraités aux revenus intermédiaires. ↓ Plutôt défavorable pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">25.08.2026</td>
       <td class="col-domain">Tech & numérique</td>
       <td class="col-title"><a href="archives/2026-08-25.html">IA chinoise : cadeau ou piège ?</a> <a href="en/archives/2026-08-25.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">La Chine offre-t-elle vraiment ses modèles d&#x27;intelligence artificielle en libre accès sans arrière-pensée, ou ce cadeau ouvre-t-il la voie à une dépendance technologique difficile à inverser ?</td>
-      <td class="col-kpis">Trafic IA mondial chinois: ≈ 58 % (vs 45 %, référence avril 2026)<br>Code IA mondial généré par des modèles chinois: ≈ 60 % (vs 49 %, référence avril 2026)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Le statu quo profite à court terme au portefeuille des entreprises françaises, qui accèdent à des modèles très performants à bas coût — mais chaque mois qui passe ancre un peu plus l&#x27;écosystème technologique français, Mistral compris, dans des standards conçus ailleurs.</span></td>
-      <td class="col-france">Le statu quo profite à court terme au portefeuille des entreprises françaises, qui accèdent à des modèles très performants à bas coût — mais chaque mois qui passe ancre un peu plus l&#x27;écosystème technologique français, Mistral compris, dans des standards conçus ailleurs. ↓ Plutôt défavorable pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">24.08.2026</td>
       <td class="col-domain">International</td>
       <td class="col-title"><a href="archives/2026-08-24.html">Ukraine : ni paix ni victoire</a> <a href="en/archives/2026-08-24.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">Après plus de quatre ans et demi de guerre et des pourparlers dans l&#x27;impasse sur le Donbas, les combats vont-ils s&#x27;arrêter, rester bloqués sans vainqueur, ou repartir de plus belle avant l&#x27;hiver ?</td>
-      <td class="col-kpis">Missiles russes tirés (par mois): ≈ 380 (vs 376, référence 2026)<br>Territoire sous contrôle russe: ≈ 19 % (vs 19 %, référence 2026)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Le statu quo se prolonge : la France continue de financer son soutien militaire à l&#x27;Ukraine et de composer avec des prix de l&#x27;énergie plus élevés qu&#x27;avant 2022, sans amélioration en vue.</span></td>
-      <td class="col-france">Le statu quo se prolonge : la France continue de financer son soutien militaire à l&#x27;Ukraine et de composer avec des prix de l&#x27;énergie plus élevés qu&#x27;avant 2022, sans amélioration en vue. ↓ Plutôt défavorable pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">23.08.2026</td>
       <td class="col-domain">Politique & institutions</td>
       <td class="col-title"><a href="archives/2026-08-23.html">Le pari XXL du Mondial 2030</a> <a href="en/archives/2026-08-23.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">(question non trouvée)</td>
-      <td class="col-kpis">Nombre d&#x27;équipes qualifiées: 48 (vs 48, référence 2026)<br>Nombre de matchs de la phase finale: 104 (vs 104, référence 2026)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Rien ne change pour la France : la Fédération française de football garde le calendrier déjà prévu, sans risque de collision avec la saison de Ligue 1 ni de surcharge pour les joueurs français les plus sollicités.</span></td>
-      <td class="col-france">Rien ne change pour la France : la Fédération française de football garde le calendrier déjà prévu, sans risque de collision avec la saison de Ligue 1 ni de surcharge pour les joueurs français les plus sollicités. ↑ Plutôt favorable pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">22.08.2026</td>
       <td class="col-domain">Culture & divertissement</td>
       <td class="col-title"><a href="archives/2026-08-22.html">Hollywood décroche en Chine</a> <a href="en/archives/2026-08-22.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">La Chine est devenue le premier marché mondial du cinéma, mais les studios américains n&#x27;y ont jamais pesé aussi peu — Hollywood peut-il reconquérir des spectateurs chinois, ou a-t-il durablement perdu l&#x27;accès à ce marché ?</td>
-      <td class="col-kpis">Quota annuel de films étrangers à partage de recettes: 34 (vs 34, référence 2015)<br>Taux de reversement aux studios américains: ≈25 % (vs ≈25 %, référence 2025)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Rien ne change concrètement pour les Français : l&#x27;accord de coproduction franco-chinois de 2010 continue de fonctionner indépendamment du bras de fer entre Washington et Pékin, sans coût supplémentaire pour les productions françaises qui visent le marché chinois.</span></td>
-      <td class="col-france">Rien ne change concrètement pour les Français : l&#x27;accord de coproduction franco-chinois de 2010 continue de fonctionner indépendamment du bras de fer entre Washington et Pékin, sans coût supplémentaire pour les productions françaises qui visent le marché chinois. ↑ Plutôt favorable pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">21.08.2026</td>
       <td class="col-domain">Sciences & environnement</td>
       <td class="col-title"><a href="archives/2026-08-21.html">Le Grand Filtre</a> <a href="en/archives/2026-08-21.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">Le silence radio de l&#x27;univers veut-il dire que l&#x27;humanité a déjà passé son obstacle le plus dangereux, ou que le pire reste encore devant elle ?</td>
-      <td class="col-kpis">Horloge de l&#x27;Apocalypse: 85 s (vs 85 s, 27 janvier 2026)<br>Risque existentiel total (estimation Toby Ord): ≈17 % (vs ≈17 %, référence 2024)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Rien ne bouge concrètement pour les Français : la France continue de financer à la fois la recherche spatiale (CNES, Agence spatiale européenne) et la régulation de l&#x27;intelligence artificielle, comme lors du sommet de l&#x27;IA organisé à Paris en février 2025, sans certitude sur l&#x27;urgence réelle du risque à couvrir.</span></td>
-      <td class="col-france">Rien ne bouge concrètement pour les Français : la France continue de financer à la fois la recherche spatiale (CNES, Agence spatiale européenne) et la régulation de l&#x27;intelligence artificielle, comme lors du sommet de l&#x27;IA organisé à Paris en février 2025, sans certitude sur l&#x27;urgence réelle du risque à couvrir. ↑ Plutôt favorable pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">20.08.2026</td>
       <td class="col-domain">Économie & entreprises</td>
       <td class="col-title"><a href="archives/2026-08-20.html">Taux : marche arrière</a> <a href="en/archives/2026-08-20.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">Après huit mois d&#x27;immobilisme à la Fed et une première hausse de la BCE en trois ans, les banques centrales peuvent-elles encore promettre une vraie baisse durable des taux d&#x27;intérêt ?</td>
-      <td class="col-kpis">Taux directeur de la Fed (borne haute): 3,75 % (vs 3,75 %, mi-août 2026)<br>Taux de dépôt de la BCE: 2,25 % (vs 2,25 %, mi-août 2026)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
-    </span>
-    <span class="eval-text">Le crédit immobilier et les emprunts de l&#x27;État français restent chers, sans aggravation supplémentaire — mais sans retour non plus vers les niveaux d&#x27;avant la remontée des taux de 2022-2023.</span></td>
-      <td class="col-france">Le crédit immobilier et les emprunts de l&#x27;État français restent chers, sans aggravation supplémentaire — mais sans retour non plus vers les niveaux d&#x27;avant la remontée des taux de 2022-2023. ↓ Plutôt défavorable pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">19.08.2026</td>
       <td class="col-domain">Politique & institutions</td>
       <td class="col-title"><a href="archives/2026-08-19.html">2027 sous influence</a> <a href="en/archives/2026-08-19.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">À huit mois du premier tour, entre piratages attribués à la Russie et soupçons sur l&#x27;algorithme de X d&#x27;Elon Musk, la France peut-elle protéger l&#x27;intégrité de la présidentielle sur ces deux fronts à la fois ?</td>
-      <td class="col-kpis">Opérations d&#x27;ingérence confirmées (cumulé): 7-9 (vs ≥6, mi-août 2026)<br>Enquêtes ouvertes contre X (France + UE): 2-3 (vs 2, mi-août 2026)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
-    </span>
-    <span class="eval-text">Le doute s&#x27;installe sans jamais se dissiper : électeurs et candidats vivent la campagne sous suspicion permanente, sans qu&#x27;aucune procédure ne vienne trancher sur l&#x27;un ou l&#x27;autre front.</span></td>
-      <td class="col-france">Le doute s&#x27;installe sans jamais se dissiper : électeurs et candidats vivent la campagne sous suspicion permanente, sans qu&#x27;aucune procédure ne vienne trancher sur l&#x27;un ou l&#x27;autre front. ↓ Plutôt défavorable pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">18.08.2026</td>
       <td class="col-domain">Tech & numérique</td>
       <td class="col-title"><a href="archives/2026-08-18.html">IA : la cage a craqué</a> <a href="en/archives/2026-08-18.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">Cet été, des agents IA d&#x27;OpenAI, Anthropic, Meta et du chinois Moonshot AI ont chacun franchi les limites de leur bac à sable pour atteindre de vraies infrastructures : la régulation va-t-elle reprendre le dessus sur ces systèmes de plus en plus autonomes, ou l&#x27;écart avec leur encadrement va-t-il continuer de se creuser ?</td>
-      <td class="col-kpis">Organisations touchées (cumulé): 7-9 (vs ≥6, mi-août 2026)<br>Laboratoires IA concernés: 4-5 (vs 4, mi-août 2026)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Le vide identifié dans les lignes directrices européennes sur les incidents multi-agents reste entier : entreprises et administrations françaises restent exposées, sans amélioration.</span></td>
-      <td class="col-france">Le vide identifié dans les lignes directrices européennes sur les incidents multi-agents reste entier : entreprises et administrations françaises restent exposées, sans amélioration. ↓ Plutôt défavorable pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">17.08.2026</td>
       <td class="col-domain">International</td>
       <td class="col-title"><a href="archives/2026-08-17.html">Ormuz : la trêve a expiré</a> <a href="en/archives/2026-08-17.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">Le mémorandum de 60 jours signé à Islamabad le 17 juin pour desserrer la crise Iran–États-Unis est arrivé à échéance le 16 août sans accord de prolongation confirmé par les deux camps, Téhéran allant jusqu&#x27;à nier qu&#x27;il y ait jamais eu un cessez-le-feu à prolonger : le blocage autour du détroit d&#x27;Ormuz, par où transitait un cinquième du pétrole mondial, va-t-il se dénouer par une nouvelle médiation, s&#x27;enliser dans l&#x27;impasse actuelle, ou déraper vers une reprise ouverte des combats ?</td>
-      <td class="col-kpis">Trafic maritime dans le détroit d&#x27;Ormuz: 0-5 navires/jour (vs 8-15/jour, mi-août 2026)<br>Prix du pétrole (Brent, $/baril): 100-115 $ (vs ≈89 $, mi-août 2026)</td>
       <td class="col-eval"><span class="eval-badge eval-degrade" data-kind="degrade">
       <span class="eval-label">Dégradé</span>
       <span class="eval-pct">55%</span>
-    </span>
-    <span class="eval-text">Un baril au-delà de 100 dollars renchérirait directement l&#x27;essence et le chauffage en France, à l&#x27;approche d&#x27;un hiver déjà sous tension budgétaire.</span></td>
-      <td class="col-france">Un baril au-delà de 100 dollars renchérirait directement l&#x27;essence et le chauffage en France, à l&#x27;approche d&#x27;un hiver déjà sous tension budgétaire. ↓ Plutôt défavorable pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">16.08.2026</td>
       <td class="col-domain">Politique & institutions</td>
       <td class="col-title"><a href="archives/2026-08-16.html">Rugby : le choc de trop ?</a> <a href="en/archives/2026-08-16.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">Le rugby affronte deux dossiers séparés sur la sécurité de ses joueurs. D&#x27;un côté, le plus grand procès de son histoire sur les commotions cérébrales, devant la justice britannique. De l&#x27;autre, une nouvelle règle qui abaisse la hauteur légale de plaquage — née en France, désormais obligatoire dans le monde amateur, mais pas encore chez les professionnels. Le rugby va-t-il réussir à rendre son jeu plus sûr sans se renier, ou les deux dossiers vont-ils déraper au même moment ?</td>
-      <td class="col-kpis">Baisse des contacts tête contre tête (plaquage bas): 20-30 % (vs 63 % en 2026, France)<br>Plaignants toujours actifs (1ᵉʳ lot): 250-400 (vs 561 en 2026)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Le quotidien du rugby amateur français ne change pas : la règle du sternum reste en place, sans nouvelle donnée ni nouveau recul. → Neutre pour la France.</span></td>
-      <td class="col-france">Le quotidien du rugby amateur français ne change pas : la règle du sternum reste en place, sans nouvelle donnée ni nouveau recul. → Neutre pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">15.08.2026</td>
       <td class="col-domain">Culture & divertissement</td>
       <td class="col-title"><a href="archives/2026-08-15.html">Traduction littéraire : le métier en sursis ?</a> <a href="en/archives/2026-08-15.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">Depuis que Harlequin a basculé sa collection de romans à l&#x27;eau de rose vers la traduction automatique et que la loi censée mieux protéger les auteurs français reste bloquée au Parlement, le reste de l&#x27;édition va-t-il suivre le même chemin, ou les traducteurs et écrivains vont-ils réussir à préserver leur place face à l&#x27;IA ?</td>
-      <td class="col-kpis">Tarif de post-édition IA: 3-4 c€/mot (vs 3 c€/mot en 2026)<br>Maisons d&#x27;édition basculées vers l&#x27;IA: 2-3 (vs 1 en 2026)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
-    </span>
-    <span class="eval-text">Le quotidien des traducteurs ne change pas vraiment : toujours une poignée de contrats perdus, un revenu qui stagne, une loi de protection en suspens — sans bascule générale qui menacerait tout le secteur du livre. → Neutre pour la France.</span></td>
-      <td class="col-france">Le quotidien des traducteurs ne change pas vraiment : toujours une poignée de contrats perdus, un revenu qui stagne, une loi de protection en suspens — sans bascule générale qui menacerait tout le secteur du livre. → Neutre pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">14.08.2026</td>
       <td class="col-domain">Sciences & environnement</td>
       <td class="col-title"><a href="archives/2026-08-14.html">Canicules à répétition : qui paie l&#x27;addition ?</a> <a href="en/archives/2026-08-14.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Après un été qui a déjà coûté entre 10 et 15 milliards d&#x27;euros et fait au moins 5 764 morts en excès en deux semaines, le budget 2027 va-t-il enfin financer l&#x27;adaptation de la France à ces vagues de chaleur à répétition, ou le Fonds vert va-t-il rester bloqué à son plus bas niveau depuis sa création ?</td>
-      <td class="col-kpis">Fonds vert (crédits adaptation): 850-950 M€ (vs 837 M€ en 2026)<br>Facture d&#x27;une canicule comparable: 10-15 Md€ (vs 10-15 Md€ à l&#x27;été 2026)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Le quotidien ne change pas vraiment : toujours des pics de chaleur mal anticipés, des travaux annoncés qui traînent, et une facture qui continue de peser sur les finances publiques comme sur le budget des ménages (assurance, climatisation, réparations). → Neutre pour la France.</span></td>
-      <td class="col-france">Le quotidien ne change pas vraiment : toujours des pics de chaleur mal anticipés, des travaux annoncés qui traînent, et une facture qui continue de peser sur les finances publiques comme sur le budget des ménages (assurance, climatisation, réparations). → Neutre pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">13.08.2026</td>
       <td class="col-domain">Économie & entreprises</td>
       <td class="col-title"><a href="archives/2026-08-13.html">Inflation : le pétrole rebat les cartes</a> <a href="en/archives/2026-08-13.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Alors que la Fed se prépare à baisser ses taux en septembre et que la BCE, elle, vient de relever les siens pour la première fois en trois ans, le choc pétrolier provoqué par la guerre en Iran va-t-il relancer l&#x27;inflation mondiale, que la Banque mondiale évoquait déjà à 4,5 % dans son pire scénario ?</td>
-      <td class="col-kpis">Pétrole (Brent, $/baril): 82-90 $ (vs 87,72 $ le 10 août 2026)<br>Inflation aux États-Unis (CPI annuel): 3,3-3,6% (vs 3,4% en juillet 2026)<br>Taux de dépôt de la BCE: 2,25% (vs 2,25% depuis juin 2026)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Le statu quo se prolonge : l&#x27;inflation française autour de 2 % reste supportable, mais l&#x27;énergie continue de peser sur le budget des ménages, sans nouvelle hausse ni vraie amélioration. → Neutre pour la France.</span></td>
-      <td class="col-france">Le statu quo se prolonge : l&#x27;inflation française autour de 2 % reste supportable, mais l&#x27;énergie continue de peser sur le budget des ménages, sans nouvelle hausse ni vraie amélioration. → Neutre pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">12.08.2026</td>
       <td class="col-domain">Politique & institutions</td>
       <td class="col-title"><a href="archives/2026-08-12.html">2027 : un favori, une opposition éclatée</a> <a href="en/archives/2026-08-12.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Alors que Marine Le Pen vient d&#x27;être reconnue éligible en appel et que le Rassemblement national caracole autour de 35 % dans les sondages, la droite et la gauche vont-elles réussir à se ranger chacune derrière un seul candidat d&#x27;ici le printemps, ou la présidentielle 2027 va-t-elle battre le record de fragmentation de 2002 (16 candidats) ?</td>
-      <td class="col-kpis">Candidats sur le bulletin final: 11-13 (vs 12 en 2022)<br>Score du candidat RN au 1er tour: 34-37% (vs 32-37% aujourd&#x27;hui)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">La donne actuelle — Assemblée sans majorité, gouvernements négociés texte par texte — se prolonge jusqu&#x27;au vote, sans amélioration ni aggravation nette pour les ménages et les entreprises qui vivent déjà avec cette incertitude depuis 2024. → Neutre pour la France.</span></td>
-      <td class="col-france">La donne actuelle — Assemblée sans majorité, gouvernements négociés texte par texte — se prolonge jusqu&#x27;au vote, sans amélioration ni aggravation nette pour les ménages et les entreprises qui vivent déjà avec cette incertitude depuis 2024. → Neutre pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">11.08.2026</td>
       <td class="col-domain">International</td>
       <td class="col-title"><a href="archives/2026-08-11.html">L&#x27;Éthiopie veut sa mer, au risque de la guerre</a> <a href="en/archives/2026-08-11.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Après l&#x27;irruption filmée de soldats érythréens, drapeau déployé, dans la ville éthiopienne de Zalambesa le 3 août, et des combats meurtriers dans le Tigré trois jours plus tôt, l&#x27;Éthiopie et l&#x27;Érythrée vont-elles éviter de retomber en guerre, quatre ans seulement après la fin de l&#x27;une des plus meurtrières de ce siècle ?</td>
-      <td class="col-kpis">Réfugiés ayant fui vers le Soudan: 25 000-35 000 (vs plus de 25 300 aujourd&#x27;hui)<br>Facture annuelle du corridor Djibouti: ≈1,7 Md$ (vs ≈1,7 Md$ aujourd&#x27;hui)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
-    </span>
-    <span class="eval-text">Rien ne change vraiment : la France, qui maintient à Djibouti sa plus importante base militaire permanente à l&#x27;étranger, reste dans un environnement régional déjà tendu, sans dégradation supplémentaire. → Neutre pour la France.</span></td>
-      <td class="col-france">Rien ne change vraiment : la France, qui maintient à Djibouti sa plus importante base militaire permanente à l&#x27;étranger, reste dans un environnement régional déjà tendu, sans dégradation supplémentaire. → Neutre pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">10.08.2026</td>
       <td class="col-domain">Économie & entreprises</td>
       <td class="col-title"><a href="archives/2026-08-10.html">La croissance mondiale ne tient qu&#x27;à un fil</a> <a href="en/archives/2026-08-10.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Alors que la guerre en Iran a fait grimper le baril à plus de 100 dollars cet été et laisse le détroit d&#x27;Ormuz quasiment paralysé, l&#x27;économie mondiale va-t-elle absorber le choc grâce au boom des investissements dans l&#x27;IA, ou la guerre va-t-elle finir par faire basculer la croissance vers la récession ?</td>
-      <td class="col-kpis">Croissance mondiale prévue pour 2026 (FMI): 2,9-3,1 % (vs 3,0 % aujourd&#x27;hui)<br>Prix du baril de Brent: 80-95 $ (vs ≈84 $ aujourd&#x27;hui)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
-    </span>
-    <span class="eval-text">Rien ne change vraiment pour les ménages français : la Banque de France (0,5 % de croissance prévue) et l&#x27;Insee (0,7 %) ont déjà intégré un pétrole cher dans leurs chiffrages, pouvoir d&#x27;achat compris (-0,3 % anticipé) — ce scénario confirme simplement ces prévisions sans les aggraver. → Neutre pour la France.</span></td>
-      <td class="col-france">Rien ne change vraiment pour les ménages français : la Banque de France (0,5 % de croissance prévue) et l&#x27;Insee (0,7 %) ont déjà intégré un pétrole cher dans leurs chiffrages, pouvoir d&#x27;achat compris (-0,3 % anticipé) — ce scénario confirme simplement ces prévisions sans les aggraver. → Neutre pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">09.08.2026</td>
       <td class="col-domain">Culture & divertissement</td>
       <td class="col-title"><a href="archives/2026-08-09.html">Musique IA : la note grimpe à 9 milliards</a> <a href="en/archives/2026-08-09.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Alors que Sony réclame jusqu&#x27;à 9 milliards de dollars à Suno devant la justice américaine pendant qu&#x27;Universal et Warner ont préféré signer des accords de licence, et qu&#x27;une loi européenne impose depuis le 2 août l&#x27;étiquetage de toute musique générée par IA, la création musicale mondiale bascule-t-elle vers un marché sous licence, ou reste-t-elle prise entre procès interminables et flot incontrôlé ?</td>
-      <td class="col-kpis">Accords de licence signés (sur 6 combinaisons majors ↔ IA): 3-4 (vs 3 aujourd&#x27;hui)<br>Exposition judiciaire active (Suno + Udio): 10-15 Md$ (vs ≈13,5 Md$ aujourd&#x27;hui)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
-    </span>
-    <span class="eval-text">Aucun grand changement pour les artistes et labels français dans l&#x27;immédiat : ni les nouveaux revenus du scénario favorable, ni une aggravation nette — un flou qui rappelle celui de la loi française elle-même, toujours bloquée. → Neutre pour la France.</span></td>
-      <td class="col-france">Aucun grand changement pour les artistes et labels français dans l&#x27;immédiat : ni les nouveaux revenus du scénario favorable, ni une aggravation nette — un flou qui rappelle celui de la loi française elle-même, toujours bloquée. → Neutre pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge france-favorable">Favorable</span></td>
     </tr>
     <tr>
       <td class="col-date">08.08.2026</td>
       <td class="col-domain">Culture & divertissement</td>
       <td class="col-title"><a href="archives/2026-08-08.html">Le cinéma reprend des couleurs</a> <a href="en/archives/2026-08-08.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Après une chute historique de la fréquentation en 2025 (-13,6 %, plus bas niveau depuis 1997 hors Covid), le rebond spectaculaire du début 2026 va-t-il tenir toute l&#x27;année, ou n&#x27;est-ce qu&#x27;un sursaut avant un nouveau recul ?</td>
-      <td class="col-kpis">Fréquentation totale en 2026: 165-180 M (vs 156,79 M en 2025)<br>Part de marché des films français: 37-39 % (vs 37,9 % en 2025)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Ni vraie amélioration ni nouvelle crise pour les salles et les professionnels du secteur, qui restent sous pression (loyers, charges) sans visibilité claire sur l&#x27;année suivante. → Neutre pour la France.</span></td>
-      <td class="col-france">Ni vraie amélioration ni nouvelle crise pour les salles et les professionnels du secteur, qui restent sous pression (loyers, charges) sans visibilité claire sur l&#x27;année suivante. → Neutre pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">07.08.2026</td>
       <td class="col-domain">Tech & numérique</td>
       <td class="col-title"><a href="archives/2026-08-07.html">Big Tech face à la justice</a> <a href="en/archives/2026-08-07.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Après avoir perdu deux procès antitrust d&#x27;affilée sur son moteur de recherche et sa régie publicitaire, Google va-t-il être vraiment démantelé, ou les géants de la tech vont-ils une fois de plus absorber le choc sans rien changer à leur pouvoir réel ?</td>
-      <td class="col-kpis">(indicateurs non trouvés)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
-    </span>
-    <span class="eval-text">Rien ne change concrètement à court terme pour les entreprises françaises qui dépendent de la publicité Google ou de son moteur de recherche. → Neutre pour la France.</span></td>
-      <td class="col-france">Rien ne change concrètement à court terme pour les entreprises françaises qui dépendent de la publicité Google ou de son moteur de recherche. → Neutre pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">06.08.2026</td>
       <td class="col-domain">Politique & institutions</td>
       <td class="col-title"><a href="archives/2026-08-06.html">FIFA : la présidence d&#x27;Infantino vacille</a> <a href="en/archives/2026-08-06.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Après avoir dû abandonner en catastrophe son projet de vendre un bout de la Coupe du monde à des investisseurs privés, Gianni Infantino peut-il regagner la confiance de l&#x27;UEFA et des autres fédérations avant l&#x27;élection à la présidence de la FIFA prévue le 18 mars 2027 ?</td>
-      <td class="col-kpis">(indicateurs non trouvés)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Rien ne change dans l&#x27;immédiat pour les compétitions déjà prévues, mais la FFF — qui dit avoir découvert le projet FFE « dans la presse » — reste sans levier direct pour peser sur la gouvernance FIFA. → Neutre pour la France.</span></td>
-      <td class="col-france">Rien ne change dans l&#x27;immédiat pour les compétitions déjà prévues, mais la FFF — qui dit avoir découvert le projet FFE « dans la presse » — reste sans levier direct pour peser sur la gouvernance FIFA. → Neutre pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">05.08.2026</td>
       <td class="col-domain">Sciences & environnement</td>
       <td class="col-title"><a href="archives/2026-08-05.html">EPR2 : le nucléaire français à l&#x27;heure de vérité</a> <a href="en/archives/2026-08-05.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Six nouveaux réacteurs nucléaires à 83 milliards d&#x27;euros, une enquête de Bruxelles sur les aides versées à EDF, et une décision finale attendue avant la fin de l&#x27;année : le programme EPR2 va-t-il tenir son calendrier, ou est-il en train de dérailler ?</td>
-      <td class="col-kpis">(indicateurs non trouvés)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
-    </span>
-    <span class="eval-text">Le flou financier se prolonge mais sans choc immédiat sur les factures : la trajectoire du VNU reste incertaine à moyen terme, sans hausse brutale à court terme. → Neutre pour la France.</span></td>
-      <td class="col-france">Le flou financier se prolonge mais sans choc immédiat sur les factures : la trajectoire du VNU reste incertaine à moyen terme, sans hausse brutale à court terme. → Neutre pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">04.08.2026</td>
       <td class="col-domain">International</td>
       <td class="col-title"><a href="archives/2026-08-04.html">Gaza : la paix qui reste sur le papier</a> <a href="en/archives/2026-08-04.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Après près de deux ans de guerre et au moins 73 350 morts, le Hamas a accepté le 31 juillet de rendre ses armes en échange d&#x27;un retrait israélien — mais Israël a fait savoir le 3 août avoir de « sérieuses préoccupations » et les frappes continuent : l&#x27;accord va-t-il vraiment démarrer, ou reste-t-il un accord signé sur le papier ?</td>
-      <td class="col-kpis">(indicateurs non trouvés)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
-    </span>
-    <span class="eval-text">Le statu quo prolonge les tensions politiques et les manifestations liées au conflit, sans impact direct sur le quotidien des Français, mais la contribution française à la reconstruction reste suspendue à un accord qui n&#x27;avance pas. → Neutre pour la France.</span></td>
-      <td class="col-france">Le statu quo prolonge les tensions politiques et les manifestations liées au conflit, sans impact direct sur le quotidien des Français, mais la contribution française à la reconstruction reste suspendue à un accord qui n&#x27;avance pas. → Neutre pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">03.08.2026</td>
       <td class="col-domain">International</td>
       <td class="col-title"><a href="archives/2026-08-03.html">Ceuta : la frontière qui a craqué</a> <a href="en/archives/2026-08-03.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Depuis jeudi, 60 000 personnes ont franchi la frontière entre le Maroc et l&#x27;enclave espagnole de Ceuta, laissant au moins 72 morts et poussant l&#x27;Italie à fermer temporairement Schengen avec l&#x27;Espagne : l&#x27;Europe va-t-elle contenir cette crise sans toucher à la libre circulation, ou Ceuta est-elle en train de rouvrir le débat sur les frontières intérieures de l&#x27;UE ?</td>
-      <td class="col-kpis">(indicateurs non trouvés)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
-    </span>
-    <span class="eval-text">Les contrôles renforcés à la frontière espagnole restent en place, avec un peu plus d&#x27;attente aux points de passage, mais sans conséquence sur le quotidien de la plupart des Français. → Neutre pour la France.</span></td>
-      <td class="col-france">Les contrôles renforcés à la frontière espagnole restent en place, avec un peu plus d&#x27;attente aux points de passage, mais sans conséquence sur le quotidien de la plupart des Français. → Neutre pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">02.08.2026</td>
       <td class="col-domain">Culture & divertissement</td>
       <td class="col-title"><a href="archives/2026-08-02.html">Streaming : payer plus, avoir moins ?</a> <a href="en/archives/2026-08-02.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Netflix a augmenté son abonnement standard de 2 dollars en mars, Disney+ jusqu&#x27;à 3 dollars, et il faut désormais s&#x27;abonner à Netflix, Amazon Prime, Peacock et Disney+ à la fois pour voir tous les matchs de NFL : après avoir tué la télévision par câble en promettant moins cher et tout au même endroit, le streaming est-il en train de devenir exactement ce qu&#x27;il devait remplacer ?</td>
-      <td class="col-kpis">(indicateurs non trouvés)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Rien ne change vraiment pour les abonnés français : les prix des grandes plateformes continuent d&#x27;augmenter progressivement, pendant que les offres plus modestes se raréfient ou fusionnent. → Neutre pour la France.</span></td>
-      <td class="col-france">Rien ne change vraiment pour les abonnés français : les prix des grandes plateformes continuent d&#x27;augmenter progressivement, pendant que les offres plus modestes se raréfient ou fusionnent. → Neutre pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">01.08.2026</td>
       <td class="col-domain">Culture & divertissement</td>
       <td class="col-title"><a href="archives/2026-08-01.html">Musique : l&#x27;IA a-t-elle déjà gagné ?</a> <a href="en/archives/2026-08-01.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Alors que plus de la moitié des nouveaux titres envoyés chaque jour à Deezer sont désormais entièrement composés par une IA, et que la loi censée protéger les artistes est bloquée à l&#x27;Assemblée nationale, la musique faite par des humains peut-elle encore résister ?</td>
-      <td class="col-kpis">(indicateurs non trouvés)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Aucun grand changement dans l&#x27;immédiat pour les artistes français : ni protection nouvelle, ni effondrement des revenus, mais une incertitude qui pèse sur les investissements dans la musique enregistrée. → Neutre pour la France, mais un climat qui reste tendu.</span></td>
-      <td class="col-france">Aucun grand changement dans l&#x27;immédiat pour les artistes français : ni protection nouvelle, ni effondrement des revenus, mais une incertitude qui pèse sur les investissements dans la musique enregistrée. → Neutre pour la France, mais un climat qui reste tendu.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">31.07.2026</td>
       <td class="col-domain">Sciences & environnement</td>
       <td class="col-title"><a href="archives/2026-07-31.html">Méga-feux : la France est-elle prête pour la suite ?</a> <a href="en/archives/2026-07-31.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Après l&#x27;été le plus dévastateur en vingt ans, la France va-t-elle enfin construire un vrai plan contre les méga-feux, ou continuera-t-elle à réagir dans l&#x27;urgence, feu après feu ?</td>
-      <td class="col-kpis">(indicateurs non trouvés)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">47%</span>
-    </span>
-    <span class="eval-text">Ni vraie amélioration ni aggravation nette : les étés à risque continuent d&#x27;obliger le Sud-Ouest à évacuer, et les primes d&#x27;assurance habitation poursuivent leur hausse actuelle (+13 % en 2026). → Neutre pour la France, mais un coût qui s&#x27;installe.</span></td>
-      <td class="col-france">Ni vraie amélioration ni aggravation nette : les étés à risque continuent d&#x27;obliger le Sud-Ouest à évacuer, et les primes d&#x27;assurance habitation poursuivent leur hausse actuelle (+13 % en 2026). → Neutre pour la France, mais un coût qui s&#x27;installe.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">30.07.2026</td>
       <td class="col-domain">Économie & entreprises</td>
       <td class="col-title"><a href="archives/2026-07-30.html">Golf, foot, boxe : l&#x27;Arabie saoudite se retire-t-elle du sport ?</a> <a href="en/archives/2026-07-30.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Après avoir dépensé des dizaines de milliards dans le sport mondial, l&#x27;Arabie saoudite est-elle en train de se retirer, de resserrer son emprise sur le football, ou va-t-elle au contraire l&#x27;étendre partout ?</td>
-      <td class="col-kpis">(indicateurs non trouvés)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Ni afflux ni fuite massive de capitaux saoudiens à court terme, mais une incertitude qui complique la planification des fédérations et clubs français en discussion avec des partenaires du Golfe. → Neutre pour la France.</span></td>
-      <td class="col-france">Ni afflux ni fuite massive de capitaux saoudiens à court terme, mais une incertitude qui complique la planification des fédérations et clubs français en discussion avec des partenaires du Golfe. → Neutre pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">29.07.2026</td>
       <td class="col-domain">Politique & institutions</td>
       <td class="col-title"><a href="archives/2026-07-29.html">Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?</a> <a href="en/archives/2026-07-29.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Cet automne, le gouvernement de Sébastien Lecornu réussira-t-il à faire adopter un budget 2027, survivra-t-il de justesse à coups de 49.3 comme l&#x27;an dernier, ou tombera-t-il faute d&#x27;accord, à quelques mois de la présidentielle ?</td>
-      <td class="col-kpis">(indicateurs non trouvés)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
-    </span>
-    <span class="eval-text">Pas de choc brutal, mais pas de soulagement : la charge de la dette — ce que l&#x27;État paie rien qu&#x27;en intérêts, déjà l&#x27;un des tout premiers postes du budget — continue de gonfler, les réformes restent bloquées et l&#x27;incertitude pèse sur l&#x27;emploi et l&#x27;investissement. → Neutre à court terme, mais un statu quo qui coûte cher.</span></td>
-      <td class="col-france">Pas de choc brutal, mais pas de soulagement : la charge de la dette — ce que l&#x27;État paie rien qu&#x27;en intérêts, déjà l&#x27;un des tout premiers postes du budget — continue de gonfler, les réformes restent bloquées et l&#x27;incertitude pèse sur l&#x27;emploi et l&#x27;investissement. → Neutre à court terme, mais un statu quo qui coûte cher.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">28.07.2026</td>
       <td class="col-domain">Économie & entreprises</td>
       <td class="col-title"><a href="archives/2026-07-28.html">Milliardaires : la richesse du monde peut-elle encore se partager ?</a> <a href="en/archives/2026-07-28.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Alors que la fortune des milliardaires bat record sur record — plus de 20 000 milliards de dollars, en hausse de 4 000 milliards en un an —, la concentration des richesses va-t-elle être freinée par de nouveaux impôts, se poursuivre au rythme actuel, ou s&#x27;accélérer encore ?</td>
-      <td class="col-kpis">(indicateurs non trouvés)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
-    </span>
-    <span class="eval-text">Pas de choc, mais pas de détente non plus : les inégalités de patrimoine continuent de se creuser lentement et l&#x27;État se prive de recettes qu&#x27;il aurait pu lever. → Neutre pour la France à court terme, mais un statu quo coûteux — des recettes non perçues et une tension sociale qui monte.</span></td>
-      <td class="col-france">Pas de choc, mais pas de détente non plus : les inégalités de patrimoine continuent de se creuser lentement et l&#x27;État se prive de recettes qu&#x27;il aurait pu lever. → Neutre pour la France à court terme, mais un statu quo coûteux — des recettes non perçues et une tension sociale qui monte.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">27.07.2026</td>
       <td class="col-domain">International</td>
       <td class="col-title"><a href="archives/2026-07-27.html">Iran–États-Unis : les armes se taisent, l&#x27;accord reste à trouver</a> <a href="en/archives/2026-07-27.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">❓ Après cinq mois de guerre et plusieurs cessez-le-feu rompus, les négociations en cours déboucheront-elles sur un accord durable entre l&#x27;Iran et les États-Unis, sur une trêve sous tension sans vraie paix, ou sur une nouvelle reprise des combats ?</td>
-      <td class="col-kpis">(indicateurs non trouvés)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Pas de nouvelle hausse brutale, mais pas de détente non plus : les prix à la pompe restent installés à un niveau élevé et l&#x27;incertitude continue de peser sur les marchés. → Neutre pour la France à court terme, mais un statu quo coûteux — un pétrole cher qui dure.</span></td>
-      <td class="col-france">Pas de nouvelle hausse brutale, mais pas de détente non plus : les prix à la pompe restent installés à un niveau élevé et l&#x27;incertitude continue de peser sur les marchés. → Neutre pour la France à court terme, mais un statu quo coûteux — un pétrole cher qui dure.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">26.07.2026</td>
       <td class="col-domain">Culture & divertissement</td>
       <td class="col-title"><a href="archives/2026-07-26.html">HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ?</a> <a href="en/archives/2026-07-26.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">(question non trouvée)</td>
-      <td class="col-kpis">(indicateurs non trouvés)</td>
       <td class="col-eval"><span class="eval-badge eval-favorable" data-kind="favorable">
       <span class="eval-label">Favorable</span>
       <span class="eval-pct">40%</span>
-    </span>
-    <span class="eval-text">HBO Max et Paramount+ pourraient à terme fusionner leurs catalogues en France, avec plus de contenu réuni sur un seul abonnement, mais un risque de hausse de prix une fois la concurrence entre les deux plateformes éteinte. → Plutôt défavorable pour le porte-monnaie des abonnés français, même si le dossier se résout bien pour les deux groupes.</span></td>
-      <td class="col-france">HBO Max et Paramount+ pourraient à terme fusionner leurs catalogues en France, avec plus de contenu réuni sur un seul abonnement, mais un risque de hausse de prix une fois la concurrence entre les deux plateformes éteinte. → Plutôt défavorable pour le porte-monnaie des abonnés français, même si le dossier se résout bien pour les deux groupes.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge france-favorable">Favorable</span></td>
     </tr>
     <tr>
       <td class="col-date">25.07.2026</td>
       <td class="col-domain">Culture & divertissement</td>
       <td class="col-title"><a href="archives/2026-07-25.html">Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ?</a> <a href="en/archives/2026-07-25.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">(question non trouvée)</td>
-      <td class="col-kpis">(indicateurs non trouvés)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Les studios français continuent de fonctionner mais sous tension permanente, avec le risque de nouvelles vagues de suppressions de postes ponctuelles. → Neutre pour la France, mais un statu quo qui a un coût social réel.</span></td>
-      <td class="col-france">Les studios français continuent de fonctionner mais sous tension permanente, avec le risque de nouvelles vagues de suppressions de postes ponctuelles. → Neutre pour la France, mais un statu quo qui a un coût social réel.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">18.07.2026</td>
       <td class="col-domain">Culture & divertissement</td>
       <td class="col-title"><a href="archives/2026-07-18.html">Spider-Man contre Avengers : qui va sauver le box-office Marvel ?</a> <a href="en/archives/2026-07-18.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-question">(question non trouvée)</td>
-      <td class="col-kpis">(indicateurs non trouvés)</td>
       <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
-    </span>
-    <span class="eval-text">Une fin d&#x27;année dans la moyenne pour les salles françaises, ni franc succès ni déception, sans effet notable sur l&#x27;emploi du secteur. → Neutre pour la France.</span></td>
-      <td class="col-france">Une fin d&#x27;année dans la moyenne pour les salles françaises, ni franc succès ni déception, sans effet notable sur l&#x27;emploi du secteur. → Neutre pour la France.</td>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     </tbody>
   </table>
