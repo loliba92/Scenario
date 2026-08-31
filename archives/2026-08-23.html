@@ -42,7 +42,7 @@
   "datePublished": "2026-08-23T06:35:00+02:00",
   "dateModified": "2026-08-23T06:35:00+02:00",
   "inLanguage": "fr-FR",
-  "author": { "@type": "Organization", "name": "Scénario", "url": "https://lesscenarios.fr/le-projet.html" },
+  "author": { "@type": "Person", "name": "Olivier Bertrand", "url": "https://lesscenarios.fr/le-projet.html#equipe", "jobTitle": "Directeur éditorial et technique" },
   "publisher": {
     "@type": "Organization",
     "name": "Scénario",
@@ -180,6 +180,15 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
+  .byline{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--paper-dim);
+    margin-top: 3px;
+  }
+  .byline a{ color: var(--gold); text-decoration: none; }
+  .byline a:hover{ text-decoration: underline; }
+
 
   .masthead-nav{
     display: flex;
@@ -1411,6 +1420,7 @@
         <div class="wordmark">Scéna<span>rio</span></div>
       </div>
       <div class="edition">Édition du 23 août 2026 · N°31</div>
+      <div class="byline">Par <a href="../le-projet.html#equipe">Olivier Bertrand</a> — Directeur éditorial et technique</div>
     </div>
     <div class="masthead-right">
       <button type="button" class="onesignal-subscribe-btn masthead-notif-btn" aria-label="Activer les notifications" title="Activer les notifications"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg></button>

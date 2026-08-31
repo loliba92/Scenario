@@ -557,7 +557,7 @@ Ne jamais réécrire une nouvelle phrase pour la description : reprendre exactem
   "datePublished": "{même valeur que article:published_time}",
   "dateModified": "{même valeur que article:published_time}",
   "inLanguage": "fr-FR",
-  "author": { "@type": "Organization", "name": "Scénario", "url": "https://lesscenarios.fr/le-projet.html" },
+  "author": { "@type": "Person", "name": "Olivier Bertrand", "url": "https://lesscenarios.fr/le-projet.html#equipe", "jobTitle": "Directeur éditorial et technique" },
   "publisher": {
     "@type": "Organization",
     "name": "Scénario",
@@ -567,6 +567,14 @@ Ne jamais réécrire une nouvelle phrase pour la description : reprendre exactem
 </script>
 ```
 `mainEntityOfPage.@id` suit la même règle que `og:url`. `author`/`publisher` ne changent jamais. `image` suit la même règle conditionnelle que `og:image` (générique par défaut, remplacé par l'étape 8 si photo retenue).
+
+**[AJOUTÉ le 31 août 2026, retour utilisateur — SEO E-E-A-T] `author` en `Person` nommée, pas `Organization`.** Un auteur réel et identifié (avec `jobTitle` + lien vers sa bio) est un signal de confiance reconnu par Google (E-E-A-T : Experience, Expertise, Authoritativeness, Trustworthiness), au-delà de la simple éligibilité Google Actualités que couvrait déjà `NewsArticle`. `publisher` reste `Organization` (« Scénario ») — c'est `author` seul qui change de type. En anglais (`en/index.html`, `en/archives/{date}.html`) : `"jobTitle": "Editorial & Technical Director"`, même `name`/`url` (pas de page « équipe » en anglais, le lien pointe vers la version française).
+
+**Byline visible sous `.edition` dans le masthead, même geste que le JSON-LD ci-dessus [AJOUTÉ le 31 août 2026].** Juste après `<div class="edition">{...}</div>` dans `.brand` :
+```html
+<div class="byline">Par <a href="{lien vers le-projet.html#equipe}">Olivier Bertrand</a> — Directeur éditorial et technique</div>
+```
+Lien relatif selon la profondeur du fichier : `le-projet.html#equipe` depuis `index.html`, `../le-projet.html#equipe` depuis `archives/{date}.html`, `../le-projet.html#equipe` depuis `en/index.html`, `../../le-projet.html#equipe` depuis `en/archives/{date}.html`. Version anglaise : `By <a href="...">Olivier Bertrand</a> — Editorial &amp; Technical Director`. CSS `.byline` (texte discret, lien en `--gold`) déjà dans le gabarit, à recopier comme le reste du `<style>` — ne jamais l'omettre ni le réécrire.
 
 4. Écraser `index.html` avec la nouvelle édition.
 5. Copier dans `archives/AAAA-MM-JJ.html`, adapter tous les liens relatifs d'un niveau, même patron que les fichiers déjà présents.
