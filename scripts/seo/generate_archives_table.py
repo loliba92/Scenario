@@ -37,6 +37,7 @@ ARCHIVES_TABLE_CSS = """
     max-width: 1200px;
     margin: 32px auto;
     border-collapse: collapse;
+    table-layout: fixed;
     font-size: 0.90rem;
     line-height: 1.6;
     background: var(--surface);
@@ -90,7 +91,7 @@ ARCHIVES_TABLE_CSS = """
     font-family: "JetBrains Mono", monospace;
     font-size: 0.75rem;
     font-weight: 600;
-    color: var(--gold);
+    color: var(--paper-dim);
     white-space: nowrap;
     flex-shrink: 0;
     letter-spacing: 0.02em;
@@ -98,19 +99,19 @@ ARCHIVES_TABLE_CSS = """
   }
 
   .archives-table .col-domain {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-family: "JetBrains Mono", monospace;
     font-weight: 600;
-    color: var(--gold);
-    white-space: nowrap;
-    flex-shrink: 0;
+    color: var(--paper-dim);
+    white-space: normal;
+    line-height: 1.35;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.02em;
     text-align: center;
   }
 
   .archives-table .col-title {
-    min-width: 280px;
+    overflow-wrap: break-word;
   }
 
   .archives-table .col-title a {
@@ -120,6 +121,10 @@ ARCHIVES_TABLE_CSS = """
     font-weight: 700;
     font-size: 0.95rem;
     transition: color 0.2s ease;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
   }
 
   .archives-table .col-title a:hover {
@@ -165,22 +170,23 @@ ARCHIVES_TABLE_CSS = """
     white-space: nowrap;
   }
 
+  /* Notre scénario : badge fond plein (donnée principale du site) */
   .archives-table .eval-badge.eval-favorable {
-    background: rgba(94, 156, 120, 0.12);
-    color: #5e9c78;
-    border: 1px solid rgba(94, 156, 120, 0.3);
+    background: #5e9c78;
+    color: #10151c;
+    border: 1px solid #5e9c78;
   }
 
   .archives-table .eval-badge.eval-stable {
-    background: rgba(111, 143, 174, 0.12);
-    color: #6f8fae;
-    border: 1px solid rgba(111, 143, 174, 0.3);
+    background: #6f8fae;
+    color: #10151c;
+    border: 1px solid #6f8fae;
   }
 
   .archives-table .eval-badge.eval-degrade {
-    background: rgba(189, 98, 72, 0.12);
-    color: #bd6248;
-    border: 1px solid rgba(189, 98, 72, 0.3);
+    background: #bd6248;
+    color: #10151c;
+    border: 1px solid #bd6248;
   }
 
   .archives-table .eval-label {
@@ -211,22 +217,24 @@ ARCHIVES_TABLE_CSS = """
     white-space: nowrap;
   }
 
+  /* Impact France : badge contour léger (donnée secondaire), pour se distinguer
+     visuellement du badge "Notre scénario" (fond plein) juste à côté */
   .archives-table .france-badge.france-favorable {
-    background: rgba(94, 156, 120, 0.12);
+    background: transparent;
     color: #5e9c78;
-    border: 1px solid rgba(94, 156, 120, 0.3);
+    border: 1.5px solid #5e9c78;
   }
 
   .archives-table .france-badge.france-stable {
-    background: rgba(111, 143, 174, 0.12);
+    background: transparent;
     color: #6f8fae;
-    border: 1px solid rgba(111, 143, 174, 0.3);
+    border: 1.5px solid #6f8fae;
   }
 
   .archives-table .france-badge.france-degrade {
-    background: rgba(189, 98, 72, 0.12);
+    background: transparent;
     color: #bd6248;
-    border: 1px solid rgba(189, 98, 72, 0.3);
+    border: 1.5px solid #bd6248;
   }
 
   @media (max-width: 1200px) {
@@ -248,8 +256,10 @@ ARCHIVES_TABLE_CSS = """
     .archives-table td {
       padding: 8px;
     }
-    .archives-table th:nth-child(4),
-    .archives-table td:nth-child(4) {
+    /* Masque Domaine (2e colonne) sur mobile — Notre scénario est la donnée clé
+       à garder visible à côté du titre, pas le domaine thématique */
+    .archives-table th:nth-child(2),
+    .archives-table td:nth-child(2) {
       display: none;
     }
     .archives-table .eval-badge,
@@ -416,7 +426,7 @@ def get_scenario_label(kind):
 
 
 def render_table_row(article):
-    """Rend une ligne du tableau avec 5 colonnes: Date | Domaine | Titre | Notre scénario | Quel impact pour la France."""
+    """Rend une ligne du tableau avec 5 colonnes: Date | Domaine | Titre | Notre scénario | Impact France."""
     domain_label = DOMAIN_LABELS.get(article["domain"], article["domain"])
 
     # Notre scénario : badge de couleur + % SEULEMENT (pas de texte du scénario)
@@ -445,7 +455,7 @@ def render_table_row(article):
     # Lien EN (toujours ajouter le badge)
     en_link = f' <a href="en/archives/{article["iso_date"]}.html" title="Read in English" class="lang-badge">EN</a>'
 
-    # Ordre simplifiée : Date | Domaine | Titre | Notre scénario | Quel impact pour la France
+    # Ordre simplifiée : Date | Domaine | Titre | Notre scénario | Impact France
     return f"""    <tr>
       <td class="col-date">{format_date_display(article["iso_date"])}</td>
       <td class="col-domain">{domain_label}</td>
@@ -487,11 +497,11 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
     table_html = f"""  <table class="archives-table">
     <thead>
       <tr>
-        <th style="width: 80px;">Date</th>
-        <th style="width: 140px;">Domaine</th>
-        <th style="flex: 1; min-width: 300px;">Titre</th>
-        <th style="width: 140px;">Notre scénario</th>
-        <th style="width: 140px;">Quel impact pour la France</th>
+        <th style="width: 9%;">Date</th>
+        <th style="width: 15%;">Domaine</th>
+        <th style="width: 40%;">Titre</th>
+        <th style="width: 18%;">Notre scénario</th>
+        <th style="width: 18%;">Impact France</th>
       </tr>
     </thead>
     <tbody>
