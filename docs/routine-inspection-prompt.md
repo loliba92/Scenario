@@ -20,7 +20,7 @@ n'a jamais le droit de changer un choix éditorial (quel scénario, quelle
 probabilité, quel angle) — seulement de rattraper une erreur.
 
 **Économie de tokens — consigne explicite, cette routine tourne tous les
-jours indéfiniment.** Pour les points 1 à 7, 9 et 10 de la section
+jours indéfiniment.** Pour les points 1 à 7, 9, 10 et 11 de la section
 « Corrigé seul » ci-dessous, **utiliser des outils déterministes (Bash :
 `grep`, `diff`, `file`, un script Python court) plutôt que de lire le
 fichier entier et de raisonner dessus** — la détection de chacun de ces
@@ -385,6 +385,39 @@ corrigé côté FR, resté faux côté EN). Avant de commencer :
     Correction journalée avec l'avant/après complet dans
     `docs/inspection-log.md`, même discipline que le point 8.
 
+11. **[AJOUTÉ le 1er septembre 2026] Intégrité `suivi/` ↔ `archives.html` —
+    toujours signaler, jamais corriger seul.** Depuis la restructuration du
+    9 septembre, `scripts/seo/generate_archives_table.py` lit `suivi/*.html`
+    à chaque régénération hebdomadaire pour afficher la **dernière**
+    évaluation d'un sujet révisé (« Notre scénario » + « Impact France »,
+    voir `docs/routine-prompt.md`) — un fichier de suivi mal formé ne lève
+    aucune erreur, il fait juste silencieusement retomber le tableau sur les
+    chiffres figés de l'édition d'origine (`build_suivi_mapping()`/
+    `extract_latest_suivi_version()` retournent `None`/`{}}` sans avertir).
+    Vérification bon marché, à faire pour **chaque** `suivi/*.html` touché
+    aujourd'hui (hors `_gabarit.html`) :
+    - `<a class="origin-link" href="../archives/{AAAA-MM-JJ}.html">` :
+      le fichier `archives/{AAAA-MM-JJ}.html` cible existe-t-il réellement ?
+      Une faute de frappe sur la date casse silencieusement tout le
+      mécanisme pour ce sujet.
+    - Le **dernier** bloc `<div class="version"...>` du fichier porte-t-il
+      un `<span class="version-date">{jour} {mois en toutes lettres}
+      {année}</span>` reconnaissable (`parse_french_date()` dans le
+      script — mois en français, `1er` accepté, sinon échec silencieux) et
+      exactement 3 `<div class="mini-scenario" data-kind="favorable|
+      stable|degrade">` portant chacun soit `.evo-current`, soit (pour un
+      fichier resté à V0) `.mini-scenario-pct` — un pourcentage lisible ?
+    - Si le sujet a été mis à jour aujourd'hui : régénérer `archives.html`
+      (`python3 scripts/seo/generate_archives_table.py`) et vérifier que la
+      ligne correspondante affiche bien les nouveaux chiffres, pas les
+      anciens — un simple `grep` du pourcentage attendu dans le fichier
+      généré suffit, pas besoin d'une capture Playwright pour ce point.
+
+    **Ne jamais corriger seul un problème trouvé ici** — un origin-link ou
+    une date de version cassée demande de savoir quelle est la bonne valeur,
+    jugement éditorial, pas mécanique. Signaler dans `docs/inspection-log.md`
+    avec le fichier concerné et le symptôme exact.
+
 ## Auto-vérification obligatoire après chaque correction, avant tout commit
 
 **Aucune correction ci-dessus ne se commite directement.** Toute la soirée
@@ -448,6 +481,8 @@ auto-vérification.
 - Incohérence numérique interne ambiguë (voir point 4 ci-dessus).
 - KPI dupliqué entre deux scénarios sans ajustement plausible et cohérent
   (voir point 10 ci-dessus).
+- Fichier `suivi/{sujet}.html` mal formé — origin-link cassé, date de
+  version illisible, pourcentages manquants (voir point 11 ci-dessus).
 - Écart entre un chiffre cité dans l'article et sa source déjà citée en bas
   de page (voir section suivante) — la source a pu être mise à jour depuis
   la rédaction, ce n'est pas automatiquement l'article qui a tort.
