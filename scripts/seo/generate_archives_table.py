@@ -114,7 +114,18 @@ ARCHIVES_TABLE_CSS = """
     overflow-wrap: break-word;
   }
 
-  .archives-table .col-title a {
+  /* Titre + lien EN alignés dans un même flex row : le lien EN reste collé
+     au titre au lieu d'être rejeté sur sa propre ligne (le titre a besoin de
+     display:-webkit-box pour son clamp 2 lignes, donc on isole ça sur le <a>
+     et on gère l'alignement au niveau du wrapper) */
+  .archives-table .title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .archives-table .col-title a:first-child {
     color: var(--gold);
     text-decoration: none;
     font-family: "Fraunces", serif;
@@ -125,32 +136,31 @@ ARCHIVES_TABLE_CSS = """
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
+    flex: 1 1 auto;
+    min-width: 120px;
   }
 
-  .archives-table .col-title a:hover {
+  .archives-table .col-title a:first-child:hover {
     color: var(--paper);
     text-decoration: underline;
   }
 
-  .archives-table .lang-badge {
+  /* Lien EN : simple texte discret, pas un badge encadré */
+  .archives-table .lang-link {
     font-family: "JetBrains Mono", monospace;
     font-size: 0.65rem;
-    margin-left: 8px;
     color: var(--paper-dim);
     text-decoration: none;
-    border: 1px solid var(--paper-dim);
-    padding: 3px 7px;
-    border-radius: 3px;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: all 0.2s ease;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+    align-self: flex-start;
+    transition: color 0.2s ease;
   }
 
-  .archives-table .lang-badge:hover {
+  .archives-table .lang-link:hover {
     color: var(--gold);
-    border-color: var(--gold);
-    background: rgba(218, 165, 32, 0.08);
+    text-decoration: underline;
   }
 
   .archives-table .col-eval {
@@ -237,7 +247,7 @@ ARCHIVES_TABLE_CSS = """
     border: 1.5px solid #bd6248;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1200px) and (min-width: 769px) {
     .archives-table {
       font-size: 0.85rem;
     }
@@ -247,41 +257,96 @@ ARCHIVES_TABLE_CSS = """
     }
   }
 
+  /* ---- Mobile (<768px) : vue carte empilée ----
+     Une table à 5 colonnes ne tient pas sur un écran de téléphone : on bascule
+     chaque ligne en carte verticale (titre en haut, méta, puis les 2 badges
+     en ligne label/valeur). thead est masqué, l'ordre est piloté par `order`. */
   @media (max-width: 768px) {
     .archives-table {
-      font-size: 0.80rem;
+      max-width: 100%;
       margin: 20px auto;
+      box-shadow: none;
+      font-size: 0.85rem;
     }
-    .archives-table th,
-    .archives-table td {
-      padding: 8px;
-    }
-    /* Masque Domaine (2e colonne) sur mobile — Notre scénario est la donnée clé
-       à garder visible à côté du titre, pas le domaine thématique */
-    .archives-table th:nth-child(2),
-    .archives-table td:nth-child(2) {
+
+    .archives-table thead {
       display: none;
     }
-    .archives-table .eval-badge,
-    .archives-table .france-badge {
+
+    .archives-table,
+    .archives-table tbody {
+      display: block;
+      width: 100%;
+    }
+
+    .archives-table tr {
+      display: flex;
       flex-direction: column;
-      gap: 2px;
-      padding: 5px 10px;
-      font-size: 0.70rem;
+      padding: 16px;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .archives-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .archives-table td {
+      padding: 0;
+      border: none;
+      text-align: left;
+    }
+
+    .archives-table .col-title {
+      order: 1;
+      padding-bottom: 8px;
+    }
+
+    .archives-table .col-date {
+      order: 2;
+      text-align: left;
+      font-size: 0.72rem;
+    }
+
+    .archives-table .col-domain {
+      order: 3;
+      text-align: left;
+      font-size: 0.68rem;
+      margin-bottom: 10px;
+    }
+
+    .archives-table .col-eval,
+    .archives-table .col-france {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-top: 1px solid var(--hairline);
+      text-align: left;
+    }
+
+    .archives-table .col-eval { order: 4; }
+    .archives-table .col-france { order: 5; }
+
+    .archives-table .col-eval::before,
+    .archives-table .col-france::before {
+      content: attr(data-label);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--paper-dim);
     }
   }
 
   @media (max-width: 480px) {
     .archives-table {
-      font-size: 0.75rem;
       margin: 16px auto;
     }
-    .archives-table th,
-    .archives-table td {
-      padding: 6px;
+    .archives-table tr {
+      padding: 14px;
     }
-    .archives-table .col-title a {
-      font-size: 0.85rem;
+    .archives-table .col-title a:first-child {
+      font-size: 0.88rem;
     }
   }
 """
@@ -452,16 +517,22 @@ def render_table_row(article):
     else:
         france_html = "<span class=\"france-badge\">?</span>"
 
-    # Lien EN (toujours ajouter le badge)
-    en_link = f' <a href="en/archives/{article["iso_date"]}.html" title="Read in English" class="lang-badge">EN</a>'
+    # Lien EN : lien texte discret, pas un badge encadré
+    en_link = f'<a href="en/archives/{article["iso_date"]}.html" title="Read in English" class="lang-link">EN</a>'
 
+    # data-label sur chaque <td> : utilisé par la vue carte mobile (voir CSS @media)
     # Ordre simplifiée : Date | Domaine | Titre | Notre scénario | Impact France
     return f"""    <tr>
-      <td class="col-date">{format_date_display(article["iso_date"])}</td>
-      <td class="col-domain">{domain_label}</td>
-      <td class="col-title"><a href="archives/{article["iso_date"]}.html">{html.escape(article["title"])}</a>{en_link}</td>
-      <td class="col-eval">{eval_html}</td>
-      <td class="col-france">{france_html}</td>
+      <td class="col-date" data-label="Date">{format_date_display(article["iso_date"])}</td>
+      <td class="col-domain" data-label="Domaine">{domain_label}</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/{article["iso_date"]}.html">{html.escape(article["title"])}</a>
+          {en_link}
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario">{eval_html}</td>
+      <td class="col-france" data-label="Impact France">{france_html}</td>
     </tr>"""
 
 

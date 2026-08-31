@@ -464,7 +464,18 @@
     overflow-wrap: break-word;
   }
 
-  .archives-table .col-title a {
+  /* Titre + lien EN alignés dans un même flex row : le lien EN reste collé
+     au titre au lieu d'être rejeté sur sa propre ligne (le titre a besoin de
+     display:-webkit-box pour son clamp 2 lignes, donc on isole ça sur le <a>
+     et on gère l'alignement au niveau du wrapper) */
+  .archives-table .title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .archives-table .col-title a:first-child {
     color: var(--gold);
     text-decoration: none;
     font-family: "Fraunces", serif;
@@ -475,32 +486,31 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
+    flex: 1 1 auto;
+    min-width: 120px;
   }
 
-  .archives-table .col-title a:hover {
+  .archives-table .col-title a:first-child:hover {
     color: var(--paper);
     text-decoration: underline;
   }
 
-  .archives-table .lang-badge {
+  /* Lien EN : simple texte discret, pas un badge encadré */
+  .archives-table .lang-link {
     font-family: "JetBrains Mono", monospace;
     font-size: 0.65rem;
-    margin-left: 8px;
     color: var(--paper-dim);
     text-decoration: none;
-    border: 1px solid var(--paper-dim);
-    padding: 3px 7px;
-    border-radius: 3px;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: all 0.2s ease;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+    align-self: flex-start;
+    transition: color 0.2s ease;
   }
 
-  .archives-table .lang-badge:hover {
+  .archives-table .lang-link:hover {
     color: var(--gold);
-    border-color: var(--gold);
-    background: rgba(218, 165, 32, 0.08);
+    text-decoration: underline;
   }
 
   .archives-table .col-eval {
@@ -587,7 +597,7 @@
     border: 1.5px solid #bd6248;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1200px) and (min-width: 769px) {
     .archives-table {
       font-size: 0.85rem;
     }
@@ -597,41 +607,96 @@
     }
   }
 
+  /* ---- Mobile (<768px) : vue carte empilée ----
+     Une table à 5 colonnes ne tient pas sur un écran de téléphone : on bascule
+     chaque ligne en carte verticale (titre en haut, méta, puis les 2 badges
+     en ligne label/valeur). thead est masqué, l'ordre est piloté par `order`. */
   @media (max-width: 768px) {
     .archives-table {
-      font-size: 0.80rem;
+      max-width: 100%;
       margin: 20px auto;
+      box-shadow: none;
+      font-size: 0.85rem;
     }
-    .archives-table th,
-    .archives-table td {
-      padding: 8px;
-    }
-    /* Masque Domaine (2e colonne) sur mobile — Notre scénario est la donnée clé
-       à garder visible à côté du titre, pas le domaine thématique */
-    .archives-table th:nth-child(2),
-    .archives-table td:nth-child(2) {
+
+    .archives-table thead {
       display: none;
     }
-    .archives-table .eval-badge,
-    .archives-table .france-badge {
+
+    .archives-table,
+    .archives-table tbody {
+      display: block;
+      width: 100%;
+    }
+
+    .archives-table tr {
+      display: flex;
       flex-direction: column;
-      gap: 2px;
-      padding: 5px 10px;
-      font-size: 0.70rem;
+      padding: 16px;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .archives-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .archives-table td {
+      padding: 0;
+      border: none;
+      text-align: left;
+    }
+
+    .archives-table .col-title {
+      order: 1;
+      padding-bottom: 8px;
+    }
+
+    .archives-table .col-date {
+      order: 2;
+      text-align: left;
+      font-size: 0.72rem;
+    }
+
+    .archives-table .col-domain {
+      order: 3;
+      text-align: left;
+      font-size: 0.68rem;
+      margin-bottom: 10px;
+    }
+
+    .archives-table .col-eval,
+    .archives-table .col-france {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-top: 1px solid var(--hairline);
+      text-align: left;
+    }
+
+    .archives-table .col-eval { order: 4; }
+    .archives-table .col-france { order: 5; }
+
+    .archives-table .col-eval::before,
+    .archives-table .col-france::before {
+      content: attr(data-label);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--paper-dim);
     }
   }
 
   @media (max-width: 480px) {
     .archives-table {
-      font-size: 0.75rem;
       margin: 16px auto;
     }
-    .archives-table th,
-    .archives-table td {
-      padding: 6px;
+    .archives-table tr {
+      padding: 14px;
     }
-    .archives-table .col-title a {
-      font-size: 0.85rem;
+    .archives-table .col-title a:first-child {
+      font-size: 0.88rem;
     }
   }
 </style>
@@ -694,394 +759,589 @@
     </thead>
     <tbody>
     <tr>
-      <td class="col-date">31.08.2026</td>
-      <td class="col-domain">International</td>
-      <td class="col-title"><a href="archives/2026-08-31.html">Islande : après le non à l&#x27;UE, qui va la protéger ?</a> <a href="en/archives/2026-08-31.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">31.08.2026</td>
+      <td class="col-domain" data-label="Domaine">International</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-31.html">Islande : après le non à l&#x27;UE, qui va la protéger ?</a>
+          <a href="en/archives/2026-08-31.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
     </tr>
     <tr>
-      <td class="col-date">30.08.2026</td>
-      <td class="col-domain">Économie & entreprises</td>
-      <td class="col-title"><a href="archives/2026-08-30.html">Ligue 1 : le foot français peut-il survivre à l&#x27;effondrement de ses droits TV ?</a> <a href="en/archives/2026-08-30.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">30.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-30.html">Ligue 1 : le foot français peut-il survivre à l&#x27;effondrement de ses droits TV ?</a>
+          <a href="en/archives/2026-08-30.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
     </tr>
     <tr>
-      <td class="col-date">29.08.2026</td>
-      <td class="col-domain">Culture & divertissement</td>
-      <td class="col-title"><a href="archives/2026-08-29.html">Cinéma mondial : peut-il survivre au streaming ?</a> <a href="en/archives/2026-08-29.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">29.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-29.html">Cinéma mondial : peut-il survivre au streaming ?</a>
+          <a href="en/archives/2026-08-29.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-favorable">Favorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-favorable">Favorable</span></td>
     </tr>
     <tr>
-      <td class="col-date">28.08.2026</td>
-      <td class="col-domain">Sciences & environnement</td>
-      <td class="col-title"><a href="archives/2026-08-28.html">Climat 2030 : la France peut-elle encore tenir parole ?</a> <a href="en/archives/2026-08-28.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">28.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-28.html">Climat 2030 : la France peut-elle encore tenir parole ?</a>
+          <a href="en/archives/2026-08-28.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
     </tr>
     <tr>
-      <td class="col-date">27.08.2026</td>
-      <td class="col-domain">Économie & entreprises</td>
-      <td class="col-title"><a href="archives/2026-08-27.html">Dette américaine : le mur des 40 000 milliards</a> <a href="en/archives/2026-08-27.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">27.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-27.html">Dette américaine : le mur des 40 000 milliards</a>
+          <a href="en/archives/2026-08-27.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
     </tr>
     <tr>
-      <td class="col-date">26.08.2026</td>
-      <td class="col-domain">Politique & institutions</td>
-      <td class="col-title"><a href="archives/2026-08-26.html">Retraites : la patate chaude de 2027</a> <a href="en/archives/2026-08-26.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">26.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-26.html">Retraites : la patate chaude de 2027</a>
+          <a href="en/archives/2026-08-26.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
     </tr>
     <tr>
-      <td class="col-date">25.08.2026</td>
-      <td class="col-domain">Tech & numérique</td>
-      <td class="col-title"><a href="archives/2026-08-25.html">IA chinoise : cadeau ou piège ?</a> <a href="en/archives/2026-08-25.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">25.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Tech & numérique</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-25.html">IA chinoise : cadeau ou piège ?</a>
+          <a href="en/archives/2026-08-25.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
     </tr>
     <tr>
-      <td class="col-date">24.08.2026</td>
-      <td class="col-domain">International</td>
-      <td class="col-title"><a href="archives/2026-08-24.html">Ukraine : ni paix ni victoire</a> <a href="en/archives/2026-08-24.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">24.08.2026</td>
+      <td class="col-domain" data-label="Domaine">International</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-24.html">Ukraine : ni paix ni victoire</a>
+          <a href="en/archives/2026-08-24.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
     </tr>
     <tr>
-      <td class="col-date">23.08.2026</td>
-      <td class="col-domain">Politique & institutions</td>
-      <td class="col-title"><a href="archives/2026-08-23.html">Le pari XXL du Mondial 2030</a> <a href="en/archives/2026-08-23.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">23.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-23.html">Le pari XXL du Mondial 2030</a>
+          <a href="en/archives/2026-08-23.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-favorable">Favorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-favorable">Favorable</span></td>
     </tr>
     <tr>
-      <td class="col-date">22.08.2026</td>
-      <td class="col-domain">Culture & divertissement</td>
-      <td class="col-title"><a href="archives/2026-08-22.html">Hollywood décroche en Chine</a> <a href="en/archives/2026-08-22.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">22.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-22.html">Hollywood décroche en Chine</a>
+          <a href="en/archives/2026-08-22.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-favorable">Favorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-favorable">Favorable</span></td>
     </tr>
     <tr>
-      <td class="col-date">21.08.2026</td>
-      <td class="col-domain">Sciences & environnement</td>
-      <td class="col-title"><a href="archives/2026-08-21.html">Le Grand Filtre</a> <a href="en/archives/2026-08-21.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">21.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-21.html">Le Grand Filtre</a>
+          <a href="en/archives/2026-08-21.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-favorable">Favorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-favorable">Favorable</span></td>
     </tr>
     <tr>
-      <td class="col-date">20.08.2026</td>
-      <td class="col-domain">Économie & entreprises</td>
-      <td class="col-title"><a href="archives/2026-08-20.html">Taux : marche arrière</a> <a href="en/archives/2026-08-20.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">20.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-20.html">Taux : marche arrière</a>
+          <a href="en/archives/2026-08-20.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
     </tr>
     <tr>
-      <td class="col-date">19.08.2026</td>
-      <td class="col-domain">Politique & institutions</td>
-      <td class="col-title"><a href="archives/2026-08-19.html">2027 sous influence</a> <a href="en/archives/2026-08-19.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">19.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-19.html">2027 sous influence</a>
+          <a href="en/archives/2026-08-19.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
     </tr>
     <tr>
-      <td class="col-date">18.08.2026</td>
-      <td class="col-domain">Tech & numérique</td>
-      <td class="col-title"><a href="archives/2026-08-18.html">IA : la cage a craqué</a> <a href="en/archives/2026-08-18.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">18.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Tech & numérique</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-18.html">IA : la cage a craqué</a>
+          <a href="en/archives/2026-08-18.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
     </tr>
     <tr>
-      <td class="col-date">17.08.2026</td>
-      <td class="col-domain">International</td>
-      <td class="col-title"><a href="archives/2026-08-17.html">Ormuz : la trêve a expiré</a> <a href="en/archives/2026-08-17.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-degrade" data-kind="degrade">
+      <td class="col-date" data-label="Date">17.08.2026</td>
+      <td class="col-domain" data-label="Domaine">International</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-17.html">Ormuz : la trêve a expiré</a>
+          <a href="en/archives/2026-08-17.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade">
       <span class="eval-label">Dégradé</span>
       <span class="eval-pct">55%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
     </tr>
     <tr>
-      <td class="col-date">16.08.2026</td>
-      <td class="col-domain">Politique & institutions</td>
-      <td class="col-title"><a href="archives/2026-08-16.html">Rugby : le choc de trop ?</a> <a href="en/archives/2026-08-16.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">16.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-16.html">Rugby : le choc de trop ?</a>
+          <a href="en/archives/2026-08-16.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">15.08.2026</td>
-      <td class="col-domain">Culture & divertissement</td>
-      <td class="col-title"><a href="archives/2026-08-15.html">Traduction littéraire : le métier en sursis ?</a> <a href="en/archives/2026-08-15.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">15.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-15.html">Traduction littéraire : le métier en sursis ?</a>
+          <a href="en/archives/2026-08-15.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">14.08.2026</td>
-      <td class="col-domain">Sciences & environnement</td>
-      <td class="col-title"><a href="archives/2026-08-14.html">Canicules à répétition : qui paie l&#x27;addition ?</a> <a href="en/archives/2026-08-14.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">14.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-14.html">Canicules à répétition : qui paie l&#x27;addition ?</a>
+          <a href="en/archives/2026-08-14.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">13.08.2026</td>
-      <td class="col-domain">Économie & entreprises</td>
-      <td class="col-title"><a href="archives/2026-08-13.html">Inflation : le pétrole rebat les cartes</a> <a href="en/archives/2026-08-13.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">13.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-13.html">Inflation : le pétrole rebat les cartes</a>
+          <a href="en/archives/2026-08-13.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">12.08.2026</td>
-      <td class="col-domain">Politique & institutions</td>
-      <td class="col-title"><a href="archives/2026-08-12.html">2027 : un favori, une opposition éclatée</a> <a href="en/archives/2026-08-12.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">12.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-12.html">2027 : un favori, une opposition éclatée</a>
+          <a href="en/archives/2026-08-12.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">11.08.2026</td>
-      <td class="col-domain">International</td>
-      <td class="col-title"><a href="archives/2026-08-11.html">L&#x27;Éthiopie veut sa mer, au risque de la guerre</a> <a href="en/archives/2026-08-11.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">11.08.2026</td>
+      <td class="col-domain" data-label="Domaine">International</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-11.html">L&#x27;Éthiopie veut sa mer, au risque de la guerre</a>
+          <a href="en/archives/2026-08-11.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">10.08.2026</td>
-      <td class="col-domain">Économie & entreprises</td>
-      <td class="col-title"><a href="archives/2026-08-10.html">La croissance mondiale ne tient qu&#x27;à un fil</a> <a href="en/archives/2026-08-10.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">10.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-10.html">La croissance mondiale ne tient qu&#x27;à un fil</a>
+          <a href="en/archives/2026-08-10.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">09.08.2026</td>
-      <td class="col-domain">Culture & divertissement</td>
-      <td class="col-title"><a href="archives/2026-08-09.html">Musique IA : la note grimpe à 9 milliards</a> <a href="en/archives/2026-08-09.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">09.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-09.html">Musique IA : la note grimpe à 9 milliards</a>
+          <a href="en/archives/2026-08-09.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-favorable">Favorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-favorable">Favorable</span></td>
     </tr>
     <tr>
-      <td class="col-date">08.08.2026</td>
-      <td class="col-domain">Culture & divertissement</td>
-      <td class="col-title"><a href="archives/2026-08-08.html">Le cinéma reprend des couleurs</a> <a href="en/archives/2026-08-08.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">08.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-08.html">Le cinéma reprend des couleurs</a>
+          <a href="en/archives/2026-08-08.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">07.08.2026</td>
-      <td class="col-domain">Tech & numérique</td>
-      <td class="col-title"><a href="archives/2026-08-07.html">Big Tech face à la justice</a> <a href="en/archives/2026-08-07.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">07.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Tech & numérique</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-07.html">Big Tech face à la justice</a>
+          <a href="en/archives/2026-08-07.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">06.08.2026</td>
-      <td class="col-domain">Politique & institutions</td>
-      <td class="col-title"><a href="archives/2026-08-06.html">FIFA : la présidence d&#x27;Infantino vacille</a> <a href="en/archives/2026-08-06.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">06.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-06.html">FIFA : la présidence d&#x27;Infantino vacille</a>
+          <a href="en/archives/2026-08-06.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">05.08.2026</td>
-      <td class="col-domain">Sciences & environnement</td>
-      <td class="col-title"><a href="archives/2026-08-05.html">EPR2 : le nucléaire français à l&#x27;heure de vérité</a> <a href="en/archives/2026-08-05.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">05.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-05.html">EPR2 : le nucléaire français à l&#x27;heure de vérité</a>
+          <a href="en/archives/2026-08-05.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">04.08.2026</td>
-      <td class="col-domain">International</td>
-      <td class="col-title"><a href="archives/2026-08-04.html">Gaza : la paix qui reste sur le papier</a> <a href="en/archives/2026-08-04.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">04.08.2026</td>
+      <td class="col-domain" data-label="Domaine">International</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-04.html">Gaza : la paix qui reste sur le papier</a>
+          <a href="en/archives/2026-08-04.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">03.08.2026</td>
-      <td class="col-domain">International</td>
-      <td class="col-title"><a href="archives/2026-08-03.html">Ceuta : la frontière qui a craqué</a> <a href="en/archives/2026-08-03.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">03.08.2026</td>
+      <td class="col-domain" data-label="Domaine">International</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-03.html">Ceuta : la frontière qui a craqué</a>
+          <a href="en/archives/2026-08-03.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">02.08.2026</td>
-      <td class="col-domain">Culture & divertissement</td>
-      <td class="col-title"><a href="archives/2026-08-02.html">Streaming : payer plus, avoir moins ?</a> <a href="en/archives/2026-08-02.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">02.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-02.html">Streaming : payer plus, avoir moins ?</a>
+          <a href="en/archives/2026-08-02.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">01.08.2026</td>
-      <td class="col-domain">Culture & divertissement</td>
-      <td class="col-title"><a href="archives/2026-08-01.html">Musique : l&#x27;IA a-t-elle déjà gagné ?</a> <a href="en/archives/2026-08-01.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">01.08.2026</td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-08-01.html">Musique : l&#x27;IA a-t-elle déjà gagné ?</a>
+          <a href="en/archives/2026-08-01.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">31.07.2026</td>
-      <td class="col-domain">Sciences & environnement</td>
-      <td class="col-title"><a href="archives/2026-07-31.html">Méga-feux : la France est-elle prête pour la suite ?</a> <a href="en/archives/2026-07-31.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">31.07.2026</td>
+      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-07-31.html">Méga-feux : la France est-elle prête pour la suite ?</a>
+          <a href="en/archives/2026-07-31.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">47%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">30.07.2026</td>
-      <td class="col-domain">Économie & entreprises</td>
-      <td class="col-title"><a href="archives/2026-07-30.html">Golf, foot, boxe : l&#x27;Arabie saoudite se retire-t-elle du sport ?</a> <a href="en/archives/2026-07-30.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">30.07.2026</td>
+      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-07-30.html">Golf, foot, boxe : l&#x27;Arabie saoudite se retire-t-elle du sport ?</a>
+          <a href="en/archives/2026-07-30.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">29.07.2026</td>
-      <td class="col-domain">Politique & institutions</td>
-      <td class="col-title"><a href="archives/2026-07-29.html">Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?</a> <a href="en/archives/2026-07-29.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">29.07.2026</td>
+      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-07-29.html">Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?</a>
+          <a href="en/archives/2026-07-29.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">28.07.2026</td>
-      <td class="col-domain">Économie & entreprises</td>
-      <td class="col-title"><a href="archives/2026-07-28.html">Milliardaires : la richesse du monde peut-elle encore se partager ?</a> <a href="en/archives/2026-07-28.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">28.07.2026</td>
+      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-07-28.html">Milliardaires : la richesse du monde peut-elle encore se partager ?</a>
+          <a href="en/archives/2026-07-28.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">27.07.2026</td>
-      <td class="col-domain">International</td>
-      <td class="col-title"><a href="archives/2026-07-27.html">Iran–États-Unis : les armes se taisent, l&#x27;accord reste à trouver</a> <a href="en/archives/2026-07-27.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">27.07.2026</td>
+      <td class="col-domain" data-label="Domaine">International</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-07-27.html">Iran–États-Unis : les armes se taisent, l&#x27;accord reste à trouver</a>
+          <a href="en/archives/2026-07-27.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">26.07.2026</td>
-      <td class="col-domain">Culture & divertissement</td>
-      <td class="col-title"><a href="archives/2026-07-26.html">HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ?</a> <a href="en/archives/2026-07-26.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-favorable" data-kind="favorable">
+      <td class="col-date" data-label="Date">26.07.2026</td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-07-26.html">HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ?</a>
+          <a href="en/archives/2026-07-26.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-favorable" data-kind="favorable">
       <span class="eval-label">Favorable</span>
       <span class="eval-pct">40%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
     </tr>
     <tr>
-      <td class="col-date">25.07.2026</td>
-      <td class="col-domain">Culture & divertissement</td>
-      <td class="col-title"><a href="archives/2026-07-25.html">Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ?</a> <a href="en/archives/2026-07-25.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">25.07.2026</td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-07-25.html">Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ?</a>
+          <a href="en/archives/2026-07-25.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     <tr>
-      <td class="col-date">18.07.2026</td>
-      <td class="col-domain">Culture & divertissement</td>
-      <td class="col-title"><a href="archives/2026-07-18.html">Spider-Man contre Avengers : qui va sauver le box-office Marvel ?</a> <a href="en/archives/2026-07-18.html" title="Read in English" class="lang-badge">EN</a></td>
-      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <td class="col-date" data-label="Date">18.07.2026</td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-07-18.html">Spider-Man contre Avengers : qui va sauver le box-office Marvel ?</a>
+          <a href="en/archives/2026-07-18.html" title="Read in English" class="lang-link">EN</a>
+        </span>
+      </td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
     </tr>
     </tbody>
   </table>
