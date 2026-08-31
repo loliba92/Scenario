@@ -570,29 +570,19 @@ python3 scripts/social/generate_archive_thumbnail.py --date {AAAA-MM-JJ} --regis
 ```
 Choisit automatiquement `assets/social/topic-images/{AAAA-MM-JJ}.jpg` si l'étape « Image du sujet » plus haut en a retenu une, sinon retombe sur la photo pré-validée du registre dans `assets/social/pub-photos/` (voir docstring du script) — jamais de nouvelle recherche, jamais de logo générique. Écrit `assets/social/archive-thumbs/{AAAA-MM-JJ}.jpg` (carré 144px, quelques Ko). Committer ce fichier avec le reste de l'édition.
 
-Insérer une nouvelle entrée `<li class="entry">` tout en haut d'`archives.html`, patron exact des entrées existantes :
+**[CHANGÉ le 9 septembre 2026 — restructuration archives.html]**
+`archives.html` n'est plus édité manuellement — il est auto-généré via `scripts/seo/generate_archives_table.py`.
+Chaque jour, après avoir créé l'article du jour, **ajouter la balise domaine** dans le `<head>` :
 ```html
-<li class="entry">
-  <img class="entry-thumb" src="assets/social/archive-thumbs/{AAAA-MM-JJ}.jpg" alt="" loading="lazy" width="64" height="64">
-  <div class="entry-body">
-  <div class="entry-main">
-    <span class="entry-date">{JJ.MM.AAAA}</span>
-    <a class="entry-title" href="archives/{AAAA-MM-JJ}.html">{h1 du jour}</a>
-    <div class="entry-tags">
-      <button type="button" class="tag" data-tag="{registre}">{Registre}</button>
-      <!-- + 1-2 tags thématiques -->
-    </div>
-    <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-{AAAA-MM-JJ}">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-  </div>
-  <div class="entry-scenarios" id="scenarios-{AAAA-MM-JJ}" data-fragment="archives/fragments/{AAAA-MM-JJ}.html">
-    <div class="entry-scenarios-inner"></div>
-  </div>
-  </div>
-</li>
+<meta name="domain" content="{slug}">
 ```
-**`alt=""` volontairement vide** : le titre juste à côté (`.entry-title`) porte déjà l'information, une vignette purement illustrative n'a rien à ajouter pour un lecteur d'écran — éviter la redondance. `width`/`height` fixes à 64 (CSS les réduit ensuite à 56px, 44px sous 560px) : évite un saut de mise en page pendant le chargement (`loading="lazy"`). CSS `.entry-thumb`/`.entry-body` déjà dans le gabarit d'`archives.html` — **vignette au même niveau que le titre, sur la même ligne** (`.entry` en `flex-direction: row`, image centrée verticalement sur l'ensemble du bloc texte) — un premier réglage l'avait empilée au-dessus par erreur de lecture du retour utilisateur, corrigé le 14 août. Ne jamais changer cette disposition sans nouveau retour explicite.
+où `{slug}` est l'un des 6 domaines : `economie-entreprises`, `politique-institutions`, `international`, `sciences-environnement`, `tech-numerique`, `culture-divertissement` (voir `docs/tags.md` pour la définition complète de chaque domaine).
 
-Pour le tag de registre et 1-2 tags thématiques : lire d'abord `docs/tags.md` (liste fermée), réutiliser un tag existant chaque fois que possible — n'en créer un nouveau qu'en dernier recours, et l'ajouter aussitôt à `docs/tags.md`.
+**Résultat** : `archives.html` est régénéré automatiquement **une fois par semaine** (voir étape « Pages thématiques et table d'archives » ci-dessous), peuplé du titre, question, scénario le plus probable (+ %), france-impact, et domaine de chaque édition des 39 derniers articles. Le tableau reste à jour tant que les domaines metadata sont correctement renseignés. Pas de saisie manuelle d'entrée d'archive.
+
+**Domaine principal, jamais plusieurs** — si le sujet recoupe plusieurs domaines, choisir le domaine **dominant** (l'angle de l'édition du jour). Lire `docs/tags.md` pour les critères de classement (ex. sujet à cheval géopolitique/économie : regarde le rapport de force vs. l'indicateur chiffré).
+
+Pour l'assignation des tags thématiques (qui serviront à la navigation par pages thématiques) : lire `docs/tags.md`, réutiliser les tags existants chaque fois que possible — n'en créer un nouveau qu'en dernier recours, et l'ajouter aussitôt à `docs/tags.md`.
 
 **Le bloc dépliable des 3 scénarios va dans `archives/fragments/{AAAA-MM-JJ}.html`** (chargé par le JS d'`archives.html` au clic sur "Scénarios"), pas dans `archives.html` lui-même :
 ```html
@@ -653,11 +643,16 @@ Simple journal, pas une évaluation — ne rien écrire de plus. Ne jamais touch
     - `{h1 du jour}` = le même texte que `headline` dans le JSON-LD `NewsArticle` de l'archive concernée, jamais reformulé.
     - Le fichier ne concerne que l'édition française quotidienne — pas les `hebdo/`, `suivi/`, ni les pages EN (`docs/routine-en-prompt.md` a son propre besoin le cas échéant, non couvert ici).
 
-**Pages thématiques (`themes/*.html`) — geste hebdomadaire, pas une étape de cette routine quotidienne** [retiré du quotidien le 31 août 2026, retour utilisateur : « il faut alléger nos routines », site statique donc chaque étape en plus coûte cher à maintenir sur la durée]. Un décalage de quelques jours entre une édition taguée et son apparition sur `themes/*.html` n'a aucun effet visible, ni pour un lecteur ni pour Google — pas besoin de le faire à chaque édition. Une fois par semaine environ (ou avant une pause), relancer :
+**Pages thématiques et table d'archives — geste hebdomadaire, pas une étape de cette routine quotidienne** [retiré du quotidien le 31 août 2026, retour utilisateur : « il faut alléger nos routines », site statique donc chaque étape en plus coûte cher à maintenir sur la durée]. Un décalage de quelques jours entre une édition taguée et son apparition sur `themes/*.html` ou `archives.html` n'a aucun effet visible, ni pour un lecteur ni pour Google — pas besoin de le faire à chaque édition. Une fois par semaine environ (ou avant une pause), relancer les deux scripts depuis la racine :
 ```bash
 python3 scripts/seo/generate_theme_pages.py
+python3 scripts/seo/generate_archives_table.py
 ```
-depuis la racine du dépôt, puis committer les fichiers `themes/*.html` que `git status` montre comme modifiés (souvent 1 ou 2 des 6, pas les 6 à chaque fois — le script ne réécrit que les pages dont la liste d'articles a changé). **Ne jamais éditer un fichier `themes/*.html` à la main.** Si un nouveau tag thématique rejoint un des 6 domaines couverts (voir `docs/tags.md` §2), mettre à jour la table `DOMAINS` en tête du script en même temps que le tableau `themeDomains` du script inline d'`archives.html`.
+Puis committer :
+- Fichiers `themes/*.html` que `git status` montre comme modifiés (souvent 1 ou 2 des 6, pas les 6 à chaque fois — le script ne réécrit que les pages dont la liste d'articles a changé)
+- `archives.html` (regénéré complètement à chaque run, contient la table complète de tous les articles)
+
+**Ne jamais éditer `themes/*.html` ou `archives.html` à la main.** Si un nouveau tag thématique rejoint un des 6 domaines couverts (voir `docs/tags.md`), mettre à jour la table `TAG_TO_DOMAIN` dans `scripts/seo/map_domains.py` et `scripts/seo/add_domain_metadata.py`.
 
 8. Mettre à jour `feed.xml` : nouvel `<item>` en haut (avant les précédents, jamais supprimés) :
 ```xml

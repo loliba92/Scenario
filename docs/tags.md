@@ -1,97 +1,50 @@
 # Tags — liste de référence
 
-Ce fichier pilote les tags utilisés dans `archives.html` (boutons `.tag` sous chaque
-entrée). Avant d'ajouter des tags à une nouvelle entrée, **consulter cette liste et
-réutiliser un tag existant chaque fois que le sujet y rentre raisonnablement** —
-n'en créer un nouveau qu'en dernier recours (voir règle en bas de page).
+Ce fichier pilote les tags utilisés pour classifier les articles. Avant d'ajouter des
+tags à une nouvelle entrée, **consulter cette liste et réutiliser un tag existant chaque
+fois que le sujet y rentre raisonnablement** — n'en créer un nouveau qu'en dernier
+recours (voir règle en bas de page).
 
 But : un tag ne rend service au lecteur que s'il regroupe plusieurs articles. Une
 liste fermée, réutilisée d'édition en édition, vaut mieux qu'un mot inventé à chaque
 fois qui ne filtre jamais rien.
 
-## 1. Tag de registre (toujours le premier, un seul, jamais inventé)
+## Classification thématique (système unifié)
 
-Fixé par le jour de publication — voir `docs/routine-prompt.md`, Étape 1.
+À partir de septembre 2026, la classification passe à un système unifié en une seule
+couche : les **6 domaines thématiques** qui structurent la navigation (pages thématiques,
+dropdown menu). Le tag de « registre » (géopolitique, sport, culture…) est supprimé.
 
-| `data-tag` | Libellé |
-|---|---|
-| `geopolitique` | Géopolitique |
-| `carte-blanche` | Carte blanche |
-| `actualite-francaise` | Actualité française |
-| `sport` | Sport |
-| `sciences` | Sciences |
-| `culture` | Culture |
-| `economie-mondiale` | Économie mondiale |
+Chaque article doit avoir exactement **un domaine** enregistré dans la balise
+`<meta name="domain" content="...">` (voir `docs/routine-prompt.md`, Étape technique 2).
 
-**Tags historiques, à ne plus utiliser pour une nouvelle édition** — conservés
-uniquement pour que le filtre d'`archives.html` continue à fonctionner sur les
-éditions déjà publiées avec l'ancien registre (jamais retaggées
-rétroactivement, voir « Historique » en bas de page) :
-
-| `data-tag` | Libellé | Utilisé jusqu'au |
-|---|---|---|
-| `culture-francaise` | Culture française | 12 août 2026 |
-| `culture-internationale` | Culture internationale | 12 août 2026 |
-
-**Restructuration du 12 août 2026 (retour utilisateur).** Deux changements
-liés : (1) `culture-francaise` (samedi) et `culture-internationale` (dimanche)
-fusionnent en un seul registre `culture` (samedi) — la frontière
-France/international était souvent artificielle, et les deux files étaient
-clairsemées ; (2) la case libérée par cette fusion sert à un nouveau registre
-`economie-mondiale`, séparé de `geopolitique` (lundi) qui mélangeait jusque-là
-géopolitique dure et économie mondiale dans un seul slot surchargé.
-**[CHANGÉ le 12 août, même jour] `economie-mondiale` déplacé de dimanche à
-jeudi, `sport` de jeudi à dimanche** — retour utilisateur : sujets plus légers
-le week-end.
-Voir `sujets-prioritaires.md` (section « Géopolitique — lundi ») pour la règle
-de classement des sujets à cheval sur les deux (guerres commerciales, tarifs
-douaniers…), et `docs/ARCHITECTURE.md` pour le détail de la décision.
-
-## 2. Tags thématiques (1 à 2 en plus du tag de registre)
+## Domaines thématiques (liste fermée)
 
 Liste fermée, à réutiliser en priorité. Classée par grands domaines pour trouver
 rapidement le bon tag — l'ordre du tableau n'a pas d'autre signification.
 
-| `data-tag` | Libellé | Domaine |
+| Domaine | Slug | Tags thématiques |
 |---|---|---|
-| `economie` | Économie | Économie & entreprises |
-| `entreprises` | Entreprises | Économie & entreprises |
-| `emploi` | Emploi | Économie & entreprises |
-| `politique` | Politique | Politique & institutions |
-| `justice` | Justice | Politique & institutions |
-| `diplomatie` | Diplomatie | International |
-| `defense` | Défense & sécurité | International |
-| `immigration` | Immigration | International |
-| `energie` | Énergie | Sciences & environnement |
-| `climat` | Climat | Sciences & environnement |
-| `sante` | Santé | Sciences & environnement |
-| `espace` | Espace | Sciences & environnement |
-| `intelligence-artificielle` | Intelligence artificielle | Tech & numérique |
-| `numerique` | Numérique | Tech & numérique |
-| `cinema` | Cinéma | Culture & divertissement |
-| `musique` | Musique | Culture & divertissement |
-| `jeux-video` | Jeux vidéo | Culture & divertissement |
-| `litterature` | Littérature | Culture & divertissement |
-| `medias` | Médias | Culture & divertissement |
-| `sport-economie` | Sport & argent | Sport (hors registre du dimanche) |
-| `societe` | Société | Société |
+| Économie & entreprises | `economie-entreprises` | `economie`, `entreprises`, `emploi` |
+| Politique & institutions | `politique-institutions` | `politique`, `justice` |
+| International | `international` | `diplomatie`, `defense`, `immigration` |
+| Sciences & environnement | `sciences-environnement` | `energie`, `climat`, `sante`, `espace` |
+| Tech & numérique | `tech-numerique` | `intelligence-artificielle`, `numerique` |
+| Culture & divertissement | `culture-divertissement` | `cinema`, `musique`, `jeux-video`, `litterature`, `medias` |
 
-Note : `sport` existe déjà comme tag de registre (dimanche). Un sujet sportif traité un
-autre jour (ex. mardi carte blanche) prend `sport-economie` comme tag thématique
-plutôt que de réutiliser `sport`, pour ne pas mélanger les deux usages dans le
-filtre.
+Les tags thématiques ci-dessus restent disponibles pour classification granulaire future,
+mais **chaque article doit avoir un domaine principal** enregistré via
+`<meta name="domain" content="...">`. Les domaines structurent la navigation et l'archivage.
 
-## Règle de dernier recours
+## Règle pour assigner un domaine
 
-Si vraiment aucun tag de la liste ci-dessus ne convient au sujet du jour :
-1. En créer un nouveau, sobre et générique (pas trop spécifique à l'édition du
-   jour — un tag doit pouvoir resservir).
-2. L'ajouter aussitôt à ce fichier (section 2, avec son domaine), dans le même
-   commit que l'édition.
-3. Ne jamais créer deux tags différents pour la même idée à quelques semaines
-   d'écart (ex. ne pas avoir à la fois `streaming` et `medias` pour la même chose) :
-   avant de créer, vérifier si un tag existant de la liste couvre déjà l'idée en
-   restant un peu plus large.
+Pour chaque **nouvel article**, assigner exactement **un domaine** en ajoutant la
+balise `<meta name="domain" content="{slug}">` dans le `<head>` (voir
+`docs/routine-prompt.md`, Étape technique 2).
+
+Si le sujet touche plusieurs domaines (ex. une loi économique affectant le travail) :
+choisir le domaine **principal** — celui qui domine l'angle de l'article. Favoriser
+la clarté sur la précision.
 
 ## Historique
 
@@ -102,8 +55,9 @@ propre : `streaming` → `medias` (édition du 2 août), `moyen-orient` → `dip
 intégré à la liste ci-dessus plutôt que remplacé, le thème étant assez récurrent
 pour mériter son propre tag.
 
-**Ce fut une normalisation ponctuelle, pas une nouvelle règle.** À partir de
-maintenant, les entrées `archives.html` redeviennent figées comme le veut la
-routine (« ne jamais supprimer ni modifier les entrées déjà présentes ») : un tag
-mal choisi sur une future édition ne sera plus corrigé rétroactivement, d'où
-l'intérêt de bien choisir dans la liste fermée dès la publication.
+Le 9 septembre 2026, restructuration majeure : suppression du système de registre
+(géopolitique, sport, culture, etc.), remplacé par un classement unifié sur les 6
+domaines thématiques. Archives.html passe de tableau filtrable (JS) à tableau statique
+auto-généré depuis les métadonnées d'article. Les 39 articles existants sont backfillés
+avec domaine metadata. Les anciens registres restent conservés pour compatibilité
+historique avec les articles déjà publiés (voir section « Anciens registres » ci-dessus).
