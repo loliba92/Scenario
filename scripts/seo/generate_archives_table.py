@@ -14,10 +14,17 @@ from collections import defaultdict
 
 ROOT = Path(__file__).resolve().parents[2]
 ARCHIVES_DIR = ROOT / "archives"
+SUIVI_DIR = ROOT / "suivi"
 GLOSSAIRE_HTML = ROOT / "glossaire.html"
 ARCHIVES_HTML = ROOT / "archives.html"
 SITE_URL = "https://lesscenarios.fr"
 TODAY = datetime.now().isoformat()
+
+FRENCH_MONTHS = {
+    "janvier": 1, "février": 2, "fevrier": 2, "mars": 3, "avril": 4, "mai": 5,
+    "juin": 6, "juillet": 7, "août": 8, "aout": 8, "septembre": 9,
+    "octobre": 10, "novembre": 11, "décembre": 12, "decembre": 12,
+}
 
 # Domaine labels
 DOMAIN_LABELS = {
@@ -237,7 +244,19 @@ ARCHIVES_TABLE_CSS = """
     border: 1px solid var(--gold);
     border-radius: 3px;
     padding: 2px 6px;
+    text-decoration: none;
     cursor: default;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  /* Version lien (suivi dédié existant) : cliquable, hover fond or */
+  a.revised-badge {
+    cursor: pointer;
+  }
+
+  a.revised-badge:hover {
+    background: var(--gold);
+    color: var(--ink);
   }
 
   .archives-table .col-eval {
@@ -693,6 +712,74 @@ def extract_revised(text):
     return None
 
 
+def parse_french_date(text):
+    """Convertit '21 août 2026' ou '1er août 2026' en 'AAAA-MM-JJ'. None si non reconnu."""
+    m = re.match(r"(\d{1,2})(?:er)?\s+(\S+)\s+(\d{4})", text.strip(), re.IGNORECASE)
+    if not m:
+        return None
+    day, month_name, year = m.groups()
+    month = FRENCH_MONTHS.get(month_name.lower())
+    if not month:
+        return None
+    return f"{year}-{month:02d}-{int(day):02d}"
+
+
+def build_suivi_mapping():
+    """Scanne suivi/*.html (hors _gabarit) et retourne {AAAA-MM-JJ origine: Path du suivi}.
+
+    Le lien de retour (.origin-link vers archives/{date}.html) posé sur chaque
+    page de suivi sert d'index inverse — aucun fichier séparé à maintenir.
+    """
+    mapping = {}
+    if not SUIVI_DIR.exists():
+        return mapping
+    for f in SUIVI_DIR.glob("*.html"):
+        if f.stem == "_gabarit":
+            continue
+        text = f.read_text(encoding="utf-8")
+        m = re.search(r'class="origin-link" href="\.\./archives/(\d{4}-\d{2}-\d{2})\.html"', text)
+        if m:
+            mapping[m.group(1)] = f
+    return mapping
+
+
+def extract_latest_suivi_version(suivi_path):
+    """Extrait la dernière version d'une page de suivi : date de mise à jour +
+    pourcentage courant de chacun des 3 scénarios (kind -> pct).
+
+    "Chaque mise à jour s'ajoute à la précédente, rien n'est réécrit" (convention
+    du site, voir docs/routine-detection-prompt.md) : le dernier bloc .version du
+    fichier est donc toujours le plus récent, par construction — pas besoin de
+    comparer des dates pour le savoir, juste prendre le dernier.
+    """
+    text = suivi_path.read_text(encoding="utf-8")
+    # (?:\s+[^"]*)? évite de matcher class="version-head"/"version-content"/etc. —
+    # seul class="version" ou class="version is-update" doit compter comme un bloc
+    blocks = re.split(r'<div class="version(?:\s+[^"]*)?">', text)
+    if len(blocks) < 2:
+        return None, {}
+    last_block = blocks[-1]
+
+    date_m = re.search(r'<span class="version-date">([^<]+)</span>', last_block)
+    version_date = parse_french_date(date_m.group(1)) if date_m else None
+
+    pcts = {}
+    for card_m in re.finditer(
+        r'<div class="mini-scenario" data-kind="([^"]+)">(.*?)</div>', last_block, re.DOTALL
+    ):
+        kind, card_content = card_m.groups()
+        # V1+ (mise à jour) : <span class="evo-current">45%</span>
+        pct_m = re.search(r'<span class="evo-current">(\d+)%</span>', card_content)
+        if not pct_m:
+            # V0 (jamais mise à jour, cas où le fichier n'a qu'une version) :
+            # <span class="mini-scenario-pct">25%</span>
+            pct_m = re.search(r'<span class="mini-scenario-pct">(\d+)%</span>', card_content)
+        if pct_m:
+            pcts[kind] = int(pct_m.group(1))
+
+    return version_date, pcts
+
+
 def get_most_probable_scenario(scenarios):
     """Retourne le scénario avec le pourcentage le plus élevé."""
     if not scenarios:
@@ -701,8 +788,16 @@ def get_most_probable_scenario(scenarios):
     return best[:2]  # Retourne juste (kind, pct), pas france_impact
 
 
-def parse_article(file_path):
-    """Parse un fichier d'article."""
+def parse_article(file_path, suivi_mapping=None):
+    """Parse un fichier d'article.
+
+    Si un suivi actif existe pour cette date (suivi_mapping), les pourcentages
+    des 3 scénarios sont remplacés par ceux de la DERNIÈRE version du suivi —
+    le tableau doit refléter la dernière évaluation d'un sujet mis à jour, pas
+    les chiffres figés de l'édition d'origine. Le jugement France Impact de
+    chaque scénario (favorable/stable/degrade), lui, reste celui de l'édition
+    d'origine : les pages de suivi ne le réestiment pas (voir extract_latest_suivi_version).
+    """
     text = file_path.read_text(encoding="utf-8")
 
     iso_date = file_path.stem
@@ -712,11 +807,26 @@ def parse_article(file_path):
     domain = extract_domain(text)
     revised_on = extract_revised(text)
 
-    # Extrait le scénario le plus probable (pour le badge "Notre scénario")
+    suivi_path = (suivi_mapping or {}).get(iso_date)
+    if suivi_path:
+        suivi_date, updated_pcts = extract_latest_suivi_version(suivi_path)
+        if updated_pcts:
+            scenarios = [
+                (kind, updated_pcts.get(kind, pct), judgment)
+                for kind, pct, judgment in scenarios
+            ]
+        # La date de suivi prime sur un meta revised-on posé à la main : c'est
+        # elle qui reflète la vraie dernière mise à jour des chiffres affichés.
+        if suivi_date:
+            revised_on = suivi_date
+
+    # Extrait le scénario le plus probable (pour le badge "Notre scénario") —
+    # sur les pourcentages à jour (suivi appliqué ci-dessus le cas échéant)
     best_scenario = get_most_probable_scenario(scenarios)
     kind, pct = best_scenario if best_scenario[0] else (None, None)
 
-    # Impact France : espérance pondérée sur les 3 scénarios, pas juste le plus probable
+    # Impact France : espérance pondérée sur les 3 scénarios (pondération à jour,
+    # jugement d'origine), pas juste le plus probable
     esperance = compute_france_esperance(scenarios)
     france_label, france_css_class = label_esperance(esperance)
     # Groupe large (favorable/neutre/degrade) pour le filtre — les 7 niveaux fins
@@ -742,6 +852,7 @@ def parse_article(file_path):
         "france_group": france_group,
         "domain": domain,
         "revised_on": revised_on,
+        "suivi_slug": suivi_path.stem if suivi_path else None,
     }
 
 
@@ -796,11 +907,16 @@ def render_table_row(article):
 
     # Badge "Révisé" : discret, pas d'emoji (règle du site) — visible directement
     # sur la ligne, sans attendre que le lecteur clique le filtre "Sujet révisé".
+    # Lien vers la page de suivi quand elle existe (donnée à jour du tableau) ;
+    # sinon simple indicateur (révision signalée à la main, sans suivi dédié).
     revised_on = article["revised_on"]
-    revised_badge = (
-        f'<span class="revised-badge" title="Sujet révisé le {format_date_display_plain(revised_on)}">Révisé</span>'
-        if revised_on else ""
-    )
+    revised_title = f"Sujet révisé le {format_date_display_plain(revised_on)}" if revised_on else ""
+    if article["suivi_slug"]:
+        revised_badge = f'<a href="suivi/{article["suivi_slug"]}.html" class="revised-badge" title="{revised_title} — voir le suivi">Révisé</a>'
+    elif revised_on:
+        revised_badge = f'<span class="revised-badge" title="{revised_title}">Révisé</span>'
+    else:
+        revised_badge = ""
 
     # Tooltip natif au survol du titre = la problématique de l'édition
     question_attr = f' title="{html.escape(article["question"])}"' if article["question"] else ""
@@ -1067,9 +1183,13 @@ def main():
     """Génère archives.html."""
     print(f"Parsing {len(list(ARCHIVES_DIR.glob('*.html')))} articles...")
 
+    suivi_mapping = build_suivi_mapping()
+    if suivi_mapping:
+        print(f"✓ {len(suivi_mapping)} suivi actif(s) trouvé(s) : {', '.join(sorted(suivi_mapping))}")
+
     articles = []
     for file_path in sorted(ARCHIVES_DIR.glob("*.html"), reverse=True):
-        data = parse_article(file_path)
+        data = parse_article(file_path, suivi_mapping)
         articles.append(data)
 
     print(f"✓ Parsed {len(articles)} articles")

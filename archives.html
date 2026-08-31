@@ -587,7 +587,19 @@
     border: 1px solid var(--gold);
     border-radius: 3px;
     padding: 2px 6px;
+    text-decoration: none;
     cursor: default;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  /* Version lien (suivi dédié existant) : cliquable, hover fond or */
+  a.revised-badge {
+    cursor: pointer;
+  }
+
+  a.revised-badge:hover {
+    background: var(--gold);
+    color: var(--ink);
   }
 
   .archives-table .col-eval {
@@ -1323,18 +1335,18 @@
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez favorable" aria-label="Impact France : Assez favorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort active"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
-    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="culture-divertissement" data-scenario="degrade" data-france="neutre" data-revised="true">
       <td class="col-date" data-label="Date"><span class="date-day">08.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-08.html" title="❓ Après une chute historique de la fréquentation en 2025 (-13,6 %, plus bas niveau depuis 1997 hors Covid), le rebond spectaculaire du début 2026 va-t-il tenir toute l&#x27;année, ou n&#x27;est-ce qu&#x27;un sursaut avant un nouveau recul ?">Le cinéma reprend des couleurs</a>
-          
+          <a href="suivi/cinema-france.html" class="revised-badge" title="Sujet révisé le 22.08.2026 — voir le suivi">Révisé</a>
           <a href="en/archives/2026-08-08.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
       <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
-      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
-      <span class="eval-label">Stable</span>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade">
+      <span class="eval-label">Dégradé</span>
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
@@ -1355,21 +1367,21 @@
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
-    <tr data-domain="politique-institutions" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade" data-revised="true">
       <td class="col-date" data-label="Date"><span class="date-day">06.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-06.html" title="❓ Après avoir dû abandonner en catastrophe son projet de vendre un bout de la Coupe du monde à des investisseurs privés, Gianni Infantino peut-il regagner la confiance de l&#x27;UEFA et des autres fédérations avant l&#x27;élection à la présidence de la FIFA prévue le 18 mars 2027 ?">FIFA : la présidence d&#x27;Infantino vacille</a>
-          
+          <a href="suivi/fifa-infantino.html" class="revised-badge" title="Sujet révisé le 08.08.2026 — voir le suivi">Révisé</a>
           <a href="en/archives/2026-08-06.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
       <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
-      <span class="eval-pct">45%</span>
+      <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-scale" title="Plutôt défavorable" aria-label="Impact France : Plutôt défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade active"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="sciences-environnement" data-scenario="stable" data-france="neutre" data-revised="false">
       <td class="col-date" data-label="Date"><span class="date-day">05.08</span><span class="date-year">2026</span></td>
@@ -1403,21 +1415,21 @@
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
-    <tr data-domain="international" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="international" data-scenario="degrade" data-france="degrade" data-revised="true">
       <td class="col-date" data-label="Date"><span class="date-day">03.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-03.html" title="❓ Depuis jeudi, 60 000 personnes ont franchi la frontière entre le Maroc et l&#x27;enclave espagnole de Ceuta, laissant au moins 72 morts et poussant l&#x27;Italie à fermer temporairement Schengen avec l&#x27;Espagne : l&#x27;Europe va-t-elle contenir cette crise sans toucher à la libre circulation, ou Ceuta est-elle en train de rouvrir le débat sur les frontières intérieures de l&#x27;UE ?">Ceuta : la frontière qui a craqué</a>
-          
+          <a href="suivi/ceuta-schengen.html" class="revised-badge" title="Sujet révisé le 27.08.2026 — voir le suivi">Révisé</a>
           <a href="en/archives/2026-08-03.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
       <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
-      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
-      <span class="eval-label">Stable</span>
-      <span class="eval-pct">50%</span>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade">
+      <span class="eval-label">Dégradé</span>
+      <span class="eval-pct">62%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre" data-revised="false">
       <td class="col-date" data-label="Date"><span class="date-day">02.08</span><span class="date-year">2026</span></td>
@@ -1467,21 +1479,21 @@
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Plutôt défavorable" aria-label="Impact France : Plutôt défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade active"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
-    <tr data-domain="economie-entreprises" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="economie-entreprises" data-scenario="degrade" data-france="degrade" data-revised="true">
       <td class="col-date" data-label="Date"><span class="date-day">30.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-30.html" title="❓ Après avoir dépensé des dizaines de milliards dans le sport mondial, l&#x27;Arabie saoudite est-elle en train de se retirer, de resserrer son emprise sur le football, ou va-t-elle au contraire l&#x27;étendre partout ?">Golf, foot, boxe : l&#x27;Arabie saoudite se retire-t-elle du sport ?</a>
-          
+          <a href="suivi/arabie-saoudite-sport.html" class="revised-badge" title="Sujet révisé le 29.08.2026 — voir le suivi">Révisé</a>
           <a href="en/archives/2026-07-30.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
       <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
-      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
-      <span class="eval-label">Stable</span>
-      <span class="eval-pct">45%</span>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade">
+      <span class="eval-label">Dégradé</span>
+      <span class="eval-pct">42%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-scale" title="Plutôt défavorable" aria-label="Impact France : Plutôt défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade active"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="neutre" data-revised="false">
       <td class="col-date" data-label="Date"><span class="date-day">29.07</span><span class="date-year">2026</span></td>
@@ -1515,35 +1527,35 @@
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
-    <tr data-domain="international" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="international" data-scenario="degrade" data-france="degrade" data-revised="true">
       <td class="col-date" data-label="Date"><span class="date-day">27.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-27.html" title="❓ Après cinq mois de guerre et plusieurs cessez-le-feu rompus, les négociations en cours déboucheront-elles sur un accord durable entre l&#x27;Iran et les États-Unis, sur une trêve sous tension sans vraie paix, ou sur une nouvelle reprise des combats ?">Iran–États-Unis : les armes se taisent, l&#x27;accord reste à trouver</a>
-          
+          <a href="suivi/iran-usa.html" class="revised-badge" title="Sujet révisé le 28.08.2026 — voir le suivi">Révisé</a>
           <a href="en/archives/2026-07-27.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
       <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
-      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
-      <span class="eval-label">Stable</span>
-      <span class="eval-pct">45%</span>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade">
+      <span class="eval-label">Dégradé</span>
+      <span class="eval-pct">75%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
-    <tr data-domain="culture-divertissement" data-scenario="favorable" data-france="degrade" data-revised="false">
+    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="degrade" data-revised="true">
       <td class="col-date" data-label="Date"><span class="date-day">26.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-26.html">HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ?</a>
-          
+          <a href="suivi/warner-paramount.html" class="revised-badge" title="Sujet révisé le 14.08.2026 — voir le suivi">Révisé</a>
           <a href="en/archives/2026-07-26.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
       <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
-      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-favorable" data-kind="favorable">
-      <span class="eval-label">Favorable</span>
-      <span class="eval-pct">40%</span>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
@@ -1563,21 +1575,21 @@
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
-    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="culture-divertissement" data-scenario="favorable" data-france="favorable" data-revised="true">
       <td class="col-date" data-label="Date"><span class="date-day">18.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-18.html">Spider-Man contre Avengers : qui va sauver le box-office Marvel ?</a>
-          
+          <a href="suivi/spiderman-marvel.html" class="revised-badge" title="Sujet révisé le 21.08.2026 — voir le suivi">Révisé</a>
           <a href="en/archives/2026-07-18.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
       <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
-      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
-      <span class="eval-label">Stable</span>
-      <span class="eval-pct">45%</span>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-favorable" data-kind="favorable">
+      <span class="eval-label">Favorable</span>
+      <span class="eval-pct">72%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez favorable" aria-label="Impact France : Assez favorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort active"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     </tbody>
   </table>
