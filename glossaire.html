@@ -380,6 +380,32 @@
   }
   .follow-btn:hover{ background: var(--gold); color: var(--ink); }
   .follow-btn svg{ display: block; flex-shrink: 0; }
+
+  /* ---- Hero avec photo de fond [AJOUTÉ le 31 août 2026, même traitement que
+     archives.html/le-projet.html] — .glossaire-hero s'ajoute à .hero partagé,
+     ne le modifie pas, donc n'affecte aucune autre page (y compris les pages
+     thématiques, qui extraient aussi ce <style> — voir generate_theme_pages.py).
+     Machine à écrire et téléphone vintage sous éclairage dramatique (licence
+     Pexels, crédit dans assets/social/pub-photos/credits.json) — le haut de
+     la photo est déjà quasi noir nativement, dégradé léger seulement. */
+  .hero.glossaire-hero{
+    position: relative;
+    padding: 96px 0 60px;
+    background:
+      linear-gradient(180deg, rgba(16,21,28,0.35) 0%, rgba(16,21,28,0.8) 70%, var(--ink) 100%),
+      url('assets/social/pub-photos/vocabulaire.jpg') center 35% / cover no-repeat;
+  }
+
+  .hero.glossaire-hero .eyebrow,
+  .hero.glossaire-hero h1,
+  .hero.glossaire-hero .dek{
+    position: relative;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 600px){
+    .hero.glossaire-hero{ padding: 64px 0 44px; }
+  }
 </style>
 </head>
 <body>
@@ -408,7 +434,7 @@
   </div>
 </nav>
 
-<section class="hero">
+<section class="hero glossaire-hero">
   <div class="wrap">
     <p class="eyebrow">Vocabulaire</p>
     <h1>Glossaire</h1>
