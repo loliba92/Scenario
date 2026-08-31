@@ -134,10 +134,9 @@ ARCHIVES_TABLE_CSS = """
     font-weight: 700;
     font-size: 0.95rem;
     transition: color 0.2s ease;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
+    /* Pas de troncage : le titre s'affiche en entier, sur autant de lignes
+       que nécessaire. EN reste aligné sur la 1ère ligne (align-items:baseline
+       sur .title-row) même quand le titre en fait plusieurs. */
     flex: 1 1 auto;
     min-width: 0;
   }
@@ -180,7 +179,7 @@ ARCHIVES_TABLE_CSS = """
     padding: 6px 12px;
     border-radius: 4px;
     font-weight: 600;
-    font-size: 0.75rem;
+    font-size: 0.68rem;
     font-family: "JetBrains Mono", monospace;
     white-space: nowrap;
   }
@@ -212,7 +211,7 @@ ARCHIVES_TABLE_CSS = """
 
   .archives-table .eval-pct {
     font-weight: 700;
-    font-size: 0.75rem;
+    font-size: 0.68rem;
   }
 
   .archives-table .col-france {
@@ -384,6 +383,67 @@ ARCHIVES_TABLE_CSS = """
     }
     .archives-table .col-title a:first-child {
       font-size: 0.88rem;
+    }
+  }
+
+  /* ---- Légende sous le tableau : explique chaque colonne ---- */
+  .archives-legend {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    padding: 18px 22px;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+  }
+
+  .archives-legend-title {
+    margin: 0 0 12px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+  }
+
+  .archives-legend dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 8px 16px;
+  }
+
+  .archives-legend dt {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--paper);
+    white-space: nowrap;
+  }
+
+  .archives-legend dd {
+    margin: 0;
+    font-size: 0.82rem;
+    color: var(--paper-dim);
+    line-height: 1.5;
+  }
+
+  .archives-legend dd a {
+    color: var(--gold);
+  }
+
+  @media (max-width: 600px) {
+    .archives-legend {
+      padding: 16px;
+    }
+    .archives-legend dl {
+      grid-template-columns: 1fr;
+      gap: 2px 0;
+    }
+    .archives-legend dt {
+      margin-top: 10px;
+    }
+    .archives-legend dt:first-child {
+      margin-top: 0;
     }
   }
 """
@@ -730,6 +790,21 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
 <section class="listing">
   <div class="wrap">
 {table_html}
+    <div class="archives-legend">
+      <p class="archives-legend-title">Comment lire ce tableau</p>
+      <dl>
+        <dt>Date</dt>
+        <dd>Date de publication de l'édition.</dd>
+        <dt>Titre</dt>
+        <dd>Cliquez pour lire l'analyse complète (lien <strong>↗ EN</strong> pour la version anglaise).</dd>
+        <dt>Domaine</dt>
+        <dd>Catégorie thématique de l'édition — voir les <a href="index.html">pages thématiques</a>.</dd>
+        <dt>Notre scénario</dt>
+        <dd>Le plus probable des 3 scénarios de l'édition (favorable / stable / dégradé) avec son pourcentage de probabilité.</dd>
+        <dt>Impact France</dt>
+        <dd>Effet attendu pour la France, calculé sur les <strong>3</strong> scénarios pondérés par leur probabilité — pas seulement le plus probable (2 scénarios secondaires peuvent faire pencher la balance).</dd>
+      </dl>
+    </div>
     <p style="margin-top:28px"><a href="index.html" style="color:var(--gold);text-decoration:none">← Retour à l'accueil</a></p>
   </div>
 </section>
