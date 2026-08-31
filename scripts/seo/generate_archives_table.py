@@ -114,15 +114,17 @@ ARCHIVES_TABLE_CSS = """
     overflow-wrap: break-word;
   }
 
-  /* Titre + lien EN alignés dans un même flex row : le lien EN reste collé
-     au titre au lieu d'être rejeté sur sa propre ligne (le titre a besoin de
+  /* Titre + lien EN alignés dans un même flex row, TOUJOURS sur une seule
+     ligne (nowrap) : EN reste collé au titre au lieu de passer dessous.
+     Le titre rétrécit (flex-shrink + min-width:0) pour laisser la place à
+     EN plutôt que de le pousser en dessous (le titre a besoin de
      display:-webkit-box pour son clamp 2 lignes, donc on isole ça sur le <a>
      et on gère l'alignement au niveau du wrapper) */
   .archives-table .title-row {
     display: flex;
     align-items: baseline;
     gap: 8px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
   .archives-table .col-title a:first-child {
@@ -137,7 +139,7 @@ ARCHIVES_TABLE_CSS = """
     -webkit-line-clamp: 2;
     overflow: hidden;
     flex: 1 1 auto;
-    min-width: 120px;
+    min-width: 0;
   }
 
   .archives-table .col-title a:first-child:hover {
