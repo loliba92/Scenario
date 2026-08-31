@@ -4535,14 +4535,46 @@ mardi participatif en dépendrait probablement.
   *sortant* (chaque page thématique continue de lier vers les articles
   qu'elle liste) et comme point d'entrée si un lecteur arrive dessus
   directement depuis une recherche Google.
-  **[AJUSTÉ le 31 août, même jour] Lien discret ajouté dans le footer
-  d'`archives.html`**, à côté de « Mentions légales »/« Politique de
-  confidentialité » (`.legal-links`, même style sobre — texte mono
-  petit, pas un bandeau mis en avant). Compromis entre les deux
-  versions du jour : les pages ne sont plus totalement orphelines
-  (restaure un peu de maillage interne entrant), sans reproduire le
-  bandeau « Explorer par thème » retiré plus haut qui, lui, surjouait
-  une intégration au parcours utilisateur.
+  **[ESSAI le 31 août, retiré le jour même] Lien discret dans le footer
+  d'`archives.html`** (à côté de « Mentions légales ») — retour
+  utilisateur : « illogique et dirty », retiré aussitôt (revert complet,
+  voir PR #26). L'accès aux pages thématiques est reparti sur une piste
+  différente : un menu déroulant sous « Archives » dans le nav commun
+  (`.topnav`), voir l'entrée dédiée juste en dessous — les pages restent
+  orphelines des 76 fichiers déjà publiés jusqu'à ce que ce menu
+  s'applique, mais gagnent un vrai point d'entrée sur toute nouvelle
+  page à partir du 31 août.
+  **[FAIT le 31 août] Menu déroulant "Archives ▾" dans le nav commun.**
+  Retour utilisateur (réflexion à voix haute pendant la session) : plutôt
+  qu'un lien discret, "Archives" devient le déclencheur d'un panneau qui
+  se déplie juste en dessous du nav avec 8 liens (Toutes les archives,
+  les 6 domaines, Récap de la semaine) — vérifié par capture d'écran
+  (Playwright, desktop + mobile 390px) que le panneau n'est pas coupé
+  par le défilement horizontal de `.topnav .wrap`. Documenté dans
+  `docs/routine-prompt.md` (étape technique 2) comme exception explicite
+  à "ne jamais changer la structure du gabarit". **Portée volontairement
+  limitée aux nouvelles pages** (retour utilisateur : pas de rétrofit
+  des 76 pages déjà publiées) — le dropdown apparaît à partir de la
+  prochaine édition, les archives passées et les autres pages
+  statiques déjà en ligne gardent l'ancien lien simple jusqu'à nouvel
+  ordre. **Changement de comportement assumé** : "Archives" ne mène
+  plus directement à `archives.html` en un clic (il faut ouvrir le
+  panneau, "Toutes les archives →" en est le premier item) — accepté
+  par l'utilisateur en échange d'un vrai point d'entrée vers les pages
+  thématiques.
+  **Question ouverte, pas tranchée le 31 août : le rôle et l'avenir
+  d'`archives.html` lui-même.** Posée par l'utilisateur en repensant à
+  l'accès aux thèmes : « le fichier archive, il doit donc plus exister ? »
+  — pas de réponse improvisée sur le moment, volontairement. Éléments à
+  remettre sur la table le jour où ce sujet revient : `archives.html`
+  n'est pas qu'une entrée de nav, c'est une page à part entière avec
+  recherche, filtre par année, tri (date de publication / dernière mise
+  à jour), filtre "Sujet révisé" (`?tag=revise`, dont dépend l'icône du
+  masthead sur toutes les pages du site), vignettes, accordéon
+  "Scénarios ▾" — rien de tout ça n'est couvert par les 6 pages
+  thématiques ni par le récap hebdo. Une restructuration ou fusion
+  éventuelle devrait donc partir de cette liste de fonctions à
+  préserver, pas seulement de la question de nav.
   **Pages thématiques en anglais (`en/themes/`) — question posée le
   31 août, pas retenue pour l'instant.** Vérifié avant de trancher : sur
   les 5 articles déjà traduits (`en/archives/`), la répartition par
