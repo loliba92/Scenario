@@ -287,17 +287,19 @@ def extract_france_impact(text, most_probable_kind):
         return None
 
     card_content = card_m.group(1)
+    # Extrait le contenu complet du france-line, jusqu'à la fermeture
     france_m = re.search(
-        r'<div class="france-line"[^>]*>.*?<span class="field-label">Concrètement en France</span>\s*([^<]+)',
+        r'<div class="france-line"[^>]*>.*?<span class="field-label">Concrètement en France</span>\s*(.*?)</div>',
         card_content,
         re.DOTALL,
     )
     if france_m:
-        # Extrait juste la première phrase, avant l'emoji
-        text = france_m.group(1).strip()
-        # Enlève l'emoji et le texte qui suit
-        text = re.sub(r'\s*[↑↓]\s*.*', '', text)
-        return html.unescape(text)
+        # Extrait tout le contenu (texte + flèche + impact)
+        content = france_m.group(1).strip()
+        # Nettoie les balises HTML internes mais garde le texte
+        content = re.sub(r'<[^>]+>', '', content)
+        content = re.sub(r'\s+', ' ', content).strip()
+        return html.unescape(content)
     return None
 
 
