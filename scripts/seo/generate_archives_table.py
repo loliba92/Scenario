@@ -420,7 +420,17 @@ ARCHIVES_TABLE_CSS = """
       text-align: left;
       flex-direction: row;
       align-items: baseline;
-      gap: 6px;
+      gap: 4px;
+    }
+
+    /* Sur mobile, jour et année sur la même ligne : la hiérarchie de taille
+       desktop (gros jour blanc / petite année grise) ne lit plus comme une
+       seule date une fois posée côte à côte au lieu d'empilée — on uniformise. */
+    .archives-table .date-day,
+    .archives-table .date-year {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--paper-dim);
     }
 
     .archives-table .col-domain {
@@ -1028,11 +1038,20 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
     domains_present = {a["domain"] for a in articles if a["domain"]}
     scenarios_present = {a["scenario_kind"] for a in articles if a["scenario_kind"]}
     france_groups_present = {a["france_group"] for a in articles if a["france_group"]}
+    revised_present = {"true"} if any(a["revised_on"] for a in articles) else set()
+
+    # Chip "Révisé" seulement si au moins une édition l'est (sinon chip inutile,
+    # rien à filtrer) — binaire, pas de valeurs multiples comme les 3 autres.
+    revised_filter_html = (
+        chip_group("revised-filters", "Révisé", revised_present, {"true": "Révisé uniquement"}, ["true"])
+        if revised_present else ""
+    )
 
     filters_html = f"""    <div class="archives-filters">
 {chip_group("domain-filters", "Domaine", domains_present, DOMAIN_LABELS, list(DOMAIN_LABELS.keys()))}
 {chip_group("scenario-filters", "Notre scénario", scenarios_present, scenario_labels, ["favorable", "stable", "degrade"])}
 {chip_group("france-filters", "Impact France", france_groups_present, france_group_labels, ["favorable", "neutre", "degrade"])}
+{revised_filter_html}
       <p class="no-result" id="archives-no-result">Aucune édition ne correspond à ces filtres.</p>
     </div>"""
 
@@ -1042,9 +1061,9 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
     if(!table){ return; }
     var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
     var noResult = document.getElementById('archives-no-result');
-    var active = { domain: 'all', scenario: 'all', france: 'all' };
+    var active = { domain: 'all', scenario: 'all', france: 'all', revised: 'all' };
 
-    ['domain-filters', 'scenario-filters', 'france-filters'].forEach(function(groupId){
+    ['domain-filters', 'scenario-filters', 'france-filters', 'revised-filters'].forEach(function(groupId){
       var box = document.getElementById(groupId);
       if(!box){ return; }
       var field = box.dataset.field;
@@ -1059,12 +1078,20 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
       });
     });
 
-    // Filtre "Sujet révisé" : activé par ?tag=revise dans l'URL (lien historique
-    // depuis le nav .masthead-right, jamais un chip sur cette page — les sujets
-    // révisés sont rares, pas besoin d'une 4e rangée de filtre visible en
-    // permanence). Pas de bouton pour le désactiver : revenir sur archives.html
-    // sans le paramètre suffit.
-    var revisedOnly = new URLSearchParams(window.location.search).get('tag') === 'revise';
+    // Chip "Révisé" pré-activée si on arrive via ?tag=revise (lien historique
+    // du nav .masthead-right) — même filtre, juste 2 points d'entrée.
+    if(new URLSearchParams(window.location.search).get('tag') === 'revise'){
+      var revisedBox = document.getElementById('revised-filters');
+      if(revisedBox){
+        var revisedChip = revisedBox.querySelector('[data-filter="true"]');
+        if(revisedChip){
+          active.revised = 'true';
+          revisedBox.querySelectorAll('.filter-chip').forEach(function(c){
+            c.classList.toggle('is-active', c === revisedChip);
+          });
+        }
+      }
+    }
 
     function apply(){
       var visible = 0;
@@ -1072,7 +1099,7 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
         var show = (active.domain === 'all' || row.dataset.domain === active.domain)
           && (active.scenario === 'all' || row.dataset.scenario === active.scenario)
           && (active.france === 'all' || row.dataset.france === active.france)
-          && (!revisedOnly || row.dataset.revised === 'true');
+          && (active.revised === 'all' || row.dataset.revised === active.revised);
         row.classList.toggle('is-hidden', !show);
         if(show){ visible++; }
       });
