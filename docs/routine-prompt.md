@@ -557,7 +557,7 @@ Ne jamais réécrire une nouvelle phrase pour la description : reprendre exactem
   "datePublished": "{même valeur que article:published_time}",
   "dateModified": "{même valeur que article:published_time}",
   "inLanguage": "fr-FR",
-  "author": { "@type": "Person", "name": "Olivier Bertrand", "url": "https://lesscenarios.fr/le-projet.html#equipe", "jobTitle": "Directeur éditorial et technique" },
+  "author": { "@type": "Person", "name": "Olivier Bertrand", "url": "https://lesscenarios.fr/le-projet.html#equipe", "jobTitle": "Directeur éditorial et technique", "sameAs": ["https://www.linkedin.com/in/obertrand1"] },
   "publisher": {
     "@type": "Organization",
     "name": "Scénario",
@@ -569,6 +569,8 @@ Ne jamais réécrire une nouvelle phrase pour la description : reprendre exactem
 `mainEntityOfPage.@id` suit la même règle que `og:url`. `author`/`publisher` ne changent jamais. `image` suit la même règle conditionnelle que `og:image` (générique par défaut, remplacé par l'étape 8 si photo retenue).
 
 **[AJOUTÉ le 31 août 2026, retour utilisateur — SEO E-E-A-T] `author` en `Person` nommée, pas `Organization`.** Un auteur réel et identifié (avec `jobTitle` + lien vers sa bio) est un signal de confiance reconnu par Google (E-E-A-T : Experience, Expertise, Authoritativeness, Trustworthiness), au-delà de la simple éligibilité Google Actualités que couvrait déjà `NewsArticle`. `publisher` reste `Organization` (« Scénario ») — c'est `author` seul qui change de type. En anglais (`en/index.html`, `en/archives/{date}.html`) : `"jobTitle": "Editorial & Technical Director"`, même `name`/`url` (pas de page « équipe » en anglais, le lien pointe vers la version française).
+
+**`sameAs` sur `author` [AJOUTÉ le 31 août 2026, retour utilisateur].** Pointe vers le profil LinkedIn `https://www.linkedin.com/in/obertrand1` — désambiguïse l'auteur pour Google (recommandation officielle schema.org/Google pour un `Person`), sans paramètre de tracking dans l'URL (`?utm_...` toujours retiré avant d'enregistrer un lien dans une donnée structurée). Ne change jamais, identique FR/EN.
 
 **Byline visible sous `.edition` dans le masthead, même geste que le JSON-LD ci-dessus [AJOUTÉ le 31 août 2026].** Juste après `<div class="edition">{...}</div>` dans `.brand` :
 ```html
