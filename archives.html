@@ -13,20 +13,20 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Scénario">
 <link rel="stylesheet" href="assets/pwa-install.css">
-<meta name="description" content="Toutes les éditions passées de Scénario, classées par date.">
+<meta name="description" content="Archives complètes de Scénario : 39 éditions avec chacune 3 scénarios chiffrés (favorable, stable, dégradé).">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Scénario">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:url" content="https://lesscenarios.fr/archives.html">
 <meta property="og:title" content="Archives — Scénario">
-<meta property="og:description" content="Toutes les éditions passées de Scénario, classées par date.">
+<meta property="og:description" content="Archives complètes de Scénario : 39 éditions avec chacune 3 scénarios chiffrés (favorable, stable, dégradé).">
 <meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
 <meta property="og:image:width" content="2508">
 <meta property="og:image:height" content="1412">
 <meta property="og:image:alt" content="Scénario — trois scénarios chiffrés pour chaque actualité : favorable, stable, dégradé.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Archives — Scénario">
-<meta name="twitter:description" content="Toutes les éditions passées de Scénario, classées par date.">
+<meta name="twitter:description" content="Archives complètes de Scénario : 39 éditions avec chacune 3 scénarios chiffrés (favorable, stable, dégradé).">
 <meta name="twitter:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,21 +118,6 @@
     flex: none;
   }
 
-  .nav-link{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--paper-dim);
-    text-decoration: none;
-    border-bottom: 1px dotted transparent;
-  }
-
-  .nav-link:hover{
-    color: var(--paper);
-    border-bottom-color: var(--paper-dim);
-  }
-
   nav.topnav{
     background: var(--surface);
     border-bottom: 1px solid var(--hairline);
@@ -205,23 +190,15 @@
 
   section.listing{ padding: 48px 0 64px; }
 
-  .entries{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-  }
-
   /* ---- Outils : recherche + filtres ---- */
-  .archive-tools{
+  .glossary-tools{
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin: 0 0 26px;
+    gap: 16px;
+    margin: 0 0 34px;
   }
 
-  .archive-search{
+  .glossary-search{
     width: 100%;
     max-width: 440px;
     background: var(--surface);
@@ -232,14 +209,8 @@
     font-family: "Inter", system-ui, sans-serif;
     font-size: 0.95rem;
   }
-  .archive-search::placeholder{ color: var(--paper-dim); }
-  .archive-search:focus{ outline: 2px solid var(--gold); outline-offset: 2px; }
-
-  .tag-filters{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+  .glossary-search::placeholder{ color: var(--paper-dim); }
+  .glossary-search:focus{ outline: 2px solid var(--gold); outline-offset: 2px; }
 
   .filter-row{
     display: flex;
@@ -248,77 +219,18 @@
     gap: 10px;
   }
 
-  /* La ligne "Thème" peut s'étendre sur plusieurs lignes (registre + panneau
-     domaines) : on aligne son label en haut plutôt qu'au centre. */
-  .filter-row-themes{ align-items: flex-start; }
-
-  /* Puces "registre" (Sport, Géopolitique…) : même doré que le tag principal
-     sur chaque entrée, affichées directement dans la ligne du haut avec
-     "Tout" — un seul tag de registre par entrée, pas de sous-niveau ici. */
-  .filter-chip-registre{
-    color: var(--gold);
-    border-color: var(--gold);
-  }
-  .filter-chip-registre:hover{ background: var(--gold); color: var(--ink); }
-  .filter-chip-registre.is-active{ color: var(--ink); background: var(--gold); }
-
-  /* ---- Détail par domaine (repliable) ----
-     Les ~20 tags thématiques sont nombreux : cachés par défaut pour ne pas
-     allonger la page (voir bouton .theme-domains-toggle, même logique que
-     l'accordéon "Scénarios" de chaque entrée). Une fois ouvert, un domaine
-     par ligne — libellé en doré (voir docs/tags.md §2), ses tags en clair
-     juste à côté, sans doublon puisque chaque tag n'appartient qu'à un seul
-     domaine dans cette liste. */
-  .theme-domains-toggle{
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: transparent;
-    border: none;
-    padding: 2px 0;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--gold);
-    text-decoration: underline dotted;
-    text-underline-offset: 3px;
-    cursor: pointer;
-  }
-  .theme-domains-toggle:hover{ color: var(--paper); }
-  .theme-domains-toggle-icon{ display: inline-block; transition: transform .2s ease; }
-  .theme-domains-toggle[aria-expanded="true"] .theme-domains-toggle-icon{ transform: rotate(180deg); }
-
-  .tag-domains{
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-    margin-top: 6px;
-  }
-  .tag-domains.is-open{ display: flex; }
-
-  .tag-domain-row{
-    display: flex;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .tag-domain-label{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--gold);
-    white-space: nowrap;
-  }
-
   .filter-row-label{
     font-family: "JetBrains Mono", monospace;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--paper-dim);
+  }
+
+  .domain-filters{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   .filter-chip{
@@ -341,123 +253,39 @@
     border-color: var(--gold);
   }
 
-  /* Les puces "Récap de la semaine" et "Sujet révisé" sont épinglées juste
-     après "Tout" (voir JS) plutôt que noyées dans le tri alphabétique des
-     thèmes — ce ne sont pas des domaines, avec une bordure dorée pour se
-     distinguer des puces thème neutres au premier coup d'œil. */
-  .filter-chip.filter-chip-weekly,
-  .filter-chip.filter-chip-revise{
-    color: var(--gold);
-    border-color: var(--gold);
-    margin-right: 6px;
-  }
-  .filter-chip.filter-chip-weekly:hover,
-  .filter-chip.filter-chip-revise:hover{ background: var(--gold); color: var(--ink); }
-  .filter-chip.filter-chip-weekly.is-active,
-  .filter-chip.filter-chip-revise.is-active{ color: var(--ink); background: var(--gold); }
+  /* ---- Entrées du lexique ---- */
+  .lex-list{ margin: 0; padding: 0; }
 
-  /* ---- Entrées ---- */
-  .entry{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 20px 0;
+  .lex-entry{
+    padding: 18px 0;
     border-bottom: 1px solid var(--hairline);
   }
+  .lex-entry:first-child{ padding-top: 0; }
+  .lex-entry.is-hidden{ display: none; }
 
-  .entry:first-child{ padding-top: 0; }
-  .entry.is-hidden{ display: none; }
-
-  /* Vraie photo du sujet si elle existe, sinon un paysage pré-validé du
-     registre (assets/social/pub-photos/) — jamais de logo générique, voir
-     docs/ARCHITECTURE.md § « Vignette d'archive ». Au même niveau que le
-     titre : .entry en align-items flex-start (pas center) pour que
-     l'image reste ancrée en haut, alignée sur date/titre, même quand
-     l'accordéon Scénarios s'ouvre et allonge .entry-body — avec center
-     elle se recentrait sur toute la hauteur dépliée et retombait au
-     milieu des cartes de scénarios (retour utilisateur du 14 août). */
-  .entry-thumb{
-    width: 56px;
-    height: 56px;
-    flex: none;
-    border-radius: 8px;
-    object-fit: cover;
-    background: var(--surface);
+  .lex-term{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin: 0 0 6px;
+    color: var(--paper);
   }
 
-  /* Regroupe entry-main + entry-scenarios (auparavant enfants directs de
-     .entry) pour que .entry-thumb reste hors de ce sous-groupe, à côté
-     plutôt qu'au-dessus — même gap que .entry avant l'ajout de la
-     vignette. */
-  .entry-body{
-    flex: 1 1 auto;
-    min-width: 0;
+  .lex-def{
+    margin: 0 0 10px;
+    color: var(--paper-dim);
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .lex-meta{
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
     gap: 10px;
   }
 
-  .entry-main{
-    display: flex;
-    align-items: baseline;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .entry-date{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.8rem;
-    color: var(--paper-dim);
-    min-width: 9ch;
-  }
-
-  .entry-title{
-    flex: 1 1 220px;
-    font-family: "Fraunces", serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-bottom: 1px dotted transparent;
-  }
-
-  .entry-title:hover{ border-bottom-color: var(--paper-dim); }
-
-  /* Badge EN, ajouté le 29 août — lien direct vers l'article traduit
-     pour les 3 éditions qui en ont un. Classe distincte de .tag
-     volontairement : le JS de filtre lit `.tag`/`data-tag` sur chaque
-     entrée (voir plus bas) pour construire la liste des filtres — un
-     badge sans data-tag sous cette classe casserait ce mécanisme
-     (tag "undefined" fantôme + clic qui déclenche le filtre au lieu de
-     naviguer). Page/accordéon restent en français ; ce badge est le
-     seul élément anglais de archives.html, jamais un vrai bouton de
-     bascule de langue pour la page elle-même. */
-  .entry-lang-badge{
-    display: inline-flex;
-    align-items: center;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.66rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: 100px;
-    padding: 2px 9px;
-    white-space: nowrap;
-    background: transparent;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    text-decoration: none;
-    transition: background .15s, color .15s;
-  }
-  .entry-lang-badge:hover{ background: var(--gold); color: var(--ink); }
-
-  .entry-tags{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-  }
-
-  .tag{
+  .lex-domain{
     font-family: "JetBrains Mono", monospace;
     font-size: 0.66rem;
     text-transform: uppercase;
@@ -465,23 +293,17 @@
     border-radius: 100px;
     padding: 2px 9px;
     white-space: nowrap;
-    cursor: pointer;
-    background: transparent;
     border: 1px solid var(--gold);
     color: var(--gold);
-    transition: color .15s, border-color .15s;
   }
-  .tag.theme{
-    border: none;
-    background: none;
-    border-radius: 0;
-    padding: 2px 0;
+
+  .lex-source{
+    font-size: 0.78rem;
     color: var(--paper-dim);
-    text-decoration: underline dotted;
-    text-underline-offset: 3px;
+    text-decoration: none;
+    border-bottom: 1px dotted var(--paper-dim);
   }
-  .tag:hover{ border-color: var(--paper); color: var(--paper); }
-  .tag.theme:hover{ color: var(--paper); text-decoration-color: var(--paper); }
+  .lex-source:hover{ color: var(--paper); border-bottom-color: var(--paper); }
 
   .no-result{
     color: var(--paper-dim);
@@ -490,333 +312,6 @@
     display: none;
   }
   .no-result.is-shown{ display: block; }
-
-  /* ---- Suivi (mise à jour d'un sujet dans le temps) ---- */
-  .suivi-badge{
-    display: inline-flex;
-    align-self: flex-start;
-    align-items: center;
-    gap: 5px;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.72rem;
-    color: var(--gold);
-    text-decoration: none;
-    border: 1px solid var(--gold);
-    border-radius: 100px;
-    padding: 3px 11px;
-    margin-top: -2px;
-    transition: background .15s, color .15s;
-  }
-  .suivi-badge:hover{ background: var(--gold); color: var(--ink); }
-
-  /* ---- Bascule "Scénarios" (accordéon) ---- */
-  .entry-toggle{
-    display: flex;
-    align-items: center;
-    align-self: center;
-    gap: 6px;
-    margin-left: auto;
-    background: transparent;
-    border: 1px solid var(--hairline);
-    border-radius: 100px;
-    padding: 4px 12px;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--paper-dim);
-    cursor: pointer;
-    transition: color .15s, border-color .15s;
-  }
-  .entry-toggle:hover{ color: var(--paper); border-color: var(--paper-dim); }
-  .entry.is-expanded .entry-toggle{ color: var(--gold); border-color: var(--gold); }
-
-  .entry-toggle-icon{
-    display: inline-block;
-    transition: transform .2s ease;
-  }
-  .entry.is-expanded .entry-toggle-icon{ transform: rotate(180deg); }
-
-  .entry-scenarios{
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows .25s ease;
-  }
-  .entry.is-expanded .entry-scenarios{ grid-template-rows: 1fr; }
-
-  .entry-scenarios-inner{ min-height: 0; overflow: hidden; }
-
-  .fragment-question{
-    font-size: 0.86rem;
-    color: var(--paper);
-    line-height: 1.5;
-    margin: 18px 0 0;
-  }
-
-  .fragment-question-label{
-    display: block;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 4px;
-  }
-
-  .scenario-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-    padding: 18px 0 6px;
-  }
-
-  .fragment-question + .scenario-grid{ padding-top: 10px; }
-
-  .scenario-mini{
-    --accent: var(--paper-dim);
-    border-left: 2px solid var(--accent);
-    padding-left: 12px;
-  }
-  .scenario-mini[data-kind="favorable"]{ --accent: var(--favorable); }
-  .scenario-mini[data-kind="stable"]{ --accent: var(--stable); }
-  .scenario-mini[data-kind="degrade"]{ --accent: var(--degrade); }
-
-  .scenario-mini-title{
-    font-family: "Fraunces", serif;
-    font-weight: 600;
-    font-size: 0.92rem;
-    margin: 0 0 4px;
-    color: var(--paper);
-  }
-
-  .scenario-mini-arrow{
-    display: inline-block;
-    color: var(--accent);
-    font-weight: 700;
-  }
-
-  .scenario-mini-pct{
-    font-family: "JetBrains Mono", monospace;
-    font-weight: 700;
-    color: var(--accent);
-  }
-
-  .fragment-loading{
-    font-size: 0.84rem;
-    color: var(--paper-dim);
-    padding: 18px 0 6px;
-    margin: 0;
-  }
-
-  .scenario-mini-text{
-    font-size: 0.84rem;
-    color: var(--paper-dim);
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  /* ---- Entrée récap hebdo (dans la même liste que les éditions) ---- */
-  /* Le badge "Récap de la semaine" réutilise .tag (voir plus haut) et
-     fonctionne comme une puce de filtre normale, data-tag="hebdo" — clic
-     dessus = ne montrer que l'historique des récaps hebdo. */
-
-  .day-block{
-    padding: 20px 0;
-    border-bottom: 1px solid var(--hairline);
-  }
-  .day-block:first-child{ padding-top: 0; }
-  .day-block:last-child{ border-bottom: none; padding-bottom: 4px; }
-
-  .day-head{
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin: 0 0 6px;
-  }
-
-  .day-eyebrow{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--paper-dim);
-  }
-
-  .day-link{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.68rem;
-    color: var(--gold);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--gold);
-    white-space: nowrap;
-  }
-  .day-link:hover{ border-bottom-style: solid; }
-
-  .day-title{
-    font-family: "Fraunces", serif;
-    font-weight: 600;
-    font-size: 1.02rem;
-    line-height: 1.3;
-    margin: 0 0 6px;
-    text-decoration: none;
-    display: block;
-    border-bottom: 1px dotted transparent;
-  }
-  .day-title:hover{ border-bottom-color: var(--paper-dim); }
-
-  .day-context{
-    font-size: 0.82rem;
-    color: var(--paper-dim);
-    max-width: 62ch;
-    margin: 0 0 10px;
-  }
-
-  .scenario-list{
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .scenario-row{
-    --accent: var(--paper-dim);
-    display: flex;
-    align-items: baseline;
-    gap: 9px;
-    font-size: 0.84rem;
-  }
-  .scenario-row[data-kind="favorable"]{ --accent: var(--favorable); }
-  .scenario-row[data-kind="stable"]{ --accent: var(--stable); }
-  .scenario-row[data-kind="degrade"]{ --accent: var(--degrade); }
-
-  .scenario-arrow{ color: var(--accent); font-weight: 700; width: 1em; }
-  .scenario-pct{ font-family: "JetBrains Mono", monospace; font-weight: 700; color: var(--accent); min-width: 3.2ch; }
-  .scenario-label{ color: var(--paper-dim); }
-  .scenario-row.is-winner .scenario-label{ color: var(--paper); font-weight: 600; }
-
-  /* Grille récap hebdo avec vignettes (voir docs/ARCHITECTURE.md, "Vignettes
-     Instagram sur le récap hebdo") — même structure que hebdo/{date}.html,
-     dupliquée ici car ce fragment est injecté tel quel dans cette page. */
-  .week-grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
-  @media (max-width: 560px){
-    .week-grid{ grid-template-columns: 1fr; }
-    .entry-thumb{ width: 44px; height: 44px; }
-  }
-
-  .day-card{
-    display: flex;
-    flex-direction: column;
-  }
-
-  .day-card-eyebrow{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--paper-dim);
-    margin: 0 0 8px;
-  }
-
-  .day-card-image-link{ display:block; line-height:0; }
-
-  .day-card-image{
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 12px;
-    display: block;
-    border: 1px solid var(--hairline);
-  }
-
-  .day-card-noimage{
-    aspect-ratio: 1 / 1;
-    border-radius: 12px;
-    border: 1px solid var(--hairline);
-    background: var(--surface);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 18px;
-    text-align: center;
-  }
-
-  .day-card-noimage-title{
-    font-family: "Fraunces", serif;
-    font-weight: 600;
-    font-size: 1.02rem;
-    line-height: 1.3;
-    color: var(--paper);
-    text-decoration: none;
-    border-bottom: 1px dotted transparent;
-  }
-  .day-card-noimage-title:hover{ border-bottom-color: var(--paper-dim); }
-
-  .day-card-toggle{
-    align-self: flex-start;
-    margin-top: 10px;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--paper-dim);
-    background: none;
-    border: 1px solid var(--hairline);
-    border-radius: 100px;
-    padding: 4px 11px;
-    cursor: pointer;
-  }
-  .day-card-toggle:hover{ color: var(--paper); border-color: var(--paper-dim); }
-  .day-card-toggle[aria-expanded="true"]{ color: var(--gold); border-color: var(--gold); }
-
-  .day-card-toggle-icon{ display: inline-block; transition: transform .18s ease; }
-  .day-card-toggle[aria-expanded="true"] .day-card-toggle-icon{ transform: rotate(180deg); }
-
-  .day-card-detail{
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows .22s ease;
-  }
-  .day-card-detail.is-open{ grid-template-rows: 1fr; }
-  .day-card-detail-inner{ min-height: 0; overflow: hidden; }
-
-  .day-card-context{
-    font-size: 0.82rem;
-    color: var(--paper-dim);
-    margin: 10px 0 10px;
-  }
-
-  .day-card .scenario-list{ margin-bottom: 8px; }
-  .day-card .scenario-grid{ gap: 12px; margin-bottom: 8px; }
-
-  .week-conclusion{ padding: 20px 0 4px; }
-  .week-conclusion-label{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--gold);
-    margin: 0 0 8px;
-  }
-  .week-conclusion p{ font-size: 0.9rem; color: var(--paper); max-width: 62ch; margin: 0; }
-  .week-conclusion p strong{ color: var(--gold); font-weight: 600; }
-
-  /* Version "en tête" du récap hebdo : même bloc que .week-conclusion mais
-     encadré comme .essentiel-box (archives/*.html), affiché avant la grille
-     des 7 jours au lieu d'après. */
-  .week-conclusion-lead{
-    background: var(--surface);
-    border: 1px solid var(--gold);
-    border-radius: 10px;
-    padding: 20px 22px;
-    margin: 0 0 24px;
-  }
-  .week-conclusion-lead p{ max-width: none; }
 
   footer{
     border-top: 1px solid var(--hairline);
@@ -885,82 +380,120 @@
   }
   .follow-btn:hover{ background: var(--gold); color: var(--ink); }
   .follow-btn svg{ display: block; flex-shrink: 0; }
-  /* ---------- Bandeau d'accueil (premier passage uniquement) ---------- */
-  /* Ajouté le 28 août, retour utilisateur : un premier visiteur qui
-     atterrit sur l'édition du jour ne comprend pas ce qu'est Scénario
-     sans lire ou cliquer ailleurs — « on l'aime dans les 20 premières
-     secondes sinon on zappe à jamais ». Visible une seule fois par
-     navigateur (localStorage, voir le script en bas de page), jamais
-     revu ensuite — server-rendu avec l'attribut `hidden`, dévoilé par le
-     script seulement si le visiteur ne l'a jamais fermé/vu. Icône du
-     logo (tronc qui se sépare en 3 flèches favorable/stable/dégradé)
-     plutôt que les libellés en toutes lettres, déjà répétés une ligne
-     plus bas par les vraies cartes de l'article — retour utilisateur du
-     28 août : « tu répètes ». */
-  .intro-banner{
+
+  /* ---- Archives table (scripts/seo/generate_archives_table.py) ---- */
+  .archives-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .archives-table thead {
     background: var(--surface);
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .archives-table th {
+    padding: 14px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+  }
+
+  .archives-table tbody tr {
     border-bottom: 1px solid var(--hairline);
   }
 
-  .intro-banner-inner{
-    position: relative;
-    padding: 30px 24px 28px;
+  .archives-table tbody tr:hover {
+    background: var(--surface-2);
   }
 
-  .intro-banner-close{
-    position: absolute;
-    top: 14px;
-    right: 24px;
-    display: flex;
-    background: none;
-    border: none;
-    padding: 6px;
+  .archives-table td {
+    padding: 12px;
+    vertical-align: top;
+  }
+
+  .archives-table .col-date {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.85rem;
     color: var(--paper-dim);
-    cursor: pointer;
-  }
-  .intro-banner-close:hover{ color: var(--paper); }
-
-  .intro-banner-body{
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
+    white-space: nowrap;
   }
 
-  .intro-banner-icon{
-    width: 52px;
-    height: 52px;
-    flex-shrink: 0;
-    margin-top: 4px;
-  }
-
-  @media (max-width: 480px){
-    .intro-banner-icon{ display: none; }
-  }
-
-  .intro-banner-lead{
+  .archives-table .col-title a {
+    color: var(--gold);
+    text-decoration: none;
     font-family: "Fraunces", serif;
     font-weight: 600;
-    font-size: 1.4rem;
-    line-height: 1.32;
-    max-width: 34ch;
-    margin: 0 0 10px;
   }
 
-  .intro-banner-text{
-    font-size: 0.94rem;
+  .archives-table .col-title a:hover {
+    text-decoration: underline;
+    color: var(--paper);
+  }
+
+  .archives-table .col-question {
+    font-size: 0.92rem;
+    color: var(--paper);
+    max-width: 300px;
+    font-style: italic;
+  }
+
+  .archives-table .col-eval {
+    font-size: 0.85rem;
     color: var(--paper-dim);
-    line-height: 1.55;
-    max-width: 58ch;
-    margin: 0;
   }
 
-  @media (max-width: 560px){
-    .intro-banner-inner{ padding: 24px 20px 22px; padding-right: 46px; }
-    .intro-banner-lead{ font-size: 1.18rem; }
+  .archives-table .eval-pct {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    color: var(--paper);
+    margin-right: 4px;
   }
 
+  .archives-table .col-france {
+    font-size: 0.90rem;
+    color: var(--paper);
+    max-width: 250px;
+  }
 
+  .archives-table .col-domain {
+    font-size: 0.85rem;
+    font-family: "JetBrains Mono", monospace;
+    color: var(--paper-dim);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .archives-table {
+      font-size: 0.85rem;
+    }
+    .archives-table th,
+    .archives-table td {
+      padding: 8px 6px;
+    }
+    .archives-table .col-question,
+    .archives-table .col-france {
+      display: none;
+    }
+  }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Archives — Scénario",
+  "description": "Archives complètes de Scénario : 39 éditions avec chacune 3 scénarios chiffrés (favorable, stable, dégradé).",
+  "url": "https://lesscenarios.fr/archives.html",
+  "isPartOf": { "@type": "WebSite", "name": "Scénario", "url": "https://lesscenarios.fr/" }
+}
+</script>
 </head>
 <body>
 
@@ -978,8 +511,8 @@
 <nav class="topnav">
   <div class="wrap">
     <a href="index.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"/></svg> Accueil</a>
-    <a href="archives.html" aria-current="page"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4.5" width="16" height="4" rx="1"/><path d="M5 8.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5"/><line x1="10" y1="13" x2="14" y2="13"/></svg> Archives</a>
-    <a href="glossaire.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5c-1.6-1.2-3.7-1.7-6-1.7v13c2.3 0 4.4.5 6 1.7 1.6-1.2 3.7-1.7 6-1.7v-13c-2.3 0-4.4.5-6 1.7Z"/><line x1="12" y1="6.5" x2="12" y2="19.5"/></svg> Glossaire</a>
+    <a href="archives.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4.5" width="16" height="4" rx="1"/><path d="M5 8.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5"/><line x1="10" y1="13" x2="14" y2="13"/></svg> Archives</a>
+    <a href="glossaire.html" aria-current="page"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5c-1.6-1.2-3.7-1.7-6-1.7v13c2.3 0 4.4.5 6 1.7 1.6-1.2 3.7-1.7 6-1.7v-13c-2.3 0-4.4.5-6 1.7Z"/><line x1="12" y1="6.5" x2="12" y2="19.5"/></svg> Glossaire</a>
     <a href="le-projet.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4.5-8 4.5-8-4.5Z"/><path d="m4 12 8 4.5 8-4.5"/><path d="m4 16.5 8 4.5 8-4.5"/></svg> Le projet</a>
     <a href="newsletter.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M4.5 7 12 12.5 19.5 7"/></svg> Newsletter</a>
     <a href="contact.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6.5A1.5 1.5 0 0 1 5.5 5h13A1.5 1.5 0 0 1 20 6.5v8a1.5 1.5 0 0 1-1.5 1.5H10l-4 3.5V16H5.5A1.5 1.5 0 0 1 4 14.5Z"/></svg> Contact</a>
@@ -988,865 +521,343 @@
   </div>
 </nav>
 
-<div class="intro-banner" id="intro-banner" hidden>
-  <div class="wrap intro-banner-inner">
-    <button type="button" class="intro-banner-close" id="intro-banner-close" aria-label="Fermer ce message">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5L19 19M19 5L5 19"/></svg>
-    </button>
-    <div class="intro-banner-body">
-      <img class="intro-banner-icon" src="assets/logo.svg" alt="" aria-hidden="true">
-      <div>
-        <p class="intro-banner-lead">L'actu, oui. Et après ?</p>
-        <p class="intro-banner-text">Chaque jour, un sujet qui compte, décortiqué en trois scénarios chiffrés, avec une probabilité pour chacun. Jamais figée : elle évolue si la situation change.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow">Consultation</p>
-    <h1>Archives</h1>
-    <p class="dek">Toutes les éditions publiées, classées de la plus récente à la plus ancienne.</p>
+    <p class="eyebrow">Archives</p>
+    <h1>Toutes les éditions</h1>
+    <p class="dek">39 éditions de Scénario — chacune analyse un sujet d'actualité avec 3 scénarios chiffrés : favorable, stable, dégradé. Cliquez sur le titre pour voir l'analyse complète.</p>
   </div>
 </section>
 
 <section class="listing">
   <div class="wrap">
-    <div class="archive-tools">
-      <input id="archive-search" class="archive-search" type="search" placeholder="Rechercher une édition (titre, thème…)" aria-label="Rechercher dans les archives">
-      <div class="filter-row">
-        <span class="filter-row-label">Année</span>
-        <div class="tag-filters" id="year-filters"></div>
-      </div>
-      <div class="filter-row filter-row-themes">
-        <span class="filter-row-label">Thème</span>
-        <div id="theme-filters">
-          <div class="tag-filters" id="tag-filters"></div>
-          <div class="tag-domains" id="tag-domains"></div>
-        </div>
-      </div>
-      <div class="filter-row">
-        <span class="filter-row-label">Trier par</span>
-        <div class="tag-filters" id="sort-toggle">
-          <button type="button" class="filter-chip is-active" data-sort="pub">Date de publication</button>
-          <button type="button" class="filter-chip" data-sort="update">Dernière mise à jour</button>
-        </div>
-      </div>
-    </div>
-
-    <ul class="entries" id="entries">
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-31.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">31.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-31.html">Islande : après le non à l'UE, qui va la protéger ?</a>
-          <a class="entry-lang-badge" href="en/archives/2026-08-31.html" aria-label="Read this edition in English" title="Read this edition in English">EN</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="geopolitique">Géopolitique</button>
-            <button type="button" class="tag theme" data-tag="diplomatie">Diplomatie</button>
-            <button type="button" class="tag theme" data-tag="defense">Défense &amp; sécurité</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-31">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-31" data-fragment="archives/fragments/2026-08-31.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-30.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">30.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-30.html">Ligue 1 : le foot français peut-il survivre à l'effondrement de ses droits TV ?</a>
-          <a class="entry-lang-badge" href="en/archives/2026-08-30.html" aria-label="Read this edition in English" title="Read this edition in English">EN</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="sport">Sport</button>
-            <button type="button" class="tag theme" data-tag="economie">Économie</button>
-            <button type="button" class="tag theme" data-tag="medias">Médias</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-30">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-30" data-fragment="archives/fragments/2026-08-30.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry entry-weekly">
-        <div class="entry-main">
-          <span class="entry-date">30.08.2026</span>
-          <a class="entry-title" href="hebdo/2026-08-30.html">On refait le scénario de la semaine — 24 août au 30 août 2026</a>
-          <div class="entry-tags">
-            <button type="button" class="tag entry-weekly-badge" data-tag="hebdo">Récap de la semaine</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-hebdo-2026-08-30">Les 7 jours <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-hebdo-2026-08-30" data-fragment="hebdo/fragments/2026-08-30.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-29.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">29.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-29.html">Cinéma mondial : peut-il survivre au streaming ?</a>
-          <a class="entry-lang-badge" href="en/archives/2026-08-29.html" aria-label="Read this edition in English" title="Read this edition in English">EN</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="culture">Culture</button>
-            <button type="button" class="tag theme" data-tag="cinema">Cinéma</button>
-            <button type="button" class="tag theme" data-tag="medias">Médias</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-29">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-29" data-fragment="archives/fragments/2026-08-29.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-28.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">28.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-28.html">Climat 2030 : la France peut-elle encore tenir parole ?</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="sciences">Sciences</button>
-            <button type="button" class="tag theme" data-tag="climat">Climat</button>
-            <button type="button" class="tag theme" data-tag="energie">Énergie</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-28">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-28" data-fragment="archives/fragments/2026-08-28.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-27.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">27.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-27.html">Dette américaine : le mur des 40 000 milliards</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="economie-mondiale">Économie mondiale</button>
-            <button type="button" class="tag theme" data-tag="economie">Économie</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-27">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-27" data-fragment="archives/fragments/2026-08-27.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-26.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">26.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-26.html">Retraites : la patate chaude de 2027</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="actualite-francaise">Actualité française</button>
-            <button type="button" class="tag theme" data-tag="politique">Politique</button>
-            <button type="button" class="tag theme" data-tag="economie">Économie</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-26">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-26" data-fragment="archives/fragments/2026-08-26.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-25.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">25.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-25.html">IA chinoise : cadeau ou piège ?</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="carte-blanche">Carte blanche</button>
-            <button type="button" class="tag theme" data-tag="intelligence-artificielle">Intelligence artificielle</button>
-            <button type="button" class="tag theme" data-tag="diplomatie">Diplomatie</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-25">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-25" data-fragment="archives/fragments/2026-08-25.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-24.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">24.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-24.html">Ukraine : ni paix ni victoire</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="geopolitique">Géopolitique</button>
-            <button type="button" class="tag theme" data-tag="diplomatie">Diplomatie</button>
-            <button type="button" class="tag theme" data-tag="defense">Défense &amp; sécurité</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-24">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-24" data-fragment="archives/fragments/2026-08-24.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-23.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">23.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-23.html">Le pari XXL du Mondial 2030</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="sport">Sport</button>
-            <button type="button" class="tag theme" data-tag="politique">Politique</button>
-            <button type="button" class="tag theme" data-tag="economie">Économie</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-23">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-23" data-fragment="archives/fragments/2026-08-23.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry entry-weekly">
-        <div class="entry-main">
-          <span class="entry-date">23.08.2026</span>
-          <a class="entry-title" href="hebdo/2026-08-23.html">On refait le scénario de la semaine — 17 août au 23 août</a>
-          <div class="entry-tags">
-            <button type="button" class="tag entry-weekly-badge" data-tag="hebdo">Récap de la semaine</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-hebdo-2026-08-23">Les 7 jours <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-hebdo-2026-08-23" data-fragment="hebdo/fragments/2026-08-23.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-22.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">22.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-22.html">Hollywood décroche en Chine</a>
-          <a class="entry-lang-badge" href="en/archives/2026-08-22.html" aria-label="Read this edition in English" title="Read this edition in English">EN</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="culture">Culture</button>
-            <button type="button" class="tag theme" data-tag="cinema">Cinéma</button>
-            <button type="button" class="tag theme" data-tag="economie">Économie</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-22">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-22" data-fragment="archives/fragments/2026-08-22.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-21.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">21.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-21.html">Le Grand Filtre</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="sciences">Sciences</button>
-            <button type="button" class="tag theme" data-tag="espace">Espace</button>
-            <button type="button" class="tag theme" data-tag="intelligence-artificielle">Intelligence artificielle</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-21">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-21" data-fragment="archives/fragments/2026-08-21.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-20.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">20.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-20.html">Taux : marche arrière</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="economie-mondiale">Économie mondiale</button>
-            <button type="button" class="tag theme" data-tag="economie">Économie</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-20">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-20" data-fragment="archives/fragments/2026-08-20.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-19.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">19.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-19.html">2027 sous influence</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="actualite-francaise">Actualité française</button>
-            <button type="button" class="tag theme" data-tag="politique">Politique</button>
-            <button type="button" class="tag theme" data-tag="numerique">Numérique</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-19">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-19" data-fragment="archives/fragments/2026-08-19.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-18.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">18.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-18.html">IA : la cage a craqué</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="carte-blanche">Carte blanche</button>
-            <button type="button" class="tag theme" data-tag="intelligence-artificielle">Intelligence artificielle</button>
-            <button type="button" class="tag theme" data-tag="numerique">Numérique</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-18">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-18" data-fragment="archives/fragments/2026-08-18.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-17.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">17.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-17.html">Ormuz : la trêve a expiré</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="geopolitique">Géopolitique</button>
-            <button type="button" class="tag theme" data-tag="diplomatie">Diplomatie</button>
-            <button type="button" class="tag theme" data-tag="energie">Énergie</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-17">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-17" data-fragment="archives/fragments/2026-08-17.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-16.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">16.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-16.html">Rugby : le choc de trop ?</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="sport">Sport</button>
-            <button type="button" class="tag theme" data-tag="justice">Justice</button>
-            <button type="button" class="tag theme" data-tag="sante">Santé</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-16">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-16" data-fragment="archives/fragments/2026-08-16.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry entry-weekly">
-        <div class="entry-main">
-          <span class="entry-date">16.08.2026</span>
-          <a class="entry-title" href="hebdo/2026-08-16.html">On refait le scénario de la semaine — 10 août au 16 août</a>
-          <div class="entry-tags">
-            <button type="button" class="tag entry-weekly-badge" data-tag="hebdo">Récap de la semaine</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-hebdo-2026-08-16">Les 7 jours <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-hebdo-2026-08-16" data-fragment="hebdo/fragments/2026-08-16.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-15.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">15.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-15.html">Traduction littéraire : le métier en sursis ?</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="culture">Culture</button>
-            <button type="button" class="tag theme" data-tag="litterature">Littérature</button>
-            <button type="button" class="tag theme" data-tag="intelligence-artificielle">Intelligence artificielle</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-15">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-15" data-fragment="archives/fragments/2026-08-15.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-14.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">14.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-14.html">Canicules à répétition : qui paie l'addition ?</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="sciences">Sciences</button>
-            <button type="button" class="tag theme" data-tag="climat">Climat</button>
-            <button type="button" class="tag theme" data-tag="sante">Santé</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-14">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-14" data-fragment="archives/fragments/2026-08-14.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-13.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">13.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-13.html">Inflation : le pétrole rebat les cartes</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="economie-mondiale">Économie mondiale</button>
-            <button type="button" class="tag theme" data-tag="economie">Économie</button>
-            <button type="button" class="tag theme" data-tag="energie">Énergie</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-13">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-13" data-fragment="archives/fragments/2026-08-13.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-12.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">12.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-12.html">2027 : un favori, une opposition éclatée</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="actualite-francaise">Actualité française</button>
-            <button type="button" class="tag theme" data-tag="politique">Politique</button>
-            <button type="button" class="tag theme" data-tag="justice">Justice</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-12">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-12" data-fragment="archives/fragments/2026-08-12.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-11.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">11.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-11.html">L'Éthiopie veut sa mer, au risque de la guerre</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="carte-blanche">Carte blanche</button>
-            <button type="button" class="tag theme" data-tag="diplomatie">Diplomatie</button>
-            <button type="button" class="tag theme" data-tag="defense">Défense &amp; sécurité</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-11">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-11" data-fragment="archives/fragments/2026-08-11.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-10.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">10.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-10.html">La croissance mondiale ne tient qu'à un fil</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="geopolitique">Géopolitique</button>
-            <button type="button" class="tag theme" data-tag="economie">Économie</button>
-            <button type="button" class="tag theme" data-tag="energie">Énergie</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-10">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-10" data-fragment="archives/fragments/2026-08-10.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-09.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">09.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-09.html">Musique IA : la note grimpe à 9 milliards</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="culture-internationale">Culture internationale</button>
-            <button type="button" class="tag theme" data-tag="musique">Musique</button>
-            <button type="button" class="tag theme" data-tag="intelligence-artificielle">Intelligence artificielle</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-09">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-09" data-fragment="archives/fragments/2026-08-09.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry entry-weekly">
-        <div class="entry-main">
-          <span class="entry-date">09.08.2026</span>
-          <a class="entry-title" href="hebdo/2026-08-09.html">On refait le scénario de la semaine — 3 août au 9 août</a>
-          <div class="entry-tags">
-            <button type="button" class="tag entry-weekly-badge" data-tag="hebdo">Récap de la semaine</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-hebdo-2026-08-09">Les 7 jours <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-hebdo-2026-08-09" data-fragment="hebdo/fragments/2026-08-09.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-      </li>
-      <li class="entry" data-last-update="2026-08-22">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-08.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">08.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-08.html">Le cinéma reprend des couleurs</a>
-          <a class="entry-lang-badge" href="en/archives/2026-08-08.html" aria-label="Read this edition in English" title="Read this edition in English">EN</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="culture-francaise">Culture française</button>
-            <button type="button" class="tag theme" data-tag="cinema">Cinéma</button>
-            <button type="button" class="tag" data-tag="revise">Sujet révisé</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-08">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <a class="suivi-badge" href="suivi/cinema-france.html">🔄 Suivi mis à jour le 22.08.2026 →</a>
-        <div class="entry-scenarios" id="scenarios-2026-08-08" data-fragment="archives/fragments/2026-08-08.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-07.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">07.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-07.html">Big Tech face à la justice</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="sciences">Sciences</button>
-            <button type="button" class="tag theme" data-tag="numerique">Numérique</button>
-            <button type="button" class="tag theme" data-tag="justice">Justice</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-07">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-07" data-fragment="archives/fragments/2026-08-07.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry" data-last-update="2026-08-08">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-06.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">06.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-06.html">FIFA : la présidence d'Infantino vacille</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="sport">Sport</button>
-            <button type="button" class="tag theme" data-tag="politique">Politique</button>
-            <button type="button" class="tag theme" data-tag="economie">Économie</button>
-            <button type="button" class="tag" data-tag="revise">Sujet révisé</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-06">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <a class="suivi-badge" href="suivi/fifa-infantino.html">🔄 Suivi mis à jour le 08.08.2026 →</a>
-        <div class="entry-scenarios" id="scenarios-2026-08-06" data-fragment="archives/fragments/2026-08-06.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-05.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">05.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-05.html">EPR2 : le nucléaire français à l'heure de vérité</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="actualite-francaise">Actualité française</button>
-            <button type="button" class="tag theme" data-tag="energie">Énergie</button>
-            <button type="button" class="tag theme" data-tag="entreprises">Entreprises</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-05">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-05" data-fragment="archives/fragments/2026-08-05.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-04.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">04.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-04.html">Gaza : la paix qui reste sur le papier</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="carte-blanche">Carte blanche</button>
-            <button type="button" class="tag theme" data-tag="diplomatie">Diplomatie</button>
-            <button type="button" class="tag theme" data-tag="defense">Défense &amp; sécurité</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-04">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-04" data-fragment="archives/fragments/2026-08-04.html">
-          <div class="entry-scenarios-inner">
-            
-          </div>
-        </div>
-        </div>
-      </li>
-      <li class="entry" data-last-update="2026-08-27" data-pub-date="2026-08-03">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-03.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">27.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-03.html">Ceuta : la frontière qui a craqué</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="geopolitique">Géopolitique</button>
-            <button type="button" class="tag theme" data-tag="immigration">Immigration</button>
-            <button type="button" class="tag theme" data-tag="diplomatie">Diplomatie</button>
-            <button type="button" class="tag" data-tag="revise">Sujet révisé</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-03">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <a class="suivi-badge" href="suivi/ceuta-schengen.html">🔄 Suivi mis à jour le 27.08.2026 →</a>
-        <div class="entry-scenarios" id="scenarios-2026-08-03" data-fragment="archives/fragments/2026-08-03.html">
-          <div class="entry-scenarios-inner">
-
-          </div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-02.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">02.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-02.html">Streaming : payer plus, avoir moins ?</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="culture-internationale">Culture internationale</button>
-            <button type="button" class="tag theme" data-tag="medias">Médias</button>
-            <button type="button" class="tag theme" data-tag="economie">Économie</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-02">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-02" data-fragment="archives/fragments/2026-08-02.html">
-          <div class="entry-scenarios-inner">
-            
-          </div>
-        </div>
-        </div>
-      </li>
-      <li class="entry entry-weekly">
-        <div class="entry-main">
-          <span class="entry-date">02.08.2026</span>
-          <a class="entry-title" href="hebdo/2026-08-02.html">On refait le scénario de la semaine — 27 juillet au 2 août</a>
-          <div class="entry-tags">
-            <button type="button" class="tag entry-weekly-badge" data-tag="hebdo">Récap de la semaine</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-hebdo-2026-08-02">Les 7 jours <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-hebdo-2026-08-02" data-fragment="hebdo/fragments/2026-08-02.html">
-          <div class="entry-scenarios-inner"></div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-08-01.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">01.08.2026</span>
-          <a class="entry-title" href="archives/2026-08-01.html">Musique : l'IA a-t-elle déjà gagné ?</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="culture-francaise">Culture française</button>
-            <button type="button" class="tag theme" data-tag="musique">Musique</button>
-            <button type="button" class="tag theme" data-tag="intelligence-artificielle">Intelligence artificielle</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-08-01">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-08-01" data-fragment="archives/fragments/2026-08-01.html">
-          <div class="entry-scenarios-inner">
-            
-          </div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-07-31.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">31.07.2026</span>
-          <a class="entry-title" href="archives/2026-07-31.html">Méga-feux : la France est-elle prête pour la suite ?</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="sciences">Sciences</button>
-            <button type="button" class="tag theme" data-tag="climat">Climat</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-07-31">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-07-31" data-fragment="archives/fragments/2026-07-31.html">
-          <div class="entry-scenarios-inner">
-            
-          </div>
-        </div>
-        </div>
-      </li>
-      <li class="entry" data-last-update="2026-08-29" data-pub-date="2026-07-30">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-07-30.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">29.08.2026</span>
-          <a class="entry-title" href="archives/2026-07-30.html">Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ?</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="sport">Sport</button>
-            <button type="button" class="tag theme" data-tag="economie">Économie</button>
-            <button type="button" class="tag theme" data-tag="geopolitique">Géopolitique</button>
-            <button type="button" class="tag" data-tag="revise">Sujet révisé</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-07-30">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <a class="suivi-badge" href="suivi/arabie-saoudite-sport.html">🔄 Suivi mis à jour le 29.08.2026 →</a>
-        <div class="entry-scenarios" id="scenarios-2026-07-30" data-fragment="archives/fragments/2026-07-30.html">
-          <div class="entry-scenarios-inner">
-
-          </div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-07-29.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">29.07.2026</span>
-          <a class="entry-title" href="archives/2026-07-29.html">Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="actualite-francaise">Actualité française</button>
-            <button type="button" class="tag theme" data-tag="politique">Politique</button>
-            <button type="button" class="tag theme" data-tag="economie">Économie</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-07-29">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-07-29" data-fragment="archives/fragments/2026-07-29.html">
-          <div class="entry-scenarios-inner">
-            
-          </div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-07-28.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">28.07.2026</span>
-          <a class="entry-title" href="archives/2026-07-28.html">Milliardaires : la richesse du monde peut-elle encore se partager ?</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="carte-blanche">Carte blanche</button>
-            <button type="button" class="tag theme" data-tag="economie">Économie</button>
-            <button type="button" class="tag theme" data-tag="societe">Société</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-07-28">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-07-28" data-fragment="archives/fragments/2026-07-28.html">
-          <div class="entry-scenarios-inner">
-            
-          </div>
-        </div>
-        </div>
-      </li>
-      <li class="entry" data-last-update="2026-08-28" data-pub-date="2026-07-27">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-07-27.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">28.08.2026</span>
-          <a class="entry-title" href="archives/2026-07-27.html">Iran–États-Unis : les armes se taisent, l'accord reste à trouver</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="geopolitique">Géopolitique</button>
-            <button type="button" class="tag theme" data-tag="diplomatie">Diplomatie</button>
-            <button type="button" class="tag theme" data-tag="energie">Énergie</button>
-            <button type="button" class="tag" data-tag="revise">Sujet révisé</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-07-27">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <a class="suivi-badge" href="suivi/iran-usa.html">🔄 Suivi mis à jour le 28.08.2026 →</a>
-        <div class="entry-scenarios" id="scenarios-2026-07-27" data-fragment="archives/fragments/2026-07-27.html">
-          <div class="entry-scenarios-inner">
-
-          </div>
-        </div>
-        </div>
-      </li>
-      <li class="entry" data-last-update="2026-08-14">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-07-26.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">26.07.2026</span>
-          <a class="entry-title" href="archives/2026-07-26.html">HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ?</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="culture-internationale">Culture internationale</button>
-            <button type="button" class="tag theme" data-tag="medias">Médias</button>
-            <button type="button" class="tag theme" data-tag="economie">Économie</button>
-            <button type="button" class="tag" data-tag="revise">Sujet révisé</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-07-26">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <a class="suivi-badge" href="suivi/warner-paramount.html">🔄 Suivi mis à jour le 14.08.2026 →</a>
-        <div class="entry-scenarios" id="scenarios-2026-07-26" data-fragment="archives/fragments/2026-07-26.html">
-          <div class="entry-scenarios-inner">
-
-          </div>
-        </div>
-        </div>
-      </li>
-      <li class="entry">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-07-25.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">25.07.2026</span>
-          <a class="entry-title" href="archives/2026-07-25.html">Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ?</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="culture-francaise">Culture française</button>
-            <button type="button" class="tag theme" data-tag="jeux-video">Jeux vidéo</button>
-            <button type="button" class="tag theme" data-tag="economie">Économie</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-07-25">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <div class="entry-scenarios" id="scenarios-2026-07-25" data-fragment="archives/fragments/2026-07-25.html">
-          <div class="entry-scenarios-inner">
-            
-          </div>
-        </div>
-        </div>
-      </li>
-      <li class="entry" data-last-update="2026-08-21" data-pub-date="2026-07-18">
-        <img class="entry-thumb" src="assets/social/archive-thumbs/2026-07-18.jpg" alt="" loading="lazy" width="64" height="64">
-        <div class="entry-body">
-        <div class="entry-main">
-          <span class="entry-date">21.08.2026</span>
-          <a class="entry-title" href="archives/2026-07-18.html">Spider-Man contre Avengers : qui va sauver le box-office Marvel ?</a>
-          <div class="entry-tags">
-            <button type="button" class="tag" data-tag="culture-internationale">Culture internationale</button>
-            <button type="button" class="tag theme" data-tag="cinema">Cinéma</button>
-            <button type="button" class="tag" data-tag="revise">Sujet révisé</button>
-          </div>
-          <button type="button" class="entry-toggle" aria-expanded="false" aria-controls="scenarios-2026-07-18">Scénarios <span class="entry-toggle-icon" aria-hidden="true">▾</span></button>
-        </div>
-        <a class="suivi-badge" href="suivi/spiderman-marvel.html">🔄 Suivi mis à jour le 21.08.2026 →</a>
-        <div class="entry-scenarios" id="scenarios-2026-07-18" data-fragment="archives/fragments/2026-07-18.html">
-          <div class="entry-scenarios-inner">
-            
-          </div>
-        </div>
-        </div>
-      </li>
-    </ul>
-    <p class="no-result" id="no-result">Aucune édition ne correspond à ta recherche.</p>
+  <table class="archives-table">
+    <thead>
+      <tr>
+        <th style="width: 80px;">Date</th>
+        <th style="width: 250px;">Titre</th>
+        <th style="width: 300px;">Problématique</th>
+        <th style="width: 120px;">Évaluation</th>
+        <th style="width: 250px;">France Impact</th>
+        <th style="width: 150px;">Domaine</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td class="col-date">31.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-31.html">Islande : après le non à l&#x27;UE, qui va la protéger ?</a></td>
+      <td class="col-question">Le 29 août, 52,8 % des Islandais ont rejeté la réouverture des négociations d&#x27;adhésion à l&#x27;Union eur…</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Le statu quo laisse la sécurité de l&#x27;Arctique nord reposer sur un accord bilatéral vieux de 75 ans, …</td>
+      <td class="col-domain">International</td>
+    </tr>
+    <tr>
+      <td class="col-date">30.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-30.html">Ligue 1 : le foot français peut-il survivre à l&#x27;effondrement de ses droits TV ?</a></td>
+      <td class="col-question">Après l&#x27;effondrement des droits TV et la chute continue des ressources des clubs, la Ligue 1 va-t-el…</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Le championnat reste installé nettement sous ses standards d&#x27;avant-crise, avec moins de moyens pour …</td>
+      <td class="col-domain">Économie & entreprises</td>
+    </tr>
+    <tr>
+      <td class="col-date">29.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-29.html">Cinéma mondial : peut-il survivre au streaming ?</a></td>
+      <td class="col-question">Les studios ont fixé une nouvelle règle commune : 45 jours d&#x27;exclusivité en salle avant le streaming…</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Le rythme actuel — déjà la meilleure année en salle en France depuis 2019 — se prolonge sans rupture…</td>
+      <td class="col-domain">Culture & divertissement</td>
+    </tr>
+    <tr>
+      <td class="col-date">28.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-28.html">Climat 2030 : la France peut-elle encore tenir parole ?</a></td>
+      <td class="col-question">Avec un rythme de réduction des émissions trois fois trop lent et un Fonds vert divisé par trois en …</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Le rythme de rénovation reste trop lent pour faire vraiment baisser les factures de chauffage des mé…</td>
+      <td class="col-domain">Sciences & environnement</td>
+    </tr>
+    <tr>
+      <td class="col-date">27.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-27.html">Dette américaine : le mur des 40 000 milliards</a></td>
+      <td class="col-question">Alors que le taux des emprunts d&#x27;État américains à 30 ans a grimpé à son plus haut niveau depuis 200…</td>
+      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
+      <td class="col-france">Des taux américains élevés continuent de tirer vers le haut les taux mondiaux, France comprise : l&#x27;O…</td>
+      <td class="col-domain">Économie & entreprises</td>
+    </tr>
+    <tr>
+      <td class="col-date">26.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-26.html">Retraites : la patate chaude de 2027</a></td>
+      <td class="col-question">Le dossier des retraites, suspendu par la loi jusqu&#x27;en janvier 2028, va-t-il rester gelé jusqu&#x27;à la …</td>
+      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
+      <td class="col-france">Rien n&#x27;est réglé avant l&#x27;élection : les Français qui approchent de la retraite restent dans l&#x27;incert…</td>
+      <td class="col-domain">Politique & institutions</td>
+    </tr>
+    <tr>
+      <td class="col-date">25.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-25.html">IA chinoise : cadeau ou piège ?</a></td>
+      <td class="col-question">La Chine offre-t-elle vraiment ses modèles d&#x27;intelligence artificielle en libre accès sans arrière-p…</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Le statu quo profite à court terme au portefeuille des entreprises françaises, qui accèdent à des mo…</td>
+      <td class="col-domain">Tech & numérique</td>
+    </tr>
+    <tr>
+      <td class="col-date">24.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-24.html">Ukraine : ni paix ni victoire</a></td>
+      <td class="col-question">Après plus de quatre ans et demi de guerre et des pourparlers dans l&#x27;impasse sur le Donbas, les comb…</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Le statu quo se prolonge : la France continue de financer son soutien militaire à l&#x27;Ukraine et de co…</td>
+      <td class="col-domain">International</td>
+    </tr>
+    <tr>
+      <td class="col-date">23.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-23.html">Le pari XXL du Mondial 2030</a></td>
+      <td class="col-question">(question non trouvée)…</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Rien ne change pour la France : la Fédération française de football garde le calendrier déjà prévu, …</td>
+      <td class="col-domain">Politique & institutions</td>
+    </tr>
+    <tr>
+      <td class="col-date">22.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-22.html">Hollywood décroche en Chine</a></td>
+      <td class="col-question">La Chine est devenue le premier marché mondial du cinéma, mais les studios américains n&#x27;y ont jamais…</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Rien ne change concrètement pour les Français : l&#x27;accord de coproduction franco-chinois de 2010 cont…</td>
+      <td class="col-domain">Culture & divertissement</td>
+    </tr>
+    <tr>
+      <td class="col-date">21.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-21.html">Le Grand Filtre</a></td>
+      <td class="col-question">Le silence radio de l&#x27;univers veut-il dire que l&#x27;humanité a déjà passé son obstacle le plus dangereu…</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Rien ne bouge concrètement pour les Français : la France continue de financer à la fois la recherche…</td>
+      <td class="col-domain">Sciences & environnement</td>
+    </tr>
+    <tr>
+      <td class="col-date">20.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-20.html">Taux : marche arrière</a></td>
+      <td class="col-question">Après huit mois d&#x27;immobilisme à la Fed et une première hausse de la BCE en trois ans, les banques ce…</td>
+      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
+      <td class="col-france">Le crédit immobilier et les emprunts de l&#x27;État français restent chers, sans aggravation supplémentai…</td>
+      <td class="col-domain">Économie & entreprises</td>
+    </tr>
+    <tr>
+      <td class="col-date">19.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-19.html">2027 sous influence</a></td>
+      <td class="col-question">À huit mois du premier tour, entre piratages attribués à la Russie et soupçons sur l&#x27;algorithme de X…</td>
+      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
+      <td class="col-france">Le doute s&#x27;installe sans jamais se dissiper : électeurs et candidats vivent la campagne sous suspici…</td>
+      <td class="col-domain">Politique & institutions</td>
+    </tr>
+    <tr>
+      <td class="col-date">18.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-18.html">IA : la cage a craqué</a></td>
+      <td class="col-question">Cet été, des agents IA d&#x27;OpenAI, Anthropic, Meta et du chinois Moonshot AI ont chacun franchi les li…</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Le vide identifié dans les lignes directrices européennes sur les incidents multi-agents reste entie…</td>
+      <td class="col-domain">Tech & numérique</td>
+    </tr>
+    <tr>
+      <td class="col-date">17.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-17.html">Ormuz : la trêve a expiré</a></td>
+      <td class="col-question">Le mémorandum de 60 jours signé à Islamabad le 17 juin pour desserrer la crise Iran–États-Unis est a…</td>
+      <td class="col-eval"><span class="eval-pct">55%</span> Degrade</td>
+      <td class="col-france">Un baril au-delà de 100 dollars renchérirait directement l&#x27;essence et le chauffage en France, à l&#x27;ap…</td>
+      <td class="col-domain">International</td>
+    </tr>
+    <tr>
+      <td class="col-date">16.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-16.html">Rugby : le choc de trop ?</a></td>
+      <td class="col-question">Le rugby affronte deux dossiers séparés sur la sécurité de ses joueurs. D&#x27;un côté, le plus grand pro…</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Le quotidien du rugby amateur français ne change pas : la règle du sternum reste en place, sans nouv…</td>
+      <td class="col-domain">Politique & institutions</td>
+    </tr>
+    <tr>
+      <td class="col-date">15.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-15.html">Traduction littéraire : le métier en sursis ?</a></td>
+      <td class="col-question">Depuis que Harlequin a basculé sa collection de romans à l&#x27;eau de rose vers la traduction automatiqu…</td>
+      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
+      <td class="col-france">Le quotidien des traducteurs ne change pas vraiment : toujours une poignée de contrats perdus, un re…</td>
+      <td class="col-domain">Culture & divertissement</td>
+    </tr>
+    <tr>
+      <td class="col-date">14.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-14.html">Canicules à répétition : qui paie l&#x27;addition ?</a></td>
+      <td class="col-question">❓ Après un été qui a déjà coûté entre 10 et 15 milliards d&#x27;euros et fait au moins 5 764 morts en exc…</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Le quotidien ne change pas vraiment : toujours des pics de chaleur mal anticipés, des travaux annonc…</td>
+      <td class="col-domain">Sciences & environnement</td>
+    </tr>
+    <tr>
+      <td class="col-date">13.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-13.html">Inflation : le pétrole rebat les cartes</a></td>
+      <td class="col-question">❓ Alors que la Fed se prépare à baisser ses taux en septembre et que la BCE, elle, vient de relever …</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Le statu quo se prolonge : l&#x27;inflation française autour de 2 % reste supportable, mais l&#x27;énergie con…</td>
+      <td class="col-domain">Économie & entreprises</td>
+    </tr>
+    <tr>
+      <td class="col-date">12.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-12.html">2027 : un favori, une opposition éclatée</a></td>
+      <td class="col-question">❓ Alors que Marine Le Pen vient d&#x27;être reconnue éligible en appel et que le Rassemblement national c…</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">La donne actuelle — Assemblée sans majorité, gouvernements négociés texte par texte — se prolonge ju…</td>
+      <td class="col-domain">Politique & institutions</td>
+    </tr>
+    <tr>
+      <td class="col-date">11.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-11.html">L&#x27;Éthiopie veut sa mer, au risque de la guerre</a></td>
+      <td class="col-question">❓ Après l&#x27;irruption filmée de soldats érythréens, drapeau déployé, dans la ville éthiopienne de Zala…</td>
+      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
+      <td class="col-france">Rien ne change vraiment : la France, qui maintient à Djibouti sa plus importante base militaire perm…</td>
+      <td class="col-domain">International</td>
+    </tr>
+    <tr>
+      <td class="col-date">10.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-10.html">La croissance mondiale ne tient qu&#x27;à un fil</a></td>
+      <td class="col-question">❓ Alors que la guerre en Iran a fait grimper le baril à plus de 100 dollars cet été et laisse le dét…</td>
+      <td class="col-eval"><span class="eval-pct">55%</span> Stable</td>
+      <td class="col-france">Rien ne change vraiment pour les ménages français : la Banque de France (0,5 % de croissance prévue)…</td>
+      <td class="col-domain">Économie & entreprises</td>
+    </tr>
+    <tr>
+      <td class="col-date">09.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-09.html">Musique IA : la note grimpe à 9 milliards</a></td>
+      <td class="col-question">❓ Alors que Sony réclame jusqu&#x27;à 9 milliards de dollars à Suno devant la justice américaine pendant …</td>
+      <td class="col-eval"><span class="eval-pct">55%</span> Stable</td>
+      <td class="col-france">Aucun grand changement pour les artistes et labels français dans l&#x27;immédiat : ni les nouveaux revenu…</td>
+      <td class="col-domain">Culture & divertissement</td>
+    </tr>
+    <tr>
+      <td class="col-date">08.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-08.html">Le cinéma reprend des couleurs</a></td>
+      <td class="col-question">❓ Après une chute historique de la fréquentation en 2025 (-13,6 %, plus bas niveau depuis 1997 hors …</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Ni vraie amélioration ni nouvelle crise pour les salles et les professionnels du secteur, qui resten…</td>
+      <td class="col-domain">Culture & divertissement</td>
+    </tr>
+    <tr>
+      <td class="col-date">07.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-07.html">Big Tech face à la justice</a></td>
+      <td class="col-question">❓ Après avoir perdu deux procès antitrust d&#x27;affilée sur son moteur de recherche et sa régie publicit…</td>
+      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
+      <td class="col-france">Rien ne change concrètement à court terme pour les entreprises françaises qui dépendent de la public…</td>
+      <td class="col-domain">Tech & numérique</td>
+    </tr>
+    <tr>
+      <td class="col-date">06.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-06.html">FIFA : la présidence d&#x27;Infantino vacille</a></td>
+      <td class="col-question">❓ Après avoir dû abandonner en catastrophe son projet de vendre un bout de la Coupe du monde à des i…</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Rien ne change dans l&#x27;immédiat pour les compétitions déjà prévues, mais la FFF — qui dit avoir décou…</td>
+      <td class="col-domain">Politique & institutions</td>
+    </tr>
+    <tr>
+      <td class="col-date">05.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-05.html">EPR2 : le nucléaire français à l&#x27;heure de vérité</a></td>
+      <td class="col-question">❓ Six nouveaux réacteurs nucléaires à 83 milliards d&#x27;euros, une enquête de Bruxelles sur les aides v…</td>
+      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
+      <td class="col-france">Le flou financier se prolonge mais sans choc immédiat sur les factures : la trajectoire du VNU reste…</td>
+      <td class="col-domain">Sciences & environnement</td>
+    </tr>
+    <tr>
+      <td class="col-date">04.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-04.html">Gaza : la paix qui reste sur le papier</a></td>
+      <td class="col-question">❓ Après près de deux ans de guerre et au moins 73 350 morts, le Hamas a accepté le 31 juillet de ren…</td>
+      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
+      <td class="col-france">Le statu quo prolonge les tensions politiques et les manifestations liées au conflit, sans impact di…</td>
+      <td class="col-domain">International</td>
+    </tr>
+    <tr>
+      <td class="col-date">03.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-03.html">Ceuta : la frontière qui a craqué</a></td>
+      <td class="col-question">❓ Depuis jeudi, 60 000 personnes ont franchi la frontière entre le Maroc et l&#x27;enclave espagnole de C…</td>
+      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
+      <td class="col-france">Les contrôles renforcés à la frontière espagnole restent en place, avec un peu plus d&#x27;attente aux po…</td>
+      <td class="col-domain">International</td>
+    </tr>
+    <tr>
+      <td class="col-date">02.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-02.html">Streaming : payer plus, avoir moins ?</a></td>
+      <td class="col-question">❓ Netflix a augmenté son abonnement standard de 2 dollars en mars, Disney+ jusqu&#x27;à 3 dollars, et il …</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Rien ne change vraiment pour les abonnés français : les prix des grandes plateformes continuent d&#x27;au…</td>
+      <td class="col-domain">Culture & divertissement</td>
+    </tr>
+    <tr>
+      <td class="col-date">01.08.2026</td>
+      <td class="col-title"><a href="archives/2026-08-01.html">Musique : l&#x27;IA a-t-elle déjà gagné ?</a></td>
+      <td class="col-question">❓ Alors que plus de la moitié des nouveaux titres envoyés chaque jour à Deezer sont désormais entièr…</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Aucun grand changement dans l&#x27;immédiat pour les artistes français : ni protection nouvelle, ni effon…</td>
+      <td class="col-domain">Culture & divertissement</td>
+    </tr>
+    <tr>
+      <td class="col-date">31.07.2026</td>
+      <td class="col-title"><a href="archives/2026-07-31.html">Méga-feux : la France est-elle prête pour la suite ?</a></td>
+      <td class="col-question">❓ Après l&#x27;été le plus dévastateur en vingt ans, la France va-t-elle enfin construire un vrai plan co…</td>
+      <td class="col-eval"><span class="eval-pct">47%</span> Stable</td>
+      <td class="col-france">Ni vraie amélioration ni aggravation nette : les étés à risque continuent d&#x27;obliger le Sud-Ouest à é…</td>
+      <td class="col-domain">Sciences & environnement</td>
+    </tr>
+    <tr>
+      <td class="col-date">30.07.2026</td>
+      <td class="col-title"><a href="archives/2026-07-30.html">Golf, foot, boxe : l&#x27;Arabie saoudite se retire-t-elle du sport ?</a></td>
+      <td class="col-question">❓ Après avoir dépensé des dizaines de milliards dans le sport mondial, l&#x27;Arabie saoudite est-elle en…</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Ni afflux ni fuite massive de capitaux saoudiens à court terme, mais une incertitude qui complique l…</td>
+      <td class="col-domain">Économie & entreprises</td>
+    </tr>
+    <tr>
+      <td class="col-date">29.07.2026</td>
+      <td class="col-title"><a href="archives/2026-07-29.html">Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?</a></td>
+      <td class="col-question">❓ Cet automne, le gouvernement de Sébastien Lecornu réussira-t-il à faire adopter un budget 2027, su…</td>
+      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
+      <td class="col-france">Pas de choc brutal, mais pas de soulagement : la charge de la dette — ce que l&#x27;État paie rien qu&#x27;en …</td>
+      <td class="col-domain">Politique & institutions</td>
+    </tr>
+    <tr>
+      <td class="col-date">28.07.2026</td>
+      <td class="col-title"><a href="archives/2026-07-28.html">Milliardaires : la richesse du monde peut-elle encore se partager ?</a></td>
+      <td class="col-question">❓ Alors que la fortune des milliardaires bat record sur record — plus de 20 000 milliards de dollars…</td>
+      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
+      <td class="col-france">Pas de choc, mais pas de détente non plus : les inégalités de patrimoine continuent de se creuser le…</td>
+      <td class="col-domain">Économie & entreprises</td>
+    </tr>
+    <tr>
+      <td class="col-date">27.07.2026</td>
+      <td class="col-title"><a href="archives/2026-07-27.html">Iran–États-Unis : les armes se taisent, l&#x27;accord reste à trouver</a></td>
+      <td class="col-question">❓ Après cinq mois de guerre et plusieurs cessez-le-feu rompus, les négociations en cours déboucheron…</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Pas de nouvelle hausse brutale, mais pas de détente non plus : les prix à la pompe restent installés…</td>
+      <td class="col-domain">International</td>
+    </tr>
+    <tr>
+      <td class="col-date">26.07.2026</td>
+      <td class="col-title"><a href="archives/2026-07-26.html">HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ?</a></td>
+      <td class="col-question">(question non trouvée)…</td>
+      <td class="col-eval"><span class="eval-pct">40%</span> Favorable</td>
+      <td class="col-france">HBO Max et Paramount+ pourraient à terme fusionner leurs catalogues en France, avec plus de contenu …</td>
+      <td class="col-domain">Culture & divertissement</td>
+    </tr>
+    <tr>
+      <td class="col-date">25.07.2026</td>
+      <td class="col-title"><a href="archives/2026-07-25.html">Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ?</a></td>
+      <td class="col-question">(question non trouvée)…</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Les studios français continuent de fonctionner mais sous tension permanente, avec le risque de nouve…</td>
+      <td class="col-domain">Culture & divertissement</td>
+    </tr>
+    <tr>
+      <td class="col-date">18.07.2026</td>
+      <td class="col-title"><a href="archives/2026-07-18.html">Spider-Man contre Avengers : qui va sauver le box-office Marvel ?</a></td>
+      <td class="col-question">(question non trouvée)…</td>
+      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
+      <td class="col-france">Une fin d&#x27;année dans la moyenne pour les salles françaises, ni franc succès ni déception, sans effet…</td>
+      <td class="col-domain">Culture & divertissement</td>
+    </tr>
+    </tbody>
+  </table>
+    <p style="margin-top:28px"><a href="index.html" style="color:var(--gold);text-decoration:none">← Retour à l'accueil</a></p>
   </div>
 </section>
 
@@ -1866,294 +877,13 @@
 
 <footer>
   <div class="wrap">
-    <p class="caveat">Chaque édition reste figée à sa date de publication : les indicateurs et probabilités qui y figurent ne sont pas mis à jour rétroactivement.</p>
+    <p class="caveat">Ce glossaire est alimenté au fil des éditions : un terme n'y apparaît que le jour où il a servi à expliquer une actualité.</p>
     <div class="legal-links">
       <a href="mentions-legales.html">Mentions légales</a>
       <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
     </div>
   </div>
 </footer>
-
-<script>
-  (function(){
-    var entries = Array.prototype.slice.call(document.querySelectorAll('#entries .entry'));
-    var searchInput = document.getElementById('archive-search');
-    var themeFiltersWrap = document.getElementById('theme-filters');
-    var topRow = document.getElementById('tag-filters');
-    var domainsBox = document.getElementById('tag-domains');
-    var yearFiltersBox = document.getElementById('year-filters');
-    var noResult = document.getElementById('no-result');
-    // Filtre thème multi-sélection : ensemble de tags actifs, vide = "Tout".
-    // Une édition passe le filtre si elle porte au moins un des tags cochés (OR).
-    var activeTagFilters = new Set();
-    var activeYearFilter = 'all';
-
-    function deburr(s){ return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); }
-
-    // Index chaque entrée (tags + année + texte recherchable), tags insensibles aux accents
-    var seenTags = {}, tagOrder = [];
-    var seenYears = {}, yearOrder = [];
-    entries.forEach(function(entry){
-      var tags = [], labels = [];
-      entry.querySelectorAll('.tag').forEach(function(b){
-        var t = b.dataset.tag;
-        tags.push(t);
-        labels.push(b.textContent);
-        if(!seenTags[t]){ seenTags[t] = b.textContent; tagOrder.push(t); }
-        b.addEventListener('click', function(){ toggleTagFilter(t); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-      });
-      entry._tags = tags;
-      var title = entry.querySelector('.entry-title').textContent;
-      // .entry-date affiche la date de mise à jour (pas la publication) pour un
-      // sujet révisé : dans ce cas la vraie date de publication vit à part dans
-      // data-pub-date (AAAA-MM-JJ), pour que tri "Date de publication" et filtre
-      // année restent corrects même si la puce visible montre une autre date.
-      var date = entry.querySelector('.entry-date').textContent;
-      var parts = date.split('.');
-      var displayedIso = parts[2] + '-' + parts[1] + '-' + parts[0];
-      var pubIso = entry.dataset.pubDate || displayedIso;
-      var year = pubIso.split('-')[0];
-      entry._year = year;
-      if(!seenYears[year]){ seenYears[year] = year; yearOrder.push(year); }
-      var pubDateFr = entry.dataset.pubDate ? pubIso.split('-').reverse().join('.') : date;
-      entry._text = deburr(title + ' ' + labels.join(' ') + ' ' + date + ' ' + pubDateFr);
-      // Dates triables : publication (toujours la vraie date d'édition, jamais
-      // celle affichée si le sujet a été révisé) et dernière mise à jour (un
-      // suivi existe via data-last-update, sinon la publication sert aussi de
-      // référence).
-      entry._pubSortable = pubIso;
-      entry._updateSortable = entry.dataset.lastUpdate || displayedIso;
-    });
-    yearOrder.sort().reverse(); // plus récente en premier
-
-    // Construit les puces de filtre automatiquement depuis les tags/années présents
-    function makeChip(container, val, label, onClick){
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'filter-chip';
-      b.dataset.filter = val;
-      b.textContent = label;
-      b.addEventListener('click', onClick);
-      container.appendChild(b);
-      return b;
-    }
-
-    var allTagChip = makeChip(topRow, 'all', 'Tout', function(){ toggleTagFilter('all'); });
-    allTagChip.classList.add('is-active');
-    // Le récap hebdo et "Sujet révisé" sont des types d'entrée à part (pas
-    // des domaines comme les autres) : on les épingle juste après "Tout",
-    // avec un style distinct, plutôt que de les laisser se fondre au hasard
-    // dans l'ordre d'apparition des thèmes.
-    if(seenTags['hebdo']){
-      var weeklyChip = makeChip(topRow, 'hebdo', seenTags['hebdo'], function(){ toggleTagFilter('hebdo'); });
-      weeklyChip.classList.add('filter-chip-weekly');
-    }
-    if(seenTags['revise']){
-      var reviseChip = makeChip(topRow, 'revise', seenTags['revise'], function(){ toggleTagFilter('revise'); });
-      reviseChip.classList.add('filter-chip-revise');
-    }
-
-    // Tags de registre (docs/tags.md §1, ordre canonique) : un seul par
-    // entrée, affiché directement dans la ligne du haut à côté de "Tout",
-    // en doré comme sur les entrées. `culture-francaise`/`culture-internationale`
-    // sont des tags historiques (avant la fusion du 12 août 2026) : gardés en
-    // fin de liste pour que les vieilles éditions restent filtrables, jamais
-    // utilisés sur une nouvelle édition (voir docs/tags.md).
-    var registreCanonicalOrder = ['geopolitique', 'carte-blanche', 'actualite-francaise', 'sport', 'sciences', 'culture', 'economie-mondiale', 'culture-francaise', 'culture-internationale'];
-    registreCanonicalOrder.forEach(function(t){
-      if(!seenTags[t]){ return; }
-      makeChip(topRow, t, seenTags[t], function(){ toggleTagFilter(t); }).classList.add('filter-chip-registre');
-    });
-
-    // Domaines des tags thématiques (docs/tags.md §2) : table figée, à tenir
-    // à jour en même temps que ce fichier — chaque tag n'y apparaît qu'une
-    // fois, donc pas de doublon possible dans le panneau ci-dessous, à
-    // l'inverse d'un regroupement déduit des associations par entrée (un même
-    // sous-thème peut avoir été utilisé sous plusieurs registres différents).
-    var themeDomains = [
-      { label: 'Économie & entreprises', tags: ['economie', 'entreprises', 'emploi'] },
-      { label: 'Politique & institutions', tags: ['politique', 'justice'] },
-      { label: 'International', tags: ['diplomatie', 'defense', 'immigration'] },
-      { label: 'Sciences & environnement', tags: ['energie', 'climat', 'sante', 'espace'] },
-      { label: 'Tech & numérique', tags: ['intelligence-artificielle', 'numerique'] },
-      { label: 'Culture & divertissement', tags: ['cinema', 'musique', 'jeux-video', 'litterature', 'medias'] },
-      { label: 'Sport & argent', tags: ['sport-economie'] },
-      { label: 'Société', tags: ['societe'] }
-    ];
-    var mappedThemeTags = {};
-    themeDomains.forEach(function(d){ d.tags.forEach(function(t){ mappedThemeTags[t] = true; }); });
-    // Filet de sécurité : un tag thématique utilisé sur une entrée mais oublié
-    // dans la table ci-dessus (désynchro avec tags.md) atterrit ici plutôt que
-    // de disparaître silencieusement du panneau.
-    var strayTags = tagOrder.filter(function(t){
-      return t !== 'hebdo' && t !== 'revise' && registreCanonicalOrder.indexOf(t) === -1 && !mappedThemeTags[t];
-    });
-    if(strayTags.length){ themeDomains.push({ label: 'Autres', tags: strayTags }); }
-
-    themeDomains.forEach(function(d){
-      var present = d.tags.filter(function(t){ return seenTags[t]; });
-      if(!present.length){ return; }
-      var row = document.createElement('div');
-      row.className = 'tag-domain-row';
-      var label = document.createElement('span');
-      label.className = 'tag-domain-label';
-      label.textContent = d.label;
-      row.appendChild(label);
-      var subBox = document.createElement('div');
-      subBox.className = 'tag-filters';
-      present.forEach(function(t){ makeChip(subBox, t, seenTags[t], function(){ toggleTagFilter(t); }); });
-      row.appendChild(subBox);
-      domainsBox.appendChild(row);
-    });
-
-    // Bouton "Détail par domaine" ajouté à la fin de #tag-filters pour
-    // rester sur la même ligne que les puces de registre (juste après la
-    // dernière puce affichée), plutôt que sur une ligne à part. Le
-    // panneau qu'il ouvre reste replié par défaut (une vingtaine de tags
-    // d'un coup, ça alourdit trop la page si c'est ouvert d'office) — même
-    // logique que l'accordéon "Scénarios" de chaque entrée.
-    if(domainsBox.children.length){
-      var domainsToggle = document.createElement('button');
-      domainsToggle.type = 'button';
-      domainsToggle.className = 'theme-domains-toggle';
-      domainsToggle.setAttribute('aria-expanded', 'false');
-      domainsToggle.setAttribute('aria-controls', 'tag-domains');
-      domainsToggle.innerHTML = 'Détail par domaine <span class="theme-domains-toggle-icon" aria-hidden="true">▾</span>';
-      domainsToggle.addEventListener('click', function(){
-        var open = domainsBox.classList.toggle('is-open');
-        domainsToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-      topRow.appendChild(domainsToggle);
-    }
-
-    var allYearChip = makeChip(yearFiltersBox, 'all', 'Toutes', function(){ setYearFilter('all'); });
-    allYearChip.classList.add('is-active');
-    yearOrder.forEach(function(y){ makeChip(yearFiltersBox, y, y, function(){ setYearFilter(y); }); });
-
-    // Un clic sur "Tout" réinitialise la sélection ; un clic sur une puce
-    // thème l'ajoute/l'enlève de la sélection sans toucher aux autres, ce
-    // qui permet de cocher plusieurs thèmes à la fois (ex. "Économie" +
-    // "Diplomatie").
-    function toggleTagFilter(val){
-      if(val === 'all'){
-        activeTagFilters.clear();
-      } else if(activeTagFilters.has(val)){
-        activeTagFilters.delete(val);
-      } else {
-        activeTagFilters.add(val);
-      }
-      themeFiltersWrap.querySelectorAll('.filter-chip').forEach(function(c){
-        var f = c.dataset.filter;
-        var active = (f === 'all') ? (activeTagFilters.size === 0) : activeTagFilters.has(f);
-        c.classList.toggle('is-active', active);
-      });
-      apply();
-    }
-
-    function setYearFilter(val){
-      activeYearFilter = val;
-      yearFiltersBox.querySelectorAll('.filter-chip').forEach(function(c){
-        c.classList.toggle('is-active', c.dataset.filter === val);
-      });
-      apply();
-    }
-
-    function apply(){
-      var q = deburr(searchInput.value.trim());
-      var visible = 0;
-      entries.forEach(function(entry){
-        var okTag = (activeTagFilters.size === 0) || entry._tags.some(function(t){ return activeTagFilters.has(t); });
-        var okYear = (activeYearFilter === 'all') || entry._year === activeYearFilter;
-        var okSearch = !q || entry._text.indexOf(q) !== -1;
-        var show = okTag && okYear && okSearch;
-        entry.classList.toggle('is-hidden', !show);
-        if(show){ visible++; }
-      });
-      noResult.classList.toggle('is-shown', visible === 0);
-    }
-
-    searchInput.addEventListener('input', apply);
-
-    // Tri : date de publication (défaut, ordre du HTML) ou dernière mise à jour
-    // (un sujet ancien mais suivi récemment remonte en haut, mêlé aux éditions du jour).
-    var entriesList = document.getElementById('entries');
-    var sortToggle = document.getElementById('sort-toggle');
-    var activeSort = 'pub';
-
-    function applySort(){
-      var sorted = entries.slice().sort(function(a, b){
-        var ka = activeSort === 'update' ? a._updateSortable : a._pubSortable;
-        var kb = activeSort === 'update' ? b._updateSortable : b._pubSortable;
-        if(ka === kb){ return 0; }
-        return ka > kb ? -1 : 1; // plus récent en premier
-      });
-      sorted.forEach(function(entry){ entriesList.appendChild(entry); });
-    }
-
-    sortToggle.querySelectorAll('.filter-chip').forEach(function(chip){
-      chip.addEventListener('click', function(){
-        activeSort = chip.dataset.sort;
-        sortToggle.querySelectorAll('.filter-chip').forEach(function(c){
-          c.classList.toggle('is-active', c === chip);
-        });
-        applySort();
-      });
-    });
-
-    // Lien direct depuis index.html (bande "Sujet révisé") vers un filtre déjà
-    // appliqué au chargement, ex. archives.html?tag=revise — pointe toujours
-    // vers le dernier sujet révisé sans avoir à maintenir un lien statique vers
-    // une page suivi précise à chaque nouvelle version (ajouté le 9 août).
-    var urlTag = new URLSearchParams(location.search).get('tag');
-    if (urlTag && seenTags[urlTag]) {
-      toggleTagFilter(urlTag);
-      if (urlTag === 'revise') {
-        var updateChip = sortToggle.querySelector('[data-sort="update"]');
-        if (updateChip) { updateChip.click(); }
-      }
-    }
-
-    // Accordéon imbriqué "Voir le détail" à l'intérieur du fragment récap
-    // hebdo (chargé dynamiquement ci-dessous) : délégation sur document
-    // puisque les boutons .day-card-toggle n'existent pas encore au moment
-    // où ce script s'exécute (voir docs/ARCHITECTURE.md).
-    document.addEventListener('click', function(e){
-      var btn = e.target.closest('.day-card-toggle');
-      if (!btn) return;
-      var expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-      var detail = document.getElementById(btn.getAttribute('aria-controls'));
-      if (detail) detail.classList.toggle('is-open', !expanded);
-    });
-
-    document.querySelectorAll('.entry-toggle').forEach(function(btn){
-      btn.addEventListener('click', function(){
-        var entry = btn.closest('.entry');
-        var expanded = entry.classList.toggle('is-expanded');
-        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-
-        // Contenu des 3 scénarios chargé à la demande (fragment séparé),
-        // pas embarqué dans archives.html : évite que le fichier grossisse
-        // indéfiniment au fil des éditions (voir docs/BACKLOG.md).
-        var scenariosBox = entry.querySelector('.entry-scenarios');
-        var inner = scenariosBox.querySelector('.entry-scenarios-inner');
-        var fragmentUrl = scenariosBox.dataset.fragment;
-        if (expanded && fragmentUrl && !scenariosBox.dataset.loaded) {
-          inner.innerHTML = '<p class="fragment-loading">Chargement…</p>';
-          fetch(fragmentUrl).then(function(res){
-            if (!res.ok) { throw new Error('HTTP ' + res.status); }
-            return res.text();
-          }).then(function(html){
-            inner.innerHTML = html;
-            scenariosBox.dataset.loaded = 'true';
-          }).catch(function(){
-            inner.innerHTML = '<p class="fragment-loading">Impossible de charger les scénarios, réessaie plus tard.</p>';
-          });
-        }
-      });
-    });
-  })();
-</script>
 
 <script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
@@ -2168,34 +898,5 @@
     });
   });
 </script>
-<script>
-  // Bandeau d'accueil premier passage, ajouté le 28 août. Rendu masqué
-  // (attribut hidden) côté HTML pour ne jamais clignoter chez les
-  // lecteurs qui reviennent — dévoilé ici seulement si la clé n'existe
-  // pas encore dans localStorage. Marqué comme vu dès l'affichage (pas
-  // besoin d'attendre la fermeture) : un lecteur qui scrolle direct vers
-  // l'article ne doit pas le revoir à sa prochaine visite.
-  (function(){
-    var KEY = "scenario_intro_seen";
-    var banner = document.getElementById("intro-banner");
-    if (!banner) return;
-    try {
-      if (!localStorage.getItem(KEY)) {
-        banner.hidden = false;
-        localStorage.setItem(KEY, "1");
-      }
-    } catch (e) {
-      // localStorage indisponible (navigation privée stricte, etc.) :
-      // le bandeau reste masqué par défaut, pas d'erreur visible.
-    }
-    var closeBtn = document.getElementById("intro-banner-close");
-    if (closeBtn) {
-      closeBtn.addEventListener("click", function(){
-        banner.hidden = true;
-      });
-    }
-  })();
-</script>
 </body>
 </html>
-
