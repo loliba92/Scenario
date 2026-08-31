@@ -587,6 +587,12 @@ Simple journal, pas une évaluation — ne rien écrire de plus. Ne jamais touch
     - `{h1 du jour}` = le même texte que `headline` dans le JSON-LD `NewsArticle` de l'archive concernée, jamais reformulé.
     - Le fichier ne concerne que l'édition française quotidienne — pas les `hebdo/`, `suivi/`, ni les pages EN (`docs/routine-en-prompt.md` a son propre besoin le cas échéant, non couvert ici).
 
+7ter. **Régénérer les pages thématiques, ajouté le 31 août 2026 [SEO — maillage interne].** Une fois l'entrée du jour insérée dans `archives.html` (étape 6, avec ses tags) :
+```bash
+python3 scripts/seo/generate_theme_pages.py
+```
+Régénère les 6 pages `themes/{slug}.html` (Économie & entreprises, International, Sciences & environnement, Culture & divertissement, Politique & institutions, Tech & numérique) à partir de l'état courant d'`archives.html` — si l'un des tags thématiques du jour appartient à un de ces 6 domaines, l'édition du jour apparaît automatiquement dans la page correspondante, rien à écrire à la main. Committer les fichiers `themes/*.html` modifiés avec le reste de l'édition (`git status` après coup pour voir lesquels ont réellement changé — un script idempotent peut ne toucher que 1 ou 2 pages sur les 6 selon les tags du jour). **Ne jamais éditer un fichier `themes/*.html` à la main** — toute correction passe par le script (`scripts/seo/generate_theme_pages.py`) pour rester synchronisée avec `archives.html`. Si un nouveau tag thématique est créé ce jour-là (dernier recours, voir `docs/tags.md`) et qu'il devrait rejoindre un des 6 domaines existants, mettre à jour la table `DOMAINS` en tête du script en même temps que `docs/tags.md` et le tableau `themeDomains` du script inline d'`archives.html` — trois endroits à garder synchronisés, jamais un seul. Les autres domaines (`Société`, `Sport & argent`) restent volontairement sans page tant qu'ils n'ont pas assez d'articles (voir `docs/BACKLOG.md`, seuil retenu : au moins ~8 articles).
+
 8. Mettre à jour `feed.xml` : nouvel `<item>` en haut (avant les précédents, jamais supprimés) :
 ```xml
 <item>
