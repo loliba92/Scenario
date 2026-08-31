@@ -136,6 +136,14 @@ ARCHIVES_TABLE_CSS = """
     min-width: 320px;
   }
 
+  .archives-table .col-kpis {
+    font-size: 0.80rem;
+    color: var(--paper-dim);
+    font-family: "JetBrains Mono", monospace;
+    line-height: 1.5;
+    min-width: 280px;
+  }
+
   .archives-table .col-eval {
     display: flex;
     align-items: center;
@@ -338,6 +346,46 @@ def get_most_probable_scenario(scenarios):
     return best[:2]  # Retourne juste (kind, pct), pas france_impact
 
 
+def extract_kpis(text, most_probable_kind):
+    """Extrait les KPIs (indicateurs touchés) du scénario le plus probable."""
+    # Cherche le card correspondant au kind le plus probable
+    pattern = rf'<article class="card" data-kind="{re.escape(most_probable_kind)}"[^>]*>(.*?)</article>'
+    card_m = re.search(pattern, text, re.DOTALL)
+    if not card_m:
+        return None
+
+    card_content = card_m.group(1)
+
+    # Cherche le bloc des indicateurs touchés
+    kpis_block = re.search(
+        r'<span class="field-label">Indicateurs touchés</span>\s*<ul>(.*?)</ul>',
+        card_content,
+        re.DOTALL
+    )
+    if not kpis_block:
+        return None
+
+    kpis_list = []
+    # Extrait chaque <li> avec le format: nom, valeur future, valeur actuelle
+    for li_match in re.finditer(
+        r'<li>\s*<span class="field-name">([^<]+)</span>\s*'
+        r'<span class="evo-current">([^<]+)</span>.*?'
+        r'<span class="evo-prev">\(vs\s*([^)]+)\)',
+        kpis_block.group(1),
+        re.DOTALL
+    ):
+        name = li_match.group(1).strip()
+        future = li_match.group(2).strip()
+        current = li_match.group(3).strip()
+        kpis_list.append({
+            "name": name,
+            "future": future,
+            "current": current
+        })
+
+    return kpis_list if kpis_list else None
+
+
 def parse_article(file_path):
     """Parse un fichier d'article."""
     text = file_path.read_text(encoding="utf-8")
@@ -358,6 +406,9 @@ def parse_article(file_path):
     # Extrait france_impact du scénario le plus probable
     france_impact = extract_france_impact(text, kind) if kind else None
 
+    # Extrait les KPIs (indicateurs touchés) du scénario le plus probable
+    kpis = extract_kpis(text, kind) if kind else None
+
     # Extrait les 3 phrases courtes des scénarios depuis le fragment
     scenario_text_1, scenario_text_2, scenario_text_3 = extract_scenario_texts(iso_date)
 
@@ -369,6 +420,7 @@ def parse_article(file_path):
         "scenario_pct": pct,
         "scenario_title": scenario_title,
         "france_impact": france_impact,
+        "kpis": kpis,
         "domain": domain,
         "scenario_text_1": scenario_text_1,
         "scenario_text_2": scenario_text_2,
@@ -426,15 +478,27 @@ def render_table_row(article):
         else "(impact non trouvé)"
     )
 
+    # KPIs : indicateurs touchés du scénario probable
+    kpis_html = ""
+    if article["kpis"]:
+        kpi_lines = []
+        for kpi in article["kpis"]:
+            line = f'{html.escape(kpi["name"])}: {html.escape(kpi["future"])} (vs {html.escape(kpi["current"])})'
+            kpi_lines.append(line)
+        kpis_html = "<br>".join(kpi_lines)
+    else:
+        kpis_html = "(indicateurs non trouvés)"
+
     # Lien EN (toujours ajouter le badge)
     en_link = f' <a href="en/archives/{article["iso_date"]}.html" title="Read in English" class="lang-badge">EN</a>'
 
-    # Ordre : Date | Domaine | Titre | Problématique | Évaluation | France Impact
+    # Ordre : Date | Domaine | Titre | Problématique | KPIs | Notre scénario | France Impact
     return f"""    <tr>
       <td class="col-date">{format_date_display(article["iso_date"])}</td>
       <td class="col-domain">{domain_label}</td>
       <td class="col-title"><a href="archives/{article["iso_date"]}.html">{html.escape(article["title"])}</a>{en_link}</td>
       <td class="col-question">{question_html}</td>
+      <td class="col-kpis">{kpis_html}</td>
       <td class="col-eval">{eval_html}</td>
       <td class="col-france">{france_html}</td>
     </tr>"""
@@ -476,6 +540,7 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
         <th style="width: 150px;">Domaine</th>
         <th style="width: 250px;">Titre</th>
         <th style="width: 300px;">Ce qu'on évalue</th>
+        <th style="width: 280px;">KPIs</th>
         <th style="width: 120px;">Notre scénario</th>
         <th style="width: 250px;">Quel impact pour la France</th>
       </tr>
