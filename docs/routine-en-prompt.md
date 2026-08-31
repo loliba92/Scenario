@@ -75,6 +75,17 @@ soi, pas seulement un pis-aller. En conséquence :
   l'utilisateur (étape 9, ou l'équivalent du jour si l'étape n'a même
   pas pu démarrer) — jamais silencieux sur un jour sans traduction.
 
+**[AJOUTÉ le 31 août] Un jour sauté n'est plus un cul-de-sac.** Ce qui
+manquait jusqu'ici : si cette étape est sautée un jour (budget, panne,
+quota — vécu le 31 août avec une limite de dépense de l'organisation),
+rien ne la rattrapait ensuite sans intervention manuelle explicite de
+l'utilisateur. **Étape 8bis, plus bas, corrige ça** : chaque exécution
+vérifie désormais si l'édition juste avant celle du jour a bien sa
+traduction, et la produit si ce n'est pas le cas (plafonné à un jour de
+retard rattrapé par exécution). Un jour sauté se rattrape donc tout seul
+le lendemain — au pire le surlendemain — sans qu'on ait besoin de le
+redemander.
+
 ---
 
 **La cible du push est toujours `main`, sans exception** — mêmes règles que
@@ -487,6 +498,44 @@ toute entrée `en/feed-pub.xml`/`sitemap.xml` mise à jour en conséquence
 de la traduction du jour, articles cités compris — jamais un commit par
 article traduit.
 
+## Étape 8bis — Rattrapage d'un jour manqué [AJOUTÉ le 31 août 2026]
+
+**Ce qui a motivé cette étape.** Le 31 août, l'étape 13 (appelée depuis
+`docs/routine-prompt.md`) a été interrompue en cours de traduction par une
+limite de dépense de l'organisation (erreur API, quota atteint) : l'édition
+française était déjà publiée, mais aucune version anglaise n'a été produite
+ce jour-là. Le garde-fou en tête de ce fichier a bien fait son travail (rien
+de cassé n'a été publié, l'écart a été signalé dans le résumé) — mais rien
+ne rattrapait ensuite cet écart tout seul : sans qu'un humain le remarque et
+le redemande explicitement, l'édition manquante serait restée sans
+traduction indéfiniment. Cette étape ferme cette brèche.
+
+**Mécanique.** Une fois la traduction du jour committée et poussée (étape
+8 ci-dessus terminée avec succès) :
+
+1. Identifier la date de l'édition française publiée juste avant celle du
+   jour (ligne la plus récente de docs/sujets-a-suivre.md sous celle du
+   jour, ou avant-dernière entrée d'archives.html).
+2. **Si `en/archives/{cette date}.html` n'existe pas déjà** : la traduire
+   intégralement en appliquant les étapes 1 à 8 de ce document à cette date
+   plutôt qu'à aujourd'hui (même logique que la cascade de l'étape 1bis,
+   mais déclenchée par une vérification systématique plutôt que par une
+   citation dans le texte). Commit et push **séparés**, toujours préfixés
+   `[en]`, toujours après le commit de la traduction du jour — jamais fondu
+   avec elle.
+3. **Plafond strict : un seul jour de rattrapage par exécution, jamais
+   plus.** Si plusieurs jours consécutifs manquent, ne rattraper que le
+   plus récent des deux, et signaler explicitement les autres dans le
+   résumé (étape 9) plutôt que de tous les traduire d'un coup — un
+   rattrapage qui s'emballe consommerait tout le budget de la session sans
+   garantie de finir proprement, à l'encontre du garde-fou « mieux vaut
+   sauter que publier cassé » en tête de ce fichier. L'exécution suivante
+   rattrapera le jour d'après, un par un, jusqu'à résorber le retard.
+4. **Si ce rattrapage lui-même échoue** (même cause : quota, budget,
+   panne) : ne rien committer de cassé (même garde-fou), le signaler
+   clairement dans le résumé — pas grave en soi, la vérification se
+   refera automatiquement au prochain passage de cette routine.
+
 ## Étape 9 — Résumé final
 
 Toujours terminer par un message court et explicite : édition traduite
@@ -494,6 +543,11 @@ Toujours terminer par un message court et explicite : édition traduite
 traduction (ex. une expression française sans équivalent direct, un choix
 de formulation ambigu tranché à la volée) — pour que l'utilisateur puisse
 relire ces points en particulier plutôt que la traduction complète.
+**Toujours ajouter le résultat de l'étape 8bis**, même quand il n'y avait
+rien à rattraper : « rattrapage : rien à faire », « rattrapage : {date}
+traduite », ou « rattrapage : {date} toujours manquante, échec (raison) »
+— jamais silencieux sur ce point, c'est précisément ce qui a fait défaut
+le 31 août.
 
 ---
 
