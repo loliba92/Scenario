@@ -483,21 +483,22 @@ def compute_france_esperance(scenarios):
 # dans docs/routine-prompt.md (garder les deux synchronisés si ce barème change).
 # Seuils décroissants ; le premier seuil <= value l'emporte.
 FRANCE_ESPERANCE_SCALE = [
-    (0.8, "Extrêmement favorable", "esp-favorable-extreme"),
-    (0.4, "Très favorable", "esp-favorable-fort"),
+    (0.8, "Très favorable", "esp-favorable-extreme"),
+    (0.4, "Assez favorable", "esp-favorable-fort"),
     (0.15, "Plutôt favorable", "esp-favorable"),
     (-0.15, "Neutre", "esp-neutre"),
     (-0.4, "Plutôt défavorable", "esp-degrade"),
-    (-0.8, "Très défavorable", "esp-degrade-fort"),
-    (float("-inf"), "Extrêmement défavorable", "esp-degrade-extreme"),
+    (-0.8, "Assez défavorable", "esp-degrade-fort"),
+    (float("-inf"), "Très défavorable", "esp-degrade-extreme"),
 ]
 
 
 def label_esperance(value):
     """Mappe l'espérance (float dans [-1, 1]) à un label nuancé + une classe CSS.
 
-    Applique FRANCE_ESPERANCE_SCALE (7 niveaux symétriques : extrêmement / très /
-    plutôt / neutre / plutôt / très / extrêmement).
+    Applique FRANCE_ESPERANCE_SCALE (7 niveaux symétriques : très / assez /
+    plutôt / neutre / plutôt / assez / très — même vocabulaire que les
+    mots-repères de probabilité des scénarios, étape 5 de la routine).
     """
     if value is None:
         return None, None

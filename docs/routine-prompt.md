@@ -584,17 +584,17 @@ où `{slug}` est l'un des 6 domaines : `economie-entreprises`, `politique-instit
 
 **Colonne « Impact France » — espérance pondérée, pas le jugement du scénario le plus probable [AJOUTÉ le 1er septembre 2026, retour utilisateur].** Chacun des 3 scénarios porte son propre `data-france-impact` (favorable/stable/degrade), **indépendant de son "kind"** — le scénario "stable" peut très bien être jugé "degrade" côté France (voir étape 4 plus haut). Se limiter au jugement du seul scénario le plus probable jetait ce signal. La colonne affiche donc une **espérance** : `Σ (pourcentage_i / 100 × valeur_i)`, avec favorable=+1, stable=0, degrade=−1 — un score continu dans [-1, 1].
 
-Barème officiel (7 niveaux symétriques), défini une seule fois dans `FRANCE_ESPERANCE_SCALE` (`scripts/seo/generate_archives_table.py`) — **source unique** : si ce barème change, le modifier là-bas et reporter le changement ici, jamais l'inverse.
+Barème officiel (7 niveaux symétriques), défini une seule fois dans `FRANCE_ESPERANCE_SCALE` (`scripts/seo/generate_archives_table.py`) — **source unique** : si ce barème change, le modifier là-bas et reporter le changement ici, jamais l'inverse. Mêmes mots-repères que la probabilité des scénarios (étape 5 : peu probable / probable / assez probable / très probable) pour rester cohérent dans tout le site.
 
 | Espérance | Label |
 |---|---|
-| ≥ 0.8 | Extrêmement favorable |
-| ≥ 0.4 | Très favorable |
+| ≥ 0.8 | Très favorable |
+| ≥ 0.4 | Assez favorable |
 | ≥ 0.15 | Plutôt favorable |
 | entre -0.15 et 0.15 | Neutre |
 | ≤ -0.15 | Plutôt défavorable |
-| ≤ -0.4 | Très défavorable |
-| ≤ -0.8 | Extrêmement défavorable |
+| ≤ -0.4 | Assez défavorable |
+| ≤ -0.8 | Très défavorable |
 
 Entièrement calculé par le script à partir des `data-france-impact` déjà posés étape 4 — **aucune saisie ni terme à choisir à la main** dans la routine quotidienne.
 
