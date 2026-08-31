@@ -38,27 +38,37 @@ ARCHIVES_TABLE_CSS = """
     border-collapse: collapse;
     margin: 32px 0;
     font-size: 0.90rem;
-    line-height: 1.5;
+    line-height: 1.6;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .archives-table thead {
-    background: var(--surface);
+    background: linear-gradient(135deg, var(--surface-2) 0%, var(--surface) 100%);
     border-bottom: 2px solid var(--gold);
   }
 
   .archives-table th {
-    padding: 12px;
+    padding: 14px 12px;
     text-align: left;
-    font-weight: 600;
+    font-weight: 700;
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.72rem;
+    font-size: 0.70rem;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     color: var(--gold);
   }
 
   .archives-table tbody tr {
     border-bottom: 1px solid var(--hairline);
+    transition: background 0.2s ease;
+  }
+
+  .archives-table tbody tr:last-child {
+    border-bottom: none;
   }
 
   .archives-table tbody tr:hover {
@@ -66,68 +76,119 @@ ARCHIVES_TABLE_CSS = """
   }
 
   .archives-table td {
-    padding: 10px 12px;
+    padding: 12px;
     vertical-align: top;
   }
 
   .archives-table .col-date {
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.80rem;
-    color: var(--paper-dim);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gold);
     white-space: nowrap;
     flex-shrink: 0;
+    letter-spacing: 0.02em;
   }
 
   .archives-table .col-title {
-    min-width: 200px;
+    min-width: 220px;
   }
 
   .archives-table .col-title a {
     color: var(--gold);
     text-decoration: none;
     font-family: "Fraunces", serif;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
   }
 
   .archives-table .col-title a:hover {
-    text-decoration: underline;
     color: var(--paper);
+    text-decoration: underline;
   }
 
   .archives-table .lang-badge {
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.70rem;
+    font-size: 0.65rem;
     margin-left: 8px;
     color: var(--paper-dim);
     text-decoration: none;
     border: 1px solid var(--paper-dim);
-    padding: 2px 6px;
-    border-radius: 2px;
+    padding: 3px 7px;
+    border-radius: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
   }
 
   .archives-table .lang-badge:hover {
-    color: var(--paper);
-    border-color: var(--paper);
+    color: var(--gold);
+    border-color: var(--gold);
+    background: rgba(218, 165, 32, 0.08);
   }
 
   .archives-table .col-question {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     color: var(--paper);
     font-style: italic;
-    min-width: 300px;
+    min-width: 320px;
   }
 
   .archives-table .col-eval {
-    font-size: 0.88rem;
-    color: var(--paper);
-    min-width: 250px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .archives-table .eval-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.70rem;
+    font-family: "JetBrains Mono", monospace;
+    white-space: nowrap;
+  }
+
+  .archives-table .eval-badge.eval-favorable {
+    background: rgba(76, 175, 80, 0.12);
+    color: #4CAF50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+  }
+
+  .archives-table .eval-badge.eval-stable {
+    background: rgba(255, 193, 7, 0.12);
+    color: #FFC107;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+  }
+
+  .archives-table .eval-badge.eval-degrade {
+    background: rgba(244, 67, 54, 0.12);
+    color: #F44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+  }
+
+  .archives-table .eval-label {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
 
   .archives-table .eval-pct {
-    font-family: "JetBrains Mono", monospace;
-    font-weight: 600;
-    color: var(--gold);
-    margin-right: 6px;
+    font-weight: 700;
+    font-size: 0.75rem;
+  }
+
+  .archives-table .eval-text {
+    color: var(--paper);
+    font-style: italic;
+    font-family: "Inter", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
   }
 
   .archives-table .col-france {
@@ -137,11 +198,14 @@ ARCHIVES_TABLE_CSS = """
   }
 
   .archives-table .col-domain {
-    font-size: 0.80rem;
+    font-size: 0.75rem;
     font-family: "JetBrains Mono", monospace;
-    color: var(--paper-dim);
+    font-weight: 600;
+    color: var(--gold);
     white-space: nowrap;
     flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
   }
 
   @media (max-width: 1200px) {
@@ -150,7 +214,12 @@ ARCHIVES_TABLE_CSS = """
     }
     .archives-table th,
     .archives-table td {
-      padding: 8px 10px;
+      padding: 10px 10px;
+    }
+    .archives-table .eval-badge {
+      flex-direction: column;
+      gap: 2px;
+      padding: 4px 8px;
     }
   }
 
@@ -160,7 +229,7 @@ ARCHIVES_TABLE_CSS = """
     }
     .archives-table th,
     .archives-table td {
-      padding: 6px 8px;
+      padding: 8px;
     }
     .archives-table .col-question,
     .archives-table .col-france {
@@ -311,26 +380,48 @@ def format_date_display(iso_date):
     return f"{parts[2]}.{parts[1]}.{parts[0]}"
 
 
+def truncate_text(text, max_length=150, suffix="..."):
+    """Tronque le texte à max_length caractères."""
+    if not text or len(text) <= max_length:
+        return text
+    return text[:max_length].rsplit(" ", 1)[0] + suffix
+
+
+def get_scenario_label(kind):
+    """Retourne le label lisible du scénario."""
+    labels = {
+        "favorable": "Favorable",
+        "stable": "Stable",
+        "degrade": "Dégradé",
+    }
+    return labels.get(kind, kind)
+
+
 def render_table_row(article):
     """Rend une ligne du tableau."""
     domain_label = DOMAIN_LABELS.get(article["domain"], article["domain"])
 
-    # Problématique : texte complet, pas tronqué
-    question_html = (
-        html.escape(article["question"])
-        if article["question"]
-        else "(question non trouvée)"
-    )
+    # Problématique : tronquée à 150 caractères pour rester lisible
+    question_text = article["question"] if article["question"] else "(question non trouvée)"
+    question_html = html.escape(truncate_text(question_text, max_length=150))
 
-    # Évaluation : titre complet du scénario + %
+    # Évaluation : badge de couleur + nom du scénario + % + titre
+    kind = article["scenario_kind"]
+    pct = article["scenario_pct"]
     scenario_title = html.escape(article["scenario_title"]) if article["scenario_title"] else "?"
-    eval_html = (
-        f'<span class="eval-pct">{article["scenario_pct"]}%</span> {scenario_title}'
-        if article["scenario_pct"] and article["scenario_title"]
-        else "?"
-    )
 
-    # France Impact : texte complet, pas tronqué
+    if kind and pct and scenario_title:
+        scenario_label = get_scenario_label(kind)
+        # Badge de couleur avec le type de scénario
+        eval_html = f'''<span class="eval-badge eval-{kind}" data-kind="{kind}">
+      <span class="eval-label">{scenario_label}</span>
+      <span class="eval-pct">{pct}%</span>
+    </span>
+    <span class="eval-text">{scenario_title}</span>'''
+    else:
+        eval_html = "?"
+
+    # France Impact : texte complet
     france_html = (
         html.escape(article["france_impact"])
         if article["france_impact"]
