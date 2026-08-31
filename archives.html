@@ -384,30 +384,47 @@
   /* ---- Archives table (scripts/seo/generate_archives_table.py) ---- */
   .archives-table {
     width: 100%;
+    max-width: 1200px;
+    margin: 32px auto;
     border-collapse: collapse;
-    margin: 32px 0;
-    font-size: 0.95rem;
+    font-size: 0.90rem;
     line-height: 1.6;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .archives-table thead {
-    background: var(--surface);
+    background: linear-gradient(135deg, var(--surface-2) 0%, var(--surface) 100%);
     border-bottom: 2px solid var(--gold);
   }
 
   .archives-table th {
     padding: 14px 12px;
-    text-align: left;
-    font-weight: 600;
+    text-align: center;
+    font-weight: 700;
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.78rem;
+    font-size: 0.70rem;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     color: var(--gold);
+  }
+
+  .archives-table th:first-child,
+  .archives-table th:nth-child(2),
+  .archives-table th:nth-child(3) {
+    text-align: left;
   }
 
   .archives-table tbody tr {
     border-bottom: 1px solid var(--hairline);
+    transition: background 0.2s ease;
+  }
+
+  .archives-table tbody tr:last-child {
+    border-bottom: none;
   }
 
   .archives-table tbody tr:hover {
@@ -416,71 +433,195 @@
 
   .archives-table td {
     padding: 12px;
-    vertical-align: top;
+    vertical-align: middle;
   }
 
   .archives-table .col-date {
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.85rem;
-    color: var(--paper-dim);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gold);
     white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+    text-align: center;
+  }
+
+  .archives-table .col-domain {
+    font-size: 0.75rem;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    color: var(--gold);
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    text-align: center;
+  }
+
+  .archives-table .col-title {
+    min-width: 280px;
   }
 
   .archives-table .col-title a {
     color: var(--gold);
     text-decoration: none;
     font-family: "Fraunces", serif;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
   }
 
   .archives-table .col-title a:hover {
-    text-decoration: underline;
     color: var(--paper);
+    text-decoration: underline;
   }
 
-  .archives-table .col-question {
-    font-size: 0.92rem;
-    color: var(--paper);
-    max-width: 300px;
-    font-style: italic;
+  .archives-table .lang-badge {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.65rem;
+    margin-left: 8px;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border: 1px solid var(--paper-dim);
+    padding: 3px 7px;
+    border-radius: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+  }
+
+  .archives-table .lang-badge:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+    background: rgba(218, 165, 32, 0.08);
   }
 
   .archives-table .col-eval {
-    font-size: 0.85rem;
-    color: var(--paper-dim);
+    text-align: center;
   }
 
-  .archives-table .eval-pct {
-    font-family: "JetBrains Mono", monospace;
+  .archives-table .eval-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 6px 12px;
+    border-radius: 4px;
     font-weight: 600;
-    color: var(--paper);
-    margin-right: 4px;
-  }
-
-  .archives-table .col-france {
-    font-size: 0.90rem;
-    color: var(--paper);
-    max-width: 250px;
-  }
-
-  .archives-table .col-domain {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-family: "JetBrains Mono", monospace;
-    color: var(--paper-dim);
     white-space: nowrap;
   }
 
-  @media (max-width: 768px) {
+  .archives-table .eval-badge.eval-favorable {
+    background: rgba(76, 175, 80, 0.12);
+    color: #4CAF50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+  }
+
+  .archives-table .eval-badge.eval-stable {
+    background: rgba(255, 193, 7, 0.12);
+    color: #FFC107;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+  }
+
+  .archives-table .eval-badge.eval-degrade {
+    background: rgba(244, 67, 54, 0.12);
+    color: #F44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+  }
+
+  .archives-table .eval-label {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .archives-table .eval-pct {
+    font-weight: 700;
+    font-size: 0.75rem;
+  }
+
+  .archives-table .col-france {
+    text-align: center;
+  }
+
+  .archives-table .france-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    font-family: "JetBrains Mono", monospace;
+    white-space: nowrap;
+  }
+
+  .archives-table .france-badge.france-favorable {
+    background: rgba(76, 175, 80, 0.12);
+    color: #4CAF50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+  }
+
+  .archives-table .france-badge.france-stable {
+    background: rgba(255, 193, 7, 0.12);
+    color: #FFC107;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+  }
+
+  .archives-table .france-badge.france-degrade {
+    background: rgba(244, 67, 54, 0.12);
+    color: #F44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+  }
+
+  @media (max-width: 1200px) {
     .archives-table {
       font-size: 0.85rem;
     }
     .archives-table th,
     .archives-table td {
-      padding: 8px 6px;
+      padding: 10px 10px;
     }
-    .archives-table .col-question,
-    .archives-table .col-france {
+  }
+
+  @media (max-width: 768px) {
+    .archives-table {
+      font-size: 0.80rem;
+      margin: 20px auto;
+    }
+    .archives-table th,
+    .archives-table td {
+      padding: 8px;
+    }
+    .archives-table th:nth-child(4),
+    .archives-table td:nth-child(4) {
       display: none;
+    }
+    .archives-table .eval-badge,
+    .archives-table .france-badge {
+      flex-direction: column;
+      gap: 2px;
+      padding: 5px 10px;
+      font-size: 0.70rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .archives-table {
+      font-size: 0.75rem;
+      margin: 16px auto;
+    }
+    .archives-table th,
+    .archives-table td {
+      padding: 6px;
+    }
+    .archives-table .col-title a {
+      font-size: 0.85rem;
     }
   }
 </style>
@@ -535,325 +676,402 @@
     <thead>
       <tr>
         <th style="width: 80px;">Date</th>
-        <th style="width: 250px;">Titre</th>
-        <th style="width: 300px;">Problématique</th>
-        <th style="width: 120px;">Évaluation</th>
-        <th style="width: 250px;">France Impact</th>
-        <th style="width: 150px;">Domaine</th>
+        <th style="width: 140px;">Domaine</th>
+        <th style="flex: 1; min-width: 300px;">Titre</th>
+        <th style="width: 140px;">Notre scénario</th>
+        <th style="width: 140px;">Quel impact pour la France</th>
       </tr>
     </thead>
     <tbody>
     <tr>
       <td class="col-date">31.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-31.html">Islande : après le non à l&#x27;UE, qui va la protéger ?</a></td>
-      <td class="col-question">Le 29 août, 52,8 % des Islandais ont rejeté la réouverture des négociations d&#x27;adhésion à l&#x27;Union eur…</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Le statu quo laisse la sécurité de l&#x27;Arctique nord reposer sur un accord bilatéral vieux de 75 ans, …</td>
       <td class="col-domain">International</td>
+      <td class="col-title"><a href="archives/2026-08-31.html">Islande : après le non à l&#x27;UE, qui va la protéger ?</a> <a href="en/archives/2026-08-31.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">30.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-30.html">Ligue 1 : le foot français peut-il survivre à l&#x27;effondrement de ses droits TV ?</a></td>
-      <td class="col-question">Après l&#x27;effondrement des droits TV et la chute continue des ressources des clubs, la Ligue 1 va-t-el…</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Le championnat reste installé nettement sous ses standards d&#x27;avant-crise, avec moins de moyens pour …</td>
       <td class="col-domain">Économie & entreprises</td>
+      <td class="col-title"><a href="archives/2026-08-30.html">Ligue 1 : le foot français peut-il survivre à l&#x27;effondrement de ses droits TV ?</a> <a href="en/archives/2026-08-30.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">29.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-29.html">Cinéma mondial : peut-il survivre au streaming ?</a></td>
-      <td class="col-question">Les studios ont fixé une nouvelle règle commune : 45 jours d&#x27;exclusivité en salle avant le streaming…</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Le rythme actuel — déjà la meilleure année en salle en France depuis 2019 — se prolonge sans rupture…</td>
       <td class="col-domain">Culture & divertissement</td>
+      <td class="col-title"><a href="archives/2026-08-29.html">Cinéma mondial : peut-il survivre au streaming ?</a> <a href="en/archives/2026-08-29.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">28.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-28.html">Climat 2030 : la France peut-elle encore tenir parole ?</a></td>
-      <td class="col-question">Avec un rythme de réduction des émissions trois fois trop lent et un Fonds vert divisé par trois en …</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Le rythme de rénovation reste trop lent pour faire vraiment baisser les factures de chauffage des mé…</td>
       <td class="col-domain">Sciences & environnement</td>
+      <td class="col-title"><a href="archives/2026-08-28.html">Climat 2030 : la France peut-elle encore tenir parole ?</a> <a href="en/archives/2026-08-28.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">27.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-27.html">Dette américaine : le mur des 40 000 milliards</a></td>
-      <td class="col-question">Alors que le taux des emprunts d&#x27;État américains à 30 ans a grimpé à son plus haut niveau depuis 200…</td>
-      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
-      <td class="col-france">Des taux américains élevés continuent de tirer vers le haut les taux mondiaux, France comprise : l&#x27;O…</td>
       <td class="col-domain">Économie & entreprises</td>
+      <td class="col-title"><a href="archives/2026-08-27.html">Dette américaine : le mur des 40 000 milliards</a> <a href="en/archives/2026-08-27.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">50%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">26.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-26.html">Retraites : la patate chaude de 2027</a></td>
-      <td class="col-question">Le dossier des retraites, suspendu par la loi jusqu&#x27;en janvier 2028, va-t-il rester gelé jusqu&#x27;à la …</td>
-      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
-      <td class="col-france">Rien n&#x27;est réglé avant l&#x27;élection : les Français qui approchent de la retraite restent dans l&#x27;incert…</td>
       <td class="col-domain">Politique & institutions</td>
+      <td class="col-title"><a href="archives/2026-08-26.html">Retraites : la patate chaude de 2027</a> <a href="en/archives/2026-08-26.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">50%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">25.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-25.html">IA chinoise : cadeau ou piège ?</a></td>
-      <td class="col-question">La Chine offre-t-elle vraiment ses modèles d&#x27;intelligence artificielle en libre accès sans arrière-p…</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Le statu quo profite à court terme au portefeuille des entreprises françaises, qui accèdent à des mo…</td>
       <td class="col-domain">Tech & numérique</td>
+      <td class="col-title"><a href="archives/2026-08-25.html">IA chinoise : cadeau ou piège ?</a> <a href="en/archives/2026-08-25.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">24.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-24.html">Ukraine : ni paix ni victoire</a></td>
-      <td class="col-question">Après plus de quatre ans et demi de guerre et des pourparlers dans l&#x27;impasse sur le Donbas, les comb…</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Le statu quo se prolonge : la France continue de financer son soutien militaire à l&#x27;Ukraine et de co…</td>
       <td class="col-domain">International</td>
+      <td class="col-title"><a href="archives/2026-08-24.html">Ukraine : ni paix ni victoire</a> <a href="en/archives/2026-08-24.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">23.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-23.html">Le pari XXL du Mondial 2030</a></td>
-      <td class="col-question">(question non trouvée)…</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Rien ne change pour la France : la Fédération française de football garde le calendrier déjà prévu, …</td>
       <td class="col-domain">Politique & institutions</td>
+      <td class="col-title"><a href="archives/2026-08-23.html">Le pari XXL du Mondial 2030</a> <a href="en/archives/2026-08-23.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">22.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-22.html">Hollywood décroche en Chine</a></td>
-      <td class="col-question">La Chine est devenue le premier marché mondial du cinéma, mais les studios américains n&#x27;y ont jamais…</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Rien ne change concrètement pour les Français : l&#x27;accord de coproduction franco-chinois de 2010 cont…</td>
       <td class="col-domain">Culture & divertissement</td>
+      <td class="col-title"><a href="archives/2026-08-22.html">Hollywood décroche en Chine</a> <a href="en/archives/2026-08-22.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">21.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-21.html">Le Grand Filtre</a></td>
-      <td class="col-question">Le silence radio de l&#x27;univers veut-il dire que l&#x27;humanité a déjà passé son obstacle le plus dangereu…</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Rien ne bouge concrètement pour les Français : la France continue de financer à la fois la recherche…</td>
       <td class="col-domain">Sciences & environnement</td>
+      <td class="col-title"><a href="archives/2026-08-21.html">Le Grand Filtre</a> <a href="en/archives/2026-08-21.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">20.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-20.html">Taux : marche arrière</a></td>
-      <td class="col-question">Après huit mois d&#x27;immobilisme à la Fed et une première hausse de la BCE en trois ans, les banques ce…</td>
-      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
-      <td class="col-france">Le crédit immobilier et les emprunts de l&#x27;État français restent chers, sans aggravation supplémentai…</td>
       <td class="col-domain">Économie & entreprises</td>
+      <td class="col-title"><a href="archives/2026-08-20.html">Taux : marche arrière</a> <a href="en/archives/2026-08-20.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">50%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">19.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-19.html">2027 sous influence</a></td>
-      <td class="col-question">À huit mois du premier tour, entre piratages attribués à la Russie et soupçons sur l&#x27;algorithme de X…</td>
-      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
-      <td class="col-france">Le doute s&#x27;installe sans jamais se dissiper : électeurs et candidats vivent la campagne sous suspici…</td>
       <td class="col-domain">Politique & institutions</td>
+      <td class="col-title"><a href="archives/2026-08-19.html">2027 sous influence</a> <a href="en/archives/2026-08-19.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">50%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">18.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-18.html">IA : la cage a craqué</a></td>
-      <td class="col-question">Cet été, des agents IA d&#x27;OpenAI, Anthropic, Meta et du chinois Moonshot AI ont chacun franchi les li…</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Le vide identifié dans les lignes directrices européennes sur les incidents multi-agents reste entie…</td>
       <td class="col-domain">Tech & numérique</td>
+      <td class="col-title"><a href="archives/2026-08-18.html">IA : la cage a craqué</a> <a href="en/archives/2026-08-18.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">17.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-17.html">Ormuz : la trêve a expiré</a></td>
-      <td class="col-question">Le mémorandum de 60 jours signé à Islamabad le 17 juin pour desserrer la crise Iran–États-Unis est a…</td>
-      <td class="col-eval"><span class="eval-pct">55%</span> Degrade</td>
-      <td class="col-france">Un baril au-delà de 100 dollars renchérirait directement l&#x27;essence et le chauffage en France, à l&#x27;ap…</td>
       <td class="col-domain">International</td>
+      <td class="col-title"><a href="archives/2026-08-17.html">Ormuz : la trêve a expiré</a> <a href="en/archives/2026-08-17.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-degrade" data-kind="degrade">
+      <span class="eval-label">Dégradé</span>
+      <span class="eval-pct">55%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">16.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-16.html">Rugby : le choc de trop ?</a></td>
-      <td class="col-question">Le rugby affronte deux dossiers séparés sur la sécurité de ses joueurs. D&#x27;un côté, le plus grand pro…</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Le quotidien du rugby amateur français ne change pas : la règle du sternum reste en place, sans nouv…</td>
       <td class="col-domain">Politique & institutions</td>
+      <td class="col-title"><a href="archives/2026-08-16.html">Rugby : le choc de trop ?</a> <a href="en/archives/2026-08-16.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">15.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-15.html">Traduction littéraire : le métier en sursis ?</a></td>
-      <td class="col-question">Depuis que Harlequin a basculé sa collection de romans à l&#x27;eau de rose vers la traduction automatiqu…</td>
-      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
-      <td class="col-france">Le quotidien des traducteurs ne change pas vraiment : toujours une poignée de contrats perdus, un re…</td>
       <td class="col-domain">Culture & divertissement</td>
+      <td class="col-title"><a href="archives/2026-08-15.html">Traduction littéraire : le métier en sursis ?</a> <a href="en/archives/2026-08-15.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">50%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">14.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-14.html">Canicules à répétition : qui paie l&#x27;addition ?</a></td>
-      <td class="col-question">❓ Après un été qui a déjà coûté entre 10 et 15 milliards d&#x27;euros et fait au moins 5 764 morts en exc…</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Le quotidien ne change pas vraiment : toujours des pics de chaleur mal anticipés, des travaux annonc…</td>
       <td class="col-domain">Sciences & environnement</td>
+      <td class="col-title"><a href="archives/2026-08-14.html">Canicules à répétition : qui paie l&#x27;addition ?</a> <a href="en/archives/2026-08-14.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">13.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-13.html">Inflation : le pétrole rebat les cartes</a></td>
-      <td class="col-question">❓ Alors que la Fed se prépare à baisser ses taux en septembre et que la BCE, elle, vient de relever …</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Le statu quo se prolonge : l&#x27;inflation française autour de 2 % reste supportable, mais l&#x27;énergie con…</td>
       <td class="col-domain">Économie & entreprises</td>
+      <td class="col-title"><a href="archives/2026-08-13.html">Inflation : le pétrole rebat les cartes</a> <a href="en/archives/2026-08-13.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">12.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-12.html">2027 : un favori, une opposition éclatée</a></td>
-      <td class="col-question">❓ Alors que Marine Le Pen vient d&#x27;être reconnue éligible en appel et que le Rassemblement national c…</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">La donne actuelle — Assemblée sans majorité, gouvernements négociés texte par texte — se prolonge ju…</td>
       <td class="col-domain">Politique & institutions</td>
+      <td class="col-title"><a href="archives/2026-08-12.html">2027 : un favori, une opposition éclatée</a> <a href="en/archives/2026-08-12.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">11.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-11.html">L&#x27;Éthiopie veut sa mer, au risque de la guerre</a></td>
-      <td class="col-question">❓ Après l&#x27;irruption filmée de soldats érythréens, drapeau déployé, dans la ville éthiopienne de Zala…</td>
-      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
-      <td class="col-france">Rien ne change vraiment : la France, qui maintient à Djibouti sa plus importante base militaire perm…</td>
       <td class="col-domain">International</td>
+      <td class="col-title"><a href="archives/2026-08-11.html">L&#x27;Éthiopie veut sa mer, au risque de la guerre</a> <a href="en/archives/2026-08-11.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">50%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">10.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-10.html">La croissance mondiale ne tient qu&#x27;à un fil</a></td>
-      <td class="col-question">❓ Alors que la guerre en Iran a fait grimper le baril à plus de 100 dollars cet été et laisse le dét…</td>
-      <td class="col-eval"><span class="eval-pct">55%</span> Stable</td>
-      <td class="col-france">Rien ne change vraiment pour les ménages français : la Banque de France (0,5 % de croissance prévue)…</td>
       <td class="col-domain">Économie & entreprises</td>
+      <td class="col-title"><a href="archives/2026-08-10.html">La croissance mondiale ne tient qu&#x27;à un fil</a> <a href="en/archives/2026-08-10.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">55%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">09.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-09.html">Musique IA : la note grimpe à 9 milliards</a></td>
-      <td class="col-question">❓ Alors que Sony réclame jusqu&#x27;à 9 milliards de dollars à Suno devant la justice américaine pendant …</td>
-      <td class="col-eval"><span class="eval-pct">55%</span> Stable</td>
-      <td class="col-france">Aucun grand changement pour les artistes et labels français dans l&#x27;immédiat : ni les nouveaux revenu…</td>
       <td class="col-domain">Culture & divertissement</td>
+      <td class="col-title"><a href="archives/2026-08-09.html">Musique IA : la note grimpe à 9 milliards</a> <a href="en/archives/2026-08-09.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">55%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge france-favorable">Favorable</span></td>
     </tr>
     <tr>
       <td class="col-date">08.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-08.html">Le cinéma reprend des couleurs</a></td>
-      <td class="col-question">❓ Après une chute historique de la fréquentation en 2025 (-13,6 %, plus bas niveau depuis 1997 hors …</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Ni vraie amélioration ni nouvelle crise pour les salles et les professionnels du secteur, qui resten…</td>
       <td class="col-domain">Culture & divertissement</td>
+      <td class="col-title"><a href="archives/2026-08-08.html">Le cinéma reprend des couleurs</a> <a href="en/archives/2026-08-08.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">07.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-07.html">Big Tech face à la justice</a></td>
-      <td class="col-question">❓ Après avoir perdu deux procès antitrust d&#x27;affilée sur son moteur de recherche et sa régie publicit…</td>
-      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
-      <td class="col-france">Rien ne change concrètement à court terme pour les entreprises françaises qui dépendent de la public…</td>
       <td class="col-domain">Tech & numérique</td>
+      <td class="col-title"><a href="archives/2026-08-07.html">Big Tech face à la justice</a> <a href="en/archives/2026-08-07.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">50%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">06.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-06.html">FIFA : la présidence d&#x27;Infantino vacille</a></td>
-      <td class="col-question">❓ Après avoir dû abandonner en catastrophe son projet de vendre un bout de la Coupe du monde à des i…</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Rien ne change dans l&#x27;immédiat pour les compétitions déjà prévues, mais la FFF — qui dit avoir décou…</td>
       <td class="col-domain">Politique & institutions</td>
+      <td class="col-title"><a href="archives/2026-08-06.html">FIFA : la présidence d&#x27;Infantino vacille</a> <a href="en/archives/2026-08-06.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">05.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-05.html">EPR2 : le nucléaire français à l&#x27;heure de vérité</a></td>
-      <td class="col-question">❓ Six nouveaux réacteurs nucléaires à 83 milliards d&#x27;euros, une enquête de Bruxelles sur les aides v…</td>
-      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
-      <td class="col-france">Le flou financier se prolonge mais sans choc immédiat sur les factures : la trajectoire du VNU reste…</td>
       <td class="col-domain">Sciences & environnement</td>
+      <td class="col-title"><a href="archives/2026-08-05.html">EPR2 : le nucléaire français à l&#x27;heure de vérité</a> <a href="en/archives/2026-08-05.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">50%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">04.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-04.html">Gaza : la paix qui reste sur le papier</a></td>
-      <td class="col-question">❓ Après près de deux ans de guerre et au moins 73 350 morts, le Hamas a accepté le 31 juillet de ren…</td>
-      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
-      <td class="col-france">Le statu quo prolonge les tensions politiques et les manifestations liées au conflit, sans impact di…</td>
       <td class="col-domain">International</td>
+      <td class="col-title"><a href="archives/2026-08-04.html">Gaza : la paix qui reste sur le papier</a> <a href="en/archives/2026-08-04.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">50%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">03.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-03.html">Ceuta : la frontière qui a craqué</a></td>
-      <td class="col-question">❓ Depuis jeudi, 60 000 personnes ont franchi la frontière entre le Maroc et l&#x27;enclave espagnole de C…</td>
-      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
-      <td class="col-france">Les contrôles renforcés à la frontière espagnole restent en place, avec un peu plus d&#x27;attente aux po…</td>
       <td class="col-domain">International</td>
+      <td class="col-title"><a href="archives/2026-08-03.html">Ceuta : la frontière qui a craqué</a> <a href="en/archives/2026-08-03.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">50%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">02.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-02.html">Streaming : payer plus, avoir moins ?</a></td>
-      <td class="col-question">❓ Netflix a augmenté son abonnement standard de 2 dollars en mars, Disney+ jusqu&#x27;à 3 dollars, et il …</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Rien ne change vraiment pour les abonnés français : les prix des grandes plateformes continuent d&#x27;au…</td>
       <td class="col-domain">Culture & divertissement</td>
+      <td class="col-title"><a href="archives/2026-08-02.html">Streaming : payer plus, avoir moins ?</a> <a href="en/archives/2026-08-02.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">01.08.2026</td>
-      <td class="col-title"><a href="archives/2026-08-01.html">Musique : l&#x27;IA a-t-elle déjà gagné ?</a></td>
-      <td class="col-question">❓ Alors que plus de la moitié des nouveaux titres envoyés chaque jour à Deezer sont désormais entièr…</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Aucun grand changement dans l&#x27;immédiat pour les artistes français : ni protection nouvelle, ni effon…</td>
       <td class="col-domain">Culture & divertissement</td>
+      <td class="col-title"><a href="archives/2026-08-01.html">Musique : l&#x27;IA a-t-elle déjà gagné ?</a> <a href="en/archives/2026-08-01.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">31.07.2026</td>
-      <td class="col-title"><a href="archives/2026-07-31.html">Méga-feux : la France est-elle prête pour la suite ?</a></td>
-      <td class="col-question">❓ Après l&#x27;été le plus dévastateur en vingt ans, la France va-t-elle enfin construire un vrai plan co…</td>
-      <td class="col-eval"><span class="eval-pct">47%</span> Stable</td>
-      <td class="col-france">Ni vraie amélioration ni aggravation nette : les étés à risque continuent d&#x27;obliger le Sud-Ouest à é…</td>
       <td class="col-domain">Sciences & environnement</td>
+      <td class="col-title"><a href="archives/2026-07-31.html">Méga-feux : la France est-elle prête pour la suite ?</a> <a href="en/archives/2026-07-31.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">47%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">30.07.2026</td>
-      <td class="col-title"><a href="archives/2026-07-30.html">Golf, foot, boxe : l&#x27;Arabie saoudite se retire-t-elle du sport ?</a></td>
-      <td class="col-question">❓ Après avoir dépensé des dizaines de milliards dans le sport mondial, l&#x27;Arabie saoudite est-elle en…</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Ni afflux ni fuite massive de capitaux saoudiens à court terme, mais une incertitude qui complique l…</td>
       <td class="col-domain">Économie & entreprises</td>
+      <td class="col-title"><a href="archives/2026-07-30.html">Golf, foot, boxe : l&#x27;Arabie saoudite se retire-t-elle du sport ?</a> <a href="en/archives/2026-07-30.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">29.07.2026</td>
-      <td class="col-title"><a href="archives/2026-07-29.html">Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?</a></td>
-      <td class="col-question">❓ Cet automne, le gouvernement de Sébastien Lecornu réussira-t-il à faire adopter un budget 2027, su…</td>
-      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
-      <td class="col-france">Pas de choc brutal, mais pas de soulagement : la charge de la dette — ce que l&#x27;État paie rien qu&#x27;en …</td>
       <td class="col-domain">Politique & institutions</td>
+      <td class="col-title"><a href="archives/2026-07-29.html">Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?</a> <a href="en/archives/2026-07-29.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">50%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">28.07.2026</td>
-      <td class="col-title"><a href="archives/2026-07-28.html">Milliardaires : la richesse du monde peut-elle encore se partager ?</a></td>
-      <td class="col-question">❓ Alors que la fortune des milliardaires bat record sur record — plus de 20 000 milliards de dollars…</td>
-      <td class="col-eval"><span class="eval-pct">50%</span> Stable</td>
-      <td class="col-france">Pas de choc, mais pas de détente non plus : les inégalités de patrimoine continuent de se creuser le…</td>
       <td class="col-domain">Économie & entreprises</td>
+      <td class="col-title"><a href="archives/2026-07-28.html">Milliardaires : la richesse du monde peut-elle encore se partager ?</a> <a href="en/archives/2026-07-28.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">50%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">27.07.2026</td>
-      <td class="col-title"><a href="archives/2026-07-27.html">Iran–États-Unis : les armes se taisent, l&#x27;accord reste à trouver</a></td>
-      <td class="col-question">❓ Après cinq mois de guerre et plusieurs cessez-le-feu rompus, les négociations en cours déboucheron…</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Pas de nouvelle hausse brutale, mais pas de détente non plus : les prix à la pompe restent installés…</td>
       <td class="col-domain">International</td>
+      <td class="col-title"><a href="archives/2026-07-27.html">Iran–États-Unis : les armes se taisent, l&#x27;accord reste à trouver</a> <a href="en/archives/2026-07-27.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">26.07.2026</td>
-      <td class="col-title"><a href="archives/2026-07-26.html">HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ?</a></td>
-      <td class="col-question">(question non trouvée)…</td>
-      <td class="col-eval"><span class="eval-pct">40%</span> Favorable</td>
-      <td class="col-france">HBO Max et Paramount+ pourraient à terme fusionner leurs catalogues en France, avec plus de contenu …</td>
       <td class="col-domain">Culture & divertissement</td>
+      <td class="col-title"><a href="archives/2026-07-26.html">HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ?</a> <a href="en/archives/2026-07-26.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-favorable" data-kind="favorable">
+      <span class="eval-label">Favorable</span>
+      <span class="eval-pct">40%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge france-favorable">Favorable</span></td>
     </tr>
     <tr>
       <td class="col-date">25.07.2026</td>
-      <td class="col-title"><a href="archives/2026-07-25.html">Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ?</a></td>
-      <td class="col-question">(question non trouvée)…</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Les studios français continuent de fonctionner mais sous tension permanente, avec le risque de nouve…</td>
       <td class="col-domain">Culture & divertissement</td>
+      <td class="col-title"><a href="archives/2026-07-25.html">Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ?</a> <a href="en/archives/2026-07-25.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     <tr>
       <td class="col-date">18.07.2026</td>
-      <td class="col-title"><a href="archives/2026-07-18.html">Spider-Man contre Avengers : qui va sauver le box-office Marvel ?</a></td>
-      <td class="col-question">(question non trouvée)…</td>
-      <td class="col-eval"><span class="eval-pct">45%</span> Stable</td>
-      <td class="col-france">Une fin d&#x27;année dans la moyenne pour les salles françaises, ni franc succès ni déception, sans effet…</td>
       <td class="col-domain">Culture & divertissement</td>
+      <td class="col-title"><a href="archives/2026-07-18.html">Spider-Man contre Avengers : qui va sauver le box-office Marvel ?</a> <a href="en/archives/2026-07-18.html" title="Read in English" class="lang-badge">EN</a></td>
+      <td class="col-eval"><span class="eval-badge eval-stable" data-kind="stable">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">45%</span>
+    </span></td>
+      <td class="col-france"><span class="france-badge">?</span></td>
     </tr>
     </tbody>
   </table>

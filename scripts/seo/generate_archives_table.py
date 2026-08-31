@@ -34,30 +34,47 @@ ARCHIVES_TABLE_CSS = """
   /* ---- Archives table (scripts/seo/generate_archives_table.py) ---- */
   .archives-table {
     width: 100%;
+    max-width: 1200px;
+    margin: 32px auto;
     border-collapse: collapse;
-    margin: 32px 0;
-    font-size: 0.95rem;
+    font-size: 0.90rem;
     line-height: 1.6;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .archives-table thead {
-    background: var(--surface);
+    background: linear-gradient(135deg, var(--surface-2) 0%, var(--surface) 100%);
     border-bottom: 2px solid var(--gold);
   }
 
   .archives-table th {
     padding: 14px 12px;
-    text-align: left;
-    font-weight: 600;
+    text-align: center;
+    font-weight: 700;
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.78rem;
+    font-size: 0.70rem;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     color: var(--gold);
+  }
+
+  .archives-table th:first-child,
+  .archives-table th:nth-child(2),
+  .archives-table th:nth-child(3) {
+    text-align: left;
   }
 
   .archives-table tbody tr {
     border-bottom: 1px solid var(--hairline);
+    transition: background 0.2s ease;
+  }
+
+  .archives-table tbody tr:last-child {
+    border-bottom: none;
   }
 
   .archives-table tbody tr:hover {
@@ -66,71 +83,195 @@ ARCHIVES_TABLE_CSS = """
 
   .archives-table td {
     padding: 12px;
-    vertical-align: top;
+    vertical-align: middle;
   }
 
   .archives-table .col-date {
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.85rem;
-    color: var(--paper-dim);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gold);
     white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+    text-align: center;
+  }
+
+  .archives-table .col-domain {
+    font-size: 0.75rem;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    color: var(--gold);
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    text-align: center;
+  }
+
+  .archives-table .col-title {
+    min-width: 280px;
   }
 
   .archives-table .col-title a {
     color: var(--gold);
     text-decoration: none;
     font-family: "Fraunces", serif;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
   }
 
   .archives-table .col-title a:hover {
-    text-decoration: underline;
     color: var(--paper);
+    text-decoration: underline;
   }
 
-  .archives-table .col-question {
-    font-size: 0.92rem;
-    color: var(--paper);
-    max-width: 300px;
-    font-style: italic;
+  .archives-table .lang-badge {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.65rem;
+    margin-left: 8px;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border: 1px solid var(--paper-dim);
+    padding: 3px 7px;
+    border-radius: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+  }
+
+  .archives-table .lang-badge:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+    background: rgba(218, 165, 32, 0.08);
   }
 
   .archives-table .col-eval {
-    font-size: 0.85rem;
-    color: var(--paper-dim);
+    text-align: center;
   }
 
-  .archives-table .eval-pct {
-    font-family: "JetBrains Mono", monospace;
+  .archives-table .eval-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 6px 12px;
+    border-radius: 4px;
     font-weight: 600;
-    color: var(--paper);
-    margin-right: 4px;
-  }
-
-  .archives-table .col-france {
-    font-size: 0.90rem;
-    color: var(--paper);
-    max-width: 250px;
-  }
-
-  .archives-table .col-domain {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-family: "JetBrains Mono", monospace;
-    color: var(--paper-dim);
     white-space: nowrap;
   }
 
-  @media (max-width: 768px) {
+  .archives-table .eval-badge.eval-favorable {
+    background: rgba(76, 175, 80, 0.12);
+    color: #4CAF50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+  }
+
+  .archives-table .eval-badge.eval-stable {
+    background: rgba(255, 193, 7, 0.12);
+    color: #FFC107;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+  }
+
+  .archives-table .eval-badge.eval-degrade {
+    background: rgba(244, 67, 54, 0.12);
+    color: #F44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+  }
+
+  .archives-table .eval-label {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .archives-table .eval-pct {
+    font-weight: 700;
+    font-size: 0.75rem;
+  }
+
+  .archives-table .col-france {
+    text-align: center;
+  }
+
+  .archives-table .france-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    font-family: "JetBrains Mono", monospace;
+    white-space: nowrap;
+  }
+
+  .archives-table .france-badge.france-favorable {
+    background: rgba(76, 175, 80, 0.12);
+    color: #4CAF50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+  }
+
+  .archives-table .france-badge.france-stable {
+    background: rgba(255, 193, 7, 0.12);
+    color: #FFC107;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+  }
+
+  .archives-table .france-badge.france-degrade {
+    background: rgba(244, 67, 54, 0.12);
+    color: #F44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+  }
+
+  @media (max-width: 1200px) {
     .archives-table {
       font-size: 0.85rem;
     }
     .archives-table th,
     .archives-table td {
-      padding: 8px 6px;
+      padding: 10px 10px;
     }
-    .archives-table .col-question,
-    .archives-table .col-france {
+  }
+
+  @media (max-width: 768px) {
+    .archives-table {
+      font-size: 0.80rem;
+      margin: 20px auto;
+    }
+    .archives-table th,
+    .archives-table td {
+      padding: 8px;
+    }
+    .archives-table th:nth-child(4),
+    .archives-table td:nth-child(4) {
       display: none;
+    }
+    .archives-table .eval-badge,
+    .archives-table .france-badge {
+      flex-direction: column;
+      gap: 2px;
+      padding: 5px 10px;
+      font-size: 0.70rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .archives-table {
+      font-size: 0.75rem;
+      margin: 16px auto;
+    }
+    .archives-table th,
+    .archives-table td {
+      padding: 6px;
+    }
+    .archives-table .col-title a {
+      font-size: 0.85rem;
     }
   }
 """
@@ -206,6 +347,31 @@ def extract_domain(text):
     return None
 
 
+def extract_france_judgment(france_text):
+    """Extrait le jugement France Impact (Favorable/Dégradé/Stable) du texte complet.
+
+    Exemple:
+      "↓ Plutôt défavorable pour la France" → "Dégradé"
+      "↑ Plutôt favorable pour la France" → "Favorable"
+      "→ Impact stable pour la France" → "Stable"
+    """
+    if not france_text:
+        return None
+
+    # Normalise le texte
+    text_lower = france_text.lower()
+
+    # Détecte le jugement
+    if "favorable" in text_lower:
+        return "Favorable"
+    elif "défavorable" in text_lower:
+        return "Dégradé"
+    elif "stable" in text_lower:
+        return "Stable"
+
+    return None
+
+
 def get_most_probable_scenario(scenarios):
     """Retourne le scénario avec le pourcentage le plus élevé."""
     if not scenarios:
@@ -248,30 +414,61 @@ def format_date_display(iso_date):
     return f"{parts[2]}.{parts[1]}.{parts[0]}"
 
 
+def get_scenario_label(kind):
+    """Retourne le label lisible du scénario."""
+    labels = {
+        "favorable": "Favorable",
+        "stable": "Stable",
+        "degrade": "Dégradé",
+    }
+    return labels.get(kind, kind)
+
+
 def render_table_row(article):
-    """Rend une ligne du tableau."""
+    """Rend une ligne du tableau avec 5 colonnes: Date | Domaine | Titre | Notre scénario | Quel impact pour la France."""
     domain_label = DOMAIN_LABELS.get(article["domain"], article["domain"])
-    eval_str = f'{article["scenario_pct"]}%' if article["scenario_pct"] else "?"
-    kind_display = article["scenario_kind"].capitalize() if article["scenario_kind"] else "?"
 
-    question_html = (
-        html.escape(article["question"][:100])
-        if article["question"]
-        else "(question non trouvée)"
-    )
-    france_html = (
-        html.escape(article["france_impact"][:100])
-        if article["france_impact"]
-        else "(impact non trouvé)"
-    )
+    # Notre scénario : badge de couleur + % SEULEMENT (pas de texte du scénario)
+    kind = article["scenario_kind"]
+    pct = article["scenario_pct"]
 
+    if kind and pct:
+        scenario_label = get_scenario_label(kind)
+        # Badge de couleur avec SEULEMENT le label et le pourcentage
+        eval_html = f'''<span class="eval-badge eval-{kind}" data-kind="{kind}">
+      <span class="eval-label">{scenario_label}</span>
+      <span class="eval-pct">{pct}%</span>
+    </span>'''
+    else:
+        eval_html = "<span class=\"eval-badge\">?</span>"
+
+    # France Impact : badge de couleur avec SEULEMENT le jugement (pas le texte complet)
+    france_text = article["france_impact"]
+    france_judgment = extract_france_judgment(france_text)
+
+    if france_judgment:
+        # Mappe le jugement à une classe CSS compatible
+        judgment_kind = france_judgment.lower()
+        if judgment_kind == "favorable":
+            judgment_class = "france-favorable"
+        elif judgment_kind == "dégradé":
+            judgment_class = "france-degrade"
+        else:
+            judgment_class = "france-stable"
+        france_html = f'<span class="france-badge {judgment_class}">{france_judgment}</span>'
+    else:
+        france_html = "<span class=\"france-badge\">?</span>"
+
+    # Lien EN (toujours ajouter le badge)
+    en_link = f' <a href="en/archives/{article["iso_date"]}.html" title="Read in English" class="lang-badge">EN</a>'
+
+    # Ordre simplifiée : Date | Domaine | Titre | Notre scénario | Quel impact pour la France
     return f"""    <tr>
       <td class="col-date">{format_date_display(article["iso_date"])}</td>
-      <td class="col-title"><a href="archives/{article["iso_date"]}.html">{html.escape(article["title"])}</a></td>
-      <td class="col-question">{question_html}…</td>
-      <td class="col-eval"><span class="eval-pct">{eval_str}</span> {kind_display}</td>
-      <td class="col-france">{france_html}…</td>
       <td class="col-domain">{domain_label}</td>
+      <td class="col-title"><a href="archives/{article["iso_date"]}.html">{html.escape(article["title"])}</a>{en_link}</td>
+      <td class="col-eval">{eval_html}</td>
+      <td class="col-france">{france_html}</td>
     </tr>"""
 
 
@@ -308,11 +505,10 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
     <thead>
       <tr>
         <th style="width: 80px;">Date</th>
-        <th style="width: 250px;">Titre</th>
-        <th style="width: 300px;">Problématique</th>
-        <th style="width: 120px;">Évaluation</th>
-        <th style="width: 250px;">France Impact</th>
-        <th style="width: 150px;">Domaine</th>
+        <th style="width: 140px;">Domaine</th>
+        <th style="flex: 1; min-width: 300px;">Titre</th>
+        <th style="width: 140px;">Notre scénario</th>
+        <th style="width: 140px;">Quel impact pour la France</th>
       </tr>
     </thead>
     <tbody>
