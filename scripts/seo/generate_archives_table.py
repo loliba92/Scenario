@@ -903,7 +903,7 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
   <div class="wrap">
     <p class="eyebrow">Archives</p>
     <h1>Toutes les éditions</h1>
-    <p class="dek">{len(articles)} éditions de Scénario — chacune analyse un sujet d'actualité avec 3 scénarios chiffrés : favorable, stable, dégradé. Cliquez sur le titre pour voir l'analyse complète.</p>
+    <p class="dek">Nos précédentes éditions de Scénario — chacune analyse un sujet d'actualité avec 3 scénarios chiffrés : favorable, stable, dégradé. Cliquez sur le titre pour voir l'analyse complète.</p>
   </div>
 </section>
 
