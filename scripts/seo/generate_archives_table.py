@@ -145,8 +145,11 @@ ARCHIVES_TABLE_CSS = """
     text-decoration: underline;
   }
 
-  /* Lien EN : simple texte discret, pas un badge encadré */
+  /* Lien EN : simple texte discret + petite flèche, pas un badge encadré */
   .archives-table .lang-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2px;
     font-family: "JetBrains Mono", monospace;
     font-size: 0.65rem;
     color: var(--paper-dim);
@@ -595,7 +598,7 @@ def render_table_row(article):
         france_html = "<span class=\"france-badge\">?</span>"
 
     # Lien EN : lien texte discret, pas un badge encadré
-    en_link = f'<a href="en/archives/{article["iso_date"]}.html" title="Read in English" class="lang-link">EN</a>'
+    en_link = f'<a href="en/archives/{article["iso_date"]}.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>'
 
     # data-label sur chaque <td> : utilisé par la vue carte mobile (voir CSS @media)
     # Ordre : Date puis Titre en premier (les 2 repères de nav), puis Domaine, puis les 2 badges
