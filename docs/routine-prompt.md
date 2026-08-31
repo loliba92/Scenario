@@ -587,6 +587,12 @@ Simple journal, pas une évaluation — ne rien écrire de plus. Ne jamais touch
     - `{h1 du jour}` = le même texte que `headline` dans le JSON-LD `NewsArticle` de l'archive concernée, jamais reformulé.
     - Le fichier ne concerne que l'édition française quotidienne — pas les `hebdo/`, `suivi/`, ni les pages EN (`docs/routine-en-prompt.md` a son propre besoin le cas échéant, non couvert ici).
 
+**Pages thématiques (`themes/*.html`) — geste hebdomadaire, pas une étape de cette routine quotidienne** [retiré du quotidien le 31 août 2026, retour utilisateur : « il faut alléger nos routines », site statique donc chaque étape en plus coûte cher à maintenir sur la durée]. Un décalage de quelques jours entre une édition taguée et son apparition sur `themes/*.html` n'a aucun effet visible, ni pour un lecteur ni pour Google — pas besoin de le faire à chaque édition. Une fois par semaine environ (ou avant une pause), relancer :
+```bash
+python3 scripts/seo/generate_theme_pages.py
+```
+depuis la racine du dépôt, puis committer les fichiers `themes/*.html` que `git status` montre comme modifiés (souvent 1 ou 2 des 6, pas les 6 à chaque fois — le script ne réécrit que les pages dont la liste d'articles a changé). **Ne jamais éditer un fichier `themes/*.html` à la main.** Si un nouveau tag thématique rejoint un des 6 domaines couverts (voir `docs/tags.md` §2), mettre à jour la table `DOMAINS` en tête du script en même temps que le tableau `themeDomains` du script inline d'`archives.html`.
+
 8. Mettre à jour `feed.xml` : nouvel `<item>` en haut (avant les précédents, jamais supprimés) :
 ```xml
 <item>

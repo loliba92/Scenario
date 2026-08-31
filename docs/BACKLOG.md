@@ -4497,6 +4497,44 @@ mardi participatif en dépendrait probablement.
   réutilisables pour des pages thématiques, filtre
   `archives.html?tag=X` déjà en place comme brique de départ pour le
   maillage.
+  **[FAIT le 31 août — volet « pages thématiques / maillage interne »]**
+  Le filtre `archives.html?tag=X` ne produit aucune URL crawlable par
+  Google (JS pur, même adresse) — ajouté en complément : 6 pages
+  statiques crawlables sous `themes/{slug}.html`, une par "domaine" de
+  `docs/tags.md` §2 (regroupement déjà utilisé par le panneau "Détail par
+  domaine" d'`archives.html`), chacune listant avec un vrai lien `<a>`
+  tous les articles du domaine — c'est ça le maillage interne. Générées
+  par `scripts/seo/generate_theme_pages.py` (idempotent). **[AJUSTÉ le
+  31 août, retour utilisateur : « il faut alléger nos routines »]**
+  D'abord branché à la routine quotidienne (étape 7ter), puis ressorti le
+  jour même : geste hebdomadaire documenté dans `docs/routine-prompt.md`,
+  pas une étape quotidienne obligatoire de plus — aucun effet visible
+  côté lecteur ou Google à un décalage de quelques jours.
+  Seuls les domaines avec ≥ 8 articles retenus (Économie & entreprises,
+  International, Sciences & environnement, Culture & divertissement,
+  Politique & institutions, Tech & numérique) — `Société` et `Sport &
+  argent` exclus, trop peu d'articles (contenu "thin"). Découverte via un
+  nouveau bloc "Explorer par thème" sur `archives.html` (additif, ne
+  touche pas au filtre JS existant ni au nav commun `.topnav`/
+  `docs/routine-prompt.md`, même précédent que `guide-pedagogique.html`
+  plus haut). Les 6 URLs ajoutées à `sitemap.xml`. Pages en français
+  uniquement, pas de `en/themes/` — cohérent avec le MVP anglais qui ne
+  traduit pas encore les pages statiques secondaires (voir
+  `docs/strategie-anglais.md`). **Volet "titres SEO" de ce ticket
+  toujours ouvert** (pas traité aujourd'hui).
+  **Pages thématiques en anglais (`en/themes/`) — question posée le
+  31 août, pas retenue pour l'instant.** Vérifié avant de trancher : sur
+  les 5 articles déjà traduits (`en/archives/`), la répartition par
+  domaine est bien trop pauvre pour justifier une page (Culture &
+  divertissement : 4, Économie & entreprises : 2, International : 1,
+  les 3 autres domaines à 0) — on retomberait exactement dans le
+  contenu "thin" qu'on a évité côté français avec le seuil ≥ 8. Cohérent
+  aussi avec `docs/strategie-anglais.md` (pages statiques secondaires
+  non traduites tant que l'audience anglaise n'est pas confirmée). **À
+  revisiter au plus tôt le 15 septembre 2026**, en même temps que le
+  check Google Actualités déjà posé sur `en/` — si l'audience anglaise
+  se confirme à ce moment-là, retraiter ensemble "traduire plus
+  d'articles" et "pages thématiques EN", pas l'un sans l'autre.
 - **P2 → dépriorisé le 27 août (retour utilisateur : « pas urgent
   ça ») — Vote sur site, puis mardi participatif.** Reste ouvert, mais
   plus sur la liste des prochains chantiers pour l'instant : ne pas

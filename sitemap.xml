@@ -67,6 +67,42 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://lesscenarios.fr/themes/economie-entreprises.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://lesscenarios.fr/themes/international.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://lesscenarios.fr/themes/sciences-environnement.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://lesscenarios.fr/themes/culture-divertissement.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://lesscenarios.fr/themes/politique-institutions.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://lesscenarios.fr/themes/tech-numerique.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://lesscenarios.fr/newsletter.html</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
