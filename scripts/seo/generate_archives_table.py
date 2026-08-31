@@ -776,7 +776,10 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
     # d'intérêt. Le filtrage lui-même est un petit JS vanilla (voir plus bas),
     # même pattern que le filtre de glossaire.html (.filter-chip/.is-active).
     scenario_labels = {"favorable": "Favorable", "stable": "Stable", "degrade": "Dégradé"}
-    france_group_labels = {"favorable": "Favorable", "neutre": "Neutre", "degrade": "Dégradé"}
+    # Labels volontairement différents de "Notre scénario" (favorable/stable/dégradé)
+    # pour éviter l'ambiguïté : ici on filtre un effet (positif/neutre/négatif),
+    # pas un scénario — même si les valeurs data-filter internes restent identiques.
+    france_group_labels = {"favorable": "Plutôt positif", "neutre": "Neutre", "degrade": "Négatif"}
 
     def chip_group(group_id, label, values_present, value_labels, ordered_values):
         chips = ['<button type="button" class="filter-chip is-active" data-filter="all">Tous</button>']
