@@ -49,5 +49,12 @@
     "photographer": "Nikola Tomašić",
     "pexels_url": "https://www.pexels.com/fr-fr/photo/nature-foret-arbres-profond-17032447/",
     "query": "forêt neutre, hors registre — pour posts sans lien avec un jour/domaine précis (ex. remerciements, annonces ponctuelles)"
+  },
+  {
+    "file": "vision-avenir.jpg",
+    "photographer": "Bráulio jardim",
+    "pexels_url": "https://www.pexels.com/photo/wind-turbines-on-the-horizon-at-sunrise-24866722/",
+    "query": "sunrise horizon future vision landscape",
+    "note": "Photo de fond du hero sur le-projet.html — éoliennes offshore au lever du soleil, ajoutée le 31 août 2026, retour utilisateur : une image tournée vers le futur pour la page qui présente le projet."
   }
 ]

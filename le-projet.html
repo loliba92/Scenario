@@ -435,6 +435,36 @@
     padding-top: 12px;
     border-top: 1px dashed var(--hairline);
   }
+
+  /* ---- Hero avec photo de fond [AJOUTÉ le 31 août 2026, retour utilisateur :
+     une image tournée vers le futur, "pour rêver le projet"] — .projet-hero
+     s'ajoute à .hero partagé, ne le modifie pas, donc n'affecte aucune autre
+     page. Éoliennes offshore au lever du soleil (licence Pexels, crédit dans
+     assets/social/pub-photos/credits.json), dégradé sombre par-dessus pour
+     garder le texte et les pastilles du sommaire lisibles. */
+  .hero.projet-hero{
+    position: relative;
+    padding: 96px 0 60px;
+    background:
+      linear-gradient(180deg, rgba(16,21,28,0.5) 0%, rgba(16,21,28,0.86) 70%, var(--ink) 100%),
+      url('assets/social/pub-photos/vision-avenir.jpg') center 60% / cover no-repeat;
+  }
+
+  .hero.projet-hero .eyebrow,
+  .hero.projet-hero h1,
+  .hero.projet-hero .dek{
+    position: relative;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero.projet-hero .toc a{
+    background: rgba(16,21,28,0.55);
+    border-color: rgba(169,168,156,0.4);
+  }
+
+  @media (max-width: 600px){
+    .hero.projet-hero{ padding: 64px 0 44px; }
+  }
 </style>
 </head>
 <body>
@@ -463,7 +493,7 @@
   </div>
 </nav>
 
-<section class="hero">
+<section class="hero projet-hero">
   <div class="wrap">
     <p class="eyebrow">Le projet</p>
     <h1>Qu'est-ce que Scéna<span class="brand-rio">rio</span> ?</h1>
