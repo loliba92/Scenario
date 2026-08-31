@@ -14,6 +14,7 @@ from collections import defaultdict
 
 ROOT = Path(__file__).resolve().parents[2]
 ARCHIVES_DIR = ROOT / "archives"
+FRAGMENTS_DIR = ROOT / "archives" / "fragments"
 GLOSSAIRE_HTML = ROOT / "glossaire.html"
 ARCHIVES_HTML = ROOT / "archives.html"
 SITE_URL = "https://lesscenarios.fr"
@@ -135,6 +136,25 @@ ARCHIVES_TABLE_CSS = """
     min-width: 300px;
   }
 
+  .archives-table .col-scenarios {
+    font-size: 0.86rem;
+    color: var(--paper);
+    min-width: 350px;
+  }
+
+  .archives-table .scenario-short {
+    margin: 6px 0;
+    line-height: 1.4;
+  }
+
+  .archives-table .scenario-short:first-child {
+    margin-top: 0;
+  }
+
+  .archives-table .scenario-short:last-child {
+    margin-bottom: 0;
+  }
+
   .archives-table .col-domain {
     font-size: 0.80rem;
     font-family: "JetBrains Mono", monospace;
@@ -239,6 +259,25 @@ def extract_domain(text):
     return None
 
 
+def extract_scenario_texts(iso_date):
+    """Extrait les 3 phrases courtes des scénarios du fragment."""
+    fragment_path = FRAGMENTS_DIR / f"{iso_date}.html"
+    if not fragment_path.exists():
+        return None, None, None
+
+    text = fragment_path.read_text(encoding="utf-8")
+    # Extrait les 3 scenario-mini-text
+    matches = re.findall(r'<p class="scenario-mini-text">([^<]+)</p>', text)
+
+    if len(matches) >= 3:
+        return (
+            html.unescape(matches[0]),
+            html.unescape(matches[1]),
+            html.unescape(matches[2])
+        )
+    return None, None, None
+
+
 def get_most_probable_scenario(scenarios):
     """Retourne le scénario avec le pourcentage le plus élevé."""
     if not scenarios:
@@ -267,6 +306,9 @@ def parse_article(file_path):
     # Extrait france_impact du scénario le plus probable
     france_impact = extract_france_impact(text, kind) if kind else None
 
+    # Extrait les 3 phrases courtes des scénarios depuis le fragment
+    scenario_text_1, scenario_text_2, scenario_text_3 = extract_scenario_texts(iso_date)
+
     return {
         "iso_date": iso_date,
         "title": title,
@@ -276,6 +318,9 @@ def parse_article(file_path):
         "scenario_title": scenario_title,
         "france_impact": france_impact,
         "domain": domain,
+        "scenario_text_1": scenario_text_1,
+        "scenario_text_2": scenario_text_2,
+        "scenario_text_3": scenario_text_3,
     }
 
 
@@ -314,12 +359,23 @@ def render_table_row(article):
     # Lien EN (toujours ajouter le badge)
     en_link = f' <a href="en/archives/{article["iso_date"]}.html" title="Read in English" class="lang-badge">EN</a>'
 
+    # Les 3 phrases courtes des scénarios
+    scenarios_html = ""
+    if article["scenario_text_1"] or article["scenario_text_2"] or article["scenario_text_3"]:
+        scenarios_html = """
+      <div class="col-scenarios">
+        <p class="scenario-short">🟢 """ + html.escape(article["scenario_text_1"]) + """</p>
+        <p class="scenario-short">🔵 """ + html.escape(article["scenario_text_2"]) + """</p>
+        <p class="scenario-short">🔴 """ + html.escape(article["scenario_text_3"]) + """</p>
+      </div>"""
+
     return f"""    <tr>
       <td class="col-date">{format_date_display(article["iso_date"])}</td>
       <td class="col-title"><a href="archives/{article["iso_date"]}.html">{html.escape(article["title"])}</a>{en_link}</td>
       <td class="col-question">{question_html}</td>
       <td class="col-eval">{eval_html}</td>
       <td class="col-france">{france_html}</td>
+      <td class="col-scenarios">{scenarios_html.strip() if scenarios_html else "(scénarios non trouvés)"}</td>
       <td class="col-domain">{domain_label}</td>
     </tr>"""
 
@@ -361,6 +417,7 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
         <th style="width: 300px;">Problématique</th>
         <th style="width: 120px;">Évaluation</th>
         <th style="width: 250px;">France Impact</th>
+        <th style="width: 350px;">Les 3 scénarios</th>
         <th style="width: 150px;">Domaine</th>
       </tr>
     </thead>
@@ -429,7 +486,7 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
   <div class="wrap">
     <p class="eyebrow">Archives</p>
     <h1>Toutes les éditions</h1>
-    <p class="dek">{len(articles)} éditions de Scénario — chacune analyse un sujet d'actualité avec 3 scénarios chiffrés : favorable, stable, dégradé. Cliquez sur le titre pour voir l'analyse complète.</p>
+    <p class="dek">Retrouvez toutes nos analyses de l'actualité avec 3 scénarios chiffrés : favorable, stable, dégradé. Cliquez sur le titre pour voir l'analyse complète.</p>
   </div>
 </section>
 
