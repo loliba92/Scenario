@@ -36,8 +36,8 @@ ARCHIVES_TABLE_CSS = """
     width: 100%;
     border-collapse: collapse;
     margin: 32px 0;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.90rem;
+    line-height: 1.5;
   }
 
   .archives-table thead {
@@ -46,11 +46,11 @@ ARCHIVES_TABLE_CSS = """
   }
 
   .archives-table th {
-    padding: 14px 12px;
+    padding: 12px;
     text-align: left;
     font-weight: 600;
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--gold);
@@ -65,15 +65,20 @@ ARCHIVES_TABLE_CSS = """
   }
 
   .archives-table td {
-    padding: 12px;
+    padding: 10px 12px;
     vertical-align: top;
   }
 
   .archives-table .col-date {
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.85rem;
+    font-size: 0.80rem;
     color: var(--paper-dim);
     white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .archives-table .col-title {
+    min-width: 200px;
   }
 
   .archives-table .col-title a {
@@ -88,45 +93,73 @@ ARCHIVES_TABLE_CSS = """
     color: var(--paper);
   }
 
-  .archives-table .col-question {
-    font-size: 0.92rem;
+  .archives-table .lang-badge {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.70rem;
+    margin-left: 8px;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border: 1px solid var(--paper-dim);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  .archives-table .lang-badge:hover {
     color: var(--paper);
-    max-width: 300px;
+    border-color: var(--paper);
+  }
+
+  .archives-table .col-question {
+    font-size: 0.88rem;
+    color: var(--paper);
     font-style: italic;
+    min-width: 300px;
   }
 
   .archives-table .col-eval {
-    font-size: 0.85rem;
-    color: var(--paper-dim);
+    font-size: 0.88rem;
+    color: var(--paper);
+    min-width: 250px;
   }
 
   .archives-table .eval-pct {
     font-family: "JetBrains Mono", monospace;
     font-weight: 600;
-    color: var(--paper);
-    margin-right: 4px;
+    color: var(--gold);
+    margin-right: 6px;
   }
 
   .archives-table .col-france {
-    font-size: 0.90rem;
+    font-size: 0.88rem;
     color: var(--paper);
-    max-width: 250px;
+    min-width: 300px;
   }
 
   .archives-table .col-domain {
-    font-size: 0.85rem;
+    font-size: 0.80rem;
     font-family: "JetBrains Mono", monospace;
     color: var(--paper-dim);
     white-space: nowrap;
+    flex-shrink: 0;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     .archives-table {
       font-size: 0.85rem;
     }
     .archives-table th,
     .archives-table td {
-      padding: 8px 6px;
+      padding: 8px 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .archives-table {
+      font-size: 0.80rem;
+    }
+    .archives-table th,
+    .archives-table td {
+      padding: 6px 8px;
     }
     .archives-table .col-question,
     .archives-table .col-france {
@@ -224,9 +257,12 @@ def parse_article(file_path):
     scenarios = extract_scenarios(text)
     domain = extract_domain(text)
 
-    # Extrait le scénario le plus probable
-    best_scenario = get_most_probable_scenario(scenarios)
-    kind, pct = best_scenario if best_scenario[0] else (None, None)
+    # Extrait le scénario le plus probable (avec titre)
+    if scenarios:
+        best = max(scenarios, key=lambda x: x[1])
+        kind, pct, scenario_title = best
+    else:
+        kind, pct, scenario_title = None, None, None
 
     # Extrait france_impact du scénario le plus probable
     france_impact = extract_france_impact(text, kind) if kind else None
@@ -237,6 +273,7 @@ def parse_article(file_path):
         "question": question,
         "scenario_kind": kind,
         "scenario_pct": pct,
+        "scenario_title": scenario_title,
         "france_impact": france_impact,
         "domain": domain,
     }
@@ -251,26 +288,38 @@ def format_date_display(iso_date):
 def render_table_row(article):
     """Rend une ligne du tableau."""
     domain_label = DOMAIN_LABELS.get(article["domain"], article["domain"])
-    eval_str = f'{article["scenario_pct"]}%' if article["scenario_pct"] else "?"
-    kind_display = article["scenario_kind"].capitalize() if article["scenario_kind"] else "?"
 
+    # Problématique : texte complet, pas tronqué
     question_html = (
-        html.escape(article["question"][:100])
+        html.escape(article["question"])
         if article["question"]
         else "(question non trouvée)"
     )
+
+    # Évaluation : titre complet du scénario + %
+    scenario_title = html.escape(article["scenario_title"]) if article["scenario_title"] else "?"
+    eval_html = (
+        f'<span class="eval-pct">{article["scenario_pct"]}%</span> {scenario_title}'
+        if article["scenario_pct"] and article["scenario_title"]
+        else "?"
+    )
+
+    # France Impact : texte complet, pas tronqué
     france_html = (
-        html.escape(article["france_impact"][:100])
+        html.escape(article["france_impact"])
         if article["france_impact"]
         else "(impact non trouvé)"
     )
 
+    # Lien EN (toujours ajouter le badge)
+    en_link = f' <a href="en/archives/{article["iso_date"]}.html" title="Read in English" class="lang-badge">EN</a>'
+
     return f"""    <tr>
       <td class="col-date">{format_date_display(article["iso_date"])}</td>
-      <td class="col-title"><a href="archives/{article["iso_date"]}.html">{html.escape(article["title"])}</a></td>
-      <td class="col-question">{question_html}…</td>
-      <td class="col-eval"><span class="eval-pct">{eval_str}</span> {kind_display}</td>
-      <td class="col-france">{france_html}…</td>
+      <td class="col-title"><a href="archives/{article["iso_date"]}.html">{html.escape(article["title"])}</a>{en_link}</td>
+      <td class="col-question">{question_html}</td>
+      <td class="col-eval">{eval_html}</td>
+      <td class="col-france">{france_html}</td>
       <td class="col-domain">{domain_label}</td>
     </tr>"""
 
