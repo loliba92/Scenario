@@ -334,6 +334,72 @@ Public 15-35 ans en priorité sans exclure personne : phrases directes, comparai
 1. Déterminer la date et le jour de la semaine à Paris (`TZ=Europe/Paris date`). En déduire le registre (grille étape 1). Vérifier que l'édition du jour n'a pas déjà été publiée sur `main` : si c'est le cas, s'arrêter là.
 2. Lire `index.html` actuel : gabarit de design exact à reproduire. Ne jamais changer le CSS ni la structure HTML générale — seulement le contenu texte et les valeurs. **L'ancienne bande `.top-updates` (boutons "Sujet révisé" / "Récap de la semaine" en pleine largeur juste sous la nav) a été supprimée le 29 août — ne plus jamais la reproduire.** Retour utilisateur : ces deux liens ne méritaient pas leur propre bande, ils ont rejoint la ligne `.masthead-right` (voir juste en dessous).
 
+   **[AJOUTÉ le 31 août 2026, retour utilisateur] "Archives" devient un menu déroulant vers les 6 pages thématiques + le récap hebdo — exception explicite à "ne jamais changer la structure" ci-dessus.** `index.html` actuel (au moment où cette instruction est écrite) porte encore l'ancien lien simple `<a href="archives.html">Archives</a>` dans `nav.topnav` — **ne pas le recopier tel quel**, reproduire plutôt le bloc ci-dessous à la place. Une fois que cette instruction aura été appliquée une première fois (et que `index.html` portera donc la nouvelle version), cette note devient caduque et l'étape 2 reprend son fonctionnement normal (recopier `index.html` actuel). **Portée volontairement limitée aux nouvelles pages** (retour utilisateur, 31 août : pas de rétrofit des 76 pages déjà publiées — archives passées, `hebdo/`, `suivi/`, pages statiques — qui gardent leur nav actuelle sans dropdown, aucune incohérence bloquante, juste transitoire).
+
+   Remplacer le lien `Archives` par un bouton qui déplie un panneau juste sous la nav (7 liens : toutes les archives, les 6 domaines, le récap hebdo) :
+   ```html
+   <button type="button" class="topnav-archives" aria-expanded="false" aria-controls="topnav-archives-panel"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4.5" width="16" height="4" rx="1"/><path d="M5 8.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5"/><line x1="10" y1="13" x2="14" y2="13"/></svg> Archives <span class="topnav-archives-icon" aria-hidden="true">▾</span></button>
+   ```
+   Juste avant `</nav>` (donc après le `</div>` qui ferme `.wrap` du nav, toujours à l'intérieur de `<nav class="topnav">`) :
+   ```html
+     <div class="topnav-archives-panel" id="topnav-archives-panel" hidden>
+       <div class="wrap">
+         <a href="archives.html">Toutes les archives →</a>
+         <a href="themes/economie-entreprises.html">Économie &amp; entreprises</a>
+         <a href="themes/international.html">International</a>
+         <a href="themes/sciences-environnement.html">Sciences &amp; environnement</a>
+         <a href="themes/culture-divertissement.html">Culture &amp; divertissement</a>
+         <a href="themes/politique-institutions.html">Politique &amp; institutions</a>
+         <a href="themes/tech-numerique.html">Tech &amp; numérique</a>
+         <a href="hebdo/{dernier AAAA-MM-JJ du dimanche publié}.html">Récap de la semaine</a>
+       </div>
+     </div>
+   ```
+   **Le lien "Récap de la semaine" suit la même règle que son équivalent dans `.masthead-right`** (voir juste en dessous) : pointe vers le dernier `hebdo/{date}.html` publié, mise à jour manuelle séparée, jamais recalculée par cette routine. CSS à ajouter dans le `<style>` du gabarit (une seule fois, puis fait partie du bloc à recopier intégralement comme le reste) :
+   ```css
+   .topnav-archives{
+     display: inline-flex; align-items: center; gap: 6px;
+     font-family: "JetBrains Mono", monospace; font-size: 0.76rem;
+     text-transform: uppercase; letter-spacing: 0.08em;
+     color: var(--paper-dim); background: none; border: none;
+     border-bottom: 1px solid transparent; padding: 0 0 2px;
+     cursor: pointer; flex-shrink: 0;
+   }
+   .topnav-archives:hover{ color: var(--paper); }
+   .topnav-archives svg{ display: block; flex-shrink: 0; }
+   .topnav-archives-icon{ display: inline-block; transition: transform .2s ease; }
+   .topnav-archives[aria-expanded="true"] .topnav-archives-icon{ transform: rotate(180deg); }
+   .topnav-archives[aria-expanded="true"]{ color: var(--gold); border-bottom-color: var(--gold); }
+   .topnav-archives-panel{ display: none; background: var(--surface-2); border-bottom: 1px solid var(--hairline); }
+   .topnav-archives-panel.is-open{ display: block; }
+   .topnav-archives-panel .wrap{ display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 12px 24px; }
+   .topnav-archives-panel a{
+     font-family: "JetBrains Mono", monospace; font-size: 0.72rem;
+     text-transform: uppercase; letter-spacing: 0.05em;
+     color: var(--paper-dim); text-decoration: none;
+     border-bottom: 1px dotted transparent;
+   }
+   .topnav-archives-panel a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
+   .topnav-archives-panel a:first-child{ color: var(--gold); }
+   ```
+   Et ce `<script>` juste avant le script GoatCounter en bas de page (une seule fois, puis fait partie du bloc à recopier) :
+   ```html
+   <script>
+     (function(){
+       var btn = document.querySelector('.topnav-archives');
+       var panel = document.getElementById('topnav-archives-panel');
+       if(!btn || !panel){ return; }
+       btn.addEventListener('click', function(){
+         var open = panel.classList.toggle('is-open');
+         panel.hidden = !open;
+         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+       });
+     })();
+   </script>
+   ```
+   **Changement de comportement assumé** : cliquer sur "Archives" n'emmène plus directement sur `archives.html` (il faut ouvrir le panneau puis cliquer "Toutes les archives →", 2 clics au lieu d'1) — retour utilisateur explicite, accepté en échange d'un vrai point d'entrée vers les pages thématiques depuis n'importe quelle page du site. Testé avant intégration (Playwright, capture d'écran desktop + mobile 390px) : le panneau s'ouvre bien en dessous de la nav sans être coupé par le défilement horizontal de `.topnav .wrap` (`overflow-x: auto`), car il vit en dehors de ce conteneur.
+   **Question ouverte, pas tranchée le 31 août** : le rôle et l'avenir d'`archives.html` lui-même (faut-il le restructurer, le fusionner avec les pages thématiques ?) — voir `docs/BACKLOG.md`, volet dédié. Ne pas improviser de réponse ici, cette instruction ne fait que documenter le menu déroulant.
+
    **Ligne `.masthead-right`, à droite du `.brand` logo [structure générale à reproduire telle quelle]** — regroupe, dans l'ordre, la cloche notifications (ajoutée le 21 août, 3e point d'entrée vers l'abonnement OneSignal, avec le rappel compact après "L'essentiel" et le bloc dédié en bas de page), le bouton impression, un séparateur vertical `.masthead-divider` (purement visuel, `aria-hidden`, ajouté le 29 août), puis les liens "Sujet révisé" et "Récap de la semaine" (ex-`.top-updates`, voir ci-dessus) — tous en icône seule, cercle 32px bordure or (`.masthead-notif-btn`), pour que toute la ligne tienne sur une seule ligne y compris en mobile :
    ```html
    <div class="masthead-right">
