@@ -135,6 +135,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 31.08.2026 — [Islande : après le non à l'UE, qui va la protéger ?](../archives/2026-08-31.html)
 - 30.08.2026 — [Ligue 1 : le foot français peut-il survivre à l'effondrement de ses droits TV ?](../archives/2026-08-30.html)
 - 29.08.2026 — [Cinéma mondial : peut-il survivre au streaming ?](../archives/2026-08-29.html)
 - 28.08.2026 — [Climat 2030 : la France peut-elle encore tenir parole ?](../archives/2026-08-28.html)
