@@ -1868,6 +1868,42 @@ moins prioritaire).
   - **Limite à connaître au moment de dépriorer ou reprendre ce ticket** : seulement 2 éditions ont une version anglaise à ce jour (29 et 30 août) — utilité réelle encore faible tant que la traduction n'a pas rattrapé plus d'archives, même si le mécanisme n'a besoin d'aucune table de correspondance pour rester valable une fois la couverture EN plus large.
 
 **Technique**
+- **[OUVERT le 31 août, à explorer — pas de direction tranchée] Basculer
+  petit à petit d'un site statique "à la main" vers un fonctionnement
+  type CMS.** Retour utilisateur, après une session où plusieurs
+  frictions structurelles du site statique sont apparues concrètement :
+  le nav commun (`.topnav`) dupliqué dans **76 fichiers HTML** (aucun
+  template partagé, un changement de nav = 76 fichiers à retoucher un
+  par un, ou une incohérence assumée entre anciennes et nouvelles pages
+  — vécu en direct sur le chantier "menu déroulant Archives" du même
+  jour, voir plus haut), le `<style>` CSS complet copié-collé dans
+  chaque page (~350 à ~900 lignes selon la page), et un script SEO
+  (`scripts/seo/generate_theme_pages.py`) qui doit parser le HTML
+  d'`archives.html` par regex faute de source de données structurée.
+  **Deux directions très différentes selon ce que "CMS" veut dire ici**,
+  discutées mais pas choisies :
+  - **Générateur de site statique** (type Eleventy/Astro/Hugo) : contenu
+    toujours en fichiers Git (Markdown/JSON), mais avec de vrais
+    templates réutilisables (un seul fichier de nav, un seul layout) au
+    lieu de dupliquer le HTML partout. Un build régénère tout le site en
+    HTML statique — garde le workflow actuel (routine/IA édite des
+    fichiers, commit Git, hébergement gratuit GitHub Pages inchangé),
+    migration envisageable progressivement (page par page).
+  - **Vrai CMS** (headless type Sanity/Contentful, ou classique type
+    WordPress) : base de données + interface web d'édition. Implique un
+    hébergement différent (probablement payant), et une refonte complète
+    de la routine de publication actuelle qui repose entièrement sur des
+    fichiers Git versionnés — pas une migration progressive mais plutôt
+    un basculement global.
+  **Rien commencé aujourd'hui, volontairement** — décision explicite de
+  l'utilisateur de ne pas trancher la direction sans avoir creusé
+  davantage, et une bascule d'architecture n'est de toute façon pas
+  quelque chose à improviser dans une session déjà chargée d'autres
+  changements. À reprendre dans une session dédiée : commencer par
+  clarifier laquelle des deux directions ci-dessus correspond au besoin
+  réel (qui édite le contenu — toujours l'IA via Git, ou potentiellement
+  un humain via une interface web ?) avant d'évaluer des outils
+  spécifiques.
 - **[FAIT le 14 août] `.list-box` survit à la copie quotidienne du
   gabarit sur une édition qui n'en a pas besoin — confirmé sur 2 jours.**
   Contexte complet dans la section « Encart liste (`.list-box`) » plus
