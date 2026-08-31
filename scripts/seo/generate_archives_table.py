@@ -234,9 +234,15 @@ ARCHIVES_TABLE_CSS = """
 
   /* Impact France : badge contour léger (donnée secondaire, pour se distinguer
      visuellement du badge "Notre scénario" en fond plein juste à côté), avec
-     un dégradé d'intensité sur 5 niveaux qui reflète l'espérance pondérée des
-     3 scénarios (pas juste le jugement du plus probable) : nettement favorable
-     → plutôt favorable → neutre → plutôt défavorable → nettement défavorable. */
+     un dégradé d'intensité sur 7 niveaux qui reflète l'espérance pondérée des
+     3 scénarios (voir FRANCE_ESPERANCE_SCALE) : extrêmement → très → plutôt →
+     neutre → plutôt → très → extrêmement. */
+  .archives-table .france-badge.esp-favorable-extreme {
+    background: #5e9c78;
+    color: #10151c;
+    border: 1.5px solid #5e9c78;
+  }
+
   .archives-table .france-badge.esp-favorable-fort {
     background: rgba(94, 156, 120, 0.16);
     color: #5e9c78;
@@ -264,6 +270,12 @@ ARCHIVES_TABLE_CSS = """
   .archives-table .france-badge.esp-degrade-fort {
     background: rgba(189, 98, 72, 0.16);
     color: #bd6248;
+    border: 1.5px solid #bd6248;
+  }
+
+  .archives-table .france-badge.esp-degrade-extreme {
+    background: #bd6248;
+    color: #10151c;
     border: 1.5px solid #bd6248;
   }
 
@@ -462,23 +474,32 @@ def compute_france_esperance(scenarios):
     )
 
 
+# Barème officiel de l'espérance France Impact — SOURCE UNIQUE, documentée
+# dans docs/routine-prompt.md (garder les deux synchronisés si ce barème change).
+# Seuils décroissants ; le premier seuil <= value l'emporte.
+FRANCE_ESPERANCE_SCALE = [
+    (0.8, "Extrêmement favorable", "esp-favorable-extreme"),
+    (0.4, "Très favorable", "esp-favorable-fort"),
+    (0.15, "Plutôt favorable", "esp-favorable"),
+    (-0.15, "Neutre", "esp-neutre"),
+    (-0.4, "Plutôt défavorable", "esp-degrade"),
+    (-0.8, "Très défavorable", "esp-degrade-fort"),
+    (float("-inf"), "Extrêmement défavorable", "esp-degrade-extreme"),
+]
+
+
 def label_esperance(value):
     """Mappe l'espérance (float dans [-1, 1]) à un label nuancé + une classe CSS.
 
-    Échelle à 5 niveaux calibrée sur la distribution réelle observée (-0.6 à +0.5) :
-    seuils à ±0.15 (neutre) et ±0.4 (nettement).
+    Applique FRANCE_ESPERANCE_SCALE (7 niveaux symétriques : extrêmement / très /
+    plutôt / neutre / plutôt / très / extrêmement).
     """
     if value is None:
         return None, None
-    if value >= 0.4:
-        return "Nettement favorable", "esp-favorable-fort"
-    if value >= 0.15:
-        return "Plutôt favorable", "esp-favorable"
-    if value <= -0.4:
-        return "Nettement défavorable", "esp-degrade-fort"
-    if value <= -0.15:
-        return "Plutôt défavorable", "esp-degrade"
-    return "Neutre", "esp-neutre"
+    for threshold, label, css_class in FRANCE_ESPERANCE_SCALE:
+        if value >= threshold:
+            return label, css_class
+    return None, None  # inatteignable : le dernier seuil est -inf
 
 
 def extract_domain(text):

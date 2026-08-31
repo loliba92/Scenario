@@ -584,9 +584,15 @@
 
   /* Impact France : badge contour léger (donnée secondaire, pour se distinguer
      visuellement du badge "Notre scénario" en fond plein juste à côté), avec
-     un dégradé d'intensité sur 5 niveaux qui reflète l'espérance pondérée des
-     3 scénarios (pas juste le jugement du plus probable) : nettement favorable
-     → plutôt favorable → neutre → plutôt défavorable → nettement défavorable. */
+     un dégradé d'intensité sur 7 niveaux qui reflète l'espérance pondérée des
+     3 scénarios (voir FRANCE_ESPERANCE_SCALE) : extrêmement → très → plutôt →
+     neutre → plutôt → très → extrêmement. */
+  .archives-table .france-badge.esp-favorable-extreme {
+    background: #5e9c78;
+    color: #10151c;
+    border: 1.5px solid #5e9c78;
+  }
+
   .archives-table .france-badge.esp-favorable-fort {
     background: rgba(94, 156, 120, 0.16);
     color: #5e9c78;
@@ -614,6 +620,12 @@
   .archives-table .france-badge.esp-degrade-fort {
     background: rgba(189, 98, 72, 0.16);
     color: #bd6248;
+    border: 1.5px solid #bd6248;
+  }
+
+  .archives-table .france-badge.esp-degrade-extreme {
+    background: #bd6248;
+    color: #10151c;
     border: 1.5px solid #bd6248;
   }
 
@@ -791,7 +803,7 @@
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade">Plutôt défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">30.08.2026</td>
@@ -806,7 +818,7 @@
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Très défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">29.08.2026</td>
@@ -821,7 +833,7 @@
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge esp-favorable-fort">Nettement favorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-favorable-fort">Très favorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">28.08.2026</td>
@@ -836,7 +848,7 @@
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Très défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">27.08.2026</td>
@@ -851,7 +863,7 @@
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Très défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">26.08.2026</td>
@@ -866,7 +878,7 @@
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Très défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">25.08.2026</td>
@@ -881,7 +893,7 @@
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Très défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">24.08.2026</td>
@@ -896,7 +908,7 @@
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Très défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">23.08.2026</td>
@@ -926,7 +938,7 @@
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge esp-favorable-fort">Nettement favorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-favorable-fort">Très favorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">21.08.2026</td>
@@ -941,7 +953,7 @@
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge esp-favorable-fort">Nettement favorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-favorable-fort">Très favorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">20.08.2026</td>
@@ -956,7 +968,7 @@
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Très défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">19.08.2026</td>
@@ -971,7 +983,7 @@
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Très défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">18.08.2026</td>
@@ -986,7 +998,7 @@
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Très défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">17.08.2026</td>
@@ -1001,7 +1013,7 @@
       <span class="eval-label">Dégradé</span>
       <span class="eval-pct">55%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Très défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">16.08.2026</td>
@@ -1121,7 +1133,7 @@
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge esp-favorable-fort">Nettement favorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-favorable-fort">Très favorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">08.08.2026</td>
@@ -1331,7 +1343,7 @@
       <span class="eval-label">Favorable</span>
       <span class="eval-pct">40%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Très défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">25.07.2026</td>
