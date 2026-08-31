@@ -386,6 +386,24 @@ ARCHIVES_TABLE_CSS = """
     }
   }
 
+  /* ---- Filtres (Domaine / Notre scénario / Impact France) ----
+     Réutilise .filter-row / .filter-row-label / .domain-filters / .filter-chip
+     / .is-active, déjà stylés dans le <style> partagé de glossaire.html —
+     rien à redéfinir, juste le conteneur des 3 lignes + le masquage filtré. */
+  .archives-filters {
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Le tableau (desktop) comme les cartes (mobile, tr en display:flex)
+     doivent tous deux disparaître complètement quand filtrés */
+  .archives-table tbody tr.is-hidden {
+    display: none !important;
+  }
+
   /* ---- Légende sous le tableau : explique chaque colonne ---- */
   .archives-legend {
     max-width: 1200px;
@@ -601,6 +619,16 @@ def parse_article(file_path):
     # Impact France : espérance pondérée sur les 3 scénarios, pas juste le plus probable
     esperance = compute_france_esperance(scenarios)
     france_label, france_css_class = label_esperance(esperance)
+    # Groupe large (favorable/neutre/degrade) pour le filtre — les 7 niveaux fins
+    # restent affichés sur le badge, mais 7 chips de filtre serait illisible
+    if france_css_class and france_css_class.startswith("esp-favorable"):
+        france_group = "favorable"
+    elif france_css_class and france_css_class.startswith("esp-degrade"):
+        france_group = "degrade"
+    elif france_css_class == "esp-neutre":
+        france_group = "neutre"
+    else:
+        france_group = None
 
     return {
         "iso_date": iso_date,
@@ -611,6 +639,7 @@ def parse_article(file_path):
         "france_esperance": esperance,
         "france_label": france_label,
         "france_css_class": france_css_class,
+        "france_group": france_group,
         "domain": domain,
     }
 
@@ -663,13 +692,17 @@ def render_table_row(article):
     # Lien EN : lien texte discret, pas un badge encadré
     en_link = f'<a href="en/archives/{article["iso_date"]}.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>'
 
+    # Tooltip natif au survol du titre = la problématique de l'édition
+    question_attr = f' title="{html.escape(article["question"])}"' if article["question"] else ""
+
+    # data-domain/scenario/france : lus par le JS de filtre (voir render_page)
     # data-label sur chaque <td> : utilisé par la vue carte mobile (voir CSS @media)
     # Ordre : Date puis Titre en premier (les 2 repères de nav), puis Domaine, puis les 2 badges
-    return f"""    <tr>
+    return f"""    <tr data-domain="{article["domain"] or ''}" data-scenario="{kind or ''}" data-france="{article["france_group"] or ''}">
       <td class="col-date" data-label="Date">{format_date_display(article["iso_date"])}</td>
       <td class="col-title">
         <span class="title-row">
-          <a href="archives/{article["iso_date"]}.html">{html.escape(article["title"])}</a>
+          <a href="archives/{article["iso_date"]}.html"{question_attr}>{html.escape(article["title"])}</a>
           {en_link}
         </span>
       </td>
@@ -708,7 +741,7 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
 
     # Rend le tableau
     rows_html = "\n".join(render_table_row(article) for article in articles)
-    table_html = f"""  <table class="archives-table">
+    table_html = f"""  <table class="archives-table" id="archives-table">
     <thead>
       <tr>
         <th style="width: 9%;">Date</th>
@@ -722,6 +755,76 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
 {rows_html}
     </tbody>
   </table>"""
+
+    # Filtres (Domaine / Notre scénario / Impact France) : chips générées côté
+    # Python à partir des valeurs réellement présentes dans les articles, pas
+    # d'une liste figée — un chip pour un domaine sans aucune édition n'a pas
+    # d'intérêt. Le filtrage lui-même est un petit JS vanilla (voir plus bas),
+    # même pattern que le filtre de glossaire.html (.filter-chip/.is-active).
+    scenario_labels = {"favorable": "Favorable", "stable": "Stable", "degrade": "Dégradé"}
+    france_group_labels = {"favorable": "Favorable", "neutre": "Neutre", "degrade": "Dégradé"}
+
+    def chip_group(group_id, label, values_present, value_labels, ordered_values):
+        chips = ['<button type="button" class="filter-chip is-active" data-filter="all">Tous</button>']
+        for v in ordered_values:
+            if v in values_present:
+                chips.append(
+                    f'<button type="button" class="filter-chip" data-filter="{v}">{value_labels[v]}</button>'
+                )
+        return f'''      <div class="filter-row">
+        <span class="filter-row-label">{label}</span>
+        <div class="domain-filters" id="{group_id}" data-field="{group_id.replace('-filters', '')}">
+{"".join(chips)}
+        </div>
+      </div>'''
+
+    domains_present = {a["domain"] for a in articles if a["domain"]}
+    scenarios_present = {a["scenario_kind"] for a in articles if a["scenario_kind"]}
+    france_groups_present = {a["france_group"] for a in articles if a["france_group"]}
+
+    filters_html = f"""    <div class="archives-filters">
+{chip_group("domain-filters", "Domaine", domains_present, DOMAIN_LABELS, list(DOMAIN_LABELS.keys()))}
+{chip_group("scenario-filters", "Notre scénario", scenarios_present, scenario_labels, ["favorable", "stable", "degrade"])}
+{chip_group("france-filters", "Impact France", france_groups_present, france_group_labels, ["favorable", "neutre", "degrade"])}
+      <p class="no-result" id="archives-no-result">Aucune édition ne correspond à ces filtres.</p>
+    </div>"""
+
+    filters_script = """<script>
+  (function(){
+    var table = document.getElementById('archives-table');
+    if(!table){ return; }
+    var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+    var noResult = document.getElementById('archives-no-result');
+    var active = { domain: 'all', scenario: 'all', france: 'all' };
+
+    ['domain-filters', 'scenario-filters', 'france-filters'].forEach(function(groupId){
+      var box = document.getElementById(groupId);
+      if(!box){ return; }
+      var field = box.dataset.field;
+      box.querySelectorAll('.filter-chip').forEach(function(chip){
+        chip.addEventListener('click', function(){
+          active[field] = chip.dataset.filter;
+          box.querySelectorAll('.filter-chip').forEach(function(c){
+            c.classList.toggle('is-active', c === chip);
+          });
+          apply();
+        });
+      });
+    });
+
+    function apply(){
+      var visible = 0;
+      rows.forEach(function(row){
+        var show = (active.domain === 'all' || row.dataset.domain === active.domain)
+          && (active.scenario === 'all' || row.dataset.scenario === active.scenario)
+          && (active.france === 'all' || row.dataset.france === active.france);
+        row.classList.toggle('is-hidden', !show);
+        if(show){ visible++; }
+      });
+      if(noResult){ noResult.classList.toggle('is-shown', visible === 0); }
+    }
+  })();
+</script>"""
 
     json_ld = f'''<script type="application/ld+json">
 {{
@@ -789,6 +892,7 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
 
 <section class="listing">
   <div class="wrap">
+{filters_html}
 {table_html}
     <div class="archives-legend">
       <p class="archives-legend-title">Comment lire ce tableau</p>
@@ -810,6 +914,8 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
 </section>
 
 {follow_footer}
+
+{filters_script}
 
 {tail_scripts}
 """
