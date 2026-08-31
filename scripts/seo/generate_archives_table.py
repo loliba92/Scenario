@@ -473,9 +473,9 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
         <th style="width: 80px;">Date</th>
         <th style="width: 150px;">Domaine</th>
         <th style="width: 250px;">Titre</th>
-        <th style="width: 300px;">Problématique</th>
-        <th style="width: 120px;">Évaluation</th>
-        <th style="width: 250px;">France Impact</th>
+        <th style="width: 300px;">Ce qu'on évalue</th>
+        <th style="width: 120px;">Notre scénario</th>
+        <th style="width: 250px;">Quel impact pour la France</th>
       </tr>
     </thead>
     <tbody>
