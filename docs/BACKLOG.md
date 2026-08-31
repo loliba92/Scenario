@@ -4534,8 +4534,15 @@ mardi participatif en dépendrait probablement.
   généralement moins bien), mais restent utiles pour le maillage
   *sortant* (chaque page thématique continue de lier vers les articles
   qu'elle liste) et comme point d'entrée si un lecteur arrive dessus
-  directement depuis une recherche Google. À revoir si ce compromis pose
-  problème une fois un signal de trafic disponible.
+  directement depuis une recherche Google.
+  **[AJUSTÉ le 31 août, même jour] Lien discret ajouté dans le footer
+  d'`archives.html`**, à côté de « Mentions légales »/« Politique de
+  confidentialité » (`.legal-links`, même style sobre — texte mono
+  petit, pas un bandeau mis en avant). Compromis entre les deux
+  versions du jour : les pages ne sont plus totalement orphelines
+  (restaure un peu de maillage interne entrant), sans reproduire le
+  bandeau « Explorer par thème » retiré plus haut qui, lui, surjouait
+  une intégration au parcours utilisateur.
   **Pages thématiques en anglais (`en/themes/`) — question posée le
   31 août, pas retenue pour l'instant.** Vérifié avant de trancher : sur
   les 5 articles déjà traduits (`en/archives/`), la répartition par
