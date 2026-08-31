@@ -161,6 +161,12 @@ def render_page(domain, entries, style_block, masthead_nav, follow_footer, tail_
 }}
 </script>'''.replace("'", '"')
 
+    # THEME_LIST_CSS doit vivre À L'INTÉRIEUR de la balise <style> copiée de
+    # glossaire.html, jamais après — sinon le HTML5 parser sort ce texte du
+    # <head> (mode "in head", anything else) et l'affiche comme texte brut en
+    # haut du <body> (bug constaté le 31 août sur les 6 pages générées).
+    style_block = style_block.replace("</style>", THEME_LIST_CSS + "</style>")
+
     head = f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -195,7 +201,6 @@ def render_page(domain, entries, style_block, masthead_nav, follow_footer, tail_
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 {style_block}
-{THEME_LIST_CSS}
 {json_ld}
 </head>
 """
