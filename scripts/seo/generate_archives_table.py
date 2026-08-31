@@ -380,13 +380,6 @@ def format_date_display(iso_date):
     return f"{parts[2]}.{parts[1]}.{parts[0]}"
 
 
-def truncate_text(text, max_length=150, suffix="..."):
-    """Tronque le texte à max_length caractères."""
-    if not text or len(text) <= max_length:
-        return text
-    return text[:max_length].rsplit(" ", 1)[0] + suffix
-
-
 def get_scenario_label(kind):
     """Retourne le label lisible du scénario."""
     labels = {
@@ -401,9 +394,12 @@ def render_table_row(article):
     """Rend une ligne du tableau."""
     domain_label = DOMAIN_LABELS.get(article["domain"], article["domain"])
 
-    # Problématique : tronquée à 150 caractères pour rester lisible
-    question_text = article["question"] if article["question"] else "(question non trouvée)"
-    question_html = html.escape(truncate_text(question_text, max_length=150))
+    # Problématique : texte complet, pas tronqué
+    question_html = (
+        html.escape(article["question"])
+        if article["question"]
+        else "(question non trouvée)"
+    )
 
     # Évaluation : badge de couleur + nom du scénario + % + titre
     kind = article["scenario_kind"]
