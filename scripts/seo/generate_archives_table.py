@@ -220,6 +220,26 @@ ARCHIVES_TABLE_CSS = """
     text-decoration: underline;
   }
 
+  /* Badge "Révisé" : sujet mis à jour après publication (voir extract_revised
+     dans le script — meta name="revised-on" côté article). Pas d'emoji (règle
+     du site), contour or discret pour se distinguer sans crier. */
+  .archives-table .revised-badge {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    align-self: flex-start;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    border-radius: 3px;
+    padding: 2px 6px;
+    cursor: default;
+  }
+
   .archives-table .col-eval {
     text-align: center;
   }
@@ -657,6 +677,22 @@ def extract_domain(text):
     return None
 
 
+def extract_revised(text):
+    """Extrait la date de révision de la meta tag, si le sujet a été révisé après publication.
+
+    Convention : <meta name="revised-on" content="AAAA-MM-JJ"> dans le <head>
+    de l'archive concernée — posée par la routine de détection/révision au
+    moment où elle met à jour un article déjà publié (voir docs/routine-prompt.md).
+    Alimente le filtre "Sujet révisé" du nav (lien historique vers
+    archives.html?tag=revise, cassé depuis la restructuration du 9 septembre
+    tant que ce champ n'est pas relu ici).
+    """
+    m = re.search(r'<meta name="revised-on" content="([^"]+)">', text)
+    if m:
+        return m.group(1)
+    return None
+
+
 def get_most_probable_scenario(scenarios):
     """Retourne le scénario avec le pourcentage le plus élevé."""
     if not scenarios:
@@ -674,6 +710,7 @@ def parse_article(file_path):
     question = extract_question(text)
     scenarios = extract_scenarios(text)
     domain = extract_domain(text)
+    revised_on = extract_revised(text)
 
     # Extrait le scénario le plus probable (pour le badge "Notre scénario")
     best_scenario = get_most_probable_scenario(scenarios)
@@ -704,6 +741,7 @@ def parse_article(file_path):
         "france_css_class": france_css_class,
         "france_group": france_group,
         "domain": domain,
+        "revised_on": revised_on,
     }
 
 
@@ -711,6 +749,12 @@ def format_date_display(iso_date):
     """Convertit AAAA-MM-JJ en JJ.MM sur une ligne, AAAA en dessous (2 spans)."""
     parts = iso_date.split("-")
     return f'<span class="date-day">{parts[2]}.{parts[1]}</span><span class="date-year">{parts[0]}</span>'
+
+
+def format_date_display_plain(iso_date):
+    """Convertit AAAA-MM-JJ en JJ.MM.AAAA, texte brut (pour un attribut title=)."""
+    parts = iso_date.split("-")
+    return f"{parts[2]}.{parts[1]}.{parts[0]}"
 
 
 def get_scenario_label(kind):
@@ -750,17 +794,26 @@ def render_table_row(article):
     # Lien EN : lien texte discret, pas un badge encadré
     en_link = f'<a href="en/archives/{article["iso_date"]}.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>'
 
+    # Badge "Révisé" : discret, pas d'emoji (règle du site) — visible directement
+    # sur la ligne, sans attendre que le lecteur clique le filtre "Sujet révisé".
+    revised_on = article["revised_on"]
+    revised_badge = (
+        f'<span class="revised-badge" title="Sujet révisé le {format_date_display_plain(revised_on)}">Révisé</span>'
+        if revised_on else ""
+    )
+
     # Tooltip natif au survol du titre = la problématique de l'édition
     question_attr = f' title="{html.escape(article["question"])}"' if article["question"] else ""
 
-    # data-domain/scenario/france : lus par le JS de filtre (voir render_page)
+    # data-domain/scenario/france/revised : lus par le JS de filtre (voir render_page)
     # data-label sur chaque <td> : utilisé par la vue carte mobile (voir CSS @media)
     # Ordre : Date puis Titre en premier (les 2 repères de nav), puis Domaine, puis les 2 badges
-    return f"""    <tr data-domain="{article["domain"] or ''}" data-scenario="{kind or ''}" data-france="{article["france_group"] or ''}">
+    return f"""    <tr data-domain="{article["domain"] or ''}" data-scenario="{kind or ''}" data-france="{article["france_group"] or ''}" data-revised="{'true' if revised_on else 'false'}">
       <td class="col-date" data-label="Date">{format_date_display(article["iso_date"])}</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/{article["iso_date"]}.html"{question_attr}>{html.escape(article["title"])}</a>
+          {revised_badge}
           {en_link}
         </span>
       </td>
@@ -890,17 +943,27 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
       });
     });
 
+    // Filtre "Sujet révisé" : activé par ?tag=revise dans l'URL (lien historique
+    // depuis le nav .masthead-right, jamais un chip sur cette page — les sujets
+    // révisés sont rares, pas besoin d'une 4e rangée de filtre visible en
+    // permanence). Pas de bouton pour le désactiver : revenir sur archives.html
+    // sans le paramètre suffit.
+    var revisedOnly = new URLSearchParams(window.location.search).get('tag') === 'revise';
+
     function apply(){
       var visible = 0;
       rows.forEach(function(row){
         var show = (active.domain === 'all' || row.dataset.domain === active.domain)
           && (active.scenario === 'all' || row.dataset.scenario === active.scenario)
-          && (active.france === 'all' || row.dataset.france === active.france);
+          && (active.france === 'all' || row.dataset.france === active.france)
+          && (!revisedOnly || row.dataset.revised === 'true');
         row.classList.toggle('is-hidden', !show);
         if(show){ visible++; }
       });
       if(noResult){ noResult.classList.toggle('is-shown', visible === 0); }
     }
+
+    apply();
   })();
 </script>"""
 
