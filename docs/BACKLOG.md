@@ -2008,6 +2008,11 @@ moins prioritaire).
   Make/webhook) convient tel quel ou mérite un format dédié plus propre.
 
 **Contenu**
+- **P3 — À revoir plus tard, pas maintenant [ouvert le 31 août 2026] Identifier nommément l'auteur (byline + JSON-LD `Person`) sur les articles — essayé puis retiré le jour même, retour utilisateur : pas sûr que ce soit une bonne idée de s'identifier à ce stade.**
+  Contexte complet : `author` avait été passé d'`Organization` (« Scénario ») à `Person` nommée (Olivier Bertrand, `jobTitle`, `sameAs` LinkedIn) sur les 46 pages (39 archives FR + 5 EN + `index.html`/`en/index.html`), avec un byline visible « Par Olivier Bertrand — Directeur éditorial et technique » sous `.edition` — geste SEO E-E-A-T (Google valorise un auteur réel identifié). Retiré entièrement le même jour après une question directe de l'utilisateur sur les risques.
+  Risques identifiés à l'époque, à réévaluer si ce sujet revient : (1) le lien direct entre l'employeur actuel (finance/data/assurance, déjà mentionné dans `le-projet.html`) et le site devient traçable via LinkedIn ; (2) le site couvre géopolitique/politique française au quotidien — un nom + LinkedIn expose personnellement à la critique/au contact direct, contrairement à une marque anonyme ; (3) la mention explicite de l'usage de l'IA (`le-projet.html`) combinée à un nom réel crée un point de friction spécifique ; (4) une fois indexé par Google et des agrégateurs schema.org tiers, difficile à effacer partout même après retrait du site ; (5) perte du tampon de marque en cas d'erreur factuelle ou de scénario qui vieillit mal.
+  État actuel : `author` = `Organization` partout, aucun byline, nom mentionné seulement dans `le-projet.html` (section « Qui fait Scénario »), sans lien externe — voir `docs/routine-prompt.md` pour la note explicite de non-réintroduction sans feu vert.
+  **Ne pas relancer de son propre chef** — attendre un retour utilisateur explicite avant de rouvrir ce chantier.
 - **[FAIT le 21 août] Graphique en escalier pour série historique longue,
   industrialisé comme composant réutilisable (retour utilisateur : « pas
   systématiquement mais quand c'est utile »).** Première utilisation :
