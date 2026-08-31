@@ -317,7 +317,15 @@ def extract_scenarios(text):
 
 
 def extract_france_impact(text, most_probable_kind):
-    """Extrait la donnée France Impact du scénario le plus probable."""
+    """Extrait le jugement France Impact (favorable/stable/degrade) du scénario le plus probable.
+
+    Lit d'abord l'attribut data-france-impact="..." posé sur la div .france-line
+    dans le HTML source (articles récents) — plus robuste que de parser le texte,
+    où "favorable" est un sous-mot de "défavorable". Pour les articles plus anciens
+    qui n'ont pas cet attribut, retombe sur un parsing du jugement en toutes lettres
+    ("Plutôt favorable" / "Neutre" / "Plutôt défavorable"), en testant "défavorable"
+    avant "favorable" pour éviter le piège du sous-mot.
+    """
     # Cherche le card correspondant au kind le plus probable
     pattern = rf'<article class="card" data-kind="{re.escape(most_probable_kind)}"[^>]*>(.*?)</article>'
     card_m = re.search(pattern, text, re.DOTALL)
@@ -325,18 +333,26 @@ def extract_france_impact(text, most_probable_kind):
         return None
 
     card_content = card_m.group(1)
+
+    # 1) Attribut data-france-impact (articles récents, fiable)
+    attr_m = re.search(r'<div class="france-line" data-france-impact="([^"]+)"', card_content)
+    if attr_m:
+        return attr_m.group(1)  # "favorable" | "stable" | "degrade"
+
+    # 2) Fallback texte (articles anciens sans l'attribut)
     france_m = re.search(
-        r'<div class="france-line"[^>]*>.*?<span class="field-label">Concrètement en France</span>\s*([^<]+)',
+        r'<div class="france-line"[^>]*>.*?<span class="field-label">Concrètement en France</span>\s*(.*?)</div>',
         card_content,
         re.DOTALL,
     )
-    if france_m:
-        # Extrait juste la première phrase, avant l'emoji
-        text = france_m.group(1).strip()
-        # Enlève l'emoji et le texte qui suit
-        text = re.sub(r'\s*[↑↓]\s*.*', '', text)
-        return html.unescape(text)
-    return None
+    if not france_m:
+        return None
+    france_text = re.sub(r'<[^>]+>', '', france_m.group(1)).lower()
+    if "défavorable" in france_text:
+        return "degrade"
+    if "favorable" in france_text:
+        return "favorable"
+    return "stable"  # "Neutre pour la France" et autres formulations stables
 
 
 def extract_domain(text):
@@ -344,31 +360,6 @@ def extract_domain(text):
     m = re.search(r'<meta name="domain" content="([^"]+)">', text)
     if m:
         return m.group(1)
-    return None
-
-
-def extract_france_judgment(france_text):
-    """Extrait le jugement France Impact (Favorable/Dégradé/Stable) du texte complet.
-
-    Exemple:
-      "↓ Plutôt défavorable pour la France" → "Dégradé"
-      "↑ Plutôt favorable pour la France" → "Favorable"
-      "→ Impact stable pour la France" → "Stable"
-    """
-    if not france_text:
-        return None
-
-    # Normalise le texte
-    text_lower = france_text.lower()
-
-    # Détecte le jugement
-    if "favorable" in text_lower:
-        return "Favorable"
-    elif "défavorable" in text_lower:
-        return "Dégradé"
-    elif "stable" in text_lower:
-        return "Stable"
-
     return None
 
 
@@ -442,20 +433,12 @@ def render_table_row(article):
     else:
         eval_html = "<span class=\"eval-badge\">?</span>"
 
-    # France Impact : badge de couleur avec SEULEMENT le jugement (pas le texte complet)
-    france_text = article["france_impact"]
-    france_judgment = extract_france_judgment(france_text)
+    # France Impact : badge de couleur avec SEULEMENT le jugement (favorable/stable/degrade)
+    france_kind = article["france_impact"]
 
-    if france_judgment:
-        # Mappe le jugement à une classe CSS compatible
-        judgment_kind = france_judgment.lower()
-        if judgment_kind == "favorable":
-            judgment_class = "france-favorable"
-        elif judgment_kind == "dégradé":
-            judgment_class = "france-degrade"
-        else:
-            judgment_class = "france-stable"
-        france_html = f'<span class="france-badge {judgment_class}">{france_judgment}</span>'
+    if france_kind:
+        france_label = get_scenario_label(france_kind)
+        france_html = f'<span class="france-badge france-{france_kind}">{france_label}</span>'
     else:
         france_html = "<span class=\"france-badge\">?</span>"
 
