@@ -924,7 +924,7 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
         <dt>Domaine</dt>
         <dd>Catégorie thématique de l'édition — voir les <a href="index.html">pages thématiques</a>.</dd>
         <dt>Notre scénario</dt>
-        <dd>Le plus probable des 3 scénarios de l'édition (favorable / stable / dégradé) avec son pourcentage de probabilité.</dd>
+        <dd>Le plus probable des 3 scénarios de l'édition, avec son pourcentage de probabilité — <strong>favorable</strong> : la problématique se résout plutôt bien ; <strong>stable</strong> : la situation reste proche des conditions actuelles ; <strong>dégradé</strong> : la problématique s'aggrave nettement.</dd>
         <dt>Impact France</dt>
         <dd>Effet attendu pour la France, calculé sur les <strong>3</strong> scénarios pondérés par leur probabilité — pas seulement le plus probable (2 scénarios secondaires peuvent faire pencher la balance).</dd>
       </dl>
