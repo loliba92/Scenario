@@ -2,7 +2,7 @@
 """Génère une nouvelle archives.html avec tableau auto-construit à partir des données d'articles.
 
 Ce script remplace le manuel archives.html par un tableau structuré:
-  Date | Titre | Problématique | Évaluation | France Impact | Domaine
+  Date | Domaine | Titre | Problématique | Évaluation | France Impact
 
 Idempotent — peut être relancé après chaque nouvel article pour mettre à jour le tableau.
 """
@@ -134,25 +134,6 @@ ARCHIVES_TABLE_CSS = """
     font-size: 0.88rem;
     color: var(--paper);
     min-width: 300px;
-  }
-
-  .archives-table .col-scenarios {
-    font-size: 0.86rem;
-    color: var(--paper);
-    min-width: 350px;
-  }
-
-  .archives-table .scenario-short {
-    margin: 6px 0;
-    line-height: 1.4;
-  }
-
-  .archives-table .scenario-short:first-child {
-    margin-top: 0;
-  }
-
-  .archives-table .scenario-short:last-child {
-    margin-bottom: 0;
   }
 
   .archives-table .col-domain {
@@ -359,24 +340,14 @@ def render_table_row(article):
     # Lien EN (toujours ajouter le badge)
     en_link = f' <a href="en/archives/{article["iso_date"]}.html" title="Read in English" class="lang-badge">EN</a>'
 
-    # Les 3 phrases courtes des scénarios
-    scenarios_html = ""
-    if article["scenario_text_1"] or article["scenario_text_2"] or article["scenario_text_3"]:
-        scenarios_html = """
-      <div class="col-scenarios">
-        <p class="scenario-short">🟢 """ + html.escape(article["scenario_text_1"]) + """</p>
-        <p class="scenario-short">🔵 """ + html.escape(article["scenario_text_2"]) + """</p>
-        <p class="scenario-short">🔴 """ + html.escape(article["scenario_text_3"]) + """</p>
-      </div>"""
-
+    # Ordre : Date | Domaine | Titre | Problématique | Évaluation | France Impact
     return f"""    <tr>
       <td class="col-date">{format_date_display(article["iso_date"])}</td>
+      <td class="col-domain">{domain_label}</td>
       <td class="col-title"><a href="archives/{article["iso_date"]}.html">{html.escape(article["title"])}</a>{en_link}</td>
       <td class="col-question">{question_html}</td>
       <td class="col-eval">{eval_html}</td>
       <td class="col-france">{france_html}</td>
-      <td class="col-scenarios">{scenarios_html.strip() if scenarios_html else "(scénarios non trouvés)"}</td>
-      <td class="col-domain">{domain_label}</td>
     </tr>"""
 
 
@@ -413,12 +384,11 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
     <thead>
       <tr>
         <th style="width: 80px;">Date</th>
+        <th style="width: 150px;">Domaine</th>
         <th style="width: 250px;">Titre</th>
         <th style="width: 300px;">Problématique</th>
         <th style="width: 120px;">Évaluation</th>
         <th style="width: 250px;">France Impact</th>
-        <th style="width: 350px;">Les 3 scénarios</th>
-        <th style="width: 150px;">Domaine</th>
       </tr>
     </thead>
     <tbody>
