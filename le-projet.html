@@ -439,15 +439,16 @@
   /* ---- Hero avec photo de fond [AJOUTÉ le 31 août 2026, retour utilisateur :
      une image tournée vers le futur, "pour rêver le projet"] — .projet-hero
      s'ajoute à .hero partagé, ne le modifie pas, donc n'affecte aucune autre
-     page. Éoliennes offshore au lever du soleil (licence Pexels, crédit dans
-     assets/social/pub-photos/credits.json), dégradé sombre par-dessus pour
-     garder le texte et les pastilles du sommaire lisibles. */
+     page. Voie lactée sur silhouette de montagnes (licence Pexels, crédit dans
+     assets/social/pub-photos/credits.json) — déjà très sombre nativement,
+     dégradé plus léger que sur archives.html pour laisser voir les étoiles
+     tout en gardant le texte et les pastilles du sommaire lisibles. */
   .hero.projet-hero{
     position: relative;
     padding: 96px 0 60px;
     background:
-      linear-gradient(180deg, rgba(16,21,28,0.5) 0%, rgba(16,21,28,0.86) 70%, var(--ink) 100%),
-      url('assets/social/pub-photos/vision-avenir.jpg') center 60% / cover no-repeat;
+      linear-gradient(180deg, rgba(16,21,28,0.25) 0%, rgba(16,21,28,0.7) 70%, var(--ink) 100%),
+      url('assets/social/pub-photos/vision-avenir.jpg') center 65% / cover no-repeat;
   }
 
   .hero.projet-hero .eyebrow,
