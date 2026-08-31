@@ -557,7 +557,7 @@ Ne jamais réécrire une nouvelle phrase pour la description : reprendre exactem
   "datePublished": "{même valeur que article:published_time}",
   "dateModified": "{même valeur que article:published_time}",
   "inLanguage": "fr-FR",
-  "author": { "@type": "Organization", "name": "Scénario", "url": "https://lesscenarios.fr/le-projet.html" },
+  "author": { "@type": "Organization", "name": "Scénario", "url": "https://lesscenarios.fr/le-projet.html", "sameAs": ["https://www.linkedin.com/company/136694258/"] },
   "publisher": {
     "@type": "Organization",
     "name": "Scénario",
@@ -568,7 +568,9 @@ Ne jamais réécrire une nouvelle phrase pour la description : reprendre exactem
 ```
 `mainEntityOfPage.@id` suit la même règle que `og:url`. `author`/`publisher` ne changent jamais. `image` suit la même règle conditionnelle que `og:image` (générique par défaut, remplacé par l'étape 8 si photo retenue).
 
-**[Essai du 31 août 2026, revenu en arrière le même jour — retour utilisateur : risque de s'identifier publiquement, pas encore décidé.]** Un `author` en `Person` nommée (avec `jobTitle`/`sameAs` LinkedIn) et un byline visible sous `.edition` ont été testés puis entièrement retirés des 46 pages concernées avant publication de cette note — **ne pas les réintroduire** sans un nouveau feu vert explicite. `author` reste `Organization` comme ci-dessus. Le nom reste mentionné uniquement dans `le-projet.html` (section « Qui fait Scénario »), sans lien externe.
+**[Essai du 31 août 2026, revenu en arrière le même jour — retour utilisateur : risque de s'identifier publiquement, pas encore décidé.]** Un `author` en `Person` nommée (avec `jobTitle`/`sameAs` LinkedIn personnel) et un byline visible sous `.edition` ont été testés puis entièrement retirés des 46 pages concernées avant publication de cette note — **ne pas les réintroduire** sans un nouveau feu vert explicite. Le nom reste mentionné uniquement dans `le-projet.html` (section « Qui fait Scénario »), sans lien externe.
+
+**`sameAs` sur `author` (Organization), retenu à la place [AJOUTÉ le 31 août 2026, retour utilisateur].** Compromis choisi après le retour en arrière ci-dessus : plutôt qu'un profil LinkedIn personnel, `sameAs` pointe vers la **page LinkedIn de l'entreprise** (`https://www.linkedin.com/company/136694258/`, déjà publique et déjà liée depuis `le-projet.html`) — donne à Google un signal de légitimité (Organization vérifiable) sans exposer de personne nommée. Ne change jamais, identique FR/EN, pas de paramètre de tracking dans l'URL.
 
 4. Écraser `index.html` avec la nouvelle édition.
 5. Copier dans `archives/AAAA-MM-JJ.html`, adapter tous les liens relatifs d'un niveau, même patron que les fichiers déjà présents.
