@@ -4513,15 +4513,29 @@ mardi participatif en dépendrait probablement.
   Seuls les domaines avec ≥ 8 articles retenus (Économie & entreprises,
   International, Sciences & environnement, Culture & divertissement,
   Politique & institutions, Tech & numérique) — `Société` et `Sport &
-  argent` exclus, trop peu d'articles (contenu "thin"). Découverte via un
-  nouveau bloc "Explorer par thème" sur `archives.html` (additif, ne
-  touche pas au filtre JS existant ni au nav commun `.topnav`/
-  `docs/routine-prompt.md`, même précédent que `guide-pedagogique.html`
-  plus haut). Les 6 URLs ajoutées à `sitemap.xml`. Pages en français
-  uniquement, pas de `en/themes/` — cohérent avec le MVP anglais qui ne
-  traduit pas encore les pages statiques secondaires (voir
-  `docs/strategie-anglais.md`). **Volet "titres SEO" de ce ticket
-  toujours ouvert** (pas traité aujourd'hui).
+  argent` exclus, trop peu d'articles (contenu "thin"). Les 6 URLs
+  ajoutées à `sitemap.xml`. Pages en français uniquement, pas de
+  `en/themes/` — cohérent avec le MVP anglais qui ne traduit pas encore
+  les pages statiques secondaires (voir `docs/strategie-anglais.md`).
+  **Volet "titres SEO" de ce ticket toujours ouvert** (pas traité
+  aujourd'hui).
+  **[RETIRÉ le 31 août, retour utilisateur] Bloc "Explorer par thème"
+  sur `archives.html` — ajouté le 31 août, retiré le jour même.** Sans
+  amélioration UX dessus (pas de teaser/vignette, juste une liste
+  titre+date — voir décision "pas d'usine à gaz" du même jour) et vu que
+  ces pages restent de toute façon hors de la lecture quotidienne, le
+  bandeau donnait l'illusion d'une intégration dans le parcours
+  utilisateur sans l'être vraiment — retiré pour rester honnête : les
+  6 pages `themes/*.html` sont maintenant **volontairement des pages
+  orphelines** — aucun lien interne ne pointe vers elles depuis le site,
+  seul `sitemap.xml` les signale à Google. Compromis assumé : elles
+  gagnent moins d'autorité de liens internes qu'avec le bandeau (une
+  page vers laquelle personne ne lie en interne se positionne
+  généralement moins bien), mais restent utiles pour le maillage
+  *sortant* (chaque page thématique continue de lier vers les articles
+  qu'elle liste) et comme point d'entrée si un lecteur arrive dessus
+  directement depuis une recherche Google. À revoir si ce compromis pose
+  problème une fois un signal de trafic disponible.
   **Pages thématiques en anglais (`en/themes/`) — question posée le
   31 août, pas retenue pour l'instant.** Vérifié avant de trancher : sur
   les 5 articles déjà traduits (`en/archives/`), la répartition par
