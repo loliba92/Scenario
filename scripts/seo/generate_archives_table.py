@@ -218,69 +218,46 @@ ARCHIVES_TABLE_CSS = """
     text-align: center;
   }
 
-  .archives-table .france-badge {
+  /* Impact France : jauge à 7 segments (3 rouges dégradé | 1 bleu neutre |
+     3 verts favorable, dans cet ordre gauche→droite) plutôt qu'un label texte
+     — reflète l'espérance pondérée des 3 scénarios (voir FRANCE_ESPERANCE_SCALE
+     et FRANCE_SCALE_SEGMENTS). Le segment qui correspond au niveau actuel est
+     en surbrillance, les 6 autres restent atténués : un repère de position +
+     couleur immédiat, le label complet reste dispo au survol (title=). */
+  .archives-table .france-scale {
     display: inline-flex;
+    gap: 2px;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 6px 10px;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 0.68rem;
-    font-family: "JetBrains Mono", monospace;
-    line-height: 1.3;
-    /* Labels plus longs ("Nettement défavorable") : on autorise le retour à
-       la ligne plutôt que de forcer un débordement (contrairement au badge
-       "Notre scénario" dont les labels courts restent sur une ligne). */
-    white-space: normal;
-    max-width: 100%;
+    cursor: default;
   }
 
-  /* Impact France : badge contour léger (donnée secondaire, pour se distinguer
-     visuellement du badge "Notre scénario" en fond plein juste à côté), avec
-     un dégradé d'intensité sur 7 niveaux qui reflète l'espérance pondérée des
-     3 scénarios (voir FRANCE_ESPERANCE_SCALE) : extrêmement → très → plutôt →
-     neutre → plutôt → très → extrêmement. */
-  .archives-table .france-badge.esp-favorable-extreme {
-    background: #5e9c78;
-    color: #10151c;
-    border: 1.5px solid #5e9c78;
+  .archives-table .france-scale .seg {
+    width: 9px;
+    height: 16px;
+    border-radius: 2px;
+    opacity: 0.25;
+    transition: opacity 0.2s ease, transform 0.2s ease;
   }
 
-  .archives-table .france-badge.esp-favorable-fort {
-    background: rgba(94, 156, 120, 0.16);
-    color: #5e9c78;
-    border: 1.5px solid #5e9c78;
-  }
-
-  .archives-table .france-badge.esp-favorable {
-    background: transparent;
-    color: #5e9c78;
-    border: 1.5px solid rgba(94, 156, 120, 0.5);
-  }
-
-  .archives-table .france-badge.esp-neutre {
-    background: transparent;
-    color: #6f8fae;
-    border: 1.5px solid rgba(111, 143, 174, 0.5);
-  }
-
-  .archives-table .france-badge.esp-degrade {
-    background: transparent;
-    color: #bd6248;
-    border: 1.5px solid rgba(189, 98, 72, 0.5);
-  }
-
-  .archives-table .france-badge.esp-degrade-fort {
-    background: rgba(189, 98, 72, 0.16);
-    color: #bd6248;
-    border: 1.5px solid #bd6248;
-  }
-
-  .archives-table .france-badge.esp-degrade-extreme {
+  .archives-table .france-scale .seg.esp-degrade,
+  .archives-table .france-scale .seg.esp-degrade-fort,
+  .archives-table .france-scale .seg.esp-degrade-extreme {
     background: #bd6248;
-    color: #10151c;
-    border: 1.5px solid #bd6248;
+  }
+
+  .archives-table .france-scale .seg.esp-neutre {
+    background: #6f8fae;
+  }
+
+  .archives-table .france-scale .seg.esp-favorable,
+  .archives-table .france-scale .seg.esp-favorable-fort,
+  .archives-table .france-scale .seg.esp-favorable-extreme {
+    background: #5e9c78;
+  }
+
+  .archives-table .france-scale .seg.active {
+    opacity: 1;
+    transform: scaleY(1.2);
   }
 
   /* Donnée manquante (pas de scénario/jugement extrait) — distinct visuellement
@@ -580,6 +557,28 @@ FRANCE_ESPERANCE_SCALE = [
 ]
 
 
+# Ordre d'affichage de la jauge à 7 segments (gauche = pire, droite = mieux),
+# dérivé de FRANCE_ESPERANCE_SCALE mais dans l'autre sens (celle-ci va du
+# meilleur seuil au pire). 3 rouges (dégradé) | 1 bleu (neutre) | 3 verts (favorable).
+FRANCE_SCALE_SEGMENTS = list(reversed([css_class for _t, _l, css_class in FRANCE_ESPERANCE_SCALE]))
+
+
+def render_france_scale(css_class, label):
+    """Rend la jauge à 7 segments pour Impact France : le segment qui correspond
+    au niveau actuel est en surbrillance, les 6 autres restent atténués — un
+    repère visuel immédiat (position + couleur) plutôt qu'un label à lire.
+    """
+    if not css_class:
+        segs = "".join(f'<span class="seg {c}"></span>' for c in FRANCE_SCALE_SEGMENTS)
+        return f'<span class="france-scale" title="Non évalué" aria-label="Impact France : non évalué">{segs}</span>'
+
+    segs = "".join(
+        f'<span class="seg {c}{" active" if c == css_class else ""}"></span>'
+        for c in FRANCE_SCALE_SEGMENTS
+    )
+    return f'<span class="france-scale" title="{label}" aria-label="Impact France : {label}">{segs}</span>'
+
+
 def label_esperance(value):
     """Mappe l'espérance (float dans [-1, 1]) à un label nuancé + une classe CSS.
 
@@ -687,16 +686,11 @@ def render_table_row(article):
     else:
         eval_html = '<span class="eval-badge badge-na">Non évalué</span>'
 
-    # Impact France : badge nuancé sur l'espérance pondérée des 3 scénarios
-    # (ex. "Plutôt défavorable" si les 2 scénarios les + probables sont dégradés
-    # pour la France, même quand le scénario "stable" l'emporte sur le fond)
-    france_label = article["france_label"]
-    france_css_class = article["france_css_class"]
-
-    if france_label:
-        france_html = f'<span class="france-badge {france_css_class}">{france_label}</span>'
-    else:
-        france_html = '<span class="france-badge badge-na">Non évalué</span>'
+    # Impact France : jauge à 7 segments plutôt qu'un label texte (ex. "Plutôt
+    # défavorable" si les 2 scénarios les + probables sont dégradés pour la
+    # France, même quand le scénario "stable" l'emporte sur le fond) — voir
+    # render_france_scale(). Le label reste dispo au survol (title=/aria-label=).
+    france_html = render_france_scale(article["france_css_class"], article["france_label"])
 
     # Lien EN : lien texte discret, pas un badge encadré
     en_link = f'<a href="en/archives/{article["iso_date"]}.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>'
@@ -926,7 +920,7 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
         <dt>Notre scénario</dt>
         <dd>Le plus probable des 3 scénarios de l'édition, avec son pourcentage de probabilité — <strong>favorable</strong> : la problématique se résout plutôt bien ; <strong>stable</strong> : la situation reste proche des conditions actuelles ; <strong>dégradé</strong> : la problématique s'aggrave nettement.</dd>
         <dt>Impact France</dt>
-        <dd>Effet attendu pour la France, calculé sur les <strong>3</strong> scénarios pondérés par leur probabilité — pas seulement le plus probable (2 scénarios secondaires peuvent faire pencher la balance).</dd>
+        <dd>Effet attendu pour la France, calculé sur les <strong>3</strong> scénarios pondérés par leur probabilité — pas seulement le plus probable (2 scénarios secondaires peuvent faire pencher la balance). La jauge va du dégradé (rouge, gauche) au favorable (vert, droite) ; le segment en surbrillance indique le niveau — survolez-le pour voir le détail.</dd>
       </dl>
     </div>
     <p style="margin-top:28px"><a href="index.html" style="color:var(--gold);text-decoration:none">← Retour à l'accueil</a></p>
