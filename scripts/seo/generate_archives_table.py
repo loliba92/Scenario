@@ -31,6 +31,33 @@ DOMAIN_LABELS = {
 
 # CSS pour le tableau
 ARCHIVES_TABLE_CSS = """
+  /* ---- Hero avec photo de fond (archives.html uniquement — .archives-hero
+     s'ajoute à .hero partagé, ne modifie pas .hero lui-même donc n'affecte
+     aucune autre page). Photo forêt déjà utilisée en générique réseaux
+     sociaux (assets/social/pub-photos/, crédit Nikola Tomašić/Pexels),
+     dégradé sombre par-dessus pour garder le texte lisible et coller au
+     thème sombre du site plutôt que de le rompre. */
+  .hero.archives-hero {
+    position: relative;
+    padding: 96px 0 60px;
+    background:
+      linear-gradient(180deg, rgba(16,21,28,0.55) 0%, rgba(16,21,28,0.82) 65%, var(--ink) 100%),
+      url('assets/social/pub-photos/generique-foret.jpg') center 35% / cover no-repeat;
+  }
+
+  .hero.archives-hero .eyebrow,
+  .hero.archives-hero h1,
+  .hero.archives-hero .dek {
+    position: relative;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 600px) {
+    .hero.archives-hero {
+      padding: 64px 0 44px;
+    }
+  }
+
   /* ---- Archives table (scripts/seo/generate_archives_table.py) ---- */
   .archives-table {
     width: 100%;
@@ -914,7 +941,7 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
 
 {masthead_nav}
 
-<section class="hero">
+<section class="hero archives-hero">
   <div class="wrap">
     <p class="eyebrow">Archives</p>
     <h1>Toutes les éditions</h1>
