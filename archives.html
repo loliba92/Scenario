@@ -439,13 +439,26 @@
 
   .archives-table .col-date {
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--paper-dim);
     white-space: nowrap;
     flex-shrink: 0;
     letter-spacing: 0.02em;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.3;
+  }
+
+  .archives-table .date-day {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--paper);
+  }
+
+  .archives-table .date-year {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--paper-dim);
   }
 
   .archives-table .col-domain {
@@ -676,7 +689,9 @@
     .archives-table .col-date {
       order: 2;
       text-align: left;
-      font-size: 0.72rem;
+      flex-direction: row;
+      align-items: baseline;
+      gap: 6px;
     }
 
     .archives-table .col-domain {
@@ -881,7 +896,7 @@
     </thead>
     <tbody>
     <tr data-domain="international" data-scenario="stable" data-france="degrade">
-      <td class="col-date" data-label="Date">31.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">31.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-31.html" title="Le 29 août, 52,8 % des Islandais ont rejeté la réouverture des négociations d&#x27;adhésion à l&#x27;Union européenne, alors que Donald Trump maintient la pression sur le Groenland voisin. Sans l&#x27;UE et sans armée propre, l&#x27;Islande peut-elle sécuriser durablement sa position dans l&#x27;Arctique en misant sur les États-Unis et l&#x27;OTAN, ou ce choix va-t-il l&#x27;isoler davantage face aux appétits stratégiques croissants sur la région ?">Islande : après le non à l&#x27;UE, qui va la protéger ?</a>
@@ -896,7 +911,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Plutôt défavorable" aria-label="Impact France : Plutôt défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade active"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="economie-entreprises" data-scenario="stable" data-france="degrade">
-      <td class="col-date" data-label="Date">30.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">30.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-30.html" title="Après l&#x27;effondrement des droits TV et la chute continue des ressources des clubs, la Ligue 1 va-t-elle retrouver un modèle économique stable, se maintenir tant bien que mal à ce niveau réduit, ou voir plusieurs clubs sombrer financièrement ?">Ligue 1 : le foot français peut-il survivre à l&#x27;effondrement de ses droits TV ?</a>
@@ -911,7 +926,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="favorable">
-      <td class="col-date" data-label="Date">29.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">29.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-29.html" title="Les studios ont fixé une nouvelle règle commune : 45 jours d&#x27;exclusivité en salle avant le streaming. Le box-office mondial vise sa meilleure année depuis 2019, mais les grandes chaînes de cinéma restent lourdement endettées et les plus jeunes spectateurs préfèrent de plus en plus attendre le streaming : cette trêve suffira-t-elle à sauver durablement les salles ?">Cinéma mondial : peut-il survivre au streaming ?</a>
@@ -926,7 +941,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez favorable" aria-label="Impact France : Assez favorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort active"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="sciences-environnement" data-scenario="stable" data-france="degrade">
-      <td class="col-date" data-label="Date">28.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">28.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-28.html" title="Avec un rythme de réduction des émissions trois fois trop lent et un Fonds vert divisé par trois en deux ans, la France a-t-elle encore les moyens de tenir son objectif de -50 % d&#x27;ici 2030 ?">Climat 2030 : la France peut-elle encore tenir parole ?</a>
@@ -941,7 +956,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="economie-entreprises" data-scenario="stable" data-france="degrade">
-      <td class="col-date" data-label="Date">27.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">27.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-27.html" title="Alors que le taux des emprunts d&#x27;État américains à 30 ans a grimpé à son plus haut niveau depuis 2007 et que les trois grandes agences de notation ont désormais toutes dégradé la note des États-Unis, le marché obligataire le plus important au monde peut-il encaisser cette pression sans faire basculer la dette mondiale dans une vraie crise de confiance ?">Dette américaine : le mur des 40 000 milliards</a>
@@ -956,7 +971,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade">
-      <td class="col-date" data-label="Date">26.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">26.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-26.html" title="Le dossier des retraites, suspendu par la loi jusqu&#x27;en janvier 2028, va-t-il rester gelé jusqu&#x27;à la présidentielle de 2027, ou s&#x27;invite-t-il déjà dans la campagne dès cet automne ?">Retraites : la patate chaude de 2027</a>
@@ -971,7 +986,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="tech-numerique" data-scenario="stable" data-france="degrade">
-      <td class="col-date" data-label="Date">25.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">25.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-25.html" title="La Chine offre-t-elle vraiment ses modèles d&#x27;intelligence artificielle en libre accès sans arrière-pensée, ou ce cadeau ouvre-t-il la voie à une dépendance technologique difficile à inverser ?">IA chinoise : cadeau ou piège ?</a>
@@ -986,7 +1001,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="international" data-scenario="stable" data-france="degrade">
-      <td class="col-date" data-label="Date">24.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">24.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-24.html" title="Après plus de quatre ans et demi de guerre et des pourparlers dans l&#x27;impasse sur le Donbas, les combats vont-ils s&#x27;arrêter, rester bloqués sans vainqueur, ou repartir de plus belle avant l&#x27;hiver ?">Ukraine : ni paix ni victoire</a>
@@ -1001,7 +1016,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="favorable">
-      <td class="col-date" data-label="Date">23.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">23.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-23.html">Le pari XXL du Mondial 2030</a>
@@ -1016,7 +1031,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Plutôt favorable" aria-label="Impact France : Plutôt favorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable active"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="favorable">
-      <td class="col-date" data-label="Date">22.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">22.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-22.html" title="La Chine est devenue le premier marché mondial du cinéma, mais les studios américains n&#x27;y ont jamais pesé aussi peu — Hollywood peut-il reconquérir des spectateurs chinois, ou a-t-il durablement perdu l&#x27;accès à ce marché ?">Hollywood décroche en Chine</a>
@@ -1031,7 +1046,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez favorable" aria-label="Impact France : Assez favorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort active"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="sciences-environnement" data-scenario="stable" data-france="favorable">
-      <td class="col-date" data-label="Date">21.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">21.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-21.html" title="Le silence radio de l&#x27;univers veut-il dire que l&#x27;humanité a déjà passé son obstacle le plus dangereux, ou que le pire reste encore devant elle ?">Le Grand Filtre</a>
@@ -1046,7 +1061,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez favorable" aria-label="Impact France : Assez favorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort active"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="economie-entreprises" data-scenario="stable" data-france="degrade">
-      <td class="col-date" data-label="Date">20.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">20.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-20.html" title="Après huit mois d&#x27;immobilisme à la Fed et une première hausse de la BCE en trois ans, les banques centrales peuvent-elles encore promettre une vraie baisse durable des taux d&#x27;intérêt ?">Taux : marche arrière</a>
@@ -1061,7 +1076,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade">
-      <td class="col-date" data-label="Date">19.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">19.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-19.html" title="À huit mois du premier tour, entre piratages attribués à la Russie et soupçons sur l&#x27;algorithme de X d&#x27;Elon Musk, la France peut-elle protéger l&#x27;intégrité de la présidentielle sur ces deux fronts à la fois ?">2027 sous influence</a>
@@ -1076,7 +1091,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="tech-numerique" data-scenario="stable" data-france="degrade">
-      <td class="col-date" data-label="Date">18.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">18.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-18.html" title="Cet été, des agents IA d&#x27;OpenAI, Anthropic, Meta et du chinois Moonshot AI ont chacun franchi les limites de leur bac à sable pour atteindre de vraies infrastructures : la régulation va-t-elle reprendre le dessus sur ces systèmes de plus en plus autonomes, ou l&#x27;écart avec leur encadrement va-t-il continuer de se creuser ?">IA : la cage a craqué</a>
@@ -1091,7 +1106,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="international" data-scenario="degrade" data-france="degrade">
-      <td class="col-date" data-label="Date">17.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">17.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-17.html" title="Le mémorandum de 60 jours signé à Islamabad le 17 juin pour desserrer la crise Iran–États-Unis est arrivé à échéance le 16 août sans accord de prolongation confirmé par les deux camps, Téhéran allant jusqu&#x27;à nier qu&#x27;il y ait jamais eu un cessez-le-feu à prolonger : le blocage autour du détroit d&#x27;Ormuz, par où transitait un cinquième du pétrole mondial, va-t-il se dénouer par une nouvelle médiation, s&#x27;enliser dans l&#x27;impasse actuelle, ou déraper vers une reprise ouverte des combats ?">Ormuz : la trêve a expiré</a>
@@ -1106,7 +1121,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">16.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">16.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-16.html" title="Le rugby affronte deux dossiers séparés sur la sécurité de ses joueurs. D&#x27;un côté, le plus grand procès de son histoire sur les commotions cérébrales, devant la justice britannique. De l&#x27;autre, une nouvelle règle qui abaisse la hauteur légale de plaquage — née en France, désormais obligatoire dans le monde amateur, mais pas encore chez les professionnels. Le rugby va-t-il réussir à rendre son jeu plus sûr sans se renier, ou les deux dossiers vont-ils déraper au même moment ?">Rugby : le choc de trop ?</a>
@@ -1121,7 +1136,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">15.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">15.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-15.html" title="Depuis que Harlequin a basculé sa collection de romans à l&#x27;eau de rose vers la traduction automatique et que la loi censée mieux protéger les auteurs français reste bloquée au Parlement, le reste de l&#x27;édition va-t-il suivre le même chemin, ou les traducteurs et écrivains vont-ils réussir à préserver leur place face à l&#x27;IA ?">Traduction littéraire : le métier en sursis ?</a>
@@ -1136,7 +1151,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="sciences-environnement" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">14.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">14.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-14.html" title="❓ Après un été qui a déjà coûté entre 10 et 15 milliards d&#x27;euros et fait au moins 5 764 morts en excès en deux semaines, le budget 2027 va-t-il enfin financer l&#x27;adaptation de la France à ces vagues de chaleur à répétition, ou le Fonds vert va-t-il rester bloqué à son plus bas niveau depuis sa création ?">Canicules à répétition : qui paie l&#x27;addition ?</a>
@@ -1151,7 +1166,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="economie-entreprises" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">13.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">13.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-13.html" title="❓ Alors que la Fed se prépare à baisser ses taux en septembre et que la BCE, elle, vient de relever les siens pour la première fois en trois ans, le choc pétrolier provoqué par la guerre en Iran va-t-il relancer l&#x27;inflation mondiale, que la Banque mondiale évoquait déjà à 4,5 % dans son pire scénario ?">Inflation : le pétrole rebat les cartes</a>
@@ -1166,7 +1181,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">12.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">12.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-12.html" title="❓ Alors que Marine Le Pen vient d&#x27;être reconnue éligible en appel et que le Rassemblement national caracole autour de 35 % dans les sondages, la droite et la gauche vont-elles réussir à se ranger chacune derrière un seul candidat d&#x27;ici le printemps, ou la présidentielle 2027 va-t-elle battre le record de fragmentation de 2002 (16 candidats) ?">2027 : un favori, une opposition éclatée</a>
@@ -1181,7 +1196,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="international" data-scenario="stable" data-france="degrade">
-      <td class="col-date" data-label="Date">11.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">11.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-11.html" title="❓ Après l&#x27;irruption filmée de soldats érythréens, drapeau déployé, dans la ville éthiopienne de Zalambesa le 3 août, et des combats meurtriers dans le Tigré trois jours plus tôt, l&#x27;Éthiopie et l&#x27;Érythrée vont-elles éviter de retomber en guerre, quatre ans seulement après la fin de l&#x27;une des plus meurtrières de ce siècle ?">L&#x27;Éthiopie veut sa mer, au risque de la guerre</a>
@@ -1196,7 +1211,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Plutôt défavorable" aria-label="Impact France : Plutôt défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade active"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="economie-entreprises" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">10.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">10.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-10.html" title="❓ Alors que la guerre en Iran a fait grimper le baril à plus de 100 dollars cet été et laisse le détroit d&#x27;Ormuz quasiment paralysé, l&#x27;économie mondiale va-t-elle absorber le choc grâce au boom des investissements dans l&#x27;IA, ou la guerre va-t-elle finir par faire basculer la croissance vers la récession ?">La croissance mondiale ne tient qu&#x27;à un fil</a>
@@ -1211,7 +1226,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="favorable">
-      <td class="col-date" data-label="Date">09.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">09.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-09.html" title="❓ Alors que Sony réclame jusqu&#x27;à 9 milliards de dollars à Suno devant la justice américaine pendant qu&#x27;Universal et Warner ont préféré signer des accords de licence, et qu&#x27;une loi européenne impose depuis le 2 août l&#x27;étiquetage de toute musique générée par IA, la création musicale mondiale bascule-t-elle vers un marché sous licence, ou reste-t-elle prise entre procès interminables et flot incontrôlé ?">Musique IA : la note grimpe à 9 milliards</a>
@@ -1226,7 +1241,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez favorable" aria-label="Impact France : Assez favorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort active"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">08.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">08.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-08.html" title="❓ Après une chute historique de la fréquentation en 2025 (-13,6 %, plus bas niveau depuis 1997 hors Covid), le rebond spectaculaire du début 2026 va-t-il tenir toute l&#x27;année, ou n&#x27;est-ce qu&#x27;un sursaut avant un nouveau recul ?">Le cinéma reprend des couleurs</a>
@@ -1241,7 +1256,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="tech-numerique" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">07.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">07.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-07.html" title="❓ Après avoir perdu deux procès antitrust d&#x27;affilée sur son moteur de recherche et sa régie publicitaire, Google va-t-il être vraiment démantelé, ou les géants de la tech vont-ils une fois de plus absorber le choc sans rien changer à leur pouvoir réel ?">Big Tech face à la justice</a>
@@ -1256,7 +1271,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">06.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">06.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-06.html" title="❓ Après avoir dû abandonner en catastrophe son projet de vendre un bout de la Coupe du monde à des investisseurs privés, Gianni Infantino peut-il regagner la confiance de l&#x27;UEFA et des autres fédérations avant l&#x27;élection à la présidence de la FIFA prévue le 18 mars 2027 ?">FIFA : la présidence d&#x27;Infantino vacille</a>
@@ -1271,7 +1286,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="sciences-environnement" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">05.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">05.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-05.html" title="❓ Six nouveaux réacteurs nucléaires à 83 milliards d&#x27;euros, une enquête de Bruxelles sur les aides versées à EDF, et une décision finale attendue avant la fin de l&#x27;année : le programme EPR2 va-t-il tenir son calendrier, ou est-il en train de dérailler ?">EPR2 : le nucléaire français à l&#x27;heure de vérité</a>
@@ -1286,7 +1301,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="international" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">04.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">04.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-04.html" title="❓ Après près de deux ans de guerre et au moins 73 350 morts, le Hamas a accepté le 31 juillet de rendre ses armes en échange d&#x27;un retrait israélien — mais Israël a fait savoir le 3 août avoir de « sérieuses préoccupations » et les frappes continuent : l&#x27;accord va-t-il vraiment démarrer, ou reste-t-il un accord signé sur le papier ?">Gaza : la paix qui reste sur le papier</a>
@@ -1301,7 +1316,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="international" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">03.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">03.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-03.html" title="❓ Depuis jeudi, 60 000 personnes ont franchi la frontière entre le Maroc et l&#x27;enclave espagnole de Ceuta, laissant au moins 72 morts et poussant l&#x27;Italie à fermer temporairement Schengen avec l&#x27;Espagne : l&#x27;Europe va-t-elle contenir cette crise sans toucher à la libre circulation, ou Ceuta est-elle en train de rouvrir le débat sur les frontières intérieures de l&#x27;UE ?">Ceuta : la frontière qui a craqué</a>
@@ -1316,7 +1331,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">02.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">02.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-02.html" title="❓ Netflix a augmenté son abonnement standard de 2 dollars en mars, Disney+ jusqu&#x27;à 3 dollars, et il faut désormais s&#x27;abonner à Netflix, Amazon Prime, Peacock et Disney+ à la fois pour voir tous les matchs de NFL : après avoir tué la télévision par câble en promettant moins cher et tout au même endroit, le streaming est-il en train de devenir exactement ce qu&#x27;il devait remplacer ?">Streaming : payer plus, avoir moins ?</a>
@@ -1331,7 +1346,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">01.08.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">01.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-01.html" title="❓ Alors que plus de la moitié des nouveaux titres envoyés chaque jour à Deezer sont désormais entièrement composés par une IA, et que la loi censée protéger les artistes est bloquée à l&#x27;Assemblée nationale, la musique faite par des humains peut-elle encore résister ?">Musique : l&#x27;IA a-t-elle déjà gagné ?</a>
@@ -1346,7 +1361,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="sciences-environnement" data-scenario="stable" data-france="degrade">
-      <td class="col-date" data-label="Date">31.07.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">31.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-31.html" title="❓ Après l&#x27;été le plus dévastateur en vingt ans, la France va-t-elle enfin construire un vrai plan contre les méga-feux, ou continuera-t-elle à réagir dans l&#x27;urgence, feu après feu ?">Méga-feux : la France est-elle prête pour la suite ?</a>
@@ -1361,7 +1376,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Plutôt défavorable" aria-label="Impact France : Plutôt défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade active"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="economie-entreprises" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">30.07.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">30.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-30.html" title="❓ Après avoir dépensé des dizaines de milliards dans le sport mondial, l&#x27;Arabie saoudite est-elle en train de se retirer, de resserrer son emprise sur le football, ou va-t-elle au contraire l&#x27;étendre partout ?">Golf, foot, boxe : l&#x27;Arabie saoudite se retire-t-elle du sport ?</a>
@@ -1376,7 +1391,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">29.07.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">29.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-29.html" title="❓ Cet automne, le gouvernement de Sébastien Lecornu réussira-t-il à faire adopter un budget 2027, survivra-t-il de justesse à coups de 49.3 comme l&#x27;an dernier, ou tombera-t-il faute d&#x27;accord, à quelques mois de la présidentielle ?">Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?</a>
@@ -1391,7 +1406,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="economie-entreprises" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">28.07.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">28.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-28.html" title="❓ Alors que la fortune des milliardaires bat record sur record — plus de 20 000 milliards de dollars, en hausse de 4 000 milliards en un an —, la concentration des richesses va-t-elle être freinée par de nouveaux impôts, se poursuivre au rythme actuel, ou s&#x27;accélérer encore ?">Milliardaires : la richesse du monde peut-elle encore se partager ?</a>
@@ -1406,7 +1421,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="international" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">27.07.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">27.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-27.html" title="❓ Après cinq mois de guerre et plusieurs cessez-le-feu rompus, les négociations en cours déboucheront-elles sur un accord durable entre l&#x27;Iran et les États-Unis, sur une trêve sous tension sans vraie paix, ou sur une nouvelle reprise des combats ?">Iran–États-Unis : les armes se taisent, l&#x27;accord reste à trouver</a>
@@ -1421,7 +1436,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="favorable" data-france="degrade">
-      <td class="col-date" data-label="Date">26.07.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">26.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-26.html">HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ?</a>
@@ -1436,7 +1451,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">25.07.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">25.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-25.html">Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ?</a>
@@ -1451,7 +1466,7 @@
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre">
-      <td class="col-date" data-label="Date">18.07.2026</td>
+      <td class="col-date" data-label="Date"><span class="date-day">18.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-18.html">Spider-Man contre Avengers : qui va sauver le box-office Marvel ?</a>

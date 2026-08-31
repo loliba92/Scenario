@@ -89,13 +89,26 @@ ARCHIVES_TABLE_CSS = """
 
   .archives-table .col-date {
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--paper-dim);
     white-space: nowrap;
     flex-shrink: 0;
     letter-spacing: 0.02em;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.3;
+  }
+
+  .archives-table .date-day {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--paper);
+  }
+
+  .archives-table .date-year {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--paper-dim);
   }
 
   .archives-table .col-domain {
@@ -326,7 +339,9 @@ ARCHIVES_TABLE_CSS = """
     .archives-table .col-date {
       order: 2;
       text-align: left;
-      font-size: 0.72rem;
+      flex-direction: row;
+      align-items: baseline;
+      gap: 6px;
     }
 
     .archives-table .col-domain {
@@ -653,9 +668,9 @@ def parse_article(file_path):
 
 
 def format_date_display(iso_date):
-    """Convertit AAAA-MM-JJ en JJ.MM.AAAA."""
+    """Convertit AAAA-MM-JJ en JJ.MM sur une ligne, AAAA en dessous (2 spans)."""
     parts = iso_date.split("-")
-    return f"{parts[2]}.{parts[1]}.{parts[0]}"
+    return f'<span class="date-day">{parts[2]}.{parts[1]}</span><span class="date-year">{parts[0]}</span>'
 
 
 def get_scenario_label(kind):
