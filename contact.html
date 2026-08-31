@@ -391,6 +391,31 @@
   }
   .follow-btn:hover{ background: var(--gold); color: var(--ink); }
   .follow-btn svg{ display: block; flex-shrink: 0; }
+
+  /* ---- Hero avec photo de fond [AJOUTÉ le 31 août 2026, même traitement que
+     archives.html/le-projet.html/glossaire.html/newsletter.html] —
+     .contact-hero s'ajoute à .hero partagé, ne le modifie pas. Couloir sombre
+     à l'éclairage chaleureux (licence Pexels, crédit dans
+     assets/social/pub-photos/credits.json) — le haut est déjà quasi noir
+     nativement, dégradé léger seulement. */
+  .hero.contact-hero{
+    position: relative;
+    padding: 96px 0 60px;
+    background:
+      linear-gradient(180deg, rgba(16,21,28,0.3) 0%, rgba(16,21,28,0.78) 70%, var(--ink) 100%),
+      url('assets/social/pub-photos/contact.jpg') center 25% / cover no-repeat;
+  }
+
+  .hero.contact-hero .eyebrow,
+  .hero.contact-hero h1,
+  .hero.contact-hero .dek{
+    position: relative;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 600px){
+    .hero.contact-hero{ padding: 64px 0 44px; }
+  }
 </style>
 </head>
 <body>
@@ -419,7 +444,7 @@
   </div>
 </nav>
 
-<section class="hero">
+<section class="hero contact-hero">
   <div class="wrap">
     <p class="eyebrow">Contact</p>
     <h1>Nous contacter</h1>

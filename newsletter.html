@@ -444,6 +444,31 @@
   }
   .follow-btn:hover{ background: var(--gold); color: var(--ink); }
   .follow-btn svg{ display: block; flex-shrink: 0; }
+
+  /* ---- Hero avec photo de fond [AJOUTÉ le 31 août 2026, même traitement que
+     archives.html/le-projet.html/glossaire.html] — .newsletter-hero s'ajoute
+     à .hero partagé, ne le modifie pas. Avion en papier lancé au crépuscule
+     (silhouette générique, licence Pexels, crédit dans
+     assets/social/pub-photos/credits.json) — message envoyé, thème naturel
+     pour une newsletter. */
+  .hero.newsletter-hero{
+    position: relative;
+    padding: 96px 0 60px;
+    background:
+      linear-gradient(180deg, rgba(16,21,28,0.35) 0%, rgba(16,21,28,0.82) 70%, var(--ink) 100%),
+      url('assets/social/pub-photos/newsletter.jpg') center 30% / cover no-repeat;
+  }
+
+  .hero.newsletter-hero .eyebrow,
+  .hero.newsletter-hero h1,
+  .hero.newsletter-hero p{
+    position: relative;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 600px){
+    .hero.newsletter-hero{ padding: 64px 0 44px; }
+  }
 </style>
 </head>
 <body>
@@ -472,7 +497,7 @@
   </div>
 </nav>
 
-<section class="hero">
+<section class="hero newsletter-hero">
   <div class="wrap">
     <p class="eyebrow">Newsletter</p>
     <h1>Recevez Scénario par email</h1>
