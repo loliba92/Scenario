@@ -283,6 +283,15 @@ ARCHIVES_TABLE_CSS = """
     border: 1.5px solid #bd6248;
   }
 
+  /* Donnée manquante (pas de scénario/jugement extrait) — distinct visuellement
+     de "Neutre" (une vraie valeur calculée), gris discret plutôt qu'une couleur
+     de jugement qui laisserait croire à une évaluation qui n'a pas eu lieu. */
+  .archives-table .badge-na {
+    background: transparent;
+    color: var(--paper-dim);
+    border: 1.5px dashed var(--hairline);
+  }
+
   @media (max-width: 1200px) and (min-width: 769px) {
     .archives-table {
       font-size: 0.85rem;
@@ -676,7 +685,7 @@ def render_table_row(article):
       <span class="eval-pct">{pct}%</span>
     </span>'''
     else:
-        eval_html = "<span class=\"eval-badge\">?</span>"
+        eval_html = '<span class="eval-badge badge-na">Non évalué</span>'
 
     # Impact France : badge nuancé sur l'espérance pondérée des 3 scénarios
     # (ex. "Plutôt défavorable" si les 2 scénarios les + probables sont dégradés
@@ -687,7 +696,7 @@ def render_table_row(article):
     if france_label:
         france_html = f'<span class="france-badge {france_css_class}">{france_label}</span>'
     else:
-        france_html = "<span class=\"france-badge\">?</span>"
+        france_html = '<span class="france-badge badge-na">Non évalué</span>'
 
     # Lien EN : lien texte discret, pas un badge encadré
     en_link = f'<a href="en/archives/{article["iso_date"]}.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>'
@@ -719,11 +728,22 @@ def extract_block(text, start_marker, end_marker, include_end=True):
     return text[start:end]
 
 
+def fix_nav_active_link(masthead_nav):
+    """Déplace aria-current="page" du lien "Glossaire" (actif dans glossaire.html,
+    la page source du gabarit) vers le lien "Archives" (la page qu'on génère).
+    Sans ça, le nav copié tel quel affiche "Glossaire" en doré sur archives.html.
+    """
+    masthead_nav = masthead_nav.replace('<a href="glossaire.html" aria-current="page">', '<a href="glossaire.html">')
+    masthead_nav = masthead_nav.replace('<a href="archives.html">', '<a href="archives.html" aria-current="page">')
+    return masthead_nav
+
+
 def build_shared_pieces():
     """Extrait les blocs réutilisables de glossaire.html."""
     text = GLOSSAIRE_HTML.read_text(encoding="utf-8")
     style_block = extract_block(text, "<style>", "</style>")
     masthead_nav = extract_block(text, '<header class="masthead">', "</nav>")
+    masthead_nav = fix_nav_active_link(masthead_nav)
     follow_footer = extract_block(text, '<section class="follow-block" id="nous-suivre">', "</footer>")
     tail_scripts = extract_block(
         text,
