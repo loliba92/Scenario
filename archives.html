@@ -568,31 +568,51 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
-    padding: 6px 12px;
+    text-align: center;
+    padding: 6px 10px;
     border-radius: 4px;
     font-weight: 600;
-    font-size: 0.75rem;
+    font-size: 0.68rem;
     font-family: "JetBrains Mono", monospace;
-    white-space: nowrap;
+    line-height: 1.3;
+    /* Labels plus longs ("Nettement défavorable") : on autorise le retour à
+       la ligne plutôt que de forcer un débordement (contrairement au badge
+       "Notre scénario" dont les labels courts restent sur une ligne). */
+    white-space: normal;
+    max-width: 100%;
   }
 
-  /* Impact France : badge contour léger (donnée secondaire), pour se distinguer
-     visuellement du badge "Notre scénario" (fond plein) juste à côté */
-  .archives-table .france-badge.france-favorable {
-    background: transparent;
+  /* Impact France : badge contour léger (donnée secondaire, pour se distinguer
+     visuellement du badge "Notre scénario" en fond plein juste à côté), avec
+     un dégradé d'intensité sur 5 niveaux qui reflète l'espérance pondérée des
+     3 scénarios (pas juste le jugement du plus probable) : nettement favorable
+     → plutôt favorable → neutre → plutôt défavorable → nettement défavorable. */
+  .archives-table .france-badge.esp-favorable-fort {
+    background: rgba(94, 156, 120, 0.16);
     color: #5e9c78;
     border: 1.5px solid #5e9c78;
   }
 
-  .archives-table .france-badge.france-stable {
+  .archives-table .france-badge.esp-favorable {
     background: transparent;
-    color: #6f8fae;
-    border: 1.5px solid #6f8fae;
+    color: #5e9c78;
+    border: 1.5px solid rgba(94, 156, 120, 0.5);
   }
 
-  .archives-table .france-badge.france-degrade {
+  .archives-table .france-badge.esp-neutre {
     background: transparent;
+    color: #6f8fae;
+    border: 1.5px solid rgba(111, 143, 174, 0.5);
+  }
+
+  .archives-table .france-badge.esp-degrade {
+    background: transparent;
+    color: #bd6248;
+    border: 1.5px solid rgba(189, 98, 72, 0.5);
+  }
+
+  .archives-table .france-badge.esp-degrade-fort {
+    background: rgba(189, 98, 72, 0.16);
     color: #bd6248;
     border: 1.5px solid #bd6248;
   }
@@ -751,8 +771,8 @@
     <thead>
       <tr>
         <th style="width: 9%;">Date</th>
-        <th style="width: 15%;">Domaine</th>
         <th style="width: 40%;">Titre</th>
+        <th style="width: 15%;">Domaine</th>
         <th style="width: 18%;">Notre scénario</th>
         <th style="width: 18%;">Impact France</th>
       </tr>
@@ -760,588 +780,588 @@
     <tbody>
     <tr>
       <td class="col-date" data-label="Date">31.08.2026</td>
-      <td class="col-domain" data-label="Domaine">International</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-31.html">Islande : après le non à l&#x27;UE, qui va la protéger ?</a>
           <a href="en/archives/2026-08-31.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">International</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">30.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-30.html">Ligue 1 : le foot français peut-il survivre à l&#x27;effondrement de ses droits TV ?</a>
           <a href="en/archives/2026-08-30.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">29.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-29.html">Cinéma mondial : peut-il survivre au streaming ?</a>
           <a href="en/archives/2026-08-29.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-favorable">Favorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-favorable-fort">Nettement favorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">28.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-28.html">Climat 2030 : la France peut-elle encore tenir parole ?</a>
           <a href="en/archives/2026-08-28.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">27.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-27.html">Dette américaine : le mur des 40 000 milliards</a>
           <a href="en/archives/2026-08-27.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">26.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-26.html">Retraites : la patate chaude de 2027</a>
           <a href="en/archives/2026-08-26.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">25.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Tech & numérique</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-25.html">IA chinoise : cadeau ou piège ?</a>
           <a href="en/archives/2026-08-25.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Tech & numérique</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">24.08.2026</td>
-      <td class="col-domain" data-label="Domaine">International</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-24.html">Ukraine : ni paix ni victoire</a>
           <a href="en/archives/2026-08-24.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">International</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">23.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-23.html">Le pari XXL du Mondial 2030</a>
           <a href="en/archives/2026-08-23.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-favorable">Favorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-favorable">Plutôt favorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">22.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-22.html">Hollywood décroche en Chine</a>
           <a href="en/archives/2026-08-22.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-favorable">Favorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-favorable-fort">Nettement favorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">21.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-21.html">Le Grand Filtre</a>
           <a href="en/archives/2026-08-21.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-favorable">Favorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-favorable-fort">Nettement favorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">20.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-20.html">Taux : marche arrière</a>
           <a href="en/archives/2026-08-20.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">19.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-19.html">2027 sous influence</a>
           <a href="en/archives/2026-08-19.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">18.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Tech & numérique</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-18.html">IA : la cage a craqué</a>
           <a href="en/archives/2026-08-18.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Tech & numérique</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">17.08.2026</td>
-      <td class="col-domain" data-label="Domaine">International</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-17.html">Ormuz : la trêve a expiré</a>
           <a href="en/archives/2026-08-17.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">International</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade">
       <span class="eval-label">Dégradé</span>
       <span class="eval-pct">55%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">16.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-16.html">Rugby : le choc de trop ?</a>
           <a href="en/archives/2026-08-16.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">15.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-15.html">Traduction littéraire : le métier en sursis ?</a>
           <a href="en/archives/2026-08-15.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">14.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-14.html">Canicules à répétition : qui paie l&#x27;addition ?</a>
           <a href="en/archives/2026-08-14.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">13.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-13.html">Inflation : le pétrole rebat les cartes</a>
           <a href="en/archives/2026-08-13.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">12.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-12.html">2027 : un favori, une opposition éclatée</a>
           <a href="en/archives/2026-08-12.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">11.08.2026</td>
-      <td class="col-domain" data-label="Domaine">International</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-11.html">L&#x27;Éthiopie veut sa mer, au risque de la guerre</a>
           <a href="en/archives/2026-08-11.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">International</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade">Plutôt défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">10.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-10.html">La croissance mondiale ne tient qu&#x27;à un fil</a>
           <a href="en/archives/2026-08-10.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">09.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-09.html">Musique IA : la note grimpe à 9 milliards</a>
           <a href="en/archives/2026-08-09.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-favorable">Favorable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-favorable-fort">Nettement favorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">08.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-08.html">Le cinéma reprend des couleurs</a>
           <a href="en/archives/2026-08-08.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">07.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Tech & numérique</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-07.html">Big Tech face à la justice</a>
           <a href="en/archives/2026-08-07.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Tech & numérique</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">06.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-06.html">FIFA : la présidence d&#x27;Infantino vacille</a>
           <a href="en/archives/2026-08-06.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">05.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-05.html">EPR2 : le nucléaire français à l&#x27;heure de vérité</a>
           <a href="en/archives/2026-08-05.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">04.08.2026</td>
-      <td class="col-domain" data-label="Domaine">International</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-04.html">Gaza : la paix qui reste sur le papier</a>
           <a href="en/archives/2026-08-04.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">International</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">03.08.2026</td>
-      <td class="col-domain" data-label="Domaine">International</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-03.html">Ceuta : la frontière qui a craqué</a>
           <a href="en/archives/2026-08-03.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">International</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">02.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-02.html">Streaming : payer plus, avoir moins ?</a>
           <a href="en/archives/2026-08-02.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">01.08.2026</td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-01.html">Musique : l&#x27;IA a-t-elle déjà gagné ?</a>
           <a href="en/archives/2026-08-01.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">31.07.2026</td>
-      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-31.html">Méga-feux : la France est-elle prête pour la suite ?</a>
           <a href="en/archives/2026-07-31.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">47%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade">Plutôt défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">30.07.2026</td>
-      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-30.html">Golf, foot, boxe : l&#x27;Arabie saoudite se retire-t-elle du sport ?</a>
           <a href="en/archives/2026-07-30.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">29.07.2026</td>
-      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-29.html">Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?</a>
           <a href="en/archives/2026-07-29.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">28.07.2026</td>
-      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-28.html">Milliardaires : la richesse du monde peut-elle encore se partager ?</a>
           <a href="en/archives/2026-07-28.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">27.07.2026</td>
-      <td class="col-domain" data-label="Domaine">International</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-27.html">Iran–États-Unis : les armes se taisent, l&#x27;accord reste à trouver</a>
           <a href="en/archives/2026-07-27.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">International</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">26.07.2026</td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-26.html">HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ?</a>
           <a href="en/archives/2026-07-26.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-favorable" data-kind="favorable">
       <span class="eval-label">Favorable</span>
       <span class="eval-pct">40%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-degrade">Dégradé</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-degrade-fort">Nettement défavorable</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">25.07.2026</td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-25.html">Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ?</a>
           <a href="en/archives/2026-07-25.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     <tr>
       <td class="col-date" data-label="Date">18.07.2026</td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-07-18.html">Spider-Man contre Avengers : qui va sauver le box-office Marvel ?</a>
           <a href="en/archives/2026-07-18.html" title="Read in English" class="lang-link">EN</a>
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-badge france-stable">Stable</span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-badge esp-neutre">Neutre</span></td>
     </tr>
     </tbody>
   </table>

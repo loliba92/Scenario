@@ -218,31 +218,51 @@ ARCHIVES_TABLE_CSS = """
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
-    padding: 6px 12px;
+    text-align: center;
+    padding: 6px 10px;
     border-radius: 4px;
     font-weight: 600;
-    font-size: 0.75rem;
+    font-size: 0.68rem;
     font-family: "JetBrains Mono", monospace;
-    white-space: nowrap;
+    line-height: 1.3;
+    /* Labels plus longs ("Nettement défavorable") : on autorise le retour à
+       la ligne plutôt que de forcer un débordement (contrairement au badge
+       "Notre scénario" dont les labels courts restent sur une ligne). */
+    white-space: normal;
+    max-width: 100%;
   }
 
-  /* Impact France : badge contour léger (donnée secondaire), pour se distinguer
-     visuellement du badge "Notre scénario" (fond plein) juste à côté */
-  .archives-table .france-badge.france-favorable {
-    background: transparent;
+  /* Impact France : badge contour léger (donnée secondaire, pour se distinguer
+     visuellement du badge "Notre scénario" en fond plein juste à côté), avec
+     un dégradé d'intensité sur 5 niveaux qui reflète l'espérance pondérée des
+     3 scénarios (pas juste le jugement du plus probable) : nettement favorable
+     → plutôt favorable → neutre → plutôt défavorable → nettement défavorable. */
+  .archives-table .france-badge.esp-favorable-fort {
+    background: rgba(94, 156, 120, 0.16);
     color: #5e9c78;
     border: 1.5px solid #5e9c78;
   }
 
-  .archives-table .france-badge.france-stable {
+  .archives-table .france-badge.esp-favorable {
     background: transparent;
-    color: #6f8fae;
-    border: 1.5px solid #6f8fae;
+    color: #5e9c78;
+    border: 1.5px solid rgba(94, 156, 120, 0.5);
   }
 
-  .archives-table .france-badge.france-degrade {
+  .archives-table .france-badge.esp-neutre {
     background: transparent;
+    color: #6f8fae;
+    border: 1.5px solid rgba(111, 143, 174, 0.5);
+  }
+
+  .archives-table .france-badge.esp-degrade {
+    background: transparent;
+    color: #bd6248;
+    border: 1.5px solid rgba(189, 98, 72, 0.5);
+  }
+
+  .archives-table .france-badge.esp-degrade-fort {
+    background: rgba(189, 98, 72, 0.16);
     color: #bd6248;
     border: 1.5px solid #bd6248;
   }
@@ -366,33 +386,8 @@ def extract_question(text):
     return None
 
 
-def extract_scenarios(text):
-    """Extrait les scénarios avec leurs pourcentages et france-impact."""
-    scenarios = []
-    for card_match in re.finditer(
-        r'<article class="card" data-kind="([^"]+)"[^>]*>(.*?)</article>', text, re.DOTALL
-    ):
-        kind = card_match.group(1)
-        card_content = card_match.group(2)
-
-        pct_m = re.search(r'<div class="gauge-num">(\d+)%</div>', card_content)
-        percentage = int(pct_m.group(1)) if pct_m else 0
-
-        # Extrait aussi la france-impact de ce scénario
-        france_m = re.search(
-            r'<div class="france-line"[^>]*>.*?<span class="field-label">Concrètement en France</span>\s*([^<]+)',
-            card_content,
-            re.DOTALL,
-        )
-        france_impact = html.unescape(france_m.group(1).strip()) if france_m else None
-
-        scenarios.append((kind, percentage, france_impact))
-
-    return scenarios
-
-
-def extract_france_impact(text, most_probable_kind):
-    """Extrait le jugement France Impact (favorable/stable/degrade) du scénario le plus probable.
+def _extract_card_judgment(card_content):
+    """Extrait le jugement France Impact (favorable/stable/degrade) d'UN card de scénario.
 
     Lit d'abord l'attribut data-france-impact="..." posé sur la div .france-line
     dans le HTML source (articles récents) — plus robuste que de parser le texte,
@@ -401,14 +396,6 @@ def extract_france_impact(text, most_probable_kind):
     ("Plutôt favorable" / "Neutre" / "Plutôt défavorable"), en testant "défavorable"
     avant "favorable" pour éviter le piège du sous-mot.
     """
-    # Cherche le card correspondant au kind le plus probable
-    pattern = rf'<article class="card" data-kind="{re.escape(most_probable_kind)}"[^>]*>(.*?)</article>'
-    card_m = re.search(pattern, text, re.DOTALL)
-    if not card_m:
-        return None
-
-    card_content = card_m.group(1)
-
     # 1) Attribut data-france-impact (articles récents, fiable)
     attr_m = re.search(r'<div class="france-line" data-france-impact="([^"]+)"', card_content)
     if attr_m:
@@ -428,6 +415,70 @@ def extract_france_impact(text, most_probable_kind):
     if "favorable" in france_text:
         return "favorable"
     return "stable"  # "Neutre pour la France" et autres formulations stables
+
+
+def extract_scenarios(text):
+    """Extrait les 3 scénarios avec leur pourcentage et leur jugement France Impact respectif.
+
+    Important : le jugement France Impact d'un card est indépendant de son "kind"
+    (ex. le scénario "stable" peut très bien avoir un impact France jugé "degrade") —
+    c'est justement ce qui permet de calculer une espérance pondérée plus bas.
+    """
+    scenarios = []
+    for card_match in re.finditer(
+        r'<article class="card" data-kind="([^"]+)"[^>]*>(.*?)</article>', text, re.DOTALL
+    ):
+        kind = card_match.group(1)
+        card_content = card_match.group(2)
+
+        pct_m = re.search(r'<div class="gauge-num">(\d+)%</div>', card_content)
+        percentage = int(pct_m.group(1)) if pct_m else 0
+
+        judgment = _extract_card_judgment(card_content)
+
+        scenarios.append((kind, percentage, judgment))
+
+    return scenarios
+
+
+# Valeur numérique de chaque jugement pour le calcul de l'espérance pondérée
+_JUDGMENT_VALUE = {"favorable": 1, "stable": 0, "degrade": -1}
+
+
+def compute_france_esperance(scenarios):
+    """Calcule l'espérance (valeur pondérée par les probabilités) de l'impact France.
+
+    Chacun des 3 scénarios a un pourcentage (probabilité) et un jugement France Impact
+    propre (favorable=+1, stable=0, degrade=-1). L'espérance = Σ(pct_i/100 × valeur_i),
+    un score continu dans [-1, 1] — plus fidèle que de ne retenir que le jugement du
+    seul scénario le plus probable, qui ignore les deux autres.
+    """
+    if not scenarios:
+        return None
+    return sum(
+        (pct / 100) * _JUDGMENT_VALUE.get(judgment, 0)
+        for _kind, pct, judgment in scenarios
+        if judgment is not None
+    )
+
+
+def label_esperance(value):
+    """Mappe l'espérance (float dans [-1, 1]) à un label nuancé + une classe CSS.
+
+    Échelle à 5 niveaux calibrée sur la distribution réelle observée (-0.6 à +0.5) :
+    seuils à ±0.15 (neutre) et ±0.4 (nettement).
+    """
+    if value is None:
+        return None, None
+    if value >= 0.4:
+        return "Nettement favorable", "esp-favorable-fort"
+    if value >= 0.15:
+        return "Plutôt favorable", "esp-favorable"
+    if value <= -0.4:
+        return "Nettement défavorable", "esp-degrade-fort"
+    if value <= -0.15:
+        return "Plutôt défavorable", "esp-degrade"
+    return "Neutre", "esp-neutre"
 
 
 def extract_domain(text):
@@ -456,12 +507,13 @@ def parse_article(file_path):
     scenarios = extract_scenarios(text)
     domain = extract_domain(text)
 
-    # Extrait le scénario le plus probable
+    # Extrait le scénario le plus probable (pour le badge "Notre scénario")
     best_scenario = get_most_probable_scenario(scenarios)
     kind, pct = best_scenario if best_scenario[0] else (None, None)
 
-    # Extrait france_impact du scénario le plus probable
-    france_impact = extract_france_impact(text, kind) if kind else None
+    # Impact France : espérance pondérée sur les 3 scénarios, pas juste le plus probable
+    esperance = compute_france_esperance(scenarios)
+    france_label, france_css_class = label_esperance(esperance)
 
     return {
         "iso_date": iso_date,
@@ -469,7 +521,9 @@ def parse_article(file_path):
         "question": question,
         "scenario_kind": kind,
         "scenario_pct": pct,
-        "france_impact": france_impact,
+        "france_esperance": esperance,
+        "france_label": france_label,
+        "france_css_class": france_css_class,
         "domain": domain,
     }
 
@@ -491,7 +545,7 @@ def get_scenario_label(kind):
 
 
 def render_table_row(article):
-    """Rend une ligne du tableau avec 5 colonnes: Date | Domaine | Titre | Notre scénario | Impact France."""
+    """Rend une ligne du tableau avec 5 colonnes: Date | Titre | Domaine | Notre scénario | Impact France."""
     domain_label = DOMAIN_LABELS.get(article["domain"], article["domain"])
 
     # Notre scénario : badge de couleur + % SEULEMENT (pas de texte du scénario)
@@ -508,12 +562,14 @@ def render_table_row(article):
     else:
         eval_html = "<span class=\"eval-badge\">?</span>"
 
-    # France Impact : badge de couleur avec SEULEMENT le jugement (favorable/stable/degrade)
-    france_kind = article["france_impact"]
+    # Impact France : badge nuancé sur l'espérance pondérée des 3 scénarios
+    # (ex. "Plutôt défavorable" si les 2 scénarios les + probables sont dégradés
+    # pour la France, même quand le scénario "stable" l'emporte sur le fond)
+    france_label = article["france_label"]
+    france_css_class = article["france_css_class"]
 
-    if france_kind:
-        france_label = get_scenario_label(france_kind)
-        france_html = f'<span class="france-badge france-{france_kind}">{france_label}</span>'
+    if france_label:
+        france_html = f'<span class="france-badge {france_css_class}">{france_label}</span>'
     else:
         france_html = "<span class=\"france-badge\">?</span>"
 
@@ -521,16 +577,16 @@ def render_table_row(article):
     en_link = f'<a href="en/archives/{article["iso_date"]}.html" title="Read in English" class="lang-link">EN</a>'
 
     # data-label sur chaque <td> : utilisé par la vue carte mobile (voir CSS @media)
-    # Ordre simplifiée : Date | Domaine | Titre | Notre scénario | Impact France
+    # Ordre : Date puis Titre en premier (les 2 repères de nav), puis Domaine, puis les 2 badges
     return f"""    <tr>
       <td class="col-date" data-label="Date">{format_date_display(article["iso_date"])}</td>
-      <td class="col-domain" data-label="Domaine">{domain_label}</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/{article["iso_date"]}.html">{html.escape(article["title"])}</a>
           {en_link}
         </span>
       </td>
+      <td class="col-domain" data-label="Domaine">{domain_label}</td>
       <td class="col-eval" data-label="Notre scénario">{eval_html}</td>
       <td class="col-france" data-label="Impact France">{france_html}</td>
     </tr>"""
@@ -569,8 +625,8 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
     <thead>
       <tr>
         <th style="width: 9%;">Date</th>
-        <th style="width: 15%;">Domaine</th>
         <th style="width: 40%;">Titre</th>
+        <th style="width: 15%;">Domaine</th>
         <th style="width: 18%;">Notre scénario</th>
         <th style="width: 18%;">Impact France</th>
       </tr>
