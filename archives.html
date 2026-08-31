@@ -492,12 +492,25 @@
     font-size: 0.72rem;
     font-family: "JetBrains Mono", monospace;
     font-weight: 600;
-    color: var(--paper-dim);
     white-space: normal;
     line-height: 1.35;
     text-transform: uppercase;
     letter-spacing: 0.02em;
     text-align: center;
+  }
+
+  /* Chaque domaine renvoie vers sa page thématique (themes/{slug}.html) —
+     maillage interne : 39 liens contextuels vers les 6 pages, en plus du
+     menu déroulant "Archives" du nav (site-wide, mais générique). */
+  .archives-table .col-domain a {
+    color: var(--paper-dim);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .archives-table .col-domain a:hover {
+    color: var(--gold);
+    text-decoration: underline;
   }
 
   .archives-table .col-title {
@@ -930,7 +943,7 @@
           <a href="en/archives/2026-08-31.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">International</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -945,7 +958,7 @@
           <a href="en/archives/2026-08-30.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -960,7 +973,7 @@
           <a href="en/archives/2026-08-29.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -975,7 +988,7 @@
           <a href="en/archives/2026-08-28.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -990,7 +1003,7 @@
           <a href="en/archives/2026-08-27.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1005,7 +1018,7 @@
           <a href="en/archives/2026-08-26.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1020,7 +1033,7 @@
           <a href="en/archives/2026-08-25.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Tech & numérique</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1035,7 +1048,7 @@
           <a href="en/archives/2026-08-24.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">International</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1050,7 +1063,7 @@
           <a href="en/archives/2026-08-23.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1065,7 +1078,7 @@
           <a href="en/archives/2026-08-22.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1080,7 +1093,7 @@
           <a href="en/archives/2026-08-21.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1095,7 +1108,7 @@
           <a href="en/archives/2026-08-20.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1110,7 +1123,7 @@
           <a href="en/archives/2026-08-19.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1125,7 +1138,7 @@
           <a href="en/archives/2026-08-18.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Tech & numérique</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1140,7 +1153,7 @@
           <a href="en/archives/2026-08-17.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">International</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade">
       <span class="eval-label">Dégradé</span>
       <span class="eval-pct">55%</span>
@@ -1155,7 +1168,7 @@
           <a href="en/archives/2026-08-16.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1170,7 +1183,7 @@
           <a href="en/archives/2026-08-15.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1185,7 +1198,7 @@
           <a href="en/archives/2026-08-14.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1200,7 +1213,7 @@
           <a href="en/archives/2026-08-13.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1215,7 +1228,7 @@
           <a href="en/archives/2026-08-12.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1230,7 +1243,7 @@
           <a href="en/archives/2026-08-11.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">International</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1245,7 +1258,7 @@
           <a href="en/archives/2026-08-10.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
@@ -1260,7 +1273,7 @@
           <a href="en/archives/2026-08-09.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
@@ -1275,7 +1288,7 @@
           <a href="en/archives/2026-08-08.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1290,7 +1303,7 @@
           <a href="en/archives/2026-08-07.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Tech & numérique</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1305,7 +1318,7 @@
           <a href="en/archives/2026-08-06.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1320,7 +1333,7 @@
           <a href="en/archives/2026-08-05.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1335,7 +1348,7 @@
           <a href="en/archives/2026-08-04.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">International</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1350,7 +1363,7 @@
           <a href="en/archives/2026-08-03.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">International</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1365,7 +1378,7 @@
           <a href="en/archives/2026-08-02.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1380,7 +1393,7 @@
           <a href="en/archives/2026-08-01.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1395,7 +1408,7 @@
           <a href="en/archives/2026-07-31.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Sciences & environnement</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">47%</span>
@@ -1410,7 +1423,7 @@
           <a href="en/archives/2026-07-30.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1425,7 +1438,7 @@
           <a href="en/archives/2026-07-29.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Politique & institutions</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1440,7 +1453,7 @@
           <a href="en/archives/2026-07-28.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Économie & entreprises</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1455,7 +1468,7 @@
           <a href="en/archives/2026-07-27.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">International</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1470,7 +1483,7 @@
           <a href="en/archives/2026-07-26.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-favorable" data-kind="favorable">
       <span class="eval-label">Favorable</span>
       <span class="eval-pct">40%</span>
@@ -1485,7 +1498,7 @@
           <a href="en/archives/2026-07-25.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1500,7 +1513,7 @@
           <a href="en/archives/2026-07-18.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">Culture & divertissement</td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1517,7 +1530,7 @@
         <dt>Titre</dt>
         <dd>Cliquez pour lire l'analyse complète (lien <strong>↗ EN</strong> pour la version anglaise).</dd>
         <dt>Domaine</dt>
-        <dd>Catégorie thématique de l'édition — voir les <a href="index.html">pages thématiques</a>.</dd>
+        <dd>Catégorie thématique de l'édition (cliquez sur le domaine dans le tableau), l'une des 6 : <a href="themes/economie-entreprises.html">Économie & entreprises</a>, <a href="themes/politique-institutions.html">Politique & institutions</a>, <a href="themes/international.html">International</a>, <a href="themes/sciences-environnement.html">Sciences & environnement</a>, <a href="themes/tech-numerique.html">Tech & numérique</a>, <a href="themes/culture-divertissement.html">Culture & divertissement</a>.</dd>
         <dt>Notre scénario</dt>
         <dd>Le plus probable des 3 scénarios de l'édition, avec son pourcentage de probabilité — <strong>favorable</strong> : la problématique se résout plutôt bien ; <strong>stable</strong> : la situation reste proche des conditions actuelles ; <strong>dégradé</strong> : la problématique s'aggrave nettement.</dd>
         <dt>Impact France</dt>

@@ -142,12 +142,25 @@ ARCHIVES_TABLE_CSS = """
     font-size: 0.72rem;
     font-family: "JetBrains Mono", monospace;
     font-weight: 600;
-    color: var(--paper-dim);
     white-space: normal;
     line-height: 1.35;
     text-transform: uppercase;
     letter-spacing: 0.02em;
     text-align: center;
+  }
+
+  /* Chaque domaine renvoie vers sa page thématique (themes/{slug}.html) —
+     maillage interne : 39 liens contextuels vers les 6 pages, en plus du
+     menu déroulant "Archives" du nav (site-wide, mais générique). */
+  .archives-table .col-domain a {
+    color: var(--paper-dim);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .archives-table .col-domain a:hover {
+    color: var(--gold);
+    text-decoration: underline;
   }
 
   .archives-table .col-title {
@@ -751,7 +764,7 @@ def render_table_row(article):
           {en_link}
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">{domain_label}</td>
+      <td class="col-domain" data-label="Domaine">{f'<a href="themes/{article["domain"]}.html">{domain_label}</a>' if article["domain"] else domain_label}</td>
       <td class="col-eval" data-label="Notre scénario">{eval_html}</td>
       <td class="col-france" data-label="Impact France">{france_html}</td>
     </tr>"""
@@ -794,6 +807,12 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
     title = "Archives — Scénario"
     description = f"Archives complètes de Scénario : {len(articles)} éditions avec chacune 3 scénarios chiffrés (favorable, stable, dégradé)."
     url = f"{SITE_URL}/archives.html"
+
+    # Liens vers les 6 pages thématiques, réutilisés dans la légende (maillage
+    # interne — en plus des 39 liens contextuels posés sur chaque cellule Domaine)
+    theme_links_html = ", ".join(
+        f'<a href="themes/{slug}.html">{label}</a>' for slug, label in DOMAIN_LABELS.items()
+    )
 
     # Rend le tableau
     rows_html = "\n".join(render_table_row(article) for article in articles)
@@ -961,7 +980,7 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
         <dt>Titre</dt>
         <dd>Cliquez pour lire l'analyse complète (lien <strong>↗ EN</strong> pour la version anglaise).</dd>
         <dt>Domaine</dt>
-        <dd>Catégorie thématique de l'édition — voir les <a href="index.html">pages thématiques</a>.</dd>
+        <dd>Catégorie thématique de l'édition (cliquez sur le domaine dans le tableau), l'une des 6 : {theme_links_html}.</dd>
         <dt>Notre scénario</dt>
         <dd>Le plus probable des 3 scénarios de l'édition, avec son pourcentage de probabilité — <strong>favorable</strong> : la problématique se résout plutôt bien ; <strong>stable</strong> : la situation reste proche des conditions actuelles ; <strong>dégradé</strong> : la problématique s'aggrave nettement.</dd>
         <dt>Impact France</dt>
