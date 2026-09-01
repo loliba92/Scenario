@@ -44,30 +44,34 @@ DOMAINS = [
      "tags": ["cinema", "musique", "jeux-video", "litterature", "medias"]},
 ]
 
-ENTRY_RE = re.compile(r'<li class="entry"[^>]*>(.*?)</li>\s*(?=<li|\Z)', re.DOTALL)
-TITLE_RE = re.compile(r'<a class="entry-title" href="archives/(\d{4}-\d{2}-\d{2})\.html">([^<]+)</a>')
-DATE_RE = re.compile(r'<span class="entry-date">([\d.]+)</span>')
-TAG_RE = re.compile(r'<button type="button" class="tag( theme)?" data-tag="([a-z-]+)">([^<]+)</button>')
+# [CORRIGÉ le 1er septembre 2026] archives.html n'est plus une liste de
+# <li class="entry"> avec des boutons .tag (ancien format, avant la
+# restructuration en tableau de generate_archives_table.py) — c'est
+# désormais un <table class="archives-table"> où chaque article est une
+# seule <tr data-domain="{slug}" ...>, avec un domaine unique déjà résolu
+# (plus de jeu de tags à recouper). Regex mises à jour en conséquence ;
+# la notion de "registre" (jour/thème type "Lundi géopolitique") a
+# disparu de ce tableau, elle n'est donc plus affichée sur ces pages.
+ENTRY_RE = re.compile(r'<tr data-domain="([a-z-]*)"[^>]*>(.*?)</tr>', re.DOTALL)
+TITLE_RE = re.compile(r'<a href="archives/(\d{4}-\d{2}-\d{2})\.html"[^>]*>([^<]+)</a>')
 
 
 def parse_entries():
     text = ARCHIVES_HTML.read_text(encoding="utf-8")
     entries = []
-    for block in ENTRY_RE.findall(text):
+    for domain_slug, block in ENTRY_RE.findall(text):
         title_m = TITLE_RE.search(block)
-        date_m = DATE_RE.search(block)
-        if not title_m or not date_m:
-            continue  # récap hebdo ou autre bloc non-article
+        if not domain_slug or not title_m:
+            continue  # pas de domaine assigné, ou bloc non-article
         iso_date, title = title_m.groups()
-        tags = [(is_theme.strip() == "theme", tag, html.unescape(label))
-                for is_theme, tag, label in TAG_RE.findall(block)]
+        display_date = f"{iso_date[8:10]}.{iso_date[5:7]}.{iso_date[0:4]}"
         entries.append({
             "iso_date": iso_date,
-            "display_date": date_m.group(1),
+            "display_date": display_date,
             "title": html.unescape(title),
             "href": f"archives/{iso_date}.html",
-            "registre": next((label for is_theme, tag, label in tags if not is_theme and tag not in ("revise", "hebdo")), None),
-            "theme_tags": {tag for is_theme, tag, _ in tags if is_theme},
+            "registre": None,
+            "domain_slug": domain_slug,
         })
     return entries
 
@@ -266,7 +270,7 @@ def main():
 
     summary = []
     for domain in DOMAINS:
-        matched = [e for e in entries if e["theme_tags"] & set(domain["tags"])]
+        matched = [e for e in entries if e["domain_slug"] == domain["slug"]]
         matched.sort(key=lambda e: e["iso_date"], reverse=True)
         page = render_page(domain, matched, style_block, masthead_nav, follow_footer, tail_scripts)
         out_path = THEMES_DIR / f"{domain['slug']}.html"

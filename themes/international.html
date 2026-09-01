@@ -13,20 +13,20 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Scénario">
 <link rel="stylesheet" href="../assets/pwa-install.css">
-<meta name="description" content="Toutes les éditions de Scénario sur le thème international : 8 articles, chacun avec 3 scénarios chiffrés (favorable, stable, dégradé).">
+<meta name="description" content="Toutes les éditions de Scénario sur le thème international : 7 articles, chacun avec 3 scénarios chiffrés (favorable, stable, dégradé).">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Scénario">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:url" content="https://lesscenarios.fr/themes/international.html">
 <meta property="og:title" content="International — Scénario">
-<meta property="og:description" content="Toutes les éditions de Scénario sur le thème international : 8 articles, chacun avec 3 scénarios chiffrés (favorable, stable, dégradé).">
+<meta property="og:description" content="Toutes les éditions de Scénario sur le thème international : 7 articles, chacun avec 3 scénarios chiffrés (favorable, stable, dégradé).">
 <meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
 <meta property="og:image:width" content="2508">
 <meta property="og:image:height" content="1412">
 <meta property="og:image:alt" content="Scénario — trois scénarios chiffrés pour chaque actualité : favorable, stable, dégradé.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="International — Scénario">
-<meta name="twitter:description" content="Toutes les éditions de Scénario sur le thème international : 8 articles, chacun avec 3 scénarios chiffrés (favorable, stable, dégradé).">
+<meta name="twitter:description" content="Toutes les éditions de Scénario sur le thème international : 7 articles, chacun avec 3 scénarios chiffrés (favorable, stable, dégradé).">
 <meta name="twitter:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -381,6 +381,32 @@
   .follow-btn:hover{ background: var(--gold); color: var(--ink); }
   .follow-btn svg{ display: block; flex-shrink: 0; }
 
+  /* ---- Hero avec photo de fond [AJOUTÉ le 31 août 2026, même traitement que
+     archives.html/le-projet.html] — .glossaire-hero s'ajoute à .hero partagé,
+     ne le modifie pas, donc n'affecte aucune autre page (y compris les pages
+     thématiques, qui extraient aussi ce <style> — voir generate_theme_pages.py).
+     Bibliothèque de recherche du Rijksmuseum, Amsterdam (licence Pexels,
+     crédit dans assets/social/pub-photos/credits.json) — le tiers gauche
+     est déjà noir nativement, dégradé léger seulement. */
+  .hero.glossaire-hero{
+    position: relative;
+    padding: 96px 0 60px;
+    background:
+      linear-gradient(180deg, rgba(16,21,28,0.3) 0%, rgba(16,21,28,0.78) 70%, var(--ink) 100%),
+      url('assets/social/pub-photos/vocabulaire.jpg') left center / cover no-repeat;
+  }
+
+  .hero.glossaire-hero .eyebrow,
+  .hero.glossaire-hero h1,
+  .hero.glossaire-hero .dek{
+    position: relative;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 600px){
+    .hero.glossaire-hero{ padding: 64px 0 44px; }
+  }
+
   /* ---- Liste d'articles par page de thème (scripts/seo/generate_theme_pages.py) ---- */
   .theme-list{ margin: 0; padding: 0; list-style: none; }
   .theme-entry{
@@ -424,7 +450,7 @@
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "International — Scénario",
-  "description": "Toutes les éditions de Scénario sur le thème international : 8 articles, chacun avec 3 scénarios chiffrés (favorable, stable, dégradé).",
+  "description": "Toutes les éditions de Scénario sur le thème international : 7 articles, chacun avec 3 scénarios chiffrés (favorable, stable, dégradé).",
   "url": "https://lesscenarios.fr/themes/international.html",
   "isPartOf": { "@type": "WebSite", "name": "Scénario", "url": "https://lesscenarios.fr/" }
 }
@@ -460,7 +486,7 @@
   <div class="wrap">
     <p class="eyebrow">Thème</p>
     <h1>International</h1>
-    <p class="dek">8 éditions de Scénario sur ce thème, classées de la plus récente à la plus ancienne — chacune avec 3 scénarios chiffrés.</p>
+    <p class="dek">7 éditions de Scénario sur ce thème, classées de la plus récente à la plus ancienne — chacune avec 3 scénarios chiffrés.</p>
   </div>
 </section>
 
@@ -470,42 +496,37 @@
       <li class="theme-entry">
         <span class="theme-entry-date">31.08.2026</span>
         <a class="theme-entry-title" href="../archives/2026-08-31.html">Islande : après le non à l&#x27;UE, qui va la protéger ?</a>
-        <span class="theme-registre">Géopolitique</span>
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">25.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-25.html">IA chinoise : cadeau ou piège ?</a>
-        <span class="theme-registre">Carte blanche</span>
+        
       </li>
       <li class="theme-entry">
         <span class="theme-entry-date">24.08.2026</span>
         <a class="theme-entry-title" href="../archives/2026-08-24.html">Ukraine : ni paix ni victoire</a>
-        <span class="theme-registre">Géopolitique</span>
+        
       </li>
       <li class="theme-entry">
         <span class="theme-entry-date">17.08.2026</span>
         <a class="theme-entry-title" href="../archives/2026-08-17.html">Ormuz : la trêve a expiré</a>
-        <span class="theme-registre">Géopolitique</span>
+        
       </li>
       <li class="theme-entry">
         <span class="theme-entry-date">11.08.2026</span>
         <a class="theme-entry-title" href="../archives/2026-08-11.html">L&#x27;Éthiopie veut sa mer, au risque de la guerre</a>
-        <span class="theme-registre">Carte blanche</span>
+        
       </li>
       <li class="theme-entry">
         <span class="theme-entry-date">04.08.2026</span>
         <a class="theme-entry-title" href="../archives/2026-08-04.html">Gaza : la paix qui reste sur le papier</a>
-        <span class="theme-registre">Carte blanche</span>
+        
       </li>
       <li class="theme-entry">
-        <span class="theme-entry-date">27.08.2026</span>
+        <span class="theme-entry-date">03.08.2026</span>
         <a class="theme-entry-title" href="../archives/2026-08-03.html">Ceuta : la frontière qui a craqué</a>
-        <span class="theme-registre">Géopolitique</span>
+        
       </li>
       <li class="theme-entry">
-        <span class="theme-entry-date">28.08.2026</span>
+        <span class="theme-entry-date">27.07.2026</span>
         <a class="theme-entry-title" href="../archives/2026-07-27.html">Iran–États-Unis : les armes se taisent, l&#x27;accord reste à trouver</a>
-        <span class="theme-registre">Géopolitique</span>
+        
       </li>
     </ul>
     <p style="margin-top:28px"><a class="theme-entry-title" href="../archives.html" style="font-size:0.85rem">← Retour à toutes les archives</a></p>

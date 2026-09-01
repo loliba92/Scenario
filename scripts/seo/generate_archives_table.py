@@ -912,8 +912,15 @@ def render_table_row(article):
     # render_france_scale(). Le label reste dispo au survol (title=/aria-label=).
     france_html = render_france_scale(article["france_css_class"], article["france_label"])
 
-    # Lien EN : lien texte discret, pas un badge encadré
-    en_link = f'<a href="en/archives/{article["iso_date"]}.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>'
+    # Lien EN : lien texte discret, pas un badge encadré — uniquement si la
+    # traduction existe vraiment sur disque (bug corrigé le 1er septembre 2026 :
+    # le lien était généré inconditionnellement, y compris vers des pages
+    # en/archives/AAAA-MM-JJ.html inexistantes pour les éditions non traduites).
+    en_archive_path = ROOT / "en" / "archives" / f'{article["iso_date"]}.html'
+    en_link = (
+        f'<a href="en/archives/{article["iso_date"]}.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>'
+        if en_archive_path.exists() else ""
+    )
 
     # Badge "Révisé" : discret, pas d'emoji (règle du site) — visible directement
     # sur la ligne, sans attendre que le lecteur clique le filtre "Sujet révisé".

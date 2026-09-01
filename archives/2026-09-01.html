@@ -40,7 +40,7 @@
   "description": "À huit mois du vote, Marine Le Pen domine les sondages : droite et gauche, divisées, peuvent-elles aligner un candidat capable de la battre au second tour ?",
   "image": ["https://lesscenarios.fr/assets/social/instagram/2026-09-01.png"],
   "datePublished": "2026-09-01T06:25:00+02:00",
-  "dateModified": "2026-09-01T07:07:00+02:00",
+  "dateModified": "2026-09-01T07:12:00+02:00",
   "inLanguage": "fr-FR",
   "author": { "@type": "Organization", "name": "Scénario", "url": "https://lesscenarios.fr/le-projet.html", "sameAs": ["https://www.linkedin.com/company/136694258/"] },
   "publisher": {
@@ -1588,32 +1588,6 @@
     }
     @page{ margin: 12mm; }
   }
-
-  .topnav-archives{
-    display: inline-flex; align-items: center; gap: 6px;
-    font-family: "JetBrains Mono", monospace; font-size: 0.76rem;
-    text-transform: uppercase; letter-spacing: 0.08em;
-    color: var(--paper-dim); background: none; border: none;
-    border-bottom: 1px solid transparent; padding: 0 0 2px;
-    cursor: pointer; flex-shrink: 0;
-  }
-  .topnav-archives:hover{ color: var(--paper); }
-  .topnav-archives svg{ display: block; flex-shrink: 0; }
-  .topnav-archives-icon{ display: inline-block; transition: transform .2s ease; }
-  .topnav-archives[aria-expanded="true"] .topnav-archives-icon{ transform: rotate(180deg); }
-  .topnav-archives[aria-expanded="true"]{ color: var(--gold); border-bottom-color: var(--gold); }
-  .topnav-archives-panel{ display: none; background: var(--surface-2); border-bottom: 1px solid var(--hairline); }
-  .topnav-archives-panel.is-open{ display: block; }
-  .topnav-archives-panel .wrap{ display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 12px 24px; }
-  .topnav-archives-panel a{
-    font-family: "JetBrains Mono", monospace; font-size: 0.72rem;
-    text-transform: uppercase; letter-spacing: 0.05em;
-    color: var(--paper-dim); text-decoration: none;
-    border-bottom: 1px dotted transparent;
-  }
-  .topnav-archives-panel a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
-  .topnav-archives-panel a:first-child{ color: var(--gold); }
-
 </style>
 </head>
 <body>
@@ -1640,25 +1614,13 @@
 <nav class="topnav">
   <div class="wrap">
     <a href="../index.html" aria-current="page"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"/></svg> Accueil</a>
-    <button type="button" class="topnav-archives" aria-expanded="false" aria-controls="topnav-archives-panel"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4.5" width="16" height="4" rx="1"/><path d="M5 8.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5"/><line x1="10" y1="13" x2="14" y2="13"/></svg> Archives <span class="topnav-archives-icon" aria-hidden="true">▾</span></button>
+    <a href="../archives.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4.5" width="16" height="4" rx="1"/><path d="M5 8.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5"/><line x1="10" y1="13" x2="14" y2="13"/></svg> Archives</a>
     <a href="../glossaire.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5c-1.6-1.2-3.7-1.7-6-1.7v13c2.3 0 4.4.5 6 1.7 1.6-1.2 3.7-1.7 6-1.7v-13c-2.3 0-4.4.5-6 1.7Z"/><line x1="12" y1="6.5" x2="12" y2="19.5"/></svg> Glossaire</a>
     <a href="../le-projet.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4.5-8 4.5-8-4.5Z"/><path d="m4 12 8 4.5 8-4.5"/><path d="m4 16.5 8 4.5 8-4.5"/></svg> Le projet</a>
     <a href="../newsletter.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M4.5 7 12 12.5 19.5 7"/></svg> Newsletter</a>
     <a href="../contact.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6.5A1.5 1.5 0 0 1 5.5 5h13A1.5 1.5 0 0 1 20 6.5v8a1.5 1.5 0 0 1-1.5 1.5H10l-4 3.5V16H5.5A1.5 1.5 0 0 1 4 14.5Z"/></svg> Contact</a>
     <a href="#nous-suivre"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg> Nous suivre</a>
     <a href="https://buymeacoffee.com/scenario" target="_blank" rel="noopener noreferrer" style="color:var(--gold)"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v6a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4Z"/><path d="M16 10.5h1.5a2 2 0 0 1 0 4H16"/><path d="M8.5 4.5c-.6.7-.6 1.3 0 2M12 4.5c-.6.7-.6 1.3 0 2"/></svg> Soutenir</a>
-  </div>
-  <div class="topnav-archives-panel" id="topnav-archives-panel" hidden>
-    <div class="wrap">
-      <a href="../archives.html">Toutes les archives →</a>
-      <a href="../themes/economie-entreprises.html">Économie &amp; entreprises</a>
-      <a href="../themes/international.html">International</a>
-      <a href="../themes/sciences-environnement.html">Sciences &amp; environnement</a>
-      <a href="../themes/culture-divertissement.html">Culture &amp; divertissement</a>
-      <a href="../themes/politique-institutions.html">Politique &amp; institutions</a>
-      <a href="../themes/tech-numerique.html">Tech &amp; numérique</a>
-      <a href="../hebdo/2026-08-30.html">Récap de la semaine</a>
-    </div>
   </div>
 </nav>
 
@@ -2167,19 +2129,6 @@
 
     var printBtn = document.getElementById("print-page");
     if (printBtn) printBtn.addEventListener("click", function(){ window.print(); });
-  })();
-</script>
-
-<script>
-  (function(){
-    var btn = document.querySelector('.topnav-archives');
-    var panel = document.getElementById('topnav-archives-panel');
-    if(!btn || !panel){ return; }
-    btn.addEventListener('click', function(){
-      var open = panel.classList.toggle('is-open');
-      panel.hidden = !open;
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
   })();
 </script>
 

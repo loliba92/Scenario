@@ -13,20 +13,20 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Scénario">
 <link rel="stylesheet" href="../assets/pwa-install.css">
-<meta name="description" content="Toutes les éditions de Scénario sur le thème économie & entreprises : 16 articles, chacun avec 3 scénarios chiffrés (favorable, stable, dégradé).">
+<meta name="description" content="Toutes les éditions de Scénario sur le thème économie & entreprises : 7 articles, chacun avec 3 scénarios chiffrés (favorable, stable, dégradé).">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Scénario">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:url" content="https://lesscenarios.fr/themes/economie-entreprises.html">
 <meta property="og:title" content="Économie & entreprises — Scénario">
-<meta property="og:description" content="Toutes les éditions de Scénario sur le thème économie & entreprises : 16 articles, chacun avec 3 scénarios chiffrés (favorable, stable, dégradé).">
+<meta property="og:description" content="Toutes les éditions de Scénario sur le thème économie & entreprises : 7 articles, chacun avec 3 scénarios chiffrés (favorable, stable, dégradé).">
 <meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
 <meta property="og:image:width" content="2508">
 <meta property="og:image:height" content="1412">
 <meta property="og:image:alt" content="Scénario — trois scénarios chiffrés pour chaque actualité : favorable, stable, dégradé.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Économie & entreprises — Scénario">
-<meta name="twitter:description" content="Toutes les éditions de Scénario sur le thème économie & entreprises : 16 articles, chacun avec 3 scénarios chiffrés (favorable, stable, dégradé).">
+<meta name="twitter:description" content="Toutes les éditions de Scénario sur le thème économie & entreprises : 7 articles, chacun avec 3 scénarios chiffrés (favorable, stable, dégradé).">
 <meta name="twitter:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -381,6 +381,32 @@
   .follow-btn:hover{ background: var(--gold); color: var(--ink); }
   .follow-btn svg{ display: block; flex-shrink: 0; }
 
+  /* ---- Hero avec photo de fond [AJOUTÉ le 31 août 2026, même traitement que
+     archives.html/le-projet.html] — .glossaire-hero s'ajoute à .hero partagé,
+     ne le modifie pas, donc n'affecte aucune autre page (y compris les pages
+     thématiques, qui extraient aussi ce <style> — voir generate_theme_pages.py).
+     Bibliothèque de recherche du Rijksmuseum, Amsterdam (licence Pexels,
+     crédit dans assets/social/pub-photos/credits.json) — le tiers gauche
+     est déjà noir nativement, dégradé léger seulement. */
+  .hero.glossaire-hero{
+    position: relative;
+    padding: 96px 0 60px;
+    background:
+      linear-gradient(180deg, rgba(16,21,28,0.3) 0%, rgba(16,21,28,0.78) 70%, var(--ink) 100%),
+      url('assets/social/pub-photos/vocabulaire.jpg') left center / cover no-repeat;
+  }
+
+  .hero.glossaire-hero .eyebrow,
+  .hero.glossaire-hero h1,
+  .hero.glossaire-hero .dek{
+    position: relative;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 600px){
+    .hero.glossaire-hero{ padding: 64px 0 44px; }
+  }
+
   /* ---- Liste d'articles par page de thème (scripts/seo/generate_theme_pages.py) ---- */
   .theme-list{ margin: 0; padding: 0; list-style: none; }
   .theme-entry{
@@ -424,7 +450,7 @@
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Économie &amp; entreprises — Scénario",
-  "description": "Toutes les éditions de Scénario sur le thème économie &amp; entreprises : 16 articles, chacun avec 3 scénarios chiffrés (favorable, stable, dégradé).",
+  "description": "Toutes les éditions de Scénario sur le thème économie &amp; entreprises : 7 articles, chacun avec 3 scénarios chiffrés (favorable, stable, dégradé).",
   "url": "https://lesscenarios.fr/themes/economie-entreprises.html",
   "isPartOf": { "@type": "WebSite", "name": "Scénario", "url": "https://lesscenarios.fr/" }
 }
@@ -460,7 +486,7 @@
   <div class="wrap">
     <p class="eyebrow">Thème</p>
     <h1>Économie & entreprises</h1>
-    <p class="dek">16 éditions de Scénario sur ce thème, classées de la plus récente à la plus ancienne — chacune avec 3 scénarios chiffrés.</p>
+    <p class="dek">7 éditions de Scénario sur ce thème, classées de la plus récente à la plus ancienne — chacune avec 3 scénarios chiffrés.</p>
   </div>
 </section>
 
@@ -470,82 +496,37 @@
       <li class="theme-entry">
         <span class="theme-entry-date">30.08.2026</span>
         <a class="theme-entry-title" href="../archives/2026-08-30.html">Ligue 1 : le foot français peut-il survivre à l&#x27;effondrement de ses droits TV ?</a>
-        <span class="theme-registre">Sport</span>
+        
       </li>
       <li class="theme-entry">
         <span class="theme-entry-date">27.08.2026</span>
         <a class="theme-entry-title" href="../archives/2026-08-27.html">Dette américaine : le mur des 40 000 milliards</a>
-        <span class="theme-registre">Économie mondiale</span>
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">26.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-26.html">Retraites : la patate chaude de 2027</a>
-        <span class="theme-registre">Actualité française</span>
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">23.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-23.html">Le pari XXL du Mondial 2030</a>
-        <span class="theme-registre">Sport</span>
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">22.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-22.html">Hollywood décroche en Chine</a>
-        <span class="theme-registre">Culture</span>
+        
       </li>
       <li class="theme-entry">
         <span class="theme-entry-date">20.08.2026</span>
         <a class="theme-entry-title" href="../archives/2026-08-20.html">Taux : marche arrière</a>
-        <span class="theme-registre">Économie mondiale</span>
+        
       </li>
       <li class="theme-entry">
         <span class="theme-entry-date">13.08.2026</span>
         <a class="theme-entry-title" href="../archives/2026-08-13.html">Inflation : le pétrole rebat les cartes</a>
-        <span class="theme-registre">Économie mondiale</span>
+        
       </li>
       <li class="theme-entry">
         <span class="theme-entry-date">10.08.2026</span>
         <a class="theme-entry-title" href="../archives/2026-08-10.html">La croissance mondiale ne tient qu&#x27;à un fil</a>
-        <span class="theme-registre">Géopolitique</span>
+        
       </li>
       <li class="theme-entry">
-        <span class="theme-entry-date">06.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-06.html">FIFA : la présidence d&#x27;Infantino vacille</a>
-        <span class="theme-registre">Sport</span>
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">05.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-05.html">EPR2 : le nucléaire français à l&#x27;heure de vérité</a>
-        <span class="theme-registre">Actualité française</span>
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">02.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-02.html">Streaming : payer plus, avoir moins ?</a>
-        <span class="theme-registre">Culture internationale</span>
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">29.08.2026</span>
+        <span class="theme-entry-date">30.07.2026</span>
         <a class="theme-entry-title" href="../archives/2026-07-30.html">Golf, foot, boxe : l&#x27;Arabie saoudite se retire-t-elle du sport ?</a>
-        <span class="theme-registre">Sport</span>
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">29.07.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-07-29.html">Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?</a>
-        <span class="theme-registre">Actualité française</span>
+        
       </li>
       <li class="theme-entry">
         <span class="theme-entry-date">28.07.2026</span>
         <a class="theme-entry-title" href="../archives/2026-07-28.html">Milliardaires : la richesse du monde peut-elle encore se partager ?</a>
-        <span class="theme-registre">Carte blanche</span>
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">26.07.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-07-26.html">HBO Max, CNN, Batman : la mégafusion à 110 milliards tient-elle encore ?</a>
-        <span class="theme-registre">Culture internationale</span>
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">25.07.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-07-25.html">Ubisoft, le géant français du jeu vidéo, va-t-il finir racheté ?</a>
-        <span class="theme-registre">Culture française</span>
+        
       </li>
     </ul>
     <p style="margin-top:28px"><a class="theme-entry-title" href="../archives.html" style="font-size:0.85rem">← Retour à toutes les archives</a></p>
