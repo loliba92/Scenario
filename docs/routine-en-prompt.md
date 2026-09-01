@@ -458,6 +458,33 @@ la date du jour, et ajouter une nouvelle entrée pour
 (`changefreq: never`, `priority: 0.6` — mêmes valeurs que les entrées
 `archives/AAAA-MM-JJ.html`).
 
+## Étape 6bis — Régénérer `archives.html` pour que le badge EN apparaisse
+tout de suite [AJOUTÉ le 1er septembre 2026, retour utilisateur : « dans
+archive tu as oublié le lien vers la version anglaise sur l'article du
+jour »]
+
+`archives.html` n'est régénéré par la routine principale
+(`docs/routine-prompt.md`) qu'une fois par semaine — mais le badge EN de
+chaque ligne (`generate_archives_table.py`, fonction qui construit
+`en_link`) ne s'affiche que si `en/archives/AAAA-MM-JJ.html` existe déjà
+**au moment où `archives.html` a été généré**. Concrètement : si la
+traduction du jour est produite après le dernier passage hebdomadaire du
+script, le badge EN de l'édition du jour resterait invisible jusqu'au
+prochain passage — plusieurs jours d'écart possibles, repéré en pratique
+le jour même de la première traduction complète par cette routine.
+
+**Donc, chaque fois que cette routine (étapes 1 à 6 ci-dessus) vient de
+produire une traduction — celle du jour, une traduction de cascade
+(étape 1bis) ou un rattrapage (étape 8bis)** : relancer
+`python3 scripts/seo/generate_archives_table.py` avant de committer, et
+inclure `archives.html` dans le même commit `[en]`. Le script est
+idempotent et rapide (quelques secondes) — le relancer ici ne remplace
+pas son passage hebdomadaire normal, qui continue de tourner par
+ailleurs pour les mises à jour de `docs/tags.md`/domaines. Ne jamais
+relancer `generate_theme_pages.py` depuis cette routine : les pages
+thématiques restent un geste hebdomadaire séparé, sans lien avec le
+statut de traduction.
+
 ## Étape 7 — Valider avant de committer
 
 1. **Vérifier qu'aucun texte visible en français ne subsiste** dans
@@ -480,8 +507,9 @@ la date du jour, et ajouter une nouvelle entrée pour
 ## Étape 8 — Commit et push
 
 Un seul commit couvrant `en/index.html`, `en/archives/AAAA-MM-JJ.html`,
-`en/feed.xml`, `sitemap.xml`, **et les retouches rétroactives de l'étape
-4bis sur `index.html`/`archives/AAAA-MM-JJ.html`** (préfixe `[en]`), après
+`en/feed.xml`, `sitemap.xml`, `archives.html` (étape 6bis), **et les
+retouches rétroactives de l'étape 4bis sur `index.html`/`archives/AAAA-
+MM-JJ.html`** (préfixe `[en]`), après
 `git fetch origin main` + rebase si des commits concurrents sont arrivés
 entre-temps — mêmes règles que les autres routines de ce projet. Toujours
 après le commit de l'édition française du jour, jamais avant, jamais dans
