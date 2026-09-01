@@ -1790,3 +1790,63 @@ atteint) :
    5 appels `WebFetch` légèrement dépassé — 6 appels au total pour
    traiter ces 4 chiffres, dont 2 tentatives sur des redirections/reformu-
    lations de la même URL — à discipliner davantage au prochain passage.)
+
+## 2026-09-01 — Présidentielle 2027 : qui peut vraiment battre le RN ?
+**Vérifié** : cohérence interne (probabilités, France Impact, CSS, sync
+index/archive, lexique, `data-france-impact`/`data-kind` vs texte adjacent,
+KPI des 3 cartes de scénario), style, 4 chiffres/faits structurants contre
+sources (aucun fichier `suivi/` touché aujourd'hui, point 11 sans objet).
+**Corrigé automatiquement** :
+- Incohérence numérique interne (point 4) : `.question-text` citait « 34-38 % »
+  pour le score de Marine Le Pen/Jordan Bardella au premier tour, contre
+  « 33-38 % » (ou ses sous-fourchettes 33-35/35-38/38-42) répété 8 fois
+  ailleurs dans la même édition (mêmes 3 instituts, même période 18-28 août
+  2026) — occurrence isolée corrigée vers la valeur majoritaire, confirmée
+  au passage par la source Sud Radio (Ifop-Fiducial : « 33 à 35 % »).
+  Corrigé sur `index.html`, `archives/2026-09-01.html` **et** `feed.xml`
+  (`<comments>` + `<description>`) — ce chiffre porte la question d'accroche
+  de l'édition, déjà reprise dans le flux envoyé aux réseaux sociaux/
+  newsletter (voir « Limite à connaître » : correction utile pour les
+  lecteurs suivants, pas pour ce qui a déjà circulé).
+**Réécritures de clarté** (3/3, plafond atteint) :
+- Avant : « À droite, l'hypothèse d'une primaire s'éloigne : Bruno Retailleau,
+  désigné candidat par Les Républicains en avril 2026, trace sa propre route
+  avec un programme plus marqué à droite, tandis qu'Édouard Philippe et
+  Gabriel Attal, figures du bloc central, se seraient mis d'accord pour que
+  le moins bien placé des deux s'efface devant l'autre — sans dire lequel,
+  ni quand. »
+  Après : « À droite, l'hypothèse d'une primaire s'éloigne. Bruno Retailleau,
+  désigné candidat par Les Républicains en avril 2026, trace sa propre route
+  avec un programme plus marqué à droite. De leur côté, Édouard Philippe et
+  Gabriel Attal, figures du bloc central, se seraient mis d'accord pour que
+  le moins bien placé des deux s'efface devant l'autre — sans dire lequel,
+  ni quand. » (phrase de 59 mots à double subordonnée « tandis que », coupée
+  en 3 phrases courtes ; aucun fait/date/nom perdu.)
+- Avant : « Une primaire ouverte à toute la gauche non mélenchoniste devait
+  suivre — mais le 9 juillet, le PS a préféré organiser sa propre primaire
+  fermée avec Place publique, ce qui a fait s'effondrer le projet commun :
+  Clémentine Autain a retiré sa candidature deux jours plus tard, dénonçant
+  « l'empilement des candidatures », et Marine Tondelier a fait le choix
+  d'une candidature autonome pour les Écologistes plutôt que de rejoindre
+  la primaire PS/Place publique. »
+  Après : « Une primaire ouverte à toute la gauche non mélenchoniste devait
+  suivre. Mais le 9 juillet, le PS a préféré organiser sa propre primaire
+  fermée avec Place publique, ce qui a fait s'effondrer le projet commun.
+  Deux jours plus tard, Clémentine Autain a retiré sa candidature,
+  dénonçant « l'empilement des candidatures » ; de son côté, Marine
+  Tondelier a fait le choix d'une candidature autonome pour les Écologistes
+  plutôt que de rejoindre la primaire PS/Place publique. » (phrase de 74
+  mots, coupée en 3 ; mêmes faits, mêmes dates, mêmes noms.)
+- Avant : « On avait déjà vu passer ce sujet début août, quand la candidature
+  de Marine Le Pen venait tout juste d'être validée en appel — n'hésite pas
+  à lire notre article pour revoir comment ce paysage s'était formé. »
+  Après : « On avait déjà vu passer ce sujet début août, quand la candidature
+  de Marine Le Pen venait tout juste d'être validée en appel (voir notre
+  article pour revoir comment ce paysage s'était formé). » (rupture de
+  registre : tutoiement direct « n'hésite pas » dans un article par ailleurs
+  à la 3e personne — repassé à la formulation impersonnelle déjà utilisée
+  ailleurs dans la même édition, « voir notre article ».)
+**Signalé pour revue humaine** : rien.
+**Répercuté côté EN** : pas de traduction pour cette date (`en/index.html`
+porte encore l'édition du 31 août 2026, N°39 — aucune traduction publiée
+aujourd'hui au moment de ce passage).
