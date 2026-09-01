@@ -135,6 +135,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 01.09.2026 — [Présidentielle 2027 : qui peut vraiment battre le RN ?](../archives/2026-09-01.html)
 - 31.08.2026 — [Islande : après le non à l'UE, qui va la protéger ?](../archives/2026-08-31.html)
 - 30.08.2026 — [Ligue 1 : le foot français peut-il survivre à l'effondrement de ses droits TV ?](../archives/2026-08-30.html)
 - 29.08.2026 — [Cinéma mondial : peut-il survivre au streaming ?](../archives/2026-08-29.html)
