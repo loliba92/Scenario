@@ -212,24 +212,32 @@ corrigé côté FR, resté faux côté EN). Avant de commencer :
    lexique), **signaler seulement** — ajouter une occurrence ou retirer une
    entrée est un choix de contenu, pas une correction mécanique.
 
-8. **Clarté et pédagogie, sans perdre le détail ni la justesse des faits
-   (objectif explicite de l'utilisateur).** Repérer dans `.dek`/`.why`/
-   `.essentiel-text` les phrases qui gênent la compréhension pour un
-   lecteur qui découvre le sujet : phrase de plus de 40-50 mots avec
-   plusieurs subordonnées, sigle/terme technique utilisé sans explication
-   ni renvoi `.lex-ref`, tournure abstraite là où un chiffre ou un exemple
-   concret existe déjà ailleurs dans l'article, **ou rupture de registre**
-   (tutoiement direct du lecteur — "ton", "ta", "tu" — dans un paragraphe
-   par ailleurs écrit à la troisième personne comme le reste du site ; cas
-   réel du 13 août, `docs/inspection-log.md`, "ton argent achète moins
-   qu'avant" au lieu d'une formulation impersonnelle). Détection bon marché
-   pour ce dernier cas précis, avant toute lecture LLM : `grep -n '\bton
-   \|\bta \|\btu \b'` sur `index.html`, en excluant les correspondances
-   situées dans `.share-block` (le bloc Telegram tutoie volontairement le
-   lecteur — seule exception légitime du site, ne pas la "corriger").
-   Réécrire **uniquement la forme** — découper la phrase, alléger la
-   syntaxe, remplacer un mot savant par un mot courant, repasser à la
-   troisième personne en cas de rupture de registre.
+8. **Clarté, pédagogie et contexte factuel, sans perdre le détail ni la
+   justesse des faits (objectif explicite de l'utilisateur).** Repérer
+   dans `.dek`/`.why`/`.essentiel-text` les phrases qui gênent la
+   compréhension pour un lecteur qui découvre le sujet : phrase de plus de
+   40-50 mots avec plusieurs subordonnées, sigle/terme technique utilisé
+   sans explication ni renvoi `.lex-ref`, tournure abstraite là où un
+   chiffre ou un exemple concret existe déjà ailleurs dans l'article,
+   **rupture de registre** (tutoiement direct du lecteur — "ton", "ta",
+   "tu" — dans un paragraphe par ailleurs écrit à la troisième personne
+   comme le reste du site ; cas réel du 13 août, `docs/inspection-log.md`,
+   "ton argent achète moins qu'avant" au lieu d'une formulation
+   impersonnelle), **ou contexte factuel manquant** (voir le point dédié
+   plus bas dans les règles strictes — se mettre à la place d'un lecteur
+   qui n'a pas suivi le sujet avant aujourd'hui : un fait déjà écrit
+   ailleurs dans l'édition, mais pas rappelé au bon endroit, qui lui
+   manque pour comprendre pourquoi la question posée ensuite se pose).
+   Détection bon marché pour le cas de rupture de registre, avant toute
+   lecture LLM : `grep -n '\bton \|\bta \|\btu \b'` sur `index.html`, en
+   excluant les correspondances situées dans `.share-block` (le bloc
+   Telegram tutoie volontairement le lecteur — seule exception légitime du
+   site, ne pas la "corriger"). Les autres cas (longueur, jargon, registre,
+   contexte manquant) demandent la lecture LLM déjà prévue pour ce point.
+   Réécrire **la forme** — découper la phrase, alléger la syntaxe,
+   remplacer un mot savant par un mot courant, repasser à la troisième
+   personne en cas de rupture de registre — et, pour le contexte manquant
+   uniquement, compléter selon les règles ci-dessous.
 
    **Règles strictes, jamais négociables** :
    - Chaque chiffre, date, nom propre et lien de cause à effet de la
@@ -238,31 +246,67 @@ corrigé côté FR, resté faux côté EN). Avant de commencer :
    - Ne jamais fusionner ou supprimer une information pour "simplifier" —
      seulement la reformuler. Si une phrase est complexe parce qu'elle
      porte une vraie nuance nécessaire, la laisser telle quelle plutôt que
-     de sacrifier la nuance à la lisibilité.
+     de sacrifier la nuance à la lisibilité. **La seule exception est
+     l'ajout de contexte manquant, ci-dessous — jamais une suppression, et
+     jamais une fusion qui ferait disparaître une nuance.**
    - Un sigle/terme technique non expliqué : privilégier l'ajout d'un
      `.lex-ref` + entrée de lexique plutôt que de retirer le terme —
      l'objectif est la pédagogie, pas l'appauvrissement du vocabulaire.
+   - **[AJOUTÉ le 2 septembre 2026] Compléter avec un fait déjà disponible,
+     jamais en inventer ou en aller chercher un nouveau.** Se mettre à la
+     place d'un lecteur qui découvre le sujet aujourd'hui, sans le
+     contexte des éditions précédentes : si un passage de `.dek` (en
+     particulier la partie qui pose les faits, avant la question ou les
+     scénarios) suppose acquis un chiffre, une date ou une définition que
+     ce lecteur n'a pas encore à ce stade de l'article, et que ce fait
+     existe déjà **ailleurs dans la même édition** (un autre `.dek`,
+     `.essentiel-text`, une carte de scénario, le lexique, ou une source
+     déjà citée dans `<section class="sources">`) sans y être rappelé,
+     l'ajouter — une courte incise ou une phrase, jamais un nouveau
+     paragraphe — à l'endroit précis où le lecteur en a besoin pour
+     comprendre la suite. Exemple : une phrase qui parle de « la
+     primaire » sans rappeler ses dates alors que ces dates sont données
+     trois paragraphes plus loin — avancer l'information, ou la répéter
+     brièvement, au premier endroit où elle éclaire le propos.
+     **Strictement borné, comme la vérification des chiffres contre les
+     sources (voir plus bas) — jamais une nouvelle enquête** : si le
+     contexte qui manquerait au lecteur n'est écrit **nulle part** dans
+     l'édition du jour ni dans une de ses sources déjà citées, ce n'est
+     plus une correction mécanique — signaler seulement (section « Ce qui
+     est seulement signalé »), ne jamais improviser, reformuler de mémoire
+     ou aller chercher un fait qui ne serait pas déjà noir sur blanc
+     quelque part dans l'édition ou ses sources. Ne change jamais le choix
+     éditorial du passage complété — uniquement de la mise en contexte
+     factuelle, jamais une appréciation ou un angle nouveau. Compte dans
+     le même plafond de 3 interventions par édition que les réécritures
+     ci-dessus (une édition qui a besoin de plus de 3 compléments/
+     réécritures a un problème de fond à traiter à la rédaction, pas à
+     l'inspection), et journalé avec l'avant/après complet **plus la
+     provenance exacte du fait ajouté** (quel autre passage ou quelle
+     source le portait déjà) — sans cette provenance, ne pas l'ajouter.
    - Ne jamais toucher aux paragraphes déjà cadrés par une règle stricte du
      prompt principal (`.question-text`, `.france-line`, les 3 dernières
      phrases de `.essentiel-text` qui suivent la structure problématique/
      contexte/conclusion/signal) — la forme y est déjà contrainte, un
      remaniement risquerait de casser la structure attendue par ailleurs
      (`feed.xml`, réseaux sociaux).
-   - **Chaque réécriture de ce type est journalée avec le avant/après
-     complet** dans `docs/inspection-log.md` (pas juste mentionnée) — la
-     seule catégorie de correction auto-appliquée qui touche à la
-     formulation plutôt qu'à un fait, elle doit rester la plus auditable
-     de toutes.
+   - **Chaque réécriture ou complément de ce type est journalé avec
+     l'avant/après complet** dans `docs/inspection-log.md` (pas juste
+     mentionné) — la seule catégorie de correction auto-appliquée qui
+     touche à la formulation ou ajoute du texte plutôt que de corriger un
+     fait existant, elle doit rester la plus auditable de toutes.
    - Se limiter aux phrases qui en ont vraiment besoin (viser les pires
-     cas, pas une passe de réécriture générale) — l'objectif est de
-     rattraper les phrases qui gênent réellement la compréhension, pas de
-     remanier le style d'un article déjà correct.
-   - **Plafond : 3 réécritures maximum par édition.** Si plus de 3 phrases
-     semblent à retravailler, ne prendre que les 3 pires et signaler les
-     autres pour une prochaine fois plutôt que de tout réécrire d'un coup
-     — coûte cher et un article qui a besoin de plus de 3 réécritures a
-     probablement un problème de fond à traiter à la rédaction, pas à
-     l'inspection.
+     cas, pas une passe de réécriture générale, ni un complément à chaque
+     paragraphe qui pourrait vaguement en profiter) — l'objectif est de
+     rattraper ce qui gêne réellement la compréhension, pas de remanier le
+     style ou étoffer un article déjà correct.
+   - **Plafond : 3 interventions maximum par édition, réécritures et
+     compléments de contexte confondus.** Si plus de 3 phrases semblent à
+     retravailler ou à compléter, ne prendre que les 3 pires/plus utiles et
+     signaler les autres pour une prochaine fois plutôt que de tout traiter
+     d'un coup — coûte cher et une édition qui a besoin de plus de 3
+     interventions a probablement un problème de fond à traiter à la
+     rédaction, pas à l'inspection.
 
 9. **Image de l'article et image du feed absente ou mal formée.** Deux
    fichiers sont attendus pour l'édition du jour :
@@ -483,6 +527,11 @@ auto-vérification.
   (voir point 10 ci-dessus).
 - Fichier `suivi/{sujet}.html` mal formé — origin-link cassé, date de
   version illisible, pourcentages manquants (voir point 11 ci-dessus).
+- Contexte manquant pour un lecteur découvrant le sujet, quand ce contexte
+  n'est écrit nulle part dans l'édition du jour ni dans une de ses sources
+  déjà citées (voir point 8 ci-dessus, règle du complément factuel) —
+  l'inspecteur ne va jamais chercher un fait nouveau, il ne fait que
+  ramener au bon endroit un fait déjà écrit ailleurs dans l'édition.
 - Écart entre un chiffre cité dans l'article et sa source déjà citée en bas
   de page (voir section suivante) — la source a pu être mise à jour depuis
   la rédaction, ce n'est pas automatiquement l'article qui a tort.
@@ -550,9 +599,12 @@ même quand tout est conforme :
 **Vérifié** : cohérence interne (probabilités, France Impact, CSS,
 sync index/archive, lexique), style, N chiffres contre sources.
 **Corrigé automatiquement** : {liste, ou "rien"}.
-**Réécritures de clarté** (avant/après complet pour chacune, ou "aucune") :
+**Réécritures et compléments de clarté** (avant/après complet pour chacun,
+plafond 3 confondus, ou "aucun") :
 - Avant : « {phrase originale} »
   Après : « {phrase réécrite} »
+- Complément ajouté : « {phrase ou incise ajoutée} » — provenance : {autre
+  passage ou source de l'édition qui portait déjà ce fait}
 **Signalé pour revue humaine** : {liste, ou "rien"}.
 **Répercuté côté EN** : {liste des corrections mirrorées sur `en/
 index.html`/`en/archives/{AAAA-MM-JJ}.html`, "rien à répercuter"
