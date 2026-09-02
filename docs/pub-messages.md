@@ -664,6 +664,53 @@ chiffres empilés ; retraites/COR avec plusieurs chiffres empilés ;
 dette américaine avec plusieurs chiffres empilés et pronoms sans
 antécédent hors contexte).*
 
+### chiffre-2026-09-02
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 21 %
+- message: Les produits de la mer pèsent encore 21 % des exportations islandaises en 2024.
+- attribution: — lesscenarios.fr, 31 août 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-08-31.html
+- photo: `assets/social/topic-images/2026-08-31.jpg` (crédit : Jonathan
+  Cooper — https://www.pexels.com/photo/cape-spear-battery-12505399/),
+  photo de l'édition source elle-même.
+
+*Extrait tel quel de `.dek` dans l'édition du 31 août ("Le chiffre qui
+explique ce refus : les produits de la mer pèsent encore 21 % des
+exportations islandaises en 2024 — en baisse depuis 38,8 % en 2021,
+mais toujours assez pour que Reykjavik refuse d'en perdre le
+contrôle.") — segment coupé au premier tiret (frontière naturelle
+avant "en baisse depuis 38,8 %..."), point final ajouté, aucun mot
+changé ni déplacé ; ouverture de phrase ("Le chiffre qui explique ce
+refus :") retirée car dépendante du contexte du référendum, pas du
+segment retenu lui-même. Éditions du 10, 12, 13, 14, 21, 22, 24 et 25
+août déjà utilisées pour cette catégorie ; édition du 1er septembre
+écartée (moins de 24h). Première édition candidate parcourue (31 août)
+avec plusieurs phrases à chiffre fort ; segment retenu préféré aux
+alternatives de la même édition (394 000 habitants, sans sujet propre
+une fois isolé ; 52,8 %/47,2 % du référendum, incompréhensible sans la
+phrase précédente ; 1994/espace économique européen, valable mais
+moins marquant) pour son impact narratif plus net (dépendance
+économique qui explique le résultat du vote).*
+
+*Extrait tel quel de `.essentiel-text` dans l'édition du 22 août ("Le
+quota chinois de films étrangers à partage de recettes reste fixé à
+34 par an depuis 2015 — un levier que Pékin peut resserrer du jour au
+lendemain, comme annoncé dès avril 2025 en rétorsion aux droits de
+douane de Trump — mais même sans lui, de moins en moins de films
+américains ordinaires rapportent assez en Chine pour justifier le
+détour.") — segment coupé au premier tiret (frontière naturelle avant
+"un levier que Pékin..."), point final ajouté, aucun mot changé ni
+déplacé ; édition sans chiffre exploitable plus simple par ailleurs
+(40,6 % nécessite le contexte du semestre, 45 % celui du scénario).
+Éditions du 10, 12, 13, 14, 21, 24 et 25 août déjà utilisées pour
+cette catégorie ; édition du 28 août écartée (moins de 24h). Éditions
+du 23, 26 et 27 août parcourues mais écartées faute de phrase autonome
+à un seul chiffre assez simple (FIFA/48-64 équipes avec plusieurs
+chiffres empilés ; retraites/COR avec plusieurs chiffres empilés ;
+dette américaine avec plusieurs chiffres empilés et pronoms sans
+antécédent hors contexte).*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
