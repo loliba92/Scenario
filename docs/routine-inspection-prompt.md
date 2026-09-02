@@ -17,7 +17,11 @@ changement.
 Cette routine relit l'édition du jour, déjà publiée par la routine
 principale, et corrige ce qui est mécaniquement faux ou incohérent. Elle
 n'a jamais le droit de changer un choix éditorial (quel scénario, quelle
-probabilité, quel angle) — seulement de rattraper une erreur.
+probabilité, quel angle) — seulement de rattraper une erreur. **Seule
+exception, ajoutée le 2 septembre 2026 : le point 12 (longueur
+minimale)**, qui peut ajouter du contexte/des chiffres vérifiés si
+l'article publié est anormalement mince — jamais toucher aux scénarios
+eux-mêmes pour autant, voir ce point pour le périmètre exact.
 
 **Économie de tokens — consigne explicite, cette routine tourne tous les
 jours indéfiniment.** Pour les points 1 à 7, 9, 10 et 11 de la section
@@ -34,9 +38,11 @@ Le point 9 (image de l'article/du feed) reste dans cette catégorie bon
 marché même quand il recrée un fichier : la source utilisée en repli
 (banque de secours par registre) est déjà pré-validée, donc jamais de
 nouvelle recherche Pexels ni de revue visuelle de candidats à faire ici.
-**Seuls 2 points demandent une vraie lecture LLM dès la détection** : le
-point 8 (clarté/pédagogie) et la vérification des chiffres contre les
-sources — tout le reste doit rester bon marché.
+**Seuls 3 points demandent une vraie lecture LLM dès la détection** : le
+point 8 (clarté/pédagogie), le point 12 (longueur minimale/enrichissement —
+seul point qui a le droit de lancer une vraie recherche, voir plus bas) et
+la vérification des chiffres contre les sources — tout le reste doit rester
+bon marché.
 
 ---
 
@@ -462,6 +468,91 @@ corrigé côté FR, resté faux côté EN). Avant de commencer :
     jugement éditorial, pas mécanique. Signaler dans `docs/inspection-log.md`
     avec le fichier concerné et le symptôme exact.
 
+12. **[AJOUTÉ le 2 septembre 2026, retour utilisateur : « je trouve
+    l'édition du jour un peu pauvre et courte » — édition « Pesticides
+    interdits », 866 mots contre 1088-1442 pour les 6 éditions
+    précédentes] Longueur minimale et enrichissement réel, pas du
+    remplissage.** Seul point de cette routine qui a le droit de lancer
+    une vraie recherche (WebSearch) plutôt que de se limiter à ce qui est
+    déjà sur la page ou déjà cité en sources — parce que le problème qu'il
+    corrige (un article trop mince) ne peut pas se corriger avec ce qui
+    est déjà là.
+
+    **Seuil, mesuré comme le fait déjà le script de temps de lecture**
+    (`.dek` + `.why` + `dd`, voir `docs/routine-prompt.md` étape
+    technique 8) : **1100 mots minimum**. Calibré sur les 6 dernières
+    éditions avant celle qui a motivé ce point (1088 à 1442 mots) — fixé
+    près du bas de cette fourchette pour ne se déclencher que sur un vrai
+    cas hors norme, jamais sur la variation normale d'un sujet à l'autre
+    (un sujet plus simple peut légitimement rester plus court : ce seuil
+    attrape le cas où l'article n'a manifestement pas assez creusé, pas
+    celui où le sujet n'avait pas plus à dire).
+
+    **Si l'édition du jour est sous le seuil**, chercher un vrai
+    enrichissement — jamais du remplissage stylistique. Utiliser les 3
+    questions de profondeur déjà posées à la rédaction (`docs/routine-
+    prompt.md`, « Profondeur obligatoire », étape 3) comme grille de
+    recherche, puisque ce sont précisément les manques qui rendent un
+    article mince :
+    - **Un chiffre structurant manque** (un enjeu décrit qualitativement
+      — « une filière fragilisée », « une concurrence forte » — sans
+      jamais de vrai chiffre daté et sourcé qui donne l'ampleur réelle).
+    - **Un vrai précédent comparable manque** (autre pays, autre époque,
+      autre crise similaire — pas juste un rebondissement antérieur du
+      même dossier, ça ne compte pas comme un second angle).
+    - **Le paradoxe ou la tension centrale reste implicite** plutôt que
+      nommé explicitement.
+    Rechercher (WebSearch, **plafond 4 requêtes**) un fait vérifiable qui
+    comble un de ces manques, croisé sur au moins 2 sources distinctes
+    (même exigence qu'à la rédaction) avant de l'intégrer.
+
+    **Ce qui peut être ajouté, dans cet ordre de préférence** :
+    1. Un chiffre concret inséré dans une phrase déjà existante (ex. « une
+       filière fragilisée » → « une filière qui pèse {X}, contre {Y} chez
+       ses concurrents européens ») — le gain le moins intrusif, à
+       privilégier.
+    2. Un `.dek` supplémentaire (toujours dans les 4 à 6 déjà prévus par
+       le prompt principal — si l'article en a déjà 6, ne pas en
+       ajouter un 7ᵉ, voir plus bas).
+    3. Un second `.comprendre-box` (si l'édition n'en a qu'un) — seulement
+       si le second manque identifié est un vrai précédent comparable ou
+       un mécanisme distinct, jamais un doublon du premier (même règle de
+       fond que `docs/routine-prompt.md`, plafond 2, jamais adjacents).
+    4. Un lien source supplémentaire dans `<section class="sources">`,
+       pour tout fait ajouté par ce point — jamais un fait nouveau sans
+       sa source.
+
+    **Jamais, quel que soit le manque trouvé** : changer une probabilité,
+    un `data-kind`, un `.evo-current`/`.evo-prev` de scénario, le texte
+    `.why` d'une carte, `.essentiel-text`, `.france-line`, `data-score`,
+    le `h1` ou `.question-text` — l'enrichissement porte uniquement sur le
+    contexte/`.dek` et les encarts pédagogiques, jamais sur les scénarios
+    eux-mêmes ou leur évaluation. Si le 7ᵉ `.dek` ou le 3ᵉ
+    `.comprendre-box` semblerait nécessaire pour atteindre le seuil,
+    **ne pas dépasser ces plafonds** — préférer enrichir un paragraphe
+    existant (option 1) ou signaler plutôt que de forcer un ajout qui
+    romprait un plafond du prompt principal.
+
+    **Si aucun fait vérifiable et distinct n'est trouvé dans le budget de
+    4 requêtes** (sujet déjà traité en profondeur malgré sa brièveté, ou
+    recherche infructueuse) : **ne pas inventer, ne pas paraphraser
+    l'existant pour gonfler le compte de mots** — signaler « sous le
+    seuil de 1100 mots, aucun enrichissement solide trouvé dans le budget
+    imparti » pour revue humaine, exactement comme le point 10 quand aucun
+    ajustement plausible ne se dégage. Un article court mais dense reste
+    préférable à un article long et délayé.
+
+    **Vérification après ajout, avant de considérer le point traité** :
+    recompter les mots (même méthode qu'au déclenchement) et confirmer
+    qu'ils dépassent désormais 1100 — si l'ajout retenu (option 1,
+    discret) ne suffit pas à lui seul à franchir le seuil, passer à
+    l'option suivante plutôt que de s'arrêter à mi-chemin.
+
+    Correction journalée avec l'avant/après complet dans
+    `docs/inspection-log.md`, même discipline que les points 8 et 10 —
+    en précisant en plus le nombre de mots avant/après et la ou les
+    sources ajoutées.
+
 ## Auto-vérification obligatoire après chaque correction, avant tout commit
 
 **Aucune correction ci-dessus ne se commite directement.** Toute la soirée
@@ -472,7 +563,7 @@ agent qui "corrige" seul, tous les jours, sans jamais se relire est le vrai
 risque d'automatisation. Rester bon marché : ces vérifications sont toutes
 déterministes, aucune ne demande une relecture LLM du fichier entier.
 
-Après avoir appliqué un correctif (points 1 à 10), avant de commiter :
+Après avoir appliqué un correctif (points 1 à 12), avant de commiter :
 
 1. **Balise HTML équilibrée.** Script Python court (`html.parser` ou
    équivalent) sur le(s) fichier(s) modifié(s) : aucune balise ouverte non
@@ -488,7 +579,14 @@ Après avoir appliqué un correctif (points 1 à 10), avant de commiter :
    avant) et que les 3 cartes restent bien 3 valeurs distinctes sur les
    deux indicateurs à la fois — rejouer la comparaison du point 10 après
    correctif, pas seulement avant.
-4. **Pour un correctif du point 1 (CSS/structure de la jauge) ou du point 9
+4. **Pour un correctif du point 12 (enrichissement) uniquement** : recompter
+   les mots (`.dek`+`.why`+`dd`) et confirmer le passage au-dessus de 1100 ;
+   si un `.lex-ref` a été ajouté dans le texte inséré, vérifier qu'une
+   entrée correspondante existe dans le lexique de la page (même logique
+   que le point 7) ; si un `.dek` a été ajouté, vérifier que le total reste
+   dans la fourchette 4-6 déjà imposée par le prompt principal, et que le
+   nombre de `.comprendre-box` reste ≤ 2, non adjacents.
+5. **Pour un correctif du point 1 (CSS/structure de la jauge) ou du point 9
    (image recréée ou régénérée) uniquement** — les deux seuls types de
    correction qui touchent vraiment la mise en page, pas seulement du
    texte : une capture Playwright ciblée sur `.delta-france` (point 1) ou
@@ -501,10 +599,10 @@ Après avoir appliqué un correctif (points 1 à 10), avant de commiter :
    plus que le format réel du fichier régénéré correspond bien à son
    extension (`file`) avant la capture — inutile de lancer Playwright sur
    un fichier qui échouerait de toute façon à ce contrôle basique. Les
-   correctifs des points 2 à 8 et 10 sont uniquement textuels/attributs —
-   pas de capture Playwright nécessaire, les vérifications 1-2 (et 3 pour
-   le point 10) suffisent.
-5. **Si une de ces vérifications échoue** : annuler le correctif
+   correctifs des points 2 à 8, 10 et 12 sont uniquement textuels/attributs
+   — pas de capture Playwright nécessaire, les vérifications 1-2 (et 3/4
+   pour les points 10/12) suffisent.
+6. **Si une de ces vérifications échoue** : annuler le correctif
    (`git checkout -- <fichier(s) concernés>`, jamais un reset plus large),
    consigner l'entrée dans `docs/inspection-log.md` sous « Signalé pour
    revue humaine » (pas « Corrigé automatiquement »), en précisant quelle
@@ -532,6 +630,9 @@ auto-vérification.
   déjà citées (voir point 8 ci-dessus, règle du complément factuel) —
   l'inspecteur ne va jamais chercher un fait nouveau, il ne fait que
   ramener au bon endroit un fait déjà écrit ailleurs dans l'édition.
+- Édition sous le seuil de 1100 mots sans qu'un enrichissement solide et
+  vérifiable ait pu être trouvé dans le budget de 4 requêtes (voir point 12
+  ci-dessus) — jamais gonflé avec du remplissage pour passer le seuil.
 - Écart entre un chiffre cité dans l'article et sa source déjà citée en bas
   de page (voir section suivante) — la source a pu être mise à jour depuis
   la rédaction, ce n'est pas automatiquement l'article qui a tort.
@@ -597,8 +698,12 @@ même quand tout est conforme :
 ```markdown
 ## {date} — {titre de l'édition}
 **Vérifié** : cohérence interne (probabilités, France Impact, CSS,
-sync index/archive, lexique), style, N chiffres contre sources.
+sync index/archive, lexique), style, longueur ({N} mots), N chiffres
+contre sources.
 **Corrigé automatiquement** : {liste, ou "rien"}.
+**Enrichissement (point 12)** : "au-dessus du seuil, rien à faire",
+"{N} → {N'} mots, ajout : {résumé + sources ajoutées}", ou "sous le
+seuil, aucun enrichissement solide trouvé — signalé".
 **Réécritures et compléments de clarté** (avant/après complet pour chacun,
 plafond 3 confondus, ou "aucun") :
 - Avant : « {phrase originale} »
