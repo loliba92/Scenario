@@ -4773,6 +4773,62 @@ mardi participatif en dépendrait probablement.
   là où l'affirmation directe est plus claire. Même test que pour les
   titres de scénario (ticket ci-dessus, même jour) : « je dirais ça
   comme ça, à voix haute, dans une conversation normale ? »
+- **[FAIT le 2 septembre] Lisibilité des 3 cartes de scénarios — deuxième
+  passe, retour utilisateur : « la lecture des scénarios est difficile,
+  c'est pas visuel, trop petit ».** La passe du 8 août (voir plus haut
+  dans ce backlog) avait déjà factorisé le disclaimer répété et scindé
+  le paragraphe `why` en deux — insuffisant pour ce nouveau retour, qui
+  pointait la taille et le manque de repère visuel, pas la structure du
+  texte. Diagnostic concret cette fois : `.card .why` était à **0.92rem**,
+  plus petit que le texte de contexte `.dek` juste au-dessus dans la
+  page (1.1rem) — le lecteur arrivait aux cartes, le contenu qu'elles
+  existent pour porter, et le texte rétrécissait. Remonté à **1.05rem**
+  (`.france-line` 0.88rem → 0.95rem au passage, même logique). Côté
+  visuel : jauge agrandie de 108×64 à 132×78px, trait plus épais
+  (10px → 12px), le pourcentage central passe de 1.35rem à 1.7rem et en
+  couleur `--accent` (au lieu du blanc neutre) ; `h3` 1.2rem → 1.28rem ;
+  chaque carte reçoit un filet de couleur de 4px en tête
+  (`border-top`, `--accent`) pour que favorable/stable/dégradé se
+  distinguent d'un coup d'œil, avant même de lire le mot-repère — même
+  logique que le filet de `.france-line` posé le 17 août. Aucun
+  changement structurel (mêmes classes, mêmes gabarits `card-head`/
+  `card-body`), donc rien à changer dans `docs/routine-prompt.md` au-delà
+  des valeurs déjà recopiées avec le `<style>` chaque matin. Vérifié
+  visuellement (Playwright, desktop 1280px et mobile 390px) avant
+  publication. Appliqué à `index.html`, `archives/2026-09-02.html`,
+  `en/index.html` et `en/archives/2026-09-02.html` (édition du jour dans
+  les deux langues) — pas aux archives antérieures, même règle que les
+  autres tickets visuels de ce backlog (design non rétroactif).
+- **[FAIT le 2 septembre] « Ce qu'on évalue » restructuré en 3 branches
+  étiquetées, retour utilisateur le même jour : « ce qu'on évalue n'est
+  pas clair, il doit être plus pédagogique, expliquer ce qu'on dit en
+  favorable/stable/dégradé, être plus clair et surtout simple ».**
+  L'encart existait déjà (ajouté avant cet audit, voir
+  `docs/routine-prompt.md` étape 3) et portait bien les 3 branches
+  favorable/stable/dégradé, mais enchaînées dans un seul
+  `<p class="stakes-text">` sous forme de questions — le lien entre
+  chaque sous-question et son scénario n'était porté que par l'ordre de
+  lecture, invisible pour qui ne connaît pas déjà la convention du site.
+  Remplacé par `<ul class="stakes-branches">` : une ligne par branche,
+  chacune ouverte par un `<span class="stakes-tag">` coloré
+  (Favorable/Stable/Dégradé, même code couleur que `.kind-tag` sur les
+  cartes juste en dessous) — le rapprochement entre une branche et sa
+  carte se fait désormais d'un coup d'œil. Le texte de chaque branche
+  passe aussi de la forme interrogative à une phrase déclarative courte
+  (« L'Anses résiste et refuse... » plutôt que « Est-ce que l'Anses
+  résiste et refuse... ? ») : le mot-repère qui ouvre la ligne dit déjà
+  qu'il s'agit d'une branche, la question n'ajoutait rien — plus simple,
+  conformément au retour utilisateur. `.stakes-text` reste défini en CSS
+  (compatibilité des archives publiées avant cette date, où il est
+  toujours utilisé) mais ne doit plus être utilisé pour une nouvelle
+  édition. `docs/routine-prompt.md` mis à jour (étape 3 : nouveau gabarit
+  HTML + explication du changement ; règle de style correspondante ;
+  une note de `feed.xml`/étape technique 3bis corrigée au passage —
+  elle affirmait encore que « Ce qu'on évalue » servait de second
+  paragraphe de la `<description>`, périmé depuis le retrait du 28 août
+  jamais reporté à cet endroit). Même périmètre d'application que le
+  ticket ci-dessus (édition du jour, FR + EN, pas les archives
+  antérieures).
 
 ## Déclinaison papier — « Les Cahiers de Scénario »
 

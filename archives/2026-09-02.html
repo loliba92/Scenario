@@ -728,6 +728,45 @@
 
   .stakes-text strong{ color: var(--paper); font-weight: 600; }
 
+  /* Ce qu'on évalue, en 3 branches étiquetées — ajouté le 2 septembre
+     (retour utilisateur : « ce qu'on évalue n'est pas clair, il doit
+     être plus pédagogique »). Avant ça, les 3 sous-questions
+     favorable/stable/dégradé étaient enchaînées dans un seul .stakes-text
+     sans repère visuel : leur ordre seul portait le lien avec les 3
+     cartes plus bas, invisible pour qui ne le sait pas déjà. Remplacé
+     par une liste, une ligne par branche, chacune ouverte par un mot-
+     repère coloré — même code couleur que .kind-tag sur les cartes —
+     pour que le rapprochement entre une branche et sa carte se fasse
+     d'un coup d'œil, avant même de lire les cartes elles-mêmes. */
+  .stakes-branches{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .stakes-branches li{
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--paper);
+  }
+
+  .stakes-tag{
+    display: inline-block;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-right: 7px;
+  }
+
+  .stakes-branches li[data-kind="favorable"] .stakes-tag{ color: var(--favorable); }
+  .stakes-branches li[data-kind="stable"] .stakes-tag{ color: var(--stable); }
+  .stakes-branches li[data-kind="degrade"] .stakes-tag{ color: var(--degrade); }
+
   .essentiel-box{
     background: var(--surface);
     border: 1px solid var(--gold);
@@ -1017,6 +1056,12 @@
   .card{
     background: var(--surface);
     border: 1px solid var(--hairline);
+    /* Filet de couleur en tête de carte — ajouté le 2 septembre (retour
+       utilisateur : "pas visuel"). Reprend --accent, déjà posé par
+       data-kind juste plus bas, pour que favorable/stable/dégradé se
+       distinguent d'un coup d'œil, avant même de lire le mot-repère.
+       Même logique que le filet de .france-line (17 août). */
+    border-top: 4px solid var(--accent);
     border-radius: 6px;
     padding: 26px 26px 24px;
     display: flex;
@@ -1118,14 +1163,20 @@
     flex-shrink: 0;
   }
 
-  /* gauge */
-  .gauge{ position: relative; width: 108px; height: 64px; margin: 4px auto 0; }
+  /* gauge — agrandie et éclaircie le 2 septembre (retour utilisateur :
+     "pas visuel, trop petit"). Même géométrie qu'avant (le path SVG,
+     un demi-cercle rayon 45, ne change pas : élargir la boîte suffit à
+     grossir tout l'élément proportionnellement), juste un cran plus
+     grande et plus épaisse, et le chiffre central passe en couleur
+     --accent plutôt qu'en blanc neutre pour que le pourcentage porte
+     lui-même la couleur du scénario. */
+  .gauge{ position: relative; width: 132px; height: 78px; margin: 4px auto 0; }
   .gauge svg{ width: 100%; height: 100%; overflow: visible; }
-  .gauge-track{ fill: none; stroke: var(--hairline); stroke-width: 10; stroke-linecap: round; }
+  .gauge-track{ fill: none; stroke: var(--hairline); stroke-width: 12; stroke-linecap: round; }
   .gauge-value{
     fill: none;
     stroke: var(--accent);
-    stroke-width: 10;
+    stroke-width: 12;
     stroke-linecap: round;
     stroke-dasharray: 141.4;
     stroke-dashoffset: 141.4;
@@ -1138,11 +1189,12 @@
     text-align:center;
     font-family: "JetBrains Mono", monospace;
     font-weight: 700;
-    font-size: 1.35rem;
+    font-size: 1.7rem;
+    color: var(--accent);
   }
   .gauge-word{
     text-align:center;
-    font-size: 0.76rem;
+    font-size: 0.82rem;
     color: var(--paper-dim);
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -1155,14 +1207,19 @@
 
   .card h3{
     font-family: "Fraunces", serif;
-    font-size: 1.2rem;
+    font-size: 1.28rem;
     font-weight: 600;
     margin: 0;
     text-align: center;
   }
 
+  /* Remonté de 0.92rem à 1.05rem le 2 septembre (retour utilisateur :
+     "trop petit") — ce texte est le cœur de l'article (le contenu que
+     les 3 cartes existent pour porter), il n'a aucune raison d'être
+     plus petit que le texte de contexte (.dek, 1.1rem) juste au-dessus
+     dans la page. */
   .card .why{
-    font-size: 0.92rem;
+    font-size: 1.05rem;
     color: var(--paper-dim);
   }
 
@@ -1230,7 +1287,11 @@
     background: var(--surface-2);
     border-radius: 4px;
     padding: 10px 12px 10px 13px;
-    font-size: 0.88rem;
+    /* 0.88rem → 0.95rem le 2 septembre (retour utilisateur "trop petit"),
+       alignée sur .comprendre-text pour rester cohérente avec les autres
+       encarts du gabarit plutôt que de rester la seule ligne de lecture
+       en dessous de 0.9rem sur la page. */
+    font-size: 0.95rem;
     /* Repère visuel favorable/défavorable pour la France, discret mais
        lisible au premier coup d'œil — ajouté le 17 août (retour
        utilisateur). Filet de couleur + flèche réutilisent la palette et
@@ -1793,7 +1854,11 @@
 
     <div class="stakes-box">
       <span class="stakes-label">Ce qu'on évalue</span>
-      <p class="stakes-text">Est-ce que l'Anses résiste et refuse, ou limite fortement, la dérogation ? Est-ce qu'elle l'accorde exactement comme prévu par la loi, sans aller plus loin ? Ou est-ce que la dérogation s'étend au-delà du périmètre initial, sous la pression des filières en difficulté ?</p>
+      <ul class="stakes-branches">
+        <li data-kind="favorable"><span class="stakes-tag">Favorable</span>L'Anses résiste et refuse, ou limite fortement, la dérogation.</li>
+        <li data-kind="stable"><span class="stakes-tag">Stable</span>Elle l'accorde exactement comme prévu par la loi, sans aller plus loin.</li>
+        <li data-kind="degrade"><span class="stakes-tag">Dégradé</span>La dérogation s'étend au-delà du périmètre initial, sous la pression des filières en difficulté.</li>
+      </ul>
     </div>
 
     <div class="cards">
