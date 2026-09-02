@@ -1850,3 +1850,68 @@ sources (aucun fichier `suivi/` touché aujourd'hui, point 11 sans objet).
 **Répercuté côté EN** : pas de traduction pour cette date (`en/index.html`
 porte encore l'édition du 31 août 2026, N°39 — aucune traduction publiée
 aujourd'hui au moment de ce passage).
+
+## 2026-09-02 — Pesticides interdits, l'Anses peut-elle dire non ?
+**Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 2 septembre
+2026, N°41), traduction anglaise présente à la même date
+(`en/index.html`/`en/archives/2026-09-02.html`), CSS complet
+(`.essentiel-box`, `.stakes-box`, `.question-box`, `.card`, `.gauge*`,
+`.france-line`, `.article-image*`, `.delta-france`/`.delta-gauge*`/
+`.delta-word`/`.delta-flag` — bloc canonique intact, dégradé SVG à 3 stops
+et `data-score="-0.50"` présents ; `.list-box`/`.comprendre-box` non
+utilisées aujourd'hui, absence normale), sync `index.html`/
+`archives/2026-09-02.html` (seuls écarts : chemins relatifs internes et
+`og:url`/`mainEntityOfPage`, légitimes), `data-france-impact` des 3 cartes
+cohérent avec le texte `.france-line` adjacent (favorable/dégradé/dégradé,
+flèches et formulations concordantes), probabilités 25+45+30=100 %, label
+brut favorable/stable/dégradé absent des 4 paragraphes `.essentiel-text`,
+formulation « Notre évaluation de l'impact pour la France » intacte
+(aucune occurrence raccourcie en « France Impact : »), lexique (3
+`.lex-ref` ↔ 3 entrées, aucun terme orphelin dans un sens ou l'autre),
+absence de tutoiement hors `.share-block` (grep ciblé, 2 correspondances
+« ton »/« tu » trouvées mais toutes deux dans des commentaires HTML de
+développement, hors texte visible), les 2 indicateurs `.evo-current` des 3
+cartes de scénario (pesticides réautorisés sur 2, filières couvertes)
+distincts sur au moins un des deux à chaque paire — stable et dégradé
+partagent la même valeur sur un seul indicateur (2 pesticides), jamais les
+deux à la fois, donc pas de doublon complet — image de l'article et du
+feed présentes et bien formées (`assets/social/topic-images/2026-09-02.jpg`
+1080×1080 et `-wide.jpg` 1600×900, réels JPEG conformes à l'extension ;
+`assets/social/instagram/2026-09-02.png` 1080×1080, réel PNG conforme à
+l'extension, utilisé pour `og:image`/`twitter:image`/JSON-LD `"image"` —
+convention actuelle du site depuis la bascule documentée dans
+`docs/routine-prompt.md`, étape technique 8/9 ; le texte du point 9 de
+`docs/routine-inspection-prompt.md` décrit encore l'ancienne convention
+topic-images/jpg pour ces trois métadonnées, à mettre à jour par qui
+modifiera prochainement ce prompt — non traité ici, hors périmètre de
+cette routine), toutes les références cohérentes entre `index.html` et
+l'archive, aucun fichier `suivi/*.html` touché aujourd'hui (point 11 sans
+objet), style des paragraphes `.dek`/`.why`/`.essentiel-text` (le plus long
+fait 90 mots mais reste une succession claire de propositions courtes,
+aucune phrase jugée à retravailler), 3 chiffres/dates structurants
+vérifiés contre 2 des 4 sources citées (date du 14 août 2026 pour la
+validation du Conseil constitutionnel, délai de deux mois donné à l'Anses,
+4 filières nommées — noisette, pomme, cerise, betterave sucrière — tous
+conformes à franceinfo ; chronologie démission/réception Monique Barbut le
+21-22 juillet 2026, conforme à LCP).
+**Corrigé automatiquement** : rien.
+**Réécritures et compléments de clarté** : aucun (aucune phrase de plus de
+40-50 mots à plusieurs subordonnées repérée, aucun sigle non expliqué,
+aucun contexte manquant identifié).
+**Signalé pour revue humaine** :
+1. Source non re-vérifiable — Générations Futures
+   (https://www.generations-futures.fr/actualites/decision-conseil-
+   constitutionnel-neonicotinoides/) : `WebFetch` renvoie HTTP 403
+   Forbidden. Chiffre/affirmation (recours annoncé devant la justice) non
+   comparé à sa source ce passage-ci.
+2. Source non re-vérifiable — Appel Aura Écologie
+   (https://appel-aura-ecologie.fr/pesticides-interdits-lanses-peut-elle-
+   vraiment-trancher-en-deux-mois-sur-lacetamipride/) : `WebFetch` renvoie
+   HTTP 403 Forbidden. Durée de la dérogation (« trois ans ») et détail de
+   la saisine par la ministre de l'Agriculture non comparés à leur source
+   ce passage-ci — la durée de trois ans reste donc non vérifiée
+   indépendamment (ni confirmée ni contredite par franceinfo, qui ne
+   précise pas de chiffre).
+   (3 appels `WebFetch` utilisés sur 5 autorisés.)
+**Répercuté côté EN** : rien à répercuter (aucune correction faite côté
+FR).

@@ -2172,6 +2172,44 @@ moins prioritaire).
   **nom du registre**, pas au jour de la semaine, donc aucun ajustement
   nécessaire de ce côté-là.
 
+  **P3 — [AJOUTÉ le 2 septembre 2026, retour utilisateur, pas encore
+  implémenté — « on verra plus tard »] Pondération France Impact par
+  `kind` de scénario (0,5 sur la carte stable, 1 sur favorable/dégradé),
+  proposée pour alléger le centre et donner plus de poids aux queues de
+  distribution.** Distincte de la pondération par registre ci-dessus
+  (celle-ci agit sur `_JUDGMENT_VALUE`/le poids de chaque **carte** dans
+  `compute_france_esperance()`, pas sur le score final par sujet).
+
+  **Avis rendu à l'utilisateur avant l'ajout au backlog, à relire avant
+  d'implémenter quoi que ce soit :** le `kind` (favorable/stable/dégradé)
+  est une étiquette structurelle fixe (une carte de chaque par édition),
+  pas une position dans la distribution de probabilité — rien ne garantit
+  que la carte "stable" soit la moins probable des trois un jour donné.
+  Contre-exemple chiffré avec l'édition du 2 septembre (Pesticides
+  interdits, favorable 25 %/stable 45 %/dégradé 30 %, jugements
+  +1/−1/−1) : espérance actuelle = −0,50 (« assez négatif ») ; avec le
+  poids 0,5 sur stable = −0,275 (« plutôt défavorable ») — le score
+  s'**adoucit** au lieu de s'accentuer, parce que "stable" portait
+  justement le plus gros poids de probabilité ce jour-là. L'effet du
+  poids proposé dépend donc de quelle carte est la plus probable le jour
+  J, pas d'un vrai signal de queue de distribution — risque d'être un
+  artefact plutôt qu'un biais choisi. Recasse aussi l'étalonnage
+  `FRANCE_ESPERANCE_SCALE` (déjà resserré une fois le 20 août) puisque
+  l'amplitude atteignable change selon les jours.
+
+  **Contre-proposition avancée, à explorer à la place le moment venu** :
+  ne pas toucher à l'espérance elle-même (qui reste une vraie espérance
+  pondérée, honnête) mais ajouter un **indicateur de dispersion/désaccord
+  séparé** entre les 3 scénarios, si le vrai besoin est de distinguer un
+  pronostic tranché d'un pronostic mou — jamais en truquant le calcul
+  existant avec un poids sans lien garanti avec les vraies queues de la
+  distribution. Fait aussi écho au biais "risque de queue" déjà noté
+  comme accepté-mais-non-résolu lors de la création de France Impact
+  (12 août, voir plus bas) et à la correction du 17 août sur la valeur
+  France de "stable" (ne jamais la déduire mécaniquement du `kind`) — un
+  poids par `kind` réintroduirait une dépendance du même genre à ce
+  qu'on a justement retiré de la valeur pour la mettre sur le poids.
+
 - **[FAIT le 7 août] `le-projet.html` : le rôle technique porte sur la
   méthode, pas juste le site.** Retour utilisateur : la phrase décrivant
   le rôle technique d'Olivier Bertrand ("il conçoit et veille au bon
