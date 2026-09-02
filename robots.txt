@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /test/
+Disallow: /dashboard.html
 
 Sitemap: https://lesscenarios.fr/sitemap.xml
 Sitemap: https://lesscenarios.fr/sitemap-news.xml

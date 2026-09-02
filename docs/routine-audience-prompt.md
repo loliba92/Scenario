@@ -92,18 +92,73 @@ Mettre à jour aussi le texte autour du graphique, dans la section
 emplacement sur la page** (juste avant `#nous-suivre`) — seules les données
 et le texte qui en dépend changent d'une exécution à l'autre.
 
+## Étape 3bis — Mettre à jour `dashboard.html` [AJOUTÉ le 2 septembre]
+
+Page interne créée le 2 septembre (retour utilisateur : vouloir un tableau
+de bord regroupant le graphique d'audience et d'autres KPI, plus la file
+d'attente éditoriale — voir `docs/BACKLOG.md`, entrée « Dashboard de
+pilotage interne »). **Non liée depuis la nav, `noindex`, exclue de
+`robots.txt`/`sitemap.xml`**, protégée par un code d'accès (comparé à un
+hash SHA-256 embarqué dans la page — jamais le code en clair dans ce
+fichier ni ailleurs dans le dépôt, même logique que le token GoatCounter).
+**Le code d'accès n'est pas dans ce prompt** : il vit uniquement dans la
+mémoire de l'utilisateur (donné une fois au moment de la création, jamais
+recommuniqué automatiquement) — cette routine ne le régénère jamais, elle
+ne fait que mettre à jour le contenu affiché *après* déverrouillage.
+
+Réutiliser telles quelles les données déjà récupérées à l'étape 1
+(`per_day`, cumul construit à l'étape 2) pour régénérer, dans le
+`<script>` de `dashboard.html` :
+- Les 5 cartes KPI (`.kpi-grid`) : lectures cumulées, lectures de la
+  semaine en cours (les 7 derniers jours calendaires disponibles) et son
+  delta vs la semaine précédente, lectures de la semaine précédente et son
+  propre delta vs celle d'avant, cadence de publication (jours consécutifs
+  sans interruption depuis la dernière rupture détectée dans
+  `archives/*.html` — recalculer, ne pas supposer que le 25 juillet reste
+  la bonne date de départ indéfiniment), moyenne par édition.
+- Le graphique `#weekly-svg` (`var weekly`) : buckets de 7 jours depuis le
+  29 juillet 2026, dernier bucket toujours traité comme partiel
+  (`is-partial`) s'il ne couvre pas 7 jours pleins.
+- Le graphique `#cumul-svg` (`var data`) : même série que `le-projet.html`,
+  recopiée telle quelle (pas besoin de la recalculer deux fois — construite
+  une fois à l'étape 2, réutilisée aux deux endroits).
+- Le tableau top/flop (`renderTables`) : 5 meilleures et 5 moins bonnes
+  éditions par lectures cumulées, sur les chemins déjà filtrés à l'étape 2.
+
+Régénérer aussi le contenu **statique** (pas dans le `<script>`, dans le
+HTML directement) des deux derniers blocs :
+- **« Semaine à venir »** : relire `sujets-prioritaires.md`, prendre pour
+  chaque section de registre (lundi Géopolitique, mardi Carte blanche,
+  mercredi Actu française, jeudi Économie, vendredi Sciences, samedi
+  Culture, dimanche Sport) le premier `- [ ]` non coché, sur les 7
+  prochains jours calendaires à partir de demain. Rappeler que ce n'est
+  qu'un aperçu de l'ordre actuel, pas une garantie (la routine quotidienne
+  peut réordonner/insérer une priorité absolue entre-temps). Mettre aussi à
+  jour la ligne « Priorité absolue » (vide ou premier sujet non coché de
+  cette section).
+- **« Suivis actifs »** : relire `docs/sujets-a-suivre.md`, section
+  « Suivis actifs », reprendre la ligne « Prochaine échéance connue » de
+  chacun des suivis existants, trier par date la plus proche (« pas de
+  date fixe » toujours en bas).
+
+**Ne jamais changer le CSS ni la structure HTML de `dashboard.html`**
+(porte d'accès, grille de KPI, disposition des graphiques) — même règle
+que pour `#audience` sur `le-projet.html`, seules les données et le texte
+qui en dépend changent d'une exécution à l'autre.
+
 ## Étape 4 — Vérification et publication
 
-Vérifier la syntaxe du `<script>` modifié (`node --check`) avant de committer.
-Une vérification visuelle (Playwright, `executablePath:
-'/opt/pw-browsers/chromium'`, capture de la section `#audience`) est
+Vérifier la syntaxe des `<script>` modifiés (`node --check`) avant de
+committer — `le-projet.html` et `dashboard.html`. Une vérification visuelle
+(Playwright, `executablePath: '/opt/pw-browsers/chromium'`, capture de la
+section `#audience` **et** de `dashboard.html` déverrouillé) est
 recommandée à chaque passage — le composant ne change pas de structure d'une
 semaine à l'autre, mais une régression silencieuse (chevauchement de labels
 sur une série qui s'accélère, par exemple) resterait invisible sans capture.
 
-`git add le-projet.html`, commit avec un message clair (`[audience] mise à
-jour du {date} — {N} lectures cumulées`), `git push origin main` directement
-— jamais sur une autre branche.
+`git add le-projet.html dashboard.html`, commit avec un message clair
+(`[audience] mise à jour du {date} — {N} lectures cumulées`), `git push
+origin main` directement — jamais sur une autre branche.
 
 ## Étape 5 — Résumé final
 

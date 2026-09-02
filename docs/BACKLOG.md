@@ -4921,6 +4921,66 @@ mardi participatif en dépendrait probablement.
   coût), pour juger vite si le format répond au besoin, avant d'investir
   dans les intégrations plus lourdes des niveaux 2-3 une par une.
 
+  **[FAIT le 2 septembre] V1 livrée le jour même** — retour utilisateur
+  explicite pendant la même session sur les deux points restés ouverts
+  ci-dessus : *où vit le dashboard* → « une page cachée ou privée via
+  password sur le site » (tranche en faveur de l'option 2, pas
+  l'Artifact privé) ; *et* un besoin supplémentaire signalé en cours de
+  route, non anticipé dans la pré-analyse : « préparer le calendrier et
+  les sujets prévisionnels aussi ».
+
+  Livré : `dashboard.html` à la racine du dépôt — non lié depuis la nav,
+  `<meta name="robots" content="noindex, nofollow">`, exclu de
+  `robots.txt` (`Disallow: /dashboard.html`) et jamais ajouté à
+  `sitemap.xml`. Porte d'accès par code (comparé à un hash SHA-256
+  embarqué dans la page, jamais le code en clair dans ce dépôt — voir
+  commentaire CSS `.gate` dans le fichier pour le détail), code
+  mémorisé en `localStorage` après une première saisie réussie. **Vrai
+  bug trouvé et corrigé à la vérification Playwright** : `[hidden]{
+  display:none !important; }` manquant — sans cette règle, la feuille de
+  style auteur (`.gate{display:flex}`) l'emportait sur le `display:none`
+  par défaut du navigateur pour `[hidden]`, et la porte restait affichée
+  à l'écran alors même que `gate.hidden === true` en JS (confirmé par
+  inspection directe du DOM). **Avertissement explicite laissé dans le
+  fichier, à ne jamais nettoyer** : cette protection est une dissuasion,
+  pas une vraie sécurité — le contenu reste techniquement présent dans
+  le HTML envoyé au navigateur (site 100% statique, zéro backend), donc
+  quelqu'un qui lirait le code source contournerait la porte. Suffisant
+  contre un passage accidentel, pas contre une donnée vraiment sensible.
+
+  Contenu de la v1, KPI niveau 1 uniquement (comme proposé ci-dessus) :
+  5 cartes (lectures cumulées, lectures de la semaine + delta,
+  semaine précédente + delta, cadence de publication, moyenne par
+  édition), graphique hebdomadaire non cumulé (le vrai signal —
+  dernière barre toujours traitée à part comme semaine partielle),
+  graphique cumulé repris de `le-projet.html` (repère de fond), top 5 /
+  flop 5 des éditions par lectures. Chiffres du 2 septembre : +65 % de
+  lectures cette semaine vs la précédente, elle-même +87 % vs celle
+  d'avant — tendance en accélération, premier vrai signal quantifié
+  côté « ça avance ».
+
+  Ajouté en plus, suite au besoin signalé en cours de route (calendrier
+  éditorial, pas dans la pré-analyse d'origine) : un bloc « Semaine à
+  venir » (prochain sujet en tête de chaque registre de
+  `sujets-prioritaires.md`, explicitement présenté comme un aperçu de
+  l'ordre actuel, pas un calendrier garanti — la routine quotidienne
+  peut réordonner/insérer une priorité absolue) et un bloc « Suivis
+  actifs — prochaines échéances » (les 7 suivis de
+  `docs/sujets-a-suivre.md`, triés par date connue la plus proche,
+  liens directs vers chaque page `suivi/`).
+
+  `docs/routine-audience-prompt.md` étendu (nouvelle étape 3bis) pour
+  que la routine hebdomadaire « Scénario — Audience » régénère aussi
+  `dashboard.html` à chaque passage, réutilisant les données déjà
+  récupérées pour `#audience` — pas d'appel API supplémentaire. Le code
+  d'accès n'est ni régénéré ni recommuniqué par cette routine, il reste
+  fixe une fois donné à l'utilisateur.
+
+  **Reste ouvert, pas fait dans cette v1** : les KPI niveaux 2-3
+  (abonnés newsletter, réseaux sociaux, dons) et le blocage niveau 4
+  (calibration/score historique) — inchangés depuis la pré-analyse
+  ci-dessus, aucune intégration supplémentaire ajoutée dans ce passage.
+
 ## Déclinaison papier — « Les Cahiers de Scénario »
 
 Objectif produit distinct de l'audit du 27 août, mais à garder visible

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tableau de bord — Scénario</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --surface: #1a212b;
+    --surface-2: #212a35;
+    --hairline: #2c3644;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+    --favorable: #5e9c78;
+    --stable: #6f8fae;
+    --degrade: #bd6248;
+  }
+  *,*::before,*::after{ box-sizing: border-box; }
+  /* [hidden] doit gagner sur n'importe quelle règle display posée plus bas
+     (.gate{display:flex}) — sans ce !important, la feuille de style auteur
+     l'emporte sur le display:none par défaut du navigateur pour [hidden],
+     et l'élément reste visible malgré la propriété .hidden mise à true en
+     JS. Bug réel rencontré et corrigé à la vérification Playwright de
+     cette page (2 septembre) : le code correct déverrouillait bien le
+     dashboard en JS (gate.hidden === true confirmé), mais restait affiché
+     à l'écran tant que cette règle manquait. */
+  [hidden]{ display: none !important; }
+  body{
+    margin:0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap{ max-width: 920px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- Porte d'accès ---------- */
+  /* Protection légère, pas une vraie sécurité : page 100% statique (même
+     principe zéro-backend que le reste du site, voir docs/ARCHITECTURE.md),
+     donc pas de moyen de cacher le contenu côté serveur. Le code saisi est
+     comparé à un hash SHA-256 (jamais le mot de passe en clair dans ce
+     fichier), mais le contenu du tableau de bord reste techniquement présent
+     dans le HTML envoyé au navigateur — un visiteur qui irait lire le
+     code source contournerait la porte. Suffisant pour dissuader un
+     passage accidentel (lien non listé nulle part, exclu de robots.txt/
+     sitemap.xml) ou une simple curiosité au clic, pas pour protéger une
+     vraie donnée sensible. Voir docs/BACKLOG.md, entrée « Dashboard de
+     pilotage interne ». */
+  .gate{
+    position: fixed; inset: 0; z-index: 10;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--ink);
+    padding: 20px;
+  }
+  .gate-box{
+    width: 100%; max-width: 340px;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 10px;
+    padding: 28px 26px;
+    text-align: center;
+  }
+  .gate-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin: 0 0 14px;
+  }
+  .gate-box input{
+    width: 100%;
+    background: var(--surface-2);
+    border: 1px solid var(--hairline);
+    color: var(--paper);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    margin-bottom: 12px;
+  }
+  .gate-box input:focus{ outline: 2px solid var(--gold); border-color: var(--gold); }
+  .gate-box button{
+    width: 100%;
+    background: var(--gold);
+    color: var(--ink);
+    border: none;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+  }
+  .gate-box button:hover{ opacity: 0.9; }
+  .gate-error{
+    color: var(--degrade);
+    font-size: 0.82rem;
+    margin: 12px 0 0;
+  }
+
+  /* ---------- Contenu ---------- */
+  #dashboard{ padding: 48px 0 64px; }
+
+  .dash-header{ margin-bottom: 32px; }
+  .dash-eyebrow{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin: 0 0 8px;
+  }
+  .dash-title{
+    font-family: "Fraunces", serif;
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+  .dash-meta{ color: var(--paper-dim); font-size: 0.88rem; margin: 0; }
+
+  .kpi-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+  .kpi-card{
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: 18px 18px 16px;
+  }
+  .kpi-label{
+    font-size: 0.78rem;
+    color: var(--paper-dim);
+    margin: 0 0 8px;
+  }
+  .kpi-value{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .kpi-sub{ font-size: 0.8rem; color: var(--paper-dim); margin: 6px 0 0; }
+  .kpi-sub.is-up{ color: var(--favorable); }
+  .kpi-sub.is-down{ color: var(--degrade); }
+
+  .chart-box{
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: 22px 24px;
+    margin-bottom: 24px;
+  }
+  .chart-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .chart-lead{ font-size: 0.88rem; color: var(--paper-dim); margin: 0 0 16px; }
+  #weekly-svg, #cumul-svg{ width: 100%; height: auto; display: block; }
+  .bar-fill{ fill: var(--gold); }
+  .bar-fill.is-partial{ fill: var(--surface-2); stroke: var(--gold); stroke-width: 1.5; stroke-dasharray: 3 3; }
+  .axis-label{ font-size: 9px; fill: var(--paper-dim); font-family: "JetBrains Mono", monospace; }
+  .bar-value{ font-size: 9px; fill: var(--paper); font-family: "JetBrains Mono", monospace; font-weight: 700; }
+  .dc-gridline{ stroke: var(--hairline); stroke-width: 1; stroke-dasharray: 2 3; }
+  .dc-axis{ stroke: var(--hairline); stroke-width: 1; }
+  .dc-line{ fill: none; stroke: var(--favorable); stroke-width: 2; stroke-linejoin: round; }
+  .dc-dot{ fill: var(--ink); stroke: var(--favorable); stroke-width: 2; }
+  .dc-dot.is-highlight{ fill: var(--favorable); stroke: var(--paper); stroke-width: 1.5; }
+
+  table.rank-table{ width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+  table.rank-table th{
+    text-align: left;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--paper-dim);
+    font-weight: 500;
+    padding: 0 10px 8px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  table.rank-table td{ padding: 8px 10px 8px 0; border-bottom: 1px solid var(--hairline); }
+  table.rank-table td.num{ font-family: "JetBrains Mono", monospace; font-weight: 700; text-align: right; white-space: nowrap; }
+  table.rank-table tr:last-child td{ border-bottom: none; }
+
+  .rank-cols{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 640px){ .rank-cols{ grid-template-columns: 1fr; gap: 28px; } }
+
+  .dash-note{
+    font-size: 0.84rem;
+    color: var(--paper-dim);
+    border-left: 3px solid var(--hairline);
+    padding: 4px 0 4px 14px;
+    margin-top: 32px;
+  }
+  .dash-note a{ color: var(--gold); }
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate">
+  <div class="gate-box">
+    <p class="gate-label">Accès restreint</p>
+    <form id="gate-form">
+      <input id="gate-input" type="password" placeholder="Code d'accès" autocomplete="off" autofocus>
+      <button type="submit">Entrer</button>
+    </form>
+    <p class="gate-error" id="gate-error" hidden>Code incorrect.</p>
+  </div>
+</div>
+
+<main id="dashboard" hidden>
+  <div class="wrap">
+    <div class="dash-header">
+      <p class="dash-eyebrow">Usage interne — pas destiné aux lecteurs</p>
+      <h1 class="dash-title">Tableau de bord Scénario</h1>
+      <p class="dash-meta">Données au 2 septembre 2026 — mesure d'audience GoatCounter, mise à jour chaque lundi par la routine « Scénario — Audience ».</p>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <p class="kpi-label">Lectures d'éditions cumulées</p>
+        <div class="kpi-value">424</div>
+        <p class="kpi-sub">depuis le 29 juillet 2026</p>
+      </div>
+      <div class="kpi-card">
+        <p class="kpi-label">Cette semaine (27 août → 2 sept.)</p>
+        <div class="kpi-value">160</div>
+        <p class="kpi-sub is-up">↑ +65 % vs semaine précédente (97)</p>
+      </div>
+      <div class="kpi-card">
+        <p class="kpi-label">Semaine précédente (20 → 26 août)</p>
+        <div class="kpi-value">97</div>
+        <p class="kpi-sub is-up">↑ +87 % vs semaine d'avant (52)</p>
+      </div>
+      <div class="kpi-card">
+        <p class="kpi-label">Cadence de publication</p>
+        <div class="kpi-value">40 j.</div>
+        <p class="kpi-sub">édition quotidienne sans interruption depuis le 25 juillet</p>
+      </div>
+      <div class="kpi-card">
+        <p class="kpi-label">Moyenne par édition</p>
+        <div class="kpi-value">12,1</div>
+        <p class="kpi-sub">lectures/édition, sur les 35 éditions trackées depuis le 29 juillet</p>
+      </div>
+    </div>
+
+    <div class="chart-box">
+      <span class="chart-label">Lectures par semaine (non cumulé)</span>
+      <p class="chart-lead">Le signal qui compte vraiment : contrairement au cumul ci-dessous, cette série peut monter ou descendre — c'est elle qui répond à « est-ce que ça avance ». Dernière barre = semaine en cours, encore partielle.</p>
+      <svg id="weekly-svg" viewBox="0 0 700 200" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Lectures d'éditions par semaine, de 28 la semaine du 29 juillet à 154 la semaine du 26 août, semaine en cours 24 lectures sur 1 jour"></svg>
+    </div>
+
+    <div class="chart-box">
+      <span class="chart-label">Cumul depuis le lancement (repère de fond)</span>
+      <p class="chart-lead">Toujours croissante par construction — utile pour le niveau atteint, pas pour juger d'un ralentissement. Même donnée que la section « La communauté grandit » de <a href="le-projet.html" style="color:var(--gold)">le-projet.html</a>.</p>
+      <svg id="cumul-svg" viewBox="0 0 700 160" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Courbe de croissance des lectures cumulées d'éditions, de 1 le 30 juillet 2026 à 424 le 2 septembre 2026"></svg>
+    </div>
+
+    <div class="chart-box">
+      <span class="chart-label">Top / flop éditions</span>
+      <p class="chart-lead">Classement par lectures cumulées depuis le 29 juillet — signal éditorial : quels sujets/angles trouvent leur public.</p>
+      <div class="rank-cols">
+        <div>
+          <table class="rank-table">
+            <thead><tr><th>Top 5</th><th></th></tr></thead>
+            <tbody id="top-table"></tbody>
+          </table>
+        </div>
+        <div>
+          <table class="rank-table">
+            <thead><tr><th>Flop 5</th><th></th></tr></thead>
+            <tbody id="flop-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-box">
+      <span class="chart-label">Semaine à venir — file d'attente éditoriale</span>
+      <p class="chart-lead">Prochain sujet en tête de chaque registre dans <code>sujets-prioritaires.md</code>, à date du 2 septembre. <strong>Pas un calendrier garanti</strong> : la routine peut réordonner, insérer un sujet « priorité absolue », ou repasser en auto-sélection si la section du jour est vide.</p>
+      <table class="rank-table">
+        <thead><tr><th>Jour</th><th>Registre</th><th>Prochain sujet en tête de file</th></tr></thead>
+        <tbody>
+          <tr><td>Jeu. 3 sept.</td><td>Économie &amp; finance</td><td>Marchés financiers : la hausse des marchés est-elle durable ?</td></tr>
+          <tr><td>Ven. 4 sept.</td><td>Sciences</td><td>Espace : les États-Unis et la Chine relancent la course à la Lune — finira-t-on par y installer des humains ?</td></tr>
+          <tr><td>Sam. 5 sept.</td><td>Culture</td><td>Art contemporain : le marché de l'art change-t-il d'époque ?</td></tr>
+          <tr><td>Dim. 6 sept.</td><td>Sport</td><td>Sport professionnel : la nouvelle loi peut-elle vraiment réduire l'écart hommes/femmes ?</td></tr>
+          <tr><td>Lun. 7 sept.</td><td>Géopolitique</td><td>Taïwan : cette île que la Chine veut récupérer peut-elle provoquer une guerre Pékin–Washington ?</td></tr>
+          <tr><td>Mar. 8 sept.</td><td>Carte blanche</td><td>OpenAI, un IPO à 1 000 milliards ?</td></tr>
+          <tr><td>Mer. 9 sept.</td><td>Actu. française</td><td>France fracturée : grandes villes, banlieues et campagnes veulent-elles encore la même chose ?</td></tr>
+        </tbody>
+      </table>
+      <p class="kpi-sub" style="margin-top:10px;">🔥 Priorité absolue : aucun sujet en file d'urgence actuellement — la routine suit l'ordre normal des registres ci-dessus.</p>
+    </div>
+
+    <div class="chart-box">
+      <span class="chart-label">Suivis actifs — prochaines échéances</span>
+      <p class="chart-lead">Les 7 sujets suivis dans <code>docs/sujets-a-suivre.md</code>, triés par prochaine date connue — pas seulement « ce qui vient », aussi « ce qu'il faut surveiller ».</p>
+      <table class="rank-table">
+        <thead><tr><th>Sujet</th><th>Prochaine échéance connue</th></tr></thead>
+        <tbody>
+          <tr><td><a href="suivi/arabie-saoudite-sport.html" style="color:var(--paper)">Arabie saoudite &amp; sport (LIV Golf)</a></td><td class="num" style="text-align:left">Clôture accord LIV Golf visée <strong>sept. 2026</strong></td></tr>
+          <tr><td><a href="suivi/spiderman-marvel.html" style="color:var(--paper)">Spider-Man / Marvel</a></td><td class="num" style="text-align:left">Sortie <strong>Avengers : Doomsday</strong>, 18 déc. 2026</td></tr>
+          <tr><td><a href="suivi/fifa-infantino.html" style="color:var(--paper)">FIFA — présidence Infantino</a></td><td class="num" style="text-align:left">Candidatures closes <strong>18 nov. 2026</strong>, élection 18 mars 2027</td></tr>
+          <tr><td><a href="suivi/warner-paramount.html" style="color:var(--paper)">Fusion Warner–Paramount</a></td><td class="num" style="text-align:left">Procès antitrust <strong>2–19 mars 2027</strong></td></tr>
+          <tr><td><a href="suivi/cinema-france.html" style="color:var(--paper)">Cinéma français</a></td><td class="num" style="text-align:left">Bilan CNC, début 2027 (pas de date fixe)</td></tr>
+          <tr><td><a href="suivi/iran-usa.html" style="color:var(--paper)">Iran–États-Unis</a></td><td class="num" style="text-align:left">Pas de date fixe — signal de clôture détecté le 28 août, à confirmer</td></tr>
+          <tr><td><a href="suivi/ceuta-schengen.html" style="color:var(--paper)">Ceuta / Schengen</a></td><td class="num" style="text-align:left">Pas de date fixe</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="dash-note">
+      Pas encore là : abonnés newsletter (dépend de la migration Buttondown → OneSignal), abonnés réseaux sociaux (une intégration par plateforme), calibration/score historique (bloqués par le volume de suivis clôturés). Détail et priorités dans <a href="https://github.com/loliba92/Scenario/blob/main/docs/BACKLOG.md">docs/BACKLOG.md</a>, entrée « Dashboard de pilotage interne ».
+    </p>
+  </div>
+</main>
+
+<script>
+(function () {
+  // ---------- Porte d'accès ----------
+  var HASH = 'b19012505f1b2970259ca4a7b01a7b9592854e4950b7ad78c53f1168bb5e6b39';
+  var STORAGE_KEY = 'scenario-dash-auth';
+
+  function unlock() {
+    document.getElementById('gate').hidden = true;
+    document.getElementById('dashboard').hidden = false;
+    renderCharts();
+  }
+
+  async function sha256Hex(text) {
+    var enc = new TextEncoder().encode(text);
+    var buf = await crypto.subtle.digest('SHA-256', enc);
+    return Array.from(new Uint8Array(buf)).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+  }
+
+  try {
+    if (localStorage.getItem(STORAGE_KEY) === HASH) unlock();
+  } catch (e) {}
+
+  document.getElementById('gate-form').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var val = document.getElementById('gate-input').value;
+    sha256Hex(val).then(function (h) {
+      if (h === HASH) {
+        try { localStorage.setItem(STORAGE_KEY, HASH); } catch (e) {}
+        unlock();
+      } else {
+        document.getElementById('gate-error').hidden = false;
+      }
+    });
+  });
+
+  // ---------- Graphiques ----------
+  var NS = 'http://www.w3.org/2000/svg';
+  function svgEl(tag, attrs) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  function renderCharts() {
+    renderWeekly();
+    renderCumul();
+    renderTables();
+  }
+
+  function renderWeekly() {
+    var svg = document.getElementById('weekly-svg');
+    if (!svg) return;
+    // [début de semaine ISO, total lectures cette semaine-là] — dernière
+    // entrée = semaine en cours (partielle), traitée à part visuellement.
+    var weekly = [
+      ['2026-07-29', 28],
+      ['2026-08-05', 69],
+      ['2026-08-12', 68],
+      ['2026-08-19', 81],
+      ['2026-08-26', 154],
+      ['2026-09-02', 24]
+    ];
+    var W = 700, H = 200, padL = 30, padR = 12, padT = 14, padB = 28;
+    var yMax = 175;
+    var n = weekly.length;
+    var slot = (W - padL - padR) / n;
+    var barW = slot * 0.55;
+    function yPos(v) { return padT + (1 - v / yMax) * (H - padT - padB); }
+
+    for (var m = 50; m <= yMax; m += 50) {
+      var ly = yPos(m);
+      svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: ly, y2: ly, class: 'dc-gridline' }));
+    }
+    svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: H - padB, y2: H - padB, class: 'dc-axis' }));
+
+    weekly.forEach(function (d, i) {
+      var isPartial = i === weekly.length - 1;
+      var x = padL + i * slot + (slot - barW) / 2;
+      var y = yPos(d[1]);
+      var h = (H - padB) - y;
+      svg.appendChild(svgEl('rect', {
+        x: x, y: y, width: barW, height: Math.max(h, 1),
+        rx: 3, class: 'bar-fill' + (isPartial ? ' is-partial' : '')
+      }));
+      var val = svgEl('text', { x: x + barW / 2, y: y - 6, class: 'bar-value', 'text-anchor': 'middle' });
+      val.textContent = d[1] + (isPartial ? ' (en cours)' : '');
+      svg.appendChild(val);
+      var lbl = svgEl('text', { x: x + barW / 2, y: H - padB + 14, class: 'axis-label', 'text-anchor': 'middle' });
+      var p = d[0].split('-');
+      var months = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
+      lbl.textContent = parseInt(p[2], 10) + ' ' + months[parseInt(p[1], 10) - 1];
+      svg.appendChild(lbl);
+    });
+  }
+
+  function renderCumul() {
+    var svg = document.getElementById('cumul-svg');
+    if (!svg) return;
+    var data = [
+      ['2026-07-29', 0], ['2026-07-30', 1], ['2026-07-31', 7],
+      ['2026-08-01', 13], ['2026-08-02', 21], ['2026-08-03', 24],
+      ['2026-08-04', 28], ['2026-08-05', 38], ['2026-08-06', 46],
+      ['2026-08-07', 57], ['2026-08-08', 64], ['2026-08-09', 72],
+      ['2026-08-10', 81], ['2026-08-11', 97], ['2026-08-12', 115],
+      ['2026-08-13', 118], ['2026-08-14', 127], ['2026-08-15', 139],
+      ['2026-08-16', 157], ['2026-08-17', 161], ['2026-08-18', 165],
+      ['2026-08-19', 167], ['2026-08-20', 172], ['2026-08-21', 182],
+      ['2026-08-22', 188], ['2026-08-23', 202], ['2026-08-24', 222],
+      ['2026-08-25', 246], ['2026-08-26', 264], ['2026-08-27', 279],
+      ['2026-08-28', 305], ['2026-08-29', 319], ['2026-08-30', 348],
+      ['2026-08-31', 378], ['2026-09-01', 400], ['2026-09-02', 424]
+    ];
+    var W = 700, H = 160, padL = 30, padR = 12, padT = 12, padB = 22;
+    var yMax = 450;
+    function xPos(i) { return padL + i / (data.length - 1) * (W - padL - padR); }
+    function yPos(v) { return padT + (1 - v / yMax) * (H - padT - padB); }
+
+    for (var m = 150; m <= yMax; m += 150) {
+      svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: yPos(m), y2: yPos(m), class: 'dc-gridline' }));
+    }
+    svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: H - padB, y2: H - padB, class: 'dc-axis' }));
+
+    var path = 'M ' + xPos(0) + ' ' + yPos(data[0][1]);
+    for (var i = 1; i < data.length; i++) {
+      path += ' L ' + xPos(i) + ' ' + yPos(data[i - 1][1]);
+      path += ' L ' + xPos(i) + ' ' + yPos(data[i][1]);
+    }
+    svg.appendChild(svgEl('path', { d: path, class: 'dc-line' }));
+
+    var last = data.length - 1;
+    svg.appendChild(svgEl('circle', { cx: xPos(last), cy: yPos(data[last][1]), r: 4, class: 'dc-dot is-highlight' }));
+  }
+
+  function renderTables() {
+    var top = [
+      ['5 août', 36, 'EPR2 : le nucléaire français à l’heure de vérité'],
+      ['30 août', 28, 'Ligue 1 : le foot français peut-il survivre à l’effondrement de ses droits TV ?'],
+      ['31 août', 21, 'Islande : après le non à l’UE, qui va la protéger ?'],
+      ['29 août', 21, 'Cinéma mondial : peut-il survivre au streaming ?'],
+      ['24 août', 21, 'Ukraine : ni paix ni victoire']
+    ];
+    var flop = [
+      ['2 août', 6, 'Scénario — L’actualité en trois scénarios chiffrés'],
+      ['4 août', 5, 'Scénario — L’actualité en trois scénarios chiffrés'],
+      ['18 août', 4, 'IA : la cage a craqué'],
+      ['14 août', 4, 'Canicules à répétition : qui paie l’addition ?'],
+      ['7 août', 4, 'Big Tech face à la justice']
+    ];
+    function fill(id, rows) {
+      var tbody = document.getElementById(id);
+      rows.forEach(function (r) {
+        var tr = document.createElement('tr');
+        var tdTitle = document.createElement('td');
+        tdTitle.textContent = r[2] + ' — ' + r[0];
+        var tdNum = document.createElement('td');
+        tdNum.className = 'num';
+        tdNum.textContent = r[1];
+        tr.appendChild(tdTitle);
+        tr.appendChild(tdNum);
+        tbody.appendChild(tr);
+      });
+    }
+    fill('top-table', top);
+    fill('flop-table', flop);
+  }
+})();
+</script>
+
+</body>
+</html>
