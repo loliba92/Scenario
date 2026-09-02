@@ -4829,6 +4829,97 @@ mardi participatif en dépendrait probablement.
   jamais reporté à cet endroit). Même périmètre d'application que le
   ticket ci-dessus (édition du jour, FR + EN, pas les archives
   antérieures).
+- **P2 — Dashboard de pilotage interne (« est-ce que ça avance ou pas »),
+  demande du 2 septembre, pré-analyse demandée avant tout chantier.**
+  Retour utilisateur direct, à la suite de la mise à jour manuelle du
+  graphique d'audience de `le-projet.html` ce même jour : envie d'un
+  tableau de bord regroupant ce graphique **et** d'autres KPI de suivi,
+  pour juger de la progression du projet dans son ensemble — pas
+  seulement la croissance des lectures. Rien de tranché ci-dessous,
+  c'est la pré-analyse demandée, à valider avec l'utilisateur avant
+  d'implémenter quoi que ce soit.
+
+  **Constat de départ, à corriger dans le dashboard lui-même — pas
+  seulement y ajouter des métriques.** Le graphique actuel
+  (`#audience`, cumul de lectures) est **par construction toujours
+  croissant** : une courbe cumulative ne peut jamais montrer un
+  ralentissement, seulement des paliers plus ou moins pentus, difficiles
+  à lire à l'œil. Pour répondre à la vraie question posée (« ça avance
+  ou pas ? »), le dashboard doit prioriser des séries **non
+  cumulatives** — lectures de la semaine, delta semaine sur semaine — le
+  cumulatif garde sa place mais comme repère de fond, pas comme seul
+  signal.
+
+  **KPI candidats, classés par coût réel de mise en œuvre** (à ne pas
+  sous-estimer : chaque plateforme sociale a sa propre API/auth, ce
+  n'est pas une ligne de config par réseau) :
+  1. **Déjà exploitable immédiatement, aucune nouvelle intégration**
+     (mêmes sources que le graphique actuel ou le dépôt Git
+     lui-même) : lectures par semaine/jour (delta du cumul déjà
+     récupéré, pas seulement le total) ; visiteurs uniques
+     (`count_unique` de l'API GoatCounter, jamais exploité jusqu'ici —
+     à ne pas confondre avec `count`, volontairement seul utilisé pour
+     le compteur public « Lu X fois », voir `docs/ARCHITECTURE.md`) ;
+     trafic total du site, pages fonctionnelles comprises (écarté pour
+     la vitrine *publique* du 21 août parce que ça mélangeait avec les
+     vraies lectures d'article — non pertinent ici, un dashboard
+     interne peut et doit regarder `contact.html`/`newsletter.html`
+     aussi) ; cadence de publication réelle (une édition par jour, sans
+     trou — calculable depuis `archives/` et l'historique Git, zéro API
+     externe) ; classement des éditions par lectures (le compteur par
+     article existe déjà, juste jamais agrégé en top/flop) ; répartition
+     par thème/registre (tags déjà posés sur chaque édition).
+  2. **Exploitable avec un peu de travail** (connecteur déjà présent
+     dans l'écosystème du projet, mais pas encore branché sur ce
+     besoin) : nombre d'abonnés newsletter — dépend du calendrier de la
+     migration Buttondown → OneSignal déjà actée plus haut dans ce
+     backlog (section Distribution/automatisation, « Migrer la
+     newsletter... ») ; ne pas dupliquer ce chantier, juste piocher
+     dedans une fois fait.
+  3. **Nouvelle intégration par plateforme, effort réel** : abonnés
+     X/Bluesky/LinkedIn/Facebook/Instagram/Telegram (6 API différentes,
+     6 authentifications différentes) ; montant/nombre de dons Buy Me a
+     Coffee. Ne pas viser les 6 réseaux d'un coup — commencer par 1-2
+     (Bluesky et Telegram ont les API les plus simples) si ce niveau est
+     retenu.
+  4. **Pas encore possible, déjà connu du backlog** : calibration
+     (« avions-nous raison, au global ») et score historique — tous
+     deux **bloqués par le volume de suivis clôturés** (voir plus haut,
+     « Bloqué par le volume »), pas par l'absence d'idée. À relier
+     comme future brique du même dashboard le jour où ce prérequis est
+     levé, pas un chantier séparé à lancer maintenant.
+
+  **Question ouverte à trancher avant de construire quoi que ce soit :
+  où vit ce dashboard ?** Trois options, aucune retenue pour l'instant :
+  - *Étendre `le-projet.html`* — écarté d'instinct : cette page a un
+    rôle de preuve sociale pour le **lecteur** (un chiffre, une courbe,
+    minimal et propre), pas d'outil de pilotage interne ; y afficher
+    publiquement un nombre d'abonnés newsletter aujourd'hui minuscule
+    (voir plus haut dans ce backlog, « 3 pelés ») desservirait la
+    crédibilité que la page cherche justement à construire.
+  - *Nouvelle page statique du site, non liée depuis la nav*
+    (ex. `dashboard.html`), régénérée par une routine hebdomadaire —
+    même mécanisme que `#audience` aujourd'hui, cohérent avec le
+    principe zéro-backend du site, et cohérent avec un précédent déjà
+    posé dans ce backlog (« dépôt GitHub privé... écarté, aucun contenu
+    n'est réellement sensible », voir plus haut, idées explicitement
+    écartées). Reste que la page serait servie publiquement par GitHub
+    Pages (juste non indexée/non linkée) — à confirmer que ça ne gêne
+    pas pour des chiffres d'abonnés/dons, une catégorie de donnée un peu
+    différente des notes éditoriales internes dont parlait ce précédent.
+  - *Artifact Claude privé* (visible seulement par l'utilisateur,
+    republié par la même routine ou une nouvelle) — zéro trace dans le
+    dépôt public, zéro risque d'exposer un chiffre interne à qui
+    tomberait sur le dépôt, mais un mécanisme de mise à jour différent
+    du reste du site (pas de précédent ici). Cohérent avec le fait que
+    ce tableau de bord sert l'utilisateur, pas les lecteurs de
+    Scénario — pas besoin d'être dans le même moule que le site
+    éditorial.
+
+  **Proposition de phasage, pas encore validée** : une v1 minimale avec
+  uniquement les KPI du niveau 1 (déjà disponibles, ~aucun nouveau
+  coût), pour juger vite si le format répond au besoin, avant d'investir
+  dans les intégrations plus lourdes des niveaux 2-3 une par une.
 
 ## Déclinaison papier — « Les Cahiers de Scénario »
 
