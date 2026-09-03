@@ -5033,6 +5033,75 @@ mardi participatif en dépendrait probablement.
   l'utilisateur avant d'implémenter, décision maintenue. Pas ajouté sur
   les pages EN (dashboard entièrement en français, usage interne).
 
+  **[FAIT le 3 septembre] Icône revue en cadenas.** Retour utilisateur :
+  l'icône barres ne disait pas assez clairement « accès privé » et ne
+  signalait pas le curseur au survol. Remplacée par une icône cadenas,
+  `aria-label`/`title` passés de « Tableau de bord » à « Accès privé »
+  (le curseur pointer était déjà hérité du style de bouton, rien à
+  changer côté CSS). `archives/2026-09-03.html` — créée par la routine
+  quotidienne avant que l'icône n'existe sur `index.html` ce matin-là —
+  n'avait jamais hérité de l'icône du tout : ajoutée directement dans sa
+  version finale (cadenas), pas besoin de repasser par la version
+  intermédiaire (barres).
+
+  **[FAIT le 3 septembre] Rotation du code d'accès.** Retour utilisateur
+  explicite (`renard-brasier-granit-63` → `renard-brasier-granit-75`) —
+  hash SHA-256 recalculé et remplacé dans `dashboard.html`, ancien code
+  vérifié révoqué et nouveau code vérifié fonctionnel avant de considérer
+  la demande faite.
+
+  **[FAIT le 3 septembre] Bouton retour + nombre cumulé d'éditions sur
+  le graphique.** Retour utilisateur, urgent : coincé dans l'app sans
+  moyen de revenir au site depuis le dashboard. Lien « ← Retour au site »
+  (`.dash-back`, vers `index.html`) ajouté en premier enfant à la fois de
+  l'écran de porte (`.gate-box`) et de l'en-tête une fois déverrouillé
+  (`.dash-header`) — accessible dans les deux états. Graphique cumulatif
+  (`#cumul-svg`) : étiquette de fin de courbe complétée, « 424 lectures »
+  devient « 424 lectures · 41 éditions » — distingue le nombre de jours
+  de suivi du nombre réel d'éditions publiées, les deux compteurs
+  n'avancent pas au même rythme (jours sans publication, ou plusieurs
+  publications le même jour).
+
+  **[FAIT le 3 septembre] Correctif graphiques vides après retour
+  arrière (bug bfcache).** Retour utilisateur avec capture d'écran :
+  après avoir quitté le dashboard déverrouillé puis y être revenu (bouton
+  « Retour au site » puis ré-accès), la page restait déverrouillée
+  (code non redemandé) mais les graphiques et tableaux s'affichaient
+  vides — conteneurs et titres présents, contenu absent. Diagnostic :
+  restauration de la page depuis le bfcache du navigateur/webview, le JS
+  de rendu ne se rejoue pas tout seul dans ce cas précis. Fix : écouteur
+  `pageshow` avec `event.persisted` qui relance `renderCharts()`
+  uniquement lors d'une restauration bfcache (jamais à un chargement
+  normal), combiné à un vidage systématique des conteneurs en tête de
+  `renderWeekly()`, `renderCumul()` et `fill()` (tableaux) pour que ce
+  second rendu ne duplique jamais le contenu. Vérifié via Playwright
+  (déclenchement manuel d'un `pageshow` avec `persisted:true`) : nombre
+  d'éléments enfants identique avant/après, ni duplication ni vide.
+  `docs/routine-audience-prompt.md` mis en garde explicitement de ne
+  jamais retirer cet écouteur ni ce vidage lors des régénérations
+  hebdomadaires.
+
+  **[FAIT le 3 septembre] Agenda de la semaine recalé lundi → dimanche,
+  + aperçu « semaine d'après ».** Retour utilisateur : le renouvellement
+  de la file (`sujets-prioritaires.md`) se fait le lundi, l'agenda devait
+  donc toujours montrer une semaine complète à venir plutôt qu'une
+  fenêtre « aujourd'hui + 6 jours » qui dérive au fil de la semaine et
+  finit par mordre sur la semaine suivante sans le dire. Les 7 cartes
+  `.agenda-card` réordonnées sur la fenêtre lundi 7 → dimanche 13
+  septembre (premier sujet non coché de chaque registre, une fois
+  l'édition du jour même — jeudi 3, Marchés financiers — cochée dans le
+  fichier). Ajout d'un nouveau bloc compact sous la grille,
+  `.agenda-later-list` : pour chaque registre, le **2ᵉ** sujet en attente
+  (celui qui suit celui déjà dans l'agenda), pour donner une vision
+  rapide de ce qui arrive après sans construire une deuxième grille de
+  cartes. Carte blanche et Culture n'ont chacune qu'un seul sujet encore
+  en réserve dans leur section — indiqué explicitement (« rien en
+  réserve après … », classe `.agenda-later-empty`) plutôt que de laisser
+  la ligne vide ou de l'omettre. `docs/routine-audience-prompt.md`
+  (étape 3bis) étendu en conséquence : convention lundi → dimanche
+  explicitée, nouveau bloc « semaine d'après » documenté (2ᵉ `- [ ]` non
+  coché par registre, texte intégral de l'accroche).
+
 ## Déclinaison papier — « Les Cahiers de Scénario »
 
 Objectif produit distinct de l'audit du 27 août, mais à garder visible

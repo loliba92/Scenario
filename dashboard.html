@@ -224,6 +224,20 @@
   .agenda-registre{ font-size: 0.72rem; color: var(--paper-dim); margin: 0 0 8px; }
   .agenda-topic{ font-size: 0.82rem; line-height: 1.4; margin: 0; }
 
+  .agenda-later-list{ list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; }
+  .agenda-later-list li{ font-size: 0.82rem; line-height: 1.4; }
+  .agenda-later-tag{
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--gold);
+    border: 1px solid var(--hairline);
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin-right: 8px;
+  }
+  .agenda-later-empty{ color: var(--paper-dim); font-style: italic; }
+
   .dash-note{
     font-size: 0.84rem;
     color: var(--paper-dim);
@@ -352,28 +366,8 @@
 
     <div class="chart-box">
       <span class="chart-label">Agenda de la semaine — file d'attente éditoriale</span>
-      <p class="chart-lead">Prochain sujet en tête de chaque registre dans <code>sujets-prioritaires.md</code>, à date du 2 septembre. <strong>Pas un calendrier garanti</strong> : la routine peut réordonner, insérer un sujet « priorité absolue », ou repasser en auto-sélection si la section du jour est vide.</p>
+      <p class="chart-lead">Prochain sujet en tête de chaque registre dans <code>sujets-prioritaires.md</code>, à date du 3 septembre. Semaine <strong>lundi → dimanche</strong> (le renouvellement de la file se fait le lundi, cette fenêtre montre donc toujours la semaine à venir). <strong>Pas un calendrier garanti</strong> : la routine peut réordonner, insérer un sujet « priorité absolue », ou repasser en auto-sélection si la section du jour est vide.</p>
       <div class="agenda-grid">
-        <div class="agenda-card">
-          <p class="agenda-day">Jeu. 3 sept.</p>
-          <p class="agenda-registre">Économie &amp; finance</p>
-          <p class="agenda-topic">Marchés financiers : la hausse est-elle durable ?</p>
-        </div>
-        <div class="agenda-card">
-          <p class="agenda-day">Ven. 4 sept.</p>
-          <p class="agenda-registre">Sciences</p>
-          <p class="agenda-topic">Espace : la course à la Lune relancée — installer des humains pour de bon ?</p>
-        </div>
-        <div class="agenda-card">
-          <p class="agenda-day">Sam. 5 sept.</p>
-          <p class="agenda-registre">Culture</p>
-          <p class="agenda-topic">Art contemporain : le marché change-t-il d'époque ?</p>
-        </div>
-        <div class="agenda-card">
-          <p class="agenda-day">Dim. 6 sept.</p>
-          <p class="agenda-registre">Sport</p>
-          <p class="agenda-topic">La nouvelle loi peut-elle réduire l'écart hommes/femmes ?</p>
-        </div>
         <div class="agenda-card">
           <p class="agenda-day">Lun. 7 sept.</p>
           <p class="agenda-registre">Géopolitique</p>
@@ -389,8 +383,39 @@
           <p class="agenda-registre">Actu. française</p>
           <p class="agenda-topic">France fracturée : le pays peut-il encore avancer ensemble ?</p>
         </div>
+        <div class="agenda-card">
+          <p class="agenda-day">Jeu. 10 sept.</p>
+          <p class="agenda-registre">Économie &amp; finance</p>
+          <p class="agenda-topic">Dollar : le dollar peut-il perdre son statut dominant ?</p>
+        </div>
+        <div class="agenda-card">
+          <p class="agenda-day">Ven. 11 sept.</p>
+          <p class="agenda-registre">Sciences</p>
+          <p class="agenda-topic">Espace : la course à la Lune relancée — installer des humains pour de bon ?</p>
+        </div>
+        <div class="agenda-card">
+          <p class="agenda-day">Sam. 12 sept.</p>
+          <p class="agenda-registre">Culture</p>
+          <p class="agenda-topic">Art contemporain : le marché change-t-il d'époque ?</p>
+        </div>
+        <div class="agenda-card">
+          <p class="agenda-day">Dim. 13 sept.</p>
+          <p class="agenda-registre">Sport</p>
+          <p class="agenda-topic">La nouvelle loi peut-elle réduire l'écart hommes/femmes ?</p>
+        </div>
       </div>
       <p class="kpi-sub" style="margin-top:12px;">🔥 Priorité absolue : aucun sujet en file d'urgence actuellement — la routine suit l'ordre normal des registres ci-dessus.</p>
+
+      <p class="chart-lead" style="margin-top:18px;"><strong>Semaine d'après (14–20 sept.)</strong> — aperçu rapide, le 2ᵉ sujet en attente dans chaque registre :</p>
+      <ul class="agenda-later-list">
+        <li><span class="agenda-later-tag">Géopolitique</span>Guerre commerciale USA-Chine : la mondialisation entre-t-elle dans une nouvelle guerre froide économique ?</li>
+        <li><span class="agenda-later-tag">Carte blanche</span><span class="agenda-later-empty">rien en réserve après OpenAI IPO — dépend des suggestions lecteurs à venir</span></li>
+        <li><span class="agenda-later-tag">Actu. française</span>Électricité : avec la fin de l'ARENH, ta facture va-t-elle flamber ?</li>
+        <li><span class="agenda-later-tag">Économie &amp; finance</span>Or : l'or est-il redevenu la valeur refuge ultime ?</li>
+        <li><span class="agenda-later-tag">Sciences</span>Intelligence artificielle : ces programmes qui écrivent et dessinent tout seuls, vraie révolution ou bulle prête à éclater ?</li>
+        <li><span class="agenda-later-tag">Culture</span><span class="agenda-later-empty">rien en réserve après Art contemporain</span></li>
+        <li><span class="agenda-later-tag">Sport</span>Jeux d'hiver de Milan-Cortina : l'intelligence artificielle va-t-elle remplacer une partie du jugement sportif humain ?</li>
+      </ul>
     </div>
 
     <div class="chart-box">

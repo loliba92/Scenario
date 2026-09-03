@@ -147,13 +147,28 @@ HTML directement) des trois derniers blocs :
   relire `sujets-prioritaires.md`, prendre pour chaque section de
   registre (lundi Géopolitique, mardi Carte blanche, mercredi Actu
   française, jeudi Économie, vendredi Sciences, samedi Culture, dimanche
-  Sport) le premier `- [ ]` non coché, sur les 7 prochains jours
-  calendaires à partir de demain — titre raccourci à une ligne courte
-  pour la carte, pas le texte intégral de `sujets-prioritaires.md`.
-  Rappeler que ce n'est qu'un aperçu de l'ordre actuel, pas une garantie
-  (la routine quotidienne peut réordonner/insérer une priorité absolue
-  entre-temps). Mettre aussi à jour la ligne « Priorité absolue » (vide
-  ou premier sujet non coché de cette section).
+  Sport) le premier `- [ ]` non coché — titre raccourci à une ligne
+  courte pour la carte, pas le texte intégral de `sujets-prioritaires.md`.
+  **Fenêtre lundi → dimanche** [convention ajoutée le 3 septembre, retour
+  utilisateur] : toujours afficher le **prochain lundi au prochain
+  dimanche** (jamais un « aujourd'hui + 6 jours » qui dérive au fil de la
+  semaine), puisque cette routine tourne le lundi — la fenêtre affichée
+  est donc systématiquement la semaine à venir dans son intégralité,
+  jamais une semaine à moitié entamée. Rappeler que ce n'est qu'un
+  aperçu de l'ordre actuel, pas une garantie (la routine quotidienne peut
+  réordonner/insérer une priorité absolue entre-temps). Mettre aussi à
+  jour la ligne « Priorité absolue » (vide ou premier sujet non coché de
+  cette section).
+- **« Semaine d'après »** (liste `.agenda-later-list`, sous l'agenda
+  principal) [ajouté le 3 septembre, retour utilisateur : « donner
+  rapidement les sujets prévisionnels de la semaine après »] : pour
+  chaque registre, le **2ᵉ** `- [ ]` non coché (celui qui suit le sujet
+  déjà placé dans l'agenda ci-dessus) — une ligne par registre, texte
+  intégral de l'accroche (pas besoin de raccourcir, ce n'est pas dans une
+  carte). Un registre qui n'a plus qu'un seul sujet en attente (ex. Carte
+  blanche, Culture selon l'état de la file) → l'indiquer explicitement
+  avec `.agenda-later-empty` (« rien en réserve après … »), jamais laisser
+  la ligne vide ou l'omettre silencieusement.
 - **« Suivis actifs »** : relire `docs/sujets-a-suivre.md`, section
   « Suivis actifs », reprendre la ligne « Prochaine échéance connue » de
   chacun des suivis existants, trier par date la plus proche (« pas de
@@ -162,7 +177,13 @@ HTML directement) des trois derniers blocs :
 **Ne jamais changer le CSS ni la structure HTML de `dashboard.html`**
 (porte d'accès, grille de KPI, disposition des graphiques) — même règle
 que pour `#audience` sur `le-projet.html`, seules les données et le texte
-qui en dépend changent d'une exécution à l'autre.
+qui en dépend changent d'une exécution à l'autre. En particulier, **ne
+jamais retirer l'écouteur `pageshow`** ajouté le 3 septembre juste après
+la vérification du hash au chargement (`if (ev.persisted...) renderCharts();`)
+ni le vidage des conteneurs en tête de `renderWeekly()`/`renderCumul()`/
+`fill()` (`svg.innerHTML = ''`/`tbody.innerHTML = ''`) : c'est le fix d'un
+bug réel remonté par l'utilisateur (graphiques vides après restauration
+depuis le bfcache du navigateur/webview), pas du code à nettoyer.
 
 ## Étape 4 — Vérification et publication
 
