@@ -466,34 +466,55 @@
 
   // Bug trouvé le 3 septembre (retour utilisateur) : après avoir quitté la
   // page déverrouillée puis y être revenu (via le lien "Retour au site"
-  // puis l'icône cadenas à nouveau), certains navigateurs/webviews
-  // restaurent la page depuis le bfcache — la porte reste bien masquée
-  // (localStorage toujours valide) mais les <svg> des graphiques
-  // réapparaissent vides, le remplissage précédent ne se repeint pas.
-  // Un premier correctif (uniquement sur `pageshow` + `event.persisted`)
-  // n'a pas suffi pour l'app/webview de l'utilisateur — signe que ce
-  // webview restaure la page sans déclencher `persisted: true`, ou pas du
-  // tout via `pageshow`. Version plus robuste, le 3 septembre (2e passe) :
-  // au lieu de deviner *pourquoi* c'est vide, on vérifie *si* c'est vide
-  // et on re-rend dans ce cas, sur tous les événements de retour visible
-  // qu'on peut observer (pageshow, quel que soit `persisted`, et
-  // visibilitychange). Sans risque de duplication : `renderWeekly`/
-  // `renderCumul`/`renderTables` vident d'abord leur conteneur (voir plus
-  // bas), donc rejouer `renderCharts()` par sécurité ne coûte presque
-  // rien même quand ce n'était pas nécessaire.
-  function chartsLookEmpty() {
-    var w = document.getElementById('weekly-svg');
-    var c = document.getElementById('cumul-svg');
-    return (!!w && w.childElementCount === 0) || (!!c && c.childElementCount === 0);
+  // puis l'icône cadenas à nouveau), les graphiques réapparaissent vides.
+  // Deux correctifs précédents (pageshow + persisted, puis pageshow/
+  // visibilitychange + re-rendu conditionné à un DOM vide) n'ont pas
+  // suffi — confirmé le même jour sur Mac ET téléphone, donc pas un
+  // quirk d'un seul navigateur/webview. Trois hypothèses possibles,
+  // jamais isolées avec certitude sans accès à l'appareil de
+  // l'utilisateur : (1) restauration bfcache qui ne vide pas le DOM mais
+  // échoue à le repeindre visuellement (bug de repaint, pas de contenu) ;
+  // (2) le check "DOM vide" du correctif précédent rate le vrai
+  // problème s'il s'agit justement du cas (1) ; (3) mise en cache HTTP
+  // de la page elle-même sur navigation retour, qui rejouerait un
+  // ancien script (aucun des correctifs précédents n'aurait alors pu
+  // s'exécuter). 3e passe, le 3 septembre : on ne cherche plus à
+  // détecter *si* c'est nécessaire, on couvre les trois hypothèses à la
+  // fois, sans coût perceptible vu la taille des données :
+  //  - `unload` (no-op) désactive l'éligibilité au bfcache dans les
+  //    navigateurs qui la respectent (Chrome/Firefox) : la page retour
+  //    redevient un vrai rechargement, qui exécute le script du haut
+  //    à chaque fois — couvre l'hypothèse (3) si c'est bien la cause.
+  //  - `pageshow` et `visibilitychange` (retour au premier plan)
+  //    redéclenchent systématiquement `renderCharts()`, sans condition
+  //    sur l'état du DOM — couvre (1) et (2) même si le check précédent
+  //    se trompait.
+  //  - Un nudge de repaint forcé (lire `offsetHeight` puis retoucher une
+  //    propriété CSS inoffensive) juste après, au cas où le simple
+  //    rebuild du SVG ne suffise pas à faire repeindre le navigateur.
+  // `renderWeekly`/`renderCumul`/`renderTables` vident déjà leur
+  // conteneur avant remplissage (voir plus bas) : rejouer `renderCharts`
+  // à chaque retour ne duplique jamais rien.
+  window.addEventListener('unload', function () {});
+
+  function forceRepaint() {
+    var dash = document.getElementById('dashboard');
+    if (!dash) return;
+    void dash.offsetHeight; // force le navigateur à calculer le layout avant de continuer
+    dash.style.transform = 'translateZ(0)';
+    requestAnimationFrame(function () {
+      dash.style.transform = '';
+    });
   }
-  function renderChartsIfNeeded() {
-    if (!document.getElementById('dashboard').hidden && chartsLookEmpty()) {
-      renderCharts();
-    }
+
+  function renderChartsOnReturn() {
+    if (document.getElementById('dashboard').hidden) return;
+    renderCharts();
+    forceRepaint();
   }
-  window.addEventListener('pageshow', renderChartsIfNeeded);
+  window.addEventListener('pageshow', renderChartsOnReturn);
   document.addEventListener('visibilitychange', function () {
-    if (!document.hidden) renderChartsIfNeeded();
+    if (!document.hidden) renderChartsOnReturn();
   });
 
   document.getElementById('gate-form').addEventListener('submit', function (ev) {
