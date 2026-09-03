@@ -6,6 +6,81 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-09-03 — Wall Street : la hausse peut-elle durer ?
+**Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 3
+septembre 2026, EN confirmé même date), CSS complet (`.essentiel-box`,
+`.stakes-box`, `.question-box`, `.list-box`, `.comprendre-box`,
+`.delta-france`/`.delta-gauge*`/`.delta-word`/`.delta-flag` — bloc
+canonique intact, dégradé SVG à 3 stops et `data-score="0.30"` présents
+—, `.article-image*`, `.card`, `.gauge*`, `.france-line` toutes
+présentes dans `<style>`), sync `index.html`/`archives/2026-09-03.html`
+(seules différences : chemins relatifs `../`/liens internes ajustés au
+dossier, `canonical`/`og:url`/`mainEntityOfPage`/nav — toutes
+légitimes), `data-france-impact`/`data-kind` cohérents avec le texte
+`.france-line` des 3 cartes (favorable/favorable/dégradé, texte
+assorti) et avec le `delta-france` (`data-kind="positif"`, mot "léger
+positif"), incohérence numérique interne : aucune trouvée (S&amp;P 500
+6 845 pts fin 2025 et CAPE 37,1x fin 2025 cohérents sur les 3 cartes ;
+77 milliards/14 mois de dette sur marge cohérent dek/source), label
+brut favorable/stable/dégradé absent de `.essentiel-text` proprement
+dit (les occurrences "favorable et stable" dans `.delta-text` nomment
+les scénarios eux-mêmes, motif déjà rencontré les jours précédents),
+formulation "Notre évaluation de l'impact pour la France" intacte,
+lexique (5 `.lex-ref` ↔ 5 entrées — CAPE ratio, financement circulaire,
+Magnificent Seven, dette sur marge, cygne noir —, aucun terme orphelin
+dans un sens ou l'autre), probabilités 20+45+35=100 %, absence de
+tutoiement hors `.share-block` (seule occurrence de "tu" trouvée est
+dans `.share-block`), style/pédagogie (aucune phrase jugée réellement
+gênante pour la compréhension au-delà de quelques phrases longues mais
+structurées par deux-points/points-virgules, aucune rupture de
+registre hors `.share-block`, aucun contexte manquant identifié —
+aucune réécriture ni complément appliqué), 2 KPI (S&amp;P 500 fin
+d'année projetée, CAPE ratio) distincts sur les 3 cartes deux à deux
+(aucun doublon complet), `suivi/big-tech-justice.html` (seul fichier
+`suivi/` touché aujourd'hui, commit du 3 septembre 00h16 UTC) :
+origin-link vers `archives/2026-08-07.html` valide, dernier bloc
+version daté "3 septembre 2026" reconnaissable avec 3
+`.mini-scenario`/`.evo-current`, `archives.html` déjà régénéré et
+affichant les nouveaux chiffres (dégradé 50 %, pas les 30 % de V0),
+longueur (1 251 mots `.dek`+`.why`+`dd`, au-dessus du seuil de 1 100),
+4 chiffres structurants vérifiés contre 3 des 5 sources citées (Nvidia
+→ OpenAI 105 Md$ de garanties pour le data center Ohio confirmé par
+The Motley Fool ; dette sur marge 1 502 Md$ record juin 2026 + 77 % en
+14 mois + repli à 1 417 Md$ en juillet confirmé par The Motley Fool ;
+CAPE ratio 41,9 début septembre confirmé par multpl.com/Shiller — le
+44,2 de décembre 1999 n'a pas pu être confirmé sur cette vue annuelle
+du tableau, mais correspond au pic historique bien documenté de la
+bulle internet, pas de contradiction relevée).
+**Corrigé automatiquement** : image de l'article et du feed (point 9)
+— `assets/social/topic-images/2026-09-03.jpg` et `-wide.jpg` étaient en
+réalité des PNG malgré l'extension `.jpg` (`file` : « PNG image data »,
+même bug que le 18 août). Fiche de provenance `2026-09-03.json` intacte
+(source Pexels, `original_url` présent) : les deux fichiers ont été
+régénérés depuis cette même source (recadrage identique via `crop_url`,
+1080×1080 et 1600×900) avec réencodage JPEG forcé (Pillow, qualité 90).
+Vérification après correctif : `file` confirme désormais un vrai JPEG
+aux deux tailles attendues, aucune référence HTML à changer (og:image/
+twitter:image/JSON-LD pointent déjà vers `assets/social/instagram/
+2026-09-03.png`, pattern identique sur toutes les éditions récentes,
+pas une désynchronisation), capture Playwright ciblée sur
+`.article-image` avant commit : image affichée normalement, pas
+d'icône cassée, pas de zone vide.
+**Enrichissement (point 12)** : "au-dessus du seuil, rien à faire"
+(1 251 mots).
+**Réécritures et compléments de clarté** (avant/après complet pour
+chacun, plafond 3 confondus, ou "aucun") : aucun.
+**Signalé pour revue humaine** : source CNBC (`cnbc.com/2026/09/02/
+bond-yields-treasurys-inflation.html`, citée pour le rendement à 10 ans
+de 4,79 %) injoignable au moment de la vérification — HTTP 403 — donc
+"source non re-vérifiable", pas de contradiction constatée, juste pas
+re-vérifiable aujourd'hui.
+**Répercuté côté EN** : rien à répercuter (aucune correction textuelle
+côté FR — la correction du point 9 ne touche qu'un fichier binaire
+déjà partagé par les deux versions, `en/index.html`/`en/archives/
+2026-09-03.html` référencent le même chemin `assets/social/
+topic-images/2026-09-03-wide.jpg` et en bénéficient automatiquement,
+sans modification HTML nécessaire côté EN).
+
 ## 2026-08-28 — Climat 2030 : la France peut-elle encore tenir parole ?
 **Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 28 août
 2026), CSS complet (`.essentiel-box`, `.stakes-box`, `.question-box`,
