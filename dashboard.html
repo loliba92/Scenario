@@ -198,6 +198,11 @@
   table.rank-table td{ padding: 8px 10px 8px 0; border-bottom: 1px solid var(--hairline); }
   table.rank-table td.num{ font-family: "JetBrains Mono", monospace; font-weight: 700; text-align: right; white-space: nowrap; }
   table.rank-table tr:last-child td{ border-bottom: none; }
+  /* Colonne texte libre (pas un chiffre) : contrairement à .num, doit
+     pouvoir revenir à la ligne — sinon la table déborde sur mobile et
+     force tout le body à scroller horizontalement (bug remonté le 3
+     septembre, table "Suivis actifs"). */
+  table.rank-table td.echeance{ text-align: left; white-space: normal; }
 
   .rank-cols{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   @media (max-width: 640px){ .rank-cols{ grid-template-columns: 1fr; gap: 28px; } }
@@ -424,14 +429,14 @@
       <table class="rank-table">
         <thead><tr><th>Sujet</th><th>Prochaine échéance connue</th></tr></thead>
         <tbody>
-          <tr><td><a href="suivi/arabie-saoudite-sport.html" style="color:var(--paper)">Arabie saoudite &amp; sport (LIV Golf)</a></td><td class="num" style="text-align:left">Clôture accord LIV Golf visée <strong>sept. 2026</strong></td></tr>
-          <tr><td><a href="suivi/big-tech-justice.html" style="color:var(--paper)">Big Tech face à la justice</a></td><td class="num" style="text-align:left">Jugement volet publicité sous 30 j., <strong>début oct. 2026</strong></td></tr>
-          <tr><td><a href="suivi/fifa-infantino.html" style="color:var(--paper)">FIFA — présidence Infantino</a></td><td class="num" style="text-align:left">Candidatures closes <strong>18 nov. 2026</strong>, élection 18 mars 2027</td></tr>
-          <tr><td><a href="suivi/spiderman-marvel.html" style="color:var(--paper)">Spider-Man / Marvel</a></td><td class="num" style="text-align:left">Sortie <strong>Avengers : Doomsday</strong>, 18 déc. 2026</td></tr>
-          <tr><td><a href="suivi/cinema-france.html" style="color:var(--paper)">Cinéma français</a></td><td class="num" style="text-align:left">Bilan CNC, début 2027 (pas de date fixe)</td></tr>
-          <tr><td><a href="suivi/warner-paramount.html" style="color:var(--paper)">Fusion Warner–Paramount</a></td><td class="num" style="text-align:left">Procès antitrust <strong>2–19 mars 2027</strong></td></tr>
-          <tr><td><a href="suivi/iran-usa.html" style="color:var(--paper)">Iran–États-Unis</a></td><td class="num" style="text-align:left">Pas de date fixe — signal de clôture détecté le 28 août, à confirmer</td></tr>
-          <tr><td><a href="suivi/ceuta-schengen.html" style="color:var(--paper)">Ceuta / Schengen</a></td><td class="num" style="text-align:left">Pas de date fixe</td></tr>
+          <tr><td><a href="suivi/arabie-saoudite-sport.html" style="color:var(--paper)">Arabie saoudite &amp; sport (LIV Golf)</a></td><td class="echeance">Clôture accord LIV Golf visée <strong>sept. 2026</strong></td></tr>
+          <tr><td><a href="suivi/big-tech-justice.html" style="color:var(--paper)">Big Tech face à la justice</a></td><td class="echeance">Jugement volet publicité sous 30 j., <strong>début oct. 2026</strong></td></tr>
+          <tr><td><a href="suivi/fifa-infantino.html" style="color:var(--paper)">FIFA — présidence Infantino</a></td><td class="echeance">Candidatures closes <strong>18 nov. 2026</strong>, élection 18 mars 2027</td></tr>
+          <tr><td><a href="suivi/spiderman-marvel.html" style="color:var(--paper)">Spider-Man / Marvel</a></td><td class="echeance">Sortie <strong>Avengers : Doomsday</strong>, 18 déc. 2026</td></tr>
+          <tr><td><a href="suivi/cinema-france.html" style="color:var(--paper)">Cinéma français</a></td><td class="echeance">Bilan CNC, début 2027 (pas de date fixe)</td></tr>
+          <tr><td><a href="suivi/warner-paramount.html" style="color:var(--paper)">Fusion Warner–Paramount</a></td><td class="echeance">Procès antitrust <strong>2–19 mars 2027</strong></td></tr>
+          <tr><td><a href="suivi/iran-usa.html" style="color:var(--paper)">Iran–États-Unis</a></td><td class="echeance">Pas de date fixe — signal de clôture détecté le 28 août, à confirmer</td></tr>
+          <tr><td><a href="suivi/ceuta-schengen.html" style="color:var(--paper)">Ceuta / Schengen</a></td><td class="echeance">Pas de date fixe</td></tr>
         </tbody>
       </table>
     </div>
