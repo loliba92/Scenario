@@ -241,41 +241,28 @@ ni le vidage des conteneurs en tête de `renderWeekly()`/`renderCumul()`/
 bug réel remonté par l'utilisateur (graphiques vides après restauration
 depuis le bfcache du navigateur/webview), pas du code à nettoyer.
 
-## Étape 3ter — Écrire `assets/data/reads.json` (lectures par édition sur `archives.html`)
-[AJOUTÉ le 3 septembre 2026, retour utilisateur : « mettre le nombre de
-lecture sur la page archive »]
+## Étape 3ter — `assets/data/reads.json` : **plus géré par cette routine**
+[AJOUTÉ le 3 septembre 2026, RETIRÉ le même jour — retour utilisateur :
+« ça se met pas à jour tous les jours ? » puis « tu peux pas faire une
+fonction dynamique ? »]
 
-`archives.html` affiche une colonne « Lectures » par édition (chemin
-`archives/{AAAA-MM-JJ}.html`) et un badge 🔥 sur l'édition la plus lue —
-voir `scripts/seo/generate_archives_table.py`, variable `reads_script`.
-**Ce script ne connaît jamais le nombre de lectures lui-même** : il se
-contente d'écrire une colonne vide (`—`) et un petit JS qui va chercher
-les vraies valeurs dans `assets/data/reads.json` au chargement de la
-page. C'est cette routine-ci qui écrit ce fichier, chaque semaine :
+`archives.html` affiche une colonne « Lectures » par édition et un
+badge 🔥 sur l'édition la plus lue (voir `scripts/seo/
+generate_archives_table.py`, variable `reads_script`), alimentés par
+`assets/data/reads.json`. **Ce fichier n'est plus écrit par cette
+routine.** Brièvement géré ici (une seule exécution, le 3 septembre),
+puis déplacé le jour même vers un GitHub Action dédié
+(`.github/workflows/reads.yml` + `scripts/seo/update_reads_json.py`) :
+tâche purement mécanique (appel API GoatCounter + agrégation, aucun
+jugement éditorial), qui n'a jamais eu besoin d'une session Claude Code
+— le GitHub Action tourne toutes les heures, sans coût de session LLM,
+là où cette routine ne tourne qu'une fois par semaine.
 
-- **Aucun appel API supplémentaire** : réutiliser les lectures cumulées
-  par chemin déjà calculées à l'étape 2 (`per_day` agrégé par article),
-  la même donnée qui alimente le tableau top/flop de `dashboard.html`
-  juste au-dessus — seulement, ici, **toutes les éditions, pas
-  seulement les 5 meilleures/5 moins bonnes**.
-- Format : objet JSON plat, une clé par date ISO, valeur = lectures
-  cumulées depuis le lancement —
-  `{"AAAA-MM-JJ": N, "AAAA-MM-JJ": N, ...}`. Remplacer le fichier en
-  entier à chaque exécution (pas de fusion incrémentale à gérer :
-  toutes les données viennent du même appel GoatCounter de l'étape 1).
-- Valider le JSON (`python3 -c "import json;
-  json.load(open('assets/data/reads.json'))"`) avant de committer.
-- **`generate_archives_table.py` (domaines/tags) et cette routine
-  (lectures) ne se marchent jamais dessus** : le premier ne touche
-  jamais `reads.json`, la seconde ne touche jamais `archives.html`
-  directement — la colonne se remplit uniquement côté client au
-  chargement de la page, quel que soit l'ordre dans lequel les deux
-  scripts tournent dans la semaine.
-- **Amorçage du 3 septembre** : `reads.json` a été créé manuellement ce
-  jour-là avec seulement 10 valeurs connues (le top 5 / flop 5 alors
-  affiché sur `dashboard.html`) — cette routine le remplace
-  intégralement dès son premier passage suivant, aucune action
-  particulière à prévoir pour "compléter" les valeurs manquantes.
+**Cette routine ne doit plus jamais toucher `assets/data/reads.json`**,
+même par réflexe en régénérant le reste de `dashboard.html` — le
+tableau top/flop de `dashboard.html` (étape 3bis ci-dessus) continue
+d'utiliser les lectures qu'elle calcule elle-même à l'étape 2, c'est
+uniquement `reads.json`/`archives.html` qui est sorti de son périmètre.
 
 ## Étape 4 — Vérification et publication
 
@@ -287,10 +274,11 @@ recommandée à chaque passage — le composant ne change pas de structure d'une
 semaine à l'autre, mais une régression silencieuse (chevauchement de labels
 sur une série qui s'accélère, par exemple) resterait invisible sans capture.
 
-`git add le-projet.html dashboard.html assets/data/reads.json`, commit
-avec un message clair (`[audience] mise à jour du {date} — {N} lectures
-cumulées`), `git push origin main` directement — jamais sur une autre
-branche.
+`git add le-projet.html dashboard.html`, commit avec un message clair
+(`[audience] mise à jour du {date} — {N} lectures cumulées`), `git push
+origin main` directement — jamais sur une autre branche. **Ne jamais
+ajouter `assets/data/reads.json`** — voir étape 3ter, ce fichier est
+géré par un GitHub Action séparé depuis le 3 septembre.
 
 ## Étape 5 — Résumé final
 

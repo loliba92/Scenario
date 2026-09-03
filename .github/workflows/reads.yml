@@ -1,0 +1,49 @@
+name: Update reads.json
+
+# Lectures cumulées par édition (colonne "Lectures" + badge 🔥 sur
+# archives.html) — tâche purement mécanique (appel API GoatCounter +
+# agrégation, aucun jugement éditorial), volontairement hors de Claude
+# Code : voir scripts/seo/update_reads_json.py pour l'historique complet
+# de la décision (3 septembre 2026) et docs/routine-audience-prompt.md
+# pour ce que fait encore la routine Claude Code "Scénario — Audience"
+# (dashboard.html, le-projet.html — elle ne touche plus jamais ce fichier).
+#
+# Secret requis (Settings → Secrets and variables → Actions) :
+#   GOATCOUNTER_TOKEN — le même token en lecture seule que celui déjà
+#   utilisé côté trigger "Scénario — Audience", jamais commité ici.
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # toutes les heures, 24/24 — voir la note du script sur `end` (marge de 2 jours) pour la fraîcheur réelle des données GoatCounter
+  workflow_dispatch: {}  # bouton "Run workflow" dans l'onglet Actions, pour tester sans attendre l'heure pile
+
+permissions:
+  contents: write
+
+jobs:
+  update-reads:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Récupérer les lectures GoatCounter et régénérer reads.json
+        env:
+          GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+        run: python3 scripts/seo/update_reads_json.py
+
+      - name: Committer et pousser seulement si le fichier a changé
+        run: |
+          git config user.name "scenario-reads-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add assets/data/reads.json
+          if git diff --cached --quiet; then
+            echo "Aucun changement — rien à committer."
+            exit 0
+          fi
+          git pull --rebase origin main
+          git commit -m "[reads] mise à jour automatique des lectures par édition"
+          git push origin main
