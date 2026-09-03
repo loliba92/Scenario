@@ -4981,6 +4981,36 @@ mardi participatif en dépendrait probablement.
   (calibration/score historique) — inchangés depuis la pré-analyse
   ci-dessus, aucune intégration supplémentaire ajoutée dans ce passage.
 
+  **[FAIT le 2 septembre, même soir] Trois affinages demandés juste après
+  la livraison, tous à partir des données déjà en mémoire — contrainte
+  explicite : « ça ne doit pas nous coûter une blinde », donc zéro appel
+  GoatCounter supplémentaire pour tout ce qui suit.**
+  - **KPI en fenêtres glissantes plutôt qu'en semaines calendaires
+    fixes** : les cartes « cette semaine »/« semaine précédente »
+    remplacées par « 7 derniers jours (glissant) » et « 30 derniers
+    jours (glissant) », ce dernier nouveau (≈ 94 % du cumul total sur
+    les 30 derniers jours — pas encore de comparaison au 30j précédents,
+    il faut 60 jours d'historique, on n'en a que 36). Évite la
+    redondance avec le graphique hebdomadaire à buckets fixes, qui garde
+    son rôle de tendance multi-semaines.
+  - **« Lectures par domaine »**, nouveau bloc : `data-domain` déjà posé
+    sur chaque ligne d'`archives.html` (voir `docs/tags.md`), joint aux
+    lectures déjà filtrées par article — aucune nouvelle donnée à
+    produire, juste un regroupement différent du même total. Trié par
+    moyenne par édition (Sciences & environnement en tête à 15,5,
+    Tech & numérique dernier à 7,7 — mais seulement 3 éditions sur ce
+    domaine, échantillon à interpréter avec prudence).
+  - **« Semaine à venir » devient « Agenda de la semaine »**, cartes
+    visuelles (`.agenda-card`, une grille) plutôt qu'un tableau — même
+    donnée, présentation plus lisible en un coup d'œil.
+  - **Repéré au moment de pousser sur `main`** : `docs/sujets-a-suivre.md`
+    avait été mis à jour entre-temps par la routine quotidienne (nouveau
+    suivi actif, « Big Tech face à la justice », jugement attendu sous
+    30 jours) — le tableau « Suivis actifs » du dashboard a été réordonné
+    avant publication pour ne pas livrer une donnée déjà périmée dès le
+    premier jour. `docs/routine-audience-prompt.md` mis à jour en
+    conséquence (étape 3bis étendue).
+
 ## Déclinaison papier — « Les Cahiers de Scénario »
 
 Objectif produit distinct de l'audit du 27 août, mais à garder visible
