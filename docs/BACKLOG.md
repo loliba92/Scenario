@@ -5152,6 +5152,28 @@ mardi participatif en dépendrait probablement.
   explicitée, nouveau bloc « semaine d'après » documenté (2ᵉ `- [ ]` non
   coché par registre, texte intégral de l'accroche).
 
+  **[FAIT le 3 septembre] Graphique « Lectures par semaine » recalé sur
+  de vraies semaines calendaires lundi → dimanche.** Retour utilisateur :
+  « est-ce que tu fais bien les éditions du lundi au dimanche ? je
+  trouve bizarre d'avoir que 24 sur cette semaine encore inachevée ».
+  Diagnostic confirmé : les buckets de `#weekly-svg` étaient calés sur
+  le jour de lancement du site (mercredi 29 juillet), donc des semaines
+  mercredi→mardi et non lundi→dimanche — la dernière barre affichait
+  "24", qui ne comptait en réalité que le seul mercredi 2 septembre,
+  pas les jours déjà écoulés (lundi 31 août, mardi 1er septembre) de la
+  vraie semaine calendaire en cours. Recalculé à partir des lectures
+  quotidiennes (déduites par différence de la série cumulative déjà en
+  mémoire, aucun appel API supplémentaire) puis regroupé par semaine
+  ISO réelle : la semaine en cours passe de 24 à **76** lectures (31
+  août-2 septembre, 3 des 7 jours). Premier ET dernier bucket désormais
+  tous deux marqués partiels (`is-partial`) — le premier avec le
+  libellé « (lancement) » plutôt que « (en cours) », puisque son
+  incomplétude vient de l'absence de données avant le 29 juillet, pas
+  d'une semaine en cours. `docs/routine-audience-prompt.md` (étape
+  3bis) mis à jour avec l'algorithme exact (dérivation quotidienne +
+  regroupement ISO) pour que les prochaines régénérations hebdomadaires
+  gardent la bonne convention.
+
 ## Déclinaison papier — « Les Cahiers de Scénario »
 
 Objectif produit distinct de l'audit du 27 août, mais à garder visible

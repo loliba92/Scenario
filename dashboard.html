@@ -319,7 +319,7 @@
 
     <div class="chart-box">
       <span class="chart-label">Lectures par semaine (non cumulé)</span>
-      <p class="chart-lead">Le signal qui compte vraiment : contrairement au cumul ci-dessous, cette série peut monter ou descendre — c'est elle qui répond à « est-ce que ça avance ». Dernière barre = semaine en cours, encore partielle.</p>
+      <p class="chart-lead">Le signal qui compte vraiment : contrairement au cumul ci-dessous, cette série peut monter ou descendre — c'est elle qui répond à « est-ce que ça avance ». Semaines <strong>lundi → dimanche</strong>. Première et dernière barre = semaines partielles (lancement le mercredi 29 juillet, semaine en cours pas terminée).</p>
       <svg id="weekly-svg" viewBox="0 0 700 200" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Lectures d'éditions par semaine, de 28 la semaine du 29 juillet à 154 la semaine du 26 août, semaine en cours 24 lectures sur 1 jour"></svg>
     </div>
 
@@ -548,15 +548,28 @@
     var svg = document.getElementById('weekly-svg');
     if (!svg) return;
     svg.innerHTML = ''; // rend la fonction rejouable sans dupliquer (voir pageshow plus haut)
-    // [début de semaine ISO, total lectures cette semaine-là] — dernière
-    // entrée = semaine en cours (partielle), traitée à part visuellement.
+    // [lundi de la semaine ISO, total lectures cette semaine-là].
+    // Bug trouvé le 3 septembre (retour utilisateur : "est-ce que tu fais
+    // bien les éditions du lundi au dimanche ? je trouve bizarre d'avoir
+    // que 24 sur cette semaine encore inachevée") : les anciens buckets
+    // étaient calés sur le jour de lancement du site (mercredi 29 juillet),
+    // donc mercredi→mardi au lieu de lundi→dimanche — la dernière barre
+    // ("24") ne comptait que le mercredi 2 septembre tout seul, pas les
+    // jours déjà écoulés de la vraie semaine calendaire. Recalculé à partir
+    // des lectures quotidiennes (déduites du cumul de `renderCumul`
+    // ci-dessous) et re-agrégé sur de vraies semaines lundi→dimanche.
+    // Première ET dernière entrée = semaines partielles, traitées à part
+    // visuellement : la première parce que le suivi GoatCounter démarre un
+    // mercredi (29 juillet, pas de données avant), la dernière parce que la
+    // semaine calendaire en cours n'est pas terminée à la date de la
+    // routine (2 septembre = lundi 31 août + 3 jours sur 7).
     var weekly = [
-      ['2026-07-29', 28],
-      ['2026-08-05', 69],
-      ['2026-08-12', 68],
-      ['2026-08-19', 81],
-      ['2026-08-26', 154],
-      ['2026-09-02', 24]
+      ['2026-07-27', 21],
+      ['2026-08-03', 51],
+      ['2026-08-10', 85],
+      ['2026-08-17', 45],
+      ['2026-08-24', 146],
+      ['2026-08-31', 76]
     ];
     var W = 700, H = 200, padL = 30, padR = 12, padT = 14, padB = 28;
     var yMax = 175;
@@ -572,7 +585,9 @@
     svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: H - padB, y2: H - padB, class: 'dc-axis' }));
 
     weekly.forEach(function (d, i) {
-      var isPartial = i === weekly.length - 1;
+      var isFirst = i === 0;
+      var isLast = i === weekly.length - 1;
+      var isPartial = isFirst || isLast;
       var x = padL + i * slot + (slot - barW) / 2;
       var y = yPos(d[1]);
       var h = (H - padB) - y;
@@ -581,7 +596,7 @@
         rx: 3, class: 'bar-fill' + (isPartial ? ' is-partial' : '')
       }));
       var val = svgEl('text', { x: x + barW / 2, y: y - 6, class: 'bar-value', 'text-anchor': 'middle' });
-      val.textContent = d[1] + (isPartial ? ' (en cours)' : '');
+      val.textContent = d[1] + (isLast ? ' (en cours)' : isFirst ? ' (lancement)' : '');
       svg.appendChild(val);
       var lbl = svgEl('text', { x: x + barW / 2, y: H - padB + 14, class: 'axis-label', 'text-anchor': 'middle' });
       var p = d[0].split('-');

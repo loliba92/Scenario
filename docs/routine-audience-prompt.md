@@ -123,12 +123,28 @@ doit pas nous coûter une blinde ») :
   dernière rupture détectée dans `archives/*.html` — recalculer, ne pas
   supposer que le 25 juillet reste la bonne date de départ indéfiniment) ;
   moyenne par édition.
-- Le graphique `#weekly-svg` (`var weekly`) : buckets de 7 jours depuis le
-  29 juillet 2026, dernier bucket toujours traité comme partiel
-  (`is-partial`) s'il ne couvre pas 7 jours pleins. Distinct des KPI
-  glissants ci-dessus (buckets fixes vs fenêtre glissante) — les deux
-  se complètent, ne pas les fusionner ni en retirer un au profit de
-  l'autre.
+- Le graphique `#weekly-svg` (`var weekly`) : buckets **calendaires lundi →
+  dimanche** [convention corrigée le 3 septembre 2026, retour utilisateur :
+  « je trouve bizarre d'avoir que 24 sur cette semaine encore inachevée »
+  — les buckets étaient jusque-là calés sur le jour de lancement du site
+  (mercredi 29 juillet), donc mercredi→mardi au lieu de lundi→dimanche,
+  ce qui faisait paraître la dernière barre anormalement basse puisqu'elle
+  ne comptait qu'un seul jour écoulé de la vraie semaine calendaire].
+  Recalculer à partir des lectures **quotidiennes** (dérivées par
+  différence consécutive de la série cumulative `data` de `#cumul-svg`,
+  voir juste en dessous — pas besoin d'un nouvel appel API, seulement de
+  l'arithmétique sur une série déjà en mémoire), puis regrouper ces
+  lectures quotidiennes par semaine ISO (lundi au dimanche). **Premier ET
+  dernier bucket toujours traités comme partiels** (`is-partial`,
+  libellé `(lancement)` sur le premier et `(en cours)` sur le dernier) :
+  le premier parce que le suivi GoatCounter démarre un mercredi (pas de
+  données avant le 29 juillet), le dernier parce que la semaine
+  calendaire en cours à la date de la routine (le lundi) n'est presque
+  jamais terminée. Un bucket intermédiaire n'est jamais partiel — s'il
+  couvre exactement lundi à dimanche avec des données pour les 7 jours,
+  pas de `is-partial` dessus. Distinct des KPI glissants ci-dessus
+  (buckets calendaires fixes vs fenêtre glissante) — les deux se
+  complètent, ne pas les fusionner ni en retirer un au profit de l'autre.
 - Le graphique `#cumul-svg` (`var data`) : même série que `le-projet.html`,
   recopiée telle quelle (pas besoin de la recalculer deux fois — construite
   une fois à l'étape 2, réutilisée aux deux endroits).
