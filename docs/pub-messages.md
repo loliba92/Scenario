@@ -711,6 +711,36 @@ chiffres empilés ; retraites/COR avec plusieurs chiffres empilés ;
 dette américaine avec plusieurs chiffres empilés et pronoms sans
 antécédent hors contexte).*
 
+### chiffre-2026-09-03
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 7 millions
+- message: Chaque jour, les utilisateurs de Suno génèrent environ 7 millions de chansons grâce à l'intelligence artificielle — de quoi recréer tout le catalogue de Spotify toutes les deux semaines.
+- attribution: — lesscenarios.fr, 9 août 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-08-09.html
+- photo: `assets/social/topic-images/2026-08-09.jpg` (crédit : Anna
+  Shvets — https://www.pexels.com/photo/black-vinyl-record-player-on-brown-wooden-table-5614105/),
+  photo de l'édition source elle-même.
+
+*Extrait tel quel de `.dek` dans l'édition du 9 août ("Chaque jour, les
+utilisateurs de Suno génèrent environ 7 millions de chansons grâce à
+l'intelligence artificielle — de quoi recréer tout le catalogue de
+Spotify toutes les deux semaines."), astérisque de renvoi au lexique
+sur "Suno" retiré (pure décoration HTML, même traitement que pour
+"détroit d'Ormuz" dans chiffre-2026-08-15) ; aucun mot changé, déplacé
+ni ajouté. Titre RSS tronqué au tiret (phrase complète jusqu'à
+"...intelligence artificielle.") faute de quoi le `<title>` dépassait
+nettement la longueur des titres déjà en place — le `message` complet,
+lui, reste inchangé dans `<comments>`/`<description>`. Éditions du 10,
+12, 13, 14, 21, 22, 24, 25 et 31 août déjà utilisées pour cette
+catégorie ; édition du 2 septembre écartée (moins de 24h). Éditions du
+23, 26 et 27 août déjà écartées précédemment (voir note sous
+chiffre-2026-08-29). Première édition candidate parcourue cette fois
+(1ᵉʳ septembre, présidentielle 2027) écartée faute de phrase à chiffre
+unique et autonome (sondages 33-38 % dépendants du pronom "elle",
+scénarios à 45/30/20 % empilés) ; édition du 9 août retenue ensuite
+pour son chiffre à la fois simple, isolé et marquant.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
