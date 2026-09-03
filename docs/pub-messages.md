@@ -450,13 +450,20 @@ exacte) :**
    porte une date. Préférer `.essentiel-text` à `.dek` quand les deux ont
    un candidat valable — déjà écrit dans un registre plus simple.
 5. Recopier **mot pour mot, jamais reformulée** (même discipline que les
-   citations) — le chiffre extrait seul alimente le champ `stat` (affiché
-   en très grand), la phrase alimente `message` (contexte, affiché en
-   dessous). Si la phrase source est trop longue mais contient un segment
-   autonome complet, on peut **ne garder que ce segment** (coupé à une
-   virgule/point-virgule, avec majuscule initiale et point final ajoutés
-   si besoin) — jamais un mot changé, déplacé ou ajouté, seulement
-   raccourci.
+   citations) — le chiffre extrait seul alimente le champ `stat`, les
+   phrases retenues alimentent `message` (le texte affiché en légende,
+   voir "Gabarit dédié" ci-dessous). **Jusqu'à 2-3 phrases, pas
+   forcément une seule** (assoupli le 3 septembre avec la refonte du
+   gabarit) : la phrase qui porte le fait retenu peut être suivie ou
+   précédée d'1 à 2 phrases **contiguës** du même paragraphe source, pour
+   donner un peu de contexte — jamais piochées ailleurs dans l'édition,
+   jamais réordonnées, jamais reliées par un connecteur ajouté. Rester
+   sous ~280 caractères au total, une seule idée par phrase. Si la phrase
+   source est trop longue mais contient un segment autonome complet, on
+   peut **ne garder que ce segment** (coupé à une virgule/point-virgule,
+   avec majuscule initiale et point final ajoutés si besoin) — jamais un
+   mot changé, déplacé ou ajouté, seulement raccourci. Détail complet
+   dans `docs/routine-pub-prompt.md`, étape 1.7.c.
 6. Journaliser l'entrée utilisée dans ce fichier après publication (id
    `chiffre-{AAAA-MM-JJ}`, jamais réutilisé), avec un lien vers l'édition
    source — même logique de traçabilité que les entrées `futur-{N}`.
@@ -470,16 +477,18 @@ Le lien du post pointe vers l'édition source elle-même (pas
 `le-projet.html` ni la page d'accueil) — contrairement aux autres
 catégories, voir la table des liens dans `docs/routine-pub-prompt.md`.
 
-**Gabarit dédié** : `scripts/social/pub-template-v5-stat.html` — un
-titre unique (la phrase d'origine, chiffre surligné en gras/orange
-automatiquement dans son flux, plus de bloc chiffre géant séparé qui
-répétait le même chiffre deux fois — refonte du 21 août) par-dessus la
-photo de l'**édition source elle-même** (changé le 15 août : auparavant
-fond uni sans photo, désormais
-`assets/social/topic-images/{date de l'édition}.jpg`, voir
-`docs/routine-pub-prompt.md` étape 2 pour le mécanisme et le repli si
-cette image n'existe plus). Ne pas utiliser `pub-template-v4-hybride.html`
-pour cette catégorie (le chiffre serait noyé dans le texte).
+**Gabarit dédié** : `scripts/social/pub-template-v5-stat.html` — la photo
+de l'**édition source elle-même** occupe tout le cadre (changé le 15
+août : auparavant fond uni sans photo, désormais `assets/social/topic-
+images/{date de l'édition}.jpg`, voir `docs/routine-pub-prompt.md` étape
+2 pour le mécanisme et le repli si cette image n'existe plus), avec une
+légende (pastille + `message`, chiffre surligné en gras/orange
+automatiquement dans son flux) ancrée en bas de l'image sur un dégradé
+noir — style "Hugo Décrypte", refonte du 3 septembre qui remplace le
+titre unique centré du 21 août. La légende peut désormais compter jusqu'à
+2-3 phrases (voir point 5 ci-dessus), la photo reste visible sur son
+tiers supérieur. Ne pas utiliser `pub-template-v4-hybride.html` pour
+cette catégorie (le chiffre serait noyé dans le texte).
 
 **Section vide au lancement** — comme "Grands futurs" le 13 août, ce
 n'est pas bloquant : le mécanisme de scan alimente la catégorie à chaque

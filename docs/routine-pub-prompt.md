@@ -41,6 +41,17 @@ point clé réel de l'édition au seul motif qu'il porte une date. Détail
 complet au point 7.b/c ci-dessous ; même consigne reportée dans
 `docs/pub-messages.md` section 5.
 
+**3 septembre (2) : gabarit `pub-template-v5-stat.html` refait, style
+"Hugo Décrypte".** Retour utilisateur direct : masthead logo + "Scénario"
+conservé en haut à gauche, photo pleine largeur avec dégradé noir
+concentré en bas du cadre (photo visible sur son tiers supérieur), légende
+ancrée tout en bas — jusqu'à 2-3 phrases désormais autorisées pour le
+`message` (voir point 7c ci-dessous et `docs/pub-messages.md` section 5),
+au lieu d'un titre unique centré au milieu du cadre (refonte du 21 août,
+désormais remplacée). Même changement sur le miroir anglais
+`pub-template-v5-stat-en.html`. Catégories `manifeste`/`citation`/
+`question`/`futur` (`pub-template-v4-hybride.html`) non concernées.
+
 **Objectif : rappeler l'identité du projet et faire réagir la communauté**
 entre deux éditions quotidiennes — jamais un sujet d'actualité (ça reste le
 rôle de `feed.xml`). Contenu organique, pas de budget publicitaire (à ne
@@ -234,19 +245,35 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
      "vendeuse" prise isolément. Elle doit aussi se comprendre seule, en
      une lecture, sans connaître le reste de l'édition (règle du 14
      août, toujours valable : "les phrases doivent être simples, assez
-     courtes et pédagogiques") — écarter les phrases à clauses multiples,
-     jargon non expliqué, ou qui empilent plusieurs chiffres à la fois :
-     une seule idée, un seul chiffre, une phrase qu'on comprend en
-     scrollant. Si la phrase candidate est trop longue mais contient un
-     segment autonome et complet (ex. une proposition séparée par une
-     virgule qui a son sens toute seule), il est permis de **ne garder que
-     ce segment** — jamais reformulé, jamais un mot changé ou ajouté,
-     seulement raccourci à une frontière naturelle (virgule,
-     point-virgule), avec au besoin une majuscule initiale et un point
-     final ajoutés pour qu'il se lise comme une phrase complète. **Le
-     chiffre lui-même n'est jamais recalculé ni arrondi différemment.**
-     Extraire le chiffre seul pour le champ `stat`, garder la phrase (ou
-     le segment) retenu pour `message`.
+     courtes et pédagogiques") — écarter le jargon non expliqué.
+
+     **Jusqu'à 2-3 phrases, pas une seule** (assoupli le 3 septembre en
+     même temps que la refonte du gabarit — voir Étape 3 et `docs/pub-
+     messages.md` section 5 : le gabarit `pub-template-v5-stat.html`
+     ancre désormais la légende en bas de l'image sur un dégradé noir,
+     avec assez de place pour un peu de contexte). La phrase qui porte
+     l'info retenue peut être suivie (ou précédée) d'1 à 2 phrases
+     **contiguës** du même paragraphe source qui l'éclairent — jamais
+     piochées ailleurs dans l'édition, jamais réordonnées, jamais reliées
+     par un connecteur ajouté : on recopie un passage continu tel qu'il
+     apparaît dans le texte, on ne compose pas un texte à partir de
+     bouts épars. Rester sous ~280 caractères au total (2 phrases
+     courtes suffisent souvent ; n'aller à 3 que si chacune reste brève)
+     — au-delà, préférer une version à 2 phrases plutôt que forcer les 3.
+     Toujours une seule idée par phrase, jamais de phrase à clauses
+     multiples qui empile plusieurs chiffres à la fois. Si la phrase
+     retenue est elle-même trop longue mais contient un segment autonome
+     et complet (ex. une proposition séparée par une virgule qui a son
+     sens toute seule), il est permis de **ne garder que ce segment** —
+     jamais reformulé, jamais un mot changé ou ajouté, seulement raccourci
+     à une frontière naturelle (virgule, point-virgule), avec au besoin
+     une majuscule initiale et un point final ajoutés pour qu'il se lise
+     comme une phrase complète. **Le chiffre lui-même n'est jamais
+     recalculé ni arrondi différemment.** Extraire le chiffre seul pour
+     le champ `stat`, garder les phrases (ou segments) retenus, dans
+     leur ordre d'origine, pour `message` (`\n` entre elles si on veut
+     forcer un saut de ligne sur l'image, sinon laisser le gabarit
+     enchaîner le texte).
 
      **Vigilance sur les chiffres datés** (retour utilisateur du
      3 septembre — `chiffre-2026-09-02`, "21 % des exportations
@@ -346,6 +373,19 @@ python3 scripts/social/generate_pub_image.py \
   --template scripts/social/pub-template-v5-stat.html \
   --photo assets/social/topic-images/{date de l'édition source}.jpg
 ```
+
+**Refonte du gabarit `pub-template-v5-stat.html` le 3 septembre** (retour
+utilisateur, style "Hugo Décrypte") : la photo occupe tout le cadre et
+reste visible sur son tiers supérieur, un dégradé noir concentré sur le
+bas du cadre porte la légende (pastille + `message`, jusqu'à 2-3 phrases,
+voir Étape 1 point 7c), le masthead logo + "Scénario" reste en haut à
+gauche comme sur les autres gabarits pub. Remplace le voile pleine image
++ contenu recentré du 21 août. Rien ne change côté script Python ni côté
+placeholders (`--data`/`--photo` identiques) — seul le rendu visuel du
+template change. Même refonte appliquée au miroir anglais
+`pub-template-v5-stat-en.html` (étape 4bis) ; les gabarits
+`manifeste`/`citation`/`question`/`futur` (`pub-template-v4-hybride.html`)
+ne sont pas concernés par ce changement.
 
 `eyebrow`/`message`/`attribution`/`cta` (et `stat` pour la catégorie
 `chiffre`) sont recopiés **tels quels** depuis `docs/pub-messages.md` —

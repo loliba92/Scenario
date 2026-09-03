@@ -38,16 +38,19 @@
     background-image:url(__PHOTO_SRC__);
     background-size:cover; background-position:center;
   }
-  /* Voile renforcé le 21 août (retour utilisateur, analyse design vs
-     comptes concurrents), puis contenu recentré le même jour (2e retour :
-     "au milieu plutôt") — le bloc de texte peut donc retomber n'importe
-     où sur la hauteur selon la longueur du titre, le voile doit rester
-     assez soutenu partout plutôt que concentré sur un seul tiers.
-     Toujours plus sombre qu'avant le 21 août (0.58 de base) pour
-     garder le titre lisible même sur une photo chargée. */
+  /* Refonte du 3 septembre (retour utilisateur, style "Hugo Décrypte") :
+     remplace le voile pleine image du 21 août par un dégradé concentré
+     sur le bas du cadre — la photo reste visible et lisible sur son
+     tiers supérieur, tout le texte (pastille + légende) descend dans la
+     zone sombre du bas plutôt que d'être recentré au milieu du cadre.
+     Zone haute quasi intacte (0 jusqu'à 36%), bascule rapide vers le
+     noir entre 36% et 62%, puis noir quasi plein jusqu'en bas — assez de
+     hauteur sombre pour porter une légende de 2-3 phrases (voir
+     .caption ci-dessous) sans jamais mordre sur la photo. Même
+     changement que la version française, voir pub-template-v5-stat.html. */
   .scrim{
     position:absolute; inset:0;
-    background: linear-gradient(180deg, rgba(16,21,28,0.32) 0%, rgba(16,21,28,0.58) 28%, rgba(16,21,28,0.86) 55%, rgba(16,21,28,0.93) 100%);
+    background: linear-gradient(180deg, rgba(8,10,14,0) 0%, rgba(8,10,14,0) 36%, rgba(8,10,14,0.62) 52%, rgba(8,10,14,0.93) 68%, rgba(8,10,14,0.98) 100%);
   }
   .tint{ position:absolute; inset:0; mix-blend-mode: color; background: var(--stat); opacity:0.1; }
 
@@ -56,22 +59,16 @@
   .masthead .word{ font-family:"Fraunces", serif; font-weight:700; font-size:40px; color: var(--paper); }
   .masthead .word .rio{ color: var(--gold); }
 
-  /* Contenu recentré verticalement (retour utilisateur du 21 août,
-     après un premier essai avec le texte poussé en bas de cadre —
-     revenu à justify-content:center, titre agrandi pour plus d'impact).
-     Un seul bloc visuel : pastille + un unique titre qui porte le
-     chiffre en évidence (voir .headline ci-dessous, fusion de l'ancien
-     duo .stat + .message qui répétait deux fois le même chiffre).
-     Attribution et CTA retirés de l'image : ils restent dans la légende
-     du post (<comments> du flux, voir docs/routine-pub-prompt.md
-     étape 4) — l'image gagne en impact, rien n'est perdu côté lecteur
-     puisque la légende s'affiche sous le post sur toutes les
-     plateformes. */
+  /* Légende ancrée en bas de cadre (remplace .content centré du 21
+     août) — pastille + texte tiennent dans la zone assombrie par le
+     dégradé ci-dessus. Hauteur libre (pas de justify-content:center) :
+     le bloc grandit vers le haut selon le nombre de phrases, jamais
+     au-delà de la zone sombre tant que la légende reste dans la limite
+     de 2-3 phrases courtes fixée par docs/routine-pub-prompt.md. */
   .content{
-    position:relative;
-    width:100%; height:100%;
-    display:flex; flex-direction:column; justify-content:center; align-items:flex-start;
-    padding: 84px 92px 96px;
+    position:absolute; left:0; right:0; bottom:0;
+    display:flex; flex-direction:column; align-items:flex-start;
+    padding: 0 92px 64px;
   }
 
   /* Pastille pleine, même traitement que les autres gabarits pub —
@@ -81,22 +78,22 @@
     font-family:"JetBrains Mono", monospace; font-weight:700; font-size: 24px;
     letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink);
     background: var(--stat); border-radius: 40px; padding: 10px 26px;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
 
-  /* Titre unique : la phrase d'origine, recopiée mot pour mot depuis
+  /* Légende : jusqu'à 2-3 phrases recopiées mot pour mot depuis
      l'édition (même discipline que les citations : jamais reformulée),
      avec le chiffre qu'elle contient mis en évidence par le script de
      génération (voir generate_pub_image.py, surlignage automatique du
      champ "stat" dans "message" pour ce gabarit — plus besoin de
-     marquer ** à la main). Remplace le duo .stat (chiffre géant seul)
-     + .message (phrase complète en dessous) du 15 août : les deux
-     affichaient le même chiffre deux fois, une redondance repérée en
-     comparant à des comptes qui font une seule accroche nette. */
+     marquer ** à la main). Taille réduite par rapport à l'ancien titre
+     unique du 21 août (72px) car le texte porte maintenant plusieurs
+     phrases de contexte, pas une seule accroche courte — voir
+     docs/routine-pub-prompt.md étape 1.7.c pour la règle de longueur. */
   .headline{
-    font-family:"Fraunces", serif; font-weight:700; font-size: 72px; line-height:1.14;
-    letter-spacing:-0.008em; color: var(--paper);
-    max-width: 880px;
+    font-family:"Fraunces", serif; font-weight:700; font-size: 42px; line-height:1.34;
+    letter-spacing:-0.006em; color: var(--paper);
+    max-width: 860px;
   }
   /* Le chiffre lui-même : gras et en couleur, dans le flux naturel de
      la phrase (pas isolé sur sa propre ligne — testé le 21 août, un
@@ -106,10 +103,14 @@
      image, jamais recalculé ni arrondi différemment. */
   .headline .hl{ font-weight:900; color: var(--stat); }
 
+  /* Repositionné dans le flux de .content (plus en position absolute
+     indépendante) : la légende peut désormais faire 1 à 3 lignes de
+     plus qu'avant, un footer ancré à une hauteur fixe se serait
+     retrouvé à cheval sur le texte pour les légendes les plus longues. */
   .footer{
-    position:absolute; bottom:52px; left:92px;
-    display:flex; align-items:baseline; gap:14px; font-size:22px;
+    display:flex; align-items:baseline; gap:14px; font-size:20px;
     letter-spacing:0.08em; text-transform:uppercase;
+    margin-top: 32px;
   }
   .footer .tagline{ color: var(--gold); font-weight:700; }
   .footer .sep{ color: var(--paper-dim); opacity:.5; }
@@ -139,7 +140,6 @@
   <div class="content">
     <div class="eyebrow">__EYEBROW__</div>
     <div class="headline">__MESSAGE__</div>
+    <div class="footer"><span class="tagline">The future in 3 scenarios</span><span class="sep">·</span><span class="url">lesscenarios.fr</span></div>
   </div>
-
-  <div class="footer"><span class="tagline">The future in 3 scenarios</span><span class="sep">·</span><span class="url">lesscenarios.fr</span></div>
 </body></html>
