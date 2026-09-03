@@ -185,6 +185,46 @@ HTML directement) des trois derniers blocs :
   blanche, Culture selon l'état de la file) → l'indiquer explicitement
   avec `.agenda-later-empty` (« rien en réserve après … »), jamais laisser
   la ligne vide ou l'omettre silencieusement.
+- **« Autonomie par registre »** [ajouté le 3 septembre 2026, tableau
+  créé manuellement le même jour puis intégré à cette routine dans la
+  foulée pour qu'il ne devienne pas obsolète] : relire
+  `sujets-prioritaires.md` (déjà lu pour « Agenda de la semaine »
+  ci-dessus, aucune lecture supplémentaire) et compter les lignes
+  `- [ ]` (non cochées) de chacun des 7 registres hebdomadaires — les
+  sections `## Géopolitique — lundi`, `## Mardi — carte blanche aux
+  lecteurs...`, `## Actualité & politique française — mercredi`,
+  `## Économie & finance mondiale — jeudi`, `## Sciences — vendredi...`,
+  `## Culture — samedi`, `## Sport — dimanche`. **Ne jamais compter la
+  section `## 🔥 Priorité absolue`** : elle n'est pas consommée une fois
+  par semaine comme les 7 autres, c'est une file d'urgence opportuniste,
+  hors de ce calcul.
+
+  Chaque registre n'étant consommé qu'**une fois par semaine** (cadence
+  quotidienne à 7 registres fixes), le nombre de semaines d'autonomie
+  est **strictement égal** au nombre de sujets non cochés — aucun calcul
+  supplémentaire. Trier le tableau par autonomie **croissante** (le
+  registre le plus en tension en premier), pas par jour de la semaine :
+  le but du tableau est de repérer vite ce qui manque, pas de suivre le
+  calendrier.
+
+  Statut et couleur — seuils fixes, appliquer tel quel, aucun jugement
+  éditorial requis (même logique "économie de tokens" que le reste de
+  cette routine) :
+  | Non cochés | Texte | Couleur |
+  |---|---|---|
+  | 0 | `épuisée` | `var(--degrade)` |
+  | 1 | `⚠️ épuisée la semaine prochaine` | `var(--degrade)` |
+  | 2 à 4 | `⚠️ ~{N} semaines` | `var(--degrade)` |
+  | 5 à 10 | `~{N} semaines` | `var(--stable)` |
+  | 11 et plus | `confortable` | `var(--favorable)` |
+
+  Reconstruire entièrement le `<tbody>` de ce tableau (une `<tr>` par
+  registre, colonnes Registre / Non cochés / Autonomie) selon ces
+  règles. Mettre aussi à jour la phrase `.kpi-sub` juste en dessous :
+  nommer explicitement le ou les registres actuellement en `dégradé`
+  (0 à 4 non cochés) et leur date d'épuisement approximative ; si aucun
+  registre n'est en dégradé, le dire explicitement plutôt que de
+  garder une ancienne phrase d'alerte périmée.
 - **« Suivis actifs »** : relire `docs/sujets-a-suivre.md`, section
   « Suivis actifs », reprendre la ligne « Prochaine échéance connue » de
   chacun des suivis existants, trier par date la plus proche (« pas de
