@@ -52,6 +52,26 @@ désormais remplacée). Même changement sur le miroir anglais
 `pub-template-v5-stat-en.html`. Catégories `manifeste`/`citation`/
 `question`/`futur` (`pub-template-v4-hybride.html`) non concernées.
 
+**3 septembre (3) : le mécanisme photo de la catégorie `chiffre` (étape 2,
+« Catégorie `chiffre` : mécanisme dédié ») reste la référence à reproduire
+chaque jour pour cette catégorie précise — confirmé par retour
+utilisateur, aucun changement de fond.** Rappel du principe déjà en place
+depuis le 15 août, pour éviter toute dérive future : la photo utilisée est
+toujours celle de l'édition source du chiffre
+(`assets/social/topic-images/{date de l'édition source}.jpg`), jamais une
+recherche Pexels ni une photo de banque générique — voir étape 2 pour le
+détail complet. **Cette confirmation ne concerne que la catégorie
+`chiffre`** : les autres catégories (`manifeste`/`citation`/`question`/
+`futur`) restent sur la rotation générale de photos de l'étape 2, points
+1-2, inchangée.
+
+**3 septembre (4) : catégorie `citation` mise en pause, remplacée par
+`chiffre` le mardi.** Retour utilisateur direct. Table jour → catégorie
+mise à jour (point 2 ci-dessous) — `citation` n'est plus assignée à aucun
+jour, même traitement que `question`/`futur` (catégorie dormante, pas
+supprimée : les entrées déjà présentes dans `docs/pub-messages.md`
+section 2 restent en place, prêtes à être réactivées plus tard).
+
 **Objectif : rappeler l'identité du projet et faire réagir la communauté**
 entre deux éditions quotidiennes — jamais un sujet d'actualité (ça reste le
 rôle de `feed.xml`). Contenu organique, pas de budget publicitaire (à ne
@@ -115,7 +135,7 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
    |---|---|
    | Dimanche | `manifeste` |
    | Lundi | `chiffre` |
-   | Mardi | `citation` |
+   | Mardi | `chiffre` |
    | Mercredi | `chiffre` |
    | Jeudi | `chiffre` |
    | Vendredi | `manifeste` |
@@ -131,11 +151,13 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
    avait publié 2 items le même jour et cassé l'automatisation réseaux
    sociaux, qui ne traite qu'1 post/jour).
 
-   **`question` et `futur` ne sont pas dans cette table — catégories
-   dormantes**, pas supprimées : leurs entrées restent dans `docs/pub-
-   messages.md` (sections 3 et 4), à réactiver si l'utilisateur leur
-   redonne un jour (`futur` retirée de la table le 21 août, jeudi
-   reprend désormais `chiffre` — voir la note en tête de fichier). **Si
+   **`citation`, `question` et `futur` ne sont pas dans cette table —
+   catégories dormantes**, pas supprimées : leurs entrées restent dans
+   `docs/pub-messages.md` (sections 2, 3 et 4), à réactiver si
+   l'utilisateur leur redonne un jour (`futur` retirée de la table le 21
+   août, jeudi reprend `chiffre` ; `citation` retirée le 3 septembre,
+   mardi reprend aussi `chiffre` — voir les notes en tête de fichier).
+   **Si
    la routine se déclenche malgré tout un jour absent de cette table**
    (nouveau jour de la semaine ajouté au cron sans que cette table soit
    mise à jour) :
