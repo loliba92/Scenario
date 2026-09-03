@@ -692,6 +692,23 @@
     cursor: default;
   }
 
+  /* Lectures : chiffre cumulé depuis le lancement, tenu à jour par la routine
+     "Scénario — Audience" via assets/data/reads.json (JS ci-dessous, jamais
+     de valeur écrite en dur ici — cette colonne part toujours à "—" tant que
+     le JS n'a pas chargé le JSON, voir reads_script). Badge 🔥 posé sur le
+     titre de la ligne qui a le plus de lectures, ajouté par le même script. */
+  .archives-table .col-reads {
+    text-align: center;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--paper-dim);
+  }
+
+  .reads-top-badge {
+    margin-left: 6px;
+    font-size: 0.82em;
+  }
+
   .archives-table .france-scale .seg {
     width: 9px;
     height: 16px;
@@ -810,7 +827,8 @@
     }
 
     .archives-table .col-eval,
-    .archives-table .col-france {
+    .archives-table .col-france,
+    .archives-table .col-reads {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -821,9 +839,11 @@
 
     .archives-table .col-eval { order: 4; }
     .archives-table .col-france { order: 5; }
+    .archives-table .col-reads { order: 6; }
 
     .archives-table .col-eval::before,
-    .archives-table .col-france::before {
+    .archives-table .col-france::before,
+    .archives-table .col-reads::before {
       content: attr(data-label);
       font-family: "JetBrains Mono", monospace;
       font-size: 0.62rem;
@@ -1002,14 +1022,15 @@
     <thead>
       <tr>
         <th style="width: 9%;">Date</th>
-        <th style="width: 40%;">Titre</th>
-        <th style="width: 15%;">Domaine</th>
-        <th style="width: 18%;">Notre scénario</th>
-        <th style="width: 18%;">Impact France</th>
+        <th style="width: 34%;">Titre</th>
+        <th style="width: 13%;">Domaine</th>
+        <th style="width: 16%;">Notre scénario</th>
+        <th style="width: 16%;">Impact France</th>
+        <th style="width: 12%;">Lectures</th>
       </tr>
     </thead>
     <tbody>
-    <tr data-domain="economie-entreprises" data-scenario="stable" data-france="favorable" data-revised="false">
+    <tr data-domain="economie-entreprises" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-09-03">
       <td class="col-date" data-label="Date"><span class="date-day">03.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1024,8 +1045,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Plutôt favorable" aria-label="Impact France : Plutôt favorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable active"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="sciences-environnement" data-scenario="stable" data-france="degrade" data-revised="false">
+    <tr data-domain="sciences-environnement" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-02">
       <td class="col-date" data-label="Date"><span class="date-day">02.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1040,8 +1062,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade" data-revised="false">
+    <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-01">
       <td class="col-date" data-label="Date"><span class="date-day">01.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1056,8 +1079,9 @@
       <span class="eval-pct">50%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="international" data-scenario="stable" data-france="degrade" data-revised="false">
+    <tr data-domain="international" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-31">
       <td class="col-date" data-label="Date"><span class="date-day">31.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1072,8 +1096,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Plutôt défavorable" aria-label="Impact France : Plutôt défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade active"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="economie-entreprises" data-scenario="stable" data-france="degrade" data-revised="false">
+    <tr data-domain="economie-entreprises" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-30">
       <td class="col-date" data-label="Date"><span class="date-day">30.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1088,8 +1113,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="favorable" data-revised="false">
+    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-08-29">
       <td class="col-date" data-label="Date"><span class="date-day">29.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1104,8 +1130,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez favorable" aria-label="Impact France : Assez favorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort active"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="sciences-environnement" data-scenario="stable" data-france="degrade" data-revised="false">
+    <tr data-domain="sciences-environnement" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-28">
       <td class="col-date" data-label="Date"><span class="date-day">28.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1120,8 +1147,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="economie-entreprises" data-scenario="stable" data-france="degrade" data-revised="false">
+    <tr data-domain="economie-entreprises" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-27">
       <td class="col-date" data-label="Date"><span class="date-day">27.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1136,8 +1164,9 @@
       <span class="eval-pct">50%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade" data-revised="false">
+    <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-26">
       <td class="col-date" data-label="Date"><span class="date-day">26.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1152,8 +1181,9 @@
       <span class="eval-pct">50%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="tech-numerique" data-scenario="stable" data-france="degrade" data-revised="false">
+    <tr data-domain="tech-numerique" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-25">
       <td class="col-date" data-label="Date"><span class="date-day">25.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1168,8 +1198,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="international" data-scenario="stable" data-france="degrade" data-revised="false">
+    <tr data-domain="international" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-24">
       <td class="col-date" data-label="Date"><span class="date-day">24.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1184,8 +1215,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="politique-institutions" data-scenario="stable" data-france="favorable" data-revised="false">
+    <tr data-domain="politique-institutions" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-08-23">
       <td class="col-date" data-label="Date"><span class="date-day">23.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1200,8 +1232,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Plutôt favorable" aria-label="Impact France : Plutôt favorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable active"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="favorable" data-revised="false">
+    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-08-22">
       <td class="col-date" data-label="Date"><span class="date-day">22.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1216,8 +1249,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez favorable" aria-label="Impact France : Assez favorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort active"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="sciences-environnement" data-scenario="stable" data-france="favorable" data-revised="false">
+    <tr data-domain="sciences-environnement" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-08-21">
       <td class="col-date" data-label="Date"><span class="date-day">21.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1232,13 +1266,14 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez favorable" aria-label="Impact France : Assez favorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort active"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="economie-entreprises" data-scenario="stable" data-france="degrade" data-revised="false">
+    <tr data-domain="economie-entreprises" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-20">
       <td class="col-date" data-label="Date"><span class="date-day">20.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-20.html" title="Après huit mois d&#x27;immobilisme à la Fed et une première hausse de la BCE en trois ans, les banques centrales peuvent-elles encore promettre une vraie baisse durable des taux d&#x27;intérêt ?">Taux : marche arrière</a>
-
+          
           <a href="en/archives/2026-08-20.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
@@ -1248,8 +1283,9 @@
       <span class="eval-pct">50%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade" data-revised="false">
+    <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-19">
       <td class="col-date" data-label="Date"><span class="date-day">19.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1264,8 +1300,9 @@
       <span class="eval-pct">50%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="tech-numerique" data-scenario="stable" data-france="degrade" data-revised="false">
+    <tr data-domain="tech-numerique" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-18">
       <td class="col-date" data-label="Date"><span class="date-day">18.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1280,8 +1317,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="international" data-scenario="degrade" data-france="degrade" data-revised="false">
+    <tr data-domain="international" data-scenario="degrade" data-france="degrade" data-revised="false" data-date="2026-08-17">
       <td class="col-date" data-label="Date"><span class="date-day">17.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1296,8 +1334,9 @@
       <span class="eval-pct">55%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="politique-institutions" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="politique-institutions" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-16">
       <td class="col-date" data-label="Date"><span class="date-day">16.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1312,8 +1351,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-15">
       <td class="col-date" data-label="Date"><span class="date-day">15.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1328,8 +1368,9 @@
       <span class="eval-pct">50%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="sciences-environnement" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="sciences-environnement" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-14">
       <td class="col-date" data-label="Date"><span class="date-day">14.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1344,8 +1385,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="economie-entreprises" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="economie-entreprises" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-13">
       <td class="col-date" data-label="Date"><span class="date-day">13.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1360,8 +1402,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="politique-institutions" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="politique-institutions" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-12">
       <td class="col-date" data-label="Date"><span class="date-day">12.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1376,8 +1419,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="international" data-scenario="stable" data-france="degrade" data-revised="false">
+    <tr data-domain="international" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-11">
       <td class="col-date" data-label="Date"><span class="date-day">11.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1392,8 +1436,9 @@
       <span class="eval-pct">50%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Plutôt défavorable" aria-label="Impact France : Plutôt défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade active"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="economie-entreprises" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="economie-entreprises" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-10">
       <td class="col-date" data-label="Date"><span class="date-day">10.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1408,8 +1453,9 @@
       <span class="eval-pct">55%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="favorable" data-revised="false">
+    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-08-09">
       <td class="col-date" data-label="Date"><span class="date-day">09.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1424,8 +1470,9 @@
       <span class="eval-pct">55%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez favorable" aria-label="Impact France : Assez favorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort active"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="culture-divertissement" data-scenario="degrade" data-france="neutre" data-revised="true">
+    <tr data-domain="culture-divertissement" data-scenario="degrade" data-france="neutre" data-revised="true" data-date="2026-08-08">
       <td class="col-date" data-label="Date"><span class="date-day">08.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1440,8 +1487,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="tech-numerique" data-scenario="degrade" data-france="degrade" data-revised="true">
+    <tr data-domain="tech-numerique" data-scenario="degrade" data-france="degrade" data-revised="true" data-date="2026-08-07">
       <td class="col-date" data-label="Date"><span class="date-day">07.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1456,8 +1504,9 @@
       <span class="eval-pct">50%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade" data-revised="true">
+    <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade" data-revised="true" data-date="2026-08-06">
       <td class="col-date" data-label="Date"><span class="date-day">06.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1472,8 +1521,9 @@
       <span class="eval-pct">50%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Plutôt défavorable" aria-label="Impact France : Plutôt défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade active"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="sciences-environnement" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="sciences-environnement" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-05">
       <td class="col-date" data-label="Date"><span class="date-day">05.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1488,8 +1538,9 @@
       <span class="eval-pct">50%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="international" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="international" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-04">
       <td class="col-date" data-label="Date"><span class="date-day">04.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1504,8 +1555,9 @@
       <span class="eval-pct">50%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="international" data-scenario="degrade" data-france="degrade" data-revised="true">
+    <tr data-domain="international" data-scenario="degrade" data-france="degrade" data-revised="true" data-date="2026-08-03">
       <td class="col-date" data-label="Date"><span class="date-day">03.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1520,8 +1572,9 @@
       <span class="eval-pct">62%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-02">
       <td class="col-date" data-label="Date"><span class="date-day">02.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1536,8 +1589,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-01">
       <td class="col-date" data-label="Date"><span class="date-day">01.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1552,8 +1606,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="sciences-environnement" data-scenario="stable" data-france="degrade" data-revised="false">
+    <tr data-domain="sciences-environnement" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-07-31">
       <td class="col-date" data-label="Date"><span class="date-day">31.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1568,8 +1623,9 @@
       <span class="eval-pct">47%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Plutôt défavorable" aria-label="Impact France : Plutôt défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade active"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="economie-entreprises" data-scenario="degrade" data-france="degrade" data-revised="true">
+    <tr data-domain="economie-entreprises" data-scenario="degrade" data-france="degrade" data-revised="true" data-date="2026-07-30">
       <td class="col-date" data-label="Date"><span class="date-day">30.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1584,8 +1640,9 @@
       <span class="eval-pct">42%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Plutôt défavorable" aria-label="Impact France : Plutôt défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade active"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="politique-institutions" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="politique-institutions" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-07-29">
       <td class="col-date" data-label="Date"><span class="date-day">29.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1600,8 +1657,9 @@
       <span class="eval-pct">50%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="economie-entreprises" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="economie-entreprises" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-07-28">
       <td class="col-date" data-label="Date"><span class="date-day">28.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1616,8 +1674,9 @@
       <span class="eval-pct">50%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="international" data-scenario="degrade" data-france="degrade" data-revised="true">
+    <tr data-domain="international" data-scenario="degrade" data-france="degrade" data-revised="true" data-date="2026-07-27">
       <td class="col-date" data-label="Date"><span class="date-day">27.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1632,8 +1691,9 @@
       <span class="eval-pct">75%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="degrade" data-revised="true">
+    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="degrade" data-revised="true" data-date="2026-07-26">
       <td class="col-date" data-label="Date"><span class="date-day">26.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1648,8 +1708,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre" data-revised="false">
+    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-07-25">
       <td class="col-date" data-label="Date"><span class="date-day">25.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1664,8 +1725,9 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
-    <tr data-domain="culture-divertissement" data-scenario="favorable" data-france="favorable" data-revised="true">
+    <tr data-domain="culture-divertissement" data-scenario="favorable" data-france="favorable" data-revised="true" data-date="2026-07-18">
       <td class="col-date" data-label="Date"><span class="date-day">18.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1680,6 +1742,7 @@
       <span class="eval-pct">72%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez favorable" aria-label="Impact France : Assez favorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort active"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>
     </tbody>
   </table>
@@ -1696,6 +1759,8 @@
         <dd>Le plus probable des 3 scénarios de l'édition, avec son pourcentage de probabilité — <strong>favorable</strong> : la problématique se résout plutôt bien ; <strong>stable</strong> : la situation reste proche des conditions actuelles ; <strong>dégradé</strong> : la problématique s'aggrave nettement.</dd>
         <dt>Impact France</dt>
         <dd>Effet attendu pour la France, calculé sur les <strong>3</strong> scénarios pondérés par leur probabilité — pas seulement le plus probable (2 scénarios secondaires peuvent faire pencher la balance). La jauge va du dégradé (rouge, gauche) au favorable (vert, droite) ; le segment en surbrillance indique le niveau — survolez-le pour voir le détail.</dd>
+        <dt>Lectures</dt>
+        <dd>Nombre de lectures cumulées depuis la publication de l'édition — mis à jour chaque semaine. 🔥 signale l'édition la plus lue du moment.</dd>
       </dl>
     </div>
     <p style="margin-top:28px"><a href="index.html" style="color:var(--gold);text-decoration:none">← Retour à l'accueil</a></p>
@@ -1778,6 +1843,36 @@
     }
 
     apply();
+  })();
+</script>
+
+<script>
+  (function(){
+    var table = document.getElementById('archives-table');
+    if(!table){ return; }
+    fetch('assets/data/reads.json').then(function(res){
+      return res.ok ? res.json() : {};
+    }).then(function(reads){
+      var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+      var bestRow = null, bestCount = -1;
+      rows.forEach(function(row){
+        var count = reads[row.dataset.date];
+        if(typeof count !== 'number'){ return; }
+        var cell = row.querySelector('.col-reads');
+        if(cell){ cell.textContent = count; }
+        if(count > bestCount){ bestCount = count; bestRow = row; }
+      });
+      if(bestRow && bestCount > 0){
+        var link = bestRow.querySelector('.col-title a');
+        if(link){
+          var badge = document.createElement('span');
+          badge.className = 'reads-top-badge';
+          badge.title = "L'édition la plus lue";
+          badge.textContent = '🔥';
+          link.insertAdjacentElement('afterend', badge);
+        }
+      }
+    }).catch(function(){ /* colonne déjà à "—" par défaut, rien à faire */ });
   })();
 </script>
 

@@ -323,6 +323,23 @@ ARCHIVES_TABLE_CSS = """
     cursor: default;
   }
 
+  /* Lectures : chiffre cumulé depuis le lancement, tenu à jour par la routine
+     "Scénario — Audience" via assets/data/reads.json (JS ci-dessous, jamais
+     de valeur écrite en dur ici — cette colonne part toujours à "—" tant que
+     le JS n'a pas chargé le JSON, voir reads_script). Badge 🔥 posé sur le
+     titre de la ligne qui a le plus de lectures, ajouté par le même script. */
+  .archives-table .col-reads {
+    text-align: center;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--paper-dim);
+  }
+
+  .reads-top-badge {
+    margin-left: 6px;
+    font-size: 0.82em;
+  }
+
   .archives-table .france-scale .seg {
     width: 9px;
     height: 16px;
@@ -441,7 +458,8 @@ ARCHIVES_TABLE_CSS = """
     }
 
     .archives-table .col-eval,
-    .archives-table .col-france {
+    .archives-table .col-france,
+    .archives-table .col-reads {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -452,9 +470,11 @@ ARCHIVES_TABLE_CSS = """
 
     .archives-table .col-eval { order: 4; }
     .archives-table .col-france { order: 5; }
+    .archives-table .col-reads { order: 6; }
 
     .archives-table .col-eval::before,
-    .archives-table .col-france::before {
+    .archives-table .col-france::before,
+    .archives-table .col-reads::before {
       content: attr(data-label);
       font-family: "JetBrains Mono", monospace;
       font-size: 0.62rem;
@@ -939,9 +959,11 @@ def render_table_row(article):
     question_attr = f' title="{html.escape(article["question"])}"' if article["question"] else ""
 
     # data-domain/scenario/france/revised : lus par le JS de filtre (voir render_page)
+    # data-date : lu par le JS de lectures (voir reads_script) pour associer chaque
+    # ligne à sa clé dans assets/data/reads.json, sans reparser le lien/l'affichage.
     # data-label sur chaque <td> : utilisé par la vue carte mobile (voir CSS @media)
     # Ordre : Date puis Titre en premier (les 2 repères de nav), puis Domaine, puis les 2 badges
-    return f"""    <tr data-domain="{article["domain"] or ''}" data-scenario="{kind or ''}" data-france="{article["france_group"] or ''}" data-revised="{'true' if revised_on else 'false'}">
+    return f"""    <tr data-domain="{article["domain"] or ''}" data-scenario="{kind or ''}" data-france="{article["france_group"] or ''}" data-revised="{'true' if revised_on else 'false'}" data-date="{article["iso_date"]}">
       <td class="col-date" data-label="Date">{format_date_display(article["iso_date"])}</td>
       <td class="col-title">
         <span class="title-row">
@@ -953,6 +975,7 @@ def render_table_row(article):
       <td class="col-domain" data-label="Domaine">{f'<a href="themes/{article["domain"]}.html">{domain_label}</a>' if article["domain"] else domain_label}</td>
       <td class="col-eval" data-label="Notre scénario">{eval_html}</td>
       <td class="col-france" data-label="Impact France">{france_html}</td>
+      <td class="col-reads" data-label="Lectures">—</td>
     </tr>"""
 
 
@@ -1006,10 +1029,11 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
     <thead>
       <tr>
         <th style="width: 9%;">Date</th>
-        <th style="width: 40%;">Titre</th>
-        <th style="width: 15%;">Domaine</th>
-        <th style="width: 18%;">Notre scénario</th>
-        <th style="width: 18%;">Impact France</th>
+        <th style="width: 34%;">Titre</th>
+        <th style="width: 13%;">Domaine</th>
+        <th style="width: 16%;">Notre scénario</th>
+        <th style="width: 16%;">Impact France</th>
+        <th style="width: 12%;">Lectures</th>
       </tr>
     </thead>
     <tbody>
@@ -1117,6 +1141,44 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
   })();
 </script>"""
 
+    # Lectures : chargées côté client depuis assets/data/reads.json plutôt
+    # qu'injectées ici en dur — ce fichier est régénéré chaque semaine par ce
+    # script (domaines/tags), pendant que reads.json est régénéré séparément
+    # et indépendamment par la routine "Scénario — Audience" (données
+    # GoatCounter, voir docs/routine-audience-prompt.md). Les deux scripts ne
+    # se marchent jamais dessus : celui-ci ne connaît jamais le nombre de
+    # lectures, seulement où aller le chercher au chargement de la page.
+    # Absence du fichier ou erreur réseau : la colonne reste "—", jamais bloquant.
+    reads_script = """<script>
+  (function(){
+    var table = document.getElementById('archives-table');
+    if(!table){ return; }
+    fetch('assets/data/reads.json').then(function(res){
+      return res.ok ? res.json() : {};
+    }).then(function(reads){
+      var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+      var bestRow = null, bestCount = -1;
+      rows.forEach(function(row){
+        var count = reads[row.dataset.date];
+        if(typeof count !== 'number'){ return; }
+        var cell = row.querySelector('.col-reads');
+        if(cell){ cell.textContent = count; }
+        if(count > bestCount){ bestCount = count; bestRow = row; }
+      });
+      if(bestRow && bestCount > 0){
+        var link = bestRow.querySelector('.col-title a');
+        if(link){
+          var badge = document.createElement('span');
+          badge.className = 'reads-top-badge';
+          badge.title = "L'édition la plus lue";
+          badge.textContent = '🔥';
+          link.insertAdjacentElement('afterend', badge);
+        }
+      }
+    }).catch(function(){ /* colonne déjà à "—" par défaut, rien à faire */ });
+  })();
+</script>"""
+
     json_ld = f'''<script type="application/ld+json">
 {{
   "@context": "https://schema.org",
@@ -1198,6 +1260,8 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
         <dd>Le plus probable des 3 scénarios de l'édition, avec son pourcentage de probabilité — <strong>favorable</strong> : la problématique se résout plutôt bien ; <strong>stable</strong> : la situation reste proche des conditions actuelles ; <strong>dégradé</strong> : la problématique s'aggrave nettement.</dd>
         <dt>Impact France</dt>
         <dd>Effet attendu pour la France, calculé sur les <strong>3</strong> scénarios pondérés par leur probabilité — pas seulement le plus probable (2 scénarios secondaires peuvent faire pencher la balance). La jauge va du dégradé (rouge, gauche) au favorable (vert, droite) ; le segment en surbrillance indique le niveau — survolez-le pour voir le détail.</dd>
+        <dt>Lectures</dt>
+        <dd>Nombre de lectures cumulées depuis la publication de l'édition — mis à jour chaque semaine. 🔥 signale l'édition la plus lue du moment.</dd>
       </dl>
     </div>
     <p style="margin-top:28px"><a href="index.html" style="color:var(--gold);text-decoration:none">← Retour à l'accueil</a></p>
@@ -1207,6 +1271,8 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
 {follow_footer}
 
 {filters_script}
+
+{reads_script}
 
 {tail_scripts}
 """

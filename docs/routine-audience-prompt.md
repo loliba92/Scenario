@@ -241,6 +241,42 @@ ni le vidage des conteneurs en tête de `renderWeekly()`/`renderCumul()`/
 bug réel remonté par l'utilisateur (graphiques vides après restauration
 depuis le bfcache du navigateur/webview), pas du code à nettoyer.
 
+## Étape 3ter — Écrire `assets/data/reads.json` (lectures par édition sur `archives.html`)
+[AJOUTÉ le 3 septembre 2026, retour utilisateur : « mettre le nombre de
+lecture sur la page archive »]
+
+`archives.html` affiche une colonne « Lectures » par édition (chemin
+`archives/{AAAA-MM-JJ}.html`) et un badge 🔥 sur l'édition la plus lue —
+voir `scripts/seo/generate_archives_table.py`, variable `reads_script`.
+**Ce script ne connaît jamais le nombre de lectures lui-même** : il se
+contente d'écrire une colonne vide (`—`) et un petit JS qui va chercher
+les vraies valeurs dans `assets/data/reads.json` au chargement de la
+page. C'est cette routine-ci qui écrit ce fichier, chaque semaine :
+
+- **Aucun appel API supplémentaire** : réutiliser les lectures cumulées
+  par chemin déjà calculées à l'étape 2 (`per_day` agrégé par article),
+  la même donnée qui alimente le tableau top/flop de `dashboard.html`
+  juste au-dessus — seulement, ici, **toutes les éditions, pas
+  seulement les 5 meilleures/5 moins bonnes**.
+- Format : objet JSON plat, une clé par date ISO, valeur = lectures
+  cumulées depuis le lancement —
+  `{"AAAA-MM-JJ": N, "AAAA-MM-JJ": N, ...}`. Remplacer le fichier en
+  entier à chaque exécution (pas de fusion incrémentale à gérer :
+  toutes les données viennent du même appel GoatCounter de l'étape 1).
+- Valider le JSON (`python3 -c "import json;
+  json.load(open('assets/data/reads.json'))"`) avant de committer.
+- **`generate_archives_table.py` (domaines/tags) et cette routine
+  (lectures) ne se marchent jamais dessus** : le premier ne touche
+  jamais `reads.json`, la seconde ne touche jamais `archives.html`
+  directement — la colonne se remplit uniquement côté client au
+  chargement de la page, quel que soit l'ordre dans lequel les deux
+  scripts tournent dans la semaine.
+- **Amorçage du 3 septembre** : `reads.json` a été créé manuellement ce
+  jour-là avec seulement 10 valeurs connues (le top 5 / flop 5 alors
+  affiché sur `dashboard.html`) — cette routine le remplace
+  intégralement dès son premier passage suivant, aucune action
+  particulière à prévoir pour "compléter" les valeurs manquantes.
+
 ## Étape 4 — Vérification et publication
 
 Vérifier la syntaxe des `<script>` modifiés (`node --check`) avant de
@@ -251,9 +287,10 @@ recommandée à chaque passage — le composant ne change pas de structure d'une
 semaine à l'autre, mais une régression silencieuse (chevauchement de labels
 sur une série qui s'accélère, par exemple) resterait invisible sans capture.
 
-`git add le-projet.html dashboard.html`, commit avec un message clair
-(`[audience] mise à jour du {date} — {N} lectures cumulées`), `git push
-origin main` directement — jamais sur une autre branche.
+`git add le-projet.html dashboard.html assets/data/reads.json`, commit
+avec un message clair (`[audience] mise à jour du {date} — {N} lectures
+cumulées`), `git push origin main` directement — jamais sur une autre
+branche.
 
 ## Étape 5 — Résumé final
 
