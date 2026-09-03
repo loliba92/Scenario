@@ -323,16 +323,51 @@ ARCHIVES_TABLE_CSS = """
     cursor: default;
   }
 
-  /* Lectures : chiffre cumulé depuis le lancement, tenu à jour par la routine
-     "Scénario — Audience" via assets/data/reads.json (JS ci-dessous, jamais
-     de valeur écrite en dur ici — cette colonne part toujours à "—" tant que
-     le JS n'a pas chargé le JSON, voir reads_script). Badge 🔥 posé sur le
-     titre de la ligne qui a le plus de lectures, ajouté par le même script. */
+  /* Lectures : chiffre cumulé depuis le lancement, écrit dans
+     assets/data/reads.json toutes les heures par un GitHub Action
+     (.github/workflows/reads.yml — plus par une routine Claude Code depuis
+     le 3 septembre, voir docs/routine-audience-prompt.md étape 3ter). JS
+     ci-dessous, jamais de valeur écrite en dur ici — cette colonne part
+     toujours à "—" tant que le JS n'a pas chargé le JSON. Badge 🔥 posé sur
+     le titre de la ligne qui a le plus de lectures, ajouté par le même
+     script. Barre : signal visuel "gros/petit" au premier coup d'œil, sans
+     avoir à comparer les chiffres entre eux — largeur relative au maximum
+     du tableau, calculée aussi côté JS (voir reads_script, aucune valeur
+     de largeur écrite ici). */
   .archives-table .col-reads {
     text-align: center;
+  }
+
+  .reads-value {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .reads-num {
     font-family: "JetBrains Mono", monospace;
     font-size: 0.78rem;
     color: var(--paper-dim);
+    min-width: 1.6em;
+    text-align: right;
+  }
+
+  .reads-bar {
+    display: inline-block;
+    width: 44px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--hairline);
+    overflow: hidden;
+    flex: none;
+  }
+
+  .reads-bar-fill {
+    display: block;
+    height: 100%;
+    width: 0%;
+    border-radius: 2px;
+    background: var(--gold);
   }
 
   .reads-top-badge {
@@ -975,7 +1010,12 @@ def render_table_row(article):
       <td class="col-domain" data-label="Domaine">{f'<a href="themes/{article["domain"]}.html">{domain_label}</a>' if article["domain"] else domain_label}</td>
       <td class="col-eval" data-label="Notre scénario">{eval_html}</td>
       <td class="col-france" data-label="Impact France">{france_html}</td>
-      <td class="col-reads" data-label="Lectures">—</td>
+      <td class="col-reads" data-label="Lectures">
+        <span class="reads-value">
+          <span class="reads-num">—</span>
+          <span class="reads-bar"><span class="reads-bar-fill"></span></span>
+        </span>
+      </td>
     </tr>"""
 
 
@@ -1143,12 +1183,21 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
 
     # Lectures : chargées côté client depuis assets/data/reads.json plutôt
     # qu'injectées ici en dur — ce fichier est régénéré chaque semaine par ce
-    # script (domaines/tags), pendant que reads.json est régénéré séparément
-    # et indépendamment par la routine "Scénario — Audience" (données
-    # GoatCounter, voir docs/routine-audience-prompt.md). Les deux scripts ne
-    # se marchent jamais dessus : celui-ci ne connaît jamais le nombre de
-    # lectures, seulement où aller le chercher au chargement de la page.
-    # Absence du fichier ou erreur réseau : la colonne reste "—", jamais bloquant.
+    # script (domaines/tags), pendant que reads.json est régénéré toutes les
+    # heures par un GitHub Action (.github/workflows/reads.yml, zéro session
+    # Claude Code — voir docs/routine-audience-prompt.md étape 3ter pour
+    # l'historique). Les deux ne se marchent jamais dessus : celui-ci ne
+    # connaît jamais le nombre de lectures, seulement où aller le chercher au
+    # chargement de la page. Absence du fichier ou erreur réseau : la
+    # colonne reste "—", jamais bloquant.
+    #
+    # Barre "gros/petit" (ajoutée le 3 septembre, retour utilisateur : "met
+    # un petit truc visuel pour montrer si gros petit lecture") : largeur en
+    # % du maximum de lectures observé sur CETTE page (pas une échelle
+    # absolue figée à l'avance — se réajuste naturellement à mesure que le
+    # site grandit). Largeur plancher à 4% pour qu'un petit chiffre non nul
+    # reste visible, jamais un vrai 0% qui se confondrait avec "pas de
+    # donnée" (la colonne "—" gère déjà ce cas séparément).
     reads_script = """<script>
   (function(){
     var table = document.getElementById('archives-table');
@@ -1157,12 +1206,19 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
       return res.ok ? res.json() : {};
     }).then(function(reads){
       var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+      var known = rows.map(function(row){ return reads[row.dataset.date]; })
+        .filter(function(n){ return typeof n === 'number'; });
+      var max = known.length ? Math.max.apply(null, known) : 0;
       var bestRow = null, bestCount = -1;
       rows.forEach(function(row){
         var count = reads[row.dataset.date];
         if(typeof count !== 'number'){ return; }
-        var cell = row.querySelector('.col-reads');
-        if(cell){ cell.textContent = count; }
+        var numEl = row.querySelector('.reads-num');
+        var fillEl = row.querySelector('.reads-bar-fill');
+        if(numEl){ numEl.textContent = count; }
+        if(fillEl && max > 0){
+          fillEl.style.width = Math.max(4, Math.round(count / max * 100)) + '%';
+        }
         if(count > bestCount){ bestCount = count; bestRow = row; }
       });
       if(bestRow && bestCount > 0){
@@ -1261,7 +1317,7 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
         <dt>Impact France</dt>
         <dd>Effet attendu pour la France, calculé sur les <strong>3</strong> scénarios pondérés par leur probabilité — pas seulement le plus probable (2 scénarios secondaires peuvent faire pencher la balance). La jauge va du dégradé (rouge, gauche) au favorable (vert, droite) ; le segment en surbrillance indique le niveau — survolez-le pour voir le détail.</dd>
         <dt>Lectures</dt>
-        <dd>Nombre de lectures cumulées depuis la publication de l'édition — mis à jour chaque semaine. 🔥 signale l'édition la plus lue du moment.</dd>
+        <dd>Nombre de lectures cumulées depuis la publication de l'édition, mis à jour chaque heure — la barre donne un repère visuel rapide (relative au maximum du tableau). 🔥 signale l'édition la plus lue du moment.</dd>
       </dl>
     </div>
     <p style="margin-top:28px"><a href="index.html" style="color:var(--gold);text-decoration:none">← Retour à l'accueil</a></p>
