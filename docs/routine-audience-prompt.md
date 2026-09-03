@@ -108,17 +108,27 @@ ne fait que mettre à jour le contenu affiché *après* déverrouillage.
 
 Réutiliser telles quelles les données déjà récupérées à l'étape 1
 (`per_day`, cumul construit à l'étape 2) pour régénérer, dans le
-`<script>` de `dashboard.html` :
-- Les 5 cartes KPI (`.kpi-grid`) : lectures cumulées, lectures de la
-  semaine en cours (les 7 derniers jours calendaires disponibles) et son
-  delta vs la semaine précédente, lectures de la semaine précédente et son
-  propre delta vs celle d'avant, cadence de publication (jours consécutifs
-  sans interruption depuis la dernière rupture détectée dans
-  `archives/*.html` — recalculer, ne pas supposer que le 25 juillet reste
-  la bonne date de départ indéfiniment), moyenne par édition.
+`<script>` de `dashboard.html` — **aucun appel API supplémentaire pour
+tout ce qui suit, uniquement de l'arithmétique sur les données déjà en
+mémoire** (contrainte explicite de l'utilisateur, 2 septembre : « ça ne
+doit pas nous coûter une blinde ») :
+- Les 5 cartes KPI (`.kpi-grid`) : lectures cumulées ; **7 derniers jours
+  glissants** (somme des 7 derniers jours calendaires disponibles, pas un
+  bucket fixe) et son delta vs les 7 jours glissants précédents (même
+  fenêtre décalée d'une semaine) ; **30 derniers jours glissants**, avec
+  la part que ça représente du cumul total — comparaison au 30j glissants
+  précédents seulement possible une fois 60 jours d'historique atteints
+  (avant ça, l'indiquer explicitement plutôt que d'inventer un delta) ;
+  cadence de publication (jours consécutifs sans interruption depuis la
+  dernière rupture détectée dans `archives/*.html` — recalculer, ne pas
+  supposer que le 25 juillet reste la bonne date de départ indéfiniment) ;
+  moyenne par édition.
 - Le graphique `#weekly-svg` (`var weekly`) : buckets de 7 jours depuis le
   29 juillet 2026, dernier bucket toujours traité comme partiel
-  (`is-partial`) s'il ne couvre pas 7 jours pleins.
+  (`is-partial`) s'il ne couvre pas 7 jours pleins. Distinct des KPI
+  glissants ci-dessus (buckets fixes vs fenêtre glissante) — les deux
+  se complètent, ne pas les fusionner ni en retirer un au profit de
+  l'autre.
 - Le graphique `#cumul-svg` (`var data`) : même série que `le-projet.html`,
   recopiée telle quelle (pas besoin de la recalculer deux fois — construite
   une fois à l'étape 2, réutilisée aux deux endroits).
@@ -126,16 +136,24 @@ Réutiliser telles quelles les données déjà récupérées à l'étape 1
   éditions par lectures cumulées, sur les chemins déjà filtrés à l'étape 2.
 
 Régénérer aussi le contenu **statique** (pas dans le `<script>`, dans le
-HTML directement) des deux derniers blocs :
-- **« Semaine à venir »** : relire `sujets-prioritaires.md`, prendre pour
-  chaque section de registre (lundi Géopolitique, mardi Carte blanche,
-  mercredi Actu française, jeudi Économie, vendredi Sciences, samedi
-  Culture, dimanche Sport) le premier `- [ ]` non coché, sur les 7
-  prochains jours calendaires à partir de demain. Rappeler que ce n'est
-  qu'un aperçu de l'ordre actuel, pas une garantie (la routine quotidienne
-  peut réordonner/insérer une priorité absolue entre-temps). Mettre aussi à
-  jour la ligne « Priorité absolue » (vide ou premier sujet non coché de
-  cette section).
+HTML directement) des trois derniers blocs :
+- **« Lectures par domaine »** : lire `archives.html` (attribut
+  `data-domain` de chaque `<tr>`, déjà présent, aucune nouvelle donnée à
+  produire), joindre par date aux lectures cumulées déjà filtrées à
+  l'étape 2 (mêmes chemins `archives/{date}.html`), sommer par domaine.
+  Trier par **moyenne par édition**, pas par total (un domaine avec peu
+  d'éditions ne doit pas paraître faible juste faute d'échantillon).
+- **« Agenda de la semaine »** (cartes `.agenda-card`, pas un tableau) :
+  relire `sujets-prioritaires.md`, prendre pour chaque section de
+  registre (lundi Géopolitique, mardi Carte blanche, mercredi Actu
+  française, jeudi Économie, vendredi Sciences, samedi Culture, dimanche
+  Sport) le premier `- [ ]` non coché, sur les 7 prochains jours
+  calendaires à partir de demain — titre raccourci à une ligne courte
+  pour la carte, pas le texte intégral de `sujets-prioritaires.md`.
+  Rappeler que ce n'est qu'un aperçu de l'ordre actuel, pas une garantie
+  (la routine quotidienne peut réordonner/insérer une priorité absolue
+  entre-temps). Mettre aussi à jour la ligne « Priorité absolue » (vide
+  ou premier sujet non coché de cette section).
 - **« Suivis actifs »** : relire `docs/sujets-a-suivre.md`, section
   « Suivis actifs », reprendre la ligne « Prochaine échéance connue » de
   chacun des suivis existants, trier par date la plus proche (« pas de

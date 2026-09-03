@@ -201,6 +201,28 @@
   .rank-cols{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   @media (max-width: 640px){ .rank-cols{ grid-template-columns: 1fr; gap: 28px; } }
 
+  .agenda-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  }
+  .agenda-card{
+    background: var(--surface-2);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    padding: 12px 13px;
+  }
+  .agenda-card.is-today{ border-color: var(--gold); }
+  .agenda-day{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin: 0 0 2px;
+  }
+  .agenda-registre{ font-size: 0.72rem; color: var(--paper-dim); margin: 0 0 8px; }
+  .agenda-topic{ font-size: 0.82rem; line-height: 1.4; margin: 0; }
+
   .dash-note{
     font-size: 0.84rem;
     color: var(--paper-dim);
@@ -239,14 +261,14 @@
         <p class="kpi-sub">depuis le 29 juillet 2026</p>
       </div>
       <div class="kpi-card">
-        <p class="kpi-label">Cette semaine (27 août → 2 sept.)</p>
+        <p class="kpi-label">7 derniers jours (glissant)</p>
         <div class="kpi-value">160</div>
-        <p class="kpi-sub is-up">↑ +65 % vs semaine précédente (97)</p>
+        <p class="kpi-sub is-up">↑ +6 vs les 7 jours précédents (154)</p>
       </div>
       <div class="kpi-card">
-        <p class="kpi-label">Semaine précédente (20 → 26 août)</p>
-        <div class="kpi-value">97</div>
-        <p class="kpi-sub is-up">↑ +87 % vs semaine d'avant (52)</p>
+        <p class="kpi-label">30 derniers jours (glissant)</p>
+        <div class="kpi-value">400</div>
+        <p class="kpi-sub">≈ 94 % des lectures totales — comparaison au 30j précédents pas encore possible (36 jours d'historique, il en faut 60)</p>
       </div>
       <div class="kpi-card">
         <p class="kpi-label">Cadence de publication</p>
@@ -292,21 +314,62 @@
     </div>
 
     <div class="chart-box">
-      <span class="chart-label">Semaine à venir — file d'attente éditoriale</span>
-      <p class="chart-lead">Prochain sujet en tête de chaque registre dans <code>sujets-prioritaires.md</code>, à date du 2 septembre. <strong>Pas un calendrier garanti</strong> : la routine peut réordonner, insérer un sujet « priorité absolue », ou repasser en auto-sélection si la section du jour est vide.</p>
+      <span class="chart-label">Lectures par domaine</span>
+      <p class="chart-lead">Domaine de chaque édition repris de <code>archives.html</code> (<code>data-domain</code>), lectures cumulées depuis le 29 juillet jointes par date — aucun appel supplémentaire, mêmes données que le classement top/flop ci-dessus, juste regroupées autrement. Trié par moyenne par édition : le signal le plus honnête, un domaine avec peu d'éditions ne doit pas paraître faible juste faute d'échantillon.</p>
       <table class="rank-table">
-        <thead><tr><th>Jour</th><th>Registre</th><th>Prochain sujet en tête de file</th></tr></thead>
+        <thead><tr><th>Domaine</th><th>Éditions</th><th>Total</th><th>Moy./édition</th></tr></thead>
         <tbody>
-          <tr><td>Jeu. 3 sept.</td><td>Économie &amp; finance</td><td>Marchés financiers : la hausse des marchés est-elle durable ?</td></tr>
-          <tr><td>Ven. 4 sept.</td><td>Sciences</td><td>Espace : les États-Unis et la Chine relancent la course à la Lune — finira-t-on par y installer des humains ?</td></tr>
-          <tr><td>Sam. 5 sept.</td><td>Culture</td><td>Art contemporain : le marché de l'art change-t-il d'époque ?</td></tr>
-          <tr><td>Dim. 6 sept.</td><td>Sport</td><td>Sport professionnel : la nouvelle loi peut-elle vraiment réduire l'écart hommes/femmes ?</td></tr>
-          <tr><td>Lun. 7 sept.</td><td>Géopolitique</td><td>Taïwan : cette île que la Chine veut récupérer peut-elle provoquer une guerre Pékin–Washington ?</td></tr>
-          <tr><td>Mar. 8 sept.</td><td>Carte blanche</td><td>OpenAI, un IPO à 1 000 milliards ?</td></tr>
-          <tr><td>Mer. 9 sept.</td><td>Actu. française</td><td>France fracturée : grandes villes, banlieues et campagnes veulent-elles encore la même chose ?</td></tr>
+          <tr><td>Sciences &amp; environnement</td><td class="num">6</td><td class="num">93</td><td class="num">15,5</td></tr>
+          <tr><td>Économie &amp; entreprises</td><td class="num">6</td><td class="num">80</td><td class="num">13,3</td></tr>
+          <tr><td>Culture &amp; divertissement</td><td class="num">7</td><td class="num">84</td><td class="num">12,0</td></tr>
+          <tr><td>International</td><td class="num">6</td><td class="num">69</td><td class="num">11,5</td></tr>
+          <tr><td>Politique &amp; institutions</td><td class="num">7</td><td class="num">75</td><td class="num">10,7</td></tr>
+          <tr><td>Tech &amp; numérique</td><td class="num">3</td><td class="num">23</td><td class="num">7,7</td></tr>
         </tbody>
       </table>
-      <p class="kpi-sub" style="margin-top:10px;">🔥 Priorité absolue : aucun sujet en file d'urgence actuellement — la routine suit l'ordre normal des registres ci-dessus.</p>
+    </div>
+
+    <div class="chart-box">
+      <span class="chart-label">Agenda de la semaine — file d'attente éditoriale</span>
+      <p class="chart-lead">Prochain sujet en tête de chaque registre dans <code>sujets-prioritaires.md</code>, à date du 2 septembre. <strong>Pas un calendrier garanti</strong> : la routine peut réordonner, insérer un sujet « priorité absolue », ou repasser en auto-sélection si la section du jour est vide.</p>
+      <div class="agenda-grid">
+        <div class="agenda-card">
+          <p class="agenda-day">Jeu. 3 sept.</p>
+          <p class="agenda-registre">Économie &amp; finance</p>
+          <p class="agenda-topic">Marchés financiers : la hausse est-elle durable ?</p>
+        </div>
+        <div class="agenda-card">
+          <p class="agenda-day">Ven. 4 sept.</p>
+          <p class="agenda-registre">Sciences</p>
+          <p class="agenda-topic">Espace : la course à la Lune relancée — installer des humains pour de bon ?</p>
+        </div>
+        <div class="agenda-card">
+          <p class="agenda-day">Sam. 5 sept.</p>
+          <p class="agenda-registre">Culture</p>
+          <p class="agenda-topic">Art contemporain : le marché change-t-il d'époque ?</p>
+        </div>
+        <div class="agenda-card">
+          <p class="agenda-day">Dim. 6 sept.</p>
+          <p class="agenda-registre">Sport</p>
+          <p class="agenda-topic">La nouvelle loi peut-elle réduire l'écart hommes/femmes ?</p>
+        </div>
+        <div class="agenda-card">
+          <p class="agenda-day">Lun. 7 sept.</p>
+          <p class="agenda-registre">Géopolitique</p>
+          <p class="agenda-topic">Taïwan : vers une guerre Pékin–Washington ?</p>
+        </div>
+        <div class="agenda-card">
+          <p class="agenda-day">Mar. 8 sept.</p>
+          <p class="agenda-registre">Carte blanche</p>
+          <p class="agenda-topic">OpenAI, un IPO à 1 000 milliards ?</p>
+        </div>
+        <div class="agenda-card">
+          <p class="agenda-day">Mer. 9 sept.</p>
+          <p class="agenda-registre">Actu. française</p>
+          <p class="agenda-topic">France fracturée : le pays peut-il encore avancer ensemble ?</p>
+        </div>
+      </div>
+      <p class="kpi-sub" style="margin-top:12px;">🔥 Priorité absolue : aucun sujet en file d'urgence actuellement — la routine suit l'ordre normal des registres ci-dessus.</p>
     </div>
 
     <div class="chart-box">
