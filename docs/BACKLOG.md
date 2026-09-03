@@ -170,6 +170,30 @@ moins prioritaire).
     la ligne du 20 août dans `archives.html` (classe `lang-link`, même
     motif que les autres lignes déjà traduites). Entrée ajoutée dans
     `sitemap.xml`.
+  - **[FAIT le 3 septembre, même jour] Répercuté sur `en/index.html` et
+    `en/archives/2026-09-03.html`.** Ces deux pages avaient été traduites
+    par la routine quotidienne **avant** les ajouts du jour sur l'édition
+    française (voir plus bas, section dashboard/édition du jour) — elles
+    leur manquaient donc entièrement. Mêmes 4 ajouts appliqués aux deux
+    fichiers EN : icône cadenas « Private access » dans le masthead
+    (avec le séparateur `.masthead-divider` qui la précède, oublié au
+    premier passage puis corrigé) ; encadré `.comprendre-box` manquant
+    sur le CAPE ratio (celui sur le financement circulaire, lui, était
+    déjà traduit) ; phrase de renvoi vers l'article sur les banques
+    centrales, pointant vers `en/archives/2026-08-20.html` maintenant que
+    sa traduction existe (cascade faite juste avant, voir ticket
+    ci-dessus) plutôt que vers la version française ; mention « black
+    swan » dans le paragraphe `.why` du scénario dégradé + entrée
+    `#lex-cygne-noir` dans le lexique de chaque page. Vérifié via
+    Playwright : nombre de `.comprendre-box` identique entre FR et EN (2
+    sur chaque page), lien vers l'article du 20 août résolu, entrée
+    lexique présente, captures d'écran du masthead et de l'encadré CAPE.
+    Libellé `.comprendre-label` laissé en français (« Comprendre », pas
+    « Understand ») pour rester cohérent avec l'encart déjà existant dans
+    ces deux mêmes pages — incohérence de traduction déjà présente sur ce
+    label d'un article EN à l'autre sur le site (« Context » sur certains,
+    « Comprendre » non traduit sur d'autres), pas corrigée ici, hors
+    scope de cette tâche.
   - **P2 — Traduire `hebdo/{AAAA-MM-JJ}.html` (récap de la semaine), idée
     du 29 août.** Retour utilisateur : « il faudrait le faire si tu le
     fais en 5 minutes tu fais now » — évalué le jour même : **pas un
