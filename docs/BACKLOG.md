@@ -5011,6 +5011,28 @@ mardi participatif en dépendrait probablement.
     premier jour. `docs/routine-audience-prompt.md` mis à jour en
     conséquence (étape 3bis étendue).
 
+  **[FAIT le 3 septembre] Icône d'accès dans `.masthead-right`, retour
+  utilisateur explicite : « met un petit icone en haut a droite pour y
+  accéder ».** Icône barres (`.masthead-notif-btn`, même style que les
+  autres boutons de la ligne — cloche, impression, "Sujet révisé",
+  "Récap de la semaine"), pointant vers `dashboard.html`. Appliqué
+  uniquement à `index.html` — donc reproduit automatiquement chaque matin
+  à partir de maintenant (voir `docs/routine-prompt.md`) — pas aux
+  archives déjà publiées. **Essai initial sur `archives/2026-09-02.html`
+  annulé avant de pousser** : commencé pendant que cette page était
+  encore l'édition du jour (même contenu qu'`index.html`), mais la
+  routine quotidienne a publié l'édition du 3 septembre entre-temps —
+  `archives/2026-09-02.html` était donc devenue une archive figée au
+  moment de committer, retiré pour respecter la règle « jamais remodifiée
+  après publication ». **Changement de modèle de protection assumé,
+  pas une régression** : jusque-là, l'absence de tout lien visible dans
+  le HTML public était une couche de dissuasion en plus du code d'accès
+  (voir le commentaire `.gate` dans `dashboard.html`) ; avec ce lien posé
+  sur chaque édition, la page est désormais à un clic depuis le site
+  public, seul le code d'accès protège encore le contenu. Signalé à
+  l'utilisateur avant d'implémenter, décision maintenue. Pas ajouté sur
+  les pages EN (dashboard entièrement en français, usage interne).
+
 ## Déclinaison papier — « Les Cahiers de Scénario »
 
 Objectif produit distinct de l'audit du 27 août, mais à garder visible
