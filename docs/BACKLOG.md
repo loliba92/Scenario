@@ -144,6 +144,32 @@ moins prioritaire).
     citées par l'édition du 29 août, plus les deux fichiers FR
     correspondants retrofités avec le bouton de langue. Procédure :
     `docs/routine-en-prompt.md` § « Étape 1bis ».
+  - **[FAIT le 3 septembre] Cascade appliquée à `archives/2026-08-20.html`
+    (« Taux : marche arrière »).** Retour utilisateur : « tu oublies
+    toujours de mettre à jour la version anglaise » — déclenché par le
+    lien ajouté ce jour-là depuis l'édition du 3 septembre vers cet
+    article (voir § dashboard/édition du jour plus bas). Traduction
+    complète (`en/archives/2026-08-20.html`) : tête de page (title,
+    canonical, hreflang fr/en/x-default, og/twitter, JSON-LD), masthead,
+    intro-banner, hero (accroche, dek, les deux `.comprendre-box`,
+    indicator-strip), les 3 cartes de scénario, essentiel-box, lexique,
+    sources (titres d'articles gardés tels quels — déjà en anglais dans
+    la source), blocs de partage/notifications, footer, et tous les
+    `<script>` porteurs de texte visible (regex de date `Edition of...`,
+    temps de lecture, compteur GoatCounter, dictionnaire des registres
+    pour le teaser « Tomorrow: … », messages de partage/lien copié, tous
+    les messages OneSignal) — vérifié via Playwright (`node --check` sur
+    les scripts extraits, captures d'écran haut/bas de page, lecture du
+    texte final de `.pubdate` et `#tomorrow-teaser` après exécution des
+    scripts). Photo (`assets/social/topic-images/2026-08-20.jpg`)
+    réutilisée telle quelle : simple photo, pas de texte français
+    incrusté. Bouton de bascule FR→EN ajouté sur l'article français
+    d'origine (CSS `.masthead-lang-btn` absente jusque-là sur ce fichier,
+    recopiée depuis un article déjà traduit) et balises `hreflang`
+    ajoutées à son `<head>` (absentes elles aussi). Lien `EN` ajouté sur
+    la ligne du 20 août dans `archives.html` (classe `lang-link`, même
+    motif que les autres lignes déjà traduites). Entrée ajoutée dans
+    `sitemap.xml`.
   - **P2 — Traduire `hebdo/{AAAA-MM-JJ}.html` (récap de la semaine), idée
     du 29 août.** Retour utilisateur : « il faudrait le faire si tu le
     fais en 5 minutes tu fais now » — évalué le jour même : **pas un
