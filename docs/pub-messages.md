@@ -426,13 +426,20 @@ exacte) :**
    autres catégories) et les éditions publiées il y a moins de 24h (leur
    laisser le temps d'un passage par la routine Inspecteur avant d'être
    citées ailleurs).
-4. Choisir, parmi les candidates restantes, **la phrase la plus simple,
-   courte et pédagogique — pas seulement la plus marquante** (règle du
-   14 août) : une seule idée, un seul chiffre, compréhensible seule sans
-   avoir lu le reste de l'édition. Écarter les phrases à clauses
-   multiples ou au jargon non expliqué. Préférer `.essentiel-text` à
-   `.dek` quand les deux ont un candidat valable — déjà écrit dans un
-   registre plus simple.
+4. Ne pas s'arrêter à la première édition qui a un chiffre exploitable :
+   constituer une short-list sur plusieurs éditions candidates, puis
+   choisir **le chiffre le plus fort/marquant parmi celles qui restent
+   simples, courtes et pédagogiques** (règle du 14 août, affinée le
+   3 septembre après un chiffre jugé terne et daté — voir `docs/routine-
+   pub-prompt.md`, étape 1.7.c, pour le détail et l'exemple) : une seule
+   idée, un seul chiffre, compréhensible seul sans avoir lu le reste de
+   l'édition, mais jamais le premier candidat "qui passe" quand un autre,
+   tout aussi compréhensible seul, frappe davantage. Écarter les phrases
+   à clauses multiples ou au jargon non expliqué, et — à égalité de force
+   — préférer un chiffre sans millésime qui le date (éviter "en {année
+   passée}" quand une alternative aussi solide existe). Préférer
+   `.essentiel-text` à `.dek` quand les deux ont un candidat valable —
+   déjà écrit dans un registre plus simple.
 5. Recopier **mot pour mot, jamais reformulée** (même discipline que les
    citations) — le chiffre extrait seul alimente le champ `stat` (affiché
    en très grand), la phrase alimente `message` (contexte, affiché en
