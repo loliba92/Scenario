@@ -2140,16 +2140,27 @@ moins prioritaire).
     l'utilisateur : associations professionnelles d'enseignants (APHG,
     APSES), sites d'éducation aux médias (CLEMI).
 
-    **Reste à faire avant tout envoi, dans l'ordre** : (1) construire une
-    vraie liste de cibles nommées (comptes/associations/blogs actifs,
-    pas juste des catégories) — recherche à faire, rien de concret dans
-    le dépôt aujourd'hui ; (2) un message/pitch court, adapté à chaque
-    type de cible ; (3) **l'envoi reste un geste humain, jamais
-    automatisé depuis une routine ou une session non supervisée** —
-    utilise le nom/l'email de contact du site (Olivier Bertrand), engage
-    la marque directement.
+    **[FAIT le 3 septembre 2026] Étapes (1) liste de cibles et (2)
+    messages-types construites** — voir `docs/strategie-netlinking.md` :
+    11 cibles nommées et vérifiées (recherche web), classées par facilité
+    d'obtention (Tier 1 : 4 blogs perso HGGSP, décision d'une personne ;
+    Tier 2 : 3 associations — APHG, APSES, Les Clionautes/Clio-Lycée,
+    portée plus large mais décision collective ; Tier 3 : Géoconfluences
+    ENS Lyon et CLEMI, autorité SEO forte mais institutionnels/lents),
+    plus 2 messages-types (version blog individuel, version association).
+    **Reddit non vérifié** — aucun subreddit francophone pertinent
+    confirmé depuis cette session (outil de recherche peu fiable sur
+    Reddit, accès direct bloqué) : à vérifier soi-même sur reddit.com,
+    jamais deviner un nom de sub.
 
-    Statut : backlog, rien commencé.
+    **Étape (3) restante, toujours un geste humain, jamais automatisé
+    depuis une routine ou une session non supervisée** : relire/adapter
+    chaque message dans `docs/strategie-netlinking.md`, puis envoyer
+    depuis l'identité du site (Olivier Bertrand, `contact.html`) — en
+    commençant par le Tier 1 (gains rapides) avant de solliciter les
+    associations.
+
+    Statut : liste + messages prêts, aucun envoi fait.
   - **P2 — Audit SEO régulier.** Pas de process récurrent identifié dans ce
     dépôt à ce jour au-delà des balises meta déjà systématiques par page.
   - **P3 — Newsletter enrichie** (Q&A avec le créateur, aperçus des sujets
