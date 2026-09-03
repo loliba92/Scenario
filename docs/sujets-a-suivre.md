@@ -19,6 +19,20 @@ mériter une page de suivi ou une mise à jour.
 
 ## Suivis actifs
 
+- **Big Tech face à la justice** (édition du 7 août 2026)
+  Suivi existant : `suivi/big-tech-justice.html` (V0 + V1 au 3 septembre,
+  publiée automatiquement par la routine de détection — écart de +20
+  points sur le scénario dégradé). V1 intègre le rejet par la juge Leonie
+  Brinkema (2 septembre) de la vente forcée d'AdX réclamée par le DOJ dans
+  le procès sur la publicité en ligne, au profit de remèdes essentiellement
+  comportementaux.
+  Prochaine échéance connue : jugement final conjoint sur le volet
+  publicitaire attendu sous 30 jours (début octobre 2026) ; audience
+  d'appel sur le volet recherche (partage de données, cession de Chrome
+  réclamée par le DOJ) attendue fin 2026/début 2027. À surveiller aussi :
+  toute décision de la Cour d'appel sur le volet recherche.
+  Dernière vérification : 3 septembre 2026 (V1).
+
 - **Spider-Man contre Avengers** (édition du 18 juillet 2026)
   Suivi existant : `suivi/spiderman-marvel.html` (V0 + V1 au 1er août +
   V2 au 21 août, publiée automatiquement par la routine de détection —
@@ -161,7 +175,7 @@ un sujet devenu manifestement sans suite (voir marche à suivre dans
 - 10.08.2026 — [La croissance mondiale ne tient qu'à un fil](../archives/2026-08-10.html)
 - 09.08.2026 — [Musique IA : la note grimpe à 9 milliards](../archives/2026-08-09.html)
 - 08.08.2026 — [Le cinéma reprend des couleurs](../archives/2026-08-08.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.
-- 07.08.2026 — [Big Tech face à la justice](../archives/2026-08-07.html)
+- 07.08.2026 — [Big Tech face à la justice](../archives/2026-08-07.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.
 - 06.08.2026 — [FIFA : la présidence d'Infantino vacille](../archives/2026-08-06.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.
 - 05.08.2026 — [EPR2 : le nucléaire français à l'heure de vérité](../archives/2026-08-05.html)
 - 04.08.2026 — [Gaza : la paix qui reste sur le papier](../archives/2026-08-04.html)
