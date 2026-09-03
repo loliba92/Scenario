@@ -6,6 +6,14 @@
     <description>English translation of feed-suivi.xml: when a tracked topic is updated, a new evaluation of the 3 scenarios and what changed.</description>
     <language>en</language>
     <item>
+      <title>Big Tech faces the courts, a scenario moved</title>
+      <link>https://lesscenarios.fr/suivi/big-tech-justice.html#version-content-v1</link>
+      <guid isPermaLink="false">scenario-suivi-en-big-tech-justice-v1</guid>
+      <pubDate>Thu, 03 Sep 2026 20:00:00 +0200</pubDate>
+      <comments>🏳️ Judge Brinkema rejects the DOJ's forced breakup of AdX, "The courts back off, Big Tech wins" climbs to 50%, +20 points — a first clear ruling on the toughest remedy considered against Big Tech since Microsoft.</comments>
+      <description><![CDATA[🏳️ Judge Brinkema rejects the DOJ's forced breakup of AdX, "The courts back off, Big Tech wins" climbs to 50%, +20 points — this scenario climbs from 30% to 50%, while the courts-drag-on scenario falls from 50% to 45% and a real breakup of Google falls from 20% to 5%.<br><br>On September 2, 2026, Judge Leonie Brinkema rejected the DOJ's request to force Google to sell off AdX in the online-advertising antitrust case, upholding mostly behavioral remedies proposed by Google instead. The parties must jointly propose a final judgment within 30 days; the search case (Google's appeal over mandated data-sharing, and the DOJ's push for a forced Chrome sale) remains unresolved.<br><br>See the full update, scenario by scenario 👉 <a href="https://lesscenarios.fr/suivi/big-tech-justice.html#version-content-v1">lesscenarios.fr/suivi/big-tech-justice.html</a>]]></description>
+    </item>
+    <item>
       <title>Golf, soccer, boxing: Is Saudi Arabia pulling back from sport?, a scenario moved</title>
       <link>https://lesscenarios.fr/suivi/arabie-saoudite-sport.html#version-content-v2</link>
       <guid isPermaLink="false">scenario-suivi-en-arabie-saoudite-sport-v2</guid>
