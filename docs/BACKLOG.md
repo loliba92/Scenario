@@ -2119,6 +2119,37 @@ moins prioritaire).
     universitaires pour intégrer Scénario comme ressource pédagogique
     officielle. Rien de construit ; le guide pédagogique ci-dessus est un
     prérequis naturel avant de démarcher qui que ce soit.
+  - **P2 — Contacter des personnes/communautés pour du netlinking (« SEO
+    passif »), demande explicite du 3 septembre 2026.** Rend actionnable
+    ce qui était noté séparément à deux endroits de ce backlog sans avoir
+    jamais été construit : le diagnostic du 21 août (« le vrai levier
+    reste les liens externes, pas plus de balises » — domaine jeune,
+    zéro backlink, voir plus bas section SEO) et l'item "Partenariats
+    éducatifs formels" juste au-dessus. Objectif : des backlinks
+    (autorité de domaine, condition déjà identifiée pour l'indexation
+    Google Actualités) obtenus par contact humain plutôt que par du
+    contenu additionnel — d'où "passif" : une fois le lien posé, il
+    continue de compter sans entretien, contrairement à la production
+    quotidienne d'articles.
+
+    **Cibles déjà repérées mais jamais listées nommément** : profs
+    HGGSP/SES (public déjà positionné sur `le-projet.html` § "Pour qui"
+    et `guide-pedagogique.html`, prérequis déjà fait le 20 août) ;
+    "Reddit ciblé" (mentionné le 21 août, jamais précisé — quels
+    subreddits) ; pistes à explorer et non encore discutées avec
+    l'utilisateur : associations professionnelles d'enseignants (APHG,
+    APSES), sites d'éducation aux médias (CLEMI).
+
+    **Reste à faire avant tout envoi, dans l'ordre** : (1) construire une
+    vraie liste de cibles nommées (comptes/associations/blogs actifs,
+    pas juste des catégories) — recherche à faire, rien de concret dans
+    le dépôt aujourd'hui ; (2) un message/pitch court, adapté à chaque
+    type de cible ; (3) **l'envoi reste un geste humain, jamais
+    automatisé depuis une routine ou une session non supervisée** —
+    utilise le nom/l'email de contact du site (Olivier Bertrand), engage
+    la marque directement.
+
+    Statut : backlog, rien commencé.
   - **P2 — Audit SEO régulier.** Pas de process récurrent identifié dans ce
     dépôt à ce jour au-delà des balises meta déjà systématiques par page.
   - **P3 — Newsletter enrichie** (Q&A avec le créateur, aperçus des sujets
