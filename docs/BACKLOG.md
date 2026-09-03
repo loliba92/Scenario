@@ -5216,6 +5216,87 @@ mardi participatif en dépendrait probablement.
   regroupement ISO) pour que les prochaines régénérations hebdomadaires
   gardent la bonne convention.
 
+  **[FAIT le 3 septembre] Tableau « Autonomie par registre » — sujets non
+  cochés de `sujets-prioritaires.md` par section, semaines d'autonomie
+  déduites (1 registre consommé/semaine).** Retour utilisateur : « avons
+  des pb sur certains domaines manque de sujet ? », après quoi le tableau
+  ad hoc partagé en réponse a été jugé assez utile pour vivre dans le
+  dashboard. Ajouté avec seuils fixes déterministes (dégradé ≤4 non
+  cochés, stable 5-10, favorable 11+, couleurs `var(--degrade/stable/
+  favorable)` déjà utilisées ailleurs sur le site) — repéré ce jour-là :
+  mardi (carte blanche) à 1 sujet, géopolitique à 3 ; les deux renfloués
+  le jour même (13 nouveaux sujets géopolitique après tri critique d'un
+  lot de 21 idées, voir le journal de `sujets-prioritaires.md`).
+  `docs/routine-audience-prompt.md` étendu (étape 3bis) : relit
+  `sujets-prioritaires.md` déjà chargé pour l'agenda, aucune donnée
+  supplémentaire à aller chercher.
+
+  **[FAIT le 3 septembre, PUIS RETIRÉ le même jour] Lectures par édition
+  sur `archives.html` (colonne + barre visuelle + badge 🔥) — sortie de
+  cette routine vers un GitHub Action dédié.** Retour utilisateur : « met
+  le nombre de lecture sur la page archive », puis « ça se met pas à jour
+  tous les jours ? » et « tu peux pas faire une fonction dynamique ? »
+  face à la cadence hebdomadaire de cette routine. Constat : tâche
+  purement mécanique (appel API GoatCounter + agrégation par édition,
+  aucun jugement éditorial) — sortie entièrement du périmètre Claude
+  Code. Livré : `.github/workflows/reads.yml` (cron horaire +
+  `workflow_dispatch` pour test manuel) + `scripts/seo/
+  update_reads_json.py`, token `GOATCOUNTER_TOKEN` en secret GitHub
+  Actions (jamais dans ce dépôt public). Régénère `assets/data/
+  reads.json`, consommé côté client par `archives.html`
+  (`scripts/seo/generate_archives_table.py`, colonne « Lectures » +
+  barre horizontale — largeur relative au max de lectures de la page,
+  plancher 4% pour rester visible — + badge 🔥 sur l'édition la plus
+  lue). Testé en conditions réelles le jour même : 1er run échoué (bug
+  `git pull --rebase` avec index sale, ordre commit/pull inversé),
+  2e run réussi (36 éditions, 451 lectures cumulées, poussé sur `main`
+  par `scenario-reads-bot`). `docs/routine-audience-prompt.md` (étape
+  3ter) modifié en conséquence : cette routine **ne doit plus jamais**
+  toucher `reads.json`, seul le dashboard (KPI/graphiques/tableaux
+  ci-dessus) reste de son ressort.
+
+  **[À FAIRE — plan proposé le 3 septembre, pas encore implémenté, pas
+  encore validé avec l'utilisateur] Étendre le même principe (sortir de
+  Claude Code vers un GitHub Action) au reste de ce dashboard et au
+  graphique `#audience` de `le-projet.html`.** Retour utilisateur :
+  « il faudra connecter à notre dashboard pour t'éviter de mettre à
+  jour ? » — suite logique du chantier `reads.json` ci-dessus : cette
+  routine reste hebdomadaire et coûte une session Claude Code à chaque
+  passage, pour un travail lui aussi largement mécanique.
+
+  *Ce qui migrerait sans trop de difficulté* (arithmétique/agrégation
+  pure, comme `reads.json`) : les 5 cartes KPI (lectures cumulées, 7j/
+  30j glissants + deltas, cadence de publication, moyenne par édition) ;
+  le tableau top/flop (trivial une fois `reads.json` disponible — plus
+  besoin de rappeler GoatCounter pour ça) ; « Lectures par domaine »
+  (jointure `data-domain` de `archives.html` + `reads.json`, déjà les
+  deux sur disque) ; « Suivis actifs » (lecture de `docs/sujets-a-
+  suivre.md`, extraction de texte déterministe) ; « Agenda de la
+  semaine »/« Semaine d'après » (premier et second `- [ ]` non coché par
+  registre dans `sujets-prioritaires.md`, avec une règle de troncature
+  de titre à fixer pour les cartes).
+
+  *Ce qui demande plus de soin* : les deux graphiques SVG (`#weekly-svg`
+  barres, `#cumul-svg` courbe, plus la même série pour `#audience` sur
+  `le-projet.html`) — actuellement écrits à la main par une session
+  Claude Code à chaque passage, donc jamais formalisés en code
+  générique ; un script Python devrait reproduire fidèlement le
+  bucketing ISO lundi→dimanche, les barres partielles (`is-partial`,
+  premier ET dernier bucket), le choix des `xLabels`/`yMax`, et surtout
+  **ne jamais toucher** au fix bfcache déjà en place (écouteur
+  `pageshow` + vidage des conteneurs avant re-rendu, voir plus haut) —
+  celui-là reste dans le HTML/JS statique, pas dans les données
+  régénérées.
+
+  *Non tranché* : cadence du nouveau Action (`reads.json` tourne toutes
+  les heures, mais `#audience` est **public** sur `le-projet.html` —
+  peut-être pas besoin d'une fraîcheur horaire côté vitrine, à voir avec
+  l'utilisateur) ; migration en un seul chantier ou par étapes
+  (suggestion : commencer par KPI + top/flop + Lectures par domaine, qui
+  réutilisent déjà `reads.json` sans rien inventer, avant de s'attaquer
+  aux graphiques SVG) ; le code d'accès du dashboard (hash SHA-256) et
+  sa logique de porte restent hors sujet, aucune raison d'y toucher.
+
 ## Déclinaison papier — « Les Cahiers de Scénario »
 
 Objectif produit distinct de l'audit du 27 août, mais à garder visible
