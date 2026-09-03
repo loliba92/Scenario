@@ -181,6 +181,7 @@
   .dc-line{ fill: none; stroke: var(--favorable); stroke-width: 2; stroke-linejoin: round; }
   .dc-dot{ fill: var(--ink); stroke: var(--favorable); stroke-width: 2; }
   .dc-dot.is-highlight{ fill: var(--favorable); stroke: var(--paper); stroke-width: 1.5; }
+  .dc-point-label{ font-size: 11px; font-family: "JetBrains Mono", monospace; font-weight: 700; fill: var(--favorable); }
 
   table.rank-table{ width: 100%; border-collapse: collapse; font-size: 0.86rem; }
   table.rank-table th{
@@ -231,12 +232,31 @@
     margin-top: 32px;
   }
   .dash-note a{ color: var(--gold); }
+
+  /* Bouton retour, ajouté le 3 septembre (retour utilisateur : "sur l'appli
+     j'ai rien et suis coincé") — cette page n'a ni topnav ni masthead
+     complet (outil interne, pas une page éditoriale), donc rien pour
+     revenir en arrière si le navigateur/l'app n'a pas de bouton précédent
+     visible (PWA en plein écran par ex.). Toujours visible, avant même le
+     titre, jamais dépendant du chrome du navigateur. */
+  .dash-back{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--paper-dim);
+    text-decoration: none;
+    font-size: 0.86rem;
+    margin-bottom: 16px;
+  }
+  .dash-back:hover{ color: var(--gold); }
+  .dash-back svg{ display: block; }
 </style>
 </head>
 <body>
 
 <div class="gate" id="gate">
   <div class="gate-box">
+    <a class="dash-back" href="index.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg> Retour au site</a>
     <p class="gate-label">Accès restreint</p>
     <form id="gate-form">
       <input id="gate-input" type="password" placeholder="Code d'accès" autocomplete="off" autofocus>
@@ -249,6 +269,7 @@
 <main id="dashboard" hidden>
   <div class="wrap">
     <div class="dash-header">
+      <a class="dash-back" href="index.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg> Retour au site</a>
       <p class="dash-eyebrow">Usage interne — pas destiné aux lecteurs</p>
       <h1 class="dash-title">Tableau de bord Scénario</h1>
       <p class="dash-meta">Données au 2 septembre 2026 — mesure d'audience GoatCounter, mise à jour chaque lundi par la routine « Scénario — Audience ».</p>
@@ -291,7 +312,7 @@
     <div class="chart-box">
       <span class="chart-label">Cumul depuis le lancement (repère de fond)</span>
       <p class="chart-lead">Toujours croissante par construction — utile pour le niveau atteint, pas pour juger d'un ralentissement. Même donnée que la section « La communauté grandit » de <a href="le-projet.html" style="color:var(--gold)">le-projet.html</a>.</p>
-      <svg id="cumul-svg" viewBox="0 0 700 160" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Courbe de croissance des lectures cumulées d'éditions, de 1 le 30 juillet 2026 à 424 le 2 septembre 2026"></svg>
+      <svg id="cumul-svg" viewBox="0 0 700 172" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Courbe de croissance des lectures cumulées d'éditions, de 1 le 30 juillet 2026 à 424 le 2 septembre 2026 — 41 éditions publiées au total depuis le lancement"></svg>
     </div>
 
     <div class="chart-box">
@@ -508,7 +529,16 @@
       ['2026-08-28', 305], ['2026-08-29', 319], ['2026-08-30', 348],
       ['2026-08-31', 378], ['2026-09-01', 400], ['2026-09-02', 424]
     ];
-    var W = 700, H = 160, padL = 30, padR = 12, padT = 12, padB = 22;
+    // Nombre total d'éditions publiées depuis le lancement (18 juillet),
+    // à la même date que le reste du tableau de bord (2 septembre) —
+    // différent du nombre de jours de la série ci-dessus (36, qui compte
+    // seulement les jours où GoatCounter suit le site depuis le 29
+    // juillet, pas les éditions elles-mêmes). Ajouté le 3 septembre,
+    // retour utilisateur : "ajoute le nombre cumulé d'édition sur le
+    // graphique".
+    var totalEditions = 41;
+
+    var W = 700, H = 172, padL = 30, padR = 12, padT = 24, padB = 22;
     var yMax = 450;
     function xPos(i) { return padL + i / (data.length - 1) * (W - padL - padR); }
     function yPos(v) { return padT + (1 - v / yMax) * (H - padT - padB); }
@@ -527,6 +557,9 @@
 
     var last = data.length - 1;
     svg.appendChild(svgEl('circle', { cx: xPos(last), cy: yPos(data[last][1]), r: 4, class: 'dc-dot is-highlight' }));
+    var lbl = svgEl('text', { x: xPos(last), y: yPos(data[last][1]) - 10, class: 'dc-point-label', 'text-anchor': 'end' });
+    lbl.textContent = data[last][1] + ' lectures · ' + totalEditions + ' éditions';
+    svg.appendChild(lbl);
   }
 
   function renderTables() {
