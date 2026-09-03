@@ -149,6 +149,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 03.09.2026 — [Wall Street : la hausse peut-elle durer ?](../archives/2026-09-03.html)
 - 02.09.2026 — [Pesticides interdits : l'Anses peut-elle dire non ?](../archives/2026-09-02.html)
 - 01.09.2026 — [Présidentielle 2027 : qui peut vraiment battre le RN ?](../archives/2026-09-01.html)
 - 31.08.2026 — [Islande : après le non à l'UE, qui va la protéger ?](../archives/2026-08-31.html)

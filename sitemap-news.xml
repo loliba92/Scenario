@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://lesscenarios.fr/archives/2026-09-03.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-03T06:40:00+02:00</news:publication_date>
+      <news:title>Wall Street : la hausse peut-elle durer ?</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://lesscenarios.fr/archives/2026-09-02.html</loc>
     <news:news>
       <news:publication>
@@ -10,28 +21,6 @@
       </news:publication>
       <news:publication_date>2026-09-02T06:20:00+02:00</news:publication_date>
       <news:title>Pesticides interdits : l'Anses peut-elle dire non ?</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://lesscenarios.fr/archives/2026-09-01.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Scénario</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-01T06:25:00+02:00</news:publication_date>
-      <news:title>Présidentielle 2027 : qui peut vraiment battre le RN ?</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://lesscenarios.fr/archives/2026-08-31.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Scénario</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-08-31T08:20:00+02:00</news:publication_date>
-      <news:title>Islande : après le non à l'UE, qui va la protéger ?</news:title>
     </news:news>
   </url>
 </urlset>
