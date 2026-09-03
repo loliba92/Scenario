@@ -176,7 +176,7 @@ Volet fiscal/légal à creuser (repéré le 27 août, à revérifier/actualiser 
 - [x] Inflation : l'inflation est-elle définitivement vaincue ? [économie]
 - [x] Taux d'intérêt : les banques centrales peuvent-elles baisser durablement les taux ? [économie & finance]
 - [x] Dette mondiale : la dette devient-elle la prochaine crise financière ? [économie & finance]
-- [ ] Marchés financiers : la hausse des marchés est-elle durable ? [économie & finance]
+- [x] Marchés financiers : la hausse des marchés est-elle durable ? [économie & finance]
 - [ ] Dollar : le dollar peut-il perdre son statut dominant ? [économie & finance]
 - [ ] Or : l'or est-il redevenu la valeur refuge ultime ? [économie & finance]
 - [ ] Bitcoin : le bitcoin devient-il un actif institutionnel ? [économie & finance]
