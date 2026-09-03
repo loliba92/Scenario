@@ -426,20 +426,29 @@ exacte) :**
    autres catégories) et les éditions publiées il y a moins de 24h (leur
    laisser le temps d'un passage par la routine Inspecteur avant d'être
    citées ailleurs).
-4. Ne pas s'arrêter à la première édition qui a un chiffre exploitable :
-   constituer une short-list sur plusieurs éditions candidates, puis
-   choisir **le chiffre le plus fort/marquant parmi celles qui restent
-   simples, courtes et pédagogiques** (règle du 14 août, affinée le
-   3 septembre après un chiffre jugé terne et daté — voir `docs/routine-
-   pub-prompt.md`, étape 1.7.c, pour le détail et l'exemple) : une seule
-   idée, un seul chiffre, compréhensible seul sans avoir lu le reste de
-   l'édition, mais jamais le premier candidat "qui passe" quand un autre,
-   tout aussi compréhensible seul, frappe davantage. Écarter les phrases
-   à clauses multiples ou au jargon non expliqué, et — à égalité de force
-   — préférer un chiffre sans millésime qui le date (éviter "en {année
-   passée}" quand une alternative aussi solide existe). Préférer
-   `.essentiel-text` à `.dek` quand les deux ont un candidat valable —
-   déjà écrit dans un registre plus simple.
+4. **Rester sur une seule édition par jour** (retour utilisateur du
+   3 septembre : comparer plusieurs éditions à chaque tour risquerait de
+   réutiliser le même vivier de chiffres d'un jour sur l'autre) — prendre
+   l'édition candidate la plus récente, n'en changer que si elle n'a
+   vraiment aucun chiffre exploitable. À l'intérieur de cette édition,
+   choisir **la phrase qui porte l'information la plus importante de
+   l'édition — pas forcément le chiffre le plus spectaculaire** (règle du
+   14 août sur la simplicité, affinée le 3 septembre après un chiffre
+   jugé secondaire et daté — voir `docs/routine-pub-prompt.md`, étape
+   1.7.b/c, pour le détail et l'exemple) : le point clé que l'édition
+   raconte vraiment, celui qu'un lecteur n'ayant lu que le titre
+   retiendrait comme message principal. Un chiffre marquant qui exprime
+   ce point clé est bienvenu (le gabarit en a besoin pour le champ
+   `stat`), mais ce n'est qu'une conséquence du choix, jamais le critère
+   de départ — ne pas préférer un chiffre secondaire juste parce qu'il
+   sonne plus fort qu'un chiffre central mais plus sobre. La phrase doit
+   rester compréhensible seule, sans avoir lu le reste de l'édition ;
+   écarter les phrases à clauses multiples ou au jargon non expliqué. À
+   égalité d'importance entre deux phrases de la même édition, préférer
+   celle sans millésime qui la date (éviter "en {année passée}") — mais
+   ne jamais écarter le point clé réel de l'édition au seul motif qu'il
+   porte une date. Préférer `.essentiel-text` à `.dek` quand les deux ont
+   un candidat valable — déjà écrit dans un registre plus simple.
 5. Recopier **mot pour mot, jamais reformulée** (même discipline que les
    citations) — le chiffre extrait seul alimente le champ `stat` (affiché
    en très grand), la phrase alimente `message` (contexte, affiché en

@@ -25,16 +25,21 @@ l'instant. Table jour → catégorie mise à jour (point 2 ci-dessous) —
 et les entrées déjà présentes dans `docs/pub-messages.md` section 4
 restent en place, prêts à être réactivés plus tard).
 
-**3 septembre : sélection du chiffre (étape 1, point 7) renforcée côté
-impact.** Retour utilisateur direct après `chiffre-2026-09-02` ("21 % des
-exportations islandaises en 2024") jugé trop discret et daté pour un post
-censé arrêter le scroll. La routine ne doit plus s'arrêter au premier
-chiffre exploitable trouvé : elle constitue désormais une short-list sur
-plusieurs éditions candidates puis retient la plus frappante parmi celles
-qui restent simples et compréhensibles seules, en évitant à égalité de
-force un chiffre marqué d'un millésime déjà passé. Détail complet au
-point 7.b/c ci-dessous ; même consigne reportée dans `docs/pub-
-messages.md` section 5.
+**3 septembre : sélection du chiffre (étape 1, point 7) revue en
+plusieurs temps.** Retour utilisateur direct après `chiffre-2026-09-02`
+("21 % des exportations islandaises en 2024") jugé trop discret et daté.
+Version finale du critère : **rester sur 1 seule édition par jour**
+(comparer plusieurs éditions à chaque tour risquait de réutiliser le même
+vivier de chiffres d'un jour sur l'autre) et, à l'intérieur de cette
+édition, choisir la phrase qui porte **l'information la plus importante
+de l'édition — pas la plus spectaculaire prise isolément** : le point clé
+que l'édition raconte, un chiffre marquant n'étant qu'une conséquence
+possible de ce choix, jamais l'objectif recherché en soi. À égalité
+d'importance, éviter un chiffre marqué d'un millésime déjà passé au
+profit d'une autre phrase aussi centrale — mais ne jamais écarter le
+point clé réel de l'édition au seul motif qu'il porte une date. Détail
+complet au point 7.b/c ci-dessous ; même consigne reportée dans
+`docs/pub-messages.md` section 5.
 
 **Objectif : rappeler l'identité du projet et faire réagir la communauté**
 entre deux éditions quotidiennes — jamais un sujet d'actualité (ça reste le
@@ -197,38 +202,42 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
      celles dont un chiffre a déjà servi dans un post `chiffre` précédent
      (déduit des `<link>` déjà présents dans les items `scenario-pub-
      chiffre-*` de `feed-pub.xml`).
-   - **b) Repérer les phrases à chiffre fort, sur plusieurs éditions
-     avant de choisir.** Dans les paragraphes `.dek` et `.essentiel-text`
-     de chaque édition candidate, chercher les phrases contenant un
-     `<strong>` autour d'un chiffre (%, montant, nombre de personnes,
-     date marquante...). **Ne jamais s'arrêter à la première édition qui
-     offre un chiffre exploitable** — parcourir au moins 3 à 5 éditions
-     candidates (plus si besoin, dans la limite des ~30 jours) pour
-     constituer une **short-list** de plusieurs chiffres possibles avant
-     de trancher au point c) ci-dessous. Écarter les chiffres purement
-     techniques sans impact narratif (ex. un simple numéro d'article de
-     loi) **ainsi que les chiffres à faible portée pour un lecteur
-     généraliste** (ex. un pourcentage sectoriel/économique pointu que
-     rien ne rend spectaculaire) — privilégier ceux qui frappent (pertes
-     humaines, ampleur financière, record historique, comparaison choc,
-     avant/après marquant...). **Préférer `.essentiel-text` à `.dek`**
-     quand les deux ont un candidat valable : c'est déjà la version
-     résumée/simplifiée de l'édition, donc plus proche du ton recherché
-     ici.
-   - **c) Dans la short-list, choisir le plus fort qui reste simple,
-     court, pédagogique — et recopier tel quel.** L'objectif est un
-     chiffre qui arrête le scroll, pas seulement un chiffre qui se laisse
-     lire : **entre plusieurs candidats de la short-list, toujours
-     préférer le plus frappant, jamais le premier trouvé par confort.**
-     Il doit aussi se comprendre seul, en une lecture, sans connaître le
-     reste de l'édition (règle du 14 août, toujours valable : "les
-     phrases doivent être simples, assez courtes et pédagogiques") — mais
-     la simplicité ne doit jamais faire retomber sur un chiffre terne
-     quand un chiffre plus fort et tout aussi compréhensible seul est
-     disponible dans la short-list. Écarter les phrases à clauses
-     multiples, jargon non expliqué, ou qui empilent plusieurs chiffres à
-     la fois — une seule idée, un seul chiffre, une phrase qu'on comprend
-     en scrollant. Si la phrase candidate est trop longue mais contient un
+   - **b) Retenir une seule édition, et y repérer les phrases portant un
+     chiffre.** **Rester sur 1 édition** (retour utilisateur du
+     3 septembre — comparer plusieurs éditions à chaque tour risque de
+     réutiliser le même vivier de chiffres d'un jour sur l'autre) :
+     prendre l'édition candidate la plus récente issue du point a), et
+     n'en sortir que si elle ne contient vraiment aucun chiffre
+     exploitable (voir point e — passer alors à l'édition candidate
+     suivante, jamais pour comparer, seulement faute de matière). Dans
+     les paragraphes `.dek` et `.essentiel-text` **de cette édition**,
+     lister toutes les phrases contenant un `<strong>` autour d'un
+     chiffre (%, montant, nombre de personnes, date marquante...) — il y
+     en a souvent plusieurs dans une même édition. **Préférer
+     `.essentiel-text` à `.dek`** quand les deux ont un candidat valable :
+     c'est déjà la version résumée/simplifiée de l'édition, donc plus
+     proche du ton recherché ici.
+   - **c) Parmi ces phrases, choisir celle qui porte l'information la
+     plus importante de l'édition — pas forcément le chiffre le plus
+     spectaculaire.** Retour utilisateur du 3 septembre : **le critère
+     n'est pas "quel est le chiffre le plus frappant que je peux
+     trouver", c'est "quelle est l'info la plus importante de cette
+     édition"** — le point clé, ce que l'édition raconte vraiment. Si ce
+     point clé s'exprime avec un chiffre marquant, tant mieux (le gabarit
+     a de toute façon besoin d'un chiffre pour le champ `stat`), mais ce
+     n'est qu'une conséquence, jamais l'objectif de la recherche : ne pas
+     préférer un chiffre secondaire juste parce qu'il sonne plus fort
+     qu'un chiffre central mais plus sobre. En cas d'hésitation entre
+     deux phrases de la même édition, se demander laquelle un lecteur qui
+     n'a lu que le titre de l'édition retiendrait comme son message
+     principal — c'est celle-là qu'il faut garder, pas la plus
+     "vendeuse" prise isolément. Elle doit aussi se comprendre seule, en
+     une lecture, sans connaître le reste de l'édition (règle du 14
+     août, toujours valable : "les phrases doivent être simples, assez
+     courtes et pédagogiques") — écarter les phrases à clauses multiples,
+     jargon non expliqué, ou qui empilent plusieurs chiffres à la fois :
+     une seule idée, un seul chiffre, une phrase qu'on comprend en
+     scrollant. Si la phrase candidate est trop longue mais contient un
      segment autonome et complet (ex. une proposition séparée par une
      virgule qui a son sens toute seule), il est permis de **ne garder que
      ce segment** — jamais reformulé, jamais un mot changé ou ajouté,
@@ -244,16 +253,18 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
      islandaises **en 2024**", jugé terne et daté alors publié début
      septembre 2026) : un chiffre explicitement rattaché à une année déjà
      passée donne une impression de recyclage même quand la donnée reste
-     exacte. Si la short-list contient une alternative aussi solide et
-     tout aussi compréhensible seule, mais sans millésime qui date le
+     exacte. Si l'information la plus importante de l'édition peut aussi
+     bien s'exprimer par une autre phrase de la même édition, aussi
+     centrale et compréhensible seule, mais sans millésime qui date le
      post (une tendance, un record, un chiffre du moment plutôt qu'un
-     "en {année passée}"), **la préférer**. Si le chiffre le plus fort de
-     la short-list porte malgré tout un millésime passé et qu'aucune
-     alternative comparable n'existe : le garder quand même (jamais
-     sacrifier l'exactitude, jamais inventer ou reformuler pour faire
-     disparaître la date) — mais ne jamais le retenir seulement parce
-     qu'il était le premier trouvé, sans avoir comparé à d'autres
-     éditions.
+     "en {année passée}"), **la préférer**. Mais **ne jamais écarter
+     l'information la plus importante de l'édition au seul motif qu'elle
+     porte une date passée** : dans ce cas, la garder quand même (jamais
+     sacrifier l'exactitude ni la pertinence du point clé pour un chiffre
+     secondaire juste parce qu'il est plus récent, jamais inventer ou
+     reformuler pour faire disparaître la date, et jamais changer
+     d'édition juste pour éviter une date — voir b) ci-dessus, on ne
+     change d'édition que faute de chiffre exploitable).
    - **d) Journaliser.** Ajouter l'entrée utilisée à la fin de la
      section 5 de `docs/pub-messages.md` (id `chiffre-{AAAA-MM-JJ}`,
      jamais réutilisé), avec le lien vers l'édition source, dans le même
