@@ -44,6 +44,9 @@ jobs:
             echo "Aucun changement — rien à committer."
             exit 0
           fi
-          git pull --rebase origin main
+          # Commit d'abord, rebase ensuite : `git pull --rebase` refuse de
+          # tourner avec des changements déjà indexés (index non propre) —
+          # bug réel du 3 septembre, un run test a échoué là-dessus.
           git commit -m "[reads] mise à jour automatique des lectures par édition"
+          git pull --rebase origin main
           git push origin main
