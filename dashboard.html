@@ -439,6 +439,22 @@
     if (localStorage.getItem(STORAGE_KEY) === HASH) unlock();
   } catch (e) {}
 
+  // Bug trouvé le 3 septembre (retour utilisateur) : après avoir quitté la
+  // page déverrouillée puis y être revenu (via le lien "Retour au site"
+  // puis l'icône cadenas à nouveau), certains navigateurs/webviews
+  // restaurent la page depuis le bfcache — la porte reste bien masquée
+  // (localStorage toujours valide) mais les <svg> des graphiques
+  // réapparaissent vides, le remplissage précédent ne se repeint pas.
+  // `pageshow` avec `event.persisted` détecte ce cas précis (restauration
+  // depuis le bfcache, pas un chargement normal) et relance le rendu.
+  // `renderWeekly`/`renderCumul`/`renderTables` vident d'abord leur
+  // conteneur (voir plus bas) pour que ce second appel ne duplique rien.
+  window.addEventListener('pageshow', function (ev) {
+    if (ev.persisted && !document.getElementById('dashboard').hidden) {
+      renderCharts();
+    }
+  });
+
   document.getElementById('gate-form').addEventListener('submit', function (ev) {
     ev.preventDefault();
     var val = document.getElementById('gate-input').value;
@@ -469,6 +485,7 @@
   function renderWeekly() {
     var svg = document.getElementById('weekly-svg');
     if (!svg) return;
+    svg.innerHTML = ''; // rend la fonction rejouable sans dupliquer (voir pageshow plus haut)
     // [début de semaine ISO, total lectures cette semaine-là] — dernière
     // entrée = semaine en cours (partielle), traitée à part visuellement.
     var weekly = [
@@ -515,6 +532,7 @@
   function renderCumul() {
     var svg = document.getElementById('cumul-svg');
     if (!svg) return;
+    svg.innerHTML = ''; // rend la fonction rejouable sans dupliquer (voir pageshow plus haut)
     var data = [
       ['2026-07-29', 0], ['2026-07-30', 1], ['2026-07-31', 7],
       ['2026-08-01', 13], ['2026-08-02', 21], ['2026-08-03', 24],
@@ -579,6 +597,7 @@
     ];
     function fill(id, rows) {
       var tbody = document.getElementById(id);
+      tbody.innerHTML = ''; // rend la fonction rejouable sans dupliquer (voir pageshow plus haut)
       rows.forEach(function (r) {
         var tr = document.createElement('tr');
         var tdTitle = document.createElement('td');
