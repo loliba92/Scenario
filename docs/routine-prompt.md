@@ -613,6 +613,7 @@ Simple journal, pas une évaluation — ne rien écrire de plus. Ne jamais touch
       ```
     - **Retirer toute entrée dont `news:publication_date` a plus de 48h** — à la différence de `sitemap.xml`, ici la purge est la règle, pas l'exception. En pratique le fichier ne garde donc que 2 entrées la plupart des jours (aujourd'hui + hier).
     - `{h1 du jour}` = le même texte que `headline` dans le JSON-LD `NewsArticle` de l'archive concernée, jamais reformulé.
+    - **Cette étape ne gère que l'entrée `fr`** [note ajoutée le 3 septembre 2026] — l'entrée anglaise du jour (`news:language>en`) est ajoutée séparément par `docs/routine-en-prompt.md`, étape 6ter, qui tourne après celle-ci (la traduction n'existe pas encore à ce stade) : ne jamais essayer de l'anticiper ici.
     - Le fichier ne concerne que l'édition française quotidienne — pas les `hebdo/`, `suivi/`, ni les pages EN (`docs/routine-en-prompt.md` a son propre besoin le cas échéant, non couvert ici).
 
 **Pages thématiques et table d'archives — geste hebdomadaire, pas une étape de cette routine quotidienne** [retiré du quotidien le 31 août 2026, retour utilisateur : « il faut alléger nos routines », site statique donc chaque étape en plus coûte cher à maintenir sur la durée]. Un décalage de quelques jours entre une édition taguée et son apparition sur `themes/*.html` ou `archives.html` n'a aucun effet visible, ni pour un lecteur ni pour Google — pas besoin de le faire à chaque édition. Une fois par semaine environ (ou avant une pause), relancer les deux scripts depuis la racine :

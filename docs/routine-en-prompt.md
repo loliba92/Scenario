@@ -485,6 +485,55 @@ relancer `generate_theme_pages.py` depuis cette routine : les pages
 thématiques restent un geste hebdomadaire séparé, sans lien avec le
 statut de traduction.
 
+## Étape 6ter — Ajouter l'entrée anglaise à `sitemap-news.xml`
+[AJOUTÉ le 3 septembre 2026, retour utilisateur : « il faut aussi
+ajouter celles en anglais » — la routine française (`docs/routine-
+prompt.md`, étape 7bis) ne gère que l'entrée `fr`, et tourne **avant**
+cette routine dans la journée : au moment où elle génère `sitemap-
+news.xml`, la traduction anglaise du jour n'existe pas encore. Même
+piège que le badge EN de `archives.html` à l'étape 6bis ci-dessus,
+même solution : c'est cette routine-ci, une fois la traduction
+produite, qui ajoute l'entrée anglaise.]
+
+Le protocole Google News sitemap accepte plusieurs langues dans un seul
+fichier (une balise `news:language` par entrée) — **jamais de fichier
+séparé type `en/sitemap-news.xml`**, une seule propriété Google News
+pour tout le domaine. Ajouter une entrée `<url>` pour la traduction du
+jour :
+```xml
+<url>
+  <loc>https://lesscenarios.fr/en/archives/{AAAA-MM-JJ}.html</loc>
+  <news:news>
+    <news:publication>
+      <news:name>Scénario</news:name>
+      <news:language>en</news:language>
+    </news:publication>
+    <news:publication_date>{AAAA-MM-JJ}T{heure de publication FR}+02:00</news:publication_date>
+    <news:title>{headline du JSON-LD NewsArticle de en/archives/{AAAA-MM-JJ}.html}</news:title>
+  </news:news>
+</url>
+```
+- `news:name` reste **« Scénario »**, jamais traduit — même règle que
+  partout ailleurs dans cette routine (nom de marque non traduit).
+- `news:publication_date` reprend **la même heure que l'entrée
+  française du jour** (celle déjà posée par `docs/routine-prompt.md`,
+  étape 7bis) — la traduction est publiée le même jour que l'original,
+  jamais une nouvelle heure de publication distincte.
+- **Retirer aussi, comme pour l'entrée française, toute entrée (fr ou
+  en) dont `news:publication_date` a plus de 48h** — même règle stricte
+  du protocole Google News, appliquée indépendamment de ce que
+  l'étape 7bis française a déjà fait passer (idempotent : si elle l'a
+  déjà purgé, il n'y a rien à refaire ; si cette routine tourne pour un
+  rattrapage plusieurs jours après, elle doit purger elle-même plutôt
+  que supposer que c'est déjà fait).
+- **Si la traduction du jour est sautée** (garde-fou de l'étape 0bis,
+  voir plus haut) : ne pas ajouter d'entrée anglaise ce jour-là,
+  seulement purger les entrées `en` de plus de 48h si besoin — jamais
+  d'entrée fantôme pour une page qui n'existe pas.
+- Valider le XML (`python3 -c "import xml.etree.ElementTree as ET;
+  ET.parse('sitemap-news.xml')"`) avant de committer — même garde-fou
+  que le reste de ce fichier contre un tag mal fermé.
+
 ## Étape 7 — Valider avant de committer
 
 1. **Vérifier qu'aucun texte visible en français ne subsiste** dans
@@ -507,9 +556,10 @@ statut de traduction.
 ## Étape 8 — Commit et push
 
 Un seul commit couvrant `en/index.html`, `en/archives/AAAA-MM-JJ.html`,
-`en/feed.xml`, `sitemap.xml`, `archives.html` (étape 6bis), **et les
-retouches rétroactives de l'étape 4bis sur `index.html`/`archives/AAAA-
-MM-JJ.html`** (préfixe `[en]`), après
+`en/feed.xml`, `sitemap.xml`, `sitemap-news.xml` (étape 6ter),
+`archives.html` (étape 6bis), **et les retouches rétroactives de
+l'étape 4bis sur `index.html`/`archives/AAAA-MM-JJ.html`** (préfixe
+`[en]`), après
 `git fetch origin main` + rebase si des commits concurrents sont arrivés
 entre-temps — mêmes règles que les autres routines de ce projet. Toujours
 après le commit de l'édition française du jour, jamais avant, jamais dans
