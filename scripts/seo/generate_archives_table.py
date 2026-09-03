@@ -1118,11 +1118,21 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
         if revised_present else ""
     )
 
+    # Chip "Lectures" (🔥 Les plus lues) : contrairement aux 4 groupes
+    # ci-dessus, jamais connue au moment de la génération de cette page — les
+    # lectures sont chargées après coup depuis assets/data/reads.json (voir
+    # reads_script) et le seuil "les plus lues" (top 25% du moment) est
+    # recalculé côté client à chaque chargement, jamais figé ici. Toujours
+    # rendue (contrairement à revised_filter_html, conditionnelle) : on ne
+    # sait pas à l'avance si des lectures seront disponibles.
+    reads_filter_html = chip_group("reads-filters", "Lectures", {"hot"}, {"hot": "🔥 Les plus lues"}, ["hot"])
+
     filters_html = f"""    <div class="archives-filters">
 {chip_group("domain-filters", "Domaine", domains_present, DOMAIN_LABELS, list(DOMAIN_LABELS.keys()))}
 {chip_group("scenario-filters", "Notre scénario", scenarios_present, scenario_labels, ["favorable", "stable", "degrade"])}
 {chip_group("france-filters", "Impact France", france_groups_present, france_group_labels, ["favorable", "neutre", "degrade"])}
 {revised_filter_html}
+{reads_filter_html}
       <p class="no-result" id="archives-no-result">Aucune édition ne correspond à ces filtres.</p>
     </div>"""
 
@@ -1132,9 +1142,9 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
     if(!table){ return; }
     var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
     var noResult = document.getElementById('archives-no-result');
-    var active = { domain: 'all', scenario: 'all', france: 'all', revised: 'all' };
+    var active = { domain: 'all', scenario: 'all', france: 'all', revised: 'all', reads: 'all' };
 
-    ['domain-filters', 'scenario-filters', 'france-filters', 'revised-filters'].forEach(function(groupId){
+    ['domain-filters', 'scenario-filters', 'france-filters', 'revised-filters', 'reads-filters'].forEach(function(groupId){
       var box = document.getElementById(groupId);
       if(!box){ return; }
       var field = box.dataset.field;
@@ -1170,7 +1180,8 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
         var show = (active.domain === 'all' || row.dataset.domain === active.domain)
           && (active.scenario === 'all' || row.dataset.scenario === active.scenario)
           && (active.france === 'all' || row.dataset.france === active.france)
-          && (active.revised === 'all' || row.dataset.revised === active.revised);
+          && (active.revised === 'all' || row.dataset.revised === active.revised)
+          && (active.reads === 'all' || row.dataset.reads === active.reads);
         row.classList.toggle('is-hidden', !show);
         if(show){ visible++; }
       });
@@ -1178,6 +1189,14 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
     }
 
     apply();
+
+    // Le filtre "Lectures" dépend d'une donnée chargée après coup (voir
+    // reads_script, assets/data/reads.json) — reads_script prévient via cet
+    // événement une fois les lignes "chaudes" marquées, pour que le filtre
+    // déjà actif (ou activé entre-temps par le lecteur) se réapplique avec
+    // les vraies données plutôt que de rester figé sur l'état "rien ne
+    // correspond" du tout premier appel à apply().
+    document.addEventListener('archives:reads-loaded', apply);
   })();
 </script>"""
 
@@ -1198,6 +1217,18 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
     # site grandit). Largeur plancher à 4% pour qu'un petit chiffre non nul
     # reste visible, jamais un vrai 0% qui se confondrait avec "pas de
     # donnée" (la colonne "—" gère déjà ce cas séparément).
+    #
+    # Filtre "🔥 Les plus lues" (ajouté le 3 septembre, retour utilisateur :
+    # "possible de mettre un bouton pour sélectionner les grosses lectures,
+    # les hot lectures actuellement ?") : top 25% des éditions par lectures
+    # connues, recalculé à chaque chargement — jamais un seuil fixe écrit en
+    # dur, "actuellement" par construction (le classement bouge tout seul à
+    # mesure que de nouvelles éditions gagnent des lectures). Minimum 1
+    # édition marquée même avec peu de données. `row.dataset.reads = 'hot'`
+    # posé sur les lignes qualifiées, lu par le filtre générique de
+    # filters_script (voir la chip "reads-filters" dans filters_html) —
+    # aucune logique de filtre dupliquée ici, seulement la donnée qui
+    # manquait au moment où filters_script s'est exécuté.
     reads_script = """<script>
   (function(){
     var table = document.getElementById('archives-table');
@@ -1206,20 +1237,18 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
       return res.ok ? res.json() : {};
     }).then(function(reads){
       var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
-      var known = rows.map(function(row){ return reads[row.dataset.date]; })
-        .filter(function(n){ return typeof n === 'number'; });
-      var max = known.length ? Math.max.apply(null, known) : 0;
+      var known = rows.map(function(row){ return { row: row, count: reads[row.dataset.date] }; })
+        .filter(function(e){ return typeof e.count === 'number'; });
+      var max = known.length ? Math.max.apply(null, known.map(function(e){ return e.count; })) : 0;
       var bestRow = null, bestCount = -1;
-      rows.forEach(function(row){
-        var count = reads[row.dataset.date];
-        if(typeof count !== 'number'){ return; }
-        var numEl = row.querySelector('.reads-num');
-        var fillEl = row.querySelector('.reads-bar-fill');
-        if(numEl){ numEl.textContent = count; }
+      known.forEach(function(e){
+        var numEl = e.row.querySelector('.reads-num');
+        var fillEl = e.row.querySelector('.reads-bar-fill');
+        if(numEl){ numEl.textContent = e.count; }
         if(fillEl && max > 0){
-          fillEl.style.width = Math.max(4, Math.round(count / max * 100)) + '%';
+          fillEl.style.width = Math.max(4, Math.round(e.count / max * 100)) + '%';
         }
-        if(count > bestCount){ bestCount = count; bestRow = row; }
+        if(e.count > bestCount){ bestCount = e.count; bestRow = e.row; }
       });
       if(bestRow && bestCount > 0){
         var link = bestRow.querySelector('.col-title a');
@@ -1231,7 +1260,15 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
           link.insertAdjacentElement('afterend', badge);
         }
       }
-    }).catch(function(){ /* colonne déjà à "—" par défaut, rien à faire */ });
+      // Top 25% (arrondi au-dessus, au moins 1) = "les plus lues du moment".
+      var sorted = known.slice().sort(function(a, b){ return b.count - a.count; });
+      var hotCount = Math.max(1, Math.ceil(sorted.length * 0.25));
+      var hotThreshold = sorted.length ? sorted[hotCount - 1].count : Infinity;
+      known.forEach(function(e){
+        if(e.count > 0 && e.count >= hotThreshold){ e.row.dataset.reads = 'hot'; }
+      });
+      document.dispatchEvent(new Event('archives:reads-loaded'));
+    }).catch(function(){ /* colonne déjà à "—" par défaut, filtre "plus lues" restera sans effet */ });
   })();
 </script>"""
 
@@ -1317,7 +1354,7 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
         <dt>Impact France</dt>
         <dd>Effet attendu pour la France, calculé sur les <strong>3</strong> scénarios pondérés par leur probabilité — pas seulement le plus probable (2 scénarios secondaires peuvent faire pencher la balance). La jauge va du dégradé (rouge, gauche) au favorable (vert, droite) ; le segment en surbrillance indique le niveau — survolez-le pour voir le détail.</dd>
         <dt>Lectures</dt>
-        <dd>Nombre de lectures cumulées depuis la publication de l'édition, mis à jour chaque heure — la barre donne un repère visuel rapide (relative au maximum du tableau). 🔥 signale l'édition la plus lue du moment.</dd>
+        <dd>Nombre de lectures cumulées depuis la publication de l'édition, mis à jour chaque heure — la barre donne un repère visuel rapide (relative au maximum du tableau). 🔥 signale l'édition la plus lue du moment ; le filtre « Les plus lues » affiche le top 25% actuel, recalculé à chaque visite.</dd>
       </dl>
     </div>
     <p style="margin-top:28px"><a href="index.html" style="color:var(--gold);text-decoration:none">← Retour à l'accueil</a></p>
