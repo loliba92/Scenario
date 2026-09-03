@@ -470,14 +470,30 @@
   // restaurent la page depuis le bfcache — la porte reste bien masquée
   // (localStorage toujours valide) mais les <svg> des graphiques
   // réapparaissent vides, le remplissage précédent ne se repeint pas.
-  // `pageshow` avec `event.persisted` détecte ce cas précis (restauration
-  // depuis le bfcache, pas un chargement normal) et relance le rendu.
-  // `renderWeekly`/`renderCumul`/`renderTables` vident d'abord leur
-  // conteneur (voir plus bas) pour que ce second appel ne duplique rien.
-  window.addEventListener('pageshow', function (ev) {
-    if (ev.persisted && !document.getElementById('dashboard').hidden) {
+  // Un premier correctif (uniquement sur `pageshow` + `event.persisted`)
+  // n'a pas suffi pour l'app/webview de l'utilisateur — signe que ce
+  // webview restaure la page sans déclencher `persisted: true`, ou pas du
+  // tout via `pageshow`. Version plus robuste, le 3 septembre (2e passe) :
+  // au lieu de deviner *pourquoi* c'est vide, on vérifie *si* c'est vide
+  // et on re-rend dans ce cas, sur tous les événements de retour visible
+  // qu'on peut observer (pageshow, quel que soit `persisted`, et
+  // visibilitychange). Sans risque de duplication : `renderWeekly`/
+  // `renderCumul`/`renderTables` vident d'abord leur conteneur (voir plus
+  // bas), donc rejouer `renderCharts()` par sécurité ne coûte presque
+  // rien même quand ce n'était pas nécessaire.
+  function chartsLookEmpty() {
+    var w = document.getElementById('weekly-svg');
+    var c = document.getElementById('cumul-svg');
+    return (!!w && w.childElementCount === 0) || (!!c && c.childElementCount === 0);
+  }
+  function renderChartsIfNeeded() {
+    if (!document.getElementById('dashboard').hidden && chartsLookEmpty()) {
       renderCharts();
     }
+  }
+  window.addEventListener('pageshow', renderChartsIfNeeded);
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) renderChartsIfNeeded();
   });
 
   document.getElementById('gate-form').addEventListener('submit', function (ev) {
