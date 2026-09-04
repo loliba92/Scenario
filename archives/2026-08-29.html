@@ -2215,6 +2215,28 @@
   // jamais deux abonnements distincts.
   var onesignalBtns = Array.prototype.slice.call(document.querySelectorAll(".onesignal-subscribe-btn"));
   var onesignalReady = false;
+  var onesignalOptInPromise = null;
+
+  /* [CORRIGÉ le 4 septembre 2026, retour utilisateur : "je reçois deux
+     notifications de bienvenue identiques en m'abonnant"] `optIn()`
+     était appelé à deux endroits sans coordination entre eux : ici au
+     clic, et plus bas dans `updateBtn()` — que `permissionChange`
+     déclenche au même instant, puisque `requestPermission()` fait
+     lever cet évènement dès que la permission passe à "accordée". Les
+     deux appels partaient quasi simultanément, OneSignal traitait ça
+     comme deux créations d'abonnement distinctes et envoyait sa
+     notification de bienvenue deux fois. Ce verrou fait que tout appel
+     pendant qu'un premier est encore en cours réutilise la même
+     promesse au lieu d'en déclencher un second. */
+  function onesignalOptIn() {
+    if (!onesignalOptInPromise) {
+      onesignalOptInPromise = window.OneSignal.User.PushSubscription.optIn().then(
+        function (result) { onesignalOptInPromise = null; return result; },
+        function (err) { onesignalOptInPromise = null; throw err; }
+      );
+    }
+    return onesignalOptInPromise;
+  }
 
   function onesignalSetLabel(text) {
     onesignalBtns.forEach(function (btn) {
@@ -2248,7 +2270,7 @@
           // plus, sinon la permission est accordée mais aucun abonné
           // n'est jamais créé côté serveur.
           if (window.OneSignal.Notifications.permission) {
-            return window.OneSignal.User.PushSubscription.optIn();
+            return onesignalOptIn();
           }
         })
         .catch(function (err) {
@@ -2304,7 +2326,7 @@
           // "activées" sans qu'aucun abonnement n'ait jamais été créé côté
           // serveur (bug constaté le 21 août, retour utilisateur).
           onesignalSetLabel("Finalisation de l'abonnement…");
-          OneSignal.User.PushSubscription.optIn().catch(function (err) {
+          onesignalOptIn().catch(function (err) {
             onesignalSetLabel("Erreur : " + (err && err.message ? err.message : String(err)));
           });
         }
