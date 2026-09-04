@@ -6,6 +6,15 @@
     <description>English translation of feed-suivi.xml: when a tracked topic is updated, a new evaluation of the 3 scenarios and what changed.</description>
     <language>en</language>
     <item>
+      <title>French cinema's comeback, a scenario moved</title>
+      <link>https://lesscenarios.fr/suivi/cinema-france.html#version-content-v2</link>
+      <guid isPermaLink="false">scenario-suivi-en-cinema-france-v2</guid>
+      <pubDate>Fri, 04 Sep 2026 20:00:00 +0200</pubDate>
+      <comments>🎬 The CNC confirms an all-time record for an August (19.94M admissions, never reached since 1980), "The rebound stalls at the fall return" collapses to -35 points (10%) — the rebound-holds-through-year-end scenario climbs to 58%, +16 points.</comments>
+      <enclosure url="https://lesscenarios.fr/en/assets/social/suivi/cinema-france-v2.png" length="632893" type="image/png"/>
+      <description><![CDATA[🎬 The CNC confirms an all-time record for an August (19.94M admissions, never reached since 1980), "The rebound stalls at the fall return" collapses to -35 points (10%) — this scenario falls from 45% to 10%, while the rebound-holds-through-year-end scenario climbs from 42% to 58% and the halfway-stall scenario rebounds from 13% to 32%.<br><br>On September 2, the CNC confirmed a new all-time record: 19.94 million admissions in French theaters in August 2026, the best August since record-keeping began in 1980 — double August 2025's figure. The cumulative total for the year's first eight months reaches 127.92 million admissions, up 28.5% year-over-year. The week of September 2 was nonetheless the quietest since the start of summer, as the school year resumed.<br><br>See the full update, scenario by scenario 👉 <a href="https://lesscenarios.fr/suivi/cinema-france.html#version-content-v2">lesscenarios.fr/suivi/cinema-france.html</a>]]></description>
+    </item>
+    <item>
       <title>Big Tech faces the courts, a scenario moved</title>
       <link>https://lesscenarios.fr/suivi/big-tech-justice.html#version-content-v1</link>
       <guid isPermaLink="false">scenario-suivi-en-big-tech-justice-v1</guid>

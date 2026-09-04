@@ -91,20 +91,21 @@ mériter une page de suivi ou une mise à jour.
   Dernière vérification : 28 août 2026 (V2).
 
 - **Le cinéma reprend des couleurs** (édition du 8 août 2026)
-  Suivi existant : `suivi/cinema-france.html` (V0 + V1 au 22 août, publiée
-  automatiquement par la routine de détection — écart de -32 points sur
-  le scénario stable, +20 points sur le dégradé). V1 intègre le record
-  absolu de fréquentation estivale (semaine du 29 juillet-4 août, 6,5 M
-  d'entrées) et la tenue dans la durée de « L'Odyssée » et « Spider-Man :
-  Brand New Day » (chacun >6 M d'entrées), qui invalident quasiment le
-  scénario d'un rebond qui s'essoufflerait dès l'été.
+  Suivi existant : `suivi/cinema-france.html` (V0 + V1 au 22 août + V2 au
+  4 septembre, publiée automatiquement par la routine de détection —
+  écart de -35 points sur le scénario dégradé, +16 points sur le
+  favorable). V2 intègre le record CNC du 2 septembre : 19,94 M d'entrées
+  en salle en août 2026, meilleur mois d'août depuis le début des relevés
+  statistiques en 1980 (double d'août 2025), portant le cumul annuel à
+  127,92 M d'entrées (+28,5 % sur un an) — ce qui invalide quasiment
+  l'hypothèse d'un rebond qui s'arrêterait à la rentrée.
   Prochaine échéance connue : la rentrée cinéma (sorties américaines de
   fin août à décembre — The Dog Stars, Digger, Avengers : Doomsday, Dune :
   Messiah), seule inconnue restante pour savoir si le rebond annuel tient
   (bilan CNC attendu en début d'année 2027). À surveiller aussi : toute
   mise à jour du classement des entrées 2026 et de la part de marché du
   cinéma français.
-  Dernière vérification : 22 août 2026 (V1).
+  Dernière vérification : 4 septembre 2026 (V2).
 
 - **Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ?**
   (édition du 30 juillet 2026)
