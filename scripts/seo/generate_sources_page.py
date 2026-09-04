@@ -68,6 +68,30 @@ def format_date_short(iso_date):
 # ---------------------------------------------------------------------------
 SOURCES_PAGE_CSS = """
   /* ---- Revue de presse (scripts/seo/generate_sources_page.py) ---- */
+  /* Photo de fond du hero — même photo générique que .hero.archives-hero
+     (archives.html, généré par generate_archives_table.py) : Nikola
+     Tomašić/Pexels, déjà validée et créditée, réutilisée telle quelle
+     plutôt que d'en chercher une nouvelle. Pas de crédit visible sur la
+     page (même convention qu'archives.html) : le crédit "Photo
+     d'illustration. {photographe}" ne s'applique qu'à la photo qui
+     illustre le sujet d'une édition, pas à un fond décoratif générique
+     partagé entre plusieurs pages utilitaires. */
+  .hero.sources-hero{
+    position: relative;
+    padding: 96px 0 60px;
+    background:
+      linear-gradient(180deg, rgba(16,21,28,0.55) 0%, rgba(16,21,28,0.82) 65%, var(--ink) 100%),
+      url('assets/social/pub-photos/generique-foret.jpg') center 35% / cover no-repeat;
+  }
+  .hero.sources-hero .eyebrow,
+  .hero.sources-hero h1,
+  .hero.sources-hero .dek{
+    position: relative;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  }
+  @media (max-width: 600px){
+    .hero.sources-hero{ padding: 64px 0 44px; }
+  }
   .sources-toolbar{ display:flex; flex-direction:column; gap:14px; margin: 0 0 28px; }
   .sources-search{
     width:100%; max-width:480px; background: var(--surface-2); border:1px solid var(--hairline);
@@ -309,7 +333,7 @@ def render_page(days, style_block, masthead_nav, follow_footer, tail_scripts):
 
 {masthead_nav}
 
-<section class="hero">
+<section class="hero sources-hero">
   <div class="wrap">
     <p class="eyebrow">Revue de presse</p>
     <h1>Ce qu'on a lu</h1>
