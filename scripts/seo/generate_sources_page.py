@@ -68,20 +68,24 @@ def format_date_short(iso_date):
 # ---------------------------------------------------------------------------
 SOURCES_PAGE_CSS = """
   /* ---- Revue de presse (scripts/seo/generate_sources_page.py) ---- */
-  /* Photo de fond du hero — même photo générique que .hero.archives-hero
-     (archives.html, généré par generate_archives_table.py) : Nikola
-     Tomašić/Pexels, déjà validée et créditée, réutilisée telle quelle
-     plutôt que d'en chercher une nouvelle. Pas de crédit visible sur la
+  /* Photo de fond du hero — dédiée à cette page (pas la photo générique
+     forêt d'archives.html), même logique que vision-avenir.jpg/
+     vocabulaire.jpg/newsletter.jpg/contact.jpg : pile de vieux journaux
+     portugais, noir et blanc (Efe Ersoy/Pexels, choisie par l'utilisateur
+     — voir assets/social/pub-photos/credits.json). Déjà en noir et blanc,
+     contrastée : dégradé un peu plus soutenu que la moyenne des autres
+     heros (0.6 au lieu de 0.55 en haut) pour garder le texte net sur les
+     zones les plus claires de la photo. Pas de crédit visible sur la
      page (même convention qu'archives.html) : le crédit "Photo
      d'illustration. {photographe}" ne s'applique qu'à la photo qui
-     illustre le sujet d'une édition, pas à un fond décoratif générique
-     partagé entre plusieurs pages utilitaires. */
+     illustre le sujet d'une édition, pas à un fond décoratif de page
+     utilitaire. */
   .hero.sources-hero{
     position: relative;
     padding: 96px 0 60px;
     background:
-      linear-gradient(180deg, rgba(16,21,28,0.55) 0%, rgba(16,21,28,0.82) 65%, var(--ink) 100%),
-      url('assets/social/pub-photos/generique-foret.jpg') center 35% / cover no-repeat;
+      linear-gradient(180deg, rgba(16,21,28,0.6) 0%, rgba(16,21,28,0.85) 65%, var(--ink) 100%),
+      url('assets/social/pub-photos/revue-de-presse.jpg') center 22% / cover no-repeat;
   }
   .hero.sources-hero .eyebrow,
   .hero.sources-hero h1,
