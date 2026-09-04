@@ -448,10 +448,13 @@ Public 15-35 ans en priorité sans exclure personne : phrases directes, comparai
       <li><a href="URL" target="_blank" rel="noopener noreferrer">Nom du média — Titre ou sujet de l'article ↗</a></li>
       <!-- 2 à 4 liens -->
     </ul>
+    <p style="margin-top:16px"><a href="sources.html#{AAAA-MM-JJ}" style="color:var(--gold);text-decoration:none">Voir aussi la revue de presse du jour →</a></p>
   </div>
 </section>
 ```
 2 à 4 liens vers les sources principales **effectivement consultées** — jamais une source non consultée. CSS `.sources-list` déjà dans le gabarit. **Libellé « Pour aller plus loin »**, jamais « Pour vérifier par vous-même ».
+
+**Lien "Voir aussi la revue de presse du jour" [AJOUTÉ le 4 septembre 2026, retour utilisateur].** Toujours ajouté, même si aucun article n'a encore été noté dans `sources-log.json` ce jour-là (dans ce cas, le lien atterrit simplement en haut de `sources.html`, sans rien de cassé — même logique que le lien "Récap de la semaine" qui pointe toujours vers une cible fixe sans vérification préalable). `{AAAA-MM-JJ}` = la date du jour, format identique à l'ancre `id="{date}"` posée par `scripts/seo/generate_sources_page.py` sur chaque jour de `sources.html` — jamais une autre date, jamais sans l'ancre `#`. Recopier tel quel chaque jour, aucune logique supplémentaire requise.
 
 **Cohérence des KPI entre `indicator-strip` et les 3 cartes.** Choisir 2 (jamais plus de 3) KPI fixes pendant la rédaction, réutilisés identiques dans les 3 cartes — jamais un indicateur propre à une seule carte (un fait notable qui ne rentre dans aucun KPI commun va dans `why`, jamais dans "Indicateurs touchés"). Ces mêmes 2-3 KPI apparaissent aussi dans `indicator-strip` en haut (avec valeur de référence/année de base) — pas des chiffres différents ou une variante : un seul tableau de bord qui évolue.
 
