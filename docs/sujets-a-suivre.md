@@ -150,6 +150,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 04.09.2026 — [Lune : Washington et Pékin relancent la course](../archives/2026-09-04.html)
 - 03.09.2026 — [Wall Street : la hausse peut-elle durer ?](../archives/2026-09-03.html)
 - 02.09.2026 — [Pesticides interdits : l'Anses peut-elle dire non ?](../archives/2026-09-02.html)
 - 01.09.2026 — [Présidentielle 2027 : qui peut vraiment battre le RN ?](../archives/2026-09-01.html)
