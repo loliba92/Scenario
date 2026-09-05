@@ -371,15 +371,25 @@ mémoire) derrière l'**unique** trigger du scénario, qui ne surveille que
 ajoutée à `en/feed.xml` **après** la publication française, dans une
 étape séparée (voir `docs/routine-en-prompt.md`), ces 3 branches
 lisaient systématiquement l'entrée de la veille — jamais celle du jour.
-**Correctif retenu (pas de refonte du scénario, qui fonctionne très
-bien par ailleurs)** : un filtre ajouté sur chacune des 3 routes,
-comparant la date de l'article lu (`pubDate`, formatée `AAAA-MM-JJ`,
-fuseau Europe/Paris) à la date du jour — la branche ne poste que si ça
-correspond, au lieu de poster un contenu périmé. **Nom exact du champ
-`pubDate` à reconfirmer dans l'éditeur Make** (invisible dans le
-blueprint : jamais référencé par aucun module avant ce correctif, donc
-pas d'usage existant à copier) — vérifier au premier import que le
-champ proposé par le panneau de mapping correspond bien, ajuster sinon.
+**Correctif appliqué par l'utilisateur directement dans Make (pas de
+refonte du scénario, qui fonctionne très bien par ailleurs), re-exporté
+et vérifié le 5 septembre** — plus propre que le filtre externe
+envisagé en premier jet : utilise les paramètres natifs de date du
+module `rss:ActionReadArticles` lui-même plutôt qu'une comparaison en
+aval. Sur les 3 modules concernés (`250` "RSS EN MAIN" → `en/feed.xml`,
+`204` "RSS EN SUIVI" → `en/feed-suivi.xml`, `231` "RSS EN PUB" →
+`en/feed-pub.xml`) :
+```
+filterDateFrom = {{parseDate(formatDate(now; "YYYY-MM-DD"); "YYYY-MM-DD")}}
+filterDateTo   = {{parseDate(formatDate(addDays(now; 1); "YYYY-MM-DD"); "YYYY-MM-DD")}}
+maxResults     = 1
+```
+Chaque lecture est donc bornée à un article publié **strictement dans
+la journée en cours** — si la traduction du jour n'existe pas encore
+au moment où le scénario tourne, la lecture ne renvoie rien (branche
+silencieusement sans effet ce jour-là) plutôt que de récupérer et
+poster l'entrée de la veille. Vérifié sur l'export final : les 3
+modules ont bien le même réglage, cohérent entre eux.
 
 ## À éviter
 
