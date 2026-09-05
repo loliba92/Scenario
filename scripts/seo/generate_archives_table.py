@@ -658,7 +658,9 @@ def _extract_card_judgment(card_content):
 
 
 def extract_scenarios(text):
-    """Extrait les 3 scénarios avec leur pourcentage et leur jugement France Impact respectif.
+    """Extrait les 3 scénarios avec leur pourcentage, leur jugement France Impact
+    et leur titre (le <h3>, déjà une phrase courte — sert de conclusion résumée
+    pour l'infobulle du badge "Notre scénario", voir render_table_row) respectifs.
 
     Important : le jugement France Impact d'un card est indépendant de son "kind"
     (ex. le scénario "stable" peut très bien avoir un impact France jugé "degrade") —
@@ -676,7 +678,10 @@ def extract_scenarios(text):
 
         judgment = _extract_card_judgment(card_content)
 
-        scenarios.append((kind, percentage, judgment))
+        title_m = re.search(r'<h3>(.*?)</h3>', card_content, re.DOTALL)
+        title = html.unescape(re.sub(r'<[^>]+>', '', title_m.group(1)).strip()) if title_m else None
+
+        scenarios.append((kind, percentage, judgment, title))
 
     return scenarios
 
@@ -697,7 +702,7 @@ def compute_france_esperance(scenarios):
         return None
     return sum(
         (pct / 100) * _JUDGMENT_VALUE.get(judgment, 0)
-        for _kind, pct, judgment in scenarios
+        for _kind, pct, judgment, _title in scenarios
         if judgment is not None
     )
 
@@ -876,9 +881,12 @@ def parse_article(file_path, suivi_mapping=None):
     if suivi_path:
         suivi_date, updated_pcts = extract_latest_suivi_version(suivi_path)
         if updated_pcts:
+            # Seul le pourcentage change avec un suivi — le titre du scénario
+            # (conclusion courte) reste celui de l'édition d'origine, jamais
+            # réestimé par une page de suivi.
             scenarios = [
-                (kind, updated_pcts.get(kind, pct), judgment)
-                for kind, pct, judgment in scenarios
+                (kind, updated_pcts.get(kind, pct), judgment, title)
+                for kind, pct, judgment, title in scenarios
             ]
         # La date de suivi prime sur un meta revised-on posé à la main : c'est
         # elle qui reflète la vraie dernière mise à jour des chiffres affichés.
@@ -889,6 +897,7 @@ def parse_article(file_path, suivi_mapping=None):
     # sur les pourcentages à jour (suivi appliqué ci-dessus le cas échéant)
     best_scenario = get_most_probable_scenario(scenarios)
     kind, pct = best_scenario if best_scenario[0] else (None, None)
+    scenario_title = next((t for k, _p, _j, t in scenarios if k == kind), None)
 
     # Impact France : espérance pondérée sur les 3 scénarios (pondération à jour,
     # jugement d'origine), pas juste le plus probable
@@ -911,6 +920,7 @@ def parse_article(file_path, suivi_mapping=None):
         "question": question,
         "scenario_kind": kind,
         "scenario_pct": pct,
+        "scenario_title": scenario_title,
         "france_esperance": esperance,
         "france_label": france_label,
         "france_css_class": france_css_class,
@@ -953,8 +963,18 @@ def render_table_row(article):
 
     if kind and pct:
         scenario_label = get_scenario_label(kind)
-        # Badge de couleur avec SEULEMENT le label et le pourcentage
-        eval_html = f'''<span class="eval-badge eval-{kind}" data-kind="{kind}">
+        title = article.get("scenario_title")
+        # Badge de couleur avec SEULEMENT le label et le pourcentage (visible) —
+        # la conclusion courte (titre du scénario, déjà une phrase courte) ne
+        # s'affiche qu'au survol (title=/aria-label=, même pattern que
+        # render_france_scale() juste en dessous) [AJOUTÉ le 4 septembre 2026,
+        # retour utilisateur : donner un aperçu de la conclusion sans alourdir
+        # le tableau].
+        tooltip_attr = ""
+        if title:
+            tooltip = html.escape(f"Notre scénario : {scenario_label} ({pct}%) — {title}")
+            tooltip_attr = f' title="{tooltip}" aria-label="{tooltip}"'
+        eval_html = f'''<span class="eval-badge eval-{kind}" data-kind="{kind}"{tooltip_attr}>
       <span class="eval-label">{scenario_label}</span>
       <span class="eval-pct">{pct}%</span>
     </span>'''
@@ -1043,6 +1063,13 @@ def build_shared_pieces():
     masthead_nav = extract_block(text, '<header class="masthead">', "</nav>")
     masthead_nav = fix_nav_active_link(masthead_nav)
     follow_footer = extract_block(text, '<section class="follow-block" id="nous-suivre">', "</footer>")
+    # Le <footer> de glossaire.html porte une légende propre à cette page
+    # ("Ce glossaire est alimenté au fil des éditions...") — ne jamais la
+    # reprendre telle quelle sur une page qui réutilise ce bloc partagé
+    # (bug corrigé le 5 septembre 2026, retour utilisateur : cette légende
+    # fuyait sur archives.html). Seuls masthead/nav/follow-block/legal-links
+    # sont vraiment génériques ; ce <p class="caveat"> ne l'est pas.
+    follow_footer = re.sub(r'\s*<p class="caveat">.*?</p>\n?', '\n', follow_footer, count=1, flags=re.S)
     tail_scripts = extract_block(
         text,
         '<script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>',

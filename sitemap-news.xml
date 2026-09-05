@@ -2,47 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
-    <loc>https://lesscenarios.fr/archives/2026-09-03.html</loc>
+    <loc>https://lesscenarios.fr/archives/2026-09-05.html</loc>
     <news:news>
       <news:publication>
         <news:name>Scénario</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-09-03T06:40:00+02:00</news:publication_date>
-      <news:title>Wall Street : la hausse peut-elle durer ?</news:title>
+      <news:publication_date>2026-09-05T06:30:00+02:00</news:publication_date>
+      <news:title>Marché de l'art : records en haut, fermetures en bas</news:title>
     </news:news>
   </url>
   <url>
-    <loc>https://lesscenarios.fr/archives/2026-09-02.html</loc>
+    <loc>https://lesscenarios.fr/archives/2026-09-04.html</loc>
     <news:news>
       <news:publication>
         <news:name>Scénario</news:name>
         <news:language>fr</news:language>
       </news:publication>
-      <news:publication_date>2026-09-02T06:20:00+02:00</news:publication_date>
-      <news:title>Pesticides interdits : l'Anses peut-elle dire non ?</news:title>
+      <news:publication_date>2026-09-04T06:35:00+02:00</news:publication_date>
+      <news:title>Lune : Washington et Pékin relancent la course</news:title>
     </news:news>
   </url>
   <url>
-    <loc>https://lesscenarios.fr/en/archives/2026-09-03.html</loc>
+    <loc>https://lesscenarios.fr/en/archives/2026-09-05.html</loc>
     <news:news>
       <news:publication>
         <news:name>Scénario</news:name>
         <news:language>en</news:language>
       </news:publication>
-      <news:publication_date>2026-09-03T06:40:00+02:00</news:publication_date>
-      <news:title>Wall Street: Can the Rally Last?</news:title>
+      <news:publication_date>2026-09-05T06:30:00+02:00</news:publication_date>
+      <news:title>Art Market: Records at the Top, Closures at the Bottom</news:title>
     </news:news>
   </url>
   <url>
-    <loc>https://lesscenarios.fr/en/archives/2026-09-02.html</loc>
+    <loc>https://lesscenarios.fr/en/archives/2026-09-04.html</loc>
     <news:news>
       <news:publication>
         <news:name>Scénario</news:name>
         <news:language>en</news:language>
       </news:publication>
-      <news:publication_date>2026-09-02T06:20:00+02:00</news:publication_date>
-      <news:title>Banned Pesticides: Can Anses Really Say No?</news:title>
+      <news:publication_date>2026-09-04T06:35:00+02:00</news:publication_date>
+      <news:title>Moon: Washington and Beijing Relaunch the Race</news:title>
     </news:news>
   </url>
 </urlset>

@@ -766,6 +766,44 @@ unique et autonome (sondages 33-38 % dépendants du pronom "elle",
 scénarios à 45/30/20 % empilés) ; édition du 9 août retenue ensuite
 pour son chiffre à la fois simple, isolé et marquant.*
 
+### chiffre-2026-09-05
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 41,9
+- message: Le CAPE ratio de Wall Street, qui mesure la cherté du marché par rapport aux bénéfices des dix dernières années, atteint 41,9 début septembre 2026 — son deuxième plus haut niveau en 125 ans, derrière le pic de la bulle internet en 1999.
+- attribution: — lesscenarios.fr, 3 septembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-09-03.html
+- photo: `assets/social/topic-images/2026-09-03.jpg` (crédit : Vito
+  Goričan — https://www.pexels.com/photo/close-up-photo-of-data-in-a-monitor-10628030/),
+  photo de l'édition source elle-même.
+
+*Extrait tel quel de `.essentiel-text` dans l'édition du 3 septembre
+("Le CAPE ratio de Wall Street, qui mesure la cherté du marché par
+rapport aux bénéfices des dix dernières années, atteint 41,9 début
+septembre 2026 — son deuxième plus haut niveau en 125 ans, derrière le
+pic de la bulle internet en 1999.") — phrase complète, aucun mot changé,
+déplacé ni ajouté. Retenue comme le point clé de l'édition ("Wall
+Street : la hausse peut-elle durer ?") : le CAPE ratio est la mesure de
+cherté du marché que toute l'édition développe, pas un chiffre
+secondaire pris isolément parmi d'autres candidats de la même édition
+(part de Nvidia/Micron dans les bénéfices, poids des dix plus grosses
+valeurs, dette sur marge, rendement des emprunts d'État à 10 ans — tous
+plus périphériques ou moins autonomes une fois isolés de leur
+paragraphe). Pas de millésime passé problématique ici : "41,9 début
+septembre 2026" date de l'édition elle-même, pas d'une année déjà
+révolue. Titre RSS tronqué au tiret (phrase complète jusqu'à "...début
+septembre 2026.") pour rester dans la longueur des titres déjà en
+place, `message` complet inchangé dans `<comments>`/`<description>`.
+Éditions du 9, 10, 12, 13, 14, 21, 22, 24, 25 et 31 août déjà utilisées
+pour cette catégorie ; édition du 4 septembre écartée (moins de 24h) ;
+éditions du 1ᵉʳ et 2 septembre déjà utilisées comme publications les 2
+et 3 septembre (chiffre-2026-09-02/03) mais pas comme source — non
+concernées ici puisque l'édition du 3 septembre elle-même n'avait
+encore jamais servi de source. Édition du 3 septembre retenue en
+première candidate parcourue, avec plusieurs phrases à chiffre
+disponibles dans `.dek` et `.essentiel-text` ; `.essentiel-text`
+préférée pour son registre déjà simplifié.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même

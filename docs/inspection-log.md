@@ -6,6 +6,112 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-09-04 — Lune : Washington et Pékin relancent la course
+**Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 4
+septembre 2026 · N°43, EN confirmé même date), CSS complet
+(`.essentiel-box`, `.stakes-box`, `.question-box`, `.list-box`,
+`.comprendre-box`, `.delta-france`/`.delta-gauge*`/`.delta-word`/
+`.delta-flag` — bloc comparé caractère pour caractère à la version
+canonique de ce fichier une fois les commentaires HTML retirés,
+identique ; dégradé SVG à 3 stops et `data-score="0.40"` présents —,
+`.article-image*`, `.card`, `.gauge*`, `.france-line` toutes présentes
+dans `<style>` et utilisées dans le corps), sync `index.html`/
+`archives/2026-09-04.html` (seules différences : chemins relatifs
+`../`, `canonical`/`og:url`/`mainEntityOfPage`, nav — toutes
+légitimes), `data-france-impact`/`data-kind` cohérents avec le texte
+`.france-line` des 3 cartes (favorable/favorable/dégradé, texte
+assorti — « Favorable », « Plutôt favorable », « Plutôt défavorable »
+pour la France) et avec le `delta-france` (`data-kind="positif"`, mot
+« léger positif »), label brut favorable/stable/dégradé absent de
+`.essentiel-text`, formulation « Notre évaluation de l'impact pour la
+France » intacte (page et `feed.xml`, 24 occurrences vérifiées), lexique
+(5 `.lex-ref` ↔ 5 entrées — Gateway, HLS, ravitaillement en orbite,
+ILRS, zone de sécurité —, aucun terme orphelin dans un sens ou l'autre),
+probabilités 20+50+30=100 %, absence de tutoiement/rupture de registre
+hors `.share-block` (`grep '\bton \|\bta \|\btu \b'` : 2 occurrences
+dans des commentaires CSS de développement — pas du texte lecteur —, 1
+dans `.share-block`, légitime), style/pédagogie (lecture complète des 8
+`.dek` + 6 `.why` + `.essentiel-text` : aucune phrase jugée réellement
+gênante pour la compréhension malgré quelques phrases longues à
+plusieurs incises — restent claires par construction en apposition/
+énumération —, les 5 termes techniques déjà couverts par un `.lex-ref`,
+aucun contexte manquant identifié qui existerait pourtant ailleurs dans
+l'édition — aucune réécriture ni complément appliqué), 2 KPI (alunissage
+humain américain visé, alunissage humain chinois visé) : carte
+favorable (2028 confirmé / 2030 maintenu), carte stable (~2029-2030 /
+~2030-2031), carte dégradé (au-delà de 2032 ou suspendu / au-delà de
+2032 ou suspendu) — les 3 cartes distinctes deux à deux sur les deux
+indicateurs à la fois, aucun doublon complet (point 10), `suivi/
+cinema-france.html` (seul fichier `suivi/` touché aujourd'hui, commit
+`404f71b`, V2 du 4 septembre) : origin-link vers `archives/
+2026-08-08.html` valide, dernier bloc version daté « 4 septembre 2026 »
+reconnaissable avec 3 `.mini-scenario`/`.evo-current` (58 %/32 %/10 %),
+`archives.html` déjà régénéré (`generate_archives_table.py`, aucun diff)
+et affichant bien 58 % (pas les 30 % de V0), image de l'article et du
+feed (`assets/social/topic-images/2026-09-04.jpg` 1080×1080 et
+`-wide.jpg` 1600×900, vrais JPEG confirmés par `file`, non des PNG
+renommés, `og:image`/`twitter:image`/JSON-LD pointant vers
+`assets/social/instagram/2026-09-04.png`, vrai PNG 1080×1080, cohérent
+entre `index.html` et l'archive et avec la même édition EN — pattern
+identique aux éditions précédentes, pas une désynchronisation), longueur
+(1 574 mots `.dek`+`.why`+`dd`, largement au-dessus du seuil de
+1 100 mots), 3 chiffres/faits structurants vérifiés contre les sources
+déjà citées (5 `WebFetch` sur le plafond de 5, voir détail ci-dessous),
+incohérence numérique interne : 1 cas relevé, signalé plutôt que
+corrigé seul (voir ci-dessous).
+**Corrigé automatiquement** : rien — aucune anomalie mécanique
+franchissant le seuil de correction automatique sur les points 1 à 12
+ce passage-ci.
+**Enrichissement (point 12)** : « au-dessus du seuil, rien à faire »
+(1 574 mots).
+**Réécritures et compléments de clarté** (avant/après complet pour
+chacun, plafond 3 confondus, ou "aucun") : aucun.
+**Vérification des chiffres contre les sources citées** (5 `WebFetch`
+sur le plafond de 5) :
+- ABC News (plan lunaire à 20 milliards de dollars) : confirme
+  exactement « $20 billion over the next seven years », annoncé par
+  Jared Isaacman le 24 mars 2026 — conforme à l'article.
+- Spaceflight Now (explosion de New Glenn) : confirme la date (28 mai
+  2026) et le lieu (Cape Canaveral, Launch Complex 36) — conforme.
+  Nuance non bloquante : au moment de cet article (29 mai), la cause
+  exacte n'était pas encore établie (« too early to know the root
+  cause ») ; l'article du site attribue l'explosion à « une vanne
+  défaillante sur l'un de ses moteurs », un détail que cette source
+  précise ne confirme pas explicitement (elle mentionne un incident
+  antérieur différent, une fuite cryogénique sur NG-3) — pas un chiffre
+  à proprement parler, donc hors du périmètre strict de cette
+  vérification, mentionné ici par transparence plutôt qu'en signalement
+  séparé.
+- Scientific American (report de Chang'e-7) : confirme la date initiale
+  (24 août 2026), le report à 2027 et la cause (typhon Narra) — conforme.
+- SpaceNews (contrat Thales Alenia Space, module Esprit, 296,5 millions
+  d'euros) : injoignable, HTTP 429 (limite de requêtes) à deux tentatives
+  — signalé comme « source non re-vérifiable » ci-dessous, n'a pas pu
+  être utilisé pour trancher le point suivant.
+**Signalé pour revue humaine** :
+- Incohérence numérique potentielle, périmètre à confirmer (point 4) :
+  les cartes favorable et dégradée citent toutes deux « plus de 1,3
+  milliard d'euros de contrats déjà engagés » par Thales Alenia Space
+  (Cannes) pour le module Esprit et l'atterrisseur Argonaut, mais la
+  carte stable détaille les deux mêmes contrats avec des montants
+  précis — « 296,5 millions d'euros » (Esprit) et « 862 millions
+  d'euros » (Argonaut) — dont la somme (1 158,5 M€, ≈1,16 Md€) reste
+  sous 1,3 milliard. Partage 2 occurrences contre 1, pas la majorité
+  claire à 3 contre 1 qu'exige la règle pour une correction automatique
+  de l'occurrence isolée — d'autant que c'est ici l'occurrence isolée
+  (296,5 M€ + 862 M€) qui est la plus précise/vérifiable en apparence,
+  ce qui ne colle pas avec le principe « corriger l'occurrence isolée ».
+  Source SpaceNews citée pour le chiffre de 296,5 M€ injoignable ce
+  passage-ci (HTTP 429, voir ci-dessus) — n'a pas permis de trancher
+  lequel des deux montants (1,3 Md€ ou ~1,16 Md€) est le bon. Ne pas
+  trancher seul — à la rédaction de vérifier le montant exact du
+  contrat Argonaut et d'harmoniser les 3 cartes.
+- Source SpaceNews (contrat Thales Alenia Space) non re-vérifiable ce
+  passage-ci : HTTP 429 à deux tentatives — à retenter lors d'un
+  prochain passage.
+**Répercuté côté EN** : rien à répercuter (aucune correction appliquée
+côté FR ce passage-ci).
+
 ## 2026-09-03 — Wall Street : la hausse peut-elle durer ?
 **Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 3
 septembre 2026, EN confirmé même date), CSS complet (`.essentiel-box`,
@@ -1987,6 +2093,73 @@ aucun contexte manquant identifié).
    ce passage-ci — la durée de trois ans reste donc non vérifiée
    indépendamment (ni confirmée ni contredite par franceinfo, qui ne
    précise pas de chiffre).
+   (3 appels `WebFetch` utilisés sur 5 autorisés.)
+**Répercuté côté EN** : rien à répercuter (aucune correction faite côté
+FR).
+
+## 2026-09-05 — Marché de l'art : records en haut, fermetures en bas
+
+**Vérifié** : édition du jour confirmée à jour (`.edition`/`.pubdate`
+5 septembre 2026 côté FR et EN), CSS complet (`.essentiel-box`,
+`.stakes-box`, `.question-box`, `.list-box`, `.comprendre-box`, `.card`,
+`.gauge*`, `.article-image*`, `.france-line` tous présents dans le
+`<style>` ; `.delta-france`/`.delta-gauge*`/`.delta-word`/`.delta-flag`
+identiques au bloc canonique de ce fichier, dégradé SVG à 3 stops et
+`data-score="-0.70"` présents), sync `index.html`/
+`archives/2026-09-05.html` et `en/index.html`/
+`en/archives/2026-09-05.html` (seuls écarts : chemins relatifs internes et
+`og:url`/`mainEntityOfPage`, légitimes), `data-france-impact` des 3 cartes
+cohérent avec le texte `.france-line` adjacent (favorable/dégradé/dégradé,
+flèches et formulations concordantes), probabilités 15+55+30=100 %, label
+brut favorable/stable/dégradé absent des 4 paragraphes `.essentiel-text`,
+formulation « Notre évaluation de l'impact pour la France » intacte,
+lexique (5 `.lex-ref` ↔ 5 entrées, aucun terme orphelin dans un sens ou
+l'autre), absence de tutoiement hors `.share-block` (grep ciblé : 2
+correspondances trouvées, l'une dans un commentaire de code « ton sur
+ton », l'autre dans le bloc Telegram légitime — aucune dans du texte
+d'édition visible hors exception), les 2 indicateurs `.evo-current` des 3
+cartes de scénario (ventes aux enchères, ventes d'art ultra-contemporain)
+distincts sur les deux à la fois pour chaque paire — aucun doublon complet
+(point 10 sans objet), image de l'article et du feed présentes et bien
+formées (`assets/social/topic-images/2026-09-05.jpg` 1080×1080 et
+`-wide.jpg` 1600×900, réels JPEG conformes à l'extension ;
+`assets/social/instagram/2026-09-05.png` 1080×1080, réel PNG conforme à
+l'extension, utilisé pour `og:image`/`twitter:image`/JSON-LD `"image"`,
+identique côté EN avec la même image large partagée — convention actuelle
+du site déjà signalée hors périmètre le 2 septembre, non retraitée ici),
+`suivi/fifa-infantino.html` seul fichier `suivi/` touché aujourd'hui —
+origin-link vers `archives/2026-08-06.html` valide, dernier bloc de
+version (V2, 5 septembre 2026) avec date reconnaissable et 3
+`.mini-scenario` munis chacun d'un `.evo-current` ; `archives.html` déjà
+régénéré et affiche bien 68 % / Stable pour ce sujet (point 11 sans
+anomalie), style des paragraphes `.dek`/`.why`/`.essentiel-text` (plusieurs
+phrases de 50 à 68 mots, denses en chiffres mais syntaxiquement claires —
+aucune jugée gênante pour la compréhension, aucun sigle non expliqué,
+Newhouse déjà introduit dans « Les faits » avant sa reprise dans la carte
+favorable), longueur de l'édition 1440 mots (`.dek`+`.why`+`dd`), largement
+au-dessus du seuil de 1100 (point 12 sans objet), chiffres internes vérifiés
+sans incohérence (6,8 Md$ H1 2026, 229,9 M$/742,2 M$ ultra-contemporain,
+2 %/74 270 lots parisiens, probabilités — même fait toujours cité avec la
+même valeur partout où il revient), 3 chiffres/faits structurants vérifiés
+contre 2 des 4 sources citées : Christie's 3,5 Md$ (+71 %), collection
+Newhouse 630,8 M$, Pollock 181,2 M$, Brancusi 107,6 M$, semaine Sotheby's
+908,6 M$ et ventes privées 826 M$ tous conformes à The Art Newspaper ;
+74 270 lots parisiens 2025 et 2 % au-dessus de 61 000 € conformes à
+Artprice.
+**Corrigé automatiquement** : rien.
+**Enrichissement (point 12)** : au-dessus du seuil, rien à faire.
+**Réécritures et compléments de clarté** : aucun (plusieurs phrases longues
+repérées mais denses/claires plutôt que confuses, aucun sigle non expliqué,
+aucun contexte manquant identifié).
+**Signalé pour revue humaine** :
+1. Source non re-vérifiable — ARTnews, « Contemporary Art Market Declines
+   For Fourth Straight Year » (https://www.artnews.com/art-news/news/
+   contemporary-art-market-cooling-old-masters-report-1234777454/) :
+   `WebFetch` redirige vers `tollbit.artnews.com` puis renvoie HTTP 402
+   Payment Required (paywall). Les chiffres 229,9 M$ (2025, -26,5 %),
+   742,2 M$ (pic 2021), prix moyen 15 629 $ et 21→3 œuvres vendues plus de
+   10 M$ ne sont donc pas re-vérifiés indépendamment ce passage-ci (ni
+   confirmés ni contredits par ailleurs).
    (3 appels `WebFetch` utilisés sur 5 autorisés.)
 **Répercuté côté EN** : rien à répercuter (aucune correction faite côté
 FR).

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revue de presse — Scénario</title>
+<link rel="canonical" href="https://lesscenarios.fr/sources.html">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#10151c">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Scénario">
+<link rel="stylesheet" href="assets/pwa-install.css">
+<meta name="description" content="Les articles croisés pendant la recherche éditoriale de Scénario, jour après jour — factuel, sans avis, en plus des sources déjà citées dans chaque édition.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scénario">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://lesscenarios.fr/sources.html">
+<meta property="og:title" content="Revue de presse — Scénario">
+<meta property="og:description" content="Les articles croisés pendant la recherche éditoriale de Scénario, jour après jour — factuel, sans avis, en plus des sources déjà citées dans chaque édition.">
+<meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
+<meta property="og:image:width" content="2508">
+<meta property="og:image:height" content="1412">
+<meta property="og:image:alt" content="Scénario — trois scénarios chiffrés pour chaque actualité : favorable, stable, dégradé.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Revue de presse — Scénario">
+<meta name="twitter:description" content="Les articles croisés pendant la recherche éditoriale de Scénario, jour après jour — factuel, sans avis, en plus des sources déjà citées dans chaque édition.">
+<meta name="twitter:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --surface: #1a212b;
+    --surface-2: #212a35;
+    --hairline: #2c3644;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+    --favorable: #5e9c78;
+    --stable: #6f8fae;
+    --degrade: #bd6248;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  ::selection{ background: var(--gold); color: var(--ink); }
+
+  :focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header.masthead{
+    border-bottom: 1px solid var(--hairline);
+    padding: 28px 0 22px;
+  }
+
+  .masthead-row{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .wordmark{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+
+  .wordmark span{ color: var(--gold); }
+
+  .brand{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .brand-row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 4px;
+    gap: 11px;
+  }
+
+
+  .brand-mark{
+    width: 30px;
+    height: 30px;
+    display: block;
+    flex: none;
+  }
+
+  nav.topnav{
+    background: var(--surface);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  nav.topnav .wrap{
+    display: flex;
+    gap: 16px;
+    padding: 12px 24px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  nav.topnav .wrap::-webkit-scrollbar{ display: none; }
+
+  .topnav a{ flex-shrink: 0; }
+
+  .topnav a{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+  }
+
+  .topnav a svg{ display: block; flex-shrink: 0; }
+
+  .topnav a:hover{ color: var(--paper); }
+
+  .topnav a[aria-current="page"]{
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  .hero{
+    padding: 64px 0 40px;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .eyebrow{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    margin: 0 0 18px;
+  }
+
+  h1{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+  }
+
+  .dek{
+    font-size: 1.1rem;
+    color: var(--paper-dim);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  section.listing{ padding: 48px 0 64px; }
+
+  /* ---- Outils : recherche + filtres ---- */
+  .glossary-tools{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0 0 34px;
+  }
+
+  .glossary-search{
+    width: 100%;
+    max-width: 440px;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: 11px 14px;
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 0.95rem;
+  }
+  .glossary-search::placeholder{ color: var(--paper-dim); }
+  .glossary-search:focus{ outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  .filter-row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .filter-row-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--paper-dim);
+  }
+
+  .domain-filters{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .filter-chip{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--paper-dim);
+    background: transparent;
+    border: 1px solid var(--hairline);
+    border-radius: 100px;
+    padding: 4px 12px;
+    cursor: pointer;
+    transition: color .15s, border-color .15s, background .15s;
+  }
+  .filter-chip:hover{ color: var(--paper); border-color: var(--paper-dim); }
+  .filter-chip.is-active{
+    color: var(--ink);
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  /* ---- Entrées du lexique ---- */
+  .lex-list{ margin: 0; padding: 0; }
+
+  .lex-entry{
+    padding: 18px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .lex-entry:first-child{ padding-top: 0; }
+  .lex-entry.is-hidden{ display: none; }
+
+  .lex-term{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin: 0 0 6px;
+    color: var(--paper);
+  }
+
+  .lex-def{
+    margin: 0 0 10px;
+    color: var(--paper-dim);
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .lex-meta{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .lex-domain{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 100px;
+    padding: 2px 9px;
+    white-space: nowrap;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+  }
+
+  .lex-source{
+    font-size: 0.78rem;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--paper-dim);
+  }
+  .lex-source:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
+  .no-result{
+    color: var(--paper-dim);
+    font-size: 0.95rem;
+    padding: 10px 0;
+    display: none;
+  }
+  .no-result.is-shown{ display: block; }
+
+  footer{
+    border-top: 1px solid var(--hairline);
+    padding: 32px 0 48px;
+  }
+
+
+  .legal-links{
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin: 24px 0 0;
+  }
+
+  .legal-links a{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+  }
+
+  .legal-links a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
+
+  footer .caveat{
+    font-size: 0.84rem;
+    color: var(--paper-dim);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  /* ---------- Nous suivre (ancre du menu #nous-suivre) ---------- */
+  section.follow-block{
+    padding: 28px 0 32px;
+    border-top: 1px dashed var(--hairline);
+  }
+  .follow-block-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin: 0 0 14px;
+  }
+  .follow-block-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .follow-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: var(--gold);
+    background: transparent;
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    padding: 8px 16px;
+    flex-shrink: 0;
+    transition: background .15s, color .15s;
+  }
+  .follow-btn:hover{ background: var(--gold); color: var(--ink); }
+  .follow-btn svg{ display: block; flex-shrink: 0; }
+
+  /* ---- Hero avec photo de fond [AJOUTÉ le 31 août 2026, même traitement que
+     archives.html/le-projet.html] — .glossaire-hero s'ajoute à .hero partagé,
+     ne le modifie pas, donc n'affecte aucune autre page (y compris les pages
+     thématiques, qui extraient aussi ce <style> — voir generate_theme_pages.py).
+     Bibliothèque de recherche du Rijksmuseum, Amsterdam (licence Pexels,
+     crédit dans assets/social/pub-photos/credits.json) — le tiers gauche
+     est déjà noir nativement, dégradé léger seulement. */
+  .hero.glossaire-hero{
+    position: relative;
+    padding: 96px 0 60px;
+    background:
+      linear-gradient(180deg, rgba(16,21,28,0.3) 0%, rgba(16,21,28,0.78) 70%, var(--ink) 100%),
+      url('assets/social/pub-photos/vocabulaire.jpg') left center / cover no-repeat;
+  }
+
+  .hero.glossaire-hero .eyebrow,
+  .hero.glossaire-hero h1,
+  .hero.glossaire-hero .dek{
+    position: relative;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 600px){
+    .hero.glossaire-hero{ padding: 64px 0 44px; }
+  }
+
+  /* ---- Revue de presse (scripts/seo/generate_sources_page.py) ---- */
+  /* Photo de fond du hero — dédiée à cette page (pas la photo générique
+     forêt d'archives.html), même logique que vision-avenir.jpg/
+     vocabulaire.jpg/newsletter.jpg/contact.jpg : rue parisienne au
+     coucher du soleil, tour Eiffel en fond (ATHO&GOODLIFE/Pexels,
+     choisie par l'utilisateur — voir assets/social/pub-photos/
+     credits.json). Photo claire/dorée (contrairement à la plupart des
+     autres heros, plus sombres) : dégradé plus soutenu (0.62 en haut)
+     pour garder le texte net. Pas de crédit visible sur la page (même
+     convention qu'archives.html) : le crédit "Photo d'illustration.
+     {photographe}" ne s'applique qu'à la photo qui illustre le sujet
+     d'une édition, pas à un fond décoratif de page utilitaire. */
+  .hero.sources-hero{
+    position: relative;
+    padding: 96px 0 60px;
+    background:
+      linear-gradient(180deg, rgba(16,21,28,0.62) 0%, rgba(16,21,28,0.85) 65%, var(--ink) 100%),
+      url('assets/social/pub-photos/revue-de-presse.jpg') center 38% / cover no-repeat;
+  }
+  .hero.sources-hero .eyebrow,
+  .hero.sources-hero h1,
+  .hero.sources-hero .dek{
+    position: relative;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  }
+  @media (max-width: 600px){
+    .hero.sources-hero{ padding: 64px 0 44px; }
+  }
+  .sources-toolbar{ display:flex; flex-direction:column; gap:14px; margin: 0 0 28px; }
+  .sources-search{
+    width:100%; max-width:480px; background: var(--surface-2); border:1px solid var(--hairline);
+    color: var(--paper); border-radius:6px; padding:10px 14px; font-size:0.92rem; font-family: inherit;
+  }
+  .sources-search:focus{ outline: 2px solid var(--gold); border-color: var(--gold); }
+  .sources-filter-row{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+  .sources-filter-label{
+    font-family:"JetBrains Mono",monospace; font-size:0.68rem; text-transform:uppercase;
+    letter-spacing:0.06em; color: var(--paper-dim); margin-right:2px;
+  }
+  .sources-day{ margin: 0 0 8px; }
+  .sources-day-label{
+    display:block; font-family:"JetBrains Mono",monospace; font-size:0.8rem; text-transform:uppercase;
+    letter-spacing:0.08em; color: var(--paper-dim); padding: 22px 4px 4px; scroll-margin-top: 90px;
+  }
+  .sources-row{
+    display:flex; gap:20px; padding:18px 4px; border-bottom:1px solid var(--hairline);
+  }
+  .sources-row.is-hidden{ display:none; }
+  .sources-photo{
+    background-color: var(--surface-2);
+    background-image: repeating-linear-gradient(135deg, rgba(207,157,76,0.05) 0px, rgba(207,157,76,0.05) 1px, transparent 1px, transparent 14px);
+    border-radius:6px; flex: 0 0 140px; width:140px; height:104px;
+    overflow:hidden;
+  }
+  .sources-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .sources-content{ display:flex; flex-direction:column; gap:6px; flex:1; min-width:0; }
+  .sources-domain{
+    font-family:"JetBrains Mono",monospace; font-size:0.68rem; text-transform:uppercase;
+    letter-spacing:0.06em; color: var(--gold);
+  }
+  .sources-title{ font-size:1.02rem; font-weight:600; color: var(--paper); line-height:1.35; margin:0; }
+  .sources-title a{ color: inherit; text-decoration:none; }
+  .sources-title a:hover{ text-decoration:underline; }
+  .sources-meta{ font-family:"JetBrains Mono",monospace; font-size:0.74rem; color: var(--paper-dim); }
+  .sources-summary{ margin:2px 0 4px; color: var(--paper-dim); font-size:0.9rem; }
+  .sources-readlink{ font-family:"JetBrains Mono",monospace; font-size:0.8rem; color: var(--gold); text-decoration:none; }
+  .sources-readlink:hover{ text-decoration:underline; }
+  .sources-empty{ color: var(--paper-dim); font-size:0.95rem; padding: 24px 4px; }
+  .sources-empty.is-hidden{ display:none; }
+  .sources-next{ text-align:center; padding-top:24px; }
+  .sources-next span{ font-family:"JetBrains Mono",monospace; font-size:0.78rem; color: var(--paper-dim); }
+  @media (max-width: 560px){
+    .sources-row{ flex-direction:column; }
+    .sources-photo{ width:100%; height:160px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <div class="brand">
+      <div class="brand-row">
+        <img class="brand-mark" src="assets/logo.svg" alt="">
+        <a class="wordmark" href="index.html">Scéna<span>rio</span></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="index.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"/></svg> Accueil</a>
+    <a href="archives.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4.5" width="16" height="4" rx="1"/><path d="M5 8.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5"/><line x1="10" y1="13" x2="14" y2="13"/></svg> Archives</a>
+    <a href="glossaire.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5c-1.6-1.2-3.7-1.7-6-1.7v13c2.3 0 4.4.5 6 1.7 1.6-1.2 3.7-1.7 6-1.7v-13c-2.3 0-4.4.5-6 1.7Z"/><line x1="12" y1="6.5" x2="12" y2="19.5"/></svg> Glossaire</a>
+    <a href="le-projet.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4.5-8 4.5-8-4.5Z"/><path d="m4 12 8 4.5 8-4.5"/><path d="m4 16.5 8 4.5 8-4.5"/></svg> Le projet</a>
+    <a href="newsletter.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M4.5 7 12 12.5 19.5 7"/></svg> Newsletter</a>
+    <a href="contact.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6.5A1.5 1.5 0 0 1 5.5 5h13A1.5 1.5 0 0 1 20 6.5v8a1.5 1.5 0 0 1-1.5 1.5H10l-4 3.5V16H5.5A1.5 1.5 0 0 1 4 14.5Z"/></svg> Contact</a>
+    <a href="#nous-suivre"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg> Nous suivre</a>
+    <a href="https://buymeacoffee.com/scenario" target="_blank" rel="noopener noreferrer" style="color:var(--gold)"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v6a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4Z"/><path d="M16 10.5h1.5a2 2 0 0 1 0 4H16"/><path d="M8.5 4.5c-.6.7-.6 1.3 0 2M12 4.5c-.6.7-.6 1.3 0 2"/></svg> Soutenir</a>
+  </div>
+</nav>
+
+<section class="hero sources-hero">
+  <div class="wrap">
+    <p class="eyebrow">Revue de presse</p>
+    <h1>Ce qu'on a lu</h1>
+    <p class="dek">Les articles croisés pendant la recherche du jour, en plus des sources déjà citées dans l'édition — jamais un avis dessus, juste ce que les autres racontent.</p>
+  </div>
+</section>
+
+<section class="listing">
+  <div class="wrap">
+    <div class="sources-toolbar">
+      <input type="text" id="sources-search" class="sources-search" placeholder="Rechercher un article, une source, un mot-clé…">
+      <div class="sources-filter-row">
+        <span class="sources-filter-label">Domaine</span>
+        <div class="domain-filters" id="domain-filters" data-field="domain">
+<button type="button" class="filter-chip is-active" data-filter="all">Tous</button><button type="button" class="filter-chip" data-filter="culture-divertissement">Culture & divertissement</button>
+        </div>
+      </div>
+      <div class="sources-filter-row">
+        <span class="sources-filter-label">Langue</span>
+        <div class="domain-filters" id="lang-filters" data-field="lang">
+<button type="button" class="filter-chip is-active" data-filter="all">Tous</button><button type="button" class="filter-chip" data-filter="en">English</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sources-day" id="2026-09-05">
+      <span class="sources-day-label">samedi 5 septembre 2026</span>
+      <div class="sources-row" data-domain="culture-divertissement" data-lang="en" data-search="state of the art market in 2026: are we collapsing or correcting? monocle la galerie pace a réduit ses effectifs de 20 % dans le monde et cessé de représenter 50 artistes ; l&#x27;article défend une lecture de « correction » plutôt que d&#x27;effondrement, avec un possible retour à un marché moins dépendant des foires.">
+        <div class="sources-photo"><img src="https://monocle.com/wp-content/uploads/2026/08/CHRISTIES_ADVANCE_Hunter-Abrams_CROP.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.style.display='none'"></div>
+        <div class="sources-content">
+          <span class="sources-domain">Culture & divertissement</span>
+          <p class="sources-title"><a href="https://monocle.com/culture/art/state-of-the-art-market-2026/" target="_blank" rel="noopener noreferrer">State of the art market in 2026: Are we collapsing or correcting?</a></p>
+          <span class="sources-meta">Monocle · 05.09.2026 · 6 min · <span title="English">EN</span></span>
+          <p class="sources-summary">La galerie Pace a réduit ses effectifs de 20 % dans le monde et cessé de représenter 50 artistes ; l&#x27;article défend une lecture de « correction » plutôt que d&#x27;effondrement, avec un possible retour à un marché moins dépendant des foires.</p>
+          <a href="https://monocle.com/culture/art/state-of-the-art-market-2026/" target="_blank" rel="noopener noreferrer" class="sources-readlink">Lire l'article ↗</a>
+        </div>
+      </div>
+      <div class="sources-row" data-domain="culture-divertissement" data-lang="en" data-search="auction sales fall 6 percent for first half of 2025, according to arttactic report artnews un an avant le rebond de 2026, les ventes aux enchères mondiales reculaient encore de 6 % au premier semestre 2025 — un rappel que la reprise du sommet du marché est très récente et pourrait ne pas durer.">
+        <div class="sources-photo"><img src="https://www.artnews.com/wp-content/uploads/2025/05/Auctioneer-Yu-Ge-Wang-sells-Miss-January-by-Marlene-Dumas-for-13.webp?w=1024" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.style.display='none'"></div>
+        <div class="sources-content">
+          <span class="sources-domain">Culture & divertissement</span>
+          <p class="sources-title"><a href="https://www.artnews.com/art-news/market/global-auction-sales-h1-2025-arttactic-analysis-1234747389/" target="_blank" rel="noopener noreferrer">Auction sales fall 6 percent for first half of 2025, according to ArtTactic report</a></p>
+          <span class="sources-meta">ARTnews · 05.09.2026 · 4 min · <span title="English">EN</span></span>
+          <p class="sources-summary">Un an avant le rebond de 2026, les ventes aux enchères mondiales reculaient encore de 6 % au premier semestre 2025 — un rappel que la reprise du sommet du marché est très récente et pourrait ne pas durer.</p>
+          <a href="https://www.artnews.com/art-news/market/global-auction-sales-h1-2025-arttactic-analysis-1234747389/" target="_blank" rel="noopener noreferrer" class="sources-readlink">Lire l'article ↗</a>
+        </div>
+      </div>
+      <div class="sources-row" data-domain="culture-divertissement" data-lang="en" data-search="the year in gallery closures: a collapse or a transition to a smarter market? artnews un bilan des nombreuses fermetures de galeries en 2025 (dont marlborough et simon lee), qui distingue les maisons emportées par la conjoncture de celles qui ferment pour se réinventer sous un autre format.">
+        <div class="sources-photo"><img src="https://www.artnews.com/wp-content/uploads/2025/12/sorry-were-closed.jpg?w=1000" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.style.display='none'"></div>
+        <div class="sources-content">
+          <span class="sources-domain">Culture & divertissement</span>
+          <p class="sources-title"><a href="https://www.artnews.com/art-news/news/2025-gallery-closures-collapse-transition-smarter-market-1234765872/" target="_blank" rel="noopener noreferrer">The Year in Gallery Closures: A Collapse or a Transition to a Smarter Market?</a></p>
+          <span class="sources-meta">ARTnews · 05.09.2026 · 5 min · <span title="English">EN</span></span>
+          <p class="sources-summary">Un bilan des nombreuses fermetures de galeries en 2025 (dont Marlborough et Simon Lee), qui distingue les maisons emportées par la conjoncture de celles qui ferment pour se réinventer sous un autre format.</p>
+          <a href="https://www.artnews.com/art-news/news/2025-gallery-closures-collapse-transition-smarter-market-1234765872/" target="_blank" rel="noopener noreferrer" class="sources-readlink">Lire l'article ↗</a>
+        </div>
+      </div>
+    </div>
+<p class="sources-empty is-hidden" id="sources-no-result">Aucun article ne correspond à ces filtres.</p>
+    <div class="sources-next"><span>Prochaine revue de presse demain, 7h</span></div>
+    <p style="margin-top:28px"><a href="index.html" style="color:var(--gold);text-decoration:none">← Retour à l'accueil</a></p>
+  </div>
+</section>
+
+<section class="follow-block" id="nous-suivre">
+  <div class="wrap">
+    <p class="follow-block-label">Nous suivre</p>
+    <div class="follow-block-row">
+      <a class="follow-btn" href="https://x.com/scenario_fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="4" x2="20" y2="20"></line><line x1="20" y1="4" x2="4" y2="20"></line></svg> X</a>
+      <a class="follow-btn" href="https://bsky.app/profile/scenario-actu.bsky.social" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"></path></svg> Bluesky</a>
+      <a class="follow-btn" href="https://www.linkedin.com/company/136694258/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"></rect><circle cx="7.7" cy="7.6" r="1.3" fill="currentColor"></circle><line x1="7.7" y1="10.6" x2="7.7" y2="17.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></line><path d="M11.6 17.3v-4.2c0-1.5 1-2.4 2.3-2.4s2.3.9 2.3 2.4v4.2M11.6 10.6v.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg> LinkedIn</a>
+      <a class="follow-btn" href="https://www.facebook.com/share/1DZVhe3KtR/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="6" fill="#000" stroke="currentColor" stroke-width="1"></rect><rect x="10.3" y="9.5" width="2.4" height="9" fill="#fff"></rect><rect x="10.3" y="6" width="4.7" height="2.6" rx="1" fill="#fff"></rect><rect x="7.8" y="11.6" width="6.5" height="2" fill="#fff"></rect></svg> Facebook</a>
+      <a class="follow-btn" href="https://www.instagram.com/scenarios.actu/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> Instagram</a>
+      <a class="follow-btn" href="https://t.me/scenario_fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M2 12l19-9-7 19-3-7-6-3z"/></svg> Telegram</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="legal-links">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var rows = Array.prototype.slice.call(document.querySelectorAll('.sources-row'));
+    var days = Array.prototype.slice.call(document.querySelectorAll('.sources-day'));
+    var noResult = document.getElementById('sources-no-result');
+    var searchInput = document.getElementById('sources-search');
+    var active = { domain: 'all', lang: 'all', q: '' };
+
+    ['domain-filters', 'lang-filters'].forEach(function(groupId){
+      var box = document.getElementById(groupId);
+      if(!box){ return; }
+      var field = box.dataset.field;
+      box.querySelectorAll('.filter-chip').forEach(function(chip){
+        chip.addEventListener('click', function(){
+          active[field] = chip.dataset.filter;
+          box.querySelectorAll('.filter-chip').forEach(function(c){
+            c.classList.toggle('is-active', c === chip);
+          });
+          apply();
+        });
+      });
+    });
+
+    if(searchInput){
+      searchInput.addEventListener('input', function(){
+        active.q = searchInput.value.trim().toLowerCase();
+        apply();
+      });
+    }
+
+    function apply(){
+      var visible = 0;
+      rows.forEach(function(row){
+        var show = (active.domain === 'all' || row.dataset.domain === active.domain)
+          && (active.lang === 'all' || row.dataset.lang === active.lang)
+          && (active.q === '' || row.dataset.search.indexOf(active.q) !== -1);
+        row.classList.toggle('is-hidden', !show);
+        if(show){ visible++; }
+      });
+      // Un jour sans aucune ligne visible (filtré à vide) disparaît lui aussi,
+      // sinon l'en-tête de date resterait affiché au-dessus de rien.
+      days.forEach(function(day){
+        var anyVisible = Array.prototype.slice.call(day.querySelectorAll('.sources-row'))
+          .some(function(r){ return !r.classList.contains('is-hidden'); });
+        day.classList.toggle('is-hidden', !anyVisible);
+      });
+      if(noResult){ noResult.classList.toggle('is-hidden', visible !== 0); }
+    }
+
+    apply();
+  })();
+</script>
+
+<script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+<script src="assets/pwa-install.js" defer></script>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(function (OneSignal) {
+    OneSignal.init({
+      appId: "1f47412d-5688-4ce7-8288-df1ed44bdad3",
+      serviceWorkerPath: "OneSignalSDKWorker.js",
+    });
+  });
+</script>
+</body>
+</html>

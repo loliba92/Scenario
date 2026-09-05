@@ -60,14 +60,20 @@ mériter une page de suivi ou une mise à jour.
   Dernière vérification : 14 août 2026 (V1).
 
 - **FIFA : la crise autour d'Infantino** (édition du 6 août 2026)
-  Suivi existant : `suivi/fifa-infantino.html` (V0 + V1 au 8 août).
+  Suivi existant : `suivi/fifa-infantino.html` (V0 + V1 au 8 août + V2 au
+  5 septembre, publiée automatiquement par la routine de détection —
+  écart de -22 points sur le scénario de motion de défiance). V2 intègre
+  la décision de l'UEFA, le 26 août, de renoncer à formaliser une motion
+  de défiance (159 voix sur 211 jugées hors de portée) et de mettre fin à
+  sa menace de boycott, en échange de la garantie que la cession de
+  droits commerciaux de la Coupe du monde ne serait pas relancée — elle
+  se replie sur le soutien à un candidat unique pour l'élection ordinaire.
   Prochaine échéance connue : date limite de candidature à la présidence
   de la FIFA le **18 novembre 2026**, puis élection le **18 mars 2027**.
-  À surveiller aussi : un éventuel dépôt formel de motion de défiance par
-  l'UEFA (déclencherait un congrès extraordinaire sous 3 mois), l'entrée
-  en lice d'un candidat de poids (Montagliani, Ceferin...), et toute
-  suite donnée au scandale du paiement UEFA à une ex-employée.
-  Dernière vérification : 8 août 2026 (V1).
+  À surveiller aussi : l'entrée en lice d'un candidat de poids soutenu
+  par l'UEFA (Montagliani, Ceferin...), et toute suite donnée au scandale
+  du paiement UEFA à une ex-employée.
+  Dernière vérification : 5 septembre 2026 (V2).
 
 - **Iran–États-Unis : la trêve tient-elle encore ?** (édition du 27
   juillet 2026)
@@ -91,20 +97,21 @@ mériter une page de suivi ou une mise à jour.
   Dernière vérification : 28 août 2026 (V2).
 
 - **Le cinéma reprend des couleurs** (édition du 8 août 2026)
-  Suivi existant : `suivi/cinema-france.html` (V0 + V1 au 22 août, publiée
-  automatiquement par la routine de détection — écart de -32 points sur
-  le scénario stable, +20 points sur le dégradé). V1 intègre le record
-  absolu de fréquentation estivale (semaine du 29 juillet-4 août, 6,5 M
-  d'entrées) et la tenue dans la durée de « L'Odyssée » et « Spider-Man :
-  Brand New Day » (chacun >6 M d'entrées), qui invalident quasiment le
-  scénario d'un rebond qui s'essoufflerait dès l'été.
+  Suivi existant : `suivi/cinema-france.html` (V0 + V1 au 22 août + V2 au
+  4 septembre, publiée automatiquement par la routine de détection —
+  écart de -35 points sur le scénario dégradé, +16 points sur le
+  favorable). V2 intègre le record CNC du 2 septembre : 19,94 M d'entrées
+  en salle en août 2026, meilleur mois d'août depuis le début des relevés
+  statistiques en 1980 (double d'août 2025), portant le cumul annuel à
+  127,92 M d'entrées (+28,5 % sur un an) — ce qui invalide quasiment
+  l'hypothèse d'un rebond qui s'arrêterait à la rentrée.
   Prochaine échéance connue : la rentrée cinéma (sorties américaines de
   fin août à décembre — The Dog Stars, Digger, Avengers : Doomsday, Dune :
   Messiah), seule inconnue restante pour savoir si le rebond annuel tient
   (bilan CNC attendu en début d'année 2027). À surveiller aussi : toute
   mise à jour du classement des entrées 2026 et de la part de marché du
   cinéma français.
-  Dernière vérification : 22 août 2026 (V1).
+  Dernière vérification : 4 septembre 2026 (V2).
 
 - **Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ?**
   (édition du 30 juillet 2026)
@@ -149,6 +156,8 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 05.09.2026 — [Marché de l'art : records en haut, fermetures en bas](../archives/2026-09-05.html)
+- 04.09.2026 — [Lune : Washington et Pékin relancent la course](../archives/2026-09-04.html)
 - 03.09.2026 — [Wall Street : la hausse peut-elle durer ?](../archives/2026-09-03.html)
 - 02.09.2026 — [Pesticides interdits : l'Anses peut-elle dire non ?](../archives/2026-09-02.html)
 - 01.09.2026 — [Présidentielle 2027 : qui peut vraiment battre le RN ?](../archives/2026-09-01.html)

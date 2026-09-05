@@ -430,6 +430,44 @@
       </div>
     </div>
 
+    <div class="version is-update">
+      <div class="version-head">
+        <span class="version-tag">V2 — Mise à jour</span>
+        <span class="version-date">4 septembre 2026</span>
+        <button type="button" class="version-toggle" aria-expanded="false" aria-controls="version-content-v2">Détails <span class="version-toggle-icon" aria-hidden="true">▾</span></button>
+      </div>
+      <div class="version-content" id="version-content-v2">
+        <div class="version-content-inner">
+        <h2 class="version-title">Le mois d'août bat un nouveau record absolu, la rentrée n'a pas cassé le rebond</h2>
+        <div class="version-body">
+        <p>Le CNC a confirmé, le 2 septembre, un nouveau record absolu : 19,94 M d'entrées en salle en août 2026, le meilleur mois d'août depuis le début des relevés statistiques en 1980 — le double d'août 2025 (9,96 M d'entrées). Le cumul sur les huit premiers mois de l'année atteint désormais 127,92 M d'entrées, en hausse de 28,5 % sur un an, avec une part de marché du film français stable à 37,2 %. Signe que la dynamique se tasse un peu à l'approche de l'automne sans s'effondrer : les prévisionnistes du box-office décrivent la semaine du 2 septembre comme la plus calme depuis le début de l'été, la rentrée scolaire vidant les séances familiales et plusieurs distributeurs ayant décalé leurs grosses sorties à la mi-septembre.</p>
+        <div class="mini-scenarios">
+          <div class="mini-scenario" data-kind="favorable">
+            <p class="mini-scenario-title">🎬 Le rebond tient jusqu'à la fin de l'année</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">58%</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">(vs. 42% en V1)</span></p>
+            <p class="mini-scenario-text">Progresse encore : le mois d'août n'a pas été un simple prolongement de l'été mais un record absolu à lui seul (19,94 M d'entrées), portant le cumul annuel à 127,92 M d'entrées (+28,5 %) — le seuil des 185 M visé par ce scénario est désormais à portée si le rythme se maintient jusqu'à Avengers : Doomsday et Dune : Messiah en décembre.</p>
+          </div>
+          <div class="mini-scenario" data-kind="stable">
+            <p class="mini-scenario-title">🎟️ La reprise s'arrête à mi-chemin</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">32%</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">(vs. 13% en V1)</span></p>
+            <p class="mini-scenario-text">Remonte : la semaine du 2 septembre est la plus calme depuis le début de l'été selon les prévisionnistes du box-office (rentrée scolaire, sorties décalées à la mi-septembre) — un ralentissement saisonnier classique qui laisse une vraie place à un tassement de la croissance d'ici la fin de l'année, sans retomber au niveau de 2025.</p>
+          </div>
+          <div class="mini-scenario" data-kind="degrade">
+            <p class="mini-scenario-title">🍂 Le rebond s'arrête à la rentrée</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">10%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. 45% en V1)</span></p>
+            <p class="mini-scenario-text">S'effondre : l'hypothèse d'un rebond qui s'arrêterait à la rentrée est directement contredite par le nouveau record d'août, qui prolonge une dynamique entamée dès juillet plutôt qu'un simple pic isolé de l'été.</p>
+          </div>
+        </div>
+        <div class="conclusion">
+          <span class="conclusion-label">Conclusion vs V1</span>
+          <p><strong>Le CNC confirme un nouveau record absolu de fréquentation pour un mois d'août (19,94 M d'entrées, jamais atteint depuis le début des relevés en 1980), qui fait chuter "Le rebond s'arrête à la rentrée" de -35 points (10%) et porte "Le rebond tient jusqu'à la fin de l'année" à 58% (+16 points)</strong> — le cumul annuel atteint 127,92 M d'entrées (+28,5 % sur un an) ; nuance : la semaine du 2 septembre, la plus calme depuis le début de l'été selon les prévisionnistes du box-office, montre que le rythme se tasse à l'approche de l'automne, ce qui explique la progression parallèle du scénario médian (+19 points, 32%).</p>
+        </div>
+        <p class="sources-note">Sources : <a href="https://www.cnc.fr/professionnels/communiques-de-presse/avec-pres-de-20-millions-dentrees-dans-les-salles-de-cinema-le-mois-daout-2026-etablit-un-record-depuis-1980_2647280" target="_blank" rel="noopener noreferrer">CNC ↗</a>, <a href="https://www.cnews.fr/culture/2026-09-02/cinema-les-salles-ont-enregistre-en-aout-une-frequentation-jamais-vue-depuis" target="_blank" rel="noopener noreferrer">CNEWS ↗</a>, <a href="https://geekslands.fr/box-office-france-nos-previsions-pour-la-semaine-du-2-septembre-2026/" target="_blank" rel="noopener noreferrer">GeeksLands ↗</a>, <a href="https://www.allocine.fr/article/fichearticle_gen_carticle=1000220944.html" target="_blank" rel="noopener noreferrer">AlloCiné ↗</a></p>
+        </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -484,7 +522,8 @@
   try{
     var evoData = [
       { label: "V0", date: "8 août", favorable: 30, stable: 45, degrade: 25 },
-      { label: "V1", date: "22 août", favorable: 42, stable: 13, degrade: 45 }
+      { label: "V1", date: "22 août", favorable: 42, stable: 13, degrade: 45 },
+      { label: "V2", date: "4 sept.", favorable: 58, stable: 32, degrade: 10 }
     ];
 
     (function renderEvoChart(){

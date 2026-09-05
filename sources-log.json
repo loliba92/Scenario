@@ -1,0 +1,40 @@
+{
+  "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
+  "days": [
+    {
+      "date": "2026-09-05",
+      "articles": [
+        {
+          "title": "State of the art market in 2026: Are we collapsing or correcting?",
+          "source": "Monocle",
+          "url": "https://monocle.com/culture/art/state-of-the-art-market-2026/",
+          "image": "https://monocle.com/wp-content/uploads/2026/08/CHRISTIES_ADVANCE_Hunter-Abrams_CROP.jpg",
+          "lang": "en",
+          "domain": "culture-divertissement",
+          "summary": "La galerie Pace a réduit ses effectifs de 20 % dans le monde et cessé de représenter 50 artistes ; l'article défend une lecture de « correction » plutôt que d'effondrement, avec un possible retour à un marché moins dépendant des foires.",
+          "read_minutes": 6
+        },
+        {
+          "title": "Auction sales fall 6 percent for first half of 2025, according to ArtTactic report",
+          "source": "ARTnews",
+          "url": "https://www.artnews.com/art-news/market/global-auction-sales-h1-2025-arttactic-analysis-1234747389/",
+          "image": "https://www.artnews.com/wp-content/uploads/2025/05/Auctioneer-Yu-Ge-Wang-sells-Miss-January-by-Marlene-Dumas-for-13.webp?w=1024",
+          "lang": "en",
+          "domain": "culture-divertissement",
+          "summary": "Un an avant le rebond de 2026, les ventes aux enchères mondiales reculaient encore de 6 % au premier semestre 2025 — un rappel que la reprise du sommet du marché est très récente et pourrait ne pas durer.",
+          "read_minutes": 4
+        },
+        {
+          "title": "The Year in Gallery Closures: A Collapse or a Transition to a Smarter Market?",
+          "source": "ARTnews",
+          "url": "https://www.artnews.com/art-news/news/2025-gallery-closures-collapse-transition-smarter-market-1234765872/",
+          "image": "https://www.artnews.com/wp-content/uploads/2025/12/sorry-were-closed.jpg?w=1000",
+          "lang": "en",
+          "domain": "culture-divertissement",
+          "summary": "Un bilan des nombreuses fermetures de galeries en 2025 (dont Marlborough et Simon Lee), qui distingue les maisons emportées par la conjoncture de celles qui ferment pour se réinventer sous un autre format.",
+          "read_minutes": 5
+        }
+      ]
+    }
+  ]
+}

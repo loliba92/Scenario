@@ -418,6 +418,44 @@
       </div>
     </div>
 
+    <div class="version is-update">
+      <div class="version-head">
+        <span class="version-tag">V2 — Mise à jour</span>
+        <span class="version-date">5 septembre 2026</span>
+        <button type="button" class="version-toggle" aria-expanded="false" aria-controls="version-content-v2">Détails <span class="version-toggle-icon" aria-hidden="true">▾</span></button>
+      </div>
+      <div class="version-content" id="version-content-v2">
+        <div class="version-content-inner">
+        <h2 class="version-title">L'UEFA renonce à la motion de défiance formelle, mise sur l'élection de mars 2027</h2>
+        <div class="version-body">
+        <p>Le 26 août, l'UEFA a tranché : réunir les 159 voix sur 211 nécessaires pour formaliser une motion de défiance et convoquer un congrès extraordinaire a été jugé irréaliste, et la confédération a mis fin à sa menace de boycott des compétitions FIFA. Elle a obtenu en échange l'assurance que le projet de cession d'une part des droits commerciaux de la Coupe du monde à des investisseurs privés — celui-là même qui avait déclenché la crise en juillet — ne serait pas relancé. L'UEFA change donc de terrain : plutôt qu'un congrès extraordinaire, elle prépare désormais le soutien à un candidat unique face à Infantino lors de l'élection ordinaire du 18 mars 2027.</p>
+        <div class="mini-scenarios">
+          <div class="mini-scenario" data-kind="favorable">
+            <p class="mini-scenario-title">🤝 Infantino regagne la confiance</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">14%</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">(vs. 10% en V1)</span></p>
+            <p class="mini-scenario-text">Progresse un peu : la fin de la menace de boycott et l'abandon de la voie du congrès extraordinaire desserrent la pression sur Infantino, même si l'UEFA reste opposée à sa réélection.</p>
+          </div>
+          <div class="mini-scenario" data-kind="stable">
+            <p class="mini-scenario-title">🧊 La méfiance dure, Infantino reste</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">68%</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">(vs. 50% en V1)</span></p>
+            <p class="mini-scenario-text">Bondit : l'UEFA elle-même écarte la voie de la motion de défiance et se replie sur une candidature électorale classique pour mars 2027 — exactement le scénario d'une méfiance qui dure sans jamais faire chuter Infantino d'ici là.</p>
+          </div>
+          <div class="mini-scenario" data-kind="degrade">
+            <p class="mini-scenario-title">⚡ L'UEFA déclenche la motion de défiance</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">18%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. 40% en V1)</span></p>
+            <p class="mini-scenario-text">S'effondre : l'UEFA a explicitement renoncé à réunir les 159 voix nécessaires, jugeant la démarche irréaliste, et a mis fin à sa menace de boycott — le déclencheur même de ce scénario est désormais écarté par ses propres instigateurs.</p>
+          </div>
+        </div>
+        <div class="conclusion">
+          <span class="conclusion-label">Conclusion vs V1</span>
+          <p><strong>L'UEFA a formellement renoncé, le 26 août, à réunir les 159 voix nécessaires pour une motion de défiance</strong> — jugée irréaliste — et a mis fin à sa menace de boycott en échange de la garantie que la cession de droits commerciaux de la Coupe du monde ne sera pas relancée. Conséquence directe : le scénario ⚡ motion de défiance s'effondre, -22 points (40% → 18%), tandis que 🧊 la méfiance dure, Infantino reste progresse fortement, +18 points (50% → 68%) — l'UEFA se replie sur le soutien à un candidat unique pour l'élection ordinaire de mars 2027 plutôt que sur un congrès extraordinaire. Le favorable 🤝 remonte légèrement, +4 points (10% → 14%).</p>
+        </div>
+        <p class="sources-note">Sources : <a href="https://www.aljazeera.com/sports/2026/8/26/uefa-set-to-end-boycott-of-fifa-events-over-infantinos-failed-selloff" target="_blank" rel="noopener noreferrer">Al Jazeera ↗</a>, <a href="https://www.cbssports.com/soccer/news/uefa-loss-of-confidence-gianni-infantino-fifa-elections/" target="_blank" rel="noopener noreferrer">CBS Sports ↗</a>, <a href="https://sports.yahoo.com/articles/key-dates-decide-gianni-infantino-145751663.html" target="_blank" rel="noopener noreferrer">Yahoo Sports ↗</a></p>
+        </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -470,7 +508,8 @@
   try{
     var evoData = [
       { label: "V0", date: "6 août", favorable: 20, stable: 45, degrade: 35 },
-      { label: "V1", date: "8 août", favorable: 10, stable: 50, degrade: 40 }
+      { label: "V1", date: "8 août", favorable: 10, stable: 50, degrade: 40 },
+      { label: "V2", date: "5 sept.", favorable: 14, stable: 68, degrade: 18 }
     ];
 
     (function renderEvoChart(){

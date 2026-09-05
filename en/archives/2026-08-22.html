@@ -2046,6 +2046,26 @@
   // jamais deux abonnements distincts.
   var onesignalBtns = Array.prototype.slice.call(document.querySelectorAll(".onesignal-subscribe-btn"));
   var onesignalReady = false;
+  var onesignalOptInPromise = null;
+
+  /* [FIXED Sept 4, 2026, user feedback: "I get two identical welcome
+     notifications when subscribing"] `optIn()` was called from two
+     uncoordinated places: here on click, and below in `updateBtn()` —
+     triggered by the `permissionChange` event that `requestPermission()`
+     fires the moment permission turns "granted". Both calls fired
+     almost simultaneously, OneSignal treated it as two distinct
+     subscription creations and sent its welcome notification twice.
+     This lock makes any call while one is still in flight reuse the
+     same promise instead of firing a second one. */
+  function onesignalOptIn() {
+    if (!onesignalOptInPromise) {
+      onesignalOptInPromise = window.OneSignal.User.PushSubscription.optIn().then(
+        function (result) { onesignalOptInPromise = null; return result; },
+        function (err) { onesignalOptInPromise = null; throw err; }
+      );
+    }
+    return onesignalOptInPromise;
+  }
 
   function onesignalSetLabel(text) {
     onesignalBtns.forEach(function (btn) {
@@ -2079,7 +2099,7 @@
           // plus, sinon la permission est accordée mais aucun abonné
           // n'est jamais créé côté serveur.
           if (window.OneSignal.Notifications.permission) {
-            return window.OneSignal.User.PushSubscription.optIn();
+            return onesignalOptIn();
           }
         })
         .catch(function (err) {
@@ -2135,7 +2155,7 @@
           // "activées" sans qu'aucun abonnement n'ait jamais été créé côté
           // serveur (bug constaté le 21 août, retour utilisateur).
           onesignalSetLabel("Finalizing subscription…");
-          OneSignal.User.PushSubscription.optIn().catch(function (err) {
+          onesignalOptIn().catch(function (err) {
             onesignalSetLabel("Error: " + (err && err.message ? err.message : String(err)));
           });
         }
