@@ -350,13 +350,36 @@ actuels sont mono-langue, français) :
 | Push OneSignal | ⚠️ **Point découvert en répondant à cette question** : le bouton notifications sur `en/index.html` utilise le même `appId`/segment que le site français — un lecteur anglophone abonné depuis `en/` reçoit des notifications **en français**. Angle mort du MVP, pas un choix voulu. | Documenté ici ; vraie solution = segments/tags OneSignal par langue, chantier séparé, pas commencé |
 
 **Recommandation d'ensemble : ne créer aucun nouveau compte pour
-l'instant.** La chaîne déjà en place (`en/feed.xml` → Make.com, une fois
-branché) suffit à mesurer une vraie demande sans coût de gestion
+l'instant.** La chaîne déjà en place (`en/feed.xml` → Make.com, branché
+depuis) suffit à mesurer une vraie demande sans coût de gestion
 supplémentaire. Les deux gestes à coût quasi nul et utiles dès
 maintenant : tester des posts EN ponctuels sur X et Bluesky depuis les
 comptes existants, et traiter le trou OneSignal ci-dessus comme une
 limite documentée. Tout le reste (canal Telegram dédié, compte Instagram
 EN, liste newsletter séparée) attend un vrai signal de trafic sur `en/`.
+
+**[CORRIGÉ le 5 septembre 2026] Bug du décalage d'un jour sur les 3
+branches anglaises du scénario Make « Scenario Daily ».** Retour
+utilisateur : « le RSS anglais doit être filtré à la date du jour ».
+Diagnostic confirmé sur un export du blueprint
+(`assets/make/scenario-daily.blueprint.json`) : les branches EN (posts
+du jour, suivis, pub — modules `250`/`204`/`231`, sur `en/feed.xml`/
+`en/feed-suivi.xml`/`en/feed-pub.xml`) sont chaînées comme actions
+(`rss:ActionReadArticles`, une simple lecture de l'état courant, sans
+mémoire) derrière l'**unique** trigger du scénario, qui ne surveille que
+`feed.xml` (français). Comme la traduction anglaise est toujours
+ajoutée à `en/feed.xml` **après** la publication française, dans une
+étape séparée (voir `docs/routine-en-prompt.md`), ces 3 branches
+lisaient systématiquement l'entrée de la veille — jamais celle du jour.
+**Correctif retenu (pas de refonte du scénario, qui fonctionne très
+bien par ailleurs)** : un filtre ajouté sur chacune des 3 routes,
+comparant la date de l'article lu (`pubDate`, formatée `AAAA-MM-JJ`,
+fuseau Europe/Paris) à la date du jour — la branche ne poste que si ça
+correspond, au lieu de poster un contenu périmé. **Nom exact du champ
+`pubDate` à reconfirmer dans l'éditeur Make** (invisible dans le
+blueprint : jamais référencé par aucun module avant ce correctif, donc
+pas d'usage existant à copier) — vérifier au premier import que le
+champ proposé par le panneau de mapping correspond bien, ajuster sinon.
 
 ## À éviter
 
