@@ -60,14 +60,20 @@ mériter une page de suivi ou une mise à jour.
   Dernière vérification : 14 août 2026 (V1).
 
 - **FIFA : la crise autour d'Infantino** (édition du 6 août 2026)
-  Suivi existant : `suivi/fifa-infantino.html` (V0 + V1 au 8 août).
+  Suivi existant : `suivi/fifa-infantino.html` (V0 + V1 au 8 août + V2 au
+  5 septembre, publiée automatiquement par la routine de détection —
+  écart de -22 points sur le scénario de motion de défiance). V2 intègre
+  la décision de l'UEFA, le 26 août, de renoncer à formaliser une motion
+  de défiance (159 voix sur 211 jugées hors de portée) et de mettre fin à
+  sa menace de boycott, en échange de la garantie que la cession de
+  droits commerciaux de la Coupe du monde ne serait pas relancée — elle
+  se replie sur le soutien à un candidat unique pour l'élection ordinaire.
   Prochaine échéance connue : date limite de candidature à la présidence
   de la FIFA le **18 novembre 2026**, puis élection le **18 mars 2027**.
-  À surveiller aussi : un éventuel dépôt formel de motion de défiance par
-  l'UEFA (déclencherait un congrès extraordinaire sous 3 mois), l'entrée
-  en lice d'un candidat de poids (Montagliani, Ceferin...), et toute
-  suite donnée au scandale du paiement UEFA à une ex-employée.
-  Dernière vérification : 8 août 2026 (V1).
+  À surveiller aussi : l'entrée en lice d'un candidat de poids soutenu
+  par l'UEFA (Montagliani, Ceferin...), et toute suite donnée au scandale
+  du paiement UEFA à une ex-employée.
+  Dernière vérification : 5 septembre 2026 (V2).
 
 - **Iran–États-Unis : la trêve tient-elle encore ?** (édition du 27
   juillet 2026)
