@@ -10,6 +10,43 @@ Priorités P1 (fort impact, faible coût) à P3 (utile mais plus lourd ou
 moins prioritaire).
 
 **Distribution / automatisation**
+- **[FAIT le 5 septembre 2026] Intégration Threads (via Buffer) sur le
+  scénario Make « Scenario Daily », complétée sur les 3 branches
+  françaises.** L'utilisateur avait déjà construit et validé le module
+  Threads pour la branche PUB (`buffer:ActionCreateStatus`, id `255`,
+  profil Buffer "Threads (scenarios.actu)", `type: "now"` — post
+  immédiat, contrairement aux modules Twitter équivalents qui postent
+  en différé). Retour utilisateur : « j'ai avancé pour intégrer thread
+  (via buffer) peux-tu compléter sur tout les autres RSS type sauf
+  anglais » — complété par analyse directe du blueprint
+  (`assets/make/scenario-daily.blueprint.json`) :
+  - **Branche Daily** (id `256`) : un module Threads existait déjà à
+    l'état d'ébauche cassée (texte mappé sur l'URL de l'image au lieu
+    du vrai contenu du post) — corrigé pour reprendre exactement le
+    texte/média du module Twitter Daily (id `14`), seuls `type` et
+    `profileIds` changent (mêmes conventions que la branche PUB).
+  - **Branche Suivi** : aucun module Threads n'existait — nouvelle
+    route ajoutée dans le sous-routeur Suivi, copiant le texte/média du
+    module Twitter Suivi (id `24`, "🔄 Un sujet suivi vient d'être mis
+    à jour...").
+  - **Branches anglaises (EN MAIN/SUIVI/PUB) volontairement non
+    modifiées** — demande explicite de l'utilisateur, pas encore de
+    stratégie Threads anglaise (voir `docs/strategie-anglais.md`).
+  **Orphelins retirés dans la foulée** (retour utilisateur : « tu
+  enlèves les orphelins ») : la route 12 du routeur principal (ne
+  contenait qu'un `placeholder:Placeholder`, id `253`, aucun rôle
+  fonctionnel) supprimée du routeur ; les 2 modules que Make lui-même
+  trackait comme orphelins dans `metadata.designer.orphans` — id `248`
+  (`builtin:Ignore`, en erreur : « Directive is outside of an error
+  handler », et non connecté au flux) et id `252`
+  (`placeholder:Placeholder`, non connecté) — retirés après avoir
+  vérifié qu'aucun autre module ne les référençait (`{{248.*}}`/
+  `{{252.*}}`/`{{253.*}}` absents du reste du blueprint). Export final
+  vérifié : 64 modules, aucun doublon d'id, les 3 modules Threads
+  (`255`/`256`/`257`) toujours présents et cohérents entre eux, les 3
+  branches anglaises intactes, avant d'écraser
+  `assets/make/scenario-daily.blueprint.json`.
+
 - **P3 — En standby [dépriorisé le 29 août, retour utilisateur : « pour
   l'instant standby »] — Migrer la newsletter email de Buttondown vers
   OneSignal, idée du 29 août.** **Bloquant identifié le même jour :
