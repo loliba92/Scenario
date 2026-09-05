@@ -2825,6 +2825,18 @@
              "Active Subscriptions",
              "Total Subscriptions",
              "Engaged Subscriptions"
+            ],
+            "additionalParameters": [
+             {
+              "key": "priority",
+              "type": "number",
+              "value": "5"
+             },
+             {
+              "key": "ttl",
+              "type": "number",
+              "value": "259200"
+             }
             ]
            },
            "metadata": {
@@ -5945,6 +5957,18 @@
          "Total Subscriptions",
          "Engaged Subscriptions",
          "Active Subscriptions"
+        ],
+        "additionalParameters": [
+         {
+          "key": "priority",
+          "type": "number",
+          "value": "5"
+         },
+         {
+          "key": "ttl",
+          "type": "number",
+          "value": "259200"
+         }
         ]
        },
        "metadata": {
