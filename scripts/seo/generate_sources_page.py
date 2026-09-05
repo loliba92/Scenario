@@ -18,6 +18,7 @@ Idempotent — peut être relancé après chaque ajout au JSON.
 """
 import html
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -276,6 +277,13 @@ def build_shared_pieces():
     masthead_nav = extract_block(text, '<header class="masthead">', "</nav>")
     masthead_nav = masthead_nav.replace('<a href="glossaire.html" aria-current="page">', '<a href="glossaire.html">')
     follow_footer = extract_block(text, '<section class="follow-block" id="nous-suivre">', "</footer>")
+    # Le <footer> de glossaire.html porte une légende propre à cette page
+    # ("Ce glossaire est alimenté au fil des éditions...") — ne jamais la
+    # reprendre telle quelle sur une page qui réutilise ce bloc partagé
+    # (bug corrigé le 5 septembre 2026, retour utilisateur : cette légende
+    # fuyait sur sources.html). Seuls masthead/nav/follow-block/legal-links
+    # sont vraiment génériques ; ce <p class="caveat"> ne l'est pas.
+    follow_footer = re.sub(r'\s*<p class="caveat">.*?</p>\n?', '\n', follow_footer, count=1, flags=re.S)
     tail_scripts = extract_block(
         text,
         '<script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>',
