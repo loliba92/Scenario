@@ -3109,10 +3109,10 @@
             "attachment": false,
             "media": {
              "link": "{{ifempty(30.enclosures[].url; \"https://lesscenarios.fr/assets/social/og-image-v2.png\")}}",
-             "title": "{{30.title}}",
-             "picture": "{{ifempty(30.enclosures[].url; \"https://lesscenarios.fr/assets/social/og-image-v2.png\")}}",
-             "thumbnail": "",
-             "description": "{{30.comments}}"
+             "title": "",
+             "description": "",
+             "picture": "",
+             "thumbnail": ""
             }
            },
            "metadata": {
@@ -10692,10 +10692,10 @@
         "attachment": false,
         "media": {
          "link": "{{ifempty(4.enclosures[].url; \"https://lesscenarios.fr/assets/social/og-image-v2.png\")}}",
-         "title": "{{4.title}}",
-         "picture": "{{ifempty(4.enclosures[].url; \"https://lesscenarios.fr/assets/social/og-image-v2.png\")}}",
-         "thumbnail": "",
-         "description": "{{4.description}}"
+         "title": "",
+         "description": "",
+         "picture": "",
+         "thumbnail": ""
         }
        },
        "metadata": {
