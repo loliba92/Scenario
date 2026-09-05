@@ -119,7 +119,9 @@ SOURCES_PAGE_CSS = """
     background-color: var(--surface-2);
     background-image: repeating-linear-gradient(135deg, rgba(207,157,76,0.05) 0px, rgba(207,157,76,0.05) 1px, transparent 1px, transparent 14px);
     border-radius:6px; flex: 0 0 140px; width:140px; height:104px;
+    overflow:hidden;
   }
+  .sources-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
   .sources-content{ display:flex; flex-direction:column; gap:6px; flex:1; min-width:0; }
   .sources-domain{
     font-family:"JetBrains Mono",monospace; font-size:0.68rem; text-transform:uppercase;
@@ -155,9 +157,24 @@ def render_row(day_date, article):
     read_minutes = article.get("read_minutes")
     read_str = f" · {read_minutes} min" if read_minutes else ""
     search_blob = html.escape(f"{article['title']} {article['source']} {article.get('summary', '')}".lower())
+    image = article.get("image", "")
+    # Vignette = image d'origine du média (hotlink, jamais téléchargée/hébergée
+    # chez nous — voir docs/routine-prompt.md, § Revue de presse, pour le
+    # choix assumé et ses limites). referrerpolicy="no-referrer" pour ne pas
+    # divulguer lesscenarios.fr au média distant ; onerror masque la vignette
+    # si le lien casse (image retirée/déplacée côté média) plutôt que de
+    # laisser une icône brisée.
+    if image:
+        photo_html = (
+            f'<div class="sources-photo"><img src="{html.escape(image)}" alt="" loading="lazy" '
+            f'referrerpolicy="no-referrer" '
+            f'onerror="this.parentElement.style.display=\'none\'"></div>'
+        )
+    else:
+        photo_html = '<div class="sources-photo" aria-hidden="true"></div>'
 
     return f"""      <div class="sources-row" data-domain="{domain}" data-lang="{lang}" data-search="{search_blob}">
-        <div class="sources-photo" aria-hidden="true"></div>
+        {photo_html}
         <div class="sources-content">
           <span class="sources-domain">{domain_label}</span>
           <p class="sources-title"><a href="{url}" target="_blank" rel="noopener noreferrer">{title}</a></p>
