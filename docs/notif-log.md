@@ -43,6 +43,36 @@ app (pas de callback `on_notification_received` configuré, ou non
 supporté pour le web push dans ce plan OneSignal) — `successful`/`failed`
 restent les seuls champs à surveiller, `received` est à ignorer.
 
+**Cause d'un échec silencieux persistant côté Make.com, identifiée le 5 septembre —
+le module OneSignal du scénario Make ne renseigne jamais `priority`/`ttl`.**
+L'utilisateur ne recevait plus aucune notification quotidienne (envoyée par Make
+depuis le 23 août, voir plus haut) alors qu'OneSignal rapportait `successful`
+à 100% à chaque fois — mais confirmait recevoir sans problème un envoi composé
+directement dans le dashboard OneSignal. Diagnostic par comparaison de payloads
+bruts (`GET /notifications/{id}`) entre un envoi dashboard réussi et un envoi
+API :
+- Dashboard (toujours reçu) : `priority: 5`, `ttl: 259200`.
+- Envoi automatique quotidien via Make (jamais reçu) : `priority: null`, `ttl: null`.
+- Test API reproduisant le dashboard (`included_segments: ['Total Subscriptions']`,
+  `priority: 5`, `ttl: 259200`) : reçu par l'utilisateur, confirmé en direct.
+- Un test API sans `priority`/`ttl` (ciblage par `include_player_ids`) n'est en
+  revanche jamais arrivé, malgré `successful: 7` côté OneSignal.
+
+Sans `priority` explicite, Android traite l'envoi comme basse priorité et le
+bloque en arrière-plan (Doze/économie de batterie) au lieu de réveiller Chrome
+pour l'afficher — alors que le dashboard OneSignal met `priority: 5` par défaut
+à chaque envoi manuel, ce qui expliquait pourquoi seuls les envois manuels
+fonctionnaient. **`successful`/HTTP 200 ne suffit donc pas à garantir un
+affichage réel sur Android** si `priority` n'est pas fixé — piège distinct de
+celui du champ `received` documenté plus haut (23 août), qui lui n'a jamais été
+fiable pour signaler un problème quel qu'il soit sur cette app.
+
+**Correction à faire côté Make.com (hors dépôt) :** dans le module OneSignal du
+scénario « Daily », renseigner explicitement `priority: 5` et `ttl: 259200`
+(3 jours, en secondes) dans les champs avancés de la requête — pas de fichier
+du dépôt à modifier pour cette partie, l'envoi push ne vit plus ici depuis le
+23 août.
+
 **Format d'une ligne** : `{AAAA-MM-JJ} — {✅/⚠️/❌} {résultat}`
 - ✅ : notification créée côté OneSignal (id renvoyé par l'API).
 - ⚠️ : clé API absente dans l'environnement de la routine ce jour-là — étape
