@@ -518,10 +518,56 @@
 
 <section class="listing">
   <div class="wrap">
+    <div class="sources-toolbar">
+      <input type="text" id="sources-search" class="sources-search" placeholder="Rechercher un article, une source, un mot-clé…">
+      <div class="sources-filter-row">
+        <span class="sources-filter-label">Domaine</span>
+        <div class="domain-filters" id="domain-filters" data-field="domain">
+<button type="button" class="filter-chip is-active" data-filter="all">Tous</button><button type="button" class="filter-chip" data-filter="culture-divertissement">Culture & divertissement</button>
+        </div>
+      </div>
+      <div class="sources-filter-row">
+        <span class="sources-filter-label">Langue</span>
+        <div class="domain-filters" id="lang-filters" data-field="lang">
+<button type="button" class="filter-chip is-active" data-filter="all">Tous</button><button type="button" class="filter-chip" data-filter="en">English</button>
+        </div>
+      </div>
+    </div>
 
-<p class="sources-empty">Rien pour l'instant — la revue de presse s'enrichit d'un jour à l'autre, revenez bientôt.</p>
-
-
+    <div class="sources-day" id="2026-09-05">
+      <span class="sources-day-label">samedi 5 septembre 2026</span>
+      <div class="sources-row" data-domain="culture-divertissement" data-lang="en" data-search="state of the art market in 2026: are we collapsing or correcting? monocle la galerie pace a réduit ses effectifs de 20 % dans le monde et cessé de représenter 50 artistes ; l&#x27;article défend une lecture de « correction » plutôt que d&#x27;effondrement, avec un possible retour à un marché moins dépendant des foires.">
+        <div class="sources-photo" aria-hidden="true"></div>
+        <div class="sources-content">
+          <span class="sources-domain">Culture & divertissement</span>
+          <p class="sources-title"><a href="https://monocle.com/culture/art/state-of-the-art-market-2026/" target="_blank" rel="noopener noreferrer">State of the art market in 2026: Are we collapsing or correcting?</a></p>
+          <span class="sources-meta">Monocle · 05.09.2026 · 6 min · <span title="English">EN</span></span>
+          <p class="sources-summary">La galerie Pace a réduit ses effectifs de 20 % dans le monde et cessé de représenter 50 artistes ; l&#x27;article défend une lecture de « correction » plutôt que d&#x27;effondrement, avec un possible retour à un marché moins dépendant des foires.</p>
+          <a href="https://monocle.com/culture/art/state-of-the-art-market-2026/" target="_blank" rel="noopener noreferrer" class="sources-readlink">Lire l'article ↗</a>
+        </div>
+      </div>
+      <div class="sources-row" data-domain="culture-divertissement" data-lang="en" data-search="auction sales fall 6 percent for first half of 2025, according to arttactic report artnews un an avant le rebond de 2026, les ventes aux enchères mondiales reculaient encore de 6 % au premier semestre 2025 — un rappel que la reprise du sommet du marché est très récente et pourrait ne pas durer.">
+        <div class="sources-photo" aria-hidden="true"></div>
+        <div class="sources-content">
+          <span class="sources-domain">Culture & divertissement</span>
+          <p class="sources-title"><a href="https://www.artnews.com/art-news/market/global-auction-sales-h1-2025-arttactic-analysis-1234747389/" target="_blank" rel="noopener noreferrer">Auction sales fall 6 percent for first half of 2025, according to ArtTactic report</a></p>
+          <span class="sources-meta">ARTnews · 05.09.2026 · 4 min · <span title="English">EN</span></span>
+          <p class="sources-summary">Un an avant le rebond de 2026, les ventes aux enchères mondiales reculaient encore de 6 % au premier semestre 2025 — un rappel que la reprise du sommet du marché est très récente et pourrait ne pas durer.</p>
+          <a href="https://www.artnews.com/art-news/market/global-auction-sales-h1-2025-arttactic-analysis-1234747389/" target="_blank" rel="noopener noreferrer" class="sources-readlink">Lire l'article ↗</a>
+        </div>
+      </div>
+      <div class="sources-row" data-domain="culture-divertissement" data-lang="en" data-search="the year in gallery closures: a collapse or a transition to a smarter market? artnews un bilan des nombreuses fermetures de galeries en 2025 (dont marlborough et simon lee), qui distingue les maisons emportées par la conjoncture de celles qui ferment pour se réinventer sous un autre format.">
+        <div class="sources-photo" aria-hidden="true"></div>
+        <div class="sources-content">
+          <span class="sources-domain">Culture & divertissement</span>
+          <p class="sources-title"><a href="https://www.artnews.com/art-news/news/2025-gallery-closures-collapse-transition-smarter-market-1234765872/" target="_blank" rel="noopener noreferrer">The Year in Gallery Closures: A Collapse or a Transition to a Smarter Market?</a></p>
+          <span class="sources-meta">ARTnews · 05.09.2026 · 5 min · <span title="English">EN</span></span>
+          <p class="sources-summary">Un bilan des nombreuses fermetures de galeries en 2025 (dont Marlborough et Simon Lee), qui distingue les maisons emportées par la conjoncture de celles qui ferment pour se réinventer sous un autre format.</p>
+          <a href="https://www.artnews.com/art-news/news/2025-gallery-closures-collapse-transition-smarter-market-1234765872/" target="_blank" rel="noopener noreferrer" class="sources-readlink">Lire l'article ↗</a>
+        </div>
+      </div>
+    </div>
+<p class="sources-empty is-hidden" id="sources-no-result">Aucun article ne correspond à ces filtres.</p>
     <div class="sources-next"><span>Prochaine revue de presse demain, 7h</span></div>
     <p style="margin-top:28px"><a href="index.html" style="color:var(--gold);text-decoration:none">← Retour à l'accueil</a></p>
   </div>
