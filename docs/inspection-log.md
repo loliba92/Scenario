@@ -2096,3 +2096,70 @@ aucun contexte manquant identifié).
    (3 appels `WebFetch` utilisés sur 5 autorisés.)
 **Répercuté côté EN** : rien à répercuter (aucune correction faite côté
 FR).
+
+## 2026-09-05 — Marché de l'art : records en haut, fermetures en bas
+
+**Vérifié** : édition du jour confirmée à jour (`.edition`/`.pubdate`
+5 septembre 2026 côté FR et EN), CSS complet (`.essentiel-box`,
+`.stakes-box`, `.question-box`, `.list-box`, `.comprendre-box`, `.card`,
+`.gauge*`, `.article-image*`, `.france-line` tous présents dans le
+`<style>` ; `.delta-france`/`.delta-gauge*`/`.delta-word`/`.delta-flag`
+identiques au bloc canonique de ce fichier, dégradé SVG à 3 stops et
+`data-score="-0.70"` présents), sync `index.html`/
+`archives/2026-09-05.html` et `en/index.html`/
+`en/archives/2026-09-05.html` (seuls écarts : chemins relatifs internes et
+`og:url`/`mainEntityOfPage`, légitimes), `data-france-impact` des 3 cartes
+cohérent avec le texte `.france-line` adjacent (favorable/dégradé/dégradé,
+flèches et formulations concordantes), probabilités 15+55+30=100 %, label
+brut favorable/stable/dégradé absent des 4 paragraphes `.essentiel-text`,
+formulation « Notre évaluation de l'impact pour la France » intacte,
+lexique (5 `.lex-ref` ↔ 5 entrées, aucun terme orphelin dans un sens ou
+l'autre), absence de tutoiement hors `.share-block` (grep ciblé : 2
+correspondances trouvées, l'une dans un commentaire de code « ton sur
+ton », l'autre dans le bloc Telegram légitime — aucune dans du texte
+d'édition visible hors exception), les 2 indicateurs `.evo-current` des 3
+cartes de scénario (ventes aux enchères, ventes d'art ultra-contemporain)
+distincts sur les deux à la fois pour chaque paire — aucun doublon complet
+(point 10 sans objet), image de l'article et du feed présentes et bien
+formées (`assets/social/topic-images/2026-09-05.jpg` 1080×1080 et
+`-wide.jpg` 1600×900, réels JPEG conformes à l'extension ;
+`assets/social/instagram/2026-09-05.png` 1080×1080, réel PNG conforme à
+l'extension, utilisé pour `og:image`/`twitter:image`/JSON-LD `"image"`,
+identique côté EN avec la même image large partagée — convention actuelle
+du site déjà signalée hors périmètre le 2 septembre, non retraitée ici),
+`suivi/fifa-infantino.html` seul fichier `suivi/` touché aujourd'hui —
+origin-link vers `archives/2026-08-06.html` valide, dernier bloc de
+version (V2, 5 septembre 2026) avec date reconnaissable et 3
+`.mini-scenario` munis chacun d'un `.evo-current` ; `archives.html` déjà
+régénéré et affiche bien 68 % / Stable pour ce sujet (point 11 sans
+anomalie), style des paragraphes `.dek`/`.why`/`.essentiel-text` (plusieurs
+phrases de 50 à 68 mots, denses en chiffres mais syntaxiquement claires —
+aucune jugée gênante pour la compréhension, aucun sigle non expliqué,
+Newhouse déjà introduit dans « Les faits » avant sa reprise dans la carte
+favorable), longueur de l'édition 1440 mots (`.dek`+`.why`+`dd`), largement
+au-dessus du seuil de 1100 (point 12 sans objet), chiffres internes vérifiés
+sans incohérence (6,8 Md$ H1 2026, 229,9 M$/742,2 M$ ultra-contemporain,
+2 %/74 270 lots parisiens, probabilités — même fait toujours cité avec la
+même valeur partout où il revient), 3 chiffres/faits structurants vérifiés
+contre 2 des 4 sources citées : Christie's 3,5 Md$ (+71 %), collection
+Newhouse 630,8 M$, Pollock 181,2 M$, Brancusi 107,6 M$, semaine Sotheby's
+908,6 M$ et ventes privées 826 M$ tous conformes à The Art Newspaper ;
+74 270 lots parisiens 2025 et 2 % au-dessus de 61 000 € conformes à
+Artprice.
+**Corrigé automatiquement** : rien.
+**Enrichissement (point 12)** : au-dessus du seuil, rien à faire.
+**Réécritures et compléments de clarté** : aucun (plusieurs phrases longues
+repérées mais denses/claires plutôt que confuses, aucun sigle non expliqué,
+aucun contexte manquant identifié).
+**Signalé pour revue humaine** :
+1. Source non re-vérifiable — ARTnews, « Contemporary Art Market Declines
+   For Fourth Straight Year » (https://www.artnews.com/art-news/news/
+   contemporary-art-market-cooling-old-masters-report-1234777454/) :
+   `WebFetch` redirige vers `tollbit.artnews.com` puis renvoie HTTP 402
+   Payment Required (paywall). Les chiffres 229,9 M$ (2025, -26,5 %),
+   742,2 M$ (pic 2021), prix moyen 15 629 $ et 21→3 œuvres vendues plus de
+   10 M$ ne sont donc pas re-vérifiés indépendamment ce passage-ci (ni
+   confirmés ni contredits par ailleurs).
+   (3 appels `WebFetch` utilisés sur 5 autorisés.)
+**Répercuté côté EN** : rien à répercuter (aucune correction faite côté
+FR).
