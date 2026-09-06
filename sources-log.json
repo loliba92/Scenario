@@ -2,6 +2,51 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-09-06",
+      "articles": [
+        {
+          "title": "Publication de la LOI n° 2026-725 du 3 août 2026 relative à l'organisation, à la gestion et au financement du sport professionnel",
+          "source": "Décideurs du Sport (Patrick Bayeux)",
+          "url": "https://patrickbayeux.com/actualites/publication-de-la-loi-n-2026-725-du-3-aout-2026-relative-a-lorganisation-a-la-gestion-et-au-financement-du-sport-professionnel/",
+          "image": "https://patrickbayeux.com/wp-content/uploads/2023/04/Capture-decran-2023-04-01-a-07.32.16.png",
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Passage en revue article par article de la nouvelle loi : solidarité financière obligatoire entre secteurs masculin et féminin, possibilité de créer deux ligues professionnelles distinctes, plafonnement des rémunérations des dirigeants fédéraux et écart maximal de un à trois dans la répartition des droits audiovisuels entre clubs d'une même compétition.",
+          "read_minutes": 7
+        },
+        {
+          "title": "Séisme en football féminin : les clubs allemands fondent leur propre ligue sans la fédération",
+          "source": "Soccerway",
+          "url": "https://fr.soccerway.com/actualites/football-bundesliga-femmes-seisme-en-football-feminin-les-clubs-allemands-fondent-leur-propre-ligue-sans-la-federation/pMm83H2L",
+          "image": "https://livesport-ott-images.ssl.cdn.cra.cz/r1200xfq60/ba20d4b1-8e86-4310-a86a-95f331aaeece.jpeg",
+          "lang": "fr",
+          "domain": "culture-divertissement",
+          "summary": "Les 14 clubs de la Frauen-Bundesliga ont voté à l'unanimité la création d'une ligue indépendante de la fédération allemande. La DFB proposait d'investir 100 millions d'euros sur huit ans dans un projet commun ; les clubs ont rompu les négociations pour piloter eux-mêmes la commercialisation du championnat.",
+          "read_minutes": 3
+        },
+        {
+          "title": "« Sport Féminin Toujours 2026 » : l'opération de l'Arcom pour donner plus d'élan au sport féminin dans les médias audiovisuels",
+          "source": "Arcom",
+          "url": "https://www.arcom.fr/actualites/sport-feminin-toujours-2026-loperation-de-larcom-pour-donner-plus-delan-au-sport-feminin-dans-les-medias-audiovisuels",
+          "image": "",
+          "lang": "fr",
+          "domain": "culture-divertissement",
+          "summary": "Le régulateur a coordonné du 24 janvier au 1er février 2026 une nouvelle édition de son opération annuelle de mobilisation des télévisions et des radios en faveur de la diffusion du sport féminin, née en 2014.",
+          "read_minutes": 4
+        },
+        {
+          "title": "Projet de loi de finances pour 2026 : Sport, jeunesse et vie associative",
+          "source": "Sénat",
+          "url": "https://www.senat.fr/rap/l25-139-330/l25-139-3303.html",
+          "image": "",
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Le rapport budgétaire chiffre le rendement net de la taxe Buffet à 47,1 millions d'euros en 2024 et anticipe, du fait de la baisse des droits TV du football professionnel, une perte d'environ 4 millions d'euros par an pour l'Agence nationale du sport au moins jusqu'en 2028.",
+          "read_minutes": 8
+        }
+      ]
+    },
+    {
       "date": "2026-09-05",
       "articles": [
         {
