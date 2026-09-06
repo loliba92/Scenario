@@ -2163,3 +2163,78 @@ aucun contexte manquant identifié).
    (3 appels `WebFetch` utilisés sur 5 autorisés.)
 **Répercuté côté EN** : rien à répercuter (aucune correction faite côté
 FR).
+
+## 2026-09-06 — Sport féminin : la loi oblige à partager l'argent
+
+**Vérifié** : édition du jour confirmée à jour (`.edition`/`.pubdate`
+6 septembre 2026 côté FR et EN), CSS complet (`.essentiel-box`,
+`.stakes-box`, `.question-box`, `.list-box`, `.comprendre-box`, `.card`,
+`.gauge*`, `.article-image*`, `.france-line` tous présents dans le
+`<style>` ; `.delta-france`/`.delta-gauge*`/`.delta-word`/`.delta-flag`
+identiques au bloc canonique de ce fichier, dégradé SVG à 3 stops et
+`data-score="-0.60"` présents), sync `index.html`/
+`archives/2026-09-06.html` et `en/index.html`/`en/archives/2026-09-06.html`
+(seuls écarts : chemins relatifs et canonical/OG/JSON-LD `mainEntityOfPage`,
+légitimes), `data-france-impact` cohérent avec le texte `.france-line`
+adjacent sur les 3 cartes, lexique (5 entrées : `lex-masse-salariale`,
+`lex-federation-delegataire`, `lex-taxe-buffet`,
+`lex-conference-permanente-du-sport-feminin`, `lex-dncg` — toutes utilisées,
+aucun `.lex-ref` orphelin), label brut favorable/stable/dégradé absent de
+« L'essentiel » (les seules occurrences de ces mots renvoient aux noms des
+scénarios eux-mêmes dans la phrase France Impact, déjà reformulée en
+« assez négatif », pas un raccourci du label brut), phrase France Impact
+complète (« Notre évaluation de l'impact pour la France »), 2 indicateurs
+KPI (salaire moyen football, budget moyen handball) distincts sur les 3
+cartes à la fois (aucun doublon complet), aucun fichier `suivi/*.html`
+touché aujourd'hui (point 11 sans objet), images du jour
+(`assets/social/topic-images/2026-09-06.jpg` 1080×1080 et `-wide.jpg`
+1600×900, réels JPEG conformes à l'extension) et image Instagram
+(`assets/social/instagram/2026-09-06.png` 1080×1080, réel PNG conforme,
+utilisée pour `og:image`/`twitter:image`/JSON-LD `"image"`, convention
+normale du site — confirmée sur les éditions du 1er au 5 septembre),
+longueur de l'édition 1400 mots (`.dek`+`.why`+`dd`), au-dessus du seuil de
+1100 (point 12 sans objet), chiffres internes vérifiés sans incohérence
+(32,91 M€/12 clubs = 2,74 M€ et 98,56 M€/16 clubs = 6,16 M€ cohérents
+partout où ils reviennent, y compris dans les cartes de scénario et « Notre
+évaluation »), style et clarté des paragraphes `.dek`/`.why` (une rupture de
+registre trouvée et corrigée, voir ci-dessous ; le reste dense mais clair,
+aucun sigle non expliqué, aucun contexte manquant identifié), 3 chiffres/
+faits structurants vérifiés contre 3 des 4 sources citées : budget cumulé
+32,91 M€/moyenne 2,74 M€/salaire moyen 3 273 €/mois conformes à HandNews
+(LBE) ; budget cumulé 98,56 M€/moyenne 6,16 M€/salaire moyen 6 279 €/mois
+et concentration à ~40 % du budget sur Paris/Nantes/Montpellier conformes
+à HandNews (Starligue) ; renoncement à l'appel de Dijon FCO le 7 juillet et
+repêchage du RC Lens conformes à France 3 Hauts-de-France — mais 2 détails
+non confirmés par cette même source, voir signalement.
+**Corrigé automatiquement** : 1 rupture de registre (point 8, tutoiement
+direct du lecteur dans un paragraphe par ailleurs impersonnel, hors
+`.share-block`), répercutée côté EN (voir ci-dessous).
+**Enrichissement (point 12)** : au-dessus du seuil, rien à faire.
+**Réécritures et compléments de clarté** (1 sur 3 autorisées) :
+- Avant : « On avait déjà vu passer un sujet similaire sur l'effondrement
+  de ces droits TV, n'hésite pas à lire notre article pour en savoir
+  plus. »
+  Après : « On avait déjà vu passer un sujet similaire sur l'effondrement
+  de ces droits TV : voir notre article pour en savoir plus. »
+**Signalé pour revue humaine** :
+1. Écart entre deux faits cités dans le `.dek` sur le Dijon FCO et leur
+   seule source citée (France 3 Hauts-de-France, article RC Lens/Dijon
+   FCO) : l'article affirme « Dijon avait terminé sixième du championnat
+   quelques semaines plus tôt » et que le club « a renoncé à faire appel
+   le 7 juillet et demandé la liquidation judiciaire de la société qui
+   portait son équipe féminine professionnelle ». La source confirme bien
+   le renoncement à l'appel le 7 juillet 2026 et le repêchage du RC Lens,
+   mais ne mentionne ni un classement de Dijon (elle indique seulement que
+   le RC Lens était « avant-dernier » la saison passée, rien sur Dijon),
+   ni aucune procédure de liquidation judiciaire (elle parle seulement de
+   « difficultés financières », qualifiées de décision « difficile et
+   injuste »). Ces deux détails viennent peut-être d'une autre source non
+   citée dans la section « Sources », mais en l'état ils ne sont pas
+   vérifiables avec les sources déjà données — à confirmer ou corriger par
+   la rédaction.
+   (3 appels `WebFetch` utilisés sur 5 autorisés.)
+**Répercuté côté EN** : 1 correction — même rupture de registre traduite
+(« We've already covered a similar topic on the collapse of those TV
+rights — feel free to read our article to find out more. » →
+« […] — see our article to find out more. ») sur `en/index.html` et
+`en/archives/2026-09-06.html`.
