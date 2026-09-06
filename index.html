@@ -387,6 +387,78 @@
     .intro-banner-lead{ font-size: 1.18rem; }
   }
 
+  /* ---------- Bandeau "Récap de la semaine" (dimanche) ---------- */
+  /* Ajouté le 6 septembre, retour utilisateur : l'icône calendrier discrète
+     dans le header (.masthead-notif-btn) ne suffit pas à signaler qu'un
+     nouveau récap vient de sortir. Bande fine plutôt qu'un bloc comme
+     .intro-banner — annonce ponctuelle, pas une accroche éditoriale.
+     data-hebdo porte la date du dernier récap : la routine hebdo met à jour
+     ce data-attribute, l'href et le texte de plage de dates en même temps
+     que le lien .masthead-notif-btn (voir docs/routine-hebdo-prompt.md).
+     Se réaffiche automatiquement à chaque nouveau récap (comparaison de
+     date en localStorage, pas un simple "vu une fois" comme .intro-banner)
+     et se ferme soit par le bouton, soit en cliquant le lien lui-même —
+     dans les deux cas, mémorisé pour ne plus revenir avant le récap suivant. */
+  .weekly-banner{
+    background: var(--surface);
+    border-bottom: 1px solid var(--gold);
+  }
+
+  .weekly-banner-inner{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 24px;
+  }
+
+  .weekly-banner-link{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 auto;
+    min-width: 0;
+    color: var(--paper);
+    text-decoration: none;
+  }
+
+  .weekly-banner-link:hover .weekly-banner-text{ text-decoration: underline; }
+
+  .weekly-banner-icon{
+    flex-shrink: 0;
+    color: var(--gold);
+  }
+
+  .weekly-banner-text{
+    font-size: 0.9rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .weekly-banner-cta{
+    flex-shrink: 0;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  .weekly-banner-close{
+    flex-shrink: 0;
+    display: flex;
+    background: none;
+    border: none;
+    padding: 4px;
+    color: var(--paper-dim);
+    cursor: pointer;
+  }
+  .weekly-banner-close:hover{ color: var(--paper); }
+
+  @media (max-width: 560px){
+    .weekly-banner-cta{ display: none; }
+  }
+
   /* ---------- Hero ---------- */
 
   .hero{
@@ -1692,6 +1764,19 @@
   </div>
 </nav>
 
+<div class="weekly-banner" id="weekly-banner" data-hebdo="2026-09-06" hidden>
+  <div class="wrap weekly-banner-inner">
+    <a class="weekly-banner-link" id="weekly-banner-link" href="hebdo/2026-09-06.html">
+      <svg class="weekly-banner-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg>
+      <span class="weekly-banner-text">Le récap de la semaine est disponible — les 7 sujets et leur scénario le plus probable.</span>
+      <span class="weekly-banner-cta">Lire →</span>
+    </a>
+    <button type="button" class="weekly-banner-close" id="weekly-banner-close" aria-label="Fermer ce message">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5L19 19M19 5L5 19"/></svg>
+    </button>
+  </div>
+</div>
+
 <div class="intro-banner" id="intro-banner" hidden>
   <div class="wrap intro-banner-inner">
     <button type="button" class="intro-banner-close" id="intro-banner-close" aria-label="Fermer ce message">
@@ -2332,6 +2417,32 @@
         banner.hidden = true;
       });
     }
+  })();
+</script>
+
+<script>
+  (function(){
+    // Réaffiché à chaque nouveau récap (data-hebdo change chaque dimanche),
+    // masqué dès que ce récap précis a été vu ou fermé — pas un "vu une
+    // fois pour toutes" comme .intro-banner.
+    var KEY = "scenario_weekly_seen";
+    var banner = document.getElementById("weekly-banner");
+    if (!banner) return;
+    var hebdoDate = banner.dataset.hebdo;
+    var alreadySeen = false;
+    try {
+      alreadySeen = localStorage.getItem(KEY) === hebdoDate;
+    } catch (e) {
+    }
+    if (!alreadySeen) { banner.hidden = false; }
+    function dismiss(){
+      banner.hidden = true;
+      try { localStorage.setItem(KEY, hebdoDate); } catch (e) {}
+    }
+    var closeBtn = document.getElementById("weekly-banner-close");
+    if (closeBtn) { closeBtn.addEventListener("click", dismiss); }
+    var link = document.getElementById("weekly-banner-link");
+    if (link) { link.addEventListener("click", dismiss); }
   })();
 </script>
 </body>

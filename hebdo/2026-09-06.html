@@ -394,12 +394,35 @@
     margin: 0 0 10px;
   }
 
-  .week-conclusion p strong{
+  .week-conclusion strong{
     color: var(--gold);
     font-weight: 600;
   }
 
   .week-conclusion p{
+    font-size: 0.98rem;
+    color: var(--paper);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  /* Un fait marquant par sujet, en liste plutôt qu'en paragraphe filé — plus
+     facile à scanner que 4-5 faits enchaînés à la suite dans une même phrase. */
+  .week-conclusion-bullets{
+    font-size: 0.98rem;
+    color: var(--paper);
+    max-width: 62ch;
+    margin: 0 0 14px;
+    padding: 0 0 0 20px;
+  }
+
+  .week-conclusion-bullets li{
+    margin: 0 0 8px;
+  }
+
+  .week-conclusion-bullets li:last-child{ margin-bottom: 0; }
+
+  .week-conclusion-thread{
     font-size: 0.98rem;
     color: var(--paper);
     max-width: 62ch;
@@ -501,7 +524,13 @@
 
 <div class="week-conclusion week-conclusion-lead">
   <p class="week-conclusion-label">Conclusion de la semaine</p>
-  <p>Cette semaine, les sept dossiers avancent sans vraiment changer de trajectoire : en Islande, après le rejet référendaire du 29 août sur l'adhésion à l'UE, le nouveau plan de défense avec Washington progresse lentement, sans garantie écrite face à la pression de Trump sur le Groenland ; à huit mois du premier tour, <strong>Marine Le Pen reste large favorite (33-38% dans les sondages) face à une opposition toujours divisée</strong> ; l'Anses, saisie fin août pour statuer en deux mois sur deux pesticides bannis depuis 2018, s'apprête à trancher dans le périmètre exact voté par le Parlement, ni plus ni moins ; et à Wall Street, le CAPE ratio au plus haut depuis 1999 ne déclenche pour l'instant aucune correction. <strong>Le fil commun de la semaine : sept textes ou tendances déjà engagés qui se poursuivent sur leur lancée, sans qu'aucun ne bascule ni ne se dénoue vraiment.</strong></p>
+  <ul class="week-conclusion-bullets">
+    <li>En Islande, après le rejet référendaire du 29 août sur l'adhésion à l'UE, le nouveau plan de défense avec Washington progresse lentement, sans garantie écrite face à la pression de Trump sur le Groenland.</li>
+    <li>À huit mois du premier tour, <strong>Marine Le Pen reste large favorite (33-38% dans les sondages)</strong> face à une opposition toujours divisée.</li>
+    <li>L'Anses, saisie fin août pour statuer en deux mois sur deux pesticides bannis depuis 2018, s'apprête à trancher dans le périmètre exact voté par le Parlement, ni plus ni moins.</li>
+    <li>À Wall Street, le CAPE ratio au plus haut depuis 1999 ne déclenche pour l'instant aucune correction.</li>
+  </ul>
+  <p class="week-conclusion-thread"><strong>Le fil commun de la semaine : sept textes ou tendances déjà engagés qui se poursuivent sur leur lancée, sans qu'aucun ne bascule ni ne se dénoue vraiment.</strong></p>
 </div>
 
 <div class="week-grid">
