@@ -2,75 +2,12 @@
 
 Ce fichier est la copie de référence du prompt envoyé par la routine "pub"
 (Claude Code Remote, trigger **« Scénario — Pub hebdo »**,
-`trig_01A1XU5Kpc4QWzApjZPqcKpj`, cron **quotidien** (`0 2 * * *` UTC =
-4h Paris heure d'été) depuis le 17 août — l'utilisateur est passé de 5
-jours/semaine à tous les jours, voir `docs/ARCHITECTURE.md`). Créé par un
-agent (`create_trigger`), donc directement éditable via `update_trigger`
-— ce fichier reste la source de vérité lisible par un humain : le mettre
-à jour dans la foulée de tout changement.
-
-**17 août : cron passé à quotidien par l'utilisateur** (résout la note
-précédente sur lundi, qui restait dormant faute de déclenchement — ce
-n'est plus le cas). Table jour → catégorie complétée en conséquence
-(mercredi ajouté) et repli explicite ajouté pour tout jour qui y
-manquerait quand même (voir point 2 ci-dessous) : consigne utilisateur du
-17 août, remplace l'ancien réflexe "s'arrêter et signaler" par défaut sur
-`chiffre` plutôt que de bloquer la routine.
-
-**21 août : catégorie `futur` mise en pause, remplacée par `chiffre` le
-jeudi.** Retour utilisateur direct : abandon de "Grand futur" pour
-l'instant. Table jour → catégorie mise à jour (point 2 ci-dessous) —
-`futur` n'est plus assignée à aucun jour, même traitement que `question`
-(catégorie dormante, pas supprimée : le mécanisme de recherche du point 6
-et les entrées déjà présentes dans `docs/pub-messages.md` section 4
-restent en place, prêts à être réactivés plus tard).
-
-**3 septembre : sélection du chiffre (étape 1, point 7) revue en
-plusieurs temps.** Retour utilisateur direct après `chiffre-2026-09-02`
-("21 % des exportations islandaises en 2024") jugé trop discret et daté.
-Version finale du critère : **rester sur 1 seule édition par jour**
-(comparer plusieurs éditions à chaque tour risquait de réutiliser le même
-vivier de chiffres d'un jour sur l'autre) et, à l'intérieur de cette
-édition, choisir la phrase qui porte **l'information la plus importante
-de l'édition — pas la plus spectaculaire prise isolément** : le point clé
-que l'édition raconte, un chiffre marquant n'étant qu'une conséquence
-possible de ce choix, jamais l'objectif recherché en soi. À égalité
-d'importance, éviter un chiffre marqué d'un millésime déjà passé au
-profit d'une autre phrase aussi centrale — mais ne jamais écarter le
-point clé réel de l'édition au seul motif qu'il porte une date. Détail
-complet au point 7.b/c ci-dessous ; même consigne reportée dans
-`docs/pub-messages.md` section 5.
-
-**3 septembre (2) : gabarit `pub-template-v5-stat.html` refait, style
-"Hugo Décrypte".** Retour utilisateur direct : masthead logo + "Scénario"
-conservé en haut à gauche, photo pleine largeur avec dégradé noir
-concentré en bas du cadre (photo visible sur son tiers supérieur), légende
-ancrée tout en bas — jusqu'à 2-3 phrases désormais autorisées pour le
-`message` (voir point 7c ci-dessous et `docs/pub-messages.md` section 5),
-au lieu d'un titre unique centré au milieu du cadre (refonte du 21 août,
-désormais remplacée). Même changement sur le miroir anglais
-`pub-template-v5-stat-en.html`. Catégories `manifeste`/`citation`/
-`question`/`futur` (`pub-template-v4-hybride.html`) non concernées.
-
-**3 septembre (3) : le mécanisme photo de la catégorie `chiffre` (étape 2,
-« Catégorie `chiffre` : mécanisme dédié ») reste la référence à reproduire
-chaque jour pour cette catégorie précise — confirmé par retour
-utilisateur, aucun changement de fond.** Rappel du principe déjà en place
-depuis le 15 août, pour éviter toute dérive future : la photo utilisée est
-toujours celle de l'édition source du chiffre
-(`assets/social/topic-images/{date de l'édition source}.jpg`), jamais une
-recherche Pexels ni une photo de banque générique — voir étape 2 pour le
-détail complet. **Cette confirmation ne concerne que la catégorie
-`chiffre`** : les autres catégories (`manifeste`/`citation`/`question`/
-`futur`) restent sur la rotation générale de photos de l'étape 2, points
-1-2, inchangée.
-
-**3 septembre (4) : catégorie `citation` mise en pause, remplacée par
-`chiffre` le mardi.** Retour utilisateur direct. Table jour → catégorie
-mise à jour (point 2 ci-dessous) — `citation` n'est plus assignée à aucun
-jour, même traitement que `question`/`futur` (catégorie dormante, pas
-supprimée : les entrées déjà présentes dans `docs/pub-messages.md`
-section 2 restent en place, prêtes à être réactivées plus tard).
+`trig_01A1XU5Kpc4QWzApjZPqcKpj`, cron **quotidien**, `0 2 * * *` UTC =
+4h Paris heure d'été). Créé par un agent (`create_trigger`), donc
+directement éditable via `update_trigger` — ce fichier reste la source de
+vérité lisible par un humain : le mettre à jour dans la foulée de tout
+changement. Historique des changements de catégories/gabarit/cron (dates,
+retours utilisateur exacts) : voir l'historique git de ce fichier.
 
 **Objectif : rappeler l'identité du projet et faire réagir la communauté**
 entre deux éditions quotidiennes — jamais un sujet d'actualité (ça reste le
@@ -78,13 +15,10 @@ rôle de `feed.xml`). Contenu organique, pas de budget publicitaire (à ne
 pas confondre avec la piste "pub payante" listée séparément dans
 `docs/ARCHITECTURE.md`).
 
-**Cadence : quotidienne depuis le 17 août** (auparavant 1x/semaine en
-croisière, plus fréquente au lancement). Pas de logique de fréquence dans
-ce prompt — la cadence réelle est pilotée uniquement par le cron du
-trigger, ajusté à la main par l'utilisateur. Ancien garde-fou anti-doublon
-(20h minimum entre deux publications) retiré le 15 août à la demande de
-l'utilisateur — la routine publie désormais à chaque déclenchement, sans
-vérifier l'écart avec la dernière publication.
+**Cadence : quotidienne**, pilotée uniquement par le cron du trigger,
+ajusté à la main par l'utilisateur — pas de logique de fréquence dans ce
+prompt. **Aucun garde-fou anti-doublon** : la routine publie à chaque
+déclenchement, sans vérifier l'écart avec la dernière publication.
 
 **Économie de tokens** — même logique que `docs/routine-inspection-
 prompt.md` : le choix de la catégorie, de l'entrée et de la photo (étapes
@@ -96,11 +30,10 @@ il recopie du texte déjà écrit, il ne compose rien depuis zéro.
 **Exception : la catégorie `futur`** (étape 1, point 6) peut demander une
 vraie recherche (WebFetch, 3 appels max, uniquement quand c'est son tour
 dans le cycle) — volontaire, pour éviter qu'une liste figée devienne
-prévisible, voir la justification dans cette section. **Catégorie
-dormante depuis le 21 août** (voir note en tête de fichier) : ce point
-reste décrit ici pour le jour où elle sera réactivée, mais ne se
-déclenche plus en pratique tant que `futur` n'a pas de jour dans la
-table du point 2.
+prévisible. **Catégorie dormante actuellement** (voir table Étape 1,
+point 2) : ce point reste décrit ici pour le jour où elle sera réactivée,
+mais ne se déclenche plus en pratique tant que `futur` n'a pas de jour
+dans la table du point 2.
 
 ---
 
@@ -114,10 +47,9 @@ reste la seule cible de contenu.
 **Après le push sur `main` (étape 5) : pousser aussi la branche de
 session locale vers son propre remote** (`git push -u origin
 {nom-de-la-branche-de-session}`), pour satisfaire le stop hook local qui
-signale les commits non poussés sur cette branche — ajouté le 15 août
-après un retour utilisateur ("assure-toi que ce sera fait la prochaine
-fois"). C'est un simple miroir de suivi, jamais une pull request, et ça
-ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
+signale les commits non poussés sur cette branche. C'est un simple
+miroir de suivi, jamais une pull request, et ça ne change rien à la
+cible réelle (`main`, déjà à jour à ce stade).
 
 ## Étape 1 — Déterminer la catégorie et l'entrée
 
@@ -125,10 +57,9 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
    {id-entrée}` (ex. `scenario-pub-manifeste-03`) — le préfixe avant le
    premier tiret après "pub-" donne la catégorie (`manifeste`, `citation`,
    `question`, `futur`, `chiffre`).
-2. **Catégorie du jour : table jour → catégorie fixe** (remplace
-   l'ancien mécanisme "cycle qui avance d'un cran", retour utilisateur du
-   14 août — trop de risque de se tromper en déduisant la catégorie du
-   dernier item publié). Déterminer le jour de la semaine **à l'heure de
+2. **Catégorie du jour : table jour → catégorie fixe** (plutôt qu'un
+   cycle qui avance d'un cran — trop de risque de se tromper en déduisant
+   la catégorie du dernier item publié). Déterminer le jour de la semaine **à l'heure de
    Paris** au moment du déclenchement, puis :
 
    | Jour | Catégorie |
@@ -141,28 +72,20 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
    | Vendredi | `manifeste` |
    | Samedi | `chiffre` |
 
-   **18 août — catégorie "soutien" (Buy Me a Coffee) testée un temps sur
-   samedi, puis repliée dans `manifeste`** (retour utilisateur direct :
-   pas de jour dédié, juste une entrée de plus dans la rotation
-   `manifeste`) — voir `manifeste-11` dans `docs/pub-messages.md`. Samedi
-   redevient donc `chiffre` comme avant le 18 août. **1 seul post/jour,
-   sans exception** — reste vrai en général : n'ajouter aucune catégorie
-   en plus de celle du jour (leçon du 18 août : une première tentative
-   avait publié 2 items le même jour et cassé l'automatisation réseaux
-   sociaux, qui ne traite qu'1 post/jour).
+   **La catégorie "soutien" (Buy Me a Coffee) n'a pas de jour dédié** —
+   une entrée de plus dans la rotation `manifeste` (voir `manifeste-11`
+   dans `docs/pub-messages.md`). **1 seul post/jour, sans exception** :
+   n'ajouter aucune catégorie en plus de celle du jour (publier 2 items
+   le même jour casse l'automatisation réseaux sociaux, qui ne traite
+   qu'1 post/jour).
 
    **`citation`, `question` et `futur` ne sont pas dans cette table —
    catégories dormantes**, pas supprimées : leurs entrées restent dans
    `docs/pub-messages.md` (sections 2, 3 et 4), à réactiver si
-   l'utilisateur leur redonne un jour (`futur` retirée de la table le 21
-   août, jeudi reprend `chiffre` ; `citation` retirée le 3 septembre,
-   mardi reprend aussi `chiffre` — voir les notes en tête de fichier).
-   **Si
-   la routine se déclenche malgré tout un jour absent de cette table**
-   (nouveau jour de la semaine ajouté au cron sans que cette table soit
-   mise à jour) :
-   consigne du 17 août, remplace l'ancien réflexe "s'arrêter et signaler"
-   — **utiliser `chiffre` par défaut** pour ce jour plutôt que de bloquer
+   l'utilisateur leur redonne un jour. **Si la routine se déclenche
+   malgré tout un jour absent de cette table** (nouveau jour de la
+   semaine ajouté au cron sans que cette table soit mise à jour) :
+   **utiliser `chiffre` par défaut** pour ce jour plutôt que de bloquer
    la routine, et le mentionner quand même dans le résumé final (étape 5)
    pour que l'écart de doc soit visible et corrigé.
 3. Dans `docs/pub-messages.md`, section de cette catégorie : lister les
@@ -192,9 +115,8 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
    jamais bloquer toute la routine pour ça, jamais publier une entrée non
    validée pour combler.
 6. **Cas particulier de la catégorie `futur` — pas une simple rotation
-   fermée** (retour utilisateur du 13 août : une liste qui tourne en
-   boucle devient vite prévisible pour cette catégorie précise). Deux
-   options, dans cet ordre de préférence :
+   fermée** (une liste qui tourne en boucle devient vite prévisible pour
+   cette catégorie précise). Deux options, dans cet ordre de préférence :
    - **a) Rechercher et rédiger un nouveau fait.** WebFetch une source
      fiable (media scientifique/économique sérieux, organisme officiel,
      publication de recherche — jamais un blog ou un site non identifié),
@@ -224,8 +146,8 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
      trouvée au moment de la publication plutôt qu'être uniquement
      pré-validée en session.
 7. **Cas particulier de la catégorie `chiffre` — extraction, jamais
-   génération** (réintroduite le 14 août, voir `docs/pub-messages.md`
-   section 5 pour le détail complet). Contrairement à `futur`, aucune
+   génération** (voir `docs/pub-messages.md` section 5 pour le détail
+   complet). Contrairement à `futur`, aucune
    recherche externe : le chiffre vient toujours d'une édition déjà
    publiée sur le site, donc déjà vérifiée par le processus éditorial
    normal.
@@ -236,10 +158,9 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
      (déduit des `<link>` déjà présents dans les items `scenario-pub-
      chiffre-*` de `feed-pub.xml`).
    - **b) Retenir une seule édition, et y repérer les phrases portant un
-     chiffre.** **Rester sur 1 édition** (retour utilisateur du
-     3 septembre — comparer plusieurs éditions à chaque tour risque de
-     réutiliser le même vivier de chiffres d'un jour sur l'autre) :
-     prendre l'édition candidate la plus récente issue du point a), et
+     chiffre.** **Rester sur 1 édition** (comparer plusieurs éditions à
+     chaque tour risque de réutiliser le même vivier de chiffres d'un
+     jour sur l'autre) : prendre l'édition candidate la plus récente issue du point a), et
      n'en sortir que si elle ne contient vraiment aucun chiffre
      exploitable (voir point e — passer alors à l'édition candidate
      suivante, jamais pour comparer, seulement faute de matière). Dans
@@ -252,10 +173,9 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
      proche du ton recherché ici.
    - **c) Parmi ces phrases, choisir celle qui porte l'information la
      plus importante de l'édition — pas forcément le chiffre le plus
-     spectaculaire.** Retour utilisateur du 3 septembre : **le critère
-     n'est pas "quel est le chiffre le plus frappant que je peux
-     trouver", c'est "quelle est l'info la plus importante de cette
-     édition"** — le point clé, ce que l'édition raconte vraiment. Si ce
+     spectaculaire.** **Le critère n'est pas "quel est le chiffre le plus
+     frappant que je peux trouver", c'est "quelle est l'info la plus
+     importante de cette édition"** — le point clé, ce que l'édition raconte vraiment. Si ce
      point clé s'exprime avec un chiffre marquant, tant mieux (le gabarit
      a de toute façon besoin d'un chiffre pour le champ `stat`), mais ce
      n'est qu'une conséquence, jamais l'objectif de la recherche : ne pas
@@ -265,15 +185,14 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
      n'a lu que le titre de l'édition retiendrait comme son message
      principal — c'est celle-là qu'il faut garder, pas la plus
      "vendeuse" prise isolément. Elle doit aussi se comprendre seule, en
-     une lecture, sans connaître le reste de l'édition (règle du 14
-     août, toujours valable : "les phrases doivent être simples, assez
-     courtes et pédagogiques") — écarter le jargon non expliqué.
+     une lecture, sans connaître le reste de l'édition (les phrases doivent
+     être simples, assez courtes et pédagogiques) — écarter le jargon
+     non expliqué.
 
-     **Jusqu'à 2-3 phrases, pas une seule** (assoupli le 3 septembre en
-     même temps que la refonte du gabarit — voir Étape 3 et `docs/pub-
-     messages.md` section 5 : le gabarit `pub-template-v5-stat.html`
-     ancre désormais la légende en bas de l'image sur un dégradé noir,
-     avec assez de place pour un peu de contexte). La phrase qui porte
+     **Jusqu'à 2-3 phrases, pas une seule** (le gabarit
+     `pub-template-v5-stat.html`, voir Étape 3, ancre la légende en bas
+     de l'image sur un dégradé noir, avec assez de place pour un peu de
+     contexte). La phrase qui porte
      l'info retenue peut être suivie (ou précédée) d'1 à 2 phrases
      **contiguës** du même paragraphe source qui l'éclairent — jamais
      piochées ailleurs dans l'édition, jamais réordonnées, jamais reliées
@@ -297,10 +216,9 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
      forcer un saut de ligne sur l'image, sinon laisser le gabarit
      enchaîner le texte).
 
-     **Vigilance sur les chiffres datés** (retour utilisateur du
-     3 septembre — `chiffre-2026-09-02`, "21 % des exportations
-     islandaises **en 2024**", jugé terne et daté alors publié début
-     septembre 2026) : un chiffre explicitement rattaché à une année déjà
+     **Vigilance sur les chiffres datés** (exemple réel : "21 % des
+     exportations islandaises **en 2024**", jugé terne et daté une fois
+     publié début septembre 2026) : un chiffre explicitement rattaché à une année déjà
      passée donne une impression de recyclage même quand la donnée reste
      exacte. Si l'information la plus importante de l'édition peut aussi
      bien s'exprimer par une autre phrase de la même édition, aussi
@@ -325,9 +243,8 @@ ne change rien à la cible réelle (`main`, déjà à jour à ce stade).
 ## Étape 2 — Choisir la photo (jamais de recherche Pexels en direct)
 
 **Catégorie `chiffre` : mécanisme dédié, pas la rotation ci-dessous**
-(changé le 15 août, retour utilisateur — le fond doit être la photo de
-l'édition dont le chiffre est extrait, pas une photo de banque
-générique sans rapport direct). `pub-template-v5-stat.html` utilise
+(le fond doit être la photo de l'édition dont le chiffre est extrait, pas
+une photo de banque générique sans rapport direct). `pub-template-v5-stat.html` utilise
 désormais une photo :
 1. Chemin déterministe : `assets/social/topic-images/{date de l'édition
    source, AAAA-MM-JJ}.jpg`, avec son `.json` associé pour le crédit
@@ -396,14 +313,12 @@ python3 scripts/social/generate_pub_image.py \
   --photo assets/social/topic-images/{date de l'édition source}.jpg
 ```
 
-**Refonte du gabarit `pub-template-v5-stat.html` le 3 septembre** (retour
-utilisateur, style "Hugo Décrypte") : la photo occupe tout le cadre et
-reste visible sur son tiers supérieur, un dégradé noir concentré sur le
-bas du cadre porte la légende (pastille + `message`, jusqu'à 2-3 phrases,
-voir Étape 1 point 7c), le masthead logo + "Scénario" reste en haut à
-gauche comme sur les autres gabarits pub. Remplace le voile pleine image
-+ contenu recentré du 21 août. Rien ne change côté script Python ni côté
-placeholders (`--data`/`--photo` identiques) — seul le rendu visuel du
+**Gabarit `pub-template-v5-stat.html`** (style "Hugo Décrypte") : la
+photo occupe tout le cadre et reste visible sur son tiers supérieur, un
+dégradé noir concentré sur le bas du cadre porte la légende (pastille +
+`message`, jusqu'à 2-3 phrases, voir Étape 1 point 7c), le masthead logo
++ "Scénario" reste en haut à gauche comme sur les autres gabarits pub.
+Rien ne change côté script Python ni côté placeholders (`--data`/`--photo` identiques) — seul le rendu visuel du
 template change. Même refonte appliquée au miroir anglais
 `pub-template-v5-stat-en.html` (étape 4bis) ; les gabarits
 `manifeste`/`citation`/`question`/`futur` (`pub-template-v4-hybride.html`)
@@ -414,8 +329,7 @@ ne sont pas concernés par ce changement.
 jamais reformulés, jamais traduits, jamais "améliorés" à la volée.
 
 **Principe à respecter : jamais d'URL écrite en dur sur l'image**
-(retour utilisateur du 18 août, entrée `manifeste-11` "Soutenez
-Scénario") — une image PNG
+(exemple : entrée `manifeste-11` "Soutenez Scénario") — une image PNG
 n'est pas cliquable, une URL affichée dessus est donc inutile voire
 trompeuse (elle donne l'impression d'un lien alors qu'il faut la
 retaper à la main). Si le `cta` d'une entrée contient une URL, utiliser
@@ -450,8 +364,7 @@ existants) :
 ```
 
 **Le CTA doit être dans `<comments>`, pas seulement dans `<description>`**
-(corrigé le 13 août, bug repéré en relisant le blueprint Make de
-l'utilisateur) — les 4 modules réseaux (Twitter/Facebook/LinkedIn/
+— les 4 modules réseaux (Twitter/Facebook/LinkedIn/
 Instagram) utilisent tous `{{comments}}` pour le texte du post, jamais
 `{{description}}`. Un CTA absent de `<comments>` ne serait donc **jamais
 posté nulle part**, alors que le CTA est justement l'élément central de
@@ -466,7 +379,7 @@ l'édition source elle-même (ex. `https://lesscenarios.fr/archives/2026-
 puisque chaque post cite une édition différente.
 
 **Exception : champ `link` sur une entrée précise, dans
-`docs/pub-messages.md`** (ajouté le 18 août, `manifeste-11`) — quand une
+`docs/pub-messages.md`** (ex. `manifeste-11`) — quand une
 entrée a besoin de pointer ailleurs que le lien par défaut de sa
 catégorie (ex. une entrée `manifeste` qui doit renvoyer vers
 `buymeacoffee.com/scenario` plutôt que `le-projet.html`), ce champ
@@ -475,26 +388,23 @@ avant d'appliquer le lien par défaut de la catégorie ; l'utiliser tel
 quel, jamais reformulé.
 
 **Le crédit photo n'apparaît JAMAIS dans le texte visible du post**
-(ni `<comments>`, ni le texte lisible de `<description>`) — décision
-utilisateur du 13 août : le crédit est ajouté à la main par l'utilisateur
-en commentaire du post une fois publié, pas par cette routine. Le
+(ni `<comments>`, ni le texte lisible de `<description>`) — le crédit est
+ajouté à la main par l'utilisateur en commentaire du post une fois
+publié, pas par cette routine. Le
 commentaire HTML `<!-- credit: ... -->` en fin de `<description>` sert
 uniquement à ce que la routine (et l'utilisateur, en lisant le flux) sache
 quelle photo/quel photographe a été utilisé — invisible dans un lecteur
 RSS ou sur les réseaux, jamais affiché publiquement par ce mécanisme.
 
-**Garde-fou obligatoire : valider le XML avant tout commit** (ajouté le
-25 août — incident réel : l'item `citation-03` du 25 août avait été
-écrit avec un CDATA non fermé sur `<description>` — `]]>` manquant
-avant `</description>`. Ce genre d'erreur ne casse pas le XML au sens
-strict — `xmllint --noout` ne remonte aucune erreur, un CDATA mal fermé
-reste syntaxiquement valide, juste mal "scopé" — mais un CDATA ouvert
-avale tout le texte qui suit, y compris l'`<item>` entier suivant, qui
-disparaît alors pour tout parseur XML strict, dont celui utilisé par
-Make côté automatisation réseaux sociaux : l'édition suivante n'était
-donc jamais postée, sans qu'aucune erreur ne soit visible dans le
-fichier lui-même. Repéré seulement parce que l'utilisateur a remarqué
-l'absence d'un item dans Make.**
+**Garde-fou obligatoire : valider le XML avant tout commit.** Incident
+réel : un CDATA non fermé sur `<description>` (`]]>` manquant avant
+`</description>`) ne casse pas le XML au sens strict — `xmllint --noout`
+ne remonte aucune erreur, un CDATA mal fermé reste syntaxiquement valide,
+juste mal "scopé" — mais un CDATA ouvert avale tout le texte qui suit, y
+compris l'`<item>` entier suivant, qui disparaît alors pour tout parseur
+XML strict, dont celui utilisé par Make côté automatisation réseaux
+sociaux : l'édition suivante n'était donc jamais postée, sans qu'aucune
+erreur ne soit visible dans le fichier lui-même.
 
 Après avoir écrit le nouvel item (et avant `git add`/`git commit`),
 valider systématiquement avec ce script (jamais sauter cette étape,
@@ -515,12 +425,12 @@ print("OK —", len(items), "items, tous distincts")
 Si l'assertion échoue (nombre d'items inattendu, ou contenu d'un item
 qui déborde visiblement sur le suivant en le lisant) : **ne pas
 committer**, chercher la balise mal fermée (`]]>` manquant sur une
-`<description>` en CDATA est la cause la plus probable, vue l'incident
-du 25 août) et corriger avant de relancer la validation. Un
-`xmllint --noout feed-pub.xml` qui passe **ne suffit pas** à lui seul —
-il ne détecte pas ce type d'erreur, voir l'incident ci-dessus.
+`<description>` en CDATA est la cause la plus probable) et corriger
+avant de relancer la validation. Un `xmllint --noout feed-pub.xml` qui
+passe **ne suffit pas** à lui seul — il ne détecte pas ce type d'erreur,
+voir l'incident ci-dessus.
 
-## Étape 4bis — Miroir anglais dans `en/feed-pub.xml` [AJOUTÉ le 29 août 2026]
+## Étape 4bis — Miroir anglais dans `en/feed-pub.xml`
 
 Une fois l'item français ajouté à `feed-pub.xml` (étape 4) : traduire
 `eyebrow`/`message`/`attribution`/`cta` (et `stat` pour la catégorie
