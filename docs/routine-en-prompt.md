@@ -4,16 +4,13 @@
 pub-prompt.md` ou `docs/routine-hebdo-prompt.md`) — cette étape s'exécute
 **à la suite de la routine quotidienne française** (`docs/routine-
 prompt.md`), une fois l'édition du jour validée et publiée sur `main`,
-jamais avant ni en parallèle. Ce fichier est la copie de référence de cette
-étape, créée le 29 août 2026 (première édition traduite :
-« Cinéma mondial : peut-il survivre au streaming ? », 2026-08-29). Voir
-`docs/strategie-anglais.md` pour le cadrage stratégique complet (pourquoi
-une traduction et pas une rédaction indépendante, ce qui est hors scope).
+jamais avant ni en parallèle. Ce fichier est la copie de référence de
+cette étape. Voir `docs/strategie-anglais.md` pour le cadrage stratégique
+complet (pourquoi une traduction et pas une rédaction indépendante, ce
+qui est hors scope).
 
-**Étendu le 29 août 2026 aux deux routines auxiliaires** — retour
-utilisateur : « les pub il faudrait aussi faire feed-pub-en... et les mise
-à jour pareil ». Ce fichier couvre donc trois miroirs anglais distincts,
-chacun appelé depuis la routine française correspondante :
+Ce fichier couvre trois miroirs anglais distincts, chacun appelé depuis
+la routine française correspondante :
 1. **Édition quotidienne** (ci-dessous) — appelée depuis `docs/routine-
    prompt.md`, étape 13.
 2. **Posts pub** (§ « Traduction des posts pub » en bas de ce fichier) —
@@ -22,9 +19,7 @@ chacun appelé depuis la routine française correspondante :
    en bas de ce fichier) — appelée depuis `docs/routine-detection-
    prompt.md`, point 4.
 
-**Explicitement hors scope, confirmé le 29 août 2026 : pas de glossaire en
-anglais.** Retour utilisateur direct : « on n'a pas pensé au glossaire en
-anglais pour l'instant on ne fait pas le glossaire en anglais » — ne pas
+**Explicitement hors scope : pas de glossaire en anglais** — ne pas
 traduire `glossaire.html`, ni improviser une traduction ad hoc des termes
 du lexique dans les pages traduites. `en/index.html` continue de pointer
 son lien « Glossary » vers la page française existante (`../glossaire.
@@ -47,7 +42,7 @@ voir `docs/routine-prompt.md`, étape 4). Mais elle reste bornée : aucune
 recherche externe, aucun WebFetch, uniquement de la lecture/écriture de
 fichiers locaux.
 
-**[AJOUTÉ le 29 août] Garde-fou : mieux vaut sauter l'anglais du jour
+**Garde-fou : mieux vaut sauter l'anglais du jour
 qu'en publier une version cassée ou à moitié faite.** Cette étape
 compte désormais beaucoup de sous-étapes (traduction complète, cascade
 vers les articles cités, badge `archives.html`, bouton de langue +
@@ -75,10 +70,9 @@ soi, pas seulement un pis-aller. En conséquence :
   l'utilisateur (étape 9, ou l'équivalent du jour si l'étape n'a même
   pas pu démarrer) — jamais silencieux sur un jour sans traduction.
 
-**[AJOUTÉ le 31 août] Un jour sauté n'est plus un cul-de-sac.** Ce qui
+**Un jour sauté n'est plus un cul-de-sac.** Ce qui
 manquait jusqu'ici : si cette étape est sautée un jour (budget, panne,
-quota — vécu le 31 août avec une limite de dépense de l'organisation),
-rien ne la rattrapait ensuite sans intervention manuelle explicite de
+quota), rien ne la rattrapait ensuite sans intervention manuelle explicite de
 l'utilisateur. **Étape 8bis, plus bas, corrige ça** : chaque exécution
 vérifie désormais si l'édition juste avant celle du jour a bien sa
 traduction, et la produit si ce n'est pas le cas (plafonné à un jour de
@@ -114,19 +108,15 @@ premier.
    (`https://...`) ni aux ancres internes (`#scenarios`, `#essentiel`...).
    **Exception : `manifest.webmanifest`** — ne pas pointer vers celui de
    la racine (nom/description en français) mais vers `en/manifest.
-   webmanifest` (créé le 29 août, nom/description en anglais, `lang:
+   webmanifest` (nom/description en anglais, `lang:
    "en"`, `start_url`/`id`: `/en/`) : depuis `en/index.html`, `href=
    "manifest.webmanifest"` (même dossier) ; depuis `en/archives/AAAA-MM-
    JJ.html`, `href="../manifest.webmanifest"` (un cran au-dessus, comme
    pour `en/index.html`).
 
-## Étape 1bis — Traduire aussi les articles référencés [AJOUTÉ le 29 août
-2026]
+## Étape 1bis — Traduire aussi les articles référencés
 
-Retour utilisateur : « les liens qui font référence à nos précédents
-articles doivent aussi pointer sur la version anglaise si elle existe, du
-coup il faudrait générer la version anglaise dans archive des articles
-que tu mentionnes dans l'édition du jour ». Règle : **un lien vers une
+Règle : **un lien vers une
 autre édition (`archives/AAAA-MM-JJ.html`) ne doit jamais rester pointé
 vers le français si l'article visé est traduit — et doit être traduit
 lui-même s'il ne l'est pas encore et qu'il est cité par l'édition du
@@ -169,7 +159,7 @@ jour.**
    `docs/routine-pub-prompt.md`) peut déjà contenir un `<link>` vers la
    version française d'une édition qui vient d'être traduite : le
    remplacer par l'équivalent `en/archives/...` dans ce cas.
-6. **[AJOUTÉ le 29 août] Ajouter le badge `EN` sur `archives.html`**
+6. **Ajouter le badge `EN` sur `archives.html`**
    pour toute édition traduite (celle du jour comme celle(s) traduites
    par cascade à l'étape 3) — jamais de bouton de bascule générique sur
    cette page elle-même (voir `docs/strategie-anglais.md` § « Audit UX
@@ -180,13 +170,13 @@ jour.**
    À insérer juste après `<a class="entry-title" href="archives/{AAAA-
    MM-JJ}.html">...</a>` de l'entrée correspondante, dans `.entry-main`.
    La classe CSS `.entry-lang-badge` est déjà dans le `<style>` de
-   `archives.html` (ajoutée le 29 août) — ne jamais utiliser `.tag` pour
+   `archives.html` — ne jamais utiliser `.tag` pour
    ce badge, même visuellement proche : le JS de filtre de la page
    indexe `.tag`/`data-tag` sur chaque entrée, un badge sans `data-tag`
    sous cette classe casserait le filtre (tag fantôme « undefined »).
    L'accordéon « Scénarios ▾ » de l'entrée n'est jamais traduit, quel
    que soit l'article — voir la même justification.
-7. **[AJOUTÉ le 29 août] Régénérer l'image sociale en anglais** — sinon
+7. **Régénérer l'image sociale en anglais** — sinon
    `og:image`/`twitter:image` de la page EN affichent l'image du jour
    avec du texte français incrusté (repéré par l'utilisateur en
    partageant un lien sur X). Ne jamais réutiliser l'image française
@@ -256,7 +246,7 @@ dans cet ordre :
 4. **Hero** : eyebrow (jour + registre), `<h1>`, `.pubdate` (texte
    affiché par défaut, même si un script le regénère ensuite — voir point
    7 ci-dessous), `alt` de l'image, `.question-box` (label + texte),
-   sommaire (`.toc`). **Depuis le 29 août, eyebrow/`<h1>`/`.pubdate` sont
+   sommaire (`.toc`). **eyebrow/`<h1>`/`.pubdate` sont
    dans `.article-image-overlay` à l'intérieur de `<figure
    class="article-image">` (cover plein écran) si une image a été
    retenue côté FR — sinon en texte simple dans `.wrap` comme avant, voir
@@ -291,17 +281,17 @@ dans cet ordre :
    des sources anglophones, ou dans leur langue d'origine).
 10. **Bloc « Nous suivre »** et **footer** : tous les libellés visibles
     — y compris la phrase de transition « Retrouve-nous aussi sur tous
-    nos réseaux : » [ajoutée le 29 août] avant la rangée de boutons
+    nos réseaux : » avant la rangée de boutons
     sociaux, et `.footer-photo-credit` dans `<footer>` (texte « Photo
     d'illustration. » toujours en tête, mot pour mot, voir
     `docs/routine-prompt.md`) si une image a été retenue côté FR. **Ce
     `<p>` vit à l'intérieur de `.footer-bottom`, juste avant
-    `.legal-links` [placement corrigé le 29 août] — jamais juste
-    au-dessus avec son propre filet, ça lit comme deux footnotes.**
+    `.legal-links`** — jamais juste au-dessus avec son propre filet, ça
+    lit comme deux footnotes.
     L'icône appareil photo (`<svg>`) devant le texte reste identique,
     ne pas la traduire ni la changer. **La ligne `.footer-meta` (« Voir
-    toutes les éditions » / « Demain : ... »)
-    a été retirée le 29 août, ne pas la traduire ni la recréer.** Les
+    toutes les éditions » / « Demain : ... ») a été retirée, ne pas la
+    traduire ni la recréer.** Les
     liens externes (réseaux sociaux, Buy Me a Coffee) restent identiques
     (mêmes comptes, pas de version anglaise séparée).
 
@@ -318,9 +308,9 @@ après l'étape 2 :
 - Le texte du temps de lecture (« ~X min de lecture » → « ~X min read »)
   et du compteur de lectures (« Lu X fois » → « Read X times »,
   `toLocaleString("fr-FR")` → `toLocaleString("en-US")`).
-  **[RETIRÉ le 29 août]** Le bloc `registres`/`#tomorrow-teaser`
+  **Retiré** : le bloc `registres`/`#tomorrow-teaser`
   (registre du lendemain, préfixe « 📅 Demain : ») a été supprimé du JS
-  ce jour-là avec `.footer-meta` — rien à traduire ici, ne pas le
+  avec `.footer-meta` — rien à traduire ici, ne pas le
   recréer.
 - Le script de partage : la détection de page archive doit chercher
   `/en/archives/` (pas `/archives/`) dans `location.pathname`, et l'URL de
@@ -340,11 +330,9 @@ invisibles pour le lecteur, pas de valeur à les traduire systématiquement.
 ## Étape 4 — Créer `en/archives/AAAA-MM-JJ.html`
 
 **Toute l'arborescence anglaise vit sous `en/`, mêmes noms de dossiers
-qu'en français** (retour utilisateur du 29 août : « tout ce qui est
-anglais dans le folder en, mais même structure même nom de folder que le
-fr, pour juste avoir "en" à ajouter dans l'adresse ») — jamais un dossier
-séparé à la racine comme l'ancien `archive-en/` (essai initial, abandonné
-le jour même). `en/archives/` est donc **un niveau plus profond que
+qu'en français** — jamais un dossier séparé à la racine comme l'ancien
+`archive-en/` (essai initial, abandonné le jour même). `en/archives/`
+est donc **un niveau plus profond que
 `en/`**, exactement comme `archives/` l'est par rapport à la racine côté
 français.
 
@@ -368,12 +356,9 @@ Puis, comme côté français :
    archive doit chercher `/en/archives/` dans `location.pathname`
    (cohérent avec l'étape 3, pas `/archive-en/`).
 
-## Étape 4bis — Bouton de bascule de langue + `hreflang` [AJOUTÉ le 29
-août 2026]
+## Étape 4bis — Bouton de bascule de langue + `hreflang`
 
-Retour utilisateur : « il manque des trucs sur l'ux pour bien gérer
-français et anglais, français reste le prioritaire et défaut » — deux
-liens de bascule ajoutés à chaque édition traduite, jamais un simple lien
+Deux liens de bascule ajoutés à chaque édition traduite, jamais un simple lien
 vers l'accueil de l'autre langue. **Français reste la langue par défaut du
 site** : ce bouton n'existe que pour offrir un accès direct, jamais pour
 rediriger automatiquement un visiteur (pas de détection de langue
@@ -395,10 +380,10 @@ navigateur, pas de redirection).
    La classe CSS `.masthead-lang-btn` est déjà dans le `<style>` des
    quatre fichiers (voir `docs/routine-prompt.md`, section « Ligne
    `.masthead-right` ») — ne jamais la re-déclarer, seulement ajouter le
-   lien `<a>` lui-même s'il manque encore. Depuis le 29 août,
+   lien `<a>` lui-même s'il manque encore.
    `.masthead-right` contient aussi un séparateur `.masthead-divider` et
    les liens "Sujet révisé"/"Récap de la semaine" (ex-bande
-   `.top-updates`, supprimée ce jour-là) : `.masthead-lang-btn` reste le
+   `.top-updates`, supprimée) : `.masthead-lang-btn` reste le
    tout premier enfant, avant la cloche notifications — ne rien changer
    à l'ordre des éléments qui suivent.
 2. **Ajouter les balises `hreflang` dans `<head>`, juste après
@@ -411,8 +396,8 @@ navigateur, pas de redirection).
    Même trio sur les quatre fichiers (`index.html`/`archives/...` côté
    français, `en/index.html`/`en/archives/...` côté anglais) — seul l'ordre
    des deux premières lignes change selon la langue du fichier (celle du
-   fichier courant en premier n'a pas d'importance pour le SEO, mais reste
-   la convention adoptée le 29 août pour la lisibilité). `x-default`
+   fichier courant en premier n'a pas d'importance pour le SEO, c'est
+   une convention pour la lisibilité). `x-default`
    pointe toujours vers la version française — **français reste la langue
    par défaut du site**, jamais l'anglaise.
 3. **Vérifier l'équilibrage des balises** sur les quatre fichiers après
@@ -459,9 +444,7 @@ la date du jour, et ajouter une nouvelle entrée pour
 `archives/AAAA-MM-JJ.html`).
 
 ## Étape 6bis — Régénérer `archives.html` pour que le badge EN apparaisse
-tout de suite [AJOUTÉ le 1er septembre 2026, retour utilisateur : « dans
-archive tu as oublié le lien vers la version anglaise sur l'article du
-jour »]
+tout de suite
 
 `archives.html` n'est régénéré par la routine principale
 (`docs/routine-prompt.md`) qu'une fois par semaine — mais le badge EN de
@@ -486,14 +469,13 @@ thématiques restent un geste hebdomadaire séparé, sans lien avec le
 statut de traduction.
 
 ## Étape 6ter — Ajouter l'entrée anglaise à `sitemap-news.xml`
-[AJOUTÉ le 3 septembre 2026, retour utilisateur : « il faut aussi
-ajouter celles en anglais » — la routine française (`docs/routine-
-prompt.md`, étape 7bis) ne gère que l'entrée `fr`, et tourne **avant**
-cette routine dans la journée : au moment où elle génère `sitemap-
-news.xml`, la traduction anglaise du jour n'existe pas encore. Même
-piège que le badge EN de `archives.html` à l'étape 6bis ci-dessus,
-même solution : c'est cette routine-ci, une fois la traduction
-produite, qui ajoute l'entrée anglaise.]
+
+La routine française (`docs/routine-prompt.md`, étape 7bis) ne gère que
+l'entrée `fr`, et tourne **avant** cette routine dans la journée : au
+moment où elle génère `sitemap-news.xml`, la traduction anglaise du jour
+n'existe pas encore — même piège que le badge EN de `archives.html` à
+l'étape 6bis ci-dessus, même solution : c'est cette routine-ci, une fois
+la traduction produite, qui ajoute l'entrée anglaise.
 
 Le protocole Google News sitemap accepte plusieurs langues dans un seul
 fichier (une balise `news:language` par entrée) — **jamais de fichier
@@ -576,17 +558,13 @@ toute entrée `en/feed-pub.xml`/`sitemap.xml` mise à jour en conséquence
 de la traduction du jour, articles cités compris — jamais un commit par
 article traduit.
 
-## Étape 8bis — Rattrapage d'un jour manqué [AJOUTÉ le 31 août 2026]
+## Étape 8bis — Rattrapage d'un jour manqué
 
-**Ce qui a motivé cette étape.** Le 31 août, l'étape 13 (appelée depuis
-`docs/routine-prompt.md`) a été interrompue en cours de traduction par une
-limite de dépense de l'organisation (erreur API, quota atteint) : l'édition
-française était déjà publiée, mais aucune version anglaise n'a été produite
-ce jour-là. Le garde-fou en tête de ce fichier a bien fait son travail (rien
-de cassé n'a été publié, l'écart a été signalé dans le résumé) — mais rien
-ne rattrapait ensuite cet écart tout seul : sans qu'un humain le remarque et
-le redemande explicitement, l'édition manquante serait restée sans
-traduction indéfiniment. Cette étape ferme cette brèche.
+**Pourquoi cette étape existe.** Le garde-fou en tête de ce fichier
+protège contre une publication cassée quand cette routine est
+interrompue (quota, panne) — mais sans rattrapage automatique, l'édition
+manquée resterait sans traduction indéfiniment, sauf intervention
+manuelle explicite. Cette étape ferme cette brèche.
 
 **Mécanique.** Une fois la traduction du jour committée et poussée (étape
 8 ci-dessus terminée avec succès) :
@@ -624,8 +602,7 @@ relire ces points en particulier plutôt que la traduction complète.
 **Toujours ajouter le résultat de l'étape 8bis**, même quand il n'y avait
 rien à rattraper : « rattrapage : rien à faire », « rattrapage : {date}
 traduite », ou « rattrapage : {date} toujours manquante, échec (raison) »
-— jamais silencieux sur ce point, c'est précisément ce qui a fait défaut
-le 31 août.
+— jamais silencieux sur ce point.
 
 ---
 
