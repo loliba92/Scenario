@@ -15,6 +15,7 @@ from collections import defaultdict
 ROOT = Path(__file__).resolve().parents[2]
 ARCHIVES_DIR = ROOT / "archives"
 SUIVI_DIR = ROOT / "suivi"
+HEBDO_DIR = ROOT / "hebdo"
 GLOSSAIRE_HTML = ROOT / "glossaire.html"
 ARCHIVES_HTML = ROOT / "archives.html"
 SITE_URL = "https://lesscenarios.fr"
@@ -114,6 +115,41 @@ ARCHIVES_TABLE_CSS = """
 
   .archives-table tbody tr:hover {
     background: var(--surface-2);
+  }
+
+  /* ---- Ligne "Récap de la semaine" (retour utilisateur, 7 septembre 2026) ----
+     Sépare visuellement une semaine de la suivante dans le tableau : fond doré
+     à faible opacité, discret mais suffisant pour border le groupe de 7 lignes
+     au-dessus. Insérée automatiquement juste après la ligne du dimanche qui
+     clôt chaque semaine, une par fichier hebdo/AAAA-MM-JJ.html détecté — voir
+     discover_weekly_recaps() et son appel dans render_page(). */
+  .archives-table tbody tr.week-recap-row {
+    background: rgba(207, 157, 76, 0.10);
+    border-top: 1px solid rgba(207, 157, 76, 0.35);
+    border-bottom: 1px solid rgba(207, 157, 76, 0.35);
+  }
+
+  .archives-table tbody tr.week-recap-row:hover {
+    background: rgba(207, 157, 76, 0.16);
+  }
+
+  .archives-table .week-recap-cell {
+    padding: 10px 12px;
+    text-align: center;
+  }
+
+  .archives-table .week-recap-link {
+    display: inline-block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .archives-table .week-recap-link:hover {
+    text-decoration: underline;
   }
 
   .archives-table td {
@@ -460,6 +496,11 @@ ARCHIVES_TABLE_CSS = """
       padding: 0;
       border: none;
       text-align: left;
+    }
+
+    .archives-table .week-recap-cell {
+      padding: 4px 0;
+      text-align: center;
     }
 
     .archives-table .col-title {
@@ -813,6 +854,34 @@ def build_suivi_mapping():
     return mapping
 
 
+def discover_weekly_recaps():
+    """Scanne hebdo/*.html (hors hebdo/fragments/) et retourne {AAAA-MM-JJ du
+    dimanche: intitulé de la période}, ex. {"2026-08-30": "24 août au 30 août 2026"}.
+
+    Chaque page hebdo est nommée par le dimanche qu'elle clôt — la ligne
+    "Récap de la semaine" correspondante est insérée juste après la ligne de
+    l'édition de ce même dimanche (voir render_page()). L'intitulé de période
+    est repris tel quel du <title> de la page hebdo, jamais reformulé.
+    """
+    recaps = {}
+    if not HEBDO_DIR.exists():
+        return recaps
+    for f in HEBDO_DIR.glob("*.html"):
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", f.stem):
+            continue
+        text = f.read_text(encoding="utf-8")
+        m = re.search(r"<title>On refait le scénario de la semaine — (.+?) — Scénario</title>", text)
+        recaps[f.stem] = m.group(1) if m else f.stem
+    return recaps
+
+
+def render_week_recap_row(iso_date, date_range):
+    """Ligne pleine largeur "Récap de la semaine", insérée entre deux semaines."""
+    return f"""    <tr class="week-recap-row">
+      <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/{iso_date}.html">🗓️ Récap de la semaine — {html.escape(date_range)}</a></td>
+    </tr>"""
+
+
 def extract_latest_suivi_version(suivi_path):
     """Extrait la dernière version d'une page de suivi : date de mise à jour +
     pourcentage courant de chacun des 3 scénarios (kind -> pct).
@@ -1078,7 +1147,7 @@ def build_shared_pieces():
     return style_block, masthead_nav, follow_footer, tail_scripts
 
 
-def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts):
+def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_footer, tail_scripts):
     """Rend la page archives.html complète."""
     title = "Archives — Scénario"
     description = f"Archives complètes de Scénario : {len(articles)} éditions avec chacune 3 scénarios chiffrés (favorable, stable, dégradé)."
@@ -1090,8 +1159,16 @@ def render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts
         f'<a href="themes/{slug}.html">{label}</a>' for slug, label in DOMAIN_LABELS.items()
     )
 
-    # Rend le tableau
-    rows_html = "\n".join(render_table_row(article) for article in articles)
+    # Rend le tableau — une ligne "Récap de la semaine" (weekly_recaps) est
+    # intercalée juste après la ligne du dimanche qui clôt chaque semaine,
+    # quand ce dimanche a un récap publié dans hebdo/.
+    row_blocks = []
+    for article in articles:
+        row_blocks.append(render_table_row(article))
+        date_range = weekly_recaps.get(article["iso_date"])
+        if date_range:
+            row_blocks.append(render_week_recap_row(article["iso_date"], date_range))
+    rows_html = "\n".join(row_blocks)
     table_html = f"""  <table class="archives-table" id="archives-table">
     <thead>
       <tr>
@@ -1407,6 +1484,10 @@ def main():
     if suivi_mapping:
         print(f"✓ {len(suivi_mapping)} suivi actif(s) trouvé(s) : {', '.join(sorted(suivi_mapping))}")
 
+    weekly_recaps = discover_weekly_recaps()
+    if weekly_recaps:
+        print(f"✓ {len(weekly_recaps)} récap(s) hebdo trouvé(s) : {', '.join(sorted(weekly_recaps))}")
+
     articles = []
     for file_path in sorted(ARCHIVES_DIR.glob("*.html"), reverse=True):
         data = parse_article(file_path, suivi_mapping)
@@ -1418,7 +1499,7 @@ def main():
     style_block, masthead_nav, follow_footer, tail_scripts = build_shared_pieces()
 
     # Génère la page
-    page = render_page(articles, style_block, masthead_nav, follow_footer, tail_scripts)
+    page = render_page(articles, weekly_recaps, style_block, masthead_nav, follow_footer, tail_scripts)
 
     # Écrit le fichier
     ARCHIVES_HTML.write_text(page, encoding="utf-8")
