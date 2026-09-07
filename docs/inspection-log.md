@@ -6,6 +6,89 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-09-07 — Groenland : l'UE mise 200 millions face à Trump
+**Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 7
+septembre 2026 · N°46, EN confirmé même date), CSS complet
+(`.essentiel-box`, `.stakes-box`, `.question-box`, `.list-box`,
+`.comprendre-box`, `.delta-france`/`.delta-gauge*`/`.delta-word`/
+`.delta-flag` présentes dans `<style>` et utilisées dans le corps,
+dégradé SVG à 3 stops et `data-score="-0.60"` présents), sync
+`index.html`/`archives/2026-09-07.html` (seule différence hors
+canonical/OG/nav : lien interne vers l'archive du 31 août, `archives/
+2026-08-31.html` depuis `index.html` contre `2026-08-31.html` depuis
+`archives/2026-09-07.html` — chemin relatif légitime selon le dossier
+d'où part le lien, pas une désynchronisation), `data-france-impact`/
+`data-kind` cohérents avec le texte `.france-line` des 3 cartes
+(favorable/dégradé/dégradé, texte assorti) et avec le `delta-france`
+(`data-kind="negatif"`, mot « assez négatif »), label brut favorable/
+stable/dégradé absent de `.essentiel-text`, formulation « Notre
+évaluation de l'impact pour la France » intacte, lexique (3 `.lex-ref`
+↔ 3 entrées — PTOM, terres rares, OTAN —, aucun terme orphelin dans un
+sens ou l'autre), probabilités 50+30+20=100 %, absence de tutoiement/
+rupture de registre hors `.share-block` (`grep '\bton \|\bta \|\btu
+\b'` : 2 occurrences dans des commentaires de développement/le mot
+« ton » au sens de tonalité — pas du texte lecteur —, 1 dans
+`.share-block`, légitime), style/pédagogie (lecture complète des 8
+`.dek` + 6 `.why` + `.essentiel-text` : quelques phrases longues
+(jusqu'à 62 mots — précédent danois de 1917, économie du Groenland)
+mais construites en énumération/apposition autour d'un fait chronologique
+ou statistique, jugées claires malgré la longueur ; aucun jargon sans
+`.lex-ref` ; aucun contexte manquant identifié qui existerait pourtant
+ailleurs dans l'édition — aucune réécriture ni complément appliqué), 2
+KPI (aide UE 2028-2034, tarifs douaniers menacés) : carte favorable
+(530 M€ confirmés / 0 %), carte stable (200-250 M€ / 25 %), carte
+dégradé (150-200 M€ / 25 à 50 %) — les 3 cartes distinctes deux à deux
+sur les deux indicateurs à la fois, aucun doublon complet (point 10),
+incohérence numérique interne : aucune relevée (200 M€/530 M€ cohérents
+partout, 25 millions de dollars en 1917 et 90 %/560 M€/20 % de
+l'économie groenlandaise sont chacun des faits distincts, pas des
+doublons d'un même chiffre), `suivi/taux-marche-arriere.html` (seul
+fichier `suivi/` touché aujourd'hui, commit `56ab7e5`, V1 du 7
+septembre) : origin-link vers `archives/2026-08-20.html` valide,
+dernier bloc version daté « 7 septembre 2026 » reconnaissable avec 3
+`.mini-scenario`/`.evo-current` (10 %/40 %/50 %), `archives.html` déjà
+régénéré (aucun diff nécessaire) et affichant bien « Dégradé (50 %) »
+(pas les 30 % de V0), image de l'article et du feed
+(`assets/social/topic-images/2026-09-07.jpg` 1080×1080 et `-wide.jpg`
+1600×900, vrais JPEG confirmés par `file`, non des PNG renommés,
+`og:image`/`twitter:image`/JSON-LD pointant vers
+`assets/social/instagram/2026-09-07.png`, vrai PNG 1080×1080, cohérent
+entre `index.html` et l'archive et avec la même édition EN — pattern
+identique aux éditions précédentes, pas une désynchronisation),
+longueur (1 159 mots `.dek`+`.why`+`dd`, au-dessus du seuil de 1 100
+mots), 4 chiffres/faits structurants vérifiés contre les sources déjà
+citées (4 `WebFetch` sur le plafond de 5, voir détail ci-dessous).
+**Corrigé automatiquement** : rien — aucune anomalie mécanique
+franchissant le seuil de correction automatique sur les points 1 à 12
+ce passage-ci.
+**Enrichissement (point 12)** : « au-dessus du seuil, rien à faire »
+(1 159 mots).
+**Réécritures et compléments de clarté** (avant/après complet pour
+chacun, plafond 3 confondus, ou "aucun") : aucun.
+**Vérification des chiffres contre les sources citées** (4 `WebFetch`
+sur le plafond de 5) :
+- RTE (investissements UE) : confirme « doubling direct EU aid to
+  Greenland to €530 million » pour 2028-2034 et cite le FT pour les 200
+  millions d'euros supplémentaires attendus lors de la visite —
+  conforme à l'article.
+- intelli.news (investissements UE) : confirme les deux montants, 200
+  millions d'euros pour 2026-2027 (« une nouvelle enveloppe ») et 530
+  millions d'euros pour 2028-2034 (source FT) — conforme à l'article.
+- Al Jazeera (déclaration de Trump à Davos) : confirme la date du 21
+  janvier 2026 et l'abandon de l'option de la force au profit de la
+  négociation — conforme à l'article.
+- CNBC (menace tarifaire de 25 %) : injoignable, HTTP 403 — signalé
+  comme « source non re-vérifiable » ci-dessous, n'a pas pu être
+  utilisé pour vérifier ce chiffre précis (déjà cohérent en interne sur
+  les 7 occurrences du site, donc pas bloquant).
+**Signalé pour revue humaine** :
+- Source CNBC (menace tarifaire de 25 % contre l'UE) non re-vérifiable
+  ce passage-ci : HTTP 403 (probable blocage anti-bot) — à retenter
+  lors d'un prochain passage, ne bloque rien puisque le chiffre est déjà
+  cohérent en interne.
+**Répercuté côté EN** : rien à répercuter (aucune correction appliquée
+côté FR ce passage-ci).
+
 ## 2026-09-04 — Lune : Washington et Pékin relancent la course
 **Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 4
 septembre 2026 · N°43, EN confirmé même date), CSS complet
