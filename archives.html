@@ -13,20 +13,20 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Scénario">
 <link rel="stylesheet" href="assets/pwa-install.css">
-<meta name="description" content="Archives complètes de Scénario : 45 éditions avec chacune 3 scénarios chiffrés (favorable, stable, dégradé).">
+<meta name="description" content="Archives complètes de Scénario : 46 éditions avec chacune 3 scénarios chiffrés (favorable, stable, dégradé).">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Scénario">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:url" content="https://lesscenarios.fr/archives.html">
 <meta property="og:title" content="Archives — Scénario">
-<meta property="og:description" content="Archives complètes de Scénario : 45 éditions avec chacune 3 scénarios chiffrés (favorable, stable, dégradé).">
+<meta property="og:description" content="Archives complètes de Scénario : 46 éditions avec chacune 3 scénarios chiffrés (favorable, stable, dégradé).">
 <meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
 <meta property="og:image:width" content="2508">
 <meta property="og:image:height" content="1412">
 <meta property="og:image:alt" content="Scénario — trois scénarios chiffrés pour chaque actualité : favorable, stable, dégradé.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Archives — Scénario">
-<meta name="twitter:description" content="Archives complètes de Scénario : 45 éditions avec chacune 3 scénarios chiffrés (favorable, stable, dégradé).">
+<meta name="twitter:description" content="Archives complètes de Scénario : 46 éditions avec chacune 3 scénarios chiffrés (favorable, stable, dégradé).">
 <meta name="twitter:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -782,43 +782,6 @@
     border: 1.5px dashed var(--hairline);
   }
 
-  /* Ligne "Récap de la semaine" — pas une édition comme les autres (pas de
-     domaine/scénario/impact France propre, ça résume les 7 du dessus), donc
-     un rendu discret plutôt que forcer ces colonnes à des valeurs inventées.
-     Léger liseré doré à gauche pour la repérer sans qu'elle saute aux yeux
-     plus qu'une édition normale. */
-  .archives-table tr.row-weekly {
-    background: var(--surface);
-    border-left: 2px solid var(--gold);
-  }
-
-  .archives-table tr.row-weekly .col-date,
-  .archives-table tr.row-weekly .col-title a:first-child {
-    color: var(--gold);
-  }
-
-  .archives-table .weekly-badge {
-    display: inline-flex;
-    align-items: center;
-    flex-shrink: 0;
-    align-self: flex-start;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.62rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--ink);
-    background: var(--gold);
-    border: 1px solid var(--gold);
-    border-radius: 3px;
-    padding: 2px 6px;
-    white-space: nowrap;
-  }
-
-  .archives-table .col-domain .cell-na{
-    color: var(--paper-dim);
-  }
-
   @media (max-width: 1200px) and (min-width: 769px) {
     .archives-table {
       font-size: 0.85rem;
@@ -1021,7 +984,7 @@
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Archives — Scénario",
-  "description": "Archives complètes de Scénario : 45 éditions avec chacune 3 scénarios chiffrés (favorable, stable, dégradé).",
+  "description": "Archives complètes de Scénario : 46 éditions avec chacune 3 scénarios chiffrés (favorable, stable, dégradé).",
   "url": "https://lesscenarios.fr/archives.html",
   "isPartOf": { "@type": "WebSite", "name": "Scénario", "url": "https://lesscenarios.fr/" }
 }
@@ -1108,6 +1071,28 @@
       </tr>
     </thead>
     <tbody>
+    <tr data-domain="international" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-07">
+      <td class="col-date" data-label="Date"><span class="date-day">07.09</span><span class="date-year">2026</span></td>
+      <td class="col-title">
+        <span class="title-row">
+          <a href="archives/2026-09-07.html" title="L&#x27;UE vient de promettre 200 millions d&#x27;euros au Groenland : ce partenariat peut-il vraiment protéger le territoire de la pression de Trump ?">Groenland : l&#x27;UE mise 200 millions face à Trump</a>
+          
+          <a href="en/archives/2026-09-07.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
+        </span>
+      </td>
+      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — L&#x27;UE investit, Trump maintient la pression sans agir" aria-label="Notre scénario : Stable (50%) — L&#x27;UE investit, Trump maintient la pression sans agir">
+      <span class="eval-label">Stable</span>
+      <span class="eval-pct">50%</span>
+    </span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-reads" data-label="Lectures">
+        <span class="reads-value">
+          <span class="reads-num">—</span>
+          <span class="reads-bar"><span class="reads-bar-fill"></span></span>
+        </span>
+      </td>
+    </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-06">
       <td class="col-date" data-label="Date"><span class="date-day">06.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
@@ -1123,24 +1108,6 @@
       <span class="eval-pct">50%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
-      <td class="col-reads" data-label="Lectures">
-        <span class="reads-value">
-          <span class="reads-num">—</span>
-          <span class="reads-bar"><span class="reads-bar-fill"></span></span>
-        </span>
-      </td>
-    </tr>
-    <tr class="row-weekly" data-date="2026-09-06-hebdo">
-      <td class="col-date" data-label="Date"><span class="date-day">06.09</span><span class="date-year">2026</span></td>
-      <td class="col-title">
-        <span class="title-row">
-          <a href="hebdo/2026-09-06.html" title="Le récap de la semaine — les 7 sujets et leur scénario jugé le plus probable">On refait le scénario de la semaine — 31 août au 6 septembre 2026</a>
-          <span class="weekly-badge">Récap hebdo</span>
-        </span>
-      </td>
-      <td class="col-domain" data-label="Domaine"><span class="cell-na">—</span></td>
-      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge badge-na" title="Résumé de la semaine — voir le détail" aria-label="Résumé de la semaine — voir le détail">—</span></td>
-      <td class="col-france" data-label="Impact France"><span class="cell-na">—</span></td>
       <td class="col-reads" data-label="Lectures">
         <span class="reads-value">
           <span class="reads-num">—</span>
@@ -1302,24 +1269,6 @@
         </span>
       </td>
     </tr>
-    <tr class="row-weekly" data-date="2026-08-30-hebdo">
-      <td class="col-date" data-label="Date"><span class="date-day">30.08</span><span class="date-year">2026</span></td>
-      <td class="col-title">
-        <span class="title-row">
-          <a href="hebdo/2026-08-30.html" title="Le récap de la semaine — les 7 sujets et leur scénario jugé le plus probable">On refait le scénario de la semaine — 24 août au 30 août 2026</a>
-          <span class="weekly-badge">Récap hebdo</span>
-        </span>
-      </td>
-      <td class="col-domain" data-label="Domaine"><span class="cell-na">—</span></td>
-      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge badge-na" title="Résumé de la semaine — voir le détail" aria-label="Résumé de la semaine — voir le détail">—</span></td>
-      <td class="col-france" data-label="Impact France"><span class="cell-na">—</span></td>
-      <td class="col-reads" data-label="Lectures">
-        <span class="reads-value">
-          <span class="reads-num">—</span>
-          <span class="reads-bar"><span class="reads-bar-fill"></span></span>
-        </span>
-      </td>
-    </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-08-29">
       <td class="col-date" data-label="Date"><span class="date-day">29.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
@@ -1474,24 +1423,6 @@
         </span>
       </td>
     </tr>
-    <tr class="row-weekly" data-date="2026-08-23-hebdo">
-      <td class="col-date" data-label="Date"><span class="date-day">23.08</span><span class="date-year">2026</span></td>
-      <td class="col-title">
-        <span class="title-row">
-          <a href="hebdo/2026-08-23.html" title="Le récap de la semaine — les 7 sujets et leur scénario jugé le plus probable">On refait le scénario de la semaine — 17 août au 23 août 2026</a>
-          <span class="weekly-badge">Récap hebdo</span>
-        </span>
-      </td>
-      <td class="col-domain" data-label="Domaine"><span class="cell-na">—</span></td>
-      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge badge-na" title="Résumé de la semaine — voir le détail" aria-label="Résumé de la semaine — voir le détail">—</span></td>
-      <td class="col-france" data-label="Impact France"><span class="cell-na">—</span></td>
-      <td class="col-reads" data-label="Lectures">
-        <span class="reads-value">
-          <span class="reads-num">—</span>
-          <span class="reads-bar"><span class="reads-bar-fill"></span></span>
-        </span>
-      </td>
-    </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-08-22">
       <td class="col-date" data-label="Date"><span class="date-day">22.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
@@ -1536,18 +1467,18 @@
         </span>
       </td>
     </tr>
-    <tr data-domain="economie-entreprises" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-20">
+    <tr data-domain="economie-entreprises" data-scenario="degrade" data-france="degrade" data-revised="true" data-date="2026-08-20">
       <td class="col-date" data-label="Date"><span class="date-day">20.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-20.html" title="Après huit mois d&#x27;immobilisme à la Fed et une première hausse de la BCE en trois ans, les banques centrales peuvent-elles encore promettre une vraie baisse durable des taux d&#x27;intérêt ?">Taux : marche arrière</a>
-          
+          <a href="suivi/taux-marche-arriere.html" class="revised-badge" title="Sujet révisé le 07.09.2026 — voir le suivi">Révisé</a>
           <a href="en/archives/2026-08-20.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
       <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
-      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — La pause continue des deux côtés" aria-label="Notre scénario : Stable (50%) — La pause continue des deux côtés">
-      <span class="eval-label">Stable</span>
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (50%) — Une nouvelle vague de hausses" aria-label="Notre scénario : Dégradé (50%) — Une nouvelle vague de hausses">
+      <span class="eval-label">Dégradé</span>
       <span class="eval-pct">50%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
@@ -1639,24 +1570,6 @@
       <span class="eval-pct">45%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Neutre" aria-label="Impact France : Neutre"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre active"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
-      <td class="col-reads" data-label="Lectures">
-        <span class="reads-value">
-          <span class="reads-num">—</span>
-          <span class="reads-bar"><span class="reads-bar-fill"></span></span>
-        </span>
-      </td>
-    </tr>
-    <tr class="row-weekly" data-date="2026-08-16-hebdo">
-      <td class="col-date" data-label="Date"><span class="date-day">16.08</span><span class="date-year">2026</span></td>
-      <td class="col-title">
-        <span class="title-row">
-          <a href="hebdo/2026-08-16.html" title="Le récap de la semaine — les 7 sujets et leur scénario jugé le plus probable">On refait le scénario de la semaine — 10 août au 16 août 2026</a>
-          <span class="weekly-badge">Récap hebdo</span>
-        </span>
-      </td>
-      <td class="col-domain" data-label="Domaine"><span class="cell-na">—</span></td>
-      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge badge-na" title="Résumé de la semaine — voir le détail" aria-label="Résumé de la semaine — voir le détail">—</span></td>
-      <td class="col-france" data-label="Impact France"><span class="cell-na">—</span></td>
       <td class="col-reads" data-label="Lectures">
         <span class="reads-value">
           <span class="reads-num">—</span>
@@ -1811,24 +1724,6 @@
       <span class="eval-pct">55%</span>
     </span></td>
       <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez favorable" aria-label="Impact France : Assez favorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort active"></span><span class="seg esp-favorable-extreme"></span></span></td>
-      <td class="col-reads" data-label="Lectures">
-        <span class="reads-value">
-          <span class="reads-num">—</span>
-          <span class="reads-bar"><span class="reads-bar-fill"></span></span>
-        </span>
-      </td>
-    </tr>
-    <tr class="row-weekly" data-date="2026-08-09-hebdo">
-      <td class="col-date" data-label="Date"><span class="date-day">09.08</span><span class="date-year">2026</span></td>
-      <td class="col-title">
-        <span class="title-row">
-          <a href="hebdo/2026-08-09.html" title="Le récap de la semaine — les 7 sujets et leur scénario jugé le plus probable">On refait le scénario de la semaine — 3 août au 9 août 2026</a>
-          <span class="weekly-badge">Récap hebdo</span>
-        </span>
-      </td>
-      <td class="col-domain" data-label="Domaine"><span class="cell-na">—</span></td>
-      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge badge-na" title="Résumé de la semaine — voir le détail" aria-label="Résumé de la semaine — voir le détail">—</span></td>
-      <td class="col-france" data-label="Impact France"><span class="cell-na">—</span></td>
       <td class="col-reads" data-label="Lectures">
         <span class="reads-value">
           <span class="reads-num">—</span>
