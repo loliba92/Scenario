@@ -132,6 +132,21 @@ mériter une page de suivi ou une mise à jour.
   sportif (boxe, MMA, F1, Newcastle United).
   Dernière vérification : 29 août 2026 (V2).
 
+- **Taux : marche arrière** (édition du 20 août 2026)
+  Suivi existant : `suivi/taux-marche-arriere.html` (V0 + V1 au 7 septembre,
+  publiée automatiquement par la routine de détection — écart de +20
+  points sur le scénario dégradé). V1 intègre le rapport de l'emploi
+  américain d'août (publié le 4 septembre : +162 000 emplois créés,
+  contre ~56 000 attendus), qui a fait remonter les anticipations de
+  hausse de la Fed pour le 16 septembre à 50-60 % (contre environ un
+  tiers à la mi-août), sur fond de tensions persistantes dans le détroit
+  d'Ormuz (baril au-dessus de 90 dollars).
+  Prochaine échéance connue : décision de la BCE le 10 septembre 2026,
+  décision de la Fed le 16 septembre 2026. À surveiller aussi : toute
+  nouvelle évolution du trafic pétrolier dans le détroit d'Ormuz et des
+  tensions Iran-États-Unis.
+  Dernière vérification : 7 septembre 2026 (V1).
+
 - **Ceuta : la frontière qui a craqué** (édition du 3 août 2026)
   Suivi existant : `suivi/ceuta-schengen.html` (V0 + V1 au 27 août,
   publiée automatiquement par la routine de détection — écart de +32
@@ -173,7 +188,7 @@ un sujet devenu manifestement sans suite (voir marche à suivre dans
 - 23.08.2026 — [Le pari XXL du Mondial 2030](../archives/2026-08-23.html)
 - 22.08.2026 — [Hollywood décroche en Chine](../archives/2026-08-22.html)
 - 21.08.2026 — [Le Grand Filtre](../archives/2026-08-21.html)
-- 20.08.2026 — [Taux : marche arrière](../archives/2026-08-20.html)
+- 20.08.2026 — [Taux : marche arrière](../archives/2026-08-20.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.
 - 19.08.2026 — [2027 sous influence](../archives/2026-08-19.html)
 - 18.08.2026 — [IA : la cage a craqué](../archives/2026-08-18.html)
 - 17.08.2026 — [Ormuz : la trêve a expiré](../archives/2026-08-17.html)

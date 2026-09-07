@@ -6,6 +6,15 @@
     <description>English translation of feed-suivi.xml: when a tracked topic is updated, a new evaluation of the 3 scenarios and what changed.</description>
     <language>en</language>
     <item>
+      <title>Rates: Reverse Gear, a scenario moved</title>
+      <link>https://lesscenarios.fr/suivi/taux-marche-arriere.html#version-content-v1</link>
+      <guid isPermaLink="false">scenario-suivi-en-taux-marche-arriere-v1</guid>
+      <pubDate>Mon, 07 Sep 2026 20:00:00 +0200</pubDate>
+      <comments>The September 4 US jobs report caused Fed rate-hike expectations to rebound to 50-60%: 📈 A new wave of hikes climbs from 30% to 50%, +20 points.</comments>
+      <enclosure url="https://lesscenarios.fr/en/assets/social/suivi/taux-marche-arriere-v1.png" length="1402437" type="image/png"/>
+      <description><![CDATA[The September 4 US jobs report caused Fed rate-hike expectations to rebound to 50-60%: 📈 A new wave of hikes climbs from 30% to 50%, +20 points — this scenario climbs from 30% to 50%, while the pause continues on both sides falls from 50% to 40% and rate cuts resume falls from 20% to 10%.<br><br>The official US jobs report for August, released on September 4, delivered a surprise: 162,000 jobs created versus roughly 56,000 expected — a sharp rebound that pushed market-implied odds of a Fed rate hike on September 16 back up to 50-60%, from around a third in mid-August, against a backdrop of persistent tension in the Strait of Hormuz (oil above $90 a barrel).<br><br>See the full update, scenario by scenario 👉 <a href="https://lesscenarios.fr/suivi/taux-marche-arriere.html#version-content-v1">lesscenarios.fr/suivi/taux-marche-arriere.html</a>]]></description>
+    </item>
+    <item>
       <title>FIFA: the crisis around Infantino, a scenario moved</title>
       <link>https://lesscenarios.fr/suivi/fifa-infantino.html#version-content-v2</link>
       <guid isPermaLink="false">scenario-suivi-en-fifa-infantino-v2</guid>
