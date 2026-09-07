@@ -201,7 +201,7 @@
   /* Colonne texte libre (pas un chiffre) : contrairement à .num, doit
      pouvoir revenir à la ligne — sinon la table déborde sur mobile et
      force tout le body à scroller horizontalement (bug remonté le 3
-     septembre, table "Suivis actifs"). */
+     septembre, table «Suivis actifs»). */
   table.rank-table td.echeance{ text-align: left; white-space: normal; }
 
   .rank-cols{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -291,47 +291,47 @@
       <a class="dash-back" href="index.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg> Retour au site</a>
       <p class="dash-eyebrow">Usage interne — pas destiné aux lecteurs</p>
       <h1 class="dash-title">Tableau de bord Scénario</h1>
-      <p class="dash-meta">Données au 2 septembre 2026 — mesure d'audience GoatCounter, mise à jour chaque lundi par la routine « Scénario — Audience ».</p>
+      <p class="dash-meta">Données au 7 septembre 2026 — mesure d'audience GoatCounter, mise à jour chaque lundi par la routine « Scénario — Audience ».</p>
     </div>
 
     <div class="kpi-grid">
       <div class="kpi-card">
         <p class="kpi-label">Lectures d'éditions cumulées</p>
-        <div class="kpi-value">424</div>
+        <div class="kpi-value">507</div>
         <p class="kpi-sub">depuis le 29 juillet 2026</p>
       </div>
       <div class="kpi-card">
         <p class="kpi-label">7 derniers jours (glissant)</p>
-        <div class="kpi-value">160</div>
-        <p class="kpi-sub is-up">↑ +6 vs les 7 jours précédents (154)</p>
+        <div class="kpi-value">129</div>
+        <p class="kpi-sub is-down">↓ -27 vs les 7 jours précédents (156)</p>
       </div>
       <div class="kpi-card">
         <p class="kpi-label">30 derniers jours (glissant)</p>
-        <div class="kpi-value">400</div>
-        <p class="kpi-sub">≈ 94 % des lectures totales — comparaison au 30j précédents pas encore possible (36 jours d'historique, il en faut 60)</p>
+        <div class="kpi-value">443</div>
+        <p class="kpi-sub">≈ 87 % des lectures totales — comparaison au 30j précédents pas encore possible (41 jours d'historique, il en faut 60)</p>
       </div>
       <div class="kpi-card">
         <p class="kpi-label">Cadence de publication</p>
-        <div class="kpi-value">40 j.</div>
+        <div class="kpi-value">45 j.</div>
         <p class="kpi-sub">édition quotidienne sans interruption depuis le 25 juillet</p>
       </div>
       <div class="kpi-card">
         <p class="kpi-label">Moyenne par édition</p>
-        <div class="kpi-value">12,1</div>
-        <p class="kpi-sub">lectures/édition, sur les 35 éditions trackées depuis le 29 juillet</p>
+        <div class="kpi-value">12,7</div>
+        <p class="kpi-sub">lectures/édition, sur les 40 éditions trackées depuis le 29 juillet</p>
       </div>
     </div>
 
     <div class="chart-box">
       <span class="chart-label">Lectures par semaine (non cumulé)</span>
       <p class="chart-lead">Le signal qui compte vraiment : contrairement au cumul ci-dessous, cette série peut monter ou descendre — c'est elle qui répond à « est-ce que ça avance ». Semaines <strong>lundi → dimanche</strong>. Première et dernière barre = semaines partielles (lancement le mercredi 29 juillet, semaine en cours pas terminée).</p>
-      <svg id="weekly-svg" viewBox="0 0 700 200" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Lectures d'éditions par semaine, de 28 la semaine du 29 juillet à 154 la semaine du 26 août, semaine en cours 24 lectures sur 1 jour"></svg>
+      <svg id="weekly-svg" viewBox="0 0 700 200" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Lectures d'éditions par semaine, de 21 la semaine du 27 juillet à 149 la semaine du 31 août, semaine en cours 10 lectures sur 1 jour"></svg>
     </div>
 
     <div class="chart-box">
       <span class="chart-label">Cumul depuis le lancement (repère de fond)</span>
       <p class="chart-lead">Toujours croissante par construction — utile pour le niveau atteint, pas pour juger d'un ralentissement. Même donnée que la section « La communauté grandit » de <a href="le-projet.html" style="color:var(--gold)">le-projet.html</a>.</p>
-      <svg id="cumul-svg" viewBox="0 0 700 172" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Courbe de croissance des lectures cumulées d'éditions, de 1 le 30 juillet 2026 à 424 le 2 septembre 2026 — 41 éditions publiées au total depuis le lancement"></svg>
+      <svg id="cumul-svg" viewBox="0 0 700 172" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Courbe de croissance des lectures cumulées d'éditions, de 1 le 30 juillet 2026 à 507 le 7 septembre 2026 — 46 éditions publiées au total depuis le lancement"></svg>
     </div>
 
     <div class="chart-box">
@@ -359,11 +359,11 @@
       <table class="rank-table">
         <thead><tr><th>Domaine</th><th>Éditions</th><th>Total</th><th>Moy./édition</th></tr></thead>
         <tbody>
-          <tr><td>Sciences &amp; environnement</td><td class="num">6</td><td class="num">93</td><td class="num">15,5</td></tr>
-          <tr><td>Économie &amp; entreprises</td><td class="num">6</td><td class="num">80</td><td class="num">13,3</td></tr>
-          <tr><td>Culture &amp; divertissement</td><td class="num">7</td><td class="num">84</td><td class="num">12,0</td></tr>
-          <tr><td>International</td><td class="num">6</td><td class="num">69</td><td class="num">11,5</td></tr>
-          <tr><td>Politique &amp; institutions</td><td class="num">7</td><td class="num">75</td><td class="num">10,7</td></tr>
+          <tr><td>Sciences &amp; environnement</td><td class="num">7</td><td class="num">113</td><td class="num">16,1</td></tr>
+          <tr><td>Économie &amp; entreprises</td><td class="num">7</td><td class="num">101</td><td class="num">14,4</td></tr>
+          <tr><td>Culture &amp; divertissement</td><td class="num">8</td><td class="num">96</td><td class="num">12,0</td></tr>
+          <tr><td>International</td><td class="num">7</td><td class="num">82</td><td class="num">11,7</td></tr>
+          <tr><td>Politique &amp; institutions</td><td class="num">8</td><td class="num">92</td><td class="num">11,5</td></tr>
           <tr><td>Tech &amp; numérique</td><td class="num">3</td><td class="num">23</td><td class="num">7,7</td></tr>
         </tbody>
       </table>
@@ -371,7 +371,7 @@
 
     <div class="chart-box">
       <span class="chart-label">Agenda de la semaine — file d'attente éditoriale</span>
-      <p class="chart-lead">Prochain sujet en tête de chaque registre dans <code>sujets-prioritaires.md</code>, à date du 3 septembre. Semaine <strong>lundi → dimanche</strong> (le renouvellement de la file se fait le lundi, cette fenêtre montre donc toujours la semaine à venir). <strong>Pas un calendrier garanti</strong> : la routine peut réordonner, insérer un sujet « priorité absolue », ou repasser en auto-sélection si la section du jour est vide.</p>
+      <p class="chart-lead">Prochain sujet en tête de chaque registre dans <code>sujets-prioritaires.md</code>, à date du 7 septembre. Semaine <strong>lundi → dimanche</strong> (le renouvellement de la file se fait le lundi, cette fenêtre montre donc toujours la semaine à venir). <strong>Pas un calendrier garanti</strong> : la routine peut réordonner, insérer un sujet « priorité absolue », ou repasser en auto-sélection si la section du jour est vide.</p>
       <div class="agenda-grid">
         <div class="agenda-card">
           <p class="agenda-day">Lun. 7 sept.</p>
@@ -391,22 +391,22 @@
         <div class="agenda-card">
           <p class="agenda-day">Jeu. 10 sept.</p>
           <p class="agenda-registre">Économie &amp; finance</p>
-          <p class="agenda-topic">Dollar : le dollar peut-il perdre son statut dominant ?</p>
+          <p class="agenda-topic">Métropoles mondiales : peuvent-elles peser plus lourd économiquement que certains États ?</p>
         </div>
         <div class="agenda-card">
           <p class="agenda-day">Ven. 11 sept.</p>
           <p class="agenda-registre">Sciences</p>
-          <p class="agenda-topic">Espace : la course à la Lune relancée — installer des humains pour de bon ?</p>
+          <p class="agenda-topic">Intelligence artificielle : vraie révolution ou bulle prête à éclater ?</p>
         </div>
         <div class="agenda-card">
           <p class="agenda-day">Sam. 12 sept.</p>
           <p class="agenda-registre">Culture</p>
-          <p class="agenda-topic">Art contemporain : le marché change-t-il d'époque ?</p>
+          <p class="agenda-topic">Après l'ère des franchises : le modèle touche-t-il sa limite ?</p>
         </div>
         <div class="agenda-card">
           <p class="agenda-day">Dim. 13 sept.</p>
           <p class="agenda-registre">Sport</p>
-          <p class="agenda-topic">La nouvelle loi peut-elle réduire l'écart hommes/femmes ?</p>
+          <p class="agenda-topic">Jeux d'hiver de Milan-Cortina : l'IA remplace-t-elle le jugement sportif humain ?</p>
         </div>
       </div>
       <p class="kpi-sub" style="margin-top:12px;">🔥 Priorité absolue : aucun sujet en file d'urgence actuellement — la routine suit l'ordre normal des registres ci-dessus.</p>
@@ -416,37 +416,38 @@
         <li><span class="agenda-later-tag">Géopolitique</span>Guerre commerciale USA-Chine : la mondialisation entre-t-elle dans une nouvelle guerre froide économique ?</li>
         <li><span class="agenda-later-tag">Carte blanche</span><span class="agenda-later-empty">rien en réserve après OpenAI IPO — dépend des suggestions lecteurs à venir</span></li>
         <li><span class="agenda-later-tag">Actu. française</span>Électricité : avec la fin de l'ARENH, ta facture va-t-elle flamber ?</li>
-        <li><span class="agenda-later-tag">Économie &amp; finance</span>Or : l'or est-il redevenu la valeur refuge ultime ?</li>
-        <li><span class="agenda-later-tag">Sciences</span>Intelligence artificielle : ces programmes qui écrivent et dessinent tout seuls, vraie révolution ou bulle prête à éclater ?</li>
-        <li><span class="agenda-later-tag">Culture</span><span class="agenda-later-empty">rien en réserve après Art contemporain</span></li>
-        <li><span class="agenda-later-tag">Sport</span>Jeux d'hiver de Milan-Cortina : l'intelligence artificielle va-t-elle remplacer une partie du jugement sportif humain ?</li>
+        <li><span class="agenda-later-tag">Économie &amp; finance</span>Dollar : le dollar peut-il perdre son statut dominant ?</li>
+        <li><span class="agenda-later-tag">Sciences</span>Médecine : les nouveaux médicaments contre l'obésité (comme l'Ozempic) vont-ils changer la santé de millions de gens ?</li>
+        <li><span class="agenda-later-tag">Culture</span>La Chine peut-elle créer la prochaine pop culture mondiale ? Cinéma, animation, jeux vidéo, musique, plateformes : Pékin peut-il produire des franchises capables de concurrencer Disney, Marvel, Nintendo ou Netflix ?</li>
+        <li><span class="agenda-later-tag">Sport</span>Pass Sport : l'aide à la pratique sportive des jeunes va-t-elle survivre aux prochains budgets ?</li>
       </ul>
     </div>
 
     <div class="chart-box">
       <span class="chart-label">Autonomie par registre — sujets non cochés</span>
-      <p class="chart-lead">Nombre de sujets en attente (non cochés) par section de <code>sujets-prioritaires.md</code>, à date du 3 septembre. Chaque registre n'est consommé qu'<strong>une fois par semaine</strong> (édition quotidienne, un registre fixe par jour) — le nombre de semaines d'autonomie s'en déduit directement. Trié par autonomie croissante (le plus en tension en premier). Régénéré chaque semaine par la routine « Scénario — Audience », comme le reste du dashboard.</p>
+      <p class="chart-lead">Nombre de sujets en attente (non cochés) par section de <code>sujets-prioritaires.md</code>, à date du 7 septembre. Chaque registre n'est consommé qu'<strong>une fois par semaine</strong> (édition quotidienne, un registre fixe par jour) — le nombre de semaines d'autonomie s'en déduit directement. Trié par autonomie croissante (le plus en tension en premier). Régénéré chaque semaine par la routine « Scénario — Audience », comme le reste du dashboard.</p>
       <table class="rank-table">
         <thead><tr><th>Registre</th><th>Non cochés</th><th>Autonomie</th></tr></thead>
         <tbody>
           <tr><td>Mardi — carte blanche</td><td class="num">1</td><td class="echeance" style="color:var(--degrade)">⚠️ épuisée la semaine prochaine</td></tr>
-          <tr><td>Sport — dimanche</td><td class="num">8</td><td class="echeance" style="color:var(--stable)">~8 semaines</td></tr>
+          <tr><td>Sport — dimanche</td><td class="num">7</td><td class="echeance" style="color:var(--stable)">~7 semaines</td></tr>
           <tr><td>Géopolitique — lundi</td><td class="num">13</td><td class="echeance" style="color:var(--favorable)">confortable</td></tr>
+          <tr><td>Culture — samedi</td><td class="num">16</td><td class="echeance" style="color:var(--favorable)">confortable</td></tr>
           <tr><td>Actualité française — mercredi</td><td class="num">17</td><td class="echeance" style="color:var(--favorable)">confortable</td></tr>
-          <tr><td>Culture — samedi</td><td class="num">17</td><td class="echeance" style="color:var(--favorable)">confortable</td></tr>
-          <tr><td>Sciences — vendredi</td><td class="num">18</td><td class="echeance" style="color:var(--favorable)">confortable</td></tr>
-          <tr><td>Économie — jeudi</td><td class="num">31</td><td class="echeance" style="color:var(--favorable)">large avance</td></tr>
+          <tr><td>Sciences — vendredi</td><td class="num">17</td><td class="echeance" style="color:var(--favorable)">confortable</td></tr>
+          <tr><td>Économie — jeudi</td><td class="num">31</td><td class="echeance" style="color:var(--favorable)">confortable</td></tr>
         </tbody>
       </table>
-      <p class="kpi-sub" style="margin-top:12px;">Mardi (carte blanche) sert normalement à relayer les suggestions des lecteurs (<a href="mailto:scenariocontact75@gmail.com" style="color:var(--paper-dim)">scenariocontact75@gmail.com</a>) — une fois épuisé, la routine repasse en auto-sélection générique plutôt que de vraiment manquer de sujet, mais ça sort du rôle prévu pour ce jour-là.</p>
+      <p class="kpi-sub" style="margin-top:12px;">Mardi (carte blanche) : plus qu'un seul sujet en attente — épuisé dès la prochaine édition du mardi (8 septembre), la routine repassera alors en auto-sélection générique plutôt que de vraiment manquer de sujet, ce qui sort du rôle prévu pour ce jour-là. Relayer les suggestions des lecteurs (<a href="mailto:scenariocontact75@gmail.com" style="color:var(--paper-dim)">scenariocontact75@gmail.com</a>) reste le moyen normal de réalimenter ce registre.</p>
     </div>
 
     <div class="chart-box">
       <span class="chart-label">Suivis actifs — prochaines échéances</span>
-      <p class="chart-lead">Les 8 sujets suivis dans <code>docs/sujets-a-suivre.md</code>, triés par prochaine date connue — pas seulement « ce qui vient », aussi « ce qu'il faut surveiller ».</p>
+      <p class="chart-lead">Les 9 sujets suivis dans <code>docs/sujets-a-suivre.md</code>, triés par prochaine date connue — pas seulement « ce qui vient », aussi « ce qu'il faut surveiller ».</p>
       <table class="rank-table">
         <thead><tr><th>Sujet</th><th>Prochaine échéance connue</th></tr></thead>
         <tbody>
+          <tr><td><a href="suivi/taux-marche-arriere.html" style="color:var(--paper)">Taux : marche arrière</a></td><td class="echeance">Décision BCE <strong>10 sept. 2026</strong>, décision Fed <strong>16 sept. 2026</strong></td></tr>
           <tr><td><a href="suivi/arabie-saoudite-sport.html" style="color:var(--paper)">Arabie saoudite &amp; sport (LIV Golf)</a></td><td class="echeance">Clôture accord LIV Golf visée <strong>sept. 2026</strong></td></tr>
           <tr><td><a href="suivi/big-tech-justice.html" style="color:var(--paper)">Big Tech face à la justice</a></td><td class="echeance">Jugement volet publicité sous 30 j., <strong>début oct. 2026</strong></td></tr>
           <tr><td><a href="suivi/fifa-infantino.html" style="color:var(--paper)">FIFA — présidence Infantino</a></td><td class="echeance">Candidatures closes <strong>18 nov. 2026</strong>, élection 18 mars 2027</td></tr>
@@ -592,7 +593,8 @@
       ['2026-08-10', 85],
       ['2026-08-17', 45],
       ['2026-08-24', 146],
-      ['2026-08-31', 76]
+      ['2026-08-31', 149],
+      ['2026-09-07', 10]
     ];
     var W = 700, H = 200, padL = 30, padR = 12, padT = 14, padB = 28;
     var yMax = 175;
@@ -645,19 +647,21 @@
       ['2026-08-22', 188], ['2026-08-23', 202], ['2026-08-24', 222],
       ['2026-08-25', 246], ['2026-08-26', 264], ['2026-08-27', 279],
       ['2026-08-28', 305], ['2026-08-29', 319], ['2026-08-30', 348],
-      ['2026-08-31', 378], ['2026-09-01', 400], ['2026-09-02', 424]
+      ['2026-08-31', 378], ['2026-09-01', 400], ['2026-09-02', 424],
+      ['2026-09-03', 453], ['2026-09-04', 474], ['2026-09-05', 483],
+      ['2026-09-06', 497], ['2026-09-07', 507]
     ];
     // Nombre total d'éditions publiées depuis le lancement (18 juillet),
-    // à la même date que le reste du tableau de bord (2 septembre) —
-    // différent du nombre de jours de la série ci-dessus (36, qui compte
+    // à la même date que le reste du tableau de bord (7 septembre) —
+    // différent du nombre de jours de la série ci-dessus (41, qui compte
     // seulement les jours où GoatCounter suit le site depuis le 29
     // juillet, pas les éditions elles-mêmes). Ajouté le 3 septembre,
     // retour utilisateur : "ajoute le nombre cumulé d'édition sur le
     // graphique".
-    var totalEditions = 41;
+    var totalEditions = 46;
 
     var W = 700, H = 172, padL = 30, padR = 12, padT = 24, padB = 22;
-    var yMax = 450;
+    var yMax = 550;
     function xPos(i) { return padL + i / (data.length - 1) * (W - padL - padR); }
     function yPos(v) { return padT + (1 - v / yMax) * (H - padT - padB); }
 
@@ -682,18 +686,18 @@
 
   function renderTables() {
     var top = [
-      ['5 août', 36, 'EPR2 : le nucléaire français à l’heure de vérité'],
-      ['30 août', 28, 'Ligue 1 : le foot français peut-il survivre à l’effondrement de ses droits TV ?'],
-      ['31 août', 21, 'Islande : après le non à l’UE, qui va la protéger ?'],
-      ['29 août', 21, 'Cinéma mondial : peut-il survivre au streaming ?'],
-      ['24 août', 21, 'Ukraine : ni paix ni victoire']
+      ['5 août', 39, 'EPR2 : le nucléaire français à l’heure de vérité'],
+      ['30 août', 31, 'Ligue 1 : le foot français peut-il survivre à l’effondrement de ses droits TV ?'],
+      ['29 août', 26, 'Cinéma mondial : peut-il survivre au streaming ?'],
+      ['31 août', 23, 'Islande : après le non à l’UE, qui va la protéger ?'],
+      ['24 août', 23, 'Ukraine : ni paix ni victoire']
     ];
     var flop = [
-      ['2 août', 6, 'Scénario — L’actualité en trois scénarios chiffrés'],
-      ['4 août', 5, 'Scénario — L’actualité en trois scénarios chiffrés'],
-      ['18 août', 4, 'IA : la cage a craqué'],
+      ['7 août', 4, 'Big Tech face à la justice'],
       ['14 août', 4, 'Canicules à répétition : qui paie l’addition ?'],
-      ['7 août', 4, 'Big Tech face à la justice']
+      ['18 août', 4, 'IA : la cage a craqué'],
+      ['5 sept.', 5, 'Marché de l’art : records en haut, fermetures en bas'],
+      ['2 août', 6, 'Scénario — L’actualité en trois scénarios chiffrés']
     ];
     function fill(id, rows) {
       var tbody = document.getElementById(id);
