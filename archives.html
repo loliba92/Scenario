@@ -485,6 +485,41 @@
     background: var(--surface-2);
   }
 
+  /* ---- Ligne "Récap de la semaine" (retour utilisateur, 7 septembre 2026) ----
+     Sépare visuellement une semaine de la suivante dans le tableau : fond doré
+     à faible opacité, discret mais suffisant pour border le groupe de 7 lignes
+     au-dessus. Insérée automatiquement juste après la ligne du dimanche qui
+     clôt chaque semaine, une par fichier hebdo/AAAA-MM-JJ.html détecté — voir
+     discover_weekly_recaps() et son appel dans render_page(). */
+  .archives-table tbody tr.week-recap-row {
+    background: rgba(207, 157, 76, 0.10);
+    border-top: 1px solid rgba(207, 157, 76, 0.35);
+    border-bottom: 1px solid rgba(207, 157, 76, 0.35);
+  }
+
+  .archives-table tbody tr.week-recap-row:hover {
+    background: rgba(207, 157, 76, 0.16);
+  }
+
+  .archives-table .week-recap-cell {
+    padding: 10px 12px;
+    text-align: center;
+  }
+
+  .archives-table .week-recap-link {
+    display: inline-block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .archives-table .week-recap-link:hover {
+    text-decoration: underline;
+  }
+
   .archives-table td {
     padding: 12px;
     vertical-align: middle;
@@ -831,6 +866,11 @@
       text-align: left;
     }
 
+    .archives-table .week-recap-cell {
+      padding: 4px 0;
+      text-align: center;
+    }
+
     .archives-table .col-title {
       order: 1;
       padding-bottom: 8px;
@@ -1115,6 +1155,9 @@
         </span>
       </td>
     </tr>
+    <tr class="week-recap-row">
+      <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/2026-09-06.html">🗓️ Récap de la semaine — 31 août au 6 septembre 2026</a></td>
+    </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-05">
       <td class="col-date" data-label="Date"><span class="date-day">05.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
@@ -1268,6 +1311,9 @@
           <span class="reads-bar"><span class="reads-bar-fill"></span></span>
         </span>
       </td>
+    </tr>
+    <tr class="week-recap-row">
+      <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/2026-08-30.html">🗓️ Récap de la semaine — 24 août au 30 août 2026</a></td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-08-29">
       <td class="col-date" data-label="Date"><span class="date-day">29.08</span><span class="date-year">2026</span></td>
@@ -1423,6 +1469,9 @@
         </span>
       </td>
     </tr>
+    <tr class="week-recap-row">
+      <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/2026-08-23.html">🗓️ Récap de la semaine — 17 août au 23 août 2026</a></td>
+    </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-08-22">
       <td class="col-date" data-label="Date"><span class="date-day">22.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
@@ -1576,6 +1625,9 @@
           <span class="reads-bar"><span class="reads-bar-fill"></span></span>
         </span>
       </td>
+    </tr>
+    <tr class="week-recap-row">
+      <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/2026-08-16.html">🗓️ Récap de la semaine — 10 août au 16 août 2026</a></td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-15">
       <td class="col-date" data-label="Date"><span class="date-day">15.08</span><span class="date-year">2026</span></td>
@@ -1731,6 +1783,9 @@
         </span>
       </td>
     </tr>
+    <tr class="week-recap-row">
+      <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/2026-08-09.html">🗓️ Récap de la semaine — 3 août au 9 août 2026</a></td>
+    </tr>
     <tr data-domain="culture-divertissement" data-scenario="favorable" data-france="favorable" data-revised="true" data-date="2026-08-08">
       <td class="col-date" data-label="Date"><span class="date-day">08.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
@@ -1884,6 +1939,9 @@
           <span class="reads-bar"><span class="reads-bar-fill"></span></span>
         </span>
       </td>
+    </tr>
+    <tr class="week-recap-row">
+      <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/2026-08-02.html">🗓️ Récap de la semaine — 27 juillet au 2 août 2026</a></td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-01">
       <td class="col-date" data-label="Date"><span class="date-day">01.08</span><span class="date-year">2026</span></td>
