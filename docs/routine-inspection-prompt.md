@@ -18,10 +18,10 @@ Cette routine relit l'édition du jour, déjà publiée par la routine
 principale, et corrige ce qui est mécaniquement faux ou incohérent. Elle
 n'a jamais le droit de changer un choix éditorial (quel scénario, quelle
 probabilité, quel angle) — seulement de rattraper une erreur. **Seule
-exception, ajoutée le 2 septembre 2026 : le point 12 (longueur
-minimale)**, qui peut ajouter du contexte/des chiffres vérifiés si
-l'article publié est anormalement mince — jamais toucher aux scénarios
-eux-mêmes pour autant, voir ce point pour le périmètre exact.
+exception : le point 12 (longueur minimale)**, qui peut ajouter du
+contexte/des chiffres vérifiés si l'article publié est anormalement
+mince — jamais toucher aux scénarios eux-mêmes pour autant, voir ce
+point pour le périmètre exact.
 
 **Économie de tokens — consigne explicite, cette routine tourne tous les
 jours indéfiniment.** Pour les points 1 à 7, 9, 10 et 11 de la section
@@ -59,8 +59,8 @@ l'entête `.edition`/`.pubdate` d'`index.html`. Si la date ne correspond pas
 à aujourd'hui (routine principale en retard ou échouée), s'arrêter
 proprement sans rien inspecter — pas de fallback sur l'édition de la veille.
 
-**[AJOUTÉ le 29 août 2026] Si une traduction anglaise existe pour
-l'édition du jour, répercuter toute correction dessus aussi.** La
+**Si une traduction anglaise existe pour l'édition du jour, répercuter
+toute correction dessus aussi.** La
 traduction (`en/index.html`, `en/archives/{AAAA-MM-JJ}.html` — voir
 `docs/routine-en-prompt.md`) est produite juste après la publication
 française, donc **avant** le passage de cette routine une heure plus
@@ -258,7 +258,7 @@ corrigé côté FR, resté faux côté EN). Avant de commencer :
    - Un sigle/terme technique non expliqué : privilégier l'ajout d'un
      `.lex-ref` + entrée de lexique plutôt que de retirer le terme —
      l'objectif est la pédagogie, pas l'appauvrissement du vocabulaire.
-   - **[AJOUTÉ le 2 septembre 2026] Compléter avec un fait déjà disponible,
+   - **Compléter avec un fait déjà disponible,
      jamais en inventer ou en aller chercher un nouveau.** Se mettre à la
      place d'un lecteur qui découvre le sujet aujourd'hui, sans le
      contexte des éditions précédentes : si un passage de `.dek` (en
@@ -331,8 +331,8 @@ corrigé côté FR, resté faux côté EN). Avant de commencer :
    - Les deux fichiers existent-ils, taille de fichier > 0 ?
    - **Le format réel du fichier correspond-il à son extension** (`file
      assets/social/topic-images/{date}*.jpg`, ou équivalent Python
-     `Pillow`/`imghdr`) — bug réel rencontré le 18 août : les deux
-     fichiers `.jpg` du jour contenaient en réalité des octets PNG
+     `Pillow`/`imghdr`) — bug réel rencontré : deux
+     fichiers `.jpg` contenaient en réalité des octets PNG
      (`file` reportait « PNG image data »), parce que la photo Pexels
      source était elle-même un `.png` côté CDN et que `crop_url()`
      (`scripts/social/fetch_topic_image.py` et
@@ -358,8 +358,8 @@ corrigé côté FR, resté faux côté EN). Avant de commencer :
    **Si aucune image du jour n'existe du tout** (ni fichiers, ni fiche de
    provenance, ni bloc `<figure>` dans le HTML) : **ne jamais lancer de
    nouvelle recherche Pexels depuis cette routine** — pas parce que
-   Pexels serait indisponible (vérifié le 18 août : la clé API répond
-   normalement dans cet environnement), mais par choix de périmètre :
+   Pexels serait indisponible (la clé API répond normalement dans cet
+   environnement), mais par choix de périmètre :
    choisir une vraie photo pertinente pour le sujet du jour demande une
    revue visuelle de candidats, un geste à saveur éditoriale qui reste
    réservé à la routine principale, qui tourne avec supervision — pas à
@@ -387,8 +387,7 @@ corrigé côté FR, resté faux côté EN). Avant de commencer :
    et les meta `og:image`/`twitter:image`/JSON-LD `"image"`, sur
    `index.html` **et** `archives/{AAAA-MM-JJ}.html`.
 
-10. **[AJOUTÉ le 23 août, demande explicite de l'utilisateur] Deux
-    scénarios indiscernables sur leurs KPI projetés.** Chaque carte de
+10. **Deux scénarios indiscernables sur leurs KPI projetés.** Chaque carte de
     scénario porte exactement les mêmes 2 indicateurs (`.field-name`
     identiques dans les 3 cartes, voir `docs/ARCHITECTURE.md`), chacun
     avec une valeur projetée par scénario (`.evo-current`). L'intérêt de
@@ -397,8 +396,8 @@ corrigé côté FR, resté faux côté EN). Avant de commencer :
     **exactement les mêmes valeurs `.evo-current` sur leurs deux
     indicateurs à la fois**, les deux scénarios sont numériquement
     indiscernables, même si leur récit (`.why`) et leur probabilité
-    diffèrent. Exemple de ce qui est attendu (édition du 22 août,
-    Hollywood/Chine) : quota ≈30/34/≈20 et taux de reversement
+    diffèrent. Exemple de ce qui est attendu (édition Hollywood/Chine) :
+    quota ≈30/34/≈20 et taux de reversement
     ≈30 %/≈25 %/≈18 % sur les 3 cartes — chaque scénario a sa propre
     paire de valeurs, aucune ne se répète à l'identique sur les deux
     indicateurs en même temps.
@@ -428,16 +427,15 @@ corrigé côté FR, resté faux côté EN). Avant de commencer :
     KPI reste un fait projeté, pas une variable de mise en forme.
     **Même si l'article explique déjà lui-même le chevauchement quelque
     part (`.comprendre-box` ou ailleurs) — ça ne change rien, signaler
-    quand même** (voir le piège du 23 août dans la section "Ce qui est
+    quand même** (voir le piège dans la section "Ce qui est
     seulement signalé" plus bas : une explication trouvée dans le texte
     n'est pas une autorisation de classer sans suite, elle est un
     argument de plus à transmettre à la revue humaine).
     Correction journalée avec l'avant/après complet dans
     `docs/inspection-log.md`, même discipline que le point 8.
 
-11. **[AJOUTÉ le 1er septembre 2026] Intégrité `suivi/` ↔ `archives.html` —
-    toujours signaler, jamais corriger seul.** Depuis la restructuration du
-    9 septembre, `scripts/seo/generate_archives_table.py` lit `suivi/*.html`
+11. **Intégrité `suivi/` ↔ `archives.html` —
+    toujours signaler, jamais corriger seul.** `scripts/seo/generate_archives_table.py` lit `suivi/*.html`
     à chaque régénération hebdomadaire pour afficher la **dernière**
     évaluation d'un sujet révisé (« Notre scénario » + « Impact France »,
     voir `docs/routine-prompt.md`) — un fichier de suivi mal formé ne lève
@@ -468,10 +466,7 @@ corrigé côté FR, resté faux côté EN). Avant de commencer :
     jugement éditorial, pas mécanique. Signaler dans `docs/inspection-log.md`
     avec le fichier concerné et le symptôme exact.
 
-12. **[AJOUTÉ le 2 septembre 2026, retour utilisateur : « je trouve
-    l'édition du jour un peu pauvre et courte » — édition « Pesticides
-    interdits », 866 mots contre 1088-1442 pour les 6 éditions
-    précédentes] Longueur minimale et enrichissement réel, pas du
+12. **Longueur minimale et enrichissement réel, pas du
     remplissage.** Seul point de cette routine qui a le droit de lancer
     une vraie recherche (WebSearch) plutôt que de se limiter à ce qui est
     déjà sur la page ou déjà cité en sources — parce que le problème qu'il
@@ -480,9 +475,9 @@ corrigé côté FR, resté faux côté EN). Avant de commencer :
 
     **Seuil, mesuré comme le fait déjà le script de temps de lecture**
     (`.dek` + `.why` + `dd`, voir `docs/routine-prompt.md` étape
-    technique 8) : **1100 mots minimum**. Calibré sur les 6 dernières
-    éditions avant celle qui a motivé ce point (1088 à 1442 mots) — fixé
-    près du bas de cette fourchette pour ne se déclencher que sur un vrai
+    technique 8) : **1100 mots minimum**. Calibré sur des éditions
+    récentes (1088 à 1442 mots) — fixé près du bas de cette fourchette
+    pour ne se déclencher que sur un vrai
     cas hors norme, jamais sur la variation normale d'un sujet à l'autre
     (un sujet plus simple peut légitimement rester plus court : ce seuil
     attrape le cas où l'article n'a manifestement pas assez creusé, pas
@@ -555,10 +550,10 @@ corrigé côté FR, resté faux côté EN). Avant de commencer :
 
 ## Auto-vérification obligatoire après chaque correction, avant tout commit
 
-**Aucune correction ci-dessus ne se commite directement.** Toute la soirée
-du 12 août, chaque édition manuelle a été suivie d'une vérification (balance
-des balises, souvent une capture Playwright) avant d'être poussée — cette
-routine doit avoir la même discipline sur ses propres corrections, sinon un
+**Aucune correction ci-dessus ne se commite directement.** Chaque édition
+publiée manuellement est suivie d'une vérification (balance des balises,
+souvent une capture Playwright) avant d'être poussée — cette routine
+doit avoir la même discipline sur ses propres corrections, sinon un
 agent qui "corrige" seul, tous les jours, sans jamais se relire est le vrai
 risque d'automatisation. Rester bon marché : ces vérifications sont toutes
 déterministes, aucune ne demande une relecture LLM du fichier entier.
@@ -643,7 +638,7 @@ Les signalements sont ajoutés à `docs/inspection-log.md`, jamais poussés
 comme modification du site — un signalement n'est jamais un commit sur
 `index.html`/l'archive.
 
-**Piège déjà rencontré (édition du 23 août) — trouver une explication ne
+**Piège déjà rencontré — trouver une explication ne
 dispense pas de signaler.** Un doublon complet de KPI (point 10, cartes
 « compromis » et « dégradé » toutes deux à 64 équipes/128 matchs) a été
 classé à tort « non-anomalie, rien à signaler » au premier passage, au
