@@ -2,6 +2,41 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-09-07",
+      "articles": [
+        {
+          "title": "Greenland, Rare Earths, and Arctic Security",
+          "source": "CSIS",
+          "url": "https://www.csis.org/analysis/greenland-rare-earths-and-arctic-security",
+          "image": "https://csis-website-prod.s3.amazonaws.com/s3fs-public/2026-01/GettyImages-2254449941_cropped.jpg?VersionId=MBLyiYpYyYnkPZtMkphpT04XHX1Wsa4K",
+          "lang": "en",
+          "domain": "international",
+          "summary": "Une analyse détaillée du lien entre les gisements de terres rares du Groenland et la stratégie arctique américaine, avec les chiffres de réserves et de dépendance au raffinage chinois.",
+          "read_minutes": 8
+        },
+        {
+          "title": "A guide to understanding Greenland's nascent economy",
+          "source": "ArcticToday",
+          "url": "https://www.arctictoday.com/the-greenlandic-economy-a-small-island-with-huge-potential/",
+          "image": "https://www.arctictoday.com/wp-content/uploads/2026/02/2026-02-06T133657Z_1_LYNXMPEM150T4_RTROPTP_4_USA-TRUMP-GREENLAND-scaled.jpg",
+          "lang": "en",
+          "domain": "international",
+          "summary": "Un panorama de l'économie groenlandaise, dominée par la pêche et la subvention budgétaire danoise, avec les tentatives passées et actuelles de diversification.",
+          "read_minutes": 6
+        },
+        {
+          "title": "Analysis: Greenland Pituffik US Space Force Base Emerges as Key US Arctic Shield Against Russia and China",
+          "source": "Army Recognition",
+          "url": "https://www.armyrecognition.com/focus-analysis-conflicts/army/analysis-defense-and-security-industry/analysis-greenland-pituffik-us-space-force-base-emerges-as-key-us-arctic-shield-against-russia-and-china",
+          "image": "",
+          "lang": "en",
+          "domain": "international",
+          "summary": "Le rôle militaire de la base spatiale américaine de Pituffik dans la surveillance de l'Arctique face à la Russie et la Chine, et son évolution depuis la Guerre froide.",
+          "read_minutes": 7
+        }
+      ]
+    },
+    {
       "date": "2026-09-06",
       "articles": [
         {
