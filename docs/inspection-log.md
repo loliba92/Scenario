@@ -6,6 +6,73 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-09-08 — OpenAI : le pari à 1 000 milliards de dollars
+**Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 8
+septembre 2026 · N°47, EN confirmé même date), CSS complet
+(`.essentiel-box`, `.stakes-box`, `.question-box`, `.list-box`,
+`.comprendre-box`, `.delta-france`/`.delta-gauge*`/`.delta-word`/
+`.delta-flag` présentes dans `<style>` et utilisées dans le corps,
+dégradé SVG à 3 stops et `data-score="0.10"` présents), sync
+`index.html`/`archives/2026-09-08.html` (seules différences hors
+canonical/OG : lien interne vers l'archive du 3 septembre, `archives/
+2026-09-03.html` depuis `index.html` contre `2026-09-03.html` depuis
+`archives/2026-09-08.html` — chemin relatif légitime selon le dossier
+d'où part le lien, pas une désynchronisation), `data-france-impact`
+(les 3 cartes : dégradé/favorable/dégradé, cohérent avec les `.france-
+line` adjacentes), aucun label brut dans `.essentiel-text`, "Notre
+évaluation de l'impact pour la France" en toutes lettres, lexique (IPO,
+Valorisation, Financement circulaire — 3 `.lex-ref` toutes pourvues
+d'une entrée), aucune rupture de registre hors `.share-block` (recherche
+`ton /ta /tu` — 2 faux positifs dans des commentaires CSS/JS internes,
+non lus par le public), images du jour (`assets/social/topic-
+images/2026-09-08.jpg` 1080×1080 et `-wide.jpg` 1600×900, formats JPEG
+réels conformes à l'extension, `assets/social/instagram/2026-09-08.png`
+1080×1080 PNG conforme référencé par `og:image`/`twitter:image`/JSON-LD
+— mécanisme normal du prompt principal, topic-images alimente l'image
+Instagram plutôt que d'être référencé directement), KPI des 3 cartes
+(valorisation + chiffre d'affaires annualisé, aucune paire dupliquée),
+`suivi/` (aucun fichier touché aujourd'hui par la routine principale —
+rien à vérifier), longueur (1215 mots), 3 chiffres contre sources (sur 4
+sources citées, 1 injoignable).
+**Corrigé automatiquement** : rien côté points 1-7/9-11.
+**Enrichissement (point 12)** : au-dessus du seuil, rien à faire.
+**Réécritures et compléments de clarté** (1 sur 3 autorisées) :
+- Avant : « On avait déjà vu passer un sujet sur ce même financement
+  circulaire entre Nvidia, Oracle, OpenAI, SoftBank et Amazon : n'hésite
+  pas à lire notre article sur les records de Wall Street début
+  septembre, où ce montage était déjà pointé comme un risque pour la
+  solidité du rallye boursier. »
+  Après : « Notre article sur les records de Wall Street début
+  septembre, consacré à ce même financement circulaire entre Nvidia,
+  Oracle, OpenAI, SoftBank et Amazon, pointait déjà ce montage comme un
+  risque pour la solidité du rallye boursier. »
+  (Rupture de registre — tutoiement direct « n'hésite pas » dans un
+  `.dek` par ailleurs à la troisième personne, cumulé à une phrase de 49
+  mots ; même motif déjà rencontré dans le journal, voir entrée du 6
+  septembre.)
+**Signalé pour revue humaine** :
+1. Source CNBC (`cnbc.com/2026/08/19/open-ai-ipo-timing-2027-friar.
+   html`), citée pour la confirmation par Sarah Friar du report de l'IPO
+   à 2027 et les chiffres de croissance associés (CA +35 % au trimestre,
+   revenus entreprise +50 %, 20 millions d'utilisateurs hebdo pour les
+   outils de code) : injoignable (HTTP 403 persistant sur 2 tentatives) —
+   "source non re-vérifiable", chiffres non recroisés pour cette source.
+   Les 3 autres sources citées (TechCrunch, Motley Fool, RD World)
+   confirment bien les chiffres qu'elles appuient dans l'article (rachat
+   d'actions à 7 Md$/valorisation 852 Md$ inchangée, seuil de 1 000 Md$
+   visé par Sam Altman, prêt SoftBank de 40 Md$ en mars 2027, CA >20 Md$
+   fin 2025).
+   (5 appels `WebFetch` utilisés sur 5 autorisés.)
+**Répercuté côté EN** : 1 correction — même rupture de registre traduite
+(« We've already covered this same circular financing between Nvidia,
+Oracle, OpenAI, SoftBank and Amazon — read our article on Wall Street's
+record highs in early September, where this arrangement was already
+flagged as a risk to the rally's staying power. » → « Our article on
+Wall Street's record highs in early September, about this same circular
+financing between Nvidia, Oracle, OpenAI, SoftBank and Amazon, already
+flagged this arrangement as a risk to the rally's staying power. ») sur
+`en/index.html` et `en/archives/2026-09-08.html`.
+
 ## 2026-09-07 — Groenland : l'UE mise 200 millions face à Trump
 **Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 7
 septembre 2026 · N°46, EN confirmé même date), CSS complet
