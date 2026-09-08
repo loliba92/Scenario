@@ -171,6 +171,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 08.09.2026 — [OpenAI : le pari à 1 000 milliards de dollars](../archives/2026-09-08.html)
 - 07.09.2026 — [Groenland : l'UE mise 200 millions face à Trump](../archives/2026-09-07.html)
 - 06.09.2026 — [Sport féminin : la loi oblige à partager l'argent](../archives/2026-09-06.html)
 - 05.09.2026 — [Marché de l'art : records en haut, fermetures en bas](../archives/2026-09-05.html)
