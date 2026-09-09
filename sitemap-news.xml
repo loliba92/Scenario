@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://lesscenarios.fr/archives/2026-09-09.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-09T06:34:00+02:00</news:publication_date>
+      <news:title>France fracturée : le pays à deux vitesses</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://lesscenarios.fr/archives/2026-09-08.html</loc>
     <news:news>
       <news:publication>
@@ -13,17 +24,6 @@
     </news:news>
   </url>
   <url>
-    <loc>https://lesscenarios.fr/archives/2026-09-07.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Scénario</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-07T06:30:00+02:00</news:publication_date>
-      <news:title>Groenland : l'UE mise 200 millions face à Trump</news:title>
-    </news:news>
-  </url>
-  <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-08.html</loc>
     <news:news>
       <news:publication>
@@ -32,17 +32,6 @@
       </news:publication>
       <news:publication_date>2026-09-08T06:25:00+02:00</news:publication_date>
       <news:title>OpenAI: The $1 Trillion Bet</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://lesscenarios.fr/en/archives/2026-09-07.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Scénario</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-07T06:30:00+02:00</news:publication_date>
-      <news:title>Greenland: The EU Bets €200 Million Against Trump</news:title>
     </news:news>
   </url>
 </urlset>
