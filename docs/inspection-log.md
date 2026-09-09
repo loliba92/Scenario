@@ -6,6 +6,98 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-09-09 — France fracturée, le pays à deux vitesses
+**Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 9
+septembre 2026 · N°48, EN confirmé même date), CSS complet
+(`.essentiel-box`, `.stakes-box`, `.question-box`, `.list-box`,
+`.comprendre-box` absente cette édition sans focus « Comprendre » — non
+retirée de la liste de vérification, `.delta-france`/`.delta-gauge*`/
+`.delta-word`/`.delta-flag` présentes dans `<style>` et utilisées dans le
+corps, dégradé SVG à 3 stops et `data-score="-0.60"` présents), sync
+`index.html`/`archives/2026-09-09.html` (seuls écarts : canonical/OG/nav
+et chemins relatifs, légitimes), `data-france-impact` cohérent avec le
+texte `.france-line` sur les 3 cartes (favorable↔« Plutôt favorable »,
+dégradé↔« Plutôt défavorable » ×2), label brut favorable/stable/dégradé
+absent de « L'essentiel » (les seules occurrences renvoient aux noms des
+scénarios eux-mêmes, pas un raccourci du label brut), phrase France
+Impact complète (« Notre évaluation de l'impact pour la France »), 5
+entrées de lexique toutes référencées et 5 `.lex-ref` tous résolus, 2
+indicateurs KPI (intentions de vote RN, départements en déclin) distincts
+sur les 3 cartes à la fois (28-31 %/18-20, 33-36 %/22-24, 38-42 %/27-30 —
+aucun doublon complet), 3 probabilités sommant à 100 % (20+45+35), aucun
+fichier `suivi/*.html` touché aujourd'hui (point 11 sans objet — les deux
+seuls fichiers `suivi/` datés d'aujourd'hui par mtime sont en réalité des
+commits du 5 et du 7 septembre, artefact du checkout), images du jour
+(`assets/social/topic-images/2026-09-09.jpg` 1080×1080 et `-wide.jpg`
+1600×900, réels JPEG conformes à l'extension, crédit photo présent en
+pied de page) et image Instagram (`assets/social/instagram/2026-09-09.png`
+1080×1080, réel PNG conforme, utilisée pour `og:image`/`twitter:image`/
+JSON-LD `"image"`, convention normale du site — confirmée identique sur
+l'édition du 8 septembre), longueur de l'édition 1158 mots
+(`.dek`+`.why`+`dd`), au-dessus du seuil de 1100 (point 12 sans objet),
+style et clarté des paragraphes `.dek`/`.why` (aucune rupture de registre
+hors `.share-block`, 1 phrase de 57 mots réécrite, voir ci-dessous ; RN
+toujours écrit en toutes lettres avant abréviation, PIB/IFOP non
+signalés comme jargon bloquant, aucun contexte manquant identifié), 3
+chiffres/faits structurants vérifiés contre les 4 sources citées :
+mairies RN (« 57 mairies… contre 9 en 2020 »), PIB par habitant
+Paris/Lyon/Marseille, participation au 2d tour — voir signalement pour le
+premier ; 2 des 4 sources injoignables ou sans le chiffre cherché, voir
+détail ci-dessous.
+**Corrigé automatiquement** : 1 phrase trop dense scindée en deux (point
+8, `.dek`, paragraphe villes moyennes/participation), répercutée côté EN
+(voir ci-dessous).
+**Enrichissement (point 12)** : au-dessus du seuil, rien à faire.
+**Réécritures et compléments de clarté** (1 sur 3 autorisées) :
+- Avant : « Autre signe de la fracture : la participation, remontée à
+  57,03 % au second tour national — après 41,86 % en 2020, en pleine
+  crise du Covid, mais encore loin des 62,13 % de 2014 — a reculé de 11
+  points dans les communes de moins de 1 000 habitants pendant que les
+  grandes villes progressaient légèrement. »
+  Après : « Autre signe de la fracture : la participation est remontée à
+  57,03 % au second tour national, après 41,86 % en 2020 en pleine crise
+  du Covid, mais reste encore loin des 62,13 % de 2014. Elle a pourtant
+  reculé de 11 points dans les communes de moins de 1 000 habitants,
+  pendant que les grandes villes progressaient légèrement. »
+**Signalé pour revue humaine** :
+1. **Écart entre le chiffre-phare du `.dek` et sa propre source citée.**
+   L'édition affirme (paragraphe d'ouverture) : « Résultat national : 57
+   mairies remportées, contre 9 seulement en 2020 — une progression
+   multipliée par six en un seul mandat » et, plus loin, « Le nombre de
+   conseillers municipaux RN, lui, a bondi de 827 à 3 121, avec pour la
+   première fois des élus présents dans 84 départements sur 101. »
+   La source citée en 3e position dans `<section class="sources">`
+   (`parlons-politique.fr`, dont l'URL elle-même annonce « de 22 à 74 »
+   mairies) indique en réalité **74 mairies remportées en 2026 contre 22
+   avant** (20 des 22 mairies antérieures conservées, 2 perdues :
+   Villers-Cotterêts et Mazan), « plus de 3 000 conseillers municipaux »
+   et bien 84 départements — ce dernier chiffre concorde, mais 57/9 ne
+   concorde ni avec 74/22 de cette même source, ni avec le chiffre cité
+   par une deuxième source (jean-jaures.org, article distinct, qui
+   rapporte la revendication de Jordan Bardella « 70 communes et 3 000
+   élus », en notant que le chiffre réel est probablement encore plus
+   élevé). Les deux sources s'accordent donc plutôt autour de 70-74
+   mairies, pas 57. Le chiffre 827 (base 2020 des conseillers) et 3 121
+   n'ont pas pu être confirmés ou infirmés par ces sources, elles ne
+   donnent qu'un total agrégé. Ne pas trancher seul (choix de la bonne
+   valeur, potentiellement une question de périmètre — RN seul vs RN et
+   alliés, ou date de mesure — hors du mandat mécanique de cette routine) :
+   à vérifier et corriger par la rédaction, y compris dans les deux
+   endroits où le chiffre revient (`.dek` d'ouverture et `.essentiel-text`
+   qui reprend « 9 à 57 mairies »).
+   (4 appels `WebFetch` utilisés sur 5 autorisés : `parlons-politique.fr`
+   confirmé 74/22 ; `jean-jaures.org` confirmé ~70 ; `enviscope.com` ne
+   donne aucun chiffre PIB exploitable par ville, rapport trop général
+   pour vérifier les 68 390 €/35 640 €/32 260 € cités — non contredits,
+   mais non confirmés non plus ; `interieur.gouv.fr` injoignable, HTTP
+   403 — source non re-vérifiable pour le taux de participation
+   57,03 %/41,86 %/62,13 %, non bloquant.)
+**Répercuté côté EN** : 1 correction — même réécriture de densité
+appliquée (« Another sign of the fracture: turnout, which climbed back
+to 57.03%… — fell by 11 points… » → « Another sign of the fracture:
+turnout climbed back to 57.03%… 2014. It nonetheless fell by 11
+points… ») sur `en/index.html` et `en/archives/2026-09-09.html`.
+
 ## 2026-09-08 — OpenAI : le pari à 1 000 milliards de dollars
 **Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 8
 septembre 2026 · N°47, EN confirmé même date), CSS complet
