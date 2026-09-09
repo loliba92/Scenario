@@ -859,9 +859,12 @@ def discover_weekly_recaps():
     dimanche: intitulé de la période}, ex. {"2026-08-30": "24 août au 30 août 2026"}.
 
     Chaque page hebdo est nommée par le dimanche qu'elle clôt — la ligne
-    "Récap de la semaine" correspondante est insérée juste après la ligne de
-    l'édition de ce même dimanche (voir render_page()). L'intitulé de période
-    est repris tel quel du <title> de la page hebdo, jamais reformulé.
+    "Récap de la semaine" correspondante est insérée juste avant la ligne de
+    l'édition de ce même dimanche (voir render_page()), pour que le récap
+    introduise la semaine qu'il résume plutôt que de la clore : on lit le
+    récap, puis en dessous les articles du jour au jour de cette semaine.
+    L'intitulé de période est repris tel quel du <title> de la page hebdo,
+    jamais reformulé.
     """
     recaps = {}
     if not HEBDO_DIR.exists():
@@ -1160,14 +1163,16 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
     )
 
     # Rend le tableau — une ligne "Récap de la semaine" (weekly_recaps) est
-    # intercalée juste après la ligne du dimanche qui clôt chaque semaine,
-    # quand ce dimanche a un récap publié dans hebdo/.
+    # intercalée juste avant la ligne du dimanche qui clôt chaque semaine,
+    # quand ce dimanche a un récap publié dans hebdo/ : le récap introduit la
+    # semaine qu'il résume, les articles jour par jour de cette semaine
+    # suivent juste en dessous — pas l'inverse.
     row_blocks = []
     for article in articles:
-        row_blocks.append(render_table_row(article))
         date_range = weekly_recaps.get(article["iso_date"])
         if date_range:
             row_blocks.append(render_week_recap_row(article["iso_date"], date_range))
+        row_blocks.append(render_table_row(article))
     rows_html = "\n".join(row_blocks)
     table_html = f"""  <table class="archives-table" id="archives-table">
     <thead>
