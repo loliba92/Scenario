@@ -2,6 +2,51 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-09-10",
+      "articles": [
+        {
+          "title": "The top 10 cities in 2024 by economic power",
+          "source": "Oxford Economics",
+          "url": "https://www.oxfordeconomics.com/resource/the-top-10-cities-in-2024-by-economic-power/",
+          "image": "https://www.oxfordeconomics.com/wp-content/uploads/2024/05/Feature-image-gallery-2024-05-30T120809.832.png",
+          "lang": "en",
+          "domain": "economie-entreprises",
+          "summary": "Le Global Cities Index 2024 classe New York et Londres en tête des villes par puissance économique, Paris et Tokyo complétant le top 5 mondial des plus grosses économies urbaines.",
+          "read_minutes": 4
+        },
+        {
+          "title": "Fortune Announces 2026 Fortune Global 500 List",
+          "source": "PR Newswire / Fortune",
+          "url": "https://www.prnewswire.com/news-releases/fortune-announces-2026-fortune-global-500-list-302835648.html",
+          "image": "https://mmx.prnewswire.com/media/MS1959200/Fortune-Media-USA-Corporation-features-Jeff-Bezos.jpg?id=OA2795978&p=facebook",
+          "lang": "en",
+          "domain": "economie-entreprises",
+          "summary": "Pékin, Tokyo, New York, Londres et Paris concentrent à eux cinq près d'un quart des sièges sociaux du Fortune Global 500 2026 ; les États-Unis reprennent la tête des pays avec 141 entreprises.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Urban world: Mapping the economic power of cities",
+          "source": "McKinsey Global Institute",
+          "url": "https://www.mckinsey.com/featured-insights/urbanization/urban-world-mapping-the-economic-power-of-cities",
+          "image": "",
+          "lang": "en",
+          "domain": "economie-entreprises",
+          "summary": "Les 600 plus grandes villes du monde produisent déjà environ 60 % du PIB mondial pour une part bien plus faible de la population, avec une recomposition rapide de ce club vers l'Asie.",
+          "read_minutes": 6
+        },
+        {
+          "title": "OECD Publishes Pillar Two Global Minimum Tax Safe Harbor for the US",
+          "source": "Skadden",
+          "url": "https://www.skadden.com/insights/publications/2026/01/oecd-publishes-pillar-two",
+          "image": "",
+          "lang": "en",
+          "domain": "economie-entreprises",
+          "summary": "Le paquet « side-by-side » publié le 5 janvier 2026 par l'OCDE exempte les multinationales américaines de l'essentiel de l'impôt minimum mondial de 15 %, affaiblissant l'outil censé limiter l'avantage fiscal des sièges sociaux.",
+          "read_minutes": 5
+        }
+      ]
+    },
+    {
       "date": "2026-09-07",
       "articles": [
         {
