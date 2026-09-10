@@ -532,7 +532,7 @@ Chaque jour, après avoir créé l'article du jour, **ajouter la balise domaine*
 ```
 où `{slug}` est l'un des 6 domaines : `economie-entreprises`, `politique-institutions`, `international`, `sciences-environnement`, `tech-numerique`, `culture-divertissement` (voir `docs/tags.md` pour la définition complète de chaque domaine).
 
-**Résultat** : `archives.html` est régénéré automatiquement **une fois par semaine** (voir étape « Pages thématiques et table d'archives » ci-dessous), peuplé du titre, domaine, scénario le plus probable (+ %) et impact France de chaque édition des 39 derniers articles. Le tableau reste à jour tant que les domaines metadata sont correctement renseignés. Pas de saisie manuelle d'entrée d'archive.
+**Résultat** : `archives.html` est régénéré automatiquement **chaque jour, à l'étape 7ter ci-dessous** — l'édition du jour doit y apparaître le jour même, jamais après un délai. [Avant le 10 septembre 2026, cette régénération n'avait lieu qu'une fois par semaine (voir l'ancienne note dans « Pages thématiques et table d'archives » ci-dessous, qui ne couvre plus que `themes/*.html`) ; retour utilisateur explicite : un lecteur qui consulte `archives.html` le jour de publication doit y trouver l'édition du jour, pas seulement une entrée vieille de plusieurs jours.] Peuplé du titre, domaine, scénario le plus probable (+ %) et impact France de chaque édition des 39 derniers articles. Le tableau reste à jour tant que les domaines metadata sont correctement renseignés. Pas de saisie manuelle d'entrée d'archive.
 
 **Colonne « Impact France » — espérance pondérée, pas le jugement du scénario le plus probable.** Chacun des 3 scénarios porte son propre `data-france-impact` (favorable/stable/degrade), **indépendant de son "kind"** — le scénario "stable" peut très bien être jugé "degrade" côté France (voir étape 4 plus haut). Se limiter au jugement du seul scénario le plus probable jetait ce signal. La colonne affiche donc une **espérance** : `Σ (pourcentage_i / 100 × valeur_i)`, avec favorable=+1, stable=0, degrade=−1 — un score continu dans [-1, 1].
 
@@ -614,16 +614,17 @@ Simple journal, pas une évaluation — ne rien écrire de plus. Ne jamais touch
     - **Cette étape ne gère que l'entrée `fr`** [note ajoutée le 3 septembre 2026] — l'entrée anglaise du jour (`news:language>en`) est ajoutée séparément par `docs/routine-en-prompt.md`, étape 6ter, qui tourne après celle-ci (la traduction n'existe pas encore à ce stade) : ne jamais essayer de l'anticiper ici.
     - Le fichier ne concerne que l'édition française quotidienne — pas les `hebdo/`, `suivi/`, ni les pages EN (`docs/routine-en-prompt.md` a son propre besoin le cas échéant, non couvert ici).
 
-**Pages thématiques et table d'archives — geste hebdomadaire, pas une étape de cette routine quotidienne** (site statique : chaque étape en plus coûte cher à maintenir tous les jours). Un décalage de quelques jours entre une édition taguée et son apparition sur `themes/*.html` ou `archives.html` n'a aucun effet visible, ni pour un lecteur ni pour Google — pas besoin de le faire à chaque édition. Une fois par semaine environ (ou avant une pause), relancer les deux scripts depuis la racine :
+7ter. **Régénérer `archives.html`, chaque jour — geste quotidien depuis le 10 septembre 2026** [avant cette date, ce geste était hebdomadaire, voir l'historique dans « Pages thématiques » ci-dessous ; changé sur retour utilisateur explicite : l'édition du jour doit apparaître dans `archives.html` le jour même, pas après un délai]. Depuis la racine :
 ```bash
-python3 scripts/seo/generate_theme_pages.py
 python3 scripts/seo/generate_archives_table.py
 ```
-Puis committer :
-- Fichiers `themes/*.html` que `git status` montre comme modifiés (souvent 1 ou 2 des 6, pas les 6 à chaque fois — le script ne réécrit que les pages dont la liste d'articles a changé)
-- `archives.html` (regénéré complètement à chaque run, contient la table complète de tous les articles)
+Committer `archives.html` (regénéré complètement à chaque run, contient la table complète de tous les articles) avec le reste de l'édition du jour, jamais dans un commit séparé — un correctif de suivi (`suivi/{sujet}.html`) publié le même jour par `docs/routine-detection-prompt.md` est capté par ce même run, aucun geste supplémentaire à faire pour ça. **Ne jamais éditer `archives.html` à la main.**
 
-**Ne jamais éditer `themes/*.html` ou `archives.html` à la main.** Si un nouveau tag thématique rejoint un des 6 domaines couverts (voir `docs/tags.md`), mettre à jour la table `TAG_TO_DOMAIN` dans `scripts/seo/map_domains.py` et `scripts/seo/add_domain_metadata.py`.
+**Pages thématiques — geste hebdomadaire, reste une étape distincte de cette routine quotidienne** (site statique : chaque étape en plus coûte cher à maintenir tous les jours ; `archives.html` est sorti de ce compromis le 10 septembre 2026, `themes/*.html` y reste — un décalage de quelques jours entre une édition taguée et son apparition sur `themes/*.html` n'a aucun effet visible, ni pour un lecteur ni pour Google, contrairement à l'archive générale). Une fois par semaine environ (ou avant une pause), depuis la racine :
+```bash
+python3 scripts/seo/generate_theme_pages.py
+```
+Puis committer les fichiers `themes/*.html` que `git status` montre comme modifiés (souvent 1 ou 2 des 6, pas les 6 à chaque fois — le script ne réécrit que les pages dont la liste d'articles a changé). **Ne jamais éditer `themes/*.html` à la main.** Si un nouveau tag thématique rejoint un des 6 domaines couverts (voir `docs/tags.md`), mettre à jour la table `TAG_TO_DOMAIN` dans `scripts/seo/map_domains.py` et `scripts/seo/add_domain_metadata.py`.
 
 8. Mettre à jour `feed.xml` : nouvel `<item>` en haut (avant les précédents, jamais supprimés) :
 ```xml

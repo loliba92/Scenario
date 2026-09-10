@@ -446,15 +446,22 @@ la date du jour, et ajouter une nouvelle entrée pour
 ## Étape 6bis — Régénérer `archives.html` pour que le badge EN apparaisse
 tout de suite
 
-`archives.html` n'est régénéré par la routine principale
-(`docs/routine-prompt.md`) qu'une fois par semaine — mais le badge EN de
-chaque ligne (`generate_archives_table.py`, fonction qui construit
-`en_link`) ne s'affiche que si `en/archives/AAAA-MM-JJ.html` existe déjà
-**au moment où `archives.html` a été généré**. Concrètement : si la
-traduction du jour est produite après le dernier passage hebdomadaire du
-script, le badge EN de l'édition du jour resterait invisible jusqu'au
-prochain passage — plusieurs jours d'écart possibles, repéré en pratique
-le jour même de la première traduction complète par cette routine.
+Depuis le 10 septembre 2026, la routine principale
+(`docs/routine-prompt.md`, étape 7ter) régénère déjà `archives.html`
+**chaque jour**, juste après la publication française — donc la ligne du
+jour y est déjà présente au moment où cette routine-ci s'exécute. Mais
+cette régénération a lieu **avant** l'étape 13 (traduction anglaise) de
+la routine française, donc avant que `en/archives/AAAA-MM-JJ.html`
+n'existe : le badge EN de chaque ligne (`generate_archives_table.py`,
+fonction qui construit `en_link`) ne s'affiche que si ce fichier existe
+déjà **au moment où `archives.html` a été généré** — au premier passage
+du jour, il ne l'est pas encore, donc le badge EN de l'édition du jour
+reste invisible jusqu'à ce que cette routine-ci régénère `archives.html`
+une seconde fois, avec la traduction cette fois en place. **Sans ce
+second passage, le badge resterait invisible jusqu'à la prochaine
+régénération FR — le lendemain au plus tôt, pas plusieurs jours comme
+avant le passage à une cadence quotidienne côté FR, mais toujours un
+écart évitable.**
 
 **Donc, chaque fois que cette routine (étapes 1 à 6 ci-dessus) vient de
 produire une traduction — celle du jour, une traduction de cascade
@@ -462,11 +469,12 @@ produire une traduction — celle du jour, une traduction de cascade
 `python3 scripts/seo/generate_archives_table.py` avant de committer, et
 inclure `archives.html` dans le même commit `[en]`. Le script est
 idempotent et rapide (quelques secondes) — le relancer ici ne remplace
-pas son passage hebdomadaire normal, qui continue de tourner par
-ailleurs pour les mises à jour de `docs/tags.md`/domaines. Ne jamais
-relancer `generate_theme_pages.py` depuis cette routine : les pages
-thématiques restent un geste hebdomadaire séparé, sans lien avec le
-statut de traduction.
+pas son passage quotidien normal côté FR (étape 7ter), qui continue de
+tourner par ailleurs, ni son passage hebdomadaire pour les mises à jour
+de `docs/tags.md`/domaines (voir « Pages thématiques » dans
+`docs/routine-prompt.md`). Ne jamais relancer `generate_theme_pages.py`
+depuis cette routine : les pages thématiques restent un geste
+hebdomadaire séparé, sans lien avec le statut de traduction.
 
 ## Étape 6ter — Ajouter l'entrée anglaise à `sitemap-news.xml`
 

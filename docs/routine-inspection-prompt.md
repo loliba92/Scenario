@@ -465,16 +465,42 @@ corrigé côté FR, resté faux côté EN). Avant de commencer :
     Correction journalée avec l'avant/après complet dans
     `docs/inspection-log.md`, même discipline que le point 8.
 
-11. **Intégrité `suivi/` ↔ `archives.html` —
-    toujours signaler, jamais corriger seul.** `scripts/seo/generate_archives_table.py` lit `suivi/*.html`
-    à chaque régénération hebdomadaire pour afficher la **dernière**
-    évaluation d'un sujet révisé (« Notre scénario » + « Impact France »,
-    voir `docs/routine-prompt.md`) — un fichier de suivi mal formé ne lève
-    aucune erreur, il fait juste silencieusement retomber le tableau sur les
-    chiffres figés de l'édition d'origine (`build_suivi_mapping()`/
-    `extract_latest_suivi_version()` retournent `None`/`{}}` sans avertir).
-    Vérification bon marché, à faire pour **chaque** `suivi/*.html` touché
-    aujourd'hui (hors `_gabarit.html`) :
+11. **`archives.html` à jour (édition du jour + suivis révisés) et
+    intégrité `suivi/` ↔ `archives.html`.** Deux sous-points de nature
+    différente : le premier mécanique et corrigeable seul, le second
+    toujours signalé.
+
+    **11a. `archives.html` reflète l'édition du jour — corrigé seul si
+    besoin.** Depuis le 10 septembre 2026, `scripts/seo/
+    generate_archives_table.py` tourne **chaque jour** à l'étape 7ter de
+    `docs/routine-prompt.md`, juste après la publication française — pas
+    une fois par semaine comme avant cette date (voir l'historique dans
+    `docs/routine-prompt.md`). Vérification bon marché : la première ligne
+    de `archives.html` (`data-date="{AAAA-MM-JJ le plus récent}"`) porte-t-elle
+    la date de l'édition du jour ? Si non — l'étape 7ter n'a probablement
+    pas tourné ce matin — régénérer immédiatement
+    (`python3 scripts/seo/generate_archives_table.py`) et committer le
+    résultat : **c'est un correctif mécanique et déterministe** (le
+    script ne fait que relire des données déjà publiées, aucun jugement
+    éditorial), au même titre que les points 1 à 7/9/10 — pas une
+    exception à "corrigé seul". Journalé dans `docs/inspection-log.md`
+    avec l'avant/après (nombre d'éditions, ligne du jour ajoutée) comme
+    les autres correctifs de cette catégorie ; si un `suivi/*.html`
+    touché aujourd'hui apparaît aussi rafraîchi par le même run (voir
+    11b), le mentionner dans la même entrée plutôt que de dupliquer le
+    correctif.
+
+    **11b. Intégrité `suivi/` ↔ `archives.html` — toujours signaler,
+    jamais corriger seul.** Le même script lit `suivi/*.html` pour
+    afficher la **dernière** évaluation d'un sujet révisé (« Notre
+    scénario » + « Impact France », voir `docs/routine-prompt.md`) — un
+    fichier de suivi mal formé ne lève aucune erreur, il fait juste
+    silencieusement retomber le tableau sur les chiffres figés de
+    l'édition d'origine (`build_suivi_mapping()`/
+    `extract_latest_suivi_version()` retournent `None`/`{}` sans
+    avertir). Vérification bon marché, à faire pour **chaque**
+    `suivi/*.html` touché aujourd'hui (hors `_gabarit.html`), avant la
+    régénération de 11a :
     - `<a class="origin-link" href="../archives/{AAAA-MM-JJ}.html">` :
       le fichier `archives/{AAAA-MM-JJ}.html` cible existe-t-il réellement ?
       Une faute de frappe sur la date casse silencieusement tout le
@@ -486,16 +512,21 @@ corrigé côté FR, resté faux côté EN). Avant de commencer :
       exactement 3 `<div class="mini-scenario" data-kind="favorable|
       stable|degrade">` portant chacun soit `.evo-current`, soit (pour un
       fichier resté à V0) `.mini-scenario-pct` — un pourcentage lisible ?
-    - Si le sujet a été mis à jour aujourd'hui : régénérer `archives.html`
-      (`python3 scripts/seo/generate_archives_table.py`) et vérifier que la
-      ligne correspondante affiche bien les nouveaux chiffres, pas les
-      anciens — un simple `grep` du pourcentage attendu dans le fichier
-      généré suffit, pas besoin d'une capture Playwright pour ce point.
+    - Si le sujet a été mis à jour aujourd'hui : après régénération (11a),
+      vérifier que la ligne correspondante affiche bien les nouveaux
+      chiffres, pas les anciens — un simple `grep` du pourcentage attendu
+      dans le fichier généré suffit, pas besoin d'une capture Playwright
+      pour ce point.
 
-    **Ne jamais corriger seul un problème trouvé ici** — un origin-link ou
-    une date de version cassée demande de savoir quelle est la bonne valeur,
-    jugement éditorial, pas mécanique. Signaler dans `docs/inspection-log.md`
-    avec le fichier concerné et le symptôme exact.
+    **Si l'un de ces contrôles échoue** (origin-link cassé, date de
+    version illisible, ou régénération qui ne reprend pas les nouveaux
+    chiffres malgré un fichier a priori bien formé) : **ne jamais
+    corriger seul** — savoir quelle est la bonne valeur est un jugement
+    éditorial, pas mécanique. Dans ce cas, **annuler la régénération de
+    11a également** (`git checkout -- archives.html`) plutôt que de
+    committer un tableau construit sur un fichier de suivi cassé, et tout
+    signaler ensemble dans `docs/inspection-log.md` avec le fichier
+    concerné et le symptôme exact.
 
 12. **Longueur minimale et enrichissement réel, pas du
     remplissage.** Seul point de cette routine qui a le droit de lancer
@@ -628,7 +659,15 @@ Après avoir appliqué un correctif (points 1 à 12), avant de commiter :
    correctifs des points 2 à 8, 10 et 12 sont uniquement textuels/attributs
    — pas de capture Playwright nécessaire, les vérifications 1-2 (et 3/4
    pour les points 10/12) suffisent.
-6. **Si une de ces vérifications échoue** : annuler le correctif
+6. **Pour un correctif du point 11a (`archives.html` régénéré)
+   uniquement** : vérifier que le nombre d'éditions listées n'a fait
+   qu'augmenter (jamais de ligne disparue — comparer le compte avant/après
+   dans le `<meta name="description">`), que la première ligne porte bien
+   la date du jour, et que toute ligne `suivi/*.html` touchée aujourd'hui
+   (11b) affiche les chiffres de sa dernière version, pas les anciens —
+   la vérification 1 (balise HTML équilibrée) s'applique aussi à
+   `archives.html` comme aux autres fichiers modifiés.
+7. **Si une de ces vérifications échoue** : annuler le correctif
    (`git checkout -- <fichier(s) concernés>`, jamais un reset plus large),
    consigner l'entrée dans `docs/inspection-log.md` sous « Signalé pour
    revue humaine » (pas « Corrigé automatiquement »), en précisant quelle
@@ -650,7 +689,10 @@ auto-vérification.
 - KPI dupliqué entre deux scénarios sans ajustement plausible et cohérent
   (voir point 10 ci-dessus).
 - Fichier `suivi/{sujet}.html` mal formé — origin-link cassé, date de
-  version illisible, pourcentages manquants (voir point 11 ci-dessus).
+  version illisible, pourcentages manquants (voir point 11b ci-dessus ;
+  la régénération quotidienne de `archives.html` elle-même, quand le
+  fichier de suivi est bien formé, est en revanche corrigée seule —
+  point 11a).
 - Contexte manquant pour un lecteur découvrant le sujet, quand ce contexte
   n'est écrit nulle part dans l'édition du jour ni dans une de ses sources
   déjà citées (voir point 8 ci-dessus, règle du complément factuel) —
