@@ -69,9 +69,37 @@ html` sans la répercuter laisserait l'anglais désynchronisé (chiffre
 corrigé côté FR, resté faux côté EN). Avant de commencer :
 1. Vérifier si `en/index.html` existe et porte la même date que
    l'édition du jour (`.edition`/`.pubdate`, même vérification qu'au
-   point ci-dessus) — sinon, aucune traduction à maintenir aujourd'hui,
-   ignorer les points 2-3 ci-dessous.
-2. Pour chaque correction effective apportée à `index.html`/`archives/
+   point ci-dessus). Si oui, poursuivre normalement avec les points 2-4
+   ci-dessous.
+   **Si non — absence à traiter comme une anomalie, pas comme un non-
+   événement.** La traduction n'est pas un geste optionnel à cadence
+   libre (contrairement à `archives.html`, régénéré volontairement une
+   fois par semaine, voir `docs/routine-prompt.md`) : elle est l'étape 13
+   de la routine principale, censée s'exécuter **le jour même**, dans la
+   foulée du push français, avant que cette routine-ci ne passe une heure
+   plus tard. `en/index.html` qui reste daté d'une édition antérieure à
+   ce stade signale donc très probablement une étape 13 qui n'a pas
+   tourné ou a échoué silencieusement ce jour-là — un incident sur la
+   routine principale, pas une absence normale. **Signaler dans
+   `docs/inspection-log.md`** sous « Signalé pour revue humaine » : « pas
+   de traduction anglaise pour l'édition du jour — `en/index.html` reste
+   daté du {dernière date trouvée}, alors que l'étape 13 de
+   `docs/routine-prompt.md` est censée la produire le jour même ; vérifier
+   si la routine principale a échoué à cette étape ou l'a simplement
+   sautée. » Puis ignorer les points 2-4 ci-dessous (rien à répercuter
+   tant que la traduction elle-même n'existe pas — produire une
+   traduction reste un geste de jugement linguistique, hors du mandat
+   mécanique de cet inspecteur).
+2. **Même quand `en/index.html` porte la bonne date**, vérifier que les
+   deux autres pièces attendues par l'étape 13 suivent : `en/archives/
+   {AAAA-MM-JJ}.html` existe-t-il, et `en/feed.xml` porte-t-il un item du
+   jour (même lien `archives/{AAAA-MM-JJ}.html`, `pubDate` de la date du
+   jour) ? Une traduction partielle (`en/index.html` à jour mais `en/
+   archives/` ou `en/feed.xml` manquant) est le même type d'anomalie que
+   ci-dessus, à signaler de la même façon en précisant précisément quelle
+   pièce manque — ne pas supposer que la présence d'une seule pièce vaut
+   pour les trois.
+3. Pour chaque correction effective apportée à `index.html`/`archives/
    {AAAA-MM-JJ}.html` (jamais pour un point simplement signalé, non
    corrigé) : appliquer **la même correction, traduite**, sur
    `en/index.html` et `en/archives/{AAAA-MM-JJ}.html` — un correctif
@@ -79,9 +107,12 @@ corrigé côté FR, resté faux côté EN). Avant de commencer :
    fichier. Si la correction touche un chiffre déjà repris ailleurs dans
    l'édition (indicateur, essentiel-box, image sociale...), le corriger
    à tous les endroits concernés côté EN aussi, comme côté FR.
-3. Mentionner explicitement dans le message final si des corrections ont
+4. Mentionner explicitement dans le message final si des corrections ont
    été répercutées côté EN, et lesquelles — jamais silencieux sur ce
-   point, pour que l'écart entre les deux versions reste traçable.
+   point, pour que l'écart entre les deux versions reste traçable. Le
+   message final doit aussi toujours indiquer l'état de la traduction
+   elle-même (présente et à jour / absente et signalée / partielle et
+   signalée), pas seulement l'état des répercussions de corrections.
 
 ## Ce qui est corrigé seul, sans demander (mécanique, sans ambiguïté)
 
@@ -706,17 +737,25 @@ plafond 3 confondus, ou "aucun") :
 - Complément ajouté : « {phrase ou incise ajoutée} » — provenance : {autre
   passage ou source de l'édition qui portait déjà ce fait}
 **Signalé pour revue humaine** : {liste, ou "rien"}.
+**État de la traduction EN** : "présente et à jour (`en/index.html`,
+`en/archives/{AAAA-MM-JJ}.html`, item `en/feed.xml`, tous datés du
+jour)", "absente — signalée (étape 13 de `docs/routine-prompt.md`
+probablement non exécutée ou en échec ce jour-là)", ou "partielle —
+signalée ({liste des pièces manquantes})".
 **Répercuté côté EN** : {liste des corrections mirrorées sur `en/
-index.html`/`en/archives/{AAAA-MM-JJ}.html`, "rien à répercuter"
-si aucune correction n'a été faite côté FR, ou "pas de traduction
-pour cette date" si `en/` n'existe pas pour l'édition du jour}.
+index.html`/`en/archives/{AAAA-MM-JJ}.html`, "rien à répercuter" si
+aucune correction n'a été faite côté FR, ou "sans objet" si la
+traduction elle-même est absente ou partielle ce jour-là — voir « État
+de la traduction EN » ci-dessus}.
 ```
 
 ## Message final
 
 Toujours terminer par un résumé court : ce qui a été vérifié, ce qui a été
 corrigé, ce qui a été signalé — même s'il n'y a rien à signaler, le dire
-explicitement plutôt que de rester silencieux. **Toujours inclure la
-ligne « Répercuté côté EN »** (voir le point ajouté juste après la
-vérification de date en tête de fichier), même quand la réponse est
-« rien à répercuter » ou « pas de traduction pour cette date ».
+explicitement plutôt que de rester silencieux. **Toujours inclure les
+lignes « État de la traduction EN » et « Répercuté côté EN »** (voir le
+point ajouté juste après la vérification de date en tête de fichier) —
+une traduction absente ce jour-là n'est jamais un non-événement silencieux,
+elle est signalée comme un symptôme probable d'échec de l'étape 13 de la
+routine principale.

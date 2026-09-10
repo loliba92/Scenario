@@ -8,11 +8,9 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ## 2026-09-10 — Ces métropoles plus riches que des États
 **Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 10
-septembre 2026 · N°49 ; EN non concerné, `en/index.html` reste daté du 9
-septembre — pas de traduction pour cette date, points 2-3 EN ignorés),
-CSS complet (`.essentiel-box`, `.stakes-box`, `.question-box`,
-`.list-box`, `.comprendre-box`, `.article-image*`, `.card`, `.gauge*`
-tous présents dans `<style>` et utilisés dans le corps ; bloc
+septembre 2026 · N°49), CSS complet (`.essentiel-box`, `.stakes-box`,
+`.question-box`, `.list-box`, `.comprendre-box`, `.article-image*`,
+`.card`, `.gauge*` tous présents dans `<style>` et utilisés dans le corps ; bloc
 `.delta-france`/`.delta-gauge*`/`.delta-word`/`.delta-flag` comparé
 octet près — hors commentaires explicatifs — au bloc canonique de
 `docs/routine-inspection-prompt.md`, identique ; dégradé SVG à 3 stops et
@@ -71,9 +69,29 @@ non re-vérifiable, non bloquant.
 **Corrigé automatiquement** : rien.
 **Enrichissement (point 12)** : au-dessus du seuil, rien à faire.
 **Réécritures et compléments de clarté** : aucun (0 sur 3 autorisées).
-**Signalé pour revue humaine** : rien.
-**Répercuté côté EN** : pas de traduction pour cette date (`en/index.html`
-daté du 9 septembre).
+**Signalé pour revue humaine** :
+1. **Traduction anglaise absente pour l'édition du jour.** `en/index.html`
+   et `en/archives/` restent datés du 9 septembre (N°48), aucun commit
+   `[en]` n'a été poussé sur `main` aujourd'hui, `en/feed.xml` n'a pas
+   d'item pour le 10 septembre, `sitemap.xml` ne référence pas d'archive
+   EN du jour, et `.masthead-lang-btn` (ajouté rétroactivement par la
+   routine EN) est absent de `index.html`. Or l'étape 13 de
+   `docs/routine-prompt.md` est censée produire cette traduction le jour
+   même, juste après le push français (04:24 UTC) — ce n'est pas une
+   absence normale comme pour `archives.html` (régénéré volontairement une
+   fois par semaine). Probable échec ou omission de l'étape 13 sur la
+   routine principale de ce matin, à vérifier par la rédaction (log de la
+   routine principale, ou relance manuelle de la traduction via
+   `docs/routine-en-prompt.md`). *(Absence repérée après coup, à la suite
+   d'un retour utilisateur — le déclencheur de vérification systématique
+   de ce point a été ajouté à `docs/routine-inspection-prompt.md` dans la
+   foulée pour les prochains passages, voir commit associé.)*
+**État de la traduction EN** : absente — signalée (étape 13 de
+`docs/routine-prompt.md` probablement non exécutée ou en échec ce
+jour-là ; `en/index.html`/`en/archives/` toujours datés du 9 septembre,
+`en/feed.xml` sans item du 10, `sitemap.xml` sans archive EN du jour).
+**Répercuté côté EN** : sans objet (traduction absente ce jour-là, voir
+« État de la traduction EN » ci-dessus).
 
 ## 2026-09-09 — France fracturée, le pays à deux vitesses
 **Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 9
