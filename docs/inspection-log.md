@@ -6,6 +6,75 @@ jamais de passage silencieux sans trace. La plus récente en tête.
 
 ---
 
+## 2026-09-10 — Ces métropoles plus riches que des États
+**Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 10
+septembre 2026 · N°49 ; EN non concerné, `en/index.html` reste daté du 9
+septembre — pas de traduction pour cette date, points 2-3 EN ignorés),
+CSS complet (`.essentiel-box`, `.stakes-box`, `.question-box`,
+`.list-box`, `.comprendre-box`, `.article-image*`, `.card`, `.gauge*`
+tous présents dans `<style>` et utilisés dans le corps ; bloc
+`.delta-france`/`.delta-gauge*`/`.delta-word`/`.delta-flag` comparé
+octet près — hors commentaires explicatifs — au bloc canonique de
+`docs/routine-inspection-prompt.md`, identique ; dégradé SVG à 3 stops et
+`data-score="-0.60"` présents), sync `index.html`/
+`archives/2026-09-10.html` (0 écart après normalisation des chemins
+relatifs et exclusion canonical/OG/nav — diff strictement vide),
+`data-france-impact` cohérent avec le texte `.france-line` sur les 3
+cartes (favorable↔« Plutôt favorable », dégradé↔« Plutôt défavorable »
+×2), label brut favorable/stable/dégradé absent de « L'essentiel »,
+phrase France Impact complète (« Notre évaluation de l'impact pour la
+France : assez négatif », `.delta-france[data-kind="negatif"]`, cohérente
+avec `data-score="-0.60"` et les 2 cartes défavorables sur 3), 6 entrées de
+lexique toutes référencées et 6 `.lex-ref` tous résolus, 2 indicateurs
+KPI (PIB mondial dans les 600 plus grandes villes, sièges Fortune 500
+dans le top 5) distincts sur les 3 cartes à la fois (56-58 %/21-23 %,
+59-61 %/24-26 %, 63-66 %/28-31 % — aucun doublon complet), cohérence
+numérique interne (chiffres du tableau « Villes contre États » identiques
+entre le `.list-box` et les `.dek` qui les introduisent : 2 300 Md$ NY,
+1 800 Md$ Tokyo, 860 Md€/≈930 Md$ Île-de-France, 510 Md$ Shenzhen, 547
+Md$ Singapour, 664 Md$ Belgique — aucun écart), `suivi/iran-usa.html`
+mis à jour aujourd'hui (V3, 00:13 UTC, hors du périmètre de l'édition du
+jour) : origin-link vers `archives/2026-07-27.html` valide, dernier bloc
+version daté « 10 septembre 2026 » reconnaissable et portant exactement 3
+`.mini-scenario` avec `.evo-current` — régénération de test
+(`generate_archives_table.py`) confirme que la ligne archives.html
+reprendra bien 92 %/10.09.2026 une fois la routine hebdomadaire passée
+(fichier suivi bien formé, mécanisme fonctionnel) ; régénération annulée
+(`git checkout -- archives.html`) après vérification, cette table est
+republiée par la routine hebdo, pas par l'inspecteur, images du jour
+(`assets/social/topic-images/2026-09-10.jpg` 1080×1080 et `-wide.jpg`
+1600×900, réels JPEG conformes à l'extension) et image Instagram
+(`assets/social/instagram/2026-09-10.png` 1080×1080, réel PNG conforme,
+utilisée pour `og:image`/`twitter:image`/JSON-LD `"image"`, convention
+normale du site — confirmée identique sur plusieurs éditions récentes),
+longueur de l'édition 1367 mots (`.dek`+`.why`+`dd`), au-dessus du seuil
+de 1100 (point 12 sans objet), style et clarté des paragraphes
+`.dek`/`.why`/`.essentiel-text` (aucune rupture de registre hors
+`.share-block` — les 3 occurrences brutes de « ton »/« tu » relevées par
+grep sont soit dans `.share-block`/« Reste connecté » [légitime], soit
+dans des commentaires CSS internes non publiés ; plusieurs phrases de
+40-56 mots identifiées mais toutes de structure claire — énumération ou
+apposition simple, pas de subordonnées imbriquées gênant la
+compréhension — aucune jugée nécessitant une réécriture ; aucun sigle non
+expliqué ni contexte manquant identifié), 3 chiffres structurants
+vérifiés contre les sources citées (4 appels `WebFetch` sur 5
+autorisés) : Fortune/PR Newswire confirme mot pour mot « près d'un quart
+» des 500 sur « 242 villes… 36 pays » ; Insee confirme mot pour mot « 860
+milliards d'euros… plus de 30 % du PIB national… poids démographique de
+la région (18 %) » ; Oxford Economics ne contredit pas les chiffres NY/
+Tokyo (2 300 Md$/1 800 Md$, sourcés BEA/données japonaises dans
+l'article, pas à Oxford Economics) — l'écart apparent avec le « ~1 000
+milliards » évoqué par Oxford Economics vient d'une méthodologie
+différente (indice composite « Global Cities », pas un PIB officiel
+comparable), pas d'une erreur ; McKinsey injoignable (HTTP 503) — source
+non re-vérifiable, non bloquant.
+**Corrigé automatiquement** : rien.
+**Enrichissement (point 12)** : au-dessus du seuil, rien à faire.
+**Réécritures et compléments de clarté** : aucun (0 sur 3 autorisées).
+**Signalé pour revue humaine** : rien.
+**Répercuté côté EN** : pas de traduction pour cette date (`en/index.html`
+daté du 9 septembre).
+
 ## 2026-09-09 — France fracturée, le pays à deux vitesses
 **Vérifié** : édition du jour confirmée (`.edition`/`.pubdate` = 9
 septembre 2026 · N°48, EN confirmé même date), CSS complet
