@@ -78,23 +78,26 @@ mériter une page de suivi ou une mise à jour.
 - **Iran–États-Unis : la trêve tient-elle encore ?** (édition du 27
   juillet 2026)
   Suivi existant : `suivi/iran-usa.html` (V0 + V1 au 14 août + V2 au 28
-  août, publiée automatiquement par la routine de détection — écart de
-  +30 points sur le scénario dégradé, -24 points sur le stable). V2
-  intègre l'expiration du mémorandum du 17 juin sans reconduction (16
-  août), le rejet explicite par l'Iran (Araghchi, 19 août) jusqu'au
-  principe même d'un cessez-le-feu, la vague de sanctions américaines
-  « Economic D-Day » (24 août) et un pétrolier frappé au large d'Oman le
-  25 août.
-  Prochaine échéance connue : aucune date institutionnelle fixe
-  désormais (le mémorandum du 17 juin est expiré) ; à surveiller,
-  l'accord technique Iran-Oman du 26 août sur un corridor de transit
-  temporaire (seule porte diplomatique encore ouverte), toute reprise de
-  frappes du CENTCOM, et l'évolution du trafic maritime (~5-8
-  navires/jour au 27 août contre ~130/jour avant-guerre). **Signal de
-  clôture possible détecté mais non publié** (voir routine de détection
-  du 28 août) — à examiner en session si le déclencheur se confirme
-  (fermeture totale d'Ormuz officiellement déclarée ou accord formel).
-  Dernière vérification : 28 août 2026 (V2).
+  août + V3 au 10 septembre, publiée automatiquement par la routine de
+  détection — le scénario médian « ni guerre ni paix » rendu caduc par la
+  reprise de frappes militaires directes, dégradé +17 points). V3
+  intègre la confirmation officielle du CENTCOM (1er-4 septembre) d'avoir
+  détruit ou désactivé cinq pétroliers liés à l'Iran, la riposte
+  iranienne par tirs de missiles balistiques contre des porte-avions et
+  destroyers américains (5-6 septembre), la « zone d'exclusion du golfe
+  Persique » déclarée par l'Iran (57 navires mis sur liste noire) et
+  l'effondrement du trafic à Ormuz (~5-13 navires/jour).
+  Prochaine échéance connue : aucune date institutionnelle fixe ; à
+  surveiller, l'accord technique Iran-Oman pour un corridor de transit
+  temporaire (toujours « à quelques jours » selon Téhéran le 7
+  septembre — seule porte diplomatique restante), toute nouvelle frappe
+  du CENTCOM ou de l'IRGC, et l'évolution du trafic maritime et du prix
+  du pétrole (Brent ~99 $/baril). **Signal de clôture possible détecté
+  mais non publié** (le scénario dégradé franchit 92% en V3, voir routine
+  de détection du 10 septembre) — à examiner en session si un fait
+  vérifiable confirme une fermeture totale et officiellement déclarée
+  d'Ormuz, ou l'inverse (accord formel).
+  Dernière vérification : 10 septembre 2026 (V3).
 
 - **Le cinéma reprend des couleurs** (édition du 8 août 2026)
   Suivi existant : `suivi/cinema-france.html` (V0 + V1 au 22 août + V2 au
