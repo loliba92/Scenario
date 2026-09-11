@@ -42,11 +42,15 @@ API_URL = "https://scenario.goatcounter.com/api/v0/stats/hits"
 # redécouvrir dynamiquement (même valeur que docs/routine-audience-prompt.md).
 START_DATE = "2026-07-29"
 
-# Ne garder que les éditions quotidiennes françaises, jamais les autres
-# chemins (accueil, archives.html, le-projet.html, suivi/, hebdo/, en/...)
-# — même périmètre que le tableau top/flop du dashboard et la colonne
-# "Lectures" de archives.html (qui n'affiche que les éditions FR).
-PATH_RE = re.compile(r"^/archives/(\d{4}-\d{2}-\d{2})\.html(?:\?.*)?$")
+# Éditions quotidiennes, FR (/archives/{date}.html) et EN (/en/archives/{date}.html)
+# — un (?:/en)? optionnel devant, la date reste le seul groupe capturé donc les
+# deux variantes retombent sous la même clé dans aggregate(). Toujours pas les
+# autres chemins (accueil, archives.html, le-projet.html, suivi/, hebdo/...).
+# Fusion FR+EN décidée le 11 septembre 2026 (retour utilisateur) : les deux
+# pages sont la même édition, juste dans une langue différente — les séparer
+# sous-évaluait les lectures des éditions traduites dans la colonne "Lectures"
+# de archives.html.
+PATH_RE = re.compile(r"^(?:/en)?/archives/(\d{4}-\d{2}-\d{2})\.html(?:\?.*)?$")
 
 
 def fetch_hits(token):

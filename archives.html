@@ -423,9 +423,28 @@
 
   .hero.archives-hero .eyebrow,
   .hero.archives-hero h1,
-  .hero.archives-hero .dek {
+  .hero.archives-hero .dek,
+  .hero.archives-hero .reads-total {
     position: relative;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Total de lectures cumulées, toutes éditions confondues (FR + EN) — même
+     source que la colonne "Lectures" du tableau (reads_script, plus bas),
+     juste sommée plutôt que par édition. Masqué (attribut hidden) tant que
+     le JSON n'a pas chargé : jamais de "0" trompeur avant que la vraie
+     valeur arrive. */
+  .hero.archives-hero .reads-total {
+    margin: 4px 0 0;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    color: var(--paper-dim);
+  }
+
+  .hero.archives-hero .reads-total #reads-total-value {
+    color: var(--gold);
+    font-weight: 700;
   }
 
   @media (max-width: 600px) {
@@ -1061,6 +1080,7 @@
     <p class="eyebrow">Archives</p>
     <h1>Toutes les éditions</h1>
     <p class="dek">Nos précédentes éditions de Scénario — chacune analyse un sujet d'actualité avec 3 scénarios chiffrés : favorable, stable, dégradé. Cliquez sur le titre pour voir l'analyse complète.</p>
+    <p class="reads-total" id="reads-total-line" hidden><span id="reads-total-value">—</span> lectures cumulées depuis le lancement</p>
   </div>
 </section>
 
@@ -2368,6 +2388,20 @@
           badge.title = "L'édition la plus lue";
           badge.textContent = '🔥';
           link.insertAdjacentElement('afterend', badge);
+        }
+      }
+      // Total cumulé toutes éditions (FR + EN déjà fusionnées côté
+      // update_reads_json.py) — même dict `reads`, juste sommé plutôt que
+      // lu par édition. Affiché seulement si au moins une valeur connue,
+      // jamais un "0" avant chargement (voir attribut hidden ci-dessus).
+      var totalKeys = Object.keys(reads);
+      if(totalKeys.length){
+        var total = totalKeys.reduce(function(sum, key){ return sum + (reads[key] || 0); }, 0);
+        var totalLine = document.getElementById('reads-total-line');
+        var totalValue = document.getElementById('reads-total-value');
+        if(totalLine && totalValue){
+          totalValue.textContent = total.toLocaleString('fr-FR');
+          totalLine.hidden = false;
         }
       }
       // Top 25% (arrondi au-dessus, au moins 1) = "les plus lues du moment".
