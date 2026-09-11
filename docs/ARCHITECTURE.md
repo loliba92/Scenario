@@ -319,6 +319,8 @@ l'utilisateur dans l'interface — rare, puisque les règles éditoriales et
 techniques ordinaires vivent désormais entièrement dans
 `docs/routine-prompt.md`.
 
+**Incident du 11 septembre 2026 : étape 13 (traduction anglaise) sautée deux jours de suite.** La session du jour avait délégué la production de l'édition française à un sous-agent explicitement borné « jusqu'au résumé de l'étape 12 » — le sous-agent a donc pris l'étape 13 (traduction EN, `docs/routine-en-prompt.md`) pour une routine séparée hors de son mandat et ne l'a pas exécutée, alors qu'elle fait partie de la même exécution quotidienne. Conséquence : `en/index.html` est resté bloqué sur l'édition du 9 septembre pendant que le FR publiait le 10 puis le 11. Rattrapé le jour même (deux commits `[en]` séparés, un par jour manquant) après signalement de l'utilisateur. Correctif appliqué dans `docs/routine-prompt.md` (étape 12 : ne plus jamais la présenter comme un point d'arrêt ; étape 13 : marquée explicitement obligatoire, avec consigne que tout sous-agent mandaté pour la routine doit recevoir un périmètre couvrant l'étape 13, jamais borné à l'étape 12).
+
 ## Branches Git
 
 - `main` — branche servie par GitHub Pages, toujours à jour.

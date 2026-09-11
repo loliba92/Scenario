@@ -772,20 +772,21 @@ LinkedIn/Bluesky à partir de `feed.xml` inclut un module OneSignal
 réintroduire l'appel OneSignal direct depuis cette session** — double
 envoi garanti (une notif de la routine + une de Make). Le suivi des
 envois se fait côté Make/dashboard OneSignal, pas dans ce dépôt.
-12. Terminer par un court résumé (sujet retenu, probabilités des 3 scénarios, ce qui a été publié, **et la décision graphique — voir juste en dessous**).
+12. Résumé intermédiaire (sujet retenu, probabilités des 3 scénarios, ce qui a été publié, **et la décision graphique — voir juste en dessous**). **Ce résumé n'est pas la fin de l'exécution** — ne jamais le présenter comme un point d'arrêt ni comme « terminer par » : l'étape 13 ci-dessous fait partie de la même exécution quotidienne et suit obligatoirement, dans la même session.
 
-13. **Traduction anglaise de
-    l'édition du jour.** Une fois l'édition française publiée sur `main`
+13. **Traduction anglaise de l'édition du jour — obligatoire, jamais une routine annexe optionnelle ou hors périmètre, jamais un simple « nice to have ».** Une fois l'édition française publiée sur `main`
     (étape 11 ci-dessus terminée, push confirmé) : produire aussi la
     version anglaise — `en/index.html`, `en/archives/{AAAA-MM-JJ}.html`,
     item ajouté à `en/feed.xml`, `sitemap.xml` mis à jour. Procédure
     complète et détaillée : `docs/routine-en-prompt.md` (ne pas la
-    reproduire ici). Rappel du principe non négociable : **traduction
+    reproduire ici, mais la lire intégralement le moment venu — le fichier existe déjà dans ce dépôt). Rappel du principe non négociable : **traduction
     fidèle du contenu français déjà validé, jamais une nouvelle
     recherche ni une rédaction indépendante en anglais** — voir
     `docs/strategie-anglais.md` pour le cadrage complet. Toujours dans un
     commit séparé de l'édition française (préfixe `[en]`), poussé après
     elle, jamais avant ni dans le même commit.
+
+    **Incident du 11 septembre 2026 (corrigé) : une exécution a publié l'édition française puis délégué la suite à un sous-agent borné explicitement à « l'étape 12 », ce qui a fait sauter l'étape 13 en la faisant passer pour une routine séparée hors périmètre.** Si cette exécution délègue tout ou partie du travail à un sous-agent, **le périmètre donné au sous-agent doit toujours couvrir explicitement l'étape 13, jamais s'arrêter à l'étape 12** — le mandater seulement jusqu'au résumé de l'étape 12 laisse la traduction anglaise non faite malgré son caractère obligatoire ci-dessus. Le résumé final rapporté à l'utilisateur (ou dans la notification de fin de tâche) doit toujours couvrir les deux volets, FR et EN.
 
 **Traçabilité de la décision graphique, toujours, même quand la réponse est non.** Le résumé de l'étape 12 doit toujours contenir une ligne explicite sur `.dc-chart-box` : soit « Graphique : [KPI retenu], [N] points, [source] », soit « Graphique : aucun — [KPI 1] et [KPI 2] ne passent pas [le(s) critère(s) manquant(s)] ». Même chose dans le message de commit. But : éviter d'avoir à reconstituer après coup, en cherchant dans le diff ou en recherchant soi-même si les données existaient, si l'évaluation a réellement eu lieu ce jour-là ou si le sujet a simplement été passé sous silence — l'absence de graphique doit toujours être une décision visible, jamais une simple absence de trace.
 
