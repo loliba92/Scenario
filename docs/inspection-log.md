@@ -2567,3 +2567,111 @@ direct du lecteur dans un paragraphe par ailleurs impersonnel, hors
 rights — feel free to read our article to find out more. » →
 « […] — see our article to find out more. ») sur `en/index.html` et
 `en/archives/2026-09-06.html`.
+
+## 2026-09-11 — IA : le pari à 725 milliards de la tech américaine
+**Vérifié** : édition du jour confirmée (11 septembre 2026, N°50), cohérence
+interne (CSS complet y compris `.delta-france`/`.delta-gauge` recopié à
+l'identique du bloc canonique de ce prompt, structure SVG de la jauge
+conforme — dégradé 3 stops, `data-score="-0.60"` présent —, sync
+index/archive OK hors différences légitimes canonical/OG/aria-current,
+`data-france-impact`/`data-kind` cohérents avec le texte adjacent sur les
+3 `.france-line` et sur `.delta-france`, aucune incohérence numérique
+interne — 725 Md$/410 Md$/+77 % en 2026, 1 400 Md$ d'engagements/500 Md$
+Stargate/25 Md$ de CA/14 Md$ de pertes pour OpenAI, 176 Md$ (Burry), 300
+Md$ (Oracle), 27 Md$ (Meta), tous des faits distincts vérifiés cohérents
+à chaque occurrence —, lexique parfaitement apparié (8 termes : `bulle-
+speculative`, `hyperscalers`, `valorisation`, `amortissement`,
+`financement-circulaire`, `dette-privee`, `vehicule-ad-hoc`, `magnificent-
+seven` — aucun orphelin), phrase France Impact complète (« Notre
+évaluation de l'impact pour la France : assez négatif »), label brut
+favorable/stable/dégradé absent de « L'essentiel » hors référence légitime
+aux noms des scénarios dans la phrase France Impact), style et clarté
+(2 phrases denses réécrites, voir ci-dessous ; aucune rupture de registre
+hors `.share-block` ; aucun sigle non expliqué sans `.lex-ref` ; aucun
+contexte manquant identifié), 2 indicateurs KPI (Capex IA cumulé des 4
+géants, poids des Magnificent Seven dans le S&amp;P 500) distincts sur les
+3 cartes à la fois (aucun doublon complet), 1 fichier `suivi/*.html` touché
+aujourd'hui (`arabie-saoudite-sport.html`, V3 du 11 septembre : origin-link
+vers `archives/2026-07-30.html` valide, date de version reconnaissable,
+exactement 3 `.mini-scenario`) bien formé et correctement repris par
+`archives.html` (Dégradé 75 %, pas les anciens 42 % de la V2), `archives.
+html` déjà à jour (50 éditions, ligne du 11 septembre en tête) —
+régénération non nécessaire ce jour, images du jour (`assets/social/topic-
+images/2026-09-11.jpg` 1080×1080 et `-wide.jpg` 1600×900, réels JPEG
+conformes à l'extension, références `<figure class="article-image">`
+cohérentes) et image Instagram (`assets/social/instagram/2026-09-11.png`,
+utilisée pour `og:image`/`twitter:image`/JSON-LD `"image"`, convention
+normale du site), longueur de l'édition 1569 mots (`.dek`+`.why`+`dd`,
+après réécritures), au-dessus du seuil de 1100 (point 12 sans objet), 4
+chiffres/faits structurants vérifiés contre les 4 sources citées (voir
+détail ci-dessous).
+**Corrigé automatiquement** : 2 réécritures de clarté (point 8, voir détail
+ci-dessous). Rien d'autre à corriger (CSS, sync, data-kind, incohérences
+numériques, lexique, KPI, `archives.html`/`suivi`, images, longueur tous
+conformes sans intervention).
+**Enrichissement (point 12)** : au-dessus du seuil, rien à faire.
+**Réécritures et compléments de clarté** (2 sur 3 autorisées) :
+- Avant : « OpenAI, le créateur de ChatGPT, a signé pour plus de 1 400
+  milliards de dollars d'engagements d'achat de puissance de calcul sur
+  les dix prochaines années — dont 500 milliards rien que pour le projet
+  Stargate avec Oracle et SoftBank —, alors que son chiffre d'affaires
+  annualisé tournait autour de 25 milliards de dollars mi-2026, avec
+  environ 14 milliards de dollars de pertes attendues sur l'année. »
+  Après : « OpenAI, le créateur de ChatGPT, a signé pour plus de 1 400
+  milliards de dollars d'engagements d'achat de puissance de calcul sur
+  les dix prochaines années — dont 500 milliards rien que pour le projet
+  Stargate avec Oracle et SoftBank. Son chiffre d'affaires annualisé, lui,
+  tournait autour de 25 milliards de dollars mi-2026, avec environ 14
+  milliards de dollars de pertes attendues sur l'année. »
+- Avant : « L'investisseur Michael Burry, rendu célèbre pour avoir prédit
+  la crise des subprimes, a justement fait de cet écart de durée de vie
+  son cheval de bataille : selon lui, les grands groupes technologiques
+  utilisent un amortissement sur 5 à 6 ans pour leurs serveurs, alors que
+  leur durée de vie réelle serait plus proche de 2 à 3 ans — ce qui
+  gonflerait artificiellement les bénéfices affichés du secteur d'environ
+  176 milliards de dollars entre 2026 et 2028, selon ses propres
+  calculs. »
+  Après : « L'investisseur Michael Burry, rendu célèbre pour avoir prédit
+  la crise des subprimes, a justement fait de cet écart de durée de vie
+  son cheval de bataille. Selon lui, les grands groupes technologiques
+  utilisent un amortissement sur 5 à 6 ans pour leurs serveurs, alors que
+  leur durée de vie réelle serait plus proche de 2 à 3 ans. Ce décalage
+  gonflerait artificiellement les bénéfices affichés du secteur d'environ
+  176 milliards de dollars entre 2026 et 2028, selon ses propres
+  calculs. »
+**Signalé pour revue humaine** :
+1. Chiffre du montage Nvidia-OpenAI (`list-box` « Les plus gros paris
+   circulaires de l'IA en 2026 ») : l'édition indique « jusqu'à 100 Md$
+   signés / Sur un cadre annoncé de 600 Md$ », sourcé sur l'article
+   Fortune cité en sources (« Le montage Nvidia-OpenAI et les doutes sur
+   une demande artificielle de puces »). Cet article rapporte pourtant un
+   montant signé de 105 Md$ (proche des 100 Md$ publiés, pas un vrai
+   désaccord) mais un cadre initial d'environ 250 Md$, réduit depuis via
+   plusieurs étapes (jamais 600 Md$ — ce chiffre n'apparaît nulle part
+   dans l'article). Le « cadre de 600 Md$ » vient peut-être d'un fait
+   distinct et légitime (un cadre commercial plus large, documenté
+   ailleurs) plutôt que d'une erreur, mais ce n'est pas vérifiable avec la
+   seule source citée en l'état — à confirmer ou corriger par la
+   rédaction.
+2. Deux sources non re-vérifiables : les deux liens CNBC cités en sources
+   (« Capital Economics : le boom boursier de l'IA touche-t-il à sa
+   fin ? » et « Le FMI et la Banque d'Angleterre alertent sur une bulle de
+   l'IA ») ont renvoyé une erreur HTTP 403 lors de la tentative de
+   vérification — impossible de confirmer ou d'infirmer la citation de
+   James Reilly/Capital Economics et la date d'octobre 2025 de l'alerte
+   FMI/Banque d'Angleterre. Signalé comme « source non re-vérifiable »,
+   aucune correction ni recherche de source de remplacement.
+   (4 appels WebFetch utilisés sur 5 autorisés — le chiffre 725 Md$/410
+   Md$/+77 % confirmé conforme à Tom's Hardware, seule source des 4
+   effectivement accessible.)
+3. Absence de traduction anglaise du jour — voir « État de la traduction
+   EN » ci-dessous.
+**État de la traduction EN** : absente — signalée (étape 13 de `docs/
+routine-prompt.md` probablement non exécutée ou en échec ce jour-là).
+`en/index.html` reste daté de l'édition du 9 septembre 2026 (N°48), alors
+que l'édition française du jour est celle du 11 septembre (N°50) — deux
+jours de retard ; `en/archives/2026-09-11.html` inexistant et `en/
+feed.xml` sans item du 11 septembre.
+**Répercuté côté EN** : sans objet — traduction du jour absente, rien à
+répercuter dessus (les 2 réécritures de clarté ne portent que sur
+`index.html`/`archives/2026-09-11.html` côté FR).
