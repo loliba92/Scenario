@@ -775,16 +775,33 @@ envois se fait côté Make/dashboard OneSignal, pas dans ce dépôt.
 12. Résumé intermédiaire (sujet retenu, probabilités des 3 scénarios, ce qui a été publié, **et la décision graphique — voir juste en dessous**). **Ce résumé n'est pas la fin de l'exécution** — ne jamais le présenter comme un point d'arrêt ni comme « terminer par » : l'étape 13 ci-dessous fait partie de la même exécution quotidienne et suit obligatoirement, dans la même session.
 
 13. **Traduction anglaise de l'édition du jour — obligatoire, jamais une routine annexe optionnelle ou hors périmètre, jamais un simple « nice to have ».** Une fois l'édition française publiée sur `main`
-    (étape 11 ci-dessus terminée, push confirmé) : produire aussi la
-    version anglaise — `en/index.html`, `en/archives/{AAAA-MM-JJ}.html`,
-    item ajouté à `en/feed.xml`, `sitemap.xml` mis à jour. Procédure
-    complète et détaillée : `docs/routine-en-prompt.md` (ne pas la
-    reproduire ici, mais la lire intégralement le moment venu — le fichier existe déjà dans ce dépôt). Rappel du principe non négociable : **traduction
-    fidèle du contenu français déjà validé, jamais une nouvelle
-    recherche ni une rédaction indépendante en anglais** — voir
-    `docs/strategie-anglais.md` pour le cadrage complet. Toujours dans un
-    commit séparé de l'édition française (préfixe `[en]`), poussé après
-    elle, jamais avant ni dans le même commit.
+    (étape 11 ci-dessus terminée, push confirmé) :
+
+    **La traduction elle-même est automatisée depuis le 11 septembre 2026**
+    (`scripts/en/translate_daily.py` + `.github/workflows/translate-en.yml`,
+    appel direct à l'API OpenRouter, hors périmètre agent — voir
+    `docs/ARCHITECTURE.md` § « Automatisation éditoriale »). Ce workflow se
+    déclenche tout seul sur le push de l'étape 11 et produit `en/index.html`
+    + `en/archives/{AAAA-MM-JJ}.html` en général en moins d'une minute.
+    **Ne pas retraduire le contenu à la main** : attendre une minute, puis
+    `git pull origin main` pour récupérer son commit `[en] traduction
+    automatique de l'édition du jour`.
+
+    **Ce que cette étape doit encore faire elle-même** (non couvert par le
+    script) : badge EN sur l'entrée du jour dans `archives.html`, item
+    ajouté à `en/feed.xml`, `sitemap.xml` mis à jour, image sociale EN.
+    Procédure complète : `docs/routine-en-prompt.md` (ne pas la reproduire
+    ici, la lire intégralement le moment venu) — n'en retenir que ces
+    parties-là, pas la section traduction proprement dite du contenu
+    quotidien, déjà faite par le workflow.
+
+    **Garde-fou : si `en/archives/{AAAA-MM-JJ}.html` n'existe toujours pas
+    après le pull** (workflow en échec, secret `OPENROUTER_API_KEY` absent
+    ou expiré, panne OpenRouter...), l'étape reste obligatoire quand même —
+    faire la traduction soi-même en suivant `docs/routine-en-prompt.md`
+    intégralement, comme avant le 11 septembre 2026. Ne jamais interpréter
+    l'absence du commit du bot comme « il n'y avait rien à traduire
+    aujourd'hui ».
 
     **Incident du 11 septembre 2026 (corrigé) : une exécution a publié l'édition française puis délégué la suite à un sous-agent borné explicitement à « l'étape 12 », ce qui a fait sauter l'étape 13 en la faisant passer pour une routine séparée hors périmètre.** Si cette exécution délègue tout ou partie du travail à un sous-agent, **le périmètre donné au sous-agent doit toujours couvrir explicitement l'étape 13, jamais s'arrêter à l'étape 12** — le mandater seulement jusqu'au résumé de l'étape 12 laisse la traduction anglaise non faite malgré son caractère obligatoire ci-dessus. Le résumé final rapporté à l'utilisateur (ou dans la notification de fin de tâche) doit toujours couvrir les deux volets, FR et EN.
 
