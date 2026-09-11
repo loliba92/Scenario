@@ -1,0 +1,65 @@
+name: Traduction EN — filet de sécurité
+
+# Filet de sécurité pour l'étape 13 de docs/routine-prompt.md (traduction
+# anglaise de l'édition du jour) — voir l'incident du 11 septembre 2026
+# dans docs/ARCHITECTURE.md : un sous-agent borné par erreur à l'étape 12
+# a laissé en/index.html bloqué deux jours de suite. Ce workflow tourne
+# indépendamment de tout agent : appel direct à l'API OpenRouter, voir
+# scripts/en/translate_daily.py pour le détail (portée couverte / non
+# couverte, garde-fous de validation).
+#
+# Même principe que reads.yml : commit + push direct sur main, pas de PR
+# — cohérent avec le reste du site, qui publie déjà sans relecture
+# humaine (voir "Automatisation éditoriale" dans docs/ARCHITECTURE.md).
+# Si la traduction échoue la validation structurelle, le script sort en
+# erreur et rien n'est commité — le run apparaît en rouge dans l'onglet
+# Actions plutôt que de publier une version cassée en silence.
+#
+# Secret requis (Settings → Secrets and variables → Actions) :
+#   OPENROUTER_API_KEY — clé du compte OpenRouter, jamais commitée ici.
+# Idempotent : si en/archives/AAAA-MM-JJ.html existe déjà pour la date du
+# jour, le script ne fait rien et il n'y a rien à committer.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+  workflow_dispatch: {}  # bouton "Run workflow" dans l'onglet Actions, pour tester sans attendre un push
+
+permissions:
+  contents: write
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Installer les dépendances
+        run: pip install beautifulsoup4
+
+      - name: Traduire l'édition du jour si besoin
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python3 scripts/en/translate_daily.py
+
+      - name: Committer et pousser seulement si des fichiers ont changé
+        run: |
+          git config user.name "scenario-en-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add en/index.html en/archives/
+          if git diff --cached --quiet; then
+            echo "Aucun changement — rien à committer."
+            exit 0
+          fi
+          # Commit d'abord, rebase ensuite : `git pull --rebase` refuse de
+          # tourner avec des changements déjà indexés (même règle que
+          # reads.yml, bug réel rencontré le 3 septembre sur ce point).
+          git commit -m "[en] traduction automatique de l'édition du jour"
+          git pull --rebase origin main
+          git push origin main
