@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-09-11",
+      "articles": [
+        {
+          "title": "MIT Finds 95% Of GenAI Pilots Fail Because Companies Avoid Friction",
+          "source": "Forbes",
+          "url": "https://www.forbes.com/sites/jasonsnyder/2025/08/26/mit-finds-95-of-genai-pilots-fail-because-companies-avoid-friction/",
+          "image": "",
+          "lang": "en",
+          "domain": "tech-numerique",
+          "summary": "L'étude du MIT NANDA (150 entretiens, 300 déploiements analysés) montre que 95 % des projets pilotes d'IA générative en entreprise ne génèrent aucun retour sur investissement mesurable, souvent faute d'adaptation aux flux de travail réels.",
+          "read_minutes": 5
+        },
+        {
+          "title": "Michael Burry revives bear case for AI chips amid GPU depreciation concerns",
+          "source": "CryptoBriefing",
+          "url": "https://cryptobriefing.com/michael-burry-bear-case-ai-chips-gpu/",
+          "image": "",
+          "lang": "en",
+          "domain": "tech-numerique",
+          "summary": "L'investisseur Michael Burry détaille son estimation d'environ 176 milliards de dollars de bénéfices technologiques surestimés entre 2026 et 2028, à cause d'une durée d'amortissement des serveurs IA jugée trop optimiste par les groupes concernés.",
+          "read_minutes": 4
+        }
+      ]
+    },
+    {
       "date": "2026-09-10",
       "articles": [
         {
