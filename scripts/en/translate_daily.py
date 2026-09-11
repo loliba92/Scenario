@@ -12,12 +12,15 @@ séparée, coût de l'ordre de 0,001-0,005 $ par édition avec le modèle
 par défaut ci-dessous — voir le comparatif de prix dans la conversation
 qui a précédé ce script).
 
-Portée couverte : `en/index.html` + `en/archives/AAAA-MM-JJ.html`.
-Portée NON couverte, à faire séparément (mécanique, pas de traduction,
-peu coûteux pour un agent) :
-  - la ligne "EN" de l'entrée du jour dans `archives.html`
-  - l'entrée du jour dans `en/feed.xml` / `en/feed-pub.xml`
-  - l'image sociale `en/assets/social/...`
+Portée couverte : `en/index.html`, `en/archives/AAAA-MM-JJ.html`, la ligne
+"EN" de l'entrée du jour dans `archives.html` (en relançant le script
+existant `generate_archives_table.py`, qui vérifie déjà lui-même la
+présence du fichier EN sur disque — zéro nouveau code pour ce point),
+`sitemap.xml`, `sitemap-news.xml`, l'entrée du jour dans `en/feed.xml`.
+Portée NON couverte, à faire séparément :
+  - l'image sociale `en/assets/social/...` (nécessite Playwright, pas
+    encore ajouté au workflow CI)
+  - `en/feed-pub.xml` (posts pub, routine séparée)
 
 Principe non négociable, repris de `docs/routine-en-prompt.md` : traduire,
 jamais rerédiger. Le script ne fait que transformer le HTML déjà publié
@@ -42,6 +45,7 @@ import glob
 import json
 import os
 import re
+import subprocess
 import sys
 import urllib.request
 from collections import Counter
@@ -173,6 +177,58 @@ def collect_segments(soup):
             segments[f"lex_{slug}_dd"] = inner_html(dd)
 
     return segments
+
+
+def collect_feed_segments(date_str):
+    """Segments propres à feed.xml, en plus de ceux de collect_segments.
+
+    Beaucoup de champs de l'item feed.xml sont déjà traduits ailleurs
+    (titre = h1, comments = question_text, category = titres des cartes)
+    — inutile de les renvoyer au modèle une deuxième fois. Seuls les
+    paragraphes de <source> qui n'existent nulle part ailleurs sur la
+    page (accroche reformulée, faits, scénario le plus probable, signal
+    à surveiller, évaluation France) sont de vrais nouveaux segments.
+
+    Renvoie (segments, feed_item) ou (None, None) si feed.xml n'a pas
+    encore d'entrée pour cette date (routine FR pas encore passée par
+    son étape 8, ou item non trouvé) — dans ce cas l'appelant doit
+    sauter la mise à jour du feed sans faire échouer tout le script."""
+    feed_path = REPO_ROOT / "feed.xml"
+    if not feed_path.exists():
+        return None, None
+    xml = feed_path.read_text(encoding="utf-8")
+
+    item_match = re.search(r"<item>(.*?)</item>", xml, re.S)
+    if not item_match or f"archives/{date_str}.html" not in item_match.group(1):
+        return None, None
+    item = item_match.group(1)
+
+    def field(tag):
+        m = re.search(rf"<{tag}[^>]*>(.*?)</{tag}>", item, re.S)
+        return m.group(1).strip() if m else None
+
+    source_url_match = re.search(r'<source url="([^"]*)">(.*?)</source>', item, re.S)
+    if not source_url_match:
+        return None, None
+    source_text = source_url_match.group(2).strip()
+    paragraphs = [p.strip() for p in re.split(r"\n\s*\n", source_text) if p.strip()]
+    if len(paragraphs) != 5:
+        # Format inattendu (routine FR modifiée depuis) — mieux vaut sauter
+        # le feed que deviner un découpage faux.
+        return None, None
+
+    feed_item = {
+        "pub_date": field("pubDate"),
+        "enclosure_length": (re.search(r'length="(\d+)"', item) or [None, None])[1],
+    }
+    segments = {
+        "feed_hook": paragraphs[0],
+        "feed_facts": paragraphs[1],
+        "feed_most_probable": paragraphs[2],
+        "feed_signal": paragraphs[3],
+        "feed_france_eval": paragraphs[4],
+    }
+    return segments, feed_item
 
 
 # ---------------------------------------------------------------------------
@@ -461,6 +517,181 @@ def build_en_soup(fr_soup, date_str, translations, memory):
 
 
 # ---------------------------------------------------------------------------
+# sitemap.xml / sitemap-news.xml : entrées mécaniques, pas de traduction
+# (voir docs/routine-prompt.md étape 7 / docs/routine-en-prompt.md étape
+# 6ter pour le format de référence, recopié ici).
+# ---------------------------------------------------------------------------
+def update_sitemap(date_str):
+    path = REPO_ROOT / "sitemap.xml"
+    xml = path.read_text(encoding="utf-8")
+
+    if f"en/archives/{date_str}.html" in xml:
+        return  # déjà fait (script relancé sur une exécution déjà passée ici)
+
+    # <lastmod> de la home EN
+    xml, n = re.subn(
+        r"(<loc>https://lesscenarios\.fr/en/</loc>\s*<lastmod>)\d{4}-\d{2}-\d{2}(</lastmod>)",
+        rf"\g<1>{date_str}\g<2>",
+        xml,
+    )
+    if n != 1:
+        raise TranslationError("sitemap.xml : bloc <loc>.../en/</loc> introuvable ou dupliqué")
+
+    new_entry = (
+        f"  <url>\n"
+        f"    <loc>https://lesscenarios.fr/en/archives/{date_str}.html</loc>\n"
+        f"    <lastmod>{date_str}</lastmod>\n"
+        f"    <changefreq>never</changefreq>\n"
+        f"    <priority>0.6</priority>\n"
+        f"  </url>\n"
+    )
+    # Insérée juste après le bloc de la home EN, avant l'archive EN la plus
+    # récente précédente — même ordre reverse-chronologique que le reste
+    # du fichier.
+    marker = re.search(
+        r"<loc>https://lesscenarios\.fr/en/</loc>.*?</url>\n", xml, re.S
+    )
+    xml = xml[:marker.end()] + new_entry + xml[marker.end():]
+    path.write_text(xml, encoding="utf-8")
+
+
+def get_fr_publication_date_iso(date_str):
+    """Lit sitemap-news.xml pour récupérer l'heure de publication ISO 8601
+    déjà posée par la routine FR (étape 7bis) sur l'entrée du jour — pas la
+    même mise en forme que <pubDate> dans feed.xml (RFC 822), donc pas
+    réutilisable telle quelle : on la relit à sa propre source plutôt que
+    de la reconvertir à la main, source d'erreurs de fuseau."""
+    xml = (REPO_ROOT / "sitemap-news.xml").read_text(encoding="utf-8")
+    m = re.search(
+        rf"<loc>https://lesscenarios\.fr/archives/{re.escape(date_str)}\.html</loc>.*?"
+        rf"<news:publication_date>([^<]+)</news:publication_date>",
+        xml, re.S,
+    )
+    if not m:
+        raise TranslationError(f"sitemap-news.xml : entrée fr introuvable pour {date_str}")
+    return m.group(1)
+
+
+def update_sitemap_news(date_str, title_en, pub_date):
+    path = REPO_ROOT / "sitemap-news.xml"
+    xml = path.read_text(encoding="utf-8")
+
+    if f"en/archives/{date_str}.html" in xml:
+        return
+
+    new_entry = (
+        f"  <url>\n"
+        f"    <loc>https://lesscenarios.fr/en/archives/{date_str}.html</loc>\n"
+        f"    <news:news>\n"
+        f"      <news:publication>\n"
+        f"        <news:name>Scénario</news:name>\n"
+        f"        <news:language>en</news:language>\n"
+        f"      </news:publication>\n"
+        f"      <news:publication_date>{pub_date}</news:publication_date>\n"
+        f"      <news:title>{html_escape(title_en)}</news:title>\n"
+        f"    </news:news>\n"
+        f"  </url>\n"
+    )
+    xml = xml.replace("</urlset>", new_entry + "</urlset>")
+
+    # Purge : le protocole Google News n'accepte que les articles des
+    # dernières 48h, quelle que soit la langue — voir docs/routine-prompt.md
+    # étape 7bis. La routine FR ne purge que ses propres entrées fr ; cette
+    # étape purge tout le fichier pour ne pas dépendre de l'ordre des deux.
+    import datetime
+    cutoff = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=48)
+
+    def keep(match):
+        pub = match.group(1)
+        try:
+            dt = datetime.datetime.fromisoformat(pub)
+        except ValueError:
+            return match.group(0)  # format inattendu, ne pas purger à l'aveugle
+        return match.group(0) if dt >= cutoff else ""
+
+    xml = re.sub(
+        r"  <url>\s*<loc>.*?</loc>\s*<news:news>.*?<news:publication_date>([^<]+)</news:publication_date>.*?</news:news>\s*</url>\n",
+        keep,
+        xml,
+        flags=re.S,
+    )
+    path.write_text(xml, encoding="utf-8")
+
+
+def html_escape(text):
+    return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+
+
+# ---------------------------------------------------------------------------
+# en/feed.xml : nouvel <item> construit à partir des segments déjà traduits
+# (titre, comments, titres de cartes) + des 5 nouveaux segments propres au
+# feed (collect_feed_segments). Jamais de suppression d'item existant.
+# ---------------------------------------------------------------------------
+def build_en_feed_item(date_str, translations, feed_item):
+    en_url = f"https://lesscenarios.fr/en/archives/{date_str}.html"
+    en_image = f"https://lesscenarios.fr/en/assets/social/instagram/{date_str}.png"
+    title = translations.get("h1", "")
+    comments = translations.get("question_text", "")
+
+    cat_order = [("favorable", "🟢"), ("stable", "🔵"), ("degrade", "🔴")]
+    category_parts = []
+    for kind, emoji in cat_order:
+        h3 = translations.get(f"card_{kind}_h3")
+        if h3:
+            category_parts.append(f'{emoji} {h3}')
+    category = '","'.join(category_parts)
+
+    # Longueur d'enclosure inconnue tant que l'image sociale EN n'existe
+    # pas (portée non couverte par ce script, voir en-tête du fichier) —
+    # 0 plutôt qu'une valeur inventée, à corriger quand l'image sera générée.
+    length = feed_item.get("enclosure_length") or "0"
+
+    description = (
+        f'<img src="{en_image}" alt="{html_escape(title)}" '
+        f'style="max-width:100%;width:100%;height:auto;"><br><br>'
+        f'The question: {translations.get("question_text", "")}<br><br>'
+        f'The facts: {translations.get("feed_facts", "")}<br><br>'
+        f'The 3 scenarios:<br>' + '<br>'.join(category_parts) + '<br><br>'
+        f'Which one is most likely? 👉 <a href="{en_url}">Read the 3 numbered forecasts on the site</a> — it\'s free (~8 min read).<br><br>'
+        f'Want to vote before you know the real probabilities? Join the Telegram channel: <a href="https://t.me/scenario_fr">t.me/scenario_fr</a><br><br>'
+        f'A question, a comment? Just reply to this email, we read it.'
+    )
+
+    source_paragraphs = [
+        translations.get("feed_hook", ""),
+        translations.get("feed_facts", ""),
+        translations.get("feed_most_probable", ""),
+        translations.get("feed_signal", ""),
+        translations.get("feed_france_eval", ""),
+    ]
+    source_text = "\n\n".join(source_paragraphs)
+
+    return (
+        f"    <item>\n"
+        f"      <title>{html_escape(title)}</title>\n"
+        f"      <link>{en_url}</link>\n"
+        f"      <guid isPermaLink=\"false\">scenario-en-{date_str}</guid>\n"
+        f"      <pubDate>{feed_item['pub_date']}</pubDate>\n"
+        f"      <comments>{html_escape(comments)}</comments>\n"
+        f"      <category>{category}</category>\n"
+        f'      <enclosure url="{en_image}" length="{length}" type="image/png"/>\n'
+        f"      <description><![CDATA[{description}]]></description>\n"
+        f'      <source url="{en_url}">{source_text}</source>\n'
+        f"    </item>\n"
+    )
+
+
+def prepend_feed_item(item_xml):
+    path = REPO_ROOT / "en" / "feed.xml"
+    xml = path.read_text(encoding="utf-8")
+    marker = "<language>en</language>\n"
+    if marker not in xml:
+        raise TranslationError("en/feed.xml : balise <language>en</language> introuvable")
+    xml = xml.replace(marker, marker + item_xml, 1)
+    path.write_text(xml, encoding="utf-8")
+
+
+# ---------------------------------------------------------------------------
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true", help="ne rien écrire, juste rapporter")
@@ -486,6 +717,14 @@ def main():
 
     memory = build_translation_memory()
     segments = collect_segments(fr_soup)
+
+    feed_segments, feed_item = collect_feed_segments(date_str)
+    if feed_segments:
+        segments.update(feed_segments)
+    else:
+        print("feed.xml : entrée du jour introuvable ou format inattendu — "
+              "en/feed.xml ne sera pas mis à jour cette fois.")
+
     print(f"{len(segments)} segments à traduire.")
 
     translations, usage = call_openrouter(segments, args.model, api_key)
@@ -510,10 +749,31 @@ def main():
     en_archive_path.parent.mkdir(parents=True, exist_ok=True)
     en_archive_path.write_text(output_html, encoding="utf-8")
     (REPO_ROOT / "en" / "index.html").write_text(output_html, encoding="utf-8")
-
     print(f"Écrit : en/index.html et en/archives/{date_str}.html")
-    print("Reste à faire séparément (pas de traduction, pas besoin de ce script) : "
-          "badge EN dans archives.html, entrée en/feed.xml, image sociale en/assets/social/.")
+
+    # Badge EN dans archives.html : le script existant vérifie déjà lui-même
+    # la présence de en/archives/{date}.html sur disque (bug corrigé le 1er
+    # septembre 2026, voir le script) — le relancer suffit, aucun nouveau
+    # code de notre côté.
+    subprocess.run(
+        [sys.executable, str(REPO_ROOT / "scripts" / "seo" / "generate_archives_table.py")],
+        cwd=REPO_ROOT, check=True,
+    )
+    print("archives.html régénéré (badge EN inclus).")
+
+    update_sitemap(date_str)
+    pub_date_iso = get_fr_publication_date_iso(date_str)
+    update_sitemap_news(date_str, translations.get("h1", ""), pub_date_iso)
+    print("sitemap.xml et sitemap-news.xml mis à jour.")
+
+    if feed_segments:
+        item_xml = build_en_feed_item(date_str, translations, feed_item)
+        prepend_feed_item(item_xml)
+        print("en/feed.xml mis à jour.")
+
+    print("Reste à faire séparément (pas de traduction, hors de portée de ce "
+          "script) : image sociale en/assets/social/ (Playwright, pas encore "
+          "dans le workflow CI).")
     return 0
 
 
