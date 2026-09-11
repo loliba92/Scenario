@@ -119,21 +119,23 @@ mériter une page de suivi ou une mise à jour.
 - **Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ?**
   (édition du 30 juillet 2026)
   Suivi existant : `suivi/arabie-saoudite-sport.html` (V0 + V1 au 15 août
-  + V2 au 29 août, publiée automatiquement par la routine de détection —
-  écart de -20 points sur le scénario favorable, +22 points sur le
-  dégradé). V2 intègre la dégradation financière sévère de LIV Golf
-  depuis la mi-août malgré l'accord d'investisseur du 5 août : dotation
-  de la finale de saison divisée par deux, joueurs non payés à
-  Bedminster, licenciements massifs, quatre poursuites de prestataires
-  impayés, et un PDG (Scott O'Neil) qui n'exclut plus la faillite.
-  Prochaine échéance connue : clôture visée en septembre 2026 pour
-  l'accord LIV Golf avec son nouvel investisseur principal (identité
-  rapportée par la presse — Ted Goldthorpe/BC Partners — mais toujours
-  non confirmée officiellement par LIV). À surveiller aussi : l'issue
-  des quatre poursuites en cours, tout dépôt de bilan, et toute
-  clarification officielle du PIF sur le reste de son portefeuille
-  sportif (boxe, MMA, F1, Newcastle United).
-  Dernière vérification : 29 août 2026 (V2).
+  + V2 au 29 août + V3 au 11 septembre, publiée automatiquement par la
+  routine de détection — écart de +33 points sur le scénario dégradé).
+  V3 intègre le dépôt de bilan (Chapter 11) de LIV Golf le 8 septembre
+  auprès du tribunal des faillites du New Jersey (plus de 500 M$ de
+  dette, 49,6 M$ apportés par le PIF pour le maintien en activité),
+  plutôt qu'une clôture hors tribunal de l'accord d'investisseur annoncé
+  le 5 août — plan de restructuration porté par le même investisseur
+  (BC Partners/Ted Goldthorpe), visant une ligue majoritairement détenue
+  par les joueurs et une ré-émergence début 2027. Le recul reste à ce
+  stade circonscrit au golf : aucun signe confirmé de ralentissement
+  comparable en boxe, MMA, F1 ou pour Newcastle United.
+  Prochaine échéance connue : issue de la procédure de restructuration
+  Chapter 11 (ré-émergence visée début 2027). À surveiller aussi :
+  l'issue des quatre poursuites de prestataires impayés toujours actives,
+  et toute clarification officielle du PIF sur le reste de son
+  portefeuille sportif (boxe, MMA, F1, Newcastle United).
+  Dernière vérification : 11 septembre 2026 (V3).
 
 - **Taux : marche arrière** (édition du 20 août 2026)
   Suivi existant : `suivi/taux-marche-arriere.html` (V0 + V1 au 7 septembre,

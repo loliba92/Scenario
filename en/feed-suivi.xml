@@ -6,6 +6,15 @@
     <description>English translation of feed-suivi.xml: when a tracked topic is updated, a new evaluation of the 3 scenarios and what changed.</description>
     <language>en</language>
     <item>
+      <title>Golf, soccer, boxing: Is Saudi Arabia pulling back from sport?, a scenario moved</title>
+      <link>https://lesscenarios.fr/suivi/arabie-saoudite-sport.html#version-content-v3</link>
+      <guid isPermaLink="false">scenario-suivi-en-arabie-saoudite-sport-v3</guid>
+      <pubDate>Fri, 11 Sep 2026 20:00:00 +0200</pubDate>
+      <comments>LIV Golf files for Chapter 11 bankruptcy instead of finalizing the out-of-court investor deal, the tight schedule doesn't hold +33 points (75%).</comments>
+      <enclosure url="https://lesscenarios.fr/en/assets/social/suivi/arabie-saoudite-sport-v3.png" length="945816" type="image/png"/>
+      <description><![CDATA[LIV Golf files for Chapter 11 bankruptcy instead of finalizing the out-of-court investor deal, the tight schedule doesn't hold +33 points (75%) — this scenario climbs from 42% to 75%, while the "clean" exit collapses from 25% to 8% and the persisting uncertainty falls from 33% to 17%.<br><br>On September 8, 2026, LIV Golf voluntarily placed its company under Chapter 11 bankruptcy protection at the New Jersey bankruptcy court, with more than $500M in debt and $49.6M in bridge financing coming directly from PIF, rather than finalizing out of court the investor deal announced on August 5. The pullback remains confined to golf for now: no confirmed sign of a comparable slowdown in boxing, MMA, F1, or for Newcastle United.<br><br>See the full update, scenario by scenario 👉 <a href="https://lesscenarios.fr/suivi/arabie-saoudite-sport.html#version-content-v3">lesscenarios.fr/suivi/arabie-saoudite-sport.html</a>]]></description>
+    </item>
+    <item>
       <title>Iran-US: the ceasefire, a scenario moved</title>
       <link>https://lesscenarios.fr/suivi/iran-usa.html#version-content-v3</link>
       <guid isPermaLink="false">scenario-suivi-en-iran-usa-v3</guid>

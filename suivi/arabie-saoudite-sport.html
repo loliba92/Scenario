@@ -464,6 +464,44 @@
       </div>
     </div>
 
+    <div class="version is-update">
+      <div class="version-head">
+        <span class="version-tag">V3 — Mise à jour</span>
+        <span class="version-date">11 septembre 2026</span>
+        <button type="button" class="version-toggle" aria-expanded="false" aria-controls="version-content-v3">Détails <span class="version-toggle-icon" aria-hidden="true">▾</span></button>
+      </div>
+      <div class="version-content" id="version-content-v3">
+        <div class="version-content-inner">
+        <h2 class="version-title">LIV Golf dépose le bilan plutôt que de finaliser l'accord hors tribunal</h2>
+        <div class="version-body">
+        <p>Coup de théâtre le 8 septembre 2026 : LIV Golf a placé volontairement sa société sous protection du Chapter 11 auprès du tribunal des faillites du New Jersey, avec plus de 500 M$ de dette recensée et un financement relais de 49,6 M$ apporté directement par le PIF. Le plan de restructuration s'appuie sur le même investisseur annoncé début août (BC Partners, Ted Goldthorpe), avec l'objectif d'une ligue majoritairement détenue par les joueurs et une ré-émergence visée début 2027 ; les quatre poursuites de prestataires impayés signalées en V2 restent actives. Le PIF n'a toujours publié aucune clarification officielle sur le reste de son portefeuille sportif, mais plusieurs sources indépendantes indiquent que ce recul financier reste à ce stade circonscrit au golf et à la Saudi Pro League, sans confirmation d'une extension à la boxe, au MMA, à la F1 ou à Newcastle United.</p>
+        <div class="mini-scenarios">
+          <div class="mini-scenario" data-kind="favorable">
+            <p class="mini-scenario-title">🎯 Le retrait se fait proprement</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">8%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. 25% en V2)</span></p>
+            <p class="mini-scenario-text">S'effondre : passer par un dépôt de bilan judiciaire plutôt que par la clôture d'accord hors tribunal annoncée début août rend la qualification de retrait « propre » intenable pour le volet golf.</p>
+          </div>
+          <div class="mini-scenario" data-kind="stable">
+            <p class="mini-scenario-title">⚖️ Signaux contradictoires, flou permanent</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">17%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. 33% en V2)</span></p>
+            <p class="mini-scenario-text">Recule fortement : le flou spécifique au golf — l'accord d'investisseur allait-il aboutir ? — est en grande partie levé par un fait juridique daté et documenté ; il ne reste qu'une incertitude d'un autre ordre, sur l'issue de la restructuration elle-même.</p>
+          </div>
+          <div class="mini-scenario" data-kind="degrade">
+            <p class="mini-scenario-title">🔥 Le calendrier serré ne tient pas</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">75%</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">(vs. 42% en V2)</span></p>
+            <p class="mini-scenario-text">Bondit : le dépôt de bilan du 8 septembre est la réalisation la plus aboutie de ce scénario — l'échéance de clôture de septembre annoncée en V1/V2 n'a pas été tenue sous la forme attendue. Il n'atteint toutefois pas 80% ou plus, car son autre volet — l'extension du retrait à la boxe, au MMA, à la F1 ou à Newcastle — reste explicitement contredit par les sources disponibles.</p>
+          </div>
+        </div>
+        <div class="conclusion">
+          <span class="conclusion-label">Conclusion vs V2</span>
+          <p><strong>LIV Golf dépose le bilan (Chapter 11) plutôt que de finaliser l'accord hors tribunal, le calendrier serré qui ne tient pas +33 points (75%)</strong> — le 8 septembre 2026, LIV Golf a placé volontairement sa société sous protection de la faillite auprès du tribunal du New Jersey (plus de 500 M$ de dette, 49,6 M$ apportés par le PIF pour le maintien en activité), plutôt que de conclure hors tribunal l'accord d'investisseur annoncé le 5 août ; les deux autres scénarios s'effondrent en miroir. Nuance : le recul reste pour l'instant circonscrit au seul golf — boxe, MMA, F1 et Newcastle United ne montrent, à ce stade, aucun signe confirmé de ralentissement comparable.</p>
+        </div>
+        <p class="sources-note">Sources : <a href="https://www.washingtonpost.com/sports/golf/2026/09/08/liv-golf-bankruptcy-bc-partners-rahm-dechambeau/10e5aa64-abcf-11f1-b498-8697f35a6743_story.html" target="_blank" rel="noopener noreferrer">Washington Post ↗</a>, <a href="https://www.bloomberg.com/news/articles/2026-09-08/liv-golf-files-for-bankruptcy-with-post-saudi-future-uncertain" target="_blank" rel="noopener noreferrer">Bloomberg ↗</a>, <a href="https://golf.com/news/liv-golf-financial-woes-lawsuit/" target="_blank" rel="noopener noreferrer">GOLF.com ↗</a>, <a href="https://www.boxinginsider.com/headlines/saudi-funding-for-tko-unwavering-despite-liv-golf-pullback/" target="_blank" rel="noopener noreferrer">BoxingInsider ↗</a></p>
+        </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -517,7 +555,8 @@
     var evoData = [
       { label: "V0", date: "30 juil.", favorable: 25, stable: 45, degrade: 30 },
       { label: "V1", date: "15 août", favorable: 45, stable: 35, degrade: 20 },
-      { label: "V2", date: "29 août", favorable: 25, stable: 33, degrade: 42 }
+      { label: "V2", date: "29 août", favorable: 25, stable: 33, degrade: 42 },
+      { label: "V3", date: "11 sept.", favorable: 8, stable: 17, degrade: 75 }
     ];
 
     (function renderEvoChart(){
