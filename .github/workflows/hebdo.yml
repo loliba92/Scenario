@@ -1,0 +1,62 @@
+name: Weekly recap
+
+# Génère le récap hebdomadaire "On refait le scénario de la semaine" et le
+# publie — remplace la routine Claude Code hebdomadaire "Scénario — On
+# refait le scénario de la semaine" (docs/routine-hebdo-prompt.md). Voir
+# scripts/hebdo/generate_weekly_recap.py pour le détail complet et les
+# garde-fous (jamais un fait inventé, jamais une entrée manquante devinée).
+#
+# IMPORTANT : ce workflow publie un item dans feed-weekly.xml, lu par une
+# Automation Buttondown (RSS-to-email) qui envoie le dimanche soir un email
+# récap aux abonnés hebdo — une exécution n'est donc pas silencieusement
+# réversible comme translate-en.yml/audience.yml. Volontairement SANS cron
+# pour l'instant (workflow_dispatch uniquement) : à activer sur le planning
+# dominical (0 12 * * 0 UTC = dimanche 14h Paris, comme l'ancienne routine)
+# seulement une fois validé fiable en conditions réelles.
+#
+# Secret requis (déjà présent, voir translate-en.yml/pub.yml) :
+#   OPENROUTER_API_KEY
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Dimanche ciblé (AAAA-MM-JJ) — laisser vide pour aujourd'hui. Tests/rattrapage uniquement."
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Installer les dépendances
+        run: pip install beautifulsoup4
+
+      - name: Générer le récap de la semaine
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          python3 scripts/hebdo/generate_weekly_recap.py \
+            ${{ github.event.inputs.date && format('--date {0}', github.event.inputs.date) || '' }}
+
+      - name: Committer et pousser
+        run: |
+          git config user.name "scenario-hebdo-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add feed-weekly.xml hebdo/ archives.html sitemap.xml index.html \
+                   archives/fragments/
+          if git diff --cached --quiet; then
+            echo "Aucun changement — rien à committer."
+            exit 0
+          fi
+          git commit -m "[hebdo] récap automatique de la semaine"
+          git pull --rebase origin main
+          git push origin main

@@ -1,5 +1,25 @@
 # Prompt de la routine « Scénario — On refait le scénario de la semaine »
 
+**[EN COURS DE MIGRATION vers GitHub Action — 12 septembre 2026, statut :
+construit mais pas encore activé.]** `scripts/hebdo/generate_weekly_recap.py`
++ `.github/workflows/hebdo.yml` reproduisent mécaniquement toute cette
+routine (même principe que `docs/routine-audience-prompt.md` /
+`audience.yml` et `docs/routine-pub-prompt.md` / `pub.yml` — voir
+`docs/ARCHITECTURE.md`, § « Principe : GitHub Action plutôt que session
+Claude Code »). Testé de bout en bout (mécaniquement et visuellement, y
+compris capture d'écran de la page rendue) dans une copie isolée du dépôt,
+**mais pas encore en conditions réelles** : `hebdo.yml` est volontairement
+en `workflow_dispatch` seul, sans cron, tant que ce test réel n'a pas eu
+lieu — même prudence que `pub.yml` (feed-weekly.xml alimente un envoi
+d'email réel à des abonnés via Buttondown, difficile à « retirer » une
+fois parti). **Le trigger Claude Code de cette routine reste actif** et
+continuera de tourner normalement tant que ce statut n'a pas changé — ne
+pas le supprimer avant validation réelle du script. Une fois validé (un
+dimanche réel, comparé au résultat qu'aurait produit cette routine),
+mettre à jour ce statut, activer le cron dans `hebdo.yml`
+(`0 12 * * 0` UTC = dimanche 14h Paris, comme le trigger d'origine) et
+supprimer le trigger Claude Code — pas avant.
+
 **[BASCULÉ le 22 août, réduction du coût en tokens — même méthode que
 `docs/routine-prompt.md` et `docs/routine-inspection-prompt.md`.]** Le
 trigger **« Scénario — On refait le scénario de la semaine »**

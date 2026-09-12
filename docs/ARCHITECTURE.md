@@ -363,10 +363,16 @@ Deux niveaux de délégation, selon la nature de la tâche :
    qui appelle directement l'API OpenRouter pour la seule étape qui a
    vraiment besoin d'un modèle de langage, le reste (extraction,
    validation, mise en forme HTML/XML) restant du code déterministe.
-   Exemple déjà en place : `translate-en.yml` (traduction anglaise
-   quotidienne, 11 septembre 2026). Coût typique : de l'ordre du millième
-   de dollar par appel — un delta de coût qui justifie largement de
-   chercher ce découpage plutôt que de le supposer impossible.
+   Exemples déjà en place : `translate-en.yml` (traduction anglaise
+   quotidienne, 11 septembre 2026), `pub.yml` (post pub quotidien —
+   extraction du chiffre du jour avec garde-fou verbatim + traduction EN,
+   12 septembre 2026, validé en conditions réelles le jour même),
+   `hebdo.yml` (récap hebdomadaire, 12 septembre 2026 — construit et
+   testé mécaniquement/visuellement hors production, pas encore validé en
+   conditions réelles ni passé en cron, voir `docs/routine-hebdo-prompt.md`
+   pour l'état exact). Coût typique : de l'ordre du millième de dollar par
+   appel — un delta de coût qui justifie largement de chercher ce
+   découpage plutôt que de le supposer impossible.
 
 **Ce qui reste sur Claude Code, volontairement** : toute tâche qui exige
 une vraie recherche web en temps réel et/ou un jugement éditorial à fort
