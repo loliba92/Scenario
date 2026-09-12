@@ -637,12 +637,12 @@
   <div class="wrap">
     <p class="section-label">La communauté</p>
     <h2 class="section-title">La communauté grandit, jour après jour</h2>
-    <p>Depuis le lancement, la communauté <strong>Scéna<span class="brand-rio">rio</span></strong> s'agrandit chaque semaine — <strong>563 lectures d'éditions cumulées</strong> au 12 septembre 2026, mesurées sans cookie ni profilage (<a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer">GoatCounter</a>), mises à jour chaque semaine.</p>
+    <p>Depuis le lancement, la communauté <strong>Scéna<span class="brand-rio">rio</span></strong> s'agrandit chaque semaine — <strong>563 lectures d'éditions cumulées</strong> au 12 septembre 2026, mesurées sans cookie ni profilage (<a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer">GoatCounter</a>), mises à jour chaque jour.</p>
     <div class="dc-chart-box">
       <span class="dc-chart-label">Croissance depuis le lancement</span>
       <p class="dc-chart-lead">Nombre total de lectures d'éditions depuis le lancement, du 29 juillet au 12 septembre 2026.</p>
       <svg id="audience-svg" viewBox="0 0 700 220" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Courbe de croissance des lectures cumulées d'éditions, de 0 le 29 juillet 2026 à 563 le 12 septembre 2026"></svg>
-      <p class="dc-chart-caption">Mesure d'audience GoatCounter (gratuite, sans cookie) — chiffres cumulés sur l'ensemble des éditions publiées, mis à jour chaque semaine par une routine automatisée.</p>
+      <p class="dc-chart-caption">Mesure d'audience GoatCounter (gratuite, sans cookie) — chiffres cumulés sur l'ensemble des éditions publiées, mis à jour chaque jour par un GitHub Action.</p>
     </div>
   </div>
 </section>
@@ -677,10 +677,11 @@
   // Lectures cumulées d'éditions depuis le lancement — graphique en escalier
   // (composant .dc-chart-box, voir docs/routine-prompt.md). Données : somme
   // quotidienne des vues sur tous les chemins archives/*.html (variantes
-  // ?trk=... regroupées), via l'API GoatCounter (stats/hits). Mis à jour par
-  // la routine hebdomadaire "Scénario — Audience" (voir docs/ARCHITECTURE.md,
-  // section "Mesure d'audience") — ne jamais éditer ce tableau à la main en
-  // dehors de cette routine.
+  // ?trk=... regroupées), via l'API GoatCounter (stats/hits). Mis à jour
+  // chaque jour par un GitHub Action (.github/workflows/audience.yml +
+  // scripts/seo/update_audience.py — voir docs/ARCHITECTURE.md, section
+  // "Mesure d'audience") — ne jamais éditer ce tableau à la main en dehors
+  // de ce script.
   (function () {
     var svg = document.getElementById('audience-svg');
     if (!svg) return;

@@ -392,6 +392,26 @@ def update_le_projet(cumulative, x_labels, y_max, kpis, end_date):
     if n != 1:
         raise RuntimeError("le-projet.html : dc-chart-lead introuvable")
 
+    # Texte figé depuis le passage de la routine Audience à un rythme
+    # quotidien (12 septembre 2026) — jamais corrigé ici avant ce jour-là,
+    # contrairement à dashboard.html (voir update_dashboard() plus bas) :
+    # le-projet.html continuait à dire "chaque semaine" alors que le
+    # GitHub Action tourne chaque jour. Idempotent (.count() == 0 une fois
+    # déjà corrigé, pas une erreur) pour que les prochains passages n'y
+    # touchent plus une fois la phrase mise à "chaque jour".
+    STALE_INTRO = (
+        "mesurées sans cookie ni profilage (<a href=\"https://www.goatcounter.com/\" "
+        "target=\"_blank\" rel=\"noopener noreferrer\">GoatCounter</a>), mises à jour chaque semaine."
+    )
+    if html.count(STALE_INTRO) > 1:
+        raise RuntimeError("le-projet.html : phrase 'mises à jour chaque semaine' trouvée en double")
+    html = html.replace(STALE_INTRO, STALE_INTRO.replace("chaque semaine", "chaque jour"))
+
+    STALE_CAPTION = "mis à jour chaque semaine par une routine automatisée."
+    if html.count(STALE_CAPTION) > 1:
+        raise RuntimeError("le-projet.html : phrase 'mis à jour chaque semaine par une routine automatisée' trouvée en double")
+    html = html.replace(STALE_CAPTION, "mis à jour chaque jour par un GitHub Action.")
+
     aria_re = re.compile(r'(aria-label="Courbe de croissance des lectures cumulées d\'éditions, de )\d+( le ).*?( à )\d+( le ).*?(")')
     first_date = date.fromisoformat(cumulative[0][0])
     html, n = aria_re.subn(
