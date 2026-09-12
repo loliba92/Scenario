@@ -324,22 +324,39 @@ techniques ordinaires vivent désormais entièrement dans
 ## Principe : GitHub Action plutôt que session Claude Code, dès que possible
 
 **Ajouté le 12 septembre 2026, à la demande explicite de l'utilisateur — à
-appliquer systématiquement, pas seulement rétroactivement sur ce qui suit.**
-Avant de faire tourner une nouvelle tâche récurrente (ou d'étendre une
-routine existante) comme une session Claude Code, se poser la question :
-**cette tâche peut-elle être déléguée à un GitHub Action (script pur, ou
-script + un seul appel OpenRouter ciblé) plutôt que de tourner comme
-routine Claude Code Remote ?** Si oui, **prioriser cette solution** — une
-session Claude Code coûte largement plus cher (contexte, outils, jugement
-d'un modèle de premier plan) qu'un script CI qui tourne en quelques
-secondes pour quelques centimes au plus.
+appliquer systématiquement, pas seulement rétroactivement sur ce qui suit.
+Raison assumée, à garder en tête à chaque décision : les tokens Claude Code
+coûtent nettement plus cher que les tokens OpenRouter (souvent d'un ou
+deux ordres de grandeur) — la contrainte de coût est un critère de
+conception de premier plan ici, pas un détail d'optimisation à traiter
+« si on a le temps ».**
 
-Deux niveaux, selon la nature de la tâche :
+Avant de faire tourner une nouvelle tâche récurrente (ou d'étendre une
+routine existante) comme une session Claude Code, se poser systématiquement
+la question, dans cet ordre :
+1. **Cette tâche peut-elle être 100% mécanique** (script pur, zéro appel
+   LLM) ? Si oui, toujours ce choix — c'est le moins cher, pas seulement
+   moins cher que Claude Code, moins cher aussi qu'un appel OpenRouter
+   inutile.
+2. **Sinon, dès qu'il existe une possibilité de déléguer la partie
+   « langage » à OpenRouter plutôt qu'à Claude Code, le faire** — ne pas
+   attendre qu'une tâche soit reconnue comme « un bon candidat »
+   après coup : le réflexe par défaut est de chercher activement ce
+   découpage (quelle partie est mécanique, quelle partie a vraiment besoin
+   d'un modèle de langage) avant de conclure qu'une session Claude Code
+   complète est nécessaire.
+3. **Seul motif valable pour garder une tâche entièrement sur Claude
+   Code** : elle exige une vraie recherche web en temps réel et/ou un
+   jugement éditorial à fort enjeu pour la marque — voir plus bas. Ce
+   n'est jamais un motif par défaut, juste la seule exception légitime.
+
+Deux niveaux de délégation, selon la nature de la tâche :
 1. **Purement mécanique** (appel API + agrégation/arithmétique +
    remplissage de gabarit, aucun jugement éditorial réel) → script Python
-   pur, zéro appel LLM. Exemples déjà en place : `reads.yml` (lectures par
-   édition, 3 septembre 2026), `audience.yml` (données d'audience
-   GoatCounter + dashboard interne, 12 septembre 2026).
+   pur, zéro appel LLM, même OpenRouter. Exemples déjà en place :
+   `reads.yml` (lectures par édition, 3 septembre 2026), `audience.yml`
+   (données d'audience GoatCounter + dashboard interne, 12 septembre
+   2026).
 2. **Transformation de contenu déjà vérifié** (traduire, résumer,
    reformuler à partir de texte déjà publié/validé — jamais une tâche qui
    exige une recherche web ou un jugement éditorial à fort enjeu) → script
@@ -347,7 +364,9 @@ Deux niveaux, selon la nature de la tâche :
    vraiment besoin d'un modèle de langage, le reste (extraction,
    validation, mise en forme HTML/XML) restant du code déterministe.
    Exemple déjà en place : `translate-en.yml` (traduction anglaise
-   quotidienne, 11 septembre 2026).
+   quotidienne, 11 septembre 2026). Coût typique : de l'ordre du millième
+   de dollar par appel — un delta de coût qui justifie largement de
+   chercher ce découpage plutôt que de le supposer impossible.
 
 **Ce qui reste sur Claude Code, volontairement** : toute tâche qui exige
 une vraie recherche web en temps réel et/ou un jugement éditorial à fort
