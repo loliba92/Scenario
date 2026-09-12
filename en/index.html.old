@@ -17,13 +17,13 @@
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <meta content="Scénario" name="apple-mobile-web-app-title"/>
 <link href="../assets/pwa-install.css" rel="stylesheet"/>
-<meta content="In 2026, several big-budget sequels flopped in theaters while original films thrived: is the franchise bet still as safe?" name="description"/>
+<meta content="In 2026, several big-budget sequels flopped at the box office while original films thrived: are franchise bets still as safe as ever?" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="Scénario" property="og:site_name"/>
 <meta content="en_US" property="og:locale"/>
 <meta content="https://lesscenarios.fr/en/" property="og:url"/>
 <meta content="Hollywood: Is the Sequel Model Hitting Its Limit? — Scénario" property="og:title"/>
-<meta content="In 2026, several big-budget sequels flopped in theaters while original films thrived: is the franchise bet still as safe?" property="og:description"/>
+<meta content="In 2026, several big-budget sequels flopped at the box office while original films thrived: are franchise bets still as safe as ever?" property="og:description"/>
 <meta content="https://lesscenarios.fr/en/assets/social/instagram/2026-09-12.png" property="og:image"/>
 <meta content="1080" property="og:image:width"/>
 <meta content="1080" property="og:image:height"/>
@@ -33,7 +33,7 @@
 <meta content="2026-09-12T07:30:00+02:00" property="article:published_time"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Hollywood: Is the Sequel Model Hitting Its Limit? — Scénario" name="twitter:title"/>
-<meta content="In 2026, several big-budget sequels flopped in theaters while original films thrived: is the franchise bet still as safe?" name="twitter:description"/>
+<meta content="In 2026, several big-budget sequels flopped at the box office while original films thrived: are franchise bets still as safe as ever?" name="twitter:description"/>
 <meta content="https://lesscenarios.fr/en/assets/social/instagram/2026-09-12.png" name="twitter:image"/>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -43,7 +43,7 @@
     "@id": "https://lesscenarios.fr/en/"
   },
   "headline": "Hollywood: Is the Sequel Model Hitting Its Limit?",
-  "description": "In 2026, several big-budget sequels flopped in theaters while original films thrived: is the franchise bet still as safe?",
+  "description": "In 2026, several big-budget sequels flopped at the box office while original films thrived: are franchise bets still as safe as ever?",
   "image": [
     "https://lesscenarios.fr/en/assets/social/instagram/2026-09-12.png"
   ],
@@ -1753,51 +1753,51 @@
 </div>
 <div class="masthead-right">
 <a aria-label="Lire en français" class="masthead-lang-btn" href="../index.html" title="Lire en français">FR</a>
-<button aria-label="Activer les notifications" class="onesignal-subscribe-btn masthead-notif-btn" title="Activer les notifications" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"></path><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"></path></svg></button>
-<button aria-label="Imprimer en 1 page" class="masthead-notif-btn" id="print-page" title="Imprimer en 1 page" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M6.5 9V4.5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1V9"></path><rect height="7" rx="1.3" width="15" x="4.5" y="9"></rect><path d="M7 14h10v5.5a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V14Z"></path></svg></button>
+<button aria-label="Activate notifications" class="onesignal-subscribe-btn masthead-notif-btn" title="Activate notifications" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"></path><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"></path></svg></button>
+<button aria-label="Print on 1 page" class="masthead-notif-btn" id="print-page" title="Print on 1 page" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M6.5 9V4.5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1V9"></path><rect height="7" rx="1.3" width="15" x="4.5" y="9"></rect><path d="M7 14h10v5.5a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V14Z"></path></svg></button>
 <span aria-hidden="true" class="masthead-divider"></span>
-<a aria-label="Sujet révisé" class="masthead-notif-btn" href="../archives.html?tag=revise" title="Sujet révisé"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8"></path><path d="M20 4v4h-4"></path><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16"></path><path d="M4 20v-4h4"></path></svg></a>
-<a aria-label="Récap de la semaine" class="masthead-notif-btn" href="../hebdo/2026-09-06.html" title="Récap de la semaine"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="15" rx="2" width="17" x="3.5" y="5"></rect><line x1="3.5" x2="20.5" y1="9.5" y2="9.5"></line><line x1="8" x2="8" y1="3" y2="7"></line><line x1="16" x2="16" y1="3" y2="7"></line></svg></a>
-<a aria-label="Revue de presse" class="masthead-notif-btn" href="../sources.html" title="Revue de presse"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="14" rx="1.5" width="13" x="3.5" y="5.5"></rect><path d="M16.5 8.5h2.5a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-13"></path><line x1="7" x2="13" y1="9.5" y2="9.5"></line><line x1="7" x2="13" y1="13" y2="13"></line><line x1="7" x2="11" y1="16.5" y2="16.5"></line></svg></a>
+<a aria-label="Updated topic" class="masthead-notif-btn" href="../archives.html?tag=revise" title="Updated topic"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8"></path><path d="M20 4v4h-4"></path><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16"></path><path d="M4 20v-4h4"></path></svg></a>
+<a aria-label="Weekly recap" class="masthead-notif-btn" href="../hebdo/2026-09-06.html" title="Weekly recap"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="15" rx="2" width="17" x="3.5" y="5"></rect><line x1="3.5" x2="20.5" y1="9.5" y2="9.5"></line><line x1="8" x2="8" y1="3" y2="7"></line><line x1="16" x2="16" y1="3" y2="7"></line></svg></a>
+<a aria-label="Press roundup" class="masthead-notif-btn" href="../sources.html" title="Press roundup"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="14" rx="1.5" width="13" x="3.5" y="5.5"></rect><path d="M16.5 8.5h2.5a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-13"></path><line x1="7" x2="13" y1="9.5" y2="9.5"></line><line x1="7" x2="13" y1="13" y2="13"></line><line x1="7" x2="11" y1="16.5" y2="16.5"></line></svg></a>
 <span aria-hidden="true" class="masthead-divider"></span>
-<a aria-label="Accès privé" class="masthead-notif-btn" href="../dashboard.html" title="Accès privé"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="9" rx="2" width="14" x="5" y="11"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></a>
+<a aria-label="Private access" class="masthead-notif-btn" href="../dashboard.html" title="Private access"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="9" rx="2" width="14" x="5" y="11"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></a>
 </div>
 </div>
 </header>
 <nav class="topnav">
 <div class="wrap">
-<a aria-current="page" href="../index.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M4 11.5 12 4l8 7.5"></path><path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"></path></svg> Accueil</a>
+<a aria-current="page" href="../index.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M4 11.5 12 4l8 7.5"></path><path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"></path></svg>Home</a>
 <a href="../archives.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><rect height="4" rx="1" width="16" x="4" y="4.5"></rect><path d="M5 8.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5"></path><line x1="10" x2="14" y1="13" y2="13"></line></svg> Archives</a>
-<a href="../glossaire.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M12 6.5c-1.6-1.2-3.7-1.7-6-1.7v13c2.3 0 4.4.5 6 1.7 1.6-1.2 3.7-1.7 6-1.7v-13c-2.3 0-4.4.5-6 1.7Z"></path><line x1="12" x2="12" y1="6.5" y2="19.5"></line></svg> Glossaire</a>
-<a href="../le-projet.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="m12 3 8 4.5-8 4.5-8-4.5Z"></path><path d="m4 12 8 4.5 8-4.5"></path><path d="m4 16.5 8 4.5 8-4.5"></path></svg> Le projet</a>
+<a href="../glossaire.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M12 6.5c-1.6-1.2-3.7-1.7-6-1.7v13c2.3 0 4.4.5 6 1.7 1.6-1.2 3.7-1.7 6-1.7v-13c-2.3 0-4.4.5-6 1.7Z"></path><line x1="12" x2="12" y1="6.5" y2="19.5"></line></svg>Glossary</a>
+<a href="../le-projet.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="m12 3 8 4.5-8 4.5-8-4.5Z"></path><path d="m4 12 8 4.5 8-4.5"></path><path d="m4 16.5 8 4.5 8-4.5"></path></svg>About</a>
 <a href="../newsletter.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><rect height="13" rx="1.5" width="17" x="3.5" y="5.5"></rect><path d="M4.5 7 12 12.5 19.5 7"></path></svg> Newsletter</a>
 <a href="../contact.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M4 6.5A1.5 1.5 0 0 1 5.5 5h13A1.5 1.5 0 0 1 20 6.5v8a1.5 1.5 0 0 1-1.5 1.5H10l-4 3.5V16H5.5A1.5 1.5 0 0 1 4 14.5Z"></path></svg> Contact</a>
-<a href="#nous-suivre"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"></path><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"></path></svg> Nous suivre</a>
-<a href="https://buymeacoffee.com/scenario" rel="noopener noreferrer" style="color:var(--gold)" target="_blank"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M5 9h11v6a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4Z"></path><path d="M16 10.5h1.5a2 2 0 0 1 0 4H16"></path><path d="M8.5 4.5c-.6.7-.6 1.3 0 2M12 4.5c-.6.7-.6 1.3 0 2"></path></svg> Soutenir</a>
+<a href="#nous-suivre"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"></path><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"></path></svg>Follow us</a>
+<a href="https://buymeacoffee.com/scenario" rel="noopener noreferrer" style="color:var(--gold)" target="_blank"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M5 9h11v6a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4Z"></path><path d="M16 10.5h1.5a2 2 0 0 1 0 4H16"></path><path d="M8.5 4.5c-.6.7-.6 1.3 0 2M12 4.5c-.6.7-.6 1.3 0 2"></path></svg>Support us</a>
 </div>
 </nav>
 <div class="weekly-banner" data-hebdo="2026-09-06" hidden="" id="weekly-banner">
 <div class="wrap weekly-banner-inner">
 <a class="weekly-banner-link" href="../hebdo/2026-09-06.html" id="weekly-banner-link">
 <svg aria-hidden="true" class="weekly-banner-icon" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="18"><rect height="15" rx="2" width="17" x="3.5" y="5"></rect><line x1="3.5" x2="20.5" y1="9.5" y2="9.5"></line><line x1="8" x2="8" y1="3" y2="7"></line><line x1="16" x2="16" y1="3" y2="7"></line></svg>
-<span class="weekly-banner-text">Le récap de la semaine est disponible — les 7 sujets et leur scénario le plus probable.</span>
-<span class="weekly-banner-cta">Lire →</span>
+<span class="weekly-banner-text">This week's recap is up — the 7 topics and their most likely scenario.</span>
+<span class="weekly-banner-cta">Read →</span>
 </a>
-<button aria-label="Fermer ce message" class="weekly-banner-close" id="weekly-banner-close" type="button">
+<button aria-label="Close this message" class="weekly-banner-close" id="weekly-banner-close" type="button">
 <svg aria-hidden="true" fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M5 5L19 19M19 5L5 19"></path></svg>
 </button>
 </div>
 </div>
 <div class="intro-banner" hidden="" id="intro-banner">
 <div class="wrap intro-banner-inner">
-<button aria-label="Fermer ce message" class="intro-banner-close" id="intro-banner-close" type="button">
+<button aria-label="Close this message" class="intro-banner-close" id="intro-banner-close" type="button">
 <svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M5 5L19 19M19 5L5 19"></path></svg>
 </button>
 <div class="intro-banner-body">
 <img alt="" aria-hidden="true" class="intro-banner-icon" src="../assets/logo.svg"/>
 <div>
-<p class="intro-banner-lead">L'actu, oui. Et après ?</p>
-<p class="intro-banner-text">Chaque jour, un sujet qui compte, décortiqué en trois scénarios chiffrés, avec une probabilité pour chacun. Jamais figée : elle évolue si la situation change.</p>
+<p class="intro-banner-lead">The news, yes. Then what?</p>
+<p class="intro-banner-text">Every day, one story that matters, broken down into three numbered scenarios, each with its own probability. Never fixed — it shifts as the situation changes.</p>
 </div>
 </div>
 </div>
@@ -1820,102 +1820,102 @@
 </figure>
 <div class="wrap">
 <p class="share-inline">
-<span class="share-inline-label">Partager :</span>
-<a aria-label="Partager sur X" href="#" id="share-x" title="Partager sur X">
+<span class="share-inline-label">Share:</span>
+<a aria-label="Share on X" href="#" id="share-x" title="Share on X">
 <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24"><path d="M5 5L19 19M19 5L5 19"></path></svg>
 </a>
-<a aria-label="Partager sur Bluesky" href="#" id="share-bluesky" title="Partager sur Bluesky">
+<a aria-label="Share on Bluesky" href="#" id="share-bluesky" title="Share on Bluesky">
 <svg aria-hidden="true" fill="currentColor" viewbox="0 0 16 16"><path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"></path></svg>
 </a>
-<a aria-label="Partager sur Facebook" href="#" id="share-facebook" title="Partager sur Facebook">
+<a aria-label="Share on Facebook" href="#" id="share-facebook" title="Share on Facebook">
 <svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M15 4h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h2.6l.4-4H13V8a1 1 0 0 1 1-1h2V4z"></path></svg>
 </a>
-<a aria-label="Partager sur LinkedIn" href="#" id="share-linkedin" title="Partager sur LinkedIn">
+<a aria-label="Share on LinkedIn" href="#" id="share-linkedin" title="Share on LinkedIn">
 <svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><circle cx="6" cy="6" r="2"></circle><rect height="9" width="3" x="4.5" y="10"></rect><path d="M11 10h3v1.5c.7-1 1.8-1.8 3.3-1.8 2.6 0 4.2 1.7 4.2 5.1V19h-3v-3.7c0-1.6-.6-2.6-1.9-2.6-1 0-1.6.7-1.9 1.4-.1.3-.1.6-.1 1V19h-3V10z"></path></svg>
 </a>
-<a aria-label="Partager sur WhatsApp" href="#" id="share-whatsapp" title="Partager sur WhatsApp">
+<a aria-label="Share on WhatsApp" href="#" id="share-whatsapp" title="Share on WhatsApp">
 <svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.4L3 21l4.8-1.2A9 9 0 1 0 12 3zm4.7 12.4c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.7.8 1.8.1.1.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.5.3.1.2.1.7-.1 1.3z"></path></svg>
 </a>
-<a aria-label="Partager sur Telegram" href="#" id="share-telegram" title="Partager sur Telegram">
+<a aria-label="Share on Telegram" href="#" id="share-telegram" title="Share on Telegram">
 <svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M2 12l19-9-7 19-3-7-6-3z"></path></svg>
 </a>
-<button aria-label="Copier le lien" id="share-copy" title="Copier le lien" type="button">
+<button aria-label="Copy link" id="share-copy" title="Copy link" type="button">
 <svg aria-hidden="true" class="share-icon-link" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24"><path d="M10 14a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1 1"></path><path d="M14 10a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1-1"></path></svg>
 <svg aria-hidden="true" class="share-icon-check" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
 </button>
 </p>
-<nav aria-label="Sommaire de l'édition" class="toc">
-<a href="#scenarios">Scénarios</a>
-<a href="#essentiel">L'essentiel</a>
-<a href="#lexique">Référence</a>
+<nav aria-label="Edition contents" class="toc">
+<a href="#scenarios">Scenarios</a>
+<a href="#essentiel">Key takeaways</a>
+<a href="#lexique">Reference</a>
 </nav>
 <div class="question-box">
-<span class="question-label">La question posée</span>
-<p class="question-text">In 2026, several big-budget sequels flopped in theaters while original films thrived: is the franchise bet still as safe as before?</p>
+<span class="question-label">The question at hand</span>
+<p class="question-text">In 2026, several big-budget sequels flopped at the box office while original films thrived: are franchise bets still as safe as before?</p>
 </div>
-<p class="section-label">Les faits</p>
-<p class="dek">A single film, <strong>Spider-Man: Brand New Day</strong> — the sequel to the Spider-Man/Avengers showdown we already covered (<a href="../archives/2026-07-18.html">read our article</a>) — grossed <strong>$2.2 billion</strong> worldwide in 2026 and already holds the record for the biggest launch in history ($360 million in a single weekend in the US). At the same time, three other mega-budget sequels — Star Wars: The Mandalorian and Grogu, Masters of the Universe, and Supergirl — failed at the box office, each costing over $150 million without breaking even. Even Avatar: Fire and Ash, from the most profitable franchise<a aria-label="See definition in glossary" class="lex-ref" href="#lex-franchise">*</a> in cinema history, only grossed about $1.45 billion worldwide — a third less than the previous film in the saga, released three years earlier. The system of sequels, spin-offs<a aria-label="See definition in glossary" class="lex-ref" href="#lex-spin-off">*</a>, and reboots<a aria-label="See definition in glossary" class="lex-ref" href="#lex-reboot">*</a> that has driven Hollywood for twenty years is showing its first visible cracks this year.</p>
-<p class="dek">Since 2010, sequels, remakes, and prequels have occupied eight to ten out of ten spots in the annual ranking of the biggest US box office hits — nine out of ten still in 2024. In 2026, that number dropped to <strong>five out of ten</strong>: two entirely original, ultra-low-budget films, Obsession (less than $1 million invested) and Backrooms, each surpassed $300 million in worldwide revenue, driven by word-of-mouth rather than a big studio marketing campaign. A musical biopic, Michael, and a sci-fi novel adaptation, Project Hail Mary, round out this unusual podium of films without sequels or extended universes.</p>
+<p class="section-label">The facts</p>
+<p class="dek">Only one film, <strong>Spider-Man: Brand New Day</strong> — the sequel to the Spider-Man/Avengers showdown we previously covered (<a href="../archives/2026-07-18.html">read our article</a>) — grossed <strong>$2.2 billion</strong> worldwide in 2026 and already holds the record for the biggest opening in history ($360 million in a single weekend in the U.S.). At the same time, three other big-budget sequels — Star Wars: The Mandalorian and Grogu, Masters of the Universe, and Supergirl — missed their box office target, each costing over $150 million without breaking even. Even Avatar: Fire and Ash, from the most profitable franchise<a aria-label="See the definition in the glossary" class="lex-ref" href="#lex-franchise">*</a> in cinema history, only grossed about $1.45 billion worldwide — a third less than the previous film in the saga, released three years earlier. The system of sequels, spin-offs<a aria-label="See the definition in the glossary" class="lex-ref" href="#lex-spin-off">*</a> and reboots<a aria-label="See the definition in the glossary" class="lex-ref" href="#lex-reboot">*</a> that has driven Hollywood for twenty years is showing its first visible cracks this year.</p>
+<p class="dek">Since 2010, sequels, remakes and prequels have occupied eight to ten spots out of ten in the annual ranking of top U.S. box office hits — nine out of ten still in 2024. In 2026, that figure dropped to <strong>five out of ten</strong>: two entirely original, micro-budget films, Obsession (under $1 million invested) and Backrooms, each surpassed $300 million in global revenue, driven by word-of-mouth rather than a big studio marketing campaign. A musical biopic, Michael, and a science-fiction novel adaptation, Project Hail Mary, round out this unusual podium of films without sequels or extended universes.</p>
 <div class="comprendre-box">
-<span class="comprendre-label">Comprendre</span>
-<p class="comprendre-lead">Un film de franchise reste, en moyenne, bien plus rentable qu'un film inédit — ce qui explique pourquoi les studios continuent d'en produire autant malgré les échecs les plus visibles.</p>
-<p class="comprendre-text">Un film de franchise qui réussit rapporte en moyenne 3,1 fois sa mise (retour sur investissement<a aria-label="Voir la définition dans le lexique" class="lex-ref" href="#lex-roi">*</a>, ou ROI), contre 1,8 fois pour un film inédit qui réussit. Mais cette moyenne cache une réalité inégale. La plupart des films inédits ne rapportent jamais leur budget. Une franchise connue, elle, attire un public de base même quand le film déçoit. Les studios misent donc sur les franchises comme un pari moins risqué en moyenne, pas comme une garantie individuelle de succès.</p>
+<span class="comprendre-label">Understanding it</span>
+<p class="comprendre-lead">A franchise film remains, on average, far more profitable than an original film — which explains why studios keep producing so many despite the most visible failures.</p>
+<p class="comprendre-text">A successful franchise film grosses on average 3.1 times its investment (return on investment<a aria-label="See the definition in the glossary" class="lex-ref" href="#lex-roi">*</a>, or ROI), versus 1.8 times for a successful original film. But this average masks an uneven reality. Most original films never recoup their budget. A known franchise, on the other hand, attracts a base audience even when the film disappoints. Studios therefore bet on franchises as a less risky bet on average, not as an individual guarantee of success.</p>
 </div>
-<p class="dek">The three biggest US studios are not reacting the same way to these signals. Universal continues to line up sequels and horror films, its annual CinemaCon<a aria-label="See definition in glossary" class="lex-ref" href="#lex-cinemacon">*</a> presentation to exhibitors remaining entirely focused on these types of films. Disney has locked in <strong>eleven sequels and live-action remakes through 2029</strong>, including Avengers: Secret Wars and Frozen 3, without slowing down despite the year's failures. Warner Bros., weakened a year earlier by its mega-$110 billion merger with Discovery that we detailed (<a href="../archives/2026-07-26.html">read our article</a>), conversely touts an "eclectic catalog": its co-president Pamela Abdy claims to bet on both franchises and original big-budget works — a gamble analysts considered risky a year ago, before Sinners and One Battle After Another, two original films produced by the same studio, swept six Oscars in 2026, including Best Picture.</p>
-<p class="dek">Here, studio by studio, is how each of the three largest US players is reacting to the same warning signs:</p>
+<p class="dek">Yet the three largest American studios are not reacting the same way to these signals. Universal continues to roll out sequels and horror films, its annual CinemaCon<a aria-label="See the definition in the glossary" class="lex-ref" href="#lex-cinemacon">*</a> presentation to exhibitors remaining entirely focused on these types of films. Disney has locked in <strong>eleven sequels and live-action remakes through 2029</strong>, including Avengers: Secret Wars and Frozen 3, without slowing down despite the year's failures. Warner Bros., weakened a year earlier by its $110B mega-merger with Discovery that we detailed (<a href="../archives/2026-07-26.html">read our article</a>), conversely champions an « eclectic catalog »: its co-president Pamela Abdy openly bets on both franchises and big-budget original works — a gamble analysts considered risky a year ago, before Sinners and One Battle After Another, two original films produced by the same studio, swept six Oscars in 2026, including Best Picture.</p>
+<p class="dek">Here, studio by studio, is how each of the three biggest American players is responding to the same warning signs:</p>
 <div class="list-box">
-<span class="list-box-label">Trois studios, trois stratégies face aux mêmes échecs</span>
+<span class="list-box-label">Three studios, three strategies facing the same failures</span>
 <ul class="list-box-items">
 <li>
 <span class="list-box-rank">1</span>
 <span class="list-box-body">
-<span class="list-box-title">Disney — tout misé sur les franchises</span>
-<span class="list-box-meta">Onze suites et remakes verrouillés jusqu'en 2029 (dont Avengers : Secret Wars, Frozen 3) · aucun changement de cap annoncé après les échecs de 2026.</span>
+<span class="list-box-title">Disney — all in on franchises</span>
+<span class="list-box-meta">Eleven sequels and remakes locked in through 2029 (including Avengers: Secret Wars, Frozen 3) · no change of course announced after the 2026 failures.</span>
 </span>
 </li>
 <li>
 <span class="list-box-rank">2</span>
 <span class="list-box-body">
-<span class="list-box-title">Universal — cap inchangé sur suites et horreur</span>
-<span class="list-box-meta">Présentation CinemaCon 2026 entièrement tournée vers les franchises et les films d'horreur, sans inflexion visible.</span>
+<span class="list-box-title">Universal — unchanged course on sequels and horror</span>
+<span class="list-box-meta">CinemaCon 2026 presentation entirely focused on franchises and horror films, with no visible shift.</span>
 </span>
 </li>
 <li>
 <span class="list-box-rank">3</span>
 <span class="list-box-body">
-<span class="list-box-title">Warner Bros. — catalogue éclectique assumé</span>
-<span class="list-box-meta">Sorties théâtrales en hausse (11 en 2025, jusqu'à 18 prévues en 2027) · mêle franchises et œuvres originales, récompensées aux Oscars 2026.</span>
+<span class="list-box-title">Warner Bros. — embracing eclectic catalog</span>
+<span class="list-box-meta">Theatrical releases increasing (11 in 2025, up to 18 planned for 2027) · mixes franchises and original works, rewarded at the 2026 Oscars.</span>
 </span>
 </li>
 </ul>
-<p class="list-box-foot">Deux studios sur trois n'ont, à ce stade, changé aucune stratégie malgré les échecs de 2026 — le pari de Warner Bros. reste, pour l'instant, une exception plutôt qu'une nouvelle norme du secteur.</p>
+<p class="list-box-foot">Two studios out of three have, at this stage, changed no strategy despite the 2026 failures — Warner Bros.' bet remains, for now, an exception rather than a new industry norm.</p>
 </div>
 <p class="dek">The problem isn't that Universal and Disney are ignoring the warning signs: it's that they are betting on their ability to absorb individual failures through volume and a few very big hits, rather than changing their approach.</p>
 <div class="comprendre-box">
-<span class="comprendre-label">Comprendre</span>
-<p class="comprendre-lead">« Fatigue des franchises » ne veut peut-être pas dire ce qu'on croit : le problème ressemble autant à un embouteillage de sorties qu'à un rejet du principe même des suites.</p>
-<p class="comprendre-text">Masters of the Universe a obtenu de bons avis (86 % d'avis positifs du public) mais n'a rapporté que 110 millions de dollars pour un budget d'environ 180 millions. Il est sorti à quelques semaines de plusieurs autres grosses sorties, dont deux succès surprises inattendus. Un public qui ne peut pas tout voir choisit alors le film qui lui semble le plus neuf, pas nécessairement celui qui a le meilleur accueil critique.</p>
+<span class="comprendre-label">Understanding it</span>
+<p class="comprendre-lead">« Franchise fatigue » might not mean what we think: the problem looks as much like a congestion of releases as a rejection of the very principle of sequels.</p>
+<p class="comprendre-text">Masters of the Universe received good reviews (86% positive audience ratings) but only grossed $110 million against a budget of around $180 million. It was released a few weeks after several other major releases, including two unexpected surprise hits. An audience that can't see everything then chooses the film that feels newest, not necessarily the one with the best critical reception.</p>
 </div>
-<p class="dek">The weakness is not limited to the US audience, either. We already covered how Hollywood is losing ground to local cinema in China, long its second-largest global market (<a href="archives/2026-08-22.html">read our article</a>): major American franchises are also declining there, replaced by successful Chinese productions. A model designed to dominate a homogeneous global market is therefore running out of steam on several fronts at once, not just in front of a US audience tired of sequels.</p>
-<p class="dek">For French cinema, this Hollywood stumble has an unexpected effect. Over the whole of 2025, French films captured <strong>37.9% of the box office</strong>, compared to 34.9% for American films — their lowest level since 1982. In the first five months of 2026, the gap narrowed further (44.4% vs. 45%). The French system, where the CNC<a aria-label="See definition in glossary" class="lex-ref" href="#lex-cnc">*</a> funds part of national cinema via the advance on receipts<a aria-label="See definition in glossary" class="lex-ref" href="#lex-avance-sur-recettes">*</a> independently of expected box office success alone, leaves room for original films that the purely commercial Hollywood system increasingly reserves. France has its own franchises (Asterix, Kaamelott), but they weigh far less on its box office than American franchises do on theirs.</p>
+<p class="dek">Nor is the weakness limited to American audiences. We previously reported how Hollywood was losing ground to local cinema in China, long its second-largest global market (<a href="archives/2026-08-22.html">read our article</a>): major American franchises are also declining there, replaced by successful Chinese productions. A model designed to dominate a homogeneous global market is thus faltering on several fronts at once, not just in front of an American audience tired of sequels.</p>
+<p class="dek">For French cinema, this Hollywood stumble has an unexpected effect. Over the whole of 2025, French films captured <strong>37.9% of the box office</strong>, compared to 34.9% for American films — their lowest share since 1982. Over the first five months of 2026, the gap narrowed further (44.4% vs 45%). The French system, where the CNC<a aria-label="See the definition in the glossary" class="lex-ref" href="#lex-cnc">*</a> funds part of national cinema through advance on receipts<a aria-label="See the definition in the glossary" class="lex-ref" href="#lex-avance-sur-recettes">*</a> independently of expected box office success alone, leaves room for original films that the purely commercial Hollywood system increasingly reserves. France has its own franchises (Asterix, Kaamelott), but they weigh far less in its box office than American franchises do in theirs.</p>
 <div class="indicator-strip">
 <div class="indicator">
 <span class="label">Share of sequels/franchises in the North American box office top 10</span>
-<span class="value">50% <span class="delta">(vs. 90% in 2024)</span></span>
+<span class="value">50% <span class="delta">(vs 90% in 2024)</span></span>
 </div>
 <div class="indicator">
-<span class="label">Sequels with budgets over $150M that miss their mark in theaters</span>
-<span class="value">At least 3 <span class="delta">(in 2026, as in 2025)</span></span>
+<span class="label">Sequels with budgets over $150M that miss their box office target</span>
+<span class="value">At least 3 <span class="delta">(in 2026, same as 2025)</span></span>
 </div>
 </div>
 </div>
 </section>
 <section class="scenarios" id="scenarios">
 <div class="wrap">
-<p class="section-label">Favorable, stable ou dégradé</p>
+<p class="section-label">Favorable, stable, or degraded</p>
 <h2 class="section-title">Hollywood peut-il encore compter sur ses franchises ?</h2>
 <div class="stakes-box">
-<span class="stakes-label">Ce qu'on évalue</span>
+<span class="stakes-label">What we're assessing</span>
 <ul class="stakes-branches">
 <li data-kind="favorable"><span class="stakes-tag">Favorable</span>Le cinéma se rééquilibre : les films inédits confirment leur place aux côtés de franchises mieux calibrées, sans crise financière.</li>
 <li data-kind="stable"><span class="stakes-tag">Stable</span>Les studios maintiennent leur rythme de suites malgré les échecs, compensés par quelques gros succès, sans changer de stratégie.</li>
@@ -1934,14 +1934,14 @@
 <div class="gauge-num">27%</div>
 </div>
 <div class="gauge-word">Likely</div>
-<h3>Original films gain lasting ground</h3>
+<h3>Original films are gaining lasting ground</h3>
 </div>
 <div class="card-body">
-<p class="why">The rebalancing that began in 2026 continues: studios are investing more in original films with controlled budgets, following the winning bet of Warner Bros. with <strong>Sinners</strong> and <strong>One Battle After Another</strong>, rewarded at the Oscars the same year three big-budget sequels flopped. The major franchises that are still released are better calibrated — tighter budgets, fewer competing releases in the same month — and find their audience without multiplying costly failures like in 2025 and 2026.</p>
-<p class="why"><strong>This is the least likely of the three scenarios</strong>, because it assumes that Disney and Universal, which have shown no sign of changing strategy so far, also start reducing their production of sequels — not just Warner Bros. Less likely than the stable one, which requires no change of course. Also less likely than the degraded one, because the pace of mega-budget releases scheduled through 2029 (Frozen 3, Avengers: Secret Wars) shows no sign of slowing down at this stage.</p>
+<p class="why">The rebalancing that began in 2026 continues: studios are investing more in original films with controlled budgets, following the winning bet of Warner Bros. with <strong>Sinners</strong> and <strong>One Battle After Another</strong>, rewarded at the Oscars the same year three big-budget sequels flopped. The major franchises that still come out are better calibrated — tighter budgets, fewer competing releases in the same month — and find their audience without multiplying costly failures as in 2025 and 2026.</p>
+<p class="why"><strong>This is the least likely scenario of the three</strong>, as it assumes that Disney and Universal, which have so far shown no signs of changing strategy, will also start reducing their sequel output — not just Warner Bros. Less likely than the stable scenario, which requires no change in course. Also less likely than the degraded one, because the pace of big-budget releases scheduled through 2029 (Frozen 3, Avengers: Secret Wars) shows, at this stage, no signs of slowing down.</p>
 <hr class="divider"/>
 <div class="field">
-<span class="field-label">Indicateurs touchés</span>
+<span class="field-label">Indicators affected</span>
 <ul>
 <li>
 <span class="field-name">Part des suites/franchises dans le top 10 US</span>
@@ -1953,7 +1953,7 @@
 </li>
 </ul>
 </div>
-<div class="france-line" data-france-impact="favorable"><span class="field-label">The France angle</span>Since 2025, French films have captured an unprecedented market share in theaters for over forty years (37.9% vs. 34.9% for American films over the whole year); a Hollywood that reinvents itself without collapsing reinforces this dynamic without lowering overall attendance, on which theaters showing French films also depend. <span class="evo-arrow is-up">↑</span> Rather favorable for France.</div>
+<div class="france-line" data-france-impact="favorable"><span class="field-label">The France angle</span>Since 2025, French films have captured an unprecedented market share in over forty years (37.9% vs 34.9% for American films over the full year); a Hollywood that reinvents itself without collapsing supports this dynamic without dragging down overall attendance, on which theaters showing French films also depend. <span class="evo-arrow is-up">↑</span> Rather favorable for France.</div>
 </div>
 </article>
 <article class="card" data-kind="stable">
@@ -1967,14 +1967,14 @@
 <div class="gauge-num">48%</div>
 </div>
 <div class="gauge-word">Likely</div>
-<h3>Studios continue to bet on sequels despite failures</h3>
+<h3>Studios keep betting on sequels despite the failures</h3>
 </div>
 <div class="card-body">
-<p class="why">Disney keeps its <strong>eleven sequels and remakes locked in through 2029</strong>, Universal focuses its annual exhibitor presentation on franchises and horror, and the 2026 failures are absorbed as a blip rather than a wake-up call. The big expected hits — Avengers: Doomsday in December 2026, a whole year carried by Spider-Man: Brand New Day — are enough to maintain the sector's average profitability, even if some individual films disappoint.</p>
-<p class="why"><strong>This is the most likely of the three scenarios</strong>, because it exactly extends the current situation: two out of three studios have announced no change in strategy, despite repeated failures. More likely than the favorable one, which would require a structural shift that nothing currently indicates at Disney or Universal. Also more likely than the degraded one, because total box office is still growing in 2026 ($9.8 billion expected, vs. $8.6 billion in 2025), which limits the immediate financial pressure on studios.</p>
+<p class="why">Disney maintains its <strong>eleven sequels and remakes locked in through 2029</strong>, Universal focuses its annual exhibitor presentation on franchises and horror, and the 2026 failures are absorbed as a blip rather than a wake-up call. The expected big hits — Avengers: Doomsday in December 2026, a year entirely carried by Spider-Man: Brand New Day — suffice to maintain the sector's average profitability, even if some individual films disappoint.</p>
+<p class="why"><strong>This is the most likely scenario of the three</strong>, as it is an exact continuation of the current situation: two studios out of three have announced no changes in strategy, despite repeated failures. More likely than the favorable scenario, which would require a structural shift that nothing currently indicates at Disney or Universal. Also more likely than the degraded one, because total box office is still growing in 2026 ($9.8 billion expected, vs $8.6 billion in 2025), limiting the immediate financial pressure on studios.</p>
 <hr class="divider"/>
 <div class="field">
-<span class="field-label">Indicateurs touchés</span>
+<span class="field-label">Indicators affected</span>
 <ul>
 <li>
 <span class="field-name">Part des suites/franchises dans le top 10 US</span>
@@ -1986,7 +1986,7 @@
 </li>
 </ul>
 </div>
-<div class="france-line" data-france-impact="favorable"><span class="field-label">The France angle</span>The French film financing system (CNC advance on receipts, independent of expected box office success alone) partially protects French films from a mandatory sequel logic; their market share therefore remains historically strong (44.4% over the first five months of 2026, vs. 45% for American films). <span class="evo-arrow is-up">↑</span> Rather favorable for France.</div>
+<div class="france-line" data-france-impact="favorable"><span class="field-label">The France angle</span>The French film financing system (CNC advance on receipts, independent of expected box office success alone) partially protects French films from a logic of mandatory sequels; their market share therefore remains historically high (44.4% over the first five months of 2026, vs 45% for American films). <span class="evo-arrow is-up">↑</span> Rather favorable for France.</div>
 </div>
 </article>
 <article class="card" data-kind="degrade">
@@ -2003,11 +2003,11 @@
 <h3>Big-budget sequel failures multiply, studios cut back</h3>
 </div>
 <div class="card-body">
-<p class="why">After Star Wars: The Mandalorian and Grogu, Masters of the Universe, and Supergirl in 2026, new sequels with budgets over $150 million fail to break even in 2027. Even Avatar, the most profitable franchise in history, has already lost a third of its audience between its second and third installments. The studios, caught off guard, cancel or postpone already announced projects and reduce their investments in original films rather than franchises — the opposite of Warner Bros.' gamble.</p>
-<p class="why"><strong>This scenario remains less likely than the stable one</strong>, because no studio has yet announced budget cuts or project cancellations in response to the 2026 failures. But it is more likely than the favorable one, because the number of big-budget sequels that miss their mark has remained high for two consecutive years (three in 2025, three in 2026), without any studio other than Warner Bros. having changed strategy to reverse it.</p>
+<p class="why">After Star Wars: The Mandalorian and Grogu, Masters of the Universe, and Supergirl in 2026, new sequels with budgets over $150 million fail to break even in 2027. Even Avatar, the most profitable franchise in history, has already lost a third of its audience between its second and third installments. Caught off guard, studios cancel or postpone already-announced projects and reduce investments in original films rather than franchises — the opposite of Warner Bros.' bet.</p>
+<p class="why"><strong>This scenario remains less likely than the stable one</strong>, as no studio has yet announced budget cuts or project cancellations in response to the 2026 failures. But it is more likely than the favorable one, because the number of big-budget sequels missing their target has remained high for two consecutive years (three in 2025, three in 2026), without any studio other than Warner Bros. changing strategy to reverse it.</p>
 <hr class="divider"/>
 <div class="field">
-<span class="field-label">Indicateurs touchés</span>
+<span class="field-label">Indicators affected</span>
 <ul>
 <li>
 <span class="field-name">Part des suites/franchises dans le top 10 US</span>
@@ -2019,13 +2019,13 @@
 </li>
 </ul>
 </div>
-<div class="france-line" data-france-impact="degrade"><span class="field-label">The France angle</span>A contraction in the number of major US releases would reduce overall attendance at French theaters, on which French films also depend to fill cinemas between two national releases — a decline in total admissions would weigh on the entire exhibition sector, including French films. <span class="evo-arrow is-down">↓</span> Rather unfavorable for France.</div>
+<div class="france-line" data-france-impact="degrade"><span class="field-label">The France angle</span>A contraction in the number of major American releases would reduce overall attendance at French theaters, on which French films also depend to fill cinemas between domestic releases — a drop in total admissions would weigh on the entire exhibition sector, including French films. <span class="evo-arrow is-down">↓</span> Rather unfavorable for France.</div>
 </div>
 </article>
 </div>
-<p class="indicators-note">Ordres de grandeur indicatifs pour les 3 scénarios ci-dessus, estimés avec l'information disponible à la publication et réévalués si la situation change — jamais des prévisions garanties. <a href="../le-projet.html">En savoir plus sur notre méthode →</a></p>
+<p class="indicators-note">Ordres de grandeur indicatifs pour les 3 scénarios ci-dessus, estimés avec l'information disponible à la publication et réévalués si la situation change — jamais des prévisions garanties. <a href="../le-projet.html">Learn more about our method →</a></p>
 <div class="essentiel-box" id="essentiel">
-<span class="essentiel-label">L'essentiel</span>
+<span class="essentiel-label">Key takeaways</span>
 <p class="essentiel-text">Après plusieurs suites à gros budget qui ont flanché en salle en 2026, le modèle des franchises qui fait tourner Hollywood depuis vingt ans reste-t-il aussi rentable qu'avant ?</p>
 <p class="essentiel-text">En 2026, la part des suites et remakes dans le top 10 du box-office nord-américain est tombée à 50 %, contre 90 % en 2024, pendant qu'au moins trois franchises à plus de 150 millions de dollars de budget (Star Wars, Masters of the Universe, Supergirl) ratent leur pari en salle.</p>
 <p class="essentiel-text">Le plus probable <strong>(48 %)</strong> : les studios maintiennent leur rythme de suites malgré les échecs, portés par les gros succès attendus comme Avengers : Doomsday, sans changer de stratégie ni traverser de vraie crise financière.</p>
@@ -2049,9 +2049,9 @@
 </div>
 </div>
 <div class="follow-inline">
-<p class="follow-inline-text">Ne rate pas la prochaine édition :</p>
+<p class="follow-inline-text">Don't miss the next edition:</p>
 <div class="follow-inline-actions">
-<button class="onesignal-subscribe-btn btn-outline" type="button"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"></path><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"></path></svg> <span class="btn-label">Activer les notifications</span></button>
+<button class="onesignal-subscribe-btn btn-outline" type="button"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"></path><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"></path></svg> <span class="btn-label">Activate notifications</span></button>
 <a class="btn-outline" href="../newsletter.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><rect height="13" rx="1.5" width="17" x="3.5" y="5.5"></rect><path d="M4.5 7 12 12.5 19.5 7"></path></svg> Newsletter</a>
 </div>
 </div>
@@ -2059,30 +2059,30 @@
 </section>
 <section class="lexique" id="lexique">
 <div class="wrap">
-<p class="section-label">Pour ceux qui découvrent le sujet</p>
-<h2 class="section-title">Petit lexique</h2>
+<p class="section-label">For those new to the topic</p>
+<h2 class="section-title">Quick glossary</h2>
 <dl class="glossary">
-<dt id="lex-franchise">Franchise (cinematic)</dt>
+<dt id="lex-franchise">Franchise (cinematographic)</dt>
 <dd>A series of films sharing the same characters or universe, designed to produce multiple sequels, spin-offs, or remakes over several years.</dd>
 <dt id="lex-spin-off">Spin-off</dt>
-<dd>A film derived from an existing franchise, centered on a secondary character or a part of the original universe rather than its main storyline.</dd>
+<dd>A film derived from an existing franchise, focusing on a secondary character or a part of the original universe rather than its main storyline.</dd>
 <dt id="lex-reboot">Reboot</dt>
-<dd>A fresh start for a franchise, starting from scratch (new actors, new continuity) rather than continuing the story of previous films.</dd>
+<dd>A fresh start for a franchise, starting from scratch (new cast, new continuity) rather than continuing the story of previous films.</dd>
 <dt id="lex-roi">Return on Investment (ROI)</dt>
-<dd>The ratio between the money a film earns and its production cost — an ROI of 3 means the film earned three times its investment.</dd>
+<dd>The ratio between the money earned by a film and its production cost — an ROI of 3 means the film earned three times its investment.</dd>
 <dt id="lex-cinemacon">CinemaCon</dt>
-<dd>The annual gathering of US movie theater exhibitors, where studios present their upcoming films to convince cinemas to book screens.</dd>
+<dd>The annual gathering of American movie theater exhibitors, where studios present their upcoming films to convince cinemas to reserve screens for them.</dd>
 <dt id="lex-cnc">CNC</dt>
-<dd>The National Center for Cinema, the French public body that funds part of national cinema independently of expected box office success alone.</dd>
+<dd>The National Center for Cinema, the French public agency that funds part of the national cinema independently of expected box office success alone.</dd>
 <dt id="lex-avance-sur-recettes">Advance on Receipts</dt>
-<dd>A financial grant from the CNC awarded to a film before its release, to be repaid only if it finds its audience — a safety net that allows funding films without a guarantee of commercial success.</dd>
+<dd>A financial grant from the CNC awarded to a film before its release, to be repaid only if it finds its audience — a safety net that allows funding films without guarantee of commercial success.</dd>
 </dl>
-<a class="cross-link" href="../glossaire.html">Voir tous les termes déjà expliqués → Glossaire</a>
+<a class="cross-link" href="../glossaire.html">See all terms explained so far → Glossary</a>
 </div>
 </section>
 <section class="sources" id="sources">
 <div class="wrap">
-<p class="section-label">Pour aller plus loin</p>
+<p class="section-label">To go further</p>
 <h2 class="section-title">Sources</h2>
 <ul class="sources-list">
 <li><a href="https://variety.com/2026/film/box-office/box-office-hits-flops-michael-supergirl-1236809979/" rel="noopener noreferrer" target="_blank">Variety — Box-office 2026 : succès et échecs, Michael, Supergirl et plus ↗</a></li>
@@ -2090,15 +2090,15 @@
 <li><a href="https://www.hollywoodreporter.com/movies/movie-news/warner-bros-co-ceo-pamela-abdy-t-1236697741/" rel="noopener noreferrer" target="_blank">The Hollywood Reporter — Warner Bros. persiste dans son « catalogue éclectique » ↗</a></li>
 <li><a href="https://www.the-numbers.com/box-office-records/domestic/all-movies/cumulative/released-in-2026" rel="noopener noreferrer" target="_blank">The Numbers — Classement du box-office nord-américain 2026 ↗</a></li>
 </ul>
-<p style="margin-top:16px"><a href="../sources.html#2026-09-12" style="color:var(--gold);text-decoration:none">Voir aussi la revue de presse du jour →</a></p>
+<p style="margin-top:16px"><a href="../sources.html#2026-09-12" style="color:var(--gold);text-decoration:none">See also today's press roundup →</a></p>
 </div>
 </section>
 <section class="share-block" id="nous-suivre">
 <div class="wrap">
-<p class="section-label">Reste connecté</p>
-<h2 class="section-title">Vote avant le résultat, retrouve-nous partout</h2>
-<p>Chaque jour, un sondage sur notre canal Telegram : vote pour le scénario que tu juges le plus probable avant même de découvrir les vraies probabilités ci-dessus.</p>
-<p>Retrouve-nous aussi sur tous nos réseaux :</p>
+<p class="section-label">Stay connected</p>
+<h2 class="section-title">Vote before you see the outcome — find us everywhere</h2>
+<p>Every day, a poll on our Telegram channel: vote for the scenario you think is most likely before you even see the real probabilities above.</p>
+<p>Find us also across all our channels:</p>
 <div class="share-row">
 <a class="follow-btn" href="https://x.com/scenario_fr" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" fill="none" height="13" stroke="currentColor" stroke-linecap="round" stroke-width="2.2" viewbox="0 0 24 24" width="13"><line x1="4" x2="20" y1="4" y2="20"></line><line x1="20" x2="4" y1="4" y2="20"></line></svg> X</a>
 <a class="follow-btn" href="https://bsky.app/profile/scenario-actu.bsky.social" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" fill="currentColor" height="14" viewbox="0 0 16 16" width="14"><path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"></path></svg> Bluesky</a>
@@ -2108,7 +2108,7 @@
 <a class="follow-btn" href="https://t.me/scenario_fr" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M2 12l19-9-7 19-3-7-6-3z"></path></svg> Telegram</a>
 </div>
 <div class="share-row" style="margin-top:14px">
-<button class="onesignal-subscribe-btn btn-outline" id="onesignal-subscribe-btn" type="button"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"></path><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"></path></svg> <span class="btn-label">Activer les notifications</span></button>
+<button class="onesignal-subscribe-btn btn-outline" id="onesignal-subscribe-btn" type="button"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"></path><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"></path></svg> <span class="btn-label">Activate notifications</span></button>
 <a class="btn-outline" href="https://buymeacoffee.com/scenario" rel="noopener noreferrer" target="_blank">☕ Nous offrir un café</a>
 </div>
 </div>
@@ -2116,11 +2116,11 @@
 <footer>
 <div class="wrap">
 <div class="footer-bottom">
-<p class="footer-photo-credit"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M4 8.5a1.5 1.5 0 0 1 1.5-1.5h2l1-1.5h7l1 1.5h2A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5Z"></path><circle cx="12" cy="12.5" r="3.2"></circle></svg> Photo d'illustration. Kamil / <a href="https://www.pexels.com/photo/interior-design-of-cinema-18758034/" rel="noopener noreferrer" target="_blank">Pexels ↗</a></p>
+<p class="footer-photo-credit"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M4 8.5a1.5 1.5 0 0 1 1.5-1.5h2l1-1.5h7l1 1.5h2A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5Z"></path><circle cx="12" cy="12.5" r="3.2"></circle></svg> Illustration photo. Kamil / <a href="https://www.pexels.com/photo/interior-design-of-cinema-18758034/" rel="noopener noreferrer" target="_blank">Pexels ↗</a></p>
 <div class="legal-links">
 <span class="legal-links-label">Envie d'en savoir plus sur nos règles ?</span>
-<a href="../mentions-legales.html">Mentions légales</a>
-<a href="../politique-de-confidentialite.html">Politique de confidentialité</a>
+<a href="../mentions-legales.html">Legal notice</a>
+<a href="../politique-de-confidentialite.html">Privacy policy</a>
 </div>
 </div>
 </div>
