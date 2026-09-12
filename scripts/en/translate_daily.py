@@ -380,35 +380,84 @@ def dump_validation_failures(attempt, originals, translations, errors):
 # ---------------------------------------------------------------------------
 # Rewriting des liens internes FR -> EN (règle générale + cas particuliers)
 # ---------------------------------------------------------------------------
-def rewrite_link(value):
-    if not value or value.startswith(("#", "http://", "https://", "mailto:")):
+def rewrite_link(value, depth=1):
+    """`depth` = nombre de niveaux à remonter jusqu'à la racine du site
+    depuis le fichier de sortie : 1 pour en/index.html, 2 pour
+    en/archives/{date}.html (un dossier de plus). Jamais appliqué aux URL
+    absolues (http/https/mailto), aux ancres (#...) ni aux URL
+    protocole-relatives (//...) — celles-ci pointent déjà où il faut,
+    peu importe la profondeur du fichier qui les contient (bug réel du
+    12 septembre 2026 : //gc.zgo.at/count.js devenait ../gc.zgo.at/...,
+    lien mort, faute de ce garde-fou)."""
+    if not value or value.startswith(("#", "http://", "https://", "mailto:", "//")):
         return value
     if value.startswith("en/"):
-        return value[len("en/"):]
-    return f"../{value}"
+        value = value[len("en/"):]
+        return ("../" * (depth - 1) + value) if depth > 1 else value
+    return "../" * depth + value
 
 
-def rewrite_links_for_en(soup):
+def rewrite_links_for_en(soup, depth=1):
     for tag in soup.find_all(["a", "img", "link", "script"]):
         for attr in ("href", "src"):
             if tag.has_attr(attr):
-                tag[attr] = rewrite_link(tag[attr])
+                tag[attr] = rewrite_link(tag[attr], depth)
 
 
-def rewrite_citation_link(href):
+def rewrite_citation_link(href, depth=1):
     """Lien vers un article cité dans le texte (ex: 'archives/2026-09-08.html').
     Pointe vers le miroir EN de cet article s'il existe déjà, sinon vers
     l'original FR — jamais un lien mort. C'est la partie mécanique de la
     "cascade vers les articles cités" de docs/routine-en-prompt.md ; la
     décision éditoriale (faut-il ajouter une phrase de contexte) reste
-    hors de portée de ce script."""
+    hors de portée de ce script.
+
+    `depth` suit la même convention que rewrite_link, MAIS la forme du
+    lien n'est pas un simple "../" de plus entre les deux profondeurs :
+    depuis en/archives/{date_str}.html (depth=2), un lien vers un autre
+    article EN est un frère dans le même dossier (juste "{date}.html",
+    jamais "archives/{date}.html" qui redescendrait dans un sous-dossier
+    inexistant) — traité explicitement plutôt que par arithmétique de
+    préfixe (bug réel du 12 septembre 2026, voir bump_citation_link())."""
     m = re.match(r"^archives/(\d{4}-\d{2}-\d{2})\.html$", href)
     if not m:
-        return rewrite_link(href)
+        return rewrite_link(href, depth)
     date = m.group(1)
-    if (REPO_ROOT / "en" / "archives" / f"{date}.html").exists():
-        return f"archives/{date}.html"
-    return f"../archives/{date}.html"
+    en_mirror_exists = (REPO_ROOT / "en" / "archives" / f"{date}.html").exists()
+    if depth <= 1:
+        return f"archives/{date}.html" if en_mirror_exists else f"../archives/{date}.html"
+    # depth == 2 (en/archives/{date_str}.html)
+    return f"{date}.html" if en_mirror_exists else f"../../archives/{date}.html"
+
+
+def bump_citation_link(href):
+    """Convertit un lien déjà réécrit par rewrite_citation_link()/
+    rewrite_link() pour en/index.html (depth=1) vers sa forme pour
+    en/archives/{date_str}.html (depth=2) — utilisé sur le texte déjà
+    traduit (translations{}), calculé une seule fois en depth=1 par
+    collect_segments() avant même de savoir sur quel fichier il
+    atterrira. Voir rewrite_citation_link() pour pourquoi ce n'est pas
+    un simple "../" de plus sur un lien de citation vers un autre
+    article EN (frère de dossier, pas un "../" de plus)."""
+    if not href or href.startswith(("#", "http://", "https://", "mailto:", "//")):
+        return href
+    m = re.match(r"^archives/(\d{4}-\d{2}-\d{2}\.html)$", href)
+    if m:
+        return m.group(1)
+    m = re.match(r"^\.\./archives/(\d{4}-\d{2}-\d{2}\.html)$", href)
+    if m:
+        return f"../../archives/{m.group(1)}"
+    return f"../{href}"
+
+
+def bump_fragment_depth(html):
+    """Applique bump_citation_link() à tous les <a href> d'un fragment déjà
+    traduit — voir build_en_soup(for_archive=True)."""
+    frag = BeautifulSoup(html, "html.parser")
+    for a in frag.find_all("a"):
+        if a.has_attr("href"):
+            a["href"] = bump_citation_link(a["href"])
+    return "".join(str(c) for c in frag.contents)
 
 
 def rewrite_links_in_fragment(html):
@@ -448,15 +497,36 @@ def find_edition_date(soup):
     return m.group(1)
 
 
-def build_en_soup(fr_soup, date_str, translations, memory, en_image_url):
+def build_en_soup(fr_soup, date_str, translations, memory, en_image_url, for_archive=False):
+    """for_archive=False construit en/index.html (profondeur 1 : en/) ;
+    for_archive=True construit en/archives/{date_str}.html (profondeur 2 :
+    en/archives/). Incident du 12 septembre 2026 : les deux étaient
+    auparavant construits avec exactement le même HTML (liens calculés une
+    seule fois pour la profondeur 1), donc quasiment tous les liens
+    relatifs de l'archive (logo, PWA, nav, footer, citations d'articles)
+    pointaient un cran trop haut — page cassée en pratique bien qu'elle
+    ait l'air normale à l'oeil nu tant qu'on ne clique sur rien."""
     soup = copy.copy(fr_soup)
+    depth = 2 if for_archive else 1
 
     # D'abord le rewrite générique des liens de chrome statique (nav,
     # masthead, icônes, bannière hebdo...). Les overrides explicites
     # ci-dessous (canonical, OG, bouton de langue) s'appliquent APRÈS,
     # pour ne jamais être re-préfixés par erreur (ex: "../index.html"
     # qui deviendrait "../../index.html" si l'ordre était inversé).
-    rewrite_links_for_en(soup)
+    rewrite_links_for_en(soup, depth)
+
+    if for_archive:
+        # Les segments déjà traduits (translations{}) ont été calculés une
+        # seule fois par collect_segments(), à la profondeur 1 (voir
+        # rewrite_citation_link appelé depuis inner_html) — les liens de
+        # citation qu'ils contiennent doivent être recalculés pour la
+        # profondeur 2 avant d'être insérés ici. Copie locale : ne jamais
+        # muter le dict partagé avec build_en_soup(for_archive=False).
+        translations = {
+            k: (bump_fragment_depth(v) if isinstance(v, str) else v)
+            for k, v in translations.items()
+        }
 
     def tr(seg_id, fallback_original):
         return translations.get(seg_id, fallback_original)
@@ -484,13 +554,15 @@ def build_en_soup(fr_soup, date_str, translations, memory, en_image_url):
         canonical["href"] = en_archive_url
 
     # Open Graph / Twitter Card : recopiés depuis title/meta_description déjà
-    # traduits, sauf og:url (fixe, pointe vers la home EN — même convention
-    # que le reste du site) et og:image/twitter:image (chemin EN, suppose que
-    # l'image sociale EN a été régénérée séparément — voir portée non
-    # couverte en haut de fichier).
+    # traduits, sauf og:url (home EN sur en/index.html, archive EN elle-même
+    # sur en/archives/{date}.html — même convention que og:url FR, voir
+    # docs/routine-prompt.md étape 3bis) et og:image/twitter:image (chemin
+    # EN, suppose que l'image sociale EN a été régénérée séparément — voir
+    # portée non couverte en haut de fichier).
+    og_url = en_archive_url if for_archive else "https://lesscenarios.fr/en/"
     for prop, value in [
         ("og:locale", "en_US"),
-        ("og:url", "https://lesscenarios.fr/en/"),
+        ("og:url", og_url),
         ("og:title", title_text),
         ("og:description", desc_text),
         ("og:image", en_image_url),
@@ -528,10 +600,14 @@ def build_en_soup(fr_soup, date_str, translations, memory, en_image_url):
         month_en = calendar.month_name[int(mo)]
         edition_div.string = f"Edition of {month_en} {int(d)}, {y} · No. {num}"
 
-    # bouton de langue : pointe vers la page FR du jour
+    # bouton de langue : sur l'archive, vers la page FR de CETTE édition
+    # précise (archives/{date}.html) — jamais vers index.html, qui peut
+    # déjà afficher une tout autre édition le jour où ce lien est cliqué.
+    # Sur l'accueil EN, index.html FR affiche la même édition, donc y
+    # pointer reste correct.
     lang_btn = soup.select_one(".masthead-lang-btn")
     if lang_btn:
-        lang_btn["href"] = "../index.html"
+        lang_btn["href"] = f"../../archives/{date_str}.html" if for_archive else "../index.html"
         lang_btn["aria-label"] = "Lire en français"
         lang_btn["title"] = "Lire en français"
         lang_btn.string = "FR"
@@ -585,6 +661,28 @@ def build_en_soup(fr_soup, date_str, translations, memory, en_image_url):
         set_inner_html(dt, tr(f"lex_{slug}_dt", inner_html(dt)))
         if dd:
             set_inner_html(dd, tr(f"lex_{slug}_dd", inner_html(dd)))
+
+    # JSON-LD (NewsArticle) : jamais touché jusqu'ici (bug repéré le 12
+    # septembre 2026 en même temps que les liens cassés) — la page EN
+    # exposait aux moteurs de recherche un headline/description en
+    # français et inLanguage=fr-FR sur une page qui prétend être en
+    # anglais. author/publisher ne changent jamais (même règle que côté
+    # FR, docs/routine-prompt.md étape 3bis) ; image reste l'image
+    # générique FR par défaut (og-image-v2.png) si aucune photo EN n'a pu
+    # être générée pour cette édition — même repli que og:image plus haut.
+    ld_script = soup.find("script", attrs={"type": "application/ld+json"})
+    if ld_script and ld_script.string:
+        try:
+            ld = json.loads(ld_script.string)
+        except json.JSONDecodeError:
+            ld = None
+        if ld:
+            ld["mainEntityOfPage"] = {"@type": "WebPage", "@id": og_url}
+            ld["headline"] = tr("h1", ld.get("headline", ""))
+            ld["description"] = tr("meta_description", ld.get("description", ""))
+            ld["image"] = [en_image_url]
+            ld["inLanguage"] = "en-US"
+            ld_script.string = json.dumps(ld, indent=2, ensure_ascii=False)
 
     return soup
 
@@ -946,17 +1044,24 @@ def main():
     else:
         en_image_url, en_image_length = generate_en_social_image(date_str, translations)
 
-    en_soup = build_en_soup(fr_soup, date_str, translations, memory, en_image_url)
-    output_html = str(en_soup)
+    # Deux documents distincts, PAS le même HTML recopié deux fois :
+    # en/index.html vit à la profondeur 1 (en/), en/archives/{date}.html à
+    # la profondeur 2 (en/archives/) — voir build_en_soup() pour l'incident
+    # que ça a causé le 12 septembre 2026 (quasi tous les liens relatifs de
+    # l'archive cassés, un cran de "../" manquant).
+    index_soup = build_en_soup(fr_soup, date_str, translations, memory, en_image_url, for_archive=False)
+    archive_soup = build_en_soup(fr_soup, date_str, translations, memory, en_image_url, for_archive=True)
+    index_html = str(index_soup)
+    archive_html = str(archive_soup)
 
     if args.dry_run:
         print("--dry-run : rien écrit sur disque.")
-        print(output_html[:2000])
+        print(archive_html[:2000])
         return 0
 
     en_archive_path.parent.mkdir(parents=True, exist_ok=True)
-    en_archive_path.write_text(output_html, encoding="utf-8")
-    (REPO_ROOT / "en" / "index.html").write_text(output_html, encoding="utf-8")
+    en_archive_path.write_text(archive_html, encoding="utf-8")
+    (REPO_ROOT / "en" / "index.html").write_text(index_html, encoding="utf-8")
     print(f"Écrit : en/index.html et en/archives/{date_str}.html")
 
     # Badge EN dans archives.html : le script existant vérifie déjà lui-même
