@@ -1,0 +1,59 @@
+name: Daily pub post
+
+# Génère le post "pub" du jour et son miroir EN — remplace la routine
+# Claude Code quotidienne "Scénario — Pub hebdo"
+# (docs/routine-pub-prompt.md). Voir scripts/pub/generate_daily_pub.py
+# pour le détail complet et les garde-fous (aucun fait/citation inventé,
+# validation XML avant commit).
+#
+# IMPORTANT : ce workflow publie un item dans feed-pub.xml, lu par un
+# scénario Make.com qui poste automatiquement sur Telegram/X/LinkedIn/
+# Facebook/Instagram — une exécution n'est donc pas silencieusement
+# réversible comme translate-en.yml/audience.yml. Volontairement SANS
+# cron pour l'instant (workflow_dispatch uniquement) : à activer sur un
+# planning quotidien seulement une fois validé fiable en conditions
+# réelles sur plusieurs jours.
+#
+# Secret requis (déjà présent, voir translate-en.yml) :
+#   OPENROUTER_API_KEY
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Installer les dépendances
+        run: pip install playwright
+
+      - name: Installer Chromium
+        run: python3 -m playwright install --with-deps chromium
+
+      - name: Générer le post du jour
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python3 scripts/pub/generate_daily_pub.py
+
+      - name: Committer et pousser
+        run: |
+          git config user.name "scenario-pub-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add feed-pub.xml en/feed-pub.xml docs/pub-messages.md \
+                   assets/social/pub/ en/assets/social/pub/
+          if git diff --cached --quiet; then
+            echo "Aucun changement — rien à committer."
+            exit 0
+          fi
+          git commit -m "[pub] post automatique du jour"
+          git pull --rebase origin main
+          git push origin main
