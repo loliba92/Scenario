@@ -321,6 +321,51 @@ techniques ordinaires vivent désormais entièrement dans
 
 **Incident du 11 septembre 2026 : étape 13 (traduction anglaise) sautée deux jours de suite.** La session du jour avait délégué la production de l'édition française à un sous-agent explicitement borné « jusqu'au résumé de l'étape 12 » — le sous-agent a donc pris l'étape 13 (traduction EN, `docs/routine-en-prompt.md`) pour une routine séparée hors de son mandat et ne l'a pas exécutée, alors qu'elle fait partie de la même exécution quotidienne. Conséquence : `en/index.html` est resté bloqué sur l'édition du 9 septembre pendant que le FR publiait le 10 puis le 11. Rattrapé le jour même (deux commits `[en]` séparés, un par jour manquant) après signalement de l'utilisateur. Correctif appliqué dans `docs/routine-prompt.md` (étape 12 : ne plus jamais la présenter comme un point d'arrêt ; étape 13 : marquée explicitement obligatoire, avec consigne que tout sous-agent mandaté pour la routine doit recevoir un périmètre couvrant l'étape 13, jamais borné à l'étape 12).
 
+## Principe : GitHub Action plutôt que session Claude Code, dès que possible
+
+**Ajouté le 12 septembre 2026, à la demande explicite de l'utilisateur — à
+appliquer systématiquement, pas seulement rétroactivement sur ce qui suit.**
+Avant de faire tourner une nouvelle tâche récurrente (ou d'étendre une
+routine existante) comme une session Claude Code, se poser la question :
+**cette tâche peut-elle être déléguée à un GitHub Action (script pur, ou
+script + un seul appel OpenRouter ciblé) plutôt que de tourner comme
+routine Claude Code Remote ?** Si oui, **prioriser cette solution** — une
+session Claude Code coûte largement plus cher (contexte, outils, jugement
+d'un modèle de premier plan) qu'un script CI qui tourne en quelques
+secondes pour quelques centimes au plus.
+
+Deux niveaux, selon la nature de la tâche :
+1. **Purement mécanique** (appel API + agrégation/arithmétique +
+   remplissage de gabarit, aucun jugement éditorial réel) → script Python
+   pur, zéro appel LLM. Exemples déjà en place : `reads.yml` (lectures par
+   édition, 3 septembre 2026), `audience.yml` (données d'audience
+   GoatCounter + dashboard interne, 12 septembre 2026).
+2. **Transformation de contenu déjà vérifié** (traduire, résumer,
+   reformuler à partir de texte déjà publié/validé — jamais une tâche qui
+   exige une recherche web ou un jugement éditorial à fort enjeu) → script
+   qui appelle directement l'API OpenRouter pour la seule étape qui a
+   vraiment besoin d'un modèle de langage, le reste (extraction,
+   validation, mise en forme HTML/XML) restant du code déterministe.
+   Exemple déjà en place : `translate-en.yml` (traduction anglaise
+   quotidienne, 11 septembre 2026).
+
+**Ce qui reste sur Claude Code, volontairement** : toute tâche qui exige
+une vraie recherche web en temps réel et/ou un jugement éditorial à fort
+enjeu pour la marque (choix du sujet du jour, rédaction de l'édition
+principale, détection de développements sur les suivis actifs) — la
+qualité y compte plus que le coût, et un modèle de premier plan avec accès
+web reste le bon outil. Le doute profite à Claude Code sur ces
+tâches-là : mieux vaut une tâche portée à tort vers OpenRouter qu'une
+routine à fort enjeu éditorial dégradée pour économiser quelques
+centimes.
+
+Avant de porter une routine existante, vérifier explicitement qu'aucun
+nouveau secret GitHub Actions n'est nécessaire (les tâches liées à
+l'audience/aux lectures réutilisent déjà `GOATCOUNTER_TOKEN` ; la
+traduction réutilise `OPENROUTER_API_KEY`) — et si un nouveau secret est
+nécessaire, le signaler clairement à l'utilisateur plutôt que de supposer
+qu'il existe déjà.
+
 ## Branches Git
 
 - `main` — branche servie par GitHub Pages, toujours à jour.
