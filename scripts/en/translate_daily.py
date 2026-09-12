@@ -68,6 +68,105 @@ DAYS_FR_EN = {
     "dimanche": "Sunday",
 }
 
+# Chrome fixe du site (nav, libellés, footer...) — jamais spécifique à
+# l'édition du jour, donc jamais envoyé à OpenRouter : une correspondance
+# FR -> EN exacte et stable dans le temps. Manquant dans la version
+# initiale de ce script (repéré le 12 septembre 2026 : toute la
+# navigation/les libellés restaient en français sur les pages EN, seul le
+# contenu de l'article lui-même passait par la traduction) — construit à
+# partir de en/archives/2026-09-11.html (traduction manuelle de référence,
+# avant l'automatisation), voir apply_chrome_translations().
+CHROME_TEXT = {
+    "Accueil": "Home",
+    "Glossaire": "Glossary",
+    "Le projet": "About",
+    "Nous suivre": "Follow us",
+    "Soutenir": "Support us",
+    "Scénarios": "Scenarios",
+    "L'essentiel": "Key takeaways",
+    "Référence": "Reference",
+    "Les faits": "The facts",
+    "Favorable, stable ou dégradé": "Favorable, stable, or degraded",
+    "Pour ceux qui découvrent le sujet": "For those new to the topic",
+    "Pour aller plus loin": "To go further",
+    "Reste connecté": "Stay connected",
+    "La question posée": "The question at hand",
+    "Partager :": "Share:",
+    "Ce qu'on évalue": "What we're assessing",
+    "Comprendre": "Understanding it",
+    "Ne rate pas la prochaine édition :": "Don't miss the next edition:",
+    "Indicateurs touchés": "Indicators affected",
+    "Concrètement en France": "The France angle",
+    "Petit lexique": "Quick glossary",
+    "Vote avant le résultat, retrouve-nous partout": "Vote before you see the outcome — find us everywhere",
+    "Mentions légales": "Legal notice",
+    "Politique de confidentialité": "Privacy policy",
+    "Voir tous les termes déjà expliqués → Glossaire": "See all terms explained so far → Glossary",
+    "En savoir plus sur notre méthode →": "Learn more about our method →",
+    "Voir aussi la revue de presse du jour →": "See also today's press roundup →",
+    "L'actu, oui. Et après ?": "The news, yes. Then what?",
+    "Chaque jour, un sujet qui compte, décortiqué en trois scénarios chiffrés, avec une probabilité pour chacun. Jamais figée : elle évolue si la situation change.":
+        "Every day, one story that matters, broken down into three numbered scenarios, each with its own probability. Never fixed — it shifts as the situation changes.",
+    "Chaque jour, un sondage sur notre canal Telegram : vote pour le scénario que tu juges le plus probable avant même de découvrir les vraies probabilités ci-dessus.":
+        "Every day, a poll on our Telegram channel: vote for the scenario you think is most likely before you even see the real probabilities above.",
+    "Retrouve-nous aussi sur tous nos réseaux :": "Find us also across all our channels:",
+    "Le récap de la semaine est disponible — les 7 sujets et leur scénario le plus probable.":
+        "This week's recap is up — the 7 topics and their most likely scenario.",
+    "Lire →": "Read →",
+    # aria-label / title (mêmes valeurs, jamais visibles dans le texte de
+    # la page mais lues par un lecteur d'écran ou affichées en tooltip)
+    "Activer les notifications": "Activate notifications",
+    "Imprimer en 1 page": "Print on 1 page",
+    "Sujet révisé": "Updated topic",
+    "Récap de la semaine": "Weekly recap",
+    "Revue de presse": "Press roundup",
+    "Accès privé": "Private access",
+    "Fermer ce message": "Close this message",
+    "Partager sur X": "Share on X",
+    "Partager sur Bluesky": "Share on Bluesky",
+    "Partager sur Facebook": "Share on Facebook",
+    "Partager sur LinkedIn": "Share on LinkedIn",
+    "Partager sur WhatsApp": "Share on WhatsApp",
+    "Partager sur Telegram": "Share on Telegram",
+    "Copier le lien": "Copy link",
+    "Sommaire de l'édition": "Edition contents",
+    "Voir la définition dans le lexique": "See the definition in the glossary",
+}
+
+
+def apply_chrome_translations(soup):
+    """Remplace tout noeud de texte dont le contenu exact correspond à une
+    entrée de CHROME_TEXT, sur toute la page — jamais un remplacement
+    partiel/en aveugle : seul un noeud dont le texte, une fois dépouillé
+    des espaces, est identique mot pour mot à une clé est touché. Un
+    contenu déjà traduit par OpenRouter ne risque donc jamais de
+    correspondre par erreur (une phrase anglaise ne peut pas être égale à
+    une clé française). Couvre aussi bien le texte visible que les
+    attributs aria-label/title (mêmes clés, cf. CHROME_TEXT)."""
+    for node in soup.find_all(string=True):
+        if node.parent and node.parent.name in ("script", "style"):
+            continue
+        stripped = node.strip()
+        if stripped in CHROME_TEXT:
+            node.replace_with(CHROME_TEXT[stripped])
+    for tag in soup.find_all(attrs={"aria-label": True}):
+        if tag["aria-label"] in CHROME_TEXT:
+            tag["aria-label"] = CHROME_TEXT[tag["aria-label"]]
+    for tag in soup.find_all(attrs={"title": True}):
+        if tag["title"] in CHROME_TEXT:
+            tag["title"] = CHROME_TEXT[tag["title"]]
+
+    # Cas mixtes : la chaîne à traduire n'est qu'une PARTIE d'un noeud de
+    # texte plus large (jamais le noeud entier), donc invisible pour la
+    # boucle ci-dessus. Un seul cas connu : le crédit photo en footnote
+    # ("Photo d'illustration. {photographe} / ..."), voir
+    # docs/routine-prompt.md § Crédit photo.
+    credit = soup.select_one(".footer-photo-credit")
+    if credit:
+        for node in credit.find_all(string=True):
+            if "Photo d'illustration." in node:
+                node.replace_with(str(node).replace("Photo d'illustration.", "Illustration photo."))
+
 
 class TranslationError(Exception):
     pass
@@ -189,6 +288,37 @@ def collect_segments(soup):
         segments[f"lex_{slug}_dt"] = inner_html(dt)
         if dd:
             segments[f"lex_{slug}_dd"] = inner_html(dd)
+
+    # .comprendre-box (jusqu'à 2/édition) et .list-box (0 ou 1/édition) —
+    # composants optionnels du contexte, oubliés lors de la première
+    # version de ce script (repéré le 12 septembre 2026 : ces blocs
+    # restaient entièrement en français sur la page EN, contrairement à
+    # tout le reste de l'article déjà traduit). .comprendre-label et
+    # .list-box-rank sont du chrome fixe (voir CHROME_TEXT), jamais des
+    # segments à traduire ici.
+    for i, cb in enumerate(soup.select(".comprendre-box")):
+        lead = cb.select_one(".comprendre-lead")
+        text = cb.select_one(".comprendre-text")
+        if lead:
+            segments[f"comprendre_{i}_lead"] = inner_html(lead)
+        if text:
+            segments[f"comprendre_{i}_text"] = inner_html(text)
+
+    list_box = soup.select_one(".list-box")
+    if list_box:
+        label = list_box.select_one(".list-box-label")
+        if label:
+            segments["list_box_label"] = inner_html(label)
+        for j, li in enumerate(list_box.select(".list-box-items > li")):
+            title = li.select_one(".list-box-title")
+            meta = li.select_one(".list-box-meta")
+            if title:
+                segments[f"list_box_item_{j}_title"] = inner_html(title)
+            if meta:
+                segments[f"list_box_item_{j}_meta"] = inner_html(meta)
+        foot = list_box.select_one(".list-box-foot")
+        if foot:
+            segments["list_box_foot"] = inner_html(foot)
 
     return segments
 
@@ -515,6 +645,7 @@ def build_en_soup(fr_soup, date_str, translations, memory, en_image_url, for_arc
     # pour ne jamais être re-préfixés par erreur (ex: "../index.html"
     # qui deviendrait "../../index.html" si l'ordre était inversé).
     rewrite_links_for_en(soup, depth)
+    apply_chrome_translations(soup)
 
     if for_archive:
         # Les segments déjà traduits (translations{}) ont été calculés une
@@ -661,6 +792,30 @@ def build_en_soup(fr_soup, date_str, translations, memory, en_image_url, for_arc
         set_inner_html(dt, tr(f"lex_{slug}_dt", inner_html(dt)))
         if dd:
             set_inner_html(dd, tr(f"lex_{slug}_dd", inner_html(dd)))
+
+    for i, cb in enumerate(soup.select(".comprendre-box")):
+        lead = cb.select_one(".comprendre-lead")
+        text = cb.select_one(".comprendre-text")
+        if lead:
+            set_inner_html(lead, tr(f"comprendre_{i}_lead", inner_html(lead)))
+        if text:
+            set_inner_html(text, tr(f"comprendre_{i}_text", inner_html(text)))
+
+    list_box = soup.select_one(".list-box")
+    if list_box:
+        label = list_box.select_one(".list-box-label")
+        if label:
+            set_inner_html(label, tr("list_box_label", inner_html(label)))
+        for j, li in enumerate(list_box.select(".list-box-items > li")):
+            title = li.select_one(".list-box-title")
+            meta = li.select_one(".list-box-meta")
+            if title:
+                set_inner_html(title, tr(f"list_box_item_{j}_title", inner_html(title)))
+            if meta:
+                set_inner_html(meta, tr(f"list_box_item_{j}_meta", inner_html(meta)))
+        foot = list_box.select_one(".list-box-foot")
+        if foot:
+            set_inner_html(foot, tr("list_box_foot", inner_html(foot)))
 
     # JSON-LD (NewsArticle) : jamais touché jusqu'ici (bug repéré le 12
     # septembre 2026 en même temps que les liens cassés) — la page EN
