@@ -2,28 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
-    <loc>https://lesscenarios.fr/archives/2026-09-10.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Scénario</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-10T06:50:00+02:00</news:publication_date>
-      <news:title>Ces métropoles plus riches que des États</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://lesscenarios.fr/en/archives/2026-09-10.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Scénario</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-10T06:50:00+02:00</news:publication_date>
-      <news:title>Some Cities Are Now Richer Than Whole Countries</news:title>
-    </news:news>
-  </url>
-  <url>
     <loc>https://lesscenarios.fr/archives/2026-09-11.html</loc>
     <news:news>
       <news:publication>
@@ -43,6 +21,17 @@
       </news:publication>
       <news:publication_date>2026-09-11T06:30:00+02:00</news:publication_date>
       <news:title>AI: US Tech's $725 Billion Bet</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://lesscenarios.fr/archives/2026-09-12.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>fr</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-12T07:30:00+02:00</news:publication_date>
+      <news:title>Hollywood : le modèle des suites touche-t-il sa limite ?</news:title>
     </news:news>
   </url>
 </urlset>

@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 12.09.2026 — [Hollywood : le modèle des suites touche-t-il sa limite ?](../archives/2026-09-12.html)
 - 11.09.2026 — [IA : le pari à 725 milliards de la tech américaine](../archives/2026-09-11.html)
 - 10.09.2026 — [Ces métropoles plus riches que des États](../archives/2026-09-10.html)
 - 09.09.2026 — [La France a trois visages ?](../archives/2026-09-09.html)
