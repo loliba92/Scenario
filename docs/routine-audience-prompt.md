@@ -1,4 +1,23 @@
-# Prompt de la routine « Scénario — Audience »
+# Prompt de la routine « Scénario — Audience » [RETIRÉE le 12 septembre 2026]
+
+**Cette routine Claude Code Remote a été supprimée** (trigger
+`trig_01LBnmECzsRCyK1Pp4XZZSGw` effacé) — remplacée par un GitHub Action
+quotidien (`.github/workflows/audience.yml` + `scripts/seo/
+update_audience.py`), validé en conditions réelles le même jour (voir
+`docs/ARCHITECTURE.md`, § « Principe : GitHub Action plutôt que session
+Claude Code »). Tâche purement mécanique (API GoatCounter + arithmétique +
+remplissage de gabarit) une fois le dashboard simplifié (top/flop,
+lectures par domaine et suivis actifs retirés le même jour, à la demande
+de l'utilisateur) — plus besoin d'une session Claude Code, et ça permet de
+tourner chaque jour au lieu d'une fois par semaine.
+
+**Ne jamais recréer ce trigger.** Ce fichier reste comme documentation de
+référence de ce que fait le script (le script en est la traduction
+mécanique) — pour toute évolution du comportement, modifier
+`scripts/seo/update_audience.py` directement, pas ce prompt (qui n'est
+plus lu par personne ni rien).
+
+---
 
 Ce fichier est la copie de référence du prompt envoyé par la routine "audience"
 (Claude Code Remote, trigger **« Scénario — Audience »**, cron **hebdomadaire**).
