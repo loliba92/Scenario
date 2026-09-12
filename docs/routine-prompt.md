@@ -775,7 +775,7 @@ envois se fait côté Make/dashboard OneSignal, pas dans ce dépôt.
 12. Résumé intermédiaire (sujet retenu, probabilités des 3 scénarios, ce qui a été publié, **et la décision graphique — voir juste en dessous**). **Ce résumé n'est pas la fin de l'exécution** — ne jamais le présenter comme un point d'arrêt ni comme « terminer par » : l'étape 13 ci-dessous fait partie de la même exécution quotidienne et suit obligatoirement, dans la même session.
 
 13. **Traduction anglaise de l'édition du jour — obligatoire, jamais une routine annexe optionnelle ou hors périmètre, jamais un simple « nice to have ».** Une fois l'édition française publiée sur `main`
-    (étape 11 ci-dessus terminée, push confirmé) :
+    (étape 11 ci-dessus terminée, push confirmé) : ce qui est obligatoire, c'est de vérifier que le workflow automatique a réussi et de rapporter clairement son statut (réussi ou échoué) — **pas** de garantir par tout moyen (y compris une traduction manuelle) que l'anglais soit publié le jour même (voir garde-fou ci-dessous, changé le 12 septembre 2026).
 
     **La traduction elle-même est automatisée depuis le 11 septembre 2026**
     (`scripts/en/translate_daily.py` + `.github/workflows/translate-en.yml`,
@@ -795,13 +795,23 @@ envois se fait côté Make/dashboard OneSignal, pas dans ce dépôt.
     parties-là, pas la section traduction proprement dite du contenu
     quotidien, déjà faite par le workflow.
 
-    **Garde-fou : si `en/archives/{AAAA-MM-JJ}.html` n'existe toujours pas
-    après le pull** (workflow en échec, secret `OPENROUTER_API_KEY` absent
-    ou expiré, panne OpenRouter...), l'étape reste obligatoire quand même —
-    faire la traduction soi-même en suivant `docs/routine-en-prompt.md`
-    intégralement, comme avant le 11 septembre 2026. Ne jamais interpréter
-    l'absence du commit du bot comme « il n'y avait rien à traduire
-    aujourd'hui ».
+    **Si `en/archives/{AAAA-MM-JJ}.html` n'existe toujours pas après le
+    pull** (workflow en échec, secret `OPENROUTER_API_KEY` absent ou
+    expiré, panne OpenRouter...) : **ne plus traduire soi-même** [changé
+    le 12 septembre 2026 — l'ancien garde-fou manuel coûtait un budget
+    d'agent disproportionné (~20-30 min par édition : recherche de
+    contexte, relecture, publication complète) pour compenser un
+    incident que le workflow doit résoudre lui-même]. Se contenter de :
+    constater l'échec (`en/archives/{AAAA-MM-JJ}.html` absent après le
+    pull), consulter si possible le run GitHub Actions concerné
+    (onglet Actions du dépôt, workflow « Traduction EN — filet de
+    sécurité ») pour en noter la cause visible, puis le signaler
+    clairement dans le résumé final (étape 12) comme un volet EN non
+    publié aujourd'hui — jamais comme un non-événement silencieux, et
+    jamais interprété comme « il n'y avait rien à traduire aujourd'hui ».
+    `docs/routine-en-prompt.md` reste la procédure de référence
+    documentée pour qui corrige le script/workflow, mais n'est plus une
+    action à exécuter automatiquement par cette routine quotidienne.
 
     **Incident du 11 septembre 2026 (corrigé) : une exécution a publié l'édition française puis délégué la suite à un sous-agent borné explicitement à « l'étape 12 », ce qui a fait sauter l'étape 13 en la faisant passer pour une routine séparée hors périmètre.** Si cette exécution délègue tout ou partie du travail à un sous-agent, **le périmètre donné au sous-agent doit toujours couvrir explicitement l'étape 13, jamais s'arrêter à l'étape 12** — le mandater seulement jusqu'au résumé de l'étape 12 laisse la traduction anglaise non faite malgré son caractère obligatoire ci-dessus. Le résumé final rapporté à l'utilisateur (ou dans la notification de fin de tâche) doit toujours couvrir les deux volets, FR et EN.
 
