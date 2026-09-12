@@ -34,4 +34,15 @@
       <news:title>Hollywood : le modèle des suites touche-t-il sa limite ?</news:title>
     </news:news>
   </url>
+  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-09-12.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-12T07:30:00+02:00</news:publication_date>
+      <news:title>Hollywood: Is the Sequel Machine Hitting Its Limit?</news:title>
+    </news:news>
+  </url>
 </urlset>
