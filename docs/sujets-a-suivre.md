@@ -152,6 +152,22 @@ mériter une page de suivi ou une mise à jour.
   tensions Iran-États-Unis.
   Dernière vérification : 7 septembre 2026 (V1).
 
+- **Islande : après le non à l'UE, qui va la protéger ?** (édition du 31 août
+  2026)
+  Suivi existant : `suivi/islande.html` (V0 + V1 au 12 septembre 2026, publiée
+  automatiquement par la routine de détection — écart de +35 points sur le
+  scénario dégradé). V1 intègre la publication par Donald Trump, le 7
+  septembre, d'une carte sur Truth Social représentant le Canada, le
+  Mexique, l'Islande, le Groenland et l'Amérique centrale recouverts du
+  drapeau américain — l'Islande a convoqué l'ambassadeur américain, le
+  Danemark et le Mexique ont protesté à leur tour, sans réponse officielle
+  de Washington à ce jour.
+  Prochaine échéance connue : aucune date institutionnelle fixe ; à
+  surveiller, toute clarification ou réponse officielle américaine, tout
+  nouveau geste de réassurance de l'OTAN, et l'évolution de la pression sur
+  le Groenland voisin.
+  Dernière vérification : 12 septembre 2026 (V1).
+
 - **Ceuta : la frontière qui a craqué** (édition du 3 août 2026)
   Suivi existant : `suivi/ceuta-schengen.html` (V0 + V1 au 27 août,
   publiée automatiquement par la routine de détection — écart de +32
@@ -187,7 +203,7 @@ un sujet devenu manifestement sans suite (voir marche à suivre dans
 - 03.09.2026 — [Wall Street : la hausse peut-elle durer ?](../archives/2026-09-03.html)
 - 02.09.2026 — [Pesticides interdits : l'Anses peut-elle dire non ?](../archives/2026-09-02.html)
 - 01.09.2026 — [Présidentielle 2027 : qui peut vraiment battre le RN ?](../archives/2026-09-01.html)
-- 31.08.2026 — [Islande : après le non à l'UE, qui va la protéger ?](../archives/2026-08-31.html)
+- 31.08.2026 — [Islande : après le non à l'UE, qui va la protéger ?](../archives/2026-08-31.html) — a désormais sa page de suivi dédiée, voir « Suivis actifs » ci-dessus.
 - 30.08.2026 — [Ligue 1 : le foot français peut-il survivre à l'effondrement de ses droits TV ?](../archives/2026-08-30.html)
 - 29.08.2026 — [Cinéma mondial : peut-il survivre au streaming ?](../archives/2026-08-29.html)
 - 28.08.2026 — [Climat 2030 : la France peut-elle encore tenir parole ?](../archives/2026-08-28.html)
