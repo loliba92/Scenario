@@ -204,8 +204,6 @@
      septembre, table «Suivis actifs»). */
   table.rank-table td.echeance{ text-align: left; white-space: normal; }
 
-  .rank-cols{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  @media (max-width: 640px){ .rank-cols{ grid-template-columns: 1fr; gap: 28px; } }
 
   .agenda-grid{
     display: grid;
@@ -335,41 +333,6 @@
     </div>
 
     <div class="chart-box">
-      <span class="chart-label">Top / flop éditions</span>
-      <p class="chart-lead">Classement par lectures cumulées depuis le 29 juillet — signal éditorial : quels sujets/angles trouvent leur public.</p>
-      <div class="rank-cols">
-        <div>
-          <table class="rank-table">
-            <thead><tr><th>Top 5</th><th></th></tr></thead>
-            <tbody id="top-table"></tbody>
-          </table>
-        </div>
-        <div>
-          <table class="rank-table">
-            <thead><tr><th>Flop 5</th><th></th></tr></thead>
-            <tbody id="flop-table"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="chart-box">
-      <span class="chart-label">Lectures par domaine</span>
-      <p class="chart-lead">Domaine de chaque édition repris de <code>archives.html</code> (<code>data-domain</code>), lectures cumulées depuis le 29 juillet jointes par date — aucun appel supplémentaire, mêmes données que le classement top/flop ci-dessus, juste regroupées autrement. Trié par moyenne par édition : le signal le plus honnête, un domaine avec peu d'éditions ne doit pas paraître faible juste faute d'échantillon.</p>
-      <table class="rank-table">
-        <thead><tr><th>Domaine</th><th>Éditions</th><th>Total</th><th>Moy./édition</th></tr></thead>
-        <tbody>
-          <tr><td>Sciences &amp; environnement</td><td class="num">7</td><td class="num">113</td><td class="num">16,1</td></tr>
-          <tr><td>Économie &amp; entreprises</td><td class="num">7</td><td class="num">101</td><td class="num">14,4</td></tr>
-          <tr><td>Culture &amp; divertissement</td><td class="num">8</td><td class="num">96</td><td class="num">12,0</td></tr>
-          <tr><td>International</td><td class="num">7</td><td class="num">82</td><td class="num">11,7</td></tr>
-          <tr><td>Politique &amp; institutions</td><td class="num">8</td><td class="num">92</td><td class="num">11,5</td></tr>
-          <tr><td>Tech &amp; numérique</td><td class="num">3</td><td class="num">23</td><td class="num">7,7</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="chart-box">
       <span class="chart-label">Agenda de la semaine — file d'attente éditoriale</span>
       <p class="chart-lead">Prochain sujet en tête de chaque registre dans <code>sujets-prioritaires.md</code>, à date du 7 septembre. Semaine <strong>lundi → dimanche</strong> (le renouvellement de la file se fait le lundi, cette fenêtre montre donc toujours la semaine à venir). <strong>Pas un calendrier garanti</strong> : la routine peut réordonner, insérer un sujet « priorité absolue », ou repasser en auto-sélection si la section du jour est vide.</p>
       <div class="agenda-grid">
@@ -441,25 +404,6 @@
       <p class="kpi-sub" style="margin-top:12px;">Mardi (carte blanche) : plus qu'un seul sujet en attente — épuisé dès la prochaine édition du mardi (8 septembre), la routine repassera alors en auto-sélection générique plutôt que de vraiment manquer de sujet, ce qui sort du rôle prévu pour ce jour-là. Relayer les suggestions des lecteurs (<a href="mailto:scenariocontact75@gmail.com" style="color:var(--paper-dim)">scenariocontact75@gmail.com</a>) reste le moyen normal de réalimenter ce registre.</p>
     </div>
 
-    <div class="chart-box">
-      <span class="chart-label">Suivis actifs — prochaines échéances</span>
-      <p class="chart-lead">Les 9 sujets suivis dans <code>docs/sujets-a-suivre.md</code>, triés par prochaine date connue — pas seulement « ce qui vient », aussi « ce qu'il faut surveiller ».</p>
-      <table class="rank-table">
-        <thead><tr><th>Sujet</th><th>Prochaine échéance connue</th></tr></thead>
-        <tbody>
-          <tr><td><a href="suivi/taux-marche-arriere.html" style="color:var(--paper)">Taux : marche arrière</a></td><td class="echeance">Décision BCE <strong>10 sept. 2026</strong>, décision Fed <strong>16 sept. 2026</strong></td></tr>
-          <tr><td><a href="suivi/arabie-saoudite-sport.html" style="color:var(--paper)">Arabie saoudite &amp; sport (LIV Golf)</a></td><td class="echeance">Clôture accord LIV Golf visée <strong>sept. 2026</strong></td></tr>
-          <tr><td><a href="suivi/big-tech-justice.html" style="color:var(--paper)">Big Tech face à la justice</a></td><td class="echeance">Jugement volet publicité sous 30 j., <strong>début oct. 2026</strong></td></tr>
-          <tr><td><a href="suivi/fifa-infantino.html" style="color:var(--paper)">FIFA — présidence Infantino</a></td><td class="echeance">Candidatures closes <strong>18 nov. 2026</strong>, élection 18 mars 2027</td></tr>
-          <tr><td><a href="suivi/spiderman-marvel.html" style="color:var(--paper)">Spider-Man / Marvel</a></td><td class="echeance">Sortie <strong>Avengers : Doomsday</strong>, 18 déc. 2026</td></tr>
-          <tr><td><a href="suivi/cinema-france.html" style="color:var(--paper)">Cinéma français</a></td><td class="echeance">Bilan CNC, début 2027 (pas de date fixe)</td></tr>
-          <tr><td><a href="suivi/warner-paramount.html" style="color:var(--paper)">Fusion Warner–Paramount</a></td><td class="echeance">Procès antitrust <strong>2–19 mars 2027</strong></td></tr>
-          <tr><td><a href="suivi/iran-usa.html" style="color:var(--paper)">Iran–États-Unis</a></td><td class="echeance">Pas de date fixe — signal de clôture détecté le 28 août, à confirmer</td></tr>
-          <tr><td><a href="suivi/ceuta-schengen.html" style="color:var(--paper)">Ceuta / Schengen</a></td><td class="echeance">Pas de date fixe</td></tr>
-        </tbody>
-      </table>
-    </div>
-
     <p class="dash-note">
       Pas encore là : abonnés newsletter (dépend de la migration Buttondown → OneSignal), abonnés réseaux sociaux (une intégration par plateforme), calibration/score historique (bloqués par le volume de suivis clôturés). Détail et priorités dans <a href="https://github.com/loliba92/Scenario/blob/main/docs/BACKLOG.md">docs/BACKLOG.md</a>, entrée « Dashboard de pilotage interne ».
     </p>
@@ -516,9 +460,9 @@
   //  - Un nudge de repaint forcé (lire `offsetHeight` puis retoucher une
   //    propriété CSS inoffensive) juste après, au cas où le simple
   //    rebuild du SVG ne suffise pas à faire repeindre le navigateur.
-  // `renderWeekly`/`renderCumul`/`renderTables` vident déjà leur
-  // conteneur avant remplissage (voir plus bas) : rejouer `renderCharts`
-  // à chaque retour ne duplique jamais rien.
+  // `renderWeekly`/`renderCumul` vident déjà leur conteneur avant
+  // remplissage (voir plus bas) : rejouer `renderCharts` à chaque
+  // retour ne duplique jamais rien.
   window.addEventListener('unload', function () {});
 
   function forceRepaint() {
@@ -565,7 +509,6 @@
   function renderCharts() {
     renderWeekly();
     renderCumul();
-    renderTables();
   }
 
   function renderWeekly() {
@@ -682,40 +625,6 @@
     var lbl = svgEl('text', { x: xPos(last), y: yPos(data[last][1]) - 10, class: 'dc-point-label', 'text-anchor': 'end' });
     lbl.textContent = data[last][1] + ' lectures · ' + totalEditions + ' éditions';
     svg.appendChild(lbl);
-  }
-
-  function renderTables() {
-    var top = [
-      ['5 août', 39, 'EPR2 : le nucléaire français à l’heure de vérité'],
-      ['30 août', 31, 'Ligue 1 : le foot français peut-il survivre à l’effondrement de ses droits TV ?'],
-      ['29 août', 26, 'Cinéma mondial : peut-il survivre au streaming ?'],
-      ['31 août', 23, 'Islande : après le non à l’UE, qui va la protéger ?'],
-      ['24 août', 23, 'Ukraine : ni paix ni victoire']
-    ];
-    var flop = [
-      ['7 août', 4, 'Big Tech face à la justice'],
-      ['14 août', 4, 'Canicules à répétition : qui paie l’addition ?'],
-      ['18 août', 4, 'IA : la cage a craqué'],
-      ['5 sept.', 5, 'Marché de l’art : records en haut, fermetures en bas'],
-      ['2 août', 6, 'Scénario — L’actualité en trois scénarios chiffrés']
-    ];
-    function fill(id, rows) {
-      var tbody = document.getElementById(id);
-      tbody.innerHTML = ''; // rend la fonction rejouable sans dupliquer (voir pageshow plus haut)
-      rows.forEach(function (r) {
-        var tr = document.createElement('tr');
-        var tdTitle = document.createElement('td');
-        tdTitle.textContent = r[2] + ' — ' + r[0];
-        var tdNum = document.createElement('td');
-        tdNum.className = 'num';
-        tdNum.textContent = r[1];
-        tr.appendChild(tdTitle);
-        tr.appendChild(tdNum);
-        tbody.appendChild(tr);
-      });
-    }
-    fill('top-table', top);
-    fill('flop-table', flop);
   }
 })();
 </script>

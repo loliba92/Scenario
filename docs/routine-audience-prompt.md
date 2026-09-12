@@ -148,17 +148,20 @@ doit pas nous coûter une blinde ») :
 - Le graphique `#cumul-svg` (`var data`) : même série que `le-projet.html`,
   recopiée telle quelle (pas besoin de la recalculer deux fois — construite
   une fois à l'étape 2, réutilisée aux deux endroits).
-- Le tableau top/flop (`renderTables`) : 5 meilleures et 5 moins bonnes
-  éditions par lectures cumulées, sur les chemins déjà filtrés à l'étape 2.
+
+**Simplification du 12 septembre 2026, à la demande de l'utilisateur** :
+le tableau top/flop (`renderTables`), le bloc « Lectures par domaine » et
+le bloc « Suivis actifs » ont été retirés de `dashboard.html` — jugés pas
+nécessaires, la valeur du dashboard tenant surtout dans les KPI/graphiques
+GoatCounter et l'agenda éditorial (sujets à venir). **Ne plus jamais les
+régénérer ni les reproduire** ; s'ils reviennent un jour, ce sera une
+décision explicite de l'utilisateur, pas une reproduction par réflexe de
+l'ancien gabarit. Restent, décrits ci-dessous : les 5 cartes KPI, les deux
+graphiques (`#weekly-svg`/`#cumul-svg`), l'agenda (« Agenda de la semaine »
++ « Semaine d'après ») et « Autonomie par registre ».
 
 Régénérer aussi le contenu **statique** (pas dans le `<script>`, dans le
-HTML directement) des trois derniers blocs :
-- **« Lectures par domaine »** : lire `archives.html` (attribut
-  `data-domain` de chaque `<tr>`, déjà présent, aucune nouvelle donnée à
-  produire), joindre par date aux lectures cumulées déjà filtrées à
-  l'étape 2 (mêmes chemins `archives/{date}.html`), sommer par domaine.
-  Trier par **moyenne par édition**, pas par total (un domaine avec peu
-  d'éditions ne doit pas paraître faible juste faute d'échantillon).
+HTML directement) des blocs suivants :
 - **« Agenda de la semaine »** (cartes `.agenda-card`, pas un tableau) :
   relire `sujets-prioritaires.md`, prendre pour chaque section de
   registre (lundi Géopolitique, mardi Carte blanche, mercredi Actu
@@ -225,10 +228,6 @@ HTML directement) des trois derniers blocs :
   (0 à 4 non cochés) et leur date d'épuisement approximative ; si aucun
   registre n'est en dégradé, le dire explicitement plutôt que de
   garder une ancienne phrase d'alerte périmée.
-- **« Suivis actifs »** : relire `docs/sujets-a-suivre.md`, section
-  « Suivis actifs », reprendre la ligne « Prochaine échéance connue » de
-  chacun des suivis existants, trier par date la plus proche (« pas de
-  date fixe » toujours en bas).
 
 **Ne jamais changer le CSS ni la structure HTML de `dashboard.html`**
 (porte d'accès, grille de KPI, disposition des graphiques) — même règle
@@ -259,8 +258,8 @@ jugement éditorial), qui n'a jamais eu besoin d'une session Claude Code
 là où cette routine ne tourne qu'une fois par semaine.
 
 **Cette routine ne doit plus jamais toucher `assets/data/reads.json`**,
-même par réflexe en régénérant le reste de `dashboard.html` — le
-tableau top/flop de `dashboard.html` (étape 3bis ci-dessus) continue
+même par réflexe en régénérant le reste de `dashboard.html` — les
+KPI/graphiques de `dashboard.html` (étape 3bis ci-dessus) continuent
 d'utiliser les lectures qu'elle calcule elle-même à l'étape 2, c'est
 uniquement `reads.json`/`archives.html` qui est sorti de son périmètre.
 
