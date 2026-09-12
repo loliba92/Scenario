@@ -263,18 +263,10 @@ def main():
 
     from playwright.sync_api import sync_playwright
 
-    # /opt/pw-browsers/chromium : chemin du navigateur pré-installé dans le
-    # sandbox de développement (PLAYWRIGHT_BROWSERS_PATH de cet
-    # environnement) — n'existe pas sur un runner GitHub Actions, qui
-    # installe son propre Chromium à l'emplacement par défaut de Playwright
-    # (`playwright install chromium`, voir .github/workflows/translate-en.yml).
-    # On ne force ce chemin que s'il existe réellement ; sinon Playwright
-    # retrouve tout seul le navigateur qu'il a installé lui-même.
-    sandbox_chromium = "/opt/pw-browsers/chromium"
-    launch_kwargs = {"executable_path": sandbox_chromium} if Path(sandbox_chromium).exists() else {}
+    from _chromium import chromium_launch_kwargs
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(**launch_kwargs)
+        browser = p.chromium.launch(**chromium_launch_kwargs())
         page = browser.new_page(viewport={"width": 1080, "height": 1080})
         page.goto(f"file://{tmp_html.resolve()}")
         page.wait_for_timeout(300)

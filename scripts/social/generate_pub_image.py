@@ -111,8 +111,10 @@ def main():
 
     from playwright.sync_api import sync_playwright
 
+    from _chromium import chromium_launch_kwargs
+
     with sync_playwright() as p:
-        browser = p.chromium.launch(executable_path="/opt/pw-browsers/chromium")
+        browser = p.chromium.launch(**chromium_launch_kwargs())
         page = browser.new_page(viewport={"width": 1080, "height": 1080})
         page.goto(f"file://{tmp_html.resolve()}")
         page.wait_for_timeout(300)
