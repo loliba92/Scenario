@@ -516,7 +516,12 @@ def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_la
     weekly_aria = (
         f"Lectures d'éditions par semaine, de {weekly_recent[0][1]} la semaine du {fmt_long(date.fromisoformat(weekly_recent[0][0]))} "
         f"à {weekly[-2][1] if len(weekly) > 1 else weekly_last[1]} la semaine précédente, "
-        f"semaine en cours {weekly_last[1]} lectures"
+        # Précise la date d'arrêt (jamais juste "semaine en cours X lectures")
+        # depuis le retour utilisateur du 12 septembre 2026 ("on est le 12
+        # septembre pas le 7") — la date du lundi de la semaine en cours se
+        # lisait comme la date d'arrêt des données, pas comme un début de
+        # période encore ouverte.
+        f"semaine en cours {weekly_last[1]} lectures, jusqu'au {fmt_long(end_date)}"
     )
     html, n = re.subn(
         r'(<svg id="weekly-svg"[^>]*aria-label=")[^"]*(")',
