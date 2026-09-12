@@ -35,25 +35,40 @@
 <meta content="Hollywood: Is the Sequel Model Hitting Its Limit? — Scénario" name="twitter:title"/>
 <meta content="In 2026, several big-budget sequels flopped in theaters while original films thrived: is the franchise bet still as safe?" name="twitter:description"/>
 <meta content="https://lesscenarios.fr/en/assets/social/instagram/2026-09-12.png" name="twitter:image"/>
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lesscenarios.fr/" },
-  "headline": "Hollywood : le modèle des suites touche-t-il sa limite ?",
-  "description": "En 2026, plusieurs suites à très gros budget ont flanché en salle pendant que des films inédits cartonnaient : le pari des franchises reste-t-il aussi sûr ?",
-  "image": ["https://lesscenarios.fr/assets/social/instagram/2026-09-12.png"],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lesscenarios.fr/en/"
+  },
+  "headline": "Hollywood: Is the Sequel Model Hitting Its Limit?",
+  "description": "In 2026, several big-budget sequels flopped in theaters while original films thrived: is the franchise bet still as safe?",
+  "image": [
+    "https://lesscenarios.fr/en/assets/social/instagram/2026-09-12.png"
+  ],
   "datePublished": "2026-09-12T07:30:00+02:00",
   "dateModified": "2026-09-12T07:30:00+02:00",
-  "inLanguage": "fr-FR",
-  "author": { "@type": "Organization", "name": "Scénario", "url": "https://lesscenarios.fr/le-projet.html", "sameAs": ["https://www.linkedin.com/company/136694258/"] },
+  "inLanguage": "en-US",
+  "author": {
+    "@type": "Organization",
+    "name": "Scénario",
+    "url": "https://lesscenarios.fr/le-projet.html",
+    "sameAs": [
+      "https://www.linkedin.com/company/136694258/"
+    ]
+  },
   "publisher": {
     "@type": "Organization",
     "name": "Scénario",
-    "logo": { "@type": "ImageObject", "url": "https://lesscenarios.fr/assets/logo-512.png", "width": 512, "height": 512 }
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lesscenarios.fr/assets/logo-512.png",
+      "width": 512,
+      "height": 512
+    }
   }
-}
-</script>
+}</script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
@@ -1839,15 +1854,15 @@
 <p class="question-text">In 2026, several big-budget sequels flopped in theaters while original films thrived: is the franchise bet still as safe as before?</p>
 </div>
 <p class="section-label">Les faits</p>
-<p class="dek">Only one film, <strong>Spider-Man: Brand New Day</strong> — the sequel to the Spider-Man/Avengers showdown we already covered (<a href="../archives/2026-07-18.html">read our article</a>) — grossed <strong>$2.2 billion</strong> worldwide in 2026 and already holds the record for the biggest opening in history ($360 million in a single weekend in the US). At the same time, three other big-budget sequels — Star Wars: The Mandalorian and Grogu, Masters of the Universe, and Supergirl — failed at the box office, each costing over $150 million without breaking even. Even Avatar: Fire and Ash, from the most profitable franchise<a aria-label="See definition in glossary" class="lex-ref" href="#lex-franchise">*</a> in cinema history, only grossed about $1.45 billion worldwide — a third less than the previous film in the saga, released three years earlier. The system of sequels, spin-offs<a aria-label="See definition in glossary" class="lex-ref" href="#lex-spin-off">*</a>, and reboots<a aria-label="See definition in glossary" class="lex-ref" href="#lex-reboot">*</a> that has driven Hollywood for twenty years is showing its first visible cracks this year.</p>
-<p class="dek">Since 2010, sequels, remakes, and prequels have occupied eight to ten spots out of ten in the annual ranking of the biggest US box office hits — nine out of ten still in 2024. In 2026, that number dropped to <strong>five out of ten</strong>: two entirely original, ultra-low-budget films, Obsession (less than $1 million invested) and Backrooms, each surpassed $300 million in worldwide revenue, driven by word-of-mouth rather than a big studio marketing campaign. A musical biopic, Michael, and a sci-fi novel adaptation, Project Hail Mary, complete this unusual podium of films without sequels or extended universes.</p>
+<p class="dek">A single film, <strong>Spider-Man: Brand New Day</strong> — the sequel to the Spider-Man/Avengers showdown we already covered (<a href="../archives/2026-07-18.html">read our article</a>) — grossed <strong>$2.2 billion</strong> worldwide in 2026 and already holds the record for the biggest launch in history ($360 million in a single weekend in the US). At the same time, three other mega-budget sequels — Star Wars: The Mandalorian and Grogu, Masters of the Universe, and Supergirl — failed at the box office, each costing over $150 million without breaking even. Even Avatar: Fire and Ash, from the most profitable franchise<a aria-label="See definition in glossary" class="lex-ref" href="#lex-franchise">*</a> in cinema history, only grossed about $1.45 billion worldwide — a third less than the previous film in the saga, released three years earlier. The system of sequels, spin-offs<a aria-label="See definition in glossary" class="lex-ref" href="#lex-spin-off">*</a>, and reboots<a aria-label="See definition in glossary" class="lex-ref" href="#lex-reboot">*</a> that has driven Hollywood for twenty years is showing its first visible cracks this year.</p>
+<p class="dek">Since 2010, sequels, remakes, and prequels have occupied eight to ten out of ten spots in the annual ranking of the biggest US box office hits — nine out of ten still in 2024. In 2026, that number dropped to <strong>five out of ten</strong>: two entirely original, ultra-low-budget films, Obsession (less than $1 million invested) and Backrooms, each surpassed $300 million in worldwide revenue, driven by word-of-mouth rather than a big studio marketing campaign. A musical biopic, Michael, and a sci-fi novel adaptation, Project Hail Mary, round out this unusual podium of films without sequels or extended universes.</p>
 <div class="comprendre-box">
 <span class="comprendre-label">Comprendre</span>
 <p class="comprendre-lead">Un film de franchise reste, en moyenne, bien plus rentable qu'un film inédit — ce qui explique pourquoi les studios continuent d'en produire autant malgré les échecs les plus visibles.</p>
 <p class="comprendre-text">Un film de franchise qui réussit rapporte en moyenne 3,1 fois sa mise (retour sur investissement<a aria-label="Voir la définition dans le lexique" class="lex-ref" href="#lex-roi">*</a>, ou ROI), contre 1,8 fois pour un film inédit qui réussit. Mais cette moyenne cache une réalité inégale. La plupart des films inédits ne rapportent jamais leur budget. Une franchise connue, elle, attire un public de base même quand le film déçoit. Les studios misent donc sur les franchises comme un pari moins risqué en moyenne, pas comme une garantie individuelle de succès.</p>
 </div>
-<p class="dek">The three largest US studios are not reacting the same way to these signals. Universal continues to line up sequels and horror films, its annual CinemaCon<a aria-label="See definition in glossary" class="lex-ref" href="#lex-cinemacon">*</a> presentation to exhibitors remaining entirely focused on these types of films. Disney has locked in <strong>eleven sequels and live-action remakes through 2029</strong>, including Avengers: Secret Wars and Frozen 3, without slowing down despite the year's failures. Warner Bros., weakened a year earlier by its mega-$110 billion merger with Discovery that we detailed (<a href="../archives/2026-07-26.html">read our article</a>), conversely touts an "eclectic catalog": its co-president Pamela Abdy claims to bet on both franchises and original big-budget works — a gamble analysts deemed risky a year ago, before Sinners and One Battle After Another, two original films produced by the same studio, swept six Oscars in 2026, including Best Picture.</p>
-<p class="dek">Here, studio by studio, is how each of the three largest US players is reacting to the same warning signals:</p>
+<p class="dek">The three biggest US studios are not reacting the same way to these signals. Universal continues to line up sequels and horror films, its annual CinemaCon<a aria-label="See definition in glossary" class="lex-ref" href="#lex-cinemacon">*</a> presentation to exhibitors remaining entirely focused on these types of films. Disney has locked in <strong>eleven sequels and live-action remakes through 2029</strong>, including Avengers: Secret Wars and Frozen 3, without slowing down despite the year's failures. Warner Bros., weakened a year earlier by its mega-$110 billion merger with Discovery that we detailed (<a href="../archives/2026-07-26.html">read our article</a>), conversely touts an "eclectic catalog": its co-president Pamela Abdy claims to bet on both franchises and original big-budget works — a gamble analysts considered risky a year ago, before Sinners and One Battle After Another, two original films produced by the same studio, swept six Oscars in 2026, including Best Picture.</p>
+<p class="dek">Here, studio by studio, is how each of the three largest US players is reacting to the same warning signs:</p>
 <div class="list-box">
 <span class="list-box-label">Trois studios, trois stratégies face aux mêmes échecs</span>
 <ul class="list-box-items">
@@ -1875,22 +1890,22 @@
 </ul>
 <p class="list-box-foot">Deux studios sur trois n'ont, à ce stade, changé aucune stratégie malgré les échecs de 2026 — le pari de Warner Bros. reste, pour l'instant, une exception plutôt qu'une nouvelle norme du secteur.</p>
 </div>
-<p class="dek">The problem is not that Universal and Disney are ignoring the warning signals: it's that they are betting on their ability to absorb individual failures through volume and a few very big hits, rather than changing their approach.</p>
+<p class="dek">The problem isn't that Universal and Disney are ignoring the warning signs: it's that they are betting on their ability to absorb individual failures through volume and a few very big hits, rather than changing their approach.</p>
 <div class="comprendre-box">
 <span class="comprendre-label">Comprendre</span>
 <p class="comprendre-lead">« Fatigue des franchises » ne veut peut-être pas dire ce qu'on croit : le problème ressemble autant à un embouteillage de sorties qu'à un rejet du principe même des suites.</p>
 <p class="comprendre-text">Masters of the Universe a obtenu de bons avis (86 % d'avis positifs du public) mais n'a rapporté que 110 millions de dollars pour un budget d'environ 180 millions. Il est sorti à quelques semaines de plusieurs autres grosses sorties, dont deux succès surprises inattendus. Un public qui ne peut pas tout voir choisit alors le film qui lui semble le plus neuf, pas nécessairement celui qui a le meilleur accueil critique.</p>
 </div>
-<p class="dek">The weakness is not limited to the US audience, either. We already covered how Hollywood is losing ground to local cinema in China, long its second-largest market worldwide (<a href="archives/2026-08-22.html">read our article</a>): major US franchises are also declining there, replaced by successful Chinese productions. A model designed to dominate a homogeneous global market is therefore faltering on several fronts at once, not just in front of a US audience tired of sequels.</p>
-<p class="dek">For French cinema, this Hollywood stumble has an unexpected effect. Over the whole of 2025, French films captured <strong>37.9% of the theatrical box office</strong>, compared to 34.9% for US films — their lowest level since 1982. In the first five months of 2026, the gap narrowed further (44.4% vs. 45%). The French system, where the CNC<a aria-label="See definition in glossary" class="lex-ref" href="#lex-cnc">*</a> funds part of national cinema via the advance on receipts<a aria-label="See definition in glossary" class="lex-ref" href="#lex-avance-sur-recettes">*</a> independently of expected box office success alone, leaves room for original films that the purely commercial Hollywood system increasingly reserves. France has its own franchises (Asterix, Kaamelott), but they weigh far less on its box office than US franchises do on theirs.</p>
+<p class="dek">The weakness is not limited to the US audience, either. We already covered how Hollywood is losing ground to local cinema in China, long its second-largest global market (<a href="archives/2026-08-22.html">read our article</a>): major American franchises are also declining there, replaced by successful Chinese productions. A model designed to dominate a homogeneous global market is therefore running out of steam on several fronts at once, not just in front of a US audience tired of sequels.</p>
+<p class="dek">For French cinema, this Hollywood stumble has an unexpected effect. Over the whole of 2025, French films captured <strong>37.9% of the box office</strong>, compared to 34.9% for American films — their lowest level since 1982. In the first five months of 2026, the gap narrowed further (44.4% vs. 45%). The French system, where the CNC<a aria-label="See definition in glossary" class="lex-ref" href="#lex-cnc">*</a> funds part of national cinema via the advance on receipts<a aria-label="See definition in glossary" class="lex-ref" href="#lex-avance-sur-recettes">*</a> independently of expected box office success alone, leaves room for original films that the purely commercial Hollywood system increasingly reserves. France has its own franchises (Asterix, Kaamelott), but they weigh far less on its box office than American franchises do on theirs.</p>
 <div class="indicator-strip">
 <div class="indicator">
 <span class="label">Share of sequels/franchises in the North American box office top 10</span>
 <span class="value">50% <span class="delta">(vs. 90% in 2024)</span></span>
 </div>
 <div class="indicator">
-<span class="label">Sequels with budgets over $150M that fail at the box office</span>
-<span class="value">At least 3 <span class="delta">(in 2026, same as in 2025)</span></span>
+<span class="label">Sequels with budgets over $150M that miss their mark in theaters</span>
+<span class="value">At least 3 <span class="delta">(in 2026, as in 2025)</span></span>
 </div>
 </div>
 </div>
@@ -1922,8 +1937,8 @@
 <h3>Original films gain lasting ground</h3>
 </div>
 <div class="card-body">
-<p class="why">The rebalancing that began in 2026 continues: studios invest more in original films with controlled budgets, following the winning bet of Warner Bros. with <strong>Sinners</strong> and <strong>One Battle After Another</strong>, rewarded at the Oscars the same year three big-budget sequels flopped. The major franchises that still come out are better calibrated — tighter budgets, fewer competing releases in the same month — and find their audience without multiplying costly failures like in 2025 and 2026.</p>
-<p class="why"><strong>This is the least likely of the three scenarios</strong>, because it assumes that Disney and Universal, which have shown no sign of changing strategy so far, also start reducing their sequel production — not just Warner Bros. Less likely than the stable one, which requires no change of course. Also less likely than the degraded one, because the pace of big-budget releases scheduled through 2029 (Frozen 3, Avengers: Secret Wars) shows, at this stage, no sign of slowing down.</p>
+<p class="why">The rebalancing that began in 2026 continues: studios are investing more in original films with controlled budgets, following the winning bet of Warner Bros. with <strong>Sinners</strong> and <strong>One Battle After Another</strong>, rewarded at the Oscars the same year three big-budget sequels flopped. The major franchises that are still released are better calibrated — tighter budgets, fewer competing releases in the same month — and find their audience without multiplying costly failures like in 2025 and 2026.</p>
+<p class="why"><strong>This is the least likely of the three scenarios</strong>, because it assumes that Disney and Universal, which have shown no sign of changing strategy so far, also start reducing their production of sequels — not just Warner Bros. Less likely than the stable one, which requires no change of course. Also less likely than the degraded one, because the pace of mega-budget releases scheduled through 2029 (Frozen 3, Avengers: Secret Wars) shows no sign of slowing down at this stage.</p>
 <hr class="divider"/>
 <div class="field">
 <span class="field-label">Indicateurs touchés</span>
@@ -1938,7 +1953,7 @@
 </li>
 </ul>
 </div>
-<div class="france-line" data-france-impact="favorable"><span class="field-label">The France angle</span>Since 2025, French films have captured a market share in theaters unseen in over forty years (37.9% vs. 34.9% for US films over the full year); a Hollywood that reinvents itself without collapsing reinforces this dynamic without lowering overall attendance, on which theaters showing French films also depend. <span class="evo-arrow is-up">↑</span> Rather favorable for France.</div>
+<div class="france-line" data-france-impact="favorable"><span class="field-label">The France angle</span>Since 2025, French films have captured an unprecedented market share in theaters for over forty years (37.9% vs. 34.9% for American films over the whole year); a Hollywood that reinvents itself without collapsing reinforces this dynamic without lowering overall attendance, on which theaters showing French films also depend. <span class="evo-arrow is-up">↑</span> Rather favorable for France.</div>
 </div>
 </article>
 <article class="card" data-kind="stable">
@@ -1952,10 +1967,10 @@
 <div class="gauge-num">48%</div>
 </div>
 <div class="gauge-word">Likely</div>
-<h3>Studios keep betting on sequels despite failures</h3>
+<h3>Studios continue to bet on sequels despite failures</h3>
 </div>
 <div class="card-body">
-<p class="why">Disney keeps its <strong>eleven sequels and remakes locked in through 2029</strong>, Universal focuses its annual exhibitor presentation on franchises and horror, and the 2026 failures are absorbed as a blip rather than a wake-up call. The expected big hits — Avengers: Doomsday in December 2026, a whole year carried by Spider-Man: Brand New Day — are enough to maintain the sector's average profitability, even if some individual films disappoint.</p>
+<p class="why">Disney keeps its <strong>eleven sequels and remakes locked in through 2029</strong>, Universal focuses its annual exhibitor presentation on franchises and horror, and the 2026 failures are absorbed as a blip rather than a wake-up call. The big expected hits — Avengers: Doomsday in December 2026, a whole year carried by Spider-Man: Brand New Day — are enough to maintain the sector's average profitability, even if some individual films disappoint.</p>
 <p class="why"><strong>This is the most likely of the three scenarios</strong>, because it exactly extends the current situation: two out of three studios have announced no change in strategy, despite repeated failures. More likely than the favorable one, which would require a structural shift that nothing currently indicates at Disney or Universal. Also more likely than the degraded one, because total box office is still growing in 2026 ($9.8 billion expected, vs. $8.6 billion in 2025), which limits the immediate financial pressure on studios.</p>
 <hr class="divider"/>
 <div class="field">
@@ -1971,7 +1986,7 @@
 </li>
 </ul>
 </div>
-<div class="france-line" data-france-impact="favorable"><span class="field-label">The France angle</span>The French film financing system (CNC advance on receipts, independent of expected box office success alone) partially protects French films from a logic of mandatory sequels; their market share therefore remains historically strong (44.4% in the first five months of 2026, vs. 45% for US films). <span class="evo-arrow is-up">↑</span> Rather favorable for France.</div>
+<div class="france-line" data-france-impact="favorable"><span class="field-label">The France angle</span>The French film financing system (CNC advance on receipts, independent of expected box office success alone) partially protects French films from a mandatory sequel logic; their market share therefore remains historically strong (44.4% over the first five months of 2026, vs. 45% for American films). <span class="evo-arrow is-up">↑</span> Rather favorable for France.</div>
 </div>
 </article>
 <article class="card" data-kind="degrade">
@@ -1988,8 +2003,8 @@
 <h3>Big-budget sequel failures multiply, studios cut back</h3>
 </div>
 <div class="card-body">
-<p class="why">After Star Wars: The Mandalorian and Grogu, Masters of the Universe, and Supergirl in 2026, new sequels with budgets over $150 million fail to break even in 2027. Even Avatar, the most profitable franchise in history, has already lost a third of its audience between its second and third installments. Studios, caught off guard, cancel or postpone already announced projects and reduce investments in original films rather than franchises — the opposite of Warner Bros.' bet.</p>
-<p class="why"><strong>This scenario remains less likely than the stable one</strong>, because no studio has yet announced budget cuts or project cancellations in response to the 2026 failures. But it is more likely than the favorable one, because the number of big-budget sequels that fail has remained high for two consecutive years (three in 2025, three in 2026), without any studio other than Warner Bros. changing strategy to reverse it.</p>
+<p class="why">After Star Wars: The Mandalorian and Grogu, Masters of the Universe, and Supergirl in 2026, new sequels with budgets over $150 million fail to break even in 2027. Even Avatar, the most profitable franchise in history, has already lost a third of its audience between its second and third installments. The studios, caught off guard, cancel or postpone already announced projects and reduce their investments in original films rather than franchises — the opposite of Warner Bros.' gamble.</p>
+<p class="why"><strong>This scenario remains less likely than the stable one</strong>, because no studio has yet announced budget cuts or project cancellations in response to the 2026 failures. But it is more likely than the favorable one, because the number of big-budget sequels that miss their mark has remained high for two consecutive years (three in 2025, three in 2026), without any studio other than Warner Bros. having changed strategy to reverse it.</p>
 <hr class="divider"/>
 <div class="field">
 <span class="field-label">Indicateurs touchés</span>
@@ -2052,11 +2067,11 @@
 <dt id="lex-spin-off">Spin-off</dt>
 <dd>A film derived from an existing franchise, centered on a secondary character or a part of the original universe rather than its main storyline.</dd>
 <dt id="lex-reboot">Reboot</dt>
-<dd>A fresh start for a franchise, starting from scratch (new actors, new continuity) rather than extending the story of previous films.</dd>
+<dd>A fresh start for a franchise, starting from scratch (new actors, new continuity) rather than continuing the story of previous films.</dd>
 <dt id="lex-roi">Return on Investment (ROI)</dt>
 <dd>The ratio between the money a film earns and its production cost — an ROI of 3 means the film earned three times its investment.</dd>
 <dt id="lex-cinemacon">CinemaCon</dt>
-<dd>The annual gathering of US cinema exhibitors, where studios present their upcoming films to convince theaters to reserve screens for them.</dd>
+<dd>The annual gathering of US movie theater exhibitors, where studios present their upcoming films to convince cinemas to book screens.</dd>
 <dt id="lex-cnc">CNC</dt>
 <dd>The National Center for Cinema, the French public body that funds part of national cinema independently of expected box office success alone.</dd>
 <dt id="lex-avance-sur-recettes">Advance on Receipts</dt>
@@ -2224,7 +2239,7 @@
     if (printBtn) printBtn.addEventListener("click", function(){ window.print(); });
   })();
 </script>
-<script async="" data-goatcounter="https://scenario.goatcounter.com/count" src="..///gc.zgo.at/count.js"></script>
+<script async="" data-goatcounter="https://scenario.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
 <script defer="" src="../assets/pwa-install.js"></script>
 <script defer="" src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"></script>
 <script>
