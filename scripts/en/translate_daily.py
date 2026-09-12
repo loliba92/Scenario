@@ -168,6 +168,38 @@ def apply_chrome_translations(soup):
                 node.replace_with(str(node).replace("Photo d'illustration.", "Illustration photo."))
 
 
+# Script inline qui calcule .pubdate ("Published on ... · ~N min read ·
+# Read N times") — exclu par construction de apply_chrome_translations()
+# (code JS, pas du texte visible), mais contient plusieurs chaînes FR en
+# dur : la regex qui lit la date sur .edition, les libellés, et la locale
+# de formatage du compteur de lectures. Repéré le 12 septembre 2026 (même
+# signalement utilisateur que les liens cassés) : sans ce correctif,
+# .pubdate affichait encore "~6 min de lecture" sur une page par ailleurs
+# entièrement en anglais. Remplacements exacts, vérifiés contre le script
+# réel d'index.html — jamais une regex approximative sur du code JS.
+PUBDATE_SCRIPT_FR_EN = [
+    (r"/Édition du\s+(.+?)\s+·/", r"/Edition of\s+(.+?)\s+·/"),
+    ('"Publié le " + m[1]', '"Published on " + m[1]'),
+    ('"~" + minutes + " min de lecture" : ""', '"~" + minutes + " min read" : ""'),
+    (
+        'base + " · Lu " + n.toLocaleString("fr-FR") + " fois" : "Lu " + n.toLocaleString("fr-FR") + " fois"',
+        'base + " · Read " + n.toLocaleString("en-US") + " times" : "Read " + n.toLocaleString("en-US") + " times"',
+    ),
+]
+
+
+def translate_pubdate_script(soup):
+    for script in soup.find_all("script"):
+        if script.string and "Édition du" in script.string:
+            code = script.string
+            for old, new in PUBDATE_SCRIPT_FR_EN:
+                if old not in code:
+                    raise TranslationError(f"translate_pubdate_script : motif introuvable dans le script : {old!r}")
+                code = code.replace(old, new)
+            script.string = code
+            return
+
+
 class TranslationError(Exception):
     pass
 
@@ -646,6 +678,7 @@ def build_en_soup(fr_soup, date_str, translations, memory, en_image_url, for_arc
     # qui deviendrait "../../index.html" si l'ordre était inversé).
     rewrite_links_for_en(soup, depth)
     apply_chrome_translations(soup)
+    translate_pubdate_script(soup)
 
     if for_archive:
         # Les segments déjà traduits (translations{}) ont été calculés une
