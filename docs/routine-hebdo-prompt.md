@@ -18,6 +18,22 @@ pas le supprimer avant validation réelle du script. Une fois validé (un
 dimanche réel, comparé au résultat qu'aurait produit cette routine),
 mettre à jour ce statut, activer le cron dans `hebdo.yml`
 (`0 12 * * 0` UTC = dimanche 14h Paris, comme le trigger d'origine) et
+
+**Format simplifié depuis le 12 septembre 2026, retour utilisateur : « ce
+qui est important est le résumé de la semaine, les images pas
+importantes, tu peux simplifier vraiment ».** La page `hebdo/{date}.html`
+et son fragment n'ont plus de `.day-card` (image Instagram, bouton « Voir
+le détail », grille des 3 scénarios dépliable) — remplacés par une simple
+liste à puces sous l'encart « Conclusion de la semaine » (qui reste
+l'élément principal, inchangé) : une puce par sujet, `{Jour, registre} —
+{1-2 phrases de contexte factuel}. Lire ici →`, sans détail des 3
+scénarios ni pourcentages sur la page elle-même (toujours présents dans
+l'email/`feed-weekly.xml`, qui n'a jamais eu d'images et n'est pas
+concerné par ce changement). Tout ce que décrit la section « Étape 4 »
+ci-dessous à propos des `.day-card`/images/toggle est donc **obsolète** —
+voir `build_week_days_html()`/`day_bullet_html()` dans
+`scripts/hebdo/generate_weekly_recap.py` pour le gabarit exact désormais
+utilisé.
 supprimer le trigger Claude Code — pas avant.
 
 **[BASCULÉ le 22 août, réduction du coût en tokens — même méthode que

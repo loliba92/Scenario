@@ -287,15 +287,6 @@ def read_edition(d, write_missing_fragment=True):
         "question": question.get_text().strip(),
         "scenarios": scenarios,
         "winner_kind": winner_kind,
-        # str(scenario_grid), pas le fragment_text brut : certains fragments
-        # portent aussi un <p class="fragment-question"> avant le
-        # .scenario-grid (repris par archives.html pour son propre bouton
-        # « Voir les scénarios ») — la question est déjà affichée séparément
-        # dans le day-card (.day-card-context, voir day_card_html()), donc
-        # on ne réutilise que le .scenario-grid lui-même, jamais tout le
-        # fichier brut, pour ne pas la dupliquer.
-        "scenario_grid_html": str(scenario_grid),
-        "has_image": (ROOT / "assets" / "social" / "instagram" / f"{date_str}.png").exists(),
     }
 
 
@@ -487,27 +478,83 @@ def build_week_conclusion_lead_html(bullets_html, thread_html):
     )
 
 
-def day_card_html(e, prefix):
-    date_str = e["date_str"]
-    img_src = (f'{prefix}assets/social/instagram/{date_str}.png' if e["has_image"]
-               else f'{prefix}assets/social/instagram/default.png')
-    alt = esc_attr(e["h1"])
-    archive_href = f'{prefix}archives/{date_str}.html'
-    question_html = esc_text(f"❓ {e['question']}")
-    return f'''<div class="day-card">
-  <p class="day-card-eyebrow">{e["eyebrow_html"]}</p>
-  <a class="day-card-image-link" href="{archive_href}">
-    <img class="day-card-image" src="{img_src}" alt="{alt}" loading="lazy">
-  </a>
-  <button type="button" class="day-card-toggle" aria-expanded="false" aria-controls="detail-{date_str}">Voir le détail <span class="day-card-toggle-icon" aria-hidden="true">▾</span></button>
-  <div class="day-card-detail" id="detail-{date_str}">
-    <div class="day-card-detail-inner">
-      <p class="day-card-context">{question_html}</p>
-      {e["scenario_grid_html"]}
-      <a class="day-link" href="{archive_href}">Lire l'édition →</a>
-    </div>
-  </div>
-</div>'''
+def day_bullet_html(e, context, prefix):
+    """Une ligne par sujet — {jour, registre} — {contexte factuel court} —
+    lien « Lire ici ». Volontairement sans image ni détail des 3 scénarios
+    (retiré le 12 septembre 2026, retour utilisateur : « ce qui est
+    important est le résumé de la semaine, les images pas importantes,
+    tu peux simplifier vraiment ») — voir docs/routine-hebdo-prompt.md."""
+    archive_href = f'{prefix}archives/{e["date_str"]}.html'
+    context = context.strip()
+    if context and context[-1] not in ".!?":
+        context += "."
+    return (
+        f'<li><strong>{e["eyebrow_html"]}</strong> — {esc_text(context)} '
+        f'<a class="week-day-link" href="{archive_href}">Lire ici →</a></li>'
+    )
+
+
+WEEK_DAYS_CSS = """
+  .week-days{
+    padding: 32px 0 4px;
+  }
+
+  .week-days-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin: 0 0 14px;
+  }
+
+  .week-days-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .week-days-list li{
+    padding: 14px 0;
+    border-bottom: 1px solid var(--hairline);
+    font-size: 0.96rem;
+    color: var(--paper);
+  }
+
+  .week-days-list li:last-child{ border-bottom: none; }
+
+  .week-day-link{
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--gold);
+    white-space: nowrap;
+  }
+  .week-day-link:hover{ border-bottom-style: solid; }
+"""
+
+
+def build_week_days_html(editions, days_result, prefix):
+    li = "\n".join(
+        day_bullet_html(e, days_result[e["date_str"]]["context"], prefix) for e in editions
+    )
+    n_word = NUM_WORDS_FR.get(len(editions), str(len(editions)))
+    return (
+        '<div class="week-days">\n'
+        f'  <p class="week-days-label">Les {n_word} sujets de la semaine</p>\n'
+        '  <ul class="week-days-list">\n'
+        f'    {li}\n'
+        '  </ul>\n'
+        '</div>'
+    )
+
+
+def ensure_week_days_css(text):
+    """Ajoute la CSS de .week-days au gabarit copié si elle n'y est pas déjà
+    — idempotent, car ce gabarit devient lui-même la base de la semaine
+    suivante (voir latest_hebdo_template())."""
+    if ".week-days-list" in text:
+        return text
+    return text.replace("</style>", WEEK_DAYS_CSS + "</style>", 1)
 
 
 def latest_hebdo_template():
@@ -525,8 +572,9 @@ def latest_hebdo_template():
 
 
 def build_hebdo_page(template_path, sunday, title, dek, meta_description,
-                      week_conclusion_html, week_grid_cards_html):
+                      week_conclusion_html, week_days_html):
     text = template_path.read_text(encoding="utf-8")
+    text = ensure_week_days_css(text)
     date_str = sunday.isoformat()
     full_title = f"{title} — Scénario"
     published_time = f"{date_str}T14:00:00+02:00"
@@ -562,13 +610,13 @@ def build_hebdo_page(template_path, sunday, title, dek, meta_description,
     text, n = re.subn(r'<p class="dek">.*?</p>', f'<p class="dek">{esc_text(dek)}</p>', text, count=1)
     check(n, "dek")
 
-    inner = week_conclusion_html + "\n\n" + f'<div class="week-grid">\n\n{week_grid_cards_html}\n\n</div>'
+    inner = week_conclusion_html + "\n\n" + week_days_html
     text, n = re.subn(
         r'<div class="week-conclusion week-conclusion-lead">.*?</section>',
         inner + "\n  </div>\n</section>",
         text, count=1, flags=re.S,
     )
-    check(n, "week-conclusion/week-grid")
+    check(n, "week-conclusion/week-days")
     return text
 
 
@@ -731,16 +779,16 @@ def main():
         return 0
 
     week_conclusion_page = build_week_conclusion_lead_html(bullets_html, thread_html)
-    day_cards_page = "\n\n".join(day_card_html(e, "../") for e in editions)
-    day_cards_fragment = "\n\n".join(day_card_html(e, "") for e in editions)
+    week_days_page = build_week_days_html(editions, days_result, "../")
+    week_days_fragment = build_week_days_html(editions, days_result, "")
 
     template_path = latest_hebdo_template()
     hebdo_html = build_hebdo_page(template_path, sunday, title, dek, meta_description,
-                                   week_conclusion_page, day_cards_page)
+                                   week_conclusion_page, week_days_page)
     HEBDO_DIR.mkdir(parents=True, exist_ok=True)
     (HEBDO_DIR / f"{date_str}.html").write_text(hebdo_html, encoding="utf-8")
 
-    fragment_html = week_conclusion_page + "\n\n" + f'<div class="week-grid">\n\n{day_cards_fragment}\n\n</div>\n'
+    fragment_html = week_conclusion_page + "\n\n" + week_days_fragment + "\n"
     HEBDO_FRAGMENTS_DIR.mkdir(parents=True, exist_ok=True)
     (HEBDO_FRAGMENTS_DIR / f"{date_str}.html").write_text(fragment_html, encoding="utf-8")
     print(f"hebdo/{date_str}.html et hebdo/fragments/{date_str}.html créés.")
