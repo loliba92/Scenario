@@ -787,13 +787,16 @@ envois se fait côté Make/dashboard OneSignal, pas dans ce dépôt.
     `git pull origin main` pour récupérer son commit `[en] traduction
     automatique de l'édition du jour`.
 
-    **Ce que cette étape doit encore faire elle-même** (non couvert par le
-    script) : badge EN sur l'entrée du jour dans `archives.html`, item
-    ajouté à `en/feed.xml`, `sitemap.xml` mis à jour, image sociale EN.
-    Procédure complète : `docs/routine-en-prompt.md` (ne pas la reproduire
-    ici, la lire intégralement le moment venu) — n'en retenir que ces
-    parties-là, pas la section traduction proprement dite du contenu
-    quotidien, déjà faite par le workflow.
+    **Depuis le 12 septembre 2026, le script couvre aussi l'image sociale
+    EN** (`en/assets/social/instagram/{AAAA-MM-JJ}.png`, générée via
+    Playwright directement par le workflow — voir
+    `generate_en_social_image()` dans `scripts/en/translate_daily.py`) en
+    plus du badge EN sur `archives.html`, de l'item `en/feed.xml` et de la
+    mise à jour de `sitemap.xml`/`sitemap-news.xml` : **rien à faire à la
+    main dans le cas courant**. Repli automatique et documenté sur
+    l'image générique du site si la génération échoue (Chromium
+    indisponible sur le runner...) — dans ce cas seulement, se référer à
+    `docs/routine-en-prompt.md` étape 7 pour la régénérer à la main.
 
     **Si `en/archives/{AAAA-MM-JJ}.html` n'existe toujours pas après le
     pull** (workflow en échec, secret `OPENROUTER_API_KEY` absent ou

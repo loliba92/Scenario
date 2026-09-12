@@ -41,7 +41,15 @@ jobs:
           python-version: '3.12'
 
       - name: Installer les dépendances
-        run: pip install beautifulsoup4
+        run: pip install beautifulsoup4 playwright
+
+      # Chromium pour generate_instagram_image.py (image sociale EN,
+      # ajoutée le 12 septembre 2026 — voir generate_en_social_image()
+      # dans translate_daily.py). Le script détecte tout seul l'absence
+      # du chemin sandbox /opt/pw-browsers/chromium et utilise celui
+      # installé ici (emplacement par défaut de Playwright).
+      - name: Installer Chromium (image sociale EN)
+        run: python3 -m playwright install --with-deps chromium
 
       - name: Traduire l'édition du jour si besoin
         env:
@@ -53,10 +61,11 @@ jobs:
           git config user.name "scenario-en-bot"
           git config user.email "actions@users.noreply.github.com"
           # translate_daily.py touche aussi archives.html (badge EN),
-          # sitemap.xml/sitemap-news.xml et en/feed.xml en plus de
-          # en/index.html et en/archives/ — les oublier ici les laissait
-          # modifiés sans être commités, donc perdus à la fin du run.
-          git add en/index.html en/archives/ archives.html sitemap.xml sitemap-news.xml en/feed.xml
+          # sitemap.xml/sitemap-news.xml, en/feed.xml et l'image sociale
+          # en/assets/social/instagram/ en plus de en/index.html et
+          # en/archives/ — les oublier ici les laissait modifiés sans
+          # être commités, donc perdus à la fin du run.
+          git add en/index.html en/archives/ archives.html sitemap.xml sitemap-news.xml en/feed.xml en/assets/social/instagram/
           if git diff --cached --quiet; then
             echo "Aucun changement — rien à committer."
             exit 0

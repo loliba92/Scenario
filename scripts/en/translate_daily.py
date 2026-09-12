@@ -16,10 +16,15 @@ Portée couverte : `en/index.html`, `en/archives/AAAA-MM-JJ.html`, la ligne
 "EN" de l'entrée du jour dans `archives.html` (en relançant le script
 existant `generate_archives_table.py`, qui vérifie déjà lui-même la
 présence du fichier EN sur disque — zéro nouveau code pour ce point),
-`sitemap.xml`, `sitemap-news.xml`, l'entrée du jour dans `en/feed.xml`.
+`sitemap.xml`, `sitemap-news.xml`, l'entrée du jour dans `en/feed.xml`,
+l'image sociale `en/assets/social/instagram/AAAA-MM-JJ.png` (ajouté le
+12 septembre 2026 — voir generate_en_social_image() : Playwright appelé
+directement par ce script, comme generate_archives_table.py juste
+au-dessus ; si la génération échoue pour une raison quelconque
+(Chromium indisponible sur le runner...), repli automatique sur
+l'image générique du site plutôt que de faire échouer toute la
+traduction pour ça).
 Portée NON couverte, à faire séparément :
-  - l'image sociale `en/assets/social/...` (nécessite Playwright, pas
-    encore ajouté au workflow CI)
   - `en/feed-pub.xml` (posts pub, routine séparée)
 
 Principe non négociable, repris de `docs/routine-en-prompt.md` : traduire,
@@ -142,6 +147,15 @@ def collect_segments(soup):
     qtext = soup.select_one(".question-text")
     if qtext:
         segments["question_text"] = inner_html(qtext)
+
+    # h2.section-title existe à plusieurs endroits de la page (lexique,
+    # sources...) mais un seul nous intéresse : celui de section.scenarios,
+    # "reformulation courte et pédagogique de la question" (voir
+    # docs/routine-prompt.md, étape technique 3) — recyclé tel quel comme
+    # "context" de l'image sociale EN (voir generate_en_social_image()).
+    section_title = soup.select_one(".scenarios .section-title")
+    if section_title:
+        segments["section_title"] = inner_html(section_title)
 
     for i, dek in enumerate(soup.select(".dek")):
         segments[f"dek_{i}"] = inner_html(dek)
@@ -434,7 +448,7 @@ def find_edition_date(soup):
     return m.group(1)
 
 
-def build_en_soup(fr_soup, date_str, translations, memory):
+def build_en_soup(fr_soup, date_str, translations, memory, en_image_url):
     soup = copy.copy(fr_soup)
 
     # D'abord le rewrite générique des liens de chrome statique (nav,
@@ -460,7 +474,6 @@ def build_en_soup(fr_soup, date_str, translations, memory):
     soup.html["lang"] = "en"
 
     en_archive_url = f"https://lesscenarios.fr/en/archives/{date_str}.html"
-    en_image_url = f"https://lesscenarios.fr/en/assets/social/instagram/{date_str}.png"
     title_text = tr("title", soup.title.get_text() if soup.title else "")
     desc_text = tr("meta_description", meta_desc.get("content", "") if meta_desc else "")
 
@@ -683,13 +696,124 @@ def html_escape(text):
 
 
 # ---------------------------------------------------------------------------
+# Image sociale EN (Instagram 1080x1080) — ajoutée le 12 septembre 2026.
+# Portée initialement documentée comme NON couverte par ce script (voir
+# historique de ce fichier) : nécessitait Playwright, pas encore dans le
+# workflow CI. generate_instagram_image.py rendu portable (chemin Chromium
+# du sandbox de dev remplacé par la détection de l'installation locale de
+# Playwright, voir ce script) et Playwright+Chromium ajoutés à
+# .github/workflows/translate-en.yml — ce script peut donc l'appeler
+# lui-même, comme generate_archives_table.py juste au-dessus.
+#
+# Contrainte : le JSON title/context/scenario[].label utilisé pour l'image
+# FR d'origine (/tmp/ig-data.json, voir docs/routine-prompt.md étape
+# technique 8) est éphémère et déjà perdu au moment où ce script tourne
+# (autre run CI, donc autre conteneur). On reconstruit donc une version
+# EN à partir de ce qui est déjà traduit et committé — h1 (title), le
+# h2.section-title de section.scenarios (context, exactement la même
+# source que la routine FR utilise pour ce champ) et les titres de
+# cartes déjà traduits (labels) — plutôt que la reformulation
+# spécifiquement calibrée pour l'image que la routine FR écrit à la
+# main. Résultat legèrement plus long/moins "punchy" qu'une image FR
+# écrite à la main, mais fidèle et jamais un mot-à-mot cassé.
+def strip_to_text(html_fragment):
+    """Texte brut sans balises, pour les champs du JSON --data de
+    generate_instagram_image.py (qui échappe lui-même le HTML reçu —
+    lui passer des balises produirait des < > littéraux affichés)."""
+    return BeautifulSoup(html_fragment or "", "html.parser").get_text().strip()
+
+
+# .scenario-row .label des templates instagram-*-en.html est en une seule
+# ligne (white-space:nowrap + text-overflow:ellipsis, voir ces fichiers) —
+# conçu pour les labels courts que la routine FR écrit à la main
+# spécifiquement pour l'image (docs/routine-prompt.md étape technique 8).
+# Ici on réutilise le <h3> de carte déjà traduit (voir plus haut) : plus
+# long par nature, et l'anglais rallonge encore le texte à sens égal —
+# testé en conditions réelles (édition du 12 septembre) : un label de 56
+# caractères se coupait déjà en plein mot ("...cut ..."). Tronché nous-
+# mêmes sur un espace, avec de vraies points de suspension, plutôt que de
+# laisser le CSS couper au pixel près (rendu imprévisible selon la
+# largeur réelle des caractères).
+SCENARIO_LABEL_MAX_CHARS = 52
+
+
+def truncate_label(text, max_chars=SCENARIO_LABEL_MAX_CHARS):
+    if len(text) <= max_chars:
+        return text
+    cut = text[:max_chars].rsplit(" ", 1)[0].rstrip(",;:.")
+    return f"{cut}…"
+
+
+def generate_en_social_image(date_str, translations):
+    """Génère en/assets/social/instagram/{date}.png via
+    generate_instagram_image.py --lang en. Ne lève jamais d'exception :
+    un problème d'environnement CI (Playwright/Chromium indisponible)
+    ne doit jamais faire perdre la traduction textuelle déjà validée —
+    seule l'image sociale EN reste alors absente pour cette édition,
+    signalé sur stdout, jamais silencieux.
+
+    Renvoie (image_url, image_length_bytes) : l'image EN dédiée si la
+    génération a réussi, sinon l'image générique par défaut du site
+    (même repli que index.html avant qu'une photo Pexels soit retenue,
+    voir docs/routine-prompt.md étape technique 3bis) — jamais une URL
+    vers un fichier qui n'existe pas.
+    """
+    fallback_url = "https://lesscenarios.fr/assets/social/og-image-v2.png"
+    fallback_path = REPO_ROOT / "assets" / "social" / "og-image-v2.png"
+    fallback = (fallback_url, str(fallback_path.stat().st_size) if fallback_path.exists() else "0")
+
+    photo_path = REPO_ROOT / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
+    if photo_path.exists():
+        template = REPO_ROOT / "scripts" / "social" / "instagram-photo-template-en.html"
+        photo_arg = ["--photo", str(photo_path)]
+    else:
+        template = REPO_ROOT / "scripts" / "social" / "instagram-template-en.html"
+        photo_arg = []
+
+    data = {
+        "title": strip_to_text(translations.get("h1", "")),
+        "context": strip_to_text(translations.get("section_title", "")),
+        "scenarios": [
+            {"kind": kind, "label": truncate_label(strip_to_text(translations.get(f"card_{kind}_h3", "")))}
+            for kind in ("favorable", "stable", "degrade")
+        ],
+    }
+    if not data["title"] or not data["context"] or not all(s["label"] for s in data["scenarios"]):
+        print("Image sociale EN : segment(s) manquant(s) (h1/section_title/card_*_h3) — "
+              "image générique gardée à la place.", file=sys.stderr)
+        return fallback
+
+    output_path = REPO_ROOT / "en" / "assets" / "social" / "instagram" / f"{date_str}.png"
+    data_path = output_path.with_suffix(".data.json")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    data_path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+
+    try:
+        subprocess.run(
+            [sys.executable, str(REPO_ROOT / "scripts" / "social" / "generate_instagram_image.py"),
+             "--data", str(data_path), "--output", str(output_path),
+             "--template", str(template), "--lang", "en"] + photo_arg,
+            cwd=REPO_ROOT, check=True, capture_output=True, text=True,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"Image sociale EN : génération échouée (image générique gardée à la place) — {e}\n"
+              f"stdout: {e.stdout}\nstderr: {e.stderr}", file=sys.stderr)
+        return fallback
+    finally:
+        data_path.unlink(missing_ok=True)
+
+    size = output_path.stat().st_size
+    print(f"Image sociale EN générée : {output_path} ({size} octets).")
+    return f"https://lesscenarios.fr/en/assets/social/instagram/{date_str}.png", str(size)
+
+
+# ---------------------------------------------------------------------------
 # en/feed.xml : nouvel <item> construit à partir des segments déjà traduits
 # (titre, comments, titres de cartes) + des 5 nouveaux segments propres au
 # feed (collect_feed_segments). Jamais de suppression d'item existant.
 # ---------------------------------------------------------------------------
-def build_en_feed_item(date_str, translations, feed_item):
+def build_en_feed_item(date_str, translations, feed_item, en_image, en_image_length):
     en_url = f"https://lesscenarios.fr/en/archives/{date_str}.html"
-    en_image = f"https://lesscenarios.fr/en/assets/social/instagram/{date_str}.png"
     title = translations.get("h1", "")
     comments = translations.get("question_text", "")
 
@@ -701,10 +825,7 @@ def build_en_feed_item(date_str, translations, feed_item):
             category_parts.append(f'{emoji} {h3}')
     category = '","'.join(category_parts)
 
-    # Longueur d'enclosure inconnue tant que l'image sociale EN n'existe
-    # pas (portée non couverte par ce script, voir en-tête du fichier) —
-    # 0 plutôt qu'une valeur inventée, à corriger quand l'image sera générée.
-    length = feed_item.get("enclosure_length") or "0"
+    length = en_image_length or "0"
 
     description = (
         f'<img src="{en_image}" alt="{html_escape(title)}" '
@@ -816,7 +937,16 @@ def main():
     print(f"Traduction validée. Coût de l'appel : {usage.get('cost', '?')} $ "
           f"({usage.get('total_tokens', '?')} tokens).")
 
-    en_soup = build_en_soup(fr_soup, date_str, translations, memory)
+    # Image sociale EN : jamais générée en --dry-run (effet de bord réel,
+    # appel Playwright + écriture disque) — URL prévisionnelle seulement,
+    # pour que le HTML de preview reste représentatif sans rien produire.
+    if args.dry_run:
+        en_image_url = f"https://lesscenarios.fr/en/assets/social/instagram/{date_str}.png"
+        en_image_length = "0"
+    else:
+        en_image_url, en_image_length = generate_en_social_image(date_str, translations)
+
+    en_soup = build_en_soup(fr_soup, date_str, translations, memory, en_image_url)
     output_html = str(en_soup)
 
     if args.dry_run:
@@ -845,13 +975,10 @@ def main():
     print("sitemap.xml et sitemap-news.xml mis à jour.")
 
     if feed_segments:
-        item_xml = build_en_feed_item(date_str, translations, feed_item)
+        item_xml = build_en_feed_item(date_str, translations, feed_item, en_image_url, en_image_length)
         prepend_feed_item(item_xml)
         print("en/feed.xml mis à jour.")
 
-    print("Reste à faire séparément (pas de traduction, hors de portée de ce "
-          "script) : image sociale en/assets/social/ (Playwright, pas encore "
-          "dans le workflow CI).")
     return 0
 
 
