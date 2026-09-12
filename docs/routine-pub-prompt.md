@@ -1,4 +1,25 @@
-# Prompt de la routine « Scénario — Pub hebdo »
+# Prompt de la routine « Scénario — Pub hebdo » [RETIRÉE le 12 septembre 2026]
+
+**Cette routine Claude Code Remote a été supprimée** (trigger
+`trig_01A1XU5Kpc4QWzApjZPqcKpj` effacé) — remplacée par un GitHub Action
+quotidien (`.github/workflows/pub.yml`, cron `0 2 * * *` UTC = 4h Paris
+heure d'été, identique à l'ancien trigger + `scripts/pub/
+generate_daily_pub.py`), validé en conditions réelles le même jour (run
+34679304531 — chiffre extrait et vérifié verbatim contre la source,
+traduction EN, images FR/EN correctes ; voir `docs/ARCHITECTURE.md`, §
+« Principe : GitHub Action plutôt que session Claude Code »). Seule
+l'extraction du chiffre du jour demandait un vrai jugement éditorial,
+déléguée à un seul appel OpenRouter avec garde-fou verbatim — le reste
+(rotation catégorie/entrée/photo, construction RSS, traduction EN) est
+mécanique.
+
+**Ne jamais recréer ce trigger.** Ce fichier reste comme documentation de
+référence de ce que fait le script (le script en est la traduction
+mécanique) — pour toute évolution du comportement, modifier
+`scripts/pub/generate_daily_pub.py` directement, pas ce prompt (qui n'est
+plus lu par personne ni rien).
+
+---
 
 Ce fichier est la copie de référence du prompt envoyé par la routine "pub"
 (Claude Code Remote, trigger **« Scénario — Pub hebdo »**,

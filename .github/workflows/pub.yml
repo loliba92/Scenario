@@ -9,16 +9,21 @@ name: Daily pub post
 # IMPORTANT : ce workflow publie un item dans feed-pub.xml, lu par un
 # scénario Make.com qui poste automatiquement sur Telegram/X/LinkedIn/
 # Facebook/Instagram — une exécution n'est donc pas silencieusement
-# réversible comme translate-en.yml/audience.yml. Volontairement SANS
-# cron pour l'instant (workflow_dispatch uniquement) : à activer sur un
-# planning quotidien seulement une fois validé fiable en conditions
-# réelles sur plusieurs jours.
+# réversible comme translate-en.yml/audience.yml.
+#
+# Validé en conditions réelles le 12 septembre 2026 (run 34679304531 —
+# chiffre extrait, vérifié verbatim contre la source, traduit, images FR/EN
+# correctes) : cron activé le jour même, sur le même horaire que l'ancien
+# trigger Claude Code "Scénario — Pub hebdo" (0 2 * * * UTC = 4h Paris en
+# été), désormais supprimé.
 #
 # Secret requis (déjà présent, voir translate-en.yml) :
 #   OPENROUTER_API_KEY
 
 on:
   workflow_dispatch: {}
+  schedule:
+    - cron: '0 2 * * *'
 
 permissions:
   contents: write
