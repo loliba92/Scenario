@@ -365,12 +365,28 @@ def rewrite_links_in_fragment(html):
 # Construction de la page EN
 # ---------------------------------------------------------------------------
 def find_edition_date(soup):
-    btn = soup.select_one(".masthead-lang-btn")
-    if not btn or not btn.get("href"):
-        raise TranslationError("bouton EN introuvable dans index.html, impossible de déduire la date")
-    m = re.search(r"en/archives/(\d{4}-\d{2}-\d{2})\.html", btn["href"])
+    """Déduit la date de l'édition à traduire depuis index.html.
+
+    Ne JAMAIS lire `.masthead-lang-btn` pour ça : d'après
+    docs/routine-prompt.md (étape technique 2, § bouton de bascule de
+    langue), ce bouton n'existe pas encore sur index.html au moment où
+    ce script tourne — c'est justement cette étape 13 (dont ce script
+    est le filet de sécurité) qui l'ajoute rétroactivement, une fois la
+    traduction faite. Le lire ici créait une dépendance circulaire :
+    le script échouait à chaque exécution du jour (incidents des 11 et
+    12 septembre 2026), et ne se mettait à fonctionner qu'après un
+    fallback manuel qui posait le bouton en avance. `<link
+    rel="canonical">`, lui, pointe déjà vers l'archive du jour dès la
+    publication FR (même sur index.html, voir étape 3bis) — source
+    fiable et indépendante de ce bouton.
+    """
+    canonical = soup.find("link", rel="canonical")
+    href = canonical.get("href") if canonical else None
+    if not href:
+        raise TranslationError("<link rel=\"canonical\"> introuvable dans index.html, impossible de déduire la date")
+    m = re.search(r"archives/(\d{4}-\d{2}-\d{2})\.html", href)
     if not m:
-        raise TranslationError(f"date introuvable dans href={btn['href']!r}")
+        raise TranslationError(f"date introuvable dans canonical href={href!r}")
     return m.group(1)
 
 

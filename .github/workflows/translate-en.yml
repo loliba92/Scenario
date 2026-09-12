@@ -52,7 +52,11 @@ jobs:
         run: |
           git config user.name "scenario-en-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add en/index.html en/archives/
+          # translate_daily.py touche aussi archives.html (badge EN),
+          # sitemap.xml/sitemap-news.xml et en/feed.xml en plus de
+          # en/index.html et en/archives/ — les oublier ici les laissait
+          # modifiés sans être commités, donc perdus à la fin du run.
+          git add en/index.html en/archives/ archives.html sitemap.xml sitemap-news.xml en/feed.xml
           if git diff --cached --quiet; then
             echo "Aucun changement — rien à committer."
             exit 0
