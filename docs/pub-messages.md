@@ -804,6 +804,16 @@ première candidate parcourue, avec plusieurs phrases à chiffre
 disponibles dans `.dek` et `.essentiel-text` ; `.essentiel-text`
 préférée pour son registre déjà simplifié.*
 
+### chiffre-2026-09-12
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 725 milliards de dollars
+- message: Ce n'est pas une alerte isolée. Depuis 2023, quatre entreprises américaines — Microsoft, Amazon, Google et Meta — ont plus que triplé leurs dépenses annuelles consacrées aux infrastructures de l'intelligence artificielle : 725 milliards de dollars prévus pour 2026.
+- attribution: — lesscenarios.fr, 11 septembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-09-11.html
+
+*Extrait automatiquement de l'édition du 2026-09-11 (archives/2026-09-11.html) — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
