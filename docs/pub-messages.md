@@ -836,18 +836,25 @@ complète et mécanisme dans `docs/routine-pub-prompt.md`, étape 1 :
 |---|---|
 | Dimanche | Manifeste |
 | Lundi | Le saviez-vous |
-| Mardi | Citation |
+| Mardi | Le saviez-vous |
 | Mercredi | Le saviez-vous |
 | Jeudi | Le saviez-vous |
 | Vendredi | Manifeste |
 | Samedi | Le saviez-vous |
 
+**[Corrigé le 12 septembre 2026]** Cette table disait encore "Mardi →
+Citation" — resté périmé depuis un changement antérieur non daté ici
+(voir `docs/routine-pub-prompt.md`, étape 1, seule source à jour depuis
+le début : la table qui y est écrite fait foi, celle-ci n'en est qu'une
+copie de confort). `scripts/pub/generate_daily_pub.py` (`DAY_TO_CATEGORY`)
+suivait déjà la bonne version — seule cette copie était fausse.
+
 **21 août : "Grands futurs" mise en pause, jeudi repasse sur "Le
 saviez-vous".** Retour utilisateur direct : abandon de "Grand futur" pour
-l'instant. **"Questions" et "Grands futurs" ne sont dans aucun jour de
-cette table — catégories dormantes**, pas supprimées : leurs entrées
-(sections 3 et 4) restent en place, prêtes si l'utilisateur leur redonne
-un créneau plus tard.
+l'instant. **"Citation", "Questions" et "Grands futurs" ne sont dans
+aucun jour de cette table — catégories dormantes**, pas supprimées :
+leurs entrées (sections 2, 3 et 4) restent en place, prêtes si
+l'utilisateur leur redonne un créneau plus tard.
 
 **"Soutien" (Buy Me a Coffee) n'a pas non plus de ligne dédiée** — testé
 un temps sur samedi le 18 août, puis replié le même jour dans `Manifeste`
