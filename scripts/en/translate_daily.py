@@ -247,10 +247,14 @@ def call_openrouter(segments, model, api_key, retry_hint=False):
     extra_warning = """
 ATTENTION — ces segments ont déjà été rejetés une première fois car la
 structure HTML renvoyée ne correspondait pas exactement à l'original
-(balise manquante, ajoutée, ou attribut altéré). Avant de répondre,
-recompte toi-même les balises de chaque segment (nombre, ordre, nom,
-attributs class/id/href) et vérifie qu'elles sont identiques à
-l'original — seul le texte visible entre les balises doit changer.
+(balise manquante, ajoutée, ou attribut altéré) — le cas le plus
+fréquent est l'ajout d'une balise <em>/<i> autour d'un titre de
+film/série/franchise pour l'italiser à l'anglaise : NE FAIS PAS CELA,
+même si c'est l'usage normal en anglais, le titre reste en texte brut.
+Avant de répondre, recompte toi-même les balises de chaque segment
+(nombre, ordre, nom, attributs class/id/href) et vérifie qu'elles sont
+identiques à l'original — seul le texte visible entre les balises doit
+changer, aucune balise supplémentaire quelle qu'elle soit.
 """ if retry_hint else ""
 
     prompt = f"""Tu traduis une édition d'actualité économique du français vers l'anglais,
@@ -263,6 +267,13 @@ Règles strictes :
   attributs, classes, id et href (en particulier les liens
   class="lex-ref" href="#lex-..." qui pointent vers le petit lexique de
   l'article — ne change jamais ce href). Traduis uniquement le texte visible.
+- N'AJOUTE JAMAIS de balise absente de l'original, quelle qu'elle soit
+  (même une balise HTML standard et a priori anodine). En particulier :
+  ne mets JAMAIS un titre de film/série/franchise en italique avec
+  <em>/<i>, même si c'est l'usage typographique normal en anglais —
+  le titre reste en texte brut, exactement comme dans le français
+  reçu. La structure de balises (nombre, ordre, imbrication) du
+  fragment renvoyé doit être identique à celle reçue, sans exception.
 - Reformate les unités à l'anglaise si besoin (ex: "725 Md$" -> "$725B",
   "+77 % sur un an" -> "+77% year-on-year").
 - Ne résume pas, ne raccourcis pas, n'ajoute aucun commentaire.
