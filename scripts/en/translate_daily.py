@@ -234,9 +234,24 @@ def collect_feed_segments(date_str):
 # ---------------------------------------------------------------------------
 # Appel OpenRouter
 # ---------------------------------------------------------------------------
-def call_openrouter(segments, model, api_key):
+def call_openrouter(segments, model, api_key, retry_hint=False):
     ids = list(segments.keys())
     payload_in = [{"id": k, "html": segments[k]} for k in ids]
+
+    # `retry_hint` : deuxième passe sur un sous-ensemble de segments déjà
+    # rejetés par validate_translations() une première fois (voir main()).
+    # Rappel renforcé plutôt qu'un prompt différent — le contenu et la
+    # règle de fond ne changent pas, seule l'insistance sur la structure
+    # augmente, pour donner une vraie chance au réessai de corriger ce
+    # qui a cassé la première fois (balise oubliée, fusionnée, etc.).
+    extra_warning = """
+ATTENTION — ces segments ont déjà été rejetés une première fois car la
+structure HTML renvoyée ne correspondait pas exactement à l'original
+(balise manquante, ajoutée, ou attribut altéré). Avant de répondre,
+recompte toi-même les balises de chaque segment (nombre, ordre, nom,
+attributs class/id/href) et vérifie qu'elles sont identiques à
+l'original — seul le texte visible entre les balises doit changer.
+""" if retry_hint else ""
 
     prompt = f"""Tu traduis une édition d'actualité économique du français vers l'anglais,
 pour le site Scénario (lesscenarios.fr).
@@ -253,7 +268,7 @@ Règles strictes :
 - Ne résume pas, ne raccourcis pas, n'ajoute aucun commentaire.
 - Renvoie un objet JSON unique de la forme {{"translations": [{{"id": "...", "html": "..."}}, ...]}},
   avec exactement les mêmes id, dans le même ordre, un par segment reçu.
-
+{extra_warning}
 Segments à traduire (JSON) :
 {json.dumps(payload_in, ensure_ascii=False)}
 """
@@ -317,6 +332,24 @@ def validate_translations(originals, translations):
         if structural_signature(original_html) != structural_signature(translated_html):
             errors.append(seg_id)
     return errors
+
+
+def dump_validation_failures(attempt, originals, translations, errors):
+    """Écrit sur stderr, pour chaque segment rejeté, l'original, la
+    traduction reçue et la différence de signature structurelle —
+    seule façon de diagnostiquer un échec de validation depuis le log
+    CI sans relancer un appel OpenRouter complet (~5-10 min, non
+    gratuit) juste pour voir ce qui a cassé. Ajouté après l'incident du
+    12 septembre 2026, où le log ne contenait que la liste des id en
+    échec, sans aucun moyen de savoir si le modèle avait oublié une
+    balise, l'avait dupliquée, ou changé un attribut."""
+    print(f"Validation structurelle échouée (essai {attempt}) sur : {errors}", file=sys.stderr)
+    for seg_id in errors:
+        original = originals.get(seg_id, "")
+        translated = translations.get(seg_id, "")
+        print(f"--- {seg_id} ---", file=sys.stderr)
+        print(f"  original ({len(structural_signature(original))} balises) : {original[:400]!r}", file=sys.stderr)
+        print(f"  traduit  ({len(structural_signature(translated))} balises) : {translated[:400]!r}", file=sys.stderr)
 
 
 # ---------------------------------------------------------------------------
@@ -741,15 +774,33 @@ def main():
         print("feed.xml : entrée du jour introuvable ou format inattendu — "
               "en/feed.xml ne sera pas mis à jour cette fois.")
 
-    print(f"{len(segments)} segments à traduire.")
+    print(f"{len(segments)} segments à traduire.", flush=True)
 
     translations, usage = call_openrouter(segments, args.model, api_key)
-
     errors = validate_translations(segments, translations)
+
+    # Un seul réessai, ciblé sur les seuls segments rejetés (voir
+    # incident du 12 septembre 2026 : 8/47 segments — surtout des .dek
+    # et .why longs, avec plusieurs balises imbriquées — ont échoué la
+    # validation structurelle dès le premier essai). Diagnostic
+    # toujours imprimé sur stderr avant le réessai, pour rester
+    # débogable depuis le seul log CI même si le réessai réussit.
     if errors:
-        print("Validation structurelle échouée sur :", errors, file=sys.stderr)
-        print("Rien n'est écrit — sauter l'anglais du jour plutôt que publier une version cassée.", file=sys.stderr)
-        return 1
+        dump_validation_failures(1, segments, translations, errors)
+        print(f"Réessai sur {len(errors)} segment(s)...", flush=True)
+        retry_segments = {k: segments[k] for k in errors}
+        retry_translations, retry_usage = call_openrouter(retry_segments, args.model, api_key, retry_hint=True)
+        retry_errors = validate_translations(retry_segments, retry_translations)
+        if retry_errors:
+            dump_validation_failures(2, retry_segments, retry_translations, retry_errors)
+            print("Rien n'est écrit — sauter l'anglais du jour plutôt que publier une version cassée.", file=sys.stderr)
+            return 1
+        translations.update(retry_translations)
+        usage = {
+            "cost": (usage.get("cost") or 0) + (retry_usage.get("cost") or 0),
+            "total_tokens": (usage.get("total_tokens") or 0) + (retry_usage.get("total_tokens") or 0),
+        }
+        print(f"Réessai réussi sur les {len(errors)} segment(s) concerné(s).", flush=True)
 
     print(f"Traduction validée. Coût de l'appel : {usage.get('cost', '?')} $ "
           f"({usage.get('total_tokens', '?')} tokens).")
