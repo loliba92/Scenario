@@ -741,10 +741,18 @@ def compute_france_esperance(scenarios):
     """
     if not scenarios:
         return None
-    return sum(
-        (pct / 100) * _JUDGMENT_VALUE.get(judgment, 0)
-        for _kind, pct, judgment, _title in scenarios
-        if judgment is not None
+    # round() pour éviter le bruit de virgule flottante (ex. 0.4 calculé comme
+    # 0.39999999999999997) qui ferait basculer label_esperance() sur le
+    # palier du dessous à un seuil exact — repéré le 13 septembre 2026 sur
+    # l'édition du 4 septembre (espérance exacte 0,4, tombée à tort en
+    # "Plutôt favorable" au lieu d'"Assez favorable").
+    return round(
+        sum(
+            (pct / 100) * _JUDGMENT_VALUE.get(judgment, 0)
+            for _kind, pct, judgment, _title in scenarios
+            if judgment is not None
+        ),
+        6,
     )
 
 
