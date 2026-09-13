@@ -19,6 +19,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://lesscenarios.fr/hebdo/2026-09-13.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://lesscenarios.fr/en/</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>daily</changefreq>
