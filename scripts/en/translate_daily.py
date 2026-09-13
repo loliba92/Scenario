@@ -1194,7 +1194,22 @@ def main():
 
     print(f"{len(segments)} segments à traduire.", flush=True)
 
-    translations, usage = call_openrouter(segments, args.model, api_key)
+    # Réessai complet si le modèle omet purement et simplement des segments
+    # dans sa réponse (pas une erreur de structure, une réponse tronquée/
+    # incomplète — cas réel du 13 septembre 2026, run CI #12 : 11 segments
+    # sur 60 absents de la réponse, échec immédiat sans réessai puisque
+    # call_openrouter() lève avant même d'atteindre validate_translations()
+    # ci-dessous). Un seul réessai, même philosophie que le réessai ciblé
+    # sur erreurs de structure juste en dessous — sur l'ensemble complet
+    # cette fois, faute de savoir à l'avance quels segments manqueront au
+    # prochain essai.
+    try:
+        translations, usage = call_openrouter(segments, args.model, api_key)
+    except TranslationError as e:
+        if "segments manquants" not in str(e):
+            raise
+        print(f"{e} — réponse incomplète du modèle, réessai complet...", file=sys.stderr)
+        translations, usage = call_openrouter(segments, args.model, api_key)
     errors = validate_translations(segments, translations)
 
     # Un seul réessai, ciblé sur les seuls segments rejetés (voir
