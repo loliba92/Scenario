@@ -52,6 +52,8 @@ import os
 import re
 import subprocess
 import sys
+import time
+import urllib.error
 import urllib.request
 from collections import Counter
 from pathlib import Path
@@ -478,8 +480,28 @@ Segments à traduire (JSON) :
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
     })
-    with urllib.request.urlopen(req, timeout=120) as resp:
-        data = json.loads(resp.read())
+
+    # Réessai avec backoff sur les erreurs réseau/transitoires (429, 5xx,
+    # coupure, timeout) — jusque-là une seule panne réseau faisait échouer
+    # tout le run CI sans réessai, exactement comme le cas "segments
+    # manquants" corrigé le 13 septembre 2026 (voir main()). 3 essais,
+    # backoff court : ce script tourne dans un job CI avec une limite de
+    # temps propre, pas la peine d'attendre longtemps entre deux essais.
+    data = None
+    last_err = None
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                data = json.loads(resp.read())
+            break
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as e:
+            last_err = e
+            if attempt < 2:
+                wait = 5 * (attempt + 1)
+                print(f"Appel OpenRouter échoué ({e}) — nouvel essai dans {wait}s...", file=sys.stderr)
+                time.sleep(wait)
+    if data is None:
+        raise TranslationError(f"appel OpenRouter impossible après 3 essais : {last_err}")
 
     if "choices" not in data:
         raise TranslationError(f"réponse OpenRouter sans 'choices' : {data}")
