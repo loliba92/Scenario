@@ -9,15 +9,22 @@ name: Weekly recap
 # IMPORTANT : ce workflow publie un item dans feed-weekly.xml, lu par une
 # Automation Buttondown (RSS-to-email) qui envoie le dimanche soir un email
 # récap aux abonnés hebdo — une exécution n'est donc pas silencieusement
-# réversible comme translate-en.yml/audience.yml. Volontairement SANS cron
-# pour l'instant (workflow_dispatch uniquement) : à activer sur le planning
-# dominical (0 12 * * 0 UTC = dimanche 14h Paris, comme l'ancienne routine)
-# seulement une fois validé fiable en conditions réelles.
+# réversible comme translate-en.yml/audience.yml.
+#
+# Cron activé le 13 septembre 2026, après un premier run manuel validé en
+# conditions réelles (récap du 7-13 septembre, voir docs/ARCHITECTURE.md) :
+# `0 12 * * 0` UTC = dimanche 14h Paris, comme l'ancienne routine.
+# `workflow_dispatch` reste disponible pour un test ou un rattrapage — le
+# script est idempotent (scripts/hebdo/generate_weekly_recap.py : si
+# hebdo/{date}.html existe déjà, il ne fait rien), donc pas de risque de
+# doublon si les deux se chevauchent un même dimanche.
 #
 # Secret requis (déjà présent, voir translate-en.yml/pub.yml) :
 #   OPENROUTER_API_KEY
 
 on:
+  schedule:
+    - cron: '0 12 * * 0'
   workflow_dispatch:
     inputs:
       date:
