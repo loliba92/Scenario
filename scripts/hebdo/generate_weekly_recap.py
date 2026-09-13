@@ -251,6 +251,23 @@ def read_edition(d, write_missing_fragment=True):
     if not (h1 and eyebrow and question):
         raise HebdoError(f"{archive_path} : h1/.eyebrow/.question-text manquant")
 
+    # « L'essentiel » du jour (Problématique/Contexte/Conclusion/Signal),
+    # repris VERBATIM — jamais reformulé par le récap hebdo. Ajouté le
+    # 13 septembre 2026 (retour utilisateur : le résumé par jour, avant,
+    # était une reformulation LLM du seul `.question-text`, plus courte et
+    # plus exposée à un léger glissement de sens — voir day_bullet_html()
+    # plus bas, qui l'affiche désormais tel quel plutôt que de demander au
+    # modèle de le reformuler). Exclut le dernier paragraphe
+    # (`.delta-text`, France Impact), redondant ici et pas toujours limpide
+    # hors du contexte visuel de la jauge.
+    essentiel_ps = [
+        p.get_text(" ", strip=True)
+        for p in soup.select(".essentiel-box p.essentiel-text")
+        if "delta-text" not in (p.get("class") or [])
+    ]
+    if not essentiel_ps:
+        raise HebdoError(f"{archive_path} : .essentiel-box p.essentiel-text introuvable")
+
     if fragment_path.exists():
         fragment_text = fragment_path.read_text(encoding="utf-8").strip()
     else:
@@ -285,6 +302,7 @@ def read_edition(d, write_missing_fragment=True):
         "eyebrow_html": inner_html(eyebrow),
         "eyebrow_text": eyebrow.get_text().strip(),
         "question": question.get_text().strip(),
+        "essentiel": essentiel_ps,
         "scenarios": scenarios,
         "winner_kind": winner_kind,
     }
@@ -372,23 +390,18 @@ Tâche 1 — Conclusion de la semaine :
 - "meta_description" : ~150-160 caractères, condensé factuel de l'opening
   et du fait le plus marquant, texte brut sans HTML, sans les dates.
 
-Tâche 2 — pour CHAQUE sujet (même ordre, même "date" en clé) :
-- "context" : 1 à 2 phrases factuelles et déclaratives (jamais une
-  question) qui posent la situation, reformulées à partir de "question" —
-  jamais une reprise mot pour mot.
-- "explication" : une courte clause (sans point final), qui reprend
-  l'idée de "scenario_texte" en la raccourcissant/paraphrasant — jamais
-  un fait ajouté qui n'y figure pas.
+Il n'y a qu'une seule tâche : le résumé de la semaine ci-dessus. Le résumé
+par jour, lui, n'est PAS écrit par toi — il reprend tel quel « L'essentiel »
+déjà publié sur chaque édition (voir day_bullet_html()/build_day_paragraph()
+dans ce script), pour ne jamais introduire de reformulation qui s'écarte du
+texte déjà relu et publié.
 
 Réponds avec un JSON unique, exactement :
 {{
   "opening": "...",
   "bullets": ["...", "..."],
   "thread": "..." ou null,
-  "meta_description": "...",
-  "days": [
-    {{"date": "AAAA-MM-JJ", "context": "...", "explication": "..."}}
-  ]
+  "meta_description": "..."
 }}
 """
 
@@ -396,20 +409,20 @@ Réponds avec un JSON unique, exactement :
 # ---------------------------------------------------------------------------
 # Étape 4 — assemblage (feed-weekly.xml, hebdo/{date}.html, fragment)
 # ---------------------------------------------------------------------------
-def build_day_paragraph(e, context, explanation):
-    w = e["scenarios"][e["winner_kind"]]
+def build_day_paragraph(e):
+    """Paragraphe email pour ce jour — construit uniquement à partir de
+    texte déjà publié (h1, lien, « L'essentiel » complet) : plus aucune
+    reformulation LLM ici (voir historique dans build_prompt(), retiré le
+    13 septembre 2026 — retour utilisateur : le résumé par jour devait
+    reprendre « L'essentiel » de chaque article, pas une paraphrase
+    susceptible de dériver du sens d'origine)."""
     h1 = e["h1"]
     punct = "" if h1 and h1[-1] in "?!." else "."
-    kind_fr = KIND_FR[e["winner_kind"]]
-    context = context.strip()
-    if context and context[-1] not in ".!?":
-        context += "."
-    explanation = explanation.strip().rstrip(".")
+    essentiel = " ".join(e["essentiel"])
     link = f'https://lesscenarios.fr/archives/{e["date_str"]}.html'
     return (
         f'<strong>{e["eyebrow_html"]}</strong> — <a href="{link}">{esc_text(h1)}</a>{punct} '
-        f'{esc_text(context)} Scénario {kind_fr} jugé le plus probable, à {w["pct"]}% : '
-        f'{esc_text(w["title"])} — {esc_text(explanation)}.'
+        f'{esc_text(essentiel)}'
     )
 
 
@@ -478,18 +491,21 @@ def build_week_conclusion_lead_html(bullets_html, thread_html):
     )
 
 
-def day_bullet_html(e, context, prefix):
-    """Une ligne par sujet — {jour, registre} — {contexte factuel court} —
-    lien « Lire ici ». Volontairement sans image ni détail des 3 scénarios
-    (retiré le 12 septembre 2026, retour utilisateur : « ce qui est
-    important est le résumé de la semaine, les images pas importantes,
-    tu peux simplifier vraiment ») — voir docs/routine-hebdo-prompt.md."""
+def day_bullet_html(e, prefix):
+    """Une ligne par sujet — {jour, registre} — « L'essentiel » de
+    l'édition, repris VERBATIM — lien « Lire ici ». Volontairement sans
+    image ni détail des 3 scénarios (retiré le 12 septembre 2026, retour
+    utilisateur : « ce qui est important est le résumé de la semaine, les
+    images pas importantes, tu peux simplifier vraiment »). Le texte
+    affiché, lui, n'est plus une reformulation LLM du seul `.question-text`
+    depuis le 13 septembre 2026 (retour utilisateur : dimanche manquant un
+    jour, et le résumé jugé trop léger/pas toujours fidèle) — c'est
+    désormais « L'essentiel » déjà publié sur l'édition, tel quel, jamais
+    réécrit ici. Voir docs/routine-hebdo-prompt.md."""
     archive_href = f'{prefix}archives/{e["date_str"]}.html'
-    context = context.strip()
-    if context and context[-1] not in ".!?":
-        context += "."
+    essentiel = esc_text(" ".join(e["essentiel"]))
     return (
-        f'<li><strong>{e["eyebrow_html"]}</strong> — {esc_text(context)} '
+        f'<li><strong>{e["eyebrow_html"]}</strong> — {essentiel} '
         f'<a class="week-day-link" href="{archive_href}">Lire ici →</a></li>'
     )
 
@@ -533,10 +549,8 @@ WEEK_DAYS_CSS = """
 """
 
 
-def build_week_days_html(editions, days_result, prefix):
-    li = "\n".join(
-        day_bullet_html(e, days_result[e["date_str"]]["context"], prefix) for e in editions
-    )
+def build_week_days_html(editions, prefix):
+    li = "\n".join(day_bullet_html(e, prefix) for e in editions)
     n_word = NUM_WORDS_FR.get(len(editions), str(len(editions)))
     return (
         '<div class="week-days">\n'
@@ -739,7 +753,6 @@ def main():
     bullets = [b.strip() for b in (result.get("bullets") or []) if b.strip()]
     thread = (result.get("thread") or "").strip() or None
     meta_description = clamp_meta_description(result.get("meta_description"))
-    days_result = {d.get("date"): d for d in (result.get("days") or [])}
 
     if not opening or not bullets:
         raise HebdoError("réponse OpenRouter incomplète : 'opening'/'bullets' manquant(s)")
@@ -749,12 +762,7 @@ def main():
     bullets_plain = [b.replace("**", "") for b in bullets]
     thread_plain = thread.replace("**", "") if thread else None
 
-    day_paragraphs = []
-    for e in editions:
-        d_res = days_result.get(e["date_str"])
-        if not d_res or not d_res.get("context") or not d_res.get("explication"):
-            raise HebdoError(f"réponse OpenRouter : contexte/explication manquant pour {e['date_str']}")
-        day_paragraphs.append(build_day_paragraph(e, d_res["context"], d_res["explication"]))
+    day_paragraphs = [build_day_paragraph(e) for e in editions]
 
     opening_html = bold_to_html(esc_text(opening))
     bullets_html = [bold_to_html(esc_text(b)) for b in bullets]
@@ -779,8 +787,8 @@ def main():
         return 0
 
     week_conclusion_page = build_week_conclusion_lead_html(bullets_html, thread_html)
-    week_days_page = build_week_days_html(editions, days_result, "../")
-    week_days_fragment = build_week_days_html(editions, days_result, "")
+    week_days_page = build_week_days_html(editions, "../")
+    week_days_fragment = build_week_days_html(editions, "")
 
     template_path = latest_hebdo_template()
     hebdo_html = build_hebdo_page(template_path, sunday, title, dek, meta_description,
