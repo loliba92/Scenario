@@ -353,6 +353,35 @@ def validate_content_schema(content, brief):
             if f not in term or not term[f]:
                 errors.append(f"lexique : entrée incomplète (manque {f}) : {term}")
 
+    # Cohérence lex-ref <-> lexique — vérifiée ici, sur le contenu, en plus
+    # de validate_assembled_html() sur le HTML final (incident du 14
+    # septembre 2026, run 34841291433 : terme "swap" défini au lexique mais
+    # jamais référencé dans le texte, échec seulement détecté après la
+    # boucle de retry, donc jamais corrigé automatiquement). Ici, un écart
+    # rentre dans le même retry automatique que les autres erreurs de
+    # schéma, avec le détail exact renvoyé au modèle au 2e essai.
+    if not errors:
+        lex_slugs = {t["slug"] for t in content.get("lexique", []) if t.get("slug")}
+        referenced_text = " ".join(
+            list(content.get("dek") or [])
+            + [w for k in ("favorable", "stable", "degrade")
+               for w in (content.get("cards", {}).get(k, {}).get("why") or [])]
+            + [b.get("text", "") for b in (content.get("comprendre_box") or [])]
+        )
+        referenced_slugs = set(re.findall(r'href="#lex-([a-z0-9-]+)"', referenced_text))
+        unused = lex_slugs - referenced_slugs
+        broken = referenced_slugs - lex_slugs
+        if unused:
+            errors.append(
+                f"lexique : termes définis mais jamais référencés via .lex-ref dans le texte : "
+                f"{sorted(unused)} — soit les utiliser dans dek/why via <a class=\"lex-ref\" "
+                f"href=\"#lex-{{slug}}\">, soit les retirer du lexique"
+            )
+        if broken:
+            errors.append(
+                f"lexique : .lex-ref pointant vers un terme absent du lexique : {sorted(broken)}"
+            )
+
     # Placeholders résiduels — même garde-fou que la validation de forme
     # décrite dans l'audit (point E.1).
     flat_text = json.dumps(content, ensure_ascii=False)
