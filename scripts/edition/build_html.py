@@ -145,7 +145,7 @@ def build_head_dynamic(content, brief, date_str, canonical_url, photo=None):
     meta = content["meta"]
     title = meta["title"]
     description = meta["meta_description"]
-    # photo (voir generate_post_edition.py) : dict {"og_image_url", "alt", ...}
+    # photo (voir generate_post_edition.py) : dict {"og_image_url", "hero_image_url", "alt", ...}
     # si une photo de sujet a été retenue — sinon repli générique inchangé
     # (comportement historique de la Phase 1 rédaction, voir docstring de
     # ce module). og_image_alt vient de meta['og_image_alt'] (rédigé par
@@ -268,20 +268,28 @@ def build_hero(content, date_str, photo=None):
     list_box_html = _list_box_html(content["list_box"]) if content.get("list_box") else ""
     indicators_html = "\n".join(_kpi_indicator_html(ind) for ind in content["indicators"])
 
-    # photo (voir generate_post_edition.py) : dict {"og_image_url", "alt"}
+    # photo (voir generate_post_edition.py) : dict {"hero_image_url", "alt"}
     # si une photo de sujet a été retenue — sinon repli générique inchangé
-    # (comportement historique de la Phase 1 rédaction).
+    # (comportement historique de la Phase 1 rédaction). Volontairement
+    # PAS og_image_url ici : og_image_url pointe vers le PNG Instagram
+    # composé (titre + scénarios incrustés, pour les prévisualisations
+    # sociales, voir build_head_dynamic()) — jamais la bonne image pour
+    # l'<img> visible en tête d'article, qui doit montrer la photo brute
+    # (voir docs/routine-prompt.md, étape « Image du sujet », structure
+    # exacte de .article-image-photo). Bug réel trouvé le 14 septembre
+    # 2026 : les deux étaient confondues, provoquant une superposition
+    # visuelle (titre du PNG composé sous le vrai h1 de la page).
     if photo:
-        og_image = photo["og_image_url"]
+        hero_image = photo["hero_image_url"]
         image_alt = photo["alt"]
     else:
-        og_image = "https://lesscenarios.fr/assets/social/og-image-v2.png"
+        hero_image = "https://lesscenarios.fr/assets/social/og-image-v2.png"
         image_alt = content['meta']['og_image_alt']
 
     return f"""<section class="hero" id="contexte">
   <figure class="article-image">
     <div class="article-image-photo-wrap">
-      <img class="article-image-photo" src="{og_image}" alt="{image_alt}">
+      <img class="article-image-photo" src="{hero_image}" alt="{image_alt}">
       <div class="article-image-scrim"></div>
       <div class="article-image-masthead">
         <img class="article-image-logo" src="assets/logo.svg" alt="">
@@ -500,8 +508,8 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
     par le code appelant avant toute écriture.
 
     `photo` (optionnel, voir generate_post_edition.py) : dict
-    {"og_image_url", "alt", "photographer", "pexels_url"} si une photo de
-    sujet réelle a été retenue — sinon (défaut) comportement historique
+    {"og_image_url", "hero_image_url", "alt", "photographer", "pexels_url"}
+    si une photo de sujet réelle a été retenue — sinon (défaut) comportement historique
     de la Phase 1 rédaction : image générique, aucun crédit photo."""
     canonical_url = f"https://lesscenarios.fr/archives/{date_str}.html"
     edition_number = shell["edition_number"] + 1

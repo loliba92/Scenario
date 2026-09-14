@@ -147,9 +147,15 @@ def select_topic_photo(image_keywords, date_str, sandbox_root, timeout=25):
     if not square_path.exists():
         print(f"[post-edition] image carrée attendue introuvable : {square_path}", file=sys.stderr)
         return None
+    # Le recadrage large (-wide.jpg) n'est pas toujours produit par
+    # use_topic_image.py (nécessite original_url dans credits.json, voir
+    # sa docstring) — jamais bloquant, main() retombe alors sur le carré
+    # pour l'image visible en tête d'article.
+    wide_path = sandbox_root / "assets" / "social" / "topic-images" / f"{date_str}-wide.jpg"
 
     return {
         "square_path": square_path,
+        "wide_path": wide_path if wide_path.exists() else None,
         "photographer": chosen.get("photographer") or "Photographe non identifié",
         "pexels_url": chosen.get("pexels_url") or "https://www.pexels.com/",
         "query": image_keywords,
@@ -201,6 +207,7 @@ def select_registry_fallback_photo(registre, date_str, sandbox_root):
 
     return {
         "square_path": square_path,
+        "wide_path": topic_images_dir / f"{date_str}-wide.jpg",
         "photographer": entry.get("photographer") or "Photographe non identifié",
         "pexels_url": entry.get("pexels_url") or entry.get("source_url") or "https://www.pexels.com/",
         "query": f"repli registre {registre}",
@@ -412,8 +419,22 @@ def main():
                 print("[post-edition] aucune photo retenue (ni Pexels ni repli registre) — image générique conservée")
 
     if photo_credits:
+        # Deux URLs distinctes, jamais confondues (bug réel trouvé le 14
+        # septembre 2026 en relisant le rendu réel de la page : les deux
+        # pointaient vers la même image composée, créant une superposition
+        # visuelle titre-sur-titre) — voir docs/routine-prompt.md, étape
+        # « Image du sujet » : og_image_url (meta og:image/twitter:image/
+        # JSON-LD, prévisualisation sociale) pointe vers le PNG Instagram
+        # composé (titre + scénarios incrustés) ; hero_image_url (l'<img>
+        # visible en tête d'article) pointe vers la photo BRUTE recadrée
+        # (topic-images/{date}-wide.jpg), jamais l'image composée. Repli
+        # sur le carré si le recadrage large n'a pas pu être produit
+        # (voir select_topic_photo()).
+        wide_path = photo_credits.get("wide_path")
+        hero_filename = f"{date_str}-wide.jpg" if wide_path else f"{date_str}.jpg"
         photo = {
             "og_image_url": f"{SITE_URL}/assets/social/instagram/{date_str}.png",
+            "hero_image_url": f"{SITE_URL}/assets/social/topic-images/{hero_filename}",
             "alt": f"Photo d'illustration — {content['h1']}",
             "photographer": photo_credits["photographer"],
             "pexels_url": photo_credits["pexels_url"],
