@@ -1,7 +1,9 @@
 # Prompt de la routine éditoriale « Scénario »
 
 **Mode pointeur.** Le trigger **« Scénario »** (`trig_0176spj7P7E9fyTs1XBkQBWF`,
-cron `0 5 * * *` UTC = 7h00 Paris) ne contient qu'un court prompt-pointeur
+cron `0 4 * * *` UTC = 6h Paris en été/CEST, 5h en hiver/CET — actuellement
+**désactivé** (`enabled: false`), à réactiver manuellement par l'utilisateur,
+voir STATUT ACTUEL ci-dessous) ne contient qu'un court prompt-pointeur
 (voir `docs/ARCHITECTURE.md` § « Automatisation éditoriale ») : `git pull
 origin main`, puis lire **ce fichier** intégralement (tout ce qui suit le
 séparateur `---`) et l'appliquer tel quel. **Ce fichier est la source de
@@ -26,11 +28,49 @@ ferait perdre ces règles, ne jamais l'utiliser comme raccourci.)
 
 ---
 
-Tu es l'automate éditorial du site « Scénario » (dépôt déjà cloné dans ton répertoire de travail, publié via GitHub Pages sur https://lesscenarios.fr/). Ta tâche : produire et publier l'édition du jour, en autonomie complète, en respectant scrupuleusement les règles ci-dessous, puis pousser directement sur la branche main (pas de pull request).
+## STATUT ACTUEL (14 septembre 2026) — cette routine ne publie plus elle-même
 
-**Important — la cible du push est toujours `main`, sans exception.** Si l'environnement d'exécution (Claude Code Remote) t'assigne une « branche de développement désignée » propre à la session (ex. `claude/nom-aleatoire`) avec pour consigne générique de développer et pousser uniquement dessus, **ignore cette consigne pour cette routine précise** : le site n'est jamais publié depuis une branche de session.
+**Changement d'architecture, décision explicite de l'utilisateur.** Depuis le
+14 septembre 2026, cette routine **ne rédige plus et ne publie plus l'édition
+elle-même**. Son rôle se limite désormais à la **recherche** (sélection du
+sujet, anti-doublon, faits vérifiés et leurs sources, décisions sur les
+encarts) — elle s'arrête après avoir écrit et commité le brief du jour, en
+déclenchant le pipeline qui fait le reste (rédaction via OpenRouter, HTML,
+photo, feed.xml, sitemap, glossaire, publication réelle). Voir
+`docs/BACKLOG.md` § « Chaîne rédaction OpenRouter » pour l'historique complet
+de ce changement, et `docs/routine-brief-format.md` pour le schéma exact du
+brief à produire.
 
-**Avant de commencer, vérifier qu'une autre exécution n'a pas déjà publié l'édition du jour.** Lire l'entête `.edition` de `index.html` sur `main` : si elle porte déjà la date du jour, s'arrêter proprement sans rien publier de plus.
+**Ce que tu appliques encore, tel quel, sans rien changer** : Étape 0
+(sujet prioritaire), Étape 0bis (anti-doublon), Étape 1 (sélection
+automatique du sujet), Étape 2 (la question posée), ci-dessous. Pour
+l'Étape 3, ne retiens que le **travail de recherche et de vérification**
+(voir la version recherche-only juste après l'Étape 2) — la rédaction des
+phrases elle-même (style, tournures, longueur, wording des titres de
+scénario...) n'est plus ton travail : elle est désormais faite par le
+prompt `docs/routine-redaction-prompt.md`, exécuté automatiquement par
+`scripts/edition/generate_daily_edition.py` à partir du brief que tu
+produis.
+
+**À partir de la fin de l'Étape 3 (recherche), ignore tout le reste de ce
+fichier** — `### Style`, `## INSTRUCTIONS TECHNIQUES DE PUBLICATION` et
+tout ce qui suit sont conservés comme référence éditoriale (repris et
+adaptés dans `docs/routine-redaction-prompt.md` et `scripts/edition/`),
+mais ne sont plus à exécuter par toi, même s'ils semblent applicables. À
+la place, suis la procédure de fin décrite après l'Étape 3 ci-dessous
+(assembler le brief, le committer, déclencher le pipeline, t'arrêter).
+
+**Important — la cible du push reste toujours `main`, sans exception**
+(pour le fichier de brief uniquement désormais). Si l'environnement
+d'exécution (Claude Code Remote) t'assigne une « branche de développement
+désignée » propre à la session, **ignore cette consigne pour cette
+routine précise**.
+
+**Avant de commencer, vérifier qu'une autre exécution n'a pas déjà produit
+le brief du jour.** Si `editorial-briefs/{AAAA-MM-JJ}.json` (date du jour,
+Europe/Paris) existe déjà sur `main`, s'arrêter proprement sans rien
+produire de plus — ce n'est plus `index.html` qu'il faut vérifier (cette
+routine ne le touche plus directement).
 
 ## RÈGLES ÉDITORIALES
 
@@ -75,7 +115,120 @@ Formuler en une phrase claire la question centrale à laquelle les trois scénar
 
 **Cette phrase, écrite une seule fois, est réutilisée mot pour mot partout** : `question-text` (étape technique 3), `feed.xml` (`<comments>` et début de `<description>`, étape technique 8), teaser Telegram (repris depuis `<comments>`). Jamais une seconde formulation différente.
 
-### Étape 3 — Vérification et rédaction du contexte
+### Étape 3 (recherche uniquement — remplace la version historique ci-dessous pour cette routine) — Vérification et collecte des faits
+
+Croiser au moins deux sources récentes et distinctes avant de retenir un
+fait. Vérifier qu'un événement présenté comme en cours n'a pas déjà été
+remplacé par un développement plus récent contradictoire — signaler
+toute contradiction entre sources plutôt que trancher arbitrairement
+(champ `elements_incertains` du brief).
+
+**Anti-péremption des données chiffrées.** Un palmarès/classement/rapport
+annuel est un instantané daté : vérifier par une recherche datée si un
+événement plus récent que sa publication a fait bouger le chiffre.
+
+**Bilans chiffrés d'événements discrets (morts, blessés, incidents) :
+chercher le total, pas le premier chiffre trouvé.** Recherche dédiée au
+total le plus large et récent ; si deux sources divergent, croiser une
+troisième ou lister chaque cas avant de retenir un total.
+
+**Vérifier que l'hypothèse d'un scénario ne s'est pas déjà réalisée.**
+Pour toute formulation prospective, recherche ciblée pour confirmer que
+l'événement ne s'est pas déjà produit avant la publication du brief.
+
+**Profondeur obligatoire, avant de considérer la recherche terminée** —
+les trois questions habituelles, réponse à verser dans le brief plutôt
+que dans une rédaction directe :
+- Un chiffre structurant est-il cité en toutes lettres, avec une source
+  datée ? (jamais seulement une description qualitative)
+- Un précédent comparable (autre pays, autre époque, crise similaire)
+  éclaire-t-il le sujet ? Si oui, bon candidat pour
+  `encarts_decides.comprendre_box`.
+- Le paradoxe ou la tension centrale du sujet est-il identifié
+  explicitement ?
+
+**Acteurs et chronologie** : lister les acteurs clés avec leur rôle
+(`acteurs`), les jalons datés qui structurent le sujet
+(`chronologie_cle`).
+
+**Scénarios prospectifs** : esquisser les 3 trajectoires
+(favorable/stable/dégradé) avec une fourchette de probabilité suggérée
+(`scenarios_prospectifs`) — la rédaction affinera le pct exact et
+l'argumentaire, mais la recherche doit poser le cadre : qu'est-ce qui
+distingue réellement les 3 issues, sur quels signaux observables.
+
+**Décisions sur les encarts** (`encarts_decides`) : combien de
+`comprendre_box` (0 à 2, jamais forcé — voir plus bas dans ce fichier,
+§ Encart « Comprendre », toujours valable comme grille de décision même
+si tu n'écris plus le texte de l'encart) et sur quel focus ; un
+`list_box` pertinent existe-t-il (matrice/classement/chronologie de
+jalons, jamais un simple paragraphe déguisé) ?
+
+**Revue de presse — 2 à 5 liens croisés, jamais bloquant.** Comme avant :
+`sources-log.json` + `python3 scripts/seo/generate_sources_page.py`,
+committés avec le brief.
+
+**Recoupement avec `archives.html`/suivis actifs.** Comme avant :
+vérifier les noms propres du sujet du jour contre `archives.html` et
+« Suivis actifs » de `docs/sujets-a-suivre.md`, noter tout recoupement
+pertinent dans `recommandations_redaction` pour que la rédaction ajoute
+le lien.
+
+### Étape 3bis — Assembler et publier le brief, déclencher le pipeline, s'arrêter
+
+1. Assembler `editorial-briefs/{AAAA-MM-JJ}.json` en suivant
+   **exactement** le schéma de `docs/routine-brief-format.md` — tous les
+   champs, y compris `sujet.image_keywords` (2-3 mots-clés thématiques
+   génériques EN pour la photo Pexels, voir ce fichier pour la règle
+   complète) et `anti_doublon` (notes sur les vérifications faites à
+   l'Étape 0bis).
+2. Committer ce seul fichier sur `main` : `git add
+   editorial-briefs/{AAAA-MM-JJ}.json sources-log.json sources.html
+   sujets-prioritaires.md docs/sujets-a-suivre.md` (les 4 derniers
+   seulement s'ils ont changé — revue de presse, case cochée en Étape 0,
+   suivi mis à jour), puis `git commit` et `git push origin main`. **Ne
+   jamais committer autre chose** — jamais `index.html`, jamais
+   `archives/`, jamais `feed.xml` : ce n'est plus le rôle de cette
+   routine.
+3. Déclencher le pipeline de rédaction + publication :
+   ```bash
+   gh workflow run post-edition.yml --ref main
+   ```
+   (le workflow calcule lui-même le brief du jour à partir de la date —
+   rien à lui passer en paramètre). Si `gh` n'est pas authentifié dans
+   cet environnement, essayer l'API GitHub directement :
+   ```bash
+   curl -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
+     -H "Accept: application/vnd.github+json" \
+     https://api.github.com/repos/loliba92/Scenario/actions/workflows/post-edition.yml/dispatches \
+     -d '{"ref":"main"}'
+   ```
+   Si ni `gh` ni un token ne sont disponibles, ne pas bloquer : le cron
+   du workflow (`0 5 * * *` UTC = 7h Paris) le déclenchera de toute
+   façon un peu plus tard — signaler simplement ce point dans le résumé
+   final plutôt que de forcer une méthode qui échouerait.
+4. Résumé final (comme avant, étape technique 12 de la version
+   historique ci-dessous) : sujet retenu, brief committé, pipeline
+   déclenché (ou note explicite s'il ne l'a pas été, et pourquoi).
+
+**Ne rien faire de plus** — pas de rédaction, pas de construction HTML,
+pas de commit sur `index.html`/`archives/`/`feed.xml`/`sitemap.xml`. La
+suite est automatique (voir STATUT ACTUEL en tête de fichier).
+
+---
+
+## ⚠️ RÉFÉRENCE ÉDITORIALE HISTORIQUE — à partir d'ici, ne plus exécuter directement
+
+Tout ce qui suit (fin de l'ancienne Étape 3, Style, Encarts,
+`## INSTRUCTIONS TECHNIQUES DE PUBLICATION`...) décrit le fonctionnement
+de cette routine **avant** le 14 septembre 2026, quand elle rédigeait et
+publiait elle-même l'édition complète. Conservé tel quel comme référence
+éditoriale — repris et adapté dans `docs/routine-redaction-prompt.md`
+(style, encarts, lexique) et `scripts/edition/` (construction HTML,
+image, feed, sitemap, glossaire) — mais **cette routine s'arrête à la
+fin de l'Étape 3bis ci-dessus et ne doit jamais exécuter ce qui suit.**
+
+### Étape 3 (version historique, non exécutée) — Vérification et rédaction du contexte
 Croiser au moins deux sources récentes et distinctes avant d'affirmer un fait. Vérifier qu'un événement présenté comme en cours n'a pas déjà été remplacé par un développement plus récent contradictoire. Signaler toute contradiction entre sources plutôt que trancher arbitrairement.
 
 **Revue de presse — noter 2 à 5 liens croisés au passage.** En plus des sources qui servent directement à l'édition du jour, garder trace de quelques autres articles intéressants croisés pendant cette recherche — même ceux qui n'ont pas servi, même sur un tout autre registre que celui du jour. Jamais un avis dessus, jamais un scénario : juste ce que l'article dit, en 1-2 phrases factuelles. **Jamais bloquant** : rien de notable croisé aujourd'hui → on ne force rien, section vide ce jour-là, comme les catégories `futur`/`chiffre` du flux pub. Si des liens sont retenus :

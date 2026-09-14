@@ -1,45 +1,63 @@
-name: Post-édition — prototype photo/feed/sitemap/archives (Phase 1)
+name: Édition — rédaction + post-édition (OpenRouter)
 
-# Prototype du 2e maillon de la chaîne validée dans la conversation qui a
-# précédé ce workflow (voir docs/BACKLOG.md § « Chaîne rédaction
-# OpenRouter ») : enchaîne la rédaction (edition.yml) puis tout ce qui
-# manquait encore avant une vraie publication — photo de sujet (Pexels,
-# sélection AUTOMATIQUE du 1er candidat, voir
-# docs/routine-brief-format.md § image_keywords), image Instagram,
-# feed.xml, sitemap.xml/sitemap-news.xml, archives.html.
+# Chaîne complète : rédaction (OpenRouter) puis post-édition (photo,
+# image Instagram, feed.xml, sitemap.xml/sitemap-news.xml, glossaire.html,
+# archives.html, pages thématiques) — voir docs/BACKLOG.md
+# § « Chaîne rédaction OpenRouter » pour l'historique complet.
 #
-# PHASE 1 — PROTOTYPE UNIQUEMENT :
-#   - déclenchement manuel (workflow_dispatch) uniquement, pas de cron ;
-#   - AUCUN commit, AUCUN push, AUCUNE publication — tout s'écrit sous
-#     _prototype-out/, jamais dans les vrais fichiers du dépôt (voir
-#     scripts/edition/generate_post_edition.py, discipline du bac à
-#     sable) ;
-#   - le trigger Claude Code Remote "Scénario" reste désactivé et n'est
-#     pas touché par ce workflow.
+# Deux modes, contrôlés par `publish` (toujours true si déclenché par le
+# cron, contrôlable manuellement sinon) :
+#   - publish=false (défaut en déclenchement manuel) : AUCUN commit,
+#     AUCUN push — tout s'écrit sous _prototype-out/, jamais dans les
+#     vrais fichiers du dépôt (voir scripts/edition/generate_post_edition.py,
+#     discipline du bac à sable). Pour tester sans risque.
+#   - publish=true : écrit les vrais fichiers (index.html, archives/,
+#     feed.xml, sitemap*.xml, glossaire.html, archives.html, themes/*.html,
+#     images sociales), puis les commite et les pousse sur main.
 #
-# Secrets requis :
-#   OPENROUTER_API_KEY (rédaction, déjà existant, voir edition.yml)
+# Automatisation complète (activée le 14 septembre 2026, décision
+# explicite de l'utilisateur) : la recherche du sujet du jour (sélection,
+# anti-doublon, vérification factuelle) reste sur Claude Code — hors de
+# portée d'un cron GitHub Actions, qui ne peut pas faire cette recherche
+# lui-même. Le trigger Claude Code Remote « Scénario » (cron 0 4 * * *
+# UTC = 6h Paris en CEST) écrit et committe editorial-briefs/{date}.json,
+# puis s'arrête — voir docs/routine-prompt.md § « STATUT ACTUEL ». Ce
+# workflow-ci prend le relais un peu plus tard (0 5 * * * UTC = 7h Paris,
+# marge d'environ 1h) : il lit ce brief et fait tout le reste, jusqu'à la
+# publication réelle. Dérive saisonnière connue et acceptée (cron UTC
+# fixe, pas d'ajustement DST automatique) — les deux crons restent dans
+# le bon ordre relatif toute l'année, seule l'heure Paris affichée dérive
+# d'1h en hiver (CET).
+#
+# Secrets requis (Settings → Secrets and variables → Actions) :
+#   OPENROUTER_API_KEY (rédaction)
 #   PEXELS_API_KEY (photo de sujet — optionnel : absent, le job continue
-#     avec l'image générique, jamais bloquant, voir generate_post_edition.py)
+#     avec le repli registre/générique, jamais bloquant)
 
 on:
+  schedule:
+    - cron: '0 5 * * *'
   workflow_dispatch:
     inputs:
       brief:
-        description: "Chemin du brief à utiliser"
+        description: "Chemin du brief à utiliser (ignoré si déclenché par le cron : calculé automatiquement à partir de la date du jour, Europe/Paris)"
         required: false
         default: "editorial-briefs/2026-09-20.json"
       dry_run:
-        description: "true = rédaction sur fixture locale, aucun appel OpenRouter (test de la mécanique uniquement)"
+        description: "true = rédaction sur fixture locale, aucun appel OpenRouter (test de la mécanique uniquement) — toujours false si déclenché par le cron"
         required: false
         default: "false"
       skip_photo:
-        description: "true = n'appelle pas Pexels (test de la mécanique post-édition sans réseau/clé)"
+        description: "true = n'appelle pas Pexels (test de la mécanique post-édition sans réseau/clé) — toujours false si déclenché par le cron"
+        required: false
+        default: "false"
+      publish:
+        description: "true = écrit les vrais fichiers du dépôt et les commite/pousse sur main — toujours true si déclenché par le cron. Défaut false ici pour un test manuel sans risque."
         required: false
         default: "false"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   generate:
@@ -57,13 +75,46 @@ jobs:
       - name: Installer Chromium (image Instagram)
         run: python3 -m playwright install --with-deps chromium
 
-      - name: Rédaction — générer l'édition de test
+      # Le déclenchement par schedule (cron) n'a pas d'inputs — le brief
+      # du jour est calculé à partir de la date Europe/Paris (même
+      # convention que docs/routine-prompt.md, étape 1 : « Déterminer la
+      # date... à Paris »). Un brief manquant est une erreur franche
+      # (échec du job), jamais un skip silencieux : ça signale que la
+      # recherche du jour (trigger Claude Code Remote) n'a pas tourné ou
+      # pas encore committé.
+      - name: Déterminer le brief et les options d'exécution
+        id: config
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            BRIEF="editorial-briefs/$(TZ=Europe/Paris date +%F).json"
+            DRY_RUN=false
+            SKIP_PHOTO=false
+            PUBLISH=true
+          else
+            BRIEF="${{ github.event.inputs.brief }}"
+            DRY_RUN="${{ github.event.inputs.dry_run }}"
+            SKIP_PHOTO="${{ github.event.inputs.skip_photo }}"
+            PUBLISH="${{ github.event.inputs.publish }}"
+          fi
+          if [ ! -f "$BRIEF" ]; then
+            echo "::error::Brief introuvable : $BRIEF — la recherche du jour (trigger Claude Code Remote « Scénario ») n'a probablement pas encore écrit/commité ce fichier."
+            exit 1
+          fi
+          {
+            echo "brief=$BRIEF"
+            echo "dry_run=$DRY_RUN"
+            echo "skip_photo=$SKIP_PHOTO"
+            echo "publish=$PUBLISH"
+          } >> "$GITHUB_OUTPUT"
+          echo "Brief : $BRIEF · dry_run=$DRY_RUN · skip_photo=$SKIP_PHOTO · publish=$PUBLISH"
+
+      - name: Rédaction — générer l'édition
         working-directory: scripts/edition
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
-          ARGS="--brief ../../${{ github.event.inputs.brief }}"
-          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+          ARGS="--brief ../../${{ steps.config.outputs.brief }}"
+          if [ "${{ steps.config.outputs.dry_run }}" = "true" ]; then
             ARGS="$ARGS --dry-run"
           fi
           python3 generate_daily_edition.py $ARGS --out ../../_prototype-out/output.html
@@ -73,11 +124,34 @@ jobs:
         env:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         run: |
-          ARGS="--brief ../../${{ github.event.inputs.brief }} --content ../../_prototype-out/output.content.json"
-          if [ "${{ github.event.inputs.skip_photo }}" = "true" ]; then
+          ARGS="--brief ../../${{ steps.config.outputs.brief }} --content ../../_prototype-out/output.content.json"
+          if [ "${{ steps.config.outputs.skip_photo }}" = "true" ]; then
             ARGS="$ARGS --skip-photo"
           fi
+          if [ "${{ steps.config.outputs.publish }}" = "true" ]; then
+            ARGS="$ARGS --publish"
+          fi
           python3 generate_post_edition.py $ARGS --sandbox-root ../../_prototype-out/post-edition
+
+      # Même convention que translate-en.yml/reads.yml : commit d'abord,
+      # rebase ensuite (git pull --rebase refuse de tourner avec des
+      # changements déjà indexés). Rien à committer si generate_post_edition.py
+      # s'est arrêté tôt (édition déjà publiée aujourd'hui, voir son
+      # garde-fou already_published_today()) — traité comme un no-op,
+      # jamais une erreur.
+      - name: Committer et pousser l'édition publiée (uniquement si publish=true)
+        if: steps.config.outputs.publish == 'true'
+        run: |
+          git config user.name "scenario-edition-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html archives/ feed.xml sitemap.xml sitemap-news.xml glossaire.html archives.html themes/ assets/social/topic-images/ assets/social/instagram/
+          if git diff --cached --quiet; then
+            echo "Aucun changement — rien à committer (édition déjà publiée aujourd'hui, ou generate_post_edition.py s'est arrêté avant --publish)."
+            exit 0
+          fi
+          git commit -m "Édition du $(TZ=Europe/Paris date +%d/%m/%Y) — chaîne rédaction OpenRouter + post-édition automatique"
+          git pull --rebase origin main
+          git push origin main
 
       - name: Uploader la sortie de test comme artifact
         if: always()
@@ -88,9 +162,11 @@ jobs:
           retention-days: 14
           if-no-files-found: warn
 
-      # Rappel explicite dans les logs, pour qu'il n'y ait jamais de doute
-      # en relisant un run passé : ce job ne publie jamais rien.
-      - name: Rappel — aucune publication
+      - name: Rappel
         if: always()
         run: |
-          echo "Phase 1 prototype : aucun commit, aucun push, aucune publication n'a été effectué par ce workflow."
+          if [ "${{ steps.config.outputs.publish }}" = "true" ]; then
+            echo "publish=true — voir l'étape 'Committer et pousser' ci-dessus pour le résultat exact (édition publiée, ou rien à committer si déjà publiée aujourd'hui)."
+          else
+            echo "publish=false : aucun commit, aucun push, aucune publication n'a été effectué par ce workflow."
+          fi

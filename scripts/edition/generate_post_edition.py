@@ -39,11 +39,24 @@ Limites Phase 1, assumées (voir docs/BACKLOG.md) :
     seul, sans « accroche » distincte (jamais définie précisément dans
     le brief actuel) ;
   - pas de en/feed.xml ni sitemap EN (traduction gérée séparément par
-    translate-en.yml, hors périmètre ici) ;
-  - AUCUN commit, AUCUN push — tout s'écrit sous --sandbox-root (défaut :
-    _prototype-out/post-edition/), jamais dans les vrais fichiers du
-    dépôt. Voir .github/workflows/post-edition.yml (workflow_dispatch
-    uniquement, comme edition.yml).
+    translate-en.yml, hors périmètre ici).
+
+Par défaut (`--publish` absent) : AUCUN commit, AUCUN push — tout
+s'écrit sous --sandbox-root, jamais dans les vrais fichiers du dépôt.
+
+`--publish` (Phase 2, ajouté le 14 septembre 2026, activé sur décision
+explicite de l'utilisateur — voir docs/BACKLOG.md) : une fois tout
+généré et validé dans le bac à sable EXACTEMENT comme en Phase 1
+(aucun changement de logique de génération), promote_to_real_repo()
+copie les fichiers finaux vers leurs vrais emplacements (index.html,
+archives/{date}.html, feed.xml, sitemap.xml, sitemap-news.xml,
+glossaire.html, archives.html, themes/*.html, assets/social/...) — le
+commit + push reste effectué par le workflow appelant
+(.github/workflows/post-edition.yml), jamais par ce script lui-même.
+Garde-fou repris de docs/routine-prompt.md (« vérifier qu'une autre
+exécution n'a pas déjà publié l'édition du jour ») : si le vrai
+index.html porte déjà la date du brief, --publish s'arrête proprement
+sans rien écrire de plus, jamais une double publication.
 
 Usage:
     export PEXELS_API_KEY=sk-...
@@ -478,6 +491,72 @@ def update_glossaire_html(glossaire_text, content, brief, date_str):
 
 
 # ---------------------------------------------------------------------------
+# Publication réelle (--publish uniquement, Phase 2)
+# ---------------------------------------------------------------------------
+def already_published_today(date_str):
+    """Garde-fou repris de docs/routine-prompt.md (« vérifier qu'une
+    autre exécution n'a pas déjà publié l'édition du jour ») — lit le
+    VRAI index.html (jamais le bac à sable) et compare la date de
+    `article:published_time` à celle du brief. Jamais bloquant si le
+    fichier ou la balise est absent (nouveau dépôt/gabarit inhabituel) :
+    on suppose alors qu'il n'y a rien à protéger."""
+    index_path = REPO_ROOT / "index.html"
+    if not index_path.exists():
+        return False
+    text = index_path.read_text(encoding="utf-8")
+    m = re.search(r'<meta property="article:published_time" content="(\d{4}-\d{2}-\d{2})', text)
+    return bool(m) and m.group(1) == date_str
+
+
+def promote_to_real_repo(sandbox_root, date_str):
+    """Copie les fichiers déjà générés (et validés) dans le bac à sable
+    vers leurs vrais emplacements dans le dépôt — ne génère RIEN
+    elle-même, ne fait aucun commit/push (le workflow appelant s'en
+    charge). Le HTML de l'archive du jour devient à la fois le nouveau
+    index.html (l'édition du jour) ET archives/{date}.html (copie
+    figée) — même contenu, comme le veut docs/routine-prompt.md, étape
+    6 (« index.html = toujours l'édition du jour uniquement »)."""
+    archive_src = sandbox_root / "archives" / f"{date_str}.html"
+    if not archive_src.exists():
+        raise PostEditionError(f"--publish : HTML final introuvable dans le bac à sable : {archive_src}")
+    html_text = archive_src.read_text(encoding="utf-8")
+
+    (REPO_ROOT / "index.html").write_text(html_text, encoding="utf-8")
+    real_archive_dir = REPO_ROOT / "archives"
+    real_archive_dir.mkdir(parents=True, exist_ok=True)
+    (real_archive_dir / f"{date_str}.html").write_text(html_text, encoding="utf-8")
+    print(f"[post-edition] --publish : index.html + archives/{date_str}.html écrits (réels)")
+
+    for rel in ("feed.xml", "sitemap.xml", "sitemap-news.xml", "glossaire.html", "archives.html"):
+        src = sandbox_root / rel
+        if not src.exists():
+            raise PostEditionError(f"--publish : {rel} introuvable dans le bac à sable : {src}")
+        (REPO_ROOT / rel).write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
+    print("[post-edition] --publish : feed.xml, sitemap.xml, sitemap-news.xml, glossaire.html, archives.html écrits (réels)")
+
+    themes_src = sandbox_root / "themes"
+    if themes_src.exists():
+        real_themes_dir = REPO_ROOT / "themes"
+        real_themes_dir.mkdir(parents=True, exist_ok=True)
+        for f in sorted(themes_src.glob("*.html")):
+            shutil.copy(f, real_themes_dir / f.name)
+        print(f"[post-edition] --publish : {len(list(themes_src.glob('*.html')))} page(s) thématique(s) écrite(s) (réelles)")
+
+    for rel_dir, pattern in (
+        ("assets/social/topic-images", f"{date_str}*"),
+        ("assets/social/instagram", f"{date_str}.png"),
+    ):
+        src_dir = sandbox_root / rel_dir
+        if not src_dir.exists():
+            continue
+        dest_dir = REPO_ROOT / rel_dir
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        for f in sorted(src_dir.glob(pattern)):
+            shutil.copy(f, dest_dir / f.name)
+    print("[post-edition] --publish : images (topic-images/instagram) écrites (réelles)")
+
+
+# ---------------------------------------------------------------------------
 # main
 # ---------------------------------------------------------------------------
 def main():
@@ -488,11 +567,23 @@ def main():
                          help="racine bac à sable pour toutes les écritures (défaut : _prototype-out/post-edition/{date}) — "
                               "jamais le dépôt réel")
     parser.add_argument("--skip-photo", action="store_true", help="n'appelle pas Pexels (test mécanique sans réseau)")
+    parser.add_argument(
+        "--publish", action="store_true",
+        help="Phase 2 : écrit les vrais fichiers du dépôt (index.html, archives/, feed.xml, "
+             "sitemap*.xml, glossaire.html, themes/*.html, images) en plus du bac à sable — "
+             "jamais de commit/push depuis ce script, voir .github/workflows/post-edition.yml. "
+             "Absent par défaut : comportement Phase 1 inchangé.",
+    )
     args = parser.parse_args()
 
     brief = load_brief(args.brief)
     date_str = brief["date"]
     print(f"[post-edition] brief chargé : {args.brief} (date {date_str})")
+
+    if args.publish and already_published_today(date_str):
+        print(f"[post-edition] --publish : index.html porte déjà la date {date_str} — "
+              "édition déjà publiée, on s'arrête proprement sans rien republier.")
+        return
 
     content_path = Path(args.content)
     if not content_path.exists():
@@ -662,7 +753,12 @@ def main():
     print(f"[post-edition] {n_themes} page(s) thématique(s) régénérée(s) : {themes_out}")
 
     print(f"[post-edition] terminé — {word_count} mots, {read_minutes} min de lecture.")
-    print("[post-edition] AUCUN commit, AUCUN push effectué — Phase 1 prototype (workflow_dispatch uniquement).")
+
+    if args.publish:
+        promote_to_real_repo(sandbox_root, date_str)
+        print("[post-edition] --publish : fichiers réels écrits — commit/push restent à faire par le workflow appelant.")
+    else:
+        print("[post-edition] AUCUN commit, AUCUN push effectué — Phase 1 prototype (workflow_dispatch uniquement).")
 
 
 if __name__ == "__main__":
