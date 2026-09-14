@@ -692,33 +692,43 @@ def find_edition_date(soup):
 # les archives, alors que la traduction existait bien). Règle exacte :
 # docs/routine-en-prompt.md § « Bouton de bascule de langue ».
 # ---------------------------------------------------------------------------
-def add_fr_lang_button(soup, en_href):
-    """Insère .masthead-lang-btn en tout premier enfant de
-    .masthead-right s'il est absent, sinon met juste à jour son href
-    (idempotent — ne duplique jamais le bouton)."""
-    masthead_right = soup.select_one(".masthead-right")
-    if masthead_right is None:
-        return  # gabarit inattendu, ne rien casser
-    btn = soup.select_one(".masthead-lang-btn")
-    if btn is None:
-        btn = soup.new_tag("a", href=en_href, **{"class": "masthead-lang-btn"})
-        btn.string = "EN"
-        masthead_right.insert(0, btn)
-    btn["href"] = en_href
-    btn["aria-label"] = "Read this edition in English"
-    btn["title"] = "Read this edition in English"
+def add_fr_lang_button(html_text, en_href):
+    """Insère <a class="masthead-lang-btn"> en tout premier enfant de
+    <div class="masthead-right">. Édition CHIRURGICALE par texte, jamais
+    un aller-retour BeautifulSoup sur ce fichier — index.html et
+    archives/{date}.html sont écrits par build_html.py (templating
+    Python simple), jamais par BS4 : un round-trip parse+str(soup)
+    reformate tout le document (guillemets, ordre des attributs,
+    balises auto-fermantes...), pas juste les 2 lignes ajoutées.
+    Incident réel du 14 septembre 2026 : 573 lignes touchées dans le
+    diff pour une insertion de 2 lignes, détecté avant push, jamais
+    committé — voir docs/BACKLOG.md pour le récit. Même principe que
+    update_feed_xml()/update_glossaire_html() dans generate_post_edition.py.
+    Idempotent : si le bouton existe déjà, met juste à jour son href."""
+    existing = re.search(r'<a[^>]*class="masthead-lang-btn"[^>]*>.*?</a>', html_text)
+    if existing:
+        patched = re.sub(r'href="[^"]*"', f'href="{en_href}"', existing.group(0), count=1)
+        return html_text[:existing.start()] + patched + html_text[existing.end():]
+    marker = '<div class="masthead-right">'
+    if marker not in html_text:
+        return html_text  # gabarit inattendu, ne rien casser
+    insert_at = html_text.index(marker) + len(marker)
+    tag = (f'\n<a aria-label="Read this edition in English" class="masthead-lang-btn" '
+           f'href="{en_href}" title="Read this edition in English">EN</a>')
+    return html_text[:insert_at] + tag + html_text[insert_at:]
 
 
-def add_hreflang_en(soup, en_url):
+def add_hreflang_en(html_text, en_url):
     """Ajoute <link rel="alternate" hreflang="en" ...> juste après
-    <link rel="canonical">, s'il n'existe pas déjà (idempotent)."""
-    if soup.find("link", rel="alternate", hreflang="en"):
-        return
-    canonical = soup.find("link", rel="canonical")
-    if canonical is None:
-        return
-    tag = soup.new_tag("link", rel="alternate", hreflang="en", href=en_url)
-    canonical.insert_after(tag)
+    <link rel="canonical">, en texte brut — même raison qu'au-dessus
+    (jamais de round-trip BeautifulSoup sur ces fichiers). Idempotent."""
+    if 'hreflang="en"' in html_text:
+        return html_text
+    m = re.search(r'<link rel="canonical"[^>]*>\n?', html_text)
+    if not m:
+        return html_text
+    tag = f'<link rel="alternate" hreflang="en" href="{en_url}">\n'
+    return html_text[:m.end()] + tag + html_text[m.end():]
 
 
 def build_en_soup(fr_soup, date_str, translations, memory, en_image_url, for_archive=False):
@@ -1332,20 +1342,21 @@ def main():
     # Retouche rétroactive des DEUX pages françaises (index.html et
     # archives/{date}.html) — bouton EN + hreflang="en", jamais fait tant
     # que la traduction n'existait pas (voir docstring des fonctions
-    # ci-dessus). fr_soup (déjà en mémoire) sert pour index.html ; la
-    # copie archivée est re-parsée séparément (fichier distinct sur
-    # disque, jamais le même objet BeautifulSoup que fr_soup malgré un
-    # contenu identique à ce stade).
-    add_fr_lang_button(fr_soup, f"en/archives/{date_str}.html")
-    add_hreflang_en(fr_soup, f"https://lesscenarios.fr/en/archives/{date_str}.html")
-    fr_path.write_text(str(fr_soup), encoding="utf-8")
+    # ci-dessus). Texte brut relu depuis le disque (pas fr_soup, qui est
+    # un objet BeautifulSoup — un str(fr_soup) reformaterait tout le
+    # fichier, voir docstring d'add_fr_lang_button()), jamais l'objet en
+    # mémoire pour ces deux fichiers précis.
+    fr_index_text = fr_path.read_text(encoding="utf-8")
+    fr_index_text = add_fr_lang_button(fr_index_text, f"en/archives/{date_str}.html")
+    fr_index_text = add_hreflang_en(fr_index_text, f"https://lesscenarios.fr/en/archives/{date_str}.html")
+    fr_path.write_text(fr_index_text, encoding="utf-8")
 
     fr_archive_path = REPO_ROOT / "archives" / f"{date_str}.html"
     if fr_archive_path.exists():
-        fr_archive_soup = BeautifulSoup(fr_archive_path.read_text(encoding="utf-8"), "html.parser")
-        add_fr_lang_button(fr_archive_soup, f"../en/archives/{date_str}.html")
-        add_hreflang_en(fr_archive_soup, f"https://lesscenarios.fr/en/archives/{date_str}.html")
-        fr_archive_path.write_text(str(fr_archive_soup), encoding="utf-8")
+        fr_archive_text = fr_archive_path.read_text(encoding="utf-8")
+        fr_archive_text = add_fr_lang_button(fr_archive_text, f"../en/archives/{date_str}.html")
+        fr_archive_text = add_hreflang_en(fr_archive_text, f"https://lesscenarios.fr/en/archives/{date_str}.html")
+        fr_archive_path.write_text(fr_archive_text, encoding="utf-8")
         print(f"Bouton EN + hreflang ajoutés : index.html et archives/{date_str}.html")
     else:
         print(f"ATTENTION : archives/{date_str}.html introuvable — bouton EN ajouté "
