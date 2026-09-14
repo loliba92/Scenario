@@ -136,6 +136,52 @@ def build_user_prompt(redaction_prompt, brief):
     )
 
 
+def build_retry_reinforcement(errors):
+    """Message de relance pour le 2e essai — placé en TÊTE du prompt (pas
+    en fin, voir call_openrouter() pour l'incident qui a motivé ce choix),
+    avec une instruction concrète plutôt qu'une simple liste d'erreurs à
+    "corriger" (qui n'avait pas suffi : la 2e réponse était plus courte
+    que la 1ère)."""
+    length_errors = [e for e in errors if e.startswith("longueur estimée insuffisante")]
+    other_errors = [e for e in errors if e not in length_errors]
+
+    parts = [
+        "# CORRECTION OBLIGATOIRE AVANT TOUTE AUTRE CONSIGNE\n\n"
+        "Une première réponse a déjà été rejetée par la validation automatique. "
+        "Ignore toute tentation de raccourcir ou de simplifier — c'est l'inverse "
+        "du problème constaté. Renvoie une réponse entièrement nouvelle qui "
+        "corrige ce qui suit avant de reprendre le reste du prompt ci-dessous.\n\n"
+    ]
+
+    if length_errors:
+        parts.append(
+            f"**PROBLÈME PRINCIPAL, non négociable : {length_errors[0]}**\n\n"
+            "Ce n'est pas un ajustement à la marge — la réponse précédente était "
+            "nettement trop courte, et une réponse encore plus courte serait un "
+            "nouvel échec. Pour corriger, développe réellement le contenu, jamais "
+            "en délayant les phrases existantes avec des mots creux :\n"
+            "- `dek` : exactement 6 paragraphes complets, chacun 60 à 100 mots, "
+            "couvrant chacun un aspect distinct du sujet (acteurs, chiffres, "
+            "causes de fond, calendrier, enjeu, contexte international).\n"
+            "- Chaque carte (`favorable`/`stable`/`degrade`) : 2 paragraphes "
+            "`why` substantiels, 70 à 100 mots chacun.\n"
+            "- Utilise systématiquement TOUS les faits chiffrés du brief, pas "
+            "seulement les plus évidents — chaque fait du brief encore inutilisé "
+            "est une occasion d'ajouter du contenu réel, jamais du remplissage "
+            "stylistique.\n\n"
+        )
+
+    if other_errors:
+        parts.append(
+            "**Autres erreurs à corriger :**\n"
+            + "\n".join(f"- {e}" for e in other_errors)
+            + "\n\n"
+        )
+
+    parts.append("---\n\n")
+    return "".join(parts)
+
+
 def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, timeout=180):
     """Incident réel du 14 septembre 2026 (premier vrai appel de test) :
     Claude Sonnet a tourné plus de 16 minutes sans jamais répondre, forçant
@@ -457,10 +503,13 @@ def main():
         else:
             prompt = build_user_prompt(redaction_prompt, brief)
             if attempt > 0:
-                prompt += (
-                    "\n\nATTENTION — ta réponse précédente a échoué la validation pour les raisons "
-                    f"suivantes, corrige-les précisément avant de renvoyer : {errors}"
-                )
+                # Incident du 14 septembre 2026 (run 34838683152) : un simple
+                # ajout de la liste d'erreurs en FIN de prompt (déjà long) n'a
+                # pas suffi — le 2e essai était même plus court que le 1er
+                # (863 mots contre 936, seuil 1100). Renforcement mis en tête
+                # du prompt, isolé, avec une instruction concrète plutôt
+                # qu'une simple liste d'erreurs à "corriger".
+                prompt = build_retry_reinforcement(errors) + prompt
             content, usage = call_openrouter(prompt, args.model, api_key)
         for k in ("cost", "prompt_tokens", "completion_tokens"):
             usage_total[k] = usage_total.get(k, 0) + (usage.get(k) or 0)
