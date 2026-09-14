@@ -451,6 +451,8 @@ def apply_apres_dek_index_fallback(content):
     default_index = dek_len // 2
     fixed_any = False
     for box in content.get("comprendre_box") or []:
+        if not isinstance(box, dict):
+            continue  # forme invalide, hors périmètre de ce filet — validate_content_schema() l'aura déjà signalé séparément
         apres = box.get("apres_dek_index")
         if not isinstance(apres, int) or isinstance(apres, bool) or not (0 <= apres < dek_len):
             box["apres_dek_index"] = default_index
@@ -481,9 +483,18 @@ def validate_content_schema(content, brief):
         if kind not in content["cards"]:
             errors.append(f"cards.{kind} manquant")
 
-    if not errors:
-        pcts = [content["cards"][k]["pct"] for k in ("favorable", "stable", "degrade")]
-        if abs(sum(pcts) - 100) > 1:
+    # Incident réel du 14 septembre 2026 (test mistralai/mistral-large-2512) :
+    # AttributeError non gérée ("'int' object has no attribute 'get'"),
+    # script interrompu net (crash, pas une erreur de validation normale) —
+    # un modèle non calibré sur ce schéma peut renvoyer une forme
+    # inattendue (ex. un élément de liste qui n'est pas un objet JSON).
+    # Chaque boucle ci-dessous vérifie maintenant isinstance(..., dict)
+    # avant d'appeler .get()/[...] dessus, pour transformer ce genre de
+    # cas en erreur de validation classique (retryable) plutôt qu'un
+    # crash qui perd tout l'essai sans message exploitable.
+    if not errors and all(isinstance(content["cards"].get(k), dict) for k in ("favorable", "stable", "degrade")):
+        pcts = [content["cards"][k]["pct"] for k in ("favorable", "stable", "degrade") if "pct" in content["cards"][k]]
+        if len(pcts) == 3 and abs(sum(pcts) - 100) > 1:
             errors.append(f"somme des pct des 3 cartes = {sum(pcts)} (attendu 100)")
         for kind in ("favorable", "stable", "degrade"):
             card = content["cards"][kind]
@@ -494,6 +505,10 @@ def validate_content_schema(content, brief):
                 errors.append(f"cards.{kind}.france_impact doit être 'favorable' ou 'degrade' (reçu : {card.get('france_impact')!r})")
             if len(card.get("why", [])) < 2:
                 errors.append(f"cards.{kind}.why : {len(card.get('why', []))} paragraphes (2 attendus)")
+    elif not errors:
+        for kind in ("favorable", "stable", "degrade"):
+            if not isinstance(content["cards"].get(kind), dict):
+                errors.append(f"cards.{kind} : attendu un objet JSON, reçu {type(content['cards'].get(kind)).__name__}")
 
     if len(content["indicators"]) != len(brief.get("indicateurs_kpi", [])):
         errors.append(
@@ -521,6 +536,9 @@ def validate_content_schema(content, brief):
     # docs/routine-redaction-prompt.md § comprendre_box) et vérifié ici.
     dek_len = len(content.get("dek") or [])
     for idx, box in enumerate(content.get("comprendre_box") or []):
+        if not isinstance(box, dict):
+            errors.append(f"comprendre_box[{idx}] : attendu un objet JSON, reçu {type(box).__name__} ({box!r})")
+            continue
         apres = box.get("apres_dek_index")
         if not isinstance(apres, int) or isinstance(apres, bool) or not (0 <= apres < dek_len):
             errors.append(
@@ -539,7 +557,10 @@ def validate_content_schema(content, brief):
     if df.get("kind") not in ("positif", "negatif"):
         errors.append(f"delta_france.kind doit être 'positif' ou 'negatif' (reçu : {df.get('kind')!r})")
 
-    for term in content.get("lexique", []):
+    for idx, term in enumerate(content.get("lexique", [])):
+        if not isinstance(term, dict):
+            errors.append(f"lexique[{idx}] : attendu un objet JSON, reçu {type(term).__name__} ({term!r})")
+            continue
         for f in ("slug", "terme", "definition"):
             if f not in term or not term[f]:
                 errors.append(f"lexique : entrée incomplète (manque {f}) : {term}")
