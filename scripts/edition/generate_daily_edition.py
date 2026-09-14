@@ -256,6 +256,12 @@ def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, 
         "temperature": temperature,
         "response_format": {"type": "json_object"},
         "reasoning": {"enabled": False},
+        # "usage": {"include": True} : sans ce flag, OpenRouter ne renvoie
+        # que prompt_tokens/completion_tokens dans `usage`, jamais `cost`
+        # (voir docs OpenRouter — le coût est un ajout optionnel à la
+        # réponse, pas renvoyé par défaut). Demandé explicitement ici pour
+        # pouvoir logger un coût réel plutôt qu'un "?" permanent.
+        "usage": {"include": True},
         "messages": [{"role": "user", "content": prompt}],
     }).encode()
     req = urllib.request.Request(OPENROUTER_URL, method="POST", data=body, headers={
@@ -304,6 +310,23 @@ def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, 
         data = result_box["data"]
         break
 
+    # Capturé et loggé tout de suite, avant la validation du JSON de contenu
+    # ci-dessous : l'appel a consommé des tokens/de l'argent côté OpenRouter
+    # même si le contenu renvoyé s'avère invalide, donc cette info ne doit
+    # jamais dépendre de la réussite du parsing qui suit. `usage.model` est
+    # le modèle RÉELLEMENT utilisé (peut différer de `model` demandé en cas
+    # de fallback/routage côté OpenRouter) — demandé explicitement pour le
+    # log, distinct du modèle demandé dans l'argument `model`.
+    usage = dict(data.get("usage") or {})
+    usage["model"] = data.get("model", model)
+    print(
+        f"[openrouter] appel — modèle {usage['model']} · "
+        f"tokens entrée {usage.get('prompt_tokens', '?')} · "
+        f"tokens sortie {usage.get('completion_tokens', '?')} · "
+        f"coût ≈ {usage.get('cost', '?')} $",
+        file=sys.stderr,
+    )
+
     if "choices" not in data:
         raise GenerationError(f"réponse OpenRouter sans 'choices' : {data}")
     content_str = data["choices"][0]["message"]["content"]
@@ -321,7 +344,6 @@ def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, 
             )
         except json.JSONDecodeError as e:
             raise InvalidModelJSON(f"{e}\n{content_str[:2000]}")
-    usage = data.get("usage", {})
     return content, usage
 
 
@@ -721,6 +743,8 @@ def main():
 
         for k in ("cost", "prompt_tokens", "completion_tokens"):
             usage_total[k] = usage_total.get(k, 0) + (usage.get(k) or 0)
+        if usage.get("model"):
+            usage_total["model"] = usage["model"]
 
         errors = validate_content_schema(content, brief)
         if not errors:
@@ -774,7 +798,8 @@ def main():
     print(f"[edition] contenu validé écrit : {content_path}")
     print(f"[edition] édition de test N°{edition_number}, {len(html_text)} caractères")
     print(
-        f"[edition] usage OpenRouter — modèle {args.model} · "
+        f"[edition] usage OpenRouter (cumul de tous les essais) — "
+        f"modèle {usage_total.get('model', args.model)} · "
         f"coût ≈ {usage_total.get('cost', '?')} $ · "
         f"tokens entrée {usage_total.get('prompt_tokens', '?')} · "
         f"tokens sortie {usage_total.get('completion_tokens', '?')}"
