@@ -74,6 +74,7 @@ on:
 
 permissions:
   contents: write
+  actions: write  # nécessaire pour déclencher translate-en.yml via l'API (voir plus bas)
 
 jobs:
   generate:
@@ -209,6 +210,29 @@ jobs:
           git commit -m "Édition du $(TZ=Europe/Paris date +%d/%m/%Y) — chaîne rédaction OpenRouter + post-édition automatique"
           git pull --rebase origin main
           git push origin main
+
+      # Incident réel du 14 septembre 2026 : translate-en.yml (badge EN +
+      # lien anglais sur index.html/archives.html) écoute "on: push" sur
+      # index.html, mais un push fait avec le GITHUB_TOKEN par défaut ne
+      # déclenche JAMAIS d'autre workflow en push — limitation anti-boucle
+      # documentée de GitHub Actions, pas un oubli de configuration ici.
+      # Résultat observé : l'édition Taïwan publiée plus tôt aujourd'hui
+      # n'a jamais eu sa traduction EN. Corrigé en déclenchant translate-en.yml
+      # explicitement via l'API workflow_dispatch (fonctionne avec
+      # GITHUB_TOKEN, seul le déclenchement PAR push est bloqué) —
+      # toujours tenté quand publish=true, même si ce run précis n'avait
+      # rien de nouveau à committer : translate-en.yml a son propre
+      # garde-fou idempotent (ne fait rien si en/archives/{date}.html
+      # existe déjà), donc un déclenchement redondant ne coûte rien.
+      - name: Déclencher la traduction EN (translate-en.yml)
+        if: steps.config.outputs.publish == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl -X POST -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/translate-en.yml/dispatches" \
+            -d '{"ref":"main"}'
 
       - name: Uploader la sortie de test comme artifact
         if: always()
