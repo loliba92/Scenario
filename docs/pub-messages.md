@@ -814,6 +814,16 @@ préférée pour son registre déjà simplifié.*
 
 *Extrait automatiquement de l'édition du 2026-09-11 (archives/2026-09-11.html) — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-09-14
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 30 milliards
+- message: Sébastien Lecornu cherche environ 30 milliards d'euros d'économies pour 2027, sans hausse d'impôts, mais en visant désormais un déficit d'à peine 4,9 % du PIB — contre 5,1 % en 2025 — plutôt que le retour sous 3 % promis à Bruxelles pour 2029, devenu hors de portée.
+- attribution: — lesscenarios.fr, 13 septembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-09-13.html
+
+*Extrait automatiquement de l'édition du 2026-09-13 (archives/2026-09-13.html) — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
