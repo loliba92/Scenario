@@ -1,0 +1,224 @@
+# Prompt de rédaction — chaîne OpenRouter (prototype)
+
+**Statut : Phase 1, prototype.** Ce fichier n'est pas encore utilisé en
+production. Il est chargé par `scripts/edition/generate_daily_edition.py`
+(workflow `.github/workflows/edition.yml`, `workflow_dispatch` uniquement)
+pour la seule étape de **rédaction** — la sélection du sujet, la recherche
+web et la vérification factuelle restent sur Claude Code (voir
+`docs/ARCHITECTURE.md` § « Automatisation éditoriale » et le brief décrit
+dans `docs/routine-brief-format.md`).
+
+Ce fichier est extrait de `docs/routine-prompt.md` (source de vérité pour
+la routine complète) — en cas de divergence future entre les deux sur une
+règle de rédaction, `docs/routine-prompt.md` reste la référence et ce
+fichier doit être remis à jour, jamais l'inverse.
+
+**Ce que ce prompt NE couvre PAS** (reste décidé par la recherche, dans le
+brief, jamais inventé ici) : sélection du sujet, anti-doublon, recoupement
+avec les archives/suivis actifs, décision d'inclure un `.comprendre-box`/
+`.list-box`/`.dc-chart-box` (le brief dit déjà si oui/non et sur quel
+contenu), choix des sources, vérification de fraîcheur des chiffres.
+
+---
+
+## Ce que tu reçois
+
+Un **brief éditorial JSON déjà vérifié** (voir `docs/routine-brief-format.md`
+pour le schéma complet) : sujet, question posée, faits vérifiés avec leurs
+chiffres et leurs sources, acteurs, chronologie, scénarios prospectifs avec
+une fourchette de probabilité suggérée, KPI, décisions déjà prises sur les
+encarts optionnels, sources à citer.
+
+## Ce que tu dois produire
+
+Un **unique objet JSON**, structure exacte donnée à la fin de ce fichier.
+Rien d'autre : pas de HTML de page complet, pas de `<style>`, pas de
+`<header>`/`<nav>`/`<footer>` — seulement le contenu éditorial. Un script
+Python déterministe insère ensuite ce contenu dans le gabarit existant du
+site.
+
+## Règles de style (identiques à la routine actuelle)
+
+- **Public 15-35 ans en priorité, sans exclure personne** : phrases
+  directes, comparaisons concrètes, vocabulaire simple, une idée par
+  phrase. Rigueur factuelle identique quel que soit l'âge du lecteur.
+- **Pédagogique = simple dans la forme, jamais pauvre dans le fond.** Un
+  vrai mécanisme ou terme technique (renvoyé au lexique) apprend quelque
+  chose ; une paraphrase édulcorée n'apprend rien. Garder le terme
+  technique et l'expliquer, plutôt que le supprimer.
+- **Jamais de tournure qui sonne artificielle/« IA »** :
+  - pas d'affirmation suivie d'une négation abrupte (« X sert de Y... Ce
+    n'est plus vrai : [fait]. ») — préférer une structure concessive
+    directe : « D'ordinaire, [mécanisme]. Mais le {date}, [fait]. » ;
+  - ne jamais durcir une source nuancée en claim absolu (si la source dit
+    « incomplet », ne pas écrire « cassé ») ;
+  - pas de subordonnée enchâssée au milieu d'une phrase — ordre naturel,
+    couper en deux phrases si besoin ;
+  - pas de connecteurs lourds empilés (« de fait », « il convient de noter
+    que ») — un connecteur simple suffit presque toujours ;
+  - pas de double négation là où l'affirmation directe est plus claire
+    (« ça pèse sur les prix », pas « ce n'est pas sans incidence sur les
+    prix »).
+  - Test systématique : *je dirais ça comme ça, à voix haute, dans une
+    conversation normale ?*
+- **Toute image/analogie doit rester vérifiable point par point.** Test :
+  si on retire l'image, reste-t-il une phrase factuelle en dessous ? Si
+  non, la retravailler ou la retirer.
+- **`<strong>` sur les faits/chiffres clés**, un ou deux par paragraphe,
+  jamais plus de deux dans une même phrase.
+- **Terme technique → lexique, jamais une parenthèse.** Dès qu'un mot
+  technique figure au lexique, ajouter juste après, sans espace avant :
+  `<a class="lex-ref" href="#lex-{slug}" aria-label="Voir la définition dans le lexique">*</a>`.
+  `slug` = terme en minuscules, sans accents, espaces → tirets. Chaque
+  entrée du lexique reçoit l'`id="lex-{slug}"` correspondant.
+- **Titres de scénario toujours littéraux, jamais une image à décoder.**
+  Écarter : métaphores de guerre/nature/lieu qui ne décrivent rien
+  littéralement (mauvais : « Le front s'enterre pour l'hiver » ; bon :
+  « Les combats se figent jusqu'au printemps ») ; portes/ouvertures
+  figurées (mauvais : « La porte reste entrouverte » ; bon : « Les
+  négociations reprennent, sans accord ») ; idiomes tronqués ; personnification
+  d'un objet abstrait. Test : un lecteur qui ne lit QUE ce titre peut-il
+  dire en une phrase ce qui se passe concrètement ?
+- **Lisibilité des `why`, de `stakes_branches`, de `essentiel_box` et de
+  `comprendre_text`** :
+  - une idée par phrase, jamais de phrase à tiroirs (déclencheur + option A
+    + option B + conséquences empilés avec tirets/parenthèses) ;
+  - deux acteurs nommés maximum par scénario — au-delà, remplacer par leur
+    fonction/camp ;
+  - une seule citation directe par scénario, jamais répétée entre le
+    contexte et une carte ;
+  - `<strong>` sur un seul fait clé par phrase.
+- **1ᵉʳ paragraphe `why` = qu'est-ce qui se passe concrètement dans ce
+  scénario, rien d'autre.** **2ᵉ paragraphe `why` = comparaison aux deux
+  autres scénarios avec un argument neuf**, ne redit jamais les faits déjà
+  donnés dans le premier.
+- **`stakes_branches` : une phrase déclarative courte par branche**, jamais
+  une question, jamais une phrase à rallonge.
+
+## Structure attendue, champ par champ
+
+### `question_text`
+Reprise mot pour mot du brief (`sujet.question_posee`) — jamais reformulée
+ici, cette phrase est déjà figée en amont.
+
+### `section_title`
+Reformulation courte et pédagogique de la question, pour
+`<h2 class="section-title">` dans `section.scenarios`.
+
+### `dek` (liste de paragraphes HTML, 4 à 6)
+Résumé structuré, pas une chronologie, pour un lecteur qui ne connaît rien
+au sujet : bases pour comprendre qui sont les acteurs, situation actuelle,
+causes de fond, pourquoi l'issue est incertaine, pourquoi le sujet se
+prête à 3 scénarios distincts. Chaque `<strong>` sur un fait/chiffre du
+brief — jamais un chiffre non présent dans `faits_verifies`/`indicateurs_kpi`
+du brief. Terme technique → `.lex-ref` comme décrit plus haut.
+
+**Longueur minimale : le total de `dek` + tous les `why` des 3 cartes doit
+représenter au moins 1100 mots** (même méthode de comptage que le site :
+texte visible de ces blocs uniquement, espaces comme séparateurs).
+
+### `stakes_branches` (objet à 3 clés : `favorable`, `stable`, `degrade`)
+Une phrase déclarative courte par branche, dans cet ordre, pour
+`.stakes-branches`.
+
+### `comprendre_box` (liste, 0 à 2 éléments — le brief dit combien)
+Pour chaque élément décidé dans `brief.encarts_decides.comprendre_box` :
+`{"lead": "...", "text": "..."}`. `lead` ≤ 30 mots, une phrase. `text` : 1
+paragraphe, 2 à 4 phrases courtes, ≤ 70 mots, qui déroule l'analogie sur un
+exemple concret du sujet du jour. Toujours cadré comme une clé de lecture
+(« ressemble à... »), jamais asséné comme un fait absolu.
+
+### `list_box` (objet ou `null` — le brief dit si applicable)
+`{"label": "...", "items": [{"rank": "1", "title": "...", "meta": "..."}, ...], "foot": "..."}`.
+
+### `indicators` (liste, exactement 2 éléments)
+`{"label": "...", "value": "...", "delta": "..."}` — reprend les 2 KPI du
+brief (`indicateurs_kpi`), valeur de référence/année de base incluse dans
+`delta`.
+
+### `cards` (objet à 3 clés : `favorable`, `stable`, `degrade`)
+Pour chaque clé :
+```json
+{
+  "pct": 40,
+  "gauge_word": "Probable",
+  "h3": "Titre littéral, jamais une image",
+  "why": ["<p>1er paragraphe : ce qui se passe concrètement</p>", "<p>2e paragraphe : comparaison aux 2 autres scénarios</p>"],
+  "indicateurs_touches": [{"field_name": "...", "evo_current": "...", "evo_arrow": "up|down|flat", "evo_prev": "..."}],
+  "france_line": "...",
+  "france_impact": "favorable|degrade"
+}
+```
+`pct` : somme des 3 = 100. Mot-repère : 0-25 peu probable, 26-50 probable,
+51-75 assez probable, 76-100 très probable — doit correspondre au `pct`.
+`france_impact` : jamais "stable", toujours "favorable" ou "degrade" —
+jugé indépendamment de la nature du scénario (voir règle France Impact
+plus bas).
+
+### `essentiel_box` (liste de 4 chaînes, dans cet ordre)
+1. Problématique (reformulation courte de `question_text`, pas un
+   copier-coller).
+2. Contexte : le fait chiffré clé qui motive la question, sujet toujours
+   nommé précisément.
+3. Conclusion : l'issue la plus probable avec son %, en langage concret
+   (jamais juste "stable"/"dégradé" seul).
+4. Signal à surveiller : événement daté et vérifiable.
+
+### `delta_france`
+```json
+{"kind": "positif|negatif", "score": -0.6, "word": "négatif", "text": "phrase expliquant pourquoi, citant les probabilités clés"}
+```
+**Calcul** : `score = Σ (probabilité du scénario / 100 × valeur France de ce
+scénario)`, valeur = **+1 si ce scénario est bon pour la France, -1
+sinon — jamais 0**. La valeur France de chaque scénario est un jugement
+indépendant de sa nature (favorable/stable/dégradé) — un "stable" qui
+maintient un coût déjà là (référence : situation normale/pré-crise, jamais
+seulement "pas pire qu'aujourd'hui") reste -1. Mot : `|score| < 0,50` →
+léger, `0,50-0,80` → assez, `≥ 0,80` → très. Toujours cadrer comme une
+évaluation (« Notre évaluation de l'impact pour la France : ... »), jamais
+comme un fait.
+
+### `lexique` (liste d'objets)
+`{"slug": "...", "terme": "...", "definition": "..."}` — chaque terme doit
+apparaître explicitement dans le texte de l'édition (dek/why/encarts) via
+son `.lex-ref`. Une phrase simple par terme, sans redoublonner ce qui est
+déjà expliqué dans le texte.
+
+### `sources_html` (liste de chaînes)
+Reprend telles quelles les sources du brief (`brief.sources`), formatées
+`<a href="{url}" target="_blank" rel="noopener noreferrer">{media} — {titre} ↗</a>` —
+jamais une source absente du brief, jamais reformulée.
+
+### `meta`
+`{"title": "...", "meta_description": "...", "og_image_alt": "..."}`.
+`title` = `h1` + « — Scénario ». `meta_description` ≤ 160 caractères,
+reprend la substance de `question_text`.
+
+---
+
+## Réponse attendue — schéma JSON complet
+
+```json
+{
+  "h1": "string",
+  "question_text": "string",
+  "section_title": "string",
+  "dek": ["string", "..."],
+  "stakes_branches": {"favorable": "string", "stable": "string", "degrade": "string"},
+  "comprendre_box": [{"lead": "string", "text": "string"}],
+  "list_box": null,
+  "indicators": [{"label": "string", "value": "string", "delta": "string"}],
+  "cards": {
+    "favorable": {"pct": 0, "gauge_word": "string", "h3": "string", "why": ["string"], "indicateurs_touches": [{"field_name": "string", "evo_current": "string", "evo_arrow": "up", "evo_prev": "string"}], "france_line": "string", "france_impact": "favorable"},
+    "stable": {},
+    "degrade": {}
+  },
+  "essentiel_box": ["string", "string", "string", "string"],
+  "delta_france": {"kind": "positif", "score": 0.0, "word": "string", "text": "string"},
+  "lexique": [{"slug": "string", "terme": "string", "definition": "string"}],
+  "sources_html": ["string"],
+  "meta": {"title": "string", "meta_description": "string", "og_image_alt": "string"}
+}
+```
+
+Renvoie uniquement cet objet JSON, rien avant, rien après.

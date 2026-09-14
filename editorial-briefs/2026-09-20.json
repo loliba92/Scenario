@@ -1,0 +1,127 @@
+{
+  "date": "2026-09-20",
+  "registre": "economie-mondiale",
+  "sujet": {
+    "titre_propose": "Argentine : le FMI peut-il éviter un nouveau défaut ?",
+    "h1": "Argentine : le FMI peut-il éviter un nouveau défaut ?",
+    "question_posee": "Milei peut-il tenir ses réformes jusqu'aux élections sans que l'Argentine fasse défaut sur sa dette ?",
+    "eyebrow": "Dimanche, sport",
+    "angle": "Le FMI a décaissé une nouvelle tranche le 15 septembre 2026, mais les réserves nettes de la banque centrale argentine restent négatives — un paradoxe qui inquiète les marchés.",
+    "tags": ["economie-mondiale"],
+    "domain": "economie-entreprises"
+  },
+  "_note_prototype": "Brief FICTIF créé pour tester la mécanique du pipeline (Phase 1, point G.2 de l'audit) — aucune vérification web réelle n'a été faite sur ces chiffres, ne jamais publier de contenu dérivé de ce brief. L'eyebrow porte volontairement 'Dimanche, sport' pour signaler visuellement, dans toute sortie de test, qu'il s'agit d'un brief de démonstration et non d'une édition réelle du registre annoncé.",
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Fictif — aucune vérification réelle contre archives.html."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Les réserves nettes de la banque centrale argentine (BCRA) sont négatives d'environ 8 milliards de dollars.",
+      "chiffre": "-8 Md$",
+      "date_du_chiffre": "2026-09-15",
+      "sources": ["src_1", "src_2"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le FMI a décaissé une nouvelle tranche de 4 milliards de dollars le 15 septembre 2026, dans le cadre du programme signé en avril.",
+      "chiffre": "4 Md$",
+      "date_du_chiffre": "2026-09-15",
+      "sources": ["src_1"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le risque pays argentin (EMBI+) atteint environ 850 points, en hausse depuis août.",
+      "chiffre": "≈850 points",
+      "date_du_chiffre": "2026-09-14",
+      "sources": ["src_2"],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "L'inflation annuelle argentine est retombée à environ 35 %, contre plus de 200 % au pic de 2024.",
+      "chiffre": "≈35 %",
+      "date_du_chiffre": "2026-08-31",
+      "sources": ["src_3"],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {"nom": "Javier Milei", "role": "Président argentin, porte un programme d'austérité depuis fin 2023"},
+    {"nom": "FMI", "role": "A signé un programme de 20 Md$ en avril 2026, décaisse par tranches conditionnées"},
+    {"nom": "Banque centrale argentine (BCRA)", "role": "Gère les réserves de change, aujourd'hui en territoire négatif net"}
+  ],
+  "chronologie_cle": [
+    {"date": "2026-04-10", "evenement": "Signature du programme FMI de 20 Md$"},
+    {"date": "2026-09-15", "evenement": "Décaissement de la tranche de 4 Md$"},
+    {"date": "2026-10-26", "evenement": "Élections législatives de mi-mandat"}
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {"resume": "Les réserves se reconstituent progressivement, le programme FMI se poursuit sans à-coups jusqu'aux élections.", "probabilite_suggeree": 25},
+    "stable": {"resume": "Tension permanente sur les réserves, sans rupture ni amélioration nette, le programme continue sous surveillance renforcée.", "probabilite_suggeree": 45},
+    "degrade": {"resume": "Le FMI suspend un décaissement ou l'Argentine restructure une nouvelle fois sa dette.", "probabilite_suggeree": 30}
+  },
+  "indicateurs_kpi": [
+    {"label": "Réserves nettes de la banque centrale (BCRA)", "valeur": "-8 Md$", "tendance": "vs -3 Md$ en juin 2026"},
+    {"label": "Risque pays (EMBI+ Argentine)", "valeur": "≈850 points", "tendance": "en hausse depuis août 2026"}
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Fictif — pas de vraie vérification de série longue faite pour ce brief de test.",
+    "serie": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Pourquoi des réserves de banque centrale peuvent être 'négatives' (elle doit plus en devises, via des swaps et engagements, qu'elle n'en détient réellement en caisse).",
+        "rattache_a": "paragraphe sur le chiffre de -8 Md$"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le montant exact de la prochaine tranche FMI (prévue en décembre 2026) n'est pas encore confirmé publiquement — fictif, non vérifié."
+  ],
+  "a_ne_pas_affirmer": [
+    "Ne jamais affirmer qu'un défaut ou une restructuration est déjà décidé — les sources fictives de ce brief de test divergent volontairement sur ce point."
+  ],
+  "sources": [
+    {
+      "id": "src_1",
+      "title": "IMF disburses new tranche to Argentina despite reserve concerns",
+      "source": "Reuters (exemple fictif)",
+      "url": "https://example.com/fictif-reuters-fmi-argentine",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-entreprises",
+      "summary": "Source fictive de test : le FMI a décaissé une nouvelle tranche le 15 septembre malgré des réserves nettes négatives.",
+      "read_minutes": 4
+    },
+    {
+      "id": "src_2",
+      "title": "Argentina's country risk climbs as reserves stay negative",
+      "source": "Bloomberg (exemple fictif)",
+      "url": "https://example.com/fictif-bloomberg-risque-pays",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-entreprises",
+      "summary": "Source fictive de test : le risque pays argentin grimpe à environ 850 points.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src_3",
+      "title": "L'inflation argentine retombe sous 40 % sur un an",
+      "source": "La Nación (exemple fictif)",
+      "url": "https://example.com/fictif-lanacion-inflation",
+      "image": null,
+      "lang": "other",
+      "domain": "economie-entreprises",
+      "summary": "Source fictive de test : l'inflation annuelle argentine continue de refluer, à environ 35 % fin août 2026.",
+      "read_minutes": 3
+    }
+  ],
+  "recommandations_redaction": [
+    "Ouvrir sur le décaissement du 15 septembre plutôt que sur l'historique de la crise de la dette argentine (fait récent, cf règle routine-prompt.md étape 3).",
+    "Ce brief est fictif : la rédaction produite à partir de lui sert uniquement à tester la mécanique du pipeline, jamais à publier."
+  ]
+}

@@ -1,1 +1,7 @@
 __pycache__/
+
+# Sortie locale du prototype de rédaction OpenRouter (Phase 1) — jamais
+# committée, voir .github/workflows/edition.yml et
+# scripts/edition/generate_daily_edition.py.
+/_prototype-out/
+
