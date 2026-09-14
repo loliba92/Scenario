@@ -49,6 +49,20 @@ class GenerationError(Exception):
     pass
 
 
+class InvalidModelJSON(GenerationError):
+    """Levée uniquement quand la réponse du modèle n'est pas un JSON valide,
+    même après tentative de réparation automatique (voir
+    repair_unescaped_lexref_quotes()) — distincte de GenerationError levée
+    pour une erreur réseau/timeout dans call_openrouter(), qui reste un
+    échec net jamais retenté (voir sa docstring). Un JSON invalide, lui,
+    rentre dans la même boucle de retry de validation que les autres
+    erreurs de schéma dans main() : incident réel du 14 septembre 2026
+    (run 34841534063) où le modèle recopiait le balisage `.lex-ref` du
+    prompt avec des guillemets HTML non échappés dans un attribut
+    (`class="lex-ref"`), cassant le parsing JSON — ce type d'erreur
+    abandonnait alors tout l'essai au lieu de déclencher un 2e essai."""
+
+
 # ---------------------------------------------------------------------------
 # Chargement brief + prompt
 # ---------------------------------------------------------------------------
@@ -268,12 +282,49 @@ def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, 
     if "choices" not in data:
         raise GenerationError(f"réponse OpenRouter sans 'choices' : {data}")
     content_str = data["choices"][0]["message"]["content"]
+    stripped = strip_markdown_json_fence(content_str)
     try:
-        content = json.loads(strip_markdown_json_fence(content_str))
-    except json.JSONDecodeError as e:
-        raise GenerationError(f"réponse du modèle n'est pas un JSON valide : {e}\n{content_str[:2000]}")
+        content = json.loads(stripped)
+    except json.JSONDecodeError:
+        repaired = repair_unescaped_lexref_quotes(stripped)
+        try:
+            content = json.loads(repaired)
+            print(
+                "[openrouter] JSON réparé automatiquement (guillemets non échappés "
+                "détectés dans un balisage .lex-ref) — voir repair_unescaped_lexref_quotes()",
+                file=sys.stderr,
+            )
+        except json.JSONDecodeError as e:
+            raise InvalidModelJSON(f"{e}\n{content_str[:2000]}")
     usage = data.get("usage", {})
     return content, usage
+
+
+_LEXREF_UNESCAPED_RE = re.compile(
+    r'<a class="lex-ref" href="#lex-([a-z0-9-]+)" aria-label="Voir la définition dans le lexique">\*</a>'
+)
+
+
+def repair_unescaped_lexref_quotes(text):
+    """Répare l'échec le plus fréquent observé en conditions réelles côté
+    modèle : recopier le balisage `.lex-ref` du prompt
+    (docs/routine-redaction-prompt.md) avec ses guillemets HTML non
+    échappés, alors qu'il est déjà à l'intérieur d'une chaîne JSON — ce
+    qui casse le parsing (`Expecting ',' delimiter`) au premier `"` de
+    `class="lex-ref"`. Motif volontairement strict (calqué sur le
+    balisage exact demandé dans le prompt, `aria-label` inclus) : mieux
+    vaut ne pas réparer un motif imprévu que réparer trop largement et
+    introduire un JSON valide mais sémantiquement corrompu. Best-effort,
+    jamais une garantie générale — un guillemet non échappé ailleurs
+    dans la réponse fera quand même échouer le parsing et lèvera
+    InvalidModelJSON, qui rentre alors dans le retry normal de main()."""
+    return _LEXREF_UNESCAPED_RE.sub(
+        lambda m: (
+            '<a class=\\"lex-ref\\" href=\\"#lex-' + m.group(1)
+            + '\\" aria-label=\\"Voir la définition dans le lexique\\">*</a>'
+        ),
+        text,
+    )
 
 
 def strip_markdown_json_fence(text):
@@ -546,7 +597,32 @@ def main():
                 # du prompt, isolé, avec une instruction concrète plutôt
                 # qu'une simple liste d'erreurs à "corriger".
                 prompt = build_retry_reinforcement(errors) + prompt
-            content, usage = call_openrouter(prompt, args.model, api_key)
+            try:
+                content, usage = call_openrouter(prompt, args.model, api_key)
+            except InvalidModelJSON as e:
+                # Incident du 14 septembre 2026 (run 34841534063) : cette
+                # erreur remontait jusqu'ici sans jamais passer par
+                # validate_content_schema() ni par la logique de retry
+                # ci-dessous — un JSON invalide faisait donc échouer tout
+                # le script au 1er essai, sans jamais utiliser le retry
+                # prévu. Traitée maintenant comme une erreur de validation
+                # ordinaire : elle entre dans la même boucle.
+                print(f"[edition] réponse du modèle invalide (essai {attempt + 1}) : {e}", file=sys.stderr)
+                content = None
+                errors = [
+                    "la réponse précédente n'était pas un JSON syntaxiquement valide "
+                    f"({e.args[0].splitlines()[0] if e.args else e}) — renvoie UNIQUEMENT l'objet JSON "
+                    "demandé (rien avant, rien après), et échappe (\\\") tout guillemet double à "
+                    "l'intérieur d'un attribut HTML (ex. class=\\\"lex-ref\\\", href=\\\"...\\\") "
+                    "puisque tu es déjà à l'intérieur d'une chaîne JSON"
+                ]
+                if attempt == MAX_RETRIES:
+                    raise GenerationError(
+                        f"réponse du modèle jamais un JSON valide après {1 + MAX_RETRIES} essai(s), "
+                        "rien n'est produit"
+                    ) from e
+                continue
+
         for k in ("cost", "prompt_tokens", "completion_tokens"):
             usage_total[k] = usage_total.get(k, 0) + (usage.get(k) or 0)
 

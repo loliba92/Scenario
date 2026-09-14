@@ -37,6 +37,21 @@ Rien d'autre : pas de HTML de page complet, pas de `<style>`, pas de
 Python déterministe insère ensuite ce contenu dans le gabarit existant du
 site.
 
+**Contrainte dure, avant toute autre règle : ta réponse entière doit être
+un JSON syntaxiquement valide (`json.loads` doit réussir sans erreur).**
+Plusieurs champs (`dek`, `why`, `comprendre_box[].text`, `sources_html`)
+contiennent du HTML inline avec des attributs entre guillemets doubles
+(`class="lex-ref"`, `href="..."`, `aria-label="..."`) — ces guillemets
+sont à l'intérieur d'une chaîne JSON déjà ouverte par un guillemet double,
+donc **chacun d'eux doit être échappé `\"`, jamais laissé tel quel**, sous
+peine de casser le parsing JSON (réponse rejetée automatiquement, aucun
+retry possible sur ce type d'erreur avant celui-ci). Exemple :
+- ❌ incorrect : `"...réellement<a class="lex-ref" href="#lex-embi">*</a>."`
+- ✅ correct : `"...réellement<a class=\"lex-ref\" href=\"#lex-embi\">*</a>."`
+
+Avant de renvoyer ta réponse, relis mentalement chaque chaîne contenant du
+HTML et vérifie qu'aucun `"` interne n'est resté non échappé.
+
 ## Règles de style (identiques à la routine actuelle)
 
 - **Public 15-35 ans en priorité, sans exclure personne** : phrases
@@ -67,10 +82,14 @@ site.
 - **`<strong>` sur les faits/chiffres clés**, un ou deux par paragraphe,
   jamais plus de deux dans une même phrase.
 - **Terme technique → lexique, jamais une parenthèse.** Dès qu'un mot
-  technique figure au lexique, ajouter juste après, sans espace avant :
-  `<a class="lex-ref" href="#lex-{slug}" aria-label="Voir la définition dans le lexique">*</a>`.
+  technique figure au lexique, ajouter juste après, sans espace avant,
+  avec les guillemets échappés puisque c'est à l'intérieur d'une chaîne
+  JSON (voir règle d'échappement plus haut) :
+  `<a class=\"lex-ref\" href=\"#lex-{slug}\" aria-label=\"Voir la définition dans le lexique\">*</a>`.
   `slug` = terme en minuscules, sans accents, espaces → tirets. Chaque
-  entrée du lexique reçoit l'`id="lex-{slug}"` correspondant.
+  entrée du lexique reçoit l'`id="lex-{slug}"` correspondant (cet `id`,
+  lui, est dans le HTML du gabarit construit par le script Python, pas
+  dans ta réponse JSON — pas d'échappement à faire pour celui-ci).
 - **Titres de scénario toujours littéraux, jamais une image à décoder.**
   Écarter : métaphores de guerre/nature/lieu qui ne décrivent rien
   littéralement (mauvais : « Le front s'enterre pour l'hiver » ; bon :
@@ -219,8 +238,9 @@ déjà expliqué dans le texte.
 
 ### `sources_html` (liste de chaînes)
 Reprend telles quelles les sources du brief (`brief.sources`), formatées
-`<a href="{url}" target="_blank" rel="noopener noreferrer">{media} — {titre} ↗</a>` —
-jamais une source absente du brief, jamais reformulée.
+`<a href=\"{url}\" target=\"_blank\" rel=\"noopener noreferrer\">{media} — {titre} ↗</a>`
+(guillemets échappés, même règle que `.lex-ref` plus haut) — jamais une
+source absente du brief, jamais reformulée.
 
 ### `meta`
 `{"title": "...", "meta_description": "...", "og_image_alt": "..."}`.
