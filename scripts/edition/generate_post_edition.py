@@ -331,9 +331,20 @@ def build_feed_item(content, date_str, read_minutes, ig_image_url, ig_image_size
 
 
 def update_feed_xml(feed_text, item_xml):
-    marker = "<channel>"
+    # Bug réel du 14 septembre 2026, premier vrai run --publish : l'ancien
+    # marker "<channel>" insérait le nouvel item JUSTE APRÈS <channel>,
+    # repoussant les métadonnées de la chaîne (title/link/description/
+    # language) APRÈS ce nouvel item — donc entre le nouvel item et l'ancien
+    # premier item, plutôt qu'avant les deux comme dans un flux RSS normal.
+    # Flux toujours valide en pratique (Make/la plupart des lecteurs RSS
+    # trouvent les balises par nom, pas par position), mais structure
+    # trompeuse à la lecture et non conforme à l'ordre conventionnel.
+    # Corrigé : insérer juste avant le premier <item> existant, jamais
+    # juste après <channel> — les métadonnées de chaîne restent toujours
+    # en tête, avant tout item.
+    marker = "\n    <item>"
     idx = feed_text.index(marker)
-    insert_at = feed_text.index("\n", idx) + 1
+    insert_at = idx + 1  # juste après le \n, avant l'indentation du <item>
     return feed_text[:insert_at] + item_xml + "\n" + feed_text[insert_at:]
 
 
