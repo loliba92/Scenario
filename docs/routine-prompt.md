@@ -68,9 +68,26 @@ routine précise**.
 
 **Avant de commencer, vérifier qu'une autre exécution n'a pas déjà produit
 le brief du jour.** Si `editorial-briefs/{AAAA-MM-JJ}.json` (date du jour,
-Europe/Paris) existe déjà sur `main`, s'arrêter proprement sans rien
-produire de plus — ce n'est plus `index.html` qu'il faut vérifier (cette
-routine ne le touche plus directement).
+Europe/Paris) existe déjà sur `main`, **ne pas refaire la recherche ni
+réécrire le brief** (Étapes 0 à 3, sauter directement) — **mais toujours
+exécuter le point 3 de l'Étape 3bis ci-dessous (déclencher le pipeline
+`post-edition.yml`), puis le point 4 (résumé), avant de t'arrêter.**
+
+**Pourquoi ce garde-fou ne doit jamais bloquer aussi le déclenchement du
+pipeline.** Incident réel du 14 septembre 2026 : un brief existait déjà
+(laissé par un test antérieur), la routine s'est arrêtée sans rien
+produire — y compris sans jamais essayer de déclencher le pipeline, alors
+que celui-ci n'avait pas tourné. Objectif explicite de l'utilisateur :
+qu'une relance manuelle de cette routine, **pour quelque raison que ce
+soit** (rattraper un pipeline jamais déclenché, ou simplement forcer un
+nouveau passage complet de bout en bout), redéclenche toujours la chaîne
+complète — jamais un no-op silencieux tant qu'il reste une action utile à
+faire. **Aucun risque de double publication** en relançant ainsi même
+plusieurs fois par erreur : `generate_post_edition.py --publish` a son
+propre garde-fou (`already_published_today()`, basé sur le `<meta
+property="article:published_time">` du vrai `index.html`) — si l'édition
+du jour est déjà publiée pour de vrai, le pipeline se contente de ne rien
+refaire, proprement, sans erreur.
 
 ## RÈGLES ÉDITORIALES
 
@@ -190,7 +207,10 @@ le lien.
    jamais committer autre chose** — jamais `index.html`, jamais
    `archives/`, jamais `feed.xml` : ce n'est plus le rôle de cette
    routine.
-3. Déclencher le pipeline de rédaction + publication :
+3. Déclencher le pipeline de rédaction + publication — **que tu arrives
+   ici après avoir committé un nouveau brief (points 1-2), ou directement
+   depuis le garde-fou en tête de fichier (brief déjà existant) : même
+   action dans les deux cas, jamais sautée.**
    ```bash
    gh workflow run post-edition.yml --ref main
    ```
@@ -208,8 +228,9 @@ le lien.
    façon un peu plus tard — signaler simplement ce point dans le résumé
    final plutôt que de forcer une méthode qui échouerait.
 4. Résumé final (comme avant, étape technique 12 de la version
-   historique ci-dessous) : sujet retenu, brief committé, pipeline
-   déclenché (ou note explicite s'il ne l'a pas été, et pourquoi).
+   historique ci-dessous) : sujet retenu, brief committé **ou** déjà
+   existant (préciser lequel des deux cas), pipeline déclenché (ou note
+   explicite s'il ne l'a pas été, et pourquoi).
 
 **Ne rien faire de plus** — pas de rédaction, pas de construction HTML,
 pas de commit sur `index.html`/`archives/`/`feed.xml`/`sitemap.xml`. La
