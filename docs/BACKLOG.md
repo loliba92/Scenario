@@ -9,6 +9,31 @@ retrouver éparpillées dans le reste du document. Mise à jour au 11 août.
 Priorités P1 (fort impact, faible coût) à P3 (utile mais plus lourd ou
 moins prioritaire).
 
+**Chaîne rédaction OpenRouter (prototype `.github/workflows/edition.yml`, 14 septembre 2026) — P1, workflow de post-édition à construire**
+- **Ce qui existe (Phase 1, prototype)** : `scripts/edition/generate_daily_edition.py`
+  + `scripts/edition/build_html.py` produisent un `index.html` de test
+  complet (chrome recopié du gabarit + contenu du modèle) à partir d'un
+  brief (`editorial-briefs/{date}.json`), avec validations strictes.
+  Volontairement hors périmètre pour l'instant, à traiter dans un
+  **second workflow dédié « post-édition »**, une fois la Phase 1
+  validée :
+  - Sélection/téléchargement de la photo de sujet (pipeline Pexels,
+    `scripts/social/fetch_topic_image.py`/`use_topic_image.py`) — le
+    prototype utilise une image générique de repli, jamais un faux
+    crédit Pexels inventé.
+  - Génération de l'image sociale/Instagram
+    (`scripts/social/generate_instagram_image.py`), même logique que
+    `translate_daily.py`/`generate_en_social_image()` côté EN.
+  - Mise à jour des flux RSS (`feed.xml`, `feed-suivi.xml`,
+    `feed-pub.xml` le cas échéant) et de `sitemap.xml`/`sitemap-news.xml`.
+  - Mise à jour d'`archives.html`/création de `archives/{date}.html`
+    (aujourd'hui gérée par `scripts/seo/generate_archives_table.py`,
+    réutilisable tel quel a priori).
+  - Décision de publication réelle (commit + push sur `main`) —
+    strictement hors de portée tant que la Phase 1 (dry-run/qualité
+    rédactionnelle) n'est pas validée en conditions réelles.
+  Noté ici pour ne pas le perdre — pas encore commencé.
+
 **Distribution / automatisation**
 - **[FAIT le 5 septembre 2026] Intégration Threads (via Buffer) sur le
   scénario Make « Scenario Daily », complétée sur les 3 branches
