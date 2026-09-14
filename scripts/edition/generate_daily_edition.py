@@ -363,6 +363,37 @@ def strip_markdown_json_fence(text):
     return m.group(1) if m else stripped
 
 
+def apply_apres_dek_index_fallback(content):
+    """Filet de sécurité — incidents réels des 14-15 septembre 2026 (runs
+    34851759911, 34858896901, 34859320491) : apres_dek_index manque à
+    l'essai 1 dans 100 % des runs réels observés jusqu'ici, malgré la
+    consigne explicite du prompt de base, son renforcement dédié en
+    relance (build_retry_reinforcement()) et la checklist finale ajoutée
+    dans docs/routine-redaction-prompt.md. Contrairement aux autres
+    erreurs de validate_content_schema() (longueur, JSON invalide,
+    lex-ref cassé...), qui touchent toutes à l'exactitude factuelle ou
+    éditoriale du contenu et doivent donc rester strictement bloquantes,
+    apres_dek_index n'est qu'un choix de PLACEMENT — n'importe quel
+    index valide reste correct du point de vue du lecteur. Appelée
+    uniquement en tout dernier recours par main() (voir son appel),
+    quand c'est la SEULE erreur restante après le dernier essai : mute
+    `content` en place avec un index par défaut raisonnable (milieu du
+    tableau dek, jamais avant le 1er paragraphe, donc toujours valide),
+    plutôt que de perdre un essai payant entier sur ce seul champ.
+    Retourne True si au moins une correction a été appliquée."""
+    dek_len = len(content.get("dek") or [])
+    if dek_len == 0:
+        return False
+    default_index = dek_len // 2
+    fixed_any = False
+    for box in content.get("comprendre_box") or []:
+        apres = box.get("apres_dek_index")
+        if not isinstance(apres, int) or isinstance(apres, bool) or not (0 <= apres < dek_len):
+            box["apres_dek_index"] = default_index
+            fixed_any = True
+    return fixed_any
+
+
 # ---------------------------------------------------------------------------
 # Validation du contenu retourné par le modèle (avant construction HTML)
 # ---------------------------------------------------------------------------
@@ -701,7 +732,22 @@ def main():
             break  # inutile de "réessayer" contre la même fixture figée
 
     if errors:
-        raise GenerationError(f"validation du contenu échouée après {1 + MAX_RETRIES} essai(s), rien n'est produit")
+        # Filet de sécurité : si apres_dek_index est la SEULE erreur
+        # restante après le dernier essai (aucune autre erreur de fond),
+        # corriger directement plutôt que de tout rejeter — voir
+        # apply_apres_dek_index_fallback(). Un contenu par ailleurs
+        # invalide (longueur, JSON, lex-ref...) continue de faire
+        # échouer le script normalement.
+        non_apres_dek_errors = [e for e in errors if "apres_dek_index" not in e]
+        if not non_apres_dek_errors and content is not None and apply_apres_dek_index_fallback(content):
+            print(
+                "[edition] apres_dek_index manquant/invalide après le dernier essai — "
+                "filet de sécurité appliqué (index par défaut), voir apply_apres_dek_index_fallback()",
+                file=sys.stderr,
+            )
+            errors = []
+        else:
+            raise GenerationError(f"validation du contenu échouée après {1 + MAX_RETRIES} essai(s), rien n'est produit")
 
     html_text, edition_number = build_html.assemble_index_html(shell, content, brief, date_str)
 

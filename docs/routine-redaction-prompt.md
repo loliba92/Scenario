@@ -287,4 +287,24 @@ reprend la substance de `question_text`.
 }
 ```
 
+## Checklist finale — vérifier avant d'envoyer la réponse
+
+Erreurs réellement observées en conditions réelles sur ce prototype,
+chacune ayant déjà fait échouer un essai payant. Avant de répondre,
+relire ces deux points sur TA PROPRE réponse (pas le prompt) :
+
+1. **Chaque élément de `comprendre_box` a-t-il bien un champ
+   `apres_dek_index` (entier, jamais absent) ?** C'est l'erreur la plus
+   fréquente observée : le champ est décrit plus haut mais régulièrement
+   oublié dans la réponse finale. S'il y a 0 élément dans
+   `comprendre_box`, ce point ne s'applique pas — mais s'il y en a au
+   moins 1, `apres_dek_index` est obligatoire sur CHACUN, sans
+   exception.
+2. **Le total dek + why + lexique atteint-il vraiment 1300-1500 mots ?**
+   Ne pas se fier à une impression — reprendre l'arithmétique de
+   vérification plus haut (6×110 + 6×110 + lexique ≈ 1420) sur TA PROPRE
+   réponse, paragraphe par paragraphe. Une réponse qui tombe à 1050-1100
+   mots malgré cette consigne est un échec déjà observé plusieurs fois :
+   viser franchement au-dessus du minimum, jamais juste au-dessus.
+
 Renvoie uniquement cet objet JSON, rien avant, rien après.
