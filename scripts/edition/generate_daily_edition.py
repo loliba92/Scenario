@@ -216,11 +216,22 @@ def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, 
         raise GenerationError(f"réponse OpenRouter sans 'choices' : {data}")
     content_str = data["choices"][0]["message"]["content"]
     try:
-        content = json.loads(content_str)
+        content = json.loads(strip_markdown_json_fence(content_str))
     except json.JSONDecodeError as e:
         raise GenerationError(f"réponse du modèle n'est pas un JSON valide : {e}\n{content_str[:2000]}")
     usage = data.get("usage", {})
     return content, usage
+
+
+def strip_markdown_json_fence(text):
+    """Malgré `response_format: {"type": "json_object"}`, un premier vrai
+    appel (14 septembre 2026) a montré Claude Sonnet envelopper sa réponse
+    dans un bloc markdown ```json ... ``` — jamais garanti côté modèle,
+    donc traité ici plutôt que supposé absent. Ne touche pas le texte si
+    aucune barrière markdown n'est présente (cas nominal)."""
+    stripped = text.strip()
+    m = re.match(r"^```(?:json)?\s*\n(.*)\n```\s*$", stripped, re.S)
+    return m.group(1) if m else stripped
 
 
 # ---------------------------------------------------------------------------
