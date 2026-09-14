@@ -722,6 +722,19 @@ def main():
     shutil.copy(REPO_ROOT / "glossaire.html", mirror_root / "glossaire.html")
     shutil.copy(archive_path, mirror_root / "archives" / f"{date_str}.html")
 
+    # Bug réel du 14 septembre 2026 (signalé par l'utilisateur : badge EN
+    # disparu sur archives.html, y compris pour des éditions déjà traduites
+    # les jours précédents) : generate_archives_table.py lit lui-même
+    # en/archives/{date}.html sur disque pour décider d'ajouter le badge
+    # EN — mais ce dossier n'était jamais recopié dans ce miroir, donc le
+    # script y voyait TOUJOURS aucune traduction et régénérait
+    # archives.html avec zéro badge, quelle que soit la date. Ce fichier
+    # sans badges était ensuite promu tel quel vers le vrai dépôt via
+    # --publish, effaçant les 20 badges déjà présents. Corrigé en
+    # recopiant aussi en/archives/ dans le miroir.
+    if (REPO_ROOT / "en" / "archives").exists():
+        shutil.copytree(REPO_ROOT / "en" / "archives", mirror_root / "en" / "archives")
+
     mirrored_script_dir = mirror_root / "scripts" / "seo"
     mirrored_script_dir.mkdir(parents=True, exist_ok=True)
     mirrored_script = mirrored_script_dir / "generate_archives_table.py"
