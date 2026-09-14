@@ -64,8 +64,12 @@ jobs:
           # sitemap.xml/sitemap-news.xml, en/feed.xml et l'image sociale
           # en/assets/social/instagram/ en plus de en/index.html et
           # en/archives/ — les oublier ici les laissait modifiés sans
-          # être commités, donc perdus à la fin du run.
-          git add en/index.html en/archives/ archives.html sitemap.xml sitemap-news.xml en/feed.xml en/assets/social/instagram/
+          # être commités, donc perdus à la fin du run. Ajouté le 14
+          # septembre 2026 : index.html et archives/ (bouton EN +
+          # hreflang="en" retouchés rétroactivement sur ces deux pages
+          # françaises, voir add_fr_lang_button()/add_hreflang_en()) —
+          # même oubli, mêmes conséquences.
+          git add en/index.html en/archives/ archives.html sitemap.xml sitemap-news.xml en/feed.xml en/assets/social/instagram/ index.html archives/
           if git diff --cached --quiet; then
             echo "Aucun changement — rien à committer."
             exit 0
