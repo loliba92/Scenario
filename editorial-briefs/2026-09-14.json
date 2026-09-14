@@ -8,7 +8,8 @@
     "eyebrow": "Lundi, géopolitique",
     "angle": "À dix jours du sommet Trump-Xi du 24 septembre, la Chine multiplie les incursions autour de Taïwan (plus de 3 700 sorties aériennes en 2025, contre 970 en 2021) pendant que Washington garde en suspens un contrat d'armement de 14 Md$ promis à Taipei — test grandeur nature de ce que vaut réellement le soutien américain.",
     "tags": ["international", "diplomatie", "defense"],
-    "domain": "international"
+    "domain": "international",
+    "image_keywords": "fighter jet military aircraft sky"
   },
   "_note_test_grandeur_nature": "Premier brief RÉEL du prototype (Phase 1) — sujet sélectionné selon l'Étape 0/0bis/1 de docs/routine-prompt.md (premier sujet non coché de la section 'Géopolitique — lundi' de sujets-prioritaires.md, vérifié anti-doublon), tous les faits vérifiés via WebSearch/WebFetch le 14 septembre 2026 avec sources réelles et datées (voir sources[]). Toujours Phase 1 : ce brief sert à tester la chaîne de rédaction OpenRouter, aucune publication prévue à l'issue de ce test.",
   "anti_doublon": {

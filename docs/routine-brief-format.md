@@ -31,7 +31,8 @@ sur un fichier partagé entre deux process).
     "eyebrow": "string, format '{Jour}, {registre}'",
     "angle": "string, 1-2 phrases",
     "tags": ["string"],
-    "domain": "un des 6 slugs de docs/tags.md"
+    "domain": "un des 6 slugs de docs/tags.md",
+    "image_keywords": "string, 2-3 mots-clés thématiques EN, ou null"
   },
   "anti_doublon": {
     "veille_ok": true,
@@ -86,6 +87,27 @@ sur un fichier partagé entre deux process).
   "recommandations_redaction": ["string"]
 }
 ```
+
+## Champ `sujet.image_keywords` (utilisé par `generate_post_edition.py`, pas la rédaction)
+
+2-3 mots-clés thématiques **génériques en anglais** pour la recherche de
+photo de sujet (Pexels) — même règle que la routine complète
+(`docs/routine-prompt.md`, étape « Image du sujet ») : jamais le titre
+recopié tel quel, jamais un nom propre/marque/acronyme isolé (un lieu
+générique + concept reste valable, ex. « government building paris »).
+`null` si aucun concept visuel générique clair ne se dégage du sujet —
+dans ce cas `generate_post_edition.py` retombe directement sur l'image
+générique, sans appel Pexels.
+
+**Sélection automatique du candidat, sans revue humaine** (décision
+assumée le 14 septembre 2026, changement de comportement par rapport à
+`fetch_topic_image.py` qui documente une sélection humaine par défaut) :
+`generate_post_edition.py` retient le premier candidat renvoyé par
+Pexels pour cette requête, jamais un choix éditorial. La qualité du
+résultat final dépend donc entièrement de la précision des mots-clés
+choisis ici — les mêmes précautions que la routine complète restent
+valables (pas de visage reconnaissable suggéré, pas de photomontage
+stock clicheté), même si elles ne sont plus vérifiées après coup.
 
 ## Règles de validité (vérifiées par `generate_daily_edition.py`)
 

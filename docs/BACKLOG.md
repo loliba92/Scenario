@@ -9,30 +9,50 @@ retrouver éparpillées dans le reste du document. Mise à jour au 11 août.
 Priorités P1 (fort impact, faible coût) à P3 (utile mais plus lourd ou
 moins prioritaire).
 
-**Chaîne rédaction OpenRouter (prototype `.github/workflows/edition.yml`, 14 septembre 2026) — P1, workflow de post-édition à construire**
-- **Ce qui existe (Phase 1, prototype)** : `scripts/edition/generate_daily_edition.py`
+**Chaîne rédaction + post-édition OpenRouter (prototype, `.github/workflows/edition.yml` + `post-edition.yml`, 14 septembre 2026) — P1**
+- **Rédaction (Phase 1)** : `scripts/edition/generate_daily_edition.py`
   + `scripts/edition/build_html.py` produisent un `index.html` de test
   complet (chrome recopié du gabarit + contenu du modèle) à partir d'un
-  brief (`editorial-briefs/{date}.json`), avec validations strictes.
-  Volontairement hors périmètre pour l'instant, à traiter dans un
-  **second workflow dédié « post-édition »**, une fois la Phase 1
-  validée :
-  - Sélection/téléchargement de la photo de sujet (pipeline Pexels,
-    `scripts/social/fetch_topic_image.py`/`use_topic_image.py`) — le
-    prototype utilise une image générique de repli, jamais un faux
-    crédit Pexels inventé.
-  - Génération de l'image sociale/Instagram
-    (`scripts/social/generate_instagram_image.py`), même logique que
-    `translate_daily.py`/`generate_en_social_image()` côté EN.
-  - Mise à jour des flux RSS (`feed.xml`, `feed-suivi.xml`,
-    `feed-pub.xml` le cas échéant) et de `sitemap.xml`/`sitemap-news.xml`.
-  - Mise à jour d'`archives.html`/création de `archives/{date}.html`
-    (aujourd'hui gérée par `scripts/seo/generate_archives_table.py`,
-    réutilisable tel quel a priori).
-  - Décision de publication réelle (commit + push sur `main`) —
-    strictement hors de portée tant que la Phase 1 (dry-run/qualité
-    rédactionnelle) n'est pas validée en conditions réelles.
-  Noté ici pour ne pas le perdre — pas encore commencé.
+  brief (`editorial-briefs/{date}.json`), avec validations strictes et
+  retry automatique. Validé deux fois en conditions réelles (brief
+  fictif puis brief réel, sujet Taïwan/Chine/États-Unis du 14 septembre)
+  — deux bugs réels trouvés et corrigés (guillemets JSON non échappés
+  dans `.lex-ref`, encart `.comprendre-box` perdu à l'assemblage HTML).
+- **[FAIT le 14 septembre 2026] Post-édition, second workflow dédié**
+  (`.github/workflows/post-edition.yml`,
+  `scripts/edition/generate_post_edition.py`) — chaîne rédaction puis :
+  - **Photo de sujet (Pexels)** — sélection **automatique** du 1er
+    candidat (décision assumée, changement de comportement volontaire
+    par rapport à `fetch_topic_image.py`/`use_topic_image.py`, qui
+    documentent une sélection humaine par défaut ; voir
+    `docs/routine-brief-format.md` § `image_keywords`, nouveau champ du
+    brief). Repli automatique sur l'image générique si Pexels échoue ou
+    si `image_keywords` est absent — jamais bloquant.
+  - **Image Instagram** (`scripts/social/generate_instagram_image.py`,
+    réutilisé tel quel) — simplification Phase 1 assumée :
+    `context`/labels réutilisent `section_title`/titres de cartes déjà
+    rédigés, jamais une reformulation dédiée à l'image (voir
+    `docs/routine-prompt.md`, qui demande explicitement l'inverse — à
+    corriger si le rendu déçoit à l'usage).
+  - **`feed.xml`** (nouvel `<item>`, structure Question/Faits/Scénarios)
+    et **`sitemap.xml`/`sitemap-news.xml`** (purge >48h) — mis à jour
+    par du texte/XML déterministe, jamais par le modèle.
+  - **`archives.html`** régénéré via `scripts/seo/generate_archives_table.py`,
+    réutilisé sans modification (contourne son calcul de racine basé sur
+    `__file__` en copiant le script + les fichiers qu'il lit sous un
+    bac à sable, jamais le vrai dépôt).
+  - **Toujours Phase 1** : `workflow_dispatch` uniquement, AUCUN
+    commit/push — tout sous `_prototype-out/`, jamais les vrais fichiers
+    du dépôt (vérifié : `git status` inchangé après plusieurs runs
+    locaux complets, avec et sans photo).
+  - Testé en local de bout en bout (rédaction dry-run → post-édition,
+    avec et sans photo, repli Pexels sans clé API vérifié) — pas encore
+    testé en conditions réelles sur GitHub Actions.
+- **Reste hors périmètre, explicitement** : `feed-suivi.xml`/`feed-pub.xml`
+  (pas mis à jour par ce prototype), traduction EN/`en/feed.xml` (gérée
+  séparément par `translate-en.yml`), décision de publication réelle
+  (commit + push sur `main`) — strictement hors de portée tant que la
+  qualité rédactionnelle n'est pas éprouvée sur plusieurs jours réels.
 
 **Distribution / automatisation**
 - **[FAIT le 5 septembre 2026] Intégration Threads (via Buffer) sur le

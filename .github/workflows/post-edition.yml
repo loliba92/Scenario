@@ -1,0 +1,96 @@
+name: Post-édition — prototype photo/feed/sitemap/archives (Phase 1)
+
+# Prototype du 2e maillon de la chaîne validée dans la conversation qui a
+# précédé ce workflow (voir docs/BACKLOG.md § « Chaîne rédaction
+# OpenRouter ») : enchaîne la rédaction (edition.yml) puis tout ce qui
+# manquait encore avant une vraie publication — photo de sujet (Pexels,
+# sélection AUTOMATIQUE du 1er candidat, voir
+# docs/routine-brief-format.md § image_keywords), image Instagram,
+# feed.xml, sitemap.xml/sitemap-news.xml, archives.html.
+#
+# PHASE 1 — PROTOTYPE UNIQUEMENT :
+#   - déclenchement manuel (workflow_dispatch) uniquement, pas de cron ;
+#   - AUCUN commit, AUCUN push, AUCUNE publication — tout s'écrit sous
+#     _prototype-out/, jamais dans les vrais fichiers du dépôt (voir
+#     scripts/edition/generate_post_edition.py, discipline du bac à
+#     sable) ;
+#   - le trigger Claude Code Remote "Scénario" reste désactivé et n'est
+#     pas touché par ce workflow.
+#
+# Secrets requis :
+#   OPENROUTER_API_KEY (rédaction, déjà existant, voir edition.yml)
+#   PEXELS_API_KEY (photo de sujet — optionnel : absent, le job continue
+#     avec l'image générique, jamais bloquant, voir generate_post_edition.py)
+
+on:
+  workflow_dispatch:
+    inputs:
+      brief:
+        description: "Chemin du brief à utiliser"
+        required: false
+        default: "editorial-briefs/2026-09-20.json"
+      dry_run:
+        description: "true = rédaction sur fixture locale, aucun appel OpenRouter (test de la mécanique uniquement)"
+        required: false
+        default: "false"
+      skip_photo:
+        description: "true = n'appelle pas Pexels (test de la mécanique post-édition sans réseau/clé)"
+        required: false
+        default: "false"
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Installer les dépendances
+        run: pip install beautifulsoup4 playwright
+
+      - name: Installer Chromium (image Instagram)
+        run: python3 -m playwright install --with-deps chromium
+
+      - name: Rédaction — générer l'édition de test
+        working-directory: scripts/edition
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          ARGS="--brief ../../${{ github.event.inputs.brief }}"
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          python3 generate_daily_edition.py $ARGS --out ../../_prototype-out/output.html
+
+      - name: Post-édition — photo, image Instagram, feed.xml, sitemap, archives.html
+        working-directory: scripts/edition
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: |
+          ARGS="--brief ../../${{ github.event.inputs.brief }} --content ../../_prototype-out/output.content.json"
+          if [ "${{ github.event.inputs.skip_photo }}" = "true" ]; then
+            ARGS="$ARGS --skip-photo"
+          fi
+          python3 generate_post_edition.py $ARGS --sandbox-root ../../_prototype-out/post-edition
+
+      - name: Uploader la sortie de test comme artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: post-edition-prototype-${{ github.run_id }}
+          path: _prototype-out/
+          retention-days: 14
+          if-no-files-found: warn
+
+      # Rappel explicite dans les logs, pour qu'il n'y ait jamais de doute
+      # en relisant un run passé : ce job ne publie jamais rien.
+      - name: Rappel — aucune publication
+        if: always()
+        run: |
+          echo "Phase 1 prototype : aucun commit, aucun push, aucune publication n'a été effectué par ce workflow."

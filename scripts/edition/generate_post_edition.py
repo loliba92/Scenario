@@ -1,0 +1,442 @@
+#!/usr/bin/env python3
+"""
+Post-édition (Phase 1 prototype) : à partir du contenu déjà rédigé et
+validé par generate_daily_edition.py (fichier `{date}.content.json`),
+produit tout ce qui manquait encore pour une vraie publication — voir
+docs/BACKLOG.md § « Chaîne rédaction OpenRouter » :
+  1. photo de sujet (Pexels) — sélection AUTOMATIQUE du 1er candidat,
+     sans revue humaine (décision assumée le 14 septembre 2026, voir
+     docs/routine-brief-format.md § image_keywords — changement de
+     comportement volontaire par rapport à fetch_topic_image.py, qui
+     documente une sélection humaine par défaut) ;
+  2. HTML final réassemblé avec cette photo (build_html.assemble_index_html,
+     paramètre `photo`) ;
+  3. image Instagram (scripts/social/generate_instagram_image.py) ;
+  4. feed.xml (nouvel <item>) ;
+  5. sitemap.xml (nouvelle entrée archive) et sitemap-news.xml (purge >48h) ;
+  6. archives.html (scripts/seo/generate_archives_table.py, réutilisé tel
+     quel — nécessite que l'archive du jour existe réellement sur disque,
+     voir --sandbox-root).
+
+Limites Phase 1, assumées (voir docs/BACKLOG.md) :
+  - pas de recadrage de repli sur la photo générique du registre si
+    Pexels échoue — retombe directement sur l'image générique du
+    gabarit (comportement historique de build_html.py), jamais bloquant ;
+  - `context`/labels de l'image Instagram réutilisent section_title et
+    les titres de cartes déjà rédigés, jamais une reformulation dédiée
+    (voir docs/routine-prompt.md, règle « jamais un copier-coller du
+    site ») — simplification Phase 1, à corriger si le rendu déçoit ;
+  - `<comments>`/le 1er bloc de la Description reprennent question_text
+    seul, sans « accroche » distincte (jamais définie précisément dans
+    le brief actuel) ;
+  - pas de en/feed.xml ni sitemap EN (traduction gérée séparément par
+    translate-en.yml, hors périmètre ici) ;
+  - AUCUN commit, AUCUN push — tout s'écrit sous --sandbox-root (défaut :
+    _prototype-out/post-edition/), jamais dans les vrais fichiers du
+    dépôt. Voir .github/workflows/post-edition.yml (workflow_dispatch
+    uniquement, comme edition.yml).
+
+Usage:
+    export PEXELS_API_KEY=sk-...
+    python3 generate_post_edition.py \\
+        --brief ../../editorial-briefs/2026-09-14.json \\
+        --content ../../_prototype-out/2026-09-14.content.json \\
+        --sandbox-root ../../_prototype-out/post-edition
+
+    # Sans clé Pexels/sans réseau, pour tester la mécanique (feed/sitemap/
+    # archives) sans dépendre d'un appel externe :
+    python3 generate_post_edition.py --brief ... --content ... --skip-photo
+"""
+import argparse
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+import xml.etree.ElementTree as ET
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+from xml.sax.saxutils import escape as escape_xml
+
+import build_html
+from generate_daily_edition import estimate_word_count, load_brief
+
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+SOCIAL_DIR = REPO_ROOT / "scripts" / "social"
+SEO_DIR = REPO_ROOT / "scripts" / "seo"
+SITE_URL = "https://lesscenarios.fr"
+CARD_ORDER = ("favorable", "stable", "degrade")
+CARD_EMOJI = {"favorable": "🟢", "stable": "🔵", "degrade": "🔴"}
+# Approximation Europe/Paris (CEST, UTC+2) — même limite que le reste du
+# prototype (pas de dépendance à une base tz système), acceptable pour un
+# <pubDate>/<news:publication_date> de test, jamais utilisé tel quel en
+# production réelle sans vérifier le décalage hiver/été.
+PARIS_TZ = timezone(timedelta(hours=2))
+
+
+class PostEditionError(Exception):
+    pass
+
+
+# ---------------------------------------------------------------------------
+# 1. Photo de sujet (Pexels) — sélection automatique
+# ---------------------------------------------------------------------------
+def select_topic_photo(image_keywords, date_str, sandbox_root, timeout=25):
+    """Retourne un dict de crédits pour le 1er candidat Pexels retenu, ou
+    None si aucune photo n'a pu être obtenue — jamais bloquant : l'appelant
+    retombe alors sur l'image générique existante (photo=None,
+    build_html.py, comportement historique de la Phase 1 rédaction)."""
+    if not image_keywords:
+        print("[post-edition] image_keywords absent du brief — pas de recherche de photo", file=sys.stderr)
+        return None
+
+    candidates_dir = sandbox_root / "topic-image-candidates"
+    candidates_dir.mkdir(parents=True, exist_ok=True)
+    fetch_script = SOCIAL_DIR / "fetch_topic_image.py"
+
+    try:
+        subprocess.run(
+            [sys.executable, str(fetch_script), image_keywords, "--count", "5", "--out", str(candidates_dir)],
+            check=True, capture_output=True, text=True, timeout=timeout,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"[post-edition] fetch_topic_image.py a échoué (code {e.returncode}) : "
+              f"{(e.stderr or '')[-500:]}", file=sys.stderr)
+        return None
+    except subprocess.TimeoutExpired:
+        print(f"[post-edition] fetch_topic_image.py : délai dépassé ({timeout}s)", file=sys.stderr)
+        return None
+
+    credits_path = candidates_dir / "credits.json"
+    if not credits_path.exists():
+        print("[post-edition] aucun credits.json produit — aucun candidat", file=sys.stderr)
+        return None
+    with open(credits_path, encoding="utf-8") as f:
+        credits = json.load(f)
+    if not credits:
+        print("[post-edition] credits.json vide — aucun candidat exploitable", file=sys.stderr)
+        return None
+
+    # Sélection automatique du 1er candidat — voir docstring module.
+    chosen = credits[0]
+    candidate_path = chosen.get("file")
+    if not candidate_path or not os.path.isfile(candidate_path):
+        print(f"[post-edition] candidat retenu introuvable sur disque : {candidate_path!r}", file=sys.stderr)
+        return None
+
+    use_script = SOCIAL_DIR / "use_topic_image.py"
+    try:
+        subprocess.run(
+            [sys.executable, str(use_script), candidate_path, "--date", date_str,
+             "--credits", str(credits_path), "--repo-root", str(sandbox_root)],
+            check=True, capture_output=True, text=True, timeout=timeout,
+        )
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as e:
+        print(f"[post-edition] use_topic_image.py a échoué : {e}", file=sys.stderr)
+        return None
+
+    square_path = sandbox_root / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
+    if not square_path.exists():
+        print(f"[post-edition] image carrée attendue introuvable : {square_path}", file=sys.stderr)
+        return None
+
+    return {
+        "square_path": square_path,
+        "photographer": chosen.get("photographer") or "Photographe non identifié",
+        "pexels_url": chosen.get("pexels_url") or "https://www.pexels.com/",
+        "query": image_keywords,
+    }
+
+
+# ---------------------------------------------------------------------------
+# 2. Image Instagram
+# ---------------------------------------------------------------------------
+def generate_instagram_image(content, date_str, sandbox_root, photo):
+    """Reconstruit /tmp/ig-data.json à la volée et appelle
+    generate_instagram_image.py — simplification Phase 1 assumée
+    (context/labels réutilisés tels quels, voir docstring module)."""
+    ig_data = {
+        "title": content["h1"],
+        "context": content["section_title"],
+        "scenarios": [
+            {"kind": k, "label": content["cards"][k]["h3"]} for k in CARD_ORDER
+        ],
+    }
+    data_path = sandbox_root / "ig-data.json"
+    data_path.write_text(json.dumps(ig_data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    out_dir = sandbox_root / "assets" / "social" / "instagram"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    output_path = out_dir / f"{date_str}.png"
+
+    cmd = [
+        sys.executable, str(SOCIAL_DIR / "generate_instagram_image.py"),
+        "--data", str(data_path), "--output", str(output_path),
+    ]
+    if photo:
+        cmd += ["--template", str(SOCIAL_DIR / "instagram-photo-template.html"),
+                "--photo", str(photo["square_path"])]
+    else:
+        cmd += ["--template", str(SOCIAL_DIR / "instagram-template.html")]
+
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+    if result.returncode != 0:
+        raise PostEditionError(f"generate_instagram_image.py a échoué : {result.stderr[-1000:]}")
+    if not output_path.exists():
+        raise PostEditionError(f"generate_instagram_image.py n'a produit aucun fichier : {output_path}")
+    return output_path
+
+
+# ---------------------------------------------------------------------------
+# 3. feed.xml
+# ---------------------------------------------------------------------------
+def build_feed_item(content, date_str, read_minutes, ig_image_url, ig_image_size):
+    h1 = content["h1"]
+    link = f"{SITE_URL}/archives/{date_str}.html"
+    guid = f"scenario-{date_str}"
+    pub_date = datetime.now(PARIS_TZ).strftime("%a, %d %b %Y %H:%M:%S %z")
+    question = content["question_text"]
+    if len(content.get("essentiel_box") or []) < 2:
+        raise PostEditionError("essentiel_box : moins de 2 paragraphes, impossible d'extraire le Contexte")
+    contexte = content["essentiel_box"][1]
+    card_titles = {k: content["cards"][k]["h3"] for k in CARD_ORDER}
+
+    category = ",".join(f'"{CARD_EMOJI[k]} {card_titles[k]}"' for k in CARD_ORDER)
+    scenarios_lines = "<br>".join(f"{CARD_EMOJI[k]} {card_titles[k]}" for k in CARD_ORDER)
+
+    description = (
+        f'<img src="{ig_image_url}" alt="{escape_xml(h1)}" style="max-width:100%;width:100%;height:auto;"><br><br>'
+        f"La question posée : {question}<br><br>"
+        f"Les faits : {contexte}<br><br>"
+        f"Les 3 scénarios :<br>{scenarios_lines}<br><br>"
+        f'Lequel est le plus probable ? 👉 <a href="{link}">Lire les 3 prévisions chiffrées sur le site</a> '
+        f"— c'est gratuit (~{read_minutes} min de lecture).<br><br>"
+        'Envie de voter avant de connaître les vraies probabilités ? Rejoins le canal Telegram : '
+        '<a href="https://t.me/scenario_fr">t.me/scenario_fr</a><br><br>'
+        "Une question, une remarque ? Réponds directement à cet email, on te lit."
+    )
+
+    enclosure = f'\n  <enclosure url="{ig_image_url}" length="{ig_image_size}" type="image/png"/>' if ig_image_url else ""
+
+    return (
+        "    <item>\n"
+        f"      <title>{escape_xml(h1)}</title>\n"
+        f"      <link>{link}</link>\n"
+        f'      <guid isPermaLink="false">{guid}</guid>\n'
+        f"      <pubDate>{pub_date}</pubDate>\n"
+        f"      <comments>{escape_xml(question)}</comments>\n"
+        f"      <category>{category}</category>"
+        f"{enclosure}\n"
+        f"      <description><![CDATA[{description}]]></description>\n"
+        "    </item>"
+    )
+
+
+def update_feed_xml(feed_text, item_xml):
+    marker = "<channel>"
+    idx = feed_text.index(marker)
+    insert_at = feed_text.index("\n", idx) + 1
+    return feed_text[:insert_at] + item_xml + "\n" + feed_text[insert_at:]
+
+
+# ---------------------------------------------------------------------------
+# 4. sitemap.xml / sitemap-news.xml
+# ---------------------------------------------------------------------------
+def update_sitemap_xml(sitemap_text, date_str):
+    def bump_lastmod(text, loc):
+        pattern = re.compile(
+            rf'(<loc>{re.escape(loc)}</loc>\s*<lastmod>)\d{{4}}-\d{{2}}-\d{{2}}(</lastmod>)'
+        )
+        new_text, n = pattern.subn(rf"\g<1>{date_str}\g<2>", text, count=1)
+        if n != 1:
+            raise PostEditionError(f"sitemap.xml : <lastmod> introuvable/ambigu pour {loc} ({n} correspondance(s))")
+        return new_text
+
+    text = bump_lastmod(sitemap_text, f"{SITE_URL}/")
+    text = bump_lastmod(text, f"{SITE_URL}/archives.html")
+
+    new_entry = (
+        "  <url>\n"
+        f"    <loc>{SITE_URL}/archives/{date_str}.html</loc>\n"
+        f"    <lastmod>{date_str}</lastmod>\n"
+        "    <changefreq>never</changefreq>\n"
+        "    <priority>0.6</priority>\n"
+        "  </url>\n"
+    )
+    marker = f"<loc>{SITE_URL}/archives.html</loc>"
+    idx = text.index(marker)
+    insert_at = text.index("</url>", idx) + len("</url>\n")
+    return text[:insert_at] + new_entry + text[insert_at:]
+
+
+def update_sitemap_news_xml(sitemap_news_text, date_str, title):
+    """Ajoute l'entrée du jour et purge tout ce qui a plus de 48h — la
+    purge est la règle ici, contrairement à sitemap.xml (voir
+    docs/routine-prompt.md, étape technique 7bis)."""
+    ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9",
+          "news": "http://www.google.com/schemas/sitemap-news/0.9"}
+    ET.register_namespace("", ns["sm"])
+    ET.register_namespace("news", ns["news"])
+    root = ET.fromstring(sitemap_news_text)
+
+    now = datetime.now(PARIS_TZ)
+    cutoff = now - timedelta(hours=48)
+    for url_el in list(root.findall("sm:url", ns)):
+        pub_el = url_el.find("news:news/news:publication_date", ns)
+        if pub_el is None or pub_el.text is None:
+            continue
+        try:
+            pub_dt = datetime.fromisoformat(pub_el.text)
+        except ValueError:
+            continue
+        if pub_dt < cutoff:
+            root.remove(url_el)
+
+    new_url = ET.SubElement(root, f"{{{ns['sm']}}}url")
+    ET.SubElement(new_url, f"{{{ns['sm']}}}loc").text = f"{SITE_URL}/archives/{date_str}.html"
+    news_el = ET.SubElement(new_url, f"{{{ns['news']}}}news")
+    pub_el = ET.SubElement(news_el, f"{{{ns['news']}}}publication")
+    ET.SubElement(pub_el, f"{{{ns['news']}}}name").text = "Scénario"
+    ET.SubElement(pub_el, f"{{{ns['news']}}}language").text = "fr"
+    ET.SubElement(news_el, f"{{{ns['news']}}}publication_date").text = now.isoformat(timespec="seconds")
+    ET.SubElement(news_el, f"{{{ns['news']}}}title").text = title
+
+    return '<?xml version="1.0" encoding="UTF-8"?>\n' + ET.tostring(root, encoding="unicode")
+
+
+# ---------------------------------------------------------------------------
+# main
+# ---------------------------------------------------------------------------
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--brief", required=True, help="chemin du brief JSON (même fichier que la rédaction)")
+    parser.add_argument("--content", required=True, help="chemin du {date}.content.json produit par generate_daily_edition.py")
+    parser.add_argument("--sandbox-root", default=None,
+                         help="racine bac à sable pour toutes les écritures (défaut : _prototype-out/post-edition/{date}) — "
+                              "jamais le dépôt réel")
+    parser.add_argument("--skip-photo", action="store_true", help="n'appelle pas Pexels (test mécanique sans réseau)")
+    args = parser.parse_args()
+
+    brief = load_brief(args.brief)
+    date_str = brief["date"]
+    print(f"[post-edition] brief chargé : {args.brief} (date {date_str})")
+
+    content_path = Path(args.content)
+    if not content_path.exists():
+        raise PostEditionError(f"content.json introuvable : {content_path} — lancer generate_daily_edition.py d'abord")
+    content = json.loads(content_path.read_text(encoding="utf-8"))
+
+    sandbox_root = Path(args.sandbox_root) if args.sandbox_root else REPO_ROOT / "_prototype-out" / "post-edition" / date_str
+    sandbox_root.mkdir(parents=True, exist_ok=True)
+    print(f"[post-edition] bac à sable : {sandbox_root}")
+
+    # 1. Photo
+    photo = None
+    if args.skip_photo:
+        print("[post-edition] --skip-photo : pas d'appel Pexels, image générique conservée")
+    else:
+        image_keywords = brief.get("sujet", {}).get("image_keywords")
+        photo_credits = select_topic_photo(image_keywords, date_str, sandbox_root)
+        if photo_credits:
+            photo = {
+                "og_image_url": f"{SITE_URL}/assets/social/instagram/{date_str}.png",
+                "alt": f"Photo d'illustration — {content['h1']}",
+                "photographer": photo_credits["photographer"],
+                "pexels_url": photo_credits["pexels_url"],
+                "square_path": photo_credits["square_path"],
+            }
+            print(f"[post-edition] photo retenue (requête « {photo_credits['query']} », {photo_credits['photographer']})")
+        else:
+            print("[post-edition] aucune photo retenue — image générique conservée")
+
+    # 2. HTML final (photo incluse)
+    index_html_path = REPO_ROOT / "index.html"
+    shell = build_html.extract_shell(index_html_path.read_text(encoding="utf-8"))
+    html_text, edition_number = build_html.assemble_index_html(shell, content, brief, date_str, photo=photo)
+    archive_dir = sandbox_root / "archives"
+    archive_dir.mkdir(parents=True, exist_ok=True)
+    archive_path = archive_dir / f"{date_str}.html"
+    archive_path.write_text(html_text, encoding="utf-8")
+    print(f"[post-edition] HTML final (édition N°{edition_number}) écrit : {archive_path}")
+
+    # 3. Image Instagram
+    ig_image_path = generate_instagram_image(content, date_str, sandbox_root, photo)
+    ig_image_size = ig_image_path.stat().st_size
+    ig_image_url = f"{SITE_URL}/assets/social/instagram/{date_str}.png"
+    print(f"[post-edition] image Instagram écrite : {ig_image_path} ({ig_image_size} octets)")
+
+    # 4. feed.xml
+    word_count = estimate_word_count(content)
+    read_minutes = max(1, round(word_count / 200))
+    feed_item = build_feed_item(content, date_str, read_minutes, ig_image_url, ig_image_size)
+    feed_text = (REPO_ROOT / "feed.xml").read_text(encoding="utf-8")
+    new_feed_text = update_feed_xml(feed_text, feed_item)
+    ET.fromstring(new_feed_text)  # valide la syntaxe XML avant écriture — échoue fort sinon
+    feed_out = sandbox_root / "feed.xml"
+    feed_out.write_text(new_feed_text, encoding="utf-8")
+    print(f"[post-edition] feed.xml (avec nouvel item, {read_minutes} min de lecture) écrit : {feed_out}")
+
+    # 5. sitemap.xml / sitemap-news.xml
+    sitemap_text = (REPO_ROOT / "sitemap.xml").read_text(encoding="utf-8")
+    new_sitemap_text = update_sitemap_xml(sitemap_text, date_str)
+    ET.fromstring(new_sitemap_text)
+    sitemap_out = sandbox_root / "sitemap.xml"
+    sitemap_out.write_text(new_sitemap_text, encoding="utf-8")
+    print(f"[post-edition] sitemap.xml écrit : {sitemap_out}")
+
+    sitemap_news_text = (REPO_ROOT / "sitemap-news.xml").read_text(encoding="utf-8")
+    new_sitemap_news_text = update_sitemap_news_xml(sitemap_news_text, date_str, content["h1"])
+    ET.fromstring(new_sitemap_news_text)
+    sitemap_news_out = sandbox_root / "sitemap-news.xml"
+    sitemap_news_out.write_text(new_sitemap_news_text, encoding="utf-8")
+    print(f"[post-edition] sitemap-news.xml écrit : {sitemap_news_out}")
+
+    # 6. archives.html — generate_archives_table.py calcule sa racine à
+    # partir de son PROPRE __file__ (Path(__file__).resolve().parents[2]),
+    # jamais du cwd : l'appeler tel quel toucherait le vrai archives.html
+    # du dépôt. Ruse plutôt que fork du script (jamais dupliquer sa
+    # logique) : on reproduit sous le bac à sable la portion d'arborescence
+    # qu'il lit (archives/, suivi/, hebdo/, glossaire.html) ET on copie le
+    # script lui-même au même chemin relatif (scripts/seo/...) — son
+    # __file__ résout alors naturellement sur le bac à sable, jamais sur
+    # le vrai dépôt.
+    mirror_root = sandbox_root / "repo-mirror"
+    if mirror_root.exists():
+        shutil.rmtree(mirror_root)
+    shutil.copytree(REPO_ROOT / "archives", mirror_root / "archives")
+    if (REPO_ROOT / "suivi").exists():
+        shutil.copytree(REPO_ROOT / "suivi", mirror_root / "suivi")
+    if (REPO_ROOT / "hebdo").exists():
+        shutil.copytree(REPO_ROOT / "hebdo", mirror_root / "hebdo")
+    shutil.copy(REPO_ROOT / "glossaire.html", mirror_root / "glossaire.html")
+    shutil.copy(archive_path, mirror_root / "archives" / f"{date_str}.html")
+
+    mirrored_script_dir = mirror_root / "scripts" / "seo"
+    mirrored_script_dir.mkdir(parents=True, exist_ok=True)
+    mirrored_script = mirrored_script_dir / "generate_archives_table.py"
+    shutil.copy(SEO_DIR / "generate_archives_table.py", mirrored_script)
+
+    result = subprocess.run(
+        [sys.executable, str(mirrored_script)],
+        capture_output=True, text=True, timeout=60,
+    )
+    if result.returncode != 0:
+        raise PostEditionError(f"generate_archives_table.py a échoué : {result.stderr[-1000:]}")
+    generated = mirror_root / "archives.html"
+    if not generated.exists():
+        raise PostEditionError(f"generate_archives_table.py n'a pas produit {generated}")
+    archives_html_out = sandbox_root / "archives.html"
+    archives_html_out.write_text(generated.read_text(encoding="utf-8"), encoding="utf-8")
+    print(f"[post-edition] archives.html régénéré : {archives_html_out}")
+
+    print(f"[post-edition] terminé — {word_count} mots, {read_minutes} min de lecture.")
+    print("[post-edition] AUCUN commit, AUCUN push effectué — Phase 1 prototype (workflow_dispatch uniquement).")
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except PostEditionError as e:
+        print(f"[post-edition] ERREUR : {e}", file=sys.stderr)
+        sys.exit(1)

@@ -691,7 +691,16 @@ def main():
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(html_text, encoding="utf-8")
 
+    # content.json validé — consommé par generate_post_edition.py (photo,
+    # image Instagram, feed.xml, sitemap, archives.html), pour ne jamais
+    # avoir à reparser le HTML déjà assemblé pour en extraire les mêmes
+    # informations structurées. Même dossier/base que --out, extension
+    # différente — jamais index.html ni un chemin réel du dépôt.
+    content_path = out_path.with_suffix(".content.json")
+    content_path.write_text(json.dumps(content, ensure_ascii=False, indent=2), encoding="utf-8")
+
     print(f"[edition] validation OK — sortie de test écrite : {out_path}")
+    print(f"[edition] contenu validé écrit : {content_path}")
     print(f"[edition] édition de test N°{edition_number}, {len(html_text)} caractères")
     print(
         f"[edition] usage OpenRouter — modèle {args.model} · "

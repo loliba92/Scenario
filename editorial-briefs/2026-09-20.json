@@ -8,7 +8,8 @@
     "eyebrow": "Dimanche, sport",
     "angle": "Le FMI a décaissé une nouvelle tranche le 15 septembre 2026, mais les réserves nettes de la banque centrale argentine restent négatives — un paradoxe qui inquiète les marchés.",
     "tags": ["economie-mondiale"],
-    "domain": "economie-entreprises"
+    "domain": "economie-entreprises",
+    "image_keywords": "central bank building currency"
   },
   "_note_prototype": "Brief FICTIF créé pour tester la mécanique du pipeline (Phase 1, point G.2 de l'audit) — aucune vérification web réelle n'a été faite sur ces chiffres, ne jamais publier de contenu dérivé de ce brief. L'eyebrow porte volontairement 'Dimanche, sport' pour signaler visuellement, dans toute sortie de test, qu'il s'agit d'un brief de démonstration et non d'une édition réelle du registre annoncé.",
   "anti_doublon": {

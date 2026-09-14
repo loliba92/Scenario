@@ -141,11 +141,26 @@ def format_date_fr(date_str):
     return jour, f"{d.day} {MOIS_FR[d.month - 1]} {d.year}"
 
 
-def build_head_dynamic(content, brief, date_str, canonical_url):
+def build_head_dynamic(content, brief, date_str, canonical_url, photo=None):
     meta = content["meta"]
     title = meta["title"]
     description = meta["meta_description"]
-    og_image = "https://lesscenarios.fr/assets/social/og-image-v2.png"
+    # photo (voir generate_post_edition.py) : dict {"og_image_url", "alt", ...}
+    # si une photo de sujet a été retenue — sinon repli générique inchangé
+    # (comportement historique de la Phase 1 rédaction, voir docstring de
+    # ce module). og_image_alt vient de meta['og_image_alt'] (rédigé par
+    # le modèle) dans les deux cas quand photo est absent ; avec une
+    # photo réelle, on utilise la description factuelle de la photo elle-
+    # même (photo['alt']), pas celle imaginée par le modèle pour une
+    # image générique.
+    if photo:
+        og_image = photo["og_image_url"]
+        og_image_width, og_image_height = "1080", "1080"
+        og_image_alt = photo["alt"]
+    else:
+        og_image = "https://lesscenarios.fr/assets/social/og-image-v2.png"
+        og_image_width, og_image_height = "2508", "1412"
+        og_image_alt = meta["og_image_alt"]
     published = f"{date_str}T07:15:00+02:00"
     domain = brief["sujet"]["domain"]
     ld_json = (
@@ -179,9 +194,9 @@ def build_head_dynamic(content, brief, date_str, canonical_url):
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{description}">
 <meta property="og:image" content="{og_image}">
-<meta property="og:image:width" content="2508">
-<meta property="og:image:height" content="1412">
-<meta property="og:image:alt" content="{meta['og_image_alt']}">
+<meta property="og:image:width" content="{og_image_width}">
+<meta property="og:image:height" content="{og_image_height}">
+<meta property="og:image:alt" content="{og_image_alt}">
 <meta property="article:author" content="Scénario">
 <meta name="domain" content="{domain}">
 <meta property="article:published_time" content="{published}">
@@ -240,7 +255,7 @@ def _list_box_html(lb):
     )
 
 
-def build_hero(content, date_str):
+def build_hero(content, date_str, photo=None):
     jour, date_longue = format_date_fr(date_str)
     dek_blocks = []
     for i, dek_html in enumerate(content["dek"]):
@@ -253,14 +268,20 @@ def build_hero(content, date_str):
     list_box_html = _list_box_html(content["list_box"]) if content.get("list_box") else ""
     indicators_html = "\n".join(_kpi_indicator_html(ind) for ind in content["indicators"])
 
-    # Image de repli générique — voir limite Phase 1 documentée en tête de
-    # fichier : pas de vraie recherche de photo de sujet dans ce prototype.
-    og_image = "https://lesscenarios.fr/assets/social/og-image-v2.png"
+    # photo (voir generate_post_edition.py) : dict {"og_image_url", "alt"}
+    # si une photo de sujet a été retenue — sinon repli générique inchangé
+    # (comportement historique de la Phase 1 rédaction).
+    if photo:
+        og_image = photo["og_image_url"]
+        image_alt = photo["alt"]
+    else:
+        og_image = "https://lesscenarios.fr/assets/social/og-image-v2.png"
+        image_alt = content['meta']['og_image_alt']
 
     return f"""<section class="hero" id="contexte">
   <figure class="article-image">
     <div class="article-image-photo-wrap">
-      <img class="article-image-photo" src="{og_image}" alt="{content['meta']['og_image_alt']}">
+      <img class="article-image-photo" src="{og_image}" alt="{image_alt}">
       <div class="article-image-scrim"></div>
       <div class="article-image-masthead">
         <img class="article-image-logo" src="assets/logo.svg" alt="">
@@ -473,23 +494,43 @@ _SHARE_BLOCK = """<section class="share-block" id="nous-suivre">
 </section>"""
 
 
-def assemble_index_html(shell, content, brief, date_str):
+def assemble_index_html(shell, content, brief, date_str, photo=None):
     """Assemble le document complet. Ne fait AUCUN appel réseau, AUCUNE
     écriture disque — retourne uniquement la chaîne HTML finale, à valider
-    par le code appelant avant toute écriture."""
+    par le code appelant avant toute écriture.
+
+    `photo` (optionnel, voir generate_post_edition.py) : dict
+    {"og_image_url", "alt", "photographer", "pexels_url"} si une photo de
+    sujet réelle a été retenue — sinon (défaut) comportement historique
+    de la Phase 1 rédaction : image générique, aucun crédit photo."""
     canonical_url = f"https://lesscenarios.fr/archives/{date_str}.html"
     edition_number = shell["edition_number"] + 1
     content = dict(content)
     content["eyebrow_suffix"] = brief["sujet"]["eyebrow"].split(", ", 1)[-1] if ", " in brief["sujet"]["eyebrow"] else brief["registre"]
 
-    head_dynamic = build_head_dynamic(content, brief, date_str, canonical_url)
+    head_dynamic = build_head_dynamic(content, brief, date_str, canonical_url, photo=photo)
     masthead = build_masthead(shell["masthead_html"], date_str, edition_number)
-    hero = build_hero(content, date_str)
+    hero = build_hero(content, date_str, photo=photo)
     scenarios = build_scenarios(content)
     lexique = build_lexique(content)
     sources = build_sources(content, date_str)
 
-    footer_html = f'<footer>\n  <div class="wrap">\n    <div class="footer-bottom">\n      {shell["legal_links_html"]}\n    </div>\n  </div>\n</footer>'
+    # Crédit photo — uniquement si une photo réelle a été retenue (jamais
+    # un crédit inventé sur l'image générique). Voir docs/routine-prompt.md,
+    # étape technique « Image du sujet », `.footer-photo-credit`.
+    photo_credit_html = ""
+    if photo:
+        photo_credit_html = (
+            '\n    <p class="footer-photo-credit"><svg viewBox="0 0 24 24" width="14" height="14" '
+            'fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" '
+            'stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5a1.5 1.5 0 0 1 1.5-1.5h2l1-1.5h7l1 '
+            '1.5h2A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5Z"/>'
+            '<circle cx="12" cy="12.5" r="3.2"/></svg> Photo d\'illustration. '
+            f'{photo["photographer"]} / <a href="{photo["pexels_url"]}" target="_blank" '
+            'rel="noopener noreferrer">Pexels ↗</a></p>'
+        )
+
+    footer_html = f'<footer>\n  <div class="wrap">{photo_credit_html}\n    <div class="footer-bottom">\n      {shell["legal_links_html"]}\n    </div>\n  </div>\n</footer>'
 
     return f"""<!DOCTYPE html>
 <html lang="fr">
