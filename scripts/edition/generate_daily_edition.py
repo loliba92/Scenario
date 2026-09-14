@@ -307,7 +307,38 @@ def validate_content_schema(content, brief):
         if re.search(pattern, flat_text, re.I):
             errors.append(f"placeholder résiduel détecté (motif {pattern!r}) dans la réponse du modèle")
 
+    # Longueur — vérifiée ici, sur le contenu, en plus de
+    # validate_assembled_html() sur le HTML final (incident du 14 septembre
+    # 2026, run 34835807298 : 583 mots, aucun retry déclenché car ce
+    # contrôle ne vivait jusque-là que dans validate_assembled_html(),
+    # après la boucle de retry). Ici, un échec de longueur rentre dans le
+    # même retry automatique (1 essai max) que les autres erreurs de
+    # schéma, avec le nombre de mots manquants explicite dans le message
+    # renvoyé au modèle au deuxième essai.
+    word_count = estimate_word_count(content)
+    if word_count < MIN_WORDS:
+        errors.append(
+            f"longueur estimée insuffisante : {word_count} mots dans dek + why + "
+            f"lexique (minimum {MIN_WORDS}, manque {MIN_WORDS - word_count} mots) — "
+            "développer le contexte et les why plutôt que délayer les phrases existantes"
+        )
+
     return errors
+
+
+def estimate_word_count(content):
+    """Estimation du même comptage que validate_assembled_html()/le script
+    déjà en place côté client (.dek, .why, dd) — mais calculée directement
+    sur le JSON du modèle, avant construction du HTML, pour pouvoir
+    déclencher un retry automatique en cas de contenu trop court."""
+    texts = list(content.get("dek") or [])
+    for kind in ("favorable", "stable", "degrade"):
+        card = (content.get("cards") or {}).get(kind) or {}
+        texts.extend(card.get("why") or [])
+    for term in content.get("lexique") or []:
+        texts.append(term.get("definition") or "")
+    plain = re.sub(r"<[^>]+>", " ", " ".join(texts))
+    return len(plain.split())
 
 
 def validate_assembled_html(html_text, content):

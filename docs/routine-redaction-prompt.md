@@ -106,6 +106,14 @@ Reformulation courte et pédagogique de la question, pour
 `<h2 class="section-title">` dans `section.scenarios`.
 
 ### `dek` (liste de paragraphes HTML, 4 à 6)
+**Chaque élément est le contenu intérieur du paragraphe uniquement —
+jamais la balise `<p class="dek">...</p>` autour.** Le script Python
+ajoute cette balise automatiquement ; l'inclure toi-même produit un
+paragraphe imbriqué invalide (`<p class="dek"><p class="dek">texte</p></p>`)
+qui fausse le calcul de longueur. Même règle pour chaque élément de
+`why` (pas de `<p class="why">` autour). Seules les balises inline
+(`<strong>`, `<a class="lex-ref">`) sont attendues à l'intérieur.
+
 Résumé structuré, pas une chronologie, pour un lecteur qui ne connaît rien
 au sujet : bases pour comprendre qui sont les acteurs, situation actuelle,
 causes de fond, pourquoi l'issue est incertaine, pourquoi le sujet se
@@ -113,9 +121,29 @@ prête à 3 scénarios distincts. Chaque `<strong>` sur un fait/chiffre du
 brief — jamais un chiffre non présent dans `faits_verifies`/`indicateurs_kpi`
 du brief. Terme technique → `.lex-ref` comme décrit plus haut.
 
-**Longueur minimale : le total de `dek` + tous les `why` des 3 cartes doit
-représenter au moins 1100 mots** (même méthode de comptage que le site :
-texte visible de ces blocs uniquement, espaces comme séparateurs).
+**Longueur minimale, contrainte dure — jamais une indication approximative :
+le total de `dek` + tous les `why` des 3 cartes + toutes les `definition`
+du lexique doit représenter au moins 1100 mots** (même méthode de
+comptage que le site : texte visible de ces blocs uniquement, balises
+HTML retirées, espaces comme séparateurs). Une réponse sous ce seuil est
+rejetée automatiquement, rien n'est publié.
+
+**Vise 1300 à 1500 mots, jamais 1100 pile** : une rédaction qui vise
+exactement le minimum tombe presque toujours en dessous une fois les
+balises retirées et les espaces normalisés. Le minimum se calcule ainsi :
+- `dek` : 6 paragraphes (pas 4), chacun développé — bases pour comprendre
+  les acteurs, situation actuelle, causes de fond, pourquoi l'issue est
+  incertaine, pourquoi 3 scénarios, un fait récent daté si le brief en
+  fournit un.
+- Chaque `why` de chaque carte (6 paragraphes au total, 2 par carte) :
+  développer réellement le mécanisme du scénario dans le 1ᵉʳ paragraphe et
+  l'argument de comparaison aux deux autres scénarios dans le 2ᵉ, jamais
+  une phrase courte qui se contente d'énoncer le scénario.
+- Ne jamais atteindre le volume en délayant une même idée sur plusieurs
+  phrases (voir règles de style plus haut, « une idée par phrase ») —
+  ajouter du contenu réel (un chiffre du brief encore non utilisé, un
+  acteur, une cause de fond, un précédent) plutôt que des mots de
+  remplissage.
 
 ### `stakes_branches` (objet à 3 clés : `favorable`, `stable`, `degrade`)
 Une phrase déclarative courte par branche, dans cet ordre, pour

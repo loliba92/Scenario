@@ -38,6 +38,22 @@ MOIS_FR = [
 ]
 JOURS_FR = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
 
+
+def _unwrap_own_tag(html, tag, cls):
+    """Défense contre un modèle qui renvoie déjà la balise que ce module
+    ajoute lui-même autour du contenu (ex. `dek` contenant
+    `<p class="dek">...</p>` en plus du wrapper posé par build_hero()) —
+    trouvé en conditions réelles le 14 septembre 2026 : un imbriquement
+    `<p class="dek"><p class="dek">texte</p></p>` invalide faisait compter
+    chaque paragraphe deux fois par le sélecteur CSS `.dek` de la
+    validation de longueur, gonflant artificiellement le nombre de mots
+    mesuré d'environ 2× (aucun rapport avec la vraie longueur affichée).
+    Ne retire le wrapper que s'il encadre exactement tout le texte —
+    jamais un retrait partiel qui pourrait mutiler un contenu légitime."""
+    stripped = html.strip()
+    m = re.match(rf'^<{tag}\s+class="{re.escape(cls)}"\s*>(.*)</{tag}>$', stripped, re.S)
+    return m.group(1).strip() if m else html
+
 # Balises <head> propres au jour — tout le reste de <head> est recopié tel
 # quel depuis le gabarit (icônes, manifest, apple-*, pwa-install.css,
 # preconnect, fonts, <style>...). Autant de prédicats que de familles de
@@ -228,7 +244,7 @@ def build_hero(content, date_str):
     jour, date_longue = format_date_fr(date_str)
     dek_blocks = []
     for i, dek_html in enumerate(content["dek"]):
-        dek_blocks.append(f'<p class="dek">{dek_html}</p>')
+        dek_blocks.append(f'<p class="dek">{_unwrap_own_tag(dek_html, "p", "dek")}</p>')
         for box in content.get("comprendre_box") or []:
             if box.get("apres_dek_index") == i:
                 dek_blocks.append(_comprendre_box_html(box))
@@ -304,7 +320,7 @@ def _card_html(kind, label, data):
         "</li>"
         for ind in data["indicateurs_touches"]
     )
-    why_html = "\n".join(f'<p class="why">{w}</p>' for w in data["why"])
+    why_html = "\n".join(f'<p class="why">{_unwrap_own_tag(w, "p", "why")}</p>' for w in data["why"])
     arrow_char = "↑" if data["france_impact"] == "favorable" else "↓"
     arrow_cls = "is-up" if data["france_impact"] == "favorable" else "is-down"
     france_word = "favorable" if data["france_impact"] == "favorable" else "défavorable"
