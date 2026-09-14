@@ -23,6 +23,7 @@ Usage :
     python3 scripts/edition/generate_daily_edition.py --brief editorial-briefs/2026-09-20.json --dry-run
 """
 import argparse
+import concurrent.futures
 import json
 import os
 import re
@@ -135,31 +136,63 @@ def build_user_prompt(redaction_prompt, brief):
     )
 
 
-def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, timeout=120):
+def _do_openrouter_request(req, socket_timeout):
+    with urllib.request.urlopen(req, timeout=socket_timeout) as resp:
+        return json.loads(resp.read())
+
+
+def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, timeout=180):
+    """Incident réel du 14 septembre 2026 (premier vrai appel de test) :
+    Claude Sonnet a tourné plus de 16 minutes sans jamais répondre, forçant
+    une annulation manuelle du run — deux causes trouvées après coup :
+    1. Le raisonnement étendu du modèle n'était pas désactivé (contrairement
+       à translate_daily.py pour Deepseek, `"reasoning": {"enabled": False}`)
+       — corrigé ci-dessous, même garde-fou.
+    2. `urlopen(..., timeout=N)` ne borne QUE chaque lecture socket
+       individuelle, jamais la durée totale de la requête — si le serveur
+       renvoie des octets en filet continu, aucune lecture ne dépasse N
+       secondes et l'appel peut ne jamais expirer. Corrigé en exécutant la
+       requête dans un thread et en bornant l'attente globale avec
+       `future.result(timeout=...)` : si le délai est dépassé, le script
+       lève une erreur et sort — la fermeture du process coupe la
+       connexion TCP sous-jacente, ce qui arrête la génération côté
+       serveur au lieu de la laisser tourner indéfiniment en arrière-plan."""
     body = json.dumps({
         "model": model,
         "max_tokens": max_tokens,
         "temperature": temperature,
         "response_format": {"type": "json_object"},
+        "reasoning": {"enabled": False},
         "messages": [{"role": "user", "content": prompt}],
     }).encode()
     req = urllib.request.Request(OPENROUTER_URL, method="POST", data=body, headers={
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
     })
+
     last_err = None
     for attempt in range(2):  # 1 essai + 1 retry réseau court, jamais plus (voir MAX_RETRIES pour le retry de validation, distinct)
-        try:
-            with urllib.request.urlopen(req, timeout=timeout) as resp:
-                data = json.loads(resp.read())
-            break
-        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as e:
-            last_err = e
-            if attempt == 0:
-                print(f"[openrouter] erreur réseau, nouvel essai dans 3s : {e}", file=sys.stderr)
-                time.sleep(3)
-            else:
-                raise GenerationError(f"appel OpenRouter impossible après 2 essais : {last_err}")
+        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+            future = executor.submit(_do_openrouter_request, req, timeout)
+            try:
+                data = future.result(timeout=timeout)
+                break
+            except concurrent.futures.TimeoutError:
+                # Jamais réessayé automatiquement (voir consigne « pas de
+                # retries agressifs ») — un dépassement du délai global est
+                # un échec net, pas une panne transitoire à retenter.
+                raise GenerationError(
+                    f"appel OpenRouter sans réponse après {timeout}s (délai global dépassé) — "
+                    "arrêt forcé, vérifier le tableau de bord OpenRouter pour le coût réel "
+                    "déjà engagé sur cette tentative avant de relancer"
+                )
+            except (urllib.error.URLError, urllib.error.HTTPError) as e:
+                last_err = e
+                if attempt == 0:
+                    print(f"[openrouter] erreur réseau, nouvel essai dans 3s : {e}", file=sys.stderr)
+                    time.sleep(3)
+                else:
+                    raise GenerationError(f"appel OpenRouter impossible après 2 essais : {last_err}")
 
     if "choices" not in data:
         raise GenerationError(f"réponse OpenRouter sans 'choices' : {data}")
