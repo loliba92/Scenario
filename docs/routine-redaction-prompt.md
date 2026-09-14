@@ -175,10 +175,23 @@ Une phrase déclarative courte par branche, dans cet ordre, pour
 
 ### `comprendre_box` (liste, 0 à 2 éléments — le brief dit combien)
 Pour chaque élément décidé dans `brief.encarts_decides.comprendre_box` :
-`{"lead": "...", "text": "..."}`. `lead` ≤ 30 mots, une phrase. `text` : 1
-paragraphe, 2 à 4 phrases courtes, ≤ 70 mots, qui déroule l'analogie sur un
-exemple concret du sujet du jour. Toujours cadré comme une clé de lecture
-(« ressemble à... »), jamais asséné comme un fait absolu.
+`{"lead": "...", "text": "...", "apres_dek_index": 0}`. `lead` ≤ 30 mots,
+une phrase. `text` : 1 paragraphe, 2 à 4 phrases courtes, ≤ 70 mots, qui
+déroule l'analogie sur un exemple concret du sujet du jour. Toujours cadré
+comme une clé de lecture (« ressemble à... »), jamais asséné comme un fait
+absolu.
+
+**`apres_dek_index` — obligatoire, jamais un détail optionnel : sans lui
+l'encart n'apparaît nulle part dans la page, silencieusement.** Entier,
+index (0-based) du paragraphe de ton propre tableau `dek` juste après
+lequel cet encart doit être inséré — le script Python déterministe
+l'insère immédiatement après `dek[apres_dek_index]`. Choisis l'index du
+paragraphe qui introduit le fait qui justifie l'analogie, **jamais avant
+le premier paragraphe** (donc jamais négatif) et jamais après le dernier
+(index maximum : `len(dek) - 1`) — voir la règle de placement complète
+dans `docs/routine-prompt.md` § Encart « Comprendre ». Si deux
+`comprendre_box` sont présents, ne jamais leur donner le même index
+consécutif sans au moins un autre `dek` entre les deux.
 
 ### `list_box` (objet ou `null` — le brief dit si applicable)
 `{"label": "...", "items": [{"rank": "1", "title": "...", "meta": "..."}, ...], "foot": "..."}`.
@@ -258,7 +271,7 @@ reprend la substance de `question_text`.
   "section_title": "string",
   "dek": ["string", "..."],
   "stakes_branches": {"favorable": "string", "stable": "string", "degrade": "string"},
-  "comprendre_box": [{"lead": "string", "text": "string"}],
+  "comprendre_box": [{"lead": "string", "text": "string", "apres_dek_index": 0}],
   "list_box": null,
   "indicators": [{"label": "string", "value": "string", "delta": "string"}],
   "cards": {

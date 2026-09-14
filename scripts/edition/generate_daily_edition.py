@@ -389,6 +389,26 @@ def validate_content_schema(content, brief):
             f"{n_comprendre_brief} décidés dans le brief"
         )
 
+    # apres_dek_index — incident réel du 14 septembre 2026 (run 34847218352,
+    # test grandeur nature) : le modèle a produit un comprendre_box complet
+    # (lead + text), qui a passé cette validation puisqu'elle ne vérifiait
+    # que le NOMBRE d'éléments — mais build_html.py insère chaque
+    # comprendre_box juste après content["dek"][apres_dek_index]
+    # (build_hero()), un champ que le prompt ne demandait jusque-là jamais
+    # au modèle. Résultat : l'encart existait dans le JSON validé mais
+    # n'apparaissait nulle part dans le HTML final, sans qu'aucune
+    # validation ne le détecte. Rendu obligatoire côté prompt (voir
+    # docs/routine-redaction-prompt.md § comprendre_box) et vérifié ici.
+    dek_len = len(content.get("dek") or [])
+    for idx, box in enumerate(content.get("comprendre_box") or []):
+        apres = box.get("apres_dek_index")
+        if not isinstance(apres, int) or isinstance(apres, bool) or not (0 <= apres < dek_len):
+            errors.append(
+                f"comprendre_box[{idx}].apres_dek_index manquant ou invalide "
+                f"(reçu {apres!r}, attendu un entier entre 0 et {dek_len - 1}) — "
+                "sans cet index l'encart n'est inséré nulle part dans le HTML final"
+            )
+
     if len(content["essentiel_box"]) != 4:
         errors.append(f"essentiel_box : {len(content['essentiel_box'])} paragraphes (4 attendus)")
 
@@ -491,6 +511,26 @@ def validate_assembled_html(html_text, content):
         found = len(soup.select(sel))
         if found != expected_count:
             errors.append(f"structure : {sel} trouvé {found} fois (attendu {expected_count})")
+
+    # Filet de sécurité — incident du 14 septembre 2026 (run 34847218352,
+    # test grandeur nature) : un comprendre_box complet, validé par
+    # validate_content_schema() (bon nombre d'éléments), a été perdu
+    # silencieusement dans le HTML final faute d'apres_dek_index exploitable
+    # (voir ce contrôle plus haut). apres_dek_index est maintenant validé en
+    # amont, mais ce comptage reste un filet indépendant — n'importe quel
+    # futur bug de placement dans build_html.py (nouveau champ, nouvel
+    # incident) fera échouer ici plutôt que de publier un encart manquant en
+    # silence, même si validate_content_schema() est déjà passée.
+    n_comprendre_content = len(content.get("comprendre_box") or [])
+    n_comprendre_html = len(soup.select(".comprendre-box"))
+    if n_comprendre_html != n_comprendre_content:
+        errors.append(
+            f"comprendre_box : {n_comprendre_content} élément(s) dans la réponse du modèle, "
+            f"{n_comprendre_html} réellement présent(s) dans le HTML assemblé — "
+            "au moins un encart a été perdu lors de la construction du HTML"
+        )
+    if content.get("list_box") and not soup.select(".list-box"):
+        errors.append("list_box présent dans la réponse du modèle mais absent du HTML assemblé")
 
     # Seuil de mots — même sélecteur, même méthode que le script déjà en
     # place côté client (voir index.html, script de fin de page).
