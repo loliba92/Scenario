@@ -157,7 +157,8 @@ def build_retry_reinforcement(errors):
     "corriger" (qui n'avait pas suffi : la 2e réponse était plus courte
     que la 1ère)."""
     length_errors = [e for e in errors if e.startswith("longueur estimée insuffisante")]
-    other_errors = [e for e in errors if e not in length_errors]
+    apres_dek_index_errors = [e for e in errors if "apres_dek_index" in e]
+    other_errors = [e for e in errors if e not in length_errors and e not in apres_dek_index_errors]
 
     parts = [
         "# CORRECTION OBLIGATOIRE AVANT TOUTE AUTRE CONSIGNE\n\n"
@@ -190,6 +191,30 @@ def build_retry_reinforcement(errors):
             "seulement les plus évidents — chaque fait du brief encore inutilisé "
             "est une occasion d'ajouter du contenu réel, jamais du remplissage "
             "stylistique.\n\n"
+        )
+
+    if apres_dek_index_errors:
+        # Incident réel du 14 septembre 2026 (run 34851759911) : listé
+        # uniquement dans "Autres erreurs" comme les autres erreurs de
+        # schéma, cette erreur a quand même échoué 2 essais sur 2 — même
+        # défaut que l'incident de longueur (une simple ligne dans une
+        # liste ne suffit pas toujours) : traitement dédié, avec
+        # l'exemple exact attendu plutôt qu'une description abstraite.
+        parts.append(
+            f"**ERREUR RÉCURRENTE, à corriger explicitement : {apres_dek_index_errors[0]}**\n\n"
+            "Chaque élément de `comprendre_box` doit inclure le champ "
+            "`\"apres_dek_index\": N` (entier), où N est l'index (0-based) du "
+            "paragraphe de TON PROPRE tableau `dek` juste après lequel cet "
+            "encart doit apparaître. Sans ce champ, l'encart n'apparaît nulle "
+            "part dans la page finale, même s'il est par ailleurs bien rédigé. "
+            "Exemple concret, pour un `dek` de 6 paragraphes où l'encart doit "
+            "suivre le 2e paragraphe (index 1) :\n"
+            '```json\n'
+            '"comprendre_box": [{"lead": "...", "text": "...", "apres_dek_index": 1}]\n'
+            '```\n'
+            "Avant de renvoyer ta réponse, vérifie explicitement que chaque "
+            "`comprendre_box` a bien ce champ, avec une valeur entière entre "
+            "0 et `len(dek) - 1`.\n\n"
         )
 
     if other_errors:
