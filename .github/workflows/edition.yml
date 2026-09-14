@@ -72,4 +72,5 @@ jobs:
       # en relisant un run passé : ce job ne publie jamais rien.
       - name: Rappel — aucune publication
         if: always()
-        run: echo "Phase 1 prototype : aucun commit, aucun push, aucune publication n'a été effectué par ce workflow."
+        run: |
+          echo "Phase 1 prototype : aucun commit, aucun push, aucune publication n'a été effectué par ce workflow."
