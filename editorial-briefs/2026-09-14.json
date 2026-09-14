@@ -1,0 +1,283 @@
+{
+  "date": "2026-09-14",
+  "registre": "geopolitique",
+  "sujet": {
+    "titre_propose": "Taïwan : Trump et Xi peuvent-ils calmer la pression chinoise ?",
+    "h1": "Taïwan : Trump et Xi peuvent-ils calmer la pression chinoise ?",
+    "question_posee": "À dix jours du sommet Trump-Xi du 24 septembre à Washington, la pression militaire chinoise sur Taïwan va-t-elle s'apaiser, se figer, ou s'aggraver malgré le dialogue ?",
+    "eyebrow": "Lundi, géopolitique",
+    "angle": "À dix jours du sommet Trump-Xi du 24 septembre, la Chine multiplie les incursions autour de Taïwan (plus de 3 700 sorties aériennes en 2025, contre 970 en 2021) pendant que Washington garde en suspens un contrat d'armement de 14 Md$ promis à Taipei — test grandeur nature de ce que vaut réellement le soutien américain.",
+    "tags": ["international", "diplomatie", "defense"],
+    "domain": "international"
+  },
+  "_note_test_grandeur_nature": "Premier brief RÉEL du prototype (Phase 1) — sujet sélectionné selon l'Étape 0/0bis/1 de docs/routine-prompt.md (premier sujet non coché de la section 'Géopolitique — lundi' de sujets-prioritaires.md, vérifié anti-doublon), tous les faits vérifiés via WebSearch/WebFetch le 14 septembre 2026 avec sources réelles et datées (voir sources[]). Toujours Phase 1 : ce brief sert à tester la chaîne de rédaction OpenRouter, aucune publication prévue à l'issue de ce test.",
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (13.09.2026) : 'Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?' — politique française, aucun recoupement. 3 dernières éditions géopolitiques du lundi vérifiées dans archives.html : 07.09 (Groenland/UE/Trump), 31.08 (Islande/UE/Arctique), 24.08 (guerre en Ukraine) — aucune ne recoupe Taïwan/Chine/États-Unis (acteurs et mécanisme de fond différents)."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le président chinois Xi Jinping doit effectuer une visite d'État à Washington, reçu par Donald Trump — leur 2e sommet de 2026 après celui de Pékin en mai.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-24",
+      "sources": ["src_8"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Lors du 1er sommet Trump-Xi à Pékin, Xi Jinping a averti que si le dossier taïwanais était mal géré, les deux pays pourraient 'entrer en collision, voire en conflit', faisant basculer la relation sino-américaine dans une situation périlleuse.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-05-14",
+      "sources": ["src_2"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le président taïwanais Lai Ching-te a répondu que Taïwan est le garant du statu quo de paix dans le détroit, et que c'est la Chine qui est la véritable source d'instabilité régionale.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-05-17",
+      "sources": ["src_3"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les sorties militaires aériennes chinoises dans la zone d'identification de défense aérienne (ADIZ) taïwanaise ont dépassé 3 700 en 2025, contre environ 970 en 2021 — près de 4 fois plus. Les sorties navales chinoises ont atteint environ 2 600 en 2025.",
+      "chiffre": "3 700+ (2025) vs ~970 (2021)",
+      "date_du_chiffre": "2026-08-04",
+      "sources": ["src_1"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le livre blanc de la défense japonaise 2026 ('Security for the Future') juge que l'équilibre militaire dans le détroit de Taïwan bascule rapidement en faveur de la Chine, qui dispose d'avantages en effectifs, moyens navals, aviation de combat et missiles longue portée.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-08-04",
+      "sources": ["src_1"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Un contrat de vente d'armes américaines à Taïwan de 14 Md$ (dont des missiles intercepteurs avancés), prêt pour approbation présidentielle début 2026, a été mis en pause fin mai — officiellement pour préserver les stocks de munitions destinés à la guerre en Iran, selon le secrétaire adjoint à la Marine américaine Hung Cao.",
+      "chiffre": "14 Md$",
+      "date_du_chiffre": "2026-05-23",
+      "sources": ["src_4"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Donald Trump a lui-même qualifié ce dossier d'armement de 'très bon levier de négociation' avec la Chine.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-05-16",
+      "sources": ["src_3"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Au 8 juin 2026, ce contrat de 14 Md$ restait officiellement 'en cours de révision', ni débloqué ni annulé.",
+      "chiffre": "14 Md$",
+      "date_du_chiffre": "2026-06-08",
+      "sources": ["src_5"],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "Le Cabinet taïwanais a approuvé un projet de budget de défense 2027 de 1 122,5 Md NT$ (35,3 Md$), soit 3,01 % du PIB.",
+      "chiffre": "35,3 Md$ / 3,01 % du PIB",
+      "date_du_chiffre": "2026-08-20",
+      "sources": ["src_6"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le 14 septembre 2026, le ministère taïwanais des Affaires étrangères (MOFA) a mis en avant la multiplication récente de délégations étrangères de haut niveau — Italie (fin août), Canada (première visite d'un responsable depuis 1991), délégations américaines, et trois délégations parlementaires japonaises début septembre dont une de 7 membres menée par le sénateur Haruo Kitamura — comme signe d'un soutien international croissant à Taïwan.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-14",
+      "sources": ["src_7"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Sur le marché de prédiction Polymarket, la probabilité implicite d'une invasion chinoise de Taïwan avant le 30 septembre 2026 était quasi nulle (moins de 1 %) au moment de la consultation, faute de tout signe de mobilisation amphibie ou de déclaration officielle chinoise en ce sens.",
+      "chiffre": "< 1 %",
+      "date_du_chiffre": "2026-09-14",
+      "sources": ["src_9"],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {"nom": "Donald Trump", "role": "président des États-Unis"},
+    {"nom": "Xi Jinping", "role": "secrétaire général du Parti communiste chinois, président de la Chine"},
+    {"nom": "Lai Ching-te (William Lai)", "role": "président de Taïwan"},
+    {"nom": "Haruo Kitamura", "role": "sénateur japonais, chef de la délégation parlementaire pro-Taïwan"},
+    {"nom": "Hung Cao", "role": "secrétaire adjoint à la Marine américaine"},
+    {"nom": "MOFA (ministère taïwanais des Affaires étrangères)", "role": "porte-parole officiel de Taipei"}
+  ],
+  "chronologie_cle": [
+    {"date": "2026-05-14", "evenement": "1er sommet Trump-Xi (Pékin) — avertissement de Xi sur Taïwan"},
+    {"date": "2026-05-17", "evenement": "Réponse du président Lai Ching-te"},
+    {"date": "2026-05-23", "evenement": "Pause du contrat d'armement américain de 14 Md$"},
+    {"date": "2026-06-08", "evenement": "Contrat toujours 'en révision', statut confirmé"},
+    {"date": "2026-08-04", "evenement": "Publication du livre blanc de la défense japonaise"},
+    {"date": "2026-08-20", "evenement": "Le Cabinet taïwanais approuve le budget défense 2027"},
+    {"date": "2026-09-14", "evenement": "Le MOFA taïwanais met en avant la multiplication des visites étrangères (aujourd'hui)"},
+    {"date": "2026-09-24", "evenement": "2e sommet Trump-Xi, Washington (à venir)"},
+    {"date": "2026-11-18", "evenement": "Sommet APEC à Shenzhen, possible 3e rencontre Trump-Xi (à venir)"}
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Le sommet du 24 septembre produit des garanties concrètes : Washington débloque tout ou partie du contrat de 14 Md$, la fréquence des incursions chinoises baisse sensiblement dans les semaines qui suivent, et les deux camps évitent tout nouvel incident majeur avant l'APEC de novembre.",
+      "probabilite_suggeree": 20
+    },
+    "stable": {
+      "resume": "Le sommet a lieu sans rupture ni avancée réelle sur Taïwan : discours prudents des deux côtés, le contrat d'armement reste 'en révision' sans décision, les incursions chinoises se poursuivent au rythme élevé actuel sans nouvelle escalade visible.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "Le sommet échoue à apaiser le dossier : Pékin durcit encore la pression de zone grise (nouveau record d'incursions, exercices supplémentaires), et Washington réagit soit en débloquant les armes dans la confrontation, soit à l'inverse en reléguant Taïwan derrière un accord commercial plus large — dans les deux cas, la confiance de Taipei envers Washington se dégrade.",
+      "probabilite_suggeree": 30
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Sorties militaires chinoises dans l'ADIZ taïwanais (par an)",
+      "valeur": "3 700+ (2025)",
+      "tendance": "×3,8 depuis 2021 (~970 sorties) — livre blanc de la défense japonaise, 4 août 2026"
+    },
+    {
+      "label": "Probabilité implicite d'une invasion chinoise avant le 30/09/2026 (marché Polymarket)",
+      "valeur": "< 1 %",
+      "tendance": "quasi nulle, fenêtre de 16 jours seulement, aucun signe de préparatifs amphibies détecté"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Seulement deux points annuels fiables trouvés pour les sorties ADIZ (2021 et 2025) — sous le seuil de 5 points minimum requis par docs/routine-prompt.md pour un graphique en escalier crédible. Le prototype Phase 1 (scripts/edition/build_html.py) ne gère de toute façon pas encore ce composant.",
+    "serie": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "La 'coercition de zone grise' : pourquoi la Chine multiplie les incursions sans jamais déclarer la guerre — patrouilles de garde-côtes, incursions aériennes/navales répétées et répétitions de blocus, qui usent Taïwan et compliquent une riposte occidentale sans jamais franchir le seuil d'un acte de guerre formel.",
+        "rattache_a": "faits_verifies sur les sorties ADIZ (970 en 2021 → 3 700+ en 2025) et le constat du livre blanc japonais"
+      }
+    ],
+    "list_box": {
+      "label": "Les prochaines échéances qui trancheront",
+      "items": [
+        {"rank": "1", "title": "24 septembre 2026", "meta": "Sommet Trump-Xi à Washington, Taïwan à l'ordre du jour"},
+        {"rank": "2", "title": "Fin 2026", "meta": "Livraisons prévues de F-16 et HIMARS déjà commandés par Taïwan"},
+        {"rank": "3", "title": "Depuis janvier 2026", "meta": "Contrat d'armement de 14 Md$ toujours 'en révision', jamais débloqué ni annulé"},
+        {"rank": "4", "title": "18-19 novembre 2026", "meta": "Sommet APEC à Shenzhen, possible 3e rencontre Trump-Xi de l'année"}
+      ],
+      "foot": "Quatre rendez-vous qui diront si la pression retombe, se fige ou s'aggrave."
+    }
+  },
+  "elements_incertains": [
+    "Le sort exact du contrat d'armement de 14 Md$ à la date du brief (dernière confirmation publique : 'en révision', 8 juin 2026) — aucune décision finale connue depuis.",
+    "Le contenu réel des discussions du sommet du 24 septembre n'est pas encore connu, l'événement étant à venir.",
+    "L'évolution du rythme des incursions ADIZ après la publication du livre blanc japonais (4 août) n'est pas encore quantifiée par une nouvelle source datée."
+  ],
+  "a_ne_pas_affirmer": [
+    "Ne jamais présenter la probabilité Polymarket comme une prévision d'experts ou un fait établi — c'est un indicateur de marché spéculatif, à citer comme tel, sur une fenêtre très courte (16 jours) qui ne dit rien de la situation après le 30 septembre.",
+    "Ne jamais affirmer que le sommet du 24 septembre 'réglera' ou 'écartera' la question taïwanaise — l'issue n'est pas connue à la date du brief, les 3 scénarios doivent rester réellement ouverts.",
+    "Ne jamais dire que la Chine 'va envahir' ou 'prépare une invasion' de Taïwan — aucune source vérifiée ne documente une mobilisation en ce sens à la date du brief."
+  ],
+  "sources": [
+    {
+      "id": "src_1",
+      "title": "Japan considers Taiwan, China in new defense report",
+      "source": "Taipei Times",
+      "url": "https://www.taipeitimes.com/News/front/archives/2026/08/05/2003861956",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Le livre blanc de la défense japonaise 2026 chiffre la hausse des incursions militaires chinoises autour de Taïwan (970 sorties aériennes en 2021, plus de 3 700 en 2025 ; environ 2 600 sorties navales en 2025) et juge l'équilibre militaire en train de basculer en faveur de la Chine.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src_2",
+      "title": "China's Xi warns Trump about Taiwan at Beijing summit",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/5/14/chinas-xi-warns-trump-about-taiwan-at-beijing-summit",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Compte-rendu du 1er sommet Trump-Xi à Pékin (14 mai 2026) : citation exacte de l'avertissement de Xi Jinping sur le risque de conflit si le dossier taïwanais est mal géré.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src_3",
+      "title": "How Taiwan Fared during the 2026 Trump-Xi Summit",
+      "source": "Global Taiwan Institute",
+      "url": "https://globaltaiwan.org/2026/05/how-taiwan-fared-during-the-trump-xi-summit/",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Analyse des suites du sommet de mai 2026 : réponse du président Lai Ching-te, déclaration de Trump qualifiant le dossier d'armement de 'levier de négociation', chronologie des jours suivant le sommet.",
+      "read_minutes": 4
+    },
+    {
+      "id": "src_4",
+      "title": "U.S. pauses $14 billion Taiwan arms sale after China summit",
+      "source": "The Washington Post",
+      "url": "https://www.washingtonpost.com/national-security/2026/05/23/us-pauses-14-billion-taiwan-arms-sale-after-china-summit/",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Confirmation officielle (secrétaire adjoint à la Marine Hung Cao) de la mise en pause du contrat d'armement de 14 Md$ à Taïwan, justifiée par la préservation des munitions pour la guerre en Iran.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src_5",
+      "title": "$14 Billion Taiwan Arms Package Still Under Review",
+      "source": "Formosan Association for Public Affairs (FAPA)",
+      "url": "https://fapa.org/2026-0608-14-billion-taiwan-arms-package-still-under-review-taiwan-expands-anti-ship-missile-arsenal-computex-2026-highlights-taiwans-global-ai-role/",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Point de situation au 8 juin 2026 : le contrat de 14 Md$ reste en cours de révision, ni débloqué ni annulé, selon les déclarations du secrétaire d'État Rubio.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src_6",
+      "title": "Cabinet approves 2027 budget proposal, defense spending at 3.01% of GDP",
+      "source": "Focus Taiwan",
+      "url": "https://focustaiwan.tw/politics/202608200011",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Le Cabinet taïwanais approuve, le 20 août 2026, un budget de défense 2027 de 1 122,5 Md NT$ (35,3 Md$), soit 3,01 % du PIB, détaillé par poste.",
+      "read_minutes": 2
+    },
+    {
+      "id": "src_7",
+      "title": "More delegations visit Taiwan: MOFA",
+      "source": "Taipei Times",
+      "url": "https://www.taipeitimes.com/News/front/archives/2026/09/14/2003864219",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Le MOFA taïwanais recense, le 14 septembre 2026, la multiplication récente de délégations étrangères de haut niveau (Italie, Canada, États-Unis, Japon) et appelle à transformer ces visites en coopération durable.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src_8",
+      "title": "2026 state visit by Xi Jinping to the United States",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/2026_state_visit_by_Xi_Jinping_to_the_United_States",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Confirmation croisée (plusieurs médias) de la date du 24 septembre 2026 pour la visite d'État de Xi Jinping à Washington, 2e sommet Trump-Xi de l'année.",
+      "read_minutes": 2
+    },
+    {
+      "id": "src_9",
+      "title": "Will China invade Taiwan by September 30, 2026?",
+      "source": "Polymarket",
+      "url": "https://polymarket.com/event/will-china-invade-taiwan-by-september-30-2026",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Marché de prédiction affichant une probabilité quasi nulle (<1 %) d'une invasion chinoise de Taïwan avant le 30 septembre 2026, faute de signes de mobilisation.",
+      "read_minutes": 1
+    }
+  ],
+  "recommandations_redaction": [
+    "Ouvrir sur le fait le plus récent (l'annonce du MOFA du 14 septembre sur la multiplication des délégations étrangères) avant de remonter au sommet de mai et à la pression militaire de fond — voir docs/routine-prompt.md, règle 'ouvrir sur un fait très récent'.",
+    "Bien distinguer 'coercition de zone grise' (aucune déclaration de guerre, pression graduelle) et 'invasion' (scénario quasi nul à court terme selon Polymarket, à traiter avec prudence) — la question du jour porte sur la trajectoire de la pression, pas sur un risque de guerre imminente.",
+    "Le h1 nomme déjà Taïwan — pas besoin d'en rajouter, éviter toute formulation qui laisserait croire à une actualité française.",
+    "Le contrat d'armement de 14 Md$ est un bon fil conducteur : annoncé, mis en pause, toujours en révision — un signal concret et chiffré de ce que vaut le soutien américain, à réutiliser dans plusieurs paragraphes plutôt que mentionné une seule fois."
+  ]
+}
