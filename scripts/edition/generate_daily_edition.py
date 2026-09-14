@@ -624,13 +624,25 @@ def estimate_word_count(content):
     """Estimation du même comptage que validate_assembled_html()/le script
     déjà en place côté client (.dek, .why, dd) — mais calculée directement
     sur le JSON du modèle, avant construction du HTML, pour pouvoir
-    déclencher un retry automatique en cas de contenu trop court."""
-    texts = list(content.get("dek") or [])
+    déclencher un retry automatique en cas de contenu trop court.
+
+    Incident réel du 14 septembre 2026 (2e occurrence, test
+    mistralai/mistral-large-2512) : même crash AttributeError que dans
+    validate_content_schema(), mais ICI — cette fonction est appelée
+    AVANT la boucle lexique de validate_content_schema() qui vérifie
+    déjà isinstance(term, dict), donc son propre garde-fou ne protège
+    jamais cet appel plus précoce. Gardes ajoutées ici aussi, jamais
+    supposer qu'un élément de liste fourni par le modèle est du bon
+    type avant de l'avoir vérifié — même sur un chemin de code qui
+    semblait déjà couvert ailleurs."""
+    texts = [d for d in (content.get("dek") or []) if isinstance(d, str)]
     for kind in ("favorable", "stable", "degrade"):
-        card = (content.get("cards") or {}).get(kind) or {}
-        texts.extend(card.get("why") or [])
+        card = (content.get("cards") or {}).get(kind)
+        if isinstance(card, dict):
+            texts.extend(w for w in (card.get("why") or []) if isinstance(w, str))
     for term in content.get("lexique") or []:
-        texts.append(term.get("definition") or "")
+        if isinstance(term, dict):
+            texts.append(term.get("definition") or "")
     plain = re.sub(r"<[^>]+>", " ", " ".join(texts))
     return len(plain.split())
 
