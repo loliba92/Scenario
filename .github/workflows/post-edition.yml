@@ -29,10 +29,22 @@ name: Édition — rédaction + post-édition (OpenRouter)
 # le bon ordre relatif toute l'année, seule l'heure Paris affichée dérive
 # d'1h en hiver (CET).
 #
-# Secrets requis (Settings → Secrets and variables → Actions) :
+# Secrets requis (Settings → Secrets and variables → Actions → Secrets) :
 #   OPENROUTER_API_KEY (rédaction)
 #   PEXELS_API_KEY (photo de sujet — optionnel : absent, le job continue
 #     avec le repli registre/générique, jamais bloquant)
+#
+# Modèle de rédaction (ajouté le 14 septembre 2026, retour utilisateur —
+# « un moyen de jouer sur le modèle ») : par défaut, generate_daily_edition.py
+# utilise DEFAULT_MODEL (anthropic/claude-sonnet-5). Pour le changer sans
+# toucher au code :
+#   - de façon durable, pour TOUS les runs (cron inclus) : Settings →
+#     Secrets and variables → Actions → Variables → créer/éditer
+#     OPENROUTER_MODEL (ex. "openai/gpt-5", voir openrouter.ai/models pour
+#     l'identifiant exact) ;
+#   - ponctuellement, pour UN SEUL run manuel : onglet Actions → "Run
+#     workflow" → champ "model", prioritaire sur la variable de dépôt pour
+#     ce run précis uniquement, sans rien changer par ailleurs.
 
 on:
   schedule:
@@ -55,6 +67,10 @@ on:
         description: "true = écrit les vrais fichiers du dépôt et les commite/pousse sur main — toujours true si déclenché par le cron. Défaut false ici pour un test manuel sans risque."
         required: false
         default: "false"
+      model:
+        description: "Modèle OpenRouter à utiliser pour CE run uniquement (ex. anthropic/claude-sonnet-5, openai/gpt-5, google/gemini-2.5-pro — voir openrouter.ai/models). Vide = utilise la variable de dépôt OPENROUTER_MODEL si définie, sinon le défaut du script."
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -90,11 +106,18 @@ jobs:
             DRY_RUN=false
             SKIP_PHOTO=false
             PUBLISH=true
+            MODEL="${{ vars.OPENROUTER_MODEL }}"
           else
             BRIEF="${{ github.event.inputs.brief }}"
             DRY_RUN="${{ github.event.inputs.dry_run }}"
             SKIP_PHOTO="${{ github.event.inputs.skip_photo }}"
             PUBLISH="${{ github.event.inputs.publish }}"
+            # Input manuel prioritaire sur la variable de dépôt, pour tester
+            # un modèle ponctuellement sans changer le réglage par défaut.
+            MODEL="${{ github.event.inputs.model }}"
+            if [ -z "$MODEL" ]; then
+              MODEL="${{ vars.OPENROUTER_MODEL }}"
+            fi
           fi
           if [ ! -f "$BRIEF" ]; then
             echo "::error::Brief introuvable : $BRIEF — la recherche du jour (trigger Claude Code Remote « Scénario ») n'a probablement pas encore écrit/commité ce fichier."
@@ -105,8 +128,9 @@ jobs:
             echo "dry_run=$DRY_RUN"
             echo "skip_photo=$SKIP_PHOTO"
             echo "publish=$PUBLISH"
+            echo "model=$MODEL"
           } >> "$GITHUB_OUTPUT"
-          echo "Brief : $BRIEF · dry_run=$DRY_RUN · skip_photo=$SKIP_PHOTO · publish=$PUBLISH"
+          echo "Brief : $BRIEF · dry_run=$DRY_RUN · skip_photo=$SKIP_PHOTO · publish=$PUBLISH · modèle=${MODEL:-<défaut du script>}"
 
       - name: Rédaction — générer l'édition
         working-directory: scripts/edition
@@ -116,6 +140,9 @@ jobs:
           ARGS="--brief ../../${{ steps.config.outputs.brief }}"
           if [ "${{ steps.config.outputs.dry_run }}" = "true" ]; then
             ARGS="$ARGS --dry-run"
+          fi
+          if [ -n "${{ steps.config.outputs.model }}" ]; then
+            ARGS="$ARGS --model ${{ steps.config.outputs.model }}"
           fi
           python3 generate_daily_edition.py $ARGS --out ../../_prototype-out/output.html
 
