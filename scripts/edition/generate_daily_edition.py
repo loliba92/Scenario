@@ -298,7 +298,35 @@ def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, 
 
         if "error" in result_box:
             e = result_box["error"]
-            if isinstance(e, (urllib.error.URLError, urllib.error.HTTPError)):
+            if isinstance(e, urllib.error.HTTPError):
+                # Incident réel du 14 septembre 2026 (test manuel avec
+                # openai/gpt-5) : un 400 Bad Request s'affichait comme
+                # "HTTP Error 400: Bad Request", sans jamais lire le corps
+                # de la réponse — qui contient pourtant le vrai message
+                # d'erreur d'OpenRouter/du fournisseur (ex. un paramètre
+                # non supporté par ce modèle précis). Lu et inclus ici,
+                # une seule fois (le flux ne se relit pas deux fois).
+                try:
+                    detail = e.read().decode("utf-8", errors="replace")[:1000]
+                except Exception:
+                    detail = "(corps de la réponse illisible)"
+                # Un 4xx est une erreur du CONTENU de la requête (modèle,
+                # paramètre, format...) : la retenter à l'identique échoue
+                # de la même façon à coup sûr, donc jamais de retry réseau
+                # dessus — contrairement à une vraie panne réseau/5xx,
+                # transitoire par nature, qui garde son retry court.
+                if 400 <= e.code < 500:
+                    raise GenerationError(
+                        f"appel OpenRouter refusé (HTTP {e.code}, requête invalide, jamais retenté "
+                        f"à l'identique) : {detail}"
+                    )
+                last_err = e
+                if attempt == 0:
+                    print(f"[openrouter] erreur serveur HTTP {e.code}, nouvel essai dans 3s : {detail}", file=sys.stderr)
+                    time.sleep(3)
+                    continue
+                raise GenerationError(f"appel OpenRouter impossible après 2 essais (HTTP {last_err.code}) : {detail}")
+            if isinstance(e, urllib.error.URLError):
                 last_err = e
                 if attempt == 0:
                     print(f"[openrouter] erreur réseau, nouvel essai dans 3s : {e}", file=sys.stderr)
