@@ -16,7 +16,10 @@ docs/BACKLOG.md § « Chaîne rédaction OpenRouter » :
   5. sitemap.xml (nouvelle entrée archive) et sitemap-news.xml (purge >48h) ;
   6. archives.html (scripts/seo/generate_archives_table.py, réutilisé tel
      quel — nécessite que l'archive du jour existe réellement sur disque,
-     voir --sandbox-root).
+     voir --sandbox-root) ;
+  7. themes/{slug}.html, les 6 pages thématiques SEO (scripts/seo/
+     generate_theme_pages.py, réutilisé tel quel — lit archives.html
+     tout juste régénéré à l'étape 6, même bac à sable).
 
 Limites Phase 1, assumées (voir docs/BACKLOG.md) :
   - pas de recadrage de repli sur la photo générique du registre si
@@ -429,6 +432,29 @@ def main():
     archives_html_out = sandbox_root / "archives.html"
     archives_html_out.write_text(generated.read_text(encoding="utf-8"), encoding="utf-8")
     print(f"[post-edition] archives.html régénéré : {archives_html_out}")
+
+    # 7. Pages thématiques (SEO, maillage interne) — generate_theme_pages.py
+    # lit archives.html (déjà régénéré ci-dessus, dans le même mirror_root)
+    # + glossaire.html (déjà copié) et écrit themes/{slug}.html pour les 6
+    # domaines. Même ruse __file__ que generate_archives_table.py — même
+    # mirror_root, donc rien à recopier de plus.
+    mirrored_theme_script = mirrored_script_dir / "generate_theme_pages.py"
+    shutil.copy(SEO_DIR / "generate_theme_pages.py", mirrored_theme_script)
+    result = subprocess.run(
+        [sys.executable, str(mirrored_theme_script)],
+        capture_output=True, text=True, timeout=60,
+    )
+    if result.returncode != 0:
+        raise PostEditionError(f"generate_theme_pages.py a échoué : {result.stderr[-1000:]}")
+    mirrored_themes_dir = mirror_root / "themes"
+    if not mirrored_themes_dir.exists():
+        raise PostEditionError(f"generate_theme_pages.py n'a produit aucun fichier sous {mirrored_themes_dir}")
+    themes_out = sandbox_root / "themes"
+    if themes_out.exists():
+        shutil.rmtree(themes_out)
+    shutil.copytree(mirrored_themes_dir, themes_out)
+    n_themes = len(list(themes_out.glob("*.html")))
+    print(f"[post-edition] {n_themes} page(s) thématique(s) régénérée(s) : {themes_out}")
 
     print(f"[post-edition] terminé — {word_count} mots, {read_minutes} min de lecture.")
     print("[post-edition] AUCUN commit, AUCUN push effectué — Phase 1 prototype (workflow_dispatch uniquement).")
