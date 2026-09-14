@@ -131,14 +131,19 @@ rejetée automatiquement, rien n'est publié.
 **Vise 1300 à 1500 mots, jamais 1100 pile** : une rédaction qui vise
 exactement le minimum tombe presque toujours en dessous une fois les
 balises retirées et les espaces normalisés. Le minimum se calcule ainsi :
-- `dek` : 6 paragraphes (pas 4), chacun développé — bases pour comprendre
-  les acteurs, situation actuelle, causes de fond, pourquoi l'issue est
-  incertaine, pourquoi 3 scénarios, un fait récent daté si le brief en
-  fournit un.
-- Chaque `why` de chaque carte (6 paragraphes au total, 2 par carte) :
-  développer réellement le mécanisme du scénario dans le 1ᵉʳ paragraphe et
+- `dek` : 6 paragraphes (pas 4), **chacun au moins 90 mots, idéalement
+  100 à 130** — bases pour comprendre les acteurs, situation actuelle,
+  causes de fond, pourquoi l'issue est incertaine, pourquoi 3 scénarios,
+  un fait récent daté si le brief en fournit un.
+- Chaque `why` de chaque carte (6 paragraphes au total, 2 par carte),
+  **chacun au moins 90 mots, idéalement 100 à 130** : développer
+  réellement le mécanisme du scénario dans le 1ᵉʳ paragraphe et
   l'argument de comparaison aux deux autres scénarios dans le 2ᵉ, jamais
   une phrase courte qui se contente d'énoncer le scénario.
+- Arithmétique de vérification avant de renvoyer ta réponse : 6 × ~110
+  (dek) + 6 × ~110 (why) + lexique (~100) ≈ 1420 mots. Si ton brouillon
+  interne est nettement en dessous, développe-le avant de répondre —
+  ne renvoie jamais un brouillon dont tu sais qu'il est trop court.
 - Ne jamais atteindre le volume en délayant une même idée sur plusieurs
   phrases (voir règles de style plus haut, « une idée par phrase ») —
   ajouter du contenu réel (un chiffre du brief encore non utilisé, un
