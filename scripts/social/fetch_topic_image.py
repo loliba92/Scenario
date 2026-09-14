@@ -188,17 +188,51 @@ def crop_url(original_url: str, w: int, h: int) -> str:
 
 def square_crop_url(original_url: str, size: int = 1080) -> str:
     """Rognage carré (image Instagram) — cas particulier de crop_url(),
-    Pexels uniquement."""
-    return crop_url(original_url, size, size)
+    Pexels uniquement.
+
+    Retour utilisateur du 14 septembre 2026 : le centre de la photo —
+    là où se trouve en général le sujet le plus important — était
+    caché par le dégradé noir + le titre du gabarit
+    instagram-photo-template.html, plaqués sur le tiers/moitié bas de
+    l'image (`.scrim`/`.content`, `bottom:44px`). Comme cette image
+    carrée est déjà pré-rognée ici, côté Pexels, avant même d'arriver
+    dans le HTML, `object-position` en CSS n'a aucun effet (l'image
+    reçue par le gabarit est déjà carrée, il n'y a plus rien à
+    recadrer côté navigateur) — la correction doit se faire ici.
+
+    `crop=bottom` (paramètre Pexels documenté, cousin de `fit=crop`) —
+    **contre-intuitif, vérifié visuellement avant de trancher** (photo
+    réelle du 14 septembre, avion de chasse) : `crop=bottom` conserve
+    le bas de la photo d'origine, ce qui a pour effet de faire REMONTER
+    le sujet vers le haut du cadre carré (l'inverse de `crop=top`, qui
+    le fait descendre) — le rognage retire l'excédent en haut de la
+    source, pas en bas. Résultat mesuré : sujet centré vers y≈500/1080
+    en rognage centré (partiellement caché par le dégradé) → sujet
+    remonté vers y≈250/1080 avec `crop=bottom` (entièrement dans la
+    zone claire, au-dessus du dégradé)."""
+    return f"{crop_url(original_url, size, size)}&crop=bottom"
 
 
 def square_crop_local(src_path: str, dest_path: str, size: int = 1080) -> None:
     """Recadrage carré local via Pillow — utilisé pour Pixabay, qui ne
     permet pas de recadrage arbitraire par URL (seulement quelques
-    tailles fixes en suffixe : _180/_340/_640/_960)."""
+    tailles fixes en suffixe : _180/_340/_640/_960).
+
+    `centering=(0.5, 0.8)` : même correction que square_crop_url()
+    (retour utilisateur du 14 septembre 2026, sujet caché par le
+    dégradé/titre en bas de instagram-photo-template.html) — biaise le
+    rognage vers le BAS de la photo source plutôt qu'un centrage pur
+    (0.5, 0.5). Pillow : `centering` place l'ORIGINE du rognage, donc
+    une valeur proche de 1 conserve le bas de la source (retire
+    l'excédent en haut) — c'est ce sens-là, vérifié visuellement sur
+    l'équivalent côté Pexels (square_crop_url()), qui fait remonter le
+    sujet dans le cadre final, pas l'inverse. Moins extrême qu'un
+    ancrage total (1.0) : ce chemin ne sert qu'au repli registre/
+    générique, jamais testé aussi largement en conditions réelles, on
+    garde une petite marge plutôt qu'un ancrage complet au bord."""
     from PIL import Image, ImageOps
     im = Image.open(src_path).convert("RGB")
-    square = ImageOps.fit(im, (size, size), method=Image.LANCZOS, centering=(0.5, 0.45))
+    square = ImageOps.fit(im, (size, size), method=Image.LANCZOS, centering=(0.5, 0.8))
     square.save(dest_path, "JPEG", quality=90)
 
 
