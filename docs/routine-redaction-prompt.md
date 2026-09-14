@@ -29,6 +29,18 @@ chiffres et leurs sources, acteurs, chronologie, scénarios prospectifs avec
 une fourchette de probabilité suggérée, KPI, décisions déjà prises sur les
 encarts optionnels, sources à citer.
 
+**`sources[].texte_complet` (ajouté le 14 septembre 2026) — présent quand
+disponible, en plus de `sources[].summary`, jamais à sa place.** Récupéré à
+la volée juste avant cet appel : le texte intégral de l'article source
+(jusqu'à ~600-700 mots), pas seulement son résumé en 2-3 phrases. Utilise-le
+en priorité comme matière première pour développer `dek`/`why` avec de
+vrais détails concrets (chiffres précis, citations, nuances, contexte)
+plutôt que de délayer les faits déjà résumés — c'est directement lié à
+l'objectif de longueur ci-dessous : un article source pas assez exploité
+est souvent la vraie cause d'un texte final trop court. Absent pour
+certaines sources (paywall, article inaccessible...) : retombe sur
+`summary` pour celles-là, jamais bloquant.
+
 ## Ce que tu dois produire
 
 Un **unique objet JSON**, structure exacte donnée à la fin de ce fichier.

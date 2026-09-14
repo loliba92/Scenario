@@ -140,6 +140,96 @@ def load_redaction_prompt():
 
 
 # ---------------------------------------------------------------------------
+# Texte complet des sources — retour utilisateur du 14 septembre 2026 :
+# jusqu'ici, le modèle de rédaction ne recevait que le résumé (2-3 phrases)
+# écrit par la routine de recherche, jamais l'article lui-même. Sur un
+# sujet où les faits vérifiés sont peu nombreux, ça laisse peu de matière
+# première à développer sans délayer — piste concrète pour les échecs de
+# longueur observés (ex. brief Taïwan du jour, manque de 15 mots à peine
+# sur un essai réel).
+#
+# Récupéré à la VOLÉE ici, à chaque appel de rédaction — jamais stocké
+# dans editorial-briefs/{date}.json lui-même : le brief committé reste
+# les résumés/faits déjà vérifiés par la recherche (contenu original,
+# léger, pérenne). Le texte complet des articles tiers, lui, ne doit
+# jamais vivre durablement dans un dépôt public (poids qui grossit à
+# chaque édition, question de republication de contenu sous droits) —
+# seulement une consommation éphémère comme matière première du modèle,
+# jetée après l'appel, jamais commitée nulle part.
+# ---------------------------------------------------------------------------
+SOURCE_FETCH_USER_AGENT = "Scenario/1.0 (lesscenarios.fr; recherche éditoriale)"
+SOURCE_FETCH_MAX_CHARS = 4000  # ~600-700 mots par source, budget volontairement plafonné (coût + bruit du prompt)
+
+
+def fetch_source_full_text(url, timeout=12):
+    """Récupère et extrait le texte principal d'un article source — best
+    effort, ne lève jamais d'exception : retourne None sur tout échec
+    (paywall, 404, timeout, blocage anti-bot, structure HTML sans
+    <article>/<p> exploitable...), auquel cas l'appelant retombe sur le
+    `summary` déjà présent dans le brief. Jamais bloquant pour la
+    génération de l'édition — un article illisible ne doit jamais faire
+    échouer toute la rédaction."""
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": SOURCE_FETCH_USER_AGENT})
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            html = resp.read()
+    except Exception:
+        return None
+
+    try:
+        soup = BeautifulSoup(html, "html.parser")
+        for tag in soup(["script", "style", "nav", "header", "footer", "aside", "form"]):
+            tag.decompose()
+        # <article> d'abord (structure sémantique la plus fiable) ; à
+        # défaut, le conteneur avec le plus de texte cumulé dans ses <p>
+        # directs — heuristique simple mais robuste sur la plupart des
+        # sites d'actualité, jamais une vraie extraction "readability"
+        # (pas de dépendance dédiée dans ce dépôt).
+        container = soup.find("article")
+        if container is None:
+            candidates = soup.find_all(["div", "main", "section"])
+            best, best_len = None, 0
+            for c in candidates:
+                text_len = sum(len(p.get_text(strip=True)) for p in c.find_all("p", recursive=False))
+                if text_len > best_len:
+                    best, best_len = c, text_len
+            container = best or soup
+        paragraphs = [
+            p.get_text(" ", strip=True)
+            for p in container.find_all("p")
+            if len(p.get_text(strip=True)) > 40  # écarte légendes/mentions courtes, pas du vrai contenu
+        ]
+        text = "\n\n".join(paragraphs).strip()
+        if len(text) < 200:  # trop court pour être une vraie extraction utile
+            return None
+        return text[:SOURCE_FETCH_MAX_CHARS]
+    except Exception:
+        return None
+
+
+def enrich_sources_with_full_text(brief):
+    """Mute brief["sources"] EN MÉMOIRE (jamais le fichier sur disque) —
+    ajoute "texte_complet" à chaque source dont l'article a pu être
+    récupéré, en plus de "summary" (jamais à la place : le modèle garde
+    le résumé comme repère même quand le texte complet est aussi
+    disponible). Log un résumé (N/M sources récupérées) pour rester
+    observable depuis les logs GitHub Actions."""
+    sources = brief.get("sources") or []
+    fetched = 0
+    for source in sources:
+        url = source.get("url")
+        if not url:
+            continue
+        text = fetch_source_full_text(url)
+        if text:
+            source["texte_complet"] = text
+            fetched += 1
+    if sources:
+        print(f"[edition] sources : texte complet récupéré pour {fetched}/{len(sources)} — "
+              "repli sur le résumé pour les autres", file=sys.stderr)
+
+
+# ---------------------------------------------------------------------------
 # Appel OpenRouter
 # ---------------------------------------------------------------------------
 def build_user_prompt(redaction_prompt, brief):
@@ -763,6 +853,12 @@ def main():
     brief = load_brief(args.brief)
     date_str = brief["date"]
     print(f"[edition] brief chargé : {args.brief} (date {date_str}, registre {brief['registre']})")
+
+    # Jamais en --dry-run : effet de bord réseau réel (comme la photo
+    # Pexels ailleurs dans le pipeline), et --dry-run utilise une fixture
+    # figée dont le contenu ne dépend pas de ce brief de toute façon.
+    if not args.dry_run:
+        enrich_sources_with_full_text(brief)
 
     index_html_path = REPO_ROOT / "index.html"
     shell = build_html.extract_shell(index_html_path.read_text(encoding="utf-8"))
