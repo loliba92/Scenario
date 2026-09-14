@@ -502,6 +502,55 @@ def update_glossaire_html(glossaire_text, content, brief, date_str):
 
 
 # ---------------------------------------------------------------------------
+# sources-log.json / sources.html — « revue de presse » (docs/routine-prompt.md,
+# étape 3) : automatisée le 14 septembre 2026, sur décision explicite de
+# l'utilisateur, pour ne plus dépendre d'une étape manuelle de la routine
+# CCR régulièrement sautée (3 jours d'écart réels constatés avant ce
+# changement). Source : brief["revue_de_presse"] (voir
+# docs/routine-brief-format.md) — PAS brief["sources"], qui sert à un
+# usage distinct (les sources citées par faits_verifies[], presque
+# toujours sur le sujet du jour) : la revue de presse porte au contraire
+# des articles croisés au passage, pas forcément liés au sujet du jour,
+# gardés pour leur intérêt factuel propre. Mêmes champs que sources-log.json
+# à un près (l'"id" du brief, purement interne à faits_verifies[].sources,
+# n'existe pas dans revue_de_presse).
+# ---------------------------------------------------------------------------
+_SOURCES_LOG_ARTICLE_FIELDS = ("title", "source", "url", "image", "lang", "domain", "summary", "read_minutes")
+
+
+def build_sources_log_entry(brief):
+    """brief["revue_de_presse"][] -> entrée sources-log.json du jour (mêmes
+    champs). N'invente jamais de champ manquant : reprend la liste telle
+    quelle, comme la routine manuelle le faisait pour sources-log.json."""
+    articles = []
+    for src in brief.get("revue_de_presse") or []:
+        articles.append({k: src.get(k) for k in _SOURCES_LOG_ARTICLE_FIELDS})
+    return {"date": brief["date"], "articles": articles}
+
+
+def update_sources_log(sources_log_text, entry):
+    """Insère l'entrée du jour dans sources-log.json (ordre du plus récent
+    au plus ancien, comme sources.html.py trie déjà lui-même — voir
+    render_page() : sorted(..., reverse=True) — mais l'ordre du JSON source
+    reste explicite pour rester lisible en diff). Idempotent : si une entrée
+    pour cette date existe déjà (relance après une exécution déjà publiée
+    aujourd'hui, ou double déclenchement du pipeline), elle est REMPLACÉE
+    par la nouvelle plutôt que dupliquée — jamais deux <section id="{date}">
+    identiques sur sources.html. Retourne (nouveau_texte, ajoutée: bool)."""
+    data = json.loads(sources_log_text)
+    days = data.get("days", [])
+    existing_idx = next((i for i, d in enumerate(days) if d.get("date") == entry["date"]), None)
+    if existing_idx is not None:
+        days[existing_idx] = entry
+        added = False
+    else:
+        days.insert(0, entry)
+        added = True
+    data["days"] = days
+    return json.dumps(data, ensure_ascii=False, indent=2) + "\n", added
+
+
+# ---------------------------------------------------------------------------
 # Publication réelle (--publish uniquement, Phase 2)
 # ---------------------------------------------------------------------------
 def already_published_today(date_str):
@@ -544,6 +593,18 @@ def promote_to_real_repo(sandbox_root, date_str):
             raise PostEditionError(f"--publish : {rel} introuvable dans le bac à sable : {src}")
         (REPO_ROOT / rel).write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
     print("[post-edition] --publish : feed.xml, sitemap.xml, sitemap-news.xml, glossaire.html, archives.html écrits (réels)")
+
+    # sources-log.json / sources.html — jamais bloquant si absents du bac à
+    # sable (brief["sources"] vide un jour donné, cas non observé en
+    # pratique mais pas exclu par le schéma — voir docs/routine-brief-format.md
+    # « sources : au moins 1 élément » : cette règle est déjà vérifiée en
+    # amont par generate_daily_edition.py, donc en pratique toujours présents).
+    for rel in ("sources-log.json", "sources.html"):
+        src = sandbox_root / rel
+        if src.exists():
+            (REPO_ROOT / rel).write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
+    if (sandbox_root / "sources-log.json").exists():
+        print("[post-edition] --publish : sources-log.json, sources.html écrits (réels)")
 
     themes_src = sandbox_root / "themes"
     if themes_src.exists():
@@ -775,6 +836,46 @@ def main():
     shutil.copytree(mirrored_themes_dir, themes_out)
     n_themes = len(list(themes_out.glob("*.html")))
     print(f"[post-edition] {n_themes} page(s) thématique(s) régénérée(s) : {themes_out}")
+
+    # 8. sources-log.json / sources.html — « revue de presse », automatisée
+    # le 14 septembre 2026 (voir commentaire au-dessus de build_sources_log_entry()
+    # plus haut dans ce fichier). Jamais bloquant : brief["revue_de_presse"]
+    # vide/absent -> aucun jour ajouté (comme le faisait la routine
+    # manuelle), ni sources-log.json ni sources.html ne sont même écrits
+    # dans le bac à sable — promote_to_real_repo() ne touche alors pas ces
+    # deux fichiers du tout.
+    if brief.get("revue_de_presse"):
+        # Même mirror_root que les étapes 6-7 : il a déjà glossaire.html,
+        # le 2e fichier lu par generate_sources_page.py — rien de plus à
+        # recopier pour cette dépendance.
+        sources_entry = build_sources_log_entry(brief)
+        sources_log_text = (REPO_ROOT / "sources-log.json").read_text(encoding="utf-8")
+        new_sources_log_text, sources_added = update_sources_log(sources_log_text, sources_entry)
+        json.loads(new_sources_log_text)  # valide la syntaxe JSON avant écriture — échoue fort sinon
+        sources_log_out = sandbox_root / "sources-log.json"
+        sources_log_out.write_text(new_sources_log_text, encoding="utf-8")
+        (mirror_root / "sources-log.json").write_text(new_sources_log_text, encoding="utf-8")
+        if sources_added:
+            print(f"[post-edition] sources-log.json : {len(sources_entry['articles'])} article(s) ajouté(s) pour {date_str}")
+        else:
+            print(f"[post-edition] sources-log.json : entrée du {date_str} déjà présente — remplacée (relance idempotente)")
+
+        mirrored_sources_script = mirrored_script_dir / "generate_sources_page.py"
+        shutil.copy(SEO_DIR / "generate_sources_page.py", mirrored_sources_script)
+        result = subprocess.run(
+            [sys.executable, str(mirrored_sources_script)],
+            capture_output=True, text=True, timeout=60,
+        )
+        if result.returncode != 0:
+            raise PostEditionError(f"generate_sources_page.py a échoué : {result.stderr[-1000:]}")
+        generated_sources_html = mirror_root / "sources.html"
+        if not generated_sources_html.exists():
+            raise PostEditionError(f"generate_sources_page.py n'a pas produit {generated_sources_html}")
+        sources_html_out = sandbox_root / "sources.html"
+        sources_html_out.write_text(generated_sources_html.read_text(encoding="utf-8"), encoding="utf-8")
+        print(f"[post-edition] sources.html régénéré : {sources_html_out}")
+    else:
+        print("[post-edition] revue_de_presse : absente/vide dans le brief — aucun jour ajouté (comme avant, jamais forcé)")
 
     print(f"[post-edition] terminé — {word_count} mots, {read_minutes} min de lecture.")
 

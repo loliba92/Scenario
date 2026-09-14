@@ -84,6 +84,18 @@ sur un fichier partagé entre deux process).
       "read_minutes": 0
     }
   ],
+  "revue_de_presse": [
+    {
+      "title": "string",
+      "source": "string (nom du média)",
+      "url": "string",
+      "image": "string ou null (URL og:image du média, jamais téléchargée/hébergée chez nous)",
+      "lang": "fr|en|other",
+      "domain": "un des 6 slugs de docs/tags.md",
+      "summary": "string, 1-2 phrases factuelles, jamais un avis",
+      "read_minutes": 0
+    }
+  ],
   "recommandations_redaction": ["string"]
 }
 ```
@@ -109,6 +121,29 @@ choisis ici — les mêmes précautions que la routine complète restent
 valables (pas de visage reconnaissable suggéré, pas de photomontage
 stock clicheté), même si elles ne sont plus vérifiées après coup.
 
+## Champ `revue_de_presse` (utilisé par `generate_post_edition.py`, pas la rédaction)
+
+Ajouté le 14 septembre 2026 pour automatiser `sources-log.json`/
+`sources.html` — voir `docs/routine-prompt.md`, § « Revue de presse » pour
+la règle éditoriale complète (2 à 5 liens croisés pendant la recherche,
+même hors sujet du jour, jamais un avis dessus). **Distinct de `sources[]`
+ci-dessus** : `sources[]` porte les sources qui servent directement aux
+`faits_verifies` de l'édition du jour (presque toujours sur le même
+sujet) ; `revue_de_presse` porte au contraire des articles croisés au
+passage, pas forcément liés au sujet du jour, gardés juste pour leur
+intérêt factuel propre — les deux listes ne se recoupent pas forcément et
+aucune des deux ne doit être déduite de l'autre.
+
+`generate_post_edition.py` construit l'entrée du jour de
+`sources-log.json` **directement à partir de `revue_de_presse`** (mêmes
+champs, sans `id`) et régénère `sources.html` — aucune action manuelle.
+**Jamais bloquant** : `[]` ou champ absent → aucun jour ajouté pour la
+date du brief (comme le faisait la routine manuelle : « rien de notable
+croisé aujourd'hui → section vide ce jour-là », jamais une entrée vide
+forcée). Relancer le pipeline sur un brief déjà traité **remplace**
+l'entrée du jour plutôt que de la dupliquer (idempotent, mêmes garanties
+que le reste de la post-édition).
+
 ## Règles de validité (vérifiées par `generate_daily_edition.py`)
 
 - `date` : format `AAAA-MM-JJ` valide.
@@ -122,6 +157,8 @@ stock clicheté), même si elles ne sont plus vérifiées après coup.
   cohérence des KPI dans `docs/routine-prompt.md`).
 - `sources` : au moins 1 élément ; chaque `id` référencé dans
   `faits_verifies[].sources` doit exister dans `sources`.
+- `revue_de_presse` : **pas** de minimum, absent ou `[]` valide (à
+  l'inverse de `sources` ci-dessus) — voir § dédié plus haut.
 - `encarts_decides.comprendre_box` : au maximum 2 éléments.
 
 ## Exemple

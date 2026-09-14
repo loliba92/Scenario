@@ -181,9 +181,22 @@ si tu n'écris plus le texte de l'encart) et sur quel focus ; un
 `list_box` pertinent existe-t-il (matrice/classement/chronologie de
 jalons, jamais un simple paragraphe déguisé) ?
 
-**Revue de presse — 2 à 5 liens croisés, jamais bloquant.** Comme avant :
-`sources-log.json` + `python3 scripts/seo/generate_sources_page.py`,
-committés avec le brief.
+**Revue de presse — 2 à 5 liens croisés, jamais bloquant. Mécanique
+automatisée depuis le 14 septembre 2026, mais la sélection reste ton
+travail.** Comme avant : en plus des sources qui servent directement au
+sujet du jour (celles-là vont dans `sources[]`, voir schéma), garder trace
+de quelques autres articles intéressants croisés pendant cette
+recherche — même ceux qui n'ont pas servi, même sur un tout autre registre
+que celui du jour. Jamais un avis dessus, jamais un scénario : juste ce
+que l'article dit, en 1-2 phrases factuelles (`summary`). Ce qui change :
+ne plus toucher `sources-log.json`/`sources.html` toi-même — les noter
+dans le nouveau champ `revue_de_presse` du brief (même forme que
+`sources[]`, sans `id` — voir `docs/routine-brief-format.md`).
+`generate_post_edition.py` s'occupe ensuite seul d'ajouter le jour à
+`sources-log.json` et de régénérer `sources.html`. **Jamais bloquant** :
+rien de notable croisé aujourd'hui → `revue_de_presse` reste vide ou
+absent, aucun jour ajouté pour aujourd'hui (comme avant : pas de section
+vide forcée).
 
 **Recoupement avec `archives.html`/suivis actifs.** Comme avant :
 vérifier les noms propres du sujet du jour contre `archives.html` et
@@ -200,13 +213,14 @@ le lien.
    complète) et `anti_doublon` (notes sur les vérifications faites à
    l'Étape 0bis).
 2. Committer ce seul fichier sur `main` : `git add
-   editorial-briefs/{AAAA-MM-JJ}.json sources-log.json sources.html
-   sujets-prioritaires.md docs/sujets-a-suivre.md` (les 4 derniers
-   seulement s'ils ont changé — revue de presse, case cochée en Étape 0,
-   suivi mis à jour), puis `git commit` et `git push origin main`. **Ne
-   jamais committer autre chose** — jamais `index.html`, jamais
-   `archives/`, jamais `feed.xml` : ce n'est plus le rôle de cette
-   routine.
+   editorial-briefs/{AAAA-MM-JJ}.json sujets-prioritaires.md
+   docs/sujets-a-suivre.md` (les 2 derniers seulement s'ils ont changé —
+   case cochée en Étape 0, suivi mis à jour), puis `git commit` et `git
+   push origin main`. **Ne jamais committer autre chose** — jamais
+   `index.html`, jamais `archives/`, jamais `feed.xml`, jamais
+   `sources-log.json`/`sources.html` (générés automatiquement par le
+   pipeline à partir de `revue_de_presse` dans le brief, voir Étape 3
+   ci-dessus) : ce n'est plus le rôle de cette routine.
 3. Déclencher le pipeline de rédaction + publication — **que tu arrives
    ici après avoir committé un nouveau brief (points 1-2), ou directement
    depuis le garde-fou en tête de fichier (brief déjà existant) : même

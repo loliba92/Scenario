@@ -41,6 +41,14 @@ est souvent la vraie cause d'un texte final trop court. Absent pour
 certaines sources (paywall, article inaccessible...) : retombe sur
 `summary` pour celles-là, jamais bloquant.
 
+**`revue_de_presse` (ajouté le 14 septembre 2026) — jamais matière à
+l'article.** Présent dans le brief mais réservé à `generate_post_edition.py`
+(alimente `sources-log.json`/`sources.html`, une page séparée) : ce sont
+des articles croisés pendant la recherche, pas forcément liés au sujet du
+jour — ne jamais en tirer de faits, chiffres ou citations pour `dek`/`why`
+ou les scénarios, même si un titre paraît pertinent. Seuls `sources[]` et
+`faits_verifies[]` sont matière à l'article.
+
 ## Ce que tu dois produire
 
 Un **unique objet JSON**, structure exacte donnée à la fin de ce fichier.
