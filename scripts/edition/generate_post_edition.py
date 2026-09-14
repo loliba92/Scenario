@@ -13,7 +13,13 @@ docs/BACKLOG.md § « Chaîne rédaction OpenRouter » :
      paramètre `photo`) ;
   3. image Instagram (scripts/social/generate_instagram_image.py) ;
   4. feed.xml (nouvel <item>) ;
-  5. sitemap.xml (nouvelle entrée archive) et sitemap-news.xml (purge >48h) ;
+  4bis. glossaire.html : report mécanique des nouveaux termes du lexique
+     du jour (voir docs/routine-prompt.md, étape 6ter) — un terme déjà
+     présent n'est jamais modifié, un nouveau terme est inséré à la
+     bonne place alphabétique ;
+  5. sitemap.xml (nouvelle entrée archive, <lastmod> de glossaire.html
+     mis à jour seulement si 4bis a ajouté un terme) et sitemap-news.xml
+     (purge >48h) ;
   6. archives.html (scripts/seo/generate_archives_table.py, réutilisé tel
      quel — nécessite que l'archive du jour existe réellement sur disque,
      voir --sandbox-root) ;
@@ -29,10 +35,6 @@ manquant) : image générique unique du gabarit (comportement historique
 de build_html.py, photo=None). Jamais bloquant à aucun des deux niveaux.
 
 Limites Phase 1, assumées (voir docs/BACKLOG.md) :
-  - `context`/labels de l'image Instagram réutilisent section_title et
-    les titres de cartes déjà rédigés, jamais une reformulation dédiée
-    (voir docs/routine-prompt.md, règle « jamais un copier-coller du
-    site ») — simplification Phase 1, à corriger si le rendu déçoit ;
   - `<comments>`/le 1er bloc de la Description reprennent question_text
     seul, sans « accroche » distincte (jamais définie précisément dans
     le brief actuel) ;
@@ -55,12 +57,14 @@ Usage:
     python3 generate_post_edition.py --brief ... --content ... --skip-photo
 """
 import argparse
+import html
 import json
 import os
 import re
 import shutil
 import subprocess
 import sys
+import unicodedata
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -74,6 +78,18 @@ SOCIAL_DIR = REPO_ROOT / "scripts" / "social"
 SEO_DIR = REPO_ROOT / "scripts" / "seo"
 SITE_URL = "https://lesscenarios.fr"
 CARD_ORDER = ("favorable", "stable", "degrade")
+# Même table que docs/tags.md §2 / DOMAIN_LABELS de generate_archives_table.py
+# et generate_theme_pages.py — dupliquée ici volontairement (même
+# convention que ces deux scripts : « à tenir manuellement synchronisée »,
+# pas d'import croisé entre scripts/seo et scripts/edition).
+DOMAIN_LABELS = {
+    "economie-entreprises": "Économie & entreprises",
+    "politique-institutions": "Politique & institutions",
+    "international": "International",
+    "sciences-environnement": "Sciences & environnement",
+    "tech-numerique": "Tech & numérique",
+    "culture-divertissement": "Culture & divertissement",
+}
 CARD_EMOJI = {"favorable": "🟢", "stable": "🔵", "degrade": "🔴"}
 # Approximation Europe/Paris (CEST, UTC+2) — même limite que le reste du
 # prototype (pas de dépendance à une base tz système), acceptable pour un
@@ -219,14 +235,17 @@ def select_registry_fallback_photo(registre, date_str, sandbox_root):
 # ---------------------------------------------------------------------------
 def generate_instagram_image(content, date_str, sandbox_root, photo):
     """Reconstruit /tmp/ig-data.json à la volée et appelle
-    generate_instagram_image.py — simplification Phase 1 assumée
-    (context/labels réutilisés tels quels, voir docstring module)."""
+    generate_instagram_image.py. Structure simplifiée le 14 septembre
+    2026 (retour utilisateur, image réelle relue) : titre + question
+    posée, plus de bloc listant les 3 scénarios — leurs libellés (repris
+    tels quels des titres de cartes du site, simplification Phase 1
+    assumée) étaient systématiquement tronqués par le CSS une seule
+    ligne du template (`text-overflow: ellipsis`), illisible. Voir
+    scripts/social/generate_instagram_image.py pour le détail du
+    changement de gabarit."""
     ig_data = {
         "title": content["h1"],
-        "context": content["section_title"],
-        "scenarios": [
-            {"kind": k, "label": content["cards"][k]["h3"]} for k in CARD_ORDER
-        ],
+        "context": content["question_text"],
     }
     data_path = sandbox_root / "ig-data.json"
     data_path.write_text(json.dumps(ig_data, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -308,7 +327,7 @@ def update_feed_xml(feed_text, item_xml):
 # ---------------------------------------------------------------------------
 # 4. sitemap.xml / sitemap-news.xml
 # ---------------------------------------------------------------------------
-def update_sitemap_xml(sitemap_text, date_str):
+def update_sitemap_xml(sitemap_text, date_str, bump_glossaire=False):
     def bump_lastmod(text, loc):
         pattern = re.compile(
             rf'(<loc>{re.escape(loc)}</loc>\s*<lastmod>)\d{{4}}-\d{{2}}-\d{{2}}(</lastmod>)'
@@ -320,6 +339,10 @@ def update_sitemap_xml(sitemap_text, date_str):
 
     text = bump_lastmod(sitemap_text, f"{SITE_URL}/")
     text = bump_lastmod(text, f"{SITE_URL}/archives.html")
+    # Uniquement si 6ter (voir update_glossaire_html()) a réellement
+    # ajouté un terme — voir docs/routine-prompt.md, étape 7.
+    if bump_glossaire:
+        text = bump_lastmod(text, f"{SITE_URL}/glossaire.html")
 
     new_entry = (
         "  <url>\n"
@@ -368,6 +391,90 @@ def update_sitemap_news_xml(sitemap_news_text, date_str, title):
     ET.SubElement(news_el, f"{{{ns['news']}}}title").text = title
 
     return '<?xml version="1.0" encoding="UTF-8"?>\n' + ET.tostring(root, encoding="unicode")
+
+
+# ---------------------------------------------------------------------------
+# 5bis. glossaire.html — retour utilisateur du 14 septembre 2026 : la
+# Phase 1 ne le mettait pas à jour, le glossaire restait figé au fil des
+# éditions de test. Voir docs/routine-prompt.md, étape 6ter (« purement
+# mécanique »).
+# ---------------------------------------------------------------------------
+_GLOSSAIRE_ENTRY_RE = re.compile(
+    r'<div class="lex-entry" id="(lex-[a-z0-9-]+)">\s*'
+    r'<dt class="lex-term">(.*?)</dt>\s*'
+    r'<dd class="lex-def">.*?</dd>\s*'
+    r'<div class="lex-meta">.*?</div>\s*'
+    r'</div>',
+    re.S,
+)
+
+
+def _normalize_for_sort(text):
+    """Tri alphabétique insensible accents/majuscules, voir
+    docs/routine-prompt.md étape 6ter."""
+    stripped_tags = re.sub(r"<[^>]+>", "", text)
+    normalized = unicodedata.normalize("NFKD", stripped_tags)
+    return "".join(c for c in normalized if not unicodedata.combining(c)).lower().strip()
+
+
+def _build_glossaire_entry(term, domain_label, date_str, h1):
+    return (
+        f'      <div class="lex-entry" id="lex-{term["slug"]}">\n'
+        f'        <dt class="lex-term">{html.escape(term["terme"])}</dt>\n'
+        f'        <dd class="lex-def">{html.escape(term["definition"])}</dd>\n'
+        '        <div class="lex-meta">\n'
+        f'          <span class="lex-domain">{html.escape(domain_label)}</span>\n'
+        f'          <a class="lex-source" href="archives/{date_str}.html">Vu dans : {html.escape(h1)} →</a>\n'
+        "        </div>\n"
+        "      </div>\n"
+    )
+
+
+def update_glossaire_html(glossaire_text, content, brief, date_str):
+    """Reporte chaque terme du lexique du jour dans glossaire.html — un
+    terme déjà présent n'est jamais modifié (garde son 1er lien source),
+    un nouveau terme est inséré à la bonne place alphabétique. Édition
+    SURGICALE par texte, jamais un aller-retour BeautifulSoup sur tout
+    le fichier (2000+ lignes) qui risquerait de reformatter en silence
+    des parties sans rapport — même principe que extract_block() dans
+    generate_archives_table.py/generate_theme_pages.py. Retourne
+    (nouveau_texte, liste des termes effectivement ajoutés)."""
+    list_start_marker = '<dl class="lex-list" id="lex-list">'
+    list_end_marker = "</dl>"
+    if list_start_marker not in glossaire_text:
+        raise PostEditionError(f'glossaire.html : marqueur {list_start_marker!r} introuvable')
+    start = glossaire_text.index(list_start_marker) + len(list_start_marker)
+    end = glossaire_text.index(list_end_marker, start)
+
+    domain_label = DOMAIN_LABELS.get(brief["sujet"]["domain"], brief["sujet"]["domain"])
+    h1 = content["h1"]
+    text = glossaire_text
+    added = []
+
+    for term in content.get("lexique") or []:
+        slug = term.get("slug")
+        if not slug:
+            continue
+        entry_id = f"lex-{slug}"
+        if f'id="{entry_id}"' in text[start:end]:
+            continue  # déjà présent : jamais modifié, garde son 1er lien source
+
+        new_entry = _build_glossaire_entry(term, domain_label, date_str, h1)
+        new_key = _normalize_for_sort(term["terme"])
+
+        insert_at = None
+        for m in _GLOSSAIRE_ENTRY_RE.finditer(text[start:end]):
+            if _normalize_for_sort(m.group(2)) > new_key:
+                insert_at = start + m.start()
+                break
+        if insert_at is None:
+            insert_at = end  # dernier alphabétiquement (ou liste vide)
+
+        text = text[:insert_at] + new_entry + text[insert_at:]
+        end += len(new_entry)
+        added.append(term["terme"])
+
+    return text, added
 
 
 # ---------------------------------------------------------------------------
@@ -468,9 +575,19 @@ def main():
     feed_out.write_text(new_feed_text, encoding="utf-8")
     print(f"[post-edition] feed.xml (avec nouvel item, {read_minutes} min de lecture) écrit : {feed_out}")
 
+    # 4bis. glossaire.html — voir docs/routine-prompt.md, étape 6ter
+    glossaire_text = (REPO_ROOT / "glossaire.html").read_text(encoding="utf-8")
+    new_glossaire_text, added_terms = update_glossaire_html(glossaire_text, content, brief, date_str)
+    glossaire_out = sandbox_root / "glossaire.html"
+    glossaire_out.write_text(new_glossaire_text, encoding="utf-8")
+    if added_terms:
+        print(f"[post-edition] glossaire.html : {len(added_terms)} nouveau(x) terme(s) ajouté(s) — {', '.join(added_terms)}")
+    else:
+        print("[post-edition] glossaire.html : aucun nouveau terme (tous déjà présents)")
+
     # 5. sitemap.xml / sitemap-news.xml
     sitemap_text = (REPO_ROOT / "sitemap.xml").read_text(encoding="utf-8")
-    new_sitemap_text = update_sitemap_xml(sitemap_text, date_str)
+    new_sitemap_text = update_sitemap_xml(sitemap_text, date_str, bump_glossaire=bool(added_terms))
     ET.fromstring(new_sitemap_text)
     sitemap_out = sandbox_root / "sitemap.xml"
     sitemap_out.write_text(new_sitemap_text, encoding="utf-8")

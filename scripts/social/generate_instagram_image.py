@@ -17,40 +17,28 @@ Usage:
 data.json:
 {
   "title": "FIFA : la présidence d'Infantino vacille",
-  "context": "Infantino peut-il tenir jusqu'au bout de son mandat ?",
-  "scenarios": [
-    {"kind": "favorable", "label": "Infantino regagne la confiance"},
-    {"kind": "stable", "label": "La méfiance dure, il reste en poste"},
-    {"kind": "degrade", "label": "L'UEFA déclenche la motion de défiance"}
-  ]
+  "context": "Infantino peut-il tenir jusqu'au bout de son mandat ?"
 }
 
-Champs "kind" attendus : favorable | stable | degrade (détermine la
-couleur, la flèche ↑/→/↓, et le mot affiché en toutes lettres à côté de
-la flèche — ajouté le 24 août, retour utilisateur : la flèche colorée
-seule ne "parle" qu'à qui connaît déjà le code du site). Pas de
-pourcentages dans l'image — c'est volontaire (effet teaser vers le
-lien en bio).
+**Structure simplifiée le 14 septembre 2026** (retour utilisateur, en
+relisant le rendu réel de l'image post-édition) : titre → question,
+plus de 3ᵉ bloc listant les scénarios. Le bloc `.scenario-row`/
+`.scenario-box` (flèche + mot-repère + libellé du scénario, un par
+carte) a été retiré des deux templates — la troncature forcée en CSS
+(`text-overflow: ellipsis`, une seule ligne) coupait systématiquement
+les libellés un peu longs (« Washington débloque les armes, la
+pression m... »), illisible et peu engageant. `__SCENARIO_ROWS__` et le
+champ `"scenarios"` du JSON restent supportés si un template les
+utilise encore (rétrocompatibilité, voir build_scenario_rows() plus
+bas), mais ne sont plus câblés par défaut dans
+instagram-template.html/instagram-photo-template.html.
 
-"context" : UNE SEULE question simple et factuelle affichée sous le
-titre — jamais une phrase de mise en scène qui reformule déjà les 3
-scénarios (ils sont juste en dessous, dans l'encart : redondant, et
-"fait trop d'image"). Recycler h2.section-title de l'édition (déjà
-écrit comme reformulation courte et pédagogique de la question, donc
-déjà calibré pour ça) plutôt que la meta description/og:description
-(trop narrative) ou la question posée brute (trop longue) — voir
-docs/routine-prompt.md. Structure finale : titre → question simple →
-les 3 réponses possibles (scénarios). Remplace depuis le 24 août les
-anciens champs séparés "hook" (accroche dorée) + "context" (ligne de
-contexte grise) — retour utilisateur : deux légendes de couleurs
-différentes l'une sous l'autre "fait brouillon" ; un seul paragraphe,
-une seule couleur. Voir docs/routine-prompt.md pour la méthode de
-rédaction, y compris pour les "label" des scénarios : wording simple,
-direct, sans métaphore littéraire, compréhensible par quelqu'un qui ne
-connaît rien au sujet (le teaser doit se suffire à lui-même,
-contrairement aux titres de cartes du site qui vivent à côté du
-paragraphe "why"). Toujours vérifier le rendu à taille mobile réelle
-(~350px de large) avant de considérer un wording comme acceptable.
+"context" : maintenant le SEUL message sous le titre, dans la zone au
+dégradé noir en bas de l'image (donc toujours lisible quel que soit le
+fond) — la vraie question posée de l'édition (`question_text`), pas une
+reformulation. Jamais une phrase de mise en scène. Toujours vérifier le
+rendu à taille mobile réelle (~350px de large) avant de considérer un
+wording comme acceptable.
 
 Champ optionnel "delta" (ajouté le 12 août, plusieurs itérations
 visuelles le même jour — voir docs/ARCHITECTURE.md) : carte "France
@@ -225,13 +213,13 @@ def main():
     template = Path(args.template).read_text(encoding="utf-8")
 
     title_html = html.escape(data["title"])
-    rows_html = build_scenario_rows(data["scenarios"], lang=args.lang)
 
-    final_html = (
-        template
-        .replace("__TITLE__", title_html)
-        .replace("__SCENARIO_ROWS__", rows_html)
-    )
+    final_html = template.replace("__TITLE__", title_html)
+
+    if "__SCENARIO_ROWS__" in final_html:
+        if "scenarios" not in data:
+            sys.exit("ERREUR : le template attend des lignes de scénario (__SCENARIO_ROWS__) mais le JSON n'a pas de champ \"scenarios\".")
+        final_html = final_html.replace("__SCENARIO_ROWS__", build_scenario_rows(data["scenarios"], lang=args.lang))
 
     if "__CONTEXT__" in final_html:
         if "context" not in data:

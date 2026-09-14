@@ -78,52 +78,11 @@
   .context{
     font-family:"Inter", sans-serif;
     font-weight:500;
-    font-size: 32px;
+    font-size: 38px;
     line-height:1.35;
     color: var(--paper);
     text-wrap: balance;
   }
-
-  .scenario-box{
-    background: var(--ink);
-    border: 1px solid rgba(236,231,218,0.12);
-    border-radius: 18px;
-    padding: 26px 30px;
-    display:flex;
-    flex-direction:column;
-    gap:16px;
-  }
-  .scenario-row{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    font-family:"Inter", sans-serif;
-    font-weight:700;
-    font-size:29px;
-    color: var(--paper);
-    padding: 4px 0 4px 22px;
-    border-left: 6px solid transparent;
-  }
-  .scenario-row .arrow{ font-family:"JetBrains Mono", monospace; font-size:34px; flex-shrink:0; }
-  /* Mot explicite (Favorable/Stable/Dégradé), ajouté le 24 août à côté
-     de la flèche — retour utilisateur : la couleur/flèche seule ne
-     "parle" qu'à qui connaît déjà le code du site. Le mot en toutes
-     lettres rend chaque ligne compréhensible isolément. */
-  .scenario-row .kind-word{
-    font-family:"JetBrains Mono", monospace;
-    font-weight:700;
-    font-size:18px;
-    letter-spacing:0.04em;
-    text-transform:uppercase;
-    flex-shrink:0;
-  }
-  .scenario-row .label{ flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .scenario-row[data-kind="favorable"]{ border-color: var(--favorable); }
-  .scenario-row[data-kind="favorable"] .arrow, .scenario-row[data-kind="favorable"] .kind-word{ color: var(--favorable); }
-  .scenario-row[data-kind="stable"]{ border-color: var(--stable); }
-  .scenario-row[data-kind="stable"] .arrow, .scenario-row[data-kind="stable"] .kind-word{ color: var(--stable); }
-  .scenario-row[data-kind="degrade"]{ border-color: var(--degrade); }
-  .scenario-row[data-kind="degrade"] .arrow, .scenario-row[data-kind="degrade"] .kind-word{ color: var(--degrade); }
 
   .footer{
     display:flex; align-items:baseline; gap:14px;
@@ -205,10 +164,6 @@
     <div class="headline">__TITLE__</div>
 
     <div class="context">__CONTEXT__</div>
-
-    <div class="scenario-box">
-      __SCENARIO_ROWS__
-    </div>
 
     <div class="footer"><span class="tagline">Le futur en 3 scénarios</span><span class="sep">·</span><span class="url">lesscenarios.fr</span></div>
   </div>
