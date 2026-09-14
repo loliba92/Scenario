@@ -21,10 +21,14 @@ docs/BACKLOG.md § « Chaîne rédaction OpenRouter » :
      generate_theme_pages.py, réutilisé tel quel — lit archives.html
      tout juste régénéré à l'étape 6, même bac à sable).
 
+Photo — deux niveaux de repli si Pexels échoue ou si image_keywords est
+absent : 1) photo par défaut du registre (assets/social/pub-photos/
+{registre}.jpg, recadrage LOCAL via Pillow, jamais un appel réseau) ;
+2) seulement si ce repli échoue aussi (registre inconnu, fichier
+manquant) : image générique unique du gabarit (comportement historique
+de build_html.py, photo=None). Jamais bloquant à aucun des deux niveaux.
+
 Limites Phase 1, assumées (voir docs/BACKLOG.md) :
-  - pas de recadrage de repli sur la photo générique du registre si
-    Pexels échoue — retombe directement sur l'image générique du
-    gabarit (comportement historique de build_html.py), jamais bloquant ;
   - `context`/labels de l'image Instagram réutilisent section_title et
     les titres de cartes déjà rédigés, jamais une reformulation dédiée
     (voir docs/routine-prompt.md, règle « jamais un copier-coller du
@@ -149,6 +153,57 @@ def select_topic_photo(image_keywords, date_str, sandbox_root, timeout=25):
         "photographer": chosen.get("photographer") or "Photographe non identifié",
         "pexels_url": chosen.get("pexels_url") or "https://www.pexels.com/",
         "query": image_keywords,
+    }
+
+
+def select_registry_fallback_photo(registre, date_str, sandbox_root):
+    """Repli sur la photo par défaut du registre (assets/social/pub-
+    photos/{registre}.jpg + credits.json) quand Pexels échoue ou ne
+    retient rien — jamais l'image générique unique du gabarit tant
+    qu'un repli par registre existe (voir docs/routine-prompt.md, étape
+    « Image du sujet », point 4 : « ne pas publier sans image »).
+    Recadrage LOCAL (Pillow, réutilise square_crop_local/wide_crop_local
+    de fetch_topic_image.py/use_topic_image.py) — aucun appel réseau."""
+    pub_photos_dir = REPO_ROOT / "assets" / "social" / "pub-photos"
+    credits_path = pub_photos_dir / "credits.json"
+    if not credits_path.exists():
+        return None
+    with open(credits_path, encoding="utf-8") as f:
+        all_credits = json.load(f)
+    entry = next((c for c in all_credits if c.get("file") == f"{registre}.jpg"), None)
+    if not entry:
+        print(f"[post-edition] aucune photo de repli connue pour le registre {registre!r}", file=sys.stderr)
+        return None
+    src_path = pub_photos_dir / f"{registre}.jpg"
+    if not src_path.exists():
+        print(f"[post-edition] photo de repli introuvable sur disque : {src_path}", file=sys.stderr)
+        return None
+
+    sys.path.insert(0, str(SOCIAL_DIR))
+    from fetch_topic_image import square_crop_local  # noqa: PLC0415 — import tardif volontaire, voir docstrings des scripts sources
+    from use_topic_image import wide_crop_local  # noqa: PLC0415
+
+    topic_images_dir = sandbox_root / "assets" / "social" / "topic-images"
+    topic_images_dir.mkdir(parents=True, exist_ok=True)
+    square_path = topic_images_dir / f"{date_str}.jpg"
+    try:
+        square_crop_local(str(src_path), str(square_path))
+        wide_crop_local(str(src_path), str(topic_images_dir / f"{date_str}-wide.jpg"))
+    except Exception as e:
+        print(f"[post-edition] recadrage de la photo de repli échoué : {e}", file=sys.stderr)
+        return None
+
+    credit_entry = dict(entry)
+    credit_entry["note"] = "banque de secours par registre, pas une photo dédiée au sujet du jour"
+    (topic_images_dir / f"{date_str}.json").write_text(
+        json.dumps(credit_entry, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+    return {
+        "square_path": square_path,
+        "photographer": entry.get("photographer") or "Photographe non identifié",
+        "pexels_url": entry.get("pexels_url") or entry.get("source_url") or "https://www.pexels.com/",
+        "query": f"repli registre {registre}",
     }
 
 
@@ -334,24 +389,36 @@ def main():
     sandbox_root.mkdir(parents=True, exist_ok=True)
     print(f"[post-edition] bac à sable : {sandbox_root}")
 
-    # 1. Photo
+    # 1. Photo — Pexels (sujet du jour) puis, à défaut, repli par registre
+    # (assets/social/pub-photos/{registre}.jpg) — jamais directement
+    # l'image générique unique du gabarit tant qu'un repli par registre
+    # existe (voir docs/routine-prompt.md, étape « Image du sujet »,
+    # point 4 : « ne pas publier sans image »).
     photo = None
+    photo_credits = None
     if args.skip_photo:
         print("[post-edition] --skip-photo : pas d'appel Pexels, image générique conservée")
     else:
         image_keywords = brief.get("sujet", {}).get("image_keywords")
         photo_credits = select_topic_photo(image_keywords, date_str, sandbox_root)
         if photo_credits:
-            photo = {
-                "og_image_url": f"{SITE_URL}/assets/social/instagram/{date_str}.png",
-                "alt": f"Photo d'illustration — {content['h1']}",
-                "photographer": photo_credits["photographer"],
-                "pexels_url": photo_credits["pexels_url"],
-                "square_path": photo_credits["square_path"],
-            }
-            print(f"[post-edition] photo retenue (requête « {photo_credits['query']} », {photo_credits['photographer']})")
+            print(f"[post-edition] photo Pexels retenue (requête « {photo_credits['query']} », {photo_credits['photographer']})")
         else:
-            print("[post-edition] aucune photo retenue — image générique conservée")
+            photo_credits = select_registry_fallback_photo(brief["registre"], date_str, sandbox_root)
+            if photo_credits:
+                print(f"[post-edition] repli sur la photo par défaut du registre {brief['registre']!r} "
+                      f"({photo_credits['photographer']}) — pas une photo dédiée au sujet du jour")
+            else:
+                print("[post-edition] aucune photo retenue (ni Pexels ni repli registre) — image générique conservée")
+
+    if photo_credits:
+        photo = {
+            "og_image_url": f"{SITE_URL}/assets/social/instagram/{date_str}.png",
+            "alt": f"Photo d'illustration — {content['h1']}",
+            "photographer": photo_credits["photographer"],
+            "pexels_url": photo_credits["pexels_url"],
+            "square_path": photo_credits["square_path"],
+        }
 
     # 2. HTML final (photo incluse)
     index_html_path = REPO_ROOT / "index.html"

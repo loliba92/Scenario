@@ -52,7 +52,7 @@ jobs:
           python-version: '3.12'
 
       - name: Installer les dépendances
-        run: pip install beautifulsoup4 playwright
+        run: pip install beautifulsoup4 playwright Pillow
 
       - name: Installer Chromium (image Instagram)
         run: python3 -m playwright install --with-deps chromium
