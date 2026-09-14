@@ -250,12 +250,11 @@ def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, 
     `Thread.join(timeout=...)`, qui borne réellement l'attente du thread
     appelant sans jamais attendre le thread daemon lui-même — celui-ci est
     tué net à la sortie du process, jamais rejoint."""
-    body = json.dumps({
+    body_dict = {
         "model": model,
         "max_tokens": max_tokens,
         "temperature": temperature,
         "response_format": {"type": "json_object"},
-        "reasoning": {"enabled": False},
         # "usage": {"include": True} : sans ce flag, OpenRouter ne renvoie
         # que prompt_tokens/completion_tokens dans `usage`, jamais `cost`
         # (voir docs OpenRouter — le coût est un ajout optionnel à la
@@ -263,7 +262,22 @@ def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, 
         # pouvoir logger un coût réel plutôt qu'un "?" permanent.
         "usage": {"include": True},
         "messages": [{"role": "user", "content": prompt}],
-    }).encode()
+    }
+    # Incident réel du 14 septembre 2026 (test manuel, openai/gpt-5) :
+    # "reasoning": {"enabled": False} envoyé sans condition faisait
+    # échouer tout modèle qui impose son raisonnement interne (erreur
+    # API explicite : "Reasoning is mandatory for this endpoint and
+    # cannot be disabled"). Ce désactivateur avait été ajouté pour un
+    # AUTRE incident réel, propre à Claude (Sonnet qui tournait plus de
+    # 16 minutes sans répondre, raisonnement étendu jamais coupé) — donc
+    # limité aux modèles Claude, où le problème d'origine a été observé,
+    # plutôt qu'appliqué en aveugle à tout modèle passé via --model. Le
+    # timeout global de cette fonction (parametre `timeout`, déjà en
+    # place) reste le filet de sécurité générique pour tout modèle qui
+    # traînerait en longueur, raisonnement ou non.
+    if "anthropic/" in model:
+        body_dict["reasoning"] = {"enabled": False}
+    body = json.dumps(body_dict).encode()
     req = urllib.request.Request(OPENROUTER_URL, method="POST", data=body, headers={
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",

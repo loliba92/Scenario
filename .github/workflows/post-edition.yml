@@ -81,15 +81,45 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      # cache: 'pip' (retour utilisateur du 14 septembre 2026, « c'est fou
+      # de réinstaller Chromium etc à chaque fois ») : chaque run repart
+      # d'une VM neuve, rien n'est jamais gardé d'un run à l'autre par
+      # défaut — actions/setup-python met en cache les paquets pip
+      # téléchargés (pas leur installation dans le venv, juste le
+      # téléchargement) entre les runs, à partir du hash de requirements.txt.
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: scripts/edition/requirements.txt
 
       - name: Installer les dépendances
-        run: pip install beautifulsoup4 playwright Pillow
+        run: pip install -r scripts/edition/requirements.txt
+
+      # Le binaire Chromium lui-même (le plus gros téléchargement, ~150-300
+      # Mo) est mis en cache séparément — clé basée sur requirements.txt,
+      # invalidée seulement quand la version de playwright change.
+      # `--with-deps` installe AUSSI les dépendances système (apt) : ça,
+      # en revanche, ne peut jamais être mis en cache (la VM est neuve à
+      # chaque run, les paquets apt n'y survivent pas) — donc toujours
+      # réinstallé, mais c'est la partie rapide (quelques secondes),
+      # jamais le gros téléchargement du navigateur.
+      - name: Cache du navigateur Playwright (Chromium)
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ runner.os }}-${{ hashFiles('scripts/edition/requirements.txt') }}
 
       - name: Installer Chromium (image Instagram)
-        run: python3 -m playwright install --with-deps chromium
+        run: |
+          if [ "${{ steps.playwright-cache.outputs.cache-hit }}" = "true" ]; then
+            echo "Navigateur déjà en cache — seulement les dépendances système (apt) à réinstaller."
+            python3 -m playwright install-deps chromium
+          else
+            echo "Pas de cache — téléchargement complet du navigateur + dépendances système."
+            python3 -m playwright install --with-deps chromium
+          fi
 
       # Le déclenchement par schedule (cron) n'a pas d'inputs — le brief
       # du jour est calculé à partir de la date Europe/Paris (même
