@@ -1,8 +1,10 @@
 # Prompt de la routine éditoriale « Scénario »
 
-**Mode pointeur.** Le trigger **« Scénario »** (`trig_0176spj7P7E9fyTs1XBkQBWF`,
-cron `0 4 * * *` UTC = 6h Paris en été/CEST, 5h en hiver/CET — actuellement
-**désactivé** (`enabled: false`), à réactiver manuellement par l'utilisateur,
+**Mode pointeur.** Le trigger **« Scénario — recherche & brief quotidien »**
+(`trig_013z1speQQCqE9gvGkiwTZa7`, cron `0 4 * * *` UTC = 6h Paris en
+été/CEST, 5h en hiver/CET — **actif** (`enabled: true`) depuis le
+14 septembre 2026 ; remplace l'ancien trigger « Scénario »,
+`trig_0176spj7P7E9fyTs1XBkQBWF`, désactivé et non modifiable par un agent —
 voir STATUT ACTUEL ci-dessous) ne contient qu'un court prompt-pointeur
 (voir `docs/ARCHITECTURE.md` § « Automatisation éditoriale ») : `git pull
 origin main`, puis lire **ce fichier** intégralement (tout ce qui suit le

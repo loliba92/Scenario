@@ -56,9 +56,9 @@ on:
   workflow_dispatch:
     inputs:
       brief:
-        description: "Chemin du brief à utiliser (ignoré si déclenché par le cron : calculé automatiquement à partir de la date du jour, Europe/Paris)"
+        description: "Chemin du brief à utiliser — laisser VIDE pour calculer automatiquement le brief du jour (Europe/Paris), comme le cron. Ne préciser que pour rejouer un brief précis (test, rattrapage)."
         required: false
-        default: "editorial-briefs/2026-09-20.json"
+        default: ""
       dry_run:
         description: "true = rédaction sur fixture locale, aucun appel OpenRouter (test de la mécanique uniquement) — toujours false si déclenché par le cron"
         required: false
@@ -143,7 +143,19 @@ jobs:
             PUBLISH=true
             MODEL="${{ vars.OPENROUTER_MODEL }}"
           else
+            # Incident réel du 15 septembre 2026 : le trigger CCR de
+            # recherche appelle `gh workflow run post-edition.yml --ref
+            # main` (docs/routine-prompt.md, Étape 3bis) sans jamais
+            # préciser `brief` — c'est voulu, ce n'est pas son rôle de le
+            # calculer. Tant que l'input avait une valeur par défaut fixe
+            # (un vieux brief fictif de test), un déclenchement manuel
+            # SANS argument retombait silencieusement dessus au lieu du
+            # brief du jour. Même repli qu'en `schedule` désormais si
+            # l'input est vide : jamais de valeur par défaut figée.
             BRIEF="${{ github.event.inputs.brief }}"
+            if [ -z "$BRIEF" ]; then
+              BRIEF="editorial-briefs/$(TZ=Europe/Paris date +%F).json"
+            fi
             DRY_RUN="${{ github.event.inputs.dry_run }}"
             SKIP_PHOTO="${{ github.event.inputs.skip_photo }}"
             PUBLISH="${{ github.event.inputs.publish }}"
