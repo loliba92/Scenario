@@ -1,0 +1,259 @@
+{
+  "date": "2026-09-15",
+  "registre": "grand-futur",
+  "sujet": {
+    "titre_propose": "Fusion nucléaire : la promesse enfin tenue ?",
+    "h1": "Fusion nucléaire : la promesse enfin tenue ?",
+    "question_posee": "Après la première licence commerciale américaine (31 août) et un financement privé record, la fusion va-t-elle tenir sa promesse dans la décennie, ou repousser encore l'échéance comme ITER ?",
+    "eyebrow": "Mardi, grand futur",
+    "angle": "Le 31 août 2026, le Tennessee a délivré la toute première licence commerciale de fusion nucléaire au monde, pendant que le secteur privé lève un financement record (4,48 Md$ en un an) — au même moment, le mégaprojet public ITER vient lui-même de repousser son premier plasma de 2025 à 2034, rappelant que cette énergie porte déjà 40 ans de promesses non tenues.",
+    "tags": ["energie"],
+    "domain": "sciences-environnement",
+    "image_keywords": "nuclear power plant technology"
+  },
+  "_note": "Premier brief réel produit sous le nouveau régime 'recherche uniquement' (STATUT ACTUEL, docs/routine-prompt.md) pour l'édition du 15 septembre 2026 — Étapes 0 à 3bis appliquées telles quelles. Tous les faits vérifiés via WebSearch/WebFetch le 15 septembre 2026 avec sources réelles et datées (voir sources[]).",
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (14.09.2026) : 'Taïwan : Trump et Xi peuvent-ils calmer la pression chinoise ?' — géopolitique/international, aucun recoupement avec la fusion nucléaire. Étape 0 : section 'Priorité absolue' de sujets-prioritaires.md entièrement cochée ; section 'Mardi — carte blanche aux lecteurs' également entièrement cochée → auto-sélection normale sur le registre Grand futur (mardi). 3 dernières éditions du mardi/Grand futur vérifiées dans archives.html : 08.09 (OpenAI, IPO à 1 000 Md$), 01.09 (Présidentielle 2027 — sujet de priorité absolue traité hors registre), 25.08 (IA chinoise en libre accès, cadeau ou piège) — aucune ne recoupe la fusion nucléaire (acteurs et mécanisme de fond différents). Recherche dédiée 'fusion nucléaire'/'ITER'/'Cadarache' dans archives.html et docs/sujets-a-suivre.md : aucune occurrence, sujet inédit."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le 31 août 2026, le Tennessee Department of Environment and Conservation (TDEC) a délivré à la start-up Type One Energy la toute première licence commerciale de fusion nucléaire au monde, dans le cadre d'un nouveau cadre réglementaire spécifique à la fusion — une première pour un État américain.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-08-31",
+      "sources": ["src_1", "src_2"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Cette licence concerne 'Project Infinity', sur le site de Bull Run Energy Complex (TVA) à Clinton, Tennessee, développé avec le laboratoire national d'Oak Ridge et l'université du Tennessee. La centrale visée, Infinity Two, doit délivrer 400 MW électriques au réseau (800 MW de puissance de fusion brute, réaction deutérium-tritium).",
+      "chiffre": "400 MWe",
+      "date_du_chiffre": "2026-08-31",
+      "sources": ["src_2", "src_3"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le calendrier annoncé par Type One Energy : un prototype/centre de formation, Infinity One, opérationnel vers 2029, puis un démarrage complet d'Infinity Two visé pour 2034.",
+      "chiffre": "2029 / 2034",
+      "date_du_chiffre": "2026-08-31",
+      "sources": ["src_3"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Selon le rapport annuel 2026 de la Fusion Industry Association (FIA), publié le 13 juillet 2026, le secteur privé de la fusion a levé 4,48 Md$ sur les douze mois précédents — un record, en hausse de 69 % sur un an — portant le total cumulé depuis 2021 à 14,24 Md$, auprès de 56 entreprises (23 en 2021) employant plus de 16 000 personnes.",
+      "chiffre": "4,48 Md$ (an), 14,24 Md$ (cumulé depuis 2021)",
+      "date_du_chiffre": "2026-07-13",
+      "sources": ["src_4"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Ce même rapport FIA indique que 71 % des entreprises du secteur s'attendent toujours à ce que leur première centrale délivre de l'électricité commerciale dans les années 2030.",
+      "chiffre": "71 %",
+      "date_du_chiffre": "2026-07-13",
+      "sources": ["src_4"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le mégaprojet international public ITER (siège à Cadarache, France, né en 1985 lors du sommet Reagan-Gorbatchev à Genève) a annoncé le 3 juillet 2024 un nouveau calendrier officiel : premier plasma repoussé à 2034 (au lieu de 2025, cible fixée en 2016 ; 2018 à l'origine), fusion deutérium-tritium complète repoussée à 2039, avec un surcoût annoncé de 5 Md€.",
+      "chiffre": "premier plasma 2034 (vs 2025 puis 2018) ; +5 Md€",
+      "date_du_chiffre": "2024-07-03",
+      "sources": ["src_5"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les retards d'ITER sont attribués à la pandémie de Covid-19 et à des difficultés d'ingénierie propres à un projet 'premier du genre' : défauts sur les boucliers thermiques ayant nécessité le remplacement d'environ 23 km de tuyauterie de refroidissement, et problèmes sur des secteurs de l'enceinte à vide.",
+      "chiffre": "≈23 km de tuyauterie remplacée",
+      "date_du_chiffre": "2024-07-03",
+      "sources": ["src_5"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "En Chine, l'aimant toroïdal supraconducteur du futur tokamak BEST (Hefei) — 582 tonnes, le plus gros jamais construit pour la fusion — a achevé ses essais finaux début août 2026. BEST vise un achèvement fin 2027 et une démonstration de puissance de fusion nette vers 2030 ; le projet suivant, CFETR, viserait une première électricité livrée au réseau vers 2035.",
+      "chiffre": "582 tonnes",
+      "date_du_chiffre": "2026-08-04",
+      "sources": ["src_6"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Même des voix optimistes du secteur (Wood Mackenzie, dirigeants d'industrie) reconnaissent que même les scénarios favorables ne prévoient pas d'impact significatif de la fusion sur le réseau électrique mondial avant 2050, malgré des cibles commerciales affichées dès le début des années 2030.",
+      "chiffre": null,
+      "date_du_chiffre": "2025-10-02",
+      "sources": ["src_7"],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {"nom": "Type One Energy", "role": "Start-up américaine, détentrice de la première licence commerciale de fusion au monde (Project Infinity, Tennessee)"},
+    {"nom": "Tennessee Department of Environment and Conservation (TDEC) / gouverneur Bill Lee", "role": "Régulateur ayant créé le premier cadre réglementaire d'État dédié à la fusion et délivré la licence du 31 août 2026"},
+    {"nom": "ITER Organization", "role": "Mégaprojet public international (35 pays), siège à Cadarache (France) ; vient d'annoncer un nouveau retard majeur (2034)"},
+    {"nom": "Fusion Industry Association (FIA)", "role": "Association professionnelle du secteur, publie le rapport annuel de référence sur le financement de la fusion"},
+    {"nom": "Chine (China Fusion Energy Co / plateforme CRAFT, Hefei)", "role": "Acteur étatique visant une démonstration de puissance de fusion nette dès 2030 via le tokamak BEST"},
+    {"nom": "Renaissance Fusion", "role": "Start-up française, vise un réacteur expérimental en 2030 et une centrale commerciale en 2035"}
+  ],
+  "chronologie_cle": [
+    {"date": "1985-11-19", "evenement": "Sommet Reagan-Gorbatchev à Genève : naissance du projet ITER"},
+    {"date": "2010-01-01", "evenement": "Début de la construction d'ITER à Cadarache"},
+    {"date": "2016-01-01", "evenement": "Le Conseil ITER repousse le premier plasma à 2025 (cible initiale : 2018)"},
+    {"date": "2024-07-03", "evenement": "Nouveau calendrier officiel d'ITER : premier plasma 2034, fusion D-T complète 2039, +5 Md€"},
+    {"date": "2026-05-27", "evenement": "Cadarache : 5e module de la chambre à plasma installé, premier aimant supraconducteur refroidi à -269°C"},
+    {"date": "2026-07-13", "evenement": "Rapport annuel FIA : financement privé record de 4,48 Md$ sur un an, 14,24 Md$ cumulés depuis 2021"},
+    {"date": "2026-08-04", "evenement": "Chine : essais finaux réussis de l'aimant de 582 tonnes du tokamak BEST (Hefei)"},
+    {"date": "2026-08-31", "evenement": "Tennessee délivre la première licence commerciale de fusion au monde à Type One Energy"},
+    {"date": "2027-12-31", "evenement": "Achèvement visé du tokamak chinois BEST (prévision)"},
+    {"date": "2029-01-01", "evenement": "Démarrage visé d'Infinity One, prototype de Type One Energy (prévision)"},
+    {"date": "2030-01-01", "evenement": "Démonstration visée de puissance de fusion nette en Chine, via BEST (prévision)"},
+    {"date": "2034-01-01", "evenement": "Démarrage complet visé d'Infinity Two (400 MWe, Tennessee) ET premier plasma visé d'ITER — même année, deux trajectoires (prévision)"},
+    {"date": "2035-01-01", "evenement": "Électricité visée sur le réseau via CFETR (Chine) ET centrale commerciale visée par Renaissance Fusion (France) (prévision)"},
+    {"date": "2039-01-01", "evenement": "Fusion deutérium-tritium complète visée à ITER (prévision)"}
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Les projets pilotes commerciaux (Type One Energy, Commonwealth Fusion, Helion, BEST chinois) tiennent globalement leurs délais annoncés (2029-2035), sans nouveau report majeur comparable à celui d'ITER, et une première électricité de fusion commence réellement à peser dans le mix électrique mondial d'ici 2040.",
+      "probabilite_suggeree": 20
+    },
+    "stable": {
+      "resume": "Les jalons techniques s'enchaînent (licences, prototypes, premiers plasmas) mais avec les glissements habituels de quelques années ; des centrales de démonstration existent d'ici le milieu des années 2030 mais restent rares et coûteuses, sans bascule réelle du mix énergétique mondial avant 2045-2050.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "Un ou plusieurs projets phares (privés ou publics) subissent un nouveau report majeur ou un échec technique/financier comparable à celui d'ITER (2016→2025→2034) ; le financement privé se contracte après plusieurs années de records, et la fusion retombe dans le cycle historique de promesses non tenues, repoussée après 2050.",
+      "probabilite_suggeree": 30
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Financement privé mondial de la fusion (12 mois à juillet 2026)",
+      "valeur": "4,48 Md$",
+      "tendance": "+69 % sur un an, total cumulé 14,24 Md$ depuis 2021 — rapport FIA, 13 juillet 2026"
+    },
+    {
+      "label": "Premier plasma d'ITER (mégaprojet public, France) — année visée",
+      "valeur": "2034",
+      "tendance": "contre 2025 annoncé en 2016, et 2018 à l'origine — +5 Md€ de surcoût, annoncé le 3 juillet 2024"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Deux séries candidates envisagées (financement annuel de la fusion depuis 2021 ; dates de report successives du premier plasma d'ITER) mais aucune ne passe le seuil de 5 points réels vérifiés par une recherche dédiée : seuls le total cumulé (14,24 Md$) et le dernier exercice (4,48 Md$) sont confirmés pour le financement (pas de décomposition année par année fiable trouvée) ; seuls 3 jalons de report sont documentés pour ITER (2018→2025→2034).",
+    "serie": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Pourquoi les mégaprojets scientifiques 'premiers du genre' (first-of-a-kind) dérapent presque systématiquement dans le temps — incertitudes d'ingénierie inédites (défauts de fabrication, pièces jamais produites à cette échelle), pandémie, optimisme initial des plannings — illustré par les 40 ans d'ITER (1985 → cible 2018 → cible 2025 → cible 2034).",
+        "rattache_a": "faits_verifies sur le nouveau calendrier d'ITER (2024-07-03) et ses causes (défauts de boucliers thermiques, 23 km de tuyauterie)"
+      },
+      {
+        "focus": "Pourquoi la fusion avance aujourd'hui sur deux trajectoires opposées en même temps : un mégaprojet public unique, sans concurrence ni pression commerciale (ITER, financé par 35 États), et une industrie privée en compétition (56 entreprises, financement record) qui doit livrer vite pour rassurer ses investisseurs — deux logiques différentes appliquées à la même technologie, avec des résultats de calendrier opposés.",
+        "rattache_a": "contraste entre le financement privé record (rapport FIA) et le nouveau retard d'ITER, tous deux annoncés en 2026"
+      }
+    ],
+    "list_box": {
+      "label": "Les prochains jalons qui trancheront",
+      "items": [
+        {"rank": "1", "title": "2027", "meta": "Achèvement visé du tokamak chinois BEST (Hefei)"},
+        {"rank": "2", "title": "2029", "meta": "Démarrage visé d'Infinity One, prototype américain de Type One Energy"},
+        {"rank": "3", "title": "2030", "meta": "Démonstration visée de puissance de fusion nette en Chine (BEST)"},
+        {"rank": "4", "title": "2034", "meta": "Démarrage complet visé d'Infinity Two (Tennessee) ET premier plasma visé d'ITER — même année"},
+        {"rank": "5", "title": "2035", "meta": "Électricité visée sur le réseau via CFETR (Chine) et centrale commerciale visée par Renaissance Fusion (France)"}
+      ],
+      "foot": "Cinq échéances, sur trois continents, qui diront si le calendrier de la fusion tient enfin ou glisse encore."
+    }
+  },
+  "elements_incertains": [
+    "Aucune décomposition annuelle fiable du financement privé de la fusion (2021-2026) n'a été trouvée au-delà du total cumulé et du dernier exercice — seule la progression globale (+69 % sur un an) est confirmée.",
+    "Le calendrier d'Infinity One/Infinity Two (Type One Energy) et de BEST/CFETR (Chine) reste une annonce d'entreprise ou d'État, non un fait déjà réalisé — à traiter comme une cible affichée, pas une certitude, exactement comme le rappelle l'historique d'ITER.",
+    "Le montant exact et la répartition du surcoût de 5 Md€ d'ITER (Union européenne vs autres membres) n'ont pas été détaillés dans les sources consultées."
+  ],
+  "a_ne_pas_affirmer": [
+    "Ne jamais affirmer que la fusion commerciale est 'imminente' ou 'pour bientôt' de façon générale — même les voix optimistes du secteur (Wood Mackenzie) situent un impact réel sur le réseau électrique mondial après 2050, malgré des cibles commerciales dès les années 2030 pour les premières centrales.",
+    "Ne jamais présenter la licence du Tennessee comme une preuve que Type One Energy produira effectivement de l'électricité de fusion en 2034 — c'est une étape réglementaire (autorisation de construire/exploiter), pas un résultat technique déjà obtenu.",
+    "Ne jamais laisser entendre qu'ITER a échoué ou est abandonné — le projet avance (5e module installé, premier aimant refroidi en mai 2026), il est seulement retardé par rapport à son calendrier, comme il l'a déjà été deux fois auparavant."
+  ],
+  "sources": [
+    {
+      "id": "src_1",
+      "title": "Governor Bill Lee, TDEC Announce First License for Commercial Fusion",
+      "source": "Tennessee Department of Environment and Conservation (tn.gov)",
+      "url": "https://www.tn.gov/environment/news/2026/8/31/first-license-commercial-fusion.html",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Communiqué officiel du 31 août 2026 : le Tennessee délivre la première licence de fusion commerciale du pays à Type One Energy pour Project Infinity, sur le site de Bull Run (TVA).",
+      "read_minutes": 3
+    },
+    {
+      "id": "src_2",
+      "title": "Tennessee issues commercial fusion license to Type One Energy for Bull Run site",
+      "source": "ANS / Nuclear Newswire",
+      "url": "https://www.ans.org/news/article-8360/tennessee-issues-commercial-fusion-license-to-type-one-energy-for-bull-run-site/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Détails techniques de la licence : premier cadre réglementaire d'État dédié à la fusion, centrale Infinity Two visée à 400 MWe, partenariat avec Oak Ridge National Laboratory et l'université du Tennessee.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src_3",
+      "title": "Tennessee Announces First License for Commercial Fusion",
+      "source": "Type One Energy (communiqué de l'entreprise)",
+      "url": "https://typeoneenergy.com/insights-announcements/first-license-for-commercial-fusion/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Calendrier annoncé par l'entreprise elle-même : Infinity One (prototype/formation) visé vers 2029, démarrage complet d'Infinity Two visé pour 2034.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src_4",
+      "title": "Fusion Industry Attracts Record Annual Funding of $4.48bn, Raising Total to $14.24bn",
+      "source": "Fusion Industry Association",
+      "url": "https://www.fusionindustryassociation.org/fusion-industry-attracts-record-annual-funding-of-4-48bn-raising-total-to-14-24bn/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Rapport annuel 2026 (13 juillet) : 4,48 Md$ levés en un an (+69 %), 14,24 Md$ cumulés depuis 2021 par 56 entreprises, plus de 16 000 employés, 71 % des entreprises visent toujours une électricité commerciale dans les années 2030.",
+      "read_minutes": 4
+    },
+    {
+      "id": "src_5",
+      "title": "ITER fusion reactor hit by massive decade-long delay and €5bn price hike",
+      "source": "Physics World",
+      "url": "https://physicsworld.com/a/iter-fusion-reactor-hit-by-massive-decade-long-delay-and-e5bn-price-hike/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Annonce du nouveau calendrier officiel d'ITER (3 juillet 2024) : premier plasma repoussé à 2034, fusion D-T complète à 2039, surcoût de 5 Md€, projet né en 1985 lors du sommet Reagan-Gorbatchev.",
+      "read_minutes": 4
+    },
+    {
+      "id": "src_6",
+      "title": "World's biggest superconducting magnet passes final tests in China",
+      "source": "Interesting Engineering",
+      "url": "https://interestingengineering.com/science/china-tests-world-largest-fusion-superconducting-magnet",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "L'aimant toroïdal de 582 tonnes du futur tokamak chinois BEST (Hefei) a passé ses essais finaux début août 2026 ; BEST vise un achèvement fin 2027 et une démonstration de puissance nette vers 2030.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src_7",
+      "title": "Nuclear fusion, the 'holy grail' of power, was always 30 years away — now it's a matter of when, not if",
+      "source": "Fortune / Yahoo Finance",
+      "url": "https://finance.yahoo.com/news/nuclear-fusion-holy-grail-power-170000773.html",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Panorama du secteur (2 octobre 2025) : citations de dirigeants et analystes sur le changement de narratif de la fusion, avec la nuance qu'un impact réel sur le réseau électrique mondial n'est pas attendu avant 2050 selon les analystes les plus prudents.",
+      "read_minutes": 4
+    }
+  ],
+  "recommandations_redaction": [
+    "Ouvrir sur le fait le plus récent et le plus concret (la licence commerciale du 31 août au Tennessee) avant de remonter au contexte plus large (financement record, puis le contre-exemple ITER) — voir docs/routine-prompt.md, règle 'ouvrir sur un fait très récent'.",
+    "Le paradoxe central du sujet, à rendre explicite dans le texte : au même moment, le secteur privé bat des records de financement et de calendrier annoncé, pendant que le seul mégaprojet public de la filière (ITER) vient d'annoncer son deuxième report majeur. Les deux trajectoires doivent être mises en regard, pas juste juxtaposées.",
+    "Bon fil conducteur chiffré à filer sur plusieurs paragraphes : le calendrier d'ITER (2018 → 2025 → 2034), comme mesure concrète de l'écart entre promesse et réalisation dans cette filière.",
+    "Angle français disponible mais non obligatoire pour le h1 (sujet mondial, sans foyer unique) : ITER a son siège à Cadarache et Renaissance Fusion est une start-up française visant 2035 — à mentionner dans le corps du texte comme prolongement national, pas dans le titre.",
+    "Toujours qualifier les dates 2027/2029/2030/2034/2035/2039 comme des cibles annoncées par les acteurs eux-mêmes, jamais comme des faits déjà accomplis — voir a_ne_pas_affirmer."
+  ]
+}
