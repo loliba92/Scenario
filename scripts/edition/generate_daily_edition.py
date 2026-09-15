@@ -710,6 +710,31 @@ def validate_content_schema(content, brief):
     if df.get("kind") not in ("positif", "negatif"):
         errors.append(f"delta_france.kind doit être 'positif' ou 'negatif' (reçu : {df.get('kind')!r})")
 
+    # Bug réel du 14-15 septembre 2026 (retour utilisateur) : "word" ne
+    # portait que l'intensité ("assez"), sans la polarité ("négatif") —
+    # jauge illisible sur la page publiée (« Assez. » sans rien après).
+    # "word" doit toujours contenir les deux : un mot d'intensité ET
+    # l'adjectif de kind (voir docs/routine-redaction-prompt.md).
+    word = (df.get("word") or "").strip().lower()
+    if word:
+        has_intensity = any(w in word for w in ("léger", "assez", "très"))
+        polarity_adj = "négatif" if df.get("kind") == "negatif" else "positif"
+        if not has_intensity or polarity_adj not in word:
+            errors.append(
+                f"delta_france.word incomplet ({df.get('word')!r}) : doit contenir un mot "
+                f"d'intensité (léger/assez/très) ET la polarité ({polarity_adj}), ex. 'assez {polarity_adj}'"
+            )
+
+    # Même incident : "text" recommençait par la phrase d'intro déjà
+    # affichée par le gabarit (« Notre évaluation de l'impact pour la
+    # France : ... »), produisant un doublon visible à la publication.
+    text = (df.get("text") or "").strip().lower()
+    if text.startswith("notre évaluation") or text.startswith("notre évaluation de l'impact"):
+        errors.append(
+            f"delta_france.text répète la phrase d'intro déjà affichée par le gabarit "
+            f"(reçu : {df.get('text')!r}) — text doit commencer directement par la justification"
+        )
+
     for idx, term in enumerate(content.get("lexique", [])):
         if not isinstance(term, dict):
             errors.append(f"lexique[{idx}] : attendu un objet JSON, reçu {type(term).__name__} ({term!r})")
