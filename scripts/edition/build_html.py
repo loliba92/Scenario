@@ -234,6 +234,106 @@ def _comprendre_box_html(box):
     )
 
 
+# ---------------------------------------------------------------------------
+# .dc-chart-box — graphique en escalier pour série historique longue
+# (docs/routine-prompt.md, § « Graphique en escalier »). Jusqu'au 15
+# septembre 2026, ce composant n'existait QUE via un <script> JS écrit à la
+# main par la routine manuelle pour chaque édition qui l'utilisait (voir
+# archives/2026-08-21.html/2026-08-24.html, gardées comme référence
+# historique) — jamais porté dans la chaîne automatisée
+# (generate_daily_edition.py/build_html.py), ce que le brief du
+# 14 septembre notait déjà explicitement : « Le prototype Phase 1 ne gère
+# de toute façon pas encore ce composant. » Rendu ici SERVEUR (Python,
+# SVG statique) plutôt qu'un <script> JS comme l'original — même rendu
+# visuel (mêmes classes CSS déjà dans le gabarit), mais déterministe et
+# sans dépendre de l'exécution JS côté client. brief["graphique_dc_chart"]["serie"]
+# porte toutes les décisions éditoriales (unités, graduations, années
+# affichées, points notables) — voir docs/routine-brief-format.md, ce
+# script ne fait plus que du calcul géométrique.
+# ---------------------------------------------------------------------------
+_DC_CHART_W, _DC_CHART_H = 700, 240
+_DC_CHART_PAD_L, _DC_CHART_PAD_R, _DC_CHART_PAD_T, _DC_CHART_PAD_B = 40, 12, 14, 30
+
+
+def _dc_chart_svg_inner(serie):
+    points = serie["points"]
+    years = [p["annee"] for p in points]
+    min_year, max_year = years[0], years[-1]
+    plot_w = _DC_CHART_W - _DC_CHART_PAD_L - _DC_CHART_PAD_R
+    plot_h = _DC_CHART_H - _DC_CHART_PAD_T - _DC_CHART_PAD_B
+    y_max = serie["y_max"]
+
+    def x_pos(year):
+        if max_year == min_year:
+            return _DC_CHART_PAD_L
+        return round(_DC_CHART_PAD_L + (year - min_year) / (max_year - min_year) * plot_w, 2)
+
+    def y_pos(value):
+        return round(_DC_CHART_PAD_T + (1 - value / y_max) * plot_h, 2)
+
+    parts = []
+
+    for gl in serie.get("y_gridlines") or []:
+        ly = y_pos(gl["valeur"])
+        parts.append(
+            f'<line x1="{_DC_CHART_PAD_L}" x2="{_DC_CHART_W - _DC_CHART_PAD_R}" y1="{ly}" y2="{ly}" class="dc-gridline"/>'
+        )
+        parts.append(
+            f'<text x="{_DC_CHART_PAD_L - 8}" y="{ly + 3}" class="dc-axis-label" text-anchor="end">{gl["label"]}</text>'
+        )
+
+    for yr in serie.get("x_axis_years") or []:
+        parts.append(
+            f'<text x="{x_pos(yr)}" y="{_DC_CHART_H - _DC_CHART_PAD_B + 16}" class="dc-axis-label" '
+            f'text-anchor="middle">{yr}</text>'
+        )
+    axis_y = _DC_CHART_H - _DC_CHART_PAD_B
+    parts.append(f'<line x1="{_DC_CHART_PAD_L}" x2="{_DC_CHART_W - _DC_CHART_PAD_R}" y1="{axis_y}" y2="{axis_y}" class="dc-axis"/>')
+
+    # Chemin en escalier : la valeur tient jusqu'au point suivant, jamais
+    # d'interpolation continue entre deux points (même logique que
+    # l'original) — pour chaque point i>0, deux segments : horizontal
+    # jusqu'à la nouvelle année (à l'ancienne valeur), puis vertical vers
+    # la nouvelle valeur.
+    path = f"M {x_pos(points[0]['annee'])} {y_pos(points[0]['valeur'])}"
+    for i in range(1, len(points)):
+        path += f" L {x_pos(points[i]['annee'])} {y_pos(points[i - 1]['valeur'])}"
+        path += f" L {x_pos(points[i]['annee'])} {y_pos(points[i]['valeur'])}"
+    parts.append(f'<path d="{path}" class="dc-line"/>')
+
+    for p in points:
+        is_last = bool(p.get("last"))
+        cx, cy = x_pos(p["annee"]), y_pos(p["valeur"])
+        r = 5 if is_last else 3
+        cls = "dc-dot is-highlight" if is_last else "dc-dot"
+        tooltip = p.get("tooltip", "")
+        parts.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" class="{cls}"><title>{tooltip}</title></circle>')
+        if p.get("peak"):
+            parts.append(
+                f'<text x="{cx}" y="{cy - 10}" class="dc-point-label is-favorable" '
+                f'text-anchor="middle">{p.get("peak_label", "")}</text>'
+            )
+        if is_last:
+            parts.append(
+                f'<text x="{cx}" y="{cy - 28}" class="dc-point-label is-degrade" '
+                f'text-anchor="end">{p.get("last_label", "")}</text>'
+            )
+
+    return "\n      ".join(parts)
+
+
+def _dc_chart_box_html(serie):
+    svg_inner = _dc_chart_svg_inner(serie)
+    return f"""<div class="dc-chart-box">
+      <span class="dc-chart-label">Repère historique</span>
+      <p class="dc-chart-lead">{serie["lead"]}</p>
+      <svg id="dc-svg" viewBox="0 0 {_DC_CHART_W} {_DC_CHART_H}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="{serie["aria_label"]}">
+      {svg_inner}
+      </svg>
+      <p class="dc-chart-caption">{serie["caption"]}</p>
+    </div>"""
+
+
 def _list_box_html(lb):
     items = "\n".join(
         '<li>\n'
@@ -255,7 +355,7 @@ def _list_box_html(lb):
     )
 
 
-def build_hero(content, date_str, photo=None):
+def build_hero(content, date_str, photo=None, graphique_dc_chart=None):
     jour, date_longue = format_date_fr(date_str)
     dek_blocks = []
     for i, dek_html in enumerate(content["dek"]):
@@ -267,6 +367,15 @@ def build_hero(content, date_str, photo=None):
 
     list_box_html = _list_box_html(content["list_box"]) if content.get("list_box") else ""
     indicators_html = "\n".join(_kpi_indicator_html(ind) for ind in content["indicators"])
+
+    # .dc-chart-box (voir la note au-dessus de _dc_chart_box_html()) —
+    # optionnel, jamais forcé : présent seulement si la recherche a
+    # explicitement décidé "oui" ET fourni une série exploitable (voir
+    # docs/routine-brief-format.md). "serie" reste `null` la plupart des
+    # éditions, jamais une erreur.
+    dc_chart_html = ""
+    if graphique_dc_chart and graphique_dc_chart.get("decision") == "oui" and graphique_dc_chart.get("serie"):
+        dc_chart_html = "\n\n    " + _dc_chart_box_html(graphique_dc_chart["serie"])
 
     # photo (voir generate_post_edition.py) : dict {"hero_image_url", "alt"}
     # si une photo de sujet a été retenue — sinon repli générique inchangé
@@ -334,6 +443,7 @@ def build_hero(content, date_str, photo=None):
     <div class="indicator-strip">
       {indicators_html}
     </div>
+{dc_chart_html}
 
   </div>
 </section>"""
@@ -518,7 +628,7 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
 
     head_dynamic = build_head_dynamic(content, brief, date_str, canonical_url, photo=photo)
     masthead = build_masthead(shell["masthead_html"], date_str, edition_number)
-    hero = build_hero(content, date_str, photo=photo)
+    hero = build_hero(content, date_str, photo=photo, graphique_dc_chart=brief.get("graphique_dc_chart"))
     scenarios = build_scenarios(content)
     lexique = build_lexique(content)
     sources = build_sources(content, date_str)

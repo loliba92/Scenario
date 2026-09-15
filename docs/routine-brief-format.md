@@ -61,7 +61,7 @@ sur un fichier partagé entre deux process).
   "graphique_dc_chart": {
     "decision": "oui|non",
     "raison": "string",
-    "serie": null
+    "serie": "null si decision=non, sinon voir § dédié plus bas pour le schéma exact"
   },
   "encarts_decides": {
     "comprendre_box": [
@@ -143,6 +143,56 @@ croisé aujourd'hui → section vide ce jour-là », jamais une entrée vide
 forcée). Relancer le pipeline sur un brief déjà traité **remplace**
 l'entrée du jour plutôt que de la dupliquer (idempotent, mêmes garanties
 que le reste de la post-édition).
+
+## Champ `graphique_dc_chart.serie` (utilisé par `scripts/edition/build_html.py`, pas la rédaction)
+
+Composant `.dc-chart-box` — graphique en escalier pour une série
+historique longue en complément d'un chiffre déjà cité dans
+`indicateurs_kpi`/`.indicator-strip`, jamais pour le remplacer (voir
+`docs/routine-prompt.md`, § « Graphique en escalier » pour la règle de
+décision éditoriale complète : 5 points réels vérifiés minimum, jamais
+forcé). **Avant le 15 septembre 2026, ce composant n'existait que via un
+`<script>` JS écrit à la main par la routine manuelle** (voir
+`archives/2026-08-21.html`/`archives/2026-08-24.html`, gardées comme
+référence historique de ce à quoi le graphique doit ressembler) — jamais
+porté dans la chaîne automatisée. Depuis, `build_html.py` rend le SVG
+lui-même, côté serveur, de façon entièrement déterministe à partir de ce
+champ : toutes les décisions éditoriales (unités, graduations, années
+affichées sur l'axe X, points notables) doivent donc être posées ici, en
+JSON, plutôt que dans un script à écrire.
+
+`serie` (uniquement si `decision` = `"oui"`, sinon toujours `null`) :
+```json
+{
+  "aria_label": "string — description accessible du <svg> (lu par un lecteur d'écran)",
+  "lead": "string — texte d'intro juste avant le graphique",
+  "caption": "string — texte juste après le graphique (source des données notamment)",
+  "y_max": 1080,
+  "y_gridlines": [
+    {"valeur": 180, "label": "3 min"}
+  ],
+  "x_axis_years": [1947, 1960, 1974, 1991, 2007, 2019, 2026],
+  "points": [
+    {"annee": 1947, "valeur": 420, "tooltip": "1947 — 7 min avant minuit"},
+    {"annee": 1991, "valeur": 1020, "tooltip": "...", "peak": true, "peak_label": "17 min — record de recul"},
+    {"annee": 2026, "valeur": 85, "tooltip": "...", "last": true, "last_label": "85 s aujourd'hui"}
+  ]
+}
+```
+- `points` : chronologique, valeur dans une unité fine et cohérente d'un
+  point à l'autre (ex. secondes plutôt que minutes arrondies) — le
+  graphique relie les points en escalier (la valeur tient jusqu'au point
+  suivant, jamais d'interpolation continue), donc l'ordre fait le tracé.
+- `y_gridlines`/`x_axis_years` : jamais tous les points/années si la série
+  est longue (surcharge visuelle) — un sous-ensemble choisi à la main,
+  même logique que l'original manuel.
+- `peak`/`peak_label` : au plus un point marquant à mettre en avant en
+  dehors du dernier (ex. un record) — optionnel.
+- `last`/`last_label` : toujours sur le dernier point chronologique
+  (`points[-1]`), jamais ailleurs — c'est lui qui reçoit le point
+  agrandi (`is-highlight`) sur le graphique.
+- `tooltip` : texte au survol de chaque point (élément SVG `<title>`),
+  jamais vide.
 
 ## Règles de validité (vérifiées par `generate_daily_edition.py`)
 
