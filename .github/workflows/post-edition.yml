@@ -33,8 +33,25 @@ name: Édition — rédaction + post-édition (OpenRouter)
 # le bon ordre relatif toute l'année, seule l'heure Paris affichée dérive
 # d'1h en hiver (CET, 5h30).
 #
+# Repli automatique de la recherche via OpenRouter (ajouté le
+# 15 septembre 2026, retour utilisateur — « j'ai trop de pb de token,
+# Claude Code se bloque et tout le process se bloque ») : si le brief du
+# jour n'existe toujours pas (CCR bloqué/pas déclenché), au lieu d'échouer
+# sèchement (« Brief introuvable »), le job appelle
+# scripts/edition/generate_fallback_brief.py — recherche complète (sujet,
+# anti-doublon, faits, sources, scénarios) via un seul appel OpenRouter
+# avec le server tool `openrouter:web_search` (le modèle décide lui-même
+# combien de recherches faire, exécutées côté OpenRouter). JAMAIS le
+# chemin principal : ne se déclenche que si le brief est vraiment absent,
+# quel que soit le mode de déclenchement (cron ou manuel) — si CCR a déjà
+# produit un vrai brief, il prime toujours, ce script ne tourne pas. Le
+# brief produit est committé immédiatement (séparément de `publish`, qui
+# ne gouverne que la publication du site) — une recherche réelle, une fois
+# payée, ne doit jamais être perdue même en cas d'échec plus loin dans le
+# pipeline.
+#
 # Secrets requis (Settings → Secrets and variables → Actions → Secrets) :
-#   OPENROUTER_API_KEY (rédaction)
+#   OPENROUTER_API_KEY (rédaction, et repli recherche si besoin)
 #   PEXELS_API_KEY (photo de sujet — optionnel : absent, le job continue
 #     avec le repli registre/générique, jamais bloquant)
 #
@@ -129,11 +146,10 @@ jobs:
       # Le déclenchement par schedule (cron) n'a pas d'inputs — le brief
       # du jour est calculé à partir de la date Europe/Paris (même
       # convention que docs/routine-prompt.md, étape 1 : « Déterminer la
-      # date... à Paris »). Un brief manquant est une erreur franche
-      # (échec du job), jamais un skip silencieux : ça signale que la
-      # recherche du jour (trigger Claude Code Remote) n'a pas tourné ou
-      # pas encore committé.
-      - name: Déterminer le brief et les options d'exécution
+      # date... à Paris »). Ce step ne fait plus échouer le job si le
+      # brief est absent (voir le step de repli juste après) — seulement
+      # calculer son chemin et les options.
+      - name: Calculer le brief et les options d'exécution
         id: config
         run: |
           if [ "${{ github.event_name }}" = "schedule" ]; then
@@ -166,10 +182,6 @@ jobs:
               MODEL="${{ vars.OPENROUTER_MODEL }}"
             fi
           fi
-          if [ ! -f "$BRIEF" ]; then
-            echo "::error::Brief introuvable : $BRIEF — la recherche du jour (trigger Claude Code Remote « Scénario ») n'a probablement pas encore écrit/commité ce fichier."
-            exit 1
-          fi
           {
             echo "brief=$BRIEF"
             echo "dry_run=$DRY_RUN"
@@ -177,7 +189,43 @@ jobs:
             echo "publish=$PUBLISH"
             echo "model=$MODEL"
           } >> "$GITHUB_OUTPUT"
-          echo "Brief : $BRIEF · dry_run=$DRY_RUN · skip_photo=$SKIP_PHOTO · publish=$PUBLISH · modèle=${MODEL:-<défaut du script>}"
+          echo "Brief calculé : $BRIEF · dry_run=$DRY_RUN · skip_photo=$SKIP_PHOTO · publish=$PUBLISH · modèle=${MODEL:-<défaut du script>}"
+
+      # Repli recherche (voir commentaire en tête de fichier) — ne fait
+      # rien si le brief existe déjà (recherche CCR déjà faite, cas
+      # normal). Commit + push immédiat, séparé du commit de publication
+      # plus bas : une recherche réelle, une fois payée, ne doit jamais se
+      # perdre même si un step suivant échoue.
+      - name: Repli recherche (OpenRouter) si le brief est absent
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          BRIEF="${{ steps.config.outputs.brief }}"
+          if [ -f "$BRIEF" ]; then
+            echo "Brief déjà présent ($BRIEF) — recherche CCR déjà faite, repli non nécessaire."
+            exit 0
+          fi
+          DATE=$(basename "$BRIEF" .json)
+          echo "::warning::Brief introuvable ($BRIEF) — déclenchement du repli recherche via OpenRouter (scripts/edition/generate_fallback_brief.py)."
+          ARGS="--date $DATE"
+          if [ -n "${{ steps.config.outputs.model }}" ]; then
+            ARGS="$ARGS --model ${{ steps.config.outputs.model }}"
+          fi
+          python3 scripts/edition/generate_fallback_brief.py $ARGS
+          git config user.name "scenario-fallback-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add "$BRIEF"
+          git commit -m "brief: repli automatique via OpenRouter (recherche CCR indisponible, $DATE)"
+          git pull --rebase origin main
+          git push origin main
+
+      - name: Vérifier que le brief existe (après repli éventuel)
+        run: |
+          BRIEF="${{ steps.config.outputs.brief }}"
+          if [ ! -f "$BRIEF" ]; then
+            echo "::error::Brief toujours introuvable après tentative de repli : $BRIEF — ni la recherche CCR ni le repli OpenRouter n'ont produit ce fichier."
+            exit 1
+          fi
 
       - name: Rédaction — générer l'édition
         working-directory: scripts/edition

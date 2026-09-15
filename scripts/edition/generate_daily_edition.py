@@ -319,7 +319,7 @@ def build_retry_reinforcement(errors):
     return "".join(parts)
 
 
-def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, timeout=180):
+def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, timeout=180, tools=None):
     """Incident réel du 14 septembre 2026 (premier vrai appel de test) :
     Claude Sonnet a tourné plus de 16 minutes sans jamais répondre, forçant
     une annulation manuelle du run — deux causes trouvées après coup :
@@ -354,6 +354,15 @@ def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, 
         "usage": {"include": True},
         "messages": [{"role": "user", "content": prompt}],
     }
+    # `tools` (ajouté le 15 septembre 2026 pour generate_fallback_brief.py) :
+    # ex. [{"type": "openrouter:web_search"}] — server tool OpenRouter, le
+    # modèle décide lui-même quand et combien de fois chercher, exécuté
+    # entièrement côté OpenRouter (jamais de cycle tool_calls/tool_results à
+    # gérer ici, contrairement au function calling classique). `None` par
+    # défaut : aucun changement de comportement pour generate_daily_edition.py,
+    # qui n'en a jamais besoin (le brief lui fournit déjà tous les faits).
+    if tools:
+        body_dict["tools"] = tools
     # Incident réel du 14 septembre 2026 (test manuel, openai/gpt-5) :
     # "reasoning": {"enabled": False} envoyé sans condition faisait
     # échouer tout modèle qui impose son raisonnement interne (erreur

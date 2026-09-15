@@ -43,6 +43,20 @@ photo, feed.xml, sitemap, glossaire, publication réelle). Voir
 de ce changement, et `docs/routine-brief-format.md` pour le schéma exact du
 brief à produire.
 
+**Repli automatique si tu n'as pas pu produire le brief** (ajouté le
+15 septembre 2026, retour utilisateur : blocages/limites de tokens qui
+grippaient tout le pipeline). `.github/workflows/post-edition.yml` (celui
+qui te prend le relais, voir plus bas) vérifie désormais lui-même si
+`editorial-briefs/{date}.json` existe à son heure de déclenchement ; s'il
+est absent, il appelle `scripts/edition/generate_fallback_brief.py`
+— une recherche complète via OpenRouter (server tool
+`openrouter:web_search`, mêmes règles éditoriales que toi, extraites
+directement de ce fichier) — pour produire un brief de secours et
+continuer le pipeline normalement. **Ça ne change rien à ton propre
+travail** : toujours produire le meilleur brief possible, le repli n'est
+qu'une assurance si tu n'y arrives pas à temps, jamais un chemin à
+privilégier.
+
 **Ce que tu appliques encore, tel quel, sans rien changer** : Étape 0
 (sujet prioritaire), Étape 0bis (anti-doublon), Étape 1 (sélection
 automatique du sujet), Étape 2 (la question posée), ci-dessous. Pour
