@@ -288,6 +288,13 @@ def generate_instagram_image(content, date_str, sandbox_root, photo):
 # ---------------------------------------------------------------------------
 # 3. feed.xml
 # ---------------------------------------------------------------------------
+def strip_inline_tags(html_text):
+    """Retire les balises inline (<strong>, <span>...) d'un fragment HTML
+    simple — utilisé pour <source> ci-dessous, qui doit rester du texte
+    brut (voir build_feed_item()), jamais du HTML comme <description>."""
+    return re.sub(r"<[^>]+>", "", html_text)
+
+
 def build_feed_item(content, date_str, read_minutes, ig_image_url, ig_image_size):
     h1 = content["h1"]
     link = f"{SITE_URL}/archives/{date_str}.html"
@@ -316,6 +323,31 @@ def build_feed_item(content, date_str, read_minutes, ig_image_url, ig_image_size
 
     enclosure = f'\n  <enclosure url="{ig_image_url}" length="{ig_image_size}" type="image/png"/>' if ig_image_url else ""
 
+    # <source> : le texte complet de « L'essentiel » (essentiel_box + France
+    # Impact), en clair (balises inline retirées) — jamais construit par
+    # cette chaîne depuis le 14 septembre 2026, contrairement à l'ancienne
+    # routine manuelle. Deux consommateurs en dépendent silencieusement :
+    # l'Automation Buttondown RSS-to-email de la newsletter quotidienne
+    # (docs/ARCHITECTURE.md, § « Buttondown ») ET
+    # scripts/en/translate_daily.py::collect_feed_segments(), qui construit
+    # l'entrée en/feed.xml (lue par Make pour la publication sociale EN) à
+    # partir de ce même champ — son absence ne fait échouer ni l'un ni
+    # l'autre bruyamment (ils se contentent de sauter silencieusement),
+    # d'où deux jours (14-15 septembre) sans nouvelle entrée en/feed.xml et
+    # potentiellement une newsletter FR incomplète sur la même période.
+    # Toujours exactement 5 paragraphes séparés par une ligne vide — même
+    # format que l'ancienne routine, voir docs/BACKLOG.md.
+    essentiel_plain = [strip_inline_tags(p).strip() for p in content["essentiel_box"]]
+    df = content.get("delta_france")
+    if df:
+        essentiel_plain.append(strip_inline_tags(
+            f"Notre évaluation de l'impact pour la France : {df['word']}. {df['text']}"
+        ).strip())
+    source = ""
+    if len(essentiel_plain) == 5:
+        source_text = escape_xml("\n\n".join(essentiel_plain))
+        source = f'\n      <source url="{link}">{source_text}</source>'
+
     return (
         "    <item>\n"
         f"      <title>{escape_xml(h1)}</title>\n"
@@ -325,7 +357,8 @@ def build_feed_item(content, date_str, read_minutes, ig_image_url, ig_image_size
         f"      <comments>{escape_xml(question)}</comments>\n"
         f"      <category>{category}</category>"
         f"{enclosure}\n"
-        f"      <description><![CDATA[{description}]]></description>\n"
+        f"      <description><![CDATA[{description}]]></description>"
+        f"{source}\n"
         "    </item>"
     )
 

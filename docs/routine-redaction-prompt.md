@@ -272,17 +272,35 @@ raccourcie pour aller vite.
 
 ### `delta_france`
 ```json
-{"kind": "positif|negatif", "score": -0.6, "word": "négatif", "text": "phrase expliquant pourquoi, citant les probabilités clés"}
+{"kind": "positif|negatif", "score": -0.6, "word": "assez négatif", "text": "phrase expliquant pourquoi, citant les probabilités clés — jamais de deuxième phrase"}
 ```
 **Calcul** : `score = Σ (probabilité du scénario / 100 × valeur France de ce
 scénario)`, valeur = **+1 si ce scénario est bon pour la France, -1
 sinon — jamais 0**. La valeur France de chaque scénario est un jugement
 indépendant de sa nature (favorable/stable/dégradé) — un "stable" qui
 maintient un coût déjà là (référence : situation normale/pré-crise, jamais
-seulement "pas pire qu'aujourd'hui") reste -1. Mot : `|score| < 0,50` →
-léger, `0,50-0,80` → assez, `≥ 0,80` → très. Toujours cadrer comme une
-évaluation (« Notre évaluation de l'impact pour la France : ... »), jamais
-comme un fait.
+seulement "pas pire qu'aujourd'hui") reste -1.
+
+**`word` : toujours deux mots, intensité + polarité, jamais l'un sans
+l'autre.** Intensité selon `|score|` : `< 0,50` → léger, `0,50-0,80` →
+assez, `≥ 0,80` → très. Polarité : `négatif` si `kind` = "negatif",
+`positif` si `kind` = "positif". Concatène les deux, dans cet ordre
+(ex. `"assez négatif"`, `"très positif"`, jamais `"négatif"` seul ni
+`"assez"` seul — bug réel du 14-15 septembre 2026 : le mot d'intensité
+seul, sans la polarité, rendait la jauge illisible sur la page publiée,
+ex. « Assez. » sans rien après).
+
+**`text` : uniquement la justification, jamais la phrase d'introduction
+ni le mot lui-même.** Le gabarit HTML affiche déjà, avant `text`, « Notre
+évaluation de l'impact pour la France : **{word}**. » (voir
+`scripts/edition/build_html.py`) — `text` ne doit donc **jamais**
+recommencer par « Notre évaluation... », ni reformuler le score/mot dans
+ses propres termes (jamais « plutôt négatif », « ce qui est négatif »...) :
+il continue directement la phrase déjà affichée, avec les probabilités
+clés qui justifient le score (voir l'exemple ci-dessus). Une seule
+phrase, jamais un second paragraphe. Bug réel du 14-15 septembre 2026 :
+`text` répétait la phrase d'intro avec un mot différent de `word`,
+produisant un doublon visible sur la page publiée.
 
 ### `lexique` (liste d'objets)
 `{"slug": "...", "terme": "...", "definition": "..."}` — chaque terme doit

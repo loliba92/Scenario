@@ -309,6 +309,39 @@ def collect_segments(soup):
         for j, why in enumerate(card.select(".why")):
             segments[f"card_{kind}_why_{j}"] = inner_html(why)
 
+    # « L'essentiel » (.essentiel-box) — repéré le 15 septembre 2026 :
+    # totalement oublié jusqu'ici, ces paragraphes restaient en français
+    # sur TOUTES les pages EN déjà publiées (le h1/.dek/.card étaient bien
+    # traduits autour, mais pas ce résumé). Le dernier paragraphe
+    # (.delta-text, jauge France Impact) a une structure propre (svg +
+    # <strong> chrome fixe + mot + phrase) — traité séparément ci-dessous,
+    # jamais comme un simple inner_html (le mot et le texte doivent rester
+    # distincts pour la relecture par build_en_soup()).
+    essentiel_ps = [
+        p for p in soup.select(".essentiel-box p.essentiel-text")
+        if "delta-text" not in (p.get("class") or [])
+    ]
+    for i, p in enumerate(essentiel_ps):
+        segments[f"essentiel_{i}"] = inner_html(p)
+
+    delta_gauge_word = soup.select_one(".delta-gauge-word")
+    if delta_gauge_word:
+        segments["delta_gauge_word"] = inner_html(delta_gauge_word)
+
+    delta_text_p = soup.select_one(".delta-text")
+    delta_strong = delta_text_p.find("strong") if delta_text_p else None
+    if delta_strong:
+        delta_word_span = delta_strong.select_one(".delta-word")
+        if delta_word_span:
+            segments["delta_word"] = inner_html(delta_word_span)
+        # Tout ce qui suit le </strong> de fermeture : la phrase d'explication
+        # (df['text'] côté generate_post_edition.py) — jamais le "Notre
+        # évaluation de l'impact pour la France :" qui la précède, chrome
+        # fixe géré à la relecture, jamais renvoyé au modèle.
+        tail_html = "".join(str(s) for s in delta_strong.next_siblings).strip()
+        if tail_html:
+            segments["delta_text_tail"] = tail_html
+
     for i, fl in enumerate(soup.select(".france-line")):
         clone = copy.copy(fl)
         label = clone.select_one(".field-label")
@@ -880,6 +913,32 @@ def build_en_soup(fr_soup, date_str, translations, memory, en_image_url, for_arc
             set_inner_html(h3, tr(f"card_{kind}_h3", inner_html(h3)))
         for j, why in enumerate(card.select(".why")):
             set_inner_html(why, tr(f"card_{kind}_why_{j}", inner_html(why)))
+
+    essentiel_ps = [
+        p for p in soup.select(".essentiel-box p.essentiel-text")
+        if "delta-text" not in (p.get("class") or [])
+    ]
+    for i, p in enumerate(essentiel_ps):
+        set_inner_html(p, tr(f"essentiel_{i}", inner_html(p)))
+
+    delta_gauge_word = soup.select_one(".delta-gauge-word")
+    if delta_gauge_word:
+        set_inner_html(delta_gauge_word, tr("delta_gauge_word", inner_html(delta_gauge_word)))
+
+    delta_text_p = soup.select_one(".delta-text")
+    delta_strong = delta_text_p.find("strong") if delta_text_p else None
+    if delta_strong:
+        delta_word_span = delta_strong.select_one(".delta-word")
+        word_html = tr("delta_word", inner_html(delta_word_span)) if delta_word_span else ""
+        # "Notre évaluation de l'impact pour la France :" est du chrome fixe
+        # (comme "The France angle" pour .france-line ci-dessous) — jamais
+        # renvoyé au modèle, toujours cette même formulation EN.
+        set_inner_html(delta_strong, f'Our assessment of the impact for France: <span class="delta-word">{word_html}</span>.')
+        tail_translated = tr("delta_text_tail", "".join(str(s) for s in delta_strong.next_siblings))
+        for sib in list(delta_strong.next_siblings):
+            sib.extract()
+        if delta_text_p:
+            delta_text_p.append(BeautifulSoup(tail_translated, "html.parser"))
 
     for i, fl in enumerate(soup.select(".france-line")):
         label = fl.select_one(".field-label")
