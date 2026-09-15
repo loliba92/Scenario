@@ -200,11 +200,24 @@ rien de notable croisé aujourd'hui → `revue_de_presse` reste vide ou
 absent, aucun jour ajouté pour aujourd'hui (comme avant : pas de section
 vide forcée).
 
-**Recoupement avec `archives.html`/suivis actifs.** Comme avant :
-vérifier les noms propres du sujet du jour contre `archives.html` et
-« Suivis actifs » de `docs/sujets-a-suivre.md`, noter tout recoupement
-pertinent dans `recommandations_redaction` pour que la rédaction ajoute
-le lien.
+**Recoupement avec `archives.html`/suivis actifs.** Vérifier `archives.html`
+et « Suivis actifs » de `docs/sujets-a-suivre.md` sur **deux niveaux, pas
+un seul** : 1) noms propres exacts du sujet du jour (comme avant) ; 2)
+**même thème/filière au sens large, même sans nom propre partagé** —
+incident réel du 15 septembre 2026 : le sujet « fusion nucléaire » a été
+déclaré inédit (aucun recoupement de noms propres) sans jamais recouper
+l'édition du 5 août sur EPR2/EDF (fission, pas fusion, mais même filière
+énergie nucléaire) — un lien y aurait eu sa place (contraste
+fission/fusion, calendrier public vs privé), l'anti-doublon par noms
+propres seul ne pouvait pas le voir. Se poser explicitement la question
+« quelle est la filière/l'industrie/la politique publique derrière ce
+sujet, et a-t-elle déjà été traitée sous un autre angle ? » avant de
+conclure à un sujet inédit. Noter tout recoupement pertinent (des deux
+niveaux) dans `recommandations_redaction` pour que la rédaction ajoute le
+lien — jamais dans `anti_doublon.notes`, qui reste réservé à la question
+« ce sujet précis a-t-il déjà été traité » (les deux questions sont
+distinctes, voir l'incident ci-dessus : la réponse à la première était
+correcte, la seconde vérification a été sautée).
 
 ### Étape 3bis — Assembler et publier le brief, déclencher le pipeline, s'arrêter
 

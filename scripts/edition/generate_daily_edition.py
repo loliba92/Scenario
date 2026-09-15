@@ -42,6 +42,7 @@ OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 DEFAULT_MODEL = "anthropic/claude-sonnet-5"
 REDACTION_PROMPT_PATH = REPO_ROOT / "docs" / "routine-redaction-prompt.md"
 MIN_WORDS = 1100
+MIN_ESSENTIEL_WORDS = 110  # essentiel_box (4 paragraphes) — voir validate_content_schema()
 MAX_RETRIES = 1  # 1 nouvel essai max en cas d'échec de validation — jamais plus (coût maîtrisé)
 
 
@@ -637,8 +638,29 @@ def validate_content_schema(content, brief):
                 "sans cet index l'encart n'est inséré nulle part dans le HTML final"
             )
 
-    if len(content["essentiel_box"]) != 4:
-        errors.append(f"essentiel_box : {len(content['essentiel_box'])} paragraphes (4 attendus)")
+    essentiel_box = content["essentiel_box"]
+    if not isinstance(essentiel_box, list) or len(essentiel_box) != 4:
+        errors.append(
+            f"essentiel_box : "
+            f"{len(essentiel_box) if isinstance(essentiel_box, list) else type(essentiel_box).__name__} "
+            "(4 chaînes attendues)"
+        )
+    else:
+        # Retour utilisateur du 15 septembre 2026 : « l'essentiel assez
+        # léger » — comparé aux éditions de la routine manuelle (avant le
+        # 14 septembre), qui tournaient entre 126 et 142 mots au total sur
+        # ces 4 paragraphes, contre ~90 mots sur les premières éditions
+        # automatisées (aucune contrainte de longueur n'existait ici avant
+        # ce correctif, seulement un compte de 4 paragraphes). Seuil fixé
+        # légèrement sous ce plancher historique observé, même mécanique
+        # de retry que MIN_WORDS ci-dessus.
+        essentiel_words = sum(len(p.split()) for p in essentiel_box if isinstance(p, str))
+        if essentiel_words < MIN_ESSENTIEL_WORDS:
+            errors.append(
+                f"essentiel_box trop léger : {essentiel_words} mots au total sur les 4 "
+                f"paragraphes (minimum {MIN_ESSENTIEL_WORDS}, manque {MIN_ESSENTIEL_WORDS - essentiel_words} mots) — "
+                "développer chaque point avec un chiffre ou un fait concret précis, jamais juste raccourcir/paraphraser"
+            )
 
     df = content["delta_france"]
     for f in ("kind", "score", "word", "text"):

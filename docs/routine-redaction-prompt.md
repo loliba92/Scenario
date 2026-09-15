@@ -249,6 +249,12 @@ plus bas).
    (jamais juste "stable"/"dégradé" seul).
 4. Signal à surveiller : événement daté et vérifiable.
 
+**Minimum 110 mots au total sur ces 4 paragraphes** (retour utilisateur du
+15 septembre 2026 : trop léger sans cette contrainte — les éditions de
+référence tournent plutôt entre 126 et 142 mots). Chaque point doit porter
+un chiffre ou un fait concret précis, jamais une phrase générique
+raccourcie pour aller vite.
+
 ### `delta_france`
 ```json
 {"kind": "positif|negatif", "score": -0.6, "word": "négatif", "text": "phrase expliquant pourquoi, citant les probabilités clés"}
