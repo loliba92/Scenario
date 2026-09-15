@@ -22,12 +22,16 @@ name: Édition — rédaction + post-édition (OpenRouter)
 # lui-même. Le trigger Claude Code Remote « Scénario » (cron 0 4 * * *
 # UTC = 6h Paris en CEST) écrit et committe editorial-briefs/{date}.json,
 # puis s'arrête — voir docs/routine-prompt.md § « STATUT ACTUEL ». Ce
-# workflow-ci prend le relais un peu plus tard (0 5 * * * UTC = 7h Paris,
-# marge d'environ 1h) : il lit ce brief et fait tout le reste, jusqu'à la
+# workflow-ci prend le relais un peu plus tard (30 4 * * * UTC = 6h30
+# Paris en CEST, marge d'environ 30 min — réduite depuis 1h le
+# 15 septembre 2026, retour utilisateur, ⚠️ marge plus courte face au
+# trigger CCR ci-dessus si celui-ci est un jour réactivé, voir
+# docs/routine-prompt.md § « STATUT ACTUEL » : il est désactivé au moment
+# de ce changement) : il lit ce brief et fait tout le reste, jusqu'à la
 # publication réelle. Dérive saisonnière connue et acceptée (cron UTC
 # fixe, pas d'ajustement DST automatique) — les deux crons restent dans
 # le bon ordre relatif toute l'année, seule l'heure Paris affichée dérive
-# d'1h en hiver (CET).
+# d'1h en hiver (CET, 5h30).
 #
 # Secrets requis (Settings → Secrets and variables → Actions → Secrets) :
 #   OPENROUTER_API_KEY (rédaction)
@@ -48,7 +52,7 @@ name: Édition — rédaction + post-édition (OpenRouter)
 
 on:
   schedule:
-    - cron: '0 5 * * *'
+    - cron: '30 4 * * *'
   workflow_dispatch:
     inputs:
       brief:

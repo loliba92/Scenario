@@ -238,9 +238,10 @@ le lien.
      -d '{"ref":"main"}'
    ```
    Si ni `gh` ni un token ne sont disponibles, ne pas bloquer : le cron
-   du workflow (`0 5 * * *` UTC = 7h Paris) le déclenchera de toute
-   façon un peu plus tard — signaler simplement ce point dans le résumé
-   final plutôt que de forcer une méthode qui échouerait.
+   du workflow (`30 4 * * *` UTC = 6h30 Paris en été/CEST, 5h30 en
+   hiver/CET) le déclenchera de toute façon un peu plus tard — signaler
+   simplement ce point dans le résumé final plutôt que de forcer une
+   méthode qui échouerait.
 4. Résumé final (comme avant, étape technique 12 de la version
    historique ci-dessous) : sujet retenu, brief committé **ou** déjà
    existant (préciser lequel des deux cas), pipeline déclenché (ou note
