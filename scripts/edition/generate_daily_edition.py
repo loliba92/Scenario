@@ -521,10 +521,23 @@ def strip_markdown_json_fence(text):
     appel (14 septembre 2026) a montré Claude Sonnet envelopper sa réponse
     dans un bloc markdown ```json ... ``` — jamais garanti côté modèle,
     donc traité ici plutôt que supposé absent. Ne touche pas le texte si
-    aucune barrière markdown n'est présente (cas nominal)."""
+    aucune barrière markdown n'est présente (cas nominal).
+
+    Repli ajouté le 15 septembre 2026 (generate_fallback_brief.py, premier
+    vrai test avec le server tool `openrouter:web_search`) : le modèle
+    avait aussi renvoyé du texte de raisonnement libre AVANT le bloc
+    ```json (« Je vais faire les recherches nécessaires... »), que le
+    premier motif ci-dessus, ancré `^...$`, ne matchait pas — response_format
+    json_object semble moins strictement garanti dès qu'un tool est utilisé.
+    On cherche alors un bloc fenced n'importe où dans le texte, en prenant
+    le DERNIER trouvé (le brief final, jamais un extrait de raisonnement
+    intermédiaire qui ressemblerait à du JSON)."""
     stripped = text.strip()
     m = re.match(r"^```(?:json)?\s*\n(.*)\n```\s*$", stripped, re.S)
-    return m.group(1) if m else stripped
+    if m:
+        return m.group(1)
+    matches = re.findall(r"```(?:json)?\s*\n(.*?)\n```", stripped, re.S)
+    return matches[-1] if matches else stripped
 
 
 def apply_apres_dek_index_fallback(content):
