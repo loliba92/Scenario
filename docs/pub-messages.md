@@ -824,6 +824,16 @@ préférée pour son registre déjà simplifié.*
 
 *Extrait automatiquement de l'édition du 2026-09-13 (archives/2026-09-13.html) — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-09-15
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 3 700
+- message: Le livre blanc de la défense japonaise, publié le 4 août 2026, chiffre plus de 3 700 sorties militaires chinoises dans la zone d'identification de défense aérienne taïwanaise en 2025, contre environ 970 en 2021 — presque quatre fois plus en quatre ans.
+- attribution: — lesscenarios.fr, 14 septembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-09-14.html
+
+*Extrait automatiquement de l'édition du 2026-09-14 (archives/2026-09-14.html) — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
