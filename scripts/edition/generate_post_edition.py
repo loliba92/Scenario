@@ -502,6 +502,44 @@ def update_glossaire_html(glossaire_text, content, brief, date_str):
 
 
 # ---------------------------------------------------------------------------
+# Liens relatifs de la copie archives/{date}.html — régression réelle du
+# 14 septembre 2026, détectée le 15 (retour utilisateur : icône « Revue de
+# presse » et son lien morts sur une page d'archive). L'ancienne routine
+# manuelle avait une étape dédiée pour ça (docs/routine-prompt.md,
+# référence historique, étape technique 5 : « adapter tous les liens
+# relatifs d'un niveau ») — perdue au passage à ce script, qui écrivait
+# jusqu'ici EXACTEMENT le même HTML sur index.html (racine du dépôt) et
+# archives/{date}.html (un niveau plus bas) : tout lien/asset relatif à la
+# racine (assets/..., archives.html, glossaire.html, sources.html,
+# hebdo/..., index.html, dashboard.html, manifest.webmanifest...) devient
+# alors mort sur la copie d'archive. generate_theme_pages.py avait déjà ce
+# problème pour ses propres pages (themes/{slug}.html, aussi un niveau
+# plus bas) et le corrige avec une liste blanche de noms de pages connus —
+# ici on préfère une règle générique (tout préfixer sauf ce qui est
+# explicitement absolu/une ancre/un schéma) pour ne jamais dépendre d'une
+# liste à tenir à jour à chaque nouvelle page racine.
+# ---------------------------------------------------------------------------
+_ARCHIVE_LINK_ATTR_RE = re.compile(r'(href|src)="([^"]*)"')
+_ARCHIVE_LINK_EXCLUDED_PREFIXES = (
+    "http://", "https://", "//", "#", "mailto:", "tel:", "data:", "javascript:",
+    "../", "./",  # déjà relatif correctement (ex. le bouton EN, posé par translate_daily.py)
+)
+
+
+def rebase_links_for_archive_copy(html_text):
+    """Retourne une copie de html_text avec chaque lien/asset relatif à la
+    racine préfixé de "../" — à appliquer UNIQUEMENT à la copie qui va sous
+    archives/{date}.html, jamais à celle qui va sur index.html (racine,
+    où ces liens sont déjà corrects tels quels)."""
+    def repl(m):
+        attr, value = m.group(1), m.group(2)
+        if value and not value.lower().startswith(_ARCHIVE_LINK_EXCLUDED_PREFIXES):
+            return f'{attr}="../{value}"'
+        return m.group(0)
+    return _ARCHIVE_LINK_ATTR_RE.sub(repl, html_text)
+
+
+# ---------------------------------------------------------------------------
 # sources-log.json / sources.html — « revue de presse » (docs/routine-prompt.md,
 # étape 3) : automatisée le 14 septembre 2026, sur décision explicite de
 # l'utilisateur, pour ne plus dépendre d'une étape manuelle de la routine
@@ -572,20 +610,25 @@ def promote_to_real_repo(sandbox_root, date_str):
     """Copie les fichiers déjà générés (et validés) dans le bac à sable
     vers leurs vrais emplacements dans le dépôt — ne génère RIEN
     elle-même, ne fait aucun commit/push (le workflow appelant s'en
-    charge). Le HTML de l'archive du jour devient à la fois le nouveau
-    index.html (l'édition du jour) ET archives/{date}.html (copie
-    figée) — même contenu, comme le veut docs/routine-prompt.md, étape
-    6 (« index.html = toujours l'édition du jour uniquement »)."""
+    charge). index.html (racine) et archives/{date}.html (copie figée,
+    un niveau plus bas) portent le même contenu éditorial mais PAS le même
+    HTML octet pour octet depuis le 15 septembre 2026 : leurs liens/assets
+    relatifs à la racine diffèrent forcément d'un "../" (voir
+    rebase_links_for_archive_copy() plus haut — avant ce correctif, les
+    deux fichiers étaient identiques et tout lien relatif était mort sur
+    la copie d'archive, régression du 14 septembre 2026)."""
+    index_src = sandbox_root / "index.html"
     archive_src = sandbox_root / "archives" / f"{date_str}.html"
+    if not index_src.exists():
+        raise PostEditionError(f"--publish : HTML final (racine) introuvable dans le bac à sable : {index_src}")
     if not archive_src.exists():
-        raise PostEditionError(f"--publish : HTML final introuvable dans le bac à sable : {archive_src}")
-    html_text = archive_src.read_text(encoding="utf-8")
+        raise PostEditionError(f"--publish : HTML final (archive) introuvable dans le bac à sable : {archive_src}")
 
-    (REPO_ROOT / "index.html").write_text(html_text, encoding="utf-8")
+    (REPO_ROOT / "index.html").write_text(index_src.read_text(encoding="utf-8"), encoding="utf-8")
     real_archive_dir = REPO_ROOT / "archives"
     real_archive_dir.mkdir(parents=True, exist_ok=True)
-    (real_archive_dir / f"{date_str}.html").write_text(html_text, encoding="utf-8")
-    print(f"[post-edition] --publish : index.html + archives/{date_str}.html écrits (réels)")
+    (real_archive_dir / f"{date_str}.html").write_text(archive_src.read_text(encoding="utf-8"), encoding="utf-8")
+    print(f"[post-edition] --publish : index.html + archives/{date_str}.html écrits (réels, liens de l'archive réajustés d'un niveau)")
 
     for rel in ("feed.xml", "sitemap.xml", "sitemap-news.xml", "glossaire.html", "archives.html"):
         src = sandbox_root / rel
@@ -711,15 +754,20 @@ def main():
             "square_path": photo_credits["square_path"],
         }
 
-    # 2. HTML final (photo incluse)
+    # 2. HTML final (photo incluse) — DEUX copies distinctes, jamais
+    # identiques : index.html (racine, liens tels quels) et
+    # archives/{date}.html (un niveau plus bas, liens réajustés — voir
+    # rebase_links_for_archive_copy() ci-dessus).
     index_html_path = REPO_ROOT / "index.html"
     shell = build_html.extract_shell(index_html_path.read_text(encoding="utf-8"))
     html_text, edition_number = build_html.assemble_index_html(shell, content, brief, date_str, photo=photo)
+    index_out = sandbox_root / "index.html"
+    index_out.write_text(html_text, encoding="utf-8")
     archive_dir = sandbox_root / "archives"
     archive_dir.mkdir(parents=True, exist_ok=True)
     archive_path = archive_dir / f"{date_str}.html"
-    archive_path.write_text(html_text, encoding="utf-8")
-    print(f"[post-edition] HTML final (édition N°{edition_number}) écrit : {archive_path}")
+    archive_path.write_text(rebase_links_for_archive_copy(html_text), encoding="utf-8")
+    print(f"[post-edition] HTML final (édition N°{edition_number}) écrit : {index_out} (racine) et {archive_path} (archive, liens réajustés d'un niveau)")
 
     # 3. Image Instagram
     ig_image_path = generate_instagram_image(content, date_str, sandbox_root, photo)
