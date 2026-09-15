@@ -587,6 +587,19 @@ def validate_content_schema(content, brief):
         pcts = [content["cards"][k]["pct"] for k in ("favorable", "stable", "degrade") if "pct" in content["cards"][k]]
         if len(pcts) == 3 and abs(sum(pcts) - 100) > 1:
             errors.append(f"somme des pct des 3 cartes = {sum(pcts)} (attendu 100)")
+        # Retour utilisateur du 15 septembre 2026 : les 3 cartes ne
+        # reprenaient chacune QU'UN SEUL des 2 KPI de .indicator-strip
+        # (jamais détecté avant, faute de vérifier autre chose que "non
+        # vide" sur indicateurs_touches) — la règle de docs/routine-prompt.md
+        # § Cohérence des KPI ("2 KPI fixes... réutilisés identiques dans
+        # les 3 cartes") n'était donc jamais réellement vérifiée. Vérifie
+        # le NOMBRE seulement, jamais une correspondance exacte de libellé :
+        # field_name est légitimement une version abrégée de indicators[].label
+        # (ex. édition du 13 septembre, déjà publiée avant automatisation :
+        # "Taux d'emprunt de la France à 10 ans (OAT)" en tête devient "Taux
+        # d'emprunt à 10 ans (OAT)" dans les cartes) — imposer une égalité
+        # stricte casserait ce cas légitime, déjà vérifié sur du contenu réel.
+        n_expected_kpi = len(content.get("indicators") or [])
         for kind in ("favorable", "stable", "degrade"):
             card = content["cards"][kind]
             for f in ("pct", "gauge_word", "h3", "why", "indicateurs_touches", "france_line", "france_impact"):
@@ -596,6 +609,12 @@ def validate_content_schema(content, brief):
                 errors.append(f"cards.{kind}.france_impact doit être 'favorable' ou 'degrade' (reçu : {card.get('france_impact')!r})")
             if len(card.get("why", [])) < 2:
                 errors.append(f"cards.{kind}.why : {len(card.get('why', []))} paragraphes (2 attendus)")
+            touches = card.get("indicateurs_touches")
+            if n_expected_kpi and isinstance(touches, list) and len(touches) != n_expected_kpi:
+                errors.append(
+                    f"cards.{kind}.indicateurs_touches : {len(touches)} KPI évalué(s), "
+                    f"{n_expected_kpi} attendus (les mêmes que .indicator-strip, dans chacune des 3 cartes)"
+                )
     elif not errors:
         for kind in ("favorable", "stable", "degrade"):
             if not isinstance(content["cards"].get(kind), dict):

@@ -234,6 +234,21 @@ Pour chaque clé :
   "france_impact": "favorable|degrade"
 }
 ```
+**`indicateurs_touches` : les MÊMES N KPI que `indicators` ci-dessus, dans
+CHACUNE des 3 cartes — jamais un sous-ensemble.** `field_name` peut être
+une version abrégée du `label` correspondant dans `indicators` (ex. « Taux
+d'emprunt de la France à 10 ans (OAT) » en tête devient « Taux d'emprunt à
+10 ans (OAT) » dans les cartes — légitime, pas besoin d'une reprise mot
+pour mot), mais chaque KPI doit apparaître dans les 3 cartes, jamais
+seulement 1 ou 2 d'entre elles. C'est le même tableau de bord qui évolue
+selon le scénario, pas 3 tableaux de bord différents. Pour chaque KPI,
+`evo_current`/`evo_arrow`/`evo_prev` disent ce que deviendrait CE KPI
+précis SI ce scénario se réalisait (jamais sa valeur actuelle recopiée
+telle quelle dans les 3 cartes — les 3 valeurs doivent normalement
+différer). Erreur réelle du 15 septembre 2026 : chaque carte n'évaluait
+qu'un seul des 2 KPI au lieu des deux, jamais détecté avant ajout d'une
+vérification dédiée.
+
 `pct` : somme des 3 = 100. Mot-repère : 0-25 peu probable, 26-50 probable,
 51-75 assez probable, 76-100 très probable — doit correspondre au `pct`.
 `france_impact` : jamais "stable", toujours "favorable" ou "degrade" —
