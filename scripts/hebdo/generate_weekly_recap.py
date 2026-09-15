@@ -492,8 +492,8 @@ def build_week_conclusion_lead_html(bullets_html, thread_html):
 
 
 def day_bullet_html(e, prefix):
-    """Une ligne par sujet — {jour, registre} — « L'essentiel » de
-    l'édition, repris VERBATIM — lien « Lire ici ». Volontairement sans
+    """Une entrée par sujet — {jour, registre}, titre, « L'essentiel » de
+    l'édition repris VERBATIM, lien « Lire ici ». Volontairement sans
     image ni détail des 3 scénarios (retiré le 12 septembre 2026, retour
     utilisateur : « ce qui est important est le résumé de la semaine, les
     images pas importantes, tu peux simplifier vraiment »). Le texte
@@ -501,12 +501,25 @@ def day_bullet_html(e, prefix):
     depuis le 13 septembre 2026 (retour utilisateur : dimanche manquant un
     jour, et le résumé jugé trop léger/pas toujours fidèle) — c'est
     désormais « L'essentiel » déjà publié sur l'édition, tel quel, jamais
-    réécrit ici. Voir docs/routine-hebdo-prompt.md."""
+    réécrit ici. Voir docs/routine-hebdo-prompt.md.
+
+    Amélioration du 15 septembre 2026 (retour utilisateur : « améliorer le
+    design en restant simple ») — toujours zéro donnée nouvelle, juste une
+    meilleure mise en forme de ce qui existait déjà : le h1 de l'édition
+    (déjà extrait par read_edition(), auparavant ignoré ici) affiché comme
+    titre sur sa propre ligne au lieu d'être noyé dans le paragraphe, et
+    `data-scenario` (déjà calculé, `winner_kind`) posé sur le <li> pour la
+    bordure colorée définie dans WEEK_DAYS_CSS — aucun nouvel appel, aucune
+    nouvelle donnée à vérifier."""
     archive_href = f'{prefix}archives/{e["date_str"]}.html'
     essentiel = esc_text(" ".join(e["essentiel"]))
     return (
-        f'<li><strong>{e["eyebrow_html"]}</strong> — {essentiel} '
-        f'<a class="week-day-link" href="{archive_href}">Lire ici →</a></li>'
+        f'<li data-scenario="{e["winner_kind"]}">'
+        f'<p class="week-day-eyebrow">{e["eyebrow_html"]}</p>'
+        f'<a class="week-day-title" href="{archive_href}">{esc_text(e["h1"])}</a>'
+        f'<p class="week-day-text">{essentiel} '
+        f'<a class="week-day-link" href="{archive_href}">Lire ici →</a></p>'
+        f'</li>'
     )
 
 
@@ -530,14 +543,56 @@ WEEK_DAYS_CSS = """
     padding: 0;
   }
 
+  /* Repère visuel discret : une bordure gauche colorée selon le scénario
+     le plus probable du jour (mêmes couleurs que .scenario-mini ailleurs
+     sur le site) — donne un repère de lecture immédiat sans image ni
+     détail supplémentaire à ouvrir (voir day_bullet_html()). */
   .week-days-list li{
-    padding: 14px 0;
+    --accent: var(--hairline);
+    padding: 16px 0 16px 16px;
     border-bottom: 1px solid var(--hairline);
+    border-left: 3px solid var(--accent);
     font-size: 0.96rem;
     color: var(--paper);
+    line-height: 1.6;
   }
 
-  .week-days-list li:last-child{ border-bottom: none; }
+  .week-days-list li[data-scenario="favorable"]{ --accent: var(--favorable); }
+  .week-days-list li[data-scenario="stable"]{ --accent: var(--stable); }
+  .week-days-list li[data-scenario="degrade"]{ --accent: var(--degrade); }
+
+  .week-days-list li:first-child{ padding-top: 4px; }
+  .week-days-list li:last-child{ border-bottom: none; padding-bottom: 4px; }
+
+  .week-day-eyebrow{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+    margin: 0 0 6px;
+  }
+
+  /* Titre du jour isolé sur sa propre ligne (Fraunces, comme les h1
+     d'édition) — avant, le jour/registre en gras précédait directement
+     le paragraphe « L'essentiel », sans hiérarchie visuelle entre le
+     titre du sujet et son résumé. */
+  .week-day-title{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.08rem;
+    line-height: 1.35;
+    color: var(--paper);
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+    display: block;
+    margin: 0 0 8px;
+  }
+  .week-day-title:hover{ border-bottom-color: var(--paper-dim); }
+
+  .week-day-text{
+    margin: 0;
+  }
 
   .week-day-link{
     color: var(--gold);
