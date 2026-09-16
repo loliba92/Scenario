@@ -38,6 +38,11 @@ on:
         required: false
         type: boolean
         default: false
+      force:
+        description: "Regénère et REMPLACE un récap déjà publié pour cette date. Action manuelle assumée uniquement — ne touche jamais l'email déjà envoyé, seulement le site."
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -62,7 +67,8 @@ jobs:
           python3 scripts/hebdo/generate_weekly_recap.py \
             ${{ github.event.inputs.date && format('--date {0}', github.event.inputs.date) || '' }} \
             ${{ github.event.inputs.model && format('--model {0}', github.event.inputs.model) || '' }} \
-            ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
+            ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \
+            ${{ github.event.inputs.force == 'true' && '--force' || '' }}
 
       - name: Committer et pousser
         if: ${{ github.event.inputs.dry_run != 'true' }}
