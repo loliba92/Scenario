@@ -213,6 +213,44 @@ class TranslationError(Exception):
     pass
 
 
+def _repair_stray_quotes(text):
+    """Échappe les guillemets droits littéraux trouvés en pleine chaîne
+    JSON (ex. une citation dans le texte traduit), sans toucher aux
+    guillemets structurels ni à ceux déjà échappés. Voir l'incident réel
+    du 16 septembre 2026 (call_openrouter) pour le contexte : best-effort,
+    pas une garantie générale (même limite assumée que les autres
+    réparations de ce fichier)."""
+    out = []
+    in_string = False
+    i, n = 0, len(text)
+    while i < n:
+        c = text[i]
+        if in_string and c == "\\" and i + 1 < n:
+            out.append(text[i:i + 2])
+            i += 2
+            continue
+        if c == '"':
+            if not in_string:
+                in_string = True
+                out.append(c)
+                i += 1
+                continue
+            j = i + 1
+            while j < n and text[j] in " \t\n\r":
+                j += 1
+            if j < n and text[j] in ",:}]":
+                in_string = False
+                out.append(c)
+                i += 1
+                continue
+            out.append('\\"')
+            i += 1
+            continue
+        out.append(c)
+        i += 1
+    return "".join(out)
+
+
 # ---------------------------------------------------------------------------
 # Mémoire de traduction : construite à partir des paires d'archives FR/EN
 # déjà publiées, pour les libellés courts qui reviennent d'une édition à
@@ -495,6 +533,12 @@ Règles strictes :
 - Reformate les unités à l'anglaise si besoin (ex: "725 Md$" -> "$725B",
   "+77 % sur un an" -> "+77% year-on-year").
 - Ne résume pas, ne raccourcis pas, n'ajoute aucun commentaire.
+- Toute la réponse est un unique objet JSON : si le texte anglais visible
+  contient lui-même une citation ou un mot entre guillemets (ex. traduire
+  « VNU »), utilise des guillemets typographiques courbes "..." (jamais
+  le caractère guillemet droit ") pour éviter de casser le JSON — ne
+  mets JAMAIS un caractère guillemet droit (") à l'intérieur du texte
+  visible d'un segment, seulement en délimiteur de chaîne JSON.
 - Renvoie un objet JSON unique de la forme {{"translations": [{{"id": "...", "html": "..."}}, ...]}},
   avec exactement les mêmes id, dans le même ordre, un par segment reçu.
 {extra_warning}
@@ -602,18 +646,33 @@ Segments à traduire (JSON) :
         try:
             parsed = json.loads(repaired)
             print("JSON réparé automatiquement (guillemets non échappés dans une balise HTML)", file=sys.stderr)
-        except json.JSONDecodeError as e2:
-            # Diagnostic élargi (16 septembre 2026) : le contexte autour du
-            # point de rupture exact, pas seulement les 500 premiers
-            # caractères — 2 échecs déjà observés à quelques caractères
-            # d'écart (~3263-3294) sans que la réparation balise HTML ne
-            # suffise, signe que ce n'est probablement pas une balise mais
-            # une vraie citation entre guillemets dans le texte traduit.
-            pos = e2.pos
-            excerpt = repaired[max(0, pos - 200):pos + 200]
-            raise TranslationError(
-                f"réponse du modèle non-JSON : {e2}\ncontexte autour du point de rupture :\n{excerpt}"
-            )
+        except json.JSONDecodeError:
+            # Incident réel du 16 septembre 2026, même run : la réparation
+            # ci-dessus ne suffisait pas — la casse réelle n'était pas une
+            # balise HTML mais une vraie citation dans le texte anglais
+            # traduit (ex. `no "VNU" line has appeared`), avec des
+            # guillemets droits non échappés en pleine prose. Le prompt
+            # demande maintenant des guillemets typographiques courbes
+            # dans ce cas (voir plus haut), mais ce n'est jamais garanti
+            # côté modèle — filet de sécurité générique ici : on rescanne
+            # caractère par caractère en suivant l'état "dans une chaîne
+            # JSON ou non", et tout guillemet droit non échappé qui
+            # n'annonce pas la fin réelle de la chaîne (pas suivi, après
+            # espaces éventuels, par , : } ou ]) est traité comme un
+            # guillemet littéral et échappé à la volée.
+            repaired2 = _repair_stray_quotes(repaired)
+            try:
+                parsed = json.loads(repaired2)
+                print("JSON réparé automatiquement (guillemet droit littéral dans le texte traduit)", file=sys.stderr)
+            except json.JSONDecodeError as e3:
+                # Diagnostic élargi (16 septembre 2026) : le contexte autour
+                # du point de rupture exact, pas seulement les 500 premiers
+                # caractères, pour éviter d'autres essais à l'aveugle.
+                pos = e3.pos
+                excerpt = repaired2[max(0, pos - 200):pos + 200]
+                raise TranslationError(
+                    f"réponse du modèle non-JSON : {e3}\ncontexte autour du point de rupture :\n{excerpt}"
+                )
 
     out = {item["id"]: item["html"] for item in parsed.get("translations", [])}
     missing = set(ids) - set(out.keys())
