@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-09-16",
+      "articles": [
+        {
+          "title": "Le Premier ministre Sébastien Lecornu demande un effort supplémentaire sur les dépenses 2027",
+          "source": "Franceinfo",
+          "url": "https://www.franceinfo.fr/",
+          "image": null,
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Lecornu a demandé à ses ministres de maintenir les dépenses 2027 strictement au même niveau que 2026, dans le cadre des négociations budgétaires.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Manifestation de policiers à Paris à l'appel du syndicat Alliance",
+          "source": "Franceinfo",
+          "url": "https://www.franceinfo.fr/",
+          "image": null,
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Plusieurs milliers de policiers ont manifesté des Champs-Élysées à l'Assemblée nationale à l'appel du syndicat Alliance.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-09-11",
       "articles": [
         {

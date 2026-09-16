@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
-  <url>
-    <loc>https://lesscenarios.fr/archives/2026-09-13.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Scénario</news:name>
-        <news:language>fr</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-13T07:15:00+02:00</news:publication_date>
-      <news:title>Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://lesscenarios.fr/en/archives/2026-09-13.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Scénario</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-13T07:15:00+02:00</news:publication_date>
-      <news:title>Budget 2027: Will the Lecornu government survive this fall?</news:title>
-    </news:news>
-  </url>
-<url><loc>https://lesscenarios.fr/archives/2026-09-14.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-09-14T18:44:58+02:00</news:publication_date><news:title>Taïwan : Trump et Xi peuvent-ils calmer la pression chinoise ?</news:title></news:news></url>  <url>
+  <url><loc>https://lesscenarios.fr/archives/2026-09-14.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-09-14T18:44:58+02:00</news:publication_date><news:title>Taïwan : Trump et Xi peuvent-ils calmer la pression chinoise ?</news:title></news:news></url>  <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-14.html</loc>
     <news:news>
       <news:publication>
@@ -44,4 +22,4 @@
       <news:title>Nuclear Fusion: The Promise Finally Kept?</news:title>
     </news:news>
   </url>
-</urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-09-16.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-09-16T06:55:07+02:00</news:publication_date><news:title>Électricité : la fin de l'ARENH va-t-elle faire flamber ta facture ?</news:title></news:news></url></urlset>
