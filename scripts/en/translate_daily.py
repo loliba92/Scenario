@@ -566,8 +566,19 @@ Segments à traduire (JSON) :
         raise TranslationError(f"réponse OpenRouter sans 'choices' : {data}")
 
     content = data["choices"][0]["message"]["content"]
+    # Incident réel du 16 septembre 2026 (premier appel réel après le
+    # passage à Sonnet 5) : malgré response_format=json_object, la
+    # réponse était enveloppée dans un bloc markdown ```json ... ``` —
+    # jamais garanti côté modèle (même incident déjà rencontré et corrigé
+    # côté rédaction, voir strip_markdown_json_fence() dans
+    # generate_daily_edition.py — logique reprise ici plutôt
+    # qu'importée, ce script reste autonome).
+    stripped = content.strip()
+    m = re.match(r"^```(?:json)?\s*\n(.*)\n```\s*$", stripped, re.S)
+    if m:
+        stripped = m.group(1)
     try:
-        parsed = json.loads(content)
+        parsed = json.loads(stripped)
     except json.JSONDecodeError as e:
         raise TranslationError(f"réponse du modèle non-JSON : {e}\n{content[:500]}")
 
