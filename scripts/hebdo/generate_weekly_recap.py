@@ -67,7 +67,7 @@ GENERATE_ARCHIVES_TABLE = ROOT / "scripts" / "seo" / "generate_archives_table.py
 
 PARIS = ZoneInfo("Europe/Paris")
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-DEFAULT_MODEL = "deepseek/deepseek-v4-flash"
+DEFAULT_MODEL = "openai/gpt-5"
 
 MONTHS_FR = ["janvier", "février", "mars", "avril", "mai", "juin",
              "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
@@ -296,6 +296,10 @@ def call_openrouter_json(prompt, model, api_key, timeout=90):
     # flag — jamais exercé avant le premier test avec --model openai/gpt-5
     # (16 septembre 2026). Même garde-fou que les autres scripts OpenRouter
     # de ce dépôt : limité aux modèles qui en ont réellement besoin.
+    # DEFAULT_MODEL est passé à openai/gpt-5 le 16 septembre 2026 (retour
+    # utilisateur, après comparaison des deux sur la même semaine) — ce
+    # garde-fou reste donc pertinent en continu, pas seulement pour un
+    # --model explicite ponctuel.
     can_disable_reasoning = "anthropic/" in model or "deepseek/" in model
     # 2e incident réel du 16 septembre 2026, même run de test : avec
     # max_tokens=3000 (largement suffisant pour DeepSeek, raisonnement
@@ -384,20 +388,25 @@ propre absent des données ci-dessus. Tu résumes/reformules, tu ne
 recherches et n'imagines jamais une information nouvelle.
 
 Tâche 1 — Conclusion de la semaine :
-- "narratif" (retour utilisateur du 16 septembre 2026 : « un beau
-  narratif sur la semaine », plus une liste à puces) : UN paragraphe
-  filé, pas une liste, pas de puces, qui couvre les {n} sujets de la
-  semaine un par un, dans l'ordre chronologique — jamais seulement 3 ou
-  4 sujets sur {n}, chaque sujet doit apparaître avec au moins un fait
-  concret et spécifique qui lui est propre (un chiffre, un acteur, une
-  échéance — jamais juste l'étiquette du scénario gagnant). Puise dans
-  "essentiel" autant que dans le scénario gagnant : le contexte ou le
-  signal à surveiller d'un jour font souvent un fait plus parlant que le
-  seul pourcentage. Phrases courtes, une vraie transition d'un sujet au
-  suivant (jamais "Sujet 1. Sujet 2. Sujet 3." mis bout à bout sans
-  liant, jamais non plus une remarque sur la structure du récap
-  elle-même comme "le stable l'emporte X fois sur {n}") — un texte qui
-  se lit d'une traite, pas une liste déguisée en prose. Aucune mise en
+- "opening" : une phrase d'intro courte (jamais les dates de la semaine,
+  déjà données ailleurs dans la page).
+- "bullets" (retour utilisateur du 16 septembre 2026 : un « doux
+  équilibre narratif et bullet pour alléger la lecture » plutôt qu'un
+  paragraphe filé ou une liste tronquée) : EXACTEMENT {n} éléments, un
+  par sujet, dans l'ordre chronologique — jamais moins de {n}, jamais
+  plus, jamais deux sujets fusionnés dans une même puce ni un sujet
+  sans puce. Chaque puce commence par le jour de la semaine tiré du
+  champ "jour_registre" de ce sujet (ex. "Lundi, ..." — capitalisé,
+  suivi d'une virgule) : garde le fil chronologique et humanise le
+  récap, même esprit qu'un narratif, tout en restant une phrase courte
+  et autonome. Après ce repère de jour, un fait concret et spécifique
+  propre à ce sujet (un chiffre, un acteur, une échéance — jamais juste
+  l'étiquette du scénario gagnant). Puise dans "essentiel" autant que
+  dans le scénario gagnant : le contexte ou le signal à surveiller d'un
+  jour font souvent un fait plus parlant que le seul pourcentage. Une
+  puce reste courte (1 phrase), jamais une remarque sur la structure du
+  récap elle-même (interdit : "le stable l'emporte X fois sur {n}", "{n}
+  sujets, {n} fois trois scénarios" comme accroche). Aucune mise en
   forme : texte brut uniquement, jamais de **gras** ni de markdown.
 - "thread" : UNE phrase qui tire un vrai fil conducteur SEULEMENT s'il
   existe réellement un lien de fond entre plusieurs sujets (même thème
@@ -407,8 +416,8 @@ Tâche 1 — Conclusion de la semaine :
   constat. Si les sujets n'ont vraiment aucun lien réel, renvoie null :
   ne force jamais un faux fil conducteur. Si non-null, commence par
   "Le fil commun de la semaine : ". Texte brut, jamais de **gras**.
-- "meta_description" : ~150-160 caractères, condensé factuel du
-  narratif et du fait le plus marquant, texte brut sans HTML, sans les
+- "meta_description" : ~150-160 caractères, condensé factuel de
+  l'opening et du fait le plus marquant, texte brut sans HTML, sans les
   dates.
 
 Il n'y a qu'une seule tâche : le résumé de la semaine ci-dessus. Le résumé
@@ -419,7 +428,8 @@ texte déjà relu et publié.
 
 Réponds avec un JSON unique, exactement :
 {{
-  "narratif": "...",
+  "opening": "...",
+  "bullets": ["...", "... (exactement {n} éléments)"],
   "thread": "..." ou null,
   "meta_description": "..."
 }}
@@ -446,8 +456,9 @@ def build_day_paragraph(e):
     )
 
 
-def build_description_cdata(narrative_html, thread_html, day_paragraphs):
-    out = f"<p>{narrative_html}</p>"
+def build_description_cdata(opening_html, bullets_html, thread_html, day_paragraphs):
+    li = "".join(f"<li>{b}</li>" for b in bullets_html)
+    out = f"<p>{opening_html}</p><ul>{li}</ul>"
     if thread_html:
         out += f"<p>{thread_html}</p>"
     out += "<br><br>" + "<br><br>".join(day_paragraphs)
@@ -455,8 +466,10 @@ def build_description_cdata(narrative_html, thread_html, day_paragraphs):
     return out
 
 
-def build_comments(narrative_plain, thread_plain):
-    parts = [narrative_plain.rstrip(".").strip() + "."]
+def build_comments(opening_plain, bullets_plain, thread_plain):
+    first = opening_plain.rstrip(":.").strip() + "."
+    bullets_joined = " • ".join(b.rstrip(".").strip() + "." for b in bullets_plain)
+    parts = [first, bullets_joined]
     if thread_plain:
         parts.append(thread_plain if thread_plain[-1:] in ".!?" else thread_plain + ".")
     return " ".join(parts)
@@ -506,12 +519,16 @@ def validate_feed_xml(path):
     return len(items)
 
 
-def build_week_conclusion_lead_html(narrative_html, thread_html):
-    """Retour utilisateur du 16 septembre 2026 : un seul paragraphe filé
-    (narratif) couvrant tous les sujets de la semaine, plus de liste à
-    puces — et plus de mise en gras doré nulle part ici (ni sur des
-    passages du narratif, ni sur le fil conducteur, voir la CSS
-    `.week-conclusion strong` retirée du gabarit)."""
+def build_week_conclusion_lead_html(opening_html, bullets_html, thread_html):
+    """Retour utilisateur du 16 septembre 2026 (2e ajustement le même jour :
+    « un doux équilibre narratif et bullet pour alléger la lecture ») —
+    une courte phrase d'intro (opening, classe .week-conclusion-narrative
+    réutilisée telle quelle) suivie d'une puce par sujet, EXACTEMENT une
+    par sujet (voir build_prompt()), jamais 3-4 comme l'ancienne version
+    qui laissait des sujets invisibles ici. Toujours sans mise en gras
+    doré nulle part (voir la CSS `.week-conclusion strong` retirée du
+    gabarit)."""
+    li = "\n    ".join(f"<li>{b}</li>" for b in bullets_html)
     thread_p = (
         f'\n  <p class="week-conclusion-thread">{thread_html}</p>'
         if thread_html else ""
@@ -519,7 +536,10 @@ def build_week_conclusion_lead_html(narrative_html, thread_html):
     return (
         '<div class="week-conclusion week-conclusion-lead">\n'
         '  <p class="week-conclusion-label">Conclusion de la semaine</p>\n'
-        f'  <p class="week-conclusion-narrative">{narrative_html}</p>' + thread_p + '\n'
+        f'  <p class="week-conclusion-narrative">{opening_html}</p>\n'
+        '  <ul class="week-conclusion-bullets">\n'
+        f'    {li}\n'
+        '  </ul>' + thread_p + '\n'
         '</div>'
     )
 
@@ -858,19 +878,33 @@ def main():
     result, usage = call_openrouter_json(prompt, args.model, api_key)
     cost = usage.get("cost", 0) or 0
 
-    narratif = (result.get("narratif") or "").strip()
+    opening = (result.get("opening") or "").strip()
+    bullets = [b.strip() for b in (result.get("bullets") or []) if b.strip()]
     thread = (result.get("thread") or "").strip() or None
     meta_description = clamp_meta_description(result.get("meta_description"))
 
-    if not narratif:
-        raise HebdoError("réponse OpenRouter incomplète : 'narratif' manquant")
+    if not opening or not bullets:
+        raise HebdoError("réponse OpenRouter incomplète : 'opening'/'bullets' manquant(s)")
+    # Ajouté le 16 septembre 2026 (2e ajustement du jour : retour à
+    # opening+bullets, mais EXACTEMENT un par sujet cette fois — jamais
+    # le plafond "3 à 4" de l'ancienne version, qui laissait des sujets
+    # invisibles dans la synthèse du haut). Pas de retry automatique dans
+    # ce script (tâche hebdomadaire supervisée, pas le pipeline quotidien
+    # à haut volume) : on échoue fort plutôt que de publier une synthèse
+    # incomplète sans que personne ne le remarque.
+    if len(bullets) != len(editions):
+        raise HebdoError(
+            f"'bullets' : {len(bullets)} élément(s) reçu(s), {len(editions)} attendu(s) "
+            f"(exactement un par sujet)"
+        )
 
     day_paragraphs = [build_day_paragraph(e) for e in editions]
 
     # Plus de mise en forme **gras** demandée au modèle depuis le 16
     # septembre 2026 (retour utilisateur : « enlève le gras doré ») —
     # texte brut échappé directement, plus de bold_to_html()/strip_extra_bold().
-    narrative_html = esc_text(narratif)
+    opening_html = esc_text(opening)
+    bullets_html = [esc_text(b) for b in bullets]
     thread_html = esc_text(thread) if thread else None
 
     date_range_title = format_range(monday, sunday)
@@ -879,7 +913,9 @@ def main():
     dek = f"{date_range_title} — {n_word} sujets, {n_word} fois trois scénarios chiffrés."
 
     print(f"\nTitre : {title}")
-    print(f"Narratif : {narratif}")
+    print(f"Ouverture : {opening}")
+    for b in bullets:
+        print(f"  - {b}")
     if thread:
         print(f"Fil commun : {thread}")
     print(f"Meta description ({len(meta_description)} caractères) : {meta_description}")
@@ -889,7 +925,7 @@ def main():
         print("--dry-run : aucun fichier modifié.")
         return 0
 
-    week_conclusion_page = build_week_conclusion_lead_html(narrative_html, thread_html)
+    week_conclusion_page = build_week_conclusion_lead_html(opening_html, bullets_html, thread_html)
     week_days_page = build_week_days_html(editions, "../")
     week_days_fragment = build_week_days_html(editions, "")
 
@@ -904,8 +940,8 @@ def main():
     (HEBDO_FRAGMENTS_DIR / f"{date_str}.html").write_text(fragment_html, encoding="utf-8")
     print(f"hebdo/{date_str}.html et hebdo/fragments/{date_str}.html créés.")
 
-    description_cdata = build_description_cdata(narrative_html, thread_html, day_paragraphs)
-    comments = build_comments(narratif, thread)
+    description_cdata = build_description_cdata(opening_html, bullets_html, thread_html, day_paragraphs)
+    comments = build_comments(opening, bullets, thread)
     item_xml = build_feed_item_xml(sunday, title, comments, description_cdata)
     new_feed_text = upsert_item(feed_text, item_xml, f"scenario-hebdo-{date_str}")
     FEED_WEEKLY.write_text(new_feed_text, encoding="utf-8")
