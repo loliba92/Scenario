@@ -390,21 +390,29 @@ recherches et n'imagines jamais une information nouvelle.
 Tâche 1 — Conclusion de la semaine :
 - "opening" : une phrase d'intro courte (jamais les dates de la semaine,
   déjà données ailleurs dans la page).
-- "bullets" (retour utilisateur du 16 septembre 2026 : un « doux
-  équilibre narratif et bullet pour alléger la lecture » plutôt qu'un
-  paragraphe filé ou une liste tronquée) : EXACTEMENT {n} éléments, un
-  par sujet, dans l'ordre chronologique — jamais moins de {n}, jamais
-  plus, jamais deux sujets fusionnés dans une même puce ni un sujet
-  sans puce. Chaque puce commence par le jour de la semaine tiré du
-  champ "jour_registre" de ce sujet (ex. "Lundi, ..." — capitalisé,
-  suivi d'une virgule) : garde le fil chronologique et humanise le
-  récap, même esprit qu'un narratif, tout en restant une phrase courte
-  et autonome. Après ce repère de jour, un fait concret et spécifique
-  propre à ce sujet (un chiffre, un acteur, une échéance — jamais juste
-  l'étiquette du scénario gagnant). Puise dans "essentiel" autant que
-  dans le scénario gagnant : le contexte ou le signal à surveiller d'un
-  jour font souvent un fait plus parlant que le seul pourcentage. Une
-  puce reste courte (1 phrase), jamais une remarque sur la structure du
+- "bullets" (retour utilisateur du 16 septembre 2026, 2 ajustements le
+  même jour : d'abord « un doux équilibre narratif et bullet pour
+  alléger la lecture » plutôt qu'un paragraphe filé ou une liste
+  tronquée, puis « ça fait trop télégraphique, trop digital-ordi, ça
+  manque d'humain et de liant » — le 1er essai collait "Jour, registre,"
+  en préfixe mécanique devant chaque fait, comme une étiquette de
+  métadonnées, pas une phrase) : EXACTEMENT {n} éléments, un par sujet,
+  dans l'ordre chronologique — jamais moins de {n}, jamais plus, jamais
+  deux sujets fusionnés dans une même puce ni un sujet sans puce.
+  Chaque puce est une VRAIE phrase, avec un verbe conjugué dès le
+  début, qui s'ouvre sur le jour de la semaine comme un vrai repère
+  temporel de récit (« Lundi, l'UE a débloqué... », « Mardi, OpenAI a
+  annoncé... ») — jamais le nom du registre accolé au jour ("Lundi,
+  géopolitique,"), jamais une étiquette suivie d'une virgule puis d'un
+  fait détaché : le jour doit s'intégrer naturellement dans la syntaxe
+  de la phrase, comme le ferait quelqu'un qui raconte sa semaine à
+  voix haute, pas un flux de données. Contenu de la puce : un fait
+  concret et spécifique propre à ce sujet (un chiffre, un acteur, une
+  échéance — jamais juste l'étiquette du scénario gagnant). Puise dans
+  "essentiel" autant que dans le scénario gagnant : le contexte ou le
+  signal à surveiller d'un jour font souvent un fait plus parlant que le
+  seul pourcentage. Une puce reste courte (1 phrase), jamais une
+  remarque sur la structure du
   récap elle-même (interdit : "le stable l'emporte X fois sur {n}", "{n}
   sujets, {n} fois trois scénarios" comme accroche). Aucune mise en
   forme : texte brut uniquement, jamais de **gras** ni de markdown.
