@@ -580,7 +580,30 @@ Segments à traduire (JSON) :
     try:
         parsed = json.loads(stripped)
     except json.JSONDecodeError as e:
-        raise TranslationError(f"réponse du modèle non-JSON : {e}\n{content[:500]}")
+        # Incident réel du 16 septembre 2026, même run que le fence
+        # ci-dessus : une fois le fence retiré, le JSON restait cassé —
+        # une balise HTML recopiée avec ses vrais guillemets au lieu de
+        # \" (ex. class="lex-ref" href="#lex-arenh"), alors qu'elle est
+        # à l'intérieur d'une chaîne JSON déjà ouverte. Même classe
+        # d'incident que repair_unescaped_lexref_quotes() côté rédaction,
+        # mais générique ici (n'importe quelle balise/attribut, pas
+        # seulement .lex-ref en français — la traduction peut recopier
+        # class=/href=/aria-label= dans n'importe quelle langue) : chaque
+        # balise HTML `<...>` trouvée dans le texte a ses guillemets non
+        # déjà échappés remplacés par \" avant un 2e essai de parsing.
+        # Best-effort, jamais une garantie générale (même limite assumée
+        # que côté rédaction) : un guillemet cassé ailleurs dans la
+        # réponse lève quand même TranslationError normalement.
+        repaired = re.sub(
+            r'<[a-zA-Z][^<>]*>',
+            lambda m: re.sub(r'(?<!\\)"', r'\\"', m.group(0)),
+            stripped,
+        )
+        try:
+            parsed = json.loads(repaired)
+            print("JSON réparé automatiquement (guillemets non échappés dans une balise HTML)", file=sys.stderr)
+        except json.JSONDecodeError:
+            raise TranslationError(f"réponse du modèle non-JSON : {e}\n{content[:500]}")
 
     out = {item["id"]: item["html"] for item in parsed.get("translations", [])}
     missing = set(ids) - set(out.keys())
