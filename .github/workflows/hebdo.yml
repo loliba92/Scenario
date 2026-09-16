@@ -30,6 +30,14 @@ on:
       date:
         description: "Dimanche ciblé (AAAA-MM-JJ) — laisser vide pour aujourd'hui. Tests/rattrapage uniquement."
         required: false
+      model:
+        description: "Modèle OpenRouter à utiliser — laisser vide pour le défaut du script (DeepSeek). Tests uniquement (ex. openai/gpt-5)."
+        required: false
+      dry_run:
+        description: "Dry-run (aucun fichier modifié, aucun commit) — pour tester un modèle sans publier."
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -52,9 +60,12 @@ jobs:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           python3 scripts/hebdo/generate_weekly_recap.py \
-            ${{ github.event.inputs.date && format('--date {0}', github.event.inputs.date) || '' }}
+            ${{ github.event.inputs.date && format('--date {0}', github.event.inputs.date) || '' }} \
+            ${{ github.event.inputs.model && format('--model {0}', github.event.inputs.model) || '' }} \
+            ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
 
       - name: Committer et pousser
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         run: |
           git config user.name "scenario-hebdo-bot"
           git config user.email "actions@users.noreply.github.com"

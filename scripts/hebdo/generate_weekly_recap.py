@@ -312,14 +312,25 @@ def read_edition(d, write_missing_fragment=True):
 # Étape 3 — rédaction (un seul appel OpenRouter, strictement grounded)
 # ---------------------------------------------------------------------------
 def call_openrouter_json(prompt, model, api_key, timeout=90):
-    body = json.dumps({
+    body_dict = {
         "model": model,
         "max_tokens": 3000,
         "temperature": 0.3,
         "response_format": {"type": "json_object"},
-        "reasoning": {"enabled": False},
         "messages": [{"role": "user", "content": prompt}],
-    }).encode()
+    }
+    # Incident réel du 14 septembre 2026 (test manuel avec openai/gpt-5,
+    # voir generate_daily_edition.py::call_openrouter()) : envoyer
+    # "reasoning": {"enabled": False} sans condition fait échouer tout
+    # modèle qui impose son raisonnement interne ("Reasoning is mandatory
+    # for this endpoint and cannot be disabled"). Ce script tournait
+    # jusqu'ici toujours avec DEFAULT_MODEL (DeepSeek), qui accepte ce
+    # flag — jamais exercé avant le premier test avec --model openai/gpt-5
+    # (16 septembre 2026). Même garde-fou que les autres scripts OpenRouter
+    # de ce dépôt : limité aux modèles qui en ont réellement besoin.
+    if "anthropic/" in model or "deepseek/" in model:
+        body_dict["reasoning"] = {"enabled": False}
+    body = json.dumps(body_dict).encode()
     req = urllib.request.Request(OPENROUTER_URL, method="POST", data=body, headers={
         "Authorization": f"Bearer {api_key}", "Content-Type": "application/json",
     })
@@ -340,6 +351,16 @@ def build_llm_input(editions):
             "jour_registre": e["eyebrow_text"],
             "titre": e["h1"],
             "question": e["question"],
+            # Ajouté le 16 septembre 2026, retour utilisateur : avant, le
+            # modèle ne voyait que la question et le scénario gagnant —
+            # jamais le contexte, la conclusion ni le signal à surveiller
+            # de "L'essentiel" (déjà extrait par read_edition(), jamais
+            # transmis ici jusque-là). Texte identique à celui affiché tel
+            # quel par jour (voir build_day_paragraph()/day_bullet_html())
+            # — sert seulement de matière supplémentaire pour une synthèse
+            # de semaine mieux ancrée dans les faits, jamais reformulé
+            # dans l'affichage par jour lui-même.
+            "essentiel": " ".join(e["essentiel"]),
             "scenario_gagnant": KIND_FR[e["winner_kind"]],
             "pourcentage": w["pct"],
             "scenario_titre": w["title"],
@@ -354,9 +375,11 @@ def build_prompt(days):
     return f"""Tu rédiges le récap hebdomadaire du site « Scénario » (lesscenarios.fr)
 — « On refait le scénario de la semaine ». Voici les {n} sujets de la
 semaine, dans l'ordre chronologique (lundi en premier). Pour chaque sujet :
-la question posée, et le scénario déjà jugé le plus probable par l'édition
-du jour (titre, pourcentage, explication déjà rédigée). Ce jugement et ce
-pourcentage sont FIXES : ne les remets pas en cause, ne les modifie pas.
+la question posée, « L'essentiel » complet déjà publié (contexte,
+conclusion la plus probable, signal à surveiller), et le scénario déjà
+jugé le plus probable par l'édition du jour (titre, pourcentage,
+explication déjà rédigée). Ce jugement et ce pourcentage sont FIXES : ne
+les remets pas en cause, ne les modifie pas.
 
 Sujets de la semaine (JSON) :
 {json.dumps(days, ensure_ascii=False, indent=2)}
@@ -369,10 +392,13 @@ Tâche 1 — Conclusion de la semaine :
 - "opening" : une phrase d'intro courte (jamais les dates de la semaine,
   déjà données ailleurs dans la page).
 - "bullets" : {bullet_count} faits CONCRETS et SPÉCIFIQUES, chacun tiré
-  d'un sujet différent — jamais une remarque sur la structure du récap
-  elle-même (interdit : "le stable l'emporte X fois sur 7", "sept sujets,
-  sept scénarios chiffrés" comme accroche). Un fait précis par puce, pas
-  seulement l'étiquette du scénario.
+  d'un sujet différent — puise dans "essentiel" autant que dans le
+  scénario gagnant, le contexte ou le signal à surveiller d'un jour font
+  souvent un fait plus parlant que le seul pourcentage — jamais une
+  remarque sur la structure du récap elle-même (interdit : "le stable
+  l'emporte X fois sur 7", "sept sujets, sept scénarios chiffrés" comme
+  accroche). Un fait précis par puce, pas seulement l'étiquette du
+  scénario.
 - "thread" : UNE phrase qui tire un vrai fil conducteur SEULEMENT s'il
   existe réellement un lien de fond entre plusieurs sujets (même thème
   géopolitique, plusieurs dossiers bloqués sans dénouement, plusieurs
