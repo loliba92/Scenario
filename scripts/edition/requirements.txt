@@ -1,3 +1,10 @@
 beautifulsoup4
-playwright
+# Épinglé (incident réel du 16 septembre 2026) : la clé de cache Chromium
+# de post-edition.yml est basée sur le hash de CE fichier — avec
+# "playwright" seul (sans version), pip pouvait résoudre une version plus
+# récente à tout moment sans jamais changer ce hash, laissant le cache
+# pointer vers d'anciens binaires (Instagram : "Executable doesn't exist",
+# chromium_headless_shell-1243 jamais téléchargé). Épingler force le cache
+# à s'invalider dès qu'on relève sciemment cette version.
+playwright==1.62.0
 Pillow
