@@ -602,8 +602,18 @@ Segments à traduire (JSON) :
         try:
             parsed = json.loads(repaired)
             print("JSON réparé automatiquement (guillemets non échappés dans une balise HTML)", file=sys.stderr)
-        except json.JSONDecodeError:
-            raise TranslationError(f"réponse du modèle non-JSON : {e}\n{content[:500]}")
+        except json.JSONDecodeError as e2:
+            # Diagnostic élargi (16 septembre 2026) : le contexte autour du
+            # point de rupture exact, pas seulement les 500 premiers
+            # caractères — 2 échecs déjà observés à quelques caractères
+            # d'écart (~3263-3294) sans que la réparation balise HTML ne
+            # suffise, signe que ce n'est probablement pas une balise mais
+            # une vraie citation entre guillemets dans le texte traduit.
+            pos = e2.pos
+            excerpt = repaired[max(0, pos - 200):pos + 200]
+            raise TranslationError(
+                f"réponse du modèle non-JSON : {e2}\ncontexte autour du point de rupture :\n{excerpt}"
+            )
 
     out = {item["id"]: item["html"] for item in parsed.get("translations", [])}
     missing = set(ids) - set(out.keys())
