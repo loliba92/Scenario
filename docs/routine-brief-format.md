@@ -209,7 +209,13 @@ JSON, plutôt que dans un script à écrire.
   `faits_verifies[].sources` doit exister dans `sources`.
 - `revue_de_presse` : **pas** de minimum, absent ou `[]` valide (à
   l'inverse de `sources` ci-dessus) — voir § dédié plus haut.
-- `encarts_decides.comprendre_box` : au maximum 2 éléments.
+- `encarts_decides.comprendre_box` : **toujours exactement 2 éléments**
+  (changement du 16 septembre 2026, retour utilisateur : « plus
+  pédagogique » — avant cette date, jamais plus de 2, souvent 0 ou 1).
+  Les deux doivent porter sur deux mécanismes réellement distincts du
+  sujet, jamais deux angles du même — voir `docs/routine-prompt.md`,
+  § « Encart Comprendre » pour la règle complète et le garde-fou anti
+  contenu artificiel.
 
 ## Exemple
 

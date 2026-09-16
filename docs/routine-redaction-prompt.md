@@ -193,7 +193,7 @@ balises retirées et les espaces normalisés. Le minimum se calcule ainsi :
 Une phrase déclarative courte par branche, dans cet ordre, pour
 `.stakes-branches`.
 
-### `comprendre_box` (liste, 0 à 2 éléments — le brief dit combien)
+### `comprendre_box` (liste, toujours 2 éléments depuis le 16 septembre 2026)
 Pour chaque élément décidé dans `brief.encarts_decides.comprendre_box` :
 `{"lead": "...", "text": "...", "apres_dek_index": 0}`. `lead` ≤ 30 mots,
 une phrase. `text` : 1 paragraphe, 2 à 4 phrases courtes, ≤ 70 mots, qui

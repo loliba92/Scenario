@@ -119,9 +119,16 @@ def validate_brief(brief):
                 if sid not in source_ids:
                     errors.append(f"faits_verifies référence une source inconnue : {sid}")
 
+    # Changement du 16 septembre 2026, retour utilisateur (« plus
+    # pédagogique », éviter le contenu générique) : exactement 2
+    # comprendre_box requis, plus un plafond optionnel comme avant — voir
+    # docs/routine-prompt.md § Encart « Comprendre » pour le garde-fou
+    # anti contenu artificiel (le compte est vérifié ici, jamais la
+    # qualité du focus lui-même, qui reste un jugement éditorial en amont
+    # de la recherche).
     n_comprendre = len(brief.get("encarts_decides", {}).get("comprendre_box") or [])
-    if n_comprendre > 2:
-        errors.append(f"encarts_decides.comprendre_box : {n_comprendre} éléments (max 2)")
+    if n_comprendre != 2:
+        errors.append(f"encarts_decides.comprendre_box : {n_comprendre} élément(s) (exactement 2 requis)")
 
     # Seul un "avertissement :" ne bloque pas la génération — tout le reste
     # est bloquant. Distinction volontairement explicite plutôt qu'un
