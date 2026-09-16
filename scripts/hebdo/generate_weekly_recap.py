@@ -312,13 +312,6 @@ def read_edition(d, write_missing_fragment=True):
 # Étape 3 — rédaction (un seul appel OpenRouter, strictement grounded)
 # ---------------------------------------------------------------------------
 def call_openrouter_json(prompt, model, api_key, timeout=90):
-    body_dict = {
-        "model": model,
-        "max_tokens": 3000,
-        "temperature": 0.3,
-        "response_format": {"type": "json_object"},
-        "messages": [{"role": "user", "content": prompt}],
-    }
     # Incident réel du 14 septembre 2026 (test manuel avec openai/gpt-5,
     # voir generate_daily_edition.py::call_openrouter()) : envoyer
     # "reasoning": {"enabled": False} sans condition fait échouer tout
@@ -328,7 +321,25 @@ def call_openrouter_json(prompt, model, api_key, timeout=90):
     # flag — jamais exercé avant le premier test avec --model openai/gpt-5
     # (16 septembre 2026). Même garde-fou que les autres scripts OpenRouter
     # de ce dépôt : limité aux modèles qui en ont réellement besoin.
-    if "anthropic/" in model or "deepseek/" in model:
+    can_disable_reasoning = "anthropic/" in model or "deepseek/" in model
+    # 2e incident réel du 16 septembre 2026, même run de test : avec
+    # max_tokens=3000 (largement suffisant pour DeepSeek, raisonnement
+    # désactivé ci-dessus), openai/gpt-5 a renvoyé un "content" vide
+    # (None) — tout le budget de tokens est parti dans son raisonnement
+    # interne, obligatoire pour ce modèle et jamais désactivable (cf.
+    # ci-dessus), sans qu'il en reste pour la réponse JSON elle-même.
+    # Relevé pour tout modèle où le raisonnement ne peut pas être coupé —
+    # même classe d'incident que translate_daily.py (max_tokens relevé de
+    # 8000 à 16000 pour Sonnet 5, cause identique).
+    max_tokens = 3000 if can_disable_reasoning else 12000
+    body_dict = {
+        "model": model,
+        "max_tokens": max_tokens,
+        "temperature": 0.3,
+        "response_format": {"type": "json_object"},
+        "messages": [{"role": "user", "content": prompt}],
+    }
+    if can_disable_reasoning:
         body_dict["reasoning"] = {"enabled": False}
     body = json.dumps(body_dict).encode()
     req = urllib.request.Request(OPENROUTER_URL, method="POST", data=body, headers={
@@ -339,6 +350,12 @@ def call_openrouter_json(prompt, model, api_key, timeout=90):
     if "choices" not in data:
         raise HebdoError(f"réponse OpenRouter sans 'choices' : {data}")
     content = data["choices"][0]["message"]["content"]
+    if not content:
+        raise HebdoError(
+            f"réponse OpenRouter sans contenu (content={content!r}) — probablement tout le "
+            f"budget max_tokens={max_tokens} parti dans un raisonnement interne non désactivable, "
+            f"voir l'incident du 16 septembre 2026 ci-dessus : {data}"
+        )
     return json.loads(content), data.get("usage", {})
 
 
