@@ -62,7 +62,14 @@ from bs4 import BeautifulSoup, NavigableString
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-DEFAULT_MODEL = "deepseek/deepseek-v4-flash"
+# Passé de deepseek/deepseek-v4-flash à Sonnet 5 le 16 septembre 2026,
+# retour utilisateur (« si pb de modèle on peut passer sur un modèle un
+# peu plus puissant ») après un 2e incident réel de troncature/segments
+# manquants avec DeepSeek sur le même point (voir le commentaire
+# "max_tokens" dans call_openrouter()) — Sonnet 5 est déjà le modèle le
+# plus éprouvé de ce dépôt sur du JSON structuré volumineux
+# (generate_daily_edition.py, même style d'appel).
+DEFAULT_MODEL = "anthropic/claude-sonnet-5"
 
 DAYS_FR_EN = {
     "lundi": "Monday", "mardi": "Tuesday", "mercredi": "Wednesday",
@@ -495,19 +502,38 @@ Segments à traduire (JSON) :
 {json.dumps(payload_in, ensure_ascii=False)}
 """
 
-    body = json.dumps({
+    body = {
         "model": model,
-        "max_tokens": 8000,
+        # Incident réel du 16 septembre 2026 : 8000 (déjà relevé une
+        # première fois pour le raisonnement caché, voir "reasoning"
+        # ci-dessous) s'est révélé trop court pour le contenu VISIBLE
+        # lui-même — l'édition du jour, plus longue que d'habitude
+        # (minimum de mots relevé sur l'essentiel + 2 encarts Comprendre
+        # désormais obligatoires, voir generate_daily_edition.py), a fait
+        # échouer la traduction deux fois de suite avec exactement les
+        # mêmes 11 segments manquants (troncature déterministe, pas un
+        # aléa de génération) : aucun commit, l'anglais restait bloqué sur
+        # la veille. Relevé à 16000, avec la même marge que
+        # generate_daily_edition.py (12000) pour un volume de contenu
+        # comparable, plus large ici car la sortie ajoute la structure
+        # JSON de 44 segments.
+        "max_tokens": 16000,
         "temperature": 0.2,
         "response_format": {"type": "json_object"},
-        # deepseek-v4-flash est un modèle "raisonneur" : sans ce flag, il
-        # consomme le budget de tokens en chaîne de pensée cachée avant
-        # d'écrire la réponse (vérifié en test : 7912/8000 tokens de
-        # "reasoning", contenu tronqué). Traduire ne demande pas de
-        # raisonnement caché, donc on le désactive.
-        "reasoning": {"enabled": False},
         "messages": [{"role": "user", "content": prompt}],
-    }).encode()
+    }
+    # Modèles "raisonneurs" (DeepSeek, Claude) : sans ce flag, une partie
+    # du budget de tokens part en chaîne de pensée cachée avant d'écrire
+    # la réponse (vérifié en test sur deepseek-v4-flash : 7912/8000 tokens
+    # de "reasoning", contenu tronqué — même classe d'incident que le
+    # relevé de max_tokens ci-dessus). Traduire ne demande pas de
+    # raisonnement caché, donc désactivé — mais jamais envoyé à un modèle
+    # qui l'impose (ex. GPT-5 refuse avec une erreur 400 explicite, voir
+    # le même garde-fou dans generate_daily_edition.py) : limité aux
+    # modèles Anthropic/DeepSeek, les deux déjà utilisés ici.
+    if "anthropic/" in model or "deepseek/" in model:
+        body["reasoning"] = {"enabled": False}
+    body = json.dumps(body).encode()
 
     req = urllib.request.Request(OPENROUTER_URL, method="POST", data=body, headers={
         "Authorization": f"Bearer {api_key}",
