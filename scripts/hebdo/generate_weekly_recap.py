@@ -804,15 +804,20 @@ def main():
         raise HebdoError(f"{FEED_WEEKLY} introuvable")
     feed_text = FEED_WEEKLY.read_text(encoding="utf-8")
 
-    m = re.search(r"<pubDate>(.*?)</pubDate>", feed_text)
-    if m:
-        try:
-            existing = datetime.strptime(m.group(1), "%a, %d %b %Y %H:%M:%S %z").date()
-        except ValueError:
-            existing = None
-        if existing == sunday:
-            print(f"Un récap est déjà publié pour le {date_str} — rien à faire.")
-            return 0
+    # Ignoré en --dry-run (ajouté le 16 septembre 2026, pour tester un
+    # modèle/un prompt sur une semaine déjà publiée sans que ce garde-fou
+    # anti-doublon ne coupe court avant le moindre appel OpenRouter) —
+    # aucun risque de doublon en dry-run, rien n'est jamais écrit.
+    if not args.dry_run:
+        m = re.search(r"<pubDate>(.*?)</pubDate>", feed_text)
+        if m:
+            try:
+                existing = datetime.strptime(m.group(1), "%a, %d %b %Y %H:%M:%S %z").date()
+            except ValueError:
+                existing = None
+            if existing == sunday:
+                print(f"Un récap est déjà publié pour le {date_str} — rien à faire.")
+                return 0
 
     md_text = SUJETS_A_SUIVRE.read_text(encoding="utf-8")
     week = week_editions(md_text, sunday)
