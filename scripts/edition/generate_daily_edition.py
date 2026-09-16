@@ -119,16 +119,40 @@ def validate_brief(brief):
                 if sid not in source_ids:
                     errors.append(f"faits_verifies référence une source inconnue : {sid}")
 
-    # Changement du 16 septembre 2026, retour utilisateur (« plus
-    # pédagogique », éviter le contenu générique) : exactement 2
-    # comprendre_box requis, plus un plafond optionnel comme avant — voir
-    # docs/routine-prompt.md § Encart « Comprendre » pour le garde-fou
-    # anti contenu artificiel (le compte est vérifié ici, jamais la
-    # qualité du focus lui-même, qui reste un jugement éditorial en amont
-    # de la recherche).
+    # Ajouté le 16 septembre 2026 (retour utilisateur : forcer 2 encarts
+    # pédagogiques ne se justifie que sur un sujet réellement difficile —
+    # sur un sujet déjà simple, ça pousse justement vers le contenu
+    # artificiel que le garde-fou plus bas cherche à éviter). Note de 1
+    # (évident) à 5 (sujet technique) : « est-ce qu'un lecteur français
+    # sans connaissance préalable du domaine comprend ce sujet sans
+    # effort ? ». Voir docs/routine-brief-format.md pour le barème complet.
+    complexite = brief.get("sujet", {}).get("complexite")
+    if not isinstance(complexite, int) or isinstance(complexite, bool) or not (1 <= complexite <= 5):
+        errors.append(f"sujet.complexite : {complexite!r} (entier entre 1 et 5 requis)")
+
+    # comprendre_box : le nombre requis dépend de sujet.complexite
+    # ci-dessus. En dessous de 3/5, au moins 1 reste requis (jamais 0 —
+    # c'est la règle posée le 16 septembre 2026 au matin) ; à partir de
+    # 3/5, exactement 2 sont requis (retour utilisateur du même jour,
+    # l'après-midi : « plus pédagogique » sur les sujets qui le
+    # justifient) — voir docs/routine-prompt.md § Encart « Comprendre »
+    # pour le garde-fou anti contenu artificiel (le compte est vérifié
+    # ici, jamais la qualité du focus lui-même, qui reste un jugement
+    # éditorial en amont de la recherche).
     n_comprendre = len(brief.get("encarts_decides", {}).get("comprendre_box") or [])
-    if n_comprendre != 2:
-        errors.append(f"encarts_decides.comprendre_box : {n_comprendre} élément(s) (exactement 2 requis)")
+    if isinstance(complexite, int) and not isinstance(complexite, bool) and 1 <= complexite <= 5:
+        if complexite >= 3:
+            if n_comprendre != 2:
+                errors.append(
+                    f"encarts_decides.comprendre_box : {n_comprendre} élément(s) "
+                    f"(exactement 2 requis, sujet complexité {complexite}/5)"
+                )
+        else:
+            if n_comprendre < 1:
+                errors.append(
+                    f"encarts_decides.comprendre_box : {n_comprendre} élément(s) "
+                    f"(au moins 1 requis même sur un sujet simple, complexité {complexite}/5)"
+                )
 
     # Seul un "avertissement :" ne bloque pas la génération — tout le reste
     # est bloquant. Distinction volontairement explicite plutôt qu'un

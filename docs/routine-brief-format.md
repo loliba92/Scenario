@@ -32,7 +32,8 @@ sur un fichier partagé entre deux process).
     "angle": "string, 1-2 phrases",
     "tags": ["string"],
     "domain": "un des 6 slugs de docs/tags.md",
-    "image_keywords": "string, 2-3 mots-clés thématiques EN, ou null"
+    "image_keywords": "string, 2-3 mots-clés thématiques EN, ou null",
+    "complexite": "entier 1 à 5, voir § dédié plus bas"
   },
   "anti_doublon": {
     "veille_ok": true,
@@ -120,6 +121,36 @@ résultat final dépend donc entièrement de la précision des mots-clés
 choisis ici — les mêmes précautions que la routine complète restent
 valables (pas de visage reconnaissable suggéré, pas de photomontage
 stock clicheté), même si elles ne sont plus vérifiées après coup.
+
+## Champ `sujet.complexite` (utilisé par `generate_daily_edition.py` et la rédaction)
+
+Ajouté le 16 septembre 2026, retour utilisateur : entier de 1 à 5,
+question à se poser au moment de la recherche : **« un lecteur français
+grand public, sans connaissance préalable du domaine, comprend-il ce
+sujet sans effort ? »**
+
+- **1-2** : sujet limpide (un chiffre qui monte/baisse, une décision
+  simple à comprendre même sans contexte).
+- **3** : nécessite au moins un mécanisme ou un acteur/dispositif à
+  expliquer pour suivre le fil (ex. un mécanisme réglementaire, un
+  dispositif à plusieurs seuils).
+- **4-5** : plusieurs mécanismes imbriqués, ou un domaine technique
+  (financier, juridique, scientifique) sans équivalent grand public
+  immédiat.
+
+**Ce champ pilote deux choses en aval, jamais à recalculer ailleurs :**
+- `encarts_decides.comprendre_box` : au moins 1 élément toujours requis ;
+  **exactement 2 à partir de complexite ≥ 3** (voir § Règles de validité
+  plus bas, vérifié par `generate_daily_edition.py`).
+- Le niveau d'exigence pédagogique de la rédaction elle-même (phrases
+  plus courtes, termes techniques expliqués en incise) — voir
+  `docs/routine-redaction-prompt.md` § Règles de style.
+
+Une note **délibérément haute sur un sujet qui n'est pas réellement
+complexe** revient à forcer un 2e `comprendre_box` sans matière
+distincte — le même garde-fou anti contenu artificiel que pour l'encart
+lui-même s'applique ici : la note doit refléter une vraie difficulté de
+compréhension, jamais être gonflée pour obtenir plus d'encarts.
 
 ## Champ `revue_de_presse` (utilisé par `generate_post_edition.py`, pas la rédaction)
 
@@ -209,13 +240,19 @@ JSON, plutôt que dans un script à écrire.
   `faits_verifies[].sources` doit exister dans `sources`.
 - `revue_de_presse` : **pas** de minimum, absent ou `[]` valide (à
   l'inverse de `sources` ci-dessus) — voir § dédié plus haut.
-- `encarts_decides.comprendre_box` : **toujours exactement 2 éléments**
-  (changement du 16 septembre 2026, retour utilisateur : « plus
-  pédagogique » — avant cette date, jamais plus de 2, souvent 0 ou 1).
-  Les deux doivent porter sur deux mécanismes réellement distincts du
-  sujet, jamais deux angles du même — voir `docs/routine-prompt.md`,
-  § « Encart Comprendre » pour la règle complète et le garde-fou anti
-  contenu artificiel.
+- `sujet.complexite` : entier entre 1 et 5 (ajouté le 16 septembre 2026,
+  voir § dédié plus haut).
+- `encarts_decides.comprendre_box` : le nombre requis dépend de
+  `sujet.complexite` (changement du 16 septembre 2026, ajusté le même
+  jour dans l'après-midi — la version précédente forçait toujours
+  exactement 2, quel que soit le sujet) :
+  - `complexite` < 3 : **au moins 1 élément** (jamais 0).
+  - `complexite` ≥ 3 : **exactement 2 éléments**.
+
+  Que ce soit 1 ou 2, chaque élément doit porter sur un mécanisme
+  réellement distinct du sujet — jamais deux angles du même — voir
+  `docs/routine-prompt.md`, § « Encart Comprendre » pour la règle
+  complète et le garde-fou anti contenu artificiel.
 
 ## Exemple
 

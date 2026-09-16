@@ -74,6 +74,15 @@ HTML et vérifie qu'aucun `"` interne n'est resté non échappé.
 
 ## Règles de style (identiques à la routine actuelle)
 
+- **`sujet.complexite` (1 à 5, dans le brief) relève l'exigence
+  pédagogique à partir de 3/5** (ajouté le 16 septembre 2026 — voir
+  `docs/routine-brief-format.md` pour le barème complet). À partir de
+  3/5 : phrases encore plus courtes que d'habitude, et chaque terme ou
+  mécanisme technique expliqué **en une incise dans le texte au moment
+  où il apparaît** (pas seulement via le lien vers le lexique, qui reste
+  systématique en plus) — le lecteur ne doit jamais avoir à cliquer pour
+  suivre le fil du `dek`. En dessous de 3/5, les règles de cette section
+  suffisent, pas d'effort supplémentaire à ajouter.
 - **Public 15-35 ans en priorité, sans exclure personne** : phrases
   directes, comparaisons concrètes, vocabulaire simple, une idée par
   phrase. Rigueur factuelle identique quel que soit l'âge du lecteur.
@@ -193,7 +202,7 @@ balises retirées et les espaces normalisés. Le minimum se calcule ainsi :
 Une phrase déclarative courte par branche, dans cet ordre, pour
 `.stakes-branches`.
 
-### `comprendre_box` (liste, toujours 2 éléments depuis le 16 septembre 2026)
+### `comprendre_box` (liste — le nombre suit `brief.encarts_decides.comprendre_box`, décidé selon `sujet.complexite`, jamais recompté ici)
 Pour chaque élément décidé dans `brief.encarts_decides.comprendre_box` :
 `{"lead": "...", "text": "...", "apres_dek_index": 0}`. `lead` ≤ 30 mots,
 une phrase. `text` : 1 paragraphe, 2 à 4 phrases courtes, ≤ 70 mots, qui
