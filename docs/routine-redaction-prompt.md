@@ -261,7 +261,16 @@ plus bas).
 2. Contexte : le fait chiffré clé qui motive la question, sujet toujours
    nommé précisément.
 3. Conclusion : l'issue la plus probable avec son %, en langage concret
-   (jamais juste "stable"/"dégradé" seul).
+   (jamais juste "stable"/"dégradé" seul). **Si `question_posee` (point 1)
+   est formulée en oui/non ou « est-ce que X protège/tient/suffit... »,
+   ce paragraphe doit trancher explicitement** — un mot ou une courte
+   proposition qui répond directement à cette forme (ex. « Pas vraiment »,
+   « Oui, mais de justesse », « Non, la hausse se fait ailleurs ») avant de
+   développer le mécanisme. Erreur réelle du 16 septembre 2026 (édition
+   ARENH) : le paragraphe décrivait le mécanisme de hausse progressive de
+   la facture sans jamais dire si le VNU protège ou non les foyers, alors
+   que la question posée l'appelait explicitement — le lecteur devait
+   déduire lui-même la réponse, jamais son travail.
 4. Signal à surveiller : événement daté et vérifiable.
 
 **Minimum 110 mots au total sur ces 4 paragraphes** (retour utilisateur du
