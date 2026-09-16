@@ -483,6 +483,20 @@ def insert_item(xml_text, item_xml):
     return xml_text.replace("<item>", item_xml.strip() + "\n    <item>", 1)
 
 
+def upsert_item(xml_text, item_xml, guid):
+    """Comme insert_item(), sauf qu'un <item> existant avec ce même guid est
+    remplacé en place plutôt que dupliqué — utilisé uniquement par
+    --force (voir main()), pour regénérer un récap déjà publié sans jamais
+    laisser deux entrées du même dimanche dans le flux."""
+    existing_re = re.compile(
+        rf'\s*<item>\s*.*?<guid isPermaLink="false">{re.escape(guid)}</guid>.*?</item>\n',
+        re.S,
+    )
+    if existing_re.search(xml_text):
+        return existing_re.sub("\n" + item_xml.strip() + "\n", xml_text, count=1)
+    return insert_item(xml_text, item_xml)
+
+
 def validate_feed_xml(path):
     tree = ET.parse(path)
     items = tree.getroot().find("channel").findall("item")
@@ -714,6 +728,13 @@ def build_hebdo_page(template_path, sunday, title, dek, meta_description,
 def update_sitemap(sunday):
     text = SITEMAP.read_text(encoding="utf-8")
     date_str = sunday.isoformat()
+    # Idempotent (ajouté le 16 septembre 2026, pour --force) : sans ce
+    # garde-fou, regénérer un récap déjà publié insérerait une 2e entrée
+    # <url>hebdo/{date}.html</url> dupliquée juste après celle des
+    # archives du même jour, l'ancre d'insertion ne changeant jamais d'un
+    # run à l'autre.
+    if f"<loc>https://lesscenarios.fr/hebdo/{date_str}.html</loc>" in text:
+        return text
     anchor_re = re.compile(
         rf'(<url>\s*<loc>https://lesscenarios\.fr/archives/{re.escape(date_str)}\.html</loc>\s*'
         rf'<lastmod>.*?</lastmod>\s*<changefreq>.*?</changefreq>\s*<priority>.*?</priority>\s*</url>\n)',
@@ -778,6 +799,12 @@ def main():
                                         "par défaut aujourd'hui à Paris.")
     parser.add_argument("--force-weekday", action="store_true",
                          help="Ignore la vérification 'doit être un dimanche' (tests uniquement).")
+    parser.add_argument("--force", action="store_true",
+                         help="Regénère et REMPLACE un récap déjà publié pour cette date (hebdo/{date}.html, "
+                              "son fragment, et l'item déjà présent dans feed-weekly.xml) au lieu de sortir "
+                              "silencieusement. Action manuelle assumée uniquement — jamais depuis le cron, "
+                              "jamais un rattrapage d'un dimanche déjà distribué par email sans le vouloir "
+                              "explicitement : l'email déjà envoyé, lui, n'est jamais retouché.")
     args = parser.parse_args()
 
     api_key = os.environ.get("OPENROUTER_API_KEY")
@@ -800,8 +827,11 @@ def main():
     # Ignoré en --dry-run (ajouté le 16 septembre 2026, pour tester un
     # modèle/un prompt sur une semaine déjà publiée sans que ce garde-fou
     # anti-doublon ne coupe court avant le moindre appel OpenRouter) —
-    # aucun risque de doublon en dry-run, rien n'est jamais écrit.
-    if not args.dry_run:
+    # aucun risque de doublon en dry-run, rien n'est jamais écrit. Ignoré
+    # aussi en --force (même jour, ajouté pour regénérer et REMPLACER un
+    # récap déjà publié — voir upsert_item(), qui remplace l'item existant
+    # dans feed-weekly.xml au lieu d'en ajouter un second).
+    if not args.dry_run and not args.force:
         m = re.search(r"<pubDate>(.*?)</pubDate>", feed_text)
         if m:
             try:
@@ -877,10 +907,10 @@ def main():
     description_cdata = build_description_cdata(narrative_html, thread_html, day_paragraphs)
     comments = build_comments(narratif, thread)
     item_xml = build_feed_item_xml(sunday, title, comments, description_cdata)
-    new_feed_text = insert_item(feed_text, item_xml)
+    new_feed_text = upsert_item(feed_text, item_xml, f"scenario-hebdo-{date_str}")
     FEED_WEEKLY.write_text(new_feed_text, encoding="utf-8")
     validate_feed_xml(FEED_WEEKLY)
-    print("feed-weekly.xml : item ajouté et validé.")
+    print("feed-weekly.xml : item ajouté/remplacé et validé.")
 
     SITEMAP.write_text(update_sitemap(sunday), encoding="utf-8")
     print("sitemap.xml : entrée ajoutée.")
