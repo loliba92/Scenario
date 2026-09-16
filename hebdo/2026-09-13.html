@@ -394,11 +394,6 @@
     margin: 0 0 10px;
   }
 
-  .week-conclusion strong{
-    color: var(--gold);
-    font-weight: 600;
-  }
-
   .week-conclusion p{
     font-size: 0.98rem;
     color: var(--paper);
@@ -406,8 +401,13 @@
     margin: 0;
   }
 
-  /* Un fait marquant par sujet, en liste plutôt qu'en paragraphe filé — plus
-     facile à scanner que 4-5 faits enchaînés à la suite dans une même phrase. */
+  /* Éditions jusqu'au 13 septembre 2026 inclus : un fait marquant par
+     sujet en liste à puces — gardé ici tel quel pour que cette page déjà
+     publiée continue de s'afficher correctement (jamais de retouche
+     rétroactive du HTML déjà publié/déjà envoyé par email). Remplacé par
+     .week-conclusion-narrative (un paragraphe filé) à partir du 16
+     septembre 2026, retour utilisateur : « un beau narratif sur la
+     semaine » — voir cette classe juste en dessous. */
   .week-conclusion-bullets{
     font-size: 0.98rem;
     color: var(--paper);
@@ -421,6 +421,19 @@
   }
 
   .week-conclusion-bullets li:last-child{ margin-bottom: 0; }
+
+  /* Retiré le 16 septembre 2026 (retour utilisateur : « enlève le gras
+     doré ») : la règle `.week-conclusion strong{ color: gold; font-weight:
+     600 }` mettait en gras doré 1-2 passages choisis par le modèle dans
+     le résumé de la semaine — le modèle ne produit plus aucun **gras**
+     ici (voir build_prompt() dans generate_weekly_recap.py), donc plus
+     aucun <strong> à styliser dans cette section. */
+  .week-conclusion-narrative{
+    font-size: 0.98rem;
+    color: var(--paper);
+    max-width: 62ch;
+    margin: 0 0 14px;
+  }
 
   .week-conclusion-thread{
     font-size: 0.98rem;
