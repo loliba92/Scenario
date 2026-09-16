@@ -1,0 +1,366 @@
+{
+  "date": "2026-09-16",
+  "registre": "politique-institutions",
+  "sujet": {
+    "titre_propose": "Électricité : avec la fin de l'ARENH, ta facture va-t-elle flamber ?",
+    "h1": "Électricité : la fin de l'ARENH va-t-elle faire flamber ta facture ?",
+    "question_posee": "Depuis la fin de l'ARENH, le Versement Nucléaire Universel protège-t-il vraiment 30 millions de foyers d'une hausse des prix ?",
+    "eyebrow": "Mercredi, actualité française",
+    "angle": "Depuis le 1er janvier 2026, EDF vend toute sa production nucléaire au prix du marché ; le Versement Nucléaire Universel censé protéger les factures ne s'est toujours pas déclenché neuf mois plus tard, et les prochaines échéances tarifaires (février 2027) restent incertaines.",
+    "tags": [
+      "energie",
+      "electricite",
+      "pouvoir-achat",
+      "arenh",
+      "edf"
+    ],
+    "domain": "politique-institutions",
+    "image_keywords": "electricity meter household France"
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (15/09) = fusion nucléaire, registre sciences, sujet distinct (recherche/fusion vs. régulation des prix de l'électricité). Sur les 2-3 dernières éditions du registre 'actualité/politique française' (13/09 budget 2027, 09/09 fractures territoriales, 06/09 sport féminin/loi), aucune ne recoupe le sujet énergie/facture. Sujet distinct aussi de EPR2 (05/08/2026, construction de nouveaux réacteurs) et de 'Taux : marche arrière' (20/08, politique monétaire) — recommandation de lien vers EPR2 pour le contraste construction/financement du nucléaire vs régulation du prix de l'électricité déjà produite."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "L'ARENH, qui obligeait EDF à vendre une partie de sa production nucléaire aux fournisseurs alternatifs à un tarif régulé de 42€/MWh, a pris fin le 31 décembre 2025 et a été remplacé par le Versement Nucléaire Universel (VNU) au 1er janvier 2026.",
+      "chiffre": "42 €/MWh",
+      "date_du_chiffre": "2025-12-31",
+      "sources": [
+        "s1",
+        "s2"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le VNU prévoit une redistribution aux consommateurs si les revenus nucléaires d'EDF dépassent un seuil de taxation de 78 €/MWh (50% redistribués), puis un seuil d'écrêtement à 110 €/MWh (90% redistribués).",
+      "chiffre": "78 €/MWh puis 110 €/MWh",
+      "date_du_chiffre": "2026-01-01",
+      "sources": [
+        "s1",
+        "s3"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La CRE a fixé un tarif de minoration nul pour 2026 : aucun versement compensatoire aux consommateurs n'a été déclenché cette année car le revenu nucléaire estimé (environ 65,86 à 66,08 €/MWh) reste sous le premier seuil de 78 €/MWh.",
+      "chiffre": "65,86-66,08 €/MWh",
+      "date_du_chiffre": "2026-02-23",
+      "sources": [
+        "s4",
+        "s5"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "En septembre 2026, le tarif réglementé de l'électricité (Tarif Bleu EDF) s'établit à 0,2001 €/kWh TTC en option Base pour les compteurs 3-6 kVA, après une hausse de 2,5% au 1er août 2026 liée à la révision du TURPE et à l'intégration du nouveau mécanisme de capacité.",
+      "chiffre": "0,2001 €/kWh, +2,5% au 1er août 2026",
+      "date_du_chiffre": "2026-09-01",
+      "sources": [
+        "s6",
+        "s7"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Selon l'UFC-Que Choisir, une étude de février 2026 établissait que la réforme (fin de l'ARENH) entraînerait une hausse massive du coût de l'électricité tandis que la redistribution des profits d'EDF via le VNU serait très limitée.",
+      "chiffre": "hausse estimée jusqu'à 19%, soit environ 250€/an selon une étude citée",
+      "date_du_chiffre": "2026-02-01",
+      "sources": [
+        "s8",
+        "s9"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "La CRE a programmé pour le 1er février 2027 un nouveau mouvement tarifaire incluant une régularisation ('ardoise') liée au rattrapage du TURPE plafonné à +3% en 2026 et à l'intégration définitive du nouveau mécanisme de capacité.",
+      "chiffre": "rattrapage plafonné à +3% en 2026, soldé en février 2027",
+      "date_du_chiffre": "2026-07-16",
+      "sources": [
+        "s10"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La CRE estime le revenu nucléaire moyen d'EDF pour 2027 à environ 60,94 €/MWh, un niveau qui reste sous le premier seuil de déclenchement du VNU (78 €/MWh), suggérant qu'aucune redistribution n'est non plus attendue en 2027.",
+      "chiffre": "60,94 €/MWh (estimation 2027)",
+      "date_du_chiffre": "2026-08-01",
+      "sources": [
+        "s11"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "Le tarif réglementé bénéficie encore à plus de 20 millions de foyers français en 2026.",
+      "chiffre": "plus de 20 millions de foyers",
+      "date_du_chiffre": "2026-09-01",
+      "sources": [
+        "s12"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "EDF",
+      "role": "Producteur historique du nucléaire français, vend désormais toute sa production au prix du marché depuis la fin de l'ARENH"
+    },
+    {
+      "nom": "CRE (Commission de régulation de l'énergie)",
+      "role": "Régulateur qui fixe le tarif réglementé, calcule les seuils de déclenchement du VNU et publie les estimations de revenus nucléaires"
+    },
+    {
+      "nom": "Ministère de l'Économie (Bercy)",
+      "role": "A porté la réforme VNU dans le cadre du budget 2025, affirme que les factures devraient rester stables en 2026-2027"
+    },
+    {
+      "nom": "UFC-Que Choisir",
+      "role": "Association de consommateurs, alerte sur le risque de hausse massive des prix et la faiblesse de la redistribution promise"
+    },
+    {
+      "nom": "Fournisseurs alternatifs d'électricité",
+      "role": "Achetaient une partie du nucléaire via l'ARENH à prix fixe, désormais exposés aux prix de marché"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2010-01-01",
+      "evenement": "Création de l'ARENH par la loi NOME, tarif fixé à 42 €/MWh"
+    },
+    {
+      "date": "2025-02-07",
+      "evenement": "Adoption du Versement Nucléaire Universel dans le cadre du Projet de Loi de Finances 2025"
+    },
+    {
+      "date": "2025-12-31",
+      "evenement": "Fin officielle de l'ARENH après 15 ans d'existence"
+    },
+    {
+      "date": "2026-01-01",
+      "evenement": "Entrée en vigueur du VNU ; EDF vend toute sa production nucléaire au prix du marché"
+    },
+    {
+      "date": "2026-02-01",
+      "evenement": "Révision du tarif réglementé : quasi-stabilité (-0,83%)"
+    },
+    {
+      "date": "2026-08-01",
+      "evenement": "Hausse du tarif réglementé de +2,5% liée au TURPE et au mécanisme de capacité"
+    },
+    {
+      "date": "2027-02-01",
+      "evenement": "Prochain mouvement tarifaire attendu, avec rattrapage/régularisation du TURPE et nouvelle estimation VNU"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Les prix de gros restent modérés, le VNU continue de ne pas se déclencher faute de besoin mais aussi sans hausse brutale ; le tarif réglementé reste globalement stable, la promesse de Bercy d'une facture stable se vérifie sur la durée.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "Hausses modérées et progressives (mécanisme de capacité, TURPE, accise), sans flambée mais une tendance haussière continue qui grignote le pouvoir d'achat sans déclencher de choc visible.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "Un choc sur les prix de gros (tensions géopolitiques, aléas de production nucléaire) fait grimper les revenus d'EDF au-delà des seuils sans que la redistribution VNU compense la hausse perçue par les ménages, provoquant la 'hausse massive' redoutée par l'UFC-Que Choisir.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Tarif réglementé (option Base, 6 kVA)",
+      "valeur": "0,2001 €/kWh TTC (sept. 2026)",
+      "tendance": "hausse (+2,5% au 1er août 2026)"
+    },
+    {
+      "label": "Seuil de déclenchement du VNU",
+      "valeur": "78 €/MWh (revenu nucléaire estimé à ~66 €/MWh en 2026)",
+      "tendance": "non atteint, aucune redistribution en 2026"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Les données disponibles (tarif réglementé, seuils VNU) couvrent une période trop courte (moins d'un an de recul post-ARENH) pour constituer une série historique longue pertinente en escalier ; les 2 indicateurs KPI suffisent à illustrer la situation actuelle.",
+    "serie": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Comment fonctionne le VNU : les deux seuils (taxation à 78€/MWh, écrêtement à 110€/MWh) et pourquoi aucun n'a encore été atteint en 2026",
+        "rattache_a": "faits_verifies[1] et faits_verifies[2]"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "L'ampleur exacte de la hausse de facture attribuable à la fin de l'ARENH reste débattue : Bercy promet une stabilité en 2026-2027, tandis que l'UFC-Que Choisir évoque une hausse massive possible — les deux sources ne convergent pas sur un chiffre unique.",
+    "Le contenu précis du 'rattrapage TURPE' et de la régularisation attendue en février 2027 n'est pas encore chiffré définitivement par la CRE à la date du brief.",
+    "L'estimation du revenu nucléaire moyen pour 2027 (60,94 €/MWh) est une projection de la CRE mi-2026, susceptible d'être révisée selon l'évolution des prix de marché."
+  ],
+  "a_ne_pas_affirmer": [
+    "Ne jamais affirmer que le VNU 'ne fonctionne pas' ou est un échec : à ce stade il n'a simplement pas encore été déclenché car les revenus nucléaires restent sous les seuils, ce qui est un fonctionnement normal du mécanisme, pas un dysfonctionnement.",
+    "Ne jamais affirmer une hausse de facture certaine et chiffrée pour 2027 : les sources divergent et les décisions CRE de février 2027 ne sont pas encore prises à la date du brief."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Versement Nucléaire Universel : impact sur la facture d'électricité des ménages",
+      "source": "Picbleu",
+      "url": "https://picbleu.fr/les-articles/versement-nucleaire-universel-fin-de-l-arenh-et-hausse-des-prix-edf",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Présente le mécanisme du VNU, ses deux seuils de redistribution (78€/MWh et 110€/MWh), et le remplacement de l'ARENH depuis le 1er janvier 2026.",
+      "read_minutes": 8
+    },
+    {
+      "id": "s2",
+      "title": "Fin de l'ARENH : ce que change le Versement nucléaire universel",
+      "source": "Réseau Cler",
+      "url": "https://cler.org/fin-arenh/",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Décryptage avec une experte du secteur sur la fin du prix administré à 42 €/MWh et le passage à un mécanisme de marché.",
+      "read_minutes": 6
+    },
+    {
+      "id": "s3",
+      "title": "Versement nucléaire universel (VNU) : tout comprendre",
+      "source": "Opéra Énergie",
+      "url": "https://opera-energie.com/versement-nucleaire-universel-vnu/",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Détaille le calcul du VNU, le coût complet du nucléaire évalué par la CRE à 60,3 €/MWh, et les modalités de redistribution.",
+      "read_minutes": 7
+    },
+    {
+      "id": "s4",
+      "title": "Fin de l'ARENH : l'impact sur vos factures en 2026",
+      "source": "Edenkia",
+      "url": "https://www.edenkia.com/electricite-pas-de-ristourne-sur-lenergie-nucleaire-pour-les-consommateurs-en-2026/",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Confirme que la CRE a fixé un tarif de minoration nul pour 2026, donc aucune redistribution VNU aux consommateurs cette année.",
+      "read_minutes": 4
+    },
+    {
+      "id": "s5",
+      "title": "Prix du kWh d'électricité en septembre 2026 : tarifs, grilles et comparatif",
+      "source": "Prix-elec.com",
+      "url": "https://prix-elec.com/electricite/prix-kwh",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Indique que le VNU ne devrait pas avoir d'impact visible sur les factures en 2026, la CRE évaluant le revenu nucléaire à 65,86 €/MWh.",
+      "read_minutes": 5
+    },
+    {
+      "id": "s6",
+      "title": "Prix de l'électricité septembre 2026 en France : 0,2001€/kWh (+2,5%)",
+      "source": "Lesfurets.com",
+      "url": "https://www.lesfurets.com/energie/electricite/tarif-electricite",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Détaille le tarif réglementé en septembre 2026 et la hausse de 2,5% appliquée au 1er août 2026 sur le TURPE.",
+      "read_minutes": 6
+    },
+    {
+      "id": "s7",
+      "title": "La CRE propose une évolution du niveau moyen des tarifs réglementés de vente de l'électricité de +2,5% TTC au 1er août 2026",
+      "source": "CRE",
+      "url": "https://www.cre.fr/actualites/toute-lactualite/la-cre-propose-une-evolution-du-niveau-moyen-des-tarifs-reglementes-de-vente-de-lelectricite-de-25-ttc-au-1er-aout-2026.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Communiqué officiel de la CRE détaillant les raisons de la hausse d'août 2026 et l'annonce d'un rattrapage prévu en février 2027.",
+      "read_minutes": 5
+    },
+    {
+      "id": "s8",
+      "title": "Prix du kWh d'électricité : Tarifs septembre 2026",
+      "source": "Hello Watt",
+      "url": "https://www.hellowatt.fr/electricite-et-gaz/prix-kwh",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Cite une étude UFC-Que Choisir évoquant une hausse potentielle de 19% et un surcoût de 250€/an pour les ménages.",
+      "read_minutes": 5
+    },
+    {
+      "id": "s9",
+      "title": "La fin du tarif réglementé de l'électricité nucléaire va-t-elle faire flamber vos factures en 2026 ?",
+      "source": "Franceinfo",
+      "url": "https://www.franceinfo.fr/environnement/energie/la-fin-du-tarif-reglemente-de-l-electricite-nucleaire-va-t-elle-faire-flamber-vos-factures-en-2026_7695718.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Rapporte la position de Bercy promettant des prix stables en 2026-2027, contre les réserves de l'UFC-Que Choisir et d'un spécialiste du secteur.",
+      "read_minutes": 6
+    },
+    {
+      "id": "s10",
+      "title": "Électricité : à peine la hausse d'août annoncée, une nouvelle augmentation se prépare pour février 2027",
+      "source": "Selectra",
+      "url": "https://selectra.info/energie/actualites/marche/electricite-hausse-fevrier-2027-deja-programmee-cre",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Détaille la délibération CRE du 15 juillet 2026 programmant un rattrapage TURPE et une régularisation au 1er février 2027.",
+      "read_minutes": 6
+    },
+    {
+      "id": "s11",
+      "title": "Augmentation du prix de l'électricité : +2,5% au 1er août 2026",
+      "source": "Fournisseurs-électricité.com",
+      "url": "https://www.fournisseurs-electricite.com/contrat-electricite/prix/augmentation",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Donne l'estimation CRE du revenu nucléaire moyen pour 2027 à 60,94 €/MWh, sous le premier seuil de déclenchement du VNU.",
+      "read_minutes": 5
+    },
+    {
+      "id": "s12",
+      "title": "Prix du kWh d'électricité : tarifs 2026 en temps réel",
+      "source": "Fournisseurs-électricité.com",
+      "url": "https://www.fournisseurs-electricite.com/contrat-electricite/prix",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Précise que plus de 20 millions de foyers bénéficient encore du tarif réglementé EDF en septembre 2026.",
+      "read_minutes": 4
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Le Premier ministre Sébastien Lecornu demande un effort supplémentaire sur les dépenses 2027",
+      "source": "Franceinfo",
+      "url": "https://www.franceinfo.fr/",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Lecornu a demandé à ses ministres de maintenir les dépenses 2027 strictement au même niveau que 2026, dans le cadre des négociations budgétaires.",
+      "read_minutes": 2
+    },
+    {
+      "title": "Manifestation de policiers à Paris à l'appel du syndicat Alliance",
+      "source": "Franceinfo",
+      "url": "https://www.franceinfo.fr/",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Plusieurs milliers de policiers ont manifesté des Champs-Élysées à l'Assemblée nationale à l'appel du syndicat Alliance.",
+      "read_minutes": 2
+    }
+  ],
+  "recommandations_redaction": [
+    "Ajouter un lien vers l'édition du 5 août 2026 (EPR2 : le nucléaire français à l'heure de vérité) — même filière énergie nucléaire mais angle distinct : EPR2 porte sur la construction de nouveaux réacteurs et son calendrier industriel, ce brief porte sur la régulation du prix de l'électricité déjà produite (ARENH/VNU) ; le lien permet de montrer les deux faces (investissement futur vs. facturation présente) de la politique nucléaire française.",
+    "Bien distinguer, dans la rédaction, le tarif réglementé (TRVE, fixé par la CRE, concerne les 20+ millions de foyers) du mécanisme VNU (qui ne concerne que la redistribution des surprofits d'EDF au-delà de certains seuils) — deux mécanismes souvent confondus dans la presse généraliste.",
+    "Insister sur le paradoxe central : la réforme a été justifiée par la protection du pouvoir d'achat via le VNU, mais ce mécanisme n'a jamais été déclenché depuis son entrée en vigueur (aucune redistribution en 2026, et l'estimation pour 2027 reste également sous le seuil) — la vraie question du sujet est whether ce filet de sécurité fonctionnera un jour ou restera symbolique."
+  ]
+}
