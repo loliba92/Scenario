@@ -9,6 +9,19 @@ retrouver éparpillées dans le reste du document. Mise à jour au 11 août.
 Priorités P1 (fort impact, faible coût) à P3 (utile mais plus lourd ou
 moins prioritaire).
 
+**Recadrage photo des images sociales (pub/suivi) — P2, demandé le 17
+septembre 2026** — retour utilisateur : « le crop [...] ce qui doit être
+vu est encore trop bas ». Les 3 gabarits qui posent une photo en fond
+(`scripts/social/pub-template-v4-hybride.html`, `pub-template-v5-stat.html`,
+`suivi-template.html`) utilisent tous `background-position:center` sur
+`.photo-bg` — recadre systématiquement sur le centre géométrique de la
+photo, pas sur son sujet (souvent trop haut dans le cadre source, donc
+coupé/poussé hors champ par le crop centré). Piste : remonter le point
+d'ancrage vertical (ex. `background-position: center 25%` ou `center
+top`) — à valider visuellement sur plusieurs photos réelles avant de
+généraliser, un ancrage fixe pourrait mal tomber sur une photo au cadrage
+différent.
+
 **Chaîne rédaction + post-édition OpenRouter (prototype, `.github/workflows/edition.yml` + `post-edition.yml`, 14 septembre 2026) — P1**
 - **Rédaction (Phase 1)** : `scripts/edition/generate_daily_edition.py`
   + `scripts/edition/build_html.py` produisent un `index.html` de test
