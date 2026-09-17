@@ -62,18 +62,34 @@ def patch_feed_item(feed_path, guid, new_title, new_comments, new_description, n
     feed_path.write_text(text, encoding="utf-8")
 
 
-def patch_pub_messages_entry(md_path, entry_id, new_stat, new_message):
+def patch_pub_messages_entry(md_path, entry_id, fields, source_date):
+    """Réécrit stat/message/attribution/source ET la note de bas d'entrée
+    (« Extrait automatiquement de l'édition du... ») — pas seulement
+    stat/message : incident réel du 17 septembre 2026, un changement de
+    source_date (électricité -> dollar) laissait attribution/source/note
+    encore sur l'ancienne date, incohérent avec le message affiché."""
     text = md_path.read_text(encoding="utf-8")
-    block_re = re.compile(r"(### " + re.escape(entry_id) + r"\n(?:- [a-z-]+:.*\n)*)", re.M)
+    # Bloc "- key: value" PLUS la note en italique qui suit (jusqu'à la
+    # prochaine entrée "### " ou la fin de fichier) — les deux doivent
+    # rester cohérents entre eux.
+    block_re = re.compile(
+        r"(### " + re.escape(entry_id) + r"\n(?:- [a-z-]+:.*\n)*)(\n\*[^\n]*\*\n)?",
+        re.M,
+    )
     m = block_re.search(text)
     if not m:
         print(f"[fix] attention : entrée {entry_id!r} introuvable dans {md_path}, "
               f"journal non corrigé (image/flux le sont quand même).", file=sys.stderr)
         return
-    block = m.group(1)
-    block = re.sub(r"^- stat: .*$", f"- stat: {new_stat}", block, count=1, flags=re.M)
-    block = re.sub(r"^- message: .*$", f"- message: {new_message}", block, count=1, flags=re.M)
-    text = text[:m.start(1)] + block + text[m.end(1):]
+    fields_block = m.group(1)
+    fields_block = re.sub(r"^- stat: .*$", f"- stat: {fields['stat']}", fields_block, count=1, flags=re.M)
+    fields_block = re.sub(r"^- message: .*$", f"- message: {fields['message']}", fields_block, count=1, flags=re.M)
+    fields_block = re.sub(r"^- attribution: .*$", f"- attribution: {fields['attribution']}", fields_block, count=1, flags=re.M)
+    fields_block = re.sub(r"^- source: .*$", f"- source: {fields['source']}", fields_block, count=1, flags=re.M)
+    note = (f"\n*Extrait automatiquement de l'édition du {source_date.isoformat()} "
+            f"(archives/{source_date.isoformat()}.html) — "
+            f"voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*\n")
+    text = text[:m.start()] + fields_block + note + text[m.end():]
     md_path.write_text(text, encoding="utf-8")
 
 
@@ -115,7 +131,7 @@ def main():
     patch_feed_item(FEED_PUB, f"scenario-pub-{entry_id}-{date_str}", title, comments, description, fr_length)
     print(f"feed-pub.xml : item {entry_id!r} corrigé en place.")
 
-    patch_pub_messages_entry(PUB_MESSAGES, entry_id, fields["stat"], fields["message"])
+    patch_pub_messages_entry(PUB_MESSAGES, entry_id, fields, source_date)
     print("docs/pub-messages.md : entrée journalisée corrigée.")
 
     en_fields, usage_en = translate_fields(fields, args.model, api_key)

@@ -848,11 +848,11 @@ préférée pour son registre déjà simplifié.*
 - eyebrow: LE SAVIEZ-VOUS
 - stat: 56,9%
 - message: La part du dollar dans les réserves de change mondiales est tombée à 56,9% au troisième trimestre 2025, un plancher inédit depuis 1995
-- attribution: — lesscenarios.fr, 16 septembre 2026
+- attribution: — lesscenarios.fr, 17 septembre 2026
 - cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
-- source: https://lesscenarios.fr/archives/2026-09-16.html
+- source: https://lesscenarios.fr/archives/2026-09-17.html
 
-*Extrait automatiquement de l'édition du 2026-09-16 (archives/2026-09-16.html) — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+*Extrait automatiquement de l'édition du 2026-09-17 (archives/2026-09-17.html) — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py. Corrigé le 17 septembre 2026 : ce créneau utilisait d'abord la source du 16 septembre (électricité), remplacée à la demande utilisateur par l'édition du jour même (dollar), plus lisible seule.*
 
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
