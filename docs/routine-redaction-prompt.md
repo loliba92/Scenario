@@ -49,6 +49,44 @@ jour — ne jamais en tirer de faits, chiffres ou citations pour `dek`/`why`
 ou les scénarios, même si un titre paraît pertinent. Seuls `sources[]` et
 `faits_verifies[]` sont matière à l'article.
 
+**`recommandations_redaction` (champ existant, jamais exploité jusqu'au
+17 septembre 2026 — incident réel : la recherche avait correctement
+repéré un recoupement avec l'édition du 27 août sur la dette américaine
+et l'avait noté ici en toutes lettres, mais rien dans ce prompt ne
+demandait de le lire ni d'agir dessus — le lien n'est jamais apparu dans
+l'article publié).** Liste de recommandations écrites par la recherche
+(Étape 0bis de `docs/routine-prompt.md`), à lire et appliquer
+systématiquement, **en particulier tout recoupement avec une édition
+déjà publiée ou un suivi actif** : la recherche y écrit alors une
+recommandation du type « Lier explicitement à l'édition du {date} sur
+{sujet} », avec le titre exact et parfois l'angle qui distingue les deux
+éditions.
+
+Si (et seulement si) `recommandations_redaction` contient une telle
+recommandation de lien, l'ajouter dans le `dek` en suivant cette règle,
+jamais une autre formulation :
+- **Ne jamais fondre le lien dans la phrase factuelle elle-même** —
+  garder la phrase telle quelle, puis ajouter une courte relance
+  naturelle juste après, comme une remarque à part : « on avait déjà vu
+  passer un sujet similaire, n'hésite pas à
+  `<a href=\"archives/{AAAA-MM-JJ}.html\">lire notre article</a>` pour
+  en savoir plus » (adapter la formulation autour du lien, mais garder
+  cet esprit de remarque en aparté, jamais une clause intégrée à la
+  phrase du fait).
+- **URL toujours au format `archives/{AAAA-MM-JJ}.html`** (perspective
+  `index.html`, à la racine) — jamais `../archives/...` ni
+  `{AAAA-MM-JJ}.html` seul : le script de post-édition réajuste déjà
+  automatiquement tous les liens relatifs du `dek` d'un niveau pour la
+  copie dans `archives/{date_du_jour}.html` (voir
+  `scripts/edition/generate_post_edition.py`), exactement comme pour
+  `.lex-ref` ou tout autre lien interne — écrire deux formes différentes
+  casserait ce mécanisme déjà en place.
+- Un seul lien de ce type par édition, même si plusieurs recoupements
+  sont notés — choisir le plus pertinent pour le lecteur si plusieurs
+  sont proposés, jamais en ajouter plusieurs qui alourdiraient le texte.
+- Guillemets échappés comme pour `.lex-ref` (à l'intérieur d'une chaîne
+  JSON, voir la règle d'échappement en tête de ce fichier).
+
 ## Ce que tu dois produire
 
 Un **unique objet JSON**, structure exacte donnée à la fin de ce fichier.
