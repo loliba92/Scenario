@@ -1,0 +1,45 @@
+name: Banquer un chiffre pub (manuel)
+
+# Outil ponctuel — voir scripts/pub/bank_chiffre.py. Ce script tourne
+# normalement tout seul dans post-edition.yml à chaque publication ; ce
+# workflow sert à banquer une édition publiée AVANT l'ajout de cette
+# étape (17 septembre 2026), ou à re-banquer après une correction du
+# script lui-même.
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Date de l'édition à banquer (AAAA-MM-JJ)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  bank:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Banquer le chiffre
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python3 scripts/pub/bank_chiffre.py --date "${{ inputs.date }}"
+
+      - name: Committer et pousser
+        run: |
+          git config user.name "scenario-pub-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add editorial-briefs/
+          if git diff --cached --quiet; then
+            echo "Aucun changement — rien à committer."
+            exit 0
+          fi
+          git commit -m "[pub] chiffre banqué manuellement pour ${{ inputs.date }}"
+          git pull --rebase origin main
+          git push origin main
