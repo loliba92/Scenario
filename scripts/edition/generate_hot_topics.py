@@ -105,19 +105,28 @@ def build_prompt(existing_by_registre, recent_titles, today):
     lines = [
         "Tu alimentes le backlog de sujets du site d'actualité Scénario "
         "(lesscenarios.fr, chaque édition détaille une question à 3 issues "
-        "chiffrées : favorable/stable/dégradé). Cherche l'actualité récente "
-        "(dernières 1-2 semaines) et propose, PAR REGISTRE, jusqu'à "
-        f"{MAX_PER_REGISTRE} sujets vraiment chauds — zéro si rien de "
-        "sérieux cette semaine pour un registre donné, jamais un sujet "
-        "artificiel juste pour remplir.",
+        "chiffrées : favorable/stable/dégradé). Les sujets doivent être "
+        "ANCRÉS DANS L'ACTUALITÉ RÉELLE ET RÉCENTE (dernières 1-2 semaines) — "
+        "jamais un thème générique/intemporel sans déclencheur daté.",
+        "",
+        "Fais une VRAIE recherche web SÉPARÉE pour CHACUN des 6 registres "
+        "ci-dessous, pas une seule passe superficielle qui couvre 2-3 "
+        "registres et laisse les autres vides par défaut. Creuse chaque "
+        "registre pour de vrai avant de conclure qu'il n'y a rien — "
+        "renvoyer zéro sujet pour un registre doit rester l'exception, "
+        "après une recherche sérieuse, jamais le résultat d'une recherche "
+        "trop rapide. Jusqu'à "
+        f"{MAX_PER_REGISTRE} sujets vraiment chauds par registre.",
         "",
         "Règle d'or, non négociable : chaque sujet doit être une "
         "PROBLÉMATIQUE À ISSUE OUVERTE, tranchable en 3 scénarios chiffrés "
         "(favorable/stable/dégradé) — jamais un simple résumé d'actualité "
-        "ou une thèse déjà conclue.",
+        "ou une thèse déjà conclue. Mais jamais non plus un sujet artificiel "
+        "juste pour remplir une case vide : une vraie actualité chaude "
+        "d'abord, la reformulation en 3 scénarios ensuite.",
         "",
-        "Registres disponibles : geopolitique, actualite_francaise, "
-        "economie, sciences, culture, sport.",
+        "Registres à couvrir, un par un, sans en sauter aucun : "
+        "geopolitique, actualite_francaise, economie, sciences, culture, sport.",
         "",
         "Sujets déjà en file (NE JAMAIS proposer un doublon, même reformulé) :",
     ]
