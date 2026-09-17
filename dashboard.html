@@ -129,9 +129,12 @@
 
   .kpi-grid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
     gap: 14px;
     margin-bottom: 36px;
+  }
+  @media (max-width: 760px){
+    .kpi-grid{ grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
   }
   .kpi-card{
     background: var(--surface);
@@ -308,11 +311,6 @@
         <p class="kpi-label">30 derniers jours (glissant)</p>
         <div class="kpi-value">541</div>
         <p class="kpi-sub">≈ 77 % des lectures totales — comparaison au 30j précédents pas encore possible (51 jours d'historique, il en faut 60)</p>
-      </div>
-      <div class="kpi-card">
-        <p class="kpi-label">Cadence de publication</p>
-        <div class="kpi-value">55 j.</div>
-        <p class="kpi-sub">édition quotidienne sans interruption depuis le 25 juillet 2026</p>
       </div>
       <div class="kpi-card">
         <p class="kpi-label">Moyenne par édition</p>

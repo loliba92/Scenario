@@ -605,12 +605,6 @@ def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_la
          rf"\g<1>{kpis['last7']}\g<2> {kpi_values['sub_class']}\g<3>{delta_text}\g<4>"),
         (r'(<p class="kpi-label">30 derniers jours \(glissant\)</p>\s*<div class="kpi-value">)\d+(</div>\s*<p class="kpi-sub">)[^<]+(</p>)',
          rf"\g<1>{kpis['last30']}\g<2>{sub30}\g<3>"),
-        (r'(<p class="kpi-label">Cadence de publication</p>\s*<div class="kpi-value">)[^<]+(</div>\s*<p class="kpi-sub">)[^<]+(</p>)',
-         rf"\g<1>{kpis['cadence_days']} j.\g<2>"
-         + (f"⚠️ aucune édition depuis le {fmt_long(kpis['cadence_since'] + timedelta(days=kpis['cadence_days']))}"
-            if kpis["cadence_stale"] else
-            f"édition quotidienne sans interruption depuis le {fmt_long(kpis['cadence_since'])}")
-         + r"\g<3>"),
         (r'(<p class="kpi-label">Moyenne par édition</p>\s*<div class="kpi-value">)[^<]+(</div>\s*<p class="kpi-sub">)[^<]+(</p>)',
          rf"\g<1>{str(kpis['avg_per_edition']).replace('.', ',')}\g<2>lectures/édition, sur les {kpis['tracked_editions']} éditions trackées depuis le {fmt_long(date.fromisoformat(START_DATE))}\g<3>"),
     ]
