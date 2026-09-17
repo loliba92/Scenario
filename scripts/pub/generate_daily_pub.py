@@ -111,6 +111,19 @@ class PubError(Exception):
     pass
 
 
+# Plafond dur sur la longueur du message "chiffre" — le gabarit
+# pub-template-v5-stat.html ancre .content en bas du cadre (bottom:0) et le
+# laisse grandir VERS LE HAUT sans limite de hauteur ni scroll (voir ce
+# fichier) : un message trop long déborde par le haut de l'image 1080x1080,
+# clippé par overflow:hidden et chevauchant le masthead. Incident réel du
+# 16 septembre 2026 (sujet fusion nucléaire, message ~650 caractères,
+# image totalement illisible). Le prompt demandait déjà "~280 caractères"
+# mais ce n'était qu'une convention texte, jamais vérifié ni corrigé côté
+# code — un dépassement du modèle passait silencieusement jusqu'à l'image
+# publiée.
+CHIFFRE_MAX_CHARS = 280
+
+
 # ---------------------------------------------------------------------------
 # docs/pub-messages.md : entrées curées à la main, section par catégorie.
 # ---------------------------------------------------------------------------
@@ -324,7 +337,15 @@ Règles strictes :
   recomposé, jamais reformulé, jamais un mot changé, ajouté ou retiré.
   Tu peux seulement raccourcir en coupant à une frontière naturelle
   (virgule, point-virgule, point) si le passage est trop long.
-- Reste sous ~280 caractères au total.
+- Le message doit rester COMPRÉHENSIBLE SEUL, sans le reste de l'article :
+  s'il commence par un pronom (il/elle/ils/elles/ce/ça/cela/celui-ci...) ou
+  une référence implicite, son antécédent doit être DANS le message — ne
+  coupe jamais juste après le groupe nominal qui donne son sens à la
+  phrase, même si ça oblige à démarrer plus tôt dans le candidat.
+- Reste STRICTEMENT sous {CHIFFRE_MAX_CHARS} caractères au total (l'image
+  n'a pas de défilement : un message trop long déborde du cadre et rend
+  l'image illisible) — préfère un passage plus court mais complet à un
+  passage plus long, jamais l'inverse.
 - Vigilance sur les chiffres datés : si un candidat porte un millésime
   passé ("en 2024") ET qu'un autre candidat exprime un point tout aussi
   central sans ce problème, préfère ce dernier. Mais ne sacrifie jamais
@@ -333,7 +354,8 @@ Règles strictes :
   extrait tel quel du message, sans unité si le gabarit l'affiche déjà
   séparément (garde l'unité si elle fait partie du sens, ex. "3,1x").
 - Si aucun candidat ne convient vraiment (tous secondaires/anecdotiques),
-  renvoie {{"ok": false}}.
+  ou si aucun ne tient à la fois COMPLET et sous {CHIFFRE_MAX_CHARS}
+  caractères, renvoie {{"ok": false}}.
 
 Candidats (phrases contenant un chiffre en évidence dans l'édition) :
 {json.dumps(candidates, ensure_ascii=False, indent=2)}
@@ -342,6 +364,7 @@ Renvoie un JSON unique : {{"ok": true, "stat": "...", "message": "..."}}
 ou {{"ok": false}}.
 """
     result, usage = call_openrouter_json(prompt, model, api_key)
+    usage_total = dict(usage)
     if not result.get("ok"):
         return None
 
@@ -361,6 +384,51 @@ ou {{"ok": false}}.
             f"— rejeté plutôt que publié. message={message!r}"
         )
 
+    # Recalibrage : le modèle dépasse parfois {CHIFFRE_MAX_CHARS} malgré la
+    # consigne (incident du 16 septembre 2026, message ~650 caractères ayant
+    # fait déborder l'image du cadre) — un seul appel de rattrapage, jamais
+    # une boucle, pour éviter de s'acharner sur un sujet qui ne se prête
+    # simplement pas à un résumé court.
+    if len(message) > CHIFFRE_MAX_CHARS:
+        shorten_prompt = f"""Le message que tu as choisi fait {len(message)} caractères, c'est
+trop long pour le gabarit de l'image (max {CHIFFRE_MAX_CHARS} caractères, sans défilement).
+
+Message actuel :
+{message}
+
+Choisis un sous-segment plus court — toujours un extrait littéral, jamais
+reformulé — d'un des candidats ci-dessous, en coupant à une frontière
+naturelle (virgule, point-virgule, point) pour rester sous
+{CHIFFRE_MAX_CHARS} caractères. Le message doit rester compréhensible seul
+et garder le chiffre "{stat}" : s'il commence par un pronom, son antécédent
+doit être dans le message.
+
+Candidats :
+{json.dumps(candidates, ensure_ascii=False, indent=2)}
+
+Renvoie un JSON unique : {{"ok": true, "stat": "...", "message": "..."}} ou
+{{"ok": false}} si aucun raccourci ne garde à la fois le sens, le chiffre et
+la limite de caractères.
+"""
+        result2, usage2 = call_openrouter_json(shorten_prompt, model, api_key)
+        for k, v in usage2.items():
+            usage_total[k] = (usage_total.get(k) or 0) + (v or 0)
+        if not result2.get("ok"):
+            return None
+        message2 = result2.get("message", "").strip()
+        stat2 = result2.get("stat", "").strip()
+        if not message2 or not stat2:
+            return None
+        if normalize(message2) not in normalize(plain_source):
+            raise PubError(
+                f"extract_chiffre (recalibrage) : le message raccourci n'est pas un extrait "
+                f"littéral du texte source — rejeté plutôt que publié. message={message2!r}"
+            )
+        if len(message2) > CHIFFRE_MAX_CHARS:
+            return None  # toujours trop long après recalibrage -> édition abandonnée, essai suivant
+        message, stat = message2, stat2
+
+    usage = usage_total
     months_fr = ["janvier", "février", "mars", "avril", "mai", "juin",
                  "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
     attribution = f"— lesscenarios.fr, {source_date.day} {months_fr[source_date.month - 1]} {source_date.year}"
