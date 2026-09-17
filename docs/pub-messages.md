@@ -846,8 +846,8 @@ préférée pour son registre déjà simplifié.*
 
 ### chiffre-2026-09-17
 - eyebrow: LE SAVIEZ-VOUS
-- stat: 178,3
-- message: sur le marché day-ahead, ils dépassaient déjà 80 €/MWh fin décembre 2025, et le prix spot atteignait 178,3 €/MWh le 16 septembre 2026.
+- stat: 66 €/MWh
+- message: Neuf mois après son entrée en vigueur, ce mécanisme n'a encore jamais été activé : la CRE estime le revenu nucléaire réel d'EDF pour 2026 à environ 66 €/MWh, largement sous le premier seuil.
 - attribution: — lesscenarios.fr, 16 septembre 2026
 - cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
 - source: https://lesscenarios.fr/archives/2026-09-16.html
