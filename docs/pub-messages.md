@@ -844,6 +844,16 @@ préférée pour son registre déjà simplifié.*
 
 *Extrait automatiquement de l'édition du 2026-09-15 (archives/2026-09-15.html) — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-09-17
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 178,3
+- message: sur le marché day-ahead, ils dépassaient déjà 80 €/MWh fin décembre 2025, et le prix spot atteignait 178,3 €/MWh le 16 septembre 2026.
+- attribution: — lesscenarios.fr, 16 septembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-09-16.html
+
+*Extrait automatiquement de l'édition du 2026-09-16 (archives/2026-09-16.html) — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
