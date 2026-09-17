@@ -192,16 +192,24 @@ def eligible_chiffre_dates(today, already_used, min_age_hours=24, window_days=30
 
 
 def extract_strong_number_sentences(html_text):
-    """Repère, dans .dek et .essentiel-text, les phrases contenant un
-    <strong> autour d'un chiffre (%, montant, nombre, date marquante) —
-    candidats bruts pour la catégorie chiffre, jamais un texte recomposé."""
+    """Repère TOUS les paragraphes .dek/.essentiel-text, dans l'ordre du
+    texte — pas seulement ceux qui portent un <strong> chiffré. Incident
+    réel du 17 septembre 2026 : un message pourtant verbatim et sous la
+    limite de caractères ("ce mécanisme n'a encore jamais été activé...")
+    restait incompréhensible seul, car "ce mécanisme" (le VNU) n'était
+    défini QUE dans le paragraphe précédent — jamais un candidat, puisque
+    ce paragraphe-là ne portait lui-même aucun chiffre en gras. Les
+    paragraphes sans chiffre restent disponibles comme contexte à inclure
+    si besoin : `plain_source = " ".join(candidates)` plus bas les
+    concatène déjà dans l'ordre du texte, donc une citation contiguë peut
+    légitimement déborder sur le paragraphe précédent pour embarquer sa
+    définition — jamais recomposé, juste une fenêtre de citation plus
+    large qu'un seul paragraphe."""
     candidates = []
     for block_m in re.finditer(
         r'<p class="(?:dek|essentiel-text)">(.*?)</p>', html_text, re.S,
     ):
         block_html = block_m.group(1)
-        if not re.search(r"<strong>[^<]*\d[^<]*</strong>", block_html):
-            continue
         plain = re.sub(r"<[^>]+>", "", block_html)
         plain = html.unescape(plain).strip()
         if plain:
