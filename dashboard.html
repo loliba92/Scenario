@@ -156,6 +156,23 @@
   .kpi-sub{ font-size: 0.8rem; color: var(--paper-dim); margin: 6px 0 0; }
   .kpi-sub.is-up{ color: var(--favorable); }
   .kpi-sub.is-down{ color: var(--degrade); }
+  /* Petit résumé secondaire dans une carte KPI déjà porteuse d'un chiffre
+     principal (ex. moyenne/édition all-time + semaine/mois) — jamais une
+     carte à part, pour rester consolidé et lisible d'un coup d'œil. */
+  .kpi-breakdown{
+    display: flex; gap: 14px; margin-top: 10px; padding-top: 10px;
+    border-top: 1px dashed var(--hairline);
+    font-size: 0.76rem; color: var(--paper-dim);
+  }
+  .kpi-breakdown strong{ color: var(--paper); font-family: "JetBrains Mono", monospace; font-weight: 700; }
+  /* Carte KPI sans chiffre principal unique — juste une liste de petites
+     lignes valeur/étiquette, pour une carte "détail" (ex. coûts
+     aujourd'hui/hier/semaine/mois) plutôt que 4 cartes séparées. */
+  .kpi-card-rows{ display: flex; flex-direction: column; gap: 7px; }
+  .kpi-card-rows .kpi-label{ margin-bottom: 4px; }
+  .kpi-stat-row{ display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+  .kpi-stat-row span{ font-size: 0.82rem; color: var(--paper-dim); }
+  .kpi-stat-row strong{ font-family: "JetBrains Mono", monospace; font-size: 0.95rem; color: var(--paper); font-weight: 700; }
 
   .chart-box{
     background: var(--surface);
@@ -316,6 +333,10 @@
         <p class="kpi-label">Moyenne par édition</p>
         <div class="kpi-value">13,8</div>
         <p class="kpi-sub">lectures/édition, sur les 51 éditions trackées depuis le 29 juillet 2026</p>
+        <div class="kpi-breakdown">
+          <span>Semaine <strong class="avg-week">—</strong></span>
+          <span>Mois <strong class="avg-month">—</strong></span>
+        </div>
       </div>
     </div>
 
@@ -326,25 +347,12 @@
         <div class="kpi-value">7,99 $</div>
         <p class="kpi-sub">solde restant : 52,01 $ — au 17 septembre 2026</p>
       </div>
-      <div class="kpi-card">
-        <p class="kpi-label">Coût OpenRouter aujourd'hui</p>
-        <div class="kpi-value">— $</div>
-        <p class="kpi-sub">pas encore assez d'historique</p>
-      </div>
-      <div class="kpi-card">
-        <p class="kpi-label">Coût OpenRouter hier</p>
-        <div class="kpi-value">— $</div>
-        <p class="kpi-sub">pas encore assez d'historique</p>
-      </div>
-      <div class="kpi-card">
-        <p class="kpi-label">Coût OpenRouter moyen/jour</p>
-        <div class="kpi-value">— $</div>
-        <p class="kpi-sub">sur les 7 derniers jours — pas encore assez d'historique</p>
-      </div>
-      <div class="kpi-card">
-        <p class="kpi-label">Coût OpenRouter du mois</p>
-        <div class="kpi-value">0,00 $</div>
-        <p class="kpi-sub">septembre 2026, au 17 septembre 2026</p>
+      <div class="kpi-card kpi-card-rows">
+        <p class="kpi-label">Coût OpenRouter — détail</p>
+        <div class="kpi-stat-row"><span>Aujourd'hui</span><strong class="cost-today">— $</strong></div>
+        <div class="kpi-stat-row"><span>Hier</span><strong class="cost-yesterday">— $</strong></div>
+        <div class="kpi-stat-row"><span>Cette semaine</span><strong class="cost-week">— $</strong></div>
+        <div class="kpi-stat-row"><span>Ce mois</span><strong class="cost-month">— $</strong></div>
       </div>
     </div>
 
