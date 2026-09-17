@@ -11,4 +11,15 @@
       <news:title>Electricity: Will the End of ARENH Send Your Bill Soaring?</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-09-17.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-09-17T07:09:42+02:00</news:publication_date><news:title>Dollar : la fin du règne ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-09-17.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-09-17T07:09:42+02:00</news:publication_date><news:title>Dollar : la fin du règne ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-09-17.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-17T07:09:42+02:00</news:publication_date>
+      <news:title>Dollar: the end of an era?</news:title>
+    </news:news>
+  </url>
+</urlset>
