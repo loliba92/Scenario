@@ -43,7 +43,13 @@ DEFAULT_MODEL = "anthropic/claude-sonnet-5"
 REDACTION_PROMPT_PATH = REPO_ROOT / "docs" / "routine-redaction-prompt.md"
 MIN_WORDS = 1100
 MIN_ESSENTIEL_WORDS = 110  # essentiel_box (4 paragraphes) — voir validate_content_schema()
-MAX_RETRIES = 1  # 1 nouvel essai max en cas d'échec de validation — jamais plus (coût maîtrisé)
+MAX_RETRIES = 2  # relevé de 1 à 2 le 17 septembre 2026 (incident réel : 2 essais
+# consécutifs rejetés pour 2 raisons DIFFÉRENTES le même run — lexique non
+# utilisé puis delta_france.word, ce 2e cas s'étant révélé être un vrai bug
+# de validation, voir plus bas — mais rester avec une seule marge de retry
+# expose à épuiser le budget sur un pur hasard éditorial, jamais un signe
+# que le sujet est infaisable). Coût marginal : un essai de plus à ~0,11 $
+# seulement dans le pire cas (2 rejets), jamais facturé si le 1er passe.
 
 
 class GenerationError(Exception):
@@ -748,7 +754,14 @@ def validate_content_schema(content, brief):
     # l'adjectif de kind (voir docs/routine-redaction-prompt.md).
     word = (df.get("word") or "").strip().lower()
     if word:
-        has_intensity = any(w in word for w in ("léger", "assez", "très"))
+        # Incident réel du 17 septembre 2026 : "légèrement négatif" rejeté
+        # à tort ("légèrement" contient un è, "léger" un é — ce ne sont
+        # pas les mêmes caractères Unicode, donc "léger in légèrement"
+        # est FAUX malgré un mot parfaitement valide). Le modèle avait
+        # raison, la validation avait un vrai trou. Formes explicites
+        # plutôt qu'un stemming/normalisation d'accents plus général —
+        # champ fermé, seules quelques inflexions réelles possibles ici.
+        has_intensity = any(w in word for w in ("léger", "légère", "légèrement", "assez", "très"))
         polarity_adj = "négatif" if df.get("kind") == "negatif" else "positif"
         if not has_intensity or polarity_adj not in word:
             errors.append(

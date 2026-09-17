@@ -70,6 +70,16 @@ name: Édition — rédaction + post-édition (OpenRouter)
 on:
   schedule:
     - cron: '30 4 * * *'
+    # Filet de secours (ajouté le 17 septembre 2026, incident réel :
+    # le run du 16 septembre programmé à 4h30 UTC ne s'est déclenché
+    # qu'à 9h25 UTC, ~5h de retard — comportement documenté de GitHub
+    # Actions lui-même : les triggers `schedule` sont sujets à des
+    # retards/sauts de charge, jamais garantis à l'heure pile, parfois
+    # sautés purement et simplement). Un 2e cron 1h plus tard couvre le
+    # cas où le premier a été sauté ou trop retardé — jamais un doublon
+    # grâce au step "Vérifier si l'édition du jour est déjà publiée"
+    # plus bas, qui arrête net ce run si le premier a déjà publié.
+    - cron: '30 5 * * *'
   workflow_dispatch:
     inputs:
       brief:
@@ -191,12 +201,38 @@ jobs:
           } >> "$GITHUB_OUTPUT"
           echo "Brief calculé : $BRIEF · dry_run=$DRY_RUN · skip_photo=$SKIP_PHOTO · publish=$PUBLISH · modèle=${MODEL:-<défaut du script>}"
 
+      # Ajouté le 17 septembre 2026 avec le cron de secours 5h30 UTC
+      # ci-dessus : sans ce garde-fou, un 2e déclenchement le même jour
+      # (secours après un 1er run déjà réussi, ou un rattrapage manuel
+      # mal chronométré) repayerait une rédaction complète pour rien —
+      # generate_post_edition.py sait déjà s'arrêter proprement
+      # (already_published_today()), mais seulement APRÈS la rédaction,
+      # donc trop tard pour éviter son coût. Vérifié ici en amont, sur le
+      # même critère (article:published_time dans le vrai index.html) —
+      # jamais bloquant en publish=false (un test manuel doit pouvoir
+      # tourner même si l'édition du jour est déjà publiée).
+      - name: Vérifier si l'édition du jour est déjà publiée
+        id: already
+        run: |
+          if [ "${{ steps.config.outputs.publish }}" = "true" ]; then
+            DATE_STR=$(basename "${{ steps.config.outputs.brief }}" .json)
+            if grep -q "article:published_time\" content=\"$DATE_STR" index.html 2>/dev/null; then
+              echo "already=true" >> "$GITHUB_OUTPUT"
+              echo "::notice::Édition du $DATE_STR déjà publiée (index.html) — ce run s'arrête ici sans rien refaire (cron de secours ou rattrapage redondant)."
+            else
+              echo "already=false" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            echo "already=false" >> "$GITHUB_OUTPUT"
+          fi
+
       # Repli recherche (voir commentaire en tête de fichier) — ne fait
       # rien si le brief existe déjà (recherche CCR déjà faite, cas
       # normal). Commit + push immédiat, séparé du commit de publication
       # plus bas : une recherche réelle, une fois payée, ne doit jamais se
       # perdre même si un step suivant échoue.
       - name: Repli recherche (OpenRouter) si le brief est absent
+        if: steps.already.outputs.already != 'true'
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
@@ -220,6 +256,7 @@ jobs:
           git push origin main
 
       - name: Vérifier que le brief existe (après repli éventuel)
+        if: steps.already.outputs.already != 'true'
         run: |
           BRIEF="${{ steps.config.outputs.brief }}"
           if [ ! -f "$BRIEF" ]; then
@@ -228,6 +265,7 @@ jobs:
           fi
 
       - name: Rédaction — générer l'édition
+        if: steps.already.outputs.already != 'true'
         working-directory: scripts/edition
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
@@ -242,6 +280,7 @@ jobs:
           python3 generate_daily_edition.py $ARGS --out ../../_prototype-out/output.html
 
       - name: Post-édition — photo, image Instagram, feed.xml, sitemap, archives.html
+        if: steps.already.outputs.already != 'true'
         working-directory: scripts/edition
         env:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
