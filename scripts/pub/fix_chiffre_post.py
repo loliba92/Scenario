@@ -26,7 +26,7 @@ import sys
 from datetime import date
 
 from generate_daily_pub import (
-    CATEGORY_TEMPLATE,
+    CHIFFRE_TEMPLATE,
     FEED_PUB,
     EN_FEED_PUB,
     PUB_MESSAGES,
@@ -99,15 +99,13 @@ def main():
     fields, usage = result
     print(f"Nouveau message ({len(fields['message'])} caractères) : {fields['message']}")
 
-    weekday = source_date.weekday()  # même logique que main() : photo liée à la date source
-    photo_path, photographer, pexels_url = pick_photo("chiffre", weekday, source_date)
+    photo_path, photographer, pexels_url = pick_photo(source_date)
 
-    template_name = CATEGORY_TEMPLATE["chiffre"]
     date_str = post_date.isoformat()
     entry_id = f"chiffre-{date_str}"
 
     fr_image_path = ROOT / "assets" / "social" / "pub" / f"{date_str}.png"
-    fr_length = generate_image(fields, fr_image_path, template_name, photo_path, en=False)
+    fr_length = generate_image(fields, fr_image_path, CHIFFRE_TEMPLATE, photo_path, en=False)
     print(f"Image FR régénérée : {fr_image_path} ({fr_length} octets)")
 
     comments = build_comments(fields)
@@ -122,7 +120,7 @@ def main():
 
     en_fields, usage_en = translate_fields(fields, args.model, api_key)
     en_image_path = ROOT / "en" / "assets" / "social" / "pub" / f"{date_str}.png"
-    en_length = generate_image(en_fields, en_image_path, template_name, photo_path, en=True)
+    en_length = generate_image(en_fields, en_image_path, CHIFFRE_TEMPLATE, photo_path, en=True)
     print(f"Image EN régénérée : {en_image_path} ({en_length} octets)")
 
     en_comments = build_comments(en_fields)

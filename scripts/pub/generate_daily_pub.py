@@ -52,7 +52,7 @@ import sys
 import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import date, datetime, timedelta
+from datetime import date, datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -65,46 +65,18 @@ PARIS = ZoneInfo("Europe/Paris")
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 DEFAULT_MODEL = "deepseek/deepseek-v4-flash"
 
-# Table de rotation — SOURCE UNIQUE : docs/routine-pub-prompt.md, étape 1,
-# point 2. Si cette table change là-bas, la reporter ici (docs/pub-
-# messages.md § « Règle de rotation » a une copie qui a déjà dérivé une
-# fois, ne jamais s'y fier comme référence).
-DAY_TO_CATEGORY = {
-    6: "manifeste",  # dimanche (Python: lundi=0 .. dimanche=6)
-    0: "chiffre",    # lundi
-    1: "chiffre",    # mardi
-    2: "chiffre",    # mercredi
-    3: "chiffre",    # jeudi
-    4: "manifeste",  # vendredi
-    5: "chiffre",    # samedi
-}
-
-# Jour -> registre de l'édition quotidienne (docs/routine-prompt.md,
-# étape 1) -> slug de la photo de secours (assets/social/pub-photos/).
-DAY_TO_REGISTRE_SLUG = {
-    0: "geopolitique",
-    1: "carte-blanche",
-    2: "actualite-francaise",
-    3: "economie-mondiale",
-    4: "sciences",
-    5: "culture",
-    6: "sport",
-}
-
-CATEGORY_LINK = {
-    "manifeste": "https://lesscenarios.fr/le-projet.html",
-    "citation": "https://lesscenarios.fr/",
-    "futur": "https://lesscenarios.fr/",
-    "question": "https://lesscenarios.fr/contact.html",
-    # "chiffre" n'a pas de lien fixe : toujours l'URL de l'édition source.
-}
-
-CATEGORY_TEMPLATE = {
-    "manifeste": "pub-template-v4-hybride.html",
-    "citation": "pub-template-v4-hybride.html",
-    "question": "pub-template-v4-hybride.html",
-    "chiffre": "pub-template-v5-stat.html",
-}
+# Catégorie unique désormais — "chiffre" toujours, tous les jours.
+# Simplifié le 17 septembre 2026 (retour utilisateur : « pas facile à
+# comprendre [...] on peut dégager manifeste/citation, on peut simplifier
+# ici ») : "manifeste"/"citation"/"question"/"futur" ne tournaient de
+# toute façon presque jamais (seul "manifeste" était réellement actif,
+# dimanche/vendredi) et forçaient à lire deux mécaniques différentes
+# (rotation dans docs/pub-messages.md vs extraction verbatim) pour
+# comprendre ce script. Les entrées manifeste/citation/question restent
+# dans docs/pub-messages.md (contenu curaté, jamais supprimé), juste
+# plus jamais lues par ce script — réactivables en réintroduisant une
+# table de rotation si besoin un jour.
+CHIFFRE_TEMPLATE = "pub-template-v5-stat.html"
 
 
 class PubError(Exception):
@@ -125,53 +97,19 @@ CHIFFRE_MAX_CHARS = 280
 
 
 # ---------------------------------------------------------------------------
-# docs/pub-messages.md : entrées curées à la main, section par catégorie.
+# docs/pub-messages.md : journal des chiffres déjà utilisés (seule section
+# encore lue par ce script — voir commentaire sur CHIFFRE_TEMPLATE plus
+# haut pour les sections manifeste/citation/question, jamais supprimées
+# mais plus jamais lues).
 # ---------------------------------------------------------------------------
-SECTION_HEADINGS = {
-    "manifeste": "1. Manifeste — pourquoi Scénario (rotation A)",
-    "citation": "2. Citations — le hasard et l'incertitude (rotation B)",
-    "question": "3. Questions à la communauté (rotation C)",
-    "futur": "4. Grands futurs — inventions et grands risques du siècle (rotation D)",
-    "chiffre": "5. Le saviez-vous — un chiffre qui marque (rotation E)",
-}
-
-RETIRED_MARKER_RE = re.compile(r"`\[(retiré|déplacé|repliée)[^`]*\]`")
-UNVALIDATED_MARKERS = ("[à confirmer]", "[attribution à vérifier]", "[à vérifier]")
-
-
-def parse_pub_messages_section(md_text, category):
-    """Renvoie la liste ordonnée des entrées valides (ni retirées, ni
-    marquées non validées) d'une section, chacune {"id", fields...}."""
-    heading = SECTION_HEADINGS[category]
-    pattern = re.compile(
-        r"^## " + re.escape(heading) + r"\s*$(.*?)(?=^## |\Z)", re.M | re.S,
-    )
-    m = pattern.search(md_text)
-    if not m:
-        raise PubError(f"section introuvable dans pub-messages.md : {heading!r}")
-    body = m.group(1)
-
-    entries = []
-    for entry_m in re.finditer(r"^### (\S+)([^\n]*)\n(.*?)(?=^### |\Z)", body, re.M | re.S):
-        entry_id, header_rest, entry_body = entry_m.group(1), entry_m.group(2), entry_m.group(3)
-        if RETIRED_MARKER_RE.search(header_rest):
-            continue
-        if any(marker in entry_body for marker in UNVALIDATED_MARKERS):
-            continue
-        fields = {}
-        for field_m in re.finditer(r"^- ([a-z-]+):\s*(.+)$", entry_body, re.M):
-            fields[field_m.group(1)] = field_m.group(2).strip()
-        if "eyebrow" not in fields or "message" not in fields:
-            continue  # entrée sans contenu structuré (note libre isolée)
-        entries.append({"id": entry_id, **fields})
-    return entries
+CHIFFRE_SECTION_HEADING = "5. Le saviez-vous — un chiffre qui marque (rotation E)"
 
 
 def append_chiffre_entry(md_text, entry_id, fields, note):
     """Ajoute une entrée à la fin de la section 5 (journal des chiffres
     déjà utilisés) — jamais réordonné, jamais une entrée existante
     modifiée."""
-    heading = SECTION_HEADINGS["chiffre"]
+    heading = CHIFFRE_SECTION_HEADING
     pattern = re.compile(
         r"(^## " + re.escape(heading) + r"\s*$.*?)(\n(?=^## )|\Z)", re.M | re.S,
     )
@@ -217,21 +155,6 @@ def parse_feed_items(xml_text):
             "link": link_m.group(1) if link_m else "",
         })
     return items
-
-
-def pick_rotation_entry(category, valid_entries, feed_items):
-    """Entrée suivante dans l'ordre de la section, après la dernière
-    publiée dans cette catégorie — retour au début si c'était la
-    dernière ; la première de la liste si la catégorie n'a jamais été
-    publiée. Voir docs/routine-pub-prompt.md, étape 1, points 3-4."""
-    if not valid_entries:
-        return None
-    ids = [e["id"] for e in valid_entries]
-    last_id = next((it["entry_id"] for it in feed_items if it["category"] == category), None)
-    if last_id not in ids:
-        return valid_entries[0]
-    next_index = (ids.index(last_id) + 1) % len(ids)
-    return valid_entries[next_index]
 
 
 def used_chiffre_sources(feed_items):
@@ -443,53 +366,39 @@ la limite de caractères.
     }, usage
 
 
+def get_chiffre_for_date(source_date, model, api_key):
+    """Lit le chiffre déjà extrait et vérifié dans editorial-briefs/{date}.json
+    (banqué au moment de la publication de l'édition, voir scripts/pub/
+    bank_chiffre.py et son appel dans post-edition.yml) — ne retombe sur
+    une extraction en direct via extract_chiffre() que pour une édition
+    publiée avant cette bascule (17 septembre 2026), dont le brief n'a
+    donc jamais été banqué.
+
+    Même forme de retour que extract_chiffre() : (fields, usage) ou None."""
+    brief_path = ROOT / "editorial-briefs" / f"{source_date.isoformat()}.json"
+    if brief_path.exists():
+        brief = json.loads(brief_path.read_text(encoding="utf-8"))
+        if brief.get("chiffre_candidat"):
+            return brief["chiffre_candidat"], {"cost": 0.0, "total_tokens": 0}
+        if brief.get("chiffre_candidat_checked"):
+            # Déjà vérifié à la publication, rien de bon trouvé — ne
+            # jamais repayer une extraction pour redécouvrir la même chose.
+            return None
+    return extract_chiffre(source_date, model, api_key)
+
+
 # ---------------------------------------------------------------------------
-# Photo — jamais de recherche Pexels en direct ici, uniquement des photos
-# déjà validées par un humain (voir docs/routine-pub-prompt.md, étape 2).
+# Photo — toujours celle de l'édition source (assets/social/topic-images/
+# {date}.jpg), jamais une recherche Pexels en direct ici.
 # ---------------------------------------------------------------------------
-def pick_photo(category, weekday, chiffre_source_date=None):
+def pick_photo(chiffre_source_date):
     """Renvoie (chemin_jpg, photographer, pexels_url)."""
-    if category == "chiffre" and chiffre_source_date:
-        img = ROOT / "assets" / "social" / "topic-images" / f"{chiffre_source_date.isoformat()}.jpg"
-        meta_path = img.with_suffix(".json")
-        if img.exists() and meta_path.exists():
-            meta = json.loads(meta_path.read_text(encoding="utf-8"))
-            return img, meta.get("photographer", ""), meta.get("pexels_url", "")
-        raise PubError(f"pick_photo : image/JSON manquants pour l'édition source {chiffre_source_date}")
-
-    # manifeste/citation/question/futur : image récente déjà validée, en
-    # préférant celle qui n'a pas déjà servi à un post feed-pub.xml récent
-    # (voir docs/routine-pub-prompt.md, étape 2, point 1) — déduit des
-    # commentaires <!-- credit: {photographer} — {pexels_url} --> déjà
-    # présents dans le flux, pas d'un champ dédié.
-    recent_pexels_urls = set()
-    if FEED_PUB.exists():
-        recent_xml = FEED_PUB.read_text(encoding="utf-8")
-        recent_pexels_urls = set(re.findall(r"<!-- credit: [^—]+ — ([^\s]+) -->", recent_xml)[:14])
-
-    today = datetime.now(PARIS).date()
-    fallback = None
-    for delta in range(7):
-        d = today - timedelta(days=delta)
-        img = ROOT / "assets" / "social" / "topic-images" / f"{d.isoformat()}.jpg"
-        meta_path = img.with_suffix(".json")
-        if not (img.exists() and meta_path.exists()):
-            continue
+    img = ROOT / "assets" / "social" / "topic-images" / f"{chiffre_source_date.isoformat()}.jpg"
+    meta_path = img.with_suffix(".json")
+    if img.exists() and meta_path.exists():
         meta = json.loads(meta_path.read_text(encoding="utf-8"))
-        candidate = (img, meta.get("photographer", ""), meta.get("pexels_url", ""))
-        if candidate[2] not in recent_pexels_urls:
-            return candidate
-        fallback = fallback or candidate  # gardée au cas où toutes ont déjà servi
-    if fallback:
-        return fallback
-
-    slug = DAY_TO_REGISTRE_SLUG.get(weekday, "geopolitique")
-    fallback_img = ROOT / "assets" / "social" / "pub-photos" / f"{slug}.jpg"
-    credits = json.loads((ROOT / "assets" / "social" / "pub-photos" / "credits.json").read_text(encoding="utf-8"))
-    meta = next((c for c in credits if c.get("file") == f"{slug}.jpg"), {})
-    if not fallback_img.exists():
-        raise PubError(f"pick_photo : ni image récente ni banque de secours disponible ({slug}.jpg)")
-    return fallback_img, meta.get("photographer", ""), meta.get("pexels_url", "")
+        return img, meta.get("photographer", ""), meta.get("pexels_url", "")
+    raise PubError(f"pick_photo : image/JSON manquants pour l'édition source {chiffre_source_date}")
 
 
 # ---------------------------------------------------------------------------
@@ -531,14 +440,6 @@ def html_escape(text):
     return (text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
 
 
-def category_link(category, entry, fields):
-    if fields.get("link"):
-        return fields["link"]
-    if category == "chiffre":
-        return fields["source"]
-    return CATEGORY_LINK[category]
-
-
 def build_comments(fields):
     parts = [fields["eyebrow"], fields["message"].replace("\\n", "\n").replace("**", "")]
     if fields.get("attribution"):
@@ -548,12 +449,12 @@ def build_comments(fields):
     return "\n\n".join(parts)
 
 
-def build_feed_item(category, entry_id, fields, date_str, image_url, image_length,
-                     photographer, pexels_url, guid_suffix="", link_override=None):
+def build_feed_item(entry_id, fields, date_str, image_url, image_length,
+                     photographer, pexels_url, guid_suffix=""):
     now = datetime.now(PARIS)
     pub_date = now.strftime("%a, %d %b %Y %H:%M:%S %z")
     title = re.sub(r"\\n", " ", fields["message"]).replace("**", "").strip()
-    link = link_override if link_override else category_link(category, entry_id, fields)
+    link = fields["source"]
     comments = build_comments(fields)
     description = comments.replace("\n\n", "<br><br>").replace("\n", "<br>")
     guid = f"scenario-pub{guid_suffix}-{entry_id}-{date_str}"
@@ -660,105 +561,83 @@ def main():
     now = datetime.now(PARIS)
     today = now.date()
     date_str = today.isoformat()
-    weekday = today.weekday()
-    category = DAY_TO_CATEGORY.get(weekday)
-    if category is None or category == "futur":
-        print(f"Catégorie du jour ({category}) hors de portée de ce script "
-              f"(recherche web nécessaire) — rien à publier.", file=sys.stderr)
-        return 1
 
-    print(f"{today.strftime('%A %d %B %Y')} (Paris) -> catégorie : {category}")
+    print(f"{today.strftime('%A %d %B %Y')} (Paris) -> catégorie : chiffre (unique)")
 
     md_text = PUB_MESSAGES.read_text(encoding="utf-8")
     feed_xml = FEED_PUB.read_text(encoding="utf-8")
     feed_items = parse_feed_items(feed_xml)
 
-    chiffre_source_date = None
     usage_total = {"cost": 0.0, "total_tokens": 0}
 
-    if category == "chiffre":
-        already_used = used_chiffre_sources(feed_items)
-        candidates_dates = eligible_chiffre_dates(today, already_used)
-        if not candidates_dates:
-            print("Aucune édition éligible pour la catégorie chiffre aujourd'hui.", file=sys.stderr)
-            return 1
-        fields = None
-        for d in candidates_dates:
-            result = extract_chiffre(d, args.model, api_key)
-            if result is None:
-                print(f"  édition du {d} : aucun chiffre exploitable, essai suivant.")
-                continue
-            fields, usage = result
-            for k in ("cost", "total_tokens"):
-                usage_total[k] = usage_total.get(k, 0) + (usage.get(k) or 0)
-            chiffre_source_date = d
-            break
-        if fields is None:
-            print("Aucune édition candidate n'a de chiffre exploitable.", file=sys.stderr)
-            return 1
-        entry_id = f"chiffre-{date_str}"
-        note = (f"*Extrait automatiquement de l'édition du {chiffre_source_date.isoformat()} "
-                f"(archives/{chiffre_source_date.isoformat()}.html) — "
-                f"voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*")
-    else:
-        entries = parse_pub_messages_section(md_text, category)
-        entry = pick_rotation_entry(category, entries, feed_items)
-        if entry is None:
-            print(f"Aucune entrée valide dans la catégorie {category}.", file=sys.stderr)
-            return 1
-        fields = entry
-        entry_id = entry["id"]
-        note = None
+    already_used = used_chiffre_sources(feed_items)
+    candidates_dates = eligible_chiffre_dates(today, already_used)
+    if not candidates_dates:
+        print("Aucune édition éligible pour la catégorie chiffre aujourd'hui.", file=sys.stderr)
+        return 1
+    fields = None
+    chiffre_source_date = None
+    for d in candidates_dates:
+        result = get_chiffre_for_date(d, args.model, api_key)
+        if result is None:
+            print(f"  édition du {d} : aucun chiffre exploitable, essai suivant.")
+            continue
+        fields, usage = result
+        for k in ("cost", "total_tokens"):
+            usage_total[k] = usage_total.get(k, 0) + (usage.get(k) or 0)
+        chiffre_source_date = d
+        break
+    if fields is None:
+        print("Aucune édition candidate n'a de chiffre exploitable.", file=sys.stderr)
+        return 1
+    entry_id = f"chiffre-{date_str}"
+    note = (f"*Extrait automatiquement de l'édition du {chiffre_source_date.isoformat()} "
+            f"(archives/{chiffre_source_date.isoformat()}.html) — "
+            f"voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*")
 
     print(f"Entrée retenue : {entry_id}")
     print(f"  eyebrow: {fields.get('eyebrow')}")
     print(f"  message: {fields.get('message')[:120]}")
 
-    photo_path, photographer, pexels_url = pick_photo(category, weekday, chiffre_source_date)
+    photo_path, photographer, pexels_url = pick_photo(chiffre_source_date)
     print(f"Photo : {photo_path.name} ({photographer})")
 
     if args.dry_run:
         print("--dry-run : aucune image générée, aucun fichier modifié.")
         return 0
 
-    template_name = CATEGORY_TEMPLATE[category]
     fr_image_path = ROOT / "assets" / "social" / "pub" / f"{date_str}.png"
-    fr_image_length = generate_image(fields, fr_image_path, template_name, photo_path, en=False)
+    fr_image_length = generate_image(fields, fr_image_path, CHIFFRE_TEMPLATE, photo_path, en=False)
     fr_image_url = f"https://lesscenarios.fr/assets/social/pub/{date_str}.png"
 
-    link_override = fields["source"] if category == "chiffre" else None
-    fr_item_xml = build_feed_item(category, entry_id, fields, date_str, fr_image_url,
-                                   fr_image_length, photographer, pexels_url,
-                                   link_override=link_override)
+    fr_item_xml = build_feed_item(entry_id, fields, date_str, fr_image_url,
+                                   fr_image_length, photographer, pexels_url)
     new_feed_xml = insert_item_and_update_build_date(feed_xml, fr_item_xml)
     FEED_PUB.write_text(new_feed_xml, encoding="utf-8")
     validate_feed_xml(FEED_PUB, len(feed_items) + 1)
     print("feed-pub.xml : item ajouté et validé.")
 
-    if category == "chiffre":
-        new_md = append_chiffre_entry(md_text, entry_id, fields, note)
-        PUB_MESSAGES.write_text(new_md, encoding="utf-8")
-        print("docs/pub-messages.md : entrée journalisée.")
+    new_md = append_chiffre_entry(md_text, entry_id, fields, note)
+    PUB_MESSAGES.write_text(new_md, encoding="utf-8")
+    print("docs/pub-messages.md : entrée journalisée.")
 
     # Miroir EN
     en_fields, usage = translate_fields(fields, args.model, api_key)
     for k in ("cost", "total_tokens"):
         usage_total[k] = usage_total.get(k, 0) + (usage.get(k) or 0)
     en_image_path = ROOT / "en" / "assets" / "social" / "pub" / f"{date_str}.png"
-    en_image_length = generate_image(en_fields, en_image_path, template_name, photo_path, en=True)
+    en_image_length = generate_image(en_fields, en_image_path, CHIFFRE_TEMPLATE, photo_path, en=True)
     en_image_url = f"https://lesscenarios.fr/en/assets/social/pub/{date_str}.png"
     en_feed_items = parse_feed_items(EN_FEED_PUB.read_text(encoding="utf-8")) if EN_FEED_PUB.exists() else []
-    en_link = link_override  # la cible n'a presque jamais d'équivalent EN, voir docs/routine-en-prompt.md
-    en_item_xml = build_feed_item(category, entry_id, en_fields, date_str, en_image_url,
-                                   en_image_length, photographer, pexels_url,
-                                   guid_suffix="-en", link_override=en_link)
+    en_item_xml = build_feed_item(entry_id, en_fields, date_str, en_image_url,
+                                   en_image_length, photographer, pexels_url, guid_suffix="-en")
     en_feed_xml = EN_FEED_PUB.read_text(encoding="utf-8")
     new_en_feed_xml = insert_item_and_update_build_date(en_feed_xml, en_item_xml)
     EN_FEED_PUB.write_text(new_en_feed_xml, encoding="utf-8")
     validate_feed_xml(EN_FEED_PUB, len(en_feed_items) + 1)
     print("en/feed-pub.xml : item ajouté et validé.")
 
-    print(f"\nRésumé : catégorie={category}, entrée={entry_id}, "
+    print(f"\nRésumé : entrée={entry_id}, "
           f"photo={photo_path.name} ({photographer} — {pexels_url}), "
           f"coût OpenRouter total ≈ {usage_total.get('cost', '?')} $.")
     return 0

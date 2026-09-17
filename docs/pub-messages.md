@@ -865,6 +865,15 @@ spécifique à cette catégorie retirée.*
 
 ## Règle de rotation
 
+**[Simplifié le 17 septembre 2026]** Retour utilisateur : « pas facile à
+comprendre [...] on peut dégager manifeste/citation, on peut simplifier
+ici ». `scripts/pub/generate_daily_pub.py` ne lit plus cette table — la
+catégorie est désormais "Le saviez-vous" tous les jours, sans exception.
+Les entrées manifeste/citation/question ci-dessous restent dans ce
+fichier (contenu curaté, rien supprimé) mais ne sont plus jamais
+utilisées par le script. Table ci-dessous gardée comme repère historique
+de ce qui tournait avant ce changement.
+
 **Catégorie déterminée par le jour de la semaine, pas par un cycle qui
 avance** (changement du 14 août, retour utilisateur direct : "voici le
 calendrier systématique, tu ne pourras pas te perdre" — remplace
