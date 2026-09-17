@@ -135,15 +135,32 @@ def update_openrouter_history(today_iso, snapshot):
 
 
 def compute_openrouter_kpis(history, today):
-    """Coût moyen/jour (7 derniers jours) et coût du mois en cours,
-    dérivés des snapshots — None (jamais 0) tant qu'il n'y a pas assez
-    d'historique, même discipline que compute_kpis()/kpis['prev30'] plus
-    haut (ne jamais afficher un chiffre qui a l'air réel mais ne l'est
-    pas)."""
+    """Coût du jour, coût de la veille, coût moyen/jour (7 derniers
+    jours) et coût du mois en cours, dérivés des snapshots — None
+    (jamais 0) tant qu'il n'y a pas assez d'historique, même discipline
+    que compute_kpis()/kpis['prev30'] plus haut (ne jamais afficher un
+    chiffre qui a l'air réel mais ne l'est pas)."""
+    empty = {"cost_today": None, "cost_yesterday": None, "avg_daily_7d": None, "month_cost": None}
     if not history:
-        return {"avg_daily_7d": None, "month_cost": None}
+        return empty
     by_date = {h["date"]: h["total_usage"] for h in history}
     dates_sorted = sorted(by_date)
+
+    def delta_at(idx):
+        """Coût entre le relevé d'indice idx et le précédent — jamais
+        supposé être exactement "hier" si un jour a été raté (cron en
+        échec) : c'est le coût depuis le relevé précédent DISPONIBLE,
+        quelle que soit la date exacte."""
+        if idx < 1 or idx >= len(dates_sorted):
+            return None
+        d_now, d_prev = dates_sorted[idx], dates_sorted[idx - 1]
+        return {
+            "value": by_date[d_now] - by_date[d_prev],
+            "date": d_now, "since": d_prev,
+        }
+
+    cost_today = delta_at(len(dates_sorted) - 1)
+    cost_yesterday = delta_at(len(dates_sorted) - 2)
 
     seven_days_ago = (today - timedelta(days=7)).isoformat()
     ref_date = next((d for d in dates_sorted if d <= seven_days_ago), None)
@@ -168,7 +185,10 @@ def compute_openrouter_kpis(history, today):
     else:
         month_cost = None
 
-    return {"avg_daily_7d": avg_daily_7d, "month_cost": month_cost}
+    return {
+        "cost_today": cost_today, "cost_yesterday": cost_yesterday,
+        "avg_daily_7d": avg_daily_7d, "month_cost": month_cost,
+    }
 
 
 def fmt_long(d):
@@ -608,6 +628,29 @@ def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_la
     replacements.append((
         r'(<p class="kpi-label">Coût OpenRouter cumulé</p>\s*<div class="kpi-value">)[^<]+(</div>\s*<p class="kpi-sub">)[^<]+(</p>)',
         rf"\g<1>{cumul_val}\g<2>{cumul_sub}\g<3>",
+    ))
+
+    cost_today = (openrouter_kpis or {}).get("cost_today")
+    if cost_today is not None:
+        today_val = fmt_usd(cost_today["value"])
+        today_sub = (f"au {fmt_long(end_date)}" if cost_today["date"] == end_date.isoformat()
+                     else f"depuis le dernier relevé disponible ({fmt_long(date.fromisoformat(cost_today['since']))})")
+    else:
+        today_val, today_sub = "— $", "pas encore assez d'historique"
+    replacements.append((
+        r'(<p class="kpi-label">Coût OpenRouter aujourd\'hui</p>\s*<div class="kpi-value">)[^<]+(</div>\s*<p class="kpi-sub">)[^<]+(</p>)',
+        rf"\g<1>{today_val}\g<2>{today_sub}\g<3>",
+    ))
+
+    cost_yesterday = (openrouter_kpis or {}).get("cost_yesterday")
+    if cost_yesterday is not None:
+        yday_val = fmt_usd(cost_yesterday["value"])
+        yday_sub = f"{fmt_long(date.fromisoformat(cost_yesterday['date']))}, vs le relevé du {fmt_long(date.fromisoformat(cost_yesterday['since']))}"
+    else:
+        yday_val, yday_sub = "— $", "pas encore assez d'historique"
+    replacements.append((
+        r'(<p class="kpi-label">Coût OpenRouter hier</p>\s*<div class="kpi-value">)[^<]+(</div>\s*<p class="kpi-sub">)[^<]+(</p>)',
+        rf"\g<1>{yday_val}\g<2>{yday_sub}\g<3>",
     ))
 
     avg7 = (openrouter_kpis or {}).get("avg_daily_7d")
