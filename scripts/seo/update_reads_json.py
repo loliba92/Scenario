@@ -42,11 +42,14 @@ API_URL = "https://scenario.goatcounter.com/api/v0/stats/hits"
 # redécouvrir dynamiquement (même valeur que docs/routine-audience-prompt.md).
 START_DATE = "2026-07-29"
 
-# Ne garder que les éditions quotidiennes françaises, jamais les autres
-# chemins (accueil, archives.html, le-projet.html, suivi/, hebdo/, en/...)
-# — même périmètre que le tableau top/flop du dashboard et la colonne
-# "Lectures" de archives.html (qui n'affiche que les éditions FR).
-PATH_RE = re.compile(r"^/archives/(\d{4}-\d{2}-\d{2})\.html(?:\?.*)?$")
+# Éditions quotidiennes, FR et EN confondues (même sujet, même date) — pas
+# les autres chemins (accueil, archives.html, le-projet.html, suivi/,
+# hebdo/...). Jusqu'au 17 septembre 2026, seul /archives/ était compté ;
+# retour utilisateur : « tu ne prends que la partie France, il faut
+# additionner la partie EN en plus » — la colonne "Lectures" d'archives.html
+# doit refléter l'audience totale de l'édition, pas seulement son lectorat
+# français, même règle attendue pour le tableau top/flop du dashboard.
+PATH_RE = re.compile(r"^/(?:en/)?archives/(\d{4}-\d{2}-\d{2})\.html(?:\?.*)?$")
 
 
 def fetch_hits(token):
