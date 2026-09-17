@@ -13,8 +13,12 @@ name: Update audience data
 # conditions réelles, ce trigger doit être supprimé (double mise à jour
 # sinon, sur les mêmes fichiers).
 #
-# Secret requis (Settings → Secrets and variables → Actions) :
+# Secrets requis (Settings → Secrets and variables → Actions) :
 #   GOATCOUNTER_TOKEN — déjà utilisé par reads.yml, aucun nouveau secret.
+#   OPENROUTER_API_KEY — déjà présent (rédaction/pub/détection) — ajouté le
+#   17 septembre 2026 pour les KPI de coût OpenRouter du dashboard (voir
+#   fetch_openrouter_cost() dans update_audience.py) — jamais bloquant si
+#   absent ou si l'appel échoue, le reste du dashboard continue.
 
 on:
   schedule:
@@ -34,16 +38,17 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Récupérer les données GoatCounter et régénérer le-projet.html/dashboard.html
+      - name: Récupérer les données GoatCounter/OpenRouter et régénérer le-projet.html/dashboard.html
         env:
           GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: python3 scripts/seo/update_audience.py
 
       - name: Committer et pousser seulement si des fichiers ont changé
         run: |
           git config user.name "scenario-audience-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add le-projet.html dashboard.html
+          git add le-projet.html dashboard.html assets/data/openrouter-cost.json
           if git diff --cached --quiet; then
             echo "Aucun changement — rien à committer."
             exit 0

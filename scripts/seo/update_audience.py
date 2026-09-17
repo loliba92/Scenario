@@ -38,9 +38,13 @@ Usage (en local, pour tester) :
 """
 import argparse
 import html
+import json
+import os
 import re
 import subprocess
 import sys
+import urllib.error
+import urllib.request
 from collections import defaultdict
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -54,6 +58,7 @@ LE_PROJET = ROOT / "le-projet.html"
 DASHBOARD = ROOT / "dashboard.html"
 SUJETS_PRIORITAIRES = ROOT / "sujets-prioritaires.md"
 ARCHIVES_DIR = ROOT / "archives"
+OPENROUTER_COST_HISTORY = ROOT / "assets" / "data" / "openrouter-cost.json"
 
 PARIS = ZoneInfo("Europe/Paris")
 
@@ -77,6 +82,93 @@ REGISTRES = [
     ("Culture — samedi", "Culture"),
     ("Sport — dimanche", "Sport"),
 ]
+
+
+OPENROUTER_CREDITS_URL = "https://openrouter.ai/api/v1/credits"
+
+
+def fetch_openrouter_cost(api_key):
+    """Coût cumulé OpenRouter (tous scripts confondus, tout le compte) —
+    demandé le 17 septembre 2026 : « dans le dashboard il faudrait ajouter
+    les coûts de openrouter ». Endpoint de solde du compte, pas un journal
+    par appel — renvoie (total_usage, total_credits) en dollars, ou None
+    si la clé est absente ou l'appel échoue (jamais bloquant : ce n'est
+    qu'un KPI de plus, pas une donnée dont dépend le reste du dashboard)."""
+    if not api_key:
+        return None
+    req = urllib.request.Request(
+        OPENROUTER_CREDITS_URL,
+        headers={"Authorization": f"Bearer {api_key}"},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            payload = json.loads(resp.read())
+    except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as e:
+        print(f"[audience] avertissement : coût OpenRouter indisponible ({e}).", file=sys.stderr)
+        return None
+    data = payload.get("data") or {}
+    if "total_usage" not in data or "total_credits" not in data:
+        print(f"[audience] avertissement : réponse OpenRouter /credits inattendue : {payload!r}", file=sys.stderr)
+        return None
+    return {"total_usage": data["total_usage"], "total_credits": data["total_credits"]}
+
+
+def update_openrouter_history(today_iso, snapshot):
+    """L'endpoint /credits ne renvoie qu'un solde cumulé instantané, pas
+    un historique — snapshot quotidien conservé ici pour en dériver un
+    coût moyen/jour et un coût du mois (demandé le 17 septembre 2026).
+    Une entrée par date (écrase si déjà présente aujourd'hui — plusieurs
+    runs le même jour ne dupliquent jamais), jamais réordonné, jamais une
+    entrée passée modifiée."""
+    if OPENROUTER_COST_HISTORY.exists():
+        history = json.loads(OPENROUTER_COST_HISTORY.read_text(encoding="utf-8"))
+    else:
+        history = []
+    history = [h for h in history if h["date"] != today_iso]
+    history.append({"date": today_iso, **snapshot})
+    history.sort(key=lambda h: h["date"])
+    OPENROUTER_COST_HISTORY.parent.mkdir(parents=True, exist_ok=True)
+    OPENROUTER_COST_HISTORY.write_text(
+        json.dumps(history, ensure_ascii=False, indent=2) + "\n", encoding="utf-8",
+    )
+    return history
+
+
+def compute_openrouter_kpis(history, today):
+    """Coût moyen/jour (7 derniers jours) et coût du mois en cours,
+    dérivés des snapshots — None (jamais 0) tant qu'il n'y a pas assez
+    d'historique, même discipline que compute_kpis()/kpis['prev30'] plus
+    haut (ne jamais afficher un chiffre qui a l'air réel mais ne l'est
+    pas)."""
+    if not history:
+        return {"avg_daily_7d": None, "month_cost": None}
+    by_date = {h["date"]: h["total_usage"] for h in history}
+    dates_sorted = sorted(by_date)
+
+    seven_days_ago = (today - timedelta(days=7)).isoformat()
+    ref_date = next((d for d in dates_sorted if d <= seven_days_ago), None)
+    if ref_date and today.isoformat() in by_date:
+        span_days = (today - date.fromisoformat(ref_date)).days
+        avg_daily_7d = (by_date[today.isoformat()] - by_date[ref_date]) / span_days if span_days > 0 else None
+    else:
+        avg_daily_7d = None
+
+    month_start_iso = today.replace(day=1).isoformat()
+    ref_month = next((d for d in dates_sorted if d <= month_start_iso), None)
+    if today.isoformat() in by_date:
+        if ref_month:
+            month_cost = by_date[today.isoformat()] - by_date[ref_month]
+        elif dates_sorted[0] >= month_start_iso:
+            # Historique commencé après le 1er du mois : coût du mois =
+            # tout l'historique connu depuis son tout premier snapshot,
+            # jamais présenté comme "depuis le 1er" (ce serait faux).
+            month_cost = by_date[today.isoformat()] - by_date[dates_sorted[0]]
+        else:
+            month_cost = None
+    else:
+        month_cost = None
+
+    return {"avg_daily_7d": avg_daily_7d, "month_cost": month_cost}
 
 
 def fmt_long(d):
@@ -438,7 +530,7 @@ def update_le_projet(cumulative, x_labels, y_max, kpis, end_date):
     LE_PROJET.write_text(html, encoding="utf-8")
 
 
-def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_later, priority_line, autonomy_rows, current_monday):
+def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_later, priority_line, autonomy_rows, current_monday, openrouter=None, openrouter_kpis=None):
     html = DASHBOARD.read_text(encoding="utf-8")
 
     html = re.sub(
@@ -502,6 +594,42 @@ def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_la
         (r'(<p class="kpi-label">Moyenne par édition</p>\s*<div class="kpi-value">)[^<]+(</div>\s*<p class="kpi-sub">)[^<]+(</p>)',
          rf"\g<1>{str(kpis['avg_per_edition']).replace('.', ',')}\g<2>lectures/édition, sur les {kpis['tracked_editions']} éditions trackées depuis le {fmt_long(date.fromisoformat(START_DATE))}\g<3>"),
     ]
+
+    def fmt_usd(v):
+        return f"{v:.2f}".replace(".", ",") + " $"
+
+    if openrouter:
+        cumul_val = fmt_usd(openrouter["total_usage"])
+        remaining = openrouter["total_credits"] - openrouter["total_usage"]
+        cumul_sub = f"solde restant : {fmt_usd(remaining)} — au {fmt_long(end_date)}"
+    else:
+        cumul_val = "— $"
+        cumul_sub = "solde restant : — $ — non disponible"
+    replacements.append((
+        r'(<p class="kpi-label">Coût OpenRouter cumulé</p>\s*<div class="kpi-value">)[^<]+(</div>\s*<p class="kpi-sub">)[^<]+(</p>)',
+        rf"\g<1>{cumul_val}\g<2>{cumul_sub}\g<3>",
+    ))
+
+    avg7 = (openrouter_kpis or {}).get("avg_daily_7d")
+    if avg7 is not None:
+        avg_val, avg_sub = fmt_usd(avg7), f"sur les 7 derniers jours — au {fmt_long(end_date)}"
+    else:
+        avg_val, avg_sub = "— $", "sur les 7 derniers jours — pas encore assez d'historique"
+    replacements.append((
+        r'(<p class="kpi-label">Coût OpenRouter moyen/jour</p>\s*<div class="kpi-value">)[^<]+(</div>\s*<p class="kpi-sub">)[^<]+(</p>)',
+        rf"\g<1>{avg_val}\g<2>{avg_sub}\g<3>",
+    ))
+
+    month_cost = (openrouter_kpis or {}).get("month_cost")
+    if month_cost is not None:
+        month_val = fmt_usd(month_cost)
+        month_sub = f"{MONTHS_FULL[end_date.month - 1]} {end_date.year}, au {fmt_long(end_date)}"
+    else:
+        month_val, month_sub = "— $", "pas encore assez d'historique"
+    replacements.append((
+        r'(<p class="kpi-label">Coût OpenRouter du mois</p>\s*<div class="kpi-value">)[^<]+(</div>\s*<p class="kpi-sub">)[^<]+(</p>)',
+        rf"\g<1>{month_val}\g<2>{month_sub}\g<3>",
+    ))
     for pattern, repl in replacements:
         html, n = re.subn(pattern, repl, html, count=1, flags=re.S)
         if n != 1:
@@ -689,12 +817,24 @@ def main():
     print(f"Total cumulé : {kpis['total']} lectures au {fmt_long(end_date)} "
           f"(delta 7j : {kpis['delta7']:+d}).")
 
+    # Coût OpenRouter — jamais bloquant (voir fetch_openrouter_cost) : un
+    # échec ici ne doit jamais empêcher la mise à jour du reste du
+    # dashboard, qui fonctionnait très bien avant cet ajout.
+    openrouter = fetch_openrouter_cost(os.environ.get("OPENROUTER_API_KEY"))
+    openrouter_kpis = None
+    if openrouter and not args.dry_run:
+        history = update_openrouter_history(end_date.isoformat(), openrouter)
+        openrouter_kpis = compute_openrouter_kpis(history, end_date)
+    elif openrouter:
+        print(f"Coût OpenRouter cumulé : {openrouter['total_usage']:.2f} $ "
+              f"(solde restant : {openrouter['total_credits'] - openrouter['total_usage']:.2f} $).")
+
     if args.dry_run:
         print("--dry-run : rien écrit sur disque.")
         return 0
 
     update_le_projet(cumulative, x_labels, y_max, kpis, end_date)
-    update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_later, priority_line, autonomy_rows, current_monday)
+    update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_later, priority_line, autonomy_rows, current_monday, openrouter, openrouter_kpis)
     check_js_syntax(LE_PROJET)
     check_js_syntax(DASHBOARD)
 
