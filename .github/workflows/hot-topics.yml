@@ -1,0 +1,52 @@
+name: Alimenter sujets-prioritaires.md
+
+# Ajoute des sujets "chauds" dans les sections par registre de
+# sujets-prioritaires.md — demandé le 17 septembre 2026 : « le fichier
+# est aujourd'hui quasi manuel, j'aimerais que tu l'alimentes
+# régulièrement [...] tu peux les mettre dans les domaines respectifs et
+# je vérifierai si ça mérite de les passer en prioritaire ».
+#
+# Voir scripts/edition/generate_hot_topics.py pour le détail et les
+# garde-fous : jamais dans "🔥 Priorité absolue" (décision humaine),
+# toujours en bas de leur section, anti-doublon contre la file et les
+# 45 derniers jours publiés, zéro sujet plutôt qu'un sujet artificiel.
+#
+# Cadence : 2x/semaine (demandé "1 à 2 fois par semaine").
+#
+# Secret requis (déjà présent) : OPENROUTER_API_KEY
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 19 * * 2,5'  # mardi/vendredi ~21h Paris (heure d'été)
+
+permissions:
+  contents: write
+
+jobs:
+  hot-topics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Chercher et proposer des sujets chauds
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python3 scripts/edition/generate_hot_topics.py
+
+      - name: Committer et pousser
+        run: |
+          git config user.name "scenario-topics-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add sujets-prioritaires.md
+          if git diff --cached --quiet; then
+            echo "Aucun changement — rien à committer."
+            exit 0
+          fi
+          git commit -m "[sujets] propositions automatiques à valider"
+          git pull --rebase origin main
+          git push origin main
