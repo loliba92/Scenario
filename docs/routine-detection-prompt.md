@@ -1,20 +1,39 @@
-# Prompt de la routine de détection « Scénario — Détection sujets à suivre »
+# Prompt de la routine de détection « Scénario — Détection sujets à suivre » [RETIRÉE le 17 septembre 2026]
 
-**[BASCULÉ le 22 août, réduction du coût en tokens — même méthode que
-`docs/routine-prompt.md` et `docs/routine-inspection-prompt.md`.]** Le
-trigger **« Scénario — Détection sujets à suivre »**
-(`trig_01BYYviSQge2CDcYkzBbYcjT`, cron `0 0 * * 1,4,5,6` UTC =
-lundi/jeudi/vendredi/samedi ~2h Paris — déplacé de 20h le 14 août pour
-ventiler la charge nocturne, voir `docs/ARCHITECTURE.md`) contient
-désormais un court prompt-pointeur au lieu du texte complet en dur : lire
-**ce fichier** intégralement (tout ce qui suit le séparateur `---`) et
-l'appliquer tel quel. **Ce fichier est la source de vérité vivante** — le
-modifier ici (commit + push sur `main`) suffit à changer le comportement
-de la routine dès son prochain déclenchement.
+**Cette routine Claude Code Remote a été supprimée** (trigger
+`trig_01BYYviSQge2CDcYkzBbYcjT` effacé — sa dernière exécution, le 14
+septembre, avait d'ailleurs échoué) — remplacée par un GitHub Action
+(`.github/workflows/detection.yml`, cron `0 1 * * 1,4,5,6` UTC ≈ 2-3h
+Paris selon heure d'été/hiver, déclenché en pratique via cron-job.org
+comme les autres workflows du dépôt) + `scripts/detection/
+generate_suivi_update.py`. Demandé le 17 septembre 2026 : « on prend
+claude code via open router, j'ai besoin de faire ça pour réduire mes
+tokens ».
 
-Ce trigger a été créé par un agent (`create_trigger`), donc directement
-éditable via `update_trigger` si la mécanique du pointeur elle-même doit
-changer — mais toute règle ordinaire vit ici, pas dans le trigger.
+**Contrairement à `pub.yml`/`hebdo.yml`, cette routine N'EST PAS
+mécanique** — elle demande une vraie recherche web et un jugement
+éditorial à fort enjeu (réestimation sérieuse des 3 scénarios, choix du
+sujet le plus crédible), ce que `docs/ARCHITECTURE.md` classait justement
+dans « Ce qui reste sur Claude Code, volontairement ». Le compromis
+accepté ici : un modèle Claude via OpenRouter (`anthropic/claude-sonnet-5`,
+server tool `openrouter:web_search`, même mécanique que `generate_
+fallback_brief.py`) fait le même travail, facturé sur OPENROUTER_API_KEY
+plutôt que sur le forfait Claude Code — probablement un cran en dessous du
+WebSearch natif de Claude Code sur des sujets ambigus, à surveiller en
+conditions réelles.
+
+**Ne jamais recréer ce trigger.** Ce fichier reste comme documentation de
+référence de ce que fait le script (le script en est la traduction, avec
+les mêmes garde-fous : jamais de clôture automatique, jamais plus d'un
+sujet par passage, jamais un sujet dont le point de référence a moins de
+10 jours) — pour toute évolution du comportement, modifier
+`scripts/detection/generate_suivi_update.py` directement, pas ce prompt
+(qui n'est plus lu par personne ni rien).
+
+---
+
+*Ce qui suit est l'ancien prompt de référence, conservé tel quel pour qui
+veut comprendre la logique d'origine que le script reproduit.*
 
 **Version allégée depuis le 22 août** : le récit complet de l'historique
 de chaque règle (dates, cas réel qui a motivé chaque revirement) a été

@@ -1,0 +1,65 @@
+name: Détection sujets à suivre
+
+# Génère (au plus) une mise à jour de page de suivi par passage — remplace
+# la routine Claude Code Remote "Scénario — Détection sujets à suivre"
+# (docs/routine-detection-prompt.md, trig_01BYYviSQge2CDcYkzBbYcjT).
+# Voir scripts/detection/generate_suivi_update.py pour le détail complet
+# et les garde-fous (jamais de clôture automatique, jamais plus d'un sujet
+# par passage, jamais un sujet dont le point de référence a moins de 10
+# jours, pourcentages toujours vérifiés à 100%).
+#
+# Demandé le 17 septembre 2026 : « on prend claude code via open router,
+# j'ai besoin de faire ça pour réduire mes tokens » — le jugement éditorial
+# (recherche web, réestimation, sélection) reste le même qu'avant, mais
+# facturé sur OPENROUTER_API_KEY plutôt que sur le forfait Claude Code.
+#
+# Cadence d'origine du trigger : lundi/jeudi/vendredi/samedi ~2h Paris.
+# Comme pour reads.yml/post-edition.yml, le `schedule` GitHub Actions n'est
+# qu'un filet — le déclenchement principal passe par cron-job.org
+# (workflow_dispatch), voir docs/ARCHITECTURE.md.
+#
+# Secret requis (déjà présent, voir pub.yml/translate-en.yml) :
+#   OPENROUTER_API_KEY
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 1 * * 1,4,5,6'  # ~2-3h Paris selon heure d'été/hiver
+
+permissions:
+  contents: write
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Installer les dépendances
+        run: pip install playwright
+
+      - name: Installer Chromium
+        run: python3 -m playwright install --with-deps chromium
+
+      - name: Détection et mise à jour
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python3 scripts/detection/generate_suivi_update.py
+
+      - name: Committer et pousser
+        run: |
+          git config user.name "scenario-detection-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add suivi/ docs/sujets-a-suivre.md feed-suivi.xml \
+                   assets/social/suivi/ assets/social/topic-images/
+          if git diff --cached --quiet; then
+            echo "Aucun changement — rien à committer."
+            exit 0
+          fi
+          git commit -m "[détection] mise à jour automatique d'un suivi"
+          git pull --rebase origin main
+          git push origin main

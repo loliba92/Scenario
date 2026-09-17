@@ -1,0 +1,57 @@
+name: Réparer un post pub (chiffre)
+
+# Outil de réparation ponctuel — voir scripts/pub/fix_chiffre_post.py.
+# Corrige EN PLACE un post "chiffre" déjà publié (message recalibré par
+# le garde-fou CHIFFRE_MAX_CHARS ajouté le 17 septembre 2026, voir
+# generate_daily_pub.py) — jamais un nouvel item, jamais de schedule.
+
+on:
+  workflow_dispatch:
+    inputs:
+      post_date:
+        description: "Date du post à réparer (AAAA-MM-JJ)"
+        required: true
+      source_date:
+        description: "Date de l'édition source (AAAA-MM-JJ)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Installer les dépendances
+        run: pip install playwright
+
+      - name: Installer Chromium
+        run: python3 -m playwright install --with-deps chromium
+
+      - name: Réparer le post
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          python3 scripts/pub/fix_chiffre_post.py \
+            --post-date "${{ inputs.post_date }}" \
+            --source-date "${{ inputs.source_date }}"
+
+      - name: Committer et pousser
+        run: |
+          git config user.name "scenario-pub-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add feed-pub.xml en/feed-pub.xml docs/pub-messages.md \
+                   assets/social/pub/ en/assets/social/pub/
+          if git diff --cached --quiet; then
+            echo "Aucun changement — rien à committer."
+            exit 0
+          fi
+          git commit -m "[pub] correction du post ${{ inputs.post_date }} (message recalibré)"
+          git pull --rebase origin main
+          git push origin main
