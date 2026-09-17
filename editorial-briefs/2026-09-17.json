@@ -1,0 +1,373 @@
+{
+  "date": "2026-09-17",
+  "registre": "economie-mondiale",
+  "sujet": {
+    "titre_propose": "Dollar : la monnaie reine peut-elle perdre son trône ?",
+    "h1": "Dollar : la fin du règne ?",
+    "question_posee": "Face à la dette record et à la ruée vers l'or des banques centrales, le dollar peut-il perdre son statut de monnaie de réserve mondiale ?",
+    "eyebrow": "Jeudi, économie & finance mondiale",
+    "angle": "La part du dollar dans les réserves mondiales est tombée sous 57%, un plancher inédit depuis les années 1990, pendant que la dette américaine franchit les 40 000 milliards de dollars et que les banques centrales achètent de l'or à un rythme record : ce recul progressif peut-il basculer en perte de statut, ou le dollar reste-t-il sans rival crédible ?",
+    "tags": [
+      "dollar",
+      "reserves-de-change",
+      "dette-americaine",
+      "FMI",
+      "dedollarisation",
+      "or",
+      "yuan"
+    ],
+    "domain": "economie-entreprises",
+    "image_keywords": "dollar currency reserve global finance",
+    "complexite": 4
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (16/09, Électricité/ARENH) : sujet sans rapport, aucun recoupement. Éditions jeudi économie des 3 dernières occurrences : 11/09 (dépenses IA des géants tech américains), 08/09 (IPO OpenAI), 03/09 (rallye Wall Street/CAPE ratio) — aucune ne traite du statut de réserve du dollar ni des réserves de change ; l'édition du 27/08 sur la dette américaine (mur des 40 000 milliards) partage un chiffre (dette >40T$) mais un moteur de fond différent (soutenabilité budgétaire vs statut monétaire international / COFER / dédollarisation) et date de plus de 2 semaines, hors fenêtre des 2-3 dernières occurrences du même registre — jugé non bloquant, mais lien recommandé en rédaction plutôt qu'écarté."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "La part du dollar dans les réserves de change officielles mondiales est tombée sous 57%, un plancher inédit depuis 1995",
+      "chiffre": "56,9%",
+      "date_du_chiffre": "2025-09-30",
+      "sources": [
+        "s1",
+        "s5"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le dollar reste toutefois très largement dominant : il intervient dans environ 89% des transactions sur le marché des changes",
+      "chiffre": "89%",
+      "date_du_chiffre": "2025-04-30",
+      "sources": [
+        "s2"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La dette fédérale américaine a franchi pour la première fois le seuil des 40 000 milliards de dollars",
+      "chiffre": "40 047 milliards de dollars",
+      "date_du_chiffre": "2026-08-20",
+      "sources": [
+        "s3"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les intérêts nets sur la dette fédérale américaine ont atteint 963 milliards de dollars sur dix mois, soit plus de 3 milliards par jour",
+      "chiffre": "963 milliards de dollars",
+      "date_du_chiffre": "2026-07-31",
+      "sources": [
+        "s4"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les banques centrales ont acheté de l'or à un rythme soutenu et constant, avec 244 tonnes nettes au premier trimestre 2026, prolongeant à 17 mois consécutifs la série d'achats nets du secteur officiel",
+      "chiffre": "244 tonnes",
+      "date_du_chiffre": "2026-04-29",
+      "sources": [
+        "s6"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le système chinois de paiement transfrontalier CIPS, alternative au réseau SWIFT dominé par le dollar, raccordait 1 580 institutions financières dans 122 pays au 31 mars 2026, contre 1 280 à fin 2023",
+      "chiffre": "1 580 institutions dans 122 pays",
+      "date_du_chiffre": "2026-03-31",
+      "sources": [
+        "s7"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Une partie significative de la baisse récente de la part du dollar dans les réserves reflète des effets de taux de change plutôt qu'une réallocation active des banques centrales, ce qui nuance le récit d'une dédollarisation massive",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "s8"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Réserve fédérale américaine (Fed)",
+      "role": "Fixe la politique monétaire américaine ; ses décisions de taux influencent directement l'attractivité du dollar comme réserve"
+    },
+    {
+      "nom": "FMI (Fonds monétaire international)",
+      "role": "Publie les données COFER trimestrielles sur la composition en devises des réserves officielles mondiales, référence pour mesurer la dédollarisation"
+    },
+    {
+      "nom": "Banque populaire de Chine (PBoC)",
+      "role": "Pilote l'internationalisation du yuan via le système de paiement CIPS et des achats d'or massifs, cherchant à offrir une alternative au dollar"
+    },
+    {
+      "nom": "Trésor américain / Scott Bessent",
+      "role": "Gère l'émission de la dette publique américaine et tente de rassurer les marchés obligataires face à la hausse des rendements"
+    },
+    {
+      "nom": "Banques centrales des pays émergents (Pologne, Chine, Zambie, Kenya...)",
+      "role": "Diversifient leurs réserves via des achats d'or record et, pour certaines, des règlements en monnaies locales ou en yuan plutôt qu'en dollars"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-08-20",
+      "evenement": "La dette fédérale américaine franchit pour la première fois les 40 000 milliards de dollars"
+    },
+    {
+      "date": "2026-04-29",
+      "evenement": "Le World Gold Council publie des données montrant 244 tonnes d'achats nets d'or par les banques centrales au premier trimestre, 17e mois consécutif d'achats nets"
+    },
+    {
+      "date": "2026-03-31",
+      "evenement": "Le réseau chinois CIPS atteint 1 580 institutions connectées dans 122 pays"
+    },
+    {
+      "date": "2025-09-30",
+      "evenement": "La part du dollar dans les réserves mondiales tombe sous 57% pour la première fois depuis 1995 selon les données COFER"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Le dollar stabilise voire regagne un peu de terrain : la Fed restaure la confiance par sa politique monétaire, la dette reste gérable grâce aux rachats du Trésor, et l'absence d'alternative crédible (le yuan restant entravé par les contrôles de capitaux chinois) maintient le statu quo à moyen terme.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "Le recul se poursuit à un rythme lent et progressif, comme depuis 25 ans : quelques points de part de marché perdus par décennie, sans rupture ni remplacement, le dollar restant très largement dominant dans les échanges et la facturation mondiale.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "La perte de confiance s'accélère : nouvelle dégradation budgétaire américaine, poursuite des achats d'or massifs, expansion rapide du CIPS et des règlements en yuan dans les pays émergents, entraînant une baisse plus marquée et plus rapide de la part du dollar dans les réserves et une hausse durable des coûts d'emprunt américains.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Part du dollar dans les réserves de change mondiales",
+      "valeur": "56,9% (T3 2025), plancher depuis 1995",
+      "tendance": "baisse lente et continue depuis 2001 (pic à 72%)"
+    },
+    {
+      "label": "Dette publique fédérale américaine",
+      "valeur": "40 047 milliards de dollars",
+      "tendance": "hausse rapide, franchie plus tôt que prévu par le CBO"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "oui",
+    "raison": "Série longue et bien documentée (part du dollar dans les réserves mondiales depuis les années 1970/1990 jusqu'à 2025) avec au moins 5 points vérifiables issus de sources IMF/COFER concordantes, complète utilement le KPI ponctuel sans le remplacer.",
+    "serie": {
+      "aria_label": "Évolution de la part du dollar américain dans les réserves de change officielles mondiales, de 1979 à 2025, en pourcentage.",
+      "lead": "Le recul du dollar n'est pas nouveau : sa part dans les réserves mondiales a déjà connu de fortes variations depuis 50 ans.",
+      "caption": "Source : FMI, données COFER (Currency Composition of Official Foreign Exchange Reserves).",
+      "y_max": 90,
+      "y_gridlines": [
+        {
+          "valeur": 45,
+          "label": "45%"
+        },
+        {
+          "valeur": 60,
+          "label": "60%"
+        },
+        {
+          "valeur": 75,
+          "label": "75%"
+        }
+      ],
+      "x_axis_years": [
+        1979,
+        1991,
+        2000,
+        2021,
+        2025
+      ],
+      "points": [
+        {
+          "annee": 1979,
+          "valeur": 85,
+          "tooltip": "1979 — 85% des réserves mondiales en dollars"
+        },
+        {
+          "annee": 1991,
+          "valeur": 46,
+          "tooltip": "1991 — creux à 46%, après le choc inflationniste des années 1980",
+          "peak": true,
+          "peak_label": "46% — creux historique"
+        },
+        {
+          "annee": 2000,
+          "valeur": 71,
+          "tooltip": "2000 — remontée à 71%"
+        },
+        {
+          "annee": 2021,
+          "valeur": 59,
+          "tooltm": "2021 — 59% selon le FMI",
+          "tooltip": "2021 — 59% selon le FMI"
+        },
+        {
+          "annee": 2025,
+          "valeur": 56.9,
+          "tooltip": "2025 (T3) — 56,9%, plancher depuis 1995",
+          "last": true,
+          "last_label": "56,9% aujourd'hui"
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Comment se mesure le statut de monnaie de réserve : les données COFER du FMI, la différence entre part dans les réserves officielles, part dans les transactions de change (89%) et part dans la facturation du commerce mondial — trois indicateurs distincts qui ne bougent pas au même rythme.",
+        "rattache_a": "faits_verifies[0] et faits_verifies[1]"
+      },
+      {
+        "focus": "Pourquoi une baisse de la part du dollar dans les réserves ne signifie pas forcément une 'fuite' active des banques centrales : le rôle des effets de taux de change (valorisation) par rapport aux véritables décisions de réallocation de portefeuille, distinction cruciale pour interpréter les chiffres trimestriels.",
+        "rattache_a": "faits_verifies[6]"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Les sources divergent sur la vitesse de la dédollarisation : certaines analyses (CFR, Liberty Street Economics/Fed de New York) relativisent fortement le phénomène en l'attribuant en grande partie à des effets de change plutôt qu'à une réallocation active des banques centrales, tandis que d'autres (informedclearly, Atlantic Council) parlent d'une accélération structurelle. Le brief retient la lecture nuancée comme fait vérifié à confiance moyenne, mais signale ce désaccord.",
+    "Le rythme des achats d'or officiels fait aussi débat : une lecture (5 août 2026) évoque un ralentissement en août après un pic au T2, une autre continue de parler d'un rythme record — le sens de la tendance est confirmé (achats nets soutenus depuis 17 mois), mais le rythme exact du mois le plus récent reste discuté selon les sources.",
+    "Aucune date COFER plus récente que le T3 2025 n'a pu être confirmée par une source de premier rang au moment de cette recherche (données trimestrielles avec ~3 mois de décalage de publication) ; le chiffre le plus récent cité (57,1% au T1 2026 par une source secondaire) n'a pas pu être recoupé avec les données officielles du FMI elles-mêmes."
+  ],
+  "a_ne_pas_affirmer": [
+    "Ne jamais affirmer que le dollar 'va perdre' ou 'perdra' son statut de monnaie de réserve — rester au conditionnel, l'issue est réellement incertaine et débattue par les économistes eux-mêmes.",
+    "Ne jamais présenter le franchissement des 40 000 milliards de dette comme équivalent à une perte de confiance immédiate dans le dollar — ce sont deux phénomènes liés mais distincts (soutenabilité budgétaire vs statut monétaire international).",
+    "Ne jamais affirmer que le yuan est en passe de remplacer le dollar : sa part dans les réserves mondiales et dans les paiements SWIFT reste marginale (autour de 2-3%)."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "De-Dollarization 2026: Dollar Reserve Share Below 57% for First Time Since 1995",
+      "source": "informed, clearly",
+      "url": "https://informedclearly.com/en/economy/49805/de-dollarization-dollar-reserve-share-2026",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-entreprises",
+      "summary": "La part du dollar dans les réserves de change mondiales est tombée sous 57% pour la première fois depuis 1995, à 56,9% au T3 2025, un déclin structurel attribué à la 'weaponization' du dollar, à l'essor du CIPS chinois et aux achats d'or record des banques centrales.",
+      "read_minutes": 6
+    },
+    {
+      "id": "s2",
+      "title": "Dollar américain (USD) : caractéristiques, rôle et facteurs de valeur en 2026",
+      "source": "Broker-forex.fr",
+      "url": "https://www.broker-forex.fr/dollar-americain-USD-principales-caracteristiques.php",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Le dollar reste la principale monnaie de réserve mondiale, représentant environ 57% des réserves officielles et intervenant dans près de 89% des transactions de change selon la BRI en 2025.",
+      "read_minutes": 5
+    },
+    {
+      "id": "s3",
+      "title": "La dette américaine dépasse les 40.000 milliards de dollars",
+      "source": "Titrespresse.com / Economie Matin",
+      "url": "https://www.titrespresse.com/18359522603/dette-milliards-dollars",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "La dette fédérale américaine a franchi pour la première fois le seuil de 40 047 milliards de dollars en août 2026, une hausse plus rapide que prévu par le Bureau du budget du Congrès.",
+      "read_minutes": 4
+    },
+    {
+      "id": "s4",
+      "title": "La dette américaine dépasse les 40 000 milliards de dollars, Trump réclame à nouveau une baisse des taux",
+      "source": "International Finance",
+      "url": "https://internationalfinance.com/fr/economy/us-debt-tops-usd-40-trillion-trump-again-calls-for-lower-interest-rates/",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Les intérêts nets sur la dette fédérale américaine ont atteint 963 milliards de dollars entre octobre 2025 et juillet 2026, et le Trésor a vendu des obligations à 30 ans au rendement le plus élevé depuis 2001.",
+      "read_minutes": 5
+    },
+    {
+      "id": "s5",
+      "title": "Le dollar en recul : simple correction ou début d'un nouvel ordre monétaire mondial ?",
+      "source": "L'expert Journal",
+      "url": "https://lexpertjournal.net/fr/?p=141764",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Selon le FMI, le dollar représentait encore environ 57,1% des réserves officielles de change mondiales au premier trimestre 2026, un niveau qui reste très supérieur à celui de l'euro.",
+      "read_minutes": 6
+    },
+    {
+      "id": "s6",
+      "title": "La domination du dollar américain se porte toujours très bien",
+      "source": "Investing.com",
+      "url": "https://fr.investing.com/analysis/la-domination-du-dollar-americain-se-porte-toujours-tres-bien-200456534",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Les banques centrales ont acheté 244 tonnes d'or nettes au premier trimestre 2026, prolongeant à 17 mois consécutifs la série d'achats nets du secteur officiel, malgré un prix de l'or au-dessus de 5 400 dollars l'once en janvier.",
+      "read_minutes": 7
+    },
+    {
+      "id": "s7",
+      "title": "Dédollarisation : où en sont les flux non-dollar en 2026 ?",
+      "source": "Le Courrier des Stratèges",
+      "url": "https://www.lecourrierdesstrateges.fr/dedollarisation-ou-en-sont-les-flux-non-dollar-en-2026-par-elise-rochefort/",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Le système chinois CIPS raccordait 1 580 institutions financières dans 122 pays au 31 mars 2026, contre 1 280 à fin 2023, et les règlements en yuan entre la Russie et l'Iran ont atteint un record mensuel de 214 milliards de dollars en mars 2026.",
+      "read_minutes": 8
+    },
+    {
+      "id": "s8",
+      "title": "De-reservification, Not De-dollarization",
+      "source": "Council on Foreign Relations",
+      "url": "https://www.cfr.org/articles/de-reservification-not-de-dollarization",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-entreprises",
+      "summary": "L'analyse relativise le récit de dédollarisation en notant que le stock global de réserves en dollars n'a pas beaucoup changé sur dix ans, et que l'attention portée aux variations trimestrielles de la part du dollar est disproportionnée par rapport à leur impact réel.",
+      "read_minutes": 5
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Le dollar chute à son plus bas niveau depuis quatre ans contre l'euro",
+      "source": "AllAfrica",
+      "url": "https://fr.allafrica.com/stories/202509170151.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Le dollar a atteint son plus bas niveau face à l'euro depuis quatre ans, les marchés anticipant une baisse des taux de la Fed, l'euro grimpant à 1,1853 dollar.",
+      "read_minutes": 3
+    },
+    {
+      "title": "Le premier acheteur d'or de la planète en 2026 n'est pas la Chine : c'est la Pologne",
+      "source": "Le Courrier des Stratèges",
+      "url": "https://www.lecourrierdesstrateges.fr/le-premier-acheteur-dor-de-la-planete-en-2026-nest-pas-la-chine-cest-la-pologne/",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "La Pologne est devenue le premier acheteur souverain d'or au monde en 2026, avec des réserves atteignant 640 tonnes et un objectif affiché de 700 tonnes.",
+      "read_minutes": 5
+    },
+    {
+      "title": "La Chine injecte 45 milliards dans ses banques : ce que ça dit du yuan",
+      "source": "France Cryptos",
+      "url": "https://www.francecryptos.fr/articles/yuan-au-plus-haut-depuis-debut-2023-la-chine-recapitalise-ses-banques-a-hauteur--640247",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-entreprises",
+      "summary": "Le yuan a atteint son plus haut niveau face au dollar depuis début 2023, porté par l'excédent commercial chinois et une recapitalisation bancaire de 45 milliards de dollars.",
+      "read_minutes": 4
+    }
+  ],
+  "recommandations_redaction": [
+    "Lier explicitement à l'édition du 27 août 2026 ('Dette américaine : le mur des 40 000 milliards') — même chiffre de dette, mais angle distinct ici (statut monétaire international plutôt que soutenabilité budgétaire domestique) ; le lien éclaire le lecteur sur la double pression (budgétaire ET monétaire) qui pèse sur le dollar en ce moment.",
+    "Bien distinguer dans le texte les trois indicateurs du statut du dollar (réserves officielles ~57%, transactions de change ~89%, facturation du commerce ~54%) pour éviter toute confusion — ce sont des mesures différentes qui ne bougent pas au même rythme, un piège pédagogique fréquent dans la presse généraliste sur ce sujet.",
+    "Mentionner la nuance méthodologique CFR/Fed de New York (effets de change vs réallocation active) pour éviter un article qui surjoue mécaniquement la thèse de dédollarisation sans contradicteur — rigueur éditoriale attendue sur un sujet où les économistes eux-mêmes sont partagés."
+  ]
+}
