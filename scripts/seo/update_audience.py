@@ -110,6 +110,19 @@ def fetch_openrouter_cost(api_key):
     if "total_usage" not in data or "total_credits" not in data:
         print(f"[audience] avertissement : réponse OpenRouter /credits inattendue : {payload!r}", file=sys.stderr)
         return None
+    # Diagnostic temporaire (17 septembre 2026) : vérifier si /credits ou
+    # /key exposent un compteur de requêtes exploitable pour un futur KPI
+    # "nombre de requêtes/jour" — jamais confirmé côté documentation
+    # publique OpenRouter, à retirer une fois la réponse inspectée en
+    # conditions réelles (voir logs GitHub Actions du run qui suit ce commit).
+    print(f"[audience][diagnostic] /credits payload complet : {payload!r}", file=sys.stderr)
+    try:
+        key_req = urllib.request.Request("https://openrouter.ai/api/v1/key", headers={"Authorization": f"Bearer {api_key}"})
+        with urllib.request.urlopen(key_req, timeout=20) as resp:
+            key_payload = json.loads(resp.read())
+        print(f"[audience][diagnostic] /key payload complet : {key_payload!r}", file=sys.stderr)
+    except Exception as e:  # noqa: BLE001 — diagnostic seulement, jamais bloquant
+        print(f"[audience][diagnostic] /key indisponible : {e}", file=sys.stderr)
     return {"total_usage": data["total_usage"], "total_credits": data["total_credits"]}
 
 
