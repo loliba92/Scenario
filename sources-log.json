@@ -2,6 +2,41 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-09-17",
+      "articles": [
+        {
+          "title": "Le dollar chute à son plus bas niveau depuis quatre ans contre l'euro",
+          "source": "AllAfrica",
+          "url": "https://fr.allafrica.com/stories/202509170151.html",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "Le dollar a atteint son plus bas niveau face à l'euro depuis quatre ans, les marchés anticipant une baisse des taux de la Fed, l'euro grimpant à 1,1853 dollar.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Le premier acheteur d'or de la planète en 2026 n'est pas la Chine : c'est la Pologne",
+          "source": "Le Courrier des Stratèges",
+          "url": "https://www.lecourrierdesstrateges.fr/le-premier-acheteur-dor-de-la-planete-en-2026-nest-pas-la-chine-cest-la-pologne/",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "La Pologne est devenue le premier acheteur souverain d'or au monde en 2026, avec des réserves atteignant 640 tonnes et un objectif affiché de 700 tonnes.",
+          "read_minutes": 5
+        },
+        {
+          "title": "La Chine injecte 45 milliards dans ses banques : ce que ça dit du yuan",
+          "source": "France Cryptos",
+          "url": "https://www.francecryptos.fr/articles/yuan-au-plus-haut-depuis-debut-2023-la-chine-recapitalise-ses-banques-a-hauteur--640247",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "Le yuan a atteint son plus haut niveau face au dollar depuis début 2023, porté par l'excédent commercial chinois et une recapitalisation bancaire de 45 milliards de dollars.",
+          "read_minutes": 4
+        }
+      ]
+    },
+    {
       "date": "2026-09-16",
       "articles": [
         {
