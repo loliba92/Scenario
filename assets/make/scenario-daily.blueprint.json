@@ -3114,7 +3114,7 @@
             "profileIds": [
              "6a9c51a2065799be469500b1"
             ],
-            "text": "🔄 Un sujet suivi vient d'être mis à jour 👇{{newline}}{{30.title}}{{newline}}👉 Lire l'analyse complète: {{newline}}{{30.url}}",
+            "text": "🔄 Un sujet suivi vient d'être mis à jour 👇{{newline}}{{if(length(30.title) > 350; substring(30.title; 0; 350) + \"…\"; 30.title)}}{{newline}}👉 Lire l'analyse complète: {{newline}}{{30.url}}",
             "type": "now",
             "useMedia": true,
             "shorten": true,
@@ -5118,7 +5118,7 @@
             "profileIds": [
              "6a9c51a2065799be469500b1"
             ],
-            "text": "{{58.comments}}{{newline}}{{newline}}Plus d'info ici : {{58.rssFields.link}}",
+            "text": "{{if(length(58.comments) > 350; substring(58.comments; 0; 350) + \"…\"; 58.comments)}}{{newline}}{{newline}}Plus d'info ici : {{58.rssFields.link}}",
             "type": "now",
             "useMedia": true,
             "shorten": true,
@@ -10749,7 +10749,7 @@
         "profileIds": [
          "6a9c51a2065799be469500b1"
         ],
-        "text": "{{4.title}}{{newline}}Scénario : chaque jour, un sujet d'actu décrypté en 3 scénarios chiffrés{{newline}}Lire l'article :{{newline}}{{4.url}}",
+        "text": "{{if(length(4.title) > 350; substring(4.title; 0; 350) + \"…\"; 4.title)}}{{newline}}Scénario : chaque jour, un sujet d'actu décrypté en 3 scénarios chiffrés{{newline}}Lire l'article :{{newline}}{{4.url}}",
         "type": "now",
         "useMedia": true,
         "shorten": true,
