@@ -837,7 +837,7 @@ préférée pour son registre déjà simplifié.*
 ### chiffre-2026-09-16
 - eyebrow: LE SAVIEZ-VOUS
 - stat: 400
-- message: Le 31 août 2026, l'État américain du Tennessee a délivré la toute première licence commerciale de fusion nucléaire au monde. Elle a été accordée à une start-up, Type One Energy, pour un projet baptisé Project Infinity, sur un site où travaillait autrefois une centrale au charbon, à Clinton. Cette licence n'est pas un détail administratif : c'est la première fois qu'un régulateur crée un cadre entier, spécifique à la fusion, pour autoriser légalement la construction et l'exploitation d'une centrale de ce type. Jusqu'ici, aucun pays au monde n'avait ce cadre prêt à l'emploi. La centrale visée, Infinity Two, doit produire 400 MW électriques envoyés sur le réseau, à partir d'une réaction brute de 800 MW obtenue par fusion deutérium-tritium.
+- message: La centrale visée, Infinity Two, doit produire 400 MW électriques envoyés sur le réseau, à partir d'une réaction brute de 800 MW obtenue par fusion deutérium-tritium.
 - attribution: — lesscenarios.fr, 15 septembre 2026
 - cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
 - source: https://lesscenarios.fr/archives/2026-09-15.html
