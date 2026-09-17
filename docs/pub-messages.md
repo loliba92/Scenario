@@ -846,8 +846,8 @@ préférée pour son registre déjà simplifié.*
 
 ### chiffre-2026-09-17
 - eyebrow: LE SAVIEZ-VOUS
-- stat: 66 €/MWh
-- message: Neuf mois après son entrée en vigueur, ce mécanisme n'a encore jamais été activé : la CRE estime le revenu nucléaire réel d'EDF pour 2026 à environ 66 €/MWh, largement sous le premier seuil.
+- stat: 56,9%
+- message: La part du dollar dans les réserves de change mondiales est tombée à 56,9% au troisième trimestre 2025, un plancher inédit depuis 1995
 - attribution: — lesscenarios.fr, 16 septembre 2026
 - cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
 - source: https://lesscenarios.fr/archives/2026-09-16.html
