@@ -7,20 +7,25 @@ quasi manuel, j'aimerais que tu l'alimentes régulièrement [...] tu peux
 les mettre dans les domaines respectifs et je vérifierai si ça mérite de
 les passer en prioritaire ».
 
-Comportement par défaut : ce script écrit **en bas** de la section de
-CHAQUE registre (Géopolitique/lundi, Économie/jeudi, etc.) — l'ordre =
-l'ordre de priorité, un sujet déjà en file mérite son tour, un ajout
-automatique ne double jamais un sujet déjà en file.
+Comportement par défaut : ce script écrit **en haut** de la section de
+CHAQUE registre (Géopolitique/lundi, Économie/jeudi, etc.), juste après
+l'en-tête et son commentaire d'intro, avant tous les sujets déjà en
+file. Choix explicite du 18 septembre 2026 (retour utilisateur) :
+certains registres accumulent 30+ sujets non cochés, consommés un par
+semaine — un ajout en bas y attendrait ~30 semaines (~7-8 mois) avant
+d'être traité, largement le temps qu'un sujet "chaud" (actualité de la
+semaine) devienne périmé. En haut, il est le premier choisi au prochain
+passage de son registre. MAX_PER_REGISTRE (2) sert de facto de "sujet
+principal + sujet de secours" pour ce prochain passage.
 
-Deux échappatoires, demandées explicitement le 18 septembre 2026 pour
-qu'un sujet vraiment chaud ne périme pas en attendant son tour dans une
-file parfois longue (certains registres ne sont consommés qu'une fois
-par semaine) — le modèle choisit via le champ 'urgence' de sa réponse
-(voir build_prompt()), mais les plafonds MAX_CARTE_BLANCHE /
+Deux échappatoires supplémentaires, pour un sujet encore plus urgent que
+"la semaine prochaine" — le modèle choisit via le champ 'urgence' de sa
+réponse (voir build_prompt()), mais les plafonds MAX_CARTE_BLANCHE /
 MAX_PRIORITE_ABSOLUE sont appliqués en dur dans main(), quoi que le
 modèle renvoie :
 - 'carte_blanche' : va dans « Mardi — carte blanche », traité sans
-  attendre le tour normal du registre.
+  attendre le tour normal du registre (utile si le prochain mardi
+  arrive avant le prochain jour du registre d'origine).
 - 'priorite_absolue' : va dans « 🔥 Priorité absolue », passe avant
   tout, quel que soit le jour — réservé à l'actualité en cours de
   rupture, plafonné à 1 par passage.
@@ -268,15 +273,23 @@ def insert_entries(md_text, heading, entries, today):
     """`entries` : liste de (entry, origin_label) — origin_label est None
     pour un ajout normal (registre = section cible), ou le libellé du
     registre d'origine quand l'entrée est remontée en Carte blanche/
-    Priorité absolue."""
+    Priorité absolue.
+
+    Insère EN HAUT de la section (juste après l'en-tête et son
+    commentaire d'intro, avant le premier sujet déjà en file) — voir la
+    justification dans le docstring du module. Si la section est
+    entièrement vide (aucun sujet), retombe en fin de section, ce qui
+    revient au même point d'insertion."""
     if not entries:
         return md_text
-    pattern = re.compile(r"(^" + re.escape(heading) + r"\s*$.*?)(\n(?=^## )|\Z)", re.M | re.S)
+    pattern = re.compile(r"^" + re.escape(heading) + r"\s*$(.*?)(?=^## |\Z)", re.M | re.S)
     m = pattern.search(md_text)
     if not m:
         raise HotTopicsError(f"section introuvable pour insertion : {heading!r}")
+    section_body = m.group(1)
+    first_entry = re.search(r"^- \[[ x]\] ", section_body, re.M)
+    insertion_point = m.start(1) + first_entry.start() if first_entry else m.end(1)
     block = "".join(format_entry(e, today, origin_label) for e, origin_label in entries)
-    insertion_point = m.end(1)
     return md_text[:insertion_point] + block + md_text[insertion_point:]
 
 
