@@ -7,9 +7,11 @@ name: Alimenter sujets-prioritaires.md
 # je vérifierai si ça mérite de les passer en prioritaire ».
 #
 # Voir scripts/edition/generate_hot_topics.py pour le détail et les
-# garde-fous : jamais dans "🔥 Priorité absolue" (décision humaine),
-# toujours en bas de leur section, anti-doublon contre la file et les
-# 45 derniers jours publiés, zéro sujet plutôt qu'un sujet artificiel.
+# garde-fous : insertion en haut de section (pas en bas, pour ne pas
+# périmer derrière une file parfois longue), échappatoires plafonnées
+# vers Carte blanche/Priorité absolue pour l'urgence réelle, anti-doublon
+# contre la file et les 45 derniers jours publiés, zéro sujet plutôt
+# qu'un sujet artificiel.
 #
 # Cadence : 2x/semaine (demandé "1 à 2 fois par semaine").
 #
@@ -23,7 +25,12 @@ name: Alimenter sujets-prioritaires.md
 # Secret requis (déjà présent) : OPENROUTER_API_KEY
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Modèle OpenRouter à tester (vide = défaut du script, deepseek/deepseek-v4-flash)"
+        required: false
+        default: ""
   schedule:
     - cron: '0 19 * * 2,5'  # mardi/vendredi ~21h Paris (heure d'été)
 
@@ -47,7 +54,13 @@ jobs:
       - name: Chercher et proposer des sujets chauds
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-        run: python3 scripts/edition/generate_hot_topics.py
+          MODEL_OVERRIDE: ${{ github.event.inputs.model }}
+        run: |
+          if [ -n "$MODEL_OVERRIDE" ]; then
+            python3 scripts/edition/generate_hot_topics.py --model "$MODEL_OVERRIDE"
+          else
+            python3 scripts/edition/generate_hot_topics.py
+          fi
 
       - name: Committer et pousser
         run: |
