@@ -2,6 +2,41 @@
   {
     "date": "2026-09-18",
     "registre": "Géopolitique",
+    "section": "Carte blanche",
+    "accroche": "Les Houthis prennent le contrôle de Bab el-Mandeb : un tiers du commerce maritime mondial passe-t-il sous contrôle hostile ?",
+    "tag": "géopolitique & commerce maritime"
+  },
+  {
+    "date": "2026-09-18",
+    "registre": "Géopolitique",
+    "section": "Carte blanche",
+    "accroche": "Élections législatives russes : Poutine peut-il encore verrouiller le pouvoir sans provoquer de fissure ?",
+    "tag": "géopolitique & Russie"
+  },
+  {
+    "date": "2026-09-18",
+    "registre": "Actu. française",
+    "section": "Actu. française",
+    "accroche": "Carburants à 3 euros le litre, menaces russes : Macron réunit les candidats à l'Élysée — le gouvernement Lecornu peut-il éviter l'explosion sociale cet automne ?",
+    "tag": "politique & énergie"
+  },
+  {
+    "date": "2026-09-18",
+    "registre": "Économie & finance",
+    "section": "Économie & finance",
+    "accroche": "Pétrole à 100 dollars, deux détroits bloqués : l'économie mondiale peut-elle encaisser un nouveau choc énergétique ?",
+    "tag": "économie & énergie"
+  },
+  {
+    "date": "2026-09-18",
+    "registre": "Sciences",
+    "section": "Sciences",
+    "accroche": "Sécheresse historique au Darfour : le changement climatique peut-il transformer une guerre civile en famine totale ?",
+    "tag": "climat & géopolitique"
+  },
+  {
+    "date": "2026-09-18",
+    "registre": "Géopolitique",
     "accroche": "Les Houthis s'emparent de Bab el-Mandeb : après Ormuz, un deuxième détroit stratégique tombe — le commerce maritime mondial peut-il encaisser un double blocus ?",
     "tag": "géopolitique & énergie"
   },
