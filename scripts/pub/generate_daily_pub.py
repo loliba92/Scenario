@@ -318,7 +318,14 @@ ou {{"ok": false}}.
     # ajoutée en fin de segment, jamais un mot substitué au milieu).
     plain_source = " ".join(candidates)
     normalize = lambda s: re.sub(r"\s+", " ", s).strip().rstrip(".,;:")
-    if normalize(message) not in normalize(plain_source):
+    # Incident réel du 18 septembre 2026 : un message pourtant extrait mot
+    # pour mot rejeté à tort, seule différence = la 1ère lettre mise en
+    # majuscule (le candidat démarrait après "... : la part du dollar...",
+    # le modèle a naturellement capitalisé pour que le message se lise
+    # comme une phrase autonome — comportement attendu, pas une invention).
+    # Comparaison insensible à la casse pour ce garde-fou : il vérifie que
+    # les MOTS ne sont pas inventés/changés, pas leur casse.
+    if normalize(message).lower() not in normalize(plain_source).lower():
         raise PubError(
             f"extract_chiffre : le message renvoyé n'est pas un extrait littéral du texte source "
             f"— rejeté plutôt que publié. message={message!r}"
@@ -359,7 +366,7 @@ la limite de caractères.
         stat2 = result2.get("stat", "").strip()
         if not message2 or not stat2:
             return None
-        if normalize(message2) not in normalize(plain_source):
+        if normalize(message2).lower() not in normalize(plain_source).lower():
             raise PubError(
                 f"extract_chiffre (recalibrage) : le message raccourci n'est pas un extrait "
                 f"littéral du texte source — rejeté plutôt que publié. message={message2!r}"
