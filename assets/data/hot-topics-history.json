@@ -8,6 +8,41 @@
   },
   {
     "date": "2026-09-18",
+    "registre": "Actu. française",
+    "section": "Carte blanche",
+    "accroche": "Carburants à prix record et menaces hybrides : Macron réunit les candidats à l'Élysée — le gouvernement peut-il éviter l'explosion sociale cet automne ?",
+    "tag": "politique & énergie"
+  },
+  {
+    "date": "2026-09-18",
+    "registre": "Économie & finance",
+    "section": "Économie & finance",
+    "accroche": "BCE et Fed face au choc pétrolier : les banques centrales peuvent-elles encore baisser les taux, ou la guerre au Moyen-Orient les force-t-elle à resserrer ?",
+    "tag": "économie & finance"
+  },
+  {
+    "date": "2026-09-18",
+    "registre": "Culture",
+    "section": "Culture",
+    "accroche": "Ed Sheeran, Macklemore et la neutralité impossible : un artiste peut-il encore rester en dehors de la politique sans perdre son public ?",
+    "tag": "musique & société"
+  },
+  {
+    "date": "2026-09-18",
+    "registre": "Sport",
+    "section": "Sport",
+    "accroche": "Mbappé, Ceuta et le tee-shirt polémique : un sportif peut-il encore exprimer une opinion humanitaire sans être pris dans la guerre politique ?",
+    "tag": "football & société"
+  },
+  {
+    "date": "2026-09-18",
+    "registre": "Géopolitique",
+    "section": "Carte blanche",
+    "accroche": "Les Houthis prennent le contrôle de Bab el-Mandeb : un tiers du commerce maritime mondial passe-t-il sous contrôle hostile ?",
+    "tag": "géopolitique & commerce maritime"
+  },
+  {
+    "date": "2026-09-18",
     "registre": "Géopolitique",
     "section": "Carte blanche",
     "accroche": "Élections législatives russes : Poutine peut-il encore verrouiller le pouvoir sans provoquer de fissure ?",
