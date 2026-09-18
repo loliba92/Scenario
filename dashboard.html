@@ -463,6 +463,16 @@
     </div>
 
     <div class="chart-box">
+      <span class="chart-label">🔥 Derniers sujets identifiés</span>
+      <p class="chart-lead">Sujets ajoutés automatiquement à <code>sujets-prioritaires.md</code> par la routine de veille (mardi/vendredi, voir <code>scripts/edition/generate_hot_topics.py</code>) — à valider avant de passer en priorité. Une issue GitHub récapitulative est aussi créée à chaque passage. Dernier passage : <!-- HOT-TOPICS:DATE_START -->aucun pour l'instant<!-- HOT-TOPICS:DATE_END -->.</p>
+      <ul class="agenda-later-list">
+        <!-- HOT-TOPICS:LIST_START -->
+        <li><span class="agenda-later-empty">aucun sujet identifié pour l'instant — prochain passage mardi ou vendredi.</span></li>
+        <!-- HOT-TOPICS:LIST_END -->
+      </ul>
+    </div>
+
+    <div class="chart-box">
       <span class="chart-label">Autonomie par registre — sujets non cochés</span>
       <p class="chart-lead">Nombre de sujets en attente (non cochés) par section de <code>sujets-prioritaires.md</code>, à date du 18 septembre 2026. Chaque registre n'est consommé qu'<strong>une fois par semaine</strong> (édition quotidienne, un registre fixe par jour) — le nombre de semaines d'autonomie s'en déduit directement. Trié par autonomie croissante (le plus en tension en premier). Régénéré chaque jour par un GitHub Action, comme le reste du dashboard.</p>
       <table class="rank-table">

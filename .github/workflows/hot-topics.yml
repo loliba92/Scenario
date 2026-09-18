@@ -13,6 +13,13 @@ name: Alimenter sujets-prioritaires.md
 #
 # Cadence : 2x/semaine (demandé "1 à 2 fois par semaine").
 #
+# Notification (demandé le 18 septembre 2026, « je peux être au courant
+# de ce qui est ajouté ») : le script régénère aussi la carte "Derniers
+# sujets identifiés" de dashboard.html (immédiat, pas d'attente
+# d'audience.yml) et écrit hot-topics-run-summary.md (jamais committé,
+# voir .gitignore) — repris ci-dessous pour créer une issue GitHub
+# récapitulative à chaque passage qui ajoute au moins un sujet.
+#
 # Secret requis (déjà présent) : OPENROUTER_API_KEY
 
 on:
@@ -22,6 +29,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   hot-topics:
@@ -45,7 +53,7 @@ jobs:
         run: |
           git config user.name "scenario-topics-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add sujets-prioritaires.md
+          git add sujets-prioritaires.md dashboard.html assets/data/hot-topics-history.json
           if git diff --cached --quiet; then
             echo "Aucun changement — rien à committer."
             exit 0
@@ -53,3 +61,16 @@ jobs:
           git commit -m "[sujets] propositions automatiques à valider"
           git pull --rebase origin main
           git push origin main
+
+      - name: Créer une issue récapitulative si des sujets ont été ajoutés
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -f hot-topics-run-summary.md ]; then
+            gh issue create \
+              --repo "${{ github.repository }}" \
+              --title "🔥 Sujets chauds ajoutés — $(date -u +%Y-%m-%d)" \
+              --body-file hot-topics-run-summary.md
+          else
+            echo "Aucun sujet ajouté ce passage-ci — pas d'issue créée."
+          fi
