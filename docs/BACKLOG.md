@@ -4151,7 +4151,7 @@ Trois scripts OpenRouter ont changé de modèle par défaut le 18 septembre 2026
 - `generate_hot_topics.py` (candidats « sujets chauds » ajoutés à `sujets-prioritaires.md`, jamais publiés directement, toujours filtrés par une relecture humaine) : passé à **DeepSeek** (`deepseek/deepseek-v4-flash`), pour financer une partie du surcoût d'Opus.
 - `generate_suivi_update.py` (mise à jour **publiée** des pages de suivi) : brièvement passé à DeepSeek le même jour, puis **revenu à Sonnet 5** — ce script réestime réellement les 3 scénarios et écrit le texte publié, pas un simple tri (voir Historique).
 
-Doc de référence complète (les 11 workflows GitHub Actions, leur fréquence, leur modèle, les incidents réels déjà rencontrés par modèle) : [Modèles OpenRouter dans les workflows GitHub](https://claude.ai/code/artifact/6d6af3a3-35f0-447b-bc7e-3a1af51a4185).
+Doc de référence complète (les 11 workflows GitHub Actions, leur fréquence, leur modèle, les incidents réels déjà rencontrés par modèle) : `docs/modeles-openrouter.md`.
 
 ### À faire
 - Surveiller le coût OpenRouter (dashboard `#audience`) et la qualité des briefs Opus / des mises à jour de suivi Sonnet dans les prochains jours.
@@ -4167,3 +4167,5 @@ Doc de référence complète (les 11 workflows GitHub Actions, leur fréquence, 
 - **2026-09-18** — Première proposition : basculer recherche + détection + hot-topics sur Opus. Retour utilisateur : augmente le coût total sans rien compenser.
 - **2026-09-18** — Proposition corrigée, pensée cost-neutre : Opus sur la recherche seule, financé par DeepSeek sur `detection.yml` et `hot-topics.yml`. Implémentée (import `DEFAULT_MODEL` remplacé par une constante dédiée dans chacun des 3 scripts).
 - **2026-09-18** — Erreur repérée par l'utilisateur (« Détection il ne génère pas l'édition de mise à jour ? ») : `generate_suivi_update.py` ne fait pas du tri, il réestime les scénarios et écrit la mise à jour réellement publiée — downgrade DeepSeek inadapté, revenu à Sonnet 5. Seul `generate_hot_topics.py` reste sur DeepSeek pour financer partiellement Opus — l'équilibre coût n'est donc plus strictement neutre, mais le choix de modèle correspond maintenant à ce que chaque script fait réellement.
+- **2026-09-18** — Question posée : GPT-5 plutôt que DeepSeek sur `hot-topics.yml` ? Écarté : GPT-5 coûte plus cher (raisonnement obligatoire non désactivable, `max_tokens` à relever comme sur le hebdo) pour un enjeu qualité faible ici (candidats non publiés, filtrés par l'utilisateur) — aurait mangé l'économie qui finance Opus. DeepSeek confirmé sur ce script.
+- **2026-09-18** — Doc de référence rapatrié depuis l'Artifact claude.ai vers un vrai fichier versionné, `docs/modeles-openrouter.md` (retour utilisateur : nom "Artifact" ne veut rien dire) — mis à jour pour refléter l'état final (Opus recherche / Sonnet détection / DeepSeek hot-topics et pub).
