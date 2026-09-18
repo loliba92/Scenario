@@ -49,10 +49,20 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "edition"))
 from generate_daily_edition import (  # noqa: E402
-    DEFAULT_MODEL,
     GenerationError,
     call_openrouter,
 )
+
+# Passé à DeepSeek le 18 septembre 2026 puis REVENU à
+# anthropic/claude-sonnet-5 le même jour, retour utilisateur : ce script
+# ne fait pas du tri/classement (contrairement à generate_hot_topics.py)
+# — il réestime sérieusement les 3 scénarios d'un sujet suivi et écrit
+# le texte publié de la mise à jour (voir docstring du module, « Le
+# jugement éditorial reste le même qu'avant »). Downgrade inadapté,
+# annulé. Seul generate_hot_topics.py (repérage de candidats, jamais
+# publié directement, filtré par une relecture humaine) reste sur
+# DeepSeek pour financer une partie d'Opus sur la recherche quotidienne.
+DETECTION_MODEL = "anthropic/claude-sonnet-5"
 
 SUJETS_A_SUIVRE = ROOT / "docs" / "sujets-a-suivre.md"
 ARCHIVES_DIR = ROOT / "archives"
@@ -793,7 +803,7 @@ def generate_suivi_social_image(topic, conclusion, photo_path, output_path, en=F
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
-    ap.add_argument("--model", default=DEFAULT_MODEL)
+    ap.add_argument("--model", default=DETECTION_MODEL)
     args = ap.parse_args()
 
     api_key = os.environ.get("OPENROUTER_API_KEY")

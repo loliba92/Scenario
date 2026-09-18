@@ -295,7 +295,16 @@ Renvoie un JSON unique : {{"ok": true, "stat": "...", "message": "..."}}
 ou {{"ok": false}}.
 """
     result, usage = call_openrouter_json(prompt, model, api_key)
-    usage_total = dict(usage)
+    # Incident réel du 18 septembre 2026 : `dict(usage)` recopiait TOUT le
+    # champ "usage" renvoyé par OpenRouter, y compris des sous-champs qui
+    # sont eux-mêmes des dicts (ex. détail reasoning/tokens par catégorie),
+    # pas seulement des nombres. Au recalibrage (message trop long), le
+    # `+=` plus bas tentait alors d'additionner deux dicts entre eux
+    # ("unsupported operand type(s) for +: 'dict' and 'dict'"), alors que
+    # seuls "cost" et "total_tokens" sont réellement exploités en aval
+    # (voir leur lecture dans main()). Ne garder que ces deux clés évite
+    # la casse quel que soit le contenu exact de "usage".
+    usage_total = {k: usage.get(k) for k in ("cost", "total_tokens") if k in usage}
     if not result.get("ok"):
         return None
 
@@ -342,8 +351,8 @@ Renvoie un JSON unique : {{"ok": true, "stat": "...", "message": "..."}} ou
 la limite de caractères.
 """
         result2, usage2 = call_openrouter_json(shorten_prompt, model, api_key)
-        for k, v in usage2.items():
-            usage_total[k] = (usage_total.get(k) or 0) + (v or 0)
+        for k in ("cost", "total_tokens"):
+            usage_total[k] = (usage_total.get(k) or 0) + (usage2.get(k) or 0)
         if not result2.get("ok"):
             return None
         message2 = result2.get("message", "").strip()

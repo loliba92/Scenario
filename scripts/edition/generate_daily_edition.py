@@ -412,7 +412,13 @@ def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, 
     # timeout global de cette fonction (parametre `timeout`, déjà en
     # place) reste le filet de sécurité générique pour tout modèle qui
     # traînerait en longueur, raisonnement ou non.
-    if "anthropic/" in model:
+    # Élargi à deepseek/ le 18 septembre 2026 (bascule de
+    # generate_suivi_update.py/generate_hot_topics.py sur DeepSeek) —
+    # même garde-fou que generate_weekly_recap.py::call_openrouter_json(),
+    # qui accepte déjà ce flag sans erreur sur ce modèle. openai/ reste
+    # exclu : impose son raisonnement et refuse qu'on le désactive
+    # ("Reasoning is mandatory for this endpoint and cannot be disabled").
+    if "anthropic/" in model or "deepseek/" in model:
         body_dict["reasoning"] = {"enabled": False}
     body = json.dumps(body_dict).encode()
     req = urllib.request.Request(OPENROUTER_URL, method="POST", data=body, headers={
