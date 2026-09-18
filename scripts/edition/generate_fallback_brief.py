@@ -51,13 +51,23 @@ from datetime import datetime
 from pathlib import Path
 
 from generate_daily_edition import (
-    DEFAULT_MODEL,
     GenerationError,
     InvalidModelJSON,
     MAX_RETRIES,
     call_openrouter,
     validate_brief,
 )
+
+# Passé de DEFAULT_MODEL (anthropic/claude-sonnet-5, partagé avec la
+# rédaction) à Opus le 18 septembre 2026, décision utilisateur : cette
+# recherche tourne tous les jours depuis que le trigger CCR est
+# désactivé (voir docstring du module) — c'est l'étape qui demande le
+# plus de jugement éditorial (choix du sujet, anti-doublon, fiabilité
+# des sources), donc celle où la qualité d'un modèle plus poussé pèse
+# le plus. Financé par le passage de generate_suivi_update.py et
+# generate_hot_topics.py sur DeepSeek (voir ces fichiers) — bascule
+# pensée comme cost-neutre sur l'ensemble, pas comme un ajout sec.
+FALLBACK_MODEL = "anthropic/claude-opus-5"
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 ROUTINE_PROMPT_PATH = REPO_ROOT / "docs" / "routine-prompt.md"
@@ -234,7 +244,7 @@ def generate_fallback_brief(date_str, model, api_key, timeout=480):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", required=True, help="date du brief à produire, AAAA-MM-JJ")
-    parser.add_argument("--model", default=None, help="modèle OpenRouter (défaut : DEFAULT_MODEL/variable OPENROUTER_MODEL)")
+    parser.add_argument("--model", default=None, help="modèle OpenRouter (défaut : FALLBACK_MODEL/variable OPENROUTER_MODEL)")
     parser.add_argument("--timeout", type=int, default=480, help="délai max de l'appel OpenRouter, en secondes (défaut 480 — plusieurs recherches web côté serveur peuvent prendre du temps)")
     args = parser.parse_args()
 
@@ -242,7 +252,7 @@ def main():
     if not api_key:
         raise GenerationError("OPENROUTER_API_KEY manquant dans l'environnement")
 
-    model = args.model or os.environ.get("OPENROUTER_MODEL") or DEFAULT_MODEL
+    model = args.model or os.environ.get("OPENROUTER_MODEL") or FALLBACK_MODEL
     print(f"[fallback-brief] génération du brief du {args.date} — modèle {model}", file=sys.stderr)
 
     brief, usage = generate_fallback_brief(args.date, model, api_key, timeout=args.timeout)
