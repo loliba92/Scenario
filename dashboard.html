@@ -137,42 +137,76 @@
     .kpi-grid{ grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
   }
   .kpi-card{
-    background: var(--surface);
+    position: relative;
+    background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
     border: 1px solid var(--hairline);
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 18px 18px 16px;
+    transition: border-color .15s ease;
   }
+  .kpi-card:hover{ border-color: var(--gold); }
+  /* Fine barre d'accent en haut de carte — juste assez de couleur pour
+     distinguer les deux familles de KPI (trafic/coûts) sans repeindre
+     toute la carte : un repère silencieux, pas une bannière. */
+  .kpi-card::before{
+    content: ""; position: absolute; top: 0; left: 14px; right: 14px; height: 2px;
+    background: var(--gold); border-radius: 0 0 2px 2px; opacity: .55;
+  }
+  .kpi-card-cost::before{ background: var(--stable); }
   .kpi-label{
-    font-size: 0.78rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
     color: var(--paper-dim);
-    margin: 0 0 8px;
+    margin: 2px 0 10px;
   }
+  .kpi-value-row{ display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; }
   .kpi-value{
     font-family: "JetBrains Mono", monospace;
-    font-size: 1.7rem;
+    font-size: 2.1rem;
     font-weight: 700;
     line-height: 1;
+    letter-spacing: -0.01em;
   }
-  .kpi-sub{ font-size: 0.8rem; color: var(--paper-dim); margin: 6px 0 0; }
+  .kpi-sub{ font-size: 0.8rem; color: var(--paper-dim); margin: 8px 0 0; }
   .kpi-sub.is-up{ color: var(--favorable); }
   .kpi-sub.is-down{ color: var(--degrade); }
-  /* Petit résumé secondaire dans une carte KPI déjà porteuse d'un chiffre
-     principal (ex. moyenne/édition all-time + semaine/mois) — jamais une
-     carte à part, pour rester consolidé et lisible d'un coup d'œil. */
-  .kpi-breakdown{
-    display: flex; gap: 14px; margin-top: 10px; padding-top: 10px;
-    border-top: 1px dashed var(--hairline);
-    font-size: 0.76rem; color: var(--paper-dim);
+  /* Sparkline de tendance — 12 derniers points, teinte discrète, seul le
+     dernier point est accentué (voir dataviz skill, contrat "stat tile"). */
+  .kpi-spark{ display: block; width: 84px; height: 26px; flex-shrink: 0; }
+  /* Petite jauge de proportion (ex. part des lectures totales sur 30j) —
+     le remplissage porte la valeur, le rail est un cran plus clair du
+     même dégradé, jamais une couleur distincte. */
+  .kpi-meter{
+    height: 5px; border-radius: 3px; background: var(--surface-2);
+    margin-top: 10px; overflow: hidden;
   }
-  .kpi-breakdown strong{ color: var(--paper); font-family: "JetBrains Mono", monospace; font-weight: 700; }
-  /* Carte KPI sans chiffre principal unique — juste une liste de petites
-     lignes valeur/étiquette, pour une carte "détail" (ex. coûts
-     aujourd'hui/hier/semaine/mois) plutôt que 4 cartes séparées. */
-  .kpi-card-rows{ display: flex; flex-direction: column; gap: 7px; }
-  .kpi-card-rows .kpi-label{ margin-bottom: 4px; }
-  .kpi-stat-row{ display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
-  .kpi-stat-row span{ font-size: 0.82rem; color: var(--paper-dim); }
-  .kpi-stat-row strong{ font-family: "JetBrains Mono", monospace; font-size: 0.95rem; color: var(--paper); font-weight: 700; }
+  .kpi-meter-fill{ height: 100%; background: var(--gold); border-radius: 3px; }
+  /* Petit résumé secondaire dans une carte KPI déjà porteuse d'un chiffre
+     principal (ex. moyenne/édition all-time + semaine/mois, ou coût
+     cumulé + détail par période) — jamais une carte à part, pour rester
+     consolidé et lisible d'un coup d'œil (même carte pour tout, retour
+     utilisateur du 18 septembre 2026 : « la carte moyenne par édition
+     est top, réplique la même pour les autres »). Grille 2 colonnes
+     plutôt qu'une rangée : jusqu'à 4 mini-stats (coûts) sans déborder.
+  */
+  .kpi-breakdown{
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 14px;
+    margin-top: 12px; padding-top: 12px;
+    border-top: 1px dashed var(--hairline);
+  }
+  .kpi-card-wide{ grid-column: 1 / -1; }
+  .kpi-breakdown-4col{ grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 560px){
+    .kpi-breakdown-4col{ grid-template-columns: repeat(2, 1fr); }
+  }
+  .kpi-breakdown-item{ display: flex; flex-direction: column; gap: 2px; }
+  .kpi-breakdown-item span{ font-size: 0.72rem; color: var(--paper-dim); }
+  .kpi-breakdown-item strong{
+    font-family: "JetBrains Mono", monospace; font-size: 0.98rem;
+    color: var(--paper); font-weight: 700;
+  }
 
   .chart-box{
     background: var(--surface);
@@ -316,43 +350,49 @@
     <div class="kpi-grid">
       <div class="kpi-card">
         <p class="kpi-label">Lectures d'éditions cumulées</p>
-        <div class="kpi-value">707</div>
+        <div class="kpi-value-row">
+          <div class="kpi-value">707</div>
+          <span class="kpi-spark-wrap-cumul"></span>
+        </div>
         <p class="kpi-sub">depuis le 29 juillet 2026</p>
       </div>
       <div class="kpi-card">
         <p class="kpi-label">7 derniers jours (glissant)</p>
-        <div class="kpi-value">92</div>
+        <div class="kpi-value-row">
+          <div class="kpi-value">92</div>
+          <span class="kpi-spark-wrap-week"></span>
+        </div>
         <p class="kpi-sub is-down">↓ -13 vs les 7 jours précédents (105)</p>
       </div>
       <div class="kpi-card">
         <p class="kpi-label">30 derniers jours (glissant)</p>
         <div class="kpi-value">541</div>
         <p class="kpi-sub">≈ 77 % des lectures totales — comparaison au 30j précédents pas encore possible (52 jours d'historique, il en faut 60)</p>
+        <div class="kpi-meter"><div class="kpi-meter-fill share30-fill" style="width:77%"></div></div>
       </div>
       <div class="kpi-card">
         <p class="kpi-label">Moyenne par édition</p>
         <div class="kpi-value">13,9</div>
         <p class="kpi-sub">lectures/édition, sur les 51 éditions trackées depuis le 29 juillet 2026</p>
         <div class="kpi-breakdown">
-          <span>Semaine <strong class="avg-week">15,3</strong></span>
-          <span>Mois <strong class="avg-month">18,7</strong></span>
+          <div class="kpi-breakdown-item"><span>Semaine</span><strong class="avg-week">15,3</strong></div>
+          <div class="kpi-breakdown-item"><span>Mois</span><strong class="avg-month">18,7</strong></div>
         </div>
       </div>
     </div>
 
     <span class="chart-label" style="margin-top:24px; display:block;">Coûts OpenRouter</span>
     <div class="kpi-grid">
-      <div class="kpi-card">
+      <div class="kpi-card kpi-card-cost kpi-card-wide">
         <p class="kpi-label">Coût OpenRouter cumulé</p>
         <div class="kpi-value">7,99 $</div>
         <p class="kpi-sub">solde restant : 52,01 $ — au 18 septembre 2026</p>
-      </div>
-      <div class="kpi-card kpi-card-rows">
-        <p class="kpi-label">Coût OpenRouter — détail</p>
-        <div class="kpi-stat-row"><span>Aujourd'hui</span><strong class="cost-today">0,00 $</strong></div>
-        <div class="kpi-stat-row"><span>Hier</span><strong class="cost-yesterday">0,00 $</strong></div>
-        <div class="kpi-stat-row"><span>Cette semaine</span><strong class="cost-week">7,92 $</strong></div>
-        <div class="kpi-stat-row"><span>Ce mois</span><strong class="cost-month">7,99 $</strong></div>
+        <div class="kpi-breakdown kpi-breakdown-4col">
+          <div class="kpi-breakdown-item"><span>Aujourd'hui</span><strong class="cost-today">0,00 $</strong></div>
+          <div class="kpi-breakdown-item"><span>Hier</span><strong class="cost-yesterday">0,00 $</strong></div>
+          <div class="kpi-breakdown-item"><span>Cette semaine</span><strong class="cost-week">7,92 $</strong></div>
+          <div class="kpi-breakdown-item"><span>Ce mois</span><strong class="cost-month">7,99 $</strong></div>
+        </div>
       </div>
     </div>
 

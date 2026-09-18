@@ -165,6 +165,37 @@ def compute_cost_yesterday(history):
 
 
 
+def build_sparkline_svg(values, width=84, height=26):
+    """Sparkline de tendance pour une carte KPI — contrat "stat tile" du
+    skill dataviz : trait dans la teinte discrète (paper-dim), seul le
+    dernier point (période courante) est accentué (gold). Jamais d'axe ni
+    de grille — une carte KPI n'est pas un graphique, juste une forme.
+    Chaîne vide si moins de 2 points (rien à tracer)."""
+    if len(values) < 2:
+        return ""
+    vmin, vmax = min(values), max(values)
+    span = (vmax - vmin) or 1
+    n = len(values)
+    pad = 3
+
+    def x(i):
+        return pad + (i / (n - 1)) * (width - 2 * pad)
+
+    def y(v):
+        return height - pad - ((v - vmin) / span) * (height - 2 * pad)
+
+    pts = [(x(i), y(v)) for i, v in enumerate(values)]
+    path = "M" + " L".join(f"{px:.1f},{py:.1f}" for px, py in pts)
+    last_x, last_y = pts[-1]
+    return (
+        f'<svg class="kpi-spark" viewBox="0 0 {width} {height}" preserveAspectRatio="none" aria-hidden="true">'
+        f'<path d="{path}" fill="none" stroke="var(--paper-dim)" stroke-width="1.6" '
+        f'stroke-linecap="round" stroke-linejoin="round"/>'
+        f'<circle cx="{last_x:.1f}" cy="{last_y:.1f}" r="2.4" fill="var(--gold)"/>'
+        f"</svg>"
+    )
+
+
 def fmt_long(d):
     return f"{d.day} {MONTHS_FULL[d.month - 1]} {d.year}"
 
@@ -586,15 +617,28 @@ def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_la
                  f"possible ({kpis['days_tracked']} jours d'historique, il en faut 60)")
 
     replacements = [
-        (r'(<p class="kpi-label">Lectures d\'éditions cumulées</p>\s*<div class="kpi-value">)\d+(</div>\s*<p class="kpi-sub">)depuis le [^<]+(</p>)',
+        (r'(<p class="kpi-label">Lectures d\'éditions cumulées</p>\s*<div class="kpi-value-row">\s*<div class="kpi-value">)\d+(</div>.*?</div>\s*<p class="kpi-sub">)depuis le [^<]+(</p>)',
          rf"\g<1>{kpis['total']}\g<2>depuis le {fmt_long(date.fromisoformat(START_DATE))}\g<3>"),
-        (r'(<p class="kpi-label">7 derniers jours \(glissant\)</p>\s*<div class="kpi-value">)\d+(</div>\s*<p class="kpi-sub)[^"]*("[^>]*>)[^<]+(</p>)',
+        (r'(<p class="kpi-label">7 derniers jours \(glissant\)</p>\s*<div class="kpi-value-row">\s*<div class="kpi-value">)\d+(</div>.*?</div>\s*<p class="kpi-sub)[^"]*("[^>]*>)[^<]+(</p>)',
          rf"\g<1>{kpis['last7']}\g<2> {kpi_values['sub_class']}\g<3>{delta_text}\g<4>"),
         (r'(<p class="kpi-label">30 derniers jours \(glissant\)</p>\s*<div class="kpi-value">)\d+(</div>\s*<p class="kpi-sub">)[^<]+(</p>)',
          rf"\g<1>{kpis['last30']}\g<2>{sub30}\g<3>"),
+        (r'(share30-fill" style="width:)\d+(%)',
+         rf"\g<1>{max(0, min(100, kpis['share30']))}\g<2>"),
         (r'(<p class="kpi-label">Moyenne par édition</p>\s*<div class="kpi-value">)[^<]+(</div>\s*<p class="kpi-sub">)[^<]+(</p>)',
          rf"\g<1>{str(kpis['avg_per_edition']).replace('.', ',')}\g<2>lectures/édition, sur les {kpis['tracked_editions']} éditions trackées depuis le {fmt_long(date.fromisoformat(START_DATE))}\g<3>"),
     ]
+
+    spark_cumul = build_sparkline_svg([v for _, v in cumulative[-14:]])
+    replacements.append((
+        r'(<span class="kpi-spark-wrap-cumul">)(?:(?!</span>).)*(</span>)',
+        lambda m: m.group(1) + spark_cumul + m.group(2),
+    ))
+    spark_week = build_sparkline_svg([v for _, v, _ in weekly[-10:]])
+    replacements.append((
+        r'(<span class="kpi-spark-wrap-week">)(?:(?!</span>).)*(</span>)',
+        lambda m: m.group(1) + spark_week + m.group(2),
+    ))
 
     avg_week = kpis.get("avg_per_edition_7d")
     replacements.append((
