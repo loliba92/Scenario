@@ -168,6 +168,7 @@
 | B150 | Lectures par édition sur `archives.html` (`reads.json`) | FAIT | — | 2026-09-03 | — |
 | B151 | Migrer le dashboard et `#audience` vers un GitHub Action | À DÉCIDER | — | 2026-09-03 | Valider le plan de migration avec l'utilisateur |
 | B152 | Répartition des modèles OpenRouter par tâche (Opus / Sonnet / DeepSeek) | FAIT | — | 2026-09-18 | Surveiller coût et qualité après la bascule |
+| B153 | Cadence de publication vs péremption des sujets chauds | À DÉCIDER | P2 | 2026-09-18 | Observer quelques semaines, voir si des sujets périment malgré l'insertion en haut |
 
 ## TICKETS
 
@@ -4169,3 +4170,27 @@ Doc de référence complète (les 11 workflows GitHub Actions, leur fréquence, 
 - **2026-09-18** — Erreur repérée par l'utilisateur (« Détection il ne génère pas l'édition de mise à jour ? ») : `generate_suivi_update.py` ne fait pas du tri, il réestime les scénarios et écrit la mise à jour réellement publiée — downgrade DeepSeek inadapté, revenu à Sonnet 5. Seul `generate_hot_topics.py` reste sur DeepSeek pour financer partiellement Opus — l'équilibre coût n'est donc plus strictement neutre, mais le choix de modèle correspond maintenant à ce que chaque script fait réellement.
 - **2026-09-18** — Question posée : GPT-5 plutôt que DeepSeek sur `hot-topics.yml` ? Écarté : GPT-5 coûte plus cher (raisonnement obligatoire non désactivable, `max_tokens` à relever comme sur le hebdo) pour un enjeu qualité faible ici (candidats non publiés, filtrés par l'utilisateur) — aurait mangé l'économie qui finance Opus. DeepSeek confirmé sur ce script.
 - **2026-09-18** — Doc de référence rapatrié depuis l'Artifact claude.ai vers un vrai fichier versionné, `docs/modeles-openrouter.md` (retour utilisateur : nom "Artifact" ne veut rien dire) — mis à jour pour refléter l'état final (Opus recherche / Sonnet détection / DeepSeek hot-topics et pub).
+
+## B153 — Cadence de publication vs péremption des sujets chauds
+
+**Statut:** À DÉCIDER
+**Priorité:** P2
+**Dernière MAJ:** 2026-09-18
+**Prochaine action:** Observer plusieurs semaines de sujets ajoutés par `generate_hot_topics.py`, voir si certains périment malgré l'insertion en haut de section
+**Blocage:** Aucun — nécessite du recul dans le temps avant de trancher
+
+### État actuel
+Constat de l'utilisateur le 18 septembre 2026 : certains registres accumulent 30+ sujets non cochés (ex. Économie & finance), consommés un par semaine (un registre par jour d'édition) — même avec l'insertion en haut de section désormais en place (changement du même jour dans `generate_hot_topics.py`, voir son historique), un sujet ajouté attend au minimum le prochain passage de son registre, potentiellement plusieurs semaines si le fichier est déjà réordonné entre-temps. Un sujet vraiment daté (ex. « l'essence à 3 €») peut donc rester pertinent une semaine mais périmer avant même ce prochain passage.
+
+### À faire
+- Après quelques semaines de recul, vérifier si des sujets ajoutés par la routine de veille arrivent effectivement périmés à leur tour de publication.
+- Si oui, deux pistes à trancher, pas encore choisies :
+  - Restructurer les registres (fusionner/scinder, ex. donner plus de créneaux hebdomadaires aux registres qui génèrent le plus de sujets datés).
+  - Augmenter la fréquence de publication (2 éditions/jour, ou plus de jours couverts) pour vider la file deux fois plus vite.
+- Les deux pistes ont un coût (temps de rédaction, coût OpenRouter, charge de relecture humaine) à mettre en regard du problème réel une fois mesuré — ne rien décider avant d'avoir constaté des cas concrets de péremption.
+
+### Décisions
+- Pas de changement de structure ni de cadence pour l'instant — on observe d'abord. La mesure la moins coûteuse (insertion en haut de section plutôt qu'en bas dans `generate_hot_topics.py`) a déjà été prise le même jour, avant de trancher quoi que ce soit de plus lourd.
+
+### Historique
+- **2026-09-18** — Ticket ouvert suite au retour utilisateur sur la profondeur de certaines files (30+ sujets = plusieurs mois à l'ancienne logique d'insertion en bas) — la mesure immédiate a été l'insertion en haut de section (`generate_hot_topics.py`) ; celui-ci reste ouvert pour trancher une restructuration ou un changement de cadence si le problème persiste malgré ça.
