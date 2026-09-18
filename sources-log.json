@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-09-18",
+      "articles": [
+        {
+          "title": "IDF Diabetes Atlas 11th edition",
+          "source": "International Diabetes Federation",
+          "url": "https://idf.org/news/idf-diabetes-atlas-11th-edition/",
+          "image": null,
+          "lang": "en",
+          "domain": "sciences-environnement",
+          "summary": "La FID souligne que plus de 4 diabétiques sur 10 dans le monde ignorent encore leur maladie, et que les dépenses de santé liées au diabète ont dépassé 1000 milliards de dollars en 2024.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Sanofi stops immune drug trial in latest research setback",
+          "source": "BioPharma Dive",
+          "url": "https://www.biopharmadive.com/news/sanofi-rilipubart-cidp-fail-vigil/822472/",
+          "image": null,
+          "lang": "en",
+          "domain": "sciences-environnement",
+          "summary": "Article replaçant l'échec du riliprubart dans une série plus large de déceptions récentes pour le pipeline de recherche de Sanofi.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-09-17",
       "articles": [
         {
