@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "date": "2026-09-18",
+    "registre": "Géopolitique",
+    "accroche": "Les Houthis s'emparent de Bab el-Mandeb : après Ormuz, un deuxième détroit stratégique tombe — le commerce maritime mondial peut-il encaisser un double blocus ?",
+    "tag": "géopolitique & énergie"
+  },
+  {
+    "date": "2026-09-18",
+    "registre": "Géopolitique",
+    "accroche": "Poutine joue-t-il son va-tout ? Entre élections législatives russes et menaces hybrides sur la Pologne, l'escalade avec l'OTAN est-elle inévitable ?",
+    "tag": "géopolitique & sécurité"
+  },
+  {
+    "date": "2026-09-18",
+    "registre": "Actu. française",
+    "accroche": "Carburants à 3 € le litre, menaces russes : Macron réunit les candidats à l'Élysée — le gouvernement Lecornu peut-il éviter l'explosion sociale cet automne ?",
+    "tag": "politique & énergie"
+  },
+  {
+    "date": "2026-09-18",
+    "registre": "Économie & finance",
+    "accroche": "Spread OAT/Bund au-dessus de 100 points : la dette française devient-elle le maillon faible de la zone euro ?",
+    "tag": "économie & finance"
+  },
+  {
+    "date": "2026-09-18",
+    "registre": "Sciences",
+    "accroche": "Le télescope spatial Roman file vers L2 : la NASA va-t-elle découvrir des milliers de nouvelles planètes et percer le mystère de l'énergie sombre ?",
+    "tag": "espace & astrophysique"
+  },
+  {
+    "date": "2026-09-18",
+    "registre": "Culture",
+    "accroche": "La Techno Parade revient à Paris après deux ans d'absence : danser est-il devenu un acte politique sous la loi RIPOST ?",
+    "tag": "musique & société"
+  },
+  {
+    "date": "2026-09-18",
+    "registre": "Sport",
+    "accroche": "Zidane dévoile sa première liste des Bleus : cinq nouveaux, Tchouaméni et Kanté écartés — le pari du renouveau peut-il réussir dès la Ligue des nations ?",
+    "tag": "football"
+  }
+]
