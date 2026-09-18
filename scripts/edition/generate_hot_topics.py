@@ -331,11 +331,10 @@ def main():
         print(f"ERREUR OpenRouter : {e}", file=sys.stderr)
         return 1
 
-    try:
-        result = json.loads(content)
-    except json.JSONDecodeError as e:
-        print(f"ERREUR : réponse non-JSON : {e}\n{content[:1500]}", file=sys.stderr)
-        return 1
+    # call_openrouter() renvoie déjà le contenu parsé (un dict, pas une
+    # chaîne JSON) — le JSON invalide est géré en interne (InvalidModelJSON,
+    # sous-classe de GenerationError, déjà catchée ci-dessus).
+    result = content
 
     total = 0
     added_records = []
