@@ -1,0 +1,277 @@
+{
+  "date": "2026-09-18",
+  "registre": "sciences-environnement",
+  "sujet": {
+    "titre_propose": "Neuropathies : pourquoi la recherche avance-t-elle encore si peu vers un traitement qui arrête la maladie ?",
+    "h1": "Neuropathies : la recherche avance, les traitements stagnent",
+    "question_posee": "Des dizaines d'essais cliniques sont en cours : un traitement qui arrête la maladie, plutôt qu'un calmant, peut-il arriver avant 2030 ?",
+    "eyebrow": "Vendredi, sciences",
+    "angle": "Sous le mot générique « neuropathie » se cachent des dizaines de maladies aux causes très différentes (diabète, chimiothérapie, auto-immunité, génétique) ; la recherche est active mais butte sur cette diversité, et l'essentiel des traitements disponibles reste symptomatique plutôt que curatif.",
+    "tags": [
+      "médecine",
+      "santé",
+      "diabète",
+      "recherche",
+      "thérapie génique"
+    ],
+    "domain": "sciences-environnement",
+    "image_keywords": "nerve cell medical research",
+    "complexite": 4
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (17/09, dollar/économie) : aucun recoupement. 2-3 dernières éditions du registre sciences-environnement (15/09 fusion nucléaire, 04/09 course lunaire, 02/09 pesticides Anses) : aucune ne porte sur la médecine/santé ou les neuropathies — sujet inédit sur ce créneau. Pas de recoupement filière/industrie identifié avec une édition récente (le sujet le plus proche en thème santé remonte à des éditions plus anciennes hors fenêtre de vérification)."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le diabète, première cause de neuropathie périphérique, touche environ 589 millions d'adultes dans le monde en 2024, soit 11,1% de la population adulte de 20 à 79 ans, un chiffre qui pourrait atteindre 853 millions d'ici 2050.",
+      "chiffre": "589 millions (2024), 853 millions projetés en 2050",
+      "date_du_chiffre": "2025-01-01",
+      "sources": [
+        "s1",
+        "s2"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "En juin 2026, Sanofi a arrêté son essai de phase 3 MOBILIZE testant le riliprubart contre la polyradiculonévrite inflammatoire démyélinisante chronique (CIDP), après qu'un comité de surveillance indépendant a jugé l'efficacité insuffisante malgré des résultats de phase 2 encourageants.",
+      "chiffre": "environ 140 patients recrutés dans l'essai arrêté",
+      "date_du_chiffre": "2026-06-10",
+      "sources": [
+        "s3",
+        "s4"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Un autre essai de phase 3 du même médicament (VITALIZE, chez des patients déjà traités par immunoglobulines) était toujours en cours d'évaluation après cet échec, sans arrêt automatique.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-06-10",
+      "sources": [
+        "s3"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Une thérapie génique expérimentale (ST-503) vise à réprimer directement le gène responsable des signaux de douleur (Nav1.7) chez des patients souffrant de neuropathie des petites fibres réfractaire, une piste actuellement testée en essai clinique.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-07-02",
+      "sources": [
+        "s5"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "En France, une unité de recherche Inserm développe spécifiquement des approches de thérapie génique par vecteurs AAV pour la maladie de Charcot-Marie-Tooth de type 2 (déficit en mitofusine), ainsi que des nanomédicaments à ARN interférent pour les neuropathies périphériques monogéniques.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "s6"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "La neuropathie diabétique, complication la plus fréquente du diabète, a une prévalence très variable selon les études (de 8% à près de 60%), et on estime que la moitié des patients diabétiques développent une neuropathie après 25 ans d'évolution de la maladie.",
+      "chiffre": "50% après 25 ans de diabète",
+      "date_du_chiffre": null,
+      "sources": [
+        "s7"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Sanofi",
+      "role": "laboratoire pharmaceutique, a interrompu en juin 2026 un essai de phase 3 majeur (riliprubart) contre une neuropathie auto-immune rare"
+    },
+    {
+      "nom": "Fédération Internationale du Diabète (FID/IDF)",
+      "role": "organisme de référence qui documente la prévalence mondiale du diabète, principale cause de neuropathie"
+    },
+    {
+      "nom": "Inserm",
+      "role": "institut de recherche français actif sur la thérapie génique et les neuropathies périphériques monogéniques (Charcot-Marie-Tooth)"
+    },
+    {
+      "nom": "Patients atteints de CIDP, de neuropathie diabétique ou de neuropathie des petites fibres",
+      "role": "population concernée, en attente de traitements curatifs plutôt que seulement symptomatiques"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-06-10",
+      "evenement": "Sanofi annonce l'arrêt de l'essai de phase 3 MOBILIZE (riliprubart) contre la CIDP pour futilité, malgré des signaux de phase 2 encourageants"
+    },
+    {
+      "date": "2026-07-02",
+      "evenement": "Essais cliniques actifs recensés (UC Health, UCSD) sur des thérapies géniques ciblées comme ST-503 pour la neuropathie des petites fibres"
+    },
+    {
+      "date": "2025-08-11",
+      "evenement": "Publication de la 11e édition de l'Atlas du diabète de la FID, base de référence sur la prévalence mondiale du diabète et donc du principal facteur de risque de neuropathie"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "D'ici 2029-2030, au moins un traitement réellement modificateur de la maladie (thérapie génique ciblée, biomarqueur validé permettant un diagnostic précoce) obtient une approbation réglementaire pour une ou plusieurs formes spécifiques de neuropathie (génétique ou auto-immune).",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "La recherche continue de produire des résultats scientifiques réels et documentés (essais de phase 2 positifs, nouvelles pistes en thérapie génique et neuroprotection), mais l'écrasante majorité des traitements disponibles pour les patients restent symptomatiques, sans rupture thérapeutique généralisée.",
+      "probabilite_suggeree": 55
+    },
+    "degrade": {
+      "resume": "Une série d'essais cliniques déçoivent (sur le modèle de l'échec Sanofi de juin 2026), aucune avancée majeure n'atteint le marché, tandis que la progression mondiale du diabète continue de faire croître le nombre de patients touchés par une neuropathie.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Adultes diabétiques dans le monde (2024)",
+      "valeur": "589 millions",
+      "tendance": "hausse, vers 853 millions projetés en 2050"
+    },
+    {
+      "label": "Prévalence de la neuropathie chez les diabétiques après 25 ans de maladie",
+      "valeur": "environ 50%",
+      "tendance": "stable/en hausse avec le vieillissement et la durée d'exposition au diabète"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série chiffrée longue et fiable (5+ points vérifiés, dates précises) n'a été trouvée sur ce sujet — la prévalence de la neuropathie varie trop selon les études pour construire une série cohérente ; seul le nombre mondial de diabétiques dispose d'un historique solide (FID), mais il ferait doublon avec l'indicateur déjà cité en KPI plutôt que l'enrichir.",
+    "serie": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Pourquoi « neuropathie » n'est pas une maladie unique : panorama des causes (diabète, chimiothérapie, auto-immunité, génétique, idiopathique) et pourquoi cette diversité complique diagnostic et essais cliniques.",
+        "rattache_a": "faits_verifies[4] et angle général du sujet"
+      },
+      {
+        "focus": "La différence entre soulager la douleur, traiter la cause, stopper la progression et régénérer le nerf — quatre objectifs thérapeutiques distincts souvent confondus, illustrés par l'échec de phase 3 de Sanofi qui visait à stopper la progression plutôt qu'à calmer les symptômes.",
+        "rattache_a": "faits_verifies[1]"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le devenir de l'essai VITALIZE (riliprubart chez patients sous IVIg) n'était pas encore tranché à la date de l'annonce de l'arrêt de MOBILIZE — Sanofi indiquait seulement que la poursuite serait « évaluée en conséquence », sans calendrier ni décision publique confirmée depuis.",
+    "Les chiffres de prévalence de la neuropathie diabétique varient très fortement selon les études (de 8% à près de 60% des patients diabétiques) en raison de critères diagnostiques non harmonisés — aucun chiffre unique consensuel n'a pu être confirmé par recoupement de sources indépendantes.",
+    "Aucune donnée récente et fiable n'a été trouvée sur les budgets de recherche publics/privés comparés (France vs reste du monde) spécifiquement dédiés aux neuropathies — à creuser davantage avant rédaction si ce point doit être chiffré."
+  ],
+  "a_ne_pas_affirmer": [
+    "Ne jamais affirmer qu'un traitement curatif généralisé des neuropathies est proche ou imminent — aucune source ne le confirme, et l'échec Sanofi de juin 2026 illustre au contraire la difficulté persistante du domaine.",
+    "Ne jamais présenter la neuropathie comme une maladie unique avec un seul mécanisme ou un seul traitement possible.",
+    "Ne jamais affirmer un chiffre unique et définitif de prévalence de la neuropathie diabétique (voir élément incertain ci-dessus) sans préciser la fourchette et sa source."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Chiffres : les diabètes dans le monde",
+      "source": "Fédération Française des Diabétiques",
+      "url": "https://www.federationdesdiabetiques.org/information/diabete/chiffres-monde",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences-environnement",
+      "summary": "Panorama chiffré de la prévalence mondiale du diabète en 2024 et des projections à 2050, basé sur l'Atlas du diabète 2025 de la FID.",
+      "read_minutes": 4
+    },
+    {
+      "id": "s2",
+      "title": "Les faits et chiffres sur le diabète mettent en évidence son impact mondial",
+      "source": "International Diabetes Federation (IDF)",
+      "url": "https://idf.org/fr/about-diabetes/diabetes-facts-figures/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences-environnement",
+      "summary": "Source officielle de la FID sur la prévalence mondiale du diabète et ses projections à horizon 2050.",
+      "read_minutes": 3
+    },
+    {
+      "id": "s3",
+      "title": "Press Release: Sanofi provides update on MOBILIZE phase 3 study of riliprubart in chronic inflammatory demyelinating polyneuropathy",
+      "source": "Sanofi",
+      "url": "https://www.sanofi.com/en/media-room/press-releases/2026/2026-06-10-05-00-00-3309444",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Communiqué officiel de Sanofi annonçant l'arrêt de l'essai de phase 3 MOBILIZE pour futilité, sans signal de sécurité.",
+      "read_minutes": 3
+    },
+    {
+      "id": "s4",
+      "title": "Sanofi Halts Phase 3 CIDP Study of Riliprubart After Futility Analysis",
+      "source": "BioPharm International",
+      "url": "https://www.biopharminternational.com/view/sanofi-halts-phase-3-cidp-study-of-riliprubart-after-futility-analysis",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Analyse de l'échec de l'essai MOBILIZE, contrastant les résultats encourageants de phase 2 avec l'échec de la phase 3 confirmatoire.",
+      "read_minutes": 4
+    },
+    {
+      "id": "s5",
+      "title": "UC Health Neuropathy Clinical Trials for 2026",
+      "source": "University of California Health",
+      "url": "https://clinicaltrials.ucbraid.org/neuropathy",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Recensement des essais cliniques actifs en 2026 sur les neuropathies, incluant une thérapie génique ciblant le gène Nav1.7 pour la douleur réfractaire.",
+      "read_minutes": 5
+    },
+    {
+      "id": "s6",
+      "title": "Innovations thérapeutiques - neuropathies périphériques",
+      "source": "Inserm (unité DHNS)",
+      "url": "https://dhns-inserm.fr/innovations-therapeutiques/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences-environnement",
+      "summary": "Description des axes de recherche d'une unité Inserm sur la thérapie génique et les nanomédicaments pour les neuropathies périphériques monogéniques.",
+      "read_minutes": 3
+    },
+    {
+      "id": "s7",
+      "title": "Neuropathie diabétique",
+      "source": "EM Consulte",
+      "url": "https://www.em-consulte.com/article/246058/neuropathie-diabetique",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences-environnement",
+      "summary": "Synthèse médicale rappelant la grande variabilité des chiffres de prévalence de la neuropathie diabétique selon les critères diagnostiques utilisés.",
+      "read_minutes": 4
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "IDF Diabetes Atlas 11th edition",
+      "source": "International Diabetes Federation",
+      "url": "https://idf.org/news/idf-diabetes-atlas-11th-edition/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "La FID souligne que plus de 4 diabétiques sur 10 dans le monde ignorent encore leur maladie, et que les dépenses de santé liées au diabète ont dépassé 1000 milliards de dollars en 2024.",
+      "read_minutes": 3
+    },
+    {
+      "title": "Sanofi stops immune drug trial in latest research setback",
+      "source": "BioPharma Dive",
+      "url": "https://www.biopharmadive.com/news/sanofi-rilipubart-cidp-fail-vigil/822472/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Article replaçant l'échec du riliprubart dans une série plus large de déceptions récentes pour le pipeline de recherche de Sanofi.",
+      "read_minutes": 3
+    }
+  ],
+  "recommandations_redaction": [
+    "Insister sur la distinction entre les quatre objectifs thérapeutiques (soulager/traiter la cause/stopper la progression/régénérer) tout au long de l'article, pas seulement dans l'encart Comprendre — c'est le fil rouge qui évite la confusion journalistique habituelle sur ce sujet.",
+    "Utiliser l'échec de phase 3 de Sanofi (juin 2026) comme exemple concret et récent de la difficulté à transformer des résultats de phase 2 prometteurs en traitement confirmé — évite un ton uniquement pessimiste ou uniquement optimiste.",
+    "Ne pas chercher à donner un chiffre unique de prévalence de la neuropathie diabétique : présenter la fourchette (8-60% selon les études) comme un fait en soi, révélateur du problème de diagnostic évoqué dans l'angle.",
+    "Aucun recoupement direct trouvé avec une édition récente d'archives.html sur ce thème précis (santé/médecine) — pas de lien à ajouter à ce stade, sujet traité pour la première fois sur ce registre récent."
+  ]
+}
