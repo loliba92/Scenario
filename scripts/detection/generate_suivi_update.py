@@ -53,11 +53,16 @@ from generate_daily_edition import (  # noqa: E402
     call_openrouter,
 )
 
-# Passé de DEFAULT_MODEL (anthropic/claude-sonnet-5) à DeepSeek le
-# 18 septembre 2026 : détection de sujets à suivre = tri/classement,
-# pas de rédaction fine — finance le passage d'Opus sur la recherche
-# quotidienne (voir generate_fallback_brief.py).
-DETECTION_MODEL = "deepseek/deepseek-v4-flash"
+# Passé à DeepSeek le 18 septembre 2026 puis REVENU à
+# anthropic/claude-sonnet-5 le même jour, retour utilisateur : ce script
+# ne fait pas du tri/classement (contrairement à generate_hot_topics.py)
+# — il réestime sérieusement les 3 scénarios d'un sujet suivi et écrit
+# le texte publié de la mise à jour (voir docstring du module, « Le
+# jugement éditorial reste le même qu'avant »). Downgrade inadapté,
+# annulé. Seul generate_hot_topics.py (repérage de candidats, jamais
+# publié directement, filtré par une relecture humaine) reste sur
+# DeepSeek pour financer une partie d'Opus sur la recherche quotidienne.
+DETECTION_MODEL = "anthropic/claude-sonnet-5"
 
 SUJETS_A_SUIVRE = ROOT / "docs" / "sujets-a-suivre.md"
 ARCHIVES_DIR = ROOT / "archives"

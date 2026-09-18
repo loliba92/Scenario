@@ -167,6 +167,7 @@
 | B149 | KPI niveaux 2-3 du dashboard | À FAIRE | P2 | 2026-09-03 | Commencer par 1-2 réseaux (Bluesky, Telegram) |
 | B150 | Lectures par édition sur `archives.html` (`reads.json`) | FAIT | — | 2026-09-03 | — |
 | B151 | Migrer le dashboard et `#audience` vers un GitHub Action | À DÉCIDER | — | 2026-09-03 | Valider le plan de migration avec l'utilisateur |
+| B152 | Répartition des modèles OpenRouter par tâche (Opus / Sonnet / DeepSeek) | FAIT | — | 2026-09-18 | Surveiller coût et qualité après la bascule |
 
 ## TICKETS
 
@@ -4135,3 +4136,34 @@ La routine « Scénario — Audience » reste hebdomadaire et coûte une session
 
 ### Historique
 - **2026-09-03** — Plan proposé, non validé.
+
+## B152 — Répartition des modèles OpenRouter par tâche (Opus / Sonnet / DeepSeek)
+
+**Statut:** FAIT
+**Priorité:** —
+**Dernière MAJ:** 2026-09-18
+**Prochaine action:** Surveiller le coût OpenRouter et la qualité des sorties dans les prochains jours
+**Blocage:** Aucun
+
+### État actuel
+Trois scripts OpenRouter ont changé de modèle par défaut le 18 septembre 2026 :
+- `generate_fallback_brief.py` (recherche quotidienne — tourne tous les jours tant que le trigger CCR reste désactivé, voir B004/routine-prompt.md) : passé de Sonnet 5 à **Opus** (`anthropic/claude-opus-5`) — c'est l'étape la plus proche d'un vrai jugement éditorial (choix du sujet, sources, anti-doublon) du pipeline, et elle tourne quotidiennement.
+- `generate_hot_topics.py` (candidats « sujets chauds » ajoutés à `sujets-prioritaires.md`, jamais publiés directement, toujours filtrés par une relecture humaine) : passé à **DeepSeek** (`deepseek/deepseek-v4-flash`), pour financer une partie du surcoût d'Opus.
+- `generate_suivi_update.py` (mise à jour **publiée** des pages de suivi) : brièvement passé à DeepSeek le même jour, puis **revenu à Sonnet 5** — ce script réestime réellement les 3 scénarios et écrit le texte publié, pas un simple tri (voir Historique).
+
+Doc de référence complète (les 11 workflows GitHub Actions, leur fréquence, leur modèle, les incidents réels déjà rencontrés par modèle) : [Modèles OpenRouter dans les workflows GitHub](https://claude.ai/code/artifact/6d6af3a3-35f0-447b-bc7e-3a1af51a4185).
+
+### À faire
+- Surveiller le coût OpenRouter (dashboard `#audience`) et la qualité des briefs Opus / des mises à jour de suivi Sonnet dans les prochains jours.
+- Le dashboard de coût OpenRouter reste global au compte, sans ventilation par modèle/workflow — impossible de mesurer objectivement l'effet réel de cette bascule sans y ajouter un suivi par script (piste notée dans le doc lié ci-dessus).
+- Réévaluer si le trigger CCR de recherche est un jour réactivé (le repli Opus tournerait alors beaucoup moins souvent, changeant le calcul de coût).
+
+### Décisions
+- Critère retenu pour choisir un modèle par script : le volume de jugement éditorial et de rédaction **réellement publiée**, pas la fréquence seule — un script qui écrit du contenu publié (suivi) reste sur un modèle robuste même si son volume est plus faible qu'un script de simple repérage de candidats (hot-topics).
+- `call_openrouter()` (dans `generate_daily_edition.py`, partagé par plusieurs scripts) désactive désormais le raisonnement pour `anthropic/*` **et** `deepseek/*` (avant : `anthropic/*` seul) — nécessaire pour que `generate_hot_topics.py` tourne correctement sur DeepSeek sans reproduire le bug « contenu vide » déjà vu avec un modèle à raisonnement obligatoire.
+
+### Historique
+- **2026-09-18** — Doc préparé recensant les 11 workflows GitHub Actions, leur fréquence, leur modèle par défaut et les incidents réels déjà rencontrés par modèle (Sonnet qui bloque 16 min sans le flag reasoning-off — voir B002 ; GPT-5 qui renvoie un contenu vide si son raisonnement obligatoire mange tout le `max_tokens` — voir l'historique du récap hebdo ; DeepSeek qui tronque sur du texte long, cause du passage de la traduction EN sur Sonnet 5).
+- **2026-09-18** — Première proposition : basculer recherche + détection + hot-topics sur Opus. Retour utilisateur : augmente le coût total sans rien compenser.
+- **2026-09-18** — Proposition corrigée, pensée cost-neutre : Opus sur la recherche seule, financé par DeepSeek sur `detection.yml` et `hot-topics.yml`. Implémentée (import `DEFAULT_MODEL` remplacé par une constante dédiée dans chacun des 3 scripts).
+- **2026-09-18** — Erreur repérée par l'utilisateur (« Détection il ne génère pas l'édition de mise à jour ? ») : `generate_suivi_update.py` ne fait pas du tri, il réestime les scénarios et écrit la mise à jour réellement publiée — downgrade DeepSeek inadapté, revenu à Sonnet 5. Seul `generate_hot_topics.py` reste sur DeepSeek pour financer partiellement Opus — l'équilibre coût n'est donc plus strictement neutre, mais le choix de modèle correspond maintenant à ce que chaque script fait réellement.
