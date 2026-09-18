@@ -32,6 +32,7 @@ Usage :
     OPENROUTER_API_KEY=xxx python3 scripts/edition/generate_hot_topics.py
 """
 import argparse
+import html
 import json
 import os
 import re
@@ -52,9 +53,15 @@ ROOT = Path(__file__).resolve().parents[2]
 SUJETS_PRIORITAIRES = ROOT / "sujets-prioritaires.md"
 SUJETS_A_SUIVRE = ROOT / "docs" / "sujets-a-suivre.md"
 ARCHIVES_DIR = ROOT / "archives"
+DASHBOARD = ROOT / "dashboard.html"
+HOT_TOPICS_HISTORY = ROOT / "assets" / "data" / "hot-topics-history.json"
+# Jamais committé (voir .gitignore) — lu par hot-topics.yml juste après ce
+# script pour construire le corps de l'issue GitHub récapitulative.
+RUN_SUMMARY = ROOT / "hot-topics-run-summary.md"
 
 MAX_PER_REGISTRE = 2
 JOURNAL_WINDOW_DAYS = 45
+HISTORY_MAX_ENTRIES = 30
 
 # clé du registre (utilisée par le modèle dans sa réponse) -> titre EXACT
 # de la section dans sujets-prioritaires.md.
@@ -66,6 +73,26 @@ REGISTRE_HEADINGS = {
     "culture": "## Culture — samedi",
     "sport": "## Sport — dimanche",
 }
+
+# Même clé -> libellé court affiché dans l'issue récapitulative et la
+# carte "Derniers sujets identifiés" du dashboard (texte brut, jamais
+# HTML-échappé ici — l'échappement se fait au moment d'écrire dans
+# dashboard.html, voir update_dashboard_card()).
+REGISTRE_LABELS = {
+    "geopolitique": "Géopolitique",
+    "actualite_francaise": "Actu. française",
+    "economie": "Économie & finance",
+    "sciences": "Sciences",
+    "culture": "Culture",
+    "sport": "Sport",
+}
+
+MONTHS_FULL = ["janvier", "février", "mars", "avril", "mai", "juin",
+               "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
+
+
+def fmt_date_fr(d):
+    return f"{d.day} {MONTHS_FULL[d.month - 1]} {d.year}"
 
 
 class HotTopicsError(Exception):
@@ -206,6 +233,78 @@ def insert_entries(md_text, heading, entries, today):
     return md_text[:insertion_point] + block + md_text[insertion_point:]
 
 
+def write_run_summary(records, today):
+    """Corps de l'issue GitHub récapitulative — lu par hot-topics.yml juste
+    après ce script. Groupé par registre, dans l'ordre de REGISTRE_HEADINGS."""
+    lines = [
+        f"Sujets ajoutés automatiquement à `sujets-prioritaires.md` le {today.isoformat()} "
+        "par la routine de veille (voir `scripts/edition/generate_hot_topics.py`) — "
+        "à valider avant de passer en priorité.",
+        "",
+    ]
+    by_registre = {}
+    for r in records:
+        by_registre.setdefault(r["registre"], []).append(r)
+    for registre, items in by_registre.items():
+        lines.append(f"### {registre}")
+        for it in items:
+            tag = f" [{it['tag']}]" if it["tag"] else ""
+            lines.append(f"- {it['accroche']}{tag}")
+        lines.append("")
+    RUN_SUMMARY.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+
+
+def update_hot_topics_history(new_records):
+    """Historique des sujets ajoutés (plus récent en tête), plafonné à
+    HISTORY_MAX_ENTRIES — alimente la carte "Derniers sujets identifiés"
+    du dashboard. Même principe que update_openrouter_history() dans
+    scripts/seo/update_audience.py."""
+    if HOT_TOPICS_HISTORY.exists():
+        history = json.loads(HOT_TOPICS_HISTORY.read_text(encoding="utf-8"))
+    else:
+        history = []
+    history = new_records + history
+    history = history[:HISTORY_MAX_ENTRIES]
+    HOT_TOPICS_HISTORY.parent.mkdir(parents=True, exist_ok=True)
+    HOT_TOPICS_HISTORY.write_text(
+        json.dumps(history, ensure_ascii=False, indent=2) + "\n", encoding="utf-8",
+    )
+    return history
+
+
+def update_dashboard_card(today, history):
+    """Régénère la carte "Derniers sujets identifiés" de dashboard.html
+    (mêmes marqueurs HTML que ceux posés dans le fichier), même principe
+    de templating direct que update_dashboard() dans
+    scripts/seo/update_audience.py — pas d'attente du prochain passage
+    d'audience.yml, la mise à jour est immédiate."""
+    text = DASHBOARD.read_text(encoding="utf-8")
+
+    date_pattern = re.compile(r"(<!-- HOT-TOPICS:DATE_START -->).*?(<!-- HOT-TOPICS:DATE_END -->)", re.S)
+    if not date_pattern.search(text):
+        raise HotTopicsError("dashboard.html : marqueur HOT-TOPICS:DATE introuvable")
+    text = date_pattern.sub(lambda m: m.group(1) + fmt_date_fr(today) + m.group(2), text)
+
+    shown = history[:10]
+    if shown:
+        items = "\n".join(
+            f'        <li><span class="agenda-later-tag">{html.escape(r["registre"], quote=False)}</span>'
+            f'{html.escape(r["accroche"], quote=False)} '
+            f'<span class="agenda-later-empty">({date.fromisoformat(r["date"]).strftime("%d/%m")})</span></li>'
+            for r in shown
+        )
+    else:
+        items = ('        <li><span class="agenda-later-empty">aucun sujet identifié pour '
+                  "l'instant — prochain passage mardi ou vendredi.</span></li>")
+
+    list_pattern = re.compile(r"(<!-- HOT-TOPICS:LIST_START -->).*?(<!-- HOT-TOPICS:LIST_END -->)", re.S)
+    if not list_pattern.search(text):
+        raise HotTopicsError("dashboard.html : marqueur HOT-TOPICS:LIST introuvable")
+    text = list_pattern.sub(lambda m: m.group(1) + "\n" + items + "\n        " + m.group(2), text)
+
+    DASHBOARD.write_text(text, encoding="utf-8")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
@@ -239,6 +338,7 @@ def main():
         return 1
 
     total = 0
+    added_records = []
     for key, heading in REGISTRE_HEADINGS.items():
         entries = (result.get(key) or [])[:MAX_PER_REGISTRE]
         entries = [e for e in entries if e.get("accroche") and e.get("contexte")]
@@ -250,6 +350,13 @@ def main():
         total += len(entries)
         if not args.dry_run:
             md_text = insert_entries(md_text, heading, entries, today)
+            for e in entries:
+                added_records.append({
+                    "date": today.isoformat(),
+                    "registre": REGISTRE_LABELS[key],
+                    "accroche": e["accroche"].strip(),
+                    "tag": (e.get("tag") or "").strip(),
+                })
 
     if args.dry_run:
         print(f"\n--dry-run : {total} sujet(s) au total, rien écrit.")
@@ -260,6 +367,9 @@ def main():
         return 0
 
     SUJETS_PRIORITAIRES.write_text(md_text, encoding="utf-8")
+    write_run_summary(added_records, today)
+    history = update_hot_topics_history(added_records)
+    update_dashboard_card(today, history)
     print(f"\n{total} sujet(s) ajouté(s) à sujets-prioritaires.md "
           f"(coût OpenRouter ≈ {usage.get('cost', '?')} $).")
     return 0

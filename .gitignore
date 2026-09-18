@@ -5,3 +5,8 @@ __pycache__/
 # scripts/edition/generate_daily_edition.py.
 /_prototype-out/
 
+# Résumé du dernier run de generate_hot_topics.py, lu par hot-topics.yml
+# pour créer l'issue récapitulative — jamais committé, régénéré à chaque
+# run (voir scripts/edition/generate_hot_topics.py).
+/hot-topics-run-summary.md
+
