@@ -294,22 +294,6 @@ jobs:
           fi
           python3 generate_post_edition.py $ARGS --sandbox-root ../../_prototype-out/post-edition
 
-      # Banque le chiffre "pub" du jour (scripts/pub/bank_chiffre.py) —
-      # ajouté le 17 septembre 2026, retour utilisateur : « ce ne serait
-      # pas possible d'inclure cette production dans le workflow de
-      # l'édition ? ». `pub.yml` lit ce champ au lieu de refaire
-      # l'extraction plus tard (voir generate_daily_pub.py,
-      # get_chiffre_for_date()). `continue-on-error: true` : un échec ici
-      # ne doit jamais faire échouer la publication de l'édition elle-même.
-      - name: Banquer le chiffre "pub" du jour
-        if: steps.already.outputs.already != 'true' && steps.config.outputs.publish == 'true'
-        continue-on-error: true
-        env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-        run: |
-          DATE_STR=$(basename "${{ steps.config.outputs.brief }}" .json)
-          python3 scripts/pub/bank_chiffre.py --date "$DATE_STR"
-
       # Même convention que translate-en.yml/reads.yml : commit d'abord,
       # rebase ensuite (git pull --rebase refuse de tourner avec des
       # changements déjà indexés). Rien à committer si generate_post_edition.py

@@ -358,6 +358,35 @@ phrase, jamais un second paragraphe. Bug réel du 14-15 septembre 2026 :
 `text` répétait la phrase d'intro avec un mot différent de `word`,
 produisant un doublon visible sur la page publiée.
 
+### `phrase_a_retenir` et `phrase_a_retenir_stat`
+
+Ajouté le 19 septembre 2026 (retour utilisateur, remplace l'ancienne
+extraction a posteriori par `scripts/pub/generate_daily_pub.py`,
+`extract_chiffre()` — retirée le même jour, voir `docs/ARCHITECTURE.md`).
+Une phrase unique, autonome, pensée pour être reprise **mot pour mot**
+ailleurs (post « pub » quotidien, réseaux sociaux) — jamais retouchée
+après coup, donc à soigner ici directement :
+
+- Doit porter un chiffre ou un fait **déjà établi et vérifié ailleurs
+  dans cette même édition** (`faits_verifies` du brief, un
+  `indicateurs_kpi`, ou un fait déjà cité dans `dek`/`essentiel_box`) —
+  jamais un fait nouveau, jamais inventé pour l'occasion.
+- Compréhensible **seule**, sans le reste de l'article (même règle que
+  `essentiel_box` point 4 : si elle commence par un pronom ou une
+  référence implicite, l'antécédent doit être dans la phrase elle-même).
+- Accrocheuse : c'est la phrase « si tu devais retenir 1 chose » de
+  l'édition — l'information la plus importante, pas forcément la plus
+  spectaculaire (même critère que l'ancien `extract_chiffre()` : que
+  retiendrait un lecteur qui n'a lu que le titre ?).
+- **≤ 280 caractères au total, contrainte dure** — le gabarit de l'image
+  pub (`pub-template-v5-stat.html`) n'a pas de défilement, un dépassement
+  rend l'image illisible (incident réel du 16 septembre 2026, message
+  d'~650 caractères).
+- `phrase_a_retenir_stat` : uniquement le chiffre/l'élément court à
+  mettre en avant séparément (ex. `"41,9 %"`, `"725 Md$"`), qui doit
+  apparaître **mot pour mot à l'intérieur** de `phrase_a_retenir` —
+  jamais un chiffre absent de la phrase.
+
 ### `lexique` (liste d'objets)
 `{"slug": "...", "terme": "...", "definition": "..."}` — chaque terme doit
 apparaître explicitement dans le texte de l'édition (dek/why/encarts) via
@@ -396,6 +425,8 @@ reprend la substance de `question_text`.
   },
   "essentiel_box": ["string", "string", "string", "string"],
   "delta_france": {"kind": "positif", "score": 0.0, "word": "string", "text": "string"},
+  "phrase_a_retenir": "string, ≤ 280 caractères",
+  "phrase_a_retenir_stat": "string, doit apparaître mot pour mot dans phrase_a_retenir",
   "lexique": [{"slug": "string", "terme": "string", "definition": "string"}],
   "sources_html": ["string"],
   "meta": {"title": "string", "meta_description": "string", "og_image_alt": "string"}

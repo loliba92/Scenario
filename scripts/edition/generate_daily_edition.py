@@ -43,6 +43,10 @@ DEFAULT_MODEL = "anthropic/claude-sonnet-5"
 REDACTION_PROMPT_PATH = REPO_ROOT / "docs" / "routine-redaction-prompt.md"
 MIN_WORDS = 1100
 MIN_ESSENTIEL_WORDS = 110  # essentiel_box (4 paragraphes) — voir validate_content_schema()
+# phrase_a_retenir — même plafond que l'ancien CHIFFRE_MAX_CHARS de
+# scripts/pub/generate_daily_pub.py (gabarit d'image pub sans défilement,
+# voir validate_content_schema()).
+PHRASE_A_RETENIR_MAX_CHARS = 280
 MAX_RETRIES = 2  # relevé de 1 à 2 le 17 septembre 2026 (incident réel : 2 essais
 # consécutifs rejetés pour 2 raisons DIFFÉRENTES le même run — lexique non
 # utilisé puis delta_france.word, ce 2e cas s'étant révélé être un vrai bug
@@ -622,7 +626,8 @@ def apply_apres_dek_index_fallback(content):
 def validate_content_schema(content, brief):
     errors = []
     required = ["h1", "question_text", "section_title", "dek", "stakes_branches",
-                "indicators", "cards", "essentiel_box", "delta_france", "lexique",
+                "indicators", "cards", "essentiel_box", "delta_france",
+                "phrase_a_retenir", "phrase_a_retenir_stat", "lexique",
                 "sources_html", "meta"]
     for key in required:
         if key not in content or content[key] in (None, "", []):
@@ -785,6 +790,25 @@ def validate_content_schema(content, brief):
             f"(reçu : {df.get('text')!r}) — text doit commencer directement par la justification"
         )
 
+    # phrase_a_retenir / phrase_a_retenir_stat — ajouté le 19 septembre
+    # 2026, remplace l'ancienne extraction a posteriori dans
+    # scripts/pub/generate_daily_pub.py (extract_chiffre()) : la phrase
+    # citée mot pour mot par le post "pub" du jour vient maintenant
+    # directement d'ici, jamais re-extraite plus tard — voir
+    # docs/routine-redaction-prompt.md pour la règle éditoriale complète.
+    par = (content.get("phrase_a_retenir") or "").strip()
+    par_stat = (content.get("phrase_a_retenir_stat") or "").strip()
+    if len(par) > PHRASE_A_RETENIR_MAX_CHARS:
+        errors.append(
+            f"phrase_a_retenir : {len(par)} caractères (max {PHRASE_A_RETENIR_MAX_CHARS} — "
+            "le gabarit de l'image pub n'a pas de défilement, un dépassement la rend illisible)"
+        )
+    if par_stat and par_stat not in par:
+        errors.append(
+            f"phrase_a_retenir_stat ({par_stat!r}) n'apparaît pas mot pour mot dans "
+            f"phrase_a_retenir ({par!r})"
+        )
+
     for idx, term in enumerate(content.get("lexique", [])):
         if not isinstance(term, dict):
             errors.append(f"lexique[{idx}] : attendu un objet JSON, reçu {type(term).__name__} ({term!r})")
@@ -886,7 +910,7 @@ def validate_assembled_html(html_text, content):
     required_selectors = [
         (".question-box", 1), (".indicator-strip", 1), (".cards", 1),
         (".card", 3), (".lexique", 1), ("footer", 1), (".stakes-box", 1),
-        (".essentiel-box", 1), (".sources-list", 1),
+        (".essentiel-box", 1), (".sources-list", 1), (".retenir-box", 1),
     ]
     for sel, expected_count in required_selectors:
         found = len(soup.select(sel))

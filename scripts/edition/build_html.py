@@ -505,6 +505,17 @@ def build_scenarios(content):
     )
     essentiel_paras = "\n".join(f'<p class="essentiel-text">{p}</p>' for p in content["essentiel_box"])
     df = content["delta_france"]
+    # phrase_a_retenir — ajouté le 19 septembre 2026, remplace l'ancienne
+    # extraction a posteriori du "chiffre" pub (voir docs/ARCHITECTURE.md) :
+    # cette même phrase, affichée ici, est reprise mot pour mot par
+    # scripts/pub/generate_daily_pub.py pour le post du jour — jamais
+    # reformulée entre les deux. phrase_a_retenir_stat est mis en évidence
+    # (1re occurrence seulement, pour ne pas doubler si le chiffre apparaît
+    # deux fois dans la phrase) plutôt que redemandé au modèle en HTML.
+    retenir_text = content["phrase_a_retenir"]
+    retenir_stat = content.get("phrase_a_retenir_stat") or ""
+    if retenir_stat and retenir_stat in retenir_text:
+        retenir_text = retenir_text.replace(retenir_stat, f"<strong>{retenir_stat}</strong>", 1)
     return f"""<section class="scenarios" id="scenarios">
   <div class="wrap">
     <p class="section-label">Favorable, stable ou dégradé</p>
@@ -545,6 +556,11 @@ def build_scenarios(content):
         </div>
         <p class="essentiel-text delta-text"><svg class="delta-flag" viewBox="0 0 21 15" width="16" height="11" aria-hidden="true"><rect x="0" y="0" width="7" height="15" fill="#2a4d8f"/><rect x="7" y="0" width="7" height="15" fill="#ece7da"/><rect x="14" y="0" width="7" height="15" fill="#bd6248"/></svg> <strong>Notre évaluation de l'impact pour la France : <span class="delta-word">{df['word']}</span>.</strong> {df['text']}</p>
       </div>
+    </div>
+
+    <div class="retenir-box" id="retenir" data-stat="{retenir_stat}">
+      <span class="retenir-label">Si tu devais retenir 1 chose</span>
+      <p class="retenir-text">{retenir_text}</p>
     </div>
 
     <div class="follow-inline">

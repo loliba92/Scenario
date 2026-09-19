@@ -941,6 +941,42 @@
     .delta-gauge-marker{ transition: none; }
   }
 
+  /* ---------- Phrase à retenir ---------- */
+  /* Ajouté le 19 septembre 2026 : LA phrase de l'édition, reprise mot
+     pour mot par le post "pub" du jour (scripts/pub/generate_daily_pub.py)
+     — voir docs/routine-redaction-prompt.md § phrase_a_retenir et
+     docs/ARCHITECTURE.md. Traitement volontairement plus appuyé que
+     .essentiel-box (fond plein plutôt que bordure) : c'est la seule
+     phrase de l'édition pensée pour être lue hors contexte. */
+  .retenir-box{
+    background: var(--gold);
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin: 20px 0 0;
+  }
+
+  .retenir-label{
+    display: block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    opacity: 0.7;
+    margin: 0 0 8px;
+  }
+
+  .retenir-text{
+    font-family: "Fraunces", serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  .retenir-text strong{ font-weight: 700; }
+
   /* ---------- Encart liste (sorties, classements...) ---------- */
   /* Composant réutilisable pour toute liste mise en avant dans un article —
      même recette que .essentiel-box (fond surface, bordure dorée, label
@@ -1731,7 +1767,8 @@
     .essentiel-box{ margin-top: 14px; padding: 14px 16px; }
     .essentiel-text + .essentiel-text{ margin-top: 8px; }
     .france-line{ padding: 8px 10px; }
-    .list-box, .comprendre-box, .dc-chart-box, .card, .essentiel-box{
+    .retenir-box{ margin-top: 12px; padding: 14px 16px; }
+    .list-box, .comprendre-box, .dc-chart-box, .card, .essentiel-box, .retenir-box{
       break-inside: avoid;
     }
     @page{ margin: 12mm; }
