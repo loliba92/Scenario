@@ -35,14 +35,14 @@ s'arrêter proprement (voir main()) plutôt que de deviner.
 
 **IMPORTANT — conséquence réelle d'une exécution.** `feed-pub.xml` est
 lu par un scénario Make.com qui poste automatiquement le nouvel item sur
-Telegram/X/LinkedIn/Facebook/Instagram (voir docs/ARCHITECTURE.md). Ce
-script n'est PAS branché sur un GitHub Action à ce stade précisément
-pour cette raison — contrairement aux autres scripts mécaniques du
-dépôt (reads.yml, audience.yml), une exécution ratée ici ne se contente
-pas de mal afficher une page interne, elle publie un vrai post public.
-Tant qu'il n'a pas été validé en conditions réelles avec l'accord
-explicite de l'utilisateur, l'exécuter seulement à la main, jamais via
-un cron automatique.
+Telegram/X/LinkedIn/Facebook/Instagram (voir docs/ARCHITECTURE.md) — une
+exécution ratée ici ne se contente pas de mal afficher une page interne,
+elle publie un vrai post public. Branché sur `.github/workflows/pub.yml`
+(cron quotidien) depuis sa validation en conditions réelles le 12
+septembre 2026. `entry_id`/`guid` étant déterministes sur la date du
+jour, un 2e déclenchement le même jour (dispatch manuel après le cron,
+run relancé) est reconnu et ignoré proprement dès le début de `main()`
+(voir `expected_entry_id`) plutôt que de tenter un doublon.
 
 Usage :
     python3 scripts/pub/generate_daily_pub.py --dry-run
@@ -433,6 +433,18 @@ def main():
     md_text = PUB_MESSAGES.read_text(encoding="utf-8")
     feed_xml = FEED_PUB.read_text(encoding="utf-8")
     feed_items = parse_feed_items(feed_xml)
+
+    # Idempotence (ajouté le 19 septembre 2026, incident réel — voir
+    # docs/ARCHITECTURE.md) : entry_id/guid sont purement déterministes sur
+    # la date du jour, donc un 2e déclenchement le même jour (dispatch
+    # manuel après le cron, ou un run relancé) redemande exactement le même
+    # guid qu'un run déjà réussi et committé — sans ce garde-fou,
+    # validate_feed_xml() le découvre trop tard, après tout le travail
+    # (image, appel OpenRouter de traduction) déjà fait en double.
+    expected_entry_id = f"chiffre-{date_str}"
+    if any(it["entry_id"] == expected_entry_id for it in feed_items):
+        print(f"[pub] {expected_entry_id} déjà publié aujourd'hui (présent dans feed-pub.xml) — rien à faire.")
+        return 0
 
     usage_total = {"cost": 0.0, "total_tokens": 0}
 
