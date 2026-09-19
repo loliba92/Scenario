@@ -24,7 +24,7 @@
 | B006 | Traduire le récap hebdo en anglais | À DÉCIDER | P2 | 2026-08-29 | Trancher le scope des liens « Lire l'édition → » |
 | B007 | Traduire `le-projet.html` et les pages légales en anglais | À DÉCIDER | — | 2026-08-29 | Lever les 2 réserves (RGPD/juridique, glossaire) |
 | B008 | Traduction rétroactive des archives en anglais | À DÉCIDER | — | 2026-08-31 | Revisiter le 2026-09-15, avec B139 |
-| B009 | Déclinaison papier — « Les Cahiers de Scénario » | STANDBY | P3 | 2026-08-25 | Partir de la maquette du 25 août pour la Phase 1 |
+| B009 | Déclinaison papier — « Les Cahiers de Scénario » | STANDBY | P3 | 2026-09-19 | Partir de la maquette du 25 août pour la Phase 1 ; comparer à brief.me au redémarrage |
 | B010 | Image de pub Instagram générique (brand-teaser) | FAIT | — | 2026-08-09 | Pousser l'image en pub Meta (geste utilisateur) |
 | B011 | WhatsApp comme canal de distribution | À FAIRE | P2 | 2026-08 | Explorer le module natif WhatsApp Business Cloud API |
 | B012 | Pub payante (Meta/X) et distribution gratuite | À FAIRE | P2 | 2026-08-10 | Tracking de conversion avant toute dépense |
@@ -407,8 +407,8 @@ Seules les éditions traduites au fil de l'eau existent en anglais : la traducti
 
 **Statut:** STANDBY
 **Priorité:** P3
-**Dernière MAJ:** 2026-08-25
-**Prochaine action:** Si on avance : partir de la maquette `docs/mockups/cahier-scenario-2026-08-25.html` pour la Phase 1 de `docs/strategie-papier.md` (PDF hebdo freemium réservé aux abonnés newsletter) — ne pas repartir d'une page blanche
+**Dernière MAJ:** 2026-09-19
+**Prochaine action:** Si on avance : partir de la maquette `docs/mockups/cahier-scenario-2026-08-25.html` pour la Phase 1 de `docs/strategie-papier.md` (PDF hebdo freemium réservé aux abonnés newsletter) — ne pas repartir d'une page blanche. En redémarrant, comparer explicitement à l'offre brief.me (voir Historique 2026-09-19) — objectif affiché : les dépasser, pas les égaler.
 **Blocage:** Rien d'engagé ; attend que l'utilisateur veuille avancer. Prix de la Phase 3 à revoir une fois un devis de fulfillment obtenu
 
 ### État actuel
@@ -430,6 +430,7 @@ Stratégie complète et phasage déjà tranchés et documentés dans `docs/strat
 ### Historique
 - **2026-08-17 (idée)** — Question posée par l'utilisateur : faut-il décliner Scénario en version papier, et si oui comment. Avis et stratégie détaillés dans `docs/strategie-papier.md`. Chiffrage indicatif de la Phase 3 : « Cahier Scénario », impression à la demande sans stock (devis Gelato ~40p : ≈7,55 € HT en promo / ≈11 € HT hors promo, à réévaluer sur le format 100-120p réel), prix indicatif 12-15 € TTC/numéro ou ~45-55 €/an en abonnement — **impact prix à revoir** une fois un devis de fulfillment obtenu (commission/tarif au pli non inclus dans le calcul DIY). Serait le premier revenu récurrent au-delà du don libre Buy Me a Coffee.
 - **2026-08-25** — Maquette 2 pages A4 réalisée et versionnée (`docs/mockups/cahier-scenario-2026-08-25.html`) : couverture plein cadre + page article, contenu réel du site (chiffres, scénarios, « L'essentiel », vraie photo Pexels déjà utilisée sur le site — rien d'inventé), calibrée A4 210×297 mm, imprimable directement. Sert à juger du ton d'un numéro payant à focus thématique tournant — exemple pris : « IA chinoise : cadeau ou piège ? ».
+- **2026-09-19** — Analyse du concurrent brief.me à la demande de l'utilisateur (newsletter payante, 7 min/jour, sans image ; voir aussi B153 pour les autres pistes tirées de cette analyse). Leur format « Panoramas » (dossiers mensuels de fond, mis à jour régulièrement) mappé par l'utilisateur sur **ce ticket-ci plutôt que sur un nouveau format web** : le bon véhicule pour un sujet de fond façon Panorama, chez nous, c'est le Cahier imprimé (ou son PDF, Phase 1), pas une nouvelle page web à inventer. **Objectif explicite de l'utilisateur, à garder en tête pour tout ce ticket : ne pas juste égaler brief.me, les écraser** — à un stade où ce ticket redémarre, comparer explicitement l'offre imprimée à la leur (contenu, cadence, prix, distribution) plutôt que la construire en vase clos. Rien de tranché ni engagé à ce stade : statut, phasage et prochaine action inchangés, `docs/strategie-papier.md` reste la source de vérité — ce point est une piste d'inspiration à instruire quand ce ticket repassera actif, pas une décision.
 ---
 
 ## B010 — Image de pub Instagram générique (« brand-teaser », ex « Suis @scenarios.actu »)
