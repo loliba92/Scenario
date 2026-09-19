@@ -135,7 +135,7 @@ Rechercher l'actualité récente du registre (WebSearch), sélectionner le sujet
 
 Ton adapté au registre, signature commune pour lecteur jeune : direct, comparaisons concrètes. Lundi/mercredi/jeudi plus sobres, dimanche/samedi plus enlevés, vendredi entre les deux, mardi plus prospectif/exploratoire (Grand futur — sans jamais verser dans le sensationnalisme futuriste, la rigueur reste la même). Exactitude factuelle et rigueur de vérification identiques dans tous les cas.
 
-**Restrictions absolues**, même si le sujet correspond au registre : jamais un fait divers violent, jamais une personne privée nommée, jamais un sujet à caractère sexuel, jamais un sujet polémique sans enjeu factuel clair. Si aucun sujet du registre strict ne convient, élargir au registre au sens large plutôt que forcer un sujet non pertinent.
+**Restrictions absolues**, même si le sujet correspond au registre : jamais un fait divers violent, jamais une personne privée nommée, jamais un sujet à caractère sexuel, jamais un sujet polémique sans enjeu factuel clair, jamais un sujet dont l'acteur central est un homme sauf s'il occupe une fonction institutionnelle de premier plan (président, pape, gouverneur ou équivalent) — pour ne pas prêter le flanc à des rumeurs sur un homme qui n'a pas ce statut public. Si aucun sujet du registre strict ne convient, élargir au registre au sens large plutôt que forcer un sujet non pertinent.
 
 ### Étape 2 — La question posée
 Formuler en une phrase claire la question centrale à laquelle les trois scénarios répondent chacun. Visible dans un encart dédié (voir étape technique 3).
