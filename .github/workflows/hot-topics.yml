@@ -44,23 +44,60 @@ jobs:
       - name: Installer les dépendances
         run: pip install beautifulsoup4
 
-      - name: Chercher et proposer des sujets chauds
+      # Regénère et pousse dans une boucle qui repart de zéro à chaque
+      # essai — jamais un `git pull --rebase` sur le diff déjà généré
+      # (convention `commit d'abord, rebase ensuite` utilisée ailleurs
+      # dans ce dépôt, ex. translate-en.yml/reads.yml). Corrigé le
+      # 19 septembre 2026 après un incident réel : trois exécutions de ce
+      # workflow le même jour (18 septembre, dispatches manuels
+      # rapprochés) ont chacune rebasé leur propre diff d'insertion (voir
+      # insert_entries() dans generate_hot_topics.py) sur un `main` déjà
+      # bougé par l'exécution précédente — un rebase texte sans conflit
+      # explicite mais dont les hunks, immédiatement adjacents (deux
+      # insertions différentes au même point de la même section), se sont
+      # mal recollés : le commentaire d'intro de la section Sport s'est
+      # retrouvé fusionné sans retour à la ligne avec un sujet inséré par
+      # une autre exécution, et le tout déplacé avant son propre en-tête
+      # (voir docs/ARCHITECTURE.md pour l'incident complet et la
+      # correction manuelle du fichier). insert_entries() calcule son
+      # point d'insertion à partir du contenu lu AU MOMENT du run — le
+      # rejouer tel quel sur un fichier qui a bougé entre-temps n'est
+      # jamais sûr, contrairement à une regénération fraîche.
+      #
+      # Ici : à chaque essai, repartir d'un `main` fraîchement fetché
+      # (`reset --hard`, jamais de rebase), relancer le script sur ce
+      # contenu à jour, committer, et tenter un push fast-forward simple.
+      # Un push refusé (main a encore bougé entre le fetch et le push, un
+      # créneau bien plus étroit qu'avant puisqu'aucun appel réseau
+      # OpenRouter ne s'intercale) relance tout l'essai depuis un état
+      # propre plutôt que de tenter de réconcilier deux diffs — un nouvel
+      # appel OpenRouter à chaque conflit reste un coût largement
+      # acceptable face au risque de recorrompre le fichier.
+      - name: Chercher, committer et pousser (relance depuis zéro si le push est refusé)
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-        run: python3 scripts/edition/generate_hot_topics.py
-
-      - name: Committer et pousser
         run: |
           git config user.name "scenario-topics-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add sujets-prioritaires.md dashboard.html assets/data/hot-topics-history.json
-          if git diff --cached --quiet; then
-            echo "Aucun changement — rien à committer."
-            exit 0
-          fi
-          git commit -m "[sujets] propositions automatiques à valider"
-          git pull --rebase origin main
-          git push origin main
+          for attempt in 1 2 3; do
+            echo "=== Essai $attempt/3 ==="
+            git fetch origin main
+            git reset --hard origin/main
+            python3 scripts/edition/generate_hot_topics.py
+            git add sujets-prioritaires.md dashboard.html assets/data/hot-topics-history.json
+            if git diff --cached --quiet; then
+              echo "Aucun changement — rien à committer."
+              exit 0
+            fi
+            git commit -m "[sujets] propositions automatiques à valider"
+            if git push origin main; then
+              echo "Poussé avec succès (essai $attempt)."
+              exit 0
+            fi
+            echo "Push refusé (essai $attempt) — main a bougé entre-temps, on relance depuis un état frais."
+          done
+          echo "Échec après 3 essais — abandon." >&2
+          exit 1
 
       - name: Créer une issue récapitulative si des sujets ont été ajoutés
         env:
