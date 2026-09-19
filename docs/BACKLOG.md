@@ -169,6 +169,7 @@
 | B151 | Migrer le dashboard et `#audience` vers un GitHub Action | À DÉCIDER | — | 2026-09-03 | Valider le plan de migration avec l'utilisateur |
 | B152 | Répartition des modèles OpenRouter par tâche (Opus / Sonnet / DeepSeek) | FAIT | — | 2026-09-18 | Surveiller coût et qualité après la bascule |
 | B153 | Cadence de publication vs péremption des sujets chauds | À DÉCIDER | P2 | 2026-09-19 | Semaine du 22/09 : repenser la construction du backlog, évaluer plusieurs éditions/jour |
+| B154 | Bulletin d'actualité court quotidien (« produit d'appel »), touche scénario | À DÉCIDER | P2 | 2026-09-19 | Semaine du 22/09, avec B153 : clarifier format et coût de production |
 
 ## TICKETS
 
@@ -4204,3 +4205,28 @@ La mesure de succès de la refonte n'est donc pas seulement « le stock ne gross
 ### Historique
 - **2026-09-18** — Ticket ouvert suite au retour utilisateur sur la profondeur de certaines files (30+ sujets = plusieurs mois à l'ancienne logique d'insertion en bas) — la mesure immédiate a été l'insertion en haut de section (`generate_hot_topics.py`) ; celui-ci reste ouvert pour trancher une restructuration ou un changement de cadence si le problème persiste malgré ça.
 - **2026-09-19** — Retour utilisateur explicite confirmant le problème (plus seulement une observation à faire « avec du recul ») : la vraie cause est le déséquilibre structurel entre 3 canaux d'alimentation et 1 seul canal de consommation quotidien, plus un puits de sujets déjà existant jamais rattrapé. Reporté explicitement à la semaine du 22 septembre pour une refonte de la logique de construction du backlog, avec le passage à plusieurs éditions/jour comme piste explicitement nommée à évaluer.
+---
+
+## B154 — Bulletin d'actualité court quotidien (« produit d'appel »), touche scénario
+
+**Statut:** À DÉCIDER
+**Priorité:** P2
+**Dernière MAJ:** 2026-09-19
+**Prochaine action:** Semaine du 22 septembre 2026, avec B153 — clarifier le format exact et son coût de production avant de trancher
+**Blocage:** Aucun — idée posée, rien de tranché ni engagé
+
+### État actuel
+Née d'une discussion plus large analysant brief.me et Hugo Décrypte comme concurrents (voir aussi B153 pour les autres pistes de cette analyse, B009 pour le volet papier). Précision explicite de l'utilisateur : ce n'est **pas** une simple revue de presse en 5-10 points façon agrégateur — l'édition quotidienne actuelle (un sujet, évalué, 3 scénarios chiffrés) reste le cœur différenciant, jamais à diluer. L'idée est un **produit complémentaire, distinct** : un bulletin court (5-10 points), chacun avec « la touche scénario » — pas juste un fait constaté, une mini-analyse prospective (qu'est-ce qui pourrait se passer, un peu de recul) sur chaque point. Positionné comme un **produit d'appel** : attrape les lecteurs qui veulent un point rapide et simple sans s'engager sur l'édition longue du jour, tout en gardant l'ADN prospectif de Scénario (contrairement à brief.me, purement factuel/rétrospectif, et à Hugo Décrypte, punchy mais sans angle d'analyse) — puis les amène vers le vrai produit.
+
+### À faire
+- Clarifier le format exact : longueur par point, combien de « mini-touches scénario » réellement possibles sans tomber dans le générique creux (« ça pourrait s'aggraver ou s'améliorer » ne vaut rien).
+- Chiffrer le coût de production réel — point décisif : est-ce que chaque point nécessite sa propre recherche/vérification (nouvelle ligne de production, chère, entre en concurrence directe avec la capacité déjà sous tension identifiée en B153), ou est-ce que ça peut s'appuyer sur `revue_de_presse` (déjà collecté gratuitement pendant la recherche du sujet du jour, 2-5 liens croisés, voir `docs/routine-brief-format.md`) enrichi d'une ligne prospective générée en plus, ce qui le rendrait quasi gratuit ?
+- Si adossé à `revue_de_presse` : ce champ n'est aujourd'hui exploité que par `sources.html`, jamais mis en avant côté lecteur — évaluer de l'élever au rang de contenu à part entière (newsletter, réseaux) plutôt que de construire une collecte séparée.
+- Trancher la relation avec la piste « plusieurs éditions/jour » de B153 : ce bulletin est-il une 2e édition à part entière, ou une section/un envoi plus léger, distinct dans son ambition et son coût ?
+- Lien direct avec le « puits de sujets » de B153 : un format court pourrait écouler une partie du stock de `sujets-prioritaires.md` que l'édition longue quotidienne (1 sujet/jour) ne rattrapera jamais — à chiffrer une fois le format arrêté.
+
+### Décisions
+Aucune — à trancher la semaine du 22 septembre 2026, avec B153.
+
+### Historique
+- **2026-09-19** — Idée posée par l'utilisateur pendant l'analyse de brief.me/Hugo Décrypte comme concurrents, avec une correction explicite : pas une revue de presse plate, un format court mais avec la touche scénario (mini-analyse prospective par point), pensé comme produit d'appel vers l'édition longue existante.
