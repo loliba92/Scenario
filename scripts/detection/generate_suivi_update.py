@@ -27,6 +27,13 @@ Garde-fous repris du reste du pipeline OpenRouter :
 - Jamais un sujet dont le point de référence a moins de 10 jours.
 - `--dry-run` : affiche ce qui serait fait, ne modifie/committe rien.
 
+Filtrage par domaine (ajouté le 19 septembre 2026, retour utilisateur) :
+le suivi n'a de sens que sur les sujets qui évoluent réellement dans le
+temps — géopolitique, actualité/politique française, économie & finance.
+Les domaines culture/sciences/tech (ex. tournée d'un chanteur, forme d'un
+super-héros de cinéma) ne sont jamais candidats au suivi, quel que soit
+leur écart en points. Voir ALLOWED_SUIVI_DOMAINS et read_edition_domain().
+
 Ce script écrit les fichiers mais NE COMMIT PAS — comme `generate_daily_
 pub.py`, c'est au workflow appelant de committer/pousser (voir
 .github/workflows/detection.yml).
@@ -73,9 +80,27 @@ EN_FEED_SUIVI = ROOT / "en" / "feed-suivi.xml"
 TOPIC_IMAGES_DIR = ROOT / "assets" / "social" / "topic-images"
 PARIS = ZoneInfo("Europe/Paris")
 
+# Résumé du dernier run, lu par detection.yml juste après ce script pour
+# créer une issue GitHub récapitulative — jamais committé (voir
+# .gitignore), même principe que hot-topics-run-summary.md
+# (generate_hot_topics.py). Ajouté le 19 septembre 2026, retour
+# utilisateur : après l'incident de coût, avoir une trace simple de ce
+# que chaque passage a fait (sujet mis à jour, coût, candidats vérifiés/
+# reportés) sans devoir rouvrir les logs du run.
+DETECTION_RUN_SUMMARY = ROOT / "detection-run-summary.md"
+
 GAP_THRESHOLD = 20
 MIN_REFERENCE_AGE_DAYS = 10
 JOURNAL_WINDOW_DAYS = 30
+# Ajouté le 19 septembre 2026, retour utilisateur explicite : le suivi
+# n'a de sens (et de valeur assez grande pour son coût) que sur les
+# sujets qui évoluent réellement dans le temps — géopolitique,
+# actualité/politique française, économie & finance. Les domaines
+# culture/sciences/tech ne sont plus jamais candidats au suivi, quel que
+# soit leur écart en points ("on s'en fout que Spider-Man se porte bien").
+# Slugs repris de docs/tags.md (liste fermée des 6 domaines) — voir
+# read_edition_domain().
+ALLOWED_SUIVI_DOMAINS = {"international", "politique-institutions", "economie-entreprises"}
 # Ajouté le 19 septembre 2026, retour utilisateur : sans plafond, CHAQUE
 # candidat éligible (tout suivi actif + toute entrée du journal des 30
 # derniers jours, dès qu'ils dépassent MIN_REFERENCE_AGE_DAYS) payait une
@@ -234,6 +259,15 @@ def mark_journal_entry_has_suivi(md_text, date_iso):
     if n != 1:
         raise DetectionError(f"ligne journal introuvable pour {date_iso!r}")
     return new_text
+
+
+def read_edition_domain(html_text):
+    """Domaine de l'édition (voir docs/tags.md), depuis
+    <meta name="domain" content="..."> — présent sur index.html/archives/
+    *.html, jamais sur les pages suivi/ elles-mêmes (voir son usage :
+    toujours appelé sur l'édition D'ORIGINE, jamais la page suivi)."""
+    m = re.search(r'<meta name="domain" content="([^"]*)">', html_text)
+    return m.group(1) if m else None
 
 
 # ---------------------------------------------------------------------------
@@ -800,6 +834,39 @@ def insert_feed_item(feed_path, item_xml):
     feed_path.write_text(xml_text, encoding="utf-8")
 
 
+def write_run_summary(today, total_cost, candidats_ce_passage, reportes, signalled, winner_info=None):
+    """Corps de l'issue GitHub récapitulative — lu par detection.yml juste
+    après ce script (jamais committé, voir DETECTION_RUN_SUMMARY). Appelé
+    à chaque exécution réelle (hors --dry-run), qu'un sujet ait été mis à
+    jour ou non — visibilité voulue sur ce qui s'est passé et combien ça a
+    coûté, sans avoir à rouvrir les logs du run."""
+    lines = [f"Passage du {fmt_date_long(today)} — coût OpenRouter ≈ {total_cost:.3f} $."]
+    lines.append("")
+    if winner_info:
+        lines.append("### 🏆 Sujet mis à jour")
+        lines.append(f"**{winner_info['h1']}** → [`suivi/{winner_info['slug']}.html`]({winner_info['link']}) "
+                      f"— {winner_info['version_label']}")
+        lines.append(f"> {winner_info['social']}")
+    else:
+        lines.append("Aucun sujet mis à jour ce passage-ci (rien de significatif trouvé parmi les candidats vérifiés).")
+    lines.append("")
+    lines.append(f"### Candidats vérifiés ({len(candidats_ce_passage)}/{MAX_CANDIDATES_PER_RUN})")
+    for c in candidats_ce_passage:
+        lines.append(f"- {c['h1']}")
+    if signalled:
+        lines.append("")
+        lines.append("### Signalé")
+        for marker, title, note in signalled:
+            if marker:
+                lines.append(f"- {marker} {title} — {note}")
+    if reportes:
+        lines.append("")
+        lines.append(f"### Reportés au(x) passage(s) suivant(s) ({len(reportes)})")
+        for c in reportes:
+            lines.append(f"- {c['h1']}")
+    DETECTION_RUN_SUMMARY.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+
+
 def generate_suivi_social_image(topic, conclusion, photo_path, output_path, en=False):
     import subprocess
     template = ROOT / "scripts" / "social" / ("suivi-template-en.html" if en else "suivi-template.html")
@@ -856,7 +923,18 @@ def main():
     journal = [j for j in journal if j["title"] not in active_slugs_titles]
 
     candidates = []
+    domain_excluded = []
     for e in active_suivis:
+        # Domaine lu sur l'édition D'ORIGINE (les pages suivi/ elles-mêmes
+        # n'ont pas de <meta domain>) — absent (édition d'origine
+        # introuvable/trop ancienne) : jamais exclu par défaut, seulement
+        # si le domaine est positivement identifié et hors liste.
+        origin_archive = ARCHIVES_DIR / f"{e['origin_date'].isoformat()}.html"
+        if origin_archive.exists():
+            origin_domain = read_edition_domain(origin_archive.read_text(encoding="utf-8"))
+            if origin_domain and origin_domain not in ALLOWED_SUIVI_DOMAINS:
+                domain_excluded.append(e["title"])
+                continue
         state = read_suivi_state((SUIVI_DIR / f"{e['slug']}.html").read_text(encoding="utf-8"))
         ref_date = state["evo_entries"][-1]["date"]  # texte court, non parsable fiablement -> utiliser origin/version_count comme repère d'âge
         # Repère d'âge fiable : la dernière ligne "Dernière vérification : {date longue} (VN)."
@@ -875,13 +953,22 @@ def main():
         archive_path = ARCHIVES_DIR / f"{j['date'].isoformat()}.html"
         if not archive_path.exists():
             continue
-        h1, stakes, cards = read_edition_scenarios(archive_path.read_text(encoding="utf-8"))
+        archive_text = archive_path.read_text(encoding="utf-8")
+        domain = read_edition_domain(archive_text)
+        if domain and domain not in ALLOWED_SUIVI_DOMAINS:
+            domain_excluded.append(j["title"])
+            continue
+        h1, stakes, cards = read_edition_scenarios(archive_text)
         if len(cards) != 3:
             continue
         candidates.append({
             "type": "journal", "h1": h1, "origin_date": j["date"], "reference_date": j["date"],
             "scenarios": {c["kind"]: c for c in cards}, "stakes": stakes,
         })
+
+    if domain_excluded:
+        print(f"[detection] {len(domain_excluded)} sujet(s) hors domaine suivi (culture/sciences/tech), "
+              f"jamais candidats : {domain_excluded}")
 
     # Candidats réellement interrogeables ce passage-ci (au-delà de
     # MIN_REFERENCE_AGE_DAYS), triés du plus en retard au moins en retard
@@ -933,6 +1020,7 @@ def main():
                 print(f"{marker} {title} — {note}")
         if changed_paths:
             print(f"\n[detection] correctifs CSS appliqués : {changed_paths}")
+        write_run_summary(today, total_cost, candidats_ce_passage, reportes, signalled)
         return 0
 
     winner_cand, winner_result = select_winner(eligible, args.model, api_key)
@@ -1092,8 +1180,12 @@ def main():
     for marker, title, note in signalled:
         if marker:
             print(f"{marker} {title} — {note}")
-    print(f"\nCoût OpenRouter total ≈ {total_cost:.4f} $ ({len(candidates)} candidats évalués).")
+    print(f"\nCoût OpenRouter total ≈ {total_cost:.4f} $ ({len(candidats_ce_passage)} candidats évalués).")
     print(f"Fichiers modifiés : {changed_paths}")
+
+    version_label = f"V{version_n}" if winner_cand["type"] == "suivi" else "V1"
+    winner_info = {"h1": winner_cand["h1"], "slug": slug, "link": link, "version_label": version_label, "social": social}
+    write_run_summary(today, total_cost, candidats_ce_passage, reportes, signalled, winner_info)
     return 0
 
 
