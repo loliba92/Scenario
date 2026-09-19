@@ -168,7 +168,7 @@
 | B150 | Lectures par édition sur `archives.html` (`reads.json`) | FAIT | — | 2026-09-03 | — |
 | B151 | Migrer le dashboard et `#audience` vers un GitHub Action | À DÉCIDER | — | 2026-09-03 | Valider le plan de migration avec l'utilisateur |
 | B152 | Répartition des modèles OpenRouter par tâche (Opus / Sonnet / DeepSeek) | FAIT | — | 2026-09-18 | Surveiller coût et qualité après la bascule |
-| B153 | Cadence de publication vs péremption des sujets chauds | À DÉCIDER | P2 | 2026-09-18 | Observer quelques semaines, voir si des sujets périment malgré l'insertion en haut |
+| B153 | Cadence de publication vs péremption des sujets chauds | À DÉCIDER | P2 | 2026-09-19 | Semaine du 22/09 : repenser la construction du backlog, évaluer plusieurs éditions/jour |
 
 ## TICKETS
 
@@ -4175,22 +4175,24 @@ Doc de référence complète (les 11 workflows GitHub Actions, leur fréquence, 
 
 **Statut:** À DÉCIDER
 **Priorité:** P2
-**Dernière MAJ:** 2026-09-18
-**Prochaine action:** Observer plusieurs semaines de sujets ajoutés par `generate_hot_topics.py`, voir si certains périment malgré l'insertion en haut de section
-**Blocage:** Aucun — nécessite du recul dans le temps avant de trancher
+**Dernière MAJ:** 2026-09-19
+**Prochaine action:** Semaine du 22 septembre 2026 (demande explicite de l'utilisateur) : repenser la logique de construction du backlog (les 3 sources qui l'alimentent, le rythme d'1 édition/jour qui le consomme) + évaluer le passage à plusieurs éditions/jour (matin/après-midi)
+**Blocage:** Aucun — attente du utilisateur pour la semaine prochaine
 
 ### État actuel
 Constat de l'utilisateur le 18 septembre 2026 : certains registres accumulent 30+ sujets non cochés (ex. Économie & finance), consommés un par semaine (un registre par jour d'édition) — même avec l'insertion en haut de section désormais en place (changement du même jour dans `generate_hot_topics.py`, voir son historique), un sujet ajouté attend au minimum le prochain passage de son registre, potentiellement plusieurs semaines si le fichier est déjà réordonné entre-temps. Un sujet vraiment daté (ex. « l'essence à 3 €») peut donc rester pertinent une semaine mais périmer avant même ce prochain passage.
 
+**Mise à jour du 19 septembre 2026** : le problème n'est plus seulement hypothétique. Retour utilisateur explicite — le vrai problème de fond, c'est la « journey » (le cycle de vie) des sujets, pas seulement leur qualité individuelle (déjà traitée par ailleurs le même jour, voir les tickets/incidents sur l'anti-doublon et la barre d'importance de `generate_hot_topics.py` dans `docs/ARCHITECTURE.md`). Trois canaux alimentent `sujets-prioritaires.md` en continu : l'utilisateur lui-même, la routine Claude Code quotidienne (recherche du jour), et `hot-topics.yml` (1-2x/semaine). Un seul canal consomme la file : 1 édition publiée par jour, donc 1 sujet par registre par semaine (7 registres, cadence hebdomadaire par registre). Le débit d'alimentation dépasse structurellement le débit de consommation — la file grossit plus vite qu'elle ne se vide, ce qui garantit qu'une partie croissante du stock (le « puits » de sujets déjà existant, en plus des nouveaux ajouts chaque semaine) ne sera jamais publiée à temps, périmée ou non.
+
 ### À faire
-- Après quelques semaines de recul, vérifier si des sujets ajoutés par la routine de veille arrivent effectivement périmés à leur tour de publication.
-- Si oui, deux pistes à trancher, pas encore choisies :
-  - Restructurer les registres (fusionner/scinder, ex. donner plus de créneaux hebdomadaires aux registres qui génèrent le plus de sujets datés).
-  - Augmenter la fréquence de publication (2 éditions/jour, ou plus de jours couverts) pour vider la file deux fois plus vite.
-- Les deux pistes ont un coût (temps de rédaction, coût OpenRouter, charge de relecture humaine) à mettre en regard du problème réel une fois mesuré — ne rien décider avant d'avoir constaté des cas concrets de péremption.
+- Semaine du 22 septembre 2026 : repenser la logique de construction du backlog dans son ensemble (pas seulement `generate_hot_topics.py`) — comment les 3 canaux d'alimentation (utilisateur, routine quotidienne, workflow hebdo) et le seul canal de consommation (1 édition/jour) doivent s'articuler pour que le stock ne croisse pas indéfiniment.
+- Évaluer concrètement le passage à plusieurs éditions par jour (ex. matin + après-midi) comme option pour doubler le débit de consommation — poser les coûts réels (temps de rédaction, coût OpenRouter par édition supplémentaire, charge de relecture humaine, fatigue éditoriale du lectorat à absorber 2x plus de contenu/jour) en face du problème.
+- Ancien plan (restructurer les registres pour donner plus de créneaux aux registres qui génèrent le plus de sujets datés) reste une option alternative/complémentaire à réévaluer dans la même passe, pas seulement l'augmentation de cadence.
+- Traiter aussi le puits de sujets déjà existant (pas seulement les nouveaux ajouts) — un stock déjà là ne se résout pas seulement en changeant le flux entrant/sortant à partir de maintenant.
 
 ### Décisions
-- Pas de changement de structure ni de cadence pour l'instant — on observe d'abord. La mesure la moins coûteuse (insertion en haut de section plutôt qu'en bas dans `generate_hot_topics.py`) a déjà été prise le même jour, avant de trancher quoi que ce soit de plus lourd.
+- Pas de changement de structure ni de cadence pour l'instant — le sujet est explicitement reporté à la semaine du 22 septembre 2026, sur demande de l'utilisateur (« on améliorera semaine prochaine »). La mesure la moins coûteuse (insertion en haut de section plutôt qu'en bas dans `generate_hot_topics.py`) reste la seule prise à ce stade.
 
 ### Historique
 - **2026-09-18** — Ticket ouvert suite au retour utilisateur sur la profondeur de certaines files (30+ sujets = plusieurs mois à l'ancienne logique d'insertion en bas) — la mesure immédiate a été l'insertion en haut de section (`generate_hot_topics.py`) ; celui-ci reste ouvert pour trancher une restructuration ou un changement de cadence si le problème persiste malgré ça.
+- **2026-09-19** — Retour utilisateur explicite confirmant le problème (plus seulement une observation à faire « avec du recul ») : la vraie cause est le déséquilibre structurel entre 3 canaux d'alimentation et 1 seul canal de consommation quotidien, plus un puits de sujets déjà existant jamais rattrapé. Reporté explicitement à la semaine du 22 septembre pour une refonte de la logique de construction du backlog, avec le passage à plusieurs éditions/jour comme piste explicitement nommée à évaluer.
