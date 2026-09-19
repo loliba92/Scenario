@@ -421,13 +421,17 @@ def build_search_prompt(candidate):
 def search_and_reestimate(candidate, model, api_key):
     tools = [{"type": "openrouter:web_search", "parameters": {"engine": "auto", "max_results": 6}}]
     prompt = build_search_prompt(candidate)
-    content, usage = call_openrouter(
+    # call_openrouter() renvoie déjà le contenu parsé (un dict, pas une
+    # chaîne JSON) — un JSON invalide est géré EN INTERNE par
+    # call_openrouter() (InvalidModelJSON, sous-classe de GenerationError,
+    # déjà catchée par l'appelant de search_and_reestimate() dans main()).
+    # Bug réel du 19 septembre 2026 : ce `json.loads(content)` en trop
+    # tentait de re-parser un dict déjà parsé — TypeError non catché (seul
+    # json.JSONDecodeError l'était), qui faisait planter tout le run au
+    # lieu de sauter proprement ce candidat (voir la boucle dans main()).
+    result, usage = call_openrouter(
         prompt, model, api_key, temperature=0.3, max_tokens=4000, timeout=150, tools=tools,
     )
-    try:
-        result = json.loads(content)
-    except json.JSONDecodeError as e:
-        raise GenerationError(f"réponse non-JSON pour {candidate['h1']!r} : {e}\n{content[:1500]}")
 
     if not result.get("has_development"):
         return None, usage
@@ -471,11 +475,17 @@ def select_winner(eligible, model, api_key):
     for i, (cand, res) in enumerate(eligible):
         lines.append(f"{i}. {cand['h1']} — écart {res['gap']} points — {res['fact_paragraph']}")
     lines.append('\nRenvoie {"chosen_index": N}.')
-    content, usage = call_openrouter(
+    # Même bug que search_and_reestimate() (voir son commentaire) : content
+    # est déjà un dict, jamais une chaîne JSON à reparser — avec le
+    # json.loads(content) qu'il y avait ici, le except Exception attrapait
+    # SYSTÉMATIQUEMENT un TypeError et ignorait silencieusement le choix
+    # qualitatif du modèle, retombant à chaque fois sur le repli "plus gros
+    # écart" plutôt que le choix réellement demandé.
+    result, usage = call_openrouter(
         "\n".join(lines), model, api_key, temperature=0.2, max_tokens=200, timeout=60,
     )
     try:
-        idx = json.loads(content)["chosen_index"]
+        idx = result["chosen_index"]
         return eligible[int(idx)]
     except Exception:
         # Repli déterministe plutôt que planter sur un sujet par ailleurs
