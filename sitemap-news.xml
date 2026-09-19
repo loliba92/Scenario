@@ -22,4 +22,15 @@
       <news:title>Neuropathy: Research Moves Forward, Treatments Stall</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-09-19.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-09-19T06:04:19+02:00</news:publication_date><news:title>Sheeran-Macklemore : la neutralité impossible</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-09-19.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-09-19T06:04:19+02:00</news:publication_date><news:title>Sheeran-Macklemore : la neutralité impossible</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-09-19.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-19T06:04:19+02:00</news:publication_date>
+      <news:title>Sheeran-Macklemore: the impossible neutrality</news:title>
+    </news:news>
+  </url>
+</urlset>
