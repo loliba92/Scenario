@@ -2,6 +2,41 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-09-19",
+      "articles": [
+        {
+          "title": "Which artists have pulled out of Ed Sheeran's tour over Palestine?",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/9/16/the-artists-who-pulled-out-of-ed-sheerans-tour-over-palestine",
+          "image": null,
+          "lang": "en",
+          "domain": "culture-divertissement",
+          "summary": "Récapitulatif de tous les artistes ayant quitté la tournée de Sheeran en solidarité avec Macklemore, certains citant l'histoire irlandaise de l'occupation.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Ed Sheeran Openers Quit Tour as Boycott Begins Over 'Silencing' of Macklemore's Palestine Speech",
+          "source": "Common Dreams",
+          "url": "https://www.commondreams.org/news/ed-sheeran-palestine-boycott",
+          "image": null,
+          "lang": "en",
+          "domain": "culture-divertissement",
+          "summary": "Un journaliste palestino-américain qualifie l'affaire de 'moment Afrique du Sud' pour la pop culture et sa complicité avec Israël.",
+          "read_minutes": 4
+        },
+        {
+          "title": "Hannah Einbinder slams Ed Sheeran over Macklemore's 'Loop Tour' exit",
+          "source": "Fox News",
+          "url": "https://www.foxnews.com/entertainment/hannah-einbinders-brutal-message-ed-sheeran-fuels-growing-celebrity-revolt-over-macklemore-tour-drama",
+          "image": null,
+          "lang": "en",
+          "domain": "culture-divertissement",
+          "summary": "L'actrice Hannah Einbinder critique publiquement Ed Sheeran sur Instagram, alimentant une révolte grandissante de célébrités.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-09-18",
       "articles": [
         {

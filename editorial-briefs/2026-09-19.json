@@ -349,5 +349,14 @@
     "Ne pas confondre cette affaire avec le sujet Mbappé/Ceuta mentionné dans les brouillons de veille : il s'agit de deux polémiques distinctes sur la neutralité des artistes/sportifs face à des enjeux politiques, ne pas les mélanger dans l'article.",
     "Bien distinguer, dans l'article, la version de Macklemore (pression directe de Kraft sur Sheeran) de celle du promoteur Messina Touring Group (décision collective des salles) — les deux ne sont pas totalement alignées.",
     "Mentionner explicitement que le concert de Philadelphie du 19 septembre est concomitant à la publication de cet article : vérifier son déroulement effectif avant publication si possible (aucune annulation de dernière minute rapportée à l'heure de la recherche)."
-  ]
+  ],
+  "chiffre_candidat_checked": true,
+  "chiffre_candidat": {
+    "eyebrow": "LE SAVIEZ-VOUS",
+    "stat": "24%",
+    "message": "Le prix du billet le moins cher pour le concert de Philadelphie du 19 septembre est passé de 126 à 96 dollars en trois jours, une baisse d'environ 24%",
+    "attribution": "— lesscenarios.fr, 19 septembre 2026",
+    "cta": "👉 Abonne-toi, un chiffre qui marque chaque jour",
+    "source": "https://lesscenarios.fr/archives/2026-09-19.html"
+  }
 }
