@@ -33,6 +33,10 @@ temps — géopolitique, actualité/politique française, économie & finance.
 Les domaines culture/sciences/tech (ex. tournée d'un chanteur, forme d'un
 super-héros de cinéma) ne sont jamais candidats au suivi, quel que soit
 leur écart en points. Voir ALLOWED_SUIVI_DOMAINS et read_edition_domain().
+Le sport, sans domaine dédié depuis la restructuration du 9 septembre
+(classé sous economie-entreprises/politique-institutions selon l'angle),
+est écarté séparément par mots-clés sur le titre — voir SPORT_KEYWORDS et
+is_sport_topic().
 
 Ce script écrit les fichiers mais NE COMMIT PAS — comme `generate_daily_
 pub.py`, c'est au workflow appelant de committer/pousser (voir
@@ -101,6 +105,20 @@ JOURNAL_WINDOW_DAYS = 30
 # Slugs repris de docs/tags.md (liste fermée des 6 domaines) — voir
 # read_edition_domain().
 ALLOWED_SUIVI_DOMAINS = {"international", "politique-institutions", "economie-entreprises"}
+# Ajouté le 19 septembre 2026, retour utilisateur : le sport n'a plus de
+# domaine dédié depuis la restructuration du 9 septembre (docs/tags.md) —
+# un article sport est classé sous economie-entreprises ou politique-
+# institutions selon son angle ("Ligue 1 : le foot français peut-il
+# survivre...", "Sport féminin : la loi oblige..."), donc invisible au
+# filtre ALLOWED_SUIVI_DOMAINS ci-dessus. Faute de domaine dédié, détection
+# par mots-clés sur le titre — voir is_sport_topic().
+SPORT_KEYWORDS = {
+    "sport", "sportif", "sportive", "football", "foot", "rugby", "tennis",
+    "golf", "boxe", "basket", "basketball", "handball", "volley", "volleyball",
+    "athletisme", "cyclisme", "natation", "jeux olympiques", "olympique",
+    "olympiques", "ligue 1", "ligue des champions", "coupe du monde",
+    "formule 1", "tour de france", "roland-garros", "roland garros",
+}
 # Ajouté le 19 septembre 2026, retour utilisateur : sans plafond, CHAQUE
 # candidat éligible (tout suivi actif + toute entrée du journal des 30
 # derniers jours, dès qu'ils dépassent MIN_REFERENCE_AGE_DAYS) payait une
@@ -268,6 +286,13 @@ def read_edition_domain(html_text):
     toujours appelé sur l'édition D'ORIGINE, jamais la page suivi)."""
     m = re.search(r'<meta name="domain" content="([^"]*)">', html_text)
     return m.group(1) if m else None
+
+
+def is_sport_topic(title):
+    """Mots-clés sport sur le titre — voir SPORT_KEYWORDS pour pourquoi
+    (pas de domaine dédié depuis la restructuration du 9 septembre)."""
+    n = unicodedata.normalize("NFKD", title).encode("ascii", "ignore").decode().lower()
+    return any(re.search(rf"\b{re.escape(kw)}\b", n) for kw in SPORT_KEYWORDS)
 
 
 # ---------------------------------------------------------------------------
@@ -939,6 +964,9 @@ def main():
             if origin_domain and origin_domain not in ALLOWED_SUIVI_DOMAINS:
                 domain_excluded.append(e["title"])
                 continue
+        if is_sport_topic(e["title"]):
+            domain_excluded.append(e["title"])
+            continue
         state = read_suivi_state((SUIVI_DIR / f"{e['slug']}.html").read_text(encoding="utf-8"))
         ref_date = state["evo_entries"][-1]["date"]  # texte court, non parsable fiablement -> utiliser origin/version_count comme repère d'âge
         # Repère d'âge fiable : la dernière ligne "Dernière vérification : {date longue} (VN)."
@@ -962,6 +990,9 @@ def main():
         if domain and domain not in ALLOWED_SUIVI_DOMAINS:
             domain_excluded.append(j["title"])
             continue
+        if is_sport_topic(j["title"]):
+            domain_excluded.append(j["title"])
+            continue
         h1, stakes, cards = read_edition_scenarios(archive_text)
         if len(cards) != 3:
             continue
@@ -971,7 +1002,7 @@ def main():
         })
 
     if domain_excluded:
-        print(f"[detection] {len(domain_excluded)} sujet(s) hors domaine suivi (culture/sciences/tech), "
+        print(f"[detection] {len(domain_excluded)} sujet(s) hors périmètre suivi (culture/sciences/tech, sport), "
               f"jamais candidats : {domain_excluded}")
 
     # Candidats réellement interrogeables ce passage-ci (au-delà de
