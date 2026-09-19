@@ -18,6 +18,16 @@ semaine) devienne périmé. En haut, il est le premier choisi au prochain
 passage de son registre. MAX_PER_REGISTRE (2) sert de facto de "sujet
 principal + sujet de secours" pour ce prochain passage.
 
+**Marqueur 🔍, ajouté le 19 septembre 2026 (correctif root cause).** Être
+premier dans la file ne suffisait pas à garantir la revue humaine promise
+ci-dessus ("je vérifierai si ça mérite de les passer en prioritaire") :
+rien n'empêchait Étape 0 de piocher une proposition non revue dès son tour
+suivant, parfois le lendemain (cas réel du 19 septembre 2026, voir
+docs/ARCHITECTURE.md — un sujet ajouté la veille a été retenu tel quel,
+sans validation). Chaque entrée écrite par ce script est désormais préfixée
+`🔍` (voir format_entry()) — docs/routine-prompt.md § Étape 0 l'ignore
+explicitement tant qu'un humain ne l'a pas retiré à la main.
+
 Deux échappatoires supplémentaires, pour un sujet encore plus urgent que
 "la semaine prochaine" — le modèle choisit via le champ 'urgence' de sa
 réponse (voir build_prompt()), mais les plafonds MAX_CARTE_BLANCHE /
@@ -185,6 +195,24 @@ def build_prompt(existing_by_registre, priorite_absolue_titles, carte_blanche_ti
         "juste pour remplir une case vide : une vraie actualité chaude "
         "d'abord, la reformulation en 3 scénarios ensuite.",
         "",
+        "Barre d'importance, tout aussi non négociable : un sujet doit avoir "
+        "une VRAIE conséquence structurelle (économique, politique, "
+        "scientifique, sociétale, institutionnelle) — jamais un sujet dont "
+        "l'intérêt tient surtout au buzz ou à l'émoi qu'il suscite (polémique "
+        "de personnalité, célébrité, réseaux sociaux) sans enjeu de fond "
+        "vérifiable. Test simple : si le sujet disparaissait des radars dans "
+        "un mois sans laisser de trace réelle (aucun changement de politique, "
+        "de marché, de rapport de force, de connaissance...), ce n'est pas "
+        "un sujet chaud au sens de ce backlog, même s'il fait beaucoup parler "
+        "cette semaine.",
+        "",
+        "Scénario est un site FRANÇAIS, lu par des lecteurs français : à "
+        "candidats comparables dans un même registre, préférer celui qui a "
+        "une vraie portée ou un lien concret pour un lecteur français (pas "
+        "besoin d'un sujet franco-français — un sujet mondial avec un enjeu "
+        "réel convient très bien) plutôt qu'un sujet purement anecdotique à "
+        "l'étranger, sans résonance ni conséquence réelle côté France.",
+        "",
         "Registres à couvrir, un par un, sans en sauter aucun : "
         "geopolitique, actualite_francaise, economie, sciences, culture, sport.",
         "",
@@ -245,7 +273,14 @@ def format_entry(entry, today, origin_label=None):
     tag = entry.get("tag", "").strip()
     contexte = entry.get("contexte", "").strip()
     scenarios = entry.get("scenarios") or {}
-    title_line = f"- [ ] {accroche}"
+    # Préfixe 🔍 : marque une proposition automatique pas encore validée par
+    # l'utilisateur — docs/routine-prompt.md § Étape 0 l'ignore explicitement
+    # tant qu'il n'est pas retiré à la main. Sans ce marqueur, l'entrée était
+    # indiscernable d'un sujet déjà validé et pouvait être piochée par
+    # l'auto-sélection dès son tour suivant, sans jamais passer par la revue
+    # humaine que ce script est censé préparer (voir incident du 19 septembre
+    # 2026, docs/ARCHITECTURE.md).
+    title_line = f"- [ ] 🔍 {accroche}"
     if tag:
         title_line += f" [{tag}]"
     comment_parts = [f"Ajouté automatiquement le {today.isoformat()} (recherche OpenRouter, "

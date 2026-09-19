@@ -110,12 +110,18 @@ def extract_priority_queue(path=SUJETS_PRIORITAIRES_PATH):
     """sujets-prioritaires.md fait plus de 100 Ko (dizaines de sujets déjà
     traités, chacun avec son commentaire de recherche complet, jamais
     purgés) — mais l'Étape 0 n'a jamais besoin que du PREMIER sujet non
-    coché de chaque section (« elle prend le premier sujet non coché »,
-    voir l'intro du fichier), jamais de la file entière. Ne garde que le
-    texte d'intro + chaque titre de section + son premier `- [ ]`, avec le
+    coché et non marqué 🔍 de chaque section (« elle prend le premier sujet
+    non coché, en sautant les propositions 🔍 pas encore validées », voir
+    l'intro du fichier), jamais de la file entière. Ne garde que le texte
+    d'intro + chaque titre de section + ce premier `- [ ]` éligible, avec le
     commentaire de recherche qui l'accompagne s'il y en a un — réduit le
     prompt d'un facteur ~15 sans perdre l'information dont Étape 0 se sert
-    réellement."""
+    réellement. **Doit sauter les lignes 🔍** (propositions automatiques de
+    `generate_hot_topics.py`, jamais éligibles tant qu'un humain ne les a
+    pas validées à la main, voir docs/routine-prompt.md § Étape 0) — sans
+    ça, un premier candidat 🔍 masquerait un vrai candidat validé situé
+    juste après lui dans la même section (incident du 19 septembre 2026,
+    voir docs/ARCHITECTURE.md)."""
     if not path.exists():
         return "(fichier absent ou vide)"
     import re
@@ -125,8 +131,13 @@ def extract_priority_queue(path=SUJETS_PRIORITAIRES_PATH):
     out = [head.split("\n---\n")[0].strip()]
     for sec in sections:
         title_line, _, body = sec.partition("\n")
-        m = re.search(r"^- \[ \] .*?(?=\n- \[|\Z)", body, re.S | re.M)
-        out.append(title_line + "\n" + (m.group(0).strip() if m else "(rien de non coché dans cette section)"))
+        entries = re.findall(r"^- \[ \] .*?(?=\n- \[|\Z)", body, re.S | re.M)
+        candidate = next(
+            (e for e in entries if not e[len("- [ ] "):].lstrip().startswith("🔍")), None,
+        )
+        out.append(title_line + "\n" + (candidate.strip() if candidate else
+                    "(rien de non coché et validé dans cette section — seulement, le cas échéant, "
+                    "des propositions 🔍 non encore validées par l'utilisateur, à ignorer)"))
     return "\n\n".join(out)
 
 
