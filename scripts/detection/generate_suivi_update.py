@@ -76,6 +76,18 @@ PARIS = ZoneInfo("Europe/Paris")
 GAP_THRESHOLD = 20
 MIN_REFERENCE_AGE_DAYS = 10
 JOURNAL_WINDOW_DAYS = 30
+# Ajouté le 19 septembre 2026, retour utilisateur : sans plafond, CHAQUE
+# candidat éligible (tout suivi actif + toute entrée du journal des 30
+# derniers jours, dès qu'ils dépassent MIN_REFERENCE_AGE_DAYS) payait une
+# recherche web complète via search_and_reestimate() — coût proportionnel
+# au nombre de sujets suivis, sans limite, constaté en conditions réelles
+# jusqu'à 10 appels (~1,78 $) en un seul passage. Réduire la cadence du
+# cron (detection.yml) réduit la fréquence de ce coût, jamais son montant
+# par passage — seul un plafond ici borne le coût réel. Les candidats les
+# plus en retard (reference_date la plus ancienne) passent en premier —
+# jamais oubliés, juste étalés sur plusieurs passages au lieu de tous
+# payés le même jour.
+MAX_CANDIDATES_PER_RUN = 3
 
 KIND_ORDER = ["favorable", "stable", "degrade"]
 KIND_LABEL = {"favorable": "Favorable", "stable": "Stable", "degrade": "Dégradé"}
@@ -875,13 +887,27 @@ def main():
             "scenarios": {c["kind"]: c for c in cards}, "stakes": stakes,
         })
 
+    # Candidats réellement interrogeables ce passage-ci (au-delà de
+    # MIN_REFERENCE_AGE_DAYS), triés du plus en retard au moins en retard
+    # — puis plafonnés à MAX_CANDIDATES_PER_RUN (voir sa définition plus
+    # haut). Ceux qui dépassent le plafond ne sont jamais perdus : ils
+    # restent éligibles, juste reportés au(x) passage(s) suivant(s), avec
+    # une priorité plus forte la prochaine fois puisqu'ils seront encore
+    # plus en retard.
+    interrogeable = [c for c in candidates if (today - c["reference_date"]).days > MIN_REFERENCE_AGE_DAYS]
+    interrogeable.sort(key=lambda c: c["reference_date"])
+    reportes = interrogeable[MAX_CANDIDATES_PER_RUN:]
+    candidats_ce_passage = interrogeable[:MAX_CANDIDATES_PER_RUN]
+    if reportes:
+        print(f"[detection] {len(reportes)} candidat(s) éligible(s) en plus, reportés au(x) passage(s) "
+              f"suivant(s) (plafond MAX_CANDIDATES_PER_RUN={MAX_CANDIDATES_PER_RUN}) : "
+              + ", ".join(c["h1"] for c in reportes))
+
     eligible = []
     signalled = []
     total_cost = 0.0
-    for cand in candidates:
+    for cand in candidats_ce_passage:
         age_days = (today - cand["reference_date"]).days
-        if age_days <= MIN_REFERENCE_AGE_DAYS:
-            continue  # jamais publiable ce passage-ci -> pas la peine de payer une recherche
         if args.dry_run:
             print(f"[dry-run] candidat interrogeable : {cand['h1']} (type={cand['type']}, âge={age_days}j)")
             continue
