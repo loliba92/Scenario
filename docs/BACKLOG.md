@@ -169,7 +169,7 @@
 | B151 | Migrer le dashboard et `#audience` vers un GitHub Action | À DÉCIDER | — | 2026-09-03 | Valider le plan de migration avec l'utilisateur |
 | B152 | Répartition des modèles OpenRouter par tâche (Opus / Sonnet / DeepSeek) | FAIT | — | 2026-09-18 | Surveiller coût et qualité après la bascule |
 | B153 | Cadence de publication vs péremption des sujets chauds | À DÉCIDER | P2 | 2026-09-19 | Semaine du 22/09 : repenser la construction du backlog, évaluer plusieurs éditions/jour |
-| B154 | Bulletin d'actualité court quotidien (« produit d'appel »), touche scénario | À DÉCIDER | P2 | 2026-09-19 | Semaine du 22/09, avec B153 : clarifier format et coût de production |
+| B154 | Panorama de l'actualité du jour (« produit d'appel », remplace revue_de_presse) | À DÉCIDER | P2 | 2026-09-19 | Semaine du 22/09 : trouver un nom, chiffrer le coût, sort de sources.html |
 
 ## TICKETS
 
@@ -4173,6 +4173,8 @@ Doc de référence complète (les 11 workflows GitHub Actions, leur fréquence, 
 - **2026-09-18** — Question posée : GPT-5 plutôt que DeepSeek sur `hot-topics.yml` ? Écarté : GPT-5 coûte plus cher (raisonnement obligatoire non désactivable, `max_tokens` à relever comme sur le hebdo) pour un enjeu qualité faible ici (candidats non publiés, filtrés par l'utilisateur) — aurait mangé l'économie qui finance Opus. DeepSeek confirmé sur ce script.
 - **2026-09-18** — Doc de référence rapatrié depuis l'Artifact claude.ai vers un vrai fichier versionné, `docs/modeles-openrouter.md` (retour utilisateur : nom "Artifact" ne veut rien dire) — mis à jour pour refléter l'état final (Opus recherche / Sonnet détection / DeepSeek hot-topics et pub).
 
+**Posture concurrentielle générale (retour utilisateur du 19 septembre 2026), au-dessus de B153/B154 : approche plus agressive que maintenant pour concurrencer brief.me, Hugo Décrypte et compagnie — passe par du SEO très actif et les réseaux sociaux, pas seulement par le contenu.** Concerne directement les tickets SEO déjà ouverts (B067 netlinking, B068 audit SEO récurrent, B103 SEO de base, B140 titres SEO/glossaire) — à revisiter/accélérer dans le même esprit à la semaine du 22 septembre, pas seulement B153/B154.
+
 ## B153 — Cadence de publication vs péremption des sujets chauds
 
 **Statut:** À DÉCIDER
@@ -4207,7 +4209,7 @@ La mesure de succès de la refonte n'est donc pas seulement « le stock ne gross
 - **2026-09-19** — Retour utilisateur explicite confirmant le problème (plus seulement une observation à faire « avec du recul ») : la vraie cause est le déséquilibre structurel entre 3 canaux d'alimentation et 1 seul canal de consommation quotidien, plus un puits de sujets déjà existant jamais rattrapé. Reporté explicitement à la semaine du 22 septembre pour une refonte de la logique de construction du backlog, avec le passage à plusieurs éditions/jour comme piste explicitement nommée à évaluer.
 ---
 
-## B154 — Bulletin d'actualité court quotidien (« produit d'appel »), touche scénario
+## B154 — Panorama de l'actualité du jour (« produit d'appel », remplace revue_de_presse)
 
 **Statut:** À DÉCIDER
 **Priorité:** P2
@@ -4220,16 +4222,22 @@ Née d'une discussion plus large analysant brief.me et Hugo Décrypte comme conc
 
 **Précision du 19 septembre 2026, après discussion** : le champ `revue_de_presse` existant (voir plus bas) est confirmé comme le socle de ce bulletin — mais **sans les liens sortants vers les articles sources**, que l'utilisateur juge peu lus (souvent en anglais, cliqués par personne en pratique). Rédaction 100% en propre, jamais un simple lien à cliquer : un « panorama 360° » de l'actualité France + monde, simple et efficace, qui se suffit à lui-même pour comprendre ce qui se passe aujourd'hui — le lecteur n'a jamais besoin de sortir du bulletin pour en tirer l'essentiel. Ça pousse le coût de production un cran au-dessus d'un simple lien+titre (chaque point doit être rédigé, pas juste sourcé), mais reste bien en dessous d'un sujet traité en édition longue — la recherche/collecte reste celle déjà faite pour `revue_de_presse` (gratuite), seule la rédaction de chaque point s'ajoute.
 
+**Résumé du 19 septembre 2026, statuant sur le coût et le sort de `revue_de_presse`** : coût de production plus élevé qu'un lien+titre explicitement accepté par l'utilisateur (« ça coûtera plus cher forcément ») — ce n'est plus un critère qui bloque la décision, juste un fait à budgéter. Correction par rapport à la précision précédente : **`revue_de_presse` sous sa forme actuelle (liens sortants, relégué à `sources.html`) est jugée non fonctionnelle par l'utilisateur (« n'est pas ok, ça marche pas ») — à retirer, pas à faire coexister.** Ce produit d'appel (panorama rédigé en propre) la remplace, il ne s'ajoute pas à côté.
+
 ### À faire
+- Trouver un nom accrocheur pour ce produit — pas encore arrêté, à faire à la semaine du 22 septembre.
 - Clarifier le format exact : longueur par point, combien de « mini-touches scénario » réellement possibles sans tomber dans le générique creux (« ça pourrait s'aggraver ou s'améliorer » ne vaut rien).
-- Chiffrer le coût de production réel du **texte rédigé par point** (recherche déjà gratuite via `revue_de_presse`, seule la rédaction s'ajoute) — reste à mesurer si c'est automatisable à bas coût (un prompt qui transforme chaque entrée `revue_de_presse` en 2-3 phrases autonomes + une touche prospective) ou si ça demande une vraie relecture humaine par point, ce qui change complètement l'équation de charge posée en B153.
-- `revue_de_presse` n'est aujourd'hui exploité que par `sources.html`, jamais mis en avant côté lecteur, et conserve encore le lien sortant vers l'article source — à faire évoluer : rédaction autonome sans lien pour ce nouveau bulletin, `sources.html` peut garder les liens pour sa propre fonction (transparence/traçabilité), les deux usages n'ont pas à partager exactement le même format.
+- Chiffrer précisément le coût de production réel (accepté comme plus élevé, mais pas encore chiffré) du **texte rédigé par point** (recherche déjà gratuite via l'actuel `revue_de_presse`, seule la rédaction s'ajoute) — mesurer si c'est automatisable à bas coût (un prompt qui transforme chaque entrée en 2-3 phrases autonomes + une touche prospective) ou si ça demande une vraie relecture humaine par point.
+- Décider concrètement du sort de `sources.html`/`sources-log.json` maintenant que leur source (`revue_de_presse` sous sa forme actuelle) est amenée à disparaître — soit ils sont réalimentés autrement, soit ils sont retirés avec elle ; ne pas laisser une page qui ne se met plus à jour.
 - Trancher la relation avec la piste « plusieurs éditions/jour » de B153 : ce bulletin est-il une 2e édition à part entière, ou une section/un envoi plus léger, distinct dans son ambition et son coût ?
 - Lien direct avec le « puits de sujets » de B153 : un format court pourrait écouler une partie du stock de `sujets-prioritaires.md` que l'édition longue quotidienne (1 sujet/jour) ne rattrapera jamais — à chiffrer une fois le format arrêté.
 
 ### Décisions
-- **Pas de lien sortant vers les articles sources dans ce bulletin** (tranché le 19 septembre 2026) — rédaction propre uniquement, panorama qui se suffit à lui-même. `sources.html` reste le seul endroit qui garde les liens externes.
+- **Pas de lien sortant vers les articles sources dans ce bulletin** (tranché le 19 septembre 2026) — rédaction propre uniquement, panorama qui se suffit à lui-même.
+- **Coût de production plus élevé qu'un simple lien accepté comme un fait, pas un blocage** (19 septembre 2026).
+- **`revue_de_presse` sous sa forme actuelle (liens sortants) à retirer, remplacée par ce produit d'appel — pas de coexistence** (19 septembre 2026, corrige la décision précédente qui gardait `sources.html` inchangé à côté).
 
 ### Historique
 - **2026-09-19** — Idée posée par l'utilisateur pendant l'analyse de brief.me/Hugo Décrypte comme concurrents, avec une correction explicite : pas une revue de presse plate, un format court mais avec la touche scénario (mini-analyse prospective par point), pensé comme produit d'appel vers l'édition longue existante.
 - **2026-09-19** — Précision : socle sur `revue_de_presse`, mais sans les liens sortants (jugés peu lus, souvent en anglais) — rédaction 100% en propre, panorama 360° autonome plutôt qu'un lien à cliquer.
+- **2026-09-19** — Résumé de clôture de la discussion du jour : posture concurrentielle plus agressive assumée (SEO + réseaux sociaux, voir la note au-dessus de B153) ; coût de production plus élevé du bulletin explicitement accepté ; correction sur `revue_de_presse` — jugée non fonctionnelle sous sa forme actuelle, à retirer et remplacer par ce produit d'appel plutôt qu'à faire coexister avec.
