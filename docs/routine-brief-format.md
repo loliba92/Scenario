@@ -33,7 +33,8 @@ sur un fichier partagé entre deux process).
     "tags": ["string"],
     "domain": "un des 6 slugs de docs/tags.md",
     "image_keywords": "string, 2-3 mots-clés thématiques EN, ou null",
-    "complexite": "entier 1 à 5, voir § dédié plus bas"
+    "complexite": "entier 1 à 5, voir § dédié plus bas",
+    "origine_prioritaire": "string ou null, voir § dédié plus bas"
   },
   "anti_doublon": {
     "veille_ok": true,
@@ -224,6 +225,42 @@ JSON, plutôt que dans un script à écrire.
   agrandi (`is-highlight`) sur le graphique.
 - `tooltip` : texte au survol de chaque point (élément SVG `<title>`),
   jamais vide.
+
+## Champ `sujet.origine_prioritaire` (utilisé par `generate_post_edition.py`, pas la rédaction)
+
+Ajouté le 19 septembre 2026, correctif root cause : `sujets-prioritaires.md`
+accumulait des sujets déjà publiés mais jamais cochés (`- [ ]` au lieu de
+`- [x]`), constaté sur plusieurs éditions depuis le changement d'architecture
+du 14 septembre (ex. Taïwan le 14, ARENH le 16, neuropathies le 18). Cause :
+« cocher la case après publication réussie » (Étape 0 de
+`docs/routine-prompt.md`) était une consigne pour la routine interactive,
+qui ne publie plus elle-même depuis le 14 septembre — elle s'arrête après
+avoir déclenché le pipeline, bien avant la publication réelle. Aucun script
+du pipeline (`generate_daily_edition.py`, `generate_post_edition.py`,
+`generate_fallback_brief.py`) ne cochait quoi que ce soit à sa place :
+personne ne le faisait plus, pour aucune édition (repli ou routine normale).
+
+**Quand l'Étape 0 de `docs/routine-prompt.md` retient un sujet trouvé dans
+`sujets-prioritaires.md`** (section registre du jour ou 🔥 Priorité absolue —
+jamais quand le sujet vient de l'auto-sélection normale de l'Étape 1),
+`origine_prioritaire` porte le texte **exact** de la ligne consommée, tel
+qu'il apparaît dans le fichier après `- [ ] ` et avant le `[tag]` final s'il
+y en a un (jamais reformulé, jamais raccourci — un texte approximatif
+empêcherait le pipeline de retrouver la bonne ligne). `null` si le sujet
+vient de l'auto-sélection normale (Étape 1) : rien à cocher dans ce cas.
+
+**Ce champ ne doit jamais porter une ligne marquée `🔍`** (proposition
+automatique de `generate_hot_topics.py` pas encore validée par l'utilisateur,
+voir `docs/routine-prompt.md` § Étape 0) — une telle ligne n'est de toute
+façon jamais un candidat valide pour l'Étape 0.
+
+`generate_post_edition.py --publish`, une fois la publication réelle
+confirmée (après `promote_to_real_repo()`), cherche cette ligne exacte dans
+le vrai `sujets-prioritaires.md` et la coche (`- [ ] ` → `- [x] `) —
+best-effort, jamais bloquant : si la ligne a été reformulée/supprimée à la
+main entre la rédaction du brief et la publication, l'absence de
+correspondance n'interrompt jamais `--publish`, juste un avertissement dans
+les logs.
 
 ## Règles de validité (vérifiées par `generate_daily_edition.py`)
 

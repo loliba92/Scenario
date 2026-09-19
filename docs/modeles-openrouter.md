@@ -45,14 +45,14 @@ Quatre modèles OpenRouter sont utilisés aujourd'hui :
 | `detection.yml` | lun/jeu/ven/sam, 1h UTC | `generate_suivi_update.py` | `anthropic/claude-sonnet-5` | Non |
 | `hot-topics.yml` | mar/ven, 19h UTC (~21h Paris été) | `generate_hot_topics.py` | `deepseek/deepseek-v4-flash` | Non |
 | `hebdo.yml` | dimanche, 12h UTC | `generate_weekly_recap.py` | `openai/gpt-5` (DeepSeek jusqu'au 16 septembre) | Oui — input `model` |
-| `pub.yml` | quotidien, 2h UTC | `generate_daily_pub.py` | `deepseek/deepseek-v4-flash` | Non |
-| `bank-chiffre.yml` | manuel seulement | `bank_chiffre.py` | `deepseek/deepseek-v4-flash` | Non dans le workflow |
-| `fix-pub.yml` | manuel seulement | `fix_chiffre_post.py` | `deepseek/deepseek-v4-flash` | Non dans le workflow |
+| `pub.yml` | quotidien, 2h UTC | `generate_daily_pub.py` | `deepseek/deepseek-v4-flash` (traduction EN seulement depuis le 19 septembre 2026 — la catégorie `chiffre` elle-même n'appelle plus aucun modèle, voir `docs/ARCHITECTURE.md`) | Non |
 | `audience.yml` | quotidien, 5h UTC | `update_audience.py` | — (lit le coût OpenRouter, n'appelle aucun modèle) | — |
 | `reads.yml` | horaire | `update_reads_json.py` | — (GoatCounter uniquement) | — |
 
-Secret commun : `OPENROUTER_API_KEY` (les 9 workflows qui génèrent du
-texte + `audience.yml` pour le KPI de coût).
+Secret commun : `OPENROUTER_API_KEY` (les 7 workflows qui génèrent du
+texte + `audience.yml` pour le KPI de coût — `bank-chiffre.yml` et
+`fix-pub.yml` retirés le 19 septembre 2026 avec les scripts qu'ils
+appelaient, voir `docs/ARCHITECTURE.md`).
 
 **Point de vigilance** : dans `post-edition.yml`, la variable de dépôt
 `OPENROUTER_MODEL`/l'input manuel `model` s'applique **aux deux** étapes
@@ -89,11 +89,12 @@ trouvés au premier test (16 septembre 2026) :
   contenu **vide** — tout le budget était parti dans son raisonnement
   obligatoire. Relevé à 16000 pour tout modèle dont le raisonnement ne
   peut pas être coupé.
-- **Conséquence concrète** : `generate_daily_pub.py`, `bank_chiffre.py`
-  et `fix_chiffre_post.py` envoient `"reasoning":{"enabled":false}`
-  **sans condition** — les basculer sur GPT-5 tel quel ferait échouer
-  l'appel immédiatement (erreur explicite, pas un échec silencieux, mais
-  à corriger avant de tester).
+- **Conséquence concrète** : `generate_daily_pub.py` envoie
+  `"reasoning":{"enabled":false}` **sans condition** (seul appel restant
+  après le retrait de `bank_chiffre.py`/`fix_chiffre_post.py` le
+  19 septembre 2026, voir `docs/ARCHITECTURE.md`) — le basculer sur GPT-5
+  tel quel ferait échouer l'appel immédiatement (erreur explicite, pas un
+  échec silencieux, mais à corriger avant de tester).
 
 **`deepseek/deepseek-v4-flash`** — le moins cher, réservé aux tâches
 courtes/formatées (posts pub, chiffres) et au repérage de sujets chauds

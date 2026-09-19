@@ -18,6 +18,16 @@ semaine) devienne périmé. En haut, il est le premier choisi au prochain
 passage de son registre. MAX_PER_REGISTRE (2) sert de facto de "sujet
 principal + sujet de secours" pour ce prochain passage.
 
+**Marqueur 🔍, ajouté le 19 septembre 2026 (correctif root cause).** Être
+premier dans la file ne suffisait pas à garantir la revue humaine promise
+ci-dessus ("je vérifierai si ça mérite de les passer en prioritaire") :
+rien n'empêchait Étape 0 de piocher une proposition non revue dès son tour
+suivant, parfois le lendemain (cas réel du 19 septembre 2026, voir
+docs/ARCHITECTURE.md — un sujet ajouté la veille a été retenu tel quel,
+sans validation). Chaque entrée écrite par ce script est désormais préfixée
+`🔍` (voir format_entry()) — docs/routine-prompt.md § Étape 0 l'ignore
+explicitement tant qu'un humain ne l'a pas retiré à la main.
+
 Deux échappatoires supplémentaires, pour un sujet encore plus urgent que
 "la semaine prochaine" — le modèle choisit via le champ 'urgence' de sa
 réponse (voir build_prompt()), mais les plafonds MAX_CARTE_BLANCHE /
@@ -47,11 +57,13 @@ Usage :
     OPENROUTER_API_KEY=xxx python3 scripts/edition/generate_hot_topics.py
 """
 import argparse
+import difflib
 import html
 import json
 import os
 import re
 import sys
+import unicodedata
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -77,6 +89,18 @@ RUN_SUMMARY = ROOT / "hot-topics-run-summary.md"
 MAX_PER_REGISTRE = 2
 JOURNAL_WINDOW_DAYS = 45
 HISTORY_MAX_ENTRIES = 30
+# Anti-doublon code, ajouté le 19 septembre 2026 (renfort demandé par
+# l'utilisateur) — voir is_near_duplicate() plus bas pour le pourquoi :
+# la consigne de prompt seule (« NE JAMAIS proposer un doublon ») a laissé
+# passer plusieurs quasi-doublons en pratique (ex. « Carburants à prix
+# record »/« Carburants à 3 € le litre »/« Carburants à 3 euros le
+# litre » — même événement, trois runs différents ; « Les Houthis
+# prennent le contrôle de Bab el-Mandeb » proposé mot pour mot identique
+# deux fois dans un même run, une fois redirigé en carte blanche). Seuil
+# calibré empiriquement sur ces cas réels (0.88-1.0 pour les vrais
+# doublons) vs. des sujets proches mais distincts du même thème (0.29-0.44,
+# ex. Taïwan vs. guerre commerciale USA-Chine) — large marge de sécurité.
+DUPLICATE_SIMILARITY_THRESHOLD = 0.6
 # Plafonds appliqués en dur dans main(), indépendamment de ce que le
 # modèle renvoie dans 'urgence' — un sujet en trop est rétrogradé d'un
 # cran (priorite_absolue -> carte_blanche -> normal) plutôt que perdu.
@@ -122,6 +146,34 @@ def fmt_date_fr(d):
 
 class HotTopicsError(Exception):
     pass
+
+
+def _normalize_title(text):
+    """Minuscules, accents retirés, ponctuation réduite à des espaces —
+    pour comparer deux titres sur leur contenu réel, pas leur mise en
+    forme (« 3 € » vs « 3 euros », majuscule de début de phrase...)."""
+    text = unicodedata.normalize("NFKD", text.lower())
+    text = "".join(c for c in text if not unicodedata.combining(c))
+    text = re.sub(r"[^a-z0-9 ]", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def find_near_duplicate(candidate_title, known_titles):
+    """Renvoie le titre de `known_titles` le plus proche de
+    `candidate_title` s'il dépasse DUPLICATE_SIMILARITY_THRESHOLD, sinon
+    None. Backstop CODE à la consigne de prompt (« NE JAMAIS proposer un
+    doublon, même reformulé ») — celle-ci seule a laissé passer plusieurs
+    quasi-doublons en pratique, voir le commentaire sur
+    DUPLICATE_SIMILARITY_THRESHOLD. Comparaison en O(n) sur `known_titles`,
+    jamais un souci de perf ici (quelques dizaines de titres tout au
+    plus)."""
+    candidate_norm = _normalize_title(candidate_title)
+    for known in known_titles:
+        known_norm = _normalize_title(known)
+        ratio = difflib.SequenceMatcher(None, candidate_norm, known_norm).ratio()
+        if ratio >= DUPLICATE_SIMILARITY_THRESHOLD:
+            return known
+    return None
 
 
 def titles_in_section(md_text, heading):
@@ -185,6 +237,24 @@ def build_prompt(existing_by_registre, priorite_absolue_titles, carte_blanche_ti
         "juste pour remplir une case vide : une vraie actualité chaude "
         "d'abord, la reformulation en 3 scénarios ensuite.",
         "",
+        "Barre d'importance, tout aussi non négociable : un sujet doit avoir "
+        "une VRAIE conséquence structurelle (économique, politique, "
+        "scientifique, sociétale, institutionnelle) — jamais un sujet dont "
+        "l'intérêt tient surtout au buzz ou à l'émoi qu'il suscite (polémique "
+        "de personnalité, célébrité, réseaux sociaux) sans enjeu de fond "
+        "vérifiable. Test simple : si le sujet disparaissait des radars dans "
+        "un mois sans laisser de trace réelle (aucun changement de politique, "
+        "de marché, de rapport de force, de connaissance...), ce n'est pas "
+        "un sujet chaud au sens de ce backlog, même s'il fait beaucoup parler "
+        "cette semaine.",
+        "",
+        "Scénario est un site FRANÇAIS, lu par des lecteurs français : à "
+        "candidats comparables dans un même registre, préférer celui qui a "
+        "une vraie portée ou un lien concret pour un lecteur français (pas "
+        "besoin d'un sujet franco-français — un sujet mondial avec un enjeu "
+        "réel convient très bien) plutôt qu'un sujet purement anecdotique à "
+        "l'étranger, sans résonance ni conséquence réelle côté France.",
+        "",
         "Registres à couvrir, un par un, sans en sauter aucun : "
         "geopolitique, actualite_francaise, economie, sciences, culture, sport.",
         "",
@@ -245,7 +315,14 @@ def format_entry(entry, today, origin_label=None):
     tag = entry.get("tag", "").strip()
     contexte = entry.get("contexte", "").strip()
     scenarios = entry.get("scenarios") or {}
-    title_line = f"- [ ] {accroche}"
+    # Préfixe 🔍 : marque une proposition automatique pas encore validée par
+    # l'utilisateur — docs/routine-prompt.md § Étape 0 l'ignore explicitement
+    # tant qu'il n'est pas retiré à la main. Sans ce marqueur, l'entrée était
+    # indiscernable d'un sujet déjà validé et pouvait être piochée par
+    # l'auto-sélection dès son tour suivant, sans jamais passer par la revue
+    # humaine que ce script est censé préparer (voir incident du 19 septembre
+    # 2026, docs/ARCHITECTURE.md).
+    title_line = f"- [ ] 🔍 {accroche}"
     if tag:
         title_line += f" [{tag}]"
     comment_parts = [f"Ajouté automatiquement le {today.isoformat()} (recherche OpenRouter, "
@@ -403,7 +480,20 @@ def main():
     # sous-classe de GenerationError, déjà catchée ci-dessus).
     result = content
 
+    # Bassin de titres connus pour l'anti-doublon CODE (find_near_duplicate),
+    # backstop à la consigne de prompt — voir DUPLICATE_SIMILARITY_THRESHOLD.
+    # Grossit au fil de la boucle avec chaque entrée acceptée, pour attraper
+    # aussi les doublons DANS la même réponse du modèle (constaté en
+    # pratique : le même fait proposé deux fois dans un seul run, avec une
+    # 'urgence' différente sur chaque copie — passait entre les mailles
+    # d'un filtre qui n'aurait comparé qu'au fichier déjà sur disque).
+    known_titles = (
+        [t for titles in existing.values() for t in titles]
+        + priorite_absolue_titles + carte_blanche_titles + recent
+    )
+
     total = 0
+    skipped_duplicates = 0
     added_records = []
     entries_by_heading = {}
     priorite_absolue_count = 0
@@ -414,8 +504,15 @@ def main():
         if not entries:
             continue
         print(f"{key} : {len(entries)} sujet(s) proposé(s)")
-        total += len(entries)
         for e in entries:
+            dup = find_near_duplicate(e["accroche"], known_titles)
+            if dup:
+                skipped_duplicates += 1
+                print(f"  - (doublon écarté) {e['accroche'][:100]!r} ~ déjà en file : {dup[:100]!r}")
+                continue
+            known_titles.append(e["accroche"])
+            total += 1
+
             urgence = (e.get("urgence") or "normal").strip()
             if urgence not in ("normal", "carte_blanche", "priorite_absolue"):
                 urgence = "normal"
@@ -450,12 +547,14 @@ def main():
                     "tag": (e.get("tag") or "").strip(),
                 })
 
+    dup_suffix = f" ({skipped_duplicates} doublon(s) écarté(s))" if skipped_duplicates else ""
+
     if args.dry_run:
-        print(f"\n--dry-run : {total} sujet(s) au total, rien écrit.")
+        print(f"\n--dry-run : {total} sujet(s) au total{dup_suffix}, rien écrit.")
         return 0
 
     if total == 0:
-        print("Aucun sujet retenu ce passage-ci — fichier inchangé.")
+        print(f"Aucun sujet retenu ce passage-ci{dup_suffix} — fichier inchangé.")
         return 0
 
     for target_heading, heading_entries in entries_by_heading.items():
@@ -465,7 +564,7 @@ def main():
     write_run_summary(added_records, today)
     history = update_hot_topics_history(added_records)
     update_dashboard_card(today, history)
-    print(f"\n{total} sujet(s) ajouté(s) à sujets-prioritaires.md "
+    print(f"\n{total} sujet(s) ajouté(s) à sujets-prioritaires.md{dup_suffix} "
           f"(coût OpenRouter ≈ {usage.get('cost', '?')} $).")
     return 0
 

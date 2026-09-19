@@ -403,6 +403,22 @@ publiés sur une seule source tertiaire.*
 
 ## 5. Le saviez-vous — un chiffre qui marque (rotation E)
 
+**[Mécanisme remplacé le 19 septembre 2026]** Retour utilisateur : le
+mécanisme décrit plus bas (points 1-4, recherche a posteriori jusqu'à 30
+jours en arrière dans les archives) produisait des posts hors contexte —
+incident réel le jour même, deux posts consécutifs retombés sur le même
+vieux candidat, un 3e sur une édition vieille de 3 jours (voir
+`docs/ARCHITECTURE.md`). `scripts/pub/generate_daily_pub.py` ne
+scanne/choisit plus rien lui-même : il lit directement `phrase_a_retenir`
+et `phrase_a_retenir_stat`, écrits **une fois, à la rédaction, pour
+l'édition du jour même** (voir `docs/routine-redaction-prompt.md` §
+`phrase_a_retenir`) — plus jamais une édition plus ancienne. Le point 5
+(recopie mot pour mot, ≤280 caractères) et le format ci-dessous restent
+inchangés ; les points 1-4 (recherche/sélection) sont désormais faits une
+fois pour toutes à la rédaction, gardés ci-dessous comme repère historique
+de la règle éditoriale (quel chiffre choisir), plus jamais exécutés par ce
+script.
+
 **Réintroduite le 14 août, à la demande de l'utilisateur, avec un
 mécanisme différent de la version retirée le 13 août.** L'ancienne
 version (voir `docs/ARCHITECTURE.md`) était une liste fermée à

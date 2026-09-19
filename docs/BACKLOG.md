@@ -24,7 +24,7 @@
 | B006 | Traduire le récap hebdo en anglais | À DÉCIDER | P2 | 2026-08-29 | Trancher le scope des liens « Lire l'édition → » |
 | B007 | Traduire `le-projet.html` et les pages légales en anglais | À DÉCIDER | — | 2026-08-29 | Lever les 2 réserves (RGPD/juridique, glossaire) |
 | B008 | Traduction rétroactive des archives en anglais | À DÉCIDER | — | 2026-08-31 | Revisiter le 2026-09-15, avec B139 |
-| B009 | Déclinaison papier — « Les Cahiers de Scénario » | STANDBY | P3 | 2026-08-25 | Partir de la maquette du 25 août pour la Phase 1 |
+| B009 | Déclinaison papier — « Les Cahiers de Scénario » | STANDBY | P3 | 2026-09-19 | Partir de la maquette du 25 août pour la Phase 1 ; comparer à brief.me au redémarrage |
 | B010 | Image de pub Instagram générique (brand-teaser) | FAIT | — | 2026-08-09 | Pousser l'image en pub Meta (geste utilisateur) |
 | B011 | WhatsApp comme canal de distribution | À FAIRE | P2 | 2026-08 | Explorer le module natif WhatsApp Business Cloud API |
 | B012 | Pub payante (Meta/X) et distribution gratuite | À FAIRE | P2 | 2026-08-10 | Tracking de conversion avant toute dépense |
@@ -168,7 +168,8 @@
 | B150 | Lectures par édition sur `archives.html` (`reads.json`) | FAIT | — | 2026-09-03 | — |
 | B151 | Migrer le dashboard et `#audience` vers un GitHub Action | À DÉCIDER | — | 2026-09-03 | Valider le plan de migration avec l'utilisateur |
 | B152 | Répartition des modèles OpenRouter par tâche (Opus / Sonnet / DeepSeek) | FAIT | — | 2026-09-18 | Surveiller coût et qualité après la bascule |
-| B153 | Cadence de publication vs péremption des sujets chauds | À DÉCIDER | P2 | 2026-09-18 | Observer quelques semaines, voir si des sujets périment malgré l'insertion en haut |
+| B153 | Cadence de publication vs péremption des sujets chauds | À DÉCIDER | P2 | 2026-09-19 | Semaine du 22/09 : repenser la construction du backlog, évaluer plusieurs éditions/jour |
+| B154 | Panorama de l'actualité du jour (« produit d'appel », remplace revue_de_presse) | À DÉCIDER | P2 | 2026-09-19 | Semaine du 22/09 : trouver un nom, chiffrer le coût, sort de sources.html |
 
 ## TICKETS
 
@@ -407,8 +408,8 @@ Seules les éditions traduites au fil de l'eau existent en anglais : la traducti
 
 **Statut:** STANDBY
 **Priorité:** P3
-**Dernière MAJ:** 2026-08-25
-**Prochaine action:** Si on avance : partir de la maquette `docs/mockups/cahier-scenario-2026-08-25.html` pour la Phase 1 de `docs/strategie-papier.md` (PDF hebdo freemium réservé aux abonnés newsletter) — ne pas repartir d'une page blanche
+**Dernière MAJ:** 2026-09-19
+**Prochaine action:** Si on avance : partir de la maquette `docs/mockups/cahier-scenario-2026-08-25.html` pour la Phase 1 de `docs/strategie-papier.md` (PDF hebdo freemium réservé aux abonnés newsletter) — ne pas repartir d'une page blanche. En redémarrant, comparer explicitement à l'offre brief.me (voir Historique 2026-09-19) — objectif affiché : les dépasser, pas les égaler.
 **Blocage:** Rien d'engagé ; attend que l'utilisateur veuille avancer. Prix de la Phase 3 à revoir une fois un devis de fulfillment obtenu
 
 ### État actuel
@@ -430,6 +431,7 @@ Stratégie complète et phasage déjà tranchés et documentés dans `docs/strat
 ### Historique
 - **2026-08-17 (idée)** — Question posée par l'utilisateur : faut-il décliner Scénario en version papier, et si oui comment. Avis et stratégie détaillés dans `docs/strategie-papier.md`. Chiffrage indicatif de la Phase 3 : « Cahier Scénario », impression à la demande sans stock (devis Gelato ~40p : ≈7,55 € HT en promo / ≈11 € HT hors promo, à réévaluer sur le format 100-120p réel), prix indicatif 12-15 € TTC/numéro ou ~45-55 €/an en abonnement — **impact prix à revoir** une fois un devis de fulfillment obtenu (commission/tarif au pli non inclus dans le calcul DIY). Serait le premier revenu récurrent au-delà du don libre Buy Me a Coffee.
 - **2026-08-25** — Maquette 2 pages A4 réalisée et versionnée (`docs/mockups/cahier-scenario-2026-08-25.html`) : couverture plein cadre + page article, contenu réel du site (chiffres, scénarios, « L'essentiel », vraie photo Pexels déjà utilisée sur le site — rien d'inventé), calibrée A4 210×297 mm, imprimable directement. Sert à juger du ton d'un numéro payant à focus thématique tournant — exemple pris : « IA chinoise : cadeau ou piège ? ».
+- **2026-09-19** — Analyse du concurrent brief.me à la demande de l'utilisateur (newsletter payante, 7 min/jour, sans image ; voir aussi B153 pour les autres pistes tirées de cette analyse). Leur format « Panoramas » (dossiers mensuels de fond, mis à jour régulièrement) mappé par l'utilisateur sur **ce ticket-ci plutôt que sur un nouveau format web** : le bon véhicule pour un sujet de fond façon Panorama, chez nous, c'est le Cahier imprimé (ou son PDF, Phase 1), pas une nouvelle page web à inventer. **Objectif explicite de l'utilisateur, à garder en tête pour tout ce ticket : ne pas juste égaler brief.me, les écraser** — à un stade où ce ticket redémarre, comparer explicitement l'offre imprimée à la leur (contenu, cadence, prix, distribution) plutôt que la construire en vase clos. Rien de tranché ni engagé à ce stade : statut, phasage et prochaine action inchangés, `docs/strategie-papier.md` reste la source de vérité — ce point est une piste d'inspiration à instruire quand ce ticket repassera actif, pas une décision.
 ---
 
 ## B010 — Image de pub Instagram générique (« brand-teaser », ex « Suis @scenarios.actu »)
@@ -4171,26 +4173,71 @@ Doc de référence complète (les 11 workflows GitHub Actions, leur fréquence, 
 - **2026-09-18** — Question posée : GPT-5 plutôt que DeepSeek sur `hot-topics.yml` ? Écarté : GPT-5 coûte plus cher (raisonnement obligatoire non désactivable, `max_tokens` à relever comme sur le hebdo) pour un enjeu qualité faible ici (candidats non publiés, filtrés par l'utilisateur) — aurait mangé l'économie qui finance Opus. DeepSeek confirmé sur ce script.
 - **2026-09-18** — Doc de référence rapatrié depuis l'Artifact claude.ai vers un vrai fichier versionné, `docs/modeles-openrouter.md` (retour utilisateur : nom "Artifact" ne veut rien dire) — mis à jour pour refléter l'état final (Opus recherche / Sonnet détection / DeepSeek hot-topics et pub).
 
+**Posture concurrentielle générale (retour utilisateur du 19 septembre 2026), au-dessus de B153/B154 : approche plus agressive que maintenant pour concurrencer brief.me, Hugo Décrypte et compagnie — passe par du SEO très actif et les réseaux sociaux, pas seulement par le contenu.** Concerne directement les tickets SEO déjà ouverts (B067 netlinking, B068 audit SEO récurrent, B103 SEO de base, B140 titres SEO/glossaire) — à revisiter/accélérer dans le même esprit à la semaine du 22 septembre, pas seulement B153/B154.
+
 ## B153 — Cadence de publication vs péremption des sujets chauds
 
 **Statut:** À DÉCIDER
 **Priorité:** P2
-**Dernière MAJ:** 2026-09-18
-**Prochaine action:** Observer plusieurs semaines de sujets ajoutés par `generate_hot_topics.py`, voir si certains périment malgré l'insertion en haut de section
-**Blocage:** Aucun — nécessite du recul dans le temps avant de trancher
+**Dernière MAJ:** 2026-09-19
+**Prochaine action:** Semaine du 22 septembre 2026 (demande explicite de l'utilisateur) : repenser la logique de construction du backlog (les 3 sources qui l'alimentent, le rythme d'1 édition/jour qui le consomme) + évaluer le passage à plusieurs éditions/jour (matin/après-midi)
+**Blocage:** Aucun — attente du utilisateur pour la semaine prochaine
 
 ### État actuel
 Constat de l'utilisateur le 18 septembre 2026 : certains registres accumulent 30+ sujets non cochés (ex. Économie & finance), consommés un par semaine (un registre par jour d'édition) — même avec l'insertion en haut de section désormais en place (changement du même jour dans `generate_hot_topics.py`, voir son historique), un sujet ajouté attend au minimum le prochain passage de son registre, potentiellement plusieurs semaines si le fichier est déjà réordonné entre-temps. Un sujet vraiment daté (ex. « l'essence à 3 €») peut donc rester pertinent une semaine mais périmer avant même ce prochain passage.
 
+**Mise à jour du 19 septembre 2026** : le problème n'est plus seulement hypothétique. Retour utilisateur explicite — le vrai problème de fond, c'est la « journey » (le cycle de vie) des sujets, pas seulement leur qualité individuelle (déjà traitée par ailleurs le même jour, voir les tickets/incidents sur l'anti-doublon et la barre d'importance de `generate_hot_topics.py` dans `docs/ARCHITECTURE.md`). Trois canaux alimentent `sujets-prioritaires.md` en continu : l'utilisateur lui-même, la routine Claude Code quotidienne (recherche du jour), et `hot-topics.yml` (1-2x/semaine). Un seul canal consomme la file : 1 édition publiée par jour, donc 1 sujet par registre par semaine (7 registres, cadence hebdomadaire par registre). Le débit d'alimentation dépasse structurellement le débit de consommation — la file grossit plus vite qu'elle ne se vide, ce qui garantit qu'une partie croissante du stock (le « puits » de sujets déjà existant, en plus des nouveaux ajouts chaque semaine) ne sera jamais publiée à temps, périmée ou non.
+
+**Objectif de fond, deux volets (retour utilisateur du 19 septembre 2026), à garder comme boussole de la refonte** :
+1. **Rester connecté à l'actualité réelle** — montrer que Scénario est « dans le game », avec des sujets qui sont vraiment au cœur des préoccupations du moment. Un sujet qui attend plusieurs semaines dans le backlog avant publication rate cet objectif même s'il finit par sortir.
+2. **Adresser aussi des sujets de fond, plus décalés, pas seulement réactifs à l'actu chaude** (exemple donné par l'utilisateur : la culture pop chinoise) — sensibiliser le lectorat à des sujets qu'il ne croiserait pas autrement, une valeur éditoriale propre, distincte de la fraîcheur/réactivité du volet 1. La refonte du backlog doit faire de la place aux deux, pas optimiser uniquement pour le volet 1 (débit/fraîcheur) au détriment du volet 2 (profondeur/ouverture).
+
+La mesure de succès de la refonte n'est donc pas seulement « le stock ne grossit plus », c'est « ce qu'on publie reflète à la fois ce qui compte maintenant ET ouvre sur des sujets qu'on ne verrait pas ailleurs ».
+
 ### À faire
-- Après quelques semaines de recul, vérifier si des sujets ajoutés par la routine de veille arrivent effectivement périmés à leur tour de publication.
-- Si oui, deux pistes à trancher, pas encore choisies :
-  - Restructurer les registres (fusionner/scinder, ex. donner plus de créneaux hebdomadaires aux registres qui génèrent le plus de sujets datés).
-  - Augmenter la fréquence de publication (2 éditions/jour, ou plus de jours couverts) pour vider la file deux fois plus vite.
-- Les deux pistes ont un coût (temps de rédaction, coût OpenRouter, charge de relecture humaine) à mettre en regard du problème réel une fois mesuré — ne rien décider avant d'avoir constaté des cas concrets de péremption.
+- Semaine du 22 septembre 2026 : repenser la logique de construction du backlog dans son ensemble (pas seulement `generate_hot_topics.py`) — comment les 3 canaux d'alimentation (utilisateur, routine quotidienne, workflow hebdo) et le seul canal de consommation (1 édition/jour) doivent s'articuler pour que le stock ne croisse pas indéfiniment, **en gardant les deux volets de l'objectif de fond ci-dessus** (pas juste un problème de débit à optimiser dans l'abstrait).
+- Réfléchir à un mécanisme qui garantit une place régulière aux sujets de fond/décalés (volet 2), pas seulement à l'actu chaude (volet 1) — ex. un quota ou un créneau dédié par registre/semaine, à définir, pour que la pression de fraîcheur ne finisse pas par évincer systématiquement ce type de sujet.
+- Évaluer concrètement le passage à plusieurs éditions par jour (ex. matin + après-midi) comme option pour doubler le débit de consommation — poser les coûts réels (temps de rédaction, coût OpenRouter par édition supplémentaire, charge de relecture humaine, fatigue éditoriale du lectorat à absorber 2x plus de contenu/jour) en face du problème.
+- Ancien plan (restructurer les registres pour donner plus de créneaux aux registres qui génèrent le plus de sujets datés) reste une option alternative/complémentaire à réévaluer dans la même passe, pas seulement l'augmentation de cadence.
+- Traiter aussi le puits de sujets déjà existant (pas seulement les nouveaux ajouts) — un stock déjà là ne se résout pas seulement en changeant le flux entrant/sortant à partir de maintenant.
 
 ### Décisions
-- Pas de changement de structure ni de cadence pour l'instant — on observe d'abord. La mesure la moins coûteuse (insertion en haut de section plutôt qu'en bas dans `generate_hot_topics.py`) a déjà été prise le même jour, avant de trancher quoi que ce soit de plus lourd.
+- Pas de changement de structure ni de cadence pour l'instant — le sujet est explicitement reporté à la semaine du 22 septembre 2026, sur demande de l'utilisateur (« on améliorera semaine prochaine »). La mesure la moins coûteuse (insertion en haut de section plutôt qu'en bas dans `generate_hot_topics.py`) reste la seule prise à ce stade.
 
 ### Historique
 - **2026-09-18** — Ticket ouvert suite au retour utilisateur sur la profondeur de certaines files (30+ sujets = plusieurs mois à l'ancienne logique d'insertion en bas) — la mesure immédiate a été l'insertion en haut de section (`generate_hot_topics.py`) ; celui-ci reste ouvert pour trancher une restructuration ou un changement de cadence si le problème persiste malgré ça.
+- **2026-09-19** — Retour utilisateur explicite confirmant le problème (plus seulement une observation à faire « avec du recul ») : la vraie cause est le déséquilibre structurel entre 3 canaux d'alimentation et 1 seul canal de consommation quotidien, plus un puits de sujets déjà existant jamais rattrapé. Reporté explicitement à la semaine du 22 septembre pour une refonte de la logique de construction du backlog, avec le passage à plusieurs éditions/jour comme piste explicitement nommée à évaluer.
+---
+
+## B154 — Panorama de l'actualité du jour (« produit d'appel », remplace revue_de_presse)
+
+**Statut:** À DÉCIDER
+**Priorité:** P2
+**Dernière MAJ:** 2026-09-19
+**Prochaine action:** Semaine du 22 septembre 2026, avec B153 — clarifier le format exact et son coût de production avant de trancher
+**Blocage:** Aucun — idée posée, rien de tranché ni engagé
+
+### État actuel
+Née d'une discussion plus large analysant brief.me et Hugo Décrypte comme concurrents (voir aussi B153 pour les autres pistes de cette analyse, B009 pour le volet papier). Précision explicite de l'utilisateur : ce n'est **pas** une simple revue de presse en 5-10 points façon agrégateur — l'édition quotidienne actuelle (un sujet, évalué, 3 scénarios chiffrés) reste le cœur différenciant, jamais à diluer. L'idée est un **produit complémentaire, distinct** : un bulletin court (5-10 points), chacun avec « la touche scénario » — pas juste un fait constaté, une mini-analyse prospective (qu'est-ce qui pourrait se passer, un peu de recul) sur chaque point. Positionné comme un **produit d'appel** : attrape les lecteurs qui veulent un point rapide et simple sans s'engager sur l'édition longue du jour, tout en gardant l'ADN prospectif de Scénario (contrairement à brief.me, purement factuel/rétrospectif, et à Hugo Décrypte, punchy mais sans angle d'analyse) — puis les amène vers le vrai produit.
+
+**Précision du 19 septembre 2026, après discussion** : le champ `revue_de_presse` existant (voir plus bas) est confirmé comme le socle de ce bulletin — mais **sans les liens sortants vers les articles sources**, que l'utilisateur juge peu lus (souvent en anglais, cliqués par personne en pratique). Rédaction 100% en propre, jamais un simple lien à cliquer : un « panorama 360° » de l'actualité France + monde, simple et efficace, qui se suffit à lui-même pour comprendre ce qui se passe aujourd'hui — le lecteur n'a jamais besoin de sortir du bulletin pour en tirer l'essentiel. Ça pousse le coût de production un cran au-dessus d'un simple lien+titre (chaque point doit être rédigé, pas juste sourcé), mais reste bien en dessous d'un sujet traité en édition longue — la recherche/collecte reste celle déjà faite pour `revue_de_presse` (gratuite), seule la rédaction de chaque point s'ajoute.
+
+**Résumé du 19 septembre 2026, statuant sur le coût et le sort de `revue_de_presse`** : coût de production plus élevé qu'un lien+titre explicitement accepté par l'utilisateur (« ça coûtera plus cher forcément ») — ce n'est plus un critère qui bloque la décision, juste un fait à budgéter. Correction par rapport à la précision précédente : **`revue_de_presse` sous sa forme actuelle (liens sortants, relégué à `sources.html`) est jugée non fonctionnelle par l'utilisateur (« n'est pas ok, ça marche pas ») — à retirer, pas à faire coexister.** Ce produit d'appel (panorama rédigé en propre) la remplace, il ne s'ajoute pas à côté.
+
+### À faire
+- Trouver un nom accrocheur pour ce produit — pas encore arrêté, à faire à la semaine du 22 septembre.
+- Clarifier le format exact : longueur par point, combien de « mini-touches scénario » réellement possibles sans tomber dans le générique creux (« ça pourrait s'aggraver ou s'améliorer » ne vaut rien).
+- Chiffrer précisément le coût de production réel (accepté comme plus élevé, mais pas encore chiffré) du **texte rédigé par point** (recherche déjà gratuite via l'actuel `revue_de_presse`, seule la rédaction s'ajoute) — mesurer si c'est automatisable à bas coût (un prompt qui transforme chaque entrée en 2-3 phrases autonomes + une touche prospective) ou si ça demande une vraie relecture humaine par point.
+- Décider concrètement du sort de `sources.html`/`sources-log.json` maintenant que leur source (`revue_de_presse` sous sa forme actuelle) est amenée à disparaître — soit ils sont réalimentés autrement, soit ils sont retirés avec elle ; ne pas laisser une page qui ne se met plus à jour.
+- Trancher la relation avec la piste « plusieurs éditions/jour » de B153 : ce bulletin est-il une 2e édition à part entière, ou une section/un envoi plus léger, distinct dans son ambition et son coût ?
+- Lien direct avec le « puits de sujets » de B153 : un format court pourrait écouler une partie du stock de `sujets-prioritaires.md` que l'édition longue quotidienne (1 sujet/jour) ne rattrapera jamais — à chiffrer une fois le format arrêté.
+
+### Décisions
+- **Pas de lien sortant vers les articles sources dans ce bulletin** (tranché le 19 septembre 2026) — rédaction propre uniquement, panorama qui se suffit à lui-même.
+- **Coût de production plus élevé qu'un simple lien accepté comme un fait, pas un blocage** (19 septembre 2026).
+- **`revue_de_presse` sous sa forme actuelle (liens sortants) à retirer, remplacée par ce produit d'appel — pas de coexistence** (19 septembre 2026, corrige la décision précédente qui gardait `sources.html` inchangé à côté).
+
+### Historique
+- **2026-09-19** — Idée posée par l'utilisateur pendant l'analyse de brief.me/Hugo Décrypte comme concurrents, avec une correction explicite : pas une revue de presse plate, un format court mais avec la touche scénario (mini-analyse prospective par point), pensé comme produit d'appel vers l'édition longue existante.
+- **2026-09-19** — Précision : socle sur `revue_de_presse`, mais sans les liens sortants (jugés peu lus, souvent en anglais) — rédaction 100% en propre, panorama 360° autonome plutôt qu'un lien à cliquer.
+- **2026-09-19** — Résumé de clôture de la discussion du jour : posture concurrentielle plus agressive assumée (SEO + réseaux sociaux, voir la note au-dessus de B153) ; coût de production plus élevé du bulletin explicitement accepté ; correction sur `revue_de_presse` — jugée non fonctionnelle sous sa forme actuelle, à retirer et remplacer par ce produit d'appel plutôt qu'à faire coexister avec.

@@ -704,13 +704,64 @@ def promote_to_real_repo(sandbox_root, date_str):
     print("[post-edition] --publish : images (topic-images/instagram) écrites (réelles)")
 
 
+def check_off_priority_topic(brief):
+    """Coche automatiquement, dans le VRAI `sujets-prioritaires.md`
+    (jamais le bac à sable — ce fichier n'a pas d'équivalent dedans), la
+    ligne consommée par Étape 0 pour le sujet du jour — voir
+    docs/routine-brief-format.md § `sujet.origine_prioritaire`.
+
+    Remplace l'ancienne consigne « cocher la case toi-même » de la routine
+    interactive (`docs/routine-prompt.md` § Étape 0), devenue impossible à
+    honorer depuis le 14 septembre 2026 : elle ne publie plus elle-même,
+    elle s'arrête après avoir déclenché le pipeline, bien avant que la
+    publication réelle n'ait lieu. Conséquence avant ce correctif :
+    personne ne cochait plus rien, sur aucune édition, qu'elle vienne du
+    repli OpenRouter ou de la routine normale (constaté le 19 septembre
+    2026 sur plusieurs éditions déjà publiées mais restées `- [ ]` —
+    Taïwan le 14, ARENH le 16, neuropathies le 18 — voir
+    docs/ARCHITECTURE.md pour l'incident complet).
+
+    Best-effort, jamais bloquant : `origine_prioritaire` absent/null (sujet
+    venu de l'auto-sélection normale, rien à cocher) ou ligne introuvable
+    (reformulée/retirée à la main entre la rédaction du brief et la
+    publication) ne doivent jamais faire échouer `--publish` — un simple
+    avertissement suffit, le pire cas est une ligne qui reste à cocher à
+    la main, jamais une publication bloquée pour ça."""
+    origine = (brief.get("sujet") or {}).get("origine_prioritaire")
+    if not origine:
+        return
+    path = REPO_ROOT / "sujets-prioritaires.md"
+    if not path.exists():
+        print("[post-edition] sujets-prioritaires.md introuvable — case non cochée (non bloquant)")
+        return
+    text = path.read_text(encoding="utf-8")
+    prefix = "- [ ] "
+    # Tag `[xxx]` final optionnel (ex. « [musique & société] ») — jamais
+    # inclus dans origine_prioritaire (voir le champ dans le brief), mais
+    # toujours présent sur la vraie ligne du fichier.
+    pattern = re.compile(
+        r"^" + re.escape(prefix) + re.escape(origine.strip()) + r"(?: \[[^\]\n]*\])?[ \t]*$",
+        re.M,
+    )
+    m = pattern.search(text)
+    if not m:
+        print(f"[post-edition] sujets-prioritaires.md : ligne introuvable pour origine_prioritaire "
+              f"({origine.strip()[:80]!r}…) — case non cochée (non bloquant, probablement reformulée/retirée à la main)")
+        return
+    new_text = text[:m.start()] + "- [x] " + text[m.start() + len(prefix):]
+    path.write_text(new_text, encoding="utf-8")
+    print(f"[post-edition] sujets-prioritaires.md : case cochée pour {origine.strip()[:80]!r}…")
+
+
 # ---------------------------------------------------------------------------
 # main
 # ---------------------------------------------------------------------------
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--brief", required=True, help="chemin du brief JSON (même fichier que la rédaction)")
-    parser.add_argument("--content", required=True, help="chemin du {date}.content.json produit par generate_daily_edition.py")
+    parser.add_argument("--content", default=None,
+                         help="chemin du {date}.content.json produit par generate_daily_edition.py — "
+                              "requis sauf avec --recheck-priority-only")
     parser.add_argument("--sandbox-root", default=None,
                          help="racine bac à sable pour toutes les écritures (défaut : _prototype-out/post-edition/{date}) — "
                               "jamais le dépôt réel")
@@ -722,17 +773,31 @@ def main():
              "jamais de commit/push depuis ce script, voir .github/workflows/post-edition.yml. "
              "Absent par défaut : comportement Phase 1 inchangé.",
     )
+    parser.add_argument(
+        "--recheck-priority-only", action="store_true",
+        help="Ne fait QUE check_off_priority_topic() sur le VRAI sujets-prioritaires.md (jamais le "
+             "bac à sable) puis s'arrête — aucun appel Pexels/OpenRouter, aucune écriture des autres "
+             "fichiers réels. Sert à rejouer cette seule étape, bon marché et idempotente, dans une "
+             "boucle de retry après un pull frais (voir .github/workflows/post-edition.yml) — jamais "
+             "besoin de refaire tourner tout le pipeline coûteux juste pour cette case à cocher.",
+    )
     args = parser.parse_args()
 
     brief = load_brief(args.brief)
     date_str = brief["date"]
     print(f"[post-edition] brief chargé : {args.brief} (date {date_str})")
 
+    if args.recheck_priority_only:
+        check_off_priority_topic(brief)
+        return
+
     if args.publish and already_published_today(date_str):
         print(f"[post-edition] --publish : index.html porte déjà la date {date_str} — "
               "édition déjà publiée, on s'arrête proprement sans rien republier.")
         return
 
+    if not args.content:
+        raise PostEditionError("--content requis (sauf avec --recheck-priority-only)")
     content_path = Path(args.content)
     if not content_path.exists():
         raise PostEditionError(f"content.json introuvable : {content_path} — lancer generate_daily_edition.py d'abord")
@@ -962,6 +1027,7 @@ def main():
 
     if args.publish:
         promote_to_real_repo(sandbox_root, date_str)
+        check_off_priority_topic(brief)
         print("[post-edition] --publish : fichiers réels écrits — commit/push restent à faire par le workflow appelant.")
     else:
         print("[post-edition] AUCUN commit, AUCUN push effectué — Phase 1 prototype (workflow_dispatch uniquement).")

@@ -40,7 +40,7 @@ jobs:
           python-version: '3.12'
 
       - name: Installer les dépendances
-        run: pip install playwright
+        run: pip install beautifulsoup4 playwright
 
       - name: Installer Chromium
         run: python3 -m playwright install --with-deps chromium

@@ -1,24 +1,30 @@
 #!/usr/bin/env python3
 """
-Génère le post « pub » du jour (manifeste/citation/question, ou chiffre
-extrait d'une édition déjà publiée) et son miroir anglais — remplace la
-routine Claude Code quotidienne « Scénario — Pub hebdo »
-(docs/routine-pub-prompt.md), tâche jugée à 95% mécanique par le prompt
-lui-même ("le choix de la catégorie, de l'entrée et de la photo est
-entièrement déterministe... ne pas réfléchir dessus" — voir ce fichier,
-en-tête) — seule l'extraction du chiffre du jour (catégorie `chiffre`,
-5 jours/7 dans la table de rotation actuelle) demande un vrai jugement
-éditorial (quelle est l'info la plus importante d'une édition, pas
-seulement le chiffre le plus spectaculaire), déléguée à un seul appel
-OpenRouter ciblé — jamais une recherche web, jamais un fait inventé (le
-message retenu est vérifié verbatim contre le texte source avant d'être
-utilisé, voir extract_chiffre()).
+Génère le post « pub » du jour (catégorie `chiffre`, unique désormais) et
+son miroir anglais — remplace la routine Claude Code quotidienne
+« Scénario — Pub hebdo » (docs/routine-pub-prompt.md), tâche jugée à 95%
+mécanique par le prompt lui-même ("le choix de la catégorie, de l'entrée
+et de la photo est entièrement déterministe... ne pas réfléchir dessus" —
+voir ce fichier, en-tête).
+
+**Mécanisme depuis le 19 septembre 2026 (retour utilisateur — remplace
+extract_chiffre()/bank_chiffre.py/get_chiffre_for_date(), retirés le même
+jour).** Ce script ne juge et n'extrait plus rien lui-même : il se
+contente de LIRE la phrase `phrase_a_retenir` (et son `phrase_a_retenir_stat`)
+déjà écrite à la rédaction de l'édition **du jour même**, directement
+dans le HTML publié (voir `read_phrase_a_retenir()`) — zéro appel
+OpenRouter, zéro jugement éditorial ici, zéro recherche dans les archives
+passées. L'ancien mécanisme balayait jusqu'à 30 jours d'éditions
+antérieures non utilisées pour y extraire a posteriori un chiffre — un
+vrai incident réel le 19 septembre 2026 : deux posts consécutifs retombés
+sur le même vieux candidat, un 3e sur une édition vieille de 3 jours,
+hors contexte. Voir docs/ARCHITECTURE.md pour l'incident complet.
 
 Principe non négociable, repris de docs/pub-messages.md : cette routine
-pioche dans une liste déjà curée à la main, elle n'invente jamais un
-message ni une citation elle-même. Pour `chiffre`, le chiffre et sa
-phrase viennent toujours mot pour mot d'une édition déjà publiée et donc
-déjà vérifiée par le processus éditorial normal.
+n'invente jamais un message elle-même — le chiffre et sa phrase viennent
+toujours mot pour mot de l'édition du jour, déjà vérifiée par le
+processus éditorial normal (voir docs/routine-redaction-prompt.md
+§ phrase_a_retenir).
 
 **Catégories `futur` (recherche web nécessaire) et `soutien`/`buy me a
 coffee` fusionné dans `manifeste` : hors de portée de ce script.**
@@ -52,7 +58,7 @@ import sys
 import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import date, datetime
+from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -89,10 +95,13 @@ class PubError(Exception):
 # fichier) : un message trop long déborde par le haut de l'image 1080x1080,
 # clippé par overflow:hidden et chevauchant le masthead. Incident réel du
 # 16 septembre 2026 (sujet fusion nucléaire, message ~650 caractères,
-# image totalement illisible). Le prompt demandait déjà "~280 caractères"
-# mais ce n'était qu'une convention texte, jamais vérifié ni corrigé côté
-# code — un dépassement du modèle passait silencieusement jusqu'à l'image
-# publiée.
+# image totalement illisible).
+# Depuis le 19 septembre 2026, la vérification PRINCIPALE se fait en amont,
+# à la rédaction (generate_daily_edition.py, PHRASE_A_RETENIR_MAX_CHARS) —
+# même valeur, jamais désynchronisée volontairement. Gardé ici comme
+# 2e filet dans read_phrase_a_retenir(), au cas où une édition publiée
+# avant ce garde-fou (ou modifiée à la main) contournerait la vérification
+# de rédaction.
 CHIFFRE_MAX_CHARS = 280
 
 
@@ -157,66 +166,6 @@ def parse_feed_items(xml_text):
     return items
 
 
-def used_chiffre_sources(feed_items):
-    """Dates d'édition déjà citées comme source d'un post `chiffre` —
-    déduites du <link> (toujours l'URL de l'édition source pour cette
-    catégorie, voir docs/routine-pub-prompt.md étape 4)."""
-    sources = set()
-    for it in feed_items:
-        if it["category"] != "chiffre":
-            continue
-        m = re.search(r"archives/(\d{4}-\d{2}-\d{2})\.html", it["link"])
-        if m:
-            sources.add(m.group(1))
-    return sources
-
-
-# ---------------------------------------------------------------------------
-# Catégorie `chiffre` : candidats extraits d'une édition déjà publiée,
-# jamais inventés — voir docstring du module.
-# ---------------------------------------------------------------------------
-def eligible_chiffre_dates(today, already_used, min_age_hours=24, window_days=30):
-    dates = []
-    for f in sorted(ARCHIVES_DIR.glob("????-??-??.html"), reverse=True):
-        try:
-            d = date.fromisoformat(f.stem)
-        except ValueError:
-            continue
-        if d in already_used or (today - d).days > window_days:
-            continue
-        age_hours = (datetime.now(PARIS) - datetime(d.year, d.month, d.day, 7, 0, tzinfo=PARIS)).total_seconds() / 3600
-        if age_hours < min_age_hours:
-            continue
-        dates.append(d)
-    return dates  # déjà du plus récent au plus ancien (glob trié inversé)
-
-
-def extract_strong_number_sentences(html_text):
-    """Repère TOUS les paragraphes .dek/.essentiel-text, dans l'ordre du
-    texte — pas seulement ceux qui portent un <strong> chiffré. Incident
-    réel du 17 septembre 2026 : un message pourtant verbatim et sous la
-    limite de caractères ("ce mécanisme n'a encore jamais été activé...")
-    restait incompréhensible seul, car "ce mécanisme" (le VNU) n'était
-    défini QUE dans le paragraphe précédent — jamais un candidat, puisque
-    ce paragraphe-là ne portait lui-même aucun chiffre en gras. Les
-    paragraphes sans chiffre restent disponibles comme contexte à inclure
-    si besoin : `plain_source = " ".join(candidates)` plus bas les
-    concatène déjà dans l'ordre du texte, donc une citation contiguë peut
-    légitimement déborder sur le paragraphe précédent pour embarquer sa
-    définition — jamais recomposé, juste une fenêtre de citation plus
-    large qu'un seul paragraphe."""
-    candidates = []
-    for block_m in re.finditer(
-        r'<p class="(?:dek|essentiel-text)">(.*?)</p>', html_text, re.S,
-    ):
-        block_html = block_m.group(1)
-        plain = re.sub(r"<[^>]+>", "", block_html)
-        plain = html.unescape(plain).strip()
-        if plain:
-            candidates.append(plain)
-    return candidates
-
-
 def call_openrouter_json(prompt, model, api_key, timeout=90):
     body = json.dumps({
         "model": model,
@@ -237,178 +186,71 @@ def call_openrouter_json(prompt, model, api_key, timeout=90):
     return json.loads(content), data.get("usage", {})
 
 
-def extract_chiffre(source_date, model, api_key):
-    """Choisit, dans l'édition `source_date`, la phrase à chiffre la plus
-    importante (pas la plus spectaculaire) et la formate — voir
-    docs/routine-pub-prompt.md étape 1 point 7, docs/pub-messages.md § 5.
-    Garde-fou non négociable : le message renvoyé doit être un passage
-    VERBATIM du texte source (segment continu, jamais recomposé) — vérifié
-    après coup, jamais fait confiance au modèle sur ce point précis."""
+# ---------------------------------------------------------------------------
+# Catégorie `chiffre` : lecture directe de la phrase déjà écrite et
+# vérifiée à la rédaction — voir docstring du module. Remplace le 19
+# septembre 2026 toute la chaîne extract_chiffre()/bank_chiffre.py/
+# get_chiffre_for_date() (recherche a posteriori dans jusqu'à 30 jours
+# d'archives passées) : incident réel constaté le même jour, deux posts
+# consécutifs retombés sur le même vieux candidat (aucun chiffre neuf
+# trouvé entre-temps) puis un 3e retombé sur une édition vieille de 3
+# jours, hors contexte. `phrase_a_retenir`/`phrase_a_retenir_stat` sont
+# désormais écrits UNE FOIS, à la rédaction (voir
+# docs/routine-redaction-prompt.md), avec tout le contexte de l'article —
+# ce script ne fait plus que les relire tels quels dans le HTML déjà
+# publié de l'édition du jour, jamais une édition plus ancienne.
+# ---------------------------------------------------------------------------
+def read_phrase_a_retenir(source_date):
+    """Lit `.retenir-box`/`.retenir-text`/`data-stat` dans
+    archives/{source_date}.html — aucun appel réseau, aucun jugement
+    éditorial ici, juste une lecture. Renvoie (fields, usage) avec un coût
+    nul, ou lève PubError si l'édition n'a pas (encore) cet encart —
+    jamais un repli silencieux vers une autre date."""
     archive_path = ARCHIVES_DIR / f"{source_date.isoformat()}.html"
+    if not archive_path.exists():
+        raise PubError(f"édition du jour introuvable : {archive_path} — rien à publier")
     html_text = archive_path.read_text(encoding="utf-8")
-    candidates = extract_strong_number_sentences(html_text)
-    if not candidates:
-        return None
 
-    title_m = re.search(r"<h1>(.*?)</h1>", html_text, re.S)
-    title = html.unescape(re.sub(r"<[^>]+>", "", title_m.group(1))) if title_m else ""
-
-    prompt = f"""Tu choisis LE chiffre le plus important d'une édition déjà publiée, pour un
-post promotionnel court ("Le saviez-vous").
-
-Titre de l'édition : {title}
-
-Règles strictes :
-- Choisis le passage qui porte L'INFORMATION LA PLUS IMPORTANTE de
-  l'édition — pas forcément le chiffre le plus spectaculaire. Demande-toi :
-  qu'est-ce qu'un lecteur qui n'a lu QUE le titre retiendrait comme message
-  principal ?
-- Le "message" renvoyé doit être un EXTRAIT LITTÉRAL d'UN SEUL candidat
-  ci-dessous (ou de 2-3 phrases CONTIGUËS du même paragraphe) — jamais
-  recomposé, jamais reformulé, jamais un mot changé, ajouté ou retiré.
-  Tu peux seulement raccourcir en coupant à une frontière naturelle
-  (virgule, point-virgule, point) si le passage est trop long.
-- Le message doit rester COMPRÉHENSIBLE SEUL, sans le reste de l'article :
-  s'il commence par un pronom (il/elle/ils/elles/ce/ça/cela/celui-ci...) ou
-  une référence implicite, son antécédent doit être DANS le message — ne
-  coupe jamais juste après le groupe nominal qui donne son sens à la
-  phrase, même si ça oblige à démarrer plus tôt dans le candidat.
-- Reste STRICTEMENT sous {CHIFFRE_MAX_CHARS} caractères au total (l'image
-  n'a pas de défilement : un message trop long déborde du cadre et rend
-  l'image illisible) — préfère un passage plus court mais complet à un
-  passage plus long, jamais l'inverse.
-- Vigilance sur les chiffres datés : si un candidat porte un millésime
-  passé ("en 2024") ET qu'un autre candidat exprime un point tout aussi
-  central sans ce problème, préfère ce dernier. Mais ne sacrifie jamais
-  l'exactitude/la pertinence du point clé pour éviter une date.
-- "stat" = uniquement le chiffre lui-même (ex. "41,9" ou "725 Md$"),
-  extrait tel quel du message, sans unité si le gabarit l'affiche déjà
-  séparément (garde l'unité si elle fait partie du sens, ex. "3,1x").
-- Si aucun candidat ne convient vraiment (tous secondaires/anecdotiques),
-  ou si aucun ne tient à la fois COMPLET et sous {CHIFFRE_MAX_CHARS}
-  caractères, renvoie {{"ok": false}}.
-
-Candidats (phrases contenant un chiffre en évidence dans l'édition) :
-{json.dumps(candidates, ensure_ascii=False, indent=2)}
-
-Renvoie un JSON unique : {{"ok": true, "stat": "...", "message": "..."}}
-ou {{"ok": false}}.
-"""
-    result, usage = call_openrouter_json(prompt, model, api_key)
-    # Incident réel du 18 septembre 2026 : `dict(usage)` recopiait TOUT le
-    # champ "usage" renvoyé par OpenRouter, y compris des sous-champs qui
-    # sont eux-mêmes des dicts (ex. détail reasoning/tokens par catégorie),
-    # pas seulement des nombres. Au recalibrage (message trop long), le
-    # `+=` plus bas tentait alors d'additionner deux dicts entre eux
-    # ("unsupported operand type(s) for +: 'dict' and 'dict'"), alors que
-    # seuls "cost" et "total_tokens" sont réellement exploités en aval
-    # (voir leur lecture dans main()). Ne garder que ces deux clés évite
-    # la casse quel que soit le contenu exact de "usage".
-    usage_total = {k: usage.get(k) for k in ("cost", "total_tokens") if k in usage}
-    if not result.get("ok"):
-        return None
-
-    message = result.get("message", "").strip()
-    stat = result.get("stat", "").strip()
-    if not message or not stat:
-        return None
-
-    # Garde-fou anti-invention : le message doit être un sous-segment
-    # quasi-littéral du texte source (tolère la ponctuation de coupure
-    # ajoutée en fin de segment, jamais un mot substitué au milieu).
-    plain_source = " ".join(candidates)
-    normalize = lambda s: re.sub(r"\s+", " ", s).strip().rstrip(".,;:")
-    # Incident réel du 18 septembre 2026 : un message pourtant extrait mot
-    # pour mot rejeté à tort, seule différence = la 1ère lettre mise en
-    # majuscule (le candidat démarrait après "... : la part du dollar...",
-    # le modèle a naturellement capitalisé pour que le message se lise
-    # comme une phrase autonome — comportement attendu, pas une invention).
-    # Comparaison insensible à la casse pour ce garde-fou : il vérifie que
-    # les MOTS ne sont pas inventés/changés, pas leur casse.
-    if normalize(message).lower() not in normalize(plain_source).lower():
+    box_m = re.search(
+        r'<div class="retenir-box"[^>]*\bdata-stat="([^"]*)"[^>]*>.*?'
+        r'<p class="retenir-text">(.*?)</p>',
+        html_text, re.S,
+    )
+    if not box_m:
         raise PubError(
-            f"extract_chiffre : le message renvoyé n'est pas un extrait littéral du texte source "
-            f"— rejeté plutôt que publié. message={message!r}"
+            f"aucun .retenir-box trouvé dans {archive_path} — édition publiée avant le "
+            "19 septembre 2026 (phrase_a_retenir), ou gabarit cassé. Jamais de repli vers "
+            "une édition plus ancienne : corriger l'édition du jour, pas contourner."
+        )
+    stat = html.unescape(box_m.group(1)).strip()
+    message = html.unescape(re.sub(r"<[^>]+>", "", box_m.group(2))).strip()
+    if not message or not stat:
+        raise PubError(f"retenir-box vide/incomplet dans {archive_path} (stat={stat!r}, message={message!r})")
+    if len(message) > CHIFFRE_MAX_CHARS:
+        raise PubError(
+            f"phrase_a_retenir de {archive_path} fait {len(message)} caractères "
+            f"(max {CHIFFRE_MAX_CHARS}) — devrait avoir été refusé à la rédaction "
+            "(voir generate_daily_edition.py, PHRASE_A_RETENIR_MAX_CHARS), jamais publié tel quel."
+        )
+    if stat not in message:
+        raise PubError(
+            f"phrase_a_retenir_stat ({stat!r}) n'apparaît pas mot pour mot dans phrase_a_retenir "
+            f"({message!r}) dans {archive_path} — devrait avoir été refusé à la rédaction."
         )
 
-    # Recalibrage : le modèle dépasse parfois {CHIFFRE_MAX_CHARS} malgré la
-    # consigne (incident du 16 septembre 2026, message ~650 caractères ayant
-    # fait déborder l'image du cadre) — un seul appel de rattrapage, jamais
-    # une boucle, pour éviter de s'acharner sur un sujet qui ne se prête
-    # simplement pas à un résumé court.
-    if len(message) > CHIFFRE_MAX_CHARS:
-        shorten_prompt = f"""Le message que tu as choisi fait {len(message)} caractères, c'est
-trop long pour le gabarit de l'image (max {CHIFFRE_MAX_CHARS} caractères, sans défilement).
-
-Message actuel :
-{message}
-
-Choisis un sous-segment plus court — toujours un extrait littéral, jamais
-reformulé — d'un des candidats ci-dessous, en coupant à une frontière
-naturelle (virgule, point-virgule, point) pour rester sous
-{CHIFFRE_MAX_CHARS} caractères. Le message doit rester compréhensible seul
-et garder le chiffre "{stat}" : s'il commence par un pronom, son antécédent
-doit être dans le message.
-
-Candidats :
-{json.dumps(candidates, ensure_ascii=False, indent=2)}
-
-Renvoie un JSON unique : {{"ok": true, "stat": "...", "message": "..."}} ou
-{{"ok": false}} si aucun raccourci ne garde à la fois le sens, le chiffre et
-la limite de caractères.
-"""
-        result2, usage2 = call_openrouter_json(shorten_prompt, model, api_key)
-        for k in ("cost", "total_tokens"):
-            usage_total[k] = (usage_total.get(k) or 0) + (usage2.get(k) or 0)
-        if not result2.get("ok"):
-            return None
-        message2 = result2.get("message", "").strip()
-        stat2 = result2.get("stat", "").strip()
-        if not message2 or not stat2:
-            return None
-        if normalize(message2).lower() not in normalize(plain_source).lower():
-            raise PubError(
-                f"extract_chiffre (recalibrage) : le message raccourci n'est pas un extrait "
-                f"littéral du texte source — rejeté plutôt que publié. message={message2!r}"
-            )
-        if len(message2) > CHIFFRE_MAX_CHARS:
-            return None  # toujours trop long après recalibrage -> édition abandonnée, essai suivant
-        message, stat = message2, stat2
-
-    usage = usage_total
     months_fr = ["janvier", "février", "mars", "avril", "mai", "juin",
                  "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
     attribution = f"— lesscenarios.fr, {source_date.day} {months_fr[source_date.month - 1]} {source_date.year}"
 
-    return {
+    fields = {
         "eyebrow": "LE SAVIEZ-VOUS",
         "stat": stat,
         "message": message,
         "attribution": attribution,
         "cta": "👉 Abonne-toi, un chiffre qui marque chaque jour",
         "source": f"https://lesscenarios.fr/archives/{source_date.isoformat()}.html",
-    }, usage
-
-
-def get_chiffre_for_date(source_date, model, api_key):
-    """Lit le chiffre déjà extrait et vérifié dans editorial-briefs/{date}.json
-    (banqué au moment de la publication de l'édition, voir scripts/pub/
-    bank_chiffre.py et son appel dans post-edition.yml) — ne retombe sur
-    une extraction en direct via extract_chiffre() que pour une édition
-    publiée avant cette bascule (17 septembre 2026), dont le brief n'a
-    donc jamais été banqué.
-
-    Même forme de retour que extract_chiffre() : (fields, usage) ou None."""
-    brief_path = ROOT / "editorial-briefs" / f"{source_date.isoformat()}.json"
-    if brief_path.exists():
-        brief = json.loads(brief_path.read_text(encoding="utf-8"))
-        if brief.get("chiffre_candidat"):
-            return brief["chiffre_candidat"], {"cost": 0.0, "total_tokens": 0}
-        if brief.get("chiffre_candidat_checked"):
-            # Déjà vérifié à la publication, rien de bon trouvé — ne
-            # jamais repayer une extraction pour redécouvrir la même chose.
-            return None
-    return extract_chiffre(source_date, model, api_key)
+    }
+    return fields, {"cost": 0.0, "total_tokens": 0}
 
 
 # ---------------------------------------------------------------------------
@@ -586,7 +428,7 @@ def main():
     today = now.date()
     date_str = today.isoformat()
 
-    print(f"{today.strftime('%A %d %B %Y')} (Paris) -> catégorie : chiffre (unique)")
+    print(f"{today.strftime('%A %d %B %Y')} (Paris) -> catégorie : chiffre (unique), édition du jour")
 
     md_text = PUB_MESSAGES.read_text(encoding="utf-8")
     feed_xml = FEED_PUB.read_text(encoding="utf-8")
@@ -594,29 +436,15 @@ def main():
 
     usage_total = {"cost": 0.0, "total_tokens": 0}
 
-    already_used = used_chiffre_sources(feed_items)
-    candidates_dates = eligible_chiffre_dates(today, already_used)
-    if not candidates_dates:
-        print("Aucune édition éligible pour la catégorie chiffre aujourd'hui.", file=sys.stderr)
-        return 1
-    fields = None
-    chiffre_source_date = None
-    for d in candidates_dates:
-        result = get_chiffre_for_date(d, args.model, api_key)
-        if result is None:
-            print(f"  édition du {d} : aucun chiffre exploitable, essai suivant.")
-            continue
-        fields, usage = result
-        for k in ("cost", "total_tokens"):
-            usage_total[k] = usage_total.get(k, 0) + (usage.get(k) or 0)
-        chiffre_source_date = d
-        break
-    if fields is None:
-        print("Aucune édition candidate n'a de chiffre exploitable.", file=sys.stderr)
-        return 1
+    # Toujours l'édition du jour, jamais une recherche parmi d'anciennes
+    # éditions — voir read_phrase_a_retenir() et docs/ARCHITECTURE.md.
+    chiffre_source_date = today
+    fields, usage = read_phrase_a_retenir(chiffre_source_date)
+    for k in ("cost", "total_tokens"):
+        usage_total[k] = usage_total.get(k, 0) + (usage.get(k) or 0)
     entry_id = f"chiffre-{date_str}"
-    note = (f"*Extrait automatiquement de l'édition du {chiffre_source_date.isoformat()} "
-            f"(archives/{chiffre_source_date.isoformat()}.html) — "
+    note = (f"*Phrase à retenir de l'édition du {chiffre_source_date.isoformat()} "
+            f"(archives/{chiffre_source_date.isoformat()}.html), reprise mot pour mot — "
             f"voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*")
 
     print(f"Entrée retenue : {entry_id}")
