@@ -316,12 +316,22 @@ jobs:
       # s'est arrêté tôt (édition déjà publiée aujourd'hui, voir son
       # garde-fou already_published_today()) — traité comme un no-op,
       # jamais une erreur.
+      #
+      # sujets-prioritaires.md volontairement EXCLU d'ici (voir l'étape
+      # dédiée juste en dessous) : c'est le seul fichier de ce commit que
+      # hot-topics.yml peut aussi modifier de son côté (insertions en tête
+      # de section) — le même risque de fusion silencieuse par rebase sur
+      # des hunks adjacents qui a corrompu ce fichier le 18 septembre 2026
+      # (voir docs/ARCHITECTURE.md) s'appliquerait ici aussi. Tous les
+      # autres fichiers de ce commit sont propres à l'édition du jour
+      # (chemin daté, jamais touchés par un autre workflow), donc sans
+      # risque comparable.
       - name: Committer et pousser l'édition publiée (uniquement si publish=true)
         if: steps.config.outputs.publish == 'true'
         run: |
           git config user.name "scenario-edition-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add index.html archives/ feed.xml sitemap.xml sitemap-news.xml glossaire.html archives.html themes/ assets/social/topic-images/ assets/social/instagram/ sources-log.json sources.html editorial-briefs/ sujets-prioritaires.md
+          git add index.html archives/ feed.xml sitemap.xml sitemap-news.xml glossaire.html archives.html themes/ assets/social/topic-images/ assets/social/instagram/ sources-log.json sources.html editorial-briefs/
           if git diff --cached --quiet; then
             echo "Aucun changement — rien à committer (édition déjà publiée aujourd'hui, ou generate_post_edition.py s'est arrêté avant --publish)."
             exit 0
@@ -329,6 +339,40 @@ jobs:
           git commit -m "Édition du $(TZ=Europe/Paris date +%d/%m/%Y) — chaîne rédaction OpenRouter + post-édition automatique"
           git pull --rebase origin main
           git push origin main
+
+      # sujets-prioritaires.md, séparé et sécurisé : check_off_priority_topic()
+      # (voir generate_post_edition.py --recheck-priority-only) est bon marché
+      # et idempotent — se rejoue sans souci après un pull frais, contrairement
+      # au reste du pipeline (Pexels, assemblage HTML...). Ajouté le
+      # 19 septembre 2026 après l'incident de corruption ci-dessus : plutôt
+      # que de rebaser un diff déjà calculé (risque de fusion silencieuse
+      # avec une insertion concurrente de hot-topics.yml), on repart à
+      # chaque essai d'un main fraîchement fetché et on recalcule la case à
+      # cocher dessus.
+      - name: Cocher sujets-prioritaires.md (étape séparée, relance depuis zéro si le push est refusé)
+        if: steps.config.outputs.publish == 'true'
+        run: |
+          git config user.name "scenario-edition-bot"
+          git config user.email "actions@users.noreply.github.com"
+          BRIEF="${{ steps.config.outputs.brief }}"
+          for attempt in 1 2 3; do
+            echo "=== Essai $attempt/3 ==="
+            git fetch origin main
+            git checkout origin/main -- sujets-prioritaires.md
+            python3 scripts/edition/generate_post_edition.py --brief "$BRIEF" --recheck-priority-only
+            git add sujets-prioritaires.md
+            if git diff --cached --quiet; then
+              echo "Aucun changement — rien à committer (déjà coché, ou origine_prioritaire absente du brief)."
+              exit 0
+            fi
+            git commit -m "[sujets] case cochée après publication"
+            if git push origin main; then
+              echo "Poussé avec succès (essai $attempt)."
+              exit 0
+            fi
+            echo "Push refusé (essai $attempt) — main a bougé entre-temps, on relance depuis un état frais."
+          done
+          echo "Échec après 3 essais — case non cochée, non bloquant (voir check_off_priority_topic())." >&2
 
       # Incident réel du 14 septembre 2026 : translate-en.yml (badge EN +
       # lien anglais sur index.html/archives.html) écoute "on: push" sur

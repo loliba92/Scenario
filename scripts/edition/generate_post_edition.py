@@ -759,7 +759,9 @@ def check_off_priority_topic(brief):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--brief", required=True, help="chemin du brief JSON (même fichier que la rédaction)")
-    parser.add_argument("--content", required=True, help="chemin du {date}.content.json produit par generate_daily_edition.py")
+    parser.add_argument("--content", default=None,
+                         help="chemin du {date}.content.json produit par generate_daily_edition.py — "
+                              "requis sauf avec --recheck-priority-only")
     parser.add_argument("--sandbox-root", default=None,
                          help="racine bac à sable pour toutes les écritures (défaut : _prototype-out/post-edition/{date}) — "
                               "jamais le dépôt réel")
@@ -771,17 +773,31 @@ def main():
              "jamais de commit/push depuis ce script, voir .github/workflows/post-edition.yml. "
              "Absent par défaut : comportement Phase 1 inchangé.",
     )
+    parser.add_argument(
+        "--recheck-priority-only", action="store_true",
+        help="Ne fait QUE check_off_priority_topic() sur le VRAI sujets-prioritaires.md (jamais le "
+             "bac à sable) puis s'arrête — aucun appel Pexels/OpenRouter, aucune écriture des autres "
+             "fichiers réels. Sert à rejouer cette seule étape, bon marché et idempotente, dans une "
+             "boucle de retry après un pull frais (voir .github/workflows/post-edition.yml) — jamais "
+             "besoin de refaire tourner tout le pipeline coûteux juste pour cette case à cocher.",
+    )
     args = parser.parse_args()
 
     brief = load_brief(args.brief)
     date_str = brief["date"]
     print(f"[post-edition] brief chargé : {args.brief} (date {date_str})")
 
+    if args.recheck_priority_only:
+        check_off_priority_topic(brief)
+        return
+
     if args.publish and already_published_today(date_str):
         print(f"[post-edition] --publish : index.html porte déjà la date {date_str} — "
               "édition déjà publiée, on s'arrête proprement sans rien republier.")
         return
 
+    if not args.content:
+        raise PostEditionError("--content requis (sauf avec --recheck-priority-only)")
     content_path = Path(args.content)
     if not content_path.exists():
         raise PostEditionError(f"content.json introuvable : {content_path} — lancer generate_daily_edition.py d'abord")
