@@ -519,6 +519,10 @@ UPDATE_BLOCK_TMPL = """    <div class="version is-update">
           <span class="conclusion-label">Conclusion vs {prev_label}</span>
           <p><strong>{concl_emoji} {concl_verdict} ({concl_pct}%)</strong> — {concl_text}.</p>
         </div>
+        <div class="retenir-box" id="retenir-v{n}">
+          <span class="retenir-label">Si tu devais retenir 1 chose</span>
+          <p class="retenir-text">{social}</p>
+        </div>
         <p class="sources-note">Sources : {sources_html}</p>
         </div>
       </div>
@@ -562,7 +566,7 @@ V0_BLOCK_TMPL = """    <div class="version">
 
 
 def build_update_block(version_n, date_maj, titles, prev_pcts, new_pcts, reasons,
-                        fact_paragraph, conclusion_kind, conclusion_text, sources, prev_label):
+                        fact_paragraph, conclusion_kind, conclusion_text, sources, prev_label, social):
     cards = []
     for kind in KIND_ORDER:
         arrow_class, arrow = arrow_for_delta(new_pcts[kind] - prev_pcts[kind])
@@ -582,7 +586,7 @@ def build_update_block(version_n, date_maj, titles, prev_pcts, new_pcts, reasons
         scenario_cards="\n".join(cards), prev_label=prev_label,
         concl_emoji=titles[conclusion_kind]["emoji"], concl_verdict=verdict,
         concl_pct=new_pcts[conclusion_kind], concl_text=conclusion_text,
-        sources_html=sources_html,
+        sources_html=sources_html, social=social,
     )
 
 
@@ -910,10 +914,21 @@ def main():
         html_text = suivi_path.read_text(encoding="utf-8")
         version_n = winner_cand["version_count"]
         date_maj = fmt_date_long(today)
+
+        # Calculé AVANT build_update_block() (et non après, comme avant le
+        # 19 septembre 2026) pour que la même chaîne "social" alimente à la
+        # fois .retenir-box sur la page ET l'image du post — jamais deux
+        # valeurs parallèles qui pourraient diverger. Voir docs/ARCHITECTURE.md.
+        title_for_titles = winner_cand["titles"][conclusion_kind]["title"]
+        emoji = winner_cand["titles"][conclusion_kind]["emoji"]
+        link = f"https://lesscenarios.fr/suivi/{slug}.html#version-content-v{version_n}"
+        delta = pct[conclusion_kind] - winner_cand["prev_pcts"][conclusion_kind]
+        social = build_social_conclusion(emoji, winner_result["social_sentence"], title_for_titles, pct[conclusion_kind], delta)
+
         block = build_update_block(
             version_n, date_maj, winner_cand["titles"], winner_cand["prev_pcts"], pct,
             winner_result["reasons"], winner_result["fact_paragraph"], conclusion_kind,
-            winner_result["conclusion_text"], sources, winner_cand["prev_label"],
+            winner_result["conclusion_text"], sources, winner_cand["prev_label"], social,
         )
         new_evo = {"label": f"V{version_n}", "date": fmt_date_short(today), **pct}
         new_html = insert_update_into_suivi(html_text, block, new_evo)
@@ -927,12 +942,6 @@ def main():
         )
         SUJETS_A_SUIVRE.write_text(md_text, encoding="utf-8")
         changed_paths.append(str(SUJETS_A_SUIVRE.relative_to(ROOT)))
-
-        title_for_titles = winner_cand["titles"][conclusion_kind]["title"]
-        emoji = winner_cand["titles"][conclusion_kind]["emoji"]
-        link = f"https://lesscenarios.fr/suivi/{slug}.html#version-content-v{version_n}"
-        delta = pct[conclusion_kind] - winner_cand["prev_pcts"][conclusion_kind]
-        social = build_social_conclusion(emoji, winner_result["social_sentence"], title_for_titles, pct[conclusion_kind], delta)
 
         other_clauses = []
         for kind in KIND_ORDER:
@@ -987,10 +996,20 @@ def main():
         )
         v0_pcts = {k: winner_cand["scenarios"][k]["pct"] for k in KIND_ORDER}
         titles_with_emoji = {k: {"emoji": v0_scenarios[k]["emoji"], "title": winner_cand["scenarios"][k]["title"]} for k in KIND_ORDER}
+
+        # Calculé AVANT build_update_block() — même raison que dans la
+        # branche "suivi" ci-dessus : une seule chaîne "social" pour la
+        # page ET l'image.
+        title_for_titles = titles_with_emoji[conclusion_kind]["title"]
+        emoji = titles_with_emoji[conclusion_kind]["emoji"]
+        link = f"https://lesscenarios.fr/suivi/{slug}.html#version-content-v1"
+        delta = pct[conclusion_kind] - v0_pcts[conclusion_kind]
+        social = build_social_conclusion(emoji, winner_result["social_sentence"], title_for_titles, pct[conclusion_kind], delta)
+
         block = build_update_block(
             1, fmt_date_long(today), titles_with_emoji, v0_pcts, pct,
             winner_result["reasons"], winner_result["fact_paragraph"], conclusion_kind,
-            winner_result["conclusion_text"], sources, "V0",
+            winner_result["conclusion_text"], sources, "V0", social,
         )
         html_text = out_path.read_text(encoding="utf-8")
         new_evo = {"label": "V1", "date": fmt_date_short(today), **pct}
@@ -1015,11 +1034,6 @@ def main():
         SUJETS_A_SUIVRE.write_text(md_text, encoding="utf-8")
         changed_paths.append(str(SUJETS_A_SUIVRE.relative_to(ROOT)))
 
-        title_for_titles = titles_with_emoji[conclusion_kind]["title"]
-        emoji = titles_with_emoji[conclusion_kind]["emoji"]
-        link = f"https://lesscenarios.fr/suivi/{slug}.html#version-content-v1"
-        delta = pct[conclusion_kind] - v0_pcts[conclusion_kind]
-        social = build_social_conclusion(emoji, winner_result["social_sentence"], title_for_titles, pct[conclusion_kind], delta)
         other_clauses = []
         for kind in KIND_ORDER:
             if kind == conclusion_kind:

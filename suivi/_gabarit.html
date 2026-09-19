@@ -241,6 +241,20 @@
     text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin: 0 0 8px;
   }
 
+  /* Phrase à retenir de cette mise à jour — ajouté le 19 septembre 2026,
+     même principe que .retenir-box sur les éditions quotidiennes
+     (index.html) : la phrase affichée ici est EXACTEMENT celle reprise
+     par l'image du post social, jamais une valeur parallèle recalculée
+     ailleurs — voir generate_suivi_update.py, build_social_conclusion(). */
+  .retenir-box{
+    background: var(--gold); border-radius: 10px; padding: 16px 18px; margin-top: 16px;
+  }
+  .retenir-label{
+    display: block; font-family: "JetBrains Mono", monospace; font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink); opacity: 0.7; margin: 0 0 6px;
+  }
+  .retenir-text{ font-family: "Fraunces", serif; font-size: 1.05rem; font-weight: 500; line-height: 1.4; margin: 0; color: var(--ink); }
+
   .sources-note{ font-size: 0.8rem; color: var(--paper-dim); margin-top: 14px; }
   .sources-note a{ color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
   .sources-note a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
