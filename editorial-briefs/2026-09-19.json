@@ -1,0 +1,353 @@
+{
+  "date": "2026-09-19",
+  "registre": "culture",
+  "sujet": {
+    "titre_propose": "Ed Sheeran-Macklemore : la neutralité est-elle morte ?",
+    "h1": "Sheeran-Macklemore : la neutralité impossible",
+    "question_posee": "Après l'éviction de Macklemore, la tournée de Sheeran peut-elle survivre au boycott sans que sa carrière en paie durablement le prix ?",
+    "eyebrow": "Samedi, culture",
+    "angle": "Le renvoi du rappeur Macklemore de la tournée américaine d'Ed Sheeran pour ses prises de position pro-palestiniennes déclenche un boycott en chaîne (artistes, fans, célébrités) qui interroge la possibilité même, pour une star mondiale, de rester neutre dans un climat polarisé.",
+    "tags": [
+      "musique",
+      "culture",
+      "polemique-artistes",
+      "israel-palestine"
+    ],
+    "domain": "culture-divertissement",
+    "image_keywords": "concert stadium crowd",
+    "complexite": 3
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Édition de la veille (18/09, sciences-environnement, neuropathies) sans recoupement. Dernières éditions du registre culture (05/09 marché de l'art, 12/09 modèle des suites Hollywood) : aucun recoupement de sujet, d'acteurs ou de mécanisme de fond. Le sujet 'Mbappé/Ceuta' listé dans sujets-prioritaires.md pour dimanche-sport n'est pas retenu ici (registre différent, samedi = culture) ; le sujet culture proposé par la veille automatisée (Ed Sheeran/Macklemore) est confirmé comme le plus pertinent et le plus à jour après vérification web : le concert de Philadelphie a bien lieu le 19/09 au soir, sans première partie, avec manifestation annoncée — développement plus récent que le brouillon fourni."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Macklemore a été retiré de la tournée américaine d'Ed Sheeran après avoir crié 'Free Palestine' et interprété son titre engagé 'Hind's Hall' lors des concerts du MetLife Stadium (New Jersey) début septembre.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-05",
+      "sources": [
+        "src1",
+        "src2"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le milliardaire Robert Kraft, propriétaire du Gillette Stadium et des New England Patriots, a confirmé avoir interdit à Macklemore de se produire dans son stade les 25 et 26 septembre, évoquant 'une histoire plus large de rhétorique et d'imagerie antisémites'.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-14",
+      "sources": [
+        "src3"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Plusieurs artistes de la première partie (Finneas, Aaron Rowe, Lukas Graham, Beoga) ont quitté la tournée en solidarité avec Macklemore, laissant Ed Sheeran sans aucune première partie pour ses dates suivantes.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-16",
+      "sources": [
+        "src4",
+        "src5"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le concert de Philadelphie du 19 septembre, premier concert américain depuis l'éviction de Macklemore, se tient bien comme prévu au Lincoln Financial Field, avec un début décalé à 20h en l'absence de première partie, et une manifestation pro-palestinienne organisée devant le stade.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-19",
+      "sources": [
+        "src6",
+        "src7"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Sur le marché de la revente, le prix du billet le moins cher pour Philadelphie est passé de 126 à 96 dollars entre lundi et jeudi, soit une baisse d'environ 24% en trois jours, tandis que les prix des concerts de Macklemore en solo grimpent.",
+      "chiffre": "-24% en 3 jours",
+      "date_du_chiffre": "2026-09-17",
+      "sources": [
+        "src6",
+        "src8"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "Ed Sheeran a publiquement affirmé que la décision de retirer Macklemore ne venait pas de lui mais des salles et du promoteur (Messina Touring Group), qui auraient posé un ultimatum, tout en se disant 'consterné' par le conflit israélo-palestinien sans prendre position publique.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-15",
+      "sources": [
+        "src9",
+        "src10"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Selon Robert Kraft, Ed Sheeran lui aurait personnellement demandé de financer 2 millions de dollars d'aide humanitaire pour les Palestiniens, en écho à un don équivalent que le chanteur affirme avoir fait lui-même.",
+      "chiffre": "2 millions de dollars",
+      "date_du_chiffre": "2026-09-18",
+      "sources": [
+        "src11"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Ed Sheeran",
+      "role": "Chanteur en tournée (Loop Tour), au cœur de la polémique pour son silence public"
+    },
+    {
+      "nom": "Macklemore (Ben Haggerty)",
+      "role": "Rappeur évincé de la tournée pour ses prises de position pro-palestiniennes"
+    },
+    {
+      "nom": "Robert Kraft",
+      "role": "Milliardaire, propriétaire du Gillette Stadium et des New England Patriots, à l'origine de la pression sur le promoteur"
+    },
+    {
+      "nom": "Messina Touring Group",
+      "role": "Promoteur de la tournée, qui a acté le retrait de Macklemore sous la pression de plusieurs salles"
+    },
+    {
+      "nom": "Finneas, Lukas Graham, Aaron Rowe, Beoga",
+      "role": "Artistes de première partie ayant quitté la tournée en solidarité avec Macklemore"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-09-04",
+      "evenement": "Macklemore scande 'Free Palestine' et interprète 'Hind's Hall' lors de son ouverture pour Sheeran au MetLife Stadium"
+    },
+    {
+      "date": "2026-09-14",
+      "evenement": "Robert Kraft confirme interdire à Macklemore de jouer au Gillette Stadium les 25-26 septembre"
+    },
+    {
+      "date": "2026-09-15",
+      "evenement": "Macklemore annonce sur Instagram avoir été retiré du reste de la tournée ; Ed Sheeran réagit publiquement"
+    },
+    {
+      "date": "2026-09-16",
+      "evenement": "Tous les artistes restants de la première partie quittent la tournée en solidarité"
+    },
+    {
+      "date": "2026-09-19",
+      "evenement": "Reprise de la tournée américaine à Philadelphie, sans première partie, sous surveillance policière renforcée et manifestation annoncée"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Sheeran traverse la polémique sans dommage durable : il clarifie sa position, apaise une partie de la critique, retrouve des artistes pour compléter sa tournée, et le public finit par dissocier l'artiste de la polémique.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "La polémique s'essouffle progressivement sans effondrement commercial : la tournée continue sans première partie, l'image de Sheeran reste ternie mais ses ventes ne s'effondrent pas, le débat sur la neutralité des artistes reste ouvert sans trancher.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "Le boycott s'amplifie (chute durable des ventes, nouvelles annulations, nouvelles défections d'artistes ou de sponsors), Sheeran devient un symbole négatif durable de la 'neutralité impossible', et la pression politique sur les artistes s'intensifie dans l'industrie musicale.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Prix revente billet Philadelphie (moins cher)",
+      "valeur": "96 $ (-24% en 3 jours)",
+      "tendance": "baisse"
+    },
+    {
+      "label": "Artistes de 1re partie restants sur la tournée",
+      "valeur": "0 sur 10 dates US restantes",
+      "tendance": "en chute"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Pas de série historique longue disponible et vérifiable (l'évolution des prix de reventes n'a que 3-4 points de données sur quelques jours, insuffisant pour les 5 points minimum requis) ; un simple indicateur ponctuel (indicateurs_kpi) suffit à illustrer l'impact commercial immédiat.",
+    "serie": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Pourquoi le boycott a visé Sheeran plutôt que directement les salles ou le promoteur — le mécanisme de la pression exercée par les propriétaires de stades (cas Kraft/Gillette) sur les tournées itinérantes",
+        "rattache_a": "faits_verifies[1]"
+      },
+      {
+        "focus": "Le phénomène de 'solidarité en cascade' des artistes de première partie, et ce qu'il révèle sur le rapport de force entre tête d'affiche et premières parties dans l'industrie du concert",
+        "rattache_a": "faits_verifies[2]"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le montant exact et la réalité du don de 2 millions de dollars attribué à Ed Sheeran ne sont confirmés que par la version de Robert Kraft, sans confirmation indépendante de l'entourage de Sheeran à ce stade.",
+    "L'ampleur réelle de la manifestation prévue à Philadelphie le 19 septembre au soir n'est pas encore connue au moment de la rédaction du brief (l'événement est prévu pour ce soir même).",
+    "Aucune source ne confirme à ce stade une éventuelle annulation de dates ultérieures (Gillette Stadium 25-26 septembre) ; le calendrier reste incertain au-delà de Philadelphie."
+  ],
+  "a_ne_pas_affirmer": [
+    "Ne jamais affirmer que la tournée de Sheeran est annulée ou en péril financier avéré : à ce stade, seules les premières parties ont été affectées, pas les dates de Sheeran lui-même.",
+    "Ne jamais présenter la version de Macklemore ou celle de Kraft comme un fait établi et non contesté : les deux versions (pression de Kraft vs. décision du promoteur/des salles) restent partiellement contradictoires selon les sources."
+  ],
+  "sources": [
+    {
+      "id": "src1",
+      "title": "Macklemore dropped from Ed Sheeran tour following Palestine advocacy",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/9/14/macklemore-dropped-from-ed-sheeran-tour-following-palestine-advocacy",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Le milliardaire Robert Kraft confirme avoir interdit à Macklemore de se produire au Gillette Stadium après son soutien affiché à la Palestine.",
+      "read_minutes": 4
+    },
+    {
+      "id": "src2",
+      "title": "Fellow opening acts quit after Ed Sheeran tour drops Macklemore",
+      "source": "CNN",
+      "url": "https://www.cnn.com/2026/09/15/entertainment/ed-sheeran-macklemore-palestine-openers-quit-cec",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Détail des propos de Macklemore et de Kraft, et rappel du contexte de la polémique de 2014 évoquée par Kraft.",
+      "read_minutes": 5
+    },
+    {
+      "id": "src3",
+      "title": "Macklemore dropped from Ed Sheeran tour following Palestine advocacy",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/9/14/macklemore-dropped-from-ed-sheeran-tour-following-palestine-advocacy",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Kraft explique sa décision par 'une histoire plus large de rhétorique et d'imagerie antisémites' qu'il juge blessante pour la communauté juive.",
+      "read_minutes": 4
+    },
+    {
+      "id": "src4",
+      "title": "Finneas and other acts exit Ed Sheeran tour to protest Macklemore being dropped",
+      "source": "NBC News",
+      "url": "https://www.nbcnews.com/pop-culture/pop-culture-news/finneas-aaron-rowe-exit-ed-sheeran-tour-protest-macklemore-dropped-pal-rcna597948",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Finneas et d'autres artistes annoncent quitter la tournée de Sheeran en signe de protestation contre l'éviction de Macklemore.",
+      "read_minutes": 4
+    },
+    {
+      "id": "src5",
+      "title": "4 supporting acts quit Ed Sheeran tour amid backlash over Macklemore ousting",
+      "source": "CBC News",
+      "url": "https://www.cbc.ca/news/entertainment/sheeran-macklemore-tour-9.7345034",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Quatre artistes de première partie (Aaron Rowe, Lukas Graham, Beoga, Finneas) quittent la tournée, la laissant sans aucun ouvreur.",
+      "read_minutes": 4
+    },
+    {
+      "id": "src6",
+      "title": "Ed Sheeran's Philly Show Draws Pro-Palestinian Protest as Police Plan 'Sizable' Presence After Macklemore Exit",
+      "source": "Yahoo / TMZ",
+      "url": "https://www.yahoo.com/entertainment/music/articles/ed-sheeran-philly-show-draws-121526032.html",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Le concert de Philadelphie se tient comme prévu le 19 septembre, avec une manifestation annoncée et une présence policière renforcée.",
+      "read_minutes": 4
+    },
+    {
+      "id": "src7",
+      "title": "Ed Sheeran's Philadelphia concert: Planned protests, late start, and no announced opener",
+      "source": "The Philadelphia Inquirer",
+      "url": "https://www.inquirer.com/arts/ed-sheeran-philadelphia-concert-opener-protest-20260918.html",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Le concert du 19 septembre est décalé à 20h, sans première partie annoncée, dans un contexte de crise pour la tournée Loop.",
+      "read_minutes": 4
+    },
+    {
+      "id": "src8",
+      "title": "Ticket prices rise for Macklemore solo concert after Ed Sheeran tour removal",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/09/18/macklemore-ticket-prices-rise-amid-ed-sheeran-tour-fallout.html",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Les prix des billets pour les concerts en solo de Macklemore grimpent tandis que ceux de la tournée de Sheeran reculent légèrement.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src9",
+      "title": "4 supporting acts quit Ed Sheeran tour amid backlash over Macklemore ousting",
+      "source": "CBC News",
+      "url": "https://www.cbc.ca/news/entertainment/sheeran-macklemore-tour-9.7345034",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Ed Sheeran se dit 'consterné' par le conflit israélo-palestinien mais refuse de prendre publiquement position sur le fond.",
+      "read_minutes": 4
+    },
+    {
+      "id": "src10",
+      "title": "Ed Sheeran says it wasn't his call to drop Macklemore over 'Free Palestine' remarks",
+      "source": "Forward",
+      "url": "https://forward.com/fast-forward/850322/ed-sheeran-says-it-wasnt-his-call-to-drop-macklemore-over-free-palestine-remarks/",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Sheeran attribue la décision d'évincer Macklemore aux salles et au promoteur, pas à lui-même.",
+      "read_minutes": 3
+    },
+    {
+      "id": "src11",
+      "title": "Ed Sheeran asked Patriots owner Robert Kraft for $2 million aid donation after Macklemore was dropped",
+      "source": "Fortune",
+      "url": "https://fortune.com/2026/09/18/ed-sheeran-robert-kraft-aid-donation-macklemore-tour/",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Robert Kraft affirme que Sheeran lui a demandé de financer 2 millions de dollars d'aide humanitaire pour les Palestiniens.",
+      "read_minutes": 4
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Which artists have pulled out of Ed Sheeran's tour over Palestine?",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/9/16/the-artists-who-pulled-out-of-ed-sheerans-tour-over-palestine",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Récapitulatif de tous les artistes ayant quitté la tournée de Sheeran en solidarité avec Macklemore, certains citant l'histoire irlandaise de l'occupation.",
+      "read_minutes": 3
+    },
+    {
+      "title": "Ed Sheeran Openers Quit Tour as Boycott Begins Over 'Silencing' of Macklemore's Palestine Speech",
+      "source": "Common Dreams",
+      "url": "https://www.commondreams.org/news/ed-sheeran-palestine-boycott",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Un journaliste palestino-américain qualifie l'affaire de 'moment Afrique du Sud' pour la pop culture et sa complicité avec Israël.",
+      "read_minutes": 4
+    },
+    {
+      "title": "Hannah Einbinder slams Ed Sheeran over Macklemore's 'Loop Tour' exit",
+      "source": "Fox News",
+      "url": "https://www.foxnews.com/entertainment/hannah-einbinders-brutal-message-ed-sheeran-fuels-growing-celebrity-revolt-over-macklemore-tour-drama",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "L'actrice Hannah Einbinder critique publiquement Ed Sheeran sur Instagram, alimentant une révolte grandissante de célébrités.",
+      "read_minutes": 2
+    }
+  ],
+  "recommandations_redaction": [
+    "Faire un lien avec l'édition du 6 août 2026 sur la crise de la FIFA/Infantino et la pression politique sur le sport comme parallèle possible sur la question plus large de la neutralité des figures publiques face aux conflits géopolitiques — filière différente (musique vs. sport) mais même tension de fond (silence = position politique).",
+    "Ne pas confondre cette affaire avec le sujet Mbappé/Ceuta mentionné dans les brouillons de veille : il s'agit de deux polémiques distinctes sur la neutralité des artistes/sportifs face à des enjeux politiques, ne pas les mélanger dans l'article.",
+    "Bien distinguer, dans l'article, la version de Macklemore (pression directe de Kraft sur Sheeran) de celle du promoteur Messina Touring Group (décision collective des salles) — les deux ne sont pas totalement alignées.",
+    "Mentionner explicitement que le concert de Philadelphie du 19 septembre est concomitant à la publication de cet article : vérifier son déroulement effectif avant publication si possible (aucune annulation de dernière minute rapportée à l'heure de la recherche)."
+  ]
+}
