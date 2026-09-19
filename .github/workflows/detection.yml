@@ -13,10 +13,17 @@ name: Détection sujets à suivre
 # (recherche web, réestimation, sélection) reste le même qu'avant, mais
 # facturé sur OPENROUTER_API_KEY plutôt que sur le forfait Claude Code.
 #
-# Cadence d'origine du trigger : lundi/jeudi/vendredi/samedi ~2h Paris.
-# Comme pour reads.yml/post-edition.yml, le `schedule` GitHub Actions n'est
+# Cadence : passée à 1x/semaine (lundi ~2h Paris) le 19 septembre 2026,
+# retour utilisateur après un incident de coût réel (MAX_CANDIDATES_PER_RUN
+# ajouté le même jour dans generate_suivi_update.py, voir docs/ARCHITECTURE.md
+# — sans plafond, le coût par passage était proportionnel au nombre de
+# suivis actifs, jusqu'à ~1,78 $ constaté en conditions réelles). Comme
+# pour reads.yml/post-edition.yml, le `schedule` GitHub Actions n'est
 # qu'un filet — le déclenchement principal passe par cron-job.org
-# (workflow_dispatch), voir docs/ARCHITECTURE.md.
+# (workflow_dispatch), voir docs/ARCHITECTURE.md. Les deux cadences
+# doivent rester alignées sur l'hebdo : un filet plus fréquent que le
+# déclenchement principal redéclencherait le coût qu'on vient de corriger,
+# indépendamment de la fréquence choisie côté cron-job.org.
 #
 # Secret requis (déjà présent, voir pub.yml/translate-en.yml) :
 #   OPENROUTER_API_KEY
@@ -24,10 +31,11 @@ name: Détection sujets à suivre
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: '0 1 * * 1,4,5,6'  # ~2-3h Paris selon heure d'été/hiver
+    - cron: '0 1 * * 1'  # lundi ~2-3h Paris selon heure d'été/hiver
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   detect:
@@ -63,3 +71,24 @@ jobs:
           git commit -m "[détection] mise à jour automatique d'un suivi"
           git pull --rebase origin main
           git push origin main
+
+      # Issue récapitulative — même principe que hot-topics.yml, ajouté le
+      # 19 septembre 2026 (retour utilisateur, plus facile à suivre qu'en
+      # rouvrant les logs). Toujours créée après une exécution réelle
+      # (detection-run-summary.md écrit à chaque run non-dry-run par
+      # generate_suivi_update.py, qu'un sujet ait été mis à jour ou non) —
+      # contrairement à hot-topics.yml, jamais conditionnelle à un contenu
+      # trouvé : après l'incident de coût, la valeur ici est justement de
+      # voir aussi les passages "RAS"/"rien de significatif".
+      - name: Créer une issue récapitulative
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -f detection-run-summary.md ]; then
+            gh issue create \
+              --repo "${{ github.repository }}" \
+              --title "🔍 Détection — $(date -u +%Y-%m-%d)" \
+              --body-file detection-run-summary.md
+          else
+            echo "detection-run-summary.md absent (probablement un échec avant ce point) — pas d'issue créée."
+          fi

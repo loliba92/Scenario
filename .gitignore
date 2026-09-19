@@ -10,3 +10,7 @@ __pycache__/
 # run (voir scripts/edition/generate_hot_topics.py).
 /hot-topics-run-summary.md
 
+# Même principe pour generate_suivi_update.py / detection.yml — voir
+# DETECTION_RUN_SUMMARY dans ce script.
+/detection-run-summary.md
+
