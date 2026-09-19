@@ -321,7 +321,7 @@ jobs:
         run: |
           git config user.name "scenario-edition-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add index.html archives/ feed.xml sitemap.xml sitemap-news.xml glossaire.html archives.html themes/ assets/social/topic-images/ assets/social/instagram/ sources-log.json sources.html editorial-briefs/
+          git add index.html archives/ feed.xml sitemap.xml sitemap-news.xml glossaire.html archives.html themes/ assets/social/topic-images/ assets/social/instagram/ sources-log.json sources.html editorial-briefs/ sujets-prioritaires.md
           if git diff --cached --quiet; then
             echo "Aucun changement — rien à committer (édition déjà publiée aujourd'hui, ou generate_post_edition.py s'est arrêté avant --publish)."
             exit 0
