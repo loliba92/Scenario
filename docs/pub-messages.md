@@ -890,6 +890,16 @@ préférée pour son registre déjà simplifié.*
 
 *Extrait automatiquement de l'édition du 2026-09-16 (archives/2026-09-16.html) — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-09-20
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 1 milliard de dollars
+- message: Les offres pour une franchise NBA Europe ont dépassé 1 milliard de dollars par ville, tandis que l'Euroleague ne réunit encore que 700 millions d'euros d'engagements pour son expansion à 24 équipes.
+- attribution: — lesscenarios.fr, 20 septembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-09-20.html
+
+*Phrase à retenir de l'édition du 2026-09-20 (archives/2026-09-20.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
