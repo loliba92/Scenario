@@ -1,0 +1,280 @@
+{
+  "date": "2026-09-20",
+  "registre": "sport",
+  "sujet": {
+    "titre_propose": "NBA Europe : le basket européen va-t-il se soumettre ou résister ?",
+    "h1": "Basket : la NBA débarque en Europe",
+    "question_posee": "La NBA lance sa ligue européenne en 2027 : l'Euroleague peut-elle négocier une alliance, ou va-t-elle être marginalisée ?",
+    "eyebrow": "Dimanche, sport",
+    "angle": "La NBA confirme le lancement de sa ligue européenne pour la saison 2027-2028, avec le PSG candidat pour Paris, pendant que l'Euroleague tente en parallèle sa propre expansion à 24 équipes et négocie un partenariat en position de faiblesse.",
+    "tags": [
+      "basketball",
+      "NBA",
+      "Euroleague",
+      "sport-business",
+      "PSG"
+    ],
+    "domain": "sport",
+    "image_keywords": "basketball arena europe",
+    "complexite": 3,
+    "origine_prioritaire": null
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (19/09, culture-divertissement) : sujet Sheeran/Macklemore, aucun recoupement. Dimanche sport, 2-3 dernières occurrences du même registre : 30/08 (Ligue 1, droits TV en France, football), 23/08 (Mondial 2030, organisation FIFA), 16/08 (rugby, sécurité/commotions). Aucun de ces trois ne recoupe le sujet NBA Europe/Euroleague (autre sport - basketball -, autre mécanisme - expansion de ligue et rapport de force NBA/Euroleague - pas de chevauchement d'acteurs centraux ni de moteur de fond)."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Adam Silver a confirmé que la NBA lancera sa ligue européenne en 2027, avec ou sans accord avec l'Euroleague",
+      "chiffre": "2027",
+      "date_du_chiffre": "2026-09-16",
+      "sources": [
+        "s1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'Euroleague prépare en parallèle son propre projet d'expansion à 24 équipes avec un modèle de franchises à long terme, décision finale attendue fin septembre 2026",
+      "chiffre": "24 équipes, jusqu'à 8 nouveaux entrants",
+      "date_du_chiffre": "2026-09-01",
+      "sources": [
+        "s2"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Onze candidats à une franchise Euroleague ont déposé des offres formelles et contraignantes représentant une valeur cumulée proche de 700 millions d'euros en droits de franchise",
+      "chiffre": "700 millions d'euros",
+      "date_du_chiffre": "2026-09-01",
+      "sources": [
+        "s2"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La valeur globale de l'Euroleague et de ses clubs est projetée à 4,3 milliards d'euros d'ici 2027 selon JB Capital",
+      "chiffre": "4,3 milliards d'euros",
+      "date_du_chiffre": "2026-09-01",
+      "sources": [
+        "s2"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "Le PSG (via QSI) et les Metropolitans 92 ont déposé un dossier pour obtenir la franchise parisienne de la future NBA Europe, avec un ticket d'entrée initialement estimé à 500 millions d'euros",
+      "chiffre": "500 millions d'euros",
+      "date_du_chiffre": "2026-03-12",
+      "sources": [
+        "s3"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La NBA Europe projetée compterait 16 équipes (12 franchises permanentes et 4 qualifiées annuellement), avec des offres pour les 12 villes cibles dépassant parfois 500 millions à 1 milliard de dollars chacune",
+      "chiffre": "16 équipes, 500 M$ à 1 Md$ par franchise",
+      "date_du_chiffre": "2026-07-15",
+      "sources": [
+        "s4"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'Euroleague, par la voix de son représentant Chus Bueno, a répondu début septembre qu'un partenariat avec la NBA devrait fonctionner pour les deux parties, pas seulement pour l'une d'elles",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-16",
+      "sources": [
+        "s1"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Adam Silver",
+      "role": "Commissioner de la NBA, porteur du projet NBA Europe"
+    },
+    {
+      "nom": "Euroleague Basketball / Chus Bueno",
+      "role": "Organisation qui gère l'Euroleague, en négociation et en concurrence avec la NBA"
+    },
+    {
+      "nom": "FIBA",
+      "role": "Fédération internationale de basketball, partenaire officiel de la NBA pour le projet NBA Europe"
+    },
+    {
+      "nom": "PSG / QSI",
+      "role": "Candidat à la franchise parisienne de la NBA Europe, en concurrence avec le projet porté par les Metropolitans 92"
+    },
+    {
+      "nom": "Real Madrid, Barcelone, Bayern Munich, Manchester City, Fenerbahçe",
+      "role": "Grands clubs européens courtisés à la fois par la NBA Europe et par l'expansion de l'Euroleague"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2025-12-01",
+      "evenement": "La NBA et la FIBA annoncent l'entame de discussions concrètes avec les clubs et investisseurs européens"
+    },
+    {
+      "date": "2026-03-25",
+      "evenement": "Board of Governors de la NBA à New York : mise à jour sur le projet NBA Europe, sans vote formel"
+    },
+    {
+      "date": "2026-03-31",
+      "evenement": "Date limite des offres de première phase pour les franchises NBA Europe"
+    },
+    {
+      "date": "2026-06-30",
+      "evenement": "Clôture des offres pour les 12 franchises permanentes de la NBA Europe, plusieurs dépassant 500 M$ à 1 Md$"
+    },
+    {
+      "date": "2026-09-01",
+      "evenement": "L'Euroleague annonce le passage à 24 équipes avec 11 candidats pré-acceptés, décision finale attendue fin septembre"
+    },
+    {
+      "date": "2026-09-16",
+      "evenement": "Adam Silver réaffirme que la NBA Europe verra le jour en 2027, avec ou sans accord avec l'Euroleague"
+    },
+    {
+      "date": "2026-09-30",
+      "evenement": "Échéance attendue : réunion des propriétaires Euroleague pour l'approbation finale de l'expansion à 24 équipes"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "La NBA et l'Euroleague concluent une alliance formelle (co-organisation ou partenariat commercial), combinant la puissance financière américaine et l'ancrage sportif européen. Les clubs comme le PSG intègrent une compétition renforcée, sans guerre de calendriers ni fuite de talents.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "Les deux ligues avancent en parallèle sans accord global : la NBA Europe démarre en 2027 avec ses propres franchises (dont potentiellement Paris), tandis que l'Euroleague poursuit son expansion à 24 équipes de son côté. Coexistence tendue mais sans rupture totale, les grands clubs jouant sur les deux tableaux tant que possible.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "L'absence d'accord tourne à la guerre ouverte : la NBA impose sa ligue en recrutant les clubs les plus riches (Real Madrid, Barcelone, PSG), vidant l'Euroleague de ses meilleures franchises et de sa valeur commerciale, dans un schisme comparable à celui déjà vécu entre l'Euroleague et la FIBA en 2000.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Valeur cumulée des offres de franchise Euroleague",
+      "valeur": "≈700 M€",
+      "tendance": "hausse"
+    },
+    {
+      "label": "Ticket d'entrée estimé pour une franchise NBA Europe",
+      "valeur": "500 M$ à 1 Md$",
+      "tendance": "hausse"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Pas de série historique longue et vérifiée disponible sur ce sujet encore émergent (projet annoncé fin 2025, premières données chiffrées seulement depuis 2026) : moins de 5 points de données réels et datés seraient disponibles, le critère minimal n'est pas atteint.",
+    "serie": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Comment fonctionne le système de franchises fermées à l'américaine (NBA) par rapport au modèle ouvert européen actuel (promotion/relégation, ligues nationales imbriquées) — pourquoi ce choc de modèles est au cœur de la tension.",
+        "rattache_a": "faits_verifies[4] et faits_verifies[5] (candidatures PSG et modèle de franchise Euroleague)"
+      },
+      {
+        "focus": "Le précédent historique de la scission FIBA/Euroleague en 2000, pour éclairer pourquoi l'Euroleague redoute une répétition du schisme avec la NBA aujourd'hui.",
+        "rattache_a": "acteurs (Euroleague Basketball / FIBA) et scenarios_prospectifs.degrade"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le calendrier exact de lancement de la NBA Europe reste annoncé pour 2027 mais certaines sources évoquent encore 2027-2028 comme fenêtre possible ; à vérifier au fil des annonces officielles.",
+    "Le prix d'entrée pour une franchise NBA Europe a été revu, potentiellement à la baisse par rapport aux 500 M€ initialement évoqués pour Paris, en raison du contexte géopolitique — montant définitif non confirmé.",
+    "L'issue des négociations NBA-Euroleague (alliance formelle ou rupture) n'est pas tranchée à la date du brief ; la décision finale de l'Euroleague sur son expansion est attendue fin septembre 2026, soit dans les jours suivant cette édition."
+  ],
+  "a_ne_pas_affirmer": [
+    "Ne jamais affirmer que la NBA Europe est déjà lancée ou qu'un accord avec l'Euroleague est déjà signé : à ce stade, tout reste au conditionnel (projet, négociations en cours).",
+    "Ne jamais affirmer que le PSG a définitivement obtenu la franchise parisienne : le dossier est déposé mais la décision n'est pas encore rendue publique.",
+    "Ne jamais présenter le montant de 4,3 milliards d'euros de valorisation Euroleague comme un fait acquis : c'est une projection (JB Capital) pour 2027, pas une valeur actuelle constatée."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Adam Silver et la NBA Europe : « Nous pensons que la ligue serait renforcée par une alliance avec l'Euroleague »",
+      "source": "BasketEurope",
+      "url": "https://www.basketeurope.com/adam-silver-et-la-nba-europe-nous-pensons-que-la-ligue-serait-renforcee-par-une-alliance-avec-leuroleague/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Adam Silver confirme que la NBA ira de l'avant avec sa ligue européenne dès 2027, avec ou sans l'Euroleague, tout en poursuivant les négociations pour un partenariat.",
+      "read_minutes": 4
+    },
+    {
+      "id": "s2",
+      "title": "EuroLeague s'étend à 24 équipes avec 21 franchises",
+      "source": "Paris Basketball (site officiel)",
+      "url": "https://parisbasketball.paris/euroleague-setend-a-24-equipes-avec-21-franchises/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "L'Euroleague détaille son propre projet d'expansion à 24 équipes, avec onze candidats pré-acceptés représentant près de 700 millions d'euros de droits de franchise, décision finale attendue fin septembre 2026.",
+      "read_minutes": 3
+    },
+    {
+      "id": "s3",
+      "title": "NBA Europe : QSI et le PSG candidats pour acquérir la franchise parisienne",
+      "source": "Bebasket",
+      "url": "https://www.bebasket.fr/le-psg-et-les-metropolitans-92-ont-depose-un-dossier-pour-la-nba-europe",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Le PSG (via QSI) et les Metropolitans 92 ont déposé des dossiers concurrents pour la franchise parisienne de la NBA Europe, dans un contexte de prix d'entrée potentiellement revu à la baisse.",
+      "read_minutes": 3
+    },
+    {
+      "id": "s4",
+      "title": "Progress continues on proposed NBA Europe league",
+      "source": "NBA.com",
+      "url": "https://www.nba.com/news/progress-continues-nba-europe-league",
+      "image": null,
+      "lang": "en",
+      "domain": "sport",
+      "summary": "La NBA détaille l'architecture de sa ligue européenne prévue à l'automne 2027 : 16 équipes dont 12 franchises permanentes, avec des offres dépassant parfois 500 millions à 1 milliard de dollars par ville cible.",
+      "read_minutes": 4
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "NBA Europe : la ligue planifie de démarrer avec Manchester City, Real Madrid, Barcelone et Bayern Munich",
+      "source": "Goal.com",
+      "url": "https://www.goal.com/es-mx/listados/revelado-la-nba-planea-iniciar-una-liga-de-baloncesto-europea-con-la-participacion-de-manchester-city-real-madrid-barcelona-y-bayern-munich/blt853cc260777433da",
+      "image": null,
+      "lang": "es",
+      "domain": "sport",
+      "summary": "Plusieurs grands clubs de football européens (Real Madrid, Barcelone, Manchester City, Bayern Munich) sont pressentis comme partenaires ou investisseurs dans les franchises de la future NBA Europe.",
+      "read_minutes": 3
+    },
+    {
+      "title": "La FIFA va revoir sa politique de billetterie pour le Mondial 2030",
+      "source": "20 Minutes",
+      "url": "https://www.20min.ch/fr/story/mondial-de-football-la-fifa-va-revoir-sa-politique-de-billetterie-pour-2030-103555879",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Après la controverse sur les prix des billets du Mondial 2026, la FIFA annonce qu'elle réexaminera sa stratégie tarifaire pour l'édition 2030.",
+      "read_minutes": 2
+    },
+    {
+      "title": "Droits TV Ligue 1 : la crise financière des clubs français continue de s'aggraver",
+      "source": "Le Club des Juristes",
+      "url": "https://www.leclubdesjuristes.com/sport/affaire-dazn-lfp-ou-la-nouvelle-crise-des-droits-tv-du-foot-francais-9613/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Le départ de DAZN puis de beIN Sports a plongé la Ligue 1 dans une crise structurelle des droits TV, avec des clubs français cumulant plus d'un milliard d'euros de dette.",
+      "read_minutes": 4
+    }
+  ],
+  "recommandations_redaction": [
+    "Faire le lien avec l'édition du 30 août 2026 (« Ligue 1 : le foot français peut-il survivre à l'effondrement de ses droits TV ? ») pour contraste : même problématique de fond (financement du sport professionnel européen face à la pression des modèles économiques anglo-saxons/américains), mais sur un autre sport et un autre mécanisme (droits TV vs création de ligue concurrente) — un lien explicite éclairerait le lecteur sur une tendance plus large de tension entre modèle sportif européen traditionnel et logique de franchise à l'américaine.",
+    "Mentionner que le PSG, déjà acteur central du foot français par QSI, est aussi candidat côté basket : un angle intéressant pour le lecteur français au-delà du seul prisme du football."
+  ]
+}
