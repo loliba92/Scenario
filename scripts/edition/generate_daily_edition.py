@@ -16,11 +16,12 @@ Ce script :
 
 Usage :
     export OPENROUTER_API_KEY=sk-or-v1-...
-    python3 scripts/edition/generate_daily_edition.py --brief editorial-briefs/2026-09-20.json
+    python3 scripts/edition/generate_daily_edition.py --brief editorial-briefs/{AAAA-MM-JJ}.json
 
     # Sans clé API, pour tester la mécanique (validations + templating)
-    # avec une réponse de modèle déjà enregistrée :
-    python3 scripts/edition/generate_daily_edition.py --brief editorial-briefs/2026-09-20.json --dry-run
+    # avec une réponse de modèle déjà enregistrée (brief-exemple fictif,
+    # jamais un vrai brief daté — voir scripts/edition/fixtures/) :
+    python3 scripts/edition/generate_daily_edition.py --brief scripts/edition/fixtures/2026-09-20.json --dry-run
 """
 import argparse
 import json
