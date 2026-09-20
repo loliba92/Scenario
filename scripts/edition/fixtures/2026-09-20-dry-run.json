@@ -24,6 +24,8 @@
     }
   ],
   "list_box": null,
+  "phrase_a_retenir": "Malgré une nouvelle tranche du FMI de 4 milliards de dollars, les réserves nettes de la banque centrale argentine restent négatives d'environ 8 milliards de dollars.",
+  "phrase_a_retenir_stat": "environ 8 milliards de dollars",
   "indicators": [
     {"label": "Réserves nettes de la banque centrale (BCRA)", "value": "-8 Md$", "delta": "vs -3 Md$ en juin 2026"},
     {"label": "Risque pays (EMBI+ Argentine)", "value": "≈850 points", "delta": "en hausse depuis août 2026"}
@@ -77,9 +79,9 @@
   },
   "essentiel_box": [
     "Le FMI peut-il continuer de soutenir le programme de Javier Milei sans que l'Argentine fasse défaut sur sa dette d'ici les élections d'octobre ?",
-    "Malgré une inflation retombée à environ 35 % fin août 2026, les réserves nettes de la banque centrale argentine restent négatives d'environ 8 milliards de dollars, en dégradation continue depuis juin.",
-    "L'issue la plus probable désormais (45 %) : la tension sur les réserves se maintient sans rupture ni amélioration nette, dans l'attente des élections du 26 octobre.",
-    "Signal à surveiller : le montant confirmé de la prochaine tranche du FMI, attendue en décembre 2026."
+    "Malgré une inflation retombée à environ 35 % fin août 2026, les réserves nettes de la banque centrale argentine restent négatives d'environ 8 milliards de dollars, en dégradation continue depuis juin, alors que le FMI vient de décaisser une nouvelle tranche de 4 milliards de dollars le 15 septembre.",
+    "L'issue la plus probable désormais (45 %) : la tension sur les réserves se maintient sans rupture ni amélioration nette, dans l'attente des élections du 26 octobre, avec un risque pays déjà proche de 850 points selon l'indice EMBI+.",
+    "Signal à surveiller : le montant confirmé de la prochaine tranche du FMI, attendue en décembre 2026, dans le cadre du programme total de 20 milliards de dollars signé en avril 2026."
   ],
   "delta_france": {
     "kind": "negatif",
