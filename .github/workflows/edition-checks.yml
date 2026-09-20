@@ -1,0 +1,49 @@
+name: Édition — vérification schéma brief/fixture
+
+# Filet rapide, sans clé API ni appel réseau, contre la dérive de schéma
+# qui a causé l'échec du run edition.yml du 20 septembre 2026 (édition
+# #59) : `sujet.complexite` (ajouté le 16 septembre) puis
+# `phrase_a_retenir`/`phrase_a_retenir_stat` (ajoutés le 19) étaient
+# devenus obligatoires dans `generate_daily_edition.py` sans que le brief
+# de référence (`editorial-briefs/2026-09-20.json`, cité comme exemple par
+# docs/routine-brief-format.md et valeur par défaut d'edition.yml) ni sa
+# fixture --dry-run associée ne soient mis à jour — découvert seulement au
+# moment d'un run réel du workflow. Voir scripts/edition/check_fixtures.py.
+#
+# Se déclenche sur tout push/PR qui touche le code de validation, les
+# briefs de référence ou leurs fixtures — jamais sur le reste du dépôt.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/edition/generate_daily_edition.py"
+      - "scripts/edition/check_fixtures.py"
+      - "editorial-briefs/**"
+      - "scripts/edition/fixtures/**"
+  pull_request:
+    paths:
+      - "scripts/edition/generate_daily_edition.py"
+      - "scripts/edition/check_fixtures.py"
+      - "editorial-briefs/**"
+      - "scripts/edition/fixtures/**"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Installer les dépendances
+        run: pip install beautifulsoup4
+
+      - name: Vérifier brief(s) de référence + fixture(s) --dry-run
+        working-directory: scripts/edition
+        run: python3 check_fixtures.py
