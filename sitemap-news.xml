@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
-  <url><loc>https://lesscenarios.fr/archives/2026-09-17.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-09-17T07:09:42+02:00</news:publication_date><news:title>Dollar : la fin du règne ?</news:title></news:news></url>  <url>
-    <loc>https://lesscenarios.fr/en/archives/2026-09-17.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Scénario</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-17T07:09:42+02:00</news:publication_date>
-      <news:title>Dollar: the end of an era?</news:title>
-    </news:news>
-  </url>
-<url><loc>https://lesscenarios.fr/archives/2026-09-18.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-09-18T06:05:01+02:00</news:publication_date><news:title>Neuropathies : la recherche avance, les traitements stagnent</news:title></news:news></url>  <url>
-    <loc>https://lesscenarios.fr/en/archives/2026-09-18.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Scénario</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-18T06:05:01+02:00</news:publication_date>
-      <news:title>Neuropathy: Research Moves Forward, Treatments Stall</news:title>
-    </news:news>
-  </url>
-<url><loc>https://lesscenarios.fr/archives/2026-09-19.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-09-19T06:04:19+02:00</news:publication_date><news:title>Sheeran-Macklemore : la neutralité impossible</news:title></news:news></url>  <url>
+  <url><loc>https://lesscenarios.fr/archives/2026-09-19.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-09-19T06:04:19+02:00</news:publication_date><news:title>Sheeran-Macklemore : la neutralité impossible</news:title></news:news></url>  <url>
     <loc>https://lesscenarios.fr/en/archives/2026-09-19.html</loc>
     <news:news>
       <news:publication>
@@ -33,4 +11,4 @@
       <news:title>Sheeran-Macklemore: the impossible neutrality</news:title>
     </news:news>
   </url>
-</urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-09-20.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-09-20T08:06:04+02:00</news:publication_date><news:title>Basket : la NBA débarque en Europe</news:title></news:news></url></urlset>

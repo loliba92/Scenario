@@ -2,6 +2,41 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-09-20",
+      "articles": [
+        {
+          "title": "NBA Europe : la ligue planifie de démarrer avec Manchester City, Real Madrid, Barcelone et Bayern Munich",
+          "source": "Goal.com",
+          "url": "https://www.goal.com/es-mx/listados/revelado-la-nba-planea-iniciar-una-liga-de-baloncesto-europea-con-la-participacion-de-manchester-city-real-madrid-barcelona-y-bayern-munich/blt853cc260777433da",
+          "image": null,
+          "lang": "es",
+          "domain": "sport",
+          "summary": "Plusieurs grands clubs de football européens (Real Madrid, Barcelone, Manchester City, Bayern Munich) sont pressentis comme partenaires ou investisseurs dans les franchises de la future NBA Europe.",
+          "read_minutes": 3
+        },
+        {
+          "title": "La FIFA va revoir sa politique de billetterie pour le Mondial 2030",
+          "source": "20 Minutes",
+          "url": "https://www.20min.ch/fr/story/mondial-de-football-la-fifa-va-revoir-sa-politique-de-billetterie-pour-2030-103555879",
+          "image": null,
+          "lang": "fr",
+          "domain": "sport",
+          "summary": "Après la controverse sur les prix des billets du Mondial 2026, la FIFA annonce qu'elle réexaminera sa stratégie tarifaire pour l'édition 2030.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Droits TV Ligue 1 : la crise financière des clubs français continue de s'aggraver",
+          "source": "Le Club des Juristes",
+          "url": "https://www.leclubdesjuristes.com/sport/affaire-dazn-lfp-ou-la-nouvelle-crise-des-droits-tv-du-foot-francais-9613/",
+          "image": null,
+          "lang": "fr",
+          "domain": "sport",
+          "summary": "Le départ de DAZN puis de beIN Sports a plongé la Ligue 1 dans une crise structurelle des droits TV, avec des clubs français cumulant plus d'un milliard d'euros de dette.",
+          "read_minutes": 4
+        }
+      ]
+    },
+    {
       "date": "2026-09-19",
       "articles": [
         {
