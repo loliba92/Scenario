@@ -293,6 +293,11 @@ les logs.
 
 ## Exemple
 
-Voir `editorial-briefs/2026-09-20.json` — brief **fictif**, créé
+Voir `scripts/edition/fixtures/2026-09-20.json` — brief **fictif**, créé
 uniquement pour tester la mécanique du prototype (Phase 1, point G.2 de
-l'audit), pas une vraie édition.
+l'audit), pas une vraie édition. Déplacé le 20 septembre 2026 hors
+d'`editorial-briefs/` (racine, où le pipeline de production va chercher
+le brief réel du jour par date) : un brief-exemple fictif ne doit jamais
+squatter ce chemin daté, au risque d'être publié pour de vrai à la place
+d'une vraie recherche du jour — incident réel ce jour-là, voir
+`docs/ARCHITECTURE.md`.

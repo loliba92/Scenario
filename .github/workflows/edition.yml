@@ -26,7 +26,7 @@ on:
       brief:
         description: "Chemin du brief à utiliser"
         required: false
-        default: "editorial-briefs/2026-09-20.json"
+        default: "scripts/edition/fixtures/2026-09-20.json"
       dry_run:
         description: "true = utilise la fixture locale, aucun appel OpenRouter (test de la mécanique uniquement)"
         required: false

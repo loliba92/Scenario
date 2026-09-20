@@ -37,11 +37,19 @@ FIXTURES_DIR = Path(__file__).resolve().parent / "fixtures"
 
 def check_fixture_pair(fixture_path):
     date_str = fixture_path.name.removesuffix("-dry-run.json")
-    brief_path = BRIEFS_DIR / f"{date_str}.json"
+    # Le brief associé vit normalement à côté de sa fixture, dans
+    # scripts/edition/fixtures/ (voir la relocation du 20 septembre 2026,
+    # docs/ARCHITECTURE.md : un brief-exemple ne doit jamais squatter le
+    # chemin daté réel qu'utilise le pipeline de production pour publier
+    # l'édition du jour) — repli sur editorial-briefs/{date}.json pour un
+    # ancien brief réel qui aurait une fixture associée.
+    brief_path = FIXTURES_DIR / f"{date_str}.json"
+    if not brief_path.exists():
+        brief_path = BRIEFS_DIR / f"{date_str}.json"
     errors = []
 
     if not brief_path.exists():
-        return [f"{fixture_path.name} : brief correspondant introuvable ({brief_path})"]
+        return [f"{fixture_path.name} : brief correspondant introuvable ({FIXTURES_DIR / f'{date_str}.json'} ou {brief_path})"]
 
     brief = json.loads(brief_path.read_text(encoding="utf-8"))
     brief_errors = validate_brief(brief)
