@@ -1034,6 +1034,8 @@ def main():
     usage_total = {"cost": 0.0, "prompt_tokens": 0, "completion_tokens": 0}
     content = None
     errors = []
+    attempts_history = []  # [(content, errors), ...] — voir repli "meilleur essai" plus bas
+    used_best_effort_fallback = False
 
     for attempt in range(1 + MAX_RETRIES):
         if args.dry_run:
@@ -1080,6 +1082,7 @@ def main():
             usage_total["model"] = usage["model"]
 
         errors = validate_content_schema(content, brief)
+        attempts_history.append((content, errors))
         if not errors:
             break
         print(f"[edition] validation du contenu échouée (essai {attempt + 1}) :", file=sys.stderr)
@@ -1103,10 +1106,42 @@ def main():
                 file=sys.stderr,
             )
             errors = []
+        elif attempts_history and not args.dry_run:
+            # Repli ajouté le 20 septembre 2026, retour utilisateur explicite
+            # (« on prend le max des 3 tentatives, tant pis ») : jusqu'ici,
+            # 3 essais qui échouent tous la validation (même de peu — ex.
+            # 74 mots sous le seuil, ou un phrase_a_retenir_stat pas tout à
+            # fait mot pour mot) ne produisaient RIEN, alors que le meilleur
+            # des 3 essais est souvent déjà quasi utilisable. Reprend l'essai
+            # le plus proche de passer (le moins d'erreurs restantes) plutôt
+            # que d'abandonner sec — jamais silencieux : les erreurs
+            # ignorées restent loguées ci-dessous. Jamais en --dry-run
+            # (inutile contre une fixture figée — voir check_fixtures.py,
+            # qui doit rester strict sur celle-ci).
+            content, errors = min(attempts_history, key=lambda pair: len(pair[1]))
+            used_best_effort_fallback = True
+            print(
+                f"[edition] AUCUN essai n'a validé proprement après {1 + MAX_RETRIES} tentative(s) "
+                f"— repli sur le meilleur essai ({len(errors)} erreur(s) résiduelle(s) acceptée(s)) :",
+                file=sys.stderr,
+            )
+            for e in errors:
+                print(f"  - {e}", file=sys.stderr)
+            errors = []
         else:
             raise GenerationError(f"validation du contenu échouée après {1 + MAX_RETRIES} essai(s), rien n'est produit")
 
-    html_text, edition_number = build_html.assemble_index_html(shell, content, brief, date_str)
+    try:
+        html_text, edition_number = build_html.assemble_index_html(shell, content, brief, date_str)
+    except Exception as e:
+        # Filet ultime pour le repli "meilleur essai" ci-dessus : un contenu
+        # accepté malgré des erreurs résiduelles (longueur, stat...) reste
+        # structurellement complet (les champs manquants font échouer
+        # validate_content_schema() bien plus tôt, jamais tolérés par ce
+        # repli), donc ceci ne devrait normalement jamais se déclencher —
+        # mais un crash Python brut serait pire qu'une erreur de génération
+        # propre si un cas non prévu survient malgré tout.
+        raise GenerationError(f"assemblage HTML échoué sur le contenu retenu ({e}), rien n'est produit") from e
 
     html_errors = validate_assembled_html(html_text, content)
     if html_errors:
@@ -1127,7 +1162,10 @@ def main():
     content_path = out_path.with_suffix(".content.json")
     content_path.write_text(json.dumps(content, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    print(f"[edition] validation OK — sortie de test écrite : {out_path}")
+    if used_best_effort_fallback:
+        print(f"[edition] ⚠ repli meilleur essai (validation non propre) — sortie de test écrite : {out_path}")
+    else:
+        print(f"[edition] validation OK — sortie de test écrite : {out_path}")
     print(f"[edition] contenu validé écrit : {content_path}")
     print(f"[edition] édition de test N°{edition_number}, {len(html_text)} caractères")
     print(

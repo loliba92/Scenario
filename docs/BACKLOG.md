@@ -4144,13 +4144,13 @@ La routine « Scénario — Audience » reste hebdomadaire et coûte une session
 
 **Statut:** FAIT
 **Priorité:** —
-**Dernière MAJ:** 2026-09-18
-**Prochaine action:** Surveiller le coût OpenRouter et la qualité des sorties dans les prochains jours
+**Dernière MAJ:** 2026-09-20
+**Prochaine action:** Étudier un modèle plus adapté à la recherche quotidienne (retour utilisateur du 20 septembre — pas nécessairement un retour au statu quo d'avant le 18)
 **Blocage:** Aucun
 
 ### État actuel
-Trois scripts OpenRouter ont changé de modèle par défaut le 18 septembre 2026 :
-- `generate_fallback_brief.py` (recherche quotidienne — tourne tous les jours tant que le trigger CCR reste désactivé, voir B004/routine-prompt.md) : passé de Sonnet 5 à **Opus** (`anthropic/claude-opus-5`) — c'est l'étape la plus proche d'un vrai jugement éditorial (choix du sujet, sources, anti-doublon) du pipeline, et elle tourne quotidiennement.
+Trois scripts OpenRouter ont changé de modèle par défaut le 18 septembre 2026 (recherche repassée sur Sonnet 5 le 20, voir Historique) :
+- `generate_fallback_brief.py` (recherche quotidienne — tourne tous les jours tant que le trigger CCR reste désactivé, voir B004/routine-prompt.md) : passé de Sonnet 5 à Opus (`anthropic/claude-opus-5`) le 18 septembre, dans le pari qu'un modèle plus poussé paierait sur l'étape la plus proche d'un vrai jugement éditorial (choix du sujet, sources, anti-doublon) — **repassé à Sonnet 5 le 20 septembre**, retour utilisateur explicite : le pari ne s'est pas vérifié en pratique, aucun gain observé qui justifie le surcoût.
 - `generate_hot_topics.py` (candidats « sujets chauds » ajoutés à `sujets-prioritaires.md`, jamais publiés directement, toujours filtrés par une relecture humaine) : passé à **DeepSeek** (`deepseek/deepseek-v4-flash`), pour financer une partie du surcoût d'Opus.
 - `generate_suivi_update.py` (mise à jour **publiée** des pages de suivi) : brièvement passé à DeepSeek le même jour, puis **revenu à Sonnet 5** — ce script réestime réellement les 3 scénarios et écrit le texte publié, pas un simple tri (voir Historique).
 
@@ -4172,6 +4172,7 @@ Doc de référence complète (les 11 workflows GitHub Actions, leur fréquence, 
 - **2026-09-18** — Erreur repérée par l'utilisateur (« Détection il ne génère pas l'édition de mise à jour ? ») : `generate_suivi_update.py` ne fait pas du tri, il réestime les scénarios et écrit la mise à jour réellement publiée — downgrade DeepSeek inadapté, revenu à Sonnet 5. Seul `generate_hot_topics.py` reste sur DeepSeek pour financer partiellement Opus — l'équilibre coût n'est donc plus strictement neutre, mais le choix de modèle correspond maintenant à ce que chaque script fait réellement.
 - **2026-09-18** — Question posée : GPT-5 plutôt que DeepSeek sur `hot-topics.yml` ? Écarté : GPT-5 coûte plus cher (raisonnement obligatoire non désactivable, `max_tokens` à relever comme sur le hebdo) pour un enjeu qualité faible ici (candidats non publiés, filtrés par l'utilisateur) — aurait mangé l'économie qui finance Opus. DeepSeek confirmé sur ce script.
 - **2026-09-18** — Doc de référence rapatrié depuis l'Artifact claude.ai vers un vrai fichier versionné, `docs/modeles-openrouter.md` (retour utilisateur : nom "Artifact" ne veut rien dire) — mis à jour pour refléter l'état final (Opus recherche / Sonnet détection / DeepSeek hot-topics et pub).
+- **2026-09-20** — Opus abandonné sur la recherche quotidienne, retour utilisateur explicite (« opus sur openrouter dans la recherche n'apporte rien on repasse en sonnet ») : `FALLBACK_MODEL` de `generate_fallback_brief.py` repassé à `anthropic/claude-sonnet-5`. Aucun autre script concerné (Opus n'était utilisé nulle part ailleurs dans ce dépôt). L'utilisateur envisage un autre modèle spécifiquement plus fort en recherche — pas encore choisi, à traiter dans une prochaine itération.
 
 **Posture concurrentielle générale (retour utilisateur du 19 septembre 2026), au-dessus de B153/B154 : approche plus agressive que maintenant pour concurrencer brief.me, Hugo Décrypte et compagnie — passe par du SEO très actif et les réseaux sociaux, pas seulement par le contenu.** Concerne directement les tickets SEO déjà ouverts (B067 netlinking, B068 audit SEO récurrent, B103 SEO de base, B140 titres SEO/glossaire) — à revisiter/accélérer dans le même esprit à la semaine du 22 septembre, pas seulement B153/B154.
 
