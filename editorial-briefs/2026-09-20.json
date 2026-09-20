@@ -6,7 +6,7 @@
     "h1": "Argentine : le FMI peut-il éviter un nouveau défaut ?",
     "question_posee": "Milei peut-il tenir ses réformes jusqu'aux élections sans que l'Argentine fasse défaut sur sa dette ?",
     "eyebrow": "Dimanche, sport",
-    "angle": "Le FMI a décaissé une nouvelle tranche le 15 septembre 2026, mais les réserves nettes de la banque centrale argentine restent négatives — un paradoxe qui inquiète les marchés.",
+    "angle": "Le FMI a décaissé une nouvelle tranche le 15 septembre 2026, mais les réserves nettes de la banque centrale argentine restent négatives — un paradoxe qui inquiète les marchés, dans un pays déjà passé par trois défauts ou restructurations de sa dette depuis 2001 et dont le peso continue de se déprécier sur le marché officiel.",
     "tags": ["economie-mondiale"],
     "domain": "economie-entreprises",
     "image_keywords": "central bank building currency",
@@ -46,14 +46,37 @@
       "date_du_chiffre": "2026-08-31",
       "sources": ["src_3"],
       "confiance": "haute"
+    },
+    {
+      "affirmation": "Le peso argentin s'échange autour de 1 350 pesos pour un dollar sur le marché officiel, en dépréciation d'environ 12 % depuis juin 2026.",
+      "chiffre": "≈1350 ARS/USD",
+      "date_du_chiffre": "2026-09-15",
+      "sources": ["src_1"],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "L'Argentine a déjà fait défaut ou restructuré sa dette souveraine à trois reprises depuis 2001 (2001, 2014, 2020), un précédent qui pèse sur la confiance des investisseurs envers le programme actuel.",
+      "chiffre": "3 défauts/restructurations depuis 2001",
+      "date_du_chiffre": "2020-09-01",
+      "sources": ["src_2"],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le solde budgétaire primaire argentin est resté excédentaire pour le 9e trimestre consécutif au 2e trimestre 2026, pilier central revendiqué par le gouvernement de Javier Milei.",
+      "chiffre": "9e trimestre consécutif d'excédent primaire",
+      "date_du_chiffre": "2026-06-30",
+      "sources": ["src_1"],
+      "confiance": "haute"
     }
   ],
   "acteurs": [
     {"nom": "Javier Milei", "role": "Président argentin, porte un programme d'austérité depuis fin 2023"},
     {"nom": "FMI", "role": "A signé un programme de 20 Md$ en avril 2026, décaisse par tranches conditionnées"},
-    {"nom": "Banque centrale argentine (BCRA)", "role": "Gère les réserves de change, aujourd'hui en territoire négatif net"}
+    {"nom": "Banque centrale argentine (BCRA)", "role": "Gère les réserves de change, aujourd'hui en territoire négatif net"},
+    {"nom": "Luis Caputo", "role": "Ministre de l'Économie argentin, négocie directement avec le FMI les conditions et le calendrier des décaissements"}
   ],
   "chronologie_cle": [
+    {"date": "2020-09-01", "evenement": "Restructuration de 65 Md$ de dette souveraine argentine auprès de créanciers privés, après le défaut de mai 2020"},
     {"date": "2026-04-10", "evenement": "Signature du programme FMI de 20 Md$"},
     {"date": "2026-09-15", "evenement": "Décaissement de la tranche de 4 Md$"},
     {"date": "2026-10-26", "evenement": "Élections législatives de mi-mandat"}
@@ -124,6 +147,7 @@
   ],
   "recommandations_redaction": [
     "Ouvrir sur le décaissement du 15 septembre plutôt que sur l'historique de la crise de la dette argentine (fait récent, cf règle routine-prompt.md étape 3).",
+    "Développer le mécanisme des swaps de change et le précédent des trois défauts/restructurations depuis 2001 (dont celle de 2020) pour donner du contexte réel au lecteur — matière suffisante dans faits_verifies pour atteindre confortablement les 1100 mots minimum sans délayer artificiellement les phrases existantes.",
     "Ce brief est fictif : la rédaction produite à partir de lui sert uniquement à tester la mécanique du pipeline, jamais à publier."
   ]
 }
