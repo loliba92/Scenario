@@ -22,24 +22,28 @@ est absent, ce qui est le cas en continu tant que le trigger reste
 éteint. La recherche tourne donc bien sur OpenRouter/GitHub Actions
 aujourd'hui, pas hors périmètre.
 
-Quatre modèles OpenRouter sont utilisés aujourd'hui :
+Trois modèles OpenRouter sont utilisés aujourd'hui :
 
-- **`anthropic/claude-opus-5`** — recherche quotidienne (repli, voir
-  ci-dessus). Seul usage d'Opus dans ce dépôt, depuis le 18 septembre
-  2026.
-- **`anthropic/claude-sonnet-5`** — rédaction quotidienne, détection de
-  sujets à suivre, traduction anglaise.
+- **`anthropic/claude-sonnet-5`** — rédaction quotidienne, recherche
+  quotidienne (repli, voir ci-dessus), détection de sujets à suivre,
+  traduction anglaise.
 - **`openai/gpt-5`** — récap hebdomadaire uniquement, depuis le
   16 septembre 2026.
 - **`deepseek/deepseek-v4-flash`** — posts « pub » courts (génération +
   réparation/banque de chiffres) et repérage de sujets chauds.
+
+**Opus abandonné le 20 septembre 2026** (retour utilisateur explicite :
+« opus sur openrouter dans la recherche n'apporte rien ») — il n'avait
+qu'un seul usage dans ce dépôt (recherche quotidienne, depuis le
+18 septembre) et n'est plus utilisé nulle part. Voir `docs/BACKLOG.md`
+ticket B152 pour l'historique complet des deux décisions.
 
 ## Les 11 workflows
 
 | Workflow | Fréquence | Script | Modèle par défaut | Changeable au run ? |
 | --- | --- | --- | --- | --- |
 | `post-edition.yml` — rédaction | quotidien, 4h30 et 5h30 UTC (2 créneaux) | `generate_daily_edition.py` | `anthropic/claude-sonnet-5` | Oui — input `model` ou variable de dépôt `OPENROUTER_MODEL` |
-| `post-edition.yml` — repli recherche | quotidien tant que le trigger CCR reste désactivé (voir ci-dessus) | `generate_fallback_brief.py` | `anthropic/claude-opus-5` | Oui — même input `model`/`OPENROUTER_MODEL` que la rédaction (partagé, voir note ci-dessous) |
+| `post-edition.yml` — repli recherche | quotidien tant que le trigger CCR reste désactivé (voir ci-dessus) | `generate_fallback_brief.py` | `anthropic/claude-sonnet-5` (Opus du 18 au 20 septembre 2026, abandonné — voir plus bas) | Oui — même input `model`/`OPENROUTER_MODEL` que la rédaction (partagé, voir note ci-dessous) |
 | `edition.yml` | manuel seulement (prototype Phase 1, sans publication) | `generate_daily_edition.py` | `anthropic/claude-sonnet-5` | Non |
 | `translate-en.yml` | manuel + auto-déclenché en fin de `post-edition.yml` | `translate_daily.py` | `anthropic/claude-sonnet-5` | Non dans le workflow (le script accepte `--model` en local) |
 | `detection.yml` | lun/jeu/ven/sam, 1h UTC | `generate_suivi_update.py` | `anthropic/claude-sonnet-5` | Non |
@@ -56,9 +60,11 @@ appelaient, voir `docs/ARCHITECTURE.md`).
 
 **Point de vigilance** : dans `post-edition.yml`, la variable de dépôt
 `OPENROUTER_MODEL`/l'input manuel `model` s'applique **aux deux** étapes
-(rédaction et repli recherche) — si on teste un autre modèle de
-rédaction via ce canal, il écrase aussi temporairement le modèle du
-repli recherche (Opus). Pas de canal séparé pour l'instant.
+(rédaction et repli recherche) — les deux tournant maintenant sur Sonnet
+5 par défaut, ce n'est plus un risque de bascule silencieuse d'un modèle
+vers un autre comme du temps d'Opus, mais reste vrai : tester un autre
+modèle de rédaction via ce canal écrase aussi temporairement celui du
+repli recherche. Pas de canal séparé pour l'instant.
 
 ## Particularités réelles par modèle
 
@@ -74,10 +80,13 @@ structuré volumineux (rédaction, détection, traduction).
   un modèle un peu plus puissant », retour utilisateur). `max_tokens`
   relevé de 8000 à 16000 à cette occasion.
 
-**`anthropic/claude-opus-5`** — recherche quotidienne uniquement, depuis
-le 18 septembre 2026 (voir B152). Même famille qu'Sonnet côté API : le
-garde-fou `"reasoning":{"enabled":false}` (`anthropic/*`) s'applique
-aussi à Opus, pas de quirk spécifique connu à ce stade.
+**`anthropic/claude-opus-5`** — [RETIRÉ le 20 septembre 2026, gardé ici
+comme repère historique, plus jamais utilisé] recherche quotidienne
+uniquement du 18 au 20 septembre 2026 (voir B152). Même famille que
+Sonnet côté API : le garde-fou `"reasoning":{"enabled":false}`
+(`anthropic/*`) s'appliquait aussi à Opus, aucun quirk spécifique
+n'avait été identifié — le retrait est un choix de rapport
+qualité/coût (« n'apporte rien »), pas un incident technique.
 
 **`openai/gpt-5`** — seul le récap hebdomadaire l'utilise, depuis un
 comparatif réel fait par l'utilisateur sur la même semaine. Deux quirks
@@ -147,3 +156,20 @@ Décision détaillée dans `docs/BACKLOG.md` ticket **B152**. Résumé :
 **Reste ouvert** : pas de ventilation de coût par modèle/workflow (voir
 « Suivi des coûts existant » ci-dessus) — à surveiller au jugé dans les
 prochains jours plutôt qu'avec des chiffres précis.
+
+## Correction du 20 septembre 2026 : Opus abandonné sur la recherche
+
+Retour utilisateur explicite, deux jours après la répartition ci-dessus :
+« opus sur openrouter dans la recherche n'apporte rien on repasse en
+sonnet ». Le pari du 18 septembre (un modèle plus poussé sur l'étape à
+plus fort jugement éditorial) ne s'est pas vérifié en pratique — aucun
+gain de qualité observé qui justifie le surcoût par rapport à Sonnet 5.
+`FALLBACK_MODEL` dans `generate_fallback_brief.py` repassé à
+`anthropic/claude-sonnet-5`. Les deux autres volets de B152 (DeepSeek sur
+`hot-topics.yml`, Sonnet resté sur `detection.yml`) ne changent pas — ce
+n'était pas leur pari qui a échoué, seulement celui d'Opus sur la
+recherche.
+
+**Reste ouvert** : l'utilisateur envisage un autre modèle spécifiquement
+plus fort en recherche (pas nécessairement un simple retour au statu quo
+d'avant le 18) — pas encore choisi, voir `docs/BACKLOG.md` ticket B152.

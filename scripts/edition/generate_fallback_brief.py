@@ -58,16 +58,16 @@ from generate_daily_edition import (
     validate_brief,
 )
 
-# Passé de DEFAULT_MODEL (anthropic/claude-sonnet-5, partagé avec la
-# rédaction) à Opus le 18 septembre 2026, décision utilisateur : cette
-# recherche tourne tous les jours depuis que le trigger CCR est
-# désactivé (voir docstring du module) — c'est l'étape qui demande le
-# plus de jugement éditorial (choix du sujet, anti-doublon, fiabilité
-# des sources), donc celle où la qualité d'un modèle plus poussé pèse
-# le plus. Financé par le passage de generate_suivi_update.py et
-# generate_hot_topics.py sur DeepSeek (voir ces fichiers) — bascule
-# pensée comme cost-neutre sur l'ensemble, pas comme un ajout sec.
-FALLBACK_MODEL = "anthropic/claude-opus-5"
+# Passé de DEFAULT_MODEL (anthropic/claude-sonnet-5) à Opus le 18
+# septembre 2026 (décision utilisateur, pari qu'un modèle plus poussé
+# paierait sur cette étape à fort jugement éditorial), puis repassé à
+# Sonnet le 20 septembre 2026 (retour utilisateur explicite : « opus sur
+# openrouter dans la recherche n'apporte rien ») — le pari ne s'est pas
+# vérifié en pratique, jamais un gain observé qui justifie le surcoût par
+# rapport à DEFAULT_MODEL. Un modèle plus adapté à la recherche reste à
+# l'étude (retour utilisateur du même jour), pas nécessairement un retour
+# pur et simple au statu quo d'avant le 18.
+FALLBACK_MODEL = "anthropic/claude-sonnet-5"
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 ROUTINE_PROMPT_PATH = REPO_ROOT / "docs" / "routine-prompt.md"
