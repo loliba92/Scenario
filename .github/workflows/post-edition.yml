@@ -6,14 +6,26 @@ name: Édition — rédaction + post-édition (OpenRouter)
 # § « Chaîne rédaction OpenRouter » pour l'historique complet.
 #
 # Deux modes, contrôlés par `publish` (toujours true si déclenché par le
-# cron, contrôlable manuellement sinon) :
-#   - publish=false (défaut en déclenchement manuel) : AUCUN commit,
-#     AUCUN push — tout s'écrit sous _prototype-out/, jamais dans les
-#     vrais fichiers du dépôt (voir scripts/edition/generate_post_edition.py,
-#     discipline du bac à sable). Pour tester sans risque.
-#   - publish=true : écrit les vrais fichiers (index.html, archives/,
-#     feed.xml, sitemap*.xml, glossaire.html, archives.html, themes/*.html,
-#     images sociales), puis les commite et les pousse sur main.
+# cron) :
+#   - publish=true (défaut, y compris en déclenchement manuel depuis le
+#     20 septembre 2026 — retour utilisateur explicite : « dans l'API il
+#     faut envoyer sur main toujours, c'est à moi de préciser pour
+#     envoyer sur un bac à sable ») : écrit les vrais fichiers
+#     (index.html, archives/, feed.xml, sitemap*.xml, glossaire.html,
+#     archives.html, themes/*.html, images sociales), puis les commite et
+#     les pousse sur main. Root cause du changement : le trigger CCR
+#     (docs/routine-prompt.md, Étape 3bis) appelle `gh workflow run
+#     post-edition.yml --ref main` SANS jamais préciser `publish` — tant
+#     que le défaut manuel restait false, une réactivation de ce trigger
+#     aurait silencieusement tourné en bac à sable sans jamais publier
+#     (bug resté dormant seulement parce que ce trigger est désactivé
+#     depuis le 14 septembre, voir plus bas) ; même principe déjà appliqué
+#     à l'input `brief` (jamais de valeur par défaut figée qui diverge
+#     silencieusement du comportement réel, voir plus bas).
+#   - publish=false : AUCUN commit, AUCUN push — tout s'écrit sous
+#     _prototype-out/, jamais dans les vrais fichiers du dépôt (voir
+#     scripts/edition/generate_post_edition.py, discipline du bac à
+#     sable). À préciser explicitement pour tester sans risque.
 #
 # Automatisation complète (activée le 14 septembre 2026, décision
 # explicite de l'utilisateur) : la recherche du sujet du jour (sélection,
@@ -95,9 +107,9 @@ on:
         required: false
         default: "false"
       publish:
-        description: "true = écrit les vrais fichiers du dépôt et les commite/pousse sur main — toujours true si déclenché par le cron. Défaut false ici pour un test manuel sans risque."
+        description: "true = écrit les vrais fichiers du dépôt et les commite/pousse sur main — toujours true si déclenché par le cron. Défaut true ici aussi depuis le 20 septembre 2026 : préciser explicitement false pour un test manuel sans risque (bac à sable)."
         required: false
-        default: "false"
+        default: "true"
       model:
         description: "Modèle OpenRouter à utiliser pour CE run uniquement (ex. anthropic/claude-sonnet-5, openai/gpt-5, google/gemini-2.5-pro — voir openrouter.ai/models). Vide = utilise la variable de dépôt OPENROUTER_MODEL si définie, sinon le défaut du script."
         required: false
