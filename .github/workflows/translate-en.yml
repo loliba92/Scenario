@@ -25,7 +25,19 @@ on:
     branches: [main]
     paths:
       - index.html
-  workflow_dispatch: {}  # bouton "Run workflow" dans l'onglet Actions, pour tester sans attendre un push
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Modèle OpenRouter pour CE run uniquement (vide = DEFAULT_MODEL du script, anthropic/claude-sonnet-5)"
+        required: false
+      dry_run:
+        description: "true = ne rien écrire/committer, juste rapporter (test de modèle sans risque)"
+        required: false
+        default: "false"
+      force:
+        description: "true = ignore le garde-fou d'idempotence, retraduit même si en/archives/{date}.html existe déjà — TOUJOURS combiner avec dry_run=true pour un test sûr, jamais utilisé par le déclenchement automatique (push)"
+        required: false
+        default: "false"
 
 permissions:
   contents: write
@@ -54,9 +66,21 @@ jobs:
       - name: Traduire l'édition du jour si besoin
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-        run: python3 scripts/en/translate_daily.py
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.model }}" ]; then
+            ARGS="$ARGS --model ${{ github.event.inputs.model }}"
+          fi
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            ARGS="$ARGS --force"
+          fi
+          python3 scripts/en/translate_daily.py $ARGS
 
       - name: Committer et pousser seulement si des fichiers ont changé
+        if: github.event.inputs.dry_run != 'true'
         run: |
           git config user.name "scenario-en-bot"
           git config user.email "actions@users.noreply.github.com"

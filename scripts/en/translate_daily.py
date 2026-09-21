@@ -1419,6 +1419,12 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true", help="ne rien écrire, juste rapporter")
     parser.add_argument("--model", default=DEFAULT_MODEL)
+    parser.add_argument("--force", action="store_true",
+                         help="ignore le garde-fou d'idempotence (en/archives/{date}.html déjà "
+                              "existant) — test/comparaison de modèle uniquement, jamais utilisé "
+                              "par le cron ; toujours combiné à --dry-run en pratique pour ne rien "
+                              "écraser de réel (voir docs, test du 21 septembre 2026 : Gemini "
+                              "3.7 Flash vs Sonnet 5 sur la même édition déjà traduite).")
     args = parser.parse_args()
 
     api_key = os.environ.get("OPENROUTER_API_KEY")
@@ -1432,7 +1438,7 @@ def main():
     date_str = find_edition_date(fr_soup)
     en_archive_path = REPO_ROOT / "en" / "archives" / f"{date_str}.html"
 
-    if en_archive_path.exists():
+    if en_archive_path.exists() and not args.force:
         print(f"en/archives/{date_str}.html existe déjà — rien à faire.")
         return 0
 

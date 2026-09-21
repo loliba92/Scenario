@@ -29,7 +29,15 @@ name: Détection sujets à suivre
 #   OPENROUTER_API_KEY
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Modèle OpenRouter pour CE run uniquement (vide = DETECTION_MODEL du script, anthropic/claude-sonnet-5)"
+        required: false
+      dry_run:
+        description: "true = liste les candidats sans appeler OpenRouter (mécanique seulement, jamais de test de qualité de modèle avec cette option)"
+        required: false
+        default: "false"
 
 permissions:
   contents: write
@@ -54,9 +62,18 @@ jobs:
       - name: Détection et mise à jour
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-        run: python3 scripts/detection/generate_suivi_update.py
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.model }}" ]; then
+            ARGS="$ARGS --model ${{ github.event.inputs.model }}"
+          fi
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          python3 scripts/detection/generate_suivi_update.py $ARGS
 
       - name: Committer et pousser
+        if: github.event.inputs.dry_run != 'true'
         run: |
           git config user.name "scenario-detection-bot"
           git config user.email "actions@users.noreply.github.com"
