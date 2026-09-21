@@ -1,0 +1,27 @@
+======================================================================
+COMPARATEUR DE MODÈLES OPENROUTER
+Tâche: Recherche éditorial quotidienne (sujet + web search)
+======================================================================
+
+Date du test: 2026-09-21T11:13:35.057530
+Modèles à tester: 4
+
+🔄 Test en cours: Haiku 4.5...
+
+======================================================================
+Haiku 4.5 ($1/$5 (50% moins cher que Sonnet))
+======================================================================
+Statut: ❌ FAILED
+Erreur: HTTP 400: Bad Request
+🔄 Test en cours: Sonnet 5...
+
+======================================================================
+Sonnet 5 ($2/$10 (baseline actuel))
+======================================================================
+Statut: ✅ SUCCESS
+Temps: 20.8s
+Coût: $0.169038
+Tokens: 56619 in / 1580 out
+Préaperçu:
+J'ai de bonnes informations sur la Fed et la dette française. Je vais chercher un troisième sujet distinct (énergie/pétrole ou tech).J'ai suffisamment d'informations solides pour construire les 3 suje...
+🔄 Test en cours: Sakana Fugu Max...
