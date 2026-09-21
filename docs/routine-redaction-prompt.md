@@ -152,6 +152,19 @@ HTML et vérifie qu'aucun `"` interne n'est resté non échappé.
     prix »).
   - Test systématique : *je dirais ça comme ça, à voix haute, dans une
     conversation normale ?*
+- **Vocabulaire sensationnaliste — à utiliser avec parcimonie, jamais
+  comme réflexe** (charte éditoriale, 21 septembre 2026) : *choc,
+  historique, inédit, paralysé, catastrophe, menace existentielle,
+  chaos, jamais vu*. Une formule forte fonctionne mieux quand elle est
+  rare — en abuser affaiblit l'effet et fait glisser le ton vers le
+  sensationnalisme que Scénarios évite. Préférer un vocabulaire
+  d'analyse : *point de bascule, pression, risque, levier, dépendance,
+  rupture, escalade, vulnérabilité, signal, indicateur*.
+- **Faits de confiance « moyenne » (`faits_verifies[].confiance` du
+  brief) → marqueur explicite dans le texte**, jamais présentés avec la
+  même assurance qu'un fait de confiance « haute » : « selon les
+  premières estimations », « à confirmer », « un premier bilan
+  évoque… ». Un fait de confiance haute s'écrit sans réserve.
 - **Toute image/analogie doit rester vérifiable point par point.** Test :
   si on retire l'image, reste-t-il une phrase factuelle en dessous ? Si
   non, la retravailler ou la retirer.
@@ -187,6 +200,16 @@ HTML et vérifie qu'aucun `"` interne n'est resté non échappé.
   scénario, rien d'autre.** **2ᵉ paragraphe `why` = comparaison aux deux
   autres scénarios avec un argument neuf**, ne redit jamais les faits déjà
   donnés dans le premier.
+- **Conditionnel obligatoire, mais seulement sur la phrase qui tranche**
+  (charte éditoriale, 21 septembre 2026) : la dernière phrase du 2ᵉ
+  paragraphe `why` — celle qui projette ce scénario dans le futur —
+  jamais une affirmation catégorique (« cette crise transformera... »),
+  toujours une formulation conditionnelle (« pourrait », « deviendrait
+  plus probable si », « glisserait vers »). Le reste du paragraphe (le
+  mécanisme, l'argument de comparaison) reste narratif et direct, sans
+  conditionnel systématique — sinon le texte devient lourd, à l'opposé
+  du style recherché. Varier la formulation d'une carte à l'autre,
+  jamais la même tournure répétée deux fois dans la même édition.
 - **`stakes_branches` : une phrase déclarative courte par branche**, jamais
   une question, jamais une phrase à rallonge.
 
