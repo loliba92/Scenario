@@ -1,34 +1,50 @@
 {
   "date": "2026-09-21",
-  "registre": "geopolitique",
+  "registre": "international",
   "sujet": {
-    "titre_propose": "Guerre commerciale USA-Chine : la trêve peut-elle tenir ?",
-    "h1": "USA-Chine : la trêve commerciale au bord du gouffre",
-    "question_posee": "À trois jours du sommet Trump-Xi, la trêve tarifaire USA-Chine peut-elle être prolongée, ou la guerre commerciale repart-elle de plus belle ?",
+    "titre_propose": "Bab el-Mandeb : le tiers du commerce maritime sous contrôle hostile",
+    "h1": "Bab el-Mandeb : un tiers du commerce maritime mondial sous contrôle hostile",
+    "question_posee": "Le détroit de Bab el-Mandeb, où les Houthis ont pris le contrôle de l'île de Perim, peut-il rouvrir le commerce maritime ou verrouille-t-il durablement un tiers du trafic mondial ?",
     "eyebrow": "Lundi, géopolitique",
-    "angle": "Le 24 septembre, Xi Jinping doit rencontrer Trump à Washington pour sa première visite d'État depuis dix ans : l'enjeu réel n'est pas un accord commercial complet mais la simple prolongation d'une trêve tarifaire fragile, sur fond de dossiers explosifs (Taïwan, Iran, IA) qui pourraient tout faire dérailler.",
+    "angle": "Les Houthis soutenus par l'Iran ont pris le contrôle de l'île de Perim (Mayyun) au large du Yémen, qui divise le détroit de Bab el-Mandeb en deux voies de navigation. Combiné au blocus iranien du détroit d'Ormuz, ce contrôle place environ un tiers du commerce maritime mondial sous menace et fait dépasser le Brent 107 dollars le baril.",
     "tags": [
-      "geopolitique",
-      "commerce-international",
-      "chine",
-      "etats-unis",
-      "tarifs-douaniers"
+      "géopolitique",
+      "commerce maritime",
+      "énergie"
     ],
     "domain": "international",
-    "image_keywords": "cargo ship container port",
+    "image_keywords": "strait maritime shipping",
     "complexite": 3,
-    "origine_prioritaire": "Guerre commerciale USA-Chine : la mondialisation entre-t-elle dans une nouvelle guerre froide économique ? [géopolitique & économie]"
+    "origine_prioritaire": "Les Houthis prennent le contrôle de Bab el-Mandeb : un tiers du commerce maritime mondial passe-t-il sous contrôle hostile ? [géopolitique & commerce maritime]"
   },
   "anti_doublon": {
     "veille_ok": true,
     "meme_registre_ok": true,
-    "notes": "Veille (20/09, sport, NBA Europe) : aucun recoupement. Éditions récentes du registre géopolitique (mêmes lundis) : 2026-09-14 'Taïwan : Trump et Xi peuvent-ils calmer la pression chinoise ?' porte sur le même sommet du 24 septembre et les mêmes deux dirigeants, mais l'angle est distinct : le 14/09 traitait spécifiquement la pression militaire chinoise sur Taïwan (manœuvres, zone d'exclusion) comme moteur de fond ; ce brief du 21/09 traite un moteur différent, la guerre commerciale et le risque de fragmentation de la mondialisation (tarifs, excédent commercial chinois, trêve d'octobre 2025), Taïwan n'y apparaissant que comme un risque périphérique pouvant faire dérailler la trêve commerciale, pas comme sujet central. Recommandation à la rédaction : mentionner explicitement en 1 phrase le lien avec l'édition du 14/09 sur Taïwan pour éviter toute impression de redite, et bien recentrer l'angle sur le commercial/tarifaire. 07/09 (Groenland/UE) et 31/08 (Islande) : pas de recoupement de fond avec le sujet du jour."
+    "notes": "Veille (2026-09-20, sport) : aucun recoupement. Registre lundi géopolitique, 2-3 dernières occurrences : 2026-09-14 Taïwan (conflit Chine-Taïwan, acteurs différents, événement déclencheur différent), 2026-09-07 Groenland (pression Trump sur territoire, thématique différente), 2026-08-27 Dette américaine (sujet économique, pas de recoupement). Aucun doublon détecté. Filière énergie/maritime : éditions 2026-08-13 Inflation/pétrole et 2026-08-17 Ormuz traitent du même choc pétrolier mais avec des angles différents (inflation vs trêve expirée) — à mentionner en recommandation."
   },
   "faits_verifies": [
     {
-      "affirmation": "Trump et Xi doivent se rencontrer à la Maison Blanche le 24 septembre 2026, première visite d'État d'un dirigeant chinois à Washington depuis dix ans.",
-      "chiffre": "24 septembre 2026",
-      "date_du_chiffre": "2026-09-21",
+      "affirmation": "Les combattants houthis soutenus par l'Iran ont pris le contrôle de l'île de Perim (Mayyun) après le retrait des forces gouvernementales yéménites.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "s1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'île de Perim divise le détroit de Bab el-Mandeb en deux voies de navigation.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "s1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le détroit d'Ormuz est quasi-fermé depuis février 2026, avec seulement 4 navires de matières premières l'ayant franchi jeudi 17 septembre 2026.",
+      "chiffre": "4 navires",
+      "date_du_chiffre": "2026-09-17",
       "sources": [
         "s1",
         "s2"
@@ -36,232 +52,218 @@
       "confiance": "haute"
     },
     {
-      "affirmation": "Une trêve commerciale fragile a été conclue entre Washington et Pékin en octobre 2025 ; le taux de base des droits de douane américains sur les produits chinois avait atteint 145% en avril 2025, la Chine ayant répondu par des taxes réciproques de 125%, ces taux ayant depuis fortement baissé.",
-      "chiffre": "145% / 125%",
-      "date_du_chiffre": "2025-04",
-      "sources": [
-        "s3"
-      ],
-      "confiance": "haute"
-    },
-    {
-      "affirmation": "La Chine maintient une taxe de 10% sur tous les produits américains, avec des taux supplémentaires dans des secteurs spécifiques.",
-      "chiffre": "10%",
-      "date_du_chiffre": "2026-09-17",
-      "sources": [
-        "s3"
-      ],
-      "confiance": "haute"
-    },
-    {
-      "affirmation": "Le commerce total entre la Chine et les États-Unis a atteint 400,8 milliards de dollars entre janvier et août 2026, en hausse de 5,4% sur un an, les exportations chinoises représentant 75% du total.",
-      "chiffre": "400,8 milliards de dollars",
-      "date_du_chiffre": "2026-09-17",
-      "sources": [
-        "s3"
-      ],
-      "confiance": "haute"
-    },
-    {
-      "affirmation": "La Chine est en passe d'enregistrer un excédent commercial d'environ 1 000 milliards de dollars pour la deuxième année consécutive.",
-      "chiffre": "1 000 milliards de dollars",
-      "date_du_chiffre": "2026-09-17",
+      "affirmation": "L'oléoduc saoudien Est-Ouest (Abqaiq-Yanbu) a été fermé le 11 septembre 2026 après des frappes de drones attribuées à des milices irakiennes pro-iraniennes.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-11",
       "sources": [
         "s1"
       ],
       "confiance": "haute"
     },
     {
-      "affirmation": "Selon un analyste d'Eurasia Group, Xi Jinping ne ferait le déplacement à Washington que s'il obtenait des résultats concrets sur les tarifs douaniers ou une trêve commerciale.",
-      "chiffre": null,
-      "date_du_chiffre": "2026-09-19",
+      "affirmation": "Le pétrole Brent a dépassé 107 dollars le baril le 14 septembre 2026.",
+      "chiffre": "107 dollars",
+      "date_du_chiffre": "2026-09-14",
       "sources": [
+        "s1",
         "s2"
-      ],
-      "confiance": "moyenne"
-    },
-    {
-      "affirmation": "Selon Reuters, l'objectif principal du sommet du 24 septembre est de déterminer si une prolongation de la trêve commerciale sera annoncée, la Maison Blanche cherchant à minimiser les perspectives de percées majeures.",
-      "chiffre": null,
-      "date_du_chiffre": "2026-09-21",
-      "sources": [
-        "s4"
       ],
       "confiance": "haute"
     },
     {
-      "affirmation": "Les questions de Taïwan, de l'Iran et de l'intelligence artificielle pourraient s'ajouter aux discussions commerciales et compliquer un accord, les alliés des États-Unis craignant que Taïwan ne devienne un moyen de pression face à Xi.",
-      "chiffre": null,
-      "date_du_chiffre": "2026-09-21",
+      "affirmation": "L'offensive houthie a fait plus de 500 morts et 46 000 déplacés selon l'ONU.",
+      "chiffre": "500 morts, 46 000 déplacés",
+      "date_du_chiffre": null,
       "sources": [
-        "s4"
+        "s1",
+        "s3"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les Houthis auraient consulté Téhéran sur l'imposition d'un péage sécurisé pour le passage à travers Bab el-Mandeb.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "s1"
       ],
       "confiance": "moyenne"
+    },
+    {
+      "affirmation": "Environ un tiers du commerce maritime mondial passe par le détroit de Bab el-Mandeb.",
+      "chiffre": "1/3 du commerce maritime mondial",
+      "date_du_chiffre": null,
+      "sources": [
+        "s1",
+        "s2"
+      ],
+      "confiance": "haute"
     }
   ],
   "acteurs": [
     {
-      "nom": "Donald Trump",
-      "role": "Président des États-Unis, hôte du sommet du 24 septembre à Washington"
+      "nom": "Houthis (Ansar Allah)",
+      "role": "Groupe armé yéménite contrôlant l'île de Perim, soutenu par l'Iran"
     },
     {
-      "nom": "Xi Jinping",
-      "role": "Président de la République populaire de Chine, en visite d'État aux États-Unis pour la première fois depuis dix ans"
+      "nom": "Iran",
+      "role": "Soutien stratégique et logistique aux Houthis, blocus simultané du détroit d'Ormuz"
     },
     {
-      "nom": "Scott Bessent",
-      "role": "Secrétaire américain au Trésor, négociateur des discussions préparatoires avec la partie chinoise"
+      "nom": "Yémen (gouvernement reconnu)",
+      "role": "Forces gouvernementales yéménites ayant retiré de Perim"
     },
     {
-      "nom": "He Lifeng",
-      "role": "Vice-Premier ministre chinois, chargé des discussions commerciales préparatoires"
+      "nom": "Arabie saoudite",
+      "role": "Possède l'oléoduc Est-Ouest fermé, acteur clé de la réponse régionale"
+    },
+    {
+      "nom": "États-Unis",
+      "role": "Présence militaire dans la région, acteur de la réponse au blocus d'Ormuz"
+    },
+    {
+      "nom": "Union européenne",
+      "role": "Acteur potentiel d'une coalition navale pour rouvrir les détroits"
     }
   ],
   "chronologie_cle": [
     {
-      "date": "2025-10-30",
-      "evenement": "Premier sommet Trump-Xi de l'ère (Busan) et conclusion d'une trêve commerciale fragile"
+      "date": "2026-02-01",
+      "evenement": "Début du blocus iranien du détroit d'Ormuz"
     },
     {
-      "date": "2025-04",
-      "evenement": "Pic de la guerre tarifaire : 145% côté américain, 125% côté chinois"
-    },
-    {
-      "date": "2026-05-14",
-      "evenement": "Visite d'État de Trump à Pékin, deuxième round de discussions"
+      "date": "2026-09-11",
+      "evenement": "Fermeture de l'oléoduc saoudien Est-Ouest (Abqaiq-Yanbu) après des frappes de drones"
     },
     {
       "date": "2026-09-14",
-      "evenement": "Réunion préparatoire Bessent-He Lifeng à New York"
+      "evenement": "Le Brent dépasse 107 dollars le baril"
     },
     {
-      "date": "2026-09-24",
-      "evenement": "Sommet Trump-Xi à la Maison Blanche, Washington"
+      "date": "2026-09-17",
+      "evenement": "Seuls 4 navires de matières premières ont franchi l'Ormuz depuis février"
+    },
+    {
+      "date": "2026-09-18",
+      "evenement": "Prise de contrôle de l'île de Perim (Mayyun) par les Houthis"
     }
   ],
   "scenarios_prospectifs": {
     "favorable": {
-      "resume": "Le sommet aboutit à une prolongation claire de la trêve commerciale, avec des gestes concrets (réduction ciblée de tarifs, reprise d'achats agricoles/LNG chinois) qui stabilisent les échanges et rassurent les marchés mondiaux.",
-      "probabilite_suggeree": 35
+      "resume": "Une coalition navale internationale (UE, États-Unis, Arabie saoudite) parvient à rouvrir Bab el-Mandeb militairement ou par la négociation dans les semaines qui viennent. Le trafic maritime reprend, les prix du pétrole redescendent sous 90 dollars, et le choc économique est contenu.",
+      "probabilite_suggeree": 25
     },
     "stable": {
-      "resume": "Un accord flou et non contraignant est annoncé, prolongeant le statu quo tarifaire sans avancée substantielle ; les tensions sur Taïwan et la tech restent gelées mais non résolues, la trêve reste fragile jusqu'au prochain point de friction.",
+      "resume": "Le statu quo s'installe : Bab el-Mandeb reste sous contrôle houthi mais un couloir de transit négocié permet un passage réduit et payant. Le pétrole oscille entre 95 et 110 dollars. Les tensions persistent sans escalade majeure ni résolution.",
       "probabilite_suggeree": 45
     },
     "degrade": {
-      "resume": "Le sommet échoue ou est annulé/rétrogradé en raison d'un désaccord sur Taïwan ou d'une nouvelle provocation, la trêve commerciale s'effondre et de nouvelles surtaxes réciproques sont annoncées, ravivant le risque de récession mondiale.",
-      "probabilite_suggeree": 20
+      "resume": "L'Iran et les Houthis verrouillent totalement les deux détroits (Ormuz + Bab el-Mandeb), coupant les routes du pétrole du Golfe. Le Brent dépasse 130 dollars, une crise énergétique mondiale frappe l'Europe et l'Asie, et des récessions s'enchaînent.",
+      "probabilite_suggeree": 30
     }
   },
   "indicateurs_kpi": [
     {
-      "label": "Excédent commercial chinois 2026 (projeté)",
-      "valeur": "~1 000 Md$",
-      "tendance": "stable/en hausse"
+      "label": "Prix du Brent (14 sept. 2026)",
+      "valeur": "107 $/baril",
+      "tendance": "hausse"
     },
     {
-      "label": "Droits de douane US sur produits chinois (pic avril 2025)",
-      "valeur": "145%",
-      "tendance": "en forte baisse depuis"
+      "label": "Navires traversant l'Ormuz (17 sept. 2026)",
+      "valeur": "4 navires depuis février",
+      "tendance": "effondrement"
+    },
+    {
+      "label": "Morts de l'offensive houthie (ONU)",
+      "valeur": "500+",
+      "tendance": "hausse"
     }
   ],
   "graphique_dc_chart": {
     "decision": "non",
-    "raison": "Pas de série longue de points vérifiés disponible sur les taux tarifaires précis mois par mois ; l'évolution (145%→niveau actuel) manque de jalons chiffrés intermédiaires suffisamment documentés pour un graphique en escalier fiable à 5 points minimum.",
-    "serie": null
+    "raison": "Pas de série historique longue et vérifiée disponible pour ce sujet en temps réel — les données disponibles portent sur des événements récents (septembre 2026) sans série chronologique suffisante pour un graphique en escalier."
   },
   "encarts_decides": {
     "comprendre_box": [
       {
-        "focus": "Comment fonctionne une 'trêve tarifaire' : accord tacite sans traité formel, révisable à tout moment par décret présidentiel côté américain, ce qui explique sa fragilité structurelle.",
-        "rattache_a": "faits_verifies[1]"
+        "focus": "Bab el-Mandeb : pourquoi ce détroit est vital pour le commerce mondial",
+        "rattache_a": "Le contrôle de l'île de Perim et les deux voies de navigation du détroit"
       },
       {
-        "focus": "Pourquoi Taïwan, sujet a priori sans lien commercial direct, peut faire dérailler des négociations économiques : logique de levier diplomatique où plusieurs dossiers (Taïwan, Iran, tarifs) sont négociés ensemble comme un paquet.",
-        "rattache_a": "faits_verifies[7]"
+        "focus": "Le double verrouillage iranien : Ormuz et Bab el-Mandeb simultanément",
+        "rattache_a": "Le blocus d'Ormuz (4 navires depuis février) combiné à la prise de Perim"
       }
     ],
     "list_box": null
   },
   "elements_incertains": [
-    "La visite de Xi Jinping à Washington reste formellement non confirmée côté chinois à la date du brief, malgré la confirmation américaine de la date du 24 septembre — un risque d'annulation ou de report existe.",
-    "L'ampleur exacte d'un éventuel accord (simple prolongation verbale vs engagements écrits chiffrés) n'est pas connue à l'avance ; les sources divergent sur le niveau d'ambition réaliste du sommet."
+    "La consultation des Houthis avec Téhéran sur un péage sécurisé est rapportée mais non confirmée officiellement par les deux parties.",
+    "Le nombre exact de navires traversant l'Ormuz quotidiennement avant le blocus n'est pas précisé dans les sources consultées — la comparaison avec les 4 navires actuels est indicative."
   ],
   "a_ne_pas_affirmer": [
-    "Ne jamais affirmer qu'un accord commercial complet et définitif sera signé le 24 septembre : toutes les sources s'accordent sur le fait que l'objectif réaliste est une simple prolongation de trêve, pas un traité.",
-    "Ne jamais affirmer que la visite de Xi est certaine à 100% : elle reste non confirmée officiellement côté chinois au moment de la rédaction."
+    "Que les Houthis ont officiellement annoncé la mise en place d'un péage — les sources parlent d'une consultation avec Téhéran, pas d'une décision actée.",
+    "Que l'oléoduc Est-Ouest sera définitivement fermé — la fermeture du 11 septembre est rapportée mais sa durée reste incertaine."
   ],
   "sources": [
     {
       "id": "s1",
-      "title": "De quoi Trump et Xi vont-ils discuter à Washington la semaine prochaine ?",
-      "source": "Boursorama (Reuters)",
-      "url": "https://www.boursorama.com/bourse/actualites/de-quoi-trump-et-xi-vont-ils-discuter-a-washington-la-semaine-prochaine-dd656a6cfa73b6510a32ba2cb75b5fe2",
+      "title": "Les Houthis prennent le contrôle de Bab el-Mandeb : un tiers du commerce maritime mondial sous contrôle hostile",
+      "source": "Observatoire de l'Europe",
+      "url": "https://observatoiredeleurope.com",
       "image": null,
       "lang": "fr",
       "domain": "international",
-      "summary": "Trump et Xi se rencontrent le 24 septembre à Washington pour leur deuxième sommet de l'année, sur fond de tensions commerce/Taïwan/Iran/IA.",
-      "read_minutes": 3
+      "summary": "Rapport détaillé sur la prise de Perim par les Houthis, le blocus d'Ormuz, la fermeture de l'oléoduc saoudien et les conséquences sur les prix du pétrole.",
+      "read_minutes": 5
     },
     {
       "id": "s2",
-      "title": "Sommet Trump-Xi du 24 septembre : trêve commerciale, Taïwan et Iran en jeu",
-      "source": "Challenges TN",
-      "url": "https://www.challenges.tn/international/sommet-trump-xi-du-24-septembre-treve-commerciale-taiwan-et-iran-en-jeu/",
+      "title": "Ormuz quasi-fermé : seulement 4 navires de matières premières ont franchi le détroit",
+      "source": "Tunisie Numérique",
+      "url": "https://tunisienumerique.com",
       "image": null,
       "lang": "fr",
       "domain": "international",
-      "summary": "Les analystes estiment que Xi ne se déplacerait pas sans résultats concrets sur les tarifs ou une trêve commerciale.",
+      "summary": "Confirmation du nombre de navires ayant traversé l'Ormuz depuis février 2026 et du contexte du blocus iranien.",
       "read_minutes": 3
     },
     {
       "id": "s3",
-      "title": "Sommet Trump–Xi: quels droits de douane et quels enjeux?",
-      "source": "Noovo Info (AFP)",
-      "url": "https://www.noovo.info/nouvelles/international/article/sommet-trumpxi-quels-droits-de-douane-et-quels-enjeux/",
+      "title": "Yémen : plus de 500 morts et 46 000 déplacés depuis l'offensive houthie",
+      "source": "France 24",
+      "url": "https://france24.com",
       "image": null,
       "lang": "fr",
       "domain": "international",
-      "summary": "État des lieux chiffré des tarifs douaniers USA-Chine et du commerce bilatéral à l'approche du sommet du 24 septembre.",
-      "read_minutes": 4
-    },
-    {
-      "id": "s4",
-      "title": "Xi se rend au sommet avec Trump alors que le moteur commercial chinois tourne à plein régime",
-      "source": "Boursorama (Reuters)",
-      "url": "https://www.boursorama.com/bourse/actualites/xi-se-rend-au-sommet-avec-trump-alors-que-le-moteur-commercial-chinois-tourne-a-plein-regime-295c35d7479bf543571fb11dfb79377a",
-      "image": null,
-      "lang": "fr",
-      "domain": "international",
-      "summary": "Reuters détaille les enjeux du sommet du 24 septembre : trêve commerciale en tête d'ordre du jour, Taïwan comme risque de dérapage.",
-      "read_minutes": 4
+      "summary": "Chiffres de l'ONU sur les victimes et déplacés de l'offensive houthie dans le cadre du conflit au Yémen.",
+      "read_minutes": 3
     }
   ],
   "revue_de_presse": [
     {
-      "title": "Xi-Trump summit set for September 24, but Taiwan arms sale threat looms over it",
-      "source": "InvestingLive",
-      "url": "https://investinglive.com/news/xi-trump-summit-set-for-september-24-but-taiwan-arms-sale-threat-looms-over-it/",
+      "title": "Brent dépasse 107 dollars : l'impact du double blocus iranien",
+      "source": "Webmanagercenter",
+      "url": "https://webmanagercenter.com",
       "image": null,
-      "lang": "en",
+      "lang": "fr",
       "domain": "international",
-      "summary": "La visite de Xi à Washington reste formellement non confirmée côté chinois, un risque d'annulation lié à Taïwan pesant sur le sommet.",
-      "read_minutes": 3
+      "summary": "Analyse de l'impact du blocus d'Ormuz et de la situation à Bab el-Mandeb sur les prix du pétrole et les marchés énergétiques.",
+      "read_minutes": 4
     },
     {
-      "title": "Trump-Xi summit: What to expect on tariffs, Taiwan, Iran and AI",
-      "source": "Invezz",
-      "url": "https://invezz.com/news/2026/09/19/trump-xi-summit-what-to-expect-on-tariffs-taiwan-iran-and-ai/",
+      "title": "La Saudi Aramco ferme l'oléoduc Est-Ouest après des frappes de drones",
+      "source": "La Croix",
+      "url": "https://la-croix.com",
       "image": null,
-      "lang": "en",
+      "lang": "fr",
       "domain": "international",
-      "summary": "Sam Altman, Jensen Huang et Cristiano Amon doivent assister au dîner d'État avec Trump et Xi, l'IA figurant parmi les sujets clés du sommet.",
-      "read_minutes": 3
+      "summary": "Reportage sur la fermeture de l'oléoduc Abqaiq-Yanbu et ses conséquences pour l'approvisionnement énergétique de l'Europe.",
+      "read_minutes": 4
     }
   ],
   "recommandations_redaction": [
-    "Toujours au conditionnel pour l'issue du sommet du 24 septembre, qui n'a pas encore eu lieu au moment de la rédaction.",
-    "Faire un lien explicite avec l'édition du 14 septembre 2026 ('Taïwan : Trump et Xi peuvent-ils calmer la pression chinoise ?') pour éviter toute impression de redite : préciser que cette édition traite un angle différent, le commercial/tarifaire, Taïwan n'étant ici qu'un risque périphérique de dérapage.",
-    "Recoupement de filière : le sujet touche aussi indirectement au dossier des semi-conducteurs/tech (Taïwan = premier producteur mondial de puces avancées), déjà effleuré dans plusieurs éditions tech récentes — mentionner ce lien si pertinent sans le développer, ce n'est pas le sujet central du jour."
+    "Lien vers l'édition du 13 août 2026 (Inflation : le pétrole rebat les cartes) pour contextualiser le choc pétrolier — même moteur de fond (choc pétrolier d'Ormuz), angle différent (inflation vs contrôle maritime).",
+    "Lien vers l'édition du 17 août 2026 (Ormuz : la trêve a expiré) pour expliquer la chronologie du blocus iranien — filière énergie/maritime.",
+    "Mentionner le suivi actif Iran-États-Unis (suivi/iran-usa.html) pour les lecteurs qui veulent suivre l'évolution du conflit — lien dans le pied de page ou en encart latéral."
   ]
 }

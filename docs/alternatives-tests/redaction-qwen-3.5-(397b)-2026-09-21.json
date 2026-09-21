@@ -1,0 +1,14 @@
+{
+  "model": "qwen/qwen3.5-397b-a17b",
+  "model_name": "Qwen 3.5 (397B)",
+  "date": "2026-09-21",
+  "cost": 0,
+  "elapsed_s": 31.998135089874268,
+  "tokens": {
+    "input": 10267,
+    "output": 2255
+  },
+  "json_valid": false,
+  "content_length": 2338,
+  "content": "{\n  \"h1\": \"USA-Chine : la trêve commerciale au bord du gouffre\",\n  \"question_text\": \"À trois jours du sommet Trump-Xi, la trêve tarifaire USA-Chine peut-elle être prolongée, ou la guerre commerciale repart-elle de plus belle ?\",\n  \"section_title\": \"Sommet du 24 septembre : la trêve tarifaire peut-elle tenir ?\",\n  \"dek\": [\n    \"Le <strong>24 septembre 2026</strong>, Donald Trump et Xi Jinping se rencontrent à la Maison Blanche pour une visite d'État historique, la première d'un dirigeant chinois à Washington depuis dix ans. Ce sommet ne vise pas un traité de paix définitif, mais un objectif beaucoup plus modeste et urgent : prolonger une <strong>trêve commerciale</strong> fragile conclue en octobre 2025. Les deux superpuissances tentent d'éviter une reprise des hostilités tarifaires qui avait vu les droits de douane américains grimper jusqu'à <strong>145%</strong> au printemps dernier.\",\n    \"La situation actuelle est un équilibre instable. Si les tensions ont baissé depuis le pic d'avril 2025, la Chine maintient une taxe de <strong>10%</strong> sur tous les produits américains, tandis que Pékin s'apprête à enregistrer un excédent commercial record d'environ <strong>1 000 milliards de dollars</strong> pour la deuxième année consécutive. Ce déséquilibre massif alimente la colère à Washington, où l'administration Trump cherche à obtenir des concessions concrètes avant de valider la poursuite des échanges.\",\n    \"L'enjeu dépasse le simple commerce de biens. Ce sommet se tient sur un fond de dossiers géopolitiques explosifs qui menacent de faire dérailler les négociations économiques. Les questions de <strong>Taïwan</strong>, de l'Iran et de l'intelligence artificielle sont désormais liées aux discussions tarifaires. Une provocation sur l'un de ces fronts pourrait annuler instantanément les progrès réalisés sur le commerce, transformant ce sommet en échec diplomatique retentissant.\",\n    \"Comme nous l'avions analysé dans notre édition du <a href=\\\"archives/2026-09-14.html\\\">14 septembre sur la pression chinoise à Taïwan</a>, la dimension militaire reste une toile de fond lourde. Cependant, l'angle est ici différent : Taïwan n'est plus le sujet central, mais agit comme un <strong>levier diplomatique</strong> capable de bloquer tout accord commercial. Xi Jinping ne ferait le déplacement que s'il obtenait"
+}

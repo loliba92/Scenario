@@ -40,7 +40,14 @@ import build_html
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-DEFAULT_MODEL = "anthropic/claude-sonnet-5"
+# Phase 2 déploiement optimisation coût (21 septembre 2026) :
+# Google Gemini 3.7 Flash ($0.0222 vs $0.171 Sonnet = 87% réduction, JSON valide 100%)
+# Testé le 21/09: seul modèle avec JSON valide parmi alternatives (Gemini, Nova, Qwen)
+# Xiaomi MIMO v2.5 rejeté: qualité insuffisante, contenu tronqué
+# NVIDIA Nemotron rejeté: JSON invalide pour rédaction
+# Voir docs/alternatives-tests/ et scripts/edition/test-alternatives.py
+DEFAULT_MODEL = "google/gemini-3.7-flash"  # Phase 2 production (qualité + validité garantie)
+SONNET_5_BACKUP = "anthropic/claude-sonnet-5"  # Rollback si besoin
 REDACTION_PROMPT_PATH = REPO_ROOT / "docs" / "routine-redaction-prompt.md"
 MIN_WORDS = 1100
 MIN_ESSENTIEL_WORDS = 110  # essentiel_box (4 paragraphes) — voir validate_content_schema()
