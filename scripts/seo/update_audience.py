@@ -151,17 +151,28 @@ def update_openrouter_history(today_iso, total_usage):
     return history
 
 
-def compute_cost_yesterday(history):
-    """Coût de la veille = écart entre les deux derniers relevés
-    disponibles — jamais supposé être exactement le jour précédent si un
-    run a été raté (cron en échec) : c'est le coût depuis le relevé
-    précédent DISPONIBLE, quelle que soit la date exacte."""
-    if len(history) < 2:
+def compute_cost_yesterday(history, today_iso):
+    """Coût de la veille = écart entre les deux derniers relevés d'une
+    JOURNÉE CIVILE DÉJÀ CLOSE — jamais celui d'aujourd'hui, dont le
+    relevé continue de grossir à chaque nouvelle exécution du script.
+
+    Bug réel corrigé le 21 septembre 2026 (retour utilisateur : "Hier"
+    affichait 1,97 $ le matin puis 2,52 $ quelques heures plus tard, pour
+    un jour censé être clos) : l'ancienne version comparait le relevé
+    d'AUJOURD'HUI (`dates_sorted[-1]`) à celui de la veille — donc "Hier"
+    suivait en réalité la dépense du jour même à chaque nouveau run,
+    jamais figé sur le vrai coût de la veille. `today_iso` est exclu
+    explicitement pour ne jamais retomber dans ce piège, quel que soit le
+    nombre de fois où le script tourne le même jour.
+
+    Jamais supposé être exactement le jour précédent si un run a été
+    raté (cron en échec) : c'est l'écart entre les deux derniers relevés
+    clos DISPONIBLES, quelle que soit la date exacte."""
+    past = sorted((h for h in history if h["date"] != today_iso), key=lambda h: h["date"])
+    if len(past) < 2:
         return None
-    dates_sorted = sorted(h["date"] for h in history)
-    by_date = {h["date"]: h["total_usage"] for h in history}
-    d_now, d_prev = dates_sorted[-1], dates_sorted[-2]
-    return {"value": by_date[d_now] - by_date[d_prev], "date": d_now, "since": d_prev}
+    d_prev, d_before = past[-1]["date"], past[-2]["date"]
+    return {"value": past[-1]["total_usage"] - past[-2]["total_usage"], "date": d_prev, "since": d_before}
 
 
 
@@ -868,7 +879,7 @@ def main():
     cost_yesterday = None
     if openrouter and not args.dry_run:
         history = update_openrouter_history(end_date.isoformat(), openrouter["total_usage"])
-        cost_yesterday = compute_cost_yesterday(history)
+        cost_yesterday = compute_cost_yesterday(history, end_date.isoformat())
     elif openrouter:
         print(f"Coût OpenRouter cumulé : {openrouter['total_usage']:.2f} $ "
               f"(solde restant : {openrouter['total_credits'] - openrouter['total_usage']:.2f} $).")
