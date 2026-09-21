@@ -1,0 +1,101 @@
+name: Daily Preview Generation
+
+on:
+  schedule:
+    # 14h UTC every day
+    - cron: '0 14 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -q beautifulsoup4
+
+      - name: Generate brief for tomorrow
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          cd scripts/edition
+          # Get tomorrow's date (YYYY-MM-DD)
+          TOMORROW=$(date -u -d '+1 day' '+%Y-%m-%d')
+          echo "Generating brief for $TOMORROW..."
+          python3 generate_fallback_brief.py --date "$TOMORROW" 2>&1 | tee /tmp/phase1.log
+          if [ $? -ne 0 ]; then
+            echo "❌ Phase 1 failed"
+            exit 1
+          fi
+          echo "✅ Phase 1 successful"
+
+      - name: Generate preview edition
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          cd scripts/edition
+          TOMORROW=$(date -u -d '+1 day' '+%Y-%m-%d')
+          echo "Generating preview edition for $TOMORROW..."
+          python3 generate_daily_edition.py --brief editorial-briefs/"$TOMORROW".json 2>&1 | tee /tmp/phase2.log
+          if [ $? -ne 0 ]; then
+            echo "❌ Phase 2 failed"
+            exit 1
+          fi
+          echo "✅ Phase 2 successful"
+
+      - name: Copy preview to root
+        run: |
+          TOMORROW=$(date -u -d '+1 day' '+%Y-%m-%d')
+          if [ -f "_prototype-out/$TOMORROW.html" ]; then
+            cp "_prototype-out/$TOMORROW.html" "preview.html"
+            cp "_prototype-out/$TOMORROW.content.json" ".preview-content.json"
+            echo "✅ Preview files copied"
+          else
+            echo "❌ Preview HTML not found"
+            exit 1
+          fi
+
+      - name: Commit preview
+        run: |
+          git config user.name "Claude Preview Bot"
+          git config user.email "noreply@anthropic.com"
+          TOMORROW=$(date -u -d '+1 day' '+%Y-%m-%d')
+          git add preview.html .preview-content.json "editorial-briefs/$TOMORROW.json"
+          git commit -m "Daily preview: $TOMORROW
+
+Generated at $(date -u '+%Y-%m-%d %H:%M UTC')
+
+Phase 1 (Brief): Upstage Solar Pro4
+Phase 2 (Edition): Google Gemini 3.7 Flash
+
+Review preview.html and comment if issues found." || echo "Nothing to commit"
+          git push origin main
+
+      - name: Success notification
+        if: success()
+        run: |
+          TOMORROW=$(date -u -d '+1 day' '+%Y-%m-%d')
+          echo "✅ Preview generated for $TOMORROW"
+          echo "Preview is ready at: preview.html"
+          echo "Cost: ~\$0.033 per edition (Phase 1 + Phase 2)"
+
+      - name: Failure notification
+        if: failure()
+        run: |
+          TOMORROW=$(date -u -d '+1 day' '+%Y-%m-%d')
+          echo "❌ Preview generation failed for $TOMORROW"
+          echo "Check logs above for details"
+          exit 1
