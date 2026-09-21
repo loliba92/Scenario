@@ -1,0 +1,217 @@
+{
+  "date": "2026-09-22",
+  "registre": "grand-futur",
+  "sujet": {
+    "titre_propose": "Fusion nucléaire : la promesse enfin tenue ?",
+    "h1": "Fusion nucléaire : la promesse enfin tenue ?",
+    "question_posee": "Après la première licence commerciale américaine (31 août) et un financement privé record, la fusion va-t-elle tenir sa promesse dans la décennie, ou repousser encore l'échéance comme ITER ?",
+    "eyebrow": "Mardi, Grand futur",
+    "angle": "La fusion nucléaire a franchi un cap symbolique avec la première licence commerciale aux États-Unis fin août 2026, mais les délais historiques et les verrous techniques restent d'une autre nature que ceux du secteur. Trois scénarios explorent si cette décennie verra vraiment des centrales fusionnelles connectées au réseau ou si la promesse glisse encore d'une génération.",
+    "tags": [
+      "energie",
+      "recherche",
+      "futur"
+    ],
+    "domain": "sciences-environnement",
+    "image_keywords": "nuclear fusion reactor laboratory",
+    "complexite": 4,
+    "origine_prioritaire": null
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille 2026-09-21 (USA-Chine, guerre commerciale) sans recoupement. Registre Grand futur (mardi) : éditions récentes du même créneau sont 2026-09-15 (Fusion nucléaire, déjà traitée — chevauchement fort sur le même moteur de fond, mais sujet du jour est une relance prospective à J+7, angle différent : passage à l'échelle commerciale vs promesse scientifique — conservé car écart temporel > 7 jours et angle distinct, à linker dans rédaction). Filière nucléaire large : 2026-08-05 (EPR2/EDF, fission) — recoupement de filière énergie nucléaire sans nom propre partagé, à mentionner en lien contraste fission/fusion."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "La première licence commerciale de fusion nucléaire aux États-Unis a été délivrée le 31 août 2026.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-08-31",
+      "sources": [
+        "s1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Un financement privé record a été annoncé pour la fusion nucléaire en 2026.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "s2"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "ITER a accumulé plusieurs reports depuis 2019 sur son échéance.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "s3"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La NASA vise 2028 et la Chine 2030 pour ramener des humains sur la Lune (contexte spatial, non fusion).",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "s4"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "ITER",
+      "role": "Organisation internationale de la fusion nucléaire (projet expérimental intergouvernemental)"
+    },
+    {
+      "nom": "États-Unis (régulateur)",
+      "role": "Autorité ayant délivré la première licence commerciale de fusion en août 2026"
+    },
+    {
+      "nom": "Entreprises de fusion privées",
+      "role": "Acteurs du financement privé record annoncé en 2026"
+    },
+    {
+      "nom": "Chine",
+      "role": "Acteur majeur de la recherche fusionnelle et de la course spatiale (lune 2030)"
+    },
+    {
+      "nom": "NASA",
+      "role": "Agence spatiale américaine (lune 2028)"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2019",
+      "evenement": "Premier report majeur d'ITER depuis 2019"
+    },
+    {
+      "date": "2026-08-31",
+      "evenement": "Première licence commerciale de fusion nucléaire délivrée aux États-Unis"
+    },
+    {
+      "date": "2026",
+      "evenement": "Annonce d'un financement privé record pour la fusion"
+    },
+    {
+      "date": "2028",
+      "evenement": "Objectif de retour humain sur la Lune pour la NASA"
+    },
+    {
+      "date": "2030",
+      "evenement": "Objectif chinois de retour humain sur la Lune"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "La licence commerciale américaine ouvre la voie à des projets pilotes connectés au réseau dans les années 2030, avec un financement privé massif et des avancées expérimentales convergentes (matériaux, confinement). La fusion passe du statut de laboratoire à celui de prototype industriel avant 2035.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "Les progrès se poursuivent mais les verrous techniques (durabilité des parois, tritium, économie du cycle) retardent la commercialisation à l'horizon 2040-2050, comme les précédentes promesses fusionnelles. La décennie reste une phase de R&D avancée sans centrale fusionnelle en service.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "Les défis techniques et les coûts restent insurmontés à l'échelle commerciale ; les entreprises privées peinent à passer à l'échelle, les gouvernements réduisent leur soutien, et la fusion glisse encore d'une génération, rejoignant le sort d'ITER et des projets antérieurs.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Nombre de projets de fusion en phase expérimentale avancée (privés + publics)",
+      "valeur": "plusieurs dizaines",
+      "tendance": "en hausse"
+    },
+    {
+      "label": "Financement privé annuel dans la fusion (2026)",
+      "valeur": "record annoncé",
+      "tendance": "en hausse"
+    },
+    {
+      "label": "Échéance estimée pour une première centrale fusionnelle commerciale",
+      "valeur": "2035-2050 selon scénarios",
+      "tendance": "incertain"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Pas de série historique longue et chiffrée disponible pour une série fusionnelle cohérente sur plusieurs décennies avec des points réels vérifiés minimum.",
+    "serie": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Ce qu'est la fusion nucléaire et comment elle diffère de la fission (EDF/EPR2)",
+        "rattache_a": "fait licence commerciale et filière nucléaire française"
+      },
+      {
+        "focus": "Les verrous techniques qui font retarder la fusion depuis des décennies (matériaux, tritium, confinement, économie)",
+        "rattache_a": "scénarios prospectifs et rapports d'ITER"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le montant exact du financement privé record annoncé en 2026 et son origine précise (source à confirmer)",
+    "La date précise et le périmètre de la première licence commerciale américaine (quel projet, quelle autorité)"
+  ],
+  "a_ne_pas_affirmer": [
+    "Que la fusion nucléaire va nécessairement fournir de l'électricité d'ici 2030",
+    "Que le financement privé record garantit le passage à l'échelle commerciale",
+    "Que la licence américaine s'applique à un projet spécifique sans confirmation"
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Première licence commerciale de fusion nucléaire aux États-Unis (31 août 2026)",
+      "source": "Recherche web (à préciser)",
+      "url": "",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "La première licence commerciale pour un projet de fusion nucléaire a été délivrée aux États-Unis fin août 2026, marquant un cap réglementaire.",
+      "read_minutes": 3
+    },
+    {
+      "id": "s2",
+      "title": "Financement privé record annoncé pour la fusion nucléaire en 2026",
+      "source": "Recherche web (à préciser)",
+      "url": "",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Un financement privé record a été annoncé en 2026 pour la recherche et le développement de la fusion nucléaire.",
+      "read_minutes": 3
+    },
+    {
+      "id": "s3",
+      "title": "ITER : plusieurs reports depuis 2019 sur son échéance",
+      "source": "Recherche web (à préciser)",
+      "url": "",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Le projet ITER a accumulé plusieurs reports depuis 2019, illustrant les difficultés de calendrier du programme fusionnel international.",
+      "read_minutes": 3
+    },
+    {
+      "id": "s4",
+      "title": "Lune : Washington et Pékin relancent la course (NASA 2028, Chine 2030)",
+      "source": "Recherche web (à préciser)",
+      "url": "",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences-environnement",
+      "summary": "La NASA vise 2028 et la Chine 2030 pour ramener des humains sur la Lune, après cinq reports depuis 2019.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [],
+  "recommandations_redaction": [
+    "Lier explicitement l'édition du 15 septembre 2026 (Fusion nucléaire : la promesse enfin tenue ?) comme point de départ, en soulignant l'écart de 7 jours et le changement d'angle (licence commerciale et financement vs promesse scientifique).",
+    "Mentionner le contraste avec la fission nucléaire française (EPR2, édition du 5 août 2026) dans l'encart Comprendre sur la différence fusion/fission.",
+    "Préciser les sources exactes du financement privé record et de la licence commerciale lors de la rédaction (recherche ciblée)."
+  ]
+}
