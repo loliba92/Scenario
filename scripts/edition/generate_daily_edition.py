@@ -564,6 +564,54 @@ def repair_unescaped_lexref_quotes(text):
     )
 
 
+_LEXREF_ANY_RE = re.compile(
+    r'<a class="lex-ref" href="#lex-([a-z0-9-]+)" aria-label="Voir la définition dans le lexique">'
+    r'((?:(?!</a>).)*)</a>'
+)
+
+
+def normalize_lex_ref_link_text(text):
+    """Le prompt (docs/routine-redaction-prompt.md § « Terme technique →
+    lexique ») demande un simple astérisque comme texte du lien .lex-ref,
+    juste après le terme écrit en clair — mais le modèle enveloppe parfois
+    le terme entier dans le lien au lieu de l'astérisque seul (observé en
+    conditions réelles sur plusieurs éditions : "fusion nucléaire",
+    "deutérium-tritium", "plasma", "tokamak" le 15 septembre 2026, "COFER",
+    "CIPS", "Fed" le 17, "trêve tarifaire" le 21 — retour utilisateur du
+    21 septembre, "les liens vers le glossaire ont un format bizarre").
+    Non fiable à corriger par un retry payant (le modèle ne suit cette
+    règle qu'environ 1 essai sur 2 dans les runs déjà observés) : réparé
+    ici mécaniquement à la place — le terme ressort du lien en texte
+    normal (sens et lisibilité inchangés), seul l'astérisque reste dans
+    le lien, format identique à celui déjà correct la plupart du temps."""
+    def repl(m):
+        slug, inner = m.group(1), m.group(2)
+        if inner == "*":
+            return m.group(0)
+        return (
+            inner + '<a class="lex-ref" href="#lex-' + slug
+            + '" aria-label="Voir la définition dans le lexique">*</a>'
+        )
+    return _LEXREF_ANY_RE.sub(repl, text)
+
+
+def normalize_content_lex_ref(content):
+    """Applique normalize_lex_ref_link_text() aux mêmes champs que ceux
+    inspectés par validate_content_schema() pour la cohérence lex-ref <->
+    lexique (dek, why des 3 cartes, comprendre_box[].text) — la seule
+    liste de champs du schéma où ce balisage peut apparaître."""
+    if isinstance(content.get("dek"), list):
+        content["dek"] = [normalize_lex_ref_link_text(p) for p in content["dek"]]
+    for k in ("favorable", "stable", "degrade"):
+        card = (content.get("cards") or {}).get(k)
+        if card and isinstance(card.get("why"), list):
+            card["why"] = [normalize_lex_ref_link_text(p) for p in card["why"]]
+    for box in content.get("comprendre_box") or []:
+        if isinstance(box, dict) and isinstance(box.get("text"), str):
+            box["text"] = normalize_lex_ref_link_text(box["text"])
+    return content
+
+
 def strip_markdown_json_fence(text):
     """Malgré `response_format: {"type": "json_object"}`, un premier vrai
     appel (14 septembre 2026) a montré Claude Sonnet envelopper sa réponse
@@ -1082,6 +1130,7 @@ def main():
         if usage.get("model"):
             usage_total["model"] = usage["model"]
 
+        content = normalize_content_lex_ref(content)
         errors = validate_content_schema(content, brief)
         attempts_history.append((content, errors))
         if not errors:
