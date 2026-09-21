@@ -1027,7 +1027,14 @@ def main():
 
     if args.publish:
         promote_to_real_repo(sandbox_root, date_str)
-        check_off_priority_topic(brief)
+        # check_off_priority_topic() n'est PAS appelé ici : sujets-prioritaires.md
+        # est volontairement exclu du commit de cette étape (voir
+        # .github/workflows/post-edition.yml, étape "Committer et pousser") pour
+        # éviter un conflit avec hot-topics.yml. L'appeler ici modifierait le
+        # fichier réel sans le committer, laissant une modification non indexée
+        # qui fait échouer le `git pull --rebase` juste après (incident du
+        # 21 septembre 2026). La case est cochée uniquement par l'étape dédiée
+        # du workflow (--recheck-priority-only), qui repart d'un fetch frais.
         print("[post-edition] --publish : fichiers réels écrits — commit/push restent à faire par le workflow appelant.")
     else:
         print("[post-edition] AUCUN commit, AUCUN push effectué — Phase 1 prototype (workflow_dispatch uniquement).")
