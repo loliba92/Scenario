@@ -1,0 +1,73 @@
+======================================================================
+COMPARATEUR DE MODÈLES OPENROUTER
+Tâche: Recherche éditorial quotidienne (sujet + web search)
+======================================================================
+
+Date du test: 2026-09-21T11:13:35.057530
+Modèles à tester: 4
+
+🔄 Test en cours: Haiku 4.5...
+
+======================================================================
+Haiku 4.5 ($1/$5 (50% moins cher que Sonnet))
+======================================================================
+Statut: ❌ FAILED
+Erreur: HTTP 400: Bad Request
+🔄 Test en cours: Sonnet 5...
+
+======================================================================
+Sonnet 5 ($2/$10 (baseline actuel))
+======================================================================
+Statut: ✅ SUCCESS
+Temps: 20.8s
+Coût: $0.169038
+Tokens: 56619 in / 1580 out
+Préaperçu:
+J'ai de bonnes informations sur la Fed et la dette française. Je vais chercher un troisième sujet distinct (énergie/pétrole ou tech).J'ai suffisamment d'informations solides pour construire les 3 suje...
+🔄 Test en cours: Sakana Fugu Max...
+
+======================================================================
+Sakana Fugu Max ($2/$6 (web search intégré))
+======================================================================
+Statut: ✅ SUCCESS
+Temps: 4.8s
+Coût: $0.003834
+Tokens: 1530 in / 129 out
+Préaperçu:
+{"tool_calls":[{"name":"web_search","arguments":{"query":"actualité économique géopolitique mondiale cette semaine 2025"}},{"name":"web_search","arguments":{"query":"news this week global economy geop...
+🔄 Test en cours: DeepSeek v4...
+
+======================================================================
+DeepSeek v4 ($0.12/$0.48 (95% moins cher))
+======================================================================
+Statut: ✅ SUCCESS
+Temps: 20.3s
+Coût: $0.0091877849
+Tokens: 5569 in / 692 out
+Préaperçu:
+Je vais effectuer une recherche pour identifier des sujets d'actualité récents ayant un impact économique ou géopolitique significatif, en évitant les répétitions de sujets déjà couverts. Je me concen...
+
+======================================================================
+RÉSUMÉ COMPARATIF
+======================================================================
+
+✅ Modèles fonctionnels:
+  - Sakana Fugu Max      | Coût: $0.003834 | Temps: 4.7774481773376465s
+  - DeepSeek v4          | Coût: $0.0091877849 | Temps: 20.300047397613525s
+  - Sonnet 5             | Coût: $0.169038 | Temps: 20.8177490234375s
+
+❌ Modèles échoués:
+  - Haiku 4.5            | Erreur: HTTP 400: Bad Request
+
+======================================================================
+RECOMMANDATION IMMÉDIATE
+======================================================================
+
+💰 Moins cher: Sakana Fugu Max ($0.003834)
+⚡ Plus rapide: Sakana Fugu Max (4.8s)
+
+🎯 Meilleur rapport: Sakana Fugu Max
+   → Tester ce modèle sur 5 jours en production
+   → Voir docs/recherche-modele-efficace.md pour le plan complet
+
+📊 Résultats sauvegardés: /home/user/Scenario/scripts/edition/test-results.json

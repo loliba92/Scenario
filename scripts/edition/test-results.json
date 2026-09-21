@@ -1,0 +1,105 @@
+{
+  "timestamp": "2026-09-21T11:29:27.383307",
+  "models": [
+    {
+      "name": "NVIDIA Nemotron 3 Ultra",
+      "model_id": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "pricing": "$0/$0 (GRATUIT)",
+      "category": "Free frontier reasoning",
+      "success": false,
+      "cost": null,
+      "elapsed_s": null,
+      "error": "The read operation timed out"
+    },
+    {
+      "name": "GLM 5.3 Flash",
+      "model_id": "z-ai/glm-5.3-flash",
+      "pricing": "? (à vérifier)",
+      "category": "Research flash",
+      "success": true,
+      "cost": 0.048839650000000005,
+      "elapsed_s": 39.28597593307495,
+      "error": null
+    },
+    {
+      "name": "Tencent HY4 Preview",
+      "model_id": "tencent/hy4-preview",
+      "pricing": "? (à vérifier)",
+      "category": "Frontier preview",
+      "success": true,
+      "cost": 0.066006877,
+      "elapsed_s": 55.70717406272888,
+      "error": "Format réponse imprévu (pas de contenu)"
+    },
+    {
+      "name": "Xiaomi MIMO v2.5",
+      "model_id": "xiaomi/mimo-v2.5",
+      "pricing": "? (à vérifier)",
+      "category": "Mobile-optimized",
+      "success": true,
+      "cost": 0.0235563664,
+      "elapsed_s": 37.471006631851196,
+      "error": null
+    },
+    {
+      "name": "Upstage Solar Pro 4",
+      "model_id": "upstage/solar-pro4",
+      "pricing": "? (à vérifier)",
+      "category": "Korean frontier",
+      "success": true,
+      "cost": 0.00013257,
+      "elapsed_s": 2.786933422088623,
+      "error": null
+    },
+    {
+      "name": "Mistral Medium 3.1",
+      "model_id": "mistralai/mistral-medium-3.1",
+      "pricing": "? (compétitif)",
+      "category": "Open source frontier",
+      "success": true,
+      "cost": 0.03594472,
+      "elapsed_s": 17.28672432899475,
+      "error": null
+    },
+    {
+      "name": "DeepSeek v4.1 Flash",
+      "model_id": "deepseek/deepseek-v4.1-flash",
+      "pricing": "? (ultra-budget)",
+      "category": "Budget flash",
+      "success": true,
+      "cost": 0.0390094,
+      "elapsed_s": 64.40369009971619,
+      "error": null
+    },
+    {
+      "name": "Sonnet 5",
+      "model_id": "anthropic/claude-sonnet-5",
+      "pricing": "$2/$10 (baseline actuel)",
+      "category": "Anthropic production",
+      "success": true,
+      "cost": 0.171432,
+      "elapsed_s": 25.26271343231201,
+      "error": null
+    },
+    {
+      "name": "Sakana Fugu Max",
+      "model_id": "sakana/fugu-max",
+      "pricing": "$2/$6 (web search intégré)",
+      "category": "Research specialist",
+      "success": true,
+      "cost": 0.001324,
+      "elapsed_s": 2.993338108062744,
+      "error": null
+    },
+    {
+      "name": "DeepSeek v4",
+      "model_id": "deepseek/deepseek-chat",
+      "pricing": "$0.12/$0.48 (95% moins cher)",
+      "category": "Budget extreme",
+      "success": true,
+      "cost": 0.00931006,
+      "elapsed_s": 23.06483006477356,
+      "error": null
+    }
+  ]
+}

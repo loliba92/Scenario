@@ -67,7 +67,11 @@ from generate_daily_edition import (
 # rapport à DEFAULT_MODEL. Un modèle plus adapté à la recherche reste à
 # l'étude (retour utilisateur du même jour), pas nécessairement un retour
 # pur et simple au statu quo d'avant le 18.
-FALLBACK_MODEL = "anthropic/claude-sonnet-5"
+#
+# Test 21 septembre 2026 : Haiku 4.5 (50% moins cher, même famille
+# Anthropic). Voir docs/recherche-modele-efficace.md.
+FALLBACK_MODEL = "anthropic/claude-sonnet-5"  # Défaut de production
+TEST_HAIKU_MODEL = "anthropic/claude-haiku-4-5-20251001"  # Test coût: $1/$5 vs $2/$10
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 ROUTINE_PROMPT_PATH = REPO_ROOT / "docs" / "routine-prompt.md"
@@ -256,6 +260,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", required=True, help="date du brief à produire, AAAA-MM-JJ")
     parser.add_argument("--model", default=None, help="modèle OpenRouter (défaut : FALLBACK_MODEL/variable OPENROUTER_MODEL)")
+    parser.add_argument("--test-haiku", action="store_true", help="test Haiku 4.5 au lieu du modèle par défaut (phase 1 optimisation coût, voir docs/recherche-modele-efficace.md)")
     parser.add_argument("--timeout", type=int, default=480, help="délai max de l'appel OpenRouter, en secondes (défaut 480 — plusieurs recherches web côté serveur peuvent prendre du temps)")
     args = parser.parse_args()
 
@@ -263,7 +268,10 @@ def main():
     if not api_key:
         raise GenerationError("OPENROUTER_API_KEY manquant dans l'environnement")
 
-    model = args.model or os.environ.get("OPENROUTER_MODEL") or FALLBACK_MODEL
+    if args.test_haiku:
+        model = TEST_HAIKU_MODEL
+    else:
+        model = args.model or os.environ.get("OPENROUTER_MODEL") or FALLBACK_MODEL
     print(f"[fallback-brief] génération du brief du {args.date} — modèle {model}", file=sys.stderr)
 
     brief, usage = generate_fallback_brief(args.date, model, api_key, timeout=args.timeout)
