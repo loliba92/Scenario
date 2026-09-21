@@ -30,8 +30,6 @@ name: Détection sujets à suivre
 
 on:
   workflow_dispatch: {}
-  schedule:
-    - cron: '0 1 * * 1'  # lundi ~2-3h Paris selon heure d'été/hiver
 
 permissions:
   contents: write

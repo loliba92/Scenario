@@ -13,17 +13,6 @@ name: Update reads.json
 #   utilisé côté trigger "Scénario — Audience", jamais commité ici.
 
 on:
-  schedule:
-    # Décalé de :00 à :17 le 17 septembre 2026 (incident réel : plusieurs
-    # runs manqués d'affilée entre 22h44 et 01h11 UTC, alors que le run
-    # suivant réellement observé a échoué sur un simple 404 GoatCounter
-    # transitoire — coïncide avec l'avertissement documenté par GitHub
-    # Actions : les workflows schedule sont les plus sujets aux retards
-    #/sauts de charge exactement au sommet de chaque heure, quand des
-    # millions de cron démarrent en même temps). Toutes les heures, 24/24
-    # — voir la note du script sur `end` (marge de 2 jours) pour la
-    # fraîcheur réelle des données GoatCounter.
-    - cron: '17 * * * *'
   workflow_dispatch: {}  # bouton "Run workflow" dans l'onglet Actions, pour tester sans attendre l'heure pile
 
 permissions:

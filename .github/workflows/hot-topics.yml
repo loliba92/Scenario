@@ -24,8 +24,6 @@ name: Alimenter sujets-prioritaires.md
 
 on:
   workflow_dispatch: {}
-  schedule:
-    - cron: '0 19 * * 2,5'  # mardi/vendredi ~21h Paris (heure d'été)
 
 permissions:
   contents: write

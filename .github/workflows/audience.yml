@@ -21,8 +21,6 @@ name: Update audience data
 #   absent ou si l'appel échoue, le reste du dashboard continue.
 
 on:
-  schedule:
-    - cron: '0 5 * * *'  # chaque jour, 5h UTC = ~7h Paris (heure d'été) — après la routine éditoriale principale
   workflow_dispatch: {}  # bouton "Run workflow" dans l'onglet Actions, pour tester sans attendre l'heure pile
 
 permissions:
