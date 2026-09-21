@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-09-21",
+      "articles": [
+        {
+          "title": "Xi-Trump summit set for September 24, but Taiwan arms sale threat looms over it",
+          "source": "InvestingLive",
+          "url": "https://investinglive.com/news/xi-trump-summit-set-for-september-24-but-taiwan-arms-sale-threat-looms-over-it/",
+          "image": null,
+          "lang": "en",
+          "domain": "international",
+          "summary": "La visite de Xi à Washington reste formellement non confirmée côté chinois, un risque d'annulation lié à Taïwan pesant sur le sommet.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Trump-Xi summit: What to expect on tariffs, Taiwan, Iran and AI",
+          "source": "Invezz",
+          "url": "https://invezz.com/news/2026/09/19/trump-xi-summit-what-to-expect-on-tariffs-taiwan-iran-and-ai/",
+          "image": null,
+          "lang": "en",
+          "domain": "international",
+          "summary": "Sam Altman, Jensen Huang et Cristiano Amon doivent assister au dîner d'État avec Trump et Xi, l'IA figurant parmi les sujets clés du sommet.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-09-20",
       "articles": [
         {
