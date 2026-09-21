@@ -475,7 +475,6 @@ def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, 
         "model": model,
         "max_tokens": max_tokens,
         "temperature": temperature,
-        "response_format": {"type": "json_object"},
         # "usage": {"include": True} : sans ce flag, OpenRouter ne renvoie
         # que prompt_tokens/completion_tokens dans `usage`, jamais `cost`
         # (voir docs OpenRouter — le coût est un ajout optionnel à la
@@ -493,6 +492,20 @@ def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, 
     # qui n'en a jamais besoin (le brief lui fournit déjà tous les faits).
     if tools:
         body_dict["tools"] = tools
+    # response_format json_object omis pour openai/ + tools uniquement :
+    # incident réel du 21 septembre 2026 (generate_suivi_update.py,
+    # openai/gpt-5.6-terra + openrouter:web_search) — rejet HTTP 400
+    # explicite "Web Search cannot be used with JSON mode." (message
+    # d'erreur direct du provider OpenAI/Azure, pas une hypothèse).
+    # Gardé pour tout le reste (y compris openai/ SANS tools, et tout
+    # autre modèle AVEC tools comme upstage/solar-pro4 déjà validé en
+    # prod) : le prompt demande déjà explicitement un JSON dans son texte
+    # (voir build_search_prompt()/prompts équivalents), et
+    # strip_markdown_json_fence() sait déjà extraire un JSON d'une
+    # réponse texte libre (balises markdown ```json...``` y compris) —
+    # jamais un besoin strict du mode JSON pour parser correctement.
+    if not (tools and "openai/" in model):
+        body_dict["response_format"] = {"type": "json_object"}
     # Incident réel du 14 septembre 2026 (test manuel, openai/gpt-5) :
     # "reasoning": {"enabled": False} envoyé sans condition faisait
     # échouer tout modèle qui impose son raisonnement interne (erreur
