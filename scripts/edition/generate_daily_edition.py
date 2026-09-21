@@ -27,6 +27,7 @@ import argparse
 import json
 import os
 import re
+import subprocess
 import sys
 import threading
 import time
@@ -80,6 +81,79 @@ class InvalidModelJSON(GenerationError):
     prompt avec des guillemets HTML non échappés dans un attribut
     (`class="lex-ref"`), cassant le parsing JSON — ce type d'erreur
     abandonnait alors tout l'essai au lieu de déclencher un 2e essai."""
+
+
+# ---------------------------------------------------------------------------
+# Récupération image Pexels (intégration preview)
+# ---------------------------------------------------------------------------
+def fetch_preview_image(image_keywords, timeout=25):
+    """Récupère l'image Pexels pour la preview sans écrire d'assets.
+    Retourne un dict photo {og_image_url, hero_image_url, alt, photographer, pexels_url}
+    ou None si la récupération échoue (non-bloquant). Utilise fetch_topic_image.py
+    pour la recherche, extrait le 1er candidat des credits.json.
+    """
+    if not image_keywords:
+        return None
+
+    fetch_script = REPO_ROOT / "scripts" / "social" / "fetch_topic_image.py"
+    if not fetch_script.exists():
+        print("[edition] fetch_topic_image.py introuvable", file=sys.stderr)
+        return None
+
+    candidates_dir = Path("/tmp/scenario-preview-image-candidates")
+    candidates_dir.mkdir(parents=True, exist_ok=True)
+
+    try:
+        result = subprocess.run(
+            [sys.executable, str(fetch_script), image_keywords, "--count", "1", "--out", str(candidates_dir)],
+            check=True, capture_output=True, text=True, timeout=timeout,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"[edition] fetch_topic_image.py échoué : {(e.stderr or '')[-300:]}", file=sys.stderr)
+        return None
+    except subprocess.TimeoutExpired:
+        print(f"[edition] fetch_topic_image.py délai dépassé ({timeout}s)", file=sys.stderr)
+        return None
+
+    credits_path = candidates_dir / "credits.json"
+    if not credits_path.exists():
+        print("[edition] aucun credits.json — pas d'image trouvée", file=sys.stderr)
+        return None
+
+    try:
+        with open(credits_path, encoding="utf-8") as f:
+            credits = json.load(f)
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"[edition] erreur lecture credits.json : {e}", file=sys.stderr)
+        return None
+
+    if not credits:
+        print("[edition] credits.json vide", file=sys.stderr)
+        return None
+
+    chosen = credits[0]
+    if chosen.get("source") != "pexels":
+        print(f"[edition] candidat n'est pas de Pexels (source: {chosen.get('source')})", file=sys.stderr)
+        return None
+
+    original_url = chosen.get("original_url")
+    if not original_url:
+        print("[edition] original_url manquant dans les credits", file=sys.stderr)
+        return None
+
+    # Construire l'URL d'image carrée recadée (1080x1080) via Pexels CDN
+    # Réutilise la logique de square_crop_url de fetch_topic_image.py
+    from urllib.parse import urlencode
+    sep = "&" if "?" in original_url else "?"
+    og_image_url = f"{original_url}{sep}auto=compress&cs=tinysrgb&fit=crop&w=1080&h=1080&crop=bottom"
+
+    return {
+        "og_image_url": og_image_url,
+        "hero_image_url": og_image_url,
+        "alt": f"Illustration du sujet: {image_keywords}",
+        "photographer": chosen.get("photographer", "Photographe Pexels"),
+        "pexels_url": chosen.get("pexels_url", "https://www.pexels.com/"),
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -1188,8 +1262,15 @@ def main():
         else:
             raise GenerationError(f"validation du contenu échouée après {1 + MAX_RETRIES} essai(s), rien n'est produit")
 
+    # Tentative de récupération de l'image Pexels pour la preview
+    # (non-bloquant : retombe sur image générique du gabarit si échec)
+    image_keywords = brief.get("sujet", {}).get("image_keywords")
+    photo = fetch_preview_image(image_keywords) if image_keywords and not args.dry_run else None
+    if photo:
+        print(f"[edition] image Pexels trouvée pour le preview (keywords: {image_keywords})")
+
     try:
-        html_text, edition_number = build_html.assemble_index_html(shell, content, brief, date_str)
+        html_text, edition_number = build_html.assemble_index_html(shell, content, brief, date_str, photo=photo)
     except Exception as e:
         # Filet ultime pour le repli "meilleur essai" ci-dessus : un contenu
         # accepté malgré des erreurs résiduelles (longueur, stat...) reste
