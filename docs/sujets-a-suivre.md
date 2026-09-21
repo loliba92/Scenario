@@ -192,6 +192,13 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 20.09.2026 — [Basket : la NBA débarque en Europe](../archives/2026-09-20.html)
+- 19.09.2026 — [Sheeran-Macklemore : la neutralité impossible](../archives/2026-09-19.html)
+- 18.09.2026 — [Neuropathies : la recherche avance, les traitements stagnent](../archives/2026-09-18.html)
+- 17.09.2026 — [Dollar : la fin du règne ?](../archives/2026-09-17.html)
+- 16.09.2026 — [Électricité : la fin de l'ARENH va-t-elle faire flamber ta facture ?](../archives/2026-09-16.html)
+- 15.09.2026 — [Fusion nucléaire : la promesse enfin tenue ?](../archives/2026-09-15.html)
+- 14.09.2026 — [Taïwan : Trump et Xi peuvent-ils calmer la pression chinoise ?](../archives/2026-09-14.html)
 - 13.09.2026 — [Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?](../archives/2026-09-13.html)
 - 12.09.2026 — [Hollywood : le modèle des suites touche-t-il sa limite ?](../archives/2026-09-12.html)
 - 11.09.2026 — [IA : le pari à 725 milliards de la tech américaine](../archives/2026-09-11.html)

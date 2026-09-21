@@ -25,7 +25,12 @@ docs/BACKLOG.md § « Chaîne rédaction OpenRouter » :
      voir --sandbox-root) ;
   7. themes/{slug}.html, les 6 pages thématiques SEO (scripts/seo/
      generate_theme_pages.py, réutilisé tel quel — lit archives.html
-     tout juste régénéré à l'étape 6, même bac à sable).
+     tout juste régénéré à l'étape 6, même bac à sable) ;
+  8. docs/sujets-a-suivre.md, section « Journal des sujets publiés » :
+     append_journal_entry() ajoute une ligne pour l'édition du jour, en
+     tête de liste — seule source dont dépend generate_weekly_recap.py
+     pour retrouver les éditions de la semaine (voir append_journal_entry()
+     pour l'incident du 21 septembre 2026 qui a motivé cet ajout).
 
 Photo — deux niveaux de repli si Pexels échoue ou si image_keywords est
 absent : 1) photo par défaut du registre (assets/social/pub-photos/
@@ -704,6 +709,51 @@ def promote_to_real_repo(sandbox_root, date_str):
     print("[post-edition] --publish : images (topic-images/instagram) écrites (réelles)")
 
 
+def append_journal_entry(date_str, h1):
+    """Ajoute une ligne au « Journal des sujets publiés » de
+    docs/sujets-a-suivre.md pour l'édition qui vient d'être publiée — la
+    plus récente en tête. scripts/hebdo/generate_weekly_recap.py::week_editions()
+    dépend entièrement de cette liste pour retrouver les éditions de la
+    semaine.
+
+    Reprend le rôle que jouait l'étape 6bis de l'ancienne routine
+    interactive Claude Code (docs/routine-prompt.md), jamais portée dans
+    la chaîne automatisée OpenRouter avant ce correctif — conséquence
+    réelle constatée le 21 septembre 2026 : generate_weekly_recap.py ne
+    trouvait plus aucune édition depuis le 14 septembre 2026, la liste
+    s'étant arrêtée net au dernier jour où l'ancienne routine a tourné.
+
+    Idempotent (n'ajoute rien si une ligne pour cette date existe déjà) et
+    best-effort, jamais bloquant pour la publication elle-même : une
+    section introuvable est un avertissement, pas un échec."""
+    path = REPO_ROOT / "docs" / "sujets-a-suivre.md"
+    text = path.read_text(encoding="utf-8")
+    archive_rel = f"../archives/{date_str}.html"
+    if archive_rel in text:
+        print(f"[post-edition] sujets-a-suivre.md : entrée du {date_str} déjà présente dans le journal")
+        return
+    marker = "## Journal des sujets publiés"
+    idx = text.find(marker)
+    if idx == -1:
+        print("[post-edition] sujets-a-suivre.md : section 'Journal des sujets publiés' introuvable "
+              "— entrée non ajoutée (non bloquant)")
+        return
+    year, month, day = date_str.split("-")
+    line = f"- {day}.{month}.{year} — [{h1}]({archive_rel})\n"
+    # Insère juste avant la 1re ligne "- " déjà présente après le marqueur
+    # (après le paragraphe d'intro) — la liste étant triée la plus récente
+    # en tête, une nouvelle édition va toujours en haut.
+    rest = text[idx:]
+    m = re.search(r"^- ", rest, re.M)
+    if m:
+        insert_at = idx + m.start()
+        new_text = text[:insert_at] + line + text[insert_at:]
+    else:
+        new_text = text.rstrip("\n") + "\n\n" + line
+    path.write_text(new_text, encoding="utf-8")
+    print(f"[post-edition] sujets-a-suivre.md : entrée journalisée pour {date_str}")
+
+
 def check_off_priority_topic(brief):
     """Coche automatiquement, dans le VRAI `sujets-prioritaires.md`
     (jamais le bac à sable — ce fichier n'a pas d'équivalent dedans), la
@@ -1027,6 +1077,7 @@ def main():
 
     if args.publish:
         promote_to_real_repo(sandbox_root, date_str)
+        append_journal_entry(date_str, content["h1"])
         # check_off_priority_topic() n'est PAS appelé ici : sujets-prioritaires.md
         # est volontairement exclu du commit de cette étape (voir
         # .github/workflows/post-edition.yml, étape "Committer et pousser") pour
