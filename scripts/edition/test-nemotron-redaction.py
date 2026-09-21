@@ -69,8 +69,27 @@ if __name__ == "__main__":
     
     print("🔄 Appel NVIDIA Nemotron 3 Ultra pour rédaction...", file=sys.stderr)
     result = call_nemotron(brief, prompt, api_key)
-    
+
+    print(f"✅ Réponse reçue", file=sys.stderr)
+    print(f"   Coût: ${result['cost']}", file=sys.stderr)
+    print(f"   Temps: {result['elapsed_s']:.1f}s", file=sys.stderr)
+    print(f"   Tokens: {result['tokens_in']} in / {result['tokens_out']} out", file=sys.stderr)
+
+    # Vérifier le contenu
+    if not result["content"]:
+        print(f"❌ Réponse vide de Nemotron", file=sys.stderr)
+        sys.exit(1)
+
+    print(f"   Taille réponse: {len(result['content'])} caractères", file=sys.stderr)
+
     # Sauvegarder en JSON
+    try:
+        parsed = json.loads(result["content"])
+    except json.JSONDecodeError as e:
+        print(f"❌ JSON invalide: {e}", file=sys.stderr)
+        print(f"   Premiers 500 chars: {result['content'][:500]}", file=sys.stderr)
+        sys.exit(1)
+
     output = {
         "date": "2026-09-21",
         "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
@@ -81,13 +100,10 @@ if __name__ == "__main__":
             "input": result["tokens_in"],
             "output": result["tokens_out"],
         },
-        "redaction": json.loads(result["content"]),
+        "redaction": parsed,
     }
-    
+
     output_path = REPO_ROOT / "docs" / "nemotron-redaction-2026-09-21.json"
     output_path.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n")
-    
+
     print(f"\n✅ Redaction sauvegardée: {output_path}", file=sys.stderr)
-    print(f"   Coût: ${result['cost']}", file=sys.stderr)
-    print(f"   Temps: {result['elapsed_s']:.1f}s", file=sys.stderr)
-    print(f"   Tokens: {result['tokens_in']} in / {result['tokens_out']} out", file=sys.stderr)
