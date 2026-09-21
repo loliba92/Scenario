@@ -73,6 +73,21 @@ from generate_daily_edition import (  # noqa: E402
 # annulé. Seul generate_hot_topics.py (repérage de candidats, jamais
 # publié directement, filtré par une relecture humaine) reste sur
 # DeepSeek pour financer une partie d'Opus sur la recherche quotidienne.
+#
+# google/gemini-3.7-flash testé le 21 septembre 2026 (run 35650078423,
+# via detection.yml --model) : échec technique, pas un problème de
+# jugement éditorial cette fois — AttributeError sur
+# strip_markdown_json_fence(None) dans call_openrouter(), malgré 988
+# tokens de sortie facturés. search_and_reestimate() est le seul appel
+# de ce dépôt qui combine Gemini avec le server tool
+# `openrouter:web_search` (tools=[...] dans call_openrouter()) ;
+# generate_daily_edition.py/translate_daily.py, où Gemini a été validé
+# le même jour, n'utilisent jamais ce tool. Hypothèse la plus probable :
+# incompatibilité du provider Gemini côté OpenRouter avec ce tool serveur
+# précis (message.content vide au lieu du texte final) — jamais confirmée
+# faute de temps, mais reproductible en l'état. N'a rien commité (crash
+# avant l'étape post-recherche). Ne pas retester sans comprendre d'abord
+# ce point précis, plutôt que de re-payer un essai à l'aveugle.
 DETECTION_MODEL = "anthropic/claude-sonnet-5"
 
 SUJETS_A_SUIVRE = ROOT / "docs" / "sujets-a-suivre.md"
