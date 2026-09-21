@@ -270,8 +270,35 @@ jobs:
             exit 1
           fi
 
-      - name: Rédaction — générer l'édition
+      # Ajouté le 21 septembre 2026 : avant ce garde-fou, la rédaction
+      # était TOUJOURS refaite ici avec un nouvel appel OpenRouter, même
+      # quand daily-preview.yml avait déjà généré et fait valider un
+      # contenu pour cette même date la veille — coût doublé (Phase 2
+      # payée 2×/jour) ET risque que le texte réellement publié diffère
+      # de celui validé en preview (un nouvel appel au modèle ne
+      # reproduit jamais le texte précédent au mot près, même prompt
+      # identique). Jamais en dry_run (comportement de test historique
+      # conservé tel quel).
+      - name: Vérifier si un contenu de preview déjà validé existe
+        id: preview
         if: steps.already.outputs.already != 'true'
+        run: |
+          DATE_STR=$(basename "${{ steps.config.outputs.brief }}" .json)
+          PREVIEW_CONTENT="editorial-previews/$DATE_STR.content.json"
+          if [ "${{ steps.config.outputs.dry_run }}" = "true" ]; then
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            echo "dry_run actif — jamais de réutilisation du preview (test de mécanique uniquement)."
+          elif [ -f "$PREVIEW_CONTENT" ]; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "path=$PREVIEW_CONTENT" >> "$GITHUB_OUTPUT"
+            echo "::notice::Contenu de preview trouvé ($PREVIEW_CONTENT) — déjà généré et validable la veille, réutilisé tel quel : aucun nouvel appel OpenRouter pour la rédaction."
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            echo "Aucun contenu de preview pour $DATE_STR — rédaction complète (repli, comme avant l'intégration du preview)."
+          fi
+
+      - name: Rédaction — générer l'édition (repli, si pas de preview déjà validé)
+        if: steps.already.outputs.already != 'true' && steps.preview.outputs.exists != 'true'
         working-directory: scripts/edition
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
@@ -284,6 +311,13 @@ jobs:
             ARGS="$ARGS --model ${{ steps.config.outputs.model }}"
           fi
           python3 generate_daily_edition.py $ARGS --out ../../_prototype-out/output.html
+
+      - name: Réutiliser le contenu du preview déjà validé
+        if: steps.already.outputs.already != 'true' && steps.preview.outputs.exists == 'true'
+        run: |
+          mkdir -p _prototype-out
+          cp "${{ steps.preview.outputs.path }}" _prototype-out/output.content.json
+          echo "✅ Contenu repris du preview (${{ steps.preview.outputs.path }}) — aucun appel OpenRouter pour la rédaction."
 
       - name: Post-édition — photo, image Instagram, feed.xml, sitemap, archives.html
         if: steps.already.outputs.already != 'true'

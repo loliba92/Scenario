@@ -64,6 +64,15 @@ jobs:
           if [ -f "_prototype-out/$TOMORROW.html" ]; then
             cp "_prototype-out/$TOMORROW.html" "preview.html"
             cp "_prototype-out/$TOMORROW.content.json" ".preview-content.json"
+            # Copie persistante datée (jamais écrasée par le run du lendemain,
+            # contrairement à .preview-content.json) — c'est celle-ci que
+            # post-edition.yml relit le lendemain matin pour PUBLIER le
+            # contenu déjà validé ici, au lieu de le régénérer avec un
+            # nouvel appel OpenRouter (voir incident du 21 septembre 2026 :
+            # avant ce changement, la publication réelle ignorait
+            # complètement ce que le preview avait généré et validé).
+            mkdir -p editorial-previews
+            cp "_prototype-out/$TOMORROW.content.json" "editorial-previews/$TOMORROW.content.json"
             echo "✅ Preview files copied"
           else
             echo "❌ Preview HTML not found"
@@ -75,7 +84,7 @@ jobs:
           git config user.name "Claude Preview Bot"
           git config user.email "noreply@anthropic.com"
           TOMORROW=$(date -u -d '+1 day' '+%Y-%m-%d')
-          git add preview.html .preview-content.json "editorial-briefs/$TOMORROW.json"
+          git add preview.html .preview-content.json "editorial-previews/$TOMORROW.content.json" "editorial-briefs/$TOMORROW.json"
           git commit -m "Daily preview: $TOMORROW - $(date -u '+%Y-%m-%d %H:%M UTC')" || echo "Nothing to commit"
           git push origin main
 
