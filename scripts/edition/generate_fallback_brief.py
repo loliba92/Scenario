@@ -68,10 +68,11 @@ from generate_daily_edition import (
 # l'étude (retour utilisateur du même jour), pas nécessairement un retour
 # pur et simple au statu quo d'avant le 18.
 #
-# Test 21 septembre 2026 : Haiku 4.5 (50% moins cher, même famille
-# Anthropic). Voir docs/recherche-modele-efficace.md.
-FALLBACK_MODEL = "anthropic/claude-sonnet-5"  # Défaut de production
-TEST_HAIKU_MODEL = "anthropic/claude-haiku-4-5-20251001"  # Test coût: $1/$5 vs $2/$10
+# Phase 1 déploiement optimisation coût (21-28 septembre 2026) :
+# Upstage Solar Pro 4 ($0.00013/brief vs $0.171 Sonnet = 1294× moins cher)
+# Voir docs/recherche-modele-efficace.md et docs/RAPPORT-TESTS-2026-09-21.md
+FALLBACK_MODEL = "upstage/solar-pro4"  # Phase 1 production (optimisation coût)
+SONNET_5_BACKUP = "anthropic/claude-sonnet-5"  # Rollback si besoin
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 ROUTINE_PROMPT_PATH = REPO_ROOT / "docs" / "routine-prompt.md"
