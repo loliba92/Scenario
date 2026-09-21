@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-09-21T11:14:25.451322",
+  "models": [
+    {
+      "name": "Haiku 4.5",
+      "model_id": "anthropic/claude-haiku-4-5-20251001",
+      "pricing": "$1/$5 (50% moins cher que Sonnet)",
+      "category": "Anthropic budget",
+      "success": false,
+      "cost": null,
+      "elapsed_s": null,
+      "error": "HTTP 400: Bad Request"
+    },
+    {
+      "name": "Sonnet 5",
+      "model_id": "anthropic/claude-sonnet-5",
+      "pricing": "$2/$10 (baseline actuel)",
+      "category": "Anthropic production",
+      "success": true,
+      "cost": 0.169038,
+      "elapsed_s": 20.8177490234375,
+      "error": null
+    },
+    {
+      "name": "Sakana Fugu Max",
+      "model_id": "sakana/fugu-max",
+      "pricing": "$2/$6 (web search intégré)",
+      "category": "Research specialist",
+      "success": true,
+      "cost": 0.003834,
+      "elapsed_s": 4.7774481773376465,
+      "error": null
+    },
+    {
+      "name": "DeepSeek v4",
+      "model_id": "deepseek/deepseek-chat",
+      "pricing": "$0.12/$0.48 (95% moins cher)",
+      "category": "Budget extreme",
+      "success": true,
+      "cost": 0.0091877849,
+      "elapsed_s": 20.300047397613525,
+      "error": null
+    }
+  ]
+}

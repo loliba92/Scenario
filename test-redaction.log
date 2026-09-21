@@ -19,3 +19,14 @@ Haiku 4.5 ($1/$5 (50% moins cher))
    Erreur: HTTP 400: Bad Request
 
 🔄 Test en cours: Sonnet 5...
+
+======================================================================
+Sonnet 5 ($2/$10 (baseline))
+======================================================================
+✅ SUCCESS
+   Coût: $0.09388
+   Temps: 59.0s
+   JSON valide: False
+   Taille réponse: ? caractères
+
+🔄 Test en cours: Sakana Fugu Max...
