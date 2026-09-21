@@ -4,8 +4,6 @@ on:
   workflow_dispatch:
   repository_dispatch:
     types: [trigger-preview]
-  schedule:
-    - cron: '0 14 * * *'
 
 permissions:
   contents: write
