@@ -1,4 +1,4 @@
-name: Daily Preview Generation
+name: Générer preview édition
 
 on:
   workflow_dispatch:
