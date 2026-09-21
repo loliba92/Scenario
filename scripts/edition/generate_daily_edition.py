@@ -41,9 +41,10 @@ import build_html
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 # Phase 2 déploiement optimisation coût (28 septembre 2026) :
-# NVIDIA Nemotron 3 Ultra (GRATUIT vs $0.171 Sonnet = 100% réduction)
-# Voir docs/recherche-modele-efficace.md et docs/RAPPORT-TESTS-2026-09-21.md
-DEFAULT_MODEL = "nvidia/nemotron-3-ultra-550b-a55b:free"  # Phase 2 production (gratuit)
+# Xiaomi MIMO v2.5 ($0.0026 vs $0.171 Sonnet = 98.5% réduction)
+# NVIDIA Nemotron rejeté: JSON invalide pour rédaction (test du 21/09)
+# Voir docs/recherche-modele-efficace.md et scripts/edition/test-redaction-results.json
+DEFAULT_MODEL = "xiaomi/mimo-v2.5"  # Phase 2 production (optimisation coût validée)
 SONNET_5_BACKUP = "anthropic/claude-sonnet-5"  # Rollback si besoin
 REDACTION_PROMPT_PATH = REPO_ROOT / "docs" / "routine-redaction-prompt.md"
 MIN_WORDS = 1100
