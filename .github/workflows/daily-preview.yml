@@ -51,7 +51,7 @@ jobs:
           cd scripts/edition
           TOMORROW=$(date -u -d '+1 day' '+%Y-%m-%d')
           echo "Generating preview edition for $TOMORROW..."
-          OPENROUTER_API_KEY="${{ secrets.OPENROUTER_API_KEY }}" python3 generate_daily_edition.py --brief editorial-briefs/"$TOMORROW".json 2>&1 | tee /tmp/phase2.log
+          OPENROUTER_API_KEY="${{ secrets.OPENROUTER_API_KEY }}" python3 generate_daily_edition.py --brief ../../editorial-briefs/"$TOMORROW".json 2>&1 | tee /tmp/phase2.log
           if [ $? -ne 0 ]; then
             echo "❌ Phase 2 failed"
             exit 1
