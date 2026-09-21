@@ -74,20 +74,31 @@ from generate_daily_edition import (  # noqa: E402
 # publié directement, filtré par une relecture humaine) reste sur
 # DeepSeek pour financer une partie d'Opus sur la recherche quotidienne.
 #
-# google/gemini-3.7-flash testé le 21 septembre 2026 (run 35650078423,
-# via detection.yml --model) : échec technique, pas un problème de
-# jugement éditorial cette fois — AttributeError sur
-# strip_markdown_json_fence(None) dans call_openrouter(), malgré 988
-# tokens de sortie facturés. search_and_reestimate() est le seul appel
-# de ce dépôt qui combine Gemini avec le server tool
-# `openrouter:web_search` (tools=[...] dans call_openrouter()) ;
-# generate_daily_edition.py/translate_daily.py, où Gemini a été validé
-# le même jour, n'utilisent jamais ce tool. Hypothèse la plus probable :
-# incompatibilité du provider Gemini côté OpenRouter avec ce tool serveur
-# précis (message.content vide au lieu du texte final) — jamais confirmée
-# faute de temps, mais reproductible en l'état. N'a rien commité (crash
-# avant l'étape post-recherche). Ne pas retester sans comprendre d'abord
-# ce point précis, plutôt que de re-payer un essai à l'aveugle.
+# google/gemini-3.7-flash testé le 21 septembre 2026, 3 essais successifs,
+# tous rejetés — jamais un problème de jugement éditorial ici, toujours
+# technique, spécifique à la combinaison Gemini + server tool
+# `openrouter:web_search` (le seul appel du dépôt qui les combine ;
+# generate_daily_edition.py/translate_daily.py, où Gemini a été validé le
+# même jour, n'utilisent jamais ce tool) :
+#   1. run 35650078423 : message.content vide malgré 988 tokens de sortie
+#      facturés — AttributeError brut avant qu'un diagnostic existe.
+#   2. run 35651145895 : tenté de désactiver le raisonnement
+#      ("reasoning": {"enabled": False}, comme pour anthropic/deepseek)
+#      — HTTP 400 immédiat, "Reasoning is mandatory for this endpoint and
+#      cannot be disabled" : Gemini se comporte comme openai/ sur ce
+#      point, pas comme deepseek/. Retiré de call_openrouter().
+#   3. run 35651596147 : max_tokens relevé 4000 -> 12000 (hypothèse :
+#      raisonnement imposé trop long pour l'ancien budget) — toujours
+#      message.content vide, cette fois après seulement ~1400 tokens de
+#      raisonnement, coupé en plein milieu d'une phrase, largement avant
+#      d'approcher la nouvelle limite. Pas un problème de budget : le
+#      raisonnement s'arrête net (finish_reason='error') de façon
+#      apparemment non déterministe.
+# Conclusion : instabilité du provider Gemini sur OpenRouter avec ce tool
+# précis, hors de portée d'un réglage côté client — abandonné pour ce
+# script. Ne pas retester sans un changement connu côté OpenRouter/Gemini,
+# plutôt que de re-payer des essais à l'identique. openai/gpt-5.6-terra
+# testé ensuite le même jour (voir plus bas si adopté).
 DETECTION_MODEL = "anthropic/claude-sonnet-5"
 
 SUJETS_A_SUIVRE = ROOT / "docs" / "sujets-a-suivre.md"
