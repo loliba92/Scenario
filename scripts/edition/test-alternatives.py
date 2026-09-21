@@ -68,6 +68,7 @@ def test_model(model_id, brief, prompt, api_key):
                 "tokens_out": usage.get("completion_tokens"),
                 "json_valid": json_valid,
                 "content_length": len(content) if content else 0,
+                "content": content,
             }
     except Exception as e:
         return {"success": False, "error": str(e)}
@@ -108,12 +109,43 @@ if __name__ == "__main__":
             print(f"❌ FAILED: {result['error']}")
         print()
     
+    # Sauvegarder les contenus
+    output_dir = REPO_ROOT / "docs" / "alternatives-tests"
+    output_dir.mkdir(exist_ok=True)
+
+    for model_info in MODELS:
+        model_id = model_info["id"]
+        result = results[model_id]
+
+        if result["success"] and result.get("content"):
+            filename = f"redaction-{model_info['name'].lower().replace(' ', '-')}-2026-09-21.json"
+            filepath = output_dir / filename
+
+            # Sauvegarder le contenu brut ET les métadonnées
+            output = {
+                "model": model_id,
+                "model_name": model_info["name"],
+                "date": "2026-09-21",
+                "cost": result["cost"],
+                "elapsed_s": result["elapsed_s"],
+                "tokens": {
+                    "input": result["tokens_in"],
+                    "output": result["tokens_out"],
+                },
+                "json_valid": result["json_valid"],
+                "content_length": result["content_length"],
+                "content": result["content"],
+            }
+
+            filepath.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n")
+            print(f"💾 Sauvegardé: {filename}")
+
     # Résumé
-    print("=" * 70)
+    print("\n" + "=" * 70)
     print("RÉSUMÉ COMPARATIF")
     print("=" * 70)
     valid_models = [(m, results[m["id"]]) for m in MODELS if results[m["id"]]["success"] and results[m["id"]]["json_valid"]]
-    
+
     if valid_models:
         print("\n✅ Modèles avec JSON valide:")
         for model_info, result in sorted(valid_models, key=lambda x: x[1]["cost"] if x[1]["cost"] else float("inf")):
