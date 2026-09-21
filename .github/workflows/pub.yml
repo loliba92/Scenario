@@ -13,14 +13,18 @@ name: Daily pub post
 #
 # Validé en conditions réelles le 12 septembre 2026 (run 34679304531 —
 # chiffre extrait, vérifié verbatim contre la source, traduit, images FR/EN
-# correctes) : cron activé le jour même, sur le même horaire que l'ancien
-# trigger Claude Code "Scénario — Pub hebdo" (0 2 * * * UTC = 4h Paris en
-# été), désormais supprimé.
+# correctes).
+#
+# Scheduling centralisé sur cron-job.org (décision utilisateur, 21
+# septembre 2026 : tous les workflows du site passent par ce trigger
+# externe plutôt qu'un cron GitHub natif) — voir docs/CRON-JOB-SETUP.md.
 #
 # Secret requis (déjà présent, voir translate-en.yml) :
 #   OPENROUTER_API_KEY
 
 on:
+  repository_dispatch:
+    types: [trigger-pub]
   workflow_dispatch: {}
 
 permissions:

@@ -11,9 +11,9 @@ name: Weekly recap
 # récap aux abonnés hebdo — une exécution n'est donc pas silencieusement
 # réversible comme translate-en.yml/audience.yml.
 #
-# Cron activé le 13 septembre 2026, après un premier run manuel validé en
-# conditions réelles (récap du 7-13 septembre, voir docs/ARCHITECTURE.md) :
-# `0 12 * * 0` UTC = dimanche 14h Paris, comme l'ancienne routine.
+# Scheduling centralisé sur cron-job.org (décision utilisateur, 21
+# septembre 2026 : tous les workflows du site passent par ce trigger
+# externe plutôt qu'un cron GitHub natif) — voir docs/CRON-JOB-SETUP.md.
 # `workflow_dispatch` reste disponible pour un test ou un rattrapage — le
 # script est idempotent (scripts/hebdo/generate_weekly_recap.py : si
 # hebdo/{date}.html existe déjà, il ne fait rien), donc pas de risque de
@@ -23,6 +23,8 @@ name: Weekly recap
 #   OPENROUTER_API_KEY
 
 on:
+  repository_dispatch:
+    types: [trigger-hebdo]
   workflow_dispatch:
     inputs:
       date:
