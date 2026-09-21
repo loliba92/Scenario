@@ -67,7 +67,7 @@ GENERATE_ARCHIVES_TABLE = ROOT / "scripts" / "seo" / "generate_archives_table.py
 
 PARIS = ZoneInfo("Europe/Paris")
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-DEFAULT_MODEL = "openai/gpt-5"
+DEFAULT_MODEL = "google/gemini-3.7-flash"
 
 MONTHS_FR = ["janvier", "février", "mars", "avril", "mai", "juin",
              "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
@@ -840,10 +840,15 @@ def main():
         print("ERREUR : OPENROUTER_API_KEY absent de l'environnement.", file=sys.stderr)
         return 1
 
-    sunday = date.fromisoformat(args.date) if args.date else datetime.now(PARIS).date()
-    if sunday.weekday() != 6 and not args.force_weekday:
-        print(f"{sunday.isoformat()} n'est pas un dimanche — rien à publier.", file=sys.stderr)
-        return 1
+    today = date.fromisoformat(args.date) if args.date else datetime.now(PARIS).date()
+
+    # Convertir au dimanche de cette semaine (si aujourd'hui est dimanche)
+    # ou au dimanche de la semaine prochaine (sinon).
+    # Utile quand le workflow est déclenché n'importe quel jour de la semaine.
+    days_to_add = (6 - today.weekday()) % 7
+    if today.weekday() != 6 and days_to_add == 0:
+        days_to_add = 7
+    sunday = today + timedelta(days=days_to_add)
 
     date_str = sunday.isoformat()
     monday = sunday - timedelta(days=6)
