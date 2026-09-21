@@ -1,0 +1,107 @@
+{
+  "timestamp": "2026-09-21T15:09:40.497291",
+  "date": "2026-09-21",
+  "brief_sujet": "Guerre commerciale USA-Chine : la trêve peut-elle tenir ?",
+  "models": [
+    {
+      "name": "NVIDIA Nemotron 3 Ultra",
+      "model_id": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "pricing": "$0/$0 (GRATUIT)",
+      "success": true,
+      "cost": 0,
+      "elapsed_s": 167.16914534568787,
+      "json_valid": null,
+      "error": "Format réponse imprévu"
+    },
+    {
+      "name": "GLM 5.3 Flash",
+      "model_id": "z-ai/glm-5.3-flash",
+      "pricing": "? (à vérifier)",
+      "success": true,
+      "cost": 0.0077292,
+      "elapsed_s": 77.12578654289246,
+      "json_valid": null,
+      "error": "Format réponse imprévu"
+    },
+    {
+      "name": "Tencent HY4 Preview",
+      "model_id": "tencent/hy4-preview",
+      "pricing": "? (à vérifier)",
+      "success": true,
+      "cost": 0.040121748,
+      "elapsed_s": 139.14343786239624,
+      "json_valid": null,
+      "error": "Format réponse imprévu"
+    },
+    {
+      "name": "Xiaomi MIMO v2.5",
+      "model_id": "xiaomi/mimo-v2.5",
+      "pricing": "? (à vérifier)",
+      "success": true,
+      "cost": 0.0026750976,
+      "elapsed_s": 80.18724536895752,
+      "json_valid": true,
+      "error": null
+    },
+    {
+      "name": "Upstage Solar Pro 4",
+      "model_id": "upstage/solar-pro4",
+      "pricing": "? (à vérifier)",
+      "success": true,
+      "cost": 0.00299961,
+      "elapsed_s": 229.18337774276733,
+      "json_valid": true,
+      "error": null
+    },
+    {
+      "name": "Mistral Medium 3.1",
+      "model_id": "mistralai/mistral-medium-3.1",
+      "pricing": "? (compétitif)",
+      "success": true,
+      "cost": 0.0121572,
+      "elapsed_s": 36.16583609580994,
+      "json_valid": true,
+      "error": null
+    },
+    {
+      "name": "DeepSeek v4.1 Flash",
+      "model_id": "deepseek/deepseek-v4.1-flash",
+      "pricing": "? (ultra-budget)",
+      "success": true,
+      "cost": 0.004778,
+      "elapsed_s": 178.22721481323242,
+      "json_valid": true,
+      "error": null
+    },
+    {
+      "name": "Sonnet 5",
+      "model_id": "anthropic/claude-sonnet-5",
+      "pricing": "$2/$10 (baseline)",
+      "success": true,
+      "cost": 0.09861,
+      "elapsed_s": 65.15435671806335,
+      "json_valid": false,
+      "error": null
+    },
+    {
+      "name": "Sakana Fugu Max",
+      "model_id": "sakana/fugu-max",
+      "pricing": "$2/$6 (spécialisé)",
+      "success": true,
+      "cost": 0.082166,
+      "elapsed_s": 83.27920603752136,
+      "json_valid": true,
+      "error": null
+    },
+    {
+      "name": "DeepSeek v4",
+      "model_id": "deepseek/deepseek-chat",
+      "pricing": "$0.12/$0.48 (ultra-budget)",
+      "success": true,
+      "cost": 0.00651578,
+      "elapsed_s": 327.9081790447235,
+      "json_valid": true,
+      "error": null
+    }
+  ]
+}
