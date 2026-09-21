@@ -86,43 +86,6 @@
     margin-top: 20px;
   }
 
-  .scenarios{
-    display:flex;
-    flex-direction:column;
-    gap:26px;
-    margin-top: 16px;
-  }
-  .scenario-row{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    font-family:"Inter", sans-serif;
-    font-weight:700;
-    font-size:32px;
-    color: var(--paper);
-    padding: 6px 0 6px 28px;
-    border-left: 7px solid transparent;
-  }
-  .scenario-row .arrow{ font-family:"JetBrains Mono", monospace; font-size:38px; flex-shrink:0; }
-  /* Mot explicite (Favorable/Stable/Dégradé), ajouté le 24 août — voir
-     instagram-photo-template.html pour la raison (la couleur/flèche
-     seule ne "parle" qu'à qui connaît déjà le code du site). */
-  .scenario-row .kind-word{
-    font-family:"JetBrains Mono", monospace;
-    font-weight:700;
-    font-size:19px;
-    letter-spacing:0.04em;
-    text-transform:uppercase;
-    flex-shrink:0;
-  }
-  .scenario-row .label{ flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .scenario-row[data-kind="favorable"]{ border-color: var(--favorable); }
-  .scenario-row[data-kind="favorable"] .arrow, .scenario-row[data-kind="favorable"] .kind-word{ color: var(--favorable); }
-  .scenario-row[data-kind="stable"]{ border-color: var(--stable); }
-  .scenario-row[data-kind="stable"] .arrow, .scenario-row[data-kind="stable"] .kind-word{ color: var(--stable); }
-  .scenario-row[data-kind="degrade"]{ border-color: var(--degrade); }
-  .scenario-row[data-kind="degrade"] .arrow, .scenario-row[data-kind="degrade"] .kind-word{ color: var(--degrade); }
-
   .cta{
     font-family: "JetBrains Mono", monospace;
     font-weight:700;
@@ -170,11 +133,7 @@
 
   <div class="context">__CONTEXT__</div>
 
-  <div class="scenarios">
-    __SCENARIO_ROWS__
-  </div>
-
-  <div class="cta">👉 Le scénario le plus probable en bio</div>
+  <div class="cta">👉 The most likely scenario in bio</div>
 
   <div class="footer"><span class="tagline">The future in 3 scenarios</span><span class="sep">·</span><span class="url">lesscenarios.fr</span></div>
 </body></html>

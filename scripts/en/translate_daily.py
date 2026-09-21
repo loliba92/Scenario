@@ -1018,6 +1018,17 @@ def build_en_soup(fr_soup, date_str, translations, memory, en_image_url, for_arc
     if qtext:
         set_inner_html(qtext, tr("question_text", inner_html(qtext)))
 
+    # Ajouté le 21 septembre 2026 : le segment section_title était bien
+    # collecté (collect_segments(), même sélecteur ci-dessous) et
+    # correctement traduit — utilisé par generate_en_social_image() pour
+    # l'image Instagram EN — mais jamais réinjecté dans en/index.html
+    # lui-même, qui gardait donc le h2.section-title en français malgré
+    # une traduction anglaise déjà disponible (incident découvert en
+    # vérifiant le format de l'image sociale EN).
+    section_title = soup.select_one(".scenarios .section-title")
+    if section_title:
+        set_inner_html(section_title, tr("section_title", inner_html(section_title)))
+
     for i, dek in enumerate(soup.select(".dek")):
         set_inner_html(dek, tr(f"dek_{i}", inner_html(dek)))
 
@@ -1269,27 +1280,6 @@ def strip_to_text(html_fragment):
     return BeautifulSoup(html_fragment or "", "html.parser").get_text().strip()
 
 
-# .scenario-row .label des templates instagram-*-en.html est en une seule
-# ligne (white-space:nowrap + text-overflow:ellipsis, voir ces fichiers) —
-# conçu pour les labels courts que la routine FR écrit à la main
-# spécifiquement pour l'image (docs/routine-prompt.md étape technique 8).
-# Ici on réutilise le <h3> de carte déjà traduit (voir plus haut) : plus
-# long par nature, et l'anglais rallonge encore le texte à sens égal —
-# testé en conditions réelles (édition du 12 septembre) : un label de 56
-# caractères se coupait déjà en plein mot ("...cut ..."). Tronché nous-
-# mêmes sur un espace, avec de vraies points de suspension, plutôt que de
-# laisser le CSS couper au pixel près (rendu imprévisible selon la
-# largeur réelle des caractères).
-SCENARIO_LABEL_MAX_CHARS = 52
-
-
-def truncate_label(text, max_chars=SCENARIO_LABEL_MAX_CHARS):
-    if len(text) <= max_chars:
-        return text
-    cut = text[:max_chars].rsplit(" ", 1)[0].rstrip(",;:.")
-    return f"{cut}…"
-
-
 def generate_en_social_image(date_str, translations):
     """Génère en/assets/social/instagram/{date}.png via
     generate_instagram_image.py --lang en. Ne lève jamais d'exception :
@@ -1316,16 +1306,22 @@ def generate_en_social_image(date_str, translations):
         template = REPO_ROOT / "scripts" / "social" / "instagram-template-en.html"
         photo_arg = []
 
+    # scenarios retiré du JSON le 21 septembre 2026 : les templates
+    # (instagram-photo-template.html / instagram-template.html) n'ont
+    # plus de bloc scénarios depuis leur simplification côté FR (fusion
+    # accroche+contexte en un seul paragraphe) — le template EN, lui,
+    # n'avait jamais été mis à jour et affichait encore une scenario-box
+    # au texte tronqué (incident du 21 septembre 2026 : l'image sociale
+    # EN avait un format visuel différent de la FR). Les templates EN
+    # sont maintenant alignés sur les FR, donc ce champ est retiré ici
+    # aussi (generate_instagram_image.py ne l'exige que si le template
+    # contient encore __SCENARIO_ROWS__, voir sa docstring).
     data = {
         "title": strip_to_text(translations.get("h1", "")),
         "context": strip_to_text(translations.get("section_title", "")),
-        "scenarios": [
-            {"kind": kind, "label": truncate_label(strip_to_text(translations.get(f"card_{kind}_h3", "")))}
-            for kind in ("favorable", "stable", "degrade")
-        ],
     }
-    if not data["title"] or not data["context"] or not all(s["label"] for s in data["scenarios"]):
-        print("Image sociale EN : segment(s) manquant(s) (h1/section_title/card_*_h3) — "
+    if not data["title"] or not data["context"]:
+        print("Image sociale EN : segment(s) manquant(s) (h1/section_title) — "
               "image générique gardée à la place.", file=sys.stderr)
         return fallback
 
