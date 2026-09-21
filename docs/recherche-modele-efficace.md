@@ -70,7 +70,78 @@ Le défi : la rédaction est déjà à 9 $/mois, il ne reste 1 $ pour tous les a
 
 ---
 
-### 4. Modèles alternatifs non explorés
+### 5. NVIDIA Nemotron 3 Ultra (NVIDIA) — 🆕 GRATUIT
+
+**Pricing:** $0 input / $0 output (GRATUIT sur OpenRouter)
+
+**Pros:**
+- Coût zéro = résout directement le budget (1 $/mois complet)
+- Modèle frontier reasoning récent et puissant
+- Support natif du web search (built-in reasoning)
+
+**Cons:**
+- Modèle très récent, peu d'historique production
+- Peut être lent (frontier reasoning coûte en latence)
+- Nécessite vérifier que JSON output reste compatible
+
+**Potentiel:** Si fonctionne = 100% de réduction, total = 9 $/mois (objectif atteint)
+
+---
+
+### 6. GLM 5.3 Flash (Zhipu AI) — 🆕
+
+**Pricing:** ? (à vérifier sur OpenRouter, probablement très bas)
+
+**Pros:**
+- Nouvelle génération modèle chinois, optimisé pour latence basse
+- "Flash" dans le nom = probablement budget-friendly
+- Support web search potentiel
+
+**Cons:**
+- Pricing inconnu
+- Peu de données sur qualité rédaction en français/recherche éditoriale
+
+**Potentiel:** À tester pour déterminer coût et qualité
+
+---
+
+### 7. Tencent HY4 Preview (Tencent) — 🆕
+
+**Pricing:** ? (à vérifier, modèle preview)
+
+**Pros:**
+- Modèle frontier chinois récent
+- Preview = peut être gratuit ou très bon marché
+- Support web search potentiel
+
+**Cons:**
+- Status "preview" = stabilité incertaine
+- Pricing complètement inconnu
+- Peu de données de qualité
+
+**Potentiel:** À tester si Nemotron ou GLM ne suffisent pas
+
+---
+
+### 8. Xiaomi MIMO v2.5 (Xiaomi) — 🆕
+
+**Pricing:** ? (à vérifier)
+
+**Pros:**
+- Modèle mobile-optimized récent
+- Peut être très bon marché pour latence basse
+- Support web search potentiel
+
+**Cons:**
+- Pricing inconnu
+- Modèle peu connu en contexte production occidental
+- Données de qualité limitées
+
+**Potentiel:** À tester pour évaluer coût et capacité recherche
+
+---
+
+### Modèles alternatifs non explorés
 
 - **Claude Haiku 3.5** (ancienne génération) — coûts similaires à Haiku 4.5, qualité inférieure
 - **Qwen** (Alibaba) — modèles bon marché, mais web search non documenté

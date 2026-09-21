@@ -46,6 +46,12 @@ MODELS_TO_TEST = [
         "category": "Frontier preview",
     },
     {
+        "id": "xiaomi/mimo-v2.5",
+        "name": "Xiaomi MIMO v2.5",
+        "pricing": "? (à vérifier)",
+        "category": "Mobile-optimized",
+    },
+    {
         "id": "anthropic/claude-sonnet-5",
         "name": "Sonnet 5",
         "pricing": "$2/$10 (baseline actuel)",
