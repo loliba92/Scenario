@@ -153,6 +153,13 @@ def fetch_preview_image(image_keywords, timeout=25):
         "alt": f"Illustration du sujet: {image_keywords}",
         "photographer": chosen.get("photographer", "Photographe Pexels"),
         "pexels_url": chosen.get("pexels_url", "https://www.pexels.com/"),
+        # original_url + query : conservés pour permettre à post-édition de
+        # retélécharger EXACTEMENT cette même photo (voir main(), écriture
+        # de {date}.photo-credits.json) au lieu de relancer une recherche
+        # Pexels qui pourrait retourner un candidat différent (incident du
+        # 21 septembre 2026, même problème que pour le texte de l'édition).
+        "original_url": original_url,
+        "query": image_keywords,
     }
 
 
@@ -1299,6 +1306,26 @@ def main():
     # différente — jamais index.html ni un chemin réel du dépôt.
     content_path = out_path.with_suffix(".content.json")
     content_path.write_text(json.dumps(content, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # photo-credits.json — écrit seulement si une photo Pexels a été
+    # trouvée pour ce preview. Consommé par generate_post_edition.py pour
+    # retélécharger EXACTEMENT cette même photo (original_url) au lieu de
+    # relancer une recherche Pexels indépendante qui pourrait retourner un
+    # candidat différent (voir fetch_preview_image()).
+    if photo:
+        photo_credits_path = out_path.with_suffix(".photo-credits.json")
+        photo_credits_path.write_text(
+            json.dumps(
+                {
+                    "original_url": photo["original_url"],
+                    "photographer": photo["photographer"],
+                    "pexels_url": photo["pexels_url"],
+                    "query": photo["query"],
+                },
+                ensure_ascii=False, indent=2,
+            ),
+            encoding="utf-8",
+        )
 
     if used_best_effort_fallback:
         print(f"[edition] ⚠ repli meilleur essai (validation non propre) — sortie de test écrite : {out_path}")

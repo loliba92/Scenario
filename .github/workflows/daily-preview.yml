@@ -73,6 +73,13 @@ jobs:
             # complètement ce que le preview avait généré et validé).
             mkdir -p editorial-previews
             cp "_prototype-out/$TOMORROW.content.json" "editorial-previews/$TOMORROW.content.json"
+            # photo-credits.json n'existe que si une photo Pexels a été
+            # trouvée pour ce preview (voir fetch_preview_image()) — jamais
+            # bloquant si absent, post-edition.yml retombera alors sur une
+            # recherche Pexels normale.
+            if [ -f "_prototype-out/$TOMORROW.photo-credits.json" ]; then
+              cp "_prototype-out/$TOMORROW.photo-credits.json" "editorial-previews/$TOMORROW.photo-credits.json"
+            fi
             echo "✅ Preview files copied"
           else
             echo "❌ Preview HTML not found"
@@ -85,6 +92,9 @@ jobs:
           git config user.email "noreply@anthropic.com"
           TOMORROW=$(date -u -d '+1 day' '+%Y-%m-%d')
           git add preview.html .preview-content.json "editorial-previews/$TOMORROW.content.json" "editorial-briefs/$TOMORROW.json"
+          if [ -f "editorial-previews/$TOMORROW.photo-credits.json" ]; then
+            git add "editorial-previews/$TOMORROW.photo-credits.json"
+          fi
           git commit -m "Daily preview: $TOMORROW - $(date -u '+%Y-%m-%d %H:%M UTC')" || echo "Nothing to commit"
           git push origin main
 

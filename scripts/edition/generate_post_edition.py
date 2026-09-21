@@ -196,6 +196,71 @@ def select_topic_photo(image_keywords, date_str, sandbox_root, timeout=25):
     }
 
 
+def select_topic_photo_from_preview(preview_credits, date_str, sandbox_root, timeout=25):
+    """Télécharge directement la photo Pexels déjà choisie et validée en
+    preview (URL connue dans `preview_credits['original_url']`), sans
+    refaire de recherche — garantit que l'image publiée est EXACTEMENT
+    celle que l'utilisateur a validée en preview, jamais un résultat
+    différent d'une recherche Pexels relancée à un autre moment (même
+    principe que la réutilisation du content.json du preview pour le
+    texte, voir post-edition.yml — incident du 21 septembre 2026).
+    Retourne None si le téléchargement échoue — l'appelant retombe alors
+    sur select_topic_photo() (nouvelle recherche), jamais bloquant."""
+    original_url = preview_credits.get("original_url")
+    if not original_url:
+        print("[post-edition] preview_credits sans original_url — repli sur une recherche Pexels normale", file=sys.stderr)
+        return None
+
+    candidates_dir = sandbox_root / "topic-image-candidates"
+    candidates_dir.mkdir(parents=True, exist_ok=True)
+    sys.path.insert(0, str(SOCIAL_DIR))
+    from fetch_topic_image import download, square_crop_url  # noqa: PLC0415 — import tardif volontaire, voir docstrings des scripts sources
+
+    candidate_path = candidates_dir / "candidate-1.jpg"
+    try:
+        download(square_crop_url(original_url), str(candidate_path))
+    except Exception as e:
+        print(f"[post-edition] téléchargement de la photo du preview a échoué : {e}", file=sys.stderr)
+        return None
+
+    credits_path = candidates_dir / "credits.json"
+    credits_path.write_text(
+        json.dumps([{
+            "candidate": 1, "source": "pexels", "file": str(candidate_path),
+            "photographer": preview_credits.get("photographer"),
+            "pexels_url": preview_credits.get("pexels_url"),
+            "original_url": original_url,
+            "query": preview_credits.get("query"),
+        }], ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+    use_script = SOCIAL_DIR / "use_topic_image.py"
+    try:
+        subprocess.run(
+            [sys.executable, str(use_script), str(candidate_path), "--date", date_str,
+             "--credits", str(credits_path), "--repo-root", str(sandbox_root)],
+            check=True, capture_output=True, text=True, timeout=timeout,
+        )
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as e:
+        print(f"[post-edition] use_topic_image.py a échoué (photo du preview) : {e}", file=sys.stderr)
+        return None
+
+    square_path = sandbox_root / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
+    if not square_path.exists():
+        print(f"[post-edition] image carrée attendue introuvable : {square_path}", file=sys.stderr)
+        return None
+    wide_path = sandbox_root / "assets" / "social" / "topic-images" / f"{date_str}-wide.jpg"
+
+    return {
+        "square_path": square_path,
+        "wide_path": wide_path if wide_path.exists() else None,
+        "photographer": preview_credits.get("photographer") or "Photographe non identifié",
+        "pexels_url": preview_credits.get("pexels_url") or "https://www.pexels.com/",
+        "query": preview_credits.get("query"),
+    }
+
+
 def select_registry_fallback_photo(registre, date_str, sandbox_root):
     """Repli sur la photo par défaut du registre (assets/social/pub-
     photos/{registre}.jpg + credits.json) quand Pexels échoue ou ne
@@ -868,9 +933,24 @@ def main():
         print("[post-edition] --skip-photo : pas d'appel Pexels, image générique conservée")
     else:
         image_keywords = brief.get("sujet", {}).get("image_keywords")
-        photo_credits = select_topic_photo(image_keywords, date_str, sandbox_root)
+        # Priorité à la photo déjà choisie et validée en preview (voir
+        # daily-preview.yml) — retélécharge EXACTEMENT cette même image
+        # au lieu de relancer une recherche Pexels qui pourrait retourner
+        # un candidat différent (incident du 21 septembre 2026).
+        preview_credits_path = REPO_ROOT / "editorial-previews" / f"{date_str}.photo-credits.json"
+        photo_from_preview = False
+        if preview_credits_path.exists():
+            preview_credits = json.loads(preview_credits_path.read_text(encoding="utf-8"))
+            photo_credits = select_topic_photo_from_preview(preview_credits, date_str, sandbox_root)
+            photo_from_preview = photo_credits is not None
+            if not photo_credits:
+                print("[post-edition] échec de reprise de la photo du preview — repli sur une nouvelle recherche Pexels", file=sys.stderr)
+                photo_credits = select_topic_photo(image_keywords, date_str, sandbox_root)
+        else:
+            photo_credits = select_topic_photo(image_keywords, date_str, sandbox_root)
         if photo_credits:
-            print(f"[post-edition] photo Pexels retenue (requête « {photo_credits['query']} », {photo_credits['photographer']})")
+            origin = "reprise du preview déjà validé" if photo_from_preview else "nouvelle recherche Pexels"
+            print(f"[post-edition] photo retenue ({origin}, requête « {photo_credits['query']} », {photo_credits['photographer']})")
         else:
             photo_credits = select_registry_fallback_photo(brief["registre"], date_str, sandbox_root)
             if photo_credits:
