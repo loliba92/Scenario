@@ -515,8 +515,19 @@ def search_and_reestimate(candidate, model, api_key):
     # tentait de re-parser un dict déjà parsé — TypeError non catché (seul
     # json.JSONDecodeError l'était), qui faisait planter tout le run au
     # lieu de sauter proprement ce candidat (voir la boucle dans main()).
+    #
+    # max_tokens relevé de 4000 à 12000 et timeout de 150 à 220 le 21
+    # septembre 2026 : avec google/gemini-3.7-flash, qui IMPOSE son
+    # raisonnement sur ce tool (voir call_openrouter(), "Reasoning is
+    # mandatory for this endpoint and cannot be disabled" — testé et
+    # rejeté), 4000 tokens étaient déjà entièrement consommés par le seul
+    # raisonnement sur certains candidats (jusqu'à 4109 tokens observés),
+    # ne laissant plus aucune place pour le JSON final -> message.content
+    # vide, finish_reason='error' (run 35650532576). Modèles sans
+    # raisonnement imposé (Sonnet, DeepSeek) restent inchangés par cette
+    # marge plus large, juste un plafond plus haut jamais atteint.
     result, usage = call_openrouter(
-        prompt, model, api_key, temperature=0.3, max_tokens=4000, timeout=150, tools=tools,
+        prompt, model, api_key, temperature=0.3, max_tokens=12000, timeout=220, tools=tools,
     )
 
     if not result.get("has_development"):

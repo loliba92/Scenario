@@ -511,19 +511,15 @@ def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, 
     # qui accepte déjà ce flag sans erreur sur ce modèle. openai/ reste
     # exclu : impose son raisonnement et refuse qu'on le désactive
     # ("Reasoning is mandatory for this endpoint and cannot be disabled").
-    # Élargi à google/ le 21 septembre 2026 (incident réel,
-    # generate_suivi_update.py + Gemini 3.7 Flash + tool
-    # openrouter:web_search, run 35650532576) : sur les 3 candidats
-    # testés, Gemini a épuisé tout son budget max_tokens en raisonnement
-    # étendu ("thinking" verbeux visible dans message.reasoning, jusqu'à
-    # 4109 tokens) sans jamais produire le JSON final dans message.content
-    # (finish_reason='error') — alors que generate_daily_edition.py/
-    # translate_daily.py, où Gemini a été validé le même jour SANS ce
-    # tool web_search, n'ont jamais déclenché ce raisonnement étendu.
-    # Hypothèse : Gemini active spontanément un raisonnement long dès
-    # qu'un server tool de recherche est présent, quel que soit ce champ
-    # — à vérifier avec ce correctif.
-    if "anthropic/" in model or "deepseek/" in model or "google/" in model:
+    # google/ testé le 21 septembre 2026 (même incident que ci-dessus,
+    # run 35651145895) et REJETÉ : Gemini + openrouter:web_search répond
+    # HTTP 400 "Reasoning is mandatory for this endpoint and cannot be
+    # disabled" — même comportement qu'openai/, pas celui de deepseek/.
+    # Le vrai problème n'était donc pas que le raisonnement soit désactivable,
+    # mais que max_tokens (4000 côté generate_suivi_update.py) était trop
+    # court pour laisser au raisonnement ET au JSON final la place de tenir
+    # — corrigé côté appelant plutôt qu'ici (voir search_and_reestimate()).
+    if "anthropic/" in model or "deepseek/" in model:
         body_dict["reasoning"] = {"enabled": False}
     body = json.dumps(body_dict).encode()
     req = urllib.request.Request(OPENROUTER_URL, method="POST", data=body, headers={
