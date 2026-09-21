@@ -842,13 +842,15 @@ def main():
 
     today = date.fromisoformat(args.date) if args.date else datetime.now(PARIS).date()
 
-    # Convertir au dimanche de cette semaine (si aujourd'hui est dimanche)
-    # ou au dimanche de la semaine prochaine (sinon).
+    # Convertir au dimanche le PLUS RÉCENT (aujourd'hui si on est déjà
+    # dimanche, sinon le dimanche juste passé — jamais un dimanche futur,
+    # qui donnerait un récap sur une semaine pas encore arrivée, voir
+    # incident du 21 septembre 2026 : lancé un lundi, l'ancienne formule
+    # visait le dimanche SUIVANT (27/09) au lieu du dimanche qui venait de
+    # clore la semaine (14-20/09), donc 1/7 édition seulement trouvée).
     # Utile quand le workflow est déclenché n'importe quel jour de la semaine.
-    days_to_add = (6 - today.weekday()) % 7
-    if today.weekday() != 6 and days_to_add == 0:
-        days_to_add = 7
-    sunday = today + timedelta(days=days_to_add)
+    days_since_sunday = (today.weekday() + 1) % 7
+    sunday = today - timedelta(days=days_since_sunday)
 
     date_str = sunday.isoformat()
     monday = sunday - timedelta(days=6)
