@@ -97,9 +97,21 @@ from generate_daily_edition import (  # noqa: E402
 # Conclusion : instabilité du provider Gemini sur OpenRouter avec ce tool
 # précis, hors de portée d'un réglage côté client — abandonné pour ce
 # script. Ne pas retester sans un changement connu côté OpenRouter/Gemini,
-# plutôt que de re-payer des essais à l'identique. openai/gpt-5.6-terra
-# testé ensuite le même jour (voir plus bas si adopté).
-DETECTION_MODEL = "anthropic/claude-sonnet-5"
+# plutôt que de re-payer des essais à l'identique.
+#
+# openai/gpt-5.6-terra adopté le 21 septembre 2026 (run 35652294320,
+# après le fix response_format ci-dessus dans call_openrouter()) : les 3
+# appels réussissent techniquement, jugement éditorial correct (a bien
+# évalué et rejeté un développement sous le seuil de signification, 14
+# points d'écart). Coût réel constaté sur ce passage : $0.338 (3 appels,
+# ~$0.11 en moyenne) — dans le même ordre de grandeur que Sonnet 5
+# (incident historique documenté : ~$0.178/appel en moyenne), donc pas
+# un gain de coût net pour l'instant, mais retenu quand même (décision
+# utilisateur, optimisation ultérieure à creuser — piste possible :
+# les tokens d'entrée sont très élevés ici, 22-40k contre ~1.5-1.7k pour
+# Gemini sur la même tâche, potentiellement le tool web_search d'OpenAI
+# injecte le contenu brut des pages plutôt qu'un résumé).
+DETECTION_MODEL = "openai/gpt-5.6-terra"
 
 SUJETS_A_SUIVRE = ROOT / "docs" / "sujets-a-suivre.md"
 ARCHIVES_DIR = ROOT / "archives"
