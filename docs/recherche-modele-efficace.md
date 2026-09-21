@@ -141,6 +141,60 @@ Le défi : la rédaction est déjà à 9 $/mois, il ne reste 1 $ pour tous les a
 
 ---
 
+### 9. Upstage Solar Pro 4 (Upstage) — 🆕
+
+**Pricing:** ? (à vérifier)
+
+**Pros:**
+- Modèle frontier coréen récent
+- Peut être optimisé pour recherche et extraction
+- Support web search potentiel
+
+**Cons:**
+- Pricing inconnu
+- Modèle peu connu en Occident
+- Données de qualité limitées
+
+**Potentiel:** À tester pour évaluer coût et qualité rédaction
+
+---
+
+### 10. Mistral Medium 3.1 (Mistral AI) — 🆕
+
+**Pricing:** ? (compétitif, probablement bas)
+
+**Pros:**
+- Mistral est leader en modèles ouverts cost-efficient
+- Medium 3.1 = nouveau, probablement meilleur ratio coût/qualité
+- Support web search documenté
+
+**Cons:**
+- Pricing inconnu mais probablement > DeepSeek
+- Historique de régressions en JSON structuré
+- Pas testé sur recherche éditoriale française
+
+**Potentiel:** Candidat sérieux si pricing bas
+
+---
+
+### 11. DeepSeek v4.1 Flash (DeepSeek) — 🆕
+
+**Pricing:** ? (ultra-budget, probablement < $0.12/$0.48)
+
+**Pros:**
+- Version "Flash" = optimisée pour coût ultra-bas
+- DeepSeek connu pour tarifs imbattables
+- Amélioration probable vs v4 standard
+
+**Cons:**
+- "Flash" = peut sacrifier qualité pour vitesse
+- Historique de troncature sur texte long
+- v4 déjà problématique sur rédaction
+
+**Potentiel:** À tester mais risqué pour recherche complète
+
+---
+
 ### Modèles alternatifs non explorés
 
 - **Claude Haiku 3.5** (ancienne génération) — coûts similaires à Haiku 4.5, qualité inférieure

@@ -52,6 +52,24 @@ MODELS_TO_TEST = [
         "category": "Mobile-optimized",
     },
     {
+        "id": "upstage/solar-pro4",
+        "name": "Upstage Solar Pro 4",
+        "pricing": "? (à vérifier)",
+        "category": "Korean frontier",
+    },
+    {
+        "id": "mistralai/mistral-medium-3.1",
+        "name": "Mistral Medium 3.1",
+        "pricing": "? (compétitif)",
+        "category": "Open source frontier",
+    },
+    {
+        "id": "deepseek/deepseek-v4.1-flash",
+        "name": "DeepSeek v4.1 Flash",
+        "pricing": "? (ultra-budget)",
+        "category": "Budget flash",
+    },
+    {
         "id": "anthropic/claude-sonnet-5",
         "name": "Sonnet 5",
         "pricing": "$2/$10 (baseline actuel)",
