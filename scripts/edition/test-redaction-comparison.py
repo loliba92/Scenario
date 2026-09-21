@@ -24,10 +24,22 @@ REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 
 MODELS_TO_TEST = [
     {
-        "id": "anthropic/claude-haiku-4-5-20251001",
-        "name": "Haiku 4.5",
-        "pricing": "$1/$5 (50% moins cher)",
-        "category": "Budget",
+        "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "name": "NVIDIA Nemotron 3 Ultra",
+        "pricing": "$0/$0 (GRATUIT)",
+        "category": "Free frontier reasoning",
+    },
+    {
+        "id": "z-ai/glm-5.3-flash",
+        "name": "GLM 5.3 Flash",
+        "pricing": "? (à vérifier)",
+        "category": "Research flash",
+    },
+    {
+        "id": "tencent/hy4-preview",
+        "name": "Tencent HY4 Preview",
+        "pricing": "? (à vérifier)",
+        "category": "Frontier preview",
     },
     {
         "id": "anthropic/claude-sonnet-5",
