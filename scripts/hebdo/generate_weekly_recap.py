@@ -782,6 +782,38 @@ def update_sitemap(sunday):
     return new_text
 
 
+def _replace_attr_in_tag(text, tag_open, required_substrings, attr_name, old_value, new_value, label):
+    """Trouve LA balise unique (ouverte par `tag_open`, ex. r'<a\\b') contenant
+    tous les `required_substrings`, puis remplace uniquement la valeur de
+    `attr_name` à l'intérieur de cette balise — laisse tout le reste du
+    fichier strictement inchangé. Insensible à l'ordre des attributs dans
+    la balise (incident du 21 septembre 2026 : un round-trip BeautifulSoup
+    ailleurs dans le pipeline — build_html.py — réordonne les attributs
+    alphabétiquement, cassant les anciennes regex qui supposaient un ordre
+    figé). Jamais de round-trip BeautifulSoup sur tout index.html ici : le
+    risque de reformater silencieusement des parties non concernées du
+    fichier est pire que l'ancien bug d'ordre d'attributs."""
+    tag_re = re.compile(tag_open + r'[^>]*>')
+    matches = [m for m in tag_re.finditer(text) if all(s in m.group(0) for s in required_substrings)]
+    if len(matches) != 1:
+        raise HebdoError(
+            f"index.html : {label} — {len(matches)} balise(s) trouvée(s) (1 attendue), "
+            "abandon plutôt que de deviner"
+        )
+    tag_text = matches[0].group(0)
+    new_tag_text, n = re.subn(
+        rf'({re.escape(attr_name)}="){re.escape(old_value)}(")',
+        rf'\g<1>{new_value}\g<2>', tag_text, count=1,
+    )
+    if n != 1:
+        raise HebdoError(
+            f"index.html : {label} — attribut {attr_name}={old_value!r} introuvable dans la balise, "
+            "abandon plutôt que de deviner"
+        )
+    start, end = matches[0].span()
+    return text[:start] + new_tag_text + text[end:]
+
+
 def update_index_html(sunday):
     text = INDEX_HTML.read_text(encoding="utf-8")
     date_str = sunday.isoformat()
@@ -792,20 +824,18 @@ def update_index_html(sunday):
     if old_date == date_str:
         return text, False
 
-    text, n1 = re.subn(
-        rf'(<a class="masthead-notif-btn" href="hebdo/){re.escape(old_date)}(\.html" aria-label="Récap de la semaine")',
-        rf'\g<1>{date_str}\g<2>', text, count=1,
+    text = _replace_attr_in_tag(
+        text, r'<a\b', ['class="masthead-notif-btn"', 'aria-label="Récap de la semaine"'],
+        'href', f'hebdo/{old_date}.html', f'hebdo/{date_str}.html', 'lien masthead-notif-btn',
     )
-    text, n2 = re.subn(
-        r'(<div class="weekly-banner" id="weekly-banner" data-hebdo=")\d{4}-\d{2}-\d{2}(")',
-        rf'\g<1>{date_str}\g<2>', text, count=1,
+    text = _replace_attr_in_tag(
+        text, r'<div\b', ['id="weekly-banner"'],
+        'data-hebdo', old_date, date_str, 'div#weekly-banner',
     )
-    text, n3 = re.subn(
-        r'(<a class="weekly-banner-link" id="weekly-banner-link" href="hebdo/)\d{4}-\d{2}-\d{2}(\.html")',
-        rf'\g<1>{date_str}\g<2>', text, count=1,
+    text = _replace_attr_in_tag(
+        text, r'<a\b', ['id="weekly-banner-link"'],
+        'href', f'hebdo/{old_date}.html', f'hebdo/{date_str}.html', 'lien weekly-banner-link',
     )
-    if (n1, n2, n3) != (1, 1, 1):
-        raise HebdoError(f"index.html : remplacements inattendus ({n1},{n2},{n3}) — abandon plutôt que de deviner")
     return text, True
 
 
