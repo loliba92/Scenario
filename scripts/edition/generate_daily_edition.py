@@ -607,7 +607,24 @@ def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, 
 
     if "choices" not in data:
         raise GenerationError(f"réponse OpenRouter sans 'choices' : {data}")
-    content_str = data["choices"][0]["message"]["content"]
+    message = data["choices"][0]["message"]
+    content_str = message["content"]
+    if content_str is None:
+        # Diagnostic ajouté le 21 septembre 2026 (incident Gemini 3.7
+        # Flash + server tool openrouter:web_search, run 35650078423) :
+        # message.content revenait None malgré des tokens de sortie
+        # facturés, avec seulement un AttributeError obscur en aval
+        # (strip_markdown_json_fence(None)) — jamais assez d'info pour
+        # diagnostiquer sans relancer un essai payant à l'aveugle. Log la
+        # réponse complète du tour concerné avant de lever, pour capturer
+        # la vraie cause (ex. texte dans un champ 'reasoning' séparé,
+        # finish_reason='tool_calls' inachevé, etc.) au prochain essai.
+        raise GenerationError(
+            f"message.content vide (None) malgré {usage.get('completion_tokens', '?')} "
+            f"tokens de sortie facturés — réponse complète du tour : "
+            f"finish_reason={data['choices'][0].get('finish_reason')!r}, "
+            f"message={json.dumps(message, ensure_ascii=False)[:3000]}"
+        )
     stripped = strip_markdown_json_fence(content_str)
     try:
         content = json.loads(stripped)
