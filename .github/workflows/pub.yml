@@ -22,8 +22,6 @@ name: Daily pub post
 
 on:
   workflow_dispatch: {}
-  schedule:
-    - cron: '0 2 * * *'
 
 permissions:
   contents: write

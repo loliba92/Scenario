@@ -304,6 +304,21 @@
   }
   .dash-note a{ color: var(--gold); }
 
+  .preview-btn{
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    padding: 10px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    transition: opacity 0.15s ease;
+  }
+  .preview-btn:hover{ opacity: 0.9; }
+  .preview-btn svg{ display: inline-block; width: 14px; height: 14px; margin-right: 6px; vertical-align: -2px; }
+
   /* Bouton retour, ajouté le 3 septembre (retour utilisateur : "sur l'appli
      j'ai rien et suis coincé") — cette page n'a ni topnav ni masthead
      complet (outil interne, pas une page éditoriale), donc rien pour
@@ -411,6 +426,7 @@
     <div class="chart-box">
       <span class="chart-label">Agenda de la semaine — file d'attente éditoriale</span>
       <p class="chart-lead">Prochain sujet en tête de chaque registre dans <code>sujets-prioritaires.md</code>, à date du 21 septembre 2026. Semaine <strong>lundi → dimanche</strong> (le renouvellement de la file se fait le lundi, cette fenêtre montre donc toujours la semaine à venir). <strong>Pas un calendrier garanti</strong> : la routine peut réordonner, insérer un sujet « priorité absolue », ou repasser en auto-sélection si la section du jour est vide.</p>
+      <a href="preview.html" class="preview-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Voir le preview de demain</a>
       <div class="agenda-grid">
         <div class="agenda-card">
           <p class="agenda-day">Lun. 21 sept.</p>

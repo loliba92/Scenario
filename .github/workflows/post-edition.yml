@@ -80,8 +80,6 @@ name: Édition — rédaction + post-édition (OpenRouter)
 #     ce run précis uniquement, sans rien changer par ailleurs.
 
 on:
-  schedule:
-    - cron: '30 4 * * *'
     # Filet de secours (ajouté le 17 septembre 2026, incident réel :
     # le run du 16 septembre programmé à 4h30 UTC ne s'est déclenché
     # qu'à 9h25 UTC, ~5h de retard — comportement documenté de GitHub

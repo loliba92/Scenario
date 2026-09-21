@@ -1,4 +1,4 @@
-name: Daily Preview Generation
+name: Générer preview édition
 
 on:
   workflow_dispatch:
@@ -27,14 +27,19 @@ jobs:
           pip install -q beautifulsoup4
 
       - name: Generate brief for tomorrow
-        env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
+          # Check if API key is available
+          if [ -z "${{ secrets.OPENROUTER_API_KEY }}" ]; then
+            echo "❌ ERROR: OPENROUTER_API_KEY secret not configured"
+            echo "Configure it at: https://github.com/loliba92/Scenario/settings/secrets/actions"
+            exit 1
+          fi
+
           cd scripts/edition
           # Get tomorrow's date (YYYY-MM-DD)
           TOMORROW=$(date -u -d '+1 day' '+%Y-%m-%d')
           echo "Generating brief for $TOMORROW..."
-          python3 generate_fallback_brief.py --date "$TOMORROW" 2>&1 | tee /tmp/phase1.log
+          OPENROUTER_API_KEY="${{ secrets.OPENROUTER_API_KEY }}" python3 generate_fallback_brief.py --date "$TOMORROW" 2>&1 | tee /tmp/phase1.log
           if [ $? -ne 0 ]; then
             echo "❌ Phase 1 failed"
             exit 1
@@ -42,13 +47,11 @@ jobs:
           echo "✅ Phase 1 successful"
 
       - name: Generate preview edition
-        env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           cd scripts/edition
           TOMORROW=$(date -u -d '+1 day' '+%Y-%m-%d')
           echo "Generating preview edition for $TOMORROW..."
-          python3 generate_daily_edition.py --brief editorial-briefs/"$TOMORROW".json 2>&1 | tee /tmp/phase2.log
+          OPENROUTER_API_KEY="${{ secrets.OPENROUTER_API_KEY }}" python3 generate_daily_edition.py --brief editorial-briefs/"$TOMORROW".json 2>&1 | tee /tmp/phase2.log
           if [ $? -ne 0 ]; then
             echo "❌ Phase 2 failed"
             exit 1
