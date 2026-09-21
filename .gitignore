@@ -13,9 +13,3 @@ __pycache__/
 # Même principe pour generate_suivi_update.py / detection.yml — voir
 # DETECTION_RUN_SUMMARY dans ce script.
 /detection-run-summary.md
-
-
-# Preview files (generated daily, not tracked)
-preview.html
-.preview-content.json
-_prototype-out/
