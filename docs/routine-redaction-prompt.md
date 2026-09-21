@@ -19,6 +19,15 @@ avec les archives/suivis actifs, décision d'inclure un `.comprendre-box`/
 `.list-box`/`.dc-chart-box` (le brief dit déjà si oui/non et sur quel
 contenu), choix des sources, vérification de fraîcheur des chiffres.
 
+**Esprit général, à garder en tête avant les règles mécaniques ci-dessous
+(ajouté le 21 septembre 2026, charte éditoriale) :** Scénarios ne dit pas
+ce qui va arriver. Scénarios montre ce qui pourrait arriver — et comment
+le reconnaître. Chaque édition répond à trois questions, dans cet ordre :
+*Que savons-nous ?* → *Que signifie-t-il ?* → *Que peut-il se passer
+ensuite ?* L'objectif n'est jamais de prédire, mais de rendre visibles
+les bifurcations plausibles — sobre dans les faits, vivant dans
+l'analyse, prudent dans la prospective.
+
 ---
 
 ## Ce que tu reçois
