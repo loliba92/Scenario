@@ -62,14 +62,23 @@ from bs4 import BeautifulSoup, NavigableString
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-# Passé de deepseek/deepseek-v4-flash à Sonnet 5 le 16 septembre 2026,
-# retour utilisateur (« si pb de modèle on peut passer sur un modèle un
-# peu plus puissant ») après un 2e incident réel de troncature/segments
-# manquants avec DeepSeek sur le même point (voir le commentaire
-# "max_tokens" dans call_openrouter()) — Sonnet 5 est déjà le modèle le
-# plus éprouvé de ce dépôt sur du JSON structuré volumineux
-# (generate_daily_edition.py, même style d'appel).
-DEFAULT_MODEL = "anthropic/claude-sonnet-5"
+# Passé de deepseek/deepseek-v4-flash à Sonnet 5 le 16 septembre 2026
+# (2 incidents de troncature/segments manquants avec DeepSeek), puis à
+# google/gemini-3.7-flash le 21 septembre 2026 (optimisation coût) après
+# un comparatif réel sur l'édition du 21 septembre entre 3 candidats :
+#   - google/gemini-3.7-flash : traduction validée sans erreur, JSON
+#     propre, Title Case correct, accent conservé sur "Scénario" —
+#     0.0163 $/édition (8070 tokens) ;
+#   - openai/gpt-5.6-luna : validée aussi, moins cher (0.005 $) mais 2
+#     défauts qualité réels : titre pas en Title Case anglais et perte de
+#     l'accent sur "Scénario" -> "Scenario" dans <title>/og:title —
+#     rejeté malgré le prix ;
+#   - deepseek/deepseek-v4.1-flash : run resté bloqué >5 min sur le même
+#     point que l'ancien deepseek-v4-flash (troncature/instabilité JSON,
+#     voir ci-dessus) — jamais terminé, rejeté sans même comparer le prix.
+# Gemini reste le seul candidat propre des 3, avec un coût encore ~80%
+# inférieur à Sonnet 5.
+DEFAULT_MODEL = "google/gemini-3.7-flash"
 
 DAYS_FR_EN = {
     "lundi": "Monday", "mardi": "Tuesday", "mercredi": "Wednesday",
