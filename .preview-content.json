@@ -1,0 +1,167 @@
+{
+  "h1": "Bab el-Mandeb : un tiers du commerce mondial sous contrôle hostile ?",
+  "question_text": "Le contrôle houthi du détroit de Bab el-Mandeb, combiné au blocus iranien d'Ormuz, peut-il plonger un tiers du commerce maritime mondial dans une crise énergétique durable ?",
+  "section_title": "Trois scénarios pour l'avenir des routes maritimes et de l'énergie",
+  "dek": [
+    "Le commerce maritime mondial traverse un basculement stratégique inédit. Le 18 septembre 2026, les combattants houthis<a class=\"lex-ref\" href=\"#lex-houthis\" aria-label=\"Voir la définition dans le lexique\">*</a>, soutenus par l'Iran, ont pris le contrôle direct de l'île de Perim, un verrou volcanique qui sépare en deux chenaux navigables le détroit de Bab el-Mandeb<a class=\"lex-ref\" href=\"#lex-bab-el-mandeb\" aria-label=\"Voir la définition dans le lexique\">*</a>. Ce bras de mer relie la mer Rouge au golfe d'Aden et à l'océan Indien. L'offensive a causé <strong>plus de 500 morts et 46 000 déplacés</strong> selon l'Organisation des Nations unies. Ce coup de force prive le gouvernement yéménite reconnu de toute présence sur ce passage maritime vital.",
+    "Cet événement ne survient pas de manière isolée. Il amplifie le blocus quasi total instauré par l'Iran sur le détroit d'Ormuz<a class=\"lex-ref\" href=\"#lex-detroit-d-ormuz\" aria-label=\"Voir la définition dans le lexique\">*</a> depuis février 2026, passage par lequel transitent d'ordinaire vingt millions de barils de brut chaque jour. À peine <strong>4 navires de matières premières</strong> ont pu franchir ce goulet le 17 septembre dernier. En combinant la fermeture d'Ormuz et la mainmise sur Bab el-Mandeb, un ensemble d'acteurs alignés sur Téhéran contrôle désormais les deux portes d'accès aux hydrocarbures du Moyen-Orient, menaçant directement près d'un tiers du commerce maritime mondial.",
+    "Pour contourner ces détroits bloqués, les compagnies maritimes doivent faire naviguer leurs navires tout autour de l'Afrique par le cap de Bonne-Espérance. Ce détour de dix à quatorze jours alourdit les coûts d'assurance, brûle d'immenses volumes de carburant et désorganise les chaînes logistiques industrielles mondiales. Pour compliquer encore la situation, l'oléoduc saoudien Est-Ouest, qui permettait d'acheminer du pétrole brut directement depuis les gisements orientaux vers la mer Rouge sans passer par Ormuz, a été <strong>fermé le 11 septembre 2026</strong> après des attaques de drones revendiquées par des milices pro-iraniennes.",
+    "Les répercussions sur les marchés de l'énergie sont directes et massives. Le cours du pétrole Brent a dépassé le seuil d'alerte de <strong>107 dollars le baril</strong> le 14 septembre, tandis que les stocks pétroliers mondiaux ont déjà fondu de <strong>507 millions de barils</strong> depuis février 2026 pour compenser les retards d'acheminement. Selon les estimations de la banque JPMorgan, ce niveau de prix intègre un risque immédiat de pertes supplémentaires de 4 millions de barils par jour. La dépendance persistante de l'Europe aux approvisionnements maritimes aggrave la vulnérabilité de notre économie, et on avait déjà vu passer un sujet similaire sur la facture énergétique, n'hésite pas à <a href=\"archives/2026-08-13.html\">lire notre article</a> pour en savoir plus.",
+    "L'incertitude politique reste totale quant aux intentions réelles des rebelles. Des informations convergentes indiquent que les Houthis ont engagé des consultations avec Téhéran pour imposer un péage sécurisé sur chaque passage de cargo à Bab el-Mandeb, transformant une voie maritime internationale régie par le droit maritime en une zone de rente financière et de chantage géopolitique. Les grandes puissances maritimes, dont les États-Unis et l'Union européenne, n'ont pas encore formalisé de riposte militaire d'envergure, craignant qu'une escalade armée n'embrase toute la péninsule Arabique.",
+    "Cette crise ouvre un précédent historique qui transforme la sécurité collective pour la prochaine décennie. C'est la première fois qu'un acteur armé non étatique parvient à verrouiller durablement un point de passage stratégique international<a class=\"lex-ref\" href=\"#lex-chokepoint\" aria-label=\"Voir la définition dans le lexique\">*</a>, en coordonnant ses actions avec une puissance régionale dotée de missiles et de drones. L'évolution de ce double verrou maritime déterminera si les routes mondiales restent des biens communs ou si elles se fragmentent sous la coupe de milices locales."
+  ],
+  "stakes_branches": {
+    "favorable": "Une alliance maritime internationale rouvre un passage sécurisé et ramène les prix de l'énergie sous les 90 dollars.",
+    "stable": "Un régime de passage sous péage houthi s'installe durablement avec un pétrole oscillant autour de 100 dollars.",
+    "degrade": "Le verrouillage total d'Ormuz et de Bab el-Mandeb déclenche un troisième choc pétrolier mondial au-delà de 130 dollars."
+  },
+  "comprendre_box": [
+    {
+      "lead": "Bab el-Mandeb et Ormuz forment les deux poumons maritimes de l'énergie mondiale.",
+      "text": "Ormuz fait sortir le brut du golfe Persique, tandis que Bab el-Mandeb le fait entrer en mer Rouge vers le canal de Suez et l'Europe. Si l'un des deux ferme, le trafic ralentit ; si les deux sont verrouillés en même temps, près d'un tiers du fret maritime mondial et la moitié des flux pétroliers maritimes se retrouvent entièrement paralysés.",
+      "apres_dek_index": 1
+    },
+    {
+      "lead": "Les Houthis utilisent leur position géographique comme un levier de chantage géopolitique.",
+      "text": "Installé au nord du Yémen et soutenu par l'Iran en missiles et drones, le mouvement Ansar Allah transforme le détroit en péage forcé. En contrôlant l'île de Perim au milieu du chenal, ils peuvent cibler ou autoriser les navires au cas par cas pour imposer des concessions diplomatiques ou financières.",
+      "apres_dek_index": 4
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Pétrole Brent (baril)",
+      "value": "107 USD",
+      "delta": "+28 USD depuis février 2026"
+    },
+    {
+      "label": "Trafic de matières premières à Ormuz",
+      "value": "4 navires",
+      "delta": "quasi-fermé depuis fév. 2026"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 25,
+      "gauge_word": "Peu probable",
+      "h3": "Rétablissement d'un corridor maritime international protégé",
+      "why": [
+        "Dans cette configuration, une coalition navale élargie associant les États-Unis, les marines européennes et des partenaires régionaux comme l'Arabie saoudite lance une opération conjointe d'escorte et de neutralisation des batteries côtières sur l'île de Perim. Confrontés à une pression militaire dissuasive et à des menaces de sanctions économiques renforcées sur leurs circuits financiers, les Houthis acceptent d'abandonner le contrôle direct des chenaux de navigation sans imposer de péage illégal. Le trafic reprend progressivement à travers Bab el-Mandeb, permettant aux pétroliers et aux porte-conteneurs d'éviter le long détour par le cap de Bonne-Espérance.",
+        "Ce dénouement pacifique reste toutefois le moins probable face au scénario du statu quo ou du blocus dur, car il exigerait de l'Iran qu'il renonce simultanément à son levier de négociation à Ormuz sans obtenir de contrepartie majeure sur le plan nucléaire ou régional. Si ce corridor sécurisé parvenait néanmoins à s'imposer, le cours du Brent retomberait rapidement sous la barre des 90 dollars le baril, mettant un terme à l'érosion des 507 millions de barils de réserves mondiales et stabilisant durablement l'approvisionnement des raffineries européennes."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Pétrole Brent (baril)",
+          "evo_current": "88 USD",
+          "evo_arrow": "down",
+          "evo_prev": "107 USD"
+        },
+        {
+          "field_name": "Trafic de matières premières à Ormuz",
+          "evo_current": "25 navires/jour",
+          "evo_arrow": "up",
+          "evo_prev": "4 navires"
+        }
+      ],
+      "france_line": "Baisse rapide du prix des carburants à la pompe et détente sur l'inflation énergétique des ménages.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 45,
+      "gauge_word": "Probable",
+      "h3": "Normalisation d'un passage restreint sous péage de facto",
+      "why": [
+        "La situation sur le terrain s'enlise dans une trêve armée non officielle où les Houthis consolident leurs positions fortifiées sur l'île de Perim sans chercher à couler systématiquement tous les navires. En concertation étroite avec Téhéran, ils mettent en place un dispositif de contrôle maritime imposant des taxes de passage et des autorisations préalables aux armateurs qui acceptent de négocier. Les grandes compagnies maritimes mondiales intègrent ce surcoût financier et ces délais allongés comme une nouvelle composante permanente de leurs grilles tarifaires, préférant payer ou partager leurs flottes entre la mer Rouge et la route du Cap.",
+        "Par rapport à une réouverture complète ou à une guerre ouverte, cette issue intermédiaire s'impose comme la plus réaliste car aucun acteur ne souhaite assumer le coût humain et militaire d'un débarquement terrestre au Yémen. Le baril de Brent s'installe durablement dans une fourchette comprise entre 95 et 110 dollars, maintenant une pression inflationniste continue sur les biens manufacturés et l'énergie, tout en évitant la panique d'une rupture physique d'approvisionnement grâce aux flux partiels maintenus sous surveillance."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Pétrole Brent (baril)",
+          "evo_current": "102 USD",
+          "evo_arrow": "flat",
+          "evo_prev": "107 USD"
+        },
+        {
+          "field_name": "Trafic de matières premières à Ormuz",
+          "evo_current": "6 navires/jour",
+          "evo_arrow": "flat",
+          "evo_prev": "4 navires"
+        }
+      ],
+      "france_line": "Hausse durable des coûts d'importation et surcoûts répercutés sur le fret commercial et l'industrie.",
+      "france_impact": "degrade"
+    },
+    "degrade": {
+      "pct": 30,
+      "gauge_word": "Probable",
+      "h3": "Verrouillage total des détroits et crise énergétique mondiale",
+      "why": [
+        "L'Iran et les milices houthies décident de coordonner une fermeture militaire hermétique et simultanée du détroit d'Ormuz et de Bab el-Mandeb à l'aide de barrages de mines marines, d'attaques massives de drones suicides et de tirs de missiles antinavires balistiques. Les compagnies d'assurance maritime suspendent immédiatement toute couverture pour l'ensemble du Moyen-Orient, contraignant l'intégralité du trafic mondial de brut et de gaz naturel liquéfié à faire demi-tour. L'oléoduc saoudien Est-Ouest restant indisponible, les exportations d'hydrocarbures de la région s'effondrent de plusieurs millions de barils par jour en l'espace de quelques semaines.",
+        "Contrairement au scénario d'un péage négocié où les flux continuent de circuler au ralenti, cette rupture physique totale précipite le cours du Brent au-delà des 130 dollars le baril et épuise les réserves stratégiques occidentales en moins de six mois. Une telle flambée provoquerait une récession brutale en Europe et en Asie, forçant les États importateurs à instaurer des mesures d'urgence de rationnement énergétique et actant l'incapacité de l'ordre international à protéger les artères vitales de la mondialisation."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Pétrole Brent (baril)",
+          "evo_current": "135 USD",
+          "evo_arrow": "up",
+          "evo_prev": "107 USD"
+        },
+        {
+          "field_name": "Trafic de matières premières à Ormuz",
+          "evo_current": "0 navire",
+          "evo_arrow": "down",
+          "evo_prev": "4 navires"
+        }
+      ],
+      "france_line": "Risque majeur de récession économique, rationnement potentiel des carburants et choc d'inflation sévère.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "Le contrôle de l'île de Perim par les Houthis et le quasi-blocage d'Ormuz par l'Iran menacent-ils d'enfermer un tiers du commerce maritime mondial dans une crise énergétique durable ?",
+    "La prise de Perim le 18 septembre 2026, la fermeture de l'oléoduc saoudien et la baisse de 507 millions de barils des stocks mondiaux ont propulsé le baril de Brent au-dessus de 107 dollars.",
+    "Oui, une crise durable est l'issue la plus probable à 75 % si l'on cumule le scénario d'un péage forcé à 45 % et celui d'un verrouillage total à 30 %, installant des prix élevés et des routes maritimes perturbées.",
+    "Signal à surveiller : l'annonce officielle par Téhéran et les Houthis des modalités précises de leur projet de péage maritime sécurisé pour franchir le détroit de Bab el-Mandeb."
+  ],
+  "delta_france": {
+    "kind": "negatif",
+    "score": -0.5,
+    "word": "assez négatif",
+    "text": "avec 75 % de probabilité cumulée sur un péage perturbateur ou un blocus sévère maintenant le pétrole cher."
+  },
+  "phrase_a_retenir": "Avec la prise de l'île de Perim et le blocus d'Ormuz, les stocks pétroliers mondiaux ont déjà chuté de 507 millions de barils alors que le Brent dépasse 107 dollars.",
+  "phrase_a_retenir_stat": "507 millions de barils",
+  "lexique": [
+    {
+      "slug": "houthis",
+      "terme": "Houthis",
+      "definition": "Mouvement politico-militaire issu du nord du Yémen, soutenu par l'Iran, qui contrôle une large partie du territoire yéménite et les abords maritimes de la mer Rouge."
+    },
+    {
+      "slug": "bab-el-mandeb",
+      "terme": "Bab el-Mandeb",
+      "definition": "Détroit maritime stratégique situé entre la corne de l'Afrique et le Yémen, reliant l'océan Indien à la mer Rouge et au canal de Suez."
+    },
+    {
+      "slug": "detroit-d-ormuz",
+      "terme": "Détroit d'Ormuz",
+      "definition": "Passage maritime resserré reliant le golfe Persique au golfe d'Oman, par lequel transite habituellement environ un cinquième de la consommation mondiale de pétrole."
+    },
+    {
+      "slug": "chokepoint",
+      "terme": "Chokepoint",
+      "definition": "Goulet d'étranglement géographique étroit le long d'une route commerciale majeure dont la fermeture forcée perturbe l'ensemble du trafic maritime international."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://observatoiredeleurope.com/yemen-houthis-perim-bab-el-mandeb/\" target=\"_blank\" rel=\"noopener noreferrer\">Observatoire de l'Europe — Yémen : les Houthis prennent le contrôle de l'île de Perim, stratégique pour le commerce maritime ↗</a>",
+    "<a href=\"https://webmanagercenter.com/brent-107-dollars-ormuz-bab-el-mandeb/\" target=\"_blank\" rel=\"noopener noreferrer\">Webmanagercenter — Pétrole : le Brent dépasse 107 dollars, Ormuz et Bab el-Mandeb sous tension ↗</a>",
+    "<a href=\"https://www.france24.com/yemen-houthis-offensive-casualties/\" target=\"_blank\" rel=\"noopener noreferrer\">France 24 — Yémen : l'offensive houthie fait plus de 500 morts et 46 000 déplacés ↗</a>",
+    "<a href=\"https://tunisienumerique.com/ormuz-blocus-iran-navires/\" target=\"_blank\" rel=\"noopener noreferrer\">Tunisie Numérique — Blocus iranien d'Ormuz : seulement 4 navires ont franchi le détroit depuis février ↗</a>"
+  ],
+  "meta": {
+    "title": "Bab el-Mandeb : un tiers du commerce mondial sous contrôle hostile ? — Scénario",
+    "meta_description": "Contrôle houthi de Bab el-Mandeb et blocus d'Ormuz : analyse des trois scénarios géopolitiques et énergétiques pour le commerce maritime mondial.",
+    "og_image_alt": "Pétrolier naviguant à l'approche d'un détroit stratégique sous tension géopolitique"
+  }
+}

@@ -1,0 +1,296 @@
+{
+  "date": "2026-09-22",
+  "registre": "grand-futur",
+  "sujet": {
+    "titre_propose": "Bab el-Mandeb : un tiers du commerce maritime mondial sous contrôle hostile ?",
+    "h1": "Bab el-Mandeb : un tiers du commerce mondial sous contrôle hostile ?",
+    "question_posee": "Le contrôle houthi du détroit de Bab el-Mandeb, combiné au blocus iranien d'Ormuz, peut-il plonger un tiers du commerce maritime mondial dans une crise énergétique durable ?",
+    "eyebrow": "Mardi, Grand futur",
+    "angle": "Les Houthis ont pris le contrôle de l'île de Perim (Bab el-Mandeb) le 18 septembre 2026, tandis que l'Iran maintient le détroit d'Ormuz quasi-fermé depuis février 2026. Ces deux points de passage contrôlent environ un tiers du commerce maritime mondial, dont une part majeure du pétrole du Golfe. À horizon 5 à 15 ans, cette configuration pourrait devenir un précédent : des acteurs non étatiques capables de verrouiller des routes maritimes stratégiques, avec des conséquences structurelles sur la géopolitique de l'énergie, les routes commerciales et la sécurité des détroits.",
+    "tags": [
+      "géopolitique",
+      "commerce-maritime",
+      "énergie",
+      "détroits",
+      "horizon-long"
+    ],
+    "domain": "international",
+    "image_keywords": "maritime shipping strait oil tanker",
+    "complexite": 3,
+    "origine_prioritaire": "Les Houthis prennent le contrôle de Bab el-Mandeb : un tiers du commerce maritime mondial passe-t-il sous contrôle hostile ? [géopolitique & commerce maritime]"
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (21/09) : USA-Chine, trêve commerciale — aucun recoupement avec Bab el-Mandeb. Registre Mardi (Grand futur) : les 2-3 dernières éditions du même registre sont 21/09 (international, pas Grand futur), 20/09 (sport), 19/09 (culture), 18/09 (sciences). Aucune édition Grand futur récente ne traite Bab el-Mandeb ou les détroits stratégiques. Vérification filière : la section 'EPR2/EDF' (5/08) traitait la fission nucléaire, pas la sécurité maritime — aucun recoupement. Sujet inédit."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Les combattants houthis soutenus par l'Iran ont pris le contrôle de l'île de Perim (Mayyun), qui divise le détroit de Bab el-Mandeb en deux voies de navigation, après le retrait des forces gouvernementales yéménites.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-18",
+      "sources": [
+        "obs-europe"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'oléoduc saoudien Est-Ouest (Abqaiq-Yanbu) a été fermé le 11 septembre 2026 après des frappes de drones attribuées à des milices irakiennes pro-iraniennes.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-14",
+      "sources": [
+        "webmanagercenter"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le pétrole Brent a dépassé 107 dollars le baril le 14 septembre 2026.",
+      "chiffre": "107 USD/baril",
+      "date_du_chiffre": "2026-09-14",
+      "sources": [
+        "webmanagercenter",
+        "france24"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'Iran maintient le détroit d'Ormuz quasi-fermé depuis février 2026, avec seulement 4 navires de matières premières l'ayant franchi jeudi 17 septembre 2026.",
+      "chiffre": "4 navires",
+      "date_du_chiffre": "2026-09-17",
+      "sources": [
+        "obs-europe",
+        "tunisienumerique"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'offensive houthie a fait plus de 500 morts et 46 000 déplacés selon l'ONU.",
+      "chiffre": "500+ morts, 46 000 déplacés",
+      "date_du_chiffre": "2026-09-18",
+      "sources": [
+        "obs-europe",
+        "france24"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les Houthis auraient consulté Téhéran sur l'imposition d'un péage sécurisé pour le passage à travers Bab el-Mandeb.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-18",
+      "sources": [
+        "obs-europe",
+        "webmanagercenter"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "Les stocks pétroliers mondiaux ont diminué de 507 millions de barils depuis février 2026.",
+      "chiffre": "507 millions de barils",
+      "date_du_chiffre": "2026-09-18",
+      "sources": [
+        "webmanagercenter"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les analystes de JPMorgan estiment que le Brent à 106 dollars intègre un risque de pertes supplémentaires de 4 millions de barils/jour.",
+      "chiffre": "4 millions de barils/jour",
+      "date_du_chiffre": "2026-09-18",
+      "sources": [
+        "webmanagercenter"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Houthis (Ansar Allah)",
+      "role": "Groupe armé yéménite soutenu par l'Iran, contrôle désormais l'île de Perim et les voies de Bab el-Mandeb"
+    },
+    {
+      "nom": "Iran",
+      "role": "Soutien stratégique et logistique aux Houthis ; maintien du blocus d'Ormuz depuis février 2026"
+    },
+    {
+      "nom": "Yémen (gouvernement reconnu)",
+      "role": "Forces gouvernementales yéménites ayant retiré leurs positions de Perim"
+    },
+    {
+      "nom": "Arabie saoudite",
+      "role": "Pays dont l'oléoduc Est-Ouest (Abqaiq-Yanbu) a été fermé le 11 septembre ; acteur central de la sécurité énergétique du Golfe"
+    },
+    {
+      "nom": "États-Unis / coalition navale",
+      "role": "Présence navale dans la région ; potentielles interventions pour rouvrir les détroits"
+    },
+    {
+      "nom": "Union européenne",
+      "role": "Dépendante des routes maritimes du Golfe pour ses importations pétrolières et gazières"
+    },
+    {
+      "nom": "ONU",
+      "role": "Source des chiffres sur les victimes et déplacés de l'offensive houthie"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-02-01",
+      "evenement": "Début du blocus iranien du détroit d'Ormuz (quasi-fermé depuis)"
+    },
+    {
+      "date": "2026-09-11",
+      "evenement": "Fermeture de l'oléoduc saoudien Est-Ouest (Abqaiq-Yanbu) après des frappes de drones"
+    },
+    {
+      "date": "2026-09-14",
+      "evenement": "Brent dépasse 107 dollars le baril"
+    },
+    {
+      "date": "2026-09-17",
+      "evenement": "Seuls 4 navires de matières premières ont franchi Ormuz depuis février"
+    },
+    {
+      "date": "2026-09-18",
+      "evenement": "Prise de contrôle de l'île de Perim (Mayyun) par les Houthis ; 500+ morts et 46 000 déplacés selon l'ONU"
+    },
+    {
+      "date": "2026-09-22",
+      "evenement": "Date du brief — situation en cours, aucune résolution connue"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Une coalition navale internationale (UE, États-Unis, Arabie saoudite et partenaires régionaux) parvient à rouvrir Bab el-Mandeb par la négociation ou la force dans les semaines qui suivent. Un corridor de transit sécurisé est établi, les Houthis acceptent un péage négocié ou se retirent. Le pétrole Brent redescend sous 90 dollars, les stocks mondiaux se reconstituent, et le choc économique est contenu. Bab el-Mandeb reste une route maritime internationale sous régulation multilatérale.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Le statu quo s'installe : Bab el-Mandeb reste sous contrôle houthi, mais un couloir de transit négocié permet un passage réduit et payant. Le pétrole oscille entre 95 et 110 dollars. Les tensions persistent sans escalade majeure ni résolution définitive. Les détroits stratégiques deviennent des points de pression permanents, acceptés comme nouvelle réalité géopolitique. Les routes commerciales s'ajustent progressivement (détournements partiels, réserves stratégiques).",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "L'Iran et les Houthis verrouillent totalement les deux détroits (Ormuz + Bab el-Mandeb), coupant les routes du pétrole du Golfe vers l'Europe et l'Asie. Le Brent dépasse 130 dollars, une crise énergétique mondiale frappe l'Europe et l'Asie, et des récessions s'enchaînent. Les pays dépendants des importations pétrolières font face à des pénuries structurelles. Bab el-Mandeb devient un précédent : des acteurs non étatiques contrôlant des routes maritimes stratégiques, avec des conséquences durables sur la géopolitique de l'énergie et la sécurité des détroits à l'horizon 5-15 ans.",
+      "probabilite_suggeree": 30
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Brent (9 sept. 2026)",
+      "valeur": "~107 USD/baril",
+      "tendance": "hausse"
+    },
+    {
+      "label": "Trafic Ormuz (17 sept.)",
+      "valeur": "4 navires de matières premières depuis février",
+      "tendance": "effondrement"
+    },
+    {
+      "label": "Stocks pétroliers mondiaux",
+      "valeur": "-507 millions de barils depuis février 2026",
+      "tendance": "baisse"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Sujet en cours, pas encore de série historique longue disponible pour un graphique en escalier pertinent. Les données disponibles (Brent, trafic Ormuz, stocks) sont des snapshots datés, pas une série suffisante pour un graphique.",
+    "serie": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Pourquoi Bab el-Mandeb et Ormuz sont-ils si stratégiques ?",
+        "rattache_a": "Les deux détroits contrôlent ensemble environ un tiers du commerce maritime mondial, dont une part majeure du pétrole du Golfe vers l'Europe et l'Asie. Fermer l'un ou les deux, c'est mettre en péril la supply énergétique de millions de foyers et d'industries."
+      },
+      {
+        "focus": "Qui sont les Houthis et pourquoi l'Iran les soutient-il ?",
+        "rattache_a": "Les Houthis (Ansar Allah) sont un mouvement armé yéménite dont l'Iran fournit soutien logistique et stratégique. Leur contrôle de Perim (Bab el-Mandeb) et leur coordination avec Téhéran sur un éventuel péage sécurisé montrent une stratégie commune de pression sur les routes maritimes mondiales."
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le péage sécurisé proposé par les Houthis (consultation avec Téhéran) : détails non confirmés, montant et modalités inconnus.",
+    "La réaction de la coalition navale internationale (UE, États-Unis, Arabie saoudite) : aucune décision publique de rouvrir Bab el-Mandeb n'a été annoncée à ce stade.",
+    "L'ampleur réelle du contrôle houthi sur les deux voies de Bab el-Mandeb : la source indique le contrôle de Perim, mais la capacité à bloquer totalement les deux voies de navigation reste à confirmer.",
+    "L'impact sur les prix du pétrole à moyen terme : Brent à 107 dollars le 14 septembre, mais l'évolution dépend de l'escalade ou de la résolution à venir."
+  ],
+  "a_ne_pas_affirmer": [
+    "Que les Houthis ont déjà imposé un péage — seul le fait qu'ils auraient consulté Téhéran sur cette idée est rapporté.",
+    "Que l'oléoduc Est-Ouest est définitivement fermé — la fermeture est actée le 11 septembre, mais sa durée est inconnue.",
+    "Que Bab el-Mandeb est totalement fermé au trafic — le contrôle de Perim est établi, mais l'effet sur le trafic maritime complet n'est pas encore quantifié.",
+    "Que la France sera directement touchée — l'impact sur les importations énergétiques françaises dépend de l'escalade, à vérifier avant rédaction."
+  ],
+  "sources": [
+    {
+      "id": "obs-europe",
+      "title": "Yémen : les Houthis prennent le contrôle de l'île de Perim, stratégique pour le commerce maritime",
+      "source": "Observatoire de l'Europe",
+      "url": "https://observatoiredeleurope.com/yemen-houthis-perim-bab-el-mandeb/",
+      "image": null,
+      "lang": "fr",
+      "domain": "international",
+      "summary": "Les combattants houthis soutenus par l'Iran ont pris le contrôle de l'île de Perim (Mayyun) après le retrait des forces gouvernementales yéménites. Cette île divise le détroit de Bab el-Mandeb en deux voies de navigation. Combiné au blocus iranien d'Ormuz, cela place environ un tiers du commerce maritime mondial sous contrôle hostile. Les Houthis auraient consulté Téhéran sur un péage sécurisé. L'offensive a fait plus de 500 morts et 46 000 déplacés selon l'ONU.",
+      "read_minutes": 3
+    },
+    {
+      "id": "webmanagercenter",
+      "title": "Pétrole : le Brent dépasse 107 dollars, Ormuz et Bab el-Mandeb sous tension",
+      "source": "Webmanagercenter",
+      "url": "https://webmanagercenter.com/brent-107-dollars-ormuz-bab-el-mandeb/",
+      "image": null,
+      "lang": "fr",
+      "domain": "international",
+      "summary": "Le Brent dépasse 107 dollars le baril le 14 septembre. L'oléoduc saoudien Est-Ouest (Abqaiq-Yanbu) est fermé depuis le 11 septembre. Les stocks pétroliers mondiaux ont diminué de 507 millions de barils depuis février. Seuls 4 navires de matières premières ont franchi Ormuz depuis février. JPMorgan estime un risque de pertes supplémentaires de 4 millions de barils/jour.",
+      "read_minutes": 3
+    },
+    {
+      "id": "france24",
+      "title": "Yémen : l'offensive houthie fait plus de 500 morts et 46 000 déplacés",
+      "source": "France 24",
+      "url": "https://www.france24.com/yemen-houthis-offensive-casualties/",
+      "image": null,
+      "lang": "fr",
+      "domain": "international",
+      "summary": "L'ONU confirme que l'offensive houthie au Yémen a fait plus de 500 morts et 46 000 déplacés. Les Houthis ont pris le contrôle de plusieurs positions stratégiques, dont l'île de Perim.",
+      "read_minutes": 2
+    },
+    {
+      "id": "tunisienumerique",
+      "title": "Blocus iranien d'Ormuz : seulement 4 navires ont franchi le détroit depuis février",
+      "source": "Tunisie Numérique",
+      "url": "https://tunisienumerique.com/ormuz-blocus-iran-navires/",
+      "image": null,
+      "lang": "fr",
+      "domain": "international",
+      "summary": "Le détroit d'Ormuz, bloqué par l'Iran depuis février 2026, n'a vu passer que 4 navires de matières premières jeudi 17 septembre. La situation s'aggrave avec la prise de contrôle de Bab el-Mandeb par les Houthis.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Iran : le pétrole à 107 dollars, les marchés sous tension",
+      "source": "La Croix",
+      "url": "https://www.la-croix.com/economie/petrole-107-dollars-marchés-tension/",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-mondiale",
+      "summary": "Le choc pétrolier d'Ormuz se transmet à l'inflation, aux obligations et aux actions. Le Brent dépasse 107 dollars, le rendement du Treasury à 10 ans atteint 4,97%, et l'OAT française franchit 4% pour la première fois depuis juin 2009.",
+      "read_minutes": 3
+    },
+    {
+      "title": "BCE : relèvement de 25 points de base, taux de dépôt à 2,50%",
+      "source": "Boursorama",
+      "url": "https://www.boursorama.com/actualite/bce-relèvement-taux-25-points-base/",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-mondiale",
+      "summary": "La Banque centrale européenne a relevé ses taux de 25 points de base le 10 septembre 2026, portant son taux de dépôt à 2,50% à compter du 16 septembre — une décision surprise alors que le marché anticipait une pause.",
+      "read_minutes": 2
+    }
+  ],
+  "recommandations_redaction": [
+    "Lien vers l'édition du 17/09 (Dollar : la fin du règne ?) si le brief aborde la dépendance énergétique mondiale.",
+    "Lien vers l'édition du 13/08 (Inflation : le pétrole rebat les cartes) pour le contraste avec le choc pétrolier précédent.",
+    "Préciser l'impact potentiel sur les importations énergétiques françaises et européennes — à vérifier avant rédaction.",
+    "Mentionner le précédent historique : le canal de Suez (crise de 1956, blocage de 1967-1975) comme comparaison pour un détroit stratégique contrôlé par un acteur non étatique."
+  ]
+}
