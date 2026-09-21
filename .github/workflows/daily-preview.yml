@@ -76,14 +76,7 @@ jobs:
           git config user.email "noreply@anthropic.com"
           TOMORROW=$(date -u -d '+1 day' '+%Y-%m-%d')
           git add preview.html .preview-content.json "editorial-briefs/$TOMORROW.json"
-          git commit -m "Daily preview: $TOMORROW
-
-Generated at $(date -u '+%Y-%m-%d %H:%M UTC')
-
-Phase 1 (Brief): Upstage Solar Pro4
-Phase 2 (Edition): Google Gemini 3.7 Flash
-
-Review preview.html and comment if issues found." || echo "Nothing to commit"
+          git commit -m "Daily preview: $TOMORROW - $(date -u '+%Y-%m-%d %H:%M UTC')" || echo "Nothing to commit"
           git push origin main
 
       - name: Success notification
