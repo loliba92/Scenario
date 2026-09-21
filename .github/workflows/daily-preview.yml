@@ -1,10 +1,9 @@
 name: Daily Preview Generation
 
 on:
-  schedule:
-    # 14h UTC every day
-    - cron: '0 14 * * *'
   workflow_dispatch:
+  repository_dispatch:
+    types: [trigger-preview]
 
 permissions:
   contents: write
