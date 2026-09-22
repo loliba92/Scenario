@@ -19,8 +19,26 @@ Automated workflow generates and previews tomorrow's edition:
    - GitHub Actions notification posted
    - Total cost: ~$0.033 per edition
 
+4. **Critique automatique** (`scripts/edition/critique_preview.py`, added
+   22 September 2026) — `deepseek/deepseek-v4-flash`, deliberately a different model
+   from the one that wrote the edition
+   - Static/internal checks only (never a live fact-check): number/date
+     consistency across sections, named attributions matching a listed
+     source, tone breaks, lexical repetition, scenario-probability
+     framing, chart consistency
+   - Never blocks the pipeline — advisory only, runs with
+     `continue-on-error: true`
+   - Result posted as a **GitHub issue** (title prefixed ✅/⚠️/🛑/❌
+     depending on verdict) — GitHub notifies you (email/mobile) as soon
+     as it's created, no separate notification channel needed
+   - Root cause it addresses: the 22 September 2026 edition went live
+     with a stale Brent price, an unverifiable "selon JPMorgan" claim and
+     a tone break — see `docs/routine-prompt.md` § Anti-péremption /
+     Relecture de cohérence / Relecture stylistique for the corresponding
+     redaction-side rules this step cross-checks independently
+
 ### Afternoon Review (14:00-18:00 UTC)
-You review `preview.html` in your browser:
+Read the critique issue first, then review `preview.html` in your browser:
 - Check editorial quality
 - Verify JSON structure
 - Look for any generation issues
@@ -97,6 +115,8 @@ Daily 14:00 UTC
 [Phase 2: Edition Generation]
     ↓
 [Commit preview.html to main]
+    ↓
+[Automatic critique (deepseek/deepseek-v4-flash) → GitHub issue]
     ↓
 [Afternoon: Manual Review]
     ↓
