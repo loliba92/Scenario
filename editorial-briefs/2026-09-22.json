@@ -143,7 +143,7 @@
     },
     {
       "date": "2026-09-14",
-      "evenement": "Brent dépasse 107 dollars le baril"
+      "evenement": "Brent atteint 110 dollars le baril (pic, Fortune)"
     },
     {
       "date": "2026-09-17",
@@ -362,6 +362,50 @@
       "lang": "fr",
       "domain": "international",
       "summary": "Le détroit d'Ormuz, bloqué par l'Iran depuis février 2026, n'a vu passer que 4 navires de matières premières jeudi 17 septembre. La situation s'aggrave avec la prise de contrôle de Bab el-Mandeb par les Houthis.",
+      "read_minutes": 2
+    },
+    {
+      "id": "fortune-14sept",
+      "title": "Current price of oil as of September 14, 2026",
+      "source": "Fortune",
+      "url": "https://fortune.com/article/price-of-oil-09-14-2026/",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Le Brent cotait 110,42 $/baril à 9h15 ET le 14 septembre 2026, pic de la période.",
+      "read_minutes": 2
+    },
+    {
+      "id": "fortune-21sept",
+      "title": "Current price of oil as of September 21, 2026",
+      "source": "Fortune",
+      "url": "https://fortune.com/article/price-of-oil-09-21-2026/",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Le Brent cotait 101,61 $/baril à 9h35 ET le 21 septembre 2026, en repli de 2,72 $ par rapport à la veille — quatrième séance consécutive de baisse.",
+      "read_minutes": 2
+    },
+    {
+      "id": "eia-steo",
+      "title": "Short-Term Energy Outlook",
+      "source": "U.S. Energy Information Administration (EIA)",
+      "url": "https://www.eia.gov/outlooks/steo/",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Les flux du Moyen-Orient devraient rester contraints au moins jusqu'au 4e trimestre 2026, avec des volumes de production immobilisés atteignant en moyenne 5,7 millions de barils par jour.",
+      "read_minutes": 3
+    },
+    {
+      "id": "statista-brent",
+      "title": "Brent crude oil price annually 1976-2025",
+      "source": "Statista",
+      "url": "https://www.statista.com/statistics/262860/uk-brent-crude-oil-price-changes-since-1976/",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Moyennes annuelles du prix du Brent de 1976 à 2025, source de la série historique du graphique Repère historique.",
       "read_minutes": 2
     }
   ],

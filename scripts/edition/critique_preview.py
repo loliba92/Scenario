@@ -70,14 +70,20 @@ CRITIQUE_MODEL = "deepseek/deepseek-v4-flash"
 # Champs du brief réellement utiles à CETTE critique (cohérence des
 # chiffres déjà publiés, attribution contre les sources, cohérence du
 # graphique) — jamais le brief complet (faits_verifies/acteurs/
-# chronologie_cle/scenarios_prospectifs/elements_incertains/revue_de_
-# presse/recommandations_redaction sont du matériau de RECHERCHE, pas
-# des éléments que le contenu publié doit rester cohérent avec au sens
-# de cette critique). Réduit le prompt d'environ moitié (~17K → ~6K
+# scenarios_prospectifs/elements_incertains/revue_de_presse/
+# recommandations_redaction sont du matériau de RECHERCHE, pas des
+# éléments que le contenu publié doit rester cohérent avec au sens de
+# cette critique). Réduit le prompt d'environ moitié (~17K → ~6,8K
 # caractères sur l'édition du 22 septembre) — la marge de sécurité qui
 # compte le plus face à la faiblesse connue de DeepSeek sur le texte
 # long, plus efficace qu'augmenter max_tokens en sortie.
-TRIMMED_BRIEF_KEYS = ("sources", "indicateurs_kpi", "graphique_dc_chart")
+# `chronologie_cle` ajouté après le premier test réel (22 septembre
+# 2026) : sans lui, la critique a signalé la date du 18 septembre (prise
+# de l'île de Perim) comme non sourcée dans le `.dek`, alors qu'elle est
+# bien documentée dans le brief — juste pas dans un champ qu'on lui
+# donnait à lire. Faux positif de trimming, pas un vrai défaut de
+# l'édition. Coût négligeable (~650 caractères sur cette édition).
+TRIMMED_BRIEF_KEYS = ("sources", "indicateurs_kpi", "graphique_dc_chart", "chronologie_cle")
 
 CRITIQUE_PROMPT_TEMPLATE = """Tu es un critique journaliste, le plus exigeant \
 de la rédaction. Tu relis l'édition ci-dessous AVANT sa mise en ligne, avec un \
@@ -162,6 +168,48 @@ def build_prompt(date_str, brief, content):
     )
 
 
+_NO_ISSUE_CORRECTION_PREFIXES = (
+    "aucune correction",
+    "pas de correction",
+    "rien à corriger",
+    "correction non nécessaire",
+)
+
+
+def drop_empty_findings(critique):
+    """DeepSeek suit sa checklist de façon mécanique plutôt que d'omettre un
+    point sans rien à signaler (voir consigne « ne jamais remplir
+    artificiellement la liste des findings » dans CRITIQUE_PROMPT_TEMPLATE)
+    — constaté sur 3 vrais runs successifs (22 septembre 2026, édition du
+    même jour) : plusieurs « findings » disaient explicitement dans leur
+    propre `constat` ('Aucun problème.', 'L'attribution est correcte.')
+    n'avoir rien trouvé, tout en restant classés 🔴 bloquant. Signal
+    identifié dans les données réelles plutôt que du pattern-matching sur
+    le `constat` (trop variable) : un vrai défaut vient TOUJOURS avec une
+    `correction_proposee` concrète ; un point vérifié et jugé sans problème
+    a soit un champ vide (run 2), soit une formule figée du type « Aucune
+    correction nécessaire » (run 3) — le modèle n'est pas cohérent d'un
+    run à l'autre sur LEQUEL des deux il produit, donc les deux motifs
+    sont filtrés. Filtré ici plutôt que de complexifier encore le prompt —
+    un garde-fou côté code est plus fiable qu'une consigne supplémentaire
+    sur un modèle déjà connu pour un suivi d'instructions imparfait sur ce
+    genre de tâche."""
+    findings = critique.get("findings") or []
+    kept = []
+    for f in findings:
+        correction = (f.get("correction_proposee") or "").strip()
+        if not correction:
+            continue
+        if correction.lower().startswith(_NO_ISSUE_CORRECTION_PREFIXES):
+            continue
+        kept.append(f)
+    dropped = len(findings) - len(kept)
+    if dropped:
+        print(f"[critique] {dropped} finding(s) sans correction proposée écartés (auto-signalés sans problème réel)", file=sys.stderr)
+    critique["findings"] = kept
+    return critique
+
+
 def render_markdown(date_str, critique, model):
     verdict_label = {
         "publiable": "✅ Publiable en l'état",
@@ -235,7 +283,17 @@ def main():
     # openai/gpt-5) a besoin de 16000, sous peine de renvoyer un contenu vide.
     can_disable_reasoning = "anthropic/" in args.model or "deepseek/" in args.model
     max_tokens = 4000 if can_disable_reasoning else 16000
-    critique = call_openrouter(prompt, args.model, api_key, temperature=0.2, max_tokens=max_tokens)
+    # call_openrouter() renvoie (content, usage) — voir sa dernière ligne
+    # dans generate_daily_edition.py — jamais juste le contenu seul. Bug
+    # réel trouvé au premier test local (22 septembre 2026, run sur
+    # l'édition du même jour) : le premier essai de ce script affectait
+    # directement le tuple à `critique`, provoquant un AttributeError dès
+    # render_markdown() malgré un appel OpenRouter réussi côté serveur
+    # (coût facturé, réponse reçue) — jamais détecté par les tests locaux
+    # précédents, qui appelaient render_markdown() avec un dict simulé au
+    # lieu du vrai retour de call_openrouter().
+    critique, _usage = call_openrouter(prompt, args.model, api_key, temperature=0.2, max_tokens=max_tokens)
+    critique = drop_empty_findings(critique)
 
     markdown = render_markdown(args.date, critique, args.model)
 
