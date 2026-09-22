@@ -117,6 +117,61 @@ jobs:
             --out /tmp/critique.md \
             --out-json /tmp/critique.json
 
+      - name: Revise brief and regenerate edition if corrections needed
+        # Suite directe de la critique ci-dessus, même philosophie (jamais
+        # bloquante) : réinjecte les `findings` dans un brief révisé
+        # (scripts/edition/revise_brief.py) et relance la rédaction via
+        # generate_daily_edition.py plutôt que de patcher .preview-content.json
+        # à la main — voir docs/routine-redaction-prompt.md § « edition_
+        # precedente et corrections_a_appliquer » pour ce que le modèle en
+        # fait. Sans effet (revised=false) si la critique a échoué (pas de
+        # critique.json) ou n'a rien à signaler (findings vides) : le preview
+        # déjà committé plus haut reste alors la version finale.
+        id: revise
+        continue-on-error: true
+        run: |
+          TOMORROW=$(date -u -d '+1 day' '+%Y-%m-%d')
+          echo "revised=false" >> "$GITHUB_OUTPUT"
+          if [ ! -f /tmp/critique.json ]; then
+            echo "Pas de critique.json (étape précédente en échec) — rien à réviser."
+            exit 0
+          fi
+          cd scripts/edition
+          if ! python3 revise_brief.py \
+            --brief "../../editorial-briefs/$TOMORROW.json" \
+            --content "../../.preview-content.json" \
+            --critique-json /tmp/critique.json \
+            --out /tmp/brief-revise.json; then
+            echo "Critique sans finding — rien à réviser."
+            exit 0
+          fi
+          N_FINDINGS=$(python3 -c "import json; print(len(json.load(open('/tmp/brief-revise.json'))['corrections_a_appliquer']))")
+          echo "Régénération de l'édition avec $N_FINDINGS correction(s)..."
+          OPENROUTER_API_KEY="${{ secrets.OPENROUTER_API_KEY }}" PEXELS_API_KEY="${{ secrets.PEXELS_API_KEY }}" python3 generate_daily_edition.py --brief /tmp/brief-revise.json 2>&1 | tee /tmp/phase3.log
+          echo "✅ Régénération réussie"
+          echo "revised=true" >> "$GITHUB_OUTPUT"
+          echo "n_findings=$N_FINDINGS" >> "$GITHUB_OUTPUT"
+
+      - name: Copy and commit corrected preview
+        if: steps.revise.outputs.revised == 'true'
+        id: revise_commit
+        continue-on-error: true
+        run: |
+          TOMORROW=$(date -u -d '+1 day' '+%Y-%m-%d')
+          cp "_prototype-out/$TOMORROW.html" "preview.html"
+          cp "_prototype-out/$TOMORROW.content.json" ".preview-content.json"
+          cp "_prototype-out/$TOMORROW.content.json" "editorial-previews/$TOMORROW.content.json"
+          git config user.name "Claude Preview Bot"
+          git config user.email "noreply@anthropic.com"
+          git add preview.html .preview-content.json "editorial-previews/$TOMORROW.content.json"
+          if ! git commit -m "Preview corrigé automatiquement d'après la critique éditoriale - $TOMORROW"; then
+            echo "Contenu identique après régénération — rien à committer."
+            exit 0
+          fi
+          git push origin main
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "✅ Preview corrigé recommité"
+
       - name: Post critique as GitHub issue
         # Toujours exécutée (if: always()), même si l'étape précédente a
         # échoué — c'est le seul canal qui prévient réellement l'utilisateur
@@ -140,6 +195,23 @@ jobs:
             } else {
               emoji = '❌';
               body = `La critique automatique a échoué pour l'édition du ${tomorrow} — voir les logs du run ${context.runId} pour le détail. Le preview reste généré normalement, seule cette revue automatique n'a pas pu tourner.`;
+            }
+            // Rapporte le sort de l'auto-correction (étapes "revise" /
+            // "revise_commit" ci-dessus) — jamais silencieux, même en échec,
+            // pour que la relecture humaine sache si le preview lié plus bas
+            // est la version brute de la critique ou déjà une révision.
+            const revised = '${{ steps.revise.outputs.revised }}' === 'true';
+            const nFindings = '${{ steps.revise.outputs.n_findings }}';
+            const commitSha = '${{ steps.revise_commit.outputs.sha }}';
+            if (revised && commitSha) {
+              body += `\n\n---\n🔧 **${nFindings} correction(s) appliquée(s) automatiquement** ` +
+                `d'après cette critique — voir le commit ` +
+                `[${commitSha.slice(0, 7)}](https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${commitSha}). ` +
+                `Le preview lié ci-dessous est déjà la version corrigée ; la relecture humaine de l'après-midi reste nécessaire.`;
+            } else if (revised && !commitSha) {
+              body += `\n\n---\n⚠️ Une régénération corrigée a été tentée (${nFindings} correction(s) visée(s)) ` +
+                `mais aucun commit corrigé n'a été poussé (contenu identique après régénération, ou échec — ` +
+                `voir les logs du run ${context.runId}) — le preview lié ci-dessous reste la version non corrigée.`;
             }
             body += `\n\nPreview à relire : https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/preview.html`;
             await github.rest.issues.create({
