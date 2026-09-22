@@ -131,6 +131,31 @@ point de la série doit porter la même valeur/date que le chiffre déjà cité 
 dans les indicateurs. `raison` doit citer une source et un nombre de points \
 concrets, jamais une affirmation générique.
 
+7. **Style naturel, fluide et clair — jamais de tournure « IA ».** Relis \
+chaque phrase du `dek`, des encarts Comprendre et de `why` comme si tu la \
+disais à voix haute dans une conversation normale (même règle que celle \
+donnée au rédacteur, docs/routine-redaction-prompt.md § « Jamais de \
+tournure qui sonne artificielle »). Signale :
+   - une affirmation suivie d'une négation abrupte ("X sert de Y... Ce \
+n'est plus vrai : [fait]." — au lieu d'une structure concessive directe \
+"D'ordinaire, [mécanisme]. Mais le [date], [fait].") ;
+   - une subordonnée enchâssée au milieu d'une phrase, qui casse l'ordre \
+naturel de lecture ;
+   - des connecteurs lourds empilés ("de fait", "il convient de noter \
+que", "en effet", "par ailleurs") là où un connecteur simple, ou rien du \
+tout, suffirait ;
+   - une double négation évitable ("n'est pas sans incidence sur" au lieu \
+de "pèse sur") ;
+   - une formule creuse ou trop symétrique ("il ne s'agit pas seulement de \
+X, mais aussi de Y") qui n'apporte aucune information supplémentaire ;
+   - un abus de vocabulaire sensationnaliste ("choc", "historique", \
+"inédit", "paralysé", "catastrophe", "menace existentielle", "chaos", \
+"jamais vu") plutôt qu'un vocabulaire d'analyse ("point de bascule", \
+"pression", "risque", "levier", "dépendance", "rupture", "escalade", \
+"vulnérabilité", "signal", "indicateur").
+   Ne signale que ce qui casse réellement la fluidité ou la clarté de \
+lecture — jamais une reformulation cosmétique sans gain réel.
+
 Pour chaque défaut trouvé, cite l'extrait exact concerné. Si un point n'a \
 rien à signaler, ne le mentionne pas — ne remplis jamais artificiellement \
 la liste des `findings` pour donner l'impression d'avoir travaillé.
@@ -141,7 +166,7 @@ Réponds en JSON strict avec cette forme exacte :
   "resume": "1 à 2 phrases de synthèse globale",
   "findings": [
     {{
-      "categorie": "coherence_dates" | "attribution" | "ton" | "repetition" | "framing_probabilites" | "graphique" | "autre",
+      "categorie": "coherence_dates" | "attribution" | "ton" | "repetition" | "framing_probabilites" | "graphique" | "style_ia" | "autre",
       "gravite": "bloquant" | "mineur",
       "constat": "description précise du problème",
       "extrait": "citation exacte du passage concerné",
