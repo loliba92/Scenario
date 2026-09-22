@@ -41,7 +41,7 @@ jobs:
           TOMORROW=$(date -u -d '+1 day' '+%Y-%m-%d')
           echo "Generating brief for $TOMORROW..."
           OPENROUTER_API_KEY="${{ secrets.OPENROUTER_API_KEY }}" python3 generate_fallback_brief.py --date "$TOMORROW" 2>&1 | tee /tmp/phase1.log
-          if [ $? -ne 0 ]; then
+          if [ ${PIPESTATUS[0]} -ne 0 ]; then
             echo "❌ Phase 1 failed"
             exit 1
           fi
@@ -53,7 +53,7 @@ jobs:
           TOMORROW=$(date -u -d '+1 day' '+%Y-%m-%d')
           echo "Generating preview edition for $TOMORROW..."
           OPENROUTER_API_KEY="${{ secrets.OPENROUTER_API_KEY }}" PEXELS_API_KEY="${{ secrets.PEXELS_API_KEY }}" python3 generate_daily_edition.py --brief ../../editorial-briefs/"$TOMORROW".json 2>&1 | tee /tmp/phase2.log
-          if [ $? -ne 0 ]; then
+          if [ ${PIPESTATUS[0]} -ne 0 ]; then
             echo "❌ Phase 2 failed"
             exit 1
           fi
@@ -148,6 +148,10 @@ jobs:
           N_FINDINGS=$(python3 -c "import json; print(len(json.load(open('/tmp/brief-revise.json'))['corrections_a_appliquer']))")
           echo "Régénération de l'édition avec $N_FINDINGS correction(s)..."
           OPENROUTER_API_KEY="${{ secrets.OPENROUTER_API_KEY }}" PEXELS_API_KEY="${{ secrets.PEXELS_API_KEY }}" python3 generate_daily_edition.py --brief /tmp/brief-revise.json 2>&1 | tee /tmp/phase3.log
+          if [ ${PIPESTATUS[0]} -ne 0 ]; then
+            echo "❌ Régénération échouée — preview non corrigé conservé tel quel"
+            exit 0
+          fi
           echo "✅ Régénération réussie"
           echo "revised=true" >> "$GITHUB_OUTPUT"
           echo "n_findings=$N_FINDINGS" >> "$GITHUB_OUTPUT"
