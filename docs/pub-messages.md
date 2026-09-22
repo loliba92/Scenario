@@ -900,6 +900,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-09-20 (archives/2026-09-20.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-09-22
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 507 millions de barils
+- message: Avec la prise de l'île de Perim et le blocus d'Ormuz, les stocks pétroliers mondiaux ont déjà chuté de 507 millions de barils alors que le Brent dépasse 107 dollars.
+- attribution: — lesscenarios.fr, 22 septembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-09-22.html
+
+*Phrase à retenir de l'édition du 2026-09-22 (archives/2026-09-22.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
