@@ -61,17 +61,17 @@ from generate_daily_edition import (
 # Passé de DEFAULT_MODEL (anthropic/claude-sonnet-5) à Opus le 18
 # septembre 2026 (décision utilisateur), puis à Sonnet le 20 (retour « opus
 # n'apporte rien »), puis à Upstage Solar Pro 4 le 21 (optimisation coût).
-# MAIS — incident du 22 septembre 2026 à 19:09 : le modèle upstage/solar-pro4
-# a IGNORÉ la règle « Priorité absolue passe avant tout » et choisi un sujet
-# du jour (mercredi) plutôt que « Carburants » en priorité absolue.
-# upstage/solar-pro4 manque de puissance pour respecter des règles éditoriales
-# complexes avec logique conditionnelle sur plusieurs listes. Basculé à
-# google/gemini-3.7-flash (même modèle que le brief épisode + la critique) :
-# coût similaire à Sonnet (meilleur que upstage), et fiabilité prouvée pour
-# JSON structuré + règles logiques, sans perte de qualité vs Sonnet sur la
-# recherche/jugement éditorial (test du 21 sept inclus de nombreuses briefs
-# court avec ce modèle ou ses variantes).
-FALLBACK_MODEL = "google/gemini-3.7-flash"  # Phase 2 production (fiabilité)
+# Incident du 22 septembre 2026 à 19:09 : le modèle a choisi un sujet du
+# jour (mercredi) plutôt que « Carburants », alors en priorité absolue —
+# temporairement basculé à google/gemini-3.7-flash pour investiguer, mais
+# le vrai problème n'était pas le modèle : c'est sujets-prioritaires.md qui
+# plaçait « Carburants » en Priorité absolue tout en le laissant aussi
+# éligible comme sujet normal du mercredi, une ambiguïté qu'aucun modèle ne
+# pouvait fiablement trancher. Corrigé à la source le 22 septembre (sujet
+# déplacé en section mercredi, plus de Priorité absolue concurrente) —
+# revenu à Upstage Solar Pro 4 (optimisation coût, plus besoin de
+# contourner un problème qui n'était pas le sien).
+FALLBACK_MODEL = "upstage/solar-pro4"  # Phase 1 production (optimisation coût)
 SONNET_5_BACKUP = "anthropic/claude-sonnet-5"  # Rollback si besoin
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
