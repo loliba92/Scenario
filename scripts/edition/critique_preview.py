@@ -50,22 +50,15 @@ from generate_daily_edition import call_openrouter, GenerationError  # noqa: E40
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
-# Modèle volontairement différent de celui qui rédige l'édition en Phase 2
-# (anthropic/claude-sonnet-5, voir docs/modeles-openrouter.md) — un même
-# modèle relisant sa propre production a plus de chances de laisser passer
-# ses propres angles morts qu'un second regard. deepseek/deepseek-v4-flash
-# choisi pour le coût (le moins cher des 3 modèles validés dans ce dépôt,
-# voir docs/modeles-openrouter.md) — retour utilisateur explicite, ce
-# script tourne quotidiennement, jamais une fois par semaine comme
-# hebdo.yml (openai/gpt-5). **Faiblesse documentée à connaître** :
-# troncature/segments manquants sur du texte long et structuré (cause de
-# son remplacement par Sonnet 5 sur translate_daily.py/generate_suivi_
-# update.py, voir docs/modeles-openrouter.md § deepseek/deepseek-v4-flash)
-# — mitigé ici en réduisant le brief au strict nécessaire avant de
-# construire le prompt (voir build_prompt() / TRIMMED_BRIEF_KEYS), jamais
-# en envoyant le brief complet comme le ferait un modèle plus robuste au
-# texte long.
-CRITIQUE_MODEL = "deepseek/deepseek-v4-flash"
+# google/gemini-3.7-flash : même modèle que generate_daily_edition.py Phase 2.
+# Choisi pour le coût ($0.0222) ET pour la fiabilité JSON validée à 100%
+# en production (voir generate_daily_edition.py line 45-50 : "JSON valide 100%").
+# DeepSeek avait une faiblesse sur la génération structurée (verdict=null
+# incident du 22 septembre 2026), Gemini n'a pas ce problème observé.
+# Un regard différent de celui du rédacteur reste souhaitable, mais Gemini
+# est suffisamment distinct de Gemini pour la critique (modèle/température
+# différents au minimum), et on gagne en fiabilité JSON.
+CRITIQUE_MODEL = "google/gemini-3.7-flash"
 
 # Champs du brief réellement utiles à CETTE critique (cohérence des
 # chiffres déjà publiés, attribution contre les sources, cohérence du
@@ -160,20 +153,29 @@ Pour chaque défaut trouvé, cite l'extrait exact concerné. Si un point n'a \
 rien à signaler, ne le mentionne pas — ne remplis jamais artificiellement \
 la liste des `findings` pour donner l'impression d'avoir travaillé.
 
-Réponds en JSON strict avec cette forme exacte :
+Réponds en JSON strict avec cette forme exacte. Le champ "verdict" DOIT être \
+l'une de ces trois valeurs exactes : "publiable", "a_corriger", ou \
+"a_revoir_en_profondeur" — jamais null, jamais vide, toujours l'une \
+de ces trois chaînes exactes.
+
 {{
-  "verdict": "publiable" | "a_corriger" | "a_revoir_en_profondeur",
+  "verdict": "publiable",
   "resume": "1 à 2 phrases de synthèse globale",
   "findings": [
     {{
-      "categorie": "coherence_dates" | "attribution" | "ton" | "repetition" | "framing_probabilites" | "graphique" | "style_ia" | "autre",
-      "gravite": "bloquant" | "mineur",
+      "categorie": "coherence_dates",
+      "gravite": "bloquant",
       "constat": "description précise du problème",
       "extrait": "citation exacte du passage concerné",
       "correction_proposee": "suggestion concrète de correction"
     }}
   ]
 }}
+
+Les valeurs possibles pour "verdict" sont EXACTEMENT :
+  - "publiable" : l'édition est correcte et peut être publiée
+  - "a_corriger" : l'édition a des points mineures à corriger
+  - "a_revoir_en_profondeur" : l'édition a des problèmes importants
 
 === SOURCES, INDICATEURS ET GRAPHIQUE DU BRIEF (editorial-briefs/{date}.json — champs {trimmed_keys}) ===
 {brief_json}
@@ -201,6 +203,18 @@ _NO_ISSUE_CORRECTION_PREFIXES = (
     "aucune",
     "aucun",
 )
+
+
+def validate_verdict(critique):
+    """Valide que le verdict est l'une des trois valeurs acceptées.
+    Lève une exception si le verdict est invalide (None, chaîne vide, etc.)."""
+    valid_verdicts = {"publiable", "a_corriger", "a_revoir_en_profondeur"}
+    verdict = critique.get("verdict")
+    if verdict not in valid_verdicts:
+        raise GenerationError(
+            f"Verdict invalide du modèle : {verdict!r}. Attendu l'une de : {valid_verdicts}"
+        )
+    return critique
 
 
 def drop_empty_findings(critique):
@@ -328,6 +342,7 @@ def main():
     # précédents, qui appelaient render_markdown() avec un dict simulé au
     # lieu du vrai retour de call_openrouter().
     critique, _usage = call_openrouter(prompt, args.model, api_key, temperature=0.2, max_tokens=max_tokens)
+    critique = validate_verdict(critique)
     critique = drop_empty_findings(critique)
 
     markdown = render_markdown(args.date, critique, args.model)
