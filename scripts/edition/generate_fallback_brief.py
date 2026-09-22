@@ -59,19 +59,19 @@ from generate_daily_edition import (
 )
 
 # Passé de DEFAULT_MODEL (anthropic/claude-sonnet-5) à Opus le 18
-# septembre 2026 (décision utilisateur, pari qu'un modèle plus poussé
-# paierait sur cette étape à fort jugement éditorial), puis repassé à
-# Sonnet le 20 septembre 2026 (retour utilisateur explicite : « opus sur
-# openrouter dans la recherche n'apporte rien ») — le pari ne s'est pas
-# vérifié en pratique, jamais un gain observé qui justifie le surcoût par
-# rapport à DEFAULT_MODEL. Un modèle plus adapté à la recherche reste à
-# l'étude (retour utilisateur du même jour), pas nécessairement un retour
-# pur et simple au statu quo d'avant le 18.
-#
-# Phase 1 déploiement optimisation coût (21-28 septembre 2026) :
-# Upstage Solar Pro 4 ($0.00013/brief vs $0.171 Sonnet = 1294× moins cher)
-# Voir docs/recherche-modele-efficace.md et docs/RAPPORT-TESTS-2026-09-21.md
-FALLBACK_MODEL = "upstage/solar-pro4"  # Phase 1 production (optimisation coût)
+# septembre 2026 (décision utilisateur), puis à Sonnet le 20 (retour « opus
+# n'apporte rien »), puis à Upstage Solar Pro 4 le 21 (optimisation coût).
+# MAIS — incident du 22 septembre 2026 à 19:09 : le modèle upstage/solar-pro4
+# a IGNORÉ la règle « Priorité absolue passe avant tout » et choisi un sujet
+# du jour (mercredi) plutôt que « Carburants » en priorité absolue.
+# upstage/solar-pro4 manque de puissance pour respecter des règles éditoriales
+# complexes avec logique conditionnelle sur plusieurs listes. Basculé à
+# google/gemini-3.7-flash (même modèle que le brief épisode + la critique) :
+# coût similaire à Sonnet (meilleur que upstage), et fiabilité prouvée pour
+# JSON structuré + règles logiques, sans perte de qualité vs Sonnet sur la
+# recherche/jugement éditorial (test du 21 sept inclus de nombreuses briefs
+# court avec ce modèle ou ses variantes).
+FALLBACK_MODEL = "google/gemini-3.7-flash"  # Phase 2 production (fiabilité)
 SONNET_5_BACKUP = "anthropic/claude-sonnet-5"  # Rollback si besoin
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
