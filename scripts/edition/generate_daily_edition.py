@@ -889,6 +889,19 @@ def validate_content_schema(content, brief):
             f"indicators : {len(content['indicators'])} éléments, brief en avait "
             f"{len(brief.get('indicateurs_kpi', []))}"
         )
+    # Incident du 22 septembre 2026 (run 35777652055) : le comptage
+    # ci-dessus valide le NOMBRE d'indicateurs mais jamais leur structure —
+    # un essai avec exactement le bon nombre d'éléments, dont un élément
+    # sans clé "value", passait cette validation puis faisait planter
+    # build_html._kpi_indicator_html() (KeyError('value')) en aval, hors de
+    # portée du filtre "indicators :" déjà exclu du repli "meilleur essai".
+    # Vérifie donc aussi que chaque indicateur a ses 3 champs, avec le même
+    # préfixe "indicators" pour rester couvert par ce filtre.
+    for idx, ind in enumerate(content.get("indicators") or []):
+        if not isinstance(ind, dict) or any(
+            not ind.get(f) for f in ("label", "value", "delta")
+        ):
+            errors.append(f"indicators[{idx}] : label/value/delta manquant ou vide (reçu {ind!r})")
 
     n_comprendre_brief = len(brief.get("encarts_decides", {}).get("comprendre_box") or [])
     n_comprendre_content = len(content.get("comprendre_box") or [])
@@ -1329,7 +1342,7 @@ def main():
             safe_attempts = [
                 pair for pair in attempts_history
                 if not any(
-                    "indicators :" in e or "indicateurs_touches :" in e
+                    e.startswith("indicators") or "indicateurs_touches :" in e
                     for e in pair[1]
                 )
             ]
