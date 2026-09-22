@@ -2,214 +2,259 @@
   "date": "2026-09-23",
   "registre": "politique-institutions",
   "sujet": {
-    "titre_propose": "Plans sociaux : le chômage va-t-il repartir à la hausse ?",
-    "h1": "Chômage : les plans sociaux vont-ils remonter les chiffres ?",
-    "question_posee": "Face à la vague de fermetures et de plans sociaux, le taux de chômage en France va-t-il remonter durablement, ou la réindustrialisation absorbe-t-elle ces destructions d'emplois ?",
-    "eyebrow": "Mercredi, Actualité & politique française",
-    "angle": "La succession de plans sociaux chez des groupes comme Auchan, Michelin ou Parisot interroge la capacité du marché du travail français à absorber ces destructions d'emplois structuraux, alors même que le gouvernement promet une réindustrialisation.",
+    "titre_propose": "Carburants à prix record et menaces hybrides : Macron réunit les candidats à l'Élysée",
+    "h1": "Carburants à prix record et menaces hybrides : Macron réunit les candidats à l'Élysée",
+    "question_posee": "Le gouvernement peut-il éviter l'explosion sociale cet automne face au record des carburants et à la menace hybride russe ?",
+    "eyebrow": "Mercredi, actualité & politique française",
+    "angle": "Le 18 septembre 2026, Emmanuel Macron a réuni à l'Élysée les principaux candidats à la présidentielle et chefs de partis pour évoquer la dégradation rapide de la situation internationale et ses conséquences sur la sécurité et l'énergie. Le gazole a franchi un nouveau record à 2,39 € le litre, le SP95-E10 atteint 2,17 €. Le gouvernement a déjà dépensé 1,4 milliard d'euros en aides ciblées depuis février, mais refuse une baisse généralisée des taxes. Parallèlement, Macron a détaillé la menace hybride russe : tentative d'attaque à l'aéroport de Leipzig attribuée au GRU, tir de fusée éclairante près d'une frégate danoise, multiplication d'actes hostiles en Europe. Jordan Bardella et Éric Ciotti réclament une baisse de la TVA sur le carburant. Des blocages de dépôts pétroliers par des pêcheurs ont déjà commencé en Méditerranée.",
     "tags": [
-      "emploi",
-      "industrie",
-      "politique-economique"
+      "politique",
+      "énergie",
+      "sécurité"
     ],
     "domain": "politique-institutions",
-    "image_keywords": "factory closure unemployment",
+    "image_keywords": "fuel station france, elysee palace paris, french flag",
     "complexite": 3,
-    "origine_prioritaire": "Plans sociaux : le chômage va-t-il repartir à la hausse ? [emploi & industrie]"
+    "origine_prioritaire": "- [ ] Carburants à prix record et menaces hybrides : Macron réunit les candidats à l'Élysée — le gouvernement peut-il éviter l'explosion sociale cet automne ? [politique & énergie]"
   },
   "anti_doublon": {
     "veille_ok": true,
     "meme_registre_ok": true,
-    "notes": "Veille (22/09) : Bab el-Mandeb, sujet géopolitique maritime, aucun recoupement avec l'emploi/industrie. Registre mercredi : dernière édition du même registre le 16/09 (ARENH, politique énergétique/institutions), aucun lien avec les plans sociaux industriels. Archives récentes : pas de sujet sur les plans sociaux industriels dans les 20 dernières éditions. Suivis actifs : aucun suivi actif sur l'emploi industriel. Filière vérifiée : industrie/manufacturier français, pas de doublon avec les sujets énergie ou cinéma traités récemment."
+    "notes": "Veille (22/09) : Bab el-Mandeb, sujet international sur le commerce maritime — aucun recoupement avec le sujet du jour (énergie française + politique intérieure). Registre mercredi (politique française) : vérification des 2-3 dernières éditions du même registre — 13/09 Budget 2027 (politique budgétaire), 16/09 ARENH (énergie/politique), 09/09 La France a trois visages (politique territoriale). Aucun ne partage le même moteur de fond (carburants record + menaces hybrides + réunion Élysée). Sujet inédit pour le registre."
   },
   "faits_verifies": [
     {
-      "affirmation": "Environ 130 000 emplois ont été menacés ou supprimés entre septembre 2023 et mars 2026 dans le cadre de fermetures d'usines et de plans sociaux chez des entreprises comme Auchan, Michelin, Parisot et d'autres groupes industriels ou de distribution.",
-      "chiffre": "130 000 emplois menacés ou supprimés",
-      "date_du_chiffre": "2026-03-31",
+      "affirmation": "Le gazole a franchi un nouveau record à 2,39 € le litre",
+      "chiffre": "2,39 €/litre",
+      "date_du_chiffre": "2026-09-18",
       "sources": [
-        "src-1"
-      ],
-      "confiance": "moyenne"
-    },
-    {
-      "affirmation": "Le taux de chômage en France se situait autour de 7,5% au début de l'année 2026, après une période de baisse modérée.",
-      "chiffre": "7,5%",
-      "date_du_chiffre": "2026-02-01",
-      "sources": [
-        "src-2"
+        "1"
       ],
       "confiance": "haute"
     },
     {
-      "affirmation": "Le gouvernement français a annoncé une stratégie de réindustrialisation visant à ramener la part de l'industrie dans le PIB et à créer des emplois manufacturiers, avec des objectifs chiffrés à moyen terme.",
-      "chiffre": null,
-      "date_du_chiffre": null,
+      "affirmation": "Le SP95-E10 atteint 2,17 € le litre",
+      "chiffre": "2,17 €/litre",
+      "date_du_chiffre": "2026-09-18",
       "sources": [
-        "src-3"
+        "1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le gouvernement a dépensé 1,4 milliard d'euros en aides ciblées depuis février",
+      "chiffre": "1,4 milliard €",
+      "date_du_chiffre": "2026-09-18",
+      "sources": [
+        "1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Macron a réuni à l'Élysée les principaux candidats à la présidentielle et chefs de partis le 18 septembre 2026",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-18",
+      "sources": [
+        "1",
+        "2"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Tentative d'attaque à l'aéroport de Leipzig attribuée au GRU",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-18",
+      "sources": [
+        "2"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "Tir de fusée éclairante près d'une frégate danoise",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-18",
+      "sources": [
+        "2"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "Jordan Bardella et Éric Ciotti réclament une baisse de la TVA sur le carburant",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-18",
+      "sources": [
+        "1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Des blocages de dépôts pétroliers par des pêcheurs ont déjà commencé en Méditerranée",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-18",
+      "sources": [
+        "1"
       ],
       "confiance": "moyenne"
     }
   ],
   "acteurs": [
     {
-      "nom": "Auchan",
-      "role": "Groupe de distribution ayant annoncé des plans de restructuration et de fermetures de magasins"
+      "nom": "Emmanuel Macron",
+      "role": "Président de la République française, a convoqué la réunion à l'Élysée"
     },
     {
-      "nom": "Michelin",
-      "role": "Groupe industriel ayant procédé à des réductions d'effectifs dans son secteur manufacturier"
+      "nom": "Jordan Bardella",
+      "role": "Président du Rassemblement national, réclame une baisse de la TVA sur le carburant"
     },
     {
-      "nom": "Parisot",
-      "role": "Entreprise du secteur alimentaire ayant annoncé un plan social"
+      "nom": "Éric Ciotti",
+      "role": "Député et ancien président des Républicains, réclame une baisse de la TVA sur le carburant"
     },
     {
       "nom": "Gouvernement français",
-      "role": "Promoteur de la stratégie de réindustrialisation et de mesures d'accompagnement des transitions"
+      "role": "A déjà dépensé 1,4 milliard d'euros en aides ciblées depuis février, refuse une baisse généralisée des taxes"
     },
     {
-      "nom": "Ministère du Travail",
-      "role": "Autorité en charge du suivi des plans sociaux et de l'emploi"
+      "nom": "Russie (GRU)",
+      "role": "Attribué comme auteur de la tentative d'attaque à l'aéroport de Leipzig"
+    },
+    {
+      "nom": "Pêcheurs en Méditerranée",
+      "role": "Déjà en train de bloquer des dépôts pétroliers"
     }
   ],
   "chronologie_cle": [
     {
-      "date": "2023-09-01",
-      "evenement": "Début de la vague de fermetures et de plans sociaux dans l'industrie et la distribution en France"
+      "date": "2026-09-18",
+      "evenement": "Réunion à l'Élysée des candidats à la présidentielle et chefs de partis convoquée par Macron"
     },
     {
-      "date": "2024-06-01",
-      "evenement": "Annonce de la stratégie de réindustrialisation du gouvernement"
+      "date": "2026-09-18",
+      "evenement": "Record du gazole à 2,39 €/litre et du SP95-E10 à 2,17 €/litre"
     },
     {
-      "date": "2025-03-01",
-      "evenement": "Nouveau pic de plans sociaux chez plusieurs groupes industriels"
+      "date": "2026-09-18",
+      "evenement": "Macron détaille la menace hybride russe (Leipzig, frégate danoise)"
     },
     {
-      "date": "2026-03-31",
-      "evenement": "Bilan chiffré : environ 130 000 emplois menacés ou supprimés depuis septembre 2023"
+      "date": "2026-09-18",
+      "evenement": "Blocages de dépôts pétroliers par des pêcheurs en Méditerranée"
     },
     {
       "date": "2026-09-23",
-      "evenement": "Publication de l'édition du jour — point sur l'évolution récente du chômage et des plans sociaux"
+      "evenement": "Date du brief — situation à surveiller : escalation ou contenance des tensions"
     }
   ],
   "scenarios_prospectifs": {
     "favorable": {
-      "resume": "La réindustrialisation porte ses fruits : les nouveaux emplois créés dans les secteurs stratégiques (énergie, numérique, défense) compensent largement les destructions, et le taux de chômage continue de baisser ou stagne à un niveau bas.",
+      "resume": "Le gouvernement annonce des aides renforcées ciblées sur les plus modestes et accepte une baisse fiscale temporaire (TVA ou taxe intérieure) pour calmer le mouvement. Les blocages de pêcheurs se résorbent. La menace hybride est absorbée sans nouvel incident majeur en Europe. Aucune explosion sociale n'a lieu.",
       "probabilite_suggeree": 25
     },
     "stable": {
-      "resume": "Les plans sociaux continuent de se succéder à un rythme régulier, mais l'emploi global reste stable grâce à la création d'emplois dans d'autres secteurs. Le chômage ne remonte pas significativement, mais la réindustrialisation ne compense pas encore pleinement les pertes.",
+      "resume": "Les tensions restent contenues : les prix des carburants stagnent sans nouveau record, les pêcheurs maintiennent quelques blocages localisés sans généralisation, et les partis s'accommodent d'un débat sans crise ouverte. Le gouvernement tient la ligne de la baisse ciblée sans généralisation. La menace hybride continue mais sans effet déclencheur immédiat.",
       "probabilite_suggeree": 50
     },
     "degrade": {
-      "resume": "La vague de fermetures s'amplifie, touchant des secteurs clés sans création compensatrice suffisante. Le taux de chômage remonte nettement, les tensions sociales augmentent, et la crédibilité de la réindustrialisation est remise en cause.",
+      "resume": "Le gazole franchit un nouveau seuil (2,50 €/litre ou plus), les blocages de pêcheurs s'étendent à d'autres ports et à des agriculteurs, des mouvements sociaux plus larges émergent. Les partis d'opposition intensifient la pression sur le gouvernement. Un acte hostile russe majeur en Europe renforce la psychose sécuritaire et complique la gestion de la crise énergétique.",
       "probabilite_suggeree": 25
     }
   },
   "indicateurs_kpi": [
     {
-      "label": "Taux de chômage en France (T2 2026)",
-      "valeur": "7,5%",
-      "tendance": "stable à légère hausse"
+      "label": "Prix du gazole (moyenne France)",
+      "valeur": "2,39 €/litre",
+      "tendance": "en hausse — record"
     },
     {
-      "label": "Emplois menacés/supprimés depuis sept. 2023",
-      "valeur": "~130 000",
+      "label": "Prix du SP95-E10 (moyenne France)",
+      "valeur": "2,17 €/litre",
+      "tendance": "en hausse — proche record"
+    },
+    {
+      "label": "Aides ciblées du gouvernement depuis février",
+      "valeur": "1,4 milliard €",
       "tendance": "en accumulation"
     }
   ],
   "graphique_dc_chart": {
     "decision": "non",
-    "raison": "Pas de série longue suffisante de données chiffrées vérifiées pour un graphique en escalier pertinent sur les plans sociaux ; les données disponibles sont ponctuelles et non comparables sur une longue période.",
+    "raison": "Sujet d'actualité immédiate sans série historique longue disponible pour un graphique en escalier pertinent à ce stade.",
     "serie": null
   },
   "encarts_decides": {
     "comprendre_box": [
       {
-        "focus": "Ce qu'est un plan social et comment il diffère d'une simple suppression d'emplois",
-        "rattache_a": "fait-verifie-1"
+        "focus": "Pourquoi le gouvernement refuse une baisse généralisée des taxes sur les carburants malgré les records de prix",
+        "rattache_a": "fait_verifie_3 (1,4 milliards d'euros d'aides ciblées) et angle"
       },
       {
-        "focus": "Le mécanisme de la réindustrialisation : quels secteurs, quels emplois créés vs perdus",
-        "rattache_a": "fait-verifie-3"
+        "focus": "Qu'est-ce que la menace hybride russe et pourquoi Macron la met en avant lors de cette réunion",
+        "rattache_a": "fait_verifie_5 (attaque Leipzig) et fait_verifie_6 (frégate danoise)"
       }
     ],
     "list_box": null
   },
   "elements_incertains": [
-    "Le chiffre exact de 130 000 emplois est une estimation cumulative ; les sources divergent légèrement sur le périmètre (menacés vs définitivement supprimés).",
-    "L'impact net sur le taux de chômage des plans sociaux individuels est difficile à isoler des autres facteurs économiques.",
-    "Les projections de la réindustrialisation sont à moyen terme et sujettes à réévaluation selon la conjoncture."
+    "Le chiffre exact du record du gazole peut varier selon les sources et les régions — vérifier la source officielle (Ministère de la Transition écologique / DGEC) avant publication.",
+    "La nature exacte des actes hostiles russe cités par Macron (Leipzig, frégate danoise) nécessite une vérification croisée avec des sources officielles allemandes et danoises.",
+    "L'ampleur réelle des blocages de dépôts pétroliers en Méditerranée n'est pas encore chiffrée — informations partielles."
   ],
   "a_ne_pas_affirmer": [
-    "Ne pas affirmer que la réindustrialisation a déjà créé un nombre précis d'emplois compensant les pertes — les données officielles sur ce point sont incomplètes.",
-    "Ne pas nommer de dirigeants individuels ou de personnes privées dans les plans sociaux.",
-    "Ne pas présenter un plan social comme définitivement acté si des négociations sont en cours."
+    "Ne pas affirmer que la Russie est formellement responsable de l'attaque à Leipzig sans attribution officielle confirmée par les autorités allemandes.",
+    "Ne pas affirmer que les blocages de pêcheurs sont coordonnés ou liés à un mouvement national organisé sans source confirmée.",
+    "Ne pas présenter la baisse de TVA réclamée par Bardella et Ciotti comme une mesure déjà envisagée par le gouvernement."
   ],
   "sources": [
     {
-      "id": "src-1",
-      "title": "Plans sociaux et fermetures d'usines : le bilan chiffré de la vague industrielle",
-      "source": "La Tribune",
-      "url": "https://www.latribune.fr/economie/emploi/plans-sociaux-fermetures-usines-bilan-chiffre-20260331",
+      "id": "1",
+      "title": "Macron réunit les candidats à l'Élysée face aux menaces hybrides et au record des carburants",
+      "source": "RTL",
+      "url": "https://www.rtl.fr",
       "image": null,
       "lang": "fr",
       "domain": "politique-institutions",
-      "summary": "Bilan chiffré des plans sociaux et fermetures d'usines en France entre septembre 2023 et mars 2026, avec le détail par entreprise et secteur.",
+      "summary": "Article du 18 septembre 2026 couvrant la réunion à l'Élysée convoquée par Macron avec les candidats à la présidentielle et chefs de partis, le record du gazole à 2,39 €/litre, le SP95-E10 à 2,17 €, les 1,4 milliards d'euros d'aides depuis février, et les réclamations de baisse de TVA de Bardella et Ciotti.",
+      "read_minutes": 3
+    },
+    {
+      "id": "2",
+      "title": "Macron détaille la menace hybride russe : attaque à Leipzig, fusée near frégate danoise",
+      "source": "La Croix",
+      "url": "https://www.la-croix.com",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Article du 18 septembre 2026 détaillant les actes hostiles russe cités par Macron : tentative d'attaque à l'aéroport de Leipzig attribuée au GRU, tir de fusée éclairante près d'une frégate danoise, et multiplication d'actes hostiles en Europe.",
       "read_minutes": 4
-    },
-    {
-      "id": "src-2",
-      "title": "Taux de chômage en France : évolution au premier trimestre 2026",
-      "source": "Insee",
-      "url": "https://www.insee.fr/fr/statistiques/2026-chomage-trimestre-1",
-      "image": null,
-      "lang": "fr",
-      "domain": "politique-institutions",
-      "summary": "Données officielles du taux de chômage en France au T1 2026, avec analyse de la tendance récente.",
-      "read_minutes": 2
-    },
-    {
-      "id": "src-3",
-      "title": "Réindustrialisation : la stratégie du gouvernement pour relancer l'industrie française",
-      "source": "Le Monde",
-      "url": "https://www.lemonde.fr/economie/reindustrialisation-strategie-gouvernement-20260401",
-      "image": null,
-      "lang": "fr",
-      "domain": "politique-institutions",
-      "summary": "Présentation des mesures et objectifs de la stratégie de réindustrialisation française, avec les secteurs prioritaires et les moyens déployés.",
-      "read_minutes": 5
     }
   ],
   "revue_de_presse": [
     {
-      "title": "L'industrie française affiche une hausse des investissements en 2026",
-      "source": "Les Echos",
-      "url": "https://www.lesechos.fr/industrie/industrie-francaise-investissements-2026",
+      "title": "Brent dépasse 107 dollars, tensions au Moyen-Orient",
+      "source": "Boursorama",
+      "url": "https://www.boursorama.com",
       "image": null,
       "lang": "fr",
-      "domain": "politique-institutions",
-      "summary": "Les investissements de l'industrie manufacturière française ont augmenté de 3,2% en 2026, portés par les secteurs de la défense et de l'énergie.",
+      "domain": "economie-entreprises",
+      "summary": "Article sur le record du Brent à 107 dollars/baril et l'impact sur les marchés européens et américains, dans le contexte des tensions au détroit d'Ormuz.",
       "read_minutes": 3
     },
     {
-      "title": "Les syndicats demandent un plan de transition pour les secteurs en difficulté",
-      "source": "Libération",
-      "url": "https://www.liberation.fr/economie/plans-transition-syndicats-20260920",
+      "title": "Les pêcheurs français bloquent des dépôts pétroliers en Méditerranée",
+      "source": "AFP",
+      "url": "https://www.afp.com",
       "image": null,
       "lang": "fr",
       "domain": "politique-institutions",
-      "summary": "Les principaux syndicats ont appelé le gouvernement à mettre en place un plan de transition pour accompagner les secteurs touchés par les restructurations.",
+      "summary": "Reportage sur les débuts des blocages de dépôts pétroliers par des pêcheurs en Méditerranée, en réaction aux prix record du carburant.",
       "read_minutes": 2
     }
   ],
   "recommandations_redaction": [
-    "Lier explicitement les plans sociaux aux enjeux de la réindustrialisation : le contraste entre destructions d'emplois et discours sur la création d'emplois industriels est le cœur du sujet.",
-    "Préciser que le chiffre de 130 000 emplois est une accumulation sur plusieurs mois, pas un événement ponctuel — éviter l'impression d'une crise soudaine.",
-    "Mettre en perspective avec les données récentes du chômage : si le taux reste stable malgré ces plans sociaux, c'est un signal important à interpréter avec nuance.",
-    "Ne pas tomber dans le pessimisme facile : la réindustrialisation est un processus à moyen terme, les effets sur l'emploi ne sont pas immédiats."
+    "Lien explicite avec l'édition du 16/09 sur l'ARENH (archives/2026-09-16.html) : les deux sujets traitent de la politique énergétique française et de l'impact sur le prix pour les ménages — faire le lien dans le contexte.",
+    "Mettre en perspective avec l'édition du 13/09 sur le Budget 2027 (archives/2026-09-13.html) : la réunion à l'Élysée intervient juste après le dépôt du budget, les deux sujets sont liés par la pression fiscale et sociale.",
+    "Chiffrer précisément le record du gazole et du SP95-E10 avec la source officielle (DGEC/Ministère de la Transition écologique) avant publication.",
+    "Vérifier l'attribution officielle de l'attaque à Leipzig avant de la présenter comme un fait établi.",
+    "Préciser si les blocages de pêcheurs sont isolés ou coordonnés, et s'ils s'étendent."
   ]
 }
