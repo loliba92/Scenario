@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 22.09.2026 — [Bab el-Mandeb : un tiers du commerce mondial sous contrôle hostile ?](../archives/2026-09-22.html)
 - 21.09.2026 — [USA-Chine : la trêve commerciale au bord du gouffre](../archives/2026-09-21.html)
 - 20.09.2026 — [Basket : la NBA débarque en Europe](../archives/2026-09-20.html)
 - 19.09.2026 — [Sheeran-Macklemore : la neutralité impossible](../archives/2026-09-19.html)

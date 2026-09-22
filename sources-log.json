@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-09-22",
+      "articles": [
+        {
+          "title": "Iran : le pétrole à 107 dollars, les marchés sous tension",
+          "source": "La Croix",
+          "url": "https://www.la-croix.com/economie/petrole-107-dollars-marchés-tension/",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie-mondiale",
+          "summary": "Le choc pétrolier d'Ormuz se transmet à l'inflation, aux obligations et aux actions. Le Brent dépasse 107 dollars, le rendement du Treasury à 10 ans atteint 4,97%, et l'OAT française franchit 4% pour la première fois depuis juin 2009.",
+          "read_minutes": 3
+        },
+        {
+          "title": "BCE : relèvement de 25 points de base, taux de dépôt à 2,50%",
+          "source": "Boursorama",
+          "url": "https://www.boursorama.com/actualite/bce-relèvement-taux-25-points-base/",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie-mondiale",
+          "summary": "La Banque centrale européenne a relevé ses taux de 25 points de base le 10 septembre 2026, portant son taux de dépôt à 2,50% à compter du 16 septembre — une décision surprise alors que le marché anticipait une pause.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-09-21",
       "articles": [
         {
