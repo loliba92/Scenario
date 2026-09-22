@@ -190,9 +190,109 @@
     }
   ],
   "graphique_dc_chart": {
-    "decision": "non",
-    "raison": "Sujet en cours, pas encore de série historique longue disponible pour un graphique en escalier pertinent. Les données disponibles (Brent, trafic Ormuz, stocks) sont des snapshots datés, pas une série suffisante pour un graphique.",
-    "serie": null
+    "decision": "oui",
+    "raison": "Brent : historique de moyennes annuelles 2014-2025 vérifié via Statista (statista.com/statistics/262860, 12 points), recoupé avec worldoilmonitor.com/brent-price-history (écarts < 2 $/baril, méthodologies proches) — les deux sources documentent l'historique complet, pas seulement le dernier chiffre. 13e point : le cours spot du 9 sept. 2026 (107 $, déjà cité en indicator-strip, source webmanagercenter.com) plutôt qu'une moyenne annuelle puisque 2026 n'est pas achevée — précisé dans la légende du graphique pour ne pas mélanger les méthodologies. Les 3 critères passent : (1) source publique fiable sur tout l'historique, pas un snapshot ; (2) 13 points réels sur 12 ans, largement au-dessus du minimum de 5 ; (3) la série montre que le seuil des 100 $/baril a déjà été franchi trois fois depuis 2014 (2014, 2022, 2026) mais jamais avec un double blocage simultané d'Ormuz et Bab el-Mandeb, ce qui éclaire directement la question du jour sur la gravité de la crise actuelle.",
+    "serie": {
+      "aria_label": "Graphique en escalier : prix du Brent en dollars par baril, moyenne annuelle de 2014 à 2025, avec le cours du 9 septembre 2026 en dernier point à 107 dollars.",
+      "lead": "Un baril au-dessus de 100 dollars n'est pas une première : le Brent y est déjà monté à trois reprises en douze ans, mais jamais dans un contexte de double blocage simultané des deux principaux points de passage maritimes du pétrole.",
+      "caption": "Moyenne annuelle du Brent, 2014-2025 (Statista, d'après ICE Brent) ; dernier point : cours spot du 9 septembre 2026, déjà cité ci-dessus — l'année 2026 n'étant pas achevée, ce n'est pas une moyenne annuelle.",
+      "y_max": 140,
+      "y_gridlines": [
+        {
+          "valeur": 25,
+          "label": "25 $"
+        },
+        {
+          "valeur": 50,
+          "label": "50 $"
+        },
+        {
+          "valeur": 75,
+          "label": "75 $"
+        },
+        {
+          "valeur": 100,
+          "label": "100 $"
+        }
+      ],
+      "x_axis_years": [
+        2014,
+        2016,
+        2020,
+        2022,
+        2025,
+        2026
+      ],
+      "points": [
+        {
+          "annee": 2014,
+          "valeur": 99,
+          "tooltip": "2014 — 99 $/baril (moyenne annuelle)"
+        },
+        {
+          "annee": 2015,
+          "valeur": 53,
+          "tooltip": "2015 — 53 $/baril, effondrement après le boom du schiste américain"
+        },
+        {
+          "annee": 2016,
+          "valeur": 44,
+          "tooltip": "2016 — 44 $/baril"
+        },
+        {
+          "annee": 2017,
+          "valeur": 54,
+          "tooltip": "2017 — 54 $/baril"
+        },
+        {
+          "annee": 2018,
+          "valeur": 71,
+          "tooltip": "2018 — 71 $/baril"
+        },
+        {
+          "annee": 2019,
+          "valeur": 64,
+          "tooltip": "2019 — 64 $/baril"
+        },
+        {
+          "annee": 2020,
+          "valeur": 42,
+          "tooltip": "2020 — 42 $/baril, plus bas de la décennie pendant la pandémie de Covid-19"
+        },
+        {
+          "annee": 2021,
+          "valeur": 71,
+          "tooltip": "2021 — 71 $/baril, reprise post-Covid"
+        },
+        {
+          "annee": 2022,
+          "valeur": 100,
+          "tooltip": "2022 — 100 $/baril, choc de l'invasion russe de l'Ukraine"
+        },
+        {
+          "annee": 2023,
+          "valeur": 82,
+          "tooltip": "2023 — 82 $/baril"
+        },
+        {
+          "annee": 2024,
+          "valeur": 80,
+          "tooltip": "2024 — 80 $/baril"
+        },
+        {
+          "annee": 2025,
+          "valeur": 69,
+          "tooltip": "2025 — 69 $/baril, avant la crise des détroits"
+        },
+        {
+          "annee": 2026,
+          "valeur": 107,
+          "tooltip": "9 sept. 2026 — 107 $/baril, franchissement du seuil des 100 $ pendant la crise de Bab el-Mandeb/Ormuz (cours spot, année en cours)",
+          "last": true,
+          "last_label": "107 $ le 9 sept. 2026"
+        }
+      ]
+    }
   },
   "encarts_decides": {
     "comprendre_box": [
