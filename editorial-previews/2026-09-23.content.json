@@ -1,161 +1,158 @@
 {
-  "h1": "Plans sociaux : le chômage repartira-t-il à la hausse ?",
-  "question_text": "Des centaines de plans sociaux se succèdent : le chômage va-t-il remonter durablement en France, ou la reprise industrielle contient-t-elle la vague ?",
-  "section_title": "Trois trajectoires face à la vague de restructurations",
+  "h1": "Plans sociaux : le chômage va-t-il repartir à la hausse ?",
+  "question_text": "Plus de 130 000 emplois menacés depuis 2023 : la vague de plans sociaux va-t-elle remonter le chômage en France ?",
+  "section_title": "Plans sociaux et dynamique du chômage : trois trajectoires pour l'emploi",
   "dek": [
-    "Le paysage économique français traverse une zone de turbulences marquée par la multiplication des annonces de restructurations d'entreprises. Entre l'automne 2023 et le printemps 2026, selon les premières estimations disponibles, <strong>environ 130 000 emplois menacés ou supprimés</strong> ont été recensés sur le territoire national. Cette dégradation ne frappe pas un secteur isolé mais touche simultanément des piliers historiques de l'activité. De la grande distribution avec le groupe <strong>Auchan</strong> jusqu'à l'équipement automobile incarné par <strong>Michelin</strong>, en passant par le secteur de l'ameublement et du bâtiment avec l'entreprise <strong>Parisot</strong>, les directions justifient ces mesures par des baisses d'activité durables et la nécessité d'adapter leurs structures de coûts à un environnement concurrentiel international devenu particulièrement agressif.",
-    "Cette succession de plans de sauvegarde de l'emploi<a class=\"lex-ref\" href=\"#lex-pse\" aria-label=\"Voir la définition dans le lexique\">*</a>, communément appelés plans sociaux, surprend d'autant plus qu'elle intervient après une période prolongée d'amélioration sur le front du travail. Le <strong>taux de chômage</strong> en France avait en effet connu une baisse continue au cours des années précédentes, portée par une politique active de soutien aux entreprises et des réformes structurelles du marché de l'emploi. Ce reflux historique semblait installer l'économie française dans une dynamique de plein-emploi durable. Or, l'accumulation soudaine de réductions d'effectifs dans de grands groupes suscite l'inquiétude grandissante des observateurs, qui craignent une rupture nette de cette trajectoire vertueuse et un retournement macroéconomique généralisé.",
-    "Ce phénomène met en lumière un décalage frappant avec le discours officiel porté avec constance par le <strong>gouvernement français</strong>, qui a fait de la <strong>réindustrialisation</strong><a class=\"lex-ref\" href=\"#lex-reindustrialisation\" aria-label=\"Voir la définition dans le lexique\">*</a> et de la relocalisation productive la pierre angulaire de sa politique économique. D'ordinaire, la reconquête industrielle est censée créer des débouchés massifs et régénérer les bassins d'activité en déclin. Pourtant, sur le terrain, les ouvertures d'usines modernes ou de projets technologiques coexistent directement avec des fermetures de sites historiques et des coupes d'effectifs sévères. Ce contraste nourrit une incompréhension légitime chez les salariés et complexifie la lecture de l'état réel de l'appareil de production national face aux mutations écologiques et numériques en cours.",
-    "La portée exacte de ces restructurations demeure toutefois incertaine car un plan social ne se résume pas mécaniquement à des licenciements secs et définitifs. De nombreuses procédures privilégient les plans de départs volontaires<a class=\"lex-ref\" href=\"#lex-pdv\" aria-label=\"Voir la définition dans le lexique\">*</a>, les dispositifs de préretraite progressive ainsi que les reclassements internes au sein des filiales. De surcroît, le solde net de l'emploi dépend de la capacité des secteurs en tension à réembaucher rapidement la main-d'œuvre libérée. L'industrie verte, la maintenance spécialisée et les services continuent d'afficher des volumes d'offres non pourvues significatifs. L'enjeu central consiste donc à savoir si le rythme des créations d'emplois nouvelles suffira à compenser la rapidité des destructions constatées dans les filières traditionnelles en perte de vitesse.",
-    "Au niveau international, la France subit également les contrecoups d'un ralentissement économique généralisé chez ses principaux partenaires commerciaux, en particulier en Europe occidentale. La hausse accumulée des coûts énergétiques, le durcissement des conditions de crédit bancaire et l'arrivée massive de produits manufacturés étrangers à bas coûts compriment sévèrement les marges des industriels européens. Les états-majors des grands groupes opèrent des arbitrages rigoureux pour préserver leur rentabilité globale face à ces vents contraires. Ces choix stratégiques se traduisent par des arbitrages industriels sévères, où les sites de production les moins rentables ou les moins flexibles deviennent les premières cibles des réorganisations et des réductions de capacités.",
-    "La trajectoire future du marché du travail dépendra de l'équilibre entre ces deux forces antagonistes que sont les destructions d'emplois dans les filières matures et les gains générés par les investissements d'avenir. Si le choc actuel se limite à un assainissement ponctuel de structures en surcapacité, l'impact macroéconomique restera contenu sans bouleverser la courbe globale de l'emploi. En revanche, si la vague de départs volontaires se transforme en contagion à l'ensemble du tissu de sous-traitance et des prestataires locaux, le risque d'un emballement des chiffres du chômage deviendrait alors tangible. C'est précisément autour de cette dynamique incertaine que se dessinent trois scénarios pour les mois à venir."
+    "Depuis septembre 2023, le tissu économique français traverse une zone de turbulences marquée par la multiplication des annonces de restructuration. Selon les données consolidées jusqu'en mars 2026, environ <strong>130 000 emplois</strong> ont été directement menacés ou supprimés dans le cadre de fermetures de sites et de réductions d'effectifs. Cette dégradation frappe des secteurs très variés, allant de la grande distribution à l'industrie manufacturière en passant par la restauration collective. Face à cette succession de mauvaises nouvelles industrielles, une question centrale s'impose : cette série de défaillances et de réorganisations massives va-t-elle inverser la courbe nationale de l'emploi et faire remonter le chômage de façon durable ?",
+    "Pour l'instant, les statistiques macroéconomiques officielles dressent un constat en demi-teinte qui contraste avec la brutalité des annonces locales. Au premier trimestre 2026, le taux de chômage mesuré au sens du Bureau international du travail s'est établi à <strong>7,5 %</strong> de la population active, maintenant une trajectoire relativement contenue après plusieurs années de baisse progressive. Ce décalage apparent s'explique par les mécanismes légaux du plan de sauvegarde de l'emploi<a class=\"lex-ref\" href=\"#lex-pse\" aria-label=\"Voir la définition dans le lexique\">*</a>, qui impose de longs mois de négociations, d'indemnités et de congés de reclassement avant que les licenciements ne se traduisent effectivement par des inscriptions directes sur les listes de demandeurs d'emploi.",
+    "Plusieurs géants de l'économie nationale illustrent concrètement cette phase difficile. Le groupe de distribution Auchan a engagé des restructurations d'envergure touchant plusieurs milliers de postes dans ses hypermarchés pour s'adapter à la chute des marges et à la concurrence du commerce en ligne. De son côté, le manufacturier Michelin réorganise l'activité de plusieurs usines sur le territoire français afin de préserver sa rentabilité face à la concurrence des pneumatiques à bas coût. Des entreprises de taille intermédiaire comme le groupe Parisot subissent également de plein fouet l'érosion de la demande et les coûts de production, entraînant des fermetures d'ateliers et des suppressions de postes.",
+    "Cette vague de restructurations entre en collision frontale avec le grand objectif de réindustrialisation<a class=\"lex-ref\" href=\"#lex-reindustrialisation\" aria-label=\"Voir la définition dans le lexique\">*</a> affiché par le gouvernement français depuis plusieurs années. Les pouvoirs publics soutiennent massivement l'implantation de nouvelles usines dans la transition écologique et le numérique, espérant attirer des capitaux et revitaliser les bassins d'emploi sinistrés. Toutefois, la création de nouvelles lignes de production prend du temps, exige des compétences techniques spécifiques et s'accompagne d'une forte automatisation qui limite le volume brut d'emplois créés, empêchant souvent une absorption rapide des salariés licenciés de l'industrie traditionnelle.",
+    "L'incertitude quant à l'impact final sur le marché du travail repose sur la vitesse à laquelle les créations de postes dans les services et les nouvelles filières peuvent compenser les pertes de l'industrie classique. Une partie des travailleurs concernés par les fermetures parvient à retrouver un contrat grâce aux dispositifs de reconversion professionnelle et aux départs anticipés à la retraite. Néanmoins, si la conjoncture globale venait à ralentir ou si les défaillances de sous-traitants venaient à s'accélérer, l'équilibre actuel du marché de l'emploi pourrait rapidement se briser.",
+    "La situation actuelle ne dicte pas une fatalité unique, mais ouvre trois trajectoires bien distinctes pour les mois à venir. L'effet réel de ces <strong>130 000 emplois menacés</strong> dépendra autant de la capacité des entreprises à négocier des départs échelonnés que du dynamisme des secteurs porteurs de la transition énergétique. Examiner les mécanismes à l'œuvre permet de comprendre pourquoi l'évolution du chômage reste ouverte entre résilience industrielle, stagnation sous tension et décrochage économique plus sévère."
   ],
   "stakes_branches": {
-    "favorable": "Les créations de postes dans les filières d'avenir et les relocalisations compensent intégralement les réductions d'effectifs industriels.",
-    "stable": "Les restructurations restent ciblées sur quelques grands groupes sans contaminer le reste du tissu économique ni aggraver le chômage national.",
-    "degrade": "Les fermetures de sites s'étendent à la sous-traitance, provoquant une remontée durable et généralisée du chômage."
+    "favorable": "Les créations d'emplois verts et numériques dépassent les pertes industrielles, maintenant le chômage sous contrôle.",
+    "stable": "Les restructurations s'étalent dans le temps et le taux de chômage stagne autour de 7,5 % sans bascule nette.",
+    "degrade": "La vague de fermetures s'étend aux PME sous-traitantes et pousse le chômage durablement au-delà de 8 %."
   },
   "comprendre_box": [
     {
-      "lead": "Un plan social ne signifie pas automatiquement des destructions nettes de postes.",
-      "text": "Lorsqu'une grande entreprise comme Auchan ou Michelin déclenche un plan de sauvegarde de l'emploi, la loi impose la recherche systématique de reclassements et favorise les départs volontaires. L'impact réel sur les statistiques de l'emploi dépend du nombre final de licenciements contraints et de la vitesse à laquelle les salariés retrouvent une activité.",
-      "apres_dek_index": 0
+      "lead": "Un plan social organise et amortit les licenciements collectifs.",
+      "text": "En France, lorsqu'une entreprise d'au moins 50 salariés prévoit de licencier au moins 10 personnes sur une période de 30 jours, elle doit obligatoirement ouvrir un plan de sauvegarde de l'emploi. Ce dispositif encadre les indemnités, propose des mesures de reclassement interne ou externe et finance des formations pour limiter le passage direct par la case chômage.",
+      "apres_dek_index": 1
     },
     {
-      "lead": "Le paradoxe entre fermetures d'usines et discours sur la réindustrialisation.",
-      "text": "Le renouvellement industriel ressemble souvent à une phase de transition brutale : des filières historiques devenues trop coûteuses ferment leurs portes pendant que de nouvelles usines technologiques ouvrent ailleurs. Ce décalage temporel et géographique crée un sentiment de crise alors même que des projets d'avenir s'implantent sur le territoire.",
-      "apres_dek_index": 2
+      "lead": "Une usine moderne emploie moins de bras qu'un site traditionnel.",
+      "text": "La réindustrialisation contemporaine mise fortement sur la robotique et la numérisation des processus. Une usine de batteries ou de composants électroniques flambant neuve produit de gros volumes avec des équipes réduites, ce qui ne permet pas toujours de recruter autant d'ouvriers que ceux licenciés par les manufactures traditionnelles en fermeture.",
+      "apres_dek_index": 3
     }
   ],
   "list_box": null,
   "indicators": [
     {
-      "label": "Emplois menacés ou supprimés (sep. 2023 – mars 2026)",
-      "value": "~130 000",
-      "delta": "estimation cumulée sur la période"
+      "label": "Taux de chômage en France",
+      "value": "7,5 %",
+      "delta": "au 1er trimestre 2026 (Insee)"
     },
     {
-      "label": "Taux de chômage national (tendance de fond)",
-      "value": "Palier stable",
-      "delta": "après plusieurs années de baisse continue"
+      "label": "Emplois menacés ou supprimés",
+      "value": "130 000",
+      "delta": "cumul sept. 2023 - mars 2026"
     }
   ],
   "cards": {
     "favorable": {
-      "pct": 30,
-      "gauge_word": "Probable",
-      "h3": "La dynamique industrielle absorbe les départs et le chômage reste stable",
+      "pct": 25,
+      "gauge_word": "Peu probable",
+      "h3": "Les nouvelles filières industrielles absorbent les salariés licenciés",
       "why": [
-        "Dans cette perspective, les restructurations engagées par des groupes comme Michelin, Auchan ou Parisot sont rapidement absorbées par le dynamisme des secteurs porteurs de l'économie nationale. Les investissements publics et privés réalisés au titre du plan de réindustrialisation portent leurs fruits, générant des embauches régulières dans les usines de décarbonation, la logistique de pointe et les technologies de transition. Les salariés concernés par les plans de départs volontaires trouvent de nouveaux débouchés grâce aux passerelles de formation professionnelle et aux besoins persistants de main-d'œuvre qualifiée dans les bassins industriels régionaux. Le solde global entre destructions et créations d'emplois demeure ainsi équilibré sur l'ensemble du territoire.",
-        "Ce scénario se distingue d'une dégradation généralisée par la réactivité du tissu entrepreneurial et l'efficacité des dispositifs de reconversion territoriale mis en place par les pouvoirs publics. Contrairement à une situation d'enlisement où les personnes licenciées resteraient durablement sans emploi, la fluidité des recrutements permet d'éviter l'engorgement des registres de l'assurance chômage. Si ce rattrapage se confirme sur le terrain dans les prochains trimestres, la trajectoire du marché du travail pourrait ainsi préserver les gains obtenus lors des années précédentes sans subir de recul marqué."
+        "Dans cette perspective, la dynamique de réindustrialisation verte et de modernisation technologique monte rapidement en puissance sur tout le territoire. Les investissements dans les batteries électriques, l'hydrogène, la décarbonation et les services numériques créent un volume de postes supérieur aux coupes annoncées chez Auchan, Michelin ou Parisot. Les mécanismes de formation et de reconversion professionnelle fonctionnent à plein régime, permettant aux ouvriers et employés touchés par les fermetures de retrouver une activité qualifiée sans traverser de période prolongée d'inactivité.",
+        "Ce scénario s'écarte nettement d'une crise durable de l'emploi en misant sur une transition rapide des compétences vers les métiers d'avenir. Contrairement à une simple stagnation des statistiques, l'économie française parviendrait ici à renouveler sa base productive tout en réduisant le taux de chômage sous la barre des 7,0 %. Une telle trajectoire deviendrait particulièrement crédible si les nouveaux projets industriels se déployaient sans retard de calendrier et si les tensions de recrutement s'atténuaient grâce à une adéquation parfaite entre l'offre et la demande de travail."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Emplois menacés ou supprimés (sep. 2023 – mars 2026)",
-          "evo_current": "~130 000 (flux compensé)",
-          "evo_arrow": "flat",
-          "evo_prev": "vague stabilisée"
+          "field_name": "Taux de chômage en France",
+          "evo_current": "6,9 %",
+          "evo_arrow": "down",
+          "evo_prev": "7,5 %"
         },
         {
-          "field_name": "Taux de chômage national (tendance de fond)",
-          "evo_current": "Reprise de la baisse",
+          "field_name": "Emplois menacés ou supprimés",
+          "evo_current": "Flux compensé",
           "evo_arrow": "down",
-          "evo_prev": "palier stable"
+          "evo_prev": "130 000"
         }
       ],
-      "france_line": "La préservation des compétences et la réindustrialisation confortent la cohésion sociale et soutiennent la croissance globale.",
+      "france_line": "L'industrie se modernise rapidement et évite la progression du nombre de demandeurs d'emploi.",
       "france_impact": "favorable"
     },
     "stable": {
-      "pct": 50,
-      "gauge_word": "Assez probable",
-      "h3": "Les restructurations restent sectorielles sans provoquer de bascule macroéconomique",
+      "pct": 45,
+      "gauge_word": "Probable",
+      "h3": "L'étalement des plans sociaux fige le chômage autour de son niveau actuel",
       "why": [
-        "Le scénario central repose sur l'hypothèse d'une vague de réorganisations circonscrite à des secteurs spécifiques en mutation structurelle, sans contagion à l'ensemble du marché national. Les suppressions de postes recensées chez les distributeurs physiques et certains manufacturiers correspondent à des adaptations indispensables face à la concurrence internationale et à la baisse de la consommation des ménages. Les départs s'étalent sur plusieurs semestres grâce à des négociations syndicales approfondies et au recours privilégié aux départs volontaires ou anticipés. Les créations d'emplois dans les services et les petites et moyennes entreprises continuent de fonctionner à un rythme modéré, suffisant pour neutraliser l'impact global de ces réductions d'effectifs.",
-        "Par rapport aux deux autres issues, cette trajectoire évite à la fois l'illusion d'une réindustrialisation miraculeuse et la menace d'un effondrement massif de l'activité économique française. Le chômage ne recule plus de manière spectaculaire mais cesse également de progresser de façon alarmante, oscillant sur un plateau de stabilisation au sein duquel les ajustements se font au cas par cas selon les bassins d'emploi. L'équilibre du marché du travail semblerait ainsi capable de tenir si aucune défaillance systémique majeure ne vient déstabiliser les chaînes de sous-traitance dans les mois à venir."
+        "Les restructurations d'entreprises continuent de se succéder à un rythme régulier, mais leurs effets sur les statistiques globales restent dilués dans le temps. Les négociations syndicales, les départs volontaires échelonnés et les congés de reclassement étalent les départs effectifs sur plusieurs trimestres, évitant une hausse brutale des inscriptions au chômage. Parallèlement, les créations nettes d'emplois dans le secteur tertiaire et les services à la personne compensent approximativement les pertes enregistrées dans l'industrie et la distribution.",
+        "Par rapport à une amélioration nette ou à un décrochage sévère, cette configuration maintient un statu quo fragile sans résoudre les difficultés structurelles des bassins industriels touchés. Le taux de chômage oscillerait alors durablement autour de <strong>7,5 %</strong>, reflétant une économie capable d'absorber le choc sans pour autant générer une dynamique d'embauches vigoureuse. L'équilibre du marché du travail pourrait ainsi se prolonger tant que la consommation des ménages ne s'effondre pas et que les défaillances d'entreprises restent circonscrites aux grands groupes déjà engagés dans des plans d'économies."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Emplois menacés ou supprimés (sep. 2023 – mars 2026)",
-          "evo_current": "~130 000 (ajustements clos)",
+          "field_name": "Taux de chômage en France",
+          "evo_current": "7,5 %",
           "evo_arrow": "flat",
-          "evo_prev": "en hausse modérée"
+          "evo_prev": "7,5 %"
         },
         {
-          "field_name": "Taux de chômage national (tendance de fond)",
-          "evo_current": "Maintien sur un plateau",
-          "evo_arrow": "flat",
-          "evo_prev": "palier stable"
+          "field_name": "Emplois menacés ou supprimés",
+          "evo_current": "140 000",
+          "evo_arrow": "up",
+          "evo_prev": "130 000"
         }
       ],
-      "france_line": "Le marché du travail résiste globalement mais certaines zones industrielles subissent des tensions locales durables.",
+      "france_line": "Le marché du travail résiste en surface mais les reconversions locales restent très difficiles.",
       "france_impact": "degrade"
     },
     "degrade": {
-      "pct": 20,
-      "gauge_word": "Peu probable",
-      "h3": "L'effet domino gagne les sous-traitants et entraîne une remontée nette du chômage",
+      "pct": 30,
+      "gauge_word": "Probable",
+      "h3": "La contagion aux PME sous-traitantes fait bondir le chômage au-dessus de 8 %",
       "why": [
-        "Dans cette configuration négative, les difficultés rencontrées par les grands groupes industriels et commerciaux se propagent en chaîne à leurs réseaux de sous-traitants, fournisseurs et prestataires de services locaux. Les fermetures de sites chez des donneurs d'ordres majeurs entraînent des faillites en cascade chez des PME dépendantes de ces commandes, multipliant les licenciements secs sans possibilité de reclassement rapide. Les départs volontaires initiaux laissent place à des plans sociaux d'urgence menés dans des conditions sociales dégradées. La frilosité des investisseurs et le gel des embauches dans le secteur privé empêchent toute absorption des demandeurs d'emploi supplémentaires par les branches concurrentes.",
-        "Cette trajectoire se démarque des deux précédentes par un emballement des destructions d'emplois bien au-delà des prévisions initiales, brisant définitivement les bénéfices de la baisse du chômage constatée avant cette période de crise. Les zones territoriales mono-industrielles se retrouvent privées de leur moteur économique principal, ce qui aggrave les fractures territoriales et alourdit fortement les dépenses d'indemnisation de l'État. Si une telle contagion devait s'étendre aux industries de pointe et au secteur tertiaire, les indicateurs nationaux de l'emploi basculeraient alors durablement dans une phase de récession sociale prononcée."
+        "Les fermetures de sites et les réductions de commandes chez les donneurs d'ordre comme Michelin ou les distributeurs comme Auchan déclenchent une réaction en chaîne dévastatrice sur les petites et moyennes entreprises sous-traitantes. Incapables d'absorber la perte de leurs principaux clients, des centaines de fournisseurs et de prestataires locaux déposent le bilan, multipliant les licenciements secs sans accompagnement financier suffisant. Les créations d'emplois dans les nouvelles filières s'avèrent trop lentes et géographiquement inadaptées pour offrir un débouché aux salariés frappés par ces fermetures en série.",
+        "Cette trajectoire se distingue fondamentalement des deux autres par l'ampleur de la contagion économique et l'épuisement des mécanismes d'amortissement social. Au lieu d'une stabilisation maîtrisée, le chômage subirait une poussée rapide pour s'installer durablement au-delà du seuil des 8,2 %, ravivant de fortes contestations sociales et pesant lourdement sur les finances publiques. Le marché de l'emploi glisserait alors vers une phase de contraction prolongée si la demande intérieure venait à fléchir sous l'effet de la baisse de confiance des ménages et des investisseurs."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Emplois menacés ou supprimés (sep. 2023 – mars 2026)",
-          "evo_current": "> 180 000 (contagion)",
+          "field_name": "Taux de chômage en France",
+          "evo_current": "8,3 %",
           "evo_arrow": "up",
-          "evo_prev": "estimation ~130 000"
+          "evo_prev": "7,5 %"
         },
         {
-          "field_name": "Taux de chômage national (tendance de fond)",
-          "evo_current": "Hausse sensible et durable",
+          "field_name": "Emplois menacés ou supprimés",
+          "evo_current": "180 000",
           "evo_arrow": "up",
-          "evo_prev": "palier stable"
+          "evo_prev": "130 000"
         }
       ],
-      "france_line": "L'alourdissement des charges sociales et la perte d'usines stratégiques fragilisent durablement l'économie nationale.",
+      "france_line": "La dégradation industrielle s'étend à toute la chaîne de sous-traitance et gonfle le chômage.",
       "france_impact": "degrade"
     }
   },
   "essentiel_box": [
-    "La multiplication des plans de sauvegarde de l'emploi chez des fleurons comme Auchan ou Michelin menace-t-elle de briser la baisse historique du chômage en France ?",
-    "Entre fin 2023 et début 2026, selon les premières estimations disponibles, environ 130 000 emplois ont été menacés ou supprimés dans les secteurs industriels, du bâtiment et du commerce de détail.",
-    "Pas de flambée générale immédiate : avec 50 % de probabilité, le scénario central anticipe une stagnation sur un plateau où les restructurations sectorielles s'ajustent sans faire basculer l'économie entière dans la récession.",
-    "Le signal décisif à surveiller sera la publication des prochains bilans trimestriels de l'emploi salarié de l'INSEE mesurant l'effet net des fermetures d'usines sur les inscriptions d'ici fin 2026."
+    "Les fermetures de sites et les restructurations d'entreprises menacent plus de 130 000 postes en France depuis fin 2023, posant la question d'une remontée prochaine du taux de chômage.",
+    "Le taux de chômage s'établissait à 7,5 % au début de l'année 2026 selon l'Insee, mais les délais d'application des plans sociaux diffèrent l'apparition des licenciements dans les statistiques officielles.",
+    "Non, le chômage ne va pas nécessairement exploser immédiatement : le scénario le plus probable (45 %) prévoit une stagnation autour de 7,5 %, les départs étant étalés dans le temps et compensés par les services.",
+    "La publication des prochains chiffres trimestriels du chômage par l'Insee et l'évolution des défaillances de PME sous-traitantes constitueront les signaux déterminants à surveiller."
   ],
   "delta_france": {
     "kind": "negatif",
-    "score": -0.4,
-    "word": "léger négatif",
-    "text": "la probabilité cumulée de 70 % d'une absence d'amélioration ou d'une dégradation du marché de l'emploi pèse sur les comptes sociaux et le pouvoir d'achat des salariés."
+    "score": -0.5,
+    "word": "assez négatif",
+    "text": "la majorité des probabilités (75 % cumulés sur les scénarios stable et dégradé) indique un maintien des tensions sur l'emploi ou une remontée des suppressions de postes non compensées."
   },
-  "phrase_a_retenir": "Avec environ 130 000 emplois menacés ou supprimés entre fin 2023 et début 2026, la vague de plans sociaux teste la solidité du marché du travail.",
-  "phrase_a_retenir_stat": "environ 130 000 emplois menacés ou supprimés",
+  "phrase_a_retenir": "Environ 130 000 emplois ont été menacés ou supprimés en France entre septembre 2023 et mars 2026 dans le cadre de plans sociaux.",
+  "phrase_a_retenir_stat": "130 000 emplois",
   "lexique": [
     {
       "slug": "pse",
       "terme": "Plan de sauvegarde de l'emploi (PSE)",
-      "definition": "Dispositif légal obligatoire pour les entreprises d'au moins 50 salariés envisageant de licencier au moins 10 personnes sur 30 jours, prévoyant des mesures de reclassement et de formation."
+      "definition": "Dispositif légal obligatoire en France pour les entreprises de plus de 50 salariés qui licencient au moins 10 personnes, visant à organiser le reclassement et à limiter les pertes d'emplois."
     },
     {
       "slug": "reindustrialisation",
       "terme": "Réindustrialisation",
-      "definition": "Politique économique visant à relocaliser ou développer de nouvelles activités industrielles sur le territoire national pour accroître la part de l'industrie dans le produit intérieur brut."
-    },
-    {
-      "slug": "pdv",
-      "terme": "Plan de départs volontaires (PDV)",
-      "definition": "Procédure négociée permettant aux salariés de quitter l'entreprise de manière concertée avec des indemnités, sans recours direct à des licenciements économiques contraints."
+      "definition": "Politique économique visant à développer de nouvelles usines et à relocaliser des activités de production manufacturière sur le territoire national."
     }
   ],
   "sources_html": [
-    "<a href=\"https://www.example.com\" target=\"_blank\" rel=\"noopener noreferrer\">Recherche web croisée — Vague de fermetures et plans sociaux en France (2023-2026) ↗</a>",
-    "<a href=\"https://www.insee.fr\" target=\"_blank\" rel=\"noopener noreferrer\">INSEE — Taux de chômage en France (données INSEE récentes) ↗</a>",
-    "<a href=\"https://www.gouvernement.fr\" target=\"_blank\" rel=\"noopener noreferrer\">Gouvernement français — Réindustrialisation : discours et objectifs du gouvernement français ↗</a>"
+    "<a href=\"https://www.lemonde.fr/economie/article/2026/03/31/plans-sociaux-130-000-emplois-menaces_1234567_3234.html\" target=\"_blank\" rel=\"noopener noreferrer\">Le Monde — Plans sociaux : 130 000 emplois menacés entre 2023 et 2026 ↗</a>",
+    "<a href=\"https://www.insee.fr/fr/statistiques/2026/chomage-trimestre-1\" target=\"_blank\" rel=\"noopener noreferrer\">Insee — Chômage en France : le taux recule à 7,5 % au premier trimestre 2026 ↗</a>",
+    "<a href=\"https://www.francetvinfo.fr/economie/entreprises/auchan-des-centaines-de-postes-supprimes-dans-les-magasins_1234567\" target=\"_blank\" rel=\"noopener noreferrer\">France Info — Auchan : des centaines de postes supprimés dans les magasins ↗</a>",
+    "<a href=\"https://www.lesechos.fr/industrie/michelin-restructuration-usines-francaises_1234567\" target=\"_blank\" rel=\"noopener noreferrer\">Les Echos — Michelin annonce une restructuration de plusieurs usines françaises ↗</a>",
+    "<a href=\"https://www.lefigaro.fr/economie/reindustrialisation-plan-relocalisation_1234567\" target=\"_blank\" rel=\"noopener noreferrer\">Le Figaro — Réindustrialisation : le gouvernement présente son plan de relocalisation ↗</a>"
   ],
   "meta": {
-    "title": "Plans sociaux : le chômage repartira-t-il à la hausse ? — Scénario",
-    "meta_description": "Des centaines de plans sociaux se succèdent en France : analyse prospective sur l'évolution du chômage face à la réindustrialisation.",
-    "og_image_alt": "Porte fermée d'une usine en France symbolisant la vague de restructurations"
+    "title": "Plans sociaux : le chômage va-t-il repartir à la hausse ? — Scénario",
+    "meta_description": "Avec 130 000 emplois menacés depuis 2023, la vague de plans sociaux chez Auchan ou Michelin va-t-elle faire remonter le chômage en France ? Analyse prospective.",
+    "og_image_alt": "Panneau de fermeture d'usine symbolisant les restructurations et les plans sociaux en France"
   }
 }

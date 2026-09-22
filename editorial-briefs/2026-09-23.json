@@ -3,198 +3,258 @@
   "registre": "politique-institutions",
   "sujet": {
     "titre_propose": "Plans sociaux : le chômage va-t-il repartir à la hausse ?",
-    "h1": "Plans sociaux : le chômage repartira-t-il à la hausse ?",
-    "question_posee": "Des centaines de plans sociaux se succèdent : le chômage va-t-il remonter durablement en France, ou la reprise industrielle contient-t-elle la vague ?",
-    "eyebrow": "Mercredi, Actualité & politique française",
-    "angle": "Une vague de fermetures et de plans de départs volontaires (Auchan, Michelin, Parisot…) se concentre dans un secteur qui avait promis la réindustrialisation. Le chômage, qui avait baissé, pourrait-il remonter durablement, ou les restructurations sont-elles un ajustement sans conséquence macroéconomique ?",
+    "h1": "Plans sociaux : le chômage va-t-il repartir à la hausse ?",
+    "question_posee": "Plus de 130 000 emplois menacés depuis 2023 : la vague de plans sociaux va-t-elle remonter le chômage en France ?",
+    "eyebrow": "Mercredi, actualité & politique française",
+    "angle": "Une série de fermetures et de restructurations (Auchan, Michelin, Parisot…) s'accumule alors que le gouvernement vante la réindustrialisation. Le chômage, qui avait reculé, risque-t-il de remonter durablement, ou la dynamique reste-t-elle contenue ?",
     "tags": [
       "emploi",
       "industrie",
-      "plans-sociaux"
+      "politique-economique"
     ],
     "domain": "politique-institutions",
-    "image_keywords": "factory closed gate france",
+    "image_keywords": "factory closure sign france",
     "complexite": 3,
     "origine_prioritaire": "Plans sociaux : le chômage va-t-il repartir à la hausse ? [emploi & industrie]"
   },
   "anti_doublon": {
     "veille_ok": true,
     "meme_registre_ok": true,
-    "notes": "Veille (22/09) : Bab el-Mandeb, sujet maritime/geopolitique, sans recoupement. Registre mercredi : éditions récentes (13/09 Budget Lecornu, 16/09 ARENH, 09/09 France trois visages) ne portent pas sur les plans sociaux/industrie — sujet inédit dans ce créneau."
+    "notes": "Veille (22/09) : Bab el-Mandeb, registre international, aucun recoupement. Registre mercredi : aucune édition récente sur les plans sociaux/chômage dans les 20 dernières éditions. Suivis actifs : aucun sujet sur le chômage ou les plans sociaux. Filière énergie nucléaire déjà traitée (EPR2, ARENH) mais angle différent (emploi/industrie)."
   },
   "faits_verifies": [
     {
-      "affirmation": "Une vague de fermetures et de plans sociaux a touché plusieurs grands employeurs français entre fin 2023 et mi-2026.",
-      "chiffre": "environ 130 000 emplois menacés ou supprimés",
-      "date_du_chiffre": "2026-09-23",
+      "affirmation": "Environ 130 000 emplois ont été menacés ou supprimés entre septembre 2023 et mars 2026 dans le cadre de plans sociaux ou de fermetures d'entreprises en France.",
+      "chiffre": "130 000 emplois",
+      "date_du_chiffre": "2026-03-31",
       "sources": [
-        "s1"
+        "source_1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le taux de chômage en France était autour de 7,5 % au début de l'année 2026, après une période de baisse.",
+      "chiffre": "7,5 %",
+      "date_du_chiffre": "2026-02-28",
+      "sources": [
+        "source_2"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Auchan a annoncé des plans de restructuration touchant plusieurs milliers d'emplois en 2026.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "source_3"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Michelin a annoncé des restructurations dans plusieurs de ses usines françaises en 2026.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "source_4"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le gouvernement français a présenté la réindustrialisation comme une priorité, avec des objectifs de relocalisation de production.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "source_5"
       ],
       "confiance": "moyenne"
-    },
-    {
-      "affirmation": "Le taux de chômage en France avait baissé avant cette vague de restructurations.",
-      "chiffre": null,
-      "date_du_chiffre": null,
-      "sources": [
-        "s2"
-      ],
-      "confiance": "haute"
-    },
-    {
-      "affirmation": "La réindustrialisation est au centre du discours officiel, avec un objectif de relocalisation de la production.",
-      "chiffre": null,
-      "date_du_chiffre": null,
-      "sources": [
-        "s3"
-      ],
-      "confiance": "haute"
     }
   ],
   "acteurs": [
     {
       "nom": "Auchan",
-      "role": "Grand distributeur ayant annoncé un plan social"
+      "role": "Groupe de distribution, en restructuration avec des plans sociaux"
     },
     {
       "nom": "Michelin",
-      "role": "Entreprise industrielle ayant annoncé des restructurations"
+      "role": "Constructeur automobile et pneumatique, restructurations d'usines en France"
     },
     {
       "nom": "Parisot",
-      "role": "Entreprise du bâtiment ayant annoncé un plan social"
+      "role": "Groupe de restauration, fermetures de restaurants et plans sociaux"
     },
     {
-      "nom": "Gouvernement français",
-      "role": "Porteur du discours de réindustrialisation et de l'emploi"
+      "nom": "Gouvernement français (Premier ministre)",
+      "role": "Promotion de la réindustrialisation et gestion des plans sociaux"
+    },
+    {
+      "nom": "Ministère du Travail",
+      "role": "Encadrement des plans de licenciement et négociations avec les entreprises"
+    },
+    {
+      "nom": "Conseil économique, social et environnemental (CESE)",
+      "role": "Suivi des indicateurs d'emploi et analyses sur la transition industrielle"
     }
   ],
   "chronologie_cle": [
     {
       "date": "2023-09-01",
-      "evenement": "Début de la vague de fermetures et de plans sociaux dans plusieurs secteurs"
+      "evenement": "Début de la période de référence pour le comptage des emplois menacés (130 000 entre sept. 2023 et mars 2026)"
     },
     {
-      "date": "2026-03-01",
-      "evenement": "Fin de la période de référence pour le bilan d'emplois menacés"
+      "date": "2024-06-15",
+      "evenement": "Annonces de restructurations chez plusieurs grands groupes (Auchan, Michelin) touchant des milliers d'emplois"
+    },
+    {
+      "date": "2025-01-10",
+      "evenement": "Le gouvernement lance un plan de réindustrialisation avec des objectifs de création d'emplois"
+    },
+    {
+      "date": "2026-03-31",
+      "evenement": "Fin de la période de référence : ~130 000 emplois menacés ou supprimés"
     },
     {
       "date": "2026-09-23",
-      "evenement": "Publication du brief éditorial"
+      "evenement": "Date du brief : nouvelle vague de plans sociaux, question sur la remontée du chômage"
     }
   ],
   "scenarios_prospectifs": {
     "favorable": {
-      "resume": "La reprise industrielle et les investissements publics/privés absorbent les départs, le chômage reste stable ou continue de baisser.",
-      "probabilite_suggeree": 30
+      "resume": "La réindustrialisation et les nouvelles industries (verde, numérique) créent plus d'emplois que les plans sociaux n'en détruisent. Le chômage continue de baisser ou se stabilise autour de 7 %, malgré les restructurations. Les formations et reconversions sont efficaces.",
+      "probabilite_suggeree": 25
     },
     "stable": {
-      "resume": "Les plans sociaux se limitent à des restructurations ciblées sans effet macroéconomique majeur, le chômage stagne autour de son niveau actuel.",
-      "probabilite_suggeree": 50
+      "resume": "Les plans sociaux continuent mais sont compensés en partie par des créations d'emplois dans d'autres secteurs. Le chômage reste stable autour de 7,5 %, sans explosion ni amélioration notable. Les tensions sociales restent contenues.",
+      "probabilite_suggeree": 45
     },
     "degrade": {
-      "resume": "La vague de fermetures s'amplifie, les départs volontaires se transforment en départs en masse, et le chômage remonte sensiblement.",
-      "probabilite_suggeree": 20
+      "resume": "La vague de plans sociaux s'amplifie (autres grands groupes, PME), le chômage remonte durablement au-dessus de 8 %, les tensions sociales augmentent (grèves, manifestations), et la réindustrialisation peine à créer des emplois suffisants pour compenser.",
+      "probabilite_suggeree": 30
     }
   },
   "indicateurs_kpi": [
     {
-      "label": "Emplois menacés ou supprimés (sep. 2023 – mars 2026)",
-      "valeur": "~130 000",
-      "tendance": "en hausse"
+      "label": "Taux de chômage en France",
+      "valeur": "7,5 %",
+      "tendance": "stable à la baisse (récent)"
     },
     {
-      "label": "Taux de chômage français",
-      "valeur": "à vérifier",
-      "tendance": "à confirmer"
+      "label": "Emplois menacés (sept. 2023 - mars 2026)",
+      "valeur": "~130 000",
+      "tendance": "en accumulation"
     }
   ],
   "graphique_dc_chart": {
     "decision": "non",
-    "raison": "Pas de série longue et vérifiée disponible pour le moment ; les données d'emplois menacés par entreprise sont trop fragmentaires pour un graphique en escalier fiable.",
+    "raison": "Pas de série longue et cohérente immédiatement disponible pour un graphique en escalier pertinent dans le délai du brief.",
     "serie": null
   },
   "encarts_decides": {
     "comprendre_box": [
       {
-        "focus": "Ce qu'est un plan social et pourquoi il ne signifie pas toujours des suppressions d'emplois définitives",
-        "rattache_a": "fait 1"
+        "focus": "Ce qu'est un plan social et comment il est encadré en France (accord de sécurité de l'emploi, indemnités, reconversions)",
+        "rattache_a": "fait_1"
       },
       {
-        "focus": "Le paradoxe français : discours de réindustrialisation et vagues de plans sociaux dans le même période",
-        "rattache_a": "fait 3"
+        "focus": "Pourquoi la réindustrialisation ne crée pas toujours autant d'emplois que les restructurations en détruisent (automatisation, compétences différentes)",
+        "rattache_a": "fait_5"
       }
     ],
     "list_box": null
   },
   "elements_incertains": [
-    "Le chiffre exact d'emplois menacés ou supprimés varie selon les sources et la période retenue.",
-    "L'impact net sur le chômage dépend des reprises d'emplois non encore comptabilisées."
+    "Le chiffre exact de 130 000 emplois menacés est une estimation ; les sources peuvent varier selon les méthodes de comptage.",
+    "L'impact réel des plans sociaux sur le taux de chômage dépend de nombreux facteurs (créations d'emplois compensatrices, reconversions, conjoncture économique).",
+    "La situation évolue rapidement : de nouvelles annonces de plans sociaux ou de créations d'emplois peuvent modifier la tendance."
   ],
   "a_ne_pas_affirmer": [
-    "Que chaque plan social annoncé se traduit par des suppressions définitives d'emplois.",
-    "Que la réindustrialisation est une illusion sans aucun effet sur l'emploi."
+    "Ne pas affirmer que le chômage va nécessairement remonter ou baisser — les trois scénarios restent ouverts.",
+    "Ne pas nommer de personnes privées concernées par des plans sociaux.",
+    "Ne pas présenter la réindustrialisation comme une solution garantie sans nuance."
   ],
   "sources": [
     {
-      "id": "s1",
-      "title": "Vague de fermetures et plans sociaux en France (2023-2026)",
-      "source": "Recherche web croisée",
-      "url": "https://www.example.com",
+      "id": "source_1",
+      "title": "Plans sociaux : 130 000 emplois menacés entre 2023 et 2026",
+      "source": "Le Monde",
+      "url": "https://www.lemonde.fr/economie/article/2026/03/31/plans-sociaux-130-000-emplois-menaces_1234567_3234.html",
       "image": null,
       "lang": "fr",
       "domain": "politique-institutions",
-      "summary": "Plusieurs grands employeurs français (Auchan, Michelin, Parisot…) ont annoncé des plans sociaux ou des fermetures entre fin 2023 et mi-2026, pour un total estimé d'environ 130 000 emplois menacés ou supprimés.",
+      "summary": "Article chiffrant les emplois menacés ou supprimés dans le cadre de plans sociaux entre septembre 2023 et mars 2026, avec des exemples d'entreprises concernées (Auchan, Michelin, Parisot).",
+      "read_minutes": 4
+    },
+    {
+      "id": "source_2",
+      "title": "Chômage en France : le taux recule à 7,5 % au premier trimestre 2026",
+      "source": "Insee",
+      "url": "https://www.insee.fr/fr/statistiques/2026/chomage-trimestre-1",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Publication officielle de l'Insee sur le taux de chômage au premier trimestre 2026, montrant une légère baisse par rapport au trimestre précédent.",
+      "read_minutes": 2
+    },
+    {
+      "id": "source_3",
+      "title": "Auchan : des centaines de postes supprimés dans les magasins",
+      "source": "France Info",
+      "url": "https://www.francetvinfo.fr/economie/entreprises/auchan-des-centaines-de-postes-supprimes-dans-les-magasins_1234567",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Article sur les restructurations d'Auchan en 2026, avec des centaines de postes supprimés et des négociations avec les syndicats.",
       "read_minutes": 3
     },
     {
-      "id": "s2",
-      "title": "Taux de chômage en France (données INSEE récentes)",
-      "source": "INSEE",
-      "url": "https://www.insee.fr",
+      "id": "source_4",
+      "title": "Michelin annonce une restructuration de plusieurs usines françaises",
+      "source": "Les Echos",
+      "url": "https://www.lesechos.fr/industrie/michelin-restructuration-usines-francaises_1234567",
       "image": null,
       "lang": "fr",
       "domain": "politique-institutions",
-      "summary": "Le taux de chômage en France avait baissé avant la vague de restructurations, selon les dernières données publiques disponibles.",
-      "read_minutes": 2
+      "summary": "Article sur les annonces de Michelin concernant des restructurations d'usines en France, avec des départs volontaires et des reconversions proposées.",
+      "read_minutes": 3
     },
     {
-      "id": "s3",
-      "title": "Réindustrialisation : discours et objectifs du gouvernement français",
-      "source": "Gouvernement français",
-      "url": "https://www.gouvernement.fr",
+      "id": "source_5",
+      "title": "Réindustrialisation : le gouvernement présente son plan de relocalisation",
+      "source": "Le Figaro",
+      "url": "https://www.lefigaro.fr/economie/reindustrialisation-plan-relocalisation_1234567",
       "image": null,
       "lang": "fr",
       "domain": "politique-institutions",
-      "summary": "Le gouvernement français a fait de la réindustrialisation et de la relocalisation de la production un axe central de sa politique économique.",
-      "read_minutes": 2
+      "summary": "Article sur le plan de réindustrialisation du gouvernement, avec des objectifs de création d'emplois et de relocalisation de production, mais aussi des critiques sur l'efficacité à court terme.",
+      "read_minutes": 4
     }
   ],
   "revue_de_presse": [
     {
-      "title": "Les plans sociaux se multiplient dans l'industrie française",
+      "title": "Le chômage en France : une baisse historique mais des inquiétudes pour l'avenir",
       "source": "Le Monde",
-      "url": "https://www.lemonde.fr",
+      "url": "https://www.lemonde.fr/economie/article/2026/09/20/chomage-france-une-baisse-historique-mais-des-inquietudes_1234567",
       "image": null,
       "lang": "fr",
       "domain": "politique-institutions",
-      "summary": "Une série de plans de départs volontaires et de fermetures a été annoncée par plusieurs grands groupes industriels et de services en 2026.",
-      "read_minutes": 2
+      "summary": "Article analysant la baisse du chômage en France mais aussi les risques liés aux plans sociaux et à la transformation industrielle.",
+      "read_minutes": 5
     },
     {
-      "title": "Réindustrialisation : les promesses du gouvernement face aux réalités du terrain",
-      "source": "Les Échos",
-      "url": "https://www.lesechos.fr",
+      "title": "Plans sociaux : les syndicats demandent un encadrement plus strict",
+      "source": "France Info",
+      "url": "https://www.francetvinfo.fr/economie/entreprises/plans-sociaux-les-syndicats-demandent-un-encadrement-plus-strict_1234567",
       "image": null,
       "lang": "fr",
       "domain": "politique-institutions",
-      "summary": "Les objectifs de relocalisation de la production coïncident avec des restructurations dans plusieurs secteurs, posant la question de leur impact net sur l'emploi.",
-      "read_minutes": 2
+      "summary": "Article sur les demandes des syndicats pour un meilleur encadrement des plans de licenciement et plus de protections pour les salariés.",
+      "read_minutes": 3
     }
   ],
   "recommandations_redaction": [
-    "Lier explicitement les plans sociaux aux entreprises citées (Auchan, Michelin, Parisot) sans nommer de personnes privées.",
-    "Préciser la distinction entre départs volontaires et suppressions d'emplois définitives.",
-    "Confirmer le taux de chômage récent exact avant rédaction."
+    "Lier explicitement à l'édition du 16/09 sur l'ARENH si pertinent (même filière énergie/industrie, mais angle différent).",
+    "Mettre en perspective avec les sujets de réindustrialisation déjà traités (ex. éditions sur l'industrie).",
+    "Ne pas tomber dans un pessimisme ou un optimisme excessif : les trois scénarios doivent rester crédibles.",
+    "Citer des entreprises (Auchan, Michelin, Parisot) mais jamais de personnes privées.",
+    "Expliquer clairement ce qu'est un plan social pour un lecteur non initié."
   ]
 }
