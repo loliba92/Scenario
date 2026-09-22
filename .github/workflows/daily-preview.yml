@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   generate-preview:
@@ -97,6 +98,56 @@ jobs:
           fi
           git commit -m "Daily preview: $TOMORROW - $(date -u '+%Y-%m-%d %H:%M UTC')" || echo "Nothing to commit"
           git push origin main
+
+      - name: Run editorial critique
+        # Revue automatique, contrôles statiques uniquement (voir le
+        # docstring de scripts/edition/critique_preview.py) — jamais une
+        # porte bloquante du pipeline : si elle échoue, le preview déjà
+        # committé à l'étape précédente reste intact, seule la revue
+        # automatique manque (l'étape suivante poste une issue de repli
+        # dans ce cas plutôt que de rester silencieuse).
+        continue-on-error: true
+        run: |
+          TOMORROW=$(date -u -d '+1 day' '+%Y-%m-%d')
+          cd scripts/edition
+          OPENROUTER_API_KEY="${{ secrets.OPENROUTER_API_KEY }}" python3 critique_preview.py \
+            --date "$TOMORROW" \
+            --brief "../../editorial-briefs/$TOMORROW.json" \
+            --content "../../.preview-content.json" \
+            --out /tmp/critique.md \
+            --out-json /tmp/critique.json
+
+      - name: Post critique as GitHub issue
+        # Toujours exécutée (if: always()), même si l'étape précédente a
+        # échoué — c'est le seul canal qui prévient réellement l'utilisateur
+        # (GitHub notifie par email/mobile dès qu'une issue est créée),
+        # jamais seulement un echo dans les logs d'Actions que personne ne
+        # relit spontanément.
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
+            let body;
+            let emoji = '❓';
+            if (fs.existsSync('/tmp/critique.md')) {
+              body = fs.readFileSync('/tmp/critique.md', 'utf8');
+              if (fs.existsSync('/tmp/critique.json')) {
+                const verdict = JSON.parse(fs.readFileSync('/tmp/critique.json', 'utf8')).verdict;
+                emoji = { publiable: '✅', a_corriger: '⚠️', a_revoir_en_profondeur: '🛑' }[verdict] || '❓';
+              }
+            } else {
+              emoji = '❌';
+              body = `La critique automatique a échoué pour l'édition du ${tomorrow} — voir les logs du run ${context.runId} pour le détail. Le preview reste généré normalement, seule cette revue automatique n'a pas pu tourner.`;
+            }
+            body += `\n\nPreview à relire : https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/preview.html`;
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `${emoji} Critique édition du ${tomorrow}`,
+              body,
+            });
 
       - name: Success notification
         if: success()
