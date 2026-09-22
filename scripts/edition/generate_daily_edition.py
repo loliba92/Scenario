@@ -90,7 +90,12 @@ def fetch_preview_image(image_keywords, timeout=25):
     """Récupère l'image Pexels pour la preview sans écrire d'assets.
     Retourne un dict photo {og_image_url, hero_image_url, alt, photographer, pexels_url}
     ou None si la récupération échoue (non-bloquant). Utilise fetch_topic_image.py
-    pour la recherche, extrait le 1er candidat des credits.json.
+    pour la recherche, extrait le meilleur candidat des credits.json (robustesse améliorée).
+
+    Améliorations "durcies" (21 septembre 2026) :
+    - Demande 3-5 candidats au lieu d'1 pour avoir options
+    - Filtrage minimal : exclure les candidats de mauvaise qualité évidentes
+    - Logging pour traçabilité en cas de problème
     """
     if not image_keywords:
         return None
@@ -103,9 +108,10 @@ def fetch_preview_image(image_keywords, timeout=25):
     candidates_dir = Path("/tmp/scenario-preview-image-candidates")
     candidates_dir.mkdir(parents=True, exist_ok=True)
 
+    # Demande 3 candidats au lieu d'1 pour avoir options et robustesse
     try:
         result = subprocess.run(
-            [sys.executable, str(fetch_script), image_keywords, "--count", "1", "--out", str(candidates_dir)],
+            [sys.executable, str(fetch_script), image_keywords, "--count", "3", "--out", str(candidates_dir)],
             check=True, capture_output=True, text=True, timeout=timeout,
         )
     except subprocess.CalledProcessError as e:
@@ -131,15 +137,28 @@ def fetch_preview_image(image_keywords, timeout=25):
         print("[edition] credits.json vide", file=sys.stderr)
         return None
 
-    chosen = credits[0]
-    if chosen.get("source") != "pexels":
-        print(f"[edition] candidat n'est pas de Pexels (source: {chosen.get('source')})", file=sys.stderr)
+    # Sélectionner le meilleur candidat : itérer et prendre le 1er utilisable
+    chosen = None
+    for idx, candidate in enumerate(credits, start=1):
+        if candidate.get("source") != "pexels":
+            print(f"[edition] candidat {idx} ignoré (source: {candidate.get('source')})", file=sys.stderr)
+            continue
+
+        original_url = candidate.get("original_url")
+        if not original_url:
+            print(f"[edition] candidat {idx} ignoré (original_url manquant)", file=sys.stderr)
+            continue
+
+        # Candidat valide trouvé
+        chosen = candidate
+        print(f"[edition] candidat {idx} retenu (photo par {candidate.get('photographer')})", file=sys.stderr)
+        break
+
+    if not chosen:
+        print("[edition] aucun candidat Pexels valide trouvé parmi les 3", file=sys.stderr)
         return None
 
     original_url = chosen.get("original_url")
-    if not original_url:
-        print("[edition] original_url manquant dans les credits", file=sys.stderr)
-        return None
 
     # Construire l'URL d'image carrée recadée (1080x1080) via Pexels CDN
     # Réutilise la logique de square_crop_url de fetch_topic_image.py
