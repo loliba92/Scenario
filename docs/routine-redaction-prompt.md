@@ -76,12 +76,18 @@ recommandation de lien, l'ajouter dans le `dek` en suivant cette règle,
 jamais une autre formulation :
 - **Ne jamais fondre le lien dans la phrase factuelle elle-même** —
   garder la phrase telle quelle, puis ajouter une courte relance
-  naturelle juste après, comme une remarque à part : « on avait déjà vu
-  passer un sujet similaire, n'hésite pas à
-  `<a href=\"archives/{AAAA-MM-JJ}.html\">lire notre article</a>` pour
-  en savoir plus » (adapter la formulation autour du lien, mais garder
-  cet esprit de remarque en aparté, jamais une clause intégrée à la
-  phrase du fait).
+  juste après, comme une remarque à part, **toujours impersonnelle,
+  jamais une adresse directe au lecteur** (ajusté le 23 septembre 2026 —
+  incident réel : l'ancienne formule « n'hésite pas à lire notre article »
+  a été signalée deux fois comme rupture de ton par la critique
+  automatique, docs/routine-prompt.md § « Jamais de rupture de registre »
+  documentait déjà cet incident sans que ce gabarit n'ait été corrigé en
+  conséquence) : « un sujet similaire a déjà été traité dans nos
+  archives : `<a href=\"archives/{AAAA-MM-JJ}.html\">lien</a>` » (adapter
+  la formulation autour du lien — ex. « analysé », « couvert » — mais
+  toujours à la troisième personne, jamais de tutoiement ni d'impératif
+  adressé au lecteur, et garder cet esprit de remarque en aparté, jamais
+  une clause intégrée à la phrase du fait).
 - **URL toujours au format `archives/{AAAA-MM-JJ}.html`** (perspective
   `index.html`, à la racine) — jamais `../archives/...` ni
   `{AAAA-MM-JJ}.html` seul : le script de post-édition réajuste déjà
