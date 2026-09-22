@@ -96,6 +96,39 @@ jamais une autre formulation :
 - Guillemets échappés comme pour `.lex-ref` (à l'intérieur d'une chaîne
   JSON, voir la règle d'échappement en tête de ce fichier).
 
+**`edition_precedente` et `corrections_a_appliquer` (ajoutés le 23 septembre
+2026, voir `scripts/edition/revise_brief.py` et `.github/workflows/
+daily-preview.yml`) — présents UNIQUEMENT lors d'une régénération après
+critique automatique, jamais sur une rédaction normale.** Quand ces 2
+champs sont présents :
+
+- `edition_precedente` est l'objet JSON déjà produit lors du premier essai
+  (même structure que « Réponse attendue » ci-dessous) — ta base de
+  travail. **Tu RÉVISES ce texte, tu ne réécris pas une édition depuis
+  zéro** : garde tel quel tout ce que `corrections_a_appliquer` ne mentionne
+  pas (formulations, structure, choix éditoriaux), même si tu aurais écrit
+  autrement toi-même.
+- `corrections_a_appliquer` est la liste des défauts relevés par une revue
+  automatique indépendante sur `edition_precedente` (mêmes champs que les
+  `findings` produits par `scripts/edition/critique_preview.py` :
+  `categorie`, `gravite`, `constat`, `extrait`, `correction_proposee`).
+  Applique CHAQUE correction proposée, en modifiant uniquement le(s)
+  passage(s) concerné(s) par son `extrait` — jamais une réécriture plus
+  large du paragraphe sous prétexte d'une correction voisine. Si une
+  correction proposée est factuellement incohérente avec le brief
+  ci-dessus (ex. elle demande une valeur que `faits_verifies`/
+  `indicateurs_kpi` contredit), suis le brief et ignore cette correction
+  précise plutôt que d'introduire une erreur — le brief reste la source de
+  vérité, jamais la critique automatique elle-même (qui n'a accès qu'au
+  texte déjà écrit, pas à la réalité).
+- Répercute toute correction de chiffre/date dans TOUS les endroits où la
+  même valeur apparaît (indicateurs, `.dek`, essentiel, cartes de
+  scénarios, graphique) — c'est justement ce que `corrections_a_appliquer`
+  signale le plus souvent (cohérence interne), une correction locale qui
+  laisse une divergence ailleurs ne résout rien.
+- Réponds toujours avec l'objet JSON complet (structure « Réponse
+  attendue » ci-dessous), jamais un diff ou seulement les champs modifiés.
+
 ## Ce que tu dois produire
 
 Un **unique objet JSON**, structure exacte donnée à la fin de ce fichier.
