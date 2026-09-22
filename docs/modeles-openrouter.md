@@ -27,14 +27,20 @@ Trois modèles OpenRouter sont utilisés aujourd'hui :
 - **`anthropic/claude-sonnet-5`** — rédaction quotidienne, recherche
   quotidienne (repli, voir ci-dessus), détection de sujets à suivre,
   traduction anglaise.
-- **`openai/gpt-5`** — récap hebdomadaire depuis le 16 septembre 2026,
-  critique automatique du preview depuis le 22 septembre 2026 (voir
-  ci-dessous) — choisi à dessein différent d'`anthropic/claude-sonnet-5`
-  (qui rédige l'édition) pour cette dernière tâche, un second regard
-  ayant plus de chances de repérer les angles morts du modèle rédacteur
-  qu'une relecture par le même modèle.
+- **`openai/gpt-5`** — récap hebdomadaire uniquement, depuis le
+  16 septembre 2026.
 - **`deepseek/deepseek-v4-flash`** — posts « pub » courts (génération +
-  réparation/banque de chiffres) et repérage de sujets chauds.
+  réparation/banque de chiffres), repérage de sujets chauds, et critique
+  automatique du preview depuis le 22 septembre 2026 (voir ci-dessous) —
+  choisi à dessein différent d'`anthropic/claude-sonnet-5` (qui rédige
+  l'édition) pour cette dernière tâche, un second regard ayant plus de
+  chances de repérer les angles morts du modèle rédacteur qu'une
+  relecture par le même modèle ; retenu plutôt qu'`openai/gpt-5` pour le
+  coût (retour utilisateur explicite, cette critique tourne tous les
+  jours, jamais une fois par semaine comme le récap hebdo) — voir la
+  mitigation appliquée dans `critique_preview.py` (brief réduit au
+  strict nécessaire avant l'appel) pour compenser sa faiblesse connue
+  sur le texte long, détaillée plus bas.
 
 **Opus abandonné le 20 septembre 2026** (retour utilisateur explicite :
 « opus sur openrouter dans la recherche n'apporte rien ») — il n'avait
@@ -53,7 +59,7 @@ ticket B152 pour l'historique complet des deux décisions.
 | `detection.yml` | lun/jeu/ven/sam, 1h UTC | `generate_suivi_update.py` | `anthropic/claude-sonnet-5` | Non |
 | `hot-topics.yml` | mar/ven, 19h UTC (~21h Paris été) | `generate_hot_topics.py` | `deepseek/deepseek-v4-flash` | Non |
 | `hebdo.yml` | dimanche, 12h UTC | `generate_weekly_recap.py` | `openai/gpt-5` (DeepSeek jusqu'au 16 septembre) | Oui — input `model` |
-| `daily-preview.yml` — critique | quotidien, juste après génération du preview | `critique_preview.py` | `openai/gpt-5` | Oui — `--model` en local, pas d'input dans le workflow |
+| `daily-preview.yml` — critique | quotidien, juste après génération du preview | `critique_preview.py` | `deepseek/deepseek-v4-flash` | Oui — `--model` en local, pas d'input dans le workflow |
 | `pub.yml` | quotidien, 2h UTC | `generate_daily_pub.py` | `deepseek/deepseek-v4-flash` (traduction EN seulement depuis le 19 septembre 2026 — la catégorie `chiffre` elle-même n'appelle plus aucun modèle, voir `docs/ARCHITECTURE.md`) | Non |
 | `audience.yml` | quotidien, 5h UTC | `update_audience.py` | — (lit le coût OpenRouter, n'appelle aucun modèle) | — |
 | `reads.yml` | horaire | `update_reads_json.py` | — (GoatCounter uniquement) | — |
@@ -120,6 +126,17 @@ edition.py`) depuis le 18 septembre 2026, pour permettre à
 « contenu vide » de GPT-5. Faiblesse constatée : troncature/segments
 manquants sur du texte long et structuré (cause de son remplacement par
 Sonnet 5 sur la traduction et sur la détection — voir B152).
+
+**Exception assumée le 22 septembre 2026** : `critique_preview.py`
+(`daily-preview.yml`) retient quand même ce modèle malgré cette
+faiblesse documentée, retour utilisateur explicite privilégiant le coût
+pour une tâche qui tourne quotidiennement. Mitigation appliquée plutôt
+qu'ignorée : le brief envoyé est réduit aux seuls champs utiles à la
+critique (`sources`/`indicateurs_kpi`/`graphique_dc_chart`, jamais
+`faits_verifies`/`chronologie_cle`/etc.), ce qui coupe le prompt
+d'environ moitié. Si des critiques reviennent systématiquement tronquées
+ou incohérentes en pratique, rebasculer sur `openai/gpt-5` (déjà testé
+pour ce script, voir historique git) plutôt que d'insister.
 
 ## Suivi des coûts existant
 

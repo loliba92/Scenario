@@ -20,7 +20,7 @@ Automated workflow generates and previews tomorrow's edition:
    - Total cost: ~$0.033 per edition
 
 4. **Critique automatique** (`scripts/edition/critique_preview.py`, added
-   22 September 2026) — `openai/gpt-5`, deliberately a different model
+   22 September 2026) — `deepseek/deepseek-v4-flash`, deliberately a different model
    from the one that wrote the edition
    - Static/internal checks only (never a live fact-check): number/date
      consistency across sections, named attributions matching a listed
@@ -116,7 +116,7 @@ Daily 14:00 UTC
     ↓
 [Commit preview.html to main]
     ↓
-[Automatic critique (openai/gpt-5) → GitHub issue]
+[Automatic critique (deepseek/deepseek-v4-flash) → GitHub issue]
     ↓
 [Afternoon: Manual Review]
     ↓

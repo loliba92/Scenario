@@ -53,11 +53,31 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 # Modèle volontairement différent de celui qui rédige l'édition en Phase 2
 # (anthropic/claude-sonnet-5, voir docs/modeles-openrouter.md) — un même
 # modèle relisant sa propre production a plus de chances de laisser passer
-# ses propres angles morts qu'un second regard. openai/gpt-5 choisi parmi
-# les 3 modèles déjà validés dans ce dépôt (docs/modeles-openrouter.md) :
-# déjà en prod ailleurs (hebdo.yml), donc pas un nouveau modèle non testé
-# à introduire spécifiquement pour ce script.
-CRITIQUE_MODEL = "openai/gpt-5"
+# ses propres angles morts qu'un second regard. deepseek/deepseek-v4-flash
+# choisi pour le coût (le moins cher des 3 modèles validés dans ce dépôt,
+# voir docs/modeles-openrouter.md) — retour utilisateur explicite, ce
+# script tourne quotidiennement, jamais une fois par semaine comme
+# hebdo.yml (openai/gpt-5). **Faiblesse documentée à connaître** :
+# troncature/segments manquants sur du texte long et structuré (cause de
+# son remplacement par Sonnet 5 sur translate_daily.py/generate_suivi_
+# update.py, voir docs/modeles-openrouter.md § deepseek/deepseek-v4-flash)
+# — mitigé ici en réduisant le brief au strict nécessaire avant de
+# construire le prompt (voir build_prompt() / TRIMMED_BRIEF_KEYS), jamais
+# en envoyant le brief complet comme le ferait un modèle plus robuste au
+# texte long.
+CRITIQUE_MODEL = "deepseek/deepseek-v4-flash"
+
+# Champs du brief réellement utiles à CETTE critique (cohérence des
+# chiffres déjà publiés, attribution contre les sources, cohérence du
+# graphique) — jamais le brief complet (faits_verifies/acteurs/
+# chronologie_cle/scenarios_prospectifs/elements_incertains/revue_de_
+# presse/recommandations_redaction sont du matériau de RECHERCHE, pas
+# des éléments que le contenu publié doit rester cohérent avec au sens
+# de cette critique). Réduit le prompt d'environ moitié (~17K → ~6K
+# caractères sur l'édition du 22 septembre) — la marge de sécurité qui
+# compte le plus face à la faiblesse connue de DeepSeek sur le texte
+# long, plus efficace qu'augmenter max_tokens en sortie.
+TRIMMED_BRIEF_KEYS = ("sources", "indicateurs_kpi", "graphique_dc_chart")
 
 CRITIQUE_PROMPT_TEMPLATE = """Tu es un critique journaliste, le plus exigeant \
 de la rédaction. Tu relis l'édition ci-dessous AVANT sa mise en ligne, avec un \
@@ -124,7 +144,7 @@ Réponds en JSON strict avec cette forme exacte :
   ]
 }}
 
-=== BRIEF (editorial-briefs/{date}.json) ===
+=== SOURCES, INDICATEURS ET GRAPHIQUE DU BRIEF (editorial-briefs/{date}.json — champs {trimmed_keys}) ===
 {brief_json}
 
 === CONTENU DE L'ÉDITION (.preview-content.json) ===
@@ -133,12 +153,11 @@ Réponds en JSON strict avec cette forme exacte :
 
 
 def build_prompt(date_str, brief, content):
-    # sources : seule la liste (titre + url), jamais le brief entier une
-    # deuxième fois — déjà inclus via brief_json, pas la peine de dupliquer
-    # le contexte, seulement de rendre le prompt lisible pour ce point précis.
+    trimmed_brief = {k: brief[k] for k in TRIMMED_BRIEF_KEYS if k in brief}
     return CRITIQUE_PROMPT_TEMPLATE.format(
         date=date_str,
-        brief_json=json.dumps(brief, ensure_ascii=False, indent=2),
+        trimmed_keys=", ".join(TRIMMED_BRIEF_KEYS),
+        brief_json=json.dumps(trimmed_brief, ensure_ascii=False, indent=2),
         content_json=json.dumps(content, ensure_ascii=False, indent=2),
     )
 
@@ -208,12 +227,15 @@ def main():
         raise GenerationError("OPENROUTER_API_KEY manquant dans l'environnement")
 
     prompt = build_prompt(args.date, brief, content)
-    # max_tokens=16000 : openai/gpt-5 (modèle par défaut) impose son
-    # raisonnement interne et refuse qu'on le désactive (voir le docstring
-    # de call_openrouter()) — un budget trop court laisse le raisonnement
-    # manger tout l'espace avant le JSON final (même incident déjà rencontré
-    # sur generate_weekly_recap.py, qui utilise la même valeur pour ce cas).
-    critique = call_openrouter(prompt, args.model, api_key, temperature=0.2, max_tokens=16000)
+    # max_tokens : même repli que generate_weekly_recap.py::call_openrouter_json()
+    # (docstring de call_openrouter() pour le détail des 2 incidents réels
+    # qui ont fixé ces deux valeurs) — 4000 suffit pour deepseek/anthropic
+    # (raisonnement désactivable, tout le budget sert au JSON final) ; un
+    # modèle passé en --model dont le raisonnement est obligatoire (ex.
+    # openai/gpt-5) a besoin de 16000, sous peine de renvoyer un contenu vide.
+    can_disable_reasoning = "anthropic/" in args.model or "deepseek/" in args.model
+    max_tokens = 4000 if can_disable_reasoning else 16000
+    critique = call_openrouter(prompt, args.model, api_key, temperature=0.2, max_tokens=max_tokens)
 
     markdown = render_markdown(args.date, critique, args.model)
 
