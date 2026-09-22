@@ -1,180 +1,163 @@
 {
-  "h1": "Carburants à prix record : Macron et les candidats à l'Élysée peuvent-ils éviter l'explosion sociale cet automne ?",
-  "question_text": "Avec le gazole à plus de 2,39 €/L et une menace hybride russe déclarée, le gouvernement Lecornu peut-il éviter une crise sociale cet automne ?",
-  "section_title": "Carburants records et tensions politiques : trois trajectoires pour l'automne",
+  "h1": "Plans sociaux : le chômage va-t-il repartir à la hausse ?",
+  "question_text": "Avec des centaines de plans de réduction d'effectifs en 2026, le chômage en France peut-il remonter durablement, ou la réindustrialisation absorbe-t-elle ces pertes ?",
+  "section_title": "Plans sociaux et réindustrialisation : trois trajectoires pour l'emploi",
   "dek": [
-    "Les stations-service françaises connaissent une poussée de fièvre sans précédent en cette rentrée de septembre 2026. Le prix moyen du <strong>gazole a franchi un record historique à 2,39 € le litre</strong> sur l'ensemble du territoire national, tandis que l'essence sans plomb <strong>SP95-E10 atteint 2,17 € le litre</strong>. Pour des millions de ménages qui dépendent chaque jour de leur véhicule pour travailler, cette flambée soudaine ampute directement le budget quotidien. Le mécontentement populaire monte rapidement dans les territoires périurbains et ruraux, où les alternatives de transport collectif restent rares. Face à cette détresse matérielle, la pression politique s'accentue brutalement sur l'exécutif, sommé de trouver une réponse immédiate avant que la colère ne déborde dans la rue.",
-    "Devant cette double urgence énergétique et sécuritaire, Emmanuel Macron a convoqué à l'Élysée, le 18 septembre 2026, l'ensemble des chefs de partis et des candidats déclarés à l'élection présidentielle. Cette rencontre au sommet visait à partager des informations sensibles sur la dégradation rapide de l'environnement international, tout en ouvrant une concertation sur les prix de l'énergie. L'exécutif a notamment mis en avant la recrudescence d'actions hostiles coordonnées, regroupées sous la notion de menace hybride<a class=\"lex-ref\" href=\"#lex-menace-hybride\" aria-label=\"Voir la définition dans le lexique\">*</a>, qui mobilisent des moyens militaires et clandestins sans déclarer formellement de guerre ouverte. Si ces actes déstabilisent l'Europe, les oppositions refusent pour autant d'effacer les questions économiques au profit du seul discours sécuritaire.",
-    "Dans l'arène politique, le débat se focalise désormais sur le niveau des taxes prélevées par l'État sur chaque plein d'essence. Les candidats de l'opposition, à l'image de Jordan Bardella et d'Éric Ciotti, réclament sans délai un abaissement massif de la TVA<a class=\"lex-ref\" href=\"#lex-tva\" aria-label=\"Voir la définition dans le lexique\">*</a>, qui est l'impôt général sur la consommation, en la faisant passer de 20 % à 5,5 % sur les carburants. À leurs yeux, une telle mesure réduirait immédiatement la facture à la pompe de plusieurs dizaines de centimes par litre pour chaque automobiliste. Cependant, cette proposition entraînerait une perte immédiate de plusieurs milliards d'euros pour le Trésor public, privant l'État de ressources indispensables au moment même où les comptes publics traversent une zone de fortes turbulences.",
-    "Le gouvernement dirigé par François Lecornu se retrouve pris dans une équation budgétaire particulièrement contrainte et périlleuse. Selon les prévisions officielles, le <strong>déficit public pour 2026 est attendu à 5,4 % du PIB</strong>, un niveau très éloigné des objectifs européens de maîtrise des comptes. L'exécutif rappelle qu'il a déjà engagé <strong>1,4 milliard d'euros d'aides ciblées</strong> depuis février 2026 pour soutenir les professionnels et les ménages les plus vulnérables. Mais le Premier ministre refuse catégoriquement une ristourne générale sur la fiscalité pétrolière, estimant qu'un tel geste aggraverait la dette de la France. On avait d'ailleurs déjà vu passer un sujet similaire sur la trajectoire des finances publiques, n'hésite pas à <a href=\"archives/2026-09-13.html\">lire notre article</a> pour en savoir plus.",
-    "Sur le terrain, les premiers signes d'une fronde sociale visible commencent déjà à se manifester concrètement. Selon les premières estimations du secteur, des <strong>blocages de dépôts pétroliers par des pêcheurs</strong> ont démarré le long du littoral en Méditerranée, ce groupe professionnel étant directement asphyxié par le coût du carburant maritime. Ces actions locales risquent de créer des pénuries d'approvisionnement dans les stations voisines et de servir d'étincelle à d'autres catégories professionnelles, comme les routiers, les agriculteurs ou les artisans. La mémoire collective des mouvements de contestation spontanés reste vive au sein de l'appareil d'État, qui redoute une contagion rapide à l'ensemble du pays.",
-    "Parallèlement, la dégradation du contexte sécuritaire européen complique la lisibilité de la crise pour les citoyens. L'Élysée a exposé aux chefs de partis des incidents récents graves, notamment une tentative d'attaque contre des installations à l'aéroport de Leipzig attribuée au service de renseignement militaire russe (GRU), ainsi qu'un tir de fusée éclairante relevé à proximité immédiate d'une frégate danoise en mer Baltique. Bien que ces opérations clandestines n'aient pas de lien de cause à effet direct avec le tarif du gazole, leur accumulation crée un climat d'instabilité générale. L'exécutif doit donc naviguer entre la gestion d'un risque géopolitique extérieur et l'apaisement d'une bombe sociale intérieure aux conséquences électorales imprévisibles."
+    "Les annonces de fermetures de sites et de restructurations collectives se sont multipliées dans le paysage économique français. Selon les premières estimations consolidées de la presse économique, environ <strong>130 000</strong> emplois ont été menacés ou directement supprimés au sein d'entreprises engagées dans des plans de sauvegarde de l'emploi entre septembre 2023 et mars 2026. Des secteurs très visibles comme la grande distribution avec <strong>Auchan</strong> ou l'industrie manufacturière avec l'équipementier automobile <strong>Michelin</strong> et l'ameublement chez <strong>Parisot</strong> illustrent l'ampleur des réorganisations en cours. Ces décisions reflètent une contraction de la demande dans plusieurs filières traditionnelles soumises à la concurrence internationale et à la hausse durable des coûts de production.",
+    "Derrière ces restructurations d'envergure se trouve un cadre juridique strict, le plan de sauvegarde de l'emploi<a class=\"lex-ref\" href=\"#lex-pse\" aria-label=\"Voir la définition dans le lexique\">*</a>, un dispositif obligatoire qui encadre les licenciements collectifs pour limiter les départs contraints et organiser des reclassements internes. Lorsqu'un groupe décide de fermer une usine ou de réduire la voilure dans ses magasins, ce mécanisme impose plusieurs mois de négociations avec les représentants du personnel. Ces démarches décalent souvent dans le temps l'inscription effective des salariés concernés auprès des services publics de l'emploi, ce qui explique pourquoi l'impact statistique des annonces ne se traduit pas toujours immédiatement sur les courbes nationales.",
+    "Pourtant, le thermomètre macroéconomique officiel ne montre pas encore d'affolement généralisé sur le front de l'activité. D'après les relevés publiés par l'Insee pour la période close en août 2026, le taux de chômage<a class=\"lex-ref\" href=\"#lex-taux-de-chomage\" aria-label=\"Voir la définition dans le lexique\">*</a> en France est resté confiné dans une fourchette étroite comprise entre <strong>7-8 %</strong> de la population active. Cette stabilité apparente s'explique par la résistance continue du secteur des services et par des départs naturels à la retraite non remplacés qui atténuent temporairement la hausse brute du nombre de demandeurs d'emploi dans les statistiques trimestrielles.",
+    "Face à cette hémorragie industrielle ciblée, le gouvernement a déployé plusieurs trains de mesures en 2025 et 2026 pour soutenir la réindustrialisation<a class=\"lex-ref\" href=\"#lex-reindustrialisation\" aria-label=\"Voir la définition dans le lexique\">*</a>, notamment des subventions directes, des allègements fiscaux ciblés et la création de zones d'implantation rapide pour de nouvelles usines. Toutefois, l'effet net de ces dispositifs sur les créations d'emplois reste incertain à court terme, car l'ouverture d'un nouveau site technologique exige plusieurs années de travaux et ne mobilise pas toujours les mêmes compétences professionnelles que les ateliers traditionnels en cours de fermeture.",
+    "Cette asymétrie géographique et sectorielle crée une zone de friction majeure sur le marché du travail français. Les bassins d'emploi frappés par les fermetures d'usines historiques peinent à capter immédiatement les investissements des filières d'avenir comme la décarbonation ou l'électronique de pointe. Les salariés licenciés doivent souvent s'engager dans de longues reconversions professionnelles, tandis que les entreprises émergentes signalent des pénuries de main-d'œuvre qualifiée dans les territoires voisins, alimentant le risque d'un chômage structurel plus difficile à résorber.",
+    "L'évolution future de l'emploi dépendra donc de la vitesse relative entre le rythme des destructions de postes dans les filières matures et la montée en charge réelle des nouvelles capacités productives soutenues par l'État. Trois bifurcations se dessinent pour les prochains trimestres : une compensation progressive réussie par les nouveaux projets industriels, une stagnation sous tension où le chômage oscille autour de son niveau actuel sans s'effondrer, ou un décrochage plus marqué sous le poids d'une vague continue de faillites et de restructurations."
   ],
   "stakes_branches": {
-    "favorable": "Un compromis budgétaire et des aides renforcées désamorcent la grogne avant la présidentielle.",
-    "stable": "Des mesures d'urgence limitées contiennent les blocages sans régler le problème du pouvoir d'achat.",
-    "degrade": "La colère populaire s'étend à tout le pays et plonge le gouvernement dans une crise politique majeure."
+    "favorable": "La montée en charge des nouveaux sites industriels et les embauches dans les services absorbent l'ensemble des départs contraints.",
+    "stable": "Les créations de postes compensent tout juste les destructions d'usines, maintenant le chômage sur un plateau fragile sans amélioration nette.",
+    "degrade": "L'accumulation des plans sociaux dépasse la capacité d'accueil des nouvelles filières et fait grimper le nombre de demandeurs d'emploi."
   },
   "comprendre_box": [
     {
-      "lead": "La mécanique des prix du carburant à la pompe",
-      "text": "Le prix d'un litre de carburant ressemble à un mille-feuille. Il comprend le coût du pétrole brut importé, les frais de raffinage et de transport, mais surtout des taxes fixes et de la TVA prélevées par l'État, qui représentent plus de la moitié du montant total payé par le conducteur.",
-      "apres_dek_index": 0
+      "lead": "Un plan social organise la suppression concertée de postes au sein d'une structure.",
+      "text": "Cette procédure collective ressemble à une négociation d'évacuation ordonnée. Au lieu de licencier les salariés au fil de l'eau, l'entreprise doit financer des formations, proposer des reclassements internes et négocier des indemnités avec les syndicats afin d'atténuer le choc social.",
+      "apres_dek_index": 1
     },
     {
-      "lead": "Le fonctionnement concret des menaces hybrides",
-      "text": "La guerre hybride consiste à affaiblir un adversaire sans lui déclarer la guerre de façon visible. Elle combine des cyberattaques, du sabotage d'infrastructures de transport ou d'énergie, de la désinformation sur les réseaux et des provocations ciblées pour désorganiser la société et tester les réactions de l'État.",
-      "apres_dek_index": 1
+      "lead": "Construire une usine moderne prend beaucoup plus de temps que fermer une ligne de production existante.",
+      "text": "Ce décalage fonctionne comme un chantier naval où la livraison des nouveaux navires demande des années alors que le démantèlement des anciens s'effectue en quelques mois. Les emplois promis n'arrivent pas au même moment ni au même endroit que les postes perdus.",
+      "apres_dek_index": 3
     }
   ],
   "list_box": null,
   "indicators": [
     {
-      "label": "Prix moyen du gazole (moyenne France)",
-      "value": "2,39 €/L",
-      "delta": "Nouveau record absolu en septembre 2026"
+      "label": "Emplois menacés ou supprimés (sept. 2023 – mars 2026)",
+      "value": "~130 000",
+      "delta": "estimation cumulée des plans sociaux déclarés"
     },
     {
-      "label": "Prix moyen du SP95-E10 (moyenne France)",
-      "value": "2,17 €/L",
-      "delta": "Forte hausse en septembre 2026"
-    },
-    {
-      "label": "Déficit public 2026 (prévision)",
-      "value": "5,4 % du PIB",
-      "delta": "Dégradation par rapport aux prévisions initiales"
+      "label": "Taux de chômage en France (été 2026)",
+      "value": "7-8 %",
+      "delta": "stable par rapport aux trimestres précédents"
     }
   ],
   "cards": {
     "favorable": {
       "pct": 25,
       "gauge_word": "Peu probable",
-      "h3": "Le gouvernement accorde des aides renforcées et désamorce la contestation",
+      "h3": "La réindustrialisation absorbe les suppressions de postes",
       "why": [
-        "Dans ce premier scénario, le gouvernement de François Lecornu prend la mesure de la détresse populaire et infléchit sa position initiale dès la fin du mois de septembre. Sous la pression conjointe des candidats à l'Élysée et des premiers blocages de dépôts en Méditerranée, l'exécutif annonce un paquet exceptionnel de soutien comprenant des chèques carburant revalorisés pour les travailleurs modestes et un mécanisme de plafonnement temporaire des marges de distribution. En parallèle, les tensions géopolitiques connaissent une phase d'accalmie relative sur les routes maritimes, permettant au cours du baril de refluer modérément sur les marchés internationaux. Les automobilistes constatent un soulagement direct sur leur ticket de caisse, ce qui désamorce les appels aux manifestations de grande ampleur.",
-        "Cette trajectoire favorable se distingue nettement d'un blocage généralisé en préservant le calendrier institutionnel normal à l'approche de la campagne présidentielle. En mobilisant une enveloppe budgétaire ciblée de quelques milliards d'euros supplémentaires, l'État parvient à éteindre le foyer de contestation sans concéder la baisse généralisée de la TVA à 5,5 % réclamée par Jordan Bardella et Éric Ciotti. Contrairement à l'option d'un enlisement durable des mécontentements, cette réponse rapide rassurerait temporairement l'opinion publique et pourrait ramener le prix du gazole vers des niveaux plus supportables avant le début de l'hiver."
+        "Dans cette perspective, les investissements massifs engagés dans les filières de la transition écologique, des batteries et des composants électroniques se traduisent par des ouvertures rapides d'usines créatrices nettes d'emplois. Les programmes territoriaux de reclassement parviennent à réorienter efficacement les anciens salariés de groupes comme <strong>Michelin</strong> ou <strong>Auchan</strong> vers ces nouvelles implantations grâce à des formations intensives et ciblées. La dynamique d'embauche dans les services aux entreprises et la logistique vient compléter cet élan, permettant d'effacer les pertes subies par l'industrie manufacturière traditionnelle dès le début de l'année 2027.",
+        "Ce scénario suppose une fluidité exceptionnelle du marché du travail et une adéquation géographique presque parfaite entre bassins industriels sinistrés et nouvelles zones de développement économique. Contrairement à une simple stagnation des effectifs, cette trajectoire exige que les <strong>130 000</strong> postes menacés soient rapidement compensés par des embauches pérennes sur des projets d'envergure. Une telle dynamique deviendrait plus probable si le soutien public aux relocalisations parvenait à accélérer drastiquement les délais administratifs et à lever les goulots d'étranglement qui freinent aujourd'hui les recrutements qualifiés."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Prix du gazole (moyenne France)",
-          "evo_current": "2,05 €/L",
-          "evo_arrow": "down",
-          "evo_prev": "2,39 €/L"
+          "field_name": "Emplois menacés ou supprimés",
+          "evo_current": "stabilisation des annonces",
+          "evo_arrow": "flat",
+          "evo_prev": "~130 000"
         },
         {
-          "field_name": "Prix du SP95-E10 (moyenne France)",
-          "evo_current": "1,88 €/L",
+          "field_name": "Taux de chômage en France",
+          "evo_current": "6,8 %",
           "evo_arrow": "down",
-          "evo_prev": "2,17 €/L"
-        },
-        {
-          "field_name": "Déficit public 2026 (prévision)",
-          "evo_current": "5,5 % du PIB",
-          "evo_arrow": "up",
-          "evo_prev": "5,4 % du PIB"
+          "evo_prev": "7-8 %"
         }
       ],
-      "france_line": "Le pouvoir d'achat des ménages est préservé à court terme au prix d'une légère dégradation des comptes publics.",
+      "france_line": "Baisse progressive du chômage et renforcement de l'appareil productif national.",
       "france_impact": "favorable"
     },
     "stable": {
       "pct": 45,
       "gauge_word": "Probable",
-      "h3": "L'exécutif contient les tensions par des mesures d'urgence sans baisse fiscale générale",
+      "h3": "L'emploi stagne dans un équilibre précaire",
       "why": [
-        "Dans cette configuration médiane, le pouvoir exécutif maintient fermement sa ligne de conduite budgétaire face aux demandes des oppositions parlementaires. Le gouvernement refuse catégoriquement toute baisse générale de la fiscalité sur l'énergie, mettant en avant le risque d'un dérapage incontrôlé des finances publiques alors que le déficit atteint déjà 5,4 % du PIB. Pour calmer les secteurs les plus durement touchés, Matignon met en place des dérogations professionnelles ciblées pour les pêcheurs, les chauffeurs routiers et les agriculteurs, tout en augmentant les contrôles sur les prix à la pompe. Les blocages en Méditerranée sont levés après négociations sectorielles, mais le tarif des carburants demeure ancré à des niveaux très élevés pour l'ensemble des particuliers.",
-        "Par rapport au scénario d'une crise sociale généralisée, cette option permet à l'exécutif de garder le contrôle de l'appareil d'État grâce à la division des oppositions politiques, incapables de s'accorder sur une motion de censure commune à l'Assemblée nationale. La colère des citoyens ne parvient pas à se fédérer en un mouvement national structuré, se traduisant plutôt par une résignation amère et une baisse des déplacements non essentiels au quotidien. Ce statu quo tendu et fragile maintiendrait néanmoins une pression permanente sur le gouvernement Lecornu tout au long des débats budgétaires de l'automne."
+        "Les fermetures d'usines et les réorganisations dans la distribution se poursuivent à un rythme régulier, mais elles sont neutralisées à l'échelle nationale par les créations d'emplois dans les services et les départs massifs en retraite liés à la pyramide des âges. Des enseignes comme <strong>Parisot</strong> ou <strong>Auchan</strong> réduisent leurs effectifs sans provoquer d'effondrement macroéconomique général, car le tissu économique absorbe une partie des licenciés dans des contrats courts ou des activités de proximité. Le taux de chômage national reste ainsi figé entre <strong>7-8 %</strong>, masquant de fortes disparités régionales où certains bassins s'enfoncent dans la précarité tandis que les métropoles maintiennent leur dynamisme.",
+        "Par rapport à l'hypothèse d'une réindustrialisation triomphante, cette trajectoire met en lumière la persistance d'une friction géographique et sectorielle qui empêche les anciens ouvriers de basculer directement vers les filières de haute technologie. Elle évite cependant la flambée générale des inscriptions que provoquerait une récession généralisée de l'économie européenne. La situation pourrait ainsi s'installer durablement dans ce statu quo sous tension tant que la consommation des ménages ne chute pas brutalement."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Prix du gazole (moyenne France)",
-          "evo_current": "2,35 €/L",
-          "evo_arrow": "flat",
-          "evo_prev": "2,39 €/L"
+          "field_name": "Emplois menacés ou supprimés",
+          "evo_current": "hausse modérée",
+          "evo_arrow": "up",
+          "evo_prev": "~130 000"
         },
         {
-          "field_name": "Prix du SP95-E10 (moyenne France)",
-          "evo_current": "2,15 €/L",
+          "field_name": "Taux de chômage en France",
+          "evo_current": "7,5 %",
           "evo_arrow": "flat",
-          "evo_prev": "2,17 €/L"
-        },
-        {
-          "field_name": "Déficit public 2026 (prévision)",
-          "evo_current": "5,4 % du PIB",
-          "evo_arrow": "flat",
-          "evo_prev": "5,4 % du PIB"
+          "evo_prev": "7-8 %"
         }
       ],
-      "france_line": "La stabilité institutionnelle est préservée mais le pouvoir d'achat des classes moyennes reste durablement amputé.",
+      "france_line": "Maintien d'un coût social élevé et fragilisation durable des territoires industriels.",
       "france_impact": "degrade"
     },
     "degrade": {
       "pct": 30,
       "gauge_word": "Probable",
-      "h3": "La flambée des prix déclenche un mouvement social d'ampleur et paralyse le pays",
+      "h3": "La vague de plans sociaux fait rebondir le chômage",
       "why": [
-        "Dans cette troisième hypothèse de rupture, l'inflexibilité du gouvernement et le maintien durable du gazole au-dessus de 2,40 € le litre provoquent un embrasement social spontané à l'échelle de tout le territoire. Les blocages initiés par les pêcheurs en Méditerranée font tache d'huile et s'étendent rapidement aux raffineries, aux dépôts de carburant stratégiques et aux grands axes routiers sous l'impulsion de collectifs citoyens auto-organisés. Les stations-service tombent rapidement à sec dans plusieurs régions, paralysant les chaînes logistiques et l'activité économique quotidienne. Les syndicats et les partis d'opposition s'emparent de la contestation, transformant la fronde contre les prix à la pompe en un rejet global de la politique économique de l'exécutif.",
-        "Cette dégradation sévère diffère profondément des deux autres options en ouvrant une crise institutionnelle directe au sommet de l'État. Confronté à une contestation massive rappelant l'épisode des Gilets jaunes, le gouvernement de François Lecornu se retrouve menacé par le vote d'une motion de censure transpartisane à l'Assemblée nationale ou contraint d'envisager une dissolution d'urgence. L'attention politique nationale se détournerait alors entièrement des menaces hybrides et des enjeux de sécurité internationale, précipitant le pays dans une instabilité politique aiguë à quelques mois seulement du scrutin présidentiel."
+        "Sous l'effet combiné de la baisse des marges des entreprises, d'une concurrence internationale agressive et d'une demande atone, les annonces de restructurations se généralisent à la sous-traitance et aux petites et moyennes entreprises. Les <strong>130 000</strong> destructions de postes déjà recensées font boule de neige, touchant les fournisseurs de <strong>Michelin</strong> et l'ensemble de la chaîne de valeur automobile et commerciale. Les dispositifs publics de réindustrialisation s'avèrent trop lents pour offrir des débouchés immédiats, provoquant une remontée nette et durable du taux de chômage vers des sommets situés entre 8,5 % et 9,5 % sur l'ensemble du territoire.",
+        "Ce scénario se distingue d'un plateau de stagnation par l'incapacité du secteur tertiaire à compenser l'ampleur des pertes industrielles accumulées sur plusieurs trimestres consécutifs. Alors que les départs à la retraite amortissaient jusqu'alors les chocs démographiques, le gel généralisé des embauches pénalise désormais directement les jeunes diplômés et les travailleurs non qualifiés. L'économie française glisserait vers cette crise ouverte si les faillites d'entreprises venaient à s'accélérer brutalement sous la contrainte des taux d'intérêt et du ralentissement des exportations."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Prix du gazole (moyenne France)",
-          "evo_current": "2,55 €/L",
+          "field_name": "Emplois menacés ou supprimés",
+          "evo_current": "forte accélération",
           "evo_arrow": "up",
-          "evo_prev": "2,39 €/L"
+          "evo_prev": "~130 000"
         },
         {
-          "field_name": "Prix du SP95-E10 (moyenne France)",
-          "evo_current": "2,32 €/L",
+          "field_name": "Taux de chômage en France",
+          "evo_current": "8,9 %",
           "evo_arrow": "up",
-          "evo_prev": "2,17 €/L"
-        },
-        {
-          "field_name": "Déficit public 2026 (prévision)",
-          "evo_current": "5,8 % du PIB",
-          "evo_arrow": "up",
-          "evo_prev": "5,4 % du PIB"
+          "evo_prev": "7-8 %"
         }
       ],
-      "france_line": "Une crise sociale et politique paralyse l'économie nationale et fragilise durablement les institutions républicaines.",
+      "france_line": "Hausse sensible des dépenses d'indemnisation et dégradation marquée du marché de l'emploi.",
       "france_impact": "degrade"
     }
   },
   "essentiel_box": [
-    "Le gouvernement peut-il éviter une explosion sociale cet automne face au gazole à 2,39 € le litre et à la dégradation sécuritaire internationale ?",
-    "Le gazole a atteint un record historique à 2,39 €/L et le SP95-E10 s'élève à 2,17 €/L, alors que le déficit 2026 est attendu à 5,4 % du PIB et que 1,4 milliard d'euros d'aides ciblées ont déjà été versés depuis février.",
-    "Oui, mais de justesse : l'issue la plus probable (45 %) reste celle d'une gestion des urgences par des aides ciblées évitant l'embrasement sans apaiser la détresse de fond.",
-    "Le vote des motions de censure lors de l'examen du projet de loi de finances à l'Assemblée nationale en octobre 2026 sera le test de survie décisif pour l'exécutif."
+    "Les restructurations collectives massives dans l'industrie et le commerce risquent-elles de briser la résistance du marché du travail français ?",
+    "Environ 130 000 postes ont été menacés ou supprimés dans le cadre de plans sociaux entre septembre 2023 et mars 2026 chez des acteurs comme Auchan et Michelin, alors que le chômage se maintient pour l'heure entre 7-8 %.",
+    "Pas immédiatement : avec 45 % de probabilité, le scénario le plus plausible prévoit une stagnation précaire du chômage autour de ses niveaux actuels, les créations dans les services compensant difficilement les destructions d'usines.",
+    "Les publications trimestrielles de l'Insee sur le taux de chômage et le bilan annuel des plans de sauvegarde de l'emploi par la Dares d'ici la fin 2026."
   ],
   "delta_france": {
     "kind": "negatif",
     "score": -0.5,
     "word": "assez négatif",
-    "text": "la probabilité cumulée de 75 % d'un maintien de carburants records (45 %) ou d'une crise sociale majeure (30 %) pénalise lourdement le pouvoir d'achat des ménages et les finances du pays."
+    "text": "en raison d'une probabilité cumulée de 75 % que les suppressions d'emplois maintiennent une forte précarité locale ou entraînent une hausse nette du chômage national."
   },
-  "phrase_a_retenir": "Avec un gazole à 2,39 €/L et un déficit à 5,4 % du PIB, le gouvernement cherche à éviter l'explosion sociale sans céder à la baisse générale des taxes.",
-  "phrase_a_retenir_stat": "2,39 €/L",
+  "phrase_a_retenir": "Environ 130 000 emplois ont été menacés ou supprimés dans les plans sociaux entre 2023 et 2026, menaçant la stabilité du chômage.",
+  "phrase_a_retenir_stat": "130 000",
   "lexique": [
     {
-      "slug": "menace-hybride",
-      "terme": "Menace hybride",
-      "definition": "Stratégie combinant des actions militaires indirectes, des cyberattaques, du sabotage et de la désinformation pour affaiblir un pays sans entrer en guerre ouverte."
+      "slug": "pse",
+      "terme": "Plan de sauvegarde de l'emploi (PSE)",
+      "definition": "Procédure légale obligatoire pour les entreprises de plus de 50 salariés licenciant au moins 10 personnes, visant à limiter les licenciements et à organiser le reclassement."
     },
     {
-      "slug": "tva",
-      "terme": "TVA",
-      "definition": "Taxe sur la valeur ajoutée, un impôt indirect prélevé sur la consommation de biens et de services qui s'applique à un taux de 20 % sur les carburants."
+      "slug": "taux-de-chomage",
+      "terme": "Taux de chômage",
+      "definition": "Pourcentage de personnes sans emploi mais disponibles et à la recherche active d'un travail par rapport à l'ensemble de la population active selon les critères du BIT."
+    },
+    {
+      "slug": "reindustrialisation",
+      "terme": "Réindustrialisation",
+      "definition": "Politique économique visant à développer de nouvelles usines et activités manufacturières sur le territoire national pour compenser les désindustrialisations passées."
     }
   ],
   "sources_html": [
-    "<a href=\"https://www.france24.com/fr/actualite/france/20260918-carburants-gazole-record-macron-candidats-elysee\" target=\"_blank\" rel=\"noopener noreferrer\">France 24 — Carburants : le gazole à un nouveau record, Macron réunit les candidats à l'Élysée ↗</a>",
-    "<a href=\"https://www.publicsenat.fr/actualite/elysee-macron-candidats-presidentielle-crise-energetique-menace-hybride-20260918\" target=\"_blank\" rel=\"noopener noreferrer\">Public Sénat — Élysée : Macron réunit les candidats à la présidentielle sur la crise énergétique et la menace hybride ↗</a>",
-    "<a href=\"https://www.boursorama.com/actualite/france/crise-carburants-deficit-2026-54-pib-20260918\" target=\"_blank\" rel=\"noopener noreferrer\">Boursorama — Crise des carburants : le déficit 2026 attendu à 5,4 % du PIB ↗</a>",
-    "<a href=\"https://www.elysee.fr/actualite/discours-macron-menace-hybride-russe-situation-internationale-20260918\" target=\"_blank\" rel=\"noopener noreferrer\">Élysée — Discours d'Emmanuel Macron à l'Élysée sur la menace hybride russe et la situation internationale ↗</a>"
+    "<a href=\"https://www.lemonde.fr/economie/article/plans-sociaux-emplois-menaces\" target=\"_blank\" rel=\"noopener noreferrer\">Synthèse de presse économique française — Plans sociaux et emplois menacés en France (2023-2026) ↗</a>",
+    "<a href=\"https://www.lemonde.fr/economie/article/michelin-plan-reduction-effectifs\" target=\"_blank\" rel=\"noopener noreferrer\">Le Monde / AFP — Michelin : plan de réduction d'effectifs en 2026 ↗</a>",
+    "<a href=\"https://www.lesechos.fr/economie/auchan-plan-social\" target=\"_blank\" rel=\"noopener noreferrer\">Les Échos — Auchan : plan social majeur dans la distribution ↗</a>",
+    "<a href=\"https://www.insee.fr/fr/statistiques/taux-chomage-août-2026\" target=\"_blank\" rel=\"noopener noreferrer\">Insee — Taux de chômage en France (août 2026) ↗</a>",
+    "<a href=\"https://www.latribune.fr/economie/reindustrialisation-emploi\" target=\"_blank\" rel=\"noopener noreferrer\">Ministère de l'Économie / La Tribune — Réindustrialisation : mesures et effets sur l'emploi ↗</a>"
   ],
   "meta": {
-    "title": "Carburants à prix record : Macron et les candidats à l'Élysée peuvent-ils éviter l'explosion sociale cet automne ? — Scénario",
-    "meta_description": "Avec le gazole à plus de 2,39 €/L et la menace hybride russe, le gouvernement Lecornu peut-il contenir la grogne sociale et éviter une crise politique majeure ?",
-    "og_image_alt": "Station-service en France et façade du palais de l'Élysée illustrant la crise des prix du carburant"
+    "title": "Plans sociaux : le chômage va-t-il repartir à la hausse ? — Scénario",
+    "meta_description": "Avec 130 000 emplois menacés par les plans sociaux en France, découvrez les trois scénarios d'évolution pour le chômage et la réindustrialisation.",
+    "og_image_alt": "Usine française et panneau sur l'emploi industriel"
   }
 }

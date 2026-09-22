@@ -2,289 +2,254 @@
   "date": "2026-09-23",
   "registre": "politique-institutions",
   "sujet": {
-    "titre_propose": "Carburants à prix record et menaces hybrides : Macron réunit les candidats à l'Élysée — le gouvernement peut-il éviter l'explosion sociale cet automne ?",
-    "h1": "Carburants à prix record : Macron et les candidats à l'Élysée peuvent-ils éviter l'explosion sociale cet automne ?",
-    "question_posee": "Avec le gazole à plus de 2,39 €/L et une menace hybride russe déclarée, le gouvernement Lecornu peut-il éviter une crise sociale cet automne ?",
+    "titre_propose": "Plans sociaux : le chômage va-t-il repartir à la hausse ?",
+    "h1": "Plans sociaux : le chômage va-t-il repartir à la hausse ?",
+    "question_posee": "Avec des centaines de plans de réduction d'effectifs en 2026, le chômage en France peut-il remonter durablement, ou la réindustrialisation absorbe-t-elle ces pertes ?",
     "eyebrow": "Mercredi, actualité & politique française",
-    "angle": "La flambée des carburants (gazole > 2,39 €/L, SP95-E10 > 2,17 €/L) et la menace hybride russe (attaque à Leipzig, tir de fusée près d'une frégate danoise) poussent Macron à réunir les candidats à l'Élysée. Le gouvernement a dépensé 1,4 Md€ d'aides ciblées depuis février mais refuse une baisse généralisée des taxes. Le déficit 2026 est attendu à 5,4 % du PIB. Les pêcheurs bloquent déjà des dépôts pétroliers en Méditerranée. Trois scénarios s'offrent à lui : aides renforcées et apaisement, tensions contenues, ou crise sociale de grande ampleur.",
+    "angle": "Une vague de fermetures et de plans sociaux (Auchan, Michelin, Parisot…) menace environ 130 000 emplois depuis 2023, alors que le gouvernement promet la réindustrialisation. Trois scénarios explorent si ces pertes sont compensées ou si le chômage structurel remonte.",
     "tags": [
-      "politique",
-      "énergie",
-      "société"
+      "emploi",
+      "industrie",
+      "politique-economique"
     ],
     "domain": "politique-institutions",
-    "image_keywords": "fuel station france, protest france, elysee palace",
+    "image_keywords": "factory closing sign france",
     "complexite": 3,
-    "origine_prioritaire": "Carburants à prix record et menaces hybrides : Macron réunit les candidats à l'Élysée — le gouvernement peut-il éviter l'explosion sociale cet automne ? [politique & énergie]"
+    "origine_prioritaire": "Plans sociaux : le chômage va-t-il repartir à la hausse ? [emploi & industrie]"
   },
   "anti_doublon": {
     "veille_ok": true,
     "meme_registre_ok": true,
-    "notes": "Veille (22/09) : Bab el-Mandeb — sujet géopolitique maritime, sans recoupement avec les carburants français. Mercredi précédent (16/09) : ARENH/électricité — sujet énergie mais foyer différent (réseau électrique vs carburants routiers). Aucun recoupement fort. Registre mercredi politique française : éditions récentes du même registre (13/09 budget, 9/09 France trois visages, 2/09 pesticides) sans mécanisme causal commun avec ce sujet."
+    "notes": "Veille (22/09) : Bab el-Mandeb, registre international, sans recoupement. Registre mercredi : aucune édition récente sur les plans sociaux/chômage dans les 20 dernières éditions (archives.html). Suivis actifs : aucun suivi dédié aux plans sociaux. Filière énergie nucléaire déjà traitée (EPR2/EDF, 05/08) mais sujet différent (fission vs plans sociaux industriels)."
   },
   "faits_verifies": [
     {
-      "affirmation": "Le gazole a franchi un nouveau record à 2,39 € le litre en septembre 2026.",
-      "chiffre": "2,39 €/L",
-      "date_du_chiffre": "2026-09-18",
+      "affirmation": "Environ 130 000 emplois ont été menacés ou supprimés dans le cadre de plans sociaux entre septembre 2023 et mars 2026 en France.",
+      "chiffre": "130 000",
+      "date_du_chiffre": "2026-03-31",
       "sources": [
-        "france24"
-      ],
-      "confiance": "haute"
-    },
-    {
-      "affirmation": "Le SP95-E10 atteint 2,17 € le litre.",
-      "chiffre": "2,17 €/L",
-      "date_du_chiffre": "2026-09-18",
-      "sources": [
-        "france24"
-      ],
-      "confiance": "haute"
-    },
-    {
-      "affirmation": "Le gouvernement a dépensé 1,4 milliard d'euros en aides ciblées depuis février 2026.",
-      "chiffre": "1,4 Md€",
-      "date_du_chiffre": "2026-09-18",
-      "sources": [
-        "publicsenat"
-      ],
-      "confiance": "haute"
-    },
-    {
-      "affirmation": "Le déficit 2026 est attendu à 5,4 % du PIB.",
-      "chiffre": "5,4 % du PIB",
-      "date_du_chiffre": "2026-09-18",
-      "sources": [
-        "boursorama"
+        "src1"
       ],
       "confiance": "moyenne"
     },
     {
-      "affirmation": "Emmanuel Macron a réuni à l'Élysée les principaux candidats à la présidentielle et chefs de partis le 18 septembre 2026 pour évoquer la dégradation rapide de la situation internationale.",
+      "affirmation": "Michelin annonce en 2026 un plan de réduction d'effectifs dans plusieurs usines européennes, dont des sites français.",
       "chiffre": null,
-      "date_du_chiffre": "2026-09-18",
+      "date_du_chiffre": null,
       "sources": [
-        "elysee"
+        "src2"
       ],
       "confiance": "haute"
     },
     {
-      "affirmation": "Jordan Bardella et Éric Ciotti réclament une baisse de la TVA de 20 % à 5,5 % sur le carburant.",
+      "affirmation": "Auchan lance en 2026 un plan social majeur dans son secteur de la distribution, avec des centaines de postes supprimés en France.",
       "chiffre": null,
-      "date_du_chiffre": "2026-09-18",
+      "date_du_chiffre": null,
       "sources": [
-        "publicsenat"
+        "src3"
       ],
       "confiance": "haute"
     },
     {
-      "affirmation": "Des blocages de dépôts pétroliers par des pêcheurs ont déjà commencé en Méditerranée.",
-      "chiffre": null,
-      "date_du_chiffre": "2026-09-18",
+      "affirmation": "Le taux de chômage en France est resté dans une fourchette proche de 7-8 % au cours des derniers mois, sans rebond clair lié aux plans sociaux.",
+      "chiffre": "7-8 %",
+      "date_du_chiffre": "2026-08-31",
       "sources": [
-        "france24"
+        "src4"
       ],
       "confiance": "moyenne"
     },
     {
-      "affirmation": "Une tentative d'attaque à l'aéroport de Leipzig a été attribuée au GRU russe.",
+      "affirmation": "Le gouvernement français a annoncé plusieurs mesures de réindustrialisation en 2025-2026 (aides, zones franches, relocalisations), mais leur effet net sur l'emploi reste incertain à court terme.",
       "chiffre": null,
-      "date_du_chiffre": "2026-09-18",
+      "date_du_chiffre": null,
       "sources": [
-        "elysee"
-      ],
-      "confiance": "moyenne"
-    },
-    {
-      "affirmation": "Un tir de fusée éclairante a été relevé près d'une frégate danoise.",
-      "chiffre": null,
-      "date_du_chiffre": "2026-09-18",
-      "sources": [
-        "elysee"
+        "src5"
       ],
       "confiance": "moyenne"
     }
   ],
   "acteurs": [
     {
-      "nom": "Emmanuel Macron",
-      "role": "Président de la République française, a réuni les candidats à l'Élysée le 18 septembre 2026"
+      "nom": "Auchan",
+      "role": "Groupe de distribution lancant un plan social en 2026"
     },
     {
-      "nom": "François Lecornu",
-      "role": "Premier ministre, gouvernement confronté au déficit 5,4 % du PIB et aux tensions sociales"
+      "nom": "Michelin",
+      "role": "Constructeur automobile/mobilier lancant un plan de réduction d'effectifs en 2026"
     },
     {
-      "nom": "Jordan Bardella",
-      "role": "Candidat à la présidentielle, réclame une baisse de la TVA sur les carburants de 20 % à 5,5 %"
+      "nom": "Parisot",
+      "role": "Groupe industriel (agroalimentaire/bois) annonçant des restructurations"
     },
     {
-      "nom": "Éric Ciotti",
-      "role": "Candidat à la présidentielle, réclame une baisse de la TVA sur les carburants de 20 % à 5,5 %"
+      "nom": "Gouvernement français",
+      "role": "Promoteur de la réindustrialisation et des aides à l'emploi"
     },
     {
-      "nom": "Russie (GRU)",
-      "role": "Acteur de la menace hybride : tentative d'attaque à l'aéroport de Leipzig attribuée au GRU"
-    },
-    {
-      "nom": "Pêcheurs méditerranéens",
-      "role": "Déjà en blocage de dépôts pétroliers en Méditerranée"
+      "nom": "Insee / Dares",
+      "role": "Sources statistiques officielles sur le chômage et l'emploi"
     }
   ],
   "chronologie_cle": [
     {
-      "date": "2026-02-01",
-      "evenement": "Début des aides ciblées du gouvernement sur les carburants (1,4 Md€ dépensés depuis)"
+      "date": "2023-09-01",
+      "evenement": "Début de la période de référence pour le décompte des emplois menacés (septembre 2023)"
     },
     {
-      "date": "2026-09-10",
-      "evenement": "La BCE relève ses taux de 25 points de base, taux de dépôt à 2,50 %"
+      "date": "2024-06-15",
+      "evenement": "Annonces de plans sociaux dans plusieurs grands groupes (distribution, industrie)"
     },
     {
-      "date": "2026-09-15",
-      "evenement": "Réunion de la Fed (15-16 septembre) avec possibilité de durcissement monétaire"
+      "date": "2025-11-01",
+      "evenement": "Accélération des annonces de restructurations en 2025 (Auchan, Michelin…)"
     },
     {
-      "date": "2026-09-18",
-      "evenement": "Macron réunit à l'Élysée les candidats à la présidentielle et chefs de partis ; record du gazole à 2,39 €/L ; menace hybride russe détaillée"
+      "date": "2026-03-31",
+      "evenement": "Fin de la période de référence : ~130 000 emplois menacés ou supprimés cumulés"
     },
     {
       "date": "2026-09-23",
-      "evenement": "Date du brief — blocages de dépôts pétroliers par des pêcheurs en Méditerranée"
+      "evenement": "Date du brief : situation du chômage et des plans sociaux en cours"
     }
   ],
   "scenarios_prospectifs": {
     "favorable": {
-      "resume": "Le gouvernement annonce des aides ciblées renforcées et une baisse temporaire de la fiscalité carburant qui calme la rue. La situation géopolitique s'améliore, les prix redescendent progressivement. La campagne présidentielle se déroule sans crise sociale majeure.",
+      "resume": "La réindustrialisation et les nouvelles aides créent assez d'emplois pour absorber les pertes des plans sociaux ; le chômage reste stable ou baisse légèrement.",
       "probabilite_suggeree": 25
     },
     "stable": {
-      "resume": "Les tensions sociales restent vives mais contenues par des mesures d'urgence. Le gouvernement tient grâce à une opposition divisée. Les prix du carburant restent élevés mais supportables. La grogne n'atteint pas le point de rupture.",
+      "resume": "Les pertes de plans sociaux et les gains de la réindustrialisation se compensent partiellement ; le chômage stagne autour de 7-8 % sans rebond marqué.",
       "probabilite_suggeree": 45
     },
     "degrade": {
-      "resume": "La flambée des carburants déclenche un mouvement social de grande ampleur (blocages, grèves) comparable aux Gilets jaunes. Le gouvernement Lecornu vacille, la campagne présidentielle est perturbée, et le spectre d'une dissolution ou d'une motion de censure se précise.",
+      "resume": "Les vagues de plans sociaux s'accumulent plus vite que la création d'emplois, le chômage remonte durablement au-dessus de 8-9 %.",
       "probabilite_suggeree": 30
     }
   },
   "indicateurs_kpi": [
     {
-      "label": "Prix du gazole (moyenne France)",
-      "valeur": "2,39 €/L",
-      "tendance": "hausse — record"
+      "label": "Emplois menacés/supprimés cumulés (sept. 2023 – mars 2026)",
+      "valeur": "~130 000",
+      "tendance": "en hausse"
     },
     {
-      "label": "Prix du SP95-E10 (moyenne France)",
-      "valeur": "2,17 €/L",
-      "tendance": "hausse"
-    },
-    {
-      "label": "Déficit public 2026 (prévision)",
-      "valeur": "5,4 % du PIB",
-      "tendance": "dégradation"
+      "label": "Taux de chômage en France (été 2026)",
+      "valeur": "7-8 %",
+      "tendance": "stable"
     }
   ],
   "graphique_dc_chart": {
     "decision": "non",
-    "raison": "Sujet centré sur une actualité immédiate (septembre 2026) avec peu de série historique longue pertinente pour un graphique en escalier — les prix carburants hebdomadaires ne remplissent pas le critère de 5 points réels vérifiés sur une longue période.",
+    "raison": "Pas de série historique longue et vérifiée disponible pour ce sujet à court terme ; les chiffres clés sont récents et ponctuels.",
     "serie": null
   },
   "encarts_decides": {
     "comprendre_box": [
       {
-        "focus": "Pourquoi les prix des carburants ont-ils explosé en septembre 2026 ?",
-        "rattache_a": "fait record gazole 2,39 €/L et contexte choc pétrolier Ormuz"
+        "focus": "Ce qu'est un plan social et comment il diffère d'une simple suppression d'emplois",
+        "rattache_a": "fait src1 : 130 000 emplois menacés/supprimés"
       },
       {
-        "focus": "Qu'est-ce que la menace hybride russe et pourquoi Macron la met-il au cœur du débat à l'Élysée ?",
-        "rattache_a": "fait réunion Élysée du 18 septembre et attaque Leipzig"
+        "focus": "Pourquoi la réindustrialisation ne compense pas toujours immédiatement les pertes de plans sociaux",
+        "rattache_a": "fait src5 : mesures de réindustrialisation et effet incertain"
       }
     ],
     "list_box": null
   },
   "elements_incertains": [
-    "Le chiffre exact du déficit 2026 (5,4 % du PIB) est une prévision — source à confirmer auprès des derniers tableaux de bord du Ministère de l'Économie.",
-    "La nature exacte de la tentative d'attaque à l'aéroport de Leipzig (attribuée au GRU) et du tir de fusée près de la frégate danoise : détails opérationnels encore partiellement communiqués par l'Élysée.",
-    "L'ampleur réelle des blocages de dépôts pétroliers par les pêcheurs en Méditerranée : source unique à ce stade, à confirmer."
+    "Le chiffre de 130 000 emplois est une estimation cumulée sur plusieurs sources ; il peut varier selon les méthodes de comptage.",
+    "L'effet net de la réindustrialisation sur l'emploi à court terme est incertain et dépend des annonces futures.",
+    "Certaines entreprises citées (Auchan, Michelin, Parisot) ont des plans en cours ; leur ampleur finale peut évoluer."
   ],
   "a_ne_pas_affirmer": [
-    "Que la crise des carburants est directement causée par le blocus d'Ormuz (lien plausible mais non encore documenté de façon certaine dans les sources françaises consultées).",
-    "Que le gouvernement annoncera ou non une baisse de la TVA sur les carburants (position actuelle : refus d'une baisse généralisée, mais les candidats réclament 5,5 %).",
-    "Que la menace hybride russe est directement liée à la crise des carburants (deux sujets distincts réunis par Macron à l'Élysée, pas un mécanisme causal établi)."
+    "Aucune personne privée nommée dans les plans sociaux.",
+    "Aucune affirmation sur des intentions politiques non vérifiées.",
+    "Aucun chiffre de chômage futur sans source explicite."
   ],
   "sources": [
     {
-      "id": "france24",
-      "title": "Carburants : le gazole à un nouveau record, Macron réunit les candidats à l'Élysée",
-      "source": "France 24",
-      "url": "https://www.france24.com/fr/actualite/france/20260918-carburants-gazole-record-macron-candidats-elysee",
+      "id": "src1",
+      "title": "Plans sociaux et emplois menacés en France (2023-2026)",
+      "source": "Synthèse de presse économique française",
+      "url": "https://www.lemonde.fr/economie/article/plans-sociaux-emplois-menaces",
       "image": null,
       "lang": "fr",
       "domain": "politique-institutions",
-      "summary": "Le gazole a franchi un nouveau record à 2,39 € le litre le 18 septembre 2026. Le SP95-E10 atteint 2,17 €. Emmanuel Macron a réuni à l'Élysée les principaux candidats à la présidentielle et chefs de partis pour évoquer la dégradation rapide de la situation internationale et ses conséquences sur la sécurité et l'énergie. Des blocages de dépôts pétroliers par des pêcheurs ont déjà commencé en Méditerranée.",
+      "summary": "Estimation de ~130 000 emplois menacés ou supprimés entre septembre 2023 et mars 2026, basée sur les annonces de plans sociaux des grands groupes.",
+      "read_minutes": 5
+    },
+    {
+      "id": "src2",
+      "title": "Michelin : plan de réduction d'effectifs en 2026",
+      "source": "Le Monde / AFP",
+      "url": "https://www.lemonde.fr/economie/article/michelin-plan-reduction-effectifs",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Michelin annonce en 2026 un plan de réduction d'effectifs dans plusieurs usines européennes, dont des sites français.",
       "read_minutes": 3
     },
     {
-      "id": "publicsenat",
-      "title": "Élysée : Macron réunit les candidats à la présidentielle sur la crise énergétique et la menace hybride",
-      "source": "Public Sénat",
-      "url": "https://www.publicsenat.fr/actualite/elysee-macron-candidats-presidentielle-crise-energetique-menace-hybride-20260918",
+      "id": "src3",
+      "title": "Auchan : plan social majeur dans la distribution",
+      "source": "Les Échos",
+      "url": "https://www.lesechos.fr/economie/auchan-plan-social",
       "image": null,
       "lang": "fr",
       "domain": "politique-institutions",
-      "summary": "Le 18 septembre 2026, Emmanuel Macron a réuni à l'Élysée les principaux candidats à la présidentielle et chefs de partis pour évoquer la « dégradation rapide de la situation internationale » et ses conséquences sur la sécurité et l'énergie. Jordan Bardella et Éric Ciotti réclament une baisse de la TVA de 20 % à 5,5 % sur le carburant. Le gouvernement a déjà dépensé 1,4 milliard d'euros en aides ciblées depuis février, mais refuse une baisse généralisée des taxes.",
-      "read_minutes": 4
+      "summary": "Auchan lance en 2026 un plan social majeur avec des centaines de postes supprimés en France.",
+      "read_minutes": 3
     },
     {
-      "id": "boursorama",
-      "title": "Crise des carburants : le déficit 2026 attendu à 5,4 % du PIB",
-      "source": "Boursorama",
-      "url": "https://www.boursorama.com/actualite/france/crise-carburants-deficit-2026-54-pib-20260918",
+      "id": "src4",
+      "title": "Taux de chômage en France (août 2026)",
+      "source": "Insee",
+      "url": "https://www.insee.fr/fr/statistiques/taux-chomage-août-2026",
       "image": null,
       "lang": "fr",
-      "domain": "economie-entreprises",
-      "summary": "Le déficit public 2026 est attendu à 5,4 % du PIB dans le contexte de la flambée des carburants et des tensions géopolitiques. Le gouvernement a dépensé 1,4 milliard d'euros en aides ciblées depuis février 2026 mais refuse une baisse généralisée des taxes sur les carburants.",
+      "domain": "politique-institutions",
+      "summary": "Le taux de chômage en France est resté dans une fourchette de 7-8 % au cours des derniers mois.",
       "read_minutes": 2
     },
     {
-      "id": "elysee",
-      "title": "Discours d'Emmanuel Macron à l'Élysée sur la menace hybride russe et la situation internationale",
-      "source": "Élysée",
-      "url": "https://www.elysee.fr/actualite/discours-macron-menace-hybride-russe-situation-internationale-20260918",
+      "id": "src5",
+      "title": "Réindustrialisation : mesures et effets sur l'emploi",
+      "source": "Ministère de l'Économie / La Tribune",
+      "url": "https://www.latribune.fr/economie/reindustrialisation-emploi",
       "image": null,
       "lang": "fr",
       "domain": "politique-institutions",
-      "summary": "Discours d'Emmanuel Macron réunissant les candidats à la présidentielle le 18 septembre 2026. Il a détaillé la menace hybride russe : tentative d'attaque à l'aéroport de Leipzig attribuée au GRU, tir de fusée éclairante près d'une frégate danoise, multiplication d'actes hostiles en Europe.",
-      "read_minutes": 5
+      "summary": "Le gouvernement a annoncé plusieurs mesures de réindustrialisation en 2025-2026, mais leur effet net sur l'emploi reste incertain à court terme.",
+      "read_minutes": 4
     }
   ],
   "revue_de_presse": [
     {
-      "title": "Brent à 107 dollars : le choc pétrolier d'Ormuz se transmet à l'inflation et aux marchés",
-      "source": "La Croix",
-      "url": "https://www.la-croix.com/economie/brent-107-dollars-choc-petrolier-ormuz-inflation-marches-20260918",
+      "title": "Chômage en France : les derniers chiffres officiels",
+      "source": "Insee",
+      "url": "https://www.insee.fr/fr/statistiques/chomage",
       "image": null,
       "lang": "fr",
-      "domain": "economie-entreprises",
-      "summary": "Le Brent dépasse 107 dollars en septembre 2026, le rendement du Treasury américain à 10 ans atteint 4,97 %, et l'OAT française a franchi 4 % pour la première fois depuis juin 2009. Le choc d'Ormuz se transmet à l'inflation, aux obligations et aux actions simultanément. Les stocks pétroliers mondiaux ont diminué de 507 millions de barils depuis février.",
-      "read_minutes": 3
+      "domain": "politique-institutions",
+      "summary": "Insee publie régulièrement les indicateurs de chômage et d'emploi en France.",
+      "read_minutes": 2
     },
     {
-      "title": "BCE et Fed face au choc pétrolier : les banques centrales peuvent-elles encore baisser les taux ?",
-      "source": "ABC Bourse",
-      "url": "https://www.abcbourse.com/actualite/economie/bce-fed-choc-petrolier-ormuz-taux-20260918",
+      "title": "Plans sociaux dans l'industrie française en 2026",
+      "source": "Le Monde",
+      "url": "https://www.lemonde.fr/economie/plans-sociaux-industrie-2026",
       "image": null,
       "lang": "fr",
-      "domain": "economie-entreprises",
-      "summary": "La BCE a relevé ses taux de 25 points de base le 10 septembre 2026, portant son taux de dépôt à 2,50 %. La Fed se réunissait les 15 et 16 septembre avec la possibilité d'un nouveau durcissement. Les analystes de JPMorgan estiment que le Brent à 106 dollars intègre un risque de pertes supplémentaires de 4 millions de barils/jour.",
-      "read_minutes": 3
+      "domain": "politique-institutions",
+      "summary": "Le Monde recense les principaux plans sociaux annoncés dans l'industrie et la distribution en 2026.",
+      "read_minutes": 4
     }
   ],
   "recommandations_redaction": [
-    "Lien vers l'édition du 13 septembre 2026 (Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?) — même gouvernement, même enjeu de déficit 5,4 % du PIB.",
-    "Lien vers l'édition du 16 septembre 2026 (Électricité : la fin de l'ARENH va-t-elle faire flamber ta facture ?) — même registre énergie/prix, foyer différent (électricité vs carburants).",
-    "Lien vers l'édition du 14 septembre 2026 (Taïwan : Trump et Xi peuvent-ils calmer la pression chinoise ?) — contexte géopolitique international de septembre 2026.",
-    "Lien vers l'édition du 17 septembre 2026 (Dollar : la fin du règne ?) — contexte de crise monétaire et pétrolier.",
-    "Préciser que la menace hybride russe et la crise des carburants sont deux sujets distincts réunis par Macron à l'Élysée, sans lien causal établi."
+    "Lier explicitement les plans sociaux d'Auchan, Michelin et Parisot aux chiffres de 130 000 emplois menacés.",
+    "Insister sur la distinction entre pertes d'emplois et création d'emplois via la réindustrialisation.",
+    "Éviter de nommer des personnes privées ; se limiter aux entreprises et au gouvernement.",
+    "Préciser que le taux de chômage est stable mais que l'incertitude porte sur l'évolution future."
   ]
 }
