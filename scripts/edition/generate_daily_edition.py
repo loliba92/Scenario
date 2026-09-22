@@ -1313,7 +1313,32 @@ def main():
             # ignorées restent loguées ci-dessous. Jamais en --dry-run
             # (inutile contre une fixture figée — voir check_fixtures.py,
             # qui doit rester strict sur celle-ci).
-            content, errors = min(attempts_history, key=lambda pair: len(pair[1]))
+            #
+            # Incident du 22 septembre 2026 (run 35776374044) : un essai
+            # avec un nombre d'indicators différent de celui du brief a été
+            # choisi comme "meilleur essai" (1 seule erreur résiduelle),
+            # mais build_html._kpi_indicator_html() suppose que chaque
+            # indicateur produit est structurellement complet — le contenu
+            # retenu contenait un indicateur mal formé et l'assemblage a
+            # levé une KeyError('value') en aval, hors de portée de cette
+            # validation. Exclut désormais du choix tout essai dont les
+            # erreurs résiduelles touchent au NOMBRE d'indicateurs (utilisés
+            # par position/correspondance stricte dans build_html.py) —
+            # ces essais ne sont jamais structurellement sûrs, même s'ils
+            # comptent peu d'erreurs.
+            safe_attempts = [
+                pair for pair in attempts_history
+                if not any(
+                    "indicators :" in e or "indicateurs_touches :" in e
+                    for e in pair[1]
+                )
+            ]
+            if not safe_attempts:
+                raise GenerationError(
+                    f"validation du contenu échouée après {1 + MAX_RETRIES} essai(s), "
+                    "tous structurellement invalides (nombre d'indicateurs incohérent), rien n'est produit"
+                )
+            content, errors = min(safe_attempts, key=lambda pair: len(pair[1]))
             used_best_effort_fallback = True
             print(
                 f"[edition] AUCUN essai n'a validé proprement après {1 + MAX_RETRIES} tentative(s) "
