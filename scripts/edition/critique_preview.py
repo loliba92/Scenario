@@ -198,6 +198,8 @@ _NO_ISSUE_CORRECTION_PREFIXES = (
     "pas de correction",
     "rien à corriger",
     "correction non nécessaire",
+    "aucune",
+    "aucun",
 )
 
 
@@ -218,7 +220,15 @@ def drop_empty_findings(critique):
     sont filtrés. Filtré ici plutôt que de complexifier encore le prompt —
     un garde-fou côté code est plus fiable qu'une consigne supplémentaire
     sur un modèle déjà connu pour un suivi d'instructions imparfait sur ce
-    genre de tâche."""
+    genre de tâche.
+
+    4e run réel (22 septembre 2026, run #20, issue #68, ajout du critère
+    style_ia) : 2 findings avec `correction_proposee` = "Aucune." tout
+    court (jamais "aucune correction...", le préfixe qui existait jusque-là
+    ne matchait pas) sont passés à travers ce filtre. "aucune"/"aucun" seuls
+    ajoutés aux préfixes plutôt qu'une liste de formules figées de plus en
+    plus longue — cette famille de réponses commence toujours par ce mot,
+    quelle que soit la suite exacte."""
     findings = critique.get("findings") or []
     kept = []
     for f in findings:
