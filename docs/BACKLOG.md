@@ -170,6 +170,7 @@
 | B152 | Répartition des modèles OpenRouter par tâche (Opus / Sonnet / DeepSeek) | FAIT | — | 2026-09-18 | Surveiller coût et qualité après la bascule |
 | B153 | Cadence de publication vs péremption des sujets chauds | À DÉCIDER | P2 | 2026-09-19 | Semaine du 22/09 : repenser la construction du backlog, évaluer plusieurs éditions/jour |
 | B154 | Panorama de l'actualité du jour (« produit d'appel », remplace revue_de_presse) | À DÉCIDER | P2 | 2026-09-19 | Semaine du 22/09 : trouver un nom, chiffrer le coût, sort de sources.html |
+| B155 | Mindmap hebdomadaire des sujets, injectée dans chaque prompt du jour | À DÉCIDER | P3 | 2026-09-23 | À réfléchir plus tard (demande explicite) — trancher qui valide la mindmap avant qu'elle serve toute la semaine |
 
 ## TICKETS
 
@@ -4242,3 +4243,33 @@ Née d'une discussion plus large analysant brief.me et Hugo Décrypte comme conc
 - **2026-09-19** — Idée posée par l'utilisateur pendant l'analyse de brief.me/Hugo Décrypte comme concurrents, avec une correction explicite : pas une revue de presse plate, un format court mais avec la touche scénario (mini-analyse prospective par point), pensé comme produit d'appel vers l'édition longue existante.
 - **2026-09-19** — Précision : socle sur `revue_de_presse`, mais sans les liens sortants (jugés peu lus, souvent en anglais) — rédaction 100% en propre, panorama 360° autonome plutôt qu'un lien à cliquer.
 - **2026-09-19** — Résumé de clôture de la discussion du jour : posture concurrentielle plus agressive assumée (SEO + réseaux sociaux, voir la note au-dessus de B153) ; coût de production plus élevé du bulletin explicitement accepté ; correction sur `revue_de_presse` — jugée non fonctionnelle sous sa forme actuelle, à retirer et remplacer par ce produit d'appel plutôt qu'à faire coexister avec.
+
+## B155 — Mindmap hebdomadaire des sujets, injectée dans chaque prompt du jour
+
+**Statut:** À DÉCIDER
+**Priorité:** P3
+**Dernière MAJ:** 2026-09-23
+**Prochaine action:** À réfléchir plus tard (demande explicite de l'utilisateur) — quand la discussion reprendra, trancher en premier qui valide la mindmap du dimanche avant qu'elle serve de référence à 7 éditions
+**Blocage:** Aucun — idée posée, rien de tranché ni engagé
+
+### État actuel
+Idée posée par l'utilisateur le 23 septembre 2026, en réaction à deux incidents corrigés le même jour sur l'édition du 24/09 (économie mondiale, choc pétrolier/banques centrales) : un mismatch entre le nombre d'indicateurs du brief et du contenu généré (cause racine : une consigne figée « exactement 2 éléments » dans `docs/routine-redaction-prompt.md`, corrigée en dynamique), et un lien de causalité inventé dans le texte publié (le Brent présenté comme « propulsant » l'OAT française, alors que le brief ne liait pas ces deux faits — l'OAT reflète surtout la trajectoire budgétaire française). Les deux corrections apportées ce jour-là (voir `docs/routine-redaction-prompt.md` § `indicators` et § palier 4-5, `scripts/edition/critique_preview.py` point 10) sont des garde-fous *locaux*, ajoutés après coup sujet par sujet.
+
+Proposition en 3 étapes, pour traiter le problème plus en amont plutôt que sujet par sujet :
+1. Le dimanche, définir les sujets de la semaine à venir (au lieu du jour par jour actuel).
+2. Le même dimanche, construire une mindmap qui relie tous les sujets de la semaine entre eux — idées connexes, indicateurs partagés, mécanismes de causalité réels vs simple coexistence.
+3. Injecter cette mindmap (ou l'extrait pertinent) dans le prompt de génération de chaque édition quotidienne de la semaine.
+
+Intérêt identifié pendant la discussion : si la mindmap capture explicitement quels indicateurs/faits sont réellement liés entre eux (et lesquels ne le sont pas), le rédacteur du jour n'a plus à improviser ces liens seul dans un prompt isolé au sujet du jour — il s'appuie sur une carte déjà validée en amont. Répondrait structurellement au type d'erreur de causalité inventée corrigé ce jour-là, plutôt que de multiplier les règles ponctuelles après chaque incident.
+
+Risque identifié à trancher avant toute implémentation : une mindmap construite une fois le dimanche et réutilisée toute la semaine propage une erreur de départ à 7 éditions au lieu d'une seule si elle n'est pas validée sérieusement — contrairement au brief quotidien actuel, où une erreur reste cantonnée à un seul jour.
+
+### À faire
+- Rien pour l'instant — l'utilisateur a explicitement mis ce sujet de côté (« à réfléchir plus tard »).
+- Quand la discussion reprendra : définir le format de la mindmap (structure de données, pas juste un rendu visuel, puisqu'elle doit être injectable dans un prompt), qui/quoi la valide avant qu'elle serve de référence, et comment elle s'articule avec le brief quotidien existant (le remplace pour la partie « angle »/liens entre faits, ou vient en plus).
+
+### Décisions
+Aucune — idée à l'état brut, rien de tranché.
+
+### Historique
+- **2026-09-23** — Idée posée par l'utilisateur après la correction de deux incidents le même jour sur l'édition du 24/09 (mismatch d'indicateurs, lien causal Brent/OAT inventé) ; mise en backlog telle quelle, à la demande explicite de l'utilisateur (« à réfléchir plus tard »).
