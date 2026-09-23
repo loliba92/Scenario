@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 23.09.2026 — [Carburants à prix record et menaces hybrides : Macron réunit les candidats à l'Élysée](../archives/2026-09-23.html)
 - 22.09.2026 — [Bab el-Mandeb : un tiers du commerce mondial sous contrôle hostile ?](../archives/2026-09-22.html)
 - 21.09.2026 — [USA-Chine : la trêve commerciale au bord du gouffre](../archives/2026-09-21.html)
 - 20.09.2026 — [Basket : la NBA débarque en Europe](../archives/2026-09-20.html)

@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-09-23",
+      "articles": [
+        {
+          "title": "Brent dépasse 107 dollars, tensions au Moyen-Orient",
+          "source": "Boursorama",
+          "url": "https://www.boursorama.com",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "Article sur le record du Brent à 107 dollars/baril et l'impact sur les marchés européens et américains, dans le contexte des tensions au détroit d'Ormuz.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Les pêcheurs français bloquent des dépôts pétroliers en Méditerranée",
+          "source": "AFP",
+          "url": "https://www.afp.com",
+          "image": null,
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Reportage sur les débuts des blocages de dépôts pétroliers par des pêcheurs en Méditerranée, en réaction aux prix record du carburant.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-09-22",
       "articles": [
         {
