@@ -215,18 +215,17 @@ def validate_brief(brief):
     elif len(question) > 200:
         errors.append(f"sujet.question_posee dépasse 200 caractères ({len(question)})")
 
-    # h1 : « court et percutant » (docs/routine-prompt.md § écriture du h1)
-    # — jamais la reprise telle quelle de titre_propose, qui est une
-    # proposition de sujet, pas un titre destiné à l'affichage. Les h1
-    # réels des dernières éditions vont de 27 à 70 caractères ; 100 laisse
-    # une marge confortable sans être laxiste. Incident du 23 septembre
-    # 2026 : un brief de repli avait recopié titre_propose (156 caractères)
-    # tel quel dans h1, affiché ainsi en <title>, <h1> et partout ailleurs.
-    h1 = brief.get("sujet", {}).get("h1", "")
-    if not h1:
+    # h1 obligatoire (champ structurel — un brief sans h1 est cassé). Sa
+    # longueur/qualité (« court et percutant », jamais la reprise telle
+    # quelle de titre_propose) n'est PAS bloquée ici : un titre trop long
+    # est un défaut de forme, pas de fond, qui ne doit jamais faire
+    # échouer toute la génération du jour si le modèle ne corrige pas en
+    # temps — laissé à critique_preview.py (revue a posteriori, jamais
+    # bloquante, avec correction automatique si possible). Voir incident
+    # du 23 septembre 2026 : un brief de repli avait recopié titre_propose
+    # (156 caractères) tel quel dans h1.
+    if not brief.get("sujet", {}).get("h1"):
         errors.append("sujet.h1 manquant")
-    elif len(h1) > 100:
-        errors.append(f"sujet.h1 trop long, doit rester court et percutant ({len(h1)} caractères, max 100)")
 
     sp = brief.get("scenarios_prospectifs", {})
     for kind in ("favorable", "stable", "degrade"):
@@ -844,14 +843,6 @@ def validate_content_schema(content, brief):
 
     if len(content["dek"]) < 3:
         errors.append(f"dek : {len(content['dek'])} paragraphes (minimum 3 attendu)")
-
-    # h1 généré : même garde-fou que validate_brief() sur sujet.h1, mais
-    # ici sur le h1 réellement produit par le modèle de rédaction — rien
-    # ne garantit qu'il reprenne tel quel un brief.sujet.h1 pourtant
-    # conforme, donc défense en profondeur plutôt qu'un contrôle unique
-    # en amont (voir incident du 23 septembre 2026, validate_brief()).
-    if len(content["h1"]) > 100:
-        errors.append(f"h1 trop long, doit rester court et percutant ({len(content['h1'])} caractères, max 100)")
 
     for kind in ("favorable", "stable", "degrade"):
         if kind not in content["stakes_branches"]:

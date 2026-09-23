@@ -149,6 +149,15 @@ X, mais aussi de Y") qui n'apporte aucune information supplémentaire ;
    Ne signale que ce qui casse réellement la fluidité ou la clarté de \
 lecture — jamais une reformulation cosmétique sans gain réel.
 
+8. **Titre (`h1`) court et percutant.** Le `h1` ne doit JAMAIS être la \
+reprise telle quelle d'une phrase longue et descriptive (plus de 100 \
+caractères) — un titre d'édition reste court et direct, jamais une \
+sous-question complète. Si le `h1` dépasse cette longueur ou ressemble à \
+une simple reformulation de `question_text` plutôt qu'à un vrai titre, \
+signale-le et propose un `h1` court et percutant de remplacement (voir \
+les h1 des éditions passées pour le ton attendu, ex. « Dollar : la fin du \
+règne ? », « Budget 2027 : le gouvernement va-t-il tenir cet automne ? »).
+
 Pour chaque défaut trouvé, cite l'extrait exact concerné. Si un point n'a \
 rien à signaler, ne le mentionne pas — ne remplis jamais artificiellement \
 la liste des `findings` pour donner l'impression d'avoir travaillé.
