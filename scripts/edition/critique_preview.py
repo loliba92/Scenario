@@ -62,21 +62,26 @@ CRITIQUE_MODEL = "google/gemini-3.7-flash"
 
 # Champs du brief réellement utiles à CETTE critique (cohérence des
 # chiffres déjà publiés, attribution contre les sources, cohérence du
-# graphique) — jamais le brief complet (faits_verifies/acteurs/
-# scenarios_prospectifs/elements_incertains/revue_de_presse/
-# recommandations_redaction sont du matériau de RECHERCHE, pas des
-# éléments que le contenu publié doit rester cohérent avec au sens de
-# cette critique). Réduit le prompt d'environ moitié (~17K → ~6,8K
-# caractères sur l'édition du 22 septembre) — la marge de sécurité qui
-# compte le plus face à la faiblesse connue de DeepSeek sur le texte
-# long, plus efficace qu'augmenter max_tokens en sortie.
+# graphique) — jamais le brief complet (acteurs/scenarios_prospectifs/
+# elements_incertains/revue_de_presse/recommandations_redaction sont du
+# matériau de RECHERCHE, pas des éléments que le contenu publié doit
+# rester cohérent avec au sens de cette critique). Réduit le prompt
+# d'environ moitié (~17K → ~6,8K caractères sur l'édition du 22
+# septembre) — la marge de sécurité qui compte le plus face à la
+# faiblesse connue de DeepSeek sur le texte long, plus efficace
+# qu'augmenter max_tokens en sortie.
 # `chronologie_cle` ajouté après le premier test réel (22 septembre
 # 2026) : sans lui, la critique a signalé la date du 18 septembre (prise
 # de l'île de Perim) comme non sourcée dans le `.dek`, alors qu'elle est
 # bien documentée dans le brief — juste pas dans un champ qu'on lui
 # donnait à lire. Faux positif de trimming, pas un vrai défaut de
 # l'édition. Coût négligeable (~650 caractères sur cette édition).
-TRIMMED_BRIEF_KEYS = ("sources", "indicateurs_kpi", "graphique_dc_chart", "chronologie_cle")
+# `faits_verifies` ajouté le 23 septembre 2026 pour le critère 10
+# (lien causal inventé entre deux chiffres) : sans lui, impossible de
+# vérifier si le brief relie vraiment deux faits, ou s'ils n'y
+# apparaissent que comme des affirmations séparées — la seule chose que
+# ce critère cherche à détecter.
+TRIMMED_BRIEF_KEYS = ("sources", "indicateurs_kpi", "graphique_dc_chart", "chronologie_cle", "faits_verifies")
 
 CRITIQUE_PROMPT_TEMPLATE = """Tu es un critique journaliste, le plus exigeant \
 de la rédaction. Tu relis l'édition ci-dessous AVANT sa mise en ligne, avec un \
@@ -170,6 +175,24 @@ web), le simple calcul de dates suffit à repérer l'incohérence. Incident \
 réel (édition du 24 septembre 2026) : le texte présentait la réunion de \
 la Fed des 15-16 septembre comme à venir, alors que l'édition est publiée \
 une semaine plus tard.
+
+10. **Lien de cause à effet inventé entre deux chiffres qui ne sont que \
+co-occurrents.** Repère les phrases qui relient deux chiffres/faits par un \
+verbe causal direct (« propulse », « entraîne », « provoque », « pousse », \
+« force », « fait grimper »...) — puis vérifie dans `faits_verifies` du \
+brief ci-dessous si CE lien précis, entre CES deux faits précis, y est \
+vraiment établi (une seule affirmation qui les relie explicitement). \
+S'ils n'y apparaissent que comme deux affirmations séparées, chacune \
+avec sa propre source (même si elles partagent un contexte macro commun, \
+ex. un climat de taux mondiaux élevés), la formulation causale est un \
+raccourci non vérifié — signale-le et propose de reformuler en \
+coexistence ("dans le même temps", "en parallèle") plutôt qu'en cause à \
+effet. \
+Incident réel (édition du 24 septembre 2026) : le texte affirmait que le \
+Brent au-dessus de 107 $ « propulsait » l'OAT française au-dessus de \
+4 %, alors que le brief ne liait pas ces deux chiffres — l'OAT reflète \
+pour l'essentiel des inquiétudes propres à la trajectoire budgétaire \
+française, pas une transmission mécanique du prix du pétrole.
 
 Pour chaque défaut trouvé, cite l'extrait exact concerné. Si un point n'a \
 rien à signaler, ne le mentionne pas — ne remplis jamais artificiellement \

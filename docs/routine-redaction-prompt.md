@@ -185,6 +185,24 @@ HTML et vérifie qu'aucun `"` interne n'est resté non échappé.
     cause à effet entre chacun est explicité pas à pas dans le texte
     ("d'abord... ce qui pousse... qui force à son tour..."), jamais
     juxtaposé comme si chaque mécanisme était indépendant des autres.
+    **Attention : cette exigence porte sur les mécanismes que le brief
+    établit réellement comme enchaînés (`angle`, `faits_verifies`,
+    `chronologie_cle`) — elle ne justifie jamais d'inventer un lien de
+    cause à effet entre deux chiffres qui n'apparaissent dans le brief
+    que comme des faits séparés.** Deux données qui coexistent dans le
+    même climat économique/géopolitique (ex. prix du pétrole et taux
+    d'emprunt d'un pays donné) ne sont pas automatiquement l'une la
+    cause de l'autre — vérifier que le brief établit vraiment CE lien
+    précis avant d'écrire "propulse", "entraîne", "provoque" ou "pousse"
+    entre deux chiffres ; sinon, les présenter comme deux tensions
+    parallèles du même contexte, jamais comme cause et conséquence.
+    Incident réel (édition du 24 septembre 2026) : le texte affirmait
+    que le Brent au-dessus de 107 $ « propulsait » l'OAT française
+    au-dessus de 4 % — un raccourci causal inventé, alors que l'OAT
+    française reflète pour l'essentiel des inquiétudes propres à la
+    trajectoire budgétaire du pays, pas une transmission mécanique du
+    prix du pétrole (les deux ne coexistaient que dans le même contexte
+    de taux mondiaux élevés).
 - **Public 15-35 ans en priorité, sans exclure personne** : phrases
   directes, comparaisons concrètes, vocabulaire simple, une idée par
   phrase. Rigueur factuelle identique quel que soit l'âge du lecteur.
@@ -350,10 +368,16 @@ consécutif sans au moins un autre `dek` entre les deux.
 ### `list_box` (objet ou `null` — le brief dit si applicable)
 `{"label": "...", "items": [{"rank": "1", "title": "...", "meta": "..."}, ...], "foot": "..."}`.
 
-### `indicators` (liste, exactement 2 éléments)
-`{"label": "...", "value": "...", "delta": "..."}` — reprend les 2 KPI du
-brief (`indicateurs_kpi`), valeur de référence/année de base incluse dans
-`delta`.
+### `indicators` (liste — le nombre suit strictement `indicateurs_kpi` du brief)
+`{"label": "...", "value": "...", "delta": "..."}` — reprend TOUS les KPI
+du brief (`indicateurs_kpi`), ni plus ni moins, valeur de référence/année
+de base incluse dans `delta`. **Le nombre n'est jamais une valeur par
+défaut supposée à l'avance (2, 3 ou autre) : c'est toujours `len(brief.
+indicateurs_kpi)`, quel qu'il soit.** Incident réel (brief du 24
+septembre 2026) : la consigne disait autrefois « exactement 2 éléments »
+alors que ce brief-là en comptait 3 — le rédacteur a suivi la consigne au
+lieu du brief, produisant un écart qui a fait échouer toute la génération
+après 3 essais.
 
 ### `cards` (objet à 3 clés : `favorable`, `stable`, `degrade`)
 Pour chaque clé :
