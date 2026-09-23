@@ -169,12 +169,24 @@ Formuler en une phrase claire la question centrale à laquelle les trois scénar
 4. **Renseigner le champ `articles_connexes`** dans le brief (voir `docs/routine-brief-format.md`) : 
    ```json
    "articles_connexes": [
-     { "date": "2026-09-16", "lien": "Énergie — fin ARENH" },
-     { "date": "2026-09-13", "lien": "Politique — budget & crise gouvernementale" },
-     { "date": "2026-09-01", "lien": "Présidentielle 2027" }
+     {
+       "date": "2026-09-16",
+       "titre": "Électricité : la fin de l'ARENH va-t-elle faire flamber ta facture ?",
+       "lien": "Énergie — fin ARENH (même contexte de choc énergétique)"
+     },
+     {
+       "date": "2026-09-13",
+       "titre": "Budget 2027 : Macron peut-il encore faire passer ses réformes ?",
+       "lien": "Politique — budget & crise gouvernementale (même contexte politique)"
+     },
+     {
+       "date": "2026-09-01",
+       "titre": "Présidentielle 2027 : le scénario Duterte de Le Pen",
+       "lien": "Présidentielle 2027 (même cycle politique)"
+     }
    ]
    ```
-   Jamais vide, jamais sans lien justifié.
+   **Important:** Le champ `"titre"` doit être le titre exact de l'édition (tel qu'affiché dans le h1), pas une paraphrase. Jamais vide, jamais sans lien justifié.
 
 5. **Anti-doublon :** vérifier aussi que ces 3 articles ne doublonnent pas trop fortement le sujet du jour (exemple : ne pas proposer « Carburants le 15 août » si le sujet du jour est aussi « Carburants le 23 septembre »).
 
