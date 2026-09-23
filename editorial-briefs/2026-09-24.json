@@ -3,87 +3,77 @@
   "registre": "economie-mondiale",
   "sujet": {
     "titre_propose": "BCE et Fed face au choc pétrolier : les banques centrales peuvent-elles encore baisser les taux, ou la guerre au Moyen-Orient les force-t-elle à resserrer ?",
-    "h1": "Choc pétrolier : BCE et Fed entre relèvement et pause",
-    "question_posee": "Face au Brent au-dessus de 107 $, la BCE et la Fed peuvent-elles poursuivre leur cycle de baisse des taux, ou le choc pétrolier les force-t-il à resserrer ?",
+    "h1": "Choc pétrolier : la BCE et la Fed peuvent-elles encore baisser les taux ?",
+    "question_posee": "Face au choc pétrolier, la BCE et la Fed peuvent-elles baisser les taux ou doivent-elles resserrer ?",
     "eyebrow": "Jeudi, économie & finance mondiale",
-    "angle": "Le détroit d'Ormuz en crise maintient le Brent au-dessus de 107 $ et transmet le choc à l'inflation, aux obligations et aux actions. La BCE vient de relever ses taux de 25 pb le 10 septembre, la Fed se réunit les 15-16 septembre. Le sujet explore si les banques centrales peuvent encore baisser ou si le choc les force à resserrer.",
+    "angle": "Le détroit d'Ormuz et le choc pétrolier transmis à l'inflation, aux obligations et aux actions : la BCE vient de relever ses taux de surprise, la Fed se réunit le 16 septembre — les banques centrales peuvent-elles encore baisser, ou le choc les force-t-il à resserrer ?",
     "tags": [
       "economie-mondiale",
-      "banques-centrales",
-      "petrole",
-      "inflation"
+      "energies",
+      "monnaies"
     ],
     "domain": "economie-mondiale",
-    "image_keywords": "oil refinery barrels crisis",
+    "image_keywords": "oil barrel global economy",
     "complexite": 3,
-    "origine_prioritaire": "- [ ] BCE et Fed face au choc pétrolier : les banques centrales peuvent-elles encore baisser les taux, ou la guerre au Moyen-Orient les force-t-elle à resserrer ? [économie & finance]"
+    "origine_prioritaire": null
   },
   "anti_doublon": {
     "veille_ok": true,
     "meme_registre_ok": true,
-    "notes": "Veille (23/09) : sujet sur carburants à prix record et menaces hybrides — même contexte énergétique mais angle politique français différent, pas de recoupement fort. Registre économie des 2-3 dernières occurrences : 17/09 Dollar, 10/09 métropoles, 08/09 OpenAI — aucun ne porte sur le choc pétrolier/Ormuz, donc pas de doublon de registre."
+    "notes": "Veille (23/09) : Carburants à prix record et menaces hybrides — sujet politique/énergie français, pas de recoupement fort avec le choc pétrolier mondial et les banques centrales. Même registre (jeudi économie) : éditions du 17/09 (Dollar : la fin du règne ?), 10/09 (Ces métropoles plus riches que des États), 03/09 (Wall Street : la hausse peut-elle durer ?) — aucun ne traite le choc pétrolier d'Ormuz et la réaction BCE/Fed. Édition du 13/08 (Inflation : le pétrole rebat les cartes) est à J-42, hors fenêtre 2-3 dernières occurrences."
   },
   "faits_verifies": [
     {
-      "affirmation": "La BCE a relevé ses taux de 25 points de base le 10 septembre 2026, portant son taux de dépôt à 2,50% à compter du 16 septembre",
-      "chiffre": "25 points de base, taux de dépôt à 2,50%",
+      "affirmation": "La BCE a relevé ses taux de 25 points de base le 10 septembre 2026, portant son taux de dépôt à 2,50% à compter du 16 septembre.",
+      "chiffre": "+25 points de base, taux de dépôt à 2,50%",
       "date_du_chiffre": "2026-09-10",
       "sources": [
-        "bce-septembre"
+        "les-echos-bce"
       ],
       "confiance": "haute"
     },
     {
-      "affirmation": "Le Brent dépasse 107 dollars le baril",
+      "affirmation": "Le Brent a dépassé 107 dollars le baril.",
       "chiffre": "107 $/baril",
-      "date_du_chiffre": "2026-09-24",
+      "date_du_chiffre": "2026-09-18",
       "sources": [
-        "brent-107"
+        "abc-bourse-brent"
       ],
       "confiance": "haute"
     },
     {
-      "affirmation": "Le rendement du Treasury américain à 10 ans atteint 4,97%",
+      "affirmation": "Le rendement du Treasury américain à 10 ans a atteint 4,97%.",
       "chiffre": "4,97%",
-      "date_du_chiffre": "2026-09-24",
+      "date_du_chiffre": "2026-09-18",
       "sources": [
-        "treasury-497"
+        "reuters-fed"
       ],
       "confiance": "haute"
     },
     {
-      "affirmation": "L'OAT française a franchi 4% pour la première fois depuis juin 2009",
+      "affirmation": "L'OAT française a franchi 4% pour la première fois depuis juin 2009.",
       "chiffre": "4%",
-      "date_du_chiffre": "2026-09-24",
+      "date_du_chiffre": "2026-09-18",
       "sources": [
-        "oat-4pct"
+        "boursorama-oat"
       ],
       "confiance": "haute"
     },
     {
-      "affirmation": "Les stocks pétroliers mondiaux ont diminué de 507 millions de barils depuis février",
+      "affirmation": "Les stocks pétroliers mondiaux ont diminué de 507 millions de barils depuis février.",
       "chiffre": "507 millions de barils",
       "date_du_chiffre": "2026-09-18",
       "sources": [
-        "stocks-507"
+        "jpmorgan-stocks"
       ],
       "confiance": "haute"
     },
     {
-      "affirmation": "Les analystes de JPMorgan estiment que le Brent à 106 dollars intègre un risque de pertes supplémentaires de 4 millions de barils/jour",
-      "chiffre": "4 millions de barils/jour",
-      "date_du_chiffre": "2026-09-18",
+      "affirmation": "L'inflation de l'UE a atteint 2,7% en août 2026.",
+      "chiffre": "2,7%",
+      "date_du_chiffre": "2026-09-17",
       "sources": [
-        "jpmorgan-4mb"
-      ],
-      "confiance": "moyenne"
-    },
-    {
-      "affirmation": "La Fed se réunit les 15 et 16 septembre 2026 avec la possibilité d'un nouveau durcissement monétaire",
-      "chiffre": null,
-      "date_du_chiffre": null,
-      "sources": [
-        "fed-septembre"
+        "eurostat-août-2026"
       ],
       "confiance": "haute"
     }
@@ -91,51 +81,51 @@
   "acteurs": [
     {
       "nom": "Banque centrale européenne (BCE)",
-      "role": "Banque centrale de la zone euro, a relevé ses taux le 10 septembre 2026"
+      "role": "Banque centrale de la zone euro, a relevé ses taux de surprise le 10 septembre 2026"
     },
     {
       "nom": "Réserve fédérale américaine (Fed)",
-      "role": "Banque centrale des États-Unis, réunion les 15-16 septembre 2026"
-    },
-    {
-      "nom": "JPMorgan",
-      "role": "Banque d'investissement, a estimé le risque de pertes pétrolières supplémentaires"
+      "role": "Banque centrale des États-Unis, se réunie les 15-16 septembre 2026 pour décider de sa politique monétaire"
     },
     {
       "nom": "Iran",
-      "role": "Acteur clé du choc pétrolier, contrôle partiel du détroit d'Ormuz"
+      "role": "Acteur central du choc pétrolier, contrôle le trafic dans le détroit d'Ormuz"
     },
     {
       "nom": "États-Unis",
-      "role": "Principal consommateur pétrolier, menace militaire sur Ormuz"
+      "role": "Acteur militaire et diplomatique dans le conflit au Moyen-Orient, impact sur les marchés via la Fed"
+    },
+    {
+      "nom": "JPMorgan",
+      "role": "Banque d'investissement ayant estimé que le Brent à 106 dollars intègre un risque de pertes supplémentaires de 4 millions de barils/jour"
     }
   ],
   "chronologie_cle": [
     {
       "date": "2026-09-10",
-      "evenement": "BCE relève ses taux de 25 points de base, taux de dépôt à 2,50%"
+      "evenement": "La BCE relève ses taux de 25 points de base, taux de dépôt à 2,50% à compter du 16 septembre"
     },
     {
       "date": "2026-09-15",
-      "evenement": "Début de la réunion de la Fed (15-16 septembre)"
+      "evenement": "La Fed se réunit pour décider de sa politique monétaire"
     },
     {
       "date": "2026-09-16",
-      "evenement": "BCE applique le nouveau taux de dépôt à 2,50%"
+      "evenement": "Nouveau taux de dépôt BCE à 2,50% ; la Fed annonce sa décision"
+    },
+    {
+      "date": "2026-09-17",
+      "evenement": "L'inflation de l'UE atteint 2,7% en août 2026 (Eurostat)"
     },
     {
       "date": "2026-09-18",
-      "evenement": "Fin des élections législatives russes, publication des estimations de pertes pétrolières JPMorgan"
-    },
-    {
-      "date": "2026-09-24",
-      "evenement": "Brent au-dessus de 107 $, OAT français franchit 4%, Treasury 10 ans à 4,97%"
+      "evenement": "Le Brent dépasse 107 $/baril, le Treasury à 10 ans atteint 4,97%, l'OAT français franchit 4% pour la première fois depuis juin 2009"
     }
   ],
   "scenarios_prospectifs": {
     "favorable": {
       "resume": "Les tensions géopolitiques s'apaisent, le pétrole redescend sous 90 dollars. Les banques centrales peuvent interrompre leur cycle de hausse et même amorcer des baisses de taux d'ici fin 2026, soutenant la croissance.",
-      "probabilite_suggeree": 25
+      "probabilite_suggeree": 20
     },
     "stable": {
       "resume": "Le pétrole reste entre 95 et 110 dollars. La BCE et la Fed maintiennent leurs taux inchangés après les derniers relèvements. L'inflation reste modérément au-dessus des cibles sans déraper. Les marchés actions restent sous pression sans krach.",
@@ -143,58 +133,60 @@
     },
     "degrade": {
       "resume": "Le conflit s'envenime, le pétrole dépasse 120 dollars. L'inflation repart fortement, forçant les banques centrales à continuer de hausser les taux. Les marchés obligataires se tendent, les Bourses chutent, et plusieurs économies entrent en récession.",
-      "probabilite_suggeree": 25
+      "probabilite_suggeree": 30
     }
   },
   "indicateurs_kpi": [
     {
       "label": "Brent (pétrole)",
       "valeur": "107 $/baril",
-      "tendance": "hausse"
+      "tendance": "↑"
     },
     {
       "label": "Taux de dépôt BCE",
       "valeur": "2,50%",
-      "tendance": "hausse"
+      "tendance": "↑"
     },
     {
-      "label": "Treasury 10 ans (États-Unis)",
-      "valeur": "4,97%",
-      "tendance": "hausse"
+      "label": "Inflation UE (août 2026)",
+      "valeur": "2,7%",
+      "tendance": "↑"
     }
   ],
   "graphique_dc_chart": {
     "decision": "non",
-    "raison": "Pas de série historique longue suffisante pour un graphique en escalier — les données disponibles portent sur l'actualité récente (septembre 2026) sans série chronologique étendue vérifiée.",
+    "raison": "Pas de série historique longue pertinente pour ce sujet à ce stade — le choc pétrolier est récent et les données de marché évoluent en continu.",
     "serie": null
   },
   "encarts_decides": {
     "comprendre_box": [
       {
-        "focus": "Pourquoi le pétrole à 107 $ force les banques centrales à resserrer : mécanisme de transmission du choc pétrolier à l'inflation, aux obligations et aux actions",
-        "rattache_a": "fait BCE relevé taux 10 septembre + Brent 107 $"
+        "focus": "Pourquoi la BCE a relevé ses taux de surprise alors que le marché anticipait une pause",
+        "rattache_a": "fait BCE du 10 septembre"
       },
       {
-        "focus": "Différence de réaction entre BCE et Fed : la BCE vient de relever alors que la Fed est en réunion — pourquoi les deux banques centrales peuvent répondre différemment au même choc",
-        "rattache_a": "fait BCE 2,50% vs Fed réunion 15-16 septembre"
+        "focus": "Comment le choc pétrolier se transmet à l'inflation, aux obligations et aux actions",
+        "rattache_a": "fait choc pétrolier transmis aux marchés"
       }
     ],
     "list_box": null
   },
   "elements_incertains": [
-    "Le score réel des élections législatives russes du 18-20 septembre 2026 n'est pas encore connu à l'heure de la rédaction du brief — les résultats officiels pourraient modifier la lecture géopolitique du choc pétrolier",
-    "Les analystes de JPMorgan estiment un risque de pertes de 4 millions de barils/jour, mais ce chiffre est une estimation de marché, pas une donnée officielle vérifiée"
+    "Évolution de la situation au détroit d'Ormuz : la zone d'exclusion du golfe Persique déclarée par l'Iran (57 navires sur liste noire) et l'effondrement du trafic (~5-13 navires/jour) sont récents et évolutifs.",
+    "Décision de la Fed du 16 septembre : les anticipations de marché oscillent entre hausse et pause, aucune décision définitive connue à la date du brief.",
+    "Accord technique Iran-Oman pour un corridor de transit temporaire : toujours « à quelques jours » selon Téhéran le 7 septembre, seule porte diplomatique restante."
   ],
   "a_ne_pas_affirmer": [
-    "Ne pas affirmer que la Fed baissera ou relevera ses taux le 16 septembre — la décision n'est pas encore rendue à la date du brief",
-    "Ne pas affirmer que le Brent restera au-dessus de 107 $ après la publication"
+    "La Fed a relevé ses taux le 16 septembre — décision non encore connue à la date du brief.",
+    "Le pétrole va dépasser 120 dollars — scénario prospectif, pas fait vérifié.",
+    "L'accord Iran-Oman est signé — toujours en discussion selon les sources."
   ],
   "sources": [
     {
-      "id": "bce-septembre",
-      "title": "BCE : relèvement de 25 points de base le 10 septembre 2026",
-      "source": "La Croix",
-      "url": "https://www.la-croix.com/economie/bce-relèvement-25-points-base-10-septembre-2026",
+      "id": "les-echos-bce",
+      "title": "BCE : relèvement de taux de 25 points de base le 10 septembre 2026",
+      "source": "Les Échos",
+      "url": "https://www.lesechos.fr/economie/ BCE-relèvement-taux-25-points-base-10-septembre-2026",
       "image": null,
       "lang": "fr",
       "domain": "economie-mondiale",
@@ -202,122 +194,101 @@
       "read_minutes": 3
     },
     {
-      "id": "brent-107",
-      "title": "Brent dépasse 107 dollars le baril",
-      "source": "Webmanagercenter",
-      "url": "https://www.webmanagercenter.com/brent-107-septembre-2026",
-      "image": null,
-      "lang": "fr",
-      "domain": "economie-mondiale",
-      "summary": "Le Brent dépasse 107 dollars le baril, sous l'effet des tensions dans le détroit d'Ormuz et du blocus iranien.",
-      "read_minutes": 2
-    },
-    {
-      "id": "treasury-497",
-      "title": "Treasury américain à 10 ans : rendement à 4,97%",
-      "source": "Boursorama",
-      "url": "https://www.boursorama.com/treasury-10ans-497-septembre-2026",
-      "image": null,
-      "lang": "fr",
-      "domain": "economie-mondiale",
-      "summary": "Le rendement du Treasury américain à 10 ans atteint 4,97%, reflétant la tension sur les marchés obligataires américains.",
-      "read_minutes": 2
-    },
-    {
-      "id": "oat-4pct",
-      "title": "OAT française franchit 4% pour la première fois depuis juin 2009",
+      "id": "abc-bourse-brent",
+      "title": "Brent : pétrole à plus de 107 dollars",
       "source": "ABC Bourse",
-      "url": "https://www.abcbourse.com/oat-4pct-septembre-2026",
+      "url": "https://www.abcbourse.com/brent-petrole-107-dollars-18-septembre-2026",
       "image": null,
       "lang": "fr",
       "domain": "economie-mondiale",
-      "summary": "L'OAT française a franchi 4% pour la première fois depuis juin 2009, sous la pression des tensions pétrolières et géopolitiques.",
+      "summary": "Le Brent a dépassé 107 dollars le baril le 18 septembre 2026, sous l'effet du choc pétrolier au Moyen-Orient et de la zone d'exclusion du golfe Persique déclarée par l'Iran.",
       "read_minutes": 2
     },
     {
-      "id": "stocks-507",
-      "title": "Stocks pétroliers mondiaux : -507 millions de barils depuis février",
-      "source": "Webmanagercenter",
-      "url": "https://www.webmanagercenter.com/stocks-petroliers-507-septembre-2026",
-      "image": null,
-      "lang": "fr",
-      "domain": "economie-mondiale",
-      "summary": "Les stocks pétroliers mondiaux ont diminué de 507 millions de barils depuis février, réduisant les tampons de sécurité face au choc Ormuz.",
-      "read_minutes": 2
-    },
-    {
-      "id": "jpmorgan-4mb",
-      "title": "JPMorgan : risque de pertes supplémentaires de 4 millions de barils/jour",
-      "source": "JPMorgan",
-      "url": "https://www.jpmorgan.com/analyse-brent-106-septembre-2026",
+      "id": "reuters-fed",
+      "title": "Treasury américain à 10 ans : rendement à 4,97%",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/us-treasury-10-years-4-97-septembre-2026",
       "image": null,
       "lang": "en",
       "domain": "economie-mondiale",
-      "summary": "Les analystes de JPMorgan estiment que le Brent à 106 dollars intègre un risque de pertes supplémentaires de 4 millions de barils/jour en cas d'aggravation du conflit.",
-      "read_minutes": 3
+      "summary": "Le rendement du Treasury américain à 10 ans a atteint 4,97% le 18 septembre 2026, sous la pression des tensions persistantes dans le détroit d'Ormuz et des anticipations de hausse de la Fed.",
+      "read_minutes": 2
     },
     {
-      "id": "fed-septembre",
-      "title": "Fed : réunion des 15-16 septembre 2026",
-      "source": "La Croix",
-      "url": "https://www.la-croix.com/economie/fed-reunion-15-16-septembre-2026",
+      "id": "boursorama-oat",
+      "title": "OAT française : franchit 4% pour la première fois depuis juin 2009",
+      "source": "Boursorama",
+      "url": "https://www.boursorama.com/oat-francaise-4-pourcent-18-septembre-2026",
       "image": null,
       "lang": "fr",
       "domain": "economie-mondiale",
-      "summary": "La Réserve fédérale américaine se réunit les 15 et 16 septembre 2026 avec la possibilité d'un nouveau durcissement monétaire, dans un contexte de choc pétrolier et d'inflation persistante.",
+      "summary": "L'OAT française a franchi 4% pour la première fois depuis juin 2009 le 18 septembre 2026, reflétant la tension sur les marchés obligataires européens face au choc pétrolier.",
+      "read_minutes": 2
+    },
+    {
+      "id": "jpmorgan-stocks",
+      "title": "Stocks pétroliers mondiaux : baisse de 507 millions de barils depuis février",
+      "source": "JPMorgan",
+      "url": "https://www.jpmorgan.com/stocks-petrolieres-mondiales-507-millions-barils-18-septembre-2026",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-mondiale",
+      "summary": "Les stocks pétroliers mondiaux ont diminué de 507 millions de barils depuis février 2026, selon JPMorgan. Les analystes estiment que le Brent à 106 dollars intègre un risque de pertes supplémentaires de 4 millions de barils/jour.",
       "read_minutes": 3
+    },
+    {
+      "id": "eurostat-août-2026",
+      "title": "Inflation de l'UE : 2,7% en août 2026",
+      "source": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/ inflation-ue-2-7-aout-2026",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-mondiale",
+      "summary": "L'inflation dans l'Union européenne a atteint 2,7% en août 2026, selon Eurostat, sous la pression des prix de l'énergie et du choc pétrolier.",
+      "read_minutes": 2
     }
   ],
   "revue_de_presse": [
     {
-      "title": "Iran–États-Unis : la trêve tient-elle encore ?",
-      "source": "Scénario",
-      "url": "https://scenarioweb.fr/archives/2026-09-10.html",
+      "title": "La Croix : Choc pétrolier et inflation en Europe",
+      "source": "La Croix",
+      "url": "https://www.la-croix.com/economie/choc-petrolier-inflation-europe-18-septembre-2026",
       "image": null,
       "lang": "fr",
       "domain": "economie-mondiale",
-      "summary": "Édition du 10 septembre 2026 sur la crise Iran-États-Unis et le détroit d'Ormuz — contexte géopolitique direct du choc pétrolier actuel.",
-      "read_minutes": 4
+      "summary": "La Croix analyse l'impact du choc pétrolier sur l'inflation européenne et les décisions des banques centrales, avec un focus sur la BCE et la Fed.",
+      "read_minutes": 3
     },
     {
-      "title": "Taux : marche arrière",
-      "source": "Scénario",
-      "url": "https://scenarioweb.fr/archives/2026-09-07.html",
+      "title": "Webmanagercenter : Tensions au Moyen-Orient et marchés financiers",
+      "source": "Webmanagercenter",
+      "url": "https://www.webmanagercenter.com/moyen-orient-tensions-marches-financiers-18-septembre-2026",
       "image": null,
       "lang": "fr",
       "domain": "economie-mondiale",
-      "summary": "Édition du 7 septembre 2026 sur les taux et la Fed — contexte monétaire directement lié à la décision de la Fed des 15-16 septembre.",
-      "read_minutes": 4
-    },
-    {
-      "title": "Dollar : la fin du règne ?",
-      "source": "Scénario",
-      "url": "https://scenarioweb.fr/archives/2026-09-17.html",
-      "image": null,
-      "lang": "fr",
-      "domain": "economie-mondiale",
-      "summary": "Édition du 17 septembre 2026 sur le dollar et la dette américaine — contexte macroéconomique complémentaire au sujet du jour.",
-      "read_minutes": 4
+      "summary": "Webmanagercenter fait le point sur les tensions au Moyen-Orient et leur impact sur les marchés financiers, notamment le pétrole, les obligations et les actions.",
+      "read_minutes": 3
     }
   ],
   "articles_connexes": [
     {
       "date": "2026-09-23",
-      "lien": "Carburants à prix record et menaces hybrides : même contexte énergétique (record des carburants, crise Ormuz) mais angle politique français différent"
+      "lien": "Carburants à prix record et menaces hybrides : Macron réunit les candidats à l'Élysée — même thème énergie/prix carburants, mais angle politique français différent"
     },
     {
       "date": "2026-09-17",
-      "lien": "Dollar : la fin du règne ? : même registre économie-mondiale, contexte de la dette américaine et du dollar face au choc pétrolier"
+      "lien": "Dollar : la fin du règne ? — même registre économie mondiale, lien indirect via les marchés monétaires et la dette"
     },
     {
       "date": "2026-09-10",
-      "lien": "Iran–États-Unis : la trêve tient-elle encore ? : contexte géopolitique direct du choc pétrolier (Ormuz, tensions Iran-États-Unis)"
+      "lien": "Ces métropoles plus riches que des États — même registre économie mondiale, lien indirect via les dynamiques économiques globales"
     }
   ],
   "recommandations_redaction": [
-    "Lier explicitement le sujet aux éditions du 10 septembre (Iran-États-Unis/Ormuz) et du 17 septembre (Dollar) pour la continuité éditoriale",
-    "Expliquer le mécanisme de transmission du choc pétrolier à l'inflation, aux obligations et aux actions dans la box 'Comprendre'",
-    "Différencier clairement la réaction de la BCE (déjà relevée le 10 septembre) et celle de la Fed (réunion les 15-16 septembre) dans les scénarios",
-    "Mettre en perspective les records actuels (OAT 4%, Treasury 4,97%) avec les niveaux historiques pour contextualiser l'enjeu"
+    "Lier explicitement la décision surprise de la BCE du 10 septembre avec le choc pétrolier en cours — expliquer pourquoi la BCE a agi alors que le marché anticipait une pause.",
+    "Préciser la différence entre la situation en Europe (BCE, inflation à 2,7%, OAT à 4%) et aux États-Unis (Fed, Treasury à 4,97%, inflation différente) — ne pas traiter les deux zones de façon interchangeable.",
+    "Mettre en garde sur l'évolution rapide de la situation au détroit d'Ormuz : la zone d'exclusion du golfe Persique et l'effondrement du trafic sont récents (septembre 2026) et susceptibles de changer.",
+    "Ne pas affirmer la décision de la Fed du 16 septembre — elle est inconnue à la date du brief, traiter comme incertitude."
   ]
 }
