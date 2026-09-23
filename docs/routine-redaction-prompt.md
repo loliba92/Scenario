@@ -161,14 +161,30 @@ HTML et vérifie qu'aucun `"` interne n'est resté non échappé.
 ## Règles de style (identiques à la routine actuelle)
 
 - **`sujet.complexite` (1 à 5, dans le brief) relève l'exigence
-  pédagogique à partir de 3/5** (ajouté le 16 septembre 2026 — voir
-  `docs/routine-brief-format.md` pour le barème complet). À partir de
-  3/5 : phrases encore plus courtes que d'habitude, et chaque terme ou
-  mécanisme technique expliqué **en une incise dans le texte au moment
-  où il apparaît** (pas seulement via le lien vers le lexique, qui reste
-  systématique en plus) — le lecteur ne doit jamais avoir à cliquer pour
-  suivre le fil du `dek`. En dessous de 3/5, les règles de cette section
-  suffisent, pas d'effort supplémentaire à ajouter.
+  pédagogique par palier, pas par un simple seuil binaire** (paliers
+  distincts ajoutés le 23 septembre 2026 — retour utilisateur : un sujet
+  à 5/5 combinant plusieurs mécanismes imbriqués, ex. transmission d'un
+  choc pétrolier aux taux de deux banques centrales différentes plus le
+  contexte géopolitique qui la motive, recevait jusqu'ici le même effort
+  qu'un sujet à 3/5 à un seul mécanisme — voir `docs/routine-brief-format.md`
+  pour le barème complet de complexite elle-même) :
+  - **1-2** : les règles de cette section suffisent, pas d'effort
+    supplémentaire à ajouter.
+  - **3** : phrases encore plus courtes que d'habitude, et chaque terme
+    ou mécanisme technique expliqué **en une incise dans le texte au
+    moment où il apparaît** (pas seulement via le lien vers le lexique,
+    qui reste systématique en plus) — le lecteur ne doit jamais avoir à
+    cliquer pour suivre le fil du `dek`.
+  - **4-5** : tout ce qui précède au palier 3, PLUS deux exigences
+    supplémentaires : (1) au moins une analogie concrète et familière
+    (vie quotidienne, argent de poche, prêt immobilier...) pour rendre
+    tangible le mécanisme central du sujet — jamais une analogie
+    approximative qui trahirait la mécanique réelle, mieux vaut aucune
+    analogie qu'une fausse ; (2) quand plusieurs mécanismes s'enchaînent
+    (ex. choc pétrolier → inflation → décision de taux), le lien de
+    cause à effet entre chacun est explicité pas à pas dans le texte
+    ("d'abord... ce qui pousse... qui force à son tour..."), jamais
+    juxtaposé comme si chaque mécanisme était indépendant des autres.
 - **Public 15-35 ans en priorité, sans exclure personne** : phrases
   directes, comparaisons concrètes, vocabulaire simple, une idée par
   phrase. Rigueur factuelle identique quel que soit l'âge du lecteur.

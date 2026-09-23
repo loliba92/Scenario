@@ -160,9 +160,19 @@ sujet sans effort ? »**
 - `encarts_decides.comprendre_box` : au moins 1 élément toujours requis ;
   **exactement 2 à partir de complexite ≥ 3** (voir § Règles de validité
   plus bas, vérifié par `generate_daily_edition.py`).
-- Le niveau d'exigence pédagogique de la rédaction elle-même (phrases
-  plus courtes, termes techniques expliqués en incise) — voir
-  `docs/routine-redaction-prompt.md` § Règles de style.
+- Le niveau d'exigence pédagogique de la rédaction elle-même — **trois
+  paliers, pas un simple seuil binaire** (corrigé le 23 septembre 2026,
+  retour utilisateur : un sujet à 5/5 combinant plusieurs mécanismes
+  imbriqués — ex. transmission d'un choc pétrolier aux taux directeurs
+  de deux banques centrales différentes, plus le contexte géopolitique
+  qui la motive — recevait jusqu'ici le même traitement qu'un sujet à
+  3/5 à un seul mécanisme). Voir `docs/routine-redaction-prompt.md` §
+  Règles de style pour le détail exact de chaque palier :
+  - **1-2** : pas d'effort supplémentaire.
+  - **3** : phrases courtes, chaque terme technique expliqué en incise.
+  - **4-5** : le palier 3, PLUS une analogie concrète du quotidien pour
+    le mécanisme central, ET le lien de cause à effet entre les
+    mécanismes imbriqués explicité pas à pas plutôt que juxtaposé.
 
 Une note **délibérément haute sur un sujet qui n'est pas réellement
 complexe** revient à forcer un 2e `comprendre_box` sans matière
