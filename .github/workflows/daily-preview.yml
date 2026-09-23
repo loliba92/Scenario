@@ -97,7 +97,26 @@ jobs:
             git add "editorial-previews/$TOMORROW.photo-credits.json"
           fi
           git commit -m "Daily preview: $TOMORROW - $(date -u '+%Y-%m-%d %H:%M UTC')" || echo "Nothing to commit"
-          git push origin main
+          # Retry avec rebase en cas de push concurrent (fetch first) — sans
+          # ça, un simple conflit de timing avec un autre push sur main fait
+          # échouer tout le run (voir incident du 23 septembre 2026 : trois
+          # runs successifs rejetés faute de retry, alors qu'un simple
+          # rebase aurait suffi).
+          pushed=false
+          for i in 1 2 3 4 5; do
+            if git push origin main; then
+              pushed=true
+              break
+            fi
+            echo "Push rejeté (tentative $i/5), rebase et nouvel essai..."
+            git fetch origin main
+            git rebase origin/main
+            sleep $((i * 3))
+          done
+          if [ "$pushed" != true ]; then
+            echo "❌ Push impossible après 5 tentatives (conflits répétés)"
+            exit 1
+          fi
 
       - name: Run editorial critique
         # Revue automatique, contrôles statiques uniquement (voir le
@@ -172,7 +191,26 @@ jobs:
             echo "Contenu identique après régénération — rien à committer."
             exit 0
           fi
-          git push origin main
+          # Retry avec rebase en cas de push concurrent, même logique que
+          # l'étape « Commit preview » — sans ça, un conflit de timing fait
+          # échouer silencieusement le push (continue-on-error masquait
+          # l'échec jusqu'ici, voir incident du 23 septembre 2026 : une
+          # correction de critique perdue sans que personne ne le sache).
+          pushed=false
+          for i in 1 2 3 4 5; do
+            if git push origin main; then
+              pushed=true
+              break
+            fi
+            echo "Push rejeté (tentative $i/5), rebase et nouvel essai..."
+            git fetch origin main
+            git rebase origin/main
+            sleep $((i * 3))
+          done
+          if [ "$pushed" != true ]; then
+            echo "❌ Push impossible après 5 tentatives (conflits répétés) — correction perdue, à relancer manuellement"
+            exit 1
+          fi
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           echo "✅ Preview corrigé recommité"
 
