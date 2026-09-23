@@ -9,6 +9,9 @@ name: Régénérer le preview du 24/09 (complexité relevée)
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   regen:
     runs-on: ubuntu-latest
