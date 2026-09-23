@@ -1,63 +1,63 @@
 {
-  "h1": "Choc pétrolier : la BCE et la Fed peuvent-elles encore baisser les taux ?",
-  "question_text": "Face au choc pétrolier, la BCE et la Fed peuvent-elles baisser les taux ou doivent-elles resserrer ?",
-  "section_title": "Trois trajectoires face à l'étau du pétrole et des taux d'intérêt",
+  "h1": "Taux : la guerre au Moyen-Orient bloque-t-elle la baisse des taux ?",
+  "question_text": "Le choc pétrolier iranien force-t-il la BCE et la Fed à garder les taux élevés, ou peuvent-elles baisser malgré le Brent à 107 $ ?",
+  "section_title": "Trois trajectoires face à l'envolée des cours de l'énergie",
   "dek": [
-    "Le marché mondial de l'énergie traverse une secousse majeure depuis que les tensions dans le détroit d'Ormuz restreignent la circulation maritime. Le cours du baril de Brent a dépassé <strong>107 $/baril</strong> le 18 septembre 2026, alimenté par une contraction brutale de l'offre disponible. Selon les données de la banque JPMorgan, les stocks pétroliers mondiaux ont déjà diminué de <strong>507 millions de barils</strong> depuis février 2026. Cette raréfaction rapide des réserves physiques place les grandes économies importatrices sous une pression directe, ravivant les craintes d'une transmission rapide du coût de l'énergie à l'ensemble des biens et services du quotidien.",
-    "Cette flambée des cours énergétiques complique immédiatement la tâche des institutions monétaires. La Banque centrale européenne a surpris les observateurs en relevant ses taux d'intérêt directeurs de <strong>+25 points de base</strong> le 10 septembre 2026. Cette décision a porté le taux de dépôt de l'institution à <strong>2,50%</strong> à compter du 16 septembre 2026. Alors que les investisseurs tablaient sur une pause estivale prolongée, l'institution de Francfort a choisi d'agir sans attendre pour éviter que la hausse des carburants ne vienne contaminer les anticipations des entreprises et des ménages de la zone euro.",
-    "La situation économique sur le continent européen montre déjà des signaux tangibles de surchauffe sur les prix. L'office statistique Eurostat a mesuré une inflation dans l'Union européenne à <strong>2,7%</strong> pour le mois d'août 2026, un chiffre supérieur à l'objectif cible de stabilité des prix fixé à deux pour cent. Lorsque le prix du carburant grimpe, le coût du transport routier, de la production industrielle et du chauffage domestique augmente mécaniquement. Les banquiers centraux craignent alors un effet de second tour, où la hausse initiale de l'énergie pousse les entreprises à augmenter leurs tarifs généraux pour préserver leurs marges d'exploitation.",
-    "Aux États-Unis, la Réserve fédérale fait face à un dilemme similaire mais dans un contexte d'activité différent. Les marchés de capitaux ont immédiatement réagi à ces tensions géopolitiques et énergétiques globales. Le rendement du titre d'emprunt d'État américain à dix ans, couramment appelé <a class=\"lex-ref\" href=\"#lex-treasury\" aria-label=\"Voir la définition dans le lexique\">*</a>, a atteint <strong>4,97%</strong> le 18 septembre 2026. Une telle rémunération exigée par les prêteurs traduit la certitude que l'argent restera cher plus longtemps, éloignant la perspective d'un assouplissement rapide des conditions de crédit pour les entreprises et les particuliers américains.",
-    "En Europe, le contrecoup financier s'est manifesté avec une vigueur comparable sur les emprunts souverains. Le taux de l'obligation assimilable du Trésor français à dix ans, l'<a class=\"lex-ref\" href=\"#lex-oat\" aria-label=\"Voir la définition dans le lexique\">*</a>, a franchi la barre de <strong>4%</strong> le 18 septembre 2026, un niveau inédit depuis juin 2009. Ce renchérissement du coût de financement pour l'État réduit les marges de manœuvre budgétaires et pèse par ricochet sur les taux des crédits immobiliers accordés aux ménages. La transmission du choc pétrolier à la sphère financière s'opère donc à une vitesse remarquable sur l'ensemble des places occidentales.",
-    "L'avenir de la politique monétaire dépend désormais de la durée du blocage maritime et de l'ampleur des perturbations logistiques. Alors que les banquiers centraux comptaient assouplir leurs politiques pour soutenir l'activité économique, le retour d'une inflation importée pourrait les contraindre à prolonger le <a class=\"lex-ref\" href=\"#lex-resserrement-monetaire\" aria-label=\"Voir la définition dans le lexique\">*</a>. Trois scénarios se dessinent pour les prochains mois : une détente diplomatique rapide permettant une baisse des taux, un plateau prolongé où les taux restent élevés sans nouvelle hausse, ou une spirale inflationniste forçant un durcissement généralisé du loyer de l'argent."
+    "Les banques centrales occidentales affrontent un retournement monétaire brutal sous l'effet des tensions géopolitiques au Moyen-Orient. Alors que les investisseurs espéraient une accalmie durable sur le front du crédit, la Banque centrale européenne a surpris l'ensemble des marchés financiers le <strong>10 septembre 2026</strong> en procédant à un relèvement inattendu de <strong>25 points de base</strong>, qui a hissé son taux de dépôt<a class=\"lex-ref\" href=\"#lex-taux-de-depot\" aria-label=\"Voir la définition dans le lexique\">*</a> directeur à <strong>2,50%</strong>. Cette décision marque une rupture par rapport aux anticipations estivales de détente. Dans le même temps, la Réserve fédérale américaine a réuni son comité de politique monétaire les <strong>15 et 16 septembre 2026</strong> dans un climat de forte inquiétude, ouvrant formellement la porte à un resserrement additionnel pour contenir la surchauffe des prix importés.",
+    "Ce revirement d'attitude des grands banquiers centraux trouve sa source directe dans l'embrasement des cours du brut. Sur les marchés de l'énergie, le baril de <strong>Brent dépasse 107 $</strong> en cette fin septembre, propulsé par les craintes de rupture physique d'approvisionnement dans le golfe Persique et le détroit d'Ormuz. Les tensions militaires directes impliquant l'Iran et les forces américaines pèsent lourdement sur la fluidité du commerce maritime international. Un sujet connexe sur l'escalade régionale a d'ailleurs été analysé dans nos archives : <a href=\"archives/2026-09-10.html\">Iran–États-Unis : la trêve tient-elle encore ?</a>. La flambée de l'or noir alimente immédiatement les coûts de transport et de raffinage, menaçant de diffuser une nouvelle vague d'inflation dans l'ensemble des filières de biens manufacturés et de services.",
+    "La vulnérabilité du système énergétique mondial est particulièrement exacerbée par un assèchement continu des réserves de précaution. Depuis février 2026, les <strong>stocks pétroliers mondiaux ont diminué de 507 millions de barils</strong>, ce qui réduit considérablement les marges de manœuvre logistiques en cas de nouveau blocage maritime. Selon les estimations de la banque JPMorgan, le niveau actuel des cours intègre déjà le risque opérationnel d'une perte potentielle de <strong>4 millions de barils/jour</strong> si les flux d'exportation devaient s'interrompre durablement dans la zone. Dans ce contexte de pénurie latente, chaque incident maritime supplémentaire provoque une onde de choc immédiate sur les cotations de gros, privant les autorités monétaires du temps d'observation qu'elles privilégient habituellement.",
+    "Le choc pétrolier se transmet avec une rare violence aux marchés de la dette souveraine des deux côtés de l'Atlantique. Aux États-Unis, le rendement du <strong>Treasury américain à 10 ans atteint 4,97%</strong>, un niveau qui contraint l'économie américaine en renchérissant le coût de l'argent pour les entreprises et les acquéreurs immobiliers. En Europe, la transmission est tout aussi spectaculaire : le taux de l'<strong>OAT française a franchi 4%</strong>, un seuil historique qui n'avait plus été observé depuis le mois de juin 2009. Cette tension obligataire généralisée traduit le sentiment des investisseurs que le loyer de l'argent restera durablement plus haut pour compenser le risque d'une dérive inflationniste nourrie par l'énergie.",
+    "Pour la zone euro comme pour les États-Unis, l'incertitude porte désormais sur le calendrier des prochains mois et le risque d'un piège économique. Si les banques centrales maintiennent ou haussent leurs taux pour briser la hausse des prix, elles risquent de freiner l'activité productive et de provoquer une récession. À l'inverse, si elles décident de relâcher la pression pour soutenir l'emploi et l'investissement, elles s'exposent à un dérapage incontrôlé des anticipations d'inflation<a class=\"lex-ref\" href=\"#lex-anticipations-d-inflation\" aria-label=\"Voir la définition dans le lexique\">*</a>. L'évolution de ce dilemme dépendra essentiellement de la situation sécuritaire dans le Golfe et de la concrétisation éventuelle de couloirs de navigation sécurisés pour désengorger le transport pétrolier.",
+    "Cette équation complexe se décline aujourd'hui en trois trajectoires distinctes pour l'économie mondiale. Le premier scénario envisage une désescalade diplomatique rapide permettant un reflux rapide du pétrole et un retour aux baisses de taux directeurs. Le scénario central décrit une guerre d'usure stabilisant les cours entre 95 et 110 dollars, imposant un plateau de taux restrictifs prolongé. Enfin, l'hypothèse dégradée d'une fermeture complète des voies maritimes propulserait le brut au-delà de 120 dollars, obligeant la BCE et la Fed à durcir encore leurs conditions financières au risque de plonger les économies occidentales dans une stagflation sévère."
   ],
   "stakes_branches": {
-    "favorable": "Le baril reflue sous 90 dollars et permet d'enclencher des baisses de taux directeurs d'ici la fin de l'année.",
-    "stable": "Le pétrole oscille autour de 100 dollars, maintenant les taux à leur niveau actuel sans nouvelle hausse.",
-    "degrade": "L'escalade pousse le pétrole au-delà de 120 dollars, forçant un durcissement monétaire sévère et menaçant la croissance."
+    "favorable": "Un apaisement au Moyen-Orient ramène le pétrole sous 90 $ et permet des baisses de taux dès la fin 2026.",
+    "stable": "Les cours oscillent entre 95 et 110 $, obligeant les banques centrales à maintenir un plateau de taux élevés sans nouvelle hausse.",
+    "degrade": "L'escalade militaire pousse le brut au-delà de 120 $, forçant un resserrement monétaire d'urgence au prix d'une récession."
   },
   "comprendre_box": [
     {
-      "lead": "Pourquoi la BCE a relevé ses taux par surprise en septembre 2026",
-      "text": "Une banque centrale agit comme un régulateur thermique sur l'économie. Quand le baril flambe brutalement, le risque est de voir cette hausse se propager aux salaires et aux prix des services. En augmentant préventivement son taux de dépôt à 2,50%, la BCE cherche à refroidir la demande pour empêcher l'inflation de s'installer durablement, même si cela ralentit temporairement l'activité.",
+      "lead": "Pourquoi le pétrole dicte directement la conduite des banques centrales",
+      "text": "L'énergie est un coût de base pour fabriquer, transporter et chauffer. Quand le baril s'envole, ce surcoût se répercute sur toute la chaîne de production, obligeant les banques centrales à hausser les taux d'intérêt pour freiner la demande globale.",
       "apres_dek_index": 1
     },
     {
-      "lead": "Comment un choc pétrolier se transmet aux obligations et aux crédits",
-      "text": "Le pétrole cher augmente les coûts des entreprises et rogne le pouvoir d'achat. Pour compenser l'érosion future de leur capital due à l'inflation, les investisseurs exigent des rendements plus élevés sur la dette d'État. Cette hausse des taux obligataires se répercute ensuite mécaniquement sur les taux d'intérêt des prêts bancaires accordés aux ménages et aux entreprises.",
-      "apres_dek_index": 4
+      "lead": "Ce que représente concrètement un relèvement de 25 points de base",
+      "text": "Un quart de point de pourcentage en plus renchérit immédiatement le coût des nouveaux crédits immobiliers et professionnels. Ce geste vise à inciter les ménages et les entreprises à épargner plutôt qu'à dépenser, afin de calmer la hausse des prix.",
+      "apres_dek_index": 3
     }
   ],
   "list_box": null,
   "indicators": [
     {
-      "label": "Brent (pétrole)",
+      "label": "Brent (prix du pétrole)",
       "value": "107 $/baril",
-      "delta": "+507 M barils prélevés sur les stocks mondiaux depuis février 2026"
+      "delta": "+507 M de barils retirés des stocks depuis fév. 2026"
     },
     {
       "label": "Taux de dépôt BCE",
       "value": "2,50%",
-      "delta": "+25 pb le 10 septembre 2026 (applicable au 16 septembre)"
+      "delta": "+25 bps au 10 sept. 2026"
     },
     {
-      "label": "Inflation UE (août 2026)",
-      "value": "2,7%",
-      "delta": "Cible officielle fixée à 2,0% par la Banque centrale européenne"
+      "label": "Treasury US 10 ans",
+      "value": "4,97%",
+      "delta": "Rendement de référence des emprunts d'État"
     }
   ],
   "cards": {
     "favorable": {
-      "pct": 20,
-      "gauge_word": "Peu probable",
-      "h3": "Détente géopolitique et retour des baisses de taux directeurs",
+      "pct": 25,
+      "gauge_word": "Probable",
+      "h3": "L'apaisement géopolitique permet une reprise des baisses de taux",
       "why": [
-        "Dans cette configuration, les discussions diplomatiques régionales aboutissent rapidement à la sécurisation des voies maritimes et à la levée des blocages de navigation. Les flux de brut reprennent leur rythme normal dans le golfe Persique, permettant une reconstitution progressive des réserves de carburant. Le cours du baril de pétrole reflue nettement sous la barre des 90 dollars dans les semaines suivantes. Ce reflux supprime immédiatement la pression sur les coûts de transport et de production industrielle en Europe et aux États-Unis, ramenant la dynamique des prix dans les clous des objectifs officiels.",
-        "Ce scénario s'écarte nettement des deux autres car il supprime la cause première du regain d'inflation sans nécessiter un choc monétaire douloureux pour l'économie réelle. Si le coût de l'énergie se normalise rapidement, les banques centrales n'ont plus besoin de maintenir une posture restrictive pour juguler les hausses tarifaires. La BCE et la Fed disposeraient alors de l'espace nécessaire pour amorcer des réductions progressives de leurs taux directeurs avant l'hiver, ce qui allègerait le coût de la dette souveraine et redonnerait de l'élan au crédit immobilier."
+        "Dans cette hypothèse, les négociations diplomatiques régionales aboutissent à la mise en place d'un corridor de navigation sécurisé dans le détroit d'Ormuz, dissipant la prime de risque géopolitique qui pèse sur les marchés de l'énergie. Le cours du baril de Brent entame un reflux rapide pour repasser sous la barre des 90 dollars d'ici la fin de l'automne, mettant fin aux craintes d'un choc d'offre prolongé. Ce soulagement tarifaire permet de reconstituer progressivement les réserves de brut sans peser sur les indices de prix à la consommation dans les pays importateurs. Rassurées par l'extinction des tensions énergétiques et le retour de l'inflation vers leur cible de 2%, la Banque centrale européenne et la Réserve fédérale américaine peuvent interrompre formellement leur cycle de resserrement. Les deux institutions amorcent alors une série de baisses coordonnées de leurs taux directeurs avant la fin de l'année 2026 pour soutenir l'investissement industriel et alléger les conditions d'emprunt.",
+        "Ce dénouement favorable se distingue nettement du scénario d'enlisement en supprimant durablement la source de l'inflation importée au lieu de simplement la contenir par des taux restrictifs. Contrairement à la dynamique de crise ouverte où les banques centrales sont contraintes de sacrifier la croissance économique pour défendre la stabilité des prix, l'apaisement militaire redonne une totale marge de manœuvre aux politiques monétaires occidentales. Les rendements obligataires se détendent immédiatement : le rendement du Treasury américain à 10 ans reflue sous les 4,20% tandis que l'OAT française redescend nettement sous le seuil critique des 3,50%, allégeant la charge de la dette des États. Une telle trajectoire deviendrait beaucoup plus probable si les acteurs régionaux officialisaient un pacte de non-agression maritime dans les prochaines semaines."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Brent (pétrole)",
-          "evo_current": "85 $/baril",
+          "field_name": "Brent (prix du pétrole)",
+          "evo_current": "88 $/baril",
           "evo_arrow": "down",
           "evo_prev": "107 $/baril"
         },
@@ -68,26 +68,26 @@
           "evo_prev": "2,50%"
         },
         {
-          "field_name": "Inflation UE",
-          "evo_current": "2,1%",
+          "field_name": "Treasury US 10 ans",
+          "evo_current": "4,15%",
           "evo_arrow": "down",
-          "evo_prev": "2,7%"
+          "evo_prev": "4,97%"
         }
       ],
-      "france_line": "Baisse rapide de la facture énergétique des ménages et allégement de la charge de remboursement de la dette publique.",
+      "france_line": "Baisse des prix à la pompe, détente sur les taux de crédit immobilier et allègement de la charge de la dette publique.",
       "france_impact": "favorable"
     },
     "stable": {
       "pct": 50,
       "gauge_word": "Probable",
-      "h3": "Plateau énergétique prolongé et statu quo monétaire durable",
+      "h3": "Le pétrole plafonne et fige les taux sur un plateau élevé",
       "why": [
-        "Dans ce cadre de référence, les perturbations maritimes persistent sans dégénérer en confrontation ouverte généralisée. Le cours du baril reste fermement installé dans un corridor de négociation compris entre 95 et 110 dollars, maintenant une friction constante sur les chaînes d'approvisionnement mondiales. L'inflation globale demeure contenue autour de ses niveaux actuels, sans accélération brutale mais sans retour rapide vers la cible des deux pour cent. Les entreprises absorbent une partie de ces surcoûts énergétiques en rognant modérément sur leurs marges plutôt qu'en répercutant la totalité des hausses sur les prix de vente.",
-        "Par rapport aux deux trajectoires alternatives, cette issue évite à la fois le soulagement immédiat d'une normalisation diplomatique et la violence d'un second choc pétrolier majeur. Les banquiers centraux choisissent d'observer une pause prolongée, estimant que le niveau actuel des taux d'intérêt suffit à empêcher un emballement sans qu'il soit nécessaire d'enfoncer l'économie dans la récession. Le taux de dépôt de la BCE resterait ainsi figé à 2,50% pendant plusieurs trimestres, obligeant les emprunteurs publics et privés à s'adapter durablement à un environnement d'argent cher."
+        "Ce scénario central décrit une situation où les perturbations maritimes persistent sans pour autant basculer dans un blocage total du détroit d'Ormuz. Le baril de Brent oscille continuellement dans une fourchette étroite comprise entre 95 et 110 dollars, maintenant une pression inflationniste constante mais prévisible sur les économies occidentales. La ponction sur le pouvoir d'achat des ménages et sur les marges des entreprises reste sensible, mais elle n'entraîne pas de panique généralisée sur les marchés de gros. Face à cette équation, la BCE et la Fed choisissent de figer leur politique monétaire après les récentes hausses de septembre : le taux de dépôt de la BCE demeure fixé à 2,50% tandis que la Fed conserve un taux directeur restrictif. Les banquiers centraux renoncent à toute baisse de taux à court terme afin de s'assurer que les hausses de tarifs de l'énergie ne se diffusent pas aux salaires et aux services.",
+        "Par rapport à l'option d'un apaisement rapide, cette configuration neutralise tout espoir d'assouplissement du crédit et impose une croissance économique molle mais sans effondrement brutal de l'activité. Elle évite cependant l'engrenage destructeur du scénario dégradé où de nouveaux chocs d'offre obligeraient à relever encore les taux d'intérêt au risque de provoquer des faillites en chaîne. Les marchés de la dette souveraine s'installent dans une forme d'équilibre tendu : le Treasury américain à 10 ans reste ancré autour de 4,90% et l'OAT française oscille près de 4,00%, contraignant les gouvernements à une stricte discipline budgétaire. Cet équilibre précaire pourrait néanmoins se prolonger jusqu'au début de l'année 2027 tant qu'aucun nouvel embrasement ne vient couper les routes maritimes du Golfe."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Brent (pétrole)",
+          "field_name": "Brent (prix du pétrole)",
           "evo_current": "102 $/baril",
           "evo_arrow": "flat",
           "evo_prev": "107 $/baril"
@@ -99,26 +99,26 @@
           "evo_prev": "2,50%"
         },
         {
-          "field_name": "Inflation UE",
-          "evo_current": "2,6%",
+          "field_name": "Treasury US 10 ans",
+          "evo_current": "4,90%",
           "evo_arrow": "flat",
-          "evo_prev": "2,7%"
+          "evo_prev": "4,97%"
         }
       ],
-      "france_line": "Maintien des taux obligataires au-dessus de 3,8% et pression continue sur le budget des ménages dépendant des carburants.",
+      "france_line": "Carburants durablement chers, crédit immobilier restreint et coût élevé du refinancement de la dette de l'État.",
       "france_impact": "degrade"
     },
     "degrade": {
-      "pct": 30,
+      "pct": 25,
       "gauge_word": "Probable",
-      "h3": "Flambée du brut au-delà de 120 dollars et nouveau tour de vis monétaire",
+      "h3": "L'escalade énergétique force une reprise brutale des hausses de taux",
       "why": [
-        "Dans cette hypothèse pessimiste, la crise géopolitique s'aggrave avec un blocage quasi total du détroit d'Ormuz et des atteintes directes aux infrastructures de raffinage. Le prix du baril de brut franchit durablement le seuil des 120 dollars sur les marchés internationaux, créant un déficit physique d'approvisionnement impossible à compenser par les stocks stratégiques. Les prix des carburants à la pompe et du gaz s'envolent sur le continent européen, provoquant une nouvelle vague de hausses de prix dans les transports, l'agroalimentaire et la chimie lourde.",
-        "Contrairement au scénario de statu quo, cette dynamique enclenche une spirale où l'inflation menace de s'enraciner dans l'ensemble des contrats salariaux et commerciaux. Face à la perte d'ancrage des anticipations, la BCE et la Fed seraient contraintes de reprendre leurs hausses de taux directeurs de manière agressive pour briser la demande intérieure. Ce durcissement monétaire précipiterait un décrochage des marchés d'actions, une envolée des rendements obligataires souverains et un risque prononcé de contraction de l'activité économique européenne d'ici le début de l'année 2027."
+        "Dans cette hypothèse de crise majeure, les affrontements militaires provoquent la fermeture effective du détroit d'Ormuz ou la destruction d'infrastructures pétrolières majeures dans le golfe Persique. Le cours du baril de Brent franchit rapidement le seuil des 120 dollars, matérialisant la perte estimée de plusieurs millions de barils quotidiens dans un marché déjà privé de 507 millions de barils de stocks depuis le début de l'année. Ce choc d'offre massif déclenche une flambée immédiate des coûts de l'électricité, du gaz et des carburants à travers toute l'Europe et l'Amérique du Nord. Prises de court par un dérapage vertical des anticipations d'inflation, la BCE et la Réserve fédérale sont contraintes de réagir en urgence par de nouveaux relèvements successifs de leurs taux directeurs, portant le loyer de l'argent à des niveaux inédits depuis deux décennies pour juguler la spirale des prix.",
+        "Cette trajectoire de rupture se démarque des deux autres scénarios en combinant une inflation énergétique violente et un étranglement monétaire direct de l'économie réelle. Contrairement au statu quo où l'activité économique résiste tant bien que mal, le cumul d'un pétrole à 120 dollars et de taux directeurs renforcés précipite la zone euro et les États-Unis dans une récession technique douloureuse. Les tensions sur les marchés obligataires deviennent critiques : le rendement du Treasury américain s'envole bien au-delà de 5,50% et l'OAT française grimpe vers 4,80%, provoquant une chute marquée des marchés boursiers et un arrêt brutal des projets d'investissement. L'économie mondiale glisserait alors vers un épisode de stagflation particulièrement difficile à piloter pour les gouvernements."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Brent (pétrole)",
+          "field_name": "Brent (prix du pétrole)",
           "evo_current": "125 $/baril",
           "evo_arrow": "up",
           "evo_prev": "107 $/baril"
@@ -130,58 +130,54 @@
           "evo_prev": "2,50%"
         },
         {
-          "field_name": "Inflation UE",
-          "evo_current": "3,8%",
+          "field_name": "Treasury US 10 ans",
+          "evo_current": "5,60%",
           "evo_arrow": "up",
-          "evo_prev": "2,7%"
+          "evo_prev": "4,97%"
         }
       ],
-      "france_line": "Choc de pouvoir d'achat amplifié par des taux d'emprunt d'État dépassant 4,5% et un freinage brutal de l'investissement.",
+      "france_line": "Choc sur le pouvoir d'achat, dérapage du coût de la dette nationale et risque élevé de récession économique.",
       "france_impact": "degrade"
     }
   },
   "essentiel_box": [
-    "Les banques centrales occidentales doivent arbitrer entre la lutte contre l'inflation importée par le pétrole cher et la préservation de la croissance économique.",
-    "Le baril de Brent a franchi 107 dollars le 18 septembre 2026 après une ponction de 507 millions de barils sur les stocks mondiaux depuis février, poussant l'inflation européenne à 2,7% en août 2026 et l'OAT française à 4%.",
-    "Non, une baisse rapide des taux directeurs paraît désormais improbable : le maintien prolongé des taux actuels constitue l'issue centrale (50%), la BCE ayant déjà relevé son taux de dépôt à 2,50% le 10 septembre 2026 pour bloquer la transmission du choc.",
-    "La confirmation des flux de transit par le détroit d'Ormuz et les prochaines annonces de la Fed sur l'orientation de ses taux directeurs."
+    "La flambée des cours du pétrole brut liée au conflit au Moyen-Orient peut-elle empêcher les banques centrales occidentale de baisser leurs taux d'intérêt, ou les forcera-t-elle à les augmenter à nouveau ?",
+    "Avec un baril de Brent au-dessus de 107 dollars et des stocks mondiaux réduits de 507 millions de barils depuis février, la BCE a relevé son taux à 2,50% et la Fed envisage un durcissement monétaire.",
+    "Non, les baisses de taux ne sont pas d'actualité immédiate : le scénario le plus probable (50%) est un maintien prolongé des taux sur un plateau élevé tant que le baril oscille entre 95 et 110 dollars.",
+    "Le signal décisif à surveiller reste l'issue des négociations sur la sécurisation du détroit d'Ormuz et la publication des prochains chiffres d'inflation en zone euro à l'automne 2026."
   ],
   "delta_france": {
     "kind": "negatif",
-    "score": -0.6,
+    "score": -0.5,
     "word": "assez négatif",
-    "text": "la persistance du pétrole au-dessus de 100 dollars et le maintien de taux élevés (80% de probabilité cumulée sur les scénarios stable et dégradé) pénalisent directement le pouvoir d'achat et le coût de la dette publique française."
+    "text": "la persistance d'un baril élevé dans 75 % des scénarios cumulés maintient une forte pression sur le pouvoir d'achat et le coût d'emprunt français."
   },
-  "phrase_a_retenir": "Avec un baril de Brent à 107 $/baril et des stocks mondiaux amputés de 507 millions de barils depuis février, la BCE a relevé son taux de dépôt à 2,50% pour contenir l'inflation.",
+  "phrase_a_retenir": "Avec un Brent au-dessus de 107 $/baril et des stocks mondiaux en baisse de 507 millions de barils, la BCE a relevé son taux à 2,50 % face au choc pétrolier.",
   "phrase_a_retenir_stat": "107 $/baril",
   "lexique": [
     {
-      "slug": "treasury",
-      "terme": "Treasury",
-      "definition": "Titre de dette souveraine émis par le gouvernement fédéral des États-Unis, dont le rendement sert de référence mondiale pour le coût du crédit à long terme."
+      "slug": "taux-de-depot",
+      "terme": "Taux de dépôt",
+      "definition": "Rémunération que la Banque centrale européenne verse aux banques commerciales qui déposent leurs liquidités auprès d'elle, servant de référence plancher pour l'ensemble du coût du crédit en zone euro."
     },
     {
-      "slug": "oat",
-      "terme": "Obligation assimilable du Trésor (OAT)",
-      "definition": "Titre d'emprunt à moyen et long terme émis par l'État français pour financer son budget, dont le taux d'intérêt influence directement le coût des crédits accordés dans le pays."
-    },
-    {
-      "slug": "resserrement-monetaire",
-      "terme": "Resserrement monétaire",
-      "definition": "Action d'une banque centrale qui relève ses taux d'intérêt directeurs pour ralentir la création de crédit, freiner la demande globale et maîtriser la hausse des prix."
+      "slug": "anticipations-d-inflation",
+      "terme": "Anticipations d'inflation",
+      "definition": "Prévisions que les entreprises, les salariés et les investisseurs financiers formulent sur le rythme futur de hausse des prix, qui influencent directement les revendications de salaires et les tarifs commerciaux."
     }
   ],
   "sources_html": [
-    "<a href=\"https://www.lesechos.fr/economie/BCE-relèvement-taux-25-points-base-10-septembre-2026\" target=\"_blank\" rel=\"noopener noreferrer\">Les Échos — BCE : relèvement de taux de 25 points de base le 10 septembre 2026 ↗</a>",
-    "<a href=\"https://www.abcbourse.com/brent-petrole-107-dollars-18-septembre-2026\" target=\"_blank\" rel=\"noopener noreferrer\">ABC Bourse — Brent : pétrole à plus de 107 dollars ↗</a>",
-    "<a href=\"https://www.reuters.com/us-treasury-10-years-4-97-septembre-2026\" target=\"_blank\" rel=\"noopener noreferrer\">Reuters — Treasury américain à 10 ans : rendement à 4,97% ↗</a>",
-    "<a href=\"https://www.boursorama.com/oat-francaise-4-pourcent-18-septembre-2026\" target=\"_blank\" rel=\"noopener noreferrer\">Boursorama — OAT française : franchit 4% pour la première fois depuis juin 2009 ↗</a>",
-    "<a href=\"https://www.jpmorgan.com/stocks-petrolieres-mondiales-507-millions-barils-18-septembre-2026\" target=\"_blank\" rel=\"noopener noreferrer\">JPMorgan — Stocks pétroliers mondiaux : baisse de 507 millions de barils depuis février ↗</a>",
-    "<a href=\"https://ec.europa.eu/eurostat/inflation-ue-2-7-aout-2026\" target=\"_blank\" rel=\"noopener noreferrer\">Eurostat — Inflation de l'UE : 2,7% en août 2026 ↗</a>"
+    "<a href=\"https://www.la-croix.com/economie/bce-relèvement-taux-2026-09-10\" target=\"_blank\" rel=\"noopener noreferrer\">La Croix — BCE : relèvement de 25 points de base du taux de dépôt à 2,50% ↗</a>",
+    "<a href=\"https://www.boursorama.com/actualites/brent-107-dollars-2026-09-24\" target=\"_blank\" rel=\"noopener noreferrer\">Boursorama — Brent dépasse 107 dollars le baril ↗</a>",
+    "<a href=\"https://www.abcbourse.com/treasury-10ans-497-2026-09-24\" target=\"_blank\" rel=\"noopener noreferrer\">ABC Bourse — Treasury américain à 10 ans : rendement à 4,97% ↗</a>",
+    "<a href=\"https://www.webmanagercenter.com/oat-4-pct-2026-09-24\" target=\"_blank\" rel=\"noopener noreferrer\">Webmanagercenter — OAT française franchit les 4% pour la première fois depuis juin 2009 ↗</a>",
+    "<a href=\"https://www.la-croix.com/economie/stocks-petroliers-2026-09-18\" target=\"_blank\" rel=\"noopener noreferrer\">La Croix — Stocks pétroliers mondiaux : baisse de 507 millions de barils depuis février 2026 ↗</a>",
+    "<a href=\"https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm\" target=\"_blank\" rel=\"noopener noreferrer\">Federal Reserve — Calendrier du FOMC : réunion des 15-16 septembre 2026 ↗</a>",
+    "<a href=\"https://www.jpmorgan.com/analysis/brent-risk-2026-09-18\" target=\"_blank\" rel=\"noopener noreferrer\">JPMorgan — JPMorgan : le Brent à 106 $ intègre un risque de pertes de 4 M barils/jour ↗</a>"
   ],
   "meta": {
-    "title": "Choc pétrolier : la BCE et la Fed peuvent-elles encore baisser les taux ? — Scénario",
-    "meta_description": "Face au baril de Brent à 107 dollars, la BCE et la Réserve fédérale sont prises en étau entre risque d'inflation importée et ralentissement économique.",
-    "og_image_alt": "Baril de pétrole et cours des marchés financiers illustrant le dilemme des banques centrales face au choc énergétique"
+    "title": "Taux : la guerre au Moyen-Orient bloque-t-elle la baisse des taux ? — Scénario",
+    "meta_description": "Face au baril de Brent à 107 $ et à la baisse des stocks, découvrez l'impact du choc pétrolier sur les décisions de taux de la BCE et de la Fed.",
+    "og_image_alt": "Graphique illustrant l'évolution des cours du baril de pétrole Brent et des taux directeurs"
   }
 }
