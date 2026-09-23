@@ -258,8 +258,24 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add "$BRIEF"
           git commit -m "brief: repli automatique via OpenRouter (recherche CCR indisponible, $DATE)"
-          git pull --rebase origin main
-          git push origin main
+          # Retry avec rebase en cas de push concurrent — même raison que
+          # l'étape de publication plus bas : une recherche déjà payée ne
+          # doit jamais se perdre sur un simple conflit de timing.
+          pushed=false
+          for i in 1 2 3 4 5; do
+            if git push origin main; then
+              pushed=true
+              break
+            fi
+            echo "Push rejeté (tentative $i/5), rebase et nouvel essai..."
+            git fetch origin main
+            git rebase origin/main
+            sleep $((i * 3))
+          done
+          if [ "$pushed" != true ]; then
+            echo "::error::Push impossible après 5 tentatives (conflits répétés) — brief de repli non poussé."
+            exit 1
+          fi
 
       - name: Vérifier que le brief existe (après repli éventuel)
         if: steps.already.outputs.already != 'true'
@@ -361,8 +377,29 @@ jobs:
             exit 0
           fi
           git commit -m "Édition du $(TZ=Europe/Paris date +%d/%m/%Y) — chaîne rédaction OpenRouter + post-édition automatique"
-          git pull --rebase origin main
-          git push origin main
+          # Retry avec rebase en cas de push concurrent — sans ça, un simple
+          # conflit de timing (ex. daily-preview.yml ou un commit manuel sur
+          # main au même moment) fait échouer ce step et l'édition du jour
+          # n'est JAMAIS publiée, avec un seul essai jusqu'ici. Regénérer le
+          # contenu coûterait un nouvel appel OpenRouter (contrairement à
+          # « Cocher sujets-prioritaires.md » plus bas, qui peut se permettre
+          # de repartir de zéro) — on garde donc le commit local et on le
+          # rejoue par rebase plutôt que de tout refaire.
+          pushed=false
+          for i in 1 2 3 4 5; do
+            if git push origin main; then
+              pushed=true
+              break
+            fi
+            echo "Push rejeté (tentative $i/5), rebase et nouvel essai..."
+            git fetch origin main
+            git rebase origin/main
+            sleep $((i * 3))
+          done
+          if [ "$pushed" != true ]; then
+            echo "::error::Push impossible après 5 tentatives (conflits répétés) — édition non publiée, à relancer manuellement."
+            exit 1
+          fi
 
       # sujets-prioritaires.md, séparé et sécurisé : check_off_priority_topic()
       # (voir generate_post_edition.py --recheck-priority-only) est bon marché
