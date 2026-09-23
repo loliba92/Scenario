@@ -215,6 +215,19 @@ def validate_brief(brief):
     elif len(question) > 200:
         errors.append(f"sujet.question_posee dépasse 200 caractères ({len(question)})")
 
+    # h1 : « court et percutant » (docs/routine-prompt.md § écriture du h1)
+    # — jamais la reprise telle quelle de titre_propose, qui est une
+    # proposition de sujet, pas un titre destiné à l'affichage. Les h1
+    # réels des dernières éditions vont de 27 à 70 caractères ; 100 laisse
+    # une marge confortable sans être laxiste. Incident du 23 septembre
+    # 2026 : un brief de repli avait recopié titre_propose (156 caractères)
+    # tel quel dans h1, affiché ainsi en <title>, <h1> et partout ailleurs.
+    h1 = brief.get("sujet", {}).get("h1", "")
+    if not h1:
+        errors.append("sujet.h1 manquant")
+    elif len(h1) > 100:
+        errors.append(f"sujet.h1 trop long, doit rester court et percutant ({len(h1)} caractères, max 100)")
+
     sp = brief.get("scenarios_prospectifs", {})
     for kind in ("favorable", "stable", "degrade"):
         if kind not in sp:
