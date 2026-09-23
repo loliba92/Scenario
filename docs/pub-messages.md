@@ -910,6 +910,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-09-22 (archives/2026-09-22.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-09-23
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 2,39 €
+- message: Avec un gazole à 2,39 € le litre, le gouvernement fait face à la menace d'un embrasement social alors que 1,4 milliard € d'aides ont déjà été dépensés.
+- attribution: — lesscenarios.fr, 23 septembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-09-23.html
+
+*Phrase à retenir de l'édition du 2026-09-23 (archives/2026-09-23.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
