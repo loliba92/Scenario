@@ -1603,7 +1603,7 @@
   /* ---------- Articles connexes ---------- */
 
   section.related-articles{
-    padding: 32px 0 48px;
+    padding: 48px 0 48px;
     border-top: 1px dashed var(--hairline);
   }
 
@@ -1611,31 +1611,46 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
   }
 
   .related-articles-item{
-    padding: 16px;
-    background: var(--surface);
-    border: 1px solid var(--hairline);
-    border-radius: 8px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
     text-decoration: none;
-    transition: background 0.2s, border-color 0.2s;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
 
   .related-articles-item:hover{
-    background: var(--surface-2);
+    transform: translateY(-4px);
     border-color: var(--gold);
+    box-shadow: 0 8px 24px rgba(207, 157, 76, 0.15);
+  }
+
+  .related-articles-image{
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .related-articles-content{
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
   }
 
   .related-articles-date{
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.74rem;
+    font-size: 0.72rem;
     color: var(--paper-dim);
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -1646,10 +1661,18 @@
     color: var(--paper);
     font-weight: 500;
     line-height: 1.4;
+    flex: 1;
   }
 
   .related-articles-item:hover .related-articles-title{
     color: var(--gold);
+  }
+
+  @media (max-width: 720px){
+    .related-articles-list{
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
   }
 
   .btn-outline{
@@ -1987,6 +2010,36 @@
   </div>
 </section>
 
+<section class="related-articles" id="articles-connexes">
+  <div class="wrap">
+    <p class="section-label">À approfondir</p>
+    <h2 class="section-title">Articles connexes</h2>
+    <ul class="related-articles-list">
+      <li><a href="archives/2026-09-16.html" class="related-articles-item">
+        <img class="related-articles-image" src="assets/social/topic-images/2026-09-16.jpg" alt="Électricité : la fin de l'ARENH va-t-elle faire flamber ta facture ?">
+        <div class="related-articles-content">
+          <span class="related-articles-date">16 sept.</span>
+          <span class="related-articles-title">Électricité : la fin de l'ARENH va-t-elle faire flamber ta facture ?</span>
+        </div>
+      </a></li>
+      <li><a href="archives/2026-09-13.html" class="related-articles-item">
+        <img class="related-articles-image" src="assets/social/topic-images/2026-09-13.jpg" alt="Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?">
+        <div class="related-articles-content">
+          <span class="related-articles-date">13 sept.</span>
+          <span class="related-articles-title">Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?</span>
+        </div>
+      </a></li>
+      <li><a href="archives/2026-09-09.html" class="related-articles-item">
+        <img class="related-articles-image" src="assets/social/topic-images/2026-09-09.jpg" alt="La France a trois visages ?">
+        <div class="related-articles-content">
+          <span class="related-articles-date">9 sept.</span>
+          <span class="related-articles-title">La France a trois visages ?</span>
+        </div>
+      </a></li>
+    </ul>
+  </div>
+</section>
+
 <section class="scenarios" id="scenarios">
   <div class="wrap">
     <p class="section-label">Favorable, stable ou dégradé</p>
@@ -2194,27 +2247,6 @@
 <li><a href="https://www.la-croix.com" target="_blank" rel="noopener noreferrer">La Croix — Macron détaille la menace hybride russe : attaque à Leipzig, fusée near frégate danoise ↗</a></li>
     </ul>
     <p style="margin-top:16px"><a href="sources.html#2026-09-23" style="color:var(--gold);text-decoration:none">Voir aussi la revue de presse du jour →</a></p>
-  </div>
-</section>
-
-<section class="related-articles" id="articles-connexes">
-  <div class="wrap">
-    <p class="section-label">À découvrir aussi</p>
-    <h2 class="section-title">Articles connexes</h2>
-    <ul class="related-articles-list">
-      <li><a href="archives/2026-09-16.html" class="related-articles-item">
-        <span class="related-articles-date">16 septembre 2026</span>
-        <span class="related-articles-title">Électricité : la fin de l'ARENH va-t-elle faire flamber ta facture ?</span>
-      </a></li>
-      <li><a href="archives/2026-09-13.html" class="related-articles-item">
-        <span class="related-articles-date">13 septembre 2026</span>
-        <span class="related-articles-title">Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?</span>
-      </a></li>
-      <li><a href="archives/2026-09-09.html" class="related-articles-item">
-        <span class="related-articles-date">9 septembre 2026</span>
-        <span class="related-articles-title">La France a trois visages ?</span>
-      </a></li>
-    </ul>
   </div>
 </section>
 
