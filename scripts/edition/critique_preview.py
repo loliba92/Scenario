@@ -158,6 +158,19 @@ signale-le et propose un `h1` court et percutant de remplacement (voir \
 les h1 des éditions passées pour le ton attendu, ex. « Dollar : la fin du \
 règne ? », « Budget 2027 : le gouvernement va-t-il tenir cet automne ? »).
 
+9. **Événements à date fixe traités comme futurs alors qu'ils sont déjà \
+passés.** La date de cette édition est {date}. Pour toute réunion, \
+décision, sommet ou échéance datée mentionnée dans le texte (`.dek`, \
+cartes de scénarios, essentiel), compare sa date à {date}. Si cette date \
+est ANTÉRIEURE à {date} mais que le texte en parle encore au futur ou au \
+conditionnel (« se réunit le… », « pourrait décider… », « n'a pas encore \
+eu lieu ») au lieu de son résultat réel, signale-le comme un défaut \
+majeur — même sans pouvoir vérifier ce résultat toi-même (pas d'accès \
+web), le simple calcul de dates suffit à repérer l'incohérence. Incident \
+réel (édition du 24 septembre 2026) : le texte présentait la réunion de \
+la Fed des 15-16 septembre comme à venir, alors que l'édition est publiée \
+une semaine plus tard.
+
 Pour chaque défaut trouvé, cite l'extrait exact concerné. Si un point n'a \
 rien à signaler, ne le mentionne pas — ne remplis jamais artificiellement \
 la liste des `findings` pour donner l'impression d'avoir travaillé.

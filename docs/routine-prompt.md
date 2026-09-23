@@ -198,6 +198,24 @@ remplacé par un développement plus récent contradictoire — signaler
 toute contradiction entre sources plutôt que trancher arbitrairement
 (champ `elements_incertains` du brief).
 
+**Anti-péremption des événements calendaires à date fixe.** Toute
+réunion, décision, sommet ou échéance programmée mentionnée dans la
+recherche (ex. « la Fed se réunit les 15-16 septembre ») a une date
+précise à comparer explicitement à la date du jour du brief — jamais
+supposer qu'elle est future juste parce qu'une source ancienne en parle
+encore au conditionnel. **Si cette date est déjà passée au moment du
+brief, l'événement a un résultat réel à rechercher et intégrer comme
+un fait vérifié (`faits_verifies`), jamais laissé comme une inconnue
+au futur.** Incident réel (brief du 24 septembre 2026, généré le 23) :
+`a_ne_pas_affirmer` du brief affirmait que « la réunion des 15-16
+septembre n'a pas encore eu lieu au moment du brief » — alors que le
+23 septembre est une semaine APRÈS cette réunion, dont le résultat
+existait déjà et n'a jamais été recherché. Avant d'écrire
+`a_ne_pas_affirmer` ou toute formulation prospective sur un événement
+daté, calculer explicitement : date de l'événement vs. date du brief —
+passé → chercher le résultat ; futur → la formulation prospective reste
+valide telle quelle.
+
 **Anti-péremption des données chiffrées.** Un palmarès/classement/rapport
 annuel est un instantané daté : vérifier par une recherche datée si un
 événement plus récent que sa publication a fait bouger le chiffre.
@@ -216,6 +234,10 @@ troisième ou lister chaque cas avant de retenir un total.
 **Vérifier que l'hypothèse d'un scénario ne s'est pas déjà réalisée.**
 Pour toute formulation prospective, recherche ciblée pour confirmer que
 l'événement ne s'est pas déjà produit avant la publication du brief.
+**Cas particulier, le plus fréquent : un événement à date fixe connue
+(réunion, décision, sommet)** — comparer explicitement sa date à la
+date du jour avant de le traiter comme futur (voir § Anti-péremption
+des événements calendaires plus haut, incident du 24 septembre 2026).
 
 **Profondeur obligatoire, avant de considérer la recherche terminée** —
 les trois questions habituelles, réponse à verser dans le brief plutôt
@@ -365,7 +387,7 @@ Croiser au moins deux sources récentes et distinctes avant d'affirmer un fait. 
 
 **Bilans chiffrés d'événements discrets (morts, blessés, incidents) : chercher le total, pas le premier chiffre trouvé.** Le premier chiffre peut ne compter qu'une partie des cas. Recherche dédiée au total le plus large et récent (« bilan total », « depuis le début de l'été/mois », « X-ième mort/blessé ») ; si deux sources divergent, croiser une troisième ou lister chaque cas (date, lieu) avant de publier un total.
 
-**Vérifier que l'hypothèse d'un scénario ne s'est pas déjà réalisée.** Pour toute formulation prospective (« pourrait atteindre X d'ici… », « serait le premier à… »), recherche ciblée pour confirmer que l'événement ne s'est pas déjà produit avant la publication.
+**Vérifier que l'hypothèse d'un scénario ne s'est pas déjà réalisée.** Pour toute formulation prospective (« pourrait atteindre X d'ici… », « serait le premier à… »), recherche ciblée pour confirmer que l'événement ne s'est pas déjà produit avant la publication. **Cas particulier, le plus fréquent : un événement à date fixe connue** (réunion de banque centrale, sommet, décision programmée) — calculer explicitement date de l'événement vs. date de publication ; si déjà passé, rechercher son résultat réel et le rédiger comme un fait accompli, jamais comme une échéance encore à venir. Incident réel (édition du 24 septembre 2026) : le texte final présentait la réunion de la Fed des 15-16 septembre comme à venir, alors que la publication a lieu une semaine après.
 
 **Relecture de cohérence interne avant publication.** Une fois l'édition rédigée, relire tous les chiffres cités (contexte, indicateurs, scénarios, lexique) pour repérer toute incohérence entre eux. Corriger avant de publier, pas après. **Comparer aussi la date attachée à chaque occurrence d'un même chiffre, pas seulement sa valeur** — deux mentions du même chiffre avec deux dates différentes (ex. `indicateurs_kpi` daté du 9 du mois, le même chiffre redonné dans un `.dek` daté du 14) passent inaperçues d'une relecture qui ne compare que les valeurs, puisque le chiffre lui-même concorde ; l'incident du 22 septembre 2026 (Brent) est passé exactement par ce trou.
 
