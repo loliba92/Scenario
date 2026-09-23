@@ -631,7 +631,7 @@ _SHARE_BLOCK = """<section class="share-block" id="nous-suivre">
 
 def build_related_articles(brief, repo_root=None):
     """Génère la section des articles connexes à partir des données du brief.
-    Lit les fichiers archives pour récupérer les titres des articles.
+    Utilise le titre exact du brief (champ 'titre' des articles_connexes).
     Retourne une chaîne HTML ou vide si pas d'articles connexes."""
     articles = brief.get("articles_connexes", [])
     if not articles or len(articles) == 0:
@@ -643,11 +643,8 @@ def build_related_articles(brief, repo_root=None):
         if not article_date:
             continue
 
-        # Utiliser le titre du brief
-        title = article.get("lien", "Article")
-        # Prendre seulement la partie avant le " : " s'il existe
-        if " : " in title:
-            title = title.split(" : ", 1)[0]
+        # Utiliser le titre exact du brief
+        title = article.get("titre", "Article")
 
         # Formater la date (YYYY-MM-DD -> "DD mois.")
         try:

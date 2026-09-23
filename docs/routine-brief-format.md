@@ -101,14 +101,17 @@ sur un fichier partagé entre deux process).
   "articles_connexes": [
     {
       "date": "AAAA-MM-JJ",
+      "titre": "string, titre exact de l'édition de cette date (tel qu'affiché dans le h1)",
       "lien": "string, raison du lien thématique avec le sujet du jour (1 phrase)"
     },
     {
       "date": "AAAA-MM-JJ",
+      "titre": "string",
       "lien": "string"
     },
     {
       "date": "AAAA-MM-JJ",
+      "titre": "string",
       "lien": "string"
     }
   ],
