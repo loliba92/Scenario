@@ -29,6 +29,7 @@ séparément si la Phase 1 est validée.
 """
 import re
 from datetime import date
+from pathlib import Path
 
 from bs4 import BeautifulSoup
 
@@ -628,6 +629,77 @@ _SHARE_BLOCK = """<section class="share-block" id="nous-suivre">
 </section>"""
 
 
+def build_related_articles(brief, repo_root=None):
+    """Génère la section des articles connexes à partir des données du brief.
+    Lit les fichiers archives pour récupérer les titres des articles.
+    Retourne une chaîne HTML ou vide si pas d'articles connexes."""
+    articles = brief.get("articles_connexes", [])
+    if not articles or len(articles) == 0:
+        return ""
+
+    if repo_root is None:
+        repo_root = Path(__file__).resolve().parent.parent.parent
+    else:
+        repo_root = Path(repo_root)
+
+    articles_html = []
+    for article in articles:
+        article_date = article.get("date", "")
+        if not article_date:
+            continue
+
+        archive_path = repo_root / "archives" / f"{article_date}.html"
+        title = ""
+
+        try:
+            if archive_path.exists():
+                html_content = archive_path.read_text(encoding="utf-8")
+                soup = BeautifulSoup(html_content, "html.parser")
+                h1_tag = soup.find("h1")
+                if h1_tag:
+                    title = h1_tag.get_text(strip=True)
+        except Exception:
+            pass
+
+        if not title:
+            title = article.get("lien", "Article")
+
+        # Formater la date (YYYY-MM-DD -> "DD mois.")
+        try:
+            date_parts = article_date.split("-")
+            day = int(date_parts[2])
+            month = int(date_parts[1])
+            month_name = MOIS_FR[month - 1][:4]  # "sept.", "juil.", etc.
+            if month_name.endswith("e"):
+                formatted_date = f"{day} {month_name.rstrip('e')}."
+            else:
+                formatted_date = f"{day} {month_name}."
+        except Exception:
+            formatted_date = article_date
+
+        article_html = f'''      <li><a href="archives/{article_date}.html" class="related-articles-item">
+        <img class="related-articles-image" src="assets/social/topic-images/{article_date}.jpg" alt="{title}">
+        <div class="related-articles-content">
+          <span class="related-articles-date">{formatted_date}</span>
+          <span class="related-articles-title">{title}</span>
+        </div>
+      </a></li>'''
+        articles_html.append(article_html)
+
+    if not articles_html:
+        return ""
+
+    return f'''<section class="related-articles">
+  <div class="wrap">
+    <p class="section-label">À approfondir</p>
+    <h2 class="section-title">Articles connexes</h2>
+    <ul class="related-articles-list">
+{(chr(10)).join(articles_html)}
+    </ul>
+  </div>
+</section>'''
+
+
 def assemble_index_html(shell, content, brief, date_str, photo=None):
     """Assemble le document complet. Ne fait AUCUN appel réseau, AUCUNE
     écriture disque — retourne uniquement la chaîne HTML finale, à valider
@@ -645,6 +717,7 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
     head_dynamic = build_head_dynamic(content, brief, date_str, canonical_url, photo=photo)
     masthead = build_masthead(shell["masthead_html"], date_str, edition_number)
     hero = build_hero(content, date_str, photo=photo, graphique_dc_chart=brief.get("graphique_dc_chart"))
+    related_articles = build_related_articles(brief)
     scenarios = build_scenarios(content)
     lexique = build_lexique(content)
     sources = build_sources(content, date_str)
@@ -686,6 +759,8 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
 {shell['intro_banner_html']}
 
 {hero}
+
+{related_articles}
 
 {scenarios}
 
