@@ -1,0 +1,53 @@
+name: Test ponctuel — critique sur h1 trop long
+
+# Workflow temporaire, à supprimer après validation manuelle (test du
+# point 8 ajouté à critique_preview.py le 23 septembre 2026 — vérifier
+# qu'un h1 volontairement trop long est bien détecté et une correction
+# proposée, sans clé OPENROUTER_API_KEY disponible en local pour tester
+# autrement).
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - run: pip install -q beautifulsoup4
+
+      - name: Fabriquer un content.json avec un h1 volontairement trop long
+        run: |
+          python3 -c "
+          import json
+          c = json.load(open('.preview-content.json'))
+          long_h1 = 'BCE et Fed face au choc pétrolier : les banques centrales peuvent-elles encore baisser les taux, ou la guerre au Moyen-Orient les force-t-elle à resserrer ?'
+          c['h1'] = long_h1
+          c['meta']['title'] = long_h1 + ' — Scénario'
+          json.dump(c, open('/tmp/test-content.json', 'w'), ensure_ascii=False, indent=2)
+          print(f'h1 de test : {len(long_h1)} caractères')
+          "
+
+      - name: Lancer la critique sur ce contenu de test
+        run: |
+          cd scripts/edition
+          OPENROUTER_API_KEY="${{ secrets.OPENROUTER_API_KEY }}" python3 critique_preview.py \
+            --date 2026-09-24 \
+            --brief ../../editorial-briefs/2026-09-24.json \
+            --content /tmp/test-content.json \
+            --out /tmp/test-critique.md \
+            --out-json /tmp/test-critique.json
+
+      - name: Afficher le résultat
+        if: always()
+        run: |
+          echo "=== critique.json ==="
+          cat /tmp/test-critique.json 2>/dev/null || echo "(absent)"
+          echo ""
+          echo "=== critique.md ==="
+          cat /tmp/test-critique.md 2>/dev/null || echo "(absent)"
