@@ -1351,17 +1351,35 @@ def main():
             # par position/correspondance stricte dans build_html.py) —
             # ces essais ne sont jamais structurellement sûrs, même s'ils
             # comptent peu d'erreurs.
+            #
+            # Nuance ajoutée le 23 septembre 2026 : "indicators : N éléments,
+            # brief en avait M" (écart de NOMBRE avec le brief) et
+            # "indicators[i] : label/value/delta manquant" (un élément
+            # individuellement mal formé) partagent le même préfixe
+            # "indicators" mais ne présentent pas le même risque.
+            # build_html._kpi_indicator_html() itère uniquement sur
+            # content["indicators"] et ne compare jamais sa longueur à celle
+            # du brief — un simple écart de nombre ne fait donc jamais
+            # planter l'assemblage HTML, contrairement à un élément
+            # individuellement incomplet (c'est bien ce second cas qui a
+            # causé le KeyError('value') du 22 septembre). Exclure aussi le
+            # premier cas du repli "meilleur essai" faisait donc échouer tout
+            # le run (aucune édition produite) pour un écart purement
+            # éditorial (ex. brief réduit de 3 à 2 indicateurs entre la
+            # génération du brief et celle du contenu), sans aucun risque
+            # technique. Seul l'indicateur individuellement cassé reste
+            # exclu.
             safe_attempts = [
                 pair for pair in attempts_history
                 if not any(
-                    e.startswith("indicators") or "indicateurs_touches :" in e
+                    e.startswith("indicators[") or "indicateurs_touches :" in e
                     for e in pair[1]
                 )
             ]
             if not safe_attempts:
                 raise GenerationError(
                     f"validation du contenu échouée après {1 + MAX_RETRIES} essai(s), "
-                    "tous structurellement invalides (nombre d'indicateurs incohérent), rien n'est produit"
+                    "tous structurellement invalides (indicateur individuel mal formé), rien n'est produit"
                 )
             content, errors = min(safe_attempts, key=lambda pair: len(pair[1]))
             used_best_effort_fallback = True
