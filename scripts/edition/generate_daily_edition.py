@@ -845,6 +845,14 @@ def validate_content_schema(content, brief):
     if len(content["dek"]) < 3:
         errors.append(f"dek : {len(content['dek'])} paragraphes (minimum 3 attendu)")
 
+    # h1 généré : même garde-fou que validate_brief() sur sujet.h1, mais
+    # ici sur le h1 réellement produit par le modèle de rédaction — rien
+    # ne garantit qu'il reprenne tel quel un brief.sujet.h1 pourtant
+    # conforme, donc défense en profondeur plutôt qu'un contrôle unique
+    # en amont (voir incident du 23 septembre 2026, validate_brief()).
+    if len(content["h1"]) > 100:
+        errors.append(f"h1 trop long, doit rester court et percutant ({len(content['h1'])} caractères, max 100)")
+
     for kind in ("favorable", "stable", "degrade"):
         if kind not in content["stakes_branches"]:
             errors.append(f"stakes_branches.{kind} manquant")
