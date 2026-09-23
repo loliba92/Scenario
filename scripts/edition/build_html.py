@@ -637,32 +637,17 @@ def build_related_articles(brief, repo_root=None):
     if not articles or len(articles) == 0:
         return ""
 
-    if repo_root is None:
-        repo_root = Path(__file__).resolve().parent.parent.parent
-    else:
-        repo_root = Path(repo_root)
-
     articles_html = []
     for article in articles:
         article_date = article.get("date", "")
         if not article_date:
             continue
 
-        archive_path = repo_root / "archives" / f"{article_date}.html"
-        title = ""
-
-        try:
-            if archive_path.exists():
-                html_content = archive_path.read_text(encoding="utf-8")
-                soup = BeautifulSoup(html_content, "html.parser")
-                h1_tag = soup.find("h1")
-                if h1_tag:
-                    title = h1_tag.get_text(strip=True)
-        except Exception:
-            pass
-
-        if not title:
-            title = article.get("lien", "Article")
+        # Utiliser le titre du brief
+        title = article.get("lien", "Article")
+        # Prendre seulement la partie avant le " : " s'il existe
+        if " : " in title:
+            title = title.split(" : ", 1)[0]
 
         # Formater la date (YYYY-MM-DD -> "DD mois.")
         try:
