@@ -154,6 +154,30 @@ Formuler en une phrase claire la question centrale à laquelle les trois scénar
 
 **Cette phrase, écrite une seule fois, est réutilisée mot pour mot partout** : `question-text` (étape technique 3), `feed.xml` (`<comments>` et début de `<description>`, étape technique 8), teaser Telegram (repris depuis `<comments>`). Jamais une seconde formulation différente.
 
+### Étape 2bis — Identification des 3 articles connexes
+
+**Tâche explicite et tracée.** Identifier 3 articles des archives (des 30 derniers jours maximum) qui ont un **lien thématique fort** avec le sujet du jour. Pas les 3 derniers du même domaine au hasard — un vrai lien avec les thèmes du jour. Ce processus est transparent et documenté dans le brief.
+
+**Démarche :**
+
+1. **Extraire 3-4 thèmes clés du sujet du jour** (du titre + question + h1). Exemple pour « Carburants à prix record et menaces hybrides » : énergie/carburants, politique/présidentielle, crise sociale/gouvernement, sécurité/menaces hybrides.
+
+2. **Chercher dans `archives.html`** les articles du dernier mois qui matchent au moins un de ces thèmes. Ne pas se limiter au même `domain` — un article sur la présidentielle ou un article sur l'économie de l'énergie peuvent tous deux être connexes si le thème les touche.
+
+3. **Valider les 3 meilleurs matches** : vérifier qu'il existe un lien manifeste, pas juste une proximité linguistique. Exemple : « Électricité/ARENH » est connecté à « Carburants/énergie » (même domaine énergétique) ; « Présidentielle 2027 » est connecté à « Macron réunit les candidats » (acteur + timing politique partagés).
+
+4. **Renseigner le champ `articles_connexes`** dans le brief (voir `docs/routine-brief-format.md`) : 
+   ```json
+   "articles_connexes": [
+     { "date": "2026-09-16", "lien": "Énergie — fin ARENH" },
+     { "date": "2026-09-13", "lien": "Politique — budget & crise gouvernementale" },
+     { "date": "2026-09-01", "lien": "Présidentielle 2027" }
+   ]
+   ```
+   Jamais vide, jamais sans lien justifié.
+
+5. **Anti-doublon :** vérifier aussi que ces 3 articles ne doublonnent pas trop fortement le sujet du jour (exemple : ne pas proposer « Carburants le 15 août » si le sujet du jour est aussi « Carburants le 23 septembre »).
+
 ### Étape 3 (recherche uniquement — remplace la version historique ci-dessous pour cette routine) — Vérification et collecte des faits
 
 Croiser au moins deux sources récentes et distinctes avant de retenir un

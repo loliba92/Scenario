@@ -98,6 +98,20 @@ sur un fichier partagé entre deux process).
       "read_minutes": 0
     }
   ],
+  "articles_connexes": [
+    {
+      "date": "AAAA-MM-JJ",
+      "lien": "string, raison du lien thématique avec le sujet du jour (1 phrase)"
+    },
+    {
+      "date": "AAAA-MM-JJ",
+      "lien": "string"
+    },
+    {
+      "date": "AAAA-MM-JJ",
+      "lien": "string"
+    }
+  ],
   "recommandations_redaction": ["string"]
 }
 ```
