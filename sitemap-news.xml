@@ -11,4 +11,15 @@
       <news:title>Fuel at record prices and hybrid threats: Macron brings together presidential candidates</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-09-24.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-09-24T06:01:32+02:00</news:publication_date><news:title>Économie mondiale : BCE et Fed face au choc pétrolier</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-09-24.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-09-24T06:01:32+02:00</news:publication_date><news:title>Économie mondiale : BCE et Fed face au choc pétrolier</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-09-24.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-24T06:01:32+02:00</news:publication_date>
+      <news:title>Global Economy: ECB and Fed Face the Oil Shock</news:title>
+    </news:news>
+  </url>
+</urlset>
