@@ -168,7 +168,7 @@ def build_head_dynamic(content, brief, date_str, canonical_url, photo=None):
         "{\n"
         '  "@context": "https://schema.org",\n'
         '  "@type": "NewsArticle",\n'
-        '  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lesscenarios.fr/" },\n'
+        f'  "mainEntityOfPage": {{ "@type": "WebPage", "@id": "{canonical_url}" }},\n'
         f'  "headline": {content["h1"]!r},\n'
         f'  "description": {description!r},\n'
         f'  "image": ["{og_image}"],\n'
@@ -191,7 +191,7 @@ def build_head_dynamic(content, brief, date_str, canonical_url, photo=None):
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Scénario">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:url" content="https://lesscenarios.fr/">
+<meta property="og:url" content="{canonical_url}">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{description}">
 <meta property="og:image" content="{og_image}">
