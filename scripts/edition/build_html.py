@@ -164,6 +164,8 @@ def build_head_dynamic(content, brief, date_str, canonical_url, photo=None):
         og_image_alt = meta["og_image_alt"]
     published = f"{date_str}T07:15:00+02:00"
     domain = brief["sujet"]["domain"]
+    section_name = domain.replace("-", " ").title()
+    en_canonical_url = canonical_url.replace("/archives/", "/en/archives/")
     ld_json = (
         "{\n"
         '  "@context": "https://schema.org",\n'
@@ -186,8 +188,12 @@ def build_head_dynamic(content, brief, date_str, canonical_url, photo=None):
     return f"""<title>{title}</title>
 <link rel="canonical" href="{canonical_url}">
 <link rel="alternate" hreflang="fr" href="{canonical_url}">
+<link rel="alternate" hreflang="en" href="{en_canonical_url}">
 <link rel="alternate" hreflang="x-default" href="{canonical_url}">
 <meta name="description" content="{description}">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="language" content="fr-FR">
+<meta name="color-scheme" content="dark">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Scénario">
 <meta property="og:locale" content="fr_FR">
@@ -198,10 +204,14 @@ def build_head_dynamic(content, brief, date_str, canonical_url, photo=None):
 <meta property="og:image:width" content="{og_image_width}">
 <meta property="og:image:height" content="{og_image_height}">
 <meta property="og:image:alt" content="{og_image_alt}">
+<meta property="og:image:type" content="image/png">
 <meta property="article:author" content="Olivier Bertrand">
-<meta name="domain" content="{domain}">
 <meta property="article:published_time" content="{published}">
+<meta property="article:modified_time" content="{published}">
+<meta property="article:section" content="{section_name}">
+<meta name="domain" content="{domain}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@scenario_fr">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{description}">
 <meta name="twitter:image" content="{og_image}">
