@@ -737,10 +737,21 @@
     text-shadow: 0 2px 12px rgba(0,0,0,.55);
   }
   @media (max-width: 720px){
-    .article-image-photo-wrap{ height: min(52vh, 440px); min-height: 300px; }
+    .article-image-photo-wrap{ height: min(58vh, 500px); min-height: 460px; }
     .article-image-overlay{ padding-bottom: 14px; }
     .article-image-overlay h1{ max-width: none; }
-    .article-image-overlay .question-text{ max-width: none; }
+    .article-image-overlay .question-text{ max-width: none; font-size: 1.02rem; }
+    /* Le masthead interne à l'image (logo + wordmark, fixé en haut,
+       ajouté le 24 septembre 2026 : chevauchement constaté avec
+       l'eyebrow/h1/question — la question posée allonge l'overlay
+       ancré en bas, qui peut désormais dépasser vers le haut sur les
+       largeurs mobiles courantes (360-393px), alors que la hauteur de
+       l'image reste plafonnée à 440px. Masqué en dessous de 720px : le
+       vrai en-tête du site (logo + wordmark, tout en haut de la page)
+       est déjà visible à l'écran, ce logo dans l'image est redondant
+       sur mobile — seul le desktop, où il n'y a jamais de
+       chevauchement, le garde. */
+    .article-image-masthead{ display: none; }
   }
 
   /* .question-box/.question-label/.question-text (bloc séparé sous
