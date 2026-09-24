@@ -48,6 +48,7 @@ import json
 import os
 import sys
 from datetime import datetime
+from difflib import SequenceMatcher
 from pathlib import Path
 
 from generate_daily_edition import (
@@ -171,6 +172,67 @@ def summarize_recent_archives(limit=20):
     return "\n".join(rows) if rows else "(aucune édition trouvée dans archives.html)"
 
 
+def _normalize_title(title):
+    return " ".join(title.lower().split())
+
+
+def check_topic_duplicate(brief, max_check=8, threshold=0.55):
+    """Vérifie déterministiquement, en dehors de tout jugement du modèle,
+    que le sujet proposé n'est pas un quasi-doublon d'une édition récente
+    du même domaine — incident du 25 septembre 2026 : le brief de repli
+    avait lui-même écrit noir sur blanc dans anti_doublon.notes « sujet
+    déjà traité » (édition du 4 septembre sur le même thème lunaire), tout
+    en laissant anti_doublon.meme_registre_ok à true et en produisant un h1
+    quasiment identique au titre déjà publié. Se fier au seul jugement en
+    prose du modèle ne suffit pas : cette fonction recompare le h1/titre
+    proposé à chaque édition récente du MÊME domain dans archives.html par
+    similarité de texte (SequenceMatcher, aucune dépendance du jugement du
+    modèle), indépendamment de ce qu'il a lui-même déclaré dans
+    anti_doublon. Ne regarde que les `max_check` dernières éditions de ce
+    domain précis (pas globalement) — un domaine ne revient qu'une fois par
+    semaine environ, donc ça couvre plusieurs mois, largement assez pour
+    un vrai doublon thématique."""
+    import re
+
+    sujet = brief.get("sujet", {})
+    domain = sujet.get("domain")
+    candidates = [t for t in (sujet.get("h1"), sujet.get("titre_propose")) if t]
+    if not domain or not candidates:
+        return []
+    candidates = [_normalize_title(t) for t in candidates]
+
+    if not ARCHIVES_HTML_PATH.exists():
+        return []
+    text = ARCHIVES_HTML_PATH.read_text(encoding="utf-8")
+    row_re = re.compile(
+        r'<tr data-domain="([^"]*)"[^>]*data-date="([^"]*)"[^>]*>.*?'
+        r'<a href="archives/[^"]*\.html" title="[^"]*">([^<]*)</a>',
+        re.S,
+    )
+
+    checked = 0
+    errors = []
+    for m in row_re.finditer(text):
+        row_domain, row_date, row_title = m.groups()
+        if row_domain != domain:
+            continue
+        checked += 1
+        if checked > max_check:
+            break
+        normalized_row_title = _normalize_title(row_title)
+        best_ratio = max(
+            SequenceMatcher(None, c, normalized_row_title).ratio() for c in candidates
+        )
+        if best_ratio >= threshold:
+            errors.append(
+                f"sujet trop proche d'une édition déjà publiée le {row_date} "
+                f"({domain}) : « {row_title} » (similarité {best_ratio:.2f} avec le "
+                "titre proposé) — choisir un sujet clairement différent, pas une "
+                "reformulation du même thème."
+            )
+    return errors
+
+
 def build_prompt(date_str):
     dt = datetime.strptime(date_str, "%Y-%m-%d")
     jour = _JOURS_FR[dt.weekday()]
@@ -244,6 +306,7 @@ def generate_fallback_brief(date_str, model, api_key, timeout=480):
             continue
 
         errors = validate_brief(brief)
+        errors += check_topic_duplicate(brief)
         if not errors:
             return brief, usage
         print(f"[fallback-brief] essai {attempt + 1} : brief invalide :", file=sys.stderr)
