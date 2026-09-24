@@ -644,7 +644,7 @@
      (`.wrap`). Scopé à `screen` : `.article-image` reste masqué en
      impression (voir liste `@media print` plus bas), donc aucun impact
      sur le PDF 1 page. */
-  .article-image{ margin: 0 0 32px; }
+  .article-image{ margin: 0 0 16px; }
   .article-image-photo-wrap{
     position: relative;
     overflow: hidden;
@@ -686,7 +686,7 @@
   .article-image-overlay{
     position: absolute; left: 0; right: 0; bottom: 0;
     z-index: 2;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
   }
   /* L'eyebrow a besoin d'un fond derrière le texte, ajouté le 29 août —
      retour utilisateur : "Samedi, culture" en or sur la photo passait
@@ -739,7 +739,7 @@
   }
   @media (max-width: 720px){
     .article-image-photo-wrap{ height: min(52vh, 440px); min-height: 300px; }
-    .article-image-overlay{ padding-bottom: 22px; }
+    .article-image-overlay{ padding-bottom: 14px; }
     .article-image-overlay h1{ max-width: none; }
     .article-image-overlay .question-text{ max-width: none; }
   }
