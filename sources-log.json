@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-09-24",
+      "articles": [
+        {
+          "title": "Iran–États-Unis : la trêve tient-elle encore ? (suivi V3)",
+          "source": "Scénario",
+          "url": "https://scenarioweb.fr/suivi/iran-usa.html",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie-mondiale",
+          "summary": "Suivi du conflit Iran-États-Unis : V3 intègre la destruction de cinq pétroliers iraniens par le CENTCOM, la riposte iranienne par missiles, la zone d'exclusion du golfe Persique et l'effondrement du trafic à Ormuz (5-13 navires/jour). Brent autour de 99 $/baril.",
+          "read_minutes": 4
+        },
+        {
+          "title": "Taux : marche arrière (suivi V1)",
+          "source": "Scénario",
+          "url": "https://scenarioweb.fr/suivi/taux-marche-arriere.html",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie-mondiale",
+          "summary": "Suivi des taux : V1 intègre le rapport de l'emploi américain d'août (+162 000 emplois créés contre ~56 000 attendus), qui a fait remonter les anticipations de hausse de la Fed pour le 16 septembre à 50-60%, sur fond de tensions persistantes dans le détroit d'Ormuz (baril au-dessus de 90 dollars).",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-09-23",
       "articles": [
         {
