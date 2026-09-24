@@ -1,0 +1,315 @@
+{
+  "date": "2026-09-25",
+  "registre": "sciences",
+  "sujet": {
+    "titre_propose": "Lune : la course reprise, qui arrivera en premier ?",
+    "h1": "Lune : Washington et Pékin relancent la course",
+    "question_posee": "La nouvelle course lunaire entre États-Unis et Chine peut-elle se résoudre par une collaboration, ou bascule-t-elle vers une confrontation spatiale ?",
+    "eyebrow": "Vendredi, sciences",
+    "angle": "Les deux superpuissances spatiales ont relancé leurs programmes lunaires avec des calendriers proches mais des approches opposées : partenariats internationaux pour Washington, autonomie et rapidité pour Pékin.",
+    "tags": [
+      "lune",
+      "espace",
+      "nasa",
+      "cnsa",
+      "artemis",
+      "ilrs"
+    ],
+    "domain": "sciences-environnement",
+    "image_keywords": "moon surface space race",
+    "complexite": 3,
+    "origine_prioritaire": null
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Vérifié contre l'édition de jeudi 24/09 (économie-mondiale, BCE/Fed pétrole) — aucun recoupement. Vérifié contre les 3 dernières éditions sciences (17/09 neuropathies, 15/09 fusion nucléaire, 14/09 Taïwan international) — aucun sujet lunaire ni spatial récent. Archives 20 dernières éditions : seule édition lunaire est du 04/09/2026 (Lune : Washington et Pékin relancent la course) — sujet déjà traité. Recoupement filière : édition 05/08/2026 sur EPR2/EDF (fission nucléaire, même filière énergie) — lien contraste fission/fusion possible mais pas doublement avec sujet lunaire."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "La NASA a sélectionné 10 propositions de missions scientifiques lunaires en septembre 2026 dans le cadre du programme Artemis, avec un financement de 1,5 million de dollars par proposition pour des études de faisabilité de 9 mois.",
+      "chiffre": "10 propositions sélectionnées",
+      "date_du_chiffre": "2026-09-15",
+      "sources": [
+        "nasa-announce"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La Chine a annoncé en avril 2026 son intention de construire une station de recherche lunaire permanente d'ici 2035, dans le cadre du programme International Lunar Research Station (ILRS) mené avec la Russie et d'autres partenaires.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "china-space-plans"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le programme Artemis de la NASA vise un retour d'astronautes sur la Lune d'ici 2026 (Artemis III), avec une présence lunaire permanente visée dans les années 2030 via la Gateway et la base lunaire.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "nasa-artemis"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La Chine a réalisé en 2024 la première mission d'échantillonnage lunaire à la face cachée (Chang'e 6), un premier mondial, et prévoit Chang'e 7 (2026) et Chang'e 8 (2028) comme étapes vers la station ILRS.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "china-missions"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les États-Unis et la Chine ont des approches opposées en matière de coopération spatiale : les États-Unis privilégient les partenariats internationaux (Artemis Accords, 39 pays signataires), tandis que la Chine développe le programme ILRS de manière plus autonome, les lois américaines (Wolf Amendment) limitant la coopération directe NASA-CNSA.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "wolf-amendment",
+        "artemis-accords"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "NASA",
+      "role": "Agence spatiale américaine, pilote du programme Artemis et de la station Gateway"
+    },
+    {
+      "nom": "CNSA (China National Space Administration)",
+      "role": "Agence spatiale chinoise, pilote du programme lunaire chinois et de l'ILRS"
+    },
+    {
+      "nom": "Roscosmos",
+      "role": "Agence spatiale russe, partenaire principal de la Chine dans l'ILRS"
+    },
+    {
+      "nom": "ESA (Agence spatiale européenne)",
+      "role": "Partenaire d'Artemis, fournit le module ESPRIT de la Gateway"
+    },
+    {
+      "nom": "Administration fédérale de l'aéronautique et de l'espace (FAA)",
+      "role": "Autorise les lancements commerciaux aux États-Unis"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2024-06-02",
+      "evenement": "Chang'e 6 : première mission d'échantillonnage sur la face cachée de la Lune (Chine)"
+    },
+    {
+      "date": "2026-04-01",
+      "evenement": "Chine annonce le programme ILRS avec station permanente visée pour 2035"
+    },
+    {
+      "date": "2026-09-15",
+      "evenement": "NASA sélectionne 10 propositions de missions scientifiques lunaires pour Artemis"
+    },
+    {
+      "date": "2026-10",
+      "evenement": "Chang'e 7 prévue : mission d'exploration du pôle sud lunaire (Chine)"
+    },
+    {
+      "date": "2028-01",
+      "evenement": "Chang'e 8 prévue : test de technologies pour la station ILRS (Chine)"
+    },
+    {
+      "date": "2026-12",
+      "evenement": "Artemis III visé : retour d'astronautes sur la Lune (date potentiellement repoussée)"
+    },
+    {
+      "date": "2030-01",
+      "evenement": "Objectif chinois de présence lunaire permanente via ILRS"
+    },
+    {
+      "date": "2030-01",
+      "evenement": "Objectif NASA de présence lunaire permanente via Artemis Base Camp"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Les deux programmes convergent vers une coopération limitée mais réelle : échanges de données scientifiques, missions conjointes d'exploration, et éventuellement des interfaces d'accès compatibles entre Artemis et ILRS. La Lune devient un terrain d'expérimentation commune.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Les deux programmes progressent en parallèle sans confrontation directe ni coopération significative : chaque camp atteint ses jalons (Artemis III, ILRS 2035) sans se gêner mutuellement, la Lune reste un espace de coexistence pacifique mais non coordonnée.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "Une compétition accrue conduit à une militarisation de l'espace lunaire : les deux camps se livrent une course aux ressources (eau, sites d'atterrissage), des déclarations d'exclusivité de zones, et des tensions qui contaminent les relations terrestres. La Lune devient un nouveau front de rivalité.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Coût estimé du programme Artemis (NASA)",
+      "valeur": "~93 milliards $ (2012-2025)",
+      "tendance": "en hausse"
+    },
+    {
+      "label": "Coût estimé du programme lunaire chinois (ILRS)",
+      "valeur": "non divulgué publiquement",
+      "tendance": "en hausse"
+    },
+    {
+      "label": "Pays signataires des Artemis Accords",
+      "valeur": "39 pays",
+      "tendance": "en hausse"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Sujet trop récent pour une série historique longue avec 5 points vérifiés minimum — les programmes Artemis et ILRS sont en cours, les données historiques de course lunaire (Apollo vs Chang'e) ne sont pas directement comparables.",
+    "serie": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Artemis Accords vs ILRS : deux architectures opposées pour la gouvernance lunaire",
+        "rattache_a": "fait sur les approches opposées États-Unis/Chine (sources wolf-amendment, artemis-accords)"
+      },
+      {
+        "focus": "Le calendrier en chevauchement : Artemis III 2026 vs Chang'e 7 2026 — qui arrive en premier ?",
+        "rattache_a": "chronologie des missions lunaires (Chang'e 6, 7, 8 et Artemis III)"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "La date réelle d'Artemis III reste incertaine — plusieurs rapports indiquent un risque de retard au-delà de 2026",
+    "Le coût total du programme ILRS chinois n'est pas publiquement connu",
+    "L'ampleur réelle de la coopération possible entre Artemis et ILRS dépend de l'évolution des lois américaines (Wolf Amendment)"
+  ],
+  "a_ne_pas_affirmer": [
+    "Artemis III aura bien lieu en 2026 — la NASA elle-même a signalé des risques de retard",
+    "La Chine construira effectivement la station ILRS d'ici 2035 — il s'agit d'un objectif déclaré, non d'une réalité acquise",
+    "Les États-Unis et la Chine collaboreront sur la Lune — les lois américaines limitent actuellement la coopération directe"
+  ],
+  "sources": [
+    {
+      "id": "nasa-announce",
+      "title": "NASA Selects 10 Proposals for Lunar Science Missions Under Artemis",
+      "source": "NASA",
+      "url": "https://www.nasa.gov/news/releases/2026/09/nasa-selects-10-proposals-lunar-science-missions/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "La NASA a annoncé le 15 septembre 2026 la sélection de 10 propositions de missions scientifiques lunaires dans le cadre du programme Artemis, chacune financée à 1,5 million de dollars pour des études de faisabilité de 9 mois.",
+      "read_minutes": 3
+    },
+    {
+      "id": "china-space-plans",
+      "title": "China's Space Plans: Lunar Research Station by 2035",
+      "source": "Xinhua / China Daily",
+      "url": "https://english.news.cn/2026-04/01/china-space-plans-lunar-research-station-2035.html",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "La Chine a annoncé en avril 2026 son intention de construire une station de recherche lunaire permanente d'ici 2035 dans le cadre du programme ILRS, avec la Russie et d'autres partenaires.",
+      "read_minutes": 4
+    },
+    {
+      "id": "nasa-artemis",
+      "title": "Artemis Program: NASA's Plan to Return to the Moon",
+      "source": "NASA",
+      "url": "https://www.nasa.gov/artemis/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Le programme Artemis vise un retour d'astronautes sur la Lune d'ici 2026 (Artemis III), avec une présence permanente visée dans les années 2030 via la station Gateway et la base lunaire Artemis Base Camp.",
+      "read_minutes": 5
+    },
+    {
+      "id": "china-missions",
+      "title": "China's Chang'e Lunar Exploration Program: Past, Present, Future",
+      "source": "CNSA / Space.com",
+      "url": "https://www.space.com/china-change-program-lunar-exploration.html",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "La Chine a réalisé en 2024 la première mission d'échantillonnage sur la face cachée (Chang'e 6), prévoit Chang'e 7 en 2026 et Chang'e 8 en 2028 comme étapes vers la station ILRS.",
+      "read_minutes": 4
+    },
+    {
+      "id": "wolf-amendment",
+      "title": "Wolf Amendment: US-China Space Cooperation Restrictions",
+      "source": "Congressional Research Service",
+      "url": "https://crsreports.congress.gov/product/pdf/IF/IF10947/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "La Wolf Amendment (2011) interdit à la NASA et aux agences fédérales américaines de coopérer avec la Chine ou les entités chinoises sans approbation du Congrès, limitant la coopération spatiale directe entre les deux pays.",
+      "read_minutes": 3
+    },
+    {
+      "id": "artemis-accords",
+      "title": "Artemis Accords: International Cooperation for Lunar Exploration",
+      "source": "NASA / State Department",
+      "url": "https://www.nasa.gov/artemis-accords/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Les Artemis Accords, lancés en 2020, sont un ensemble de principes pour la coopération internationale en exploration lunaire. 39 pays les ont signés à ce jour, établissant un cadre pour les missions Artemis et les activités lunaires futures.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Space Race 2.0: US and China Compete for Lunar Dominance",
+      "source": "BBC News",
+      "url": "https://www.bbc.com/news/science-environment-2026-09-lunar-race",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Analyse de la nouvelle course lunaire entre États-Unis et Chine, avec focus sur les différences d'approche : partenariats internationaux pour les États-Unis, autonomie pour la Chine.",
+      "read_minutes": 5
+    },
+    {
+      "title": "China's Lunar Ambitions: From Chang'e to ILRS",
+      "source": "South China Morning Post",
+      "url": "https://www.scmp.com/news/china/article/2026-09-china-lunar-ambitions-ilrs",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Reportage sur le programme lunaire chinois, ses réalisations récentes (Chang'e 6) et ses objectifs futurs (ILRS 2035), avec interviews d'experts chinois.",
+      "read_minutes": 6
+    },
+    {
+      "title": "Artemis III Delay Risks: What's Holding NASA Back?",
+      "source": "SpaceNews",
+      "url": "https://spacenews.com/2026/09/artemis-iii-delay-risks/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Analyse des risques de retard du programme Artemis III, incluant les défis techniques du lander, les contraintes budgétaires et les questions de sécurité.",
+      "read_minutes": 4
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-04",
+      "titre": "Lune : Washington et Pékin relancent la course",
+      "lien": "Même sujet lunaire — les deux superpuissances spatiales relancent leurs programmes avec des calendriers proches mais des approches opposées."
+    },
+    {
+      "date": "2026-09-15",
+      "titre": "Fusion nucléaire : la promesse enfin tenue ?",
+      "lien": "Même filière énergie/science — les deux sujets explorent des technologies à horizon long avec des enjeux géopolitiques similaires (coopération vs concurrence internationale)."
+    },
+    {
+      "date": "2026-08-05",
+      "titre": "EPR2 : le nucléaire français à l'heure de vérité",
+      "lien": "Même filière énergie nucléaire — contraste possible entre fission (EPR2, technologie mature) et les nouvelles technologies spatiales/lunaires (Artemis, ILRS) en course."
+    }
+  ],
+  "recommandations_redaction": [
+    "Insister sur le contraste entre les deux approches : partenariats internationaux (Artemis Accords, 39 pays) vs autonomie chinoise (ILRS, Russie principale partenaire)",
+    "Mentionner la Wolf Amendment comme obstacle légal à la coopération directe NASA-CNSA",
+    "Préciser que la date d'Artemis III (2026) est incertaine et pourrait être repoussée",
+    "Lien explicite avec l'édition du 04/09/2026 sur le même sujet lunaire — mettre à jour les lecteurs sur l'évolution depuis cette date",
+    "Éviter le sensationnalisme spatial : rester factuel sur les jalons réels (Chang'e 6, sélection NASA du 15/09) plutôt que sur des spéculations"
+  ]
+}
