@@ -175,7 +175,7 @@ def build_head_dynamic(content, brief, date_str, canonical_url, photo=None):
         f'  "datePublished": "{published}",\n'
         f'  "dateModified": "{published}",\n'
         '  "inLanguage": "fr-FR",\n'
-        '  "author": { "@type": "Organization", "name": "Scénario", "url": "https://lesscenarios.fr/le-projet.html", "sameAs": ["https://www.linkedin.com/company/136694258/"] },\n'
+        '  "author": { "@type": "Person", "name": "Olivier Bertrand", "url": "https://www.facebook.com/share/1LuiQ1cAmt/" },\n'
         '  "publisher": {\n'
         '    "@type": "Organization",\n'
         '    "name": "Scénario",\n'
@@ -198,7 +198,7 @@ def build_head_dynamic(content, brief, date_str, canonical_url, photo=None):
 <meta property="og:image:width" content="{og_image_width}">
 <meta property="og:image:height" content="{og_image_height}">
 <meta property="og:image:alt" content="{og_image_alt}">
-<meta property="article:author" content="Scénario">
+<meta property="article:author" content="Olivier Bertrand">
 <meta name="domain" content="{domain}">
 <meta property="article:published_time" content="{published}">
 <meta name="twitter:card" content="summary_large_image">
