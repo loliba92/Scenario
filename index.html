@@ -1612,7 +1612,12 @@
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* 3 colonnes fixes sur desktop : avec .wrap plafonné à 920px et
+       24px de padding de chaque côté, la largeur utile réelle (872px)
+       est sous le seuil de 888px (3 × 280px + 2 × 24px de gap) que
+       demandait l'ancien minmax(280px, 1fr) — auto-fit retombait donc
+       systématiquement sur 2 colonnes, même en plein écran. */
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
 
