@@ -2,314 +2,268 @@
   "date": "2026-09-25",
   "registre": "sciences",
   "sujet": {
-    "titre_propose": "Lune : la course reprise, qui arrivera en premier ?",
-    "h1": "Lune : Washington et Pékin relancent la course",
-    "question_posee": "La nouvelle course lunaire entre États-Unis et Chine peut-elle se résoudre par une collaboration, ou bascule-t-elle vers une confrontation spatiale ?",
+    "titre_propose": "Médecine : les nouveaux médicaments contre l'obésité (comme l'Ozempic) vont-ils changer la santé de millions de gens ?",
+    "h1": "Médecine : les nouveaux médicaments contre l'obésité (comme l'Ozempic) vont-ils changer la santé de millions de gens ?",
+    "question_posee": "Les nouveaux traitements contre l'obésité (Ozempic, Wegovy, Mounjaro) peuvent-ils enrayer l'épidémie mondiale, ou resteront-ils réservés aux plus aisés ?",
     "eyebrow": "Vendredi, sciences",
-    "angle": "Les deux superpuissances spatiales ont relancé leurs programmes lunaires avec des calendriers proches mais des approches opposées : partenariats internationaux pour Washington, autonomie et rapidité pour Pékin.",
+    "angle": "Les agonistes du GLP-1 (Ozempic, Wegovy, Mounjaro) ont transformé la prise en charge de l'obésité en quelques années, mais leur accessibilité, leur prix et leurs effets à long terme restent largement incertains. Trois scénarios pour 2030.",
     "tags": [
-      "lune",
-      "espace",
-      "nasa",
-      "cnsa",
-      "artemis",
-      "ilrs"
+      "medecine",
+      "sante",
+      "obesite"
     ],
-    "domain": "sciences-environnement",
-    "image_keywords": "moon surface space race",
+    "domain": "sciences",
+    "image_keywords": "obesity medication injection",
     "complexite": 3,
     "origine_prioritaire": null
   },
   "anti_doublon": {
     "veille_ok": true,
     "meme_registre_ok": true,
-    "notes": "Vérifié contre l'édition de jeudi 24/09 (économie-mondiale, BCE/Fed pétrole) — aucun recoupement. Vérifié contre les 3 dernières éditions sciences (17/09 neuropathies, 15/09 fusion nucléaire, 14/09 Taïwan international) — aucun sujet lunaire ni spatial récent. Archives 20 dernières éditions : seule édition lunaire est du 04/09/2026 (Lune : Washington et Pékin relancent la course) — sujet déjà traité. Recoupement filière : édition 05/08/2026 sur EPR2/EDF (fission nucléaire, même filière énergie) — lien contraste fission/fusion possible mais pas doublement avec sujet lunaire."
+    "notes": "Veille du 24/09 : économie monde, BCE/Fed, choc pétrolier — aucun recoupement. Archives sciences récentes : 18/09 neuropathies, 15/09 fusion nucléaire, 14/09 Taïwan (international), 12/09 Hollywood (culture) — aucun sujet sur l'obésité ou les GLP-1 dans les 3 dernières éditions sciences. Sujet inédit."
   },
   "faits_verifies": [
     {
-      "affirmation": "La NASA a sélectionné 10 propositions de missions scientifiques lunaires en septembre 2026 dans le cadre du programme Artemis, avec un financement de 1,5 million de dollars par proposition pour des études de faisabilité de 9 mois.",
-      "chiffre": "10 propositions sélectionnées",
-      "date_du_chiffre": "2026-09-15",
+      "affirmation": "La FDA a approuvé Wegovy (semaglutide) pour la prévention cardiovasculaire en mars 2024, étendant l'usage au-delà de la simple perte de poids.",
+      "chiffre": null,
+      "date_du_chiffre": "2024-03-08",
       "sources": [
-        "nasa-announce"
+        "s1"
       ],
       "confiance": "haute"
     },
     {
-      "affirmation": "La Chine a annoncé en avril 2026 son intention de construire une station de recherche lunaire permanente d'ici 2035, dans le cadre du programme International Lunar Research Station (ILRS) mené avec la Russie et d'autres partenaires.",
-      "chiffre": null,
-      "date_du_chiffre": null,
+      "affirmation": "Le semaglutide (Wegovy) a montré une réduction de 20 % des événements cardiovasculaires majeurs dans l'étude SELECT, publiée en 2023.",
+      "chiffre": "20 %",
+      "date_du_chiffre": "2023-08-08",
       "sources": [
-        "china-space-plans"
+        "s1",
+        "s2"
       ],
       "confiance": "haute"
     },
     {
-      "affirmation": "Le programme Artemis de la NASA vise un retour d'astronautes sur la Lune d'ici 2026 (Artemis III), avec une présence lunaire permanente visée dans les années 2030 via la Gateway et la base lunaire.",
-      "chiffre": null,
-      "date_du_chiffre": null,
+      "affirmation": "Le prix mensuel de Wegovy aux États-Unis dépasse 1 000 $ sans couverture assurancielle, limitant l'accès aux patients les plus aisés.",
+      "chiffre": "1 000 $",
+      "date_du_chiffre": "2024-01-01",
       "sources": [
-        "nasa-artemis"
+        "s2"
       ],
       "confiance": "haute"
     },
     {
-      "affirmation": "La Chine a réalisé en 2024 la première mission d'échantillonnage lunaire à la face cachée (Chang'e 6), un premier mondial, et prévoit Chang'e 7 (2026) et Chang'e 8 (2028) comme étapes vers la station ILRS.",
-      "chiffre": null,
-      "date_du_chiffre": null,
+      "affirmation": "La demande mondiale de GLP-1 devrait dépasser 150 milliards de dollars d'ici 2030 selon plusieurs analystes.",
+      "chiffre": "150 milliards de dollars",
+      "date_du_chiffre": "2024-06-01",
       "sources": [
-        "china-missions"
+        "s3"
       ],
-      "confiance": "haute"
+      "confiance": "moyenne"
     },
     {
-      "affirmation": "Les États-Unis et la Chine ont des approches opposées en matière de coopération spatiale : les États-Unis privilégient les partenariats internationaux (Artemis Accords, 39 pays signataires), tandis que la Chine développe le programme ILRS de manière plus autonome, les lois américaines (Wolf Amendment) limitant la coopération directe NASA-CNSA.",
-      "chiffre": null,
-      "date_du_chiffre": null,
+      "affirmation": "La France compte environ 8 millions d'obèses (17 % de la population adulte) selon l'OMS et les dernières données Épidémiologiques françaises.",
+      "chiffre": "8 millions",
+      "date_du_chiffre": "2023-12-01",
       "sources": [
-        "wolf-amendment",
-        "artemis-accords"
+        "s4"
       ],
       "confiance": "haute"
     }
   ],
   "acteurs": [
     {
-      "nom": "NASA",
-      "role": "Agence spatiale américaine, pilote du programme Artemis et de la station Gateway"
+      "nom": "Novo Nordisk",
+      "role": "Laboratoire propriétaire de Ozempic et Wegovy (semaglutide)"
     },
     {
-      "nom": "CNSA (China National Space Administration)",
-      "role": "Agence spatiale chinoise, pilote du programme lunaire chinois et de l'ILRS"
+      "nom": "Eli Lilly",
+      "role": "Laboratoire propriétaire de Mounjaro et Zepbound (tirzepatide)"
     },
     {
-      "nom": "Roscosmos",
-      "role": "Agence spatiale russe, partenaire principal de la Chine dans l'ILRS"
+      "nom": "FDA (Food and Drug Administration)",
+      "role": "Autorité de régulation américaine, a approuvé les indications cardiovasculaires"
     },
     {
-      "nom": "ESA (Agence spatiale européenne)",
-      "role": "Partenaire d'Artemis, fournit le module ESPRIT de la Gateway"
+      "nom": "HAS (Haute Autorité de Santé)",
+      "role": "Autorité française d'évaluation, décide de la prise en charge par l'Assurance maladie"
     },
     {
-      "nom": "Administration fédérale de l'aéronautique et de l'espace (FAA)",
-      "role": "Autorise les lancements commerciaux aux États-Unis"
+      "nom": "OMS (Organisation Mondiale de la Santé)",
+      "role": "Statistiques globales sur l'obésité et recommandations"
     }
   ],
   "chronologie_cle": [
     {
-      "date": "2024-06-02",
-      "evenement": "Chang'e 6 : première mission d'échantillonnage sur la face cachée de la Lune (Chine)"
+      "date": "2021-06-04",
+      "evenement": "FDA approuve Wegovy pour la perte de poids (semaglutide 2,4 mg)"
     },
     {
-      "date": "2026-04-01",
-      "evenement": "Chine annonce le programme ILRS avec station permanente visée pour 2035"
+      "date": "2023-08-08",
+      "evenement": "Publication de l'étude SELECT : réduction de 20 % des événements cardiovasculaires avec semaglutide"
     },
     {
-      "date": "2026-09-15",
-      "evenement": "NASA sélectionne 10 propositions de missions scientifiques lunaires pour Artemis"
+      "date": "2024-03-08",
+      "evenement": "FDA approuve Wegovy pour la prévention cardiovasculaire, première indication hors perte de poids"
     },
     {
-      "date": "2026-10",
-      "evenement": "Chang'e 7 prévue : mission d'exploration du pôle sud lunaire (Chine)"
+      "date": "2024-10-18",
+      "evenement": "FDA approuve Zepbound (tirzepatide) pour l'obésité, concurrent direct de Wegovy"
     },
     {
-      "date": "2028-01",
-      "evenement": "Chang'e 8 prévue : test de technologies pour la station ILRS (Chine)"
-    },
-    {
-      "date": "2026-12",
-      "evenement": "Artemis III visé : retour d'astronautes sur la Lune (date potentiellement repoussée)"
-    },
-    {
-      "date": "2030-01",
-      "evenement": "Objectif chinois de présence lunaire permanente via ILRS"
-    },
-    {
-      "date": "2030-01",
-      "evenement": "Objectif NASA de présence lunaire permanente via Artemis Base Camp"
+      "date": "2025-01-01",
+      "evenement": "Prix mensuel de Wegovy aux États-Unis : environ 1 000 $ sans assurance"
     }
   ],
   "scenarios_prospectifs": {
     "favorable": {
-      "resume": "Les deux programmes convergent vers une coopération limitée mais réelle : échanges de données scientifiques, missions conjointes d'exploration, et éventuellement des interfaces d'accès compatibles entre Artemis et ILRS. La Lune devient un terrain d'expérimentation commune.",
+      "resume": "Les GLP-1 deviennent un traitement standard, largement remboursé et produit générique, permettant une baisse drastique des prix. L'obésité enregistre une baisse significative dans les pays à revenu élevé, avec des réductions cardiovasculaires documentées.",
       "probabilite_suggeree": 25
     },
     "stable": {
-      "resume": "Les deux programmes progressent en parallèle sans confrontation directe ni coopération significative : chaque camp atteint ses jalons (Artemis III, ILRS 2035) sans se gêner mutuellement, la Lune reste un espace de coexistence pacifique mais non coordonnée.",
+      "resume": "Les GLP-1 restent des traitements efficaces mais coûteux, réservés aux patients les plus à risque ou les plus aisés. L'obésité continue d'augmenter dans les pays à revenu faible et intermédiaire, les effets à long terme restent partiellement connus.",
       "probabilite_suggeree": 50
     },
     "degrade": {
-      "resume": "Une compétition accrue conduit à une militarisation de l'espace lunaire : les deux camps se livrent une course aux ressources (eau, sites d'atterrissage), des déclarations d'exclusivité de zones, et des tensions qui contaminent les relations terrestres. La Lune devient un nouveau front de rivalité.",
+      "resume": "Des effets secondaires à long terme (cancer, pancréatite, troubles mentaux) émergent, les prix restent inaccessibles, et les inégalités d'accès creusent les disparités de santé. Les laboratoires font face à des procès et des régulations plus strictes.",
       "probabilite_suggeree": 25
     }
   },
   "indicateurs_kpi": [
     {
-      "label": "Coût estimé du programme Artemis (NASA)",
-      "valeur": "~93 milliards $ (2012-2025)",
+      "label": "Prévalence de l'obésité dans le monde (OMS)",
+      "valeur": "16 % des adultes",
       "tendance": "en hausse"
     },
     {
-      "label": "Coût estimé du programme lunaire chinois (ILRS)",
-      "valeur": "non divulgué publiquement",
-      "tendance": "en hausse"
+      "label": "Demande mondiale estimée de GLP-1 en 2030",
+      "valeur": "150 milliards $",
+      "tendance": "en forte hausse"
     },
     {
-      "label": "Pays signataires des Artemis Accords",
-      "valeur": "39 pays",
-      "tendance": "en hausse"
+      "label": "Prix mensuel de Wegovy aux États-Unis (sans assurance)",
+      "valeur": "~1 000 $",
+      "tendance": "stable à la hausse"
     }
   ],
   "graphique_dc_chart": {
     "decision": "non",
-    "raison": "Sujet trop récent pour une série historique longue avec 5 points vérifiés minimum — les programmes Artemis et ILRS sont en cours, les données historiques de course lunaire (Apollo vs Chang'e) ne sont pas directement comparables.",
+    "raison": "Pas de série chronologique longue et vérifiée disponible pour un graphique en escalier pertinent dans le cadre de ce sujet.",
     "serie": null
   },
   "encarts_decides": {
     "comprendre_box": [
       {
-        "focus": "Artemis Accords vs ILRS : deux architectures opposées pour la gouvernance lunaire",
-        "rattache_a": "fait sur les approches opposées États-Unis/Chine (sources wolf-amendment, artemis-accords)"
+        "focus": "Comment les GLP-1 agissent-ils sur le corps ?",
+        "rattache_a": "faits_verifies[0] et faits_verifies[1]"
       },
       {
-        "focus": "Le calendrier en chevauchement : Artemis III 2026 vs Chang'e 7 2026 — qui arrive en premier ?",
-        "rattache_a": "chronologie des missions lunaires (Chang'e 6, 7, 8 et Artemis III)"
+        "focus": "Pourquoi le prix est-il un obstacle majeur à l'accès ?",
+        "rattache_a": "faits_verifies[2]"
       }
     ],
     "list_box": null
   },
   "elements_incertains": [
-    "La date réelle d'Artemis III reste incertaine — plusieurs rapports indiquent un risque de retard au-delà de 2026",
-    "Le coût total du programme ILRS chinois n'est pas publiquement connu",
-    "L'ampleur réelle de la coopération possible entre Artemis et ILRS dépend de l'évolution des lois américaines (Wolf Amendment)"
+    "Effets à long terme (au-delà de 5 ans) des GLP-1 sur le métabolisme, le système nerveux et le risque de cancer — données encore limitées.",
+    "Disponibilité des génériques : les premières versions génériques de semaglutide ne devraient pas apparaître avant 2030 aux États-Unis (brevets en vigueur).",
+    "Évolution des recommandations de l'OMS et de l'Europe sur le remboursement des traitements contre l'obésité.",
+    "Impact réel sur la prévalence de l'obésité à l'échelle populationnelle : les essais cliniques montrent une perte de poids individuelle, mais l'effet à l'échelle d'une population reste incertain."
   ],
   "a_ne_pas_affirmer": [
-    "Artemis III aura bien lieu en 2026 — la NASA elle-même a signalé des risques de retard",
-    "La Chine construira effectivement la station ILRS d'ici 2035 — il s'agit d'un objectif déclaré, non d'une réalité acquise",
-    "Les États-Unis et la Chine collaboreront sur la Lune — les lois américaines limitent actuellement la coopération directe"
+    "Que les GLP-1 sont sans risque à long terme — les données à 10 ans n'existent pas encore.",
+    "Que les traitements sont accessibles à tous en France — le remboursement par l'Assurance maladie reste très restrictif (uniquement pour les cas d'obésité sévère avec comorbidités).",
+    "Que l'obésité va diminuer grâce à ces traitements — l'effet à l'échelle populationnelle est inconnu."
   ],
   "sources": [
     {
-      "id": "nasa-announce",
-      "title": "NASA Selects 10 Proposals for Lunar Science Missions Under Artemis",
-      "source": "NASA",
-      "url": "https://www.nasa.gov/news/releases/2026/09/nasa-selects-10-proposals-lunar-science-missions/",
+      "id": "s1",
+      "title": "FDA Approves Wegovy for Cardiovascular Risk Reduction",
+      "source": "FDA",
+      "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-wegovy-cardiovascular-risk-reduction",
       "image": null,
       "lang": "en",
-      "domain": "sciences-environnement",
-      "summary": "La NASA a annoncé le 15 septembre 2026 la sélection de 10 propositions de missions scientifiques lunaires dans le cadre du programme Artemis, chacune financée à 1,5 million de dollars pour des études de faisabilité de 9 mois.",
-      "read_minutes": 3
+      "domain": "sciences",
+      "summary": "La FDA a approuvé Wegovy (semaglutide) pour réduire le risque cardiovasculaire chez les adultes atteints de maladie cardiaque, étendant l'indication au-delà de la perte de poids.",
+      "read_minutes": 2
     },
     {
-      "id": "china-space-plans",
-      "title": "China's Space Plans: Lunar Research Station by 2035",
-      "source": "Xinhua / China Daily",
-      "url": "https://english.news.cn/2026-04/01/china-space-plans-lunar-research-station-2035.html",
+      "id": "s2",
+      "title": "Semaglutide and Cardiovascular Outcomes in Obesity without Diabetes (SELECT)",
+      "source": "New England Journal of Medicine",
+      "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa2307563",
       "image": null,
       "lang": "en",
-      "domain": "sciences-environnement",
-      "summary": "La Chine a annoncé en avril 2026 son intention de construire une station de recherche lunaire permanente d'ici 2035 dans le cadre du programme ILRS, avec la Russie et d'autres partenaires.",
-      "read_minutes": 4
-    },
-    {
-      "id": "nasa-artemis",
-      "title": "Artemis Program: NASA's Plan to Return to the Moon",
-      "source": "NASA",
-      "url": "https://www.nasa.gov/artemis/",
-      "image": null,
-      "lang": "en",
-      "domain": "sciences-environnement",
-      "summary": "Le programme Artemis vise un retour d'astronautes sur la Lune d'ici 2026 (Artemis III), avec une présence permanente visée dans les années 2030 via la station Gateway et la base lunaire Artemis Base Camp.",
+      "domain": "sciences",
+      "summary": "Essai clinique randomisé montrant une réduction de 20 % des événements cardiovasculaires majeurs avec semaglutide 2,4 mg chez des patients obèses sans diabète.",
       "read_minutes": 5
     },
     {
-      "id": "china-missions",
-      "title": "China's Chang'e Lunar Exploration Program: Past, Present, Future",
-      "source": "CNSA / Space.com",
-      "url": "https://www.space.com/china-change-program-lunar-exploration.html",
+      "id": "s3",
+      "title": "Global GLP-1 Market to Reach $150 Billion by 2030",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/global-glp-1-market-forecast",
       "image": null,
       "lang": "en",
-      "domain": "sciences-environnement",
-      "summary": "La Chine a réalisé en 2024 la première mission d'échantillonnage sur la face cachée (Chang'e 6), prévoit Chang'e 7 en 2026 et Chang'e 8 en 2028 comme étapes vers la station ILRS.",
-      "read_minutes": 4
-    },
-    {
-      "id": "wolf-amendment",
-      "title": "Wolf Amendment: US-China Space Cooperation Restrictions",
-      "source": "Congressional Research Service",
-      "url": "https://crsreports.congress.gov/product/pdf/IF/IF10947/",
-      "image": null,
-      "lang": "en",
-      "domain": "sciences-environnement",
-      "summary": "La Wolf Amendment (2011) interdit à la NASA et aux agences fédérales américaines de coopérer avec la Chine ou les entités chinoises sans approbation du Congrès, limitant la coopération spatiale directe entre les deux pays.",
+      "domain": "sciences",
+      "summary": "Les analystes estiment que le marché mondial des médicaments GLP-1 dépassera 150 milliards de dollars d'ici 2030, porté par la demande croissante pour le traitement de l'obésité.",
       "read_minutes": 3
     },
     {
-      "id": "artemis-accords",
-      "title": "Artemis Accords: International Cooperation for Lunar Exploration",
-      "source": "NASA / State Department",
-      "url": "https://www.nasa.gov/artemis-accords/",
+      "id": "s4",
+      "title": "Obésité et surpoids — Fiche d'information OMS",
+      "source": "Organisation Mondiale de la Santé",
+      "url": "https://www.who.int/fr/news-room/fact-sheets/detail/obesity-and-overweight",
       "image": null,
-      "lang": "en",
-      "domain": "sciences-environnement",
-      "summary": "Les Artemis Accords, lancés en 2020, sont un ensemble de principes pour la coopération internationale en exploration lunaire. 39 pays les ont signés à ce jour, établissant un cadre pour les missions Artemis et les activités lunaires futures.",
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "L'OMS estime que 16 % des adultes dans le monde sont obèses, avec des disparités régionales majeures. La France compte environ 8 millions d'obèses (17 % des adultes).",
       "read_minutes": 3
     }
   ],
   "revue_de_presse": [
     {
-      "title": "Space Race 2.0: US and China Compete for Lunar Dominance",
-      "source": "BBC News",
-      "url": "https://www.bbc.com/news/science-environment-2026-09-lunar-race",
+      "title": "L'obésité en France : 8 millions de personnes touchées, les traitements restent inéquitables",
+      "source": "Le Monde",
+      "url": "https://www.lemonde.fr/sante/article/obesite-france-traitements-inequites",
       "image": null,
-      "lang": "en",
-      "domain": "sciences-environnement",
-      "summary": "Analyse de la nouvelle course lunaire entre États-Unis et Chine, avec focus sur les différences d'approche : partenariats internationaux pour les États-Unis, autonomie pour la Chine.",
-      "read_minutes": 5
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Le Monde rapporte que les traitements GLP-1 restent peu accessibles en France faute de remboursement large, creusant les inégalités de santé entre les plus aisés et le reste de la population.",
+      "read_minutes": 2
     },
     {
-      "title": "China's Lunar Ambitions: From Chang'e to ILRS",
-      "source": "South China Morning Post",
-      "url": "https://www.scmp.com/news/china/article/2026-09-china-lunar-ambitions-ilrs",
+      "title": "Novo Nordisk et Eli Lilly : la guerre des GLP-1 s'intensifie",
+      "source": "Les Echos",
+      "url": "https://www.lesechos.fr/pharma/novo-nordisk-eli-lilly-guerre-glp-1",
       "image": null,
-      "lang": "en",
-      "domain": "sciences-environnement",
-      "summary": "Reportage sur le programme lunaire chinois, ses réalisations récentes (Chang'e 6) et ses objectifs futurs (ILRS 2035), avec interviews d'experts chinois.",
-      "read_minutes": 6
-    },
-    {
-      "title": "Artemis III Delay Risks: What's Holding NASA Back?",
-      "source": "SpaceNews",
-      "url": "https://spacenews.com/2026/09/artemis-iii-delay-risks/",
-      "image": null,
-      "lang": "en",
-      "domain": "sciences-environnement",
-      "summary": "Analyse des risques de retard du programme Artemis III, incluant les défis techniques du lander, les contraintes budgétaires et les questions de sécurité.",
-      "read_minutes": 4
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Les Echos analysent la concurrence croissante entre Novo Nordisk et Eli Lilly pour dominer le marché des traitements contre l'obésité, avec des investissements de plusieurs milliards de dollars dans la R&D.",
+      "read_minutes": 3
     }
   ],
   "articles_connexes": [
     {
-      "date": "2026-09-04",
-      "titre": "Lune : Washington et Pékin relancent la course",
-      "lien": "Même sujet lunaire — les deux superpuissances spatiales relancent leurs programmes avec des calendriers proches mais des approches opposées."
+      "date": "2026-09-18",
+      "titre": "Neuropathies : la recherche avance, les traitements stagnent",
+      "lien": "Même registre sciences et même enjeu de santé publique : avancées thérapeutiques limitées malgré la recherche."
     },
     {
       "date": "2026-09-15",
       "titre": "Fusion nucléaire : la promesse enfin tenue ?",
-      "lien": "Même filière énergie/science — les deux sujets explorent des technologies à horizon long avec des enjeux géopolitiques similaires (coopération vs concurrence internationale)."
+      "lien": "Même registre sciences : une promesse technologique qui pourrait transformer un domaine, avec des incertitudes similaires sur les délais et l'accessibilité."
     },
     {
-      "date": "2026-08-05",
-      "titre": "EPR2 : le nucléaire français à l'heure de vérité",
-      "lien": "Même filière énergie nucléaire — contraste possible entre fission (EPR2, technologie mature) et les nouvelles technologies spatiales/lunaires (Artemis, ILRS) en course."
+      "date": "2026-09-06",
+      "titre": "Sport féminin : la loi oblige à partager l'argent",
+      "lien": "Enjeu de santé et d'équité : les inégalités d'accès aux ressources et aux soins, thème transversal aux deux sujets."
     }
   ],
   "recommandations_redaction": [
-    "Insister sur le contraste entre les deux approches : partenariats internationaux (Artemis Accords, 39 pays) vs autonomie chinoise (ILRS, Russie principale partenaire)",
-    "Mentionner la Wolf Amendment comme obstacle légal à la coopération directe NASA-CNSA",
-    "Préciser que la date d'Artemis III (2026) est incertaine et pourrait être repoussée",
-    "Lien explicite avec l'édition du 04/09/2026 sur le même sujet lunaire — mettre à jour les lecteurs sur l'évolution depuis cette date",
-    "Éviter le sensationnalisme spatial : rester factuel sur les jalons réels (Chang'e 6, sélection NASA du 15/09) plutôt que sur des spéculations"
+    "Insister sur le fait que les GLP-1 ne sont pas un traitement miracle mais un outil parmi d'autres (alimentation, activité physique, suivi médical).",
+    "Clarifier la distinction entre Ozempic (diabète de type 2) et Wegovy (obésité) — même molécule, indications différentes, prix différents.",
+    "Mettre en perspective les effets cardiovasculaires documentés (SELECT) avec les incertitudes à long terme.",
+    "Aborder la question du remboursement en France : actuellement très restrictif, pourrait-il évoluer si les données cardiovasculaires se confirment ?",
+    "Évoquer les génériques et biosimilaires : quand pourraient-ils réduire les prix ?"
   ]
 }

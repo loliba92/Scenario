@@ -1,187 +1,180 @@
 {
-  "h1": "Lune : Washington et Pékin relancent la course",
-  "question_text": "La nouvelle course lunaire entre États-Unis et Chine peut-elle se résoudre par une collaboration, ou bascule-t-elle vers une confrontation spatiale ?",
-  "section_title": "Coopération scientifique ou rivalité stratégique sur le sol lunaire",
+  "h1": "Médecine : les nouveaux médicaments contre l'obésité (comme l'Ozempic) vont-ils changer la santé de millions de gens ?",
+  "question_text": "Les nouveaux traitements contre l'obésité (Ozempic, Wegovy, Mounjaro) peuvent-ils enrayer l'épidémie mondiale, ou resteront-ils réservés aux plus aisés ?",
+  "section_title": "Nouveaux traitements contre l'obésité : révolution médicale globale ou privilège réservé aux plus aisés ?",
   "dek": [
-    "Plus d'un demi-siècle après les missions Apollo, la Lune redevient le centre de gravité des ambitions spatiales mondiales. Deux superpuissances mènent cette dynamique avec des calendriers très resserrés : d'un côté, les États-Unis avec leur programme <strong>Artemis</strong> piloté par la NASA, de l'autre, la Chine et son projet de station de recherche internationale <a class=\"lex-ref\" href=\"#lex-ilrs\" aria-label=\"Voir la définition dans le lexique\">*</a> (ILRS). Les enjeux dépassent largement le simple exploit technique ou le prestige scientifique : il s'agit désormais d'occuper durablement des zones stratégiques riches en ressources, en particulier les cratères du pôle sud lunaire contenant de la glace d'eau. Un sujet similaire a déjà été traité dans nos archives : <a href=\"archives/2026-09-04.html\">consulter l'analyse du 4 septembre 2026 sur les programmes spatiaux des deux superpuissances</a>.",
-    "La Maison-Blanche a structuré sa stratégie autour d'un modèle d'alliances internationales et de partenariats commerciaux avec le secteur privé. Les accords <a class=\"lex-ref\" href=\"#lex-artemis-accords\" aria-label=\"Voir la définition dans le lexique\">*</a> rassemblent déjà <strong>39 pays signataires</strong>, dont les membres de l'Agence spatiale européenne, qui s'engagent à respecter des principes communs de transparence et d'interopérabilité. En parallèle, la NASA a sélectionné le <strong>15 septembre 2026</strong> dix propositions de missions scientifiques lunaires dotées chacune d'une enveloppe de 1,5 million de dollars pour des études de faisabilité de neuf mois. Cette émulation industrielle vise à pérenniser une présence humaine continue grâce au futur camp de base et à la station orbitale Gateway.",
-    "Face au bloc occidental, la Chine avance avec une régularité méthodique et un contrôle étatique complet de sa filière spatiale. L'agence spatiale chinoise (CNSA) a marqué l'histoire spatiale récente en réussissant en juin 2024 la mission <strong>Chang'e 6</strong>, qui a rapporté les tout premiers échantillons géologiques de la face cachée de la Lune. Pékin a confirmé en avril 2026 son ambition de bâtir une station de recherche habitée permanente à l'horizon 2035 en s'appuyant sur son partenaire principal, l'agence russe Roscosmos. Cette approche privilégie la vitesse d'exécution technique interne plutôt que la négociation de cadres juridiques multilatéraux élargis.",
-    "Le cadre juridique international actuel de l'espace extra-atmosphérique, pensé à l'époque de la guerre froide, s'avère aujourd'hui inadapté pour régler les rivalités territoriales ou l'exploitation minière. L'accès aux cratères d'obscurité permanente du pôle sud, où la glace pourrait être transformée en eau potable et en carburant pour fusées, est par nature limité par la topographie. Si deux atterrisseurs concurrents visent le même rim de cratère, aucun arbitrage international contraignant ne permet de départager les prétentions d'exclusivité. Cette situation crée une friction directe entre les zones de sécurité préconisées par Washington et la liberté de déploiement revendiquée par Pékin.",
-    "Sur le plan législatif, tout rapprochement bilatéral direct entre les deux géants se heurte à un verrou strict instauré par le Congrès américain. L'amendement <a class=\"lex-ref\" href=\"#lex-wolf-amendment\" aria-label=\"Voir la définition dans le lexique\">*</a> interdit à la NASA d'utiliser des fonds fédéraux pour collaborer directement avec la Chine ou des entreprises chinoises sans autorisation préalable expresse. Cette interdiction légale bloque les canaux habituels de diplomatie scientifique qui avaient pourtant fonctionné lors des missions conjointes Apollo-Soyouz ou à bord de la Station spatiale internationale. Elle force chaque camp à développer des technologies et des standards totalement hermétiques les uns aux autres.",
-    "L'incertitude sur les calendriers techniques ajoute un facteur imprévisible à cette rivalité géopolitique. Bien que la mission habitée <strong>Artemis III</strong> cible théoriquement la fin de l'année 2026 pour poser de nouveau des astronautes sur le sol lunaire, les défis d'intégration du vaisseau d'atterrissage laissent entrevoir de probables reports d'échéance. Dans le même temps, la sonde chinoise Chang'e 7 s'apprête à décoller vers le pôle sud pour cartographier les dépôts de glace d'eau. Cette convergence d'initiatives simultanées transforme la Lune en un miroir des tensions terrestres, ouvrant la voie à trois trajectoires prospectives distinctes."
+    "Une transformation médicale profonde s'opère dans les pharmacies mondiales avec l'arrivée massive des agonistes du GLP-1<a class=\"lex-ref\" href=\"#lex-agonistes-du-glp-1\" aria-label=\"Voir la définition dans le lexique\">*</a>, ces molécules synthétiques qui imitent une hormone digestive naturelle pour réguler l'appétit et le métabolisme. Développées initialement pour soigner le diabète de type 2, ces injections hebdomadaires connaissent un succès sans précédent. Deux géants pharmaceutiques dominent ce marché naissant : le danois Novo Nordisk, fabricant historique du semaglutide commercialisé sous les noms d'Ozempic et de Wegovy, et le groupe américain Eli Lilly, concepteur du tirzepatide vendu sous les marques Mounjaro et Zepbound. Face à une demande qui explose sur tous les continents, ces entreprises investissent des milliards de dollars pour étendre leurs capacités industrielles et répondre aux prescriptions médicales.",
+    "L'engouement dépasse désormais la simple promesse esthétique ou la seule régulation glycémique. Le 8 mars 2024, la FDA<a class=\"lex-ref\" href=\"#lex-fda\" aria-label=\"Voir la définition dans le lexique\">*</a>, l'agence américaine du médicament, a franchi un cap décisif en autorisant le Wegovy pour la prévention cardiovasculaire chez les adultes en surpoids souffrant de pathologies cardiaques. Cette décision réglementaire historique s'appuie directement sur les conclusions de l'essai clinique de référence SELECT, publié à l'été 2023 dans le New England Journal of Medicine. Cette étude menée sur plus de dix-sept mille volontaires a démontré que le semaglutide permettait <strong>une réduction de 20 % des événements cardiovasculaires majeurs</strong>, notamment les infarctus et les accidents vasculaires cérébraux, validant scientifiquement l'intérêt vital de cette classe thérapeutique au-delà du seul contrôle pondéral.",
+    "L'urgence sanitaire planétaire est pourtant immense et continue de progresser rapidement. Selon les données publiées par l'Organisation mondiale de la santé, l'obésité touche désormais <strong>16 % des adultes dans le monde</strong>, ce qui représente près d'un milliard d'êtres humains exposés à des complications chroniques invalidantes. En France, le constat épidémiologique est tout aussi préoccupant puisque le pays compte <strong>8 millions de personnes obèses</strong>, soit environ 17 % de sa population adulte. Cette maladie chronique complexe engendre des coûts humains majeurs ainsi que des dépenses hospitalières considérables pour les finances publiques, alors que les approches conventionnelles reposant uniquement sur l'alimentation et l'activité physique peinent souvent à endiguer durablement les formes les plus sévères.",
+    "La barrière financière constitue cependant le premier obstacle à une diffusion équitable de ces innovations. Aux États-Unis, le prix public du Wegovy atteint environ <strong>1 000 $ par mois sans assurance</strong>, un tarif prohibitif qui exclut de fait les ménages modestes pourtant statistiquement les plus touchés par le surpoids. En France, la Haute Autorité de santé et l'Assurance maladie restreignent drastiquement la prise en charge financière, réservée uniquement à une fraction de patients souffrant d'obésité massive avec comorbidités sévères. Cette tarification élevée alimente une projection financière spectaculaire : les analystes de marché estiment que la demande mondiale globale pour ces traitements de pointe devrait dépasser <strong>150 milliards de dollars d'ici 2030</strong>, créant une rente pharmaceutique colossale mais inégalitaire.",
+    "Plusieurs incertitudes scientifiques et économiques majeures tempèrent toutefois cet enthousiasme initial. D'une part, les effets secondaires à long terme d'un traitement pris en continu pendant dix ou vingt ans demeurent partiellement documentés, notamment les risques digestifs ou pancréatiques. D'autre part, l'interruption des injections entraîne fréquemment une reprise de poids rapide, ce qui transforme ces médicaments en prescriptions à vie particulièrement onéreuses. De plus, les brevets pharmaceutiques protègent fermement les fabricants originaux, empêchant l'arrivée de versions génériques moins chères avant l'horizon 2030 sur les principaux marchés occidentaux, ce qui bloque toute baisse spontanée des tarifs.",
+    "Trois trajectoires divergentes se dessinent dès lors pour les prochaines années. Une première issue verrait une démocratisation rapide grâce aux accords de santé publique, transformant ces molécules en traitement standard accessible au plus grand nombre. À l'opposé, le maintien de prix très élevés pourrait figer une fracture sanitaire profonde, réservant la prévention cardiovasculaire aux classes aisées des pays riches. Enfin, l'apparition d'effets indésirables inattendus ou de litiges judiciaires pourrait freiner net l'adoption de ces thérapies, obligeant les autorités sanitaires à resserrer les règles de prescription."
   ],
   "stakes_branches": {
-    "favorable": "Un partage pragmatique des données scientifiques et une interopérabilité technique minimale évitent les incidents opérationnels.",
-    "stable": "Les deux blocs progressent chacun de leur côté en parallèle, maintenant une coexistence sans dialogue mais sans incident majeur.",
-    "degrade": "La compétition pour les sites d'alunissage entraîne une militarisation de l'orbite et des contestations de souveraineté."
+    "favorable": "Une généralisation des traitements fait reculer l'obésité et allège durablement le fardeau des maladies cardiovasculaires.",
+    "stable": "Les prix restent élevés et réservent les molécules aux pays riches et aux patients les plus fortunés.",
+    "degrade": "Des effets indésirables graves et des coûts prohibitifs limitent drastiquement l'usage de ces nouvelles thérapies."
   },
   "comprendre_box": [
     {
-      "lead": "Deux visions de l'exploration spatiale s'opposent sur le plan normatif et diplomatique.",
-      "text": "Le cadre occidental des accords Artemis repose sur une coalition ouverte d'États acceptant des règles communes, un peu comme un club d'usagers fixant les règles de circulation sur une route partagée. En face, le projet ILRS ressemble à une concession fermée gérée par un tandem étatique, où les normes sont décidées par les fondateurs avant d'être proposées à des tiers.",
+      "lead": "Une clé pour comprendre le mécanisme d'action des agonistes du GLP-1.",
+      "text": "Dans le corps humain, l'hormone GLP-1 signale naturellement au cerveau la satiété dès que l'estomac se remplit pendant un repas. Les médicaments de nouvelle génération comme le semaglutide imitent cette molécule biologique mais résistent beaucoup plus longtemps à la dégradation digestive. Ils ralentissent la vidange gastrique et envoient un message continu de coupe-faim, ce qui réduit mécaniquement l'apport calorique quotidien sans imposer de privation volontaire insoutenable.",
       "apres_dek_index": 1
     },
     {
-      "lead": "Les fenêtres de lancement imposent un calendrier technique extrêmement resserré pour les deux agences.",
-      "text": "La synchronisation entre Artemis III et Chang'e 7 montre que les deux puissances visent la même cible géographique au même moment. Cette simultanéité ressemble à deux expéditions polaires rivales partant au même instant vers le même col de montagne : le premier arrivé s'assure l'accès au meilleur emplacement de campement.",
-      "apres_dek_index": 5
+      "lead": "Une clé pour comprendre l'équation économique du coût des traitements.",
+      "text": "Fixer le prix d'un traitement chronique à mille dollars mensuels pose un dilemme budgétaire insolubilisable pour les systèmes d'assurance maladie collective. Si un État remboursait l'intégralité de sa population éligible, la dépense totale dépasserait rapidement le budget annuel de plusieurs hôpitaux publics. Les payeurs publics choisissent donc de restreindre l'accès aux seuls cas d'urgence vitale, laissant les autres patients assumer seuls une charge financière impossible.",
+      "apres_dek_index": 3
     }
   ],
   "list_box": null,
   "indicators": [
     {
-      "label": "Coût estimé du programme Artemis (NASA)",
-      "value": "~93 milliards $",
-      "delta": "Dépenses cumulées 2012-2025, tendance en hausse"
+      "label": "Prévalence de l'obésité dans le monde (OMS)",
+      "value": "16 %",
+      "delta": "des adultes en 2024, trajectoire en hausse continue"
     },
     {
-      "label": "Coût estimé du programme lunaire chinois (ILRS)",
-      "value": "Non divulgué",
-      "delta": "Budget étatique classifié, investissements massifs en hausse"
+      "label": "Demande mondiale estimée de GLP-1 en 2030",
+      "value": "150 Md$",
+      "delta": "projection globale, contre quelques milliards en 2020"
     },
     {
-      "label": "Pays signataires des Artemis Accords",
-      "value": "39 pays",
-      "delta": "Cadre multilatéral porté par les États-Unis depuis 2020"
+      "label": "Prix mensuel de Wegovy aux États-Unis (sans assurance)",
+      "value": "~1 000 $",
+      "delta": "tarif catalogue 2024, barrière majeure d'accès"
     }
   ],
   "cards": {
     "favorable": {
       "pct": 25,
-      "gauge_word": "Probable",
-      "h3": "Coopération scientifique ciblée et partage des données",
+      "gauge_word": "Peu probable",
+      "h3": "Démocratisation des traitements et recul net des complications chroniques",
       "why": [
-        "Dans ce scénario, les contraintes budgétaires et les risques opérationnels poussent Washington et Pékin à instaurer un canal d'échange technique minimal. Des dérogations ponctuelles à l'amendement Wolf sont accordées par le Congrès américain pour autoriser la transmission des données de cartographie des glaces polaires et la coordination des fréquences radio. Les deux agences spatiales définissent des standards communs d'amarrage d'urgence afin de permettre le sauvetage mutuel d'équipages en détresse, s'inspirant des protocoles historiques de sécurité maritime internationale.",
-        "Cette trajectoire de détente offre une garantie essentielle contre les risques de collision orbitale ou de brouillage électromagnétique involontaire autour du pôle sud. Elle permettrait également aux agences spatiales partenaires, notamment européennes, de maximiser le retour scientifique de leurs instruments sans avoir à choisir un camp exclusif. Une telle dynamique d'apaisement technique limiterait les dépenses redondantes et pourrait stabiliser durablement l'environnement spatial international si le dialogue diplomatique parvenait à surmonter les méfiances politiques."
+        "Dans cette perspective optimiste, les autorités sanitaires internationales reconnaissent l'obésité comme une priorité préventive absolue et négocient des baisses de tarifs massives avec Novo Nordisk et Eli Lilly. La production industrielle augmente rapidement grâce à la construction de nouvelles usines et à des accords de licence volontaires, ce qui permet d'approvisionner largement les pharmacies sans rupture de stock. Les régimes d'assurance maladie acceptent de solvabiliser les prescriptions pour des millions de citoyens, anticipant des économies substantielles sur la prise en charge ultérieure des dialyses, des infarctus et des chirurgies bariatriques complexes.",
+        "Ce scénario se distingue nettement du statu quo car il brise le verrou du prix pour transformer une thérapie de confort perçue en véritable levier d'action populationnel. Contrairement à l'option dégradée où la méfiance médicale l'emporterait, les données cliniques accumulées confirment ici une sécurité rassurante sur le long terme. Les systèmes de santé publique verraient alors les hospitalisations pour accidents vasculaires diminuer sensiblement d'ici la fin de la décennie, rendant l'impact sociétal particulièrement bénéfique pour l'ensemble des finances publiques solidaires."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Coût estimé Artemis (NASA)",
-          "evo_current": "~98 milliards $",
-          "evo_arrow": "up",
-          "evo_prev": "~93 milliards $"
+          "field_name": "Prévalence de l'obésité dans le monde (OMS)",
+          "evo_current": "13 %",
+          "evo_arrow": "down",
+          "evo_prev": "16 %"
         },
         {
-          "field_name": "Coût estimé ILRS (Chine)",
-          "evo_current": "Ouverture partielle",
-          "evo_arrow": "flat",
-          "evo_prev": "Non divulgué"
+          "field_name": "Demande mondiale estimée de GLP-1 en 2030",
+          "evo_current": "180 Md$",
+          "evo_arrow": "up",
+          "evo_prev": "150 Md$"
         },
         {
-          "field_name": "Signataires Artemis Accords",
-          "evo_current": "45 pays",
-          "evo_arrow": "up",
-          "evo_prev": "39 pays"
+          "field_name": "Prix mensuel de Wegovy aux États-Unis",
+          "evo_current": "250 $",
+          "evo_arrow": "down",
+          "evo_prev": "~1 000 $"
         }
       ],
-      "france_line": "L'industrie spatiale française et le CNES valorisent pleinement leurs instruments scientifiques dans un environnement sécurisé et coopératif.",
+      "france_line": "La Sécurité sociale élargit le remboursement, allégeant à terme les dépenses liées aux maladies chroniques.",
       "france_impact": "favorable"
     },
     "stable": {
       "pct": 50,
       "gauge_word": "Probable",
-      "h3": "Développement parallèle et coexistence sans coordination directe",
+      "h3": "Maintien de prix élevés et fracture sanitaire entre patients aisés et modestes",
       "why": [
-        "Dans cette configuration, les deux superpuissances poursuivent leurs trajectoires industrielles respectives de façon strictement étanche, sans dialogue bilatéral ni affrontement ouvert. La NASA consolide son réseau d'alliés à travers les 39 pays signataires des accords Artemis et fait certifier ses atterrisseurs commerciaux privés, tandis que la Chine déploie les missions robotiques Chang'e 7 puis Chang'e 8 vers 2028. Chaque acteur sécurise ses propres sites d'atterrissage au pôle sud en maintenant une distance de précaution suffisante pour éviter toute friction de voisinage immédiate.",
-        "Par rapport à l'option coopérative, ce statu quo concurrentiel impose des doublons technologiques massifs et maintient une opacité complète sur les budgets réels de part et d'autre. L'absence de canaux de crise directs augmente la sensibilité aux faux signaux, mais la peur d'un incident destructeur incite chaque bloc à respecter une discipline opérationnelle tacite sur les trajectoires d'alunissage. Cette coexistence froide deviendrait la norme durable des prochaines décennies si aucun incident matériel majeur ne venait perturber les premiers déploiements robotiques."
+        "Les laboratoires pharmaceutiques conservent une politique tarifaire stricte pour rentabiliser au maximum leurs investissements exclusifs avant l'expiration de leurs brevets au tournant de 2030. Les traitements restent donc largement inaccessibles aux populations des pays en développement et demeurent réservés, dans les pays riches, aux patients les plus fortunés ou aux personnes présentant des comorbidités cardiovasculaires gravissimes déjà installées. L'obésité globale poursuit sa progression arithmétique sous l'effet d'une alimentation industrielle ultra-transformée bon marché, tandis que l'innovation médicale ne bénéficie qu'à un segment solvable restreint.",
+        "Cette trajectoire intermédiaire prolonge la dynamique observée actuellement sur les marchés occidentaux où l'accès aux soins reste profondément inégalitaire. Contrairement au scénario favorable d'une prise en charge généralisée, les budgets publics refusent ici d'assumer le coût vertigineux d'un remboursement universel des injections. Par rapport au scénario noir, les molécules démontrent toujours une remarquable efficacité métabolique sans incident toxique majeur, ce qui pérennise une demande commerciale très rentable mais concentrée, laissant entière la crise sanitaire globale chez les classes populaires."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Coût estimé Artemis (NASA)",
-          "evo_current": "~105 milliards $",
+          "field_name": "Prévalence de l'obésité dans le monde (OMS)",
+          "evo_current": "18 %",
           "evo_arrow": "up",
-          "evo_prev": "~93 milliards $"
+          "evo_prev": "16 %"
         },
         {
-          "field_name": "Coût estimé ILRS (Chine)",
-          "evo_current": "Non divulgué",
+          "field_name": "Demande mondiale estimée de GLP-1 en 2030",
+          "evo_current": "150 Md$",
           "evo_arrow": "flat",
-          "evo_prev": "Non divulgué"
+          "evo_prev": "150 Md$"
         },
         {
-          "field_name": "Signataires Artemis Accords",
-          "evo_current": "42 pays",
-          "evo_arrow": "up",
-          "evo_prev": "39 pays"
+          "field_name": "Prix mensuel de Wegovy aux États-Unis",
+          "evo_current": "950 $",
+          "evo_arrow": "flat",
+          "evo_prev": "~1 000 $"
         }
       ],
-      "france_line": "La filière spatiale française maintient ses engagements européens sur la station Gateway mais subit les surcoûts liés à la duplication des programmes.",
+      "france_line": "L'accès restreint limite les coûts pour l'Assurance maladie mais perpétue de fortes inégalités territoriales et sociales.",
       "france_impact": "degrade"
     },
     "degrade": {
       "pct": 25,
-      "gauge_word": "Probable",
-      "h3": "Course aux ressources et militarisation des orbites lunaires",
+      "gauge_word": "Peu probable",
+      "h3": "Émergence d'effets indésirables tardifs, désillusions et durcissement réglementaire",
       "why": [
-        "Ce scénario se matérialise par une contestation agressive des sites d'atterrissage les plus avantageux autour des cratères Shackleton ou Malapert au pôle sud lunaire. L'un des deux blocs proclame une zone de sécurité exclusive étendue interdisant le survol ou la pose d'engins tiers, ce qui est dénoncé par l'autre camp comme une tentative illégale d'appropriation nationale du domaine spatial. Les deux puissances déploient des charges utiles de surveillance orbitale avancée et des systèmes de contre-mesures électroniques pour protéger leurs installations au sol.",
-        "Cette confrontation directe rompt définitivement l'esprit du traité de l'espace de 1967 et transpose les rivalités géopolitiques terrestres sur un nouveau théâtre d'opérations stratégiques. La polarisation bloque toute recherche scientifique partagée et force les puissances tierces à un alignement stratégique exclusif, augmentant considérablement le coût financier de l'accès à l'espace pour l'ensemble des acteurs civils. Une telle escalade risquerait de précipiter une militarisation formelle des orbites cislunaires si un incident d'atterrissage survenait sur un site contesté."
+        "Le suivi épidémiologique à grande échelle sur plusieurs années met en lumière des complications sévères sous-estimées lors des essais préliminaires, comme des atteintes pancréatiques récurrentes, des troubles digestifs irréversibles ou des signaux neurobiologiques préoccupants. Face à ces alertes sanitaires et à des taux d'abandon de traitement dépassant 50 % après un an d'usage continu, les agences de régulation imposent des avertissements stricts de sécurité. Plusieurs vagues d'actions judiciaires collectives visent les fabricants pour information insuffisante sur la reprise pondérale brutale consécutive à l'arrêt forcé des injections.",
+        "Cette hypothèse défavorable ruine les espoirs d'une réponse pharmacologique miracle contre la crise mondiale de santé publique. À la différence des deux autres scénarios où la confiance clinique demeure intacte, la prescription médicale devient ici hautement défensive et se restreint aux seules indications de dernier recours. L'engouement financier retombe brutalement, incitant les pouvoirs publics à réorienter leurs budgets vers des politiques de prévention nutritionnelle classique et de taxation agroalimentaire, tandis que les millions de personnes concernées se retrouvent privées d'alternative thérapeutique validée."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Coût estimé Artemis (NASA)",
-          "evo_current": "~120 milliards $",
+          "field_name": "Prévalence de l'obésité dans le monde (OMS)",
+          "evo_current": "19 %",
           "evo_arrow": "up",
-          "evo_prev": "~93 milliards $"
+          "evo_prev": "16 %"
         },
         {
-          "field_name": "Coût estimé ILRS (Chine)",
-          "evo_current": "Militarisation opaque",
-          "evo_arrow": "up",
-          "evo_prev": "Non divulgué"
+          "field_name": "Demande mondiale estimée de GLP-1 en 2030",
+          "evo_current": "60 Md$",
+          "evo_arrow": "down",
+          "evo_prev": "150 Md$"
         },
         {
-          "field_name": "Signataires Artemis Accords",
-          "evo_current": "39 pays (blocage)",
-          "evo_arrow": "flat",
-          "evo_prev": "39 pays"
+          "field_name": "Prix mensuel de Wegovy aux États-Unis",
+          "evo_current": "400 $",
+          "evo_arrow": "down",
+          "evo_prev": "~1 000 $"
         }
       ],
-      "france_line": "L'autonomie stratégique et les capacités de surveillance de la France et de l'Europe sont mises sous tension par la militarisation du domaine spatial.",
+      "france_line": "Des restrictions de sécurité supplémentaires bloquent l'accès aux traitements et reportent la charge sur les hôpitaux.",
       "france_impact": "degrade"
     }
   },
   "essentiel_box": [
-    "La nouvelle course lunaire oppose le programme américain Artemis, fondé sur une coalition internationale et des prestataires privés, au projet sino-russe ILRS visant l'autonomie stratégique.",
-    "Le contrôle des réserves d'eau glacée au pôle sud de la Lune constitue le point de friction majeur, alors que 39 pays ont signé les accords Artemis et que la Chine vise une station permanente pour 2035.",
-    "Non, une franche collaboration reste impossible à court terme en raison des verrous juridiques et politiques : le scénario d'une coexistence parallèle sans dialogue formel reste le plus probable à 50 %.",
-    "Le lancement de la mission chinoise Chang'e 7 prévu pour la fin de l'année 2026 servira de révélateur concret des capacités d'alunissage de précision au pôle sud."
+    "Les nouveaux traitements par agonistes du GLP-1 (Ozempic, Wegovy, Mounjaro) ont-ils la capacité d'endiguer l'épidémie mondiale d'obésité, ou resteront-ils un privilège inaccessible ?",
+    "La maladie touche 16 % des adultes dans le monde et 8 millions de personnes en France (17 % des adultes). Malgré l'efficacité du semaglutide qui réduit de 20 % les accidents cardiovasculaires majeurs selon l'essai SELECT, son coût mensuel dépasse 1 000 $ aux États-Unis.",
+    "Non, ils ne suffiront pas à eux seuls : avec 50 % de probabilité, ces médicaments resteront réservés aux patients les plus aisés ou aux cas les plus critiques en raison de tarifs prohibitifs et de critères de remboursement très stricts, laissant l'obésité progresser ailleurs.",
+    "L'échéance clé à surveiller concerne les décisions de remboursement élargies de la Haute Autorité de santé et l'apparition des premiers génériques de semaglutide attendus à l'horizon 2030."
   ],
   "delta_france": {
     "kind": "negatif",
     "score": -0.5,
     "word": "assez négatif",
-    "text": "Le scénario d'une coexistence parallèle à 50 % et le risque de tensions à 25 % obligent l'Europe et la France à financer des surcoûts d'indépendance sans bénéficier d'une coopération scientifique globale."
+    "text": "la persistance probable de tarifs élevés et de critères de remboursement stricts (75 % de scénarios stables ou dégradés cumulés) privera la majorité des huit millions de Français concernés d'un accès préventif équitable."
   },
-  "phrase_a_retenir": "Avec 39 pays signataires pour Artemis et une station ILRS chinoise visée pour 2035, la Lune redevient le théâtre d'une rivalité stratégique majeure.",
-  "phrase_a_retenir_stat": "39 pays",
+  "phrase_a_retenir": "Le semaglutide permet une réduction de 20 % des événements cardiovasculaires majeurs, mais son prix mensuel de 1 000 $ sans couverture freine son déploiement mondial.",
+  "phrase_a_retenir_stat": "20 %",
   "lexique": [
     {
-      "slug": "artemis-accords",
-      "terme": "Artemis Accords",
-      "definition": "Cadre juridique international bilatéral lancé en 2020 par les États-Unis fixant des principes de transparence, d'interopérabilité et de gestion pacifique des ressources spatiales."
+      "slug": "agonistes-du-glp-1",
+      "terme": "Agonistes du GLP-1",
+      "definition": "Classe de médicaments synthétiques qui imitent l'action de l'hormone naturelle GLP-1 pour stimuler la sécrétion d'insuline, ralentir la digestion et signaler la satiété au cerveau."
     },
     {
-      "slug": "ilrs",
-      "terme": "ILRS (International Lunar Research Station)",
-      "definition": "Projet de base lunaire permanente porté par la Chine et la Russie, ouvert à des pays tiers pour des missions scientifiques à l'horizon 2035."
-    },
-    {
-      "slug": "wolf-amendment",
-      "terme": "Wolf Amendment",
-      "definition": "Loi fédérale américaine adoptée en 2011 interdisant tout financement public de la NASA pour des activités bilatérales directes avec le gouvernement chinois sans aval du Congrès."
+      "slug": "fda",
+      "terme": "FDA (Food and Drug Administration)",
+      "definition": "Agence fédérale américaine responsable de la réglementation, de la surveillance et de l'autorisation de mise sur le marché des denrées alimentaires et des produits pharmaceutiques."
     }
   ],
   "sources_html": [
-    "<a href=\"https://www.nasa.gov/news/releases/2026/09/nasa-selects-10-proposals-lunar-science-missions/\" target=\"_blank\" rel=\"noopener noreferrer\">NASA — NASA Selects 10 Proposals for Lunar Science Missions Under Artemis ↗</a>",
-    "<a href=\"https://english.news.cn/2026-04/01/china-space-plans-lunar-research-station-2035.html\" target=\"_blank\" rel=\"noopener noreferrer\">Xinhua / China Daily — China's Space Plans: Lunar Research Station by 2035 ↗</a>",
-    "<a href=\"https://www.nasa.gov/artemis/\" target=\"_blank\" rel=\"noopener noreferrer\">NASA — Artemis Program: NASA's Plan to Return to the Moon ↗</a>",
-    "<a href=\"https://www.space.com/china-change-program-lunar-exploration.html\" target=\"_blank\" rel=\"noopener noreferrer\">CNSA / Space.com — China's Chang'e Lunar Exploration Program: Past, Present, Future ↗</a>",
-    "<a href=\"https://crsreports.congress.gov/product/pdf/IF/IF10947/\" target=\"_blank\" rel=\"noopener noreferrer\">Congressional Research Service — Wolf Amendment: US-China Space Cooperation Restrictions ↗</a>",
-    "<a href=\"https://www.nasa.gov/artemis-accords/\" target=\"_blank\" rel=\"noopener noreferrer\">NASA / State Department — Artemis Accords: International Cooperation for Lunar Exploration ↗</a>"
+    "<a href=\"https://www.fda.gov/news-events/press-announcements/fda-approves-wegovy-cardiovascular-risk-reduction\" target=\"_blank\" rel=\"noopener noreferrer\">FDA — FDA Approves Wegovy for Cardiovascular Risk Reduction ↗</a>",
+    "<a href=\"https://www.nejm.org/doi/full/10.1056/NEJMoa2307563\" target=\"_blank\" rel=\"noopener noreferrer\">New England Journal of Medicine — Semaglutide and Cardiovascular Outcomes in Obesity without Diabetes (SELECT) ↗</a>",
+    "<a href=\"https://www.bloomberg.com/news/articles/global-glp-1-market-forecast\" target=\"_blank\" rel=\"noopener noreferrer\">Bloomberg — Global GLP-1 Market to Reach $150 Billion by 2030 ↗</a>",
+    "<a href=\"https://www.who.int/fr/news-room/fact-sheets/detail/obesity-and-overweight\" target=\"_blank\" rel=\"noopener noreferrer\">Organisation Mondiale de la Santé — Obésité et surpoids — Fiche d'information OMS ↗</a>"
   ],
   "meta": {
-    "title": "Lune : Washington et Pékin relancent la course — Scénario",
-    "meta_description": "La nouvelle course lunaire entre États-Unis et Chine peut-elle se résoudre par une collaboration ou bascule-t-elle vers une confrontation spatiale ?",
-    "og_image_alt": "Surface lunaire vue de l'espace avec modules d'exploration spatiale"
+    "title": "Médecine : les nouveaux médicaments contre l'obésité (comme l'Ozempic) vont-ils changer la santé de millions de gens ? — Scénario",
+    "meta_description": "Les nouveaux traitements GLP-1 peuvent-ils enrayer l'obésité mondiale ou resteront-ils réservés aux plus aisés ? Analyse et 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Injection d'un traitement médical contre l'obésité"
   }
 }
