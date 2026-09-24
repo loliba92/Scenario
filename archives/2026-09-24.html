@@ -696,7 +696,7 @@
      .masthead-notif-btn jugée "pas belle" le même jour (retour
      utilisateur : trop badge d'appli, pas assez distingué) — remplacée
      par le langage visuel déjà utilisé pour les encarts du site
-     (.question-box/.stakes-box/.comprendre-box : filet doré à gauche,
+     (.stakes-box/.comprendre-box : filet doré à gauche,
      radius 4px), plus discret et cohérent avec l'identité éditoriale.
      Fond en verre dépoli (`backdrop-filter: blur`) plutôt qu'un aplat
      plein, pour rester léger visuellement tout en gardant un contraste
@@ -716,47 +716,42 @@
     max-width: 20ch;
     text-shadow: 0 3px 22px rgba(0,0,0,.6);
   }
+  /* Question posée en overlay sur l'image, ajoutée le 24 septembre 2026
+     (retour utilisateur) — reprend le texte de .question-box, retiré du
+     corps de l'article pour ne plus le répéter deux fois sur la même
+     page. Police Inter (celle du corps de texte) plutôt que Fraunces du
+     h1, pour rester lisible à une taille plus petite sans concurrencer
+     le titre. max-width plus généreux que le h1 (question = phrase
+     complète, jamais aussi courte qu'un titre). */
+  .article-image-overlay .question-text{
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: rgba(236,231,218,.92);
+    max-width: 42ch;
+    margin: 10px 0 0;
+    text-shadow: 0 2px 14px rgba(0,0,0,.6);
+  }
   .article-image-overlay .pubdate{
     color: rgba(236,231,218,.78);
-    margin: 0;
+    margin: 10px 0 0;
     text-shadow: 0 2px 12px rgba(0,0,0,.55);
   }
   @media (max-width: 720px){
     .article-image-photo-wrap{ height: min(52vh, 440px); min-height: 300px; }
     .article-image-overlay{ padding-bottom: 22px; }
     .article-image-overlay h1{ max-width: none; }
+    .article-image-overlay .question-text{ max-width: none; }
   }
 
-  .question-box{
-    background: var(--surface);
-    border-left: 3px solid var(--gold);
-    border-radius: 4px;
-    padding: 18px 22px;
-    margin: 0 0 32px;
-    margin-left: -22px;
-  }
-
-  .question-label{
-    display: block;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--gold);
-    margin: 0 0 8px;
-  }
-
-  .question-text{
-    font-family: "Fraunces", serif;
-    font-size: 1.2rem;
-    font-weight: 500;
-    line-height: 1.35;
-    margin: 0;
-    color: var(--paper);
-  }
+  /* .question-box/.question-label/.question-text (bloc séparé sous
+     l'image) retirés le 24 septembre 2026 — la question posée s'affiche
+     désormais en overlay sur l'image (voir .article-image-overlay
+     .question-text plus haut), pour ne plus la répéter deux fois sur la
+     même page. */
 
   /* Encart pédagogique en aparté dans le corps d'un article — même recette
-     que .question-box (fond surface, filet doré à gauche, radius 4px),
+     que .stakes-box (fond surface, filet doré à gauche, radius 4px),
      mais label "Comprendre" pour une explication de fond plutôt qu'une
      question ou un enjeu. */
   .comprendre-box{
@@ -1811,8 +1806,8 @@
      un réglage du dialogue d'impression, pas du CSS). `html{font-size}`
      rétrécit d'un coup toutes les tailles en rem (quasi tout le fichier),
      et les paddings/margins des encarts sont resserrés en plus. Chaque
-     encart à bordure gauche accentuée (question-box/stakes-box/
-     comprendre-box/dc-chart-box) utilise `margin-left: -22px` pour
+     encart à bordure gauche accentuée (stakes-box/comprendre-box/
+     dc-chart-box) utilise `margin-left: -22px` pour
      déborder jusqu'au bord — ne jamais réécrire leur `margin` en
      raccourci ici, ça écraserait ce -22px et casserait l'alignement :
      ajuster seulement margin-top/margin-bottom en propriétés séparées. */
@@ -1837,7 +1832,6 @@
     .pubdate{ margin-bottom: 10pt; }
     .dek{ margin-bottom: 10px; }
     .dek:last-of-type{ margin-bottom: 14px; }
-    .question-box{ padding: 10px 14px; margin-bottom: 14px; }
     .stakes-box{ padding: 10px 14px; margin-top: 0; margin-bottom: 14px; }
     .comprendre-box{ padding: 10px 14px; margin-top: 10px; margin-bottom: 10px; }
     .dc-chart-box{ padding: 10px 14px; margin-top: 14px; }
@@ -1938,6 +1932,7 @@
       <div class="article-image-overlay wrap">
         <p class="eyebrow">Jeudi, économie & finance mondiale</p>
         <h1>Économie mondiale : BCE et Fed face au choc pétrolier</h1>
+        <p class="question-text">Face au Brent à plus de 100 $ et à la menace sur Ormuz, la BCE et la Fed peuvent-elles relâcher leur resserrement, ou le choc pétrolier les force-t-il à maintenir les taux élevés ?</p>
         <p class="pubdate">Publié le 24 septembre 2026</p>
       </div>
     </div>
@@ -1959,11 +1954,6 @@
       <a href="#essentiel">L'essentiel</a>
       <a href="#lexique">Référence</a>
     </nav>
-
-    <div class="question-box">
-      <span class="question-label">La question posée</span>
-      <p class="question-text">Face au Brent à plus de 100 $ et à la menace sur Ormuz, la BCE et la Fed peuvent-elles relâcher leur resserrement, ou le choc pétrolier les force-t-il à maintenir les taux élevés ?</p>
-    </div>
 
     <p class="section-label">Les faits</p>
 

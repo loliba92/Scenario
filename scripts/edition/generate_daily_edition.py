@@ -1127,7 +1127,7 @@ def validate_assembled_html(html_text, content):
 
     # Structure obligatoire du gabarit
     required_selectors = [
-        (".question-box", 1), (".indicator-strip", 1), (".cards", 1),
+        (".article-image-overlay .question-text", 1), (".indicator-strip", 1), (".cards", 1),
         (".card", 3), (".lexique", 1), ("footer", 1), (".stakes-box", 1),
         (".essentiel-box", 1), (".sources-list", 1), (".retenir-box", 1),
     ]

@@ -408,6 +408,7 @@ def build_hero(content, date_str, photo=None, graphique_dc_chart=None):
       <div class="article-image-overlay wrap">
         <p class="eyebrow">{jour.capitalize()}, {content.get('eyebrow_suffix', '')}</p>
         <h1>{content['h1']}</h1>
+        <p class="question-text">{content['question_text']}</p>
         <p class="pubdate">Publié le {date_longue}</p>
       </div>
     </div>
@@ -429,11 +430,6 @@ def build_hero(content, date_str, photo=None, graphique_dc_chart=None):
       <a href="#essentiel">L'essentiel</a>
       <a href="#lexique">Référence</a>
     </nav>
-
-    <div class="question-box">
-      <span class="question-label">La question posée</span>
-      <p class="question-text">{content['question_text']}</p>
-    </div>
 
     <p class="section-label">Les faits</p>
 
