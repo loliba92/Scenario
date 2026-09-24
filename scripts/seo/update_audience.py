@@ -151,28 +151,39 @@ def update_openrouter_history(today_iso, total_usage):
     return history
 
 
-def compute_cost_yesterday(history, today_iso):
-    """Coût de la veille = écart entre les deux derniers relevés d'une
-    JOURNÉE CIVILE DÉJÀ CLOSE — jamais celui d'aujourd'hui, dont le
-    relevé continue de grossir à chaque nouvelle exécution du script.
+def compute_cost_yesterday(history):
+    """Coût de la veille = écart entre les deux derniers relevés
+    disponibles — jamais supposé être exactement le jour précédent si un
+    run a été raté (cron en échec) : c'est le coût depuis le relevé
+    précédent DISPONIBLE, quelle que soit la date exacte."""
+    if len(history) < 2:
+        return None
+    dates_sorted = sorted(h["date"] for h in history)
+    by_date = {h["date"]: h["total_usage"] for h in history}
+    d_now, d_prev = dates_sorted[-1], dates_sorted[-2]
+    return {"value": by_date[d_now] - by_date[d_prev], "date": d_now, "since": d_prev}
 
-    Bug réel corrigé le 21 septembre 2026 (retour utilisateur : "Hier"
-    affichait 1,97 $ le matin puis 2,52 $ quelques heures plus tard, pour
-    un jour censé être clos) : l'ancienne version comparait le relevé
-    d'AUJOURD'HUI (`dates_sorted[-1]`) à celui de la veille — donc "Hier"
-    suivait en réalité la dépense du jour même à chaque nouveau run,
-    jamais figé sur le vrai coût de la veille. `today_iso` est exclu
-    explicitement pour ne jamais retomber dans ce piège, quel que soit le
-    nombre de fois où le script tourne le même jour.
 
-    Jamais supposé être exactement le jour précédent si un run a été
-    raté (cron en échec) : c'est l'écart entre les deux derniers relevés
-    clos DISPONIBLES, quelle que soit la date exacte."""
-    past = sorted((h for h in history if h["date"] != today_iso), key=lambda h: h["date"])
+def compute_cost_today(history, today_iso):
+    """Coût d'aujourd'hui = écart entre aujourd'hui et hier dans l'historique.
+    Même logique que compute_cost_yesterday pour assurer la cohérence :
+    jamais usage_daily de l'API qui grossit au fil de la journée et reste
+    incomplet jusqu'à minuit. Utilise l'historique qui contient les snapshots
+    quotidiens, même si aujourd'hui n'est pas encore clos — c'est la valeur
+    la plus fiable à ce stade.
+
+    Bug corrigé le 24 septembre 2026 (retour utilisateur : "Aujourd'hui"
+    affichait 1,51 $ alors que le coût réel du jour était 0.03 $, et 1,51
+    était en fait le coût d'hier) : l'ancienne version utilisait usage_daily
+    de l'API OpenRouter, qui change en temps réel et n'est jamais comparable
+    à "hier" (journée close) ou aux autres jours. Passer à l'historique
+    pour les deux rend la comparaison cohérente."""
+    past = sorted((h for h in history if h["date"] <= today_iso), key=lambda h: h["date"])
     if len(past) < 2:
         return None
-    d_prev, d_before = past[-1]["date"], past[-2]["date"]
-    return {"value": past[-1]["total_usage"] - past[-2]["total_usage"], "date": d_prev, "since": d_before}
+    # past[-1] est aujourd'hui (avec son total_usage courant),
+    # past[-2] est hier — la différence est le coût d'aujourd'hui.
+    return {"value": past[-1]["total_usage"] - past[-2]["total_usage"], "date": past[-1]["date"], "since": past[-2]["date"]}
 
 
 
@@ -579,7 +590,7 @@ def update_le_projet(cumulative, x_labels, y_max, kpis, end_date):
     LE_PROJET.write_text(html, encoding="utf-8")
 
 
-def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_later, priority_line, autonomy_rows, current_monday, openrouter=None, cost_yesterday=None):
+def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_later, priority_line, autonomy_rows, current_monday, openrouter=None, cost_yesterday=None, cost_today=None):
     html = DASHBOARD.read_text(encoding="utf-8")
 
     html = re.sub(
@@ -677,7 +688,7 @@ def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_la
     ))
 
     replacements.append((r'(<strong class="cost-today">)[^<]+(</strong>)',
-                          rf"\g<1>{fmt_usd((openrouter or {}).get('usage_daily'))}\g<2>"))
+                          rf"\g<1>{fmt_usd(cost_today['value'] if cost_today else None)}\g<2>"))
     replacements.append((r'(<strong class="cost-yesterday">)[^<]+(</strong>)',
                           rf"\g<1>{fmt_usd(cost_yesterday['value'] if cost_yesterday else None)}\g<2>"))
     replacements.append((r'(<strong class="cost-week">)[^<]+(</strong>)',
@@ -877,9 +888,11 @@ def main():
     # dashboard, qui fonctionnait très bien avant cet ajout.
     openrouter = fetch_openrouter_cost(os.environ.get("OPENROUTER_API_KEY"))
     cost_yesterday = None
+    cost_today = None
     if openrouter and not args.dry_run:
         history = update_openrouter_history(end_date.isoformat(), openrouter["total_usage"])
-        cost_yesterday = compute_cost_yesterday(history, end_date.isoformat())
+        cost_yesterday = compute_cost_yesterday(history)
+        cost_today = compute_cost_today(history, end_date.isoformat())
     elif openrouter:
         print(f"Coût OpenRouter cumulé : {openrouter['total_usage']:.2f} $ "
               f"(solde restant : {openrouter['total_credits'] - openrouter['total_usage']:.2f} $).")
@@ -889,7 +902,7 @@ def main():
         return 0
 
     update_le_projet(cumulative, x_labels, y_max, kpis, end_date)
-    update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_later, priority_line, autonomy_rows, current_monday, openrouter, cost_yesterday)
+    update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_later, priority_line, autonomy_rows, current_monday, openrouter, cost_yesterday, cost_today)
     check_js_syntax(LE_PROJET)
     check_js_syntax(DASHBOARD)
 
