@@ -454,6 +454,53 @@ déjà validé reste la même source pour les deux). Prochaine étape :
 implémentation technique (scripts de collecte + prompt narrative + gabarit
 enrichi), pas encore commencée.
 
+### Itérations sur le prototype (25 septembre, même session) — v1 à v3
+
+Trois allers-retours sur `docs/mockups/cahier-scenario-2026-Q3-tech-numerique.html` :
+- **v1** : 9 gabarits manquants ajoutés (sommaire, sas d'entrée, frise,
+  glossaire, dossiers condensés à 1 planche, France, bilan, consolidation,
+  suivi, clôture). Retour : « bof, la plupart des pages sont à moitié
+  vides » — la frise chronologique jugée inutile (doublon de l'agenda de
+  couverture) — demande de remettre l'article en entier plutôt que condensé.
+- **v2** : dossiers reconstruits à partir du texte intégral réel (intro,
+  indicateurs, scénarios complets + indicateur touchés + paragraphe France
+  déjà écrit), frise supprimée, glossaire reconstruit avec les vrais termes
+  des lexiques d'articles. 19 planches. Retour : mieux, mais « très
+  linéaire » — demande d'un visuel (image, graphique) pour casser la
+  lecture.
+- **v3** : photo Pexels réelle ajoutée pour les 3 dossiers qui n'en avaient
+  pas (sélection humaine sur candidats téléchargés via
+  `scripts/social/fetch_topic_image.py`, mots-clés thématiques), + un
+  graphique d'aperçu des 3 scénarios inséré au milieu du texte d'intro.
+  Restructuré en page d'ouverture + page de continuation pour éviter un
+  débordement A4 (jusqu'à 421px de dépassement mesuré via Playwright avant
+  correction — 0 débordement sur les 24 planches après). 24 planches au
+  total.
+
+**Retour du 25 septembre sur la v3 — à traiter à la prochaine itération,
+PAS traité dans cette session (« refait pas, prends mon feedback ») :**
+
+1. **« Comprendre en deux minutes » doit être un vrai executive summary
+   avec une grosse phase de contexte** — revenir aux bases (« l'IA c'est
+   quoi ») façon « pour les nuls », et **ce traitement doit être identique
+   à chaque numéro**, quel que soit le domaine en fil rouge — pas
+   spécifique au sujet du trimestre en cours.
+2. **Le glossaire est en trop en l'état** — à réduire, et le traitement
+   visuel actuel (deux colonnes denses) ressemble trop à un appendice
+   technique. Piste évoquée : une présentation plus grande/agréable à
+   lire, et/ou le déplacer en fin de cahier plutôt qu'en position
+   actuelle (avant les dossiers).
+3. **Les dossiers doivent revenir sur une seule page chacun** — revient
+   sur l'étalement en 2-4 pages fait en v2/v3. Point de tension à
+   clarifier à la reprise : ceci semble en partie contredire la demande v1
+   « remettre l'article en entier » et la demande v2 « casser la lecture
+   linéaire avec image/graphique » — probablement à résoudre en gardant
+   la photo + le graphique d'aperçu, mais en condensant le texte pour
+   tenir sur une seule planche dense plutôt que sur plusieurs pages de
+   texte intégral. À valider avec l'utilisateur avant de coder.
+4. **Point non complété par l'utilisateur** — message coupé après « 4 »,
+   sans contenu. À relancer à la reprise de la conversation.
+
 ## À éviter
 
 - Lancer un objet payant avant d'avoir testé gratuitement la demande.
