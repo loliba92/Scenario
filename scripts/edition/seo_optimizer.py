@@ -252,7 +252,7 @@ def generate_seo_metadata(
     les métadonnées SEO optimisées.
 
     Args:
-        brief: Dictionnaire du brief (issu de la rédaction)
+        brief: Dictionnaire du brief (structure editorial standard de generate_daily_edition.py)
         domain: Catégorie (sciences, politique, etc.)
 
     Returns:
@@ -264,13 +264,29 @@ def generate_seo_metadata(
             "breadcrumb_json": str,
         }
     """
-    h1 = brief.get("title", "")
-    question = brief.get("question", "")
-    section_title = brief.get("section_title", "")
+    # Adapter à la structure réelle du brief de generate_daily_edition.py
+    sujet = brief.get("sujet", {})
+    h1 = sujet.get("h1", "")
+    question = sujet.get("question_posee", "")
     date_str = brief.get("date", "")
 
+    # section_title n'existe pas dans le brief — utiliser h1 comme fallback
+    section_title = h1
+
     # Récupérer un snippet du contenu pour extraction de termes
-    content = brief.get("context", "") + " " + brief.get("facts", "")
+    # Dans la structure editorial, c'est dans faits_verifies et sources
+    faits = brief.get("faits_verifies", [])
+    sources = brief.get("sources", [])
+
+    content_parts = [h1, question]
+    for fait in faits:
+        if isinstance(fait, dict) and fait.get("fait"):
+            content_parts.append(fait.get("fait", ""))
+    for source in sources:
+        if isinstance(source, dict):
+            content_parts.append(source.get("summary", ""))
+
+    content = " ".join(content_parts)
 
     # Générer chaque composant
     title = generate_seo_title(h1, domain, [])
