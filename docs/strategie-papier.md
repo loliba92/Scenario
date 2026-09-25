@@ -501,6 +501,31 @@ PAS traité dans cette session (« refait pas, prends mon feedback ») :**
 4. **Point non complété par l'utilisateur** — message coupé après « 4 »,
    sans contenu. À relancer à la reprise de la conversation.
 
+## Positionnement de marque — « Scénario Magazine » (retour du 25 septembre)
+
+**Question posée** : donner une dimension plus grande à Scénario en
+faisant évoluer le site/la marque vers « Scénario Magazine ».
+
+**Avis retenu, validé par l'utilisateur** : rebranding en douceur, pas un
+renommage complet du site. **« Scénario » reste le nom principal** (2 mois
+d'existence, référencement déjà construit, ne pas perdre cet acquis) ;
+**« Scénario Magazine » devient la sous-marque de la déclinaison
+éditoriale plus large**, qui inclut naturellement les Cahiers de Scénario
+trimestriels — plutôt que de traiter le papier comme une extension isolée
+d'un site qui ne s'appelle pas magazine.
+
+**Point de vigilance déjà soulevé** : le mot « magazine » évoque du
+contenu rétrospectif/figé, alors que le vrai différenciateur de Scénario
+est le mécanisme *vivant* de réévaluation (le suivi, cf. l'intro de ce
+document). Le rebranding doit mettre ce mécanisme encore plus en avant,
+pas le diluer derrière une identité magazine plus classique.
+
+**Pas encore tranché** : le périmètre concret de « Scénario Magazine » —
+est-ce le nouveau nom du produit Cahiers trimestriels lui-même, ou une
+identité parallèle plus large (qui engloberait aussi, par exemple, le
+hebdo) ? À clarifier avant toute déclinaison visuelle (logo, charte
+spécifique) ou changement technique sur le site.
+
 ## À éviter
 
 - Lancer un objet payant avant d'avoir testé gratuitement la demande.
