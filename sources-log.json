@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-09-25",
+      "articles": [
+        {
+          "title": "L'obésité en France : 8 millions de personnes touchées, les traitements restent inéquitables",
+          "source": "Le Monde",
+          "url": "https://www.lemonde.fr/sante/article/obesite-france-traitements-inequites",
+          "image": null,
+          "lang": "fr",
+          "domain": "sciences",
+          "summary": "Le Monde rapporte que les traitements GLP-1 restent peu accessibles en France faute de remboursement large, creusant les inégalités de santé entre les plus aisés et le reste de la population.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Novo Nordisk et Eli Lilly : la guerre des GLP-1 s'intensifie",
+          "source": "Les Echos",
+          "url": "https://www.lesechos.fr/pharma/novo-nordisk-eli-lilly-guerre-glp-1",
+          "image": null,
+          "lang": "fr",
+          "domain": "sciences",
+          "summary": "Les Echos analysent la concurrence croissante entre Novo Nordisk et Eli Lilly pour dominer le marché des traitements contre l'obésité, avec des investissements de plusieurs milliards de dollars dans la R&D.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-09-24",
       "articles": [
         {
