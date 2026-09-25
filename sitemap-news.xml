@@ -11,4 +11,15 @@
       <news:title>Global Economy: ECB and Fed Face the Oil Shock</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-09-25.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-09-25T06:01:24+02:00</news:publication_date><news:title>Ozempic, Wegovy : révolution médicale ou remède pour les riches ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-09-25.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-09-25T06:01:24+02:00</news:publication_date><news:title>Ozempic, Wegovy : révolution médicale ou remède pour les riches ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-09-25.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-25T06:01:24+02:00</news:publication_date>
+      <news:title>Ozempic, Wegovy: Medical revolution or remedy for the wealthy?</news:title>
+    </news:news>
+  </url>
+</urlset>
