@@ -152,16 +152,16 @@ def update_openrouter_history(today_iso, total_usage):
 
 
 def compute_cost_yesterday(history):
-    """Coût de la veille = écart entre les deux derniers relevés
-    disponibles — jamais supposé être exactement le jour précédent si un
-    run a été raté (cron en échec) : c'est le coût depuis le relevé
-    précédent DISPONIBLE, quelle que soit la date exacte."""
-    if len(history) < 2:
+    """Coût de la veille = écart entre les deux relevés précédents
+    (pas les deux derniers). Jamais supposé être exactement le jour
+    précédent si un run a été raté (cron en échec) : c'est le coût
+    depuis le relevé précédent DISPONIBLE, quelle que soit la date exacte."""
+    if len(history) < 3:
         return None
     dates_sorted = sorted(h["date"] for h in history)
     by_date = {h["date"]: h["total_usage"] for h in history}
-    d_now, d_prev = dates_sorted[-1], dates_sorted[-2]
-    return {"value": by_date[d_now] - by_date[d_prev], "date": d_now, "since": d_prev}
+    d_yesterday, d_before = dates_sorted[-2], dates_sorted[-3]
+    return {"value": by_date[d_yesterday] - by_date[d_before], "date": d_yesterday, "since": d_before}
 
 
 def compute_cost_today(history, today_iso):
