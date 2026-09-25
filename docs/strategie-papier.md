@@ -358,6 +358,102 @@ redécouvrir les mêmes pièges au prochain numéro.
   (ce chiffre ne vaut que pour la fourchette ~40 pages évoquée en Phase 3) —
   noté ici comme ordre de grandeur, pas comme devis final.
 
+## Implémentation automatisée + structure éditoriale du numéro — retour du 25 septembre 2026
+
+**Contexte** : le classement par « registre » utilisé plus haut (25 août) a été
+remplacé le 9 septembre par un système de **6 domaines thématiques fermés**
+(`docs/tags.md`) — `economie-entreprises`, `politique-institutions`,
+`international`, `sciences-environnement`, `tech-numerique`,
+`culture-divertissement`. Le « registre en fil rouge » du trimestre devient
+donc un **domaine** parmi ces 6.
+
+### Choix d'implémentation : GitHub Actions + OpenRouter (modèle économique)
+
+Cohérent avec le reste du pipeline éditorial (`edition.yml`, `hebdo.yml`,
+`pub.yml`) : automatisation via workflow GitHub, appel à OpenRouter avec un
+modèle peu coûteux plutôt que Sonnet. Le point d'entrée reste **humain** :
+un déclenchement manuel (`workflow_dispatch`) où l'humain choisit le domaine
+fil rouge du trimestre — l'automatisation prend le relais seulement après ce
+choix, jamais pour décider elle-même du thème.
+
+Répartition des rôles :
+- **Collecte** (Python déterministe, pas de modèle) : lit `archives.html` et
+  les pages `archives/AAAA-MM-JJ.html` du domaine choisi sur la période —
+  aucune invention, uniquement du contenu déjà publié et validé.
+- **Narrative** (OpenRouter, modèle économique) : reçoit des résumés
+  structurés (jamais le texte intégral) et produit l'ordre narratif des
+  dossiers, l'accroche de couverture, le tri dossier complet/consolidation —
+  ne réécrit jamais le texte original, seulement la structure de liaison
+  (cohérent avec la règle déjà actée : ne pas retoucher le texte validé).
+- **Adaptation gabarit** : coupe chaque article pour tenir en page, règle
+  Huawei déjà actée (rendre les phrases autonomes après coupe) + relecture
+  de cohérence globale.
+
+### Problème de volume soulevé le 25 septembre
+
+Avec 64 éditions publiées à cette date, le domaine le mieux couvert
+(`politique-institutions`, `culture-divertissement`) compte 13 articles, le
+moins couvert (`tech-numerique`) seulement 4. Format cible réaffirmé ce
+jour : **30 à 50 pages**, pas un simple fascicule. Avec 4 sujets dans le fil
+rouge, le format « 1 planche A4 par sujet » du mockup du 25 août ne suffit
+plus à remplir ce volume — **sans jamais gonfler artificiellement le nombre
+de dossiers** (règle déjà actée : afficher franchement le volume réel).
+
+**Résolution retenue** : deux leviers honnêtes plutôt qu'un remplissage
+inventé —
+1. **Chaque dossier du fil rouge est développé sur 3-4 pages** (au lieu
+   d'une planche) : chronologie du sujet sur le trimestre, contexte
+   approfondi, les 3 scénarios détaillés avec sources, mise à jour/suivi si
+   réévalué.
+2. **La consolidation des 5 autres domaines devient une vraie section**
+   (au lieu de 1-2 pages token) : une page de synthèse par domaine avec les
+   2-3 sujets marquants résumés.
+
+### Structure de lecture retenue (vision lecteur, pas juste assemblage technique)
+
+Discussion du 25 septembre partie d'une question simple : qu'attendrait un
+lecteur (lycéen/prof) qui ouvre ce cahier sans avoir suivi les éditions au
+fil de l'eau ? Structure retenue, dans l'ordre :
+
+1. **Couverture** (mockup du 25 août, inchangé)
+2. **Édito/sommaire**
+3. **Sas d'entrée thématique** — pourquoi ce sujet compte ce trimestre, les
+   acteurs qu'on va croiser dans les dossiers, les questions qui reviennent.
+   Sans ça, plonger directement dans le premier dossier chronologique perd
+   un lecteur qui n'a pas le contexte général.
+4. **Frise chronologique** — repère visuel des dates clés du trimestre sur
+   le sujet, pour une lecture rapide en feuilletant avant la lecture
+   complète.
+5. **Glossaire** — placé ici (avant les dossiers, pas en appendice final)
+   pour servir d'outil pendant la lecture, et pouvoir être distribué à part
+   par un enseignant.
+6. **Les dossiers du fil rouge**, développés (voir ci-dessus).
+7. **« Et nous, en France ? »** — section dédiée à l'impact France des
+   *seuls* dossiers du fil rouge (pas des 57 autres articles du trimestre,
+   pour rester lisible — décidé le 25 septembre). Réutilise l'échelle
+   Impact France déjà calculée par article (`data-france` /
+   `france-scale`, voir `archives.html`), jamais une donnée inventée pour
+   l'occasion. Répond à une tension déjà identifiée : Scénario couvre
+   l'actualité mondiale, mais le lectorat cible a besoin qu'on referme
+   systématiquement la boucle sur « en quoi ça me concerne, concrètement ».
+8. **Bilan chiffré** — à deux niveaux : chiffres qui parlent du sujet
+   lui-même (marché, dates clés) et chiffres de couverture Scénario
+   (répartition des scénarios, impact France agrégé).
+9. **Consolidation des 5 autres domaines** (voir levier 2 ci-dessus).
+10. **Suivi/révisions** — les sujets réévalués depuis leur publication
+    d'origine (boucle la promesse de suivi, cohérent avec la logique déjà
+    actée pour les sujets encore ouverts en fin de trimestre).
+11. **Clôture** — renvoi explicite vers le site/la newsletter pour suivre le
+    sujet en continu, cohérent avec la règle déjà actée : le papier doit
+    toujours renvoyer vers le numérique, jamais figer une probabilité sans
+    lien vers la réévaluation.
+
+**Non tranché à ce stade** : format de sortie exact du premier numéro (PDF
+dans un premier temps, cible déclarée = objet papier — le HTML/gabarit A4
+déjà validé reste la même source pour les deux). Prochaine étape :
+implémentation technique (scripts de collecte + prompt narrative + gabarit
+enrichi), pas encore commencée.
+
 ## À éviter
 
 - Lancer un objet payant avant d'avoir testé gratuitement la demande.
