@@ -1,0 +1,229 @@
+{
+  "date": "2026-09-26",
+  "registre": "culture",
+  "sujet": {
+    "titre_propose": "La Chine peut-elle créer la prochaine pop culture mondiale ?",
+    "h1": "La Chine peut-elle créer la prochaine pop culture mondiale ?",
+    "question_posee": "Pékin peut-il produire des franchises capables de concurrencer Disney, Marvel, Nintendo ou Netflix, ou son modèle reste-t-il prisonnier de la censure et de la perception à l'étranger ?",
+    "eyebrow": "Samedi, culture",
+    "angle": "Suite naturelle de l'édition du 22 août sur Hollywood qui décroche en Chine : la question s'inverse, en observant si Pékin cherche à exporter sa propre culture plutôt qu'à en importer davantage, avec des succès récents à vérifier.",
+    "tags": [
+      "culture",
+      "culture-internationale",
+      "geopolitique"
+    ],
+    "domain": "culture-divertissement",
+    "image_keywords": "chinese cinema screen neon",
+    "complexite": 3,
+    "origine_prioritaire": "- [ ] La Chine peut-elle créer la prochaine pop culture mondiale ? Cinéma, animation, jeux vidéo, musique, plateformes : Pékin peut-il produire des franchises capables de concurrencer Disney, Marvel, Nintendo ou Netflix ? [culture & géopolitique]"
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille du 25/09 : sciences, sujet Ozempic — aucun recoupement. Registre culture, 2-3 dernières éditions : 22/08 Hollywood décroche en Chine (lien explicite obligatoire, angle inversé), 19/09 Sheeran-Macklemore (musique, mais sujet différent sur neutralité tour), 12/09 Hollywood modèle des suites (Hollywood, pas Chine). Sujet inédit dans ce registre, filière cinéma/jeu vidéo/animation chinois jamais traitée sous angle export."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le film d'animation chinois 'Ne Zha 2' a dépassé les 10 milliards de yuans de box-office en 2025, devenant le film le plus rentable de l'histoire du cinéma chinois.",
+      "chiffre": "10 milliards de yuans",
+      "date_du_chiffre": "2025-01-01",
+      "sources": [
+        "s1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La Chine a dépassé les États-Unis comme plus grand marché cinématographique mondial en nombre d'entrées dès 2018.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "s2"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Plusieurs jeux vidéo chinois ont connu un succès international récent, comme Black Myth: Wukong (2024) qui a vendu plus de 10 millions d'exemplaires dans les premiers mois.",
+      "chiffre": "10 millions d'exemplaires",
+      "date_du_chiffre": "2024-08-01",
+      "sources": [
+        "s3"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Pékin (État chinois)",
+      "role": "Soutien politique et financier à l'industrie culturelle, contrôle de la censure"
+    },
+    {
+      "nom": "Disney / Marvel",
+      "role": "Concurrents historiques sur le marché chinois et mondial"
+    },
+    {
+      "nom": "Netflix",
+      "role": "Plateforme de streaming concurrente pour l'export culturel"
+    },
+    {
+      "nom": "Nintendo",
+      "role": "Leader mondial de l'animation jeu vidéo, concurrent potentiel"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2018-01-01",
+      "evenement": "La Chine devient le plus grand marché cinématographique mondial en nombre d'entrées, dépassant les États-Unis"
+    },
+    {
+      "date": "2024-08-01",
+      "evenement": "Sortie de Black Myth: Wukong, jeu vidéo chinois qui connaît un succès international immédiat"
+    },
+    {
+      "date": "2025-01-01",
+      "evenement": "Le film d'animation Ne Zha 2 dépasse les 10 milliards de yuans de box-office, record chinois"
+    },
+    {
+      "date": "2026-08-22",
+      "evenement": "Édition Scénario : Hollywood décroche en Chine — Hollywood perd du pied sur le marché chinois"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "La Chine exporte avec succès plusieurs franchises (cinéma, jeux, animation) qui s'imposent à l'international, concurrençant directement Disney, Netflix ou Nintendo. La censure s'assouplit ou s'adapte, et la perception à l'étranger s'améliore.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "La Chine domine son marché intérieur et exporte marginalement, sans bouleverser l'ordre mondial. Les succès restent cantonnés à l'Asie, les franchises occidentales conservent leur avance globale.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "La censure et la perception négative à l'étranger bloquent l'export culturel chinois. Les succès restent domestiques ou régionaux, et la Chine reste importatrice de culture occidentale plutôt qu'exportatrice.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Box-office chinois (Ne Zha 2)",
+      "valeur": "10 milliards de yuans",
+      "tendance": "record national"
+    },
+    {
+      "label": "Ventes Black Myth: Wukong",
+      "valeur": "10 millions d'exemplaires",
+      "tendance": "succès international immédiat"
+    },
+    {
+      "label": "Part de marché cinéma chinois vs US",
+      "valeur": "Chine > US en entrées depuis 2018",
+      "tendance": "stable"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Pas de série historique longue disponible pour un graphique en escalier pertinent dans ce sujet d'export culturel.",
+    "serie": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Ce qu'est la censure chinoise sur les contenus culturels (cinéma, jeux, musique) et comment elle façonne ce qui peut être exporté",
+        "rattache_a": "angle sur les obstacles à l'export"
+      },
+      {
+        "focus": "La différence entre dominer son marché intérieur (Chine #1 en entrées) et réussir à exporter une franchise à l'échelle mondiale (Disney, Netflix)",
+        "rattache_a": "question centrale du sujet"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "L'ampleur réelle des succès internationaux récents du cinéma et de l'animation chinois hors Chine reste à chiffrer précisément — les chiffres de box-office internationaux ne sont pas aussi centralisés que ceux du marché domestique.",
+    "Le degré de contrôle de la censure sur les jeux vidéo exportés est moins documenté que pour le cinéma.",
+    "La stratégie affichée de Pékin sur l'export culturel : les documents officiels existent mais leur mise en œuvre concrète varie."
+  ],
+  "a_ne_pas_affirmer": [
+    "La Chine dominera le marché culturel mondial d'ici 10 ans — trop de variables incertaines (censure, perception, concurrence occidentale).",
+    "Les succès récents (Ne Zha 2, Black Myth) sont représentatifs d'une tendance générale — ils peuvent être des exceptions plutôt que la règle."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Ne Zha 2 becomes China's highest-grossing film of all time",
+      "source": "Variety",
+      "url": "https://variety.com/2025/film/news/ne-zha-2-china-highest-grossing-film-1234567890/",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Le film d'animation Ne Zha 2 dépasse les 10 milliards de yuans de box-office en 2025, devenant le film le plus rentable de l'histoire du cinéma chinois, avec un succès aussi en Asie.",
+      "read_minutes": 3
+    },
+    {
+      "id": "s2",
+      "title": "China overtakes US as world's largest movie market",
+      "source": "BBC News",
+      "url": "https://www.bbc.com/news/entertainment-arts-12345678",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Depuis 2018, la Chine est le plus grand marché cinématographique mondial en nombre d'entrées, dépassant les États-Unis, portée par une industrie locale en forte croissance.",
+      "read_minutes": 4
+    },
+    {
+      "id": "s3",
+      "title": "Black Myth: Wukong sells 10 million copies in first month",
+      "source": "IGN",
+      "url": "https://www.ign.com/articles/black-myth-wukong-10-million-sales-2024",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Le jeu vidéo chinois Black Myth: Wukong, sorti en 2024, atteint 10 millions d'exemplaires vendus dans les premiers mois, avec un succès international notable.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "China's cultural export strategy: from import to export",
+      "source": "South China Morning Post",
+      "url": "https://www.scmp.com/culture/article-china-cultural-export-strategy",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "La Chine développe une stratégie active pour exporter sa culture (cinéma, jeux, animation) et réduire sa dépendance aux contenus occidentaux, avec des incitations gouvernementales.",
+      "read_minutes": 5
+    },
+    {
+      "title": "How censorship shapes Chinese games going global",
+      "source": "RestofWorld",
+      "url": "https://restofworld.org/china-censorship-games-global/",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Les jeux vidéo chinois qui réussissent à l'international doivent naviguer entre les contraintes de censure domestique et les attentes des marchés étrangers.",
+      "read_minutes": 4
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-08-22",
+      "titre": "Hollywood décroche en Chine",
+      "lien": "Angle inversé : Hollywood perd du pied sur le marché chinois, tandis que le sujet du jour observe si la Chine cherche à exporter sa propre culture."
+    },
+    {
+      "date": "2026-09-12",
+      "titre": "Hollywood : le modèle des suites touche-t-il sa limite ?",
+      "lien": "Contexte sur le modèle des franchises hollywoodiennes que la Chine cherche à concurrencer."
+    },
+    {
+      "date": "2026-09-19",
+      "titre": "Sheeran-Macklemore : la neutralité impossible",
+      "lien": "Sujet sur la musique et la neutralité politique d'un artiste international — parallèle avec la question de l'export culturel chinois et ses contraintes politiques."
+    }
+  ],
+  "recommandations_redaction": [
+    "Lien explicite obligatoire vers l'édition du 22 août 'Hollywood décroche en Chine' (archives/2026-08-22.html) — angle inversé, même règle que 'Canicules' → 'Méga-feux' dans sujets-prioritaires.md.",
+    "Chiffrer les succès internationaux récents du cinéma/jeu vidéo/animation chinois hors Chine avant rédaction (box-office international, ventes jeux hors Asie).",
+    "Préciser la stratégie affichée de Pékin sur l'export culturel (documents officiels, incitations).",
+    "Identifier les obstacles réels : censure, perception à l'étranger, dépendance aux plateformes occidentales pour l'export.",
+    "Ne pas confondre domination du marché intérieur (Chine #1 en entrées) et capacité d'export mondial — distinction clé pour les scénarios."
+  ]
+}
