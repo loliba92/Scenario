@@ -437,6 +437,37 @@ référence tournent plutôt entre 126 et 142 mots). Chaque point doit porter
 un chiffre ou un fait concret précis, jamais une phrase générique
 raccourcie pour aller vite.
 
+### Clarté éditoriale : Probabilités et scénarios
+
+Quand tu mentions un pourcentage de probabilité dans `essentiel_box`, `dek` ou
+ailleurs, clarifie toujours immédiatement son contexte dans la même phrase ou
+la phrase suivante — le lecteur doit comprendre d'emblée d'où vient ce chiffre.
+
+**Exemple de reformulation mal claire → bien claire :**
+- ❌ Mauvais : « Avec 50 % de probabilité, ces médicaments resteront réservés aux
+  riches. »
+  - Problème : le lecteur ne sait pas d'où vient ce 50 % — une prédiction certaine ?
+    Une fourchette ? Un jugement de l'auteur ?
+- ✅ Bon : « Notre scénario le plus probable (50 %) voit ces médicaments rester
+  réservés aux riches. »
+  - Amélioration : explique que c'est une évaluation de la rédaction, pas une
+    certitude.
+- ✅ Meilleur : « Le scénario le plus probable (50 %) voit ces médicaments rester
+  réservés — deux autres scénarios : baisse de prix (25 %), accès universel (25 %). »
+  - Amélioration maximale : cite les autres scénarios pour donner du contexte et
+    montrer qu'il y a de l'incertitude.
+
+**Règles concrètes :**
+1. Ne jamais dire juste « 50 % » sans contextualiser immédiatement.
+2. Précise toujours que c'est une évaluation scénaristique : « notre scénario », « le
+   scénario le plus probable », « nous évaluons », jamais une prédiction certaine.
+3. Quand c'est possible dans l'espace de rédaction, mentionne aussi les autres
+   scénarios (les deux autres) pour montrer qu'il existe une alternative et de
+   l'incertitude, jamais une seule voie inévitable.
+
+Ceci s'applique partout : `essentiel_box` (point 3), `dek`, `why`, jamais seulement
+dans un endroit — cohérence tout du long.
+
 ### `delta_france`
 ```json
 {"kind": "positif|negatif", "score": -0.6, "word": "assez négatif", "text": "phrase expliquant pourquoi, citant les probabilités clés — jamais de deuxième phrase"}

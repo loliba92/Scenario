@@ -166,32 +166,51 @@ def build_head_dynamic(content, brief, date_str, canonical_url, photo=None):
     domain = brief["sujet"]["domain"]
     section_name = domain.replace("-", " ").title()
     en_canonical_url = canonical_url.replace("/archives/", "/en/archives/")
-    ld_json = (
-        "{\n"
-        '  "@context": "https://schema.org",\n'
-        '  "@type": "NewsArticle",\n'
-        f'  "mainEntityOfPage": {{ "@type": "WebPage", "@id": "{canonical_url}" }},\n'
-        f'  "headline": {content["h1"]!r},\n'
-        f'  "description": {description!r},\n'
-        f'  "image": ["{og_image}"],\n'
-        f'  "datePublished": "{published}",\n'
-        f'  "dateModified": "{published}",\n'
-        '  "inLanguage": "fr-FR",\n'
-        '  "author": { "@type": "Person", "name": "Olivier Bertrand", "url": "https://www.facebook.com/share/1LuiQ1cAmt/" },\n'
-        '  "publisher": {\n'
-        '    "@type": "Organization",\n'
-        '    "name": "Scénario",\n'
-        '    "logo": { "@type": "ImageObject", "url": "https://lesscenarios.fr/assets/logo-512.png", "width": 512, "height": 512 }\n'
-        "  }\n"
-        "}"
-    ).replace("'", "&#39;")
+
+    # Utiliser le JSON-LD optimisé généré par seo_optimizer si disponible,
+    # sinon générer le JSON-LD de base (comportement historique Phase 1)
+    if "seo_newsarticle_json" in meta:
+        ld_json = meta["seo_newsarticle_json"]
+    else:
+        # Fallback : génération manuelle (ancien comportement)
+        ld_json = (
+            "{\n"
+            '  "@context": "https://schema.org",\n'
+            '  "@type": "NewsArticle",\n'
+            f'  "mainEntityOfPage": {{ "@type": "WebPage", "@id": "{canonical_url}" }},\n'
+            f'  "headline": {content["h1"]!r},\n'
+            f'  "description": {description!r},\n'
+            f'  "image": ["{og_image}"],\n'
+            f'  "datePublished": "{published}",\n'
+            f'  "dateModified": "{published}",\n'
+            '  "inLanguage": "fr-FR",\n'
+            '  "author": { "@type": "Person", "name": "Olivier Bertrand", "url": "https://www.facebook.com/share/1LuiQ1cAmt/" },\n'
+            '  "publisher": {\n'
+            '    "@type": "Organization",\n'
+            '    "name": "Scénario",\n'
+            '    "logo": { "@type": "ImageObject", "url": "https://lesscenarios.fr/assets/logo-512.png", "width": 512, "height": 512 }\n'
+            "  }\n"
+            "}"
+        ).replace("'", "&#39;")
+
+    # Keywords meta tag (si disponible depuis seo_optimizer)
+    keywords_meta = ""
+    if "keywords" in meta and meta["keywords"]:
+        keywords_str = ", ".join(meta["keywords"]) if isinstance(meta["keywords"], list) else meta["keywords"]
+        keywords_meta = f'<meta name="keywords" content="{keywords_str}">\n'
+
+    # BreadcrumbList JSON-LD (si disponible depuis seo_optimizer)
+    breadcrumb_script = ""
+    if "seo_breadcrumb_json" in meta:
+        breadcrumb_script = f'<script type="application/ld+json">\n{meta["seo_breadcrumb_json"]}\n</script>\n'
+
     return f"""<title>{title}</title>
 <link rel="canonical" href="{canonical_url}">
 <link rel="alternate" hreflang="fr" href="{canonical_url}">
 <link rel="alternate" hreflang="en" href="{en_canonical_url}">
 <link rel="alternate" hreflang="x-default" href="{canonical_url}">
 <meta name="description" content="{description}">
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+{keywords_meta}<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="language" content="fr-FR">
 <meta name="color-scheme" content="dark">
 <meta property="og:type" content="article">
@@ -217,7 +236,8 @@ def build_head_dynamic(content, brief, date_str, canonical_url, photo=None):
 <meta name="twitter:image" content="{og_image}">
 <script type="application/ld+json">
 {ld_json}
-</script>"""
+</script>
+{breadcrumb_script}"""
 
 
 def build_masthead(masthead_shell_html, date_str, edition_number):

@@ -38,6 +38,7 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 
 import build_html
+from seo_optimizer import generate_seo_metadata
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
@@ -1393,6 +1394,34 @@ def main():
             errors = []
         else:
             raise GenerationError(f"validation du contenu échouée après {1 + MAX_RETRIES} essai(s), rien n'est produit")
+
+    # Génération des métadonnées SEO optimisées (Phase 1 automatisation)
+    # Appelé après validation du contenu, avant build_html.assemble_index_html()
+    domain = brief.get("sujet", {}).get("domain", "sciences")
+    try:
+        seo_data = generate_seo_metadata(brief, domain)
+        # Injecter dans content["meta"] pour que build_html.py le consume
+        if "meta" not in content:
+            content["meta"] = {}
+        # Enrichir avec les métadonnées SEO (peut remplacer/compléter celles
+        # déjà générées par le modèle — l'optimisation SEO prime)
+        content["meta"].update({
+            "title": seo_data["title"],
+            "meta_description": seo_data["meta_description"],
+            "keywords": seo_data["keywords"],
+            "seo_newsarticle_json": seo_data["newsarticle_json"],
+            "seo_breadcrumb_json": seo_data["breadcrumb_json"],
+        })
+        print(
+            f"[seo] métadonnées générées — title ({len(seo_data['title'])} chars), "
+            f"description ({len(seo_data['meta_description'])} chars), "
+            f"{len(seo_data['keywords'])} keywords",
+            file=sys.stderr,
+        )
+    except Exception as e:
+        # Non-bloquant : si la génération SEO échoue, continuer avec le contenu existant
+        # (l'édition reste publiable, mais sans l'optimisation SEO)
+        print(f"[seo] ⚠ génération des métadonnées échouée : {e}", file=sys.stderr)
 
     # Tentative de récupération de l'image Pexels pour la preview
     # (non-bloquant : retombe sur image générique du gabarit si échec)
