@@ -930,6 +930,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-09-24 (archives/2026-09-24.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-09-25
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 20 %
+- message: Le semaglutide permet une réduction de 20 % des événements cardiovasculaires majeurs, mais son prix mensuel de 1 000 $ sans couverture freine son déploiement mondial.
+- attribution: — lesscenarios.fr, 25 septembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-09-25.html
+
+*Phrase à retenir de l'édition du 2026-09-25 (archives/2026-09-25.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
