@@ -89,6 +89,7 @@ from pathlib import Path
 from xml.sax.saxutils import escape as escape_xml
 
 import build_html
+import generate_seo_head
 from generate_daily_edition import estimate_word_count, load_brief
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -118,6 +119,31 @@ PARIS_TZ = timezone(timedelta(hours=2))
 
 class PostEditionError(Exception):
     pass
+
+
+# ---------------------------------------------------------------------------
+# 0. SEO Head injection — génération automatique du <head> optimisé
+# ---------------------------------------------------------------------------
+def inject_seo_head(html_text, brief):
+    """Remplace le <head> du HTML avec un nouveau head SEO optimisé.
+
+    Prend le head complet généré par generate_seo_head et le substitue
+    au head existant (y compris tous les tags per-day comme title, og:*, etc.).
+    """
+    try:
+        new_head = generate_seo_head.generate_seo_head(brief)
+    except Exception as e:
+        raise PostEditionError(f"Génération du head SEO échouée : {e}")
+
+    # Cherche <head>...</head> et le remplace. Assumption : le HTML est bien formé
+    # avec un seul <head>. BeautifulSoup ferait proprement, mais utilise un regex
+    # pour rester simple (pas d'ajout de dépendance).
+    match = re.search(r'<head>.*?</head>', html_text, re.DOTALL | re.IGNORECASE)
+    if not match:
+        raise PostEditionError("Impossible de trouver <head>...</head> dans le HTML généré")
+
+    new_html = html_text[:match.start()] + new_head + html_text[match.end():]
+    return new_html
 
 
 # ---------------------------------------------------------------------------
@@ -989,6 +1015,13 @@ def main():
     index_html_path = REPO_ROOT / "index.html"
     shell = build_html.extract_shell(index_html_path.read_text(encoding="utf-8"))
     html_text, edition_number = build_html.assemble_index_html(shell, content, brief, date_str, photo=photo)
+
+    # 2bis. SEO Head injection — remplace le <head> par un head optimisé
+    # généré déterministiquement à partir du brief (title, og:*, twitter:*,
+    # Schema.org BreadcrumbList/WebSite/NewsArticle/Organization).
+    html_text = inject_seo_head(html_text, brief)
+    print(f"[post-edition] <head> SEO optimisé injecté (title, og:*, twitter:*, Schema.org)")
+
     index_out = sandbox_root / "index.html"
     index_out.write_text(html_text, encoding="utf-8")
     archive_dir = sandbox_root / "archives"
