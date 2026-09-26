@@ -219,6 +219,22 @@ def fmt_long(d):
     return f"{d.day} {MONTHS_FULL[d.month - 1]} {d.year}"
 
 
+def parse_fmt_long(text):
+    """Inverse de fmt_long() : '18 septembre 2026' -> date(2026, 9, 18).
+    None si le texte ne matche pas ce format exact (jamais bloquant, voir
+    son seul appelant : la fraîcheur de hot-topics.yml sur le dashboard
+    reste juste non signalée plutôt que de faire échouer tout le run)."""
+    m = re.match(r"(\d{1,2}) (\w+) (\d{4})", text.strip())
+    if not m:
+        return None
+    day, month_name, year = m.groups()
+    try:
+        month = MONTHS_FULL.index(month_name) + 1
+    except ValueError:
+        return None
+    return date(int(year), month, int(day))
+
+
 def fmt_range(start_d, end_d):
     """"du {début} au {fin}" — l'année n'est jamais répétée sur la
     première date d'une plage si les deux tombent la même année (même
@@ -613,6 +629,36 @@ def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_la
         r"(Nombre de sujets en attente \(non cochés\) par section de <code>sujets-prioritaires\.md</code>, à date du )[^.]+(\.)",
         rf"\g<1>{fmt_long(end_date)}\g<2>", html, count=1,
     )
+
+    # Garde-fou de fraîcheur pour hot-topics.yml — ce workflow n'a pas de
+    # cron GitHub natif (tout passe par cron-job.org depuis le 21 septembre
+    # 2026) et audience.yml n'a aucun moyen de forcer son exécution ; s'il
+    # manque une exécution externe (config cron-job.org absente ou en panne),
+    # rien ne le signalait jusqu'ici — sujets-prioritaires.md restait
+    # silencieusement en retard, repéré le 26 septembre 2026 seulement parce
+    # qu'un sujet précis avait l'air "faux" sur le dashboard. audience.yml,
+    # lui, tourne fiablement (± toutes les 4h) : c'est donc lui qui porte ce
+    # contrôle, en lisant simplement la date déjà écrite par
+    # generate_hot_topics.py — jamais un nouvel appel réseau ni une nouvelle
+    # dépendance.
+    date_m = re.search(r"<!-- HOT-TOPICS:DATE_START -->(.*?)<!-- HOT-TOPICS:DATE_END -->", html)
+    last_hot_topics = parse_fmt_long(date_m.group(1)) if date_m else None
+    stale_html = ""
+    if last_hot_topics is not None:
+        days_late = (end_date - last_hot_topics).days
+        # Cadence attendue 2x/semaine (mardi/vendredi) : 10 jours = plus
+        # d'une semaine et demie sans passage, largement au-delà d'un simple
+        # jour férié ou d'un aléa ponctuel.
+        if days_late > 10:
+            stale_html = (
+                f' <strong style="color:var(--degrade)">⚠️ {days_late} jours sans passage — '
+                f"vérifier que la tâche cron-job.org pour ce workflow existe toujours</strong>"
+            )
+    html = re.sub(
+        r"(<!-- HOT-TOPICS:STALE_START -->).*?(<!-- HOT-TOPICS:STALE_END -->)",
+        rf"\g<1>{stale_html}\g<2>", html, count=1, flags=re.S,
+    )
+
     html = html.replace(
         "Régénéré chaque semaine par la routine « Scénario — Audience », comme le reste du dashboard.",
         "Régénéré chaque jour par un GitHub Action, comme le reste du dashboard.",
