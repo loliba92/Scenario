@@ -740,6 +740,24 @@ def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_la
         r"(var totalEditions = )\d+(;)",
         rf"\g<1>{total_editions}\g<2>", script_text, count=1,
     )
+    # Axe Y de chaque graphique — recalculé à chaque run, jamais une valeur
+    # figée dans le HTML (incident du 26 septembre 2026 : yMax=550 sur le
+    # cumul, jamais mis à jour depuis son écriture initiale, alors que le
+    # cumul dépassait déjà 550 depuis le 7 septembre — toute la fin de la
+    # courbe se dessinait hors du viewBox visible, invisible à l'écran sans
+    # que rien ne le signale. Même oubli sur le graphique hebdo, yMax=175
+    # sous le pic réel de 181). H=200 identifie sans ambiguïté le bloc
+    # #weekly-svg, H=172 le bloc #cumul-svg (uniques dans ce script).
+    weekly_y_max = round_up_yaxis(max(v for _, v, _p in weekly_recent))
+    cumul_y_max = round_up_yaxis(cumulative[-1][1])
+    script_text = re.sub(
+        r"(var W = 700, H = 200,[^\n]*\n\s*var yMax = )\d+(;)",
+        rf"\g<1>{weekly_y_max}\g<2>", script_text, count=1,
+    )
+    script_text = re.sub(
+        r"(var W = 700, H = 172,[^\n]*\n\s*var yMax = )\d+(;)",
+        rf"\g<1>{cumul_y_max}\g<2>", script_text, count=1,
+    )
     html = html[: script_m.start(1)] + script_text + html[script_m.end(1):]
 
     # Autonomie par registre

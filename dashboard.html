@@ -225,10 +225,13 @@
     margin-bottom: 10px;
   }
   .chart-lead{ font-size: 0.88rem; color: var(--paper-dim); margin: 0 0 16px; }
+  .chart-wrap{ position: relative; }
   #weekly-svg, #cumul-svg{ width: 100%; height: auto; display: block; }
-  .bar-fill{ fill: var(--gold); }
+  .bar-fill{ fill: var(--gold); cursor: pointer; }
   .bar-fill.is-partial{ fill: var(--surface-2); stroke: var(--gold); stroke-width: 1.5; stroke-dasharray: 3 3; }
+  .bar-hit{ fill: transparent; cursor: pointer; }
   .axis-label{ font-size: 9px; fill: var(--paper-dim); font-family: "JetBrains Mono", monospace; }
+  .axis-label-y{ font-size: 9px; fill: var(--paper-dim); font-family: "JetBrains Mono", monospace; }
   .bar-value{ font-size: 9px; fill: var(--paper); font-family: "JetBrains Mono", monospace; font-weight: 700; }
   .dc-gridline{ stroke: var(--hairline); stroke-width: 1; stroke-dasharray: 2 3; }
   .dc-axis{ stroke: var(--hairline); stroke-width: 1; }
@@ -236,6 +239,31 @@
   .dc-dot{ fill: var(--ink); stroke: var(--favorable); stroke-width: 2; }
   .dc-dot.is-highlight{ fill: var(--favorable); stroke: var(--paper); stroke-width: 1.5; }
   .dc-point-label{ font-size: 11px; font-family: "JetBrains Mono", monospace; font-weight: 700; fill: var(--favorable); }
+  /* Crosshair + tooltip au survol — ajoutés le 26 septembre 2026 (retour
+     utilisateur : "les graphes manquent d'info") : la courbe cumulative
+     n'affichait qu'un seul point labellisé (le dernier), impossible de lire
+     une valeur intermédiaire sans deviner sur l'axe. Même mécanique pour le
+     graphique hebdo (survol d'une barre). Overlay HTML, pas SVG : plus
+     simple à positionner/styler qu'un <foreignObject>. */
+  .dc-crosshair{ stroke: var(--paper-dim); stroke-width: 1; stroke-dasharray: 2 2; pointer-events: none; opacity: 0; }
+  .chart-tooltip{
+    position: absolute;
+    pointer-events: none;
+    background: var(--ink);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.74rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity .1s ease;
+    transform: translate(-50%, -100%);
+    z-index: 2;
+  }
+  .chart-tooltip.is-visible{ opacity: 1; }
+  .chart-tooltip-date{ color: var(--paper-dim); margin: 0 0 2px; }
+  .chart-tooltip-value{ color: var(--paper); font-weight: 700; }
 
   table.rank-table{ width: 100%; border-collapse: collapse; font-size: 0.86rem; }
   table.rank-table th{
@@ -414,13 +442,19 @@
     <div class="chart-box">
       <span class="chart-label">Lectures par semaine (non cumulé)</span>
       <p class="chart-lead">Le signal qui compte vraiment : contrairement au cumul ci-dessous, cette série peut monter ou descendre — c'est elle qui répond à « est-ce que ça avance ». Semaines <strong>lundi → dimanche</strong>. Première et dernière barre = semaines partielles (lancement le mercredi 29 juillet, semaine en cours pas terminée).</p>
-      <svg id="weekly-svg" viewBox="0 0 700 200" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Lectures d'éditions par semaine, de 21 la semaine du 27 juillet 2026 à 109 la semaine précédente, semaine en cours 113 lectures, jusqu'au 26 septembre 2026"></svg>
+      <div class="chart-wrap">
+        <svg id="weekly-svg" viewBox="0 0 700 200" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Lectures d'éditions par semaine, de 21 la semaine du 27 juillet 2026 à 109 la semaine précédente, semaine en cours 113 lectures, jusqu'au 26 septembre 2026"></svg>
+        <div class="chart-tooltip" id="weekly-tooltip"><p class="chart-tooltip-date"></p><p class="chart-tooltip-value"></p></div>
+      </div>
     </div>
 
     <div class="chart-box">
       <span class="chart-label">Cumul depuis le lancement (repère de fond)</span>
       <p class="chart-lead">Toujours croissante par construction — utile pour le niveau atteint, pas pour juger d'un ralentissement. Même donnée que la section « La communauté grandit » de <a href="le-projet.html" style="color:var(--gold)">le-projet.html</a>.</p>
-      <svg id="cumul-svg" viewBox="0 0 700 172" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Courbe de croissance des lectures cumulées d'éditions, de 0 le 29 juillet 2026 à 862 le 26 septembre 2026 — 65 éditions publiées au total depuis le lancement"></svg>
+      <div class="chart-wrap">
+        <svg id="cumul-svg" viewBox="0 0 700 172" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Courbe de croissance des lectures cumulées d'éditions, de 0 le 29 juillet 2026 à 862 le 26 septembre 2026 — 65 éditions publiées au total depuis le lancement"></svg>
+        <div class="chart-tooltip" id="cumul-tooltip"><p class="chart-tooltip-date"></p><p class="chart-tooltip-value"></p></div>
+      </div>
     </div>
 
     <div class="chart-box">
@@ -652,17 +686,29 @@
       ['2026-09-21', 113]
     ];
     var W = 700, H = 200, padL = 30, padR = 12, padT = 14, padB = 28;
-    var yMax = 175;
+    var yMax = 200;
     var n = weekly.length;
     var slot = (W - padL - padR) / n;
     var barW = slot * 0.55;
     function yPos(v) { return padT + (1 - v / yMax) * (H - padT - padB); }
 
+    var months = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
+
     for (var m = 50; m <= yMax; m += 50) {
       var ly = yPos(m);
       svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: ly, y2: ly, class: 'dc-gridline' }));
+      // Label de valeur sur l'axe Y — jusqu'ici les repères horizontaux
+      // n'affichaient qu'une ligne sans dire à quelle valeur elle
+      // correspondait (retour utilisateur du 26 septembre 2026 : "les
+      // graphes manquent d'info").
+      var ylbl = svgEl('text', { x: padL - 6, y: ly + 3, class: 'axis-label-y', 'text-anchor': 'end' });
+      ylbl.textContent = m;
+      svg.appendChild(ylbl);
     }
     svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: H - padB, y2: H - padB, class: 'dc-axis' }));
+
+    var tooltip = document.getElementById('weekly-tooltip');
+    var svgWrap = svg.parentElement;
 
     weekly.forEach(function (d, i) {
       var isFirst = i === 0;
@@ -671,17 +717,9 @@
       var x = padL + i * slot + (slot - barW) / 2;
       var y = yPos(d[1]);
       var h = (H - padB) - y;
-      svg.appendChild(svgEl('rect', {
-        x: x, y: y, width: barW, height: Math.max(h, 1),
-        rx: 3, class: 'bar-fill' + (isPartial ? ' is-partial' : '')
-      }));
-      var val = svgEl('text', { x: x + barW / 2, y: y - 6, class: 'bar-value', 'text-anchor': 'middle' });
-      val.textContent = d[1] + (isLast ? ' (en cours)' : isFirst ? ' (lancement)' : '');
-      svg.appendChild(val);
-      var lbl = svgEl('text', { x: x + barW / 2, y: H - padB + 14, class: 'axis-label', 'text-anchor': 'middle' });
       var p = d[0].split('-');
-      var months = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
       var mondayLabel = parseInt(p[2], 10) + ' ' + months[parseInt(p[1], 10) - 1];
+      var rangeLabel;
       if (isLast) {
         // Retour utilisateur du 12 septembre 2026 ("on est le 12 septembre
         // pas le 7") : une seule date de lundi ("7 sept.") sur la barre
@@ -696,11 +734,42 @@
         var today = new Date();
         var endDate = today < sunday ? today : sunday;
         var endLabel = endDate.getDate() + ' ' + months[endDate.getMonth()];
-        lbl.textContent = mondayLabel + '–' + endLabel;
+        rangeLabel = mondayLabel + '–' + endLabel;
       } else {
-        lbl.textContent = mondayLabel;
+        rangeLabel = mondayLabel;
       }
+
+      svg.appendChild(svgEl('rect', {
+        x: x, y: y, width: barW, height: Math.max(h, 1),
+        rx: 3, class: 'bar-fill' + (isPartial ? ' is-partial' : '')
+      }));
+      var val = svgEl('text', { x: x + barW / 2, y: y - 6, class: 'bar-value', 'text-anchor': 'middle' });
+      val.textContent = d[1] + (isLast ? ' (en cours)' : isFirst ? ' (lancement)' : '');
+      svg.appendChild(val);
+      var lbl = svgEl('text', { x: x + barW / 2, y: H - padB + 14, class: 'axis-label', 'text-anchor': 'middle' });
+      lbl.textContent = mondayLabel;
       svg.appendChild(lbl);
+
+      // Zone de survol invisible plus large que la barre elle-même — plus
+      // facile à viser qu'une fine colonne, surtout sur les semaines à
+      // faible valeur (voir interaction.md du skill dataviz : "hit targets
+      // bigger than the mark").
+      var hit = svgEl('rect', { x: padL + i * slot, y: padT, width: slot, height: H - padT - padB, class: 'bar-hit' });
+      hit.addEventListener('mouseenter', function () {
+        if (!tooltip) return;
+        tooltip.querySelector('.chart-tooltip-date').textContent = rangeLabel + (isLast ? ' (en cours)' : isFirst ? ' (lancement)' : '');
+        tooltip.querySelector('.chart-tooltip-value').textContent = d[1] + ' lectures';
+        var svgRect = svg.getBoundingClientRect();
+        var wrapRect = svgWrap.getBoundingClientRect();
+        var scale = svgRect.width / W;
+        tooltip.style.left = (svgRect.left - wrapRect.left + (x + barW / 2) * scale) + 'px';
+        tooltip.style.top = (svgRect.top - wrapRect.top + (y * scale) - 8) + 'px';
+        tooltip.classList.add('is-visible');
+      });
+      hit.addEventListener('mouseleave', function () {
+        if (tooltip) tooltip.classList.remove('is-visible');
+      });
+      svg.appendChild(hit);
     });
   }
 
@@ -740,12 +809,18 @@
     var totalEditions = 65;
 
     var W = 700, H = 172, padL = 30, padR = 12, padT = 24, padB = 22;
-    var yMax = 550;
+    var yMax = 900;
     function xPos(i) { return padL + i / (data.length - 1) * (W - padL - padR); }
     function yPos(v) { return padT + (1 - v / yMax) * (H - padT - padB); }
 
-    for (var m = 150; m <= yMax; m += 150) {
+    var yStep = yMax <= 300 ? 50 : (yMax <= 1200 ? 150 : 300);
+    for (var m = yStep; m <= yMax; m += yStep) {
       svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: yPos(m), y2: yPos(m), class: 'dc-gridline' }));
+      // Label de valeur sur l'axe Y — même raison que le graphique hebdo
+      // ci-dessus (retour utilisateur : "les graphes manquent d'info").
+      var ylbl = svgEl('text', { x: padL - 6, y: yPos(m) + 3, class: 'axis-label-y', 'text-anchor': 'end' });
+      ylbl.textContent = m;
+      svg.appendChild(ylbl);
     }
     svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: H - padB, y2: H - padB, class: 'dc-axis' }));
 
@@ -761,6 +836,51 @@
     var lbl = svgEl('text', { x: xPos(last), y: yPos(data[last][1]) - 10, class: 'dc-point-label', 'text-anchor': 'end' });
     lbl.textContent = data[last][1] + ' lectures · ' + totalEditions + ' éditions';
     svg.appendChild(lbl);
+
+    // Crosshair + tooltip au survol — seul point labellisé jusqu'ici était
+    // le dernier (retour utilisateur du 26 septembre 2026 : "les graphes
+    // manquent d'info"). Une seule zone de survol sur toute la largeur,
+    // qui retrouve le point le plus proche de la souris plutôt qu'un
+    // hit-target par point (61 points sur 700px serait trop fin à viser
+    // individuellement — voir interaction.md du skill dataviz).
+    var crosshair = svgEl('line', { x1: 0, x2: 0, y1: padT, y2: H - padB, class: 'dc-crosshair' });
+    var hoverDot = svgEl('circle', { r: 3.5, class: 'dc-dot is-highlight', style: 'opacity:0' });
+    svg.appendChild(crosshair);
+    svg.appendChild(hoverDot);
+    var tooltip = document.getElementById('cumul-tooltip');
+    var svgWrap = svg.parentElement;
+    var monthsFull = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+
+    var hitArea = svgEl('rect', { x: padL, y: 0, width: W - padL - padR, height: H, style: 'fill:transparent;cursor:crosshair' });
+    hitArea.addEventListener('mousemove', function (ev) {
+      var svgRect = svg.getBoundingClientRect();
+      var scale = W / svgRect.width;
+      var mouseX = (ev.clientX - svgRect.left) * scale;
+      var idx = Math.round((mouseX - padL) / (W - padL - padR) * (data.length - 1));
+      idx = Math.max(0, Math.min(data.length - 1, idx));
+      var px = xPos(idx), py = yPos(data[idx][1]);
+      crosshair.setAttribute('x1', px); crosshair.setAttribute('x2', px);
+      crosshair.style.opacity = 1;
+      hoverDot.setAttribute('cx', px); hoverDot.setAttribute('cy', py);
+      hoverDot.style.opacity = 1;
+      if (tooltip) {
+        var dp = data[idx][0].split('-');
+        tooltip.querySelector('.chart-tooltip-date').textContent =
+          parseInt(dp[2], 10) + ' ' + monthsFull[parseInt(dp[1], 10) - 1] + ' ' + dp[0];
+        tooltip.querySelector('.chart-tooltip-value').textContent = data[idx][1] + ' lectures cumulées';
+        var wrapRect = svgWrap.getBoundingClientRect();
+        var displayScale = svgRect.width / W;
+        tooltip.style.left = (svgRect.left - wrapRect.left + px * displayScale) + 'px';
+        tooltip.style.top = (svgRect.top - wrapRect.top + (py * displayScale) - 10) + 'px';
+        tooltip.classList.add('is-visible');
+      }
+    });
+    hitArea.addEventListener('mouseleave', function () {
+      crosshair.style.opacity = 0;
+      hoverDot.style.opacity = 0;
+      if (tooltip) tooltip.classList.remove('is-visible');
+    });
+    svg.appendChild(hitArea);
   }
 })();
 </script>
