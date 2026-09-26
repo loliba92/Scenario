@@ -1,0 +1,252 @@
+{
+  "date": "2026-09-27",
+  "registre": "sport",
+  "sujet": {
+    "titre_propose": "Mbappé, Ceuta et le tee-shirt polémique : un sportif peut-il encore exprimer une opinion humanitaire sans être pris dans la guerre politique ?",
+    "h1": "Mbappé, Ceuta et le tee-shirt : un sportif peut-il exprimer une opinion humanitaire sans être pris dans la guerre politique ?",
+    "question_posee": "Mbappé a perdu des soutiens en Espagne après avoir refusé un tee-shirt sur Ceuta : un sportif peut-il encore exprimer une opinion humanitaire sans devenir une cible politique ?",
+    "eyebrow": "Dimanche, sport",
+    "angle": "L'incident du tee-shirt Ceuta divise l'opinion en Espagne et en France : Mbappé peut-il sortir de cette polémique sans que sa carrière ni son image de figure fédératrice ne en pâtissent durablement ?",
+    "tags": [
+      "sport",
+      "societe"
+    ],
+    "domain": "sport",
+    "image_keywords": "footballer protest t-shirt",
+    "complexite": 3,
+    "origine_prioritaire": "- [ ] Mbappé, Ceuta et le tee-shirt polémique : un sportif peut-il encore exprimer une opinion humanitaire sans être pris dans la guerre politique ? [football & société]"
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (26/09, culture) : sujet sur la pop culture chinoise, aucun recoupement avec le sport ou Mbappé. Même registre sport (dimanche) : dernière édition sport le 20/09 (NBA en Europe), thème totalement différent (basket/ligue européenne vs football/polémique humanitaire). Aucun doublon."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le 15 septembre 2026, avant un match Real Madrid-Elche, Kylian Mbappé, Vinicius Junior et Ibrahima Konaté ont refusé de porter entièrement un tee-shirt de soutien à la population de Ceuta.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-15",
+      "sources": [
+        "rtl"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Mbappé a expliqué vouloir élargir le message aux migrants morts en mer, déclenchant une polémique en Espagne et en France.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-15",
+      "sources": [
+        "rtl",
+        "afp"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Mbappé a perdu des soutiens en Espagne où la droite l'accuse de manquer d'empathie envers les 80 000 habitants de Ceuta.",
+      "chiffre": "80 000 habitants",
+      "date_du_chiffre": "2026-09-15",
+      "sources": [
+        "rtl",
+        "afp"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "En France, la polémique a rebondi en pleine campagne présidentielle.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-15",
+      "sources": [
+        "rts",
+        "afp"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Zidane, présentant sa première liste des Bleus le même jour, a refusé de commenter, affirmant ne pas vouloir partager ses « convictions ».",
+      "chiffre": null,
+      "date_du_chiffre": "2026-09-15",
+      "sources": [
+        "rtl",
+        "afp"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Kylian Mbappé",
+      "role": "Attaquant du Real Madrid, joueur de l'équipe de France — au centre de la polémique pour son refus de porter le tee-shirt Ceuta"
+    },
+    {
+      "nom": "Vinicius Junior",
+      "role": "Attaquant du Real Madrid — a rejoint le geste de Mbappé en refusant le tee-shirt"
+    },
+    {
+      "nom": "Ibrahima Konaté",
+      "role": "Défenseur du Real Madrid — a rejoint le geste de Mbappé en refusant le tee-shirt"
+    },
+    {
+      "nom": "Zinédine Zidane",
+      "role": "Sélectionneur des Bleus — a refusé de commenter l'incident lors de la présentation de sa première liste"
+    },
+    {
+      "nom": "Population de Ceuta",
+      "role": "Enclave espagnole de ~80 000 habitants secouée par une crise migratoire majeure — bénéficiaire du message initial du tee-shirt"
+    },
+    {
+      "nom": "Droite espagnole",
+      "role": "Accuse Mbappé de manquer d'empathie envers les habitants de Ceuta"
+    },
+    {
+      "nom": "Extrême droite française",
+      "role": "Utilise la polémique dans le débat présidentiel en cours"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-09-15",
+      "evenement": "Avant le match Real Madrid-Elche (Liga), Mbappé, Vinicius Junior et Konaté refusent de porter entièrement le tee-shirt de soutien à Ceuta"
+    },
+    {
+      "date": "2026-09-15",
+      "evenement": "Mbappé explique vouloir élargir le message aux migrants morts en mer"
+    },
+    {
+      "date": "2026-09-15",
+      "evenement": "Début de la polémique en Espagne et en France"
+    },
+    {
+      "date": "2026-09-15",
+      "evenement": "Zidane présente sa première liste des Bleus et refuse de commenter l'incident"
+    },
+    {
+      "date": "2026-09-18",
+      "evenement": "La polémique rebondit en France en pleine campagne présidentielle ; la droite et l'extrême droite s'en emparent"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Mbappé sort de la polémique grâce à ses explications et son soutien affiché à toutes les victimes (migrants de Ceuta et migrants morts en mer). L'incident reste un fait divers sans conséquence durable sur sa carrière, ses relations avec le Real Madrid ou son image de figure fédératrice en France.",
+      "probabilite_suggeree": 35
+    },
+    "stable": {
+      "resume": "La polémique divise durablement l'opinion : Mbappé conserve son public en France mais perd en popularité en Espagne. Le débat sur le rôle politique des sportifs s'intensifie sans changer les pratiques. Mbappé continue sa carrière mais l'incident reste un sujet récurrent lors de ses interventions médiatiques.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "Mbappé devient une cible politique récurrente, utilisé par l'extrême droite comme symbole. Ses relations avec le Real Madrid se tendent, et sa candidature à un rôle d'ambassadeur ou de figure fédératrice pour le sport français est compromise. L'incident pèse durablement sur son image en Espagne.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Habitants de Ceuta",
+      "valeur": "~80 000",
+      "tendance": "Crise migratoire en cours"
+    },
+    {
+      "label": "Match déclencheur",
+      "valeur": "Real Madrid vs Elche (Liga)",
+      "tendance": "15 septembre 2026"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Pas de série historique pertinente à visualiser pour ce sujet — l'incident est ponctuel et les scénarios portent sur l'évolution médiatique/politique, pas sur une donnée chiffrée longitudinale.",
+    "serie": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Le contexte de Ceuta : une enclave espagnole à la frontière du Maroc, sur le point de passage migratoire vers l'Europe, secouée par une crise migratoire majeure",
+        "rattache_a": "faits_verifies[1] — le tee-shirt de soutien à la population de Ceuta"
+      },
+      {
+        "focus": "Le rôle du sportif comme figure publique : entre liberté d'expression, pression des institutions (club, sélection nationale) et instrumentalisation politique",
+        "rattache_a": "faits_verifies[4] — Zidane refuse de commenter, campagne présidentielle en France"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "L'ampleur réelle de la perte de popularité de Mbappé en Espagne est difficile à quantifier sans sondages dédiés — les sources mentionnent des « pertes de soutiens » sans chiffres précis.",
+    "L'impact sur les relations avec le Real Madrid reste spéculatif à ce stade — aucune source n'indique un conflit officiel, mais la tension est évoquée comme possible dans le scénario dégradé.",
+    "L'évolution de la polémique en France dépend de l'aggravation ou de l'apaisement du climat politique pendant la campagne présidentielle — difficile à prédire à ce stade."
+  ],
+  "a_ne_pas_affirmer": [
+    "Que Mbappé a intentionnellement cherché à provoquer une polémique — ses explications mentionnent une volonté d'élargir le message, pas une prise de position calculée.",
+    "Que le Real Madrid a officiellement réagi contre la position de Mbappé — aucune source ne rapporte de réaction officielle du club à ce stade.",
+    "Que la polémique aura des conséquences concrètes sur sa sélection en équipe de France — Zidane a simplement refusé de commenter, sans lien explicite avec la sélection."
+  ],
+  "sources": [
+    {
+      "id": "rtl",
+      "title": "Mbappé et le tee-shirt Ceuta : ce qui s'est passé",
+      "source": "RTL",
+      "url": "https://www.rtl.fr",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "RTL a couvert l'incident du 15 septembre 2026 où Mbappé, Vinicius Junior et Konaté ont refusé de porter le tee-shirt Ceuta avant le match Real Madrid-Elche, ainsi que les explications de Mbappé et la polémique qui a suivi en Espagne et en France.",
+      "read_minutes": 3
+    },
+    {
+      "id": "afp",
+      "title": "Mbappé, Ceuta et la polémique du tee-shirt",
+      "source": "AFP",
+      "url": "https://www.afp.com",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "L'AFP a relayé la polémique suscitée par le refus de Mbappé de porter le tee-shirt de soutien à Ceuta, les accusations de la droite espagnole et la résonance de l'incident en France pendant la campagne présidentielle.",
+      "read_minutes": 3
+    },
+    {
+      "id": "rts",
+      "title": "La polémique Mbappé-Ceuta rebondit en France",
+      "source": "RTS",
+      "url": "https://www.rts.ch",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "La RTS a couvert la résonance de la polémique en France, notamment le refus de Zidane de commenter lors de la présentation de sa première liste des Bleus.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Real Madrid-Elche : Mbappé refuse le tee-shirt Ceuta",
+      "source": "AS",
+      "url": "https://www.as.com",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "L'AS (via RTL) a détaillé le contexte du match et le geste des trois joueurs du Real Madrid qui ont refusé de porter le tee-shirt de soutien à Ceuta, une enclave espagnole en crise migratoire.",
+      "read_minutes": 2
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-20",
+      "titre": "Basket : la NBA débarque en Europe",
+      "lien": "Sport — même registre sport (dimanche) mais thème différent (basket/ligue européenne), à garder comme référence du contexte sportif européen contemporain."
+    },
+    {
+      "date": "2026-08-30",
+      "titre": "Ligue 1 : le foot français peut-il survivre à l'effondrement de ses droits TV ?",
+      "lien": "Football français — même filière sportive (football en France), lien sur les enjeux économiques du football français qui peuvent rappeler les enjeux de carrière de Mbappé."
+    },
+    {
+      "date": "2026-07-30",
+      "titre": "Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ?",
+      "lien": "Sport & géopolitique — même registre sport, lien sur l'instrumentalisation politique/du sport par des acteurs géopolitiques, thème récurrent avec la polémique Mbappé."
+    }
+  ],
+  "recommandations_redaction": [
+    "Mentionner explicitement le contexte de Ceuta (enclave espagnole, crise migratoire, ~80 000 habitants) dès l'introduction pour les lecteurs qui ne connaissent pas.",
+    "Préciser que l'incident a eu lieu le 15 septembre 2026 avant le match Real Madrid-Elche, et que Zidane a refusé de commenter lors de la présentation de sa première liste des Bleus le même jour.",
+    "Lier la polémique à la campagne présidentielle française en cours pour expliquer la résonance particulière en France.",
+    "Évoquer le débat plus large sur le rôle politique des sportifs : liberté d'expression vs pression des institutions (club, sélection nationale, sponsors).",
+    "Éviter de prendre parti sur la légitimité de la position de Mbappé — rester factuel sur les réactions et les conséquences observées."
+  ]
+}
