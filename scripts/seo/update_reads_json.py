@@ -28,6 +28,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.request
 from collections import defaultdict
@@ -52,12 +53,13 @@ START_DATE = "2026-07-29"
 PATH_RE = re.compile(r"^/(?:en/)?archives/(\d{4}-\d{2}-\d{2})\.html(?:\?.*)?$")
 
 
-def fetch_hits(token):
-    # end = demain + 1 jour de marge, pas aujourd'hui — vérifié empiriquement
-    # côté routine LLM (docs/routine-audience-prompt.md, étape 1) : end = date
-    # du jour omettait les hits du jour lui-même dans la réponse.
-    end = (date.today() + timedelta(days=2)).isoformat()
-    url = f"{API_URL}?start={START_DATE}&end={end}&limit=200"
+def _fetch_hits_page(url, token):
+    # Retry avec backoff sur les erreurs réseau transitoires (coupure en
+    # plein transfert, timeout) — l'appel n'avait jusqu'ici aucun filet,
+    # un seul IncompleteRead faisait échouer tout le workflow (incident
+    # du 26 septembre 2026, run audience.yml #71 : dashboard resté figé
+    # sur les valeurs du run précédent). Même philosophie que le retry
+    # déjà en place sur les appels OpenRouter (translate_daily.py).
     req = urllib.request.Request(
         url,
         headers={
@@ -65,8 +67,45 @@ def fetch_hits(token):
             "Content-Type": "application/json",
         },
     )
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return json.load(resp)
+    last_err = None
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                return json.load(resp)
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as e:
+            last_err = e
+            if attempt < 2:
+                time.sleep(3 * (attempt + 1))
+    raise last_err
+
+
+def fetch_hits(token):
+    # end = demain + 1 jour de marge, pas aujourd'hui — vérifié empiriquement
+    # côté routine LLM (docs/routine-audience-prompt.md, étape 1) : end = date
+    # du jour omettait les hits du jour lui-même dans la réponse.
+    end = (date.today() + timedelta(days=2)).isoformat()
+    # Pagination : l'API ne rend jamais plus de `limit` hits par appel et
+    # signale s'il en reste avec "more": true — jamais vérifié jusqu'ici,
+    # un seul appel avec limit=200 risquait de tronquer silencieusement les
+    # résultats dès que le nombre de chemins /archives/ distincts (FR+EN,
+    # variantes de query string) dépasse 200 (repéré en audit le 26
+    # septembre 2026 — pas encore observé en pratique, mais aucun garde-fou
+    # n'aurait signalé une troncature silencieuse si ça arrivait).
+    all_hits = []
+    after = None
+    while True:
+        url = f"{API_URL}?start={START_DATE}&end={end}&limit=200"
+        if after:
+            url += f"&after={after}"
+        page = _fetch_hits_page(url, token)
+        hits = page.get("hits", [])
+        all_hits.extend(hits)
+        if not page.get("more") or not hits:
+            break
+        after = hits[-1].get("id")
+        if after is None:
+            break
+    return {"hits": all_hits}
 
 
 def aggregate(payload):

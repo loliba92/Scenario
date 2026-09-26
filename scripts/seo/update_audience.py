@@ -62,11 +62,8 @@ OPENROUTER_COST_HISTORY = ROOT / "assets" / "data" / "openrouter-cost.json"
 
 PARIS = ZoneInfo("Europe/Paris")
 
-MONTHS_SHORT = ["janv.", "févr.", "mars", "avr.", "mai", "juin",
-                "juil.", "août", "sept.", "oct.", "nov.", "déc."]
 MONTHS_FULL = ["janvier", "février", "mars", "avril", "mai", "juin",
                "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
-DAYS_SHORT = ["Lun.", "Mar.", "Mer.", "Jeu.", "Ven.", "Sam.", "Dim."]
 
 # Les 7 registres hebdomadaires, dans l'ordre du calendrier (lundi->dimanche)
 # — nom de section dans sujets-prioritaires.md, nom court affiché sur les
@@ -220,10 +217,6 @@ def build_sparkline_svg(values, width=84, height=26):
 
 def fmt_long(d):
     return f"{d.day} {MONTHS_FULL[d.month - 1]} {d.year}"
-
-
-def fmt_card_day(d):
-    return f"{DAYS_SHORT[d.weekday()]} {d.day} {MONTHS_SHORT[d.month - 1]}"
 
 
 def fmt_range(start_d, end_d):
@@ -452,7 +445,20 @@ def short_title(full_text, max_len=70):
     return html.escape(f"{cut}…", quote=False)
 
 
-def build_agenda(md_text, next_monday):
+# Jour de la semaine associé à chaque registre (REGISTRES est dans l'ordre
+# lundi->dimanche) — un NOM DE JOUR fixe, jamais une date calendaire : le
+# 1er sujet non coché d'un registre ne sortira pas forcément CETTE
+# semaine-ci (un sujet "priorité absolue" ou une contrainte de date
+# éditoriale peut le repousser). Afficher "Ven. 25 sept." laissait croire
+# à un vrai calendrier engagé — repéré le 26 septembre 2026 : le sujet
+# "Octobre rose" affiché "Ven. 25 sept." était en réalité prévu pour le
+# 2 octobre (annoté à la main dans son propre commentaire). Le nom du
+# jour seul reste vrai par construction (Sciences est toujours traité un
+# vendredi) ; la date, elle, ne l'était pas.
+JOURS_SEMAINE = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
+
+
+def build_agenda(md_text):
     cards = []
     later = []
     priority_line = None
@@ -467,11 +473,11 @@ def build_agenda(md_text, next_monday):
     for i, (heading, label) in enumerate(REGISTRES):
         section = parse_section(md_text, heading)
         pending = unchecked_items(section)
-        day = next_monday + timedelta(days=i)
+        day = JOURS_SEMAINE[i]
         if pending:
-            cards.append({"day": fmt_card_day(day), "registre": label, "topic": short_title(pending[0])})
+            cards.append({"day": day, "registre": label, "topic": short_title(pending[0])})
         else:
-            cards.append({"day": fmt_card_day(day), "registre": label, "topic": "(section vide — auto-sélection le jour même)"})
+            cards.append({"day": day, "registre": label, "topic": "(section vide — auto-sélection le jour même)"})
         if len(pending) >= 2:
             later.append({"label": label, "text": html.escape(strip_trailing_tag(pending[1]), quote=False), "empty": False})
         else:
@@ -590,7 +596,7 @@ def update_le_projet(cumulative, x_labels, y_max, kpis, end_date):
     LE_PROJET.write_text(html, encoding="utf-8")
 
 
-def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_later, priority_line, autonomy_rows, current_monday, openrouter=None, cost_yesterday=None, cost_today=None):
+def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_later, priority_line, autonomy_rows, openrouter=None, cost_yesterday=None, cost_today=None):
     html = DASHBOARD.read_text(encoding="utf-8")
 
     html = re.sub(
@@ -611,18 +617,6 @@ def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_la
         "Régénéré chaque semaine par la routine « Scénario — Audience », comme le reste du dashboard.",
         "Régénéré chaque jour par un GitHub Action, comme le reste du dashboard.",
     )
-    later_start = current_monday + timedelta(days=7)
-    later_end = later_start + timedelta(days=6)
-    later_range = (
-        f"{later_start.day}–{later_end.day} {MONTHS_SHORT[later_end.month - 1]}"
-        if later_start.month == later_end.month
-        else f"{later_start.day} {MONTHS_SHORT[later_start.month - 1]}–{later_end.day} {MONTHS_SHORT[later_end.month - 1]}"
-    )
-    html = re.sub(
-        r"(<strong>Semaine d'après \().*?(\)</strong>)",
-        rf"\g<1>{later_range}\g<2>", html, count=1,
-    )
-
     kpi_values = {
         "cumul": (str(kpis["total"]), f"depuis le {fmt_long(date.fromisoformat(START_DATE))}"),
         "sub_class": "is-up" if kpis["delta7"] > 0 else ("is-down" if kpis["delta7"] < 0 else ""),
@@ -871,13 +865,7 @@ def main():
     kpis = compute_kpis(per_day, cumulative, end_date, archive_dates)
 
     md_text = SUJETS_PRIORITAIRES.read_text(encoding="utf-8")
-    # Ancre sur le lundi de la semaine EN COURS (pas "le prochain lundi") :
-    # contrairement à l'ancienne routine hebdomadaire qui ne tournait que
-    # le lundi (d'où "le prochain lundi" = toujours dans le futur proche),
-    # ce script tourne maintenant chaque jour — la semaine affichée doit
-    # donc toujours être celle où "aujourd'hui" se trouve réellement.
-    current_monday = now_paris.date() - timedelta(days=now_paris.date().weekday())
-    agenda_cards, agenda_later, priority_line = build_agenda(md_text, current_monday)
+    agenda_cards, agenda_later, priority_line = build_agenda(md_text)
     autonomy_rows = build_autonomy_table(md_text)
 
     print(f"Total cumulé : {kpis['total']} lectures au {fmt_long(end_date)} "
@@ -902,7 +890,7 @@ def main():
         return 0
 
     update_le_projet(cumulative, x_labels, y_max, kpis, end_date)
-    update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_later, priority_line, autonomy_rows, current_monday, openrouter, cost_yesterday, cost_today)
+    update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_later, priority_line, autonomy_rows, openrouter, cost_yesterday, cost_today)
     check_js_syntax(LE_PROJET)
     check_js_syntax(DASHBOARD)
 

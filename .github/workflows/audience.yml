@@ -55,5 +55,26 @@ jobs:
           # tourner avec des changements déjà indexés — même règle que
           # reads.yml/translate-en.yml (bug réel du 3 septembre sur ce point).
           git commit -m "[audience] mise à jour automatique des données d'audience"
-          git pull --rebase origin main
-          git push origin main
+          # Retry avec rebase en cas de push concurrent — ce workflow tourne
+          # plusieurs fois par jour en parallèle de post-edition/translate-en/
+          # reads/hot-topics, qui poussent tous sur main : un seul essai sans
+          # filet (comme avant ce correctif) échouait ~40% du temps sur un
+          # simple conflit de timing (incident du 26 septembre 2026, runs
+          # #66/#71 : "cannot lock ref ... is at X but expected Y"), laissant
+          # le dashboard figé sur les valeurs du run précédent. Même
+          # mécanique que translate-en.yml/post-edition.yml/hot-topics.yml.
+          pushed=false
+          for i in 1 2 3 4 5; do
+            if git push origin main; then
+              pushed=true
+              break
+            fi
+            echo "Push rejeté (tentative $i/5), rebase et nouvel essai..."
+            git fetch origin main
+            git rebase origin/main
+            sleep $((i * 3))
+          done
+          if [ "$pushed" != true ]; then
+            echo "::error::Push impossible après 5 tentatives (conflits répétés) — dashboard non mis à jour, à relancer."
+            exit 1
+          fi
