@@ -87,6 +87,13 @@ def build_shared_pieces():
     style_block = extract_block(text, "<style>", "</style>")
     masthead_nav = extract_block(text, '<header class="masthead">', "</nav>")
     follow_footer = extract_block(text, '<section class="follow-block" id="nous-suivre">', "</footer>")
+    # Le <footer> de glossaire.html porte une légende propre à cette page
+    # ("Ce glossaire est alimenté au fil des éditions...") — ne jamais la
+    # reprendre telle quelle sur une page qui réutilise ce bloc partagé
+    # (même bug que generate_archives_table.py, corrigé le 5 septembre 2026
+    # là-bas mais jamais porté ici : cette légende fuyait sur les 6 pages
+    # themes/*.html, trouvé en code review le 26 septembre 2026).
+    follow_footer = re.sub(r'\s*<p class="caveat">.*?</p>\n?', '\n', follow_footer, count=1, flags=re.S)
     tail_scripts = extract_block(
         text,
         '<script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>',

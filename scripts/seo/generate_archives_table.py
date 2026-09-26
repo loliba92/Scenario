@@ -715,7 +715,11 @@ def extract_scenarios(text):
         card_content = card_match.group(2)
 
         pct_m = re.search(r'<div class="gauge-num">(\d+)%</div>', card_content)
-        percentage = int(pct_m.group(1)) if pct_m else 0
+        # None (pas 0) quand la gauge est absente — 0 serait ambigu avec un
+        # vrai scénario à 0% (render_table_row en ferait alors "Non évalué"
+        # à tort ; trouvé en code review le 26 septembre 2026, jamais observé
+        # en pratique mais la distinction ne coûte rien).
+        percentage = int(pct_m.group(1)) if pct_m else None
 
         judgment = _extract_card_judgment(card_content)
 
@@ -741,17 +745,23 @@ def compute_france_esperance(scenarios):
     """
     if not scenarios:
         return None
+    # None (pas 0.0) quand aucun scénario n'a de jugement/pourcentage
+    # exploitable — 0.0 serait indiscernable d'une vraie espérance neutre
+    # (label_esperance(0.0) affiche "Neutre" au lieu du badge "Non évalué"
+    # prévu pour ce cas ; trouvé en code review le 26 septembre 2026).
+    valid = [
+        (pct, judgment) for _kind, pct, judgment, _title in scenarios
+        if judgment is not None and pct is not None
+    ]
+    if not valid:
+        return None
     # round() pour éviter le bruit de virgule flottante (ex. 0.4 calculé comme
     # 0.39999999999999997) qui ferait basculer label_esperance() sur le
     # palier du dessous à un seuil exact — repéré le 13 septembre 2026 sur
     # l'édition du 4 septembre (espérance exacte 0,4, tombée à tort en
     # "Plutôt favorable" au lieu d'"Assez favorable").
     return round(
-        sum(
-            (pct / 100) * _JUDGMENT_VALUE.get(judgment, 0)
-            for _kind, pct, judgment, _title in scenarios
-            if judgment is not None
-        ),
+        sum((pct / 100) * _JUDGMENT_VALUE.get(judgment, 0) for pct, judgment in valid),
         6,
     )
 
@@ -1041,7 +1051,7 @@ def render_table_row(article):
     kind = article["scenario_kind"]
     pct = article["scenario_pct"]
 
-    if kind and pct:
+    if kind and pct is not None:
         scenario_label = get_scenario_label(kind)
         title = article.get("scenario_title")
         # Badge de couleur avec SEULEMENT le label et le pourcentage (visible) —

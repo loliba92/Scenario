@@ -241,6 +241,9 @@ def main():
 
     if "__DELTA_BADGE__" in final_html:
         delta = data.get("delta")
+        if delta and ("direction" not in delta or "label" not in delta):
+            sys.exit(f"ERREUR : le champ \"delta\" du JSON doit contenir "
+                      f"\"direction\" et \"label\" — reçu : {delta!r}.")
         badge_html = build_delta_badge(delta, lang=args.lang) if delta else ""
         final_html = final_html.replace("__DELTA_BADGE__", badge_html)
 
