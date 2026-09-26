@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-09-26",
+      "articles": [
+        {
+          "title": "China's cultural export strategy: from import to export",
+          "source": "South China Morning Post",
+          "url": "https://www.scmp.com/culture/article-china-cultural-export-strategy",
+          "image": null,
+          "lang": "en",
+          "domain": "culture-divertissement",
+          "summary": "La Chine développe une stratégie active pour exporter sa culture (cinéma, jeux, animation) et réduire sa dépendance aux contenus occidentaux, avec des incitations gouvernementales.",
+          "read_minutes": 5
+        },
+        {
+          "title": "How censorship shapes Chinese games going global",
+          "source": "RestofWorld",
+          "url": "https://restofworld.org/china-censorship-games-global/",
+          "image": null,
+          "lang": "en",
+          "domain": "culture-divertissement",
+          "summary": "Les jeux vidéo chinois qui réussissent à l'international doivent naviguer entre les contraintes de censure domestique et les attentes des marchés étrangers.",
+          "read_minutes": 4
+        }
+      ]
+    },
+    {
       "date": "2026-09-25",
       "articles": [
         {
