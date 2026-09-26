@@ -122,9 +122,19 @@ def extract_shell(index_html_text):
     if legal_links is None:
         raise ShellError("repère de gabarit introuvable : .legal-links")
 
+    style_block_str = str(style_tag)
+    # GARDE-FOU : s'assurer que la balise <style> n'est jamais vide ou cassée
+    # (incident du 26 septembre 2026 : style_block cassé → page entièrement noire)
+    if not style_block_str or "<style>" not in style_block_str or "</style>" not in style_block_str:
+        raise ShellError(
+            f"Balise <style> invalide dans le gabarit source : {len(style_block_str)} chars, "
+            f"contient '<style>' : {('<style>' in style_block_str)}, "
+            f"contient '</style>' : {('</style>' in style_block_str)}"
+        )
+
     return {
         "head_static": "\n".join(head_static_tags),
-        "style_block": str(style_tag),
+        "style_block": style_block_str,
         "masthead_html": str(masthead),
         "topnav_html": str(topnav),
         "weekly_banner_html": str(weekly_banner),
@@ -747,7 +757,7 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
 
     footer_html = f'<footer>\n  <div class="wrap">{photo_credit_html}\n    <div class="footer-bottom">\n      {shell["legal_links_html"]}\n    </div>\n  </div>\n</footer>'
 
-    return f"""<!DOCTYPE html>
+    html_result = f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -783,4 +793,14 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
 {shell['scripts_tail_html']}
 </body>
 </html>
-""", edition_number
+"""
+
+    # GARDE-FOU : s'assurer que le CSS a bien été injecté dans le HTML généré
+    # (incident du 26 septembre 2026)
+    if "<style>" not in html_result or "</style>" not in html_result:
+        raise ShellError(
+            "❌ CRITIQUE : le CSS n'a pas été injecté dans le HTML généré ! "
+            "La page serait entièrement noire. Abandon immédiat."
+        )
+
+    return html_result, edition_number
