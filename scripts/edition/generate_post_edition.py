@@ -88,6 +88,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from xml.sax.saxutils import escape as escape_xml
 
+from bs4 import BeautifulSoup
+
 import build_html
 import generate_seo_head
 from generate_daily_edition import estimate_word_count, load_brief
@@ -124,25 +126,81 @@ class PostEditionError(Exception):
 # ---------------------------------------------------------------------------
 # 0. SEO Head injection — génération automatique du <head> optimisé
 # ---------------------------------------------------------------------------
-def inject_seo_head(html_text, brief):
-    """Remplace le <head> du HTML avec un nouveau head SEO optimisé.
+# Balises "per-day" du <head> que generate_seo_head() régénère — tout le
+# reste (icônes, manifest, apple-*, pwa-install.css, preconnect, fonts,
+# <style>...) doit impérativement survivre à l'injection SEO. Même famille
+# de prédicats que build_html._PER_DAY_HEAD_PREDICATES, sauf <style> qu'on
+# préserve ici au lieu de le gérer séparément.
+_SEO_PER_DAY_HEAD_PREDICATES = [
+    lambda t: t.name == "meta" and t.get("charset"),
+    lambda t: t.name == "meta" and t.get("name") == "viewport",
+    lambda t: t.name == "title",
+    lambda t: t.name == "link" and t.get("rel") in (["canonical"], ["alternate"]),
+    lambda t: t.name == "meta" and t.get("name") in ("description", "robots", "language", "color-scheme", "keywords"),
+    lambda t: t.name == "meta" and (t.get("property") or "").startswith(("og:", "article:")),
+    lambda t: t.name == "meta" and (t.get("name") or "").startswith("twitter:"),
+    lambda t: t.name == "script" and t.get("type") == "application/ld+json",
+]
 
-    Prend le head complet généré par generate_seo_head et le substitue
-    au head existant (y compris tous les tags per-day comme title, og:*, etc.).
+
+def inject_seo_head(html_text, brief):
+    """Remplace UNIQUEMENT les balises "per-day" du <head> (title, canonical,
+    meta description, og:*, article:*, twitter:*, JSON-LD) par la version SEO
+    optimisée générée depuis le brief — sans jamais toucher au reste du
+    <head> (icônes, manifest, fonts, pwa-install.css, et surtout le <style>
+    du site).
+
+    Incident du 26 septembre 2026 : cette fonction remplaçait auparavant
+    TOUT <head>...</head> par le head SEO généré par generate_seo_head(),
+    qui ne contient QUE les balises SEO — perdant silencieusement le
+    <style> et tout le head_static (icônes, manifest, fonts), page rendue
+    entièrement noire en production. Réécrite pour ne retirer que les
+    balises listées dans _SEO_PER_DAY_HEAD_PREDICATES, et pour vérifier
+    après coup que rien d'essentiel n'a disparu.
     """
     try:
-        new_head = generate_seo_head.generate_seo_head(brief)
+        new_head_html = generate_seo_head.generate_seo_head(brief)
     except Exception as e:
         raise PostEditionError(f"Génération du head SEO échouée : {e}")
 
-    # Cherche <head>...</head> et le remplace. Assumption : le HTML est bien formé
-    # avec un seul <head>. BeautifulSoup ferait proprement, mais utilise un regex
-    # pour rester simple (pas d'ajout de dépendance).
-    match = re.search(r'<head>.*?</head>', html_text, re.DOTALL | re.IGNORECASE)
-    if not match:
-        raise PostEditionError("Impossible de trouver <head>...</head> dans le HTML généré")
+    soup = BeautifulSoup(html_text, "html.parser")
+    head = soup.select_one("head")
+    if head is None:
+        raise PostEditionError("Impossible de trouver <head> dans le HTML généré")
 
-    new_html = html_text[:match.start()] + new_head + html_text[match.end():]
+    had_style = head.select_one("style") is not None
+    had_manifest = head.select_one('link[rel="manifest"]') is not None
+
+    for tag in list(head.find_all(recursive=False)):
+        if any(pred(tag) for pred in _SEO_PER_DAY_HEAD_PREDICATES):
+            tag.decompose()
+
+    new_head_soup = BeautifulSoup(new_head_html, "html.parser")
+    new_head_tag = new_head_soup.select_one("head") or new_head_soup
+    new_children = list(new_head_tag.find_all(recursive=False))
+
+    first_remaining = next(iter(head.find_all(recursive=False)), None)
+    for child in new_children:
+        if first_remaining is not None:
+            first_remaining.insert_before(child)
+        else:
+            head.append(child)
+
+    new_html = str(soup)
+
+    # GARDE-FOU : le <style> et le head_static ne doivent JAMAIS disparaître
+    # ici (incident du 26 septembre 2026 — voir docstring ci-dessus).
+    if had_style and "<style" not in new_html:
+        raise PostEditionError(
+            "❌ CRITIQUE : inject_seo_head() a fait disparaître le <style> du <head> ! "
+            "La page serait entièrement noire. Abandon immédiat."
+        )
+    if had_manifest and "manifest.webmanifest" not in new_html:
+        raise PostEditionError(
+            "❌ CRITIQUE : inject_seo_head() a fait disparaître le head_static "
+            "(manifest.webmanifest) du <head> ! Abandon immédiat."
+        )
+
     return new_html
 
 
@@ -753,6 +811,18 @@ def promote_to_real_repo(sandbox_root, date_str):
     if not archive_src.exists():
         raise PostEditionError(f"--publish : HTML final (archive) introuvable dans le bac à sable : {archive_src}")
 
+    # GARDE-FOU final avant promotion vers les vrais fichiers du dépôt
+    # (incident du 26 septembre 2026 — voir inject_seo_head()) : dernier
+    # filet avant que ces fichiers ne remplacent index.html/archives/*.html
+    # en production. Jamais de promotion d'un fichier sans CSS.
+    for src_path in (index_src, archive_src):
+        src_text = src_path.read_text(encoding="utf-8")
+        if "<style" not in src_text or "</style>" not in src_text:
+            raise PostEditionError(
+                f"❌ CRITIQUE : {src_path} ne contient pas de <style> ! "
+                "La page serait entièrement noire en production. --publish annulé, rien n'est écrit."
+            )
+
     (REPO_ROOT / "index.html").write_text(index_src.read_text(encoding="utf-8"), encoding="utf-8")
     real_archive_dir = REPO_ROOT / "archives"
     real_archive_dir.mkdir(parents=True, exist_ok=True)
@@ -1021,6 +1091,16 @@ def main():
     # Schema.org BreadcrumbList/WebSite/NewsArticle/Organization).
     html_text = inject_seo_head(html_text, brief)
     print(f"[post-edition] <head> SEO optimisé injecté (title, og:*, twitter:*, Schema.org)")
+
+    # GARDE-FOU final, juste avant écriture sur disque : dernier filet avant
+    # que le HTML ne parte vers le bac à sable puis --publish (incident du
+    # 26 septembre 2026 — voir inject_seo_head()). Attrape toute régression
+    # future, peu importe l'étape du pipeline qui l'introduirait.
+    if "<style" not in html_text or "</style>" not in html_text:
+        raise PostEditionError(
+            "❌ CRITIQUE : le HTML final (juste avant écriture) ne contient plus de <style> ! "
+            "La page serait entièrement noire. Abandon immédiat, rien n'est écrit."
+        )
 
     index_out = sandbox_root / "index.html"
     index_out.write_text(html_text, encoding="utf-8")
