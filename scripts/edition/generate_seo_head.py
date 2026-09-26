@@ -24,13 +24,25 @@ SITE_URL = "https://lesscenarios.fr"
 SOCIAL_TWITTER = "@scenario_fr"
 LOGO_URL = f"{SITE_URL}/assets/logo-512.png"
 LOCALE_FR = "fr_FR"
-DOMAIN_MAPPING = {
-    "economie-mondiale": "Économie Mondiale",
-    "sciences": "Sciences",
-    "sciences-environnement": "Sciences & Environnement",
-    "geopolitique": "Géopolitique",
-    "tech": "Technologie",
-    "sante": "Santé",
+# Même table que docs/tags.md §2 / DOMAIN_LABELS de generate_post_edition.py,
+# generate_archives_table.py et generate_sources_page.py — dupliquée ici
+# volontairement (même convention que ces scripts : « à tenir manuellement
+# synchronisée », pas d'import croisé entre scripts/seo et scripts/edition).
+#
+# Incident du 26 septembre 2026 : cette table s'appelait DOMAIN_MAPPING et
+# utilisait des clés obsolètes ("economie-mondiale", "sciences", "tech"...)
+# qui ne correspondent à AUCUN domaine réellement produit par le brief —
+# _normalize_domain() retombait donc systématiquement sur son fallback
+# (ex. "culture-divertissement" → "Culture Divertissement" au lieu de
+# "Culture & divertissement"), avec un risque de section SEO incohérente
+# entre generate_seo_head.py et le reste du site.
+DOMAIN_LABELS = {
+    "economie-entreprises": "Économie & entreprises",
+    "politique-institutions": "Politique & institutions",
+    "international": "International",
+    "sciences-environnement": "Sciences & environnement",
+    "tech-numerique": "Tech & numérique",
+    "culture-divertissement": "Culture & divertissement",
 }
 
 _JOURS_FR = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
@@ -38,7 +50,18 @@ _JOURS_FR = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "diman
 
 def _normalize_domain(domain: str) -> str:
     """Maps technical domain to display section name."""
-    return DOMAIN_MAPPING.get(domain, domain.replace("-", " ").title())
+    return DOMAIN_LABELS.get(domain, domain.replace("-", " ").title())
+
+
+def _get_domain(brief: Dict[str, Any]) -> str:
+    """Domaine canonique (ex. "culture-divertissement") : vit dans
+    brief["sujet"]["domain"], jamais brief["domain"] (champ inexistant à la
+    racine du brief — incident du 26 septembre 2026 : le fallback tombait
+    silencieusement sur brief["registre"], un champ éditorial différent aux
+    valeurs différentes, ex. "culture" au lieu de "culture-divertissement").
+    Voir generate_post_edition.py, glossaire — brief["sujet"]["domain"] déjà
+    utilisé comme source canonique là-bas."""
+    return brief.get("sujet", {}).get("domain", "")
 
 
 def _escape_json_string(s: str) -> str:
@@ -52,12 +75,24 @@ def _build_title(brief: Dict[str, Any]) -> str:
     return f"{titre} — {SITE_NAME}" if titre else SITE_NAME
 
 
+def _truncate_at_word_boundary(text: str, max_len: int) -> str:
+    """Tronque `text` à `max_len` caractères (ellipsis incluse) en coupant
+    au dernier espace plutôt qu'en plein milieu d'un mot — sans ça, Google
+    affiche des descriptions comme « ...de la censure et de l… » dans les
+    résultats de recherche (repéré le 26 septembre 2026)."""
+    if len(text) <= max_len:
+        return text
+    truncated = text[: max_len - 1]
+    last_space = truncated.rfind(" ")
+    if last_space > 0:
+        truncated = truncated[:last_space]
+    return truncated.rstrip(",;:.-") + "…"
+
+
 def _build_description(brief: Dict[str, Any]) -> str:
     """Meta description: question_posee (max 160 chars)."""
     question = brief.get("sujet", {}).get("question_posee", "")
-    if len(question) > 160:
-        question = question[:157] + "…"
-    return question
+    return _truncate_at_word_boundary(question, 160)
 
 
 def _build_h1(brief: Dict[str, Any]) -> str:
@@ -101,7 +136,7 @@ def _build_og_tags(brief: Dict[str, Any], date: str) -> str:
 
 def _build_article_tags(brief: Dict[str, Any], date: str) -> str:
     """Article-specific meta tags (author, timestamps, section)."""
-    domain = brief.get("domain", brief.get("registre", ""))
+    domain = _get_domain(brief)
     section = _normalize_domain(domain)
     dt = datetime.strptime(date, "%Y-%m-%d")
     iso_time = dt.isoformat() + "+02:00"
@@ -141,7 +176,7 @@ def _build_newsarticle_schema(brief: Dict[str, Any], date: str) -> str:
     image_url = _build_social_image_url(date)
     dt = datetime.strptime(date, "%Y-%m-%d")
     iso_time = dt.isoformat() + "+02:00"
-    domain = brief.get("domain", brief.get("registre", ""))
+    domain = _get_domain(brief)
     section = _normalize_domain(domain)
 
     schema = {
@@ -196,7 +231,7 @@ def _build_website_schema() -> str:
 
 def _build_breadcrumblist_schema(date: str, brief: Dict[str, Any]) -> str:
     """Schema.org BreadcrumbList (JSON-LD)."""
-    domain = brief.get("domain", brief.get("registre", ""))
+    domain = _get_domain(brief)
     section = _normalize_domain(domain)
     dt = datetime.strptime(date, "%Y-%m-%d")
     jour_fr = _JOURS_FR[dt.weekday()]
@@ -252,11 +287,10 @@ def generate_seo_head(brief_dict: Dict[str, Any]) -> str:
     title = _build_title(brief_dict)
     description = _build_description(brief_dict)
 
-    # Validations rapides
+    # Validation rapide — la troncature (au dernier mot entier) est déjà
+    # faite par _build_description().
     if not description:
         raise ValueError("Brief must contain sujet.question_posee for meta description")
-    if len(description) > 160:
-        description = description[:157] + "…"
 
     head_parts = [
         "<head>",
