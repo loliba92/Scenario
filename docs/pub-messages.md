@@ -940,6 +940,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-09-25 (archives/2026-09-25.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-09-26
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 10 milliards de yuans
+- message: Avec un record de 10 milliards de yuans pour Ne Zha 2 et plus de 10 millions d'exemplaires vendus pour Black Myth: Wukong, la Chine prouve sa puissance industrielle mais peine encore à exporter sa pop culture.
+- attribution: — lesscenarios.fr, 26 septembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-09-26.html
+
+*Phrase à retenir de l'édition du 2026-09-26 (archives/2026-09-26.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
