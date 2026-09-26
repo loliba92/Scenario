@@ -124,11 +124,13 @@ def extract_shell(index_html_text):
 
     style_block_str = str(style_tag)
     # GARDE-FOU : s'assurer que la balise <style> n'est jamais vide ou cassée
-    # (incident du 26 septembre 2026 : style_block cassé → page entièrement noire)
-    if not style_block_str or "<style>" not in style_block_str or "</style>" not in style_block_str:
+    # (incident du 26 septembre 2026 : style_block cassé → page entièrement noire).
+    # "<style" (préfixe, pas "<style>" exact) : ne doit jamais dépendre de
+    # l'absence d'attribut sur la balise (ex. <style media="screen">).
+    if not style_block_str or "<style" not in style_block_str or "</style>" not in style_block_str:
         raise ShellError(
             f"Balise <style> invalide dans le gabarit source : {len(style_block_str)} chars, "
-            f"contient '<style>' : {('<style>' in style_block_str)}, "
+            f"contient '<style' : {('<style' in style_block_str)}, "
             f"contient '</style>' : {('</style>' in style_block_str)}"
         )
 
@@ -796,8 +798,9 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
 """
 
     # GARDE-FOU : s'assurer que le CSS a bien été injecté dans le HTML généré
-    # (incident du 26 septembre 2026)
-    if "<style>" not in html_result or "</style>" not in html_result:
+    # (incident du 26 septembre 2026). "<style" en préfixe, pas "<style>"
+    # exact — ne doit jamais dépendre de l'absence d'attribut sur la balise.
+    if "<style" not in html_result or "</style>" not in html_result:
         raise ShellError(
             "❌ CRITIQUE : le CSS n'a pas été injecté dans le HTML généré ! "
             "La page serait entièrement noire. Abandon immédiat."

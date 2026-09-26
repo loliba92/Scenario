@@ -89,6 +89,7 @@ from pathlib import Path
 from xml.sax.saxutils import escape as escape_xml
 
 from bs4 import BeautifulSoup
+from bs4.formatter import HTMLFormatter
 
 import build_html
 import generate_seo_head
@@ -143,30 +144,58 @@ _SEO_PER_DAY_HEAD_PREDICATES = [
 ]
 
 
+# Formatter bs4 qui préserve l'ordre D'INSERTION des attributs (celui du
+# HTML source, puisque html.parser peuple tag.attrs dans l'ordre où il
+# rencontre les attributs) et n'auto-ferme jamais les balises vides — au
+# lieu du formatter par défaut de bs4, qui trie les attributs par ordre
+# alphabétique et ajoute "/>" partout. Sans ça, <meta property="article:
+# published_time" content="..."> ressort en <meta content="..."
+# property="..."/>, ce qui casse déjà_published_today() (regex plus bas,
+# qui attend cet ordre précis) et plusieurs autres regex du dépôt qui lisent
+# index.html/archives/*.html en texte brut (generate_archives_table.py,
+# extract_article_data.py, generate_suivi_update.py, generate_weekly_recap.py,
+# translate_daily.py) — régression découverte en code review le 26 septembre
+# 2026, sur la toute première version de cette fonction utilisant bs4.
+class _PreserveAttrOrderFormatter(HTMLFormatter):
+    def attributes(self, tag):
+        for k, v in tag.attrs.items():
+            yield k, v
+
+
+_HEAD_FORMATTER = _PreserveAttrOrderFormatter(void_element_close_prefix=None)
+
+
 def inject_seo_head(html_text, brief):
     """Remplace UNIQUEMENT les balises "per-day" du <head> (title, canonical,
     meta description, og:*, article:*, twitter:*, JSON-LD) par la version SEO
     optimisée générée depuis le brief — sans jamais toucher au reste du
     <head> (icônes, manifest, fonts, pwa-install.css, et surtout le <style>
-    du site).
+    du site), ni à un seul octet du <body>.
 
     Incident du 26 septembre 2026 : cette fonction remplaçait auparavant
     TOUT <head>...</head> par le head SEO généré par generate_seo_head(),
     qui ne contient QUE les balises SEO — perdant silencieusement le
     <style> et tout le head_static (icônes, manifest, fonts), page rendue
-    entièrement noire en production. Réécrite pour ne retirer que les
-    balises listées dans _SEO_PER_DAY_HEAD_PREDICATES, et pour vérifier
-    après coup que rien d'essentiel n'a disparu.
+    entièrement noire en production. Réécrite une première fois avec bs4
+    sur le document ENTIER (régression détectée en review, voir
+    _PreserveAttrOrderFormatter ci-dessus), puis une seconde fois pour se
+    limiter strictement au texte du <head> : bs4 ne voit jamais le <body>,
+    qui est reconcaténé tel quel, byte pour byte.
     """
     try:
         new_head_html = generate_seo_head.generate_seo_head(brief)
     except Exception as e:
         raise PostEditionError(f"Génération du head SEO échouée : {e}")
 
-    soup = BeautifulSoup(html_text, "html.parser")
-    head = soup.select_one("head")
+    match = re.search(r"<head\b[^>]*>.*?</head>", html_text, re.DOTALL | re.IGNORECASE)
+    if not match:
+        raise PostEditionError("Impossible de trouver <head>...</head> dans le HTML généré")
+    head_text = match.group(0)
+
+    head_soup = BeautifulSoup(head_text, "html.parser")
+    head = head_soup.select_one("head")
     if head is None:
-        raise PostEditionError("Impossible de trouver <head> dans le HTML généré")
+        raise PostEditionError("Impossible de parser <head> dans le HTML généré")
 
     had_style = head.select_one("style") is not None
     had_manifest = head.select_one('link[rel="manifest"]') is not None
@@ -186,22 +215,22 @@ def inject_seo_head(html_text, brief):
         else:
             head.append(child)
 
-    new_html = str(soup)
+    new_head_text = head_soup.decode(formatter=_HEAD_FORMATTER)
 
     # GARDE-FOU : le <style> et le head_static ne doivent JAMAIS disparaître
     # ici (incident du 26 septembre 2026 — voir docstring ci-dessus).
-    if had_style and "<style" not in new_html:
+    if had_style and "<style" not in new_head_text:
         raise PostEditionError(
             "❌ CRITIQUE : inject_seo_head() a fait disparaître le <style> du <head> ! "
             "La page serait entièrement noire. Abandon immédiat."
         )
-    if had_manifest and "manifest.webmanifest" not in new_html:
+    if had_manifest and "manifest.webmanifest" not in new_head_text:
         raise PostEditionError(
             "❌ CRITIQUE : inject_seo_head() a fait disparaître le head_static "
             "(manifest.webmanifest) du <head> ! Abandon immédiat."
         )
 
-    return new_html
+    return html_text[: match.start()] + new_head_text + html_text[match.end() :]
 
 
 # ---------------------------------------------------------------------------
