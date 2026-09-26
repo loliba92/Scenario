@@ -1,0 +1,52 @@
+name: Vérification structurelle HTML — CSS jamais perdu
+
+# Filet indépendant du code Python, ajouté après l'incident du 26 septembre
+# 2026 : l'édition du jour a été publiée sans CSS (page entièrement noire
+# en production), à cause d'une fonction qui remplaçait tout <head> du
+# gabarit par un head SEO minimal sans jamais garder le <style> du site.
+# Les gardes-fous ajoutés dans generate_post_edition.py/build_html.py
+# protègent le SCRIPT au moment de la génération, mais rien ne
+# re-vérifiait le résultat réellement committé sur main. Ce job relit
+# les fichiers publiés eux-mêmes (jamais le code qui les a produits) et
+# échoue si l'un d'eux n'a pas de <style> valide.
+#
+# Vérifie TOUS les fichiers concernés à chaque run (une centaine, quelques
+# millisecondes), pas seulement ceux touchés par le dernier push — reste
+# un filet indépendant même si un run antérieur n'avait pas déclenché ce
+# check pour une raison quelconque.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - archives/**
+      - en/index.html
+      - en/archives/**
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Vérifier que index.html, archives/*.html, en/index.html et en/archives/*.html ont un <style>
+        run: |
+          FAILED=0
+          for f in index.html en/index.html archives/*.html en/archives/*.html; do
+            [ -f "$f" ] || continue
+            if ! grep -q '<style' "$f"; then
+              echo "::error file=$f::Aucune balise <style — page probablement sans CSS (voir incident du 26 septembre 2026, docs/ARCHITECTURE.md)"
+              FAILED=1
+            elif ! grep -q '</style>' "$f"; then
+              echo "::error file=$f::Balise <style présente mais jamais fermée"
+              FAILED=1
+            fi
+          done
+          if [ "$FAILED" -eq 1 ]; then
+            exit 1
+          fi
+          echo "OK — tous les fichiers HTML publiés ont un <style> valide."
