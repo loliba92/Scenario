@@ -780,12 +780,34 @@ def build_home_cards(articles):
     )
     return f'''<section class="related-articles" id="dernieres-editions">
   <div class="wrap">
-    <p class="section-label">Chaque jour, une nouvelle édition</p>
+    <p class="section-label">Les éditions précédentes</p>
     <h2 class="section-title">Dernières éditions</h2>
     <ul class="related-articles-list">
 {items}
     </ul>
     <a class="cross-link" href="archives.html">Voir toutes les archives →</a>
+  </div>
+</section>'''
+
+
+def build_featured_article(article):
+    """Met en avant la toute dernière édition (grande image + titre) juste
+    sous le hero de présentation, séparément des 4 éditions suivantes
+    (build_home_cards) — demandé pour donner du poids visuel au contenu le
+    plus récent sur une home devenue une page de présentation fixe."""
+    return f'''<section class="featured-article">
+  <div class="wrap">
+    <p class="section-label">La dernière édition</p>
+    <a href="archives/{article["date_str"]}.html" class="featured-article-link">
+      <div class="featured-article-image-wrap">
+        <img class="featured-article-image" src="{article["image_url"]}" alt="{article["title"]}">
+      </div>
+      <div>
+        <span class="featured-article-date">{_format_date_short(article["date_str"])}</span>
+        <h2 class="featured-article-title">{article["title"]}</h2>
+        <span class="featured-article-cta">Lire l'édition →</span>
+      </div>
+    </a>
   </div>
 </section>'''
 
@@ -862,12 +884,13 @@ def build_home_head(date_str, edition_number):
 
 def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=None):
     """Assemble la page d'accueil FIXE : head/hero génériques (jamais liés à
-    une édition précise), 4 cartes vers les dernières éditions, bloc
-    "reste connecté", footer. Remplace l'ancien comportement (copie intégrale
-    de l'article du jour) — voir le commit du 27 septembre 2026 : Google
-    indexait la home à la place de l'archive faute d'une vraie séparation
-    de contenu ; une home qui ne republie plus jamais un contenu d'article
-    élimine ce conflit à la racine plutôt que de le réduire.
+    une édition précise), la dernière édition mise en avant (grande carte),
+    les 4 éditions suivantes en cartes plus petites, bloc "reste connecté",
+    footer. Remplace l'ancien comportement (copie intégrale de l'article du
+    jour) — voir le commit du 27 septembre 2026 : Google indexait la home à
+    la place de l'archive faute d'une vraie séparation de contenu ; une home
+    qui ne republie plus jamais un contenu d'article élimine ce conflit à la
+    racine plutôt que de le réduire.
 
     today_entry (optionnel) : {"date_str", "title", "image_url"} pour
     l'édition du jour même. Son archive n'existe pas encore sur le disque
@@ -877,10 +900,13 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
     head_dynamic = build_home_head(date_str, edition_number)
     masthead = build_masthead(shell["masthead_html"], date_str, edition_number)
     hero = build_home_hero()
+    # 5 au total : la plus récente en avant (featured) + les 4 suivantes en
+    # cartes — jamais la même édition dans les deux blocs.
     previous = get_latest_archives(repo_root, before_date_str=date_str,
-                                    count=3 if today_entry else 4)
+                                    count=4 if today_entry else 5)
     latest = ([today_entry] if today_entry else []) + previous
-    cards = build_home_cards(latest[:4])
+    featured = build_featured_article(latest[0]) if latest else ""
+    cards = build_home_cards(latest[1:5])
 
     footer_html = f'<footer>\n  <div class="wrap">\n    <div class="footer-bottom">\n      {shell["legal_links_html"]}\n    </div>\n  </div>\n</footer>'
 
@@ -904,6 +930,8 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
 {shell['intro_banner_html']}
 
 {hero}
+
+{featured}
 
 {cards}
 
