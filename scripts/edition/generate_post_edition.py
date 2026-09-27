@@ -1131,13 +1131,38 @@ def main():
             "La page serait entièrement noire. Abandon immédiat, rien n'est écrit."
         )
 
+    # La home est une page fixe de présentation (jamais le contenu d'un
+    # article) : voir assemble_home_page() pour le motif SEO — conflit de
+    # canonical home/archive détecté via Search Console le 27 septembre
+    # 2026 (0 archive indexée alors que la home, elle, l'était). Une home
+    # qui ne republie plus jamais le contenu d'un article élimine ce
+    # conflit à la racine. L'archive seule garde le contenu intégral,
+    # comme avant. today_entry : l'archive du jour n'existe pas encore
+    # sur REPO_ROOT à ce stade (encore dans le bac à sable), donc
+    # get_latest_archives() ne peut pas la trouver elle-même.
+    today_image_path = sandbox_root / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
+    today_entry = {
+        "date_str": date_str,
+        "title": content["h1"],
+        "image_url": (
+            f"assets/social/topic-images/{date_str}.jpg" if today_image_path.exists()
+            else "assets/social/og-image-v2.png"
+        ),
+    }
+    home_html = build_html.assemble_home_page(shell, date_str, edition_number, REPO_ROOT, today_entry=today_entry)
+    if "<style" not in home_html or "</style>" not in home_html:
+        raise PostEditionError(
+            "❌ CRITIQUE : le HTML de la home ne contient plus de <style> ! "
+            "La page serait entièrement noire. Abandon immédiat, rien n'est écrit."
+        )
+
     index_out = sandbox_root / "index.html"
-    index_out.write_text(html_text, encoding="utf-8")
+    index_out.write_text(home_html, encoding="utf-8")
     archive_dir = sandbox_root / "archives"
     archive_dir.mkdir(parents=True, exist_ok=True)
     archive_path = archive_dir / f"{date_str}.html"
     archive_path.write_text(rebase_links_for_archive_copy(html_text), encoding="utf-8")
-    print(f"[post-edition] HTML final (édition N°{edition_number}) écrit : {index_out} (racine) et {archive_path} (archive, liens réajustés d'un niveau)")
+    print(f"[post-edition] HTML final (édition N°{edition_number}) écrit : {index_out} (racine, résumé) et {archive_path} (archive, contenu complet, liens réajustés d'un niveau)")
 
     # 3. Image Instagram
     ig_image_path = generate_instagram_image(content, date_str, sandbox_root, photo)

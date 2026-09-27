@@ -720,6 +720,237 @@ def build_related_articles(brief, repo_root=None):
 </section>'''
 
 
+_ARCHIVE_DATE_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})\.html$")
+
+
+def get_latest_archives(repo_root, before_date_str, count=4):
+    """Scanne archives/*.html (jamais archives/fragments/) et retourne les
+    `count` éditions les plus récentes strictement antérieures à
+    before_date_str, triées de la plus récente à la plus ancienne. Chaque
+    entrée : {"date_str", "title", "image_url"}. Le tri par nom de fichier
+    suffit (format YYYY-MM-DD.html, donc l'ordre alphabétique est l'ordre
+    chronologique) — aucun besoin de parser les dates."""
+    archives_dir = Path(repo_root) / "archives"
+    dated_files = []
+    for f in archives_dir.glob("*.html"):
+        m = _ARCHIVE_DATE_RE.match(f.name)
+        if m and m.group(1) < before_date_str:
+            dated_files.append((m.group(1), f))
+    dated_files.sort(key=lambda t: t[0], reverse=True)
+
+    entries = []
+    for date_str, f in dated_files[:count]:
+        text = f.read_text(encoding="utf-8")
+        m = re.search(r'<meta property="og:title" content="([^"]*)"', text)
+        title = m.group(1).rsplit(" — Scénario", 1)[0] if m else date_str
+        image_path = Path(repo_root) / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
+        image_url = (
+            f"assets/social/topic-images/{date_str}.jpg" if image_path.exists()
+            else "assets/social/og-image-v2.png"
+        )
+        entries.append({"date_str": date_str, "title": title, "image_url": image_url})
+    return entries
+
+
+def _format_date_short(date_str):
+    """'2026-09-20' -> '20 sept.' — même format court que
+    build_related_articles(), pour rester cohérent visuellement."""
+    d = date.fromisoformat(date_str)
+    month_name = MOIS_FR[d.month - 1][:4]
+    if month_name.endswith("e"):
+        return f"{d.day} {month_name.rstrip('e')}."
+    return f"{d.day} {month_name}."
+
+
+def build_home_cards(articles):
+    """4 cartes vers les dernières éditions, même gabarit visuel que
+    build_related_articles() (classes .related-articles-*, CSS déjà présent
+    dans le style_block du gabarit — aucun nouveau CSS à ajouter)."""
+    if not articles:
+        return ""
+    items = "\n".join(
+        f'''      <li><a href="archives/{a["date_str"]}.html" class="related-articles-item">
+        <img class="related-articles-image" src="{a["image_url"]}" alt="{a["title"]}">
+        <div class="related-articles-content">
+          <span class="related-articles-date">{_format_date_short(a["date_str"])}</span>
+          <span class="related-articles-title">{a["title"]}</span>
+        </div>
+      </a></li>'''
+        for a in articles
+    )
+    return f'''<section class="related-articles" id="dernieres-editions">
+  <div class="wrap">
+    <p class="section-label">Les éditions précédentes</p>
+    <h2 class="section-title">Dernières éditions</h2>
+    <ul class="related-articles-list">
+{items}
+    </ul>
+    <a class="cross-link" href="archives.html">Voir toutes les archives →</a>
+  </div>
+</section>'''
+
+
+def build_featured_article(article):
+    """Met en avant la toute dernière édition (grande image + titre) juste
+    sous le hero de présentation, séparément des 4 éditions suivantes
+    (build_home_cards) — demandé pour donner du poids visuel au contenu le
+    plus récent sur une home devenue une page de présentation fixe."""
+    return f'''<section class="featured-article">
+  <div class="wrap">
+    <p class="section-label">La dernière édition</p>
+    <a href="archives/{article["date_str"]}.html" class="featured-article-link">
+      <div class="featured-article-image-wrap">
+        <img class="featured-article-image" src="{article["image_url"]}" alt="{article["title"]}">
+      </div>
+      <div>
+        <span class="featured-article-date">{_format_date_short(article["date_str"])}</span>
+        <h2 class="featured-article-title">{article["title"]}</h2>
+        <span class="featured-article-cta">Lire l'édition →</span>
+      </div>
+    </a>
+  </div>
+</section>'''
+
+
+def build_home_hero():
+    """Hero fixe de la page d'accueil — ne dépend d'aucune édition, ne
+    change jamais d'un jour à l'autre. Texte repris de le-projet.html pour
+    rester cohérent avec le ton déjà établi ailleurs sur le site."""
+    return """<section class="hero" id="contexte">
+  <div class="wrap">
+    <p class="eyebrow">Chaque jour, un sujet, trois scénarios</p>
+    <h1>Scénario</h1>
+    <p class="dek">Comprendre l'actualité, c'est en mesurer les conséquences, pas seulement en connaître les faits. Chaque jour, Scénario prend un sujet clé et en détaille trois évolutions possibles — favorable, stable, dégradé — chacune avec une probabilité chiffrée.</p>
+  </div>
+</section>"""
+
+
+def build_home_head(date_str, edition_number):
+    """Head SEO de la page d'accueil — fixe et générique (site web de
+    présentation), jamais celui d'un article : og:type=website (pas
+    "article"), canonical vers la racine elle-même (jamais une archive,
+    précisément pour éviter le conflit de canonical corrigé le 27 septembre
+    2026 — voir build_home_cards() et le commit associé), JSON-LD
+    WebSite + Organization seulement (pas de NewsArticle : cette page ne
+    porte plus le contenu d'un article, BreadcrumbList non plus, une home
+    n'a pas de fil d'ariane)."""
+    title = "Scénario — chaque jour, les trois scénarios de demain"
+    description = "Chaque jour, un sujet d'actualité clé et ses trois scénarios chiffrés : favorable, stable, dégradé."
+    return f"""<title>{title}</title>
+<link rel="canonical" href="https://lesscenarios.fr/">
+<meta name="description" content="{description}">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="language" content="fr-FR">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scénario">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://lesscenarios.fr/">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{description}">
+<meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
+<meta property="og:image:width" content="2508">
+<meta property="og:image:height" content="1412">
+<meta property="og:image:alt" content="Scénario — trois scénarios chiffrés pour chaque actualité : favorable, stable, dégradé.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@scenario_fr">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{description}">
+<meta name="twitter:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Scénario",
+  "url": "https://lesscenarios.fr",
+  "logo": "https://lesscenarios.fr/assets/logo-512.png",
+  "description": "Chaque jour, les trois scénarios de demain : un à court terme, un à moyen terme, un à long terme.",
+  "sameAs": [
+    "https://www.linkedin.com/company/136694258/",
+    "https://www.facebook.com/share/1LuiQ1cAmt/"
+  ]
+}}
+</script>
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Scénario",
+  "url": "https://lesscenarios.fr",
+  "description": "Les trois scénarios du jour : court, moyen et long terme."
+}}
+</script>"""
+
+
+def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=None):
+    """Assemble la page d'accueil FIXE : head/hero génériques (jamais liés à
+    une édition précise), la dernière édition mise en avant (grande carte),
+    les 4 éditions suivantes en cartes plus petites, bloc "reste connecté",
+    footer. Remplace l'ancien comportement (copie intégrale de l'article du
+    jour) — voir le commit du 27 septembre 2026 : Google indexait la home à
+    la place de l'archive faute d'une vraie séparation de contenu ; une home
+    qui ne republie plus jamais un contenu d'article élimine ce conflit à la
+    racine plutôt que de le réduire.
+
+    today_entry (optionnel) : {"date_str", "title", "image_url"} pour
+    l'édition du jour même. Son archive n'existe pas encore sur le disque
+    scanné par get_latest_archives() à ce stade du pipeline (elle est
+    encore dans le bac à sable, pas promue vers repo_root) — sans cet
+    argument, seules les éditions déjà publiées apparaissent."""
+    head_dynamic = build_home_head(date_str, edition_number)
+    masthead = build_masthead(shell["masthead_html"], date_str, edition_number)
+    hero = build_home_hero()
+    # 5 au total : la plus récente en avant (featured) + les 4 suivantes en
+    # cartes — jamais la même édition dans les deux blocs.
+    previous = get_latest_archives(repo_root, before_date_str=date_str,
+                                    count=4 if today_entry else 5)
+    latest = ([today_entry] if today_entry else []) + previous
+    featured = build_featured_article(latest[0]) if latest else ""
+    cards = build_home_cards(latest[1:5])
+
+    footer_html = f'<footer>\n  <div class="wrap">\n    <div class="footer-bottom">\n      {shell["legal_links_html"]}\n    </div>\n  </div>\n</footer>'
+
+    html_result = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{head_dynamic}
+{shell['head_static']}
+{shell['style_block']}
+</head>
+<body>
+
+{masthead}
+
+{shell['topnav_html']}
+
+{shell['weekly_banner_html']}
+
+{shell['intro_banner_html']}
+
+{hero}
+
+{featured}
+
+{cards}
+
+{_SHARE_BLOCK}
+
+{footer_html}
+
+{shell['scripts_tail_html']}
+</body>
+</html>
+"""
+    if "<style" not in html_result or "</style>" not in html_result:
+        raise ShellError(
+            "❌ CRITIQUE : le CSS n'a pas été injecté dans le HTML de la home ! "
+            "La page serait entièrement noire. Abandon immédiat."
+        )
+    return html_result
+
+
 def assemble_index_html(shell, content, brief, date_str, photo=None):
     """Assemble le document complet. Ne fait AUCUN appel réseau, AUCUNE
     écriture disque — retourne uniquement la chaîne HTML finale, à valider

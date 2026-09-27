@@ -3,30 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bienvenue — Scénario</title>
+<title>Politique de cookies — Scénario</title>
+<link rel="canonical" href="https://lesscenarios.fr/cookies.html">
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#10151c">
-<link rel="apple-touch-icon" href="assets/icon-192.png">
+<meta name="apple-touch-icon" href="assets/icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Scénario">
 <link rel="stylesheet" href="assets/pwa-install.css">
-<meta name="robots" content="noindex,follow">
-<meta name="description" content="Votre inscription à Scénario est confirmée — vous recevrez votre prochain email dès la prochaine édition publiée.">
+<meta name="description" content="Quels services externes chargent des données depuis ce site, et pourquoi.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Scénario">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:url" content="https://lesscenarios.fr/bienvenue.html">
-<meta property="og:title" content="Bienvenue — Scénario">
-<meta property="og:description" content="Votre inscription à Scénario est confirmée — vous recevrez votre prochain email dès la prochaine édition publiée.">
+<meta property="og:url" content="https://lesscenarios.fr/cookies.html">
+<meta property="og:title" content="Politique de cookies — Scénario">
+<meta property="og:description" content="Quels services externes chargent des données depuis ce site, et pourquoi.">
 <meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
 <meta property="og:image:width" content="2508">
 <meta property="og:image:height" content="1412">
 <meta property="og:image:alt" content="Scénario — trois scénarios chiffrés pour chaque actualité : favorable, stable, dégradé.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Bienvenue — Scénario">
-<meta name="twitter:description" content="Votre inscription à Scénario est confirmée — vous recevrez votre prochain email dès la prochaine édition publiée.">
+<meta name="twitter:title" content="Politique de cookies — Scénario">
+<meta name="twitter:description" content="Quels services externes chargent des données depuis ce site, et pourquoi.">
 <meta name="twitter:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -112,7 +112,6 @@
     gap: 11px;
   }
 
-
   .brand-mark{
     width: 30px;
     height: 30px;
@@ -181,7 +180,6 @@
     line-height: 1.08;
     letter-spacing: -0.01em;
     margin: 0 0 16px;
-    max-width: 16ch;
   }
 
   .dek{
@@ -220,68 +218,33 @@
 
   .body-section strong{ color: var(--paper); font-weight: 500; }
 
-  .perks{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-width: 62ch;
-    margin: 24px 0 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .perks li{
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    color: var(--paper-dim);
-    font-size: 0.95rem;
-  }
-
-  .perks li::before{
-    content: "✓";
-    color: var(--favorable);
-    font-family: "JetBrains Mono", monospace;
-  }
-
-  .submit-btn{
-    align-self: flex-start;
-    display: inline-block;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    text-decoration: none;
-    color: var(--ink);
-    background: var(--gold);
-    border: 1px solid var(--gold);
-    border-radius: 100px;
-    padding: 10px 24px;
-    cursor: pointer;
-    transition: opacity .15s;
-  }
-
-  .submit-btn:hover{ opacity: 0.9; }
-
-  .telegram-card{
-    border: 1px solid var(--gold);
-    border-radius: 14px;
-    padding: 28px;
-    margin: 24px 0 0;
-    max-width: 62ch;
+  .data-card{
     background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    padding: 20px 22px;
+    max-width: 62ch;
+    margin: 0 0 14px;
   }
 
-  .telegram-card-title{
-    font-family: "Fraunces", serif;
-    font-weight: 600;
-    font-size: 1.2rem;
-    color: var(--paper);
-    margin: 0 0 12px;
+  .data-card:last-of-type{ margin-bottom: 0; }
+
+  .data-card .kind{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 8px;
   }
 
-  .telegram-card p{ margin: 0 0 20px; }
-  .telegram-card p:last-of-type{ margin-bottom: 24px; }
+  .data-card p{
+    margin: 0 0 8px;
+    font-size: 0.92rem;
+  }
+
+  .data-card p:last-child{ margin-bottom: 0; }
 
   .cross-link{
     display: inline-block;
@@ -301,12 +264,17 @@
     padding: 32px 0 48px;
   }
 
+  footer .caveat{
+    font-size: 0.84rem;
+    color: var(--paper-dim);
+    max-width: 62ch;
+    margin: 0 0 16px;
+  }
 
   .legal-links{
     display: flex;
     gap: 18px;
     flex-wrap: wrap;
-    margin: 24px 0 0;
   }
 
   .legal-links a{
@@ -318,51 +286,6 @@
   }
 
   .legal-links a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
-
-  footer .caveat{
-    font-size: 0.84rem;
-    color: var(--paper-dim);
-    max-width: 62ch;
-    margin: 0;
-  }
-
-  /* ---------- Nous suivre (ancre du menu #nous-suivre) ---------- */
-  section.follow-block{
-    padding: 28px 0 32px;
-    border-top: 1px dashed var(--hairline);
-  }
-  .follow-block-label{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--gold);
-    margin: 0 0 14px;
-  }
-  .follow-block-row{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .follow-btn{
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.74rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    color: var(--gold);
-    background: transparent;
-    border: 1px solid var(--gold);
-    border-radius: 100px;
-    padding: 8px 16px;
-    flex-shrink: 0;
-    transition: background .15s, color .15s;
-  }
-  .follow-btn:hover{ background: var(--gold); color: var(--ink); }
-  .follow-btn svg{ display: block; flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -386,58 +309,87 @@
     <a href="le-projet.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4.5-8 4.5-8-4.5Z"/><path d="m4 12 8 4.5 8-4.5"/><path d="m4 16.5 8 4.5 8-4.5"/></svg> Le projet</a>
     <a href="newsletter.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M4.5 7 12 12.5 19.5 7"/></svg> Newsletter</a>
     <a href="contact.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6.5A1.5 1.5 0 0 1 5.5 5h13A1.5 1.5 0 0 1 20 6.5v8a1.5 1.5 0 0 1-1.5 1.5H10l-4 3.5V16H5.5A1.5 1.5 0 0 1 4 14.5Z"/></svg> Contact</a>
-    <a href="#nous-suivre"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg> Nous suivre</a>
     <a href="https://buymeacoffee.com/scenario" target="_blank" rel="noopener noreferrer" style="color:var(--gold)"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v6a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4Z"/><path d="M16 10.5h1.5a2 2 0 0 1 0 4H16"/><path d="M8.5 4.5c-.6.7-.6 1.3 0 2M12 4.5c-.6.7-.6 1.3 0 2"/></svg> Soutenir</a>
   </div>
 </nav>
 
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow">Newsletter · Inscription confirmée</p>
-    <h1>Bienvenue dans Scénario</h1>
-    <p class="dek">C'est fait : votre adresse est confirmée. Vous recevrez votre premier email dès la prochaine édition publiée.</p>
+    <p class="eyebrow">Services externes</p>
+    <h1>Politique de cookies et traceurs</h1>
+    <p class="dek">Ce site charge très peu de services externes. En voici l'inventaire complet, sans mystère.</p>
   </div>
 </section>
 
 <section class="body-section">
   <div class="wrap">
-    <p class="section-label">Ce qui vous attend</p>
-    <h2 class="section-title">Ce que vous allez recevoir</h2>
-    <p>Selon les formules cochées lors de l'inscription, vous recevrez l'édition quotidienne, le récap hebdomadaire, ou les deux — indépendamment l'une de l'autre.</p>
-    <ul class="perks">
-      <li>Quotidienne : un email chaque matin, dès qu'une nouvelle édition est publiée</li>
-      <li>Hebdomadaire : un seul email le dimanche soir, avec les 7 sujets de la semaine</li>
-      <li>100 % gratuit, sans engagement — désinscription en un clic, à tout moment</li>
-      <li>Votre email ne sert qu'à ça — jamais revendu, jamais partagé</li>
+    <p class="section-label">Services essentiels</p>
+    <h2 class="section-title">Chargement des polices</h2>
+    <p><strong>Google Fonts</strong> fournit trois polices de caractères utilisées sur le site : Fraunces, Inter et JetBrains Mono. Cette ressource est chargée directement depuis les serveurs Google.</p>
+    <div class="data-card">
+      <span class="kind">Google Fonts — polices de caractères</span>
+      <p><strong>Données :</strong> votre adresse IP est vue par Google lors du chargement.</p>
+      <p><strong>Pourquoi :</strong> afficher le site avec le design prévu.</p>
+      <p><strong>Consentement requis :</strong> non (Google Fonts ne dépose pas de cookie persistant).</p>
+      <p><strong>Alternatives :</strong> possible dans l'avenir d'auto-héberger ces polices pour éviter tout appel externe.</p>
+    </div>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">Services liés aux données</p>
+    <h2 class="section-title">Formulaire et analytics</h2>
+    <p>Seuls deux services tiers sont liés à la collecte ou l'analyse de données.</p>
+    <div class="data-card">
+      <span class="kind">FormSubmit — formulaire de contact</span>
+      <p><strong>Données :</strong> votre nom (optionnel), email, et message (acheminés vers la boîte mail).</p>
+      <p><strong>Cookies :</strong> aucun.</p>
+      <p><strong>Base légale :</strong> votre consentement, exprimé en envoyant le formulaire.</p>
+    </div>
+    <div class="data-card">
+      <span class="kind">GoatCounter — statistiques anonymes</span>
+      <p><strong>Données :</strong> aucune donnée personnelle — juste des comptages de visites agrégées (pas de profil individuel).</p>
+      <p><strong>Cookies :</strong> aucun — c'est le choix de cet outil.</p>
+      <p><strong>Consentement requis :</strong> non (pas de suivi personnel).</p>
+    </div>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">Notifications et newsletter</p>
+    <h2 class="section-title">Inscription aux mises à jour</h2>
+    <p>Deux canaux permettent de recevoir les éditions de Scénario en plus de la visite directe au site.</p>
+    <div class="data-card">
+      <span class="kind">OneSignal — notifications push</span>
+      <p><strong>Données :</strong> optionnel — vous choisissez de vous abonner aux notifications du navigateur.</p>
+      <p><strong>Cookies :</strong> oui, un token technique pour gérer votre abonnement.</p>
+      <p><strong>Pour arrêter :</strong> accédez aux paramètres de notifications de votre navigateur et refusez Scénario.</p>
+    </div>
+    <div class="data-card">
+      <span class="kind">Buttondown — newsletter email</span>
+      <p><strong>Données :</strong> votre adresse email (si vous vous abonnez).</p>
+      <p><strong>Cookies :</strong> aucun (les emails n'en peuvent pas déposer).</p>
+      <p><strong>Pour arrêter :</strong> lien de désinscription en un clic, présent en bas de chaque email.</p>
+    </div>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <p class="section-label">Récapitulatif</p>
+    <h2 class="section-title">Pourquoi pas de bandeau de consentement ?</h2>
+    <p>Legalement, un bandeau de consentement n'est obligatoire que si des <strong>traceurs non essentiels</strong> déposent des cookies. Sur ce site :</p>
+    <ul style="max-width: 62ch; padding: 0 0 0 24px; color: var(--paper-dim);">
+      <li>GoatCounter n'utilise aucun cookie (statistiques anonymes uniquement).</li>
+      <li>Google Fonts ne dépose pas de cookie persistant (chargement d'une ressource, c'est tout).</li>
+      <li>FormSubmit transmet votre message mais ne stocke rien.</li>
+      <li>OneSignal est optionnel et ne s'active que si vous acceptez les notifications.</li>
+      <li>Buttondown ne pose pas de cookie (vous recevez des emails).</li>
     </ul>
-    <a class="submit-btn" href="index.html" style="margin-top:24px;">Lire l'édition du jour</a>
-  </div>
-</section>
-
-<section class="body-section">
-  <div class="wrap">
-    <p class="section-label">Bonus</p>
-    <h2 class="section-title">Devine le scénario avant de le découvrir</h2>
-    <div class="telegram-card">
-      <p class="telegram-card-title">🗳️ Un sondage chaque jour, avant la révélation</p>
-      <p>Sur le canal Telegram <strong>Scénario</strong>, votez pour le scénario — favorable, stable ou dégradé — que vous jugez le plus probable, <strong>avant même de lire l'édition</strong> et ses vraies probabilités.</p>
-      <a class="submit-btn" href="https://t.me/scenario_fr" target="_blank" rel="noopener noreferrer">Rejoindre le canal Telegram</a>
-    </div>
-    <a class="cross-link" href="le-projet.html">Comment nous travaillons → Le projet</a>
-  </div>
-</section>
-
-<section class="follow-block" id="nous-suivre">
-  <div class="wrap">
-    <p class="follow-block-label">Nous suivre</p>
-    <div class="follow-block-row">
-      <a class="follow-btn" href="https://x.com/scenario_fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="4" x2="20" y2="20"></line><line x1="20" y1="4" x2="4" y2="20"></line></svg> X</a>
-      <a class="follow-btn" href="https://bsky.app/profile/scenario-actu.bsky.social" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"></path></svg> Bluesky</a>
-      <a class="follow-btn" href="https://www.linkedin.com/company/136694258/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"></rect><circle cx="7.7" cy="7.6" r="1.3" fill="currentColor"></circle><line x1="7.7" y1="10.6" x2="7.7" y2="17.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></line><path d="M11.6 17.3v-4.2c0-1.5 1-2.4 2.3-2.4s2.3.9 2.3 2.4v4.2M11.6 10.6v.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg> LinkedIn</a>
-      <a class="follow-btn" href="https://www.facebook.com/share/1DZVhe3KtR/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="6" fill="#000" stroke="currentColor" stroke-width="1"></rect><rect x="10.3" y="9.5" width="2.4" height="9" fill="#fff"></rect><rect x="10.3" y="6" width="4.7" height="2.6" rx="1" fill="#fff"></rect><rect x="7.8" y="11.6" width="6.5" height="2" fill="#fff"></rect></svg> Facebook</a>
-      <a class="follow-btn" href="https://www.instagram.com/scenarios.actu/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> Instagram</a>
-      <a class="follow-btn" href="https://t.me/scenario_fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M2 12l19-9-7 19-3-7-6-3z"/></svg> Telegram</a>
-    </div>
+    <p style="margin-top: 20px;">Il n'y a donc pas de traceur non essentiel sur ce site. Mais cette page existe pour être transparent : la plupart des gens ne savent pas qui se cachent derrière les domaines chargés depuis un site. La clarté est plus importante qu'une case à cocher vide.</p>
+    <a class="cross-link" href="politique-de-confidentialite.html">Tous les détails sur vos données → Politique de confidentialité</a>
   </div>
 </section>
 
@@ -447,7 +399,7 @@
     <div class="legal-links">
       <a href="mentions-legales.html">Mentions légales</a>
       <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
-      <a href="cookies.html">Politique de cookies</a>
+      <a href="cookies.html" aria-current="page">Politique de cookies</a>
     </div>
   </div>
 </footer>
