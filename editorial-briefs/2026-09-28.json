@@ -1,0 +1,230 @@
+{
+  "date": "2026-09-28",
+  "registre": "géopolitique",
+  "sujet": {
+    "titre_propose": "Nouvel ordre mondial : la domination occidentale est-elle remise en cause par un monde de plus en plus multipolaire ?",
+    "h1": "Nouvel ordre mondial : la domination occidentale est-elle remise en cause par un monde multipolaire ?",
+    "question_posee": "La domination occidentale est-elle remise en cause par un monde de plus en plus multipolaire ?",
+    "eyebrow": "Lundi, géopolitique",
+    "angle": "Un monde où les États-Unis, la Chine et d'autres puissances régionales partagent le pouvoir : les rapports de force s'équilibrent-ils, se fragmentent-ils, ou les États-Unis restent-ils en position dominante malgré tout ?",
+    "tags": [
+      "géopolitique",
+      "multipolarité",
+      "rapports de force"
+    ],
+    "domain": "international",
+    "image_keywords": "world map global politics balance of power",
+    "complexite": 3,
+    "origine_prioritaire": "- [ ] Nouvel ordre mondial : la domination occidentale est-elle remise en cause par un monde de plus en plus multipolaire ? [géopolitique]"
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (27/09) : Mbappé/Ceuta, sport/société, sans recoupement thématique. Registre géopolitique lundi : dernière édition lundi 21/09 (USA-Chine, trêve commerciale) — sujet différent (commerce vs ordre mondial). Édition lundi 14/09 (Taïwan) — rapport de force États-Unis-Chine, mais angle très différent (Taïwan spécifique vs ordre mondial général). Pas de doublon bloquant."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le monde est entré dans une phase de multipolarité accrue, avec la Chine, l'Inde, le Brésil et d'autres puissances régionales jouant un rôle croissant dans les décisions internationales.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "source1"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La part de la Chine dans l'économie mondiale (PIB PPP) a dépassé celle des États-Unis, selon plusieurs mesures internationales.",
+      "chiffre": "PIB PPP Chine > PIB PPP États-Unis",
+      "date_du_chiffre": "2024",
+      "sources": [
+        "source2"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les États-Unis maintiennent une position de force militaire et financière, avec une présence militaire mondiale et un dollar toujours dominant comme monnaie de réserve.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "source3"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "États-Unis",
+      "role": "Puissance dominante historique, maintient une influence militaire et financière mondiale"
+    },
+    {
+      "nom": "Chine",
+      "role": "Puissance économique et militaire croissante, challenger la domination occidentale"
+    },
+    {
+      "nom": "Union européenne",
+      "role": "Acteur régional important, cherchant à affirmer son autonomie stratégique"
+    },
+    {
+      "nom": "Inde",
+      "role": "Puissance régionale en croissance, joueur clé dans le multipolarisme asiatique"
+    },
+    {
+      "nom": "Russie",
+      "role": "Acteur militaire et énergétique, défie l'ordre occidental depuis l'invasion de l'Ukraine"
+    },
+    {
+      "nom": "Organisations internationales (ONU, FMI, OMC)",
+      "role": "Institutions multilatérales dont la légitimité et l'efficacité sont remises en question"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2022-02",
+      "evenement": "Invasion russe de l'Ukraine : remise en cause ouverte de l'ordre sécuritaire occidental"
+    },
+    {
+      "date": "2023",
+      "evenement": "Crise du dollar : plusieurs pays (Brésil, Russie, Chine) cherchent à réduire leur dépendance au dollar américain"
+    },
+    {
+      "date": "2024",
+      "evenement": "Sommet du BRICS élargi : nouvelle configuration de puissances non-occidentales"
+    },
+    {
+      "date": "2025-2026",
+      "evenement": "Accélération des tensions commerciales et technologiques entre États-Unis et Chine"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Le multipolarisme évolue vers un équilibre stable où les grandes puissances coopèrent malgré leurs différences, les institutions multilatérales s'adaptent, et les conflits sont contenus par des mécanismes diplomatiques efficaces.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "Le monde reste multipolaire mais avec des tensions persistantes : les États-Unis conservent une influence prépondérante dans les domaines clés (finance, technologie, sécurité), tandis que la Chine et d'autres puissances gagnent du terrain dans leurs régions respectives, sans remise en cause totale de l'ordre existant.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "Le système international se fragmente en blocs concurrents, les institutions multilatérales perdent leur crédibilité, et les conflits locaux ont plus de risques d'escalader en raison de l'absence de mécanismes de conteniment efficaces.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Part de l'Occident (G7) dans le PIB mondial (PPP)",
+      "valeur": "en baisse depuis 2000",
+      "tendance": "↓"
+    },
+    {
+      "label": "Nombre de pays s'éloignant du dollar américain pour le commerce",
+      "valeur": "en augmentation",
+      "tendance": "↑"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Sujet prospectif sans série historique longue disponible pour un graphique en escalier pertinent",
+    "serie": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Qu'est-ce que la multipolarité ?",
+        "rattache_a": "Définition du concept : un monde où plusieurs puissances (États-Unis, Chine, Inde, UE, etc.) ont une influence significative, par opposition à un monde unipolaire (domination américaine) ou bipolaire (guerre froide)"
+      },
+      {
+        "focus": "Pourquoi le dollar reste central malgré le déclin relatif de l'Occident",
+        "rattache_a": "Le dollar reste la monnaie de réserve dominante et le principal moyen de paiement international, ce qui donne aux États-Unis un avantage structurel même dans un monde multipolaire"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "La vitesse de transition vers un monde multipolaire reste incertaine : certains analystes estiment que les États-Unis conservent une domination structurelle sur la finance et la technologie qui pourrait préserver leur position pendant des décennies.",
+    "L'avenir des institutions multilatérales (ONU, FMI, OMC) est incertain : peuvent-elles s'adapter pour refléter les nouvelles réalités de puissance, ou vont-elles perdre tout pouvoir de médiation ?",
+    "Le rôle de l'Inde comme puissance équilibrante est difficile à prédire : son indépendance stratégique face aux deux superpuissances est-elle durable ?"
+  ],
+  "a_ne_pas_affirmer": [
+    "La domination occidentale est en train de s'effondrer — c'est une interprétation, pas un fait établi",
+    "La Chine remplacera les États-Unis comme première puissance mondiale d'ici 2030 — trop prédictif, trop d'incertitudes"
+  ],
+  "sources": [
+    {
+      "id": "source1",
+      "title": "La multipolarité mondiale : une réalité ou un mythe ?",
+      "source": "Le Monde",
+      "url": "https://www.lemonde.fr/international/article/2026/09/multipolarite-mondiale-realite-mythe.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "international",
+      "summary": "Analyse de la transition vers un monde multipolaire, avec les arguments pour et contre l'idée que la domination occidentale est remise en cause.",
+      "read_minutes": 5
+    },
+    {
+      "id": "source2",
+      "title": "PIB PPP : la Chine dépasse les États-Unis",
+      "source": "FMI — Rapport sur l'économie mondiale",
+      "url": "https://www.imf.org/fr/Publications/WEO",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-mondiale",
+      "summary": "Les données du FMI montrent que le PIB en parité de pouvoir d'achat de la Chine a dépassé celui des États-Unis, reflétant un changement dans la balance des puissances économiques.",
+      "read_minutes": 3
+    },
+    {
+      "id": "source3",
+      "title": "Le dollar américain : toujours roi malgré tout ?",
+      "source": "Financial Times",
+      "url": "https://www.ft.com/content/dollar-dominance-2026",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-mondiale",
+      "summary": "Analyse de la persistance de la domination du dollar américain comme monnaie de réserve mondiale, malgré les efforts de dé-dollarisation de certains pays.",
+      "read_minutes": 4
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "BRICS élargi : une nouvelle architecture de puissance ?",
+      "source": "Agence France-Presse",
+      "url": "https://www.afp.com/article/brics-elargi-2026",
+      "image": null,
+      "lang": "fr",
+      "domain": "international",
+      "summary": "Le BRICS a élargi son membership en 2024, incluant plusieurs pays d'Afrique, d'Asie du Sud-Est et d'Amérique latine, créant une plateforme alternative aux institutions occidentales.",
+      "read_minutes": 2
+    },
+    {
+      "title": "L'Inde, puissance équilibrante entre États-Unis et Chine ?",
+      "source": "The Hindu",
+      "url": "https://www.thehindu.com/international/india-balancing-power-2026",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "L'Inde cherche à maintenir une indépendance stratégique face aux deux superpuissances, jouant un rôle de médiateur dans certaines crises régionales.",
+      "read_minutes": 3
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-21",
+      "titre": "USA-Chine : la trêve commerciale au bord du gouffre",
+      "lien": "Même acteurs centraux (États-Unis, Chine) et même tension géopolitique sous-jacente — la relation sino-américaine est au cœur du débat sur le multipolarisme."
+    },
+    {
+      "date": "2026-09-14",
+      "titre": "Taïwan : Trump et Xi peuvent-ils calmer la pression chinoise ?",
+      "lien": "Rapport de force États-Unis-Chine sur un point chaud spécifique — illustration concrète des tensions dans un monde multipolaire."
+    },
+    {
+      "date": "2026-09-17",
+      "titre": "Dollar : la fin du règne ?",
+      "lien": "Le dollar est un pilier de la domination occidentale — sa remise en cause est un indicateur clé du déclin relatif de l'Occident."
+    }
+  ],
+  "recommandations_redaction": [
+    "Insister sur la nuance : le multipolarisme n'est pas un phénomène binaire (Occident vs le reste), mais un paysage complexe où les alliances changent",
+    "Utiliser des exemples concrets (BRICS, dé-dollarisation partielle, rôle de l'Inde) pour illustrer les tendances",
+    "Éviter le déterminisme : souligner que la domination américaine a des racines profondes (finance, technologie, soft power) qui ne disparaîtront pas du jour au lendemain"
+  ]
+}
