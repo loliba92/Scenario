@@ -720,6 +720,52 @@ def build_related_articles(brief, repo_root=None):
 </section>'''
 
 
+def build_home_teaser_html(html_text, date_str):
+    """Transforme le HTML complet d'une édition (déjà assemblé par
+    assemble_index_html) en version résumée pour la page d'accueil : garde
+    le hero (titre, question, faits, indicateurs) mais retire le contenu
+    dupliqué avec l'archive (scénarios détaillés, lexique, sources), remplacé
+    par un lien "Lire l'édition complète →" vers archives/{date_str}.html.
+
+    Objectif SEO (pas un simple choix éditorial) : la home et l'archive du
+    jour republiaient jusqu'ici un contenu identique, et Google privilégiait
+    la home (bien plus liée en interne) au lieu du canonical déclaré vers
+    l'archive — laissant l'archive elle-même hors de son index la plupart
+    du temps. Un teaser sans duplication de contenu supprime ce conflit.
+
+    N'affecte jamais archives/{date_str}.html, qui reste la copie complète
+    (voir rebase_links_for_archive_copy(), appliqué séparément à html_text)."""
+    soup = BeautifulSoup(html_text, "html.parser")
+    archive_url = f"archives/{date_str}.html"
+
+    for selector in (".related-articles", "section.scenarios#scenarios",
+                     "section.lexique#lexique", "section.sources#sources"):
+        tag = soup.select_one(selector)
+        if tag is not None:
+            tag.decompose()
+
+    # Le sommaire du hero pointe vers des ancres locales (#scenarios,
+    # #essentiel, #lexique) qui n'existent plus sur cette page une fois ces
+    # sections retirées — les rediriger vers les mêmes ancres, mais dans
+    # l'archive complète, plutôt que de les laisser mener nulle part.
+    toc = soup.select_one("nav.toc")
+    if toc is not None:
+        for a in toc.find_all("a", href=True):
+            if a["href"].startswith("#"):
+                a["href"] = archive_url + a["href"]
+
+    hero = soup.select_one("section.hero#contexte")
+    if hero is not None:
+        teaser = soup.new_tag("p", **{"class": "form-hint"})
+        teaser["style"] = "margin: 24px 0 0;"
+        link = soup.new_tag("a", href=archive_url, **{"class": "cross-link"})
+        link.string = "Lire l'édition complète →"
+        teaser.append(link)
+        hero.select_one("div.wrap").append(teaser)
+
+    return str(soup)
+
+
 def assemble_index_html(shell, content, brief, date_str, photo=None):
     """Assemble le document complet. Ne fait AUCUN appel réseau, AUCUNE
     écriture disque — retourne uniquement la chaîne HTML finale, à valider

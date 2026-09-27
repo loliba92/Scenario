@@ -1131,13 +1131,25 @@ def main():
             "La page serait entièrement noire. Abandon immédiat, rien n'est écrit."
         )
 
+    # La home reçoit un résumé (hero + lien vers l'archive), jamais le
+    # contenu complet : voir build_home_teaser_html() pour le motif SEO
+    # (conflit de canonical home/archive détecté via Search Console le 27
+    # septembre 2026 — 0 archive indexée alors que la home, elle, l'était).
+    # L'archive seule garde le contenu intégral, comme avant.
+    home_html = build_html.build_home_teaser_html(html_text, date_str)
+    if "<style" not in home_html or "</style>" not in home_html:
+        raise PostEditionError(
+            "❌ CRITIQUE : le HTML de la home (après réduction en teaser) ne contient plus de <style> ! "
+            "La page serait entièrement noire. Abandon immédiat, rien n'est écrit."
+        )
+
     index_out = sandbox_root / "index.html"
-    index_out.write_text(html_text, encoding="utf-8")
+    index_out.write_text(home_html, encoding="utf-8")
     archive_dir = sandbox_root / "archives"
     archive_dir.mkdir(parents=True, exist_ok=True)
     archive_path = archive_dir / f"{date_str}.html"
     archive_path.write_text(rebase_links_for_archive_copy(html_text), encoding="utf-8")
-    print(f"[post-edition] HTML final (édition N°{edition_number}) écrit : {index_out} (racine) et {archive_path} (archive, liens réajustés d'un niveau)")
+    print(f"[post-edition] HTML final (édition N°{edition_number}) écrit : {index_out} (racine, résumé) et {archive_path} (archive, contenu complet, liens réajustés d'un niveau)")
 
     # 3. Image Instagram
     ig_image_path = generate_instagram_image(content, date_str, sandbox_root, photo)
