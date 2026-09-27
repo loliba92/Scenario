@@ -1,0 +1,57 @@
+# Scénario — analyse politico-économique chiffrée
+
+## À propos
+
+Scénario est un site d'information qui publie une édition chaque jour. Chaque édition analyse une actualité politique, économique ou scientifique à fort enjeu et forte incertitude.
+
+Pour chaque sujet traité, le site présente trois **scénarios chiffrés** — favorable, stable, dégradé — avec des probabilités estimées et des détails sur ce qui détermine chaque issue.
+
+## Comment ça marche
+
+1. **Un sujet par jour**, sept jours sur sept
+2. **Trois scénarios** pour chaque sujet (probabilités + détails)
+3. **Sources citées** et expliquées dans chaque édition
+4. **Mise à jour régulière** des sujets sensibles via les pages de suivi
+
+Le site ne donne pas de conseils (financier, juridique, politique). C'est une analyse factuelle pour se faire son propre avis avec plus de repères.
+
+## Pages principales
+
+- **Accueil** : https://lesscenarios.fr/
+- **Archives** : https://lesscenarios.fr/archives.html (toutes les éditions publiées)
+- **Glossaire** : https://lesscenarios.fr/glossaire.html (termes clés expliqués)
+- **Le projet** : https://lesscenarios.fr/le-projet.html (comment on fonctionne)
+- **Newsletter** : https://lesscenarios.fr/newsletter.html (s'abonner aux emails)
+- **Contact** : https://lesscenarios.fr/contact.html (formulaire, suggestions, corrections)
+
+## Qui édite
+
+Scénario est édité par Olivier Bertrand, à titre individuel.
+
+La production est assistée par l'intelligence artificielle (sélection des sujets, recherche, rédaction), mais l'orchestration, la ligne éditoriale et la responsabilité finale restent humaines, conformément à l'article 50 du règlement européen sur l'IA.
+
+Chaque édition fait l'objet d'une supervision humaine scrupuleuse et de corrections quotidiennes.
+
+## Propriété intellectuelle
+
+Les textes, analyses et scénarios de Scénario sont des synthèses originales. Vous pouvez les citer et renvoyer au site, mais pas les recopier intégralement sans autorisation.
+
+Les sources externes citées (section « Sources » de chaque édition) appartiennent à leurs auteurs respectifs — on y renvoie, on ne les republish pas.
+
+## Accessibilité et conformité
+
+- **Politique de confidentialité** : https://lesscenarios.fr/politique-de-confidentialite.html
+- **Mentions légales** : https://lesscenarios.fr/mentions-legales.html
+- **Politique de cookies** : https://lesscenarios.fr/cookies.html
+
+Le site collecte le minimum de données possibles : aucun cookie de traçage, pas de profilage publicitaire, pas de vente de données.
+
+## Hébergement
+
+Scénario est hébergé sur GitHub Pages (États-Unis).
+
+---
+
+**Dernière mise à jour : 2026-09-27**
+
+Pour des questions ou des corrections, contactez le site via https://lesscenarios.fr/contact.html
