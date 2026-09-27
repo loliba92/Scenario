@@ -950,6 +950,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-09-26 (archives/2026-09-26.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-09-27
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 80 000 habitants
+- message: Le 15 septembre 2026, le refus de Kylian Mbappé de porter un tee-shirt pour les 80 000 habitants de Ceuta a déclenché une vive tempête politique en Espagne et en France.
+- attribution: — lesscenarios.fr, 27 septembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-09-27.html
+
+*Phrase à retenir de l'édition du 2026-09-27 (archives/2026-09-27.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
