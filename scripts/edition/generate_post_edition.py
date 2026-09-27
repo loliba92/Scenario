@@ -1131,15 +1131,28 @@ def main():
             "La page serait entièrement noire. Abandon immédiat, rien n'est écrit."
         )
 
-    # La home reçoit un résumé (hero + lien vers l'archive), jamais le
-    # contenu complet : voir build_home_teaser_html() pour le motif SEO
-    # (conflit de canonical home/archive détecté via Search Console le 27
-    # septembre 2026 — 0 archive indexée alors que la home, elle, l'était).
-    # L'archive seule garde le contenu intégral, comme avant.
-    home_html = build_html.build_home_teaser_html(html_text, date_str)
+    # La home est une page fixe de présentation (jamais le contenu d'un
+    # article) : voir assemble_home_page() pour le motif SEO — conflit de
+    # canonical home/archive détecté via Search Console le 27 septembre
+    # 2026 (0 archive indexée alors que la home, elle, l'était). Une home
+    # qui ne republie plus jamais le contenu d'un article élimine ce
+    # conflit à la racine. L'archive seule garde le contenu intégral,
+    # comme avant. today_entry : l'archive du jour n'existe pas encore
+    # sur REPO_ROOT à ce stade (encore dans le bac à sable), donc
+    # get_latest_archives() ne peut pas la trouver elle-même.
+    today_image_path = sandbox_root / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
+    today_entry = {
+        "date_str": date_str,
+        "title": content["h1"],
+        "image_url": (
+            f"assets/social/topic-images/{date_str}.jpg" if today_image_path.exists()
+            else "assets/social/og-image-v2.png"
+        ),
+    }
+    home_html = build_html.assemble_home_page(shell, date_str, edition_number, REPO_ROOT, today_entry=today_entry)
     if "<style" not in home_html or "</style>" not in home_html:
         raise PostEditionError(
-            "❌ CRITIQUE : le HTML de la home (après réduction en teaser) ne contient plus de <style> ! "
+            "❌ CRITIQUE : le HTML de la home ne contient plus de <style> ! "
             "La page serait entièrement noire. Abandon immédiat, rien n'est écrit."
         )
 

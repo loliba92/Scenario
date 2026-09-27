@@ -720,50 +720,207 @@ def build_related_articles(brief, repo_root=None):
 </section>'''
 
 
-def build_home_teaser_html(html_text, date_str):
-    """Transforme le HTML complet d'une édition (déjà assemblé par
-    assemble_index_html) en version résumée pour la page d'accueil : garde
-    le hero (titre, question, faits, indicateurs) mais retire le contenu
-    dupliqué avec l'archive (scénarios détaillés, lexique, sources), remplacé
-    par un lien "Lire l'édition complète →" vers archives/{date_str}.html.
+_ARCHIVE_DATE_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})\.html$")
 
-    Objectif SEO (pas un simple choix éditorial) : la home et l'archive du
-    jour republiaient jusqu'ici un contenu identique, et Google privilégiait
-    la home (bien plus liée en interne) au lieu du canonical déclaré vers
-    l'archive — laissant l'archive elle-même hors de son index la plupart
-    du temps. Un teaser sans duplication de contenu supprime ce conflit.
 
-    N'affecte jamais archives/{date_str}.html, qui reste la copie complète
-    (voir rebase_links_for_archive_copy(), appliqué séparément à html_text)."""
-    soup = BeautifulSoup(html_text, "html.parser")
-    archive_url = f"archives/{date_str}.html"
+def get_latest_archives(repo_root, before_date_str, count=4):
+    """Scanne archives/*.html (jamais archives/fragments/) et retourne les
+    `count` éditions les plus récentes strictement antérieures à
+    before_date_str, triées de la plus récente à la plus ancienne. Chaque
+    entrée : {"date_str", "title", "image_url"}. Le tri par nom de fichier
+    suffit (format YYYY-MM-DD.html, donc l'ordre alphabétique est l'ordre
+    chronologique) — aucun besoin de parser les dates."""
+    archives_dir = Path(repo_root) / "archives"
+    dated_files = []
+    for f in archives_dir.glob("*.html"):
+        m = _ARCHIVE_DATE_RE.match(f.name)
+        if m and m.group(1) < before_date_str:
+            dated_files.append((m.group(1), f))
+    dated_files.sort(key=lambda t: t[0], reverse=True)
 
-    for selector in (".related-articles", "section.scenarios#scenarios",
-                     "section.lexique#lexique", "section.sources#sources"):
-        tag = soup.select_one(selector)
-        if tag is not None:
-            tag.decompose()
+    entries = []
+    for date_str, f in dated_files[:count]:
+        text = f.read_text(encoding="utf-8")
+        m = re.search(r'<meta property="og:title" content="([^"]*)"', text)
+        title = m.group(1).rsplit(" — Scénario", 1)[0] if m else date_str
+        image_path = Path(repo_root) / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
+        image_url = (
+            f"assets/social/topic-images/{date_str}.jpg" if image_path.exists()
+            else "assets/social/og-image-v2.png"
+        )
+        entries.append({"date_str": date_str, "title": title, "image_url": image_url})
+    return entries
 
-    # Le sommaire du hero pointe vers des ancres locales (#scenarios,
-    # #essentiel, #lexique) qui n'existent plus sur cette page une fois ces
-    # sections retirées — les rediriger vers les mêmes ancres, mais dans
-    # l'archive complète, plutôt que de les laisser mener nulle part.
-    toc = soup.select_one("nav.toc")
-    if toc is not None:
-        for a in toc.find_all("a", href=True):
-            if a["href"].startswith("#"):
-                a["href"] = archive_url + a["href"]
 
-    hero = soup.select_one("section.hero#contexte")
-    if hero is not None:
-        teaser = soup.new_tag("p", **{"class": "form-hint"})
-        teaser["style"] = "margin: 24px 0 0;"
-        link = soup.new_tag("a", href=archive_url, **{"class": "cross-link"})
-        link.string = "Lire l'édition complète →"
-        teaser.append(link)
-        hero.select_one("div.wrap").append(teaser)
+def _format_date_short(date_str):
+    """'2026-09-20' -> '20 sept.' — même format court que
+    build_related_articles(), pour rester cohérent visuellement."""
+    d = date.fromisoformat(date_str)
+    month_name = MOIS_FR[d.month - 1][:4]
+    if month_name.endswith("e"):
+        return f"{d.day} {month_name.rstrip('e')}."
+    return f"{d.day} {month_name}."
 
-    return str(soup)
+
+def build_home_cards(articles):
+    """4 cartes vers les dernières éditions, même gabarit visuel que
+    build_related_articles() (classes .related-articles-*, CSS déjà présent
+    dans le style_block du gabarit — aucun nouveau CSS à ajouter)."""
+    if not articles:
+        return ""
+    items = "\n".join(
+        f'''      <li><a href="archives/{a["date_str"]}.html" class="related-articles-item">
+        <img class="related-articles-image" src="{a["image_url"]}" alt="{a["title"]}">
+        <div class="related-articles-content">
+          <span class="related-articles-date">{_format_date_short(a["date_str"])}</span>
+          <span class="related-articles-title">{a["title"]}</span>
+        </div>
+      </a></li>'''
+        for a in articles
+    )
+    return f'''<section class="related-articles" id="dernieres-editions">
+  <div class="wrap">
+    <p class="section-label">Chaque jour, une nouvelle édition</p>
+    <h2 class="section-title">Dernières éditions</h2>
+    <ul class="related-articles-list">
+{items}
+    </ul>
+    <a class="cross-link" href="archives.html">Voir toutes les archives →</a>
+  </div>
+</section>'''
+
+
+def build_home_hero():
+    """Hero fixe de la page d'accueil — ne dépend d'aucune édition, ne
+    change jamais d'un jour à l'autre. Texte repris de le-projet.html pour
+    rester cohérent avec le ton déjà établi ailleurs sur le site."""
+    return """<section class="hero" id="contexte">
+  <div class="wrap">
+    <p class="eyebrow">Chaque jour, un sujet, trois scénarios</p>
+    <h1>Scénario</h1>
+    <p class="dek">Comprendre l'actualité, c'est en mesurer les conséquences, pas seulement en connaître les faits. Chaque jour, Scénario prend un sujet clé et en détaille trois évolutions possibles — favorable, stable, dégradé — chacune avec une probabilité chiffrée.</p>
+  </div>
+</section>"""
+
+
+def build_home_head(date_str, edition_number):
+    """Head SEO de la page d'accueil — fixe et générique (site web de
+    présentation), jamais celui d'un article : og:type=website (pas
+    "article"), canonical vers la racine elle-même (jamais une archive,
+    précisément pour éviter le conflit de canonical corrigé le 27 septembre
+    2026 — voir build_home_cards() et le commit associé), JSON-LD
+    WebSite + Organization seulement (pas de NewsArticle : cette page ne
+    porte plus le contenu d'un article, BreadcrumbList non plus, une home
+    n'a pas de fil d'ariane)."""
+    title = "Scénario — chaque jour, les trois scénarios de demain"
+    description = "Chaque jour, un sujet d'actualité clé et ses trois scénarios chiffrés : favorable, stable, dégradé."
+    return f"""<title>{title}</title>
+<link rel="canonical" href="https://lesscenarios.fr/">
+<meta name="description" content="{description}">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="language" content="fr-FR">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scénario">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://lesscenarios.fr/">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{description}">
+<meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
+<meta property="og:image:width" content="2508">
+<meta property="og:image:height" content="1412">
+<meta property="og:image:alt" content="Scénario — trois scénarios chiffrés pour chaque actualité : favorable, stable, dégradé.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@scenario_fr">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{description}">
+<meta name="twitter:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Scénario",
+  "url": "https://lesscenarios.fr",
+  "logo": "https://lesscenarios.fr/assets/logo-512.png",
+  "description": "Chaque jour, les trois scénarios de demain : un à court terme, un à moyen terme, un à long terme.",
+  "sameAs": [
+    "https://www.linkedin.com/company/136694258/",
+    "https://www.facebook.com/share/1LuiQ1cAmt/"
+  ]
+}}
+</script>
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Scénario",
+  "url": "https://lesscenarios.fr",
+  "description": "Les trois scénarios du jour : court, moyen et long terme."
+}}
+</script>"""
+
+
+def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=None):
+    """Assemble la page d'accueil FIXE : head/hero génériques (jamais liés à
+    une édition précise), 4 cartes vers les dernières éditions, bloc
+    "reste connecté", footer. Remplace l'ancien comportement (copie intégrale
+    de l'article du jour) — voir le commit du 27 septembre 2026 : Google
+    indexait la home à la place de l'archive faute d'une vraie séparation
+    de contenu ; une home qui ne republie plus jamais un contenu d'article
+    élimine ce conflit à la racine plutôt que de le réduire.
+
+    today_entry (optionnel) : {"date_str", "title", "image_url"} pour
+    l'édition du jour même. Son archive n'existe pas encore sur le disque
+    scanné par get_latest_archives() à ce stade du pipeline (elle est
+    encore dans le bac à sable, pas promue vers repo_root) — sans cet
+    argument, seules les éditions déjà publiées apparaissent."""
+    head_dynamic = build_home_head(date_str, edition_number)
+    masthead = build_masthead(shell["masthead_html"], date_str, edition_number)
+    hero = build_home_hero()
+    previous = get_latest_archives(repo_root, before_date_str=date_str,
+                                    count=3 if today_entry else 4)
+    latest = ([today_entry] if today_entry else []) + previous
+    cards = build_home_cards(latest[:4])
+
+    footer_html = f'<footer>\n  <div class="wrap">\n    <div class="footer-bottom">\n      {shell["legal_links_html"]}\n    </div>\n  </div>\n</footer>'
+
+    html_result = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{head_dynamic}
+{shell['head_static']}
+{shell['style_block']}
+</head>
+<body>
+
+{masthead}
+
+{shell['topnav_html']}
+
+{shell['weekly_banner_html']}
+
+{shell['intro_banner_html']}
+
+{hero}
+
+{cards}
+
+{_SHARE_BLOCK}
+
+{footer_html}
+
+{shell['scripts_tail_html']}
+</body>
+</html>
+"""
+    if "<style" not in html_result or "</style>" not in html_result:
+        raise ShellError(
+            "❌ CRITIQUE : le CSS n'a pas été injecté dans le HTML de la home ! "
+            "La page serait entièrement noire. Abandon immédiat."
+        )
+    return html_result
 
 
 def assemble_index_html(shell, content, brief, date_str, photo=None):
