@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 27.09.2026 — [Mbappé et Ceuta : le piège politique du sport humanitaire](../archives/2026-09-27.html)
 - 26.09.2026 — [La Chine peut-elle créer la prochaine pop culture mondiale ?](../archives/2026-09-26.html)
 - 25.09.2026 — [Ozempic, Wegovy : révolution médicale ou remède pour les riches ?](../archives/2026-09-25.html)
 - 24.09.2026 — [Économie mondiale : BCE et Fed face au choc pétrolier](../archives/2026-09-24.html)

@@ -2,6 +2,21 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-09-27",
+      "articles": [
+        {
+          "title": "Real Madrid-Elche : Mbappé refuse le tee-shirt Ceuta",
+          "source": "AS",
+          "url": "https://www.as.com",
+          "image": null,
+          "lang": "fr",
+          "domain": "sport",
+          "summary": "L'AS (via RTL) a détaillé le contexte du match et le geste des trois joueurs du Real Madrid qui ont refusé de porter le tee-shirt de soutien à Ceuta, une enclave espagnole en crise migratoire.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-09-26",
       "articles": [
         {
