@@ -638,11 +638,11 @@
   <div class="wrap">
     <p class="section-label">La communauté</p>
     <h2 class="section-title">La communauté grandit, jour après jour</h2>
-    <p>Depuis le lancement, la communauté <strong>Scéna<span class="brand-rio">rio</span></strong> s'agrandit chaque semaine — <strong>876 lectures d'éditions cumulées</strong> au 28 septembre 2026, mesurées sans cookie ni profilage (<a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer">GoatCounter</a>), mises à jour chaque jour.</p>
+    <p>Depuis le lancement, la communauté <strong>Scéna<span class="brand-rio">rio</span></strong> s'agrandit chaque semaine — <strong>884 lectures d'éditions cumulées</strong> au 28 septembre 2026, mesurées sans cookie ni profilage (<a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer">GoatCounter</a>), mises à jour chaque jour.</p>
     <div class="dc-chart-box">
       <span class="dc-chart-label">Croissance depuis le lancement</span>
       <p class="dc-chart-lead">Nombre total de lectures d'éditions depuis le lancement, du 29 juillet au 28 septembre 2026.</p>
-      <svg id="audience-svg" viewBox="0 0 700 220" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Courbe de croissance des lectures cumulées d'éditions, de 0 le 29 juillet 2026 à 876 le 28 septembre 2026"></svg>
+      <svg id="audience-svg" viewBox="0 0 700 220" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Courbe de croissance des lectures cumulées d'éditions, de 0 le 29 juillet 2026 à 884 le 28 septembre 2026"></svg>
       <p class="dc-chart-caption">Mesure d'audience GoatCounter (gratuite, sans cookie) — chiffres cumulés sur l'ensemble des éditions publiées, mis à jour chaque jour par un GitHub Action.</p>
     </div>
   </div>
@@ -707,15 +707,15 @@
       ['2026-09-09', 584], ['2026-09-10', 591], ['2026-09-11', 608],
       ['2026-09-12', 623], ['2026-09-13', 636], ['2026-09-14', 657],
       ['2026-09-15', 668], ['2026-09-16', 682], ['2026-09-17', 698],
-      ['2026-09-18', 724], ['2026-09-19', 735], ['2026-09-20', 745],
-      ['2026-09-21', 769], ['2026-09-22', 791], ['2026-09-23', 813],
-      ['2026-09-24', 836], ['2026-09-25', 852], ['2026-09-26', 864],
-      ['2026-09-27', 873], ['2026-09-28', 876]
+      ['2026-09-18', 724], ['2026-09-19', 734], ['2026-09-20', 743],
+      ['2026-09-21', 767], ['2026-09-22', 789], ['2026-09-23', 811],
+      ['2026-09-24', 834], ['2026-09-25', 850], ['2026-09-26', 862],
+      ['2026-09-27', 871], ['2026-09-28', 884]
     ];
     var xLabels = ['2026-07-29', '2026-08-13', '2026-08-28', '2026-09-13', '2026-09-28'];
 
     var W = 700, H = 220, padL = 34, padR = 12, padT = 14, padB = 30;
-    var yMax = 900; // palier rond au-dessus du dernier cumul (876)
+    var yMax = 900; // palier rond au-dessus du dernier cumul (884)
 
     function xPos(i) { return padL + i / (data.length - 1) * (W - padL - padR); }
     function yPos(v) { return padT + (1 - v / yMax) * (H - padT - padB); }
