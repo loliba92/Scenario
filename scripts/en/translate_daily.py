@@ -949,8 +949,10 @@ def build_home_hero_en():
     """Équivalent EN de build_html.build_home_hero(). Chemin de logo en
     "../assets/..." (pas "assets/...") : en/index.html vit un niveau sous
     la racine, contrairement à index.html — même convention que le reste
-    du chrome traduit par rewrite_links_for_en(depth=1)."""
-    return """<section class="hero" id="contexte">
+    du chrome traduit par rewrite_links_for_en(depth=1). Classe .hero--home :
+    voir build_html.build_home_hero() pour le motif (padding-top propre à
+    ce hero sans image de fond)."""
+    return """<section class="hero hero--home" id="contexte">
   <div class="wrap">
     <p class="eyebrow">Every day, one story, three scenarios</p>
     <div class="hero-brand">
@@ -989,10 +991,28 @@ def build_en_index_page(index_fr_path, repo_root):
     fr_soup_for_date = BeautifulSoup(fr_text, "html.parser")
     date_str = find_edition_date(fr_soup_for_date)
 
+    # get_latest_archives(before_date_str=date_str) exclut STRICTEMENT le
+    # jour même (comparaison "<") — sans ça, l'édition du jour n'apparaît
+    # nulle part sur en/index.html tant qu'il n'y a pas d'édition plus
+    # récente qu'elle, et la carte featured affiche l'édition d'hier à la
+    # place (bug réel constaté le 28 septembre 2026 : "Mbappé, Ceuta..."
+    # du 27 affiché comme dernière édition alors que celle du 28 venait
+    # d'être traduite). En FR, generate_post_edition.py construit toujours
+    # un today_entry parce que l'archive du jour n'existe pas encore sur
+    # le disque scanné à ce stade de SON pipeline — ici c'est l'inverse :
+    # en/archives/{date_str}.html a été écrit juste avant cet appel (voir
+    # main()), donc il suffit de le relire directement plutôt que de
+    # changer la borne de get_latest_archives().
+    en_archive_path = Path(repo_root) / "en" / "archives" / f"{date_str}.html"
+    today_entry = (
+        build_html.build_archive_entry(repo_root, date_str, en_archive_path, image_path_prefix="../")
+        if en_archive_path.exists() else None
+    )
+
     assembled = build_html.assemble_home_page(
         fr_shell, date_str, fr_shell["edition_number"], repo_root,
         lang="en", head_builder=build_home_head_en, hero_html=build_home_hero_en(),
-        archives_dir="en/archives", image_path_prefix="../",
+        archives_dir="en/archives", image_path_prefix="../", today_entry=today_entry,
     )
 
     soup = BeautifulSoup(assembled, "html.parser")

@@ -723,6 +723,40 @@ def build_related_articles(brief, repo_root=None):
 _ARCHIVE_DATE_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})\.html$")
 
 
+def extract_og_title(text, fallback=None):
+    """Extrait le contenu de <meta property="og:title" content="..."> peu
+    importe l'ordre des attributs : les archives FR sont écrites par
+    templating Python simple (property avant content, toujours), mais les
+    archives EN passent par un round-trip BeautifulSoup
+    (scripts/en/translate_daily.py build_en_soup()), qui réordonne les
+    attributs alphabétiquement (content avant property) — la balise
+    entière est matchée d'abord, content en extrait ensuite, peu importe
+    l'ordre. Retire le suffixe " — Scénario" s'il est présent. Retourne
+    `fallback` si la balise est introuvable."""
+    tag_m = re.search(r'<meta[^>]*\bproperty="og:title"[^>]*/?>', text)
+    content_m = re.search(r'\bcontent="([^"]*)"', tag_m.group(0)) if tag_m else None
+    return content_m.group(1).rsplit(" — Scénario", 1)[0] if content_m else fallback
+
+
+def build_archive_entry(repo_root, date_str, path, image_path_prefix=""):
+    """Construit une entrée {"date_str", "title", "image_url"} pour UN
+    fichier d'archive déjà connu — factorisé hors de get_latest_archives()
+    pour être aussi utilisable sur une archive qui vient d'être écrite mais
+    n'est pas encore visible pour un scan "avant aujourd'hui" (voir
+    scripts/en/translate_daily.py build_en_index_page() : l'archive EN du
+    jour existe déjà sur disque à ce stade du pipeline, mais
+    get_latest_archives(before_date_str=date_str) l'exclurait quand même,
+    la comparaison étant strictement "<")."""
+    text = path.read_text(encoding="utf-8")
+    title = extract_og_title(text, fallback=date_str)
+    image_path = Path(repo_root) / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
+    image_url = (
+        f"{image_path_prefix}assets/social/topic-images/{date_str}.jpg" if image_path.exists()
+        else f"{image_path_prefix}assets/social/og-image-v2.png"
+    )
+    return {"date_str": date_str, "title": title, "image_url": image_url}
+
+
 def get_latest_archives(repo_root, before_date_str, count=4, archives_dir="archives", image_path_prefix=""):
     """Scanne {archives_dir}/*.html (jamais .../fragments/) et retourne les
     `count` éditions les plus récentes strictement antérieures à
@@ -748,23 +782,7 @@ def get_latest_archives(repo_root, before_date_str, count=4, archives_dir="archi
 
     entries = []
     for date_str, f in dated_files[:count]:
-        text = f.read_text(encoding="utf-8")
-        # Ordre des attributs non garanti : les archives FR sont écrites par
-        # templating Python simple (property avant content, toujours), mais
-        # les archives EN passent par un round-trip BeautifulSoup
-        # (scripts/en/translate_daily.py build_en_soup()), qui réordonne les
-        # attributs alphabétiquement (content avant property) — la balise
-        # entière est matchée d'abord, content en extrait ensuite, peu
-        # importe l'ordre.
-        tag_m = re.search(r'<meta[^>]*\bproperty="og:title"[^>]*/?>', text)
-        content_m = re.search(r'\bcontent="([^"]*)"', tag_m.group(0)) if tag_m else None
-        title = content_m.group(1).rsplit(" — Scénario", 1)[0] if content_m else date_str
-        image_path = Path(repo_root) / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
-        image_url = (
-            f"{image_path_prefix}assets/social/topic-images/{date_str}.jpg" if image_path.exists()
-            else f"{image_path_prefix}assets/social/og-image-v2.png"
-        )
-        entries.append({"date_str": date_str, "title": title, "image_url": image_url})
+        entries.append(build_archive_entry(repo_root, date_str, f, image_path_prefix))
     return entries
 
 
@@ -834,8 +852,10 @@ def build_home_hero():
     rester cohérent avec le ton déjà établi ailleurs sur le site. Logo à
     côté du titre (.hero-brand, CSS dans le style_block du gabarit) : le
     texte seul en h1 n'engageait pas assez la marque sur la première chose
-    vue en arrivant sur le site."""
-    return """<section class="hero" id="contexte">
+    vue en arrivant sur le site. Classe .hero--home (CSS dans le style_block
+    du gabarit) : padding-top propre à ce hero sans image de fond, jamais
+    appliqué au hero d'article (voir la règle CSS pour le motif)."""
+    return """<section class="hero hero--home" id="contexte">
   <div class="wrap">
     <p class="eyebrow">Chaque jour, un sujet, trois scénarios</p>
     <div class="hero-brand">
