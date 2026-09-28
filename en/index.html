@@ -58,6 +58,11 @@
 <meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="robots"/>
 <meta content="fr-FR" name="language"/>
 <meta content="dark" name="color-scheme"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="robots"/>
+<meta content="fr-FR" name="language"/>
+<meta content="dark" name="color-scheme"/>
 <link href="../assets/logo.svg" rel="icon" type="image/svg+xml"/>
 <link href="../manifest.webmanifest" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
@@ -478,6 +483,34 @@
     padding: 0 0 40px;
     border-bottom: 1px solid var(--hairline);
   }
+
+  /* Hero de la home (page de présentation fixe, jamais d'image de fond
+     derrière) : padding-top propre, le hero d'article n'en a pas besoin
+     car son image de fond occupe déjà cet espace. Repère utilisateur du
+     28 septembre 2026 (capture mobile) : l'accroche restait collée au nav
+     tant que cette règle et .hero-brand ci-dessous n'existaient pas encore
+     dans ce <style> réel (seul le markup avait été posé). */
+  .hero--home{
+    padding: 64px 0 40px;
+  }
+
+  /* Logo + "Scénario" dans le hero de la home, même recette que le
+     wordmark du masthead (.brand-mark/.wordmark) pour respecter la
+     charte : icône + "rio" en doré, jamais du texte seul. */
+  .hero-brand{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-brand-mark{
+    width: clamp(34px, 8vw, 54px);
+    height: clamp(34px, 8vw, 54px);
+    display: block;
+    flex: none;
+  }
+
+  .hero-brand h1 span{ color: var(--gold); }
 
   .eyebrow{
     font-family: "JetBrains Mono", monospace;
@@ -1998,7 +2031,7 @@
 <div class="wrap">
 <p class="eyebrow">Every day, one story, three scenarios</p>
 <div class="hero-brand">
-<img alt="" class="hero-brand-mark" src="../../assets/logo.svg"/>
+<img alt="" class="hero-brand-mark" src="../assets/logo.svg"/>
 <h1>Scéna<span>rio</span></h1>
 </div>
 <p class="dek">Understanding the news means measuring its consequences, not just knowing the facts. Every day, Scénario takes one key story and lays out three possible outcomes — favorable, stable, degraded — each with a numbered probability.</p>
@@ -2012,7 +2045,7 @@
 <img alt="New World Order: Is Western Dominance Being Challenged by an Increasingly Multipolar World?" class="featured-article-image" src="../assets/social/topic-images/2026-09-28.jpg"/>
 </div>
 <div>
-<span class="featured-article-date">28 sept.</span>
+<span class="featured-article-date">International · Sep 28</span>
 <h2 class="featured-article-title">New World Order: Is Western Dominance Being Challenged by an Increasingly Multipolar World?</h2>
 <span class="featured-article-cta">Read the edition →</span>
 </div>
@@ -2027,42 +2060,42 @@
 <li><a class="related-articles-item" href="archives/2026-09-27.html">
 <img alt="Mbappé, Ceuta, and the Controversial T-Shirt: Can an Athlete Still Express a Humanitarian Opinion Without Getting Caught in the Political Crossfire?" class="related-articles-image" src="../assets/social/topic-images/2026-09-27.jpg"/>
 <div class="related-articles-content">
-<span class="related-articles-date">27 sept.</span>
+<span class="related-articles-date">Sports · Sep 27</span>
 <span class="related-articles-title">Mbappé, Ceuta, and the Controversial T-Shirt: Can an Athlete Still Express a Humanitarian Opinion Without Getting Caught in the Political Crossfire?</span>
 </div>
 </a></li>
 <li><a class="related-articles-item" href="archives/2026-09-26.html">
 <img alt="Can China create the next global pop culture?" class="related-articles-image" src="../assets/social/topic-images/2026-09-26.jpg"/>
 <div class="related-articles-content">
-<span class="related-articles-date">26 sept.</span>
+<span class="related-articles-date">Culture · Sep 26</span>
 <span class="related-articles-title">Can China create the next global pop culture?</span>
 </div>
 </a></li>
 <li><a class="related-articles-item" href="archives/2026-09-25.html">
 <img alt="Ozempic, Wegovy: Medical Revolution or Remedy for the Wealthy?" class="related-articles-image" src="../assets/social/topic-images/2026-09-25.jpg"/>
 <div class="related-articles-content">
-<span class="related-articles-date">25 sept.</span>
+<span class="related-articles-date">Science · Sep 25</span>
 <span class="related-articles-title">Ozempic, Wegovy: Medical Revolution or Remedy for the Wealthy?</span>
 </div>
 </a></li>
 <li><a class="related-articles-item" href="archives/2026-09-24.html">
 <img alt="Global Economy: ECB and Fed Face the Oil Shock" class="related-articles-image" src="../assets/social/topic-images/2026-09-24.jpg"/>
 <div class="related-articles-content">
-<span class="related-articles-date">24 sept.</span>
+<span class="related-articles-date">Sep 24</span>
 <span class="related-articles-title">Global Economy: ECB and Fed Face the Oil Shock</span>
 </div>
 </a></li>
 <li><a class="related-articles-item" href="archives/2026-09-23.html">
 <img alt="Fuel at record prices and hybrid threats: Macron brings together presidential candidates" class="related-articles-image" src="../assets/social/topic-images/2026-09-23.jpg"/>
 <div class="related-articles-content">
-<span class="related-articles-date">23 sept.</span>
+<span class="related-articles-date">Sep 23</span>
 <span class="related-articles-title">Fuel at record prices and hybrid threats: Macron brings together presidential candidates</span>
 </div>
 </a></li>
 <li><a class="related-articles-item" href="archives/2026-09-22.html">
 <img alt="Bab el-Mandeb: One-Third of Global Trade Under Hostile Control?" class="related-articles-image" src="../assets/social/topic-images/2026-09-22.jpg"/>
 <div class="related-articles-content">
-<span class="related-articles-date">22 sept.</span>
+<span class="related-articles-date">Sep 22</span>
 <span class="related-articles-title">Bab el-Mandeb: One-Third of Global Trade Under Hostile Control?</span>
 </div>
 </a></li>

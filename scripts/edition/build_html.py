@@ -38,6 +38,10 @@ MOIS_FR = [
     "juillet", "août", "septembre", "octobre", "novembre", "décembre",
 ]
 JOURS_FR = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
+MOIS_EN_ABBR = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+]
 
 
 def _unwrap_own_tag(html, tag, cls):
@@ -738,26 +742,46 @@ def extract_og_title(text, fallback=None):
     return content_m.group(1).rsplit(" — Scénario", 1)[0] if content_m else fallback
 
 
-def build_archive_entry(repo_root, date_str, path, image_path_prefix=""):
-    """Construit une entrée {"date_str", "title", "image_url"} pour UN
-    fichier d'archive déjà connu — factorisé hors de get_latest_archives()
-    pour être aussi utilisable sur une archive qui vient d'être écrite mais
-    n'est pas encore visible pour un scan "avant aujourd'hui" (voir
-    scripts/en/translate_daily.py build_en_index_page() : l'archive EN du
-    jour existe déjà sur disque à ce stade du pipeline, mais
-    get_latest_archives(before_date_str=date_str) l'exclurait quand même,
-    la comparaison étant strictement "<")."""
+def extract_article_domain(text):
+    """Extrait le contenu de <meta property="article:section" content="...">
+    (déjà en Title Case côté FR, ex. "Sport", "Economie Mondiale") — même
+    tolérance à l'ordre des attributs qu'extract_og_title(). None si absent
+    (pages sans domaine, ex. le-projet.html s'il était scanné par erreur)."""
+    tag_m = re.search(r'<meta[^>]*\bproperty="article:section"[^>]*/?>', text)
+    content_m = re.search(r'\bcontent="([^"]*)"', tag_m.group(0)) if tag_m else None
+    return content_m.group(1) if content_m else None
+
+
+def build_archive_entry(repo_root, date_str, path, image_path_prefix="", domain_translator=None):
+    """Construit une entrée {"date_str", "title", "image_url", "domain"}
+    pour UN fichier d'archive déjà connu — factorisé hors de
+    get_latest_archives() pour être aussi utilisable sur une archive qui
+    vient d'être écrite mais n'est pas encore visible pour un scan "avant
+    aujourd'hui" (voir scripts/en/translate_daily.py build_en_index_page() :
+    l'archive EN du jour existe déjà sur disque à ce stade du pipeline,
+    mais get_latest_archives(before_date_str=date_str) l'exclurait quand
+    même, la comparaison étant strictement "<").
+
+    domain_translator (optionnel) : fonction str -> str appliquée au
+    domaine extrait — jamais traduit côté FR (déjà dans la bonne langue),
+    utilisé côté EN (voir scripts/en/translate_daily.py DOMAIN_FR_EN) car
+    article:section n'est pas retraduit par build_en_soup(), donc les
+    pages en/archives/*.html le portent encore tel quel en français."""
     text = path.read_text(encoding="utf-8")
     title = extract_og_title(text, fallback=date_str)
+    domain = extract_article_domain(text)
+    if domain and domain_translator:
+        domain = domain_translator(domain)
     image_path = Path(repo_root) / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
     image_url = (
         f"{image_path_prefix}assets/social/topic-images/{date_str}.jpg" if image_path.exists()
         else f"{image_path_prefix}assets/social/og-image-v2.png"
     )
-    return {"date_str": date_str, "title": title, "image_url": image_url}
+    return {"date_str": date_str, "title": title, "image_url": image_url, "domain": domain}
 
 
-def get_latest_archives(repo_root, before_date_str, count=4, archives_dir="archives", image_path_prefix=""):
+def get_latest_archives(repo_root, before_date_str, count=4, archives_dir="archives",
+                         image_path_prefix="", domain_translator=None):
     """Scanne {archives_dir}/*.html (jamais .../fragments/) et retourne les
     `count` éditions les plus récentes strictement antérieures à
     before_date_str, triées de la plus récente à la plus ancienne. Chaque
@@ -782,31 +806,42 @@ def get_latest_archives(repo_root, before_date_str, count=4, archives_dir="archi
 
     entries = []
     for date_str, f in dated_files[:count]:
-        entries.append(build_archive_entry(repo_root, date_str, f, image_path_prefix))
+        entries.append(build_archive_entry(repo_root, date_str, f, image_path_prefix, domain_translator))
     return entries
 
 
-def _format_date_short(date_str):
-    """'2026-09-20' -> '20 sept.' — même format court que
-    build_related_articles(), pour rester cohérent visuellement."""
+def _format_date_short(date_str, lang="fr"):
+    """'2026-09-20' -> '20 sept.' (fr) ou 'Sep 20' (en) — même format court
+    que build_related_articles() côté FR. lang="en" : bug repéré le
+    28 septembre 2026, en/index.html affichait encore "27 sept." sur ses
+    cartes — cette chaîne varie chaque jour donc apply_chrome_translations()
+    (correspondance FR -> EN exacte et stable) ne peut jamais la traduire."""
     d = date.fromisoformat(date_str)
+    if lang == "en":
+        return f"{MOIS_EN_ABBR[d.month - 1]} {d.day}"
     month_name = MOIS_FR[d.month - 1][:4]
     if month_name.endswith("e"):
         return f"{d.day} {month_name.rstrip('e')}."
     return f"{d.day} {month_name}."
 
 
-def build_home_cards(articles):
+def build_home_cards(articles, lang="fr"):
     """4 cartes vers les dernières éditions, même gabarit visuel que
     build_related_articles() (classes .related-articles-*, CSS déjà présent
-    dans le style_block du gabarit — aucun nouveau CSS à ajouter)."""
+    dans le style_block du gabarit — aucun nouveau CSS à ajouter). Domaine
+    affiché avant la date (ex. "Sport · 27 sept.") pour orienter le
+    lecteur sans qu'il ait à lire le titre en entier — demandé par
+    l'utilisateur le 28 septembre 2026. lang="en" : passé à
+    _format_date_short() (voir son docstring — une date ne peut jamais être
+    traduite par apply_chrome_translations, table FR -> EN exacte et
+    figée)."""
     if not articles:
         return ""
     items = "\n".join(
         f'''      <li><a href="archives/{a["date_str"]}.html" class="related-articles-item">
         <img class="related-articles-image" src="{a["image_url"]}" alt="{a["title"]}">
         <div class="related-articles-content">
-          <span class="related-articles-date">{_format_date_short(a["date_str"])}</span>
+          <span class="related-articles-date">{(a["domain"] + " · ") if a.get("domain") else ""}{_format_date_short(a["date_str"], lang)}</span>
           <span class="related-articles-title">{a["title"]}</span>
         </div>
       </a></li>'''
@@ -824,11 +859,12 @@ def build_home_cards(articles):
 </section>'''
 
 
-def build_featured_article(article):
+def build_featured_article(article, lang="fr"):
     """Met en avant la toute dernière édition (grande image + titre) juste
     sous le hero de présentation, séparément des 4 éditions suivantes
     (build_home_cards) — demandé pour donner du poids visuel au contenu le
-    plus récent sur une home devenue une page de présentation fixe."""
+    plus récent sur une home devenue une page de présentation fixe.
+    lang="en" : voir build_home_cards()."""
     return f'''<section class="featured-article">
   <div class="wrap">
     <p class="section-label">La dernière édition</p>
@@ -837,7 +873,7 @@ def build_featured_article(article):
         <img class="featured-article-image" src="{article["image_url"]}" alt="{article["title"]}">
       </div>
       <div>
-        <span class="featured-article-date">{_format_date_short(article["date_str"])}</span>
+        <span class="featured-article-date">{(article["domain"] + " · ") if article.get("domain") else ""}{_format_date_short(article["date_str"], lang)}</span>
         <h2 class="featured-article-title">{article["title"]}</h2>
         <span class="featured-article-cta">Lire l'édition →</span>
       </div>
@@ -926,7 +962,8 @@ def build_home_head(date_str, edition_number):
 
 def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=None,
                         lang="fr", head_builder=None, hero_html=None,
-                        archives_dir="archives", image_path_prefix=""):
+                        archives_dir="archives", image_path_prefix="",
+                        domain_translator=None):
     """Assemble la page d'accueil FIXE : head/hero génériques (jamais liés à
     une édition précise), la dernière édition mise en avant (grande carte),
     les 6 éditions suivantes en cartes plus petites (grille à 3 colonnes,
@@ -947,7 +984,11 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
     build_en_index_page()) : lang="en", head_builder=build_home_head_en,
     hero_html=build_home_hero_en(), archives_dir="en/archives",
     image_path_prefix="../" — jamais un nouvel appel LLM, seulement des
-    traductions déjà faites (en/archives/*.html) et du texte fixe."""
+    traductions déjà faites (en/archives/*.html) et du texte fixe.
+
+    domain_translator (optionnel) : voir build_archive_entry() — propagé
+    à get_latest_archives() pour traduire le badge domaine des cartes
+    (article:section n'est jamais retraduit dans en/archives/*.html)."""
     head_dynamic = (head_builder or build_home_head)(date_str, edition_number)
     masthead = build_masthead(shell["masthead_html"], date_str, edition_number)
     hero = hero_html if hero_html is not None else build_home_hero()
@@ -958,10 +999,11 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
     # 4 laissait une ligne à moitié vide.
     previous = get_latest_archives(repo_root, before_date_str=date_str,
                                     count=6 if today_entry else 7,
-                                    archives_dir=archives_dir, image_path_prefix=image_path_prefix)
+                                    archives_dir=archives_dir, image_path_prefix=image_path_prefix,
+                                    domain_translator=domain_translator)
     latest = ([today_entry] if today_entry else []) + previous
-    featured = build_featured_article(latest[0]) if latest else ""
-    cards = build_home_cards(latest[1:7])
+    featured = build_featured_article(latest[0], lang) if latest else ""
+    cards = build_home_cards(latest[1:7], lang)
 
     footer_html = f'<footer>\n  <div class="wrap">\n    <div class="footer-bottom">\n      {shell["legal_links_html"]}\n    </div>\n  </div>\n</footer>'
 
