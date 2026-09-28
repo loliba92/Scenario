@@ -723,16 +723,24 @@ def build_related_articles(brief, repo_root=None):
 _ARCHIVE_DATE_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})\.html$")
 
 
-def get_latest_archives(repo_root, before_date_str, count=4):
-    """Scanne archives/*.html (jamais archives/fragments/) et retourne les
+def get_latest_archives(repo_root, before_date_str, count=4, archives_dir="archives", image_path_prefix=""):
+    """Scanne {archives_dir}/*.html (jamais .../fragments/) et retourne les
     `count` éditions les plus récentes strictement antérieures à
     before_date_str, triées de la plus récente à la plus ancienne. Chaque
     entrée : {"date_str", "title", "image_url"}. Le tri par nom de fichier
     suffit (format YYYY-MM-DD.html, donc l'ordre alphabétique est l'ordre
-    chronologique) — aucun besoin de parser les dates."""
-    archives_dir = Path(repo_root) / "archives"
+    chronologique) — aucun besoin de parser les dates.
+
+    archives_dir : "archives" (défaut, FR) ou "en/archives" (home EN, voir
+    scripts/en/translate_daily.py build_en_index_page()) — les traductions
+    déjà faites, jamais un nouvel appel LLM pour construire une home EN.
+    image_path_prefix : "" pour la home FR (assets/... est déjà relatif à
+    la racine) ; "../" pour la home EN (en/index.html est un niveau plus
+    bas) — les photos de sujet sont partagées entre les deux langues, seul
+    le chemin relatif change."""
+    archives_path = Path(repo_root) / archives_dir
     dated_files = []
-    for f in archives_dir.glob("*.html"):
+    for f in archives_path.glob("*.html"):
         m = _ARCHIVE_DATE_RE.match(f.name)
         if m and m.group(1) < before_date_str:
             dated_files.append((m.group(1), f))
@@ -741,12 +749,20 @@ def get_latest_archives(repo_root, before_date_str, count=4):
     entries = []
     for date_str, f in dated_files[:count]:
         text = f.read_text(encoding="utf-8")
-        m = re.search(r'<meta property="og:title" content="([^"]*)"', text)
-        title = m.group(1).rsplit(" — Scénario", 1)[0] if m else date_str
+        # Ordre des attributs non garanti : les archives FR sont écrites par
+        # templating Python simple (property avant content, toujours), mais
+        # les archives EN passent par un round-trip BeautifulSoup
+        # (scripts/en/translate_daily.py build_en_soup()), qui réordonne les
+        # attributs alphabétiquement (content avant property) — la balise
+        # entière est matchée d'abord, content en extrait ensuite, peu
+        # importe l'ordre.
+        tag_m = re.search(r'<meta[^>]*\bproperty="og:title"[^>]*/?>', text)
+        content_m = re.search(r'\bcontent="([^"]*)"', tag_m.group(0)) if tag_m else None
+        title = content_m.group(1).rsplit(" — Scénario", 1)[0] if content_m else date_str
         image_path = Path(repo_root) / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
         image_url = (
-            f"assets/social/topic-images/{date_str}.jpg" if image_path.exists()
-            else "assets/social/og-image-v2.png"
+            f"{image_path_prefix}assets/social/topic-images/{date_str}.jpg" if image_path.exists()
+            else f"{image_path_prefix}assets/social/og-image-v2.png"
         )
         entries.append({"date_str": date_str, "title": title, "image_url": image_url})
     return entries
@@ -815,11 +831,17 @@ def build_featured_article(article):
 def build_home_hero():
     """Hero fixe de la page d'accueil — ne dépend d'aucune édition, ne
     change jamais d'un jour à l'autre. Texte repris de le-projet.html pour
-    rester cohérent avec le ton déjà établi ailleurs sur le site."""
+    rester cohérent avec le ton déjà établi ailleurs sur le site. Logo à
+    côté du titre (.hero-brand, CSS dans le style_block du gabarit) : le
+    texte seul en h1 n'engageait pas assez la marque sur la première chose
+    vue en arrivant sur le site."""
     return """<section class="hero" id="contexte">
   <div class="wrap">
     <p class="eyebrow">Chaque jour, un sujet, trois scénarios</p>
-    <h1>Scénario</h1>
+    <div class="hero-brand">
+      <img class="hero-brand-mark" src="assets/logo.svg" alt="">
+      <h1>Scéna<span>rio</span></h1>
+    </div>
     <p class="dek">Comprendre l'actualité, c'est en mesurer les conséquences, pas seulement en connaître les faits. Chaque jour, Scénario prend un sujet clé et en détaille trois évolutions possibles — favorable, stable, dégradé — chacune avec une probabilité chiffrée.</p>
   </div>
 </section>"""
@@ -882,7 +904,9 @@ def build_home_head(date_str, edition_number):
 </script>"""
 
 
-def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=None):
+def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=None,
+                        lang="fr", head_builder=None, hero_html=None,
+                        archives_dir="archives", image_path_prefix=""):
     """Assemble la page d'accueil FIXE : head/hero génériques (jamais liés à
     une édition précise), la dernière édition mise en avant (grande carte),
     les 6 éditions suivantes en cartes plus petites (grille à 3 colonnes,
@@ -897,17 +921,24 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
     l'édition du jour même. Son archive n'existe pas encore sur le disque
     scanné par get_latest_archives() à ce stade du pipeline (elle est
     encore dans le bac à sable, pas promue vers repo_root) — sans cet
-    argument, seules les éditions déjà publiées apparaissent."""
-    head_dynamic = build_home_head(date_str, edition_number)
+    argument, seules les éditions déjà publiées apparaissent.
+
+    Paramètres pour la variante EN (voir scripts/en/translate_daily.py
+    build_en_index_page()) : lang="en", head_builder=build_home_head_en,
+    hero_html=build_home_hero_en(), archives_dir="en/archives",
+    image_path_prefix="../" — jamais un nouvel appel LLM, seulement des
+    traductions déjà faites (en/archives/*.html) et du texte fixe."""
+    head_dynamic = (head_builder or build_home_head)(date_str, edition_number)
     masthead = build_masthead(shell["masthead_html"], date_str, edition_number)
-    hero = build_home_hero()
+    hero = hero_html if hero_html is not None else build_home_hero()
     # 7 au total : la plus récente en avant (featured) + les 6 suivantes en
     # cartes — jamais la même édition dans les deux blocs. 6 plutôt que 4 :
     # la grille de cartes est fixée à 3 colonnes (voir le CSS
     # .related-articles-list), donc 6 remplit deux lignes complètes là où
     # 4 laissait une ligne à moitié vide.
     previous = get_latest_archives(repo_root, before_date_str=date_str,
-                                    count=6 if today_entry else 7)
+                                    count=6 if today_entry else 7,
+                                    archives_dir=archives_dir, image_path_prefix=image_path_prefix)
     latest = ([today_entry] if today_entry else []) + previous
     featured = build_featured_article(latest[0]) if latest else ""
     cards = build_home_cards(latest[1:7])
@@ -915,7 +946,7 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
     footer_html = f'<footer>\n  <div class="wrap">\n    <div class="footer-bottom">\n      {shell["legal_links_html"]}\n    </div>\n  </div>\n</footer>'
 
     html_result = f"""<!DOCTYPE html>
-<html lang="fr">
+<html lang="{lang}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
