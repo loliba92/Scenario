@@ -915,6 +915,24 @@ def validate_content_schema(content, brief):
             not ind.get(f) for f in ("label", "value", "delta")
         ):
             errors.append(f"indicators[{idx}] : label/value/delta manquant ou vide (reçu {ind!r})")
+        # Ajouté le 28 septembre 2026, retour utilisateur : dérive constatée
+        # vers des "value" purement qualitatives ("en baisse continue" au
+        # lieu d'un chiffre réel), alors que docs/routine-prompt.md dit
+        # explicitement "indicateurs CHIFFRÉS" — jusqu'ici cette exigence ne
+        # vivait qu'en prose, jamais vérifiée. Préfixe volontairement
+        # DIFFÉRENT de "indicators[" : ce défaut est éditorial, jamais un
+        # risque de crash pour build_html._kpi_indicator_html() (qui rend
+        # "value" tel quel, quelle que soit sa forme) — contrairement à
+        # "indicators[" (champ manquant), il ne doit donc jamais exclure
+        # l'essai du repli "meilleur essai" (voir plus bas, le filtre
+        # safe_attempts ne matche que le préfixe "indicators[").
+        elif isinstance(ind.get("value"), str) and not re.search(r"\d", ind["value"]):
+            errors.append(
+                f"indicateur_non_chiffre[{idx}] : \"value\" ne contient aucun chiffre "
+                f"(reçu {ind['value']!r}) — un indicateur de .indicator-strip doit toujours "
+                f"être chiffré (un %, un taux, un montant, un rang...), jamais une simple "
+                f"tendance qualitative ('en baisse continue', 'en augmentation'...)"
+            )
 
     n_comprendre_brief = len(brief.get("encarts_decides", {}).get("comprendre_box") or [])
     n_comprendre_content = len(content.get("comprendre_box") or [])

@@ -58,7 +58,7 @@ sur un fichier partagé entre deux process).
     "degrade": {"resume": "string", "probabilite_suggeree": 0}
   },
   "indicateurs_kpi": [
-    {"label": "string", "valeur": "string", "tendance": "string"}
+    {"label": "string", "valeur": "string — un chiffre réel et vérifié (%, taux, montant, rang, volume...), jamais une simple tendance qualitative ('en baisse continue', 'en augmentation') — voir la contrainte dédiée plus bas", "tendance": "string"}
   ],
   "graphique_dc_chart": {
     "decision": "oui|non",
@@ -299,7 +299,17 @@ les logs.
   rédaction), mais un écart de plus de 10 points au total déclenche un
   avertissement.
 - `indicateurs_kpi` : entre 1 et 3 éléments (2 est la norme, voir règle de
-  cohérence des KPI dans `docs/routine-prompt.md`).
+  cohérence des KPI dans `docs/routine-prompt.md`). **`valeur` doit toujours
+  contenir un chiffre réel** (ex. `"42 %"`, `"3,8 points de PIB"`, `"1re
+  place mondiale"`) — jamais une tendance qualitative seule (`"en baisse
+  continue"`, `"en forte augmentation"`) : ce n'est pas un choix de
+  formulation, `generate_daily_edition.py` rejette maintenant tout
+  indicateur dont `value` ne contient aucun chiffre et redemande un essai
+  (voir l'incident du 28 septembre 2026, retour utilisateur — dérive
+  constatée vers du qualitatif au fil du temps faute de contrainte
+  vérifiée). Si le chiffre exact n'est pas trouvable, chercher un chiffre
+  de substitution fiable (rang, comparaison chiffrée, ordre de grandeur
+  sourcé) plutôt que d'abandonner la recherche pour une tendance vague.
 - `sources` : au moins 1 élément ; chaque `id` référencé dans
   `faits_verifies[].sources` doit exister dans `sources`.
 - `revue_de_presse` : **pas** de minimum, absent ou `[]` valide (à
