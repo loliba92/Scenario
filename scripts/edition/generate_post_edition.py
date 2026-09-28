@@ -236,11 +236,22 @@ def inject_seo_head(html_text, brief):
 # ---------------------------------------------------------------------------
 # 1. Photo de sujet (Pexels) — sélection automatique
 # ---------------------------------------------------------------------------
-def select_topic_photo(image_keywords, date_str, sandbox_root, timeout=25):
+def select_topic_photo(image_keywords, edition_id, sandbox_root, timeout=25):
     """Retourne un dict de crédits pour le 1er candidat Pexels retenu, ou
     None si aucune photo n'a pu être obtenue — jamais bloquant : l'appelant
     retombe alors sur l'image générique existante (photo=None,
-    build_html.py, comportement historique de la Phase 1 rédaction)."""
+    build_html.py, comportement historique de la Phase 1 rédaction).
+
+    edition_id (jamais date_str seul, chantier multi-éditions/jour du
+    28 septembre 2026) : passé tel quel à use_topic_image.py --date, qui
+    ne fait QUE s'en servir comme nom de fichier (jamais parsé/validé
+    comme une vraie date, vérifié dans use_topic_image.py) — une édition
+    à slug (--slug) obtient donc sa propre image
+    topic-images/{edition_id}.jpg, jamais celle de l'édition IA du jour.
+    Avant ce correctif, les deux auraient partagé le même fichier
+    topic-images/{date}.jpg et se seraient silencieusement écrasées l'une
+    l'autre — risque réel dès qu'une édition à slug est publiée SANS
+    --skip-photo."""
     if not image_keywords:
         print("[post-edition] image_keywords absent du brief — pas de recherche de photo", file=sys.stderr)
         return None
@@ -282,7 +293,7 @@ def select_topic_photo(image_keywords, date_str, sandbox_root, timeout=25):
     use_script = SOCIAL_DIR / "use_topic_image.py"
     try:
         subprocess.run(
-            [sys.executable, str(use_script), candidate_path, "--date", date_str,
+            [sys.executable, str(use_script), candidate_path, "--date", edition_id,
              "--credits", str(credits_path), "--repo-root", str(sandbox_root)],
             check=True, capture_output=True, text=True, timeout=timeout,
         )
@@ -290,7 +301,7 @@ def select_topic_photo(image_keywords, date_str, sandbox_root, timeout=25):
         print(f"[post-edition] use_topic_image.py a échoué : {e}", file=sys.stderr)
         return None
 
-    square_path = sandbox_root / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
+    square_path = sandbox_root / "assets" / "social" / "topic-images" / f"{edition_id}.jpg"
     if not square_path.exists():
         print(f"[post-edition] image carrée attendue introuvable : {square_path}", file=sys.stderr)
         return None
@@ -298,7 +309,7 @@ def select_topic_photo(image_keywords, date_str, sandbox_root, timeout=25):
     # use_topic_image.py (nécessite original_url dans credits.json, voir
     # sa docstring) — jamais bloquant, main() retombe alors sur le carré
     # pour l'image visible en tête d'article.
-    wide_path = sandbox_root / "assets" / "social" / "topic-images" / f"{date_str}-wide.jpg"
+    wide_path = sandbox_root / "assets" / "social" / "topic-images" / f"{edition_id}-wide.jpg"
 
     return {
         "square_path": square_path,
@@ -309,7 +320,7 @@ def select_topic_photo(image_keywords, date_str, sandbox_root, timeout=25):
     }
 
 
-def select_topic_photo_from_preview(preview_credits, date_str, sandbox_root, timeout=25):
+def select_topic_photo_from_preview(preview_credits, edition_id, sandbox_root, timeout=25):
     """Télécharge directement la photo Pexels déjà choisie et validée en
     preview (URL connue dans `preview_credits['original_url']`), sans
     refaire de recherche — garantit que l'image publiée est EXACTEMENT
@@ -351,7 +362,7 @@ def select_topic_photo_from_preview(preview_credits, date_str, sandbox_root, tim
     use_script = SOCIAL_DIR / "use_topic_image.py"
     try:
         subprocess.run(
-            [sys.executable, str(use_script), str(candidate_path), "--date", date_str,
+            [sys.executable, str(use_script), str(candidate_path), "--date", edition_id,
              "--credits", str(credits_path), "--repo-root", str(sandbox_root)],
             check=True, capture_output=True, text=True, timeout=timeout,
         )
@@ -359,11 +370,11 @@ def select_topic_photo_from_preview(preview_credits, date_str, sandbox_root, tim
         print(f"[post-edition] use_topic_image.py a échoué (photo du preview) : {e}", file=sys.stderr)
         return None
 
-    square_path = sandbox_root / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
+    square_path = sandbox_root / "assets" / "social" / "topic-images" / f"{edition_id}.jpg"
     if not square_path.exists():
         print(f"[post-edition] image carrée attendue introuvable : {square_path}", file=sys.stderr)
         return None
-    wide_path = sandbox_root / "assets" / "social" / "topic-images" / f"{date_str}-wide.jpg"
+    wide_path = sandbox_root / "assets" / "social" / "topic-images" / f"{edition_id}-wide.jpg"
 
     return {
         "square_path": square_path,
@@ -374,14 +385,18 @@ def select_topic_photo_from_preview(preview_credits, date_str, sandbox_root, tim
     }
 
 
-def select_registry_fallback_photo(registre, date_str, sandbox_root):
+def select_registry_fallback_photo(registre, edition_id, sandbox_root):
     """Repli sur la photo par défaut du registre (assets/social/pub-
     photos/{registre}.jpg + credits.json) quand Pexels échoue ou ne
     retient rien — jamais l'image générique unique du gabarit tant
     qu'un repli par registre existe (voir docs/routine-prompt.md, étape
     « Image du sujet », point 4 : « ne pas publier sans image »).
     Recadrage LOCAL (Pillow, réutilise square_crop_local/wide_crop_local
-    de fetch_topic_image.py/use_topic_image.py) — aucun appel réseau."""
+    de fetch_topic_image.py/use_topic_image.py) — aucun appel réseau.
+
+    edition_id (jamais date_str seul) : même raison que select_topic_photo()
+    — le fichier recadré est écrit sous topic-images/{edition_id}.jpg,
+    jamais partagé entre deux éditions du même jour."""
     pub_photos_dir = REPO_ROOT / "assets" / "social" / "pub-photos"
     credits_path = pub_photos_dir / "credits.json"
     if not credits_path.exists():
@@ -403,23 +418,23 @@ def select_registry_fallback_photo(registre, date_str, sandbox_root):
 
     topic_images_dir = sandbox_root / "assets" / "social" / "topic-images"
     topic_images_dir.mkdir(parents=True, exist_ok=True)
-    square_path = topic_images_dir / f"{date_str}.jpg"
+    square_path = topic_images_dir / f"{edition_id}.jpg"
     try:
         square_crop_local(str(src_path), str(square_path))
-        wide_crop_local(str(src_path), str(topic_images_dir / f"{date_str}-wide.jpg"))
+        wide_crop_local(str(src_path), str(topic_images_dir / f"{edition_id}-wide.jpg"))
     except Exception as e:
         print(f"[post-edition] recadrage de la photo de repli échoué : {e}", file=sys.stderr)
         return None
 
     credit_entry = dict(entry)
     credit_entry["note"] = "banque de secours par registre, pas une photo dédiée au sujet du jour"
-    (topic_images_dir / f"{date_str}.json").write_text(
+    (topic_images_dir / f"{edition_id}.json").write_text(
         json.dumps(credit_entry, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
     return {
         "square_path": square_path,
-        "wide_path": topic_images_dir / f"{date_str}-wide.jpg",
+        "wide_path": topic_images_dir / f"{edition_id}-wide.jpg",
         "photographer": entry.get("photographer") or "Photographe non identifié",
         "pexels_url": entry.get("pexels_url") or entry.get("source_url") or "https://www.pexels.com/",
         "query": f"repli registre {registre}",
@@ -1124,18 +1139,18 @@ def main():
         photo_from_preview = False
         if preview_credits_path.exists():
             preview_credits = json.loads(preview_credits_path.read_text(encoding="utf-8"))
-            photo_credits = select_topic_photo_from_preview(preview_credits, date_str, sandbox_root)
+            photo_credits = select_topic_photo_from_preview(preview_credits, edition_id, sandbox_root)
             photo_from_preview = photo_credits is not None
             if not photo_credits:
                 print("[post-edition] échec de reprise de la photo du preview — repli sur une nouvelle recherche Pexels", file=sys.stderr)
-                photo_credits = select_topic_photo(image_keywords, date_str, sandbox_root)
+                photo_credits = select_topic_photo(image_keywords, edition_id, sandbox_root)
         else:
-            photo_credits = select_topic_photo(image_keywords, date_str, sandbox_root)
+            photo_credits = select_topic_photo(image_keywords, edition_id, sandbox_root)
         if photo_credits:
             origin = "reprise du preview déjà validé" if photo_from_preview else "nouvelle recherche Pexels"
             print(f"[post-edition] photo retenue ({origin}, requête « {photo_credits['query']} », {photo_credits['photographer']})")
         else:
-            photo_credits = select_registry_fallback_photo(brief["registre"], date_str, sandbox_root)
+            photo_credits = select_registry_fallback_photo(brief["registre"], edition_id, sandbox_root)
             if photo_credits:
                 print(f"[post-edition] repli sur la photo par défaut du registre {brief['registre']!r} "
                       f"({photo_credits['photographer']}) — pas une photo dédiée au sujet du jour")
