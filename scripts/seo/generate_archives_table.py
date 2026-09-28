@@ -1128,7 +1128,7 @@ def render_table_row(article):
           {en_link}
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">{f'<a href="themes/{article["domain"]}.html">{domain_label}</a>' if article["domain"] else domain_label}</td>
+      <td class="col-domain" data-label="Domaine">{f'<a href="themes/{article["domain"]}.html">{domain_label}</a>' if article["domain"] in DOMAIN_LABELS else domain_label}</td>
       <td class="col-eval" data-label="Notre scénario">{eval_html}</td>
       <td class="col-france" data-label="Impact France">{france_html}</td>
       <td class="col-reads" data-label="Lectures">
