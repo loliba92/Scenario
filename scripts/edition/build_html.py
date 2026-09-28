@@ -747,7 +747,16 @@ def build_related_articles(brief, repo_root=None):
 </section>'''
 
 
-_ARCHIVE_DATE_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})\.html$")
+# Élargie le 28 septembre 2026 (chantier multi-éditions/jour, retour
+# utilisateur) : reconnaît aussi archives/{date}-{slug}.html, pour les
+# éditions supplémentaires publiées le même jour (contributions
+# journalistes indépendants, en plus de l'édition IA quotidienne qui
+# garde elle "{date}.html" nu, sans suffixe — zéro changement sur les URLs
+# déjà indexées). Groupe 1 : la date seule (formatage/tri) ; le nom de
+# fichier entier (sans ".html") sert d'identifiant unique d'édition
+# ("edition_id", voir build_archive_entry()) — jamais juste la date, qui
+# ne distingue plus deux éditions du même jour.
+_ARCHIVE_DATE_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})(?:-[a-z0-9-]+)?\.html$")
 
 
 def extract_og_title(text, fallback=None):
@@ -775,9 +784,9 @@ def extract_article_domain(text):
     return content_m.group(1) if content_m else None
 
 
-def build_archive_entry(repo_root, date_str, path, image_path_prefix="", domain_translator=None):
-    """Construit une entrée {"date_str", "title", "image_url", "domain"}
-    pour UN fichier d'archive déjà connu — factorisé hors de
+def build_archive_entry(repo_root, edition_id, path, image_path_prefix="", domain_translator=None):
+    """Construit une entrée {"edition_id", "date_str", "title", "image_url",
+    "domain"} pour UN fichier d'archive déjà connu — factorisé hors de
     get_latest_archives() pour être aussi utilisable sur une archive qui
     vient d'être écrite mais n'est pas encore visible pour un scan "avant
     aujourd'hui" (voir scripts/en/translate_daily.py build_en_index_page() :
@@ -785,22 +794,34 @@ def build_archive_entry(repo_root, date_str, path, image_path_prefix="", domain_
     mais get_latest_archives(before_date_str=date_str) l'exclurait quand
     même, la comparaison étant strictement "<").
 
+    edition_id : nom du fichier sans ".html" — "{date}" pour l'édition IA
+    du jour, "{date}-{slug}" pour une édition supplémentaire du même jour
+    (chantier multi-éditions/jour, 28 septembre 2026). Sert de clé pour le
+    lien (archives/{edition_id}.html) ET pour l'image associée
+    (topic-images/{edition_id}.jpg) — jamais la seule date, qui ne
+    distingue plus deux éditions publiées le même jour. `date_str` (les 10
+    premiers caractères, toujours "AAAA-MM-JJ" par construction) reste
+    utilisé pour tout ce qui est purement calendaire (titre de repli,
+    formatage d'affichage) : c'est la date de PUBLICATION qu'on affiche,
+    peu importe combien d'éditions ce jour-là.
+
     domain_translator (optionnel) : fonction str -> str appliquée au
     domaine extrait — jamais traduit côté FR (déjà dans la bonne langue),
     utilisé côté EN (voir scripts/en/translate_daily.py DOMAIN_FR_EN) car
     article:section n'est pas retraduit par build_en_soup(), donc les
     pages en/archives/*.html le portent encore tel quel en français."""
+    date_str = edition_id[:10]
     text = path.read_text(encoding="utf-8")
     title = extract_og_title(text, fallback=date_str)
     domain = extract_article_domain(text)
     if domain and domain_translator:
         domain = domain_translator(domain)
-    image_path = Path(repo_root) / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
+    image_path = Path(repo_root) / "assets" / "social" / "topic-images" / f"{edition_id}.jpg"
     image_url = (
-        f"{image_path_prefix}assets/social/topic-images/{date_str}.jpg" if image_path.exists()
+        f"{image_path_prefix}assets/social/topic-images/{edition_id}.jpg" if image_path.exists()
         else f"{image_path_prefix}assets/social/og-image-v2.png"
     )
-    return {"date_str": date_str, "title": title, "image_url": image_url, "domain": domain}
+    return {"edition_id": edition_id, "date_str": date_str, "title": title, "image_url": image_url, "domain": domain}
 
 
 def get_latest_archives(repo_root, before_date_str, count=4, archives_dir="archives",
@@ -808,9 +829,15 @@ def get_latest_archives(repo_root, before_date_str, count=4, archives_dir="archi
     """Scanne {archives_dir}/*.html (jamais .../fragments/) et retourne les
     `count` éditions les plus récentes strictement antérieures à
     before_date_str, triées de la plus récente à la plus ancienne. Chaque
-    entrée : {"date_str", "title", "image_url"}. Le tri par nom de fichier
-    suffit (format YYYY-MM-DD.html, donc l'ordre alphabétique est l'ordre
-    chronologique) — aucun besoin de parser les dates.
+    entrée : {"edition_id", "date_str", "title", "image_url", "domain"}.
+    Le tri par nom de fichier suffit (préfixe YYYY-MM-DD, donc l'ordre
+    alphabétique est l'ordre chronologique) — aucun besoin de parser les
+    dates. Depuis le 28 septembre 2026 (multi-éditions/jour), plusieurs
+    fichiers peuvent partager le même préfixe de date
+    ("{date}.html"/"{date}-{slug}.html") : le tri secondaire se fait alors
+    sur le nom de fichier entier, sans prétendre à un ordre chronologique
+    réel entre deux éditions du même jour (aucun horodatage dans le nom de
+    fichier par construction) — seulement un ordre déterministe.
 
     archives_dir : "archives" (défaut, FR) ou "en/archives" (home EN, voir
     scripts/en/translate_daily.py build_en_index_page()) — les traductions
@@ -824,13 +851,39 @@ def get_latest_archives(repo_root, before_date_str, count=4, archives_dir="archi
     for f in archives_path.glob("*.html"):
         m = _ARCHIVE_DATE_RE.match(f.name)
         if m and m.group(1) < before_date_str:
-            dated_files.append((m.group(1), f))
-    dated_files.sort(key=lambda t: t[0], reverse=True)
+            dated_files.append((m.group(1), f.stem, f))
+    dated_files.sort(key=lambda t: (t[0], t[1]), reverse=True)
 
     entries = []
-    for date_str, f in dated_files[:count]:
-        entries.append(build_archive_entry(repo_root, date_str, f, image_path_prefix, domain_translator))
+    for date_str, edition_id, f in dated_files[:count]:
+        entries.append(build_archive_entry(repo_root, edition_id, f, image_path_prefix, domain_translator))
     return entries
+
+
+def get_today_editions(repo_root, date_str, archives_dir="archives", image_path_prefix="", domain_translator=None):
+    """Scanne {archives_dir}/*.html et retourne TOUTES les éditions déjà
+    écrites sur le disque pour `date_str` précisément (jamais avant, jamais
+    après) — contrairement à get_latest_archives() (avant date_str,
+    strictement). Chantier multi-éditions/jour, 28 septembre 2026 : sert à
+    distinguer, sur la home, l'édition IA du jour (featured) des éditions
+    supplémentaires publiées le même jour (contributions journalistes —
+    section "Aussi aujourd'hui", voir assemble_home_page()). Triées avec
+    l'édition IA (edition_id == date_str, sans suffixe) en premier si elle
+    existe, les autres ensuite par edition_id — un ordre déterministe,
+    jamais une vraie chronologie intra-jour (aucun horodatage dans le nom
+    de fichier par construction, voir get_latest_archives())."""
+    archives_path = Path(repo_root) / archives_dir
+    same_day = []
+    for f in archives_path.glob(f"{date_str}*.html"):
+        m = _ARCHIVE_DATE_RE.match(f.name)
+        if m and m.group(1) == date_str:
+            same_day.append(f.stem)
+    same_day.sort(key=lambda edition_id: (edition_id != date_str, edition_id))
+    return [
+        build_archive_entry(repo_root, edition_id, archives_path / f"{edition_id}.html",
+                             image_path_prefix, domain_translator)
+        for edition_id in same_day
+    ]
 
 
 def _format_date_short(date_str, lang="fr"):
@@ -848,8 +901,11 @@ def _format_date_short(date_str, lang="fr"):
     return f"{d.day} {month_name}."
 
 
-def build_home_cards(articles, lang="fr"):
-    """4 cartes vers les dernières éditions, même gabarit visuel que
+def build_home_cards(articles, lang="fr", section_id="dernieres-editions",
+                      section_label="Les éditions précédentes",
+                      section_title="Dernières éditions",
+                      cross_link_html='<a class="cross-link" href="archives.html">Voir toutes les archives →</a>'):
+    """Cartes vers un groupe d'éditions, même gabarit visuel que
     build_related_articles() (classes .related-articles-*, CSS déjà présent
     dans le style_block du gabarit — aucun nouveau CSS à ajouter). Domaine
     affiché avant la date (ex. "Sport · 27 sept.") pour orienter le
@@ -857,11 +913,18 @@ def build_home_cards(articles, lang="fr"):
     l'utilisateur le 28 septembre 2026. lang="en" : passé à
     _format_date_short() (voir son docstring — une date ne peut jamais être
     traduite par apply_chrome_translations, table FR -> EN exacte et
-    figée)."""
+    figée).
+
+    section_id/label/title/cross_link_html (optionnels) : réutilisée telle
+    quelle pour le bloc "Aussi aujourd'hui" (chantier multi-éditions/jour,
+    28 septembre 2026 — voir assemble_home_page()), pas seulement pour les
+    éditions précédentes — d'où ces paramètres plutôt que du texte en dur.
+    cross_link_html="" pour "Aussi aujourd'hui" : pas de page dédiée aux
+    éditions du jour, contrairement à archives.html pour l'historique."""
     if not articles:
         return ""
     items = "\n".join(
-        f'''      <li><a href="archives/{a["date_str"]}.html" class="related-articles-item">
+        f'''      <li><a href="archives/{a.get("edition_id", a["date_str"])}.html" class="related-articles-item">
         <img class="related-articles-image" src="{a["image_url"]}" alt="{a["title"]}">
         <div class="related-articles-content">
           <span class="related-articles-date">{(a["domain"] + " · ") if a.get("domain") else ""}{_format_date_short(a["date_str"], lang)}</span>
@@ -870,28 +933,60 @@ def build_home_cards(articles, lang="fr"):
       </a></li>'''
         for a in articles
     )
-    return f'''<section class="related-articles" id="dernieres-editions">
+    return f'''<section class="related-articles" id="{section_id}">
   <div class="wrap">
-    <p class="section-label">Les éditions précédentes</p>
-    <h2 class="section-title">Dernières éditions</h2>
+    <p class="section-label">{section_label}</p>
+    <h2 class="section-title">{section_title}</h2>
     <ul class="related-articles-list">
 {items}
     </ul>
-    <a class="cross-link" href="archives.html">Voir toutes les archives →</a>
+    {cross_link_html}
   </div>
 </section>'''
 
 
-def build_featured_article(article, lang="fr"):
+# Correspondance domaine (article:section, texte libre — voir
+# extract_article_domain()) -> slug de themes/{slug}.html. Best-effort,
+# volontairement incomplète : "Sport" (valeur réellement observée dans
+# les archives le 28 septembre 2026) n'a AUCUNE page thème correspondante
+# parmi les 6 officielles (docs/tags.md) — build_featured_article() omet
+# alors simplement le lien plutôt que d'en fabriquer un cassé. Signalé à
+# l'utilisateur : incohérence de fond entre le domaine réellement produit
+# par le brief et la taxonomie à 6 thèmes, pas une évidence technique à
+# corriger ici en silence.
+DOMAIN_THEME_SLUGS = {
+    "Culture": "culture-divertissement",
+    "Economie Mondiale": "economie-entreprises",
+    "International": "international",
+    "Politique Institutions": "politique-institutions",
+    "Sciences": "sciences-environnement",
+    "Tech Numerique": "tech-numerique",
+}
+
+
+def build_featured_article(article, lang="fr", theme_link_base=None):
     """Met en avant la toute dernière édition (grande image + titre) juste
     sous le hero de présentation, séparément des 4 éditions suivantes
     (build_home_cards) — demandé pour donner du poids visuel au contenu le
     plus récent sur une home devenue une page de présentation fixe.
-    lang="en" : voir build_home_cards()."""
+    lang="en" : voir build_home_cards().
+
+    theme_link_base (optionnel, ex. "themes/") : si fourni ET que le
+    domaine de l'article a une correspondance dans DOMAIN_THEME_SLUGS,
+    ajoute un lien "Voir tous les sujets {domaine} →" sous la carte
+    (jamais DANS .featured-article-link : un <a> ne peut pas en contenir
+    un autre, ce lien est donc un élément frère, hors du lien principal).
+    None côté EN (aucune page themes/*.html en anglais pour l'instant,
+    27 septembre 2026 — voir le chantier correspondant)."""
+    domain_link_html = ""
+    if theme_link_base and article.get("domain"):
+        slug = DOMAIN_THEME_SLUGS.get(article["domain"])
+        if slug:
+            domain_link_html = f'\n    <a class="cross-link" href="{theme_link_base}{slug}.html">Voir tous les sujets « {article["domain"]} » →</a>'
     return f'''<section class="featured-article">
   <div class="wrap">
     <p class="section-label">La dernière édition</p>
-    <a href="archives/{article["date_str"]}.html" class="featured-article-link">
+    <a href="archives/{article.get("edition_id", article["date_str"])}.html" class="featured-article-link">
       <div class="featured-article-image-wrap">
         <img class="featured-article-image" src="{article["image_url"]}" alt="{article["title"]}">
       </div>
@@ -900,7 +995,7 @@ def build_featured_article(article, lang="fr"):
         <h2 class="featured-article-title">{article["title"]}</h2>
         <span class="featured-article-cta">Lire l'édition →</span>
       </div>
-    </a>
+    </a>{domain_link_html}
   </div>
 </section>'''
 
@@ -986,7 +1081,7 @@ def build_home_head(date_str, edition_number):
 def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=None,
                         lang="fr", head_builder=None, hero_html=None,
                         archives_dir="archives", image_path_prefix="",
-                        domain_translator=None):
+                        domain_translator=None, theme_link_base=None):
     """Assemble la page d'accueil FIXE : head/hero génériques (jamais liés à
     une édition précise), la dernière édition mise en avant (grande carte),
     les 6 éditions suivantes en cartes plus petites (grille à 3 colonnes,
@@ -1013,6 +1108,19 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
     à get_latest_archives() pour traduire le badge domaine des cartes
     (article:section n'est jamais retraduit dans en/archives/*.html).
 
+    theme_link_base (optionnel, ex. "themes/") : propagé à
+    build_featured_article() — voir DOMAIN_THEME_SLUGS et son docstring.
+    None côté EN (pas de pages themes/*.html en anglais).
+
+    Depuis le 28 septembre 2026 (multi-éditions/jour, décision
+    utilisateur) : la home distingue maintenant 3 groupes — l'édition mise
+    en avant (featured, toujours l'édition IA du jour si elle existe),
+    "Aussi aujourd'hui" (les AUTRES éditions du même jour, ex. contributions
+    de journalistes indépendants — affiché seulement s'il y en a), puis
+    "Dernières éditions" (les jours précédents, inchangé). Voir
+    get_today_editions() pour la distinction avec get_latest_archives()
+    (strictement avant date_str).
+
     _INTRO_BANNER_HTML volontairement absent du HTML produit ici
     (contrairement à la page article, voir plus bas dans ce fichier) :
     son texte ("Chaque jour, un sujet qui compte, décortiqué en trois
@@ -1024,18 +1132,60 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
     head_dynamic = (head_builder or build_home_head)(date_str, edition_number)
     masthead = build_masthead(shell["masthead_html"], date_str, edition_number)
     hero = hero_html if hero_html is not None else build_home_hero()
-    # 7 au total : la plus récente en avant (featured) + les 6 suivantes en
-    # cartes — jamais la même édition dans les deux blocs. 6 plutôt que 4 :
-    # la grille de cartes est fixée à 3 colonnes (voir le CSS
-    # .related-articles-list), donc 6 remplit deux lignes complètes là où
-    # 4 laissait une ligne à moitié vide.
+
+    # Éditions déjà écrites sur le disque pour CE jour précisément (jamais
+    # avant) — distinct de `previous` plus bas (strictement avant date_str).
+    today_on_disk = get_today_editions(repo_root, date_str, archives_dir=archives_dir,
+                                        image_path_prefix=image_path_prefix,
+                                        domain_translator=domain_translator)
+    # today_entry (l'édition en cours, pas encore promue vers repo_root à ce
+    # stade du pipeline — voir son docstring) remplace toute entrée de même
+    # edition_id déjà trouvée sur disque (dédoublonnage), puis rejoint le
+    # tas commun — jamais insérée directement en position 0 : today_entry
+    # peut être l'édition IA (generate_post_edition.py, cas normal) OU une
+    # édition à slug déclenchée à la main (--slug, chantier
+    # multi-éditions/jour du 28 septembre 2026) construisant SA PROPRE
+    # édition ce jour-là alors que l'édition IA du jour est déjà sur disque
+    # — dans ce 2e cas, today_entry ne doit surtout PAS prendre la place de
+    # mise en avant. Le tri qui suit tranche uniformément dans les deux cas.
+    today_all = list(today_on_disk)
+    if today_entry:
+        today_all = [e for e in today_all if e.get("edition_id") != today_entry.get("edition_id", date_str)]
+        today_all.append(today_entry)
+    # Toujours l'édition IA (edition_id == date_str, SANS suffixe) en
+    # position 0 si elle existe dans le tas (sur disque ou via today_entry),
+    # peu importe l'ordre d'arrivée ou quel run a fourni today_entry —
+    # jamais une édition à slug, même si c'est elle que CE run est en train
+    # de construire. Repli (aucune édition edition_id == date_str du tout,
+    # cas rare) : la 1re édition du jour trouvée, peu importe laquelle.
+    # `other_today` : les éditions du jour restantes (contributions
+    # journalistes etc.), affichées dans leur propre section.
+    today_all.sort(key=lambda e: (e.get("edition_id", date_str) != date_str, e.get("edition_id", date_str)))
+    featured_entry = today_all[0] if today_all else None
+    other_today = today_all[1:]
+
+    # 7 au total pour les précédentes : la plus récente en avant (featured)
+    # + les 6 suivantes en cartes — jamais la même édition dans les deux
+    # blocs. 6 plutôt que 4 : la grille de cartes est fixée à 3 colonnes
+    # (voir le CSS .related-articles-list), donc 6 remplit deux lignes
+    # complètes là où 4 laissait une ligne à moitié vide.
     previous = get_latest_archives(repo_root, before_date_str=date_str,
-                                    count=6 if today_entry else 7,
+                                    count=6 if featured_entry else 7,
                                     archives_dir=archives_dir, image_path_prefix=image_path_prefix,
                                     domain_translator=domain_translator)
-    latest = ([today_entry] if today_entry else []) + previous
-    featured = build_featured_article(latest[0], lang) if latest else ""
-    cards = build_home_cards(latest[1:7], lang)
+    if not featured_entry and previous:
+        # Aucune édition pour date_str du tout (cas théorique seulement,
+        # jamais rencontré tant que l'IA publie chaque jour) : repli sur la
+        # plus récente des éditions précédentes, comme avant ce chantier.
+        featured_entry, previous = previous[0], previous[1:]
+
+    featured = build_featured_article(featured_entry, lang, theme_link_base=theme_link_base) if featured_entry else ""
+    also_today = build_home_cards(
+        other_today, lang, section_id="aussi-aujourdhui",
+        section_label="Le même jour", section_title="Aussi aujourd'hui",
+        cross_link_html="",
+    ) if other_today else ""
+    cards = build_home_cards(previous[:6], lang)
 
     footer_html = f'<footer>\n  <div class="wrap">\n    <div class="footer-bottom">\n      {shell["legal_links_html"]}\n    </div>\n  </div>\n</footer>'
 
@@ -1059,6 +1209,8 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
 {hero}
 
 {featured}
+
+{also_today}
 
 {cards}
 
