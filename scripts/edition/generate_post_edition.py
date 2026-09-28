@@ -851,19 +851,24 @@ def already_published_today(date_str):
     return (REPO_ROOT / "archives" / f"{date_str}.html").exists()
 
 
-def promote_to_real_repo(sandbox_root, date_str):
+def promote_to_real_repo(sandbox_root, edition_id):
     """Copie les fichiers déjà générés (et validés) dans le bac à sable
     vers leurs vrais emplacements dans le dépôt — ne génère RIEN
     elle-même, ne fait aucun commit/push (le workflow appelant s'en
-    charge). index.html (racine) et archives/{date}.html (copie figée,
-    un niveau plus bas) portent le même contenu éditorial mais PAS le même
-    HTML octet pour octet depuis le 15 septembre 2026 : leurs liens/assets
-    relatifs à la racine diffèrent forcément d'un "../" (voir
+    charge). index.html (racine) et archives/{edition_id}.html (copie
+    figée, un niveau plus bas) portent le même contenu éditorial mais PAS
+    le même HTML octet pour octet depuis le 15 septembre 2026 : leurs
+    liens/assets relatifs à la racine diffèrent forcément d'un "../" (voir
     rebase_links_for_archive_copy() plus haut — avant ce correctif, les
     deux fichiers étaient identiques et tout lien relatif était mort sur
-    la copie d'archive, régression du 14 septembre 2026)."""
+    la copie d'archive, régression du 14 septembre 2026).
+
+    edition_id (jamais date_str seul, chantier multi-éditions/jour du
+    28 septembre 2026) : "{date}" pour l'édition IA, "{date}-{slug}" pour
+    une édition supplémentaire du même jour déclenchée à la main
+    (--slug) — voir main()."""
     index_src = sandbox_root / "index.html"
-    archive_src = sandbox_root / "archives" / f"{date_str}.html"
+    archive_src = sandbox_root / "archives" / f"{edition_id}.html"
     if not index_src.exists():
         raise PostEditionError(f"--publish : HTML final (racine) introuvable dans le bac à sable : {index_src}")
     if not archive_src.exists():
@@ -884,8 +889,8 @@ def promote_to_real_repo(sandbox_root, date_str):
     (REPO_ROOT / "index.html").write_text(index_src.read_text(encoding="utf-8"), encoding="utf-8")
     real_archive_dir = REPO_ROOT / "archives"
     real_archive_dir.mkdir(parents=True, exist_ok=True)
-    (real_archive_dir / f"{date_str}.html").write_text(archive_src.read_text(encoding="utf-8"), encoding="utf-8")
-    print(f"[post-edition] --publish : index.html + archives/{date_str}.html écrits (réels, liens de l'archive réajustés d'un niveau)")
+    (real_archive_dir / f"{edition_id}.html").write_text(archive_src.read_text(encoding="utf-8"), encoding="utf-8")
+    print(f"[post-edition] --publish : index.html + archives/{edition_id}.html écrits (réels, liens de l'archive réajustés d'un niveau)")
 
     for rel in ("feed.xml", "sitemap.xml", "sitemap-news.xml", "glossaire.html", "archives.html"):
         src = sandbox_root / rel
@@ -915,8 +920,8 @@ def promote_to_real_repo(sandbox_root, date_str):
         print(f"[post-edition] --publish : {len(list(themes_src.glob('*.html')))} page(s) thématique(s) écrite(s) (réelles)")
 
     for rel_dir, pattern in (
-        ("assets/social/topic-images", f"{date_str}*"),
-        ("assets/social/instagram", f"{date_str}.png"),
+        ("assets/social/topic-images", f"{edition_id}*"),
+        ("assets/social/instagram", f"{edition_id}.png"),
     ):
         src_dir = sandbox_root / rel_dir
         if not src_dir.exists():
@@ -1050,18 +1055,42 @@ def main():
              "boucle de retry après un pull frais (voir .github/workflows/post-edition.yml) — jamais "
              "besoin de refaire tourner tout le pipeline coûteux juste pour cette case à cocher.",
     )
+    parser.add_argument(
+        "--slug", default=None,
+        help="Publie une édition SUPPLÉMENTAIRE le même jour (chantier multi-éditions/jour, "
+             "28 septembre 2026 — contributions de journalistes indépendants, en plus de l'édition IA "
+             "quotidienne) plutôt que l'édition IA elle-même : archives/{date}-{slug}.html au lieu de "
+             "archives/{date}.html nu. Minuscules/chiffres/tirets uniquement. Absent par défaut : "
+             "comportement inchangé, publie toujours l'édition IA du jour (archives/{date}.html).",
+    )
     args = parser.parse_args()
 
     brief = load_brief(args.brief)
     date_str = brief["date"]
-    print(f"[post-edition] brief chargé : {args.brief} (date {date_str})")
+    if args.slug:
+        if not re.fullmatch(r"[a-z0-9-]+", args.slug):
+            raise PostEditionError(f"--slug {args.slug!r} : minuscules/chiffres/tirets uniquement (voir build_html._ARCHIVE_DATE_RE)")
+        edition_id = f"{date_str}-{args.slug}"
+    else:
+        edition_id = date_str
+    print(f"[post-edition] brief chargé : {args.brief} (date {date_str}, edition_id {edition_id})")
 
     if args.recheck_priority_only:
         check_off_priority_topic(brief)
         return
 
-    if args.publish and already_published_today(date_str):
-        print(f"[post-edition] --publish : index.html porte déjà la date {date_str} — "
+    # already_published_today() vérifie toujours l'emplacement fixe de
+    # l'édition IA (archives/{date}.html nu) — jamais celui d'une édition
+    # à slug : deux éditions supplémentaires différentes le même jour ne
+    # doivent jamais se bloquer l'une l'autre. Avec --slug, seule une
+    # RÉPÉTITION du même edition_id est bloquée (rejouer exactement la
+    # même commande par erreur), pas une nouvelle édition IA du jour.
+    already = (
+        (REPO_ROOT / "archives" / f"{edition_id}.html").exists() if args.slug
+        else already_published_today(date_str)
+    )
+    if args.publish and already:
+        print(f"[post-edition] --publish : archives/{edition_id}.html existe déjà — "
               "édition déjà publiée, on s'arrête proprement sans rien republier.")
         return
 
@@ -1169,17 +1198,13 @@ def main():
     # comme avant. today_entry : l'archive du jour n'existe pas encore
     # sur REPO_ROOT à ce stade (encore dans le bac à sable), donc
     # get_latest_archives() ne peut pas la trouver elle-même.
-    today_image_path = sandbox_root / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
+    today_image_path = sandbox_root / "assets" / "social" / "topic-images" / f"{edition_id}.jpg"
     today_entry = {
-        # L'édition IA quotidienne garde toujours "{date}.html" nu, sans
-        # suffixe (voir build_html.py, chantier multi-éditions/jour du
-        # 28 septembre 2026) — edition_id == date_str pour elle,
-        # contrairement à une édition supplémentaire du même jour.
-        "edition_id": date_str,
+        "edition_id": edition_id,
         "date_str": date_str,
         "title": content["h1"],
         "image_url": (
-            f"assets/social/topic-images/{date_str}.jpg" if today_image_path.exists()
+            f"assets/social/topic-images/{edition_id}.jpg" if today_image_path.exists()
             else "assets/social/og-image-v2.png"
         ),
         # Même transformation que build_html.py (section_name, tête SEO de
@@ -1190,7 +1215,8 @@ def main():
         # lendemain pour la même édition.
         "domain": brief["sujet"]["domain"].replace("-", " ").title(),
     }
-    home_html = build_html.assemble_home_page(shell, date_str, edition_number, REPO_ROOT, today_entry=today_entry)
+    home_html = build_html.assemble_home_page(shell, date_str, edition_number, REPO_ROOT,
+                                               today_entry=today_entry, theme_link_base="themes/")
     if "<style" not in home_html or "</style>" not in home_html:
         raise PostEditionError(
             "❌ CRITIQUE : le HTML de la home ne contient plus de <style> ! "
@@ -1201,20 +1227,20 @@ def main():
     index_out.write_text(home_html, encoding="utf-8")
     archive_dir = sandbox_root / "archives"
     archive_dir.mkdir(parents=True, exist_ok=True)
-    archive_path = archive_dir / f"{date_str}.html"
+    archive_path = archive_dir / f"{edition_id}.html"
     archive_path.write_text(rebase_links_for_archive_copy(html_text), encoding="utf-8")
     print(f"[post-edition] HTML final (édition N°{edition_number}) écrit : {index_out} (racine, résumé) et {archive_path} (archive, contenu complet, liens réajustés d'un niveau)")
 
     # 3. Image Instagram
-    ig_image_path = generate_instagram_image(content, date_str, sandbox_root, photo)
+    ig_image_path = generate_instagram_image(content, edition_id, sandbox_root, photo)
     ig_image_size = ig_image_path.stat().st_size
-    ig_image_url = f"{SITE_URL}/assets/social/instagram/{date_str}.png"
+    ig_image_url = f"{SITE_URL}/assets/social/instagram/{edition_id}.png"
     print(f"[post-edition] image Instagram écrite : {ig_image_path} ({ig_image_size} octets)")
 
     # 4. feed.xml
     word_count = estimate_word_count(content)
     read_minutes = max(1, round(word_count / 200))
-    feed_item = build_feed_item(content, date_str, read_minutes, ig_image_url, ig_image_size)
+    feed_item = build_feed_item(content, edition_id, read_minutes, ig_image_url, ig_image_size)
     feed_text = (REPO_ROOT / "feed.xml").read_text(encoding="utf-8")
     new_feed_text = update_feed_xml(feed_text, feed_item)
     ET.fromstring(new_feed_text)  # valide la syntaxe XML avant écriture — échoue fort sinon
@@ -1224,7 +1250,7 @@ def main():
 
     # 4bis. glossaire.html — voir docs/routine-prompt.md, étape 6ter
     glossaire_text = (REPO_ROOT / "glossaire.html").read_text(encoding="utf-8")
-    new_glossaire_text, added_terms = update_glossaire_html(glossaire_text, content, brief, date_str)
+    new_glossaire_text, added_terms = update_glossaire_html(glossaire_text, content, brief, edition_id)
     glossaire_out = sandbox_root / "glossaire.html"
     glossaire_out.write_text(new_glossaire_text, encoding="utf-8")
     if added_terms:
@@ -1234,14 +1260,14 @@ def main():
 
     # 5. sitemap.xml / sitemap-news.xml
     sitemap_text = (REPO_ROOT / "sitemap.xml").read_text(encoding="utf-8")
-    new_sitemap_text = update_sitemap_xml(sitemap_text, date_str, bump_glossaire=bool(added_terms))
+    new_sitemap_text = update_sitemap_xml(sitemap_text, edition_id, bump_glossaire=bool(added_terms))
     ET.fromstring(new_sitemap_text)
     sitemap_out = sandbox_root / "sitemap.xml"
     sitemap_out.write_text(new_sitemap_text, encoding="utf-8")
     print(f"[post-edition] sitemap.xml écrit : {sitemap_out}")
 
     sitemap_news_text = (REPO_ROOT / "sitemap-news.xml").read_text(encoding="utf-8")
-    new_sitemap_news_text = update_sitemap_news_xml(sitemap_news_text, date_str, content["h1"])
+    new_sitemap_news_text = update_sitemap_news_xml(sitemap_news_text, edition_id, content["h1"])
     ET.fromstring(new_sitemap_news_text)
     sitemap_news_out = sandbox_root / "sitemap-news.xml"
     sitemap_news_out.write_text(new_sitemap_news_text, encoding="utf-8")
@@ -1265,7 +1291,15 @@ def main():
     if (REPO_ROOT / "hebdo").exists():
         shutil.copytree(REPO_ROOT / "hebdo", mirror_root / "hebdo")
     shutil.copy(REPO_ROOT / "glossaire.html", mirror_root / "glossaire.html")
-    shutil.copy(archive_path, mirror_root / "archives" / f"{date_str}.html")
+    # edition_id (jamais date_str) : bug réel trouvé le 28 septembre 2026
+    # en testant --slug — cette copie renommait TOUJOURS le fichier en
+    # "{date_str}.html" nu, écrasant silencieusement dans le miroir la
+    # copie de l'édition IA réelle du jour (déjà présente via le
+    # copytree juste au-dessus) avec le contenu de l'édition à slug, sous
+    # le nom de l'AUTRE édition. archives.html régénéré à partir de ce
+    # miroir n'aurait alors jamais eu de ligne pour l'édition à slug, et
+    # la ligne de l'édition IA aurait porté le titre de l'édition à slug.
+    shutil.copy(archive_path, mirror_root / "archives" / f"{edition_id}.html")
 
     # Bug réel du 14 septembre 2026 (signalé par l'utilisateur : badge EN
     # disparu sur archives.html, y compris pour des éditions déjà traduites
@@ -1364,7 +1398,15 @@ def main():
     print(f"[post-edition] terminé — {word_count} mots, {read_minutes} min de lecture.")
 
     if args.publish:
-        promote_to_real_repo(sandbox_root, date_str)
+        promote_to_real_repo(sandbox_root, edition_id)
+        # date_str (jamais edition_id) : append_journal_entry() est
+        # idempotent PAR JOUR (voir sa docstring) — une édition
+        # supplémentaire du même jour (--slug) n'y ajoute donc pas sa
+        # propre ligne pour l'instant, elle resterait absente du récap
+        # hebdomadaire (generate_weekly_recap.py::week_editions() lit ce
+        # même journal). Question ouverte, comme update_sources_log()
+        # plus haut : faut-il une ligne par édition ou une ligne agrégée
+        # par jour ? Pas tranché ici.
         append_journal_entry(date_str, content["h1"])
         # check_off_priority_topic() n'est PAS appelé ici : sujets-prioritaires.md
         # est volontairement exclu du commit de cette étape (voir
