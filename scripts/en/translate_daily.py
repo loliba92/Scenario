@@ -1055,11 +1055,28 @@ def build_en_index_page(index_fr_path, repo_root):
     # apply_chrome_translations() juste après. D'où une exclusion par
     # identité d'objet plutôt qu'une extraction de section complète
     # (which aurait aussi soustrait le texte à la traduction).
+    #
+    # select() (pas select_one()) : depuis le chantier multi-éditions/jour
+    # (28 septembre 2026), la home peut contenir DEUX <section
+    # class="related-articles"> ("Aussi aujourd'hui" + "Dernières
+    # éditions") — select_one() n'en protégeait qu'une, laissant les liens
+    # de cartes de l'autre section se faire réécrire par la passe générique
+    # (../archives/{date}.html au lieu de archives/{date}.html : lien vers
+    # l'archive FR au lieu du miroir EN).
+    #
+    # Exclusion "cross-link" : ces mêmes sections contiennent aussi un lien
+    # "Voir toutes les archives →" (classe .cross-link, pas une carte) qui,
+    # lui, DOIT passer par le rewrite générique — sinon il reste
+    # "archives.html" (relatif à /en/, donc /en/archives.html, page
+    # inexistante) au lieu d'être réécrit en "../archives.html" (la vraie
+    # table à la racine, la seule qui existe).
     protected_tag_ids = set()
     for selector in ("section.featured-article", "section.related-articles"):
-        section = soup.select_one(selector)
-        if section is not None:
-            protected_tag_ids.update(id(t) for t in section.find_all(["a", "img", "link", "script"]))
+        for section in soup.select(selector):
+            protected_tag_ids.update(
+                id(t) for t in section.find_all(["a", "img", "link", "script"])
+                if "cross-link" not in (t.get("class") or [])
+            )
 
     for tag in soup.find_all(["a", "img", "link", "script"]):
         if id(tag) in protected_tag_ids:
