@@ -48,26 +48,6 @@
   "description": "Today's three scenarios: short, mid and long term."
 }
 </script>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="robots"/>
-<meta content="fr-FR" name="language"/>
-<meta content="dark" name="color-scheme"/>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="robots"/>
-<meta content="fr-FR" name="language"/>
-<meta content="dark" name="color-scheme"/>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="robots"/>
-<meta content="fr-FR" name="language"/>
-<meta content="dark" name="color-scheme"/>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="robots"/>
-<meta content="fr-FR" name="language"/>
-<meta content="dark" name="color-scheme"/>
 <link href="../assets/logo.svg" rel="icon" type="image/svg+xml"/>
 <link href="../manifest.webmanifest" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
@@ -494,7 +474,12 @@
      car son image de fond occupe déjà cet espace. Repère utilisateur du
      28 septembre 2026 (capture mobile) : l'accroche restait collée au nav
      tant que cette règle et .hero-brand ci-dessous n'existaient pas encore
-     dans ce <style> réel (seul le markup avait été posé). */
+     dans ce <style> réel (seul le markup avait été posé). 64px ramené à
+     28px le même jour : posé quand .intro-banner précédait encore ce hero
+     sur la home (son propre padding absorbait une partie de l'écart) —
+     redevenu excessif une fois .intro-banner retiré de la home (doublon
+     avec ce hero, voir plus bas dans ce fichier), le bandeau hebdo
+     touchant alors directement un grand vide avant l'accroche. */
   .hero--home{
     padding: 28px 0 40px;
   }
