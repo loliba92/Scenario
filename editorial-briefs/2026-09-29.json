@@ -1,0 +1,257 @@
+{
+  "date": "2026-09-29",
+  "registre": "sciences",
+  "sujet": {
+    "titre_propose": "Lune : la course à l'eau glacée",
+    "h1": "Lune : la course à l'eau glacée",
+    "question_posee": "La glace des cratères polaires lunaires est-elle un réservoir stratégique à exploiter d'ici 2035, ou un piège scientifique et juridique ?",
+    "eyebrow": "Mardi, sciences",
+    "angle": "Les missions Artemis (NASA) et Chang'e (CNSA) convergent vers les pôles lunaires où la glace d'eau est abondante. La question n'est pas seulement technique : qui a le droit d'exploiter ces ressources, et à quel coût ?",
+    "tags": [
+      "espace",
+      "ressources",
+      "exploration-lunaire"
+    ],
+    "domain": "sciences",
+    "image_keywords": "moon surface ice crater",
+    "complexite": 3,
+    "origine_prioritaire": null
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Vérifié contre l'édition du 04/09/2026 (Lune : Washington et Pékin relancent la course) — même filière spatiale, mais angle différent : cette édition portait sur la relance générale de la course lunaire, celle-ci se concentre spécifiquement sur la glace polaire comme enjeu de ressource stratégique. Aucun recoupement fort avec la veille (28/09 : ordre mondial multipolaire)."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "La NASA a confirmé la présence de glace d'eau dans les cratères polaires lunaires, notamment via les données de la mission LCROSS (2009) et les observations récentes de LRO.",
+      "chiffre": "jusqu'à 600 milliards de tonnes d'eau estimées dans les régions polaires",
+      "date_du_chiffre": "2024-01-01",
+      "sources": [
+        "nasa-lcross"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La Chine a réussi à rapporter des échantillons de la face cachée de la Lune avec Chang'e 6 en juin 2024, premier acte de cette nature.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "chang-e6"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le programme Artemis de la NASA vise un retour sur la Lune avec astronautes d'ici 2026 (Artemis 3), avec un objectif de présence durable et d'exploitation des ressources.",
+      "chiffre": "2026",
+      "date_du_chiffre": "2026-01-01",
+      "sources": [
+        "artemis-plan"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'Accord de l'océan mondial (traité des pêches de l'ONU) a été adopté en juin 2023, mais son application aux ressources lunaires reste floue — la Outer Space Treaty de 1967 interdit les appropriations nationales, mais pas l'extraction de ressources.",
+      "chiffre": null,
+      "date_du_chiffre": "2023-06-01",
+      "sources": [
+        "outer-space-treaty"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "NASA",
+      "role": "Programme Artemis, retour humain sur la Lune, exploitation des ressources"
+    },
+    {
+      "nom": "CNSA (Chine)",
+      "role": "Programme Chang'e, missions robotiques et préparation d'une présence lunaire"
+    },
+    {
+      "nom": "ESA (Europe)",
+      "role": "Contribution au programme Artemis (module de service européen), recherche scientifique"
+    },
+    {
+      "nom": "Roscosmos (Russie)",
+      "role": "Partenariat avec la Chine pour une station lunaire internationale (ILRS)"
+    },
+    {
+      "nom": "Entreprises privées (SpaceX, Intuitive Machines...)",
+      "role": "Fourniture de lanceurs et de landers commerciaux pour les missions Artemis"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2009-10-09",
+      "evenement": "Mission LCROSS de la NASA : impact dans le cratère Cabeus, détection de vapeur d'eau confirmant la présence de glace"
+    },
+    {
+      "date": "2024-06-02",
+      "evenement": "Chang'e 6 (Chine) : premier retour d'échantillons de la face cachée de la Lune"
+    },
+    {
+      "date": "2026-09-29",
+      "evenement": "Date du brief — Artemis 3 toujours prévue pour 2026 mais avec incertitude sur le calendrier exact"
+    },
+    {
+      "date": "2028-01-01",
+      "evenement": "Artemis 4 prévue — construction du module de surface lunaire (Gateway)"
+    },
+    {
+      "date": "2030-01-01",
+      "evenement": "Objectif chinois de présence lunaire habitée (programme ILRS)"
+    },
+    {
+      "date": "2035-01-01",
+      "evenement": "Horizon plausible d'exploitation commerciale de la glace lunaire si les technologies de extraction sont matures"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Les missions Artemis et Chang'e confirment l'abondance de la glace, des technologies d'extraction et de traitement de l'eau sont démontrées d'ici 2030, et un cadre juridique international (type 'Accord lunaire') est négocié pour régir l'exploitation sans conflit. L'eau lunaire devient une ressource utilisable pour le carburant (oxygène/hydrogène) et la survie des bases.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "La glace est confirmée mais son extraction reste coûteuse et complexe. Les missions se concentrent sur la recherche scientifique et la validation technologique sans exploitation commerciale à grande échelle avant 2040. Les tensions géopolitiques limitent la coopération, mais aucun conflit ouvert n'éclate sur les ressources.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "Aucun cadre juridique clair n'est établi, les revendications nationales se durcissent, et des frictions apparaissent entre les acteurs présents sur les pôles. L'exploitation de la glace est retardée par des problèmes techniques (extraction en conditions extrêmes, coûts prohibitifs) et les missions se limitent à des survols ou à des présences très temporaires.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Estimation d'eau glacée aux pôles lunaires",
+      "valeur": "600 milliards de tonnes",
+      "tendance": "découverte confirmée, exploitation non démontrée"
+    },
+    {
+      "label": "Date cible Artemis 3 (retour humain)",
+      "valeur": "2026",
+      "tendance": "retard possible, calendrier incertain"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série historique longue et publique vérifiée sur l'exploitation de la glace lunaire n'existe — le sujet est trop récent (découverte de la glace confirmée en 2009, missions d'extraction non encore réalisées). Critère 1 (source publique fiable avec historique complet) non satisfait.",
+    "serie": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Pourquoi l'eau lunaire est stratégique : carburant et survie",
+        "rattache_a": "fait LCROSS / estimation 600 milliards de tonnes"
+      },
+      {
+        "focus": "Le vide juridique : qui a le droit d'extraire ?",
+        "rattache_a": "fait Outer Space Treaty / Accord de l'océan mondial"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Calendrier exact d'Artemis 3 : les retards sur le lander de SpaceX et les tests du SLS pourraient repousser la mission au-delà de 2026",
+    "Cadre juridique futur : aucun traité spécifique à l'exploitation des ressources lunaires n'est actuellement en négociation avancée",
+    "Quantité réelle exploitable : les estimations de 600 milliards de tonnes incluent des zones difficiles d'accès (cratères permanents à l'ombre)"
+  ],
+  "a_ne_pas_affirmer": [
+    "Artemis 3 aura bien lieu en 2026 (calendrier non garanti)",
+    "La glace lunaire sera exploitée commercialement avant 2035 (technologie et cadre juridique incertains)",
+    "La Chine et les États-Unis vont nécessairement entrer en conflit sur les ressources lunaires (la coopération est aussi possible)"
+  ],
+  "sources": [
+    {
+      "id": "nasa-lcross",
+      "title": "LCROSS : Confirmation de la présence d'eau sur la Lune",
+      "source": "NASA",
+      "url": "https://www.nasa.gov/mission_pages/LCROSS/main/index.html",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences",
+      "summary": "La mission LCROSS de la NASA a confirmé en 2009 la présence de glace d'eau dans les cratères polaires lunaires, avec des estimations ultérieures suggérant jusqu'à 600 milliards de tonnes d'eau dans les régions polaires.",
+      "read_minutes": 3
+    },
+    {
+      "id": "chang-e6",
+      "title": "Chang'e 6 : premier échantillon de la face cachée de la Lune",
+      "source": "CNSA / Xinhua",
+      "url": "https://www.cnsa.gov.cn/n6758842/n6758843/index.html",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences",
+      "summary": "La Chine a réussi en juin 2024 à rapporter des échantillons de la face cachée de la Lune avec la mission Chang'e 6, une première mondiale.",
+      "read_minutes": 2
+    },
+    {
+      "id": "artemis-plan",
+      "title": "Artemis Plan : retour sur la Lune et exploration durable",
+      "source": "NASA",
+      "url": "https://www.nasa.gov/artemis",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences",
+      "summary": "Le programme Artemis vise un retour des astronautes sur la Lune d'ici 2026 (Artemis 3), avec un objectif de présence durable et d'exploitation des ressources naturelles lunaires.",
+      "read_minutes": 4
+    },
+    {
+      "id": "outer-space-treaty",
+      "title": "Traité de l'espace de 1967 et accords internationaux sur les ressources",
+      "source": "ONU / NASA Office of Legal Affairs",
+      "url": "https://www.unoosa.org/oosa/en/ourwork/spacelaw/treaties/introouterspacetreaty.html",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences",
+      "summary": "Le Traité de l'espace de 1967 interdit les appropriations nationales de la Lune, mais ne régit pas explicitement l'extraction de ressources. L'Accord de l'océan mondial (juin 2023) offre un précédent sur les ressources communes, mais son application aux corps célestes reste floue.",
+      "read_minutes": 5
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "La Chine prépare une station lunaire internationale avec la Russie",
+      "source": "SpaceNews",
+      "url": "https://spacenews.com/china-and-russia-plan-international-lunar-research-station/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences",
+      "summary": "La Chine et la Russie collaborent sur la station internationale de recherche lunaire (ILRS), avec un objectif de présence habitée d'ici 2030.",
+      "read_minutes": 3
+    },
+    {
+      "title": "SpaceX et la NASA : retard possible sur le lander Starship pour Artemis 3",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/space/spacex-nasa-artemis-lander-delays-2026/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences",
+      "summary": "Les tests du lander Starship de SpaceX pour la mission Artemis 3 ont connu des retards, soulevant des questions sur le calendrier de retour des astronautes sur la Lune.",
+      "read_minutes": 2
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-04",
+      "titre": "Lune : Washington et Pékin relancent la course",
+      "lien": "Même filière spatiale (course lunaire), mais angle différent : cette édition portait sur la relance générale de la compétition, celle-ci se concentre sur la glace polaire comme ressource stratégique."
+    },
+    {
+      "date": "2026-09-15",
+      "titre": "Fusion nucléaire : la promesse enfin tenue ?",
+      "lien": "Technologie énergétique de pointe — les deux sujets explorent des ruptures technologiques à horizon long (5-30 ans) avec des enjeux de ressources et de souveraineté."
+    },
+    {
+      "date": "2026-08-10",
+      "titre": "La croissance mondiale ne tient qu'à un fil",
+      "lien": "Enjeu de ressources stratégiques et de souveraineté économique — la glace lunaire est une ressource potentielle qui pourrait modifier les équilibres énergétiques et économiques à long terme."
+    }
+  ],
+  "recommandations_redaction": [
+    "Insister sur le fait que la glace lunaire n'est pas seulement un enjeu scientifique, mais potentiellement une ressource stratégique (carburant, survie des bases)",
+    "Expliquer clairement le vide juridique : le Traité de l'espace interdit les appropriations, mais pas l'extraction — c'est la zone grise où les tensions pourraient naître",
+    "Utiliser une analogie concrète pour expliquer pourquoi l'eau sur la Lune est précieuse (coût du lancement de carburant depuis la Terre vs production sur place)",
+    "Mentionner les deux grandes puissances spatiales (NASA/Artemis et CNSA/Chang'e) sans oublier le rôle des entreprises privées (SpaceX)",
+    "Éviter le sensationnalisme : rester factuel sur ce qui est confirmé (présence de glace) vs ce qui est spéculatif (exploitation commerciale)"
+  ]
+}
