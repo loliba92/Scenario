@@ -488,9 +488,14 @@
      car son image de fond occupe déjà cet espace. Repère utilisateur du
      28 septembre 2026 (capture mobile) : l'accroche restait collée au nav
      tant que cette règle et .hero-brand ci-dessous n'existaient pas encore
-     dans ce <style> réel (seul le markup avait été posé). */
+     dans ce <style> réel (seul le markup avait été posé). 64px ramené à
+     28px le même jour : posé quand .intro-banner précédait encore ce hero
+     sur la home (son propre padding absorbait une partie de l'écart) —
+     redevenu excessif une fois .intro-banner retiré de la home (doublon
+     avec ce hero, voir plus bas dans ce fichier), le bandeau hebdo
+     touchant alors directement un grand vide avant l'accroche. */
   .hero--home{
-    padding: 64px 0 40px;
+    padding: 28px 0 40px;
   }
 
   /* Logo + "Scénario" dans le hero de la home, même recette que le
