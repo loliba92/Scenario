@@ -885,8 +885,9 @@ def build_home_head(date_str, edition_number):
 def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=None):
     """Assemble la page d'accueil FIXE : head/hero génériques (jamais liés à
     une édition précise), la dernière édition mise en avant (grande carte),
-    les 4 éditions suivantes en cartes plus petites, bloc "reste connecté",
-    footer. Remplace l'ancien comportement (copie intégrale de l'article du
+    les 6 éditions suivantes en cartes plus petites (grille à 3 colonnes,
+    donc deux lignes complètes), bloc "reste connecté", footer. Remplace
+    l'ancien comportement (copie intégrale de l'article du
     jour) — voir le commit du 27 septembre 2026 : Google indexait la home à
     la place de l'archive faute d'une vraie séparation de contenu ; une home
     qui ne republie plus jamais un contenu d'article élimine ce conflit à la
@@ -900,13 +901,16 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
     head_dynamic = build_home_head(date_str, edition_number)
     masthead = build_masthead(shell["masthead_html"], date_str, edition_number)
     hero = build_home_hero()
-    # 5 au total : la plus récente en avant (featured) + les 4 suivantes en
-    # cartes — jamais la même édition dans les deux blocs.
+    # 7 au total : la plus récente en avant (featured) + les 6 suivantes en
+    # cartes — jamais la même édition dans les deux blocs. 6 plutôt que 4 :
+    # la grille de cartes est fixée à 3 colonnes (voir le CSS
+    # .related-articles-list), donc 6 remplit deux lignes complètes là où
+    # 4 laissait une ligne à moitié vide.
     previous = get_latest_archives(repo_root, before_date_str=date_str,
-                                    count=4 if today_entry else 5)
+                                    count=6 if today_entry else 7)
     latest = ([today_entry] if today_entry else []) + previous
     featured = build_featured_article(latest[0]) if latest else ""
-    cards = build_home_cards(latest[1:5])
+    cards = build_home_cards(latest[1:7])
 
     footer_html = f'<footer>\n  <div class="wrap">\n    <div class="footer-bottom">\n      {shell["legal_links_html"]}\n    </div>\n  </div>\n</footer>'
 
