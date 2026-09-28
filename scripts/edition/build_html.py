@@ -1308,7 +1308,7 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
     # cassé — même dégradation silencieuse que côté home.
     domain_label = THEME_SLUG_LABELS.get(brief["sujet"]["domain"])
     theme_link_html = (
-        f'    <p><a class="cross-link" href="themes/{brief["sujet"]["domain"]}.html">Voir tous les sujets « {domain_label} » →</a></p>\n'
+        f'    <p><a class="cross-link" href="../themes/{brief["sujet"]["domain"]}.html">Voir tous les sujets « {domain_label} » →</a></p>\n'
         if domain_label else ""
     )
     hero = build_hero(content, date_str, photo=photo, graphique_dc_chart=brief.get("graphique_dc_chart"),
