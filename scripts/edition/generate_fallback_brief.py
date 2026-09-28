@@ -46,6 +46,7 @@ Usage :
 import argparse
 import json
 import os
+import re
 import sys
 from datetime import datetime
 from difflib import SequenceMatcher
@@ -364,7 +365,17 @@ def main():
     parser.add_argument("--model", default=None, help="modèle OpenRouter (défaut : FALLBACK_MODEL/variable OPENROUTER_MODEL)")
     parser.add_argument("--test-haiku", action="store_true", help="test Haiku 4.5 au lieu du modèle par défaut (phase 1 optimisation coût, voir docs/recherche-modele-efficace.md)")
     parser.add_argument("--timeout", type=int, default=480, help="délai max de l'appel OpenRouter, en secondes (défaut 480 — plusieurs recherches web côté serveur peuvent prendre du temps)")
+    parser.add_argument(
+        "--slug", default=None,
+        help="Écrit vers editorial-briefs/{date}-{slug}.json au lieu de editorial-briefs/{date}.json — "
+             "pour préparer une édition SUPPLÉMENTAIRE le même jour (voir generate_post_edition.py --slug, "
+             "chantier multi-éditions/jour du 28 septembre 2026) sans écraser le brief déjà utilisé par "
+             "l'édition IA du jour. Minuscules/chiffres/tirets uniquement.",
+    )
     args = parser.parse_args()
+
+    if args.slug and not re.fullmatch(r"[a-z0-9-]+", args.slug):
+        raise GenerationError(f"--slug {args.slug!r} : minuscules/chiffres/tirets uniquement (voir build_html._ARCHIVE_DATE_RE)")
 
     api_key = os.environ.get("OPENROUTER_API_KEY")
     if not api_key:
@@ -376,10 +387,14 @@ def main():
         model = args.model or os.environ.get("OPENROUTER_MODEL") or FALLBACK_MODEL
     print(f"[fallback-brief] génération du brief du {args.date} — modèle {model}", file=sys.stderr)
 
+    # --date reste la vraie date calendaire (contexte, anti-doublon) même
+    # avec --slug : seul l'edition_id (nom de fichier) change, jamais le
+    # jour dont s'informe generate_fallback_brief() lui-même.
     brief, usage = generate_fallback_brief(args.date, model, api_key, timeout=args.timeout)
 
     BRIEFS_DIR.mkdir(parents=True, exist_ok=True)
-    out_path = BRIEFS_DIR / f"{args.date}.json"
+    edition_id = f"{args.date}-{args.slug}" if args.slug else args.date
+    out_path = BRIEFS_DIR / f"{edition_id}.json"
     out_path.write_text(json.dumps(brief, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"[fallback-brief] brief écrit : {out_path} (sujet : {brief.get('sujet', {}).get('titre_propose', '?')})", file=sys.stderr)
     print(f"[fallback-brief] coût ≈ {usage.get('cost', '?')} $ (modèle {usage.get('model', model)})", file=sys.stderr)
