@@ -400,7 +400,7 @@ def _list_box_html(lb):
     )
 
 
-def build_hero(content, date_str, photo=None, graphique_dc_chart=None):
+def build_hero(content, date_str, photo=None, graphique_dc_chart=None, theme_link_html=""):
     jour, date_longue = format_date_fr(date_str)
     dek_blocks = []
     for i, dek_html in enumerate(content["dek"]):
@@ -474,7 +474,7 @@ def build_hero(content, date_str, photo=None, graphique_dc_chart=None):
       <a href="#essentiel">L'essentiel</a>
       <a href="#lexique">Référence</a>
     </nav>
-
+{theme_link_html}
     <p class="section-label">Les faits</p>
 
     {dek_html_full}
@@ -963,6 +963,27 @@ DOMAIN_THEME_SLUGS = {
     "Tech Numerique": "tech-numerique",
 }
 
+# Même 6 pages thèmes que DOMAIN_THEME_SLUGS ci-dessus, mais keyée sur le
+# slug BRUT du domaine (brief["sujet"]["domain"], ex.
+# "economie-entreprises") plutôt que sur un libellé Title Case observé
+# dans un <meta> déjà rendu — utilisée par assemble_index_html() (page
+# article elle-même), qui a accès au brief d'origine, contrairement à
+# build_featured_article()/DOMAIN_THEME_SLUGS (page home, qui ne voit
+# qu'une archive déjà écrite). Même table que DOMAIN_LABELS dans
+# generate_post_edition.py/generate_seo_head.py (à tenir manuellement
+# synchronisée, même convention documentée là-bas) : les 6 slugs
+# officiels de docs/tags.md avec leur libellé humain. Un domaine produit
+# hors de ces 6 (dérive constatée, ex. "sport") ne matche simplement pas
+# ici — lien omis, jamais cassé, même logique que DOMAIN_THEME_SLUGS.
+THEME_SLUG_LABELS = {
+    "economie-entreprises": "Économie & entreprises",
+    "politique-institutions": "Politique & institutions",
+    "international": "International",
+    "sciences-environnement": "Sciences & environnement",
+    "tech-numerique": "Tech & numérique",
+    "culture-divertissement": "Culture & divertissement",
+}
+
 
 def build_featured_article(article, lang="fr", theme_link_base=None):
     """Met en avant la toute dernière édition (grande image + titre) juste
@@ -1246,7 +1267,32 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
 
     head_dynamic = build_head_dynamic(content, brief, date_str, canonical_url, photo=photo)
     masthead = build_masthead(shell["masthead_html"], date_str, edition_number)
-    hero = build_hero(content, date_str, photo=photo, graphique_dc_chart=brief.get("graphique_dc_chart"))
+    # Lien "Voir tous les sujets « Domaine » →" dans le hero de l'ARTICLE
+    # lui-même (pas seulement la carte mise en avant de la home, voir
+    # DOMAIN_THEME_SLUGS/build_featured_article) — retour utilisateur du
+    # 28 septembre 2026 : un lecteur qui atterrit directement sur
+    # archives/{date}.html (recherche, réseau social...), sans passer par
+    # la home, n'avait aucun moyen d'explorer les autres sujets du même
+    # domaine.
+    #
+    # Table DIFFÉRENTE de DOMAIN_THEME_SLUGS ci-dessus, volontairement :
+    # ici on a accès à brief["sujet"]["domain"] BRUT (le slug tel que
+    # produit par la recherche, ex. "economie-entreprises"), jamais
+    # seulement le texte affiché dans <meta property="article:section">
+    # (extrait après coup par extract_article_domain() pour la home, où
+    # le brief d'origine n'est plus disponible). THEME_SLUG_LABELS est
+    # donc keyée sur les 6 slugs officiels eux-mêmes (docs/tags.md), pas
+    # sur des libellés Title Case observés — un match direct quand le
+    # domaine produit est bien l'un des 6, comme prévu par le schéma ;
+    # sinon (dérive du domaine, ex. "sport") le lien est omis, jamais
+    # cassé — même dégradation silencieuse que côté home.
+    domain_label = THEME_SLUG_LABELS.get(brief["sujet"]["domain"])
+    theme_link_html = (
+        f'    <p><a class="cross-link" href="themes/{brief["sujet"]["domain"]}.html">Voir tous les sujets « {domain_label} » →</a></p>\n'
+        if domain_label else ""
+    )
+    hero = build_hero(content, date_str, photo=photo, graphique_dc_chart=brief.get("graphique_dc_chart"),
+                       theme_link_html=theme_link_html)
     related_articles = build_related_articles(brief)
     scenarios = build_scenarios(content)
     lexique = build_lexique(content)
