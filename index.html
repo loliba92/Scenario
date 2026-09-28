@@ -482,6 +482,36 @@
     margin: 0 0 18px;
   }
 
+  /* ---------- Logo + titre dans le hero de la home (marque visible dès l'accueil) ---------- */
+  .hero-brand{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 0 0 16px;
+  }
+
+  .hero-brand-mark{
+    width: 56px;
+    height: 56px;
+    flex: none;
+    display: block;
+  }
+
+  .hero-brand h1{
+    margin: 0;
+  }
+
+  .hero-brand h1 span{
+    color: var(--gold);
+  }
+
+  @media (max-width: 480px){
+    .hero-brand-mark{
+      width: 44px;
+      height: 44px;
+    }
+  }
+
   .pubdate{
     font-family: "JetBrains Mono", monospace;
     font-size: 0.78rem;

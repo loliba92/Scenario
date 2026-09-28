@@ -45,6 +45,7 @@ Usage :
     python3 scripts/en/translate_daily.py [--dry-run] [--model deepseek/deepseek-v4-flash]
 """
 import argparse
+import calendar
 import copy
 import glob
 import json
@@ -61,6 +62,8 @@ from pathlib import Path
 from bs4 import BeautifulSoup, NavigableString
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(REPO_ROOT / "scripts" / "edition"))
+import build_html  # noqa: E402 — reconstruction déterministe de en/index.html, voir build_en_index_page()
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 # Passé de deepseek/deepseek-v4-flash à Sonnet 5 le 16 septembre 2026
 # (2 incidents de troncature/segments manquants avec DeepSeek), puis à
@@ -119,6 +122,9 @@ CHROME_TEXT = {
     "Vote avant le résultat, retrouve-nous partout": "Vote before you see the outcome — find us everywhere",
     "Mentions légales": "Legal notice",
     "Politique de confidentialité": "Privacy policy",
+    "Politique de cookies": "Cookie policy",
+    "Envie d'en savoir plus sur nos règles ?": "Want to know more about how we work?",
+    "☕ Nous offrir un café": "☕ Buy us a coffee",
     "Voir tous les termes déjà expliqués → Glossaire": "See all terms explained so far → Glossary",
     "En savoir plus sur notre méthode →": "Learn more about our method →",
     "Voir aussi la revue de presse du jour →": "See also today's press roundup →",
@@ -149,6 +155,19 @@ CHROME_TEXT = {
     "Copier le lien": "Copy link",
     "Sommaire de l'édition": "Edition contents",
     "Voir la définition dans le lexique": "See the definition in the glossary",
+    # Home fixe (page d'accueil sans article, voir build_html.py
+    # build_home_hero()/build_featured_article()/build_home_cards()) —
+    # texte statique, jamais généré par le modèle de rédaction, donc
+    # traduit une fois ici plutôt que par un appel OpenRouter à chaque
+    # exécution de ce script.
+    "Chaque jour, un sujet, trois scénarios": "Every day, one story, three scenarios",
+    "Comprendre l'actualité, c'est en mesurer les conséquences, pas seulement en connaître les faits. Chaque jour, Scénario prend un sujet clé et en détaille trois évolutions possibles — favorable, stable, dégradé — chacune avec une probabilité chiffrée.":
+        "Understanding the news means measuring its consequences, not just knowing the facts. Every day, Scénario takes one key story and lays out three possible outcomes — favorable, stable, degraded — each with a numbered probability.",
+    "La dernière édition": "The latest edition",
+    "Lire l'édition →": "Read the edition →",
+    "Les éditions précédentes": "Previous editions",
+    "Dernières éditions": "Latest editions",
+    "Voir toutes les archives →": "See all archives →",
 }
 
 
@@ -837,19 +856,180 @@ def find_edition_date(soup):
     traduction faite. Le lire ici créait une dépendance circulaire :
     le script échouait à chaque exécution du jour (incidents des 11 et
     12 septembre 2026), et ne se mettait à fonctionner qu'après un
-    fallback manuel qui posait le bouton en avance. `<link
-    rel="canonical">`, lui, pointe déjà vers l'archive du jour dès la
-    publication FR (même sur index.html, voir étape 3bis) — source
-    fiable et indépendante de ce bouton.
+    fallback manuel qui posait le bouton en avance.
+
+    Depuis le 28 septembre 2026 (nouvelle home fixe, voir build_html.py
+    assemble_home_page()), <link rel="canonical"> sur index.html pointe
+    vers la racine elle-même, plus vers l'archive du jour — ce n'était
+    déjà plus une source fiable ici (incident réel : run #66 du
+    2026-09-28, TranslationError sur ce canonical). Le lien de la carte
+    "featured" (la dernière édition mise en avant, build_featured_article())
+    pointe toujours vers archives/{date}.html et existe dès la publication
+    FR, comme l'ancien canonical — même fiabilité, même indépendance du
+    bouton de langue.
     """
-    canonical = soup.find("link", rel="canonical")
-    href = canonical.get("href") if canonical else None
+    featured = soup.select_one("a.featured-article-link")
+    href = featured.get("href") if featured else None
     if not href:
-        raise TranslationError("<link rel=\"canonical\"> introuvable dans index.html, impossible de déduire la date")
+        raise TranslationError(
+            "lien .featured-article-link introuvable dans index.html, impossible de déduire la date"
+        )
     m = re.search(r"archives/(\d{4}-\d{2}-\d{2})\.html", href)
     if not m:
-        raise TranslationError(f"date introuvable dans canonical href={href!r}")
+        raise TranslationError(f"date introuvable dans featured-article-link href={href!r}")
     return m.group(1)
+
+
+# ---------------------------------------------------------------------------
+# en/index.html — reconstruction déterministe, jamais un appel LLM
+# ---------------------------------------------------------------------------
+# Depuis le 28 septembre 2026 (nouvelle home fixe côté FR, voir
+# build_html.py assemble_home_page()), index.html n'est plus le contenu
+# complet d'un article — le traduire pour en/archives/{date}.html
+# produirait une version tronquée de l'archive. En contrepartie, sa propre
+# traduction (en/index.html) n'a plus besoin d'un appel OpenRouter à
+# chaque exécution : le hero et le head de la home sont du texte FIXE
+# (jamais généré par le modèle de rédaction), et les titres des 7
+# dernières éditions affichées sont déjà traduits dans en/archives/*.html
+# — build_en_index_page() les réutilise tels quels.
+def build_home_head_en(date_str, edition_number):
+    """Équivalent EN de build_html.build_home_head() — head SEO fixe pour
+    en/index.html, jamais lié à une édition précise (og:type=website,
+    canonical vers en/, pas de NewsArticle)."""
+    title = "Scénario — three scenarios for tomorrow, every day"
+    description = ("Every day, one key story and its three numbered scenarios: "
+                    "favorable, stable, degraded.")
+    return f"""<title>{title}</title>
+<link rel="canonical" href="https://lesscenarios.fr/en/">
+<meta name="description" content="{description}">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="language" content="en">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scénario">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://lesscenarios.fr/en/">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{description}">
+<meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
+<meta property="og:image:width" content="2508">
+<meta property="og:image:height" content="1412">
+<meta property="og:image:alt" content="Scénario — three numbered scenarios for every story: favorable, stable, degraded.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@scenario_fr">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{description}">
+<meta name="twitter:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Scénario",
+  "url": "https://lesscenarios.fr",
+  "logo": "https://lesscenarios.fr/assets/logo-512.png",
+  "description": "Every day, tomorrow's three scenarios: short-term, mid-term, long-term.",
+  "sameAs": [
+    "https://www.linkedin.com/company/136694258/",
+    "https://www.facebook.com/share/1LuiQ1cAmt/"
+  ]
+}}
+</script>
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Scénario",
+  "url": "https://lesscenarios.fr/en/",
+  "description": "Today's three scenarios: short, mid and long term."
+}}
+</script>"""
+
+
+def build_home_hero_en():
+    """Équivalent EN de build_html.build_home_hero(). Chemin de logo en
+    "../assets/..." (pas "assets/...") : en/index.html vit un niveau sous
+    la racine, contrairement à index.html — même convention que le reste
+    du chrome traduit par rewrite_links_for_en(depth=1)."""
+    return """<section class="hero" id="contexte">
+  <div class="wrap">
+    <p class="eyebrow">Every day, one story, three scenarios</p>
+    <div class="hero-brand">
+      <img class="hero-brand-mark" src="../assets/logo.svg" alt="">
+      <h1>Scéna<span>rio</span></h1>
+    </div>
+    <p class="dek">Understanding the news means measuring its consequences, not just knowing the facts. Every day, Scénario takes one key story and lays out three possible outcomes — favorable, stable, degraded — each with a numbered probability.</p>
+  </div>
+</section>"""
+
+
+def build_en_index_page(index_fr_path, repo_root):
+    """Reconstruit en/index.html en entier, déterministe (pas d'appel LLM
+    pour cette page) : assemble d'abord avec le shell FR NON traduit (nav/
+    masthead/footer encore en français) + le head et le hero fixes déjà en
+    anglais (build_home_head_en/build_home_hero_en) + les 7 dernières
+    éditions (featured + 6 cartes) scannées depuis en/archives/*.html déjà
+    traduits (build_html.get_latest_archives(archives_dir="en/archives"),
+    jamais retraduites). Puis traduit le DOCUMENT COMPLET assemblé en une
+    seule passe (rewrite_links_for_en + apply_chrome_translations) plutôt
+    que fragment par fragment : la première version fragment-par-fragment
+    laissait non traduits tout ce qui n'était pas dans le shell extrait
+    (hero, CTA "Lire l'édition"/"Voir toutes les archives", bloc "reste
+    connecté") faute de passer par apply_chrome_translations. Les liens
+    featured/cartes sont protégés (extraits puis réinjectés tels quels)
+    pour ne jamais être réécrits par la passe générique : ils pointent déjà
+    correctement vers en/archives/{date}.html (même chemin relatif que
+    archives/{date}.html depuis index.html — pas besoin de "../"), alors
+    que rewrite_links_for_en(depth=1), lui, les ferait pointer vers les
+    archives FRANÇAISES (règle générique, pas de cas spécial pour ces
+    liens-là — voir rewrite_citation_link() pour le mécanisme équivalent
+    côté texte d'article, non réutilisable ici tel quel)."""
+    fr_text = index_fr_path.read_text(encoding="utf-8")
+    fr_shell = build_html.extract_shell(fr_text)
+
+    fr_soup_for_date = BeautifulSoup(fr_text, "html.parser")
+    date_str = find_edition_date(fr_soup_for_date)
+
+    assembled = build_html.assemble_home_page(
+        fr_shell, date_str, fr_shell["edition_number"], repo_root,
+        lang="en", head_builder=build_home_head_en, hero_html=build_home_hero_en(),
+        archives_dir="en/archives", image_path_prefix="../",
+    )
+
+    soup = BeautifulSoup(assembled, "html.parser")
+
+    # Seuls les LIENS (href/src) de featured/cartes doivent être exclus du
+    # rewrite générique — leur TEXTE (CTA "Lire l'édition →", "Voir toutes
+    # les archives →"...) doit, lui, être traduit normalement par
+    # apply_chrome_translations() juste après. D'où une exclusion par
+    # identité d'objet plutôt qu'une extraction de section complète
+    # (which aurait aussi soustrait le texte à la traduction).
+    protected_tag_ids = set()
+    for selector in ("section.featured-article", "section.related-articles"):
+        section = soup.select_one(selector)
+        if section is not None:
+            protected_tag_ids.update(id(t) for t in section.find_all(["a", "img", "link", "script"]))
+
+    for tag in soup.find_all(["a", "img", "link", "script"]):
+        if id(tag) in protected_tag_ids:
+            continue
+        for attr in ("href", "src"):
+            if tag.has_attr(attr):
+                tag[attr] = rewrite_link(tag[attr], depth=1)
+    apply_chrome_translations(soup)
+
+    # Ligne d'édition du masthead ("Édition du 28 septembre 2026 · N°67") :
+    # texte généré dynamiquement par build_masthead() avec la date du jour,
+    # donc jamais dans CHROME_TEXT (table de correspondance figée) — même
+    # traitement que build_en_soup() pour les archives.
+    edition_div = soup.select_one(".edition")
+    if edition_div:
+        m = re.search(r"N[°º]\s*(\d+)", edition_div.get_text())
+        num = m.group(1) if m else "?"
+        y, mo, d = date_str.split("-")
+        month_en = calendar.month_name[int(mo)]
+        edition_div.string = f"Edition of {month_en} {int(d)}, {y} · No. {num}"
+
+    return str(soup)
 
 
 # ---------------------------------------------------------------------------
@@ -1442,9 +1622,9 @@ def main():
         return 1
 
     fr_path = REPO_ROOT / "index.html"
-    fr_soup = BeautifulSoup(fr_path.read_text(encoding="utf-8"), "html.parser")
+    index_fr_soup = BeautifulSoup(fr_path.read_text(encoding="utf-8"), "html.parser")
 
-    date_str = find_edition_date(fr_soup)
+    date_str = find_edition_date(index_fr_soup)
     en_archive_path = REPO_ROOT / "en" / "archives" / f"{date_str}.html"
 
     if en_archive_path.exists() and not args.force:
@@ -1452,6 +1632,24 @@ def main():
         return 0
 
     print(f"Édition du {date_str} pas encore traduite. Traduction via {args.model}...")
+
+    # Depuis le 28 septembre 2026, index.html n'est plus le contenu complet
+    # de l'édition (voir la note en tête de la section "en/index.html —
+    # reconstruction déterministe" plus haut) : le contenu à traduire pour
+    # en/archives/{date_str}.html vient de archives/{date_str}.html, pas
+    # de index.html. Ses liens relatifs à la racine sont préfixés de "../"
+    # (voir rebase_links_for_archive_copy() dans generate_post_edition.py)
+    # — on les ramène à la profondeur 0 pour repartir de la même base que
+    # rewrite_links_for_en(depth=2) attend, exactement comme le fait déjà
+    # build_html.py côté FR quand il relit une archive comme source.
+    fr_archive_path = REPO_ROOT / "archives" / f"{date_str}.html"
+    if not fr_archive_path.exists():
+        raise TranslationError(
+            f"archives/{date_str}.html introuvable — impossible de traduire le contenu complet de l'édition"
+        )
+    archive_text = fr_archive_path.read_text(encoding="utf-8")
+    archive_text = re.sub(r'(href|src)="\.\./([^"]*)"', r'\1="\2"', archive_text)
+    fr_soup = BeautifulSoup(archive_text, "html.parser")
 
     memory = build_translation_memory()
     segments = collect_segments(fr_soup)
@@ -1518,14 +1716,14 @@ def main():
     else:
         en_image_url, en_image_length = generate_en_social_image(date_str, translations)
 
-    # Deux documents distincts, PAS le même HTML recopié deux fois :
-    # en/index.html vit à la profondeur 1 (en/), en/archives/{date}.html à
-    # la profondeur 2 (en/archives/) — voir build_en_soup() pour l'incident
-    # que ça a causé le 12 septembre 2026 (quasi tous les liens relatifs de
-    # l'archive cassés, un cran de "../" manquant).
-    index_soup = build_en_soup(fr_soup, date_str, translations, memory, en_image_url, for_archive=False)
+    # en/archives/{date_str}.html : traduction LLM de l'archive complète
+    # (fr_soup, voir plus haut). en/index.html : reconstruction déterministe
+    # (build_en_index_page(), pas de second appel LLM) — les deux documents
+    # sont distincts depuis le 28 septembre 2026 (avant, index.html et
+    # l'archive avaient le même contenu ; voir l'incident du 12 septembre
+    # 2026 pour l'historique du calcul de profondeur des liens, qui reste
+    # inchangé pour l'archive : depth=2, en/archives/).
     archive_soup = build_en_soup(fr_soup, date_str, translations, memory, en_image_url, for_archive=True)
-    index_html = str(index_soup)
     archive_html = str(archive_soup)
 
     if args.dry_run:
@@ -1535,8 +1733,11 @@ def main():
 
     en_archive_path.parent.mkdir(parents=True, exist_ok=True)
     en_archive_path.write_text(archive_html, encoding="utf-8")
-    (REPO_ROOT / "en" / "index.html").write_text(index_html, encoding="utf-8")
-    print(f"Écrit : en/index.html et en/archives/{date_str}.html")
+    print(f"Écrit : en/archives/{date_str}.html")
+
+    en_index_html = build_en_index_page(fr_path, REPO_ROOT)
+    (REPO_ROOT / "en" / "index.html").write_text(en_index_html, encoding="utf-8")
+    print("Écrit : en/index.html (reconstruit depuis en/archives/*.html déjà traduits, sans appel LLM)")
 
     # Retouche rétroactive des DEUX pages françaises (index.html et
     # archives/{date}.html) — bouton EN + hreflang="en", jamais fait tant
@@ -1544,10 +1745,13 @@ def main():
     # ci-dessus). Texte brut relu depuis le disque (pas fr_soup, qui est
     # un objet BeautifulSoup — un str(fr_soup) reformaterait tout le
     # fichier, voir docstring d'add_fr_lang_button()), jamais l'objet en
-    # mémoire pour ces deux fichiers précis.
+    # mémoire pour ces deux fichiers précis. index.html pointe vers
+    # en/index.html (la home EN, pas l'archive) : c'est le bouton "lire
+    # cette page en anglais", et la home FR n'est plus une archive depuis
+    # le 28 septembre 2026.
     fr_index_text = fr_path.read_text(encoding="utf-8")
-    fr_index_text = add_fr_lang_button(fr_index_text, f"en/archives/{date_str}.html")
-    fr_index_text = add_hreflang_en(fr_index_text, f"https://lesscenarios.fr/en/archives/{date_str}.html")
+    fr_index_text = add_fr_lang_button(fr_index_text, "en/index.html")
+    fr_index_text = add_hreflang_en(fr_index_text, "https://lesscenarios.fr/en/")
     fr_path.write_text(fr_index_text, encoding="utf-8")
 
     fr_archive_path = REPO_ROOT / "archives" / f"{date_str}.html"
