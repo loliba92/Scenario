@@ -70,9 +70,16 @@ def _escape_json_string(s: str) -> str:
 
 
 def _build_title(brief: Dict[str, Any]) -> str:
-    """Title: titre_propose + " — Scénario"."""
-    titre = brief.get("sujet", {}).get("titre_propose", "Scénario")
-    return f"{titre} — {SITE_NAME}" if titre else SITE_NAME
+    """Title: titre_propose + " — Scénario". titre_propose est tronqué à 60
+    caractères (frontière de mot, voir _truncate_at_word_boundary) — sans
+    cap, les titres proposés par l'IA dépassaient couramment 100+
+    caractères (ex. 128 sur l'édition du 28 septembre 2026, repéré par
+    l'audit SEO SEOmatic), bien au-delà de la limite d'affichage de Google
+    dans les résultats de recherche (~60 caractères)."""
+    titre = brief.get("sujet", {}).get("titre_propose", "")
+    if not titre:
+        return SITE_NAME
+    return f"{_truncate_at_word_boundary(titre, 60)} — {SITE_NAME}"
 
 
 def _truncate_at_word_boundary(text: str, max_len: int) -> str:

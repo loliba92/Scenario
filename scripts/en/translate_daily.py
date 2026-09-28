@@ -1098,6 +1098,19 @@ def build_en_index_page(index_fr_path, repo_root):
         month_en = calendar.month_name[int(mo)]
         edition_div.string = f"Edition of {month_en} {int(d)}, {y} · No. {num}"
 
+    # Bouton de langue : même traitement que build_en_soup() (voir ce
+    # commentaire pour le contexte) — manquant ici jusqu'au 28 septembre
+    # 2026, ce qui laissait le bouton FR non retouché (texte "EN", lien
+    # vers archives/{date}.html) sur en/index.html : le bouton affichait
+    # "EN" alors qu'on est déjà sur la page anglaise, au lieu de "FR" vers
+    # ../index.html (retour à la home française).
+    lang_btn = soup.select_one(".masthead-lang-btn")
+    if lang_btn:
+        lang_btn["href"] = "../index.html"
+        lang_btn["aria-label"] = "Lire en français"
+        lang_btn["title"] = "Lire en français"
+        lang_btn.string = "FR"
+
     return str(soup)
 
 
