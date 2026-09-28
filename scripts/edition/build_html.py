@@ -38,6 +38,10 @@ MOIS_FR = [
     "juillet", "août", "septembre", "octobre", "novembre", "décembre",
 ]
 JOURS_FR = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
+MOIS_EN_ABBR = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+]
 
 
 def _unwrap_own_tag(html, tag, cls):
@@ -100,11 +104,10 @@ def extract_shell(index_html_text):
     masthead = soup.select_one("header.masthead")
     topnav = soup.select_one("nav.topnav")
     weekly_banner = soup.select_one("#weekly-banner")
-    intro_banner = soup.select_one("#intro-banner")
     footer = soup.select_one("footer")
     for name, tag in [
         ("header.masthead", masthead), ("nav.topnav", topnav),
-        ("#weekly-banner", weekly_banner), ("#intro-banner", intro_banner),
+        ("#weekly-banner", weekly_banner),
         ("footer", footer),
     ]:
         if tag is None:
@@ -140,7 +143,6 @@ def extract_shell(index_html_text):
         "masthead_html": str(masthead),
         "topnav_html": str(topnav),
         "weekly_banner_html": str(weekly_banner),
-        "intro_banner_html": str(intro_banner),
         "legal_links_html": str(legal_links),
         "scripts_tail_html": scripts_tail,
         "edition_number": edition_number,
@@ -667,6 +669,31 @@ _SHARE_BLOCK = """<section class="share-block" id="nous-suivre">
 </section>"""
 
 
+# Bandeau d'intro affiché une seule fois par visiteur (localStorage,
+# voir le <script> qui le pilote dans scripts_tail_html), sur les pages
+# article/archive uniquement — jamais sur la home depuis la home redesign
+# du 27 septembre 2026 : son texte y fait doublon avec le hero fixe qui
+# introduit déjà le principe du site (retour utilisateur du 28 septembre
+# 2026). Constante plutôt qu'un fragment extrait de shell (comme
+# _SHARE_BLOCK ci-dessus) : depuis que la home ne le republie plus,
+# extract_shell() ne peut plus compter sur sa présence dans index.html
+# pour le retrouver.
+_INTRO_BANNER_HTML = """<div class="intro-banner" hidden="" id="intro-banner">
+<div class="wrap intro-banner-inner">
+<button aria-label="Fermer ce message" class="intro-banner-close" id="intro-banner-close" type="button">
+<svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M5 5L19 19M19 5L5 19"></path></svg>
+</button>
+<div class="intro-banner-body">
+<img alt="" aria-hidden="true" class="intro-banner-icon" src="assets/logo.svg"/>
+<div>
+<p class="intro-banner-lead">L'actu, oui. Et après ?</p>
+<p class="intro-banner-text">Chaque jour, un sujet qui compte, décortiqué en trois scénarios chiffrés, avec une probabilité pour chacun. Jamais figée : elle évolue si la situation change.</p>
+</div>
+</div>
+</div>
+</div>"""
+
+
 def build_related_articles(brief, repo_root=None):
     """Génère la section des articles connexes à partir des données du brief.
     Utilise le titre exact du brief (champ 'titre' des articles_connexes).
@@ -723,7 +750,61 @@ def build_related_articles(brief, repo_root=None):
 _ARCHIVE_DATE_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})\.html$")
 
 
-def get_latest_archives(repo_root, before_date_str, count=4, archives_dir="archives", image_path_prefix=""):
+def extract_og_title(text, fallback=None):
+    """Extrait le contenu de <meta property="og:title" content="..."> peu
+    importe l'ordre des attributs : les archives FR sont écrites par
+    templating Python simple (property avant content, toujours), mais les
+    archives EN passent par un round-trip BeautifulSoup
+    (scripts/en/translate_daily.py build_en_soup()), qui réordonne les
+    attributs alphabétiquement (content avant property) — la balise
+    entière est matchée d'abord, content en extrait ensuite, peu importe
+    l'ordre. Retire le suffixe " — Scénario" s'il est présent. Retourne
+    `fallback` si la balise est introuvable."""
+    tag_m = re.search(r'<meta[^>]*\bproperty="og:title"[^>]*/?>', text)
+    content_m = re.search(r'\bcontent="([^"]*)"', tag_m.group(0)) if tag_m else None
+    return content_m.group(1).rsplit(" — Scénario", 1)[0] if content_m else fallback
+
+
+def extract_article_domain(text):
+    """Extrait le contenu de <meta property="article:section" content="...">
+    (déjà en Title Case côté FR, ex. "Sport", "Economie Mondiale") — même
+    tolérance à l'ordre des attributs qu'extract_og_title(). None si absent
+    (pages sans domaine, ex. le-projet.html s'il était scanné par erreur)."""
+    tag_m = re.search(r'<meta[^>]*\bproperty="article:section"[^>]*/?>', text)
+    content_m = re.search(r'\bcontent="([^"]*)"', tag_m.group(0)) if tag_m else None
+    return content_m.group(1) if content_m else None
+
+
+def build_archive_entry(repo_root, date_str, path, image_path_prefix="", domain_translator=None):
+    """Construit une entrée {"date_str", "title", "image_url", "domain"}
+    pour UN fichier d'archive déjà connu — factorisé hors de
+    get_latest_archives() pour être aussi utilisable sur une archive qui
+    vient d'être écrite mais n'est pas encore visible pour un scan "avant
+    aujourd'hui" (voir scripts/en/translate_daily.py build_en_index_page() :
+    l'archive EN du jour existe déjà sur disque à ce stade du pipeline,
+    mais get_latest_archives(before_date_str=date_str) l'exclurait quand
+    même, la comparaison étant strictement "<").
+
+    domain_translator (optionnel) : fonction str -> str appliquée au
+    domaine extrait — jamais traduit côté FR (déjà dans la bonne langue),
+    utilisé côté EN (voir scripts/en/translate_daily.py DOMAIN_FR_EN) car
+    article:section n'est pas retraduit par build_en_soup(), donc les
+    pages en/archives/*.html le portent encore tel quel en français."""
+    text = path.read_text(encoding="utf-8")
+    title = extract_og_title(text, fallback=date_str)
+    domain = extract_article_domain(text)
+    if domain and domain_translator:
+        domain = domain_translator(domain)
+    image_path = Path(repo_root) / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
+    image_url = (
+        f"{image_path_prefix}assets/social/topic-images/{date_str}.jpg" if image_path.exists()
+        else f"{image_path_prefix}assets/social/og-image-v2.png"
+    )
+    return {"date_str": date_str, "title": title, "image_url": image_url, "domain": domain}
+
+
+def get_latest_archives(repo_root, before_date_str, count=4, archives_dir="archives",
+                         image_path_prefix="", domain_translator=None):
     """Scanne {archives_dir}/*.html (jamais .../fragments/) et retourne les
     `count` éditions les plus récentes strictement antérieures à
     before_date_str, triées de la plus récente à la plus ancienne. Chaque
@@ -748,47 +829,42 @@ def get_latest_archives(repo_root, before_date_str, count=4, archives_dir="archi
 
     entries = []
     for date_str, f in dated_files[:count]:
-        text = f.read_text(encoding="utf-8")
-        # Ordre des attributs non garanti : les archives FR sont écrites par
-        # templating Python simple (property avant content, toujours), mais
-        # les archives EN passent par un round-trip BeautifulSoup
-        # (scripts/en/translate_daily.py build_en_soup()), qui réordonne les
-        # attributs alphabétiquement (content avant property) — la balise
-        # entière est matchée d'abord, content en extrait ensuite, peu
-        # importe l'ordre.
-        tag_m = re.search(r'<meta[^>]*\bproperty="og:title"[^>]*/?>', text)
-        content_m = re.search(r'\bcontent="([^"]*)"', tag_m.group(0)) if tag_m else None
-        title = content_m.group(1).rsplit(" — Scénario", 1)[0] if content_m else date_str
-        image_path = Path(repo_root) / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
-        image_url = (
-            f"{image_path_prefix}assets/social/topic-images/{date_str}.jpg" if image_path.exists()
-            else f"{image_path_prefix}assets/social/og-image-v2.png"
-        )
-        entries.append({"date_str": date_str, "title": title, "image_url": image_url})
+        entries.append(build_archive_entry(repo_root, date_str, f, image_path_prefix, domain_translator))
     return entries
 
 
-def _format_date_short(date_str):
-    """'2026-09-20' -> '20 sept.' — même format court que
-    build_related_articles(), pour rester cohérent visuellement."""
+def _format_date_short(date_str, lang="fr"):
+    """'2026-09-20' -> '20 sept.' (fr) ou 'Sep 20' (en) — même format court
+    que build_related_articles() côté FR. lang="en" : bug repéré le
+    28 septembre 2026, en/index.html affichait encore "27 sept." sur ses
+    cartes — cette chaîne varie chaque jour donc apply_chrome_translations()
+    (correspondance FR -> EN exacte et stable) ne peut jamais la traduire."""
     d = date.fromisoformat(date_str)
+    if lang == "en":
+        return f"{MOIS_EN_ABBR[d.month - 1]} {d.day}"
     month_name = MOIS_FR[d.month - 1][:4]
     if month_name.endswith("e"):
         return f"{d.day} {month_name.rstrip('e')}."
     return f"{d.day} {month_name}."
 
 
-def build_home_cards(articles):
+def build_home_cards(articles, lang="fr"):
     """4 cartes vers les dernières éditions, même gabarit visuel que
     build_related_articles() (classes .related-articles-*, CSS déjà présent
-    dans le style_block du gabarit — aucun nouveau CSS à ajouter)."""
+    dans le style_block du gabarit — aucun nouveau CSS à ajouter). Domaine
+    affiché avant la date (ex. "Sport · 27 sept.") pour orienter le
+    lecteur sans qu'il ait à lire le titre en entier — demandé par
+    l'utilisateur le 28 septembre 2026. lang="en" : passé à
+    _format_date_short() (voir son docstring — une date ne peut jamais être
+    traduite par apply_chrome_translations, table FR -> EN exacte et
+    figée)."""
     if not articles:
         return ""
     items = "\n".join(
         f'''      <li><a href="archives/{a["date_str"]}.html" class="related-articles-item">
         <img class="related-articles-image" src="{a["image_url"]}" alt="{a["title"]}">
         <div class="related-articles-content">
-          <span class="related-articles-date">{_format_date_short(a["date_str"])}</span>
+          <span class="related-articles-date">{(a["domain"] + " · ") if a.get("domain") else ""}{_format_date_short(a["date_str"], lang)}</span>
           <span class="related-articles-title">{a["title"]}</span>
         </div>
       </a></li>'''
@@ -806,11 +882,12 @@ def build_home_cards(articles):
 </section>'''
 
 
-def build_featured_article(article):
+def build_featured_article(article, lang="fr"):
     """Met en avant la toute dernière édition (grande image + titre) juste
     sous le hero de présentation, séparément des 4 éditions suivantes
     (build_home_cards) — demandé pour donner du poids visuel au contenu le
-    plus récent sur une home devenue une page de présentation fixe."""
+    plus récent sur une home devenue une page de présentation fixe.
+    lang="en" : voir build_home_cards()."""
     return f'''<section class="featured-article">
   <div class="wrap">
     <p class="section-label">La dernière édition</p>
@@ -819,7 +896,7 @@ def build_featured_article(article):
         <img class="featured-article-image" src="{article["image_url"]}" alt="{article["title"]}">
       </div>
       <div>
-        <span class="featured-article-date">{_format_date_short(article["date_str"])}</span>
+        <span class="featured-article-date">{(article["domain"] + " · ") if article.get("domain") else ""}{_format_date_short(article["date_str"], lang)}</span>
         <h2 class="featured-article-title">{article["title"]}</h2>
         <span class="featured-article-cta">Lire l'édition →</span>
       </div>
@@ -834,8 +911,10 @@ def build_home_hero():
     rester cohérent avec le ton déjà établi ailleurs sur le site. Logo à
     côté du titre (.hero-brand, CSS dans le style_block du gabarit) : le
     texte seul en h1 n'engageait pas assez la marque sur la première chose
-    vue en arrivant sur le site."""
-    return """<section class="hero" id="contexte">
+    vue en arrivant sur le site. Classe .hero--home (CSS dans le style_block
+    du gabarit) : padding-top propre à ce hero sans image de fond, jamais
+    appliqué au hero d'article (voir la règle CSS pour le motif)."""
+    return """<section class="hero hero--home" id="contexte">
   <div class="wrap">
     <p class="eyebrow">Chaque jour, un sujet, trois scénarios</p>
     <div class="hero-brand">
@@ -906,7 +985,8 @@ def build_home_head(date_str, edition_number):
 
 def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=None,
                         lang="fr", head_builder=None, hero_html=None,
-                        archives_dir="archives", image_path_prefix=""):
+                        archives_dir="archives", image_path_prefix="",
+                        domain_translator=None):
     """Assemble la page d'accueil FIXE : head/hero génériques (jamais liés à
     une édition précise), la dernière édition mise en avant (grande carte),
     les 6 éditions suivantes en cartes plus petites (grille à 3 colonnes,
@@ -927,7 +1007,20 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
     build_en_index_page()) : lang="en", head_builder=build_home_head_en,
     hero_html=build_home_hero_en(), archives_dir="en/archives",
     image_path_prefix="../" — jamais un nouvel appel LLM, seulement des
-    traductions déjà faites (en/archives/*.html) et du texte fixe."""
+    traductions déjà faites (en/archives/*.html) et du texte fixe.
+
+    domain_translator (optionnel) : voir build_archive_entry() — propagé
+    à get_latest_archives() pour traduire le badge domaine des cartes
+    (article:section n'est jamais retraduit dans en/archives/*.html).
+
+    _INTRO_BANNER_HTML volontairement absent du HTML produit ici
+    (contrairement à la page article, voir plus bas dans ce fichier) :
+    son texte ("Chaque jour, un sujet qui compte, décortiqué en trois
+    scénarios chiffrés...") fait doublon avec le hero fixe juste en
+    dessous depuis la home redesign — retour utilisateur du 28 septembre
+    2026. Le bandeau reste affiché tel quel sur les pages article/archive,
+    où rien d'autre n'introduit le principe du site à un visiteur qui
+    atterrit directement dessus."""
     head_dynamic = (head_builder or build_home_head)(date_str, edition_number)
     masthead = build_masthead(shell["masthead_html"], date_str, edition_number)
     hero = hero_html if hero_html is not None else build_home_hero()
@@ -938,10 +1031,11 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
     # 4 laissait une ligne à moitié vide.
     previous = get_latest_archives(repo_root, before_date_str=date_str,
                                     count=6 if today_entry else 7,
-                                    archives_dir=archives_dir, image_path_prefix=image_path_prefix)
+                                    archives_dir=archives_dir, image_path_prefix=image_path_prefix,
+                                    domain_translator=domain_translator)
     latest = ([today_entry] if today_entry else []) + previous
-    featured = build_featured_article(latest[0]) if latest else ""
-    cards = build_home_cards(latest[1:7])
+    featured = build_featured_article(latest[0], lang) if latest else ""
+    cards = build_home_cards(latest[1:7], lang)
 
     footer_html = f'<footer>\n  <div class="wrap">\n    <div class="footer-bottom">\n      {shell["legal_links_html"]}\n    </div>\n  </div>\n</footer>'
 
@@ -961,8 +1055,6 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
 {shell['topnav_html']}
 
 {shell['weekly_banner_html']}
-
-{shell['intro_banner_html']}
 
 {hero}
 
@@ -1042,7 +1134,7 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
 
 {shell['weekly_banner_html']}
 
-{shell['intro_banner_html']}
+{_INTRO_BANNER_HTML}
 
 {hero}
 

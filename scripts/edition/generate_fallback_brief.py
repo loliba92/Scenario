@@ -104,6 +104,31 @@ def extract_recherche_instructions():
     return text[start:end].strip()
 
 
+_DC_CHART_START_MARKER = "**Graphique en escalier pour série historique longue"
+_DC_CHART_END_MARKER = "- **Placement : juste après `.indicator-strip`"
+
+
+def extract_dc_chart_instructions():
+    """Extrait la grille de décision du graphique en escalier
+    (`.dc-chart-box`) — bug réel repéré le 28 septembre 2026 (retour
+    utilisateur : plus aucun graphique depuis des jours) : ce passage vit
+    APRÈS `_RECHERCHE_END_MARKER` dans docs/routine-prompt.md (il fait
+    partie des étapes de rédaction/rendu, pas des étapes 0 à 3bis de
+    recherche), donc `extract_recherche_instructions()` ne l'incluait
+    JAMAIS dans ce prompt — alors que la ligne 273 du même fichier (elle,
+    dans la fenêtre recherche, donc bien reçue par ce script) renvoie
+    explicitement vers lui (« § Graphique en escalier plus bas reste la
+    grille de décision ») : le modèle recevait un renvoi vers une section
+    qu'il n'a jamais reçue. Les 5 premiers critères de décision sont
+    extraits ici (jusqu'à juste avant « Placement », qui ne concerne que
+    le HTML final, pas le JSON du brief) — le schéma exact de `serie` est
+    déjà couvert intégralement par extract_brief_format_doc()."""
+    text = ROUTINE_PROMPT_PATH.read_text(encoding="utf-8")
+    start = text.index(_DC_CHART_START_MARKER)
+    end = text.index(_DC_CHART_END_MARKER, start)
+    return text[start:end].strip()
+
+
 def extract_brief_format_doc():
     return BRIEF_FORMAT_PATH.read_text(encoding="utf-8").strip()
 
@@ -261,6 +286,19 @@ récente qui le confirme.
 
 === RÈGLES ÉDITORIALES (docs/routine-prompt.md, extrait textuel) ===
 {extract_recherche_instructions()}
+
+=== GRILLE DE DÉCISION DU GRAPHIQUE EN ESCALIER (docs/routine-prompt.md, § « Graphique en escalier », extrait textuel — vit hors de la fenêtre ci-dessus, ajouté séparément) ===
+{extract_dc_chart_instructions()}
+
+Applique cette grille à `graphique_dc_chart` à CHAQUE brief, pas seulement
+quand un sujet s'y prête visiblement : une fois `indicateurs_kpi` choisis,
+évalue lequel des deux a le plus de chances de passer les 3 critères
+ci-dessus, vérifie-le réellement par recherche web avant de trancher. La
+plupart des briefs n'auront quand même aucun graphique — normal, pas un
+échec — mais `raison` doit alors prouver la recherche (requête/source
+consultée, période couverte, nombre de points trouvés, quel critère
+échoue précisément), jamais une phrase générique du type « pas de série
+disponible » sans détail.
 
 === SCHÉMA EXACT DU BRIEF À PRODUIRE (docs/routine-brief-format.md) ===
 {extract_brief_format_doc()}

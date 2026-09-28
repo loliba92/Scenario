@@ -379,6 +379,19 @@ alors que ce brief-là en comptait 3 — le rédacteur a suivi la consigne au
 lieu du brief, produisant un écart qui a fait échouer toute la génération
 après 3 essais.
 
+**`value` doit toujours contenir un chiffre réel, jamais une tendance
+qualitative seule.** Reprend le chiffre de `indicateurs_kpi[].valeur` du
+brief (déjà vérifié à l'étape recherche) — ne jamais le remplacer par une
+reformulation qualitative en rédigeant. Bon : `"42 %"`, `"3,8 points de
+PIB"`, `"1,2 Md$"`, `"1re place mondiale"`. Mauvais (rejeté) : `"en baisse
+continue"`, `"en forte augmentation"`, `"stable"` — une direction seule
+n'est pas un indicateur chiffré, quel que soit le mot utilisé pour la
+décrire. Validation automatique depuis le 28 septembre 2026 (retour
+utilisateur, dérive constatée avec le temps) : `generate_daily_edition.py`
+rejette tout `indicators[i].value` sans le moindre chiffre et redemande un
+essai — un essai qui répète cette erreur après relance gaspille donc un
+essai sur 3 pour rien, éviter de s'y exposer dès le premier essai.
+
 ### `cards` (objet à 3 clés : `favorable`, `stable`, `degrade`)
 Pour chaque clé :
 ```json

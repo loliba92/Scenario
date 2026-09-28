@@ -1148,6 +1148,13 @@ def main():
             f"assets/social/topic-images/{date_str}.jpg" if today_image_path.exists()
             else "assets/social/og-image-v2.png"
         ),
+        # Même transformation que build_html.py (section_name, tête SEO de
+        # l'archive) — jamais DOMAIN_LABELS ci-dessus : ce badge doit rester
+        # identique à ce que get_latest_archives() relira demain depuis le
+        # <meta property="article:section"> réellement écrit dans le
+        # fichier, sinon le libellé changerait de forme du jour au
+        # lendemain pour la même édition.
+        "domain": brief["sujet"]["domain"].replace("-", " ").title(),
     }
     home_html = build_html.assemble_home_page(shell, date_str, edition_number, REPO_ROOT, today_entry=today_entry)
     if "<style" not in home_html or "</style>" not in home_html:

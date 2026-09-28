@@ -170,6 +170,31 @@ CHROME_TEXT = {
     "Voir toutes les archives →": "See all archives →",
 }
 
+# Domaine affiché sur les cartes de la home (badge devant la date, ex.
+# "Sport · Sep 27") — build_html.extract_article_domain() lit
+# <meta property="article:section"> tel quel dans en/archives/*.html, qui
+# n'est jamais retraduit par build_en_soup() (ce n'est pas du contenu
+# d'article, ça vient d'un champ structuré du brief, brief["sujet"]["domain"],
+# pas de la rédaction). Valeurs constatées dans archives/*.html le
+# 28 septembre 2026 (voir scripts/edition/generate_seo_head.py — ce champ
+# n'est pas restreint aux 6 slugs de thèmes officiels, le modèle peut en
+# produire d'autres). translate_domain() ci-dessous renvoie le texte FR
+# inchangé pour toute valeur absente de cette table plutôt que d'échouer :
+# un badge non traduit est un dégradé acceptable, jamais une page cassée.
+DOMAIN_FR_EN = {
+    "Culture": "Culture",
+    "Economie Mondiale": "World Economy",
+    "International": "International",
+    "Politique Institutions": "Politics",
+    "Sciences": "Science",
+    "Sport": "Sports",
+    "Tech Numerique": "Tech",
+}
+
+
+def translate_domain(domain_fr):
+    return DOMAIN_FR_EN.get(domain_fr, domain_fr)
+
 
 def apply_chrome_translations(soup):
     """Remplace tout noeud de texte dont le contenu exact correspond à une
@@ -947,14 +972,21 @@ def build_home_head_en(date_str, edition_number):
 
 def build_home_hero_en():
     """Équivalent EN de build_html.build_home_hero(). Chemin de logo en
-    "../assets/..." (pas "assets/...") : en/index.html vit un niveau sous
-    la racine, contrairement à index.html — même convention que le reste
-    du chrome traduit par rewrite_links_for_en(depth=1)."""
-    return """<section class="hero" id="contexte">
+    "assets/..." SANS préfixe "../" : ce hero passe par la passe générique
+    rewrite_link(depth=1) dans build_en_index_page() (pas dans les liens
+    protégés featured/cartes) exactement comme le masthead (shell["masthead_html"],
+    lui aussi en "assets/..." brut) — bug réel du 28 septembre 2026 (logo
+    cassé dans le hero) : un "../assets/..." déjà posé ici se faisait
+    re-préfixer une seconde fois par cette même passe, donnant
+    "../../assets/..." (rewrite_link() ne détecte pas un préfixe "../"
+    déjà présent, voir son docstring). Classe .hero--home : voir
+    build_html.build_home_hero() pour le motif (padding-top propre à ce
+    hero sans image de fond)."""
+    return """<section class="hero hero--home" id="contexte">
   <div class="wrap">
     <p class="eyebrow">Every day, one story, three scenarios</p>
     <div class="hero-brand">
-      <img class="hero-brand-mark" src="../assets/logo.svg" alt="">
+      <img class="hero-brand-mark" src="assets/logo.svg" alt="">
       <h1>Scéna<span>rio</span></h1>
     </div>
     <p class="dek">Understanding the news means measuring its consequences, not just knowing the facts. Every day, Scénario takes one key story and lays out three possible outcomes — favorable, stable, degraded — each with a numbered probability.</p>
@@ -989,10 +1021,30 @@ def build_en_index_page(index_fr_path, repo_root):
     fr_soup_for_date = BeautifulSoup(fr_text, "html.parser")
     date_str = find_edition_date(fr_soup_for_date)
 
+    # get_latest_archives(before_date_str=date_str) exclut STRICTEMENT le
+    # jour même (comparaison "<") — sans ça, l'édition du jour n'apparaît
+    # nulle part sur en/index.html tant qu'il n'y a pas d'édition plus
+    # récente qu'elle, et la carte featured affiche l'édition d'hier à la
+    # place (bug réel constaté le 28 septembre 2026 : "Mbappé, Ceuta..."
+    # du 27 affiché comme dernière édition alors que celle du 28 venait
+    # d'être traduite). En FR, generate_post_edition.py construit toujours
+    # un today_entry parce que l'archive du jour n'existe pas encore sur
+    # le disque scanné à ce stade de SON pipeline — ici c'est l'inverse :
+    # en/archives/{date_str}.html a été écrit juste avant cet appel (voir
+    # main()), donc il suffit de le relire directement plutôt que de
+    # changer la borne de get_latest_archives().
+    en_archive_path = Path(repo_root) / "en" / "archives" / f"{date_str}.html"
+    today_entry = (
+        build_html.build_archive_entry(repo_root, date_str, en_archive_path, image_path_prefix="../",
+                                        domain_translator=translate_domain)
+        if en_archive_path.exists() else None
+    )
+
     assembled = build_html.assemble_home_page(
         fr_shell, date_str, fr_shell["edition_number"], repo_root,
         lang="en", head_builder=build_home_head_en, hero_html=build_home_hero_en(),
-        archives_dir="en/archives", image_path_prefix="../",
+        archives_dir="en/archives", image_path_prefix="../", today_entry=today_entry,
+        domain_translator=translate_domain,
     )
 
     soup = BeautifulSoup(assembled, "html.parser")
