@@ -63,12 +63,32 @@ def _unwrap_own_tag(html, tag, cls):
 # quel depuis le gabarit (icônes, manifest, apple-*, pwa-install.css,
 # preconnect, fonts, <style>...). Autant de prédicats que de familles de
 # balises per-day à exclure de la recopie brute.
+#
+# meta charset/viewport/robots/language/color-scheme : bug réel trouvé le
+# 28 septembre 2026 (retour utilisateur, dupliquées 5x sur index.html et
+# 6x sur en/index.html en prod) — ces 5 balises sont TOUJOURS réémises
+# telles quelles par le template englobant (<meta charset>/<meta
+# name="viewport"> en dur dans assemble_index_html()/assemble_home_page())
+# et par head_dynamic (build_head_dynamic()/build_home_head() : robots/
+# language/color-scheme). Absentes d'_is_per_day, elles étaient donc AUSSI
+# recopiées dans head_static à chaque extract_shell() — une régénération
+# de index.html à partir de lui-même (cas normal : la home ET le pipeline
+# quotidien extraient le shell depuis le VRAI index.html) en ajoutait une
+# copie de plus à chaque fois, sans jamais en retirer. Jamais "per-day" au
+# sens propre (elles ne varient pas d'une édition à l'autre) mais doivent
+# être exclues de head_static pour la même raison technique : déjà
+# garanties par ailleurs, jamais à recopier depuis le gabarit source.
 _PER_DAY_HEAD_PREDICATES = [
     lambda t: t.name == "title",
     lambda t: t.name == "link" and t.get("rel") == ["canonical"],
     lambda t: t.name == "link" and t.get("rel") == ["alternate"],
+    lambda t: t.name == "meta" and t.get("charset") is not None,
+    lambda t: t.name == "meta" and t.get("name") == "viewport",
     lambda t: t.name == "meta" and t.get("name") == "description",
     lambda t: t.name == "meta" and t.get("name") == "domain",
+    lambda t: t.name == "meta" and t.get("name") == "robots",
+    lambda t: t.name == "meta" and t.get("name") == "language",
+    lambda t: t.name == "meta" and t.get("name") == "color-scheme",
     lambda t: t.name == "meta" and (t.get("property") or "").startswith("og:"),
     lambda t: t.name == "meta" and (t.get("property") or "").startswith("article:"),
     lambda t: t.name == "meta" and (t.get("name") or "").startswith("twitter:"),
