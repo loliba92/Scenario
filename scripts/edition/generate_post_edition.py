@@ -478,10 +478,17 @@ def strip_inline_tags(html_text):
     return re.sub(r"<[^>]+>", "", html_text)
 
 
-def build_feed_item(content, date_str, read_minutes, ig_image_url, ig_image_size):
+def build_feed_item(content, edition_id, read_minutes, ig_image_url, ig_image_size):
+    # edition_id (jamais date_str seul) pour link/guid : deux éditions
+    # publiées le même jour (chantier multi-éditions/jour, 28 septembre
+    # 2026) partageraient sinon un guid identique — un lecteur RSS traite
+    # alors la 2e comme une mise à jour de la 1re plutôt que comme une
+    # entrée distincte, et link pointerait vers le mauvais fichier pour
+    # l'une des deux (voir build_html.build_archive_entry() pour la
+    # convention de nommage "{date}" / "{date}-{slug}").
     h1 = content["h1"]
-    link = f"{SITE_URL}/archives/{date_str}.html"
-    guid = f"scenario-{date_str}"
+    link = f"{SITE_URL}/archives/{edition_id}.html"
+    guid = f"scenario-{edition_id}"
     pub_date = datetime.now(PARIS_TZ).strftime("%a, %d %b %Y %H:%M:%S %z")
     question = content["question_text"]
     if len(content.get("essentiel_box") or []) < 2:
@@ -567,7 +574,15 @@ def update_feed_xml(feed_text, item_xml):
 # ---------------------------------------------------------------------------
 # 4. sitemap.xml / sitemap-news.xml
 # ---------------------------------------------------------------------------
-def update_sitemap_xml(sitemap_text, date_str, bump_glossaire=False):
+def update_sitemap_xml(sitemap_text, edition_id, bump_glossaire=False):
+    # edition_id (jamais date_str seul) pour <loc> : voir build_feed_item()
+    # plus haut, même raison — deux éditions publiées le même jour
+    # (chantier multi-éditions/jour, 28 septembre 2026) auraient sinon
+    # généré la même <loc>, la 2e silencieusement invisible pour Google
+    # (déjà présente en apparence). date_str (les 10 premiers caractères)
+    # reste utilisé pour <lastmod>, purement calendaire.
+    date_str = edition_id[:10]
+
     def bump_lastmod(text, loc):
         pattern = re.compile(
             rf'(<loc>{re.escape(loc)}</loc>\s*<lastmod>)\d{{4}}-\d{{2}}-\d{{2}}(</lastmod>)'
@@ -586,7 +601,7 @@ def update_sitemap_xml(sitemap_text, date_str, bump_glossaire=False):
 
     new_entry = (
         "  <url>\n"
-        f"    <loc>{SITE_URL}/archives/{date_str}.html</loc>\n"
+        f"    <loc>{SITE_URL}/archives/{edition_id}.html</loc>\n"
         f"    <lastmod>{date_str}</lastmod>\n"
         "    <changefreq>never</changefreq>\n"
         "    <priority>0.6</priority>\n"
@@ -598,10 +613,11 @@ def update_sitemap_xml(sitemap_text, date_str, bump_glossaire=False):
     return text[:insert_at] + new_entry + text[insert_at:]
 
 
-def update_sitemap_news_xml(sitemap_news_text, date_str, title):
+def update_sitemap_news_xml(sitemap_news_text, edition_id, title):
     """Ajoute l'entrée du jour et purge tout ce qui a plus de 48h — la
     purge est la règle ici, contrairement à sitemap.xml (voir
-    docs/routine-prompt.md, étape technique 7bis)."""
+    docs/routine-prompt.md, étape technique 7bis). edition_id (jamais
+    date_str seul) pour <loc> : même raison que update_sitemap_xml()."""
     ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9",
           "news": "http://www.google.com/schemas/sitemap-news/0.9"}
     ET.register_namespace("", ns["sm"])
@@ -622,7 +638,7 @@ def update_sitemap_news_xml(sitemap_news_text, date_str, title):
             root.remove(url_el)
 
     new_url = ET.SubElement(root, f"{{{ns['sm']}}}url")
-    ET.SubElement(new_url, f"{{{ns['sm']}}}loc").text = f"{SITE_URL}/archives/{date_str}.html"
+    ET.SubElement(new_url, f"{{{ns['sm']}}}loc").text = f"{SITE_URL}/archives/{edition_id}.html"
     news_el = ET.SubElement(new_url, f"{{{ns['news']}}}news")
     pub_el = ET.SubElement(news_el, f"{{{ns['news']}}}publication")
     ET.SubElement(pub_el, f"{{{ns['news']}}}name").text = "Scénario"
@@ -657,20 +673,27 @@ def _normalize_for_sort(text):
     return "".join(c for c in normalized if not unicodedata.combining(c)).lower().strip()
 
 
-def _build_glossaire_entry(term, domain_label, date_str, h1):
+def _build_glossaire_entry(term, domain_label, edition_id, h1):
+    # edition_id (jamais date_str seul) : lien vers l'édition source exacte
+    # du terme — voir build_html.build_archive_entry() pour la convention
+    # "{date}" (IA) / "{date}-{slug}" (édition supplémentaire du même
+    # jour), chantier multi-éditions/jour du 28 septembre 2026. Deux
+    # éditions le même jour ont chacune leur propre fichier ; un lien basé
+    # sur la seule date pointerait toujours vers la même (mauvaise) archive
+    # pour l'une des deux.
     return (
         f'      <div class="lex-entry" id="lex-{term["slug"]}">\n'
         f'        <dt class="lex-term">{html.escape(term["terme"])}</dt>\n'
         f'        <dd class="lex-def">{html.escape(term["definition"])}</dd>\n'
         '        <div class="lex-meta">\n'
         f'          <span class="lex-domain">{html.escape(domain_label)}</span>\n'
-        f'          <a class="lex-source" href="archives/{date_str}.html">Vu dans : {html.escape(h1)} →</a>\n'
+        f'          <a class="lex-source" href="archives/{edition_id}.html">Vu dans : {html.escape(h1)} →</a>\n'
         "        </div>\n"
         "      </div>\n"
     )
 
 
-def update_glossaire_html(glossaire_text, content, brief, date_str):
+def update_glossaire_html(glossaire_text, content, brief, edition_id):
     """Reporte chaque terme du lexique du jour dans glossaire.html — un
     terme déjà présent n'est jamais modifié (garde son 1er lien source),
     un nouveau terme est inséré à la bonne place alphabétique. Édition
@@ -699,7 +722,7 @@ def update_glossaire_html(glossaire_text, content, brief, date_str):
         if f'id="{entry_id}"' in text[start:end]:
             continue  # déjà présent : jamais modifié, garde son 1er lien source
 
-        new_entry = _build_glossaire_entry(term, domain_label, date_str, h1)
+        new_entry = _build_glossaire_entry(term, domain_label, edition_id, h1)
         new_key = _normalize_for_sort(term["terme"])
 
         insert_at = None
@@ -809,17 +832,23 @@ def update_sources_log(sources_log_text, entry):
 # ---------------------------------------------------------------------------
 def already_published_today(date_str):
     """Garde-fou repris de docs/routine-prompt.md (« vérifier qu'une
-    autre exécution n'a pas déjà publié l'édition du jour ») — lit le
-    VRAI index.html (jamais le bac à sable) et compare la date de
-    `article:published_time` à celle du brief. Jamais bloquant si le
-    fichier ou la balise est absent (nouveau dépôt/gabarit inhabituel) :
-    on suppose alors qu'il n'y a rien à protéger."""
-    index_path = REPO_ROOT / "index.html"
-    if not index_path.exists():
-        return False
-    text = index_path.read_text(encoding="utf-8")
-    m = re.search(r'<meta property="article:published_time" content="(\d{4}-\d{2}-\d{2})', text)
-    return bool(m) and m.group(1) == date_str
+    autre exécution n'a pas déjà publié l'édition du jour ») — vérifie
+    l'existence du VRAI archives/{date}.html (jamais le bac à sable),
+    l'emplacement fixe de l'édition IA quotidienne (voir build_archive_entry()
+    et le chantier multi-éditions/jour du 28 septembre 2026 : une édition
+    supplémentaire du même jour prend "{date}-{slug}.html", jamais
+    "{date}.html" nu — donc cette vérification ne peut jamais être
+    faussée par une édition journaliste indépendante publiée le même jour).
+
+    Corrigé le 28 septembre 2026 : la version précédente lisait
+    `article:published_time` dans index.html, une balise qui n'existe
+    plus depuis la home redesign du 27 septembre (index.html est devenue
+    une page de présentation fixe, og:type=website, plus aucune métadonnée
+    d'article) — ce garde-fou ne bloquait donc plus RIEN depuis, en
+    silence (aucune erreur, juste un `re.search` qui ne trouvait jamais
+    rien). Jamais détecté avant faute de double publication réelle depuis
+    ce changement — bug resté latent."""
+    return (REPO_ROOT / "archives" / f"{date_str}.html").exists()
 
 
 def promote_to_real_repo(sandbox_root, date_str):
@@ -1142,6 +1171,11 @@ def main():
     # get_latest_archives() ne peut pas la trouver elle-même.
     today_image_path = sandbox_root / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
     today_entry = {
+        # L'édition IA quotidienne garde toujours "{date}.html" nu, sans
+        # suffixe (voir build_html.py, chantier multi-éditions/jour du
+        # 28 septembre 2026) — edition_id == date_str pour elle,
+        # contrairement à une édition supplémentaire du même jour.
+        "edition_id": date_str,
         "date_str": date_str,
         "title": content["h1"],
         "image_url": (

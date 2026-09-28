@@ -53,7 +53,18 @@ DOMAINS = [
 # la notion de "registre" (jour/thème type "Lundi géopolitique") a
 # disparu de ce tableau, elle n'est donc plus affichée sur ces pages.
 ENTRY_RE = re.compile(r'<tr data-domain="([a-z-]*)"[^>]*>(.*?)</tr>', re.DOTALL)
-TITLE_RE = re.compile(r'<a href="archives/(\d{4}-\d{2}-\d{2})\.html"[^>]*>([^<]+)</a>')
+# Groupe 1 élargi le 28 septembre 2026 (chantier multi-éditions/jour) pour
+# capturer "{date}-{slug}.html" en plus de "{date}.html" nu : sans le
+# suffixe optionnel, une édition supplémentaire publiée le même jour que
+# l'édition IA (voir build_html._ARCHIVE_DATE_RE, même convention) ne
+# matchait jamais cette regex — l'entrée entière disparaissait
+# silencieusement des pages themes/*.html (title_m à None -> skip plus
+# bas), pas d'erreur, juste une édition jamais listée. La variable
+# `iso_date` ci-dessous reste utilisable telle quelle même avec un suffixe
+# : display_date la découpe par position fixe (les 10 premiers
+# caractères sont toujours AAAA-MM-JJ), et href en a besoin en entier
+# pour pointer vers le bon fichier.
+TITLE_RE = re.compile(r'<a href="archives/(\d{4}-\d{2}-\d{2}(?:-[a-z0-9-]+)?)\.html"[^>]*>([^<]+)</a>')
 
 
 def parse_entries():

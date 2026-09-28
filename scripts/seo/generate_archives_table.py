@@ -854,10 +854,21 @@ def parse_french_date(text):
 
 
 def build_suivi_mapping():
-    """Scanne suivi/*.html (hors _gabarit) et retourne {AAAA-MM-JJ origine: Path du suivi}.
+    """Scanne suivi/*.html (hors _gabarit) et retourne {edition_id origine: Path du suivi},
+    où edition_id est le nom de fichier d'archive sans ".html"
+    ("{date}" pour l'édition IA, "{date}-{slug}" pour une édition
+    supplémentaire du même jour — chantier multi-éditions/jour du
+    28 septembre 2026). Clé sur l'edition_id complet, jamais la seule date
+    (regex élargie le même jour) : parse_article() ci-dessous cherche déjà
+    par `file_path.stem`, qui est l'edition_id complet — une clé
+    tronquée à la date ne matcherait jamais pour une édition au nom
+    suffixé, et pire, ferait silencieusement collision entre deux
+    origines différentes publiées le même jour si elle avait été laissée
+    telle quelle.
 
-    Le lien de retour (.origin-link vers archives/{date}.html) posé sur chaque
-    page de suivi sert d'index inverse — aucun fichier séparé à maintenir.
+    Le lien de retour (.origin-link vers archives/{edition_id}.html) posé sur
+    chaque page de suivi sert d'index inverse — aucun fichier séparé à
+    maintenir.
     """
     mapping = {}
     if not SUIVI_DIR.exists():
@@ -866,7 +877,7 @@ def build_suivi_mapping():
         if f.stem == "_gabarit":
             continue
         text = f.read_text(encoding="utf-8")
-        m = re.search(r'class="origin-link" href="\.\./archives/(\d{4}-\d{2}-\d{2})\.html"', text)
+        m = re.search(r'class="origin-link" href="\.\./archives/(\d{4}-\d{2}-\d{2}(?:-[a-z0-9-]+)?)\.html"', text)
         if m:
             mapping[m.group(1)] = f
     return mapping

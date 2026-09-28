@@ -747,7 +747,16 @@ def build_related_articles(brief, repo_root=None):
 </section>'''
 
 
-_ARCHIVE_DATE_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})\.html$")
+# Élargie le 28 septembre 2026 (chantier multi-éditions/jour, retour
+# utilisateur) : reconnaît aussi archives/{date}-{slug}.html, pour les
+# éditions supplémentaires publiées le même jour (contributions
+# journalistes indépendants, en plus de l'édition IA quotidienne qui
+# garde elle "{date}.html" nu, sans suffixe — zéro changement sur les URLs
+# déjà indexées). Groupe 1 : la date seule (formatage/tri) ; le nom de
+# fichier entier (sans ".html") sert d'identifiant unique d'édition
+# ("edition_id", voir build_archive_entry()) — jamais juste la date, qui
+# ne distingue plus deux éditions du même jour.
+_ARCHIVE_DATE_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})(?:-[a-z0-9-]+)?\.html$")
 
 
 def extract_og_title(text, fallback=None):
@@ -775,9 +784,9 @@ def extract_article_domain(text):
     return content_m.group(1) if content_m else None
 
 
-def build_archive_entry(repo_root, date_str, path, image_path_prefix="", domain_translator=None):
-    """Construit une entrée {"date_str", "title", "image_url", "domain"}
-    pour UN fichier d'archive déjà connu — factorisé hors de
+def build_archive_entry(repo_root, edition_id, path, image_path_prefix="", domain_translator=None):
+    """Construit une entrée {"edition_id", "date_str", "title", "image_url",
+    "domain"} pour UN fichier d'archive déjà connu — factorisé hors de
     get_latest_archives() pour être aussi utilisable sur une archive qui
     vient d'être écrite mais n'est pas encore visible pour un scan "avant
     aujourd'hui" (voir scripts/en/translate_daily.py build_en_index_page() :
@@ -785,22 +794,34 @@ def build_archive_entry(repo_root, date_str, path, image_path_prefix="", domain_
     mais get_latest_archives(before_date_str=date_str) l'exclurait quand
     même, la comparaison étant strictement "<").
 
+    edition_id : nom du fichier sans ".html" — "{date}" pour l'édition IA
+    du jour, "{date}-{slug}" pour une édition supplémentaire du même jour
+    (chantier multi-éditions/jour, 28 septembre 2026). Sert de clé pour le
+    lien (archives/{edition_id}.html) ET pour l'image associée
+    (topic-images/{edition_id}.jpg) — jamais la seule date, qui ne
+    distingue plus deux éditions publiées le même jour. `date_str` (les 10
+    premiers caractères, toujours "AAAA-MM-JJ" par construction) reste
+    utilisé pour tout ce qui est purement calendaire (titre de repli,
+    formatage d'affichage) : c'est la date de PUBLICATION qu'on affiche,
+    peu importe combien d'éditions ce jour-là.
+
     domain_translator (optionnel) : fonction str -> str appliquée au
     domaine extrait — jamais traduit côté FR (déjà dans la bonne langue),
     utilisé côté EN (voir scripts/en/translate_daily.py DOMAIN_FR_EN) car
     article:section n'est pas retraduit par build_en_soup(), donc les
     pages en/archives/*.html le portent encore tel quel en français."""
+    date_str = edition_id[:10]
     text = path.read_text(encoding="utf-8")
     title = extract_og_title(text, fallback=date_str)
     domain = extract_article_domain(text)
     if domain and domain_translator:
         domain = domain_translator(domain)
-    image_path = Path(repo_root) / "assets" / "social" / "topic-images" / f"{date_str}.jpg"
+    image_path = Path(repo_root) / "assets" / "social" / "topic-images" / f"{edition_id}.jpg"
     image_url = (
-        f"{image_path_prefix}assets/social/topic-images/{date_str}.jpg" if image_path.exists()
+        f"{image_path_prefix}assets/social/topic-images/{edition_id}.jpg" if image_path.exists()
         else f"{image_path_prefix}assets/social/og-image-v2.png"
     )
-    return {"date_str": date_str, "title": title, "image_url": image_url, "domain": domain}
+    return {"edition_id": edition_id, "date_str": date_str, "title": title, "image_url": image_url, "domain": domain}
 
 
 def get_latest_archives(repo_root, before_date_str, count=4, archives_dir="archives",
@@ -808,9 +829,15 @@ def get_latest_archives(repo_root, before_date_str, count=4, archives_dir="archi
     """Scanne {archives_dir}/*.html (jamais .../fragments/) et retourne les
     `count` éditions les plus récentes strictement antérieures à
     before_date_str, triées de la plus récente à la plus ancienne. Chaque
-    entrée : {"date_str", "title", "image_url"}. Le tri par nom de fichier
-    suffit (format YYYY-MM-DD.html, donc l'ordre alphabétique est l'ordre
-    chronologique) — aucun besoin de parser les dates.
+    entrée : {"edition_id", "date_str", "title", "image_url", "domain"}.
+    Le tri par nom de fichier suffit (préfixe YYYY-MM-DD, donc l'ordre
+    alphabétique est l'ordre chronologique) — aucun besoin de parser les
+    dates. Depuis le 28 septembre 2026 (multi-éditions/jour), plusieurs
+    fichiers peuvent partager le même préfixe de date
+    ("{date}.html"/"{date}-{slug}.html") : le tri secondaire se fait alors
+    sur le nom de fichier entier, sans prétendre à un ordre chronologique
+    réel entre deux éditions du même jour (aucun horodatage dans le nom de
+    fichier par construction) — seulement un ordre déterministe.
 
     archives_dir : "archives" (défaut, FR) ou "en/archives" (home EN, voir
     scripts/en/translate_daily.py build_en_index_page()) — les traductions
@@ -824,12 +851,12 @@ def get_latest_archives(repo_root, before_date_str, count=4, archives_dir="archi
     for f in archives_path.glob("*.html"):
         m = _ARCHIVE_DATE_RE.match(f.name)
         if m and m.group(1) < before_date_str:
-            dated_files.append((m.group(1), f))
-    dated_files.sort(key=lambda t: t[0], reverse=True)
+            dated_files.append((m.group(1), f.stem, f))
+    dated_files.sort(key=lambda t: (t[0], t[1]), reverse=True)
 
     entries = []
-    for date_str, f in dated_files[:count]:
-        entries.append(build_archive_entry(repo_root, date_str, f, image_path_prefix, domain_translator))
+    for date_str, edition_id, f in dated_files[:count]:
+        entries.append(build_archive_entry(repo_root, edition_id, f, image_path_prefix, domain_translator))
     return entries
 
 
@@ -861,7 +888,7 @@ def build_home_cards(articles, lang="fr"):
     if not articles:
         return ""
     items = "\n".join(
-        f'''      <li><a href="archives/{a["date_str"]}.html" class="related-articles-item">
+        f'''      <li><a href="archives/{a.get("edition_id", a["date_str"])}.html" class="related-articles-item">
         <img class="related-articles-image" src="{a["image_url"]}" alt="{a["title"]}">
         <div class="related-articles-content">
           <span class="related-articles-date">{(a["domain"] + " · ") if a.get("domain") else ""}{_format_date_short(a["date_str"], lang)}</span>
@@ -891,7 +918,7 @@ def build_featured_article(article, lang="fr"):
     return f'''<section class="featured-article">
   <div class="wrap">
     <p class="section-label">La dernière édition</p>
-    <a href="archives/{article["date_str"]}.html" class="featured-article-link">
+    <a href="archives/{article.get("edition_id", article["date_str"])}.html" class="featured-article-link">
       <div class="featured-article-image-wrap">
         <img class="featured-article-image" src="{article["image_url"]}" alt="{article["title"]}">
       </div>
