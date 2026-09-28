@@ -104,11 +104,10 @@ def extract_shell(index_html_text):
     masthead = soup.select_one("header.masthead")
     topnav = soup.select_one("nav.topnav")
     weekly_banner = soup.select_one("#weekly-banner")
-    intro_banner = soup.select_one("#intro-banner")
     footer = soup.select_one("footer")
     for name, tag in [
         ("header.masthead", masthead), ("nav.topnav", topnav),
-        ("#weekly-banner", weekly_banner), ("#intro-banner", intro_banner),
+        ("#weekly-banner", weekly_banner),
         ("footer", footer),
     ]:
         if tag is None:
@@ -144,7 +143,6 @@ def extract_shell(index_html_text):
         "masthead_html": str(masthead),
         "topnav_html": str(topnav),
         "weekly_banner_html": str(weekly_banner),
-        "intro_banner_html": str(intro_banner),
         "legal_links_html": str(legal_links),
         "scripts_tail_html": scripts_tail,
         "edition_number": edition_number,
@@ -671,6 +669,31 @@ _SHARE_BLOCK = """<section class="share-block" id="nous-suivre">
 </section>"""
 
 
+# Bandeau d'intro affiché une seule fois par visiteur (localStorage,
+# voir le <script> qui le pilote dans scripts_tail_html), sur les pages
+# article/archive uniquement — jamais sur la home depuis la home redesign
+# du 27 septembre 2026 : son texte y fait doublon avec le hero fixe qui
+# introduit déjà le principe du site (retour utilisateur du 28 septembre
+# 2026). Constante plutôt qu'un fragment extrait de shell (comme
+# _SHARE_BLOCK ci-dessus) : depuis que la home ne le republie plus,
+# extract_shell() ne peut plus compter sur sa présence dans index.html
+# pour le retrouver.
+_INTRO_BANNER_HTML = """<div class="intro-banner" hidden="" id="intro-banner">
+<div class="wrap intro-banner-inner">
+<button aria-label="Fermer ce message" class="intro-banner-close" id="intro-banner-close" type="button">
+<svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M5 5L19 19M19 5L5 19"></path></svg>
+</button>
+<div class="intro-banner-body">
+<img alt="" aria-hidden="true" class="intro-banner-icon" src="assets/logo.svg"/>
+<div>
+<p class="intro-banner-lead">L'actu, oui. Et après ?</p>
+<p class="intro-banner-text">Chaque jour, un sujet qui compte, décortiqué en trois scénarios chiffrés, avec une probabilité pour chacun. Jamais figée : elle évolue si la situation change.</p>
+</div>
+</div>
+</div>
+</div>"""
+
+
 def build_related_articles(brief, repo_root=None):
     """Génère la section des articles connexes à partir des données du brief.
     Utilise le titre exact du brief (champ 'titre' des articles_connexes).
@@ -988,7 +1011,16 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
 
     domain_translator (optionnel) : voir build_archive_entry() — propagé
     à get_latest_archives() pour traduire le badge domaine des cartes
-    (article:section n'est jamais retraduit dans en/archives/*.html)."""
+    (article:section n'est jamais retraduit dans en/archives/*.html).
+
+    _INTRO_BANNER_HTML volontairement absent du HTML produit ici
+    (contrairement à la page article, voir plus bas dans ce fichier) :
+    son texte ("Chaque jour, un sujet qui compte, décortiqué en trois
+    scénarios chiffrés...") fait doublon avec le hero fixe juste en
+    dessous depuis la home redesign — retour utilisateur du 28 septembre
+    2026. Le bandeau reste affiché tel quel sur les pages article/archive,
+    où rien d'autre n'introduit le principe du site à un visiteur qui
+    atterrit directement dessus."""
     head_dynamic = (head_builder or build_home_head)(date_str, edition_number)
     masthead = build_masthead(shell["masthead_html"], date_str, edition_number)
     hero = hero_html if hero_html is not None else build_home_hero()
@@ -1023,8 +1055,6 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
 {shell['topnav_html']}
 
 {shell['weekly_banner_html']}
-
-{shell['intro_banner_html']}
 
 {hero}
 
@@ -1104,7 +1134,7 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
 
 {shell['weekly_banner_html']}
 
-{shell['intro_banner_html']}
+{_INTRO_BANNER_HTML}
 
 {hero}
 
