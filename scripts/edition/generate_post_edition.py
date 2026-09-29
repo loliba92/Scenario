@@ -1229,6 +1229,11 @@ def main():
         # fichier, sinon le libellé changerait de forme du jour au
         # lendemain pour la même édition.
         "domain": brief["sujet"]["domain"].replace("-", " ").title(),
+        # Même troncature que generate_seo_head._build_description() (la
+        # meta description) — cohérence avec ce que build_archive_entry()
+        # relira demain depuis le <meta name="description"> réellement
+        # écrit dans le fichier.
+        "question": generate_seo_head._truncate_at_word_boundary(brief["sujet"]["question_posee"], 160),
     }
     home_html = build_html.assemble_home_page(shell, date_str, edition_number, REPO_ROOT,
                                                today_entry=today_entry, theme_link_base="themes/")

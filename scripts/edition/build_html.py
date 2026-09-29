@@ -804,9 +804,19 @@ def extract_article_domain(text):
     return content_m.group(1) if content_m else None
 
 
+def extract_meta_description(text):
+    """Extrait le contenu de <meta name="description" content="..."> — la
+    question_posee du brief (voir generate_seo_head.py _build_description()),
+    déjà tronquée à 160 caractères et échappée HTML. Même tolérance à
+    l'ordre des attributs qu'extract_og_title(). None si absent."""
+    tag_m = re.search(r'<meta[^>]*\bname="description"[^>]*/?>', text)
+    content_m = re.search(r'\bcontent="([^"]*)"', tag_m.group(0)) if tag_m else None
+    return content_m.group(1) if content_m else None
+
+
 def build_archive_entry(repo_root, edition_id, path, image_path_prefix="", domain_translator=None):
     """Construit une entrée {"edition_id", "date_str", "title", "image_url",
-    "domain"} pour UN fichier d'archive déjà connu — factorisé hors de
+    "domain", "question"} pour UN fichier d'archive déjà connu — factorisé hors de
     get_latest_archives() pour être aussi utilisable sur une archive qui
     vient d'être écrite mais n'est pas encore visible pour un scan "avant
     aujourd'hui" (voir scripts/en/translate_daily.py build_en_index_page() :
@@ -836,12 +846,14 @@ def build_archive_entry(repo_root, edition_id, path, image_path_prefix="", domai
     domain = extract_article_domain(text)
     if domain and domain_translator:
         domain = domain_translator(domain)
+    question = extract_meta_description(text)
     image_path = Path(repo_root) / "assets" / "social" / "topic-images" / f"{edition_id}.jpg"
     image_url = (
         f"{image_path_prefix}assets/social/topic-images/{edition_id}.jpg" if image_path.exists()
         else f"{image_path_prefix}assets/social/og-image-v2.png"
     )
-    return {"edition_id": edition_id, "date_str": date_str, "title": title, "image_url": image_url, "domain": domain}
+    return {"edition_id": edition_id, "date_str": date_str, "title": title, "image_url": image_url,
+            "domain": domain, "question": question}
 
 
 def get_latest_archives(repo_root, before_date_str, count=4, archives_dir="archives",
@@ -1024,6 +1036,10 @@ def build_featured_article(article, lang="fr", theme_link_base=None):
         slug = DOMAIN_THEME_SLUGS.get(article["domain"])
         if slug:
             domain_link_html = f'\n    <a class="cross-link" href="{theme_link_base}{slug}.html">Voir tous les sujets « {article["domain"]} » →</a>'
+    question_html = (
+        f'\n        <p class="featured-article-question">{article["question"]}</p>'
+        if article.get("question") else ""
+    )
     return f'''<section class="featured-article">
   <div class="wrap">
     <p class="section-label">La dernière édition</p>
@@ -1033,7 +1049,7 @@ def build_featured_article(article, lang="fr", theme_link_base=None):
       </div>
       <div>
         <span class="featured-article-date">{(article["domain"] + " · ") if article.get("domain") else ""}{_format_date_short(article["date_str"], lang)}</span>
-        <h2 class="featured-article-title">{article["title"]}</h2>
+        <h2 class="featured-article-title">{article["title"]}</h2>{question_html}
         <span class="featured-article-cta">Lire l'édition →</span>
       </div>
     </a>{domain_link_html}
