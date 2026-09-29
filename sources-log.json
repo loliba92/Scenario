@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-09-29",
+      "articles": [
+        {
+          "title": "La Chine prépare une station lunaire internationale avec la Russie",
+          "source": "SpaceNews",
+          "url": "https://spacenews.com/china-and-russia-plan-international-lunar-research-station/",
+          "image": null,
+          "lang": "en",
+          "domain": "sciences",
+          "summary": "La Chine et la Russie collaborent sur la station internationale de recherche lunaire (ILRS), avec un objectif de présence habitée d'ici 2030.",
+          "read_minutes": 3
+        },
+        {
+          "title": "SpaceX et la NASA : retard possible sur le lander Starship pour Artemis 3",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/space/spacex-nasa-artemis-lander-delays-2026/",
+          "image": null,
+          "lang": "en",
+          "domain": "sciences",
+          "summary": "Les tests du lander Starship de SpaceX pour la mission Artemis 3 ont connu des retards, soulevant des questions sur le calendrier de retour des astronautes sur la Lune.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-09-28",
       "articles": [
         {
