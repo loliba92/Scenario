@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 29.09.2026 — [Lune : la course à l'eau glacée](../archives/2026-09-29.html)
 - 28.09.2026 — [Ordre mondial : la fin du règne occidental ?](../archives/2026-09-28.html)
 - 27.09.2026 — [Mbappé et Ceuta : le piège politique du sport humanitaire](../archives/2026-09-27.html)
 - 26.09.2026 — [La Chine peut-elle créer la prochaine pop culture mondiale ?](../archives/2026-09-26.html)

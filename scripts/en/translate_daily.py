@@ -990,6 +990,7 @@ def build_home_hero_en():
       <h1>Scéna<span>rio</span></h1>
     </div>
     <p class="dek">Understanding the news means measuring its consequences, not just knowing the facts. Every day, Scénario takes one key story and lays out three possible outcomes — favorable, stable, degraded — each with a numbered probability.</p>
+    <p><a class="cross-link" href="le-projet.html">Discover the project →</a></p>
   </div>
 </section>"""
 
