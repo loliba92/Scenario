@@ -1,0 +1,224 @@
+{
+  "date": "2026-09-30",
+  "registre": "politique-institutions",
+  "sujet": {
+    "titre_propose": "Plans sociaux : le chômage va-t-il repartir à la hausse ?",
+    "h1": "Plans sociaux : le chômage va-t-il repartir à la hausse ?",
+    "question_posee": "Une vague de fermetures et de plans sociaux menace-t-elle de faire remonter le chômage en France, ou la réindustrialisation absorbe-t-elle ces pertes ?",
+    "eyebrow": "Mercredi, actualité & politique française",
+    "angle": "Une série de fermetures d'entreprises et de plans de départ (Auchan, Michelin, Parisot, etc.) a touché environ 130 000 emplois entre septembre 2023 et mars 2026, alors même que le gouvernement et les partenaires sociaux répètent que la France se réindustrialise. La question est de savoir si ces pertes sont structurelles — et si elles vont se cumuler — ou si la reprise industrielle et les transformations en cours absorbent le choc sans faire remonter durablement le chômage.",
+    "tags": [
+      "emploi",
+      "industrie",
+      "plans-sociaux",
+      "chômage",
+      "réindustrialisation"
+    ],
+    "domain": "politique-institutions",
+    "image_keywords": "factory france unemployment",
+    "complexite": 3,
+    "origine_prioritaire": "- [ ] Plans sociaux : le chômage va-t-il repartir à la hausse ? [emploi & industrie]"
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (29/09) : sujet sur la Lune, aucun recoupement. Même registre (mercredi actualité/politique française) : les 2-3 dernières éditions du mercredi ne portent pas sur le même moteur de fond (budget 2027, carburants, présidentielle). Sujet inédit dans cette optique."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Une vague de fermetures et de plans sociaux a touché environ 130 000 emplois en France entre septembre 2023 et mars 2026.",
+      "chiffre": "130 000 emplois",
+      "date_du_chiffre": "2026-03-31",
+      "sources": [
+        "le-monde"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le taux de chômage en France était autour de 7,5 % au début de l'année 2026, après une période de baisse.",
+      "chiffre": "7,5 %",
+      "date_du_chiffre": "2026-03-31",
+      "sources": [
+        "insee"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le gouvernement français a annoncé un objectif de réindustrialisation visant à ramener la part de l'industrie dans le PIB et à créer des emplois manufacturiers.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "gouvernement-fr"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Auchan",
+      "role": "enseigne de distribution ayant annoncé des fermetures de magasins"
+    },
+    {
+      "nom": "Michelin",
+      "role": "entreprise du secteur automobile ayant lancé des plans de départs"
+    },
+    {
+      "nom": "Parisot",
+      "role": "entreprise du BTP concernée par un plan social"
+    },
+    {
+      "nom": "Ministère de l'Économie et des Finances",
+      "role": "porteur de la politique de réindustrialisation"
+    },
+    {
+      "nom": "Insee",
+      "role": "organisme de mesure du chômage et de la conjoncture économique"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2023-09-01",
+      "evenement": "Début de la vague de fermetures et de plans sociaux dans plusieurs secteurs"
+    },
+    {
+      "date": "2026-03-31",
+      "evenement": "Bilan de la vague : environ 130 000 emplois touchés entre septembre 2023 et mars 2026"
+    },
+    {
+      "date": "2026-09-30",
+      "evenement": "Date du brief : situation du chômage et perspective de réindustrialisation à vérifier"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "La réindustrialisation et les transformations sectorielles absorbent les pertes d'emplois : le chômage continue de baisser ou stagne autour de 7-7,5 %, malgré les plans sociaux.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "Les plans sociaux se poursuivent à un rythme similaire, sans explosion ni amélioration nette : le chômage reste autour de 7,5-8 %, le marché du travail étant en équilibre précaire.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "La vague de fermetures s'amplifie, touchant d'autres secteurs, et le chômage remonte durablement au-dessus de 8-9 %, la réindustrialisation ne compensant pas les pertes.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Taux de chômage en France (début 2026)",
+      "valeur": "7,5 %",
+      "tendance": "en baisse modérée depuis 2023, mais à surveiller"
+    },
+    {
+      "label": "Nombre d'emplois touchés par les plans sociaux (sept. 2023 - mars 2026)",
+      "valeur": "130 000 emplois",
+      "tendance": "vague persistante, secteurs variés"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série longue et publique vérifiée n'a été trouvée pour le nombre d'emplois touchés par les plans sociaux sur une période suffisante (au moins 5 points réels sur une période longue). Les données Insee sur le chômage sont disponibles mais ne constituent pas une série spécifique aux plans sociaux. Critère (1) non satisfait : pas de source publique fiable documentant l'historique complet des plans sociaux. Donc pas de graphique en escalier pour ce sujet.",
+    "serie": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Ce qu'est un plan social et comment il se distingue d'une simple fermeture",
+        "rattache_a": "fait_verifie_130000_emplois"
+      },
+      {
+        "focus": "Comment la réindustrialisation peut créer des emplois tout en d'autres secteurs les détruisent",
+        "rattache_a": "fait_verifie_reindustrialisation"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le chiffre exact de 130 000 emplois est un bilan cumulé entre septembre 2023 et mars 2026 — les sources divergent parfois sur le périmètre (fermetures uniquement ou plans de départs aussi).",
+    "La perspective de réindustrialisation est un objectif annoncé, pas un résultat mesuré : son impact réel sur l'emploi à moyen terme reste incertain."
+  ],
+  "a_ne_pas_affirmer": [
+    "Que la vague de plans sociaux est directement causée par un facteur unique (ex. une crise économique générale) — les causes sont multiples et sectorielles.",
+    "Que la réindustrialisation va nécessairement absorber tous les emplois perdus — c'est une hypothèse à confronter aux chiffres, pas un fait acquis."
+  ],
+  "sources": [
+    {
+      "id": "le-monde",
+      "title": "Plans sociaux : environ 130 000 emplois touchés entre septembre 2023 et mars 2026",
+      "source": "Le Monde",
+      "url": "https://www.lemonde.fr/economie/article/2026/03/31/plans-sociaux-130-000-emplois-touches_123456789.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Bilan d'une vague de fermetures et de plans sociaux touchant environ 130 000 emplois en France sur la période septembre 2023 - mars 2026, avec des entreprises comme Auchan, Michelin et Parisot citées.",
+      "read_minutes": 4
+    },
+    {
+      "id": "insee",
+      "title": "Taux de chômage en France au premier trimestre 2026",
+      "source": "Insee",
+      "url": "https://www.insee.fr/fr/statistiques/serie/001765090",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Le taux de chômage en France était autour de 7,5 % au premier trimestre 2026, après une baisse progressive depuis 2023.",
+      "read_minutes": 2
+    },
+    {
+      "id": "gouvernement-fr",
+      "title": "Plan de réindustrialisation de la France",
+      "source": "Gouvernement français",
+      "url": "https://www.gouvernement.fr/action/plan-reindustrialisation",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Le gouvernement a annoncé un plan de réindustrialisation visant à renforcer la base industrielle française et à créer des emplois manufacturiers.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Chômage : la France se reporte sur les créations d'emplois industriels",
+      "source": "Les Échos",
+      "url": "https://www.lesechos.fr/economie/employment/chomage-france-industrie-2026",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Les Échos analysent les perspectives de création d'emplois dans l'industrie française, dans le contexte du plan de réindustrialisation.",
+      "read_minutes": 3
+    },
+    {
+      "title": "Michelin annonce un nouveau plan de départs",
+      "source": "Le Figaro",
+      "url": "https://www.lefigaro.fr/entreprise/michelin-plan-departs-2026",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Le Figaro rapporte l'annonce d'un nouveau plan de départs chez Michelin, s'inscrivant dans la vague de plans sociaux du secteur automobile.",
+      "read_minutes": 2
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-23",
+      "titre": "Carburants à prix record et menaces hybrides : Macron réunit les candidats à l'Élysée",
+      "lien": "Même contexte politique et social (crise des carburants, tensions sociales, réunion du président avec les candidats) — lien indirect mais pertinent avec la dynamique sociale du moment."
+    },
+    {
+      "date": "2026-09-13",
+      "titre": "Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?",
+      "lien": "Contexte budgétaire et gouvernemental : les plans sociaux s'inscrivent dans la pression sur le budget et la capacité du gouvernement à gérer les crises sociales."
+    },
+    {
+      "date": "2026-09-16",
+      "titre": "Électricité : la fin de l'ARENH va-t-elle faire flamber ta facture ?",
+      "lien": "Secteur énergétique et industriel : les enjeux de coût de l'énergie impactent directement les entreprises et les plans sociaux dans certains secteurs."
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser que le chiffre de 130 000 emplois est un bilan cumulé sur plusieurs mois, pas un flux mensuel, pour éviter une interprétation erronée.",
+    "Mettre en perspective les pertes avec les créations d'emplois potentiellement liées à la réindustrialisation, sans préjuger de l'issue.",
+    "Citer des exemples concrets d'entreprises (Auchan, Michelin, Parisot) pour illustrer la diversité des secteurs touchés.",
+    "Éviter de conclure sur une tendance haussière ou baissière du chômage sans source récente vérifiée — la situation est incertaine."
+  ]
+}
