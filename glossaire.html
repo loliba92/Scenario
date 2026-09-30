@@ -2467,71 +2467,7 @@
   </div>
 </footer>
 
-<script>
-  (function(){
-    var entries = Array.prototype.slice.call(document.querySelectorAll('#lex-list .lex-entry'));
-    var searchInput = document.getElementById('glossary-search');
-    var domainFiltersBox = document.getElementById('domain-filters');
-    var noResult = document.getElementById('no-result');
-    var activeDomainFilter = 'all';
-
-    function deburr(s){ return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
-
-    // Index chaque entrée (domaines + texte recherchable)
-    var seenDomains = {}, domainOrder = [];
-    entries.forEach(function(entry){
-      var domains = [];
-      entry.querySelectorAll('.lex-domain').forEach(function(el){
-        var d = el.textContent.trim();
-        domains.push(d);
-        if(!seenDomains[d]){ seenDomains[d] = d; domainOrder.push(d); }
-      });
-      entry._domains = domains;
-      var term = entry.querySelector('.lex-term').textContent;
-      var def = entry.querySelector('.lex-def').textContent;
-      entry._text = deburr(term + ' ' + def);
-    });
-    domainOrder.sort();
-
-    function makeChip(container, val, label, onClick){
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'filter-chip';
-      b.dataset.filter = val;
-      b.textContent = label;
-      b.addEventListener('click', onClick);
-      container.appendChild(b);
-      return b;
-    }
-
-    var allChip = makeChip(domainFiltersBox, 'all', 'Tous', function(){ setDomainFilter('all'); });
-    allChip.classList.add('is-active');
-    domainOrder.forEach(function(d){ makeChip(domainFiltersBox, d, d, function(){ setDomainFilter(d); }); });
-
-    function setDomainFilter(val){
-      activeDomainFilter = val;
-      domainFiltersBox.querySelectorAll('.filter-chip').forEach(function(c){
-        c.classList.toggle('is-active', c.dataset.filter === val);
-      });
-      apply();
-    }
-
-    function apply(){
-      var q = deburr(searchInput.value.trim());
-      var visible = 0;
-      entries.forEach(function(entry){
-        var okDomain = (activeDomainFilter === 'all') || entry._domains.indexOf(activeDomainFilter) !== -1;
-        var okSearch = !q || entry._text.indexOf(q) !== -1;
-        var show = okDomain && okSearch;
-        entry.classList.toggle('is-hidden', !show);
-        if(show){ visible++; }
-      });
-      noResult.classList.toggle('is-shown', visible === 0);
-    }
-
-    searchInput.addEventListener('input', apply);
-  })();
-</script>
+<script src="assets/glossary-search.js" defer></script>
 
 <script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
