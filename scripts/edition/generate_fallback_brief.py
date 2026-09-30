@@ -59,6 +59,7 @@ from generate_daily_edition import (
     call_openrouter,
     validate_brief,
 )
+from source_links import sanitize_brief_sources
 
 # Passé de DEFAULT_MODEL (anthropic/claude-sonnet-5) à Opus le 18
 # septembre 2026 (décision utilisateur), puis à Sonnet le 20 (retour « opus
@@ -316,6 +317,15 @@ disponible » sans détail.
 === Contexte du jour ===
 Date : {date_str} ({jour})
 
+**Liens sources — règle absolue** : chaque `url` de `sources[]` et de
+`revue_de_presse[]` doit être l'URL EXACTE d'un résultat renvoyé par ton
+outil de recherche web, copiée telle quelle. N'écris JAMAIS une URL
+reconstituée à partir d'un titre, d'une date ou d'un nom de site (les liens
+inventés mènent à « page introuvable » et sont retirés automatiquement du
+brief, avec les faits qui ne reposaient que sur eux). Un fait que tu ne
+peux appuyer par aucun résultat de recherche réel n'entre pas dans
+`faits_verifies`.
+
 Réponds UNIQUEMENT avec le JSON du brief — aucun texte avant ni après,
 aucune balise markdown autour, un objet JSON valide et rien d'autre.
 """
@@ -344,7 +354,12 @@ def generate_fallback_brief(date_str, model, api_key, timeout=480):
             last_errors = [f"réponse non-JSON : {e}"]
             continue
 
-        errors = validate_brief(brief)
+        # Liens inventés : retirés du brief AVANT la validation, pour que
+        # validate_brief() voie l'état réel (sources restantes, ids
+        # référencés) et que les faits restés sans source déclenchent le
+        # retry avec la correction explicite — voir source_links.py.
+        _, source_errors = sanitize_brief_sources(brief, usage.get("cited_urls"))
+        errors = source_errors + validate_brief(brief)
         errors += check_topic_duplicate(brief)
         if not errors:
             return brief, usage

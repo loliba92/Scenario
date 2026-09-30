@@ -285,7 +285,7 @@ Volet fiscal/légal à creuser (repéré le 27 août, à revérifier/actualiser 
   <!-- Reclassée ici depuis le lot géopolitique du 3 septembre lors du passage au crible — le phénomène (concentration du capital dans les métropoles) est réel, mais ce n'est pas un rapport de force entre États au sens de la règle de classement du 12 août de ce fichier (une ville n'a ni armée ni politique étrangère) : plus proche d'un sujet de concentration économique que de géopolitique. Thèse académique déjà ancienne (Saskia Sassen, "villes globales", années 90 ; Benjamin Barber, "If Mayors Ruled the World", 2013) — à présenter comme un état des lieux chiffré de la tendance, pas comme une idée neuve. À vérifier/chiffrer avant rédaction : PIB de grandes métropoles comparé à celui d'États entiers de taille moyenne (ex. Île-de-France), concentration des sièges sociaux mondiaux et des flux de capitaux par ville. -->
 - [x] Marchés financiers : la hausse des marchés est-elle durable ? [économie & finance]
 - [x] Dollar : le dollar peut-il perdre son statut dominant ? [économie & finance]
-- [ ] Or : l'or est-il redevenu la valeur refuge ultime ? [économie & finance]
+- [x] Or : l'or est-il redevenu la valeur refuge ultime ? [économie & finance]
 - [ ] Bitcoin : le bitcoin devient-il un actif institutionnel ? [économie & finance]
 - [ ] Pétrole : le pétrole peut-il redevenir un choc mondial ? [économie & énergie]
 - [ ] L'effondrement de la fécondité mondiale : la quasi-totalité de la planète passe sous le seuil de renouvellement des générations, bien plus vite que prévu il y a dix ans — le monde peut-il éviter un déclin démographique généralisé, ou la trajectoire basse de l'ONU est-elle déjà la réalité ? [société & démographie]
