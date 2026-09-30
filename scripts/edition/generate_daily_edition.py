@@ -667,6 +667,20 @@ def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, 
     # inventés par le modèle, voir source_links.py. Liste vide si le moteur
     # n'en renvoie pas ; toujours présente, jamais bloquante.
     usage["cited_urls"] = sorted(extract_cited_urls(message))
+    if tools:
+        # Diagnostic (30 septembre 2026) : lors du run de test, aucune
+        # citation n'est revenue de la recherche web et le contrôle des
+        # liens a dû se rabattre sur le test HTTP. Ce journal dit
+        # pourquoi : le modèle/le moteur ne renvoie-t-il pas d'annotations,
+        # ou les met-il ailleurs (champ de premier niveau, autre type) ?
+        annotations = message.get("annotations") or []
+        types = sorted({str(a.get("type")) for a in annotations if isinstance(a, dict)})
+        print(
+            f"[openrouter] citations web : {len(usage['cited_urls'])} URL · "
+            f"annotations reçues {len(annotations)} (types : {types or 'aucun'}) · "
+            f"champs du message {sorted(message.keys())} · champs de la réponse {sorted(data.keys())}",
+            file=sys.stderr,
+        )
     content_str = message["content"]
     if content_str is None:
         # Diagnostic ajouté le 21 septembre 2026 (incident Gemini 3.7

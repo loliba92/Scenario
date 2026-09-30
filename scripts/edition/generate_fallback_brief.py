@@ -358,7 +358,13 @@ def generate_fallback_brief(date_str, model, api_key, timeout=480):
         # validate_brief() voie l'état réel (sources restantes, ids
         # référencés) et que les faits restés sans source déclenchent le
         # retry avec la correction explicite — voir source_links.py.
-        _, source_errors = sanitize_brief_sources(brief, usage.get("cited_urls"))
+        # Strict sur les essais qui laissent une chance de correction ;
+        # souple au dernier (jamais d'édition du jour bloquée faute de
+        # source vérifiable — le lien reste alors signalé « GARDÉ » dans
+        # les logs).
+        _, source_errors = sanitize_brief_sources(
+            brief, usage.get("cited_urls"), strict=attempt < MAX_RETRIES,
+        )
         errors = source_errors + validate_brief(brief)
         errors += check_topic_duplicate(brief)
         if not errors:

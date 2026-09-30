@@ -86,8 +86,15 @@ def _is_dead(status):
     return status in (404, 410, "dns")
 
 
-def find_bad_urls(urls, cited_urls=None, status_fn=http_status):
-    """Renvoie {url: raison} pour chaque URL à écarter (dédoublonnées)."""
+def find_bad_urls(urls, cited_urls=None, status_fn=http_status, strict=False):
+    """Renvoie {url: raison} pour chaque URL à écarter (dédoublonnées).
+
+    `strict` (sans citations de recherche web, donc test HTTP seul) : un
+    lien dont le site refuse les robots (401/403/429) ou ne répond pas est
+    lui aussi écarté, car rien ne prouve que la page existe — c'est le cas
+    d'un faux lien Reuters/Bloomberg. Hors strict, il est gardé avec un
+    avertissement (dernier essai : mieux vaut une source non vérifiée
+    qu'aucune édition, voir generate_fallback_brief.py)."""
     cited_norm = {normalize_url(u) for u in (cited_urls or set())}
     bad = {}
     for url in dict.fromkeys(u for u in urls if u):
@@ -100,12 +107,15 @@ def find_bad_urls(urls, cited_urls=None, status_fn=http_status):
             status = status_fn(url)
             if _is_dead(status):
                 bad[url] = f"page introuvable (HTTP {status})" if status != "dns" else "domaine introuvable"
-            elif status is None or status in (401, 403, 429):
-                print(f"[source-links] lien non vérifiable (HTTP {status}), gardé : {url}", file=sys.stderr)
+            elif status is None or status in (401, 403, 429) or (isinstance(status, int) and status >= 500):
+                if strict:
+                    bad[url] = f"non vérifiable (HTTP {status} : accès refusé aux robots ou site injoignable), écarté"
+                else:
+                    print(f"[source-links] lien non vérifiable (HTTP {status}), GARDÉ : {url}", file=sys.stderr)
     return bad
 
 
-def sanitize_brief_sources(brief, cited_urls=None, status_fn=http_status):
+def sanitize_brief_sources(brief, cited_urls=None, status_fn=http_status, strict=False):
     """Retire du brief (en place) les sources et entrées de revue de presse
     dont l'URL est écartée, ainsi que leurs références dans
     `faits_verifies[].sources`. Renvoie (retirées, erreurs) : `erreurs`
@@ -114,7 +124,7 @@ def sanitize_brief_sources(brief, cited_urls=None, status_fn=http_status):
     sources = brief.get("sources") or []
     press = brief.get("revue_de_presse") or []
     bad = find_bad_urls([s.get("url") for s in sources] + [p.get("url") for p in press],
-                        cited_urls, status_fn)
+                        cited_urls, status_fn, strict)
     if not bad:
         return {}, []
 
@@ -128,9 +138,11 @@ def sanitize_brief_sources(brief, cited_urls=None, status_fn=http_status):
         fait["sources"] = [r for r in refs if r not in dropped_ids]
         if refs and not fait["sources"]:
             errors.append(
-                f"fait « {str(fait.get('affirmation', ''))[:90]} » : toutes ses sources avaient une URL "
-                "inventée (jamais retournée par la recherche web) et ont été retirées — refaire une "
-                "recherche pour ce fait et citer l'URL EXACTE d'un résultat, ou retirer le fait"
+                f"fait « {str(fait.get('affirmation', ''))[:90]} » : aucune de ses sources n'a pu être "
+                "vérifiée (URL inventée, absente des résultats de la recherche web, ou page introuvable) "
+                "et elles ont été retirées — refaire une recherche pour ce fait et citer l'URL EXACTE d'un "
+                "résultat (les sites qui bloquent les robots, comme Reuters ou Bloomberg, ne sont acceptés "
+                "que si l'URL figure dans les résultats de recherche), ou retirer le fait"
             )
     for url, reason in bad.items():
         print(f"[source-links] source écartée ({reason}) : {url}", file=sys.stderr)
