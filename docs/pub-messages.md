@@ -980,6 +980,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-09-29 (archives/2026-09-29.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-09-30
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 130 000 emplois
+- message: Entre septembre 2023 et mars 2026, environ 130 000 emplois ont été directement touchés par des plans sociaux en France, mettant sous pression l'objectif de plein emploi.
+- attribution: — lesscenarios.fr, 30 septembre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-09-30.html
+
+*Phrase à retenir de l'édition du 2026-09-30 (archives/2026-09-30.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
