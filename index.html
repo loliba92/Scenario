@@ -1954,6 +1954,171 @@
     }
     @page{ margin: 12mm; }
   }
+
+  /* ========================
+     UX/UI Enhancements — ajoutés le 30 sept. 2026
+     Amélioration visuelle de la home : hero gradient,
+     featured article hover premium, cards fade-in,
+     indicateurs animés et masthead sticky blur.
+     ======================== */
+
+  /* Masthead sticky avec backdrop-blur premium */
+  header.masthead {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    background: rgba(16, 21, 28, 0.88);
+    border-bottom: 1px solid var(--hairline);
+    transition: box-shadow 0.3s ease;
+  }
+  header.masthead.is-scrolled {
+    box-shadow: 0 4px 32px rgba(0,0,0,0.4);
+  }
+
+  /* Hero home — gradient animé en arrière-plan */
+  section.hero.hero--home {
+    position: relative;
+    overflow: hidden;
+  }
+  section.hero.hero--home::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 10% 0%, rgba(207,157,76,0.07) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 90% 100%, rgba(94,156,120,0.05) 0%, transparent 60%);
+    pointer-events: none;
+    animation: hero-pulse 8s ease-in-out infinite alternate;
+  }
+  @keyframes hero-pulse {
+    from { opacity: 0.6; transform: scale(1); }
+    to   { opacity: 1;   transform: scale(1.04); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    section.hero.hero--home::before { animation: none; }
+  }
+
+  /* Featured article — wrap avec badge flottant et hover amélioré */
+  section.featured-article {
+    position: relative;
+  }
+  .featured-article-image-wrap {
+    position: relative;
+  }
+  .featured-article-image-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(207,157,76,0.12) 0%, transparent 60%);
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .featured-article-link:hover .featured-article-image-wrap::after {
+    opacity: 1;
+  }
+  .featured-article-link {
+    border-radius: 16px;
+    padding: 24px;
+    margin: -24px;
+    transition: transform 0.3s cubic-bezier(.16,.8,.3,1), box-shadow 0.3s ease;
+  }
+  .featured-article-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 48px rgba(207,157,76,0.12);
+  }
+  /* Badge "Édition du jour" */
+  .featured-article-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    background: var(--gold);
+    border-radius: 100px;
+    padding: 4px 12px;
+    margin-bottom: 14px;
+    display: inline-block;
+  }
+  .featured-article-badge::before {
+    content: "●";
+    font-size: 0.55rem;
+    margin-right: 4px;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.4; }
+  }
+
+  /* Question de la featured article — style amélioré */
+  .featured-article-question {
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--paper-dim);
+    margin: 12px 0 0;
+  }
+
+  /* Related articles — fade-in au scroll */
+  .related-articles-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.2s, box-shadow 0.2s;
+  }
+  .related-articles-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .related-articles-item:nth-child(1) { transition-delay: 0s; }
+  .related-articles-item:nth-child(2) { transition-delay: 0.07s; }
+  .related-articles-item:nth-child(3) { transition-delay: 0.14s; }
+  .related-articles-item:nth-child(4) { transition-delay: 0.21s; }
+  .related-articles-item:nth-child(5) { transition-delay: 0.28s; }
+  .related-articles-item:nth-child(6) { transition-delay: 0.35s; }
+  @media (prefers-reduced-motion: reduce) {
+    .related-articles-item { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* Indicateurs chiffrés — animation compteur */
+  .indicator .value[data-count] {
+    transition: color 0.3s;
+  }
+
+  /* Section label — trait doré animé */
+  .section-label {
+    position: relative;
+    padding-left: 14px;
+  }
+  .section-label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 2px;
+    opacity: 0.8;
+  }
+
+  /* Featured article — CTA arrow animation */
+  .featured-article-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: gap 0.2s ease, color 0.2s;
+  }
+  .featured-article-link:hover .featured-article-cta {
+    gap: 10px;
+    color: var(--paper);
+  }
 </style>
 </head>
 <body>
@@ -2027,6 +2192,7 @@
         <img class="featured-article-image" src="assets/social/topic-images/2026-09-30.jpg" alt="Plans sociaux : le chômage va-t-il repartir à la hausse ?">
       </div>
       <div>
+        <span class="featured-article-badge">Édition du jour</span>
         <span class="featured-article-date">Politique Institutions · 30 sept.</span>
         <h2 class="featured-article-title">Plans sociaux : le chômage va-t-il repartir à la hausse ?</h2>
         <p class="featured-article-question">Une vague de fermetures et de plans sociaux menace-t-elle de faire remonter le chômage en France, ou la réindustrialisation absorbe-t-elle ces pertes ?</p>
@@ -2398,5 +2564,84 @@
     if (link) { link.addEventListener("click", dismiss); }
   })();
 </script>
+
+<script>
+  /* UX/UI Enhancements — scroll animations */
+  (function() {
+
+    /* 1. Masthead scroll effect */
+    var masthead = document.querySelector('header.masthead');
+    if (masthead) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 10) {
+          masthead.classList.add('is-scrolled');
+        } else {
+          masthead.classList.remove('is-scrolled');
+        }
+      }, { passive: true });
+    }
+
+    /* 2. Related articles — fade in on scroll */
+    var cards = document.querySelectorAll('.related-articles-item');
+    if (cards.length && 'IntersectionObserver' in window) {
+      var cardObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            cardObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      cards.forEach(function(card) { cardObs.observe(card); });
+    } else {
+      /* Fallback sans IntersectionObserver */
+      cards.forEach(function(card) { card.classList.add('is-visible'); });
+    }
+
+    /* 3. Indicateurs — animation compteur au scroll */
+    function animateCount(el, end, suffix, duration) {
+      var start = 0;
+      var startTime = null;
+      var num = parseFloat(end.replace(/[^0-9.,]/g, '').replace(',', '.'));
+      if (isNaN(num)) return;
+      var isFloat = end.indexOf(',') !== -1 || end.indexOf('.') !== -1;
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        var ease = 1 - Math.pow(1 - progress, 3);
+        var cur = num * ease;
+        var display = isFloat ? cur.toFixed(1).replace('.', ',') : Math.round(cur).toString();
+        el.textContent = display + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = end;
+      }
+      requestAnimationFrame(step);
+    }
+
+    var indicatorEls = document.querySelectorAll('.indicator .value');
+    if (indicatorEls.length && 'IntersectionObserver' in window) {
+      var indObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            var raw = el.textContent.trim();
+            /* Extract suffix (everything after last digit) */
+            var match = raw.match(/^([+\-]?[0-9][0-9\s.,]*)\s*([^0-9]*)$/);
+            if (match) {
+              var numPart = match[1].replace(/\s/g, '');
+              var suffix = match[2] || '';
+              animateCount(el, numPart + suffix, '', 1200);
+              el.textContent = raw; /* will be overwritten but avoids flash */
+            }
+            indObs.unobserve(el);
+          }
+        });
+      }, { threshold: 0.5 });
+      indicatorEls.forEach(function(el) { indObs.observe(el); });
+    }
+
+  })();
+</script>
+
 </body>
 </html>
