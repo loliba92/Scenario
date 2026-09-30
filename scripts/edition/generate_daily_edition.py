@@ -773,20 +773,80 @@ def normalize_lex_ref_link_text(text):
     return _LEXREF_ANY_RE.sub(repl, text)
 
 
+_LEXREF_BARE_RE = re.compile(
+    r'(?P<pre>^|[\s(\u2019\'])'
+    r'(?P<a><a class="lex-ref" href="#lex-(?P<slug>[a-z0-9-]+)" aria-label="[^"]*">\*</a>)'
+    r"(?P<word>\w[\w'\u2019-]*)?"
+)
+
+
+def _lex_inline_term(terme, capitalize):
+    """Forme du terme du lexique à réécrire dans la phrase : sans la
+    parenthèse explicative (« SEC (Securities and Exchange Commission) »
+    -> « SEC »), en minuscules sauf sigle (2e lettre majuscule) ou début de
+    phrase."""
+    short = re.split(r"\s*\(", terme)[0].strip()
+    if not capitalize and len(short) > 1 and short[0].isupper() and short[1].islower():
+        short = short[0].lower() + short[1:]
+    return short
+
+
+def repair_lex_ref_placement(text, lex_terms):
+    """Répare un renvoi au lexique (`.lex-ref`, texte « * ») mal placé —
+    incident du 1er octobre 2026 (retour utilisateur : « la * annuelle du
+    bitcoin, la * ça veut rien dire ») : le modèle n'a écrit QUE le lien,
+    sans le mot qu'il devait suivre, sur 5 renvois sur 5 ; la critique
+    automatique ne l'a pas vu, et validate_content_schema() ne vérifie que
+    l'existence de l'entrée de lexique. Même défaut déjà publié les 23, 27
+    et 29 septembre, sous deux formes :
+    - terme absent (lien précédé d'un espace, d'une parenthèse ou d'une
+      apostrophe) : le terme du lexique (`lex_terms[slug]`) est réinséré ;
+    - renvoi placé AVANT le terme (`<a>*</a>régolithe`) : déplacé après lui.
+    Un lien correctement placé (précédé d'un mot ou d'une balise) n'est
+    jamais touché. Réparation mécanique plutôt que retry payant : le modèle
+    ne suit pas cette règle de façon fiable (voir docs/routine-redaction-
+    prompt.md § « Terme technique → lexique »)."""
+    def repl(m):
+        pre, anchor, slug, word = m.group("pre"), m.group("a"), m.group("slug"), m.group("word")
+        if word:
+            return pre + word + anchor
+        terme = lex_terms.get(slug)
+        if not terme:
+            return m.group(0)
+        return pre + _lex_inline_term(terme, capitalize=(pre == "")) + anchor
+    return _LEXREF_BARE_RE.sub(repl, text)
+
+
 def normalize_content_lex_ref(content):
     """Applique normalize_lex_ref_link_text() aux mêmes champs que ceux
     inspectés par validate_content_schema() pour la cohérence lex-ref <->
     lexique (dek, why des 3 cartes, comprendre_box[].text) — la seule
     liste de champs du schéma où ce balisage peut apparaître."""
+    lex_terms = {
+        e.get("slug"): e.get("terme")
+        for e in (content.get("lexique") or [])
+        if isinstance(e, dict) and e.get("slug") and e.get("terme")
+    }
+    fixed = [0]
+
+    def fix(text):
+        text = normalize_lex_ref_link_text(text)
+        repaired = repair_lex_ref_placement(text, lex_terms)
+        if repaired != text:
+            fixed[0] += 1
+        return repaired
+
     if isinstance(content.get("dek"), list):
-        content["dek"] = [normalize_lex_ref_link_text(p) for p in content["dek"]]
+        content["dek"] = [fix(p) for p in content["dek"]]
     for k in ("favorable", "stable", "degrade"):
         card = (content.get("cards") or {}).get(k)
         if card and isinstance(card.get("why"), list):
-            card["why"] = [normalize_lex_ref_link_text(p) for p in card["why"]]
+            card["why"] = [fix(p) for p in card["why"]]
     for box in content.get("comprendre_box") or []:
         if isinstance(box, dict) and isinstance(box.get("text"), str):
-            box["text"] = normalize_lex_ref_link_text(box["text"])
+            box["text"] = fix(box["text"])
+    if fixed[0]:
+        print(f"[edition] lex-ref : renvoi(s) au lexique mal placé(s) réparé(s) dans {fixed[0]} paragraphe(s)", file=sys.stderr)
     return content
 
 
