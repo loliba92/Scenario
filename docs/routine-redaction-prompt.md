@@ -244,10 +244,26 @@ HTML et vérifie qu'aucun `"` interne n'est resté non échappé.
 - **`<strong>` sur les faits/chiffres clés**, un ou deux par paragraphe,
   jamais plus de deux dans une même phrase.
 - **Terme technique → lexique, jamais une parenthèse.** Dès qu'un mot
-  technique figure au lexique, ajouter juste après, sans espace avant,
+  technique figure au lexique, **écrire d'abord le terme lui-même en toutes
+  lettres dans la phrase**, puis ajouter juste après, sans espace avant,
   avec les guillemets échappés puisque c'est à l'intérieur d'une chaîne
   JSON (voir règle d'échappement plus haut) :
   `<a class=\"lex-ref\" href=\"#lex-{slug}\" aria-label=\"Voir la définition dans le lexique\">*</a>`.
+  **Le lien n'est qu'un astérisque de renvoi : il ne remplace JAMAIS le
+  mot, il le suit.** Sans le mot devant, la phrase est amputée et le
+  lecteur voit un « * » isolé au milieu du texte. Trois erreurs déjà
+  observées en conditions réelles (préview du 1er octobre 2026 : 5 termes
+  sur 5 sans leur mot ; éditions des 23, 27 et 29 septembre) :
+  - ❌ terme absent : `"...la <a class=\"lex-ref\" ...>*</a> annuelle du bitcoin..."`
+    ✅ `"...la volatilité<a class=\"lex-ref\" ...>*</a> annuelle du bitcoin..."`
+  - ❌ renvoi placé AVANT le terme : `"...le <a class=\"lex-ref\" ...>*</a>régolithe..."`
+    ✅ `"...le régolithe<a class=\"lex-ref\" ...>*</a>..."`
+  - ❌ astérisque en double : `"...ETF spot<a class=\"lex-ref\" ...>*</a>*..."`
+    ✅ un seul `*`, celui du lien.
+  Test de relecture : retirer mentalement chaque `<a class=\"lex-ref\"...>*</a>`
+  — la phrase doit rester grammaticalement complète et contenir le terme.
+  Le terme écrit dans la phrase reprend celui du `lexique` (même mot, en
+  minuscules sauf sigle ou début de phrase), pas une périphrase.
   `slug` = terme en minuscules, sans accents, espaces → tirets. Chaque
   entrée du lexique reçoit l'`id="lex-{slug}"` correspondant (cet `id`,
   lui, est dans le HTML du gabarit construit par le script Python, pas
@@ -592,7 +608,7 @@ reprend la substance de `question_text`.
 
 Erreurs réellement observées en conditions réelles sur ce prototype,
 chacune ayant déjà fait échouer un essai payant. Avant de répondre,
-relire ces deux points sur TA PROPRE réponse (pas le prompt) :
+relire ces trois points sur TA PROPRE réponse (pas le prompt) :
 
 1. **Chaque élément de `comprendre_box` a-t-il bien un champ
    `apres_dek_index` (entier, jamais absent) ?** C'est l'erreur la plus
@@ -607,5 +623,12 @@ relire ces deux points sur TA PROPRE réponse (pas le prompt) :
    réponse, paragraphe par paragraphe. Une réponse qui tombe à 1050-1100
    mots malgré cette consigne est un échec déjà observé plusieurs fois :
    viser franchement au-dessus du minimum, jamais juste au-dessus.
+
+3. **Chaque renvoi au lexique est-il précédé de son terme écrit en
+   toutes lettres ?** Relire chaque `<a class=\"lex-ref\"...>*</a>` de TA
+   réponse : juste avant, il doit y avoir le mot (« la volatilité », « les
+   ETF spot », « la SEC »), jamais un espace, une parenthèse ouvrante ou
+   « l' » seuls suivis directement du lien. Erreur observée le 1er octobre
+   2026 sur 5 renvois sur 5 : le lecteur voit « la * annuelle du bitcoin ».
 
 Renvoie uniquement cet objet JSON, rien avant, rien après.
