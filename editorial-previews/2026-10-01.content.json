@@ -1,5 +1,5 @@
 {
-  "h1": "Bitcoin : le bitcoin devient-il un actif institutionnel ?",
+  "h1": "Bitcoin : le sacre institutionnel ?",
   "question_text": "Le bitcoin est-il en passe de devenir un actif institutionnel de référence, ou son adoption reste-t-elle un phénomène concentré et fragile ?",
   "section_title": "Actif de réserve établi ou marché sous perfusion concentrée ?",
   "dek": [
@@ -37,7 +37,6 @@
     {
       "label": "Volatilité annuelle du bitcoin vs S&P 500",
       "value": "2,8 fois plus élevée",
-      "tendance": "stable",
       "delta": "45,2 % sur un an contre 16,4 % pour le S&P 500"
     }
   ],
