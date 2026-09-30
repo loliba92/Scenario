@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 30.09.2026 — [Plans sociaux : le chômage va-t-il repartir à la hausse ?](../archives/2026-09-30.html)
 - 29.09.2026 — [Lune : la course à l'eau glacée](../archives/2026-09-29.html)
 - 28.09.2026 — [Ordre mondial : la fin du règne occidental ?](../archives/2026-09-28.html)
 - 27.09.2026 — [Mbappé et Ceuta : le piège politique du sport humanitaire](../archives/2026-09-27.html)

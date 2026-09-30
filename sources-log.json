@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-09-30",
+      "articles": [
+        {
+          "title": "Chômage : la France se reporte sur les créations d'emplois industriels",
+          "source": "Les Échos",
+          "url": "https://www.lesechos.fr/economie/employment/chomage-france-industrie-2026",
+          "image": null,
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Les Échos analysent les perspectives de création d'emplois dans l'industrie française, dans le contexte du plan de réindustrialisation.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Michelin annonce un nouveau plan de départs",
+          "source": "Le Figaro",
+          "url": "https://www.lefigaro.fr/entreprise/michelin-plan-departs-2026",
+          "image": null,
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Le Figaro rapporte l'annonce d'un nouveau plan de départs chez Michelin, s'inscrivant dans la vague de plans sociaux du secteur automobile.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-09-29",
       "articles": [
         {
