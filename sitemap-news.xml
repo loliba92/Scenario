@@ -11,4 +11,15 @@
       <news:title>Moon: The Race for Water Ice</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-09-30.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-09-30T06:01:33+02:00</news:publication_date><news:title>Plans sociaux : le chômage va-t-il repartir à la hausse ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-09-30.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-09-30T06:01:33+02:00</news:publication_date><news:title>Plans sociaux : le chômage va-t-il repartir à la hausse ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-09-30.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-30T06:01:33+02:00</news:publication_date>
+      <news:title>Mass layoffs: will unemployment start rising again?</news:title>
+    </news:news>
+  </url>
+</urlset>
