@@ -1,0 +1,163 @@
+{
+  "date": "2026-10-01",
+  "registre": "economie-mondiale",
+  "sujet": {
+    "titre_propose": "Bitcoin : le bitcoin devient-il un actif institutionnel ?",
+    "h1": "Bitcoin : le bitcoin devient-il un actif institutionnel ?",
+    "question_posee": "Après l'entrée des ETF spot américains et les achats d'entreprise, le bitcoin est-il en train de devenir un actif institutionnel de référence ou reste-t-il un refuge spéculatif ?",
+    "eyebrow": "Jeudi, économie & finance",
+    "angle": "Le bitcoin a franchi un cap symbolique avec l'adoption par des institutions financières, mais sa volatilité et ses incertitudes réglementaires restent des freins à une intégration durable.",
+    "tags": [
+      "economie-mondiale",
+      "crypto",
+      "finance"
+    ],
+    "domain": "economie-mondiale",
+    "image_keywords": "bitcoin coin stack, financial chart, digital currency",
+    "complexite": 3,
+    "origine_prioritaire": "- [ ] Bitcoin : le bitcoin devient-il un actif institutionnel ? [économie & finance]"
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Sujet inédit dans les 20 dernières éditions. Aucun recoupement fort avec la veille (29/09 : Lune) ni avec les éditions économie des 2-3 dernières semaines (24/09 : choc pétrolier BCE/Fed, 17/09 : dollar, 10/09 : métropoles). Le sujet porte sur l'adoption institutionnelle du bitcoin, pas sur les taux ou la dette."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Les ETF bitcoin spot américains ont été autorisés par la SEC en janvier 2024, ouvrant l'accès au bitcoin aux investisseurs institutionnels et particuliers via la bourse traditionnelle.",
+      "chiffre": "Plus de 200 milliards de dollars d'actifs sous gestion cumulés sur les ETF bitcoin spot américains fin 2024",
+      "date_du_chiffre": "2024-12-31",
+      "sources": [
+        "bloomberg"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "MicroStrategy, entreprise américaine, détient une position massive en bitcoin comme réserve de valeur, avec des achats réguliers depuis 2020.",
+      "chiffre": "Plus de 200 000 bitcoins détenus par MicroStrategy fin 2024",
+      "date_du_chiffre": "2024-12-31",
+      "sources": [
+        "bloomberg"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le prix du bitcoin a connu une volatilité extrême, avec des variations de plus de 50 % sur des périodes de quelques mois, ce qui reste un obstacle à une adoption institutionnelle stable.",
+      "chiffre": "Variation de plus de 60 % du prix du bitcoin sur l'année 2024",
+      "date_du_chiffre": "2024-12-31",
+      "sources": [
+        "bloomberg"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "SEC (Securities and Exchange Commission)",
+      "role": "Régulateur américain ayant autorisé les ETF bitcoin spot en janvier 2024"
+    },
+    {
+      "nom": "MicroStrategy",
+      "role": "Entreprise américaine détenant une position massive en bitcoin comme réserve de valeur"
+    },
+    {
+      "nom": "Fonds monétaires et gestionnaires d'actifs",
+      "role": "Investisseurs institutionnels commençant à intégrer le bitcoin via les ETF et d'autres instruments"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2024-01-10",
+      "evenement": "La SEC autorise les premiers ETF bitcoin spot américains, marquant une étape clé dans l'adoption institutionnelle"
+    },
+    {
+      "date": "2024-12-31",
+      "evenement": "Les ETF bitcoin spot atteignent plus de 200 milliards de dollars d'actifs sous gestion"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Le bitcoin devient progressivement un actif institutionnel de référence, intégré dans les portefeuilles diversifiés, avec une volatilité qui diminue à mesure que la maturité du marché progresse.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "Le bitcoin reste un actif de niche à la croisée entre spéculation et adoption institutionnelle limitée, sans basculer ni vers une intégration massive ni vers un rejet total.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "Les incertitudes réglementaires, la volatilité persistante et les risques systémiques associés freinent l'adoption institutionnelle, et le bitcoin reste perçu comme un actif spéculatif à haut risque.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Actifs sous gestion des ETF bitcoin spot américains",
+      "valeur": "200 milliards de dollars",
+      "tendance": "en croissance"
+    },
+    {
+      "label": "Prix du bitcoin (fin 2024)",
+      "valeur": "environ 95 000 dollars",
+      "tendance": "volatile"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Pas de série historique longue et publique vérifiée répondant aux 3 critères : (1) source fiable documentant l'historique complet des actifs sous gestion des ETF bitcoin spot — ces ETF n'existent que depuis janvier 2024, donc historique trop court ; (2) moins de 5 points réels sur une période longue par rapport à l'âge du sujet ; (3) la série n'éclaire pas directement la question de l'adoption institutionnelle au-delà du simple agrégat AUM. Recherche effectuée sur Bloomberg et les sites officiels des gestionnaires d'ETF (BlackRock, Fidelity) — les données disponibles couvrent moins de 2 ans, insuffisant pour un graphique en escalier."
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Ce qu'est un ETF bitcoin spot et pourquoi ça change la donne pour les institutions",
+        "rattache_a": "faits_verifies[0] — autorisation des ETF spot par la SEC en janvier 2024"
+      },
+      {
+        "focus": "La volatilité du bitcoin : pourquoi c'est un obstacle à l'adoption institutionnelle",
+        "rattache_a": "faits_verifies[2] — variation de plus de 60 % du prix en 2024"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le chiffre exact des actifs sous gestion des ETF bitcoin spot à l'heure exacte du brief (donnée cotée en continu, susceptible d'avoir évolué depuis les derniers chiffres publiés fin 2024)"
+  ],
+  "a_ne_pas_affirmer": [
+    "Le bitcoin deviendra définitivement un actif institutionnel de référence — c'est une question ouverte qui dépend de facteurs réglementaires, économiques et de marché encore incertains"
+  ],
+  "sources": [
+    {
+      "id": "bloomberg",
+      "title": "Bitcoin ETFs See Record Inflows as Institutional Adoption Grows",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/markets/currencies/bitcoin",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-mondiale",
+      "summary": "Article de Bloomberg sur les ETF bitcoin spot américains, leurs flux et l'adoption institutionnelle croissante du bitcoin.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [],
+  "articles_connexes": [
+    {
+      "date": "2026-09-17",
+      "titre": "Dollar : la fin du règne ?",
+      "lien": "Monnaie et réserve de valeur — le dollar comme actif institutionnel de référence face à des alternatives émergentes"
+    },
+    {
+      "date": "2026-09-10",
+      "titre": "Ces métropoles plus riches que des États",
+      "lien": "Richesse et actifs — comparaison entre la valeur des actifs financiers et la richesse des États"
+    },
+    {
+      "date": "2026-08-27",
+      "titre": "Dette américaine : le mur des 40 000 milliards",
+      "lien": "Dette et actifs financiers — contexte de marchés financiers et d'actifs à grande échelle"
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser la distinction entre ETF bitcoin spot et autres instruments cryptos (futures, produits structurés) pour aider le lecteur à comprendre ce que l'adoption institutionnelle signifie concrètement",
+    "Mentionner les risques réglementaires persistants (incertitudes sur le cadre SEC, évolution possible des réglementations européennes MiCA)",
+    "Lier avec l'édition du 17/09 sur le dollar : si le bitcoin devient un actif institutionnel, qu'est-ce que cela signifie pour le dollar comme monnaie de réserve ?"
+  ]
+}
