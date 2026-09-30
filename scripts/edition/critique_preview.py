@@ -194,6 +194,25 @@ Brent au-dessus de 107 $ « propulsait » l'OAT française au-dessus de \
 pour l'essentiel des inquiétudes propres à la trajectoire budgétaire \
 française, pas une transmission mécanique du prix du pétrole.
 
+11. **Renvois au lexique cassés et phrases amputées.** Dans `dek`, `why` \
+et `comprendre_box`, chaque balise `<a class="lex-ref" ...>*</a>` n'est \
+qu'un astérisque de renvoi : il doit SUIVRE directement le terme écrit en \
+toutes lettres (« la volatilité<a ...>*</a> annuelle »), jamais le \
+remplacer. Relis chaque phrase en retirant mentalement la balise : elle \
+doit rester complète et contenir le terme. Signale en gravité `bloquant` \
+(categorie `lexique_renvoi`) : (a) un renvoi sans mot devant, précédé d'un \
+espace, d'une parenthèse ouvrante ou d'une apostrophe (« la * annuelle », \
+« les treize * américains », « du * , un outil ») ; (b) un renvoi placé \
+AVANT son terme (« * GRU », « * régolithe ») ; (c) un astérisque « * » \
+isolé ou en double, hors d'une balise lex-ref ; (d) plus largement toute \
+phrase grammaticalement amputée, où il manque visiblement un mot ou un \
+groupe nominal (article suivi d'un verbe, parenthèse vide, virgule qui \
+suit directement un article) ; (e) un mot devant le renvoi qui ne \
+correspond pas au terme du `lexique` visé par le lien. \
+Incident réel (édition du 1er octobre 2026) : 5 renvois sur 5 étaient \
+sans leur mot (« la * annuelle du bitcoin ») et la critique avait conclu \
+que l'édition était « rigoureuse » — un lecteur voit une phrase cassée.
+
 Pour chaque défaut trouvé, cite l'extrait exact concerné. Si un point n'a \
 rien à signaler, ne le mentionne pas — ne remplis jamais artificiellement \
 la liste des `findings` pour donner l'impression d'avoir travaillé.
