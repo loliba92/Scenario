@@ -39,6 +39,7 @@ from bs4 import BeautifulSoup
 
 import build_html
 from seo_optimizer import generate_seo_metadata
+from source_links import extract_cited_urls
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
@@ -661,6 +662,11 @@ def call_openrouter(prompt, model, api_key, temperature=0.45, max_tokens=12000, 
     if "choices" not in data:
         raise GenerationError(f"réponse OpenRouter sans 'choices' : {data}")
     message = data["choices"][0]["message"]
+    # URL réellement consultées par le server tool openrouter:web_search
+    # (annotations url_citation) — sert à écarter les liens sources
+    # inventés par le modèle, voir source_links.py. Liste vide si le moteur
+    # n'en renvoie pas ; toujours présente, jamais bloquante.
+    usage["cited_urls"] = sorted(extract_cited_urls(message))
     content_str = message["content"]
     if content_str is None:
         # Diagnostic ajouté le 21 septembre 2026 (incident Gemini 3.7
