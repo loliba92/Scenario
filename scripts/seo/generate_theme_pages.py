@@ -250,6 +250,8 @@ def render_page(domain, entries, style_block, masthead_nav, follow_footer, tail_
     tail_scripts_rel = tail_scripts.replace(
         'src="assets/pwa-install.js"', 'src="../assets/pwa-install.js"'
     ).replace(
+        'src="assets/bottom-nav.js"', 'src="../assets/bottom-nav.js"'
+    ).replace(
         'serviceWorkerPath: "OneSignalSDKWorker.js"', 'serviceWorkerPath: "../OneSignalSDKWorker.js"'
     )
 
