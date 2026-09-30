@@ -86,12 +86,12 @@
     "html.has-bottom-nav body{padding-bottom:calc(68px + env(safe-area-inset-bottom,0px))}" +
     "#bottom-nav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:9000;" +
     "background:#1a212b;border-top:1px solid #2c3644;" +
-    "padding:0 4px env(safe-area-inset-bottom,0px);font-family:'JetBrains Mono',monospace}" +
+    "padding:0 4px env(safe-area-inset-bottom,0px);font-family:inherit}" +
     "#bottom-nav a,#bottom-nav button{flex:1 1 0;min-width:0;height:62px;display:flex;flex-direction:column;" +
     "align-items:center;justify-content:center;gap:4px;position:relative;background:none;border:0;margin:0;" +
     "padding:0;color:#a9a89c;text-decoration:none;font:inherit;cursor:pointer;" +
     "-webkit-tap-highlight-color:transparent}" +
-    "#bottom-nav .bn-label{font-size:.62rem;letter-spacing:.04em;text-transform:uppercase;line-height:1;" +
+    "#bottom-nav .bn-label{font-size:.72rem;letter-spacing:.01em;line-height:1;" +
     "max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}" +
     "#bottom-nav a:active,#bottom-nav button:active{color:#ece7da}" +
     "#bottom-nav [aria-current='page'],#bottom-nav button[aria-expanded='true']{color:#cf9d4c}" +
@@ -102,10 +102,10 @@
     "#bottom-nav-sheet{position:fixed;left:12px;right:12px;z-index:8995;" +
     "bottom:calc(72px + env(safe-area-inset-bottom,0px));background:#1a212b;border:1px solid #2c3644;" +
     "border-top:3px solid #cf9d4c;border-radius:12px;padding:6px;box-shadow:0 10px 30px rgba(0,0,0,.5);" +
-    "font-family:'JetBrains Mono',monospace}" +
+    "font-family:inherit}" +
     "#bottom-nav-sheet.is-open{display:block}" +
     "#bottom-nav-sheet a{display:flex;align-items:center;gap:14px;padding:14px 12px;border-radius:8px;" +
-    "color:#ece7da;text-decoration:none;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase}" +
+    "color:#ece7da;text-decoration:none;font-size:.92rem;letter-spacing:.01em}" +
     "#bottom-nav-sheet a+a{border-top:1px solid #2c3644;border-radius:0}" +
     "#bottom-nav-sheet a:active{background:#212a35}" +
     "#bottom-nav-sheet a.is-gold{color:#cf9d4c}" +
