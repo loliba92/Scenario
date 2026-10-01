@@ -1781,7 +1781,13 @@
 
   /* ---------- Article mis en avant (dernière édition, page d'accueil) ---------- */
   section.featured-article{
-    padding: 48px 0;
+    padding: 32px 0 48px;
+    border-top: 1px dashed var(--hairline);
+  }
+
+  /* La dernière édition ouvre la page (2 octobre 2026, retour utilisateur : on ouvre l'app pour
+     le contenu du jour, pas pour relire la présentation) ; l'introduction du site vient dessous. */
+  section.featured-article + .hero--home{
     border-top: 1px dashed var(--hairline);
   }
 
@@ -2245,19 +2251,6 @@
 </button>
 </div>
 </div>
-<section class="hero hero--home" id="contexte">
-  <div class="wrap">
-    <p class="eyebrow">Every day, one story, three scenarios</p>
-    <h1>Understanding the news means measuring its <span>consequences</span></h1>
-    <p class="dek">Every day, Scénario takes one key story and lays out three possible outcomes, each with a numbered probability.</p>
-    <ul class="hero-scenarios" aria-label="The three scenarios of each edition">
-      <li class="is-favorable">Favorable</li>
-      <li class="is-stable">Stable</li>
-      <li class="is-degrade">Degraded</li>
-    </ul>
-    <a class="hero-cta" href="le-projet.html">Discover the project <span aria-hidden="true">→</span></a>
-  </div>
-</section>
 <section class="featured-article">
 <div class="wrap">
 <p class="section-label">The latest edition</p>
@@ -2273,6 +2266,19 @@
 </div>
 </a>
 </div>
+</section>
+<section class="hero hero--home" id="contexte">
+  <div class="wrap">
+    <p class="eyebrow">Every day, one story, three scenarios</p>
+    <h1>Understanding the news means measuring its <span>consequences</span></h1>
+    <p class="dek">Every day, Scénario takes one key story and lays out three possible outcomes, each with a numbered probability.</p>
+    <ul class="hero-scenarios" aria-label="The three scenarios of each edition">
+      <li class="is-favorable">Favorable</li>
+      <li class="is-stable">Stable</li>
+      <li class="is-degrade">Degraded</li>
+    </ul>
+    <a class="hero-cta" href="le-projet.html">Discover the project <span aria-hidden="true">→</span></a>
+  </div>
 </section>
 <section class="related-articles" id="dernieres-editions">
 <div class="wrap">

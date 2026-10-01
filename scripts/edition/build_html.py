@@ -1297,9 +1297,9 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
 
 {shell['weekly_banner_html']}
 
-{hero}
-
 {featured}
+
+{hero}
 
 {also_today}
 

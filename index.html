@@ -1781,7 +1781,13 @@
 
   /* ---------- Article mis en avant (dernière édition, page d'accueil) ---------- */
   section.featured-article{
-    padding: 48px 0;
+    padding: 32px 0 48px;
+    border-top: 1px dashed var(--hairline);
+  }
+
+  /* La dernière édition ouvre la page (2 octobre 2026, retour utilisateur : on ouvre l'app pour
+     le contenu du jour, pas pour relire la présentation) ; l'introduction du site vient dessous. */
+  section.featured-article + .hero--home{
     border-top: 1px dashed var(--hairline);
   }
 
@@ -2249,20 +2255,6 @@
 </div>
 </div>
 
-<section class="hero hero--home" id="contexte">
-  <div class="wrap">
-    <p class="eyebrow">Chaque jour, un sujet, trois scénarios</p>
-    <h1>Comprendre l'actualité, c'est en mesurer les <span>conséquences</span></h1>
-    <p class="dek">Chaque jour, Scénario prend un sujet clé et en détaille trois évolutions possibles, chacune avec une probabilité chiffrée.</p>
-    <ul class="hero-scenarios" aria-label="Les trois scénarios de chaque édition">
-      <li class="is-favorable">Favorable</li>
-      <li class="is-stable">Stable</li>
-      <li class="is-degrade">Dégradé</li>
-    </ul>
-    <a class="hero-cta" href="le-projet.html">Découvrir le projet <span aria-hidden="true">→</span></a>
-  </div>
-</section>
-
 <section class="featured-article">
   <div class="wrap">
     <p class="section-label">La dernière édition</p>
@@ -2278,6 +2270,20 @@
       </div>
     </a>
     <a class="cross-link" href="themes/economie-entreprises.html">Voir tous les sujets «&nbsp;Économie&nbsp;»&nbsp;→</a>
+  </div>
+</section>
+
+<section class="hero hero--home" id="contexte">
+  <div class="wrap">
+    <p class="eyebrow">Chaque jour, un sujet, trois scénarios</p>
+    <h1>Comprendre l'actualité, c'est en mesurer les <span>conséquences</span></h1>
+    <p class="dek">Chaque jour, Scénario prend un sujet clé et en détaille trois évolutions possibles, chacune avec une probabilité chiffrée.</p>
+    <ul class="hero-scenarios" aria-label="Les trois scénarios de chaque édition">
+      <li class="is-favorable">Favorable</li>
+      <li class="is-stable">Stable</li>
+      <li class="is-degrade">Dégradé</li>
+    </ul>
+    <a class="hero-cta" href="le-projet.html">Découvrir le projet <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
