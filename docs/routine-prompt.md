@@ -156,6 +156,12 @@ Formuler en une phrase claire la question centrale à laquelle les trois scénar
 
 **Cette phrase, écrite une seule fois, est réutilisée mot pour mot partout** : `question-text` (étape technique 3), `feed.xml` (`<comments>` et début de `<description>`, étape technique 8), teaser Telegram (repris depuis `<comments>`). Jamais une seconde formulation différente.
 
+**Le h1 est aussi le titre SEO de la page** (`<title>` = h1 + « — Scénario », repris dans les résultats de recherche, les aperçus de partage et le flux RSS) : il doit être compris tout de suite par quelqu'un qui n'a pas suivi l'actualité.
+- **Longueur : cible 35 à 55 caractères, maximum absolu 65.** Au-delà, les moteurs de recherche tronquent le titre. Un nom de pays ou de zone qui impose quelques mots peut aller jusqu'à 65, jamais plus. Un h1 qui ressemble à la question (« … va-t-il … ? », 100 caractères et plus) est un défaut : la question a son encart.
+- **Le mot-clé principal dans les premiers mots**, tel qu'un lecteur le taperait dans un moteur de recherche (le sujet réel, un nom propre, le pays : « Ozempic », « Bab el-Mandeb », « Dette américaine »).
+- **Mots simples, une seule idée** : pas d'acronyme inconnu du grand public sans le dire en clair, pas de métaphore ni de jeu de mots qui cache le sujet, pas plus d'un deux-points.
+- **Test final** : un lecteur qui ne voit que ce titre dans une liste de résultats comprend-il de quoi parle l'édition ? Sinon, reformuler.
+
 ### Étape 2bis — Identification des 3 articles connexes
 
 **Tâche explicite et tracée.** Identifier 3 articles des archives (des 30 derniers jours maximum) qui ont un **lien thématique fort** avec le sujet du jour. Pas les 3 derniers du même domaine au hasard — un vrai lien avec les thèmes du jour. Ce processus est transparent et documenté dans le brief.
