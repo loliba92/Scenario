@@ -469,38 +469,109 @@
     border-bottom: 1px solid var(--hairline);
   }
 
-  /* Hero de la home (page de présentation fixe, jamais d'image de fond
-     derrière) : padding-top propre, le hero d'article n'en a pas besoin
-     car son image de fond occupe déjà cet espace. Repère utilisateur du
-     28 septembre 2026 (capture mobile) : l'accroche restait collée au nav
-     tant que cette règle et .hero-brand ci-dessous n'existaient pas encore
-     dans ce <style> réel (seul le markup avait été posé). 64px ramené à
-     28px le même jour : posé quand .intro-banner précédait encore ce hero
-     sur la home (son propre padding absorbait une partie de l'écart) —
-     redevenu excessif une fois .intro-banner retiré de la home (doublon
-     avec ce hero, voir plus bas dans ce fichier), le bandeau hebdo
-     touchant alors directement un grand vide avant l'accroche. */
+  /* Hero de la home — version épurée (2 octobre 2026, retour utilisateur : « plus pur, plus beau,
+     plus moderne »). Une promesse en titre (la marque est déjà dans le masthead, plus de logo ni de
+     « Scénario » répétés), une phrase d'explication, les trois scénarios en repères de couleur, un seul
+     appel à l'action. Le h1 est la promesse du site (le <title> porte la marque). */
   .hero--home{
-    padding: 28px 0 40px;
+    padding: 40px 0 48px;
   }
 
-  /* Logo + "Scénario" dans le hero de la home, même recette que le
-     wordmark du masthead (.brand-mark/.wordmark) pour respecter la
-     charte : icône + "rio" en doré, jamais du texte seul. */
-  .hero-brand{
+  .hero--home .eyebrow{
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
+    margin: 0 0 24px;
   }
 
-  .hero-brand-mark{
-    width: clamp(34px, 8vw, 54px);
-    height: clamp(34px, 8vw, 54px);
-    display: block;
+  .hero--home .eyebrow::before{
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
     flex: none;
   }
 
-  .hero-brand h1 span{ color: var(--gold); }
+  .hero--home h1{
+    font-size: clamp(2rem, 8.6vw, 3.4rem);
+    line-height: 1.06;
+    letter-spacing: -0.015em;
+    max-width: 20ch;
+    margin: 0 0 22px;
+    text-wrap: balance;
+  }
+
+  .hero--home h1 span{ color: var(--gold); }
+
+  .hero--home .dek{
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    line-height: 1.6;
+    max-width: 34em;
+    margin: 0 0 26px;
+  }
+
+  .hero-scenarios{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 0 0 32px;
+    padding: 0;
+  }
+
+  .hero-scenarios li{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 13px 6px 11px;
+    border: 1px solid var(--hairline);
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.025);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--paper-dim);
+  }
+
+  .hero-scenarios li::before{
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--paper-dim);
+    flex: none;
+  }
+  .hero-scenarios .is-favorable::before{ background: var(--favorable); }
+  .hero-scenarios .is-stable::before{ background: var(--stable); }
+  .hero-scenarios .is-degrade::before{ background: var(--degrade); }
+
+  .hero-cta{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 22px;
+    border-radius: 100px;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .hero-cta span{ transition: transform .15s ease; }
+  .hero-cta:hover{ box-shadow: 0 6px 24px rgba(207, 157, 76, 0.28); }
+  .hero-cta:hover span{ transform: translateX(3px); }
+  .hero-cta:focus-visible{ outline: 2px solid var(--paper); outline-offset: 3px; }
+
+  /* Mobile : les 7 pastilles du masthead tenaient sur 352 px dans 342 px disponibles
+     (la dernière, « accès privé », sortait de l'écran). */
+  @media (max-width: 480px){
+    .masthead-right{ gap: 8px; }
+    .hero--home .eyebrow{ font-size: 0.68rem; letter-spacing: 0.06em; gap: 10px; }
+    .hero--home .eyebrow::before{ width: 20px; }
+  }
 
   .eyebrow{
     font-family: "JetBrains Mono", monospace;
@@ -2181,12 +2252,14 @@
 <section class="hero hero--home" id="contexte">
   <div class="wrap">
     <p class="eyebrow">Chaque jour, un sujet, trois scénarios</p>
-    <div class="hero-brand">
-      <img class="hero-brand-mark" src="assets/logo.svg" alt="">
-      <h1>Scéna<span>rio</span></h1>
-    </div>
-    <p class="dek">Comprendre l'actualité, c'est en mesurer les conséquences, pas seulement en connaître les faits. Chaque jour, Scénario prend un sujet clé et en détaille trois évolutions possibles — favorable, stable, dégradé — chacune avec une probabilité chiffrée.</p>
-    <p><a class="cross-link" href="le-projet.html">Découvrir le projet →</a></p>
+    <h1>Comprendre l'actualité, c'est en mesurer les <span>conséquences</span>.</h1>
+    <p class="dek">Chaque jour, Scénario prend un sujet clé et en détaille trois évolutions possibles, chacune avec une probabilité chiffrée.</p>
+    <ul class="hero-scenarios" aria-label="Les trois scénarios de chaque édition">
+      <li class="is-favorable">Favorable</li>
+      <li class="is-stable">Stable</li>
+      <li class="is-degrade">Dégradé</li>
+    </ul>
+    <a class="hero-cta" href="le-projet.html">Découvrir le projet <span aria-hidden="true">→</span></a>
   </div>
 </section>
 

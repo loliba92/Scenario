@@ -1100,12 +1100,14 @@ def build_home_hero():
     return """<section class="hero hero--home" id="contexte">
   <div class="wrap">
     <p class="eyebrow">Chaque jour, un sujet, trois scénarios</p>
-    <div class="hero-brand">
-      <img class="hero-brand-mark" src="assets/logo.svg" alt="">
-      <h1>Scéna<span>rio</span></h1>
-    </div>
-    <p class="dek">Comprendre l'actualité, c'est en mesurer les conséquences, pas seulement en connaître les faits. Chaque jour, Scénario prend un sujet clé et en détaille trois évolutions possibles — favorable, stable, dégradé — chacune avec une probabilité chiffrée.</p>
-    <p><a class="cross-link" href="le-projet.html">Découvrir le projet →</a></p>
+    <h1>Comprendre l'actualité, c'est en mesurer les <span>conséquences</span>.</h1>
+    <p class="dek">Chaque jour, Scénario prend un sujet clé et en détaille trois évolutions possibles, chacune avec une probabilité chiffrée.</p>
+    <ul class="hero-scenarios" aria-label="Les trois scénarios de chaque édition">
+      <li class="is-favorable">Favorable</li>
+      <li class="is-stable">Stable</li>
+      <li class="is-degrade">Dégradé</li>
+    </ul>
+    <a class="hero-cta" href="le-projet.html">Découvrir le projet <span aria-hidden="true">→</span></a>
   </div>
 </section>"""
 
