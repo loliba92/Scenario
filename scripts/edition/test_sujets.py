@@ -250,6 +250,19 @@ class AjoutEtEnrichissementTest(unittest.TestCase):
         with self.assertRaises(sj.SujetsError):
             sj.ajouter(d, "culture", "x", champ_inventé="y")
 
+    def test_valider_passe_a_valide_et_rend_eligible(self):
+        d = sj.parse_md(mini_md())
+        a = sj.ajouter(d, "culture", "Sujet proposé ?")
+        b = sj.ajouter(d, "culture", "Autre sujet proposé ?")
+        self.assertFalse(sj.eligible(a))
+        faits, inconnus = sj.valider(d, [a["id"], "n-existe-pas"])
+        self.assertEqual((faits, inconnus), ([a["id"]], ["n-existe-pas"]))
+        self.assertTrue(sj.eligible(a))
+        self.assertFalse(sj.eligible(b), "les autres sujets ne changent pas")
+        self.assertEqual(sj.valider(d, [a["id"]]), ([], []), "déjà validé : rien à faire")
+        self.assertNotIn("🔍 Sujet proposé", sj.render_md(d))
+        self.assertEqual(verif(d), [])
+
     def test_enrichir_ne_remplit_que_l_absent(self):
         e = par_debut(sj.parse_md(mini_md()), "La Chine")
         contexte_avant = e["contexte"]

@@ -1,0 +1,63 @@
+name: Valider des sujets
+
+# Passe des sujets « à valider » (🔍) en « validé » dans data/sujets.json : ils deviennent
+# alors éligibles au brief du jour. Déclenché par le bouton « Valider » de la page cachée
+# « File de sujets » (file-sujets.html), ou à la main depuis l'onglet Actions.
+#
+# Le bouton appelle l'API GitHub avec un jeton personnel que le propriétaire saisit une
+# fois dans son navigateur (jeton à droits limités : Actions en lecture/écriture sur ce
+# seul dépôt). Les identifiants sont passés par variable d'environnement et vérifiés par
+# scripts/edition/sujets.py (identifiant inconnu = ignoré, jamais interprété par le shell).
+
+on:
+  workflow_dispatch:
+    inputs:
+      ids:
+        description: "Identifiants des sujets à valider, séparés par des virgules"
+        required: true
+
+permissions:
+  contents: write
+
+# Plusieurs clics rapprochés : un seul commit à la fois.
+concurrency:
+  group: valider-sujets
+  cancel-in-progress: false
+
+jobs:
+  valider:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Même discipline que enrich-sujets.yml : chaque essai repart d'un main fraîchement
+      # fetché (jamais de rebase), puis relance la commande dessus.
+      - name: Valider, committer et pousser (relance depuis zéro si le push est refusé)
+        env:
+          IDS: ${{ github.event.inputs.ids }}
+        run: |
+          git config user.name "scenario-topics-bot"
+          git config user.email "actions@users.noreply.github.com"
+          for attempt in 1 2 3; do
+            echo "=== Essai $attempt/3 ==="
+            git fetch origin main
+            git reset --hard origin/main
+            python3 scripts/edition/sujets.py valider "$IDS"
+            git add data/sujets.json sujets-prioritaires.md
+            if git diff --cached --quiet; then
+              echo "Aucun changement — rien à committer."
+              exit 0
+            fi
+            git commit -m "[sujets] sujets validés depuis la page de la file"
+            if git push origin main; then
+              echo "Poussé avec succès (essai $attempt)."
+              exit 0
+            fi
+            echo "Push refusé (essai $attempt) — main a bougé entre-temps, on relance depuis un état frais."
+          done
+          echo "Échec après 3 essais — validation non enregistrée, recommencer." >&2
+          exit 1

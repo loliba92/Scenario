@@ -97,6 +97,11 @@
   .btn{ font: inherit; font-size: .8rem; color: var(--paper); background: transparent; border: 1px solid var(--hairline); border-radius: 99px; padding: 5px 13px; cursor: pointer; }
   .btn:hover{ border-color: var(--gold); color: var(--gold); }
   .note{ color: var(--paper-dim); font-size: .88rem; }
+  .btn-valider{ color: var(--favorable); border-color: var(--favorable); }
+  .btn-valider:hover{ background: var(--favorable); color: var(--ink); border-color: var(--favorable); }
+  .btn:disabled{ opacity: .5; cursor: default; }
+  .action-statut{ margin: 0 0 12px; padding: 10px 14px; border: 1px solid var(--favorable); border-radius: 10px; background: var(--surface); font-size: .9rem; }
+  .action-statut.erreur{ border-color: var(--degrade); color: var(--degrade); }
   .vide-liste{ text-align: center; color: var(--paper-dim); padding: 36px 0; }
   .pied{ margin: 34px 0 60px; padding-top: 18px; border-top: 1px solid var(--hairline); font-size: .86rem; color: var(--paper-dim); }
   @media (max-width: 560px){ h1{ font-size: 1.65rem; } .wrap{ padding: 0 16px; } }
@@ -146,12 +151,17 @@
     </section>
 
     <p class="count" id="compte" aria-live="polite"></p>
+    <p class="action-statut" id="action-statut" role="status" aria-live="polite" hidden></p>
     <div id="liste"></div>
 
     <div class="pied">
       <p><strong>Compléter les dossiers incomplets :</strong> lancer le workflow
       <a href="https://github.com/loliba92/Scenario/actions/workflows/enrich-sujets.yml" rel="noopener">« Enrichir les dossiers de sujets »</a>
-      (GitHub Actions, bouton « Run workflow »). Il remplit ce qui manque, par lots de 6, sans jamais écraser un champ déjà écrit.</p>
+      (GitHub Actions, bouton « Run workflow »). Il remplit ce qui manque, par lots, sans jamais écraser un champ déjà écrit.</p>
+      <p><strong>Valider un sujet :</strong> le bouton « ✓ Valider ce sujet » (dans chaque sujet marqué 🔍) lance le workflow
+      <a href="https://github.com/loliba92/Scenario/actions/workflows/valider-sujets.yml" rel="noopener">« Valider des sujets »</a>.
+      La première fois, un jeton GitHub personnel vous est demandé ; il reste dans ce navigateur uniquement.
+      <span id="jeton-zone" hidden>Un jeton est enregistré ici — <button type="button" class="btn" id="oublier-jeton">l'effacer</button></span></p>
     </div>
   </div>
 </main>

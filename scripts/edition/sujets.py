@@ -660,6 +660,21 @@ def enrichir(e: dict, champs: dict, jour: str | None = None) -> list[str]:
     return faits
 
 
+def valider(data: dict, ids: list[str]) -> tuple[list[str], list[str]]:
+    """Passe des sujets « à valider » en « valide » (ils deviennent éligibles au brief du jour).
+    Renvoie (ids validés, ids inconnus). Un sujet déjà validé ne change pas."""
+    par_id = {e["id"]: e for _, e in sujets(data)}
+    faits, inconnus = [], []
+    for i in ids:
+        e = par_id.get(i)
+        if e is None:
+            inconnus.append(i)
+        elif e["validation"] != "valide":
+            e["validation"] = "valide"
+            faits.append(i)
+    return faits, inconnus
+
+
 # --------------------------------------------------------------------------- sujet du jour et dossier
 def eligible(e: dict) -> bool:
     return e["statut"] == "a_traiter" and e["validation"] == "valide"
@@ -914,8 +929,9 @@ def incomplets(data: dict, seulement_a_traiter: bool = True) -> list[tuple[dict,
 # --------------------------------------------------------------------------- ligne de commande
 def _main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("commande", choices=["check", "sync", "stats", "import", "incomplets", "prochain", "timbrer"])
-    ap.add_argument("brief", nargs="?", default=None, help="timbrer : chemin du brief (editorial-briefs/AAAA-MM-JJ.json)")
+    ap.add_argument("commande", choices=["check", "sync", "stats", "import", "incomplets", "prochain", "timbrer", "valider"])
+    ap.add_argument("brief", nargs="*", default=[],
+                    help="timbrer : chemin du brief (editorial-briefs/AAAA-MM-JJ.json) ; valider : identifiants (séparés par des espaces ou des virgules)")
     ap.add_argument("--json", action="store_true", help="prochain : affiche le dossier en JSON (point de départ du brief)")
     ap.add_argument("--registre", default=None, help="prochain : registre (clé de section) ; défaut = registre du jour")
     ap.add_argument("--force", action="store_true", help="import : écrase un data/sujets.json existant (perd ses modifications)")
@@ -966,12 +982,26 @@ def _main(argv=None) -> int:
         print(json.dumps(dossier_json(*r), ensure_ascii=False, indent=2) if args.json else dossier_texte(*r))
         return 0
 
+    if args.commande == "valider":
+        ids = [i.strip() for a in args.brief for i in a.split(",") if i.strip()]
+        if not ids:
+            print("ERREUR : valider demande au moins un identifiant", file=sys.stderr)
+            return 1
+        data, _ = load_synced()
+        faits, inconnus = valider(data, ids)
+        for i in inconnus:
+            print(f"::warning::valider : identifiant inconnu {i!r}")
+        if faits:
+            save_both(data)
+        print(f"valider : {len(faits)} validé(s), {len(ids) - len(faits) - len(inconnus)} déjà validé(s), {len(inconnus)} inconnu(s)")
+        return 1 if inconnus and not faits and len(inconnus) == len(ids) else 0
+
     if args.commande == "timbrer":
         if not args.brief:
             print("ERREUR : timbrer demande le chemin du brief", file=sys.stderr)
             return 1
         data, _ = load_synced()
-        chemin = Path(args.brief)
+        chemin = Path(args.brief[0])
         brief = json.loads(chemin.read_text(encoding="utf-8"))
         ident = timbrer_brief(brief, data)
         if not ident:
