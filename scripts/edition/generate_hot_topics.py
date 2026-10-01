@@ -289,7 +289,13 @@ def build_prompt(existing_by_registre, priorite_absolue_titles, carte_blanche_ti
         "vide. Ce dossier servira directement à produire l'édition (il guidera la "
         "recherche d'articles), il doit donc être clair pour quelqu'un qui n'a PAS "
         "suivi l'actualité :",
-        "- 'accroche' (obligatoire) : le titre, sous forme de question percutante mais précise.",
+        "- 'accroche' (obligatoire) : le titre du sujet, une QUESTION claire comprise du premier "
+        "coup par quelqu'un qui n'a pas suivi l'actualité, qui sert aussi de base au titre "
+        "de l'édition (donc lisible et bien référencé) : 60 à 110 caractères (120 au "
+        "maximum) ; le sujet réel (nom propre, pays, objet) dans les premiers mots, tel "
+        "qu'un lecteur le chercherait ; une seule idée, des mots simples ; pas d'acronyme "
+        "inconnu du grand public, pas de métaphore, pas d'enchaînement de plusieurs "
+        "propositions ni plus d'un deux-points.",
         "- 'question' (optionnel) : la problématique à issue ouverte, en UNE phrase "
         "précise, seulement si elle diffère de l'accroche (sinon omets-la).",
         "- 'tag' : 1-3 mots-clés courts, ex. 'géopolitique & Arctique'.",
