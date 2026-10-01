@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "7d92ea2996f3cbf2f7d7a07d12f5ab6df4f319a5fb83c80b8ed2d05294d0864c"
+    "md_sha256": "0ad6009caf82caf870bc902268a070b37668f1fa3a662d80867363f9a13422d0"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -88,6 +88,38 @@
         {
           "type": "commentaire",
           "texte": "Jour des lecteurs : recopier ici les meilleures suggestions reçues par email (scenariocontact75@gmail.com) — priorité absolue sur mardi, quel que soit le sujet proposé (pas besoin d'être un sujet \"Grand futur\"). À défaut (section vide ou tout coché) : auto-sélection sur le registre Grand futur (tendances à horizon long, 5-30 ans, tous domaines), voir docs/routine-prompt.md Étape 1 — changé le 4 septembre 2026, remplace l'ancien repli \"sujet le plus fort tous domaines confondus\"."
+        },
+        {
+          "type": "sujet",
+          "id": "sciences-l-ia-va-t-elle-detruire-l-humanite-ou-cette",
+          "titre": "L'IA va-t-elle détruire l'humanité, ou cette peur est-elle exagérée ?",
+          "question": null,
+          "tag": "sciences & IA",
+          "statut": "a_traiter",
+          "validation": "valide",
+          "contexte": null,
+          "rationnel": "Le sujet revient sans cesse dans le débat public (alertes de chercheurs et de dirigeants du secteur, déclarations politiques, films), mais la plupart des lecteurs ne savent pas ce qu'il recouvre concrètement : perte de contrôle d'une IA très avancée, usages malveillants (armes biologiques, cyberattaques), concentration du pouvoir, ou simple effet de mode médiatique. L'issue est ouverte car les experts sont réellement partagés sur la probabilité et le calendrier, et les mesures de précaution (régulation, tests de sécurité, accords internationaux) sont encore en construction. Pour un lecteur français, l'enjeu est de distinguer le risque réel, le risque spéculatif et la peur entretenue.",
+          "angle": null,
+          "a_verifier": "Ce que disent réellement les chercheurs (désaccord sur les probabilités et le calendrier), état de la régulation et des accords de sécurité en 2026, distinction entre risques déjà observés et scénarios spéculatifs.",
+          "mots_cles": [
+            "risque existentiel intelligence artificielle",
+            "AI existential risk",
+            "sécurité de l'IA AI safety",
+            "superintelligence",
+            "alignement IA perte de contrôle",
+            "Center for AI Safety déclaration extinction",
+            "AI Act règlement européen IA",
+            "Geoffrey Hinton Yoshua Bengio risques IA"
+          ],
+          "scenarios": null,
+          "echeance": null,
+          "sources": [],
+          "origine": "utilisateur",
+          "note": null,
+          "ajoute_le": "2026-10-01",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
         },
         {
           "type": "sujet",
@@ -2864,38 +2896,6 @@
           "publie_le": null,
           "edition": null,
           "enrichi_le": "2026-10-01"
-        },
-        {
-          "type": "sujet",
-          "id": "sciences-l-ia-va-t-elle-detruire-l-humanite-ou-cette",
-          "titre": "L'IA va-t-elle détruire l'humanité, ou cette peur est-elle exagérée ?",
-          "question": null,
-          "tag": "sciences & IA",
-          "statut": "a_traiter",
-          "validation": "valide",
-          "contexte": null,
-          "rationnel": "Le sujet revient sans cesse dans le débat public (alertes de chercheurs et de dirigeants du secteur, déclarations politiques, films), mais la plupart des lecteurs ne savent pas ce qu'il recouvre concrètement : perte de contrôle d'une IA très avancée, usages malveillants (armes biologiques, cyberattaques), concentration du pouvoir, ou simple effet de mode médiatique. L'issue est ouverte car les experts sont réellement partagés sur la probabilité et le calendrier, et les mesures de précaution (régulation, tests de sécurité, accords internationaux) sont encore en construction. Pour un lecteur français, l'enjeu est de distinguer le risque réel, le risque spéculatif et la peur entretenue.",
-          "angle": null,
-          "a_verifier": "Ce que disent réellement les chercheurs (désaccord sur les probabilités et le calendrier), état de la régulation et des accords de sécurité en 2026, distinction entre risques déjà observés et scénarios spéculatifs.",
-          "mots_cles": [
-            "risque existentiel intelligence artificielle",
-            "AI existential risk",
-            "sécurité de l'IA AI safety",
-            "superintelligence",
-            "alignement IA perte de contrôle",
-            "Center for AI Safety déclaration extinction",
-            "AI Act règlement européen IA",
-            "Geoffrey Hinton Yoshua Bengio risques IA"
-          ],
-          "scenarios": null,
-          "echeance": null,
-          "sources": [],
-          "origine": "utilisateur",
-          "note": null,
-          "ajoute_le": "2026-10-01",
-          "publie_le": null,
-          "edition": null,
-          "enrichi_le": null
         },
         {
           "type": "sujet",
