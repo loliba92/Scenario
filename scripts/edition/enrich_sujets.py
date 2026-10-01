@@ -16,11 +16,11 @@ Règles de sécurité :
   recherche ;
 - le modèle dit si le sujet semble DÉPASSÉ (l'actualité a tranché depuis l'ajout) : le
   sujet n'est alors pas retiré, mais l'avertissement est ajouté à « à vérifier » ;
-- un lot borné (`--max`, 20 par défaut) : le coût reste prévisible ; les sujets en tête de
+- un lot borné (`--max`, 10 par défaut) : le coût reste prévisible ; les sujets en tête de
   file (les prochains à passer) sont traités d'abord.
 
 Utilisation :
-    OPENROUTER_API_KEY=… python scripts/edition/enrich_sujets.py [--max 20] [--registre culture]
+    OPENROUTER_API_KEY=… python scripts/edition/enrich_sujets.py [--max 10] [--registre culture]
                                                                   [--ids id1,id2] [--dry-run]
 Workflow : .github/workflows/enrich-sujets.yml (déclenchement manuel).
 """
@@ -38,7 +38,7 @@ import sujets as sj  # noqa: E402
 from generate_daily_edition import GenerationError, call_openrouter  # noqa: E402
 from generate_hot_topics import HOT_TOPICS_MODEL, dossier_depuis_reponse  # noqa: E402
 
-MAX_PAR_DEFAUT = 20
+MAX_PAR_DEFAUT = 10
 
 
 def ordre_de_passage(data: dict, cibles: list[tuple[dict, dict]]) -> list[tuple[dict, dict]]:
