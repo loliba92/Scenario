@@ -7,8 +7,8 @@
  * l'adresse de ce fichier, ce qui fonctionne aussi bien depuis la racine
  * que depuis archives/, hebdo/ ou en/.
  *
- * 4 onglets directs (Accueil, Archives, Glossaire, Le projet) + « Plus »
- * qui ouvre un petit panneau avec les autres liens du menu du haut.
+ * 4 onglets directs (Accueil, Archives, Recherche, Le projet) + « Plus »
+ * qui ouvre un petit panneau (Glossaire et les autres liens du menu du haut).
  * Sur mobile, le menu du haut est masqué pour éviter un double menu ;
  * sur ordinateur, rien ne change.
  */
@@ -29,10 +29,10 @@
 
   var LANG = (document.documentElement.lang || "fr").slice(0, 2) === "en" ? "en" : "fr";
   var T = LANG === "en"
-    ? { nav: "Main navigation", home: "Home", archives: "Archives", glossary: "Glossary", project: "The project",
+    ? { nav: "Main navigation", home: "Home", archives: "Archives", search: "Search", glossary: "Glossary", project: "The project",
         more: "More", newsletter: "Newsletter", contact: "Contact", follow: "Follow us", support: "Support us",
         close: "Close" }
-    : { nav: "Navigation principale", home: "Accueil", archives: "Archives", glossary: "Glossaire", project: "Le projet",
+    : { nav: "Navigation principale", home: "Accueil", archives: "Archives", search: "Recherche", glossary: "Glossaire", project: "Le projet",
         more: "Plus", newsletter: "Newsletter", contact: "Contact", follow: "Nous suivre", support: "Soutenir",
         close: "Fermer" };
 
@@ -45,6 +45,7 @@
   var ICONS = {
     home: svg('<path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"/>'),
     archives: svg('<rect x="4" y="4.5" width="16" height="4" rx="1"/><path d="M5 8.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5"/><line x1="10" y1="13" x2="14" y2="13"/>'),
+    search: svg('<circle cx="11" cy="11" r="6.5"/><line x1="16" y1="16" x2="20.5" y2="20.5"/>'),
     glossary: svg('<path d="M12 6.5c-1.6-1.2-3.7-1.7-6-1.7v13c2.3 0 4.4.5 6 1.7 1.6-1.2 3.7-1.7 6-1.7v-13c-2.3 0-4.4.5-6 1.7Z"/><line x1="12" y1="6.5" x2="12" y2="19.5"/>'),
     project: svg('<path d="m12 3 8 4.5-8 4.5-8-4.5Z"/><path d="m4 12 8 4.5 8-4.5"/><path d="m4 16.5 8 4.5 8-4.5"/>'),
     more: svg('<circle cx="5.5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="18.5" cy="12" r="1.3"/>'),
@@ -62,17 +63,18 @@
   var active = "";
   if (file === "index.html" && !inArchives && !/\/(hebdo|themes|suivi)\//.test(path)) active = "home";
   else if (inArchives || /\/(hebdo|themes|suivi)\//.test(path)) active = "archives";
-  else if (file === "glossaire.html") active = "glossary";
+  else if (file === "recherche.html") active = "search";
   else if (file === "le-projet.html") active = "project";
-  else if (file === "newsletter.html" || file === "contact.html") active = "more";
+  else if (file === "glossaire.html" || file === "newsletter.html" || file === "contact.html") active = "more";
 
   var tabs = [
     { id: "home", href: root + "index.html", label: T.home },
     { id: "archives", href: root + "archives.html", label: T.archives },
-    { id: "glossary", href: root + "glossaire.html", label: T.glossary },
+    { id: "search", href: root + "recherche.html", label: T.search },
     { id: "project", href: root + "le-projet.html", label: T.project }
   ];
   var more = [
+    { id: "glossary", href: root + "glossaire.html", label: T.glossary },
     { id: "newsletter", href: root + "newsletter.html", label: T.newsletter },
     { id: "contact", href: root + "contact.html", label: T.contact },
     { id: "follow", href: root + "index.html#nous-suivre", label: T.follow },

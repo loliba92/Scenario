@@ -316,6 +316,14 @@
           all = scoreDirect(q, false);
           partial = all.length > 0;
         }
+        // Mode « à plat » (éditions) : titre et question sont un seul texte, tout résultat est
+        // direct ; on écarte seulement les correspondances très faibles (mot d'une même famille,
+        // simple mention) face au meilleur résultat, puis on complète par les sujets voisins.
+        if (opts.flat) {
+          var best = all.length ? all[0].score : 0;
+          var flat = all.filter(function (x) { return x.score >= best * 0.45; });
+          return { direct: flat, related: related(flat, all, opts), partial: partial, onlyRelated: false };
+        }
         // Niveau 1 : le mot est dans le nom du terme. Niveau 2 : le mot n'apparaît que
         // dans des définitions ; ces termes parlent du sujet sans porter ce nom.
         var direct = all.filter(function (x) { return x.term; });

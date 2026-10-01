@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recherche — Scénario</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://lesscenarios.fr/recherche.html">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#10151c">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Scénario">
+<link rel="stylesheet" href="assets/pwa-install.css">
+<meta name="description" content="Rechercher dans les éditions de Scénario et dans le glossaire.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scénario">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://lesscenarios.fr/recherche.html">
+<meta property="og:title" content="Recherche — Scénario">
+<meta property="og:description" content="Rechercher dans les éditions de Scénario et dans le glossaire.">
+<meta property="og:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
+<meta property="og:image:width" content="2508">
+<meta property="og:image:height" content="1412">
+<meta property="og:image:alt" content="Scénario — trois scénarios chiffrés pour chaque actualité : favorable, stable, dégradé.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Recherche — Scénario">
+<meta name="twitter:description" content="Rechercher dans les éditions de Scénario et dans le glossaire.">
+<meta name="twitter:image" content="https://lesscenarios.fr/assets/social/og-image-v2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --surface: #1a212b;
+    --surface-2: #212a35;
+    --hairline: #2c3644;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+    --favorable: #5e9c78;
+    --stable: #6f8fae;
+    --degrade: #bd6248;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  ::selection{ background: var(--gold); color: var(--ink); }
+
+  :focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header.masthead{
+    border-bottom: 1px solid var(--hairline);
+    padding: 28px 0 22px;
+  }
+
+  .masthead-row{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .wordmark{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+
+  .wordmark span{ color: var(--gold); }
+
+  .brand-rio{ color: var(--gold); }
+
+  .brand{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .brand-row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 4px;
+    gap: 11px;
+  }
+
+
+  .brand-mark{
+    width: 30px;
+    height: 30px;
+    display: block;
+    flex: none;
+  }
+
+  nav.topnav{
+    background: var(--surface);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  nav.topnav .wrap{
+    display: flex;
+    gap: 16px;
+    padding: 12px 24px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  nav.topnav .wrap::-webkit-scrollbar{ display: none; }
+
+  .topnav a{ flex-shrink: 0; }
+
+  .topnav a{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+  }
+
+  .topnav a svg{ display: block; flex-shrink: 0; }
+
+  .topnav a:hover{ color: var(--paper); }
+
+  .topnav a[aria-current="page"]{
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  .hero{
+    padding: 64px 0 40px;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .eyebrow{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    margin: 0 0 18px;
+  }
+
+  h1{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+  }
+
+  .dek{
+    font-size: 1.1rem;
+    color: var(--paper-dim);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  section.body-section{ padding: 48px 0; border-bottom: 1px solid var(--hairline); }
+  section.body-section:last-of-type{ border-bottom: none; }
+
+  .section-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--paper-dim);
+    margin: 0 0 8px;
+  }
+
+  .section-title{
+    font-family: "Fraunces", serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0 0 20px;
+  }
+
+  .body-section p{
+    max-width: 62ch;
+    color: var(--paper-dim);
+    margin: 0 0 16px;
+  }
+
+  .body-section p:last-child{ margin-bottom: 0; }
+
+  .body-section strong{ color: var(--paper); font-weight: 500; }
+
+  .contact-form{
+    max-width: 62ch;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 4px 0 0;
+  }
+
+  .form-row{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-row label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+  }
+
+  .form-row input,
+  .form-row textarea{
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: 11px 14px;
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 0.95rem;
+  }
+
+  .form-row textarea{ min-height: 140px; resize: vertical; }
+
+  .form-row input:focus,
+  .form-row textarea:focus{ outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  .form-row input::placeholder,
+  .form-row textarea::placeholder{ color: var(--paper-dim); }
+
+  .submit-btn{
+    align-self: flex-start;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    background: var(--gold);
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+
+  .submit-btn:hover{ opacity: 0.9; }
+
+  .form-hint{ font-size: 0.8rem; color: var(--paper-dim); margin: 0; }
+
+  .form-sent{ font-size: 0.9rem; color: var(--favorable); margin: 0 0 8px; display: none; }
+
+  .hp{ position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+  .cross-link{
+    display: inline-block;
+    margin-top: 28px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.82rem;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--gold);
+    padding-bottom: 1px;
+  }
+
+  .cross-link:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+
+  .channel-buttons{
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+
+  .btn-outline{
+    display: inline-block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    color: var(--gold);
+    background: transparent;
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    padding: 9px 22px;
+    transition: background .15s, color .15s;
+  }
+
+  .btn-outline:hover{
+    background: var(--gold);
+    color: var(--ink);
+  }
+
+  footer{
+    border-top: 1px solid var(--hairline);
+    padding: 32px 0 48px;
+  }
+
+
+  .legal-links{
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin: 24px 0 0;
+  }
+
+  .legal-links a{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+  }
+
+  .legal-links a:hover{ color: var(--paper); border-bottom-color: var(--paper-dim); }
+
+  footer .caveat{
+    font-size: 0.84rem;
+    color: var(--paper-dim);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  /* ---------- Nous suivre (ancre du menu #nous-suivre) ---------- */
+  section.follow-block{
+    padding: 28px 0 32px;
+    border-top: 1px dashed var(--hairline);
+  }
+  .follow-block-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin: 0 0 14px;
+  }
+  .follow-block-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .follow-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: var(--gold);
+    background: transparent;
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    padding: 8px 16px;
+    flex-shrink: 0;
+    transition: background .15s, color .15s;
+  }
+  .follow-btn:hover{ background: var(--gold); color: var(--ink); }
+  .follow-btn svg{ display: block; flex-shrink: 0; }
+
+  /* ---- Hero avec photo de fond [AJOUTÉ le 31 août 2026, même traitement que
+     archives.html/le-projet.html/glossaire.html/newsletter.html] —
+     .contact-hero s'ajoute à .hero partagé, ne le modifie pas. Couloir sombre
+     à l'éclairage chaleureux (licence Pexels, crédit dans
+     assets/social/pub-photos/credits.json) — le haut est déjà quasi noir
+     nativement, dégradé léger seulement. */
+  .hero.contact-hero{
+    position: relative;
+    padding: 96px 0 60px;
+    background:
+      linear-gradient(180deg, rgba(16,21,28,0.3) 0%, rgba(16,21,28,0.78) 70%, var(--ink) 100%),
+      url('assets/social/pub-photos/contact.jpg') center 25% / cover no-repeat;
+  }
+
+  .hero.contact-hero .eyebrow,
+  .hero.contact-hero h1,
+  .hero.contact-hero .dek{
+    position: relative;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 600px){
+    .hero.contact-hero{ padding: 64px 0 44px; }
+  }
+
+  /* ---- Page Recherche ---- */
+  .search-hero{ padding-bottom: 8px; }
+  .site-search{ margin: 0 0 12px; }
+  .site-search-input{
+    width: 100%;
+    font: inherit;
+    font-size: 1.05rem;
+    color: var(--paper);
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .site-search-input::placeholder{ color: var(--paper-dim); }
+  .site-search-input:focus{ outline: 2px solid var(--gold); outline-offset: 2px; }
+  .site-search-hints{ display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; }
+  .site-search-hints[hidden]{ display: none; }
+  .site-search-hints button{
+    font-family: "JetBrains Mono", monospace; font-size: .74rem; letter-spacing: .04em;
+    color: var(--paper-dim); background: transparent; border: 1px solid var(--hairline);
+    border-radius: 100px; padding: 5px 12px; cursor: pointer;
+  }
+  .site-search-hints button:hover{ color: var(--paper); border-color: var(--paper-dim); }
+  .site-search-status{ margin: 10px 0 0; font-size: .85rem; color: var(--paper-dim); min-height: 1.2em; }
+  .sr-section{ margin-top: 30px; }
+  .sr-title{
+    margin: 0 0 4px; font-family: "JetBrains Mono", monospace; font-size: .76rem;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--gold);
+  }
+  .sr-sub{ margin: 22px 0 2px; font-size: .8rem; color: var(--paper-dim); }
+  .sr-list{ list-style: none; margin: 0; padding: 0; }
+  .sr-item{ border-bottom: 1px solid var(--hairline); }
+  .sr-item a{ display: block; padding: 14px 0; text-decoration: none; color: inherit; }
+  .sr-item a:hover .sr-item-title{ text-decoration: underline; text-decoration-color: var(--gold); }
+  .sr-meta{
+    display: block; margin-bottom: 4px; font-family: "JetBrains Mono", monospace;
+    font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--paper-dim);
+  }
+  .sr-item-title{ display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.12rem; line-height: 1.3; color: var(--paper); }
+  .sr-item-text{
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    margin-top: 4px; font-size: .92rem; line-height: 1.45; color: var(--paper-dim);
+  }
+  .sr-item.is-related a{ opacity: .9; border-left: 2px solid var(--hairline); padding-left: 14px; }
+  .sr-more{
+    margin-top: 12px; font-family: "JetBrains Mono", monospace; font-size: .76rem; letter-spacing: .04em;
+    color: var(--gold); background: transparent; border: 1px solid var(--hairline); border-radius: 100px;
+    padding: 8px 16px; cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <div class="brand">
+      <div class="brand-row">
+        <img class="brand-mark" src="assets/logo.svg" alt="">
+        <a class="wordmark" href="index.html">Scéna<span>rio</span></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="index.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"/></svg> Accueil</a>
+    <a href="archives.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4.5" width="16" height="4" rx="1"/><path d="M5 8.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5"/><line x1="10" y1="13" x2="14" y2="13"/></svg> Archives</a>
+    <a href="glossaire.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5c-1.6-1.2-3.7-1.7-6-1.7v13c2.3 0 4.4.5 6 1.7 1.6-1.2 3.7-1.7 6-1.7v-13c-2.3 0-4.4.5-6 1.7Z"/><line x1="12" y1="6.5" x2="12" y2="19.5"/></svg> Glossaire</a>
+    <a href="le-projet.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4.5-8 4.5-8-4.5Z"/><path d="m4 12 8 4.5 8-4.5"/><path d="m4 16.5 8 4.5 8-4.5"/></svg> Le projet</a>
+    <a href="newsletter.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M4.5 7 12 12.5 19.5 7"/></svg> Newsletter</a>
+    <a href="contact.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6.5A1.5 1.5 0 0 1 5.5 5h13A1.5 1.5 0 0 1 20 6.5v8a1.5 1.5 0 0 1-1.5 1.5H10l-4 3.5V16H5.5A1.5 1.5 0 0 1 4 14.5Z"/></svg> Contact</a>
+    <a href="#nous-suivre"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg> Nous suivre</a>
+    <a href="https://buymeacoffee.com/scenario" target="_blank" rel="noopener noreferrer" style="color:var(--gold)"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v6a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4Z"/><path d="M16 10.5h1.5a2 2 0 0 1 0 4H16"/><path d="M8.5 4.5c-.6.7-.6 1.3 0 2M12 4.5c-.6.7-.6 1.3 0 2"/></svg> Soutenir</a>
+  </div>
+</nav>
+
+<section class="hero search-hero">
+  <div class="wrap">
+    <p class="eyebrow">Recherche</p>
+    <h1>Que cherchez-vous&nbsp;?</h1>
+    <p class="dek">Un mot suffit : on cherche dans toutes les éditions et dans le glossaire, et on propose les sujets voisins.</p>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <form class="site-search" role="search" onsubmit="return false">
+      <input id="site-search-input" class="site-search-input" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Bitcoin, retraite, inflation…" aria-label="Rechercher sur Scénario">
+    </form>
+    <div class="site-search-hints" id="site-search-hints"></div>
+    <p class="site-search-status" id="site-search-status" aria-live="polite">Chargement des éditions…</p>
+    <div id="site-search-results"></div>
+    <noscript><p>La recherche demande JavaScript. Vous pouvez parcourir les <a href="archives.html">archives</a> et le <a href="glossaire.html">glossaire</a>.</p></noscript>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="caveat"><strong>Scéna<span class="brand-rio">rio</span></strong> publie une édition chaque jour. Chaque édition reste figée à sa date de publication.</p>
+    <div class="legal-links">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      <a href="cookies.html">Politique de cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/glossary-search.js" defer></script>
+<script src="assets/site-search.js" defer></script>
+
+<script data-goatcounter="https://scenario.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+<script src="assets/pwa-install.js" defer></script>
+<script defer src="assets/bottom-nav.js"></script>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(function (OneSignal) {
+    OneSignal.init({
+      appId: "1f47412d-5688-4ce7-8288-df1ed44bdad3",
+      serviceWorkerPath: "OneSignalSDKWorker.js",
+    });
+  });
+</script>
+</body>
+</html>
