@@ -673,6 +673,7 @@
     width: 100%; height: 100%;
     object-fit: cover;
     display: block;
+    filter: brightness(.88) contrast(1.06);
     animation: cover-reveal 1.2s ease-out both;
   }
   @keyframes cover-reveal{
@@ -684,7 +685,12 @@
   }
   .article-image-scrim{
     position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(16,21,28,.82) 0%, rgba(16,21,28,.16) 26%, rgba(16,21,28,.06) 42%, rgba(16,21,28,.55) 60%, rgba(16,21,28,.9) 80%, rgba(16,21,28,1) 100%);
+    /* Voile renforcé : retour utilisateur, photo trop claire et titre peu contrasté.
+       Une teinte uniforme (.28) assombrit toute la photo, quelle qu'elle soit,
+       puis le dégradé épaissit le haut (masthead) et surtout le bas (h1). */
+    background:
+      linear-gradient(rgba(16,21,28,.28), rgba(16,21,28,.28)),
+      linear-gradient(180deg, rgba(16,21,28,.82) 0%, rgba(16,21,28,.3) 26%, rgba(16,21,28,.22) 42%, rgba(16,21,28,.7) 60%, rgba(16,21,28,.94) 80%, rgba(16,21,28,1) 100%);
   }
   .article-image-masthead{
     position: absolute; top: 18px; left: 24px;
