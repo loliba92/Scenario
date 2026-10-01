@@ -459,7 +459,7 @@
 
     <div class="chart-box">
       <span class="chart-label">File d'attente éditoriale</span>
-      <p class="chart-lead">Prochain sujet en tête de chaque registre dans <code>sujets-prioritaires.md</code>, à date du 1 octobre 2026. Chaque registre a un jour fixe de la semaine (Sciences = vendredi, etc.), <strong>mais pas forcément cette semaine-ci</strong> : ce n'est pas une date engagée — un sujet « priorité absolue » ou une contrainte éditoriale peut faire passer un autre sujet avant celui-ci.</p>
+      <p class="chart-lead">Prochain sujet en tête de chaque registre dans <code>data/sujets.json</code>, à date du 1 octobre 2026. Chaque registre a un jour fixe de la semaine (Sciences = vendredi, etc.), <strong>mais pas forcément cette semaine-ci</strong> : ce n'est pas une date engagée — un sujet « priorité absolue » ou une contrainte éditoriale peut faire passer un autre sujet avant celui-ci.</p>
       <div style="display:flex;flex-wrap:wrap;gap:0 10px">
 <a href="preview.html" class="preview-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Voir le preview de demain</a>
 <a href="file-sujets.html" class="preview-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></svg>Voir la file de sujets</a>
@@ -508,8 +508,8 @@
         <li><span class="agenda-later-tag">Géopolitique</span>Les frontières redeviennent-elles plus dures pendant qu'elles s'effacent ailleurs&nbsp;?</li>
         <li><span class="agenda-later-tag">Carte blanche</span><span class="agenda-later-empty">rien en réserve après le sujet de la semaine — dépend des prochains ajouts</span></li>
         <li><span class="agenda-later-tag">Actu. française</span>Assurance chômage&nbsp;: le système peut-il tenir sans nouvelles coupes&nbsp;?</li>
-        <li><span class="agenda-later-tag">Économie &amp; finance</span>L'effondrement de la fécondité mondiale&nbsp;: la quasi-totalité de la planète passe sous le seuil de renouvellement des générations, bien plus vite que prévu il y a dix ans — le monde peut-il éviter un déclin démographique généralisé, ou la trajectoire basse de l'ONU est-elle déjà la réalité&nbsp;?</li>
-        <li><span class="agenda-later-tag">Sciences</span>Cancer&nbsp;: les nouveaux traitements et les premiers vaccins anticancer laissent espérer d'en guérir beaucoup plus — promesse réaliste ou espoir encore lointain&nbsp;?</li>
+        <li><span class="agenda-later-tag">Économie &amp; finance</span>L'effondrement de la fécondité mondiale&nbsp;: la quasi-totalité de la planète passe sous le seuil de…</li>
+        <li><span class="agenda-later-tag">Sciences</span>Cancer&nbsp;: les nouveaux traitements et les premiers vaccins anticancer laissent espérer d'en guérir beaucoup…</li>
         <li><span class="agenda-later-tag">Culture</span>Sommes-nous en train de passer d'une culture de l'œuvre à une culture de l'expérience&nbsp;?</li>
         <li><span class="agenda-later-tag">Sport</span>Pass Sport&nbsp;: l'aide à la pratique sportive des jeunes va-t-elle survivre aux prochains budgets&nbsp;?</li>
       </ul>
@@ -517,7 +517,7 @@
 
     <div class="chart-box">
       <span class="chart-label">🔥 Derniers sujets identifiés</span>
-      <p class="chart-lead">Sujets ajoutés automatiquement à <code>sujets-prioritaires.md</code> par la routine de veille (mardi/vendredi, voir <code>scripts/edition/generate_hot_topics.py</code>) — à valider avant de passer en priorité. Une issue GitHub récapitulative est aussi créée à chaque passage. Dernier passage : <!-- HOT-TOPICS:DATE_START -->18 septembre 2026<!-- HOT-TOPICS:DATE_END --><!-- HOT-TOPICS:STALE_START --> <strong style="color:var(--degrade)">⚠️ 13 jours sans passage — vérifier que la tâche cron-job.org pour ce workflow existe toujours</strong><!-- HOT-TOPICS:STALE_END -->.</p>
+      <p class="chart-lead">Sujets ajoutés automatiquement à <code>data/sujets.json</code> par la routine de veille (mardi/vendredi, voir <code>scripts/edition/generate_hot_topics.py</code>) — à valider avant de passer en priorité. Une issue GitHub récapitulative est aussi créée à chaque passage. Dernier passage : <!-- HOT-TOPICS:DATE_START -->18 septembre 2026<!-- HOT-TOPICS:DATE_END --><!-- HOT-TOPICS:STALE_START --> <strong style="color:var(--degrade)">⚠️ 13 jours sans passage — vérifier que la tâche cron-job.org pour ce workflow existe toujours</strong><!-- HOT-TOPICS:STALE_END -->.</p>
       <ul class="agenda-later-list">
         <!-- HOT-TOPICS:LIST_START -->
         <li><span class="agenda-later-tag">Carte blanche</span>Les Houthis prennent le contrôle de Bab el-Mandeb : un tiers du commerce maritime mondial passe-t-il sous contrôle hostile ? <span class="agenda-later-empty">(18/09)</span></li>
@@ -525,7 +525,6 @@
         <li><span class="agenda-later-tag">Économie &amp; finance</span>BCE et Fed face au choc pétrolier : les banques centrales peuvent-elles encore baisser les taux, ou la guerre au Moyen-Orient les force-t-elle à resserrer ? <span class="agenda-later-empty">(18/09)</span></li>
         <li><span class="agenda-later-tag">Culture</span>Ed Sheeran, Macklemore et la neutralité impossible : un artiste peut-il encore rester en dehors de la politique sans perdre son public ? <span class="agenda-later-empty">(18/09)</span></li>
         <li><span class="agenda-later-tag">Sport</span>Mbappé, Ceuta et le tee-shirt polémique : un sportif peut-il encore exprimer une opinion humanitaire sans être pris dans la guerre politique ? <span class="agenda-later-empty">(18/09)</span></li>
-        <li><span class="agenda-later-tag">Carte blanche</span>Les Houthis prennent le contrôle de Bab el-Mandeb : un tiers du commerce maritime mondial passe-t-il sous contrôle hostile ? <span class="agenda-later-empty">(18/09)</span></li>
         <li><span class="agenda-later-tag">Carte blanche</span>Élections législatives russes : Poutine peut-il encore verrouiller le pouvoir sans provoquer de fissure ? <span class="agenda-later-empty">(18/09)</span></li>
         <li><span class="agenda-later-tag">Actu. française</span>Carburants à 3 euros le litre, menaces russes : Macron réunit les candidats à l'Élysée — le gouvernement Lecornu peut-il éviter l'explosion sociale cet automne ? <span class="agenda-later-empty">(18/09)</span></li>
         <li><span class="agenda-later-tag">Économie &amp; finance</span>Pétrole à 100 dollars, deux détroits bloqués : l'économie mondiale peut-elle encaisser un nouveau choc énergétique ? <span class="agenda-later-empty">(18/09)</span></li>
@@ -536,7 +535,7 @@
 
     <div class="chart-box">
       <span class="chart-label">Autonomie par registre — sujets non cochés</span>
-      <p class="chart-lead">Nombre de sujets en attente (non cochés) par section de <code>sujets-prioritaires.md</code>, à date du 1 octobre 2026. Chaque registre n'est consommé qu'<strong>une fois par semaine</strong> (édition quotidienne, un registre fixe par jour) — le nombre de semaines d'autonomie s'en déduit directement. Trié par autonomie croissante (le plus en tension en premier). Régénéré chaque jour par un GitHub Action, comme le reste du dashboard.</p>
+      <p class="chart-lead">Nombre de sujets en attente (non cochés) par section de <code>data/sujets.json</code>, à date du 1 octobre 2026. Chaque registre n'est consommé qu'<strong>une fois par semaine</strong> (édition quotidienne, un registre fixe par jour) — le nombre de semaines d'autonomie s'en déduit directement. Trié par autonomie croissante (le plus en tension en premier). Régénéré chaque jour par un GitHub Action, comme le reste du dashboard.</p>
       <table class="rank-table">
         <thead><tr><th>Registre</th><th>Non cochés</th><th>Autonomie</th></tr></thead>
         <tbody>

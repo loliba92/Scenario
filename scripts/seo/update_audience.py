@@ -551,7 +551,7 @@ def build_agenda(md_text):
         else:
             cards.append({"day": day, "registre": label, "topic": "(section vide — auto-sélection le jour même)"})
         if len(pending) >= 2:
-            later.append({"label": label, "text": _nbsp(html.escape(strip_trailing_tag(pending[1]), quote=False)), "empty": False})
+            later.append({"label": label, "text": short_title(pending[1], max_len=110), "empty": False})
         else:
             later.append({"label": label, "text": "rien en réserve après le sujet de la semaine — dépend des prochains ajouts", "empty": True})
 
@@ -765,12 +765,12 @@ def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_la
     )
 
     html = re.sub(
-        r"(Prochain sujet en tête de chaque registre dans <code>sujets-prioritaires\.md</code>, à date du )[^.]+(\.)",
-        rf"\g<1>{fmt_long(end_date)}\g<2>", html, count=1,
+        r"(Prochain sujet en tête de chaque registre dans )<code>(?:sujets-prioritaires\.md|data/sujets\.json)</code>(, à date du )[^.]+(\.)",
+        rf"\g<1><code>data/sujets.json</code>\g<2>{fmt_long(end_date)}\g<3>", html, count=1,
     )
     html = re.sub(
-        r"(Nombre de sujets en attente \(non cochés\) par section de <code>sujets-prioritaires\.md</code>, à date du )[^.]+(\.)",
-        rf"\g<1>{fmt_long(end_date)}\g<2>", html, count=1,
+        r"(Nombre de sujets en attente \(non cochés\) par section de )<code>(?:sujets-prioritaires\.md|data/sujets\.json)</code>(, à date du )[^.]+(\.)",
+        rf"\g<1><code>data/sujets.json</code>\g<2>{fmt_long(end_date)}\g<3>", html, count=1,
     )
 
     # Garde-fou de fraîcheur pour hot-topics.yml — ce workflow n'a pas de
