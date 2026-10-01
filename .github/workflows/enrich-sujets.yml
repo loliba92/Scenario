@@ -7,7 +7,7 @@ name: Enrichir les dossiers de sujets
 # si elles figurent parmi les citations réelles, sujet dépassé signalé).
 #
 # À la migration (1er octobre 2026), aucun des 159 sujets n'avait de rationnel ni de
-# mots-clés ; on enrichit par lots bornés (20 par défaut), tête de file d'abord, pour que
+# mots-clés ; on enrichit par lots bornés (10 par défaut), tête de file d'abord, pour que
 # le coût reste prévisible. Relancer jusqu'à ce que « sujets.py incomplets » soit vide
 # (la page « file de sujets » du dashboard montre l'avancement).
 #
@@ -19,7 +19,7 @@ on:
       max:
         description: "Nombre maximum de sujets traités dans ce lot"
         required: false
-        default: "20"
+        default: "10"
       registre:
         description: "Clé de section à cibler (geopolitique, actualite_francaise, economie, sciences, culture, sport, carte_blanche) — vide = tous"
         required: false
@@ -51,7 +51,7 @@ jobs:
         run: |
           git config user.name "scenario-topics-bot"
           git config user.email "actions@users.noreply.github.com"
-          ARGS="--max ${MAX:-20}"
+          ARGS="--max ${MAX:-10}"
           if [ -n "$REGISTRE" ]; then ARGS="$ARGS --registre $REGISTRE"; fi
           for attempt in 1 2 3; do
             echo "=== Essai $attempt/3 ==="
