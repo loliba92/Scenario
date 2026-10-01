@@ -1,0 +1,74 @@
+name: Enrichir les dossiers de sujets
+
+# Complète les dossiers de sujets INCOMPLETS de data/sujets.json (contexte, rationnel,
+# mots-clés pour chercher les articles, pistes de sources) avec un modèle qui dispose
+# d'une recherche web — voir scripts/edition/enrich_sujets.py pour les garde-fous
+# (jamais d'écrasement d'un champ déjà écrit, jamais d'invention, URL gardées seulement
+# si elles figurent parmi les citations réelles, sujet dépassé signalé).
+#
+# À la migration (1er octobre 2026), aucun des 159 sujets n'avait de rationnel ni de
+# mots-clés ; on enrichit par lots bornés (6 par défaut), tête de file d'abord, pour que
+# le coût reste prévisible. Relancer jusqu'à ce que « sujets.py incomplets » soit vide
+# (la page « file de sujets » du dashboard montre l'avancement).
+#
+# Secret requis (déjà présent) : OPENROUTER_API_KEY
+
+on:
+  workflow_dispatch:
+    inputs:
+      max:
+        description: "Nombre maximum de sujets traités dans ce lot"
+        required: false
+        default: "6"
+      registre:
+        description: "Clé de section à cibler (geopolitique, actualite_francaise, economie, sciences, culture, sport, carte_blanche) — vide = tous"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  enrichir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer les dépendances
+        run: pip install beautifulsoup4
+
+      # Même discipline que hot-topics.yml : à chaque essai on repart d'un main fraîchement
+      # fetché (jamais de rebase d'un diff déjà calculé) et on relance le script dessus.
+      - name: Enrichir, committer et pousser (relance depuis zéro si le push est refusé)
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          MAX: ${{ github.event.inputs.max }}
+          REGISTRE: ${{ github.event.inputs.registre }}
+        run: |
+          git config user.name "scenario-topics-bot"
+          git config user.email "actions@users.noreply.github.com"
+          ARGS="--max ${MAX:-6}"
+          if [ -n "$REGISTRE" ]; then ARGS="$ARGS --registre $REGISTRE"; fi
+          for attempt in 1 2 3; do
+            echo "=== Essai $attempt/3 ==="
+            git fetch origin main
+            git reset --hard origin/main
+            python3 scripts/edition/enrich_sujets.py $ARGS
+            git add data/sujets.json sujets-prioritaires.md
+            if git diff --cached --quiet; then
+              echo "Aucun changement — rien à committer."
+              exit 0
+            fi
+            git commit -m "[sujets] dossiers enrichis (contexte, rationnel, mots-clés)"
+            if git push origin main; then
+              echo "Poussé avec succès (essai $attempt)."
+              exit 0
+            fi
+            echo "Push refusé (essai $attempt) — main a bougé entre-temps, on relance depuis un état frais."
+          done
+          echo "Échec après 3 essais — enrichissement non enregistré, relancer le workflow." >&2
+          exit 1

@@ -34,7 +34,7 @@ bienvenue.html          Redirection Buttondown "After confirming" (inscription v
 contact.html            Formulaire de contact (FormSubmit) + appel à la carte blanche du mardi.
 mentions-legales.html   Éditeur, hébergeur, propriété intellectuelle.
 politique-de-confidentialite.html  Données collectées (newsletter, contact, mesure d'audience), droits RGPD.
-sujets-prioritaires.md  File d'attente éditoriale (voir plus bas).
+sujets-prioritaires.md  Vue lisible de la file de sujets, générée depuis data/sujets.json (voir plus bas).
 assets/logo.svg          Logo (3 flèches divergentes = les 3 scénarios).
 assets/social/           Image de partage (Open Graph / Twitter Card), statique.
 assets/cards/            Images pour la publication Instagram (voir plus bas).
@@ -234,7 +234,7 @@ Ajouté depuis la routine quotidienne (voir `docs/routine-prompt.md`, étape
 technique 6) : chaque nouvelle édition doit inclure ce bloc dès sa publication,
 pas seulement le titre et les tags.
 
-## File éditoriale (`sujets-prioritaires.md`)
+## File éditoriale (`data/sujets.json` + vue `sujets-prioritaires.md`)
 
 Pilote le choix du sujet du jour. Avant l'auto-sélection, la routine lit ce
 fichier :
@@ -247,6 +247,83 @@ fichier :
 Chaque ligne peut porter une **problématique + 3 scénarios pré-cadrés** en
 commentaire HTML (`<!-- ... -->`), pour figer l'angle à l'avance sans que ça
 s'affiche sur le site.
+
+### Données structurées (depuis le 1er octobre 2026)
+
+La file est une **donnée structurée** : `data/sujets.json` (format v2) est la source de
+vérité, `sujets-prioritaires.md` en est la **vue lisible, générée** par
+`scripts/edition/sujets.py` (la routine du matin la lit encore ; le tableau de bord, le brief
+de secours et la veille passent par le JSON). Un sujet est un **dossier homogène**, conçu
+pour nourrir la production du brief :
+
+| Champ | Rôle |
+| --- | --- |
+| `id` | identifiant stable, cité par le brief (`sujet.origine_id`) |
+| `titre`, `question` | l'accroche (la question affichée) ; la problématique précise si elle diffère |
+| **`contexte`** | ce qui se passe : faits datés, chiffres, acteurs *(obligatoire, 80 caractères min.)* |
+| **`rationnel`** | pourquoi ce sujet, pourquoi maintenant, pourquoi l'issue est ouverte *(obligatoire, 60 min.)* |
+| **`mots_cles`** | mots et requêtes pour chercher les articles *(obligatoire, 3 min.)* |
+| `angle`, `a_verifier` | angle éditorial ; ce qu'il reste à vérifier avant rédaction |
+| `scenarios` | brouillon des 3 issues (`favorable`, `stable`, `degrade`) |
+| `echeance` | `{date, raison}` quand une date butoir change l'intérêt du sujet |
+| `sources` | pistes `{titre, url}` (une URL n'est gardée que si la recherche l'a réellement citée) |
+| `tag`, `origine` | étiquette ; `veille` ou `utilisateur` |
+| `statut`, `validation` | `a_traiter`/`publie` (la case `[ ]`/`[x]`) ; `valide`/`a_valider` (le 🔍) |
+| `ajoute_le`, `publie_le`, `edition`, `enrichi_le` | suivi des dates |
+| `note` | méta-information éditoriale uniquement (d'où vient le sujet, pourquoi reclassé…) |
+
+Un dossier est **complet** quand `question` (le titre en est une, ou `question` est renseigné),
+`contexte`, `rationnel` et `mots_cles` sont présents (`sujets.manquants()`).
+
+**Pourquoi.** Le lien entre une édition publiée et sa ligne était une phrase recopiée
+(`sujet.origine_prioritaire`) ; un caractère de différence (puce « - [ ] » ou tag final
+recopiés) et la case n'était jamais cochée — « pop culture » (26 septembre) et
+« Bitcoin » (1er octobre) sont restés « à traiter », donc revenus en tête de file au
+risque d'être republiés. Et les explications variaient d'un sujet à l'autre (54 des 96
+sujets à traiter n'en avaient aucune). Désormais l'édition cite l'`id` et le statut se met
+à jour **par identifiant** (repli sur le texte) ; chaque sujet a les mêmes champs.
+
+**Qui écrit quoi.**
+- **Veille** (`generate_hot_topics.py`, workflow `hot-topics.yml`) : produit un dossier
+  complet (contexte, rationnel, mots-clés, sources, scénarios, échéance) ; un dossier sans
+  contexte ou sans rationnel n'entre pas dans la file ; les nouveaux sujets sont `a_valider`.
+- **Enrichissement** (`enrich_sujets.py`, workflow `enrich-sujets.yml`, déclenchement
+  manuel) : complète par lots de 6, tête de file d'abord, les champs absents des sujets
+  incomplets, avec recherche web — jamais d'écrasement d'un champ déjà écrit, jamais
+  d'invention, signale un sujet « peut-être dépassé » sans le retirer.
+- **Brief** (`generate_fallback_brief.py`) : le script choisit lui-même le sujet du jour
+  (`sujets.sujet_du_jour()` : priorité absolue, sinon registre du jour ; éligible = à
+  traiter et validé) et donne son **dossier complet** au modèle, mots-clés compris, avec
+  la consigne de traiter ses faits comme des pistes à vérifier. La routine interactive
+  fait la même chose avec `python scripts/edition/sujets.py prochain`.
+- **Cochage après publication** (`generate_post_edition.py`) : par `sujet.origine_id`.
+- **Un humain** modifie le JSON **ou** la vue Markdown : l'empreinte `meta.md_sha256` dit
+  lequel a changé et la modification est reprise dans l'autre (au prochain passage d'un
+  script, ou par `sujets.yml`). Les deux changés en même temps : conflit, signalé. Un
+  identifiant « volé » (ligne insérée entre un sujet et son `id:`) est détecté ; une simple
+  correction de texte garde son identifiant.
+
+**Page cachée.** `file-sujets.html` (noindex, hors sitemap, derrière le même code que le
+dashboard ; bouton « Voir la file de sujets » sur le dashboard) affiche tous les dossiers
+en lecture seule : résumé par registre, complétude, filtres, recherche, scénarios, mots-clés
+cliquables (Google Actualités), copie du dossier ou de l'identifiant.
+
+**Contrôles.** `python scripts/edition/sujets.py check` (identifiants uniques, types des
+champs, aucun sujet « à traiter » dont le titre est déjà celui d'une édition publiée,
+`origine_id` des briefs existant) et les tests (`scripts/edition/test_sujets.py`) tournent en
+CI (`.github/workflows/sujets.yml`). `sujets.py stats` / `incomplets` donnent le suivi.
+
+**Pourquoi pas une base de données ?** Le site est statique (GitHub Pages) et tout est écrit
+par des GitHub Actions qui committent des fichiers : un fichier versionné donne l'historique,
+la revue (`git diff`) et zéro service à maintenir ; 160 sujets tiennent dans 250 Ko. Une base
+(SQLite committé : diffs binaires illisibles et conflits entre robots ; base hébergée : clés,
+réseau, panne possible) n'apporterait rien tant qu'il n'y a ni milliers de sujets ni écritures
+simultanées. L'accès passe par un seul module (`sujets.py`) : le stockage pourra changer sans
+toucher aux scripts.
+
+**Limites connues.** À la migration, seuls 10 des 63 sujets publiés ont pu être reliés à leur
+édition (`publie_le`) ; aucun sujet n'avait de `rationnel` ni de `mots_cles` — d'où le workflow
+d'enrichissement.
 
 **Règle d'or**, rappelée en tête du fichier : tout sujet doit être une
 problématique à **issue ouverte**, tranchable en 3 scénarios chiffrés — jamais

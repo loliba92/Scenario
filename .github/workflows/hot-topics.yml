@@ -82,7 +82,7 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
             python3 scripts/edition/generate_hot_topics.py
-            git add sujets-prioritaires.md dashboard.html assets/data/hot-topics-history.json
+            git add sujets-prioritaires.md data/sujets.json dashboard.html assets/data/hot-topics-history.json
             if git diff --cached --quiet; then
               echo "Aucun changement — rien à committer."
               exit 0

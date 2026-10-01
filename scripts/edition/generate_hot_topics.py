@@ -25,7 +25,7 @@ rien n'empêchait Étape 0 de piocher une proposition non revue dès son tour
 suivant, parfois le lendemain (cas réel du 19 septembre 2026, voir
 docs/ARCHITECTURE.md — un sujet ajouté la veille a été retenu tel quel,
 sans validation). Chaque entrée écrite par ce script est désormais préfixée
-`🔍` (voir format_entry()) — docs/routine-prompt.md § Étape 0 l'ignore
+`🔍` (voir build_note() et sujets.ajouter()) — docs/routine-prompt.md § Étape 0 l'ignore
 explicitement tant qu'un humain ne l'a pas retiré à la main.
 
 Deux échappatoires supplémentaires, pour un sujet encore plus urgent que
@@ -78,6 +78,9 @@ HOT_TOPICS_MODEL = "deepseek/deepseek-v4-flash"
 
 ROOT = Path(__file__).resolve().parents[2]
 SUJETS_PRIORITAIRES = ROOT / "sujets-prioritaires.md"
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import sujets as sj  # noqa: E402  (file de sujets structurée, voir scripts/edition/sujets.py)
 SUJETS_A_SUIVRE = ROOT / "docs" / "sujets-a-suivre.md"
 ARCHIVES_DIR = ROOT / "archives"
 DASHBOARD = ROOT / "dashboard.html"
@@ -176,23 +179,27 @@ def find_near_duplicate(candidate_title, known_titles):
     return None
 
 
-def titles_in_section(md_text, heading):
-    """Titres déjà en file (coché ou non) dans UNE section — sert d'anti-
-    doublon minimal donné au modèle. Pas les commentaires HTML (trop
-    lourd pour le prompt), juste la ligne visible."""
-    pattern = re.compile(
-        r"^" + re.escape(heading) + r"\s*$(.*?)(?=^## |\Z)", re.M | re.S,
-    )
-    m = pattern.search(md_text)
-    if not m:
-        raise HotTopicsError(f"section introuvable dans sujets-prioritaires.md : {heading!r}")
-    titles = re.findall(r"^- \[[ x]\] (.+)$", m.group(1), re.M)
-    return [t.strip() for t in titles]
+def titles_in_section(data, heading):
+    """Titres déjà en file (publié ou non) dans UNE section — sert d'anti-
+    doublon minimal donné au modèle. Même représentation qu'avant la file
+    structurée : texte, tag final entre crochets, marque 🔍 si non validé. Pas
+    les notes (trop lourdes pour le prompt)."""
+    titre = heading[3:].strip()
+    sec = next((x for x in data["sections"] if x["titre"] == titre), None)
+    if sec is None:
+        raise HotTopicsError(f"section introuvable dans data/sujets.json : {heading!r}")
+    out = []
+    for e in sec["entrees"]:
+        if e["type"] != "sujet":
+            continue
+        t = e["titre"] + (f" [{e['tag']}]" if e.get("tag") else "")
+        out.append((f"{sj.MARQUE_A_VALIDER} " if e["validation"] == "a_valider" else "") + t)
+    return out
 
 
-def parse_existing_titles(md_text):
+def parse_existing_titles(data):
     """Même chose que titles_in_section(), pour chacun des 6 registres."""
-    return {key: titles_in_section(md_text, heading) for key, heading in REGISTRE_HEADINGS.items()}
+    return {key: titles_in_section(data, heading) for key, heading in REGISTRE_HEADINGS.items()}
 
 
 def recent_journal_titles(today):
@@ -277,14 +284,31 @@ def build_prompt(existing_by_registre, priorite_absolue_titles, carte_blanche_ti
         "",
         f"Date d'aujourd'hui : {today.isoformat()}.",
         "",
-        "Pour chaque sujet retenu :",
-        "- 'accroche' : la question complète telle qu'elle apparaîtra dans le fichier "
-        "(même style que les exemples existants, percutante mais précise).",
-        "- 'tag' : 1-3 mots-clés courts entre crochets, ex. 'géopolitique & Arctique'.",
-        "- 'contexte' : un paragraphe dense avec faits datés, chiffres réels, et "
-        "2-4 sources (nom + URL réelle, jamais inventée) — même niveau de détail "
-        "que les entrées déjà présentes (déclencheur, contexte de fond, ce qui reste "
-        "à vérifier avant rédaction).",
+        "Pour chaque sujet retenu, renvoie un DOSSIER COMPLET et HOMOGÈNE — mêmes "
+        "champs, même niveau de détail pour tous, jamais un champ bâclé ou laissé "
+        "vide. Ce dossier servira directement à produire l'édition (il guidera la "
+        "recherche d'articles), il doit donc être clair pour quelqu'un qui n'a PAS "
+        "suivi l'actualité :",
+        "- 'accroche' (obligatoire) : le titre, sous forme de question percutante mais précise.",
+        "- 'question' (optionnel) : la problématique à issue ouverte, en UNE phrase "
+        "précise, seulement si elle diffère de l'accroche (sinon omets-la).",
+        "- 'tag' : 1-3 mots-clés courts, ex. 'géopolitique & Arctique'.",
+        "- 'contexte' (obligatoire, 3 à 5 phrases, 250 caractères minimum) : CE QUI SE "
+        "PASSE — le déclencheur daté (jour, mois), les faits établis, les chiffres "
+        "réels, les acteurs. Des FAITS, pas d'opinion ni de prédiction.",
+        "- 'rationnel' (obligatoire, 2 à 4 phrases, 150 caractères minimum) : POURQUOI "
+        "CE SUJET — (1) pourquoi maintenant, (2) pourquoi l'issue est réellement "
+        "OUVERTE (quelles forces contraires, quelle incertitude), (3) ce qui est en "
+        "jeu pour un lecteur français. Ne répète pas le contexte.",
+        "- 'mots_cles' (obligatoire, 4 à 8) : requêtes et mots précis pour retrouver "
+        "les bons articles de presse — noms propres, lieux, chiffres clés, termes "
+        "techniques ; en français et, quand c'est utile, en anglais.",
+        "- 'sources' (2 à 4) : liste de {\"titre\":\"...\", \"url\":\"...\"} avec l'URL EXACTE "
+        "d'un résultat de ta recherche web — jamais une URL reconstituée ou inventée.",
+        "- 'a_verifier' (optionnel) : ce qu'il reste à vérifier ou chiffrer avant rédaction.",
+        "- 'echeance' (optionnel) : {\"date\":\"AAAA-MM-JJ\",\"raison\":\"...\"} SEULEMENT s'il "
+        "existe une vraie date butoir (vote, sommet, échéance légale) qui change l'intérêt "
+        "du sujet.",
         "- 'scenarios' : un brouillon des 3 issues (favorable/stable/dégradé), "
         "2-3 phrases chacune.",
         "- 'urgence' (optionnel, 'normal' par défaut — l'immense majorité des cas) : "
@@ -302,7 +326,9 @@ def build_prompt(existing_by_registre, priorite_absolue_titles, carte_blanche_ti
         "de doute entre 'carte_blanche' et 'priorite_absolue', choisis 'carte_blanche'.",
         "",
         "Renvoie un JSON unique : "
-        '{"geopolitique": [{"accroche":"...", "tag":"...", "contexte":"...", '
+        '{"geopolitique": [{"accroche":"...", "question":"...", "tag":"...", "contexte":"...", '
+        '"rationnel":"...", "mots_cles":["..."], "sources":[{"titre":"...","url":"..."}], '
+        '"a_verifier":"...", "echeance":{"date":"AAAA-MM-JJ","raison":"..."}, '
         '"urgence":"normal", "scenarios":{"favorable":"...","stable":"...","degrade":"..."}}], '
         '"actualite_francaise": [...], "economie": [...], "sciences": [...], '
         '"culture": [...], "sport": [...]} — liste vide pour un registre sans rien de solide.',
@@ -310,64 +336,80 @@ def build_prompt(existing_by_registre, priorite_absolue_titles, carte_blanche_ti
     return "\n".join(lines)
 
 
-def format_entry(entry, today, origin_label=None):
-    accroche = entry["accroche"].strip()
-    tag = entry.get("tag", "").strip()
-    contexte = entry.get("contexte", "").strip()
-    scenarios = entry.get("scenarios") or {}
-    # Préfixe 🔍 : marque une proposition automatique pas encore validée par
-    # l'utilisateur — docs/routine-prompt.md § Étape 0 l'ignore explicitement
-    # tant qu'il n'est pas retiré à la main. Sans ce marqueur, l'entrée était
-    # indiscernable d'un sujet déjà validé et pouvait être piochée par
-    # l'auto-sélection dès son tour suivant, sans jamais passer par la revue
-    # humaine que ce script est censé préparer (voir incident du 19 septembre
-    # 2026, docs/ARCHITECTURE.md).
-    title_line = f"- [ ] 🔍 {accroche}"
-    if tag:
-        title_line += f" [{tag}]"
-    comment_parts = [f"Ajouté automatiquement le {today.isoformat()} (recherche OpenRouter, "
-                      "voir scripts/edition/generate_hot_topics.py) — à valider avant de "
-                      "passer en priorité."]
+def build_note(entry, today, origin_label=None):
+    """Note de MÉTHODE d'une proposition automatique : d'où elle vient. Tout le fond
+    (contexte, rationnel, mots-clés, scénarios, sources) a ses propres champs dans le
+    dossier — la note n'en contient plus."""
+    parts = [f"Ajouté automatiquement le {today.isoformat()} (recherche OpenRouter, "
+             "voir scripts/edition/generate_hot_topics.py) — à valider avant de "
+             "passer en priorité."]
     if origin_label:
-        comment_parts.append(f"Repéré en veille sur le registre {origin_label}, "
-                              "remonté ici pour son urgence.")
-    if contexte:
-        comment_parts.append(contexte)
-    if scenarios:
-        comment_parts.append(
-            "→ 3 scénarios (brouillon) : favorable = {favorable} ; stable = {stable} ; "
-            "dégradé = {degrade}".format(
-                favorable=scenarios.get("favorable", "?"),
-                stable=scenarios.get("stable", "?"),
-                degrade=scenarios.get("degrade", "?"),
-            )
-        )
-    comment = "  <!-- " + " ".join(comment_parts) + " -->\n"
-    return title_line + "\n" + comment
+        parts.append(f"Repéré en veille sur le registre {origin_label}, "
+                     "remonté ici pour son urgence.")
+    return " ".join(parts)
 
 
-def insert_entries(md_text, heading, entries, today):
+def _texte_ou_none(v):
+    v = (v or "").strip() if isinstance(v, str) else ""
+    return v or None
+
+
+def dossier_depuis_reponse(entry, cited_urls=None):
+    """Champs du dossier (format de sujets.py) à partir d'une proposition du modèle,
+    nettoyés et validés. Les sources n'ont une URL que si elle figure parmi les
+    citations réelles de la recherche (`cited_urls`), jamais une URL reconstituée."""
+    cited = set(cited_urls or [])
+    mots = []
+    for k in entry.get("mots_cles") or []:
+        k = str(k).strip()
+        if k and k.lower() not in {m.lower() for m in mots}:
+            mots.append(k)
+    sc = entry.get("scenarios") or {}
+    scenarios = ({"favorable": str(sc["favorable"]).strip(), "stable": str(sc["stable"]).strip(),
+                  "degrade": str(sc["degrade"]).strip()}
+                 if all(isinstance(sc.get(k), str) and sc[k].strip() for k in ("favorable", "stable", "degrade")) else None)
+    ec = entry.get("echeance")
+    echeance = ({"date": ec["date"], "raison": str(ec.get("raison") or "").strip()}
+                if isinstance(ec, dict) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(ec.get("date", ""))) else None)
+    sources = []
+    for src in entry.get("sources") or []:
+        if not isinstance(src, dict) or not str(src.get("titre") or "").strip():
+            continue
+        url = str(src.get("url") or "").strip()
+        sources.append({"titre": str(src["titre"]).strip(), "url": url if url in cited else None})
+    return {
+        "question": _texte_ou_none(entry.get("question")),
+        "contexte": _texte_ou_none(entry.get("contexte")),
+        "rationnel": _texte_ou_none(entry.get("rationnel")),
+        "angle": _texte_ou_none(entry.get("angle")),
+        "a_verifier": _texte_ou_none(entry.get("a_verifier")),
+        "mots_cles": mots, "scenarios": scenarios, "echeance": echeance, "sources": sources,
+    }
+
+
+def insert_entries(data, heading, entries, today):
     """`entries` : liste de (entry, origin_label) — origin_label est None
     pour un ajout normal (registre = section cible), ou le libellé du
     registre d'origine quand l'entrée est remontée en Carte blanche/
     Priorité absolue.
 
-    Insère EN HAUT de la section (juste après l'en-tête et son
-    commentaire d'intro, avant le premier sujet déjà en file) — voir la
-    justification dans le docstring du module. Si la section est
-    entièrement vide (aucun sujet), retombe en fin de section, ce qui
-    revient au même point d'insertion."""
+    Ajoute EN HAUT de la section (avant le premier sujet déjà en file, après
+    son commentaire d'intro), dans l'ordre reçu — voir la justification dans le
+    docstring du module. Chaque ajout est « à valider » (🔍 dans la vue
+    Markdown) : docs/routine-prompt.md § Étape 0 l'ignore tant qu'un humain ne
+    l'a pas validé (incident du 19 septembre 2026, docs/ARCHITECTURE.md)."""
     if not entries:
-        return md_text
-    pattern = re.compile(r"^" + re.escape(heading) + r"\s*$(.*?)(?=^## |\Z)", re.M | re.S)
-    m = pattern.search(md_text)
-    if not m:
+        return
+    titre = heading[3:].strip()
+    sec = next((x for x in data["sections"] if x["titre"] == titre), None)
+    if sec is None:
         raise HotTopicsError(f"section introuvable pour insertion : {heading!r}")
-    section_body = m.group(1)
-    first_entry = re.search(r"^- \[[ x]\] ", section_body, re.M)
-    insertion_point = m.start(1) + first_entry.start() if first_entry else m.end(1)
-    block = "".join(format_entry(e, today, origin_label) for e, origin_label in entries)
-    return md_text[:insertion_point] + block + md_text[insertion_point:]
+    # On insère un à un en tête de section : dans l'ordre inverse pour garder l'ordre reçu.
+    for e, origin_label in reversed(entries):
+        champs = dossier_depuis_reponse(e, e.get("_cited_urls"))
+        sj.ajouter(data, sec["cle"], e["accroche"].strip(), tag=(e.get("tag") or "").strip() or None,
+                   validation="a_valider", origine="veille", ajoute_le=today.isoformat(),
+                   note=build_note(e, today, origin_label), **champs)
 
 
 def write_run_summary(records, today):
@@ -459,17 +501,23 @@ def main():
         return 1
 
     today = date.today()
-    md_text = SUJETS_PRIORITAIRES.read_text(encoding="utf-8")
-    existing = parse_existing_titles(md_text)
-    priorite_absolue_titles = titles_in_section(md_text, PRIORITE_ABSOLUE_HEADING)
-    carte_blanche_titles = titles_in_section(md_text, CARTE_BLANCHE_HEADING)
+    try:
+        data, sync_action = sj.load_synced()
+    except sj.SujetsError as e:
+        print(f"ERREUR : {e}", file=sys.stderr)
+        return 1
+    if sync_action != "ok":
+        print(f"[sujets] modification manuelle reprise ({sync_action})")
+    existing = parse_existing_titles(data)
+    priorite_absolue_titles = titles_in_section(data, PRIORITE_ABSOLUE_HEADING)
+    carte_blanche_titles = titles_in_section(data, CARTE_BLANCHE_HEADING)
     recent = recent_journal_titles(today)
 
     prompt = build_prompt(existing, priorite_absolue_titles, carte_blanche_titles, recent, today)
     tools = [{"type": "openrouter:web_search", "parameters": {"engine": "auto", "max_results": 8}}]
     try:
         content, usage = call_openrouter(
-            prompt, args.model, api_key, temperature=0.4, max_tokens=6000, timeout=180, tools=tools,
+            prompt, args.model, api_key, temperature=0.4, max_tokens=12000, timeout=240, tools=tools,
         )
     except GenerationError as e:
         print(f"ERREUR OpenRouter : {e}", file=sys.stderr)
@@ -500,7 +548,15 @@ def main():
     carte_blanche_count = 0
     for key, heading in REGISTRE_HEADINGS.items():
         entries = (result.get(key) or [])[:MAX_PER_REGISTRE]
-        entries = [e for e in entries if e.get("accroche") and e.get("contexte")]
+        # Le contexte et le rationnel sont obligatoires : sans eux le sujet n'est pas
+        # exploitable (ni compréhensible) pour produire le brief. Un dossier sans mots-clés
+        # entre quand même, signalé « incomplet » (le workflow d'enrichissement le complétera).
+        avant = len(entries)
+        entries = [e for e in entries if e.get("accroche")
+                   and len(str(e.get("contexte") or "").strip()) >= sj.MIN_CONTEXTE
+                   and len(str(e.get("rationnel") or "").strip()) >= sj.MIN_RATIONNEL]
+        if avant - len(entries):
+            print(f"{key} : {avant - len(entries)} proposition(s) écartée(s) — contexte ou rationnel manquant/trop court")
         if not entries:
             continue
         print(f"{key} : {len(entries)} sujet(s) proposé(s)")
@@ -538,6 +594,7 @@ def main():
 
             if not args.dry_run:
                 origin_label = REGISTRE_LABELS[key] if redirected else None
+                e["_cited_urls"] = usage.get("cited_urls") or []
                 entries_by_heading.setdefault(target_heading, []).append((e, origin_label))
                 added_records.append({
                     "date": today.isoformat(),
@@ -558,13 +615,13 @@ def main():
         return 0
 
     for target_heading, heading_entries in entries_by_heading.items():
-        md_text = insert_entries(md_text, target_heading, heading_entries, today)
+        insert_entries(data, target_heading, heading_entries, today)
 
-    SUJETS_PRIORITAIRES.write_text(md_text, encoding="utf-8")
+    sj.save_both(data)
     write_run_summary(added_records, today)
     history = update_hot_topics_history(added_records)
     update_dashboard_card(today, history)
-    print(f"\n{total} sujet(s) ajouté(s) à sujets-prioritaires.md{dup_suffix} "
+    print(f"\n{total} sujet(s) ajouté(s) à la file de sujets{dup_suffix} "
           f"(coût OpenRouter ≈ {usage.get('cost', '?')} $).")
     return 0
 

@@ -492,6 +492,12 @@ def strip_trailing_tag(full_text):
     return re.sub(r"\s*\[[^\]]+\]\s*$", "", full_text).strip()
 
 
+def _nbsp(texte):
+    """Espace insécable avant « ? ! : ; » : un signe de ponctuation ne passe plus seul à la ligne
+    (même règle que build_html.fr_typo, retour utilisateur du 1er octobre 2026)."""
+    return re.sub(r" (?=[?!:;»])", "&nbsp;", texte)
+
+
 def short_title(full_text, max_len=70):
     """Troncature heuristique pour une carte d'agenda (usage interne
     seulement, voir docstring du module) : coupe au premier "?" ou ". "
@@ -501,14 +507,14 @@ def short_title(full_text, max_len=70):
     window = text[: max_len + 20]
     qmark = window.find("?")
     if 0 < qmark <= max_len + 15:
-        return html.escape(text[: qmark + 1], quote=False)
+        return _nbsp(html.escape(text[: qmark + 1], quote=False))
     dot = window.find(". ")
     if 0 < dot <= max_len:
-        return html.escape(text[: dot + 1], quote=False)
+        return _nbsp(html.escape(text[: dot + 1], quote=False))
     if len(text) <= max_len:
-        return html.escape(text, quote=False)
+        return _nbsp(html.escape(text, quote=False))
     cut = text[:max_len].rsplit(" ", 1)[0].rstrip(",;:.")
-    return html.escape(f"{cut}…", quote=False)
+    return _nbsp(html.escape(f"{cut}…", quote=False))
 
 
 # Jour de la semaine associé à chaque registre (REGISTRES est dans l'ordre
@@ -545,7 +551,7 @@ def build_agenda(md_text):
         else:
             cards.append({"day": day, "registre": label, "topic": "(section vide — auto-sélection le jour même)"})
         if len(pending) >= 2:
-            later.append({"label": label, "text": html.escape(strip_trailing_tag(pending[1]), quote=False), "empty": False})
+            later.append({"label": label, "text": _nbsp(html.escape(strip_trailing_tag(pending[1]), quote=False)), "empty": False})
         else:
             later.append({"label": label, "text": "rien en réserve après le sujet de la semaine — dépend des prochains ajouts", "empty": True})
 
@@ -995,7 +1001,11 @@ def main():
     archive_dates = get_archive_dates()
     kpis = compute_kpis(per_day, cumulative, end_date, archive_dates)
 
-    md_text = SUJETS_PRIORITAIRES.read_text(encoding="utf-8")
+    # Source de vérité : data/sujets.json (la vue Markdown n'en est qu'un rendu). On
+    # redonne à build_agenda() le même texte qu'avant, rendu depuis les données.
+    sys.path.insert(0, str(ROOT / "scripts" / "edition"))
+    import sujets as sj
+    md_text = sj.render_md(json.loads((ROOT / "data" / "sujets.json").read_text(encoding="utf-8")))
     agenda_cards, agenda_later, priority_line = build_agenda(md_text)
     autonomy_rows = build_autonomy_table(md_text)
 
