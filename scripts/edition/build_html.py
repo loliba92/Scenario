@@ -962,7 +962,7 @@ def build_home_cards(articles, lang="fr", section_id="dernieres-editions",
         f'''      <li><a href="archives/{a.get("edition_id", a["date_str"])}.html" class="related-articles-item">
         <img class="related-articles-image" src="{a["image_url"]}" alt="{a["title"]}">
         <div class="related-articles-content">
-          <span class="related-articles-date">{(a["domain"] + " · ") if a.get("domain") else ""}{_format_date_short(a["date_str"], lang)}</span>
+          <span class="related-articles-date">{(display_domain(a["domain"]) + " · ") if a.get("domain") else ""}{_format_date_short(a["date_str"], lang)}</span>
           <span class="related-articles-title">{a["title"]}</span>
         </div>
       </a></li>'''
@@ -978,6 +978,21 @@ def build_home_cards(articles, lang="fr", section_id="dernieres-editions",
     {cross_link_html}
   </div>
 </section>'''
+
+
+# Libellé AFFICHÉ (badge des cartes, ligne de date, lien « Voir tous les
+# sujets ») pour les domaines dont le texte brut d'article:section est
+# disgracieux : sans accent, sur deux mots, donc coupé en fin de ligne sur
+# mobile (retour utilisateur du 1er octobre 2026 : « Economie Mondiale »).
+# Affichage seulement : DOMAIN_THEME_SLUGS et la traduction EN restent
+# clés sur la valeur brute, jamais sur ce libellé.
+DOMAIN_DISPLAY = {
+    "Economie Mondiale": "Économie",
+}
+
+
+def display_domain(domain):
+    return DOMAIN_DISPLAY.get(domain, domain)
 
 
 # Correspondance domaine (article:section, texte libre — voir
@@ -1038,7 +1053,7 @@ def build_featured_article(article, lang="fr", theme_link_base=None):
     if theme_link_base and article.get("domain"):
         slug = DOMAIN_THEME_SLUGS.get(article["domain"])
         if slug:
-            domain_link_html = f'\n    <a class="cross-link" href="{theme_link_base}{slug}.html">Voir tous les sujets « {article["domain"]} » →</a>'
+            domain_link_html = f'\n    <a class="cross-link" href="{theme_link_base}{slug}.html">Voir tous les sujets «&nbsp;{display_domain(article["domain"])}&nbsp;»&nbsp;→</a>'
     question_html = (
         f'\n        <p class="featured-article-question">{article["question"]}</p>'
         if article.get("question") else ""
@@ -1051,7 +1066,7 @@ def build_featured_article(article, lang="fr", theme_link_base=None):
         <img class="featured-article-image" src="{article["image_url"]}" alt="{article["title"]}">
       </div>
       <div>
-        <span class="featured-article-date">{(article["domain"] + " · ") if article.get("domain") else ""}{_format_date_short(article["date_str"], lang)}</span>
+        <span class="featured-article-date">{(display_domain(article["domain"]) + " · ") if article.get("domain") else ""}{_format_date_short(article["date_str"], lang)}</span>
         <h2 class="featured-article-title">{article["title"]}</h2>{question_html}
         <span class="featured-article-cta">Lire l'édition →</span>
       </div>
@@ -1328,7 +1343,7 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
     # cassé — même dégradation silencieuse que côté home.
     domain_label = THEME_SLUG_LABELS.get(brief["sujet"]["domain"])
     theme_link_html = (
-        f'    <p><a class="cross-link" href="../themes/{brief["sujet"]["domain"]}.html">Voir tous les sujets « {domain_label} » →</a></p>\n'
+        f'    <p><a class="cross-link" href="../themes/{brief["sujet"]["domain"]}.html">Voir tous les sujets «&nbsp;{domain_label}&nbsp;»&nbsp;→</a></p>\n'
         if domain_label else ""
     )
     hero = build_hero(content, date_str, photo=photo, graphique_dc_chart=brief.get("graphique_dc_chart"),
