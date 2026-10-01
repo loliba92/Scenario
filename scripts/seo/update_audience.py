@@ -472,17 +472,41 @@ def already_published(item_text):
     return any(n == t or n.startswith(t + " ") for t in published_titles())
 
 
-def unchecked_items(section_text):
-    """Sujets non cochés d'une section, SAUF ceux qui sont déjà une édition
-    publiée : une case oubliée ne doit pas faire réapparaître un sujet déjà
-    paru comme « prochain sujet » (constaté le 1er octobre 2026 : « pop culture »,
-    publié le 26 septembre, et « Bitcoin », publié le jour même)."""
-    items = []
-    for line in section_text.splitlines():
+# Marque des sujets « à valider » dans la vue Markdown (sujets.MARQUE_A_VALIDER) : tant qu'ils ne
+# sont pas validés, le brief du jour ne les prend pas (sujets.eligible).
+MARQUE_A_VALIDER = "🔍"
+
+
+def unchecked_entries(section_text, valides_seulement=False):
+    """(texte, identifiant) des sujets non cochés d'une section, SAUF ceux qui sont déjà une
+    édition publiée : une case oubliée ne doit pas faire réapparaître un sujet déjà paru comme
+    « prochain sujet » (constaté le 1er octobre 2026 : « pop culture », publié le 26 septembre,
+    et « Bitcoin », publié le jour même). L'identifiant vient du commentaire `<!-- id: … -->`
+    qui suit la ligne dans la vue Markdown (None s'il manque). `valides_seulement` écarte les
+    sujets encore « à valider » (🔍) : ce ne sont pas eux que le brief prendra."""
+    lignes = section_text.splitlines()
+    out = []
+    for i, line in enumerate(lignes):
         m = re.match(r"^- \[ \] (.+)$", line.strip())
+        if m and valides_seulement and m.group(1).startswith(MARQUE_A_VALIDER):
+            continue
         if m and not already_published(m.group(1)):
-            items.append(m.group(1).strip())
-    return items
+            ident = None
+            if i + 1 < len(lignes):
+                mi = re.match(r"^\s*<!-- id: (\S+) -->\s*$", lignes[i + 1])
+                ident = mi.group(1) if mi else None
+            out.append((m.group(1).strip(), ident))
+    return out
+
+
+def unchecked_items(section_text):
+    """Textes des sujets non cochés d'une section (voir unchecked_entries)."""
+    return [texte for texte, _ in unchecked_entries(section_text)]
+
+
+def _attr_id(ident):
+    """Attribut HTML data-sujet-id (pour les boutons « Copier » du dashboard), vide si pas d'id."""
+    return f' data-sujet-id="{html.escape(ident, quote=True)}"' if ident else ""
 
 
 def strip_trailing_tag(full_text):
@@ -544,14 +568,15 @@ def build_agenda(md_text):
 
     for i, (heading, label) in enumerate(REGISTRES):
         section = parse_section(md_text, heading)
-        pending = unchecked_items(section)
+        pending_all = unchecked_entries(section, valides_seulement=True)
+        pending = [t for t, _ in pending_all]
         day = JOURS_SEMAINE[i]
         if pending:
-            cards.append({"day": day, "registre": label, "topic": short_title(pending[0])})
+            cards.append({"day": day, "registre": label, "topic": short_title(pending[0]), "id": pending_all[0][1]})
         else:
             cards.append({"day": day, "registre": label, "topic": "(section vide — auto-sélection le jour même)"})
         if len(pending) >= 2:
-            later.append({"label": label, "text": short_title(pending[1], max_len=110), "empty": False})
+            later.append({"label": label, "text": short_title(pending[1], max_len=110), "empty": False, "id": pending_all[1][1]})
         else:
             later.append({"label": label, "text": "rien en réserve après le sujet de la semaine — dépend des prochains ajouts", "empty": True})
 
@@ -715,7 +740,7 @@ def render_queue_sections(html, agenda_cards, agenda_later, priority_line, auton
 
     # Agenda de la semaine + Semaine d'après
     cards_html = "\n".join(
-        f'        <div class="agenda-card">\n'
+        f'        <div class="agenda-card"{_attr_id(c.get("id"))}>\n'
         f'          <p class="agenda-day">{c["day"]}</p>\n'
         f'          <p class="agenda-registre">{c["registre"]}</p>\n'
         f'          <p class="agenda-topic">{c["topic"]}</p>\n'
@@ -742,7 +767,7 @@ def render_queue_sections(html, agenda_cards, agenda_later, priority_line, auton
         (f'        <li><span class="agenda-later-tag">{it["label"]}</span>'
          f'<span class="agenda-later-empty">{it["text"]}</span></li>')
         if it["empty"] else
-        (f'        <li><span class="agenda-later-tag">{it["label"]}</span>{it["text"]}</li>')
+        (f'        <li{_attr_id(it.get("id"))}><span class="agenda-later-tag">{it["label"]}</span>{it["text"]}</li>')
         for it in agenda_later
     )
     html, n = re.subn(
