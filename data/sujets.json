@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "32dea511b6151d068fb182e0555bbaef336a1a4875e9022544e1e2de6a491754"
+    "md_sha256": "a7afba446a91d67b7c1b87bdf8c2171a0a96feff02516554d0865f090a3bab6b"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -614,7 +614,7 @@
           "question": null,
           "tag": "géopolitique & technologie",
           "statut": "a_traiter",
-          "validation": "valide",
+          "validation": "a_valider",
           "contexte": "Le brouillage et le leurrage des signaux satellites perturbent déjà l'aviation civile en mer Baltique depuis 2023-2024 — un phénomène documenté, pas hypothétique. Nos infrastructures critiques (finance, énergie, transport, télécoms) dépendent d'une synchronisation ultra-précise par satellite : jusqu'où l'escalade du brouillage peut-elle aller avant de vraiment les perturber ?",
           "rationnel": "Ce sujet est brûlant car l'escalade du brouillage russe en Baltique est documentée, chiffrée et reconnue par les instances internationales (OACI, UIT) — ce n'est plus une menace hypothétique. L'issue reste ouverte car deux forces contraires s'affrontent : d'un côté, la Russie intensifie ses attaques électroniques (brouillage combiné jamming+spoofing, portée étendue à 450 km depuis Kaliningrad) ; de l'autre, l'Europe déploie des contre-mesures (Galileo OSNMA, R-Mode Baltic, plan de résilience GNSS) dont l'efficacité réelle n'est pas encore prouvée à grande échelle. Pour un lecteur français, l'enjeu est concret : nos réseaux électriques, télécoms, transports et transactions financières dépendent de la synchronisation GNSS, et l'ANFR alerte déjà sur les vulnérabilités identifiées dans les infrastructures critiques françaises.",
           "angle": null,
