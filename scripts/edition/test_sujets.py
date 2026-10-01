@@ -671,5 +671,30 @@ class VeilleEnrichitTest(unittest.TestCase):
         self.assertEqual(ht.insert_entries(d, "## Culture — samedi", [], datetime.date(2026, 10, 2)), [])
 
 
+class ExtractionJsonTest(unittest.TestCase):
+    """Réponse du modèle avec du texte avant le JSON (veille du 27 septembre 2026)."""
+
+    def setUp(self):
+        import generate_daily_edition as gde  # import tardif : charge bs4, absent des tests purs
+        self.strip = gde.strip_markdown_json_fence
+
+    def test_json_nu_inchange(self):
+        self.assertEqual(self.strip('{"a": 1}'), '{"a": 1}')
+
+    def test_bloc_cloture(self):
+        self.assertEqual(json.loads(self.strip('Voici :\n```json\n{"a": 1}\n```\nFin.')), {"a": 1})
+
+    def test_bloc_sans_barriere_finale(self):
+        txt = 'Je vais chercher.\nJ\'ai terminé.\n```json\n{"geo": [{"accroche": "Ormuz ?"}]}'
+        self.assertEqual(json.loads(self.strip(txt)), {"geo": [{"accroche": "Ormuz ?"}]})
+
+    def test_prend_le_plus_grand_objet(self):
+        txt = 'Note {"a": 1} puis le résultat : {"geo": [1, 2, 3], "sport": []}'
+        self.assertEqual(json.loads(self.strip(txt)), {"geo": [1, 2, 3], "sport": []})
+
+    def test_sans_json_rend_le_texte(self):
+        self.assertEqual(self.strip("rien d'exploitable"), "rien d'exploitable")
+
+
 if __name__ == "__main__":
     unittest.main()

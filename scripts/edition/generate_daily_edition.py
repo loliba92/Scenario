@@ -877,7 +877,29 @@ def strip_markdown_json_fence(text):
     if m:
         return m.group(1)
     matches = re.findall(r"```(?:json)?\s*\n(.*?)\n```", stripped, re.S)
-    return matches[-1] if matches else stripped
+    if matches:
+        return matches[-1]
+    # Repli (1er octobre 2026, veille du 27 septembre : « Expecting value: line 1 column 1 ») :
+    # du texte de raisonnement avant le JSON, et un bloc dont la barrière finale manque ou
+    # n'est pas sur sa propre ligne. On cherche le premier objet JSON complet dans le texte.
+    if not stripped.startswith(("{", "[")):
+        decoder = json.JSONDecoder()
+        meilleur, pos = None, 0
+        while True:
+            debut = stripped.find("{", pos)
+            if debut == -1:
+                break
+            try:
+                obj, fin = decoder.raw_decode(stripped, debut)
+            except json.JSONDecodeError:
+                pos = debut + 1
+                continue
+            if isinstance(obj, dict) and (meilleur is None or fin - debut > len(meilleur)):
+                meilleur = stripped[debut:fin]
+            pos = fin
+        if meilleur:
+            return meilleur
+    return stripped
 
 
 def apply_apres_dek_index_fallback(content):
