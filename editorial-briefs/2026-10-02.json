@@ -1,0 +1,355 @@
+{
+  "date": "2026-10-02",
+  "registre": "sciences",
+  "sujet": {
+    "titre_propose": "Octobre rose 2026 : le dépistage du cancer du sein va-t-il changer de modèle ?",
+    "h1": "Dépistage du cancer du sein : le modèle va-t-il basculer ?",
+    "question_posee": "Face à la stagnation de la participation (45,7 % en 2024-2025) et à l'essor de l'IA et de la personnalisation du risque, le dépistage du cancer du sein en France bascule-t-il vers un nouveau modèle ?",
+    "eyebrow": "Vendredi, sciences",
+    "angle": "Pas un article de sensibilisation, mais une problématique prospective sur la bifurcation du modèle de dépistage : mammographie systématique pour toutes les femmes de 50-74 ans vs dépistage adapté au risque individuel et à l'IA.",
+    "tags": [
+      "medecine",
+      "cancer",
+      "intelligence-artificielle",
+      "sante-publique",
+      "innovation"
+    ],
+    "domain": "sciences",
+    "image_keywords": "breast cancer screening mammography",
+    "complexite": 4,
+    "origine_prioritaire": "Octobre rose 2026 : le dépistage du cancer du sein va-t-il changer de modèle ?",
+    "origine_id": "sciences-octobre-rose-2026-le-depistage-du-cancer-du"
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Vérification veille (2026-10-01, économie-mondiale, Bitcoin) : aucun recoupement. Vérification 2-3 dernières éditions sciences (2026-09-29 Lune, 2026-09-25 Ozempic/Wegovy) : aucun lien thématique avec le dépistage du cancer du sein. Sujet inédit dans les archives récentes."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le taux standardisé de participation au programme national de dépistage organisé du cancer du sein (PNDOCS) est de 45,7 % pour la période 2024-2025 (47,5 % en 2025, 43,9 % en 2024), contre 46,6 % pour la période 2022-2023.",
+      "chiffre": "45,7 %",
+      "date_du_chiffre": "2026-07",
+      "sources": [
+        "spf-participation-2024-2025"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "En 2023, 61 214 nouveaux cas de cancer du sein ont été diagnostiqués en France métropolitaine, avec 12 765 décès.",
+      "chiffre": "61 214",
+      "date_du_chiffre": "2023",
+      "sources": [
+        "cancer-fr-epidemiologie"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La survie nette standardisée à 5 ans pour les cas de cancer du sein diagnostiqués entre 2010 et 2015 est de 88 % en France métropolitaine.",
+      "chiffre": "88 %",
+      "date_du_chiffre": "2010-2015",
+      "sources": [
+        "spf-survie-sein",
+        "cancer-fr-epidemiologie"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'étude MASAI suédoise publiée dans The Lancet en janvier 2026 montre que le dépistage mammographique assisté par IA réduit de 12 % les cancers d'intervalle (1,55 vs 1,76 pour 1 000 femmes) et augmente la sensibilité à 80,5 % contre 73,8 % sans IA.",
+      "chiffre": "12 %",
+      "date_du_chiffre": "2026-01",
+      "sources": [
+        "thelancet-masai",
+        "france24-ia-depistage"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La feuille de route INCa 2026-2030 prévoit d'accompagner la personnalisation des dépistages et de définir la place de l'IA et de la tomosynthèse dans le dépistage organisé du cancer du sein.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "cancer-fr-feuille-de-route-2026-2030",
+        "oncopl-feuille-de-route"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Selon la DREES (février 2026), la participation générale au dépistage du cancer du sein (organisé ou individuel) passe de 42 % pour le dixième de revenu le plus bas à 67 % pour le plus élevé, un écart de 25 points.",
+      "chiffre": "25 points",
+      "date_du_chiffre": "2015-2020",
+      "sources": [
+        "drees-inegalites-2026",
+        "santematin-depistage"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "INCa (Institut national du cancer)",
+      "role": "Pilote de la feuille de route 2026-2030, définit les orientations sur la personnalisation et l'IA dans le dépistage"
+    },
+    {
+      "nom": "Santé publique France",
+      "role": "Publie les données de participation au PNDOCS et les études de survie"
+    },
+    {
+      "nom": "DREES (Direction de la recherche, des études et de l'évaluation de la santé)",
+      "role": "Publie les analyses des inégalités sociales de participation au dépistage"
+    },
+    {
+      "nom": "CRCDC (Centres régionaux de coordination des dépistages des cancers)",
+      "role": "Coordinent le dépistage organisé au niveau régional, mènent les essais IA en France (ex. CRCDC Sud PACA avec Therapixel)"
+    },
+    {
+      "nom": "Unicancer / programme Interception",
+      "role": "Expérimentation de parcours de prévention personnalisés pour les personnes à haut risque de cancer"
+    },
+    {
+      "nom": "Therapixel",
+      "role": "Éditeur français de solution IA pour le cancer du sein, impliqué dans les essais CRCDC"
+    },
+    {
+      "nom": "Kristina Lång (Lund University)",
+      "role": "Coordinatrice de l'étude MASAI publiée dans The Lancet"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2024-01",
+      "evenement": "Réorganisation du dispositif national de dépistage organisé des cancers (modification du ciblage et de l'envoi des invitations)"
+    },
+    {
+      "date": "2025-01",
+      "evenement": "Publication de l'étude MASAI dans The Lancet : IA + 1 radiologue vs double lecture, résultats sur les cancers d'intervalle"
+    },
+    {
+      "date": "2025-10",
+      "evenement": "Présentation lors des JFR des premiers résultats des essais IA français (CRCDC Sud PACA et Auvergne Rhône Alpes avec Therapixel)"
+    },
+    {
+      "date": "2026-01",
+      "evenement": "Publication du rapport de la Cour des comptes sur la prévention et la prise en charge du cancer du sein, recommandant un plan de déploiement de l'IA et une évaluation par la HAS"
+    },
+    {
+      "date": "2026-02",
+      "evenement": "Publication de l'étude DREES n° 1367 sur les inégalités sociales de participation au dépistage"
+    },
+    {
+      "date": "2026-02",
+      "evenement": "Publication de la feuille de route INCa 2026-2030"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Le dépistage personnalisé devient le principal critère : le risque individuel (âge, antécédents, génétique, facteurs modifiables) détermine le rythme et les modalités de dépistage, l'IA aide à analyser les images et à orienter vers le bon parcours. La participation se restructure (moins de femmes à bas risque en mammographie systématique, plus de suivi intensif pour les hauts risques), la mortalité continue de baisser, la survie progresse de 88 % vers 92-95 %.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "La mammographie biennale reste la norme pour la majorité des femmes, tandis que l'IA et la personnalisation sont progressivement ajoutées au dispositif. Deux systèmes coexistent 5-10 ans sans bascule net. La participation plafonne autour de 50-55 %, les coûts de fonctionnement doublent temporairement pendant la transition.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "Les nouvelles technologies améliorent fortement le suivi des femmes qui ont accès aux parcours personnalisés (femmes éduquées, urbaines, bien assurées), tandis que les difficultés d'accès et les inégalités sociales/territoriales persistent pour les autres. L'écart de mortalité s'accentue entre CSP élevée et modeste, les fossés régionaux se creusent (urbain/rural, densité médicale), le modèle crée une inégalité involontaire.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Participation au dépistage organisé (PNDOCS)",
+      "valeur": "45,7 %",
+      "tendance": "Baisse (46,6 % en 2022-2023)"
+    },
+    {
+      "label": "Écart de participation générale selon le niveau de vie (DREES)",
+      "valeur": "25 points",
+      "tendance": "Persistant (42 % chez les 10 % les plus modestes vs 67 % chez les 10 % les plus aisés)"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série historique longue et publique vérifiée n'éclaire directement la question du jour sur un horizon suffisant. La participation au PNDOCS est disponible depuis 2005 (Santé publique France), mais la série ne remplit pas le critère (3) : elle documente la baisse de participation, pas la bifurcation du modèle (IA/personnalisation) qui est le cœur de la question prospective. Le KPI 'écart selon le niveau de vie' est lui-même une mesure ponctuelle (période 2015-2020, DREES février 2026), sans série historique comparable. Recherche effectuée : consultation des bulletins Santé publique France (participation 2005-2025) et de l'étude DREES ER1367 (février 2026) — aucune source ne propose une série longue sur la personnalisation/IA du dépistage.",
+    "serie": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Comment fonctionne le dépistage organisé actuel et pourquoi la participation stagne",
+        "rattache_a": "fait participation 45,7 %"
+      },
+      {
+        "focus": "Ce que change la personnalisation du risque et l'IA dans le dépistage",
+        "rattache_a": "fait feuille de route INCa 2026-2030"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Les essais IA français (CRCDC Sud PACA, Auvergne Rhône Alpes avec Therapixel) ont livré des résultats préliminaires lors des JFR 2025, mais leurs données finales et leur généralisation au dépistage organisé national ne sont pas encore établies.",
+    "Le calendrier exact de déploiement de l'IA dans le dépistage organisé en France (plan de dématérialisation de la seconde lecture, intégration de la tomosynthèse) n'est pas encore figé dans la feuille de route 2026-2030.",
+    "Les résultats définitifs de l'étude MyPeBS (dépistage personnalisé vs standard) ne sont pas encore connus à la date du brief."
+  ],
+  "a_ne_pas_affirmer": [
+    "La participation au dépistage organisé atteindra 70 % d'ici 2030 (objectif national non atteint depuis des années, pas d'engagement chiffré dans la feuille de route 2026-2030).",
+    "L'IA remplacera les radiologues dans le dépistage (les études MASAI et les essais français confirment l'IA comme aide à la lecture, avec un radiologue toujours présent pour l'interprétation finale).",
+    "Le dépistage personnalisé supprimera les inégalités sociales (au contraire, le risque de creusement des inégalités est un scénario à surveiller)."
+  ],
+  "sources": [
+    {
+      "id": "spf-participation-2024-2025",
+      "title": "Participation au programme national de dépistage organisé du cancer du sein en 2024-2025 et évolution depuis 2010",
+      "source": "Santé publique France",
+      "url": "https://www.santepubliquefrance.fr/cancers/cancer-du-sein/bulletin-national/participation-au-programme-national-de-depistage-organise-du-cancer-du-sein-en-2024-2025-et",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Bulletin national de Santé publique France : taux de participation standardisé de 45,7 % pour 2024-2025 (47,5 % en 2025, 43,9 % en 2024), contre 46,6 % en 2022-2023. Baisse dans toutes les tranches d'âge sauf stabilisation pour les 50-54 ans.",
+      "read_minutes": 5
+    },
+    {
+      "id": "cancer-fr-epidemiologie",
+      "title": "Épidémiologie des cancers du sein",
+      "source": "Ligue nationale contre le cancer (cancer.fr)",
+      "url": "https://www.cancer.fr/professionnels-de-sante/statistiques-et-chiffres-sur-les-cancers/epidemiologie-des-cancers/cancer-du-sein",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "En 2023, 61 214 nouveaux cas de cancer du sein en France métropolitaine, 12 765 décès. Survie nette standardisée à 5 ans de 88 % pour les cas diagnostiqués entre 2010 et 2015.",
+      "read_minutes": 3
+    },
+    {
+      "id": "spf-survie-sein",
+      "title": "Survie des personnes atteintes de cancer en France métropolitaine 1989-2018 - Sein",
+      "source": "Santé publique France",
+      "url": "https://www.santepubliquefrance.fr/cancers/cancer-du-sein/enquetesetudes/survie-des-personnes-atteintes-de-cancer-en-france-metropolitaine-1989-2018-sein",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Survie nette standardisée à 5 ans de 88 % pour les cas diagnostiqués entre 2010 et 2015, en hausse de 79 % à 89 % entre 1990 et 2015.",
+      "read_minutes": 3
+    },
+    {
+      "id": "thelancet-masai",
+      "title": "Interval cancer, sensitivity, and specificity comparing AI-supported mammography screening with standard double reading without AI in the MASAI study",
+      "source": "The Lancet",
+      "url": "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(25)02464-X/abstract",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences",
+      "summary": "Essai randomisé suédois MASAI (105 934 femmes) : dépistage assisté par IA vs double lecture standard. Réduction de 12 % des cancers d'intervalle (1,55 vs 1,76 pour 1 000), sensibilité 80,5 % vs 73,8 %, spécificité identique, charge de travail réduite de 44 %.",
+      "read_minutes": 5
+    },
+    {
+      "id": "france24-ia-depistage",
+      "title": "Cancer du sein : l'IA améliore le dépistage humain, affirme une vaste étude suédoise",
+      "source": "France 24",
+      "url": "https://www.france24.com/fr/info-en-continu/20260130-cancer-du-sein-l-ia-am%C3%A9liore-le-d%C3%A9pistage-humain-affirme-une-vaste-%C3%A9tude-su%C3%A9doise",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Article AFP du 30 janvier 2026 sur l'étude MASAI publiée dans The Lancet : IA + 1 radiologue détecte 81 % des cancers vs 74 % sans IA, réduction de 12 % des cancers agressifs et avancés dans les 2 ans suivant le dépistage.",
+      "read_minutes": 3
+    },
+    {
+      "id": "cancer-fr-feuille-de-route-2026-2030",
+      "title": "La feuille de route 2026-2030 : 5 ans, 5 priorités, 5 publics",
+      "source": "INCa (Institut national du cancer)",
+      "url": "https://www.cancer.fr/l-institut-national-du-cancer/la-strategie-de-lutte-contre-les-cancers-en-france/strategie-decennale-de-lutte-contre-les-cancers-2021-2030/le-cadre-national/la-seconde-feuille-de-route-2026-2030",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Feuille de route INCa 2026-2030 : priorité 2 'Proposer un dépistage pour chacun' — augmenter la participation, accompagner la personnalisation des dépistages, définir la place de l'IA et de la tomosynthèse dans le dépistage organisé du cancer du sein.",
+      "read_minutes": 4
+    },
+    {
+      "id": "oncopl-feuille-de-route",
+      "title": "Feuille de route 2026-2030",
+      "source": "INCa / OncoPL",
+      "url": "https://oncopl.fr/wp-content/uploads/2026/02/Feuille-de-route-2026-2030.pdf",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Document complet de la feuille de route INCa 2026-2030 : intégration de l'IA dans le dépistage organisé du cancer du sein, personnalisation des dépistages, étude MyPeBS citée comme exemple de stratégie de dépistage stratifié sur le risque.",
+      "read_minutes": 5
+    },
+    {
+      "id": "drees-inegalites-2026",
+      "title": "Dépistage du cancer : les personnes modestes y recourent moins souvent",
+      "source": "DREES (Études et Résultats n° 1367, février 2026)",
+      "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2026-02/ER1367_D%C3%A9pistage_cancer_0.pdf",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Étude DREES février 2026 : participation générale au dépistage du cancer du sein (organisé + individuel) de 42 % pour le dixième de revenu le plus bas à 67 % pour le plus élevé (écart de 25 points). Substitution croissante du dépistage organisé par le dépistage individuel chez les personnes à haut revenu.",
+      "read_minutes": 5
+    },
+    {
+      "id": "santematin-depistage",
+      "title": "Cancers : les plus modestes deux fois moins dépistés",
+      "source": "SanteMatin",
+      "url": "https://www.santematin.fr/cancers-plus-modestes-depistage",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Article du 19 février 2026 sur l'étude DREES : écart de 25 points entre les 10 % les plus modestes (42 %) et les 10 % les plus aisés (67 %) pour la participation générale au dépistage du cancer du sein.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Dépistage et aide à la décision basés sur l'IA en mammographie et tomosynthèse numérique pour le dépistage du cancer du sein : essai apparié en non-infériorité",
+      "source": "Clear Sky Science",
+      "url": "https://www.clearskyscience.com/fr/10.1038/s41591-026-04277-x/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Essai en non-infériorité sur l'IA en mammographie et tomosynthèse : la stratégie assistée par IA détecte environ 7,3 cancers pour 1 000 femmes vs 6,3 pour 1 000 avec la méthode standard, tout en réduisant la charge de travail.",
+      "read_minutes": 3
+    },
+    {
+      "title": "Dépistage du Cancer du Sein : Deux nouvelles études françaises, dévoilées aux Journées Françaises de Radiologie, confirment le rôle transformateur de l'Intelligence Artificielle",
+      "source": "Therapixel",
+      "url": "https://www.therapixel.fr/etudes-devoilees-aux-jfr-2025-confirment-le-role-d-ia/",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Deux études françaises (CRCDC Sud PACA et Auvergne Rhône Alpes avec IA Therapixel) présentées aux JFR 2025 : l'IA permettrait de réduire de 60 % les deuxièmes lectures sans risque de manquer un cancer, avec des disparités régionales dans l'équipement (plus de 25 % des centres en PACA, moins de 10 % dans le Grand Est).",
+      "read_minutes": 4
+    },
+    {
+      "title": "Apport de l'intelligence artificielle en dépistage du cancer du sein",
+      "source": "Société Française de Radiologie (radiologie.fr)",
+      "url": "https://www.radiologie.fr/pratiques-professionnelles/sfr-actu/apport-lintelligence-artificielle-en-depistage-du-cancer-du",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Synthèse des études MASAI, ScreenTrustCAD et d'autres sur l'IA en dépistage : réduction de la charge de travail, détection accrue de cancers, mais les auteurs rappellent que les résultats ne sont pas directement généralisables au dépistage français sans essais locaux et contrôle qualité.",
+      "read_minutes": 4
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-25",
+      "titre": "Ozempic, Wegovy, Mounjaro : prix, efficacité et avenir des GLP-1",
+      "lien": "Médecine — nouveaux traitements contre l'obésité, enjeux d'accès et d'inégalités sociales similaires au dépistage personnalisé"
+    },
+    {
+      "date": "2026-09-18",
+      "titre": "Neuropathies : la recherche avance, les traitements stagnent",
+      "lien": "Sciences — recherche médicale et tension entre progrès scientifique et stagnation des traitements, même registre prospectif"
+    },
+    {
+      "date": "2026-09-15",
+      "titre": "Fusion nucléaire : la promesse enfin tenue ?",
+      "lien": "Sciences — innovation technologique à horizon long, question de la réalisation effective des promesses (IA/dépistage vs fusion)"
+    }
+  ],
+  "recommandations_redaction": [
+    "Expliquer clairement la différence entre dépistage organisé (PNDOCS, mammographie tous les 2 ans pour toutes les femmes de 50-74 ans) et dépistage individuel/hors programme, et le mécanisme de substitution observé par la DREES chez les personnes aisées.",
+    "Présenter l'IA comme une aide à la lecture (et non un remplacement des radiologues), en s'appuyant sur l'étude MASAI (The Lancet, janvier 2026) et les premiers résultats des essais français (CRCDC + Therapixel, JFR 2025).",
+    "Documenter les inégalités sociales et territoriales avec les chiffres DREES (écart de 25 points selon le niveau de vie) et les disparités régionales d'équipement IA (Therapixel).",
+    "Mettre en perspective les trois scénarios (personnalisé, hybride, deux vitesses) avec la feuille de route INCa 2026-2030 et le programme Interception comme signaux de la stratégie publique en cours.",
+    "Ne pas affirmer que l'IA remplacera les radiologues ni que le dépistage personnalisé supprimera les inégalités — ces points sont des incertitudes à formuler explicitement."
+  ]
+}
