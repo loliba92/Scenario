@@ -11,4 +11,15 @@
       <news:title>Mass layoffs: will unemployment start rising again?</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-10-01.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-01T06:01:49+02:00</news:publication_date><news:title>Bitcoin : le sacre institutionnel ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-10-01.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-01T06:01:49+02:00</news:publication_date><news:title>Bitcoin : le sacre institutionnel ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-10-01.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-01T06:01:49+02:00</news:publication_date>
+      <news:title>Bitcoin: The Institutional Breakthrough?</news:title>
+    </news:news>
+  </url>
+</urlset>
