@@ -397,10 +397,16 @@ def enrich_sources_with_full_text(brief):
 # Appel OpenRouter
 # ---------------------------------------------------------------------------
 def build_user_prompt(redaction_prompt, brief):
+    # `sujet.point_de_depart` (dossier de la file de sujets, inscrit par le brief) est une
+    # PISTE non vérifiée : il ne doit jamais atteindre la rédaction, qui ne repose que sur les
+    # faits vérifiés du brief (faits_verifies, sources...).
+    brief_pour_redaction = dict(brief)
+    if isinstance(brief.get("sujet"), dict) and "point_de_depart" in brief["sujet"]:
+        brief_pour_redaction["sujet"] = {k: v for k, v in brief["sujet"].items() if k != "point_de_depart"}
     return (
         redaction_prompt
         + "\n\n---\n\nBrief éditorial à rédiger (JSON) :\n\n"
-        + json.dumps(brief, ensure_ascii=False, indent=2)
+        + json.dumps(brief_pour_redaction, ensure_ascii=False, indent=2)
     )
 
 

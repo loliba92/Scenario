@@ -287,15 +287,20 @@ sujets à traiter n'en avaient aucune). Désormais l'édition cite l'`id` et le 
 - **Veille** (`generate_hot_topics.py`, workflow `hot-topics.yml`) : produit un dossier
   complet (contexte, rationnel, mots-clés, sources, scénarios, échéance) ; un dossier sans
   contexte ou sans rationnel n'entre pas dans la file ; les nouveaux sujets sont `a_valider`.
+  **Elle enrichit ensuite** : tout dossier incomplet qu'elle vient d'ajouter, puis
+  `ENRICH_RETARD_PAR_PASSAGE` (4) sujets incomplets déjà en file, tête de file d'abord — le
+  retard se résorbe seul à chaque passage (`--no-enrich` pour l'éviter).
 - **Enrichissement** (`enrich_sujets.py`, workflow `enrich-sujets.yml`, déclenchement
   manuel) : complète par lots de 6, tête de file d'abord, les champs absents des sujets
   incomplets, avec recherche web — jamais d'écrasement d'un champ déjà écrit, jamais
   d'invention, signale un sujet « peut-être dépassé » sans le retirer.
 - **Brief** (`generate_fallback_brief.py`) : le script choisit lui-même le sujet du jour
   (`sujets.sujet_du_jour()` : priorité absolue, sinon registre du jour ; éligible = à
-  traiter et validé) et donne son **dossier complet** au modèle, mots-clés compris, avec
-  la consigne de traiter ses faits comme des pistes à vérifier. La routine interactive
-  fait la même chose avec `python scripts/edition/sujets.py prochain`.
+  traiter et validé) et le donne au modèle comme **point de départ, en JSON** (dossier
+  complet, mots-clés compris), avec la consigne de traiter ses faits comme des pistes à
+  vérifier. Après génération, le **code** fixe `sujet.origine_id` puis inscrit le dossier dans
+  le brief (`sujet.point_de_depart`) ; la rédaction ne le voit jamais (pistes non vérifiées).
+  La routine interactive fait de même avec `sujets.py prochain --json` puis `sujets.py timbrer`.
 - **Cochage après publication** (`generate_post_edition.py`) : par `sujet.origine_id`.
 - **Un humain** modifie le JSON **ou** la vue Markdown : l'empreinte `meta.md_sha256` dit
   lequel a changé et la modification est reprise dans l'autre (au prochain passage d'un

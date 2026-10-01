@@ -34,7 +34,8 @@ Utilisation en ligne de commande :
     python scripts/edition/sujets.py sync               # reprend une modification manuelle
     python scripts/edition/sujets.py stats              # suivi par registre, complétude
     python scripts/edition/sujets.py incomplets         # sujets à enrichir
-    python scripts/edition/sujets.py prochain [--registre culture]   # dossier du sujet du jour
+    python scripts/edition/sujets.py prochain [--registre culture] [--json]   # dossier du sujet du jour
+    python scripts/edition/sujets.py timbrer editorial-briefs/AAAA-MM-JJ.json # inscrit le point de départ dans un brief
     python scripts/edition/sujets.py import             # Markdown -> JSON (migration)
 """
 from __future__ import annotations
@@ -207,7 +208,7 @@ def est_complet(e: dict) -> bool:
 # Les anciennes notes sont de la prose libre qui contient des segments étiquetés.
 _SEG_RE = re.compile(
     r"(?<![\wéèàç])(Problématique(?: à vérifier et sourcer avant rédaction)?|→\s*3 scénarios(?: \(brouillon\))?|"
-    r"Sources?|Angle(?: retenu| éditorial)?|À vérifier(?:/chiffrer)?(?: avant rédaction)?|Contexte)\s*:\s*",
+    r"Sources?|Angle(?: retenu| éditorial)?|À vérifier(?:\s*/\s*(?:chiffrer|sourcer)|\s+et\s+(?:chiffrer|sourcer))*(?: avant rédaction)?|Contexte)\s*:\s*",
     re.I)
 _SCEN_RE = re.compile(
     r"favorable\s*=\s*(.*?)\s*;\s*stable\s*=\s*(.*?)\s*;\s*d[ée]grad[ée]\s*=\s*(.*)$", re.S | re.I)
@@ -641,6 +642,15 @@ def enrichir(e: dict, champs: dict, jour: str | None = None) -> list[str]:
         if k in ("id", "type", "titre", "statut", "validation", "enrichi_le") or k not in e:
             continue
         actuel = e.get(k)
+        if k == "mots_cles" and isinstance(v, list):
+            # Moins de mots-clés qu'il n'en faut : on COMPLÈTE sans jamais retirer ceux qui existent.
+            if len([m for m in (actuel or []) if _texte(m)]) < MIN_MOTS_CLES:
+                connus = {m.lower() for m in (actuel or [])}
+                ajout = [m for m in v if isinstance(m, str) and m.strip() and m.lower() not in connus]
+                if ajout:
+                    e[k] = list(actuel or []) + ajout
+                    faits.append(k)
+            continue
         vide = (not actuel) if not isinstance(actuel, str) else not actuel.strip()
         if vide and v:
             e[k] = v
@@ -700,6 +710,50 @@ def dossier_texte(sec: dict, e: dict) -> str:
     if m:
         out.append("Dossier incomplet (à compenser par ta propre recherche) : " + ", ".join(m))
     return "\n".join(out)
+
+
+def dossier_json(sec: dict, e: dict) -> dict:
+    """Le dossier d'un sujet en JSON : le POINT DE DÉPART donné à la construction du brief.
+    Mêmes champs que le fichier de sujets (sans les champs de suivi interne), plus le
+    registre et la liste de ce qui manque. Le contexte, les scénarios et les sources y sont
+    des PISTES à vérifier, jamais des faits établis."""
+    return {
+        "id": e["id"], "registre": sec["cle"], "titre": e["titre"],
+        "question": _texte(e.get("question")) or e["titre"],
+        "contexte": e.get("contexte"), "rationnel": e.get("rationnel"),
+        "mots_cles": list(e.get("mots_cles") or []),
+        "angle": e.get("angle"), "a_verifier": e.get("a_verifier"),
+        "scenarios_brouillon": e.get("scenarios"), "echeance": e.get("echeance"),
+        "sources_pistes": list(e.get("sources") or []), "tag": e.get("tag"),
+        "origine": e.get("origine"), "note_editoriale": e.get("note"),
+        "dossier_incomplet": manquants(e),
+    }
+
+
+def trouver(data: dict, ident: str):
+    """(section, sujet) d'après son identifiant, ou None."""
+    ident = re.sub(r"^(?:<!--)?\s*id:\s*|\s*(?:-->)?\s*$", "", (ident or "").strip()).strip()
+    for sec, e in sujets(data):
+        if e["id"] == ident:
+            return sec, e
+    return None
+
+
+def timbrer_brief(brief: dict, data: dict) -> str | None:
+    """Inscrit dans le brief le dossier du sujet cité par `sujet.origine_id`, comme POINT DE
+    DÉPART (`sujet.point_de_depart`) : le brief porte ainsi, noir sur blanc, ce dont il est
+    parti (traçabilité, relecture). N'ajoute rien si le brief ne cite aucun sujet de la file.
+    Renvoie l'identifiant, ou None. Idempotent (le dossier est remplacé par sa version à jour)."""
+    sujet = brief.get("sujet")
+    if not isinstance(sujet, dict):
+        return None
+    trouve = trouver(data, sujet.get("origine_id") or "")
+    if not trouve:
+        return None
+    sec, e = trouve
+    sujet["origine_id"] = e["id"]
+    sujet["point_de_depart"] = dossier_json(sec, e)
+    return e["id"]
 
 
 # --------------------------------------------------------------------------- éditions publiées
@@ -860,7 +914,9 @@ def incomplets(data: dict, seulement_a_traiter: bool = True) -> list[tuple[dict,
 # --------------------------------------------------------------------------- ligne de commande
 def _main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("commande", choices=["check", "sync", "stats", "import", "incomplets", "prochain"])
+    ap.add_argument("commande", choices=["check", "sync", "stats", "import", "incomplets", "prochain", "timbrer"])
+    ap.add_argument("brief", nargs="?", default=None, help="timbrer : chemin du brief (editorial-briefs/AAAA-MM-JJ.json)")
+    ap.add_argument("--json", action="store_true", help="prochain : affiche le dossier en JSON (point de départ du brief)")
     ap.add_argument("--registre", default=None, help="prochain : registre (clé de section) ; défaut = registre du jour")
     ap.add_argument("--force", action="store_true", help="import : écrase un data/sujets.json existant (perd ses modifications)")
     args = ap.parse_args(argv)
@@ -907,7 +963,22 @@ def _main(argv=None) -> int:
         if not r:
             print("(aucun sujet éligible : auto-sélection normale)")
             return 0
-        print(dossier_texte(*r))
+        print(json.dumps(dossier_json(*r), ensure_ascii=False, indent=2) if args.json else dossier_texte(*r))
+        return 0
+
+    if args.commande == "timbrer":
+        if not args.brief:
+            print("ERREUR : timbrer demande le chemin du brief", file=sys.stderr)
+            return 1
+        data, _ = load_synced()
+        chemin = Path(args.brief)
+        brief = json.loads(chemin.read_text(encoding="utf-8"))
+        ident = timbrer_brief(brief, data)
+        if not ident:
+            print("timbrer : le brief ne cite aucun sujet de la file (sujet.origine_id) — rien à inscrire")
+            return 0
+        chemin.write_text(json.dumps(brief, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(f"timbrer : dossier de {ident} inscrit dans {chemin} (sujet.point_de_depart)")
         return 0
 
     # check

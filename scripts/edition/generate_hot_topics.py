@@ -399,17 +399,46 @@ def insert_entries(data, heading, entries, today):
     Markdown) : docs/routine-prompt.md § Étape 0 l'ignore tant qu'un humain ne
     l'a pas validé (incident du 19 septembre 2026, docs/ARCHITECTURE.md)."""
     if not entries:
-        return
+        return []
     titre = heading[3:].strip()
     sec = next((x for x in data["sections"] if x["titre"] == titre), None)
     if sec is None:
         raise HotTopicsError(f"section introuvable pour insertion : {heading!r}")
     # On insère un à un en tête de section : dans l'ordre inverse pour garder l'ordre reçu.
+    ajoutes = []
     for e, origin_label in reversed(entries):
         champs = dossier_depuis_reponse(e, e.get("_cited_urls"))
-        sj.ajouter(data, sec["cle"], e["accroche"].strip(), tag=(e.get("tag") or "").strip() or None,
-                   validation="a_valider", origine="veille", ajoute_le=today.isoformat(),
-                   note=build_note(e, today, origin_label), **champs)
+        ajoutes.append(sj.ajouter(data, sec["cle"], e["accroche"].strip(), tag=(e.get("tag") or "").strip() or None,
+                                  validation="a_valider", origine="veille", ajoute_le=today.isoformat(),
+                                  note=build_note(e, today, origin_label), **champs)["id"])
+    return ajoutes
+
+
+# Nombre de sujets DÉJÀ en file mais incomplets que chaque passage de la veille complète, en
+# plus de ses propres ajouts : le retard (aucun rationnel ni mots-clés à la migration du
+# 1er octobre 2026) se résorbe seul, sans lancer le workflow d'enrichissement à la main.
+ENRICH_RETARD_PAR_PASSAGE = 4
+
+
+def enrichir_apres_ajout(data, ids_nouveaux, api_key, model, today, retard=ENRICH_RETARD_PAR_PASSAGE):
+    """Enrichit (recherche web, voir enrich_sujets.py) d'abord les dossiers INCOMPLETS qui
+    viennent d'être ajoutés, puis `retard` sujets incomplets déjà en file (tête de file d'abord).
+    Jamais bloquant : un échec d'appel laisse le sujet tel quel. Renvoie le nombre enrichi."""
+    import enrich_sujets as en  # import tardif : enrich_sujets importe ce module
+    nouveaux = [(sec, e) for sec, e in sj.sujets(data) if e["id"] in set(ids_nouveaux) and not sj.est_complet(e)]
+    anciens = [c for c in sj.incomplets(data) if c[1]["id"] not in set(ids_nouveaux)]
+    cibles = nouveaux + en.ordre_de_passage(data, anciens)[:max(retard, 0)]
+    fait = 0
+    for sec, e in cibles:
+        try:
+            champs, _ = en.enrichir_un(sec, e, model, api_key, today)
+        except Exception as err:  # noqa: BLE001 — jamais bloquer la veille pour l'enrichissement
+            print(f"  ✗ enrichissement de {e['id'][:60]} : {err}", file=sys.stderr)
+            continue
+        if champs:
+            fait += 1
+        print(f"  {'✓' if champs else '·'} enrichi {e['id'][:60]} : {champs or '—'}")
+    return fait
 
 
 def write_run_summary(records, today):
@@ -492,6 +521,9 @@ def update_dashboard_card(today, history):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--no-enrich", action="store_true", help="n'enrichit pas les dossiers incomplets après l'ajout")
+    ap.add_argument("--enrich-retard", type=int, default=ENRICH_RETARD_PAR_PASSAGE,
+                    help="nombre de sujets incomplets déjà en file complétés à chaque passage")
     ap.add_argument("--model", default=HOT_TOPICS_MODEL)
     args = ap.parse_args()
 
@@ -614,10 +646,15 @@ def main():
         print(f"Aucun sujet retenu ce passage-ci{dup_suffix} — fichier inchangé.")
         return 0
 
+    ids_ajoutes = []
     for target_heading, heading_entries in entries_by_heading.items():
-        insert_entries(data, target_heading, heading_entries, today)
+        ids_ajoutes += insert_entries(data, target_heading, heading_entries, today)
 
-    sj.save_both(data)
+    sj.save_both(data)          # les ajouts sont d'abord mis à l'abri
+    if not args.no_enrich:
+        print("\nEnrichissement des dossiers incomplets :")
+        if enrichir_apres_ajout(data, ids_ajoutes, api_key, args.model, today, args.enrich_retard):
+            sj.save_both(data)
     write_run_summary(added_records, today)
     history = update_hot_topics_history(added_records)
     update_dashboard_card(today, history)

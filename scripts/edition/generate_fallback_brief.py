@@ -174,41 +174,73 @@ def extract_priority_queue(path=SUJETS_PRIORITAIRES_PATH):
     return "\n\n".join(out)
 
 
-def dossier_du_jour(date_str):
-    """Le sujet que l'Étape 0 retient pour `date_str`, choisi PAR LE SCRIPT (déterministe)
-    dans data/sujets.json : d'abord le premier sujet éligible de « Priorité absolue », sinon
-    le premier sujet éligible (non publié, non 🔍) de la section du registre du jour — avec
-    son dossier complet (contexte, rationnel, mots-clés pour chercher les articles,
-    scénarios en brouillon, pistes de sources, identifiant). Avant, le modèle lisait la file
-    et choisissait lui-même ; il pouvait se tromper de ligne ou ne recevoir qu'une phrase.
-    Repli sur l'ancienne extraction du Markdown si le JSON est introuvable."""
+def choisir_sujet(date_str):
+    """((données, (section, sujet) ou None)) : le sujet que l'Étape 0 retient pour `date_str`,
+    choisi PAR LE SCRIPT (déterministe) dans data/sujets.json : d'abord le premier sujet
+    éligible de « Priorité absolue », sinon le premier éligible (non publié, non 🔍) de la
+    section du registre du jour. Avant, le modèle lisait la file et choisissait lui-même ; il
+    pouvait se tromper de ligne ou ne recevoir qu'une phrase."""
     import sys as _sys
     _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import sujets as sj
+    data, _ = sj.load_synced()
+    return data, sj.sujet_du_jour(data, jour=datetime.strptime(date_str, "%Y-%m-%d").date())
+
+
+def dossier_du_jour(date_str):
+    """Le POINT DE DÉPART du brief, en JSON : le dossier complet du sujet du jour (contexte,
+    rationnel, mots-clés pour chercher les articles, scénarios en brouillon, pistes de
+    sources, identifiant). Repli sur l'ancienne extraction du Markdown si le JSON est
+    illisible (jamais d'édition du jour bloquée pour la file)."""
+    import sys as _sys
     try:
         import sujets as sj
-        data, _ = sj.load_synced()
-        jour = datetime.strptime(date_str, "%Y-%m-%d").date()
-        choisi = sj.sujet_du_jour(data, jour=jour)
-    except Exception as e:  # noqa: BLE001 — jamais bloquer l'édition du jour pour la file
+        _, choisi = choisir_sujet(date_str)
+    except Exception as e:  # noqa: BLE001
         print(f"[fallback-brief] file de sujets structurée illisible ({e}) — repli sur le Markdown", file=_sys.stderr)
         return extract_priority_queue()
     if not choisi:
         return ("(aucun sujet éligible dans la file pour ce jour : applique l'Étape 1, "
                 "auto-sélection normale ; sujet.origine_id = null)")
     return (
-        "Le script a déjà appliqué l'Étape 0 : voici LE sujet retenu pour aujourd'hui (priorité absolue "
-        "d'abord, sinon registre du jour). Traite CE sujet, sauf si une restriction de l'Étape 0 "
-        "l'interdit explicitement — alors applique l'Étape 1 et mets sujet.origine_id à null.\n\n"
-        + sj.dossier_texte(*choisi) + "\n\n"
+        "Le script a déjà appliqué l'Étape 0 : voici, en JSON, LE sujet retenu pour aujourd'hui "
+        "(priorité absolue d'abord, sinon registre du jour). C'est le POINT DE DÉPART de ton brief : "
+        "traite CE sujet, sauf si une restriction de l'Étape 0 l'interdit explicitement — alors "
+        "applique l'Étape 1 et mets sujet.origine_id à null.\n\n"
+        + json.dumps(sj.dossier_json(*choisi), ensure_ascii=False, indent=2) + "\n\n"
         "Comment t'en servir :\n"
-        "- Lance TES recherches web avec les « Mots-clés pour chercher les articles » ci-dessus (puis "
-        "d'autres si besoin) : ils disent quoi chercher.\n"
-        "- Le contexte, le rationnel, les scénarios et les pistes de sources sont des PISTES à "
-        "vérifier, jamais des faits établis : ne recopie aucun chiffre ni aucun fait sans l'avoir "
-        "confirmé par une recherche récente, et reprends les 3 scénarios sur des faits vérifiés.\n"
-        "- Recopie l'identifiant ci-dessus, exactement, dans sujet.origine_id ; et dans "
-        "sujet.origine_prioritaire, le titre du sujet."
+        "- Lance TES recherches web avec `mots_cles` (puis d'autres si besoin) : ils disent quoi chercher. "
+        "Si `dossier_incomplet` liste des champs, compense-les par ta propre recherche.\n"
+        "- `contexte`, `rationnel`, `scenarios_brouillon` et `sources_pistes` sont des PISTES à vérifier, "
+        "jamais des faits établis : ne recopie aucun chiffre ni aucun fait sans l'avoir confirmé par une "
+        "recherche récente, et refais les 3 scénarios sur des faits vérifiés.\n"
+        "- `rationnel` dit pourquoi ce sujet et pourquoi son issue est ouverte : garde cette tension au "
+        "cœur de `sujet.angle` et de `question_posee`.\n"
+        "- Recopie `id`, exactement, dans sujet.origine_id ; et dans sujet.origine_prioritaire, le `titre`."
     )
+
+
+def ancrer_sur_le_sujet(brief, date_str):
+    """Après génération : le CODE fixe `sujet.origine_id` (le modèle l'oublie ou le déforme
+    parfois) puis inscrit le dossier de départ dans le brief (`sujet.point_de_depart`).
+    Si le modèle a cité un identifiant valide de la file, on le garde ; sinon on rattache le
+    brief au sujet imposé seulement si son titre en est assez proche (le modèle a traité ce
+    sujet sans citer l'identifiant) — s'il a pris l'auto-sélection, rien n'est inscrit.
+    Renvoie l'identifiant ou None. Jamais bloquant."""
+    import sys as _sys
+    try:
+        import sujets as sj
+        data, choisi = choisir_sujet(date_str)
+        sujet = brief.setdefault("sujet", {})
+        if not sj.trouver(data, sujet.get("origine_id") or "") and choisi:
+            _, e = choisi
+            titres = [t for t in (sujet.get("h1"), sujet.get("titre_propose")) if t]
+            if any(SequenceMatcher(None, _normalize_title(t), _normalize_title(e["titre"])).ratio() >= 0.6 for t in titres):
+                sujet["origine_id"] = e["id"]
+        return sj.timbrer_brief(brief, data)
+    except Exception as e:  # noqa: BLE001
+        print(f"[fallback-brief] point de départ non inscrit ({e}) — non bloquant", file=_sys.stderr)
+        return None
 
 
 def summarize_recent_archives(limit=20):
@@ -405,6 +437,8 @@ def generate_fallback_brief(date_str, model, api_key, timeout=480):
         errors = source_errors + validate_brief(brief)
         errors += check_topic_duplicate(brief)
         if not errors:
+            ident = ancrer_sur_le_sujet(brief, date_str)
+            print(f"[fallback-brief] point de départ : {ident or 'aucun sujet de la file (auto-sélection)'}", file=sys.stderr)
             return brief, usage
         print(f"[fallback-brief] essai {attempt + 1} : brief invalide :", file=sys.stderr)
         for e in errors:

@@ -250,6 +250,16 @@ class AjoutEtEnrichissementTest(unittest.TestCase):
         self.assertEqual((e["statut"], e["enrichi_le"]), ("a_traiter", "2026-10-02"))
         self.assertEqual(sj.enrichir(e, {"rationnel": "autre"}), [])
 
+    def test_enrichir_complete_les_mots_cles_sans_rien_retirer(self):
+        e = par_debut(sj.parse_md(mini_md()), "Sujet sans tag")
+        e["mots_cles"] = ["déjà là"]
+        faits = sj.enrichir(e, {"mots_cles": ["Déjà là", "nouveau un", "nouveau deux"]}, "2026-10-02")
+        self.assertEqual(faits, ["mots_cles"])
+        self.assertEqual(e["mots_cles"], ["déjà là", "nouveau un", "nouveau deux"], "l'existant reste, sans doublon")
+        # assez de mots-clés : on n'y touche plus
+        self.assertEqual(sj.enrichir(e, {"mots_cles": ["encore un autre"]}), [])
+        self.assertEqual(len(e["mots_cles"]), 3)
+
     def test_veille_dossier_depuis_la_reponse_du_modele(self):
         import generate_hot_topics as ht
         rep = {"accroche": "x ?", "contexte": CONTEXTE_LONG, "rationnel": RATIONNEL_LONG,
@@ -445,13 +455,6 @@ class SujetDuJourTest(unittest.TestCase):
         self.assertIn("Mots-clés pour chercher les articles : réforme X ; marchés", t2)
         self.assertNotIn("Dossier incomplet", t2)
 
-    def test_brief_de_secours_recoit_le_dossier(self):
-        import generate_fallback_brief as gfb
-        texte = gfb.dossier_du_jour("2026-10-03")      # un samedi → culture, d'après les vraies données
-        self.assertIn("Identifiant (à recopier dans sujet.origine_id)", texte)
-        self.assertIn("sujet.origine_id", texte)
-        self.assertIn("PISTES à vérifier", texte)
-
     def test_cli_prochain_et_sujet_du_jour_reel(self):
         data = json.loads((ROOT / "data" / "sujets.json").read_text(encoding="utf-8"))
         for jour in range(7):
@@ -538,6 +541,123 @@ class LecteursExistantsTest(unittest.TestCase):
         js = (ROOT / "assets" / "file-sujets.js").read_text(encoding="utf-8")
         for const, val in (("MIN_CONTEXTE", sj.MIN_CONTEXTE), ("MIN_RATIONNEL", sj.MIN_RATIONNEL), ("MIN_MOTS_CLES", sj.MIN_MOTS_CLES)):
             self.assertRegex(js, rf"{const}\s*=\s*{val}\b")
+
+
+class PointDeDepartTest(unittest.TestCase):
+    """Le dossier du sujet est le point de départ du brief (en JSON), et l'identifiant est fixé par le code."""
+
+    def test_dossier_json(self):
+        d = sj.parse_md(mini_md())
+        sec = next(s for s in d["sections"] if s["cle"] == "culture")
+        e = par_debut(d, "Sujet complet")
+        j = sj.dossier_json(sec, e)
+        self.assertEqual((j["id"], j["registre"], j["titre"]), (e["id"], "culture", e["titre"]))
+        self.assertEqual(j["mots_cles"], ["réforme X", "marchés", "taux directeur", "Y"])
+        self.assertEqual(j["dossier_incomplet"], [])
+        self.assertEqual(sj.dossier_json(sec, par_debut(d, "Sujet sans tag"))["dossier_incomplet"],
+                         sj.manquants(par_debut(d, "Sujet sans tag")))
+        json.dumps(j)  # sérialisable
+
+    def test_timbrer_brief(self):
+        d = sj.parse_md(mini_md())
+        e = par_debut(d, "Sujet complet")
+        brief = {"sujet": {"titre_propose": "x", "origine_id": f"id: {e['id']}"}}
+        self.assertEqual(sj.timbrer_brief(brief, d), e["id"])
+        self.assertEqual(brief["sujet"]["origine_id"], e["id"], "l'identifiant est normalisé")
+        self.assertEqual(brief["sujet"]["point_de_depart"]["contexte"], CONTEXTE_LONG)
+        e["contexte"] = "Contexte mis à jour " + CONTEXTE_LONG
+        sj.timbrer_brief(brief, d)
+        self.assertTrue(brief["sujet"]["point_de_depart"]["contexte"].startswith("Contexte mis à jour"), "idempotent, version à jour")
+
+    def test_timbrer_sans_sujet_de_la_file(self):
+        d = sj.parse_md(mini_md())
+        for sujet in ({"origine_id": None}, {"origine_id": "n-existe-pas"}, {}):
+            brief = {"sujet": dict(sujet)}
+            self.assertIsNone(sj.timbrer_brief(brief, d))
+            self.assertNotIn("point_de_depart", brief["sujet"])
+        self.assertIsNone(sj.timbrer_brief({}, d))
+
+    def test_la_redaction_ne_voit_jamais_le_point_de_depart(self):
+        import generate_daily_edition as gde
+        brief = {"date": "2026-10-03", "sujet": {"titre_propose": "T", "origine_id": "x", "point_de_depart": {"contexte": "PISTE NON VÉRIFIÉE"}},
+                 "faits_verifies": ["fait vérifié"]}
+        p = gde.build_user_prompt("CONSIGNES", brief)
+        self.assertNotIn("PISTE NON VÉRIFIÉE", p)
+        self.assertNotIn("point_de_depart", p)
+        self.assertIn("fait vérifié", p)
+        self.assertIn("point_de_depart", json.dumps(brief), "le brief d'origine n'est pas modifié")
+
+    def test_brief_de_secours_donne_le_json_et_ancre_l_identifiant(self):
+        import generate_fallback_brief as gfb
+        texte = gfb.dossier_du_jour("2026-10-03")           # samedi : culture, d'après les vraies données
+        debut = texte.index("{")
+        dossier, _ = json.JSONDecoder().raw_decode(texte[debut:])
+        self.assertEqual(dossier["registre"], "culture")
+        self.assertIn("POINT DE DÉPART", texte)
+        self.assertIn("mots_cles", texte)
+        # 1) le modèle cite le bon identifiant
+        brief = {"sujet": {"origine_id": dossier["id"], "titre_propose": "autre"}}
+        self.assertEqual(gfb.ancrer_sur_le_sujet(brief, "2026-10-03"), dossier["id"])
+        self.assertEqual(brief["sujet"]["point_de_depart"]["id"], dossier["id"])
+        # 2) il oublie l'identifiant mais traite ce sujet : titre proche -> le code l'ancre
+        brief = {"sujet": {"origine_id": None, "titre_propose": dossier["titre"]}}
+        self.assertEqual(gfb.ancrer_sur_le_sujet(brief, "2026-10-03"), dossier["id"])
+        self.assertEqual(brief["sujet"]["origine_id"], dossier["id"])
+        # 3) il a pris un autre sujet (auto-sélection) : rien n'est inscrit
+        brief = {"sujet": {"origine_id": None, "titre_propose": "Un tout autre sujet sans rapport avec la file"}}
+        self.assertIsNone(gfb.ancrer_sur_le_sujet(brief, "2026-10-03"))
+        self.assertNotIn("point_de_depart", brief["sujet"])
+
+
+class VeilleEnrichitTest(unittest.TestCase):
+    def test_enrichissement_apres_ajout_nouveaux_d_abord_puis_retard_borne(self):
+        import generate_hot_topics as ht
+        import enrich_sujets as en
+        d = sj.parse_md(mini_md())
+        nouveau = sj.ajouter(d, "culture", "Nouveau sujet à enrichir ?", contexte=CONTEXTE_LONG, rationnel=RATIONNEL_LONG, mots_cles=["a"])
+        appeles = []
+
+        def faux(sec, e, model, key, today):
+            appeles.append(e["id"])
+            return ["mots_cles"], 0.0
+        ancien = en.enrichir_un
+        en.enrichir_un = faux
+        try:
+            fait = ht.enrichir_apres_ajout(d, [nouveau["id"]], "clé", "modèle", datetime.date(2026, 10, 2), retard=2)
+        finally:
+            en.enrichir_un = ancien
+        self.assertEqual(appeles[0], nouveau["id"], "le nouveau dossier incomplet passe en premier")
+        self.assertEqual(len(appeles), 3, "1 nouveau + 2 de retard au plus")
+        self.assertEqual(fait, 3)
+
+    def test_un_dossier_complet_n_est_pas_enrichi_et_un_echec_ne_bloque_pas(self):
+        import generate_hot_topics as ht
+        import enrich_sujets as en
+        d = sj.parse_md(mini_md())
+        complet = sj.ajouter(d, "culture", "Nouveau complet ?", contexte=CONTEXTE_LONG, rationnel=RATIONNEL_LONG, mots_cles=["a", "b", "c"])
+        appeles = []
+
+        def casse(sec, e, model, key, today):
+            appeles.append(e["id"])
+            raise RuntimeError("panne réseau")
+        ancien = en.enrichir_un
+        en.enrichir_un = casse
+        try:
+            fait = ht.enrichir_apres_ajout(d, [complet["id"]], "clé", "modèle", datetime.date(2026, 10, 2), retard=1)
+        finally:
+            en.enrichir_un = ancien
+        self.assertNotIn(complet["id"], appeles)
+        self.assertEqual((len(appeles), fait), (1, 0), "un échec est ignoré, jamais bloquant")
+        self.assertEqual(ht.enrichir_apres_ajout(d, [], "k", "m", datetime.date(2026, 10, 2), retard=0), 0)
+
+    def test_insert_entries_renvoie_les_identifiants(self):
+        import generate_hot_topics as ht
+        d = sj.parse_md(mini_md())
+        ids = ht.insert_entries(d, "## Culture — samedi", [({"accroche": "A ?", "contexte": CONTEXTE_LONG, "rationnel": RATIONNEL_LONG}, None)],
+                                datetime.date(2026, 10, 2))
+        self.assertEqual(len(ids), 1)
+        self.assertEqual(par_debut(d, "A ?")["id"], ids[0])
+        self.assertEqual(ht.insert_entries(d, "## Culture — samedi", [], datetime.date(2026, 10, 2)), [])
 
 
 if __name__ == "__main__":
