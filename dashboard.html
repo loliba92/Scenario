@@ -322,12 +322,6 @@
     margin-right: 8px;
   }
   .agenda-later-empty{ color: var(--paper-dim); font-style: italic; }
-  .copy-bar{ display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-  .copy-btn{
-    font: inherit; font-size: 0.7rem; color: var(--paper-dim); background: transparent;
-    border: 1px solid var(--hairline); border-radius: 99px; padding: 3px 10px; cursor: pointer;
-  }
-  .copy-btn:hover{ border-color: var(--gold); color: var(--gold); }
 
   .dash-note{
     font-size: 0.84rem;
@@ -471,37 +465,37 @@
 <a href="file-sujets.html" class="preview-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></svg>Voir la file de sujets</a>
 </div>
       <div class="agenda-grid">
-        <div class="agenda-card" data-sujet-id="sciences-octobre-rose-2026-le-depistage-du-cancer-du">
+        <div class="agenda-card">
           <p class="agenda-day">Demain · Vendredi</p>
           <p class="agenda-registre">Sciences</p>
           <p class="agenda-topic">Octobre rose 2026&nbsp;: le dépistage du cancer du sein va-t-il changer de modèle&nbsp;?</p>
         </div>
-        <div class="agenda-card" data-sujet-id="culture-peut-on-encore-creer-un-phenomene-culturel">
+        <div class="agenda-card">
           <p class="agenda-day">Samedi</p>
           <p class="agenda-registre">Culture</p>
           <p class="agenda-topic">Peut-on encore créer un phénomène culturel spontanément&nbsp;?</p>
         </div>
-        <div class="agenda-card" data-sujet-id="sport-jeux-d-hiver-de-milan-cortina-l-intelligence">
+        <div class="agenda-card">
           <p class="agenda-day">Dimanche</p>
           <p class="agenda-registre">Sport</p>
           <p class="agenda-topic">Jeux d'hiver de Milan-Cortina&nbsp;: l'intelligence artificielle va-t-elle…</p>
         </div>
-        <div class="agenda-card" data-sujet-id="geopolitique-les-frontieres-redeviennent-elles-plus-dures">
+        <div class="agenda-card">
           <p class="agenda-day">Lundi</p>
           <p class="agenda-registre">Géopolitique</p>
           <p class="agenda-topic">Mondialisation et numérique devaient effacer les frontières&nbsp;: les…</p>
         </div>
-        <div class="agenda-card" data-sujet-id="sciences-l-ia-va-t-elle-detruire-l-humanite-ou-cette">
+        <div class="agenda-card">
           <p class="agenda-day">Mardi</p>
           <p class="agenda-registre">Carte blanche</p>
           <p class="agenda-topic">L'IA va-t-elle détruire l'humanité, ou cette peur est-elle exagérée&nbsp;?</p>
         </div>
-        <div class="agenda-card" data-sujet-id="actualite-francaise-deserts-medicaux-trouvera-t-on-encore-un">
+        <div class="agenda-card">
           <p class="agenda-day">Mercredi</p>
           <p class="agenda-registre">Actu. française</p>
           <p class="agenda-topic">Déserts médicaux&nbsp;: trouvera-t-on encore un médecin près de chez soi&nbsp;?</p>
         </div>
-        <div class="agenda-card" data-sujet-id="economie-petrole-le-petrole-peut-il-redevenir-un-choc">
+        <div class="agenda-card">
           <p class="agenda-day">Jeudi</p>
           <p class="agenda-registre">Économie &amp; finance</p>
           <p class="agenda-topic">Pétrole&nbsp;: le pétrole peut-il redevenir un choc mondial&nbsp;?</p>
@@ -511,13 +505,13 @@
 
       <p class="chart-lead" style="margin-top:18px;"><strong>Ensuite</strong> — le 2ᵉ sujet en attente dans chaque registre (sans date, même réserve que ci-dessus) :</p>
       <ul class="agenda-later-list">
-        <li data-sujet-id="geopolitique-peut-on-encore-faire-la-guerre-sans-conquerir"><span class="agenda-later-tag">Géopolitique</span>Peut-on encore faire la guerre sans conquérir de territoire&nbsp;?</li>
-        <li data-sujet-id="carte-blanche-kaliningrad-la-menace-nucleaire-russe-peut-elle"><span class="agenda-later-tag">Carte blanche</span>Kaliningrad&nbsp;: la menace nucléaire russe peut-elle faire reculer l'OTAN, ou au contraire précipiter un…</li>
-        <li data-sujet-id="actualite-francaise-assurance-chomage-le-systeme-peut-il-tenir-sans"><span class="agenda-later-tag">Actu. française</span>Assurance chômage&nbsp;: le système peut-il tenir sans nouvelles coupes&nbsp;?</li>
-        <li data-sujet-id="economie-l-effondrement-de-la-fecondite-mondiale-la"><span class="agenda-later-tag">Économie &amp; finance</span>L'effondrement de la fécondité mondiale&nbsp;: la quasi-totalité de la planète passe sous le seuil de…</li>
-        <li data-sujet-id="sciences-cancer-les-nouveaux-traitements-et-les-premiers"><span class="agenda-later-tag">Sciences</span>Cancer&nbsp;: les nouveaux traitements et les premiers vaccins anticancer laissent espérer d'en guérir beaucoup…</li>
-        <li data-sujet-id="culture-sommes-nous-en-train-de-passer-d-une-culture-de"><span class="agenda-later-tag">Culture</span>Sommes-nous en train de passer d'une culture de l'œuvre à une culture de l'expérience&nbsp;?</li>
-        <li data-sujet-id="sport-pass-sport-l-aide-a-la-pratique-sportive-des"><span class="agenda-later-tag">Sport</span>Pass Sport&nbsp;: l'aide à la pratique sportive des jeunes va-t-elle survivre aux prochains budgets&nbsp;?</li>
+        <li><span class="agenda-later-tag">Géopolitique</span>Peut-on encore faire la guerre sans conquérir de territoire&nbsp;?</li>
+        <li><span class="agenda-later-tag">Carte blanche</span>Kaliningrad&nbsp;: la menace nucléaire russe peut-elle faire reculer l'OTAN, ou au contraire précipiter un…</li>
+        <li><span class="agenda-later-tag">Actu. française</span>Assurance chômage&nbsp;: le système peut-il tenir sans nouvelles coupes&nbsp;?</li>
+        <li><span class="agenda-later-tag">Économie &amp; finance</span>L'effondrement de la fécondité mondiale&nbsp;: la quasi-totalité de la planète passe sous le seuil de…</li>
+        <li><span class="agenda-later-tag">Sciences</span>Cancer&nbsp;: les nouveaux traitements et les premiers vaccins anticancer laissent espérer d'en guérir beaucoup…</li>
+        <li><span class="agenda-later-tag">Culture</span>Sommes-nous en train de passer d'une culture de l'œuvre à une culture de l'expérience&nbsp;?</li>
+        <li><span class="agenda-later-tag">Sport</span>Pass Sport&nbsp;: l'aide à la pratique sportive des jeunes va-t-elle survivre aux prochains budgets&nbsp;?</li>
       </ul>
     </div>
 
@@ -526,16 +520,16 @@
       <p class="chart-lead">Sujets ajoutés automatiquement à <code>data/sujets.json</code> par la routine de veille (mardi/vendredi, voir <code>scripts/edition/generate_hot_topics.py</code>) — à valider avant de passer en priorité. Une issue GitHub récapitulative est aussi créée à chaque passage. Dernier passage : <!-- HOT-TOPICS:DATE_START -->1 octobre 2026<!-- HOT-TOPICS:DATE_END --><!-- HOT-TOPICS:STALE_START --><!-- HOT-TOPICS:STALE_END -->.</p>
       <ul class="agenda-later-list">
         <!-- HOT-TOPICS:LIST_START -->
-        <li data-sujet-id="carte-blanche-kaliningrad-la-menace-nucleaire-russe-peut-elle"><span class="agenda-later-tag">Carte blanche</span>Kaliningrad : la menace nucléaire russe peut-elle faire reculer l'OTAN, ou au contraire précipiter un affrontement direct entre Moscou et l'Alliance ? <span class="agenda-later-empty">(01/10)</span></li>
-        <li data-sujet-id="carte-blanche-gel-du-point-d-indice-des-fonctionnaires-le"><span class="agenda-later-tag">Carte blanche</span>Gel du point d'indice des fonctionnaires : le gouvernement Lecornu peut-il imposer son budget d'austérité sans déclencher une crise sociale et politique à un an de la présidentielle ? <span class="agenda-later-empty">(01/10)</span></li>
-        <li data-sujet-id="economie-l-oat-francaise-frole-les-5-le-petrole-a-100"><span class="agenda-later-tag">Économie &amp; finance</span>L'OAT française frôle les 5 %, le pétrole à 100 dollars, l'inflation repart : l'économie mondiale peut-elle encaisser une nouvelle tempête obligataire sans basculer en récession ? <span class="agenda-later-empty">(01/10)</span></li>
-        <li data-sujet-id="sport-le-championnat-des-nations-de-rugby-peut-il-s"><span class="agenda-later-tag">Sport</span>Le Championnat des Nations de rugby peut-il s'imposer comme la nouvelle compétition reine du rugby mondial, ou va-t-il cannibaliser les tournois historiques sans convaincre le public ? <span class="agenda-later-empty">(01/10)</span></li>
-        <li data-sujet-id="carte-blanche-les-houthis-prennent-le-controle-de-bab-el"><span class="agenda-later-tag">Carte blanche</span>Les Houthis prennent le contrôle de Bab el-Mandeb : un tiers du commerce maritime mondial passe-t-il sous contrôle hostile ? <span class="agenda-later-empty">(18/09)</span></li>
-        <li data-sujet-id="actualite-francaise-carburants-a-prix-record-et-menaces-hybrides"><span class="agenda-later-tag">Carte blanche</span>Carburants à prix record et menaces hybrides : Macron réunit les candidats à l'Élysée — le gouvernement peut-il éviter l'explosion sociale cet automne ? <span class="agenda-later-empty">(18/09)</span></li>
-        <li data-sujet-id="economie-bce-et-fed-face-au-choc-petrolier-les-banques"><span class="agenda-later-tag">Économie &amp; finance</span>BCE et Fed face au choc pétrolier : les banques centrales peuvent-elles encore baisser les taux, ou la guerre au Moyen-Orient les force-t-elle à resserrer ? <span class="agenda-later-empty">(18/09)</span></li>
-        <li data-sujet-id="culture-ed-sheeran-macklemore-et-la-neutralite"><span class="agenda-later-tag">Culture</span>Ed Sheeran, Macklemore et la neutralité impossible : un artiste peut-il encore rester en dehors de la politique sans perdre son public ? <span class="agenda-later-empty">(18/09)</span></li>
-        <li data-sujet-id="sport-mbappe-ceuta-et-le-tee-shirt-polemique-un"><span class="agenda-later-tag">Sport</span>Mbappé, Ceuta et le tee-shirt polémique : un sportif peut-il encore exprimer une opinion humanitaire sans être pris dans la guerre politique ? <span class="agenda-later-empty">(18/09)</span></li>
-        <li data-sujet-id="carte-blanche-elections-legislatives-russes-poutine-peut-il"><span class="agenda-later-tag">Carte blanche</span>Élections législatives russes : Poutine peut-il encore verrouiller le pouvoir sans provoquer de fissure ? <span class="agenda-later-empty">(18/09)</span></li>
+        <li><span class="agenda-later-tag">Carte blanche</span>Kaliningrad : la menace nucléaire russe peut-elle faire reculer l'OTAN, ou au contraire précipiter un affrontement direct entre Moscou et l'Alliance ? <span class="agenda-later-empty">(01/10)</span></li>
+        <li><span class="agenda-later-tag">Carte blanche</span>Gel du point d'indice des fonctionnaires : le gouvernement Lecornu peut-il imposer son budget d'austérité sans déclencher une crise sociale et politique à un an de la présidentielle ? <span class="agenda-later-empty">(01/10)</span></li>
+        <li><span class="agenda-later-tag">Économie &amp; finance</span>L'OAT française frôle les 5 %, le pétrole à 100 dollars, l'inflation repart : l'économie mondiale peut-elle encaisser une nouvelle tempête obligataire sans basculer en récession ? <span class="agenda-later-empty">(01/10)</span></li>
+        <li><span class="agenda-later-tag">Sport</span>Le Championnat des Nations de rugby peut-il s'imposer comme la nouvelle compétition reine du rugby mondial, ou va-t-il cannibaliser les tournois historiques sans convaincre le public ? <span class="agenda-later-empty">(01/10)</span></li>
+        <li><span class="agenda-later-tag">Carte blanche</span>Les Houthis prennent le contrôle de Bab el-Mandeb : un tiers du commerce maritime mondial passe-t-il sous contrôle hostile ? <span class="agenda-later-empty">(18/09)</span></li>
+        <li><span class="agenda-later-tag">Carte blanche</span>Carburants à prix record et menaces hybrides : Macron réunit les candidats à l'Élysée — le gouvernement peut-il éviter l'explosion sociale cet automne ? <span class="agenda-later-empty">(18/09)</span></li>
+        <li><span class="agenda-later-tag">Économie &amp; finance</span>BCE et Fed face au choc pétrolier : les banques centrales peuvent-elles encore baisser les taux, ou la guerre au Moyen-Orient les force-t-elle à resserrer ? <span class="agenda-later-empty">(18/09)</span></li>
+        <li><span class="agenda-later-tag">Culture</span>Ed Sheeran, Macklemore et la neutralité impossible : un artiste peut-il encore rester en dehors de la politique sans perdre son public ? <span class="agenda-later-empty">(18/09)</span></li>
+        <li><span class="agenda-later-tag">Sport</span>Mbappé, Ceuta et le tee-shirt polémique : un sportif peut-il encore exprimer une opinion humanitaire sans être pris dans la guerre politique ? <span class="agenda-later-empty">(18/09)</span></li>
+        <li><span class="agenda-later-tag">Carte blanche</span>Élections législatives russes : Poutine peut-il encore verrouiller le pouvoir sans provoquer de fissure ? <span class="agenda-later-empty">(18/09)</span></li>
         <!-- HOT-TOPICS:LIST_END -->
       </ul>
     </div>
@@ -896,8 +890,6 @@
   }
 })();
 </script>
-<script src="assets/sujets-copie.js"></script>
-<script src="assets/dashboard-sujets.js"></script>
 
 </body>
 </html>

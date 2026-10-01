@@ -515,23 +515,9 @@ def update_dashboard_card(today, history):
         shown.append(r)
         if len(shown) == 10:
             break
-    # Identifiant du sujet dans la file (par son titre) : sert aux boutons « Copier le dossier /
-    # l'identifiant » du dashboard. Sans correspondance (titre modifié depuis), pas de boutons.
-    def _cle(t):
-        return re.sub(r"\W+", " ", t.lower()).strip()
-    try:
-        file_actuelle = json.loads(sj.DATA_PATH.read_text(encoding="utf-8"))
-        ids_par_titre = {_cle(e["titre"]): e["id"] for _, e in sj.sujets(file_actuelle)}
-    except (OSError, ValueError, KeyError):
-        ids_par_titre = {}
-
-    def _attr(r):
-        ident = ids_par_titre.get(_cle(r["accroche"]))
-        return f' data-sujet-id="{html.escape(ident, quote=True)}"' if ident else ""
-
     if shown:
         items = "\n".join(
-            f'        <li{_attr(r)}><span class="agenda-later-tag">{html.escape(r.get("section", r["registre"]), quote=False)}</span>'
+            f'        <li><span class="agenda-later-tag">{html.escape(r.get("section", r["registre"]), quote=False)}</span>'
             f'{html.escape(r["accroche"], quote=False)} '
             f'<span class="agenda-later-empty">({date.fromisoformat(r["date"]).strftime("%d/%m")})</span></li>'
             for r in shown

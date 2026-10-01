@@ -714,28 +714,23 @@ class VeilleEnrichitTest(unittest.TestCase):
 
 
 class DashboardAgendaTest(unittest.TestCase):
-    """update_audience : identifiants des sujets (boutons « Copier ») et sujets « à valider » écartés."""
+    """update_audience : les sujets encore « à valider » ne sont pas le « prochain sujet »."""
 
     def setUp(self):
         sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "seo"))
         import update_audience as ua
         self.ua = ua
 
-    def test_identifiants_et_sujets_a_valider(self):
+    def test_sujet_a_valider_ecarte_de_l_agenda(self):
         d = sj.parse_md(mini_md())
-        propose = sj.ajouter(d, "culture", "Sujet proposé par la veille ?")   # 🔍 à valider, en tête de section
-        md = sj.render_md(d)
+        sj.ajouter(d, "culture", "Sujet proposé par la veille ?")   # 🔍 à valider, en tête de section
         culture = next(s for s in d["sections"] if s["cle"] == "culture")
-        section = self.ua.parse_section(md, culture["titre"])
-        tous = self.ua.unchecked_entries(section)
-        self.assertEqual(tous[0][1], propose["id"], "l'identifiant vient du commentaire « id: »")
-        self.assertTrue(all(ident for _, ident in tous))
-        valides = self.ua.unchecked_entries(section, valides_seulement=True)
-        self.assertNotIn(propose["id"], [i for _, i in valides], "un sujet à valider n'est pas le « prochain »")
-        self.assertEqual(len(valides), sum(1 for t, _ in tous if not t.startswith("🔍")))
-        self.assertTrue(all(not t.startswith("🔍") for t, _ in valides))
-        self.assertEqual(self.ua._attr_id("a\"b"), ' data-sujet-id="a&quot;b"')
-        self.assertEqual(self.ua._attr_id(None), "")
+        section = self.ua.parse_section(sj.render_md(d), culture["titre"])
+        tous = self.ua.unchecked_items(section)
+        valides = self.ua.unchecked_items(section, valides_seulement=True)
+        self.assertTrue(tous[0].startswith("🔍 Sujet proposé"))
+        self.assertTrue(all(not t.startswith("🔍") for t in valides))
+        self.assertEqual(len(valides), sum(1 for t in tous if not t.startswith("🔍")))
 
 
 class ExtractionJsonTest(unittest.TestCase):

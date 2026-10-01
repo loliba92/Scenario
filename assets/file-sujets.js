@@ -48,7 +48,10 @@
   }
   function plur(n, mot) { return n + " " + mot + (n > 1 ? "s" : ""); }
 
-  var nomSection = window.SujetsCopie.nomSection;
+  var NOMS = { priorite_absolue: "Priorité absolue", carte_blanche: "Carte blanche (mardi)", geopolitique: "Géopolitique (lundi)",
+    actualite_francaise: "Actu. française (mercredi)", economie: "Économie & finance (jeudi)", sciences: "Sciences (vendredi)",
+    culture: "Culture (samedi)", sport: "Sport (dimanche)" };
+  function nomSection(sec) { return NOMS[sec.cle] || sec.titre; }
 
   // ---- validation par bouton (workflow valider-sujets.yml) ----
   var DEPOT = "loliba92/Scenario", WORKFLOW = "valider-sujets.yml", BRANCHE = "main";
@@ -222,7 +225,18 @@
       (contenu ? contenu : '<p class="vide">' + (manquant || "Non renseigné") + "</p>") + "</div>";
   }
 
-  function dossierTexte(s) { return window.SujetsCopie.dossierTexte(s.sec, s.e); }
+  function dossierTexte(s) {
+    var e = s.e, l = ["Identifiant : " + e.id, "Registre : " + nomSection(s.sec), "Titre : " + e.titre];
+    if (txt(e.question) && txt(e.question) !== e.titre) l.push("Question : " + e.question);
+    if (txt(e.contexte)) l.push("Contexte : " + e.contexte);
+    if (txt(e.rationnel)) l.push("Rationnel : " + e.rationnel);
+    if (txt(e.angle)) l.push("Angle : " + e.angle);
+    if (txt(e.a_verifier)) l.push("À vérifier : " + e.a_verifier);
+    if ((e.mots_cles || []).length) l.push("Mots-clés : " + e.mots_cles.join(" ; "));
+    if (e.scenarios) l.push("Scénarios (brouillon) : favorable = " + e.scenarios.favorable + " ; stable = " + e.scenarios.stable + " ; dégradé = " + e.scenarios.degrade);
+    if ((e.sources || []).length) l.push("Sources : " + e.sources.map(function (x) { return x.titre + (x.url ? " <" + x.url + ">" : ""); }).join(" ; "));
+    return l.join("\n");
+  }
 
   function carte(s) {
     var e = s.e;
