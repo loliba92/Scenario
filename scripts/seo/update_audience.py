@@ -43,6 +43,7 @@ import os
 import re
 import subprocess
 import sys
+import unicodedata
 import urllib.error
 import urllib.request
 from collections import defaultdict
@@ -426,11 +427,60 @@ def parse_section(md_text, heading):
     return m.group(1) if m else ""
 
 
+def _norm_title(text):
+    """Texte sans accents, minuscules, ponctuation réduite à des espaces :
+    sert à reconnaître qu'un sujet de la file est déjà une édition publiée."""
+    text = unicodedata.normalize("NFD", text)
+    text = "".join(c for c in text if unicodedata.category(c) != "Mn").lower()
+    return re.sub(r"[^a-z0-9]+", " ", text).strip()
+
+
+_PUBLISHED_TITLES = None
+
+
+def published_titles():
+    """Titres (normalisés) des éditions déjà publiées : titre de chaque
+    archives/*.html et, pour ces mêmes dates, titre_propose/h1 du brief (le
+    titre final peut être légèrement raccourci par rapport au brief)."""
+    global _PUBLISHED_TITLES
+    if _PUBLISHED_TITLES is not None:
+        return _PUBLISHED_TITLES
+    titles = set()
+    briefs = ROOT / "editorial-briefs"
+    for f in ARCHIVES_DIR.glob("2026-*.html"):
+        text = f.read_text(encoding="utf-8", errors="ignore")
+        m = re.search(r'<meta property="og:title" content="([^"]*)"', text)
+        if m:
+            titles.add(_norm_title(html.unescape(re.sub(r" — Scénario$", "", m.group(1)))))
+        bf = briefs / f"{f.stem}.json"
+        if bf.exists():
+            try:
+                sujet = json.loads(bf.read_text(encoding="utf-8")).get("sujet", {})
+            except ValueError:
+                sujet = {}
+            for k in ("titre_propose", "h1"):
+                if sujet.get(k):
+                    titles.add(_norm_title(sujet[k]))
+    _PUBLISHED_TITLES = {t for t in titles if len(t) >= 20}
+    return _PUBLISHED_TITLES
+
+
+def already_published(item_text):
+    """Vrai si le sujet de la file (hors tag final) est déjà une édition
+    publiée : texte identique au titre, ou qui commence par lui."""
+    n = _norm_title(re.sub(r"\s*\[[^\]]+\]\s*$", "", item_text))
+    return any(n == t or n.startswith(t + " ") for t in published_titles())
+
+
 def unchecked_items(section_text):
+    """Sujets non cochés d'une section, SAUF ceux qui sont déjà une édition
+    publiée : une case oubliée ne doit pas faire réapparaître un sujet déjà
+    paru comme « prochain sujet » (constaté le 1er octobre 2026 : « pop culture »,
+    publié le 26 septembre, et « Bitcoin », publié le jour même)."""
     items = []
     for line in section_text.splitlines():
         m = re.match(r"^- \[ \] (.+)$", line.strip())
-        if m:
+        if m and not already_published(m.group(1)):
             items.append(m.group(1).strip())
     return items
 
@@ -498,6 +548,14 @@ def build_agenda(md_text):
             later.append({"label": label, "text": html.escape(strip_trailing_tag(pending[1]), quote=False), "empty": False})
         else:
             later.append({"label": label, "text": "rien en réserve après le sujet de la semaine — dépend des prochains ajouts", "empty": True})
+
+    # La liste commence par DEMAIN (jour de la semaine, jamais une date : voir
+    # JOURS_SEMAINE) plutôt que par lundi : un lecteur du dashboard un jeudi
+    # voyait « Lundi, Mardi, Mercredi » en tête, des jours déjà passés (retour
+    # utilisateur du 1er octobre 2026 : « je comprends rien »).
+    tomorrow = (datetime.now(ZoneInfo("Europe/Paris")).date() + timedelta(days=1)).weekday()
+    cards = cards[tomorrow:] + cards[:tomorrow]
+    cards[0] = dict(cards[0], day=f"Demain · {cards[0]['day']}")
 
     return cards, later, priority_line
 
@@ -610,6 +668,85 @@ def update_le_projet(cumulative, x_labels, y_max, kpis, end_date):
     html = html[: script_m.start(1)] + script_text + html[script_m.end(1):]
 
     LE_PROJET.write_text(html, encoding="utf-8")
+
+
+def render_queue_sections(html, agenda_cards, agenda_later, priority_line, autonomy_rows):
+    """Réécrit dans dashboard.html les blocs issus de sujets-prioritaires.md :
+    autonomie par registre, agenda (prochain sujet de chaque registre), ligne
+    « priorité absolue » et liste « Ensuite ». Séparé de update_dashboard() pour
+    pouvoir rafraîchir ces blocs seuls, sans recalculer l'audience."""
+    # Autonomie par registre
+    rows_html = "\n".join(
+        f'          <tr><td>{r["label"]}</td><td class="num">{r["n"]}</td>'
+        f'<td class="echeance" style="color:{r["color"]}">{r["text"]}</td></tr>'
+        for r in autonomy_rows
+    )
+    html, n = re.subn(
+        r'(<span class="chart-label">Autonomie par registre.*?<tbody>).*?(</tbody>)',
+        lambda m: m.group(1) + "\n" + rows_html + "\n        " + m.group(2),
+        html, count=1, flags=re.S,
+    )
+    if n != 1:
+        raise RuntimeError("dashboard.html : tbody Autonomie par registre introuvable")
+
+    degrade = [r for r in autonomy_rows if r["degrade"]]
+    if degrade:
+        names = ", ".join(f'{r["label"]} ({r["text"]})' for r in degrade)
+        autonomy_note = (
+            f"{names} : relayer les suggestions des lecteurs "
+            f'(<a href="mailto:scenariocontact75@gmail.com" style="color:var(--paper-dim)">scenariocontact75@gmail.com</a>) '
+            f"reste le moyen normal de réalimenter ce(s) registre(s)."
+        )
+    else:
+        autonomy_note = "Aucun registre en tension actuellement — tous à 5 sujets non cochés ou plus."
+    html, n = re.subn(
+        r'(Autonomie par registre — sujets non cochés</span>.*?<p class="kpi-sub" style="margin-top:12px;">).*?(</p>)',
+        lambda m: m.group(1) + autonomy_note + m.group(2),
+        html, count=1, flags=re.S,
+    )
+    if n != 1:
+        raise RuntimeError("dashboard.html : note Autonomie par registre introuvable")
+
+    # Agenda de la semaine + Semaine d'après
+    cards_html = "\n".join(
+        f'        <div class="agenda-card">\n'
+        f'          <p class="agenda-day">{c["day"]}</p>\n'
+        f'          <p class="agenda-registre">{c["registre"]}</p>\n'
+        f'          <p class="agenda-topic">{c["topic"]}</p>\n'
+        f"        </div>"
+        for c in agenda_cards
+    )
+    html, n = re.subn(
+        r'(<div class="agenda-grid">).*?(</div>\s*<p class="kpi-sub" style="margin-top:12px;">)',
+        lambda m: m.group(1) + "\n" + cards_html + "\n      " + m.group(2),
+        html, count=1, flags=re.S,
+    )
+    if n != 1:
+        raise RuntimeError("dashboard.html : agenda-grid introuvable")
+
+    html, n = re.subn(
+        r'(<p class="kpi-sub" style="margin-top:12px;">).*?(</p>\s*<p class="chart-lead" style="margin-top:18px;">)',
+        lambda m: m.group(1) + priority_line + m.group(2),
+        html, count=1, flags=re.S,
+    )
+    if n != 1:
+        raise RuntimeError("dashboard.html : ligne priorité absolue introuvable")
+
+    later_html = "\n".join(
+        (f'        <li><span class="agenda-later-tag">{it["label"]}</span>'
+         f'<span class="agenda-later-empty">{it["text"]}</span></li>')
+        if it["empty"] else
+        (f'        <li><span class="agenda-later-tag">{it["label"]}</span>{it["text"]}</li>')
+        for it in agenda_later
+    )
+    html, n = re.subn(
+        r'(<ul class="agenda-later-list">).*?(</ul>)',
+        lambda m: m.group(1) + "\n" + later_html + "\n      " + m.group(2),
+        html, count=1, flags=re.S,
+    )
+    if n != 1:
+        raise RuntimeError("dashboard.html : agenda-later-list introuvable")
+    return html
 
 
 def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_later, priority_line, autonomy_rows, openrouter=None, cost_yesterday=None, cost_today=None):
@@ -806,77 +943,7 @@ def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_la
     )
     html = html[: script_m.start(1)] + script_text + html[script_m.end(1):]
 
-    # Autonomie par registre
-    rows_html = "\n".join(
-        f'          <tr><td>{r["label"]}</td><td class="num">{r["n"]}</td>'
-        f'<td class="echeance" style="color:{r["color"]}">{r["text"]}</td></tr>'
-        for r in autonomy_rows
-    )
-    html, n = re.subn(
-        r'(<span class="chart-label">Autonomie par registre.*?<tbody>).*?(</tbody>)',
-        lambda m: m.group(1) + "\n" + rows_html + "\n        " + m.group(2),
-        html, count=1, flags=re.S,
-    )
-    if n != 1:
-        raise RuntimeError("dashboard.html : tbody Autonomie par registre introuvable")
-
-    degrade = [r for r in autonomy_rows if r["degrade"]]
-    if degrade:
-        names = ", ".join(f'{r["label"]} ({r["text"]})' for r in degrade)
-        autonomy_note = (
-            f"{names} : relayer les suggestions des lecteurs "
-            f'(<a href="mailto:scenariocontact75@gmail.com" style="color:var(--paper-dim)">scenariocontact75@gmail.com</a>) '
-            f"reste le moyen normal de réalimenter ce(s) registre(s)."
-        )
-    else:
-        autonomy_note = "Aucun registre en tension actuellement — tous à 5 sujets non cochés ou plus."
-    html, n = re.subn(
-        r'(Autonomie par registre — sujets non cochés</span>.*?<p class="kpi-sub" style="margin-top:12px;">).*?(</p>)',
-        lambda m: m.group(1) + autonomy_note + m.group(2),
-        html, count=1, flags=re.S,
-    )
-    if n != 1:
-        raise RuntimeError("dashboard.html : note Autonomie par registre introuvable")
-
-    # Agenda de la semaine + Semaine d'après
-    cards_html = "\n".join(
-        f'        <div class="agenda-card">\n'
-        f'          <p class="agenda-day">{c["day"]}</p>\n'
-        f'          <p class="agenda-registre">{c["registre"]}</p>\n'
-        f'          <p class="agenda-topic">{c["topic"]}</p>\n'
-        f"        </div>"
-        for c in agenda_cards
-    )
-    html, n = re.subn(
-        r'(<div class="agenda-grid">).*?(</div>\s*<p class="kpi-sub" style="margin-top:12px;">)',
-        lambda m: m.group(1) + "\n" + cards_html + "\n      " + m.group(2),
-        html, count=1, flags=re.S,
-    )
-    if n != 1:
-        raise RuntimeError("dashboard.html : agenda-grid introuvable")
-
-    html, n = re.subn(
-        r'(<p class="kpi-sub" style="margin-top:12px;">).*?(</p>\s*<p class="chart-lead" style="margin-top:18px;">)',
-        lambda m: m.group(1) + priority_line + m.group(2),
-        html, count=1, flags=re.S,
-    )
-    if n != 1:
-        raise RuntimeError("dashboard.html : ligne priorité absolue introuvable")
-
-    later_html = "\n".join(
-        (f'        <li><span class="agenda-later-tag">{it["label"]}</span>'
-         f'<span class="agenda-later-empty">{it["text"]}</span></li>')
-        if it["empty"] else
-        (f'        <li><span class="agenda-later-tag">{it["label"]}</span>{it["text"]}</li>')
-        for it in agenda_later
-    )
-    html, n = re.subn(
-        r'(<ul class="agenda-later-list">).*?(</ul>)',
-        lambda m: m.group(1) + "\n" + later_html + "\n      " + m.group(2),
-        html, count=1, flags=re.S,
-    )
-    if n != 1:
-        raise RuntimeError("dashboard.html : agenda-later-list introuvable")
+    html = render_queue_sections(html, agenda_cards, agenda_later, priority_line, autonomy_rows)
 
     DASHBOARD.write_text(html, encoding="utf-8")
 

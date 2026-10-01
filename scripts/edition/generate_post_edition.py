@@ -1016,30 +1016,50 @@ def check_off_priority_topic(brief):
     publication) ne doivent jamais faire échouer `--publish` — un simple
     avertissement suffit, le pire cas est une ligne qui reste à cocher à
     la main, jamais une publication bloquée pour ça."""
-    origine = (brief.get("sujet") or {}).get("origine_prioritaire")
-    if not origine:
-        return
+    sujet = brief.get("sujet") or {}
     path = REPO_ROOT / "sujets-prioritaires.md"
     if not path.exists():
         print("[post-edition] sujets-prioritaires.md introuvable — case non cochée (non bloquant)")
         return
     text = path.read_text(encoding="utf-8")
-    prefix = "- [ ] "
-    # Tag `[xxx]` final optionnel (ex. « [musique & société] ») — jamais
-    # inclus dans origine_prioritaire (voir le champ dans le brief), mais
-    # toujours présent sur la vraie ligne du fichier.
-    pattern = re.compile(
-        r"^" + re.escape(prefix) + re.escape(origine.strip()) + r"(?: \[[^\]\n]*\])?[ \t]*$",
-        re.M,
-    )
-    m = pattern.search(text)
-    if not m:
-        print(f"[post-edition] sujets-prioritaires.md : ligne introuvable pour origine_prioritaire "
-              f"({origine.strip()[:80]!r}…) — case non cochée (non bloquant, probablement reformulée/retirée à la main)")
+
+    # origine_prioritaire est parfois recopié tel quel depuis le fichier, avec
+    # sa puce « - [ ] » et son tag final « [culture & géopolitique] » (constaté
+    # le 26 septembre 2026 : « pop culture » publiée mais jamais cochée, donc
+    # revenue en tête de file et menacée d'être republiée). On les retire ici.
+    def _bare(t):
+        t = re.sub(r"^\s*-\s*\[[ xX]\]\s*", "", t or "").strip()
+        return re.sub(r"\s*\[[^\]\n]*\]\s*$", "", t).strip()
+
+    # Candidats, du plus fiable au moins fiable : le texte d'origine, puis le
+    # titre et le h1 du sujet publié (couvre un sujet repris de la file par
+    # l'auto-sélection, sans origine_prioritaire : constaté le 1er octobre
+    # 2026 avec « Bitcoin »). Les titres courts sont ignorés : trop risqués.
+    candidates = []
+    for raw, min_len in ((sujet.get("origine_prioritaire"), 1), (sujet.get("titre_propose"), 25), (sujet.get("h1"), 25)):
+        c = _bare(raw)
+        if c and len(c) >= min_len and c not in candidates:
+            candidates.append(c)
+    if not candidates:
         return
-    new_text = text[:m.start()] + "- [x] " + text[m.start() + len(prefix):]
-    path.write_text(new_text, encoding="utf-8")
-    print(f"[post-edition] sujets-prioritaires.md : case cochée pour {origine.strip()[:80]!r}…")
+
+    for c in candidates:
+        # Ligne non cochée dont le texte (hors tag final) est exactement c, ou
+        # commence par c (le brief peut n'avoir gardé que la 1re phrase).
+        pattern = re.compile(
+            r"^- \[ \] " + re.escape(c) + r"(?:(?: \[[^\]\n]*\])|(?: [^\n]*))?[ \t]*$",
+            re.M,
+        )
+        if pattern.search(text):
+            # Toutes les occurrences : la veille ajoute parfois le même sujet
+            # dans deux sections (ex. « Les Houthis… » en double).
+            new_text, n = pattern.subn(lambda m: "- [x] " + m.group(0)[len("- [ ] "):], text)
+            path.write_text(new_text, encoding="utf-8")
+            print(f"[post-edition] sujets-prioritaires.md : {n} case(s) cochée(s) pour {c[:80]!r}…")
+            return
+    if sujet.get("origine_prioritaire"):
+        print(f"[post-edition] sujets-prioritaires.md : ligne introuvable pour origine_prioritaire "
+              f"({_bare(sujet['origine_prioritaire'])[:80]!r}…) — case non cochée (non bloquant, probablement reformulée/retirée à la main)")
 
 
 # ---------------------------------------------------------------------------
