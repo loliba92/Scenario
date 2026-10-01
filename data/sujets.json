@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "2a9ea071225493ba018810716050fb842124277afe7e30aa9b6b89e22a31bbb0"
+    "md_sha256": "33220b23e69d25785288bef5db3614fd8bb14f73bccb1203bd56b85c2e997f25"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -665,19 +665,45 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Le numérique, les cryptomonnaies, les diasporas et les entreprises mondiales semblent affaiblir le contrôle des États sur leur territoire — mais la tendance réelle de ces dernières années va souvent dans l'autre sens : localisation obligatoire des données, contrôles migratoires renforcés, découplage technologique USA-Chine. Laquelle des deux tendances l'emporte réellement ?",
-          "rationnel": null,
+          "rationnel": "Ce sujet est crucial maintenant car 2026 est une année charnière : le Pacte Asile et Migration de l'UE est entré en vigueur en juin, les contrôles à l'exportation USA-Chine se durcissent tout en étant recalibrés sous Trump, et la démographie européenne bascule (solde naturel négatif en France pour la première fois depuis 1945). L'issue reste ouverte car les forces contraires sont réelles : si les frontières physiques et technologiques se durcissent, des petits États (EAU, Singapour, Estonie) gagnent une influence disproportionnée via l'IA, la finance et le numérique, tandis que la neutralité (Suisse, Inde) devient une stratégie viable dans un monde multipolaire. Pour un lecteur français, l'enjeu est direct : le renforcement des frontières européennes redéfinit l'immigration et la souveraineté numérique, tandis que le déclin démographique français (solde naturel négatif) interroge le poids futur de la France en Europe et dans le monde.",
           "angle": null,
           "a_verifier": "Lois de localisation des données récentes (UE, Chine, Inde), contrôles à l'exportation technologique USA-Chine, données sur les flux migratoires et les politiques de fermeture, cas concrets de petits pays à forte influence (Émirats, Singapour, Estonie...)",
-          "mots_cles": [],
+          "mots_cles": [
+            "Pacte Asile Migration UE 2026 entrée vigueur",
+            "contrôles exportation semi-conducteurs USA Chine 2025 2026",
+            "loi cybersécurité Chine amendements 2026 localisation données",
+            "Frontex franchissements irréguliers 2025 baisse 26%",
+            "Émirats arabes unis IA investissement 147 milliards Stargate",
+            "Singapour puissance financière place asiatique 2025",
+            "neutralité Suisse initiative 27 septembre 2026 multipolaire",
+            "solde naturel France négatif 2025 démographie déclin"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "Irregular border crossings down 26% in 2025 - Frontex",
+              "url": "https://www.frontex.europa.eu/media-centre/news/news-release/frontex-irregular-border-crossings-down-26-in-2025-europe-must-stay-prepared-lyKpVb"
+            },
+            {
+              "titre": "Le Pacte Asile et migration entre en vigueur le 12 juin 2026 - Commission européenne",
+              "url": "https://france.representation.ec.europa.eu/informations-et-evenements/informations/le-pacte-asile-et-migration-entre-en-vigueur-le-12-juin-2026-06-11_fr"
+            },
+            {
+              "titre": "U.S. Export Controls and China: Advanced Semiconductors - CRS Congress",
+              "url": "https://www.congress.gov/crs-product/R48642"
+            },
+            {
+              "titre": "Les Émirats arabes unis marquent 2025 par une transformation stratégique de l'IA - WAM",
+              "url": "https://www.wam.ae/fr/article/15xmwhx-les-%C3%A9mirats-arabes-unis-marquent-2025-par-une"
+            }
+          ],
           "origine": "utilisateur",
           "note": "Reformulation de \"Les frontières vont-elles devenir inutiles ?\" (favori #2) — la version initiale risquait d'argumenter à contre-courant du sens réel de la décennie (re-fragmentation plutôt qu'effacement, un vrai risque signalé lors du crible) : gardée comme une vraie tension à trancher plutôt qu'une thèse à prouver dans un seul sens. Facettes du même lot pliées ici plutôt que traitées séparément : une puissance moyenne peut-elle devenir une superpuissance grâce à l'IA plutôt qu'au territoire/à la population ; un petit pays peut-il peser disproportionnellement grâce à la finance/l'énergie/les données plutôt qu'à sa taille ; la démographie perd-elle son rôle historique dans la puissance des États ; la neutralité (Suisse, Inde, États du Golfe) peut-elle devenir une force plutôt qu'une faiblesse dans un monde de blocs",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -688,19 +714,45 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Cyberattaques, sanctions, désinformation, sabotage d'infrastructures, drones : la guerre du futur cherche-t-elle encore à prendre des terres, ou la coercition sans conquête devient-elle la norme plutôt que l'exception ?",
-          "rationnel": null,
+          "rationnel": "Ce sujet est crucial maintenant car la guerre hybride est devenue la modalité principale de confrontation entre grandes puissances : la Russie l'utilise contre l'Europe depuis 2022 avec une intensité croissante, et la Chine l'applique à Taïwan comme alternative à l'invasion. L'issue est réellement ouverte car aucun État n'a encore prouvé qu'on peut atteindre un objectif stratégique majeur uniquement par la coercition cyber/économique sans franchissement de frontière — Stuxnet a retardé le programme nucléaire iranien sans l'arrêter, et les campagnes russes en Europe restent sous le seuil déclenchant l'article 5 de l'OTAN. Pour un lecteur français, l'enjeu est direct : la France est explicitement ciblée par les opérations hybrides russes (cyberattaques du FSB/Turla, espionnage, sabotage potentiel), et la question de savoir si ces méthodes peuvent contraindre un État sans guerre conventionnelle redéfinit la nature même de la conflictualité.",
           "angle": null,
           "a_verifier": "Cas documentés de coercition hybride réussie ou ratée (Stuxnet, rançongiciels attribués à des États, sabotages d'infrastructures), doctrine militaire officielle de plusieurs puissances sur le sujet",
-          "mots_cles": [],
+          "mots_cles": [
+            "guerre hybride OTAN 2026",
+            "menaces hybrides Russie Europe sabotage infrastructure",
+            "Stuxnet Iran centrifuge objectif stratégique",
+            "coercition sans conquête Taïwan Chine zone grise",
+            "cyberattaque Pologne réseau électrique décembre 2025",
+            "Macron menace hybride russe septembre 2026",
+            "article 5 OTAN seuil attaque hybride",
+            "doctrine Gerasimov guerre nouvelle génération"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "Menaces hybrides russes : drones, sabotages et désinformation contre l'Europe — ISS",
+              "url": "https://www.institut-sciences-strategiques.org/enjeux/menaces-hybrides-et-guerres-de-linformation/menaces-hybrides-russes/"
+            },
+            {
+              "titre": "France says Russian hybrid attacks are intensifying — Reuters",
+              "url": "https://www.reuters.com/world/europe/france-prepares-react-russian-hybrid-threats-intensify-2026-09-18/"
+            },
+            {
+              "titre": "NATO — Countering hybrid threats",
+              "url": "https://www.nato.int/en/what-we-do/deterrence-and-defence/countering-hybrid-threats"
+            },
+            {
+              "titre": "Attribution à la Russie d'activités cyber malveillantes à des fins d'espionnage en France — France Diplomatie",
+              "url": "https://www.diplomatie.gouv.fr/fr/presse-et-ressources/decouvrir-et-informer/actualites/attribution-a-la-russie-d-activites-cyber-malveillantes-a-des-fins-d-espionnage-en-france"
+            }
+          ],
           "origine": null,
           "note": "Favori #3 de l'utilisateur, gardé tel quel — tient bien la route face au crible (doctrine réelle et documentée, guerre hybride théorisée par l'OTAN et largement observée depuis l'invasion de l'Ukraine). À préciser à la rédaction sur une question falsifiable (ex. un État atteint-il un objectif stratégique majeur uniquement par la coercition cyber/économique, sans franchissement de frontière, dans un délai donné ?) plutôt que la version générale, pour éviter un article descriptif sans vraie tension",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -711,19 +763,45 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Un État ne dépend plus seulement d'un territoire terrestre mais d'un territoire orbital — satellites de communication, de navigation, d'observation. Starlink est déjà devenu une infrastructure quasi militaire en Ukraine, contrôlée par une entreprise privée plutôt qu'un État.",
-          "rationnel": null,
+          "rationnel": "Ce sujet est brûlant car trois dynamiques convergent en 2026 : la militarisation de facto de l'orbite basse (Starlink comme infrastructure de guerre, essais ASAT, satellites patrouilleurs français annoncés pour 2027), l'absence de cadre juridique adapté (le traité de 1967 ne couvre ni les armes ASAT ni les méga-constellations privées), et l'accélération du risque de syndrome de Kessler (l'indicateur Crash Clock est passé de 164 jours en 2018 à 5 jours en 2025). L'issue est ouverte car les intérêts des grandes puissances divergent radicalement : États-Unis et Chine s'opposent sur la régulation, la Russie bloque toute résolution contraignante à l'ONU, tandis que des acteurs privés (SpaceX) exercent un pouvoir quasi étatique sans cadre de responsabilité. Pour un lecteur français, l'enjeu est double : la souveraineté numérique européenne (dépendance à Starlink, alternative IRIS²) et la vulnérabilité des services quotidiens (GPS, télécoms, banques) face à une possible collision en cascade dans les 5 ans.",
           "angle": null,
           "a_verifier": "Nombre de satellites actifs et leur répartition par pays/entreprise, essais antisatellites documentés et leurs conséquences en débris, état des négociations internationales sur la militarisation de l'espace",
-          "mots_cles": [],
+          "mots_cles": [
+            "Starlink Ukraine militaire dépendance 2026",
+            "essai antisatellite russe Cosmos 1408 débris",
+            "constellation Qianfan Guowang Chine déploiement",
+            "syndrome Kessler Crash Clock 5 jours",
+            "traité espace 1967 obsolète négociations ONU",
+            "militarisation espace course armements orbitale",
+            "SpaceX pouvoir privé infrastructure critique",
+            "IRIS² Europe souveraineté spatiale"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "Près de 17 000 satellites actifs autour de la Terre : l'espace change d'échelle (Look Up Space, 2026)",
+              "url": "https://www.lookupspace.com/fr/blog/pres-de-17-000-satellites-actifs-autour-de-la-terre-lespace-change-dechelle"
+            },
+            {
+              "titre": "How Many Satellites Are in Orbit? 16,500+ Tracked Live (September 2026) | azmth",
+              "url": "https://azmth.space/stats"
+            },
+            {
+              "titre": "La guerre dans l'orbite : l'accélération des armements antisatellites en 2026 — ISS",
+              "url": "https://www.institut-sciences-strategiques.org/enjeux/politique-spatiale-et-militarisation-de-lespace/la-guerre-dans-l-orbite-l-acceleration-des-armements-antisatellites-en-2026/"
+            },
+            {
+              "titre": "Kiev discute avec SpaceX de l'utilisation de Starlink par la Russie pour frapper l'Ukraine (France 24, janvier 2026)",
+              "url": "https://www.france24.com/fr/europe/20260130-kiev-discute-avec-spacex-utilisation-starlink-par-la-russie-pour-frapper-ukraine-elon-musk"
+            }
+          ],
           "origine": null,
           "note": "Favori #5, tient bien la route — terrain réel et daté (essai antisatellite destructeur russe de 2021, rôle de Starlink en Ukraine, ambitions de constellations chinoises, syndrome de Kessler comme risque partagé, traité de l'espace de 1967 jugé obsolète par plusieurs experts)",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -734,19 +812,48 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "La transition énergétique devait réduire la dépendance géopolitique aux ressources fossiles — elle en crée peut-être de nouvelles autour du lithium, du cobalt et des terres rares, dont la Chine domine le raffinage. Mais contrairement au pétrole, brûlé et perdu pour de bon, ces métaux peuvent en théorie être recyclés presque indéfiniment : la dépendance est-elle structurelle, ou seulement temporaire le temps que l'industrie du recyclage rattrape son retard ?",
-          "rationnel": null,
+          "rationnel": "Ce sujet est brûlant car la trêve commerciale sino-américaine sur les terres rares expire en janvier 2027, et la question de la dépendance structurelle reste ouverte : d'un côté, le quasi-monopole chinois du raffinage (90 %) et les restrictions d'exportation montrent une vulnérabilité immédiate ; de l'autre, la différence fondamentale avec le pétrole — les terres rares sont recyclables presque indéfiniment — ouvre une perspective de désamorçage à moyen terme, mais le taux de recyclage actuel (< 1 %) et les délais de montée en charge des filières (2030 au mieux) laissent planer une incertitude radicale. Pour un lecteur français, l'enjeu est concret : l'usine de Lacq, les objectifs du plan national de résilience et la dépendance de l'industrie automobile et éolienne européenne à des aimants chinois déterminent la souveraineté industrielle du pays.",
           "angle": null,
           "a_verifier": "Taux de recyclage actuels des métaux de batteries et leur progression, part de marché chinoise du raffinage par métal, investissements occidentaux récents en recyclage/dérisking (IRA américain, initiatives européennes)",
-          "mots_cles": [],
+          "mots_cles": [
+            "terres rares raffinage Chine 90%",
+            "Caremag Lacq recyclage terres rares",
+            "plan national résilience terres rares 2026",
+            "RESourceEU plan européen matières premières critiques",
+            "accord Busan trêve terres rares Trump Xi",
+            "taux recyclage terres rares moins de 1%",
+            "Critical Raw Materials Act objectifs recyclage",
+            "yttrium restriction exportation Chine"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2027-01-10",
+            "raison": "Expiration de la trêve commerciale de Busan prolongée, qui suspend les restrictions chinoises élargies sur les terres rares. Si elle n'est pas renouvelée, les contrôles d'exportation les plus durs pourraient être réactivés, testant la résilience des chaînes d'approvisionnement occidentales."
+          },
+          "sources": [
+            {
+              "titre": "Terres rares : le quasi-monopole chinois sur le raffinage mondial — ISS",
+              "url": "https://www.institut-sciences-strategiques.org/etats/chine/la-position-strategique-de-la-chine-dans-les-terres-rares/"
+            },
+            {
+              "titre": "Guerre commerciale : les terres rares, une redoutable arme chinoise face à Trump et l'UE — France 24",
+              "url": "https://www.france24.com/fr/%C3%A9co-tech/20251028-guerre-commerciale-terres-rares-redoutable-arme-chine-trump-ue-etats-unis"
+            },
+            {
+              "titre": "Plan national de résilience « Terres rares et aimants permanents » — entreprises.gouv.fr",
+              "url": "https://www.entreprises.gouv.fr/la-dge/actualites/plan-national-de-resilience-terres-rares-et-aimants-permanents-renforcer-la"
+            },
+            {
+              "titre": "Le recyclage, l'autre mine d'or des terres rares — Sciences et Avenir (avril 2026)",
+              "url": "https://www.sciencesetavenir.fr/fondamental/materiaux/le-recyclage-l-autre-mine-d-or-des-terres-rares_191642"
+            }
+          ],
           "origine": "utilisateur",
           "note": "Reformulation de \"le pétrole peut-il redevenir une arme ?\" / \"qui gagnera la guerre des ressources invisibles ?\" (favori #6) — les faits sont solides (quasi-monopole chinois du raffinage des terres rares, dépendance au cobalt de RDC) mais \"le lithium, nouveau pétrole\" est un cliché de presse économique depuis 2021, à l'opposé de la règle du site contre les sujets déjà vus. Angle retenu pour se démarquer : la différence structurelle recyclage vs combustion, qui pourrait invalider le parallèle avec le pétrole à moyen terme — peu traité comparé à la thèse dominante",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -1218,23 +1325,56 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Le PLF 2026 prévoyait une coupe de 36 M€ (-50%) sur les crédits du Pass Sport, qui aurait exclu durablement les 6-13 ans (81% des bénéficiaires actuels). Sous la pression des élus locaux et du monde sportif face à la baisse des inscriptions, un amendement porté par la ministre des Sports Marina Ferrari a rétabli l'aide pour les 6-13 ans (financée sur crédits Cnaf), montant maintenu à 70€ pour 2026-2027. Le dispositif vient d'être sauvé de justesse une fois — rien ne dit qu'il le sera à nouveau l'an prochain",
-          "rationnel": null,
+          "rationnel": "Ce sujet est au cœur de l'actualité ce 1er octobre 2026 avec la présentation du PLF 2027, qui acte un transfert du Pass'Sport vers les CAF plutôt qu'une suppression, mais sans garantir sa pérennité. L'issue reste ouverte car le dispositif est sauvé in extremis chaque année par des amendements de dernière minute, dans un contexte de contrainte budgétaire forte (déficit à 5,4% du PIB en 2026, objectif 5% en 2027) et alors que le montant de l'aide a déjà baissé de 70 à 50€. Pour un lecteur français, l'enjeu est l'accès à la pratique sportive des jeunes de milieux modestes, dans un pays où le coût d'une licence (150-250€) reste un obstacle pour de nombreuses familles.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Chiffre exact du budget Pass'Sport dans le PLF 2027 après transfert aux CAF (40 M€ évoqués par Le Monde) ; nombre de bénéficiaires 2026-2027 vs 2025-2026 ; taux de recours exact du dispositif ; position des fédérations sportives sur la baisse à 50€",
+          "mots_cles": [
+            "Pass'Sport",
+            "Pass Sport",
+            "PLF 2026",
+            "PLF 2027",
+            "Marina Ferrari",
+            "6-13 ans",
+            "quotient familial 699€",
+            "CNAF",
+            "aide à la licence sportive",
+            "budget sports 2027",
+            "49.3 budget",
+            "Sébastien Lecornu"
+          ],
           "scenarios": {
             "favorable": "le Pass Sport est sanctuarisé et même élargi (ex. relevé d'âge, comme certaines collectivités le font déjà localement)",
             "stable": "l'aide se maintient d'année en année via des amendements de dernière minute, jamais vraiment sécurisée",
             "degrade": "la coupe initiale finit par passer, les 6-13 ans sortent durablement du dispositif"
           },
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-12-31",
+            "raison": "Fin de la campagne d'activation du Pass Sport 2026-2027 ; le PLF 2027 devra être voté d'ici fin décembre 2026 pour déterminer le sort du dispositif pour la saison suivante"
+          },
+          "sources": [
+            {
+              "titre": "Le Monde - Un budget des sports stable, les JO 2030 préservés",
+              "url": "https://www.lemonde.fr/sport/article/2026/10/01/un-budget-des-sports-stable-les-jeux-olympiques-et-paralympiques-2030-preserves-de-la-cure-d-austerite_6786555_3242.html"
+            },
+            {
+              "titre": "Ministère des Sports - Le dispositif pass Sport de retour pour la rentrée 2026",
+              "url": "https://www.sports.gouv.fr/le-dispositif-pass-sport-de-retour-pour-la-rentree-2026-10272"
+            },
+            {
+              "titre": "L'Équipe - Le Pass Sport de nouveau accessible aux enfants dans le PLF 2026",
+              "url": "https://www.lequipe.fr/Tous-sports/Actualites/Le-pass-sport-de-nouveau-accessible-aux-enfants-dans-le-projet-de-loi-de-finances-2026/1636229"
+            },
+            {
+              "titre": "Service Public - Le pass Sport est étendu pour la saison 2026-2027",
+              "url": "https://www.service-public.gouv.fr/particuliers/actualites/A15850"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "commentaire",
@@ -1249,19 +1389,45 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Matériel, données, IA, préparation scientifique, moyens financiers : les écarts entre athlètes se creusent de plus en plus loin du seul talent.",
-          "rationnel": null,
+          "rationnel": "Le sujet est d'autant plus actuel que les Enhanced Games (mai 2026) viennent de tester en conditions réelles un sport sans aucune régulation, sans pour autant démontrer une supériorité écrasante du dopage technologique — ce qui relance le débat plutôt que de le trancher. L'issue reste ouverte car les forces en présence sont contradictoires : d'un côté, les fédérations multiplient les réglementations techniques (World Athletics, UCI, World Aquatics) ; de l'autre, les inégalités de moyens entre nations et clubs s'accentuent, et des compétitions privées non régulées émergent. Pour un lecteur français, l'enjeu est double : la place de la France dans la hiérarchie sportive mondiale après la baisse des budgets post-JO 2024, et le risque de voir émerger un sport à deux vitesses où seuls les athlètes les mieux financés accèdent aux technologies de pointe.",
           "angle": null,
           "a_verifier": "Cas récents de contestation d'équipement (combinaisons, prothèses, chaussures à plaque carbone...), règles de régulation déjà en place ou en débat par fédération, écarts de moyens documentés entre programmes sportifs nationaux/clubs",
-          "mots_cles": [],
+          "mots_cles": [
+            "Enhanced Games 2026 Las Vegas",
+            "World Athletics chaussures régulation 2026 semelle 20mm",
+            "combinaison polyuréthane interdite natation",
+            "dopage technologique équipement sportif",
+            "inégalités budgets sportifs nations JO",
+            "UCI règlement technique vélo 2026",
+            "prothèses carbone paralympiques régulation",
+            "Kristian Gkolomeev 50m 20.81"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "World Athletics – Athletic Shoe Regulations (effective 20 April 2026)",
+              "url": "https://worldathletics.org/download/download?filename=61b09e88-36c9-4782-8563-2adce1e15ff0.pdf&urlslug=C2.1A+%E2%80%93+Athletic+Shoe+Regulations+%28effective+from+20+April+2026%29"
+            },
+            {
+              "titre": "Enhanced Games : récit de la nuit la plus controversée du sport – Euronews",
+              "url": "https://fr.euronews.com/2026/05/26/enhanced-games-recit-de-la-nuit-la-plus-controversee-du-sport"
+            },
+            {
+              "titre": "Pourquoi les Enhanced Games sont un flop – Le Parisien",
+              "url": "https://www.leparisien.fr/sports/un-seul-record-battu-des-non-dopes-sacres-audiences-faiblardes-pourquoi-les-enhanced-games-sont-un-flop-25-05-2026-KUBLBLFQD5AUPHG6C67EVPTRWM.php"
+            },
+            {
+              "titre": "Paris 2024: Evaluation of the elite sport expenditure and success of 17 nations – SPLISS",
+              "url": "https://patrickbayeux.com/actualites/jop-paris2024-evaluation-des-depenses-en-faveur-du-sport-delite-et-des-resultats-de-17-nations/"
+            }
+          ],
           "origine": null,
           "note": "Fusionne 3 idées du même lot posant la même question sous des angles proches : \"compétition équitable ?\", \"le sport devient-il une compétition entre technologies (chaussures, vélos, combinaisons, IA d'entraînement) plutôt qu'entre athlètes ?\", et \"le record a-t-il encore un sens dans un sport technologiquement optimisé (mesure-t-il les limites du corps ou de la technologie disponible) ?\" — ce dernier point à garder comme illustration concrète (records battus en série grâce à l'équipement plutôt qu'au corps) plutôt qu'à traiter séparément. 3 scénarios de l'utilisateur, déjà propres, gardés presque tels quels : favorable = la technologie est régulée (plafonds, homologations, catégories d'équipement encadrées) ; stable = deux catégories de sport s'installent durablement, \"augmenté\" et \"non augmenté\", sans que l'une supplante l'autre ; dégradé = aucune régulation efficace, les athlètes/pays/clubs les mieux financés prennent un avantage technologique définitif",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -1272,19 +1438,45 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Optimisation biologique, IA d'entraînement, données biométriques, surveillance permanente : le sportif de demain sera-t-il encore un individu qui s'entraîne, ou le résultat d'un système d'optimisation ?",
-          "rationnel": null,
+          "rationnel": "Ce sujet s'impose maintenant car 2026 marque un tournant réglementaire et technologique : l'AI Act européen entre en vigueur en août 2026, la CNIL renforce ses contrôles sur les fédérations sportives, et des cas concrets d'utilisation intensive de l'IA (UAE, INSEP, FDJ) montrent que la transformation n'est plus une promesse mais une réalité. L'issue reste ouverte car deux forces s'affrontent : d'un côté la quête de performance pousse à une optimisation toujours plus poussée par l'IA et les données biométriques, de l'autre les régulateurs (CNIL, AI Act, CIO) et les syndicats de sportifs (FIFPRO, FNASS) tentent d'encadrer ces pratiques sans consensus clair sur la limite entre optimisation légitime et déshumanisation de l'athlète. Pour un lecteur français, l'enjeu est double : la France est un terrain d'expérimentation majeur (INSEP, équipes cyclistes FDJ, JO Paris 2024 ayant accéléré les investissements) et les décisions réglementaires européennes qui se jouent maintenant détermineront si le sportif reste maître de son corps et de ses données.",
           "angle": null,
           "a_verifier": "Usage réel de l'IA dans l'entraînement de haut niveau (fédérations, clubs, cas documentés), débats existants (syndicats de sportifs, médecine du sport) sur la surveillance biométrique permanente, limites déjà posées par certaines disciplines",
-          "mots_cles": [],
+          "mots_cles": [
+            "IA entraînement sportif haut niveau",
+            "données biométriques athlètes RGPD CNIL",
+            "AI Act sport classification haut risque",
+            "UAE Team Emirates Anna IA performance",
+            "INSEP intelligence artificielle performance",
+            "FIFPRO santé sportifs données personnelles",
+            "Olympic AI Agenda CIO éthique",
+            "propriété données sportives syndicats athlètes"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "Tour de France 2026 : comment l'équipe de Tadej Pogacar utilise l'IA pour améliorer ses performances",
+              "url": "https://www.ladepeche.fr/2026/07/02/tour-de-france-2026-cest-une-revolution-comment-lequipe-de-tadej-pogacar-utilise-lintelligence-artificielle-pour-ameliorer-ses-performances-13449444.php"
+            },
+            {
+              "titre": "Comment l'IA aide-t-elle à rendre les athlètes plus performants ? (INSEP)",
+              "url": "https://www.techniques-ingenieur.fr/actualite/articles/comment-lia-aide-t-elle-a-rendre-les-athletes-plus-performants-142253/"
+            },
+            {
+              "titre": "Données biométriques des athlètes : qui collecte, qui exploite, qui protège",
+              "url": "https://www.sports-insiders.net/donnees-biometriques-des-athletes-qui-collecte-qui-exploite-qui-protege"
+            },
+            {
+              "titre": "La CNIL sur la collecte de données pour la mesure de la performance physique des sportifs",
+              "url": "https://www.cnil.fr/fr/la-collecte-de-donnees-pour-la-mesure-de-la-performance-physique-individuelle-des-sportifs-de-haut"
+            }
+          ],
           "origine": null,
           "note": "Fusionne \"le progrès technologique menace-t-il l'exploit sportif ? (à quel moment l'exploit cesse-t-il d'être humain ?)\" et \"le sport professionnel peut-il rester humain ?\" du même lot — même question, la seconde formulation retenue en titre car plus concrète. Distinct de l'entrée équité juste au-dessus : celle-ci porte sur qui gagne (écarts entre athlètes/moyens), celle-ci sur ce que devient l'athlète lui-même, y compris chez les mieux dotés",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -1782,19 +1974,48 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "La réforme devient obligatoire, mais ~9 entreprises sur 11 ne seraient pas prêtes. Risque de couac administratif pour les TPE/PME. → Favorable = transition en douceur ; stable = démarrage lent mais absorbé ; dégradé = pagaille, reports, trésoreries fragilisées",
-          "rationnel": null,
+          "rationnel": "Ce sujet est au cœur de l'actualité immédiate car la réforme, maintes fois reportée, a finalement basculé le 1er septembre 2026 et ses premiers effets concrets se mesurent en temps réel. L'issue reste ouverte car si les chiffres d'adoption sont meilleurs que prévu (70 % de désignation mi-septembre), environ 1,2 million d'entreprises n'ont toujours pas de solution de réception, les rejets techniques sont élevés, et le vrai test viendra avec l'obligation d'émission pour les PME/TPE en septembre 2027. Pour un lecteur français dirigeant de TPE/PME, l'enjeu est double : ne pas subir de rupture de trésorerie si ses factures sont rejetées ou si ses fournisseurs ne peuvent pas lui facturer, et anticiper dès maintenant sa propre bascule avant la fin de la tolérance en décembre 2026.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Le chiffre '9 entreprises sur 11 ne seraient pas prêtes' cité dans le dossier initial provient d'un post LinkedIn et non d'une étude officielle ; à confirmer par une source fiable ou à écarter. Le nombre exact d'entreprises encore sans plateforme au 1er octobre 2026 serait utile.",
+          "mots_cles": [
+            "facturation électronique 2026",
+            "réforme facture électronique",
+            "plateforme agréée DGFIP",
+            "David Amiel",
+            "e-invoicing France",
+            "PPF portail public facturation",
+            "obligation réception facture électronique",
+            "TPE PME facturation électronique"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-12-31",
+            "raison": "Fin de la période de tolérance annoncée par David Amiel : à partir de janvier 2027, les sanctions pour non-conformité pourront s'appliquer aux entreprises qui n'auront pas régularisé leur situation."
+          },
+          "sources": [
+            {
+              "titre": "Facturation électronique : résultat 'au-delà des attentes' selon David Amiel",
+              "url": "https://www.boursorama.com/actualite-economique/actualites/facturation-electronique-resultat-au-dela-des-attentes-selon-david-amiel-8f53adbfb8bb9f2bb3ba5c2e02dff8eb"
+            },
+            {
+              "titre": "Facturation électronique : deux tiers des entreprises françaises sont déjà prêtes",
+              "url": "https://echosplus.com/2026/09/01/facturation-electronique-deux-tiers-des-entreprises-francaises-sont-deja-pretes/"
+            },
+            {
+              "titre": "Réforme de la facturation électronique en France – Docnova (bilan 3 semaines)",
+              "url": "https://docnova.ai/fr/la-reforme-de-la-facturation-en-france-les-trois-premieres-semaines/"
+            },
+            {
+              "titre": "Facturation électronique : les premiers chiffres du démarrage",
+              "url": "https://www.comparatif-facture-electronique.fr/bilan-demarrage-facturation-electronique-premiers-chiffres/"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -1804,20 +2025,49 @@
           "tag": "économie & finances publiques",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "La France connaît une situation budgétaire critique. Après un déficit public de 5,8 % du PIB en 2024, l'exécution 2025 s'est achevée à 5,1 % du PIB (152,5 Md€), soit une réduction meilleure que prévu mais essentiellement portée par des hausses d'impôts. Pour 2026, la loi de finances initiale promulguée le 19 février 2026 fixe un objectif de déficit à 5,0 % du PIB, avec un déficit budgétaire de l'État de 134,6 Md€. L'effort repose sur 12 Md€ de hausses d'impôts et 11 Md€ d'économies en dépenses, mais est contrecarré par une hausse de près de 12 Md€ de la charge de la dette, qui atteint désormais 77,4 Md€ (2,5 points de PIB). La dette publique devrait dépasser 3 620 Md€, soit 118,5 % du PIB fin 2026. Le 25 juin 2026, la Cour des comptes a publié son rapport annuel alertant sur la fragilité de l'objectif, dans un contexte de croissance faible (+0,9 % prévu), de tensions géopolitiques au Moyen-Orient générant un choc énergétique inflationniste, et d'absence de trajectoire pluriannuelle crédible au-delà de 2026. La France est sous procédure européenne pour déficit excessif et s'est engagée à revenir sous 3 % de déficit en 2029.",
+          "rationnel": "Ce sujet est au cœur de l'actualité immédiate car la France doit tenir son objectif de déficit à 5,0 % du PIB en 2026, dans un contexte économique dégradé par le conflit au Moyen-Orient et l'inflation énergétique. L'issue est réellement ouverte : la Cour des comptes estime que l'objectif est 'loin d'être acquis' en raison de risques sur les recettes (adaptation des contribuables aux surtaxes, croissance plus faible que prévu) et sur les dépenses (dépassements santé, économies non documentées). Pour un lecteur français, l'enjeu est direct : la charge de la dette est devenue le premier poste de dépense de l'État (77 Md€ en 2026), ce qui réduit les marges pour financer les services publics, la transition écologique ou la défense, et expose à des hausses d'impôts ou coupes budgétaires supplémentaires.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Vérifier le chiffre actualisé du déficit 2025 en exécution (5,1% ou 5,4% ?) ; préciser si de nouvelles mesures d'économies ont été annoncées depuis le rapport de la Cour des comptes de juin 2026 ; vérifier l'état d'avancement de la procédure européenne pour déficit excessif à date d'octobre 2026.",
+          "mots_cles": [
+            "déficit public France 2026",
+            "loi de finances 2026",
+            "Cour des comptes finances publiques juin 2026",
+            "dette publique France 118% PIB",
+            "charge de la dette 77 Md€",
+            "programme structurel de moyen terme PSMT",
+            "procédure déficit excessif UE France",
+            "budget 2026 économies dépenses hausses impôts"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-12-31",
+            "raison": "Clôture de l'exercice budgétaire 2026 : le déficit réel de l'année ne sera connu qu'après la fin de l'année, mais les premiers chiffres d'exécution en cours d'année détermineront si la cible des 5,0 % de PIB est tenable."
+          },
+          "sources": [
+            {
+              "titre": "La situation et les perspectives des finances publiques – Cour des comptes, juin 2026",
+              "url": "https://www.ccomptes.fr/fr/publications/la-situation-et-les-perspectives-des-finances-publiques-17"
+            },
+            {
+              "titre": "Loi du 19 février 2026 de finances pour 2026 – Vie-publique.fr",
+              "url": "https://www.vie-publique.fr/loi/300444-budget-de-letat-2026-loi-de-finances-2026"
+            },
+            {
+              "titre": "La situation des finances publiques début 2026 – Cour des comptes",
+              "url": "https://www.ccomptes.fr/fr/publications/la-situation-des-finances-publiques-debut-2026"
+            },
+            {
+              "titre": "Publication du Rapport d'avancement annuel 2026 – Direction générale du Trésor",
+              "url": "https://www.tresor.economie.gouv.fr/Articles/2026/04/22/publication-du-rapport-d-avancement-annuel-2026"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -1827,20 +2077,49 @@
           "tag": "économie & finances publiques",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Le 1er octobre 2026, le Premier ministre Sébastien Lecornu présente en Conseil des ministres le projet de loi de finances pour 2027, avec 54 milliards d'euros d'économies visant à ramener le déficit public de 5,4 % du PIB (2026) à 5 % (2027). La dette publique française atteint un record historique de 3 596 milliards d'euros, soit 119 % du PIB, et devrait grimper à 121,7 % en 2027. Le rendement de l'OAT à 10 ans frôle les 5 % (4,96 %), son plus haut niveau depuis 2002, et l'écart de taux avec le Bund allemand (spread) dépasse 130 points de base, du jamais-vu depuis la crise de la zone euro en 2012. L'Agence France Trésor a annoncé un programme d'émissions record de 340 milliards d'euros d'obligations à moyen et long terme pour 2027. La charge d'intérêts de la dette atteint 79 milliards d'euros en 2026 et devrait passer à 91 milliards en 2027, soit 5 à 7 milliards de plus que prévu un an plus tôt.",
+          "rationnel": "Ce sujet est brûlant car le budget 2027, présenté ce jour, est le dernier du quinquennat Macron et intervient alors que les marchés obligataires sanctionnent la France par un spread record avec l'Allemagne, signe d'une défiance croissante des investisseurs. L'issue reste ouverte car le gouvernement ne dispose d'aucune majorité à l'Assemblée nationale, le plan d'économies de 54 milliards est politiquement explosif (gel des salaires des fonctionnaires, hausses d'impôts), et l'élection présidentielle de 2027 approche avec des candidats (Le Pen, Mélenchon) aux programmes budgétaires radicalement opposés. Pour un lecteur français, l'enjeu est double : la soutenabilité de la dette conditionne la capacité future de l'État à financer services publics et protection sociale, et une crise de confiance prolongée pourrait se traduire par une hausse du coût du crédit pour les ménages et les entreprises.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Vérifier le chiffre exact de la charge de la dette 2026 (certaines sources donnent 65 Md€ pour l'État seul, d'autres 79 Md€ toutes administrations). Confirmer le montant exact des émissions 2027 (340 Md€). Vérifier si le PLF 2027 a été officiellement déposé et son chiffre de déficit cible exact.",
+          "mots_cles": [
+            "OAT 10 ans rendement",
+            "spread France Allemagne",
+            "dette publique France PIB 2026",
+            "budget 2027 Lecornu",
+            "charge de la dette 79 milliards",
+            "Agence France Trésor émissions 340 milliards",
+            "procédure déficit excessif UE",
+            "Sébastien Lecornu budget redressement"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-12-31",
+            "raison": "Date butoir pour l'adoption du projet de loi de finances 2027 par le Parlement, sous peine de blocage institutionnel et de nouvelle dégradation de la confiance des marchés."
+          },
+          "sources": [
+            {
+              "titre": "France's borrowing rate keeps rising, hitting its highest level since 2002",
+              "url": "https://www.euronews.com/2026/10/01/frances-borrowing-rate-keeps-rising-hitting-its-highest-level-since-2002"
+            },
+            {
+              "titre": "Le gouvernement dévoile son budget 2027, avec 43 milliards de 'mesures de redressement'",
+              "url": "https://www.boursorama.com/actualite-economique/actualites/le-gouvernement-devoile-son-budget-2027-avec-43-milliards-de-mesures-de-redressement-dd687555d1c017fb107b5763012cd964"
+            },
+            {
+              "titre": "Budget 2027 : le projet de Sébastien Lecornu repose largement sur une hausse des impôts",
+              "url": "https://www.lemonde.fr/politique/article/2026/10/01/budget-2027-le-projet-du-gouvernement-repose-largement-sur-une-hausse-des-impots-pour-reprendre-le-controle-des-comptes-publics_6786469_823448.html"
+            },
+            {
+              "titre": "Eurozone Bond Spreads Hit Multi-Year Highs as France and Italy Face Debt Pressure",
+              "url": "https://eurasiabusinessnews.com/2026/10/01/eurozone-bond-spreads-hit-multi-year-highs-as-france-and-italy-face-debt-pressure/"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -2336,20 +2615,46 @@
           "tag": "médecine & santé",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "En France, 433 136 nouveaux cas de cancer ont été diagnostiqués en 2023 et 164 314 personnes en sont décédées, selon le Panorama des cancers 2026 publié par l'Institut national du cancer. Le 19 août 2026, Merck et Moderna ont annoncé des résultats positifs de phase III pour l'intismeran autogene (V940), un vaccin personnalisé à ARNm associé au pembrolizumab, chez 1 137 patients atteints d'un mélanome à haut risque après chirurgie : le critère principal de survie sans récidive et le critère secondaire de survie sans métastase à distance ont été atteints, une première pour une thérapie néoantigénique individualisée. En parallèle, le 28 août 2026, BioNTech et Genentech ont arrêté leur essai de phase II BNT122-01 sur le cancer colorectal après qu'un comité indépendant a constaté un déséquilibre numérique de survie globale défavorable au bras vaccin, soulignant la difficulté des tumeurs \"froides\" à répondre à l'immunothérapie. Des équipes suisses des HUG et de l'UNIGE ont obtenu le Prix Pfizer 2026 pour leur vaccin MVX-ONCO-1, testé avec succès chez 34 patients atteints de tumeurs solides avancées, avec plus de la moitié montrant un bénéfice clinique sans effet secondaire notable.",
+          "rationnel": "Ce sujet est brûlant d'actualité car l'été 2026 a été marqué par deux annonces contradictoires majeures : la première phase III positive pour un vaccin anticancer à ARNm (mélanome) et l'arrêt d'un essai pour cause de surmortalité dans le cancer colorectal, illustrant l'incertitude réelle de la promesse. L'issue reste ouverte car les succès sur le mélanome (tumeur 'chaude', immunogène) ne préjugent pas de l'efficacité sur les cancers plus fréquents comme le colorectal, le poumon ou le pancréas, où les obstacles biologiques et les coûts de production individualisée restent considérables. Pour un lecteur français, l'enjeu est direct : le cancer touche un Français sur deux, et les vaccins thérapeutiques pourraient transformer la prise en charge post-opératoire, mais les échecs récents rappellent que des années d'essais supplémentaires sont nécessaires avant une disponibilité grand public.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Chiffres précis de réduction du risque (HR) de l'essai INTerpath-001 (attendus lors d'un congrès médical à venir). Délais prévisionnels d'éventuelle homologation réglementaire (FDA/EMA) pour l'intismeran. Coût estimé par patient d'un vaccin personnalisé à ARNm. Position des autorités françaises (INCa, HAS) sur ces nouvelles approches.",
+          "mots_cles": [
+            "vaccin anticancer ARNm",
+            "intismeran autogene V940",
+            "Moderna Merck phase 3 mélanome",
+            "BioNTech autogene cevumeran cancer colorectal arrêt",
+            "immunothérapie personnalisée néoantigènes",
+            "INCa Panorama des cancers 2026 France",
+            "MVX-ONCO-1 HUG Genève",
+            "essai clinique vaccin tumeur froide"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "Merck and Moderna Announce Phase 3 INTerpath-001 Trial of Intismeran Autogene Plus KEYTRUDA Met Endpoints",
+              "url": "https://www.merck.com/news/merck-and-moderna-announce-phase-3-interpath-001-trial-of-intismeran-autogene-plus-keytruda-met-endpoints-of-recurrence-free-survival-rfs-and-distant-metastasis-free-survival-dmfs-in-patient/"
+            },
+            {
+              "titre": "BioNTech Provides Update on Phase 2 Clinical Trial of Autogene Cevumeran in Resected Colorectal Cancer",
+              "url": "https://www.biontech.com/int/en/home/mediaroom/news/statements/2026/08/BioNTech-Provides-Update-on-Phase-2-Clinical-Trial-of-Autogene-Cevumeran-in-Resected-Colorectal-Cancer.html"
+            },
+            {
+              "titre": "Panorama des cancers en France, édition 2026 — Institut national du cancer",
+              "url": "https://www.cancer.fr/content/download/141527/file/PANOKFR2026_Panorama%20des%20cancers%202026.pdf?version=3"
+            },
+            {
+              "titre": "Vaccin thérapeutique personnalisé contre le cancer — HUG Genève (Prix Pfizer 2026)",
+              "url": "https://www.hug.ch/medias/communique-presse/vaccin-therapeutique-personnalise-contre-cancer-etude-genevoise"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -2359,20 +2664,49 @@
           "tag": "IA & numérique",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Au 1er octobre 2026, la demande mondiale de puces IA portée par Nvidia reste extrêmement dynamique. Le 26 août 2026, Nvidia a publié un chiffre d'affaires trimestriel de 96,2 milliards de dollars (2e trimestre fiscal 2027, en hausse de 106 % sur un an) et prévoit 108 milliards pour le trimestre suivant. La direction a annoncé une croissance attendue de 70 % pour l'exercice 2028, bien au-dessus des estimations consensuelles (44 %). Lors du GTC en mars 2026, Jensen Huang a porté à 1 000 milliards de dollars l'objectif de commandes de puces IA d'ici 2027, soit le double de ses projections de 2025. Parallèlement, la production bute sur des goulots d'étranglement persistants : le nœud 3 nm de TSMC tourne à pleine capacité, la mémoire HBM est en pénurie structurelle, et les délais d'approvisionnement en composants (CoWoS, substrats, optique) restent tendus. La concurrence s'intensifie : Google (TPU Ironwood), Amazon (Trainium, désormais vendu à des tiers) et Microsoft (Maia 200) développent leurs propres puces, mais Nvidia conserve 70-80 % du marché des accélérateurs IA en valeur.",
+          "rationnel": "Ce sujet est crucial car la demande de puissance de calcul IA connaît une croissance exponentielle (+1 million en deux ans selon Huang), mais se heurte à des limites physiques de production (TSMC, mémoire HBM) qui pourraient freiner le rythme. L'issue est ouverte car deux forces contraires s'affrontent : d'un côté, les hyperscalers (Google, Amazon, Microsoft) conçoivent leurs propres puces pour réduire leur dépendance à Nvidia ; de l'autre, Nvidia domine toujours l'entraînement (>90 % de parts) et l'inférence (60-75 %), et la demande globale croît si vite que même une érosion de parts de marché n'affecterait pas son chiffre d'affaires. Pour un lecteur français, l'enjeu est double : l'Europe ne représente que 5 % des capacités de calcul IA mondiales, et la souveraineté numérique européenne dépend de l'accès à ces puces, alors que les projets EuroHPC (Jupiter, MareNostrum 5) utilisent majoritairement des GPU Nvidia.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Chiffrer précisément la part de marché de Nvidia en septembre 2026 (estimations Mizuho, TrendForce) ; vérifier l'état exact des restrictions d'exportation vers la Chine sur les puces H200 ; confirmer le calendrier de mise en service des AI Factories européennes annoncées par Nvidia.",
+          "mots_cles": [
+            "Nvidia",
+            "puces IA",
+            "demande puissance de calcul",
+            "goulot d'étranglement TSMC",
+            "pénurie mémoire HBM",
+            "concurrence Google TPU Amazon Trainium",
+            "prévisions 1000 milliards 2027",
+            "AI chip market 2026"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2027-01-31",
+            "raison": "Fin de l'exercice fiscal 2027 de Nvidia (clos fin janvier 2027), qui permettra de confronter les prévisions de 70 % de croissance aux résultats réels."
+          },
+          "sources": [
+            {
+              "titre": "Nvidia n'envisage pas de ralentissement ou de bulle dans l'IA — BFMTV (mars 2026)",
+              "url": "https://www.bfmtv.com/economie/entreprises/nvidia-n-envisage-pas-de-ralentissement-ou-de-bulle-dans-l-ia-son-patron-prevoit-1-000-milliards-de-commandes-de-puces-ia-en-2027-deux-fois-plus-que-ce-qui-etait-prevu-jusqu-ici_AD-202603170128.html"
+            },
+            {
+              "titre": "Nvidia forecasts 70% sales growth next year — Reuters (26 août 2026)",
+              "url": "https://www.reuters.com/business/media-telecom/nvidia-forecasts-quarterly-revenue-above-estimates-2026-08-26/"
+            },
+            {
+              "titre": "La demande en puce IA sature les lignes de production à Taïwan — Science & Vie",
+              "url": "https://www.science-et-vie.com/technos-et-futur/la-demande-en-puce-ia-est-en-train-de-saturer-les-lignes-de-production-a-taiwan-et-cest-toute-lindustrie-qui-pourrait-etre-impactee-232228.html"
+            },
+            {
+              "titre": "Nvidia face à Google et Amazon dans la course aux puces IA — Challenges",
+              "url": "https://www.challenges.fr/entreprise/tech-numerique/guerre-des-puces-google-amazon-et-microsoft-peuvent-ils-faire-vaciller-nvidia_636899"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -2382,20 +2716,46 @@
           "tag": "IA & numérique",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "L'essor de l'IA générative depuis 2022 suscite un débat intense sur son impact sur l'emploi. En France, le rapport d'information du Sénat 'L'entreprise 5.0' (avril 2026) estime que 16,3 % de l'emploi français, soit près de 5 millions de personnes, pourrait être menacé à horizon 2-5 ans avec le déploiement de l'IA agentique, mais précise qu'il s'agit d'une exposition technique des tâches et non d'une destruction nette annoncée. La note Trésor-Éco n°391 (juin 2026) indique qu'aucun effet agrégé significatif de l'IA sur l'emploi n'est mesurable à ce stade, mais que des destructions localisées sont observées : le taux de chômage des 15-24 ans est passé de 19,1 % à 21,1 % entre le T1 2025 et le T1 2026, et 7 % des entreprises du numérique, de l'ingénierie et du conseil déclarent avoir réduit leurs effectifs à cause de l'IA (baromètre Opiiec, mars 2026). Parallèlement, le gouvernement a lancé le 22 septembre 2026 le plan 'Impulsion IA 2027', doté de 80 millions d'euros, visant à former 30 millions d'actifs à l'IA via une plateforme publique, une certification nationale et un accompagnement des TPE-PME. Une étude BCG (avril 2026) estime qu'aux États-Unis, 50 à 55 % des emplois seront transformés d'ici trois ans, tandis que 10 à 15 % pourraient disparaître à cinq ans.",
+          "rationnel": "Ce sujet est brûlant car l'IA générative est désormais déployée dans les entreprises à une échelle inédite, avec des premiers effets mesurables sur l'emploi (réduction des recrutements juniors, suppressions localisées) qui alimentent une inquiétude massive : 62 % des Français voient l'IA comme un risque pour l'emploi (baromètre du numérique 2025). L'issue reste profondément ouverte car les forces contraires sont puissantes : d'un côté, les capacités techniques de l'IA progressent rapidement (IA agentique, automatisation des tâches cognitives) et les annonces de licenciements se multiplient ; de l'autre, les études empiriques ne montrent pas d'effet net négatif à l'échelle macroéconomique, les gains de productivité créent de nouveaux besoins de main-d'œuvre, et l'adoption reste freinée par des contraintes techniques et organisationnelles. Pour un lecteur français, l'enjeu est double : des millions d'emplois qualifiés (ingénierie, droit, finance, création) sont potentiellement exposés, et les politiques publiques de formation et d'accompagnement (Impulsion IA 2027) sont en cours de déploiement, ce qui rend l'issue très dépendante des choix collectifs à venir.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Chiffres précis des suppressions de postes attribuées à l'IA en France en 2026 (entreprises, secteurs) ; données actualisées du taux de chômage des jeunes au T3 2026 ; état d'avancement des mesures du plan Impulsion IA 2027 à date d'octobre 2026.",
+          "mots_cles": [
+            "IA générative emploi France 2026",
+            "substitution IA travail",
+            "Trésor-Éco IA emploi",
+            "rapport Sénat entreprise 5.0 IA",
+            "Impulsion IA 2027 formation",
+            "Coface OEM 5 millions emplois",
+            "Opiiec baromètre IA effectifs",
+            "BCG AI reshape jobs 2026"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "Trésor-Éco n°391 – L'intelligence artificielle, quels effets sur l'emploi ? (juin 2026)",
+              "url": "https://www.tresor.economie.gouv.fr/Articles/895c28b4-dca6-4ca6-b03b-88058fc4ce87/files/a0c9e9a1-6c53-4f2e-ad5d-f603fd5c456d"
+            },
+            {
+              "titre": "Rapport d'information Sénat n°572 – L'entreprise 5.0 : impact de l'IA sur les entreprises (avril 2026)",
+              "url": "https://www.senat.fr/rap/r25-572/r25-5724.html"
+            },
+            {
+              "titre": "BCG – AI Will Reshape More Jobs Than It Replaces (avril 2026)",
+              "url": "https://www.bcg.com/press/8april2026-intelligence-artificielle-plus-d-un-emplois-sur-deux-transformed-ici-trois-ans"
+            },
+            {
+              "titre": "Plan Impulsion IA 2027 – Ministère du Travail (septembre 2026)",
+              "url": "https://www.juritravail.com/Actualite/lia-dans-le-monde-du-travail-ce-que-prevoit-le-gouvernement-dans-son-plan-impulsion-ia-2027/Id/378600"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -2405,20 +2765,46 @@
           "tag": "IA & numérique",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "En 2026, la robotique domestique connaît une accélération sans précédent mais reste à un stade embryonnaire pour les robots polyvalents. Le marché mondial des robots de service grand public a atteint environ 19,15 milliards de dollars en 2025 et devrait atteindre 24,42 milliards en 2026, avec une croissance portée par les robots spécialisés (aspirateurs, tondeuses) qui représentent plus de 40 % du segment. Côté humanoïdes, le norvégien 1X a ouvert les précommandes de son robot NEO à 20 000 dollars l'unité ou 499 dollars par mois en abonnement, avec des premières livraisons aux États-Unis annoncées pour fin 2026 et plus de 10 000 précommandes revendiquées. Au CES 2026 (janvier), LG a dévoilé CLOiD et SwitchBot l'Onero H1, deux robots domestiques à bras articulés capables de tâches ménagères (plier le linge, ranger, préparer un café), mais sans date de commercialisation ferme. Figure AI a présenté en septembre 2026 Helix 2.5, un modèle d'IA permettant à son robot Figure 03 d'effectuer zéro-shot trois tâches domestiques dans 30 foyers américains jamais visités, et vise une disponibilité grand public fin 2026. En France, le marché de la robotique de service est évalué à 1,1 milliard d'euros en 2026, mais les robots humanoïdes restent quasi absents des foyers : seuls 2 % des foyers français possédaient un robot aspirateur au milieu des années 2010, et les robots compagnons comme Pepper ont été retirés de la production. L'IFR (Fédération internationale de robotique) estime que l'adoption massive des humanoïdes exigera encore des progrès en programmation intuitive, manipulation robuste, coûts compatibles et normes de sécurité harmonisées.",
+          "rationnel": "Ce sujet est brûlant car 2026 marque un basculement potentiel : plusieurs industriels (1X, Figure AI, LG, SwitchBot) passent des démonstrations en salon aux premières livraisons à des particuliers, mais aucune n'a encore prouvé sa capacité à déployer à grande échelle. L'issue reste ouverte car des forces contraires s'affrontent : d'un côté, des progrès spectaculaires en IA (modèles VLA, généralisation zéro-shot) et des investissements massifs (3,5 milliards de dollars de compute chez Figure AI, usine BotQ capable de 12 000 unités/an) ; de l'autre, des coûts encore prohibitifs (20 000 dollars pièce), une fiabilité limitée (téléopération humaine nécessaire pour les tâches non maîtrisées), des questions de sécurité et de vie privée, et un marché français culturellement en retard sur l'Asie ou l'Amérique du Nord. Pour un lecteur français, l'enjeu est concret : ces robots pourraient transformer le quotidien (ménage, assistance aux seniors), mais leur arrivée effective dans les foyers hexagonaux n'est pas attendue avant plusieurs années, et soulève des questions de prix, de compatibilité RGPD et de dépendance à des fabricants étrangers.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Nombre exact de livraisons effectives de NEO à des particuliers d'ici fin 2026 ; prix final et date de commercialisation du Figure 03 pour le grand public ; disponibilité en France des modèles annoncés (NEO, CLOiD, Onero H1) ; taux d'équipement actualisé des foyers français en robots domestiques polyvalents (hors aspirateurs).",
+          "mots_cles": [
+            "robot domestique 2026",
+            "1X NEO précommande livraison",
+            "Figure 03 Helix maison",
+            "LG CLOiD CES 2026",
+            "SwitchBot Onero H1",
+            "robot humanoïde foyer prix",
+            "robotique service France marché",
+            "humanoid home robot 2026"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "Robots domestiques : où en est-on vraiment ?",
+              "url": "https://www.journaldunet.com/intelligence-artificielle/1554029-robotique-domestique-ou-en-est-on-vraiment/"
+            },
+            {
+              "titre": "1X NEO Home Robot - Order Today",
+              "url": "https://www.1x.tech/discover/neo-home-robot"
+            },
+            {
+              "titre": "Figure Helix 2.5: Zero-Shot 30-Home Generalization",
+              "url": "https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization"
+            },
+            {
+              "titre": "LG Electronics Presents LG CLOiD Home Robot at CES 2026",
+              "url": "https://www.lg.com/global/newsroom/news/home-appliance-solution/lg-electronics-presents-lg-cloid-home-robot-to-demonstrate-zero-labor-home-at-ces-2026/"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -3124,19 +3510,45 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Si la réalité virtuelle permet bientôt de voir La Joconde sous tous les angles avec une fidélité quasi parfaite depuis chez soi, pourquoi encore aller au Louvre ? Et si la vraie réponse devenait justement : pour voir l'original.",
-          "rationnel": null,
+          "rationnel": "Ce sujet est d'actualité car les données 2025-2026 confirment un paradoxe saisissant : alors que la numérisation des œuvres n'a jamais été aussi poussée (visites virtuelles, RA, 3D), la fréquentation des musées et le marché de l'art physique atteignent des niveaux records, tandis que l'art numérique (NFT) s'effondre. L'issue est ouverte car deux forces contraires s'affrontent : d'un côté, la reproduction numérique parfaite pourrait à terme réduire l'attrait du déplacement physique ; de l'autre, elle semble pour l'instant renforcer par contraste la valeur de l'original et l'expérience de présence. Pour un lecteur français, l'enjeu est double : comprendre où va l'argent de la culture (faut-il investir dans le numérique ou le physique ?) et comment évolue le rapport à l'authenticité artistique à l'ère de la reproduction quasi parfaite.",
           "angle": null,
           "a_verifier": "Initiatives de numérisation/VR des grands musées (Louvre, British Museum, Google Arts & Culture...) et effet mesuré ou non sur leur fréquentation physique, prix et volumes du marché de l'art physique (enchères, tirages limités) comparés au marché numérique/NFT depuis son pic de 2021, signaux chiffrés de la valeur \"présence\" (prix des concerts en hausse malgré le streaming — voir l'entrée du 1er lot \"les concerts vont-ils devenir plus importants que la musique enregistrée ?\", même logique de rareté appliquée à la musique, bon point de comparaison à la rédaction)",
-          "mots_cles": [],
+          "mots_cles": [
+            "Louvre fréquentation 2025 9 millions",
+            "marché de l'art 2025 59,6 milliards dollars Art Basel UBS",
+            "NFT effondrement 2025 23 millions",
+            "Christie's Pollock 181 millions 2026",
+            "réalité augmentée musées Louvre Snapchat 2026",
+            "numérisation 3D musées NAOSS",
+            "Walter Benjamin aura reproduction numérique",
+            "ventes enchères art physique 2025 record"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "Fréquentation du Louvre en légère hausse en 2025 avec 9 millions de visiteurs",
+              "url": "https://www.franceinfo.fr/culture/arts-expos/louvre/frequentation-du-louvre-en-legere-hausse-en-2025-avec-9-millions-de-visiteurs-et-succes-des-monuments-francais_7721917.html"
+            },
+            {
+              "titre": "Le marché de l'art rebondit à 59,6 milliards de dollars en 2025 (Art Basel/UBS)",
+              "url": "https://mylittlemoney.com/2026/03/17/le-marche-de-lart-rebondit-a-596-milliards-en-2025-ce-que-revele-le-rapport-art-basel-ubs-2026/"
+            },
+            {
+              "titre": "NFT Art's Shocking Collapse: From $2.9 Billion Boom to $23.8 Million Bust",
+              "url": "https://dappradar.com/blog/nft-arts-shocking-collapse-from-2-9-billion-boom-to-23-8-million-bust-what-went-wrong"
+            },
+            {
+              "titre": "Christie's en tête d'un marché en plein rebond (1er semestre 2026)",
+              "url": "https://press.christies.com/christies-leads-resurgent-market-484465/"
+            }
+          ],
           "origine": null,
           "note": "3e lot du 3 septembre (même conversation, 2e passe de raffinement du thème art). Fusionne 2 des 4 favoris de l'utilisateur dans ce lot (\"le musée est-il condamné à devenir une archive ?\" et \"le numérique pourrait-il provoquer une renaissance de l'objet artistique ?\", explicitement \"celui-là, j'aime beaucoup\" / \"pourrait être excellent... contre-intuitif\" selon l'utilisateur) — même paradoxe à deux échelles (l'institution musée / l'objet d'art en général), fondu en une seule entrée plutôt que deux quasi identiques : reproduction infinie → banalisation → désir de l'original → retour au physique. Absorbe aussi \"et si la rareté devenait le vrai luxe artistique ?\" du même lot (même mécanisme économique — dans un monde d'abondance numérique, la présence/l'unique devient le bien rare) : pas une entrée séparée, la logique est identique. Presque l'inverse de la thèse de Walter Benjamin mobilisée dans l'entrée \"culture de l'expérience\" ci-dessus : au lieu que la reproduction technique tue l'aura de l'original, elle pourrait au contraire la raviver par contraste — un bon axe de tension entre les deux entrées à la rédaction, pas une redite. Distinction à garder claire entre les deux : \"culture de l'expérience\" porte sur le glissement objet → événement (la durée, l'attention) ; celle-ci porte sur un paradoxe précis et contre-intuitif propre à la reproduction (la copie parfaite renforce la valeur de l'original plutôt qu'elle ne l'efface) — publiables à distance raisonnable l'une de l'autre sans se répéter si chacune garde son fil propre",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -3147,19 +3559,45 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Une architecture, une interface, une image générée par IA, un jeu vidéo, une installation, une publicité : les frontières entre art, design, divertissement et expérience s'estompent. Qui décide aujourd'hui de ce qui mérite d'être appelé une œuvre ?",
-          "rationnel": null,
+          "rationnel": "Ce sujet est d'actualité car les institutions culturelles multiplient les expositions mêlant jeu vidéo, design, publicité et IA générative, tandis que le rapport CSPLA de juillet 2026 pose un cadre juridique inédit qui distingue création humaine et production machine. L'issue reste ouverte car aucune définition consensuelle de l'œuvre n'émerge : les musées accueillent ces objets sans trancher leur statut artistique, les critiques divergent (certains y voient une démocratisation, d'autres une dilution de l'art), et le droit lui-même crée une catégorie intermédiaire. Pour un lecteur français, l'enjeu est concret : ce débat redéfinit ce qui mérite subvention publique, protection du droit d'auteur et place dans les collections nationales.",
           "angle": null,
           "a_verifier": "Exemples concrets récents où design, publicité, jeu vidéo ou IA générative ont été exposés ou reconnus comme \"art\" par des institutions (musées, biennales, prix), débat existant chez les critiques et institutions sur ces frontières, cas emblématiques (ex. jeux vidéo entrés dans des collections muséales)",
-          "mots_cles": [],
+          "mots_cles": [
+            "définition art frontières",
+            "jeu vidéo dixième art musée",
+            "IA générative création artistique",
+            "exposition Le monde selon l'IA Jeu de Paume",
+            "rapport CSPLA statut productions IA juillet 2026",
+            "Ctrl+Alt+Art Dole jeu vidéo beaux-arts",
+            "festival NOÛS BnF art IA 2026",
+            "artification design publicité musée"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "Ctrl+Alt+Art : Peindre le jeu vidéo — Musée des Beaux-Arts de Dole (mai-sept. 2026)",
+              "url": "https://www.galeriegamma.com/exposition-peindre-le-jeu-video"
+            },
+            {
+              "titre": "Le monde selon l'IA — Jeu de Paume (avril-sept. 2025)",
+              "url": "https://jeudepaume.org/evenement/exposition-le-monde-selon-ia/"
+            },
+            {
+              "titre": "Rapport de mission sur le statut des productions de l'intelligence artificielle — Ministère de la Culture / CSPLA (juillet 2026)",
+              "url": "https://www.culture.gouv.fr/nous-connaitre/organisation-du-ministere/conseil-superieur-de-la-propriete-litteraire-et-artistique-cspla/travaux-et-publications-du-cspla/missions-du-cspla/rapport-de-mission-sur-le-statut-des-productions-de-l-intelligence-artificielle"
+            },
+            {
+              "titre": "NOÛS festival art & IA, 36 000 visiteurs à la BnF (avril 2026)",
+              "url": "https://presseagence.fr/paris-art-et-ia-le-festival-nous-reussit-son-pari-avec-36-000-visiteurs-a-la-bnf/"
+            }
+          ],
           "origine": null,
           "note": "3e lot du 3 septembre, un des 4 favoris de l'utilisateur dans ce lot. Distinct des deux autres entrées du même thème ci-dessus : celle-ci porte sur la définition de l'art elle-même (ses frontières), pas sur sa durée ni sur le paradoxe original/copie",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -3170,19 +3608,48 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Budgets, audiences et franchises qui dépassent parfois ceux du cinéma : le jeu vidéo reste-t-il un secteur culturel parmi d'autres, ou en devient-il le centre de gravité ?",
-          "rationnel": null,
+          "rationnel": "Le sujet est brûlant car le jeu vidéo domine désormais sans conteste l'économie du divertissement, mais son statut culturel reste paradoxal : jamais un média n'a été à la fois si puissant économiquement et si contesté dans sa légitimité artistique. L'issue est ouverte car deux forces contraires s'affrontent : d'un côté une reconnaissance institutionnelle croissante (Arts et Lettres, discours ministériels, entrée dans les musées), de l'autre une remise en cause présidentielle inédite en France, avec une possible interdiction aux mineurs qui ravive les vieux soupçons sur le média. Pour un lecteur français, l'enjeu est double : la place du jeu vidéo dans la politique culturelle nationale (crédit d'impôt, aides du CNC, statut d'auteur) et la liberté de création d'un secteur qui emploie des milliers de développeurs en France.",
           "angle": "Risque de rachat d'un éditeur français) — ici la question porte sur le statut culturel du jeu vidéo en général, pas sur une entreprise précise",
           "a_verifier": "Chiffre d'affaires mondial du jeu vidéo comparé à celui du cinéma + de la musique enregistrée réunis, audiences des plus gros lancements comparées aux plus gros films",
-          "mots_cles": [],
+          "mots_cles": [
+            "Newzoo 200 milliards jeu vidéo 2025",
+            "GTA VI 19 novembre 2026 prévisions ventes",
+            "Rachida Dati jeu vidéo art majeur Arts et Lettres",
+            "Macron interdiction jeux vidéo violents mineurs 2026",
+            "Clair Obscur Expedition 33 record Game Awards",
+            "marché jeu vidéo vs cinéma box office",
+            "PEGI classification jeux violents",
+            "artification jeu vidéo 10e art"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-11-19",
+            "raison": "Sortie mondiale de GTA VI, qui pourrait devenir le plus grand lancement de l'histoire du divertissement et cristalliser le débat sur le statut culturel du jeu vidéo."
+          },
+          "sources": [
+            {
+              "titre": "Gaming makes more money than global box office and recorded music — combined | TheGlobalWow",
+              "url": "https://www.theglobalwow.com/gaming-bigger-than-movies-and-music/"
+            },
+            {
+              "titre": "Le jeu vidéo dépasse les 200 milliards de $ en 2025 | Edition Multimédi@",
+              "url": "https://www.editionmultimedia.fr/2026/06/26/le-jeu-video-depasse-les-200-milliards-de-en-2025/"
+            },
+            {
+              "titre": "GTA 6 : voici les revenus historiques attendus les premiers jours de la sortie | CNEWS",
+              "url": "https://www.cnews.fr/jeux-video/2026-10-01/gta-6-voici-les-revenus-historiques-attendus-les-premiers-jours-de-la-sortie"
+            },
+            {
+              "titre": "L'équipe de Clair Obscur: Expedition 33 élevée au rang de Chevalier des Arts et des Lettres | Le Figaro",
+              "url": "https://www.lefigaro.fr/secteur/high-tech/les-developpeurs-du-jeu-video-clair-obscur-expedition-33-decoree-des-arts-et-des-lettres-par-rachida-dati-20260206"
+            }
+          ],
           "origine": null,
           "note": "Distinct de l'édition Ubisoft (archives/2026-07-25.html",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -3842,20 +4309,49 @@
           "tag": "économie & société",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "En France, le taux de pauvreté monétaire s'établit à 15,4 % en 2024, soit 9,8 millions de personnes vivant sous le seuil de 1 337 euros par mois, un niveau historiquement haut depuis 1996 (Insee, 2024). Parallèlement, la concentration des patrimoines s'accélère : les 10 % les plus fortunés détiennent 60 % du patrimoine net en 2024, et le 1 % le plus riche en possède 28 %, contre 20 % en 1994 (Observatoire des inégalités / WID, juin 2026). Le World Inequality Report 2026 confirme qu'au niveau mondial, le top 0,001 % (moins de 60 000 adultes) possède trois fois plus de richesses que la moitié la plus pauvre de l'humanité. En France, le débat budgétaire de 2026 a été marqué par le rejet de la taxe Zucman (impôt plancher de 2 % sur les patrimoines > 100 M€) à l'Assemblée nationale le 31 octobre 2025, malgré 86 % d'opinion favorable dans l'opinion (Oxfam, janvier 2026). Le gouvernement a adopté une taxe sur les holdings jugée insuffisante par la gauche, tandis que le Medef a mené une contre-offensive inédite contre toute hausse de la fiscalité des ultra-riches.",
+          "rationnel": "Le sujet est brûlant car les débats sur le budget 2026 ont mis en lumière l'incapacité du système fiscal français à taxer les très hauts patrimoines, avec un taux d'imposition des milliardaires estimé à 30 % contre 50 % en moyenne pour les Français. L'issue reste ouverte car la question fiscale divise profondément la majorité et l'opposition, et l'économiste Gabriel Zucman a fait de cette réforme un enjeu majeur pour la présidentielle de 2027. Pour un lecteur français, l'enjeu est double : comprendre si la dynamique de concentration des richesses va se poursuivre ou être freinée par un rééquilibrage fiscal, et mesurer l'impact sur le pouvoir d'achat et la cohésion sociale.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Vérifier le chiffrage exact de la taxe sur les holdings finalement adoptée dans le PLF 2026, et le montant précis des recettes attendues. Confirmer le taux d'imposition comparé milliardaires vs. Français moyen cité par Boris Vallaud (30 % vs 50 %).",
+          "mots_cles": [
+            "inégalités patrimoine France 2026",
+            "taxe Zucman",
+            "World Inequality Report 2026",
+            "Oxfam rapport inégalités 2026",
+            "taux pauvreté France Insee 2024",
+            "ISF IFI réforme fiscale",
+            "ultra-riches fiscalité",
+            "Gabriel Zucman impôt plancher"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2027-05-01",
+            "raison": "Élection présidentielle française de 2027 : Gabriel Zucman a fait de la taxation des ultra-riches un enjeu central de la campagne, ce qui pourrait trancher la question de l'explosion des inégalités par le haut."
+          },
+          "sources": [
+            {
+              "titre": "World Inequality Report 2026 - Executive Summary",
+              "url": "https://wir2026.wid.world/insight/executive-summary/"
+            },
+            {
+              "titre": "Rapport Oxfam France 2026 : Résister au règne des plus riches",
+              "url": "https://www.oxfamfrance.org/rapports/rapport-sur-les-inegalites-2026-resister-au-regne-des-plus-riches/"
+            },
+            {
+              "titre": "Insee - Niveau de vie et pauvreté en 2024",
+              "url": "https://www.insee.fr/fr/statistiques/9019316"
+            },
+            {
+              "titre": "Budget 2026 : l'Assemblée rejette la taxe Zucman - TF1 Info",
+              "url": "https://www.tf1info.fr/politique/budget-2026-l-assemblee-nationale-rejette-la-taxe-zucman-sur-les-hauts-patrimoines-proposee-par-la-gauche-2403984.html"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -3865,20 +4361,49 @@
           "tag": "économie",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Le marché mondial du luxe a atteint 1 443 milliards d'euros en 2025, marquant un plateau avec une croissance de -1 % à +1 %, après deux années de contraction. En 2026, le marché des biens personnels de luxe (358 Mds€ en 2025) devrait croître de 2 % à 4 % selon Bain & Company, pour atteindre 365 à 373 Mds€. Les résultats semestriels des trois géants français sont contrastés : LVMH affiche 38,6 Mds€ de ventes au S1 2026 (+2 % en organique), Hermès 8,2 Mds€ (+6 % à taux constants), tandis que Kering revient à une croissance modeste à 7,2 Mds€ (+1 % en comparable). La Chine reste un point dur : le marché chinois du luxe s'est contracté de 3 à 5 % en 2025 après -17 à -19 % en 2024, et les dirigeants d'Hermès et LVMH constatent une demande toujours atone. Parallèlement, le secteur a perdu 70 à 80 millions de clients aspirationnels en trois ans, érodés par les hausses de prix successives et l'inflation. Le conflit au Moyen-Orient et les droits de douane américains ajoutent des incertitudes géopolitiques.",
+          "rationnel": "Ce sujet est crucial maintenant car 2026 constitue l'année charnière : après deux ans de contraction, le luxe montre des signes de reprise fragile mais très inégale selon les groupes et les régions. L'issue est réellement ouverte car des forces contraires s'affrontent : d'un côté, Hermès et la joaillerie tirent la croissance, les États-Unis accélèrent et la Chine donne des signes de stabilisation ; de l'autre, la clientèle aspirationnelle s'évapore, la maroquinerie et les montres reculent, et les tensions géopolitiques (Moyen-Orient, droits de douane) pèsent. Pour un lecteur français, l'enjeu est double : ces groupes sont des fleurons du CAC 40 et de l'emploi (maroquinerie, parfumerie, ateliers), et leur capacité à maintenir leur modèle de prix élevés dans un contexte de baisse du pouvoir d'achat détermine la santé d'une filière industrielle et exportatrice clé.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Vérifier les chiffres exacts de perte de clients aspirationnels (70 à 80 millions sur 3 ans selon Les Echos Études / Bain). Préciser l'impact des droits de douane américains sur les exportations françaises de luxe. Suivre les résultats du T3 2026 (octobre) pour confirmer ou infirmer la tendance de reprise.",
+          "mots_cles": [
+            "LVMH résultats semestriels 2026",
+            "Kering Gucci reprise 2026",
+            "Hermès croissance 2026",
+            "marché du luxe Chine 2026 ralentissement",
+            "Bain Altagamma luxe 2026 prévisions",
+            "clientèle aspirationnelle luxe 80 millions",
+            "luxe France consommation 2026",
+            "personal luxury goods market 2026 forecast"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-10-31",
+            "raison": "Publication des résultats du T3 2026 par LVMH, Kering et Hermès, qui confirmera ou infirmera la tendance de reprise amorcée au S1."
+          },
+          "sources": [
+            {
+              "titre": "LVMH - Résultats semestriels 2026",
+              "url": "https://www.lvmh.com/fr/publications/acceleration-de-la-croissance-au-2eme-trimestre---resultats-semestriels-solides"
+            },
+            {
+              "titre": "Kering - Résultats semestriels 2026 : retour à la croissance",
+              "url": "https://www.kering.com/fr/actualites/resultats-semestriels-2026-retour-a-la-croissance-amelioration-de-la-performance-and-execution-de-la-strategie-en-ligne-avec-le-plan/"
+            },
+            {
+              "titre": "Hermès - Résultats du 1er semestre 2026",
+              "url": "https://assets-finance.hermes.com/s3fs-public/node/pdf_file/2026-07/1785260522/hermes_20260729_cp_resultatspremiersemestre_vf.pdf"
+            },
+            {
+              "titre": "Bain & Company - Global luxury stabilizes amid compounding disruptions (2026)",
+              "url": "https://www.prnewswire.com/news-releases/global-luxury-stabilizes-amid-compounding-disruptions-as-brands-race-to-amplify-meaning-and-rebuild-relevance-302810874.html"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -3889,12 +4414,24 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Depuis février 2026, la stratégie tarifaire de Trump change de base légale tous les deux-trois mois. Le 20 février, la Cour suprême invalide (6 voix contre 3) les tarifs \"réciproques\" imposés via l'IEEPA, ouvrant un potentiel de 175 milliards de dollars de remboursements aux entreprises. Trump riposte le jour même avec une surtaxe mondiale de 10 % via la Section 122 du Trade Act (pouvoir plafonné à 150 jours sauf vote du Congrès) — elle-même invalidée par le tribunal du commerce international le 7 mai, mais la cour d'appel fédérale suspend cette annulation le 11 juin. Le 24 juillet, la Section 122 expire mécaniquement et est remplacée sans interruption par des droits de 10-12,5 % sous la Section 301 (une soixantaine de pays), cette fois sans plafond ni date d'expiration légale. Nouveau front ouvert le 20 juillet : surtaxes de 50 % sur ~20 Md$ de produits canadiens (produits laitiers, alcools, automobile), effectives au 19 août, via la Section 338 invoquée pour la première fois de l'histoire, sans exemption USMCA. Au 29 juin, les douanes américaines avaient déjà versé 71,06 Md$ de remboursements, mais le gouvernement a fait appel le 2 juin de l'obligation de rembourser",
-          "rationnel": null,
+          "rationnel": "Ce sujet est au cœur de l'actualité immédiate car la CIT vient d'entendre les arguments sur la Section 301 le 30 septembre 2026 — la troisième tentative de Trump de faire valider des tarifs globaux après l'échec de l'IEEPA et l'expiration de la Section 122. L'issue est réellement ouverte : les juges ont exprimé un scepticisme marqué sur la solidité juridique du dossier gouvernemental, mais n'ont pas encore rendu leur décision, et un appel vers le Circuit fédéral est quasi certain quel que soit le résultat. Pour un lecteur français, l'enjeu est double : les droits Section 301 frappent l'UE (10 % nets) et pourraient être annulés ou confirmés, tandis que l'escalade avec le Canada préfigure ce qui pourrait arriver si l'UE devenait la prochaine cible de la Section 338.",
           "angle": null,
           "a_verifier": null,
-          "mots_cles": [],
+          "mots_cles": [
+            "Section 301 forced labor tariffs",
+            "Section 338 Tariff Act 1930",
+            "US Court of International Trade",
+            "In re Section 301 Forced Labor Cases",
+            "Canada retaliatory tariffs September 2026",
+            "IEEPA tariff refunds 175 milliards",
+            "droits de douane Trump 2026",
+            "Jamieson Greer USTR"
+          ],
           "scenarios": null,
-          "echeance": null,
+          "echeance": {
+            "date": "2026-10-01",
+            "raison": "Aucune date butoir ferme : la CIT rendra sa décision dans les semaines à venir (pas de délai annoncé), et un appel est attendu. Le suivi éditorial doit être continu."
+          },
           "sources": [
             {
               "titre": "Cour suprême (opinion 24-1287), Le Devoir, Euronews, White & Case, TariffsTool, Holland & Knight",
@@ -3906,7 +4443,7 @@
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "commentaire",
