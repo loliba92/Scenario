@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "17f2111464573a25a3394d432abf5b4110be3ed854ac1a5c40e741c3fb711fb4"
+    "md_sha256": "2dd936cb4e677992d2addeb392e2cee0c12c6fc13838664666e104ce846b98ae"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -245,23 +245,52 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Les Russes votent du 18 au 20 septembre 2026 pour renouveler les 450 sièges de la Douma, les premières législatives depuis le début de la guerre totale en Ukraine en février 2022. Le parti Russie unie de Vladimir Poutine devrait conserver sa supermajorité (au moins 300 sièges), mais l'enjeu est le score réel : le Kremlin aurait fixé un objectif de 45% des voix aux régions, selon des fuites. L'opposition antiguerre (Iabloko) a été exclue du scrutin. Les cinq partis autorisés soutiennent tous la guerre. L'élection se déroule sous la menace d'attaques de drones ukrainiens — 350 drones ont été détectés vers Moscou le 18 septembre, premier jour du vote. Le vote électronique, jugé non contrôlé par des observateurs, facilite les falsifications. La question est : le verrouillage politique tiendra-t-il jusqu'en 2031, ou des signes de fragilité apparaîtront-ils ?",
-          "rationnel": null,
+          "rationnel": "Ce sujet a été ajouté en veille le 18 septembre 2026, jour de l'ouverture du scrutin, alors que l'issue était encore incertaine. Aujourd'hui, le 1er octobre, les résultats sont connus et définitifs : Russie unie a obtenu 349 sièges, un record. L'issue n'est donc plus ouverte sur la question électorale immédiate. Pour un lecteur français, l'enjeu résiduel porte sur les conséquences post-électorales : la crainte d'une mobilisation générale (que Poutine a démentie à plusieurs reprises mais que des signaux faibles entretiennent), les contestations du KPRF, et l'impact des frappes ukrainiennes sur le territoire russe. Mais la question centrale du dossier — le verrouillage du pouvoir par les urnes — a été résolue.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "À vérifier : le nombre exact de sièges varie légèrement selon les sources (347, 349 ou 355 selon le stade de décompte) — les résultats définitifs du 25 septembre donnent 349. À confirmer si des manifestations du KPRF ont effectivement eu lieu après le 25 septembre. À vérifier le nombre exact de Russes ayant fui le pays après les élections (chiffre de 113 000 vers la Géorgie cité par Politico). — ⚠ Peut-être dépassé (enrichissement du 2026-10-01) : Les élections législatives russes se sont déroulées du 18 au 20 septembre 2026 et les résultats définitifs ont été publiés le 25 septembre. Russie unie a obtenu 349 sièges sur 450 (record historique), soit une supermajorité écrasante. La question posée par le dossier — le verrouillage tiendra-t-il ou des fissures apparaîtront-elles ? — a été tranchée par le scrutin lui-même : le verrouillage a fonctionné au-delà des attentes. Les scénarios du dossier (basés sur des fourchettes de pourcentage de voix) sont caducs car le résultat réel (349 sièges, ~58% des voix) dépasse le scénario favorable. L'issue immédiate n'est plus ouverte.",
+          "mots_cles": [
+            "élections législatives russes 2026",
+            "Douma résultats 349 sièges",
+            "Russie unie 57,85%",
+            "attaque drones Moscou 18-20 septembre 2026",
+            "Ella Pamfilova Commission électorale",
+            "mobilisation générale Russie octobre 2026",
+            "Iabloko exclu scrutin",
+            "KPRF contestation résultats"
+          ],
           "scenarios": {
             "favorable": "Russie unie obtient plus de 45% des voix et conserve sa supermajorité (300+ sièges). Le pouvoir affiche une légitimité électorale, la guerre reste soutenue, aucune mobilisation générale n'est annoncée. Le système tient",
             "stable": "Russie unie obtient 40-45% des voix, conserve une majorité absolue mais perd la supermajorité constitutionnelle. Le pouvoir doit composer avec d'autres partis pour les réformes majeures, mais la ligne politique ne change pas",
             "degrade": "Le score de Russie unie tombe sous 40%, signe d'un mécontentement latent malgré le contrôle. Des manifestations locales éclatent, la crainte d'une mobilisation générale s'intensifie, des fissures apparaissent au sein de l'élite. Le verrouillage montre ses limites"
           },
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-09-25",
+            "raison": "Publication des résultats définitifs par la Commission électorale centrale, clôturant l'incertitude sur l'issue du scrutin."
+          },
+          "sources": [
+            {
+              "titre": "Élections législatives russes de 2026 — Wikipédia",
+              "url": "https://fr.wikipedia.org/wiki/%C3%89lections_l%C3%A9gislatives_russes_de_2026"
+            },
+            {
+              "titre": "Russie. Élections législatives : le parti de Poutine gagne un nombre record de sièges — Le Dauphiné",
+              "url": "https://www.ledauphine.com/politique/2026/09/25/elections-legislatives-le-parti-de-poutine-gagne-un-nombre-record-de-sieges"
+            },
+            {
+              "titre": "Russia's ruling pro-Putin party wins wartime election — Reuters",
+              "url": "https://www.reuters.com/world/russias-ruling-pro-putin-party-wins-wartime-election-with-over-57-vote-near-2026-09-21/"
+            },
+            {
+              "titre": "CEC statements: 349 seats for United Russia — International Affairs",
+              "url": "https://en.interaffairs.ru/article/cec-statements-349-seats-for-united-russia-ukrainian-attacks-on-polling-stations-the-voter-turnou/"
+            }
+          ],
           "origine": "veille",
           "note": "Ajouté automatiquement le 2026-09-18 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — validé. Repéré en veille sur le registre Géopolitique, remonté ici pour son urgence",
           "ajoute_le": "2026-09-18",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         }
       ]
     },
@@ -484,19 +513,45 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Le brouillage et le leurrage des signaux satellites perturbent déjà l'aviation civile en mer Baltique depuis 2023-2024 — un phénomène documenté, pas hypothétique. Nos infrastructures critiques (finance, énergie, transport, télécoms) dépendent d'une synchronisation ultra-précise par satellite : jusqu'où l'escalade du brouillage peut-elle aller avant de vraiment les perturber ?",
-          "rationnel": null,
+          "rationnel": "Ce sujet est brûlant car l'escalade du brouillage russe en Baltique est documentée, chiffrée et reconnue par les instances internationales (OACI, UIT) — ce n'est plus une menace hypothétique. L'issue reste ouverte car deux forces contraires s'affrontent : d'un côté, la Russie intensifie ses attaques électroniques (brouillage combiné jamming+spoofing, portée étendue à 450 km depuis Kaliningrad) ; de l'autre, l'Europe déploie des contre-mesures (Galileo OSNMA, R-Mode Baltic, plan de résilience GNSS) dont l'efficacité réelle n'est pas encore prouvée à grande échelle. Pour un lecteur français, l'enjeu est concret : nos réseaux électriques, télécoms, transports et transactions financières dépendent de la synchronisation GNSS, et l'ANFR alerte déjà sur les vulnérabilités identifiées dans les infrastructures critiques françaises.",
           "angle": null,
           "a_verifier": "Incidents de brouillage/leurrage documentés en mer Baltique et ailleurs depuis 2023 (sources aviation civile, rapports Finlande/Estonie/Pologne), dépendance réelle des réseaux électriques et marchés financiers à la synchronisation GPS, contre-mesures en développement (systèmes de secours, redondance Galileo)",
-          "mots_cles": [],
+          "mots_cles": [
+            "brouillage GPS mer Baltique 2025 2026",
+            "GPS jamming spoofing Baltic Sea Russia Kaliningrad",
+            "ICAO Russia GNSS interference condemnation 2025",
+            "Galileo OSNMA spoofing protection 2025",
+            "GNSS critical infrastructure time synchronization vulnerability",
+            "R-Mode Baltic alternative navigation",
+            "ANFR brouilleur GNSS France",
+            "733 incidents GPS Suède Transportstyrelsen"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "Researchers home in on origins of Russia's Baltic GPS jamming",
+              "url": "https://www.defensenews.com/global/europe/2025/07/02/researchers-home-in-on-origins-of-russias-baltic-gps-jamming/"
+            },
+            {
+              "titre": "Sweden accuses Russia of GPS jamming over Baltic Sea",
+              "url": "https://www.bbc.com/news/articles/clyx3ly54veo"
+            },
+            {
+              "titre": "Galileo Leads the Way in GNSS Spoofing Protection with OSNMA",
+              "url": "https://defence-industry-space.ec.europa.eu/galileo-leads-way-gnss-spoofing-protection-osnma-2025-07-22_en"
+            },
+            {
+              "titre": "ICAO Assembly condemns GNSS Radio Frequency Interference originating from DPRK and Russian Federation",
+              "url": "https://www.icao.int/news/icao-assembly-condemns-gnss-radio-frequency-interference-originating-dprk-and-russian"
+            }
+          ],
           "origine": "utilisateur",
           "note": "Reformulation de \"Qui contrôlera le temps ?\" (favori #1 de l'utilisateur) — jugée trop abstraite/quasi science-fictive telle quelle lors du crible, redescendue sur un phénomène réel et déjà daté. Pas un seul \"contrôleur\" du temps en réalité : 4 systèmes concurrents (GPS américain, Galileo européen, GLONASS russe, BeiDou chinois) — la vraie tension est la vulnérabilité partagée à un brouillage/leurrage, pas une prise de contrôle unique par un acteur",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -1445,19 +1500,45 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "~87 % Du territoire serait en « fragilité médicale », désormais jusque dans les villes moyennes. De nouvelles mesures arrivent (études de santé dans chaque département, 3 700 internes déployés en sept. 2026, débat sur la régulation de l'installation). → Favorable = les mesures freinent la fracture ; stable = ça n'empire plus mais ne s'améliore pas ; dégradé = les départs en retraite l'emportent, la fracture s'aggrave",
-          "rationnel": null,
+          "rationnel": "Ce sujet est brûlant car plusieurs forces contradictoires s'affrontent en même temps à l'automne 2026 : d'un côté, les premières mesures du Pacte (docteurs juniors, stages obligatoires) entrent concrètement en vigueur et pourraient amorcer une amélioration ; de l'autre, la réforme du cumul emploi-retraite pousse des milliers de médecins à partir plus tôt, et le débat parlementaire sur la régulation de l'installation reste bloqué au Sénat. L'issue est réellement ouverte car on ignore si l'effet des renforts compensera les départs massifs, et si la volonté politique de réguler l'installation aboutira face à l'opposition de l'Ordre des médecins et d'une partie de la profession. Pour un lecteur français, l'enjeu est immédiat et personnel : trouver ou conserver un médecin traitant, ne pas renoncer aux soins, et voir son territoire gagner ou perdre des praticiens dans les mois qui viennent.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Nombre exact de docteurs juniors effectivement déployés à date (vs 3 700 annoncés) ; chiffre précis des départs en retraite de médecins généralistes en 2026 ; calendrier de reprise de l'examen de la proposition de loi au Sénat.",
+          "mots_cles": [
+            "déserts médicaux",
+            "Pacte de lutte contre les déserts médicaux",
+            "docteurs juniors 3700",
+            "zones rouges 151",
+            "régulation installation médecins ARS",
+            "proposition de loi transpartisane déserts médicaux",
+            "cumul emploi-retraite médecins 2027",
+            "6,7 millions sans médecin traitant"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "Pacte de lutte contre les déserts médicaux - Dossier de presse (25 avril 2025)",
+              "url": "https://www.info.gouv.fr/upload/media/content/0001/13/0f332cd5f6e3b38dcacebe3247423386667ae3b1.pdf"
+            },
+            {
+              "titre": "Cartes de France 2026 de l'accès aux soins - Fondation Jean-Jaurès",
+              "url": "https://www.jean-jaures.org/wp-content/uploads/2026/05/Cartes_France_2026.pdf"
+            },
+            {
+              "titre": "Proposition de loi visant à lutter contre les déserts médicaux - Sénat",
+              "url": "https://www.senat.fr/travaux-parlementaires/textes-legislatifs/la-loi-en-clair/proposition-de-loi-visant-a-lutter-contre-les-deserts-medicaux-dinitiative-transpartisane.html"
+            },
+            {
+              "titre": "Réforme du cumul emploi-retraite : près de 1 850 médecins anticipent leur départ - FranceSoir",
+              "url": "https://www.francesoir.fr/societe-sante/reforme-du-cumul-emploi-retraite-pres-de-1-850-medecins-anticipent-leur-depart-au"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -1982,11 +2063,20 @@
           "tag": "médecine & santé",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "En septembre 2026, le dépistage organisé du cancer du sein en France est à un tournant. La participation stagne à 45,7 % sur 2024-2025 (47,5 % en 2025, 43,9 % en 2024), bien loin de l'objectif national de 70 %, et la baisse se poursuit depuis le milieu des années 2010 (Santé publique France, juillet 2026). Parallèlement, l'INCa a publié sa feuille de route 2026-2030 qui prévoit explicitement de « proposer un dépistage pour chacun » en généralisant la personnalisation du risque et en intégrant l'IA dans la lecture des mammographies et la tomosynthèse. L'étude suédoise MASAI, publiée dans The Lancet en janvier 2026, a démontré sur 106 000 femmes que le dépistage assisté par IA réduit de 12 % les cancers d'intervalle et augmente la sensibilité de détection (81 % vs 74 %), sans hausse des faux positifs. En France, les essais IA des CRCDC Sud PACA et Auvergne-Rhône-Alpes, présentés aux JFR 2025, confirment que l'IA pourrait réduire de 60 % le nombre de deuxièmes lectures. L'expérimentation nationale Interception (parcours de prévention personnalisé pour personnes à haut risque) a été lancée en 2026 dans 7 régions avec un financement de 6 M€. La DREES a publié en février 2026 une étude montrant que la participation générale au dépistage du cancer du sein passe de 42 % pour les 10 % les plus modestes à 67 % pour les 10 % les plus aisées, confirmant un fort gradient social.",
+          "rationnel": "Ce sujet est traité maintenant car octobre rose 2026 offre une fenêtre médiatique naturelle pour interroger le modèle de dépistage lui-même, alors que plusieurs signaux convergent : la participation continue de baisser malgré 20 ans de campagnes, la feuille de route INCa 2026-2030 officialise le virage vers la personnalisation et l'IA, et les premiers résultats d'essais français et internationaux sont disponibles. L'issue est ouverte car deux logiques s'affrontent sans arbitrage politique clair : le maintien du modèle actuel (mammographie biennale systématique pour toutes les 50-74 ans) vs un modèle émergent fondé sur le risque individuel et les nouvelles technologies. Les acteurs (INCa, radiologues, associations de patientes, industriels de l'IA) divergent sur le rythme et les modalités de la transition. Pour le lecteur français, l'enjeu est concret : selon le modèle qui prévaudra, l'accès au dépistage, sa fréquence et sa qualité pourraient se différencier fortement selon le lieu de résidence, le niveau de revenu et le profil de risque, avec un risque de creusement des inégalités territoriales et sociales déjà documenté.",
           "angle": "Pas un article de sensibilisation sur le dépistage, mais une problématique prospective sur la bifurcation du modèle lui-même. Contexte de tension (chiffres sourcés, sept 2026) : (1) la participation au dépistage organisé stagne bien sous l'objectif national de 70 % — 45,7 % en 2024-2025 (47,5% en 2025, 43,9% en 2024), baisse par rapport à 46,6% en 2022-2023, malgré 20 ans d'appels au dépistage systématique ; (2) en parallèle, l'INCa travaille depuis plusieurs années sur une évolution du dépistage, fondée sur la personnalisation du risque individuel (âge, antécédents, génétique, facteurs modifiables) et l'intégration de l'IA pour l'analyse des images ; (3) la feuille de route INCa 2026-2030 prévoit explicitement « proposer un dépistage pour chacun » en généralisant la personnalisation et en intégrant l'IA dans les lectures de mammographie et la tomosynthèse ; (4) les essais français de dépistage par IA lancés en 2026 livrent leurs premiers résultats, tandis que l'étude suédoise de janvier 2026 (Lancet) démontre +17,6 % de détection avec IA (6,7 cancers vs 5,7 pour 1 000 femmes en triple lecture : 2 radiologues + 1 IA). On est donc à un moment charnière où deux logiques se heurtent : le modèle actuel (mammographie systématique, même rythme et même méthode pour toutes les femmes de 50-74 ans) vs un modèle émergent (dépistage adapté au risque individuel, technologies nouvelles, stratégies différenciées). La question n'est pas « comment faire augmenter la participation ? » mais « quel modèle de dépistage va prévaloir demain ? ». Inégalités clés à documenter : femmes les plus aisées 24 % sans mammographie récente vs 39 % pour les plus modestes (ratio 1:2 sur participation), barrières territoriales pour femmes rurales sans accès aux services. À traiter dans l'article : (1) état du dépistage organisé aujourd'hui — participation 45,7 % (stagnation), 61 214 nouveaux cas/an, survie 88 % (hausse depuis 80 %), critères actuels (âge 50-74, rythme 2 ans), efficacité mesurée (60 % diagnostiqués précocement) ; (2) pourquoi la participation stagne — barrières identifiées par INCa/DREES (accès géographique rural, stigmatisation, adaptation des équipements pour femmes modestes, inégalités selon CSP) ; (3) la stratégie de l'INCa et les pilotes en cours — expérimentation « Interception » 2026-2030 (parcours personnalisés haut risque), études MyPEBS/WISDOM/PROCAS (dépistage par risque individuel), essais IA français en cours ; (4) qui profite de chaque modèle — femmes à haut risque génétique ont gains immédiats, femmes isolées/précaires risquent d'être laissées en arrière, femmes urbaines/aisées accèdent aux technologies en premier ; (5) coûts et impact budgétaire d'une transition progressive vs rupture ; (6) ce qu'en disent les femmes (sondages, perceptions de l'IA, acceptabilité) et les radiologues (confiance en l'IA, charge de travail)",
           "a_verifier": "Données Santé publique France participation 2024-2025 (taux national/régionaux), feuille de route INCa 2026-2030 (engagement IA, tomosynthèse), DREES inégalités sociales dépistage (CSP, territoires), essais IA français lancés 2026 (résultats si disponibles), études MyPEBS/WISDOM/PROCAS (avancement, résultats provisoires), coûts comparés modèles, INCa chiffres mortalité/survie tendance 2020-2026, démographie médicale radiologues prévue 2026-2030",
-          "mots_cles": [],
+          "mots_cles": [
+            "dépistage organisé cancer du sein",
+            "participation PNDOCS 45,7% 2024-2025",
+            "INCa feuille de route 2026-2030 dépistage personnalisé",
+            "IA mammographie MASAI Lancet 2026",
+            "essais IA dépistage France CRCDC Therapixel 2025",
+            "programme Interception prévention personnalisée",
+            "inégalités sociales dépistage DREES 2026",
+            "MyPEBS WISDOM dépistage risque individuel"
+          ],
           "scenarios": null,
           "echeance": {
             "date": "2026-10-02",
@@ -2003,7 +2093,7 @@
           "ajoute_le": "2026-09-25",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -2726,19 +2816,45 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "TikTok, algorithmes, marketing, plateformes : un Harry Potter, un Star Wars ou un Daft Punk pourrait-il encore émerger aujourd'hui sans être fabriqué par une machine industrielle ?",
-          "rationnel": null,
+          "rationnel": "Ce sujet est brûlant car 2026 marque un point de bascule : jamais les outils algorithmiques et l'IA n'ont été aussi présents dans la détection et l'accélération des tendances, tandis que des exemples récents (cancoillotte, 'Why you put the music', Patrick Sébastien) prouvent que l'étincelle spontanée existe encore. L'issue est ouverte car deux forces contraires s'affrontent : d'un côté, la viralité organique reste possible et même valorisée par les algorithmes qui récompensent l'authenticité ; de l'autre, les majors (Universal, Warner) industrialisent la captation des tendances via la data et l'IA, rendant la 'spontanéité' de plus en plus instrumentalisée. Pour un lecteur français, l'enjeu est direct : peut-on encore croire à l'émergence d'un Daft Punk ou d'un Harry Potter 'par hasard', ou toute réussite culturelle est-elle désormais le produit d'un ciblage algorithmique ?",
           "angle": null,
           "a_verifier": "Exemples récents de phénomènes culturels nés « spontanément » sur les réseaux (sans campagne marketing initiale) vs part croissante du marketing algorithmique dans le lancement des plus gros succès actuels, rôle des maisons de disques/studios dans la détection et l'accélération de tendances déjà nées organiquement",
-          "mots_cles": [],
+          "mots_cles": [
+            "phénomène culturel spontané viral",
+            "TikTok algorithme prescripteur culturel 2026",
+            "84% Billboard Global 200 TikTok viral",
+            "Universal Music data Spotify Analytics A&R",
+            "Music Tomorrow algorithme recommandation",
+            "cancoillotte TikTok viral avril 2026",
+            "Why you put the music La Ciotat",
+            "Patrick Sébastien Kicékéla TikTok"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "TikTok and Luminate Release the Latest Music Impact Report (fév. 2025) : 84% des titres du Billboard Global 200 d'abord viraux sur TikTok",
+              "url": "https://newsroom.tiktok.com/en-us/tiktok-and-luminate-release-latest-music-impact-report"
+            },
+            {
+              "titre": "Cancoillotte : le succès viral TikTok du fromage français (avril 2026)",
+              "url": "https://www.influenth.com/cancoillotte-succes-viral-tiktok-fromage-francais/"
+            },
+            {
+              "titre": "Pourquoi Universal Music France investit massivement dans les données Spotify Analytics ?",
+              "url": "https://www.playfm.fr/universal-music-france-investit-massivement-donnees-spotify-analytics.html"
+            },
+            {
+              "titre": "Music Tomorrow lève 1 million d'euros pour décrypter les algorithmes musicaux - Billboard France",
+              "url": "https://fr.billboard.com/music-tomorrow-leve-1-million-deuros-pour-decrypter-les-algorithmes-musicaux/"
+            }
+          ],
           "origine": null,
           "note": "Priorité utilisateur #3. Aucun chevauchement identifié avec le contenu culture déjà publié",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
@@ -3329,20 +3445,49 @@
           "tag": "économie & énergie",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Depuis le déclenchement de la guerre américano-israélienne contre l'Iran le 28 février 2026, l'Iran a fermé le détroit d'Ormuz, par lequel transitaient environ 20 % du pétrole mondial. L'AIE qualifie cette perturbation de « plus grande crise d'offre jamais enregistrée », avec jusqu'à 14 millions de barils/jour de production perdus au pic. Au 1er octobre 2026, les flux de brut non iranien via Ormuz ont quasiment retrouvé leur niveau d'avant-guerre (13,5 millions de barils/jour fin septembre selon Kpler), grâce à l'escorte américaine et à la remise en service de l'oléoduc saoudien Est-Ouest. Le Brent reste néanmoins au-dessus de 100 dollars le baril (100,52 $ le 1er octobre), les stocks mondiaux de l'OCDE étant tombés à leur plus bas niveau depuis 2003 (environ 50 jours de couverture). Les négociations entre Washington et Téhéran se poursuivent sous médiation qatarienne : l'Iran propose une réouverture sous 7 jours en échange de la levée du blocus naval et des sanctions, mais Trump a rejeté l'offre. En France, le gazole atteint 2,37 €/L et le gouvernement a étendu le dispositif « Grands rouleurs » (100 € sur trois mois pour 5,5 millions de Français).",
+          "rationnel": "Ce sujet est brûlant car le marché pétrolier mondial vit une phase de transition décisive : les flux physiques repartent à la hausse via Ormuz, mais le verrou diplomatique n'est pas levé et les stocks sont historiquement bas. L'issue reste ouverte car deux forces contraires s'affrontent : d'un côté, la reprise des exportations et la perspective d'un excédent d'offre au 4e trimestre 2026 (AIE) pèsent sur les prix ; de l'autre, l'instabilité géopolitique, les attaques quotidiennes dans le détroit, l'épuisement des réserves stratégiques et l'absence d'accord durable maintiennent une prime de risque élevée. Pour un lecteur français, l'enjeu est direct : le prix du baril détermine celui du carburant à la pompe (diesel à 2,37 €/L), pèse sur le pouvoir d'achat des ménages ruraux et périurbains, et conditionne le coût du chauffage au fioul et du gaz, dont les prix ont bondi de 29 % et 14 % sur un an.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Chiffrer précisément la baisse des stocks OCDE en millions de barils au 1er octobre 2026 ; vérifier si l'OPEP+ ajuste ses quotas lors de la réunion de dimanche (4 octobre) ; confirmer le volume exact des exportations iraniennes sous blocus.",
+          "mots_cles": [
+            "détroit d'Ormuz",
+            "prix baril Brent 2026",
+            "guerre Iran États-Unis",
+            "AIE stocks pétrole OCDE",
+            "OPEP production 2026",
+            "carburants prix France octobre 2026",
+            "Strait of Hormuz oil disruption",
+            "Brent crude oil price 100 dollars"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-10-04",
+            "raison": "Réunion de l'OPEP+ dimanche 4 octobre pour fixer les objectifs de production de novembre, qui pourrait signaler un changement de stratégie du cartel."
+          },
+          "sources": [
+            {
+              "titre": "Détroit d'Ormuz: malgré la reprise importante du flux de pétrole, les prix devraient rester élevés - RFI",
+              "url": "https://www.rfi.fr/fr/%C3%A9conomie/20261001-d%C3%A9troit-d-ormuz-malgr%C3%A9-la-reprise-importante-du-flux-de-p%C3%A9trole-les-prix-devraient-rester-%C3%A9lev%C3%A9s"
+            },
+            {
+              "titre": "Le pétrole remonte avec l'impasse entre l'Iran et les États-Unis — Connaissance des Énergies",
+              "url": "https://www.connaissancedesenergies.org/afp/le-petrole-remonte-prudent-malgre-des-exportations-en-hausse-261001"
+            },
+            {
+              "titre": "Pétrole: dans le détroit d'Ormuz, un verrou iranien qui tient de moins en moins - Journal de Québec",
+              "url": "https://www.journaldequebec.com/2026/10/01/petrole-dans-le-detroit-dormuz-un-verrou-iranien-qui-tient-de-moins-en-moins"
+            },
+            {
+              "titre": "Short-Term Energy Outlook, global oil markets - EIA",
+              "url": "https://www.eia.gov/outlooks/steo/report/global_oil.php"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-01"
         },
         {
           "type": "sujet",
