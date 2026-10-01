@@ -309,9 +309,14 @@ sujets à traiter n'en avaient aucune). Désormais l'édition cite l'`id` et le 
   correction de texte garde son identifiant.
 
 **Page cachée.** `file-sujets.html` (noindex, hors sitemap, derrière le même code que le
-dashboard ; bouton « Voir la file de sujets » sur le dashboard) affiche tous les dossiers
-en lecture seule : résumé par registre, complétude, filtres, recherche, scénarios, mots-clés
-cliquables (Google Actualités), copie du dossier ou de l'identifiant.
+dashboard ; bouton « Voir la file de sujets » sur le dashboard) affiche tous les dossiers :
+résumé par registre, complétude, filtres, recherche, scénarios, mots-clés cliquables (Google
+Actualités), copie du dossier ou de l'identifiant. Seule écriture : le bouton « ✓ Valider ce
+sujet » d'un sujet 🔍 « à valider ». Il appelle l'API GitHub (`workflow_dispatch` de
+`.github/workflows/valider-sujets.yml`) avec un jeton personnel saisi une fois et gardé dans
+le navigateur seulement (jeton à droits limités : Actions en lecture/écriture sur ce dépôt).
+Le workflow lance `sujets.py valider <ids>` et committe ; la page applique la validation tout
+de suite en local (20 min) le temps que le site publié se mette à jour.
 
 **Contrôles.** `python scripts/edition/sujets.py check` (identifiants uniques, types des
 champs, aucun sujet « à traiter » dont le titre est déjà celui d'une édition publiée,
