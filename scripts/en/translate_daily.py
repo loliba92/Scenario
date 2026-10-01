@@ -985,12 +985,14 @@ def build_home_hero_en():
     return """<section class="hero hero--home" id="contexte">
   <div class="wrap">
     <p class="eyebrow">Every day, one story, three scenarios</p>
-    <div class="hero-brand">
-      <img class="hero-brand-mark" src="assets/logo.svg" alt="">
-      <h1>Scéna<span>rio</span></h1>
-    </div>
-    <p class="dek">Understanding the news means measuring its consequences, not just knowing the facts. Every day, Scénario takes one key story and lays out three possible outcomes — favorable, stable, degraded — each with a numbered probability.</p>
-    <p><a class="cross-link" href="le-projet.html">Discover the project →</a></p>
+    <h1>Understanding the news means measuring its <span>consequences</span>.</h1>
+    <p class="dek">Every day, Scénario takes one key story and lays out three possible outcomes, each with a numbered probability.</p>
+    <ul class="hero-scenarios" aria-label="The three scenarios of each edition">
+      <li class="is-favorable">Favorable</li>
+      <li class="is-stable">Stable</li>
+      <li class="is-degrade">Degraded</li>
+    </ul>
+    <a class="hero-cta" href="le-projet.html">Discover the project <span aria-hidden="true">→</span></a>
   </div>
 </section>"""
 
