@@ -226,6 +226,7 @@ JSON, plutôt que dans un script à écrire.
   "aria_label": "string — description accessible du <svg> (lu par un lecteur d'écran)",
   "lead": "string — texte d'intro juste avant le graphique",
   "caption": "string — texte juste après le graphique (source des données notamment)",
+  "style": "escalier",
   "y_max": 1080,
   "y_gridlines": [
     {"valeur": 180, "label": "3 min"}
@@ -238,6 +239,10 @@ JSON, plutôt que dans un script à écrire.
   ]
 }
 ```
+- `style` : optionnel, `"escalier"` (défaut, la valeur tient jusqu'au
+  point suivant) ou `"ligne"` (segments droits entre les points, pour un
+  cours qui évolue en continu : Bitcoin, indice boursier, matière
+  première, change). `annee` accepte les décimales (`2025.5`).
 - `points` : chronologique, valeur dans une unité fine et cohérente d'un
   point à l'autre (ex. secondes plutôt que minutes arrondies) — le
   graphique relie les points en escalier (la valeur tient jusqu'au point
