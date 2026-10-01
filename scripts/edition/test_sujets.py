@@ -713,6 +713,26 @@ class VeilleEnrichitTest(unittest.TestCase):
         self.assertEqual(ht.insert_entries(d, "## Culture — samedi", [], datetime.date(2026, 10, 2)), [])
 
 
+class DashboardAgendaTest(unittest.TestCase):
+    """update_audience : les sujets encore « à valider » ne sont pas le « prochain sujet »."""
+
+    def setUp(self):
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "seo"))
+        import update_audience as ua
+        self.ua = ua
+
+    def test_sujet_a_valider_ecarte_de_l_agenda(self):
+        d = sj.parse_md(mini_md())
+        sj.ajouter(d, "culture", "Sujet proposé par la veille ?")   # 🔍 à valider, en tête de section
+        culture = next(s for s in d["sections"] if s["cle"] == "culture")
+        section = self.ua.parse_section(sj.render_md(d), culture["titre"])
+        tous = self.ua.unchecked_items(section)
+        valides = self.ua.unchecked_items(section, valides_seulement=True)
+        self.assertTrue(tous[0].startswith("🔍 Sujet proposé"))
+        self.assertTrue(all(not t.startswith("🔍") for t in valides))
+        self.assertEqual(len(valides), sum(1 for t in tous if not t.startswith("🔍")))
+
+
 class ExtractionJsonTest(unittest.TestCase):
     """Réponse du modèle avec du texte avant le JSON (veille du 27 septembre 2026)."""
 

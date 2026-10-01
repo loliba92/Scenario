@@ -472,16 +472,26 @@ def already_published(item_text):
     return any(n == t or n.startswith(t + " ") for t in published_titles())
 
 
-def unchecked_items(section_text):
+# Marque des sujets « à valider » dans la vue Markdown (sujets.MARQUE_A_VALIDER) : tant qu'ils ne
+# sont pas validés, le brief du jour ne les prend pas (sujets.eligible).
+MARQUE_A_VALIDER = "🔍"
+
+
+def unchecked_items(section_text, valides_seulement=False):
     """Sujets non cochés d'une section, SAUF ceux qui sont déjà une édition
     publiée : une case oubliée ne doit pas faire réapparaître un sujet déjà
     paru comme « prochain sujet » (constaté le 1er octobre 2026 : « pop culture »,
-    publié le 26 septembre, et « Bitcoin », publié le jour même)."""
+    publié le 26 septembre, et « Bitcoin », publié le jour même).
+    `valides_seulement` écarte aussi les sujets encore « à valider » (🔍) : ce ne
+    sont pas eux que le brief prendra."""
     items = []
     for line in section_text.splitlines():
         m = re.match(r"^- \[ \] (.+)$", line.strip())
-        if m and not already_published(m.group(1)):
-            items.append(m.group(1).strip())
+        if not m or already_published(m.group(1)):
+            continue
+        if valides_seulement and m.group(1).startswith(MARQUE_A_VALIDER):
+            continue
+        items.append(m.group(1).strip())
     return items
 
 
@@ -544,7 +554,7 @@ def build_agenda(md_text):
 
     for i, (heading, label) in enumerate(REGISTRES):
         section = parse_section(md_text, heading)
-        pending = unchecked_items(section)
+        pending = unchecked_items(section, valides_seulement=True)
         day = JOURS_SEMAINE[i]
         if pending:
             cards.append({"day": day, "registre": label, "topic": short_title(pending[0])})
