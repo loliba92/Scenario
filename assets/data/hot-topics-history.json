@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-10-01",
+    "registre": "Géopolitique",
+    "section": "Carte blanche",
+    "accroche": "Kaliningrad : la menace nucléaire russe peut-elle faire reculer l'OTAN, ou au contraire précipiter un affrontement direct entre Moscou et l'Alliance ?",
+    "tag": "géopolitique & sécurité"
+  },
+  {
+    "date": "2026-10-01",
+    "registre": "Actu. française",
+    "section": "Carte blanche",
+    "accroche": "Gel du point d'indice des fonctionnaires : le gouvernement Lecornu peut-il imposer son budget d'austérité sans déclencher une crise sociale et politique à un an de la présidentielle ?",
+    "tag": "politique & budget"
+  },
+  {
+    "date": "2026-10-01",
+    "registre": "Économie & finance",
+    "section": "Économie & finance",
+    "accroche": "L'OAT française frôle les 5 %, le pétrole à 100 dollars, l'inflation repart : l'économie mondiale peut-elle encaisser une nouvelle tempête obligataire sans basculer en récession ?",
+    "tag": "économie & finance"
+  },
+  {
+    "date": "2026-10-01",
+    "registre": "Sport",
+    "section": "Sport",
+    "accroche": "Le Championnat des Nations de rugby peut-il s'imposer comme la nouvelle compétition reine du rugby mondial, ou va-t-il cannibaliser les tournois historiques sans convaincre le public ?",
+    "tag": "rugby & gouvernance"
+  },
+  {
     "date": "2026-09-18",
     "registre": "Géopolitique",
     "section": "Carte blanche",
