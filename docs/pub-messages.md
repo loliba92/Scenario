@@ -990,6 +990,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-09-30 (archives/2026-09-30.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-10-01
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 57,6 milliards de dollars
+- message: Avec 57,6 milliards de dollars de flux nets vers les ETF spot en deux ans, le bitcoin est devenu accessible à Wall Street mais reste concentré chez une poignée d'acteurs clés.
+- attribution: — lesscenarios.fr, 1 octobre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-10-01.html
+
+*Phrase à retenir de l'édition du 2026-10-01 (archives/2026-10-01.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même

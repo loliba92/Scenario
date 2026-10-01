@@ -360,9 +360,12 @@ def _dc_chart_svg_inner(serie):
     # l'original) — pour chaque point i>0, deux segments : horizontal
     # jusqu'à la nouvelle année (à l'ancienne valeur), puis vertical vers
     # la nouvelle valeur.
+    # style "ligne" : segments droits, pour un cours qui évolue en continu
+    # (actif financier) — l'escalier y suggérerait un prix constant.
     path = f"M {x_pos(points[0]['annee'])} {y_pos(points[0]['valeur'])}"
     for i in range(1, len(points)):
-        path += f" L {x_pos(points[i]['annee'])} {y_pos(points[i - 1]['valeur'])}"
+        if serie.get("style") != "ligne":
+            path += f" L {x_pos(points[i]['annee'])} {y_pos(points[i - 1]['valeur'])}"
         path += f" L {x_pos(points[i]['annee'])} {y_pos(points[i]['valeur'])}"
     parts.append(f'<path d="{path}" class="dc-line"/>')
 
