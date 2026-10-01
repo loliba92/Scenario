@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-01",
+      "articles": [
+        {
+          "title": "Strategy is accelerating its crypto purchases as rivals sit on the sidelines",
+          "source": "CNBC",
+          "url": "https://www.cnbc.com/2026/03/27/strategy-is-accelerating-its-crypto-purchases-as-rivals-sit-on-the-sidelines.html",
+          "image": null,
+          "lang": "en",
+          "domain": "economie-mondiale",
+          "summary": "En mars 2026, Strategy accélère ses achats de bitcoin tandis que les autres entreprises publiques ont largement arrêté leurs acquisitions. Strategy détient environ 65 % du bitcoin des entreprises publiques.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Bitcoin Price Prediction for October 2026: $40K Bottom Risk Vs Low-$80K Hold",
+          "source": "Cryptotimes",
+          "url": "https://www.cryptotimes.io/2026/09/30/bitcoin-price-prediction-for-october-2026-40k-bottom-risk-vs-low-80k-hold/",
+          "image": null,
+          "lang": "en",
+          "domain": "economie-mondiale",
+          "summary": "Le bitcoin démarre octobre 2026 dans les basses 80 000 dollars, environ 33 % en dessous de son sommet d'octobre 2025 à 126 000 dollars, après un creux à 58 000 dollars en milieu d'année.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-09-30",
       "articles": [
         {
