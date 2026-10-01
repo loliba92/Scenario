@@ -263,6 +263,35 @@ class AjoutEtEnrichissementTest(unittest.TestCase):
         self.assertNotIn("🔍 Sujet proposé", sj.render_md(d))
         self.assertEqual(verif(d), [])
 
+    def test_prioriser_puis_deprioriser(self):
+        d = sj.parse_md(mini_md())
+        e = par_debut(d, "La Chine")
+        ident = e["id"]
+        self.assertTrue(ident.startswith("culture-"))
+        faits, inconnus, ignores = sj.prioriser(d, [ident, "n-existe-pas"])
+        self.assertEqual((faits, inconnus, ignores), ([ident], ["n-existe-pas"], []))
+        sec = next(s for s in d["sections"] if s["cle"] == "priorite_absolue")
+        self.assertEqual([x["id"] for x in sec["entrees"] if x["type"] == "sujet"][0], ident, "en tête de la priorité")
+        self.assertEqual(sec["entrees"][0]["type"], "commentaire", "le commentaire d'intro reste en tête")
+        self.assertNotIn(ident, [x["id"] for s in d["sections"] if s["cle"] == "culture" for x in s["entrees"] if x["type"] == "sujet"])
+        self.assertEqual(e["validation"], "valide")
+        self.assertEqual(sj.sujet_du_jour(d, "economie")[1]["id"], ident, "traité avant le registre du jour")
+        self.assertEqual(verif(d), [])
+        d2 = sj.parse_md(sj.render_md(d))   # la vue Markdown garde le sujet en priorité
+        self.assertEqual(next(s for s in d2["sections"] if s["cle"] == "priorite_absolue")["entrees"][1]["titre"], e["titre"])
+        self.assertEqual(sj.prioriser(d, [ident]), ([], [], [ident]), "déjà en priorité : ignoré")
+
+        faits, _, _ = sj.deprioriser(d, [ident])
+        self.assertEqual(faits, [ident])
+        culture = next(s for s in d["sections"] if s["cle"] == "culture")
+        self.assertEqual([x["id"] for x in culture["entrees"] if x["type"] == "sujet"][0], ident)
+        self.assertEqual(sj.deprioriser(d, [ident]), ([], [], [ident]), "plus en priorité : ignoré")
+
+    def test_prioriser_ignore_un_sujet_publie(self):
+        d = sj.parse_md(mini_md())
+        publie = next(e for _, e in sj.sujets(d) if e["statut"] == "publie")
+        self.assertEqual(sj.prioriser(d, [publie["id"]]), ([], [], [publie["id"]]))
+
     def test_enrichir_ne_remplit_que_l_absent(self):
         e = par_debut(sj.parse_md(mini_md()), "La Chine")
         contexte_avant = e["contexte"]
