@@ -35,7 +35,8 @@ sur un fichier partagé entre deux process).
     "image_keywords": "string, 2-3 mots-clés thématiques EN, ou null",
     "complexite": "entier 1 à 5, voir § dédié plus bas",
     "origine_prioritaire": "string ou null, voir § dédié plus bas",
-    "origine_id": "string ou null : l'identifiant du sujet de la file, voir § dédié plus bas"
+    "origine_id": "string ou null : l'identifiant du sujet de la file, voir § dédié plus bas",
+    "point_de_depart": "objet, inscrit par le CODE (jamais par la rédaction) : le dossier du sujet de la file, voir § dédié"
   },
   "anti_doublon": {
     "veille_ok": true,
@@ -324,6 +325,25 @@ Pourquoi : le lien entre une édition publiée et sa ligne reposait sur une phra
 caractère de différence (puce « - [ ] », tag final recopiés) et le sujet n'était jamais marqué publié,
 revenait en tête de file et risquait d'être republié (« pop culture » le 26 septembre, « Bitcoin » le
 1er octobre). Le pipeline marque désormais le sujet « publié » par son identifiant.
+
+## Champ `sujet.point_de_depart` (dossier de départ du brief — inscrit par le code)
+
+Ajouté le 1er octobre 2026. Quand le brief part d'un sujet de la file, le **dossier complet de ce
+sujet, en JSON**, est son point de départ : `id`, `registre`, `titre`, `question`, `contexte`,
+`rationnel`, `mots_cles`, `angle`, `a_verifier`, `scenarios_brouillon`, `echeance`,
+`sources_pistes`, `dossier_incomplet`, etc. (`scripts/edition/sujets.py`, `dossier_json()`).
+
+- **Donné au brief** : `generate_fallback_brief.py` choisit le sujet du jour et le donne au modèle en
+  JSON ; la routine interactive l'obtient avec `python scripts/edition/sujets.py prochain --json`.
+  Les `mots_cles` disent quoi chercher ; `contexte`, `rationnel`, `scenarios_brouillon` et
+  `sources_pistes` sont des **pistes à vérifier**, jamais des faits établis.
+- **Inscrit par le code** : après la génération du brief de secours, `ancrer_sur_le_sujet()` fixe
+  `sujet.origine_id` (le modèle l'oublie ou le déforme parfois) puis inscrit `sujet.point_de_depart`.
+  Pour un brief écrit par la routine : `python scripts/edition/sujets.py timbrer editorial-briefs/AAAA-MM-JJ.json`
+  (idempotent ; sans effet si `origine_id` ne cite aucun sujet de la file).
+- **Jamais vu par la rédaction** : `generate_daily_edition.build_user_prompt()` retire
+  `sujet.point_de_depart` du brief avant de le donner au modèle de rédaction, qui ne s'appuie que sur
+  les faits vérifiés (`faits_verifies`, `sources`…). Ne pas y recopier ce champ.
 
 ## Règles de validité (vérifiées par `generate_daily_edition.py`)
 
