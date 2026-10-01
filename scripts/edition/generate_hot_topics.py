@@ -498,7 +498,17 @@ def update_dashboard_card(today, history):
         raise HotTopicsError("dashboard.html : marqueur HOT-TOPICS:DATE introuvable")
     text = date_pattern.sub(lambda m: m.group(1) + fmt_date_fr(today) + m.group(2), text)
 
-    shown = history[:10]
+    # Un même sujet peut figurer plusieurs fois dans l'historique (passages successifs) :
+    # on n'affiche chaque accroche qu'une fois, la plus récente d'abord.
+    shown, vus = [], set()
+    for r in history:
+        cle = re.sub(r"\W+", " ", r["accroche"].lower()).strip()
+        if cle in vus:
+            continue
+        vus.add(cle)
+        shown.append(r)
+        if len(shown) == 10:
+            break
     if shown:
         items = "\n".join(
             f'        <li><span class="agenda-later-tag">{html.escape(r.get("section", r["registre"]), quote=False)}</span>'
