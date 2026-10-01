@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File de sujets — Scénario</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#10151c">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --surface: #1a212b;
+    --surface-2: #212a35;
+    --hairline: #2c3644;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+    --favorable: #5e9c78;
+    --stable: #6f8fae;
+    --degrade: #bd6248;
+  }
+  *,*::before,*::after{ box-sizing: border-box; }
+  [hidden]{ display: none !important; }
+  body{
+    margin: 0; background: var(--ink); color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased;
+  }
+  .wrap{ max-width: 920px; margin: 0 auto; padding: 0 20px; }
+  a{ color: var(--gold); }
+  .back{ display: inline-block; margin: 22px 0 6px; font-family: "JetBrains Mono", monospace; font-size: .78rem; letter-spacing: .04em; text-decoration: none; }
+  h1{ font-family: "Fraunces", Georgia, serif; font-size: 2rem; line-height: 1.15; margin: 6px 0 8px; }
+  .lead{ color: var(--paper-dim); margin: 0 0 22px; max-width: 62ch; }
+
+  .locked{ min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px; }
+  .locked p{ color: var(--paper-dim); max-width: 36ch; }
+
+  /* Résumé */
+  .stats{ display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-bottom: 14px; }
+  .stat{ background: var(--surface); border: 1px solid var(--hairline); border-radius: 10px; padding: 12px 14px; }
+  .stat b{ display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.7rem; line-height: 1.1; }
+  .stat span{ font-size: .74rem; color: var(--paper-dim); font-family: "JetBrains Mono", monospace; letter-spacing: .04em; text-transform: uppercase; }
+  .bar{ height: 8px; background: var(--surface-2); border-radius: 99px; overflow: hidden; margin: 4px 0 6px; }
+  .bar > i{ display: block; height: 100%; background: var(--favorable); border-radius: 99px; }
+  .bar-note{ font-size: .82rem; color: var(--paper-dim); margin: 0 0 16px; }
+  .registres{ width: 100%; border-collapse: collapse; font-size: .84rem; margin-bottom: 22px; }
+  .registres th, .registres td{ text-align: right; padding: 7px 6px; border-bottom: 1px solid var(--hairline); }
+  .registres th:first-child, .registres td:first-child{ text-align: left; }
+  .registres th{ font-family: "JetBrains Mono", monospace; font-size: .68rem; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; color: var(--paper-dim); }
+  .registres .bad{ color: var(--degrade); }
+  .table-scroll{ overflow-x: auto; }
+
+  /* Filtres */
+  .controls{ display: grid; gap: 10px; margin-bottom: 10px; }
+  .controls input[type=search], .controls select{
+    width: 100%; font: inherit; color: var(--paper); background: var(--surface);
+    border: 1px solid var(--hairline); border-radius: 10px; padding: 11px 14px;
+  }
+  .controls input:focus, .controls select:focus{ outline: 2px solid var(--gold); outline-offset: 2px; }
+  .row{ display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  .count{ font-size: .85rem; color: var(--paper-dim); margin: 12px 0; min-height: 1.3em; }
+
+  /* Cartes */
+  .groupe{ font-family: "JetBrains Mono", monospace; font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); margin: 26px 0 8px; }
+  details.sj{ background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px; margin: 0 0 10px; }
+  details.sj[open]{ border-color: var(--paper-dim); }
+  details.sj > summary{ list-style: none; cursor: pointer; padding: 14px 16px; }
+  details.sj > summary::-webkit-details-marker{ display: none; }
+  .badges{ display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 7px; }
+  .badge{ font-family: "JetBrains Mono", monospace; font-size: .66rem; letter-spacing: .04em; text-transform: uppercase;
+    border: 1px solid var(--hairline); color: var(--paper-dim); border-radius: 99px; padding: 2px 9px; }
+  .badge.next{ color: var(--ink); background: var(--gold); border-color: var(--gold); font-weight: 700; }
+  .badge.ok{ color: var(--favorable); border-color: var(--favorable); }
+  .badge.warn{ color: var(--gold); border-color: var(--gold); }
+  .badge.inc{ color: var(--degrade); border-color: var(--degrade); }
+  .titre{ font-family: "Fraunces", Georgia, serif; font-size: 1.12rem; line-height: 1.3; }
+  .corps{ padding: 2px 16px 16px; border-top: 1px solid var(--hairline); }
+  .f{ margin-top: 14px; }
+  .f h3{ margin: 0 0 3px; font-family: "JetBrains Mono", monospace; font-size: .7rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); }
+  .f p{ margin: 0; white-space: pre-line; }
+  .f .vide{ color: var(--degrade); font-style: italic; font-size: .9rem; }
+  .chips{ display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip{ font-size: .8rem; color: var(--paper); text-decoration: none; background: var(--surface-2); border: 1px solid var(--hairline); border-radius: 99px; padding: 3px 11px; }
+  .chip:hover{ border-color: var(--gold); }
+  .scen{ display: grid; gap: 8px; }
+  .scen div{ border-left: 3px solid var(--hairline); padding: 6px 12px; background: var(--surface-2); border-radius: 0 8px 8px 0; font-size: .92rem; }
+  .scen b{ display: block; font-family: "JetBrains Mono", monospace; font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; }
+  .scen .favorable{ border-color: var(--favorable); } .scen .favorable b{ color: var(--favorable); }
+  .scen .stable{ border-color: var(--stable); } .scen .stable b{ color: var(--stable); }
+  .scen .degrade{ border-color: var(--degrade); } .scen .degrade b{ color: var(--degrade); }
+  .meta{ margin-top: 16px; padding-top: 12px; border-top: 1px dashed var(--hairline); font-size: .78rem; color: var(--paper-dim); }
+  .meta code{ font-family: "JetBrains Mono", monospace; font-size: .74rem; word-break: break-all; }
+  .actions{ margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .btn{ font: inherit; font-size: .8rem; color: var(--paper); background: transparent; border: 1px solid var(--hairline); border-radius: 99px; padding: 5px 13px; cursor: pointer; }
+  .btn:hover{ border-color: var(--gold); color: var(--gold); }
+  .note{ color: var(--paper-dim); font-size: .88rem; }
+  .vide-liste{ text-align: center; color: var(--paper-dim); padding: 36px 0; }
+  .pied{ margin: 34px 0 60px; padding-top: 18px; border-top: 1px solid var(--hairline); font-size: .86rem; color: var(--paper-dim); }
+  @media (max-width: 560px){ h1{ font-size: 1.65rem; } .wrap{ padding: 0 16px; } }
+</style>
+</head>
+<body>
+
+<div class="locked" id="verrou" hidden>
+  <div>
+    <h1>Accès privé</h1>
+    <p>Cette page se déverrouille avec le même code que le tableau de bord.</p>
+    <p><a href="dashboard.html">Ouvrir le tableau de bord</a>, saisir le code, puis revenir ici.</p>
+  </div>
+</div>
+
+<main id="app" hidden>
+  <div class="wrap">
+    <a class="back" href="dashboard.html">← Tableau de bord</a>
+    <h1>File de sujets</h1>
+    <p class="lead">Tous les sujets en attente et déjà publiés, avec leur dossier : question, contexte, rationnel, mots-clés pour chercher les articles. Lecture seule — la source est <code>data/sujets.json</code>.</p>
+
+    <section aria-label="Résumé">
+      <div class="stats" id="stats"></div>
+      <div class="bar" aria-hidden="true"><i id="barre" style="width:0"></i></div>
+      <p class="bar-note" id="barre-note"></p>
+      <div class="table-scroll">
+        <table class="registres" id="registres"></table>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="Filtres">
+      <input type="search" id="q" placeholder="Chercher un sujet, un mot du contexte, un mot-clé…" aria-label="Rechercher dans la file de sujets" autocomplete="off">
+      <div class="row">
+        <select id="f-registre" aria-label="Registre"></select>
+        <select id="f-statut" aria-label="Statut">
+          <option value="a_traiter">À traiter</option>
+          <option value="publie">Publiés</option>
+          <option value="tous">Tous</option>
+        </select>
+        <select id="f-dossier" aria-label="Dossier">
+          <option value="tous">Dossiers : tous</option>
+          <option value="incomplet">Incomplets seulement</option>
+          <option value="complet">Complets seulement</option>
+          <option value="a_valider">À valider (🔍)</option>
+        </select>
+      </div>
+    </section>
+
+    <p class="count" id="compte" aria-live="polite"></p>
+    <div id="liste"></div>
+
+    <div class="pied">
+      <p><strong>Compléter les dossiers incomplets :</strong> lancer le workflow
+      <a href="https://github.com/loliba92/Scenario/actions/workflows/enrich-sujets.yml" rel="noopener">« Enrichir les dossiers de sujets »</a>
+      (GitHub Actions, bouton « Run workflow »). Il remplit ce qui manque, par lots de 6, sans jamais écraser un champ déjà écrit.</p>
+    </div>
+  </div>
+</main>
+
+<script src="assets/glossary-search.js"></script>
+<script src="assets/file-sujets.js"></script>
+</body>
+</html>

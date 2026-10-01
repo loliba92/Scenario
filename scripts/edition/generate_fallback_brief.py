@@ -174,6 +174,43 @@ def extract_priority_queue(path=SUJETS_PRIORITAIRES_PATH):
     return "\n\n".join(out)
 
 
+def dossier_du_jour(date_str):
+    """Le sujet que l'Étape 0 retient pour `date_str`, choisi PAR LE SCRIPT (déterministe)
+    dans data/sujets.json : d'abord le premier sujet éligible de « Priorité absolue », sinon
+    le premier sujet éligible (non publié, non 🔍) de la section du registre du jour — avec
+    son dossier complet (contexte, rationnel, mots-clés pour chercher les articles,
+    scénarios en brouillon, pistes de sources, identifiant). Avant, le modèle lisait la file
+    et choisissait lui-même ; il pouvait se tromper de ligne ou ne recevoir qu'une phrase.
+    Repli sur l'ancienne extraction du Markdown si le JSON est introuvable."""
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    try:
+        import sujets as sj
+        data, _ = sj.load_synced()
+        jour = datetime.strptime(date_str, "%Y-%m-%d").date()
+        choisi = sj.sujet_du_jour(data, jour=jour)
+    except Exception as e:  # noqa: BLE001 — jamais bloquer l'édition du jour pour la file
+        print(f"[fallback-brief] file de sujets structurée illisible ({e}) — repli sur le Markdown", file=_sys.stderr)
+        return extract_priority_queue()
+    if not choisi:
+        return ("(aucun sujet éligible dans la file pour ce jour : applique l'Étape 1, "
+                "auto-sélection normale ; sujet.origine_id = null)")
+    return (
+        "Le script a déjà appliqué l'Étape 0 : voici LE sujet retenu pour aujourd'hui (priorité absolue "
+        "d'abord, sinon registre du jour). Traite CE sujet, sauf si une restriction de l'Étape 0 "
+        "l'interdit explicitement — alors applique l'Étape 1 et mets sujet.origine_id à null.\n\n"
+        + sj.dossier_texte(*choisi) + "\n\n"
+        "Comment t'en servir :\n"
+        "- Lance TES recherches web avec les « Mots-clés pour chercher les articles » ci-dessus (puis "
+        "d'autres si besoin) : ils disent quoi chercher.\n"
+        "- Le contexte, le rationnel, les scénarios et les pistes de sources sont des PISTES à "
+        "vérifier, jamais des faits établis : ne recopie aucun chiffre ni aucun fait sans l'avoir "
+        "confirmé par une recherche récente, et reprends les 3 scénarios sur des faits vérifiés.\n"
+        "- Recopie l'identifiant ci-dessus, exactement, dans sujet.origine_id ; et dans "
+        "sujet.origine_prioritaire, le titre du sujet."
+    )
+
+
 def summarize_recent_archives(limit=20):
     """Extrait (date, domaine, titre, question) des `limit` dernières
     éditions d'archives.html — jamais un aller-retour BeautifulSoup sur
@@ -305,8 +342,8 @@ disponible » sans détail.
 === SCHÉMA EXACT DU BRIEF À PRODUIRE (docs/routine-brief-format.md) ===
 {extract_brief_format_doc()}
 
-=== sujets-prioritaires.md (racine du dépôt — Étape 0, seulement le 1er sujet non coché de chaque section, voir cette règle dans le fichier lui-même) ===
-{extract_priority_queue()}
+=== SUJET IMPOSÉ PAR LA FILE DE SUJETS (data/sujets.json — Étape 0, choisi par le script) ===
+{dossier_du_jour(date_str)}
 
 === docs/sujets-a-suivre.md (suivis actifs + anti-doublon) ===
 {read_optional(SUJETS_A_SUIVRE_PATH)}

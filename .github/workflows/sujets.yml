@@ -4,8 +4,8 @@ name: File de sujets — vérification et synchronisation
 # vérité) + sujets-prioritaires.md (vue lisible, générée). Voir
 # scripts/edition/sujets.py.
 #
-# 1. `verifier` : à chaque modification de ces fichiers (ou d'un brief), les
-#    tests et le contrôle de cohérence tournent — identifiants uniques, statuts
+# 1. `verifier` : à chaque modification de ces fichiers (données, scripts qui les lisent ou
+#    les écrivent, page cachée, brief), les tests et le contrôle de cohérence tournent — identifiants uniques, statuts
 #    valides, aucun sujet encore « à traiter » alors qu'une édition publiée
 #    porte déjà son titre (risque de republication), `origine_id` des briefs
 #    existant dans la file. Sans clé API ni réseau.
@@ -22,6 +22,14 @@ on:
       - "sujets-prioritaires.md"
       - "scripts/edition/sujets.py"
       - "scripts/edition/test_sujets.py"
+      - "scripts/edition/enrich_sujets.py"
+      - "scripts/edition/generate_hot_topics.py"
+      - "scripts/edition/generate_fallback_brief.py"
+      - "scripts/edition/generate_post_edition.py"
+      - "scripts/seo/update_audience.py"
+      - "file-sujets.html"
+      - "assets/file-sujets.js"
+      - "dashboard.html"
       - "editorial-briefs/**"
   pull_request:
     paths:
@@ -29,6 +37,14 @@ on:
       - "sujets-prioritaires.md"
       - "scripts/edition/sujets.py"
       - "scripts/edition/test_sujets.py"
+      - "scripts/edition/enrich_sujets.py"
+      - "scripts/edition/generate_hot_topics.py"
+      - "scripts/edition/generate_fallback_brief.py"
+      - "scripts/edition/generate_post_edition.py"
+      - "scripts/seo/update_audience.py"
+      - "file-sujets.html"
+      - "assets/file-sujets.js"
+      - "dashboard.html"
       - "editorial-briefs/**"
   workflow_dispatch:
 

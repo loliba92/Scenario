@@ -297,26 +297,33 @@ les logs.
 
 ## Champ `sujet.origine_id` (identifiant du sujet de la file — le lien fiable)
 
-Ajouté le 1er octobre 2026. La file de sujets est maintenant une donnée structurée
-(`data/sujets.json`, source de vérité ; `sujets-prioritaires.md` en est la vue lisible,
-générée par `scripts/edition/sujets.py`). Chaque sujet y a un **identifiant stable**,
-affiché dans la vue juste sous la ligne du sujet :
+Ajouté le 1er octobre 2026. La file de sujets est une donnée structurée (`data/sujets.json`,
+source de vérité ; `sujets-prioritaires.md` en est la vue lisible, générée par
+`scripts/edition/sujets.py` — voir `docs/ARCHITECTURE.md` § File éditoriale). Chaque sujet est un
+**dossier** avec un **identifiant stable**, affiché dans la vue sous la ligne du sujet :
 
 ```
-- [ ] La Chine peut-elle créer la prochaine pop culture mondiale ? … [culture & géopolitique]
+- [ ] La Chine peut-elle créer la prochaine pop culture mondiale ? [culture & géopolitique]
   <!-- id: culture-la-chine-peut-elle-creer-la-prochaine-pop-culture -->
+  <!-- contexte: … ce qui se passe … -->
+  <!-- rationnel: … pourquoi ce sujet, pourquoi l'issue est ouverte … -->
+  <!-- mots-clés: pop culture chinoise ; Black Myth Wukong ; Ne Zha 2 ; soft power -->
 ```
 
-Pourquoi : le lien entre une édition publiée et sa ligne reposait sur une phrase recopiée ;
-un caractère de différence (puce « - [ ] », tag final recopiés) et le sujet n'était jamais
-marqué publié, revenait en tête de file et risquait d'être republié (« pop culture » le
-26 septembre, « Bitcoin » le 1er octobre).
+**Quand l'Étape 0 retient un sujet de la file** (`python scripts/edition/sujets.py prochain` affiche
+son dossier) :
+- recopier dans `origine_id` l'identifiant **exact** lu dans le commentaire `<!-- id: … -->` (rien
+  d'autre que l'identifiant) ; `null` si le sujet vient de l'auto-sélection normale ;
+- **chercher les articles avec ses `mots-clés`** (puis d'autres si besoin) ;
+- traiter son `contexte`, son `rationnel`, ses scénarios en brouillon et ses pistes de sources
+  comme des **pistes à vérifier**, jamais comme des faits établis : aucun chiffre ni fait recopié
+  sans confirmation par une recherche récente ;
+- garder aussi `origine_prioritaire` (le titre du sujet) : il sert de repli si l'identifiant manque.
 
-**Quand l'Étape 0 retient un sujet de la file**, recopier dans `origine_id` l'identifiant
-**exact** lu dans le commentaire `<!-- id: … -->` sous la ligne choisie (rien d'autre que
-l'identifiant : pas de `id:`, pas de balises). `null` si le sujet vient de l'auto-sélection
-normale. Le pipeline marque alors ce sujet « publié » par son identifiant. Garder aussi
-`origine_prioritaire` (texte de la ligne) : il sert de repli si l'identifiant manque.
+Pourquoi : le lien entre une édition publiée et sa ligne reposait sur une phrase recopiée ; un
+caractère de différence (puce « - [ ] », tag final recopiés) et le sujet n'était jamais marqué publié,
+revenait en tête de file et risquait d'être republié (« pop culture » le 26 septembre, « Bitcoin » le
+1er octobre). Le pipeline marque désormais le sujet « publié » par son identifiant.
 
 ## Règles de validité (vérifiées par `generate_daily_edition.py`)
 
