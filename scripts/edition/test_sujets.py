@@ -22,6 +22,17 @@ sys.path.insert(0, str(ROOT / "scripts" / "seo"))
 
 import sujets as sj  # noqa: E402
 
+# Les tests sur des données fictives ne doivent JAMAIS lire les vrais briefs du dépôt : un brief réel
+# cite un vrai `origine_id`, absent des données fictives (défaut trouvé le 1er octobre 2026, quand le
+# brief du 2 octobre a cité un identifiant et a fait échouer ces tests sur main).
+BRIEFS_VIDE = Path(tempfile.mkdtemp())
+
+
+def verif(data, *args, **kwargs):
+    kwargs.setdefault("briefs_dir", BRIEFS_VIDE)
+    return sj.verifier(data, *args, **kwargs)
+
+
 CONTEXTE_LONG = ("Le 3 octobre 2026, le pays X a annoncé une mesure sans précédent qui touche 12 millions de "
                  "personnes ; les marchés ont réagi dès l'ouverture et trois grands acteurs ont répliqué.")
 RATIONNEL_LONG = ("Le sujet bascule maintenant parce que l'échéance approche ; l'issue reste ouverte car les "
@@ -227,7 +238,7 @@ class AjoutEtEnrichissementTest(unittest.TestCase):
         self.assertEqual(premiers[0]["titre"], "Nouveau sujet de veille ?")
         self.assertEqual(sec["entrees"][0]["type"], "commentaire", "le commentaire d'intro reste en tête")
         self.assertIn("- [ ] 🔍 Nouveau sujet de veille ? [culture]", sj.render_md(d))
-        self.assertEqual(sj.verifier(d), [])
+        self.assertEqual(verif(d), [])
 
     def test_ids_uniques_champs_inconnus_section_inconnue(self):
         d = sj.parse_md(mini_md())
@@ -466,7 +477,7 @@ class VerificationTest(unittest.TestCase):
     def test_donnees_valides(self):
         d = sj.parse_md(mini_md())
         sj.save_both(d, Path(tempfile.mkdtemp()) / "s.json", Path(tempfile.mkdtemp()) / "s.md")
-        self.assertEqual(sj.verifier(d, sj.render_md(d)), [])
+        self.assertEqual(verif(d, sj.render_md(d)), [])
 
     def test_detecte_les_donnees_invalides(self):
         d = sj.parse_md(mini_md())
@@ -477,7 +488,7 @@ class VerificationTest(unittest.TestCase):
         subs[4]["mots_cles"] = "pas une liste"
         subs[5]["scenarios"] = {"favorable": "x"}
         subs[6]["origine"] = "alien"
-        pb = " | ".join(sj.verifier(d))
+        pb = " | ".join(verif(d))
         for attendu in ("en double", "statut invalide", "validation invalide", "mots_cles doit", "scenarios doit", "origine invalide"):
             self.assertIn(attendu, pb)
 
@@ -487,23 +498,23 @@ class VerificationTest(unittest.TestCase):
         d["meta"]["md_sha256"] = sj.sha(md)
         self.assertIsNone(sj.desynchronisation(d, md))
         self.assertEqual(sj.desynchronisation(d, md + "\n"), "md")
-        self.assertEqual(sj.verifier(d, md + "\n"), [], "modification du Markdown seul : se répare par sync")
+        self.assertEqual(verif(d, md + "\n"), [], "modification du Markdown seul : se répare par sync")
         d2 = copy.deepcopy(d)
         next(e for _, e in sj.sujets(d2))["statut"] = "a_traiter"
         self.assertEqual(sj.desynchronisation(d2, md), "json")
         self.assertEqual(sj.desynchronisation(d2, md + "\n"), "conflit")
-        self.assertTrue(any("conflit" in p for p in sj.verifier(d2, md + "\n")))
+        self.assertTrue(any("conflit" in p for p in verif(d2, md + "\n")))
 
     def test_sujet_deja_publie_encore_a_traiter(self):
         d = sj.parse_md(mini_md())
         editions = {"2026-09-26": {sj.norm("La Chine peut-elle créer la prochaine pop culture mondiale ?")}}
-        pb = sj.verifier(d, editions=editions)
+        pb = verif(d, editions=editions)
         self.assertTrue(any("2026-09-26" in p and "culture" in p for p in pb), pb)
 
     def test_origine_id_inconnu_dans_un_brief(self):
         tmp = Path(tempfile.mkdtemp())
         (tmp / "2026-10-02.json").write_text(json.dumps({"sujet": {"origine_id": "n-existe-pas"}}), encoding="utf-8")
-        pb = sj.verifier(sj.parse_md(mini_md()), briefs_dir=tmp)
+        pb = verif(sj.parse_md(mini_md()), briefs_dir=tmp)
         self.assertTrue(any("n-existe-pas" in p for p in pb), pb)
 
     def test_fichiers_du_depot_coherents(self):
