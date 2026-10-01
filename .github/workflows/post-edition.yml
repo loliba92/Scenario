@@ -418,7 +418,7 @@ jobs:
       # avec une insertion concurrente de hot-topics.yml), on repart à
       # chaque essai d'un main fraîchement fetché et on recalcule la case à
       # cocher dessus.
-      - name: Cocher sujets-prioritaires.md (étape séparée, relance depuis zéro si le push est refusé)
+      - name: Marquer le sujet publié dans la file (data/sujets.json + vue, étape séparée, relance depuis zéro si le push est refusé)
         if: steps.config.outputs.publish == 'true'
         run: |
           git config user.name "scenario-edition-bot"
@@ -427,9 +427,9 @@ jobs:
           for attempt in 1 2 3; do
             echo "=== Essai $attempt/3 ==="
             git fetch origin main
-            git checkout origin/main -- sujets-prioritaires.md
+            git checkout origin/main -- sujets-prioritaires.md data/sujets.json
             python3 scripts/edition/generate_post_edition.py --brief "$BRIEF" --recheck-priority-only
-            git add sujets-prioritaires.md
+            git add sujets-prioritaires.md data/sujets.json
             if git diff --cached --quiet; then
               echo "Aucun changement — rien à committer (déjà coché, ou origine_prioritaire absente du brief)."
               exit 0

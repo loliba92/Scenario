@@ -25,7 +25,7 @@ rien n'empêchait Étape 0 de piocher une proposition non revue dès son tour
 suivant, parfois le lendemain (cas réel du 19 septembre 2026, voir
 docs/ARCHITECTURE.md — un sujet ajouté la veille a été retenu tel quel,
 sans validation). Chaque entrée écrite par ce script est désormais préfixée
-`🔍` (voir format_entry()) — docs/routine-prompt.md § Étape 0 l'ignore
+`🔍` (voir build_note() et sujets.ajouter()) — docs/routine-prompt.md § Étape 0 l'ignore
 explicitement tant qu'un humain ne l'a pas retiré à la main.
 
 Deux échappatoires supplémentaires, pour un sujet encore plus urgent que
@@ -78,6 +78,9 @@ HOT_TOPICS_MODEL = "deepseek/deepseek-v4-flash"
 
 ROOT = Path(__file__).resolve().parents[2]
 SUJETS_PRIORITAIRES = ROOT / "sujets-prioritaires.md"
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import sujets as sj  # noqa: E402  (file de sujets structurée, voir scripts/edition/sujets.py)
 SUJETS_A_SUIVRE = ROOT / "docs" / "sujets-a-suivre.md"
 ARCHIVES_DIR = ROOT / "archives"
 DASHBOARD = ROOT / "dashboard.html"
@@ -176,23 +179,27 @@ def find_near_duplicate(candidate_title, known_titles):
     return None
 
 
-def titles_in_section(md_text, heading):
-    """Titres déjà en file (coché ou non) dans UNE section — sert d'anti-
-    doublon minimal donné au modèle. Pas les commentaires HTML (trop
-    lourd pour le prompt), juste la ligne visible."""
-    pattern = re.compile(
-        r"^" + re.escape(heading) + r"\s*$(.*?)(?=^## |\Z)", re.M | re.S,
-    )
-    m = pattern.search(md_text)
-    if not m:
-        raise HotTopicsError(f"section introuvable dans sujets-prioritaires.md : {heading!r}")
-    titles = re.findall(r"^- \[[ x]\] (.+)$", m.group(1), re.M)
-    return [t.strip() for t in titles]
+def titles_in_section(data, heading):
+    """Titres déjà en file (publié ou non) dans UNE section — sert d'anti-
+    doublon minimal donné au modèle. Même représentation qu'avant la file
+    structurée : texte, tag final entre crochets, marque 🔍 si non validé. Pas
+    les notes (trop lourdes pour le prompt)."""
+    titre = heading[3:].strip()
+    sec = next((x for x in data["sections"] if x["titre"] == titre), None)
+    if sec is None:
+        raise HotTopicsError(f"section introuvable dans data/sujets.json : {heading!r}")
+    out = []
+    for e in sec["entrees"]:
+        if e["type"] != "sujet":
+            continue
+        t = e["texte"] + (f" [{e['tag']}]" if e.get("tag") else "")
+        out.append((f"{sj.MARQUE_A_VALIDER} " if e["validation"] == "a_valider" else "") + t)
+    return out
 
 
-def parse_existing_titles(md_text):
+def parse_existing_titles(data):
     """Même chose que titles_in_section(), pour chacun des 6 registres."""
-    return {key: titles_in_section(md_text, heading) for key, heading in REGISTRE_HEADINGS.items()}
+    return {key: titles_in_section(data, heading) for key, heading in REGISTRE_HEADINGS.items()}
 
 
 def recent_journal_titles(today):
@@ -310,31 +317,21 @@ def build_prompt(existing_by_registre, priorite_absolue_titles, carte_blanche_ti
     return "\n".join(lines)
 
 
-def format_entry(entry, today, origin_label=None):
-    accroche = entry["accroche"].strip()
-    tag = entry.get("tag", "").strip()
+def build_note(entry, today, origin_label=None):
+    """Note de contexte d'une proposition automatique (texte brut, sans les
+    balises de commentaire : c'est sujets.py qui l'écrit dans la vue Markdown)."""
     contexte = entry.get("contexte", "").strip()
     scenarios = entry.get("scenarios") or {}
-    # Préfixe 🔍 : marque une proposition automatique pas encore validée par
-    # l'utilisateur — docs/routine-prompt.md § Étape 0 l'ignore explicitement
-    # tant qu'il n'est pas retiré à la main. Sans ce marqueur, l'entrée était
-    # indiscernable d'un sujet déjà validé et pouvait être piochée par
-    # l'auto-sélection dès son tour suivant, sans jamais passer par la revue
-    # humaine que ce script est censé préparer (voir incident du 19 septembre
-    # 2026, docs/ARCHITECTURE.md).
-    title_line = f"- [ ] 🔍 {accroche}"
-    if tag:
-        title_line += f" [{tag}]"
-    comment_parts = [f"Ajouté automatiquement le {today.isoformat()} (recherche OpenRouter, "
-                      "voir scripts/edition/generate_hot_topics.py) — à valider avant de "
-                      "passer en priorité."]
+    parts = [f"Ajouté automatiquement le {today.isoformat()} (recherche OpenRouter, "
+             "voir scripts/edition/generate_hot_topics.py) — à valider avant de "
+             "passer en priorité."]
     if origin_label:
-        comment_parts.append(f"Repéré en veille sur le registre {origin_label}, "
-                              "remonté ici pour son urgence.")
+        parts.append(f"Repéré en veille sur le registre {origin_label}, "
+                     "remonté ici pour son urgence.")
     if contexte:
-        comment_parts.append(contexte)
+        parts.append(contexte)
     if scenarios:
-        comment_parts.append(
+        parts.append(
             "→ 3 scénarios (brouillon) : favorable = {favorable} ; stable = {stable} ; "
             "dégradé = {degrade}".format(
                 favorable=scenarios.get("favorable", "?"),
@@ -342,32 +339,31 @@ def format_entry(entry, today, origin_label=None):
                 degrade=scenarios.get("degrade", "?"),
             )
         )
-    comment = "  <!-- " + " ".join(comment_parts) + " -->\n"
-    return title_line + "\n" + comment
+    return " ".join(parts)
 
 
-def insert_entries(md_text, heading, entries, today):
+def insert_entries(data, heading, entries, today):
     """`entries` : liste de (entry, origin_label) — origin_label est None
     pour un ajout normal (registre = section cible), ou le libellé du
     registre d'origine quand l'entrée est remontée en Carte blanche/
     Priorité absolue.
 
-    Insère EN HAUT de la section (juste après l'en-tête et son
-    commentaire d'intro, avant le premier sujet déjà en file) — voir la
-    justification dans le docstring du module. Si la section est
-    entièrement vide (aucun sujet), retombe en fin de section, ce qui
-    revient au même point d'insertion."""
+    Ajoute EN HAUT de la section (avant le premier sujet déjà en file, après
+    son commentaire d'intro), dans l'ordre reçu — voir la justification dans le
+    docstring du module. Chaque ajout est « à valider » (🔍 dans la vue
+    Markdown) : docs/routine-prompt.md § Étape 0 l'ignore tant qu'un humain ne
+    l'a pas validé (incident du 19 septembre 2026, docs/ARCHITECTURE.md)."""
     if not entries:
-        return md_text
-    pattern = re.compile(r"^" + re.escape(heading) + r"\s*$(.*?)(?=^## |\Z)", re.M | re.S)
-    m = pattern.search(md_text)
-    if not m:
+        return
+    titre = heading[3:].strip()
+    sec = next((x for x in data["sections"] if x["titre"] == titre), None)
+    if sec is None:
         raise HotTopicsError(f"section introuvable pour insertion : {heading!r}")
-    section_body = m.group(1)
-    first_entry = re.search(r"^- \[[ x]\] ", section_body, re.M)
-    insertion_point = m.start(1) + first_entry.start() if first_entry else m.end(1)
-    block = "".join(format_entry(e, today, origin_label) for e, origin_label in entries)
-    return md_text[:insertion_point] + block + md_text[insertion_point:]
+    # On insère un à un en tête de section : dans l'ordre inverse pour garder l'ordre reçu.
+    for e, origin_label in reversed(entries):
+        sj.ajouter(data, sec["cle"], e["accroche"].strip(), tag=(e.get("tag") or "").strip() or None,
+                   note=build_note(e, today, origin_label), ajoute_le=today.isoformat(),
+                   validation="a_valider")
 
 
 def write_run_summary(records, today):
@@ -459,10 +455,16 @@ def main():
         return 1
 
     today = date.today()
-    md_text = SUJETS_PRIORITAIRES.read_text(encoding="utf-8")
-    existing = parse_existing_titles(md_text)
-    priorite_absolue_titles = titles_in_section(md_text, PRIORITE_ABSOLUE_HEADING)
-    carte_blanche_titles = titles_in_section(md_text, CARTE_BLANCHE_HEADING)
+    try:
+        data, sync_action = sj.load_synced()
+    except sj.SujetsError as e:
+        print(f"ERREUR : {e}", file=sys.stderr)
+        return 1
+    if sync_action != "ok":
+        print(f"[sujets] modification manuelle reprise ({sync_action})")
+    existing = parse_existing_titles(data)
+    priorite_absolue_titles = titles_in_section(data, PRIORITE_ABSOLUE_HEADING)
+    carte_blanche_titles = titles_in_section(data, CARTE_BLANCHE_HEADING)
     recent = recent_journal_titles(today)
 
     prompt = build_prompt(existing, priorite_absolue_titles, carte_blanche_titles, recent, today)
@@ -558,13 +560,13 @@ def main():
         return 0
 
     for target_heading, heading_entries in entries_by_heading.items():
-        md_text = insert_entries(md_text, target_heading, heading_entries, today)
+        insert_entries(data, target_heading, heading_entries, today)
 
-    SUJETS_PRIORITAIRES.write_text(md_text, encoding="utf-8")
+    sj.save_both(data)
     write_run_summary(added_records, today)
     history = update_hot_topics_history(added_records)
     update_dashboard_card(today, history)
-    print(f"\n{total} sujet(s) ajouté(s) à sujets-prioritaires.md{dup_suffix} "
+    print(f"\n{total} sujet(s) ajouté(s) à la file de sujets{dup_suffix} "
           f"(coût OpenRouter ≈ {usage.get('cost', '?')} $).")
     return 0
 

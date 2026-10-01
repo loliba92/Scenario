@@ -34,7 +34,7 @@ bienvenue.html          Redirection Buttondown "After confirming" (inscription v
 contact.html            Formulaire de contact (FormSubmit) + appel à la carte blanche du mardi.
 mentions-legales.html   Éditeur, hébergeur, propriété intellectuelle.
 politique-de-confidentialite.html  Données collectées (newsletter, contact, mesure d'audience), droits RGPD.
-sujets-prioritaires.md  File d'attente éditoriale (voir plus bas).
+sujets-prioritaires.md  Vue lisible de la file de sujets, générée depuis data/sujets.json (voir plus bas).
 assets/logo.svg          Logo (3 flèches divergentes = les 3 scénarios).
 assets/social/           Image de partage (Open Graph / Twitter Card), statique.
 assets/cards/            Images pour la publication Instagram (voir plus bas).
@@ -234,7 +234,7 @@ Ajouté depuis la routine quotidienne (voir `docs/routine-prompt.md`, étape
 technique 6) : chaque nouvelle édition doit inclure ce bloc dès sa publication,
 pas seulement le titre et les tags.
 
-## File éditoriale (`sujets-prioritaires.md`)
+## File éditoriale (`data/sujets.json` + vue `sujets-prioritaires.md`)
 
 Pilote le choix du sujet du jour. Avant l'auto-sélection, la routine lit ce
 fichier :
@@ -247,6 +247,47 @@ fichier :
 Chaque ligne peut porter une **problématique + 3 scénarios pré-cadrés** en
 commentaire HTML (`<!-- ... -->`), pour figer l'angle à l'avance sans que ça
 s'affiche sur le site.
+
+### Données structurées (depuis le 1er octobre 2026)
+
+La file est une **donnée structurée** : `data/sujets.json` est la source de vérité,
+`sujets-prioritaires.md` en est la **vue lisible, générée** par
+`scripts/edition/sujets.py` (même format qu'avant : le tableau de bord, le brief de
+secours et la routine l'ont lue sans changement). Chaque sujet a un **identifiant
+stable** (`id`), affiché dans la vue sous sa ligne (`<!-- id: … -->`) :
+
+| Champ | Rôle |
+| --- | --- |
+| `id` | identifiant stable, cité par le brief (`sujet.origine_id`) |
+| `texte`, `tag` | la problématique et son étiquette (plus mélangées dans une seule phrase) |
+| `statut` | `a_traiter` ou `publie` (la case `[ ]` / `[x]` de la vue) |
+| `validation` | `valide`, ou `a_valider` (le 🔍 de la vue : proposition automatique) |
+| `note` | contexte éditorial (les anciens commentaires HTML) |
+| `ajoute_le`, `publie_le`, `edition` | suivi : quand ajouté, quand et dans quelle édition publié |
+
+**Pourquoi.** Le lien entre une édition publiée et sa ligne était une phrase recopiée
+(`sujet.origine_prioritaire`) ; un caractère de différence (puce « - [ ] » ou tag final
+recopiés) et la case n'était jamais cochée — « pop culture » (26 septembre) et
+« Bitcoin » (1er octobre) sont restés « à traiter », donc revenus en tête de file au
+risque d'être republiés. Désormais l'édition cite l'`id` et le statut se met à jour
+**par identifiant** ; à défaut d'identifiant, le texte (origine, titre, h1) sert de repli.
+
+**Qui écrit.** Les scripts passent par `sujets.py` (cochage après publication dans
+`generate_post_edition.py`, veille dans `generate_hot_topics.py`). Un humain peut modifier
+**le JSON ou la vue Markdown** : l'empreinte `meta.md_sha256` dit lequel a changé depuis
+la dernière génération et la modification est reprise dans l'autre (au prochain passage
+d'un script, ou par le workflow `sujets.yml`). Les deux changés en même temps : conflit,
+signalé, jamais de perte silencieuse. Un identifiant « volé » (ligne insérée entre un sujet
+et son `id:`) est détecté ; une simple correction de texte garde son identifiant.
+
+**Contrôles.** `python scripts/edition/sujets.py check` (identifiants uniques, statuts
+valides, aucun sujet « à traiter » dont le titre est déjà celui d'une édition publiée,
+`origine_id` des briefs existant) tourne en CI (`.github/workflows/sujets.yml`) avec les
+tests (`scripts/edition/test_sujets.py`). `sujets.py stats` donne le suivi par registre.
+
+**Limite connue.** À la migration, seuls 10 des 63 sujets déjà publiés ont pu être reliés
+à leur édition (date de publication renseignée) : les autres ont été reformulés à la
+publication ou précèdent le champ `origine_prioritaire` ; leur `publie_le` reste `null`.
 
 **Règle d'or**, rappelée en tête du fichier : tout sujet doit être une
 problématique à **issue ouverte**, tranchable en 3 scénarios chiffrés — jamais

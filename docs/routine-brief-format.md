@@ -34,7 +34,8 @@ sur un fichier partagé entre deux process).
     "domain": "un des 6 slugs de docs/tags.md",
     "image_keywords": "string, 2-3 mots-clés thématiques EN, ou null",
     "complexite": "entier 1 à 5, voir § dédié plus bas",
-    "origine_prioritaire": "string ou null, voir § dédié plus bas"
+    "origine_prioritaire": "string ou null, voir § dédié plus bas",
+    "origine_id": "string ou null : l'identifiant du sujet de la file, voir § dédié plus bas"
   },
   "anti_doublon": {
     "veille_ok": true,
@@ -293,6 +294,29 @@ best-effort, jamais bloquant : si la ligne a été reformulée/supprimée à la
 main entre la rédaction du brief et la publication, l'absence de
 correspondance n'interrompt jamais `--publish`, juste un avertissement dans
 les logs.
+
+## Champ `sujet.origine_id` (identifiant du sujet de la file — le lien fiable)
+
+Ajouté le 1er octobre 2026. La file de sujets est maintenant une donnée structurée
+(`data/sujets.json`, source de vérité ; `sujets-prioritaires.md` en est la vue lisible,
+générée par `scripts/edition/sujets.py`). Chaque sujet y a un **identifiant stable**,
+affiché dans la vue juste sous la ligne du sujet :
+
+```
+- [ ] La Chine peut-elle créer la prochaine pop culture mondiale ? … [culture & géopolitique]
+  <!-- id: culture-la-chine-peut-elle-creer-la-prochaine-pop-culture -->
+```
+
+Pourquoi : le lien entre une édition publiée et sa ligne reposait sur une phrase recopiée ;
+un caractère de différence (puce « - [ ] », tag final recopiés) et le sujet n'était jamais
+marqué publié, revenait en tête de file et risquait d'être republié (« pop culture » le
+26 septembre, « Bitcoin » le 1er octobre).
+
+**Quand l'Étape 0 retient un sujet de la file**, recopier dans `origine_id` l'identifiant
+**exact** lu dans le commentaire `<!-- id: … -->` sous la ligne choisie (rien d'autre que
+l'identifiant : pas de `id:`, pas de balises). `null` si le sujet vient de l'auto-sélection
+normale. Le pipeline marque alors ce sujet « publié » par son identifiant. Garder aussi
+`origine_prioritaire` (texte de la ligne) : il sert de repli si l'identifiant manque.
 
 ## Règles de validité (vérifiées par `generate_daily_edition.py`)
 

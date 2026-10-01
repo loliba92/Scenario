@@ -1,0 +1,92 @@
+name: File de sujets — vérification et synchronisation
+
+# La file de sujets est une donnée structurée : data/sujets.json (source de
+# vérité) + sujets-prioritaires.md (vue lisible, générée). Voir
+# scripts/edition/sujets.py.
+#
+# 1. `verifier` : à chaque modification de ces fichiers (ou d'un brief), les
+#    tests et le contrôle de cohérence tournent — identifiants uniques, statuts
+#    valides, aucun sujet encore « à traiter » alors qu'une édition publiée
+#    porte déjà son titre (risque de republication), `origine_id` des briefs
+#    existant dans la file. Sans clé API ni réseau.
+# 2. `synchroniser` : sur main seulement, si quelqu'un a modifié À LA MAIN soit le
+#    JSON soit la vue Markdown, la modification est reprise dans l'autre fichier
+#    et committée. Les deux fichiers modifiés en même temps = conflit, signalé
+#    par l'étape de vérification (jamais de modification perdue en silence).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/sujets.json"
+      - "sujets-prioritaires.md"
+      - "scripts/edition/sujets.py"
+      - "scripts/edition/test_sujets.py"
+      - "editorial-briefs/**"
+  pull_request:
+    paths:
+      - "data/sujets.json"
+      - "sujets-prioritaires.md"
+      - "scripts/edition/sujets.py"
+      - "scripts/edition/test_sujets.py"
+      - "editorial-briefs/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer la dépendance des tests
+        run: pip install beautifulsoup4
+
+      - name: Tests de la file de sujets
+        run: python3 -m unittest discover -s scripts/edition -p "test_sujets.py" -v
+
+      - name: Cohérence du dépôt (identifiants, statuts, doublons de publication, briefs)
+        run: python3 scripts/edition/sujets.py check
+
+  synchroniser:
+    # Seulement sur main, après un push qui touche l'un des deux fichiers.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: verifier
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Reprendre une modification manuelle dans l'autre fichier
+        run: |
+          git config user.name "scenario-topics-bot"
+          git config user.email "actions@users.noreply.github.com"
+          for attempt in 1 2 3; do
+            echo "=== Essai $attempt/3 ==="
+            git fetch origin main
+            git reset --hard origin/main
+            python3 scripts/edition/sujets.py sync
+            git add data/sujets.json sujets-prioritaires.md
+            if git diff --cached --quiet; then
+              echo "Déjà synchronisés — rien à committer."
+              exit 0
+            fi
+            git commit -m "[sujets] synchronisation du JSON et de la vue Markdown"
+            if git push origin main; then
+              echo "Poussé avec succès (essai $attempt)."
+              exit 0
+            fi
+            echo "Push refusé (essai $attempt) — main a bougé entre-temps, on relance depuis un état frais."
+          done
+          echo "Échec après 3 essais — synchronisation non faite, la prochaine exécution du pipeline la reprendra." >&2
