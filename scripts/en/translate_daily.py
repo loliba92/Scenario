@@ -985,7 +985,7 @@ def build_home_hero_en():
     return """<section class="hero hero--home" id="contexte">
   <div class="wrap">
     <p class="eyebrow">Every day, one story, three scenarios</p>
-    <h1>Understanding the news means measuring its <span>consequences</span>.</h1>
+    <h1>Understanding the news means measuring its <span>consequences</span></h1>
     <p class="dek">Every day, Scénario takes one key story and lays out three possible outcomes, each with a numbered probability.</p>
     <ul class="hero-scenarios" aria-label="The three scenarios of each edition">
       <li class="is-favorable">Favorable</li>
