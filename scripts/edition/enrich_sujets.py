@@ -56,12 +56,33 @@ def ordre_de_passage(data: dict, cibles: list[tuple[dict, dict]]) -> list[tuple[
     return sorted(cibles, key=lambda c: (rang.get(c[1]["id"], 999), c[0]["cle"]))
 
 
+_MOIS_FR = ("janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre",
+            "octobre", "novembre", "décembre")
+
+
+def regle_de_date(today: date, recherche_web: bool) -> str:
+    """Bloc de consigne sur le temps (retour du propriétaire, 2 octobre 2026 : une problématique parlait
+    de « l'horizon de la Coupe du Monde 2026 » alors que la compétition était terminée)."""
+    jour = f"{today.day}{'er' if today.day == 1 else ''} {_MOIS_FR[today.month - 1]} {today.year}"
+    verifier = ("vérifie par ta recherche web" if recherche_web else
+                "tu ne peux pas vérifier : si la date d'un événement est antérieure à aujourd'hui, considère-le comme passé")
+    return f"""DATE ET TEMPS — NOUS SOMMES LE {jour.upper()}. Tout ce qui est daté avant aujourd'hui est PASSÉ, tout ce qui
+est daté après est À VENIR. Le dossier a été écrit plus tôt : il peut présenter comme futur un événement qui a
+maintenant eu lieu (compétition, élection, sommet, saison, loi, échéance). Pour chaque événement ou date cité :
+{verifier} s'il a déjà eu lieu. S'il a eu lieu, parle-en AU PASSÉ (avec son résultat si tu le connais ; sinon
+n'affirme rien sur son issue) : jamais « d'ici », « à l'approche de », « à l'horizon de », « avant », « prochain »,
+« va se tenir » pour un événement passé. Ne pose JAMAIS une question dont l'horizon est déjà dépassé : choisis un
+horizon réellement postérieur au {jour} (le prochain rendez-vous réel, ou une durée à partir d'aujourd'hui)."""
+
+
 def construire_prompt(sec: dict, e: dict, today: date) -> str:
     manque = sj.manquants(e)
     connu = sj.dossier_texte(sec, e)
     return f"""Tu complètes le dossier d'un sujet du backlog du site d'actualité Scénario
 (lesscenarios.fr : chaque édition détaille UNE question à issue ouverte en 3 scénarios
 chiffrés — favorable / stable / dégradé). Date d'aujourd'hui : {today.isoformat()}.
+
+{regle_de_date(today, True)}
 
 Le dossier ci-dessous a été écrit il y a plusieurs jours ou semaines et il est INCOMPLET.
 Champs à produire (seulement ceux qui manquent, plus 'depasse') : {", ".join(manque) if manque else "aucun"}.
@@ -88,10 +109,13 @@ titre) pour vérifier l'état actuel de l'actualité, puis renvoie un JSON uniqu
 - "mots_cles" (si absents ; 4 à 8) : requêtes et mots précis pour retrouver les bons articles
   de presse — noms propres, lieux, chiffres clés, termes techniques ; français et, si utile, anglais.
 - "question" (seulement si le titre n'est pas déjà une question à issue ouverte précise).
-- "a_verifier" (optionnel) : ce qu'il reste à vérifier ou chiffrer avant rédaction.
+- "a_verifier" (optionnel) : ce qu'il reste à vérifier ou chiffrer avant rédaction. Si le dossier actuel
+  contient une erreur de temps (événement présenté comme futur alors qu'il est passé), signale-la ici
+  en commençant par « ⚠ Temps : ».
 - "sources" (2 à 4) : [{{"titre":"...","url":"..."}}] avec l'URL EXACTE d'un résultat de ta
   recherche — jamais une URL reconstituée ou inventée.
-- "echeance" (optionnel) : {{"date":"AAAA-MM-JJ","raison":"..."}} seulement pour une vraie date butoir.
+- "echeance" (optionnel) : {{"date":"AAAA-MM-JJ","raison":"..."}} seulement pour une vraie date butoir
+  POSTÉRIEURE à aujourd'hui.
 
 Règles absolues : n'invente AUCUN fait, chiffre, date ni citation ; chaque affirmation doit venir
 du dossier ci-dessus ou d'un résultat de ta recherche. Si tu ne peux pas confirmer un point,
@@ -118,13 +142,16 @@ def problematique_valide(texte: str) -> bool:
             and not QUALIFICATIFS_INTERDITS.search(t) and "**" not in t)
 
 
-def construire_prompt_reformulation(sec: dict, e: dict) -> str:
+def construire_prompt_reformulation(sec: dict, e: dict, today: date | None = None) -> str:
     connu = sj.dossier_texte(sec, e)
+    regle = regle_de_date(today or date.today(), False)
     return f"""Tu réécris UNE rubrique du dossier d'un sujet du site d'actualité Scénario (lesscenarios.fr :
 chaque édition détaille UNE question à issue ouverte en 3 scénarios chiffrés — favorable / stable /
 dégradé). La rubrique « Problématique » (champ `rationnel`) actuelle explique surtout pourquoi le sujet serait « brûlant » : ce
 n'est pas ce que le propriétaire veut lire. Il veut lire LA PROBLÉMATIQUE, c'est-à-dire la question que
 l'édition cherche à trancher.
+
+{regle}
 
 === DOSSIER ACTUEL ===
 {connu}
@@ -216,10 +243,10 @@ def _appeler_avec_reprises(prompt: str, model: str, api_key: str, **kwargs):
             print(f"  … {nom} écarté ({str(err)[:90]})", file=sys.stderr)
 
 
-def proposer_problematique(sec: dict, e: dict, model: str, api_key: str):
+def proposer_problematique(sec: dict, e: dict, model: str, api_key: str, today: date | None = None):
     """Demande au modèle une problématique pour ce sujet, sans rien modifier. Renvoie
     (texte conforme ou None, texte brut renvoyé, coût)."""
-    resultat, usage = _appeler_avec_reprises(construire_prompt_reformulation(sec, e), model, api_key,
+    resultat, usage = _appeler_avec_reprises(construire_prompt_reformulation(sec, e, today), model, api_key,
                                              temperature=0.3, max_tokens=6000, timeout=180)
     brut = (resultat or {}).get("rationnel") if isinstance(resultat, dict) else None
     brut = brut if isinstance(brut, str) else None
@@ -230,7 +257,7 @@ def proposer_problematique(sec: dict, e: dict, model: str, api_key: str):
 def reformuler_un(sec: dict, e: dict, model: str, api_key: str, today: date):
     """Réécrit la problématique d'un sujet à partir de son dossier (sans recherche web). Renvoie
     (réécrit : bool, coût). Le sujet n'est modifié que si le nouveau texte respecte le format."""
-    texte, _, cout = proposer_problematique(sec, e, model, api_key)
+    texte, _, cout = proposer_problematique(sec, e, model, api_key, today)
     if texte:
         e["rationnel"] = texte
         e["enrichi_le"] = today.isoformat()
@@ -251,6 +278,9 @@ def appliquer_resultat(e: dict, resultat: dict, cited_urls, today: date) -> list
     if not isinstance(resultat, dict):
         return []
     champs = dossier_depuis_reponse(resultat, cited_urls)
+    ech = champs.get("echeance")
+    if isinstance(ech, dict) and str(ech.get("date") or "") < today.isoformat():
+        champs.pop("echeance")  # une échéance déjà passée n'en est plus une
     faits = sj.enrichir(e, champs, today.isoformat())
     if resultat.get("depasse") is True:
         raison = str(resultat.get("raison") or "l'actualité semble avoir tranché").strip()
@@ -271,6 +301,9 @@ def main(argv=None) -> int:
     ap.add_argument("--reformuler", action="store_true",
                     help="réécrit la problématique (champ `rationnel`, affiché « Problématique ») des dossiers rédigés à l'ancienne ; "
                          "sans recherche web, à partir du dossier seul")
+    ap.add_argument("--forcer", action="store_true",
+                    help="avec --reformuler : réécrit aussi les problématiques déjà au bon format (tous les sujets à traiter), "
+                         "par exemple pour corriger des repères de temps périmés")
     ap.add_argument("--apercu", action="store_true",
                     help="avec --reformuler : affiche la problématique proposée par le modèle pour chaque sujet, "
                          "sans rien écrire (pour comparer des modèles)")
@@ -283,7 +316,8 @@ def main(argv=None) -> int:
         print(f"ERREUR : {e}", file=sys.stderr)
         return 1
     if args.reformuler:
-        cibles = [(sec, e) for sec, e in sj.sujets(data) if e["statut"] == "a_traiter" and rationnel_a_reformuler(e)]
+        cibles = [(sec, e) for sec, e in sj.sujets(data) if e["statut"] == "a_traiter"
+                  and ((e.get("rationnel") or "").strip() if args.forcer else rationnel_a_reformuler(e))]
     else:
         cibles = sj.incomplets(data)
     if args.registre:
@@ -309,7 +343,7 @@ def main(argv=None) -> int:
         print(f"Aperçu sans écriture — modèle : {args.model}")
         for sec, e in lot:
             try:
-                texte, brut, c = proposer_problematique(sec, e, args.model, api_key)
+                texte, brut, c = proposer_problematique(sec, e, args.model, api_key, today)
             except GenerationError as err:
                 echecs += 1
                 print(f"\n✗ {e['id'][:60]} : {err}", file=sys.stderr)

@@ -30,6 +30,11 @@ on:
         type: boolean
         required: false
         default: false
+      forcer:
+        description: "Avec « reformuler » : réécrit aussi les problématiques déjà au bon format (pour corriger des repères de temps périmés)"
+        type: boolean
+        required: false
+        default: false
       model:
         description: "Modèle OpenRouter (ex. nvidia/nemotron-3-ultra-550b-a55b:free), plusieurs séparés par des virgules (ils se relaient), ou « gratuits » (6 modèles gratuits) — vide = « gratuits » (défaut du script)"
         required: false
@@ -65,6 +70,7 @@ jobs:
           REFORMULER: ${{ github.event.inputs.reformuler }}
           APERCU: ${{ github.event.inputs.apercu }}
           MODEL: ${{ github.event.inputs.model }}
+          FORCER: ${{ github.event.inputs.forcer }}
         run: |
           git config user.name "scenario-topics-bot"
           git config user.email "actions@users.noreply.github.com"
@@ -72,6 +78,7 @@ jobs:
           if [ -n "$REGISTRE" ]; then ARGS="$ARGS --registre $REGISTRE"; fi
           if [ "$REFORMULER" = "true" ]; then ARGS="$ARGS --reformuler"; fi
           if [ "$APERCU" = "true" ]; then ARGS="$ARGS --apercu"; fi
+          if [ "$FORCER" = "true" ]; then ARGS="$ARGS --forcer"; fi
           if [ -n "$MODEL" ]; then
             case "$MODEL" in
               *[!A-Za-z0-9._:/,-]*) echo "Nom de modèle invalide : $MODEL" >&2; exit 1 ;;
