@@ -74,7 +74,10 @@ from generate_daily_edition import GenerationError, call_openrouter  # noqa: E40
 # 18 septembre 2026 : repérage de sujets chauds = tri/priorisation,
 # pas de rédaction fine — finance le passage d'Opus sur la recherche
 # quotidienne (voir generate_fallback_brief.py).
-HOT_TOPICS_MODEL = "deepseek/deepseek-v4-flash"
+# « gratuits » : plusieurs modèles gratuits OpenRouter en relais (le même mécanisme que l'enrichissement,
+# voir enrich_sujets.py : MODELES_GRATUITS) — demandé le 2 octobre 2026. Un nom de modèle précis
+# (ou plusieurs séparés par des virgules) reste possible avec --model.
+HOT_TOPICS_MODEL = "gratuits"
 
 ROOT = Path(__file__).resolve().parents[2]
 SUJETS_PRIORITAIRES = ROOT / "sujets-prioritaires.md"
@@ -568,7 +571,8 @@ def main():
     prompt = build_prompt(existing, priorite_absolue_titles, carte_blanche_titles, recent, today)
     tools = [{"type": "openrouter:web_search", "parameters": {"engine": "auto", "max_results": 8}}]
     try:
-        content, usage = call_openrouter(
+        import enrich_sujets as en  # import tardif : enrich_sujets importe ce module
+        content, usage = en._appeler_avec_reprises(
             prompt, args.model, api_key, temperature=0.4, max_tokens=12000, timeout=240, tools=tools,
         )
     except GenerationError as e:
