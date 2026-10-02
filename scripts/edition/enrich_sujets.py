@@ -155,10 +155,17 @@ MODELES_GRATUITS = (
     "qwen/qwen3.8-27b:free",
     "google/gemma-4-26b-a4b-it:free",
 )
-# Attente entre deux tours complets de la liste (tous les modèles ont échoué).
-ATTENTES_NOUVEL_ESSAI = (20, 45, 90)
-# Modèle en cours : on le garde tant qu'il répond, on passe au suivant dès qu'il échoue.
+# Chaque panne est traitée selon sa cause (journal du 2 octobre 2026) :
+#  - 429 (limite de débit) : le modèle est mis de côté 60 s puis réessayé ;
+#  - 400/401/403/404 (requête ou accès refusé) : ne changera pas, modèle écarté pour tout le run ;
+#  - 503 (surchargé), réponse vide, autre : mis de côté 30 s.
+# Le modèle en cours est gardé tant qu'il répond ; s'il est écarté, on prend le suivant. Si tous
+# sont écartés, on attend le premier qui redevient disponible (3 attentes au plus par appel).
+PAUSE_LIMITE_DEBIT = 60
+PAUSE_PANNE = 30
+MAX_ATTENTES = 3
 _courant = [0]
+_indisponible: dict[str, float] = {}
 
 
 def liste_modeles(model: str) -> list[str]:
@@ -170,27 +177,47 @@ def liste_modeles(model: str) -> list[str]:
     return noms or [HOT_TOPICS_MODEL]
 
 
+def _jusqu_a(err: Exception) -> float:
+    texte = str(err)
+    if "HTTP 429" in texte:
+        return time.time() + PAUSE_LIMITE_DEBIT
+    if re.search(r"HTTP (400|401|403|404)\b", texte):
+        return float("inf")
+    return time.time() + PAUSE_PANNE
+
+
 def _appeler_avec_reprises(prompt: str, model: str, api_key: str, **kwargs):
     modeles = liste_modeles(model)
-    for attente in (*ATTENTES_NOUVEL_ESSAI, None):
-        for _ in range(len(modeles)):
-            i = _courant[0] % len(modeles)
-            try:
-                return call_openrouter(prompt, modeles[i], api_key, **kwargs)
-            except GenerationError as err:
-                print(f"  … {modeles[i]} indisponible ({str(err)[:70]}), passage au suivant", file=sys.stderr)
-                _courant[0] = i + 1
-        if attente is None:
-            raise GenerationError(f"aucun des {len(modeles)} modèle(s) n'a répondu")
-        print(f"  … nouvel essai dans {attente} s", file=sys.stderr)
-        time.sleep(attente)
+    attentes = 0
+    while True:
+        maintenant = time.time()
+        ordre = [modeles[(_courant[0] + k) % len(modeles)] for k in range(len(modeles))]
+        dispo = [m for m in ordre if _indisponible.get(m, 0) <= maintenant]
+        if not dispo:
+            reprises = [t for t in (_indisponible.get(m, 0) for m in modeles) if t != float("inf")]
+            if not reprises or attentes >= MAX_ATTENTES:
+                raise GenerationError(f"aucun des {len(modeles)} modèle(s) n'est disponible")
+            attente = max(1, min(min(reprises) - maintenant, 120))
+            print(f"  … tous les modèles sont en pause, attente de {attente:.0f} s", file=sys.stderr)
+            time.sleep(attente)
+            attentes += 1
+            continue
+        nom = dispo[0]
+        try:
+            resultat = call_openrouter(prompt, nom, api_key, **kwargs)
+            _courant[0] = modeles.index(nom)
+            return resultat
+        except GenerationError as err:
+            _indisponible[nom] = _jusqu_a(err)
+            _courant[0] = modeles.index(nom) + 1
+            print(f"  … {nom} écarté ({str(err)[:90]})", file=sys.stderr)
 
 
 def proposer_problematique(sec: dict, e: dict, model: str, api_key: str):
     """Demande au modèle une problématique pour ce sujet, sans rien modifier. Renvoie
     (texte conforme ou None, texte brut renvoyé, coût)."""
     resultat, usage = _appeler_avec_reprises(construire_prompt_reformulation(sec, e), model, api_key,
-                                             temperature=0.3, max_tokens=1500, timeout=120)
+                                             temperature=0.3, max_tokens=6000, timeout=180)
     brut = (resultat or {}).get("rationnel") if isinstance(resultat, dict) else None
     brut = brut if isinstance(brut, str) else None
     return (brut.strip() if brut and problematique_valide(brut) else None), brut, usage.get("cost")
