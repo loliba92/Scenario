@@ -37,6 +37,13 @@ MOIS_FR = [
     "janvier", "février", "mars", "avril", "mai", "juin",
     "juillet", "août", "septembre", "octobre", "novembre", "décembre",
 ]
+# Abréviations françaises usuelles (même table que assets/site-search.js).
+# Ne pas dériver de MOIS_FR[:4] : « octobre » donnait « octo. », « avril »
+# « avri. », « mars » « mars. » (point abusif sur un mois non abrégé).
+MOIS_FR_ABBR = [
+    "janv.", "févr.", "mars", "avr.", "mai", "juin",
+    "juil.", "août", "sept.", "oct.", "nov.", "déc.",
+]
 JOURS_FR = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
 MOIS_EN_ABBR = [
     "Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -739,11 +746,7 @@ def build_related_articles(brief, repo_root=None):
             date_parts = article_date.split("-")
             day = int(date_parts[2])
             month = int(date_parts[1])
-            month_name = MOIS_FR[month - 1][:4]  # "sept.", "juil.", etc.
-            if month_name.endswith("e"):
-                formatted_date = f"{day} {month_name.rstrip('e')}."
-            else:
-                formatted_date = f"{day} {month_name}."
+            formatted_date = f"{day} {MOIS_FR_ABBR[month - 1]}"
         except Exception:
             formatted_date = article_date
 
@@ -791,10 +794,23 @@ def extract_og_title(text, fallback=None):
     attributs alphabétiquement (content avant property) — la balise
     entière est matchée d'abord, content en extrait ensuite, peu importe
     l'ordre. Retire le suffixe " — Scénario" s'il est présent. Retourne
-    `fallback` si la balise est introuvable."""
+    `fallback` si la balise est introuvable.
+
+    og:title est plafonné à 60 caractères pour le SEO (« … » en fin de
+    coupe) : s'il est tronqué, on prend le <h1> de la page, qui porte le
+    titre complet (bug du 2 octobre 2026 sur les cartes de en/index.html)."""
     tag_m = re.search(r'<meta[^>]*\bproperty="og:title"[^>]*/?>', text)
     content_m = re.search(r'\bcontent="([^"]*)"', tag_m.group(0)) if tag_m else None
-    return content_m.group(1).rsplit(" — Scénario", 1)[0] if content_m else fallback
+    if not content_m:
+        return fallback
+    title = content_m.group(1).rsplit(" — Scénario", 1)[0]
+    if title.endswith("…"):
+        h1 = re.search(r"<h1[^>]*>(.*?)</h1>", text, re.DOTALL)
+        if h1:
+            full = re.sub(r"<[^>]+>", "", h1.group(1)).strip()
+            if full:
+                return full
+    return title
 
 
 def extract_article_domain(text):
@@ -930,10 +946,7 @@ def _format_date_short(date_str, lang="fr"):
     d = date.fromisoformat(date_str)
     if lang == "en":
         return f"{MOIS_EN_ABBR[d.month - 1]} {d.day}"
-    month_name = MOIS_FR[d.month - 1][:4]
-    if month_name.endswith("e"):
-        return f"{d.day} {month_name.rstrip('e')}."
-    return f"{d.day} {month_name}."
+    return f"{d.day} {MOIS_FR_ABBR[d.month - 1]}"
 
 
 def build_home_cards(articles, lang="fr", section_id="dernieres-editions",
