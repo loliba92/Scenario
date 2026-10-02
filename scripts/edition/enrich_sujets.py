@@ -143,17 +143,25 @@ n'utilise que ce qui figure dans le dossier ci-dessus. Pas de Markdown, pas de �
 Réponds UNIQUEMENT avec un JSON : {{"rationnel": "..."}}"""
 
 
+def proposer_problematique(sec: dict, e: dict, model: str, api_key: str):
+    """Demande au modèle une problématique pour ce sujet, sans rien modifier. Renvoie
+    (texte conforme ou None, texte brut renvoyé, coût)."""
+    resultat, usage = call_openrouter(construire_prompt_reformulation(sec, e), model, api_key,
+                                      temperature=0.3, max_tokens=1500, timeout=120)
+    brut = (resultat or {}).get("rationnel") if isinstance(resultat, dict) else None
+    brut = brut if isinstance(brut, str) else None
+    return (brut.strip() if brut and problematique_valide(brut) else None), brut, usage.get("cost")
+
+
 def reformuler_un(sec: dict, e: dict, model: str, api_key: str, today: date):
     """Réécrit la problématique d'un sujet à partir de son dossier (sans recherche web). Renvoie
     (réécrit : bool, coût). Le sujet n'est modifié que si le nouveau texte respecte le format."""
-    resultat, usage = call_openrouter(construire_prompt_reformulation(sec, e), model, api_key,
-                                      temperature=0.3, max_tokens=1500, timeout=120)
-    nouveau = (resultat or {}).get("rationnel") if isinstance(resultat, dict) else None
-    if isinstance(nouveau, str) and problematique_valide(nouveau):
-        e["rationnel"] = nouveau.strip()
+    texte, _, cout = proposer_problematique(sec, e, model, api_key)
+    if texte:
+        e["rationnel"] = texte
         e["enrichi_le"] = today.isoformat()
-        return True, usage.get("cost")
-    return False, usage.get("cost")
+        return True, cout
+    return False, cout
 
 
 def enrichir_un(sec: dict, e: dict, model: str, api_key: str, today: date):
@@ -188,6 +196,9 @@ def main(argv=None) -> int:
     ap.add_argument("--reformuler", action="store_true",
                     help="réécrit la problématique (champ `rationnel`, affiché « Problématique ») des dossiers rédigés à l'ancienne ; "
                          "sans recherche web, à partir du dossier seul")
+    ap.add_argument("--apercu", action="store_true",
+                    help="avec --reformuler : affiche la problématique proposée par le modèle pour chaque sujet, "
+                         "sans rien écrire (pour comparer des modèles)")
     ap.add_argument("--dry-run", action="store_true", help="liste les sujets ciblés, sans appel ni écriture")
     args = ap.parse_args(argv)
 
@@ -219,6 +230,21 @@ def main(argv=None) -> int:
 
     today = date.today()
     traites, echecs, cout = 0, 0, 0.0
+    if args.reformuler and args.apercu:
+        print(f"Aperçu sans écriture — modèle : {args.model}")
+        for sec, e in lot:
+            try:
+                texte, brut, c = proposer_problematique(sec, e, args.model, api_key)
+            except GenerationError as err:
+                echecs += 1
+                print(f"\n✗ {e['id'][:60]} : {err}", file=sys.stderr)
+                continue
+            cout += float(c or 0)
+            traites += 1 if texte else 0
+            print(f"\n=== {e['id']}\nTITRE : {e['titre']}\nANCIENNE : {e.get('rationnel')}\n"
+                  f"NOUVELLE ({'conforme' if texte else 'NON conforme au format'}) : {brut}")
+        print(f"\n{traites}/{len(lot)} texte(s) conforme(s) au format (coût OpenRouter ≈ {cout:.3f} $). Rien n'a été écrit.")
+        return 0
     if args.reformuler:
         for sec, e in lot:
             try:
