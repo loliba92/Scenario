@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "296e917cc42785a6241624e9c1379b2050fb1fde68a6f0df5cfd47438396af86"
+    "md_sha256": "ccc5e1ccb08e259d2cecc009c1f626bc9c37b1bbedfe3c4cb4112f1ebd93e93e"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -665,7 +665,7 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Le brouillage et le leurrage des signaux satellites perturbent déjà l'aviation civile en mer Baltique depuis 2023-2024 — un phénomène documenté, pas hypothétique. Nos infrastructures critiques (finance, énergie, transport, télécoms) dépendent d'une synchronisation ultra-précise par satellite : jusqu'où l'escalade du brouillage peut-elle aller avant de vraiment les perturber ?",
-          "rationnel": "Ce sujet est brûlant car l'escalade du brouillage russe en Baltique est documentée, chiffrée et reconnue par les instances internationales (OACI, UIT) — ce n'est plus une menace hypothétique. L'issue reste ouverte car deux forces contraires s'affrontent : d'un côté, la Russie intensifie ses attaques électroniques (brouillage combiné jamming+spoofing, portée étendue à 450 km depuis Kaliningrad) ; de l'autre, l'Europe déploie des contre-mesures (Galileo OSNMA, R-Mode Baltic, plan de résilience GNSS) dont l'efficacité réelle n'est pas encore prouvée à grande échelle. Pour un lecteur français, l'enjeu est concret : nos réseaux électriques, télécoms, transports et transactions financières dépendent de la synchronisation GNSS, et l'ANFR alerte déjà sur les vulnérabilités identifiées dans les infrastructures critiques françaises.",
+          "rationnel": "La question : jusqu'où l'escalade du brouillage et du leurrage des signaux satellites peut-elle perturber les infrastructures critiques (finance, énergie, transport, télécoms) qui dépendent de la synchronisation GNSS, alors que la Russie intensifie ses attaques électroniques en mer Baltique depuis 2023-2024 ? L'issue est ouverte car, d'un côté, la Russie étend la portée de son brouillage combiné jamming+spoofing à 450 km depuis Kaliningrad, et de l'autre, l'Europe déploie des contre-mesures (Galileo OSNMA, R-Mode Baltic, plan de résilience GNSS) dont l'efficacité réelle à grande échelle n'est pas encore prouvée. Pour un lecteur français, l'enjeu est concret : l'ANFR alerte déjà sur les vulnérabilités identifiées dans nos réseaux électriques, télécoms, transports et transactions financières, qui dépendent de cette synchronisation.",
           "angle": null,
           "a_verifier": "Incidents de brouillage/leurrage documentés en mer Baltique et ailleurs depuis 2023 (sources aviation civile, rapports Finlande/Estonie/Pologne), dépendance réelle des réseaux électriques et marchés financiers à la synchronisation GPS, contre-mesures en développement (systèmes de secours, redondance Galileo)",
           "mots_cles": [
@@ -703,7 +703,7 @@
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": "2026-10-01"
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -714,7 +714,7 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Le numérique, les cryptomonnaies, les diasporas et les entreprises mondiales semblent affaiblir le contrôle des États sur leur territoire — mais la tendance réelle de ces dernières années va souvent dans l'autre sens : localisation obligatoire des données, contrôles migratoires renforcés, découplage technologique USA-Chine. Laquelle des deux tendances l'emporte réellement ?",
-          "rationnel": "Ce sujet est crucial maintenant car 2026 est une année charnière : le Pacte Asile et Migration de l'UE est entré en vigueur en juin, les contrôles à l'exportation USA-Chine se durcissent tout en étant recalibrés sous Trump, et la démographie européenne bascule (solde naturel négatif en France pour la première fois depuis 1945). L'issue reste ouverte car les forces contraires sont réelles : si les frontières physiques et technologiques se durcissent, des petits États (EAU, Singapour, Estonie) gagnent une influence disproportionnée via l'IA, la finance et le numérique, tandis que la neutralité (Suisse, Inde) devient une stratégie viable dans un monde multipolaire. Pour un lecteur français, l'enjeu est direct : le renforcement des frontières européennes redéfinit l'immigration et la souveraineté numérique, tandis que le déclin démographique français (solde naturel négatif) interroge le poids futur de la France en Europe et dans le monde.",
+          "rationnel": "La question : à l'heure où le numérique, les cryptomonnaies et les diasporas semblaient devoir effacer les frontières, les États sont-ils en train de les rétablir, et laquelle des deux tendances — durcissement ou effacement — l'emporte réellement à l'horizon 2026 ? L'issue reste ouverte car des forces contraires s'affrontent : d'un côté, le Pacte Asile et Migration de l'UE entré en vigueur en juin, les contrôles à l'exportation USA-Chine et la localisation obligatoire des données durcissent les frontières physiques et technologiques ; de l'autre, des petits États comme les Émirats, Singapour ou l'Estonie gagnent une influence disproportionnée via l'IA, la finance et le numérique, tandis que la neutralité (Suisse, Inde) devient une stratégie viable dans un monde multipolaire. Pour un lecteur français, l'enjeu est direct : le renforcement des frontières européennes redéfinit l'immigration et la souveraineté numérique, tandis que le déclin démographique français (solde naturel négatif pour la première fois depuis 1945) interroge le poids futur de la France en Europe et dans le monde.",
           "angle": null,
           "a_verifier": "Lois de localisation des données récentes (UE, Chine, Inde), contrôles à l'exportation technologique USA-Chine, données sur les flux migratoires et les politiques de fermeture, cas concrets de petits pays à forte influence (Émirats, Singapour, Estonie...)",
           "mots_cles": [
@@ -752,7 +752,7 @@
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": "2026-10-01"
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -763,7 +763,7 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Cyberattaques, sanctions, désinformation, sabotage d'infrastructures, drones : la guerre du futur cherche-t-elle encore à prendre des terres, ou la coercition sans conquête devient-elle la norme plutôt que l'exception ?",
-          "rationnel": "Ce sujet est crucial maintenant car la guerre hybride est devenue la modalité principale de confrontation entre grandes puissances : la Russie l'utilise contre l'Europe depuis 2022 avec une intensité croissante, et la Chine l'applique à Taïwan comme alternative à l'invasion. L'issue est réellement ouverte car aucun État n'a encore prouvé qu'on peut atteindre un objectif stratégique majeur uniquement par la coercition cyber/économique sans franchissement de frontière — Stuxnet a retardé le programme nucléaire iranien sans l'arrêter, et les campagnes russes en Europe restent sous le seuil déclenchant l'article 5 de l'OTAN. Pour un lecteur français, l'enjeu est direct : la France est explicitement ciblée par les opérations hybrides russes (cyberattaques du FSB/Turla, espionnage, sabotage potentiel), et la question de savoir si ces méthodes peuvent contraindre un État sans guerre conventionnelle redéfinit la nature même de la conflictualité.",
+          "rationnel": "La question : un État peut-il atteindre un objectif stratégique majeur uniquement par la coercition cyber/économique, sans franchissement de frontière, dans un délai donné ? L'issue est ouverte car aucun État n'a encore prouvé cette capacité — Stuxnet a retardé le programme nucléaire iranien sans l'arrêter, et les campagnes russes en Europe restent sous le seuil déclenchant l'article 5 de l'OTAN, tandis que la Chine applique la guerre hybride à Taïwan comme alternative à l'invasion. Pour un lecteur français, l'enjeu est direct : la France est explicitement ciblée par les opérations hybrides russes (cyberattaques du FSB/Turla, espionnage, sabotage potentiel), et la réponse à cette question redéfinit la nature même de la conflictualité.",
           "angle": null,
           "a_verifier": "Cas documentés de coercition hybride réussie ou ratée (Stuxnet, rançongiciels attribués à des États, sabotages d'infrastructures), doctrine militaire officielle de plusieurs puissances sur le sujet",
           "mots_cles": [
@@ -801,7 +801,7 @@
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": "2026-10-01"
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -812,7 +812,7 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Un État ne dépend plus seulement d'un territoire terrestre mais d'un territoire orbital — satellites de communication, de navigation, d'observation. Starlink est déjà devenu une infrastructure quasi militaire en Ukraine, contrôlée par une entreprise privée plutôt qu'un État.",
-          "rationnel": "Ce sujet est brûlant car trois dynamiques convergent en 2026 : la militarisation de facto de l'orbite basse (Starlink comme infrastructure de guerre, essais ASAT, satellites patrouilleurs français annoncés pour 2027), l'absence de cadre juridique adapté (le traité de 1967 ne couvre ni les armes ASAT ni les méga-constellations privées), et l'accélération du risque de syndrome de Kessler (l'indicateur Crash Clock est passé de 164 jours en 2018 à 5 jours en 2025). L'issue est ouverte car les intérêts des grandes puissances divergent radicalement : États-Unis et Chine s'opposent sur la régulation, la Russie bloque toute résolution contraignante à l'ONU, tandis que des acteurs privés (SpaceX) exercent un pouvoir quasi étatique sans cadre de responsabilité. Pour un lecteur français, l'enjeu est double : la souveraineté numérique européenne (dépendance à Starlink, alternative IRIS²) et la vulnérabilité des services quotidiens (GPS, télécoms, banques) face à une possible collision en cascade dans les 5 ans.",
+          "rationnel": "La question : la prochaine frontière géopolitique est-elle orbitale, c'est-à-dire la souveraineté et la sécurité d'un État dépendront-elles désormais de son contrôle de l'orbite basse, face à la militarisation de facto (Starlink comme infrastructure de guerre, essais ASAT, satellites patrouilleurs français annoncés pour 2027) et à l'absence de cadre juridique adapté (traité de 1967 obsolète) ? L'issue est ouverte car les intérêts divergent radicalement : États-Unis et Chine s'opposent sur la régulation, la Russie bloque toute résolution contraignante à l'ONU, tandis que des acteurs privés (SpaceX) exercent un pouvoir quasi étatique sans cadre de responsabilité, ce qui peut faire pencher vers un scénario favorable (coopération in extremis), stable (statu quo conflictuel) ou dégradé (collision en cascade dans les 5 ans). Pour un lecteur français, l'enjeu concret est double : la souveraineté numérique européenne (dépendance à Starlink, alternative IRIS²) et la vulnérabilité des services quotidiens (GPS, télécoms, banques) face à un possible syndrome de Kessler.",
           "angle": null,
           "a_verifier": "Nombre de satellites actifs et leur répartition par pays/entreprise, essais antisatellites documentés et leurs conséquences en débris, état des négociations internationales sur la militarisation de l'espace",
           "mots_cles": [
@@ -850,7 +850,7 @@
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": "2026-10-01"
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -861,7 +861,7 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "La transition énergétique devait réduire la dépendance géopolitique aux ressources fossiles — elle en crée peut-être de nouvelles autour du lithium, du cobalt et des terres rares, dont la Chine domine le raffinage. Mais contrairement au pétrole, brûlé et perdu pour de bon, ces métaux peuvent en théorie être recyclés presque indéfiniment : la dépendance est-elle structurelle, ou seulement temporaire le temps que l'industrie du recyclage rattrape son retard ?",
-          "rationnel": "Ce sujet est brûlant car la trêve commerciale sino-américaine sur les terres rares expire en janvier 2027, et la question de la dépendance structurelle reste ouverte : d'un côté, le quasi-monopole chinois du raffinage (90 %) et les restrictions d'exportation montrent une vulnérabilité immédiate ; de l'autre, la différence fondamentale avec le pétrole — les terres rares sont recyclables presque indéfiniment — ouvre une perspective de désamorçage à moyen terme, mais le taux de recyclage actuel (< 1 %) et les délais de montée en charge des filières (2030 au mieux) laissent planer une incertitude radicale. Pour un lecteur français, l'enjeu est concret : l'usine de Lacq, les objectifs du plan national de résilience et la dépendance de l'industrie automobile et éolienne européenne à des aimants chinois déterminent la souveraineté industrielle du pays.",
+          "rationnel": "La question : la dépendance aux terres rares est-elle structurelle, ou seulement temporaire le temps que l'industrie du recyclage rattrape son retard, alors que la trêve commerciale sino-américaine expire en janvier 2027 ? L'issue est ouverte car, d'un côté, le quasi-monopole chinois du raffinage (90 %) et les restrictions d'exportation montrent une vulnérabilité immédiate ; de l'autre, la recyclabilité presque indéfinie des terres rares ouvre une perspective de désamorçage à moyen terme, mais le taux de recyclage actuel (< 1 %) et les délais de montée en charge des filières (2030 au mieux) laissent planer une incertitude radicale. Pour un lecteur français, l'enjeu est concret : l'usine de Lacq, les objectifs du plan national de résilience et la dépendance de l'industrie automobile et éolienne européenne à des aimants chinois déterminent la souveraineté industrielle du pays.",
           "angle": null,
           "a_verifier": "Taux de recyclage actuels des métaux de batteries et leur progression, part de marché chinoise du raffinage par métal, investissements occidentaux récents en recyclage/dérisking (IRA américain, initiatives européennes)",
           "mots_cles": [
@@ -902,7 +902,7 @@
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": "2026-10-01"
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -913,7 +913,7 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Sanctions financières, exclusion de SWIFT, réserves gelées, guerre des monnaies numériques (yuan numérique déjà pilote à grande échelle, euro numérique en projet à la BCE) : les monnaies numériques d'État, programmables et traçables en temps réel, changent-elles l'ampleur de cette arme ?",
-          "rationnel": "Ce sujet est brûlant d'actualité car les négociations sur le règlement de l'euro numérique entrent dans leur phase décisive (trilogue du 30 septembre 2026) tandis que le yuan numérique chinois atteint une maturité opérationnelle sans équivalent occidental, avec des volumes de transactions massifs et une infrastructure transfrontalière déjà déployée via mBridge. L'issue reste ouverte car deux forces contraires s'affrontent : d'un côté, la capacité de la Chine à imposer le yuan numérique comme alternative de règlement international (55 milliards $ via mBridge, expansion à 30 banques en 2026) ; de l'autre, la volonté européenne de préserver son autonomie monétaire via l'euro numérique, mais dont le calendrier législatif et technique (2029 au plus tôt) laisse une fenêtre d'incertitude. Pour un lecteur français, l'enjeu est direct : si l'euro numérique n'est pas adopté rapidement, la zone euro pourrait voir son influence monétaire réduite face à un système de paiement sino-centré, et la programmabilité des monnaies numériques d'État soulève des questions inédites de souveraineté, de vie privée et de contrôle des flux financiers.",
+          "rationnel": "La question : la monnaie peut-elle devenir une arme géopolitique sans qu'un soldat ne franchisse une frontière, alors que le yuan numérique chinois atteint une maturité opérationnelle et que l'euro numérique est en phase décisive de négociation (trilogue du 30 septembre 2026) ? L'issue est ouverte car deux forces contraires s'affrontent : d'un côté, la capacité de la Chine à imposer le yuan numérique comme alternative de règlement international (55 milliards $ via mBridge, expansion à 30 banques en 2026) ; de l'autre, la volonté européenne de préserver son autonomie monétaire via l'euro numérique, mais dont le calendrier législatif et technique (2029 au plus tôt) laisse une fenêtre d'incertitude. Pour un lecteur français, l'enjeu est direct : si l'euro numérique n'est pas adopté rapidement, la zone euro pourrait voir son influence monétaire réduite face à un système de paiement sino-centré, et la programmabilité des monnaies numériques d'État soulève des questions inédites de souveraineté, de vie privée et de contrôle des flux financiers.",
           "angle": null,
           "a_verifier": "État d'avancement du projet d'euro numérique de la BCE (calendrier officiel), déploiement du yuan numérique en Chine, effets mesurés des sanctions financières contre la Russie sur son économie, discussions BRICS sur une monnaie alternative au dollar",
           "mots_cles": [
@@ -954,7 +954,7 @@
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": "2026-10-01"
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -965,7 +965,7 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "L'essentiel des communications mondiales passe par des câbles posés au fond des océans, largement invisibles et peu protégés — plusieurs sabotages suspectés en mer Baltique depuis 2023 ont déjà relancé l'inquiétude de l'OTAN. Ajoutez les grands ports mondiaux (Shanghai, Rotterdam, Singapour, Le Pirée) comme points de passage stratégiques du commerce mondial.",
-          "rationnel": "Ce sujet est d'actualité immédiate car les incidents de sabotage présumé se multiplient en mer Baltique (dernier en date : janvier 2026) sans qu'aucune preuve définitive d'attribution étatique n'ait été établie — l'enquête finlandaise sur l'Eagle S a été classée en octobre 2025 faute de preuves, et l'OTAN elle-même n'a pu conclure à des sabotages délibérés. L'issue reste donc ouverte : les forces en présence (Russie via sa flotte fantôme, OTAN via Baltic Sentry, acteurs privés propriétaires des câbles) s'opposent dans un brouillard juridique et technique où la frontière entre accident et guerre hybride est impossible à tracer. Pour un lecteur français, l'enjeu est double : la France contribue activement à Baltic Sentry avec ses avions de patrouille maritime, et la dépendance numérique européenne à ces câbles expose le pays à des perturbations massives (25 % du trafic Europe-Asie a été perturbé en mer Rouge en 2024) sans capacité de réaction souveraine.",
+          "rationnel": "La question : la bataille géopolitique se joue-t-elle sous l'eau et dans les ports plutôt que sur terre, et les infrastructures maritimes critiques (câbles sous-marins, grands ports) sont-elles devenues le théâtre principal des rapports de force entre États ? L'issue est ouverte car les forces en présence (Russie via sa flotte fantôme, OTAN via Baltic Sentry, acteurs privés propriétaires des câbles) s'opposent dans un brouillard juridique et technique où la frontière entre accident et guerre hybride est impossible à tracer, comme le montre le classement de l'enquête finlandaise sur l'Eagle S faute de preuves. Pour un lecteur français, l'enjeu est double : la France contribue activement à Baltic Sentry avec ses avions de patrouille maritime, et la dépendance numérique européenne à ces câbles expose le pays à des perturbations massives sans capacité de réaction souveraine.",
           "angle": null,
           "a_verifier": "Incidents de sabotage de câbles en mer Baltique 2023-2024 et leur attribution (rapports OTAN, enquêtes des pays concernés), classement des ports mondiaux par tonnage/importance stratégique, initiatives de protection des câbles sous-marins en cours",
           "mots_cles": [
@@ -1003,7 +1003,7 @@
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": "2026-10-01"
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -1014,7 +1014,7 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Les données pourraient remplacer le pétrole comme ressource géopolitique stratégique — mais la vraie question n'est pas seulement qui les possède, c'est qui peut encore s'en passer. Un État qui dépend d'infrastructures cloud, de plateformes ou de modèles d'IA étrangers pour ses propres données peut-il encore se dire pleinement souverain ?",
-          "rationnel": "Ce sujet est brûlant car 2026 marque un tournant législatif avec le CADA, qui impose pour la première fois des critères de souveraineté contraignants dans les marchés publics cloud européens. L'issue reste profondément ouverte : d'un côté, les hyperscalers américains (AWS, Microsoft, Google) détiennent encore 70 % du marché européen du cloud ; de l'autre, les initiatives souveraines (Gaia-X, SecNumCloud, CADA) montent en puissance mais peinent à convaincre au-delà des données les plus sensibles. Pour un lecteur français, l'enjeu est concret : ses données de santé, ses impôts, ses communications administratives transitent majoritairement par des infrastructures soumises au Cloud Act américain, et le débat sur la capacité réelle de l'État à protéger ces données contre des réquisitions étrangères reste ouvert.",
+          "rationnel": "La question : un État peut-il encore être pleinement souverain si ses données stratégiques transitent par des infrastructures cloud étrangères, alors que 2026 marque un tournant législatif avec le CADA imposant des critères de souveraineté dans les marchés publics cloud européens ? L'issue reste ouverte car les hyperscalers américains détiennent 70 % du marché européen du cloud, tandis que les initiatives souveraines comme Gaia-X et SecNumCloud montent en puissance mais peinent à convaincre au-delà des données les plus sensibles. Pour un lecteur français, l'enjeu est concret : ses données de santé, ses impôts et ses communications administratives transitent majoritairement par des infrastructures soumises au Cloud Act américain, et le débat sur la capacité réelle de l'État à protéger ces données contre des réquisitions étrangères reste ouvert.",
           "angle": null,
           "a_verifier": "État actuel des lois de localisation des données par grande région, dépendance réelle des administrations européennes aux clouds américains (Microsoft, Amazon, Google), initiatives de \"cloud souverain\" en cours (Gaia-X et son bilan critique à date)",
           "mots_cles": [
@@ -1055,7 +1055,7 @@
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": "2026-10-01"
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -1066,7 +1066,7 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Pas seulement une conséquence des crises — un État peut-il délibérément provoquer ou faciliter des mouvements de population vers un voisin pour le déstabiliser politiquement ?",
-          "rationnel": "Ce sujet est d'actualité immédiate car l'instrumentalisation des migrations n'est pas un cas isolé du passé mais une pratique qui s'institutionnalise : la Finlande a prolongé sa loi d'exception en septembre 2026, la Pologne maintient sa zone tampon, et l'UE vient d'adopter un cadre juridique spécifique (règlement 2024/1359, applicable mi-2026). L'issue reste ouverte car, d'un côté, les États cibles développent des réponses unilatérales (murs, lois de refoulement, suspension du droit d'asile) qui heurtent le droit international et les principes humanitaires, et de l'autre, la communauté internationale n'a pas de mécanisme de dissuasion ou de sanction clair contre l'État instrumentaliseur. Pour un lecteur français, l'enjeu est double : la France pourrait être directement visée (pression migratoire via Ceuta/Melilla, ou via la Méditerranée) et le débat sur l'asile et la fermeture des frontières est ravivé par ces précédents.",
+          "rationnel": "La question : un État peut-il délibérément provoquer ou faciliter des mouvements de population vers un voisin pour le déstabiliser politiquement, et la communauté internationale peut-elle y répondre sans heurter le droit humanitaire ? L'issue est ouverte car, d'un côté, les États cibles développent des réponses unilatérales (murs, lois de refoulement, suspension du droit d'asile) qui contredisent les principes humanitaires, et de l'autre, aucun mécanisme de dissuasion ou de sanction clair n'existe contre l'État instrumentaliseur. Pour un lecteur français, l'enjeu est double : la France pourrait être directement visée par une pression migratoire via Ceuta, Melilla ou la Méditerranée, et le débat sur l'asile et la fermeture des frontières est ravivé par ces précédents.",
           "angle": null,
           "a_verifier": "Cas documentés de migration instrumentalisée (Biélorussie-Pologne 2021, accusations similaires ailleurs), qualification officielle de ces épisodes par l'UE/l'OTAN",
           "mots_cles": [
@@ -1104,7 +1104,7 @@
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": "2026-10-01"
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -1115,7 +1115,7 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Fonte de l'Arctique, nouvelles routes maritimes navigables, terres rendues inhabitables, déplacements de population à grande échelle : les frontières géopolitiques de 2050 seront-elles vraiment celles que nous connaissons aujourd'hui ?",
-          "rationnel": "Ce sujet est brûlant d'actualité car trois dynamiques convergent en 2026 : la fonte accélérée de l'Arctique rend les routes maritimes commercialement viables (le NSR vise 40 Mt de fret en 2026), les revendications de plateau continental s'intensifient avec des dépôts russes amendés jusqu'en mars 2026, et l'OTAN vient de lancer Arctic Sentry et de déployer des forces en Finlande. L'issue reste ouverte car les trois grandes puissances arctiques (Russie, Canada, Danemark) ont des revendications qui se chevauchent massivement sans mécanisme de règlement contraignant, tandis que les négociations bilatérales n'ont pas commencé. Par ailleurs, les migrations climatiques pourraient redessiner des centaines de frontières de fait d'ici 2050, mais l'ampleur exacte (44 à 216 millions de personnes) dépend des choix politiques actuels. Pour un lecteur français, l'enjeu est double : la France est membre de l'OTAN et concernée par la sécurité européenne dans le Grand Nord, et les flux migratoires climatiques toucheront aussi l'Europe.",
+          "rationnel": "La question : le changement climatique va-t-il redessiner les frontières du monde d'ici 2050, entre l'ouverture de nouvelles routes arctiques, les revendications de plateau continental et les migrations climatiques ? L'issue est ouverte car trois dynamiques convergent sans mécanisme de règlement contraignant : la fonte accélérée de l'Arctique rend les routes maritimes commercialement viables, les revendications de plateau continental s'intensifient (Russie, Canada, Danemark) avec des dépôts russes amendés jusqu'en mars 2026, et l'OTAN lance Arctic Sentry avec des forces en Finlande, tandis que les migrations climatiques pourraient concerner 44 à 216 millions de personnes selon les choix politiques actuels. Pour un lecteur français, l'enjeu est double : la France est membre de l'OTAN et concernée par la sécurité européenne dans le Grand Nord, et les flux migratoires climatiques toucheront aussi l'Europe.",
           "angle": null,
           "a_verifier": "État des revendications arctiques à l'ONU (Commission des limites du plateau continental), trafic maritime réel sur les nouvelles routes arctiques, projections de zones inhabitables et déplacements associés (GIEC, sources désagrégées par région)",
           "mots_cles": [
