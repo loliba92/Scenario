@@ -827,6 +827,7 @@ class ProblematiqueTest(unittest.TestCase):
         bon = "La question : un État peut-il encore rester souverain sans maîtriser ses données ? Les forces s'opposent, l'enjeu est concret."
         e = sj.sujet_vide(id="x", titre="Titre ?", rationnel="Ancien texte brûlant.")
         self.en._courant[0] = 0
+        self.en._indisponible.clear()
         appeles = []
 
         def faux(prompt, nom, cle, **kw):
@@ -838,18 +839,28 @@ class ProblematiqueTest(unittest.TestCase):
         with mock.patch.object(self.en, "call_openrouter", side_effect=faux), mock.patch.object(self.en.time, "sleep") as pause:
             texte, _, _ = self.en.proposer_problematique(sec, e, "a:free,b:free", "k")
         self.assertEqual((texte, appeles, pause.call_count), (bon, ["a:free", "b:free"], 0))
-        # le modèle qui marche est gardé pour le sujet suivant (pas de retour au premier)
+        # le modèle qui marche est gardé ; celui qui a échoué n'est pas réessayé tout de suite
         appeles.clear()
         with mock.patch.object(self.en, "call_openrouter", side_effect=faux):
             self.en.proposer_problematique(sec, e, "a:free,b:free", "k")
         self.assertEqual(appeles, ["b:free"])
-        # tous indisponibles : attentes puis abandon
-        with mock.patch.object(self.en, "call_openrouter", side_effect=self.en.GenerationError("503")) as appel, \
-                mock.patch.object(self.en.time, "sleep") as pause:
-            with self.assertRaises(self.en.GenerationError):
-                self.en.proposer_problematique(sec, e, "a:free,b:free", "k")
-        self.assertEqual((appel.call_count, pause.call_count),
-                         (2 * (len(self.en.ATTENTES_NOUVEL_ESSAI) + 1), len(self.en.ATTENTES_NOUVEL_ESSAI)))
+
+    def test_pannes_traitees_selon_leur_cause(self):
+        from unittest import mock
+        self.en._indisponible.clear()
+        self.en._courant[0] = 0
+        mod = ["a:free", "b:free"]
+        with mock.patch.object(self.en, "call_openrouter", side_effect=self.en.GenerationError("appel OpenRouter refusé (HTTP 403)")):
+            with mock.patch.object(self.en.time, "sleep"), self.assertRaises(self.en.GenerationError):
+                self.en._appeler_avec_reprises("p", ",".join(mod), "k")
+        self.assertTrue(all(self.en._indisponible[m] == float("inf") for m in mod), "403 : écarté pour tout le run")
+        self.en._indisponible.clear()
+        with mock.patch.object(self.en, "call_openrouter", side_effect=self.en.GenerationError("appel OpenRouter refusé (HTTP 429)")):
+            with mock.patch.object(self.en.time, "sleep") as pause, self.assertRaises(self.en.GenerationError):
+                self.en._appeler_avec_reprises("p", ",".join(mod), "k")
+        self.assertEqual(pause.call_count, self.en.MAX_ATTENTES, "429 : mis en pause, on attend")
+        self.assertTrue(all(0 < self.en._indisponible[m] < float("inf") for m in mod))
+        self.en._indisponible.clear()
 
     def test_les_prompts_demandent_la_problematique(self):
         sec = {"cle": "geopolitique", "titre": "Géopolitique"}
