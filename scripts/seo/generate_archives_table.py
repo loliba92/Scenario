@@ -654,9 +654,20 @@ ARCHIVES_TABLE_CSS = """
 
 
 def extract_title(text):
-    """Extrait le titre de la balise <title>."""
+    """Extrait le titre de la balise <title>. Ce <title> est plafonné à 60
+    caractères pour le SEO (generate_seo_head._build_title, « … » en fin de
+    coupe) : s'il est tronqué, on affiche le <h1> de la page, qui porte le
+    titre complet (bug du 2 octobre 2026 : « Octobre rose 2026 : le dépistage
+    du cancer du sein va-t-il… » dans la liste des archives)."""
     m = re.search(r"<title>([^<]+) — Scénario</title>", text)
-    return html.unescape(m.group(1)) if m else None
+    title = html.unescape(m.group(1)) if m else None
+    if title and title.endswith("…"):
+        h1 = re.search(r"<h1[^>]*>(.*?)</h1>", text, re.DOTALL)
+        if h1:
+            full = html.unescape(re.sub(r"<[^>]+>", "", h1.group(1))).strip()
+            if full:
+                return full
+    return title
 
 
 def extract_question(text):

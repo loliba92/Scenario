@@ -38,5 +38,36 @@ class FormatDateCourte(unittest.TestCase):
             self.assertTrue(long.startswith(court.rstrip(".")), (long, court))
 
 
+PAGE_TRONQUEE = (
+    '<title>Octobre rose 2026 : le dépistage du cancer du sein va-t-il… — Scénario</title>'
+    '<meta property="og:title" content="Octobre rose 2026 : le dépistage du cancer du sein va-t-il… — Scénario">'
+    '<h1>Dépistage du cancer du sein&nbsp;: le modèle va-t-il basculer&nbsp;?</h1>'
+)
+PAGE_COMPLETE = (
+    '<title>Un titre court — Scénario</title>'
+    '<meta property="og:title" content="Un titre court — Scénario">'
+    '<h1>Un autre h1</h1>'
+)
+
+
+class TitreComplet(unittest.TestCase):
+    """Un titre plafonné à 60 caractères pour le SEO ne doit pas finir dans les listes."""
+
+    def test_og_title_tronque_repris_du_h1(self):
+        t = bh.extract_og_title(PAGE_TRONQUEE)
+        self.assertFalse(t.endswith("…"))
+        self.assertIn("modèle va-t-il basculer", t)
+
+    def test_og_title_non_tronque_inchange(self):
+        self.assertEqual(bh.extract_og_title(PAGE_COMPLETE), "Un titre court")
+
+    def test_archives_table(self):
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "seo"))
+        import generate_archives_table as gat
+        self.assertEqual(gat.extract_title(PAGE_TRONQUEE),
+                         "Dépistage du cancer du sein\xa0: le modèle va-t-il basculer\xa0?")
+        self.assertEqual(gat.extract_title(PAGE_COMPLETE), "Un titre court")
+
+
 if __name__ == "__main__":
     unittest.main()

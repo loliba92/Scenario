@@ -794,10 +794,23 @@ def extract_og_title(text, fallback=None):
     attributs alphabétiquement (content avant property) — la balise
     entière est matchée d'abord, content en extrait ensuite, peu importe
     l'ordre. Retire le suffixe " — Scénario" s'il est présent. Retourne
-    `fallback` si la balise est introuvable."""
+    `fallback` si la balise est introuvable.
+
+    og:title est plafonné à 60 caractères pour le SEO (« … » en fin de
+    coupe) : s'il est tronqué, on prend le <h1> de la page, qui porte le
+    titre complet (bug du 2 octobre 2026 sur les cartes de en/index.html)."""
     tag_m = re.search(r'<meta[^>]*\bproperty="og:title"[^>]*/?>', text)
     content_m = re.search(r'\bcontent="([^"]*)"', tag_m.group(0)) if tag_m else None
-    return content_m.group(1).rsplit(" — Scénario", 1)[0] if content_m else fallback
+    if not content_m:
+        return fallback
+    title = content_m.group(1).rsplit(" — Scénario", 1)[0]
+    if title.endswith("…"):
+        h1 = re.search(r"<h1[^>]*>(.*?)</h1>", text, re.DOTALL)
+        if h1:
+            full = re.sub(r"<[^>]+>", "", h1.group(1)).strip()
+            if full:
+                return full
+    return title
 
 
 def extract_article_domain(text):

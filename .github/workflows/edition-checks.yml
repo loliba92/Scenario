@@ -21,6 +21,7 @@ on:
       - "scripts/edition/check_fixtures.py"
       - "scripts/edition/build_html.py"
       - "scripts/edition/test_dates.py"
+      - "scripts/seo/generate_archives_table.py"
       - "editorial-briefs/**"
       - "scripts/edition/fixtures/**"
   pull_request:
@@ -29,6 +30,7 @@ on:
       - "scripts/edition/check_fixtures.py"
       - "scripts/edition/build_html.py"
       - "scripts/edition/test_dates.py"
+      - "scripts/seo/generate_archives_table.py"
       - "editorial-briefs/**"
       - "scripts/edition/fixtures/**"
 
