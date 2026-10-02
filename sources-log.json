@@ -2,6 +2,41 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-02",
+      "articles": [
+        {
+          "title": "Dépistage et aide à la décision basés sur l'IA en mammographie et tomosynthèse numérique pour le dépistage du cancer du sein : essai apparié en non-infériorité",
+          "source": "Clear Sky Science",
+          "url": "https://www.clearskyscience.com/fr/10.1038/s41591-026-04277-x/",
+          "image": null,
+          "lang": "fr",
+          "domain": "sciences",
+          "summary": "Essai en non-infériorité sur l'IA en mammographie et tomosynthèse : la stratégie assistée par IA détecte environ 7,3 cancers pour 1 000 femmes vs 6,3 pour 1 000 avec la méthode standard, tout en réduisant la charge de travail.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Dépistage du Cancer du Sein : Deux nouvelles études françaises, dévoilées aux Journées Françaises de Radiologie, confirment le rôle transformateur de l'Intelligence Artificielle",
+          "source": "Therapixel",
+          "url": "https://www.therapixel.fr/etudes-devoilees-aux-jfr-2025-confirment-le-role-d-ia/",
+          "image": null,
+          "lang": "fr",
+          "domain": "sciences",
+          "summary": "Deux études françaises (CRCDC Sud PACA et Auvergne Rhône Alpes avec IA Therapixel) présentées aux JFR 2025 : l'IA permettrait de réduire de 60 % les deuxièmes lectures sans risque de manquer un cancer, avec des disparités régionales dans l'équipement (plus de 25 % des centres en PACA, moins de 10 % dans le Grand Est).",
+          "read_minutes": 4
+        },
+        {
+          "title": "Apport de l'intelligence artificielle en dépistage du cancer du sein",
+          "source": "Société Française de Radiologie (radiologie.fr)",
+          "url": "https://www.radiologie.fr/pratiques-professionnelles/sfr-actu/apport-lintelligence-artificielle-en-depistage-du-cancer-du",
+          "image": null,
+          "lang": "fr",
+          "domain": "sciences",
+          "summary": "Synthèse des études MASAI, ScreenTrustCAD et d'autres sur l'IA en dépistage : réduction de la charge de travail, détection accrue de cancers, mais les auteurs rappellent que les résultats ne sont pas directement généralisables au dépistage français sans essais locaux et contrôle qualité.",
+          "read_minutes": 4
+        }
+      ]
+    },
+    {
       "date": "2026-10-01",
       "articles": [
         {
