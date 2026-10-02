@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "1835cd5ec7e91bb8593e2147a035b26a8064958ac5d1bad3ef7e88ecb3b7accc"
+    "md_sha256": "a15e59bf1589eecf2ac76514ebc969c11369eef908ba4a721e9a65e72e3ea6ec"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -2674,20 +2674,49 @@
           "tag": "sécurité & justice",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "La loi du 13 juin 2025 « visant à sortir la France du piège du narcotrafic » a instauré un parquet national anticriminalité organisée (PNACO) opérationnel depuis janvier 2026, un état-major interministériel et trois quartiers de haute sécurité (QLCO) ouverts à Vendin-le-Vieil (juillet 2025), Condé-sur-Sarthe (octobre 2025) et Réau (août 2026). En 2025, 307 200 personnes ont été mises en cause pour usage (+6 %) et 56 600 pour trafic (+8 %) ; le marché est estimé à plus de 7 milliards d'euros et ferait vivre 240 000 personnes. À Marseille, les points de deal sont passés de 222 à 114 dans le département (2021-2025), les saisies de cocaïne ont bondi de 254 % (1 161 kg en 2025), les narchomicides ont baissé (20 en 2025 contre 49 en 2023) et le taux d'élucidation atteint 67 %. Des opérations d'ampleur (Octopus contre la DZ Mafia, coup de filet de 900 gendarmes en mars 2026) ont conduit à des dizaines de mises en examen. La coopération internationale (Algérie, Maroc, Émirats, Tunisie) et la pression sur les consommateurs (amendes, interdictions de paraître) s'intensifient.",
+          "rationnel": "La question : l'État français parviendra-t-il, avec les nouveaux outils juridiques et institutionnels de la loi 2025, à inverser durablement la dynamique du narcotrafic et à reprendre le contrôle territorial et judiciaire, ou le marché continuera-t-il de croître en s'adaptant (livraisons à domicile, dark web, corruption) ? L'issue est ouverte car les forces répressives disposent désormais de moyens inédits (PNACO, QLCO, interdictions de paraître, expulsions facilitées) et obtiennent des résultats tangibles sur certains indicateurs (points de deal, élucidations, saisies), mais la demande reste massive (307 200 usagers mis en cause), les réseaux s'internationalisent et le Président lui-même admet que le trafic « continue de progresser chaque jour ». L'enjeu concret pour le lecteur : savoir si la violence des narcomicides et l'emprise des réseaux sur les quartiers vont reculer concrètement dans les prochains mois, ou si l'État court derrière un phénomène qui a changé d'échelle.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Chiffres précis 2026 (premiers semestres) pour mises en cause usage/trafic, nombre de QLCO opérationnels fin 2026, bilan exact des interdictions de paraître et expulsions locatives, montant actualisé du marché (7 Md€ date de 2025).",
+          "mots_cles": [
+            "loi 2025-532 narcotrafic",
+            "PNACO parquet national anticriminalité organisée",
+            "QLCO quartiers lutte criminalité organisée",
+            "Marseille narchomicides points de deal",
+            "DZ Mafia opération Octopus",
+            "État-major interministériel criminalité organisée",
+            "saisies cocaïne 2025 1161 kg",
+            "dark web trafic stupéfiants cryptomonnaies"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2027-06-13",
+            "raison": "Deuxième anniversaire de la loi du 13 juin 2025 ; échéance naturelle pour un premier bilan d'étape complet des nouveaux dispositifs (PNACO, QLCO, état-major) promis par l'exécutif."
+          },
+          "sources": [
+            {
+              "titre": "Cinquième réunion de suivi consacrée à la lutte contre le narcotrafic - Élysée, 2 juillet 2026",
+              "url": "https://www.elysee.fr/emmanuel-macron/2026/07/02/cinquieme-reunion-de-suivi-consacree-a-la-lutte-contre-le-narcotrafic"
+            },
+            {
+              "titre": "Narcotrafic : une consommation en hausse, un trafic toujours plus visible - info.gouv.fr (données 2025)",
+              "url": "https://www.info.gouv.fr/actualite/narcotrafic-une-consommation-en-hausse-un-trafic-toujours-plus-visible"
+            },
+            {
+              "titre": "Opérations pilonnage et narchomicides… À Marseille, l'État fait le bilan de la lutte contre le narcotrafic - 20 Minutes, 3 février 2026",
+              "url": "https://www.20minutes.fr/faits_divers/faits-divers-marseille/4199533-20260203-operations-pilonnage-narchomicides-marseille-etat-fait-bilan-lutte-contre-narcotrafic"
+            },
+            {
+              "titre": "La lutte contre le narcotrafic - Ministère de la Justice (dispositifs loi 2025, PNACO, QLCO)",
+              "url": "https://www.justice.gouv.fr/lutte-contre-narcotrafic"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -3526,20 +3555,46 @@
           "tag": "médecine & santé",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "En 2025, l'espérance de vie en France atteint 85,9 ans pour les femmes et 80,3 ans pour les hommes (+0,1 an vs 2024), mais sa progression ralentit depuis le milieu des années 1990. Une étude majeure publiée dans Nature Aging (octobre 2024, Olshansky et al.) analyse les données 1990-2019 de 10 populations longévives et conclut que les gains décélèrent : la survie à 100 ans ne dépasserait pas 15 % chez les femmes et 5 % chez les hommes sans thérapie ralentissant le vieillissement biologique. Parallèlement, plusieurs pistes thérapeutiques sont en essais : métformine (étude Women's Health Initiative, mai 2025, -30 % mortalité avant 90 ans chez femmes diabétiques), rapamycine (méta-analyse 167 études animales 2024, effets comparables à la restriction calorique ; essais humains à faible dose intermittente prometteurs), sénolytiques (essais MiST phase II en cours, résultats hétérogènes sur critères cliniques), et nouveaux composés du programme NIA (épicatéchine, halofuginone, mitoglitazone : +5-9 % durée de vie médiane chez la souris). L'anti-nécrotique de LinkGevity/NASA entre en essai clinique fin 2025 pour néphropathie sénile.",
+          "rationnel": "La question : une thérapie ciblant le vieillissement biologique va-t-elle émerger d'ici 2035 pour relancer durablement l'espérance de vie en France, ou les gains resteront-ils marginaux ? L'issue est ouverte car d'un côté les données démographiques montrent un plafonnement des progrès par la médecine classique (verre de plafond), et de l'autre plusieurs molécules candidates (rapamycine, métformine, sénolytiques de 2e génération, anti-nécrotiques) entrent en phase clinique humaine avec des résultats précliniques solides. L'enjeu concret pour un lecteur français : savoir si sa génération bénéficiera d'un saut d'espérance de vie en bonne santé (EVSI 2023 : 64,2 ans femmes, 63,6 ans hommes, en baisse depuis 2019) ou devra planifier sa retraite et sa santé sur la base des tendances actuelles de ralentissement.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Calendrier précis des résultats attendus pour les essais MiST (sénolytiques) et rapamycine (essais de dose élargie) ; statut exact de l'essai LinkGevity (début fin 2025 confirmé ?) ; position actuelle de l'EMA/FDA sur l'acceptation du vieillissement comme indication thérapeutique.",
+          "mots_cles": [
+            "Nature Aging 2024 Olshansky espérance de vie limites",
+            "gériatrie géroscience thérapies anti-âge essais cliniques 2024 2025",
+            "rapamycine métformine sénolytiques longévité humain",
+            "INSEE espérance de vie France 2025 85,9 80,3",
+            "EVSI espérance de vie sans incapacité France 2023",
+            "Interventions Testing Program NIA nouveaux composés 2025",
+            "LinkGevity NASA anti-nécrotique essai clinique 2025",
+            "FDA vieillissement indication réglementaire géroscience"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "Implausibility of radical life extension in humans in the twenty-first century | Nature Aging",
+              "url": "https://www.nature.com/articles/s43587-024-00702-3"
+            },
+            {
+              "titre": "Bilan démographique 2025 − Bilan démographique 2025 | Insee",
+              "url": "https://www.insee.fr/fr/statistiques/8719824?sommaire=8721209"
+            },
+            {
+              "titre": "Lutte contre le vieillissement : des traitements ... | Medscape",
+              "url": "https://francais.medscape.com/voirarticle/3613263"
+            },
+            {
+              "titre": "Nouveaux Composés pour Prolonger la Durée de Vie : État des Lieux et Perspectives - Longésanté",
+              "url": "https://longesante.fr/2025/10/16/nouveaux-composes-pour-prolonger-la-duree-de-vie-etat-des-lieux-et-perspectives/"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
