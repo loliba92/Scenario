@@ -37,6 +37,13 @@ MOIS_FR = [
     "janvier", "février", "mars", "avril", "mai", "juin",
     "juillet", "août", "septembre", "octobre", "novembre", "décembre",
 ]
+# Abréviations françaises usuelles (même table que assets/site-search.js).
+# Ne pas dériver de MOIS_FR[:4] : « octobre » donnait « octo. », « avril »
+# « avri. », « mars » « mars. » (point abusif sur un mois non abrégé).
+MOIS_FR_ABBR = [
+    "janv.", "févr.", "mars", "avr.", "mai", "juin",
+    "juil.", "août", "sept.", "oct.", "nov.", "déc.",
+]
 JOURS_FR = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
 MOIS_EN_ABBR = [
     "Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -739,11 +746,7 @@ def build_related_articles(brief, repo_root=None):
             date_parts = article_date.split("-")
             day = int(date_parts[2])
             month = int(date_parts[1])
-            month_name = MOIS_FR[month - 1][:4]  # "sept.", "juil.", etc.
-            if month_name.endswith("e"):
-                formatted_date = f"{day} {month_name.rstrip('e')}."
-            else:
-                formatted_date = f"{day} {month_name}."
+            formatted_date = f"{day} {MOIS_FR_ABBR[month - 1]}"
         except Exception:
             formatted_date = article_date
 
@@ -930,10 +933,7 @@ def _format_date_short(date_str, lang="fr"):
     d = date.fromisoformat(date_str)
     if lang == "en":
         return f"{MOIS_EN_ABBR[d.month - 1]} {d.day}"
-    month_name = MOIS_FR[d.month - 1][:4]
-    if month_name.endswith("e"):
-        return f"{d.day} {month_name.rstrip('e')}."
-    return f"{d.day} {month_name}."
+    return f"{d.day} {MOIS_FR_ABBR[d.month - 1]}"
 
 
 def build_home_cards(articles, lang="fr", section_id="dernieres-editions",

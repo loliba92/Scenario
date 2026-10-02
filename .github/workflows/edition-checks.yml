@@ -19,12 +19,16 @@ on:
     paths:
       - "scripts/edition/generate_daily_edition.py"
       - "scripts/edition/check_fixtures.py"
+      - "scripts/edition/build_html.py"
+      - "scripts/edition/test_dates.py"
       - "editorial-briefs/**"
       - "scripts/edition/fixtures/**"
   pull_request:
     paths:
       - "scripts/edition/generate_daily_edition.py"
       - "scripts/edition/check_fixtures.py"
+      - "scripts/edition/build_html.py"
+      - "scripts/edition/test_dates.py"
       - "editorial-briefs/**"
       - "scripts/edition/fixtures/**"
 
@@ -47,3 +51,6 @@ jobs:
       - name: Vérifier brief(s) de référence + fixture(s) --dry-run
         working-directory: scripts/edition
         run: python3 check_fixtures.py
+
+      - name: Tests du format court des dates (cartes)
+        run: python3 -m unittest discover -s scripts/edition -p "test_dates.py" -v
