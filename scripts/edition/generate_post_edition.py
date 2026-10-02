@@ -93,7 +93,7 @@ from bs4.formatter import HTMLFormatter
 
 import build_html
 import generate_seo_head
-from generate_daily_edition import estimate_word_count, load_brief
+from generate_daily_edition import estimate_word_count, load_brief, normalize_content_markdown
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 SOCIAL_DIR = REPO_ROOT / "scripts" / "social"
@@ -1113,7 +1113,7 @@ def main():
     content_path = Path(args.content)
     if not content_path.exists():
         raise PostEditionError(f"content.json introuvable : {content_path} — lancer generate_daily_edition.py d'abord")
-    content = json.loads(content_path.read_text(encoding="utf-8"))
+    content = normalize_content_markdown(json.loads(content_path.read_text(encoding="utf-8")))
 
     sandbox_root = Path(args.sandbox_root) if args.sandbox_root else REPO_ROOT / "_prototype-out" / "post-edition" / date_str
     sandbox_root.mkdir(parents=True, exist_ok=True)
