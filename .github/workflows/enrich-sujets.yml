@@ -31,7 +31,7 @@ on:
         required: false
         default: false
       model:
-        description: "Modèle OpenRouter à utiliser (ex. nvidia/nemotron-3-ultra-550b-a55b:free) — vide = modèle par défaut du script"
+        description: "Modèle OpenRouter (ex. nvidia/nemotron-3-ultra-550b-a55b:free), plusieurs séparés par des virgules (ils se relaient), ou « gratuits » (5 modèles gratuits) — vide = modèle par défaut du script"
         required: false
         default: ""
       registre:
@@ -74,7 +74,7 @@ jobs:
           if [ "$APERCU" = "true" ]; then ARGS="$ARGS --apercu"; fi
           if [ -n "$MODEL" ]; then
             case "$MODEL" in
-              *[!A-Za-z0-9._:/-]*) echo "Nom de modèle invalide : $MODEL" >&2; exit 1 ;;
+              *[!A-Za-z0-9._:/,-]*) echo "Nom de modèle invalide : $MODEL" >&2; exit 1 ;;
             esac
             ARGS="$ARGS --model $MODEL"
           fi

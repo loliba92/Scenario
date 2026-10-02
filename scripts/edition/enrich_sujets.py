@@ -144,21 +144,45 @@ n'utilise que ce qui figure dans le dossier ci-dessus. Pas de Markdown, pas de �
 Réponds UNIQUEMENT avec un JSON : {{"rationnel": "..."}}"""
 
 
-# Les modèles gratuits répondent souvent « Service temporarily overloaded » (503) : on réessaie
-# plusieurs fois, avec une attente croissante, avant de renoncer à ce sujet (2 octobre 2026 :
-# les 54 sujets d'un lot avaient tous échoué du premier coup).
-ATTENTES_NOUVEL_ESSAI = (20, 45, 90, 150)
+# Modèles gratuits OpenRouter qui se relaient (mot-clé « gratuits » pour --model). Chacun est
+# souvent « temporarily overloaded » (503) ou limité en débit : on en essaie un autre au lieu
+# d'insister, et on commence chaque sujet par un modèle différent pour répartir la charge.
+MODELES_GRATUITS = (
+    "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "nvidia/nemotron-3-super-120b-a12b:free",
+    "google/gemma-4-31b-it:free",
+    "qwen/qwen3.8-27b:free",
+    "google/gemma-4-26b-a4b-it:free",
+)
+# Attente entre deux tours complets de la liste (tous les modèles ont échoué).
+ATTENTES_NOUVEL_ESSAI = (20, 45, 90)
+_rotation = [0]
+
+
+def liste_modeles(model: str) -> list[str]:
+    """« a,b,c » -> [a, b, c] ; « gratuits » -> MODELES_GRATUITS."""
+    noms: list[str] = []
+    for nom in (model or "").split(","):
+        nom = nom.strip()
+        noms.extend(MODELES_GRATUITS if nom == "gratuits" else [nom] if nom else [])
+    return noms or [HOT_TOPICS_MODEL]
 
 
 def _appeler_avec_reprises(prompt: str, model: str, api_key: str, **kwargs):
+    modeles = liste_modeles(model)
+    debut = _rotation[0] % len(modeles)
+    _rotation[0] += 1
+    modeles = modeles[debut:] + modeles[:debut]
     for attente in (*ATTENTES_NOUVEL_ESSAI, None):
-        try:
-            return call_openrouter(prompt, model, api_key, **kwargs)
-        except GenerationError as err:
-            if attente is None:
-                raise
-            print(f"  … modèle indisponible ({str(err)[:80]}), nouvel essai dans {attente} s", file=sys.stderr)
-            time.sleep(attente)
+        for nom in modeles:
+            try:
+                return call_openrouter(prompt, nom, api_key, **kwargs)
+            except GenerationError as err:
+                print(f"  … {nom} indisponible ({str(err)[:70]})", file=sys.stderr)
+        if attente is None:
+            raise GenerationError(f"aucun des {len(modeles)} modèle(s) n'a répondu")
+        print(f"  … nouvel essai dans {attente} s", file=sys.stderr)
+        time.sleep(attente)
 
 
 def proposer_problematique(sec: dict, e: dict, model: str, api_key: str):

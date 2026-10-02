@@ -819,23 +819,37 @@ class ProblematiqueTest(unittest.TestCase):
         self.assertEqual((texte, brut), (bon, bon))
         self.assertEqual(e["rationnel"], "Ancien texte brûlant.", "proposer ne modifie pas le sujet")
 
-    def test_modele_surcharge_nouvel_essai(self):
+    def test_modeles_gratuits_se_relaient(self):
         from unittest import mock
+        self.assertEqual(self.en.liste_modeles("a:free, b:free"), ["a:free", "b:free"])
+        self.assertEqual(self.en.liste_modeles("gratuits"), list(self.en.MODELES_GRATUITS))
         sec = {"cle": "geopolitique", "titre": "Géopolitique"}
         bon = "La question : un État peut-il encore rester souverain sans maîtriser ses données ? Les forces s'opposent, l'enjeu est concret."
         e = sj.sujet_vide(id="x", titre="Titre ?", rationnel="Ancien texte brûlant.")
-        reponses = [self.en.GenerationError("503 overloaded"), self.en.GenerationError("503 overloaded"),
-                    ({"rationnel": bon}, {"cost": 0.0})]
-        with mock.patch.object(self.en, "call_openrouter", side_effect=reponses) as appel, \
-                mock.patch.object(self.en.time, "sleep") as pause:
-            texte, _, _ = self.en.proposer_problematique(sec, e, "m", "k")
-        self.assertEqual(texte, bon)
-        self.assertEqual((appel.call_count, pause.call_count), (3, 2))
+        self.en._rotation[0] = 0
+        appeles = []
+
+        def faux(prompt, nom, cle, **kw):
+            appeles.append(nom)
+            if nom == "a:free":
+                raise self.en.GenerationError("503 overloaded")
+            return {"rationnel": bon}, {"cost": 0.0}
+
+        with mock.patch.object(self.en, "call_openrouter", side_effect=faux), mock.patch.object(self.en.time, "sleep") as pause:
+            texte, _, _ = self.en.proposer_problematique(sec, e, "a:free,b:free", "k")
+        self.assertEqual((texte, appeles, pause.call_count), (bon, ["a:free", "b:free"], 0))
+        # le sujet suivant commence par l'autre modèle (répartition de la charge)
+        appeles.clear()
+        with mock.patch.object(self.en, "call_openrouter", side_effect=faux):
+            self.en.proposer_problematique(sec, e, "a:free,b:free", "k")
+        self.assertEqual(appeles, ["b:free"])
+        # tous indisponibles : attentes puis abandon
         with mock.patch.object(self.en, "call_openrouter", side_effect=self.en.GenerationError("503")) as appel, \
-                mock.patch.object(self.en.time, "sleep"):
+                mock.patch.object(self.en.time, "sleep") as pause:
             with self.assertRaises(self.en.GenerationError):
-                self.en.proposer_problematique(sec, e, "m", "k")
-        self.assertEqual(appel.call_count, len(self.en.ATTENTES_NOUVEL_ESSAI) + 1)
+                self.en.proposer_problematique(sec, e, "a:free,b:free", "k")
+        self.assertEqual((appel.call_count, pause.call_count),
+                         (2 * (len(self.en.ATTENTES_NOUVEL_ESSAI) + 1), len(self.en.ATTENTES_NOUVEL_ESSAI)))
 
     def test_les_prompts_demandent_la_problematique(self):
         sec = {"cle": "geopolitique", "titre": "Géopolitique"}
