@@ -819,6 +819,24 @@ class ProblematiqueTest(unittest.TestCase):
         self.assertEqual((texte, brut), (bon, bon))
         self.assertEqual(e["rationnel"], "Ancien texte brûlant.", "proposer ne modifie pas le sujet")
 
+    def test_modele_surcharge_nouvel_essai(self):
+        from unittest import mock
+        sec = {"cle": "geopolitique", "titre": "Géopolitique"}
+        bon = "La question : un État peut-il encore rester souverain sans maîtriser ses données ? Les forces s'opposent, l'enjeu est concret."
+        e = sj.sujet_vide(id="x", titre="Titre ?", rationnel="Ancien texte brûlant.")
+        reponses = [self.en.GenerationError("503 overloaded"), self.en.GenerationError("503 overloaded"),
+                    ({"rationnel": bon}, {"cost": 0.0})]
+        with mock.patch.object(self.en, "call_openrouter", side_effect=reponses) as appel, \
+                mock.patch.object(self.en.time, "sleep") as pause:
+            texte, _, _ = self.en.proposer_problematique(sec, e, "m", "k")
+        self.assertEqual(texte, bon)
+        self.assertEqual((appel.call_count, pause.call_count), (3, 2))
+        with mock.patch.object(self.en, "call_openrouter", side_effect=self.en.GenerationError("503")) as appel, \
+                mock.patch.object(self.en.time, "sleep"):
+            with self.assertRaises(self.en.GenerationError):
+                self.en.proposer_problematique(sec, e, "m", "k")
+        self.assertEqual(appel.call_count, len(self.en.ATTENTES_NOUVEL_ESSAI) + 1)
+
     def test_les_prompts_demandent_la_problematique(self):
         sec = {"cle": "geopolitique", "titre": "Géopolitique"}
         e = sj.sujet_vide(id="x", titre="Titre ?", contexte="c" * 300)

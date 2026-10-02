@@ -31,6 +31,7 @@ import re
 import json
 import os
 import sys
+import time
 from datetime import date
 from pathlib import Path
 
@@ -143,11 +144,28 @@ n'utilise que ce qui figure dans le dossier ci-dessus. Pas de Markdown, pas de �
 Réponds UNIQUEMENT avec un JSON : {{"rationnel": "..."}}"""
 
 
+# Les modèles gratuits répondent souvent « Service temporarily overloaded » (503) : on réessaie
+# plusieurs fois, avec une attente croissante, avant de renoncer à ce sujet (2 octobre 2026 :
+# les 54 sujets d'un lot avaient tous échoué du premier coup).
+ATTENTES_NOUVEL_ESSAI = (20, 45, 90, 150)
+
+
+def _appeler_avec_reprises(prompt: str, model: str, api_key: str, **kwargs):
+    for attente in (*ATTENTES_NOUVEL_ESSAI, None):
+        try:
+            return call_openrouter(prompt, model, api_key, **kwargs)
+        except GenerationError as err:
+            if attente is None:
+                raise
+            print(f"  … modèle indisponible ({str(err)[:80]}), nouvel essai dans {attente} s", file=sys.stderr)
+            time.sleep(attente)
+
+
 def proposer_problematique(sec: dict, e: dict, model: str, api_key: str):
     """Demande au modèle une problématique pour ce sujet, sans rien modifier. Renvoie
     (texte conforme ou None, texte brut renvoyé, coût)."""
-    resultat, usage = call_openrouter(construire_prompt_reformulation(sec, e), model, api_key,
-                                      temperature=0.3, max_tokens=1500, timeout=120)
+    resultat, usage = _appeler_avec_reprises(construire_prompt_reformulation(sec, e), model, api_key,
+                                             temperature=0.3, max_tokens=1500, timeout=120)
     brut = (resultat or {}).get("rationnel") if isinstance(resultat, dict) else None
     brut = brut if isinstance(brut, str) else None
     return (brut.strip() if brut and problematique_valide(brut) else None), brut, usage.get("cost")
