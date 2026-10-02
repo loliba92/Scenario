@@ -809,6 +809,16 @@ class ProblematiqueTest(unittest.TestCase):
         self.assertFalse(ok2)
         self.assertEqual(e2["rationnel"], "Ce sujet est brûlant car tout bouge vite.", "texte non conforme : rien n'est écrasé")
 
+    def test_apercu_ne_modifie_rien(self):
+        from unittest import mock
+        sec = {"cle": "geopolitique", "titre": "Géopolitique"}
+        bon = "La question : un État peut-il encore rester souverain sans maîtriser ses données ? Les forces s'opposent, l'enjeu est concret."
+        e = sj.sujet_vide(id="x", titre="Titre ?", rationnel="Ancien texte brûlant.")
+        with mock.patch.object(self.en, "call_openrouter", return_value=({"rationnel": bon}, {"cost": 0.0})):
+            texte, brut, cout = self.en.proposer_problematique(sec, e, "m", "k")
+        self.assertEqual((texte, brut), (bon, bon))
+        self.assertEqual(e["rationnel"], "Ancien texte brûlant.", "proposer ne modifie pas le sujet")
+
     def test_les_prompts_demandent_la_problematique(self):
         sec = {"cle": "geopolitique", "titre": "Géopolitique"}
         e = sj.sujet_vide(id="x", titre="Titre ?", contexte="c" * 300)

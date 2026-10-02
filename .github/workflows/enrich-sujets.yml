@@ -25,6 +25,15 @@ on:
         type: boolean
         required: false
         default: false
+      apercu:
+        description: "Avec « reformuler » : afficher les textes proposés dans le journal, sans rien écrire (pour comparer des modèles)"
+        type: boolean
+        required: false
+        default: false
+      model:
+        description: "Modèle OpenRouter à utiliser (ex. nvidia/nemotron-3-ultra-550b-a55b:free) — vide = modèle par défaut du script"
+        required: false
+        default: ""
       registre:
         description: "Clé de section à cibler (geopolitique, actualite_francaise, economie, sciences, culture, sport, carte_blanche) — vide = tous"
         required: false
@@ -54,12 +63,21 @@ jobs:
           MAX: ${{ github.event.inputs.max }}
           REGISTRE: ${{ github.event.inputs.registre }}
           REFORMULER: ${{ github.event.inputs.reformuler }}
+          APERCU: ${{ github.event.inputs.apercu }}
+          MODEL: ${{ github.event.inputs.model }}
         run: |
           git config user.name "scenario-topics-bot"
           git config user.email "actions@users.noreply.github.com"
           ARGS="--max ${MAX:-10}"
           if [ -n "$REGISTRE" ]; then ARGS="$ARGS --registre $REGISTRE"; fi
           if [ "$REFORMULER" = "true" ]; then ARGS="$ARGS --reformuler"; fi
+          if [ "$APERCU" = "true" ]; then ARGS="$ARGS --apercu"; fi
+          if [ -n "$MODEL" ]; then
+            case "$MODEL" in
+              *[!A-Za-z0-9._:/-]*) echo "Nom de modèle invalide : $MODEL" >&2; exit 1 ;;
+            esac
+            ARGS="$ARGS --model $MODEL"
+          fi
           for attempt in 1 2 3; do
             echo "=== Essai $attempt/3 ==="
             git fetch origin main
