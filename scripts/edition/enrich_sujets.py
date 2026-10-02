@@ -241,8 +241,8 @@ def reformuler_un(sec: dict, e: dict, model: str, api_key: str, today: date):
 def enrichir_un(sec: dict, e: dict, model: str, api_key: str, today: date):
     """Appelle le modèle et applique le résultat au sujet. Renvoie (champs complétés, coût)."""
     tools = [{"type": "openrouter:web_search", "parameters": {"engine": "auto", "max_results": 6}}]
-    resultat, usage = call_openrouter(construire_prompt(sec, e, today), model, api_key,
-                                      temperature=0.3, max_tokens=4000, timeout=240, tools=tools)
+    resultat, usage = _appeler_avec_reprises(construire_prompt(sec, e, today), model, api_key,
+                                             temperature=0.3, max_tokens=8000, timeout=240, tools=tools)
     return appliquer_resultat(e, resultat, usage.get("cited_urls"), today), usage.get("cost")
 
 
@@ -346,12 +346,15 @@ def main(argv=None) -> int:
             sj.save_both(data)
         print(f"\nBILAN : {traites} réécrite(s), {echecs} à refaire, sur {total} (coût OpenRouter ≈ {cout:.3f} $).", flush=True)
         return 0
-    for sec, e in lot:
+    total = len(lot)
+    for n, (sec, e) in enumerate(lot, 1):
+        debut = time.time()
+        print(f"\n[{n}/{total}] {sec['cle']} — {e['titre']}", flush=True)
         try:
             faits, c = enrichir_un(sec, e, args.model, api_key, today)
         except GenerationError as err:
             echecs += 1
-            print(f"  ✗ {e['id'][:60]} : {err}", file=sys.stderr)
+            print(f"  ✗ ÉCHEC, rien modifié : {err}", flush=True)
             continue
         cout += float(c or 0)
         reste = sj.manquants(e)
@@ -359,8 +362,12 @@ def main(argv=None) -> int:
             traites += 1
         else:
             echecs += 1
-        print(f"  {'✓' if faits and not reste else '·'} {e['id'][:60]} : complété {faits or '—'}"
-              + (f" ; manque encore {reste}" if reste else ""))
+        duree = time.time() - debut
+        if faits:
+            print(f"  {'✓ COMPLET' if not reste else '· PARTIEL'} avec {_dernier_modele[0]} en {duree:.0f} s : complété {faits}"
+                  + (f" ; manque encore {reste}" if reste else ""), flush=True)
+        else:
+            print(f"  ✗ RIEN D'UTILISABLE ({_dernier_modele[0]}, {duree:.0f} s), rien modifié", flush=True)
 
     if traites or action != "ok":
         sj.save_both(data)
