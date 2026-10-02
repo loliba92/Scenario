@@ -31,6 +31,7 @@ import re
 import json
 import os
 import sys
+import time
 from datetime import date
 from pathlib import Path
 
@@ -143,11 +144,53 @@ n'utilise que ce qui figure dans le dossier ci-dessus. Pas de Markdown, pas de �
 Réponds UNIQUEMENT avec un JSON : {{"rationnel": "..."}}"""
 
 
+# Modèles gratuits OpenRouter qui se relaient (mot-clé « gratuits » pour --model). Chacun est
+# souvent « temporarily overloaded » (503) ou limité en débit : on garde celui qui marche et on
+# passe au suivant quand il échoue.
+MODELES_GRATUITS = (
+    "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "nvidia/nemotron-3-super-120b-a12b:free",
+    "thinkingmachines/inkling:free",
+    "google/gemma-4-31b-it:free",
+    "qwen/qwen3.8-27b:free",
+    "google/gemma-4-26b-a4b-it:free",
+)
+# Attente entre deux tours complets de la liste (tous les modèles ont échoué).
+ATTENTES_NOUVEL_ESSAI = (20, 45, 90)
+# Modèle en cours : on le garde tant qu'il répond, on passe au suivant dès qu'il échoue.
+_courant = [0]
+
+
+def liste_modeles(model: str) -> list[str]:
+    """« a,b,c » -> [a, b, c] ; « gratuits » -> MODELES_GRATUITS."""
+    noms: list[str] = []
+    for nom in (model or "").split(","):
+        nom = nom.strip()
+        noms.extend(MODELES_GRATUITS if nom == "gratuits" else [nom] if nom else [])
+    return noms or [HOT_TOPICS_MODEL]
+
+
+def _appeler_avec_reprises(prompt: str, model: str, api_key: str, **kwargs):
+    modeles = liste_modeles(model)
+    for attente in (*ATTENTES_NOUVEL_ESSAI, None):
+        for _ in range(len(modeles)):
+            i = _courant[0] % len(modeles)
+            try:
+                return call_openrouter(prompt, modeles[i], api_key, **kwargs)
+            except GenerationError as err:
+                print(f"  … {modeles[i]} indisponible ({str(err)[:70]}), passage au suivant", file=sys.stderr)
+                _courant[0] = i + 1
+        if attente is None:
+            raise GenerationError(f"aucun des {len(modeles)} modèle(s) n'a répondu")
+        print(f"  … nouvel essai dans {attente} s", file=sys.stderr)
+        time.sleep(attente)
+
+
 def proposer_problematique(sec: dict, e: dict, model: str, api_key: str):
     """Demande au modèle une problématique pour ce sujet, sans rien modifier. Renvoie
     (texte conforme ou None, texte brut renvoyé, coût)."""
-    resultat, usage = call_openrouter(construire_prompt_reformulation(sec, e), model, api_key,
-                                      temperature=0.3, max_tokens=1500, timeout=120)
+    resultat, usage = _appeler_avec_reprises(construire_prompt_reformulation(sec, e), model, api_key,
+                                             temperature=0.3, max_tokens=1500, timeout=120)
     brut = (resultat or {}).get("rationnel") if isinstance(resultat, dict) else None
     brut = brut if isinstance(brut, str) else None
     return (brut.strip() if brut and problematique_valide(brut) else None), brut, usage.get("cost")
