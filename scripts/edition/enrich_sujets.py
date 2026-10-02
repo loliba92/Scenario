@@ -165,6 +165,8 @@ PAUSE_LIMITE_DEBIT = 60
 PAUSE_PANNE = 30
 MAX_ATTENTES = 3
 _courant = [0]
+_dernier_modele = [""]  # modèle qui a répondu au dernier appel (pour le journal)
+_dernier_brut = [None]  # dernier texte renvoyé (pour le journal)
 _indisponible: dict[str, float] = {}
 
 
@@ -206,6 +208,7 @@ def _appeler_avec_reprises(prompt: str, model: str, api_key: str, **kwargs):
         try:
             resultat = call_openrouter(prompt, nom, api_key, **kwargs)
             _courant[0] = modeles.index(nom)
+            _dernier_modele[0] = nom
             return resultat
         except GenerationError as err:
             _indisponible[nom] = _jusqu_a(err)
@@ -220,6 +223,7 @@ def proposer_problematique(sec: dict, e: dict, model: str, api_key: str):
                                              temperature=0.3, max_tokens=6000, timeout=180)
     brut = (resultat or {}).get("rationnel") if isinstance(resultat, dict) else None
     brut = brut if isinstance(brut, str) else None
+    _dernier_brut[0] = brut
     return (brut.strip() if brut and problematique_valide(brut) else None), brut, usage.get("cost")
 
 
@@ -258,6 +262,7 @@ def appliquer_resultat(e: dict, resultat: dict, cited_urls, today: date) -> list
 
 
 def main(argv=None) -> int:
+    sys.stdout.reconfigure(line_buffering=True)  # journal lisible en direct (sinon tout arrive à la fin)
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--max", type=int, default=MAX_PAR_DEFAUT, help="nombre maximum de sujets traités")
     ap.add_argument("--registre", default=None, help="clé de section (ex. culture) ; défaut : tous")
@@ -316,20 +321,30 @@ def main(argv=None) -> int:
         print(f"\n{traites}/{len(lot)} texte(s) conforme(s) au format (coût OpenRouter ≈ {cout:.3f} $). Rien n'a été écrit.")
         return 0
     if args.reformuler:
-        for sec, e in lot:
+        total = len(lot)
+        for n, (sec, e) in enumerate(lot, 1):
+            debut = time.time()
+            print(f"\n[{n}/{total}] {sec['cle']} — {e['titre']}", flush=True)
+            _dernier_brut[0] = None
             try:
                 ok, c = reformuler_un(sec, e, args.model, api_key, today)
             except GenerationError as err:
                 echecs += 1
-                print(f"  ✗ {e['id'][:60]} : {err}", file=sys.stderr)
+                print(f"  ✗ ÉCHEC, rien modifié : {err}", flush=True)
                 continue
             cout += float(c or 0)
             traites += 1 if ok else 0
             echecs += 0 if ok else 1
-            print(f"  {'✓' if ok else '·'} {e['id'][:60]} : problématique {'réécrite' if ok else 'inchangée (format non respecté)'}")
+            duree = time.time() - debut
+            if ok:
+                print(f"  ✓ RÉUSSI avec {_dernier_modele[0]} en {duree:.0f} s", flush=True)
+                print(f"    {e['rationnel'][:160]}…", flush=True)
+            else:
+                extrait = (_dernier_brut[0] or "(texte vide)")[:160]
+                print(f"  ✗ FORMAT NON RESPECTÉ ({_dernier_modele[0]}, {duree:.0f} s), rien modifié : {extrait}", flush=True)
         if traites:
             sj.save_both(data)
-        print(f"\n{traites} problématique(s) réécrite(s), {echecs} inchangée(s) ou en échec (coût OpenRouter ≈ {cout:.3f} $).")
+        print(f"\nBILAN : {traites} réécrite(s), {echecs} à refaire, sur {total} (coût OpenRouter ≈ {cout:.3f} $).", flush=True)
         return 0
     for sec, e in lot:
         try:
