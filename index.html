@@ -2202,6 +2202,31 @@
     gap: 10px;
     color: var(--paper);
   }
+  /* Mobile : l'essentiel de l'édition du jour (titre + problématique + « Lire ») doit tenir dans le
+     premier écran, sans défiler (retour utilisateur du 2 octobre 2026 : sur téléphone, il fallait
+     scroller pour lire de quoi parlait l'édition). Gains : image 16/9 au lieu de 4/3 (~-70 px),
+     bandeau d'en-tête plus compact (~-28 px), espacements resserrés. Placé en fin de feuille pour
+     l'emporter sur les règles « UX/UI Enhancements » ci-dessus (même spécificité). */
+  @media (max-width: 720px){
+    header.masthead{ padding: 14px 0 12px; }
+    section.featured-article .section-label{ margin-bottom: 8px; }
+    .featured-article-link{ gap: 14px; }
+    .featured-article-image-wrap{ aspect-ratio: 16 / 9; }
+    .featured-article-date{ margin-bottom: 6px; }
+    .featured-article-title{ font-size: clamp(1.4rem, 6.4vw, 1.75rem); line-height: 1.15; }
+    .featured-article-question{ font-size: 0.98rem; line-height: 1.5; margin-top: 8px; }
+    .featured-article-cta{ margin-top: 10px; }
+  }
+  /* Petits écrans (hauteur utile < 700 px) : image encore plus basse pour garder le texte visible. */
+  @media (max-width: 720px) and (max-height: 700px){
+    .featured-article-image-wrap{ aspect-ratio: 2 / 1; }
+    .featured-article-question{
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
 </style>
 </head>
 <body>
