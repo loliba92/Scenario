@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "cc6e61199d0655e84b0e93cf65abcef64d36f7e1310d57052ac94cb983b37751"
+    "md_sha256": "4c0140977ce4d4cd893d3d6ff86b782844d5a7d01c3bad18e7448c2448f0a36e"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -1115,19 +1115,45 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Fonte de l'Arctique, nouvelles routes maritimes navigables, terres rendues inhabitables, déplacements de population à grande échelle : les frontières géopolitiques de 2050 seront-elles vraiment celles que nous connaissons aujourd'hui ?",
-          "rationnel": null,
+          "rationnel": "Ce sujet est brûlant d'actualité car trois dynamiques convergent en 2026 : la fonte accélérée de l'Arctique rend les routes maritimes commercialement viables (le NSR vise 40 Mt de fret en 2026), les revendications de plateau continental s'intensifient avec des dépôts russes amendés jusqu'en mars 2026, et l'OTAN vient de lancer Arctic Sentry et de déployer des forces en Finlande. L'issue reste ouverte car les trois grandes puissances arctiques (Russie, Canada, Danemark) ont des revendications qui se chevauchent massivement sans mécanisme de règlement contraignant, tandis que les négociations bilatérales n'ont pas commencé. Par ailleurs, les migrations climatiques pourraient redessiner des centaines de frontières de fait d'ici 2050, mais l'ampleur exacte (44 à 216 millions de personnes) dépend des choix politiques actuels. Pour un lecteur français, l'enjeu est double : la France est membre de l'OTAN et concernée par la sécurité européenne dans le Grand Nord, et les flux migratoires climatiques toucheront aussi l'Europe.",
           "angle": null,
           "a_verifier": "État des revendications arctiques à l'ONU (Commission des limites du plateau continental), trafic maritime réel sur les nouvelles routes arctiques, projections de zones inhabitables et déplacements associés (GIEC, sources désagrégées par région)",
-          "mots_cles": [],
+          "mots_cles": [
+            "Commission des limites du plateau continental ONU Arctique",
+            "Northern Sea Route trafic 2025 2026 transit",
+            "revendications Russie Canada Danemark Lomonosov Ridge",
+            "Arctic Sentry OTAN 2026",
+            "migrations climatiques 2050 projections GIEC Banque mondiale",
+            "zones inhabitables chaleur extrême seuil habitabilité",
+            "Groenland indépendance Danemark États-Unis sécurité",
+            "climate migration internal displacement 2050 projections"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "Main Results of NSR Transit Navigation in 2025 - CHNL",
+              "url": "https://chnl.no/news/main-results-of-nsr-transit-navigation-in-2025/"
+            },
+            {
+              "titre": "Arctic security - NATO Topic",
+              "url": "https://www.nato.int/en/what-we-do/deterrence-and-defence/arctic-security"
+            },
+            {
+              "titre": "The Continental Shelf in the Arctic Ocean - Cambridge / AJIL",
+              "url": "https://www.cambridge.org/core/journals/american-journal-of-international-law/article/continental-shelf-in-the-arctic-ocean/4C5B5917E396AB3CD135CDC14594E857"
+            },
+            {
+              "titre": "Evidence Summary on Climate Change and the Future of Human Mobility - IOM",
+              "url": "https://environmentalmigration.iom.int/sites/g/files/tmzbdl1411/files/documents/IOM%20Global%20Data%20Institute%20Thematic%20Brief%20%231%20-%20Evidence%20Summary%20on%20Climate%20Change%20and%20the%20Future%20of%20Human%20Mobility.pdf"
+            }
+          ],
           "origine": null,
           "note": "Terrain réel et déjà documenté (revendications concurrentes de plateau continental arctique entre Russie/Canada/Danemark auprès de l'ONU, ouverture progressive de la route maritime du Nord, tensions militaires croissantes dans le Grand Nord)",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -1138,16 +1164,28 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Entre élections législatives russes et menaces hybrides sur la Pologne, l'escalade avec l'OTAN est-elle inévitable ?",
-          "rationnel": null,
+          "rationnel": "Ce sujet est brûlant car la séquence électorale russe vient de s'achever et, loin d'apaiser les tensions, elle a été suivie d'une escalade inédite : violation d'espace aérien polonais, menace nucléaire explicite sur Kaliningrad, et durcissement des règles d'engagement polonaises. L'issue reste ouverte car deux dynamiques contraires s'affrontent : d'un côté, Poutine semble tester les limites de l'OTAN sans déclencher l'article 5 ; de l'autre, la Pologne et les États baltes durcissent leur posture, tandis que l'OTAN condamne la « rhétorique nucléaire irresponsable » sans modifier son dispositif. Pour un lecteur français, l'enjeu est direct : la France est membre de l'OTAN, liée par l'article 5, et toute escalade impliquant la Pologne ou les pays baltes engagerait sa sécurité, dans un contexte où les États-Unis se désengagent progressivement de l'Europe.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Chiffrer précisément les pertes territoriales ukrainiennes nettes de septembre (ISW indique +80 km² net pour Kiev). Vérifier si la quatrième phase de l'opération Vivaldi a débuté. Confirmer la date exacte de la note diplomatique russe à l'OTAN (29 ou 30 septembre).",
+          "mots_cles": [
+            "Pologne hélicoptère Mi-8 intrusion espace aérien Braniewo 23 septembre 2026",
+            "Poutine menace nucléaire Kaliningrad forum Valdaï 1er octobre 2026",
+            "OTAN article 5 Pologne Russie guerre hybride",
+            "élections législatives russes septembre 2026 Russie Unie 57%",
+            "Pologne assouplissement règles engagement défense aérienne octobre 2026",
+            "opération Vivaldi Ukraine contre-offensive Donbass septembre 2026",
+            "Russie note diplomatique OTAN Kaliningrad arsenal nucléaire",
+            "Donald Tusk frappes hybrides drones missiles Pologne OTAN"
+          ],
           "scenarios": {
             "favorable": "Les élections législatives russes se déroulent sans incident majeur. Poutine, conforté mais prudent, évite l'escalade directe avec l'OTAN. Les mises en garde polonaises restent préventives et n'aboutissent pas à des frappes. Le front ukrainien reste stable",
             "stable": "Les provocations hybrides russes se multiplient (cyberattaques, survols, incidents en mer Baltique) sans déclencher l'article 5. L'OTAN renforce sa présence en Europe de l'Est. La guerre d'usure en Ukraine se poursuit sans percée décisive",
             "degrade": "Une frappe « accidentelle » russe touche un village polonais ou un navire de l'OTAN. L'Alliance atlantique convoque une réunion d'urgence. Les tensions montent au niveau d'une confrontation directe, sans nécessairement déclencher une guerre ouverte, mais avec une mobilisation militaire généralisée"
           },
-          "echeance": null,
+          "echeance": {
+            "date": "2026-11-05",
+            "raison": "Prochaine réunion du Conseil OTAN-Russie ou prochain cycle d'exercices militaires en Baltique — à surveiller pour une possible escalade ou désescalade."
+          },
           "sources": [
             {
               "titre": "La Dépêche (18.09.2026)",
@@ -1167,7 +1205,7 @@
           "ajoute_le": "2026-09-18",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         }
       ]
     },
@@ -2532,20 +2570,49 @@
           "tag": "emploi & industrie",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Après des décennies de désindustrialisation, la France mène depuis 2017 une politique volontariste de réindustrialisation (France 2030, crédit d'impôt industrie verte, Choose France). En 2025, le baromètre industriel de l'État affiche un solde net positif de +19 sites (ouvertures + extensions), mais en fort ralentissement par rapport à 2024 (+88). Selon le cabinet Trendeo, le solde net d'usines est tombé à -63 en 2025 et à -40 au premier semestre 2026 (51 ouvertures pour 91 fermetures), soit le pire premier semestre depuis 2013. Parallèlement, Bpifrance recense 101 inaugurations de sites au S1 2026 (contre 136 au S1 2025), avec un solde ouvertures/fermetures qui s'équilibre à zéro. L'industrie manufacturière représente environ 10 % du PIB et 2,84 millions d'emplois salariés en 2025, loin de l'objectif des 15 % du PIB. Les secteurs verts, la défense et l'électronique tirent la dynamique, tandis que l'agroalimentaire, l'automobile, la métallurgie et la chimie conventionnelle sont en difficulté face à la concurrence chinoise et aux tensions commerciales.",
+          "rationnel": "Ce sujet est brûlant car les derniers chiffres du S1 2026 (Trendeo, Bpifrance, Baromètre de l'État) montrent un paradoxe : la France attire des investissements records (209,6 Mds€ annoncés au S1 2026) mais le solde net d'usines se dégrade, et l'emploi industriel ne progresse que faiblement (+5 500 postes). L'issue reste ouverte car deux forces contraires s'affrontent : d'un côté, une politique publique volontariste et des annonces d'investissements massifs (data centers, énergie, IA, défense) ; de l'autre, une accélération des fermetures dans les secteurs traditionnels, une concurrence asiatique exacerbée et des tensions commerciales (droits de douane américains, surcapacités chinoises). Pour le lecteur français, l'enjeu est direct : la réindustrialisation déterminera la souveraineté économique, l'emploi industriel dans les territoires et la capacité à financer la transition écologique.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Chiffres exacts du baromètre industriel de l'État pour le S1 2026 (non encore publiés à date) ; impact précis du MACF (mécanisme d'ajustement carbone aux frontières) entré en vigueur le 1er janvier 2026 ; données actualisées du taux de chômage et de l'emploi industriel T3 2026.",
+          "mots_cles": [
+            "réindustrialisation France 2026",
+            "baromètre industriel État 2026",
+            "Trendeo solde usines 2026",
+            "Bpifrance observatoire industrie 2026",
+            "France 2030 usines",
+            "emploi industriel France 2026",
+            "Choose France investissements",
+            "désindustrialisation concurrence chinoise"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2027-06-30",
+            "raison": "Prochaine échéance majeure : le plan Bpifrance Industrie 2026-2030 prévoit des objectifs semestriels ; le baromètre industriel de l'État est publié semestriellement (prochain : S2 2026, attendu début 2027)."
+          },
+          "sources": [
+            {
+              "titre": "Baromètre industriel de l'État 2025 — entreprises.gouv.fr",
+              "url": "https://www.entreprises.gouv.fr/espace-presse/barometre-industriel-de-letat-en-2025-les-extensions-dusines-portent-la"
+            },
+            {
+              "titre": "Observatoire Industrie Bpifrance S1 2026",
+              "url": "https://www.banquedesterritoires.fr/sites/default/files/2026-07/2026%2007%2028%20Observatoire%20Industrie%20Bpifrance%202026%20S1.pdf"
+            },
+            {
+              "titre": "Industrie : l'emploi remonte mais le pays perd toujours des usines — La Tribune",
+              "url": "https://www.latribune.fr/article/entreprises-finance/industrie/60506239948186/industrie-lemploi-remonte-en-france-mais-le-pays-perd-toujours-des-usines-malgre-des-investissements-records"
+            },
+            {
+              "titre": "Portrait de l'industrie manufacturière française en 2025 — France Industrie",
+              "url": "https://www.franceindustrie.org/app/uploads/2026/07/Portrait_industrie_manufacturiere_2025_vf.pdf"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -2555,20 +2622,49 @@
           "tag": "agriculture",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "L'agriculture française sort exsangue de l'été 2026, marqué par trois canicules successives et une sécheresse historique ayant touché 95 départements, dont 79 classés en « crise ». La température moyenne de juillet 2026 (24,9 °C) a dépassé les records de 2003 et 1976. Les pertes agricoles sont massives : production de maïs en baisse de 35 % (plus bas niveau depuis 1980), pommes de terre -23 % (plus faible rendement en 30 ans), betterave sucrière -20 %, et jusqu'à 50 à 70 % de pertes sur le maïs non irrigué dans certaines régions. Plus de 3 millions de volailles de chair et 700 000 poules pondeuses sont mortes. La FNSEA évalue les pertes totales à environ 10 milliards d'euros. En réponse, le gouvernement a débloqué le 4 septembre 2026 un plan d'urgence CASI (Climat, Adaptation, Sécheresse, Incendie) de 1,3 milliard d'euros, comprenant 520 millions d'indemnisations ISN, 235 millions pour un fonds de réarmement agricole, et 355 millions de dégrèvements de taxe foncière. Parallèlement, la loi d'urgence pour la protection et la souveraineté agricoles a été promulguée le 18 août 2026, avec 55 articles visant à simplifier les normes, faciliter le stockage d'eau (objectif de doublement d'ici 2035) et renforcer la souveraineté alimentaire. La ministre Annie Genevard a annoncé préparer un plan de rebond pour la fin 2026, mais le projet de loi de finances 2027 présenté le 1er octobre est jugé « pas à la hauteur des enjeux » par la FNSEA et les Jeunes Agriculteurs, qui déplorent l'absence de mesures structurelles pour l'agroécologie et l'adaptation climatique.",
+          "rationnel": "Ce sujet est brûlant d'actualité car l'été 2026 a agi comme un révélateur : le modèle agricole français, conçu pour un climat tempéré, est percuté de plein fouet par le dérèglement climatique. L'issue reste ouverte car deux logiques s'affrontent : d'un côté, la tentation de la compensation à court terme (indemnisation des pertes sans changer le modèle), dénoncée par le chercheur François Gemenne comme un risque de « remettre l'ouvrage sur le métier à l'identique » ; de l'autre, la nécessité d'une transformation structurelle (diversification des cultures, agroécologie, autonomie protéique, stockage d'eau) portée par des organisations comme le collectif Nourrir et une partie des syndicats. Pour le lecteur français, l'enjeu est double : sa sécurité alimentaire (la France perd sa souveraineté si le modèle s'effondre) et le coût pour la collectivité (entre indemnisation des crises à répétition et investissement dans un modèle résilient).",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Montant exact du budget agriculture 2027 dans le PLF présenté le 1er octobre ; contenu précis du plan de rebond annoncé par Genevard pour fin 2026 ; chiffres définitifs des pertes par filière (viticulture, arboriculture) ; position précise des candidats à la présidentielle 2027 sur le modèle agricole.",
+          "mots_cles": [
+            "canicule sécheresse agriculture France été 2026",
+            "plan CASI 1,3 milliard euros",
+            "loi souveraineté agricole 18 août 2026",
+            "Annie Genevard ministre agriculture",
+            "FNSEA Arnaud Rousseau",
+            "pertes récoltes maïs blé pomme de terre 2026",
+            "transition agroécologique modèle agricole",
+            "souveraineté alimentaire France"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-12-31",
+            "raison": "Annonce du plan de rebond de l'agriculture française promise par la ministre Annie Genevard avant la fin 2026, et vote du budget 2027 qui déterminera les moyens alloués à la transformation du modèle agricole."
+          },
+          "sources": [
+            {
+              "titre": "Plus d'1 milliard d'euros débloqués par le Gouvernement pour soutenir les agriculteurs (ministère Agriculture)",
+              "url": "https://agriculture.gouv.fr/plus-d1-milliard-deuros-debloques-par-le-gouvernement-pour-soutenir-les-agriculteurs-et-la"
+            },
+            {
+              "titre": "Loi d'urgence pour la protection et la souveraineté agricoles promulguée (ministère Agriculture)",
+              "url": "https://agriculture.gouv.fr/loi-durgence-pour-la-protection-et-la-souverainete-agricoles-promulguee-par-le-president-de-la"
+            },
+            {
+              "titre": "Crise agricole : l'enjeu c'est d'avoir des financements qui permettent au modèle d'évoluer (franceinfo)",
+              "url": "https://www.franceinfo.fr/economie/emploi/metiers/agriculture/crise-agricole-l-enjeu-c-est-d-avoir-des-financements-qui-permettent-au-modele-d-evoluer-structurellement-pas-uniquement-de-compenser-les-pertes-de-cette-annee-pointe-le-chercheur-francois-gemenne_8176748.html"
+            },
+            {
+              "titre": "Agriculture : ces pistes pour adapter les exploitations françaises au changement climatique (TF1 Info)",
+              "url": "https://www.tf1info.fr/economie/agriculture-ces-pistes-pour-adapter-les-exploitations-francaises-au-changement-climatique-2467645.html"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -3326,20 +3422,49 @@
           "tag": "climat & écologie",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Le 2 septembre 2026, le Programme des Nations unies pour l'environnement (PNUE) a publié le rapport « Limiting Overshoot », actant que le seuil de +1,5°C fixé par l'accord de Paris sera franchi dans les prochaines années. Le réchauffement d'origine humaine a atteint 1,37°C en 2025 selon le CNRS, et le budget carbone restant pour une chance sur deux de rester sous 1,5°C n'est plus que de 130 GtCO₂, épuisable avant 2030 au rythme actuel. Les émissions mondiales de CO₂ liées à l'énergie ont atteint un nouveau record de 38,4 Gt en 2025 (AIE), mais la croissance ralentit (+0,4 %). En France, l'été 2026 a été le plus chaud jamais enregistré (Météo-France), avec 53 jours de vagues de chaleur, une sécheresse des sols inédite et plus de 116 000 hectares brûlés. La COP31 se tiendra à Antalya du 9 au 20 novembre 2026, dans un contexte de « Super El Niño » annoncé comme potentiellement le plus fort depuis un millénaire par l'OMM.",
+          "rationnel": "Ce sujet est au cœur de l'actualité immédiate : le rapport PNUE de septembre 2026 a brisé le tabou du dépassement de 1,5°C, tandis que la COP31 d'Antalya (novembre 2026) doit traduire cette nouvelle donne en actions concrètes. L'issue reste profondément ouverte car des forces contraires s'affrontent : d'un côté, les émissions mondiales continuent de croître et le réchauffement s'accélère (+0,27°C/décennie) ; de l'autre, les renouvelables progressent, la Chine et les États-Unis ont vu leurs émissions baisser légèrement au premier semestre 2026, et le PNUE dessine une trajectoire de retour sous 1,5°C d'ici 2100 via des émissions nettes négatives. Pour un lecteur français, l'enjeu est direct : l'été 2026 a montré les conséquences concrètes du dérèglement (canicules records, sécheresse, incendies, restrictions d'eau, production nucléaire perturbée) et la question des choix d'adaptation et de réduction des émissions devient existentielle.",
           "angle": null,
           "a_verifier": null,
-          "mots_cles": [],
+          "mots_cles": [
+            "PNUE Limiting Overshoot 2026",
+            "COP31 Antalya novembre 2026",
+            "budget carbone 130 GtCO₂",
+            "réchauffement 1,37°C 2025 CNRS",
+            "émissions CO2 38,4 Gt 2025 AIE",
+            "canicule France été 2026 Météo-France",
+            "Super El Niño 2026 OMM",
+            "Climate TRACE émissions 2026"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-11-09",
+            "raison": "Ouverture de la COP31 à Antalya (Turquie), du 9 au 20 novembre 2026, première conférence climat depuis le rapport PNUE actant le dépassement de 1,5°C."
+          },
+          "sources": [
+            {
+              "titre": "UNEP : World set to cross 1.5°C global warming, but can still limit, adapt and return (2 sept. 2026)",
+              "url": "https://www.unep.org/news-and-stories/press-release/unep-world-set-cross-15degc-global-warming-can-still-limit-adapt-and"
+            },
+            {
+              "titre": "CNRS : La Terre accumule de la chaleur à un rythme sans précédent – réchauffement à 1,37°C en 2025",
+              "url": "https://www.cnrs.fr/fr/presse/la-terre-accumule-de-la-chaleur-un-rythme-sans-precedent-le-rechauffement-planetaire"
+            },
+            {
+              "titre": "Météo-France : Bilan climatique de l'été 2026 – l'été le plus chaud jamais enregistré",
+              "url": "https://meteofrance.com/presse/bilan-climatique-de-lete-2026-juin-juillet-aout"
+            },
+            {
+              "titre": "IEA : Global Energy Review 2026 – CO2 emissions",
+              "url": "https://www.iea.org/reports/global-energy-review-2026/co2-emissions"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -3349,20 +3474,49 @@
           "tag": "climat & écologie",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "L'eau s'impose comme un enjeu géopolitique majeur à travers plusieurs crises simultanées. Au Moyen-Orient, en mars 2026, des usines de dessalement ont été ciblées par des frappes de drones en Iran et à Bahreïn, marquant une première dans l'histoire des pays du Golfe où ces infrastructures vitales fournissent jusqu'à 90% de l'eau potable (Koweït) et 70% en Arabie saoudite. En Asie du Sud, l'Inde a suspendu en avril 2025 le traité des eaux de l'Indus (1960) après l'attentat de Pahalgam, et le ministre indien de l'Eau a confirmé en juin 2026 vouloir priver le Pakistan de l'eau des fleuves, ce qu'Islamabad qualifie d'acte de guerre. En Afrique, les tensions persistent entre l'Égypte et l'Éthiopie autour du barrage de la Renaissance sur le Nil, inauguré en septembre 2025. Parallèlement, l'OMM a publié en septembre 2026 un rapport indiquant que 2025 a été l'une des années les plus sèches depuis 35 ans en termes de débit fluvial, avec une perte de masse glaciaire cumulée de 1 400 gigatonnes entre 2023 et 2025. En France, l'été 2026 est marqué par une sécheresse précoce et sévère, avec près de 9 800 communes sous restriction fin août.",
+          "rationnel": "Le sujet est brûlant car plusieurs bascules géopolitiques se produisent simultanément : la militarisation des infrastructures hydriques au Moyen-Orient (frappes sur des usines de dessalement), la remise en cause du traité de l'Indus entre deux puissances nucléaires, et l'aggravation du stress hydrique mondial documentée par l'OMM en septembre 2026. L'issue reste ouverte car aucune de ces crises n'est résolue : le droit international protège théoriquement ces infrastructures (Statut de Rome), mais les précédents d'attaques se multiplient sans réponse judiciaire claire. Pour un lecteur français, l'enjeu est double : la sécheresse de 2026 rappelle la vulnérabilité locale de la ressource, tandis que les tensions internationales sur l'eau pourraient affecter les approvisionnements alimentaires et les prix, la France étant dépendante d'importations agricoles venues de régions sous stress hydrique.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Chiffre exact du nombre de communes françaises sous restriction fin septembre 2026 ; statut précis des négociations sur le Nil après les accusations de septembre 2026 ; évolution des capacités de stockage indiennes sur les rivières occidentales de l'Indus.",
+          "mots_cles": [
+            "géopolitique de l'eau",
+            "stress hydrique 2026",
+            "traité de l'Indus Inde Pakistan",
+            "usine de dessalement attaque drone",
+            "barrage de la Renaissance Nil",
+            "sécheresse France 2026 restrictions",
+            "eau arme de guerre",
+            "water scarcity geopolitics 2026"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2027-03-22",
+            "raison": "Journée mondiale de l'eau, date de publication du prochain rapport mondial des Nations unies sur le développement des ressources en eau (WWDR)"
+          },
+          "sources": [
+            {
+              "titre": "L'Egypte hausse le ton face à l'Ethiopie sur le partage des eaux du Nil",
+              "url": "https://www.lemonde.fr/afrique/article/2026/09/30/l-egypte-hausse-le-ton-face-a-l-ethiopie-sur-le-partage-des-eaux-du-nil_6786058_3212.html"
+            },
+            {
+              "titre": "Inde-Pakistan: un tribunal international maintient un traité de partage des eaux",
+              "url": "https://www.rfi.fr/fr/asie-pacifique/20260831-inde-pakistan-un-tribunal-international-maintient-un-trait%C3%A9-de-partage-des-eaux"
+            },
+            {
+              "titre": "Guerre au Moyen-Orient: les usines de dessalement de l'eau, des infrastructures vitales et sensibles",
+              "url": "https://www.rfi.fr/fr/moyen-orient/20260308-guerre-au-moyen-orient-les-usines-de-dessalement-de-l-eau-des-infrastructures-vitales-et-sensibles"
+            },
+            {
+              "titre": "OMM: Les tendances hydrologiques récentes ont de graves implications pour l'avenir",
+              "url": "https://wmo.int/fr/news/media-centre/omm-les-tendances-hydrologiques-recentes-ont-de-graves-implications-pour-lavenir"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -4250,19 +4404,48 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Quand une chanson, une image, une voix ou un scénario devient indiscernable d'une création humaine, qu'est-ce qui donne encore de la valeur à l'original ?",
-          "rationnel": null,
+          "rationnel": "Ce sujet est brûlant d'actualité car l'affaire Thélyson Orélien (septembre 2026) a créé un précédent en France : pour la première fois, un roman présélectionné pour le Goncourt est publiquement accusé d'être généré par IA, brisant le tabou dans l'édition et obligeant le milieu à réagir. L'issue reste ouverte car aucune solution consensuelle n'émerge : les détecteurs d'IA (Pangram, Lucide.ai) sont contestés pour leur fiabilité, les labels 'fait humain' se multiplient sans cadre légal, et le CSPLA lui-même reconnaît que la charge de la preuve de l'originalité humaine est le problème central non résolu. Pour un lecteur français, l'enjeu est direct : le contrat de confiance avec l'œuvre (livre, musique, image) est fragilisé, et chacun peut devenir 'détective textuel' sans disposer d'outils fiables pour trancher.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Vérifier si Thélyson Orélien a finalement apporté des preuves de son travail manuscrit (il disait constituer un dossier fin septembre 2026). Préciser le nombre exact d'éditeurs français ayant adopté une clause IA dans leurs contrats. Chiffrer la part des Français qui déclarent ne plus faire confiance à l'authenticité d'une œuvre culturelle (sondage à trouver).",
+          "mots_cles": [
+            "Thélyson Orélien",
+            "Balance ton Claude",
+            "C'était ça ou mourir",
+            "Pangram détecteur IA",
+            "label fait humain",
+            "CSPLA rapport IA juillet 2026",
+            "Deezer 44% titres IA",
+            "Xania Monet Tilly Norwood"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-10-15",
+            "raison": "La rentrée littéraire 2026 s'achève fin octobre ; les sélections des prix (Goncourt, Renaudot) sont en cours et la polémique Orélien pourrait rebondir avec de nouvelles révélations ou une prise de parole de l'auteur."
+          },
+          "sources": [
+            {
+              "titre": "Deezer : les morceaux générés par l'IA représentent 44% des nouveaux titres (20 avril 2026)",
+              "url": "https://newsroom-deezer.com/fr/2026/04/deezer-les-morceaux-generes-par-la-representent-desormais-44-de-lensemble-des-nouveaux-titres-mis-en-ligne/"
+            },
+            {
+              "titre": "Rapport CSPLA sur le statut des productions de l'IA (16 juillet 2026)",
+              "url": null
+            },
+            {
+              "titre": "RTL - Comment l'affaire Thélyson Orélien brise le tabou de l'IA dans l'édition (sept. 2026)",
+              "url": "https://www.rtl.fr/culture/culture-generale/tout-repose-sur-la-confiance-avec-l-auteur-comment-l-affaire-thelyson-orelien-brise-le-tabou-de-l-ia-dans-le-monde-de-l-edition-7900676116"
+            },
+            {
+              "titre": "20 Minutes - Faut-il créer un label 'fait humain' face à l'IA ? (27 sept. 2026)",
+              "url": "https://www.20minutes.fr/arts-stars/culture/4248079-20260927-livres-musique-faut-creer-label-fait-humain-face-utilisation-trompeuse-ia"
+            }
+          ],
           "origine": null,
           "note": "Angle distinct des 3 éditions déjà publiées sur IA & création (archives/2026-08-01.html et archives/2026-08-09.html musique, archives/2026-08-15.html traduction littéraire) — celles-ci traitaient la menace économique/professionnelle pour les créateurs, pas la question de confiance/authenticité du public face à l'œuvre elle-même. Espacer sa publication de ces éditions plutôt que l'enchaîner juste après, pour éviter une impression de répétition « IA + culture » trop rapprochée",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -4273,19 +4456,45 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Streaming peu rémunérateur pour beaucoup d'artistes, prix du live en forte hausse, expérience sociale irremplaçable : le disque devient-il surtout un outil pour vendre des concerts ?",
-          "rationnel": null,
+          "rationnel": "Ce sujet est d'actualité car le basculement est en cours : le live est devenu le moteur économique de la musique, mais son modèle est fragilisé par la concentration du marché (duopole Live Nation/AEG), la flambée des prix qui éloigne une partie du public (45 % des Français renoncent aux concerts pour raisons financières selon un baromètre 2026 France Musique/France Culture), et la fragilité des festivals. L'issue est ouverte car des forces contraires s'affrontent : d'un côté, la demande pour les expériences live reste très forte (record de fréquentation, croissance à deux chiffres de Live Nation) ; de l'autre, l'inflation des coûts, la tarification dynamique contestée et la baisse des intentions de fréquentation interrogent la soutenabilité du modèle. Pour un lecteur français, l'enjeu est concret : le concert, devenu bien quasi-luxe, pourrait se démocratiser ou au contraire se polariser entre événements superstar inaccessibles et scène locale fragilisée.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Vérifier les chiffres 2025 des festivals CNM (publication printemps 2026) ; chiffre exact de la part des concerts dans les revenus des artistes en France (75% cité par 20 Minutes/Prodiss) ; taux de pénétration du streaming payant en France (27,1% fin 2025).",
+          "mots_cles": [
+            "économie du live 2026 France",
+            "CNM étude festivals 2024 déficit",
+            "Live Nation Ticketmaster duopole",
+            "tarification dynamique concerts France",
+            "prix billet concert +41% 10 ans Prodiss",
+            "SNEP bilan musique enregistrée 2025 2026",
+            "Céline Dion Paris La Défense Arena billetterie",
+            "funflation concerts"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "Économie du Live en 2026 - ICART",
+              "url": "https://www.icart.fr/actualites/economie-du-live-en-2026-pourquoi-les-concerts-et-festivals-restent-le-moteur-de-l-industrie-musicale"
+            },
+            {
+              "titre": "Bilan 2025 du marché de la musique enregistrée - SNEP",
+              "url": "https://snepmusique.com/communiques-dossiers-de-presse/bilan-2025-snep/"
+            },
+            {
+              "titre": "Le CNM dévoile les chiffres 2024 de la diffusion de spectacles - CNM",
+              "url": "https://cnm.fr/actus/le-centre-national-de-la-musique-devoile-les-chiffres-2024-de-la-diffusion-de-spectacles-de-musique-et-de-varietes/"
+            },
+            {
+              "titre": "Derrière le retour de Céline Dion : les GAFAM du live - Fondation Jean-Jaurès",
+              "url": "https://www.jean-jaures.org/publication/derriere-le-retour-de-celine-dion-les-gafam-du-live/"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -5136,20 +5345,46 @@
           "tag": "économie & finance",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Au deuxième trimestre 2026, les banques de la zone euro ont modérément durci leurs critères d'octroi de crédits aux entreprises (pourcentage net de 7 %), un resserrement inférieur aux anticipations du trimestre précédent (19 %), selon l'enquête de juillet 2026 de la BCE sur la distribution du crédit bancaire. Parallèlement, les défaillances d'entreprises continuent de progresser en France : à fin juin 2026, le cumul sur douze mois atteint 70 803 défaillances, en hausse de 5,1 % sur un an et de 19,3 % par rapport à la moyenne 2010-2019, selon la Banque de France. Le CRIF European Credit Outlook 2026 prévoit une hausse des taux de défaut publics des entreprises européennes à 0,48 % en 2026 (scénario de base) contre environ 0,4 % en 2024-2025, et jusqu'à 0,58 % en scénario adverse. La Banque de France souligne dans son rapport de juin 2026 que le ratio dette/EBITDA des entreprises françaises est orienté à la hausse et supérieur à celui des autres grands pays de la zone euro, tandis que le coût moyen des nouveaux financements aux sociétés non financières a atteint 3,76 % en juillet 2026, contre 3,64 % en juin.",
+          "rationnel": "Ce sujet est d'actualité immédiate car les défaillances d'entreprises en France dépassent désormais nettement leur moyenne pré-pandémique et ne peuvent plus être expliquées par le seul rattrapage post-Covid (Banque de France, juin 2026), tandis que les banques continuent de durcir leurs conditions d'octroi pour le troisième trimestre 2026. L'issue reste ouverte car deux forces contraires s'affrontent : d'un côté, la qualité d'actif agrégée des banques reste robuste et le taux de prêts non performants proche de son plus bas historique (BCE, mai 2026) ; de l'autre, l'accumulation d'expositions still-performing forborne et de stage 2 dans plusieurs pays (Allemagne, France) laisse présager une détérioration différée de la qualité du crédit. Pour un lecteur français, l'enjeu est direct : les PME et ETI françaises, dont le coût apparent de la dette continue d'augmenter et la capacité de remboursement se dégrade, risquent un resserrement du crédit qui pénaliserait l'investissement et la trésorerie, dans un contexte où la fermeture du détroit d'Ormuz et la guerre commerciale pèsent déjà sur l'économie.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Chiffre exact du taux de prêts non performants agrégé des banques de la zone euro à mi-2026 ; évolution précise des encours de crédits de trésorerie aux PME françaises au T3 2026 ; impact chiffré de la fermeture du détroit d'Ormuz sur les approvisionnements énergétiques des entreprises européennes.",
+          "mots_cles": [
+            "crédit bancaire entreprises zone euro 2026",
+            "durcissement critères octroi BCE enquête juillet 2026",
+            "défaillances entreprises France 2026 Banque de France",
+            "taux de défaut entreprises européennes CRIF 2026",
+            "prêts non performants entreprises BCE Financial Stability Review 2026",
+            "resserrement crédit PME ETI France",
+            "non-performing loans euro area corporate 2026",
+            "credit standards tightening euro area bank lending survey 2026"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "Résultats de l'enquête de juillet 2026 sur la distribution du crédit bancaire dans la zone euro - Banque de France",
+              "url": "https://www.banque-france.fr/fr/communiques-de-presse/resultats-de-lenquete-de-juillet-2026-sur-la-distribution-du-credit-bancaire-dans-la-zone-euro"
+            },
+            {
+              "titre": "Rising bankruptcies, resilient loan books: unpacking euro area corporate credit risk - BCE Financial Stability Review, May 2026",
+              "url": "https://www.ecb.europa.eu/press/financial-stability-publications/fsr/special/html/ecb.fsrart202605_02~0fd2f6b569.en.html"
+            },
+            {
+              "titre": "Défaillances d'entreprises - Juin 2026 - Banque de France",
+              "url": "https://www.banque-france.fr/fr/statistiques/entreprises/defaillances-dentreprises-2026-06"
+            },
+            {
+              "titre": "CRIF European Credit Outlook 2026",
+              "url": "https://www.crif.com/resources/whitepapers/crif-european-credit-outlook-2026/"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -5159,20 +5394,49 @@
           "tag": "assurance & climat",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Le régime Cat Nat, créé en 1982, repose sur un partenariat public-privé associant assureurs, la Caisse centrale de réassurance (CCR) et l'État. Face à l'augmentation des sinistres climatiques, la surprime Cat Nat a été relevée au 1er janvier 2025 : de 12 % à 20 % pour l'habitation et les biens professionnels, et de 6 % à 9 % pour l'assurance auto. La sinistralité annuelle du régime approche désormais 2 Md€, contre 1 Md€ en moyenne entre 1982 et 2024, et pourrait atteindre 4 Md€ par an d'ici 2050 selon la CCR. En février 2026, les tempêtes Nils et Pedro ont causé 1,2 Md€ de dommages (900 M€ tempêtes + 290 M€ inondations). Le 15 juin 2026, le premier rapport de l'Observatoire de l'assurabilité a conclu qu'aucune commune française n'est privée d'assurance, mais 243 communes sont en tension modérée et 568 en tension légère ; les outre-mer sont tous en tension modérée. Par ailleurs, un épisode méditerranéen exceptionnel a frappé le Gard et l'Hérault les 29-30 septembre 2026, avec jusqu'à 337,6 mm de pluie en 24 h à Saint-Hippolyte-du-Fort, provoquant inondations et dégâts matériels importants. Le 8 avril 2026, l'Assemblée nationale a adopté une proposition de loi visant à adapter les mécanismes d'assurance au changement climatique, incluant la fin de la reconstruction à l'identique et la modulation possible de la surprime pour les résidences secondaires et les biens professionnels de grande valeur.",
+          "rationnel": "Ce sujet est brûlant d'actualité car l'épisode méditerranéen des 29-30 septembre 2026 vient de rappeler avec force l'intensification des phénomènes extrêmes en France, tandis que le rapport de l'Observatoire de l'assurabilité (juin 2026) et la proposition de loi en cours d'examen au Sénat montrent que les pouvoirs publics cherchent encore la bonne formule pour garantir l'assurabilité sans exploser les primes. L'issue reste ouverte car des forces contradictoires s'affrontent : d'un côté, la hausse de la sinistralité pousse les assureurs à restreindre l'offre et à augmenter les primes ; de l'autre, l'État et CCR maintiennent un filet de solidarité nationale via le régime Cat Nat, mais sa soutenabilité financière est fragilisée (réserves de la CCR épuisées). Pour un lecteur français, l'enjeu est direct : la prime d'assurance habitation a déjà augmenté de +8,4 % en 2025 (prime moyenne à 323 €), et la question est de savoir si son logement ou sa voiture resteront assurables à un prix acceptable dans les zones à risque.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "Montant exact des dégâts de l'épisode méditerranéen des 29-30 septembre 2026 (pas encore estimé par CCR/France Assureurs à date). État d'avancement de la proposition de loi au Sénat (adoptée à l'Assemblée le 8 avril 2026).",
+          "mots_cles": [
+            "Cat Nat",
+            "CCR",
+            "surprime catastrophes naturelles 2025",
+            "retrait-gonflement argile RGA",
+            "Observatoire assurabilité juin 2026",
+            "tempêtes Nils Pedro février 2026",
+            "épisode méditerranéen Gard Hérault septembre 2026",
+            "assurance habitation inondation sécheresse France"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-12-31",
+            "raison": "Examen au Sénat de la proposition de loi sur l'adaptation des mécanismes d'assurance au changement climatique, et publication des arrêtés de reconnaissance de catastrophe naturelle pour l'épisode méditerranéen de septembre 2026."
+          },
+          "sources": [
+            {
+              "titre": "Remise du rapport de l'Observatoire de l'assurabilité – Gouvernement (15 juin 2026)",
+              "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/20260615_DP_Remise_du_rapport_de_lObservatoire_de_lassurabilite.pdf"
+            },
+            {
+              "titre": "Rapport public thématique – Cour des comptes : L'assurance des catastrophes naturelles (avril 2026)",
+              "url": "https://www.ccomptes.fr/sites/default/files/2026-04/20260427-Assurance-des-catastrophes-naturelles.pdf"
+            },
+            {
+              "titre": "Tempêtes Nils et Pedro – France Assureurs et CCR estiment le coût à 1,2 Md€",
+              "url": "https://www.franceassureurs.fr/espace-presse/tempetes-nils-pedro-inondations-sud-ouest-cout-dommages/"
+            },
+            {
+              "titre": "Proposition de loi adaptation changement climatique et assurance – Assemblée nationale (8 avril 2026)",
+              "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17t0266_texte-adopte-seance"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
