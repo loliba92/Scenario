@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "a15e59bf1589eecf2ac76514ebc969c11369eef908ba4a721e9a65e72e3ea6ec"
+    "md_sha256": "f7c7cb7fdf2b52dbf37d44a1bc3e8929f2fdb247557a36b82998fc7c6281ea69"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -2722,24 +2722,53 @@
           "type": "sujet",
           "id": "actualite-francaise-violence-des-mineurs-la-violence-des-jeunes",
           "titre": "Violence des mineurs : la violence des jeunes devient-elle une crise majeure ?",
-          "question": null,
+          "question": "La violence des jeunes devient-elle une crise majeure en France ?",
           "tag": "société & sécurité",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "En 2025, les services de sécurité ont enregistré 290 200 victimes mineures (+77 % en 10 ans) et mis en cause 232 300 mineurs (-15 % en 10 ans). Les homicides élucidés commis par des mineurs sont passés de 34 (2016) à 121 (2025), les tentatives de 207 à 464. Les violences sexuelles sur mineurs ont bondi de 156 % en dix ans. En mars 2025-février 2026, 829 armes (dont 709 blanches) ont été saisies aux abords des établissements scolaires. Fin septembre-début octobre 2026, la mobilisation lycéenne a dégénéré : 1 949 interpellations le 1er octobre, 735 lycées perturbés, des blessés graves parmi élèves et forces de l'ordre. La stratégie nationale de prévention de la délinquance 2026 (50 mesures) et un projet de loi sur la protection de l'enfance à l'école sont en cours.",
+          "rationnel": "La question : la violence des jeunes constitue-t-elle une crise majeure en France, au-delà de l'augmentation statistique des actes les plus graves ? L'issue est ouverte car trois forces s'opposent : (1) la baisse globale de la délinquance juvénile (-15 % de mis en cause) qui relativise l'alarme ; (2) l'explosion des violences extrêmes (homicides, tentatives, violences sexuelles, armes blanches) qui alimente le sentiment d'une « ultraviolence » nouvelle ; (3) le cadre constitutionnel (excuse de minorité) qui limite les réponses pénales. L'enjeu concret : savoir si la réponse doit être sécuritaire (durcissement), éducative (prévention, PJJ) ou les deux, et quels moyens allouer.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier ne mentionne pas la mobilisation lycéenne de fin septembre-début octobre 2026 (événement passé au 2 octobre 2026) ni la publication de la stratégie nationale de prévention de la délinquance d'avril 2026. Chiffrer précisément le nombre de mineurs mis en cause pour homicide/tentative en 2025 (données provisoires SSMSI). Vérifier l'état d'avancement du projet de loi protection de l'enfance à l'école (texte gouvernemental).",
+          "mots_cles": [
+            "ultraviolence mineurs France 2025 2026",
+            "homicides tentatives homicide mineurs SSMSI",
+            "violences sexuelles mineurs hausse 156%",
+            "armes blanches saisies établissements scolaires 2026",
+            "mobilisation lycéenne octobre 2026 débordements",
+            "stratégie nationale prévention délinquance 2026 SNPD",
+            "excuse de minorité Conseil constitutionnel 2025",
+            "Code justice pénale mineurs CJPM évaluation"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2027-01-01",
+            "raison": "Prochaine publication des statistiques annuelles SSMSI 2026 (généralement mai 2027) qui permettront de confirmer ou d'infléchir les tendances 2025 sur l'ultraviolence des mineurs."
+          },
+          "sources": [
+            {
+              "titre": "Victimes et mis en cause mineurs enregistrés par les services de sécurité intérieure - État des lieux 2016-2025 (Ministère de l'Intérieur)",
+              "url": "https://www.interieur.gouv.fr/actualites/communiques-de-presse/victimes-et-mis-en-cause-mineurs-enregistres-par-services-de-securite-interieure-etat-des-lieux-sur"
+            },
+            {
+              "titre": "Plus collective et plus meurtrière : comment l'ultraviolence des plus jeunes a explosé en France (Le Figaro, 30 juin 2026)",
+              "url": "https://www.lefigaro.fr/actualite-france/plus-collective-et-plus-meurtriere-comment-l-ultraviolence-des-plus-jeunes-a-explose-en-france-20260630"
+            },
+            {
+              "titre": "Mobilisation lycéenne : face aux débordements, le maintien de l'ordre en question (France 24, 2 octobre 2026)",
+              "url": "https://www.france24.com/fr/france/20261002-mobilisation-lyc%C3%A9enne-d%C3%A9bordements-maintien-ordre-en-question"
+            },
+            {
+              "titre": "Stratégie délinquance 2026 - synthèse (CIPDR, avril 2026)",
+              "url": "https://www.cipdr.gouv.fr/wp-content/uploads/2026/04/Strat_C3_A9gieDelinquance2026_Synth_C3_A8se_EP6_WEB.pdf"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -2749,20 +2778,49 @@
           "tag": "sécurité",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Au 2 octobre 2026, le plan Vigipirate est au stade « vigilance renforcée » depuis le 22 juin 2026. En 2025, la France a été le pays européen le plus ciblé (14 projets ou attaques) selon Europol, avec 87 % de procédures djihadistes au PNAT et 532 dossiers en cours fin 2025. Depuis janvier 2026, au moins dix projets d'attentat ont été déjoués (Paris, Longuenesse, Saint-Étienne, Rhône, Hauts-de-Seine, Essonne, Sarcelles, Yvelines, Lyon), impliquant de plus en plus de mineurs (22 mis en examen en 2025). Huit enquêtes pour terrorisme d'État visent l'Iran, la Russie et l'Algérie (avril 2026). Le 2 octobre, un mineur impliqué dans le projet contre la Bank of America (mars 2026) a été placé sous bracelet électronique.",
+          "rationnel": "La question : la menace terroriste en France est-elle en hausse, stable ou en baisse à l'horizon 2027 ? L'issue est ouverte car les indicateurs sont contradictoires : multiplication des projets déjoués et rajeunissement des profils (facteur dégradé) ; efficacité accrue du renseignement et nouveau cadre Vigipirate (facteur favorable) ; persistance du niveau « vigilance renforcée » sans bascule vers « alerte attentat » (facteur stable). L'enjeu concret pour un Français est l'adaptation de la sécurité au quotidien (contrôles, signalements, résilience face aux menaces hybrides).",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier initial ne mentionne pas le passage au nouveau plan Vigipirate (22 juin 2026) ni le stade « vigilance renforcée » actuel. Vérifier le nombre exact de projets déjoués en 2026 (source PNAT/DGSI mise à jour). Confirmer si le niveau « vigilance renforcée » sera maintenu pour l'hiver 2026-2027.",
+          "mots_cles": [
+            "Vigipirate 2026 vigilance renforcée",
+            "PNAT procédures 2025 2026",
+            "attentats déjoués France 2026",
+            "mineurs terrorisme France 2026",
+            "terrorisme d'État Iran Russie Algérie",
+            "Europol rapport terrorisme 2025 France",
+            "Harakat Ashab al-Yamin al-Islamiya",
+            "DGSI 16 projets déjoués depuis 2024"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-12-22",
+            "raison": "Prochaine révision semestrielle de la posture Vigipirate (hiver-printemps 2027) qui pourra faire évoluer le niveau d'alerte."
+          },
+          "sources": [
+            {
+              "titre": "Terrorisme en France en 2026 — Wikipédia",
+              "url": "https://fr.wikipedia.org/wiki/Terrorisme_en_France_en_2026"
+            },
+            {
+              "titre": "En 2025, 87% des procédures ouvertes par le parquet national antiterroriste sont djihadistes — Le Figaro",
+              "url": "https://www.lefigaro.fr/actualite-france/en-2025-87-des-procedures-ouvertes-par-le-parquet-national-antiterroriste-sont-djihadistes-20260128"
+            },
+            {
+              "titre": "Mise en œuvre du plan VIGIPIRATE 2026 – Nouveau stade « vigilance renforcée » — Préfet du Morbihan",
+              "url": "https://www.morbihan.gouv.fr/Actions-de-l-Etat/Securite-et-protection-de-la-population/Securite-interieure/Menace-terroriste/Mise-en-oeuvre-du-plan-VIGIPIRATE-2026-Nouveau-stade-Vigilance-renforcee"
+            },
+            {
+              "titre": "Attentat déjoué contre Bank of America à Paris : un mineur remis en liberté sous bracelet — RTL (2 octobre 2026)",
+              "url": "https://www.rtl.fr/actu/justice-faits-divers/attentat-dejoue-contre-bank-of-america-a-paris-un-mineur-remis-en-liberte-sous-bracelet-7900679859"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -2772,20 +2830,46 @@
           "tag": "sécurité & justice",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Au 2 octobre 2026, la France fait face à une vague de blocages lycéens émaillée de violences urbaines : 1 747 interpellations rien que ce vendredi, plus de 5 000 depuis le 17 septembre, selon le ministre de l'Intérieur Laurent Nuñez. L'usage de LBD a blessé plusieurs adolescents, déclenchant des enquêtes de l'IGPN et une saisine du Défenseur des droits. Le garde des Sceaux Gérald Darmanin a adressé une circulaire aux procureurs pour une réponse pénale « ferme et immédiate », ciblant aussi la responsabilité civile des parents. En parallèle, la Cour des comptes (mars 2026) note une hausse de 6,5 % des faits constatés entre 2016 et 2024, tandis que la police judiciaire subit une crise d'effectifs (700 ETP supplémentaires prévus en 2026) et un stock de 3,5 millions de procédures en attente, avec des taux d'élucidation en baisse.",
+          "rationnel": "La question : l'État peut-il garantir la sécurité face à la montée des violences urbaines et à l'engorgement de la chaîne pénale ? L'issue est ouverte car le gouvernement déploie des moyens supplémentaires (700 enquêteurs, loi justice criminelle de juillet 2026) mais la police judiciaire manque d'effectifs spécialisés, les taux d'élucidation chutent et le maintien de l'ordre suscite des controverses sur l'usage de la force. L'enjeu concret pour le lecteur : la capacité réelle de la police et de la justice à protéger les citoyens et à traiter les affaires dans des délais raisonnables.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : les blocages lycéens et interpellations sont en cours au 2 octobre 2026 ; la situation évolue quotidiennement. À vérifier : chiffre exact des effectifs police/gendarmerie 2026, date de mise en œuvre complète du plan investigation, prochaines échéances législatives (budget 2027).",
+          "mots_cles": [
+            "police nationale",
+            "police judiciaire",
+            "justice criminelle",
+            "Laurent Nuñez",
+            "Gérald Darmanin",
+            "blocage lycées octobre 2026",
+            "taux d'élucidation",
+            "plan investigation"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "Blocage des lycées : un vendredi sous haute tension, syndicats et lycéens reçus par le ministre",
+              "url": "https://www.france24.com/fr/info-en-continu/20261002-blocage-des-lyc%C3%A9es-un-vendredi-sous-haute-tension-les-syndicats-re%C3%A7us-par-le-ministre"
+            },
+            {
+              "titre": "Jeune blessé lors du blocus des lycées : le Défenseur des droits se saisit, une enquête ouverte",
+              "url": "https://www.lefigaro.fr/faits-divers/jeune-blesse-lors-du-blocus-des-lycees-le-defenseur-des-droits-se-saisit-une-enquete-ouverte-20261002"
+            },
+            {
+              "titre": "Blocage des lycées : face aux débordements, une réponse pénale « ferme et immédiate » qui cible aussi les parents",
+              "url": "https://www.sudouest.fr/societe/greves-et-manifestations/blocage-des-lycees-face-aux-debordements-une-reponse-penale-ferme-et-immediate-qui-cible-aussi-les-parents-30889817.php"
+            },
+            {
+              "titre": "Police judiciaire : quelles réponses à la crise des effectifs",
+              "url": "https://questions.assemblee-nationale.fr/q17/17-11782QE.htm"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "commentaire",
@@ -3604,20 +3688,49 @@
           "tag": "médecine & santé",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "En septembre 2024, l'Assemblée générale de l'ONU a adopté une déclaration politique fixant deux cibles 2030 : réduire de 10 % la mortalité bactérienne liée à l'antibiorésistance (base 2019 : 4,95 millions de décès) et porter à 70 % la part des antibiotiques du groupe « Access » de l'OMS dans l'usage humain. Le 23 mai 2026, l'Assemblée mondiale de la santé a adopté le plan d'action mondial actualisé 2026-2036 (GAP-AMR). En juillet 2026, le second rapport quadripartite (FAO, UNEP, OMS, WOAH) a dressé le bilan 2022-2024 : 178 pays ont un plan national mais seulement 52 % disposent d'un mécanisme de coordination fonctionnel. L'OMS estime qu'en 2023, 1 infection bactérienne confirmée sur 6 était résistante ; la résistance a progressé dans plus de 40 % des combinaisons pathogène-antibiotique surveillées entre 2018 et 2023. En France, la consommation hospitalière d'antibiotiques en 2024 était la plus élevée depuis 2015 (+13 % vs 2019) et 8,2 % des entérobactéries produisaient une BLSE. Le pipeline clinique comptait 90 agents antibactériens en février 2025, dont seulement 27 antibiotiques ciblant les pathogènes prioritaires, et peu sont innovants. Le Fonds fiduciaire multipartenaire AMR a levé 34,5 M$ depuis 2019 sur un objectif de 100 M$ d'ici 2030.",
+          "rationnel": "La question : la résistance bactérienne aux antibiotiques deviendra-t-elle la prochaine crise sanitaire mondiale au sens d'une urgence aiguë, globale et soudaine comparable à la pandémie de COVID-19 ? L'issue est ouverte car les forces en présence sont contradictoires : d'un côté, la charge actuelle est déjà massive (4,7 millions de décès associés en 2021) et s'aggrave (hausse de 5-15 %/an de la résistance), le pipeline thérapeutique est insuffisant et le financement très en deçà des besoins ; de l'autre, le nouveau cadre mondial 2026-2036, les cibles chiffrées de l'ONU 2024 et la surveillance renforcée (GLASS, TrACSS) pourraient infléchir la courbe si les pays mettent en œuvre leurs plans d'action et si le financement suit. Pour un lecteur français, l'enjeu concret est la capacité du système de santé à traiter les infections courantes et à maintenir la chirurgie, la chimiothérapie et la réanimation sans antibiotiques efficaces, alors que la consommation hospitalière repart à la hausse et que les entérobactéries productrices de carbapénèmases progressent.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier présente comme futur l'adoption du plan d'action mondial 2026-2036 (adoptée le 23 mai 2026 à la WHA79) et la publication du second rapport quadripartite (juillet 2026) — ces événements ont eu lieu. À vérifier : chiffre exact des décès attribuables (vs associés) à l'antibiorésistance en France en 2024-2025 ; montant exact des contributions 2026 au Fonds fiduciaire AMR ; date précise de la prochaine réunion ONU de haut niveau sur l'AMR (2029, session exacte).",
+          "mots_cles": [
+            "antimicrobial resistance AMR",
+            "Global Action Plan 2026-2036 GAP-AMR",
+            "UN General Assembly 2024 political declaration AMR",
+            "WHO Access antibiotics target 70%",
+            "antibacterial pipeline 2025 WHO",
+            "AMR Multi-Partner Trust Fund",
+            "France antibiotic consumption SPARES 2024",
+            "carbapenemase-producing Enterobacteriaceae CPE"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2029-09-01",
+            "raison": "Prochaine réunion de haut niveau de l'ONU sur la résistance aux antimicrobiens (décidée par l'AG en 2024 pour 2029), qui fera le point d'étape sur les cibles 2030 (réduction 10 % mortalité, 70 % antibiotiques Access)."
+          },
+          "sources": [
+            {
+              "titre": "Antimicrobial resistance - WHO fact sheet (16 juillet 2026)",
+              "url": "https://www.who.int/en/news-room/fact-sheets/detail/antimicrobial-resistance"
+            },
+            {
+              "titre": "The World Health Assembly adopts updated Global Action Plan on Antimicrobial Resistance (2026–2036) - 25 mai 2026",
+              "url": "https://www.who.int/news/item/25-05-2026-the-world-health-assembly-adopts-updated-global-action-plan-on-antimicrobial-resistance-%282026-2036%29"
+            },
+            {
+              "titre": "Analysis of antibacterial agents in clinical and preclinical development: overview and analysis 2025 - 2 octobre 2025",
+              "url": "https://www.who.int/publications/i/item/9789240113091"
+            },
+            {
+              "titre": "Country sheet 2025: France - ECDC (18 novembre 2025)",
+              "url": "https://antibiotic.ecdc.europa.eu/en/publications-data/country-sheet-2025-france"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -3627,20 +3740,49 @@
           "tag": "médecine & santé",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "L'Accord OMS sur les pandémies a été adopté le 20 mai 2025 à la WHA78. Les négociations sur l'annexe PABS (accès aux agents pathogènes et partage des avantages) se poursuivent : la 8e session du groupe de travail intergouvernemental s'est tenue du 14 au 18 septembre 2026. La 2e réunion de haut niveau de l'ONU sur la prévention, la préparation et la riposte aux pandémies (PPPR) a eu lieu le 25 septembre 2026 à New York, adoptant une déclaration politique. Le rapport GPMB 2026 « A World on the Edge » (mai 2026) juge que la préparation mondiale n'a pas rattrapé le risque pandémique. Le Fonds de lutte contre les pandémies a alloué 885 M$ sur deux cycles (75 pays). Les évaluations JEE 2025-2026 montrent des scores moyens de 32 % pour la surveillance zoonotique et 58 % pour la surveillance générale. La flambée de mpox clade Ib se poursuit en Afrique et en Europe malgré la fin de l'USPPI en septembre 2025.",
+          "rationnel": "La question : le monde sera-t-il mieux préparé pour détecter, contenir et riposter équitablement à la prochaine pandémie qu'il ne l'était pour le COVID-19 ? L'issue est ouverte car d'un côté des avancées existent (Accord OMS, Fonds pandémies, mécanismes jour zéro, réseau de fabrication ARNm) mais de l'autre le GPMB 2026 alerte sur l'érosion de la confiance, les inégalités d'accès, le financement insuffisant (besoins 50-100 Md$ vs ~1 Md$ mobilisés) et des capacités nationales inégales (score médian JEE ~50 %). L'enjeu pour un lecteur français : la capacité de la France et de l'UE à garantir un accès rapide aux contre-mesures et à maintenir des systèmes de surveillance-réponse robustes face à des menaces comme H5N1 ou mpox clade Ib.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : la 8e session de négociation PABS (14-18 sept 2026) et la réunion de haut niveau ONU (25 sept 2026) sont passées — vérifier leurs résultats concrets (texte final PABS, déclaration politique adoptée). Chiffrer le montant total des engagements financiers annoncés à la réunion de haut niveau. Confirmer le statut de ratification de l'Accord OMS (nombre de pays signataires/ratificateurs au 2 oct 2026).",
+          "mots_cles": [
+            "Accord OMS pandémies",
+            "annexe PABS",
+            "Fonds de lutte contre les pandémies",
+            "GPMB 2026",
+            "évaluation externe conjointe JEE",
+            "mécanisme financement jour zéro",
+            "mpox clade Ib",
+            "réunion haut niveau ONU PPPR septembre 2026"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-11-01",
+            "raison": "Prochaine échéance probable : finalisation de l'annexe PABS attendue pour la 79e Assemblée mondiale de la Santé (mai 2026 reportée) ou session extraordinaire ; surveiller l'ouverture à signature/ratification de l'Accord complet."
+          },
+          "sources": [
+            {
+              "titre": "Accord de l'OMS sur les pandémies — adopté le 20 mai 2025",
+              "url": "https://www.who.int/fr/health-topics/who-pandemic-agreement"
+            },
+            {
+              "titre": "L'engagement mondial est manifeste alors que les pays négocient une annexe essentielle à l'Accord sur les pandémies (fév 2026)",
+              "url": "https://www.who.int/fr/news/item/17-02-2026-global-commitment-on-display-as-countries-negotiate-key-annex-to-the-pandemic-agreement"
+            },
+            {
+              "titre": "World leaders renew commitment to protect the world from future pandemics (25 sept 2026)",
+              "url": "https://www.who.int/news/item/25-09-2026-world-leaders-renew-commitment-to-protect-the-world-from-future-pandemics"
+            },
+            {
+              "titre": "GPMB 2026 Report — A World on the Edge",
+              "url": "https://gpmb.org/docs/librariesprovider17/default-document-library/gpmb-2026-report.pdf"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -3650,20 +3792,49 @@
           "tag": "médecine & IA",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "En France, 65 % des hôpitaux publics utilisent déjà l'IA en production (baromètre FHF 2025 sur 110 établissements) et 90 % l'ont inscrite dans leur plan triennal. Les usages principaux : imagerie médicale, rédaction de comptes rendus, aide au diagnostic. 92 % des utilisateurs constatent un gain de temps. Pourtant 45 % des agents disent que leur établissement n'a pas adopté l'IA, 32 % utilisent des outils personnels faute de solutions institutionnelles. Freins majeurs : 83 % manquent de financement ou de ROI convaincant, 66 % de compétences data science, 34 % peinent sur la réglementation (IA Act, RGPD). Côté régulation, l'IA Act s'applique par étapes : transparence (art. 50) depuis août 2026, systèmes à haut risque santé (annexe III) en décembre 2027, dispositifs médicaux (annexe I) en août 2028. La HAS a publié en octobre 2025 ses « Premières clefs d'usage de l'IA générative » (cadre A.V.E.C.) et un guide usagers en juin 2026. Le projet Alliance Santé IA (CHU Montpellier, 14,9 M€ France 2030) lance le premier hôpital augmenté souverain. Le baromètre national UniHA/CAIH/FHF 2e édition collecte les réponses jusqu'au 16 octobre 2026.",
+          "rationnel": "La question : l'IA va-t-elle transformer durablement les soins en France, au-delà d'usages épars ? L'issue est ouverte : d'un côté, des bénéfices mesurés (gain de temps, qualité perçue) et une dynamique forte (plans de déploiement, investissements France 2030, cadre réglementaire qui se met en place) ; de l'autre, des freins structurels (financement, compétences, disparités territoriales) qui risquent de créer une « IA à deux vitesses » entre établissements dotés et autres. L'enjeu concret pour un lecteur français : aura-t-il accès aux mêmes innovations diagnostiques et organisationnelles selon l'hôpital où il est soigné, et les gains promis se concrétiseront-ils sans dégrader la relation de soin ni la protection de ses données ?",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier mentionne « l'intelligence artificielle va-t-elle transformer les soins ? » au futur — la transformation est déjà engagée (65 % hôpitaux en production), il faut la formuler au présent. À vérifier : chiffre exact d'hôpitaux équipés via « Mon hôpital numérique » (source Médécine.AI cite 200), date précise de l'annonce Alliance Santé IA (avril 2026 selon Les Échos), et résultats du baromètre 2e édition attendus à l'automne 2026.",
+          "mots_cles": [
+            "IA Act santé calendrier 2026 2027 2028",
+            "baromètre IA hôpital UniHA CAIH FHF 2026",
+            "HAS IA générative clefs usage A.V.E.C.",
+            "Alliance Santé IA Montpellier France 2030",
+            "Espace européen données santé EHDS",
+            "dispositif médical IA haut risque MDR IVDR",
+            "Mon hôpital numérique plateformes IA",
+            "souveraineté données santé hébergement HDS"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-10-16",
+            "raison": "Clôture des réponses au baromètre national IA hôpital (UniHA/CAIH/FHF) — résultats attendus à l'automne 2026"
+          },
+          "sources": [
+            {
+              "titre": "Intelligence artificielle à l'hôpital : UniHA, la CAIH et la FHF lancent un baromètre national commun",
+              "url": "https://dsih.fr/articles/6347/intelligence-artificielle-a-lhopital-uniha-la-caih-et-la-fhf-lancent-un-barometre-national-commun"
+            },
+            {
+              "titre": "AI Act santé : IA médicale et haut risque en 2026",
+              "url": "https://www.donneespersonnelles.fr/ai-act-sante"
+            },
+            {
+              "titre": "Premières clefs d'usage de l'IA générative en santé",
+              "url": "https://www.has-sante.fr/jcms/p_3703115/fr/premieres-clefs-d-usage-de-l-ia-generative-en-sante"
+            },
+            {
+              "titre": "France 2030 : la ministre de la santé annonce le financement du projet ALLIANCE SANTE IA",
+              "url": "https://www.chu-montpellier.fr/fr/actualites-agenda/france-2030-la-ministre-de-la-sante-annonce-le-financement-du-projet-alliance-sante-ia-premier-programme-dintegration-souveraine-de-lia-dans-un-chu-9469"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -3673,20 +3844,49 @@
           "tag": "IA & numérique",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "En juillet 2026, le CSPLA publie son rapport distinguant création hybride (protégeable par le droit d'auteur si originalité) et production synthétique (domaine public). L'AI Act devient applicable le 2 août 2026 avec obligations de transparence pour les modèles d'IA à usage général. Au Festival de Cannes 2026 (mai), deux films en sélection officielle utilisent l'IA générative mais la présidence refuse qu'elle « dicte sa loi ». L'étude AFDAS (mars 2026) montre que 82 % des artistes visuels/écrivains ne voient pas encore d'effet sur leurs commandes, mais 60 % perçoivent une menace et 16 % une baisse d'activité. Harlequin (HarperCollins) a remplacé fin 2025 ses traducteurs par de la post-édition IA, premier cas en France. L'enquête UNI MEI (juil. 2026) auprès de 192 techniciens cinéma révèle 22 % d'opportunités réduites, 55 % de statu quo.",
+          "rationnel": "La question : l'IA générative va-t-elle remplacer les créateurs humains dans les domaines artistiques hors musique (cinéma, arts visuels, littérature, traduction, animation) d'ici 5 à 10 ans ? L'issue est ouverte car trois forces s'opposent : (1) l'automatisation des tâches standardisées (traduction de genre, illustration de stock, post-production) qui progresse vite ; (2) la résistance juridique et syndicale (CSPLA, AI Act, grèves, chartes) qui protège la création à « intention artistique affirmée » ; (3) l'émergence d'un modèle hybride où l'IA accélère mais ne substitue pas la direction créative. L'enjeu concret pour un lecteur français : l'avenir de métiers culturels entiers (traducteurs, illustrateurs, techniciens cinéma, auteurs) et la nature des œuvres accessibles (humaines vs synthétiques).",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier mentionne « au-delà de la musique » — vérifier que les scénarios ne se concentrent pas sur la musique (Suno, Udio) déjà couverte par d'autres éditions. Chiffrer précisément la part de marché des images IA dans l'illustration commerciale et du texte IA dans l'édition grand public (hors Harlequin). Confirmer la date de la prochaine échéance CSPLA / ministère (transposition AI Act, code de pratique AMPI).",
+          "mots_cles": [
+            "CSPLA rapport juillet 2026 productions IA",
+            "AI Act application août 2026 transparence GPAI",
+            "Festival Cannes 2026 IA film sélection officielle",
+            "AFDAS étude mars 2026 impact IAG créatifs",
+            "Harlequin HarperCollins traduction IA Fluent Planet 2025",
+            "ADAGP SGDL observatoire artistes auteurs menaces",
+            "UNI MEI rapport juillet 2026 équipes tournage IA",
+            "création hybride vs production synthétique droit auteur"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-12-02",
+            "raison": "Échéance de la mise en œuvre complète des règles de transparence de l'AI Act pour les modèles d'IA à usage général (GPAI) et publication attendue du code de pratique AMPI (art. 53 AI Act) qui conditionnera la rémunération des ayants droit pour l'entraînement."
+          },
+          "sources": [
+            {
+              "titre": "Rapport de mission sur le statut des productions de l'intelligence artificielle — CSPLA (juillet 2026)",
+              "url": "https://www.culture.gouv.fr/mc/content/download/392420/pdf_file/CSPLA_Statut_des_productions_IA_juillet_2026-9.pdf?inLanguage=fre-FR&version=1"
+            },
+            {
+              "titre": "\"Nous refusons que l'IA dicte sa loi au cinéma\", dit la présidente du Festival de Cannes — Sciences et Avenir (9 avril 2026)",
+              "url": "https://www.sciencesetavenir.fr/high-tech/nous-refusons-que-l-ia-dicte-sa-loi-au-cinema-dit-la-presidente-du-festival-de-cannes_191926"
+            },
+            {
+              "titre": "Étude sur l'impact de l'IA générative sur les créatifs indépendants — AFDAS (mars 2026)",
+              "url": "https://observatoires.afdas.com/sites/default/files/document-ressource/Impact%20de%20l%E2%80%99Intelligence%20Artificielle%20G%C3%A9n%C3%A9rative%20sur%20les%20cr%C3%A9atifs%20ind%C3%A9pendants%20dans%20le%20Spectacle%20Vivant%20et%20l%27Audiovisuel_mars%202026.pdf"
+            },
+            {
+              "titre": "Harlequin passe à l'IA : communiqué ATLF et En chair et en os (15 décembre 2025)",
+              "url": "https://sud-culture.org/wp-content/uploads/2025/12/CP-Harlequin.pdf"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -3696,20 +3896,48 @@
           "tag": "énergie & industrie",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "En 2025, les véhicules électriques ont représenté 25 % des ventes mondiales (IEA), 28 % en Europe et 53 % en Chine. En France, la part a atteint 19,9 % sur l'année 2025 (331 200 immatriculations) et 28,2 % au S1 2026. Le parc électrique français était estimé à 1,4 million de VP au 1er janvier 2026 (4 % du parc). L'UE a proposé en décembre 2025 de remplacer l'interdiction 2035 par un objectif −90 % émissions (autorisant une part limitée de thermiques), texte en négociation. La France maintient le bonus écologique (jusqu'à 5 700 € ménages précaires) et relance le leasing social à <200 €/mois en juillet 2026. Objectif national : 2 millions de VE produits/an en 2030 (France 2030).",
+          "rationnel": "La question : la voiture électrique va-t-elle finir par s'imposer comme la motorisation majoritaire (>50 % des ventes neuves) en France et en Europe ? L'issue est ouverte : forces favorables (baisse prix batteries ~95 $/kWh LFP, objectifs contraignants constructeurs 2025-2027, aides achat, infrastructures autoroutes équipées) ; forces défavorables (révision possible du règlement 2035, disparités Nord/Sud Europe, prix d'achat encore supérieurs aux thermiques hors aides, dépendance batteries Chine, rechargement domicile inégal). Enjeu concret : pour un acheteur français, savoir s'il doit anticiper la revente d'un thermique, choisir un VE maintenant ou attendre la parité de prix totale.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier mentionne « la voiture électrique va-t-elle finir par dominer le marché » comme question future ; vérifier que l'échéance 2035 (règlement UE) n'a pas été formellement modifiée depuis la proposition de décembre 2025 (négociation Parlement/Conseil en cours au 2 octobre 2026). Chiffrer la part de marché VP électriques France sur les 8 premiers mois 2026 (données SDES mensuelles). Confirmer le calendrier exact de la révision du règlement (vote prévu ?).",
+          "mots_cles": [
+            "part de marché véhicules électriques France 2026",
+            "règlement UE 2035 révision 90 pour cent émissions",
+            "bonus écologique 2026 montant CEE",
+            "leasing social 2026 200 euros mois",
+            "objectif 2 millions véhicules électriques France 2030",
+            "prix batteries LFP 95 USD/kWh 2026",
+            "infrastructures recharge autoroutes France 3200 points haute puissance"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-12-31",
+            "raison": "Clause de revoyure 2026 du règlement UE 2035 : la Commission a présenté sa proposition en décembre 2025, la négociation Parlement/Conseil doit aboutir d'ici fin 2026 pour un texte définitif applicable dès 2027."
+          },
+          "sources": [
+            {
+              "titre": "Ventes de véhicules électriques neufs en Europe (2018–2026) — Roole Data",
+              "url": "https://data.roole.fr/infrastructures/reseau-de-recharge/evolution-electrification-ventes-par-pays-ue"
+            },
+            {
+              "titre": "Immatriculations de voitures en 2025 : le marché du neuf baisse, celui de l'occasion résiste — SDES",
+              "url": "https://www.statistiques.developpement-durable.gouv.fr/immatriculations-de-voitures-en-2025-le-marche-du-neuf-baisse-celui-de-loccasion-resiste"
+            },
+            {
+              "titre": "L'UE assouplit l'interdiction des moteurs thermiques prévue pour 2035 — vie-publique.fr",
+              "url": "https://www.vie-publique.fr/en-bref/301393-lue-assouplit-linterdiction-des-moteurs-thermiques-prevue-pour-2035"
+            },
+            {
+              "titre": "Trends in electric cars – Global EV Outlook 2026 – IEA",
+              "url": "https://www.iea.org/reports/global-ev-outlook-2026/trends-in-electric-cars"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -3720,16 +3948,28 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "En septembre 2026, le télescope spatial Nancy Grace Roman (anciennement WFIRST) de la NASA a été lancé avec succès et est en route vers le point de Lagrange L2, à 1,6 million de km de la Terre. Doté d'un champ de vision 100 fois plus large que celui de Hubble, il pourra mesurer la lumière d'un milliard de galaxies au cours de sa mission prévue pour durer 5 ans (extensible à 22 ans). Sa mission principale : réaliser un recensement statistique des systèmes planétaires de la Voie lactée, comprendre pourquoi l'expansion de l'Univers s'accélère (énergie sombre), et observer directement des exoplanètes grâce à son coronographe capable de bloquer la lumière des étoiles. Le Roman succède à Hubble et James Webb dans la grande saga des télescopes spatiaux américains",
-          "rationnel": null,
+          "rationnel": "La question : le télescope Roman parviendra-t-il à tenir ses promesses scientifiques — découverte de milliers d'exoplanètes (dont des telluriques en zone habitable) et mesure de l'énergie sombre — une fois en orbite L2 ? L'issue est ouverte car le transit et la mise en service comportent encore des risques techniques (déploiements restants, alignement optique, performance du coronographe en conditions réelles), mais les premiers tests au sol et en vol (WFI activé, coronographe « first light » réussi) sont encourageants. L'enjeu concret : valider ou infirmer les modèles cosmologiques actuels et dresser le premier recensement statistique des systèmes planétaires de la Voie lactée, ce qui orientera les futures missions (Habitable Worlds Observatory) et la compréhension de l'expansion accélérée de l'Univers.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier indique un lancement « en septembre 2026 » ; la date exacte est le 30 août 2026. Vérifier la date précise d'insertion en orbite L2 (prévue début décembre 2026) et la date de publication des premières images scientifiques (annoncée « early 2027 » par la NASA).",
+          "mots_cles": [
+            "Nancy Grace Roman Space Telescope",
+            "WFIRST",
+            "point de Lagrange L2",
+            "coronographe CGI",
+            "imageur grand champ WFI",
+            "énergie sombre",
+            "exoplanètes",
+            "CNES LAM"
+          ],
           "scenarios": {
             "favorable": "Le Roman atteint L2 sans incident et commence ses observations dans les délais. Dès les premiers mois, il découvre des centaines d'exoplanètes, dont plusieurs de type terrestre en zone habitable. Les données sur l'énergie sombre confirment ou infirment des modèles théoriques majeurs",
             "stable": "Le Roman arrive à L2 mais rencontre des difficultés techniques mineures (calibration, coronographe). Les découvertes sont au rendez-vous mais moins spectaculaires qu'espéré. La mission s'installe dans un rythme de croisière scientifique productif mais sans révolution immédiate",
             "degrade": "Un incident technique majeur (problème de déploiement, panne d'instrument) compromet une partie des objectifs scientifiques. Le coronographe ne fonctionne pas à pleine capacité. La mission est réduite, et la NASA doit revoir ses priorités à la baisse, retardant les grandes découvertes attendues"
           },
-          "echeance": null,
+          "echeance": {
+            "date": "2026-12-07",
+            "raison": "Insertion en orbite de halo autour du point de Lagrange L2 prévue début décembre 2026 (environ 100 jours après le lancement du 30 août), marquant le début de la phase de commissioning de ~90 jours avant les premières observations scientifiques."
+          },
           "sources": [
             {
               "titre": "01net (09.2026)",
@@ -3749,7 +3989,7 @@
           "ajoute_le": "2026-09-18",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -3760,23 +4000,52 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Le Darfour, région soudanaise déjà ravagée par trois ans de guerre civile, connaît sa pire sécheresse depuis 1984, selon le Programme alimentaire mondial (PAM). En pleine saison des pluies (juin-septembre), les précipitations sont quasi inexistantes, les terres agricoles ne peuvent être irriguées, et les cours d'eau ne débordent pas. Le PAM, qui atteint 4 à 5 millions de personnes par mois, manque de 300 millions de dollars pour maintenir ses opérations — ses financements ont fondu de moitié (206 millions en 2026 contre 645 millions en 2025). Près de 20 millions de Soudanais souffrent de faim aiguë, dont 5 millions à des niveaux urgents. La sécheresse, liée au phénomène El Niño, provoque de nouvelles vagues de déplacements et l'effondrement de l'agriculture locale. La question climatique rejoint ici la géopolitique : le changement climatique agit-il comme un multiplicateur de crises humanitaires ?",
-          "rationnel": null,
+          "rationnel": "La question : le changement climatique, en aggravant la sécheresse au Darfour, peut-il faire basculer une crise humanitaire déjà sévère (guerre + faim) en famine totale incontrôlée ? L'issue est ouverte car trois forces s'opposent : (1) la pression diplomatique pour débloquer des fonds avant l'épuisement des stocks du PAM (échéance octobre 2026) ; (2) l'incertitude sur l'ampleur des pertes de récoltes dues à la sécheresse, qui ne se mesurera qu'à la récolte (novembre-décembre) ; (3) l'accès humanitaire restant très contraint par le conflit (FSR vs armée) et les lignes de front. Pour un lecteur français, l'enjeu concret est de comprendre si la communauté internationale, dont la France, laisse se produire la plus grande famine du XXIe siècle par défaut de financement de 300 millions $ — soit 0,01 % du budget annuel de l'aide publique au développement française.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : Le dossier présente la saison des pluies (juin-septembre) et l'Assemblée générale de l'ONU comme des événements à venir ou en cours. Au 2 octobre 2026, la saison des pluies est terminée et la semaine de haut niveau de l'AG ONU (18-28 sept.) a eu lieu. Il faut vérifier si des engagements de financement ont été annoncés lors de l'AG ONU et quel est le statut exact des stocks du PAM à la date d'aujourd'hui. ⚠ Chiffres : Confirmer le montant exact reçu par le PAM en 2026 à ce jour (206 millions $ cité au 14 sept.) et le déficit restant réel.",
+          "mots_cles": [
+            "Darfour sécheresse 2026",
+            "PAM Soudan financement 2026",
+            "famine IPC Phase 5 Nord-Darfour",
+            "El Fasher Um Baru Kernoi famine",
+            "Carl Skau PAM directeur intérim",
+            "Soudan guerre civile FSR armée 2023-2026",
+            "changement climatique multiplicateur crise humanitaire",
+            "Assemblée générale ONU 2026 financement humanitaire"
+          ],
           "scenarios": {
             "favorable": "La communauté internationale débloque des financements d'urgence (300M$+) lors de l'Assemblée générale de l'ONU. Le PAM maintient ses distributions. Les pluies reviennent en 2027, évitant le pire. La famine est contenue",
             "stable": "Des financements partiels sont obtenus, le PAM réduit ses rations mais maintient l'aide vitale. La sécheresse persiste, l'agriculture s'effondre, mais une catastrophe totale est évitée de justesse. La crise reste à un niveau critique sans basculer",
             "degrade": "Aucun financement supplémentaire. Le PAM doit réduire ses opérations de 50% ou plus. La sécheresse combinée à la guerre provoque une famine généralisée au Darfour. Des centaines de milliers de morts. La crise devient la plus grande catastrophe humanitaire du XXIe siècle"
           },
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-10-31",
+            "raison": "Échéance critique pour le financement du PAM : l'agence a besoin de 579 millions $ pour ses opérations jusqu'à octobre 2026. Sans nouveaux fonds d'ici fin octobre, des réductions drastiques (50% ou plus) des distributions sont probables, coïncidant avec la période de soudure post-récolte et l'évaluation des pertes agricoles dues à la sécheresse."
+          },
+          "sources": [
+            {
+              "titre": "Au Soudan, le Darfour fait face à sa pire sécheresse depuis 40 ans - RFI",
+              "url": "https://www.rfi.fr/fr/environnement/20260916-au-soudan-le-darfour-fait-face-%C3%A0-sa-pire-s%C3%A9cheresse-depuis-40-ans"
+            },
+            {
+              "titre": "Soudan : l'ONU parvient jusqu'aux affamés mais est à court de denrées pour les nourrir - ONU Info",
+              "url": "https://news.un.org/fr/story/2026/09/1159466"
+            },
+            {
+              "titre": "La famine déclarée dans deux nouvelles zones du Darfour - Action contre la Faim",
+              "url": "https://www.actioncontrelafaim.org/actualites/presse/la-famine-declaree-dans-deux-nouvelles-zones-du-darfour/"
+            },
+            {
+              "titre": "Soudan | World Food Programme - Urgence au Soudan",
+              "url": "https://fr.wfp.org/urgences/urgence-au-soudan"
+            }
+          ],
           "origine": "veille",
           "note": "Ajouté automatiquement le 2026-09-18 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité",
           "ajoute_le": "2026-09-18",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         }
       ]
     },
@@ -4560,19 +4829,48 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Disney+, Marvel, Pixar, parcs à thème, licences, ESPN : le modèle du conglomérat culturel intégré est-il encore viable ?",
-          "rationnel": null,
+          "rationnel": "La question : Disney peut-il maintenir sa domination culturelle mondiale sur la prochaine décennie face à l'érosion du modèle streaming, à la fatigue des franchises Marvel/Star Wars et à la concurrence de Netflix, Amazon et Apple ? L'issue est ouverte car le conglomérat dispose d'atouts uniques (parcs, croisières, IP intégrées verticalement, rentabilité Experiences) mais doit prouver que Disney+ peut devenir un hub rentable à 10 % de marge, que les nouvelles franchises (originales comme Hexed) relaient les suites, et que le « One Disney » transforme l'abonnement en relation client tout-en-un. Pour un lecteur français, l'enjeu concret est de savoir si l'écosystème Disney (parcs, streaming, sport, produits) restera la référence culturelle familiale ou si la fragmentation du marché et la hausse des coûts l'affaibliront durablement.",
           "angle": null,
           "a_verifier": null,
-          "mots_cles": [],
+          "mots_cles": [
+            "Disney+ rentabilité 2026",
+            "Josh D'Amaro stratégie One Disney",
+            "Experiences division 60 milliards investissement",
+            "Marvel fatigue franchises Avengers Doomsday",
+            "streaming France Disney+ abonnés 2026",
+            "Disney Cruise Line flotte 13 navires 2031",
+            "Disney+ hub numérique sport ESPN jeux",
+            "Warner Bros Discovery concurrence conglomérat"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-12-18",
+            "raison": "Sortie d'Avengers: Doomsday, premier grand test du renouveau Marvel au cinéma et levier majeur pour l'écosystème Disney (streaming, parcs, produits dérivés) avant la fin 2026."
+          },
+          "sources": [
+            {
+              "titre": "Disney Streaming Q3 2026 Earnings, Consumer Products Shift",
+              "url": "https://variety.com/2026/tv/news/disney-streaming-earnings-q3-2026-consumer-products-shift-1236827893/"
+            },
+            {
+              "titre": "Disney Plans to Expand Parks Investment, Doubling Capital Expenditures to $60 Billion",
+              "url": "https://thewaltdisneycompany.com/news/disney-plans-to-expand-investment-in-parks-business/"
+            },
+            {
+              "titre": "Observatoire du streaming en France — Juillet 2026",
+              "url": "https://www.tv.fr/observatoire/streaming"
+            },
+            {
+              "titre": "Comment Disney peut-il retrouver son élan narratif ?",
+              "url": "https://fr.investing.com/news/stock-market-news/comment-disney-peutil-retrouver-son-elan-narratif--3558989"
+            }
+          ],
           "origine": null,
           "note": "Écho à la mégafusion Warner/HBO Max déjà publiée (archives/2026-07-26.html) et à l'édition Marvel (archives/2026-07-18.html) — même thématique de fond (concentration des industries culturelles) mais un autre conglomérat, angle propre à Disney (parcs, télévision, franchises transmédia) : pas un doublon, à mentionner en creux plutôt qu'à développer en détail",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -4583,19 +4881,47 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Disney, Nintendo, Warner, plateformes de streaming, IA génératives : la vraie bataille culturelle de la décennie pourrait être celle de la propriété des personnages et des univers.",
-          "rationnel": null,
+          "rationnel": "La question : Qui détiendra le contrôle créatif et commercial des personnages et univers de fiction face à l'IA générative ? L'issue est ouverte car les grands studios (Disney, Warner, Universal) poursuivent en justice des entreprises d'IA (Midjourney, Google, ByteDance) pour violation de droits d'auteur, tandis que ces dernières ripostent en exigeant la transparence sur l'usage interne de l'IA par les studios. Un scénario favorable verrait les tribunaux renforcer la protection des licences ; un scénario stable aboutirait à des accords de licence ; un scénario dégradé verrait la génération non autorisée devenir incontrôlable. L'enjeu concret pour un lecteur français : l'avenir des industries culturelles nationales (jeu vidéo, animation, édition) face aux mêmes pressions technologiques et juridiques.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier mentionne Nintendo parmi les acteurs, mais les recherches récentes ne font pas état de contentieux impliquant Nintendo sur ce sujet. Vérifier si Nintendo a engagé des actions légales récentes. Vérifier aussi l'état d'avancement des procès (audiences, jugements) postérieurs à juillet 2026.",
+          "mots_cles": [
+            "Disney",
+            "Warner Bros",
+            "Universal Pictures",
+            "Midjourney",
+            "IA générative",
+            "droit d'auteur",
+            "Seedance",
+            "ByteDance",
+            "Google Gemini",
+            "Netflix"
+          ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "Midjourney veut forcer Disney, Warner et Universal à dévoiler leur utilisation de l'IA",
+              "url": "https://siecledigital.fr/2026/07/07/midjourney-veut-forcer-disney-warner-et-universal-a-devoiler-leur-utilisation-de-lia/"
+            },
+            {
+              "titre": "\"Une machine à pirater à grande vitesse\" : Netflix menace d'attaquer en justice ByteDance pour des vidéos IA de Stranger Things",
+              "url": "https://www.allocine.fr/article/fichearticle_gen_carticle=1000190856.html"
+            },
+            {
+              "titre": "Disney accuse Google et Gemini de violations de droits d'auteur",
+              "url": "https://jvmag.ch/2026/02/10/disney-accuse-google-et-gemini-de-violations-de-droits-dauteur/"
+            },
+            {
+              "titre": "Warner Bros poursuit Midjourney pour violation de droits d'auteur",
+              "url": "https://www.ledevoir.com/culture/914997/warney-bros-poursuit-midjourney-violation-droits-auteur"
+            }
+          ],
           "origine": null,
           "note": "Absorbe la question de fond de l'idée « jeux vidéo, nouveau Hollywood ? » du même lot (propriété des grandes histoires/licences), retirée comme entrée séparée pour éviter un doublon — voir la note en tête de ce lot",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -4606,19 +4932,49 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Longtemps, une poignée d'œuvres américaines devenaient mondiales. Demain, Chine, Corée, Inde, Japon, Turquie, États-Unis et Europe pourraient chacun construire leurs propres écosystèmes culturels, sans plus jamais se rencontrer.",
-          "rationnel": null,
+          "rationnel": "La question : la culture mondiale va-t-elle se fragmenter en écosystèmes régionaux étanches (Chine, Corée, Inde, Japon, Turquie, USA, Europe) ou une nouvelle forme d'hybridation va-t-elle émerger ? L'issue est ouverte car les données 2024-2026 montrent une montée simultanée des contenus locaux (parts de marché en hausse en Europe, Amérique latine, Asie) et une circulation transfrontalière record de certains hits (K-pop, anime, dizis turcs, jeux chinois). Le scénario favorable verrait une « mondialité » plurielle où chaque pôle exporte ses succès ; le scénario dégradé, une balkanisation algorithmique où les publics ne se croisent plus ; le scénario stable, un statu quo avec plateformes US en distributeurs dominants mais contenus de plus en plus locaux. Enjeu concret pour un lecteur français : la capacité de la création française à exister hors de l'hexagone et le risque de dépendance aux algorithmes de recommandation US.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier mentionne « Demain, Chine, Corée, Inde, Japon, Turquie, États-Unis et Europe pourraient chacun construire leurs propres écosystèmes » — cette dynamique est déjà en cours (données 2024-2025), non future. Vérifier : chiffre exact des investissements Netflix en production locale hors France (UK, Allemagne, Pologne, Turquie, Brésil) en 2025 ; parts de marché SVOD par pays en Europe (Digital i / Ampere) ; évolution du nombre de pays où Netflix produit des originaux (50+ cités).",
+          "mots_cles": [
+            "fragmentation culturelle",
+            "streaming local vs global",
+            "Hallyu exportations 2025",
+            "anime marché overseas 2024",
+            "dizis turcs exportations milliard",
+            "jeux vidéo chinois Black Myth Wukong",
+            "JioHotstar Inde contenus régionaux",
+            "Netflix commissions étrangères 2025",
+            "cultural fragmentation Economist 2026"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2027-06-01",
+            "raison": "Prochaine publication du rapport annuel Ampere Analysis / Parrot Analytics sur les commissions mondiales des streamers (habituellement mi-année), indicateur clé de la part de contenus non-US commandés."
+          },
+          "sources": [
+            {
+              "titre": "Forget the World Cup. Culture is becoming more fragmented",
+              "url": "https://www.economist.com/briefing/2026/06/11/forget-the-world-cup-culture-is-becoming-more-fragmented"
+            },
+            {
+              "titre": "Hallyu generated $24.6b in exports in 2025",
+              "url": "https://www.straitstimes.com/asia/east-asia/hallyu-generated-24-6b-in-exports-in-2025-report"
+            },
+            {
+              "titre": "Les jeux vidéo chinois confirment leur percée mondiale",
+              "url": "https://www.teamfrance-export.fr/infos-sectorielles/39759/39759-les-jeux-video-chinois-confirment-leur-percee-mondiale"
+            },
+            {
+              "titre": "Turkish TV series exports exceed $1B as global audience reaches 1B viewers",
+              "url": "https://www.trtworld.com/article/b9a74436d746"
+            }
+          ],
           "origine": null,
           "note": "Thèse large qui recoupe conceptuellement l'entrée « La Chine peut-elle créer la prochaine pop culture mondiale ? » plus haut dans ce lot (un cas particulier de cette fragmentation) — voir la note de séquençage sur cette entrée : traiter le cas chinois concret avant cette thèse plus générale, pas les publier à quelques semaines d'écart",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -4629,19 +4985,46 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "À quel moment les plateformes pourraient-elles décider qu'elles n'ont plus besoin des salles pour lancer leurs plus gros films ?",
-          "rationnel": null,
+          "rationnel": "La question : Netflix peut-il devenir le nouveau cinéma en remplaçant durablement la salle comme lieu de lancement de ses gros films ? L'issue est ouverte car trois forces s'opposent : la pression des réalisateurs (Gerwig, Fincher) et des exploitants pour de vraies sorties ; la chronologie des médias française qui désincite l'exploitation en salles ; et le modèle streaming-first de Netflix qui privilégie la rétention d'abonnés au box-office. L'enjeu concret pour un lecteur français : comprendre si les grands films Netflix seront un jour visibles au cinéma près de chez lui, ou si la France restera exclue des sorties événementielles de la plateforme.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : Le dossier mentionne « annonce d'un studio, chiffre de sortie day-and-date » comme déclencheur futur. Or l'annonce Narnia (large sortie salle mondiale, pas en France) et le record La Bola Negra (47 jours) ont déjà eu lieu en 2026. Vérifier si un nouveau chiffre day-and-date ou annonce studio est attendu post-2 octobre 2026 (ex. résultats box-office Narnia février 2027, nouvelle négociation chronologie médias).",
+          "mots_cles": [
+            "Netflix stratégie théâtrale 2026",
+            "Narnia Greta Gerwig sortie cinéma IMAX",
+            "chronologie des médias France 15 mois Netflix",
+            "La Bola Negra fenêtre 47 jours",
+            "Ted Sarandos box-office theatrical window",
+            "saturation streaming France abonnés"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2027-02-12",
+            "raison": "Sortie mondiale en salles de « Narnia : Le Neveu du magicien » (premier test grandeur nature d'une large exploitation Netflix hors France) ; premiers chiffres de box-office attendus dans les jours suivants."
+          },
+          "sources": [
+            {
+              "titre": "\"La bola negra\" bénéficiera de la plus longue fenêtre d'exploitation au cinéma pour un film Netflix en Amérique du Nord – franceinfo",
+              "url": "https://www.franceinfo.fr/culture/cinema/la-bola-negra-beneficiera-de-la-plus-longue-fenetre-d-exploitation-au-cinema-pour-un-film-netflix-en-amerique-du-nord_8142113.html"
+            },
+            {
+              "titre": "Netflix to skip theatrical release for 'Narnia: The Magician's Nephew' in France – Screen Daily",
+              "url": "https://www.screendaily.com/news/netflix-to-skip-theatrical-release-for-narnia-the-magicians-nephew-in-france/5218361.article"
+            },
+            {
+              "titre": "Netflix Movies Get Cozier With Theatrical Distribution – Variety",
+              "url": "https://variety.com/2026/film/news/netflix-report-box-office-theatrical-releases-1236854834/"
+            },
+            {
+              "titre": "Avec près de 18 millions d'entrées, la fréquentation des salles de cinéma poursuit sa forte dynamique – CNC",
+              "url": "https://www.cnc.fr/professionnels/communiques-de-presse/avec-pres-de-18-millions-dentrees-la-frequentation-des-salles-de-cinema-poursuit-sa-forte-dynamique_2634869"
+            }
+          ],
           "origine": null,
           "note": "Fusion de deux idées du même lot (« Netflix, nouveau cinéma ? » et « la fin des salles est-elle possible ? ») qui posaient la même question sous deux formulations. Placée en dernier de ce lot volontairement : 3 éditions déjà publiées sur le terrain cinéma/streaming en un mois (archives/2026-08-02.html « Streaming : payer plus, avoir moins ? », archives/2026-08-08.html « Le cinéma reprend des couleurs », archives/2026-08-29.html « Cinéma mondial : peut-il survivre au streaming ? ») — ne la traiter que dans plusieurs semaines, avec un vrai fait déclencheur daté (annonce d'un studio, chiffre de sortie day-and-date...) plutôt qu'une reformulation du même débat, et lien explicite obligatoire vers archives/2026-08-29.html à la rédaction",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -4652,10 +5035,19 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "La Techno Parade fait son retour à Paris le samedi 19 septembre 2026 après deux ans sans édition. L'événement, qui rassemble des centaines de milliers de personnes, intervient dans un contexte politique tendu : la loi RIPOST (Répression des Infractions commises lors de rassemblements et de Protection des forces de l'Ordre et des Services et Travailleurs), promulguée à l'été 2026, durcit le cadre juridique des free parties et des rassemblements festifs non déclarés. Les organisateurs et acteurs de la scène électronique estiment que participer à une free party équivaut désormais à un acte de manifestation politique. Des interventions policières violentes (notamment en Normandie) ont marqué les mois précédents. Tommy Vaudecrane, président de Technopol (association organisatrice), attend un moment de « liesse, de joie » mais aussi d'affirmation politique",
-          "rationnel": null,
+          "rationnel": "La question : Danser est-il devenu un acte politique sous la loi RIPOST ? L'issue est ouverte car la loi criminalise les free parties non déclarées (jusqu'à deux ans de prison pour les organisateurs) alors que les musiques électroniques sont reconnues au patrimoine culturel immatériel depuis décembre 2025. La parade du 19 septembre a rassemblé 350 000 personnes dans le calme mais n'a pas obtenu d'assouplissement législatif ; le gouvernement maintient le texte. Le scénario favorable supposerait un dialogue interministériel et une modification de la loi, le stable une poursuite du statu quo avec pression sur les free parties, le dégradé une répression accrue poussant la scène à la clandestinité. L'enjeu concret pour un lecteur français est l'équilibre entre liberté d'expression culturelle et maintien de l'ordre public.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : Le dossier présente la Techno Parade du 19 septembre 2026 comme un événement à venir, or elle a déjà eu lieu (350 000 participants selon les organisateurs, défilé revendicatif sans heurts majeurs).",
+          "mots_cles": [
+            "Techno Parade 2026",
+            "loi RIPOST",
+            "free party",
+            "Technopol",
+            "Tommy Vaudecrane",
+            "musiques électroniques patrimoine culturel",
+            "Laurent Nuñez",
+            "répression rassemblements festifs"
+          ],
           "scenarios": {
             "favorable": "La Techno Parade se déroule dans le calme et rassemble un large public. Le succès populaire de l'événement pousse le gouvernement à assouplir certains aspects de la loi RIPOST concernant les événements culturels. Un dialogue s'ouvre entre les organisateurs et les autorités",
             "stable": "La parade a lieu sans incident majeur mais dans une ambiance tendue. Quelques heurts en marge. Le cadre légal reste inchangé. La scène électronique continue d'exister mais sous pression, avec des free parties plus petites et moins visibles",
@@ -4673,7 +5065,7 @@
           "ajoute_le": "2026-09-18",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         }
       ]
     },
@@ -5501,20 +5893,49 @@
           "tag": "assurance & climat",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Au 1er janvier 2026, les tarifs de réassurance property-cat ont chuté de 14,7 % en moyenne mondiale (jusqu'à 15-20 % en France), plus forte baisse depuis plus de dix ans, marquant la fin de quatre années de « hard market ». Les Rendez-Vous de Septembre à Monaco (5-9 sept. 2026) ont confirmé une détente attendue d'environ 10 % pour les renouvellements du 1er janvier 2027, portée par une capacité record (800 Md$ traditionnels + 144,5 Md$ capitaux alternatifs). Pourtant, le premier semestre 2026 a vu 42 Md$ de pertes assurées mondiales (plus bas depuis 2020, Swiss Re), tandis que la France subit une sécheresse 2026 « historique » : CCR a déjà provisionné 500 M€ pour le seul RGA au premier semestre et estime les sinistres de l'été à 2,3 Md€ (40 % du total annuel projeté). Les points d'attachement restent 50 % plus hauts qu'en 2022 et les réassureurs refusent d'assouplir les couvertures de fréquence.",
+          "rationnel": "La question : les réassureurs vont-ils durablement relever leurs prix après les sinistres climatiques ? L'issue est ouverte car trois forces s'opposent : (1) l'abondance de capitaux et la bonne rentabilité récente poussent les prix à la baisse pour 2027 ; (2) la tendance structurelle des pertes climatiques (+5-7 %/an) et la sinistralité française record (RGA, tempêtes) créent un risque de rebond si le second semestre 2026 s'aggrave ; (3) les réassureurs cèdent sur le prix mais maintiennent des conditions strictes (franchises, points d'attachement), ce qui transfère le risque climatique vers les assureurs primaires. Pour un lecteur français, l'enjeu concret est de savoir si la baisse de la réassurance se répercutera sur ses primes habitation ou si la charge de risque accrue des assureurs maintiendra les cotisations à la hausse.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier présente la hausse des prix comme un scénario futur probable, or les renouvellements de janvier 2026 ont déjà acté une forte baisse (-14,7 % mondial, -15 à -20 % France) et les Rendez-Vous de Septembre 2026 (passés) anticipent une nouvelle baisse ~10 % pour janvier 2027. Vérifier : montant exact des sinistres H2 2026 (ouragans, feux, tempêtes européennes) ; taux de renouvellement effectif au 1er janvier 2027 vs anticipations de septembre ; évolution du capital alternatif (cat bonds) fin 2026.",
+          "mots_cles": [
+            "renouvellement réassurance 1er janvier 2027",
+            "Rendez-Vous de Septembre 2026 Monaco",
+            "property catastrophe pricing",
+            "capitaux alternatifs cat bonds 2026",
+            "sécheresse 2026 RGA France CCR",
+            "Swiss Re insured losses 2026",
+            "hard market réassurance fin 2025",
+            "points d'attachement réassurance"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2027-01-01",
+            "raison": "Renouvellements annuels majeurs des traités de réassurance (95 % du marché européen) : test décisif pour savoir si la baisse se poursuit ou si la sinistralité H2 2026 provoque un rebond des prix."
+          },
+          "sources": [
+            {
+              "titre": "Réassurance : les tarifs s'assouplissent en 2026, sans bouleverser le marché français",
+              "url": "https://www.argusdelassurance.com/reassureurs/reassurance-les-tarifs-s-assouplissent-en-2026-sans-bouleverser-le-marche-francais.237838"
+            },
+            {
+              "titre": "Reinsurers Offer a 10% Cut at Monte Carlo but Hold the Line on Frequency Cover",
+              "url": "https://actuary.info/insights/monte-carlo-2026-reinsurers-cut-price-hold-frequency-cover-1-1-2027"
+            },
+            {
+              "titre": "First-half 2026 insured natural catastrophe losses",
+              "url": "https://www.swissre.com/institute/research/topics-and-risk-dialogues/climate-and-natural-catastrophe-risk/first-half-2026-insured-catastrophe-losses.html"
+            },
+            {
+              "titre": "RESULTATS 1 semestre 2026 - CCR",
+              "url": "https://www.ccr.fr/wp-content/uploads/2026/09/CCR_Communique_Resultats-semestriels_03092026.pdf"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -5524,20 +5945,49 @@
           "tag": "assurance & finance",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Le rapport EIOPA de juin 2026 (données fin 2025) montre des ratios SCR médians robustes : 247 % pour la vie (+17 pp), 219 % pour les mixtes, 214 % pour la non-vie. En France, l'ACPR relève un taux de couverture CSR à 250 % fin 2025 (238 % fin 2024), tiré par la vie/mixte à 240 % et la non-vie à 299 %, sauf les bancassureurs en baisse à 221 %. Le dashboard EIOPA de juillet 2026 (données T1 2026) juge les risques de solvabilité stables au niveau moyen, mais signale une hétérogénéité persistante (Islande -24 pp, Malte -22 pp, Norvège -20 pp) et des vulnérabilités : immobilier (-3 % sur un an), crédit privé, cyber. La révision Solvabilité II (directive UE 2025/2) s'appliquera au 30 janvier 2027 avec UFR abaissé à 3,45 % et chocs de taux asymétriques.",
+          "rationnel": "La question : les ratios de solvabilité des assureurs européens vont-ils se dégrader d'ici l'application pleine de la réforme Solvabilité II (30 janvier 2027) ? L'issue est ouverte : forces favorables (ratios actuels élevés, collecte vie record, fonds propres en hausse) ; forces dégradantes (baisse programmée de l'UFR qui mécaniquement réduit les ratios vie, risque de correction obligataire/immobilière, tensions géopolitiques, cyber). Enjeu concret : un lecteur français (épargnant, souscripteur, actionnaire) doit anticiper la solidité de son assureur et l'impact sur les rendements des contrats euro ou la capacité de paiement des sinistres.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier ne mentionne pas la date d'application de la réforme Solvabilité II (30 janvier 2027) qui est le prochain rendez-vous réglementaire majeur. Vérifier les projections d'impact de l'UFR à 3,45 % sur les ratios vie français (ACPR, France Assureurs). Confirmer la date du prochain Insurance Risk Dashboard EIOPA (probablement octobre 2026 pour données T2 2026).",
+          "mots_cles": [
+            "EIOPA Financial Stability Report juin 2026",
+            "ratio SCR médian assureurs européens 2025",
+            "ACPR situation assureurs France fin 2025",
+            "Solvabilité II révision 2027 UFR 3,45 %",
+            "Insurance Risk Dashboard juillet 2026",
+            "bancassureurs ratio solvabilité baisse",
+            "immobilier assureurs européens 640 Md€",
+            "chocs de taux asymétriques lambda factor"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2027-01-30",
+            "raison": "Entrée en application pleine de la directive Solvabilité II révisée (UE 2025/2) : UFR abaissé à 3,45 %, chocs de taux asymétriques, nouveau régime de proportionnalité — impact direct sur les ratios SCR publiés fin 2027."
+          },
+          "sources": [
+            {
+              "titre": "EIOPA Financial Stability Report June 2026",
+              "url": "https://www.dirittobancario.it/wp-content/uploads/2026/06/EIOPA-Financial-Stability-Report-June-2026.pdf"
+            },
+            {
+              "titre": "EIOPA insurance risk dashboard shows broadly stable risk environment even as cyber and geopolitical risk intensify",
+              "url": "https://www.eiopa.europa.eu/eiopa-insurance-risk-dashboard-shows-broadly-stable-risk-environment-even-cyber-and-geopolitical-2026-07-30_en"
+            },
+            {
+              "titre": "La situation des assureurs en France fin 2025 - ACPR",
+              "url": "https://acpr.banque-france.fr/system/files/2026-06/20260630_AS181_assureurs_S2_2025.pdf"
+            },
+            {
+              "titre": "EIOPA completes Solvency II Review mandate with final guidelines and draft technical standards",
+              "url": "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -5547,20 +5997,49 @@
           "tag": "économie",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Au 2 octobre 2026, l'économie américaine poursuit son expansion : PIB réel +2,2 % au T2 2026 (3e estimation BEA), +2,5 % au T1 ; Atlanta Fed GDPNow prévoit ~5 % au T3. Chômage stable à 4,1 % en août, règle de Sahm à -0,07 (seuil 0,50). Inflation PCE 12 mois à 3,4 % en août, core PCE plus modérée. Fed a relevé ses taux de 25 pb en septembre (fourchette 3,75-4,00 %) ; projections septembre : PIB 2026 +2,3 %, chômage 4,1 %, PCE 3,7 %. Courbe 10Y-2Y positive +46 pb. Sentiment consommateurs dégradé (Michigan 48,1 ; Conference Board Expectations 63,6). NBER n'a pas daté de récession depuis 2020.",
+          "rationnel": "La question : l'économie américaine va-t-elle basculer en récession dans les prochains trimestres ? L'issue est ouverte : les données dures (PIB, emploi, investissement IA) restent solides, mais les signaux avancés (sentiment, attentes, indicateurs de crédit) se dégradent ; un choc géopolitique (énergie, Moyen-Orient) ou une détérioration soudaine du marché du travail pourrait faire basculer le scénario. Enjeu pour un lecteur français : impact sur la croissance européenne, les taux directeurs BCE, le change euro/dollar et les exportations françaises vers les États-Unis.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier initial présente la question comme future ; vérifier que la date de publication de l'édition (jeudi) est bien postérieure au 2 octobre 2026. Confirmer le chiffre exact du GDPNow au 2 octobre (dernière mise à jour disponible). Vérifier la publication de l'ISM manufacturier de septembre (54,5 selon source).",
+          "mots_cles": [
+            "US recession 2026",
+            "Sahm rule August 2026",
+            "10Y-2Y yield curve spread",
+            "Atlanta Fed GDPNow Q3 2026",
+            "FOMC September 2026 rate hike",
+            "PCE inflation 2026",
+            "NBER business cycle dating",
+            "consumer sentiment Michigan Conference Board"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-10-30",
+            "raison": "Prochaine réunion FOMC (29-30 octobre 2026) : décision de taux et nouvelles projections économiques ; publication de l'estimation avance du PIB T3 2026 par le BEA (30 octobre)."
+          },
+          "sources": [
+            {
+              "titre": "Speech by Vice Chair Jefferson on the U.S. economy and monetary policy - Federal Reserve Board (1er octobre 2026)",
+              "url": "https://www.federalreserve.gov/newsevents/speech/jefferson20261001a.htm"
+            },
+            {
+              "titre": "Recession Risk 34/100 — October 2, 2026 | RecessionPulse",
+              "url": "https://recessionpulse.com/blog/daily-recession-risk-october-2-2026"
+            },
+            {
+              "titre": "Is the US in a Recession 2026? Sahm -0.07, Curve +41bp | WhatIsARecession.com (2 octobre 2026)",
+              "url": "https://whatisarecession.com/current-probability-2026"
+            },
+            {
+              "titre": "FOMC Projections September 16, 2026 - Federal Reserve",
+              "url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -5570,43 +6049,101 @@
           "tag": "économie",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Au T2 2026, le PIB de la zone euro a été révisé à +0,6% (ou +0,3% hors Irlande), portant l'acquis de croissance annuelle à 0,8-0,9%. La BCE a relevé ses taux de 25 pb le 10 septembre (dépôt à 2,50%) et projette 0,9% de croissance en 2026, 1,4% en 2027. L'inflation IPCH a bondi à 3,8% en septembre (flash Eurostat du 2 octobre), bien au-dessus de la cible de 2%, tirée par l'énergie (+18,8%). L'inflation sous-jacente reste à 2,5%. Les moteurs de croissance sont la dépense publique allemande (défense, infrastructures) et le cycle d'investissement IA, mais le pouvoir d'achat s'érode.",
+          "rationnel": "La question : la zone euro parviendra-t-elle à enclencher une croissance durable au-dessus de son potentiel (≈1,2-1,4%) d'ici fin 2027, ou restera-t-elle coincée dans une croissance molle (0,5-1%) sous l'effet du resserrement monétaire et du choc énergétique ? L'issue est ouverte car d'un côté la résilience de l'emploi, les plans d'investissement allemands et le cycle IA soutiennent l'activité ; de l'autre, l'inflation persistante force la BCE à maintenir des taux restrictifs, l'énergie reste volatile et la compétitivité structurelle freine les exportations. Pour un lecteur français, l'enjeu concret est l'évolution du pouvoir d'achat, du coût du crédit immobilier et de l'emploi dans un contexte de réindustrialisation et de transition énergétique.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : vérifier la date exacte de la prochaine réunion de politique monétaire de la BCE (probablement 23 octobre 2026) et confirmer si une nouvelle hausse de taux est anticipée par les marchés. Chiffrer précisément l'acquis de croissance annuel à fin T2 2026 (0,8% ou 0,9% selon sources).",
+          "mots_cles": [
+            "zone euro croissance PIB 2026 2027",
+            "BCE taux directeurs dépôt 2,50% septembre 2026",
+            "inflation IPCH 3,8% septembre 2026 énergie",
+            "Allemagne dépenses défense infrastructures plan",
+            "choc énergétique Moyen-Orient gaz pétrole",
+            "investissement IA zone euro productivité",
+            "Eurostat flash estimation PIB T3 2026 octobre 30",
+            "projections BCE septembre 2026 scénarios"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-10-30",
+            "raison": "Publication de l'estimation flash du PIB de la zone euro pour le T3 2026 par Eurostat, indicateur clé pour évaluer si la croissance se maintient au-dessus du potentiel ou marque le pas."
+          },
+          "sources": [
+            {
+              "titre": "Décisions de politique monétaire - BCE, 10 septembre 2026",
+              "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp260910~314e508016.fr.html"
+            },
+            {
+              "titre": "Projections macroéconomiques BCE septembre 2026",
+              "url": "https://www.ecb.europa.eu/press/projections/html/ecb.projections202609_ecbstaff~8e340fc69d.fr.html"
+            },
+            {
+              "titre": "Euro area annual inflation up to 3.8% - Eurostat flash estimate 2 octobre 2026",
+              "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-02102026-ap"
+            },
+            {
+              "titre": "Zone euro – Forte révision à la hausse de la croissance au T2 2026 - Crédit Agricole, 8 septembre 2026",
+              "url": "https://etudes-economiques.credit-agricole.com/s3-b-dj-prod-drupal-internet/s3fs-public/document/documents-2026-09/Persp26-174-PIB-zone-euro-20260908.pdf"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
           "id": "economie-assurance-vie-francaise-fonds-en-euros-et",
           "titre": "Assurance-vie française : fonds en euros et concurrence de l'épargne réglementée — vers une crise de confiance ?",
-          "question": null,
+          "question": "Les fonds en euros de l'assurance-vie française vont-ils servir un rendement 2026 suffisant pour maintenir l'avantage face au Livret A (1,7 %) et au LEP (2,5 %), ou la collecte va-t-elle basculer en décollecte nette durable ?",
           "tag": "assurance & épargne",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "En 2025, l'assurance-vie a collecté 44 Md€ nets (record depuis 2011) et les fonds en euros ont servi 2,63 % en moyenne (ACPR, juin 2026). Sur les 8 premiers mois 2026, la collecte nette atteint 43,5 Md€ (+6,9 Md€ vs 2025), mais août marque un net ralentissement à 2 Md€ nets (vs 3,9 Md€ un an avant) avec des rachats en hausse de 15 %. L'encours total s'élève à 2 171 Md€ fin août. Le Livret A est passé de 1,5 % (février) à 1,7 % (août) ; le LEP est maintenu à 2,5 %. Les prévisions tablent sur un rendement moyen des fonds euros 2026 autour de 2,9 % brut (~2,4 % net), mais la dispersion entre contrats reste forte (écart > 0,4 point autour de la moyenne).",
+          "rationnel": "La question : le ralentissement estival de la collecte sur les fonds en euros et la hausse des rachats annoncent-ils une crise de confiance durable face à l'épargne réglementée, ou le rendement 2026 (connu en janvier 2027) confirmera-t-il l'avantage de l'assurance-vie ? L'issue est ouverte car : 1) le Livret A à 1,7 % et le LEP à 2,5 % offrent une alternative liquide et sans fiscalité ; 2) les fonds euros 2026 ne sont pas encore connus et la dispersion des taux servis est grande ; 3) la part croissante des unités de compte (40 % des cotisations) montre une appétence au risque qui peut fragiliser le socle garanti. Enjeu concret : pour un épargnant français, savoir si son fonds euros restera plus rémunérateur net de frais et de fiscalité que les livrets, et s'il doit arbitrer vers des UC ou vers le LEP s'il y est éligible.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier présente comme futur le rendement 2026 des fonds en euros (attendu ~2,9 %) qui ne sera publié qu'en janvier 2027. Vérifier la date exacte de publication des taux par l'ACPR et par les principaux assureurs. Chiffrer l'écart net moyen attendu après prélèvements sociaux (17,2 %) et comparer au seuil de 1,7 % (Livret A) et 2,5 % (LEP).",
+          "mots_cles": [
+            "assurance-vie France",
+            "fonds en euros rendement 2026",
+            "Livret A 1,7 % août 2026",
+            "LEP 2,5 %",
+            "collecte nette assurance-vie 2026",
+            "ACPR rendement fonds euros",
+            "France Assureurs statistiques",
+            "OAT 10 ans 4,5 %"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2027-01-31",
+            "raison": "Publication par les assureurs et l'ACPR des rendements 2026 définitifs des fonds en euros (généralement mi-janvier à fin janvier), qui tranchera la compétitivité réelle face aux livrets réglementés."
+          },
+          "sources": [
+            {
+              "titre": "L'assurance-vie en 2025 - ACPR (rendement 2,63 % fonds euros, collecte record 44 Md€)",
+              "url": "https://acpr.banque-france.fr/fr/publications-et-statistiques/publications/ndeg-179-lassurance-vie-en-2025"
+            },
+            {
+              "titre": "Assurance vie : 36,5 Md€ collectés au S1 2026, record 20 ans - France Épargne",
+              "url": "https://www.france-epargne.fr/news/assurance-vie-365-milliards-deuros-de-collecte-nette-au-premier-semestre-record-depuis-2006"
+            },
+            {
+              "titre": "Assurance-vie : la collecte nette en forte baisse en août - Les Echos",
+              "url": "https://www.lesechos.fr/finance-marches/banque-assurances/assurance-vie-la-collecte-nette-en-forte-baisse-en-aout-2254511"
+            },
+            {
+              "titre": "Livret A et LEP : taux à 1,7 % et 2,5 % au 1er août 2026 - Service-Public.fr",
+              "url": "https://www.service-public.gouv.fr/particuliers/actualites/A18000?lang=en"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -5616,20 +6153,49 @@
           "tag": "assurance & santé",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "La LFSS 2026 (loi du 30 déc. 2025) a instauré un gel des cotisations mutuelles à leur niveau 2025 et une contribution exceptionnelle de 2,05 % (1 Md€). Pourtant, 98,5 % des 4 271 répondants à l'enquête Que Choisir (janv.-mars 2026) ont subi une hausse moyenne de 106 €. Les fédérations (FNMF, France Assureurs) ont saisi le Conseil d'État, qui a transmis une QPC au Conseil constitutionnel le 24 juil. 2026 ; l'audience est fixée au 13 oct. 2026, décision attendue au plus tard le 24 oct. Parallèlement, le PLFSS 2027 (déposé le 1er oct.) proroge la taxe de 2,05 % (1,1 Md€) mais ne reconduit pas le gel. Les cabinets Addactis et Fact & Figures prévoient des hausses médianes de 8 à 8,3 % en 2027, portées par les transferts de charges Sécu (1,5-1,7 Md€) et le vieillissement.",
+          "rationnel": "La question : les cotisations des mutuelles santé vont-elles continuer d'augmenter fortement après 2026 ? L'issue est ouverte car trois forces s'opposent : (1) la décision du Conseil constitutionnel sur la légalité du gel 2026 (censure = liberté tarifaire retrouvée ; validation = régularisation incertaine) ; (2) le vote du PLFSS 2027 qui maintient la taxe mais supprime le gel, laissant les organismes libres de la répercuter ; (3) la dynamique structurelle des dépenses de santé (+4,4 %/an depuis 2020) et les nouveaux transferts de charges au 1er janv. 2027. Pour un assuré français, l'enjeu concret est le montant de sa cotisation 2027 (hausse médiane attendue 8-8,3 % soit ~100-120 €/an) et le risque de rattrapage rétroactif si le gel 2026 est censuré.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier présente la décision du Conseil constitutionnel comme future ; elle est attendue d'ici le 24 octobre 2026 (audience le 13 oct.). Vérifier l'issue exacte de cette décision et la version finale du PLFSS 2027 après vote parlementaire (déc. 2026). Chiffrer le montant moyen de la cotisation 2025 (base du gel) et le taux de régularisation éventuel si le gel est validé.",
+          "mots_cles": [
+            "mutuelles santé",
+            "cotisations 2027",
+            "LFSS 2026 article 13",
+            "gel tarifs",
+            "QPC Conseil constitutionnel",
+            "contribution exceptionnelle 2,05 %",
+            "Addactis baromètre 2027",
+            "transferts charges Sécu"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-10-24",
+            "raison": "Date limite légale pour la décision du Conseil constitutionnel sur la QPC relative au gel des cotisations 2026 (3 mois après la saisine du 24 juil. 2026)."
+          },
+          "sources": [
+            {
+              "titre": "Mutuelles - Malgré le gel des tarifs prévu par la loi, les hausses de cotisations explosent en 2026 - Que Choisir",
+              "url": "https://www.quechoisir.org/action-que-choisir-ensemble-mutuelles-malgre-le-gel-des-tarifs-prevu-par-la-loi-les-hausses-de-cotisations-explosent-en-2026-n176018/"
+            },
+            {
+              "titre": "Décision n° 516312 - Conseil d'État (renvoi QPC au Conseil constitutionnel, 24 juil. 2026)",
+              "url": "https://www.conseil-etat.fr/fr/arianeweb/CE/decision/2026-07-24/516312"
+            },
+            {
+              "titre": "Gel des tarifs santé : les QPC seront examinées le 13 octobre - Tripalio",
+              "url": "https://presse.tripalio.fr/gel-des-tarifs-sante-les-qpc-seront-examinees-le-13-octobre/"
+            },
+            {
+              "titre": "Mutuelles santé : des hausses de tarifs entre 4% et 10% en 2027 selon Fact & Figures et Addactis - MoneyVox",
+              "url": "https://www.moneyvox.fr/assurance/actualites/110539/mutuelles-sante-des-hausses-de-tarifs-entre-4-et-10-en-2027-selon-fact-figures-et-addactis"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -5639,43 +6205,101 @@
           "tag": "économie & finance",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Le marché du private credit atteint 1 500 à 2 000 milliards $ (FSB, mai 2026 ; Moody's prévoit >2 000 Md$ fin 2026). Le FSB a publié en mai 2026 un rapport soulignant vulnérabilités : interdépendances banques/assureurs/private equity, levier, déséquilibres de liquidité, opacité des valorisations. La Fed (rapport mai 2026) note un levier record des hedge funds concentré chez les plus gros ; les contacts de marché citent le private credit parmi les 5 risques majeurs. Les fonds semi-liquides (425 Md$ d'actifs bruts, ~20 % du private credit) ont vu les demandes de rachat s'accélérer fin 2025 et T1 2026, dépassant les souscriptions nettes pour la première fois, avec plafonnement à 5 % de l'actif net. Fitch mesurait un taux de défaut US à 5,8 % en janvier 2026 (restructurations incluses). Côté hedge funds, l'encours mondial a touché 5 600 Md$ au T2 2026 (record HFR) ; Jane Street a perdu ~15 Md$ en juillet 2026. En Europe, le private equity affiche des sorties record au T2 2026 (157,6 Md€) mais concentrées sur 22 méga-deals (65,8 % de la valeur), tandis que la levée de fonds tombe au plus bas décennal (80,9 Md€) et les distributions aux LPs restent au plus bas depuis 2009 (14 % de la valeur). En France, la transposition d'AIFMD II (échéance 16 avril 2026) encadre désormais le prêt par FIA (plafonds de levier 175 %/300 %, rétention 5 %).",
+          "rationnel": "La question : l'expansion conjointe du private credit, du private equity et des hedge funds constitue-t-elle une bulle systémique qui éclatera dans les 12-24 mois, ou les garde-fous (structure closed-end, levier modéré, encadrement réglementaire récent) permettront-ils une normalisation sans crise ? L'issue est ouverte : d'un côté, levier record des hedge funds, défauts en hausse, liquidité testée sur les véhicules semi-liquides, concentration des sorties PE ; de l'autre, levier contenu dans le private credit (~1x), correspondance actif-passif, encadrement AIFMD II/ELTIF 2, capacité des gestionnaires à plafonner les rachats. L'enjeu pour un lecteur français : exposition directe via l'épargne retraite (PER, assurance-vie en unités de compte), fonds ELTIF accessibles aux particuliers, et contagion possible vers les banques françaises prêteuses aux fonds.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier mentionne « la prochaine bulle » comme horizon futur ; vérifier qu'aucun événement récent (effondrement d'un grand fonds, décision réglementaire majeure post-juillet 2026) n'a déjà tranché le débat. Chiffrer l'encours exact du private credit en France (FPS, OFS, ELTIF) et la part détenue par des investisseurs particuliers français.",
+          "mots_cles": [
+            "private credit",
+            "private equity",
+            "hedge funds",
+            "semi-liquid funds",
+            "AIFMD II",
+            "ELTIF 2",
+            "FSB vulnerabilities",
+            "redemption caps"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2027-04-16",
+            "raison": "Premier anniversaire de l'application pleine d'AIFMD II en France : échéance pour évaluer l'effet des nouveaux plafonds de levier (175 %/300 %) et règles de rétention 5 % sur la résilience du private credit européen"
+          },
+          "sources": [
+            {
+              "titre": "Report on Vulnerabilities in Private Credit",
+              "url": "https://www.fsb.org/2026/05/report-on-vulnerabilities-in-private-credit/"
+            },
+            {
+              "titre": "Financial Stability Report, May 2026",
+              "url": "https://www.federalreserve.gov/publications/files/financial-stability-report-20260508.pdf"
+            },
+            {
+              "titre": "Megadeals mask a fragile European PE recovery",
+              "url": "https://pitchbook.com/news/articles/megadeals-mask-a-fragile-european-pe-recovery"
+            },
+            {
+              "titre": "Hedge Fund Leverage and Concentration Risk: July 2026",
+              "url": "https://www.cv5capital.io/insights/hedge-fund-leverage-concentration-risk-july-2026"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
           "id": "economie-marches-emergents-un-risque-de-fuite-massive",
           "titre": "Marchés émergents : un risque de fuite massive des capitaux ?",
-          "question": null,
+          "question": "Marchés émergents : un risque de fuite massive des capitaux ?",
           "tag": "économie & finance",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "La Fed a relevé ses taux de 25 pb le 16 septembre 2026 (premier relèvement en 3 ans, fourchette 3,75-4,00 %) avec un discours hawkish. Le rendement du Trésor US à 10 ans a atteint 5,34 % fin septembre, plus haut depuis 2002. Les flux EPFR montrent des sorties nettes sur les fonds actions EM (1,61 Md $ sur la semaine au 16 sept.) et obligations EM (167 M $, première sortie en 6 semaines). L'ETF EMB de BlackRock a subi 610 M $ de rachats fin septembre. En Inde, les investisseurs de portefeuille étrangers ont retiré 3,05 lakh crore ₹ (≈ 36,6 Md $) d'actions depuis janvier, record annuel. Corée du Sud, Taïwan, Thaïlande enregistrent aussi des ventes étrangères fin septembre. Le FMI (GFSR avril 2026) note que 80 % des flux de portefeuille vers les EM viennent d'investisseurs non bancaires, très sensibles au risque global, pour un stock de dette de portefeuille à 15 % du PIB des EM. Les Assemblées annuelles FMI/Banque mondiale se tiendront à Bangkok du 13 au 17 octobre 2026.",
+          "rationnel": "La question : les marchés émergents vont-ils subir une fuite massive de capitaux dans les prochains mois ? L'issue est ouverte : d'un côté, le durcissement de la Fed, les rendements US à 5,3 %, le dollar fort et le pétrole > 90 $ créent une pression structurelle sur les flux non bancaires ; de l'autre, les fondamentaux de plusieurs EM se sont améliorés, la Chine attire des flux via les ETF, et la différenciation entre pays limite la contagion. L'enjeu pour un lecteur français : l'exposition des assureurs et banques françaises à la dette EM, et l'impact sur l'euro si la BCE doit réagir.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier ne mentionne pas la réunion de la Fed du 16 septembre 2026 (déjà passée) ni le pic de rendement du 10 ans US à 5,34 % (fin septembre). Chiffrer les sorties EPFR de la semaine au 30 septembre et la position nette des non-résidents sur la dette souveraine EM (données TIC ou BIS). Vérifier si le FMI publiera une mise à jour du GFSR lors des assemblées de Bangkok.",
+          "mots_cles": [
+            "flux de capitaux marchés émergents 2026",
+            "EPFR emerging markets outflows septembre 2026",
+            "Fed rate hike septembre 2026 3.75-4.00",
+            "US 10-year yield 5.34% 2026",
+            "BlackRock EMB ETF outflows 610M",
+            "FPI India equity outflows 2026",
+            "IMF GFSR avril 2026 non-bank investors",
+            "Assemblées annuelles FMI Bangkok octobre 2026"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-10-13",
+            "raison": "Ouverture des Assemblées annuelles FMI/Banque mondiale à Bangkok (13-17 octobre), où sera discutée la stabilité financière des marchés émergents et potentiellement publié un point d'étape sur les flux de capitaux."
+          },
+          "sources": [
+            {
+              "titre": "FPIs Pull ₹3.05 Lakh Crore From Indian Equities in 9 Months as Global Risks Weigh",
+              "url": "https://financialnewsindia.com/news/fpi-outflow-indian-equities-3-05-lakh-crore-2026/"
+            },
+            {
+              "titre": "Fed : la hausse était attendue, le discours s'est durci",
+              "url": "https://www.home.saxo/fr-fr/content/articles/macro/fed-review-the-hike-was-expected-the-message-was-more-hawkish-17092026"
+            },
+            {
+              "titre": "L'ETF $13B EMB de BlackRock enregistre $610M de sorties de capitaux en une semaine",
+              "url": "https://www.gate.com/fr/news/detail/blackrocks-13b-emb-etf-sees-610m-outflows-in-one-week-amid-us-treasury-24614540"
+            },
+            {
+              "titre": "Les Assemblées annuelles 2026 du FMI et de la Banque mondiale se tiendront du 13 au 17 octobre 2026 à Bangkok",
+              "url": "https://www.vietnam.vn/fr/hoi-nghi-thuong-nien-nam-2026-cua-quy-tien-te-quoc-te-imf-va-ngan-hang-the-gioi-wb"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -5685,20 +6309,49 @@
           "tag": "assurance & numérique",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "L'étude AMRAE LUCY 2026 (publiée juillet 2026) montre qu'en 2025 le marché français a vu ses primes baisser de 3 % à 306 M€ tandis que les sinistres indemnisés bondissaient de 53 % à 83,2 M€. Le nombre d'entreprises assurées a crû de 49 % à près de 21 000. Les taux de prime ont chuté de 32 % pour les grandes entreprises (1,28 %) et de 23 % pour les ETI (0,81 %). Le loss ratio global reste à 27 % mais atteint 42 % sur le segment ETI. À l'international, Swiss Re et Howden Re confirment une 4e année consécutive de baisse des taux (-5 % mondial en 2026, -24,5 % hors US depuis 2024) avec un combined ratio vers 70 %. Les réassureurs identifient comme déclencheurs potentiels de durcissement : panne cloud majeure, rançongiciel sur infrastructure critique, catastrophe chaîne d'approvisionnement ou fraude IA massive.",
+          "rationnel": "La question : la hausse continue de la fréquence et de la sévérité des cyberattaques (rançongiciels, fuites de données, fraudes IA) finira-t-elle par imposer une remontée brutale des tarifs d'assurance cyber en France ? L'issue est ouverte car trois forces s'opposent : (1) l'afflux de capacités et la concurrence maintiennent les taux à la baisse ; (2) la sinistralité grimpe vite, surtout chez les ETI moins matures ; (3) un choc systémique unique pourrait inverser la tendance en quelques semaines. Pour un lecteur français (risk manager, DAF, RSSI), l'enjeu concret est d'anticiper le budget assurance 2027 et de décider s'il faut verrouiller des conditions actuelles ou miser sur une poursuite de la baisse.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier d'origine présente la question comme future alors que les données 2025 (LUCY juillet 2026) et les tendances 2026 (Swiss Re, Howden Re) sont déjà connues. Vérifier la date exacte du prochain renouvellement majeur (souvent 1er janvier) et la publication attendue de LUCY 2027 (été 2027).",
+          "mots_cles": [
+            "cyberassurance",
+            "AMRAE LUCY 2026",
+            "taux de prime",
+            "sinistralité ETI",
+            "rançongiciel",
+            "réassurance cyber",
+            "Swiss Re",
+            "durcissement marché"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2027-01-01",
+            "raison": "Prochaine échéance majeure de renouvellement des polices cyber (majorité des contrats annuels au 1er janvier) qui révélera si les taux ont trouvé un plancher ou repartent à la hausse."
+          },
+          "sources": [
+            {
+              "titre": "LUMIÈRE SUR LA CYBERASSURANCE - Édition 2026 (AMRAE)",
+              "url": "https://www.amrae.fr/sites/default/files/public/2026-07/AMRAE_LUCY_2026_FR_Hdef_c.pdf"
+            },
+            {
+              "titre": "Building a sustainable cyber market in the AI era | Swiss Re",
+              "url": "https://www.swissre.com/risk-knowledge/advancing-societal-benefits-digitalisation/building-a-sustainable-cyber-market-in-the-AI-era.html"
+            },
+            {
+              "titre": "Cyber's next phase starts here - Howden Re's outlook for H2 2026",
+              "url": "https://www.howdenre.com/news-insights/cybers-next-phase-starts-here-howden-res-outlook-h2-2026"
+            },
+            {
+              "titre": "2026 Cyber + Technology State of the Market at a Glance | CRC Group",
+              "url": "https://www.crcgroup.com/Tools-Intel/Specialty-Tools-Intel/2026-cyber-state-of-the-market-at-a-glance"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -5708,20 +6361,49 @@
           "tag": "économie & immobilier",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Au T2 2026, les valeurs commerciales européennes n'ont progressé que de +0,3 % (vs +0,6 % au T1), les bureaux marquant l'arrêt tandis que résidentiel et commerces tirent encore le marché. En France, l'investissement en immobilier d'entreprise a chuté de 48 % au T1 2026 (1,9 Md€, plus bas depuis 2009) avant un rebond technique au T2 à 4,6 Md€ porté à 50 % par la cession Proudreed/Blackstone (2,3 Md€). Hors cette opération, les volumes reculent de 29 % sur un an au S1. Les bureaux ne représentent plus que 29 % des volumes (1,9 Md€, -22 %), le commerce résiste à 1,8 Md€ (+1 %) mais sur 3 grosses transactions. Les taux prime restent stables (bureaux QCA ~4,25 %, pieds d'immeuble 4,00 %), mais les écarts acheteur/vendeur persistent et la logistique voit une décompression. Environ 12 Md€ de dette arrivent à échéance en 2026-2027 en France, avec un spread OAT-Bund à ~85 pb fin août 2026.",
+          "rationnel": "La question : les valorisations de l'immobilier commercial (bureaux, commerces, logistique) vont-elles poursuivre leur ajustement baissier en France et en Europe ? L'issue est ouverte car trois forces s'opposent : (1) le soutien des loyers prime et la rareté de l'offre neuve de qualité qui limitent la décompression des taux sur le core ; (2) le mur de refinancement 2026-2027 et la remontée durable du coût de la dette souveraine française qui forcent des cessions sous contrainte ; (3) la polarisation extrême du marché (prime vs secondaire, bureaux vs logistique) qui empêche la formation de nouveaux comparables de prix. Pour un lecteur français, l'enjeu concret est la valorisation de son patrimoine (SCPI, OPCI, foncières cotées, actifs en direct) et le moment d'acheter ou vendre.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier mentionne la « guerre en Iran » comme facteur de gel du marché au T1 2026 — vérifier si ce conflit est toujours actif ou s'il a eu une issue connue. ⚠ Chiffres : attendre la publication des données Immostat/CBRE/JLL pour le T3 2026 (attendue mi-octobre) pour confirmer si le rebond technique se poursuit ou si la baisse reprend. Vérifier le montant exact de la dette arrivant à échéance en 2026-2027 selon les dernières études BPCE/Colliers.",
+          "mots_cles": [
+            "immobilier commercial France 2026",
+            "valorisations bureaux commerces logistique",
+            "taux de rendement prime QCA",
+            "volumes investissement Immostat T2 2026",
+            "mur refinancement 2026 2027",
+            "OAT 10 ans spread Bund",
+            "Proudreed Blackstone 2,3 Md€",
+            "commercial real estate valuation Europe"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-10-15",
+            "raison": "Publication attendue des chiffres Immostat et études CBRE/JLL/Colliers pour le T3 2026, qui diront si le rebond technique du T2 se confirme ou si la correction des valorisations reprend."
+          },
+          "sources": [
+            {
+              "titre": "Immobilier commercial européen : la hausse se tasse à 0,3 % au T2 2026, les bureaux à l'arrêt",
+              "url": "https://www.patrimoine-magazine.eu/immobilier-commercial-europeen-la-hausse-se-tasse-a-03-au-t2-2026-les-bureaux-a-larret-07415402026.html"
+            },
+            {
+              "titre": "Investissement immobilier en France au 1er semestre 2026 | JLL",
+              "url": "https://www.jll.com/fr-fr/newsroom/investissement-immobilier-france-s1-2026"
+            },
+            {
+              "titre": "Immostat T2 2026 - Des rebonds techniques mais absence de fondamentaux clairs de reprise",
+              "url": "https://www.cbre.fr/press-releases/cp-immostat-t2-2026-investissement"
+            },
+            {
+              "titre": "Colliers | Étude marché investissement immobilier 1T 2026",
+              "url": "https://www.colliers.com/fr-fr/etudes/2026-1t-etude-marche-investissement"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -5731,43 +6413,101 @@
           "tag": "assurance & société",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Fin 2023, 6,4 millions de Français étaient couverts par une assurance dépendance (cotisations 796 M€, −3,9 % sur un an ; âge moyen de souscription 63 ans ; rente moyenne 549 €/mois). Le CCSF a recommandé en janvier 2024 un « Contrat Dépendance Solidaire » obligatoire, adossé aux complémentaires santé responsables, couvrant la dépendance totale (GIR 1-2) avec grille tarifaire unique. La loi « bien vieillir » a été promulguée en avril 2024 sans instaurer d'obligation. Le PLFSS 2026 (adopté décembre 2025) prévoit 100 M€ pour l'habitat intermédiaire et le renforcement de l'aide à domicile, mais pas de réforme du financement assurantiel. L'INSEE projette 2,8 millions de seniors en perte d'autonomie en 2052 (+700 000 vs 2021).",
+          "rationnel": "La question : le vieillissement de la population va-t-il contraindre la France à faire de l'assurance dépendance un pilier majeur de son système de protection (via une obligation légale, un 5e risque Sécu, ou une mutation du marché volontaire) ? L'issue est ouverte : d'un côté, la démographie (hausse des GIR 1-2, reste à charge EHPAD ~2 000 €/mois) et l'appel du CCSF à des États généraux poussent vers une mutualisation obligatoire ; de l'autre, le marché privé recule (cotisations −10 % en 5 ans, souscription tardive), l'État peine à financer un 5e risque (déficit Sécu 23 Md€ en 2025), et les partenaires sociaux divergent sur le partage des charges. Pour un lecteur français, l'enjeu concret est le montant de son reste à charge futur et la lisibilité de sa couverture.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier mentionne « le vieillissement va-t-il en faire » comme futur ; la recommandation CCSF date de janvier 2024 (passée) et les États généraux qu'elle appelle n'ont pas eu lieu à ma connaissance. Vérifier si un projet de loi « grand âge / programmation autonomie » a été déposé en 2025-2026 et son sort. Chiffrer le nombre d'assurés 2024-2025 (données France Assureurs).",
+          "mots_cles": [
+            "Contrat Dépendance Solidaire",
+            "CCSF recommandation janvier 2024",
+            "assurance dépendance obligatoire",
+            "GIR 1 GIR 2",
+            "reste à charge EHPAD",
+            "5e risque sécurité sociale",
+            "France Assureurs FNMF",
+            "PLFSS 2026 autonomie"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2027-01-01",
+            "raison": "Prochaine échéance politique probable : dépôt d'un projet de loi de programmation « grand âge / autonomie » promis depuis 2024, ou tenue des États généraux sur le financement de la dépendance appelés par le CCSF ; à défaut, prochaine LFSS (automne 2026 pour 2027) qui pourrait intégrer une mesure sur l'assurance dépendance."
+          },
+          "sources": [
+            {
+              "titre": "Recommandation du CCSF - Pour une meilleure protection des personnes dépendantes : Le Contrat Dépendance Solidaire",
+              "url": "https://www.banque-france.fr/fr/communiques-de-presse/recommandation-du-ccsf-pour-une-meilleure-protection-des-personnes-dependantes-et-de-leur-famille-le"
+            },
+            {
+              "titre": "Le marché de l'assurance dépendance, état des lieux (Institut des actuaires)",
+              "url": "https://www.institutdesactuaires.com/global/gene/link.php?doc_id=19218&fg=1"
+            },
+            {
+              "titre": "700 000 seniors en perte d'autonomie supplémentaires d'ici 2050 (INSEE)",
+              "url": "https://www.insee.fr/fr/statistiques/8653672"
+            },
+            {
+              "titre": "L'assurance prévoyance en 2025 - France Assureurs",
+              "url": "https://www.franceassureurs.fr/nos-chiffres-cles/assurance-sante-et-prevoyance/assurance-prevoyance-2025/"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
           "id": "economie-assureurs-europeens-vers-une-vague-de-fusions",
           "titre": "Assureurs européens : vers une vague de fusions-acquisitions ?",
-          "question": null,
+          "question": "Assureurs européens : vers une vague de fusions-acquisitions ?",
           "tag": "assurance & finance",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Fitch Ratings prévoyait en février 2026 une accélération des fusions-acquisitions chez les assureurs européens en 2026, portée par l'assouplissement des prix en non-vie, la croissance économique atone et la stabilisation des rendements d'investissement. Le rapport notait des ratios Solvabilité II supérieurs aux cibles internes et une réforme entrant en vigueur le 30 janvier 2027 susceptible de les relever de 5 à 7 points en moyenne. Pourtant, FTI Consulting a révélé le 21 septembre 2026 un repli de 14 % des volumes au S1 2026 (358 opérations contre 418 au S2 2025), après une année 2025 record (789 deals). Le ralentissement masque de fortes divergences : les courtiers et MGA progressent, tandis que les assureurs et prestataires de services reculent ; la France (+104 %) et le Benelux (+29 %) contrebalancent les baisses en Ibérie (-33 %), zone DACH (-32 %), Italie (-29 %) et Royaume-Uni (-24 %). Les transactions adossées au capital-investissement ont chuté de 40 à 18. Parmi les opérations récentes : fusion Helvetia-Baloise (avril 2025), rachat de Viridium par Allianz (mars 2025), acquisition de Pension Insurance par Athora (juillet 2025), rachat de Prima par AXA (juillet 2025), acquisition d'HSBC Assurances Vie par Matmut (clôture octobre 2025), rachat d'Eurofil par Allianz Direct (effectif janvier 2026), et approbation le 30 septembre 2026 de la fusion Alleanza-Generali Italia (finalisation attendue S1 2027). L'EIOPA renforce par ailleurs sa surveillance des assureurs détenus par du capital-investissement (26 groupes PE, 260 Md€ d'actifs).",
+          "rationnel": "La question : L'Europe de l'assurance entre-t-elle dans une vague soutenue de fusions-acquisitions entre assureurs (carriers) ou le marché reste-t-il fragmenté avec une activité concentrée sur les courtiers/MGA ? L'issue est ouverte car les fondamentaux (capital excédentaire, réforme Solvabilité II 2027, pression sur la croissance organique) plaident pour une reprise des deals carriers au S2 2026 et au-delà, mais le S1 2026 a montré un net recul des transactions assureurs, une sélectivité accrue des acheteurs, des écarts de valorisation persistants et une surveillance réglementaire renforcée sur les structures PE. Pour un lecteur français, l'enjeu concret est de savoir si les grands groupes (AXA, Generali, Allianz, Covéa, Groupama, Matmut, Crédit Agricole Assurances) vont accélérer la consolidation domestique et transfrontalière, redessinant le paysage de l'assurance vie, non-vie et bancassurance en France et en zone euro.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : Le dossier initial ne mentionne pas les résultats du S1 2026 (publiés le 21/09/2026 par FTI Consulting) qui contredisent partiellement la prévision d'accélération de Fitch (février 2026). Vérifier les volumes exacts de deals carriers (vs courtiers/MGA) au S1 2026 et les annonces majeures du S2 2026 à ce jour (octobre 2026). Chiffrer le surplus de capital Solvabilité II moyen des grands groupes européens et l'impact projeté de la réforme 2027 sur leur capacité d'acquisition.",
+          "mots_cles": [
+            "assureurs européens fusions acquisitions 2026",
+            "Fitch Ratings M&A assurance Europe 2026",
+            "FTI Consulting baromètre M&A assurance S1 2026",
+            "réforme Solvabilité II 2027 impact capital",
+            "Generali Alleanza fusion IVASS 2026",
+            "Allianz AXA Generali Munich Re consolidation",
+            "capital-investissement assureurs EIOPA surveillance",
+            "bancassurance Danish Compromise EBA 2026"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2027-01-30",
+            "raison": "Entrée en vigueur de la réforme Solvabilité II (Directive UE 2025/2 et règlement délégué) qui devrait relever les ratios de solvabilité et libérer de la capacité d'acquisition pour les assureurs européens."
+          },
+          "sources": [
+            {
+              "titre": "European Insurance M&A to Accelerate in 2026 - Fitch Ratings",
+              "url": "https://www.fitchratings.com/research/insurance/european-insurance-m-a-to-accelerate-in-2026-16-02-2026"
+            },
+            {
+              "titre": "European Insurance M&A Deal Volumes Slow in H1 2026 - FTI Consulting",
+              "url": "https://www.fticonsulting.com/about/newsroom/press-releases/european-insurance-ma-deal-volumes-slow-h1-2026"
+            },
+            {
+              "titre": "Generali approves the merger by incorporation of Alleanza Assicurazioni into Generali Italia",
+              "url": "https://www.generali.com/it/media/press-releases/all/2026/Generali-approves-the-merger-by-incorporation-of-Alleanza-Assicurazioni-into-Generali-Italia"
+            },
+            {
+              "titre": "Questions and answers on the Solvency II delegated regulation - European Commission",
+              "url": "https://finance.ec.europa.eu/news/questions-and-answers-solvency-ii-delegated-regulation-2025-10-29_en"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -5777,20 +6517,49 @@
           "tag": "assurance & agriculture",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "La réforme de l'assurance récolte (loi mars 2022, effective 2023) a instauré un dispositif à trois étages : aléa courant à la charge de l'agriculteur, aléa significatif couvert par l'assurance multirisques climatiques (MRC) subventionnée à 70 %, aléa exceptionnel indemnisé par la solidarité nationale (ISN). En 2024, les cotisations MRC s'élèvent à 851 M€ (-0,6 %), la sinistralité double à 611 M€ (+103 %), portant le ratio S/P à 72 % (contre 35 % en 2023). Sur la période 2016-2024, le ratio S/P atteint 119 % selon la CCR, avec 8 exercices déficitaires sur 9. Seules 36 % des surfaces (hors prairies) étaient assurées en MRC en 2024. Le groupement de co-réassurance obligatoire France Agriclimat, validé sous réserves par l'Autorité de la concurrence en septembre 2025, doit mutualiser 65 % des risques et mutualiser les données de sinistralité pour améliorer la tarification ; son lancement est attendu pour la campagne 2026-2027.",
+          "rationnel": "La question : le modèle français d'assurance récolte subventionnée peut-il atteindre l'équilibre technique durable face à l'intensification des aléas climatiques, ou restera-t-il structurellement déficitaire ? L'issue est ouverte car d'un côté le pool de co-réassurance et la mutualisation des données pourraient améliorer la tarification et réduire la volatilité ; de l'autre, la fréquence croissante des sinistres (excès d'eau, grêle, gel), la faible pénétration de l'assurance (36 % des surfaces) et la dépendance aux subventions publiques (70 % des primes) maintiennent une pression forte sur la soutenabilité. L'enjeu concret pour un lecteur français : la pérennité du dispositif conditionne le coût pour les finances publiques (subventions, ISN) et la capacité des agriculteurs à s'assurer à des tarifs abordables.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier mentionne un horizon « campagne 2026-2027 » pour le pool France Agriclimat ; vérifier si le groupement a été formellement constitué et opérationnel à l'automne 2026. Chiffrer le taux de surfaces assurées MRC pour la campagne 2025 (données France Assureurs attendues début 2026). Confirmer le montant exact des subventions publiques versées en 2024-2025 (FEADER + budget État).",
+          "mots_cles": [
+            "assurance récolte MRC",
+            "France Agriclimat",
+            "co-réassurance agricole",
+            "ratio sinistres/primes",
+            "indemnité solidarité nationale ISN",
+            "réforme assurance récolte 2023",
+            "subvention 70 % primes",
+            "CCR Caisse Centrale Réassurance"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2027-01-01",
+            "raison": "Lancement opérationnel attendu du pool de co-réassurance France Agriclimat pour la campagne 2026-2027, premier test réel de la mutualisation des risques et des données."
+          },
+          "sources": [
+            {
+              "titre": "L'assurance agricole en 2024 - France Assureurs",
+              "url": "https://www.franceassureurs.fr/nos-chiffres-cles/assurance-de-dommages-et-responsabilite/lassurance-agricole-en-2024/"
+            },
+            {
+              "titre": "Rapport au Ministre de l'Économie, des Finances - CCR (février 2026)",
+              "url": "https://www.ccr.fr/wp-content/uploads/2026/02/20260209-Rapport-au-Ministre_MLR.pdf"
+            },
+            {
+              "titre": "Avis 25-A-10 du 4 septembre 2025 - Autorité de la concurrence (France Agriclimat)",
+              "url": "https://www.autoritedelaconcurrence.fr/fr/avis/relatif-la-constitution-dun-groupement-de-co-reassurance-des-risques-climatiques-en"
+            },
+            {
+              "titre": "La réforme de l'assurance récolte - Ministère de l'Agriculture",
+              "url": "https://agriculture.gouv.fr/la-reforme-de-lassurance-recolte"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -5800,20 +6569,49 @@
           "tag": "assurance & immobilier",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "En 2024, le marché français de l'assurance construction (premier mondial) a encaissé 3 177 M€ de primes (+3,5 %, 4e record annuel), portées par la RC décennale (74 % du CA, +3,4 %) et le dommages-ouvrage (+3,8 %). Parallèlement, le bâtiment est en récession : chiffre d'affaires 208 Md€ (−3,9 %), mises en chantier −12,9 % (individuel −24,1 %), défaillances d'entreprises +25 % et 30 000 emplois détruits. La sinistralité s'aggrave : prestations payées 2 319 M€ (+12,8 %), ratio charges/primes 134 %, provisions techniques 29,7 Md€ (9,3 années de primes). Le résultat technique 2024 est à −827 M€, le pire jamais enregistré. La FFB prévoit un rebond technique de l'activité en 2026 (+1,8 % à +2,1 %) grâce au redressement des mises en chantier (296 000 attendus), mais bien en deçà de la moyenne historique (358 000). La loi de simplification 2026-403 (JORF 27 mai 2026, entrée en vigueur 1er juillet 2026) allonge le préavis de résiliation décennale à 6 mois et instaure un droit à contre-expertise. La transposition de la directive européenne 2024/2853 sur la responsabilité du fait des produits est attendue pour le 9 décembre 2026.",
+          "rationnel": "La question : le marché de l'assurance construction (primes nettes) va-t-il se contracter en volume dans les 12-18 mois, après quatre années de records, sous l'effet différé du ralentissement immobilier ? L'issue est ouverte car trois forces s'opposent : (1) l'inertie des contrats décennaux (couverture 10 ans) et la revalorisation indiciaire des primes soutiennent encore les encaissements ; (2) la baisse structurelle de la masse assurable (moins de chantiers, défaillances d'entreprises) tire les volumes vers le bas ; (3) la sinistralité climatique (retrait-gonflement des argiles, infiltrations) et la hausse des coûts de réparation poussent les assureurs à durcir la tarification, ce qui pourrait masquer une contraction en volume par une hausse en valeur. L'enjeu concret pour un lecteur français : la disponibilité et le coût de l'assurance décennale pour faire construire ou rénover, et la solidité financière des assureurs spécialisés (SMABTP, Allianz, Axa, Generali, Zurich, Abeille, QBE, Sompo, Ergo, MSIG, HDI).",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier présente comme futur le rebond d'activité 2026 prévu par la FFB (publié en janvier 2026) — cet événement a eu lieu. Vérifier les chiffres définitifs 2025 de France Assureurs (généralement publiés en juillet) et la première estimation 2026. Confirmer la date exacte de publication du rapport annuel France Assureurs 2025. Chiffrer l'impact de la loi 2026-403 sur la résiliation des contrats décennaux depuis le 1er juillet 2026.",
+          "mots_cles": [
+            "assurance construction France 2024 2025 2026",
+            "primes responsabilité civile décennale dommages-ouvrage",
+            "France Assureurs FFB mises en chantier défaillances",
+            "résultat technique sinistralité provisions techniques",
+            "loi 2026-403 simplification vie économique décennale",
+            "directive européenne 2024/2853 responsabilité produits",
+            "SMABTP Allianz Axa Generali Zurich Abeille QBE",
+            "retrait gonflement argiles sinistralité climatique"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-12-09",
+            "raison": "Date limite de transposition en droit français de la directive européenne (UE) 2024/2853 sur la responsabilité du fait des produits, qui pourrait modifier le cadre de la responsabilité décennale et des recours."
+          },
+          "sources": [
+            {
+              "titre": "L'assurance construction en 2024 - France Assureurs",
+              "url": "https://www.franceassureurs.fr/nos-chiffres-cles/assurance-de-dommages-et-responsabilite/lassurance-construction-en-2024/"
+            },
+            {
+              "titre": "Bilan 2025 et prévisions 2026 – Léger rebond sans reprise bâtiment - FFB",
+              "url": "https://www.ffbatiment.fr/actualites-batiment/actualite-ba/bilan-2025-previsions-2026-leger-rebond-sans-reprise-batiment"
+            },
+            {
+              "titre": "Climat, inflation, crise du bâtiment, normes… Sale temps pour l'assurance construction ! - L'Argus de l'Assurance",
+              "url": "https://www.argusdelassurance.com/assurance-dommages/construction/climat-inflation-crise-du-batiment-normes-sale-temps-pour-l-assurance-construction.237208"
+            },
+            {
+              "titre": "Loi 2026-403 et Assurance Décennale — Ce qui Change - Prolead",
+              "url": "https://www.prolead.fr/assurance/garantie-decennale/loi-simplification-2026/"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -5823,20 +6621,49 @@
           "tag": "assurance & France",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "En 2024, les mutuelles n'ont plus que 44 % du marché de la complémentaire santé (perte de 2 points, accélération vs ~1 point/an), tandis que les compagnies d'assurance passent à 39 % (+15,9 % de cotisations). Le transfert de 75 % du portefeuille de La Mutuelle Générale vers CNP Assurances Protection Sociale (détenue à 65 % par CNP) explique 1,1 point de cette perte. Alan, assureur tech coté en bourse via ses investisseurs, a remporté en 2025 trois gros marchés publics (Finances, Cour des comptes, DGAC) et compte 1,06 M d'assurés au 1er janvier 2026 (primes récurrentes 787 M€, +54 %). Les quatre grands groupes mutualistes résistent : Matmut (5 M sociétaires, CA 3,7 Md€ 2025, ratio S2 215 %, acquisition KOREGE nov. 2025), MAIF (~4 M sociétaires, CA ~6 Md€ 2025, S2 186 %), Macif (6,45 M sociétaires, CA 7,8 Md€ 2025, +13 %), Groupama (CA 14 Md€ S1 2026, +8,7 %, résultat net 560 M€). Le nouveau régime de proportionnalité Solvabilité II s'appliquera au 30 janvier 2027. Le Conseil constitutionnel doit statuer sur le gel des tarifs santé 2026 avant fin octobre 2026 (enjeu 25 M€ pour Matmut).",
+          "rationnel": "La question : Le modèle mutualiste français peut-il maintenir sa spécificité (gouvernance démocratique, absence d'actionnaires, réinvestissement des excédents) face à la pression concurrentielle des assureurs cotés et des insurtechs qui gagnent des parts de marché en santé et en prévoyance collective ? L'issue est ouverte car les grands groupes mutualistes dégagent des résultats financiers robustes et diversifient (épargne, prévoyance, dommages), mais la fédération (FNMF) est fragilisée, le nombre de mutuelles a chuté de ~1500 à 249 depuis 2001, et la perte de vitesse en santé collective (marchés publics, entreprises) profite à des acteurs à but lucratif. L'enjeu concret pour un lecteur français : la pérennité d'un modèle qui garantit non-redistribution de dividendes et solidarité intergénérationnelle, face à une offre de plus en plus concentrée et technologique.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : Le dossier mentionne « pression des assureurs cotés en bourse » — vérifier si des assureurs mutualistes ont eux-mêmes émis des instruments cotés (ex. Matmut : obligataire MATMU4.625%23FEB36 sur Euronext Growth). Chiffrer précisément la part de marché des mutuelles en santé à fin 2025 (données DREES pas encore publiées). Confirmer la date exacte de la décision du Conseil constitutionnel sur le gel des tarifs (attendue avant fin octobre 2026).",
+          "mots_cles": [
+            "mutuelles françaises parts de marché santé 2024",
+            "CNP Assurances La Mutuelle Générale transfert portefeuille",
+            "Alan assurance levée fonds 2026 valorisation",
+            "Matmut MAIF Macif Groupama résultats 2025 2026",
+            "Solvabilité II proportionnalité 2027 ACPR",
+            "FNMF crise fédération mutualité française",
+            "protection sociale complémentaire marchés publics Alan",
+            "gel tarifs santé 2026 Conseil constitutionnel"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-10-31",
+            "raison": "Décision attendue du Conseil constitutionnel sur la constitutionnalité du gel des tarifs de complémentaire santé 2026 (impact direct sur l'équilibre technique des mutuelles, enjeu 25 M€ pour Matmut seul)."
+          },
+          "sources": [
+            {
+              "titre": "Assurance complémentaire santé : les mutuelles accentuent leur recul, les compagnies confortent leur forte expansion",
+              "url": "https://www.argusdelassurance.com/les-assureurs/compagnies/assurance-complementaire-sante-les-mutuelles-accentuent-leur-recul-les-compagnies-confortent-leur-forte-expansion.237768"
+            },
+            {
+              "titre": "Un solide premier semestre 2026 qui conforte le plan stratégique - Matmut",
+              "url": "https://presse.matmut.fr/communique/229811/Un-solide-premier-semestre-2026-qui-conforte-plan-strategique?cm=1"
+            },
+            {
+              "titre": "Alan poursuit sa forte croissance et vise toujours la rentabilité en 2027",
+              "url": "https://presse.tripalio.fr/alan-poursuit-sa-forte-croissance-et-vise-toujours-la-rentabilite-en-2027/"
+            },
+            {
+              "titre": "Entrée en application d'un nouveau régime de proportionnalité applicable aux organismes d'assurance - ACPR",
+              "url": "https://acpr.banque-france.fr/fr/actualites/entree-en-application-dun-nouveau-regime-de-proportionnalite-applicable-aux-organismes-dassurance-et"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -5846,20 +6673,39 @@
           "tag": "économie",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "L'indice FAO des prix alimentaires a atteint 136,0 points en septembre 2026, en hausse de 1,5 % sur un mois et de 5,8 % sur un an, mais reste 15,1 % sous son pic de mars 2022. Les céréales (+5,1 % en un mois) ont été tirées par le blé (+6,3 %, plus haut depuis août 2023) et le maïs (+5,6 %, plus haut depuis 3 ans), sous l'effet de contraintes logistiques en mer Noire, de rendements américains décevants et de moindres exportations brésiliennes. Les huiles végétales (+0,9 %) progressent pour le 4e mois consécutif, portées par l'huile de palme (demande forte, sécheresse en Asie du Sud-Est). Le sucre (+6,1 %) grimpe pour le 3e mois d'affilée, au plus haut depuis avril 2025, face à un resserrement attendu de l'offre 2026/27 (UE, Thaïlande, Inde, Brésil). La FAO maintient sa prévision de production céréalière 2026 à 2,979 milliards de tonnes (2e plus haute historique) et révise en baisse de 0,7 % le commerce mondial des céréales 2026/27.",
+          "rationnel": "La question : la hausse des prix alimentaires mondiaux observée depuis plusieurs mois va-t-elle se prolonger, se stabiliser ou s'infléchir dans les prochains trimestres ? L'issue est ouverte car des forces contraires s'affrontent : d'un côté, les tensions logistiques (mer Noire, détroit d'Ormuz), la demande de biocarburants, les aléas climatiques (El Niño, sécheresse) et des stocks serrés soutiennent les cours ; de l'autre, une production céréalière mondiale historiquement élevée, un possible assouplissement des corridors d'exportation et des réponses politiques (restrictions à l'export, subventions) pourraient freiner la hausse. Pour un lecteur français, l'enjeu concret est la répercussion sur l'inflation alimentaire, le pouvoir d'achat et la politique monétaire de la BCE.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier ne mentionne pas la publication de l'indice FAO de septembre 2026 (publiée le 2 octobre 2026) ; vérifier la date exacte de la prochaine publication FAO (début novembre 2026) et les éventuelles annonces de la réunion du G20 agriculture ou de l'OMC sur les restrictions à l'export.",
+          "mots_cles": [
+            "indice FAO prix alimentaires septembre 2026",
+            "blé maïs mer Noire logistique exportations",
+            "huile de palme sécheresse Asie du Sud-Est",
+            "sucre campagne 2026/27 offre mondiale",
+            "production céréalière mondiale 2026 FAO",
+            "inflation alimentaire France BCE"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-11-06",
+            "raison": "Prochaine publication mensuelle de l'indice FAO des prix alimentaires (habituellement début novembre pour les données d'octobre), qui donnera un signal clair sur la poursuite ou non de la hausse."
+          },
+          "sources": [
+            {
+              "titre": "Indice FAO des prix des produits alimentaires - septembre 2026",
+              "url": "https://www.fao.org/worldfoodsituation/foodpricesindex/fr/"
+            },
+            {
+              "titre": "Les prix mondiaux des denrées alimentaires ont frôlé leur plus haut niveau depuis quatre ans en septembre - ONU",
+              "url": "https://www.boursorama.com/bourse/actualites/les-prix-mondiaux-des-denrees-alimentaires-ont-frole-leur-plus-haut-niveau-depuis-quatre-ans-en-septembre-onu-20fd723d21afd336b5df3d8688951807"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -5869,20 +6715,47 @@
           "tag": "économie & finance",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
-          "rationnel": null,
+          "contexte": "Au premier semestre 2026, les introductions en bourse mondiales ont levé 194 Md$ (×3 vs S1 2025) pour 509 opérations (−7 %), portées par l'IPO SpaceX du 12 juin (86 Md$). En Europe, 53 IPO ont levé 9,3 Md$ (+56 % en valeur), dont CSG Group à Amsterdam (4,5 Md$). La France reste à l'écart avec seulement deux IPO (Rising Stone, Ieva Group) pour ~50 M$ au S1 2026, après une année 2025 historiquement basse (2 IPO sur Euronext Growth, 64 M€). Plusieurs méga-candidats (Databricks, OpenAI, Stripe, Anthropic) visent une cotation fin 2026 ou 2027.",
+          "rationnel": "La question : le marché des IPO va-t-il connaître une reprise durable en 2027 après le rebond sélectif de 2026 ? L'issue est ouverte car d'un côté les méga-IPO technologiques (IA, défense, infrastructures) et la baisse attendue des taux créent un pipeline solide, mais de l'autre la volatilité géopolitique, la sélectivité extrême des investisseurs (rentabilité, gouvernance) et le risque de déception post-SpaceX pourraient refermer la fenêtre. Pour un lecteur français, l'enjeu est de savoir si la place de Paris parviendra à capter une part de ce redémarrage après des années de quasi-absence sur le compartiment principal.",
           "angle": null,
           "a_verifier": null,
-          "mots_cles": [],
+          "mots_cles": [
+            "IPO 2027 perspectives",
+            "introductions en bourse Europe 2026",
+            "SpaceX IPO juin 2026",
+            "Databricks OpenAI Stripe calendrier cotation",
+            "Euronext Paris IPO 2026 2027",
+            "marché primaire actions rebond"
+          ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2027-06-30",
+            "raison": "Fin du premier semestre 2027, horizon naturel pour évaluer si la reprise des IPO se confirme sur l'année"
+          },
+          "sources": [
+            {
+              "titre": "IPO : le grand retour des introductions en Bourse, sous conditions | EY - France",
+              "url": "https://www.ey.com/fr_fr/insights/ipo/retour-introductions-en-bourse"
+            },
+            {
+              "titre": "IPO 2026 : un marché plus exigeant | EY - France",
+              "url": "https://www.ey.com/fr_fr/insights/fast-growing-companies/ipo-2026-un-marche-plus-exigeant"
+            },
+            {
+              "titre": "IPO Watch EMEA H1 2026",
+              "url": "https://www.pwc.co.uk/services/audit/insights/ipo-watch-emea.html"
+            },
+            {
+              "titre": "Biggest IPOs of 2026–2027: Who Comes Next After SpaceX",
+              "url": "https://regolith.com/news/ipo-2026-2027-after-spacex-130"
+            }
+          ],
           "origine": null,
           "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -5893,16 +6766,28 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Le 18 septembre 2026, l'écart de taux entre l'obligation française et allemande à 10 ans (le « spread ») a dépassé les 100 points de base pour la première fois depuis 2012, atteignant 104 pb. L'OAT française à 10 ans a terminé la semaine à 4,58 %, un sommet depuis 2008, tandis que le Bund allemand s'établissait à 3,52 %. Les CDS de la dette française à 5 ans ont atteint 41,5 pb, leur plus haut niveau depuis avril 2025. Cette défiance s'explique par la conjonction de plusieurs facteurs : le Premier ministre Lecornu a annoncé jeudi 54 milliards d'économies pour 2027 tout en admettant que l'objectif de déficit à 5 % du PIB ne serait pas atteint cette année ; la guerre au Moyen-Orient fait flamber les prix du pétrole (Brent > 100 $) et alimente l'inflation ; la Fed, la BCE et la Banque du Japon ont toutes relevé leurs taux en septembre. Le CAC 40 a chuté de 1,49 % à 8 065 points. Les marchés anticipent 3 à 4 nouvelles hausses de taux de la BCE dans les 12 mois",
-          "rationnel": null,
+          "rationnel": "La question : le spread OAT/Bund va-t-il se stabiliser sous 100 pb, se maintenir entre 90 et 110 pb, ou franchir durablement les 150 pb d'ici la fin 2026 ? L'issue est ouverte car le budget 2027 vient d'être présenté (1er octobre) mais son adoption parlementaire est incertaine (pas de majorité, risque 49.3), Moody's doit réviser sa note le 23 octobre, et la BCE se réunit le 29 octobre. Un accord budgétaire crédible et une pause des taux feraient pencher vers le favorable ; un rejet du budget ou une dégradation de note pousseraient vers le dégradé. L'enjeu concret : le coût du service de la dette (91 Md€ projetés en 2027) et la capacité de la France à emprunter sans prime de risque excessive.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier présente le franchissement des 100 pb (18 sept) et l'annonce de 54 Md€ d'économies comme des éléments de contexte, mais le budget a été présenté le 1er octobre (passé) et le spread a atteint 139 pb ce jour-là. La revue Moody's du 23 octobre et la BCE du 29 octobre sont les prochaines échéances réelles.",
+          "mots_cles": [
+            "spread OAT Bund",
+            "budget 2027 France",
+            "Sébastien Lecornu",
+            "Moody's 23 octobre 2026",
+            "OAT 10 ans 5%",
+            "dette publique 121% PIB",
+            "Agence France Trésor 340 Md€",
+            "BCE 29 octobre 2026"
+          ],
           "scenarios": {
             "favorable": "Le gouvernement Lecornu présente un budget 2027 crédible, rassurant les marchés. Le spread redescend sous 80 pb. La BCE, si l'inflation reflue, suspend ses hausses de taux. La France retrouve une marge de manœuvre budgétaire",
             "stable": "Le spread se maintient entre 90 et 110 pb. La France paie plus cher sa dette mais reste solvable. Le budget 2027 passe in extremis. Les taux d'emprunt élevés pèsent sur la croissance mais n'entraînent pas de crise de confiance généralisée",
             "degrade": "Le spread franchit les 150 pb, approchant les niveaux de la crise de 2011-2012. Une agence de notation dégrade la France. Le coût du service de la dette devient insoutenable. La France perd l'accès aux marchés obligataires à des conditions acceptables, contraignant l'État à un plan d'austérité brutal ou à un appel au FESF/MES"
           },
-          "echeance": null,
+          "echeance": {
+            "date": "2026-10-23",
+            "raison": "Revue de la note souveraine française par Moody's (actuellement Aa3 perspective négative) — risque de dégradation si le compromis budgétaire n'est pas jugé crédible."
+          },
           "sources": [
             {
               "titre": "Boursorama (18.09.2026)",
@@ -5922,7 +6807,7 @@
           "ajoute_le": "2026-09-18",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         },
         {
           "type": "sujet",
@@ -5933,23 +6818,52 @@
           "statut": "a_traiter",
           "validation": "valide",
           "contexte": "Le prix du baril de pétrole a dépassé les 100 dollars le 17 septembre 2026, après la prise du détroit de Bab el-Mandeb par les Houthis, qui s'ajoute au blocus iranien d'Ormuz. Ensemble, ces deux détroits représentent environ 30% du commerce maritime mondial de pétrole. Les compagnies maritimes commencent à détourner leurs navires par le cap de Bonne-Espérance, ajoutant des semaines de trajet et des surcoûts d'assurance. L'Europe, déjà en stagnation économique, est particulièrement exposée : elle importe la majorité de son pétrole via ces routes. La BCE doit arbitrer entre la lutte contre l'inflation importée et le soutien à une croissance déjà fragile. La question est : ce choc énergétique va-t-il provoquer une récession mondiale, ou les économies peuvent-elles l'absorber ?",
-          "rationnel": null,
+          "rationnel": "La question : le choc pétrolier déclenché par le double blocage d'Ormuz et de Bab el-Mandeb va-t-il pousser l'économie mondiale en récession ou être absorbé ? L'issue est ouverte : un accord diplomatique Iran/États-Unis ou une action militaire rapide pourrait faire refluer le Brent sous 90 $ (scénario favorable) ; un statu quo avec pétrole 95-110 $ maintiendrait l'inflation euro à 4-5 % et la croissance près de zéro (stable) ; une escalade durable (attaques sur oléoducs, fermeture totale des détroits) enverrait le baril au-dessus de 130 $, forçant la BCE à remonter ses taux et plongeant la zone euro en récession (dégradé). Enjeu concret pour un lecteur français : pouvoir d'achat (gazole à 2,24 €/L record), coût du crédit immobilier et risque d'emploi si la croissance bascule.",
           "angle": null,
-          "a_verifier": null,
-          "mots_cles": [],
+          "a_verifier": "⚠ Temps : le dossier indique « 17 septembre 2026 » pour le franchissement des 100 $ ; les sources montrent un franchissement dès le 10 septembre. ⚠ Chiffre : « 30 % du commerce maritime mondial de pétrole » pour les deux détroits — à confirmer (Ormuz ≈ 20-21 %, Bab el-Mandeb ≈ 8-9 % selon ONU 2023). À vérifier : volume exact des flux détournés par le cap de Bonne-Espérance et surcoût d'assurance moyen ; date de la prochaine réunion BCE (probablement 23 octobre 2026) ; calendrier élections US mi-mandat (novembre 2026) comme catalyseur géopolitique.",
+          "mots_cles": [
+            "pétrole Brent 100 dollars octobre 2026",
+            "détroit d'Ormuz blocus Iran exportations Kpler",
+            "Bab el-Mandeb Houthis Mokha septembre 2026",
+            "inflation zone euro 3,8 % septembre 2026 Eurostat",
+            "BCE taux dépôt 2,5 % septembre 2026",
+            "G7 libération stocks stratégiques 100 millions barils octobre 2026",
+            "oléoduc Est-Ouest Arabie saoudite redémarrage",
+            "récession zone euro prévisions BCE 2026"
+          ],
           "scenarios": {
             "favorable": "Les prix du pétrole refluent sous 90 dollars après une intervention militaire ou diplomatique rapide. Les banques centrales évitent de resserrer, l'inflation reste maîtrisée. La croissance mondiale ralentit mais n'entre pas en récession",
             "stable": "Le pétrole se stabilise entre 95 et 110 dollars. L'inflation remonte à 4-5% en Europe, la BCE maintient ses taux sans les baisser. La croissance est proche de zéro en zone euro, les États-Unis ralentissent mais évitent la récession technique",
             "degrade": "Les deux détroits restent bloqués durablement. Le pétrole dépasse 130 dollars. L'inflation repart à deux chiffres en Europe, la BCE doit remonter ses taux. La zone euro entre en récession, les marchés actions corrigent de 20% ou plus"
           },
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-10-23",
+            "raison": "Prochaine réunion de politique monétaire de la BCE (calendrier habituel : toutes les 6 semaines, dernière le 10 sept.) — décision clé sur un éventuel nouveau relèvement de taux face à l'inflation à 3,8 %."
+          },
+          "sources": [
+            {
+              "titre": "Détroit d'Ormuz : pourquoi le grand retour du pétrole ne suffit pas à faire baisser les prix - France 24 (02/10/2026)",
+              "url": "https://www.france24.com/fr/%C3%A9co-tech/20261002-d%C3%A9troit-ormuz-pourquoi-grand-retour-p%C3%A9trole-baisse-prix"
+            },
+            {
+              "titre": "L'énergie pousse l'inflation de la zone euro à 3,8 % — Connaissance des Énergies (02/10/2026)",
+              "url": "https://www.connaissancedesenergies.org/afp/zone-euro-linflation-grimpe-a-38-nouveau-sommet-depuis-3-ans-261002"
+            },
+            {
+              "titre": "La flambée des rendements pourrait atténuer l'impact des prix de l'énergie - Rehn (BCE) - Boursorama (02/10/2026)",
+              "url": "https://www.boursorama.com/actualite-economique/actualites/la-flambee-des-rendements-pourrait-attenuer-l-impact-des-prix-de-l-energie-rehn-bce-341fb3d7dd06bc0f81bc6d5ff1a510e5"
+            },
+            {
+              "titre": "Carburants : Macron anticipe une baisse des prix après la décision du G7 de libérer des stocks - France 24 (02/10/2026)",
+              "url": "https://www.france24.com/fr/france/20261002-macron-appelle-les-pays-du-g7-%C3%A0-agir-de-mani%C3%A8re-concert%C3%A9e-pour-faire-baisser-les-prix-du-gazole"
+            }
+          ],
           "origine": "veille",
           "note": "Ajouté automatiquement le 2026-09-18 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité",
           "ajoute_le": "2026-09-18",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-02"
         }
       ]
     }
