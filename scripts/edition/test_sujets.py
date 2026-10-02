@@ -862,6 +862,26 @@ class ProblematiqueTest(unittest.TestCase):
         self.assertTrue(all(0 < self.en._indisponible[m] < float("inf") for m in mod))
         self.en._indisponible.clear()
 
+    def test_les_prompts_donnent_la_date_du_jour(self):
+        sec = {"cle": "sport", "titre": "Sport"}
+        e = sj.sujet_vide(id="x", titre="Titre ?", contexte="c" * 300)
+        jour = datetime.date(2026, 10, 2)
+        for prompt in (self.en.construire_prompt(sec, e, jour), self.en.construire_prompt_reformulation(sec, e, jour)):
+            self.assertIn("NOUS SOMMES LE 2 OCTOBRE 2026", prompt)
+            self.assertIn("PASSÉ", prompt)
+            self.assertIn("horizon", prompt)
+
+    def test_echeance_deja_passee_ecartee(self):
+        jour = datetime.date(2026, 10, 2)
+        res = {"depasse": False, "contexte": "x" * 300, "rationnel": "La question : " + "y" * 200,
+               "mots_cles": ["a", "b", "c", "d"]}
+        e = sj.sujet_vide(id="y", titre="T ?")
+        self.en.appliquer_resultat(e, dict(res, echeance={"date": "2026-07-19", "raison": "finale"}), [], jour)
+        self.assertIsNone(e["echeance"], "une échéance antérieure à aujourd'hui n'est pas gardée")
+        e2 = sj.sujet_vide(id="z", titre="T ?")
+        self.en.appliquer_resultat(e2, dict(res, echeance={"date": "2027-01-10", "raison": "r"}), [], jour)
+        self.assertEqual(e2["echeance"]["date"], "2027-01-10")
+
     def test_les_prompts_demandent_la_problematique(self):
         sec = {"cle": "geopolitique", "titre": "Géopolitique"}
         e = sj.sujet_vide(id="x", titre="Titre ?", contexte="c" * 300)
