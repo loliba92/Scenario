@@ -770,6 +770,54 @@ class GrasMarkdownTest(unittest.TestCase):
         self.assertEqual(contenu["n"], 3)
 
 
+class ProblematiqueTest(unittest.TestCase):
+    """La rubrique « rationnel » est la problématique : elle commence par « La question », sans qualificatif de remplissage."""
+
+    def setUp(self):
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import enrich_sujets as en
+        self.en = en
+
+    def test_a_reformuler(self):
+        ancien = {"rationnel": "Ce sujet est brûlant car l'escalade est documentée par les instances internationales."}
+        nouveau = {"rationnel": "La question : le monde peut-il se passer du GPS ? L'issue est ouverte : deux forces s'opposent."}
+        self.assertTrue(self.en.rationnel_a_reformuler(ancien))
+        self.assertFalse(self.en.rationnel_a_reformuler(nouveau))
+        self.assertFalse(self.en.rationnel_a_reformuler({"rationnel": None}), "absent : relève de l'enrichissement")
+
+    def test_validation_du_nouveau_texte(self):
+        v = self.en.problematique_valide
+        bon = "La question : la monnaie peut-elle devenir une arme ? Les forces en présence s'opposent, et l'enjeu est concret."
+        self.assertTrue(v(bon))
+        self.assertFalse(v("Ce sujet est brûlant. " + bon), "ne commence pas par « La question »")
+        self.assertFalse(v(bon + " Un sujet crucial."), "qualificatif interdit")
+        self.assertFalse(v("La question : " + "x" * 5 + " **gras**"), "Markdown")
+        self.assertFalse(v(""))
+
+    def test_reformuler_un_applique_seulement_un_texte_conforme(self):
+        from unittest import mock
+        sec = {"cle": "geopolitique", "titre": "Géopolitique"}
+        bon = "La question : un État peut-il encore rester souverain sans maîtriser ses données ? Les forces s'opposent, l'enjeu est concret."
+        e = sj.sujet_vide(id="x", titre="Titre ?", rationnel="Ce sujet est brûlant car tout bouge vite.")
+        with mock.patch.object(self.en, "call_openrouter", return_value=({"rationnel": bon}, {"cost": 0.001})):
+            ok, cout = self.en.reformuler_un(sec, e, "m", "k", datetime.date(2026, 10, 2))
+        self.assertTrue(ok)
+        self.assertEqual((e["rationnel"], e["enrichi_le"], cout), (bon, "2026-10-02", 0.001))
+        e2 = sj.sujet_vide(id="y", titre="T ?", rationnel="Ce sujet est brûlant car tout bouge vite.")
+        with mock.patch.object(self.en, "call_openrouter", return_value=({"rationnel": "Un sujet crucial."}, {})):
+            ok2, _ = self.en.reformuler_un(sec, e2, "m", "k", datetime.date(2026, 10, 2))
+        self.assertFalse(ok2)
+        self.assertEqual(e2["rationnel"], "Ce sujet est brûlant car tout bouge vite.", "texte non conforme : rien n'est écrasé")
+
+    def test_les_prompts_demandent_la_problematique(self):
+        sec = {"cle": "geopolitique", "titre": "Géopolitique"}
+        e = sj.sujet_vide(id="x", titre="Titre ?", contexte="c" * 300)
+        for prompt in (self.en.construire_prompt(sec, e, datetime.date(2026, 10, 2)),
+                       self.en.construire_prompt_reformulation(sec, e)):
+            self.assertIn("La question :", prompt)
+            self.assertIn("brûlant", prompt, "les qualificatifs interdits sont cités dans la consigne")
+
+
 class ExtractionJsonTest(unittest.TestCase):
     """Réponse du modèle avec du texte avant le JSON (veille du 27 septembre 2026)."""
 

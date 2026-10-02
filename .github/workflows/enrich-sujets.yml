@@ -20,6 +20,11 @@ on:
         description: "Nombre maximum de sujets traités dans ce lot"
         required: false
         default: "10"
+      reformuler:
+        description: "Réécrire la problématique (champ rationnel) des dossiers rédigés à l'ancienne, sans recherche web — au lieu de compléter les dossiers incomplets"
+        type: boolean
+        required: false
+        default: false
       registre:
         description: "Clé de section à cibler (geopolitique, actualite_francaise, economie, sciences, culture, sport, carte_blanche) — vide = tous"
         required: false
@@ -48,11 +53,13 @@ jobs:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           MAX: ${{ github.event.inputs.max }}
           REGISTRE: ${{ github.event.inputs.registre }}
+          REFORMULER: ${{ github.event.inputs.reformuler }}
         run: |
           git config user.name "scenario-topics-bot"
           git config user.email "actions@users.noreply.github.com"
           ARGS="--max ${MAX:-10}"
           if [ -n "$REGISTRE" ]; then ARGS="$ARGS --registre $REGISTRE"; fi
+          if [ "$REFORMULER" = "true" ]; then ARGS="$ARGS --reformuler"; fi
           for attempt in 1 2 3; do
             echo "=== Essai $attempt/3 ==="
             git fetch origin main
@@ -63,7 +70,7 @@ jobs:
               echo "Aucun changement — rien à committer."
               exit 0
             fi
-            git commit -m "[sujets] dossiers enrichis (contexte, rationnel, mots-clés)"
+            git commit -m "[sujets] dossiers enrichis ou problématiques réécrites"
             if git push origin main; then
               echo "Poussé avec succès (essai $attempt)."
               exit 0

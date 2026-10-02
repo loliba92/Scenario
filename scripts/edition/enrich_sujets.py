@@ -27,6 +27,7 @@ Workflow : .github/workflows/enrich-sujets.yml (déclenchement manuel).
 from __future__ import annotations
 
 import argparse
+import re
 import json
 import os
 import sys
@@ -76,9 +77,13 @@ titre) pour vérifier l'état actuel de l'actualité, puis renvoie un JSON uniqu
   "raison" (texte court) si true.
 - "contexte" (si absent du dossier ; 3 à 5 phrases, 250 caractères minimum) : CE QUI SE PASSE,
   faits datés, chiffres réels, acteurs. Des FAITS, pas d'opinion ni de prédiction.
-- "rationnel" (si absent ; 2 à 4 phrases, 150 caractères minimum) : (1) pourquoi ce sujet
-  maintenant, (2) pourquoi l'issue est réellement OUVERTE (forces contraires, incertitude),
-  (3) ce qui est en jeu pour un lecteur français. Ne répète pas le contexte.
+- "rationnel" (si absent ; 2 à 4 phrases, 150 caractères minimum) : LA PROBLÉMATIQUE que
+  l'édition traitera. Commence par « La question : » suivi de la question à issue ouverte posée
+  avec précision (ce qu'on cherche à trancher). Puis pourquoi l'issue est réellement OUVERTE
+  (forces ou hypothèses en présence, ce qui ferait pencher vers un scénario favorable, stable ou
+  dégradé), puis l'enjeu concret pour un lecteur français. INTERDIT de qualifier le sujet
+  (« brûlant », « chaud », « crucial », « incontournable », « d'actualité ») ou de justifier son
+  intérêt médiatique. Ne répète pas le contexte.
 - "mots_cles" (si absents ; 4 à 8) : requêtes et mots précis pour retrouver les bons articles
   de presse — noms propres, lieux, chiffres clés, termes techniques ; français et, si utile, anglais.
 - "question" (seulement si le titre n'est pas déjà une question à issue ouverte précise).
@@ -91,6 +96,64 @@ Règles absolues : n'invente AUCUN fait, chiffre, date ni citation ; chaque affi
 du dossier ci-dessus ou d'un résultat de ta recherche. Si tu ne peux pas confirmer un point,
 écris-le dans "a_verifier" plutôt que de l'affirmer. Réponds UNIQUEMENT avec le JSON, sans texte
 autour ni balise markdown."""
+
+
+# Qualificatifs de remplissage, interdits dans la problématique (retour du propriétaire, 2 octobre 2026 :
+# « je m'en fous qu'il soit brûlant, ce qui m'intéresse c'est la problématique que Scénario cherche à adresser »).
+QUALIFICATIFS_INTERDITS = re.compile(r"\b(br[uû]lant\w*|chaud\w*|crucial\w*|incontournable\w*|d'actualité)\b", re.I)
+DEBUT_PROBLEMATIQUE = "La question"
+
+
+def rationnel_a_reformuler(e: dict) -> bool:
+    """Vrai si le sujet a une problématique (champ `rationnel`) rédigée à l'ancienne : elle ne commence pas
+    par « La question » (format posé le 2 octobre 2026). Une problématique absente relève de l'enrichissement."""
+    r = (e.get("rationnel") or "").strip()
+    return bool(r) and not r.startswith(DEBUT_PROBLEMATIQUE)
+
+
+def problematique_valide(texte: str) -> bool:
+    t = (texte or "").strip()
+    return (len(t) >= sj.MIN_RATIONNEL and t.startswith(DEBUT_PROBLEMATIQUE)
+            and not QUALIFICATIFS_INTERDITS.search(t) and "**" not in t)
+
+
+def construire_prompt_reformulation(sec: dict, e: dict) -> str:
+    connu = sj.dossier_texte(sec, e)
+    return f"""Tu réécris UNE rubrique du dossier d'un sujet du site d'actualité Scénario (lesscenarios.fr :
+chaque édition détaille UNE question à issue ouverte en 3 scénarios chiffrés — favorable / stable /
+dégradé). La rubrique « Problématique » (champ `rationnel`) actuelle explique surtout pourquoi le sujet serait « brûlant » : ce
+n'est pas ce que le propriétaire veut lire. Il veut lire LA PROBLÉMATIQUE, c'est-à-dire la question que
+l'édition cherche à trancher.
+
+=== DOSSIER ACTUEL ===
+{connu}
+=== FIN DU DOSSIER ===
+
+Réécris la rubrique « Problématique » (2 à 4 phrases, 150 caractères minimum) dans cet ordre :
+1. COMMENCE par « La question : » suivi de la question à issue ouverte, posée avec précision (ce qu'on
+   cherche à trancher, avec l'horizon si le dossier en donne un).
+2. Pourquoi l'issue est réellement OUVERTE : les forces ou hypothèses en présence, ce qui ferait pencher
+   vers un scénario favorable, stable ou dégradé.
+3. L'enjeu concret pour un lecteur français.
+
+INTERDIT : qualifier le sujet (« brûlant », « chaud », « crucial », « incontournable », « d'actualité »),
+justifier son intérêt médiatique, commencer par « Ce sujet est ». N'invente AUCUN fait, chiffre ni nom :
+n'utilise que ce qui figure dans le dossier ci-dessus. Pas de Markdown, pas de « ** ».
+
+Réponds UNIQUEMENT avec un JSON : {{"rationnel": "..."}}"""
+
+
+def reformuler_un(sec: dict, e: dict, model: str, api_key: str, today: date):
+    """Réécrit la problématique d'un sujet à partir de son dossier (sans recherche web). Renvoie
+    (réécrit : bool, coût). Le sujet n'est modifié que si le nouveau texte respecte le format."""
+    resultat, usage = call_openrouter(construire_prompt_reformulation(sec, e), model, api_key,
+                                      temperature=0.3, max_tokens=1500, timeout=120)
+    nouveau = (resultat or {}).get("rationnel") if isinstance(resultat, dict) else None
+    if isinstance(nouveau, str) and problematique_valide(nouveau):
+        e["rationnel"] = nouveau.strip()
+        e["enrichi_le"] = today.isoformat()
+        return True, usage.get("cost")
+    return False, usage.get("cost")
 
 
 def enrichir_un(sec: dict, e: dict, model: str, api_key: str, today: date):
@@ -122,6 +185,9 @@ def main(argv=None) -> int:
     ap.add_argument("--registre", default=None, help="clé de section (ex. culture) ; défaut : tous")
     ap.add_argument("--ids", default=None, help="identifiants séparés par des virgules")
     ap.add_argument("--model", default=HOT_TOPICS_MODEL)
+    ap.add_argument("--reformuler", action="store_true",
+                    help="réécrit la problématique (champ `rationnel`, affiché « Problématique ») des dossiers rédigés à l'ancienne ; "
+                         "sans recherche web, à partir du dossier seul")
     ap.add_argument("--dry-run", action="store_true", help="liste les sujets ciblés, sans appel ni écriture")
     args = ap.parse_args(argv)
 
@@ -130,14 +196,17 @@ def main(argv=None) -> int:
     except sj.SujetsError as e:
         print(f"ERREUR : {e}", file=sys.stderr)
         return 1
-    cibles = sj.incomplets(data)
+    if args.reformuler:
+        cibles = [(sec, e) for sec, e in sj.sujets(data) if e["statut"] == "a_traiter" and rationnel_a_reformuler(e)]
+    else:
+        cibles = sj.incomplets(data)
     if args.registre:
         cibles = [c for c in cibles if c[0]["cle"] == args.registre]
     if args.ids:
         voulus = {i.strip() for i in args.ids.split(",") if i.strip()}
         cibles = [c for c in cibles if c[1]["id"] in voulus]
     cibles = ordre_de_passage(data, cibles)
-    print(f"{len(cibles)} sujet(s) à enrichir ; lot de {min(args.max, len(cibles))}.")
+    print(f"{len(cibles)} sujet(s) à {'reformuler' if args.reformuler else 'enrichir'} ; lot de {min(args.max, len(cibles))}.")
     lot = cibles[: args.max]
     if args.dry_run:
         for sec, e in lot:
@@ -150,6 +219,22 @@ def main(argv=None) -> int:
 
     today = date.today()
     traites, echecs, cout = 0, 0, 0.0
+    if args.reformuler:
+        for sec, e in lot:
+            try:
+                ok, c = reformuler_un(sec, e, args.model, api_key, today)
+            except GenerationError as err:
+                echecs += 1
+                print(f"  ✗ {e['id'][:60]} : {err}", file=sys.stderr)
+                continue
+            cout += float(c or 0)
+            traites += 1 if ok else 0
+            echecs += 0 if ok else 1
+            print(f"  {'✓' if ok else '·'} {e['id'][:60]} : problématique {'réécrite' if ok else 'inchangée (format non respecté)'}")
+        if traites:
+            sj.save_both(data)
+        print(f"\n{traites} problématique(s) réécrite(s), {echecs} inchangée(s) ou en échec (coût OpenRouter ≈ {cout:.3f} $).")
+        return 0
     for sec, e in lot:
         try:
             faits, c = enrichir_un(sec, e, args.model, api_key, today)
