@@ -770,7 +770,7 @@ def dossier_texte(sec: dict, e: dict) -> str:
     if _texte(e.get("question")) and _texte(e["question"]) != e["titre"]:
         out.append(f"Question à issue ouverte : {q}")
     for etiq, champ in (("Contexte (à vérifier)", "contexte"),
-                        ("Rationnel (pourquoi ce sujet, pourquoi l'issue est ouverte)", "rationnel"),
+                        ("Problématique (la question que l'édition cherche à trancher, pourquoi l'issue est ouverte)", "rationnel"),
                         ("Angle", "angle"), ("À vérifier / chiffrer avant rédaction", "a_verifier")):
         if _texte(e.get(champ)):
             out.append(f"{etiq} : {_texte(e[champ])}")
