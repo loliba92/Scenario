@@ -733,6 +733,43 @@ class DashboardAgendaTest(unittest.TestCase):
         self.assertEqual(len(valides), sum(1 for t in tous if not t.startswith("🔍")))
 
 
+class GrasMarkdownTest(unittest.TestCase):
+    """Le gras Markdown du modèle (« **84 %** ») ne doit jamais apparaître tel quel dans une édition."""
+
+    def setUp(self):
+        import generate_daily_edition as gde
+        self.gde = gde
+
+    def test_conversion_en_strong(self):
+        c = self.gde.convert_markdown_bold
+        self.assertEqual(c("Alors que **84 %** des succès"), "Alors que <strong>84 %</strong> des succès")
+        self.assertEqual(c("**31,4 %** et **1 million d'euros**"), "<strong>31,4 %</strong> et <strong>1 million d'euros</strong>")
+        self.assertEqual(c("texte sans gras"), "texte sans gras")
+        self.assertEqual(c("déjà <strong>propre</strong>"), "déjà <strong>propre</strong>")
+
+    def test_etoile_saisie_avant_le_renvoi_au_lexique(self):
+        c = self.gde.convert_markdown_bold
+        lien = '<a class="lex-ref" href="#lex-soft-power" aria-label="Voir la définition dans le lexique">*</a>'
+        self.assertEqual(c("le soft power*" + lien + " numérique"), "le soft power" + lien + " numérique")
+        self.assertEqual(c("le **soft power**" + lien), "le <strong>soft power</strong>" + lien)
+        self.assertEqual(c("le soft power" + lien), "le soft power" + lien, "le « * » du lien lui-même est conservé")
+
+    def test_paire_mal_formee_ne_laisse_aucune_etoile_double(self):
+        c = self.gde.convert_markdown_bold
+        for brut in ("**ouvert sans fin", "fermé sans début**", "** vide **", "a ** b", "****"):
+            self.assertNotIn("**", c(brut), brut)
+
+    def test_toutes_les_chaines_du_contenu(self):
+        contenu = {"dek": ["Un **fait** clé"], "essentiel_box": ["a", "**84 %** b"],
+                   "cards": {"stable": {"why": ["**x**"], "indicateurs_touches": [{"field_name": "**k**"}]}},
+                   "lexique": [{"terme": "t", "definition": "def **gras**"}], "n": 3}
+        self.gde.normalize_content_markdown(contenu)
+        texte = json.dumps(contenu, ensure_ascii=False)
+        self.assertNotIn("**", texte)
+        self.assertIn("<strong>84 %</strong>", texte)
+        self.assertEqual(contenu["n"], 3)
+
+
 class ExtractionJsonTest(unittest.TestCase):
     """Réponse du modèle avec du texte avant le JSON (veille du 27 septembre 2026)."""
 

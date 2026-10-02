@@ -243,6 +243,11 @@ HTML et vérifie qu'aucun `"` interne n'est resté non échappé.
   non, la retravailler ou la retirer.
 - **`<strong>` sur les faits/chiffres clés**, un ou deux par paragraphe,
   jamais plus de deux dans une même phrase.
+  **Jamais de Markdown dans le texte : pas de `**gras**`, pas de `*`
+  tapé à la main** (le seul astérisque autorisé est celui, seul, du lien
+  `<a class="lex-ref">*</a>`, placé directement après le terme). Le gras se
+  fait uniquement avec `<strong>…</strong>`. Le code convertit ou supprime
+  ces suites par sécurité, mais elles ne doivent pas être écrites.
 - **Terme technique → lexique, jamais une parenthèse.** Dès qu'un mot
   technique figure au lexique, **écrire d'abord le terme lui-même en toutes
   lettres dans la phrase**, puis ajouter juste après, sans espace avant,
