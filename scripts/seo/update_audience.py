@@ -128,7 +128,7 @@ def fetch_openrouter_cost(api_key):
     }
 
 
-def update_openrouter_history(today_iso, total_usage):
+def update_openrouter_history(today_iso, total_usage, usage_daily=None):
     """Historique minimal (juste total_usage par date). Le seul chiffre
     qu'aucun endpoint OpenRouter ne donne directement est "hier"
     (usage_daily de /key ne couvre qu'aujourd'hui) — un snapshot
@@ -140,7 +140,12 @@ def update_openrouter_history(today_iso, total_usage):
     else:
         history = []
     history = [h for h in history if h["date"] != today_iso]
-    history.append({"date": today_iso, "total_usage": total_usage})
+    entry = {"date": today_iso, "total_usage": total_usage}
+    if usage_daily is not None:
+        # Dépense de la journée UTC en cours, telle que la compte OpenRouter : le
+        # dernier relevé d'un jour donne donc (à quelques heures près) son total.
+        entry["usage_daily"] = usage_daily
+    history.append(entry)
     history.sort(key=lambda h: h["date"])
     OPENROUTER_COST_HISTORY.parent.mkdir(parents=True, exist_ok=True)
     OPENROUTER_COST_HISTORY.write_text(
@@ -154,6 +159,9 @@ def compute_cost_yesterday(history):
     (pas les deux derniers). Jamais supposé être exactement le jour
     précédent si un run a été raté (cron en échec) : c'est le coût
     depuis le relevé précédent DISPONIBLE, quelle que soit la date exacte."""
+    if len(history) >= 2 and history[-2].get("usage_daily") is not None:
+        prev = history[-2]
+        return {"value": prev["usage_daily"], "date": prev["date"], "since": prev["date"]}
     if len(history) < 3:
         return None
     dates_sorted = sorted(h["date"] for h in history)
@@ -162,7 +170,7 @@ def compute_cost_yesterday(history):
     return {"value": by_date[d_yesterday] - by_date[d_before], "date": d_yesterday, "since": d_before}
 
 
-def compute_cost_today(history, today_iso):
+def compute_cost_today(history, today_iso, usage_daily=None):
     """Coût d'aujourd'hui = écart entre aujourd'hui et hier dans l'historique.
     Même logique que compute_cost_yesterday pour assurer la cohérence :
     jamais usage_daily de l'API qui grossit au fil de la journée et reste
@@ -176,6 +184,11 @@ def compute_cost_today(history, today_iso):
     de l'API OpenRouter, qui change en temps réel et n'est jamais comparable
     à "hier" (journée close) ou aux autres jours. Passer à l'historique
     pour les deux rend la comparaison cohérente."""
+    if usage_daily is not None:
+        # Correction du 2 octobre 2026 : l'écart entre deux relevés couvrait ~24 h
+        # glissantes (2,26 $ affichés, 0,65 $ chez OpenRouter, qui compte la journée
+        # UTC). usage_daily de /key repart de zéro à minuit UTC, comme son tableau de bord.
+        return {"value": usage_daily, "date": today_iso, "since": today_iso}
     past = sorted((h for h in history if h["date"] <= today_iso), key=lambda h: h["date"])
     if len(past) < 2:
         return None
@@ -1029,9 +1042,9 @@ def main():
     cost_yesterday = None
     cost_today = None
     if openrouter and not args.dry_run:
-        history = update_openrouter_history(end_date.isoformat(), openrouter["total_usage"])
+        history = update_openrouter_history(end_date.isoformat(), openrouter["total_usage"], openrouter.get("usage_daily"))
         cost_yesterday = compute_cost_yesterday(history)
-        cost_today = compute_cost_today(history, end_date.isoformat())
+        cost_today = compute_cost_today(history, end_date.isoformat(), openrouter.get("usage_daily"))
     elif openrouter:
         print(f"Coût OpenRouter cumulé : {openrouter['total_usage']:.2f} $ "
               f"(solde restant : {openrouter['total_credits'] - openrouter['total_usage']:.2f} $).")
