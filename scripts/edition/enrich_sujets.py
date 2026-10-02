@@ -145,8 +145,8 @@ Réponds UNIQUEMENT avec un JSON : {{"rationnel": "..."}}"""
 
 
 # Modèles gratuits OpenRouter qui se relaient (mot-clé « gratuits » pour --model). Chacun est
-# souvent « temporarily overloaded » (503) ou limité en débit : on en essaie un autre au lieu
-# d'insister, et on commence chaque sujet par un modèle différent pour répartir la charge.
+# souvent « temporarily overloaded » (503) ou limité en débit : on garde celui qui marche et on
+# passe au suivant quand il échoue.
 MODELES_GRATUITS = (
     "nvidia/nemotron-3-ultra-550b-a55b:free",
     "nvidia/nemotron-3-super-120b-a12b:free",
@@ -157,7 +157,8 @@ MODELES_GRATUITS = (
 )
 # Attente entre deux tours complets de la liste (tous les modèles ont échoué).
 ATTENTES_NOUVEL_ESSAI = (20, 45, 90)
-_rotation = [0]
+# Modèle en cours : on le garde tant qu'il répond, on passe au suivant dès qu'il échoue.
+_courant = [0]
 
 
 def liste_modeles(model: str) -> list[str]:
@@ -171,15 +172,14 @@ def liste_modeles(model: str) -> list[str]:
 
 def _appeler_avec_reprises(prompt: str, model: str, api_key: str, **kwargs):
     modeles = liste_modeles(model)
-    debut = _rotation[0] % len(modeles)
-    _rotation[0] += 1
-    modeles = modeles[debut:] + modeles[:debut]
     for attente in (*ATTENTES_NOUVEL_ESSAI, None):
-        for nom in modeles:
+        for _ in range(len(modeles)):
+            i = _courant[0] % len(modeles)
             try:
-                return call_openrouter(prompt, nom, api_key, **kwargs)
+                return call_openrouter(prompt, modeles[i], api_key, **kwargs)
             except GenerationError as err:
-                print(f"  … {nom} indisponible ({str(err)[:70]})", file=sys.stderr)
+                print(f"  … {modeles[i]} indisponible ({str(err)[:70]}), passage au suivant", file=sys.stderr)
+                _courant[0] = i + 1
         if attente is None:
             raise GenerationError(f"aucun des {len(modeles)} modèle(s) n'a répondu")
         print(f"  … nouvel essai dans {attente} s", file=sys.stderr)

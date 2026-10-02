@@ -826,7 +826,7 @@ class ProblematiqueTest(unittest.TestCase):
         sec = {"cle": "geopolitique", "titre": "Géopolitique"}
         bon = "La question : un État peut-il encore rester souverain sans maîtriser ses données ? Les forces s'opposent, l'enjeu est concret."
         e = sj.sujet_vide(id="x", titre="Titre ?", rationnel="Ancien texte brûlant.")
-        self.en._rotation[0] = 0
+        self.en._courant[0] = 0
         appeles = []
 
         def faux(prompt, nom, cle, **kw):
@@ -838,7 +838,7 @@ class ProblematiqueTest(unittest.TestCase):
         with mock.patch.object(self.en, "call_openrouter", side_effect=faux), mock.patch.object(self.en.time, "sleep") as pause:
             texte, _, _ = self.en.proposer_problematique(sec, e, "a:free,b:free", "k")
         self.assertEqual((texte, appeles, pause.call_count), (bon, ["a:free", "b:free"], 0))
-        # le sujet suivant commence par l'autre modèle (répartition de la charge)
+        # le modèle qui marche est gardé pour le sujet suivant (pas de retour au premier)
         appeles.clear()
         with mock.patch.object(self.en, "call_openrouter", side_effect=faux):
             self.en.proposer_problematique(sec, e, "a:free,b:free", "k")
