@@ -28,7 +28,7 @@ class PodcastTest(unittest.TestCase):
 
     def test_garde_fou(self):
         source = "Le taux passe de 84 % à 75 %. 3 millions d'euros."
-        ok = [{"orateur": o, "texte": "Le taux passe de 84 pour cent à 75 pour cent, soit 3 millions. " + "mot " * 40}
+        ok = [{"orateur": o, "texte": "Le taux passe de 84 pour cent à 75 pour cent, soit 3 millions. " + "mot " * 25}
               for o in gp.ANIMATEURS * 10]
         self.assertEqual(gp.verifier_dialogue(ok, source), [])
         faux = [dict(l) for l in ok]
