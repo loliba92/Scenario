@@ -833,3 +833,13 @@ précédentes (FR et EN) chargent `assets/scenarios-reader.v1.js`, copie figée 
 dernière édition de chaque dossier (et les gabarits) charge `assets/scenarios-reader.js`, qui peut évoluer.
 `scripts/seo/freeze_old_editions.py` (idempotent, appelé par `post-edition.yml` et `translate-en.yml`, jamais bloquant)
 fige l'édition de la veille dès qu'une nouvelle est publiée.
+
+### Bouton « Écouter » des éditions
+
+`assets/edition-audio.js` affiche, au-dessus du sommaire d'une édition, un bouton « Écouter l'édition » (durée affichée)
+quand un épisode existe pour la date de l'édition dans `data/podcast-episodes.json` (tenu par le workflow
+« Podcast — épisode du jour », voir `scripts/podcast/`). Un clic ouvre un lecteur ; le fichier audio (Release GitHub) n'est
+demandé qu'à ce moment-là (vie privée). Sans épisode, sans JavaScript ou liste introuvable : rien ne change ; invisible à
+l'impression. La page indique que la voix est une voix de synthèse. La balise est dans les gabarits (`index.html`,
+`en/index.html`, `preview.html`) et dans les dernières éditions ; `scripts/seo/add_edition_audio.py` rattrape les pages
+existantes. Les éditions plus anciennes (figées) n'ont pas la balise. Tests : `scripts/seo/test_edition_audio.py`.
