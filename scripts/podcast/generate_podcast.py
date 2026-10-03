@@ -182,6 +182,11 @@ def ouverture_fermeture(ed: dict) -> tuple[list[dict], list[dict]]:
 MODELES_DIALOGUE = "google/gemma-4-31b-it:free,google/gemma-4-26b-a4b-it:free,qwen/qwen3.8-27b:free,nvidia/nemotron-3-super-120b-a12b:free"
 
 
+# Texte parlé quotidien : les modèles gratuits sont souvent limités en débit (429 sur tous, run du 3 octobre 2026),
+# donc un modèle payant bon marché (quelques centimes par épisode) ferme la liste pour que l'épisode sorte chaque jour.
+MODELES_NARRATION = MODELES_DIALOGUE + ",anthropic/claude-haiku-4-5"
+
+
 def generer_dialogue(ed: dict, modele: str, cle: str, essais: int = 3) -> tuple[list[dict], list[str]]:
     import enrich_sujets as en  # relais de modèles gratuits (voir enrich_sujets.py)
 
