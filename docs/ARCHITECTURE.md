@@ -816,3 +816,14 @@ mais un chevauchement de labels reste possible si la série s'accélère).
 ## Ce qui reste à faire (suivi)
 
 Cette section a été déplacée dans [`docs/BACKLOG.md`](./BACKLOG.md), à la suite du Backlog.
+
+
+## Lecture des scénarios en onglets (3 octobre 2026)
+
+`assets/scenarios-reader.js` transforme la section `#scenarios` à l'écran : trois onglets (Favorable / Stable / Dégradé,
+avec leur probabilité), un seul scénario affiché à la fois sur un fond teinté de sa couleur, « Scénario suivant » pour
+enchaîner, et sur téléphone onglets collés en haut, glissement du doigt et analyse longue repliée. Le HTML des éditions
+n'est pas modifié : sans JavaScript, à l'impression et pour les moteurs de recherche, les trois scénarios restent affichés
+en entier. La balise `<script>` est dans les gabarits (`index.html`, `en/index.html`, `preview.html`, recopiés dans chaque
+édition) ; `scripts/seo/add_scenarios_reader.py` l'a ajoutée aux pages déjà publiées. Pour revenir en arrière : retirer la
+balise du gabarit (les pages publiées gardent leur HTML d'origine).
