@@ -140,8 +140,8 @@ class TestTheme(unittest.TestCase):
         voix = array("h", [3000] * (mu.SR * 3)).tobytes()
         pcm = array("h")
         pcm.frombytes(mu.melanger_theme(theme, voix))
-        # la voix démarre 1,5 s avant la fin du thème : durée = 6 - 1,5 + 3 + 0,5 s
-        self.assertAlmostEqual(len(pcm) / mu.SR, 8.0, delta=0.05)
+        # la voix démarre 2 s avant la fin du thème : durée = 6 - 2 + 3 + 0,5 s
+        self.assertAlmostEqual(len(pcm) / mu.SR, 7.5, delta=0.05)
         self.assertGreater(abs(pcm[mu.SR]), 2000)                 # thème audible au début
         self.assertGreater(abs(pcm[int(mu.SR * 6.5)]), 2000)      # voix audible après le thème
         self.assertIsNone(mu.trouver_theme("/inexistant"))
