@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-03",
+      "articles": [
+        {
+          "title": "TikTok and Luminate Release the Latest Music Impact Report",
+          "source": "TikTok Newsroom",
+          "url": "https://newsroom.tiktok.com/en-us/tiktok-and-luminate-release-latest-music-impact-report",
+          "image": null,
+          "lang": "en",
+          "domain": "culture",
+          "summary": "Rapport de février 2025 : 84 % des titres du Billboard Global 200 ont d'abord explosé sur TikTok avant de figurer sur le chart.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Music Tomorrow lève 1 million d'euros pour décrypter les algorithmes musicaux",
+          "source": "Billboard France",
+          "url": "https://fr.billboard.com/music-tomorrow-leve-1-million-deuros-pour-decrypter-les-algorithmes-musicaux/",
+          "image": null,
+          "lang": "fr",
+          "domain": "culture",
+          "summary": "Levée de fonds de Music Tomorrow, startup française de décryptage algorithmique musical.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-10-02",
       "articles": [
         {
