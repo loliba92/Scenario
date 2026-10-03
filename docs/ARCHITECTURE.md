@@ -827,3 +827,9 @@ n'est pas modifié : sans JavaScript, à l'impression et pour les moteurs de rec
 en entier. La balise `<script>` est dans les gabarits (`index.html`, `en/index.html`, `preview.html`, recopiés dans chaque
 édition) ; `scripts/seo/add_scenarios_reader.py` l'a ajoutée aux pages déjà publiées. Pour revenir en arrière : retirer la
 balise du gabarit (les pages publiées gardent leur HTML d'origine).
+
+**Règle du propriétaire (3 octobre 2026) : on ne change que l'édition du jour et les futures.** Les éditions
+précédentes (FR et EN) chargent `assets/scenarios-reader.v1.js`, copie figée du script : ne pas la modifier. Seule la
+dernière édition de chaque dossier (et les gabarits) charge `assets/scenarios-reader.js`, qui peut évoluer.
+`scripts/seo/freeze_old_editions.py` (idempotent, appelé par `post-edition.yml` et `translate-en.yml`, jamais bloquant)
+fige l'édition de la veille dès qu'une nouvelle est publiée.

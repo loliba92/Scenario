@@ -79,6 +79,12 @@ jobs:
           fi
           python3 scripts/en/translate_daily.py $ARGS
 
+      # Règle du propriétaire (3 octobre 2026) : on ne change que l'édition du jour et les futures. Les
+      # éditions EN précédentes passent sur la copie figée du script des scénarios. Jamais bloquant.
+      - name: Figer les éditions précédentes (script des scénarios)
+        if: github.event.inputs.dry_run != 'true'
+        run: python3 scripts/seo/freeze_old_editions.py || echo "freeze_old_editions.py a échoué (non bloquant)"
+
       - name: Committer et pousser seulement si des fichiers ont changé
         if: github.event.inputs.dry_run != 'true'
         run: |
