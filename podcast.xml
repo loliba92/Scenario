@@ -21,8 +21,8 @@
       <guid isPermaLink="false">scenario-podcast-2026-10-02</guid>
       <pubDate>Fri, 02 Oct 2026 07:00:00 +0000</pubDate>
       <description>Dépistage du cancer du sein : le modèle va-t-il basculer ? Épisode lu par une voix de synthèse (intelligence artificielle), à partir de l'édition du 2026-10-02. Version écrite : https://lesscenarios.fr/archives/2026-10-02.html</description>
-      <enclosure url="https://github.com/loliba92/Scenario/releases/download/podcast-2026-10-02/2026-10-02.mp3" length="2859309" type="audio/mpeg"/>
-      <itunes:duration>00:03:58</itunes:duration>
+      <enclosure url="https://github.com/loliba92/Scenario/releases/download/podcast-2026-10-02/2026-10-02.mp3" length="2628333" type="audio/mpeg"/>
+      <itunes:duration>00:03:39</itunes:duration>
       <itunes:explicit>false</itunes:explicit>
     </item>
   </channel>
