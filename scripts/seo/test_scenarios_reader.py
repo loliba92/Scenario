@@ -23,6 +23,7 @@ class ScenariosReaderTest(unittest.TestCase):
         src = (ROOT / "assets/scenarios-reader.js").read_text(encoding="utf-8")
         self.assertNotIn("import ", src)
         self.assertIn("@media screen", src, "l'impression garde les trois scénarios en entier")
+        self.assertIn("nav.toc a[href^='#']", src, "le sommaire de tête est relibellé et stylé")
 
 
 if __name__ == "__main__":

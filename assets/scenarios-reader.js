@@ -12,12 +12,45 @@
    texte sur fond teinté, sans cartes ni jauges. */
 (function () {
   "use strict";
+
+  /* ---------- Sommaire en tête d'édition (3 liens) ----------
+     Retour du propriétaire (3 octobre 2026) : trois pastilles grises sans personnalité ni cohérence avec le
+     reste du site. Même vocabulaire que les autres liens : filet doré, flèche, serif pour le texte, repères
+     de couleur (trois points favorable / stable / dégradé, barre dorée de l'essentiel). Uniquement du CSS
+     et des libellés, le HTML des éditions ne change pas. */
+  var isEn = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
+  var tocCss = [
+    "@media screen{",
+    ".toc{display:flex;flex-wrap:wrap;align-items:center;gap:8px 26px;margin:0 0 30px;padding:13px 0;border-top:1px solid var(--hairline,#2a3441);border-bottom:1px solid var(--hairline,#2a3441)}",
+    ".toc::before{content:'" + (isEn ? "In this edition" : "Dans cette édition") + "';flex:0 0 100%;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-dim,#b4b2a6)}",
+    "@media (min-width:640px){.toc::before{flex:0 0 auto;margin-right:2px}}",
+    ".toc a{display:inline-flex;align-items:center;gap:9px;font-family:'Fraunces',Georgia,serif;font-size:1.02rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--paper,#e6e1d4);border:0;border-bottom:1px solid transparent;border-radius:0;padding:3px 0;text-decoration:none;transition:border-color .15s}",
+    ".toc a::after{content:'↓';font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.8rem;color:var(--gold,#cf9d4c);transition:transform .15s}",
+    ".toc a:hover,.toc a:focus-visible{color:var(--paper,#e6e1d4);border-color:var(--gold,#cf9d4c)}",
+    ".toc a:hover::after{transform:translateY(2px)}",
+    ".toc a:focus-visible{outline:2px solid var(--gold,#cf9d4c);outline-offset:3px}",
+    ".toc a[href='#scenarios']::before{content:'';flex:none;width:6px;height:6px;border-radius:50%;background:var(--favorable,#6aa584);box-shadow:10px 0 0 var(--stable,#7c9bb8),20px 0 0 var(--degrade,#c47257);margin-right:20px}",
+    ".toc a[href='#essentiel']::before{content:'';flex:none;width:3px;height:15px;border-radius:2px;background:var(--gold,#cf9d4c)}",
+    ".toc a[href='#lexique']::before{content:'Aa';flex:none;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.74rem;color:var(--paper-dim,#b4b2a6)}",
+    "}"
+  ].join("\n");
+  var tocStyle = document.createElement("style");
+  tocStyle.textContent = tocCss;
+  document.head.appendChild(tocStyle);
+  var LABELS = isEn
+    ? { "#scenarios": "The 3 scenarios", "#essentiel": "Key takeaways", "#lexique": "Glossary & sources" }
+    : { "#scenarios": "Les 3 scénarios", "#essentiel": "L'essentiel", "#lexique": "Lexique et sources" };
+  Array.prototype.forEach.call(document.querySelectorAll("nav.toc a[href^='#']"), function (a) {
+    var label = LABELS[a.getAttribute("href")];
+    if (label) a.textContent = label;
+  });
+
   var section = document.querySelector("section.scenarios");
   if (!section) return;
   var cards = Array.prototype.slice.call(section.querySelectorAll(".cards > article.card"));
   if (cards.length < 2) return;
 
-  var EN = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
+  var EN = isEn;
   var T = EN
     ? { tabs: "The three scenarios", more: "Read the full analysis", less: "Hide the analysis", next: "Next scenario: ", first: "Back to the first scenario", prob: "probability" }
     : { tabs: "Les trois scénarios", more: "Lire l'analyse complète", less: "Masquer l'analyse", next: "Scénario suivant : ", first: "Revoir le premier scénario", prob: "de probabilité" };
