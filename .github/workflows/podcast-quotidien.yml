@@ -109,14 +109,20 @@ jobs:
           MP3="_podcast-out/$DATE.mp3"
           [ -f "$MP3" ] || { echo "MP3 absent" >&2; exit 1; }
           TAG="podcast-$DATE"
+          NOM="$DATE"
           if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            # Épisode refait : Spotify ne reprend un fichier modifié que si l'adresse du fichier change
+            # (remplacer le fichier à la même adresse n'est pas détecté). Nouveau nom : AAAA-MM-JJ-HHMM.mp3.
+            NOM="$DATE-$(date -u +%H%M)"
+            cp "$MP3" "_podcast-out/$NOM.mp3"
+            MP3="_podcast-out/$NOM.mp3"
             gh release upload "$TAG" "$MP3" "_podcast-out/$DATE.txt" --clobber --repo "$GITHUB_REPOSITORY"
           else
             gh release create "$TAG" "$MP3" "_podcast-out/$DATE.txt" --repo "$GITHUB_REPOSITORY" \
               --title "Épisode du $DATE" \
               --notes "Épisode audio de l'édition du $DATE, lu par une voix de synthèse (intelligence artificielle). Texte tiré de l'article publié sur lesscenarios.fr."
           fi
-          URL="https://github.com/$GITHUB_REPOSITORY/releases/download/$TAG/$DATE.mp3"
+          URL="https://github.com/$GITHUB_REPOSITORY/releases/download/$TAG/$NOM.mp3"
           TAILLE=$(stat -c %s "$MP3")
           DUREE=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$MP3" | cut -d. -f1)
           TITRE=$(python3 -c "import sys;sys.path.insert(0,'scripts/podcast');import generate_podcast as g;from pathlib import Path;print(g.lire_edition(Path('archives/$DATE.html'))['titre'])")
