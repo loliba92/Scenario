@@ -1,0 +1,120 @@
+name: Podcast — épisode du jour
+
+# Chaque jour, après « Rédaction et publication » : écrit le texte parlé de la dernière édition, le fait lire par la
+# voix Sulafat (Gemini) avec l'ouverture musicale, range le MP3 dans une Release GitHub et l'ajoute au flux
+# https://lesscenarios.fr/podcast.xml que Spotify relit. Décidé le 3 octobre 2026 (« on l'automatise pour demain »).
+# Idempotent : si la Release podcast-AAAA-MM-JJ existe déjà, il n'y a rien à faire (sauf « forcer »).
+# Secrets : OPENROUTER_API_KEY (écriture du texte) et GEMINI_API_KEY (voix).
+# Variable de dépôt facultative PODCAST_OWNER_EMAIL (sinon contact@lesscenarios.fr, voir build_feed.py).
+
+on:
+  workflow_run:
+    workflows: ["Rédaction et publication"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Édition à lire (AAAA-MM-JJ) — vide = dernière édition publiée"
+        required: false
+        default: ""
+      forcer:
+        description: "Refaire l'épisode même si la Release existe déjà"
+        type: boolean
+        required: false
+        default: false
+      voix:
+        description: "Voix du narrateur"
+        required: false
+        default: "Sulafat"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: podcast-quotidien
+  cancel-in-progress: false
+
+jobs:
+  episode:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer les dépendances
+        run: |
+          pip install beautifulsoup4
+          command -v ffmpeg >/dev/null || { sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg; }
+
+      - name: Choisir l'édition
+        id: ed
+        env:
+          DATE: ${{ github.event.inputs.date }}
+          VOIX: ${{ github.event.inputs.voix }}
+          FORCER: ${{ github.event.inputs.forcer }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          case "$DATE" in ""|[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;; *) echo "Date invalide : $DATE" >&2; exit 1 ;; esac
+          [ -n "$VOIX" ] || VOIX=Sulafat
+          case "$VOIX" in *[!A-Za-z]*) echo "Voix invalide : $VOIX" >&2; exit 1 ;; esac
+          if [ -z "$DATE" ]; then
+            DATE=$(ls archives | grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}\.html$' | sort | tail -1 | sed 's/\.html$//')
+          fi
+          echo "date=$DATE" >> "$GITHUB_OUTPUT"
+          echo "voix=$VOIX" >> "$GITHUB_OUTPUT"
+          if [ "$FORCER" != "true" ] && gh release view "podcast-$DATE" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Épisode du $DATE déjà publié : rien à faire."
+            echo "deja=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "deja=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Écrire le texte et le faire lire
+        if: steps.ed.outputs.deja != 'true'
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python3 scripts/podcast/narration.py auto --date "${{ steps.ed.outputs.date }}" --voix "${{ steps.ed.outputs.voix }}" --ouverture
+          ls -la _podcast-out
+
+      - name: Ranger dans une Release et ajouter au flux
+        if: steps.ed.outputs.deja != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DATE: ${{ steps.ed.outputs.date }}
+          PODCAST_OWNER_EMAIL: ${{ vars.PODCAST_OWNER_EMAIL }}
+        run: |
+          MP3="_podcast-out/$DATE.mp3"
+          [ -f "$MP3" ] || { echo "MP3 absent" >&2; exit 1; }
+          TAG="podcast-$DATE"
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$TAG" "$MP3" "_podcast-out/$DATE.txt" --clobber --repo "$GITHUB_REPOSITORY"
+          else
+            gh release create "$TAG" "$MP3" "_podcast-out/$DATE.txt" --repo "$GITHUB_REPOSITORY" \
+              --title "Épisode du $DATE" \
+              --notes "Épisode audio de l'édition du $DATE, lu par une voix de synthèse (intelligence artificielle). Texte tiré de l'article publié sur lesscenarios.fr."
+          fi
+          URL="https://github.com/$GITHUB_REPOSITORY/releases/download/$TAG/$DATE.mp3"
+          TAILLE=$(stat -c %s "$MP3")
+          DUREE=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$MP3" | cut -d. -f1)
+          TITRE=$(python3 -c "import sys;sys.path.insert(0,'scripts/podcast');import generate_podcast as g;from pathlib import Path;print(g.lire_edition(Path('archives/$DATE.html'))['titre'])")
+          python3 scripts/podcast/build_feed.py --ajouter "$DATE" --url "$URL" --taille "$TAILLE" --duree "$DUREE" --titre "$TITRE" \
+            --description "$TITRE Épisode lu par une voix de synthèse (intelligence artificielle), à partir de l'édition du $DATE. Version écrite : https://lesscenarios.fr/archives/$DATE.html"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add podcast.xml data/podcast-episodes.json
+          git commit -m "Podcast : épisode du $DATE ajouté au flux"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep $((i * 5))
+          done
+          echo "Poussée impossible après 5 essais" >&2
+          exit 1

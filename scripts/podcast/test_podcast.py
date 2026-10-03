@@ -119,5 +119,19 @@ class TestTexteNarration(unittest.TestCase):
         self.assertTrue(tn.verifier("Trop court.", src))
 
 
+
+class TestOuverture(unittest.TestCase):
+    def test_ouverture_energique(self):
+        voix = array("h", [3000] * (mu.SR * 2)).tobytes()
+        pcm = array("h")
+        pcm.frombytes(mu.avec_ouverture_energique(voix))
+        duree = len(pcm) / mu.SR
+        self.assertAlmostEqual(duree, mu.OUVERTURE_S + 2 + 0.5, delta=0.1)
+        crete = max(abs(x) for x in pcm) / 32768
+        self.assertTrue(0.3 < crete < 0.95, crete)           # audible, sans saturation
+        debut = sum(abs(x) for x in pcm[:mu.SR * 4]) / (mu.SR * 4)
+        self.assertGreater(debut, 500)                       # la musique joue bien avant la voix
+
+
 if __name__ == "__main__":
     unittest.main()
