@@ -21,7 +21,7 @@ def main(dry=False):
         if rel.startswith(("node_modules/", "test/", "docs/")):
             continue
         text = path.read_text(encoding="utf-8")
-        if 'class="scenarios"' not in text or "scenarios-reader.js" in text:
+        if 'class="scenarios"' not in text or "scenarios-reader" in text:
             continue
         m = TAG_RE.search(text)
         if not m:
