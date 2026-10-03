@@ -95,5 +95,15 @@ class TestFlux(unittest.TestCase):
         self.assertNotIn("itunes:owner", build_feed.construire(eps, ""))
 
 
+
+class TestNarration(unittest.TestCase):
+    def test_decoupe_entre_paragraphes(self):
+        texte = "\n\n".join(f"Paragraphe {i} " + "mot " * 99 + "mot" for i in range(10))
+        morceaux = gp.decouper_texte(texte, limite=1000)
+        self.assertGreater(len(morceaux), 1)
+        self.assertTrue(all(len(m) <= 1000 for m in morceaux))
+        self.assertEqual("\n\n".join(morceaux), texte)
+
+
 if __name__ == "__main__":
     unittest.main()

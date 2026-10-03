@@ -30,6 +30,14 @@ on:
         type: boolean
         required: false
         default: true
+      texte:
+        description: "Narration à une voix : chemin d'un texte du dépôt (ex. podcast/textes/2026-10-03.txt). Vide = dialogue à deux voix"
+        required: false
+        default: ""
+      voix_unique:
+        description: "Voix du narrateur (Sulafat, Achird, Vindemiatrix, Aoede, Kore…)"
+        required: false
+        default: "Sulafat"
       modele_dialogue:
         description: "Modèle(s) OpenRouter qui écrivent le dialogue, ou « gratuits » (vide = sélection de gemma d'abord)"
         required: false
@@ -64,7 +72,15 @@ jobs:
           VOIX: ${{ github.event.inputs.voix }}
           MODELE: ${{ github.event.inputs.modele_dialogue }}
           MUSIQUE: ${{ github.event.inputs.musique }}
+          TEXTE: ${{ github.event.inputs.texte }}
+          VOIX_UNIQUE: ${{ github.event.inputs.voix_unique }}
         run: |
+          if [ -n "$TEXTE" ]; then
+            case "$TEXTE" in podcast/textes/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].txt) ;; *) echo "Texte invalide : $TEXTE" >&2; exit 1 ;; esac
+            case "$VOIX_UNIQUE" in *[!A-Za-z]*|"") echo "Voix invalide : $VOIX_UNIQUE" >&2; exit 1 ;; esac
+            python3 scripts/podcast/narration.py "$TEXTE" --voix "$VOIX_UNIQUE" --suffixe "-$VOIX_UNIQUE"
+            exit $?
+          fi
           ARGS=""
           case "$DATE" in ""|[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;; *) echo "Date invalide : $DATE" >&2; exit 1 ;; esac
           case "$VOIX" in *[!A-Za-z,]*) echo "Voix invalides : $VOIX" >&2; exit 1 ;; esac
