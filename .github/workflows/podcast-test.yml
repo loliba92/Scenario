@@ -31,9 +31,9 @@ on:
         required: false
         default: true
       modele_dialogue:
-        description: "Modèle(s) OpenRouter qui écrivent le dialogue, ou « gratuits »"
+        description: "Modèle(s) OpenRouter qui écrivent le dialogue, ou « gratuits » (vide = sélection de gemma d'abord)"
         required: false
-        default: "gratuits"
+        default: ""
 
 permissions:
   contents: read
