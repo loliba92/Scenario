@@ -133,5 +133,19 @@ class TestOuverture(unittest.TestCase):
         self.assertGreater(debut, 500)                       # la musique joue bien avant la voix
 
 
+
+class TestTheme(unittest.TestCase):
+    def test_melange_theme(self):
+        theme = array("h", [4000] * (mu.SR * 6)).tobytes()
+        voix = array("h", [3000] * (mu.SR * 3)).tobytes()
+        pcm = array("h")
+        pcm.frombytes(mu.melanger_theme(theme, voix))
+        # la voix démarre 1,5 s avant la fin du thème : durée = 6 - 1,5 + 3 + 0,5 s
+        self.assertAlmostEqual(len(pcm) / mu.SR, 8.0, delta=0.05)
+        self.assertGreater(abs(pcm[mu.SR]), 2000)                 # thème audible au début
+        self.assertGreater(abs(pcm[int(mu.SR * 6.5)]), 2000)      # voix audible après le thème
+        self.assertIsNone(mu.trouver_theme("/inexistant"))
+
+
 if __name__ == "__main__":
     unittest.main()

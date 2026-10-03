@@ -28,7 +28,7 @@ def main(argv=None) -> int:
     ap.add_argument("--voix", default="Sulafat", help="voix prédéfinie Gemini (Sulafat, Achird, Vindemiatrix, Aoede, Kore…)")
     ap.add_argument("--tts-models", default=",".join(gp.MODELES_TTS))
     ap.add_argument("--musique", action="store_true", help="ajouter l'ancien habillage musical de musique.py (désactivé par défaut)")
-    ap.add_argument("--ouverture", action="store_true", help="ajouter l'ouverture énergique en mineur (musique.py) avant la voix")
+    ap.add_argument("--ouverture", action="store_true", help="ajouter le thème podcast/musique/ouverture.mp3 avant la voix, s'il existe (sinon : sans musique)")
     ap.add_argument("--suffixe", default="", help="ajouté au nom du fichier (comparer plusieurs voix)")
     ap.add_argument("--out", default=str(gp.ROOT / "_podcast-out"))
     args = ap.parse_args(argv)
@@ -76,7 +76,12 @@ def main(argv=None) -> int:
         pcm = musique.habiller(pcm)
     elif args.ouverture:
         import musique
-        pcm = musique.avec_ouverture_energique(pcm)
+        theme = musique.trouver_theme(gp.ROOT)
+        if theme is None:
+            print("Pas de thème musical (podcast/musique/ouverture.mp3) : épisode sans musique.", flush=True)
+        else:
+            print(f"Thème musical : {theme.name}", flush=True)
+            pcm = musique.melanger_theme(musique.decoder_theme(theme), pcm)
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
     wav = out / f"{nom}.wav"

@@ -249,3 +249,48 @@ def avec_ouverture_energique(voix_pcm: bytes, niveau: float = 0.7) -> bytes:
     for i, x in enumerate(voix):
         piste[n_intro + i] += x / 32768.0
     return array("h", (max(-32768, min(32767, int(x * 32767))) for x in piste)).tobytes()
+
+
+# ---------------------------------------------------------------- thème fourni par le propriétaire
+# La musique synthétisée par ce programme a été rejetée deux fois (3 octobre 2026). Le thème est maintenant un
+# fichier du dépôt, podcast/musique/ouverture.mp3 (ou .wav) : tant qu'il n'existe pas, l'épisode est sans musique.
+DOSSIER_THEME = None  # défini par narration.py (racine du dépôt)
+
+
+def trouver_theme(racine) -> "Path | None":
+    from pathlib import Path
+    for ext in ("mp3", "wav", "m4a"):
+        p = Path(racine) / "podcast" / "musique" / f"ouverture.{ext}"
+        if p.exists():
+            return p
+    return None
+
+
+def decoder_theme(chemin, duree_max_s: float = 14.0) -> bytes:
+    """Décode le fichier en PCM 16 bits mono 24 kHz avec ffmpeg (présent sur le serveur de publication)."""
+    import subprocess
+    r = subprocess.run(["ffmpeg", "-v", "error", "-i", str(chemin), "-t", str(duree_max_s), "-ac", "1", "-ar", str(SR),
+                        "-f", "s16le", "-"], capture_output=True, check=True)
+    return r.stdout
+
+
+def melanger_theme(theme_pcm: bytes, voix_pcm: bytes, recouvrement_s: float = 1.5, niveau: float = 0.8,
+                   fondu_s: float = 2.0) -> bytes:
+    """Le thème joue seul, puis la voix entre `recouvrement_s` avant la fin du thème, qui s'éteint en fondu."""
+    theme = array("h")
+    theme.frombytes(theme_pcm)
+    voix = array("h")
+    voix.frombytes(voix_pcm)
+    n_theme = len(theme)
+    debut_voix = max(0, n_theme - int(SR * recouvrement_s))
+    n = max(n_theme, debut_voix + len(voix)) + int(SR * 0.5)
+    piste = array("f", [0.0]) * n
+    nf = int(SR * fondu_s)
+    for i, x in enumerate(theme):
+        g = niveau
+        if i >= n_theme - nf:
+            g *= max(0.0, (n_theme - i) / nf)
+        piste[i] += x / 32768.0 * g
+    for i, x in enumerate(voix):
+        piste[debut_voix + i] += x / 32768.0
+    return array("h", (max(-32768, min(32767, int(x * 32767))) for x in piste)).tobytes()
