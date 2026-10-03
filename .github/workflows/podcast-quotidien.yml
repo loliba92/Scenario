@@ -81,8 +81,16 @@ jobs:
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          python3 scripts/podcast/narration.py auto --date "${{ steps.ed.outputs.date }}" --voix "${{ steps.ed.outputs.voix }}" --ouverture
+          DATE="${{ steps.ed.outputs.date }}"
+          SOURCE=auto
+          # Refaire un épisode (« forcer ») : on garde le texte déjà publié, seule la voix et la musique sont refaites.
+          if gh release download "podcast-$DATE" --pattern "$DATE.txt" --dir _texte --repo "$GITHUB_REPOSITORY" 2>/dev/null; then
+            SOURCE="_texte/$DATE.txt"
+          fi
+          echo "Source du texte : $SOURCE"
+          python3 scripts/podcast/narration.py "$SOURCE" --date "$DATE" --voix "${{ steps.ed.outputs.voix }}" --ouverture
           ls -la _podcast-out
 
       - name: Ranger dans une Release et ajouter au flux
