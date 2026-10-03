@@ -24,8 +24,9 @@
     ".toc{display:flex;flex-wrap:wrap;align-items:center;gap:8px 26px;margin:0 0 30px;padding:13px 0;border-top:1px solid var(--hairline,#2a3441);border-bottom:1px solid var(--hairline,#2a3441)}",
     ".toc::before{content:'" + (isEn ? "In this edition" : "Dans cette édition") + "';flex:0 0 100%;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-dim,#b4b2a6)}",
     "@media (min-width:640px){.toc::before{flex:0 0 auto;margin-right:2px}}",
+    "@media (max-width:639px){.toc{flex-wrap:nowrap;justify-content:space-between;gap:12px}.toc::before{display:none}.toc a{font-size:.98rem;gap:6px}}",
     ".toc a{display:inline-flex;align-items:center;gap:9px;font-family:'Fraunces',Georgia,serif;font-size:1.02rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--paper,#e6e1d4);border:0;border-bottom:1px solid transparent;border-radius:0;padding:3px 0;text-decoration:none;transition:border-color .15s}",
-    ".toc a::after{content:'↓';font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.8rem;color:var(--gold,#cf9d4c);transition:transform .15s}",
+    ".toc a::after{content:'↘';font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.8rem;color:var(--gold,#cf9d4c);transition:transform .15s}",
     ".toc a:hover,.toc a:focus-visible{color:var(--paper,#e6e1d4);border-color:var(--gold,#cf9d4c)}",
     ".toc a:hover::after{transform:translateY(2px)}",
     ".toc a:focus-visible{outline:2px solid var(--gold,#cf9d4c);outline-offset:3px}",
@@ -35,8 +36,8 @@
   tocStyle.textContent = tocCss;
   document.head.appendChild(tocStyle);
   var LABELS = isEn
-    ? { "#scenarios": "The 3 scenarios", "#essentiel": "Key takeaways", "#lexique": "Glossary & sources" }
-    : { "#scenarios": "Les 3 scénarios", "#essentiel": "L'essentiel", "#lexique": "Lexique et sources" };
+    ? { "#scenarios": "Scenarios", "#essentiel": "Key points", "#lexique": "Glossary" }
+    : { "#scenarios": "Scénarios", "#essentiel": "L'essentiel", "#lexique": "Lexique" };
   Array.prototype.forEach.call(document.querySelectorAll("nav.toc a[href^='#']"), function (a) {
     var label = LABELS[a.getAttribute("href")];
     if (label) a.textContent = label;
