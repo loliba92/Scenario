@@ -249,9 +249,14 @@ def synthese(morceau: list[dict], voix: tuple[str, str], modeles: tuple[str, ...
     return _appeler_tts(corps, modeles, cle)
 
 
+_EPUISES: set[str] = set()  # modèles dont le quota du jour est épuisé : inutile de les réessayer pendant ce run
+
+
 def _appeler_tts(corps: bytes, modeles: tuple[str, ...], cle: str) -> bytes:
     derniere = ""
     for modele in modeles:
+        if modele in _EPUISES:
+            continue
         for attente in (0, 20, 45):
             if attente:
                 time.sleep(attente)
@@ -261,11 +266,15 @@ def _appeler_tts(corps: bytes, modeles: tuple[str, ...], cle: str) -> bytes:
                 with urllib.request.urlopen(req, timeout=180) as r:
                     rep = json.loads(r.read())
                 part = rep["candidates"][0]["content"]["parts"][0]["inlineData"]
+                print(f"  voix produite par {modele}", flush=True)
                 return _pcm_depuis_reponse(base64.b64decode(part["data"]), part.get("mimeType", ""))
             except urllib.error.HTTPError as e:
-                detail = e.read().decode("utf-8", "replace")[:300]
-                derniere = f"{modele} : HTTP {e.code} {detail}"
+                complet = e.read().decode("utf-8", "replace")
+                derniere = f"{modele} : HTTP {e.code} {complet[:300]}"
                 print("  … " + derniere, file=sys.stderr, flush=True)
+                if e.code == 429 and "PerDay" in complet:
+                    _EPUISES.add(modele)  # quota journalier : attendre ne sert à rien
+                    break
                 if e.code not in (429, 500, 503):
                     break  # erreur de requête (modèle inconnu, clé refusée…) : modèle suivant
             except (KeyError, IndexError, ValueError, TimeoutError, urllib.error.URLError) as e:
@@ -302,7 +311,23 @@ def debut_correspond(transcription: str, texte: str, n: int = 6, minimum: int = 
     return sum(1 for m in attendus if m in vus) >= min(minimum, len(attendus))
 
 
-def verifier_debut(pcm: bytes, texte: str, cle: str, secondes: int = 12, modele: str = "gemini-2.5-flash"):
+def _modeles_transcription(cle: str) -> list[str]:
+    """Modèles Gemini texte (pas tts, pas image) qui acceptent generateContent, du plus récent au plus ancien."""
+    req = urllib.request.Request("https://generativelanguage.googleapis.com/v1beta/models?pageSize=200",
+                                 headers={"x-goog-api-key": cle})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        liste = json.loads(r.read()).get("models", [])
+    trouves = []
+    for m in liste:
+        nom = m.get("name", "").split("/")[-1]
+        mo = re.fullmatch(r"gemini-(\d+(?:\.\d+)?)-flash(-lite)?", nom)
+        if mo and "generateContent" in m.get("supportedGenerationMethods", []):
+            trouves.append((float(mo.group(1)), bool(mo.group(2)), nom))
+    trouves.sort(key=lambda t: (-t[0], t[1]))  # version décroissante, « flash » avant « flash-lite »
+    return [n for _, _, n in trouves]
+
+
+def verifier_debut(pcm: bytes, texte: str, cle: str, secondes: int = 12):
     """Fait transcrire les premières secondes de la voix et vérifie qu'elles commencent bien par le texte.
 
     Retourne (True/False, transcription) ; (None, erreur) si la transcription elle-même a échoué."""
@@ -316,15 +341,22 @@ def verifier_debut(pcm: bytes, texte: str, cle: str, secondes: int = 12, modele:
     corps = json.dumps({"contents": [{"parts": [
         {"text": "Transcris mot à mot ce qui est dit dans cet extrait audio en français. Réponds uniquement par la transcription."},
         {"inlineData": {"mimeType": "audio/wav", "data": base64.b64encode(tampon.getvalue()).decode()}}]}]}).encode()
-    req = urllib.request.Request(GEMINI_URL.format(model=modele), data=corps, method="POST",
-                                 headers={"Content-Type": "application/json", "x-goog-api-key": cle})
+    erreurs = []
     try:
-        with urllib.request.urlopen(req, timeout=120) as r:
-            rep = json.loads(r.read())
-        transcription = rep["candidates"][0]["content"]["parts"][0]["text"].strip()
-    except Exception as e:  # noqa: BLE001 - un échec de contrôle ne doit pas bloquer, seulement être signalé
-        return None, f"{type(e).__name__}: {e}"
-    return debut_correspond(transcription, texte), transcription
+        candidats = _modeles_transcription(cle)[:3]
+    except Exception as e:  # noqa: BLE001
+        candidats, erreurs = [], [f"liste des modèles : {type(e).__name__}: {e}"]
+    for modele in candidats:
+        req = urllib.request.Request(GEMINI_URL.format(model=modele), data=corps, method="POST",
+                                     headers={"Content-Type": "application/json", "x-goog-api-key": cle})
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                rep = json.loads(r.read())
+            transcription = rep["candidates"][0]["content"]["parts"][0]["text"].strip()
+            return debut_correspond(transcription, texte), f"[{modele}] {transcription}"
+        except Exception as e:  # noqa: BLE001 - un échec de contrôle ne doit pas bloquer, seulement être signalé
+            erreurs.append(f"{modele} : {type(e).__name__}: {e}")
+    return None, " ; ".join(erreurs) or "aucun modèle de transcription disponible"
 
 
 def decouper_texte(texte: str, limite: int = 1800) -> list[str]:
