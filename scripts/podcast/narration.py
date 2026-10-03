@@ -24,7 +24,7 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("texte", help="fichier texte à lire, ou « auto » : le texte est écrit à partir d'une édition publiée")
     ap.add_argument("--date", default=None, help="avec « auto » : édition AAAA-MM-JJ (défaut : la dernière)")
-    ap.add_argument("--modele", default=gp.MODELES_DIALOGUE, help="avec « auto » : modèle(s) OpenRouter qui écrivent le texte")
+    ap.add_argument("--modele", default=gp.MODELES_NARRATION, help="avec « auto » : modèle(s) OpenRouter qui écrivent le texte (gratuits d'abord, puis un modèle payant bon marché)")
     ap.add_argument("--voix", default="Sulafat", help="voix prédéfinie Gemini (Sulafat, Achird, Vindemiatrix, Aoede, Kore…)")
     ap.add_argument("--tts-models", default=",".join(gp.MODELES_TTS))
     ap.add_argument("--musique", action="store_true", help="ajouter l'ancien habillage musical de musique.py (désactivé par défaut)")
