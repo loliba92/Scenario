@@ -146,7 +146,8 @@ def construire_prompt(ed: dict, remarques: list[str] | None = None) -> str:
 RÈGLES ABSOLUES
 - N'ajoute AUCUN fait, chiffre, nom, date ni exemple qui ne figure pas dans l'article. Chaque nombre cité doit venir de l'article (écris les nombres en chiffres, par exemple « 84 pour cent »).
 - Pas de Markdown, pas d'adresse web, pas de liste : uniquement du langage parlé, phrases courtes, quelques réactions brèves (« Exactement. », « Attends, explique. »).
-- Ne dis jamais « selon l'article » ; ne parle pas des animateurs ni de l'intelligence artificielle (le script ajoute lui-même l'ouverture et la fermeture).
+- Ne dis jamais « selon l'article » ; ne parle pas des animateurs ni de l'intelligence artificielle.
+- Ne dis PAS bonjour, bienvenue ni au revoir : le script ajoute lui-même l'ouverture et la fermeture. Commence directement par la question du jour.
 
 STRUCTURE (environ 850 mots, soit 6 minutes)
 1. {a} pose la question du jour en une phrase.
