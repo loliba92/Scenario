@@ -173,6 +173,10 @@
     return { card: card, tab: tab, tag: tag };
   });
   var cardsBox = section.querySelector(".cards");
+  /* repère invisible juste avant les onglets : leur vraie place, même quand ils sont collés en haut */
+  var anchor = document.createElement("div");
+  anchor.className = "sr-anchor";
+  cardsBox.parentNode.insertBefore(anchor, cardsBox);
   cardsBox.parentNode.insertBefore(tabs, cardsBox);
   section.classList.add("sr-on");
 
@@ -196,10 +200,12 @@
       }
     });
     if (scrollToTabs) {
-      var r = tabs.getBoundingClientRect(), top = parseInt(section.style.getPropertyValue("--sr-top"), 10) || 0;
-      if (r.top < top + 1 || r.top > window.innerHeight * 0.6) {
-        window.scrollTo({ top: window.pageYOffset + r.top - top - 8, behavior: "smooth" });
-      }
+      /* « Scénario suivant » : on repart toujours du début du scénario (ses onglets), même si le
+         nouveau texte est plus court que l'ancien ; défilement immédiat (un défilement animé était
+         interrompu par le changement de hauteur de la page). */
+      var top = parseInt(section.style.getPropertyValue("--sr-top"), 10) || 0;
+      var y = anchor.getBoundingClientRect().top + window.pageYOffset - top - 8;
+      window.scrollTo({ top: Math.max(0, y), behavior: "instant" });
     }
   }
   tabs.addEventListener("click", function (e) {
