@@ -229,8 +229,14 @@
   /* repère invisible juste avant les onglets : leur vraie place, même quand ils sont collés en haut */
   var anchor = document.createElement("div");
   anchor.className = "sr-anchor";
-  cardsBox.parentNode.insertBefore(anchor, cardsBox);
-  cardsBox.parentNode.insertBefore(tabs, cardsBox);
+  /* Zone propre aux scénarios : les onglets collés en haut (téléphone) ne le restent que dans cette zone
+     et lâchent prise dès qu'on arrive à « L'essentiel » (même bloc parent que les cartes). */
+  var zone = document.createElement("div");
+  zone.className = "sr-zone";
+  cardsBox.parentNode.insertBefore(zone, cardsBox);
+  zone.appendChild(anchor);
+  zone.appendChild(tabs);
+  zone.appendChild(cardsBox);
   section.classList.add("sr-on");
 
   var current = 0;
