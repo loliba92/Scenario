@@ -25,6 +25,11 @@ on:
         description: "Voix de Léa et de Hugo (voix prédéfinies Gemini, séparées par une virgule)"
         required: false
         default: "Kore,Puck"
+      musique:
+        description: "Ajouter l'ouverture, le fond musical discret et la fermeture"
+        type: boolean
+        required: false
+        default: true
       modele_dialogue:
         description: "Modèle(s) OpenRouter qui écrivent le dialogue, ou « gratuits »"
         required: false
@@ -55,6 +60,7 @@ jobs:
           SEULEMENT: ${{ github.event.inputs.dialogue_seulement }}
           VOIX: ${{ github.event.inputs.voix }}
           MODELE: ${{ github.event.inputs.modele_dialogue }}
+          MUSIQUE: ${{ github.event.inputs.musique }}
         run: |
           ARGS=""
           case "$DATE" in ""|[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;; *) echo "Date invalide : $DATE" >&2; exit 1 ;; esac
@@ -64,6 +70,7 @@ jobs:
           [ -n "$VOIX" ] && ARGS="$ARGS --voix $VOIX"
           [ -n "$MODELE" ] && ARGS="$ARGS --dialogue-model $MODELE"
           [ "$SEULEMENT" = "true" ] && ARGS="$ARGS --dialogue-seulement"
+          [ "$MUSIQUE" = "false" ] && ARGS="$ARGS --sans-musique"
           python3 scripts/podcast/generate_podcast.py $ARGS
 
       - name: Mettre la sortie à disposition
