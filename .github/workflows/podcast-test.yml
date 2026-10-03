@@ -1,0 +1,76 @@
+name: Podcast — épisode de test
+
+# TEST demandé le 3 octobre 2026 : transforme une édition publiée en épisode audio à deux voix
+# (alternative automatisable à NotebookLM). Ne publie RIEN et ne commit RIEN : le fichier audio est
+# disponible 7 jours en téléchargement sur la page du run (section « Artifacts »).
+#
+# Secrets : OPENROUTER_API_KEY (déjà présent) et GEMINI_API_KEY (clé gratuite créée dans Google AI
+# Studio, à ajouter dans Settings > Secrets and variables > Actions). Sans GEMINI_API_KEY, cocher
+# « dialogue_seulement » : seul le texte du dialogue est produit (lisible dans le journal).
+# Voir scripts/podcast/generate_podcast.py.
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Édition à lire (AAAA-MM-JJ) — vide = dernière édition publiée"
+        required: false
+        default: ""
+      dialogue_seulement:
+        description: "Produire seulement le texte du dialogue (pas de voix, pas de clé Gemini nécessaire)"
+        type: boolean
+        required: false
+        default: false
+      voix:
+        description: "Voix de Léa et de Hugo (voix prédéfinies Gemini, séparées par une virgule)"
+        required: false
+        default: "Kore,Puck"
+      modele_dialogue:
+        description: "Modèle(s) OpenRouter qui écrivent le dialogue, ou « gratuits »"
+        required: false
+        default: "gratuits"
+
+permissions:
+  contents: read
+
+jobs:
+  podcast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer les dépendances
+        run: pip install beautifulsoup4
+
+      - name: Générer l'épisode
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          DATE: ${{ github.event.inputs.date }}
+          SEULEMENT: ${{ github.event.inputs.dialogue_seulement }}
+          VOIX: ${{ github.event.inputs.voix }}
+          MODELE: ${{ github.event.inputs.modele_dialogue }}
+        run: |
+          ARGS=""
+          case "$DATE" in ""|[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;; *) echo "Date invalide : $DATE" >&2; exit 1 ;; esac
+          case "$VOIX" in *[!A-Za-z,]*) echo "Voix invalides : $VOIX" >&2; exit 1 ;; esac
+          case "$MODELE" in *[!A-Za-z0-9._:/,-]*) echo "Modèle invalide : $MODELE" >&2; exit 1 ;; esac
+          [ -n "$DATE" ] && ARGS="$ARGS --date $DATE"
+          [ -n "$VOIX" ] && ARGS="$ARGS --voix $VOIX"
+          [ -n "$MODELE" ] && ARGS="$ARGS --dialogue-model $MODELE"
+          [ "$SEULEMENT" = "true" ] && ARGS="$ARGS --dialogue-seulement"
+          python3 scripts/podcast/generate_podcast.py $ARGS
+
+      - name: Mettre la sortie à disposition
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: podcast-test-${{ github.run_id }}
+          path: _podcast-out/
+          retention-days: 7
+          if-no-files-found: warn
