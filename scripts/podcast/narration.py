@@ -26,7 +26,7 @@ def main(argv=None) -> int:
     ap.add_argument("--date", default=None, help="avec « auto » : édition AAAA-MM-JJ (défaut : la dernière)")
     ap.add_argument("--modele", default=gp.MODELES_NARRATION, help="avec « auto » : modèle(s) OpenRouter qui écrivent le texte (gratuits d'abord, puis un modèle payant bon marché)")
     ap.add_argument("--voix", default="Sulafat", help="voix prédéfinie Gemini (Sulafat, Achird, Vindemiatrix, Aoede, Kore…)")
-    ap.add_argument("--tts-models", default=",".join(gp.MODELES_TTS))
+    ap.add_argument("--tts-models", default=",".join(gp.MODELES_TTS_NARRATION))
     ap.add_argument("--musique", action="store_true", help="ajouter l'ancien habillage musical de musique.py (désactivé par défaut)")
     ap.add_argument("--ouverture", action="store_true", help="ajouter le thème podcast/musique/ouverture.mp3 avant la voix, s'il existe (sinon : sans musique)")
     ap.add_argument("--suffixe", default="", help="ajouté au nom du fichier (comparer plusieurs voix)")
