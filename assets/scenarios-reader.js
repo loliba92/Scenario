@@ -29,9 +29,6 @@
     ".toc a:hover,.toc a:focus-visible{color:var(--paper,#e6e1d4);border-color:var(--gold,#cf9d4c)}",
     ".toc a:hover::after{transform:translateY(2px)}",
     ".toc a:focus-visible{outline:2px solid var(--gold,#cf9d4c);outline-offset:3px}",
-    ".toc a[href='#scenarios']::before{content:'';flex:none;width:6px;height:6px;border-radius:50%;background:var(--favorable,#6aa584);box-shadow:10px 0 0 var(--stable,#7c9bb8),20px 0 0 var(--degrade,#c47257);margin-right:20px}",
-    ".toc a[href='#essentiel']::before{content:'';flex:none;width:3px;height:15px;border-radius:2px;background:var(--gold,#cf9d4c)}",
-    ".toc a[href='#lexique']::before{content:'Aa';flex:none;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.74rem;color:var(--paper-dim,#b4b2a6)}",
     "}"
   ].join("\n");
   var tocStyle = document.createElement("style");
