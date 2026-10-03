@@ -274,20 +274,57 @@ def _appeler_tts(corps: bytes, modeles: tuple[str, ...], cle: str) -> bytes:
     raise PodcastError("synthèse vocale impossible : " + derniere)
 
 
-CONSIGNE_NARRATION = ("Lis ce texte en français avec une voix chaleureuse, proche et naturelle, comme à un ami curieux, "
-                      "avec un rythme varié et de petites pauses entre les idées :\n\n")
-
-
 def synthese_unique(texte: str, voix: str, modeles: tuple[str, ...], cle: str) -> bytes:
-    """Une seule voix (narration) ; le texte est lu tel quel, avec une consigne d'interprétation."""
+    """Une seule voix (narration) ; le texte est lu tel quel.
+
+    Aucune consigne d'interprétation n'est ajoutée au texte : le 3 octobre 2026, la voix a lu à voix haute
+    « Lis ce texte en français avec une voix chaleureuse… » au début de l'épisode."""
     corps = json.dumps({
-        "contents": [{"parts": [{"text": CONSIGNE_NARRATION + texte}]}],
+        "contents": [{"parts": [{"text": texte}]}],
         "generationConfig": {
             "responseModalities": ["AUDIO"],
             "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": voix}}},
         },
     }).encode()
     return _appeler_tts(corps, modeles, cle)
+
+
+def _mots(texte: str) -> list[str]:
+    import unicodedata
+    sans = "".join(c for c in unicodedata.normalize("NFD", texte.lower()) if unicodedata.category(c) != "Mn")
+    return re.findall(r"[a-z0-9]+", sans)
+
+
+def debut_correspond(transcription: str, texte: str, n: int = 6, minimum: int = 4) -> bool:
+    """Les `n` premiers mots du texte doivent se retrouver (au moins `minimum`) dans la transcription du début."""
+    attendus = _mots(texte)[:n]
+    vus = set(_mots(transcription))
+    return sum(1 for m in attendus if m in vus) >= min(minimum, len(attendus))
+
+
+def verifier_debut(pcm: bytes, texte: str, cle: str, secondes: int = 12, modele: str = "gemini-2.5-flash"):
+    """Fait transcrire les premières secondes de la voix et vérifie qu'elles commencent bien par le texte.
+
+    Retourne (True/False, transcription) ; (None, erreur) si la transcription elle-même a échoué."""
+    extrait = pcm[:SAMPLE_RATE * 2 * secondes]
+    tampon = io.BytesIO()
+    with wave.open(tampon, "wb") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(SAMPLE_RATE)
+        w.writeframes(extrait)
+    corps = json.dumps({"contents": [{"parts": [
+        {"text": "Transcris mot à mot ce qui est dit dans cet extrait audio en français. Réponds uniquement par la transcription."},
+        {"inlineData": {"mimeType": "audio/wav", "data": base64.b64encode(tampon.getvalue()).decode()}}]}]}).encode()
+    req = urllib.request.Request(GEMINI_URL.format(model=modele), data=corps, method="POST",
+                                 headers={"Content-Type": "application/json", "x-goog-api-key": cle})
+    try:
+        with urllib.request.urlopen(req, timeout=120) as r:
+            rep = json.loads(r.read())
+        transcription = rep["candidates"][0]["content"]["parts"][0]["text"].strip()
+    except Exception as e:  # noqa: BLE001 - un échec de contrôle ne doit pas bloquer, seulement être signalé
+        return None, f"{type(e).__name__}: {e}"
+    return debut_correspond(transcription, texte), transcription
 
 
 def decouper_texte(texte: str, limite: int = 1800) -> list[str]:

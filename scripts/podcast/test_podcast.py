@@ -147,5 +147,15 @@ class TestTheme(unittest.TestCase):
         self.assertIsNone(mu.trouver_theme("/inexistant"))
 
 
+
+class TestControleDebut(unittest.TestCase):
+    def test_debut_correspond(self):
+        texte = "Une question qui touche beaucoup de femmes : faut-il continuer ?"
+        self.assertTrue(gp.debut_correspond("Une question qui touche beaucoup de femmes, faut-il", texte))
+        self.assertTrue(gp.debut_correspond("une question qui touche beaucoup de femme", texte))   # accent, pluriel proche
+        # la consigne lue à voix haute au lieu du texte : refusé
+        self.assertFalse(gp.debut_correspond("Lis ce texte en français avec une voix chaleureuse proche et naturelle", texte))
+
+
 if __name__ == "__main__":
     unittest.main()
