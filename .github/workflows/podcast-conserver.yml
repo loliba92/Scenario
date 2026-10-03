@@ -36,8 +36,8 @@ jobs:
         run: |
           MP3=$(ls _episode/*.mp3 2>/dev/null | head -1)
           [ -n "$MP3" ] || { echo "Aucun MP3 dans ce run (dialogue seulement ?)" >&2; exit 1; }
-          DATE=$(basename "$MP3" .mp3)
-          case "$DATE" in [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;; *) echo "Nom inattendu : $DATE" >&2; exit 1 ;; esac
+          DATE=$(basename "$MP3" .mp3)   # AAAA-MM-JJ, ou AAAA-MM-JJ-Voix pour un essai de narration
+          case "$DATE" in [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]|[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]-[A-Za-z]*) ;; *) echo "Nom inattendu : $DATE" >&2; exit 1 ;; esac
           TAG="podcast-$DATE"
           FILES="$MP3"
           [ -f "_episode/$DATE.txt" ] && FILES="$FILES _episode/$DATE.txt"
