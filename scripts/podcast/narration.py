@@ -22,7 +22,9 @@ import generate_podcast as gp  # noqa: E402
 def main(argv=None) -> int:
     sys.stdout.reconfigure(line_buffering=True)
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("texte", help="fichier texte à lire")
+    ap.add_argument("texte", help="fichier texte à lire, ou « auto » : le texte est écrit à partir d'une édition publiée")
+    ap.add_argument("--date", default=None, help="avec « auto » : édition AAAA-MM-JJ (défaut : la dernière)")
+    ap.add_argument("--modele", default=gp.MODELES_DIALOGUE, help="avec « auto » : modèle(s) OpenRouter qui écrivent le texte")
     ap.add_argument("--voix", default="Sulafat", help="voix prédéfinie Gemini (Sulafat, Achird, Vindemiatrix, Aoede, Kore…)")
     ap.add_argument("--tts-models", default=",".join(gp.MODELES_TTS))
     ap.add_argument("--musique", action="store_true", help="ajouter l'habillage musical de musique.py (désactivé par défaut)")
@@ -34,10 +36,28 @@ def main(argv=None) -> int:
     if not cle:
         print("ERREUR : GEMINI_API_KEY absent.", file=sys.stderr)
         return 1
-    chemin = Path(args.texte)
-    texte = chemin.read_text(encoding="utf-8").strip()
-    m = re.search(r"\d{4}-\d{2}-\d{2}", chemin.name)
-    nom = (m.group(0) if m else chemin.stem) + args.suffixe
+    if args.texte == "auto":
+        import texte_narration
+        cle_or = os.environ.get("OPENROUTER_API_KEY")
+        if not cle_or:
+            print("ERREUR : OPENROUTER_API_KEY absent.", file=sys.stderr)
+            return 1
+        archives = sorted(p for p in (gp.ROOT / "archives").glob("*.html") if re.match(r"\d{4}-\d{2}-\d{2}\.html$", p.name))
+        edition = (gp.ROOT / "archives" / f"{args.date}.html") if args.date else archives[-1]
+        ed = gp.lire_edition(edition)
+        print(f"Édition du {gp.date_longue(ed['date'])} : {ed['titre']}", flush=True)
+        try:
+            texte = texte_narration.generer(ed, args.modele, cle_or)
+        except gp.PodcastError as e:
+            print(f"ERREUR : {e}", file=sys.stderr)
+            return 1
+        nom = ed["date"] + args.suffixe
+        print("\nTEXTE :\n\n" + texte + "\n", flush=True)
+    else:
+        chemin = Path(args.texte)
+        texte = chemin.read_text(encoding="utf-8").strip()
+        m = re.search(r"\d{4}-\d{2}-\d{2}", chemin.name)
+        nom = (m.group(0) if m else chemin.stem) + args.suffixe
     modeles = tuple(x.strip() for x in args.tts_models.split(",") if x.strip())
     morceaux = gp.decouper_texte(texte)
     print(f"{len(texte.split())} mots, {len(morceaux)} morceaux, voix {args.voix}", flush=True)

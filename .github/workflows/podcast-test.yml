@@ -31,7 +31,7 @@ on:
         required: false
         default: true
       texte:
-        description: "Narration à une voix : chemin d'un texte du dépôt (ex. podcast/textes/2026-10-03.txt). Vide = dialogue à deux voix"
+        description: "Narration à une voix : « auto » (le texte est écrit à partir de l'édition) ou chemin d'un texte du dépôt (ex. podcast/textes/2026-10-03.txt). Vide = dialogue à deux voix"
         required: false
         default: ""
       voix_unique:
@@ -76,9 +76,14 @@ jobs:
           VOIX_UNIQUE: ${{ github.event.inputs.voix_unique }}
         run: |
           if [ -n "$TEXTE" ]; then
-            case "$TEXTE" in podcast/textes/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].txt) ;; *) echo "Texte invalide : $TEXTE" >&2; exit 1 ;; esac
+            case "$TEXTE" in auto|podcast/textes/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].txt) ;; *) echo "Texte invalide : $TEXTE" >&2; exit 1 ;; esac
             case "$VOIX_UNIQUE" in *[!A-Za-z]*|"") echo "Voix invalide : $VOIX_UNIQUE" >&2; exit 1 ;; esac
-            python3 scripts/podcast/narration.py "$TEXTE" --voix "$VOIX_UNIQUE" --suffixe="-$VOIX_UNIQUE"
+            case "$DATE" in ""|[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;; *) echo "Date invalide : $DATE" >&2; exit 1 ;; esac
+            case "$MODELE" in *[!A-Za-z0-9._:/,-]*) echo "Modèle invalide : $MODELE" >&2; exit 1 ;; esac
+            NARR="--voix $VOIX_UNIQUE --suffixe=-$VOIX_UNIQUE"
+            [ -n "$DATE" ] && NARR="$NARR --date $DATE"
+            [ -n "$MODELE" ] && NARR="$NARR --modele $MODELE"
+            python3 scripts/podcast/narration.py "$TEXTE" $NARR
             exit $?
           fi
           ARGS=""

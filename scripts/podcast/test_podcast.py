@@ -105,5 +105,19 @@ class TestNarration(unittest.TestCase):
         self.assertEqual("\n\n".join(morceaux), texte)
 
 
+
+class TestTexteNarration(unittest.TestCase):
+    def test_exemple_valide_et_defauts_refuses(self):
+        import texte_narration as tn
+        from pathlib import Path as P
+        ed = gp.lire_edition(sorted((gp.ROOT / "archives").glob("2026-10-03.html"))[0])
+        src = gp.texte_source(ed)
+        exemple = tn.EXEMPLE.read_text(encoding="utf-8")
+        self.assertEqual(tn.verifier(exemple, src), [])
+        self.assertTrue(tn.verifier("Bonjour. " + exemple, src))          # formule d'accueil
+        self.assertTrue(tn.verifier(exemple + " Le chiffre 4242 est faux.", src))  # nombre inventé
+        self.assertTrue(tn.verifier("Trop court.", src))
+
+
 if __name__ == "__main__":
     unittest.main()
