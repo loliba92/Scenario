@@ -27,7 +27,8 @@ def main(argv=None) -> int:
     ap.add_argument("--modele", default=gp.MODELES_DIALOGUE, help="avec « auto » : modèle(s) OpenRouter qui écrivent le texte")
     ap.add_argument("--voix", default="Sulafat", help="voix prédéfinie Gemini (Sulafat, Achird, Vindemiatrix, Aoede, Kore…)")
     ap.add_argument("--tts-models", default=",".join(gp.MODELES_TTS))
-    ap.add_argument("--musique", action="store_true", help="ajouter l'habillage musical de musique.py (désactivé par défaut)")
+    ap.add_argument("--musique", action="store_true", help="ajouter l'ancien habillage musical de musique.py (désactivé par défaut)")
+    ap.add_argument("--ouverture", action="store_true", help="ajouter l'ouverture énergique en mineur (musique.py) avant la voix")
     ap.add_argument("--suffixe", default="", help="ajouté au nom du fichier (comparer plusieurs voix)")
     ap.add_argument("--out", default=str(gp.ROOT / "_podcast-out"))
     args = ap.parse_args(argv)
@@ -73,6 +74,9 @@ def main(argv=None) -> int:
     if args.musique:
         import musique
         pcm = musique.habiller(pcm)
+    elif args.ouverture:
+        import musique
+        pcm = musique.avec_ouverture_energique(pcm)
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
     wav = out / f"{nom}.wav"
