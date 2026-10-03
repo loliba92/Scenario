@@ -49,7 +49,7 @@ MODELES_TTS = ("gemini-2.5-flash-preview-tts", "gemini-3.8-flash-tts", "gemini-3
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 SAMPLE_RATE = 24000
 MAX_CARACTERES_PAR_APPEL = 1400
-MOTS_MIN, MOTS_MAX = 550, 1100
+MOTS_MIN, MOTS_MAX = 550, 850  # 6 minutes au plus (≈ 140 mots par minute avec les voix Gemini)
 
 
 class PodcastError(Exception):
@@ -151,7 +151,7 @@ RÈGLES ABSOLUES
 - Ne dis jamais « selon l'article » ; ne parle pas des animateurs ni de l'intelligence artificielle.
 - Ne dis PAS bonjour, bienvenue ni au revoir : le script ajoute lui-même l'ouverture et la fermeture. Commence directement par la question du jour.
 
-STRUCTURE (environ 850 mots, soit 6 minutes)
+STRUCTURE (environ 750 mots, soit 5 à 6 minutes, jamais plus de 850 mots)
 1. {a} pose la question du jour en une phrase.
 2. Les faits, en deux ou trois échanges.
 3. Les trois scénarios, un par un : favorable, stable, dégradé, chacun avec sa probabilité, ce qui le rend plausible et ce qu'il changerait en France. Dis clairement lequel est le plus probable.
