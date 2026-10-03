@@ -266,31 +266,41 @@ def trouver_theme(racine) -> "Path | None":
     return None
 
 
-def decoder_theme(chemin, duree_max_s: float = 14.0) -> bytes:
-    """Décode le fichier en PCM 16 bits mono 24 kHz avec ffmpeg (présent sur le serveur de publication)."""
+def decoder_theme(chemin, duree_max_s: float = 12.0) -> bytes:
+    """Décode le fichier en PCM 16 bits mono 24 kHz avec ffmpeg (présent sur le serveur de publication).
+    Seules les `duree_max_s` premières secondes sont gardées (le thème fourni dure 30 s)."""
     import subprocess
     r = subprocess.run(["ffmpeg", "-v", "error", "-i", str(chemin), "-t", str(duree_max_s), "-ac", "1", "-ar", str(SR),
                         "-f", "s16le", "-"], capture_output=True, check=True)
     return r.stdout
 
 
-def melanger_theme(theme_pcm: bytes, voix_pcm: bytes, recouvrement_s: float = 1.5, niveau: float = 0.8,
-                   fondu_s: float = 2.0) -> bytes:
-    """Le thème joue seul, puis la voix entre `recouvrement_s` avant la fin du thème, qui s'éteint en fondu."""
+def _rms(pcm: array) -> float:
+    return (sum(x * x for x in pcm) / max(1, len(pcm))) ** 0.5
+
+
+def melanger_theme(theme_pcm: bytes, voix_pcm: bytes, recouvrement_s: float = 2.0, rapport: float = 1.1,
+                   fondu_s: float = 3.0) -> bytes:
+    """Le thème joue seul, puis la voix entre `recouvrement_s` avant la fin du thème, qui s'éteint en fondu.
+    Le thème est mis au même niveau sonore que la voix (rapport 1,1 : un peu plus fort au début), car un thème
+    généré est souvent bien plus fort qu'une voix de synthèse."""
     theme = array("h")
     theme.frombytes(theme_pcm)
     voix = array("h")
     voix.frombytes(voix_pcm)
     n_theme = len(theme)
+    gain_theme = rapport * _rms(voix) / (_rms(theme) or 1.0)
     debut_voix = max(0, n_theme - int(SR * recouvrement_s))
     n = max(n_theme, debut_voix + len(voix)) + int(SR * 0.5)
     piste = array("f", [0.0]) * n
     nf = int(SR * fondu_s)
     for i, x in enumerate(theme):
-        g = niveau
+        g = gain_theme
         if i >= n_theme - nf:
             g *= max(0.0, (n_theme - i) / nf)
         piste[i] += x / 32768.0 * g
     for i, x in enumerate(voix):
         piste[debut_voix + i] += x / 32768.0
-    return array("h", (max(-32768, min(32767, int(x * 32767))) for x in piste)).tobytes()
+    crete = max(abs(x) for x in piste) or 1.0
+    echelle = min(1.0, 0.95 / crete)  # jamais de saturation
+    return array("h", (max(-32768, min(32767, int(x * echelle * 32767))) for x in piste)).tobytes()
