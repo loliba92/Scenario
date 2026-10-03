@@ -1,0 +1,57 @@
+name: Podcast — publier dans le flux Spotify
+
+# Ajoute un épisode déjà conservé (Release « podcast-AAAA-MM-JJ », voir « Podcast — conserver un épisode »)
+# au flux https://lesscenarios.fr/podcast.xml, que Spotify relit régulièrement.
+# Manuel pour l'instant : l'automatisation quotidienne sera branchée une fois l'audio validé.
+# Variable de dépôt facultative PODCAST_OWNER_EMAIL : adresse publique du flux (code de vérification de Spotify).
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Date de l'épisode (AAAA-MM-JJ), déjà présent dans les Releases"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: podcast-flux
+  cancel-in-progress: false
+
+jobs:
+  flux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Ajouter l'épisode au flux
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DATE: ${{ github.event.inputs.date }}
+          PODCAST_OWNER_EMAIL: ${{ vars.PODCAST_OWNER_EMAIL }}
+        run: |
+          case "$DATE" in [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;; *) echo "Date invalide : $DATE" >&2; exit 1 ;; esac
+          pip install beautifulsoup4 >/dev/null
+          gh release download "podcast-$DATE" --pattern "$DATE.mp3" --dir _mp3 --repo "$GITHUB_REPOSITORY"
+          URL="https://github.com/$GITHUB_REPOSITORY/releases/download/podcast-$DATE/$DATE.mp3"
+          TAILLE=$(stat -c %s "_mp3/$DATE.mp3")
+          DUREE=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "_mp3/$DATE.mp3" | cut -d. -f1)
+          TITRE=$(python3 -c "import sys;sys.path.insert(0,'scripts/podcast');import generate_podcast as g;from pathlib import Path;print(g.lire_edition(Path('archives/$DATE.html'))['titre'])")
+          python3 scripts/podcast/build_feed.py --ajouter "$DATE" --url "$URL" --taille "$TAILLE" --duree "$DUREE" --titre "$TITRE" \
+            --description "Édition du $DATE de Scénario en dialogue : $TITRE Voix de synthèse. Version écrite : https://lesscenarios.fr/archives/$DATE.html"
+
+      - name: Publier
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add podcast.xml data/podcast-episodes.json
+          git commit -m "Podcast : épisode du ${{ github.event.inputs.date }} ajouté au flux"
+          git pull --rebase origin main
+          git push origin HEAD:main

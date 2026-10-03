@@ -79,5 +79,21 @@ class PodcastTest(unittest.TestCase):
         self.assertLess(mu._gain(pts, 59.9), 0.02)
 
 
+
+class TestFlux(unittest.TestCase):
+    def test_flux_podcast(self):
+        import build_feed
+        import xml.etree.ElementTree as ET
+        eps = [{"date": "2026-10-03", "titre": "A & B", "description": "d", "url": "https://x/y.mp3?a=1&b=2",
+                "taille": 100, "duree": 3725}]
+        xml = build_feed.construire(eps, "contact@example.org")
+        racine = ET.fromstring(xml)
+        ns = {"i": "http://www.itunes.com/dtds/podcast-1.0.dtd"}
+        self.assertEqual(racine.find("channel/item/enclosure").get("url"), "https://x/y.mp3?a=1&b=2")
+        self.assertEqual(racine.find("channel/item/i:duration", ns).text, "01:02:05")
+        self.assertEqual(racine.find("channel/i:owner/i:email", ns).text, "contact@example.org")
+        self.assertNotIn("itunes:owner", build_feed.construire(eps, ""))
+
+
 if __name__ == "__main__":
     unittest.main()

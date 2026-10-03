@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Scénario — le podcast</title>
+    <link>https://lesscenarios.fr/</link>
+    <language>fr</language>
+    <description>Chaque jour, l'actualité clé décryptée en trois scénarios chiffrés, racontée en dialogue. Épisodes lus par deux voix de synthèse (voix artificielles, annoncées au début de chaque épisode), à partir de l'édition publiée sur lesscenarios.fr.</description>
+    <itunes:author>Scénario</itunes:author>
+    <itunes:summary>Chaque jour, l'actualité clé décryptée en trois scénarios chiffrés, racontée en dialogue. Épisodes lus par deux voix de synthèse (voix artificielles, annoncées au début de chaque épisode), à partir de l'édition publiée sur lesscenarios.fr.</itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:type>episodic</itunes:type>
+    <itunes:image href="https://lesscenarios.fr/podcast/cover.jpg"/>
+    <itunes:category text="News"/>
+  </channel>
+</rss>
