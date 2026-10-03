@@ -71,6 +71,14 @@ def main(argv=None) -> int:
             print(f"ERREUR : {e}", file=sys.stderr)
             return 1
     pcm = gp.assembler(pcms, silence_s=0.7)
+    ok, transcription = gp.verifier_debut(pcm, texte, cle)
+    if ok is None:
+        print(f"ATTENTION : contrôle du début impossible ({transcription}) ; épisode gardé sans contrôle.", flush=True)
+    elif not ok:
+        print(f"ERREUR : le début de l'audio ne correspond pas au texte. Transcription : « {transcription} »", file=sys.stderr)
+        return 1
+    else:
+        print(f"Contrôle du début : conforme (« {transcription[:90]}… »)", flush=True)
     if args.musique:
         import musique
         pcm = musique.habiller(pcm)
