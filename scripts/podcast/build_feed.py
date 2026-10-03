@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 EPISODES = ROOT / "data" / "podcast-episodes.json"
 FLUX = ROOT / "podcast.xml"
 SITE = "https://lesscenarios.fr"
+EMAIL = "contact@lesscenarios.fr"  # adresse publique du flux : Spotify y envoie le code de vérification
 TITRE = "Scénario — le podcast"
 DESCRIPTION = (
     "Chaque jour, l'actualité clé décryptée en trois scénarios chiffrés, racontée en dialogue. "
@@ -88,7 +89,7 @@ def main(argv=None):
     ap.add_argument("--duree", type=int)
     ap.add_argument("--titre")
     ap.add_argument("--description", default="")
-    ap.add_argument("--email", default=os.environ.get("PODCAST_OWNER_EMAIL", ""))
+    ap.add_argument("--email", default=os.environ.get("PODCAST_OWNER_EMAIL") or EMAIL)
     args = ap.parse_args(argv)
     eps = charger()
     if args.ajouter:
