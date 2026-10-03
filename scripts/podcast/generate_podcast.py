@@ -43,7 +43,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 ANIMATEURS = ("Léa", "Hugo")
 MOIS = ("janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre",
         "octobre", "novembre", "décembre")
-MODELES_TTS = ("gemini-3.8-flash-tts", "gemini-3.1-flash-tts-preview", "gemini-2.5-flash-preview-tts")
+# gemini-2.5 d'abord : les modèles 3.x refusent ce format de requête (« speech_metadata.speaker requis », run du
+# 3 octobre 2026) ; ils restent en secours.
+MODELES_TTS = ("gemini-2.5-flash-preview-tts", "gemini-3.8-flash-tts", "gemini-3.1-flash-tts-preview")
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 SAMPLE_RATE = 24000
 MAX_CARACTERES_PAR_APPEL = 1400

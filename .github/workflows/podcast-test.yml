@@ -50,7 +50,10 @@ jobs:
           python-version: "3.12"
 
       - name: Installer les dépendances
-        run: pip install beautifulsoup4
+        run: |
+          pip install beautifulsoup4
+          command -v ffmpeg >/dev/null || { sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg; }
+          ffmpeg -version | head -1
 
       - name: Générer l'épisode
         env:
