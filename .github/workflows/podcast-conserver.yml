@@ -1,0 +1,51 @@
+name: Podcast — conserver un épisode
+
+# Les fichiers de « Podcast — épisode de test » ne restent que 7 jours (artefact de workflow).
+# Ce workflow, lancé à la main avec le numéro du run, les range durablement dans une « Release »
+# GitHub : page https://github.com/loliba92/Scenario/releases (un épisode par version, avec le MP3 et
+# la transcription ; l'adresse de téléchargement du MP3 est stable). Rien n'est ajouté au dépôt lui-même.
+# Demandé le 3 octobre 2026 (« stocke »).
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "Numéro du run « Podcast — épisode de test » à conserver (dans l'adresse de la page du run)"
+        required: true
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  conserver:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer les fichiers du run
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.event.inputs.run_id }}
+        run: |
+          case "$RUN_ID" in ''|*[!0-9]*) echo "Numéro de run invalide : $RUN_ID" >&2; exit 1 ;; esac
+          gh run download "$RUN_ID" --repo "$GITHUB_REPOSITORY" --name "podcast-test-$RUN_ID" --dir _episode
+          ls -la _episode
+
+      - name: Publier dans une Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          MP3=$(ls _episode/*.mp3 2>/dev/null | head -1)
+          [ -n "$MP3" ] || { echo "Aucun MP3 dans ce run (dialogue seulement ?)" >&2; exit 1; }
+          DATE=$(basename "$MP3" .mp3)
+          case "$DATE" in [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;; *) echo "Nom inattendu : $DATE" >&2; exit 1 ;; esac
+          TAG="podcast-$DATE"
+          FILES="$MP3"
+          [ -f "_episode/$DATE.txt" ] && FILES="$FILES _episode/$DATE.txt"
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$TAG" $FILES --clobber --repo "$GITHUB_REPOSITORY"
+          else
+            gh release create "$TAG" $FILES --repo "$GITHUB_REPOSITORY" --prerelease \
+              --title "Épisode du $DATE (test)" \
+              --notes "Épisode audio de test de l'édition du $DATE. Voix de synthèse (intelligence artificielle), texte fidèle à l'article publié sur lesscenarios.fr."
+          fi
+          echo "Épisode conservé : https://github.com/$GITHUB_REPOSITORY/releases/tag/$TAG"
