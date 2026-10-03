@@ -157,5 +157,27 @@ class TestControleDebut(unittest.TestCase):
         self.assertFalse(gp.debut_correspond("Lis ce texte en français avec une voix chaleureuse proche et naturelle", texte))
 
 
+
+class TestJingles(unittest.TestCase):
+    def test_parties_et_verification(self):
+        import texte_narration as tn
+        txt = "Première partie.\n\nSuite.\n---\nDeuxième partie.\n  ---  \nTroisième."
+        self.assertEqual(tn.parties(txt), ["Première partie.\n\nSuite.", "Deuxième partie.", "Troisième."])
+        exemple = tn.EXEMPLE.read_text(encoding="utf-8")
+        ed = gp.lire_edition(sorted((gp.ROOT / "archives").glob("2026-10-03.html"))[0])
+        avec_sep = exemple.replace("\n\nAlors, que peut-il", "\n---\nAlors, que peut-il")
+        self.assertEqual(tn.verifier(avec_sep, gp.texte_source(ed)), [])   # --- n'est pas du Markdown
+
+    def test_assemblage_avec_jingles(self):
+        theme = array("h", [5000] * (mu.SR * 6)).tobytes()
+        jingle = mu.jingle_depuis_theme(theme)
+        self.assertAlmostEqual(len(jingle) / 2 / mu.SR, 2.5, delta=0.01)
+        a = array("h", [3000] * (mu.SR * 2)).tobytes()
+        sans = mu.assembler_parties([a, a, a], None)
+        avec = mu.assembler_parties([a, a, a], jingle)
+        self.assertAlmostEqual(len(sans) / 2 / mu.SR, 6 + 2 * 0.7, delta=0.01)
+        self.assertAlmostEqual(len(avec) / 2 / mu.SR, 6 + 2 * (0.35 + 2.5 + 0.25), delta=0.01)
+
+
 if __name__ == "__main__":
     unittest.main()
