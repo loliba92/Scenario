@@ -241,6 +241,10 @@ def synthese(morceau: list[dict], voix: tuple[str, str], modeles: tuple[str, ...
             ]}},
         },
     }).encode()
+    return _appeler_tts(corps, modeles, cle)
+
+
+def _appeler_tts(corps: bytes, modeles: tuple[str, ...], cle: str) -> bytes:
     derniere = ""
     for modele in modeles:
         for attente in (0, 20, 45):
@@ -263,6 +267,35 @@ def synthese(morceau: list[dict], voix: tuple[str, str], modeles: tuple[str, ...
                 derniere = f"{modele} : réponse inutilisable ({type(e).__name__}: {e})"
                 print("  … " + derniere, file=sys.stderr, flush=True)
     raise PodcastError("synthèse vocale impossible : " + derniere)
+
+
+CONSIGNE_NARRATION = ("Lis ce texte en français avec une voix chaleureuse, proche et naturelle, comme à un ami curieux, "
+                      "avec un rythme varié et de petites pauses entre les idées :\n\n")
+
+
+def synthese_unique(texte: str, voix: str, modeles: tuple[str, ...], cle: str) -> bytes:
+    """Une seule voix (narration) ; le texte est lu tel quel, avec une consigne d'interprétation."""
+    corps = json.dumps({
+        "contents": [{"parts": [{"text": CONSIGNE_NARRATION + texte}]}],
+        "generationConfig": {
+            "responseModalities": ["AUDIO"],
+            "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": voix}}},
+        },
+    }).encode()
+    return _appeler_tts(corps, modeles, cle)
+
+
+def decouper_texte(texte: str, limite: int = 1800) -> list[str]:
+    """Paragraphes regroupés sans dépasser la limite (une coupure tombe toujours entre deux paragraphes)."""
+    morceaux, courant = [], ""
+    for para in (p.strip() for p in texte.split("\n\n") if p.strip()):
+        if courant and len(courant) + len(para) + 2 > limite:
+            morceaux.append(courant)
+            courant = ""
+        courant = (courant + "\n\n" + para) if courant else para
+    if courant:
+        morceaux.append(courant)
+    return morceaux
 
 
 def assembler(pcms: list[bytes], silence_s: float = 0.4) -> bytes:
