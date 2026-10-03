@@ -11,6 +11,12 @@ on:
   workflow_run:
     workflows: ["Rédaction et publication"]
     types: [completed]
+  # Reprises : le quota gratuit des voix Google se remet à zéro à minuit heure du Pacifique (07 h ou 08 h UTC), après
+  # la publication de l'édition (04 h UTC). Si le premier essai échoue faute de quota, un de ces passages le refait ;
+  # sans effet si l'épisode du jour existe déjà.
+  schedule:
+    - cron: "37 7 * * *"
+    - cron: "17 9 * * *"
   workflow_dispatch:
     inputs:
       date:
@@ -36,7 +42,7 @@ concurrency:
 
 jobs:
   episode:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
