@@ -6,7 +6,9 @@ automatique). Principe :
   1. lire l'édition publiée (archives/AAAA-MM-JJ.html) ;
   2. un modèle (OpenRouter) écrit un dialogue de deux animateurs, SANS rien ajouter à l'article ;
   3. garde-fou : tout nombre cité dans le dialogue doit figurer dans l'article, sinon on redemande ;
-  4. synthèse vocale à deux voix (API Gemini), assemblage en un seul fichier, conversion en MP3.
+  4. synthèse vocale à deux voix (API Gemini), assemblage en un seul fichier ;
+  5. habillage musical original (musique.py : ouverture, fond discret sous les voix, fermeture) ;
+  6. conversion en MP3.
 Le dialogue contient toujours, écrites par le script (jamais par le modèle), l'ouverture qui annonce
 que les voix sont générées par intelligence artificielle et la fermeture qui renvoie au site.
 
@@ -36,6 +38,7 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "edition"))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 ANIMATEURS = ("Léa", "Hugo")
 MOIS = ("janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre",
@@ -282,6 +285,7 @@ def main(argv=None) -> int:
     ap.add_argument("--dialogue-model", default="gratuits", help="modèle(s) OpenRouter du dialogue, ou « gratuits »")
     ap.add_argument("--tts-models", default=",".join(MODELES_TTS), help="modèles Gemini de synthèse vocale, par ordre de préférence")
     ap.add_argument("--voix", default="Kore,Puck", help="voix de Léa et de Hugo (voix prédéfinies Gemini)")
+    ap.add_argument("--sans-musique", action="store_true", help="voix seules, sans ouverture ni fond musical")
     ap.add_argument("--dialogue-seulement", action="store_true", help="n'écrit que le dialogue (aucune clé Gemini nécessaire)")
     ap.add_argument("--out", default=str(ROOT / "_podcast-out"))
     args = ap.parse_args(argv)
@@ -330,6 +334,9 @@ def main(argv=None) -> int:
             print(f"ERREUR : {e}", file=sys.stderr)
             return 1
     pcm = assembler(pcms)
+    if not args.sans_musique:
+        import musique  # musique originale synthétisée (voir musique.py)
+        pcm = musique.habiller(pcm)
     wav = out / f"{ed['date']}.wav"
     ecrire_wav(pcm, wav)
     duree = len(pcm) / 2 / SAMPLE_RATE

@@ -7,6 +7,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import generate_podcast as gp  # noqa: E402
+import musique as mu  # noqa: E402
+from array import array  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -55,6 +57,26 @@ class PodcastTest(unittest.TestCase):
         debut, fin = gp.ouverture_fermeture({"date": "2026-10-03"})
         self.assertIn("intelligence artificielle", " ".join(l["texte"] for l in debut))
         self.assertIn("lesscenarios.fr", " ".join(l["texte"] for l in fin))
+
+    def test_habillage_musical(self):
+        voix = array("h", [int(8000 * (1 if (i // 40) % 2 else -1)) for i in range(mu.SR * 2)]).tobytes()
+        sortie = mu.habiller(voix)
+        a = array("h")
+        a.frombytes(sortie)
+        n_attendu = len(voix) // 2 + int(mu.SR * mu.INTRO_S) + int(mu.SR * mu.OUTRO_S)
+        self.assertEqual(len(a), n_attendu, "ouverture + voix + fermeture")
+        self.assertLess(max(abs(x) for x in a), 32767, "pas d'écrêtage")
+        debut = max(abs(x) for x in a[: int(mu.SR * 4)])
+        sous_voix = max(abs(x) for x in a[int(mu.SR * (mu.INTRO_S + 0.2)): int(mu.SR * (mu.INTRO_S + 1.8))])
+        self.assertGreater(debut, 3000, "l'ouverture est audible")
+        self.assertGreater(sous_voix, 7000, "la voix reste bien au premier plan")
+        self.assertEqual(sortie, mu.habiller(voix), "musique déterministe")
+
+    def test_fond_discret_sous_les_voix(self):
+        pts = mu.enveloppe_fond(60.0)
+        self.assertAlmostEqual(mu._gain(pts, 1.0), mu.NIVEAU_OUVERTURE)
+        self.assertAlmostEqual(mu._gain(pts, 30.0), mu.NIVEAU_SOUS_VOIX)
+        self.assertLess(mu._gain(pts, 59.9), 0.02)
 
 
 if __name__ == "__main__":
