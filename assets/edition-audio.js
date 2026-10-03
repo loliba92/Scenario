@@ -24,15 +24,15 @@
 
   var css = [
     "@media screen{",
-    ".ea{margin:0 0 18px}",
-    ".ea-btn{display:inline-flex;align-items:center;gap:11px;padding:10px 18px 10px 14px;background:transparent;color:var(--paper,#e6e1d4);border:1px solid var(--gold,#cf9d4c);border-radius:999px;font-family:'Fraunces',Georgia,serif;font-size:1.02rem;font-weight:500;line-height:1.2;cursor:pointer;transition:background .15s,color .15s}",
-    ".ea-btn:hover,.ea-btn[aria-expanded='true']{background:var(--gold,#cf9d4c);color:var(--ink,#10151c)}",
+    ".ea{margin:0 0 14px}",
+    ".ea-btn{display:inline-flex;align-items:center;gap:8px;padding:3px 0;background:none;color:var(--paper-dim,#b4b2a6);border:0;border-bottom:1px solid transparent;border-radius:0;font-family:'Fraunces',Georgia,serif;font-size:.95rem;font-weight:500;line-height:1.2;cursor:pointer;transition:color .15s,border-color .15s}",
+    ".ea-btn svg{flex:none;width:16px;height:16px;color:var(--gold,#cf9d4c)}",
+    ".ea-btn:hover,.ea-btn:focus-visible,.ea-btn[aria-expanded='true']{color:var(--paper,#e6e1d4);border-bottom-color:var(--gold,#cf9d4c)}",
     ".ea-btn:focus-visible{outline:2px solid var(--gold,#cf9d4c);outline-offset:3px}",
-    ".ea-btn svg{flex:none}",
-    ".ea-dur{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.72rem;letter-spacing:.06em;opacity:.8}",
-    ".ea-panel{margin-top:12px;max-width:520px}",
-    ".ea-panel audio{display:block;width:100%}",
-    ".ea-note{margin:8px 0 0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--paper-dim,#b4b2a6)}",
+    ".ea-dur{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.66rem;letter-spacing:.06em;opacity:.75}",
+    ".ea-panel{margin-top:10px;max-width:380px}",
+    ".ea-panel audio{display:block;width:100%;height:40px}",
+    ".ea-note{margin:6px 0 0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--paper-dim,#b4b2a6)}",
     "}",
     "@media print{.ea{display:none}}"
   ].join("");
@@ -55,7 +55,7 @@
     btn.className = "ea-btn";
     btn.setAttribute("aria-expanded", "false");
     btn.setAttribute("aria-controls", "ea-panel");
-    btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.2"/><rect x="17" y="14" width="4" height="6" rx="1.2"/></svg>';
+    btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.2"/><rect x="17" y="14" width="4" height="6" rx="1.2"/></svg>';
     var label = document.createElement("span");
     label.textContent = isEn ? "Listen (audio in French)" : "Écouter l'édition";
     btn.appendChild(label);
