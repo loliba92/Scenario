@@ -60,18 +60,21 @@ def main(argv=None) -> int:
         m = re.search(r"\d{4}-\d{2}-\d{2}", chemin.name)
         nom = (m.group(0) if m else chemin.stem) + args.suffixe
     modeles = tuple(x.strip() for x in args.tts_models.split(",") if x.strip())
-    morceaux = gp.decouper_texte(texte)
-    print(f"{len(texte.split())} mots, {len(morceaux)} morceaux, voix {args.voix}", flush=True)
-    pcms = []
-    for i, morceau in enumerate(morceaux, 1):
-        print(f"Synthèse vocale {i}/{len(morceaux)} ({len(morceau)} caractères)…", flush=True)
-        try:
-            pcms.append(gp.synthese_unique(morceau, args.voix, modeles, cle))
-        except gp.PodcastError as e:
-            print(f"ERREUR : {e}", file=sys.stderr)
-            return 1
-    pcm = gp.assembler(pcms, silence_s=0.7)
-    ok, transcription = gp.verifier_debut(pcm, texte, cle)
+    import texte_narration
+    parts = texte_narration.parties(texte)
+    print(f"{len(texte.split())} mots, {len(parts)} partie(s), voix {args.voix}", flush=True)
+    parties_pcm = []
+    for i, partie in enumerate(parts, 1):
+        pcms = []
+        for morceau in gp.decouper_texte(partie, limite=2600):
+            print(f"Synthèse vocale partie {i}/{len(parts)} ({len(morceau)} caractères)…", flush=True)
+            try:
+                pcms.append(gp.synthese_unique(morceau, args.voix, modeles, cle))
+            except gp.PodcastError as e:
+                print(f"ERREUR : {e}", file=sys.stderr)
+                return 1
+        parties_pcm.append(gp.assembler(pcms, silence_s=0.5))
+    ok, transcription = gp.verifier_debut(parties_pcm[0], texte_narration.parties(texte)[0], cle)
     if ok is None:
         print(f"ATTENTION : contrôle du début impossible ({transcription}) ; épisode gardé sans contrôle.", flush=True)
     elif not ok:
@@ -79,17 +82,18 @@ def main(argv=None) -> int:
         return 1
     else:
         print(f"Contrôle du début : conforme (« {transcription[:90]}… »)", flush=True)
+    import musique
+    theme = musique.trouver_theme(gp.ROOT) if args.ouverture else None
+    theme_pcm = musique.decoder_theme(theme) if theme else None
+    if args.ouverture and theme is None:
+        print("Pas de thème musical (podcast/musique/ouverture.mp3) : épisode sans musique.", flush=True)
+    jingle = musique.jingle_depuis_theme(theme_pcm) if theme_pcm else None
+    pcm = musique.assembler_parties(parties_pcm, jingle)
     if args.musique:
-        import musique
         pcm = musique.habiller(pcm)
-    elif args.ouverture:
-        import musique
-        theme = musique.trouver_theme(gp.ROOT)
-        if theme is None:
-            print("Pas de thème musical (podcast/musique/ouverture.mp3) : épisode sans musique.", flush=True)
-        else:
-            print(f"Thème musical : {theme.name}", flush=True)
-            pcm = musique.melanger_theme(musique.decoder_theme(theme), pcm)
+    elif theme_pcm:
+        print(f"Thème musical : {theme.name} ; {max(0, len(parts) - 1)} jingle(s) entre les parties", flush=True)
+        pcm = musique.melanger_theme(theme_pcm, pcm)
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
     wav = out / f"{nom}.wav"

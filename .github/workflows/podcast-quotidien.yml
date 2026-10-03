@@ -92,7 +92,9 @@ jobs:
           DATE="${{ steps.ed.outputs.date }}"
           SOURCE=auto
           # Refaire un épisode (« forcer ») : on garde le texte déjà publié, seule la voix et la musique sont refaites.
-          if gh release download "podcast-$DATE" --pattern "$DATE.txt" --dir _texte --repo "$GITHUB_REPOSITORY" 2>/dev/null; then
+          if [ -f "podcast/textes/$DATE.txt" ]; then
+            SOURCE="podcast/textes/$DATE.txt"   # texte du dépôt (relu et retouché à la main) : prioritaire
+          elif gh release download "podcast-$DATE" --pattern "$DATE.txt" --dir _texte --repo "$GITHUB_REPOSITORY" 2>/dev/null; then
             SOURCE="_texte/$DATE.txt"
           fi
           echo "Source du texte : $SOURCE"

@@ -304,3 +304,50 @@ def melanger_theme(theme_pcm: bytes, voix_pcm: bytes, recouvrement_s: float = 2.
     crete = max(abs(x) for x in piste) or 1.0
     echelle = min(1.0, 0.95 / crete)  # jamais de saturation
     return array("h", (max(-32768, min(32767, int(x * echelle * 32767))) for x in piste)).tobytes()
+
+
+# ---------------------------------------------------------------- jingles entre les grandes parties
+def jingle_depuis_theme(theme_pcm: bytes, duree_s: float = 2.5, fondu_entree_s: float = 0.08, fondu_sortie_s: float = 1.2) -> bytes:
+    """Court extrait du début du thème (2,5 s par défaut), avec un fondu d'entrée bref et un fondu de sortie."""
+    theme = array("h")
+    theme.frombytes(theme_pcm)
+    n = min(len(theme), int(SR * duree_s))
+    ne, ns = int(SR * fondu_entree_s), int(SR * fondu_sortie_s)
+    out = array("h")
+    for i in range(n):
+        g = min(1.0, i / ne if ne else 1.0, (n - i) / ns if ns else 1.0)
+        out.append(int(theme[i] * g))
+    return out.tobytes()
+
+
+def assembler_parties(parties_pcm: list[bytes], jingle_pcm: bytes | None, silence_s: float = 0.7,
+                      rapport: float = 0.9) -> bytes:
+    """Voix des parties mises bout à bout ; entre deux parties, un jingle (au niveau sonore de la voix × rapport)
+    entouré d'un court silence. Sans jingle : seulement un silence."""
+    voix = array("h")
+    for p in parties_pcm:
+        voix.frombytes(p)
+    blanc = lambda d: array("h", [0]) * int(SR * d)  # noqa: E731
+    if not jingle_pcm:
+        sortie = array("h")
+        for i, p in enumerate(parties_pcm):
+            if i:
+                sortie.extend(blanc(silence_s))
+            a = array("h")
+            a.frombytes(p)
+            sortie.extend(a)
+        return sortie.tobytes()
+    jingle = array("h")
+    jingle.frombytes(jingle_pcm)
+    gain = rapport * _rms(voix) / (_rms(jingle) or 1.0)
+    jingle = array("h", (max(-32768, min(32767, int(x * gain))) for x in jingle))
+    sortie = array("h")
+    for i, p in enumerate(parties_pcm):
+        if i:
+            sortie.extend(blanc(0.35))
+            sortie.extend(jingle)
+            sortie.extend(blanc(0.25))
+        a = array("h")
+        a.frombytes(p)
+        sortie.extend(a)
+    return sortie.tobytes()

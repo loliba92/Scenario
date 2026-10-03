@@ -15,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import generate_podcast as gp  # noqa: E402
 
 MOTS_MIN, MOTS_MAX = 420, 720  # 3 à 5 minutes de lecture
+SEPARATEUR = "---"
 FERMETURE = "Voilà pour aujourd'hui. L'édition complète est sur lesscenarios.fr. À demain, pour une nouvelle question."
 EXEMPLE = (Path(__file__).resolve().parents[2] / "podcast" / "textes" / "2026-10-03.txt")
 
@@ -44,11 +45,19 @@ EXEMPLE DE STYLE ATTENDU (autre édition, ne reprends AUCUN de ses faits) :
 ARTICLE
 {gp.texte_source(ed)}{suite}
 
-Réponds UNIQUEMENT avec un JSON : {{"texte": "le texte parlé, paragraphes séparés par une ligne vide"}}"""
+SÉPARATEURS : entre les grandes parties (1 | 2 | 3 | 4 | 5 | 6 ci-dessus), écris une ligne qui contient uniquement trois tirets (---). Un jingle musical y sera placé. Pas d'autre séparateur ; à l'intérieur d'une partie, les paragraphes sont séparés par une ligne vide.
+
+Réponds UNIQUEMENT avec un JSON : {{"texte": "le texte parlé, parties séparées par une ligne ---"}}"""
+
+
+def parties(texte: str) -> list[str]:
+    """Le texte découpé aux lignes « --- » (parties vides ignorées)."""
+    return [p.strip() for p in re.split(r"(?m)^\s*---\s*$", texte) if p.strip()]
 
 
 def verifier(texte: str, source: str) -> list[str]:
     problemes = []
+    texte = "\n\n".join(parties(texte))  # les lignes --- ne sont ni des mots ni du Markdown
     mots = len(texte.split())
     if not MOTS_MIN <= mots <= MOTS_MAX:
         problemes.append(f"{mots} mots (attendu entre {MOTS_MIN} et {MOTS_MAX})")
@@ -77,5 +86,8 @@ def generer(ed: dict, modele: str, cle: str, essais: int = 3) -> str:
         remarques = verifier(texte, source)
         print(f"  essai {n}/{essais} : {len(texte.split())} mots, {'conforme' if not remarques else '; '.join(remarques)}", flush=True)
         if not remarques:
-            return texte + "\n\n" + FERMETURE
+            nb = len(parties(texte))
+            if nb < 3:
+                print(f"  ATTENTION : {nb} partie(s) seulement (séparateurs --- attendus) : peu ou pas de jingles.", flush=True)
+            return texte + "\n\n" + SEPARATEUR + "\n\n" + FERMETURE
     raise gp.PodcastError("texte refusé par le garde-fou : " + "; ".join(remarques))
