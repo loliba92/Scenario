@@ -175,6 +175,11 @@ def ouverture_fermeture(ed: dict) -> tuple[list[dict], list[dict]]:
     return debut, fin
 
 
+# Modèles gratuits qui ont tenu la longueur du dialogue (3 octobre 2026). Nemotron « raisonne » trop longtemps :
+# il épuise ses jetons avant d'écrire la moindre réplique (0 réplique au run 37126542209).
+MODELES_DIALOGUE = "google/gemma-4-31b-it:free,google/gemma-4-26b-a4b-it:free,qwen/qwen3.8-27b:free,nvidia/nemotron-3-super-120b-a12b:free"
+
+
 def generer_dialogue(ed: dict, modele: str, cle: str, essais: int = 3) -> tuple[list[dict], list[str]]:
     import enrich_sujets as en  # relais de modèles gratuits (voir enrich_sujets.py)
 
@@ -183,7 +188,7 @@ def generer_dialogue(ed: dict, modele: str, cle: str, essais: int = 3) -> tuple[
     dernier: list[dict] = []
     for n in range(1, essais + 1):
         resultat, _ = en._appeler_avec_reprises(construire_prompt(ed, remarques or None), modele, cle,
-                                                temperature=0.6, max_tokens=8000, timeout=240)
+                                                temperature=0.6, max_tokens=12000, timeout=300)
         lignes = [
             {"orateur": str(l.get("orateur", "")).strip(), "texte": re.sub(r"\s+", " ", str(l.get("texte", ""))).strip()}
             for l in (resultat or {}).get("lignes", []) if isinstance(l, dict) and str(l.get("texte", "")).strip()
@@ -283,7 +288,7 @@ def main(argv=None) -> int:
     sys.stdout.reconfigure(line_buffering=True)
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--date", default=None, help="AAAA-MM-JJ ; défaut : dernière édition publiée")
-    ap.add_argument("--dialogue-model", default="gratuits", help="modèle(s) OpenRouter du dialogue, ou « gratuits »")
+    ap.add_argument("--dialogue-model", default=MODELES_DIALOGUE, help="modèle(s) OpenRouter du dialogue, ou « gratuits »")
     ap.add_argument("--tts-models", default=",".join(MODELES_TTS), help="modèles Gemini de synthèse vocale, par ordre de préférence")
     ap.add_argument("--voix", default="Kore,Puck", help="voix de Léa et de Hugo (voix prédéfinies Gemini)")
     ap.add_argument("--sans-musique", action="store_true", help="voix seules, sans ouverture ni fond musical")
