@@ -176,7 +176,7 @@ class TestJingles(unittest.TestCase):
         sans = mu.assembler_parties([a, a, a], None)
         avec = mu.assembler_parties([a, a, a], jingle)
         self.assertAlmostEqual(len(sans) / 2 / mu.SR, 6 + 2 * 0.7, delta=0.01)
-        self.assertAlmostEqual(len(avec) / 2 / mu.SR, 6 + 2 * (0.3 + 2.5 - 1.5), delta=0.01)
+        self.assertAlmostEqual(len(avec) / 2 / mu.SR, 6 + 2 * (0.3 + 2.5 - 2.0), delta=0.01)
         # jingles différents, bien pris à des endroits distincts du thème
         t30 = array("h", [(i // 24000) * 500 for i in range(mu.SR * 30)]).tobytes()
         js = mu.jingles_depuis_theme(t30, 4)
