@@ -210,5 +210,18 @@ class TestImageEpisode(unittest.TestCase):
             self.assertTrue(images_item[1].get("href").endswith("/podcast/episodes/2026-10-04.jpg"))
 
 
+class TestFondus(unittest.TestCase):
+    def test_fondus_ouverture_et_fermeture(self):
+        theme = array("h", [6000] * (mu.SR * 12)).tobytes()
+        fin = array("h", [6000] * (mu.SR * 9)).tobytes()
+        voix = array("h", [3000] * (mu.SR * 20)).tobytes()
+        out = array("h")
+        out.frombytes(mu.melanger_theme(theme, voix, fin_pcm=fin))
+        self.assertEqual(out[0], 0)                 # entrée en fondu depuis le silence
+        self.assertEqual(out[-1], 0)                # sortie en fondu jusqu'à zéro
+        self.assertEqual(abs(out[-mu.SR // 2]), 0)
+        self.assertGreater(len(out) / mu.SR, 10 + 20 + 7)   # la fermeture dépasse la fin de la voix
+
+
 if __name__ == "__main__":
     unittest.main()

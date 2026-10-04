@@ -109,7 +109,8 @@ def main(argv=None) -> int:
         pcm = musique.habiller(pcm)
     elif theme_pcm:
         print(f"Thème musical : {theme.name} ; {max(0, len(parts) - 1)} jingle(s) entre les parties", flush=True)
-        pcm = musique.melanger_theme(theme_pcm, pcm)
+        fin = theme_complet[-2 * musique.SR * 9:]   # les 9 dernières secondes du thème : la fermeture
+        pcm = musique.melanger_theme(theme_pcm, pcm, fin_pcm=fin)
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
     wav = out / f"{nom}.wav"
