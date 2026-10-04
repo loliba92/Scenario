@@ -645,6 +645,7 @@ ARCHIVES_TABLE_CSS = """
     grid-column:1 / -1; min-height:0; padding:10px 16px; justify-content:center; background:var(--surface-2);
   }
   table.archives-table.cards tr.week-recap-row td{ width:100%; text-align:center; }
+  .cards .week-recap-link{ white-space:nowrap; font-size:0.66rem; letter-spacing:0; }
   .cards .col-thumb{ position:absolute; left:14px; top:14px; width:72px; height:72px; }
   .cards .thumb-sq{ width:72px; height:72px; border-radius:7px; object-fit:cover; background:var(--surface-2); display:block; }
   .cards .thumb-wide{ display:none; }
@@ -657,7 +658,7 @@ ARCHIVES_TABLE_CSS = """
   .cards .col-title a:first-child{ font-family:"Fraunces", serif; font-weight:600; font-size:1rem; line-height:1.3; color:var(--paper); text-decoration:none; }
   .cards tr:hover .col-title a:first-child{ text-decoration:underline; text-decoration-color:var(--gold); }
   .cards .card-q{ display:none; }
-  .cards .col-domain{ order:3; display:block !important; font-family:"JetBrains Mono", monospace; font-size:0.64rem !important; text-transform:uppercase; letter-spacing:0.05em; margin:0 !important; }
+  .cards .col-domain{ order:3; flex:1 0 100%; display:block !important; font-family:"JetBrains Mono", monospace; font-size:0.64rem !important; text-transform:uppercase; letter-spacing:0.05em; margin:0 !important; }
   .cards .col-domain a{ color:var(--paper-dim); text-decoration:none; }
   .cards .col-eval{ order:4; display:block !important; border:0 !important; padding:0 !important; }
   .cards .col-france{ order:5; display:block !important; border:0 !important; padding:0 !important; }
@@ -1048,9 +1049,10 @@ def abreger_mois(texte):
 
 def render_week_recap_row(iso_date, date_range):
     """Ligne pleine largeur "Récap de la semaine", insérée entre deux semaines."""
-    date_range = abreger_mois(date_range)
+    # « 28 septembre au 4 octobre 2026 » → « 28 sept. – 4 oct. » : une seule ligne, même avec une grande police.
+    date_range = re.sub(r"\s\d{4}$", "", abreger_mois(date_range)).replace(" au ", " – ")
     return f"""    <tr class="week-recap-row">
-      <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/{iso_date}.html">🗓️ Récap de la semaine — {html.escape(date_range)}</a></td>
+      <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/{iso_date}.html">Récap de la semaine · {html.escape(date_range)}</a></td>
     </tr>"""
 
 
@@ -1437,7 +1439,7 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
     )
     search_form = (
         '    <form class="archives-search" action="recherche.html" method="get" role="search">\n'
-        '      <input type="search" name="q" placeholder="Rechercher un sujet…" aria-label="Rechercher dans toutes les éditions" '
+        '      <input type="search" name="q" placeholder="Rechercher…" aria-label="Rechercher dans toutes les éditions" '
         'autocomplete="off" enterkeyhint="search">\n      <button type="submit">Rechercher</button>\n    </form>\n'
     )
     filters_html = f"""{search_form}    <div class="archives-filters">
