@@ -952,6 +952,29 @@
     gap: 12px;
   }
 
+  /* ---- Recherche, matières (liens) et filtres repliés (4 oct. 2026) ---- */
+  .archives-search{ display:flex; gap:8px; max-width:1200px; margin:0 auto 18px; }
+  .archives-search input{
+    flex:1; min-width:0; background:var(--surface); border:1px solid var(--hairline); border-radius:100px;
+    color:var(--paper); font:inherit; font-size:0.95rem; padding:11px 18px;
+  }
+  .archives-search input:focus{ outline:none; border-color:var(--gold); }
+  .archives-search button{
+    background:var(--gold); color:var(--ink); border:0; border-radius:100px; font:inherit;
+    font-family:"JetBrains Mono", monospace; font-size:0.78rem; font-weight:700; padding:0 18px; cursor:pointer;
+  }
+  a.filter-chip{ text-decoration:none; display:inline-block; }
+  .filters-more > summary{
+    list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px; align-self:flex-start;
+    font-family:"JetBrains Mono", monospace; font-size:0.76rem; color:var(--gold);
+    border:1px solid var(--hairline); border-radius:100px; padding:8px 16px;
+  }
+  .filters-more > summary::-webkit-details-marker{ display:none; }
+  .filters-more > summary::after{ content:"+"; font-size:1rem; line-height:1; }
+  .filters-more[open] > summary::after{ content:"−"; }
+  .filters-more > summary:hover{ border-color:var(--gold); }
+  .filters-more .filter-row{ margin-top:12px; }
+
   /* Le tableau (desktop) comme les cartes (mobile, tr en display:flex)
      doivent tous deux disparaître complètement quand filtrés */
   .archives-table tbody tr.is-hidden {
@@ -1067,13 +1090,19 @@
 
 <section class="listing">
   <div class="wrap">
+    <form class="archives-search" action="recherche.html" method="get" role="search">
+      <input type="search" name="q" placeholder="Rechercher un sujet…" aria-label="Rechercher dans toutes les éditions" autocomplete="off" enterkeyhint="search">
+      <button type="submit">Rechercher</button>
+    </form>
     <div class="archives-filters">
       <div class="filter-row">
-        <span class="filter-row-label">Domaine</span>
-        <div class="domain-filters" id="domain-filters" data-field="domain">
-<button type="button" class="filter-chip is-active" data-filter="all">Tous</button><button type="button" class="filter-chip" data-filter="economie-entreprises">Économie & entreprises</button><button type="button" class="filter-chip" data-filter="politique-institutions">Politique & institutions</button><button type="button" class="filter-chip" data-filter="international">International</button><button type="button" class="filter-chip" data-filter="sciences-environnement">Sciences & environnement</button><button type="button" class="filter-chip" data-filter="tech-numerique">Tech & numérique</button><button type="button" class="filter-chip" data-filter="culture-divertissement">Culture & divertissement</button><button type="button" class="filter-chip" data-filter="sport">Sport</button>
+        <span class="filter-row-label">Explorer par matière</span>
+        <div class="domain-filters" id="matieres-links">
+<a class="filter-chip" href="themes/economie-entreprises.html">Économie & entreprises</a><a class="filter-chip" href="themes/politique-institutions.html">Politique & institutions</a><a class="filter-chip" href="themes/international.html">International</a><a class="filter-chip" href="themes/sciences-environnement.html">Sciences & environnement</a><a class="filter-chip" href="themes/tech-numerique.html">Tech & numérique</a><a class="filter-chip" href="themes/culture-divertissement.html">Culture & divertissement</a><a class="filter-chip" href="themes/sport.html">Sport</a>
         </div>
       </div>
+      <details class="filters-more">
+        <summary>Affiner la liste</summary>
       <div class="filter-row">
         <span class="filter-row-label">Notre scénario</span>
         <div class="domain-filters" id="scenario-filters" data-field="scenario">
@@ -1098,6 +1127,7 @@
 <button type="button" class="filter-chip is-active" data-filter="all">Tous</button><button type="button" class="filter-chip" data-filter="hot">🔥 Les plus lues</button>
         </div>
       </div>
+      </details>
       <p class="no-result" id="archives-no-result">Aucune édition ne correspond à ces filtres.</p>
     </div>
   <table class="archives-table" id="archives-table">
@@ -1105,7 +1135,7 @@
       <tr>
         <th style="width: 9%;">Date</th>
         <th style="width: 34%;">Titre</th>
-        <th style="width: 13%;">Domaine</th>
+        <th style="width: 13%;">Matière</th>
         <th style="width: 16%;">Notre scénario</th>
         <th style="width: 16%;">Impact France</th>
         <th style="width: 12%;">Lectures</th>
@@ -1124,7 +1154,7 @@
           <a href="en/archives/2026-10-04.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/sport.html">Sport</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sport.html">Sport</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Coexistence maîtrisée sans ferveur excessive" aria-label="Notre scénario : Stable (50%) — Coexistence maîtrisée sans ferveur excessive">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1146,7 +1176,7 @@
           <a href="en/archives/2026-10-03.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">culture</td>
+      <td class="col-domain" data-label="Matière">culture</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — La détection automatisée coexiste avec les surprises du public" aria-label="Notre scénario : Stable (50%) — La détection automatisée coexiste avec les surprises du public">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1168,7 +1198,7 @@
           <a href="en/archives/2026-10-02.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">sciences</td>
+      <td class="col-domain" data-label="Matière">sciences</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Coexistence prolongée du modèle classique et d&#x27;outils numériques d&#x27;aide" aria-label="Notre scénario : Stable (50%) — Coexistence prolongée du modèle classique et d&#x27;outils numériques d&#x27;aide">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1190,7 +1220,7 @@
           <a href="en/archives/2026-10-01.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">economie-mondiale</td>
+      <td class="col-domain" data-label="Matière">economie-mondiale</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Le bitcoin demeure un actif de diversification de niche" aria-label="Notre scénario : Stable (45%) — Le bitcoin demeure un actif de diversification de niche">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1212,7 +1242,7 @@
           <a href="en/archives/2026-09-30.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Le chômage stagne sur un plateau sous l&#x27;effet de destructions continues" aria-label="Notre scénario : Stable (45%) — Le chômage stagne sur un plateau sous l&#x27;effet de destructions continues">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1234,7 +1264,7 @@
           <a href="en/archives/2026-09-29.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">sciences</td>
+      <td class="col-domain" data-label="Matière">sciences</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — L&#x27;extraction reste un laboratoire scientifique coûteux sans débouché commercial" aria-label="Notre scénario : Stable (50%) — L&#x27;extraction reste un laboratoire scientifique coûteux sans débouché commercial">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1256,7 +1286,7 @@
           <a href="en/archives/2026-09-28.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Domination structurelle américaine sous contestation régionale croissante" aria-label="Notre scénario : Stable (45%) — Domination structurelle américaine sous contestation régionale croissante">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1281,7 +1311,7 @@
           <a href="en/archives/2026-09-27.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/sport.html">Sport</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sport.html">Sport</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — La fracture d&#x27;image durable entre les tribunes espagnoles et françaises" aria-label="Notre scénario : Stable (45%) — La fracture d&#x27;image durable entre les tribunes espagnoles et françaises">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1303,7 +1333,7 @@
           <a href="en/archives/2026-09-26.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">culture</td>
+      <td class="col-domain" data-label="Matière">culture</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — La Chine domine son marché intérieur mais reste confinée à son espace régional" aria-label="Notre scénario : Stable (50%) — La Chine domine son marché intérieur mais reste confinée à son espace régional">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1325,7 +1355,7 @@
           <a href="en/archives/2026-09-25.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">sciences</td>
+      <td class="col-domain" data-label="Matière">sciences</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Maintien de prix élevés et fracture sanitaire entre patients aisés et modestes" aria-label="Notre scénario : Stable (50%) — Maintien de prix élevés et fracture sanitaire entre patients aisés et modestes">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1347,7 +1377,7 @@
           <a href="en/archives/2026-09-24.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">economie-mondiale</td>
+      <td class="col-domain" data-label="Matière">economie-mondiale</td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Plateau énergétique prolongé et taux directeurs figés à un niveau élevé" aria-label="Notre scénario : Stable (45%) — Plateau énergétique prolongé et taux directeurs figés à un niveau élevé">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1369,7 +1399,7 @@
           <a href="en/archives/2026-09-23.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Le gouvernement maintient sa ligne et canalise les protestations" aria-label="Notre scénario : Stable (50%) — Le gouvernement maintient sa ligne et canalise les protestations">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1391,7 +1421,7 @@
           <a href="en/archives/2026-09-22.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Normalisation d&#x27;un passage restreint sous péage de facto" aria-label="Notre scénario : Stable (45%) — Normalisation d&#x27;un passage restreint sous péage de facto">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1413,7 +1443,7 @@
           <a href="en/archives/2026-09-21.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Un accord flou prolonge le statu quo sans le résoudre" aria-label="Notre scénario : Stable (45%) — Un accord flou prolonge le statu quo sans le résoudre">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1438,7 +1468,7 @@
           <a href="en/archives/2026-09-20.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/sport.html">Sport</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sport.html">Sport</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Les deux ligues avancent chacune de leur côté, sans accord" aria-label="Notre scénario : Stable (45%) — Les deux ligues avancent chacune de leur côté, sans accord">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1460,7 +1490,7 @@
           <a href="en/archives/2026-09-19.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — La tournée continue sans première partie, la polémique s&#x27;essouffle sans trancher" aria-label="Notre scénario : Stable (50%) — La tournée continue sans première partie, la polémique s&#x27;essouffle sans trancher">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1482,7 +1512,7 @@
           <a href="en/archives/2026-09-18.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (55%) — La recherche progresse, les soins restent symptomatiques" aria-label="Notre scénario : Stable (55%) — La recherche progresse, les soins restent symptomatiques">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
@@ -1504,7 +1534,7 @@
           <a href="en/archives/2026-09-17.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Le recul lent du dollar se poursuit sans rupture" aria-label="Notre scénario : Stable (50%) — Le recul lent du dollar se poursuit sans rupture">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1526,7 +1556,7 @@
           <a href="en/archives/2026-09-16.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — La facture grimpe doucement, sans choc brutal" aria-label="Notre scénario : Stable (50%) — La facture grimpe doucement, sans choc brutal">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1548,7 +1578,7 @@
           <a href="en/archives/2026-09-15.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Les jalons avancent, mais avec des retards habituels" aria-label="Notre scénario : Stable (50%) — Les jalons avancent, mais avec des retards habituels">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1570,7 +1600,7 @@
           <a href="en/archives/2026-09-14.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Le sommet se tient sans avancée ni rupture sur Taïwan" aria-label="Notre scénario : Stable (50%) — Le sommet se tient sans avancée ni rupture sur Taïwan">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1595,7 +1625,7 @@
           <a href="en/archives/2026-09-13.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (50%) — La censure fait tomber le gouvernement, ou bloque le budget" aria-label="Notre scénario : Dégradé (50%) — La censure fait tomber le gouvernement, ou bloque le budget">
       <span class="eval-label">Dégradé</span>
       <span class="eval-pct">50%</span>
@@ -1617,7 +1647,7 @@
           <a href="en/archives/2026-09-12.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (48%) — Les studios continuent de miser sur les suites malgré les échecs" aria-label="Notre scénario : Stable (48%) — Les studios continuent de miser sur les suites malgré les échecs">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">48%</span>
@@ -1639,7 +1669,7 @@
           <a href="en/archives/2026-09-11.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — La bulle continue de grossir, sans éclater tout de suite" aria-label="Notre scénario : Stable (45%) — La bulle continue de grossir, sans éclater tout de suite">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1661,7 +1691,7 @@
           <a href="en/archives/2026-09-10.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Les métropoles gardent l&#x27;avantage, sans nouvelle rupture" aria-label="Notre scénario : Stable (45%) — Les métropoles gardent l&#x27;avantage, sans nouvelle rupture">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1683,7 +1713,7 @@
           <a href="en/archives/2026-09-09.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — L&#x27;écart ne se comble pas, mais n&#x27;empire pas non plus" aria-label="Notre scénario : Stable (45%) — L&#x27;écart ne se comble pas, mais n&#x27;empire pas non plus">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1705,7 +1735,7 @@
           <a href="en/archives/2026-09-08.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (55%) — L&#x27;entrée en Bourse glisse à 2027, sans rien changer au prix" aria-label="Notre scénario : Stable (55%) — L&#x27;entrée en Bourse glisse à 2027, sans rien changer au prix">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
@@ -1727,7 +1757,7 @@
           <a href="en/archives/2026-09-07.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — L&#x27;UE investit, Trump maintient la pression sans agir" aria-label="Notre scénario : Stable (50%) — L&#x27;UE investit, Trump maintient la pression sans agir">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1752,7 +1782,7 @@
           <a href="en/archives/2026-09-06.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — L&#x27;obligation reste sans montant et les budgets bougent à peine" aria-label="Notre scénario : Stable (50%) — L&#x27;obligation reste sans montant et les budgets bougent à peine">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1774,7 +1804,7 @@
           <a href="en/archives/2026-09-05.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (55%) — Le haut et le bas du marché continuent de diverger" aria-label="Notre scénario : Stable (55%) — Le haut et le bas du marché continuent de diverger">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
@@ -1796,7 +1826,7 @@
           <a href="en/archives/2026-09-04.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Les essais avancent, le calendrier recule une fois de plus" aria-label="Notre scénario : Stable (50%) — Les essais avancent, le calendrier recule une fois de plus">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1818,7 +1848,7 @@
           <a href="en/archives/2026-09-03.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Le marché reste cher, mais ne casse pas" aria-label="Notre scénario : Stable (45%) — Le marché reste cher, mais ne casse pas">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1840,7 +1870,7 @@
           <a href="en/archives/2026-09-02.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — L&#x27;Anses accorde la dérogation, mais seulement pour les filières prévues" aria-label="Notre scénario : Stable (45%) — L&#x27;Anses accorde la dérogation, mais seulement pour les filières prévues">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1862,7 +1892,7 @@
           <a href="en/archives/2026-09-01.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Droite et gauche restent divisées, le RN l&#x27;emporte comme prévu" aria-label="Notre scénario : Stable (50%) — Droite et gauche restent divisées, le RN l&#x27;emporte comme prévu">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1884,7 +1914,7 @@
           <a href="en/archives/2026-08-31.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (60%) — L&#x27;Islande se retrouve isolée face aux pressions sur le Groenland" aria-label="Notre scénario : Dégradé (60%) — L&#x27;Islande se retrouve isolée face aux pressions sur le Groenland">
       <span class="eval-label">Dégradé</span>
       <span class="eval-pct">60%</span>
@@ -1909,7 +1939,7 @@
           <a href="en/archives/2026-08-30.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Ligue 1+ progresse, mais sans rattraper son retard" aria-label="Notre scénario : Stable (45%) — Ligue 1+ progresse, mais sans rattraper son retard">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1931,7 +1961,7 @@
           <a href="en/archives/2026-08-29.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — L&#x27;accord des 45 jours se maintient, sans plus" aria-label="Notre scénario : Stable (45%) — L&#x27;accord des 45 jours se maintient, sans plus">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1953,7 +1983,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — La rallonge s&#x27;effrite en chemin" aria-label="Notre scénario : Stable (45%) — La rallonge s&#x27;effrite en chemin">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1975,7 +2005,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — La tension continue, sans rupture" aria-label="Notre scénario : Stable (50%) — La tension continue, sans rupture">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1997,7 +2027,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Le statu quo jusqu&#x27;à l&#x27;élection" aria-label="Notre scénario : Stable (50%) — Le statu quo jusqu&#x27;à l&#x27;élection">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -2019,7 +2049,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — La dépendance s&#x27;installe doucement" aria-label="Notre scénario : Stable (45%) — La dépendance s&#x27;installe doucement">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2041,7 +2071,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Le front s&#x27;enterre pour l&#x27;hiver" aria-label="Notre scénario : Stable (45%) — Le front s&#x27;enterre pour l&#x27;hiver">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2066,7 +2096,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Le 48 reste la norme" aria-label="Notre scénario : Stable (45%) — Le 48 reste la norme">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2088,7 +2118,7 @@
           <a href="en/archives/2026-08-22.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — La porte reste entrouverte" aria-label="Notre scénario : Stable (45%) — La porte reste entrouverte">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2110,7 +2140,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Le mystère reste entier" aria-label="Notre scénario : Stable (45%) — Le mystère reste entier">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2132,7 +2162,7 @@
           <a href="en/archives/2026-08-20.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (50%) — Une nouvelle vague de hausses" aria-label="Notre scénario : Dégradé (50%) — Une nouvelle vague de hausses">
       <span class="eval-label">Dégradé</span>
       <span class="eval-pct">50%</span>
@@ -2154,7 +2184,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Le bruit de fond s&#x27;installe" aria-label="Notre scénario : Stable (50%) — Le bruit de fond s&#x27;installe">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -2176,7 +2206,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Les labs colmatent, la loi patiente" aria-label="Notre scénario : Stable (45%) — Les labs colmatent, la loi patiente">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2198,7 +2228,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (55%) — La rupture rouvre la voie aux frappes" aria-label="Notre scénario : Dégradé (55%) — La rupture rouvre la voie aux frappes">
       <span class="eval-label">Dégradé</span>
       <span class="eval-pct">55%</span>
@@ -2223,7 +2253,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Ni avancée ni rupture" aria-label="Notre scénario : Stable (45%) — Ni avancée ni rupture">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2245,7 +2275,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Harlequin reste un cas isolé" aria-label="Notre scénario : Stable (50%) — Harlequin reste un cas isolé">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -2267,7 +2297,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — ⚖️ Le rattrapage à moitié" aria-label="Notre scénario : Stable (45%) — ⚖️ Le rattrapage à moitié">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2289,7 +2319,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — ⚖️ Le statu quo tendu" aria-label="Notre scénario : Stable (45%) — ⚖️ Le statu quo tendu">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2311,7 +2341,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — 🧩 Chacun campe sur ses positions" aria-label="Notre scénario : Stable (45%) — 🧩 Chacun campe sur ses positions">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2333,7 +2363,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — ⚖️ La tension reste vive, sans guerre ouverte" aria-label="Notre scénario : Stable (50%) — ⚖️ La tension reste vive, sans guerre ouverte">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -2355,7 +2385,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (55%) — ⚖️ La guerre s&#x27;enlise, le pétrole reste cher" aria-label="Notre scénario : Stable (55%) — ⚖️ La guerre s&#x27;enlise, le pétrole reste cher">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
@@ -2380,7 +2410,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (55%) — ⚖️ Le bras de fer s&#x27;installe dans la durée" aria-label="Notre scénario : Stable (55%) — ⚖️ Le bras de fer s&#x27;installe dans la durée">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
@@ -2402,7 +2432,7 @@
           <a href="en/archives/2026-08-08.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-favorable" data-kind="favorable" title="Notre scénario : Favorable (58%) — 🎬 Le rebond tient jusqu&#x27;à la fin de l&#x27;année" aria-label="Notre scénario : Favorable (58%) — 🎬 Le rebond tient jusqu&#x27;à la fin de l&#x27;année">
       <span class="eval-label">Favorable</span>
       <span class="eval-pct">58%</span>
@@ -2424,7 +2454,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (50%) — 🏳️ La justice recule, Big Tech gagne" aria-label="Notre scénario : Dégradé (50%) — 🏳️ La justice recule, Big Tech gagne">
       <span class="eval-label">Dégradé</span>
       <span class="eval-pct">50%</span>
@@ -2446,7 +2476,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (68%) — 🧊 La méfiance dure, Infantino reste" aria-label="Notre scénario : Stable (68%) — 🧊 La méfiance dure, Infantino reste">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">68%</span>
@@ -2468,7 +2498,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — ⏳ La décision glisse, le programme survit" aria-label="Notre scénario : Stable (50%) — ⏳ La décision glisse, le programme survit">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -2490,7 +2520,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — ⚖️ L&#x27;accord reste bloqué sur le papier" aria-label="Notre scénario : Stable (50%) — ⚖️ L&#x27;accord reste bloqué sur le papier">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -2512,7 +2542,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (62%) — 🔥 Une nouvelle vague fait vaciller Schengen" aria-label="Notre scénario : Dégradé (62%) — 🔥 Une nouvelle vague fait vaciller Schengen">
       <span class="eval-label">Dégradé</span>
       <span class="eval-pct">62%</span>
@@ -2537,7 +2567,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — ⚖️ Les gros gagnent, les petits trinquent" aria-label="Notre scénario : Stable (45%) — ⚖️ Les gros gagnent, les petits trinquent">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2559,7 +2589,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — ⚖️ Ni loi ni chaos, un flou qui dure" aria-label="Notre scénario : Stable (45%) — ⚖️ Ni loi ni chaos, un flou qui dure">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2581,7 +2611,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (47%) — 🚒 On répare, mais sans plan d&#x27;ensemble" aria-label="Notre scénario : Stable (47%) — 🚒 On répare, mais sans plan d&#x27;ensemble">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">47%</span>
@@ -2603,7 +2633,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (75%) — 🔥 Le calendrier serré ne tient pas" aria-label="Notre scénario : Dégradé (75%) — 🔥 Le calendrier serré ne tient pas">
       <span class="eval-label">Dégradé</span>
       <span class="eval-pct">75%</span>
@@ -2625,7 +2655,7 @@
           <a href="en/archives/2026-07-29.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — ⚖️ Le 49.3 sauve la mise, sous tension" aria-label="Notre scénario : Stable (50%) — ⚖️ Le 49.3 sauve la mise, sous tension">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -2647,7 +2677,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — ⚖️ La fortune grimpe, la taxe reste bloquée" aria-label="Notre scénario : Stable (50%) — ⚖️ La fortune grimpe, la taxe reste bloquée">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -2669,7 +2699,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/international.html">International</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (92%) — 🔥 Les combats reprennent, Ormuz se ferme" aria-label="Notre scénario : Dégradé (92%) — 🔥 Les combats reprennent, Ormuz se ferme">
       <span class="eval-label">Dégradé</span>
       <span class="eval-pct">92%</span>
@@ -2691,7 +2721,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — ⏳ Le procès traîne, le deal est gelé" aria-label="Notre scénario : Stable (45%) — ⏳ Le procès traîne, le deal est gelé">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2713,7 +2743,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — 🧩 La vente à la découpe continue" aria-label="Notre scénario : Stable (45%) — 🧩 La vente à la découpe continue">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2735,7 +2765,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-favorable" data-kind="favorable" title="Notre scénario : Favorable (72%) — 🍿 Le doublé parfait" aria-label="Notre scénario : Favorable (72%) — 🍿 Le doublé parfait">
       <span class="eval-label">Favorable</span>
       <span class="eval-pct">72%</span>
@@ -2757,7 +2787,7 @@
         <dd>Date de publication de l'édition.</dd>
         <dt>Titre</dt>
         <dd>Cliquez pour lire l'analyse complète (lien <strong>↗ EN</strong> pour la version anglaise).</dd>
-        <dt>Domaine</dt>
+        <dt>Matière</dt>
         <dd>Catégorie thématique de l'édition (cliquez sur le domaine dans le tableau), l'une des 7 : <a href="themes/economie-entreprises.html">Économie & entreprises</a>, <a href="themes/politique-institutions.html">Politique & institutions</a>, <a href="themes/international.html">International</a>, <a href="themes/sciences-environnement.html">Sciences & environnement</a>, <a href="themes/tech-numerique.html">Tech & numérique</a>, <a href="themes/culture-divertissement.html">Culture & divertissement</a>, <a href="themes/sport.html">Sport</a>.</dd>
         <dt>Notre scénario</dt>
         <dd>Le plus probable des 3 scénarios de l'édition, avec son pourcentage de probabilité — <strong>favorable</strong> : la problématique se résout plutôt bien ; <strong>stable</strong> : la situation reste proche des conditions actuelles ; <strong>dégradé</strong> : la problématique s'aggrave nettement.</dd>

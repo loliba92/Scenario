@@ -50,7 +50,7 @@ class RenderPage(unittest.TestCase):
 
     def test_selecteur_de_theme(self):
         h = self.page()
-        self.assertEqual(h.count('class="theme-chip"'), len(g.DOMAINS) + 1)  # + retour archives
+        self.assertEqual(h.count('class="theme-chip"'), len(g.DOMAINS) + 2)  # + archives, recherche
         self.assertIn('aria-current="page">International', h)
 
     def test_chemins_relatifs(self):

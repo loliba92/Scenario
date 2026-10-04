@@ -585,6 +585,29 @@ ARCHIVES_TABLE_CSS = """
     gap: 12px;
   }
 
+  /* ---- Recherche, matières (liens) et filtres repliés (4 oct. 2026) ---- */
+  .archives-search{ display:flex; gap:8px; max-width:1200px; margin:0 auto 18px; }
+  .archives-search input{
+    flex:1; min-width:0; background:var(--surface); border:1px solid var(--hairline); border-radius:100px;
+    color:var(--paper); font:inherit; font-size:0.95rem; padding:11px 18px;
+  }
+  .archives-search input:focus{ outline:none; border-color:var(--gold); }
+  .archives-search button{
+    background:var(--gold); color:var(--ink); border:0; border-radius:100px; font:inherit;
+    font-family:"JetBrains Mono", monospace; font-size:0.78rem; font-weight:700; padding:0 18px; cursor:pointer;
+  }
+  a.filter-chip{ text-decoration:none; display:inline-block; }
+  .filters-more > summary{
+    list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px; align-self:flex-start;
+    font-family:"JetBrains Mono", monospace; font-size:0.76rem; color:var(--gold);
+    border:1px solid var(--hairline); border-radius:100px; padding:8px 16px;
+  }
+  .filters-more > summary::-webkit-details-marker{ display:none; }
+  .filters-more > summary::after{ content:"+"; font-size:1rem; line-height:1; }
+  .filters-more[open] > summary::after{ content:"−"; }
+  .filters-more > summary:hover{ border-color:var(--gold); }
+  .filters-more .filter-row{ margin-top:12px; }
+
   /* Le tableau (desktop) comme les cartes (mobile, tr en display:flex)
      doivent tous deux disparaître complètement quand filtrés */
   .archives-table tbody tr.is-hidden {
@@ -1140,7 +1163,7 @@ def render_table_row(article):
           {en_link}
         </span>
       </td>
-      <td class="col-domain" data-label="Domaine">{f'<a href="themes/{article["domain"]}.html">{domain_label}</a>' if article["domain"] in DOMAIN_LABELS else domain_label}</td>
+      <td class="col-domain" data-label="Matière">{f'<a href="themes/{article["domain"]}.html">{domain_label}</a>' if article["domain"] in DOMAIN_LABELS else domain_label}</td>
       <td class="col-eval" data-label="Notre scénario">{eval_html}</td>
       <td class="col-france" data-label="Impact France">{france_html}</td>
       <td class="col-reads" data-label="Lectures">
@@ -1220,7 +1243,7 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
       <tr>
         <th style="width: 9%;">Date</th>
         <th style="width: 34%;">Titre</th>
-        <th style="width: 13%;">Domaine</th>
+        <th style="width: 13%;">Matière</th>
         <th style="width: 16%;">Notre scénario</th>
         <th style="width: 16%;">Impact France</th>
         <th style="width: 12%;">Lectures</th>
@@ -1277,12 +1300,26 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
     # sait pas à l'avance si des lectures seront disponibles.
     reads_filter_html = chip_group("reads-filters", "Lectures", {"hot"}, {"hot": "🔥 Les plus lues"}, ["hot"])
 
-    filters_html = f"""    <div class="archives-filters">
-{chip_group("domain-filters", "Domaine", domains_present, DOMAIN_LABELS, list(DOMAIN_LABELS.keys()))}
+    matieres_row = (
+        '      <div class="filter-row">\n        <span class="filter-row-label">Explorer par matière</span>\n'
+        '        <div class="domain-filters" id="matieres-links">\n'
+        + "".join(f'<a class="filter-chip" href="themes/{slug}.html">{label}</a>' for slug, label in DOMAIN_LABELS.items())
+        + "\n        </div>\n      </div>"
+    )
+    search_form = (
+        '    <form class="archives-search" action="recherche.html" method="get" role="search">\n'
+        '      <input type="search" name="q" placeholder="Rechercher un sujet…" aria-label="Rechercher dans toutes les éditions" '
+        'autocomplete="off" enterkeyhint="search">\n      <button type="submit">Rechercher</button>\n    </form>\n'
+    )
+    filters_html = f"""{search_form}    <div class="archives-filters">
+{matieres_row}
+      <details class="filters-more">
+        <summary>Affiner la liste</summary>
 {chip_group("scenario-filters", "Notre scénario", scenarios_present, scenario_labels, ["favorable", "stable", "degrade"])}
 {chip_group("france-filters", "Impact France", france_groups_present, france_group_labels, ["favorable", "neutre", "degrade"])}
 {revised_filter_html}
 {reads_filter_html}
+      </details>
       <p class="no-result" id="archives-no-result">Aucune édition ne correspond à ces filtres.</p>
     </div>"""
 
@@ -1497,7 +1534,7 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
         <dd>Date de publication de l'édition.</dd>
         <dt>Titre</dt>
         <dd>Cliquez pour lire l'analyse complète (lien <strong>↗ EN</strong> pour la version anglaise).</dd>
-        <dt>Domaine</dt>
+        <dt>Matière</dt>
         <dd>Catégorie thématique de l'édition (cliquez sur le domaine dans le tableau), l'une des 7 : {theme_links_html}.</dd>
         <dt>Notre scénario</dt>
         <dd>Le plus probable des 3 scénarios de l'édition, avec son pourcentage de probabilité — <strong>favorable</strong> : la problématique se résout plutôt bien ; <strong>stable</strong> : la situation reste proche des conditions actuelles ; <strong>dégradé</strong> : la problématique s'aggrave nettement.</dd>
