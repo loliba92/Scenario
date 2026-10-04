@@ -113,6 +113,7 @@ CHROME_TEXT = {
     "Reste connecté": "Stay connected",
     "La question posée": "The question at hand",
     "Partager :": "Share:",
+    "Ajouter Scénario à vos sources Google": "Add Scénario to your Google sources",
     "Ce qu'on évalue": "What we're assessing",
     "Comprendre": "Understanding it",
     "Ne rate pas la prochaine édition :": "Don't miss the next edition:",
