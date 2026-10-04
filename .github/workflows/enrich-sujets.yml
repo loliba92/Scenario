@@ -14,7 +14,7 @@ name: Enrichir les dossiers de sujets
 # Secret requis (déjà présent) : OPENROUTER_API_KEY
 
 on:
-  # Chaque soir : relève les chiffres du graphique « Les chiffres » pour les 3 prochains sujets de la file
+  # Chaque soir : relève les chiffres du graphique « Les chiffres » pour le prochain sujet de la file
   # (ajouté le 4 octobre 2026), pour que le brief du lendemain n'ait pas à les chercher dans l'urgence.
   schedule:
     - cron: "23 18 * * *"
@@ -86,7 +86,7 @@ jobs:
           git config user.name "scenario-topics-bot"
           git config user.email "actions@users.noreply.github.com"
           ARGS="--max ${MAX:-10}"
-          if [ "$EVENT" = "schedule" ]; then ARGS="--donnees --max 3"; fi
+          if [ "$EVENT" = "schedule" ]; then ARGS="--donnees --max 1"; fi
           if [ "$DONNEES" = "true" ]; then ARGS="$ARGS --donnees"; fi
           if [ -n "$REGISTRE" ]; then ARGS="$ARGS --registre $REGISTRE"; fi
           if [ "$REFORMULER" = "true" ]; then ARGS="$ARGS --reformuler"; fi
