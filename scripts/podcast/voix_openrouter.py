@@ -62,6 +62,9 @@ def _nom(s: str) -> str:
 def main(argv=None) -> int:
     sys.stdout.reconfigure(line_buffering=True)
     args = list(sys.argv[1:] if argv is None else argv)
+    # --car=N : échantillon très court (N caractères environ, coupés à la fin d'un mot) pour juger la couleur d'une voix
+    car = next((int(a[6:]) for a in args if re.fullmatch(r"--car=\d{1,4}", a)), None)
+    args = [a for a in args if not a.startswith("--car=")]
     if len(args) < 2:
         print(__doc__)
         return 1
@@ -79,6 +82,8 @@ def main(argv=None) -> int:
         if total >= 600:
             break
     extrait = "\n\n".join(echantillon)
+    if car:
+        extrait = extrait[:car].rsplit(" ", 1)[0].strip()
     print(f"Échantillon : {len(extrait)} caractères", flush=True)
     out = gp.ROOT / "_podcast-out"
     out.mkdir(parents=True, exist_ok=True)
