@@ -64,18 +64,18 @@
   var active = "";
   if (file === "index.html" && !inArchives && !/\/(hebdo|themes|suivi)\//.test(path)) active = "home";
   else if (inArchives || /\/(hebdo|themes|suivi)\//.test(path)) active = "archives";
-  else if (file === "recherche.html") active = "search";
+  else if (file === "recherche.html") active = "archives";  // la recherche se lance depuis « Éditions »
   else if (file === "le-projet.html") active = "project";
-  else if (file === "glossaire.html" || file === "newsletter.html" || file === "contact.html") active = "more";
+  else if (file === "glossaire.html") active = "glossary";
+  else if (file === "newsletter.html" || file === "contact.html") active = "more";
 
   var tabs = [
     { id: "home", href: root + "index.html", label: T.home },
     { id: "archives", href: root + "archives.html", label: T.archives },
-    { id: "search", href: root + "recherche.html", label: T.search },
+    { id: "glossary", href: root + "glossaire.html", label: T.glossary },
     { id: "project", href: root + "le-projet.html", label: T.project }
   ];
   var more = [
-    { id: "glossary", href: root + "glossaire.html", label: T.glossary },
     { id: "newsletter", href: root + "newsletter.html", label: T.newsletter },
     { id: "contact", href: root + "contact.html", label: T.contact },
     { id: "follow", href: root + "index.html#nous-suivre", label: T.follow },
