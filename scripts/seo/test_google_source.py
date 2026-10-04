@@ -22,15 +22,26 @@ class TestGoogleSource(unittest.TestCase):
 
 
 class TestGoogleSourceEdition(unittest.TestCase):
-    def test_hero_et_css_idempotents(self):
+    def test_icone_dans_la_ligne_de_partage_idempotente(self):
         import add_google_source_edition as e
-        html = '<style>a{}</style><p class="share-inline"><a>x</a></p><nav class="toc"></nav>'
-        une = e.ajouter_hero(e.ajouter_css(html), False)
-        self.assertIn("Ajouter Scénario à vos sources Google", une)
-        self.assertLess(une.index("share-inline"), une.index('<p class="source-google">'))
-        self.assertLess(une.index('<p class="source-google">'), une.index("<nav"))
-        self.assertEqual(e.ajouter_hero(e.ajouter_css(une), False), une)
-        self.assertIn("Add Scénario to your Google sources", e.ajouter_hero(html, True))
+        html = '<p class="share-inline">\n      <a id="share-x">x</a>\n    </p><nav class="toc"></nav>'
+        une = e.ajouter_hero(html, False)
+        self.assertIn('id="share-google"', une)
+        self.assertIn('title="Ajouter Scénario à vos sources Google"', une)
+        self.assertLess(une.index('id="share-google"'), une.index("</p>"))   # dans la ligne de partage, pas une ligne en plus
+        self.assertNotIn("source-google", une)
+        self.assertEqual(e.ajouter_hero(une, False), une)
+        self.assertIn('title="Add Scénario to your Google sources"', e.ajouter_hero(html, True))
+
+    def test_ancienne_version_retiree(self):
+        import add_google_source_edition as e
+        ancien = ('<style>a{}\n  /* ---- Lien discret « Ajouter Scénario à vos sources Google » sous la ligne de partage (4 octobre 2026). ---- */\n'
+                  '  .source-google{ margin: 0; }\n  @media print{ .source-google{ display: none; } }\n</style>'
+                  '<p class="share-inline">\n      <a id="share-x">x</a>\n    </p>\n    <p class="source-google"><a>vieux texte</a></p>')
+        nettoye = e.ajouter_hero(ancien, False)
+        self.assertNotIn("source-google", nettoye)
+        self.assertNotIn("vieux texte", nettoye)
+        self.assertIn('id="share-google"', nettoye)
 
     def test_cibles_sans_editions_passees(self):
         import add_google_source_edition as e
