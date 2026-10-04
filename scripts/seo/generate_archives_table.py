@@ -27,6 +27,16 @@ FRENCH_MONTHS = {
     "octobre": 10, "novembre": 11, "décembre": 12, "decembre": 12,
 }
 
+MATIERE_ICONS = {
+    "economie-entreprises": '<path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 4-4 3 3 5-6"/>',
+    "politique-institutions": '<path d="M3 9 12 4l9 5"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 20h18"/>',
+    "international": '<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.5 2.5 3.5 5.5 3.5 8.5s-1 6-3.5 8.5c-2.5-2.5-3.5-5.5-3.5-8.5s1-6 3.5-8.5Z"/>',
+    "sciences-environnement": '<path d="M9 3h6"/><path d="M10 3v6L5 18a1.5 1.5 0 0 0 1.3 2.2h11.4A1.5 1.5 0 0 0 19 18l-5-9V3"/><path d="M7.5 14h9"/>',
+    "tech-numerique": '<rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/>',
+    "culture-divertissement": '<rect x="3.5" y="5" width="17" height="14" rx="2"/><path d="m10 9.5 5 2.5-5 2.5Z"/>',
+    "sport": '<path d="M8 4h8v5a4 4 0 0 1-8 0Z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4"/><path d="M12 13v4M8.5 20h7M10 17h4"/>',
+}
+
 # Anciens slugs de domaine encore produits par certains briefs (« culture », « economie-mondiale », « sciences ») :
 # rattachés aux 7 matières officielles pour que ces éditions apparaissent sur la bonne page matière (4 oct. 2026).
 LEGACY_DOMAIN_ALIASES = {
@@ -676,6 +686,29 @@ ARCHIVES_TABLE_CSS = """
     table.archives-table.cards tr.is-featured .col-france{ margin-left:16px; margin-right:16px; }
     .cards tr.is-featured .col-title a:first-child{ font-size:1.2rem; }
     .cards tr.is-featured .thumb-wide{ aspect-ratio:16/9; }
+  }
+
+  /* ---- Tuiles « matière » (4 oct. 2026) : grandes zones cliquables, sans défilement ---- */
+  .matieres-label{ font-family:"JetBrains Mono", monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--paper-dim); margin:0 0 12px; }
+  .matiere-tiles{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; list-style:none; margin:0; padding:0; }
+  .matiere-tile{
+    display:flex; align-items:center; gap:12px; min-height:68px; padding:12px 14px; text-decoration:none;
+    color:var(--paper); background:var(--surface); border:1px solid var(--hairline); border-radius:12px;
+    transition:border-color .15s, transform .15s, background .15s;
+  }
+  .matiere-tile:hover, .matiere-tile:focus-visible{ border-color:var(--gold); background:var(--surface-2); transform:translateY(-1px); outline:none; }
+  .matiere-tiles li{ display:flex; min-width:0; }
+  .matiere-tile{ flex:1; min-width:0; }
+  .matiere-tile svg{ flex:none; width:26px; height:26px; color:var(--gold); }
+  .matiere-tile span{ display:flex; flex-direction:column; gap:2px; min-width:0; font-size:0.92rem; font-weight:600; line-height:1.25; hyphens:auto; }
+  .matiere-tile small{ font-family:"JetBrains Mono", monospace; font-size:0.66rem; font-weight:400; color:var(--paper-dim); }
+  .matiere-tiles li:last-child:nth-child(odd){ grid-column:1 / -1; }
+  @media (max-width: 759px){
+    .matiere-tile{ flex-direction:column; align-items:flex-start; justify-content:center; gap:8px; min-height:92px; }
+  }
+  @media (min-width: 760px){
+    .matiere-tiles{ grid-template-columns:repeat(4, minmax(0, 1fr)); gap:12px; }
+    .matiere-tiles li:last-child:nth-child(odd){ grid-column:auto; }
   }
 
   /* Le tableau (desktop) comme les cartes (mobile, tr en display:flex)
@@ -1363,6 +1396,9 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
       </div>'''
 
     domains_present = {a["domain"] for a in articles if a["domain"]}
+    counts_domain = {}
+    for a in articles:
+        counts_domain[a["domain"]] = counts_domain.get(a["domain"], 0) + 1
     scenarios_present = {a["scenario_kind"] for a in articles if a["scenario_kind"]}
     france_groups_present = {a["france_group"] for a in articles if a["france_group"]}
     revised_present = {"true"} if any(a["revised_on"] for a in articles) else set()
@@ -1384,10 +1420,18 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
     reads_filter_html = chip_group("reads-filters", "Lectures", {"hot"}, {"hot": "🔥 Les plus lues"}, ["hot"])
 
     matieres_row = (
-        '      <div class="filter-row">\n        <span class="filter-row-label">Explorer par matière</span>\n'
-        '        <div class="domain-filters" id="matieres-links">\n'
-        + "".join(f'<a class="filter-chip" href="themes/{slug}.html">{label}</a>' for slug, label in DOMAIN_LABELS.items())
-        + "\n        </div>\n      </div>"
+        '      <p class="matieres-label">Explorer par matière</p>\n'
+        '      <ul class="matiere-tiles" id="matieres-links">\n'
+        + "\n".join(
+            f'      <li><a class="matiere-tile" href="themes/{slug}.html">'
+            f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" '
+            f'stroke-linejoin="round" aria-hidden="true">{MATIERE_ICONS[slug]}</svg>'
+            f'<span>{label.replace("&", "&amp;")}'
+            + (f'<small>{counts_domain[slug]} édition{"s" if counts_domain[slug] != 1 else ""}</small>' if counts_domain.get(slug) else "")
+            + '</span></a></li>'
+            for slug, label in DOMAIN_LABELS.items()
+        )
+        + "\n      </ul>"
     )
     search_form = (
         '    <form class="archives-search" action="recherche.html" method="get" role="search">\n'
