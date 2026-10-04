@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "e6f16de5af50e6092c5da03c01170728e3c71a9710f4e92956fa15c8ef779a2b"
+    "md_sha256": "041d811c10a489f945522faf3a639721fe9012a7f4443d24f0e5db94302a744a"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -187,8 +187,8 @@
           "ajoute_le": "2026-10-01",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": "2026-10-03",
-          "donnees": null
+          "enrichi_le": "2026-10-04",
+          "donnees": "[relevé du 2026-10-04] Nombre de chercheurs répondants à l'Expert Survey on Progress in AI (ESPAI) (unité : chercheurs). ESPAI 2022 = 738 (juin-août 2022) ; ESPAI 2023 = 2 778 (octobre 2023) ; ESPAI 2024 = 1 580 (décembre 2024). Sources : https://web.archive.org/web/20221123052335/https:/aiimpacts.org/2022-expert-survey-on-progress-in-ai/ ; https://wiki.aiimpacts.org/ai_timelines/predictions_of_human-level_ai_timelines/ai_timeline_surveys/2023_expert_survey_on_progress_in_ai ; https://aiimpacts.org/wp-content/uploads/2026/09/ESPAI2024.pdf"
         },
         {
           "type": "sujet",
@@ -2400,8 +2400,8 @@
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": "2026-10-03",
-          "donnees": null
+          "enrichi_le": "2026-10-04",
+          "donnees": "[relevé du 2026-10-04] Docteurs juniors déployés en novembre 2026 (unité : nombre de médecins). Bretagne = 137 (novembre 2026) ; Normandie = 168 (novembre 2026) ; Centre-Val de Loire = 97 (novembre 2026) ; Nouvelle-Aquitaine = 300 (novembre 2026). Sources : https://www.letelegramme.fr/bretagne/toutes-les-infos/il-y-aura-137-docteurs-juniors-en-medecine-generale-debut-novembre-2026-en-bretagne-7128590.php ; https://www.normandie.ars.sante.fr/docteurs-juniors-un-levier-dattractivite-au-service-des-professionnels-et-des-territoires-1 ; https://france3-regions.franceinfo.fr/centre-val-de-loire/carte-ou-s-installeront-la-centaine-de-docteurs-juniors-arrivant-en-centre-val-de-loire-cet-automne-3386146.html ; https://toute-la.veille-acteurs-sante.fr/239557/pres-de-300-docteurs-juniors-est-pret-pour-2026-grace-a-une-mobilisation-forte-des-facultes-de-medecine-de-la-region-et-des-acteurs-des-soins-de-ville-dans-tous-les-territoires-communique/"
         },
         {
           "type": "sujet",
@@ -4769,8 +4769,8 @@
           "ajoute_le": "2026-09-03",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": "2026-10-03",
-          "donnees": null
+          "enrichi_le": "2026-10-04",
+          "donnees": "[relevé du 2026-10-04] « Ventes aux enchères des principales maisons internationales (Christie's, Sotheby's, Phillips) au premier semestre (unité : milliards de dollars USD). S1 2024 = 3.25 (2024 S1) ; S1 2025 = 3.98 (2025 S1) ; S1 2026 = 6.70 (2026 S1). Sources : https://news.artnet.com/market/data-dive-sales-by-auction-house-2542352 ; https://www.cnbc.com/2025/07/25/fine-art-auction-sales.html ; https://www.finestresullarte.info/fr/marche/marche-de-l-art-deloitte-hausse-de-71-des-ventes-aux-encheres-au-premier-semestre-2026 »"
         },
         {
           "type": "sujet",
