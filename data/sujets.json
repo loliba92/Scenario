@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "4eef3fa36c3374ec0724691341d1eab678f0060278fc6f25dd0fa7ecbeef8a8b"
+    "md_sha256": "65f2ec6a13f914d0d6e3d25204f169b49c2145f1159fc35daebbfaa33c2c80aa"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -88,6 +88,54 @@
         {
           "type": "commentaire",
           "texte": "Jour des lecteurs : recopier ici les meilleures suggestions reçues par email (scenariocontact75@gmail.com) — priorité absolue sur mardi, quel que soit le sujet proposé (pas besoin d'être un sujet \"Grand futur\"). À défaut (section vide ou tout coché) : auto-sélection sur le registre Grand futur (tendances à horizon long, 5-30 ans, tous domaines), voir docs/routine-prompt.md Étape 1 — changé le 4 septembre 2026, remplace l'ancien repli \"sujet le plus fort tous domaines confondus\"."
+        },
+        {
+          "type": "sujet",
+          "id": "carte-blanche-sabotages-et-incendies-en-europe-la-russie-mene",
+          "titre": "Sabotages et incendies en Europe : la Russie mène-t-elle une guerre hybride silencieuse sur le sol de l'UE ?",
+          "question": null,
+          "tag": "géopolitique & sécurité",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Fin septembre 2026, un document diplomatique russe transmis à l'OTAN et consulté par Reuters menace explicitement d'un recours à l'arme nucléaire si l'enclave de Kaliningrad était isolée. Parallèlement, les ambassades russes en Europe accusent l'OTAN d'exercices provocateurs, tandis que le secrétaire général Mark Rutte dénonce une « rhétorique nucléaire irresponsable ». L'Express révèle que Moscou nie toute intention d'attaquer mais prévient que toute agression contre Kaliningrad déclenchera « la riposte la plus ferme ». En filigrane, les capitales européennes pointent une campagne de sabotages et d'incendies criminels attribuée aux services russes sur le continent.",
+          "rationnel": "La question : la multiplication d'actes de sabotage et d'incendies d'origine russe en Europe constitue-t-elle une guerre hybride à bas bruit que l'UE peut encore contenir, ou le seuil d'une riposte collective (article 4 ou 5 du traité de l'OTAN) est-il en train d'être franchi ? L'issue est ouverte car les preuves formelles d'implication étatique russe restent difficiles à établir juridiquement, certains États membres refusent l'escalade, tandis que d'autres (Pays baltes, Pologne) réclament des sanctions lourdes. Pour un lecteur français, l'enjeu est la sécurité du territoire national et la crédibilité de la dissuasion européenne.",
+          "angle": null,
+          "a_verifier": "Nombre précis d'incidents de sabotage attribués à la Russie en Europe depuis janvier 2026 ; position officielle de l'Élysée sur l'invocation de l'article 4.",
+          "mots_cles": [
+            "Kaliningrad",
+            "guerre hybride",
+            "sabotage Europe",
+            "OTAN article 4",
+            "armes nucléaires tactiques",
+            "Mark Rutte",
+            "hybrid warfare",
+            "Russian sabotage"
+          ],
+          "scenarios": {
+            "favorable": "L'UE et l'OTAN attribuent publiquement les sabotages à la Russie, imposent un paquet de sanctions ciblées (secteur énergie, oligarques, services de renseignement) et renforcent la protection des infrastructures critiques sans déclencher l'article 5. Moscou recule pour éviter l'isolement total.",
+            "stable": "Les incidents se poursuivent à bas bruit. Les Européens durcissent la résilience (cyber, physique, renseignement) mais évitent l'attribution formelle pour ne pas devoir riposter. La guerre hybride devient un « nouveau normal » géré par les services, avec des pics de tension gérables.",
+            "degrade": "Un sabotage majeur (réseau électrique, hôpital, transport) fait des victimes civiles. Un État membre invoque l'article 4, la Russie nie et menace. L'OTAN se divise sur la riposte. L'escalade verbale glisse vers un incident militaire (tir sur drone, interception navale en Baltique), faisant basculer la crise en confrontation ouverte."
+          },
+          "echeance": {
+            "date": "2026-10-15",
+            "raison": "Réunion des ministres de la Défense de l'OTAN à Bruxelles (prévue mi-octobre) où le dossier hybride sera à l'ordre du jour."
+          },
+          "sources": [
+            {
+              "titre": "L'enclave de Kaliningrad au cœur de nouvelles tensions entre la Russie et l'Otan – L'Express",
+              "url": "https://www.lexpress.fr/monde/europe/lenclave-de-kaliningrad-au-coeur-de-nouvelles-tensions-entre-la-russie-et-lotan-A6YCCYRR2JBH3C4UHKLESV4JZE/"
+            },
+            {
+              "titre": "La Russie menace l'OTAN d'utiliser des armes nucléaires, une première depuis la Guerre froide",
+              "url": "https://www.cnews.fr/monde/2026-10-01/la-russie-menace-lotan-dutiliser-des-armes-nucleaires-une-premiere-depuis-la"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-10-04 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Repéré en veille sur le registre Géopolitique, remonté ici pour son urgence.",
+          "ajoute_le": "2026-10-04",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
         },
         {
           "type": "sujet",
@@ -454,6 +502,52 @@
         {
           "type": "commentaire",
           "texte": "Registre scindé le 12 août (retour utilisateur) : la géopolitique dure (conflits, diplomatie, États) et l'économie mondiale (marchés, monnaies, dette, matières premières) partageaient jusque-là le même slot du lundi, ce qui tassait deux blocs très différents dans une seule file. L'économie mondiale a sa propre section dimanche (voir plus bas) — la case libérée vient de la fusion des deux jours culture (française + internationale) en un seul, samedi. **Règle de classement pour les sujets à cheval sur les deux** (ex. guerres commerciales, tarifs douaniers) : si l'enjeu central est un rapport de force entre États (qui menace qui, qui négocie quoi) → géopolitique/lundi ; si l'enjeu central est un indicateur chiffré ou un marché (prix, taux, dette, cours) → économie/dimanche. Cas tranchés le 12 août à titre d'exemple : \"Guerre commerciale USA-Chine\" reste ici (framing État contre État, guerre froide) ; \"Droits de douane de Trump\" part en économie (contenu réel = batailles judiciaires et chiffres de recettes tarifaires, pas un rapport de force diplomatique). Les vieilles éditions déjà publiées gardent leur tag d'origine (`geopolitique`), jamais retaggées rétroactivement — voir docs/tags.md."
+        },
+        {
+          "type": "sujet",
+          "id": "geopolitique-ukraine-l-intensification-des-frappes-sur-les",
+          "titre": "Ukraine : l'intensification des frappes sur les raffineries russes peut-elle faire basculer la guerre énergétique ?",
+          "question": null,
+          "tag": "géopolitique & énergie",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Le 3 octobre 2026, Volodymyr Zelensky annonce l'intensification des frappes ukrainiennes sur les raffineries russes (« passer à l'échelle supérieure »), en représailles aux attaques massives de drones russes sur Kiev et les infrastructures énergétiques ukrainiennes. La contre-offensive « Vivaldi » aurait repris 140 km² dans le Donbass. Moscou a appelé les diplomates à quitter Kiev, promettant des « frappes de représailles massives ». Les raffineries russes visées cet été avaient déjà provoqué une crise carburant en Russie.",
+          "rationnel": "La question : l'escalade réciproque sur les infrastructures énergétiques (raffineries russes vs réseau électrique ukrainien) va-t-elle créer un choc pétrolier mondial, forcer la Russie à négocier, ou s'enliser dans une guerre d'usure énergétique sans vainqueur ? L'issue est ouverte car la capacité russe à absorber les pertes de raffinage est incertaine, l'hiver approche côté ukrainien, et les marchés pétroliers sont nerveux. Pour la France, l'enjeu est le prix du carburant, la sécurité d'approvisionnement et le risque d'élargissement du conflit.",
+          "angle": null,
+          "a_verifier": "Capacité de raffinage russe hors service en % ; niveau des stocks stratégiques français ; position de l'OPEP+ sur d'éventuelles hausses de production.",
+          "mots_cles": [
+            "Ukraine raffineries russes",
+            "frappes drones Kiev",
+            "contre-offensive Vivaldi",
+            "crise carburant Russie",
+            "hiver 2026 Ukraine",
+            "marché pétrolier"
+          ],
+          "scenarios": {
+            "favorable": "Les frappes ukrainiennes dégradent durablement l'export russe de produits raffinés, faisant monter le brut. La Russie, sous pression économique et militaire, accepte un cessez-le-feu incluant l'arrêt des frappes sur infrastructures énergétiques des deux côtés.",
+            "stable": "Échanges de coups limités : l'Ukraine frappe 2-3 raffineries par mois, la Russie répond par des vagues de drones sur le réseau ukrainien. Les marchés intègrent une prime de risque de 5-10 $/baril. L'hiver passe sans effondrement majeur grâce aux stocks et aux importations.",
+            "degrade": "La Russie riposte par des frappes massives sur les dernières centrales ukrainiennes et les terminaux gaziers européens (ex. Revithoussa en Grèce). Le Brent dépasse 120 $. L'UE déclenche le mécanisme de solidarité gazière. La France subit des coupures ciblées et une inflation carburant > 2,50 €/L."
+          },
+          "echeance": {
+            "date": "2026-11-01",
+            "raison": "Début de la saison de chauffage en Europe ; réunion OPEP+ début novembre."
+          },
+          "sources": [
+            {
+              "titre": "Guerre en Ukraine : \"Nous devrons passer à l'échelle supérieure\"… L'Ukraine va intensifier ses frappes sur les raffineries russes",
+              "url": "https://www.lindependant.fr/2026/10/03/guerre-en-ukraine-nous-devrons-passer-a-lechelle-superieure-lukraine-va-intensifier-ses-frappes-sur-les-raffineries-russes-annonce-zelensky-13582396.php"
+            },
+            {
+              "titre": "La Russie appelle les diplomates et étrangers à quitter Kiev, ciblée à répétition",
+              "url": "https://www.lequotidien.re/article/national-et-international/2026/10/03/la-russie-appelle-les-diplomates-et-etrangers-a-quitter-kiev-ciblee-a-repetition-doc-d2649t4"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-10-04 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "ajoute_le": "2026-10-04",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
         },
         {
           "type": "sujet",
@@ -1883,6 +1977,54 @@
       "entrees": [
         {
           "type": "sujet",
+          "id": "actualite-francaise-budget-culture-2027-le-spectacle-vivant-peut-il",
+          "titre": "Budget culture 2027 : le spectacle vivant peut-il survivre à une baisse de 4 % des crédits à la création ?",
+          "question": null,
+          "tag": "culture & budget",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Le 2 octobre 2026, le PLF 2027 prévoit une baisse de 0,6 % du budget global de la Culture (–1,6 % hors annulations en cours d'année), mais de 4 % pour le volet création. La ministre Catherine Pégard promet d'amortir l'impact « au cas par cas ». Pourtant, 28 scènes nationales, théâtres et opéras n'ont toujours pas reçu 13 % de leur subvention 2026 (ex. 233 000 € pour la MAC de Créteil, 600 000 € pour Nanterre-Amandiers). Le Syndeac alerte sur un « démantèlement progressif du service public de la culture sur les territoires ».",
+          "rationnel": "La question : face à des subventions 2026 encore impayées et une coupe 2027 structurelle, le réseau du spectacle vivant public (scènes nationales, CDN, pôles cirque, compagnies conventionnées) va-t-il réduire la voilure (moins de créations, moins de tournée, suppressions de postes) ou l'État débloquera-t-il in extremis des fonds d'urgence ? L'issue est ouverte car le gouvernement assume l'effort budgétaire, mais la mobilisation du Festival d'Avignon a déjà obtenu un recul partiel en 2026 ; la trésorerie des structures est exsangue (salaires versés en retard). Pour un lecteur français, c'est l'accès à la culture de proximité qui est en jeu.",
+          "angle": null,
+          "a_verifier": "Montant exact des reports de paiement 2026 par structure ; calendrier de vote des crédits culture à l'Assemblée (semaine du 13 octobre).",
+          "mots_cles": [
+            "budget culture 2027",
+            "spectacle vivant",
+            "subventions impayées 2026",
+            "Syndeac",
+            "scènes nationales",
+            "CDN",
+            "Catherine Pégard",
+            "PLF 2027 création"
+          ],
+          "scenarios": {
+            "favorable": "Le gouvernement accepte un amendement transpartisan (PS, LR, écologistes) rétablissant 50-80 M€ pour la création via le fonds de réserve. Les subventions 2026 sont versées avant fin octobre. Le réseau tient.",
+            "stable": "L'État verse les arriérés 2026 au compte-gouttes (novembre-décembre). Les structures gèlent les créations 2027, réduisent l'action culturelle, ne renouvellent pas les CDD. Le maillage territorial s'effiloche sans rupture brutale.",
+            "degrade": "Plusieurs scènes nationales (Créteil, Nanterre, Châlons) déposent le bilan ou demandent la procédure de redressement. L'État refuse tout complément. Le Syndeac appelle à la grève générale du spectacle public. Des festivals 2027 sont annulés."
+          },
+          "echeance": {
+            "date": "2026-10-20",
+            "raison": "Examen des crédits culture en commission des finances puis en séance (semaine du 20 octobre)."
+          },
+          "sources": [
+            {
+              "titre": "Le budget de la culture en baisse de 0,6 % dans le projet de loi de finances 2027 – Le Monde",
+              "url": "https://www.lemonde.fr/culture/article/2026/10/02/le-budget-de-la-culture-en-baisse-de-0-6-dans-le-projet-de-loi-de-finances-2027_6787141_3246.html"
+            },
+            {
+              "titre": "Budget de la culture : déjà à l'os, le spectacle vivant s'inquiète pour la survie de ses missions – Télérama",
+              "url": "https://www.telerama.fr/debats-reportages/budget-de-la-culture-deja-a-l-os-le-spectacle-vivant-s-inquiete-pour-la-survie-de-ses-missions-7033203.php"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-10-04 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "ajoute_le": "2026-10-04",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
+        },
+        {
+          "type": "sujet",
           "id": "actualite-francaise-carburants-a-prix-record-et-menaces-hybrides",
           "titre": "Carburants à prix record et menaces hybrides : Macron réunit les candidats à l'Élysée — le gouvernement peut-il éviter l'explosion sociale cet automne ?",
           "question": null,
@@ -2882,6 +3024,98 @@
       "titre": "Sciences — vendredi (climat & écologie, espace, IA, médecine, énergie…)",
       "jour": "vendredi",
       "entrees": [
+        {
+          "type": "sujet",
+          "id": "sciences-un-scientifique-ia-autonome-concoit-et-mene-ses",
+          "titre": "Un « scientifique IA » autonome conçoit et mène ses propres expériences : la recherche va-t-elle s'accélérer ou s'emballer ?",
+          "question": null,
+          "tag": "IA & recherche",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Le 2 octobre 2026, des chercheurs de l'université de Göteborg (Suède) publient un système d'IA en boucle fermée combinant plusieurs LLM, bases de données et robots de laboratoire physiques. L'IA a analysé 60 000 relations biologiques sur la levure, formulé 2 000 hypothèses testables, conçu les protocoles, piloté les robots, analysé les résultats et mis à jour ses hypothèses — avec une intervention humaine minimale. L'OMS publie simultanément des recommandations pour une recherche en santé par IA « responsable et au bénéfice de tous ».",
+          "rationnel": "La question : l'automatisation complète du cycle scientifique (hypothèse → expérience → interprétation) va-t-elle multiplier les découvertes biomédicales (médicaments, thérapies géniques, bioproduction) ou créer une « science noire » non reproductible, non compréhensible par l'humain, et potentiellement dangereuse si elle s'applique à des pathogènes ou à l'environnement ? L'issue est ouverte car la reproductibilité, la traçabilité éthique et la responsabilité légale ne sont pas résolues. Pour la France (biotech, Sanofi, Institut Pasteur, CEA), l'enjeu est la souveraineté scientifique et la régulation.",
+          "angle": null,
+          "a_verifier": "Nombre de laboratoires français (CEA, Inserm, CNRS, privés) testant des boucles fermées IA-robotique ; position de l'ANSES/ANSM sur la validation de molécules découvertes par IA ; budget national IA pour la recherche 2027.",
+          "mots_cles": [
+            "IA scientifique autonome",
+            "closed-loop science",
+            "robot scientist",
+            "Göteborg AI scientist",
+            "OMS IA santé",
+            "reproductibilité",
+            "biologie synthétique",
+            "AI-driven discovery"
+          ],
+          "scenarios": {
+            "favorable": "L'IA scientifique devient un « co-pilote » standard : les laboratoires français l'adoptent pour le criblage massif, la chimie médicinale, la bioproduction. 2-3 candidats médicaments IA entrent en clinique en 2027. L'Europe pose des garde-fous (traçabilité, humain dans la boucle) copiés mondialement.",
+            "stable": "Adoption lente, limitée aux tâches répétitives (criblage, optimisation de souches). Les grandes découvertes restent humaines. L'IA accélère de 20-30 % mais ne change pas la nature de la science. Régulation au cas par cas.",
+            "degrade": "Une IA autonome génère une souche pathogène ou un composé toxique qui s'échappe (erreur de confinement). Ou des milliers d'articles « IA-generated » inondent la littérature, brisant la relecture par les pairs. Moratoire international. Perte de confiance dans la science."
+          },
+          "echeance": {
+            "date": "2026-12-31",
+            "raison": "Échéance du plan national IA (deuxième phase) et de la loi européenne AI Act (entrées en vigueur progressives)."
+          },
+          "sources": [
+            {
+              "titre": "Des chercheurs suédois créent un scientifique IA qui conçoit et mène ses propres expériences – Euronews",
+              "url": "https://fr.euronews.com/2026/10/02/des-chercheurs-suedois-creent-un-scientifique-ia-qui-concoit-et-mene-ses-propres-experienc"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-10-04 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "ajoute_le": "2026-10-04",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
+        },
+        {
+          "type": "sujet",
+          "id": "sciences-google-lance-project-suncatcher-les-centres-de",
+          "titre": "Google lance « Project Suncatcher » : les centres de données d'IA vont-ils migrer dans l'espace ?",
+          "question": null,
+          "tag": "IA & espace",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Le 1er octobre 2026, Google place en orbite (mission SpaceX Transporter-18) un satellite prototype embarquant ses puces TPU (Tensor Processing Units) pour tester le calcul d'IA dans l'espace. L'idée : en orbite basse, l'ensoleillement quasi constant fournit 8 fois plus d'énergie solaire qu'au sol, sans contrainte foncière ni refroidissement à l'eau. Le projet vise à évaluer la résistance aux radiations, au vide et aux cycles thermiques. La consommation électrique des centres de données IA double tous les 3-4 mois.",
+          "rationnel": "La question : l'infrastructure d'IA à grande échelle va-t-elle partiellement quitter la Terre pour l'orbite basse d'ici 2030, résolvant la crise énergétique et foncière des data centers, ou les coûts de lancement, la maintenance impossible, la latence et le droit spatial (traité de 1967) en feront-ils une impasse ? L'issue est ouverte car Starship (SpaceX) promet de diviser par 10-20 le coût au kg, mais la fiabilité matérielle en orbite (radiations, débris) n'est pas prouvée à l'échelle. Pour la France (CNES, Thales, OVHcloud, Mistral), l'enjeu est de ne pas rater le virage de l'IA souveraine décentralisée.",
+          "angle": null,
+          "a_verifier": "Coût actuel au kg vers LEO (Starship vs Falcon 9) ; consommation électrique projetée des data centers IA France 2030 ; position du CNES et de l'ESA sur l'hébergement de charges utiles commerciales IA.",
+          "mots_cles": [
+            "Project Suncatcher Google",
+            "TPU espace",
+            "centres de données orbitaux",
+            "SpaceX Transporter-18",
+            "énergie solaire orbitale",
+            "latence orbite basse",
+            "droit spatial 1967",
+            "IA souveraine France"
+          ],
+          "scenarios": {
+            "favorable": "Starship opérationnel (coût < 500 $/kg). Google/Microsoft/Amazon déploient des constellations de 100-500 satellites TPU d'ici 2030. La France (via ESA/CNES) héberge un nœud européen. L'empreinte carbone des data centers chute de 40 %.",
+            "stable": "Prototypes réussis mais coûts de lancement encore > 2 000 $/kg. Seules charges critiques (entraînement fondation, inférence temps réel militaire) migrent. Majorité du calcul reste au sol (nucléaire, hydrogène, efficacité).",
+            "degrade": "Échecs en série (radiations, débris, surchauffe). Coûts 10x supérieurs aux prévisions. Traité de l'espace révisé pour interdire les « data centers militaires ». Investissements perdus. Retard de 5 ans sur l'IA souveraine européenne."
+          },
+          "echeance": {
+            "date": "2027-06-01",
+            "raison": "Premier vol orbital Starship avec charge utile commerciale lourde (jalon pour la faisabilité économique)."
+          },
+          "sources": [
+            {
+              "titre": "Google teste l'avenir des centres de données d'IA dans l'espace – Euronews",
+              "url": "https://fr.euronews.com/2026/10/02/google-teste-lavenir-des-centres-de-donnees-dia-dans-lespace"
+            },
+            {
+              "titre": "Le futur des centres de données d'IA est-il dans l'espace ? Google veut le savoir – Euronews",
+              "url": "https://fr.euronews.com/2026/10/02/le-futur-des-centres-de-donnees-dia-est-il-dans-lespace-google-veut-le-savoir"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-10-04 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "ajoute_le": "2026-10-04",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
+        },
         {
           "type": "sujet",
           "id": "sciences-le-grand-filtre-la-barriere-qui-expliquerait-le",
@@ -5077,6 +5311,100 @@
         {
           "type": "commentaire",
           "texte": "Faire tourner les sous-thèmes : marchés financiers, monnaies (dollar, or, bitcoin), dette et taux d'intérêt, matières premières (pétrole, énergie), entreprises et secteurs à l'échelle mondiale, inégalités, démographie économique, luxe et consommation… Nouveau registre créé le 12 août (retour utilisateur), scindé de l'ancien slot \"Géopolitique / international — lundi\" qui mélangeait géopolitique dure et économie mondiale — voir la note dans la section Géopolitique — lundi pour la règle de classement des sujets à cheval sur les deux."
+        },
+        {
+          "type": "sujet",
+          "id": "economie-bce-les-marches-parient-sur-trois-hausses-de",
+          "titre": "BCE : les marchés parient sur trois hausses de taux d'ici fin 2027 — l'inflation est-elle vraiment revenue ?",
+          "question": null,
+          "tag": "économie & finance",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Le 1er octobre 2026, au lendemain de la présentation du budget français, les rendements obligataires européens enregistrent leur plus forte hausse trimestrielle depuis 2022. Le Bund à 10 ans atteint 3,65 % (plus haut depuis 2009). Les marchés monétaires intègrent un taux de dépôt BCE à 2,81 % d'ici décembre 2026 (+25 pb) et 3,42 % fin 2027, soit trois hausses anticipées. L'inflation française est révisée à 2,5 % pour 2026 (Banque de France, juin). La crise énergétique (pétrole, gaz) et les dépenses indexées (retraites, obligations indexées) alimentent la boucle prix-salaires.",
+          "rationnel": "La question : la BCE, qui a baissé ses taux en 2024-2025, va-t-elle devoir les relever durablement, plongeant la zone euro en récession, ou l'inflation va-t-elle refluer assez vite pour permettre une pause ? L'issue est ouverte car les chocs d'offre (énergie, chaîne d'approvisionnement) sont exogènes, la transmission monétaire opère avec 12-18 mois de décalage, et les gouvernements (dont la France) lancent des plans d'austérité qui pèsent sur la croissance. Pour un lecteur français : taux du crédit immobilier, coût de la dette publique, pouvoir d'achat.",
+          "angle": null,
+          "a_verifier": "Prochaines projections macroéconomiques BCE (décembre 2026) ; évolution du prix du gaz TTF et du Brent d'ici fin 2026 ; taux de marge des banques françaises sur crédits immobiliers.",
+          "mots_cles": [
+            "BCE taux dépôt 2027",
+            "inflation zone euro 2026",
+            "Bund 10 ans 3,65%",
+            "choc pétrolier 2026",
+            "transmission monétaire",
+            "récession zone euro",
+            "ECB rate hikes"
+          ],
+          "scenarios": {
+            "favorable": "L'inflation core reflue vite (effet de base + baisse énergie). La BCE relève une fois en décembre 2026 puis fait pause. Le crédit immobilier se redresse. La France tient son déficit 5 %.",
+            "stable": "Trois hausses de 25 pb d'ici fin 2027 (déc. 2026, mars 2027, sept. 2027). Croissance zone euro atone (0,5-0,8 %). Taux crédit immo 4,5-5 %. Déficit français tenu de justesse. Stagnation prolongée.",
+            "degrade": "Inflation réaccélère (gaz > 60 €/MWh, pétrole > 100 $). BCE relève 4-5 fois. Récession technique zone euro (deux trimestres négatifs). Déficit français dérape > 5,5 %. Dégradation note France. Crédit immobilier < 100 Md€/an."
+          },
+          "echeance": {
+            "date": "2026-12-10",
+            "raison": "Réunion BCE de décembre 2026 (décision de taux + nouvelles projections)."
+          },
+          "sources": [
+            {
+              "titre": "TAUX-Les rendements obligataires se tendent, l'OAT à un sommet depuis 2002 – Boursorama",
+              "url": "https://www.boursorama.com/bourse/actualites/taux-les-rendements-obligataires-se-tendent-l-oat-a-un-sommet-depuis-2002-actualise-835a60194a63a23aa7d9d0789e330791"
+            },
+            {
+              "titre": "Financial stability report - June 2026 – Banque de France",
+              "url": "https://www.banque-france.fr/en/publications-and-statistics/publications/financial-stability-report-june-2026"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-10-04 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "ajoute_le": "2026-10-04",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
+        },
+        {
+          "type": "sujet",
+          "id": "economie-france-340-md-d-emissions-d-oat-en-2027-un",
+          "titre": "France : 340 Md€ d'émissions d'OAT en 2027, un record — le marché peut-il absorber sans crise ?",
+          "question": null,
+          "tag": "économie & finance",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "L'Agence France Trésor a annoncé fin septembre 2026 un programme d'émissions 2027 de 340 Md€ d'OAT à moyen et long terme, niveau inédit. Le stock de dette atteint 3 596 Md€ (119 % du PIB) fin juin 2026. Le spread OAT/Bund dépasse 130 pb (plus haut depuis 2012). L'OAT 10 ans frôle 5 %. Les fonds de pension et assureurs, traditionnels acheteurs, réduisent leur exposition zone euro. Les hedge funds sont très actifs sur le repo OAT.",
+          "rationnel": "La question : le marché primaire et secondaire des OAT peut-il digérer 340 Md€ de nouvelle dette en 2027 sans dislocation (enchères sous-couvertes, volatilité extrême, intervention BCE) ? L'issue est ouverte car la demande naturelle (assureurs, banques, BC) est contrainte par la réglementation (Solvabilité II, Bâle III) et la perte de rendement réel. La BCE a cessé ses achats nets (PEPP, APP). Pour un Français : taux du crédit, fiscalité future, risque de « faire faillite » silencieuse de l'État.",
+          "angle": null,
+          "a_verifier": "Calendrier précis des adjudications 2027 (syndications vs adjudications) ; part des non-résidents dans le carnet d'ordres récents ; capacité d'absorption des assureurs français (CNP, Crédit Agricole Assurances, etc.).",
+          "mots_cles": [
+            "AFT émissions 2027 340 Md€",
+            "OAT 10 ans 5%",
+            "spread OAT Bund 130 pb",
+            "dette 119% PIB",
+            "hedge funds repo OAT",
+            "Solvabilité II assureurs",
+            "quantitative tightening BCE"
+          ],
+          "scenarios": {
+            "favorable": "Demande forte des non-résidents (réserve de change, diversification) et des assureurs (nouveaux flux épargne). Enchères couvertes 2,5x. Spread stabilisé 110-120 pb. Pas d'intervention BCE.",
+            "stable": "Émissions réalisées mais avec primes de risque élevées (couverture 1,5-1,8x). Volatilité intraday forte. BCE maintient le TPI (Transmission Protection Instrument) en arrière-plan. Coût moyen de la dette France > 3,5 %.",
+            "degrade": "Une adjudication 30 ans est sous-couverte (couverture < 1,2x). Panique sur le secondaire. Spread > 200 pb. BCE active le TPI avec conditionnalité (surveillance budgétaire renforcée). Crise de confiance politique."
+          },
+          "echeance": {
+            "date": "2027-01-05",
+            "raison": "Première adjudication OAT 2027 (généralement premier jeudi de janvier)."
+          },
+          "sources": [
+            {
+              "titre": "TAUX-Les rendements obligataires se tendent, l'OAT à un sommet depuis 2002 – Boursorama",
+              "url": "https://www.boursorama.com/bourse/actualites/taux-les-rendements-obligataires-se-tendent-l-oat-a-un-sommet-depuis-2002-actualise-835a60194a63a23aa7d9d0789e330791"
+            },
+            {
+              "titre": "Dette : l'OAT 10 ans français au plus haut depuis 24 ans – NLTO",
+              "url": "https://www.nlto.fr/dette-loat-10-ans-francais-au-plus-haut-depuis-24-ans/"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-10-04 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "ajoute_le": "2026-10-04",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
         },
         {
           "type": "sujet",
