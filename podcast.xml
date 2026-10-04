@@ -27,6 +27,17 @@
       <itunes:image href="https://lesscenarios.fr/podcast/episodes/2026-10-04.jpg"/>
     </item>
     <item>
+      <title>Culture : la viralité organique est-elle une illusion algorithmique ?</title>
+      <link>https://lesscenarios.fr/archives/2026-10-03.html</link>
+      <guid isPermaLink="false">scenario-podcast-2026-10-03</guid>
+      <pubDate>Sat, 03 Oct 2026 07:00:00 +0000</pubDate>
+      <description>Culture : la viralité organique est-elle une illusion algorithmique ? Épisode lu par une voix de synthèse (intelligence artificielle), à partir de l'édition du 2026-10-03. Version écrite : https://lesscenarios.fr/archives/2026-10-03.html</description>
+      <enclosure url="https://github.com/loliba92/Scenario/releases/download/podcast-2026-10-03/2026-10-03-0919.mp3" length="2996397" type="audio/mpeg"/>
+      <itunes:duration>00:04:09</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://lesscenarios.fr/podcast/episodes/2026-10-03.jpg"/>
+    </item>
+    <item>
       <title>Dépistage du cancer du sein : le modèle va-t-il basculer ?</title>
       <link>https://lesscenarios.fr/archives/2026-10-02.html</link>
       <guid isPermaLink="false">scenario-podcast-2026-10-02</guid>
