@@ -1259,6 +1259,9 @@ MATIERE_ICONS = {
 }
 
 
+MATIERE_SHORT = {"economie-entreprises": "Économie", "politique-institutions": "Politique", "international": "International", "sciences-environnement": "Sciences", "tech-numerique": "Tech", "culture-divertissement": "Culture", "sport": "Sport"}
+
+
 def build_matieres_section():
     """Rangée de pastilles « Par matière » sous le hero de l'accueil : seul
     chemin visible vers themes/*.html (avant, elles n'étaient reliées que
@@ -1266,9 +1269,9 @@ def build_matieres_section():
     L'ancre #matieres est aussi la cible du lien « Matières » du menu."""
     icons = MATIERE_ICONS
     chips = "\n".join(
-        f'      <li><a class="matiere-tile" href="themes/{slug}.html"><svg viewBox="0 0 24 24" fill="none" '
+        f'      <li><a class="matiere-tile" href="themes/{slug}.html" title="{label.replace("&", "&amp;")}"><svg viewBox="0 0 24 24" fill="none" '
         f'stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
-        f'{icons[slug]}</svg><span>{label.replace("&", "&amp;")}</span></a></li>'
+        f'{icons[slug]}</svg>{MATIERE_SHORT[slug]}</a></li>'
         for slug, label in THEME_SLUG_LABELS.items()
     )
     return f"""
