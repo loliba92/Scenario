@@ -16,8 +16,9 @@ import generate_podcast as gp  # noqa: E402
 
 MOTS_MIN, MOTS_MAX = 420, 720  # 3 à 5 minutes de lecture
 SEPARATEUR = "---"
-OUVERTURE = ("Bienvenue sur Scénario. Chaque jour, une actualité, une question, "
-             "et trois façons dont les choses peuvent tourner. On y va !")
+MOTS_PHRASE_MAX, MOTS_PHRASE_MOYENNE = 32, 20   # pédagogie : phrases courtes à l'oral (textes validés : moyenne 13-15, maximum 28)
+OUVERTURE = ("Bienvenue sur Scénario. Chaque jour, une question d'actualité, "
+             "et trois évolutions possibles. On y va !")
 FERMETURE = "Voilà pour aujourd'hui. L'édition complète est sur lesscenarios.fr. À demain, pour un nouveau scénario."
 EXEMPLE = (Path(__file__).resolve().parents[2] / "podcast" / "textes" / "2026-10-03.txt")
 
@@ -30,6 +31,13 @@ def construire_prompt(ed: dict, remarques: list[str] | None = None) -> str:
 RÈGLES ABSOLUES
 - N'ajoute AUCUN fait, chiffre, nom, date ni exemple qui ne figure pas dans l'article.
 - Registre : décontracté mais jamais péjoratif, ni vulgaire, ni moqueur envers des personnes, des équipes, des pays ou des groupes. Aucun gros mot, aucun mot familier agressif ou dévalorisant (pas de « gueule », « merde », « débile », « nul », « pourri », etc.). Reste bienveillant et nuancé.
+- PÉDAGOGIE (règle d'or : l'auditeur ne connaît pas le sujet et ne peut pas revenir en arrière) :
+  · une idée par phrase, des phrases de 15 mots en moyenne, jamais plus de 25 ;
+  · chaque sigle, institution ou terme technique est expliqué en quelques mots dès sa première apparition (« le Top 14, le championnat français de rugby ») ;
+  · pas de mots abstraits (« dynamique », « enjeux », « paradigme », « gouvernance », « trajectoire ») : dis ce qu'ils désignent ;
+  · les trois scénarios s'appellent « évolutions » : « première évolution possible », « deuxième », « troisième », chacune annoncée par une phrase simple avant son détail ;
+  · après une partie dense, une phrase qui redit l'idée en mots simples (« Autrement dit… »), sans répéter les chiffres ;
+  · une comparaison ou un exemple concret par grande partie quand l'article en fournit un (jamais inventé).
 - Du langage parlé : phrases courtes, tournures naturelles, pas de liste, pas de Markdown, pas d'adresse web.
 - Pas de tableau d'indicateurs : ne récite pas les indicateurs chiffrés des scénarios. Garde peu de chiffres : ceux qui font comprendre le sujet, et les probabilités des scénarios, TOUJOURS dites en fractions parlées : « une chance sur quatre » pour 25 %, « une chance sur deux » pour 50 %, « trois chances sur quatre » pour 75 %, « une chance sur trois », « une chance sur cinq », « une chance sur dix ». JAMAIS « pour cent » ni le signe %, même si l'article donne des pourcentages ; arrondis à la fraction la plus proche.
 - Ne dis jamais « selon l'article », ne parle ni de toi ni de l'intelligence artificielle. Pas de « bonjour » ni de « bienvenue » ni d'au revoir : commence directement par la question, le script ajoute la fermeture.
@@ -38,7 +46,7 @@ STRUCTURE (entre {MOTS_MIN} et {MOTS_MAX} mots, soit 3 à 5 minutes)
 1. La question du jour, en une ou deux phrases.
 2. Ce que l'on sait : les faits qui posent la question, avec un ou deux exemples concrets.
 3. Le fond du problème : à quoi cherche-t-on à répondre, et pourquoi la réponse n'est pas évidente.
-4. Les trois scénarios, un par un, dans l'ensemble : le plus optimiste (favorable), le plus probable (stable, dis-le clairement), le plus sombre (dégradé), chacun avec sa probabilité et l'idée centrale, sans détail chiffré.
+4. Les trois évolutions possibles (les scénarios), une par une, dans l'ensemble : le plus optimiste (favorable), le plus probable (stable, dis-le clairement), le plus sombre (dégradé), chacun avec sa probabilité et l'idée centrale, sans détail chiffré.
 5. L'impact pour la France, en deux ou trois phrases.
 6. Ce qu'on surveillera pour savoir lequel se réalise.
 
@@ -80,6 +88,13 @@ def verifier(texte: str, source: str) -> list[str]:
             break
     if re.search(MOTS_INTERDITS, texte, re.I):
         problemes.append("registre : aucun mot vulgaire ni péjoratif")
+    phrases = [p for p in re.split(r"(?<=[.!?;:])\s+|\n+", texte) if len(p.split()) > 2]
+    if phrases:
+        trop_longues = [p for p in phrases if len(p.split()) > MOTS_PHRASE_MAX]
+        moyenne = sum(len(p.split()) for p in phrases) / len(phrases)
+        if trop_longues or moyenne > MOTS_PHRASE_MOYENNE:
+            problemes.append(f"phrases trop longues pour l'oral (maximum {MOTS_PHRASE_MAX} mots, moyenne {MOTS_PHRASE_MOYENNE} ; "
+                             f"{len(trop_longues)} trop longue(s), moyenne actuelle {moyenne:.0f}) : une idée par phrase")
     if re.search(r"indicateurs?", texte, re.I):
         problemes.append("ne parle pas des indicateurs")
     connus = gp.nombres(source)
