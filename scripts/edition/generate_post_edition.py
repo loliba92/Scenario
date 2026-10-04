@@ -111,6 +111,7 @@ DOMAIN_LABELS = {
     "sciences-environnement": "Sciences & environnement",
     "tech-numerique": "Tech & numérique",
     "culture-divertissement": "Culture & divertissement",
+    "sport": "Sport",
 }
 CARD_EMOJI = {"favorable": "🟢", "stable": "🔵", "degrade": "🔴"}
 # Approximation Europe/Paris (CEST, UTC+2) — même limite que le reste du

@@ -21,7 +21,7 @@ class Matieres(unittest.TestCase):
         self.assertNotIn("archives/2026-09-28.html", h)
 
     def test_domaine_sans_page_theme_donne_rien(self):
-        self.assertEqual(b.build_theme_more({"sujet": {"domain": "sport"}}, "2026-10-05"), "")
+        self.assertEqual(b.build_theme_more({"sujet": {"domain": "inconnu"}}, "2026-10-05"), "")
         self.assertEqual(b.build_theme_more({}, "2026-10-05"), "")
 
 

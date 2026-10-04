@@ -1182,6 +1182,7 @@ DOMAIN_THEME_SLUGS = {
     "Politique Institutions": "politique-institutions",
     "Sciences": "sciences-environnement",
     "Tech Numerique": "tech-numerique",
+    "Sport": "sport",
 }
 
 # Même 6 pages thèmes que DOMAIN_THEME_SLUGS ci-dessus, mais keyée sur le
@@ -1203,6 +1204,7 @@ THEME_SLUG_LABELS = {
     "sciences-environnement": "Sciences & environnement",
     "tech-numerique": "Tech & numérique",
     "culture-divertissement": "Culture & divertissement",
+    "sport": "Sport",
 }
 
 
