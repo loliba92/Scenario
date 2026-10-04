@@ -58,7 +58,7 @@ jobs:
 
       - name: Installer les dépendances
         run: |
-          pip install beautifulsoup4
+          pip install beautifulsoup4 pillow
           command -v ffmpeg >/dev/null || { sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg; }
 
       - name: Choisir l'édition
@@ -149,6 +149,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add podcast.xml data/podcast-episodes.json
+          if [ -d podcast/episodes ]; then git add podcast/episodes; fi
           git commit -m "Podcast : épisode du $DATE ajouté au flux"
           for i in 1 2 3 4 5; do
             git pull --rebase origin main && git push origin HEAD:main && exit 0

@@ -19,6 +19,8 @@ from xml.sax.saxutils import escape
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 EPISODES = ROOT / "data" / "podcast-episodes.json"
+DIR_IMAGES = ROOT / "podcast" / "episodes"                 # pochettes d'épisode publiées : podcast/episodes/AAAA-MM-JJ.jpg
+DIR_PHOTOS = ROOT / "assets" / "social" / "topic-images"   # image carrée de chaque édition (1080 px)
 FLUX = ROOT / "podcast.xml"
 SITE = "https://lesscenarios.fr"
 EMAIL = "contact@lesscenarios.fr"  # adresse publique du flux : Spotify y envoie le code de vérification
@@ -36,6 +38,33 @@ def charger():
     return []
 
 
+def preparer_image(date_iso, dir_images=None, dir_photos=None):
+    """Pochette de l'épisode : l'image carrée de l'édition, mise à 1400 x 1400 px (minimum de Spotify), JPEG de moins
+    de 500 Ko. Retourne le chemin du fichier, ou None s'il n'y a pas d'image à utiliser."""
+    dir_images = Path(dir_images or DIR_IMAGES)
+    dir_photos = Path(dir_photos or DIR_PHOTOS)
+    cible = dir_images / f"{date_iso}.jpg"
+    if cible.exists():
+        return cible
+    source = dir_photos / f"{date_iso}.jpg"
+    if not source.exists():
+        return None
+    try:
+        from PIL import Image
+    except ImportError:
+        return None
+    im = Image.open(source).convert("RGB")
+    c = min(im.size)  # recadrage carré centré si l'image ne l'est pas
+    im = im.crop(((im.width - c) // 2, (im.height - c) // 2, (im.width - c) // 2 + c, (im.height - c) // 2 + c))
+    im = im.resize((1400, 1400), Image.LANCZOS)
+    dir_images.mkdir(parents=True, exist_ok=True)
+    for qualite in (88, 82, 76, 70):
+        im.save(cible, "JPEG", quality=qualite, optimize=True)
+        if cible.stat().st_size <= 500_000:
+            break
+    return cible
+
+
 def duree(s):
     s = int(s)
     return f"{s // 3600:02d}:{s % 3600 // 60:02d}:{s % 60:02d}"
@@ -46,7 +75,7 @@ def rfc822(date_iso):
     return format_datetime(d)
 
 
-def construire(episodes, email=""):
+def construire(episodes, email="", dir_images=None):
     eps = sorted(episodes, key=lambda e: e["date"], reverse=True)
     out = ['<?xml version="1.0" encoding="UTF-8"?>',
            '<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" '
@@ -65,6 +94,7 @@ def construire(episodes, email=""):
     if email:
         out += ["    <itunes:owner>", "      <itunes:name>Scénario</itunes:name>",
                 f"      <itunes:email>{escape(email)}</itunes:email>", "    </itunes:owner>"]
+    dir_images = Path(dir_images or DIR_IMAGES)
     for e in eps:
         lien = f"{SITE}/archives/{e['date']}.html"
         out += ["    <item>",
@@ -75,8 +105,10 @@ def construire(episodes, email=""):
                 f"      <description>{escape(e['description'])}</description>",
                 f'      <enclosure url="{escape(e["url"])}" length="{int(e["taille"])}" type="audio/mpeg"/>',
                 f"      <itunes:duration>{duree(e['duree'])}</itunes:duration>",
-                "      <itunes:explicit>false</itunes:explicit>",
-                "    </item>"]
+                "      <itunes:explicit>false</itunes:explicit>"]
+        if (dir_images / f"{e['date']}.jpg").exists():
+            out.append(f'      <itunes:image href="{SITE}/podcast/episodes/{e["date"]}.jpg"/>')
+        out += ["    </item>"]
     out += ["  </channel>", "</rss>", ""]
     return "\n".join(out)
 
@@ -101,6 +133,8 @@ def main(argv=None):
                     "url": args.url, "taille": args.taille, "duree": args.duree})
         EPISODES.write_text(json.dumps(sorted(eps, key=lambda e: e["date"]), ensure_ascii=False, indent=1) + "\n",
                             encoding="utf-8")
+    for e in eps:
+        preparer_image(e["date"])
     FLUX.write_text(construire(eps, args.email), encoding="utf-8")
     print(f"podcast.xml : {len(eps)} épisode(s)")
     return 0
