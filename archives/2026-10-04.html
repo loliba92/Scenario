@@ -665,8 +665,8 @@
   .share-inline{
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
+    flex-wrap: nowrap;   /* toutes les icônes sur une seule ligne (retour de l'éditeur, 4 octobre 2026) */
+    gap: 6px;
     margin: 0 0 22px;
   }
 
@@ -674,6 +674,7 @@
     font-size: 0.8rem;
     color: var(--paper-dim);
     margin-right: 2px;
+    white-space: nowrap;
   }
 
   .share-inline a,
@@ -681,8 +682,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
+    flex: none;
     color: var(--gold);
     background: none;
     border: 1px solid var(--hairline);
@@ -695,6 +697,10 @@
 
   .share-inline a svg,
   .share-inline button svg{ width: 15px; height: 15px; }
+  @media (max-width: 370px){
+    .share-inline{ gap: 4px; }
+    .share-inline a, .share-inline button{ width: 26px; height: 26px; }
+  }
 
   .share-inline a:hover,
   .share-inline button:hover{ color: var(--paper); border-color: var(--paper-dim); }
@@ -2831,6 +2837,7 @@
 <script async="" data-goatcounter="https://scenario.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
 
 <script defer="" src="../assets/pwa-install.js"></script>
+<script defer="" src="../assets/google-source-banner.js"></script>
 
 <script defer="" src="../assets/bottom-nav.js"></script>
 
