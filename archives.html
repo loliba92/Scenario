@@ -1049,16 +1049,16 @@
   .matiere-tiles li{ display:flex; min-width:0; }
   .matiere-tile{ flex:1; min-width:0; }
   .matiere-tile svg{ flex:none; width:26px; height:26px; color:var(--gold); }
-  .matiere-tile span{ display:flex; flex-direction:column; gap:2px; min-width:0; font-size:0.92rem; font-weight:600; line-height:1.25; hyphens:auto; }
+  .matiere-tile span{ display:flex; flex-direction:column; gap:2px; min-width:0; font-size:0.92rem; font-weight:600; line-height:1.25; hyphens:none; overflow-wrap:normal; }
   .matiere-tile small{ font-family:"JetBrains Mono", monospace; font-size:0.66rem; font-weight:400; color:var(--paper-dim); }
-  .matiere-tiles li:last-child:nth-child(odd){ grid-column:1 / -1; }
   @media (max-width: 759px){
-    .matiere-tile{ flex-direction:column; align-items:flex-start; justify-content:center; gap:8px; min-height:92px; }
+    .matiere-tiles{ grid-template-columns:1fr; gap:8px; }
+    .matiere-tile{ min-height:60px; }
+    .matiere-tile::after{ content:"›"; margin-left:auto; color:var(--gold); font-size:1.5rem; line-height:1; }
   }
   @media (min-width: 760px){
     .matiere-tiles{ grid-template-columns:repeat(4, minmax(0, 1fr)); gap:12px; }
-    .matiere-tiles li:last-child:nth-child(odd){ grid-column:auto; }
-  }
+    }
 
   /* Le tableau (desktop) comme les cartes (mobile, tr en display:flex)
      doivent tous deux disparaître complètement quand filtrés */
