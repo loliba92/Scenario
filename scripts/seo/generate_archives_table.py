@@ -1035,8 +1035,20 @@ def discover_weekly_recaps():
     return recaps
 
 
+MOIS_ABREGES = {
+    "janvier": "janv.", "février": "févr.", "avril": "avr.", "juillet": "juil.", "septembre": "sept.",
+    "octobre": "oct.", "novembre": "nov.", "décembre": "déc.",
+}
+
+
+def abreger_mois(texte):
+    """« 28 septembre au 4 octobre 2026 » → « 28 sept. au 4 oct. 2026 » : la ligne tient sur un écran de téléphone."""
+    return re.sub(r"\b(" + "|".join(MOIS_ABREGES) + r")\b", lambda m: MOIS_ABREGES[m.group(1)], texte)
+
+
 def render_week_recap_row(iso_date, date_range):
     """Ligne pleine largeur "Récap de la semaine", insérée entre deux semaines."""
+    date_range = abreger_mois(date_range)
     return f"""    <tr class="week-recap-row">
       <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/{iso_date}.html">🗓️ Récap de la semaine — {html.escape(date_range)}</a></td>
     </tr>"""
