@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Simplifie le menu du haut (FR) : 9 entrées → Accueil · Éditions · Glossaire · Le projet · Nous suivre + loupe.
+"""Simplifie le menu du haut (FR) : 9 entrées → Accueil · Éditions · Glossaire · Le projet · Nous suivre.
 
 Demandé le 4 octobre 2026. « Matières » et « Recherche » sont atteintes depuis la page Éditions (archives.html) ; Newsletter et
 Soutenir rejoignent le bloc « Nous suivre », Contact rejoint le pied de page. Pages vivantes + gabarit (index.html) + édition du jour
-via --edition ; éditions passées figées, version anglaise non concernée. Idempotent.
+via --edition ; éditions passées figées, version anglaise non concernée. Idempotent. La recherche n'a PAS d'entrée de menu
+(retirée le 4 octobre 2026 : doublon) : on la lance depuis la barre de la page Éditions.
 Usage : python3 scripts/seo/simplify_nav.py [--edition 2026-10-04] [--dry-run]
 """
 import argparse
@@ -15,17 +16,14 @@ ROOT = sp.ROOT
 NAV = re.compile(r'<nav class="topnav".*?</nav>', re.S)
 LINK = re.compile(r'<a href="([^"]*)"([^>]*)>(.*?)</a>', re.S)
 SVG = re.compile(r'<svg.*?</svg>', re.S)
-LOUPE = ('<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" '
-         'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/>'
-         '<line x1="16" y1="16" x2="20.5" y2="20.5"/></svg>')
 KEPT = [("index.html", "Accueil"), ("archives.html", "Éditions"), ("glossaire.html", "Glossaire"),
         ("le-projet.html", "Le projet"), ("#nous-suivre", "Nous suivre")]
-ICON_FALLBACK = {}
+LOUPE_A = re.compile(r'\n?\s*<a href="[^"]*recherche\.html" aria-label="Recherche"[^>]*>.*?</a>', re.S)
 
 
 def nouveau_menu(nav: str) -> str:
-    if "Éditions" in nav and 'aria-label="Recherche"' in nav:
-        return nav
+    if "Éditions" in nav:
+        return LOUPE_A.sub("", nav)
     icons, current = {}, set()
     for href, attrs, inner in LINK.findall(nav):
         base = re.sub(r'^(?:\.\./)+', '', href)
@@ -45,8 +43,6 @@ def nouveau_menu(nav: str) -> str:
         cur = ' aria-current="page"' if base in current else ""
         icon = icons.get(base, "")
         items.append(f'<a href="{href}"{cur}>{icon} {label}</a>')
-    cur = ' aria-current="page"' if "recherche.html" in current else ""
-    items.append(f'<a href="{prefix}recherche.html" aria-label="Recherche" title="Recherche"{cur}>{LOUPE}</a>')
     body = "\n".join("    " + i for i in items)
     return f'{head}\n  <div class="wrap">\n{body}\n  </div>\n{tail}' if wrap else f'{head}\n{body}\n{tail}'
 
