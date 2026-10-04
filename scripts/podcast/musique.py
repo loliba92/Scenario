@@ -320,10 +320,29 @@ def jingle_depuis_theme(theme_pcm: bytes, duree_s: float = 2.5, fondu_entree_s: 
     return out.tobytes()
 
 
-def assembler_parties(parties_pcm: list[bytes], jingle_pcm: bytes | None, silence_s: float = 0.7,
-                      rapport: float = 0.9) -> bytes:
-    """Voix des parties mises bout à bout ; entre deux parties, un jingle (au niveau sonore de la voix × rapport)
-    entouré d'un court silence. Sans jingle : seulement un silence."""
+# Départs (en secondes) des extraits du thème utilisés comme jingles : le début, puis des passages différents.
+DEPARTS_JINGLES = (0.0, 12.0, 15.0, 18.0, 21.0, 24.0, 26.5)
+
+
+def jingles_depuis_theme(theme_pcm: bytes, nombre: int, duree_s: float = 3.5) -> list[bytes]:
+    """`nombre` jingles, chacun pris à un endroit différent du thème (on reboucle s'il y en a plus que de départs)."""
+    theme = array("h")
+    theme.frombytes(theme_pcm)
+    departs = [d for d in DEPARTS_JINGLES if int(SR * d) < len(theme) - int(SR * 1.5)] or [0.0]
+    sortie = []
+    for k in range(nombre):
+        d = int(SR * departs[k % len(departs)])
+        extrait = theme[d:d + int(SR * duree_s)]
+        sortie.append(jingle_depuis_theme(extrait.tobytes(), duree_s, 0.15, 1.8))
+    return sortie
+
+
+def assembler_parties(parties_pcm: list[bytes], jingle_pcm, silence_s: float = 0.7,
+                      rapport: float = 0.9, recouvrement_s: float = 1.5) -> bytes:
+    """Voix des parties mises bout à bout. Entre deux parties, un jingle (au niveau sonore de la voix × rapport) :
+    il démarre après un court silence et s'éteint en fondu SOUS le début de la partie suivante, qui entre
+    `recouvrement_s` avant la fin du jingle. `jingle_pcm` : un jingle, une liste de jingles (utilisés tour à tour)
+    ou None (alors seulement un silence)."""
     voix = array("h")
     for p in parties_pcm:
         voix.frombytes(p)
@@ -337,17 +356,25 @@ def assembler_parties(parties_pcm: list[bytes], jingle_pcm: bytes | None, silenc
             a.frombytes(p)
             sortie.extend(a)
         return sortie.tobytes()
-    jingle = array("h")
-    jingle.frombytes(jingle_pcm)
-    gain = rapport * _rms(voix) / (_rms(jingle) or 1.0)
-    jingle = array("h", (max(-32768, min(32767, int(x * gain))) for x in jingle))
-    sortie = array("h")
+    liste = [jingle_pcm] if isinstance(jingle_pcm, (bytes, bytearray)) else list(jingle_pcm)
+    niveau = rapport * _rms(voix)
+    piste = array("f")
     for i, p in enumerate(parties_pcm):
-        if i:
-            sortie.extend(blanc(0.35))
-            sortie.extend(jingle)
-            sortie.extend(blanc(0.25))
         a = array("h")
         a.frombytes(p)
-        sortie.extend(a)
-    return sortie.tobytes()
+        debut = len(piste)
+        if i:
+            j = array("h")
+            j.frombytes(liste[(i - 1) % len(liste)])
+            gain = niveau / (_rms(j) or 1.0)
+            piste.extend(array("f", [0.0]) * int(SR * 0.3))
+            debut_j = len(piste)
+            piste.extend(array("f", (x * gain for x in j)))
+            debut = max(debut_j, len(piste) - int(SR * recouvrement_s))
+        if len(piste) < debut + len(a):
+            piste.extend(array("f", [0.0]) * (debut + len(a) - len(piste)))
+        for k, x in enumerate(a):
+            piste[debut + k] += x
+    crete = max((abs(x) for x in piste), default=1.0) or 1.0
+    echelle = min(1.0, 32000.0 / crete)
+    return array("h", (int(x * echelle) for x in piste)).tobytes()
