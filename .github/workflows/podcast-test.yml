@@ -38,6 +38,10 @@ on:
         description: "Voix du narrateur (Sulafat, Achird, Vindemiatrix, Aoede, Kore…)"
         required: false
         default: "Sulafat"
+      modele_tts:
+        description: "Modèle de voix OpenRouter (google/gemini-3.8-flash-tts, x-ai/grok-voice-tts-1.0…) — voix_unique doit être une voix de ce modèle"
+        required: false
+        default: "google/gemini-3.8-flash-tts"
       modele_dialogue:
         description: "Modèle(s) OpenRouter qui écrivent le dialogue, ou « gratuits » (vide = sélection de gemma d'abord)"
         required: false
@@ -74,13 +78,16 @@ jobs:
           MUSIQUE: ${{ github.event.inputs.musique }}
           TEXTE: ${{ github.event.inputs.texte }}
           VOIX_UNIQUE: ${{ github.event.inputs.voix_unique }}
+          MODELE_TTS: ${{ github.event.inputs.modele_tts }}
         run: |
           if [ -n "$TEXTE" ]; then
             case "$TEXTE" in auto|podcast/textes/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].txt) ;; *) echo "Texte invalide : $TEXTE" >&2; exit 1 ;; esac
             case "$VOIX_UNIQUE" in *[!A-Za-z]*|"") echo "Voix invalide : $VOIX_UNIQUE" >&2; exit 1 ;; esac
             case "$DATE" in ""|[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;; *) echo "Date invalide : $DATE" >&2; exit 1 ;; esac
             case "$MODELE" in *[!A-Za-z0-9._:/,-]*) echo "Modèle invalide : $MODELE" >&2; exit 1 ;; esac
+            case "$MODELE_TTS" in *[!A-Za-z0-9._:/-]*) echo "Modèle de voix invalide : $MODELE_TTS" >&2; exit 1 ;; esac
             NARR="--voix $VOIX_UNIQUE --suffixe=-$VOIX_UNIQUE"
+            [ -n "$MODELE_TTS" ] && NARR="$NARR --modele-tts $MODELE_TTS"
             [ -n "$DATE" ] && NARR="$NARR --date $DATE"
             [ -n "$MODELE" ] && NARR="$NARR --modele $MODELE"
             [ "$MUSIQUE" = "false" ] || NARR="$NARR --ouverture"
