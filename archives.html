@@ -975,6 +975,68 @@
   .filters-more > summary:hover{ border-color:var(--gold); }
   .filters-more .filter-row{ margin-top:12px; }
 
+  /* ---- Vue cartes : même format que les pages matières (4 oct. 2026) ----
+     Le tableau reste la source de données (les scripts lisent ses <tr>) ; seule sa présentation change. */
+  table.archives-table.cards{ display:block; max-width:1200px; margin:8px auto 0; background:none; box-shadow:none; border:0; }
+  table.archives-table.cards thead{ display:none; }
+  table.archives-table.cards tbody{ display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:14px; width:100%; }
+  table.archives-table.cards tr{
+    position:relative; display:flex; flex-direction:row; flex-wrap:wrap; align-items:center; align-content:center; gap:6px 10px;
+    background:var(--surface); border:1px solid var(--hairline); border-radius:10px;
+    padding:14px 14px 14px 100px; min-height:100px; transition:border-color .15s;
+  }
+  table.archives-table.cards tr:hover{ border-color:var(--gold); }
+  table.archives-table.cards td{ padding:0; border:0; text-align:left; background:none; }
+  table.archives-table.cards td::before{ display:none !important; }
+  table.archives-table.cards tr.week-recap-row{
+    grid-column:1 / -1; min-height:0; padding:10px 16px; justify-content:center; background:var(--surface-2);
+  }
+  table.archives-table.cards tr.week-recap-row td{ width:100%; text-align:center; }
+  .cards .col-thumb{ position:absolute; left:14px; top:14px; width:72px; height:72px; }
+  .cards .thumb-sq{ width:72px; height:72px; border-radius:7px; object-fit:cover; background:var(--surface-2); display:block; }
+  .cards .thumb-wide{ display:none; }
+  .cards .col-date{ order:1; flex:1 0 100%; display:block !important; }
+  .cards .col-date .date-day, .cards .col-date .date-year{
+    display:inline; font-family:"JetBrains Mono", monospace; font-size:0.68rem; font-weight:400; color:var(--paper-dim);
+  }
+  .cards .col-date .date-day::after{ content:"."; }
+  .cards .col-title{ order:2; flex:1 0 100%; padding:0 !important; display:block; }
+  .cards .col-title a:first-child{ font-family:"Fraunces", serif; font-weight:600; font-size:1rem; line-height:1.3; color:var(--paper); text-decoration:none; }
+  .cards tr:hover .col-title a:first-child{ text-decoration:underline; text-decoration-color:var(--gold); }
+  .cards .card-q{ display:none; }
+  .cards .col-domain{ order:3; display:block !important; font-family:"JetBrains Mono", monospace; font-size:0.64rem !important; text-transform:uppercase; letter-spacing:0.05em; margin:0 !important; }
+  .cards .col-domain a{ color:var(--paper-dim); text-decoration:none; }
+  .cards .col-eval{ order:4; display:block !important; border:0 !important; padding:0 !important; }
+  .cards .col-france{ order:5; display:block !important; border:0 !important; padding:0 !important; }
+  .cards .col-reads{ display:none !important; }
+
+  /* Dernière édition : grande carte avec photo, comme sur les pages matières */
+  table.archives-table.cards tr.is-featured{
+    grid-column:1 / -1; display:block; padding:0; border-left:3px solid var(--gold); overflow:hidden;
+  }
+  .cards tr.is-featured .col-thumb{ position:static; width:100%; height:auto; }
+  .cards tr.is-featured .thumb-sq{ display:none; }
+  .cards tr.is-featured .thumb-wide{ display:block; width:100%; aspect-ratio:21/9; object-fit:cover; background:var(--surface-2); }
+  .cards tr.is-featured .col-date, .cards tr.is-featured .col-title, .cards tr.is-featured .col-domain,
+  .cards tr.is-featured .col-eval, .cards tr.is-featured .col-france{ margin-left:22px; margin-right:22px; }
+  .cards tr.is-featured .col-date{ margin-top:18px; color:var(--gold); }
+  .cards tr.is-featured .col-date::before{ content:"Dernière édition · "; display:inline !important; font-family:"JetBrains Mono", monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); }
+  .cards tr.is-featured .col-title{ margin-top:8px; }
+  .cards tr.is-featured .col-title a:first-child{ font-size:1.45rem; }
+  .cards tr.is-featured .card-q{ display:block; margin-top:10px; color:var(--paper-dim); font-size:0.95rem; line-height:1.55; font-family:inherit; }
+  .cards tr.is-featured .col-domain, .cards tr.is-featured .col-eval, .cards tr.is-featured .col-france{ display:inline-block !important; margin-top:12px; margin-bottom:18px; margin-right:12px; vertical-align:middle; }
+  .cards tr.is-featured .col-domain{ margin-left:22px !important; margin-right:12px !important; margin-top:12px !important; margin-bottom:18px !important; }
+  @media (max-width: 480px){
+    .cards tr.is-featured .col-domain{ margin-left:16px !important; }
+    table.archives-table.cards tr.is-featured .col-date,
+    table.archives-table.cards tr.is-featured .col-title,
+    table.archives-table.cards tr.is-featured .col-domain,
+    table.archives-table.cards tr.is-featured .col-eval,
+    table.archives-table.cards tr.is-featured .col-france{ margin-left:16px; margin-right:16px; }
+    .cards tr.is-featured .col-title a:first-child{ font-size:1.2rem; }
+    .cards tr.is-featured .thumb-wide{ aspect-ratio:16/9; }
+  }
+
   /* Le tableau (desktop) comme les cartes (mobile, tr en display:flex)
      doivent tous deux disparaître complètement quand filtrés */
   .archives-table tbody tr.is-hidden {
@@ -1126,7 +1188,7 @@
       </details>
       <p class="no-result" id="archives-no-result">Aucune édition ne correspond à ces filtres.</p>
     </div>
-  <table class="archives-table" id="archives-table">
+  <table class="archives-table cards" id="archives-table">
     <thead>
       <tr>
         <th style="width: 9%;">Date</th>
@@ -1141,7 +1203,8 @@
     <tr class="week-recap-row">
       <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/2026-10-04.html">🗓️ Récap de la semaine — 28 septembre au 4 octobre 2026</a></td>
     </tr>
-    <tr data-domain="sport" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-10-04">
+    <tr data-domain="sport" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-10-04" class="is-featured">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-10-04.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-10-04.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">04.10</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1149,6 +1212,7 @@
           
           <a href="en/archives/2026-10-04.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Le Championnat des Nations de rugby peut-il s&#x27;imposer comme la nouvelle compétition reine du rugby mondial, ou va-t-il cannibaliser les tournois historiques sans convaincre le public ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/sport.html">Sport</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Coexistence maîtrisée sans ferveur excessive" aria-label="Notre scénario : Stable (50%) — Coexistence maîtrisée sans ferveur excessive">
@@ -1163,7 +1227,8 @@
         </span>
       </td>
     </tr>
-    <tr data-domain="culture" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-10-03">
+    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-10-03">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-10-03.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-10-03.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">03.10</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1171,8 +1236,9 @@
           
           <a href="en/archives/2026-10-03.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Les phénomènes culturels qui explosent sur les réseaux sont-ils encore spontanés, ou chaque viralité est-elle désormais détectée et amplifiée par des machines ?</span>
       </td>
-      <td class="col-domain" data-label="Matière">culture</td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — La détection automatisée coexiste avec les surprises du public" aria-label="Notre scénario : Stable (50%) — La détection automatisée coexiste avec les surprises du public">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1185,7 +1251,8 @@
         </span>
       </td>
     </tr>
-    <tr data-domain="sciences" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-10-02">
+    <tr data-domain="sciences-environnement" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-10-02">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-10-02.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-10-02.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">02.10</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1193,8 +1260,9 @@
           
           <a href="en/archives/2026-10-02.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Face à la stagnation de la participation (45,7 % en 2024-2025) et à l&#x27;essor de l&#x27;IA et de la personnalisation du risque, le dépistage du cancer du sein en France bascule-t-il vers un nouveau modèle ?</span>
       </td>
-      <td class="col-domain" data-label="Matière">sciences</td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Coexistence prolongée du modèle classique et d&#x27;outils numériques d&#x27;aide" aria-label="Notre scénario : Stable (50%) — Coexistence prolongée du modèle classique et d&#x27;outils numériques d&#x27;aide">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1207,7 +1275,8 @@
         </span>
       </td>
     </tr>
-    <tr data-domain="economie-mondiale" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-10-01">
+    <tr data-domain="economie-entreprises" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-10-01">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-10-01.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-10-01.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">01.10</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1215,8 +1284,9 @@
           
           <a href="en/archives/2026-10-01.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Le bitcoin est-il en passe de devenir un actif institutionnel de référence, ou son adoption reste-t-elle un phénomène concentré et fragile ?</span>
       </td>
-      <td class="col-domain" data-label="Matière">economie-mondiale</td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Le bitcoin demeure un actif de diversification de niche" aria-label="Notre scénario : Stable (45%) — Le bitcoin demeure un actif de diversification de niche">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1230,6 +1300,7 @@
       </td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-30">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-30.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-30.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">30.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1237,6 +1308,7 @@
           
           <a href="en/archives/2026-09-30.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Une vague de fermetures et de plans sociaux menace-t-elle de faire remonter le chômage en France, ou la réindustrialisation absorbe-t-elle ces pertes ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Le chômage stagne sur un plateau sous l&#x27;effet de destructions continues" aria-label="Notre scénario : Stable (45%) — Le chômage stagne sur un plateau sous l&#x27;effet de destructions continues">
@@ -1251,7 +1323,8 @@
         </span>
       </td>
     </tr>
-    <tr data-domain="sciences" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-09-29">
+    <tr data-domain="sciences-environnement" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-09-29">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-29.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-29.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">29.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1259,8 +1332,9 @@
           
           <a href="en/archives/2026-09-29.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">La glace des cratères polaires lunaires est-elle un réservoir stratégique à exploiter d&#x27;ici 2035, ou un piège scientifique et juridique ?</span>
       </td>
-      <td class="col-domain" data-label="Matière">sciences</td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — L&#x27;extraction reste un laboratoire scientifique coûteux sans débouché commercial" aria-label="Notre scénario : Stable (50%) — L&#x27;extraction reste un laboratoire scientifique coûteux sans débouché commercial">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1274,6 +1348,7 @@
       </td>
     </tr>
     <tr data-domain="international" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-28">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-28.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-28.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">28.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1281,6 +1356,7 @@
           
           <a href="en/archives/2026-09-28.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">La domination occidentale est-elle remise en cause par un monde de plus en plus multipolaire ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Domination structurelle américaine sous contestation régionale croissante" aria-label="Notre scénario : Stable (45%) — Domination structurelle américaine sous contestation régionale croissante">
@@ -1299,6 +1375,7 @@
       <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/2026-09-27.html">🗓️ Récap de la semaine — 21 septembre au 27 septembre 2026</a></td>
     </tr>
     <tr data-domain="sport" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-27">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-27.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-27.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">27.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1306,6 +1383,7 @@
           
           <a href="en/archives/2026-09-27.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Mbappé a perdu des soutiens en Espagne après avoir refusé un tee-shirt sur Ceuta : un sportif peut-il encore exprimer une opinion humanitaire sans devenir une cible politique ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/sport.html">Sport</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — La fracture d&#x27;image durable entre les tribunes espagnoles et françaises" aria-label="Notre scénario : Stable (45%) — La fracture d&#x27;image durable entre les tribunes espagnoles et françaises">
@@ -1320,7 +1398,8 @@
         </span>
       </td>
     </tr>
-    <tr data-domain="culture" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-26">
+    <tr data-domain="culture-divertissement" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-26">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-26.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-26.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">26.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1328,8 +1407,9 @@
           
           <a href="en/archives/2026-09-26.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Pékin peut-il produire des franchises capables de concurrencer Disney, Marvel, Nintendo ou Netflix, ou son modèle reste-t-il prisonnier de la censure et de la perception à l&#x27;étranger ?</span>
       </td>
-      <td class="col-domain" data-label="Matière">culture</td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — La Chine domine son marché intérieur mais reste confinée à son espace régional" aria-label="Notre scénario : Stable (50%) — La Chine domine son marché intérieur mais reste confinée à son espace régional">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1342,7 +1422,8 @@
         </span>
       </td>
     </tr>
-    <tr data-domain="sciences" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-25">
+    <tr data-domain="sciences-environnement" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-25">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-25.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-25.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">25.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1350,8 +1431,9 @@
           
           <a href="en/archives/2026-09-25.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Les nouveaux traitements contre l&#x27;obésité (Ozempic, Wegovy, Mounjaro) peuvent-ils enrayer l&#x27;épidémie mondiale, ou resteront-ils réservés aux plus aisés ?</span>
       </td>
-      <td class="col-domain" data-label="Matière">sciences</td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Maintien de prix élevés et fracture sanitaire entre patients aisés et modestes" aria-label="Notre scénario : Stable (50%) — Maintien de prix élevés et fracture sanitaire entre patients aisés et modestes">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1364,7 +1446,8 @@
         </span>
       </td>
     </tr>
-    <tr data-domain="economie-mondiale" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-24">
+    <tr data-domain="economie-entreprises" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-24">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-24.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-24.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">24.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1372,8 +1455,9 @@
           
           <a href="en/archives/2026-09-24.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Face au Brent à plus de 100 $ et à la menace sur Ormuz, la BCE et la Fed peuvent-elles relâcher leur resserrement, ou le choc pétrolier les force-t-il à maintenir les taux élevés ?</span>
       </td>
-      <td class="col-domain" data-label="Matière">economie-mondiale</td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Plateau énergétique prolongé et taux directeurs figés à un niveau élevé" aria-label="Notre scénario : Stable (45%) — Plateau énergétique prolongé et taux directeurs figés à un niveau élevé">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1387,6 +1471,7 @@
       </td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-23">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-23.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-23.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">23.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1394,6 +1479,7 @@
           
           <a href="en/archives/2026-09-23.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Le gouvernement peut-il éviter l&#x27;explosion sociale cet automne face au record des carburants et à la menace hybride russe ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Le gouvernement maintient sa ligne et canalise les protestations" aria-label="Notre scénario : Stable (50%) — Le gouvernement maintient sa ligne et canalise les protestations">
@@ -1409,6 +1495,7 @@
       </td>
     </tr>
     <tr data-domain="international" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-22">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-22.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-22.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">22.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1416,6 +1503,7 @@
           
           <a href="en/archives/2026-09-22.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Le contrôle houthi du détroit de Bab el-Mandeb, combiné au blocus iranien d&#x27;Ormuz, peut-il plonger un tiers du commerce maritime mondial dans une crise énergétique durable ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Normalisation d&#x27;un passage restreint sous péage de facto" aria-label="Notre scénario : Stable (45%) — Normalisation d&#x27;un passage restreint sous péage de facto">
@@ -1431,6 +1519,7 @@
       </td>
     </tr>
     <tr data-domain="international" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-21">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-21.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-21.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">21.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1438,6 +1527,7 @@
           
           <a href="en/archives/2026-09-21.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">À trois jours du sommet Trump-Xi, la trêve tarifaire USA-Chine peut-elle être prolongée, ou la guerre commerciale repart-elle de plus belle ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Un accord flou prolonge le statu quo sans le résoudre" aria-label="Notre scénario : Stable (45%) — Un accord flou prolonge le statu quo sans le résoudre">
@@ -1456,6 +1546,7 @@
       <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/2026-09-20.html">🗓️ Récap de la semaine — 14 septembre au 20 septembre 2026</a></td>
     </tr>
     <tr data-domain="sport" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-20">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-20.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-20.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">20.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1463,6 +1554,7 @@
           
           <a href="en/archives/2026-09-20.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">La NBA lance sa ligue européenne en 2027 : l&#x27;Euroleague peut-elle négocier une alliance, ou va-t-elle être marginalisée ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/sport.html">Sport</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Les deux ligues avancent chacune de leur côté, sans accord" aria-label="Notre scénario : Stable (45%) — Les deux ligues avancent chacune de leur côté, sans accord">
@@ -1478,6 +1570,7 @@
       </td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-19">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-19.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-19.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">19.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1485,6 +1578,7 @@
           
           <a href="en/archives/2026-09-19.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Après l&#x27;éviction de Macklemore, la tournée de Sheeran peut-elle survivre au boycott sans que sa carrière en paie durablement le prix ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — La tournée continue sans première partie, la polémique s&#x27;essouffle sans trancher" aria-label="Notre scénario : Stable (50%) — La tournée continue sans première partie, la polémique s&#x27;essouffle sans trancher">
@@ -1500,6 +1594,7 @@
       </td>
     </tr>
     <tr data-domain="sciences-environnement" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-18">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-18.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-18.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">18.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1507,6 +1602,7 @@
           
           <a href="en/archives/2026-09-18.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Des dizaines d&#x27;essais cliniques sont en cours : un traitement qui arrête la maladie, plutôt qu&#x27;un calmant, peut-il arriver avant 2030 ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (55%) — La recherche progresse, les soins restent symptomatiques" aria-label="Notre scénario : Stable (55%) — La recherche progresse, les soins restent symptomatiques">
@@ -1522,6 +1618,7 @@
       </td>
     </tr>
     <tr data-domain="economie-entreprises" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-17">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-17.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-17.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">17.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1529,6 +1626,7 @@
           
           <a href="en/archives/2026-09-17.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Face à la dette record et à la ruée vers l&#x27;or des banques centrales, le dollar peut-il perdre son statut de monnaie de réserve mondiale ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Le recul lent du dollar se poursuit sans rupture" aria-label="Notre scénario : Stable (50%) — Le recul lent du dollar se poursuit sans rupture">
@@ -1544,6 +1642,7 @@
       </td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-16">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-16.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-16.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">16.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1551,6 +1650,7 @@
           
           <a href="en/archives/2026-09-16.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Depuis la fin de l&#x27;ARENH, le Versement Nucléaire Universel protège-t-il vraiment 30 millions de foyers d&#x27;une hausse des prix ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — La facture grimpe doucement, sans choc brutal" aria-label="Notre scénario : Stable (50%) — La facture grimpe doucement, sans choc brutal">
@@ -1566,6 +1666,7 @@
       </td>
     </tr>
     <tr data-domain="sciences-environnement" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-15">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-15.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-15.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">15.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1573,6 +1674,7 @@
           
           <a href="en/archives/2026-09-15.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Après la première licence commerciale américaine (31 août) et un financement privé record, la fusion va-t-elle tenir sa promesse dans la décennie, ou repousser encore l&#x27;échéance comme ITER ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Les jalons avancent, mais avec des retards habituels" aria-label="Notre scénario : Stable (50%) — Les jalons avancent, mais avec des retards habituels">
@@ -1588,6 +1690,7 @@
       </td>
     </tr>
     <tr data-domain="international" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-14">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-14.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-14.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">14.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1595,6 +1698,7 @@
           
           <a href="en/archives/2026-09-14.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">À dix jours du sommet Trump-Xi du 24 septembre à Washington, la pression militaire chinoise sur Taïwan va-t-elle s&#x27;apaiser, se figer, ou s&#x27;aggraver malgré le dialogue ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Le sommet se tient sans avancée ni rupture sur Taïwan" aria-label="Notre scénario : Stable (50%) — Le sommet se tient sans avancée ni rupture sur Taïwan">
@@ -1613,6 +1717,7 @@
       <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/2026-09-13.html">🗓️ Récap de la semaine — 7 septembre au 13 septembre 2026</a></td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="degrade" data-france="degrade" data-revised="false" data-date="2026-09-13">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-13.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-13.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">13.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1620,6 +1725,7 @@
           
           <a href="en/archives/2026-09-13.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">À quelques semaines du budget 2027, Lecornu peut-il obtenir un compromis, devra-t-il repasser par le 49.3, ou la bataille budgétaire fera-t-elle tomber son gouvernement ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (50%) — La censure fait tomber le gouvernement, ou bloque le budget" aria-label="Notre scénario : Dégradé (50%) — La censure fait tomber le gouvernement, ou bloque le budget">
@@ -1635,6 +1741,7 @@
       </td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-09-12">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-12.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-12.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">12.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1642,6 +1749,7 @@
           
           <a href="en/archives/2026-09-12.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">En 2026, plusieurs suites à très gros budget ont flanché en salle pendant que des films inédits cartonnaient : le pari des franchises reste-t-il aussi sûr qu&#x27;avant ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (48%) — Les studios continuent de miser sur les suites malgré les échecs" aria-label="Notre scénario : Stable (48%) — Les studios continuent de miser sur les suites malgré les échecs">
@@ -1657,6 +1765,7 @@
       </td>
     </tr>
     <tr data-domain="tech-numerique" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-11">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-11.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-11.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">11.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1664,6 +1773,7 @@
           
           <a href="en/archives/2026-09-11.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Les géants américains de la tech promettent des centaines de milliards de dollars à l&#x27;intelligence artificielle : la révolution rattrape-t-elle la dépense, ou les marchés sont-ils au bord d&#x27;un krach comme en 2000 ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — La bulle continue de grossir, sans éclater tout de suite" aria-label="Notre scénario : Stable (45%) — La bulle continue de grossir, sans éclater tout de suite">
@@ -1679,6 +1789,7 @@
       </td>
     </tr>
     <tr data-domain="economie-entreprises" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-10">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-10.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-10.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">10.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1686,6 +1797,7 @@
           
           <a href="en/archives/2026-09-10.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Quelques métropoles mondiales pèsent déjà plus lourd économiquement que des pays entiers : les États peuvent-ils reprendre la main, ou les villes vont-elles concentrer encore plus de pouvoir ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Les métropoles gardent l&#x27;avantage, sans nouvelle rupture" aria-label="Notre scénario : Stable (45%) — Les métropoles gardent l&#x27;avantage, sans nouvelle rupture">
@@ -1701,6 +1813,7 @@
       </td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-09">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-09.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-09.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">09.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1708,6 +1821,7 @@
           
           <a href="en/archives/2026-09-09.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Les métropoles concentrent la richesse, les banlieues restent bloquées malgré la proximité, le rural décroche : la France avance-t-elle encore comme un seul pays ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — L&#x27;écart ne se comble pas, mais n&#x27;empire pas non plus" aria-label="Notre scénario : Stable (45%) — L&#x27;écart ne se comble pas, mais n&#x27;empire pas non plus">
@@ -1723,6 +1837,7 @@
       </td>
     </tr>
     <tr data-domain="economie-entreprises" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-09-08">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-08.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-08.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">08.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1730,6 +1845,7 @@
           
           <a href="en/archives/2026-09-08.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">OpenAI vise 1 000 milliards de dollars pour son entrée en Bourse : ce pari se réalise-t-il, se fait-il au rabais, ou reste-t-il bloqué ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (55%) — L&#x27;entrée en Bourse glisse à 2027, sans rien changer au prix" aria-label="Notre scénario : Stable (55%) — L&#x27;entrée en Bourse glisse à 2027, sans rien changer au prix">
@@ -1745,6 +1861,7 @@
       </td>
     </tr>
     <tr data-domain="international" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-07">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-07.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-07.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">07.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1752,6 +1869,7 @@
           
           <a href="en/archives/2026-09-07.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">L&#x27;UE vient de promettre 200 millions d&#x27;euros au Groenland : ce partenariat peut-il vraiment protéger le territoire de la pression de Trump ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — L&#x27;UE investit, Trump maintient la pression sans agir" aria-label="Notre scénario : Stable (50%) — L&#x27;UE investit, Trump maintient la pression sans agir">
@@ -1770,6 +1888,7 @@
       <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/2026-09-06.html">🗓️ Récap de la semaine — 31 août au 6 septembre 2026</a></td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-06">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-06.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-06.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">06.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1777,6 +1896,7 @@
           
           <a href="en/archives/2026-09-06.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">La loi du 3 août 2026 impose une solidarité financière entre sport masculin et féminin, sans fixer de montant : l&#x27;écart de moyens va-t-il vraiment se réduire ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — L&#x27;obligation reste sans montant et les budgets bougent à peine" aria-label="Notre scénario : Stable (50%) — L&#x27;obligation reste sans montant et les budgets bougent à peine">
@@ -1792,6 +1912,7 @@
       </td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-05">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-05.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-05.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">05.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1799,6 +1920,7 @@
           
           <a href="en/archives/2026-09-05.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Ventes record chez Christie&#x27;s et Sotheby&#x27;s, mais art émergent en chute depuis quatre ans : le marché de l&#x27;art change-t-il durablement d&#x27;époque ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (55%) — Le haut et le bas du marché continuent de diverger" aria-label="Notre scénario : Stable (55%) — Le haut et le bas du marché continuent de diverger">
@@ -1814,6 +1936,7 @@
       </td>
     </tr>
     <tr data-domain="sciences-environnement" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-09-04">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-04.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-04.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">04.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1821,6 +1944,7 @@
           
           <a href="en/archives/2026-09-04.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Après cinq reports depuis 2019, la NASA vise 2028 et la Chine 2030 pour ramener des humains sur la Lune : cette fois sera-t-elle la bonne ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Les essais avancent, le calendrier recule une fois de plus" aria-label="Notre scénario : Stable (50%) — Les essais avancent, le calendrier recule une fois de plus">
@@ -1836,6 +1960,7 @@
       </td>
     </tr>
     <tr data-domain="economie-entreprises" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-09-03">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-03.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-03.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">03.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1843,6 +1968,7 @@
           
           <a href="en/archives/2026-09-03.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Malgré un CAPE ratio au plus haut depuis 1999 et une dette sur marge record, Wall Street enchaîne les records : le rallye tient-il sur des bases solides ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Le marché reste cher, mais ne casse pas" aria-label="Notre scénario : Stable (45%) — Le marché reste cher, mais ne casse pas">
@@ -1858,6 +1984,7 @@
       </td>
     </tr>
     <tr data-domain="sciences-environnement" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-02">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-02.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-02.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">02.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1865,6 +1992,7 @@
           
           <a href="en/archives/2026-09-02.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Saisie fin août 2026, l&#x27;Anses dispose de deux mois pour juger l&#x27;acétamipride et le flupyradifurone, bannis depuis 2018 : peut-elle vraiment leur dire non ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — L&#x27;Anses accorde la dérogation, mais seulement pour les filières prévues" aria-label="Notre scénario : Stable (45%) — L&#x27;Anses accorde la dérogation, mais seulement pour les filières prévues">
@@ -1880,6 +2008,7 @@
       </td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-09-01">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-09-01.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-09-01.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">01.09</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1887,6 +2016,7 @@
           
           <a href="en/archives/2026-09-01.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">À huit mois du premier tour, Marine Le Pen domine tous les sondages (33-38 %) : la droite et la gauche, toujours divisées, peuvent-elles aligner un candidat capable de la battre au second tour ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Droite et gauche restent divisées, le RN l&#x27;emporte comme prévu" aria-label="Notre scénario : Stable (50%) — Droite et gauche restent divisées, le RN l&#x27;emporte comme prévu">
@@ -1902,6 +2032,7 @@
       </td>
     </tr>
     <tr data-domain="international" data-scenario="degrade" data-france="degrade" data-revised="true" data-date="2026-08-31">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-31.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-31.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">31.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1909,6 +2040,7 @@
           <a href="suivi/islande.html" class="revised-badge" title="Sujet révisé le 12.09.2026 — voir le suivi">Révisé</a>
           <a href="en/archives/2026-08-31.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Le 29 août, 52,8 % des Islandais ont rejeté la réouverture des négociations d&#x27;adhésion à l&#x27;Union européenne, alors que Donald Trump maintient la pression sur le Groenland voisin. Sans l&#x27;UE et sans armée propre, l&#x27;Islande peut-elle sécuriser durablement sa position dans l&#x27;Arctique en misant sur les États-Unis et l&#x27;OTAN, ou ce choix va-t-il l&#x27;isoler davantage face aux appétits stratégiques croissants sur la région ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (60%) — L&#x27;Islande se retrouve isolée face aux pressions sur le Groenland" aria-label="Notre scénario : Dégradé (60%) — L&#x27;Islande se retrouve isolée face aux pressions sur le Groenland">
@@ -1927,6 +2059,7 @@
       <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/2026-08-30.html">🗓️ Récap de la semaine — 24 août au 30 août 2026</a></td>
     </tr>
     <tr data-domain="economie-entreprises" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-30">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-30.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-30.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">30.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1934,6 +2067,7 @@
           
           <a href="en/archives/2026-08-30.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Après l&#x27;effondrement des droits TV et la chute continue des ressources des clubs, la Ligue 1 va-t-elle retrouver un modèle économique stable, se maintenir tant bien que mal à ce niveau réduit, ou voir plusieurs clubs sombrer financièrement ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Ligue 1+ progresse, mais sans rattraper son retard" aria-label="Notre scénario : Stable (45%) — Ligue 1+ progresse, mais sans rattraper son retard">
@@ -1949,6 +2083,7 @@
       </td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-08-29">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-29.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-29.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">29.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1956,6 +2091,7 @@
           
           <a href="en/archives/2026-08-29.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Les studios ont fixé une nouvelle règle commune : 45 jours d&#x27;exclusivité en salle avant le streaming. Le box-office mondial vise sa meilleure année depuis 2019, mais les grandes chaînes de cinéma restent lourdement endettées et les plus jeunes spectateurs préfèrent de plus en plus attendre le streaming : cette trêve suffira-t-elle à sauver durablement les salles ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — L&#x27;accord des 45 jours se maintient, sans plus" aria-label="Notre scénario : Stable (45%) — L&#x27;accord des 45 jours se maintient, sans plus">
@@ -1971,6 +2107,7 @@
       </td>
     </tr>
     <tr data-domain="sciences-environnement" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-28">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-28.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-28.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">28.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -1978,6 +2115,7 @@
           
           
         </span>
+        <span class="card-q">Avec un rythme de réduction des émissions trois fois trop lent et un Fonds vert divisé par trois en deux ans, la France a-t-elle encore les moyens de tenir son objectif de -50 % d&#x27;ici 2030 ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — La rallonge s&#x27;effrite en chemin" aria-label="Notre scénario : Stable (45%) — La rallonge s&#x27;effrite en chemin">
@@ -1993,6 +2131,7 @@
       </td>
     </tr>
     <tr data-domain="economie-entreprises" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-27">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-27.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-27.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">27.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2000,6 +2139,7 @@
           
           
         </span>
+        <span class="card-q">Alors que le taux des emprunts d&#x27;État américains à 30 ans a grimpé à son plus haut niveau depuis 2007 et que les trois grandes agences de notation ont désormais toutes dégradé la note des États-Unis, le marché obligataire le plus important au monde peut-il encaisser cette pression sans faire basculer la dette mondiale dans une vraie crise de confiance ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — La tension continue, sans rupture" aria-label="Notre scénario : Stable (50%) — La tension continue, sans rupture">
@@ -2015,6 +2155,7 @@
       </td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-26">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-26.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-26.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">26.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2022,6 +2163,7 @@
           
           
         </span>
+        <span class="card-q">Le dossier des retraites, suspendu par la loi jusqu&#x27;en janvier 2028, va-t-il rester gelé jusqu&#x27;à la présidentielle de 2027, ou s&#x27;invite-t-il déjà dans la campagne dès cet automne ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Le statu quo jusqu&#x27;à l&#x27;élection" aria-label="Notre scénario : Stable (50%) — Le statu quo jusqu&#x27;à l&#x27;élection">
@@ -2037,6 +2179,7 @@
       </td>
     </tr>
     <tr data-domain="tech-numerique" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-25">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-25.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-25.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">25.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2044,6 +2187,7 @@
           
           
         </span>
+        <span class="card-q">La Chine offre-t-elle vraiment ses modèles d&#x27;intelligence artificielle en libre accès sans arrière-pensée, ou ce cadeau ouvre-t-il la voie à une dépendance technologique difficile à inverser ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — La dépendance s&#x27;installe doucement" aria-label="Notre scénario : Stable (45%) — La dépendance s&#x27;installe doucement">
@@ -2059,6 +2203,7 @@
       </td>
     </tr>
     <tr data-domain="international" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-24">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-24.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-24.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">24.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2066,6 +2211,7 @@
           
           
         </span>
+        <span class="card-q">Après plus de quatre ans et demi de guerre et des pourparlers dans l&#x27;impasse sur le Donbas, les combats vont-ils s&#x27;arrêter, rester bloqués sans vainqueur, ou repartir de plus belle avant l&#x27;hiver ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Le front s&#x27;enterre pour l&#x27;hiver" aria-label="Notre scénario : Stable (45%) — Le front s&#x27;enterre pour l&#x27;hiver">
@@ -2084,6 +2230,7 @@
       <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/2026-08-23.html">🗓️ Récap de la semaine — 17 août au 23 août 2026</a></td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-08-23">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-23.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-23.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">23.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2106,6 +2253,7 @@
       </td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-08-22">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-22.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-22.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">22.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2113,6 +2261,7 @@
           
           <a href="en/archives/2026-08-22.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">La Chine est devenue le premier marché mondial du cinéma, mais les studios américains n&#x27;y ont jamais pesé aussi peu — Hollywood peut-il reconquérir des spectateurs chinois, ou a-t-il durablement perdu l&#x27;accès à ce marché ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — La porte reste entrouverte" aria-label="Notre scénario : Stable (45%) — La porte reste entrouverte">
@@ -2128,6 +2277,7 @@
       </td>
     </tr>
     <tr data-domain="sciences-environnement" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-08-21">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-21.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-21.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">21.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2135,6 +2285,7 @@
           
           
         </span>
+        <span class="card-q">Le silence radio de l&#x27;univers veut-il dire que l&#x27;humanité a déjà passé son obstacle le plus dangereux, ou que le pire reste encore devant elle ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Le mystère reste entier" aria-label="Notre scénario : Stable (45%) — Le mystère reste entier">
@@ -2150,6 +2301,7 @@
       </td>
     </tr>
     <tr data-domain="economie-entreprises" data-scenario="degrade" data-france="degrade" data-revised="true" data-date="2026-08-20">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-20.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-20.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">20.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2157,6 +2309,7 @@
           <a href="suivi/taux-marche-arriere.html" class="revised-badge" title="Sujet révisé le 07.09.2026 — voir le suivi">Révisé</a>
           <a href="en/archives/2026-08-20.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">Après huit mois d&#x27;immobilisme à la Fed et une première hausse de la BCE en trois ans, les banques centrales peuvent-elles encore promettre une vraie baisse durable des taux d&#x27;intérêt ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (50%) — Une nouvelle vague de hausses" aria-label="Notre scénario : Dégradé (50%) — Une nouvelle vague de hausses">
@@ -2172,6 +2325,7 @@
       </td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-19">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-19.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-19.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">19.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2179,6 +2333,7 @@
           
           
         </span>
+        <span class="card-q">À huit mois du premier tour, entre piratages attribués à la Russie et soupçons sur l&#x27;algorithme de X d&#x27;Elon Musk, la France peut-elle protéger l&#x27;intégrité de la présidentielle sur ces deux fronts à la fois ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Le bruit de fond s&#x27;installe" aria-label="Notre scénario : Stable (50%) — Le bruit de fond s&#x27;installe">
@@ -2194,6 +2349,7 @@
       </td>
     </tr>
     <tr data-domain="tech-numerique" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-18">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-18.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-18.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">18.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2201,6 +2357,7 @@
           
           
         </span>
+        <span class="card-q">Cet été, des agents IA d&#x27;OpenAI, Anthropic, Meta et du chinois Moonshot AI ont chacun franchi les limites de leur bac à sable pour atteindre de vraies infrastructures : la régulation va-t-elle reprendre le dessus sur ces systèmes de plus en plus autonomes, ou l&#x27;écart avec leur encadrement va-t-il continuer de se creuser ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Les labs colmatent, la loi patiente" aria-label="Notre scénario : Stable (45%) — Les labs colmatent, la loi patiente">
@@ -2216,6 +2373,7 @@
       </td>
     </tr>
     <tr data-domain="international" data-scenario="degrade" data-france="degrade" data-revised="false" data-date="2026-08-17">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-17.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-17.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">17.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2223,6 +2381,7 @@
           
           
         </span>
+        <span class="card-q">Le mémorandum de 60 jours signé à Islamabad le 17 juin pour desserrer la crise Iran–États-Unis est arrivé à échéance le 16 août sans accord de prolongation confirmé par les deux camps, Téhéran allant jusqu&#x27;à nier qu&#x27;il y ait jamais eu un cessez-le-feu à prolonger : le blocage autour du détroit d&#x27;Ormuz, par où transitait un cinquième du pétrole mondial, va-t-il se dénouer par une nouvelle médiation, s&#x27;enliser dans l&#x27;impasse actuelle, ou déraper vers une reprise ouverte des combats ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (55%) — La rupture rouvre la voie aux frappes" aria-label="Notre scénario : Dégradé (55%) — La rupture rouvre la voie aux frappes">
@@ -2241,6 +2400,7 @@
       <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/2026-08-16.html">🗓️ Récap de la semaine — 10 août au 16 août 2026</a></td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-16">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-16.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-16.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">16.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2248,6 +2408,7 @@
           
           
         </span>
+        <span class="card-q">Le rugby affronte deux dossiers séparés sur la sécurité de ses joueurs. D&#x27;un côté, le plus grand procès de son histoire sur les commotions cérébrales, devant la justice britannique. De l&#x27;autre, une nouvelle règle qui abaisse la hauteur légale de plaquage — née en France, désormais obligatoire dans le monde amateur, mais pas encore chez les professionnels. Le rugby va-t-il réussir à rendre son jeu plus sûr sans se renier, ou les deux dossiers vont-ils déraper au même moment ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Ni avancée ni rupture" aria-label="Notre scénario : Stable (45%) — Ni avancée ni rupture">
@@ -2263,6 +2424,7 @@
       </td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-15">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-15.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-15.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">15.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2270,6 +2432,7 @@
           
           
         </span>
+        <span class="card-q">Depuis que Harlequin a basculé sa collection de romans à l&#x27;eau de rose vers la traduction automatique et que la loi censée mieux protéger les auteurs français reste bloquée au Parlement, le reste de l&#x27;édition va-t-il suivre le même chemin, ou les traducteurs et écrivains vont-ils réussir à préserver leur place face à l&#x27;IA ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Harlequin reste un cas isolé" aria-label="Notre scénario : Stable (50%) — Harlequin reste un cas isolé">
@@ -2285,6 +2448,7 @@
       </td>
     </tr>
     <tr data-domain="sciences-environnement" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-14">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-14.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-14.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">14.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2292,6 +2456,7 @@
           
           
         </span>
+        <span class="card-q">❓ Après un été qui a déjà coûté entre 10 et 15 milliards d&#x27;euros et fait au moins 5 764 morts en excès en deux semaines, le budget 2027 va-t-il enfin financer l&#x27;adaptation de la France à ces vagues de chaleur à répétition, ou le Fonds vert va-t-il rester bloqué à son plus bas niveau depuis sa création ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — ⚖️ Le rattrapage à moitié" aria-label="Notre scénario : Stable (45%) — ⚖️ Le rattrapage à moitié">
@@ -2307,6 +2472,7 @@
       </td>
     </tr>
     <tr data-domain="economie-entreprises" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-13">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-13.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-13.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">13.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2314,6 +2480,7 @@
           
           
         </span>
+        <span class="card-q">❓ Alors que la Fed se prépare à baisser ses taux en septembre et que la BCE, elle, vient de relever les siens pour la première fois en trois ans, le choc pétrolier provoqué par la guerre en Iran va-t-il relancer l&#x27;inflation mondiale, que la Banque mondiale évoquait déjà à 4,5 % dans son pire scénario ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — ⚖️ Le statu quo tendu" aria-label="Notre scénario : Stable (45%) — ⚖️ Le statu quo tendu">
@@ -2329,6 +2496,7 @@
       </td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-12">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-12.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-12.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">12.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2336,6 +2504,7 @@
           
           
         </span>
+        <span class="card-q">❓ Alors que Marine Le Pen vient d&#x27;être reconnue éligible en appel et que le Rassemblement national caracole autour de 35 % dans les sondages, la droite et la gauche vont-elles réussir à se ranger chacune derrière un seul candidat d&#x27;ici le printemps, ou la présidentielle 2027 va-t-elle battre le record de fragmentation de 2002 (16 candidats) ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — 🧩 Chacun campe sur ses positions" aria-label="Notre scénario : Stable (45%) — 🧩 Chacun campe sur ses positions">
@@ -2351,6 +2520,7 @@
       </td>
     </tr>
     <tr data-domain="international" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-08-11">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-11.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-11.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">11.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2358,6 +2528,7 @@
           
           
         </span>
+        <span class="card-q">❓ Après l&#x27;irruption filmée de soldats érythréens, drapeau déployé, dans la ville éthiopienne de Zalambesa le 3 août, et des combats meurtriers dans le Tigré trois jours plus tôt, l&#x27;Éthiopie et l&#x27;Érythrée vont-elles éviter de retomber en guerre, quatre ans seulement après la fin de l&#x27;une des plus meurtrières de ce siècle ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — ⚖️ La tension reste vive, sans guerre ouverte" aria-label="Notre scénario : Stable (50%) — ⚖️ La tension reste vive, sans guerre ouverte">
@@ -2373,6 +2544,7 @@
       </td>
     </tr>
     <tr data-domain="economie-entreprises" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-10">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-10.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-10.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">10.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2380,6 +2552,7 @@
           
           
         </span>
+        <span class="card-q">❓ Alors que la guerre en Iran a fait grimper le baril à plus de 100 dollars cet été et laisse le détroit d&#x27;Ormuz quasiment paralysé, l&#x27;économie mondiale va-t-elle absorber le choc grâce au boom des investissements dans l&#x27;IA, ou la guerre va-t-elle finir par faire basculer la croissance vers la récession ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (55%) — ⚖️ La guerre s&#x27;enlise, le pétrole reste cher" aria-label="Notre scénario : Stable (55%) — ⚖️ La guerre s&#x27;enlise, le pétrole reste cher">
@@ -2398,6 +2571,7 @@
       <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/2026-08-09.html">🗓️ Récap de la semaine — 3 août au 9 août 2026</a></td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="favorable" data-revised="false" data-date="2026-08-09">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-09.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-09.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">09.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2405,6 +2579,7 @@
           
           
         </span>
+        <span class="card-q">❓ Alors que Sony réclame jusqu&#x27;à 9 milliards de dollars à Suno devant la justice américaine pendant qu&#x27;Universal et Warner ont préféré signer des accords de licence, et qu&#x27;une loi européenne impose depuis le 2 août l&#x27;étiquetage de toute musique générée par IA, la création musicale mondiale bascule-t-elle vers un marché sous licence, ou reste-t-elle prise entre procès interminables et flot incontrôlé ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (55%) — ⚖️ Le bras de fer s&#x27;installe dans la durée" aria-label="Notre scénario : Stable (55%) — ⚖️ Le bras de fer s&#x27;installe dans la durée">
@@ -2420,6 +2595,7 @@
       </td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="favorable" data-france="favorable" data-revised="true" data-date="2026-08-08">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-08.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-08.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">08.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2427,6 +2603,7 @@
           <a href="suivi/cinema-france.html" class="revised-badge" title="Sujet révisé le 04.09.2026 — voir le suivi">Révisé</a>
           <a href="en/archives/2026-08-08.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">❓ Après une chute historique de la fréquentation en 2025 (-13,6 %, plus bas niveau depuis 1997 hors Covid), le rebond spectaculaire du début 2026 va-t-il tenir toute l&#x27;année, ou n&#x27;est-ce qu&#x27;un sursaut avant un nouveau recul ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-favorable" data-kind="favorable" title="Notre scénario : Favorable (58%) — 🎬 Le rebond tient jusqu&#x27;à la fin de l&#x27;année" aria-label="Notre scénario : Favorable (58%) — 🎬 Le rebond tient jusqu&#x27;à la fin de l&#x27;année">
@@ -2442,6 +2619,7 @@
       </td>
     </tr>
     <tr data-domain="tech-numerique" data-scenario="degrade" data-france="degrade" data-revised="true" data-date="2026-08-07">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-07.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-07.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">07.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2449,6 +2627,7 @@
           <a href="suivi/big-tech-justice.html" class="revised-badge" title="Sujet révisé le 03.09.2026 — voir le suivi">Révisé</a>
           
         </span>
+        <span class="card-q">❓ Après avoir perdu deux procès antitrust d&#x27;affilée sur son moteur de recherche et sa régie publicitaire, Google va-t-il être vraiment démantelé, ou les géants de la tech vont-ils une fois de plus absorber le choc sans rien changer à leur pouvoir réel ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (50%) — 🏳️ La justice recule, Big Tech gagne" aria-label="Notre scénario : Dégradé (50%) — 🏳️ La justice recule, Big Tech gagne">
@@ -2464,6 +2643,7 @@
       </td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="neutre" data-revised="true" data-date="2026-08-06">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-06.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-06.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">06.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2471,6 +2651,7 @@
           <a href="suivi/fifa-infantino.html" class="revised-badge" title="Sujet révisé le 05.09.2026 — voir le suivi">Révisé</a>
           
         </span>
+        <span class="card-q">❓ Après avoir dû abandonner en catastrophe son projet de vendre un bout de la Coupe du monde à des investisseurs privés, Gianni Infantino peut-il regagner la confiance de l&#x27;UEFA et des autres fédérations avant l&#x27;élection à la présidence de la FIFA prévue le 18 mars 2027 ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (68%) — 🧊 La méfiance dure, Infantino reste" aria-label="Notre scénario : Stable (68%) — 🧊 La méfiance dure, Infantino reste">
@@ -2486,6 +2667,7 @@
       </td>
     </tr>
     <tr data-domain="sciences-environnement" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-05">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-05.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-05.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">05.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2493,6 +2675,7 @@
           
           
         </span>
+        <span class="card-q">❓ Six nouveaux réacteurs nucléaires à 83 milliards d&#x27;euros, une enquête de Bruxelles sur les aides versées à EDF, et une décision finale attendue avant la fin de l&#x27;année : le programme EPR2 va-t-il tenir son calendrier, ou est-il en train de dérailler ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — ⏳ La décision glisse, le programme survit" aria-label="Notre scénario : Stable (50%) — ⏳ La décision glisse, le programme survit">
@@ -2508,6 +2691,7 @@
       </td>
     </tr>
     <tr data-domain="international" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-04">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-04.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-04.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">04.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2515,6 +2699,7 @@
           
           
         </span>
+        <span class="card-q">❓ Après près de deux ans de guerre et au moins 73 350 morts, le Hamas a accepté le 31 juillet de rendre ses armes en échange d&#x27;un retrait israélien — mais Israël a fait savoir le 3 août avoir de « sérieuses préoccupations » et les frappes continuent : l&#x27;accord va-t-il vraiment démarrer, ou reste-t-il un accord signé sur le papier ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — ⚖️ L&#x27;accord reste bloqué sur le papier" aria-label="Notre scénario : Stable (50%) — ⚖️ L&#x27;accord reste bloqué sur le papier">
@@ -2530,6 +2715,7 @@
       </td>
     </tr>
     <tr data-domain="international" data-scenario="degrade" data-france="degrade" data-revised="true" data-date="2026-08-03">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-03.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-03.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">03.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2537,6 +2723,7 @@
           <a href="suivi/ceuta-schengen.html" class="revised-badge" title="Sujet révisé le 27.08.2026 — voir le suivi">Révisé</a>
           
         </span>
+        <span class="card-q">❓ Depuis jeudi, 60 000 personnes ont franchi la frontière entre le Maroc et l&#x27;enclave espagnole de Ceuta, laissant au moins 72 morts et poussant l&#x27;Italie à fermer temporairement Schengen avec l&#x27;Espagne : l&#x27;Europe va-t-elle contenir cette crise sans toucher à la libre circulation, ou Ceuta est-elle en train de rouvrir le débat sur les frontières intérieures de l&#x27;UE ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (62%) — 🔥 Une nouvelle vague fait vaciller Schengen" aria-label="Notre scénario : Dégradé (62%) — 🔥 Une nouvelle vague fait vaciller Schengen">
@@ -2555,6 +2742,7 @@
       <td class="week-recap-cell" colspan="6"><a class="week-recap-link" href="hebdo/2026-08-02.html">🗓️ Récap de la semaine — 27 juillet au 2 août 2026</a></td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-02">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-02.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-02.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">02.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2562,6 +2750,7 @@
           
           
         </span>
+        <span class="card-q">❓ Netflix a augmenté son abonnement standard de 2 dollars en mars, Disney+ jusqu&#x27;à 3 dollars, et il faut désormais s&#x27;abonner à Netflix, Amazon Prime, Peacock et Disney+ à la fois pour voir tous les matchs de NFL : après avoir tué la télévision par câble en promettant moins cher et tout au même endroit, le streaming est-il en train de devenir exactement ce qu&#x27;il devait remplacer ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — ⚖️ Les gros gagnent, les petits trinquent" aria-label="Notre scénario : Stable (45%) — ⚖️ Les gros gagnent, les petits trinquent">
@@ -2577,6 +2766,7 @@
       </td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-08-01">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-08-01.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-08-01.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">01.08</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2584,6 +2774,7 @@
           
           
         </span>
+        <span class="card-q">❓ Alors que plus de la moitié des nouveaux titres envoyés chaque jour à Deezer sont désormais entièrement composés par une IA, et que la loi censée protéger les artistes est bloquée à l&#x27;Assemblée nationale, la musique faite par des humains peut-elle encore résister ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — ⚖️ Ni loi ni chaos, un flou qui dure" aria-label="Notre scénario : Stable (45%) — ⚖️ Ni loi ni chaos, un flou qui dure">
@@ -2599,6 +2790,7 @@
       </td>
     </tr>
     <tr data-domain="sciences-environnement" data-scenario="stable" data-france="degrade" data-revised="false" data-date="2026-07-31">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-07-31.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-07-31.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">31.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2606,6 +2798,7 @@
           
           
         </span>
+        <span class="card-q">❓ Après l&#x27;été le plus dévastateur en vingt ans, la France va-t-elle enfin construire un vrai plan contre les méga-feux, ou continuera-t-elle à réagir dans l&#x27;urgence, feu après feu ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (47%) — 🚒 On répare, mais sans plan d&#x27;ensemble" aria-label="Notre scénario : Stable (47%) — 🚒 On répare, mais sans plan d&#x27;ensemble">
@@ -2621,6 +2814,7 @@
       </td>
     </tr>
     <tr data-domain="economie-entreprises" data-scenario="degrade" data-france="degrade" data-revised="true" data-date="2026-07-30">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-07-30.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-07-30.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">30.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2628,6 +2822,7 @@
           <a href="suivi/arabie-saoudite-sport.html" class="revised-badge" title="Sujet révisé le 11.09.2026 — voir le suivi">Révisé</a>
           
         </span>
+        <span class="card-q">❓ Après avoir dépensé des dizaines de milliards dans le sport mondial, l&#x27;Arabie saoudite est-elle en train de se retirer, de resserrer son emprise sur le football, ou va-t-elle au contraire l&#x27;étendre partout ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (75%) — 🔥 Le calendrier serré ne tient pas" aria-label="Notre scénario : Dégradé (75%) — 🔥 Le calendrier serré ne tient pas">
@@ -2643,6 +2838,7 @@
       </td>
     </tr>
     <tr data-domain="politique-institutions" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-07-29">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-07-29.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-07-29.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">29.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2650,6 +2846,7 @@
           
           <a href="en/archives/2026-07-29.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
+        <span class="card-q">❓ Cet automne, le gouvernement de Sébastien Lecornu réussira-t-il à faire adopter un budget 2027, survivra-t-il de justesse à coups de 49.3 comme l&#x27;an dernier, ou tombera-t-il faute d&#x27;accord, à quelques mois de la présidentielle ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — ⚖️ Le 49.3 sauve la mise, sous tension" aria-label="Notre scénario : Stable (50%) — ⚖️ Le 49.3 sauve la mise, sous tension">
@@ -2665,6 +2862,7 @@
       </td>
     </tr>
     <tr data-domain="economie-entreprises" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-07-28">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-07-28.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-07-28.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">28.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2672,6 +2870,7 @@
           
           
         </span>
+        <span class="card-q">❓ Alors que la fortune des milliardaires bat record sur record — plus de 20 000 milliards de dollars, en hausse de 4 000 milliards en un an —, la concentration des richesses va-t-elle être freinée par de nouveaux impôts, se poursuivre au rythme actuel, ou s&#x27;accélérer encore ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — ⚖️ La fortune grimpe, la taxe reste bloquée" aria-label="Notre scénario : Stable (50%) — ⚖️ La fortune grimpe, la taxe reste bloquée">
@@ -2687,6 +2886,7 @@
       </td>
     </tr>
     <tr data-domain="international" data-scenario="degrade" data-france="degrade" data-revised="true" data-date="2026-07-27">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-07-27.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-07-27.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">27.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2694,6 +2894,7 @@
           <a href="suivi/iran-usa.html" class="revised-badge" title="Sujet révisé le 10.09.2026 — voir le suivi">Révisé</a>
           
         </span>
+        <span class="card-q">❓ Après cinq mois de guerre et plusieurs cessez-le-feu rompus, les négociations en cours déboucheront-elles sur un accord durable entre l&#x27;Iran et les États-Unis, sur une trêve sous tension sans vraie paix, ou sur une nouvelle reprise des combats ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/international.html">International</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (92%) — 🔥 Les combats reprennent, Ormuz se ferme" aria-label="Notre scénario : Dégradé (92%) — 🔥 Les combats reprennent, Ormuz se ferme">
@@ -2709,6 +2910,7 @@
       </td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="degrade" data-revised="true" data-date="2026-07-26">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-07-26.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-07-26.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">26.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2731,6 +2933,7 @@
       </td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="stable" data-france="neutre" data-revised="false" data-date="2026-07-25">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-07-25.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-07-25.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">25.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">
@@ -2753,6 +2956,7 @@
       </td>
     </tr>
     <tr data-domain="culture-divertissement" data-scenario="favorable" data-france="favorable" data-revised="true" data-date="2026-07-18">
+      <td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/2026-07-18.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'"><img class="thumb-wide" src="assets/social/theme-wide/2026-07-18.jpg" alt="" width="720" height="405" loading="lazy" onerror="this.remove()"></td>
       <td class="col-date" data-label="Date"><span class="date-day">18.07</span><span class="date-year">2026</span></td>
       <td class="col-title">
         <span class="title-row">

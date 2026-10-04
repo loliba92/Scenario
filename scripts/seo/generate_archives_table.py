@@ -27,6 +27,14 @@ FRENCH_MONTHS = {
     "octobre": 10, "novembre": 11, "décembre": 12, "decembre": 12,
 }
 
+# Anciens slugs de domaine encore produits par certains briefs (« culture », « economie-mondiale », « sciences ») :
+# rattachés aux 7 matières officielles pour que ces éditions apparaissent sur la bonne page matière (4 oct. 2026).
+LEGACY_DOMAIN_ALIASES = {
+    "culture": "culture-divertissement",
+    "economie-mondiale": "economie-entreprises",
+    "sciences": "sciences-environnement",
+}
+
 # Domaine labels
 DOMAIN_LABELS = {
     "economie-entreprises": "Économie & entreprises",
@@ -608,6 +616,68 @@ ARCHIVES_TABLE_CSS = """
   .filters-more > summary:hover{ border-color:var(--gold); }
   .filters-more .filter-row{ margin-top:12px; }
 
+  /* ---- Vue cartes : même format que les pages matières (4 oct. 2026) ----
+     Le tableau reste la source de données (les scripts lisent ses <tr>) ; seule sa présentation change. */
+  table.archives-table.cards{ display:block; max-width:1200px; margin:8px auto 0; background:none; box-shadow:none; border:0; }
+  table.archives-table.cards thead{ display:none; }
+  table.archives-table.cards tbody{ display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:14px; width:100%; }
+  table.archives-table.cards tr{
+    position:relative; display:flex; flex-direction:row; flex-wrap:wrap; align-items:center; align-content:center; gap:6px 10px;
+    background:var(--surface); border:1px solid var(--hairline); border-radius:10px;
+    padding:14px 14px 14px 100px; min-height:100px; transition:border-color .15s;
+  }
+  table.archives-table.cards tr:hover{ border-color:var(--gold); }
+  table.archives-table.cards td{ padding:0; border:0; text-align:left; background:none; }
+  table.archives-table.cards td::before{ display:none !important; }
+  table.archives-table.cards tr.week-recap-row{
+    grid-column:1 / -1; min-height:0; padding:10px 16px; justify-content:center; background:var(--surface-2);
+  }
+  table.archives-table.cards tr.week-recap-row td{ width:100%; text-align:center; }
+  .cards .col-thumb{ position:absolute; left:14px; top:14px; width:72px; height:72px; }
+  .cards .thumb-sq{ width:72px; height:72px; border-radius:7px; object-fit:cover; background:var(--surface-2); display:block; }
+  .cards .thumb-wide{ display:none; }
+  .cards .col-date{ order:1; flex:1 0 100%; display:block !important; }
+  .cards .col-date .date-day, .cards .col-date .date-year{
+    display:inline; font-family:"JetBrains Mono", monospace; font-size:0.68rem; font-weight:400; color:var(--paper-dim);
+  }
+  .cards .col-date .date-day::after{ content:"."; }
+  .cards .col-title{ order:2; flex:1 0 100%; padding:0 !important; display:block; }
+  .cards .col-title a:first-child{ font-family:"Fraunces", serif; font-weight:600; font-size:1rem; line-height:1.3; color:var(--paper); text-decoration:none; }
+  .cards tr:hover .col-title a:first-child{ text-decoration:underline; text-decoration-color:var(--gold); }
+  .cards .card-q{ display:none; }
+  .cards .col-domain{ order:3; display:block !important; font-family:"JetBrains Mono", monospace; font-size:0.64rem !important; text-transform:uppercase; letter-spacing:0.05em; margin:0 !important; }
+  .cards .col-domain a{ color:var(--paper-dim); text-decoration:none; }
+  .cards .col-eval{ order:4; display:block !important; border:0 !important; padding:0 !important; }
+  .cards .col-france{ order:5; display:block !important; border:0 !important; padding:0 !important; }
+  .cards .col-reads{ display:none !important; }
+
+  /* Dernière édition : grande carte avec photo, comme sur les pages matières */
+  table.archives-table.cards tr.is-featured{
+    grid-column:1 / -1; display:block; padding:0; border-left:3px solid var(--gold); overflow:hidden;
+  }
+  .cards tr.is-featured .col-thumb{ position:static; width:100%; height:auto; }
+  .cards tr.is-featured .thumb-sq{ display:none; }
+  .cards tr.is-featured .thumb-wide{ display:block; width:100%; aspect-ratio:21/9; object-fit:cover; background:var(--surface-2); }
+  .cards tr.is-featured .col-date, .cards tr.is-featured .col-title, .cards tr.is-featured .col-domain,
+  .cards tr.is-featured .col-eval, .cards tr.is-featured .col-france{ margin-left:22px; margin-right:22px; }
+  .cards tr.is-featured .col-date{ margin-top:18px; color:var(--gold); }
+  .cards tr.is-featured .col-date::before{ content:"Dernière édition · "; display:inline !important; font-family:"JetBrains Mono", monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); }
+  .cards tr.is-featured .col-title{ margin-top:8px; }
+  .cards tr.is-featured .col-title a:first-child{ font-size:1.45rem; }
+  .cards tr.is-featured .card-q{ display:block; margin-top:10px; color:var(--paper-dim); font-size:0.95rem; line-height:1.55; font-family:inherit; }
+  .cards tr.is-featured .col-domain, .cards tr.is-featured .col-eval, .cards tr.is-featured .col-france{ display:inline-block !important; margin-top:12px; margin-bottom:18px; margin-right:12px; vertical-align:middle; }
+  .cards tr.is-featured .col-domain{ margin-left:22px !important; margin-right:12px !important; margin-top:12px !important; margin-bottom:18px !important; }
+  @media (max-width: 480px){
+    .cards tr.is-featured .col-domain{ margin-left:16px !important; }
+    table.archives-table.cards tr.is-featured .col-date,
+    table.archives-table.cards tr.is-featured .col-title,
+    table.archives-table.cards tr.is-featured .col-domain,
+    table.archives-table.cards tr.is-featured .col-eval,
+    table.archives-table.cards tr.is-featured .col-france{ margin-left:16px; margin-right:16px; }
+    .cards tr.is-featured .col-title a:first-child{ font-size:1.2rem; }
+    .cards tr.is-featured .thumb-wide{ aspect-ratio:16/9; }
+  }
+
   /* Le tableau (desktop) comme les cartes (mobile, tr en display:flex)
      doivent tous deux disparaître complètement quand filtrés */
   .archives-table tbody tr.is-hidden {
@@ -1011,6 +1081,7 @@ def parse_article(file_path, suivi_mapping=None):
     question = extract_question(text)
     scenarios = extract_scenarios(text)
     domain = extract_domain(text)
+    domain = LEGACY_DOMAIN_ALIASES.get(domain, domain)
     revised_on = extract_revised(text)
 
     suivi_path = (suivi_mapping or {}).get(iso_date)
@@ -1089,7 +1160,7 @@ def get_scenario_label(kind):
     return labels.get(kind, kind)
 
 
-def render_table_row(article):
+def render_table_row(article, featured=False):
     """Rend une ligne du tableau avec 5 colonnes: Date | Titre | Domaine | Notre scénario | Impact France."""
     domain_label = DOMAIN_LABELS.get(article["domain"], article["domain"])
 
@@ -1154,14 +1225,26 @@ def render_table_row(article):
     # ligne à sa clé dans assets/data/reads.json, sans reparser le lien/l'affichage.
     # data-label sur chaque <td> : utilisé par la vue carte mobile (voir CSS @media)
     # Ordre : Date puis Titre en premier (les 2 repères de nav), puis Domaine, puis les 2 badges
-    return f"""    <tr data-domain="{article["domain"] or ''}" data-scenario="{kind or ''}" data-france="{article["france_group"] or ''}" data-revised="{'true' if revised_on else 'false'}" data-date="{article["iso_date"]}">
+    # Vue « cartes » (4 oct. 2026, même format que les pages matières) : miniature carrée + grande photo (affichée
+    # seulement sur la carte « dernière édition »), question en clair. onerror masque une image absente.
+    d = article["iso_date"]
+    thumb_td = (
+        f'<td class="col-thumb"><img class="thumb-sq" src="assets/social/archive-thumbs/{d}.jpg" alt="" width="72" height="72" '
+        f'loading="lazy" onerror="this.style.visibility=\'hidden\'">'
+        f'<img class="thumb-wide" src="assets/social/theme-wide/{d}.jpg" alt="" width="720" height="405" loading="lazy" '
+        f'onerror="this.remove()"></td>'
+    )
+    question_html = f'\n        <span class="card-q">{html.escape(article["question"])}</span>' if article["question"] else ""
+    feat_cls = ' class="is-featured"' if featured else ""
+    return f"""    <tr data-domain="{article["domain"] or ''}" data-scenario="{kind or ''}" data-france="{article["france_group"] or ''}" data-revised="{'true' if revised_on else 'false'}" data-date="{article["iso_date"]}"{feat_cls}>
+      {thumb_td}
       <td class="col-date" data-label="Date">{format_date_display(article["iso_date"])}</td>
       <td class="col-title">
         <span class="title-row">
           <a href="archives/{article["iso_date"]}.html"{question_attr}>{html.escape(article["title"])}</a>
           {revised_badge}
           {en_link}
-        </span>
+        </span>{question_html}
       </td>
       <td class="col-domain" data-label="Matière">{f'<a href="themes/{article["domain"]}.html">{domain_label}</a>' if article["domain"] in DOMAIN_LABELS else domain_label}</td>
       <td class="col-eval" data-label="Notre scénario">{eval_html}</td>
@@ -1236,9 +1319,9 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
         date_range = weekly_recaps.get(article["iso_date"])
         if date_range:
             row_blocks.append(render_week_recap_row(article["iso_date"], date_range))
-        row_blocks.append(render_table_row(article))
+        row_blocks.append(render_table_row(article, featured=not any("data-date" in b for b in row_blocks)))
     rows_html = "\n".join(row_blocks)
-    table_html = f"""  <table class="archives-table" id="archives-table">
+    table_html = f"""  <table class="archives-table cards" id="archives-table">
     <thead>
       <tr>
         <th style="width: 9%;">Date</th>
