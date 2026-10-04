@@ -2264,6 +2264,13 @@
       overflow: hidden;
     }
   }
+
+  /* ---- Lien discret « Ajouter Scénario à vos sources Google » sous la ligne de partage (4 octobre 2026). ---- */
+  .source-google{ margin: 2px 0 10px; font-family: "JetBrains Mono", monospace; font-size: 0.7rem; letter-spacing: 0.04em; }
+  .source-google a{ color: var(--paper-dim); text-decoration: none; border-bottom: 1px dotted var(--hairline); }
+  .source-google a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
+  .source-google svg{ color: var(--gold, #c9a24a); vertical-align: -1px; margin-right: 3px; }
+  @media print{ .source-google{ display: none; } }
 </style>
 </head>
 <body>
@@ -2355,6 +2362,7 @@
 <a aria-label="Share on Telegram" href="#" id="share-telegram" title="Share on Telegram"><svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M2 12l19-9-7 19-3-7-6-3z"></path></svg></a>
 <button aria-label="Copy link" id="share-copy" title="Copy link" type="button"><svg aria-hidden="true" class="share-icon-link" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24"><path d="M10 14a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1 1"></path><path d="M14 10a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1-1"></path></svg><svg aria-hidden="true" class="share-icon-check" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg></button>
 </p>
+    <p class="source-google"><a href="https://google.com/preferences/source?q=lesscenarios.fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"></path></svg> Add Scénario to your Google sources</a></p>
 <nav aria-label="Edition contents" class="toc">
 <a href="#scenarios">Scenarios</a>
 <a href="#essentiel">Key takeaways</a>

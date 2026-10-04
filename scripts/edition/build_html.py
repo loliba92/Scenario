@@ -592,6 +592,7 @@ def build_hero(content, date_str, photo=None, graphique_dc_chart=None, theme_lin
       <a href="#" id="share-telegram" aria-label="Partager sur Telegram" title="Partager sur Telegram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 12l19-9-7 19-3-7-6-3z"/></svg></a>
       <button type="button" id="share-copy" aria-label="Copier le lien" title="Copier le lien"><svg class="share-icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1-1"/></svg><svg class="share-icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></button>
     </p>
+    <p class="source-google"><a href="https://google.com/preferences/source?q=lesscenarios.fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"></path></svg> Ajouter Scénario à vos sources Google</a></p>
 
     <nav class="toc" aria-label="Sommaire de l'édition">
       <a href="#scenarios">Scénarios</a>

@@ -20,5 +20,24 @@ class TestGoogleSource(unittest.TestCase):
         self.assertNotIn("archives/2026-10-03.html", noms)
 
 
+
+class TestGoogleSourceEdition(unittest.TestCase):
+    def test_hero_et_css_idempotents(self):
+        import add_google_source_edition as e
+        html = '<style>a{}</style><p class="share-inline"><a>x</a></p><nav class="toc"></nav>'
+        une = e.ajouter_hero(e.ajouter_css(html), False)
+        self.assertIn("Ajouter Scénario à vos sources Google", une)
+        self.assertLess(une.index("share-inline"), une.index('<p class="source-google">'))
+        self.assertLess(une.index('<p class="source-google">'), une.index("<nav"))
+        self.assertEqual(e.ajouter_hero(e.ajouter_css(une), False), une)
+        self.assertIn("Add Scénario to your Google sources", e.ajouter_hero(html, True))
+
+    def test_cibles_sans_editions_passees(self):
+        import add_google_source_edition as e
+        noms = {c[0].relative_to(e.ROOT).as_posix() for c in e.cibles("2026-10-04")}
+        self.assertNotIn("archives/2026-10-03.html", noms)
+        self.assertIn("archives/2026-10-04.html", noms)
+
+
 if __name__ == "__main__":
     unittest.main()
