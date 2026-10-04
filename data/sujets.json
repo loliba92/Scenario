@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "44528e52624e88ec8d25462cb596955a1656fa9e04dfefd31b9cf934871989d9"
+    "md_sha256": "264a7342c0c0779ad12043dda764b4825e5d92d92a1011c02a5051b2f7b1266c"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -137,8 +137,8 @@
           "ajoute_le": "2026-10-04",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null,
-          "donnees": null
+          "enrichi_le": "2026-10-04",
+          "donnees": "[relevé du 2026-10-04] Sabotages ciblés contre la infrastructure de transport en Allemagne (nombre d'infractions). 2023 = 78 (2023) ; 2024 = 58 (2024) ; 2025 = 93 (2025). Sources : https://correctiv.org/aktuelles/hybride-kriegsfuehrung/2026/06/18/fast-100-anschlaege-auf-deutsche-verkehrsinfrastruktur-sabotage/ ; https://www.news.de/politik/859733719/bundeskriminalamt-meldet-mehr-sabotage-gegen-verkehrswege-kriminalitaet-news-der-dpa-aktuell-zu-verkehr-und-sabotage/1/"
         },
         {
           "type": "sujet",
