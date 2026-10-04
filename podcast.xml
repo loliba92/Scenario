@@ -24,6 +24,7 @@
       <enclosure url="https://github.com/loliba92/Scenario/releases/download/podcast-2026-10-04/2026-10-04.mp3" length="2427309" type="audio/mpeg"/>
       <itunes:duration>00:03:22</itunes:duration>
       <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://lesscenarios.fr/podcast/episodes/2026-10-04.jpg"/>
     </item>
     <item>
       <title>Dépistage du cancer du sein : le modèle va-t-il basculer ?</title>
@@ -34,6 +35,7 @@
       <enclosure url="https://github.com/loliba92/Scenario/releases/download/podcast-2026-10-02/2026-10-02.mp3" length="2628333" type="audio/mpeg"/>
       <itunes:duration>00:03:39</itunes:duration>
       <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://lesscenarios.fr/podcast/episodes/2026-10-02.jpg"/>
     </item>
   </channel>
 </rss>
