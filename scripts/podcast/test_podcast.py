@@ -220,7 +220,9 @@ class TestFondus(unittest.TestCase):
         self.assertEqual(out[0], 0)                 # entrée en fondu depuis le silence
         self.assertEqual(out[-1], 0)                # sortie en fondu jusqu'à zéro
         self.assertEqual(abs(out[-mu.SR // 2]), 0)
-        self.assertGreater(len(out) / mu.SR, 10 + 20 + 7)   # la fermeture dépasse la fin de la voix
+        # la musique de fermeture commence après la voix (fin de la voix à 30 s, puis 9 s de musique)
+        self.assertGreater(len(out) / mu.SR, 10 + 20 + 8)
+        self.assertLess(max(abs(x) for x in out[: int(mu.SR * 29)]), 32767)
 
 
 if __name__ == "__main__":

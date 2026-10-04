@@ -281,11 +281,11 @@ def _rms(pcm: array) -> float:
 
 def melanger_theme(theme_pcm: bytes, voix_pcm: bytes, recouvrement_s: float = 2.0, rapport: float = 1.1,
                    fondu_s: float = 3.0, fondu_entree_s: float = 0.8, fin_pcm: bytes | None = None,
-                   recouvrement_fin_s: float = 2.0, fondu_fin_entree_s: float = 1.0, fondu_fin_s: float = 3.5) -> bytes:
+                   recouvrement_fin_s: float = 0.0, fondu_fin_entree_s: float = 0.6, fondu_fin_s: float = 3.5) -> bytes:
     """Le thème entre en fondu depuis le silence, joue seul, puis la voix entre `recouvrement_s` avant la fin
     du thème, qui s'éteint en fondu jusqu'à zéro. Le thème est mis au même niveau sonore que la voix (rapport 1,1 :
     un peu plus fort au début), car un thème généré est souvent bien plus fort qu'une voix de synthèse.
-    Fermeture : si `fin_pcm` est fourni, cet extrait entre en fondu `recouvrement_fin_s` avant la fin de la voix,
+    Fermeture : si `fin_pcm` est fourni, cet extrait entre en fondu une fois la phrase finale dite (`recouvrement_fin_s` : recouvrement éventuel),
     puis s'éteint en fondu jusqu'à zéro."""
     theme = array("h")
     theme.frombytes(theme_pcm)
