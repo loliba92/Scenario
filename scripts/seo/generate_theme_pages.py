@@ -313,7 +313,7 @@ def render_page(domain, entries, style_block, masthead_nav, follow_footer, tail_
     # depuis glossaire.html (profondeur 0) ; themes/ est un cran plus profond, donc
     # préfixer chaque lien relatif de "../" comme le fait déjà archives/{date}.html.
     masthead_nav_rel = re.sub(
-        r'href="(index\.html|archives\.html|glossaire\.html|le-projet\.html|newsletter\.html|contact\.html)',
+        r'href="(index\.html|archives\.html|glossaire\.html|le-projet\.html|recherche\.html|newsletter\.html|contact\.html)',
         r'href="../\1',
         masthead_nav,
     )
