@@ -774,10 +774,10 @@ def build_sources(content, date_str):
 
 _SHARE_BLOCK = """<section class="share-block" id="nous-suivre">
   <div class="wrap">
-    <p class="section-label">Reste connecté</p>
-    <h2 class="section-title">Vote avant le résultat, retrouve-nous partout</h2>
-    <p>Chaque jour, un sondage sur notre canal Telegram : vote pour le scénario que tu juges le plus probable avant même de découvrir les vraies probabilités ci-dessus.</p>
-    <p>Retrouve-nous aussi sur tous nos réseaux :</p>
+    <p class="section-label">Restez connecté</p>
+    <h2 class="section-title">Votez avant le résultat, suivez-nous partout</h2>
+    <p>Chaque jour, un sondage sur notre canal Telegram : votez pour le scénario que vous jugez le plus probable avant même de découvrir nos probabilités.</p>
+    <p>Suivez-nous aussi sur tous nos réseaux :</p>
     <div class="share-row">
       <a class="follow-btn" href="https://x.com/scenario_fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="4" x2="20" y2="20"></line><line x1="20" y1="4" x2="4" y2="20"></line></svg> X</a>
       <a class="follow-btn" href="https://bsky.app/profile/scenario-actu.bsky.social" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"></path></svg> Bluesky</a>
@@ -790,7 +790,7 @@ _SHARE_BLOCK = """<section class="share-block" id="nous-suivre">
     </div>
     <div class="share-row" style="margin-top:14px">
       <button type="button" id="onesignal-subscribe-btn" class="onesignal-subscribe-btn btn-outline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg> <span class="btn-label">Activer les notifications</span></button>
-      <a class="btn-outline" href="https://buymeacoffee.com/scenario" target="_blank" rel="noopener noreferrer">☕ Nous offrir un café</a>
+      <a class="btn-outline" href="https://buymeacoffee.com/scenario" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v6a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4Z"/><path d="M16 10.5h1.5a2 2 0 0 1 0 4H16"/><path d="M8.5 4.5c-.6.7-.6 1.3 0 2M12 4.5c-.6.7-.6 1.3 0 2"/></svg> Nous offrir un café</a>
     </div>
   </div>
 </section>"""

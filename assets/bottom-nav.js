@@ -94,7 +94,7 @@
     "align-items:center;justify-content:center;gap:4px;position:relative;background:none;border:0;margin:0;" +
     "padding:0;color:#a9a89c;text-decoration:none;font:inherit;cursor:pointer;" +
     "-webkit-tap-highlight-color:transparent}" +
-    "#bottom-nav .bn-label{font-size:.72rem;letter-spacing:.01em;line-height:1;" +
+    "#bottom-nav .bn-label{font-size:.72rem;letter-spacing:.01em;line-height:1.35;" +
     "max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}" +
     "#bottom-nav a:active,#bottom-nav button:active{color:#ece7da}" +
     "#bottom-nav [aria-current='page'],#bottom-nav button[aria-expanded='true']{color:#cf9d4c}" +
