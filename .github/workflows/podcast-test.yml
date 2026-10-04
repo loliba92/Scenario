@@ -83,6 +83,7 @@ jobs:
             NARR="--voix $VOIX_UNIQUE --suffixe=-$VOIX_UNIQUE"
             [ -n "$DATE" ] && NARR="$NARR --date $DATE"
             [ -n "$MODELE" ] && NARR="$NARR --modele $MODELE"
+            [ "$MUSIQUE" = "false" ] || NARR="$NARR --ouverture"
             python3 scripts/podcast/narration.py "$TEXTE" $NARR
             exit $?
           fi
