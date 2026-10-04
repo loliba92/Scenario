@@ -60,6 +60,7 @@ from generate_daily_edition import (
     validate_brief,
 )
 from source_links import sanitize_brief_sources
+import connexes
 
 # Passé de DEFAULT_MODEL (anthropic/claude-sonnet-5) à Opus le 18
 # septembre 2026 (décision utilisateur), puis à Sonnet le 20 (retour « opus
@@ -399,6 +400,16 @@ chiffres comparables existent ; `raison` dit alors lesquels manquent.
 === Éditions récentes, les {20} dernières (archives.html — anti-doublon Étape 0bis) ===
 {summarize_recent_archives()}
 
+=== TOUTES LES ÉDITIONS PASSÉES (pour `articles_connexes`, Étape 2bis — sans limite de date) ===
+{connexes.toutes_les_editions(exclure={date_str})}
+
+Pour `articles_connexes` : parcours cette liste COMPLÈTE (pas seulement les plus récentes) et choisis les 3 éditions qui ont le
+lien le PLUS FORT avec le sujet du jour, classées de la plus à la moins proche. Un lien fort = le même acteur (pays, entreprise,
+dirigeant), le même lieu, le même mécanisme ou la même menace, la même échéance. Le même domaine ou le même mois n'est PAS un lien.
+Pense aux synonymes et aux langues (Russia = Russie, GPS = navigation par satellite, hybride = sabotage/désinformation). À lien égal,
+prends la plus récente. Si moins de 3 éditions ont un vrai lien, n'en mets que 2 ou 1 : jamais un lien artificiel. `titre` = le titre
+exact de la liste ; `lien` = une phrase qui nomme précisément ce qui relie les deux éditions.
+
 === Contexte du jour ===
 Date : {date_str} ({jour})
 
@@ -453,6 +464,8 @@ def generate_fallback_brief(date_str, model, api_key, timeout=480):
         errors = source_errors + validate_brief(brief)
         errors += check_topic_duplicate(brief)
         if not errors:
+            for note in connexes.normaliser_connexes(brief):
+                print(f"[fallback-brief] articles connexes : {note}", file=sys.stderr)
             ident = ancrer_sur_le_sujet(brief, date_str)
             print(f"[fallback-brief] point de départ : {ident or 'aucun sujet de la file (auto-sélection)'}", file=sys.stderr)
             return brief, usage
