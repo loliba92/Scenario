@@ -166,7 +166,7 @@ ta propre rédaction :
 1. Chaque sigle, institution, terme technique ou expression de spécialiste est expliqué en quelques mots dès son premier emploi
    (ex. « le Top 14, le championnat français de rugby »), sans renvoyer le lecteur à un autre endroit pour comprendre la phrase.
 2. Une idée par phrase ; aucune phrase ne dépasse environ 25 mots.
-3. Chaque scénario est annoncé par une phrase simple qui dit ce qui se passe (« Première évolution possible : … »), avant son détail.
+3. Chaque scénario est annoncé par une phrase simple qui dit ce qui se passe (« Premier scénario : … »), avant son détail.
 4. Les mots abstraits (« dynamique », « enjeux », « paradigme », « gouvernance », « trajectoire », « écosystème ») sont remplacés par
    ce qu'ils désignent concrètement.
 5. Dans chaque grande partie, au moins une comparaison ou un exemple concret proche du quotidien quand les faits le permettent

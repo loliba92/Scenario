@@ -186,6 +186,9 @@ class TestJingles(unittest.TestCase):
         self.assertTrue(any("phrases trop longues" in x for x in tn.verifier(exemple + "\n" + longue, src)))
         self.assertFalse(any("phrases trop longues" in x for x in tn.verifier(exemple, src)))
         self.assertIn("trois évolutions possibles", tn.OUVERTURE)
+        sans = exemple.replace("scénarios", "trajectoires").replace("scénario", "trajectoire")
+        self.assertTrue(any("scénarios" in x for x in tn.verifier(sans, src)))
+        self.assertFalse(any("« scénarios »" in x for x in tn.verifier(exemple, src)))
         self.assertNotIn("façons", tn.OUVERTURE)
         self.assertLess(len(tn.OUVERTURE.split()), 20)
 
