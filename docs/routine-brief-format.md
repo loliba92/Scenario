@@ -67,6 +67,11 @@ sur un fichier partagé entre deux process).
     "raison": "string",
     "serie": "null si decision=non, sinon voir § dédié plus bas pour le schéma exact"
   },
+  "graphique_chiffres": {
+    "decision": "oui|non",
+    "raison": "string — si non : quels chiffres comparables manquent",
+    "barres": "null si decision=non, sinon voir § « graphique_chiffres.barres » plus bas"
+  },
   "encarts_decides": {
     "comprendre_box": [
       {"focus": "string", "rattache_a": "string (référence au fait/dek concerné)"}
@@ -394,3 +399,32 @@ le brief réel du jour par date) : un brief-exemple fictif ne doit jamais
 squatter ce chemin daté, au risque d'être publié pour de vrai à la place
 d'une vraie recherche du jour — incident réel ce jour-là, voir
 `docs/ARCHITECTURE.md`.
+
+## Champ `graphique_chiffres.barres` (utilisé par `scripts/edition/build_html.py`)
+
+Graphique de repli en barres horizontales, rendu au même endroit que le graphique en escalier (juste après
+`.indicator-strip`) quand `graphique_dc_chart.decision` est `non`. Il compare **3 à 6 chiffres réels, de même unité**,
+déjà présents dans `faits_verifies` et les sources lues : jamais un chiffre inventé, jamais tiré de la mémoire du
+modèle. Si le bloc est invalide (moins de 3 ou plus de 6 valeurs, valeur négative, texte manquant), il est silencieusement
+omis, sans erreur.
+
+`barres` (uniquement si `decision` = `"oui"`, sinon `null`) :
+```json
+{
+  "aria_label": "string — description accessible du <svg>",
+  "lead": "string — une phrase d'intro avant le graphique, qui dit ce qu'on compare",
+  "caption": "string — source des chiffres (nom du média ou de l'institution et date)",
+  "unite": "string — ex. « % », « M€ », « points », ou vide",
+  "valeurs": [
+    {"label": "string court", "valeur": 12.5, "affichage": "12,5 % (facultatif, sinon valeur + unité)", "mis_en_avant": false}
+  ]
+}
+```
+Au plus une valeur avec `mis_en_avant` à `true` (celle que le texte commente).
+
+## Rappels d'articles précédents dans « Les faits »
+
+Depuis le 4 octobre 2026, `build_html.py` insère automatiquement, après le 2ᵉ puis le 4ᵉ paragraphe de « Les faits »,
+une ligne « Déjà abordé sur Scénario : titre (date) » avec lien, pour les deux premiers `articles_connexes` du brief
+(ceux-ci doivent donc être classés du plus au moins pertinent, et chacun doit avoir un lien thématique réel avec le
+sujet du jour). Aucun champ supplémentaire à renseigner.

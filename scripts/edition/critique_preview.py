@@ -81,7 +81,7 @@ CRITIQUE_MODEL = "google/gemini-3.7-flash"
 # vérifier si le brief relie vraiment deux faits, ou s'ils n'y
 # apparaissent que comme des affirmations séparées — la seule chose que
 # ce critère cherche à détecter.
-TRIMMED_BRIEF_KEYS = ("sources", "indicateurs_kpi", "graphique_dc_chart", "chronologie_cle", "faits_verifies")
+TRIMMED_BRIEF_KEYS = ("sources", "indicateurs_kpi", "graphique_dc_chart", "graphique_chiffres", "chronologie_cle", "faits_verifies")
 
 CRITIQUE_PROMPT_TEMPLATE = """Tu es un critique journaliste, le plus exigeant \
 de la rédaction. Tu relis l'édition ci-dessous AVANT sa mise en ligne, avec un \
