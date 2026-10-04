@@ -409,6 +409,93 @@ def _dc_chart_box_html(serie):
     </div>"""
 
 
+# ---------------------------------------------------------------------------
+# Graphique « Les chiffres du sujet » (barres) — ajouté le 4 octobre 2026.
+# Le graphique en escalier (.dc-chart-box, ci-dessus) exige une longue série historique publique : presque jamais
+# réunie, donc plus aucun graphique dans les éditions. Ce second graphique compare 3 à 6 chiffres RÉELS déjà présents
+# dans les faits vérifiés du brief (brief["graphique_chiffres"]["barres"]) — jamais inventés. Même habillage que
+# .dc-chart-box, rendu serveur en SVG statique.
+# ---------------------------------------------------------------------------
+_BARRES_W = 700
+_BARRES_PAD_R = 170
+_BARRES_ROW_H = 58
+
+
+def _barres_valides(b):
+    """Garde-fou : un graphique douteux est omis, jamais publié à moitié (ni erreur, ni page cassée)."""
+    try:
+        vals = b["valeurs"]
+        if not (3 <= len(vals) <= 6):
+            return False
+        if not all(str(v.get("label", "")).strip() for v in vals):
+            return False
+        nums = [float(v["valeur"]) for v in vals]
+        if any(n < 0 for n in nums) or max(nums) <= 0:
+            return False
+        return all(str(b.get(k, "")).strip() for k in ("lead", "caption", "aria_label"))
+    except (KeyError, TypeError, ValueError, AttributeError):
+        return False
+
+
+def _nombre_fr(x):
+    texte = f"{x:.2f}".rstrip("0").rstrip(".")
+    return texte.replace(".", ",")
+
+
+def _barres_box_html(b):
+    vals = b["valeurs"]
+    nums = [float(v["valeur"]) for v in vals]
+    vmax = max(nums)
+    unite = str(b.get("unite", "")).strip()
+    plot_w = _BARRES_W - _BARRES_PAD_R
+    h = 8 + _BARRES_ROW_H * len(vals)
+    parts = []
+    for i, (v, n) in enumerate(zip(vals, nums)):
+        top = 8 + i * _BARRES_ROW_H
+        largeur = max(2.0, round(n / vmax * plot_w, 1))
+        cls = "dc-bar is-highlight" if v.get("mis_en_avant") else "dc-bar"
+        affichage = str(v.get("affichage") or (_nombre_fr(n) + (f" {unite}" if unite else "")))
+        parts.append(f'<text x="0" y="{top + 16}" class="dc-bar-label">{v["label"]}</text>')
+        parts.append(f'<rect x="0" y="{top + 24}" width="{largeur}" height="20" rx="3" class="{cls}"/>')
+        parts.append(f'<text x="{round(largeur + 10, 1)}" y="{top + 40}" class="dc-bar-value">{affichage}</text>')
+    svg_inner = "\n      ".join(parts)
+    return f"""<div class="dc-chart-box">
+      <span class="dc-chart-label">Les chiffres</span>
+      <p class="dc-chart-lead">{b["lead"]}</p>
+      <svg viewBox="0 0 {_BARRES_W} {h}" preserveAspectRatio="xMinYMid meet" role="img" aria-label="{b["aria_label"]}">
+      {svg_inner}
+      </svg>
+      <p class="dc-chart-caption">{b["caption"]}</p>
+    </div>"""
+
+
+# ---------------------------------------------------------------------------
+# Rappel d'un article précédent dans « Les faits » — ajouté le 4 octobre 2026 (retour de l'éditeur : plus aucune
+# référence à nos articles précédents dans le texte). Construit mécaniquement à partir de articles_connexes du
+# brief (3 articles choisis pour leur lien thématique), formule impersonnelle, jamais adressée au lecteur.
+# ---------------------------------------------------------------------------
+def _rappels_depuis_connexes(brief, maximum=2):
+    rappels = []
+    for a in (brief.get("articles_connexes") or [])[:maximum]:
+        iso, titre = a.get("date", ""), a.get("titre", "")
+        try:
+            d = date.fromisoformat(iso)
+        except ValueError:
+            continue
+        if not titre:
+            continue
+        rappels.append({"date": iso, "jour": f"{d.day} {MOIS_FR[d.month - 1]}", "titre": titre})
+    return rappels
+
+
+def _rappel_edition_html(r):
+    return (
+        '<p class="rappel-edition"><span class="rappel-edition-label">Déjà abordé sur Scénario</span> '
+        f'<a href="archives/{r["date"]}.html">{fr_typo(r["titre"])}</a> '
+        f'<span class="rappel-edition-date">({r["jour"]})</span></p>'
+    )
+
+
 def _list_box_html(lb):
     items = "\n".join(
         '<li>\n'
@@ -430,7 +517,7 @@ def _list_box_html(lb):
     )
 
 
-def build_hero(content, date_str, photo=None, graphique_dc_chart=None, theme_link_html=""):
+def build_hero(content, date_str, photo=None, graphique_dc_chart=None, theme_link_html="", graphique_chiffres=None, rappels=None):
     jour, date_longue = format_date_fr(date_str)
     dek_blocks = []
     for i, dek_html in enumerate(content["dek"]):
@@ -438,6 +525,10 @@ def build_hero(content, date_str, photo=None, graphique_dc_chart=None, theme_lin
         for box in content.get("comprendre_box") or []:
             if box.get("apres_dek_index") == i:
                 dek_blocks.append(_comprendre_box_html(box))
+        # un rappel d'article précédent après le 2e paragraphe, un autre après le 4e (si le texte est assez long)
+        for k, r in enumerate(rappels or []):
+            if i == 1 + 2 * k and i < len(content["dek"]) - 1:
+                dek_blocks.append(_rappel_edition_html(r))
     dek_html_full = "\n\n".join(dek_blocks)
 
     list_box_html = _list_box_html(content["list_box"]) if content.get("list_box") else ""
@@ -451,6 +542,9 @@ def build_hero(content, date_str, photo=None, graphique_dc_chart=None, theme_lin
     dc_chart_html = ""
     if graphique_dc_chart and graphique_dc_chart.get("decision") == "oui" and graphique_dc_chart.get("serie"):
         dc_chart_html = "\n\n    " + _dc_chart_box_html(graphique_dc_chart["serie"])
+    elif graphique_chiffres and graphique_chiffres.get("decision") == "oui" and _barres_valides(graphique_chiffres.get("barres") or {}):
+        # repli : à défaut de longue série historique, les chiffres réels du sujet (voir _barres_box_html)
+        dc_chart_html = "\n\n    " + _barres_box_html(graphique_chiffres["barres"])
 
     # photo (voir generate_post_edition.py) : dict {"hero_image_url", "alt"}
     # si une photo de sujet a été retenue — sinon repli générique inchangé
@@ -1356,7 +1450,8 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
     # Le lien reste sous la carte mise en avant de la page d'accueil (build_featured_article).
     theme_link_html = ""
     hero = build_hero(content, date_str, photo=photo, graphique_dc_chart=brief.get("graphique_dc_chart"),
-                       theme_link_html=theme_link_html)
+                       theme_link_html=theme_link_html, graphique_chiffres=brief.get("graphique_chiffres"),
+                       rappels=_rappels_depuis_connexes(brief))
     related_articles = build_related_articles(brief)
     scenarios = build_scenarios(content)
     lexique = build_lexique(content)

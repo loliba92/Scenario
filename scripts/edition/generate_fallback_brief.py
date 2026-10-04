@@ -371,6 +371,18 @@ consultée, période couverte, nombre de points trouvés, quel critère
 échoue précisément), jamais une phrase générique du type « pas de série
 disponible » sans détail.
 
+GRAPHIQUE DE REPLI `graphique_chiffres` (ajouté le 4 octobre 2026 : le
+graphique en escalier est presque toujours refusé, donc aucune édition
+n'avait de graphique). Quand `graphique_dc_chart.decision` vaut `non`,
+renseigne `graphique_chiffres` : choisis 3 à 6 chiffres RÉELS, comparables
+entre eux (même unité), déjà présents dans tes `faits_verifies` et tes
+sources lues (jamais tirés de ta mémoire, jamais inventés ni arrondis à
+ta guise), puis donne `decision` = `oui` et le bloc `barres` (schéma
+exact dans le document ci-dessous). Exemples de comparaisons utiles :
+une grandeur à plusieurs dates, plusieurs acteurs sur la même mesure,
+plusieurs pays, avant/après. `decision` = `non` seulement si moins de 3
+chiffres comparables existent ; `raison` dit alors lesquels manquent.
+
 === SCHÉMA EXACT DU BRIEF À PRODUIRE (docs/routine-brief-format.md) ===
 {extract_brief_format_doc()}
 
