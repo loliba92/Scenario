@@ -5,7 +5,7 @@ Le fichier `ouverture.mp3` (ou `.wav`, `.m4a`) est le thème de tous les épisod
 
 - **Ouverture** : les 12 premières secondes, en fondu depuis le silence ; la voix entre 2 secondes avant la fin, pendant que la
   musique s'éteint jusqu'à zéro.
-- **Jingles** entre les grandes parties : extraits de 6 s pris à des endroits différents du morceau, qui s'éteignent
+- **Jingles** entre les grandes parties : extraits de 9 s pris à des endroits différents du morceau, qui s'éteignent
   sous le début de la partie suivante.
 - **Fermeture** : les 9 dernières secondes, jouées après la phrase finale, puis fondu jusqu'à zéro.
 
