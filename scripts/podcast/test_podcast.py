@@ -260,13 +260,19 @@ class TestFondContinu(unittest.TestCase):
         # sous la voix (ex. 3e seconde de la 1re partie, vers 15 s) : voix + fond très léger, donc à peine plus de 3000
         self.assertLess(niveaux[16], 3000 * 1.12)
         self.assertGreater(len(out) / mu.SR, 10 + 15 * 3 + 2 * (9 - 3 + 0.3))
-        # avec accueil : musique plus présente sous l'accueil (de 10 à 16 s) que sous le reste de la partie
+        # avec accueil : 1re partie = accueil (6 s) ; musique plus présente dessous, puis seule 5 s avant la question
+        accueil = array("h", [3000] * (mu.SR * 6)).tobytes()
         out2 = array("h")
-        out2.frombytes(mu.habiller_fond(theme, [voix, voix, voix], accueil_s=6.0))
+        out2.frombytes(mu.habiller_fond(theme, [accueil, voix, voix], accueil=True))
         n2 = [mu._rms(out2[i * w:(i + 1) * w]) for i in range(len(out2) // w)]
-        self.assertGreater(n2[13], niveaux[13] * 1.05)
+        self.assertGreater(n2[12], 3050)           # sous l'accueil (10 à 16 s) : voix + musique présente
+        # la question entre 5,3 s après la fin de l'accueil (16 s + 0,3 + 5) : entre 17,5 et 20,5 s, musique seule
+        seule = n2[18]
+        self.assertGreater(seule, 1500)                    # la musique est bien là, audible
+        self.assertLess(seule, 3500)                       # et il n'y a pas de voix (3000 de voix seule + musique serait plus fort)
+        self.assertGreater(n2[27], 2950)                   # puis la question
         # dernière partie : musique plus présente que le fond ordinaire
-        t_fin = 10 + 15 + (0.3 + 9 - 3) + 15 + (0.3 + 9 - 3)
+        t_fin = 10 + 6 + (0.3 + 8 - 3) + 15 + (0.3 + 9 - 3)
         self.assertGreater(n2[int(t_fin) + 5], niveaux[int(t_fin) + 5] * 0.99)
 
 

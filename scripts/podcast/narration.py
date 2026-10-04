@@ -68,10 +68,10 @@ def main(argv=None) -> int:
     modeles = tuple(x.strip() for x in args.tts_models.split(",") if x.strip())
     import texte_narration
     parts = texte_narration.parties(texte)
-    accueil_car = 0
+    accueil = False
     if parts and not re.match(r"\s*bienvenue", parts[0], re.I):
-        accueil_car = len(texte_narration.OUVERTURE)
-        parts[0] = texte_narration.OUVERTURE + "\n\n" + parts[0]   # même partie : pas de jingle entre l'accueil et la question
+        parts.insert(0, texte_narration.OUVERTURE)   # partie à part : la musique reprend 5 s entre l'accueil et la question
+        accueil = True
     print(f"{len(texte.split())} mots, {len(parts)} partie(s), voix {args.voix}", flush=True)
     parties_pcm = []
     for i, partie in enumerate(parts, 1):
@@ -108,9 +108,7 @@ def main(argv=None) -> int:
         pcm = musique.habiller(musique.assembler_parties(parties_pcm, None))
     elif theme_complet:
         print(f"Thème musical : {theme.name} en fond très léger ; {max(0, len(parts) - 1)} jingle(s) (la musique monte entre les parties)", flush=True)
-        # durée de l'accueil dans la 1re partie, estimée d'après le nombre de caractères (la musique y reste plus présente)
-        accueil_s = (len(parties_pcm[0]) / 2 / gp.SAMPLE_RATE) * accueil_car / max(1, len(parts[0])) if accueil_car else None
-        pcm = musique.habiller_fond(theme_complet, parties_pcm, accueil_s=accueil_s)
+        pcm = musique.habiller_fond(theme_complet, parties_pcm, accueil=accueil)
     else:
         pcm = musique.assembler_parties(parties_pcm, None)
     out = Path(args.out)
