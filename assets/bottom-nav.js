@@ -32,7 +32,7 @@
     ? { nav: "Main navigation", home: "Home", archives: "Archives", search: "Search", glossary: "Glossary", project: "The project",
         more: "More", newsletter: "Newsletter", contact: "Contact", follow: "Follow us", support: "Support us",
         close: "Close" }
-    : { nav: "Navigation principale", home: "Accueil", archives: "Archives", search: "Recherche", glossary: "Glossaire", project: "Le projet",
+    : { nav: "Navigation principale", home: "Accueil", archives: "Éditions", search: "Recherche", glossary: "Glossaire", project: "Le projet",
         more: "Plus", newsletter: "Newsletter", contact: "Contact", follow: "Nous suivre", support: "Soutenir",
         close: "Fermer", themes: "Matières" };
 
@@ -76,13 +76,11 @@
   ];
   var more = [
     { id: "glossary", href: root + "glossaire.html", label: T.glossary },
-    // Pas de pages thèmes en anglais : l'entrée n'existe qu'en français.
-    LANG === "fr" ? { id: "themes", href: root + "index.html#matieres", label: T.themes } : null,
     { id: "newsletter", href: root + "newsletter.html", label: T.newsletter },
     { id: "contact", href: root + "contact.html", label: T.contact },
     { id: "follow", href: root + "index.html#nous-suivre", label: T.follow },
     { id: "support", href: "https://buymeacoffee.com/scenario", label: T.support, external: true, gold: true }
-  ].filter(Boolean);
+  ];
 
   var css =
     "#bottom-nav,#bottom-nav-sheet,#bottom-nav-backdrop{display:none}" +

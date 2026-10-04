@@ -1517,7 +1517,7 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
 
 <section class="hero archives-hero">
   <div class="wrap">
-    <p class="eyebrow">Archives</p>
+    <p class="eyebrow">Éditions</p>
     <h1>Toutes les éditions</h1>
     <p class="dek">Nos précédentes éditions de Scénario — chacune analyse un sujet d'actualité avec 3 scénarios chiffrés : favorable, stable, dégradé. Cliquez sur le titre pour voir l'analyse complète.</p>
   </div>
