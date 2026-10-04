@@ -325,6 +325,9 @@ son dossier) :
   comme des **pistes à vérifier**, jamais comme des faits établis : aucun chiffre ni fait recopié
   sans confirmation par une recherche récente ;
 - garder aussi `origine_prioritaire` (le titre du sujet) : il sert de repli si l'identifiant manque.
+- si le dossier porte `donnees_graphique` (commentaire `<!-- données chiffrées: … -->`, relevé en tête de file par
+  `enrich_sujets.py --donnees`, chaque soir pour les 3 prochains sujets), c'est une **piste** pour
+  `graphique_chiffres.barres` : re-vérifier chaque chiffre et chaque URL avant de s'en servir.
 
 Pourquoi : le lien entre une édition publiée et sa ligne reposait sur une phrase recopiée ; un
 caractère de différence (puce « - [ ] », tag final recopiés) et le sujet n'était jamais marqué publié,

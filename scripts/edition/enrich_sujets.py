@@ -171,6 +171,76 @@ n'utilise que ce qui figure dans le dossier ci-dessus. Pas de Markdown, pas de �
 Réponds UNIQUEMENT avec un JSON : {{"rationnel": "..."}}"""
 
 
+# ---------------------------------------------------------------------------------------------------
+# Chiffres pour le graphique « Les chiffres » (ajouté le 4 octobre 2026 : plus aucun graphique dans les éditions,
+# car le brief du jour cherchait une longue série historique, presque jamais trouvée). On relève les chiffres dès
+# que le sujet est en tête de file, avec une recherche web et plusieurs jours devant soi ; le brief les reprend
+# comme PISTE et les re-vérifie avant de s'en servir (docs/routine-brief-format.md, graphique_chiffres).
+# ---------------------------------------------------------------------------------------------------
+MIN_CHIFFRES = 3
+_URL_RE = re.compile(r"https?://[^\s;,)>\]]+")
+_CHIFFRE_RE = re.compile(r"[^;=\n]{2,80}=\s*[^;\n]*\d[^;\n]*")
+
+
+def construire_prompt_donnees(sec: dict, e: dict, today: date) -> str:
+    connu = sj.dossier_texte(sec, e)
+    return f"""Tu prépares le graphique d'une future édition du site d'actualité Scénario (lesscenarios.fr : chaque
+édition détaille UNE question à issue ouverte). Date d'aujourd'hui : {today.isoformat()}.
+
+{regle_de_date(today, True)}
+
+=== DOSSIER DU SUJET ===
+{connu}
+=== FIN DU DOSSIER ===
+
+Fais une VRAIE recherche web pour relever 3 à 6 chiffres RÉELS, publiés, COMPARABLES ENTRE EUX (même grandeur, même
+unité) qui éclairent la question du sujet : une grandeur à plusieurs dates, plusieurs acteurs ou pays sur la même
+mesure, un avant/après. Ces chiffres seront affichés en barres : ils doivent se comparer d'un coup d'œil.
+
+Réponds UNIQUEMENT avec un JSON : {{"donnees": "<texte>"}} où <texte> tient sur UNE seule ligne, sans Markdown, dans ce
+format exact : « <ce qu'on compare> (unité : <unité>). <libellé court 1> = <valeur 1> (<année ou date>) ; <libellé 2> =
+<valeur 2> (<année ou date>) ; <libellé 3> = <valeur 3> (<année ou date>). Sources : <URL 1> ; <URL 2> ».
+
+Règles absolues :
+- n'invente AUCUN chiffre et n'en tire aucun de ta mémoire : chacun doit figurer dans un résultat de ta recherche ;
+- chaque URL citée doit être l'URL EXACTE d'un résultat de ta recherche, jamais reconstituée ;
+- les chiffres sont comparables (même unité) ; mélange interdit de pourcentages et de montants ;
+- si tu ne trouves pas au moins 3 chiffres comparables, réponds {{"donnees": null, "raison": "<ce qui manque>"}} :
+  ne force jamais."""
+
+
+def donnees_valides(texte, cited_urls) -> bool:
+    """Garde-fou sans réseau : une seule ligne, au moins 3 chiffres « libellé = valeur », et toutes les URL citées
+    figurent parmi les citations réelles de la recherche."""
+    t = (texte or "").strip() if isinstance(texte, str) else ""
+    if len(t) < 60 or "\n" in t or "**" in t:
+        return False
+    if len(_CHIFFRE_RE.findall(t)) < MIN_CHIFFRES:
+        return False
+    urls = _URL_RE.findall(t)
+    cited = set(cited_urls or [])
+    return bool(urls) and all(u.rstrip(".") in cited or u in cited for u in urls)
+
+
+def appliquer_donnees(e: dict, resultat, cited_urls, today: date) -> bool:
+    """Écrit le champ `donnees` (sans appel réseau : testable seul). Ne remplace jamais des données déjà présentes."""
+    if not isinstance(resultat, dict) or (e.get("donnees") or "").strip():
+        return False
+    texte = resultat.get("donnees")
+    if not donnees_valides(texte, cited_urls):
+        return False
+    e["donnees"] = f"[relevé du {today.isoformat()}] {texte.strip()}"
+    e["enrichi_le"] = today.isoformat()
+    return True
+
+
+def enrichir_donnees_un(sec: dict, e: dict, model: str, api_key: str, today: date):
+    tools = [{"type": "openrouter:web_search", "parameters": {"engine": "auto", "max_results": 8}}]
+    resultat, usage = _appeler_avec_reprises(construire_prompt_donnees(sec, e, today), model, api_key,
+                                             temperature=0.2, max_tokens=6000, timeout=240, tools=tools)
+    return appliquer_donnees(e, resultat, usage.get("cited_urls"), today), usage.get("cost")
+
+
 # Modèles gratuits OpenRouter qui se relaient (mot-clé « gratuits » pour --model). Chacun est
 # souvent « temporarily overloaded » (503) ou limité en débit : on garde celui qui marche et on
 # passe au suivant quand il échoue.
@@ -307,6 +377,9 @@ def main(argv=None) -> int:
     ap.add_argument("--apercu", action="store_true",
                     help="avec --reformuler : affiche la problématique proposée par le modèle pour chaque sujet, "
                          "sans rien écrire (pour comparer des modèles)")
+    ap.add_argument("--donnees", action="store_true",
+                    help="relève, avec recherche web, les chiffres d'un futur graphique « Les chiffres » pour les sujets "
+                         "à traiter qui n'en ont pas encore (tête de file d'abord)")
     ap.add_argument("--dry-run", action="store_true", help="liste les sujets ciblés, sans appel ni écriture")
     args = ap.parse_args(argv)
 
@@ -315,7 +388,10 @@ def main(argv=None) -> int:
     except sj.SujetsError as e:
         print(f"ERREUR : {e}", file=sys.stderr)
         return 1
-    if args.reformuler:
+    if args.donnees:
+        cibles = [(sec, e) for sec, e in sj.sujets(data) if e["statut"] == "a_traiter" and sj.eligible(e)
+                  and not (e.get("donnees") or "").strip() and sj.est_complet(e)]
+    elif args.reformuler:
         cibles = [(sec, e) for sec, e in sj.sujets(data) if e["statut"] == "a_traiter"
                   and ((e.get("rationnel") or "").strip() if args.forcer else rationnel_a_reformuler(e))]
     else:
@@ -326,7 +402,8 @@ def main(argv=None) -> int:
         voulus = {i.strip() for i in args.ids.split(",") if i.strip()}
         cibles = [c for c in cibles if c[1]["id"] in voulus]
     cibles = ordre_de_passage(data, cibles)
-    print(f"{len(cibles)} sujet(s) à {'reformuler' if args.reformuler else 'enrichir'} ; lot de {min(args.max, len(cibles))}.")
+    verbe = "relever (chiffres du graphique)" if args.donnees else "reformuler" if args.reformuler else "enrichir"
+    print(f"{len(cibles)} sujet(s) à {verbe} ; lot de {min(args.max, len(cibles))}.")
     lot = cibles[: args.max]
     if args.dry_run:
         for sec, e in lot:
@@ -339,6 +416,29 @@ def main(argv=None) -> int:
 
     today = date.today()
     traites, echecs, cout = 0, 0, 0.0
+    if args.donnees:
+        total = len(lot)
+        for n, (sec, e) in enumerate(lot, 1):
+            debut = time.time()
+            print(f"\n[{n}/{total}] {sec['cle']} — {e['titre']}", flush=True)
+            try:
+                ok, c = enrichir_donnees_un(sec, e, args.model, api_key, today)
+            except GenerationError as err:
+                echecs += 1
+                print(f"  ✗ ÉCHEC, rien modifié : {err}", flush=True)
+                continue
+            cout += float(c or 0)
+            traites += 1 if ok else 0
+            echecs += 0 if ok else 1
+            duree = time.time() - debut
+            if ok:
+                print(f"  ✓ chiffres relevés avec {_dernier_modele[0]} en {duree:.0f} s : {e['donnees'][:200]}", flush=True)
+            else:
+                print(f"  · aucun jeu de chiffres comparables et sourcés ({_dernier_modele[0]}, {duree:.0f} s), rien modifié", flush=True)
+        if traites:
+            sj.save_both(data)
+        print(f"\nBILAN : {traites} jeu(x) de chiffres relevé(s), {echecs} sans résultat, sur {total} (coût OpenRouter ≈ {cout:.3f} $).", flush=True)
+        return 0
     if args.reformuler and args.apercu:
         print(f"Aperçu sans écriture — modèle : {args.model}")
         for sec, e in lot:
