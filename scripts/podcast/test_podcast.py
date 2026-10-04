@@ -168,6 +168,15 @@ class TestJingles(unittest.TestCase):
         avec_sep = exemple.replace("\n\nAlors, que peut-il", "\n---\nAlors, que peut-il")
         self.assertEqual(tn.verifier(avec_sep, gp.texte_source(ed)), [])   # --- n'est pas du Markdown
 
+    def test_probabilites_en_fractions(self):
+        import texte_narration as tn
+        src = "25 % 50 % 84 %"
+        base = "Le sujet est simple. " * 10
+        mauvais = tn.verifier(base + "Le premier scénario a 25 % de chances.", src)
+        self.assertTrue(any("fractions" in x for x in mauvais))
+        ok = tn.verifier(base + "Selon l'étude, 84 % des morceaux ont émergé en ligne. Une chance sur quatre.", src)
+        self.assertFalse(any("fractions" in x for x in ok))
+
     def test_registre_sans_mots_pejoratifs(self):
         import re
         import texte_narration as tn

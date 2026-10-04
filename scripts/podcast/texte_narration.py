@@ -31,7 +31,7 @@ RÈGLES ABSOLUES
 - N'ajoute AUCUN fait, chiffre, nom, date ni exemple qui ne figure pas dans l'article.
 - Registre : décontracté mais jamais péjoratif, ni vulgaire, ni moqueur envers des personnes, des équipes, des pays ou des groupes. Aucun gros mot, aucun mot familier agressif ou dévalorisant (pas de « gueule », « merde », « débile », « nul », « pourri », etc.). Reste bienveillant et nuancé.
 - Du langage parlé : phrases courtes, tournures naturelles, pas de liste, pas de Markdown, pas d'adresse web.
-- Pas de tableau d'indicateurs : ne récite pas les indicateurs chiffrés des scénarios. Garde peu de chiffres : ceux qui font comprendre le sujet, et les probabilités des scénarios (dis « environ une chance sur trois », « une chance sur deux », « une chance sur cinq » ou « 30 pour cent », au choix).
+- Pas de tableau d'indicateurs : ne récite pas les indicateurs chiffrés des scénarios. Garde peu de chiffres : ceux qui font comprendre le sujet, et les probabilités des scénarios, TOUJOURS dites en fractions parlées : « une chance sur quatre » pour 25 %, « une chance sur deux » pour 50 %, « trois chances sur quatre » pour 75 %, « une chance sur trois », « une chance sur cinq », « une chance sur dix ». JAMAIS « pour cent » ni le signe %, même si l'article donne des pourcentages ; arrondis à la fraction la plus proche.
 - Ne dis jamais « selon l'article », ne parle ni de toi ni de l'intelligence artificielle. Pas de « bonjour » ni de « bienvenue » ni d'au revoir : commence directement par la question, le script ajoute la fermeture.
 
 STRUCTURE (entre {MOTS_MIN} et {MOTS_MAX} mots, soit 3 à 5 minutes)
@@ -74,6 +74,10 @@ def verifier(texte: str, source: str) -> list[str]:
         problemes.append("pas de Markdown, de liste ni d'adresse web")
     if re.search(r"\b(bonjour|bienvenue|au revoir)\b", texte, re.I):
         problemes.append("ni bonjour, ni bienvenue, ni au revoir")
+    for phrase in re.split(r"(?<=[.!?])\s+", texte):   # un pourcentage de probabilité est refusé ; un chiffre factuel reste permis
+        if re.search(r"pour\s*cent|%", phrase, re.I) and re.search(r"chance|probab|sc[ée]nario|trajectoire|optimiste|sombre", phrase, re.I):
+            problemes.append("dis les probabilités en fractions (« une chance sur quatre »), pas en pourcentage")
+            break
     if re.search(MOTS_INTERDITS, texte, re.I):
         problemes.append("registre : aucun mot vulgaire ni péjoratif")
     if re.search(r"indicateurs?", texte, re.I):
