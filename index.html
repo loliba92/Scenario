@@ -2278,29 +2278,17 @@
   }
 
 
-  /* ---- Tuiles « matière » (4 oct. 2026) : grandes zones cliquables, sans défilement ---- */
+  /* ---- Pastilles « matière » (4 oct. 2026) : compactes, grandes zones cliquables, retour à la ligne naturel ---- */
   .matieres-label{ font-family:"JetBrains Mono", monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--paper-dim); margin:0 0 12px; }
-  .matiere-tiles{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; list-style:none; margin:0; padding:0; }
+  .matiere-tiles{ display:flex; flex-wrap:wrap; gap:10px; list-style:none; margin:0; padding:0; }
   .matiere-tile{
-    display:flex; align-items:center; gap:12px; min-height:68px; padding:12px 14px; text-decoration:none;
-    color:var(--paper); background:var(--surface); border:1px solid var(--hairline); border-radius:12px;
-    transition:border-color .15s, transform .15s, background .15s;
+    display:inline-flex; align-items:center; gap:9px; min-height:46px; padding:0 18px 0 14px; text-decoration:none;
+    color:var(--paper); background:var(--surface); border:1px solid var(--hairline); border-radius:100px;
+    font-size:0.92rem; font-weight:600; white-space:nowrap; transition:border-color .15s, background .15s;
   }
-  .matiere-tile:hover, .matiere-tile:focus-visible{ border-color:var(--gold); background:var(--surface-2); transform:translateY(-1px); outline:none; }
-  .matiere-tiles li{ display:flex; min-width:0; }
-  .matiere-tile{ flex:1; min-width:0; }
-  .matiere-tile svg{ flex:none; width:26px; height:26px; color:var(--gold); }
-  .matiere-tile span{ display:flex; flex-direction:column; gap:2px; min-width:0; font-size:0.92rem; font-weight:600; line-height:1.25; hyphens:none; overflow-wrap:normal; }
-  .matiere-tile small{ font-family:"JetBrains Mono", monospace; font-size:0.66rem; font-weight:400; color:var(--paper-dim); }
-  @media (max-width: 759px){
-    .matiere-tiles{ grid-template-columns:1fr; gap:8px; }
-    .matiere-tile{ min-height:60px; }
-    .matiere-tile::after{ content:"›"; margin-left:auto; color:var(--gold); font-size:1.5rem; line-height:1; }
-  }
-  @media (min-width: 760px){
-    .matiere-tiles{ grid-template-columns:repeat(4, minmax(0, 1fr)); gap:12px; }
-    }
-
+  .matiere-tile:hover, .matiere-tile:focus-visible{ border-color:var(--gold); background:var(--surface-2); outline:none; }
+  .matiere-tile svg{ flex:none; width:20px; height:20px; color:var(--gold); }
+  .matiere-tile small{ font-family:"JetBrains Mono", monospace; font-size:0.68rem; font-weight:400; color:var(--paper-dim); }
 </style>
 </head>
 <body>
@@ -2386,13 +2374,13 @@
   <div class="wrap">
     <p class="section-label">Par matière</p>
     <ul class="matiere-tiles">
-      <li><a class="matiere-tile" href="themes/economie-entreprises.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 4-4 3 3 5-6"/></svg><span>Économie &amp; entreprises</span></a></li>
-      <li><a class="matiere-tile" href="themes/politique-institutions.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 12 4l9 5"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 20h18"/></svg><span>Politique &amp; institutions</span></a></li>
-      <li><a class="matiere-tile" href="themes/international.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.5 2.5 3.5 5.5 3.5 8.5s-1 6-3.5 8.5c-2.5-2.5-3.5-5.5-3.5-8.5s1-6 3.5-8.5Z"/></svg><span>International</span></a></li>
-      <li><a class="matiere-tile" href="themes/sciences-environnement.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6L5 18a1.5 1.5 0 0 0 1.3 2.2h11.4A1.5 1.5 0 0 0 19 18l-5-9V3"/><path d="M7.5 14h9"/></svg><span>Sciences &amp; environnement</span></a></li>
-      <li><a class="matiere-tile" href="themes/tech-numerique.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></svg><span>Tech &amp; numérique</span></a></li>
-      <li><a class="matiere-tile" href="themes/culture-divertissement.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2"/><path d="m10 9.5 5 2.5-5 2.5Z"/></svg><span>Culture &amp; divertissement</span></a></li>
-      <li><a class="matiere-tile" href="themes/sport.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0Z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4"/><path d="M12 13v4M8.5 20h7M10 17h4"/></svg><span>Sport</span></a></li>
+      <li><a class="matiere-tile" href="themes/economie-entreprises.html" title="Économie &amp; entreprises"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 4-4 3 3 5-6"/></svg>Économie</a></li>
+      <li><a class="matiere-tile" href="themes/politique-institutions.html" title="Politique &amp; institutions"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 12 4l9 5"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 20h18"/></svg>Politique</a></li>
+      <li><a class="matiere-tile" href="themes/international.html" title="International"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.5 2.5 3.5 5.5 3.5 8.5s-1 6-3.5 8.5c-2.5-2.5-3.5-5.5-3.5-8.5s1-6 3.5-8.5Z"/></svg>International</a></li>
+      <li><a class="matiere-tile" href="themes/sciences-environnement.html" title="Sciences &amp; environnement"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6L5 18a1.5 1.5 0 0 0 1.3 2.2h11.4A1.5 1.5 0 0 0 19 18l-5-9V3"/><path d="M7.5 14h9"/></svg>Sciences</a></li>
+      <li><a class="matiere-tile" href="themes/tech-numerique.html" title="Tech &amp; numérique"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></svg>Tech</a></li>
+      <li><a class="matiere-tile" href="themes/culture-divertissement.html" title="Culture &amp; divertissement"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2"/><path d="m10 9.5 5 2.5-5 2.5Z"/></svg>Culture</a></li>
+      <li><a class="matiere-tile" href="themes/sport.html" title="Sport"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0Z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4"/><path d="M12 13v4M8.5 20h7M10 17h4"/></svg>Sport</a></li>
     </ul>
   </div>
 </section>

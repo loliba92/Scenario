@@ -37,6 +37,8 @@ MATIERE_ICONS = {
     "sport": '<path d="M8 4h8v5a4 4 0 0 1-8 0Z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4"/><path d="M12 13v4M8.5 20h7M10 17h4"/>',
 }
 
+MATIERE_SHORT = {"economie-entreprises": "Économie", "politique-institutions": "Politique", "international": "International", "sciences-environnement": "Sciences", "tech-numerique": "Tech", "culture-divertissement": "Culture", "sport": "Sport"}
+
 # Anciens slugs de domaine encore produits par certains briefs (« culture », « economie-mondiale », « sciences ») :
 # rattachés aux 7 matières officielles pour que ces éditions apparaissent sur la bonne page matière (4 oct. 2026).
 LEGACY_DOMAIN_ALIASES = {
@@ -688,29 +690,17 @@ ARCHIVES_TABLE_CSS = """
     .cards tr.is-featured .thumb-wide{ aspect-ratio:16/9; }
   }
 
-  /* ---- Tuiles « matière » (4 oct. 2026) : grandes zones cliquables, sans défilement ---- */
+  /* ---- Pastilles « matière » (4 oct. 2026) : compactes, grandes zones cliquables, retour à la ligne naturel ---- */
   .matieres-label{ font-family:"JetBrains Mono", monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--paper-dim); margin:0 0 12px; }
-  .matiere-tiles{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; list-style:none; margin:0; padding:0; }
+  .matiere-tiles{ display:flex; flex-wrap:wrap; gap:10px; list-style:none; margin:0; padding:0; }
   .matiere-tile{
-    display:flex; align-items:center; gap:12px; min-height:68px; padding:12px 14px; text-decoration:none;
-    color:var(--paper); background:var(--surface); border:1px solid var(--hairline); border-radius:12px;
-    transition:border-color .15s, transform .15s, background .15s;
+    display:inline-flex; align-items:center; gap:9px; min-height:46px; padding:0 18px 0 14px; text-decoration:none;
+    color:var(--paper); background:var(--surface); border:1px solid var(--hairline); border-radius:100px;
+    font-size:0.92rem; font-weight:600; white-space:nowrap; transition:border-color .15s, background .15s;
   }
-  .matiere-tile:hover, .matiere-tile:focus-visible{ border-color:var(--gold); background:var(--surface-2); transform:translateY(-1px); outline:none; }
-  .matiere-tiles li{ display:flex; min-width:0; }
-  .matiere-tile{ flex:1; min-width:0; }
-  .matiere-tile svg{ flex:none; width:26px; height:26px; color:var(--gold); }
-  .matiere-tile span{ display:flex; flex-direction:column; gap:2px; min-width:0; font-size:0.92rem; font-weight:600; line-height:1.25; hyphens:none; overflow-wrap:normal; }
-  .matiere-tile small{ font-family:"JetBrains Mono", monospace; font-size:0.66rem; font-weight:400; color:var(--paper-dim); }
-  @media (max-width: 759px){
-    .matiere-tiles{ grid-template-columns:1fr; gap:8px; }
-    .matiere-tile{ min-height:60px; }
-    .matiere-tile::after{ content:"›"; margin-left:auto; color:var(--gold); font-size:1.5rem; line-height:1; }
-  }
-  @media (min-width: 760px){
-    .matiere-tiles{ grid-template-columns:repeat(4, minmax(0, 1fr)); gap:12px; }
-    }
-
+  .matiere-tile:hover, .matiere-tile:focus-visible{ border-color:var(--gold); background:var(--surface-2); outline:none; }
+  .matiere-tile svg{ flex:none; width:20px; height:20px; color:var(--gold); }
+  .matiere-tile small{ font-family:"JetBrains Mono", monospace; font-size:0.68rem; font-weight:400; color:var(--paper-dim); }
   /* Le tableau (desktop) comme les cartes (mobile, tr en display:flex)
      doivent tous deux disparaître complètement quand filtrés */
   .archives-table tbody tr.is-hidden {
@@ -1352,7 +1342,7 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
         date_range = weekly_recaps.get(article["iso_date"])
         if date_range:
             row_blocks.append(render_week_recap_row(article["iso_date"], date_range))
-        row_blocks.append(render_table_row(article, featured=not any("data-date" in b for b in row_blocks)))
+        row_blocks.append(render_table_row(article, featured=False))
     rows_html = "\n".join(row_blocks)
     table_html = f"""  <table class="archives-table cards" id="archives-table">
     <thead>
@@ -1423,12 +1413,12 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
         '      <p class="matieres-label">Explorer par matière</p>\n'
         '      <ul class="matiere-tiles" id="matieres-links">\n'
         + "\n".join(
-            f'      <li><a class="matiere-tile" href="themes/{slug}.html">'
+            f'      <li><a class="matiere-tile" href="themes/{slug}.html" title="{label.replace("&", "&amp;")}">'
             f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" '
             f'stroke-linejoin="round" aria-hidden="true">{MATIERE_ICONS[slug]}</svg>'
-            f'<span>{label.replace("&", "&amp;")}'
-            + (f'<small>{counts_domain[slug]} édition{"s" if counts_domain[slug] != 1 else ""}</small>' if counts_domain.get(slug) else "")
-            + '</span></a></li>'
+            f'{MATIERE_SHORT[slug]}'
+            + (f' <small>{counts_domain[slug]}</small>' if counts_domain.get(slug) else "")
+            + '</a></li>'
             for slug, label in DOMAIN_LABELS.items()
         )
         + "\n      </ul>"
