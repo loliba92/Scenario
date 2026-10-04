@@ -593,8 +593,8 @@
   .share-inline{
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
+    flex-wrap: nowrap;   /* toutes les icônes sur une seule ligne (retour de l'éditeur, 4 octobre 2026) */
+    gap: 6px;
     margin: 0 0 22px;
   }
 
@@ -602,6 +602,7 @@
     font-size: 0.8rem;
     color: var(--paper-dim);
     margin-right: 2px;
+    white-space: nowrap;
   }
 
   .share-inline a,
@@ -609,8 +610,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
+    flex: none;
     color: var(--gold);
     background: none;
     border: 1px solid var(--hairline);
@@ -623,6 +625,10 @@
 
   .share-inline a svg,
   .share-inline button svg{ width: 15px; height: 15px; }
+  @media (max-width: 370px){
+    .share-inline{ gap: 4px; }
+    .share-inline a, .share-inline button{ width: 26px; height: 26px; }
+  }
 
   .share-inline a:hover,
   .share-inline button:hover{ color: var(--paper); border-color: var(--paper-dim); }
@@ -2248,7 +2254,7 @@
 <img alt="" class="brand-mark" src="../assets/logo.svg"/>
 <div class="wordmark">Scéna<span>rio</span></div>
 </div>
-<div class="edition">Edition of October 2, 2026 · No. 71</div>
+<div class="edition">Edition of October 4, 2026 · No. 73</div>
 </div>
 <div class="masthead-right">
 <a aria-label="Lire en français" class="masthead-lang-btn" href="../index.html" title="Lire en français">FR</a>
@@ -2256,7 +2262,7 @@
 <button aria-label="Print on 1 page" class="masthead-notif-btn" id="print-page" title="Print on 1 page" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M6.5 9V4.5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1V9"></path><rect height="7" rx="1.3" width="15" x="4.5" y="9"></rect><path d="M7 14h10v5.5a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V14Z"></path></svg></button>
 <span aria-hidden="true" class="masthead-divider"></span>
 <a aria-label="Updated topic" class="masthead-notif-btn" href="../archives.html?tag=revise" title="Updated topic"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8"></path><path d="M20 4v4h-4"></path><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16"></path><path d="M4 20v-4h4"></path></svg></a>
-<a aria-label="Weekly recap" class="masthead-notif-btn" href="../hebdo/2026-09-20.html" title="Weekly recap"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="15" rx="2" width="17" x="3.5" y="5"></rect><line x1="3.5" x2="20.5" y1="9.5" y2="9.5"></line><line x1="8" x2="8" y1="3" y2="7"></line><line x1="16" x2="16" y1="3" y2="7"></line></svg></a>
+<a aria-label="Weekly recap" class="masthead-notif-btn" href="../hebdo/2026-09-27.html" title="Weekly recap"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="15" rx="2" width="17" x="3.5" y="5"></rect><line x1="3.5" x2="20.5" y1="9.5" y2="9.5"></line><line x1="8" x2="8" y1="3" y2="7"></line><line x1="16" x2="16" y1="3" y2="7"></line></svg></a>
 <a aria-label="Press roundup" class="masthead-notif-btn" href="../sources.html" title="Press roundup"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="14" rx="1.5" width="13" x="3.5" y="5.5"></rect><path d="M16.5 8.5h2.5a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-13"></path><line x1="7" x2="13" y1="9.5" y2="9.5"></line><line x1="7" x2="13" y1="13" y2="13"></line><line x1="7" x2="11" y1="16.5" y2="16.5"></line></svg></a>
 <span aria-hidden="true" class="masthead-divider"></span>
 <a aria-label="Private access" class="masthead-notif-btn" href="../dashboard.html" title="Private access"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="9" rx="2" width="14" x="5" y="11"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></a>
@@ -2275,9 +2281,9 @@
 <a href="https://buymeacoffee.com/scenario" rel="noopener noreferrer" style="color:var(--gold)" target="_blank"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M5 9h11v6a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4Z"></path><path d="M16 10.5h1.5a2 2 0 0 1 0 4H16"></path><path d="M8.5 4.5c-.6.7-.6 1.3 0 2M12 4.5c-.6.7-.6 1.3 0 2"></path></svg>Support us</a>
 </div>
 </nav>
-<div class="weekly-banner" data-hebdo="2026-09-20" hidden="" id="weekly-banner">
+<div class="weekly-banner" data-hebdo="2026-09-27" hidden="" id="weekly-banner">
 <div class="wrap weekly-banner-inner">
-<a class="weekly-banner-link" href="../hebdo/2026-09-20.html" id="weekly-banner-link">
+<a class="weekly-banner-link" href="../hebdo/2026-09-27.html" id="weekly-banner-link">
 <svg aria-hidden="true" class="weekly-banner-icon" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="18"><rect height="15" rx="2" width="17" x="3.5" y="5"></rect><line x1="3.5" x2="20.5" y1="9.5" y2="9.5"></line><line x1="8" x2="8" y1="3" y2="7"></line><line x1="16" x2="16" y1="3" y2="7"></line></svg>
 <span class="weekly-banner-text">This week's recap is up — the 7 topics and their most likely scenario.</span>
 <span class="weekly-banner-cta">Read →</span>
@@ -2290,14 +2296,14 @@
 <section class="featured-article">
 <div class="wrap">
 <p class="section-label">The latest edition</p>
-<a class="featured-article-link" href="archives/2026-10-02.html">
+<a class="featured-article-link" href="archives/2026-10-04.html">
 <div class="featured-article-image-wrap">
-<img alt="Breast cancer screening: is the model set to shift?" class="featured-article-image" src="../assets/social/topic-images/2026-10-02.jpg"/>
+<img alt="Nations Championship: Rugby’s New King?" class="featured-article-image" src="../assets/social/topic-images/2026-10-04.jpg"/>
 </div>
 <div>
-<span class="featured-article-date">Science · Oct 2</span>
-<h2 class="featured-article-title">Breast cancer screening: is the model set to shift?</h2>
-<p class="featured-article-question">With participation stagnating (45.7% in 2024–2025) and the rise of AI and risk personalization, breast cancer screening in…</p>
+<span class="featured-article-date">Sports · Oct 4</span>
+<h2 class="featured-article-title">Nations Championship: Rugby’s New King?</h2>
+<p class="featured-article-question">Can the Nations Championship establish itself as global rugby’s premier competition, or will it cannibalize historic tournaments…</p>
 <span class="featured-article-cta">Read the edition →</span>
 </div>
 </a>
@@ -2321,6 +2327,20 @@
 <p class="section-label">Previous editions</p>
 <h2 class="section-title">Latest editions</h2>
 <ul class="related-articles-list">
+<li><a class="related-articles-item" href="archives/2026-10-03.html">
+<img alt="Is organic virality an algorithmic illusion?" class="related-articles-image" src="../assets/social/topic-images/2026-10-03.jpg"/>
+<div class="related-articles-content">
+<span class="related-articles-date">Culture · Oct 3</span>
+<span class="related-articles-title">Is organic virality an algorithmic illusion?</span>
+</div>
+</a></li>
+<li><a class="related-articles-item" href="archives/2026-10-02.html">
+<img alt="Breast cancer screening: is the model set to shift?" class="related-articles-image" src="../assets/social/topic-images/2026-10-02.jpg"/>
+<div class="related-articles-content">
+<span class="related-articles-date">Science · Oct 2</span>
+<span class="related-articles-title">Breast cancer screening: is the model set to shift?</span>
+</div>
+</a></li>
 <li><a class="related-articles-item" href="archives/2026-10-01.html">
 <img alt="Bitcoin: Is Bitcoin Becoming an Institutional Asset?" class="related-articles-image" src="../assets/social/topic-images/2026-10-01.jpg"/>
 <div class="related-articles-content">
@@ -2349,20 +2369,6 @@
 <span class="related-articles-title">New World Order: Is Western Dominance Being Challenged by an Increasingly Multipolar World?</span>
 </div>
 </a></li>
-<li><a class="related-articles-item" href="archives/2026-09-27.html">
-<img alt="Mbappé, Ceuta, and the Controversial T-Shirt: Can an Athlete Still Express a Humanitarian Opinion Without Getting Caught in the Political Crossfire?" class="related-articles-image" src="../assets/social/topic-images/2026-09-27.jpg"/>
-<div class="related-articles-content">
-<span class="related-articles-date">Sports · Sep 27</span>
-<span class="related-articles-title">Mbappé, Ceuta, and the Controversial T-Shirt: Can an Athlete Still Express a Humanitarian Opinion Without Getting Caught in the Political Crossfire?</span>
-</div>
-</a></li>
-<li><a class="related-articles-item" href="archives/2026-09-26.html">
-<img alt="Can China create the next global pop culture?" class="related-articles-image" src="../assets/social/topic-images/2026-09-26.jpg"/>
-<div class="related-articles-content">
-<span class="related-articles-date">Culture · Sep 26</span>
-<span class="related-articles-title">Can China create the next global pop culture?</span>
-</div>
-</a></li>
 </ul>
 <a class="cross-link" href="../archives.html">See all archives →</a>
 </div>
@@ -2380,6 +2386,8 @@
 <a class="follow-btn" href="https://www.facebook.com/share/1DZVhe3KtR/" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" height="15" viewbox="0 0 24 24" width="15"><rect fill="#000" height="22" rx="6" stroke="currentColor" stroke-width="1" width="22" x="1" y="1"></rect><rect fill="#fff" height="9" width="2.4" x="10.3" y="9.5"></rect><rect fill="#fff" height="2.6" rx="1" width="4.7" x="10.3" y="6"></rect><rect fill="#fff" height="2" width="6.5" x="7.8" y="11.6"></rect></svg> Facebook</a>
 <a class="follow-btn" href="https://www.instagram.com/scenarios.actu/" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="14"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg> Instagram</a>
 <a class="follow-btn" href="https://t.me/scenario_fr" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M2 12l19-9-7 19-3-7-6-3z"></path></svg> Telegram</a>
+      <a class="follow-btn" href="https://open.spotify.com/show/1eycE00I2egdNO50oqeDFQ" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M6.8 9.4c3.6-1 7.4-.7 10.6 1"></path><path d="M7.4 12.6c3-.8 6-.5 8.6.9"></path><path d="M8 15.6c2.4-.6 4.7-.4 6.6.7"></path></svg> Spotify</a>
+      <a class="follow-btn" href="https://google.com/preferences/source?q=lesscenarios.fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"></path></svg> Source préférée Google</a>
 </div>
 <div class="share-row" style="margin-top:14px">
 <button class="onesignal-subscribe-btn btn-outline" id="onesignal-subscribe-btn" type="button"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"></path><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"></path></svg> <span class="btn-label">Activate notifications</span></button>
@@ -2515,7 +2523,10 @@
 </script>
 <script async="" data-goatcounter="https://scenario.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
 <script defer="" src="../assets/pwa-install.js"></script>
+<script defer="" src="../assets/google-source-banner.js"></script>
 <script defer="" src="../assets/bottom-nav.js"></script>
+<script defer="" src="../assets/scenarios-reader.js"></script>
+<script defer="" src="../assets/edition-audio.js"></script>
 <script defer="" src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];

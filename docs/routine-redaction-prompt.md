@@ -160,6 +160,18 @@ HTML et vérifie qu'aucun `"` interne n'est resté non échappé.
 
 ## Règles de style (identiques à la routine actuelle)
 
+**Règle d'or — tout doit se comprendre dès la première lecture, par quelqu'un qui ne connaît pas le sujet** (ajoutée le
+4 octobre 2026, demande de l'éditeur : « ça doit être super pédagogique, facile à comprendre »). Avant d'envoyer, vérifier sur
+ta propre rédaction :
+1. Chaque sigle, institution, terme technique ou expression de spécialiste est expliqué en quelques mots dès son premier emploi
+   (ex. « le Top 14, le championnat français de rugby »), sans renvoyer le lecteur à un autre endroit pour comprendre la phrase.
+2. Une idée par phrase ; aucune phrase ne dépasse environ 25 mots.
+3. Chaque scénario est annoncé par une phrase simple qui dit ce qui se passe (« Premier scénario : … »), avant son détail.
+4. Les mots abstraits (« dynamique », « enjeux », « paradigme », « gouvernance », « trajectoire », « écosystème ») sont remplacés par
+   ce qu'ils désignent concrètement.
+5. Dans chaque grande partie, au moins une comparaison ou un exemple concret proche du quotidien quand les faits le permettent
+   (jamais inventé).
+
 - **`sujet.complexite` (1 à 5, dans le brief) relève l'exigence
   pédagogique par palier, pas par un simple seuil binaire** (paliers
   distincts ajoutés le 23 septembre 2026 — retour utilisateur : un sujet
@@ -243,6 +255,11 @@ HTML et vérifie qu'aucun `"` interne n'est resté non échappé.
   non, la retravailler ou la retirer.
 - **`<strong>` sur les faits/chiffres clés**, un ou deux par paragraphe,
   jamais plus de deux dans une même phrase.
+  **Jamais de Markdown dans le texte : pas de `**gras**`, pas de `*`
+  tapé à la main** (le seul astérisque autorisé est celui, seul, du lien
+  `<a class="lex-ref">*</a>`, placé directement après le terme). Le gras se
+  fait uniquement avec `<strong>…</strong>`. Le code convertit ou supprime
+  ces suites par sécurité, mais elles ne doivent pas être écrites.
 - **Terme technique → lexique, jamais une parenthèse.** Dès qu'un mot
   technique figure au lexique, **écrire d'abord le terme lui-même en toutes
   lettres dans la phrase**, puis ajouter juste après, sans espace avant,
@@ -609,6 +626,8 @@ reprend la substance de `question_text`.
 Erreurs réellement observées en conditions réelles sur ce prototype,
 chacune ayant déjà fait échouer un essai payant. Avant de répondre,
 relire ces trois points sur TA PROPRE réponse (pas le prompt) :
+
+0. **La règle d'or de pédagogie (voir « Règles de style ») est-elle respectée ?** Un lecteur qui ne connaît pas le sujet comprend-il chaque phrase du premier coup, sans chercher un mot ni relire ?
 
 1. **Chaque élément de `comprendre_box` a-t-il bien un champ
    `apres_dek_index` (entier, jamais absent) ?** C'est l'erreur la plus

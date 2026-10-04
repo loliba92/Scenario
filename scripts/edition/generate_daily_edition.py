@@ -823,6 +823,52 @@ def repair_lex_ref_placement(text, lex_terms):
     return _LEXREF_BARE_RE.sub(repl, text)
 
 
+_MD_BOLD_RE = re.compile(r"\*\*(?=\S)(.+?)(?<=\S)\*\*", re.S)
+# Astérisque saisi À LA MAIN par le modèle juste avant le renvoi au lexique (« soft power*<a class="lex-ref"…>*</a> ») :
+# il s'affiche « soft power** » (constaté dans les éditions du 26 et du 30 septembre 2026).
+_STRAY_STAR_BEFORE_LEXREF_RE = re.compile(r"\*+(?=<a\b[^>]*\blex-ref\b)")
+
+
+def convert_markdown_bold(text):
+    """Supprime du texte toute suite d'astérisques parasite : le texte publié n'en contient jamais, hors le
+    seul « * » du renvoi au lexique (`<a class="lex-ref">*</a>`).
+    - gras Markdown du modèle : « **84 %** » -> « <strong>84 %</strong> » (le prompt demande du `<strong>` ;
+      constaté dans l'aperçu du 3 octobre 2026) ;
+    - astérisque saisi juste avant un renvoi au lexique : supprimé (il doublait celui du lien) ;
+    - toute suite « ** » restante (paire mal formée) : supprimée."""
+    if "*" not in text:
+        return text
+    text = _MD_BOLD_RE.sub(r"<strong>\1</strong>", text)
+    text = _STRAY_STAR_BEFORE_LEXREF_RE.sub("", text)
+    return text.replace("**", "")
+
+
+def normalize_content_markdown(content):
+    """Applique convert_markdown_bold() à TOUTES les chaînes du contenu (dek, essentiel, cartes, indicateurs,
+    phrase à retenir, lexique...), à n'importe quelle profondeur. Renvoie le contenu (modifié sur place)."""
+    changed = [0]
+
+    def walk(obj):
+        if isinstance(obj, str):
+            new = convert_markdown_bold(obj)
+            if new != obj:
+                changed[0] += 1
+            return new
+        if isinstance(obj, list):
+            return [walk(x) for x in obj]
+        if isinstance(obj, dict):
+            return {k: walk(v) for k, v in obj.items()}
+        return obj
+
+    out = walk(content)
+    if isinstance(content, dict):
+        content.clear()
+        content.update(out)
+    if changed[0]:
+        print(f"[edition] gras Markdown (**…**) converti en <strong> dans {changed[0]} champ(s)", file=sys.stderr)
+    return content
+
+
 def normalize_content_lex_ref(content):
     """Applique normalize_lex_ref_link_text() aux mêmes champs que ceux
     inspectés par validate_content_schema() pour la cohérence lex-ref <->
@@ -1283,6 +1329,14 @@ def validate_assembled_html(html_text, content):
     if content.get("list_box") and not soup.select(".list-box"):
         errors.append("list_box présent dans la réponse du modèle mais absent du HTML assemblé")
 
+    # Aucun « ** » (gras Markdown) dans le texte visible : normalize_content_markdown() les convertit en
+    # <strong> en amont, ce contrôle garantit qu'aucun champ oublié ne laisse passer la suite de caractères.
+    visible = BeautifulSoup(str(soup), "html.parser")
+    for tag in visible(["style", "script"]):
+        tag.decompose()
+    if "**" in visible.get_text():
+        errors.append("texte visible : suite « ** » (gras Markdown) restante — le gras se fait avec <strong>")
+
     # Seuil de mots — même sélecteur, même méthode que le script déjà en
     # place côté client (voir index.html, script de fin de page).
     content_els = soup.select(".dek, .why, dd")
@@ -1427,6 +1481,7 @@ def main():
         if usage.get("model"):
             usage_total["model"] = usage["model"]
 
+        content = normalize_content_markdown(content)
         content = normalize_content_lex_ref(content)
         errors = validate_content_schema(content, brief)
         attempts_history.append((content, errors))

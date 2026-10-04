@@ -409,6 +409,93 @@ def _dc_chart_box_html(serie):
     </div>"""
 
 
+# ---------------------------------------------------------------------------
+# Graphique « Les chiffres du sujet » (barres) — ajouté le 4 octobre 2026.
+# Le graphique en escalier (.dc-chart-box, ci-dessus) exige une longue série historique publique : presque jamais
+# réunie, donc plus aucun graphique dans les éditions. Ce second graphique compare 3 à 6 chiffres RÉELS déjà présents
+# dans les faits vérifiés du brief (brief["graphique_chiffres"]["barres"]) — jamais inventés. Même habillage que
+# .dc-chart-box, rendu serveur en SVG statique.
+# ---------------------------------------------------------------------------
+_BARRES_W = 700
+_BARRES_PAD_R = 170
+_BARRES_ROW_H = 58
+
+
+def _barres_valides(b):
+    """Garde-fou : un graphique douteux est omis, jamais publié à moitié (ni erreur, ni page cassée)."""
+    try:
+        vals = b["valeurs"]
+        if not (3 <= len(vals) <= 6):
+            return False
+        if not all(str(v.get("label", "")).strip() for v in vals):
+            return False
+        nums = [float(v["valeur"]) for v in vals]
+        if any(n < 0 for n in nums) or max(nums) <= 0:
+            return False
+        return all(str(b.get(k, "")).strip() for k in ("lead", "caption", "aria_label"))
+    except (KeyError, TypeError, ValueError, AttributeError):
+        return False
+
+
+def _nombre_fr(x):
+    texte = f"{x:.2f}".rstrip("0").rstrip(".")
+    return texte.replace(".", ",")
+
+
+def _barres_box_html(b):
+    vals = b["valeurs"]
+    nums = [float(v["valeur"]) for v in vals]
+    vmax = max(nums)
+    unite = str(b.get("unite", "")).strip()
+    plot_w = _BARRES_W - _BARRES_PAD_R
+    h = 8 + _BARRES_ROW_H * len(vals)
+    parts = []
+    for i, (v, n) in enumerate(zip(vals, nums)):
+        top = 8 + i * _BARRES_ROW_H
+        largeur = max(2.0, round(n / vmax * plot_w, 1))
+        cls = "dc-bar is-highlight" if v.get("mis_en_avant") else "dc-bar"
+        affichage = str(v.get("affichage") or (_nombre_fr(n) + (f" {unite}" if unite else "")))
+        parts.append(f'<text x="0" y="{top + 16}" class="dc-bar-label">{v["label"]}</text>')
+        parts.append(f'<rect x="0" y="{top + 24}" width="{largeur}" height="20" rx="3" class="{cls}"/>')
+        parts.append(f'<text x="{round(largeur + 10, 1)}" y="{top + 40}" class="dc-bar-value">{affichage}</text>')
+    svg_inner = "\n      ".join(parts)
+    return f"""<div class="dc-chart-box">
+      <span class="dc-chart-label">Les chiffres</span>
+      <p class="dc-chart-lead">{b["lead"]}</p>
+      <svg viewBox="0 0 {_BARRES_W} {h}" preserveAspectRatio="xMinYMid meet" role="img" aria-label="{b["aria_label"]}">
+      {svg_inner}
+      </svg>
+      <p class="dc-chart-caption">{b["caption"]}</p>
+    </div>"""
+
+
+# ---------------------------------------------------------------------------
+# Rappel d'un article précédent dans « Les faits » — ajouté le 4 octobre 2026 (retour de l'éditeur : plus aucune
+# référence à nos articles précédents dans le texte). Construit mécaniquement à partir de articles_connexes du
+# brief (3 articles choisis pour leur lien thématique), formule impersonnelle, jamais adressée au lecteur.
+# ---------------------------------------------------------------------------
+def _rappels_depuis_connexes(brief, maximum=2):
+    rappels = []
+    for a in (brief.get("articles_connexes") or [])[:maximum]:
+        iso, titre = a.get("date", ""), a.get("titre", "")
+        try:
+            d = date.fromisoformat(iso)
+        except ValueError:
+            continue
+        if not titre:
+            continue
+        rappels.append({"date": iso, "jour": f"{d.day} {MOIS_FR[d.month - 1]}", "titre": titre})
+    return rappels
+
+
+def _rappel_edition_html(r):
+    return (
+        '<p class="rappel-edition"><span class="rappel-edition-label">Déjà abordé sur Scénario</span> '
+        f'<a href="archives/{r["date"]}.html">{fr_typo(r["titre"])}</a> '
+        f'<span class="rappel-edition-date">({r["jour"]})</span></p>'
+    )
+
+
 def _list_box_html(lb):
     items = "\n".join(
         '<li>\n'
@@ -430,7 +517,7 @@ def _list_box_html(lb):
     )
 
 
-def build_hero(content, date_str, photo=None, graphique_dc_chart=None, theme_link_html=""):
+def build_hero(content, date_str, photo=None, graphique_dc_chart=None, theme_link_html="", graphique_chiffres=None, rappels=None):
     jour, date_longue = format_date_fr(date_str)
     dek_blocks = []
     for i, dek_html in enumerate(content["dek"]):
@@ -438,6 +525,10 @@ def build_hero(content, date_str, photo=None, graphique_dc_chart=None, theme_lin
         for box in content.get("comprendre_box") or []:
             if box.get("apres_dek_index") == i:
                 dek_blocks.append(_comprendre_box_html(box))
+        # un rappel d'article précédent après le 2e paragraphe, un autre après le 4e (si le texte est assez long)
+        for k, r in enumerate(rappels or []):
+            if i == 1 + 2 * k and i < len(content["dek"]) - 1:
+                dek_blocks.append(_rappel_edition_html(r))
     dek_html_full = "\n\n".join(dek_blocks)
 
     list_box_html = _list_box_html(content["list_box"]) if content.get("list_box") else ""
@@ -451,6 +542,9 @@ def build_hero(content, date_str, photo=None, graphique_dc_chart=None, theme_lin
     dc_chart_html = ""
     if graphique_dc_chart and graphique_dc_chart.get("decision") == "oui" and graphique_dc_chart.get("serie"):
         dc_chart_html = "\n\n    " + _dc_chart_box_html(graphique_dc_chart["serie"])
+    elif graphique_chiffres and graphique_chiffres.get("decision") == "oui" and _barres_valides(graphique_chiffres.get("barres") or {}):
+        # repli : à défaut de longue série historique, les chiffres réels du sujet (voir _barres_box_html)
+        dc_chart_html = "\n\n    " + _barres_box_html(graphique_chiffres["barres"])
 
     # photo (voir generate_post_edition.py) : dict {"hero_image_url", "alt"}
     # si une photo de sujet a été retenue — sinon repli générique inchangé
@@ -497,6 +591,7 @@ def build_hero(content, date_str, photo=None, graphique_dc_chart=None, theme_lin
       <a href="#" id="share-whatsapp" aria-label="Partager sur WhatsApp" title="Partager sur WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.4L3 21l4.8-1.2A9 9 0 1 0 12 3zm4.7 12.4c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.7.8 1.8.1.1.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.5.3.1.2.1.7-.1 1.3z"/></svg></a>
       <a href="#" id="share-telegram" aria-label="Partager sur Telegram" title="Partager sur Telegram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 12l19-9-7 19-3-7-6-3z"/></svg></a>
       <button type="button" id="share-copy" aria-label="Copier le lien" title="Copier le lien"><svg class="share-icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1-1"/></svg><svg class="share-icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></button>
+      <a href="https://google.com/preferences/source?q=lesscenarios.fr" id="share-google" target="_blank" rel="noopener noreferrer" aria-label="Ajouter Scénario à vos sources Google" title="Ajouter Scénario à vos sources Google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.5 5.4 5.9.7-4.4 4 1.2 5.8L12 16.5l-5.2 2.9 1.2-5.8-4.4-4 5.9-.7z"/></svg></a>
     </p>
 
     <nav class="toc" aria-label="Sommaire de l'édition">
@@ -690,6 +785,8 @@ _SHARE_BLOCK = """<section class="share-block" id="nous-suivre">
       <a class="follow-btn" href="https://www.facebook.com/share/1DZVhe3KtR/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="6" fill="#000" stroke="currentColor" stroke-width="1"></rect><rect x="10.3" y="9.5" width="2.4" height="9" fill="#fff"></rect><rect x="10.3" y="6" width="4.7" height="2.6" rx="1" fill="#fff"></rect><rect x="7.8" y="11.6" width="6.5" height="2" fill="#fff"></rect></svg> Facebook</a>
       <a class="follow-btn" href="https://www.instagram.com/scenarios.actu/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> Instagram</a>
       <a class="follow-btn" href="https://t.me/scenario_fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M2 12l19-9-7 19-3-7-6-3z"/></svg> Telegram</a>
+      <a class="follow-btn" href="https://open.spotify.com/show/1eycE00I2egdNO50oqeDFQ" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M6.8 9.4c3.6-1 7.4-.7 10.6 1"></path><path d="M7.4 12.6c3-.8 6-.5 8.6.9"></path><path d="M8 15.6c2.4-.6 4.7-.4 6.6.7"></path></svg> Spotify</a>
+      <a class="follow-btn" href="https://google.com/preferences/source?q=lesscenarios.fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"></path></svg> Source préférée Google</a>
     </div>
     <div class="share-row" style="margin-top:14px">
       <button type="button" id="onesignal-subscribe-btn" class="onesignal-subscribe-btn btn-outline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg> <span class="btn-label">Activer les notifications</span></button>
@@ -1350,32 +1447,13 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
 
     head_dynamic = build_head_dynamic(content, brief, date_str, canonical_url, photo=photo)
     masthead = build_masthead(shell["masthead_html"], date_str, edition_number)
-    # Lien "Voir tous les sujets « Domaine » →" dans le hero de l'ARTICLE
-    # lui-même (pas seulement la carte mise en avant de la home, voir
-    # DOMAIN_THEME_SLUGS/build_featured_article) — retour utilisateur du
-    # 28 septembre 2026 : un lecteur qui atterrit directement sur
-    # archives/{date}.html (recherche, réseau social...), sans passer par
-    # la home, n'avait aucun moyen d'explorer les autres sujets du même
-    # domaine.
-    #
-    # Table DIFFÉRENTE de DOMAIN_THEME_SLUGS ci-dessus, volontairement :
-    # ici on a accès à brief["sujet"]["domain"] BRUT (le slug tel que
-    # produit par la recherche, ex. "economie-entreprises"), jamais
-    # seulement le texte affiché dans <meta property="article:section">
-    # (extrait après coup par extract_article_domain() pour la home, où
-    # le brief d'origine n'est plus disponible). THEME_SLUG_LABELS est
-    # donc keyée sur les 6 slugs officiels eux-mêmes (docs/tags.md), pas
-    # sur des libellés Title Case observés — un match direct quand le
-    # domaine produit est bien l'un des 6, comme prévu par le schéma ;
-    # sinon (dérive du domaine, ex. "sport") le lien est omis, jamais
-    # cassé — même dégradation silencieuse que côté home.
-    domain_label = THEME_SLUG_LABELS.get(brief["sujet"]["domain"])
-    theme_link_html = (
-        f'    <p><a class="cross-link" href="../themes/{brief["sujet"]["domain"]}.html">Voir tous les sujets «&nbsp;{domain_label}&nbsp;»&nbsp;→</a></p>\n'
-        if domain_label else ""
-    )
+    # Pas de lien « Voir tous les sujets « Domaine » → » dans le hero de l'article : ajouté le 28 septembre 2026,
+    # retiré le 4 octobre 2026 à la demande de l'éditeur (placé juste avant « Les faits », il n'avait pas de sens).
+    # Le lien reste sous la carte mise en avant de la page d'accueil (build_featured_article).
+    theme_link_html = ""
     hero = build_hero(content, date_str, photo=photo, graphique_dc_chart=brief.get("graphique_dc_chart"),
-                       theme_link_html=theme_link_html)
+                       theme_link_html=theme_link_html, graphique_chiffres=brief.get("graphique_chiffres"),
+                       rappels=_rappels_depuis_connexes(brief))
     related_articles = build_related_articles(brief)
     scenarios = build_scenarios(content)
     lexique = build_lexique(content)

@@ -1,0 +1,115 @@
+name: Podcast — épisode de test
+
+# TEST demandé le 3 octobre 2026 : transforme une édition publiée en épisode audio à deux voix
+# (alternative automatisable à NotebookLM). Ne publie RIEN et ne commit RIEN : le fichier audio est
+# disponible 7 jours en téléchargement sur la page du run (section « Artifacts »).
+#
+# Secrets : OPENROUTER_API_KEY (déjà présent) et GEMINI_API_KEY (clé gratuite créée dans Google AI
+# Studio, à ajouter dans Settings > Secrets and variables > Actions). Sans GEMINI_API_KEY, cocher
+# « dialogue_seulement » : seul le texte du dialogue est produit (lisible dans le journal).
+# Voir scripts/podcast/generate_podcast.py.
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Édition à lire (AAAA-MM-JJ) — vide = dernière édition publiée"
+        required: false
+        default: ""
+      dialogue_seulement:
+        description: "Produire seulement le texte du dialogue (pas de voix, pas de clé Gemini nécessaire)"
+        type: boolean
+        required: false
+        default: false
+      voix:
+        description: "Voix de Léa et de Hugo (voix prédéfinies Gemini, séparées par une virgule)"
+        required: false
+        default: "Kore,Puck"
+      musique:
+        description: "Ajouter l'ouverture, le fond musical discret et la fermeture"
+        type: boolean
+        required: false
+        default: true
+      texte:
+        description: "Narration à une voix : « auto » (le texte est écrit à partir de l'édition) ou chemin d'un texte du dépôt (ex. podcast/textes/2026-10-03.txt). Vide = dialogue à deux voix"
+        required: false
+        default: ""
+      voix_unique:
+        description: "Voix du narrateur (Sulafat, Achird, Vindemiatrix, Aoede, Kore…)"
+        required: false
+        default: "Sulafat"
+      modele_tts:
+        description: "Modèle de voix OpenRouter (google/gemini-3.8-flash-tts, x-ai/grok-voice-tts-1.0…) — voix_unique doit être une voix de ce modèle"
+        required: false
+        default: "google/gemini-3.8-flash-tts"
+      modele_dialogue:
+        description: "Modèle(s) OpenRouter qui écrivent le dialogue, ou « gratuits » (vide = sélection de gemma d'abord)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  podcast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer les dépendances
+        run: |
+          pip install beautifulsoup4
+          command -v ffmpeg >/dev/null || { sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg; }
+          ffmpeg -version | head -1
+
+      - name: Générer l'épisode
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          DATE: ${{ github.event.inputs.date }}
+          SEULEMENT: ${{ github.event.inputs.dialogue_seulement }}
+          VOIX: ${{ github.event.inputs.voix }}
+          MODELE: ${{ github.event.inputs.modele_dialogue }}
+          MUSIQUE: ${{ github.event.inputs.musique }}
+          TEXTE: ${{ github.event.inputs.texte }}
+          VOIX_UNIQUE: ${{ github.event.inputs.voix_unique }}
+          MODELE_TTS: ${{ github.event.inputs.modele_tts }}
+        run: |
+          if [ -n "$TEXTE" ]; then
+            case "$TEXTE" in auto|podcast/textes/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].txt) ;; *) echo "Texte invalide : $TEXTE" >&2; exit 1 ;; esac
+            case "$VOIX_UNIQUE" in *[!A-Za-z]*|"") echo "Voix invalide : $VOIX_UNIQUE" >&2; exit 1 ;; esac
+            case "$DATE" in ""|[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;; *) echo "Date invalide : $DATE" >&2; exit 1 ;; esac
+            case "$MODELE" in *[!A-Za-z0-9._:/,-]*) echo "Modèle invalide : $MODELE" >&2; exit 1 ;; esac
+            case "$MODELE_TTS" in *[!A-Za-z0-9._:/-]*) echo "Modèle de voix invalide : $MODELE_TTS" >&2; exit 1 ;; esac
+            NARR="--voix $VOIX_UNIQUE --suffixe=-$VOIX_UNIQUE"
+            [ -n "$MODELE_TTS" ] && NARR="$NARR --modele-tts $MODELE_TTS"
+            [ -n "$DATE" ] && NARR="$NARR --date $DATE"
+            [ -n "$MODELE" ] && NARR="$NARR --modele $MODELE"
+            [ "$MUSIQUE" = "false" ] || NARR="$NARR --ouverture"
+            python3 scripts/podcast/narration.py "$TEXTE" $NARR
+            exit $?
+          fi
+          ARGS=""
+          case "$DATE" in ""|[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;; *) echo "Date invalide : $DATE" >&2; exit 1 ;; esac
+          case "$VOIX" in *[!A-Za-z,]*) echo "Voix invalides : $VOIX" >&2; exit 1 ;; esac
+          case "$MODELE" in *[!A-Za-z0-9._:/,-]*) echo "Modèle invalide : $MODELE" >&2; exit 1 ;; esac
+          [ -n "$DATE" ] && ARGS="$ARGS --date $DATE"
+          [ -n "$VOIX" ] && ARGS="$ARGS --voix $VOIX"
+          [ -n "$MODELE" ] && ARGS="$ARGS --dialogue-model $MODELE"
+          [ "$SEULEMENT" = "true" ] && ARGS="$ARGS --dialogue-seulement"
+          [ "$MUSIQUE" = "false" ] && ARGS="$ARGS --sans-musique"
+          python3 scripts/podcast/generate_podcast.py $ARGS
+
+      - name: Mettre la sortie à disposition
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: podcast-test-${{ github.run_id }}
+          path: _podcast-out/
+          retention-days: 7
+          if-no-files-found: warn

@@ -60,6 +60,7 @@ from generate_daily_edition import (
     validate_brief,
 )
 from source_links import sanitize_brief_sources
+import connexes
 
 # Passé de DEFAULT_MODEL (anthropic/claude-sonnet-5) à Opus le 18
 # septembre 2026 (décision utilisateur), puis à Sonnet le 20 (retour « opus
@@ -216,6 +217,10 @@ def dossier_du_jour(date_str):
         "recherche récente, et refais les 3 scénarios sur des faits vérifiés.\n"
         "- `rationnel` dit pourquoi ce sujet et pourquoi son issue est ouverte : garde cette tension au "
         "cœur de `sujet.angle` et de `question_posee`.\n"
+        "- `donnees_graphique` (si présent) : chiffres comparables relevés quand le sujet était en tête de file, "
+        "pour le graphique de repli. C'est une PISTE : re-vérifie chaque chiffre et chaque URL par ta recherche "
+        "(les chiffres ont pu changer depuis le relevé) ; ceux que tu confirmes alimentent "
+        "`graphique_chiffres.barres`, les autres sont écartés, et si moins de 3 restent, cherche-en d'autres.\n"
         "- Recopie `id`, exactement, dans sujet.origine_id ; et dans sujet.origine_prioritaire, le `titre`."
     )
 
@@ -371,6 +376,18 @@ consultée, période couverte, nombre de points trouvés, quel critère
 échoue précisément), jamais une phrase générique du type « pas de série
 disponible » sans détail.
 
+GRAPHIQUE DE REPLI `graphique_chiffres` (ajouté le 4 octobre 2026 : le
+graphique en escalier est presque toujours refusé, donc aucune édition
+n'avait de graphique). Quand `graphique_dc_chart.decision` vaut `non`,
+renseigne `graphique_chiffres` : choisis 3 à 6 chiffres RÉELS, comparables
+entre eux (même unité), déjà présents dans tes `faits_verifies` et tes
+sources lues (jamais tirés de ta mémoire, jamais inventés ni arrondis à
+ta guise), puis donne `decision` = `oui` et le bloc `barres` (schéma
+exact dans le document ci-dessous). Exemples de comparaisons utiles :
+une grandeur à plusieurs dates, plusieurs acteurs sur la même mesure,
+plusieurs pays, avant/après. `decision` = `non` seulement si moins de 3
+chiffres comparables existent ; `raison` dit alors lesquels manquent.
+
 === SCHÉMA EXACT DU BRIEF À PRODUIRE (docs/routine-brief-format.md) ===
 {extract_brief_format_doc()}
 
@@ -382,6 +399,16 @@ disponible » sans détail.
 
 === Éditions récentes, les {20} dernières (archives.html — anti-doublon Étape 0bis) ===
 {summarize_recent_archives()}
+
+=== TOUTES LES ÉDITIONS PASSÉES (pour `articles_connexes`, Étape 2bis — sans limite de date) ===
+{connexes.toutes_les_editions(exclure={date_str})}
+
+Pour `articles_connexes` : parcours cette liste COMPLÈTE (pas seulement les plus récentes) et choisis les 3 éditions qui ont le
+lien le PLUS FORT avec le sujet du jour, classées de la plus à la moins proche. Un lien fort = le même acteur (pays, entreprise,
+dirigeant), le même lieu, le même mécanisme ou la même menace, la même échéance. Le même domaine ou le même mois n'est PAS un lien.
+Pense aux synonymes et aux langues (Russia = Russie, GPS = navigation par satellite, hybride = sabotage/désinformation). À lien égal,
+prends la plus récente. Si moins de 3 éditions ont un vrai lien, n'en mets que 2 ou 1 : jamais un lien artificiel. `titre` = le titre
+exact de la liste ; `lien` = une phrase qui nomme précisément ce qui relie les deux éditions.
 
 === Contexte du jour ===
 Date : {date_str} ({jour})
@@ -437,6 +464,8 @@ def generate_fallback_brief(date_str, model, api_key, timeout=480):
         errors = source_errors + validate_brief(brief)
         errors += check_topic_duplicate(brief)
         if not errors:
+            for note in connexes.normaliser_connexes(brief):
+                print(f"[fallback-brief] articles connexes : {note}", file=sys.stderr)
             ident = ancrer_sur_le_sujet(brief, date_str)
             print(f"[fallback-brief] point de départ : {ident or 'aucun sujet de la file (auto-sélection)'}", file=sys.stderr)
             return brief, usage

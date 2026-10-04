@@ -733,6 +733,164 @@ class DashboardAgendaTest(unittest.TestCase):
         self.assertEqual(len(valides), sum(1 for t in tous if not t.startswith("🔍")))
 
 
+class GrasMarkdownTest(unittest.TestCase):
+    """Le gras Markdown du modèle (« **84 %** ») ne doit jamais apparaître tel quel dans une édition."""
+
+    def setUp(self):
+        import generate_daily_edition as gde
+        self.gde = gde
+
+    def test_conversion_en_strong(self):
+        c = self.gde.convert_markdown_bold
+        self.assertEqual(c("Alors que **84 %** des succès"), "Alors que <strong>84 %</strong> des succès")
+        self.assertEqual(c("**31,4 %** et **1 million d'euros**"), "<strong>31,4 %</strong> et <strong>1 million d'euros</strong>")
+        self.assertEqual(c("texte sans gras"), "texte sans gras")
+        self.assertEqual(c("déjà <strong>propre</strong>"), "déjà <strong>propre</strong>")
+
+    def test_etoile_saisie_avant_le_renvoi_au_lexique(self):
+        c = self.gde.convert_markdown_bold
+        lien = '<a class="lex-ref" href="#lex-soft-power" aria-label="Voir la définition dans le lexique">*</a>'
+        self.assertEqual(c("le soft power*" + lien + " numérique"), "le soft power" + lien + " numérique")
+        self.assertEqual(c("le **soft power**" + lien), "le <strong>soft power</strong>" + lien)
+        self.assertEqual(c("le soft power" + lien), "le soft power" + lien, "le « * » du lien lui-même est conservé")
+
+    def test_paire_mal_formee_ne_laisse_aucune_etoile_double(self):
+        c = self.gde.convert_markdown_bold
+        for brut in ("**ouvert sans fin", "fermé sans début**", "** vide **", "a ** b", "****"):
+            self.assertNotIn("**", c(brut), brut)
+
+    def test_toutes_les_chaines_du_contenu(self):
+        contenu = {"dek": ["Un **fait** clé"], "essentiel_box": ["a", "**84 %** b"],
+                   "cards": {"stable": {"why": ["**x**"], "indicateurs_touches": [{"field_name": "**k**"}]}},
+                   "lexique": [{"terme": "t", "definition": "def **gras**"}], "n": 3}
+        self.gde.normalize_content_markdown(contenu)
+        texte = json.dumps(contenu, ensure_ascii=False)
+        self.assertNotIn("**", texte)
+        self.assertIn("<strong>84 %</strong>", texte)
+        self.assertEqual(contenu["n"], 3)
+
+
+class ProblematiqueTest(unittest.TestCase):
+    """La rubrique « rationnel » est la problématique : elle commence par « La question », sans qualificatif de remplissage."""
+
+    def setUp(self):
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import enrich_sujets as en
+        self.en = en
+
+    def test_a_reformuler(self):
+        ancien = {"rationnel": "Ce sujet est brûlant car l'escalade est documentée par les instances internationales."}
+        nouveau = {"rationnel": "La question : le monde peut-il se passer du GPS ? L'issue est ouverte : deux forces s'opposent."}
+        self.assertTrue(self.en.rationnel_a_reformuler(ancien))
+        self.assertFalse(self.en.rationnel_a_reformuler(nouveau))
+        self.assertFalse(self.en.rationnel_a_reformuler({"rationnel": None}), "absent : relève de l'enrichissement")
+
+    def test_validation_du_nouveau_texte(self):
+        v = self.en.problematique_valide
+        bon = "La question : la monnaie peut-elle devenir une arme ? Les forces en présence s'opposent, et l'enjeu est concret."
+        self.assertTrue(v(bon))
+        self.assertFalse(v("Ce sujet est brûlant. " + bon), "ne commence pas par « La question »")
+        self.assertFalse(v(bon + " Un sujet crucial."), "qualificatif interdit")
+        self.assertFalse(v("La question : " + "x" * 5 + " **gras**"), "Markdown")
+        self.assertFalse(v(""))
+
+    def test_reformuler_un_applique_seulement_un_texte_conforme(self):
+        from unittest import mock
+        sec = {"cle": "geopolitique", "titre": "Géopolitique"}
+        bon = "La question : un État peut-il encore rester souverain sans maîtriser ses données ? Les forces s'opposent, l'enjeu est concret."
+        e = sj.sujet_vide(id="x", titre="Titre ?", rationnel="Ce sujet est brûlant car tout bouge vite.")
+        with mock.patch.object(self.en, "call_openrouter", return_value=({"rationnel": bon}, {"cost": 0.001})):
+            ok, cout = self.en.reformuler_un(sec, e, "m", "k", datetime.date(2026, 10, 2))
+        self.assertTrue(ok)
+        self.assertEqual((e["rationnel"], e["enrichi_le"], cout), (bon, "2026-10-02", 0.001))
+        e2 = sj.sujet_vide(id="y", titre="T ?", rationnel="Ce sujet est brûlant car tout bouge vite.")
+        with mock.patch.object(self.en, "call_openrouter", return_value=({"rationnel": "Un sujet crucial."}, {})):
+            ok2, _ = self.en.reformuler_un(sec, e2, "m", "k", datetime.date(2026, 10, 2))
+        self.assertFalse(ok2)
+        self.assertEqual(e2["rationnel"], "Ce sujet est brûlant car tout bouge vite.", "texte non conforme : rien n'est écrasé")
+
+    def test_apercu_ne_modifie_rien(self):
+        from unittest import mock
+        sec = {"cle": "geopolitique", "titre": "Géopolitique"}
+        bon = "La question : un État peut-il encore rester souverain sans maîtriser ses données ? Les forces s'opposent, l'enjeu est concret."
+        e = sj.sujet_vide(id="x", titre="Titre ?", rationnel="Ancien texte brûlant.")
+        with mock.patch.object(self.en, "call_openrouter", return_value=({"rationnel": bon}, {"cost": 0.0})):
+            texte, brut, cout = self.en.proposer_problematique(sec, e, "m", "k")
+        self.assertEqual((texte, brut), (bon, bon))
+        self.assertEqual(e["rationnel"], "Ancien texte brûlant.", "proposer ne modifie pas le sujet")
+
+    def test_modeles_gratuits_se_relaient(self):
+        from unittest import mock
+        self.assertEqual(self.en.liste_modeles("a:free, b:free"), ["a:free", "b:free"])
+        self.assertEqual(self.en.liste_modeles("gratuits"), list(self.en.MODELES_GRATUITS))
+        sec = {"cle": "geopolitique", "titre": "Géopolitique"}
+        bon = "La question : un État peut-il encore rester souverain sans maîtriser ses données ? Les forces s'opposent, l'enjeu est concret."
+        e = sj.sujet_vide(id="x", titre="Titre ?", rationnel="Ancien texte brûlant.")
+        self.en._courant[0] = 0
+        self.en._indisponible.clear()
+        appeles = []
+
+        def faux(prompt, nom, cle, **kw):
+            appeles.append(nom)
+            if nom == "a:free":
+                raise self.en.GenerationError("503 overloaded")
+            return {"rationnel": bon}, {"cost": 0.0}
+
+        with mock.patch.object(self.en, "call_openrouter", side_effect=faux), mock.patch.object(self.en.time, "sleep") as pause:
+            texte, _, _ = self.en.proposer_problematique(sec, e, "a:free,b:free", "k")
+        self.assertEqual((texte, appeles, pause.call_count), (bon, ["a:free", "b:free"], 0))
+        # le modèle qui marche est gardé ; celui qui a échoué n'est pas réessayé tout de suite
+        appeles.clear()
+        with mock.patch.object(self.en, "call_openrouter", side_effect=faux):
+            self.en.proposer_problematique(sec, e, "a:free,b:free", "k")
+        self.assertEqual(appeles, ["b:free"])
+
+    def test_pannes_traitees_selon_leur_cause(self):
+        from unittest import mock
+        self.en._indisponible.clear()
+        self.en._courant[0] = 0
+        mod = ["a:free", "b:free"]
+        with mock.patch.object(self.en, "call_openrouter", side_effect=self.en.GenerationError("appel OpenRouter refusé (HTTP 403)")):
+            with mock.patch.object(self.en.time, "sleep"), self.assertRaises(self.en.GenerationError):
+                self.en._appeler_avec_reprises("p", ",".join(mod), "k")
+        self.assertTrue(all(self.en._indisponible[m] == float("inf") for m in mod), "403 : écarté pour tout le run")
+        self.en._indisponible.clear()
+        with mock.patch.object(self.en, "call_openrouter", side_effect=self.en.GenerationError("appel OpenRouter refusé (HTTP 429)")):
+            with mock.patch.object(self.en.time, "sleep") as pause, self.assertRaises(self.en.GenerationError):
+                self.en._appeler_avec_reprises("p", ",".join(mod), "k")
+        self.assertEqual(pause.call_count, self.en.MAX_ATTENTES, "429 : mis en pause, on attend")
+        self.assertTrue(all(0 < self.en._indisponible[m] < float("inf") for m in mod))
+        self.en._indisponible.clear()
+
+    def test_les_prompts_donnent_la_date_du_jour(self):
+        sec = {"cle": "sport", "titre": "Sport"}
+        e = sj.sujet_vide(id="x", titre="Titre ?", contexte="c" * 300)
+        jour = datetime.date(2026, 10, 2)
+        for prompt in (self.en.construire_prompt(sec, e, jour), self.en.construire_prompt_reformulation(sec, e, jour)):
+            self.assertIn("NOUS SOMMES LE 2 OCTOBRE 2026", prompt)
+            self.assertIn("PASSÉ", prompt)
+            self.assertIn("horizon", prompt)
+
+    def test_echeance_deja_passee_ecartee(self):
+        jour = datetime.date(2026, 10, 2)
+        res = {"depasse": False, "contexte": "x" * 300, "rationnel": "La question : " + "y" * 200,
+               "mots_cles": ["a", "b", "c", "d"]}
+        e = sj.sujet_vide(id="y", titre="T ?")
+        self.en.appliquer_resultat(e, dict(res, echeance={"date": "2026-07-19", "raison": "finale"}), [], jour)
+        self.assertIsNone(e["echeance"], "une échéance antérieure à aujourd'hui n'est pas gardée")
+        e2 = sj.sujet_vide(id="z", titre="T ?")
+        self.en.appliquer_resultat(e2, dict(res, echeance={"date": "2027-01-10", "raison": "r"}), [], jour)
+        self.assertEqual(e2["echeance"]["date"], "2027-01-10")
+
+    def test_les_prompts_demandent_la_problematique(self):
+        sec = {"cle": "geopolitique", "titre": "Géopolitique"}
+        e = sj.sujet_vide(id="x", titre="Titre ?", contexte="c" * 300)
+        for prompt in (self.en.construire_prompt(sec, e, datetime.date(2026, 10, 2)),
+                       self.en.construire_prompt_reformulation(sec, e)):
+            self.assertIn("La question :", prompt)
+            self.assertIn("brûlant", prompt, "les qualificatifs interdits sont cités dans la consigne")
+
+
 class ExtractionJsonTest(unittest.TestCase):
     """Réponse du modèle avec du texte avant le JSON (veille du 27 septembre 2026)."""
 

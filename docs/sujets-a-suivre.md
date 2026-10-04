@@ -192,6 +192,8 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 04.10.2026 — [Championnat des Nations : le nouveau roi du rugby ?](../archives/2026-10-04.html)
+- 03.10.2026 — [Culture : la viralité organique est-elle une illusion algorithmique ?](../archives/2026-10-03.html)
 - 02.10.2026 — [Dépistage du cancer du sein : le modèle va-t-il basculer ?](../archives/2026-10-02.html)
 - 01.10.2026 — [Bitcoin : le sacre institutionnel ?](../archives/2026-10-01.html)
 - 30.09.2026 — [Plans sociaux : le chômage va-t-il repartir à la hausse ?](../archives/2026-09-30.html)

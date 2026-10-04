@@ -27,9 +27,11 @@ Workflow : .github/workflows/enrich-sujets.yml (déclenchement manuel).
 from __future__ import annotations
 
 import argparse
+import re
 import json
 import os
 import sys
+import time
 from datetime import date
 from pathlib import Path
 
@@ -54,12 +56,33 @@ def ordre_de_passage(data: dict, cibles: list[tuple[dict, dict]]) -> list[tuple[
     return sorted(cibles, key=lambda c: (rang.get(c[1]["id"], 999), c[0]["cle"]))
 
 
+_MOIS_FR = ("janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre",
+            "octobre", "novembre", "décembre")
+
+
+def regle_de_date(today: date, recherche_web: bool) -> str:
+    """Bloc de consigne sur le temps (retour du propriétaire, 2 octobre 2026 : une problématique parlait
+    de « l'horizon de la Coupe du Monde 2026 » alors que la compétition était terminée)."""
+    jour = f"{today.day}{'er' if today.day == 1 else ''} {_MOIS_FR[today.month - 1]} {today.year}"
+    verifier = ("vérifie par ta recherche web" if recherche_web else
+                "tu ne peux pas vérifier : si la date d'un événement est antérieure à aujourd'hui, considère-le comme passé")
+    return f"""DATE ET TEMPS — NOUS SOMMES LE {jour.upper()}. Tout ce qui est daté avant aujourd'hui est PASSÉ, tout ce qui
+est daté après est À VENIR. Le dossier a été écrit plus tôt : il peut présenter comme futur un événement qui a
+maintenant eu lieu (compétition, élection, sommet, saison, loi, échéance). Pour chaque événement ou date cité :
+{verifier} s'il a déjà eu lieu. S'il a eu lieu, parle-en AU PASSÉ (avec son résultat si tu le connais ; sinon
+n'affirme rien sur son issue) : jamais « d'ici », « à l'approche de », « à l'horizon de », « avant », « prochain »,
+« va se tenir » pour un événement passé. Ne pose JAMAIS une question dont l'horizon est déjà dépassé : choisis un
+horizon réellement postérieur au {jour} (le prochain rendez-vous réel, ou une durée à partir d'aujourd'hui)."""
+
+
 def construire_prompt(sec: dict, e: dict, today: date) -> str:
     manque = sj.manquants(e)
     connu = sj.dossier_texte(sec, e)
     return f"""Tu complètes le dossier d'un sujet du backlog du site d'actualité Scénario
 (lesscenarios.fr : chaque édition détaille UNE question à issue ouverte en 3 scénarios
 chiffrés — favorable / stable / dégradé). Date d'aujourd'hui : {today.isoformat()}.
+
+{regle_de_date(today, True)}
 
 Le dossier ci-dessous a été écrit il y a plusieurs jours ou semaines et il est INCOMPLET.
 Champs à produire (seulement ceux qui manquent, plus 'depasse') : {", ".join(manque) if manque else "aucun"}.
@@ -76,16 +99,23 @@ titre) pour vérifier l'état actuel de l'actualité, puis renvoie un JSON uniqu
   "raison" (texte court) si true.
 - "contexte" (si absent du dossier ; 3 à 5 phrases, 250 caractères minimum) : CE QUI SE PASSE,
   faits datés, chiffres réels, acteurs. Des FAITS, pas d'opinion ni de prédiction.
-- "rationnel" (si absent ; 2 à 4 phrases, 150 caractères minimum) : (1) pourquoi ce sujet
-  maintenant, (2) pourquoi l'issue est réellement OUVERTE (forces contraires, incertitude),
-  (3) ce qui est en jeu pour un lecteur français. Ne répète pas le contexte.
+- "rationnel" (si absent ; 2 à 4 phrases, 150 caractères minimum) : LA PROBLÉMATIQUE que
+  l'édition traitera. Commence par « La question : » suivi de la question à issue ouverte posée
+  avec précision (ce qu'on cherche à trancher). Puis pourquoi l'issue est réellement OUVERTE
+  (forces ou hypothèses en présence, ce qui ferait pencher vers un scénario favorable, stable ou
+  dégradé), puis l'enjeu concret pour un lecteur français. INTERDIT de qualifier le sujet
+  (« brûlant », « chaud », « crucial », « incontournable », « d'actualité ») ou de justifier son
+  intérêt médiatique. Ne répète pas le contexte.
 - "mots_cles" (si absents ; 4 à 8) : requêtes et mots précis pour retrouver les bons articles
   de presse — noms propres, lieux, chiffres clés, termes techniques ; français et, si utile, anglais.
 - "question" (seulement si le titre n'est pas déjà une question à issue ouverte précise).
-- "a_verifier" (optionnel) : ce qu'il reste à vérifier ou chiffrer avant rédaction.
+- "a_verifier" (optionnel) : ce qu'il reste à vérifier ou chiffrer avant rédaction. Si le dossier actuel
+  contient une erreur de temps (événement présenté comme futur alors qu'il est passé), signale-la ici
+  en commençant par « ⚠ Temps : ».
 - "sources" (2 à 4) : [{{"titre":"...","url":"..."}}] avec l'URL EXACTE d'un résultat de ta
   recherche — jamais une URL reconstituée ou inventée.
-- "echeance" (optionnel) : {{"date":"AAAA-MM-JJ","raison":"..."}} seulement pour une vraie date butoir.
+- "echeance" (optionnel) : {{"date":"AAAA-MM-JJ","raison":"..."}} seulement pour une vraie date butoir
+  POSTÉRIEURE à aujourd'hui.
 
 Règles absolues : n'invente AUCUN fait, chiffre, date ni citation ; chaque affirmation doit venir
 du dossier ci-dessus ou d'un résultat de ta recherche. Si tu ne peux pas confirmer un point,
@@ -93,11 +123,223 @@ du dossier ci-dessus ou d'un résultat de ta recherche. Si tu ne peux pas confir
 autour ni balise markdown."""
 
 
+# Qualificatifs de remplissage, interdits dans la problématique (retour du propriétaire, 2 octobre 2026 :
+# « je m'en fous qu'il soit brûlant, ce qui m'intéresse c'est la problématique que Scénario cherche à adresser »).
+QUALIFICATIFS_INTERDITS = re.compile(r"\b(br[uû]lant\w*|chaud\w*|crucial\w*|incontournable\w*|d'actualité)\b", re.I)
+DEBUT_PROBLEMATIQUE = "La question"
+
+
+def rationnel_a_reformuler(e: dict) -> bool:
+    """Vrai si le sujet a une problématique (champ `rationnel`) rédigée à l'ancienne : elle ne commence pas
+    par « La question » (format posé le 2 octobre 2026). Une problématique absente relève de l'enrichissement."""
+    r = (e.get("rationnel") or "").strip()
+    return bool(r) and not r.startswith(DEBUT_PROBLEMATIQUE)
+
+
+def problematique_valide(texte: str) -> bool:
+    t = (texte or "").strip()
+    return (len(t) >= sj.MIN_RATIONNEL and t.startswith(DEBUT_PROBLEMATIQUE)
+            and not QUALIFICATIFS_INTERDITS.search(t) and "**" not in t)
+
+
+def construire_prompt_reformulation(sec: dict, e: dict, today: date | None = None) -> str:
+    connu = sj.dossier_texte(sec, e)
+    regle = regle_de_date(today or date.today(), False)
+    return f"""Tu réécris UNE rubrique du dossier d'un sujet du site d'actualité Scénario (lesscenarios.fr :
+chaque édition détaille UNE question à issue ouverte en 3 scénarios chiffrés — favorable / stable /
+dégradé). La rubrique « Problématique » (champ `rationnel`) actuelle explique surtout pourquoi le sujet serait « brûlant » : ce
+n'est pas ce que le propriétaire veut lire. Il veut lire LA PROBLÉMATIQUE, c'est-à-dire la question que
+l'édition cherche à trancher.
+
+{regle}
+
+=== DOSSIER ACTUEL ===
+{connu}
+=== FIN DU DOSSIER ===
+
+Réécris la rubrique « Problématique » (2 à 4 phrases, 150 caractères minimum) dans cet ordre :
+1. COMMENCE par « La question : » suivi de la question à issue ouverte, posée avec précision (ce qu'on
+   cherche à trancher, avec l'horizon si le dossier en donne un).
+2. Pourquoi l'issue est réellement OUVERTE : les forces ou hypothèses en présence, ce qui ferait pencher
+   vers un scénario favorable, stable ou dégradé.
+3. L'enjeu concret pour un lecteur français.
+
+INTERDIT : qualifier le sujet (« brûlant », « chaud », « crucial », « incontournable », « d'actualité »),
+justifier son intérêt médiatique, commencer par « Ce sujet est ». N'invente AUCUN fait, chiffre ni nom :
+n'utilise que ce qui figure dans le dossier ci-dessus. Pas de Markdown, pas de « ** ».
+
+Réponds UNIQUEMENT avec un JSON : {{"rationnel": "..."}}"""
+
+
+# ---------------------------------------------------------------------------------------------------
+# Chiffres pour le graphique « Les chiffres » (ajouté le 4 octobre 2026 : plus aucun graphique dans les éditions,
+# car le brief du jour cherchait une longue série historique, presque jamais trouvée). On relève les chiffres dès
+# que le sujet est en tête de file, avec une recherche web et plusieurs jours devant soi ; le brief les reprend
+# comme PISTE et les re-vérifie avant de s'en servir (docs/routine-brief-format.md, graphique_chiffres).
+# ---------------------------------------------------------------------------------------------------
+MIN_CHIFFRES = 3
+_URL_RE = re.compile(r"https?://[^\s;,)>\]]+")
+_CHIFFRE_RE = re.compile(r"[^;=\n]{2,80}=\s*[^;\n]*\d[^;\n]*")
+
+
+def construire_prompt_donnees(sec: dict, e: dict, today: date) -> str:
+    connu = sj.dossier_texte(sec, e)
+    return f"""Tu prépares le graphique d'une future édition du site d'actualité Scénario (lesscenarios.fr : chaque
+édition détaille UNE question à issue ouverte). Date d'aujourd'hui : {today.isoformat()}.
+
+{regle_de_date(today, True)}
+
+=== DOSSIER DU SUJET ===
+{connu}
+=== FIN DU DOSSIER ===
+
+Fais une VRAIE recherche web pour relever 3 à 6 chiffres RÉELS, publiés, COMPARABLES ENTRE EUX (même grandeur, même
+unité) qui éclairent la question du sujet : une grandeur à plusieurs dates, plusieurs acteurs ou pays sur la même
+mesure, un avant/après. Ces chiffres seront affichés en barres : ils doivent se comparer d'un coup d'œil.
+
+Réponds UNIQUEMENT avec un JSON : {{"donnees": "<texte>"}} où <texte> tient sur UNE seule ligne, sans Markdown, dans ce
+format exact : « <ce qu'on compare> (unité : <unité>). <libellé court 1> = <valeur 1> (<année ou date>) ; <libellé 2> =
+<valeur 2> (<année ou date>) ; <libellé 3> = <valeur 3> (<année ou date>). Sources : <URL 1> ; <URL 2> ».
+
+Règles absolues :
+- n'invente AUCUN chiffre et n'en tire aucun de ta mémoire : chacun doit figurer dans un résultat de ta recherche ;
+- chaque URL citée doit être l'URL EXACTE d'un résultat de ta recherche, jamais reconstituée ;
+- les chiffres sont comparables (même unité) ; mélange interdit de pourcentages et de montants ;
+- si tu ne trouves pas au moins 3 chiffres comparables, réponds {{"donnees": null, "raison": "<ce qui manque>"}} :
+  ne force jamais."""
+
+
+def donnees_valides(texte, cited_urls) -> bool:
+    """Garde-fou sans réseau : une seule ligne, au moins 3 chiffres « libellé = valeur », et toutes les URL citées
+    figurent parmi les citations réelles de la recherche."""
+    t = (texte or "").strip() if isinstance(texte, str) else ""
+    if len(t) < 60 or "\n" in t or "**" in t:
+        return False
+    if len(_CHIFFRE_RE.findall(t)) < MIN_CHIFFRES:
+        return False
+    urls = _URL_RE.findall(t)
+    cited = set(cited_urls or [])
+    return bool(urls) and all(u.rstrip(".") in cited or u in cited for u in urls)
+
+
+def appliquer_donnees(e: dict, resultat, cited_urls, today: date) -> bool:
+    """Écrit le champ `donnees` (sans appel réseau : testable seul). Ne remplace jamais des données déjà présentes."""
+    if not isinstance(resultat, dict) or (e.get("donnees") or "").strip():
+        return False
+    texte = resultat.get("donnees")
+    if not donnees_valides(texte, cited_urls):
+        return False
+    e["donnees"] = f"[relevé du {today.isoformat()}] {texte.strip()}"
+    e["enrichi_le"] = today.isoformat()
+    return True
+
+
+def enrichir_donnees_un(sec: dict, e: dict, model: str, api_key: str, today: date):
+    tools = [{"type": "openrouter:web_search", "parameters": {"engine": "auto", "max_results": 8}}]
+    resultat, usage = _appeler_avec_reprises(construire_prompt_donnees(sec, e, today), model, api_key,
+                                             temperature=0.2, max_tokens=6000, timeout=240, tools=tools)
+    return appliquer_donnees(e, resultat, usage.get("cited_urls"), today), usage.get("cost")
+
+
+# Modèles gratuits OpenRouter qui se relaient (mot-clé « gratuits » pour --model). Chacun est
+# souvent « temporarily overloaded » (503) ou limité en débit : on garde celui qui marche et on
+# passe au suivant quand il échoue.
+MODELES_GRATUITS = (
+    "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "nvidia/nemotron-3-super-120b-a12b:free",
+    "thinkingmachines/inkling:free",
+    "google/gemma-4-31b-it:free",
+    "qwen/qwen3.8-27b:free",
+    "google/gemma-4-26b-a4b-it:free",
+)
+# Chaque panne est traitée selon sa cause (journal du 2 octobre 2026) :
+#  - 429 (limite de débit) : le modèle est mis de côté 60 s puis réessayé ;
+#  - 400/401/403/404 (requête ou accès refusé) : ne changera pas, modèle écarté pour tout le run ;
+#  - 503 (surchargé), réponse vide, autre : mis de côté 30 s.
+# Le modèle en cours est gardé tant qu'il répond ; s'il est écarté, on prend le suivant. Si tous
+# sont écartés, on attend le premier qui redevient disponible (3 attentes au plus par appel).
+PAUSE_LIMITE_DEBIT = 60
+PAUSE_PANNE = 30
+MAX_ATTENTES = 3
+_courant = [0]
+_dernier_modele = [""]  # modèle qui a répondu au dernier appel (pour le journal)
+_dernier_brut = [None]  # dernier texte renvoyé (pour le journal)
+_indisponible: dict[str, float] = {}
+
+
+def liste_modeles(model: str) -> list[str]:
+    """« a,b,c » -> [a, b, c] ; « gratuits » -> MODELES_GRATUITS."""
+    noms: list[str] = []
+    for nom in (model or "").split(","):
+        nom = nom.strip()
+        noms.extend(MODELES_GRATUITS if nom == "gratuits" else [nom] if nom else [])
+    return noms or [HOT_TOPICS_MODEL]
+
+
+def _jusqu_a(err: Exception) -> float:
+    texte = str(err)
+    if "HTTP 429" in texte:
+        return time.time() + PAUSE_LIMITE_DEBIT
+    if re.search(r"HTTP (400|401|403|404)\b", texte):
+        return float("inf")
+    return time.time() + PAUSE_PANNE
+
+
+def _appeler_avec_reprises(prompt: str, model: str, api_key: str, **kwargs):
+    modeles = liste_modeles(model)
+    attentes = 0
+    while True:
+        maintenant = time.time()
+        ordre = [modeles[(_courant[0] + k) % len(modeles)] for k in range(len(modeles))]
+        dispo = [m for m in ordre if _indisponible.get(m, 0) <= maintenant]
+        if not dispo:
+            reprises = [t for t in (_indisponible.get(m, 0) for m in modeles) if t != float("inf")]
+            if not reprises or attentes >= MAX_ATTENTES:
+                raise GenerationError(f"aucun des {len(modeles)} modèle(s) n'est disponible")
+            attente = max(1, min(min(reprises) - maintenant, 120))
+            print(f"  … tous les modèles sont en pause, attente de {attente:.0f} s", file=sys.stderr)
+            time.sleep(attente)
+            attentes += 1
+            continue
+        nom = dispo[0]
+        try:
+            resultat = call_openrouter(prompt, nom, api_key, **kwargs)
+            _courant[0] = modeles.index(nom)
+            _dernier_modele[0] = nom
+            return resultat
+        except GenerationError as err:
+            _indisponible[nom] = _jusqu_a(err)
+            _courant[0] = modeles.index(nom) + 1
+            print(f"  … {nom} écarté ({str(err)[:90]})", file=sys.stderr)
+
+
+def proposer_problematique(sec: dict, e: dict, model: str, api_key: str, today: date | None = None):
+    """Demande au modèle une problématique pour ce sujet, sans rien modifier. Renvoie
+    (texte conforme ou None, texte brut renvoyé, coût)."""
+    resultat, usage = _appeler_avec_reprises(construire_prompt_reformulation(sec, e, today), model, api_key,
+                                             temperature=0.3, max_tokens=6000, timeout=180)
+    brut = (resultat or {}).get("rationnel") if isinstance(resultat, dict) else None
+    brut = brut if isinstance(brut, str) else None
+    _dernier_brut[0] = brut
+    return (brut.strip() if brut and problematique_valide(brut) else None), brut, usage.get("cost")
+
+
+def reformuler_un(sec: dict, e: dict, model: str, api_key: str, today: date):
+    """Réécrit la problématique d'un sujet à partir de son dossier (sans recherche web). Renvoie
+    (réécrit : bool, coût). Le sujet n'est modifié que si le nouveau texte respecte le format."""
+    texte, _, cout = proposer_problematique(sec, e, model, api_key, today)
+    if texte:
+        e["rationnel"] = texte
+        e["enrichi_le"] = today.isoformat()
+        return True, cout
+    return False, cout
+
+
 def enrichir_un(sec: dict, e: dict, model: str, api_key: str, today: date):
     """Appelle le modèle et applique le résultat au sujet. Renvoie (champs complétés, coût)."""
     tools = [{"type": "openrouter:web_search", "parameters": {"engine": "auto", "max_results": 6}}]
-    resultat, usage = call_openrouter(construire_prompt(sec, e, today), model, api_key,
-                                      temperature=0.3, max_tokens=4000, timeout=240, tools=tools)
+    resultat, usage = _appeler_avec_reprises(construire_prompt(sec, e, today), model, api_key,
+                                             temperature=0.3, max_tokens=8000, timeout=240, tools=tools)
     return appliquer_resultat(e, resultat, usage.get("cited_urls"), today), usage.get("cost")
 
 
@@ -106,6 +348,9 @@ def appliquer_resultat(e: dict, resultat: dict, cited_urls, today: date) -> list
     if not isinstance(resultat, dict):
         return []
     champs = dossier_depuis_reponse(resultat, cited_urls)
+    ech = champs.get("echeance")
+    if isinstance(ech, dict) and str(ech.get("date") or "") < today.isoformat():
+        champs.pop("echeance")  # une échéance déjà passée n'en est plus une
     faits = sj.enrichir(e, champs, today.isoformat())
     if resultat.get("depasse") is True:
         raison = str(resultat.get("raison") or "l'actualité semble avoir tranché").strip()
@@ -117,11 +362,24 @@ def appliquer_resultat(e: dict, resultat: dict, cited_urls, today: date) -> list
 
 
 def main(argv=None) -> int:
+    sys.stdout.reconfigure(line_buffering=True)  # journal lisible en direct (sinon tout arrive à la fin)
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--max", type=int, default=MAX_PAR_DEFAUT, help="nombre maximum de sujets traités")
     ap.add_argument("--registre", default=None, help="clé de section (ex. culture) ; défaut : tous")
     ap.add_argument("--ids", default=None, help="identifiants séparés par des virgules")
     ap.add_argument("--model", default=HOT_TOPICS_MODEL)
+    ap.add_argument("--reformuler", action="store_true",
+                    help="réécrit la problématique (champ `rationnel`, affiché « Problématique ») des dossiers rédigés à l'ancienne ; "
+                         "sans recherche web, à partir du dossier seul")
+    ap.add_argument("--forcer", action="store_true",
+                    help="avec --reformuler : réécrit aussi les problématiques déjà au bon format (tous les sujets à traiter), "
+                         "par exemple pour corriger des repères de temps périmés")
+    ap.add_argument("--apercu", action="store_true",
+                    help="avec --reformuler : affiche la problématique proposée par le modèle pour chaque sujet, "
+                         "sans rien écrire (pour comparer des modèles)")
+    ap.add_argument("--donnees", action="store_true",
+                    help="relève, avec recherche web, les chiffres d'un futur graphique « Les chiffres » pour les sujets "
+                         "à traiter qui n'en ont pas encore (tête de file d'abord)")
     ap.add_argument("--dry-run", action="store_true", help="liste les sujets ciblés, sans appel ni écriture")
     args = ap.parse_args(argv)
 
@@ -130,14 +388,22 @@ def main(argv=None) -> int:
     except sj.SujetsError as e:
         print(f"ERREUR : {e}", file=sys.stderr)
         return 1
-    cibles = sj.incomplets(data)
+    if args.donnees:
+        cibles = [(sec, e) for sec, e in sj.sujets(data) if e["statut"] == "a_traiter" and sj.eligible(e)
+                  and not (e.get("donnees") or "").strip() and sj.est_complet(e)]
+    elif args.reformuler:
+        cibles = [(sec, e) for sec, e in sj.sujets(data) if e["statut"] == "a_traiter"
+                  and ((e.get("rationnel") or "").strip() if args.forcer else rationnel_a_reformuler(e))]
+    else:
+        cibles = sj.incomplets(data)
     if args.registre:
         cibles = [c for c in cibles if c[0]["cle"] == args.registre]
     if args.ids:
         voulus = {i.strip() for i in args.ids.split(",") if i.strip()}
         cibles = [c for c in cibles if c[1]["id"] in voulus]
     cibles = ordre_de_passage(data, cibles)
-    print(f"{len(cibles)} sujet(s) à enrichir ; lot de {min(args.max, len(cibles))}.")
+    verbe = "relever (chiffres du graphique)" if args.donnees else "reformuler" if args.reformuler else "enrichir"
+    print(f"{len(cibles)} sujet(s) à {verbe} ; lot de {min(args.max, len(cibles))}.")
     lot = cibles[: args.max]
     if args.dry_run:
         for sec, e in lot:
@@ -150,12 +416,79 @@ def main(argv=None) -> int:
 
     today = date.today()
     traites, echecs, cout = 0, 0, 0.0
-    for sec, e in lot:
+    if args.donnees:
+        total = len(lot)
+        for n, (sec, e) in enumerate(lot, 1):
+            debut = time.time()
+            print(f"\n[{n}/{total}] {sec['cle']} — {e['titre']}", flush=True)
+            try:
+                ok, c = enrichir_donnees_un(sec, e, args.model, api_key, today)
+            except GenerationError as err:
+                echecs += 1
+                print(f"  ✗ ÉCHEC, rien modifié : {err}", flush=True)
+                continue
+            cout += float(c or 0)
+            traites += 1 if ok else 0
+            echecs += 0 if ok else 1
+            duree = time.time() - debut
+            if ok:
+                print(f"  ✓ chiffres relevés avec {_dernier_modele[0]} en {duree:.0f} s : {e['donnees'][:200]}", flush=True)
+            else:
+                print(f"  · aucun jeu de chiffres comparables et sourcés ({_dernier_modele[0]}, {duree:.0f} s), rien modifié", flush=True)
+        if traites:
+            sj.save_both(data)
+        print(f"\nBILAN : {traites} jeu(x) de chiffres relevé(s), {echecs} sans résultat, sur {total} (coût OpenRouter ≈ {cout:.3f} $).", flush=True)
+        return 0
+    if args.reformuler and args.apercu:
+        print(f"Aperçu sans écriture — modèle : {args.model}")
+        for sec, e in lot:
+            try:
+                texte, brut, c = proposer_problematique(sec, e, args.model, api_key, today)
+            except GenerationError as err:
+                echecs += 1
+                print(f"\n✗ {e['id'][:60]} : {err}", file=sys.stderr)
+                continue
+            cout += float(c or 0)
+            traites += 1 if texte else 0
+            print(f"\n=== {e['id']}\nTITRE : {e['titre']}\nANCIENNE : {e.get('rationnel')}\n"
+                  f"NOUVELLE ({'conforme' if texte else 'NON conforme au format'}) : {brut}")
+        print(f"\n{traites}/{len(lot)} texte(s) conforme(s) au format (coût OpenRouter ≈ {cout:.3f} $). Rien n'a été écrit.")
+        return 0
+    if args.reformuler:
+        total = len(lot)
+        for n, (sec, e) in enumerate(lot, 1):
+            debut = time.time()
+            print(f"\n[{n}/{total}] {sec['cle']} — {e['titre']}", flush=True)
+            _dernier_brut[0] = None
+            try:
+                ok, c = reformuler_un(sec, e, args.model, api_key, today)
+            except GenerationError as err:
+                echecs += 1
+                print(f"  ✗ ÉCHEC, rien modifié : {err}", flush=True)
+                continue
+            cout += float(c or 0)
+            traites += 1 if ok else 0
+            echecs += 0 if ok else 1
+            duree = time.time() - debut
+            if ok:
+                print(f"  ✓ RÉUSSI avec {_dernier_modele[0]} en {duree:.0f} s", flush=True)
+                print(f"    {e['rationnel'][:160]}…", flush=True)
+            else:
+                extrait = (_dernier_brut[0] or "(texte vide)")[:160]
+                print(f"  ✗ FORMAT NON RESPECTÉ ({_dernier_modele[0]}, {duree:.0f} s), rien modifié : {extrait}", flush=True)
+        if traites:
+            sj.save_both(data)
+        print(f"\nBILAN : {traites} réécrite(s), {echecs} à refaire, sur {total} (coût OpenRouter ≈ {cout:.3f} $).", flush=True)
+        return 0
+    total = len(lot)
+    for n, (sec, e) in enumerate(lot, 1):
+        debut = time.time()
+        print(f"\n[{n}/{total}] {sec['cle']} — {e['titre']}", flush=True)
         try:
             faits, c = enrichir_un(sec, e, args.model, api_key, today)
         except GenerationError as err:
             echecs += 1
-            print(f"  ✗ {e['id'][:60]} : {err}", file=sys.stderr)
+            print(f"  ✗ ÉCHEC, rien modifié : {err}", flush=True)
             continue
         cout += float(c or 0)
         reste = sj.manquants(e)
@@ -163,8 +496,12 @@ def main(argv=None) -> int:
             traites += 1
         else:
             echecs += 1
-        print(f"  {'✓' if faits and not reste else '·'} {e['id'][:60]} : complété {faits or '—'}"
-              + (f" ; manque encore {reste}" if reste else ""))
+        duree = time.time() - debut
+        if faits:
+            print(f"  {'✓ COMPLET' if not reste else '· PARTIEL'} avec {_dernier_modele[0]} en {duree:.0f} s : complété {faits}"
+                  + (f" ; manque encore {reste}" if reste else ""), flush=True)
+        else:
+            print(f"  ✗ RIEN D'UTILISABLE ({_dernier_modele[0]}, {duree:.0f} s), rien modifié", flush=True)
 
     if traites or action != "ok":
         sj.save_both(data)

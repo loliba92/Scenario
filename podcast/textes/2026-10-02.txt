@@ -1,0 +1,19 @@
+Mammographie pour toutes, ou suivi sur mesure assisté par des algorithmes ? C'est la question qui bouscule le dépistage du cancer du sein.
+---
+En France, toutes les femmes de 50 à 74 ans reçoivent une invitation tous les deux ans pour une mammographie prise en charge à 100 %. Le programme ressemble à un contrôle technique périodique, envoyé à date fixe à tout le monde. Pourtant, le taux de participation au programme organisé est à 45,7 % sur 2024-2025, et plus d'une femme éligible sur deux ne vient pas. Beaucoup préfèrent passer par leur gynécologue ou leur radiologue habituel. Une enquête de la DREES montre aussi un écart de 25 points entre les femmes les plus modestes et les plus aisées pour le dépistage, public ou individuel.
+
+Le fond du problème est simple : détecter tôt, soigner moins lourd, sauver des vies. Le cancer du sein reste la première cause de mortalité par tumeur maligne chez les femmes en France métropolitaine. Quand la maladie est prise en charge tôt, la survie à cinq ans est très élevée. Mais le modèle universel fatigue. Les femmes ont des freins culturels, la peur de l'examen, et il manque des médecins dans certains déserts médicaux. En même temps, les algorithmes d'analyse d'images et les profils de risque promettent de mieux cibler les examens.
+---
+Alors, que peut-il se passer ? On voit trois scénarios.
+
+Le premier, le plus optimiste, a environ une chance sur trois de se réaliser. Les autorités refondent le dépistage public en intégrant les données génétiques, l'histoire familiale et l'analyse automatisée des clichés. La mammographie systématique tous les deux ans n'est plus la seule règle. Les femmes à faible risque espacent leurs contrôles, celles à risque élevé ont un suivi plus rapproché. L'aide numérique devient un filtre de première ligne, elle sécurise la lecture et libère du temps pour les radiologues. Cela peut réduire le surdiagnostic et mieux utiliser les ressources. Mais cela suppose une refonte des systèmes d'information et une formation accrue des médecins à l'évaluation du risque.
+
+Le deuxième est le plus probable, et c'est le scénario stable : une chance sur deux. C'est une coexistence prolongée. La mammographie biennale reste le socle commun pour la majorité des femmes. Les invitations continuent d'être envoyées sur le seul critère d'âge. Les outils numériques s'intègrent par étapes, sans remettre en cause le calendrier standard. Ce scénario évite une rupture brutale, mais il garde un cadre rassurant et rigide. La participation reste plafonnée, et les surcoûts liés au chevauchement des dispositifs publics et privés se prolongent.
+
+Le troisième, le plus sombre, compte pour une chance sur cinq. Les technologies de pointe restent concentrées dans les grands centres urbains et les cliniques privées. Les femmes les mieux informées et les mieux couvertes bénéficient d'un profilage plus précis et d'un suivi plus sophistiqué. Dans les zones rurales et les quartiers défavorisés, les délais d'attente s'allongent pour une mammographie standard. La personnalisation devient alors un privilège, et l'écart de mortalité précoce risque de s'élargir.
+---
+Pour la France, l'impact est plutôt légèrement négatif. Le scénario hybride le plus probable maintient le socle universel, mais limite les gains immédiats de santé publique. Le risque de dérive à deux vitesses pèse sur les inégalités sociales et territoriales.
+
+Ce que l'on surveillera : le déploiement de la feuille de route 2026-2030 de l'Institut national du cancer, et la publication des conclusions des essais régionaux d'aide numérique. Ces éléments serviront de test pour savoir si le modèle reste universel ou devient vraiment personnalisé.
+---
+Voilà pour aujourd'hui. L'édition complète est sur lesscenarios.fr. À demain, pour un nouveau scénario.

@@ -1,0 +1,4 @@
+# Épisodes à (re)faire par le workflow « Podcast — épisode du jour », un par passage planifié, une fois l'épisode
+# du jour publié. Format : AAAA-MM-JJ [forcer]. « forcer » = refaire un épisode déjà publié (nouveau fichier : Spotify
+# met à jour l'épisode). La ligne disparaît d'elle-même quand l'épisode est fait. Le texte vient de
+# podcast/textes/AAAA-MM-JJ.txt s'il existe.

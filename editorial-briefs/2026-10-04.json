@@ -1,0 +1,291 @@
+{
+  "date": "2026-10-04",
+  "registre": "sport",
+  "sujet": {
+    "titre_propose": "Le Championnat des Nations de rugby peut-il s'imposer comme la nouvelle compétition reine du rugby mondial, ou va-t-il cannibaliser les tournois historiques sans convaincre le public ?",
+    "h1": "Championnat des Nations : le nouveau roi du rugby ?",
+    "question_posee": "Le Championnat des Nations de rugby peut-il s'imposer comme la nouvelle compétition reine du rugby mondial, ou va-t-il cannibaliser les tournois historiques sans convaincre le public ?",
+    "eyebrow": "Dimanche, sport",
+    "angle": "Lancé en juillet 2026, le Championnat des Nations de rugby réunit les douze meilleures nations en deux hémisphères, avec une finale prévue le 29 novembre 2026 à l'Allianz Stadium de Londres. La France, en tête du classement nordiste après trois journées estivales, affrontera Fidji le 7 novembre, l'Afrique du Sud le 14 et l'Argentine le 21. L'enjeu : cette compétition bisannuelle parvient-elle à s'imposer comme un rendez-vous majeur sans affaiblir les Six Nations, les tournées sud-africaines et les Coupes du monde ?",
+    "tags": [
+      "rugby",
+      "sport",
+      "gouvernance"
+    ],
+    "domain": "sport",
+    "image_keywords": "rugby stadium crowd",
+    "complexite": 3,
+    "origine_prioritaire": "Le Championnat des Nations de rugby peut-il s'imposer comme la nouvelle compétition reine du rugby mondial, ou va-t-il cannibaliser les tournois historiques sans convaincre le public ?",
+    "origine_id": "sport-le-championnat-des-nations-de-rugby-peut-il-s",
+    "point_de_depart": {
+      "id": "sport-le-championnat-des-nations-de-rugby-peut-il-s",
+      "registre": "sport",
+      "titre": "Le Championnat des Nations de rugby peut-il s'imposer comme la nouvelle compétition reine du rugby mondial, ou va-t-il cannibaliser les tournois historiques sans convaincre le public ?",
+      "question": "Le Championnat des Nations de rugby peut-il s'imposer comme la nouvelle compétition reine du rugby mondial, ou va-t-il cannibaliser les tournois historiques sans convaincre le public ?",
+      "contexte": "Lancé en juillet 2026, le Championnat des Nations de rugby est une nouvelle compétition internationale masculine qui réunit les douze meilleures nations mondiales réparties en deux hémisphères : le « Nord » (Irlande, France, Angleterre, Écosse, Italie, Pays de Galles) et le « Sud » (Afrique du Sud, Nouvelle-Zélande, Argentine, Australie, Fidji, Japon). Chaque nation affronte les six équipes de l'autre hémisphère, en juillet pour les nations du Sud recevant, et en novembre pour les nations du Nord. La grande finale est prévue le 29 novembre à l'Allianz Stadium de Londres. La France est en tête du classement nordiste après les trois journées estivales, avec deux victoires bonifiées. Un Challenge des Hémisphères récompense également la meilleure performance collective. La compétition se tient tous les deux ans.",
+      "rationnel": "La question : Le Championnat des Nations de rugby, lancé en juillet 2026, pourra-t-il s'imposer comme la nouvelle compétition reine du rugby mondial d'ici la finale du 29 novembre 2026 à l'Allianz Stadium, ou bien va-t-il cannibaliser les tournois historiques sans réussir à convaincre le public ? L'issue est ouverte car le succès dépendra de l'engagement des équipes, de l'intérêt du public et de la capacité à coexister avec le Tournoi des Six Nations, les tournées de l'hémisphère Sud et les Coupes du monde sans les affaiblir ; la France, actuellement en tête du classement nordiste après trois journées estivales avec deux victoires bonifiées, affrontera Fidji le 7 novembre, l'Afrique du Sud le 14 novembre et l'Argentine le 21 novembre. Pour un lecteur français, l'enjeu est de savoir si le XV de France peut remporter le titre inaugural et offrir un événement sportif majeur, ou si la nouvelle compétition risque de surcharger le calendrier et de détourner l'attention des tournois historiques auxquels le public est attaché.",
+      "mots_cles": [
+        "Championnat des Nations",
+        "rugby",
+        "XV de France",
+        "Fabien Galthié",
+        "Allianz Stadium",
+        "World Rugby",
+        "Springboks",
+        "All Blacks",
+        "Tournoi des Six Nations"
+      ],
+      "angle": null,
+      "a_verifier": "Vérifier les dates exactes des matchs de la France en novembre : Fidji (7 novembre), Afrique du Sud (14 novembre), Argentine (21 novembre). Suivre l'évolution du classement nordiste. Vérifier les audiences TV et la fréquentation des stades pour les premières journées.",
+      "scenarios_brouillon": {
+        "favorable": "Le Championnat des Nations rencontre un large succès public et médiatique. La France remporte le titre inaugural, donnant un élan considérable au rugby français. La compétition s'impose comme un rendez-vous bisannuel incontournable, sans cannibaliser le Tournoi des Six Nations ni les Coupes du monde.",
+        "stable": "La compétition trouve son public sans déchaîner les foules. La France termine sur le podium sans gagner. Le Championnat des Nations coexiste avec les tournois historiques, mais sans révolutionner le rugby mondial. Les audiences sont correctes sans être exceptionnelles.",
+        "degrade": "L'engouement est mitigé, les audiences déçoivent. Les critiques fusent sur le calendrier surchargé et le manque de lisibilité pour le public. La France est éliminée tôt. World Rugby peine à justifier l'investissement et les fédérations historiques (Six Nations, Sanzaar) remettent en cause le format."
+      },
+      "echeance": {
+        "date": "2026-11-29",
+        "raison": "Grande finale du Championnat des Nations à l'Allianz Stadium de Londres."
+      },
+      "sources_pistes": [
+        {
+          "titre": "Championnat des Nations, c'est parti fort : bataille Blacks-Boks au sud, la France lancée au nord – rugbyrama.fr",
+          "url": "https://www.rugbyrama.fr/2026/10/01/championnat-des-nations-cest-parti-fort-bataille-blacks-boks-au-sud-la-france-lancee-au-nord-13577065.php"
+        },
+        {
+          "titre": "Jeux Olympiques d'hiver, Coupe du monde de football, rugby : le calendrier des rendez-vous sportifs en 2026 – L'Équipe",
+          "url": "https://www.lequipe.fr/Tous-sports/Actualites/Jeux-olympiques-d-hiver-coupe-du-monde-de-football-rugby-le-calendrier-des-rendez-vous-sportifs-en-2026/1629513"
+        }
+      ],
+      "tag": "rugby & gouvernance",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-10-01 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille du 3 octobre (culture, viralité organique) sans recoupement. Registre sport : éditions du 27 septembre (Mbappé/Ceuta, sportif humanitaire), 20 septembre (NBA en Europe), 16 août (Rugby : le choc de trop ?). Le Championnat des Nations est un sujet de gouvernance/compétition nouvelle, distinct de ces éditions qui traitaient respectivement d'un sportif individuel, d'une ligue américaine en Europe et d'un choc rugby à l'été 2026. Aucun doublon fort identifié."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le Championnat des Nations de rugby a été lancé en juillet 2026, réunissant les douze meilleures nations masculines réparties en deux hémisphères (Nord : Irlande, France, Angleterre, Écosse, Italie, Pays de Galles ; Sud : Afrique du Sud, Nouvelle-Zélande, Argentine, Australie, Fidji, Japon).",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "rugbyrama-2026-10-01"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La finale du Championnat des Nations est prévue le 29 novembre 2026 à l'Allianz Stadium de Londres.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "rugbyrama-2026-10-01"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La France est en tête du classement nordiste après trois journées estivales, avec deux victoires bonifiées.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "rugbyrama-2026-10-01"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La France affrontera Fidji le 7 novembre 2026, l'Afrique du Sud le 14 novembre 2026 et l'Argentine le 21 novembre 2026 dans le cadre du Championnat des Nations.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "rugbyrama-2026-10-01"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le Championnat des Nations se tient tous les deux ans.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "rugbyrama-2026-10-01"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Un Challenge des Hémisphères récompense la meilleure performance collective dans le Championnat des Nations.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "rugbyrama-2026-10-01"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "World Rugby",
+      "role": "Organisme international de gouvernance du rugby, créateur et organisateur du Championnat des Nations"
+    },
+    {
+      "nom": "XV de France (Fabien Galthié, sélectionneur)",
+      "role": "Équipe nationale française, actuellement en tête du classement nordiste"
+    },
+    {
+      "nom": "Springboks (Afrique du Sud)",
+      "role": "Équipe sud-africaine, principale force de l'hémisphère Sud, tenant de la Coupe du monde 2023"
+    },
+    {
+      "nom": "All Blacks (Nouvelle-Zélande)",
+      "role": "Équipe néo-zélandaise, traditionnellement dominante, en lice pour le Championnat des Nations"
+    },
+    {
+      "nom": "Six Nations (Irlande, France, Angleterre, Écosse, Italie, Pays de Galles)",
+      "role": "Ancienne compétition annuelle nordiste, potentiellement en concurrence avec le Championnat des Nations"
+    },
+    {
+      "nom": "SANZAAR (Afrique du Sud, Nouvelle-Zélande, Argentine, Australie)",
+      "role": "Consortium des nations sud-africaines, organisateur historique des tournois sudistes (Rugby Championship)"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-07",
+      "evenement": "Lancement du Championnat des Nations de rugby avec les douze meilleures nations réparties en deux hémisphères"
+    },
+    {
+      "date": "2026-07",
+      "evenement": "Début des journées estivales : les nations du Sud reçoivent les six équipes du Nord"
+    },
+    {
+      "date": "2026-09-30",
+      "evenement": "Fin des trois journées estivales ; la France en tête du classement nordiste avec deux victoires bonifiées"
+    },
+    {
+      "date": "2026-10-01",
+      "evenement": "Publication de l'article rugbyrama analysant le lancement et la bataille Blacks-Boks au Sud, la France lancée au Nord"
+    },
+    {
+      "date": "2026-11-07",
+      "evenement": "Match de la France contre Fidji dans le Championnat des Nations (novembre, hémisphère Nord)"
+    },
+    {
+      "date": "2026-11-14",
+      "evenement": "Match de la France contre l'Afrique du Sud dans le Championnat des Nations"
+    },
+    {
+      "date": "2026-11-21",
+      "evenement": "Match de la France contre l'Argentine dans le Championnat des Nations"
+    },
+    {
+      "date": "2026-11-29",
+      "evenement": "Grande finale du Championnat des Nations à l'Allianz Stadium de Londres"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Le Championnat des Nations rencontre un large succès public et médiatique dès sa première édition. La France remporte le titre inaugural en novembre 2026, donnant un élan considérable au rugby français. La compétition s'impose comme un rendez-vous bisannuel incontournable, sans cannibaliser le Tournoi des Six Nations ni les Coupes du monde. Les audiences TV dépassent celles des Six Nations, et les stades sont remplis pour les matchs à Londres.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "La compétition trouve un public fidèle sans déchaîner les foules. La France termine sur le podium sans gagner la finale. Le Championnat des Nations coexiste avec les tournois historiques (Six Nations, Rugby Championship, Coupes du monde), apportant une nouvelle dynamique sans révolutionner le rugby mondial. Les audiences sont correctes sans être exceptionnelles, et les fédérations historiques acceptent le nouveau format sans remise en cause.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "L'engouement est mitigé, les audiences TV déçoient et les stades ne sont pas remplis. Les critiques fusent sur le calendrier surchargé et le manque de lisibilité pour le public occasionnel. La France est éliminée tôt, avant la finale. World Rugby peine à justifier l'investissement et les fédérations historiques (Six Nations, SANZAAR) remettent en cause le format, risquant un affaiblissement des compétitions existantes sans gain compensateur.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Classement nordiste — France",
+      "valeur": "1re place",
+      "tendance": "stable"
+    },
+    {
+      "label": "Victoires bonifiées de la France après 3 journées",
+      "valeur": "2",
+      "tendance": "en hausse"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série historique longue et publique du Championnat des Nations n'existe (compétition inaugurale en juillet 2026). La recherche sur les archives de World Rugby et les sites spécialisés (rugbyrama.fr, lequipe.fr) ne révèle pas de série chiffrée historique comparable. Critère (1) non satisfait : pas de source publique fiable documentant un historique complet de cette compétition spécifique. Un graphique sur les audiences TV historiques des Six Nations ou du Rugby Championship pourrait exister mais ne répondrait pas directement à la question du jour (succès du nouveau Championnat des Nations).",
+    "serie": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Pourquoi un nouveau Championnat des Nations en plus des Six Nations et du Rugby Championship ?",
+        "rattache_a": "contexte-lancement"
+      },
+      {
+        "focus": "Comment fonctionne le format à deux hémisphères et le Challenge des Hémisphères ?",
+        "rattache_a": "contexte-format"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Les audiences TV et la fréquentation des stades pour les premières journées du Championnat des Nations ne sont pas encore publiques de façon chiffrée ; les chiffres exacts d'audience ne sont pas disponibles à la date du brief.",
+    "L'impact réel sur les Six Nations et le Rugby Championship à long terme reste à évaluer : aucune donnée de perturbation du calendrier ou des audiences de ces compétitions n'est disponible à ce stade.",
+    "Le niveau d'engagement médiatique (diffuseurs TV, droits radiotélévisés) pour le Championnat des Nations n'est pas encore chiffré publiquement."
+  ],
+  "a_ne_pas_affirmer": [
+    "La France remportera le Championnat des Nations en 2026.",
+    "Le Championnat des Nations cannibalisera les Six Nations ou le Rugby Championship.",
+    "Les audiences du Championnat des Nations dépasseront celles des Six Nations.",
+    "World Rugby a déjà signé des accords de diffusion TV spécifiques pour le Championnat des Nations (hors sources vérifiées)."
+  ],
+  "sources": [
+    {
+      "id": "rugbyrama-2026-10-01",
+      "title": "Championnat des Nations, c'est parti fort : bataille Blacks-Boks au sud, la France lancée au nord",
+      "source": "Rugbyrama",
+      "url": "https://www.rugbyrama.fr/2026/10/01/championnat-des-nations-cest-parti-fort-bataille-blacks-boks-au-sud-la-france-lancee-au-nord-13577065.php",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Article de rugbyrama.fr publié le 1er octobre 2026 analysant le lancement du Championnat des Nations de rugby. Il décrit la bataille entre les All Blacks et les Springboks dans l'hémisphère Sud, et la France lancée dans l'hémisphère Nord. La France est en tête du classement nordiste après trois journées estivales avec deux victoires bonifiées. La finale est prévue le 29 novembre 2026 à l'Allianz Stadium de Londres.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Championnat des Nations, c'est parti fort : bataille Blacks-Boks au sud, la France lancée au nord",
+      "source": "Rugbyrama",
+      "url": "https://www.rugbyrama.fr/2026/10/01/championnat-des-nations-cest-parti-fort-bataille-blacks-boks-au-sud-la-france-lancee-au-nord-13577065.php",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Article de rugbyrama.fr du 1er octobre 2026 analysant le lancement du Championnat des Nations. La France est en tête du classement nordiste après trois journées estivales avec deux victoires bonifiées. La finale est prévue le 29 novembre 2026 à l'Allianz Stadium de Londres.",
+      "read_minutes": 3
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-27",
+      "titre": "Mbappé, Ceuta et le tee-shirt polémique : un sportif peut-il encore exprimer une opinion humanitaire sans être pris dans la guerre politique ?",
+      "lien": "Sport — enjeu de l'expression politique d'un sportif (Mbappé), même si le sujet du jour porte sur un championnat collectif plutôt que sur un individu."
+    },
+    {
+      "date": "2026-09-20",
+      "titre": "Basket : la NBA débarque en Europe",
+      "lien": "Sport — création d'une nouvelle compétition internationale (NBA en Europe) qui peut être comparée au Championnat des Nations comme tentative de nouvelle compétition transcontinentale."
+    },
+    {
+      "date": "2026-08-16",
+      "titre": "Rugby : le choc de trop ?",
+      "lien": "Rugby — sujet précédent sur le rugby traitant d'un choc/rugby, permettant un lien thématique avec le rugby et la gouvernance du sport."
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser que le Championnat des Nations est une compétition bisannuelle créée par World Rugby, distincte des Six Nations (annuelle, hémisphère Nord) et du Rugby Championship (annuelle, hémisphère Sud).",
+    "Mettre en perspective le format à deux hémisphères : les nations du Nord jouent en novembre, celles du Sud en juillet, avec une finale unique à Londres le 29 novembre 2026.",
+    "Souligner que la France est en tête du classement nordiste après trois journées estivales (2 victoires bonifiées) — un point d'intérêt pour le lecteur français.",
+    "Évoquer les dates des matchs de la France en novembre : Fidji (7 novembre), Afrique du Sud (14 novembre), Argentine (21 novembre) comme Jalons concrets pour le lecteur.",
+    "Comparer le Championnat des Nations à d'autres tentatives de nouvelle compétition internationale (NBA en Europe, Ligue des Nations UEFA) pour contextualiser la difficulté d'implantation d'un nouveau rendez-vous sportif majeur.",
+    "Ne pas affirmer de chiffres d'audience ou de fréquentation stade non vérifiés — signaler l'absence de données publiques à ce stade."
+  ]
+}

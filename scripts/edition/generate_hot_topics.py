@@ -74,7 +74,10 @@ from generate_daily_edition import GenerationError, call_openrouter  # noqa: E40
 # 18 septembre 2026 : repérage de sujets chauds = tri/priorisation,
 # pas de rédaction fine — finance le passage d'Opus sur la recherche
 # quotidienne (voir generate_fallback_brief.py).
-HOT_TOPICS_MODEL = "deepseek/deepseek-v4-flash"
+# « gratuits » : plusieurs modèles gratuits OpenRouter en relais (le même mécanisme que l'enrichissement,
+# voir enrich_sujets.py : MODELES_GRATUITS) — demandé le 2 octobre 2026. Un nom de modèle précis
+# (ou plusieurs séparés par des virgules) reste possible avec --model.
+HOT_TOPICS_MODEL = "gratuits"
 
 ROOT = Path(__file__).resolve().parents[2]
 SUJETS_PRIORITAIRES = ROOT / "sujets-prioritaires.md"
@@ -302,10 +305,14 @@ def build_prompt(existing_by_registre, priorite_absolue_titles, carte_blanche_ti
         "- 'contexte' (obligatoire, 3 à 5 phrases, 250 caractères minimum) : CE QUI SE "
         "PASSE — le déclencheur daté (jour, mois), les faits établis, les chiffres "
         "réels, les acteurs. Des FAITS, pas d'opinion ni de prédiction.",
-        "- 'rationnel' (obligatoire, 2 à 4 phrases, 150 caractères minimum) : POURQUOI "
-        "CE SUJET — (1) pourquoi maintenant, (2) pourquoi l'issue est réellement "
-        "OUVERTE (quelles forces contraires, quelle incertitude), (3) ce qui est en "
-        "jeu pour un lecteur français. Ne répète pas le contexte.",
+        "- 'rationnel' (obligatoire, 2 à 4 phrases, 150 caractères minimum) : LA PROBLÉMATIQUE "
+        "que l'édition traitera. Commence par « La question : » suivi de la question à issue "
+        "ouverte posée avec précision (ce qu'on cherche à trancher, avec l'horizon si utile). "
+        "Puis : pourquoi l'issue est réellement OUVERTE (les forces ou hypothèses en présence, "
+        "ce qui ferait pencher vers un scénario favorable, stable ou dégradé). Enfin, l'enjeu "
+        "concret pour un lecteur français. INTERDIT de qualifier le sujet (« brûlant », « chaud », "
+        "« crucial », « incontournable », « d'actualité ») ou de justifier son intérêt médiatique : "
+        "seule compte la problématique. Ne répète pas le contexte.",
         "- 'mots_cles' (obligatoire, 4 à 8) : requêtes et mots précis pour retrouver "
         "les bons articles de presse — noms propres, lieux, chiffres clés, termes "
         "techniques ; en français et, quand c'est utile, en anglais.",
@@ -564,7 +571,8 @@ def main():
     prompt = build_prompt(existing, priorite_absolue_titles, carte_blanche_titles, recent, today)
     tools = [{"type": "openrouter:web_search", "parameters": {"engine": "auto", "max_results": 8}}]
     try:
-        content, usage = call_openrouter(
+        import enrich_sujets as en  # import tardif : enrich_sujets importe ce module
+        content, usage = en._appeler_avec_reprises(
             prompt, args.model, api_key, temperature=0.4, max_tokens=12000, timeout=240, tools=tools,
         )
     except GenerationError as e:

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Scénario — le podcast</title>
+    <link>https://lesscenarios.fr/</link>
+    <language>fr</language>
+    <description>Chaque jour, l'actualité clé décryptée en trois scénarios chiffrés, racontée en dialogue. Épisodes lus par deux voix de synthèse (voix artificielles, annoncées au début de chaque épisode), à partir de l'édition publiée sur lesscenarios.fr.</description>
+    <itunes:author>Scénario</itunes:author>
+    <itunes:summary>Chaque jour, l'actualité clé décryptée en trois scénarios chiffrés, racontée en dialogue. Épisodes lus par deux voix de synthèse (voix artificielles, annoncées au début de chaque épisode), à partir de l'édition publiée sur lesscenarios.fr.</itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:type>episodic</itunes:type>
+    <itunes:image href="https://lesscenarios.fr/podcast/cover.jpg"/>
+    <itunes:category text="News"/>
+    <itunes:owner>
+      <itunes:name>Scénario</itunes:name>
+      <itunes:email>contact@lesscenarios.fr</itunes:email>
+    </itunes:owner>
+    <item>
+      <title>Championnat des Nations : le nouveau roi du rugby ?</title>
+      <link>https://lesscenarios.fr/archives/2026-10-04.html</link>
+      <guid isPermaLink="false">scenario-podcast-2026-10-04</guid>
+      <pubDate>Sun, 04 Oct 2026 07:00:00 +0000</pubDate>
+      <description>Championnat des Nations : le nouveau roi du rugby ? Épisode lu par une voix de synthèse (intelligence artificielle), à partir de l'édition du 2026-10-04. Version écrite : https://lesscenarios.fr/archives/2026-10-04.html</description>
+      <enclosure url="https://github.com/loliba92/Scenario/releases/download/podcast-2026-10-04/2026-10-04-1253.mp3" length="2881197" type="audio/mpeg"/>
+      <itunes:duration>00:04:00</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://lesscenarios.fr/podcast/episodes/2026-10-04.jpg"/>
+    </item>
+    <item>
+      <title>Culture : la viralité organique est-elle une illusion algorithmique ?</title>
+      <link>https://lesscenarios.fr/archives/2026-10-03.html</link>
+      <guid isPermaLink="false">scenario-podcast-2026-10-03</guid>
+      <pubDate>Sat, 03 Oct 2026 07:00:00 +0000</pubDate>
+      <description>Culture : la viralité organique est-elle une illusion algorithmique ? Épisode lu par une voix de synthèse (intelligence artificielle), à partir de l'édition du 2026-10-03. Version écrite : https://lesscenarios.fr/archives/2026-10-03.html</description>
+      <enclosure url="https://github.com/loliba92/Scenario/releases/download/podcast-2026-10-03/2026-10-03-0919.mp3" length="2996397" type="audio/mpeg"/>
+      <itunes:duration>00:04:09</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://lesscenarios.fr/podcast/episodes/2026-10-03.jpg"/>
+    </item>
+    <item>
+      <title>Dépistage du cancer du sein : le modèle va-t-il basculer ?</title>
+      <link>https://lesscenarios.fr/archives/2026-10-02.html</link>
+      <guid isPermaLink="false">scenario-podcast-2026-10-02</guid>
+      <pubDate>Fri, 02 Oct 2026 07:00:00 +0000</pubDate>
+      <description>Dépistage du cancer du sein : le modèle va-t-il basculer ? Épisode lu par une voix de synthèse (intelligence artificielle), à partir de l'édition du 2026-10-02. Version écrite : https://lesscenarios.fr/archives/2026-10-02.html</description>
+      <enclosure url="https://github.com/loliba92/Scenario/releases/download/podcast-2026-10-02/2026-10-02-0913.mp3" length="3047373" type="audio/mpeg"/>
+      <itunes:duration>00:04:13</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://lesscenarios.fr/podcast/episodes/2026-10-02.jpg"/>
+    </item>
+  </channel>
+</rss>

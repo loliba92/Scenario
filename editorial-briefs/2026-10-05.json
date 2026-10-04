@@ -1,0 +1,290 @@
+{
+  "date": "2026-10-05",
+  "registre": "geopolitique",
+  "sujet": {
+    "titre_propose": "Le monde peut-il se passer du GPS ?",
+    "h1": "GPS : le monde peut-il se passer du GPS ?",
+    "question_posee": "Le brouillage et leurrage du GPS en mer Baltique depuis 2023-2024 perturbent l'aviation civile. Jusqu'où l'escalade peut-elle atteindre avant de toucher les infrastructures critiques françaises ?",
+    "eyebrow": "Lundi, géopolitique",
+    "angle": "La Russie intensifie le brouillage et leurrage des signaux GNSS en mer Baltique depuis 2023-2024, perturbant déjà l'aviation civile. Nos infrastructures critiques (réseaux électriques, télécoms, transports, transactions financières) dépendent d'une synchronisation ultra-précise par satellite. Leur fragilité face à une escalade persistante est l'enjeu central.",
+    "tags": [
+      "géopolitique",
+      "technologie",
+      "sécurité"
+    ],
+    "domain": "international",
+    "image_keywords": "satellite navigation signal jamming",
+    "complexite": 4,
+    "origine_prioritaire": "Le monde peut-il se passer du GPS ?",
+    "origine_id": "geopolitique-le-monde-peut-il-se-passer-du-gps",
+    "point_de_depart": {
+      "id": "geopolitique-le-monde-peut-il-se-passer-du-gps",
+      "registre": "geopolitique",
+      "titre": "Le monde peut-il se passer du GPS ?",
+      "question": "Le monde peut-il se passer du GPS ?",
+      "contexte": "Le brouillage et le leurrage des signaux satellites perturbent déjà l'aviation civile en mer Baltique depuis 2023-2024 — un phénomène documenté, pas hypothétique. Nos infrastructures critiques (finance, énergie, transport, télécoms) dépendent d'une synchronisation ultra-précise par satellite : jusqu'où l'escalade du brouillage peut-elle aller avant de vraiment les perturber ?",
+      "rationnel": "La question : Jusqu'où l'escalade du brouillage et du leurrage des signaux satellites peut-elle perturber les infrastructures critiques (finance, énergie, transport, télécoms) qui dépendent de la synchronisation GNSS, alors que la Russie intensifie ses attaques électroniques en mer Baltique depuis 2023‑2024 ? L'issue est ouverte car, d'un côté, la Russie étend la portée de son brouillage combiné jamming+spoofing à 450 km depuis Kaliningrad, et de l'autre, l'Europe déploie des contre‑mesures (Galileo OSNMA, R‑Mode Baltic, plan de résilience GNSS) dont l'efficacité réelle à grande échelle n'est pas encore prouvée. Pour un lecteur français, l'enjeu est concret : l'ANFR alerte déjà sur les vulnérabilités identifiées dans nos réseaux électriques, télécoms, transports et transactions financières, qui dépendent de cette synchronisation.",
+      "mots_cles": [
+        "brouillage GPS mer Baltique 2025 2026",
+        "GPS jamming spoofing Baltic Sea Russia Kaliningrad",
+        "ICAO Russia GNSS interference condemnation 2025",
+        "Galileo OSNMA spoofing protection 2025",
+        "GNSS critical infrastructure time synchronization vulnerability",
+        "R-Mode Baltic alternative navigation",
+        "ANFR brouilleur GNSS France",
+        "733 incidents GPS Suède Transportstyrelsen"
+      ],
+      "angle": null,
+      "a_verifier": "Incidents de brouillage/leurrage documentés en mer Baltique et ailleurs depuis 2023 (sources aviation civile, rapports Finlande/Estonie/Pologne), dépendance réelle des réseaux électriques et marchés financiers à la synchronisation GPS, contre-mesures en développement (systèmes de secours, redondance Galileo)",
+      "scenarios_brouillon": null,
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Researchers home in on origins of Russia's Baltic GPS jamming",
+          "url": "https://www.defensenews.com/global/europe/2025/07/02/researchers-home-in-on-origins-of-russias-baltic-gps-jamming/"
+        },
+        {
+          "titre": "Sweden accuses Russia of GPS jamming over Baltic Sea",
+          "url": "https://www.bbc.com/news/articles/clyx3ly54veo"
+        },
+        {
+          "titre": "Galileo Leads the Way in GNSS Spoofing Protection with OSNMA",
+          "url": "https://defence-industry-space.ec.europa.eu/galileo-leads-way-gnss-spoofing-protection-osnma-2025-07-22_en"
+        },
+        {
+          "titre": "ICAO Assembly condemns GNSS Radio Frequency Interference originating from DPRK and Russian Federation",
+          "url": "https://www.icao.int/news/icao-assembly-condemns-gnss-radio-frequency-interference-originating-dprk-and-russian"
+        }
+      ],
+      "tag": "géopolitique & technologie",
+      "origine": "utilisateur",
+      "note_editoriale": "Reformulation de \"Qui contrôlera le temps ?\" (favori #1 de l'utilisateur) — jugée trop abstraite/quasi science-fictive telle quelle lors du crible, redescendue sur un phénomène réel et déjà daté. Pas un seul \"contrôleur\" du temps en réalité : 4 systèmes concurrents (GPS américain, Galileo européen, GLONASS russe, BeiDou chinois) — la vraie tension est la vulnérabilité partagée à un brouillage/leurrage, pas une prise de contrôle unique par un acteur",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Sujet inédit dans les 20 dernières éditions. Aucun recoupement avec la veille (2026-10-04, rugby) ni avec les éditions géopolitiques récentes (2026-09-28, 2026-09-22, 2026-09-21). Filière énergie/transport/technologie non traitée récemment sous l'angle GNSS."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "La Suède a recensé 733 incidents de brouillage GPS en mer Baltique entre août 2023 et décembre 2024, principalement attribués à la Russie.",
+      "chiffre": "733 incidents",
+      "date_du_chiffre": "2024-12-31",
+      "sources": [
+        "transportstyrelsen"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'ICAO a condamné en octobre 2025 les interférences radiofréquences GNSS provenant de la Russie et de la Corée du Nord lors de son assemblée annuelle.",
+      "chiffre": null,
+      "date_du_chiffre": "2025-10-01",
+      "sources": [
+        "icao"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le système Galileo européen a activé OSNMA (Open Service Navigation Message Authentication) en 2025 pour détecter le leurrage de signaux.",
+      "chiffre": null,
+      "date_du_chiffre": "2025-07-22",
+      "sources": [
+        "eu-galileo"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'ANFR (Agence nationale des fréquences) alerte en France sur les vulnérabilités identifiées dans les réseaux électriques, télécoms, transports et transactions financières qui dépendent de la synchronisation GNSS.",
+      "chiffre": null,
+      "date_du_chiffre": "2025-09-15",
+      "sources": [
+        "anfr"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Russie",
+      "role": "Acteur principal du brouillage et leurrage GNSS en mer Baltique depuis 2023-2024, depuis Kaliningrad et d'autres bases navales"
+    },
+    {
+      "nom": "Suède (Transportstyrelsen)",
+      "role": "Autorité de aviation civile ayant recensé et documenté les incidents de brouillage GPS en mer Baltique"
+    },
+    {
+      "nom": "ICAO",
+      "role": "Organisation internationale de l'aviation civile ayant condamné les interférences GNSS lors de son assemblée de 2025"
+    },
+    {
+      "nom": "Union européenne (ESA/GSA)",
+      "role": "Développeuse du système Galileo et de la fonction OSNMA de protection contre le leurrage"
+    },
+    {
+      "nom": "ANFR (France)",
+      "role": "Agence nationale des fréquences alertant sur les vulnérabilités GNSS des infrastructures critiques françaises"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2023-08-01",
+      "evenement": "Premiers incidents documentés de brouillage GPS en mer Baltique affectant l'aviation civile"
+    },
+    {
+      "date": "2024-12-31",
+      "evenement": "Fin de la période de recensement : 733 incidents documentés par la Suède"
+    },
+    {
+      "date": "2025-07-22",
+      "evenement": "Activation de OSNMA sur Galileo pour détection du leurrage"
+    },
+    {
+      "date": "2025-10-01",
+      "evenement": "Condamnation de l'ICAO des interférences GNSS Russie/Corée du Nord"
+    },
+    {
+      "date": "2025-09-15",
+      "evenement": "Alerte de l'ANFR sur les vulnérabilités GNSS des infrastructures critiques françaises"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Les contre-mesures (OSNMA Galileo, R-Mode Baltic, redondance des systèmes de positionnement) se déploient efficacement avant toute escalation majeure. Le brouillage reste circonscrit à la mer Baltique sans atteindre les infrastructures continentales. La résilience des réseaux français est confirmée.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Le brouillage et leurrage persistent au niveau actuel en mer Baltique, perturbant régulièrement l'aviation civile mais sans atteindre les infrastructures critiques continentales. Les mesures de contournement se développent mais ne couvrent pas tous les usages. La situation reste gérable mais préoccupante.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "L'escalade du brouillage (extension géographique, intensification, combinaison jamming+spoofing) perturbe des infrastructures critiques hors mer Baltique : synchronisation des réseaux électriques, transactions financières, télécommunications, transports. Les contre-mesures existantes sont insuffisantes face à la portée étendue (450 km depuis Kaliningrad).",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Incidents de brouillage GPS documentés en mer Baltique",
+      "valeur": "733",
+      "tendance": "en hausse depuis 2023"
+    },
+    {
+      "label": "Portée du brouillage combiné depuis Kaliningrad",
+      "valeur": "450 km",
+      "tendance": "en expansion"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série historique publique et continue du nombre d'incidents de brouillage GNSS n'a été trouvée (les données disponibles sont des snapshots ponctuels : rapport Suède 2023-2024, articles de presse). Le critère (1) d'une source publique documentant l'historique complet n'est pas satisfait. Recherche effectuée sur Transportstyrelsen, ICAO, et articles de presse spécialisés (Defense News, BBC) — aucune ne fournit une série continue sur plusieurs années.",
+    "serie": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Pourquoi le GPS est vulnérable au brouillage et au leurrage",
+        "rattache_a": "fait GNSS vulnérabilité"
+      },
+      {
+        "focus": "Comment les infrastructures critiques françaises dépendent de la synchronisation GNSS",
+        "rattache_a": "fait ANFR infrastructures critiques"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "L'ampleur réelle de la dépendance des réseaux électriques français à la synchronisation GNSS : les sources disponibles (ANFR) alertent sur des vulnérabilités identifiées mais ne quantifient pas précisément l'exposition",
+    "La portée effective du brouillage russe depuis Kaliningrad : les sources mentionnent 450 km mais les chiffres exacts varient selon les articles et les périodes"
+  ],
+  "a_ne_pas_affirmer": [
+    "Que le brouillage GPS ait déjà perturbé des infrastructures critiques françaises de manière significative (aucune source ne confirme un incident majeur en France à ce jour)",
+    "Que les contre-mesures Galileo OSNMA soient déjà déployées et opérationnelles à grande échelle (le déploiement est en cours, l'efficacité réelle à grande échelle n'est pas encore prouvée)"
+  ],
+  "sources": [
+    {
+      "id": "transportstyrelsen",
+      "title": "Sweden accuses Russia of GPS jamming over Baltic Sea",
+      "source": "BBC News",
+      "url": "https://www.bbc.com/news/articles/clyx3ly54veo",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Article de la BBC rapportant les accusations de la Suède contre la Russie de brouillage GPS au-dessus de la mer Baltique, avec recensement d'incidents affectant l'aviation civile.",
+      "read_minutes": 3
+    },
+    {
+      "id": "icao",
+      "title": "ICAO Assembly condemns GNSS Radio Frequency Interference originating from DPRK and Russian Federation",
+      "source": "ICAO",
+      "url": "https://www.icao.int/news/icao-assembly-condemns-gnss-radio-frequency-interference-originating-dprk-and-russian",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Communiqué de l'ICAO condamnant les interférences radiofréquences GNSS provenant de la Corée du Nord et de la Fédération de Russie lors de l'assemblée annuelle de 2025.",
+      "read_minutes": 2
+    },
+    {
+      "id": "eu-galileo",
+      "title": "Galileo Leads the Way in GNSS Spoofing Protection with OSNMA",
+      "source": "European Commission (Defence Industry Space)",
+      "url": "https://defence-industry-space.ec.europa.eu/galileo-leads-way-gnss-spoofing-protection-osnma-2025-07-22_en",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Article de la Commission européenne présentant la fonction OSNMA de Galileo pour détecter et protéger contre le leurrage de signaux GNSS.",
+      "read_minutes": 3
+    },
+    {
+      "id": "anfr",
+      "title": "ANFR : vulnérabilités GNSS des infrastructures critiques françaises",
+      "source": "ANFR (Agence nationale des fréquences)",
+      "url": "https://www.anfr.fr/actualites/vulnerabilites-gnss-infrastructures-critiques",
+      "image": null,
+      "lang": "fr",
+      "domain": "international",
+      "summary": "Page de l'ANFR alertant sur les vulnérabilités identifiées dans les réseaux électriques, télécoms, transports et transactions financières français dépendant de la synchronisation GNSS.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Researchers home in on origins of Russia's Baltic GPS jamming",
+      "source": "Defense News",
+      "url": "https://www.defensenews.com/global/europe/2025/07/02/researchers-home-in-on-origins-of-russias-baltic-gps-jamming/",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Article de Defense News analysant les origines du brouillage GPS en mer Baltique et les recherches menées pour identifier les sources des interférences.",
+      "read_minutes": 3
+    },
+    {
+      "title": "Baltic Sea GPS jamming: What airlines and ships need to know",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/business/aerospace-defense/baltic-sea-gps-jamming-what-airlines-ships-need-know-2025-03-15/",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Article de Reuters expliquant les implications du brouillage GPS en mer Baltique pour les compagnies aériennes et les navires, avec conseils de navigation alternative.",
+      "read_minutes": 3
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-23",
+      "titre": "Carburants à prix record et menaces hybrides : Macron réunit les candidats à l'Élysée",
+      "lien": "Même menace : la guerre hybride russe contre l'Europe (sabotages, brouillages, perturbations), vue côté carburants et politique"
+    },
+    {
+      "date": "2026-08-19",
+      "titre": "2027 sous influence",
+      "lien": "Même acteur : la Russie accusée d'attaques informatiques contre la France, avant la présidentielle de 2027"
+    }
+  ],
+  "recommandations_redaction": [
+    "Expliquer clairement la différence entre brouillage (jamming — masquage du signal) et leurrage (spoofing — envoi de faux signaux) dès l'introduction",
+    "Préciser que 4 systèmes GNSS concurrents existent (GPS américain, Galileo européen, GLONASS russe, BeiDou chinois) et que la vulnérabilité est partagée, pas spécifique à un acteur",
+    "Lier explicitement la dépendance des réseaux électriques français à la synchronisation GPS (fréquence de référence) pour rendre l'enjeu concret pour le lecteur",
+    "Mettre en perspective avec Bab el-Mandeb et Ormuz (éditions récentes) comme exemples de perturbation des infrastructures de communication/transport mondiales"
+  ]
+}

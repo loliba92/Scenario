@@ -593,8 +593,8 @@
   .share-inline{
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
+    flex-wrap: nowrap;   /* toutes les icônes sur une seule ligne (retour de l'éditeur, 4 octobre 2026) */
+    gap: 6px;
     margin: 0 0 22px;
   }
 
@@ -602,6 +602,7 @@
     font-size: 0.8rem;
     color: var(--paper-dim);
     margin-right: 2px;
+    white-space: nowrap;
   }
 
   .share-inline a,
@@ -609,8 +610,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
+    flex: none;
     color: var(--gold);
     background: none;
     border: 1px solid var(--hairline);
@@ -623,6 +625,10 @@
 
   .share-inline a svg,
   .share-inline button svg{ width: 15px; height: 15px; }
+  @media (max-width: 370px){
+    .share-inline{ gap: 4px; }
+    .share-inline a, .share-inline button{ width: 26px; height: 26px; }
+  }
 
   .share-inline a:hover,
   .share-inline button:hover{ color: var(--paper); border-color: var(--paper-dim); }
@@ -1227,6 +1233,38 @@
     padding-top: 12px;
     border-top: 1px dashed var(--hairline);
   }
+
+  /* ---- Graphique « Les chiffres » (barres, repli du graphique en escalier) et rappel d'un article précédent. ---- */
+  .dc-bar{ fill: var(--paper-dim); opacity: 0.45; }
+  .dc-bar.is-highlight{ fill: var(--degrade); opacity: 1; }
+  .dc-bar-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 17px;
+    fill: var(--paper);
+  }
+  .dc-bar-value{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 17px;
+    font-weight: 700;
+    fill: var(--degrade);
+  }
+  .rappel-edition{
+    font-size: 0.92rem;
+    color: var(--paper-dim);
+    margin: 4px 0 18px;
+    padding-left: 12px;
+    border-left: 2px solid var(--hairline);
+  }
+  .rappel-edition-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-right: 6px;
+  }
+  .rappel-edition a{ color: var(--paper); border-bottom: 1px solid var(--hairline); text-decoration: none; }
+  .rappel-edition a:hover{ border-bottom-color: var(--paper); }
+  .rappel-edition-date{ white-space: nowrap; }
 
   .indicator{
     display:flex;
@@ -2249,7 +2287,7 @@
 <img alt="" class="brand-mark" src="assets/logo.svg"/>
 <div class="wordmark">Scéna<span>rio</span></div>
 </div>
-<div class="edition">Édition du 2 octobre 2026 · N°71</div>
+<div class="edition">Édition du 4 octobre 2026 · N°73</div>
 </div>
 <div class="masthead-right">
 <a aria-label="Read this edition in English" class="masthead-lang-btn" href="en/index.html" title="Read this edition in English">EN</a>
@@ -2257,7 +2295,7 @@
 <button aria-label="Imprimer en 1 page" class="masthead-notif-btn" id="print-page" title="Imprimer en 1 page" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M6.5 9V4.5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1V9"></path><rect height="7" rx="1.3" width="15" x="4.5" y="9"></rect><path d="M7 14h10v5.5a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V14Z"></path></svg></button>
 <span aria-hidden="true" class="masthead-divider"></span>
 <a aria-label="Sujet révisé" class="masthead-notif-btn" href="archives.html?tag=revise" title="Sujet révisé"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8"></path><path d="M20 4v4h-4"></path><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16"></path><path d="M4 20v-4h4"></path></svg></a>
-<a aria-label="Récap de la semaine" class="masthead-notif-btn" href="hebdo/2026-09-20.html" title="Récap de la semaine"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="15" rx="2" width="17" x="3.5" y="5"></rect><line x1="3.5" x2="20.5" y1="9.5" y2="9.5"></line><line x1="8" x2="8" y1="3" y2="7"></line><line x1="16" x2="16" y1="3" y2="7"></line></svg></a>
+<a aria-label="Récap de la semaine" class="masthead-notif-btn" href="hebdo/2026-10-04.html" title="Récap de la semaine"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="15" rx="2" width="17" x="3.5" y="5"></rect><line x1="3.5" x2="20.5" y1="9.5" y2="9.5"></line><line x1="8" x2="8" y1="3" y2="7"></line><line x1="16" x2="16" y1="3" y2="7"></line></svg></a>
 <a aria-label="Revue de presse" class="masthead-notif-btn" href="sources.html" title="Revue de presse"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="14" rx="1.5" width="13" x="3.5" y="5.5"></rect><path d="M16.5 8.5h2.5a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-13"></path><line x1="7" x2="13" y1="9.5" y2="9.5"></line><line x1="7" x2="13" y1="13" y2="13"></line><line x1="7" x2="11" y1="16.5" y2="16.5"></line></svg></a>
 <span aria-hidden="true" class="masthead-divider"></span>
 <a aria-label="Accès privé" class="masthead-notif-btn" href="dashboard.html" title="Accès privé"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="9" rx="2" width="14" x="5" y="11"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></a>
@@ -2278,9 +2316,9 @@
 </div>
 </nav>
 
-<div class="weekly-banner" data-hebdo="2026-09-20" hidden="" id="weekly-banner">
+<div class="weekly-banner" data-hebdo="2026-10-04" hidden="" id="weekly-banner">
 <div class="wrap weekly-banner-inner">
-<a class="weekly-banner-link" href="hebdo/2026-09-20.html" id="weekly-banner-link">
+<a class="weekly-banner-link" href="hebdo/2026-10-04.html" id="weekly-banner-link">
 <svg aria-hidden="true" class="weekly-banner-icon" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="18"><rect height="15" rx="2" width="17" x="3.5" y="5"></rect><line x1="3.5" x2="20.5" y1="9.5" y2="9.5"></line><line x1="8" x2="8" y1="3" y2="7"></line><line x1="16" x2="16" y1="3" y2="7"></line></svg>
 <span class="weekly-banner-text">Le récap de la semaine est disponible — les 7 sujets et leur scénario le plus probable.</span>
 <span class="weekly-banner-cta">Lire →</span>
@@ -2294,18 +2332,17 @@
 <section class="featured-article">
   <div class="wrap">
     <p class="section-label">La dernière édition</p>
-    <a href="archives/2026-10-02.html" class="featured-article-link">
+    <a href="archives/2026-10-04.html" class="featured-article-link">
       <div class="featured-article-image-wrap">
-        <img class="featured-article-image" src="assets/social/topic-images/2026-10-02.jpg" alt="Dépistage du cancer du sein : le modèle va-t-il basculer ?">
+        <img class="featured-article-image" src="assets/social/topic-images/2026-10-04.jpg" alt="Championnat des Nations : le nouveau roi du rugby ?">
       </div>
       <div>
-        <span class="featured-article-date">Sciences · 2 oct.</span>
-        <h2 class="featured-article-title">Dépistage du cancer du sein&nbsp;: le modèle va-t-il basculer&nbsp;?</h2>
-        <p class="featured-article-question">Face à la stagnation de la participation (45,7 % en 2024-2025) et à l'essor de l'IA et de la personnalisation du risque, le dépistage du cancer du sein en…</p>
+        <span class="featured-article-date">Sport · 4 oct.</span>
+        <h2 class="featured-article-title">Championnat des Nations&nbsp;: le nouveau roi du rugby&nbsp;?</h2>
+        <p class="featured-article-question">Le Championnat des Nations de rugby peut-il s'imposer comme la nouvelle compétition reine du rugby mondial, ou va-t-il cannibaliser les tournois historiques…</p>
         <span class="featured-article-cta">Lire l'édition →</span>
       </div>
     </a>
-    <a class="cross-link" href="themes/sciences-environnement.html">Voir tous les sujets «&nbsp;Sciences&nbsp;»&nbsp;→</a>
   </div>
 </section>
 
@@ -2330,6 +2367,20 @@
     <p class="section-label">Les éditions précédentes</p>
     <h2 class="section-title">Dernières éditions</h2>
     <ul class="related-articles-list">
+      <li><a href="archives/2026-10-03.html" class="related-articles-item">
+        <img class="related-articles-image" src="assets/social/topic-images/2026-10-03.jpg" alt="La viralité organique est-elle une illusion algorithmique ?">
+        <div class="related-articles-content">
+          <span class="related-articles-date">Culture · 3 oct.</span>
+          <span class="related-articles-title">La viralité organique est-elle une illusion algorithmique&nbsp;?</span>
+        </div>
+      </a></li>
+      <li><a href="archives/2026-10-02.html" class="related-articles-item">
+        <img class="related-articles-image" src="assets/social/topic-images/2026-10-02.jpg" alt="Dépistage du cancer du sein&nbsp;: le modèle va-t-il basculer&nbsp;?">
+        <div class="related-articles-content">
+          <span class="related-articles-date">Sciences · 2 oct.</span>
+          <span class="related-articles-title">Dépistage du cancer du sein&nbsp;: le modèle va-t-il basculer&nbsp;?</span>
+        </div>
+      </a></li>
       <li><a href="archives/2026-10-01.html" class="related-articles-item">
         <img class="related-articles-image" src="assets/social/topic-images/2026-10-01.jpg" alt="Bitcoin : le bitcoin devient-il un actif institutionnel ?">
         <div class="related-articles-content">
@@ -2358,20 +2409,6 @@
           <span class="related-articles-title">Nouvel ordre mondial&nbsp;: la domination occidentale est-elle remise en cause par un monde de plus en plus multipolaire&nbsp;?</span>
         </div>
       </a></li>
-      <li><a href="archives/2026-09-27.html" class="related-articles-item">
-        <img class="related-articles-image" src="assets/social/topic-images/2026-09-27.jpg" alt="Mbappé, Ceuta et le tee-shirt polémique : un sportif peut-il encore exprimer une opinion humanitaire sans être pris dans la guerre politique ?">
-        <div class="related-articles-content">
-          <span class="related-articles-date">Sport · 27 sept.</span>
-          <span class="related-articles-title">Mbappé, Ceuta et le tee-shirt polémique&nbsp;: un sportif peut-il encore exprimer une opinion humanitaire sans être pris dans la guerre politique&nbsp;?</span>
-        </div>
-      </a></li>
-      <li><a href="archives/2026-09-26.html" class="related-articles-item">
-        <img class="related-articles-image" src="assets/social/topic-images/2026-09-26.jpg" alt="La Chine peut-elle créer la prochaine pop culture mondiale ?">
-        <div class="related-articles-content">
-          <span class="related-articles-date">Culture · 26 sept.</span>
-          <span class="related-articles-title">La Chine peut-elle créer la prochaine pop culture mondiale&nbsp;?</span>
-        </div>
-      </a></li>
     </ul>
     <a class="cross-link" href="archives.html">Voir toutes les archives →</a>
   </div>
@@ -2390,6 +2427,8 @@
       <a class="follow-btn" href="https://www.facebook.com/share/1DZVhe3KtR/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="6" fill="#000" stroke="currentColor" stroke-width="1"></rect><rect x="10.3" y="9.5" width="2.4" height="9" fill="#fff"></rect><rect x="10.3" y="6" width="4.7" height="2.6" rx="1" fill="#fff"></rect><rect x="7.8" y="11.6" width="6.5" height="2" fill="#fff"></rect></svg> Facebook</a>
       <a class="follow-btn" href="https://www.instagram.com/scenarios.actu/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> Instagram</a>
       <a class="follow-btn" href="https://t.me/scenario_fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M2 12l19-9-7 19-3-7-6-3z"/></svg> Telegram</a>
+      <a class="follow-btn" href="https://open.spotify.com/show/1eycE00I2egdNO50oqeDFQ" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M6.8 9.4c3.6-1 7.4-.7 10.6 1"></path><path d="M7.4 12.6c3-.8 6-.5 8.6.9"></path><path d="M8 15.6c2.4-.6 4.7-.4 6.6.7"></path></svg> Spotify</a>
+      <a class="follow-btn" href="https://google.com/preferences/source?q=lesscenarios.fr" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"></path></svg> Source préférée Google</a>
     </div>
     <div class="share-row" style="margin-top:14px">
       <button type="button" id="onesignal-subscribe-btn" class="onesignal-subscribe-btn btn-outline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg> <span class="btn-label">Activer les notifications</span></button>
@@ -2531,8 +2570,13 @@
 <script async="" data-goatcounter="https://scenario.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
 
 <script defer="" src="assets/pwa-install.js"></script>
+<script defer="" src="assets/google-source-banner.js"></script>
 
 <script defer="" src="assets/bottom-nav.js"></script>
+
+<script defer="" src="assets/scenarios-reader.js"></script>
+
+<script defer="" src="assets/edition-audio.js"></script>
 
 <script defer="" src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"></script>
 

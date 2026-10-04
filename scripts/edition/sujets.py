@@ -99,12 +99,12 @@ _ETIQUETTES = (
     ("id", "id"), ("question", "question"), ("contexte", "contexte"), ("rationnel", "rationnel"),
     ("angle", "angle"), ("à vérifier", "a_verifier"), ("mots-clés", "mots_cles"),
     ("scénarios (brouillon)", "scenarios"), ("échéance", "echeance"), ("sources", "sources"),
-    ("origine", "origine"), ("enrichi", "enrichi_le"), ("note", "note"),
+    ("données chiffrées", "donnees"), ("origine", "origine"), ("enrichi", "enrichi_le"), ("note", "note"),
 )
 _ETIQ_RE = re.compile(
     r"^(" + "|".join(re.escape(e) for e, _ in _ETIQUETTES) + r")\s*:\s*(.*)$", re.S)
 _CHAMP_DE = {e: c for e, c in _ETIQUETTES}
-_CHAMPS_TEXTE = ("id", "note", "question", "contexte", "rationnel", "angle", "a_verifier", "origine", "enrichi_le")
+_CHAMPS_TEXTE = ("id", "note", "question", "contexte", "rationnel", "angle", "a_verifier", "origine", "enrichi_le", "donnees")
 
 
 class SujetsError(Exception):
@@ -174,7 +174,7 @@ def sujet_vide(**kw) -> dict:
         "statut": "a_traiter", "validation": "valide",
         "contexte": None, "rationnel": None, "angle": None, "a_verifier": None,
         "mots_cles": [], "scenarios": None, "echeance": None, "sources": [],
-        "origine": None, "note": None,
+        "origine": None, "note": None, "donnees": None,
         "ajoute_le": None, "publie_le": None, "edition": None, "enrichi_le": None,
     }
     e.update(kw)
@@ -770,7 +770,7 @@ def dossier_texte(sec: dict, e: dict) -> str:
     if _texte(e.get("question")) and _texte(e["question"]) != e["titre"]:
         out.append(f"Question à issue ouverte : {q}")
     for etiq, champ in (("Contexte (à vérifier)", "contexte"),
-                        ("Rationnel (pourquoi ce sujet, pourquoi l'issue est ouverte)", "rationnel"),
+                        ("Problématique (la question que l'édition cherche à trancher, pourquoi l'issue est ouverte)", "rationnel"),
                         ("Angle", "angle"), ("À vérifier / chiffrer avant rédaction", "a_verifier")):
         if _texte(e.get(champ)):
             out.append(f"{etiq} : {_texte(e[champ])}")
@@ -784,6 +784,8 @@ def dossier_texte(sec: dict, e: dict) -> str:
         out.append(f"Échéance : {_serialiser('echeance', e['echeance'])}")
     if e.get("sources"):
         out.append("Pistes de sources : " + _serialiser("sources", e["sources"]))
+    if _texte(e.get("donnees")):
+        out.append("Chiffres relevés pour un graphique (à re-vérifier avant de les utiliser) : " + _texte(e["donnees"]))
     if _texte(e.get("note")):
         out.append(f"Note éditoriale : {_texte(e['note'])}")
     m = manquants(e)
@@ -806,6 +808,7 @@ def dossier_json(sec: dict, e: dict) -> dict:
         "scenarios_brouillon": e.get("scenarios"), "echeance": e.get("echeance"),
         "sources_pistes": list(e.get("sources") or []), "tag": e.get("tag"),
         "origine": e.get("origine"), "note_editoriale": e.get("note"),
+        "donnees_graphique": e.get("donnees"),
         "dossier_incomplet": manquants(e),
     }
 

@@ -1,5 +1,54 @@
 [
   {
+    "date": "2026-10-04",
+    "registre": "Géopolitique",
+    "section": "Carte blanche",
+    "accroche": "Sabotages et incendies en Europe : la Russie mène-t-elle une guerre hybride silencieuse sur le sol de l'UE ?",
+    "tag": "géopolitique & sécurité"
+  },
+  {
+    "date": "2026-10-04",
+    "registre": "Géopolitique",
+    "section": "Géopolitique",
+    "accroche": "Ukraine : l'intensification des frappes sur les raffineries russes peut-elle faire basculer la guerre énergétique ?",
+    "tag": "géopolitique & énergie"
+  },
+  {
+    "date": "2026-10-04",
+    "registre": "Actu. française",
+    "section": "Actu. française",
+    "accroche": "Budget culture 2027 : le spectacle vivant peut-il survivre à une baisse de 4 % des crédits à la création ?",
+    "tag": "culture & budget"
+  },
+  {
+    "date": "2026-10-04",
+    "registre": "Économie & finance",
+    "section": "Économie & finance",
+    "accroche": "BCE : les marchés parient sur trois hausses de taux d'ici fin 2027 — l'inflation est-elle vraiment revenue ?",
+    "tag": "économie & finance"
+  },
+  {
+    "date": "2026-10-04",
+    "registre": "Économie & finance",
+    "section": "Économie & finance",
+    "accroche": "France : 340 Md€ d'émissions d'OAT en 2027, un record — le marché peut-il absorber sans crise ?",
+    "tag": "économie & finance"
+  },
+  {
+    "date": "2026-10-04",
+    "registre": "Sciences",
+    "section": "Sciences",
+    "accroche": "Un « scientifique IA » autonome conçoit et mène ses propres expériences : la recherche va-t-elle s'accélérer ou s'emballer ?",
+    "tag": "IA & recherche"
+  },
+  {
+    "date": "2026-10-04",
+    "registre": "Sciences",
+    "section": "Sciences",
+    "accroche": "Google lance « Project Suncatcher » : les centres de données d'IA vont-ils migrer dans l'espace ?",
+    "tag": "IA & espace"
+  },
+  {
     "date": "2026-10-01",
     "registre": "Géopolitique",
     "section": "Carte blanche",

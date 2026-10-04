@@ -57,7 +57,7 @@ ticket B152 pour l'historique complet des deux décisions.
 | `edition.yml` | manuel seulement (prototype Phase 1, sans publication) | `generate_daily_edition.py` | `anthropic/claude-sonnet-5` | Non |
 | `translate-en.yml` | manuel + auto-déclenché en fin de `post-edition.yml` | `translate_daily.py` | `anthropic/claude-sonnet-5` | Non dans le workflow (le script accepte `--model` en local) |
 | `detection.yml` | lun/jeu/ven/sam, 1h UTC | `generate_suivi_update.py` | `anthropic/claude-sonnet-5` | Non |
-| `hot-topics.yml` | mar/ven, 19h UTC (~21h Paris été) | `generate_hot_topics.py` | `deepseek/deepseek-v4-flash` | Non |
+| `hot-topics.yml` | mar/ven, 19h UTC (~21h Paris été) | `generate_hot_topics.py` | `gratuits` (6 modèles gratuits en relais, voir `enrich_sujets.py`, comme l'enrichissement des dossiers ; depuis le 2 octobre 2026) | Non — `--model` en local |
 | `hebdo.yml` | dimanche, 12h UTC | `generate_weekly_recap.py` | `openai/gpt-5` (DeepSeek jusqu'au 16 septembre) | Oui — input `model` |
 | `daily-preview.yml` — critique | quotidien, juste après génération du preview | `critique_preview.py` | `deepseek/deepseek-v4-flash` | Oui — `--model` en local, pas d'input dans le workflow |
 | `pub.yml` | quotidien, 2h UTC | `generate_daily_pub.py` | `deepseek/deepseek-v4-flash` (traduction EN seulement depuis le 19 septembre 2026 — la catégorie `chiffre` elle-même n'appelle plus aucun modèle, voir `docs/ARCHITECTURE.md`) | Non |

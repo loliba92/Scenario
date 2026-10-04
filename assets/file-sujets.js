@@ -229,7 +229,7 @@
     var e = s.e, l = ["Identifiant : " + e.id, "Registre : " + nomSection(s.sec), "Titre : " + e.titre];
     if (txt(e.question) && txt(e.question) !== e.titre) l.push("Question : " + e.question);
     if (txt(e.contexte)) l.push("Contexte : " + e.contexte);
-    if (txt(e.rationnel)) l.push("Rationnel : " + e.rationnel);
+    if (txt(e.rationnel)) l.push("Problématique : " + e.rationnel);
     if (txt(e.angle)) l.push("Angle : " + e.angle);
     if (txt(e.a_verifier)) l.push("À vérifier : " + e.a_verifier);
     if ((e.mots_cles || []).length) l.push("Mots-clés : " + e.mots_cles.join(" ; "));
@@ -249,7 +249,7 @@
     var corps = "";
     if (txt(e.question) && txt(e.question) !== e.titre) corps += champ("Question à issue ouverte", "<p>" + esc(e.question) + "</p>");
     corps += champ("Contexte — ce qui se passe", txt(e.contexte) ? "<p>" + esc(e.contexte) + "</p>" : "");
-    corps += champ("Rationnel — pourquoi ce sujet, pourquoi l'issue est ouverte", txt(e.rationnel) ? "<p>" + esc(e.rationnel) + "</p>" : "");
+    corps += champ("Problématique — la question que Scénario cherche à trancher", txt(e.rationnel) ? "<p>" + esc(e.rationnel) + "</p>" : "");
     if (txt(e.angle)) corps += champ("Angle", "<p>" + esc(e.angle) + "</p>");
     if (txt(e.a_verifier)) corps += champ("À vérifier avant rédaction", "<p>" + esc(e.a_verifier) + "</p>");
     corps += champ("Mots-clés pour chercher les articles", (e.mots_cles || []).length ?
