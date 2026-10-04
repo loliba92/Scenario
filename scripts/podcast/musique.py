@@ -340,7 +340,7 @@ def jingle_depuis_theme(theme_pcm: bytes, duree_s: float = 2.5, fondu_entree_s: 
 
 
 # Départs (en secondes) des extraits du thème utilisés comme jingles : le début, puis des passages différents.
-DEPARTS_JINGLES = (0.0, 12.0, 15.0, 18.0, 21.0, 24.0, 26.5)
+DEPARTS_JINGLES = (0.0, 14.0, 20.0, 26.0, 32.0, 38.0, 44.0, 50.0)
 
 
 def jingles_depuis_theme(theme_pcm: bytes, nombre: int, duree_s: float = 3.5) -> list[bytes]:
