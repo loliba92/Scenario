@@ -2276,6 +2276,21 @@
       -webkit-backdrop-filter: none;
     }
   }
+
+  /* ---- Parcourir par matière (accueil) ---- */
+  .matieres{ padding: 26px 0 30px; }
+  .matieres-list{ display:flex; flex-wrap:wrap; gap:10px; margin:10px 0 0; padding:0; list-style:none; }
+  .matieres-list a{
+    font-family:"JetBrains Mono", monospace; font-size:0.78rem; color:var(--paper);
+    text-decoration:none; border:1px solid var(--hairline); background:var(--surface);
+    border-radius:100px; padding:9px 16px; transition:border-color .15s, color .15s;
+  }
+  .matieres-list a:hover{ border-color:var(--gold); color:var(--gold); }
+  @media (max-width:640px){
+    .matieres-list{ flex-wrap:nowrap; overflow-x:auto; margin-right:-20px; padding-right:20px; scrollbar-width:none; }
+    .matieres-list::-webkit-scrollbar{ display:none; }
+    .matieres-list a{ white-space:nowrap; }
+  }
 </style>
 </head>
 <body>
@@ -2307,6 +2322,7 @@
 <div class="wrap">
 <a aria-current="page" href="index.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M4 11.5 12 4l8 7.5"></path><path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"></path></svg> Accueil</a>
 <a href="archives.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><rect height="4" rx="1" width="16" x="4" y="4.5"></rect><path d="M5 8.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5"></path><line x1="10" x2="14" y1="13" y2="13"></line></svg> Archives</a>
+<a href="index.html#matieres"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h7l9 9-7 7-9-9Z"/><circle cx="8.5" cy="8.5" r="1.2"/></svg> Matières</a>
 <a href="glossaire.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M12 6.5c-1.6-1.2-3.7-1.7-6-1.7v13c2.3 0 4.4.5 6 1.7 1.6-1.2 3.7-1.7 6-1.7v-13c-2.3 0-4.4.5-6 1.7Z"></path><line x1="12" x2="12" y1="6.5" y2="19.5"></line></svg> Glossaire</a>
 <a href="le-projet.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="m12 3 8 4.5-8 4.5-8-4.5Z"></path><path d="m4 12 8 4.5 8-4.5"></path><path d="m4 16.5 8 4.5 8-4.5"></path></svg> Le projet</a>
 <a href="newsletter.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><rect height="13" rx="1.5" width="17" x="3.5" y="5.5"></rect><path d="M4.5 7 12 12.5 19.5 7"></path></svg> Newsletter</a>
@@ -2357,6 +2373,20 @@
       <li class="is-degrade">Dégradé</li>
     </ul>
     <a class="hero-cta" href="le-projet.html">Découvrir le projet <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<section class="matieres" id="matieres" aria-label="Parcourir par matière">
+  <div class="wrap">
+    <p class="section-label">Par matière</p>
+    <ul class="matieres-list">
+      <li><a href="themes/economie-entreprises.html">Économie &amp; entreprises</a></li>
+      <li><a href="themes/politique-institutions.html">Politique &amp; institutions</a></li>
+      <li><a href="themes/international.html">International</a></li>
+      <li><a href="themes/sciences-environnement.html">Sciences &amp; environnement</a></li>
+      <li><a href="themes/tech-numerique.html">Tech &amp; numérique</a></li>
+      <li><a href="themes/culture-divertissement.html">Culture &amp; divertissement</a></li>
+    </ul>
   </div>
 </section>
 

@@ -34,7 +34,7 @@
         close: "Close" }
     : { nav: "Navigation principale", home: "Accueil", archives: "Archives", search: "Recherche", glossary: "Glossaire", project: "Le projet",
         more: "Plus", newsletter: "Newsletter", contact: "Contact", follow: "Nous suivre", support: "Soutenir",
-        close: "Fermer" };
+        close: "Fermer", themes: "Matières" };
 
   function svg(paths) {
     return '<svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" ' +
@@ -52,6 +52,7 @@
     newsletter: svg('<rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M4.5 7 12 12.5 19.5 7"/>'),
     contact: svg('<path d="M4 6.5A1.5 1.5 0 0 1 5.5 5h13A1.5 1.5 0 0 1 20 6.5v8a1.5 1.5 0 0 1-1.5 1.5H10l-4 3.5V16H5.5A1.5 1.5 0 0 1 4 14.5Z"/>'),
     follow: svg('<path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/>'),
+    themes: svg('<path d="M4 4h7l9 9-7 7-9-9Z"/><circle cx="8.5" cy="8.5" r="1.2"/>'),
     support: svg('<path d="M5 9h11v6a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4Z"/><path d="M16 10.5h1.5a2 2 0 0 1 0 4H16"/><path d="M8.5 4.5c-.6.7-.6 1.3 0 2M12 4.5c-.6.7-.6 1.3 0 2"/>')
   };
 
@@ -75,11 +76,13 @@
   ];
   var more = [
     { id: "glossary", href: root + "glossaire.html", label: T.glossary },
+    // Pas de pages thèmes en anglais : l'entrée n'existe qu'en français.
+    LANG === "fr" ? { id: "themes", href: root + "index.html#matieres", label: T.themes } : null,
     { id: "newsletter", href: root + "newsletter.html", label: T.newsletter },
     { id: "contact", href: root + "contact.html", label: T.contact },
     { id: "follow", href: root + "index.html#nous-suivre", label: T.follow },
     { id: "support", href: "https://buymeacoffee.com/scenario", label: T.support, external: true, gold: true }
-  ];
+  ].filter(Boolean);
 
   var css =
     "#bottom-nav,#bottom-nav-sheet,#bottom-nav-backdrop{display:none}" +
