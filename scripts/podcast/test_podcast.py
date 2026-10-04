@@ -174,11 +174,14 @@ class TestJingles(unittest.TestCase):
         self.assertAlmostEqual(len(jingle) / 2 / mu.SR, 2.5, delta=0.01)
         a = array("h", [3000] * (mu.SR * 2)).tobytes()
         sans = mu.assembler_parties([a, a, a], None)
-        avec = mu.assembler_parties([a, a, a], jingle)
+        avec = mu.assembler_parties([a, a, a], jingle, recouvrement_s=2.0)
         self.assertAlmostEqual(len(sans) / 2 / mu.SR, 6 + 2 * 0.7, delta=0.01)
         self.assertAlmostEqual(len(avec) / 2 / mu.SR, 6 + 2 * (0.3 + 2.5 - 2.0), delta=0.01)
         # jingles différents, bien pris à des endroits distincts du thème
-        t30 = array("h", [(i // 24000) * 500 for i in range(mu.SR * 30)]).tobytes()
+        self.assertEqual(mu._lisse(0.0), 0.0)
+        self.assertEqual(mu._lisse(1.0), 1.0)
+        self.assertLess(mu._lisse(0.1), 0.1)   # départ en douceur, pas linéaire
+        t30 = array("h", [(i // 24000) * 500 for i in range(mu.SR * 61)]).tobytes()
         js = mu.jingles_depuis_theme(t30, 4)
         self.assertEqual(len(js), 4)
         self.assertEqual(len({j for j in js}), 4)

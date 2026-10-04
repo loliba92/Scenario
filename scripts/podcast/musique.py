@@ -275,13 +275,21 @@ def decoder_theme(chemin, duree_max_s: float = 12.0) -> bytes:
     return r.stdout
 
 
+def _lisse(x: float) -> float:
+    """Courbe de fondu douce (sinus au carré) : départ et arrivée en pente nulle, donc sans à-coup ni « coupure »
+    au début ou à la fin du fondu. x entre 0 (silence) et 1 (plein niveau)."""
+    import math
+    x = max(0.0, min(1.0, x))
+    return math.sin(math.pi / 2 * x) ** 2
+
+
 def _rms(pcm: array) -> float:
     return (sum(x * x for x in pcm) / max(1, len(pcm))) ** 0.5
 
 
 def melanger_theme(theme_pcm: bytes, voix_pcm: bytes, recouvrement_s: float = 2.0, rapport: float = 1.1,
-                   fondu_s: float = 3.0, fondu_entree_s: float = 0.8, fin_pcm: bytes | None = None,
-                   recouvrement_fin_s: float = 0.0, fondu_fin_entree_s: float = 0.6, fondu_fin_s: float = 3.5) -> bytes:
+                   fondu_s: float = 4.0, fondu_entree_s: float = 1.5, fin_pcm: bytes | None = None,
+                   recouvrement_fin_s: float = 0.0, fondu_fin_entree_s: float = 1.2, fondu_fin_s: float = 5.0) -> bytes:
     """Le thème entre en fondu depuis le silence, joue seul, puis la voix entre `recouvrement_s` avant la fin
     du thème, qui s'éteint en fondu jusqu'à zéro. Le thème est mis au même niveau sonore que la voix (rapport 1,1 :
     un peu plus fort au début), car un thème généré est souvent bien plus fort qu'une voix de synthèse.
@@ -305,9 +313,9 @@ def melanger_theme(theme_pcm: bytes, voix_pcm: bytes, recouvrement_s: float = 2.
     for i, x in enumerate(theme):
         g = gain_theme
         if i < ne:
-            g *= i / ne
+            g *= _lisse(i / ne)
         if i >= n_theme - nf:
-            g *= max(0.0, (n_theme - i) / nf)
+            g *= _lisse((n_theme - i) / nf)
         piste[i] += x / 32768.0 * g
     for i, x in enumerate(voix):
         piste[debut_voix + i] += x / 32768.0
@@ -316,9 +324,9 @@ def melanger_theme(theme_pcm: bytes, voix_pcm: bytes, recouvrement_s: float = 2.
         for i, x in enumerate(fin):
             g = gain_theme
             if i < ni:
-                g *= i / ni
+                g *= _lisse(i / ni)
             if i >= len(fin) - no:
-                g *= max(0.0, (len(fin) - i) / no)
+                g *= _lisse((len(fin) - i) / no)
             piste[debut_fin + i] += x / 32768.0 * g
     crete = max(abs(x) for x in piste) or 1.0
     echelle = min(1.0, 0.95 / crete)  # jamais de saturation
@@ -334,16 +342,16 @@ def jingle_depuis_theme(theme_pcm: bytes, duree_s: float = 2.5, fondu_entree_s: 
     ne, ns = int(SR * fondu_entree_s), int(SR * fondu_sortie_s)
     out = array("h")
     for i in range(n):
-        g = min(1.0, i / ne if ne else 1.0, (n - i) / ns if ns else 1.0)
+        g = min(_lisse(i / ne) if ne else 1.0, _lisse((n - i) / ns) if ns else 1.0)
         out.append(int(theme[i] * g))
     return out.tobytes()
 
 
 # Départs (en secondes) des extraits du thème utilisés comme jingles : le début, puis des passages différents.
-DEPARTS_JINGLES = (0.0, 14.0, 20.0, 26.0, 32.0, 38.0, 44.0, 50.0)
+DEPARTS_JINGLES = (12.0, 21.0, 30.0, 39.0, 48.0, 52.0)
 
 
-def jingles_depuis_theme(theme_pcm: bytes, nombre: int, duree_s: float = 6.0) -> list[bytes]:
+def jingles_depuis_theme(theme_pcm: bytes, nombre: int, duree_s: float = 9.0) -> list[bytes]:
     """`nombre` jingles, chacun pris à un endroit différent du thème (on reboucle s'il y en a plus que de départs)."""
     theme = array("h")
     theme.frombytes(theme_pcm)
@@ -352,12 +360,12 @@ def jingles_depuis_theme(theme_pcm: bytes, nombre: int, duree_s: float = 6.0) ->
     for k in range(nombre):
         d = int(SR * departs[k % len(departs)])
         extrait = theme[d:d + int(SR * duree_s)]
-        sortie.append(jingle_depuis_theme(extrait.tobytes(), duree_s, 0.2, 2.5))
+        sortie.append(jingle_depuis_theme(extrait.tobytes(), duree_s, 1.2, 3.5))
     return sortie
 
 
 def assembler_parties(parties_pcm: list[bytes], jingle_pcm, silence_s: float = 0.7,
-                      rapport: float = 0.9, recouvrement_s: float = 2.0) -> bytes:
+                      rapport: float = 0.9, recouvrement_s: float = 3.0) -> bytes:
     """Voix des parties mises bout à bout. Entre deux parties, un jingle (au niveau sonore de la voix × rapport) :
     il démarre après un court silence et s'éteint en fondu SOUS le début de la partie suivante, qui entre
     `recouvrement_s` avant la fin du jingle. `jingle_pcm` : un jingle, une liste de jingles (utilisés tour à tour)
