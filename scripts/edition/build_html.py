@@ -1295,7 +1295,9 @@ def build_home_hero():
     vue en arrivant sur le site. Classe .hero--home (CSS dans le style_block
     du gabarit) : padding-top propre à ce hero sans image de fond, jamais
     appliqué au hero d'article (voir la règle CSS pour le motif)."""
-    return """<section class="hero hero--home" id="contexte">
+    return build_matieres_section().lstrip() + """
+
+<section class="hero hero--home" id="contexte">
   <div class="wrap">
     <p class="eyebrow">Chaque jour, un sujet, trois scénarios</p>
     <h1>Comprendre l'actualité, c'est en mesurer les <span>conséquences</span></h1>
@@ -1307,7 +1309,7 @@ def build_home_hero():
     </ul>
     <a class="hero-cta" href="le-projet.html">Découvrir le projet <span aria-hidden="true">→</span></a>
   </div>
-</section>""" + build_matieres_section()
+</section>"""
 
 
 def build_home_head(date_str, edition_number):

@@ -68,7 +68,7 @@ ARCHIVES_TABLE_CSS = """
      thème sombre du site plutôt que de le rompre. */
   .hero.archives-hero {
     position: relative;
-    padding: 96px 0 60px;
+    padding: 44px 0 26px;
     background:
       linear-gradient(180deg, rgba(16,21,28,0.55) 0%, rgba(16,21,28,0.82) 65%, var(--ink) 100%),
       url('assets/social/pub-photos/generique-foret.jpg') center 35% / cover no-repeat;
@@ -83,7 +83,7 @@ ARCHIVES_TABLE_CSS = """
 
   @media (max-width: 600px) {
     .hero.archives-hero {
-      padding: 64px 0 44px;
+      padding: 28px 0 18px;
     }
   }
 
@@ -1634,9 +1634,7 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
 
 <section class="hero archives-hero">
   <div class="wrap">
-    <p class="eyebrow">Éditions</p>
     <h1>Toutes les éditions</h1>
-    <p class="dek">Nos précédentes éditions de Scénario — chacune analyse un sujet d'actualité avec 3 scénarios chiffrés : favorable, stable, dégradé. Cliquez sur le titre pour voir l'analyse complète.</p>
   </div>
 </section>
 
