@@ -32,7 +32,6 @@
     ".ea-dur{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.66rem;letter-spacing:.06em;opacity:.75}",
     ".ea-panel{margin-top:10px;max-width:380px}",
     ".ea-panel audio{display:block;width:100%;height:40px}",
-    ".ea-note{margin:6px 0 0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--paper-dim,#b4b2a6)}",
     "}",
     "@media print{.ea{display:none}}"
   ].join("");
@@ -90,11 +89,7 @@
         audio.preload = "auto";
         audio.setAttribute("aria-label", isEn ? "Audio version of this edition (French)" : "Version audio de cette édition");
         audio.src = ep.url;  /* première requête vers le fichier : au clic seulement */
-        var note = document.createElement("p");
-        note.className = "ea-note";
-        note.textContent = isEn ? "Synthetic voice (AI). Text drawn from this edition." : "Voix de synthèse (IA). Texte tiré de cette édition.";
         panel.appendChild(audio);
-        panel.appendChild(note);
       }
       var p = audio.play();
       if (p && p.catch) p.catch(function () { /* le lecteur reste affiché : l'utilisateur peut lancer la lecture */ });
