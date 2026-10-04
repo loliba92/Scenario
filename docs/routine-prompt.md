@@ -164,13 +164,13 @@ Formuler en une phrase claire la question centrale à laquelle les trois scénar
 
 ### Étape 2bis — Identification des 3 articles connexes
 
-**Tâche explicite et tracée.** Identifier 3 articles des archives (des 30 derniers jours maximum) qui ont un **lien thématique fort** avec le sujet du jour. Pas les 3 derniers du même domaine au hasard — un vrai lien avec les thèmes du jour. Ce processus est transparent et documenté dans le brief.
+**Tâche explicite et tracée.** Identifier 3 articles des archives (**toutes les éditions publiées, sans limite de date** : la liste complète est donnée dans le prompt) qui ont un **lien thématique fort** avec le sujet du jour. Un lien fort = même acteur, même lieu, même mécanisme ou même menace, même échéance — le même domaine ou le même mois n'est pas un lien. Penser aux synonymes et aux langues (Russia = Russie, GPS = navigation par satellite). À lien égal, la plus récente. Mieux vaut 1 ou 2 articles vraiment liés que 3 dont un artificiel. Le code (`scripts/edition/connexes.py`) vérifie ensuite le résultat : dates inconnues, doublons, titre exact. Pas les 3 derniers du même domaine au hasard — un vrai lien avec les thèmes du jour. Ce processus est transparent et documenté dans le brief.
 
 **Démarche :**
 
 1. **Extraire 3-4 thèmes clés du sujet du jour** (du titre + question + h1). Exemple pour « Carburants à prix record et menaces hybrides » : énergie/carburants, politique/présidentielle, crise sociale/gouvernement, sécurité/menaces hybrides.
 
-2. **Chercher dans `archives.html`** les articles du dernier mois qui matchent au moins un de ces thèmes. Ne pas se limiter au même `domain` — un article sur la présidentielle ou un article sur l'économie de l'énergie peuvent tous deux être connexes si le thème les touche.
+2. **Chercher dans la liste complète des éditions** celles qui matchent au moins un de ces thèmes (acteurs, lieux, mécanismes, échéances), quelle que soit leur ancienneté. Ne pas se limiter au même `domain` — un article sur la présidentielle ou un article sur l'économie de l'énergie peuvent tous deux être connexes si le thème les touche.
 
 3. **Valider les 3 meilleurs matches** : vérifier qu'il existe un lien manifeste, pas juste une proximité linguistique. Exemple : « Électricité/ARENH » est connecté à « Carburants/énergie » (même domaine énergétique) ; « Présidentielle 2027 » est connecté à « Macron réunit les candidats » (acteur + timing politique partagés).
 
