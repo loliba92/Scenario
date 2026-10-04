@@ -179,5 +179,31 @@ class TestJingles(unittest.TestCase):
         self.assertAlmostEqual(len(avec) / 2 / mu.SR, 6 + 2 * (0.35 + 2.5 + 0.25), delta=0.01)
 
 
+
+class TestImageEpisode(unittest.TestCase):
+    def test_pochette_et_balise(self):
+        import tempfile
+        import build_feed
+        from PIL import Image
+        import xml.etree.ElementTree as ET
+        with tempfile.TemporaryDirectory() as t:
+            photos, images = Path(t) / "photos", Path(t) / "images"
+            photos.mkdir()
+            Image.new("RGB", (1080, 1200), (200, 120, 60)).save(photos / "2026-10-04.jpg")   # pas carrée : recadrée
+            chemin = build_feed.preparer_image("2026-10-04", images, photos)
+            im = Image.open(chemin)
+            self.assertEqual(im.size, (1400, 1400))
+            self.assertLessEqual(chemin.stat().st_size, 500_000)
+            self.assertIsNone(build_feed.preparer_image("2026-10-05", images, photos))        # pas d'image : rien
+            eps = [{"date": d, "titre": "t", "description": "d", "url": "https://x/y.mp3", "taille": 1, "duree": 60}
+                   for d in ("2026-10-04", "2026-10-05")]
+            racine = ET.fromstring(build_feed.construire(eps, "", images))
+            ns = {"i": "http://www.itunes.com/dtds/podcast-1.0.dtd"}
+            images_item = [it.find("i:image", ns) for it in racine.findall("channel/item")]
+            self.assertIsNotNone(images_item[1])                    # 2026-10-04 (triés du plus récent au plus ancien)
+            self.assertIsNone(images_item[0])
+            self.assertTrue(images_item[1].get("href").endswith("/podcast/episodes/2026-10-04.jpg"))
+
+
 if __name__ == "__main__":
     unittest.main()
