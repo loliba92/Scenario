@@ -22,6 +22,14 @@
   var MONTHS = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
   var EXAMPLES = ["inflation", "retraite", "bitcoin", "climat", "OTAN", "intelligence artificielle"];
 
+  var MATIERES = [
+    ["economie-entreprises", "Économie & entreprises"], ["politique-institutions", "Politique & institutions"],
+    ["international", "International"], ["sciences-environnement", "Sciences & environnement"],
+    ["tech-numerique", "Tech & numérique"], ["culture-divertissement", "Culture & divertissement"], ["sport", "Sport"]
+  ];
+  var matiere = "";  // slug de la matière choisie, "" = toutes
+  var chips = document.getElementById("site-search-matieres");
+
   var editions = [], terms = [];
   var edEngine = null, glEngine = null;
   var expanded = { ed: false, gl: false };
@@ -56,6 +64,7 @@
         question: (a.getAttribute("title") || "").replace(/^[^\p{L}\p{N}«"'(]+/u, "").trim(),
         href: a.getAttribute("href"),
         domain: dom ? prettyDomain(dom.textContent.replace(/\s+/g, " ").trim()) : "",
+        slug: tr.getAttribute("data-domain") || "",
         date: tr.getAttribute("data-date") || ""
       });
     });
@@ -119,10 +128,28 @@
     return html + "</section>";
   }
 
+  function drawChips() {
+    if (!chips) return;
+    chips.innerHTML = '<button type="button" data-m=""' + (matiere ? "" : ' class="is-active"') + ">Toutes</button>" +
+      MATIERES.map(function (m) {
+        return '<button type="button" data-m="' + m[0] + '"' + (matiere === m[0] ? ' class="is-active"' : "") + ">" + esc(m[1]) + "</button>";
+      }).join("");
+  }
+
+  function keep(list) {
+    return matiere ? list.filter(function (x) { return editions[x.i].slug === matiere; }) : list;
+  }
+
   function render() {
     var q = input.value.trim();
     if (!edEngine || !glEngine) return;
-    try { history.replaceState(null, "", q ? "?q=" + encodeURIComponent(q) : location.pathname); } catch (e) { /* aperçu / navigation privée */ }
+    try {
+      var qs = [];
+      if (q) qs.push("q=" + encodeURIComponent(q));
+      if (matiere) qs.push("matiere=" + matiere);
+      history.replaceState(null, "", qs.length ? "?" + qs.join("&") : location.pathname);
+    } catch (e) { /* aperçu / navigation privée */ }
+    drawChips();
     if (!q) {
       out.innerHTML = "";
       status.textContent = baseStatus;
@@ -131,11 +158,16 @@
     }
     hints.hidden = true;
     var ed = edEngine.search(q, { flat: true, minRelated: 0.14 }), gl = glEngine.search(q);
+    if (matiere) {
+      // Une matière choisie : seulement ses éditions (le glossaire n'a pas de matière comparable).
+      ed = { direct: keep(ed.direct), related: keep(ed.related) };
+      gl = { direct: [], related: [] };
+    }
     var n = ed.direct.length + gl.direct.length;
     var rel = ed.related.length + gl.related.length;
     if (!n && !rel) {
       out.innerHTML = "";
-      status.textContent = "Aucun résultat pour « " + q + " ». Essayez un mot plus court ou un synonyme.";
+      status.textContent = "Aucun résultat pour « " + q + " »" + (matiere ? " dans cette matière. Essayez « Toutes »." : ". Essayez un mot plus court ou un synonyme.");
       return;
     }
     status.textContent = (n ? plural(n, "résultat") : "Aucun résultat exact") +
@@ -143,6 +175,14 @@
     out.innerHTML = section("ed", "Éditions", ed, editions, editionItem) +
       section("gl", "Termes du glossaire", gl, terms, termItem);
   }
+
+  if (chips) chips.addEventListener("click", function (e) {
+    var b = e.target.closest("button");
+    if (!b) return;
+    matiere = b.getAttribute("data-m") || "";
+    expanded.ed = false;
+    render();
+  });
 
   out.addEventListener("click", function (e) {
     var b = e.target.closest("[data-more]");
@@ -168,11 +208,12 @@
     loadTerms(docs[1]);
     edEngine = core.createEngine(editions.map(function (e) { return { term: e.title, def: e.question, domains: [e.domain] }; }));
     glEngine = core.createEngine(terms.map(function (t) { return { term: t.term, def: t.def, domains: [t.domain] }; }));
-    var q0 = new URLSearchParams(location.search).get("q");
+    var params = new URLSearchParams(location.search), q0 = params.get("q"), m0 = params.get("matiere") || "";
     if (q0) input.value = q0;
+    if (MATIERES.some(function (m) { return m[0] === m0; })) matiere = m0;
     baseStatus = plural(editions.length, "édition") + " et " + plural(terms.length, "terme") + " à explorer.";
     render();
-    if (!q0) input.focus();
+    if (!q0 && !matiere) input.focus();
   }).catch(function () {
     status.textContent = "Impossible de charger les données pour le moment. Réessayez dans quelques instants.";
   });

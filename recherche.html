@@ -433,6 +433,14 @@
   }
   .site-search-input::placeholder{ color: var(--paper-dim); }
   .site-search-input:focus{ outline: 2px solid var(--gold); outline-offset: 2px; }
+  .site-search-matieres{ display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 14px; }
+  .site-search-matieres button{
+    font-family: "JetBrains Mono", monospace; font-size: .72rem; letter-spacing: .03em;
+    color: var(--paper-dim); background: transparent; border: 1px solid var(--hairline);
+    border-radius: 100px; padding: 6px 13px; cursor: pointer;
+  }
+  .site-search-matieres button:hover{ color: var(--paper); border-color: var(--paper-dim); }
+  .site-search-matieres button.is-active{ background: var(--gold); border-color: var(--gold); color: var(--ink); font-weight: 700; }
   .site-search-hints{ display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; }
   .site-search-hints[hidden]{ display: none; }
   .site-search-hints button{
@@ -509,6 +517,7 @@
     <form class="site-search" role="search" onsubmit="return false">
       <input id="site-search-input" class="site-search-input" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Bitcoin, retraite, inflation…" aria-label="Rechercher sur Scénario">
     </form>
+    <div class="site-search-matieres" id="site-search-matieres" role="group" aria-label="Limiter à une matière"></div>
     <div class="site-search-hints" id="site-search-hints"></div>
     <p class="site-search-status" id="site-search-status" aria-live="polite">Chargement des éditions…</p>
     <div id="site-search-results"></div>
