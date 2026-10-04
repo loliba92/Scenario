@@ -25,10 +25,11 @@ EXEMPLE = (Path(__file__).resolve().parents[2] / "podcast" / "textes" / "2026-10
 def construire_prompt(ed: dict, remarques: list[str] | None = None) -> str:
     exemple = EXEMPLE.read_text(encoding="utf-8").strip() if EXEMPLE.exists() else ""
     suite = ("\n\nTa version précédente a été refusée pour ces raisons, corrige-les :\n- " + "\n- ".join(remarques)) if remarques else ""
-    return f"""Tu écris le texte parlé d'un court podcast quotidien du site d'actualité Scénario (lesscenarios.fr), à partir de l'édition du {gp.date_longue(ed['date'])} ci-dessous. Une seule voix, chaleureuse, qui parle à un ami curieux.
+    return f"""Tu écris le texte parlé d'un court podcast quotidien du site d'actualité Scénario (lesscenarios.fr), à partir de l'édition du {gp.date_longue(ed['date'])} ci-dessous. Une seule voix, chaleureuse, qui parle à un ami curieux : un ton décontracté et naturel, comme on raconte l'actualité à quelqu'un qu'on apprécie.
 
 RÈGLES ABSOLUES
 - N'ajoute AUCUN fait, chiffre, nom, date ni exemple qui ne figure pas dans l'article.
+- Registre : décontracté mais jamais péjoratif, ni vulgaire, ni moqueur envers des personnes, des équipes, des pays ou des groupes. Aucun gros mot, aucun mot familier agressif ou dévalorisant (pas de « gueule », « merde », « débile », « nul », « pourri », etc.). Reste bienveillant et nuancé.
 - Du langage parlé : phrases courtes, tournures naturelles, pas de liste, pas de Markdown, pas d'adresse web.
 - Pas de tableau d'indicateurs : ne récite pas les indicateurs chiffrés des scénarios. Garde peu de chiffres : ceux qui font comprendre le sujet, et les probabilités des scénarios (dis « environ une chance sur trois », « une chance sur deux », « une chance sur cinq » ou « 30 pour cent », au choix).
 - Ne dis jamais « selon l'article », ne parle ni de toi ni de l'intelligence artificielle. Pas de « bonjour » ni de « bienvenue » ni d'au revoir : commence directement par la question, le script ajoute la fermeture.
@@ -57,6 +58,12 @@ def parties(texte: str) -> list[str]:
     return [p.strip() for p in re.split(r"(?m)^\s*---\s*$", texte) if p.strip()]
 
 
+# Mots vulgaires ou péjoratifs refusés par le contrôle (le texte est alors réécrit).
+MOTS_INTERDITS = (r"\b(gueules?|merdes?|merdique|putain|bordel|con|cons|conne|connes|connard\w*|salop\w*|enfoir\w*|"
+                  r"débiles?|crétins?|idiot\w*|imbéciles?|stupides?|nul|nuls|pourri\w*|dégueu\w*|foutre|foutu\w*|"
+                  r"bouffons?|minables?|ridicules?|pathétiques?|ringard\w*|naze\w*|chiant\w*|crevard\w*)\b")
+
+
 def verifier(texte: str, source: str) -> list[str]:
     problemes = []
     texte = "\n\n".join(parties(texte))  # les lignes --- ne sont ni des mots ni du Markdown
@@ -67,6 +74,8 @@ def verifier(texte: str, source: str) -> list[str]:
         problemes.append("pas de Markdown, de liste ni d'adresse web")
     if re.search(r"\b(bonjour|bienvenue|au revoir)\b", texte, re.I):
         problemes.append("ni bonjour, ni bienvenue, ni au revoir")
+    if re.search(MOTS_INTERDITS, texte, re.I):
+        problemes.append("registre : aucun mot vulgaire ni péjoratif")
     if re.search(r"indicateurs?", texte, re.I):
         problemes.append("ne parle pas des indicateurs")
     connus = gp.nombres(source)

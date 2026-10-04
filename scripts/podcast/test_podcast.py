@@ -168,6 +168,16 @@ class TestJingles(unittest.TestCase):
         avec_sep = exemple.replace("\n\nAlors, que peut-il", "\n---\nAlors, que peut-il")
         self.assertEqual(tn.verifier(avec_sep, gp.texte_source(ed)), [])   # --- n'est pas du Markdown
 
+    def test_registre_sans_mots_pejoratifs(self):
+        import re
+        import texte_narration as tn
+        for mauvais in ("Ça n'a pas de gueule.", "Un tournoi nul.", "Quelle merde.", "Des joueurs minables."):
+            self.assertTrue(re.search(tn.MOTS_INTERDITS, mauvais, re.I), mauvais)
+        for bon in ("Le public adhère très vite.", "C'est un pari audacieux, et pas évident.", "Le tournoi est accepté.", "Aucune fatigue nulle part."):
+            self.assertFalse(re.search(tn.MOTS_INTERDITS, bon, re.I), bon)
+        exemple = tn.EXEMPLE.read_text(encoding="utf-8")
+        self.assertFalse(re.search(tn.MOTS_INTERDITS, exemple, re.I))
+
     def test_assemblage_avec_jingles(self):
         theme = array("h", [5000] * (mu.SR * 6)).tobytes()
         jingle = mu.jingle_depuis_theme(theme)
