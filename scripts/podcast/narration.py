@@ -28,7 +28,7 @@ def main(argv=None) -> int:
     ap.add_argument("--moteur", default="openrouter", choices=("openrouter", "google"),
                     help="openrouter : voix facturées à l'usage (choix du propriétaire, 4 octobre 2026) ; google : API Gemini directe (quota gratuit limité)")
     ap.add_argument("--modele-tts", default="google/gemini-3.8-flash-tts", help="avec --moteur openrouter : modèle de voix")
-    ap.add_argument("--voix", default="Sulafat", help="voix prédéfinie Gemini (Sulafat, Achird, Vindemiatrix, Aoede, Kore…)")
+    ap.add_argument("--voix", default="Despina", help="voix prédéfinie Gemini (Sulafat, Achird, Vindemiatrix, Aoede, Kore…)")
     ap.add_argument("--tts-models", default=",".join(gp.MODELES_TTS_NARRATION))
     ap.add_argument("--musique", action="store_true", help="ajouter l'ancien habillage musical de musique.py (désactivé par défaut)")
     ap.add_argument("--ouverture", action="store_true", help="ajouter le thème podcast/musique/ouverture.mp3 avant la voix, s'il existe (sinon : sans musique)")
