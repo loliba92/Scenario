@@ -343,7 +343,7 @@ def jingle_depuis_theme(theme_pcm: bytes, duree_s: float = 2.5, fondu_entree_s: 
 DEPARTS_JINGLES = (0.0, 14.0, 20.0, 26.0, 32.0, 38.0, 44.0, 50.0)
 
 
-def jingles_depuis_theme(theme_pcm: bytes, nombre: int, duree_s: float = 3.5) -> list[bytes]:
+def jingles_depuis_theme(theme_pcm: bytes, nombre: int, duree_s: float = 6.0) -> list[bytes]:
     """`nombre` jingles, chacun pris à un endroit différent du thème (on reboucle s'il y en a plus que de départs)."""
     theme = array("h")
     theme.frombytes(theme_pcm)
@@ -352,12 +352,12 @@ def jingles_depuis_theme(theme_pcm: bytes, nombre: int, duree_s: float = 3.5) ->
     for k in range(nombre):
         d = int(SR * departs[k % len(departs)])
         extrait = theme[d:d + int(SR * duree_s)]
-        sortie.append(jingle_depuis_theme(extrait.tobytes(), duree_s, 0.15, 1.8))
+        sortie.append(jingle_depuis_theme(extrait.tobytes(), duree_s, 0.2, 2.5))
     return sortie
 
 
 def assembler_parties(parties_pcm: list[bytes], jingle_pcm, silence_s: float = 0.7,
-                      rapport: float = 0.9, recouvrement_s: float = 1.5) -> bytes:
+                      rapport: float = 0.9, recouvrement_s: float = 2.0) -> bytes:
     """Voix des parties mises bout à bout. Entre deux parties, un jingle (au niveau sonore de la voix × rapport) :
     il démarre après un court silence et s'éteint en fondu SOUS le début de la partie suivante, qui entre
     `recouvrement_s` avant la fin du jingle. `jingle_pcm` : un jingle, une liste de jingles (utilisés tour à tour)
