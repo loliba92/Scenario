@@ -1,0 +1,54 @@
+name: Podcast — comparer des voix OpenRouter
+
+# Essai demandé le 4 octobre 2026 : les voix Google gratuites manquent de quota ; OpenRouter propose des voix payantes à
+# l'usage (quelques centimes l'échantillon). Produit un échantillon d'environ une minute par voix, conservé dans la
+# Release « podcast-voix-essais » (page https://github.com/loliba92/Scenario/releases/tag/podcast-voix-essais).
+# Rien n'est publié dans le flux.
+
+on:
+  workflow_dispatch:
+    inputs:
+      texte:
+        description: "Texte à lire (chemin du dépôt)"
+        required: false
+        default: "podcast/textes/2026-10-02.txt"
+      voix:
+        description: "Couples modèle|voix séparés par des espaces"
+        required: false
+        default: "microsoft/mai-voice-2.1|fr-FR-Harper:MAI-Voice-2.1 microsoft/mai-voice-2.1|fr-FR-Marc:MAI-Voice-2.1 microsoft/mai-voice-2.1|fr-FR-Soleil:MAI-Voice-2.1 mistralai/voxtral-mini-tts-2603|fr_marie_neutral google/gemini-3.8-flash-tts|Sulafat"
+
+permissions:
+  contents: write
+
+jobs:
+  essais:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Installer les dépendances
+        run: |
+          pip install beautifulsoup4
+          command -v ffmpeg >/dev/null || { sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg; }
+      - name: Générer les échantillons
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          TEXTE: ${{ github.event.inputs.texte }}
+          VOIX: ${{ github.event.inputs.voix }}
+        run: |
+          case "$TEXTE" in podcast/textes/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].txt) ;; *) echo "Texte invalide" >&2; exit 1 ;; esac
+          case "$VOIX" in *[!A-Za-z0-9._:/|\ -]*) echo "Voix invalides" >&2; exit 1 ;; esac
+          # shellcheck disable=SC2086
+          python3 scripts/podcast/voix_openrouter.py "$TEXTE" $VOIX
+          ls -la _podcast-out
+      - name: Ranger dans une Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG=podcast-voix-essais
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 || \
+            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --prerelease --title "Essais de voix" --notes "Échantillons de comparaison de voix de synthèse (essais, non publiés)."
+          gh release upload "$TAG" _podcast-out/echantillon-*.mp3 --clobber --repo "$GITHUB_REPOSITORY"
