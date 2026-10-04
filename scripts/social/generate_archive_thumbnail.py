@@ -82,6 +82,25 @@ def make_square_thumb(src: Path, dest: Path, size: int) -> None:
         cropped.save(dest, "JPEG", quality=72, optimize=True)
 
 
+def make_wide_thumb(date: str, width: int = 720) -> Path | None:
+    """Vignette 16:9 (720 px) de la photo du sujet, pour la carte « dernière
+    édition » des pages thèmes (assets/social/theme-wide/{date}.jpg). Source :
+    {date}-wide.jpg, sinon la photo carrée recadrée en 16:9. None si aucune
+    photo du sujet n'existe."""
+    src = TOPIC_IMAGES / f"{date}-wide.jpg"
+    if not src.exists():
+        src = TOPIC_IMAGES / f"{date}.jpg"
+    if not src.exists():
+        return None
+    dest = ROOT / "assets/social/theme-wide" / f"{date}.jpg"
+    with Image.open(src) as im:
+        im = ImageOps.exif_transpose(im).convert("RGB")
+        out = ImageOps.fit(im, (width, width * 9 // 16), method=Image.LANCZOS)
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        out.save(dest, "JPEG", quality=78, optimize=True)
+    return dest
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--date", required=True, help="AAAA-MM-JJ de l'édition")

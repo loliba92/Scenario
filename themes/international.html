@@ -425,6 +425,8 @@
     transition:border-color .15s, transform .15s;
   }
   .theme-featured:hover{ border-color:var(--gold); transform:translateY(-1px); }
+  .theme-featured-img{ display:block; width:calc(100% + 48px); max-width:none; margin:-22px -24px 18px; aspect-ratio:21/9; object-fit:cover; border-radius:9px 9px 0 0; background:var(--surface-2); }
+  @media (max-width: 480px){ .theme-featured-img{ width:calc(100% + 36px); margin:-18px -18px 14px; aspect-ratio:16/9; } }
   .theme-featured .kicker{ font-family:"JetBrains Mono", monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); }
   .theme-featured h2{ font-family:"Fraunces", serif; font-weight:600; font-size:1.45rem; line-height:1.25; margin:8px 0 10px; color:var(--paper); }
   .theme-featured .q{ color:var(--paper-dim); font-size:0.95rem; line-height:1.55; margin:0 0 14px; }
@@ -518,6 +520,7 @@
 <section class="listing">
   <div class="wrap">
     <a class="theme-featured" href="../archives/2026-09-28.html">
+    <img class="theme-featured-img" src="../assets/social/theme-wide/2026-09-28.jpg" alt="" width="720" height="405" onerror="this.remove()">
     <span class="kicker">Dernière édition · 28.09.2026</span>
     <h2>Nouvel ordre mondial : la domination occidentale est-elle remise en cause par un monde de plus en plus multipolaire ?</h2>
     <p class="q">La domination occidentale est-elle remise en cause par un monde de plus en plus multipolaire ?</p>
