@@ -37,6 +37,7 @@ DOMAIN_LABELS = {
     "sciences-environnement": "Sciences & environnement",
     "tech-numerique": "Tech & numérique",
     "culture-divertissement": "Culture & divertissement",
+    "sport": "Sport",
 }
 
 LANG_LABELS = {"fr": "Français", "en": "English", "other": "Autres"}

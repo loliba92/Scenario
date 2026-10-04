@@ -43,6 +43,7 @@ DOMAIN_LABELS = {
     "sciences-environnement": "Sciences & environnement",
     "tech-numerique": "Tech & numérique",
     "culture-divertissement": "Culture & divertissement",
+    "sport": "Sport",
 }
 
 _JOURS_FR = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]

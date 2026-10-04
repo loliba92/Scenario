@@ -42,6 +42,9 @@ DOMAINS = [
      "tags": ["intelligence-artificielle", "numerique"]},
     {"slug": "culture-divertissement", "label": "Culture & divertissement",
      "tags": ["cinema", "musique", "jeux-video", "litterature", "medias"]},
+    # Ajouté le 4 octobre 2026 : les éditions du dimanche ont le domaine « sport »
+    # (3 articles à l'ajout, seuil anti thin-content atteint).
+    {"slug": "sport", "label": "Sport", "tags": ["sport"]},
 ]
 
 # [CORRIGÉ le 1er septembre 2026] archives.html n'est plus une liste de

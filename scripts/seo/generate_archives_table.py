@@ -35,6 +35,7 @@ DOMAIN_LABELS = {
     "sciences-environnement": "Sciences & environnement",
     "tech-numerique": "Tech & numérique",
     "culture-divertissement": "Culture & divertissement",
+    "sport": "Sport",
 }
 
 # CSS pour le tableau
@@ -1497,7 +1498,7 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
         <dt>Titre</dt>
         <dd>Cliquez pour lire l'analyse complète (lien <strong>↗ EN</strong> pour la version anglaise).</dd>
         <dt>Domaine</dt>
-        <dd>Catégorie thématique de l'édition (cliquez sur le domaine dans le tableau), l'une des 6 : {theme_links_html}.</dd>
+        <dd>Catégorie thématique de l'édition (cliquez sur le domaine dans le tableau), l'une des 7 : {theme_links_html}.</dd>
         <dt>Notre scénario</dt>
         <dd>Le plus probable des 3 scénarios de l'édition, avec son pourcentage de probabilité — <strong>favorable</strong> : la problématique se résout plutôt bien ; <strong>stable</strong> : la situation reste proche des conditions actuelles ; <strong>dégradé</strong> : la problématique s'aggrave nettement.</dd>
         <dt>Impact France</dt>
