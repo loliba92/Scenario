@@ -407,42 +407,57 @@
     .hero.glossaire-hero{ padding: 64px 0 44px; }
   }
 
-  /* ---- Liste d'articles par page de thème (scripts/seo/generate_theme_pages.py) ---- */
-  .theme-list{ margin: 0; padding: 0; list-style: none; }
-  .theme-entry{
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--hairline);
+  /* ---- Pages de thème : sélecteur, édition à la une, cartes (scripts/seo/generate_theme_pages.py) ---- */
+  .theme-chips{ display:flex; flex-wrap:wrap; gap:8px; margin: 22px 0 0; padding:0; list-style:none; }
+  .theme-chip{
+    font-family:"JetBrains Mono", monospace; font-size:0.72rem; letter-spacing:0.03em;
+    padding:7px 13px; border-radius:100px; border:1px solid var(--hairline);
+    color:var(--paper-dim); text-decoration:none; white-space:nowrap;
   }
-  .theme-entry:first-child{ padding-top: 0; }
-  .theme-entry-date{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.72rem;
-    color: var(--paper-dim);
-    white-space: nowrap;
-    flex-shrink: 0;
+  .theme-chip:hover{ border-color:var(--gold); color:var(--paper); }
+  .theme-chip[aria-current="page"]{ background:var(--gold); border-color:var(--gold); color:var(--ink); font-weight:700; }
+  .theme-chip .n{ opacity:0.6; margin-left:4px; }
+
+  .theme-featured{
+    display:block; text-decoration:none; color:inherit;
+    background:var(--surface); border:1px solid var(--hairline); border-left:3px solid var(--gold);
+    border-radius:10px; padding:22px 24px; margin-bottom:34px;
+    transition:border-color .15s, transform .15s;
   }
-  .theme-entry-title{
-    font-family: "Fraunces", serif;
-    font-weight: 600;
-    font-size: 1.02rem;
-    color: var(--paper);
-    text-decoration: none;
+  .theme-featured:hover{ border-color:var(--gold); transform:translateY(-1px); }
+  .theme-featured .kicker{ font-family:"JetBrains Mono", monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); }
+  .theme-featured h2{ font-family:"Fraunces", serif; font-weight:600; font-size:1.45rem; line-height:1.25; margin:8px 0 10px; color:var(--paper); }
+  .theme-featured .q{ color:var(--paper-dim); font-size:0.95rem; line-height:1.55; margin:0 0 14px; }
+  .theme-featured .go{ font-size:0.85rem; color:var(--gold); }
+
+  .theme-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(290px, 1fr)); gap:14px; margin:0; padding:0; list-style:none; }
+  .theme-card{
+    display:flex; gap:14px; align-items:flex-start; text-decoration:none; color:inherit;
+    background:var(--surface); border:1px solid var(--hairline); border-radius:10px; padding:12px;
+    height:100%; transition:border-color .15s, transform .15s;
   }
-  .theme-entry-title:hover{ text-decoration: underline; text-decoration-color: var(--gold); }
-  .theme-registre{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.66rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: 100px;
-    padding: 2px 9px;
-    white-space: nowrap;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    flex-shrink: 0;
+  .theme-card:hover{ border-color:var(--gold); transform:translateY(-1px); }
+  .theme-thumb{ width:72px; height:72px; border-radius:7px; background:var(--surface-2); object-fit:cover; flex-shrink:0; }
+  .theme-card-body{ min-width:0; }
+  .theme-card-date{ font-family:"JetBrains Mono", monospace; font-size:0.68rem; color:var(--paper-dim); }
+  .theme-card-title{ font-family:"Fraunces", serif; font-weight:600; font-size:1rem; line-height:1.3; color:var(--paper); margin:3px 0 8px; }
+  .theme-card:hover .theme-card-title{ text-decoration:underline; text-decoration-color:var(--gold); }
+  .theme-tags{ display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+  .theme-badge{
+    font-family:"JetBrains Mono", monospace; font-size:0.64rem; text-transform:uppercase; letter-spacing:0.05em;
+    padding:2px 8px; border-radius:100px; border:1px solid var(--hairline); color:var(--paper-dim);
+  }
+  .theme-badge::before{ content:""; display:inline-block; width:6px; height:6px; border-radius:50%; margin-right:6px; background:currentColor; vertical-align:middle; }
+  .theme-badge.favorable{ color:var(--favorable); border-color:var(--favorable); }
+  .theme-badge.stable{ color:var(--stable); border-color:var(--stable); }
+  .theme-badge.degrade{ color:var(--degrade); border-color:var(--degrade); }
+  .theme-france{ font-size:0.72rem; color:var(--paper-dim); }
+  .theme-section-title{ font-family:"JetBrains Mono", monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--paper-dim); margin:0 0 14px; }
+  @media (max-width: 480px){
+    .theme-featured{ padding:18px; }
+    .theme-featured h2{ font-size:1.2rem; }
+    .theme-chips{ flex-wrap:nowrap; overflow-x:auto; margin-right:-20px; padding-right:20px; scrollbar-width:none; }
+    .theme-chips::-webkit-scrollbar{ display:none; }
   }
 </style>
 <script type="application/ld+json">
@@ -486,85 +501,135 @@
   <div class="wrap">
     <p class="eyebrow">Thème</p>
     <h1>Politique & institutions</h1>
-    <p class="dek">14 éditions de Scénario sur ce thème, classées de la plus récente à la plus ancienne — chacune avec 3 scénarios chiffrés.</p>
+    <p class="dek">14 éditions sur ce thème, chacune avec trois scénarios chiffrés.</p>
+    <ul class="theme-chips" aria-label="Changer de thème">
+      <li><a class="theme-chip" href="economie-entreprises.html">Économie &amp; entreprises<span class="n">11</span></a></li>
+      <li><a class="theme-chip" href="politique-institutions.html" aria-current="page">Politique &amp; institutions<span class="n">14</span></a></li>
+      <li><a class="theme-chip" href="international.html">International<span class="n">12</span></a></li>
+      <li><a class="theme-chip" href="sciences-environnement.html">Sciences &amp; environnement<span class="n">9</span></a></li>
+      <li><a class="theme-chip" href="tech-numerique.html">Tech &amp; numérique<span class="n">4</span></a></li>
+      <li><a class="theme-chip" href="culture-divertissement.html">Culture &amp; divertissement<span class="n">13</span></a></li>
+    </ul>
   </div>
 </section>
 
 <section class="listing">
   <div class="wrap">
-    <ul class="theme-list">
-      <li class="theme-entry">
-        <span class="theme-entry-date">30.09.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-09-30.html">Plans sociaux : le chômage va-t-il repartir à la hausse ?</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">23.09.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-09-23.html">Carburants à prix record et menaces hybrides : Macron réunit les candidats à l&#x27;Élysée</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">16.09.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-09-16.html">Électricité : la fin de l&#x27;ARENH va-t-elle faire flamber ta facture ?</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">13.09.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-09-13.html">Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">09.09.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-09-09.html">La France a trois visages ?</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">06.09.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-09-06.html">Sport féminin : la loi oblige à partager l&#x27;argent</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">01.09.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-09-01.html">Présidentielle 2027 : qui peut vraiment battre le RN ?</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">26.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-26.html">Retraites : la patate chaude de 2027</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">23.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-23.html">Le pari XXL du Mondial 2030</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">19.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-19.html">2027 sous influence</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">16.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-16.html">Rugby : le choc de trop ?</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">12.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-12.html">2027 : un favori, une opposition éclatée</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">06.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-06.html">FIFA : la présidence d&#x27;Infantino vacille</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">29.07.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-07-29.html">Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?</a>
-        
-      </li>
+    <a class="theme-featured" href="../archives/2026-09-30.html">
+    <span class="kicker">Dernière édition · 30.09.2026</span>
+    <h2>Plans sociaux : le chômage va-t-il repartir à la hausse ?</h2>
+    <p class="q">Une vague de fermetures et de plans sociaux menace-t-elle de faire remonter le chômage en France, ou la réindustrialisation absorbe-t-elle ces pertes ?</p>
+    <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : plutôt défavorable</span></div>
+    <span class="go">Lire l'édition →</span>
+    </a>
+    <h2 class="theme-section-title">Les éditions précédentes</h2>
+    <ul class="theme-grid">
+      <li><a class="theme-card" href="../archives/2026-09-23.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-09-23.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">23.09.2026</div>
+          <div class="theme-card-title">Carburants à prix record et menaces hybrides : Macron réunit les candidats à l&#x27;Élysée</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-09-16.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-09-16.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">16.09.2026</div>
+          <div class="theme-card-title">Électricité : la fin de l&#x27;ARENH va-t-elle faire flamber ta facture ?</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : plutôt défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-09-13.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-09-13.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">13.09.2026</div>
+          <div class="theme-card-title">Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?</div>
+          <div class="theme-tags"><span class="theme-badge degrade" title="Notre scénario">Dégradé</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-09-09.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-09-09.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">09.09.2026</div>
+          <div class="theme-card-title">La France a trois visages ?</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-09-06.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-09-06.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">06.09.2026</div>
+          <div class="theme-card-title">Sport féminin : la loi oblige à partager l&#x27;argent</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-09-01.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-09-01.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">01.09.2026</div>
+          <div class="theme-card-title">Présidentielle 2027 : qui peut vraiment battre le RN ?</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-08-26.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-08-26.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">26.08.2026</div>
+          <div class="theme-card-title">Retraites : la patate chaude de 2027</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-08-23.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-08-23.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">23.08.2026</div>
+          <div class="theme-card-title">Le pari XXL du Mondial 2030</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : plutôt favorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-08-19.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-08-19.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">19.08.2026</div>
+          <div class="theme-card-title">2027 sous influence</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-08-16.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-08-16.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">16.08.2026</div>
+          <div class="theme-card-title">Rugby : le choc de trop ?</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : neutre</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-08-12.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-08-12.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">12.08.2026</div>
+          <div class="theme-card-title">2027 : un favori, une opposition éclatée</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : neutre</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-08-06.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-08-06.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">06.08.2026</div>
+          <div class="theme-card-title">FIFA : la présidence d&#x27;Infantino vacille</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : neutre</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-07-29.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-07-29.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">29.07.2026</div>
+          <div class="theme-card-title">Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : neutre</span></div>
+        </div>
+      </a></li>
     </ul>
-    <p style="margin-top:28px"><a class="theme-entry-title" href="../archives.html" style="font-size:0.85rem">← Retour à toutes les archives</a></p>
+    <p style="margin-top:28px"><a class="theme-chip" href="../archives.html">← Toutes les archives</a></p>
   </div>
 </section>
 

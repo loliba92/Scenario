@@ -407,42 +407,57 @@
     .hero.glossaire-hero{ padding: 64px 0 44px; }
   }
 
-  /* ---- Liste d'articles par page de thème (scripts/seo/generate_theme_pages.py) ---- */
-  .theme-list{ margin: 0; padding: 0; list-style: none; }
-  .theme-entry{
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--hairline);
+  /* ---- Pages de thème : sélecteur, édition à la une, cartes (scripts/seo/generate_theme_pages.py) ---- */
+  .theme-chips{ display:flex; flex-wrap:wrap; gap:8px; margin: 22px 0 0; padding:0; list-style:none; }
+  .theme-chip{
+    font-family:"JetBrains Mono", monospace; font-size:0.72rem; letter-spacing:0.03em;
+    padding:7px 13px; border-radius:100px; border:1px solid var(--hairline);
+    color:var(--paper-dim); text-decoration:none; white-space:nowrap;
   }
-  .theme-entry:first-child{ padding-top: 0; }
-  .theme-entry-date{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.72rem;
-    color: var(--paper-dim);
-    white-space: nowrap;
-    flex-shrink: 0;
+  .theme-chip:hover{ border-color:var(--gold); color:var(--paper); }
+  .theme-chip[aria-current="page"]{ background:var(--gold); border-color:var(--gold); color:var(--ink); font-weight:700; }
+  .theme-chip .n{ opacity:0.6; margin-left:4px; }
+
+  .theme-featured{
+    display:block; text-decoration:none; color:inherit;
+    background:var(--surface); border:1px solid var(--hairline); border-left:3px solid var(--gold);
+    border-radius:10px; padding:22px 24px; margin-bottom:34px;
+    transition:border-color .15s, transform .15s;
   }
-  .theme-entry-title{
-    font-family: "Fraunces", serif;
-    font-weight: 600;
-    font-size: 1.02rem;
-    color: var(--paper);
-    text-decoration: none;
+  .theme-featured:hover{ border-color:var(--gold); transform:translateY(-1px); }
+  .theme-featured .kicker{ font-family:"JetBrains Mono", monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); }
+  .theme-featured h2{ font-family:"Fraunces", serif; font-weight:600; font-size:1.45rem; line-height:1.25; margin:8px 0 10px; color:var(--paper); }
+  .theme-featured .q{ color:var(--paper-dim); font-size:0.95rem; line-height:1.55; margin:0 0 14px; }
+  .theme-featured .go{ font-size:0.85rem; color:var(--gold); }
+
+  .theme-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(290px, 1fr)); gap:14px; margin:0; padding:0; list-style:none; }
+  .theme-card{
+    display:flex; gap:14px; align-items:flex-start; text-decoration:none; color:inherit;
+    background:var(--surface); border:1px solid var(--hairline); border-radius:10px; padding:12px;
+    height:100%; transition:border-color .15s, transform .15s;
   }
-  .theme-entry-title:hover{ text-decoration: underline; text-decoration-color: var(--gold); }
-  .theme-registre{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.66rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: 100px;
-    padding: 2px 9px;
-    white-space: nowrap;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    flex-shrink: 0;
+  .theme-card:hover{ border-color:var(--gold); transform:translateY(-1px); }
+  .theme-thumb{ width:72px; height:72px; border-radius:7px; background:var(--surface-2); object-fit:cover; flex-shrink:0; }
+  .theme-card-body{ min-width:0; }
+  .theme-card-date{ font-family:"JetBrains Mono", monospace; font-size:0.68rem; color:var(--paper-dim); }
+  .theme-card-title{ font-family:"Fraunces", serif; font-weight:600; font-size:1rem; line-height:1.3; color:var(--paper); margin:3px 0 8px; }
+  .theme-card:hover .theme-card-title{ text-decoration:underline; text-decoration-color:var(--gold); }
+  .theme-tags{ display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+  .theme-badge{
+    font-family:"JetBrains Mono", monospace; font-size:0.64rem; text-transform:uppercase; letter-spacing:0.05em;
+    padding:2px 8px; border-radius:100px; border:1px solid var(--hairline); color:var(--paper-dim);
+  }
+  .theme-badge::before{ content:""; display:inline-block; width:6px; height:6px; border-radius:50%; margin-right:6px; background:currentColor; vertical-align:middle; }
+  .theme-badge.favorable{ color:var(--favorable); border-color:var(--favorable); }
+  .theme-badge.stable{ color:var(--stable); border-color:var(--stable); }
+  .theme-badge.degrade{ color:var(--degrade); border-color:var(--degrade); }
+  .theme-france{ font-size:0.72rem; color:var(--paper-dim); }
+  .theme-section-title{ font-family:"JetBrains Mono", monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--paper-dim); margin:0 0 14px; }
+  @media (max-width: 480px){
+    .theme-featured{ padding:18px; }
+    .theme-featured h2{ font-size:1.2rem; }
+    .theme-chips{ flex-wrap:nowrap; overflow-x:auto; margin-right:-20px; padding-right:20px; scrollbar-width:none; }
+    .theme-chips::-webkit-scrollbar{ display:none; }
   }
 </style>
 <script type="application/ld+json">
@@ -486,70 +501,111 @@
   <div class="wrap">
     <p class="eyebrow">Thème</p>
     <h1>Économie & entreprises</h1>
-    <p class="dek">11 éditions de Scénario sur ce thème, classées de la plus récente à la plus ancienne — chacune avec 3 scénarios chiffrés.</p>
+    <p class="dek">11 éditions sur ce thème, chacune avec trois scénarios chiffrés.</p>
+    <ul class="theme-chips" aria-label="Changer de thème">
+      <li><a class="theme-chip" href="economie-entreprises.html" aria-current="page">Économie &amp; entreprises<span class="n">11</span></a></li>
+      <li><a class="theme-chip" href="politique-institutions.html">Politique &amp; institutions<span class="n">14</span></a></li>
+      <li><a class="theme-chip" href="international.html">International<span class="n">12</span></a></li>
+      <li><a class="theme-chip" href="sciences-environnement.html">Sciences &amp; environnement<span class="n">9</span></a></li>
+      <li><a class="theme-chip" href="tech-numerique.html">Tech &amp; numérique<span class="n">4</span></a></li>
+      <li><a class="theme-chip" href="culture-divertissement.html">Culture &amp; divertissement<span class="n">13</span></a></li>
+    </ul>
   </div>
 </section>
 
 <section class="listing">
   <div class="wrap">
-    <ul class="theme-list">
-      <li class="theme-entry">
-        <span class="theme-entry-date">17.09.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-09-17.html">Dollar : la fin du règne ?</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">10.09.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-09-10.html">Ces métropoles plus riches que des États</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">08.09.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-09-08.html">OpenAI : le pari à 1 000 milliards de dollars</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">03.09.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-09-03.html">Wall Street : la hausse peut-elle durer ?</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">30.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-30.html">Ligue 1 : le foot français peut-il survivre à l&#x27;effondrement de ses droits TV ?</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">27.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-27.html">Dette américaine : le mur des 40 000 milliards</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">20.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-20.html">Taux : marche arrière</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">13.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-13.html">Inflation : le pétrole rebat les cartes</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">10.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-10.html">La croissance mondiale ne tient qu&#x27;à un fil</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">30.07.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-07-30.html">Golf, foot, boxe : l&#x27;Arabie saoudite se retire-t-elle du sport ?</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">28.07.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-07-28.html">Milliardaires : la richesse du monde peut-elle encore se partager ?</a>
-        
-      </li>
+    <a class="theme-featured" href="../archives/2026-09-17.html">
+    <span class="kicker">Dernière édition · 17.09.2026</span>
+    <h2>Dollar : la fin du règne ?</h2>
+    <p class="q">Face à la dette record et à la ruée vers l&#x27;or des banques centrales, le dollar peut-il perdre son statut de monnaie de réserve mondiale ?</p>
+    <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : plutôt défavorable</span></div>
+    <span class="go">Lire l'édition →</span>
+    </a>
+    <h2 class="theme-section-title">Les éditions précédentes</h2>
+    <ul class="theme-grid">
+      <li><a class="theme-card" href="../archives/2026-09-10.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-09-10.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">10.09.2026</div>
+          <div class="theme-card-title">Ces métropoles plus riches que des États</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-09-08.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-09-08.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">08.09.2026</div>
+          <div class="theme-card-title">OpenAI : le pari à 1 000 milliards de dollars</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : neutre</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-09-03.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-09-03.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">03.09.2026</div>
+          <div class="theme-card-title">Wall Street : la hausse peut-elle durer ?</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : plutôt favorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-08-30.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-08-30.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">30.08.2026</div>
+          <div class="theme-card-title">Ligue 1 : le foot français peut-il survivre à l&#x27;effondrement de ses droits TV ?</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-08-27.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-08-27.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">27.08.2026</div>
+          <div class="theme-card-title">Dette américaine : le mur des 40 000 milliards</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-08-20.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-08-20.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">20.08.2026</div>
+          <div class="theme-card-title">Taux : marche arrière</div>
+          <div class="theme-tags"><span class="theme-badge degrade" title="Notre scénario">Dégradé</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-08-13.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-08-13.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">13.08.2026</div>
+          <div class="theme-card-title">Inflation : le pétrole rebat les cartes</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : neutre</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-08-10.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-08-10.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">10.08.2026</div>
+          <div class="theme-card-title">La croissance mondiale ne tient qu&#x27;à un fil</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : neutre</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-07-30.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-07-30.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">30.07.2026</div>
+          <div class="theme-card-title">Golf, foot, boxe : l&#x27;Arabie saoudite se retire-t-elle du sport ?</div>
+          <div class="theme-tags"><span class="theme-badge degrade" title="Notre scénario">Dégradé</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-07-28.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-07-28.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">28.07.2026</div>
+          <div class="theme-card-title">Milliardaires : la richesse du monde peut-elle encore se partager ?</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : neutre</span></div>
+        </div>
+      </a></li>
     </ul>
-    <p style="margin-top:28px"><a class="theme-entry-title" href="../archives.html" style="font-size:0.85rem">← Retour à toutes les archives</a></p>
+    <p style="margin-top:28px"><a class="theme-chip" href="../archives.html">← Toutes les archives</a></p>
   </div>
 </section>
 

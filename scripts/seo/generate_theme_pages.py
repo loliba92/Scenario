@@ -64,7 +64,11 @@ ENTRY_RE = re.compile(r'<tr data-domain="([a-z-]*)"[^>]*>(.*?)</tr>', re.DOTALL)
 # : display_date la découpe par position fixe (les 10 premiers
 # caractères sont toujours AAAA-MM-JJ), et href en a besoin en entier
 # pour pointer vers le bon fichier.
-TITLE_RE = re.compile(r'<a href="archives/(\d{4}-\d{2}-\d{2}(?:-[a-z0-9-]+)?)\.html"[^>]*>([^<]+)</a>')
+TITLE_RE = re.compile(r'<a href="archives/(\d{4}-\d{2}-\d{2}(?:-[a-z0-9-]+)?)\.html"([^>]*)>([^<]+)</a>')
+QUESTION_RE = re.compile(r'title="([^"]*)"')
+KIND_RE = re.compile(r'<span class="eval-badge[^"]*" data-kind="([a-z]+)"')
+LABEL_RE = re.compile(r'<span class="eval-label">([^<]+)</span>')
+FRANCE_RE = re.compile(r'<span class="france-scale" title="([^"]*)"')
 
 
 def parse_entries():
@@ -74,7 +78,11 @@ def parse_entries():
         title_m = TITLE_RE.search(block)
         if not domain_slug or not title_m:
             continue  # pas de domaine assigné, ou bloc non-article
-        iso_date, title = title_m.groups()
+        iso_date, attrs, title = title_m.groups()
+        question = QUESTION_RE.search(attrs)
+        kind = KIND_RE.search(block)
+        label = LABEL_RE.search(block)
+        france = FRANCE_RE.search(block)
         display_date = f"{iso_date[8:10]}.{iso_date[5:7]}.{iso_date[0:4]}"
         entries.append({
             "iso_date": iso_date,
@@ -82,6 +90,10 @@ def parse_entries():
             "title": html.unescape(title),
             "href": f"archives/{iso_date}.html",
             "registre": None,
+            "question": html.unescape(question.group(1)) if question else "",
+            "kind": kind.group(1) if kind else "",
+            "label": html.unescape(label.group(1)) if label else "",
+            "france": html.unescape(france.group(1)) if france else "",
             "domain_slug": domain_slug,
         })
     return entries
@@ -114,48 +126,64 @@ def build_shared_pieces():
 
 
 THEME_LIST_CSS = """
-  /* ---- Liste d'articles par page de thème (scripts/seo/generate_theme_pages.py) ---- */
-  .theme-list{ margin: 0; padding: 0; list-style: none; }
-  .theme-entry{
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--hairline);
+  /* ---- Pages de thème : sélecteur, édition à la une, cartes (scripts/seo/generate_theme_pages.py) ---- */
+  .theme-chips{ display:flex; flex-wrap:wrap; gap:8px; margin: 22px 0 0; padding:0; list-style:none; }
+  .theme-chip{
+    font-family:"JetBrains Mono", monospace; font-size:0.72rem; letter-spacing:0.03em;
+    padding:7px 13px; border-radius:100px; border:1px solid var(--hairline);
+    color:var(--paper-dim); text-decoration:none; white-space:nowrap;
   }
-  .theme-entry:first-child{ padding-top: 0; }
-  .theme-entry-date{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.72rem;
-    color: var(--paper-dim);
-    white-space: nowrap;
-    flex-shrink: 0;
+  .theme-chip:hover{ border-color:var(--gold); color:var(--paper); }
+  .theme-chip[aria-current="page"]{ background:var(--gold); border-color:var(--gold); color:var(--ink); font-weight:700; }
+  .theme-chip .n{ opacity:0.6; margin-left:4px; }
+
+  .theme-featured{
+    display:block; text-decoration:none; color:inherit;
+    background:var(--surface); border:1px solid var(--hairline); border-left:3px solid var(--gold);
+    border-radius:10px; padding:22px 24px; margin-bottom:34px;
+    transition:border-color .15s, transform .15s;
   }
-  .theme-entry-title{
-    font-family: "Fraunces", serif;
-    font-weight: 600;
-    font-size: 1.02rem;
-    color: var(--paper);
-    text-decoration: none;
+  .theme-featured:hover{ border-color:var(--gold); transform:translateY(-1px); }
+  .theme-featured .kicker{ font-family:"JetBrains Mono", monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); }
+  .theme-featured h2{ font-family:"Fraunces", serif; font-weight:600; font-size:1.45rem; line-height:1.25; margin:8px 0 10px; color:var(--paper); }
+  .theme-featured .q{ color:var(--paper-dim); font-size:0.95rem; line-height:1.55; margin:0 0 14px; }
+  .theme-featured .go{ font-size:0.85rem; color:var(--gold); }
+
+  .theme-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(290px, 1fr)); gap:14px; margin:0; padding:0; list-style:none; }
+  .theme-card{
+    display:flex; gap:14px; align-items:flex-start; text-decoration:none; color:inherit;
+    background:var(--surface); border:1px solid var(--hairline); border-radius:10px; padding:12px;
+    height:100%; transition:border-color .15s, transform .15s;
   }
-  .theme-entry-title:hover{ text-decoration: underline; text-decoration-color: var(--gold); }
-  .theme-registre{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.66rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: 100px;
-    padding: 2px 9px;
-    white-space: nowrap;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    flex-shrink: 0;
+  .theme-card:hover{ border-color:var(--gold); transform:translateY(-1px); }
+  .theme-thumb{ width:72px; height:72px; border-radius:7px; background:var(--surface-2); object-fit:cover; flex-shrink:0; }
+  .theme-card-body{ min-width:0; }
+  .theme-card-date{ font-family:"JetBrains Mono", monospace; font-size:0.68rem; color:var(--paper-dim); }
+  .theme-card-title{ font-family:"Fraunces", serif; font-weight:600; font-size:1rem; line-height:1.3; color:var(--paper); margin:3px 0 8px; }
+  .theme-card:hover .theme-card-title{ text-decoration:underline; text-decoration-color:var(--gold); }
+  .theme-tags{ display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+  .theme-badge{
+    font-family:"JetBrains Mono", monospace; font-size:0.64rem; text-transform:uppercase; letter-spacing:0.05em;
+    padding:2px 8px; border-radius:100px; border:1px solid var(--hairline); color:var(--paper-dim);
+  }
+  .theme-badge::before{ content:""; display:inline-block; width:6px; height:6px; border-radius:50%; margin-right:6px; background:currentColor; vertical-align:middle; }
+  .theme-badge.favorable{ color:var(--favorable); border-color:var(--favorable); }
+  .theme-badge.stable{ color:var(--stable); border-color:var(--stable); }
+  .theme-badge.degrade{ color:var(--degrade); border-color:var(--degrade); }
+  .theme-france{ font-size:0.72rem; color:var(--paper-dim); }
+  .theme-section-title{ font-family:"JetBrains Mono", monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--paper-dim); margin:0 0 14px; }
+  @media (max-width: 480px){
+    .theme-featured{ padding:18px; }
+    .theme-featured h2{ font-size:1.2rem; }
+    .theme-chips{ flex-wrap:nowrap; overflow-x:auto; margin-right:-20px; padding-right:20px; scrollbar-width:none; }
+    .theme-chips::-webkit-scrollbar{ display:none; }
   }
 """
 
 
-def render_page(domain, entries, style_block, masthead_nav, follow_footer, tail_scripts):
+def render_page(domain, entries, style_block, masthead_nav, follow_footer, tail_scripts, counts=None):
     count = len(entries)
+    counts = counts or {}
     title = f"{domain['label']} — Scénario"
     description = (
         f"Toutes les éditions de Scénario sur le thème {domain['label'].lower()} : "
@@ -163,13 +191,59 @@ def render_page(domain, entries, style_block, masthead_nav, follow_footer, tail_
     )
     url = f"{SITE_URL}/themes/{domain['slug']}.html"
 
+    def chip(d):
+        current = ' aria-current="page"' if d["slug"] == domain["slug"] else ""
+        return (f'      <li><a class="theme-chip" href="{d["slug"]}.html"{current}>'
+                f'{html.escape(d["label"])}<span class="n">{counts.get(d["slug"], 0)}</span></a></li>')
+
+    chips_html = "\n".join(chip(d) for d in DOMAINS)
+
+    def thumb(e):
+        # Les miniatures vivent dans assets/social/archive-thumbs ; le script
+        # tourne parfois dans un miroir sans images, donc on ne teste pas leur
+        # présence : onerror masque l'<img> (en gardant sa place) si le fichier manque.
+        return (f'<img class="theme-thumb" src="../assets/social/archive-thumbs/{e["iso_date"][:10]}.jpg" '
+                f'alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility=\x27hidden\x27">')
+
+    def badges(e):
+        out = []
+        if e["kind"] in ("favorable", "stable", "degrade") and e["label"]:
+            out.append(f'<span class="theme-badge {e["kind"]}" title="Notre scénario">{html.escape(e["label"])}</span>')
+        if e["france"]:
+            out.append(f'<span class="theme-france">France : {html.escape(e["france"].lower())}</span>')
+        return "".join(out)
+
+    featured_html = ""
+    rest = entries
+    if entries:
+        f = entries[0]
+        rest = entries[1:]
+        # Certaines éditions reprennent la question telle quelle en titre : inutile de la répéter.
+        redite = f["question"].strip(" ?").lower() == f["title"].strip(" ?").lower()
+        q = f'\n    <p class="q">{html.escape(f["question"])}</p>' if f["question"] and not redite else ""
+        featured_html = f'''    <a class="theme-featured" href="../{f["href"]}">
+    <span class="kicker">Dernière édition · {f["display_date"]}</span>
+    <h2>{html.escape(f["title"])}</h2>{q}
+    <div class="theme-tags">{badges(f)}</div>
+    <span class="go">Lire l'édition →</span>
+    </a>'''
+
     items_html = "\n".join(
-        f'''      <li class="theme-entry">
-        <span class="theme-entry-date">{e["display_date"]}</span>
-        <a class="theme-entry-title" href="../{e["href"]}">{html.escape(e["title"])}</a>
-        {f'<span class="theme-registre">{html.escape(e["registre"])}</span>' if e["registre"] else ""}
-      </li>'''
-        for e in entries
+        f'''      <li><a class="theme-card" href="../{e["href"]}">
+        {thumb(e)}
+        <div class="theme-card-body">
+          <div class="theme-card-date">{e["display_date"]}</div>
+          <div class="theme-card-title">{html.escape(e["title"])}</div>
+          <div class="theme-tags">{badges(e)}</div>
+        </div>
+      </a></li>'''
+        for e in rest
+    )
+    earlier_html = (
+        f'''    <h2 class="theme-section-title">Les éditions précédentes</h2>
+    <ul class="theme-grid">
+{items_html}
+    </ul>''' if rest else ""
     )
 
     json_ld = f'''<script type="application/ld+json">
@@ -252,6 +326,8 @@ def render_page(domain, entries, style_block, masthead_nav, follow_footer, tail_
     ).replace(
         'src="assets/bottom-nav.js"', 'src="../assets/bottom-nav.js"'
     ).replace(
+        'src="assets/google-source-banner.js"', 'src="../assets/google-source-banner.js"'
+    ).replace(
         'serviceWorkerPath: "OneSignalSDKWorker.js"', 'serviceWorkerPath: "../OneSignalSDKWorker.js"'
     )
 
@@ -263,16 +339,18 @@ def render_page(domain, entries, style_block, masthead_nav, follow_footer, tail_
   <div class="wrap">
     <p class="eyebrow">Thème</p>
     <h1>{domain['label']}</h1>
-    <p class="dek">{count} édition{"s" if count != 1 else ""} de Scénario sur ce thème, classées de la plus récente à la plus ancienne — chacune avec 3 scénarios chiffrés.</p>
+    <p class="dek">{count} édition{"s" if count != 1 else ""} sur ce thème, chacune avec trois scénarios chiffrés.</p>
+    <ul class="theme-chips" aria-label="Changer de thème">
+{chips_html}
+    </ul>
   </div>
 </section>
 
 <section class="listing">
   <div class="wrap">
-    <ul class="theme-list">
-{items_html}
-    </ul>
-    <p style="margin-top:28px"><a class="theme-entry-title" href="../archives.html" style="font-size:0.85rem">← Retour à toutes les archives</a></p>
+{featured_html}
+{earlier_html}
+    <p style="margin-top:28px"><a class="theme-chip" href="../archives.html">← Toutes les archives</a></p>
   </div>
 </section>
 
@@ -288,11 +366,12 @@ def main():
     style_block, masthead_nav, follow_footer, tail_scripts = build_shared_pieces()
     THEMES_DIR.mkdir(exist_ok=True)
 
+    counts = {d["slug"]: sum(1 for e in entries if e["domain_slug"] == d["slug"]) for d in DOMAINS}
     summary = []
     for domain in DOMAINS:
         matched = [e for e in entries if e["domain_slug"] == domain["slug"]]
         matched.sort(key=lambda e: e["iso_date"], reverse=True)
-        page = render_page(domain, matched, style_block, masthead_nav, follow_footer, tail_scripts)
+        page = render_page(domain, matched, style_block, masthead_nav, follow_footer, tail_scripts, counts)
         out_path = THEMES_DIR / f"{domain['slug']}.html"
         out_path.write_text(page, encoding="utf-8")
         summary.append((domain["slug"], domain["label"], len(matched)))

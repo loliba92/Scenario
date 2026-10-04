@@ -407,42 +407,57 @@
     .hero.glossaire-hero{ padding: 64px 0 44px; }
   }
 
-  /* ---- Liste d'articles par page de thème (scripts/seo/generate_theme_pages.py) ---- */
-  .theme-list{ margin: 0; padding: 0; list-style: none; }
-  .theme-entry{
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--hairline);
+  /* ---- Pages de thème : sélecteur, édition à la une, cartes (scripts/seo/generate_theme_pages.py) ---- */
+  .theme-chips{ display:flex; flex-wrap:wrap; gap:8px; margin: 22px 0 0; padding:0; list-style:none; }
+  .theme-chip{
+    font-family:"JetBrains Mono", monospace; font-size:0.72rem; letter-spacing:0.03em;
+    padding:7px 13px; border-radius:100px; border:1px solid var(--hairline);
+    color:var(--paper-dim); text-decoration:none; white-space:nowrap;
   }
-  .theme-entry:first-child{ padding-top: 0; }
-  .theme-entry-date{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.72rem;
-    color: var(--paper-dim);
-    white-space: nowrap;
-    flex-shrink: 0;
+  .theme-chip:hover{ border-color:var(--gold); color:var(--paper); }
+  .theme-chip[aria-current="page"]{ background:var(--gold); border-color:var(--gold); color:var(--ink); font-weight:700; }
+  .theme-chip .n{ opacity:0.6; margin-left:4px; }
+
+  .theme-featured{
+    display:block; text-decoration:none; color:inherit;
+    background:var(--surface); border:1px solid var(--hairline); border-left:3px solid var(--gold);
+    border-radius:10px; padding:22px 24px; margin-bottom:34px;
+    transition:border-color .15s, transform .15s;
   }
-  .theme-entry-title{
-    font-family: "Fraunces", serif;
-    font-weight: 600;
-    font-size: 1.02rem;
-    color: var(--paper);
-    text-decoration: none;
+  .theme-featured:hover{ border-color:var(--gold); transform:translateY(-1px); }
+  .theme-featured .kicker{ font-family:"JetBrains Mono", monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); }
+  .theme-featured h2{ font-family:"Fraunces", serif; font-weight:600; font-size:1.45rem; line-height:1.25; margin:8px 0 10px; color:var(--paper); }
+  .theme-featured .q{ color:var(--paper-dim); font-size:0.95rem; line-height:1.55; margin:0 0 14px; }
+  .theme-featured .go{ font-size:0.85rem; color:var(--gold); }
+
+  .theme-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(290px, 1fr)); gap:14px; margin:0; padding:0; list-style:none; }
+  .theme-card{
+    display:flex; gap:14px; align-items:flex-start; text-decoration:none; color:inherit;
+    background:var(--surface); border:1px solid var(--hairline); border-radius:10px; padding:12px;
+    height:100%; transition:border-color .15s, transform .15s;
   }
-  .theme-entry-title:hover{ text-decoration: underline; text-decoration-color: var(--gold); }
-  .theme-registre{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.66rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: 100px;
-    padding: 2px 9px;
-    white-space: nowrap;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    flex-shrink: 0;
+  .theme-card:hover{ border-color:var(--gold); transform:translateY(-1px); }
+  .theme-thumb{ width:72px; height:72px; border-radius:7px; background:var(--surface-2); object-fit:cover; flex-shrink:0; }
+  .theme-card-body{ min-width:0; }
+  .theme-card-date{ font-family:"JetBrains Mono", monospace; font-size:0.68rem; color:var(--paper-dim); }
+  .theme-card-title{ font-family:"Fraunces", serif; font-weight:600; font-size:1rem; line-height:1.3; color:var(--paper); margin:3px 0 8px; }
+  .theme-card:hover .theme-card-title{ text-decoration:underline; text-decoration-color:var(--gold); }
+  .theme-tags{ display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+  .theme-badge{
+    font-family:"JetBrains Mono", monospace; font-size:0.64rem; text-transform:uppercase; letter-spacing:0.05em;
+    padding:2px 8px; border-radius:100px; border:1px solid var(--hairline); color:var(--paper-dim);
+  }
+  .theme-badge::before{ content:""; display:inline-block; width:6px; height:6px; border-radius:50%; margin-right:6px; background:currentColor; vertical-align:middle; }
+  .theme-badge.favorable{ color:var(--favorable); border-color:var(--favorable); }
+  .theme-badge.stable{ color:var(--stable); border-color:var(--stable); }
+  .theme-badge.degrade{ color:var(--degrade); border-color:var(--degrade); }
+  .theme-france{ font-size:0.72rem; color:var(--paper-dim); }
+  .theme-section-title{ font-family:"JetBrains Mono", monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--paper-dim); margin:0 0 14px; }
+  @media (max-width: 480px){
+    .theme-featured{ padding:18px; }
+    .theme-featured h2{ font-size:1.2rem; }
+    .theme-chips{ flex-wrap:nowrap; overflow-x:auto; margin-right:-20px; padding-right:20px; scrollbar-width:none; }
+    .theme-chips::-webkit-scrollbar{ display:none; }
   }
 </style>
 <script type="application/ld+json">
@@ -486,75 +501,119 @@
   <div class="wrap">
     <p class="eyebrow">Thème</p>
     <h1>International</h1>
-    <p class="dek">12 éditions de Scénario sur ce thème, classées de la plus récente à la plus ancienne — chacune avec 3 scénarios chiffrés.</p>
+    <p class="dek">12 éditions sur ce thème, chacune avec trois scénarios chiffrés.</p>
+    <ul class="theme-chips" aria-label="Changer de thème">
+      <li><a class="theme-chip" href="economie-entreprises.html">Économie &amp; entreprises<span class="n">11</span></a></li>
+      <li><a class="theme-chip" href="politique-institutions.html">Politique &amp; institutions<span class="n">14</span></a></li>
+      <li><a class="theme-chip" href="international.html" aria-current="page">International<span class="n">12</span></a></li>
+      <li><a class="theme-chip" href="sciences-environnement.html">Sciences &amp; environnement<span class="n">9</span></a></li>
+      <li><a class="theme-chip" href="tech-numerique.html">Tech &amp; numérique<span class="n">4</span></a></li>
+      <li><a class="theme-chip" href="culture-divertissement.html">Culture &amp; divertissement<span class="n">13</span></a></li>
+    </ul>
   </div>
 </section>
 
 <section class="listing">
   <div class="wrap">
-    <ul class="theme-list">
-      <li class="theme-entry">
-        <span class="theme-entry-date">28.09.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-09-28.html">Nouvel ordre mondial : la domination occidentale est-elle remise en cause par un monde de plus en plus multipolaire ?</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">22.09.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-09-22.html">Bab el-Mandeb : un tiers du commerce mondial sous contrôle hostile ?</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">21.09.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-09-21.html">USA-Chine : la trêve commerciale au bord du gouffre</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">14.09.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-09-14.html">Taïwan : Trump et Xi peuvent-ils calmer la pression chinoise ?</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">07.09.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-09-07.html">Groenland : l&#x27;UE mise 200 millions face à Trump</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">31.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-31.html">Islande : après le non à l&#x27;UE, qui va la protéger ?</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">24.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-24.html">Ukraine : ni paix ni victoire</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">17.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-17.html">Ormuz : la trêve a expiré</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">11.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-11.html">L&#x27;Éthiopie veut sa mer, au risque de la guerre</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">04.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-04.html">Gaza : la paix qui reste sur le papier</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">03.08.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-08-03.html">Ceuta : la frontière qui a craqué</a>
-        
-      </li>
-      <li class="theme-entry">
-        <span class="theme-entry-date">27.07.2026</span>
-        <a class="theme-entry-title" href="../archives/2026-07-27.html">Iran–États-Unis : les armes se taisent, l&#x27;accord reste à trouver</a>
-        
-      </li>
+    <a class="theme-featured" href="../archives/2026-09-28.html">
+    <span class="kicker">Dernière édition · 28.09.2026</span>
+    <h2>Nouvel ordre mondial : la domination occidentale est-elle remise en cause par un monde de plus en plus multipolaire ?</h2>
+    <p class="q">La domination occidentale est-elle remise en cause par un monde de plus en plus multipolaire ?</p>
+    <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : plutôt défavorable</span></div>
+    <span class="go">Lire l'édition →</span>
+    </a>
+    <h2 class="theme-section-title">Les éditions précédentes</h2>
+    <ul class="theme-grid">
+      <li><a class="theme-card" href="../archives/2026-09-22.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-09-22.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">22.09.2026</div>
+          <div class="theme-card-title">Bab el-Mandeb : un tiers du commerce mondial sous contrôle hostile ?</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-09-21.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-09-21.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">21.09.2026</div>
+          <div class="theme-card-title">USA-Chine : la trêve commerciale au bord du gouffre</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : plutôt défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-09-14.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-09-14.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">14.09.2026</div>
+          <div class="theme-card-title">Taïwan : Trump et Xi peuvent-ils calmer la pression chinoise ?</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-09-07.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-09-07.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">07.09.2026</div>
+          <div class="theme-card-title">Groenland : l&#x27;UE mise 200 millions face à Trump</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-08-31.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-08-31.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">31.08.2026</div>
+          <div class="theme-card-title">Islande : après le non à l&#x27;UE, qui va la protéger ?</div>
+          <div class="theme-tags"><span class="theme-badge degrade" title="Notre scénario">Dégradé</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-08-24.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-08-24.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">24.08.2026</div>
+          <div class="theme-card-title">Ukraine : ni paix ni victoire</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-08-17.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-08-17.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">17.08.2026</div>
+          <div class="theme-card-title">Ormuz : la trêve a expiré</div>
+          <div class="theme-tags"><span class="theme-badge degrade" title="Notre scénario">Dégradé</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-08-11.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-08-11.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">11.08.2026</div>
+          <div class="theme-card-title">L&#x27;Éthiopie veut sa mer, au risque de la guerre</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : plutôt défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-08-04.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-08-04.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">04.08.2026</div>
+          <div class="theme-card-title">Gaza : la paix qui reste sur le papier</div>
+          <div class="theme-tags"><span class="theme-badge stable" title="Notre scénario">Stable</span><span class="theme-france">France : neutre</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-08-03.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-08-03.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">03.08.2026</div>
+          <div class="theme-card-title">Ceuta : la frontière qui a craqué</div>
+          <div class="theme-tags"><span class="theme-badge degrade" title="Notre scénario">Dégradé</span><span class="theme-france">France : assez défavorable</span></div>
+        </div>
+      </a></li>
+      <li><a class="theme-card" href="../archives/2026-07-27.html">
+        <img class="theme-thumb" src="../assets/social/archive-thumbs/2026-07-27.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.style.visibility='hidden'">
+        <div class="theme-card-body">
+          <div class="theme-card-date">27.07.2026</div>
+          <div class="theme-card-title">Iran–États-Unis : les armes se taisent, l&#x27;accord reste à trouver</div>
+          <div class="theme-tags"><span class="theme-badge degrade" title="Notre scénario">Dégradé</span><span class="theme-france">France : très défavorable</span></div>
+        </div>
+      </a></li>
     </ul>
-    <p style="margin-top:28px"><a class="theme-entry-title" href="../archives.html" style="font-size:0.85rem">← Retour à toutes les archives</a></p>
+    <p style="margin-top:28px"><a class="theme-chip" href="../archives.html">← Toutes les archives</a></p>
   </div>
 </section>
 
