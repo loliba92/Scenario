@@ -29,7 +29,10 @@ URL = "https://openrouter.ai/api/v1/audio/speech"
 
 def synthese_openrouter(texte: str, modele: str, voix: str, cle: str, essais: int = 3) -> bytes:
     """PCM 16 bits mono 24 kHz du texte lu par `voix` du `modele`."""
-    corps = json.dumps({"model": modele, "input": texte, "voice": voix, "response_format": "pcm"}).encode()
+    charge = {"model": modele, "input": texte, "response_format": "pcm"}
+    if voix:  # certains modèles (Fish Audio) n'ont pas de liste de voix : le champ est alors omis
+        charge["voice"] = voix
+    corps = json.dumps(charge).encode()
     derniere = ""
     for n in range(essais):
         if n:
@@ -81,7 +84,7 @@ def main(argv=None) -> int:
     out.mkdir(parents=True, exist_ok=True)
     echecs = 0
     for couple in args[1:]:
-        modele, voix = couple.split("|", 1)
+        modele, _, voix = couple.partition("|")
         try:
             pcm = synthese_openrouter(extrait, modele, voix, cle)
         except gp.PodcastError as e:
