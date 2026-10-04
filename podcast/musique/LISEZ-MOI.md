@@ -5,6 +5,8 @@ Le fichier `ouverture.mp3` (ou `.wav`, `.m4a`) est la musique de tous les épiso
 
 - **Ouverture** : le morceau joue seul (fondu depuis le silence), la voix entre après 10 s pendant que la musique
   redescend.
+- **Accueil et conclusion** : sous la phrase « Bienvenue sur Scénario… » et sous la phrase finale, la musique est plus
+  présente (25 % du niveau de la voix) que le fond ordinaire. Réglage : `NIVEAU_SOUS_ACCUEIL`.
 - **Fond** : sous la voix, la musique reste très légère (7 % du niveau de la voix), à peine perceptible. Le morceau défile
   en continu et se répète sans coupure.
 - **Jingles** entre les grandes parties : la musique monte en fondu (9 s), puis redescend sous le début de la partie suivante.
