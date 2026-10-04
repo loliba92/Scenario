@@ -2,6 +2,21 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-04",
+      "articles": [
+        {
+          "title": "Championnat des Nations, c'est parti fort : bataille Blacks-Boks au sud, la France lancée au nord",
+          "source": "Rugbyrama",
+          "url": "https://www.rugbyrama.fr/2026/10/01/championnat-des-nations-cest-parti-fort-bataille-blacks-boks-au-sud-la-france-lancee-au-nord-13577065.php",
+          "image": null,
+          "lang": "fr",
+          "domain": "sport",
+          "summary": "Article de rugbyrama.fr du 1er octobre 2026 analysant le lancement du Championnat des Nations. La France est en tête du classement nordiste après trois journées estivales avec deux victoires bonifiées. La finale est prévue le 29 novembre 2026 à l'Allianz Stadium de Londres.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-10-03",
       "articles": [
         {
