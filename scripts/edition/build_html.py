@@ -1351,30 +1351,10 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
 
     head_dynamic = build_head_dynamic(content, brief, date_str, canonical_url, photo=photo)
     masthead = build_masthead(shell["masthead_html"], date_str, edition_number)
-    # Lien "Voir tous les sujets « Domaine » →" dans le hero de l'ARTICLE
-    # lui-même (pas seulement la carte mise en avant de la home, voir
-    # DOMAIN_THEME_SLUGS/build_featured_article) — retour utilisateur du
-    # 28 septembre 2026 : un lecteur qui atterrit directement sur
-    # archives/{date}.html (recherche, réseau social...), sans passer par
-    # la home, n'avait aucun moyen d'explorer les autres sujets du même
-    # domaine.
-    #
-    # Table DIFFÉRENTE de DOMAIN_THEME_SLUGS ci-dessus, volontairement :
-    # ici on a accès à brief["sujet"]["domain"] BRUT (le slug tel que
-    # produit par la recherche, ex. "economie-entreprises"), jamais
-    # seulement le texte affiché dans <meta property="article:section">
-    # (extrait après coup par extract_article_domain() pour la home, où
-    # le brief d'origine n'est plus disponible). THEME_SLUG_LABELS est
-    # donc keyée sur les 6 slugs officiels eux-mêmes (docs/tags.md), pas
-    # sur des libellés Title Case observés — un match direct quand le
-    # domaine produit est bien l'un des 6, comme prévu par le schéma ;
-    # sinon (dérive du domaine, ex. "sport") le lien est omis, jamais
-    # cassé — même dégradation silencieuse que côté home.
-    domain_label = THEME_SLUG_LABELS.get(brief["sujet"]["domain"])
-    theme_link_html = (
-        f'    <p><a class="cross-link" href="../themes/{brief["sujet"]["domain"]}.html">Voir tous les sujets «&nbsp;{domain_label}&nbsp;»&nbsp;→</a></p>\n'
-        if domain_label else ""
-    )
+    # Pas de lien « Voir tous les sujets « Domaine » → » dans le hero de l'article : ajouté le 28 septembre 2026,
+    # retiré le 4 octobre 2026 à la demande de l'éditeur (placé juste avant « Les faits », il n'avait pas de sens).
+    # Le lien reste sous la carte mise en avant de la page d'accueil (build_featured_article).
+    theme_link_html = ""
     hero = build_hero(content, date_str, photo=photo, graphique_dc_chart=brief.get("graphique_dc_chart"),
                        theme_link_html=theme_link_html)
     related_articles = build_related_articles(brief)
