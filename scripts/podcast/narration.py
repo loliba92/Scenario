@@ -97,10 +97,11 @@ def main(argv=None) -> int:
         print(f"Contrôle du début : conforme (« {transcription[:90]}… »)", flush=True)
     import musique
     theme = musique.trouver_theme(gp.ROOT) if args.ouverture else None
-    theme_pcm = musique.decoder_theme(theme) if theme else None
+    theme_complet = musique.decoder_theme(theme, 30.0) if theme else None
+    theme_pcm = theme_complet[:2 * musique.SR * 12] if theme_complet else None
     if args.ouverture and theme is None:
         print("Pas de thème musical (podcast/musique/ouverture.mp3) : épisode sans musique.", flush=True)
-    jingle = musique.jingle_depuis_theme(theme_pcm) if theme_pcm else None
+    jingle = musique.jingles_depuis_theme(theme_complet, max(1, len(parties_pcm) - 1)) if theme_complet else None
     pcm = musique.assembler_parties(parties_pcm, jingle)
     if args.musique:
         pcm = musique.habiller(pcm)
