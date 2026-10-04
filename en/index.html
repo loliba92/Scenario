@@ -2233,7 +2233,17 @@
       overflow: hidden;
     }
   }
-
+  /* Mobile : l'en-tête ne reste plus collé en haut pendant le défilement (retour utilisateur du
+     2 octobre 2026). Il occupait ~130 px en permanence sur un écran de ~800 px, soit plus d'un
+     septième de la zone de lecture ; la barre du bas (#bottom-nav) assure déjà la navigation.
+     Sur ordinateur, l'en-tête reste collant (règle « Masthead sticky » plus haut). */
+  @media (max-width: 720px){
+    header.masthead{
+      position: static;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+  }
 </style>
 </head>
 <body>
