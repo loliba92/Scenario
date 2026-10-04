@@ -414,6 +414,7 @@ def assembler_parties(parties_pcm: list[bytes], jingle_pcm, silence_s: float = 0
 NIVEAU_FOND = 0.07      # sous la voix, × niveau sonore de la voix : à peine perceptible
 NIVEAU_JINGLE = 0.9     # pendant un jingle, × niveau sonore de la voix
 NIVEAU_OUVERTURE_REL = 1.1
+NIVEAU_SOUS_ACCUEIL = 0.25  # sous la phrase d'accueil et sous la phrase finale : musique bien présente mais sous la voix
 OUVERTURE_S = 12.0      # le thème joue seul 10 s, la voix entre 2 s avant la fin de l'ouverture
 JINGLE_S = 9.0
 RECOUVREMENT_JINGLE_S = 3.0
@@ -450,9 +451,11 @@ def _enveloppe(points: list[tuple[float, float]], n: int) -> array:
     return env
 
 
-def habiller_fond(theme_pcm: bytes, parties_pcm: list[bytes]) -> bytes:
+def habiller_fond(theme_pcm: bytes, parties_pcm: list[bytes], accueil_s: float | None = None) -> bytes:
     """Épisode complet : ouverture musicale, voix des parties avec un fond musical très léger, jingles (la musique monte
-    puis redescend sous le début de la partie suivante) et fermeture en fondu jusqu'à zéro."""
+    puis redescend sous le début de la partie suivante) et fermeture en fondu jusqu'à zéro. La phrase d'accueil
+    (`accueil_s` secondes au début de la 1re partie) et la dernière partie (phrase finale) sont dites sur une musique
+    plus présente (NIVEAU_SOUS_ACCUEIL) que le fond ordinaire."""
     theme = array("h")
     theme.frombytes(theme_pcm)
     parties = []
@@ -468,17 +471,22 @@ def habiller_fond(theme_pcm: bytes, parties_pcm: list[bytes]) -> bytes:
     bas, jingle, ouv = NIVEAU_FOND, NIVEAU_JINGLE, NIVEAU_OUVERTURE_REL
     # --- calendrier : début de chaque partie, et points de l'enveloppe
     debut = OUVERTURE_S - 2.0
-    pts = [(0.0, 0.0), (1.5, ouv), (debut, ouv), (debut + 5.0, bas)]
+    mid = NIVEAU_SOUS_ACCUEIL
+    if accueil_s and accueil_s > 3.0:
+        pts = [(0.0, 0.0), (1.5, ouv), (debut, ouv), (debut + 2.0, mid), (debut + accueil_s, mid), (debut + accueil_s + 3.0, bas)]
+    else:
+        pts = [(0.0, 0.0), (1.5, ouv), (debut, ouv), (debut + 5.0, bas)]
     positions = []
     t = debut
     for i, a in enumerate(parties):
         if i:
             s = t + 0.3                                   # le jingle commence juste après la fin de la partie
-            pts += [(s, bas), (s + 1.8, jingle), (s + JINGLE_S - 4.0, jingle), (s + JINGLE_S, bas)]
+            apres = mid if (i == len(parties) - 1 and i > 0) else bas   # avant la phrase finale, la musique reste présente
+            pts += [(s, bas), (s + 1.8, jingle), (s + JINGLE_S - 4.0, jingle), (s + JINGLE_S, apres)]
             t = s + JINGLE_S - RECOUVREMENT_JINGLE_S      # la partie suivante entre sous la fin du jingle
         positions.append(t)
         t += len(a) / SR
-    pts += [(t, bas), (t + 1.5, jingle), (t + 4.0, jingle), (t + FERMETURE_S, 0.0)]
+    pts += [(t, mid if len(parties) > 1 else bas), (t + 1.5, jingle), (t + 4.0, jingle), (t + FERMETURE_S, 0.0)]
     pts.sort(key=lambda p: p[0])
     # les points d'un jingle et de la partie qui le suit se chevauchent : on garde l'ordre du temps
     fin = t + FERMETURE_S + 0.5

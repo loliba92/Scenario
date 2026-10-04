@@ -251,6 +251,14 @@ class TestFondContinu(unittest.TestCase):
         # sous la voix (ex. 3e seconde de la 1re partie, vers 15 s) : voix + fond très léger, donc à peine plus de 3000
         self.assertLess(niveaux[16], 3000 * 1.12)
         self.assertGreater(len(out) / mu.SR, 10 + 15 * 3 + 2 * (9 - 3 + 0.3))
+        # avec accueil : musique plus présente sous l'accueil (de 10 à 16 s) que sous le reste de la partie
+        out2 = array("h")
+        out2.frombytes(mu.habiller_fond(theme, [voix, voix, voix], accueil_s=6.0))
+        n2 = [mu._rms(out2[i * w:(i + 1) * w]) for i in range(len(out2) // w)]
+        self.assertGreater(n2[13], niveaux[13] * 1.05)
+        # dernière partie : musique plus présente que le fond ordinaire
+        t_fin = 10 + 15 + (0.3 + 9 - 3) + 15 + (0.3 + 9 - 3)
+        self.assertGreater(n2[int(t_fin) + 5], niveaux[int(t_fin) + 5] * 0.99)
 
 
 if __name__ == "__main__":
