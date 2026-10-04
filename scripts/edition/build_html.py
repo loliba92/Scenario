@@ -1248,13 +1248,27 @@ def build_featured_article(article, lang="fr", theme_link_base=None):
 </section>'''
 
 
+MATIERE_ICONS = {
+    "economie-entreprises": '<path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 4-4 3 3 5-6"/>',
+    "politique-institutions": '<path d="M3 9 12 4l9 5"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 20h18"/>',
+    "international": '<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.5 2.5 3.5 5.5 3.5 8.5s-1 6-3.5 8.5c-2.5-2.5-3.5-5.5-3.5-8.5s1-6 3.5-8.5Z"/>',
+    "sciences-environnement": '<path d="M9 3h6"/><path d="M10 3v6L5 18a1.5 1.5 0 0 0 1.3 2.2h11.4A1.5 1.5 0 0 0 19 18l-5-9V3"/><path d="M7.5 14h9"/>',
+    "tech-numerique": '<rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/>',
+    "culture-divertissement": '<rect x="3.5" y="5" width="17" height="14" rx="2"/><path d="m10 9.5 5 2.5-5 2.5Z"/>',
+    "sport": '<path d="M8 4h8v5a4 4 0 0 1-8 0Z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4"/><path d="M12 13v4M8.5 20h7M10 17h4"/>',
+}
+
+
 def build_matieres_section():
     """Rangée de pastilles « Par matière » sous le hero de l'accueil : seul
     chemin visible vers themes/*.html (avant, elles n'étaient reliées que
     depuis les archives). FR uniquement : pas de pages thèmes en anglais.
     L'ancre #matieres est aussi la cible du lien « Matières » du menu."""
+    icons = MATIERE_ICONS
     chips = "\n".join(
-        f'      <li><a href="themes/{slug}.html">{label.replace("&", "&amp;")}</a></li>'
+        f'      <li><a class="matiere-tile" href="themes/{slug}.html"><svg viewBox="0 0 24 24" fill="none" '
+        f'stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+        f'{icons[slug]}</svg><span>{label.replace("&", "&amp;")}</span></a></li>'
         for slug, label in THEME_SLUG_LABELS.items()
     )
     return f"""
@@ -1262,7 +1276,7 @@ def build_matieres_section():
 <section class="matieres" id="matieres" aria-label="Parcourir par matière">
   <div class="wrap">
     <p class="section-label">Par matière</p>
-    <ul class="matieres-list">
+    <ul class="matiere-tiles">
 {chips}
     </ul>
   </div>
