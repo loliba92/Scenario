@@ -35,7 +35,7 @@ RÈGLES ABSOLUES
   · une idée par phrase, des phrases de 15 mots en moyenne, jamais plus de 25 ;
   · chaque sigle, institution ou terme technique est expliqué en quelques mots dès sa première apparition (« le Top 14, le championnat français de rugby ») ;
   · pas de mots abstraits (« dynamique », « enjeux », « paradigme », « gouvernance », « trajectoire ») : dis ce qu'ils désignent ;
-  · les trois scénarios s'appellent « évolutions » : « première évolution possible », « deuxième », « troisième », chacune annoncée par une phrase simple avant son détail ;
+  · les trois scénarios gardent leur nom, c'est notre marque : « premier scénario », « deuxième scénario », « troisième scénario », chacun annoncé par une phrase simple avant son détail (le mot « évolutions » n'est utilisé que dans la phrase d'accueil, ajoutée par le script) ;
   · après une partie dense, une phrase qui redit l'idée en mots simples (« Autrement dit… »), sans répéter les chiffres ;
   · une comparaison ou un exemple concret par grande partie quand l'article en fournit un (jamais inventé).
 - Du langage parlé : phrases courtes, tournures naturelles, pas de liste, pas de Markdown, pas d'adresse web.
@@ -46,7 +46,7 @@ STRUCTURE (entre {MOTS_MIN} et {MOTS_MAX} mots, soit 3 à 5 minutes)
 1. La question du jour, en une ou deux phrases.
 2. Ce que l'on sait : les faits qui posent la question, avec un ou deux exemples concrets.
 3. Le fond du problème : à quoi cherche-t-on à répondre, et pourquoi la réponse n'est pas évidente.
-4. Les trois évolutions possibles (les scénarios), une par une, dans l'ensemble : le plus optimiste (favorable), le plus probable (stable, dis-le clairement), le plus sombre (dégradé), chacun avec sa probabilité et l'idée centrale, sans détail chiffré.
+4. Les trois scénarios, un par un, dans l'ensemble : le plus optimiste (favorable), le plus probable (stable, dis-le clairement), le plus sombre (dégradé), chacun avec sa probabilité et l'idée centrale, sans détail chiffré.
 5. L'impact pour la France, en deux ou trois phrases.
 6. Ce qu'on surveillera pour savoir lequel se réalise.
 
@@ -95,6 +95,8 @@ def verifier(texte: str, source: str) -> list[str]:
         if trop_longues or moyenne > MOTS_PHRASE_MOYENNE:
             problemes.append(f"phrases trop longues pour l'oral (maximum {MOTS_PHRASE_MAX} mots, moyenne {MOTS_PHRASE_MOYENNE} ; "
                              f"{len(trop_longues)} trop longue(s), moyenne actuelle {moyenne:.0f}) : une idée par phrase")
+    if len(re.findall(r"sc[ée]narios?", texte, re.I)) < 2:
+        problemes.append("nomme les trois « scénarios » avec ce mot (c'est la marque : « premier scénario », etc.)")
     if re.search(r"indicateurs?", texte, re.I):
         problemes.append("ne parle pas des indicateurs")
     connus = gp.nombres(source)
