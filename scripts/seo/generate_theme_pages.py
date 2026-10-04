@@ -358,7 +358,7 @@ def render_page(domain, entries, style_block, masthead_nav, follow_footer, tail_
   <div class="wrap">
 {featured_html}
 {earlier_html}
-    <p style="margin-top:28px;display:flex;flex-wrap:wrap;gap:8px"><a class="theme-chip" href="../archives.html">Toutes les éditions par date</a><a class="theme-chip" href="../recherche.html">Rechercher un mot</a></p>
+    <p style="margin-top:28px;display:flex;flex-wrap:wrap;gap:8px"><a class="theme-chip" href="../archives.html">Toutes les éditions par date</a><a class="theme-chip" href="../recherche.html?matiere={domain["slug"]}">Rechercher dans cette matière</a></p>
   </div>
 </section>
 
