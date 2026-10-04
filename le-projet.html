@@ -466,6 +466,63 @@
   @media (max-width: 600px){
     .hero.projet-hero{ padding: 64px 0 44px; }
   }
+
+  /* ---- Refonte UX de la page projet ---- */
+  section.body-section{ scroll-margin-top: 64px; }
+  .body-section[id]{ scroll-margin-top: 64px; }
+  nav.toc-sticky{
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(16,21,28,0.92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  nav.toc-sticky .wrap{ display:flex; gap:8px; margin:0; padding-top:10px; padding-bottom:10px; overflow-x:auto; scrollbar-width:none; }
+  nav.toc-sticky .wrap::-webkit-scrollbar{ display:none; }
+  nav.toc-sticky a{ flex-shrink:0; white-space:nowrap; }
+  nav.toc-sticky a[aria-current="true"]{ background:var(--gold); border-color:var(--gold); color:var(--ink); font-weight:700; }
+
+  .bref{ padding: 40px 0 8px; }
+  .bref-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; margin-top:6px; }
+  .bref-card{
+    display:flex; flex-direction:column; gap:6px; text-decoration:none; color:var(--paper-dim);
+    background:var(--surface); border:1px solid var(--hairline); border-radius:10px; padding:18px;
+    transition:border-color .15s, transform .15s; font-size:0.92rem; line-height:1.5;
+  }
+  .bref-card:hover{ border-color:var(--gold); transform:translateY(-1px); }
+  .bref-card strong{ font-family:"Fraunces", serif; font-size:1.1rem; color:var(--paper); font-weight:600; }
+  .bref-n{ font-family:"JetBrains Mono", monospace; font-size:0.72rem; color:var(--gold); }
+  .bref-cta{ display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+  .bref-btn{
+    font-family:"JetBrains Mono", monospace; font-size:0.76rem; text-decoration:none; color:var(--paper);
+    border:1px solid var(--hairline); border-radius:100px; padding:9px 16px;
+  }
+  .bref-btn:hover{ border-color:var(--gold); }
+  .bref-btn.primary{ background:var(--gold); border-color:var(--gold); color:var(--ink); font-weight:700; }
+
+  .trio{ display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin:0 0 22px; }
+  .trio-card{
+    background:var(--surface); border:1px solid var(--hairline); border-top:3px solid var(--stable);
+    border-radius:10px; padding:14px 16px; font-size:0.88rem; line-height:1.5; color:var(--paper-dim);
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .trio-card.favorable{ border-top-color:var(--favorable); }
+  .trio-card.degrade{ border-top-color:var(--degrade); }
+  .trio-name{ font-family:"Fraunces", serif; font-weight:600; font-size:1.05rem; color:var(--paper); }
+
+  details.more{ margin: 4px 0 18px; }
+  details.more > summary{
+    list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
+    font-family:"JetBrains Mono", monospace; font-size:0.76rem; color:var(--gold);
+    border:1px solid var(--hairline); border-radius:100px; padding:8px 16px; margin-bottom:16px;
+  }
+  details.more > summary::-webkit-details-marker{ display:none; }
+  details.more > summary::after{ content:"+"; font-size:1rem; line-height:1; }
+  details.more[open] > summary::after{ content:"−"; }
+  details.more > summary:hover{ border-color:var(--gold); }
+
+  @media (max-width: 640px){
+    .bref-grid, .trio{ grid-template-columns:1fr; }
+    .bref{ padding-top:28px; }
+  }
 </style>
 </head>
 <body>
@@ -500,17 +557,35 @@
     <h1>Qu'est-ce que Scéna<span class="brand-rio">rio</span> ?</h1>
     <p class="dek">Comprendre l'actualité, c'est en mesurer les conséquences, pas seulement en connaître les faits. Chaque jour, <strong>Scéna<span class="brand-rio">rio</span></strong> prend un sujet clé et en détaille <strong>trois évolutions possibles</strong>.</p>
     <p class="dek">Chaque édition est aussi <a href="en/index.html">proposée en anglais</a>, pour qui préfère lire — ou partager — dans cette langue.</p>
-    <nav class="toc" aria-label="Sommaire de la page">
-      <a href="#principe">Le principe</a>
-      <a href="#probabilite">C'est quoi, une probabilité ?</a>
-      <a href="#scenarios">Favorable / stable / dégradé</a>
-      <a href="#suivi">Le suivi</a>
-      <a href="#public">Pour qui</a>
-      <a href="#equipe">Qui fait Scénario</a>
-      <a href="#rythme">Le rythme</a>
-      <a href="#glossaire-section">Vocabulaire</a>
-      <a href="#audience">La communauté</a>
-    </nav>
+  </div>
+</section>
+
+<nav class="toc toc-sticky" id="toc" aria-label="Sommaire de la page">
+  <div class="wrap">
+    <a href="#principe">Le principe</a>
+    <a href="#probabilite">Probabilité</a>
+    <a href="#scenarios">Les 3 scénarios</a>
+    <a href="#suivi">Suivi</a>
+    <a href="#public">Pour qui</a>
+    <a href="#equipe">Qui fait Scénario</a>
+    <a href="#rythme">Rythme</a>
+    <a href="#glossaire-section">Vocabulaire</a>
+    <a href="#audience">Communauté</a>
+  </div>
+</nav>
+
+<section class="bref" aria-label="Scénario en bref">
+  <div class="wrap">
+    <p class="section-label">En bref</p>
+    <div class="bref-grid">
+      <a class="bref-card" href="#rythme"><span class="bref-n">1</span><strong>Un sujet par jour</strong><span>Chaque jour, une question d'actualité, expliquée simplement.</span></a>
+      <a class="bref-card" href="#scenarios"><span class="bref-n">2</span><strong>Trois évolutions possibles</strong><span>Favorable, stable, dégradé : chacune avec sa probabilité et des indicateurs chiffrés.</span></a>
+      <a class="bref-card" href="#suivi"><span class="bref-n">3</span><strong>Un suivi dans le temps</strong><span>Les estimations sont réévaluées quand l'actualité bouge.</span></a>
+    </div>
+    <div class="bref-cta">
+      <a class="bref-btn primary" href="index.html">Lire l'édition du jour →</a>
+      <a class="bref-btn" href="archives.html">Parcourir les archives</a>
+    </div>
   </div>
 </section>
 
@@ -519,6 +594,7 @@
     <p class="section-label">Le projet</p>
     <h2 class="section-title">Trois scénarios plutôt qu'une prédiction</h2>
     <p>La plupart des supports d'information <strong>décrivent</strong> : ils posent les faits et expliquent où en est un sujet aujourd'hui. <strong>Scéna<span class="brand-rio">rio</span></strong> part du même socle, mais fait un pas de plus — il <strong>regarde vers l'avant</strong>, ou du moins vers ce à quoi la suite pourrait ressembler. Pas de boule de cristal : à partir de la seule information disponible aujourd'hui, on tente d'<strong>extrapoler trois futurs possibles</strong> plutôt que d'en deviner un seul.</p>
+    <details class="more"><summary>Lire la suite</summary>
     <p><strong>Scéna<span class="brand-rio">rio</span></strong> décrypte une actualité à forts enjeux et prend le parti de ne jamais prétendre en connaître l'issue à l'avance. Pour chaque sujet, on construit <strong>trois scénarios concrets</strong> — favorable, stable, dégradé — plutôt qu'une prédiction unique, avec à chaque fois une probabilité estimée, des indicateurs chiffrés et ce que ça changerait vraiment en France.</p>
     <p>L'idée : remplacer l'incertitude floue de l'actualité par des repères clairs, sans jamais prétendre à une exactitude qu'aucune actualité en cours ne permet. Chaque coefficient de probabilité reste une estimation qualitative, jamais un calcul garanti.</p>
     <p>Le ton et le niveau de détail s'adaptent au sujet du jour, mais l'exigence reste la même :</p>
@@ -527,6 +603,7 @@
       <li>Expliquer les bases pour qui découvre le sujet</li>
       <li>Ne jamais transformer une synthèse en conseil ou en prise de position</li>
     </ul>
+    </details>
   </div>
 </section>
 
@@ -541,8 +618,10 @@
       <div class="rhythm-item"><span class="day">50 %</span><span class="topic">Pile ou face</span><span class="rhythm-note">Autant de chances que le contraire se produise.</span></div>
       <div class="rhythm-item"><span class="day">100 %</span><span class="topic">Certain</span><span class="rhythm-note">Rarissime tant qu'une actualité est en cours.</span></div>
     </div>
+    <details class="more"><summary>Et sur Scénario ?</summary>
     <p>Sur <strong>Scéna<span class="brand-rio">rio</span></strong>, chaque édition affiche trois probabilités — une par scénario — qui s'additionnent toujours autour de <strong>100 %</strong> : plus l'une monte, plus les deux autres redescendent mécaniquement. Un mot d'ambiance accompagne chaque chiffre (<em>peu probable</em>, <em>assez probable</em>, <em>probable</em>) pour une lecture rapide, mais c'est toujours le pourcentage qui fait foi — le mot n'est qu'un raccourci de lecture.</p>
     <p>Voilà pour la théorie. Le principe est le même sur <strong>Scéna<span class="brand-rio">rio</span></strong>, avec une exigence en plus : ce chiffre n'est jamais une intuition. Comment on le construit, édition après édition, est détaillé juste après.</p>
+    </details>
     <a class="cross-link" href="#scenarios">Voir comment on calcule les nôtres →</a>
   </div>
 </section>
@@ -551,6 +630,12 @@
   <div class="wrap">
     <p class="section-label">Les trois scénarios</p>
     <h2 class="section-title">Favorable, stable, dégradé : par rapport à quoi ?</h2>
+    <div class="trio">
+      <div class="trio-card favorable"><span class="trio-name">Favorable</span><span>La tension se résout plutôt bien : apaisement ou clarification.</span></div>
+      <div class="trio-card stable"><span class="trio-name">Stable</span><span>Le statu quo se prolonge, sans rupture ni amélioration nette.</span></div>
+      <div class="trio-card degrade"><span class="trio-name">Dégradé</span><span>La situation se complique ou se détériore nettement.</span></div>
+    </div>
+    <details class="more"><summary>Par rapport à quoi, et comment on estime</summary>
     <p>Ces trois mots ne désignent jamais un camp qui l'emporterait sur un autre — un sujet géopolitique ou économique implique presque toujours plusieurs parties aux intérêts opposés, et « favorable » ne prend jamais parti pour l'une d'elles. Les trois scénarios évaluent une seule chose : la trajectoire de la <strong>question posée</strong> en tête de chaque édition, celle affichée dans l'encart « Ce qu'on évalue ».</p>
     <p><strong>Favorable</strong> : la tension ou l'incertitude au cœur du sujet se résout plutôt bien — pas forcément sans reste, mais dans le sens d'un apaisement ou d'une clarification. <strong>Stable</strong> : rien ne se résout ni ne s'aggrave nettement, le statu quo se prolonge — ce qui peut avoir un coût réel même sans rupture visible. <strong>Dégradé</strong> : la tension s'aggrave, la situation se complique ou se détériore nettement. Le sens exact de chacun varie d'un sujet à l'autre : c'est justement le rôle de l'encart « Ce qu'on évalue » de le préciser noir sur blanc pour l'édition du jour.</p>
     <p>La ligne <strong>« Ce que ça change en France »</strong>, à la fin de chaque carte, est le seul endroit où un point de vue localisé est pris — c'est elle qui dit si ce scénario précis serait plutôt positif, négatif ou neutre côté France. Les noms des trois scénarios eux-mêmes restent volontairement génériques, pour garder un sens quel que soit le sujet du jour.</p>
@@ -563,6 +648,7 @@
     </ul>
     <p>Ce n'est pas un algorithme qui recrache un chiffre : c'est un jugement structuré, appliqué de la même façon à chaque édition, qui pondère ces quatre axes les uns par rapport aux autres. D'où une estimation qualitative assumée comme telle — jamais un calcul garanti, et jamais un pourcentage plus précis que ce que les faits du jour permettent réellement d'affirmer.</p>
     <p>Cette méthode a une limite structurelle, qu'on préfère nommer plutôt que taire : elle s'appuie sur les sondages et sources déjà publiés, donc sur ce qui a déjà été mesuré. Une hypothèse jamais sondée — une mobilisation populaire, une pression de rue, un raz-de-marée militant — reste par construction invisible dans les probabilités affichées, même quand elle est plausible : ni les candidats ni les médias n'ont intérêt à commander ce genre de sondage hypothétique. Ce n'est pas un choix éditorial de Scénario, c'est un trou dans la donnée disponible.</p>
+    </details>
   </div>
 </section>
 
@@ -571,9 +657,11 @@
     <p class="section-label">Le suivi</p>
     <h2 class="section-title">Une probabilité, ça se réévalue</h2>
     <p>Un pourcentage donné dans une édition n'est pas une vérité gravée dans le marbre : c'est une estimation faite avec l'information disponible ce jour-là. Quand la situation évolue, l'estimation doit évoluer avec elle.</p>
+    <details class="more"><summary>Lire la suite</summary>
     <p>Pour les sujets qui restent ouverts dans le temps — une échéance à venir, une décision pas encore prise — <strong>Scéna<span class="brand-rio">rio</span></strong> peut publier une <strong>page de suivi</strong> dédiée : les mêmes trois scénarios y sont réévalués à la lumière des faits nouveaux, avec à chaque fois ce qui a changé et pourquoi. Les probabilités s'affinent — elles montent, elles descendent — mais restent toujours des estimations, jamais une certitude.</p>
     <p>Un sujet est mis à jour dès que l'actualité bouge suffisamment pour changer l'évaluation, pas selon un calendrier fixe. L'édition d'origine, elle, ne change jamais : c'est la page de suivi, séparée, qui raconte la suite.</p>
     <p>Les sujets concernés sont repérables directement dans les <a href="archives.html">archives</a> : chaque édition mise à jour affiche un badge <strong>« Suivi mis à jour »</strong> avec la date, et un tri « Dernière mise à jour » permet de retrouver en un clic les sujets les plus récemment réévalués.</p>
+    </details>
     <a class="cross-link" href="archives.html">Voir les sujets suivis dans les archives →</a>
   </div>
 </section>
@@ -583,9 +671,11 @@
     <p class="section-label">Pour qui</p>
     <h2 class="section-title">À qui s'adresse Scénario ?</h2>
     <p>À tout le monde qui préfère comprendre l'actualité plutôt que la subir — avec quelques publics pour qui l'exercice est particulièrement utile.</p>
+    <details class="more"><summary>Les trois publics en détail</summary>
     <p><strong>Aux lycéens et étudiants</strong>, en particulier en HGGSP, en SES ou en culture générale — et à leurs professeurs, qui peuvent y trouver un support de discussion en classe : <strong>Scéna<span class="brand-rio">rio</span></strong> n'apporte pas une réponse toute faite, mais entraîne à raisonner comme on le fait en cours — peser le pour et le contre, mesurer les incertitudes, comprendre quels indicateurs peuvent être impactés, comparer plusieurs issues possibles plutôt qu'en retenir une seule. Une méthode utile bien au-delà d'un seul sujet.</p>
     <p><strong>À qui veut se faire un avis sans se le faire dicter</strong> par un titre ou un fil d'actualité qui tranche déjà à sa place : chaque édition explique le contexte, présente plusieurs issues possibles avec leurs probabilités, et donne de quoi se faire sa propre opinion — jamais une conclusion imposée.</p>
     <p><strong>À qui doit anticiper pour agir</strong> — un professionnel, un élu ou un décideur public, un citoyen engagé : comprendre comment une situation peut évoluer si rien ne change est le point de départ pour se positionner en connaissance de cause, que ce soit pour légiférer, entreprendre ou voter — sans jamais indiquer dans quel sens, ce qui rend l'exercice utile quel que soit le bord qu'on défend.</p>
+    </details>
     <a class="cross-link" href="guide-pedagogique.html">Guide pratique : lire un scénario et l'utiliser en classe →</a>
   </div>
 </section>
@@ -595,6 +685,7 @@
     <p class="section-label">Qui fait Scénario</p>
     <h2 class="section-title">Une direction éditoriale, un cadre de travail strict</h2>
     <p><strong>Scéna<span class="brand-rio">rio</span></strong> est dirigé par <strong>Olivier Bertrand</strong>, directeur technique et éditorial du projet — spécialiste finance, data et assurance dans son activité principale, des métiers où l'on chiffre l'incertitude plutôt que de deviner un seul avenir, exactement l'idée derrière ce projet.</p>
+    <details class="more"><summary>Méthode, indépendance, financement</summary>
     <p>Deux fonctions, jamais séparées :</p>
     <ul class="perks">
       <li><strong>Technique</strong> — conception et fiabilisation de la méthode quantitative qui structure les scénarios (probabilités, indicateurs, critères de bascule), ainsi que la gestion du site qui les diffuse.</li>
@@ -604,6 +695,7 @@
     <p>Chaque édition suit un processus de vérification strict — sources croisées, relecture factuelle et stylistique. <strong>L'IA est utilisée comme outil d'assistance pour la recherche, la structuration et la rédaction. Chaque publication reste sous responsabilité éditoriale humaine et fait l'objet d'une vérification des faits et des sources avant publication.</strong></p>
     <p>Le choix des sujets est une décision <strong>éditoriale, pas politique</strong> : <strong>Scéna<span class="brand-rio">rio</span></strong> ne défend aucune ligne, ni de gauche ni de droite, aucun parti pris. Chaque sujet est retenu parce qu'il pose une vraie question — celle qu'on se pose en lisant l'actualité — jamais pour orienter une opinion.</p>
     <p><strong>Scéna<span class="brand-rio">rio</span></strong> ne vit d'aucune publicité, d'aucun encart sponsorisé ni d'aucun partenariat commercial. Le seul objectif du projet, c'est de vous aider à mieux comprendre ce qui se joue, sujet après sujet — une aide financière reste toujours appréciée pour continuer ce travail, via notre page <a href="https://buymeacoffee.com/scenario" target="_blank" rel="noopener noreferrer">Buy Me a Coffee</a>, si vous le souhaitez.</p>
+    </details>
   </div>
 </section>
 
@@ -780,6 +872,30 @@
   })();
 </script>
 
+<script>
+(function(){
+  var links = [].slice.call(document.querySelectorAll('#toc a'));
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  var byId = {};
+  links.forEach(function(a){ byId[a.getAttribute('href').slice(1)] = a; });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      links.forEach(function(a){ a.removeAttribute('aria-current'); });
+      var a = byId[e.target.id];
+      if (a) {
+        a.setAttribute('aria-current', 'true');
+        var bar = a.parentNode;
+        bar.scrollTo({ left: a.offsetLeft - 16, behavior: 'smooth' });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  Object.keys(byId).forEach(function(id){ var el = document.getElementById(id); if (el) io.observe(el); });
+  // ouvre le repli si on arrive par un lien d'ancre qui le contient
+  function ouvre(){ var el = location.hash && document.querySelector(location.hash); if (el) { var d = el.closest('details'); if (d) d.open = true; } }
+  window.addEventListener('hashchange', ouvre); ouvre();
+})();
+</script>
 <script src="assets/pwa-install.js" defer></script>
 <script src="assets/google-source-banner.js" defer></script>
 <script defer src="assets/bottom-nav.js"></script>
