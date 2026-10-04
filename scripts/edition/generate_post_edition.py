@@ -945,6 +945,16 @@ def promote_to_real_repo(sandbox_root, edition_id):
         dest_dir.mkdir(parents=True, exist_ok=True)
         for f in sorted(src_dir.glob(pattern)):
             shutil.copy(f, dest_dir / f.name)
+    # Vignette carrée (cartes des pages thèmes, liste d'archives) : tirée de la
+    # photo du sujet qui vient d'être copiée. Jamais bloquant.
+    square = REPO_ROOT / "assets/social/topic-images" / f"{edition_id}.jpg"
+    if square.exists():
+        try:
+            sys.path.insert(0, str(SOCIAL_DIR))
+            from generate_archive_thumbnail import make_square_thumb  # noqa: PLC0415
+            make_square_thumb(square, REPO_ROOT / "assets/social/archive-thumbs" / f"{edition_id}.jpg", 144)
+        except Exception as e:  # noqa: BLE001
+            print(f"[post-edition] vignette non créée : {e}", file=sys.stderr)
     print("[post-edition] --publish : images (topic-images/instagram) écrites (réelles)")
 
 
