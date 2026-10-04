@@ -280,27 +280,46 @@ def _rms(pcm: array) -> float:
 
 
 def melanger_theme(theme_pcm: bytes, voix_pcm: bytes, recouvrement_s: float = 2.0, rapport: float = 1.1,
-                   fondu_s: float = 3.0) -> bytes:
-    """Le thème joue seul, puis la voix entre `recouvrement_s` avant la fin du thème, qui s'éteint en fondu.
-    Le thème est mis au même niveau sonore que la voix (rapport 1,1 : un peu plus fort au début), car un thème
-    généré est souvent bien plus fort qu'une voix de synthèse."""
+                   fondu_s: float = 3.0, fondu_entree_s: float = 0.8, fin_pcm: bytes | None = None,
+                   recouvrement_fin_s: float = 2.0, fondu_fin_entree_s: float = 1.0, fondu_fin_s: float = 3.5) -> bytes:
+    """Le thème entre en fondu depuis le silence, joue seul, puis la voix entre `recouvrement_s` avant la fin
+    du thème, qui s'éteint en fondu jusqu'à zéro. Le thème est mis au même niveau sonore que la voix (rapport 1,1 :
+    un peu plus fort au début), car un thème généré est souvent bien plus fort qu'une voix de synthèse.
+    Fermeture : si `fin_pcm` est fourni, cet extrait entre en fondu `recouvrement_fin_s` avant la fin de la voix,
+    puis s'éteint en fondu jusqu'à zéro."""
     theme = array("h")
     theme.frombytes(theme_pcm)
     voix = array("h")
     voix.frombytes(voix_pcm)
+    fin = array("h")
+    if fin_pcm:
+        fin.frombytes(fin_pcm)
     n_theme = len(theme)
     gain_theme = rapport * _rms(voix) / (_rms(theme) or 1.0)
     debut_voix = max(0, n_theme - int(SR * recouvrement_s))
-    n = max(n_theme, debut_voix + len(voix)) + int(SR * 0.5)
+    fin_voix = debut_voix + len(voix)
+    debut_fin = max(0, fin_voix - int(SR * recouvrement_fin_s))
+    n = max(n_theme, fin_voix, debut_fin + len(fin)) + int(SR * 0.5)
     piste = array("f", [0.0]) * n
-    nf = int(SR * fondu_s)
+    nf, ne = int(SR * fondu_s), int(SR * fondu_entree_s)
     for i, x in enumerate(theme):
         g = gain_theme
+        if i < ne:
+            g *= i / ne
         if i >= n_theme - nf:
             g *= max(0.0, (n_theme - i) / nf)
         piste[i] += x / 32768.0 * g
     for i, x in enumerate(voix):
         piste[debut_voix + i] += x / 32768.0
+    if len(fin):
+        ni, no = int(SR * fondu_fin_entree_s), int(SR * fondu_fin_s)
+        for i, x in enumerate(fin):
+            g = gain_theme
+            if i < ni:
+                g *= i / ni
+            if i >= len(fin) - no:
+                g *= max(0.0, (len(fin) - i) / no)
+            piste[debut_fin + i] += x / 32768.0 * g
     crete = max(abs(x) for x in piste) or 1.0
     echelle = min(1.0, 0.95 / crete)  # jamais de saturation
     return array("h", (max(-32768, min(32767, int(x * echelle * 32767))) for x in piste)).tobytes()
