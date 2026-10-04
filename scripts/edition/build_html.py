@@ -870,6 +870,54 @@ def build_related_articles(brief, repo_root=None):
 </section>'''
 
 
+def build_theme_more(brief, date_str, repo_root=None):
+    """Bloc « Plus sur cette matière » en bas de l'édition (après les sources) :
+    les 2 éditions les plus récentes de la même matière + lien vers
+    themes/{slug}.html. Ajouté le 4 octobre 2026 : les pages thèmes n'étaient
+    reliées que depuis les archives. Lit archives.html (une ligne par édition,
+    la plus récente en premier). Vide si le domaine n'a pas de page thème
+    (ex. sport) ou s'il n'y a aucune autre édition — jamais de lien cassé."""
+    slug = (brief.get("sujet") or {}).get("domain")
+    label = THEME_SLUG_LABELS.get(slug)
+    if not label:
+        return ""
+    root = Path(repo_root) if repo_root else Path(__file__).resolve().parents[2]
+    try:
+        text = (root / "archives.html").read_text(encoding="utf-8")
+    except OSError:
+        return ""
+    cards = []
+    for m in re.finditer(r'<tr data-domain="([a-z-]*)"[^>]*>(.*?)</tr>', text, re.S):
+        if m.group(1) != slug:
+            continue
+        a = re.search(r'<a href="archives/(\d{4}-\d{2}-\d{2})\.html"[^>]*>([^<]+)</a>', m.group(2))
+        if not a or a.group(1) >= date_str:
+            continue
+        d, title = a.groups()
+        cards.append(f'''      <li><a href="archives/{d}.html" class="related-articles-item">
+        <img class="related-articles-image" src="assets/social/topic-images/{d}.jpg" alt="">
+        <div class="related-articles-content">
+          <span class="related-articles-date">{int(d[8:10])} {MOIS_FR_ABBR[int(d[5:7]) - 1]}</span>
+          <span class="related-articles-title">{fr_typo(title)}</span>
+        </div>
+      </a></li>''')
+        if len(cards) == 2:
+            break
+    if not cards:
+        return ""
+    label_html = label.replace("&", "&amp;")
+    return f'''<section class="related-articles theme-more">
+  <div class="wrap">
+    <p class="section-label">Plus sur cette matière</p>
+    <h2 class="section-title">{label_html}</h2>
+    <ul class="related-articles-list">
+{chr(10).join(cards)}
+    </ul>
+    <a class="cross-link" href="themes/{slug}.html">Toutes les éditions «&nbsp;{label_html}&nbsp;»&nbsp;→</a>
+  </div>
+</section>'''
+
+
 # Élargie le 28 septembre 2026 (chantier multi-éditions/jour, retour
 # utilisateur) : reconnaît aussi archives/{date}-{slug}.html, pour les
 # éditions supplémentaires publiées le même jour (contributions
@@ -1198,6 +1246,27 @@ def build_featured_article(article, lang="fr", theme_link_base=None):
 </section>'''
 
 
+def build_matieres_section():
+    """Rangée de pastilles « Par matière » sous le hero de l'accueil : seul
+    chemin visible vers themes/*.html (avant, elles n'étaient reliées que
+    depuis les archives). FR uniquement : pas de pages thèmes en anglais.
+    L'ancre #matieres est aussi la cible du lien « Matières » du menu."""
+    chips = "\n".join(
+        f'      <li><a href="themes/{slug}.html">{label.replace("&", "&amp;")}</a></li>'
+        for slug, label in THEME_SLUG_LABELS.items()
+    )
+    return f"""
+
+<section class="matieres" id="matieres" aria-label="Parcourir par matière">
+  <div class="wrap">
+    <p class="section-label">Par matière</p>
+    <ul class="matieres-list">
+{chips}
+    </ul>
+  </div>
+</section>"""
+
+
 def build_home_hero():
     """Hero fixe de la page d'accueil — ne dépend d'aucune édition, ne
     change jamais d'un jour à l'autre. Texte repris de le-projet.html pour
@@ -1219,7 +1288,7 @@ def build_home_hero():
     </ul>
     <a class="hero-cta" href="le-projet.html">Découvrir le projet <span aria-hidden="true">→</span></a>
   </div>
-</section>"""
+</section>""" + build_matieres_section()
 
 
 def build_home_head(date_str, edition_number):
@@ -1455,6 +1524,7 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
                        theme_link_html=theme_link_html, graphique_chiffres=brief.get("graphique_chiffres"),
                        rappels=_rappels_depuis_connexes(brief))
     related_articles = build_related_articles(brief)
+    theme_more = build_theme_more(brief, date_str)
     scenarios = build_scenarios(content)
     lexique = build_lexique(content)
     sources = build_sources(content, date_str)
@@ -1504,6 +1574,8 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
 {lexique}
 
 {sources}
+
+{theme_more}
 
 {_SHARE_BLOCK}
 
