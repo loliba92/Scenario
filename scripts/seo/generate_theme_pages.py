@@ -147,6 +147,8 @@ THEME_LIST_CSS = """
     transition:border-color .15s, transform .15s;
   }
   .theme-featured:hover{ border-color:var(--gold); transform:translateY(-1px); }
+  .theme-featured-img{ display:block; width:calc(100% + 48px); max-width:none; margin:-22px -24px 18px; aspect-ratio:21/9; object-fit:cover; border-radius:9px 9px 0 0; background:var(--surface-2); }
+  @media (max-width: 480px){ .theme-featured-img{ width:calc(100% + 36px); margin:-18px -18px 14px; aspect-ratio:16/9; } }
   .theme-featured .kicker{ font-family:"JetBrains Mono", monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); }
   .theme-featured h2{ font-family:"Fraunces", serif; font-weight:600; font-size:1.45rem; line-height:1.25; margin:8px 0 10px; color:var(--paper); }
   .theme-featured .q{ color:var(--paper-dim); font-size:0.95rem; line-height:1.55; margin:0 0 14px; }
@@ -224,7 +226,10 @@ def render_page(domain, entries, style_block, masthead_nav, follow_footer, tail_
         # Certaines éditions reprennent la question telle quelle en titre : inutile de la répéter.
         redite = f["question"].strip(" ?").lower() == f["title"].strip(" ?").lower()
         q = f'\n    <p class="q">{html.escape(f["question"])}</p>' if f["question"] and not redite else ""
+        img = (f'<img class="theme-featured-img" src="../assets/social/theme-wide/{f["iso_date"][:10]}.jpg" alt="" '
+               'width="720" height="405" onerror="this.remove()">')
         featured_html = f'''    <a class="theme-featured" href="../{f["href"]}">
+    {img}
     <span class="kicker">Dernière édition · {f["display_date"]}</span>
     <h2>{html.escape(f["title"])}</h2>{q}
     <div class="theme-tags">{badges(f)}</div>

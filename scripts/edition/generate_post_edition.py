@@ -954,6 +954,8 @@ def promote_to_real_repo(sandbox_root, edition_id):
             sys.path.insert(0, str(SOCIAL_DIR))
             from generate_archive_thumbnail import make_square_thumb  # noqa: PLC0415
             make_square_thumb(square, REPO_ROOT / "assets/social/archive-thumbs" / f"{edition_id}.jpg", 144)
+            from generate_archive_thumbnail import make_wide_thumb  # noqa: PLC0415
+            make_wide_thumb(edition_id)
         except Exception as e:  # noqa: BLE001
             print(f"[post-edition] vignette non créée : {e}", file=sys.stderr)
     print("[post-edition] --publish : images (topic-images/instagram) écrites (réelles)")
