@@ -100,17 +100,15 @@ def main(argv=None) -> int:
     import musique
     theme = musique.trouver_theme(gp.ROOT) if args.ouverture else None
     theme_complet = musique.decoder_theme(theme, 75.0) if theme else None
-    theme_pcm = theme_complet[:2 * musique.SR * 12] if theme_complet else None
     if args.ouverture and theme is None:
         print("Pas de thème musical (podcast/musique/ouverture.mp3) : épisode sans musique.", flush=True)
-    jingle = musique.jingles_depuis_theme(theme_complet, max(1, len(parties_pcm) - 1)) if theme_complet else None
-    pcm = musique.assembler_parties(parties_pcm, jingle)
     if args.musique:
-        pcm = musique.habiller(pcm)
-    elif theme_pcm:
-        print(f"Thème musical : {theme.name} ; {max(0, len(parts) - 1)} jingle(s) entre les parties", flush=True)
-        fin = theme_complet[-2 * musique.SR * 9:]   # les 9 dernières secondes du thème : la fermeture
-        pcm = musique.melanger_theme(theme_pcm, pcm, fin_pcm=fin)
+        pcm = musique.habiller(musique.assembler_parties(parties_pcm, None))
+    elif theme_complet:
+        print(f"Thème musical : {theme.name} en fond très léger ; {max(0, len(parts) - 1)} jingle(s) (la musique monte entre les parties)", flush=True)
+        pcm = musique.habiller_fond(theme_complet, parties_pcm)
+    else:
+        pcm = musique.assembler_parties(parties_pcm, None)
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
     wav = out / f"{nom}.wav"

@@ -405,3 +405,93 @@ def assembler_parties(parties_pcm: list[bytes], jingle_pcm, silence_s: float = 0
     crete = max((abs(x) for x in piste), default=1.0) or 1.0
     echelle = min(1.0, 32000.0 / crete)
     return array("h", (int(x * echelle) for x in piste)).tobytes()
+
+
+# ---------------------------------------------------------------- fond musical continu (demandé le 4 octobre 2026)
+# La musique ne s'arrête jamais : elle reste très discrète sous la voix, monte en fondu pendant les jingles
+# (entre les grandes parties), puis redescend. Le morceau défile en continu : chaque jingle tombe donc sur un passage
+# différent.
+NIVEAU_FOND = 0.07      # sous la voix, × niveau sonore de la voix : à peine perceptible
+NIVEAU_JINGLE = 0.9     # pendant un jingle, × niveau sonore de la voix
+NIVEAU_OUVERTURE_REL = 1.1
+OUVERTURE_S = 12.0      # le thème joue seul 10 s, la voix entre 2 s avant la fin de l'ouverture
+JINGLE_S = 9.0
+RECOUVREMENT_JINGLE_S = 3.0
+FERMETURE_S = 9.0
+
+
+def _boucle(theme: array, n: int, fondu_s: float = 3.0) -> array:
+    """Le morceau répété sans coupure jusqu'à n échantillons : chaque reprise fond dans la suivante."""
+    xf = min(int(SR * fondu_s), len(theme) // 3)
+    pas = len(theme) - xf
+    out = array("f", [0.0]) * (n + len(theme))
+    k = 0
+    while k * pas < n:
+        debut = k * pas
+        for i, x in enumerate(theme):
+            g = 1.0
+            if k and i < xf:
+                g = _lisse(i / xf)
+            if i >= len(theme) - xf:
+                g *= _lisse((len(theme) - i) / xf)
+            out[debut + i] += x * g
+        k += 1
+    return out[:n]
+
+
+def _enveloppe(points: list[tuple[float, float]], n: int) -> array:
+    """Niveau (0 à 1+) de la musique à chaque échantillon : interpolation douce entre des points (temps en s, niveau)."""
+    env = array("f", [0.0]) * n
+    for (t0, a), (t1, b) in zip(points, points[1:]):
+        i0, i1 = int(SR * t0), min(n, int(SR * t1))
+        longueur = max(1, int(SR * (t1 - t0)))
+        for i in range(max(0, i0), i1):
+            env[i] = a + (b - a) * _lisse((i - i0) / longueur)
+    return env
+
+
+def habiller_fond(theme_pcm: bytes, parties_pcm: list[bytes]) -> bytes:
+    """Épisode complet : ouverture musicale, voix des parties avec un fond musical très léger, jingles (la musique monte
+    puis redescend sous le début de la partie suivante) et fermeture en fondu jusqu'à zéro."""
+    theme = array("h")
+    theme.frombytes(theme_pcm)
+    parties = []
+    for p in parties_pcm:
+        a = array("h")
+        a.frombytes(p)
+        parties.append(a)
+    toute = array("h")
+    for a in parties:
+        toute.extend(a)
+    rms_voix = _rms(toute) or 1.0
+    ref = rms_voix / (_rms(theme) or 1.0)
+    bas, jingle, ouv = NIVEAU_FOND, NIVEAU_JINGLE, NIVEAU_OUVERTURE_REL
+    # --- calendrier : début de chaque partie, et points de l'enveloppe
+    debut = OUVERTURE_S - 2.0
+    pts = [(0.0, 0.0), (1.5, ouv), (debut, ouv), (debut + 5.0, bas)]
+    positions = []
+    t = debut
+    for i, a in enumerate(parties):
+        if i:
+            s = t + 0.3                                   # le jingle commence juste après la fin de la partie
+            pts += [(s, bas), (s + 1.8, jingle), (s + JINGLE_S - 4.0, jingle), (s + JINGLE_S, bas)]
+            t = s + JINGLE_S - RECOUVREMENT_JINGLE_S      # la partie suivante entre sous la fin du jingle
+        positions.append(t)
+        t += len(a) / SR
+    pts += [(t, bas), (t + 1.5, jingle), (t + 4.0, jingle), (t + FERMETURE_S, 0.0)]
+    pts.sort(key=lambda p: p[0])
+    # les points d'un jingle et de la partie qui le suit se chevauchent : on garde l'ordre du temps
+    fin = t + FERMETURE_S + 0.5
+    n = int(SR * fin)
+    fond = _boucle(theme, n)
+    env = _enveloppe(pts, n)
+    piste = array("f", [0.0]) * n
+    for i in range(n):
+        piste[i] = fond[i] / 32768.0 * ref * env[i]
+    for a, pos in zip(parties, positions):
+        d = int(SR * pos)
+        for i, x in enumerate(a):
+            piste[d + i] += x / 32768.0
+    crete = max(abs(x) for x in piste) or 1.0
+    echelle = min(1.0, 0.95 / crete)
+    return array("h", (max(-32768, min(32767, int(x * echelle * 32767))) for x in piste)).tobytes()

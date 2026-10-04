@@ -238,5 +238,20 @@ class TestFondus(unittest.TestCase):
         self.assertLess(max(abs(x) for x in out[: int(mu.SR * 29)]), 32767)
 
 
+class TestFondContinu(unittest.TestCase):
+    def test_fond_leger_et_jingles(self):
+        theme = array("h", [(i // 12000 % 2) * 12000 - 6000 for i in range(mu.SR * 40)]).tobytes()
+        voix = array("h", [3000] * (mu.SR * 15)).tobytes()
+        out = array("h")
+        out.frombytes(mu.habiller_fond(theme, [voix, voix, voix]))
+        self.assertEqual(out[0], 0)
+        self.assertEqual(out[-1], 0)
+        w = mu.SR
+        niveaux = [mu._rms(out[i * w:(i + 1) * w]) for i in range(len(out) // w)]
+        # sous la voix (ex. 3e seconde de la 1re partie, vers 15 s) : voix + fond très léger, donc à peine plus de 3000
+        self.assertLess(niveaux[16], 3000 * 1.12)
+        self.assertGreater(len(out) / mu.SR, 10 + 15 * 3 + 2 * (9 - 3 + 0.3))
+
+
 if __name__ == "__main__":
     unittest.main()
