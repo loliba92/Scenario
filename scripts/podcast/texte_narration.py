@@ -18,7 +18,7 @@ MOTS_MIN, MOTS_MAX = 420, 720  # 3 à 5 minutes de lecture
 SEPARATEUR = "---"
 OUVERTURE = ("Bienvenue sur Scénario. Chaque jour, une actualité, une question, "
              "et trois façons dont les choses peuvent tourner. On y va.")
-FERMETURE = "Voilà pour aujourd'hui. L'édition complète est sur lesscenarios.fr. À demain, pour une nouvelle question."
+FERMETURE = "Voilà pour aujourd'hui. L'édition complète est sur lesscenarios.fr. À demain, pour un nouveau scénario."
 EXEMPLE = (Path(__file__).resolve().parents[2] / "podcast" / "textes" / "2026-10-03.txt")
 
 
