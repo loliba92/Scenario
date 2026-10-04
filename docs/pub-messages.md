@@ -1020,6 +1020,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-10-03 (archives/2026-10-03.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-10-04
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 29 novembre 2026
+- message: Avec sa 1re place nordiste et 2 victoires bonifiées cet été, le XV de France aborde en favori le sprint final du Championnat des Nations jusqu'à la finale du 29 novembre 2026 à Londres.
+- attribution: — lesscenarios.fr, 4 octobre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-10-04.html
+
+*Phrase à retenir de l'édition du 2026-10-04 (archives/2026-10-04.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
