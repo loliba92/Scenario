@@ -19,8 +19,9 @@ SEPARATEUR = "---"
 MOTS_PHRASE_MAX, MOTS_PHRASE_MOYENNE = 32, 20   # pédagogie : phrases courtes à l'oral (textes validés : moyenne 13-15, maximum 28)
 OUVERTURE = ("Bienvenue sur Scénario. Chaque jour, une question d'actualité, "
              "et trois évolutions possibles. On y va !")
-FERMETURE = ("Voilà pour aujourd'hui. L'édition complète est sur lesscenarios.fr. "
-             "À demain, pour un nouveau scénario. Et n'oubliez pas : rien n'est écrit à l'avance.")
+FERMETURE = ("Voilà pour aujourd'hui. Merci de nous avoir écoutés. L'édition complète est sur lesscenarios.fr. "
+             "Prenez soin de vous, et n'oubliez pas : rien n'est écrit à l'avance. "
+             "À demain, pour un nouveau scénario.")
 EXEMPLE = (Path(__file__).resolve().parents[2] / "podcast" / "textes" / "2026-10-03.txt")
 
 
