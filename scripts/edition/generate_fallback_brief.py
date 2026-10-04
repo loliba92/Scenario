@@ -216,6 +216,10 @@ def dossier_du_jour(date_str):
         "recherche récente, et refais les 3 scénarios sur des faits vérifiés.\n"
         "- `rationnel` dit pourquoi ce sujet et pourquoi son issue est ouverte : garde cette tension au "
         "cœur de `sujet.angle` et de `question_posee`.\n"
+        "- `donnees_graphique` (si présent) : chiffres comparables relevés quand le sujet était en tête de file, "
+        "pour le graphique de repli. C'est une PISTE : re-vérifie chaque chiffre et chaque URL par ta recherche "
+        "(les chiffres ont pu changer depuis le relevé) ; ceux que tu confirmes alimentent "
+        "`graphique_chiffres.barres`, les autres sont écartés, et si moins de 3 restent, cherche-en d'autres.\n"
         "- Recopie `id`, exactement, dans sujet.origine_id ; et dans sujet.origine_prioritaire, le `titre`."
     )
 

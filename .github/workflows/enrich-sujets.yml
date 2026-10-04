@@ -14,8 +14,17 @@ name: Enrichir les dossiers de sujets
 # Secret requis (déjà présent) : OPENROUTER_API_KEY
 
 on:
+  # Chaque soir : relève les chiffres du graphique « Les chiffres » pour les 3 prochains sujets de la file
+  # (ajouté le 4 octobre 2026), pour que le brief du lendemain n'ait pas à les chercher dans l'urgence.
+  schedule:
+    - cron: "23 18 * * *"
   workflow_dispatch:
     inputs:
+      donnees:
+        description: "Relever les chiffres du graphique « Les chiffres » (recherche web) pour les sujets de la file qui n'en ont pas — au lieu de compléter les dossiers incomplets"
+        type: boolean
+        required: false
+        default: false
       max:
         description: "Nombre maximum de sujets traités dans ce lot"
         required: false
@@ -71,10 +80,14 @@ jobs:
           APERCU: ${{ github.event.inputs.apercu }}
           MODEL: ${{ github.event.inputs.model }}
           FORCER: ${{ github.event.inputs.forcer }}
+          DONNEES: ${{ github.event.inputs.donnees }}
+          EVENT: ${{ github.event_name }}
         run: |
           git config user.name "scenario-topics-bot"
           git config user.email "actions@users.noreply.github.com"
           ARGS="--max ${MAX:-10}"
+          if [ "$EVENT" = "schedule" ]; then ARGS="--donnees --max 3"; fi
+          if [ "$DONNEES" = "true" ]; then ARGS="$ARGS --donnees"; fi
           if [ -n "$REGISTRE" ]; then ARGS="$ARGS --registre $REGISTRE"; fi
           if [ "$REFORMULER" = "true" ]; then ARGS="$ARGS --reformuler"; fi
           if [ "$APERCU" = "true" ]; then ARGS="$ARGS --apercu"; fi
@@ -95,7 +108,7 @@ jobs:
               echo "Aucun changement — rien à committer."
               exit 0
             fi
-            git commit -m "[sujets] dossiers enrichis ou problématiques réécrites"
+            git commit -m "[sujets] dossiers enrichis, problématiques réécrites ou chiffres de graphique relevés"
             if git push origin main; then
               echo "Poussé avec succès (essai $attempt)."
               exit 0
