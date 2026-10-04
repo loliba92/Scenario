@@ -25,6 +25,9 @@ def main(argv=None) -> int:
     ap.add_argument("texte", help="fichier texte à lire, ou « auto » : le texte est écrit à partir d'une édition publiée")
     ap.add_argument("--date", default=None, help="avec « auto » : édition AAAA-MM-JJ (défaut : la dernière)")
     ap.add_argument("--modele", default=gp.MODELES_NARRATION, help="avec « auto » : modèle(s) OpenRouter qui écrivent le texte (gratuits d'abord, puis un modèle payant bon marché)")
+    ap.add_argument("--moteur", default="openrouter", choices=("openrouter", "google"),
+                    help="openrouter : voix facturées à l'usage (choix du propriétaire, 4 octobre 2026) ; google : API Gemini directe (quota gratuit limité)")
+    ap.add_argument("--modele-tts", default="google/gemini-3.8-flash-tts", help="avec --moteur openrouter : modèle de voix")
     ap.add_argument("--voix", default="Sulafat", help="voix prédéfinie Gemini (Sulafat, Achird, Vindemiatrix, Aoede, Kore…)")
     ap.add_argument("--tts-models", default=",".join(gp.MODELES_TTS_NARRATION))
     ap.add_argument("--musique", action="store_true", help="ajouter l'ancien habillage musical de musique.py (désactivé par défaut)")
@@ -33,13 +36,16 @@ def main(argv=None) -> int:
     ap.add_argument("--out", default=str(gp.ROOT / "_podcast-out"))
     args = ap.parse_args(argv)
 
-    cle = os.environ.get("GEMINI_API_KEY")
-    if not cle:
+    cle = os.environ.get("GEMINI_API_KEY")  # voix (moteur google) et contrôle du début ; pas indispensable avec OpenRouter
+    cle_or = os.environ.get("OPENROUTER_API_KEY")
+    if args.moteur == "google" and not cle:
         print("ERREUR : GEMINI_API_KEY absent.", file=sys.stderr)
+        return 1
+    if args.moteur == "openrouter" and not cle_or:
+        print("ERREUR : OPENROUTER_API_KEY absent.", file=sys.stderr)
         return 1
     if args.texte == "auto":
         import texte_narration
-        cle_or = os.environ.get("OPENROUTER_API_KEY")
         if not cle_or:
             print("ERREUR : OPENROUTER_API_KEY absent.", file=sys.stderr)
             return 1
@@ -69,12 +75,19 @@ def main(argv=None) -> int:
         for morceau in gp.decouper_texte(partie, limite=2600):
             print(f"Synthèse vocale partie {i}/{len(parts)} ({len(morceau)} caractères)…", flush=True)
             try:
-                pcms.append(gp.synthese_unique(morceau, args.voix, modeles, cle))
+                if args.moteur == "openrouter":
+                    import voix_openrouter
+                    pcms.append(voix_openrouter.synthese_openrouter(morceau, args.modele_tts, args.voix, cle_or))
+                else:
+                    pcms.append(gp.synthese_unique(morceau, args.voix, modeles, cle))
             except gp.PodcastError as e:
                 print(f"ERREUR : {e}", file=sys.stderr)
                 return 1
         parties_pcm.append(gp.assembler(pcms, silence_s=0.5))
-    ok, transcription = gp.verifier_debut(parties_pcm[0], texte_narration.parties(texte)[0], cle)
+    if cle:
+        ok, transcription = gp.verifier_debut(parties_pcm[0], texte_narration.parties(texte)[0], cle)
+    else:
+        ok, transcription = None, "GEMINI_API_KEY absent"
     if ok is None:
         print(f"ATTENTION : contrôle du début impossible ({transcription}) ; épisode gardé sans contrôle.", flush=True)
     elif not ok:
