@@ -68,6 +68,8 @@ def main(argv=None) -> int:
     modeles = tuple(x.strip() for x in args.tts_models.split(",") if x.strip())
     import texte_narration
     parts = texte_narration.parties(texte)
+    if parts and not re.match(r"\s*bienvenue", parts[0], re.I):
+        parts[0] = texte_narration.OUVERTURE + "\n\n" + parts[0]   # même partie : pas de jingle entre l'accueil et la question
     print(f"{len(texte.split())} mots, {len(parts)} partie(s), voix {args.voix}", flush=True)
     parties_pcm = []
     for i, partie in enumerate(parts, 1):
@@ -85,7 +87,7 @@ def main(argv=None) -> int:
                 return 1
         parties_pcm.append(gp.assembler(pcms, silence_s=0.5))
     if cle:
-        ok, transcription = gp.verifier_debut(parties_pcm[0], texte_narration.parties(texte)[0], cle)
+        ok, transcription = gp.verifier_debut(parties_pcm[0], parts[0], cle)
     else:
         ok, transcription = None, "GEMINI_API_KEY absent"
     if ok is None:
