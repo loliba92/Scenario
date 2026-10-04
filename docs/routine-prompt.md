@@ -629,6 +629,19 @@ Lexique final : mots/sigles/noms pouvant ne pas être connus, définis en une ph
 `index.html` = toujours l'édition du jour uniquement. `archives/AAAA-MM-JJ.html` = copie figée définitivement. `archives.html` = liste de toutes les éditions, la plus récente en tête, avec résumé dépliable des 3 scénarios (étape technique 6).
 
 ### Style
+
+**Règle d'or — tout doit se comprendre dès la première lecture, par quelqu'un qui ne connaît pas le sujet** (ajoutée le
+4 octobre 2026, demande de l'éditeur : « ça doit être super pédagogique, facile à comprendre »). Avant d'envoyer, vérifier sur
+ta propre rédaction :
+1. Chaque sigle, institution, terme technique ou expression de spécialiste est expliqué en quelques mots dès son premier emploi
+   (ex. « le Top 14, le championnat français de rugby »), sans renvoyer le lecteur à un autre endroit pour comprendre la phrase.
+2. Une idée par phrase ; aucune phrase ne dépasse environ 25 mots.
+3. Chaque scénario est annoncé par une phrase simple qui dit ce qui se passe (« Première évolution possible : … »), avant son détail.
+4. Les mots abstraits (« dynamique », « enjeux », « paradigme », « gouvernance », « trajectoire », « écosystème ») sont remplacés par
+   ce qu'ils désignent concrètement.
+5. Dans chaque grande partie, au moins une comparaison ou un exemple concret proche du quotidien quand les faits le permettent
+   (jamais inventé).
+
 Public 15-35 ans en priorité sans exclure personne : phrases directes, comparaisons concrètes et proches du quotidien, aucun jargon jeune artificiel. Vocabulaire simple, ton pédagogique, phrases courtes, une idée par phrase. Rigueur factuelle identique quel que soit l'âge du lecteur.
 
 **Pédagogique veut dire simple dans la forme, pas pauvre dans le fond.** Simplifier la syntaxe et le vocabulaire, jamais la substance : un vrai mécanisme, une vraie catégorie ou un vrai terme technique (renvoyé au lexique) apprend quelque chose au lecteur ; une paraphrase édulcorée qui l'évite pour "faire simple" ne lui apprend rien. Quand un mot technique porte une idée réelle, le garder et l'expliquer via le lexique plutôt que le supprimer ou le remplacer par une formule vague. Une bonne clé de lecture situe le fait du jour dans une catégorie ou un mécanisme plus large, avec un second exemple comparable quand ça aide à généraliser l'idée, plutôt que de rester isolée sur le seul cas du jour. Exemple : nommer explicitement la catégorie économique en jeu (« valeur refuge », renvoyée au lexique) et citer le bitcoin comme second exemple du même principe — actifs indépendants des dettes d'État — au lieu de rester une explication isolée sur le seul cas de l'or ; les phrases, elles, restent courtes et les mots courants (voir règle juste en dessous sur les tournures artificielles).

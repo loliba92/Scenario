@@ -177,6 +177,18 @@ class TestJingles(unittest.TestCase):
         ok = tn.verifier(base + "Selon l'étude, 84 % des morceaux ont émergé en ligne. Une chance sur quatre.", src)
         self.assertFalse(any("fractions" in x for x in ok))
 
+    def test_pedagogie_phrases_courtes_et_accueil(self):
+        import texte_narration as tn
+        exemple = tn.EXEMPLE.read_text(encoding="utf-8")
+        ed = gp.lire_edition(sorted((gp.ROOT / "archives").glob("2026-10-03.html"))[0])
+        src = gp.texte_source(ed)
+        longue = "Voici une phrase interminable qui " + "continue encore et encore avec des mots " * 6 + "et finit."
+        self.assertTrue(any("phrases trop longues" in x for x in tn.verifier(exemple + "\n" + longue, src)))
+        self.assertFalse(any("phrases trop longues" in x for x in tn.verifier(exemple, src)))
+        self.assertIn("trois évolutions possibles", tn.OUVERTURE)
+        self.assertNotIn("façons", tn.OUVERTURE)
+        self.assertLess(len(tn.OUVERTURE.split()), 20)
+
     def test_registre_sans_mots_pejoratifs(self):
         import re
         import texte_narration as tn
