@@ -1030,6 +1030,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-10-04 (archives/2026-10-04.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-10-05
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 733 incidents
+- message: Avec 733 incidents de brouillage GPS recensés en mer Baltique et une portée de 450 km depuis Kaliningrad, la guerre des signaux menace la synchronisation de nos réseaux critiques.
+- attribution: — lesscenarios.fr, 5 octobre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-10-05.html
+
+*Phrase à retenir de l'édition du 2026-10-05 (archives/2026-10-05.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
