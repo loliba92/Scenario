@@ -25,6 +25,10 @@
   var css = [
     "@media screen{",
     ".ea{margin:0 0 14px}",
+    ".ea-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}",
+    ".ea-spotify{display:inline-flex;align-items:center;gap:8px;padding:3px 0;color:var(--paper-dim,#b4b2a6);border-bottom:1px solid transparent;font-family:'Fraunces',Georgia,serif;font-size:.95rem;font-weight:500;line-height:1.2;text-decoration:none;transition:color .15s,border-color .15s}",
+    ".ea-spotify svg{flex:none;width:16px;height:16px;color:var(--gold,#cf9d4c)}",
+    ".ea-spotify:hover,.ea-spotify:focus-visible{color:var(--paper,#e6e1d4);border-bottom-color:var(--gold,#cf9d4c)}",
     ".ea-btn{display:inline-flex;align-items:center;gap:8px;padding:3px 0;background:none;color:var(--paper-dim,#b4b2a6);border:0;border-bottom:1px solid transparent;border-radius:0;font-family:'Fraunces',Georgia,serif;font-size:.95rem;font-weight:500;line-height:1.2;cursor:pointer;transition:color .15s,border-color .15s}",
     ".ea-btn svg{flex:none;width:16px;height:16px;color:var(--gold,#cf9d4c)}",
     ".ea-btn:hover,.ea-btn:focus-visible,.ea-btn[aria-expanded='true']{color:var(--paper,#e6e1d4);border-bottom-color:var(--gold,#cf9d4c)}",
@@ -69,7 +73,23 @@
     panel.className = "ea-panel";
     panel.id = "ea-panel";
     panel.hidden = true;
-    wrap.appendChild(btn);
+    var row = document.createElement("div");
+    row.className = "ea-row";
+    row.appendChild(btn);
+    /* Lien vers le podcast sur Spotify : pour l'édition du 5 octobre 2026 et les suivantes (les éditions passées restent figées) */
+    if (date >= "2026-10-05") {
+      var sp = document.createElement("a");
+      sp.className = "ea-spotify";
+      sp.href = "https://open.spotify.com/show/1eycE00I2egdNO50oqeDFQ";
+      sp.target = "_blank";
+      sp.rel = "noopener noreferrer";
+      sp.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M7 9.6c3.4-1 7-.7 10 1"/><path d="M7.6 12.7c2.9-.8 5.7-.5 8.1.9"/><path d="M8.2 15.5c2.2-.6 4.4-.4 6.2.7"/></svg>';
+      var spl = document.createElement("span");
+      spl.textContent = isEn ? "Listen on Spotify" : "Écouter sur Spotify";
+      sp.appendChild(spl);
+      row.appendChild(sp);
+    }
+    wrap.appendChild(row);
     wrap.appendChild(panel);
 
     var audio = null;
