@@ -108,7 +108,7 @@
     ".scenarios.sr-on .card-head h3{font-size:var(--sr-l)}",
     ".scenarios.sr-on .card .why,.scenarios.sr-on .card .why .sr-lead,.scenarios.sr-on .card .why .sr-rest{font-size:var(--sr-m);line-height:1.7}",
     ".scenarios.sr-on .card .why .sr-lead{color:var(--paper,#e6e1d4)}",
-    ".scenarios.sr-on .sr-aside .field-label{display:block;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:var(--sr-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--paper-dim,#b4b2a6);margin:0 0 10px}",
+    ".scenarios.sr-on .sr-aside .field-label{display:block;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:var(--sr-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--gold,#cf9d4c);margin:0 0 10px}",
     ".scenarios.sr-on .sr-aside .field-name{font-size:var(--sr-s);line-height:1.45;color:var(--paper-dim,#b4b2a6)}",
     ".scenarios.sr-on .sr-aside .evo-current{font-size:var(--sr-m);font-weight:600;color:var(--paper,#e6e1d4)}",
     ".scenarios.sr-on .sr-aside .evo-arrow{font-size:var(--sr-m)}",
