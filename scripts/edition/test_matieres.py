@@ -25,5 +25,18 @@ class Matieres(unittest.TestCase):
         self.assertEqual(b.build_theme_more({}, "2026-10-05"), "")
 
 
+class Devise(unittest.TestCase):
+    def test_devise_sur_l_accueil_et_en_pied_de_page(self):
+        from pathlib import Path
+        self.assertIn('class="devise"', b.build_home_hero())
+        src = (Path(b.__file__)).read_text(encoding="utf-8")
+        self.assertEqual(src.count('class="devise-footer"'), 2, "pied de page de l'accueil et des éditions")
+
+    def test_bloc_suivre_garde_newsletter_cafe_et_notifications(self):
+        # régression du 5 octobre : le bouton Newsletter avait été posé dans un autre bloc et disparaissait à la régénération
+        for attendu in ('href="newsletter.html"', "buymeacoffee.com/scenario", "onesignal-subscribe-btn"):
+            self.assertIn(attendu, b._SHARE_BLOCK)
+
+
 if __name__ == "__main__":
     unittest.main()

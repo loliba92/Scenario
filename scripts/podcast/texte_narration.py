@@ -19,8 +19,8 @@ MOTS_MIN, MOTS_MAX = 420, 720  # 3 à 5 minutes de lecture
 SEPARATEUR = "---"
 MOTS_PHRASE_MAX, MOTS_PHRASE_MOYENNE = 32, 20   # pédagogie : phrases courtes à l'oral (textes validés : moyenne 13-15, maximum 28)
 # Sept accueils et sept fermetures, écrits à l'avance (jamais par le modèle) : on en tire un par jour pour que l'épisode
-# ne sonne pas toujours pareil. Règles communes : vouvoiement, « évolutions » seulement dans l'accueil, le mot « scénario »
-# dans la fermeture, phrases courtes. Le tirage dépend de la date (voir _rangs) : il se refait à l'identique si l'on
+# ne sonne pas toujours pareil. Règles communes : vouvoiement, « évolutions » seulement dans l'accueil, phrases courtes.
+# Les fermetures changent seulement au début : la fin est un rituel fixe (RITUEL), pour que la devise devienne celle du site. Le tirage dépend de la date (voir _rangs) : il se refait à l'identique si l'on
 # régénère un épisode.
 OUVERTURES = (
     "Bienvenue sur Scénario. Chaque jour, une question d'actualité, et trois évolutions possibles. On y va !",
@@ -31,22 +31,16 @@ OUVERTURES = (
     "Scénario, c'est une question d'actualité par jour, et trois évolutions possibles. Bienvenue, installez-vous : on commence.",
     "Bienvenue sur Scénario. Prenez un moment avec nous : une question d'actualité, trois évolutions possibles. Allons-y.",
 )
-FERMETURES = (
-    "Voilà pour aujourd'hui. Merci de nous avoir écoutés. L'édition complète est sur lesscenarios.fr. "
-    "Prenez soin de vous, et n'oubliez pas : rien n'est écrit à l'avance. À demain, pour un nouveau scénario.",
-    "C'est tout pour aujourd'hui. Merci pour votre confiance. L'édition complète vous attend sur lesscenarios.fr. "
-    "Rien n'est écrit à l'avance : prenez soin de vous, et à demain pour un nouveau scénario.",
-    "Nous nous arrêtons ici. Merci d'avoir pris ce moment avec nous. Pour aller plus loin, tout est sur lesscenarios.fr. "
-    "Portez-vous bien, et à demain pour un nouveau scénario.",
-    "Merci d'avoir été là. Si le sujet vous a donné envie d'approfondir, l'édition complète est sur lesscenarios.fr. "
-    "N'oubliez pas : rien n'est écrit à l'avance. À demain, pour un nouveau scénario.",
-    "Voilà pour aujourd'hui. Merci de votre écoute, et passez une belle journée. Vous retrouverez l'édition complète sur "
-    "lesscenarios.fr. À demain, pour un nouveau scénario.",
-    "Voilà qui conclut cette édition. Merci de votre attention. Gardez en tête que rien n'est écrit à l'avance, et prenez "
-    "soin de vous. L'édition complète est sur lesscenarios.fr. À demain, pour un nouveau scénario.",
-    "C'est la fin de cet épisode. Merci de nous avoir suivis, et prenez soin de vous. Les sources et le texte complet sont "
-    "sur lesscenarios.fr. À demain, pour un nouveau scénario.",
-)
+RITUEL = "Prenez soin de vous. Rien n'est écrit à l'avance. À demain, pour un nouveau scénario."   # devise du site, dite chaque jour mot pour mot : « Rien n'est écrit à l'avance. »
+FERMETURES = tuple(debut + " " + RITUEL for debut in (
+    "Voilà pour aujourd'hui. Merci de nous avoir écoutés. L'édition complète est sur lesscenarios.fr.",
+    "C'est tout pour aujourd'hui. Merci d'avoir été avec nous. Tout est sur lesscenarios.fr.",
+    "Voilà qui conclut cette édition. Merci de votre attention. L'édition complète est sur lesscenarios.fr.",
+    "Merci d'avoir été là. Si le sujet vous a donné envie d'aller plus loin, tout est sur lesscenarios.fr.",
+    "Nous nous arrêtons ici. Merci de votre confiance. Retrouvez tout sur lesscenarios.fr.",
+    "C'est la fin de cet épisode. Merci de nous avoir suivis. Les sources sont sur lesscenarios.fr.",
+    "Merci de votre écoute, et belle journée à vous. L'édition complète est sur lesscenarios.fr.",
+))
 OUVERTURE = OUVERTURES[0]   # accueil par défaut (tests, repli)
 FERMETURE = FERMETURES[0]
 
