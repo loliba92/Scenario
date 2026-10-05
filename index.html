@@ -2083,6 +2083,10 @@
      indicateurs animés et masthead sticky blur.
      ======================== */
 
+  /* Ancres du sommaire : l'en-tête collant (ordinateur) ne doit pas masquer le début de la section visée (5 oct. 2026) */
+  #scenarios, #essentiel, #lexique{ scroll-margin-top: 130px; }
+  @media (max-width: 720px){ #scenarios, #essentiel, #lexique{ scroll-margin-top: 24px; } }
+
   /* Masthead sticky avec backdrop-blur premium */
   header.masthead {
     position: sticky;

@@ -297,3 +297,23 @@
   }
   show(start);
 })();
+
+/* Sommaire (Scénarios / L'essentiel / Référence) : la hauteur de la page change pendant le défilement animé, et le
+   clic pouvait arriver trop bas (début de la section masqué). On recale la position une fois le défilement fini. */
+(function () {
+  "use strict";
+  var toc = document.querySelector("nav.toc");
+  if (!toc) return;
+  toc.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a[href^='#']");
+    var cible = a && document.getElementById(a.getAttribute("href").slice(1));
+    if (!cible) return;
+    var recaler = function () {
+      var voulu = parseFloat(getComputedStyle(cible).scrollMarginTop) || 0;
+      var ecart = cible.getBoundingClientRect().top - voulu;
+      if (Math.abs(ecart) > 3) window.scrollBy({ top: ecart, behavior: "instant" });
+    };
+    setTimeout(recaler, 900);
+    setTimeout(recaler, 1700);
+  });
+})();
