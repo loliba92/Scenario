@@ -417,7 +417,7 @@ NIVEAU_OUVERTURE_REL = 1.1
 NIVEAU_SOUS_ACCUEIL = 0.25  # sous la phrase d'accueil et sous la phrase finale : musique bien présente mais sous la voix
 OUVERTURE_S = 12.0      # le thème joue seul 10 s, la voix entre 2 s avant la fin de l'ouverture
 JINGLE_S = 9.0
-DEBUT_VOIX_S = 6.0          # la phrase d'accueil commence à 6 s (demandé le 5 octobre 2026 ; avant : 10 s)
+DEBUT_VOIX_S = 7.0          # la phrase d'accueil commence à 7 s, mieux calée sur la musique (5 octobre 2026 ; 10 s au départ, puis 6 s)
 PAUSE_ACCUEIL_S = 4.0       # la musique reprend seule ce temps après la phrase d'accueil, avant la question (avant : 5 s ;
                             # 1 à 2 s de silence en trop, repéré à l'écoute le 5 octobre 2026)
 RAMPE_JINGLE_ACCUEIL_S = 0.7   # la musique remonte vite après l'accueil : plus de « trou » de près de 2 s (avant : 1,8 s)

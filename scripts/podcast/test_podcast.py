@@ -335,23 +335,24 @@ class TestFondContinu(unittest.TestCase):
         # sous la voix (ex. 3e seconde de la 1re partie, vers 15 s) : voix + fond très léger, donc à peine plus de 3000
         self.assertLess(niveaux[16], 3000 * 1.12)
         self.assertGreater(len(out) / mu.SR, 10 + 15 * 3 + 2 * (9 - 3 + 0.3))
-        # avec accueil : 1re partie = accueil (6 s) ; musique plus présente dessous, puis seule 4 s avant la question
+        # avec accueil : 1re partie = accueil (6 s) dite à partir de DEBUT_VOIX_S ; musique plus présente dessous, puis seule 4 s avant la question
+        D = int(mu.DEBUT_VOIX_S)
         accueil = array("h", [3000] * (mu.SR * 6)).tobytes()
         out2 = array("h")
         out2.frombytes(mu.habiller_fond(theme, [accueil, voix, voix], accueil=True))
         n2 = [mu._rms(out2[i * w:(i + 1) * w]) for i in range(len(out2) // w)]
-        self.assertGreater(n2[8], 3050)            # sous l'accueil (6 à 12 s) : voix + musique présente
-        # la question entre 4,15 s après la fin de l'accueil (12 s + 0,15 + 4) : de 13 à 16 s, musique seule
-        seule = n2[14]
+        self.assertGreater(n2[D + 2], 3050)        # sous l'accueil : voix + musique présente
+        # la question entre 4,15 s après la fin de l'accueil (D + 6 + 0,15 + 4) : musique seule juste avant
+        seule = n2[D + 6 + 2]
         self.assertGreater(seule, 1500)                    # la musique est bien là, audible
         self.assertLess(seule, 3500)                       # et il n'y a pas de voix (3000 de voix seule + musique serait plus fort)
-        self.assertGreater(n2[18], 2850)                   # puis la question
+        self.assertGreater(n2[D + 6 + 6], 2850)            # puis la question
         # dernière partie : musique plus présente que le fond ordinaire
-        t_fin = 6 + 6 + (0.15 + 7 - 3) + 15 + (0.3 + 9 - 3)
+        t_fin = mu.DEBUT_VOIX_S + 6 + (0.15 + 7 - 3) + 15 + (0.3 + 9 - 3)
         self.assertGreater(n2[int(t_fin) + 5], niveaux[int(t_fin) + 5] * 0.99)
 
-    def test_chronologie_accueil_6_s_et_pause_courte(self):
-        """La voix d'accueil démarre à 6 s ; entre l'accueil et la question, environ 4 s de musique, sans silence en trop."""
+    def test_chronologie_accueil_7_s_et_pause_courte(self):
+        """La voix d'accueil démarre à 7 s ; entre l'accueil et la question, environ 4 s de musique, sans silence en trop."""
         muet = array("h", [0] * (mu.SR * 40)).tobytes()          # thème silencieux : on ne voit que les voix
         silence = array("h", [0] * (mu.SR * 1)).tobytes()
         voix_a = array("h", [4000] * (mu.SR * 6)).tobytes()
@@ -363,8 +364,9 @@ class TestFondContinu(unittest.TestCase):
         seuil = 100
         actif = [i for i, x in enumerate(out) if abs(x) > seuil]
         debut = actif[0] / mu.SR
-        self.assertAlmostEqual(debut, mu.DEBUT_VOIX_S, delta=0.2)   # démarre à 6 s (marge de 0,08 s avant la voix)
-        fin_accueil = next(i for i in range(int(mu.SR * 6.5), len(out)) if abs(out[i]) <= seuil) / mu.SR
+        self.assertEqual(mu.DEBUT_VOIX_S, 7.0)
+        self.assertAlmostEqual(debut, 7.0, delta=0.2)   # démarre à 7 s (marge de 0,08 s avant la voix)
+        fin_accueil = next(i for i in range(int(mu.SR * (mu.DEBUT_VOIX_S + 1)), len(out)) if abs(out[i]) <= seuil) / mu.SR
         debut_question = next(i for i in range(int(fin_accueil * mu.SR), len(out)) if abs(out[i]) > seuil) / mu.SR
         pause = debut_question - fin_accueil
         self.assertGreater(pause, 3.8)
