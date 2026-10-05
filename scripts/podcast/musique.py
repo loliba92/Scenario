@@ -417,10 +417,30 @@ NIVEAU_OUVERTURE_REL = 1.1
 NIVEAU_SOUS_ACCUEIL = 0.25  # sous la phrase d'accueil et sous la phrase finale : musique bien présente mais sous la voix
 OUVERTURE_S = 12.0      # le thème joue seul 10 s, la voix entre 2 s avant la fin de l'ouverture
 JINGLE_S = 9.0
-PAUSE_ACCUEIL_S = 5.0       # la musique reprend seule ce temps après « On y va ! », avant la question
+DEBUT_VOIX_S = 6.0          # la phrase d'accueil commence à 6 s (demandé le 5 octobre 2026 ; avant : 10 s)
+PAUSE_ACCUEIL_S = 4.0       # la musique reprend seule ce temps après la phrase d'accueil, avant la question (avant : 5 s ;
+                            # 1 à 2 s de silence en trop, repéré à l'écoute le 5 octobre 2026)
+RAMPE_JINGLE_ACCUEIL_S = 0.7   # la musique remonte vite après l'accueil : plus de « trou » de près de 2 s (avant : 1,8 s)
 JINGLE_ACCUEIL_S = PAUSE_ACCUEIL_S + 3.0   # + recouvrement : la question entre sous la fin du jingle
 RECOUVREMENT_JINGLE_S = 3.0
 FERMETURE_S = 9.0
+
+
+def _rogner(a: array, debut_s: float = 0.08, fin_s: float = 0.12, seuil: float = 0.006) -> array:
+    """Retire le silence que la synthèse vocale laisse avant et après chaque partie (seuil : 0,6 % de la crête, soit
+    environ -44 dB), en gardant une marge courte : sans cela ces silences s'ajoutent à la pause musicale voulue."""
+    n = len(a)
+    crete = max((abs(x) for x in a), default=0)
+    if not crete:
+        return a
+    lim = seuil * crete
+    i = 0
+    while i < n and abs(a[i]) < lim:
+        i += 1
+    j = n
+    while j > i and abs(a[j - 1]) < lim:
+        j -= 1
+    return a[max(0, i - int(SR * debut_s)):min(n, j + int(SR * fin_s))]
 
 
 def _boucle(theme: array, n: int, fondu_s: float = 3.0) -> array:
@@ -465,7 +485,7 @@ def habiller_fond(theme_pcm: bytes, parties_pcm: list[bytes], accueil: bool = Fa
     for p in parties_pcm:
         a = array("h")
         a.frombytes(p)
-        parties.append(a)
+        parties.append(_rogner(a))
     toute = array("h")
     for a in parties:
         toute.extend(a)
@@ -473,7 +493,7 @@ def habiller_fond(theme_pcm: bytes, parties_pcm: list[bytes], accueil: bool = Fa
     ref = rms_voix / (_rms(theme) or 1.0)
     bas, jingle, ouv = NIVEAU_FOND, NIVEAU_JINGLE, NIVEAU_OUVERTURE_REL
     # --- calendrier : début de chaque partie, et points de l'enveloppe
-    debut = OUVERTURE_S - 2.0
+    debut = DEBUT_VOIX_S
     mid = NIVEAU_SOUS_ACCUEIL
     if accueil and len(parties) > 1:
         pts = [(0.0, 0.0), (1.5, ouv), (debut, ouv), (debut + 2.0, mid)]   # musique présente tout le long de l'accueil
@@ -483,11 +503,13 @@ def habiller_fond(theme_pcm: bytes, parties_pcm: list[bytes], accueil: bool = Fa
     t = debut
     for i, a in enumerate(parties):
         if i:
-            s = t + 0.3                                   # le jingle commence juste après la fin de la partie
+            apres_accueil = accueil and i == 1
+            s = t + (0.15 if apres_accueil else 0.3)      # le jingle commence juste après la fin de la partie
             apres = mid if (i == len(parties) - 1 and i > 0) else bas   # avant la phrase finale, la musique reste présente
-            avant = mid if (accueil and i == 1) else bas  # après l'accueil, la musique part de son niveau d'accueil
-            duree = JINGLE_ACCUEIL_S if (accueil and i == 1) else JINGLE_S
-            pts += [(s, avant), (s + 1.8, jingle), (s + duree - 4.0, jingle), (s + duree, apres)]
+            avant = mid if apres_accueil else bas         # après l'accueil, la musique part de son niveau d'accueil
+            duree = JINGLE_ACCUEIL_S if apres_accueil else JINGLE_S
+            rampe = RAMPE_JINGLE_ACCUEIL_S if apres_accueil else 1.8
+            pts += [(s, avant), (s + rampe, jingle), (s + duree - 4.0, jingle), (s + duree, apres)]
             t = s + duree - RECOUVREMENT_JINGLE_S         # la partie suivante entre sous la fin du jingle
         positions.append(t)
         t += len(a) / SR
