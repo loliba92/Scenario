@@ -16,6 +16,17 @@
       <itunes:email>contact@lesscenarios.fr</itunes:email>
     </itunes:owner>
     <item>
+      <title>GPS : le monde peut-il se passer du GPS ?</title>
+      <link>https://lesscenarios.fr/archives/2026-10-05.html</link>
+      <guid isPermaLink="false">scenario-podcast-2026-10-05</guid>
+      <pubDate>Mon, 05 Oct 2026 07:00:00 +0000</pubDate>
+      <description>GPS : le monde peut-il se passer du GPS ? Épisode lu par une voix de synthèse (intelligence artificielle), à partir de l'édition du 2026-10-05. Version écrite : https://lesscenarios.fr/archives/2026-10-05.html</description>
+      <enclosure url="https://github.com/loliba92/Scenario/releases/download/podcast-2026-10-05/2026-10-05.mp3" length="3967245" type="audio/mpeg"/>
+      <itunes:duration>00:05:30</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://lesscenarios.fr/podcast/episodes/2026-10-05.jpg"/>
+    </item>
+    <item>
       <title>Championnat des Nations : le nouveau roi du rugby ?</title>
       <link>https://lesscenarios.fr/archives/2026-10-04.html</link>
       <guid isPermaLink="false">scenario-podcast-2026-10-04</guid>
