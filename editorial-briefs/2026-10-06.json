@@ -1,0 +1,304 @@
+{
+  "date": "2026-10-06",
+  "registre": "carte_blanche",
+  "sujet": {
+    "titre_propose": "Sabotages et incendies en Europe : la Russie mène-t-elle une guerre hybride silencieuse sur le sol de l'UE ?",
+    "h1": "Guerre hybride en Europe : la Russie sabote-t-elle l'UE ?",
+    "question_posee": "La multiplication des sabotages en Europe est-elle une guerre hybride russe contenue, ou le seuil d'une riposte OTAN est-il en train d'être franchi ?",
+    "eyebrow": "Mardi, carte_blanche",
+    "angle": "Depuis fin 2025, une série de sabotages contre des infrastructures européennes (transport, énergie, télécommunications) est attribuée aux services russes. La question n'est pas seulement de savoir si Moscou est responsable, mais si cette campagne franchit le seuil d'une riposte collective de l'OTAN ou reste un conflit par ailleurs géré par les services.",
+    "tags": [
+      "géopolitique",
+      "sécurité",
+      "OTAN",
+      "Russie",
+      "UE"
+    ],
+    "domain": "international",
+    "image_keywords": "sabotage infrastructure europe",
+    "complexite": 3,
+    "origine_prioritaire": "Sabotages et incendies en Europe : la Russie mène-t-elle une guerre hybride silencieuse sur le sol de l'UE ?",
+    "origine_id": "carte-blanche-sabotages-et-incendies-en-europe-la-russie-mene",
+    "point_de_depart": {
+      "id": "carte-blanche-sabotages-et-incendies-en-europe-la-russie-mene",
+      "registre": "carte_blanche",
+      "titre": "Sabotages et incendies en Europe : la Russie mène-t-elle une guerre hybride silencieuse sur le sol de l'UE ?",
+      "question": "Sabotages et incendies en Europe : la Russie mène-t-elle une guerre hybride silencieuse sur le sol de l'UE ?",
+      "contexte": "Fin septembre 2026, un document diplomatique russe transmis à l'OTAN et consulté par Reuters menace explicitement d'un recours à l'arme nucléaire si l'enclave de Kaliningrad était isolée. Parallèlement, les ambassades russes en Europe accusent l'OTAN d'exercices provocateurs, tandis que le secrétaire général Mark Rutte dénonce une « rhétorique nucléaire irresponsable ». L'Express révèle que Moscou nie toute intention d'attaquer mais prévient que toute agression contre Kaliningrad déclenchera « la riposte la plus ferme ». En filigrane, les capitales européennes pointent une campagne de sabotages et d'incendies criminels attribuée aux services russes sur le continent.",
+      "rationnel": "La question : la multiplication d'actes de sabotage et d'incendies d'origine russe en Europe constitue-t-elle une guerre hybride à bas bruit que l'UE peut encore contenir, ou le seuil d'une riposte collective (article 4 ou 5 du traité de l'OTAN) est-il en train d'être franchi ? L'issue est ouverte car les preuves formelles d'implication étatique russe restent difficiles à établir juridiquement, certains États membres refusent l'escalade, tandis que d'autres (Pays baltes, Pologne) réclament des sanctions lourdes. Pour un lecteur français, l'enjeu est la sécurité du territoire national et la crédibilité de la dissuasion européenne.",
+      "mots_cles": [
+        "Kaliningrad",
+        "guerre hybride",
+        "sabotage Europe",
+        "OTAN article 4",
+        "armes nucléaires tactiques",
+        "Mark Rutte",
+        "hybrid warfare",
+        "Russian sabotage"
+      ],
+      "angle": null,
+      "a_verifier": "Nombre précis d'incidents de sabotage attribués à la Russie en Europe depuis janvier 2026 ; position officielle de l'Élysée sur l'invocation de l'article 4.",
+      "scenarios_brouillon": {
+        "favorable": "L'UE et l'OTAN attribuent publiquement les sabotages à la Russie, imposent un paquet de sanctions ciblées (secteur énergie, oligarques, services de renseignement) et renforcent la protection des infrastructures critiques sans déclencher l'article 5. Moscou recule pour éviter l'isolement total.",
+        "stable": "Les incidents se poursuivent à bas bruit. Les Européens durcissent la résilience (cyber, physique, renseignement) mais évitent l'attribution formelle pour ne pas devoir riposter. La guerre hybride devient un « nouveau normal » géré par les services, avec des pics de tension gérables.",
+        "degrade": "Un sabotage majeur (réseau électrique, hôpital, transport) fait des victimes civiles. Un État membre invoque l'article 4, la Russie nie et menace. L'OTAN se divise sur la riposte. L'escalade verbale glisse vers un incident militaire (tir sur drone, interception navale en Baltique), faisant basculer la crise en confrontation ouverte."
+      },
+      "echeance": {
+        "date": "2026-10-15",
+        "raison": "Réunion des ministres de la Défense de l'OTAN à Bruxelles (prévue mi-octobre) où le dossier hybride sera à l'ordre du jour."
+      },
+      "sources_pistes": [
+        {
+          "titre": "L'enclave de Kaliningrad au cœur de nouvelles tensions entre la Russie et l'Otan – L'Express",
+          "url": "https://www.lexpress.fr/monde/europe/lenclave-de-kaliningrad-au-coeur-de-nouvelles-tensions-entre-la-russie-et-lotan-A6YCCYRR2JBH3C4UHKLESV4JZE/"
+        },
+        {
+          "titre": "La Russie menace l'OTAN d'utiliser des armes nucléaires, une première depuis la Guerre froide",
+          "url": "https://www.cnews.fr/monde/2026-10-01/la-russie-menace-lotan-dutiliser-des-armes-nucleaires-une-premiere-depuis-la"
+        }
+      ],
+      "tag": "géopolitique & sécurité",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-10-04 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Repéré en veille sur le registre Géopolitique, remonté ici pour son urgence.",
+      "donnees_graphique": "[relevé du 2026-10-04] Sabotages ciblés contre la infrastructure de transport en Allemagne (nombre d'infractions). 2023 = 78 (2023) ; 2024 = 58 (2024) ; 2025 = 93 (2025). Sources : https://correctiv.org/aktuelles/hybride-kriegsfuehrung/2026/06/18/fast-100-anschlaege-auf-deutsche-verkehrsinfrastruktur-sabotage/ ; https://www.news.de/politik/859733719/bundeskriminalamt-meldet-mehr-sabotage-gegen-verkehrswege-kriminalitaet-news-der-dpa-aktuell-zu-verkehr-und-sabotage/1/",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (2026-10-05, GPS Baltique) : sujet différent — navigation par satellite vs sabotages physiques attribués à la Russie. Aucun recoupement fort. Même registre (carte_blanche) : les 2-3 dernières éditions du même registre sont les 2026-10-03 (culture-divertissement, viralité), 2026-10-02 (sciences, cancer), 2026-10-01 (economie, Bitcoin) — aucun lien thématique avec la guerre hybride. Sujet inédit dans ce créneau."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le Bundeskriminalamt (BKA) allemand a signalé une augmentation des sabotages contre les voies de transport en 2025, avec 93 incidents recensés cette année-là, contre 58 en 2024 et 78 en 2023.",
+      "chiffre": "93 incidents en 2025, 58 en 2024, 78 en 2023",
+      "date_du_chiffre": "2026-06-18",
+      "sources": [
+        "correctiv-sabotage-2026",
+        "news-de-sabotage-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "En octobre 2026, la Russie a menacé l'OTAN d'un recours aux armes nucléaires tactiques en cas d'isolement de Kaliningrad, une escalade verbale qualifiée d'irresponsable par le secrétaire général Mark Rutte.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "cnews-kaliningrad-nucléaire-2026",
+        "lexpress-kaliningrad-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Plusieurs États membres de l'OTAN (Pays baltes, Pologne) ont réclamé des sanctions lourdes contre la Russie pour les actes de sabotage, tandis que d'autres restent réticents à une attribution formelle de l'escalade.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "cnews-kaliningrad-nucléaire-2026"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Russie",
+      "role": "Auteur présumé des actes de sabotage et de la menace nucléaire contre l'OTAN ; nient toute intention d'attaque mais avertissent d'une riposte en cas d'agression contre Kaliningrad."
+    },
+    {
+      "nom": "OTAN",
+      "role": "Alliance attaquée par la rhétorique nucléaire russe ; le secrétaire général Mark Rutte dénonce cette escalade ; les États membres sont divisés sur la riposte."
+    },
+    {
+      "nom": "Mark Rutte",
+      "role": "Secrétaire général de l'OTAN, dénonce la rhétorique nucléaire russe comme irresponsable."
+    },
+    {
+      "nom": "Bundeskriminalamt (BKA)",
+      "role": "Autorité policière allemande ayant recensé les incidents de sabotage contre les infrastructures de transport."
+    },
+    {
+      "nom": "Pays baltes et Pologne",
+      "role": "États membres de l'OTAN les plus proches de la Russie, réclamant des sanctions lourdes et une attribution formelle des sabotages."
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2023-01-01",
+      "evenement": "78 incidents de sabotage contre les infrastructures de transport en Allemagne recensés par le BKA."
+    },
+    {
+      "date": "2024-01-01",
+      "evenement": "58 incidents de sabotage contre les infrastructures de transport en Allemagne recensés par le BKA."
+    },
+    {
+      "date": "2025-01-01",
+      "evenement": "93 incidents de sabotage contre les infrastructures de transport en Allemagne recensés par le BKA, marquant une augmentation."
+    },
+    {
+      "date": "2026-09-28",
+      "evenement": "Un document diplomatique russe transmis à l'OTAN menace d'un recours aux armes nucléaires si Kaliningrad est isolé."
+    },
+    {
+      "date": "2026-10-01",
+      "evenement": "Le secrétaire général de l'OTAN Mark Rutte dénonce la rhétorique nucléaire russe comme irresponsable."
+    },
+    {
+      "date": "2026-10-15",
+      "evenement": "Réunion des ministres de la Défense de l'OTAN à Bruxelles où le dossier hybride sera à l'ordre du jour."
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "L'UE et l'OTAN attribuent publiquement les sabotages à la Russie, imposent un paquet de sanctions ciblées (secteur énergie, oligarques, services de renseignement) et renforcent la protection des infrastructures critiques sans déclencher l'article 5. Moscou recule pour éviter l'isolement total.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Les incidents se poursuivent à bas bruit. Les Européens durcissent la résilience (cyber, physique, renseignement) mais évitent l'attribution formelle pour ne pas devoir riposter. La guerre hybride devient un « nouveau normal » géré par les services, avec des pics de tension gérables.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "Un sabotage majeur (réseau électrique, hôpital, transport) fait des victimes civiles. Un État membre invoque l'article 4, la Russie nie et menace. L'OTAN se divise sur la riposte. L'escalade verbale glisse vers un incident militaire (tir sur drone, interception navale en Baltique), faisant basculer la crise en confrontation ouverte.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Incidents de sabotage contre les infrastructures de transport en Allemagne (2025)",
+      "valeur": "93",
+      "tendance": "hausse par rapport à 2024 (58) et 2023 (78)"
+    },
+    {
+      "label": "Réunion des ministres de la Défense de l'OTAN à Bruxelles",
+      "valeur": "15 octobre 2026",
+      "tendance": "échéance clé pour le dossier hybride"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Les données disponibles (Correctiv, 18 juin 2026) ne couvrent que 3 points (2023, 2024, 2025) pour les sabotages en Allemagne, ce qui est insuffisant pour une série historique longue (critère 2 non satisfait : moins de 5 points réels). Aucune source publique fiable n'a été trouvée pour un historique plus complet de cette série spécifique.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres comparables (nombre d'incidents de sabotage en Allemagne) sont disponibles et vérifiés : 78 en 2023, 58 en 2024, 93 en 2025.",
+    "barres": {
+      "aria_label": "Nombre d'incidents de sabotage contre les infrastructures de transport en Allemagne de 2023 à 2025",
+      "lead": "Évolution du nombre d'incidents de sabotage contre les infrastructures de transport en Allemagne, selon le Bundeskriminalamt (BKA).",
+      "caption": "Source : Correctiv, 18 juin 2026, et News.de (DPA), 2026.",
+      "unite": "incidents",
+      "valeurs": [
+        {
+          "label": "2023",
+          "valeur": 78,
+          "affichage": "78 incidents",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2024",
+          "valeur": 58,
+          "affichage": "58 incidents",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2025",
+          "valeur": 93,
+          "affichage": "93 incidents",
+          "mis_en_avant": true
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Ce qu'est la guerre hybride et comment elle se distingue d'une attaque conventionnelle",
+        "rattache_a": "La multiplication des sabotages en Europe est-elle une guerre hybride russe contenue, ou le seuil d'une riposte OTAN est-il en train d'être franchi ?"
+      },
+      {
+        "focus": "Les articles 4 et 5 de l'OTAN et à quoi ils servent",
+        "rattache_a": "La multiplication des sabotages en Europe est-elle une guerre hybride russe contenue, ou le seuil d'une riposte OTAN est-il en train d'être franchi ?"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le nombre exact d'incidents de sabotage attribués formellement à la Russie en Europe depuis janvier 2026 n'est pas clairement établi dans les sources consultées ; les chiffres disponibles concernent les incidents en Allemagne sans attribution formelle à la Russie.",
+    "La position officielle de l'Élysée sur l'invocation de l'article 4 de l'OTAN n'a pas été trouvée dans les sources consultées."
+  ],
+  "a_ne_pas_affirmer": [
+    "Que la Russie est formellement responsable de tous les sabotages en Europe — les sources indiquent des attributions mais pas de preuves formelles établies juridiquement.",
+    "Que l'article 5 de l'OTAN a été invoqué ou sera invoqué — aucune décision formelle n'a été prise à ce jour.",
+    "Que la menace nucléaire russe est une feinte ou une vraie intention d'usage — les sources rapportent la menace sans en confirmer la crédibilité."
+  ],
+  "sources": [
+    {
+      "id": "correctiv-sabotage-2026",
+      "title": "Fast 100 Anschläge auf deutsche Verkehrsinfrastruktur: Sabotage",
+      "source": "Correctiv",
+      "url": "https://correctiv.org/aktuelles/hybride-kriegsfuehrung/2026/06/18/fast-100-anschlaege-auf-deutsche-verkehrsinfrastruktur-sabotage/",
+      "image": null,
+      "lang": "de",
+      "domain": "international",
+      "summary": "Article de Correctiv datant du 18 juin 2026, rapportant que le BKA a recensé près de 100 incidents de sabotage contre les infrastructures de transport en Allemagne, avec 93 en 2025, 58 en 2024 et 78 en 2023.",
+      "read_minutes": 3
+    },
+    {
+      "id": "news-de-sabotage-2026",
+      "title": "Bundeskriminalamt meldet mehr Sabotage gegen Verkehrswege",
+      "source": "News.de (DPA)",
+      "url": "https://www.news.de/politik/859733719/bundeskriminalamt-meldet-mehr-sabotage-gegen-verkehrswege-kriminalitaet-news-der-dpa-aktuell-zu-verkehr-und-sabotage/1/",
+      "image": null,
+      "lang": "de",
+      "domain": "international",
+      "summary": "Article de News.de reprenant les chiffres du BKA sur les sabotages contre les voies de transport en Allemagne : 93 incidents en 2025, en hausse par rapport aux années précédentes.",
+      "read_minutes": 2
+    },
+    {
+      "id": "cnews-kaliningrad-nucléaire-2026",
+      "title": "La Russie menace l'OTAN d'utiliser des armes nucléaires, une première depuis la Guerre froide",
+      "source": "CNews",
+      "url": "https://www.cnews.fr/monde/2026-10-01/la-russie-menace-lotan-dutiliser-des-armes-nucleaires-une-premiere-depuis-la",
+      "image": null,
+      "lang": "fr",
+      "domain": "international",
+      "summary": "Article du 1er octobre 2026 rapportant la menace russe d'un recours aux armes nucléaires en cas d'isolement de Kaliningrad, et la réaction de Mark Rutte qualifiant cette rhétorique d'irresponsable.",
+      "read_minutes": 3
+    },
+    {
+      "id": "lexpress-kaliningrad-2026",
+      "title": "L'enclave de Kaliningrad au cœur de nouvelles tensions entre la Russie et l'Otan",
+      "source": "L'Express",
+      "url": "https://www.lexpress.fr/monde/europe/lenclave-de-kaliningrad-au-coeur-de-nouvelles-tensions-entre-la-russie-et-lotan-A6YCCYRR2JBH3C4UHKLESV4JZE/",
+      "image": null,
+      "lang": "fr",
+      "domain": "international",
+      "summary": "Article de L'Express expliquant que Moscou nie toute intention d'attaquer mais prévient que toute agression contre Kaliningrad déclenchera la riposte la plus ferme, tandis que les capitales européennes pointent une campagne de sabotages attribuée aux services russes.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [],
+  "articles_connexes": [
+    {
+      "date": "2026-09-23",
+      "titre": "Carburants à prix record et menaces hybrides : Macron réunit les candidats à l'Élysée",
+      "lien": "Même thème de la menace hybride russe en Europe, évoqué dans le contexte des carburants à prix record et de la réunion des candidats à l'Élysée."
+    },
+    {
+      "date": "2026-09-22",
+      "titre": "Bab el-Mandeb : un tiers du commerce mondial sous contrôle hostile ?",
+      "lien": "Même registre international et même enjeu de sécurité des infrastructures critiques (voies de transport, commerce maritime) menacées par des acteurs étatiques."
+    },
+    {
+      "date": "2026-08-17",
+      "titre": "Ormuz : la trêve a expiré",
+      "lien": "Même tension géopolitique entre la Russie et l'OTAN, avec des menaces nucléaires et une escalade dans les infrastructures stratégiques (détroit, voies de transport)."
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser que les chiffres de sabotages en Allemagne (BKA) ne sont pas formellement attribués à la Russie dans les sources consultées, mais qu'ils sont cités comme indicatifs de la campagne de sabotage européenne.",
+    "Mettre en avant la division des États membres de l'OTAN sur la riposte : Pays baltes et Pologne pour des sanctions lourdes, d'autres réticents à l'attribution formelle.",
+    "Souligner que la menace nucléaire russe contre l'OTAN est une première depuis la Guerre froide, selon CNews.",
+    "Noter que la réunion des ministres de la Défense de l'OTAN du 15 octobre 2026 sera un jalon clé pour le dossier hybride."
+  ]
+}
