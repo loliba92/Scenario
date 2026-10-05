@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-05",
+      "articles": [
+        {
+          "title": "Researchers home in on origins of Russia's Baltic GPS jamming",
+          "source": "Defense News",
+          "url": "https://www.defensenews.com/global/europe/2025/07/02/researchers-home-in-on-origins-of-russias-baltic-gps-jamming/",
+          "image": null,
+          "lang": "en",
+          "domain": "international",
+          "summary": "Article de Defense News analysant les origines du brouillage GPS en mer Baltique et les recherches menées pour identifier les sources des interférences.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Baltic Sea GPS jamming: What airlines and ships need to know",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/business/aerospace-defense/baltic-sea-gps-jamming-what-airlines-ships-need-know-2025-03-15/",
+          "image": null,
+          "lang": "en",
+          "domain": "international",
+          "summary": "Article de Reuters expliquant les implications du brouillage GPS en mer Baltique pour les compagnies aériennes et les navires, avec conseils de navigation alternative.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-10-04",
       "articles": [
         {
