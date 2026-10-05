@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import re
 import sys
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -17,11 +18,61 @@ import generate_podcast as gp  # noqa: E402
 MOTS_MIN, MOTS_MAX = 420, 720  # 3 à 5 minutes de lecture
 SEPARATEUR = "---"
 MOTS_PHRASE_MAX, MOTS_PHRASE_MOYENNE = 32, 20   # pédagogie : phrases courtes à l'oral (textes validés : moyenne 13-15, maximum 28)
-OUVERTURE = ("Bienvenue sur Scénario. Chaque jour, une question d'actualité, "
-             "et trois évolutions possibles. On y va !")
-FERMETURE = ("Voilà pour aujourd'hui. Merci de nous avoir écoutés. L'édition complète est sur lesscenarios.fr. "
-             "Prenez soin de vous, et n'oubliez pas : rien n'est écrit à l'avance. "
-             "À demain, pour un nouveau scénario.")
+# Sept accueils et sept fermetures, écrits à l'avance (jamais par le modèle) : on en tire un par jour pour que l'épisode
+# ne sonne pas toujours pareil. Règles communes : vouvoiement, « évolutions » seulement dans l'accueil, le mot « scénario »
+# dans la fermeture, phrases courtes. Le tirage dépend de la date (voir _rangs) : il se refait à l'identique si l'on
+# régénère un épisode.
+OUVERTURES = (
+    "Bienvenue sur Scénario. Chaque jour, une question d'actualité, et trois évolutions possibles. On y va !",
+    "Bonjour, et bienvenue sur Scénario. Une question d'actualité, trois évolutions possibles. Voyons cela ensemble.",
+    "Vous écoutez Scénario. Chaque jour, une question d'actualité, et trois évolutions possibles. C'est parti.",
+    "Bienvenue sur Scénario, le rendez-vous quotidien d'une question d'actualité et de ses trois évolutions possibles. Commençons.",
+    "Bonjour à toutes et à tous, bienvenue sur Scénario. Aujourd'hui encore, une question d'actualité, et trois évolutions possibles. Allons-y.",
+    "Scénario, c'est une question d'actualité par jour, et trois évolutions possibles. Bienvenue, installez-vous : on commence.",
+    "Bienvenue sur Scénario. Prenez un moment avec nous : une question d'actualité, trois évolutions possibles. Allons-y.",
+)
+FERMETURES = (
+    "Voilà pour aujourd'hui. Merci de nous avoir écoutés. L'édition complète est sur lesscenarios.fr. "
+    "Prenez soin de vous, et n'oubliez pas : rien n'est écrit à l'avance. À demain, pour un nouveau scénario.",
+    "C'est tout pour aujourd'hui. Merci pour votre confiance. L'édition complète vous attend sur lesscenarios.fr. "
+    "Rien n'est écrit à l'avance : prenez soin de vous, et à demain pour un nouveau scénario.",
+    "Nous nous arrêtons ici. Merci d'avoir pris ce moment avec nous. Pour aller plus loin, tout est sur lesscenarios.fr. "
+    "Portez-vous bien, et à demain pour un nouveau scénario.",
+    "Merci d'avoir été là. Si le sujet vous a donné envie d'approfondir, l'édition complète est sur lesscenarios.fr. "
+    "N'oubliez pas : rien n'est écrit à l'avance. À demain, pour un nouveau scénario.",
+    "Voilà pour aujourd'hui. Merci de votre écoute, et passez une belle journée. Vous retrouverez l'édition complète sur "
+    "lesscenarios.fr. À demain, pour un nouveau scénario.",
+    "Voilà qui conclut cette édition. Merci de votre attention. Gardez en tête que rien n'est écrit à l'avance, et prenez "
+    "soin de vous. L'édition complète est sur lesscenarios.fr. À demain, pour un nouveau scénario.",
+    "C'est la fin de cet épisode. Merci de nous avoir suivis, et prenez soin de vous. Les sources et le texte complet sont "
+    "sur lesscenarios.fr. À demain, pour un nouveau scénario.",
+)
+OUVERTURE = OUVERTURES[0]   # accueil par défaut (tests, repli)
+FERMETURE = FERMETURES[0]
+
+
+def _rangs(date_str: str | None) -> tuple[int, int]:
+    """(rang de l'accueil, rang de la fermeture) pour une date AAAA-MM-JJ.
+
+    L'accueil avance d'un cran par jour : les sept sont joués chaque semaine, sans répétition d'un jour à l'autre.
+    La fermeture avance de trois crans par jour (elle ne suit donc pas l'ordre de l'accueil) et d'un cran de plus à
+    chaque semaine : jamais deux fois la même d'affilée, les sept reviennent régulièrement, et le couple accueil +
+    fermeture change d'une semaine à l'autre."""
+    try:
+        n = date.fromisoformat((date_str or "")[:10]).toordinal()
+    except ValueError:
+        return 0, 0
+    return n % 7, (3 * n + n // 7) % 7
+
+
+def ouverture(date_str: str | None = None) -> str:
+    return OUVERTURES[_rangs(date_str)[0]]
+
+
+def fermeture(date_str: str | None = None) -> str:
+    return FERMETURES[_rangs(date_str)[1]]
+
+
 EXEMPLE = (Path(__file__).resolve().parents[2] / "podcast" / "textes" / "2026-10-03.txt")
 
 
@@ -123,5 +174,5 @@ def generer(ed: dict, modele: str, cle: str, essais: int = 3) -> str:
             nb = len(parties(texte))
             if nb < 3:
                 print(f"  ATTENTION : {nb} partie(s) seulement (séparateurs --- attendus) : peu ou pas de jingles.", flush=True)
-            return texte + "\n\n" + SEPARATEUR + "\n\n" + FERMETURE
+            return texte + "\n\n" + SEPARATEUR + "\n\n" + fermeture(ed.get("date"))
     raise gp.PodcastError("texte refusé par le garde-fou : " + "; ".join(remarques))

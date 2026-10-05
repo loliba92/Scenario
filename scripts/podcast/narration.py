@@ -70,7 +70,7 @@ def main(argv=None) -> int:
     parts = texte_narration.parties(texte)
     accueil = False
     if parts and not re.match(r"\s*bienvenue", parts[0], re.I):
-        parts.insert(0, texte_narration.OUVERTURE)   # partie à part : la musique reprend 5 s entre l'accueil et la question
+        parts.insert(0, texte_narration.ouverture(nom))   # partie à part : la musique reprend 5 s entre l'accueil et la question
         accueil = True
     print(f"{len(texte.split())} mots, {len(parts)} partie(s), voix {args.voix}", flush=True)
     parties_pcm = []
