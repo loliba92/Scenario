@@ -192,6 +192,37 @@ class TestJingles(unittest.TestCase):
         self.assertNotIn("façons", tn.OUVERTURE)
         self.assertLess(len(tn.OUVERTURE.split()), 20)
 
+    def test_sept_accueils_et_sept_fermetures(self):
+        import re
+        from datetime import date, timedelta
+        import texte_narration as tn
+        self.assertEqual((len(tn.OUVERTURES), len(tn.FERMETURES)), (7, 7))
+        self.assertEqual((len(set(tn.OUVERTURES)), len(set(tn.FERMETURES))), (7, 7), "tous différents")
+        for o in tn.OUVERTURES:
+            self.assertIn("Scénario", o)
+            self.assertIn("trois évolutions possibles", o)
+            self.assertNotIn("façons", o)
+            self.assertLess(len(o.split()), 24)
+        for f in tn.FERMETURES:
+            self.assertIn("lesscenarios.fr", f)
+            self.assertRegex(f, r"[Àà] demain, pour un nouveau scénario|à demain pour un nouveau scénario")
+            self.assertNotIn("évolution", f)
+            self.assertFalse(re.search(r"\b(tu|ton|ta|tes|toi|te)\b", f, re.I), "vouvoiement")
+            self.assertFalse(re.search(tn.MOTS_INTERDITS, f, re.I))
+            for phrase in re.split(r"[.!?]", f):
+                self.assertLessEqual(len(phrase.split()), tn.MOTS_PHRASE_MAX)
+        jours = [date(2026, 10, 5) + timedelta(days=i) for i in range(70)]
+        o = [tn.ouverture(j.isoformat()) for j in jours]
+        f = [tn.fermeture(j.isoformat()) for j in jours]
+        self.assertTrue(all(a != b for a, b in zip(o, o[1:])), "jamais deux accueils identiques de suite")
+        self.assertTrue(all(a != b for a, b in zip(f, f[1:])), "jamais deux fermetures identiques de suite")
+        self.assertEqual(len(set(o[:7])), 7, "les sept accueils sont joués chaque semaine")
+        self.assertEqual(len(set(f[:14])), 7, "les sept fermetures sont toutes jouées en deux semaines")
+        self.assertEqual(len(set(f)), 7)
+        self.assertNotEqual(list(zip(o[:7], f[:7])), list(zip(o[7:14], f[7:14])), "le couple change d'une semaine à l'autre")
+        self.assertEqual(tn.ouverture("2026-10-05"), tn.ouverture("2026-10-05-1253"), "suffixe ignoré")
+        self.assertEqual(tn.ouverture("n'importe quoi"), tn.OUVERTURE)
+
     def test_registre_sans_mots_pejoratifs(self):
         import re
         import texte_narration as tn
