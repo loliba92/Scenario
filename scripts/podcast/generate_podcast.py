@@ -75,6 +75,9 @@ def lire_edition(path: Path) -> dict:
         "comprendre": _txt(soup.select_one(".comprendre-text")),
         "question": _txt(soup.select_one("#scenarios .section-title")),
         "scenarios": [],
+        # Petit lexique de l'édition (terme, définition) : la rédaction y a déjà défini les mots difficiles du sujet.
+        "lexique": [{"terme": _txt(dt), "definition": _txt(dt.find_next_sibling("dd"))}
+                    for dt in soup.select("#lexique dl dt") if dt.find_next_sibling("dd")],
     }
     for card in soup.select("#scenarios article.card"):
         gauge = card.select_one(".gauge-value")
@@ -104,6 +107,8 @@ def texte_source(ed: dict) -> str:
     parts = [f"TITRE : {ed['titre']}", "LES FAITS :", *ed["faits"], "L'ESSENTIEL :", *ed["essentiel"]]
     if ed["comprendre"]:
         parts += ["POUR LES NOUVEAUX LECTEURS :", ed["comprendre"]]
+    if ed.get("lexique"):
+        parts += ["LEXIQUE DE LA RÉDACTION :", *(f"{x['terme']} : {x['definition']}" for x in ed["lexique"])]
     parts.append(f"QUESTION POSÉE : {ed['question']}")
     for s in ed["scenarios"]:
         parts += [f"SCÉNARIO {s['type'].upper()} — {s['probabilite']} % de probabilité — {s['titre']}",
