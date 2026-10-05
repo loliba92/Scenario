@@ -535,6 +535,13 @@
   .matiere-card:hover{ border-color:var(--gold); transform:translateY(-1px); }
   .matiere-card strong::after{ content:" →"; color:var(--gold); }
   @media (max-width: 640px){ .audiences, .matieres-grid{ grid-template-columns:1fr; } }
+
+  /* ---- Devise du site (5 oct. 2026) ---- */
+  .devise-footer{
+    flex: 1 0 100%; margin: 0 0 14px;
+    font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 1.05rem;
+    color: var(--gold, #cf9d4c);
+  }
 </style>
 </head>
 <body>
@@ -786,7 +793,8 @@
 <footer>
   <div class="wrap">
     <p class="caveat"><strong>Scéna<span class="brand-rio">rio</span></strong> publie une édition chaque jour. Chaque édition reste figée à sa date de publication.</p>
-    <div class="legal-links">
+    <p class="devise-footer">Rien n'est écrit à l'avance.</p>
+<div class="legal-links">
       <a href="contact.html">Contact</a>
       <a href="mentions-legales.html">Mentions légales</a>
       <a href="politique-de-confidentialite.html">Politique de confidentialité</a>

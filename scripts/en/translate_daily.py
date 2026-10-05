@@ -112,6 +112,7 @@ CHROME_TEXT = {
     "Pour aller plus loin": "To go further",
     "Reste connecté": "Stay connected",
     "Restez connecté": "Stay connected",
+    "Rien n'est écrit à l'avance.": "Nothing is written in advance.",
     "Votez avant le résultat, suivez-nous partout": "Vote before you see the outcome — follow us everywhere",
     "Chaque jour, un sondage sur notre canal Telegram : votez pour le scénario que vous jugez le plus probable avant même de découvrir nos probabilités.":
         "Every day, a poll on our Telegram channel: vote for the scenario you think is most likely before you even see our probabilities.",

@@ -407,6 +407,13 @@
     .hero.glossaire-hero{ padding: 64px 0 44px; }
   }
 
+  /* ---- Devise du site (5 oct. 2026) ---- */
+  .devise-footer{
+    flex: 1 0 100%; margin: 0 0 14px;
+    font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 1.05rem;
+    color: var(--gold, #cf9d4c);
+  }
+
   /* ---- Pages de thème : sélecteur, édition à la une, cartes (scripts/seo/generate_theme_pages.py) ---- */
   .theme-chips{ display:flex; flex-wrap:wrap; gap:8px; margin: 22px 0 0; padding:0; list-style:none; }
   .theme-chip{
@@ -662,7 +669,8 @@
 
 <footer>
   <div class="wrap">
-    <div class="legal-links">
+    <p class="devise-footer">Rien n'est écrit à l'avance.</p>
+<div class="legal-links">
       <a href="contact.html">Contact</a>
       <a href="../mentions-legales.html">Mentions légales</a>
       <a href="../politique-de-confidentialite.html">Politique de confidentialité</a>

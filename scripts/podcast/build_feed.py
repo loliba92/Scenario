@@ -26,9 +26,9 @@ SITE = "https://lesscenarios.fr"
 EMAIL = "contact@lesscenarios.fr"  # adresse publique du flux : Spotify y envoie le code de vérification
 TITRE = "Scénario — le podcast"
 DESCRIPTION = (
-    "Chaque jour, l'actualité clé décryptée en trois scénarios chiffrés, racontée en dialogue. "
-    "Épisodes lus par deux voix de synthèse (voix artificielles, annoncées au début de chaque épisode), "
-    "à partir de l'édition publiée sur lesscenarios.fr."
+    "Chaque jour, une question d'actualité et trois évolutions possibles, racontées en quelques minutes. "
+    "Épisodes lus par une voix de synthèse (voix artificielle), à partir de l'édition publiée sur lesscenarios.fr. "
+    "Rien n'est écrit à l'avance."
 )
 
 

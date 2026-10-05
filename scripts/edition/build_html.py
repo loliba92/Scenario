@@ -790,6 +790,7 @@ _SHARE_BLOCK = """<section class="share-block" id="nous-suivre">
     </div>
     <div class="share-row" style="margin-top:14px">
       <button type="button" id="onesignal-subscribe-btn" class="onesignal-subscribe-btn btn-outline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/></svg> <span class="btn-label">Activer les notifications</span></button>
+      <a class="btn-outline" href="newsletter.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M4.5 7 12 12.5 19.5 7"/></svg> Newsletter</a>
       <a class="btn-outline" href="https://buymeacoffee.com/scenario" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v6a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4Z"/><path d="M16 10.5h1.5a2 2 0 0 1 0 4H16"/><path d="M8.5 4.5c-.6.7-.6 1.3 0 2M12 4.5c-.6.7-.6 1.3 0 2"/></svg> Nous offrir un café</a>
     </div>
   </div>
@@ -1302,6 +1303,7 @@ def build_home_hero():
     <p class="eyebrow">Chaque jour, un sujet, trois scénarios</p>
     <h1>Comprendre l'actualité, c'est en mesurer les <span>conséquences</span></h1>
     <p class="dek">Chaque jour, Scénario prend un sujet clé et en détaille trois évolutions possibles, chacune avec une probabilité chiffrée.</p>
+    <p class="devise">Rien n'est écrit à l'avance.</p>
     <ul class="hero-scenarios" aria-label="Les trois scénarios de chaque édition">
       <li class="is-favorable">Favorable</li>
       <li class="is-stable">Stable</li>
@@ -1478,7 +1480,7 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
     ) if other_today else ""
     cards = build_home_cards(previous[:6], lang)
 
-    footer_html = f'<footer>\n  <div class="wrap">\n    <div class="footer-bottom">\n      {shell["legal_links_html"]}\n    </div>\n  </div>\n</footer>'
+    footer_html = f'<footer>\n  <div class="wrap">\n    <div class="footer-bottom">\n      <p class="devise-footer">Rien n\'est écrit à l\'avance.</p>\n      {shell["legal_links_html"]}\n    </div>\n  </div>\n</footer>'
 
     html_result = f"""<!DOCTYPE html>
 <html lang="{lang}">
@@ -1565,7 +1567,7 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
             'rel="noopener noreferrer">Pexels ↗</a></p>'
         )
 
-    footer_html = f'<footer>\n  <div class="wrap">{photo_credit_html}\n    <div class="footer-bottom">\n      {shell["legal_links_html"]}\n    </div>\n  </div>\n</footer>'
+    footer_html = f'<footer>\n  <div class="wrap">{photo_credit_html}\n    <div class="footer-bottom">\n      <p class="devise-footer">Rien n\'est écrit à l\'avance.</p>\n      {shell["legal_links_html"]}\n    </div>\n  </div>\n</footer>'
 
     html_result = f"""<!DOCTYPE html>
 <html lang="fr">

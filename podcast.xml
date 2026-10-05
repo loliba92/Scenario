@@ -4,9 +4,9 @@
     <title>Scénario — le podcast</title>
     <link>https://lesscenarios.fr/</link>
     <language>fr</language>
-    <description>Chaque jour, l'actualité clé décryptée en trois scénarios chiffrés, racontée en dialogue. Épisodes lus par deux voix de synthèse (voix artificielles, annoncées au début de chaque épisode), à partir de l'édition publiée sur lesscenarios.fr.</description>
+    <description>Chaque jour, une question d'actualité et trois évolutions possibles, racontées en quelques minutes. Épisodes lus par une voix de synthèse (voix artificielle), à partir de l'édition publiée sur lesscenarios.fr. Rien n'est écrit à l'avance.</description>
     <itunes:author>Scénario</itunes:author>
-    <itunes:summary>Chaque jour, l'actualité clé décryptée en trois scénarios chiffrés, racontée en dialogue. Épisodes lus par deux voix de synthèse (voix artificielles, annoncées au début de chaque épisode), à partir de l'édition publiée sur lesscenarios.fr.</itunes:summary>
+    <itunes:summary>Chaque jour, une question d'actualité et trois évolutions possibles, racontées en quelques minutes. Épisodes lus par une voix de synthèse (voix artificielle), à partir de l'édition publiée sur lesscenarios.fr. Rien n'est écrit à l'avance.</itunes:summary>
     <itunes:explicit>false</itunes:explicit>
     <itunes:type>episodic</itunes:type>
     <itunes:image href="https://lesscenarios.fr/podcast/cover.jpg"/>

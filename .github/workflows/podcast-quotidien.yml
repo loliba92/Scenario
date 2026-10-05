@@ -145,7 +145,7 @@ jobs:
           DUREE=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$MP3" | cut -d. -f1)
           TITRE=$(python3 -c "import sys;sys.path.insert(0,'scripts/podcast');import generate_podcast as g;from pathlib import Path;print(g.lire_edition(Path('archives/$DATE.html'))['titre'])")
           python3 scripts/podcast/build_feed.py --ajouter "$DATE" --url "$URL" --taille "$TAILLE" --duree "$DUREE" --titre "$TITRE" \
-            --description "$TITRE Épisode lu par une voix de synthèse (intelligence artificielle), à partir de l'édition du $DATE. Version écrite : https://lesscenarios.fr/archives/$DATE.html"
+            --description "$TITRE Épisode lu par une voix de synthèse (intelligence artificielle), à partir de l'édition du $DATE. Version écrite : https://lesscenarios.fr/archives/$DATE.html Rien n'est écrit à l'avance."
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add podcast.xml data/podcast-episodes.json
