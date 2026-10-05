@@ -192,6 +192,33 @@ class TestJingles(unittest.TestCase):
         self.assertNotIn("façons", tn.OUVERTURE)
         self.assertLess(len(tn.OUVERTURE.split()), 20)
 
+    def test_lexique_et_regles_pour_l_oreille(self):
+        import texte_narration as tn
+        ed = gp.lire_edition(gp.ROOT / "archives" / "2026-10-05.html")
+        termes = [x["terme"] for x in ed["lexique"]]
+        self.assertIn("OSNMA", termes)
+        self.assertIn("brouillage", termes)
+        self.assertIn("LEXIQUE DE LA RÉDACTION", gp.texte_source(ed))
+        prompt = tn.construire_prompt(ed)
+        for attendu in ("LEXIQUE (termes à expliquer", "jamais de sigle de quatre lettres", "une seule cause par phrase",
+                        "image du quotidien", "En clair,", "OSNMA : "):
+            self.assertIn(attendu, prompt)
+
+    def test_controles_sigles_chaines_et_reformulation(self):
+        import re
+        import texte_narration as tn
+        ed = gp.lire_edition(sorted((gp.ROOT / "archives").glob("2026-10-03.html"))[0])
+        src = gp.texte_source(ed)
+        base = tn.EXEMPLE.read_text(encoding="utf-8")
+        self.assertEqual(tn.verifier(base, src), [])
+        self.assertTrue(any("sigle" in x for x in tn.verifier(base + "\nLe protocole OSNMA protège les signaux.", src)))
+        self.assertTrue(any("sigle" in x for x in tn.verifier(base + "\nLe système GLONASS est russe.", src)))
+        self.assertFalse(any("sigle" in x for x in tn.verifier(base + "\nL'OTAN et le GPS sont connus.", src)))
+        chaine = "\nLe signal se perd, ce qui décale les horloges, ce qui coupe les téléphones."
+        self.assertTrue(any("chaîne" in x for x in tn.verifier(base + chaine, src)))
+        sans_resume = re.sub(r"(?i)\b(en clair|autrement dit|en d'autres termes|en deux mots)\b", "Bref", base)
+        self.assertTrue(any("reformulation" in x for x in tn.verifier(sans_resume, src)))
+
     def test_sept_accueils_et_sept_fermetures(self):
         import re
         from datetime import date, timedelta

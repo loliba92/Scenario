@@ -78,18 +78,22 @@ EXEMPLE = (Path(__file__).resolve().parents[2] / "podcast" / "textes" / "2026-10
 
 def construire_prompt(ed: dict, remarques: list[str] | None = None) -> str:
     exemple = EXEMPLE.read_text(encoding="utf-8").strip() if EXEMPLE.exists() else ""
+    lexique = "\n".join(f"- {x['terme']} : {x['definition']}" for x in ed.get("lexique") or []) or "(aucun terme dans cette édition)"
     suite = ("\n\nTa version précédente a été refusée pour ces raisons, corrige-les :\n- " + "\n- ".join(remarques)) if remarques else ""
     return f"""Tu écris le texte parlé d'un court podcast quotidien du site d'actualité Scénario (lesscenarios.fr), à partir de l'édition du {gp.date_longue(ed['date'])} ci-dessous. Une seule voix, chaleureuse, qui parle à un ami curieux : un ton décontracté et naturel, comme on raconte l'actualité à quelqu'un qu'on apprécie.
 
 RÈGLES ABSOLUES
-- N'ajoute AUCUN fait, chiffre, nom, date ni exemple qui ne figure pas dans l'article.
+- N'ajoute AUCUN fait, chiffre, nom, date ni exemple qui ne figure pas dans l'article (seule exception : l'image du quotidien décrite dans la partie 3, sans chiffre ni nom propre).
 - Registre : décontracté mais jamais péjoratif, ni vulgaire, ni moqueur envers des personnes, des équipes, des pays ou des groupes. Aucun gros mot, aucun mot familier agressif ou dévalorisant (pas de « gueule », « merde », « débile », « nul », « pourri », etc.). Reste bienveillant et nuancé.
 - PÉDAGOGIE (règle d'or : l'auditeur ne connaît pas le sujet et ne peut pas revenir en arrière) :
   · une idée par phrase, des phrases de 15 mots en moyenne, jamais plus de 25 ;
-  · chaque sigle, institution ou terme technique est expliqué en quelques mots dès sa première apparition (« le Top 14, le championnat français de rugby ») ;
+  · chaque sigle, institution, lieu peu connu ou terme technique est expliqué en quelques mots dès sa première apparition (« le Top 14, le championnat français de rugby ») ; les termes du LEXIQUE ci-dessous sont obligatoires : explique-les avec des mots du quotidien, en une courte phrase, sans recopier la définition ; fais de même pour tout autre mot qu'un lycéen ne connaîtrait pas ;
+  · jamais de sigle de quatre lettres ou plus prononcé comme un code (« OSNMA », « GLONASS »…) : donne son nom en mots (« le système antifraude de Galileo », « le système russe »). Les sigles courts et connus (GPS, UE, ONU) sont permis, expliqués à la première mention ;
+  · une seule cause par phrase : jamais « …, ce qui …, ce qui … ». Découpe la chaîne en phrases séparées, dans l'ordre où les choses arrivent ;
+  · quand le sujet est technique, ouvre la partie 3 par UNE image du quotidien (sans chiffre ni nom propre) qui fait comprendre le mécanisme, par exemple « crier pour couvrir la voix de quelqu'un » ;
   · pas de mots abstraits (« dynamique », « enjeux », « paradigme », « gouvernance », « trajectoire ») : dis ce qu'ils désignent ;
   · les trois scénarios gardent leur nom, c'est notre marque : « premier scénario », « deuxième scénario », « troisième scénario », chacun annoncé par une phrase simple avant son détail (le mot « évolutions » n'est utilisé que dans la phrase d'accueil, ajoutée par le script) ;
-  · après une partie dense, une phrase qui redit l'idée en mots simples (« Autrement dit… »), sans répéter les chiffres ;
+  · après la partie 3 et après la partie 4, une phrase qui redit l'idée en mots simples, introduite par « En clair, » ou « Autrement dit, », sans répéter les chiffres ;
   · une comparaison ou un exemple concret par grande partie quand l'article en fournit un (jamais inventé).
 - Du langage parlé : phrases courtes, tournures naturelles, pas de liste, pas de Markdown, pas d'adresse web.
 - Pas de tableau d'indicateurs : ne récite pas les indicateurs chiffrés des scénarios. Garde peu de chiffres : ceux qui font comprendre le sujet, et les probabilités des scénarios, TOUJOURS dites en fractions parlées : « une chance sur quatre » pour 25 %, « une chance sur deux » pour 50 %, « trois chances sur quatre » pour 75 %, « une chance sur trois », « une chance sur cinq », « une chance sur dix ». JAMAIS « pour cent » ni le signe %, même si l'article donne des pourcentages ; arrondis à la fraction la plus proche.
@@ -99,12 +103,15 @@ STRUCTURE (entre {MOTS_MIN} et {MOTS_MAX} mots, soit 3 à 5 minutes)
 1. La question du jour, en une ou deux phrases.
 2. Ce que l'on sait : les faits qui posent la question, avec un ou deux exemples concrets.
 3. Le fond du problème : à quoi cherche-t-on à répondre, et pourquoi la réponse n'est pas évidente.
-4. Les trois scénarios, un par un, dans l'ensemble : le plus optimiste (favorable), le plus probable (stable, dis-le clairement), le plus sombre (dégradé), chacun avec sa probabilité et l'idée centrale, sans détail chiffré.
+4. Les trois scénarios, un par un : le plus optimiste (favorable), le plus probable (stable, dis-le clairement), le plus sombre (dégradé), chacun avec sa probabilité, en trois ou quatre phrases courtes : l'idée centrale, puis ce que cela change concrètement pour les gens (un vol retardé, une coupure de courant…), jamais le mécanisme technique ni un nom de technologie.
 5. L'impact pour la France, en deux ou trois phrases.
 6. Ce qu'on surveillera pour savoir lequel se réalise.
 
 EXEMPLE DE STYLE ATTENDU (autre édition, ne reprends AUCUN de ses faits) :
 {exemple}
+
+LEXIQUE (termes à expliquer en mots simples à leur première mention, voir PÉDAGOGIE) :
+{lexique}
 
 ARTICLE
 {gp.texte_source(ed)}{suite}
@@ -123,6 +130,14 @@ def parties(texte: str) -> list[str]:
 MOTS_INTERDITS = (r"\b(gueules?|merdes?|merdique|putain|bordel|con|cons|conne|connes|connard\w*|salop\w*|enfoir\w*|"
                   r"débiles?|crétins?|idiot\w*|imbéciles?|stupides?|nul|nuls|pourri\w*|dégueu\w*|foutre|foutu\w*|"
                   r"bouffons?|minables?|ridicules?|pathétiques?|ringard\w*|naze\w*|chiant\w*|crevard\w*)\b")
+
+
+# Sigles de quatre lettres ou plus qui se disent comme des mots (les autres sont refusés : « O-S-N-M-A » ne dit rien à l'oreille).
+SIGLES_PRONONCES = {"OTAN", "NASA", "UNESCO", "OPEP", "FIFA", "UEFA", "INSEE", "SMIC", "NATO", "ARENH"}
+
+
+def phrases_brutes(texte: str) -> list[str]:
+    return [p for p in re.split(r"(?<=[.!?])\s+|\n+", texte) if p.strip()]
 
 
 def verifier(texte: str, source: str) -> list[str]:
@@ -152,6 +167,13 @@ def verifier(texte: str, source: str) -> list[str]:
         problemes.append("nomme les trois « scénarios » avec ce mot (c'est la marque : « premier scénario », etc.)")
     if re.search(r"indicateurs?", texte, re.I):
         problemes.append("ne parle pas des indicateurs")
+    sigles = sorted({m for m in re.findall(r"\b[A-ZÉ]{4,}\b", texte) if m not in SIGLES_PRONONCES})
+    if sigles:
+        problemes.append("sigle(s) épelé(s) à l'oral : " + ", ".join(sigles) + " : donne leur nom en mots (« le système antifraude de Galileo »)")
+    if any(len(re.findall(r"\bce qui\b", ph, re.I)) >= 2 for ph in phrases_brutes(texte)):
+        problemes.append("phrase en chaîne (« …, ce qui …, ce qui … ») : une seule cause par phrase")
+    if not re.search(r"\b(en clair|autrement dit|en d'autres termes|en deux mots)\b", texte, re.I):
+        problemes.append("ajoute une phrase de reformulation (« En clair, … ») après la partie dense")
     connus = gp.nombres(source)
     inconnus = sorted(n for n in gp.nombres(texte) if n not in connus and not (n.isdigit() and int(n) <= 10))
     if inconnus:
