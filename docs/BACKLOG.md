@@ -171,6 +171,7 @@
 | B153 | Cadence de publication vs péremption des sujets chauds | À DÉCIDER | P2 | 2026-09-19 | Semaine du 22/09 : repenser la construction du backlog, évaluer plusieurs éditions/jour |
 | B154 | Panorama de l'actualité du jour (« produit d'appel », remplace revue_de_presse) | À DÉCIDER | P2 | 2026-09-19 | Semaine du 22/09 : trouver un nom, chiffrer le coût, sort de sources.html |
 | B155 | Mindmap hebdomadaire des sujets, injectée dans chaque prompt du jour | À DÉCIDER | P3 | 2026-09-23 | À réfléchir plus tard (demande explicite) — trancher qui valide la mindmap avant qu'elle serve toute la semaine |
+| B156 | Hébergement audio du podcast : adresse audio à nous (audio.lesscenarios.fr) devant un stockage/CDN, avant que GitHub ne devienne un frein | STANDBY | P3 | 2026-10-05 | Reprendre quand un seuil est atteint ou sur décision de l'utilisateur ; première question : où est géré le DNS de lesscenarios.fr ? |
 
 ## TICKETS
 
@@ -4273,3 +4274,48 @@ Aucune — idée à l'état brut, rien de tranché.
 
 ### Historique
 - **2026-09-23** — Idée posée par l'utilisateur après la correction de deux incidents le même jour sur l'édition du 24/09 (mismatch d'indicateurs, lien causal Brent/OAT inventé) ; mise en backlog telle quelle, à la demande explicite de l'utilisateur (« à réfléchir plus tard »).
+
+## B156 — Hébergement audio du podcast : adresse audio à nous devant un stockage/CDN
+
+**Statut:** STANDBY
+**Priorité:** P3
+**Dernière MAJ:** 2026-10-05
+**Prochaine action:** Rien tant que l'utilisateur ne relance pas ou qu'un seuil de déclenchement n'est pas atteint (voir plus bas). Si relance : demander d'abord où est géré le DNS de `lesscenarios.fr`, puis choisir Cloudflare R2 ou bunny.net.
+**Blocage:** Aucun — décision de l'utilisateur du 5 octobre 2026 : « on reste comme ça pour l'instant, on verra plus tard, ajoute au backlog »
+
+### État actuel
+- Le flux `https://lesscenarios.fr/podcast.xml` est servi par GitHub Pages sur le nom de domaine du site (adresse stable, à ne jamais changer). Chaque épisode a un identifiant stable (`scenario-podcast-AAAA-MM-JJ`, y compris quand l'épisode est refait), donc un changement d'hébergeur audio ne crée pas de doublons dans les applications.
+- Les fichiers MP3 sont des pièces jointes de Releases GitHub (`podcast-AAAA-MM-JJ`), l'adresse du fichier (`.../releases/download/...`) est écrite dans la balise `enclosure` du flux. Les données des épisodes sont dans `data/podcast-episodes.json`, le flux est construit par `scripts/podcast/build_feed.py`.
+- Mesure du 5 octobre 2026 : 1 à 6 téléchargements par fichier (compteur GitHub) — charge négligeable. Un épisode pèse 3 à 4 Mo, soit environ 1,4 Go d'audio par an.
+- Limites GitHub (documentation) : fichier < 2 Gio, aucune limite documentée de volume pour les pièces jointes de Releases ; GitHub Pages : limite indicative de 100 Go par mois (concerne le flux et les images, très légers). GitHub n'est cependant pas conçu pour diffuser de l'audio à grande échelle : aucune statistique d'écoute, risque de limitation si l'audience monte.
+
+### Pourquoi y penser
+Éviter une grosse migration plus tard (réécrire le flux, risquer de perdre des audios). Le moment le moins risqué pour migrer est tôt, quand il y a peu d'épisodes.
+
+### Options étudiées (prix relevés le 5 octobre 2026, à reconfirmer avant décision)
+1. **Rester sur GitHub** — gratuit, suffisant aujourd'hui, mais une migration sera à faire un jour.
+2. **Hébergement Spotify for Creators** — gratuit, mais écarté : l'import est une opération unique, la documentation ne mentionne ni relecture continue du flux d'origine ni publication automatique, et exige de rediriger le flux vers Spotify (le flux devient celui de Spotify) ; la publication quotidienne deviendrait manuelle. Seul le support Spotify peut confirmer s'il relit un flux extérieur après import.
+3. **Hébergeur de podcasts avec accès automatique** — Buzzsprout (à partir de 18 $/mois pour 6 h, le plan gratuit supprime les fichiers après 90 jours), Transistor (à partir de 19 $/mois, accès automatique inclus). Clé en main avec statistiques, mais flux et adresses dépendent de l'hébergeur : une autre migration un jour.
+4. **Adresse audio à nous devant un stockage/CDN (recommandé)** — `audio.lesscenarios.fr/AAAA-MM-JJ.mp3` devant Cloudflare R2 (10 Go gratuits, téléchargements non facturés, 0,015 $/Go/mois au-delà ; à ma connaissance le domaine doit être géré par Cloudflare et un moyen de paiement est demandé) ou bunny.net (stockage 0,01 $/Go, minimum 1 $/mois, diffusion facturée à part ; seule une ligne CNAME à ajouter au domaine). Le flux reste le nôtre ; un futur changement de stockage ne touche ni le flux ni les adresses.
+
+### Statistiques d'écoute (indépendant du choix ci-dessus)
+- Spotify for Creators donne déjà les statistiques d'écoute sur Spotify (émission revendiquée).
+- Option gratuite à évaluer : préfixe de mesure OP3 (open source) devant l'adresse audio, pour des téléchargements par épisode toutes plateformes confondues ; compte des téléchargements, pas des auditeurs ; ajoute un saut de redirection. À confirmer avant adoption.
+
+### Seuils de déclenchement (à surveiller)
+- Environ 100 Go de téléchargements par mois, ou plusieurs milliers d'écoutes par jour sur des applications qui téléchargent depuis notre adresse ;
+- toute limitation ou erreur de téléchargement côté GitHub ;
+- besoin de statistiques détaillées.
+
+### À faire (si relance)
+1. Demander où est géré le DNS de `lesscenarios.fr` ; choisir R2 ou bunny.net.
+2. Utilisateur : créer le compte, ajouter `audio.lesscenarios.fr` au domaine, enregistrer les clés dans les secrets GitHub (je ne les vois pas).
+3. Moi : script de copie et de vérification des MP3 existants vers le stockage (les copies GitHub restent en place), réécriture unique des adresses dans `data/podcast-episodes.json`, reconstruction du flux (mêmes identifiants), validation du flux, changement de `podcast-quotidien.yml` pour envoyer chaque nouvel épisode vers le stockage, tests et marche arrière (remettre les adresses GitHub).
+4. Option : préfixe OP3 ; suivi hebdomadaire des téléchargements (compteur GitHub) pour voir venir la croissance.
+
+### Décisions
+- 2026-10-05 : on reste sur GitHub pour l'instant ; sujet mis en backlog à la demande de l'utilisateur.
+- 2026-10-05 : l'import « Changer d'hébergeur » de Spotify for Creators n'a pas été validé (fenêtre annulée avant la case des droits) : pas de bascule du flux vers Spotify.
+
+### Historique
+- **2026-10-05** — Question de l'utilisateur après la mise à jour d'épisode non encore reprise par Spotify et l'ouverture de l'écran « Changer d'hébergeur » ; analyse des options, recommandation de l'option 4, décision de reporter ; ticket créé.
