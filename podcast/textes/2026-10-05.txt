@@ -1,0 +1,47 @@
+Peut-on vraiment se passer du GPS ? C'est la question que l'Europe se pose de plus en plus sérieusement, face à une menace qu'on ne voit pas, mais qui est bien réelle.
+
+---
+
+Commençons par ce que l'on sait. Depuis l'été 2023, la mer Baltique est le théâtre d'une guerre électronique. Son but : perturber les signaux qui permettent de se repérer grâce aux satellites. La Suède a compté 733 incidents graves entre août 2023 et fin 2024.
+
+Résultat : certains avions de ligne doivent couper leurs instruments automatiques pour atterrir. Ils se guident alors avec des balises radio installées au sol, ou avec de simples cartes.
+
+Ces perturbations viennent surtout de Kaliningrad. C'est une enclave russe, c'est-à-dire un petit territoire de la Russie, séparé du reste du pays.
+
+---
+
+Pour comprendre le problème, prenons une image. Imaginez que vous suivez la voix d'un ami dans une pièce bruyante. Le brouillage, c'est quelqu'un qui crie pour couvrir cette voix : vous n'entendez plus rien. Le leurrage est plus sournois : quelqu'un imite la voix de votre ami, et vous mène au mauvais endroit sans que vous vous en rendiez compte.
+
+Dans les deux cas, tout vient de la faiblesse du signal. Il arrive du satellite avec une puissance minuscule, comparable à la lueur d'une ampoule de poche vue à plusieurs milliers de kilomètres. Un petit émetteur au sol suffit donc à le noyer ou à le falsifier.
+
+Quatre grands systèmes de satellites se partagent le monde : le GPS américain, Galileo pour l'Europe, un système russe et un système chinois. Tous ont la même faiblesse.
+
+Et ces satellites ne servent pas qu'à se repérer. Ils donnent aussi l'heure exacte, avec une précision extrême. Cette heure règle le fonctionnement des téléphones mobiles et du réseau électrique. Si le signal est perturbé, les horloges se décalent. Les communications mobiles se coupent par moments. Des protections du réseau électrique peuvent alors se déclencher par erreur.
+
+Les émetteurs russes les plus récents de Kaliningrad porteraient jusqu'à 450 kilomètres. C'est assez pour gêner la navigation en mer du Nord.
+
+En clair : avec un petit émetteur, on peut faire taire ou tromper les satellites. Et l'Europe en dépend pour bien plus que pour ses cartes.
+
+---
+
+Alors, que peut-il se passer ? Voici les trois scénarios.
+
+Premier scénario, le plus favorable : une chance sur quatre. L'Europe réussit à se protéger. Galileo, le système européen, sait déjà vérifier l'authenticité de ses signaux. Le récepteur reconnaît les vrais et rejette les faux. Cette protection existe depuis juillet 2025. Les avions et les bateaux adoptent des récepteurs mieux protégés. On remet aussi en service des balises radio au sol. Une faiblesse devient un atout pour l'indépendance de l'Europe.
+
+Deuxième scénario, le plus probable : une chance sur deux. Le brouillage reste cantonné à la mer Baltique. Les avions s'adaptent. Près de la zone, ils passent sur un autre système de guidage, qui ne dépend pas des satellites. Concrètement, cela veut dire des retards et des détours qui coûtent cher, mais pas d'accident grave. La France et l'ouest de l'Europe restent hors de portée. C'est une situation inconfortable, qui s'installe.
+
+Troisième scénario, le plus sombre : une chance sur quatre. Le brouillage sort de la Baltique. On le retrouve près des côtes de la mer du Nord et de la Manche. L'heure fournie par les satellites est faussée, encore et encore. Les réseaux de téléphonie mobile en souffrent. Et les gestionnaires du réseau électrique doivent passer en pilotage manuel, pour éviter des coupures de courant à grande échelle.
+
+En clair : dans le pire des cas, ce sont nos téléphones et notre électricité qui seraient touchés, pas seulement nos cartes.
+
+---
+
+Pour la France, l'évaluation est plutôt négative. Les deux premiers scénarios, où nous gardons une part de contrôle, totalisent trois chances sur quatre. Mais même le scénario stable laisse une fragilité. Et le scénario dégradé menacerait directement nos réseaux d'électricité et de téléphone.
+
+---
+
+Pour savoir lequel se réalise, on surveillera deux choses. D'abord, si les compagnies aériennes et les gestionnaires de réseaux adoptent d'ici fin 2026 des récepteurs capables de reconnaître les vrais signaux de Galileo. Ensuite, le nombre d'incidents de brouillage en mer Baltique dans les prochains mois.
+
+---
+
+Voilà qui conclut cette édition. Merci de votre attention. L'édition complète est sur lesscenarios.fr. Prenez soin de vous. Rien n'est écrit à l'avance. À demain, pour un nouveau scénario.
