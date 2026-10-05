@@ -334,7 +334,7 @@ class TestFondContinu(unittest.TestCase):
         niveaux = [mu._rms(out[i * w:(i + 1) * w]) for i in range(len(out) // w)]
         # sous la voix (ex. 3e seconde de la 1re partie, vers 15 s) : voix + fond très léger, donc à peine plus de 3000
         self.assertLess(niveaux[16], 3000 * 1.12)
-        self.assertGreater(len(out) / mu.SR, 10 + 15 * 3 + 2 * (9 - 3 + 0.3))
+        self.assertGreater(len(out) / mu.SR, 10 + 15 * 3 + 2 * (mu.JINGLE_S - 3 + 0.3))
         # avec accueil : 1re partie = accueil (6 s) dite à partir de DEBUT_VOIX_S ; musique plus présente dessous, puis seule 4 s avant la question
         D = int(mu.DEBUT_VOIX_S)
         accueil = array("h", [3000] * (mu.SR * 6)).tobytes()
@@ -348,8 +348,12 @@ class TestFondContinu(unittest.TestCase):
         self.assertLess(seule, 3500)                       # et il n'y a pas de voix (3000 de voix seule + musique serait plus fort)
         self.assertGreater(n2[D + 6 + 6], 2850)            # puis la question
         # dernière partie : musique plus présente que le fond ordinaire
-        t_fin = mu.DEBUT_VOIX_S + 6 + (0.15 + 7 - 3) + 15 + (0.3 + 9 - 3)
+        t_fin = mu.DEBUT_VOIX_S + 6 + (0.15 + 7 - 3) + 15 + (0.3 + mu.JINGLE_S - 3)
         self.assertGreater(n2[int(t_fin) + 5], niveaux[int(t_fin) + 5] * 0.99)
+
+    def test_pause_entre_parties_raccourcie(self):
+        # entre deux parties ordinaires : environ 4,8 s de musique seule (avant : 6,3 s)
+        self.assertLessEqual(0.3 + mu.JINGLE_S - mu.RECOUVREMENT_JINGLE_S, 5.0)
 
     def test_chronologie_accueil_7_s_et_pause_courte(self):
         """La voix d'accueil démarre à 7 s ; entre l'accueil et la question, environ 4 s de musique, sans silence en trop."""
