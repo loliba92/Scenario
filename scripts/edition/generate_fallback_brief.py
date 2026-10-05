@@ -62,6 +62,12 @@ from generate_daily_edition import (
 from source_links import sanitize_brief_sources
 import connexes
 
+# Un essai de plus que le reste du pipeline : avec Solar Pro 4, deux essais
+# perdus sur des URL inventées laissent un seul essai pour corriger le reste
+# (incident du 5 octobre 2026 : question_posee à 211 caractères au 3e essai).
+# Coût d'un essai supplémentaire : ~0,005 $.
+FALLBACK_MAX_RETRIES = MAX_RETRIES + 1
+
 # Passé de DEFAULT_MODEL (anthropic/claude-sonnet-5) à Opus le 18
 # septembre 2026 (décision utilisateur), puis à Sonnet le 20 (retour « opus
 # n'apporte rien »), puis à Upstage Solar Pro 4 le 21 (optimisation coût).
@@ -422,6 +428,9 @@ brief, avec les faits qui ne reposaient que sur eux). Un fait que tu ne
 peux appuyer par aucun résultat de recherche réel n'entre pas dans
 `faits_verifies`.
 
+Limite de longueur à respecter strictement : `sujet.question_posee` fait
+200 caractères MAXIMUM (espaces compris) — une seule phrase courte.
+
 Réponds UNIQUEMENT avec le JSON du brief — aucun texte avant ni après,
 aucune balise markdown autour, un objet JSON valide et rien d'autre.
 """
@@ -432,7 +441,7 @@ def generate_fallback_brief(date_str, model, api_key, timeout=480):
     tools = [{"type": "openrouter:web_search", "parameters": {"engine": "auto", "max_results": 6}}]
 
     last_errors = None
-    for attempt in range(MAX_RETRIES + 1):
+    for attempt in range(FALLBACK_MAX_RETRIES + 1):
         this_prompt = prompt
         if attempt > 0:
             this_prompt += (
@@ -459,7 +468,7 @@ def generate_fallback_brief(date_str, model, api_key, timeout=480):
         # source vérifiable — le lien reste alors signalé « GARDÉ » dans
         # les logs).
         _, source_errors = sanitize_brief_sources(
-            brief, usage.get("cited_urls"), strict=attempt < MAX_RETRIES,
+            brief, usage.get("cited_urls"), strict=attempt < FALLBACK_MAX_RETRIES,
         )
         errors = source_errors + validate_brief(brief)
         errors += check_topic_duplicate(brief)
@@ -475,7 +484,7 @@ def generate_fallback_brief(date_str, model, api_key, timeout=480):
         last_errors = errors
 
     raise GenerationError(
-        f"brief de repli invalide après {MAX_RETRIES + 1} essai(s), rien n'est écrit :\n  - "
+        f"brief de repli invalide après {FALLBACK_MAX_RETRIES + 1} essai(s), rien n'est écrit :\n  - "
         + "\n  - ".join(last_errors)
     )
 
