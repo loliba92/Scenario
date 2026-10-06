@@ -8,7 +8,7 @@ programme.
 Utilisation comparative (échantillons d'un même texte) :
     OPENROUTER_API_KEY=... python3 scripts/podcast/voix_openrouter.py podcast/textes/2026-10-02.txt \
         "microsoft/mai-voice-2.1|fr-FR-Harper:MAI-Voice-2.1" "mistralai/voxtral-mini-tts-2603|fr_marie_neutral"
-Sortie : _podcast-out/echantillon-<modèle>-<voix>.mp3 (ou .wav sans ffmpeg).
+Sortie : _podcast-out/echantillon-<texte>-<modèle>-<voix>.mp3 (ou .wav sans ffmpeg).
 """
 from __future__ import annotations
 
@@ -96,7 +96,7 @@ def main(argv=None) -> int:
             print(f"ECHEC : {e}", file=sys.stderr)
             echecs += 1
             continue
-        nom = f"echantillon-{_nom(modele)}-{_nom(voix)}"
+        nom = f"echantillon-{Path(args[0]).stem}-{_nom(modele)}-{_nom(voix)}"
         wav = out / f"{nom}.wav"
         gp.ecrire_wav(pcm, wav)
         mp3 = out / f"{nom}.mp3"
