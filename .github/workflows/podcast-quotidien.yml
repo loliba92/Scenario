@@ -1,7 +1,7 @@
 name: Podcast — épisode du jour
 
 # Chaque jour, après « Rédaction et publication » : écrit le texte parlé de la dernière édition, le fait lire par la
-# voix Despina (Gemini) avec l'ouverture musicale, range le MP3 dans une Release GitHub et l'ajoute au flux
+# voix Sulafat (Gemini) avec l'ouverture musicale, range le MP3 dans une Release GitHub et l'ajoute au flux
 # https://lesscenarios.fr/podcast.xml que Spotify relit. Décidé le 3 octobre 2026 (« on l'automatise pour demain »).
 # Idempotent : si la Release podcast-AAAA-MM-JJ existe déjà, il n'y a rien à faire (sauf « forcer »).
 # Secrets : OPENROUTER_API_KEY (écriture du texte) et GEMINI_API_KEY (voix).
@@ -33,7 +33,7 @@ on:
       voix:
         description: "Voix du narrateur"
         required: false
-        default: "Despina"
+        default: "Sulafat"
 
 permissions:
   contents: write
@@ -70,7 +70,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           case "$DATE" in ""|[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;; *) echo "Date invalide : $DATE" >&2; exit 1 ;; esac
-          [ -n "$VOIX" ] || VOIX=Despina
+          [ -n "$VOIX" ] || VOIX=Sulafat
           case "$VOIX" in *[!A-Za-z]*) echo "Voix invalide : $VOIX" >&2; exit 1 ;; esac
           RATTRAPAGE=""
           if [ -z "$DATE" ]; then
