@@ -2293,6 +2293,12 @@
   .matiere-tile:hover, .matiere-tile:focus-visible{ border-color:var(--gold); background:var(--surface-2); outline:none; }
   .matiere-tile svg{ flex:none; width:20px; height:20px; color:var(--gold); }
   .matiere-tile small{ font-family:"JetBrains Mono", monospace; font-size:0.68rem; font-weight:400; color:var(--paper-dim); }
+  /* Ordinateur : les matières tiennent sur une seule ligne (6 octobre 2026) ; sur téléphone, retour à la ligne naturel */
+  @media (min-width: 920px){
+    .matiere-tiles{ flex-wrap:nowrap; gap:7px; }
+    .matiere-tile{ gap:7px; min-height:42px; padding:0 13px 0 10px; font-size:0.86rem; flex:0 1 auto; }
+    .matiere-tile svg{ width:18px; height:18px; }
+  }
 
   /* ---- Bas de page resserré (4 oct. 2026) : un seul filet, moins de vide, boutons de même taille ---- */
   section.share-block{ padding: 32px 0 28px; }

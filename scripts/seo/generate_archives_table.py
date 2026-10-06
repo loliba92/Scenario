@@ -704,6 +704,13 @@ ARCHIVES_TABLE_CSS = """
   .matiere-tile:hover, .matiere-tile:focus-visible{ border-color:var(--gold); background:var(--surface-2); outline:none; }
   .matiere-tile svg{ flex:none; width:20px; height:20px; color:var(--gold); }
   .matiere-tile small{ font-family:"JetBrains Mono", monospace; font-size:0.68rem; font-weight:400; color:var(--paper-dim); }
+  /* Ordinateur : les matières tiennent sur une seule ligne (6 octobre 2026) ; sur téléphone, retour à la ligne naturel */
+  @media (min-width: 920px){
+    .matiere-tiles{ flex-wrap:nowrap; gap:7px; }
+    .matiere-tile{ gap:7px; min-height:42px; padding:0 13px 0 10px; font-size:0.86rem; flex:0 1 auto; }
+    .matiere-tile svg{ display:none; }   /* avec les effectifs (« Économie 13 »), sans icône pour tenir sur une ligne */
+    .matiere-tile{ padding:0 13px; }
+  }
   /* Le tableau (desktop) comme les cartes (mobile, tr en display:flex)
      doivent tous deux disparaître complètement quand filtrés */
   .archives-table tbody tr.is-hidden {
