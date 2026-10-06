@@ -419,6 +419,16 @@ class TestFondContinu(unittest.TestCase):
         self.assertIn("-ac", avec)
         self.assertNotIn("-af", sans)
 
+    def test_mp3_option_clarte_seulement_a_la_demande(self):
+        from unittest import mock
+        with mock.patch.object(gp.shutil, "which", return_value="/usr/bin/ffmpeg"), \
+                mock.patch.object(gp.subprocess, "run") as run:
+            gp.vers_mp3(Path("a.wav"), Path("a.mp3"))
+            gp.vers_mp3(Path("a.wav"), Path("b.mp3"), clair=True)
+        normal, clair = (c.args[0][c.args[0].index("-af") + 1] for c in run.call_args_list)
+        self.assertNotIn("highshelf", normal)
+        self.assertTrue(clair.startswith("equalizer=") and clair.endswith(gp.FILTRE_VOLUME))
+
 
 if __name__ == "__main__":
     unittest.main()
