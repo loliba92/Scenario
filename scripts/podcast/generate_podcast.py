@@ -398,12 +398,18 @@ def ecrire_wav(pcm: bytes, chemin: Path) -> None:
 FILTRE_VOLUME = "loudnorm=I=-16:TP=-1.5:LRA=11"
 
 
-def vers_mp3(wav: Path, mp3: Path, normaliser: bool = True) -> bool:
+# Correction « clarté » pour une voix un peu étouffée (essai du 6 octobre 2026 sur Voxtral) : creux léger vers 250 Hz,
+# présence vers 3 kHz, aigus relevés au-dessus de 6 kHz. Réservée aux essais de voix, jamais appliquée aux épisodes.
+FILTRE_CLARTE = "equalizer=f=250:t=q:w=1:g=-2,equalizer=f=3000:t=q:w=0.8:g=2.5,highshelf=f=6000:g=4"
+
+
+def vers_mp3(wav: Path, mp3: Path, normaliser: bool = True, clair: bool = False) -> bool:
     """MP3 mono 24 kHz, 96 kb/s ; le volume est ramené à -16 LUFS pour que tous les épisodes aient le même niveau."""
     if not shutil.which("ffmpeg"):
         return False
-    filtre = ["-af", FILTRE_VOLUME, "-ar", str(SAMPLE_RATE), "-ac", "1"] if normaliser else []
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav), *filtre, "-codec:a", "libmp3lame", "-b:a", "96k", str(mp3)], check=True)
+    filtres = ([FILTRE_CLARTE] if clair else []) + ([FILTRE_VOLUME] if normaliser else [])
+    option = ["-af", ",".join(filtres), "-ar", str(SAMPLE_RATE), "-ac", "1"] if filtres else []
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav), *option, "-codec:a", "libmp3lame", "-b:a", "96k", str(mp3)], check=True)
     return True
 
 

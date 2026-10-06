@@ -65,6 +65,9 @@ def main(argv=None) -> int:
     # --car=N : échantillon très court (N caractères environ, coupés à la fin d'un mot) pour juger la couleur d'une voix
     car = next((int(a[6:]) for a in args if re.fullmatch(r"--car=\d{1,4}", a)), None)
     args = [a for a in args if not a.startswith("--car=")]
+    # --clair : écrit en plus une version « -clair » (aigus relevés) de chaque échantillon, pour une voix étouffée
+    clair = "--clair" in args
+    args = [a for a in args if a != "--clair"]
     if len(args) < 2:
         print(__doc__)
         return 1
@@ -100,6 +103,8 @@ def main(argv=None) -> int:
         wav = out / f"{nom}.wav"
         gp.ecrire_wav(pcm, wav)
         mp3 = out / f"{nom}.mp3"
+        if clair:
+            gp.vers_mp3(wav, out / f"{nom}-clair.mp3", clair=True)
         if gp.vers_mp3(wav, mp3):
             wav.unlink()
         print(f"OK : {nom} ({len(pcm) / 2 / gp.SAMPLE_RATE:.0f} s)", flush=True)
