@@ -76,7 +76,12 @@
   },
   {
     "date": "2026-10-05",
-    "total_usage": 34.344457066,
-    "usage_daily": 0.41685225
+    "total_usage": 34.40949174,
+    "usage_daily": 0.481886924
+  },
+  {
+    "date": "2026-10-06",
+    "total_usage": 34.43749174,
+    "usage_daily": 0.028
   }
 ]

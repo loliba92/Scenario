@@ -1505,7 +1505,7 @@
     font-size: 0.68rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: var(--accent);
+    color: var(--gold);
     margin-bottom: 4px;
   }
 
@@ -1571,7 +1571,7 @@
   .france-line[data-france-impact="favorable"]{ border-left-color: var(--favorable); }
   .france-line[data-france-impact="degrade"]{ border-left-color: var(--degrade); }
 
-  .france-line .field-label{ color: var(--accent); }
+  .france-line .field-label{ color: var(--gold); }
 
   /* ---------- Footer ---------- */
 
@@ -2083,6 +2083,10 @@
      indicateurs animés et masthead sticky blur.
      ======================== */
 
+  /* Ancres du sommaire : l'en-tête collant (ordinateur) ne doit pas masquer le début de la section visée (5 oct. 2026) */
+  #scenarios, #essentiel, #lexique{ scroll-margin-top: 130px; }
+  @media (max-width: 720px){ #scenarios, #essentiel, #lexique{ scroll-margin-top: 24px; } }
+
   /* Masthead sticky avec backdrop-blur premium */
   header.masthead {
     position: sticky;
@@ -2297,6 +2301,19 @@
   .legal-links{ gap: 8px 18px; }
   .legal-links-label{ flex: 1 0 100%; }
   .share-row .btn-outline{ padding: 8px 16px; font-size: 0.74rem; }
+
+  /* ---- Devise du site (5 oct. 2026) ---- */
+  .devise-footer{
+    flex: 1 0 100%; margin: 0 0 14px;
+    font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 1.05rem;
+    color: var(--gold, #cf9d4c);
+  }
+
+  /* ---- Devise dans la présentation de l'accueil (5 oct. 2026) ---- */
+  .hero--home .devise{
+    margin: 4px 0 22px; font-family: "Fraunces", Georgia, serif; font-style: italic;
+    font-size: 1.15rem; color: var(--gold);
+  }
 </style>
 </head>
 <body>
@@ -2307,7 +2324,7 @@
 <img alt="" class="brand-mark" src="../assets/logo.svg"/>
 <div class="wordmark">Scéna<span>rio</span></div>
 </div>
-<div class="edition">Edition of October 5, 2026 · No. 74</div>
+<div class="edition">Edition of October 6, 2026 · No. 75</div>
 </div>
 <div class="masthead-right">
 <a aria-label="Lire en français" class="masthead-lang-btn" href="../index.html" title="Lire en français">FR</a>
@@ -2317,6 +2334,7 @@
 <a aria-label="Updated topic" class="masthead-notif-btn" href="../archives.html?tag=revise" title="Updated topic"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8"></path><path d="M20 4v4h-4"></path><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16"></path><path d="M4 20v-4h4"></path></svg></a>
 <a aria-label="Weekly recap" class="masthead-notif-btn" href="../hebdo/2026-10-04.html" title="Weekly recap"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="15" rx="2" width="17" x="3.5" y="5"></rect><line x1="3.5" x2="20.5" y1="9.5" y2="9.5"></line><line x1="8" x2="8" y1="3" y2="7"></line><line x1="16" x2="16" y1="3" y2="7"></line></svg></a>
 <a aria-label="Press roundup" class="masthead-notif-btn" href="../sources.html" title="Press roundup"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="14" rx="1.5" width="13" x="3.5" y="5.5"></rect><path d="M16.5 8.5h2.5a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-13"></path><line x1="7" x2="13" y1="9.5" y2="9.5"></line><line x1="7" x2="13" y1="13" y2="13"></line><line x1="7" x2="11" y1="16.5" y2="16.5"></line></svg></a>
+<a aria-label="Écouter sur Spotify" class="masthead-notif-btn" href="https://open.spotify.com/show/1eycE00I2egdNO50oqeDFQ" rel="noopener noreferrer" target="_blank" title="Écouter sur Spotify"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><circle cx="12" cy="12" r="9.5"></circle><path d="M7 9.6c3.4-1 7-.7 10 1"></path><path d="M7.6 12.7c2.9-.8 5.7-.5 8.1.9"></path><path d="M8.2 15.5c2.2-.6 4.4-.4 6.2.7"></path></svg></a>
 <span aria-hidden="true" class="masthead-divider"></span>
 <a aria-label="Private access" class="masthead-notif-btn" href="../dashboard.html" title="Private access"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="9" rx="2" width="14" x="5" y="11"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></a>
 </div>
@@ -2346,14 +2364,14 @@
 <section class="featured-article">
 <div class="wrap">
 <p class="section-label">The latest edition</p>
-<a class="featured-article-link" href="archives/2026-10-05.html">
+<a class="featured-article-link" href="archives/2026-10-06.html">
 <div class="featured-article-image-wrap">
-<img alt="Can the World Do Without GPS?" class="featured-article-image" src="../assets/social/topic-images/2026-10-05.jpg"/>
+<img alt="Hybrid warfare in Europe: is Russia sabotaging the EU?" class="featured-article-image" src="../assets/social/topic-images/2026-10-06.jpg"/>
 </div>
 <div>
-<span class="featured-article-date">International · Oct 5</span>
-<h2 class="featured-article-title">Can the World Do Without GPS?</h2>
-<p class="featured-article-question">GPS jamming and spoofing in the Baltic Sea since 2023–2024 are disrupting civil aviation. How far could the escalation go before reaching…</p>
+<span class="featured-article-date">International · Oct 6</span>
+<h2 class="featured-article-title">Hybrid warfare in Europe: is Russia sabotaging the EU?</h2>
+<p class="featured-article-question">Is the surge in sabotage across Europe a contained Russian hybrid war, or is the threshold for a NATO response about to be crossed?</p>
 <span class="featured-article-cta">Read the edition →</span>
 </div>
 </a>
@@ -2377,6 +2395,13 @@
 <p class="section-label">Previous editions</p>
 <h2 class="section-title">Latest editions</h2>
 <ul class="related-articles-list">
+<li><a class="related-articles-item" href="archives/2026-10-05.html">
+<img alt="Can the World Do Without GPS?" class="related-articles-image" src="../assets/social/topic-images/2026-10-05.jpg"/>
+<div class="related-articles-content">
+<span class="related-articles-date">International · Oct 5</span>
+<span class="related-articles-title">Can the World Do Without GPS?</span>
+</div>
+</a></li>
 <li><a class="related-articles-item" href="archives/2026-10-04.html">
 <img alt="Nations Championship: Rugby’s New King?" class="related-articles-image" src="../assets/social/topic-images/2026-10-04.jpg"/>
 <div class="related-articles-content">
@@ -2412,13 +2437,6 @@
 <span class="related-articles-title">Mass layoffs: will unemployment start rising again?</span>
 </div>
 </a></li>
-<li><a class="related-articles-item" href="archives/2026-09-29.html">
-<img alt="Moon: The Race for Water Ice" class="related-articles-image" src="../assets/social/topic-images/2026-09-29.jpg"/>
-<div class="related-articles-content">
-<span class="related-articles-date">Science · Sep 29</span>
-<span class="related-articles-title">Moon: The Race for Water Ice</span>
-</div>
-</a></li>
 </ul>
 <a class="cross-link" href="../archives.html">See all archives →</a>
 </div>
@@ -2441,6 +2459,7 @@
 </div>
 <div class="share-row" style="margin-top:14px">
 <button class="onesignal-subscribe-btn btn-outline" id="onesignal-subscribe-btn" type="button"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"></path><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"></path></svg> <span class="btn-label">Activate notifications</span></button>
+<a class="btn-outline" href="../newsletter.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><rect height="13" rx="1.5" width="17" x="3.5" y="5.5"></rect><path d="M4.5 7 12 12.5 19.5 7"></path></svg>Newsletter</a>
 <a class="btn-outline" href="https://buymeacoffee.com/scenario" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M5 9h11v6a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4Z"></path><path d="M16 10.5h1.5a2 2 0 0 1 0 4H16"></path><path d="M8.5 4.5c-.6.7-.6 1.3 0 2M12 4.5c-.6.7-.6 1.3 0 2"></path></svg>Buy us a coffee</a>
 </div>
 </div>
@@ -2448,6 +2467,7 @@
 <footer>
 <div class="wrap">
 <div class="footer-bottom">
+<p class="devise-footer">Nothing is written in advance.</p>
 <div class="legal-links">
 <span class="legal-links-label">Want to know more about how we work?</span>
 <a href="../contact.html">Contact</a>

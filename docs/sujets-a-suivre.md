@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 06.10.2026 — [Guerre hybride en Europe : la Russie sabote-t-elle l'UE ?](../archives/2026-10-06.html)
 - 05.10.2026 — [GPS : le monde peut-il se passer du GPS ?](../archives/2026-10-05.html)
 - 04.10.2026 — [Championnat des Nations : le nouveau roi du rugby ?](../archives/2026-10-04.html)
 - 03.10.2026 — [Culture : la viralité organique est-elle une illusion algorithmique ?](../archives/2026-10-03.html)
