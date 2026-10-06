@@ -134,7 +134,10 @@ def phrases_brutes(texte: str) -> list[str]:
     return [p for p in re.split(r"(?<=[.!?])\s+|\n+", texte) if p.strip()]
 
 
-def verifier(texte: str, source: str) -> list[str]:
+MOTS_PHRASE_MAX_DERNIER_ESSAI = 40   # dernier essai : une phrase un peu longue (33 à 40 mots) ne doit pas faire perdre l'épisode du jour
+
+
+def verifier(texte: str, source: str, dernier_essai: bool = False) -> list[str]:
     problemes = []
     texte = "\n\n".join(parties(texte))  # les lignes --- ne sont ni des mots ni du Markdown
     mots = len(texte.split())
@@ -152,11 +155,14 @@ def verifier(texte: str, source: str) -> list[str]:
         problemes.append("registre : aucun mot vulgaire ni péjoratif")
     phrases = [p for p in re.split(r"(?<=[.!?;:])\s+|\n+", texte) if len(p.split()) > 2]
     if phrases:
-        trop_longues = [p for p in phrases if len(p.split()) > MOTS_PHRASE_MAX]
+        limite = MOTS_PHRASE_MAX_DERNIER_ESSAI if dernier_essai else MOTS_PHRASE_MAX
+        trop_longues = [p for p in phrases if len(p.split()) > limite]
         moyenne = sum(len(p.split()) for p in phrases) / len(phrases)
         if trop_longues or moyenne > MOTS_PHRASE_MOYENNE:
-            problemes.append(f"phrases trop longues pour l'oral (maximum {MOTS_PHRASE_MAX} mots, moyenne {MOTS_PHRASE_MOYENNE} ; "
-                             f"{len(trop_longues)} trop longue(s), moyenne actuelle {moyenne:.0f}) : une idée par phrase")
+            cites = " | ".join("« " + " ".join(p.split()[:14]) + "… »" for p in trop_longues[:3])
+            problemes.append(f"phrases trop longues pour l'oral (maximum {limite} mots, moyenne {MOTS_PHRASE_MOYENNE} ; "
+                             f"{len(trop_longues)} trop longue(s), moyenne actuelle {moyenne:.0f})"
+                             + (f", à couper en deux : {cites}" if cites else "") + " : une idée par phrase")
     if len(re.findall(r"sc[ée]narios?", texte, re.I)) < 2:
         problemes.append("nomme les trois « scénarios » avec ce mot (c'est la marque : « premier scénario », etc.)")
     if re.search(r"indicateurs?", texte, re.I):
@@ -184,7 +190,7 @@ def generer(ed: dict, modele: str, cle: str, essais: int = 3) -> str:
         resultat, _ = en._appeler_avec_reprises(construire_prompt(ed, remarques or None), modele, cle,
                                                 temperature=0.6, max_tokens=12000, timeout=300)
         texte = re.sub(r"\n{3,}", "\n\n", str((resultat or {}).get("texte", "")).strip())
-        remarques = verifier(texte, source)
+        remarques = verifier(texte, source, dernier_essai=(n == essais))
         print(f"  essai {n}/{essais} : {len(texte.split())} mots, {'conforme' if not remarques else '; '.join(remarques)}", flush=True)
         if not remarques:
             nb = len(parties(texte))

@@ -177,6 +177,21 @@ class TestJingles(unittest.TestCase):
         ok = tn.verifier(base + "Selon l'étude, 84 % des morceaux ont émergé en ligne. Une chance sur quatre.", src)
         self.assertFalse(any("fractions" in x for x in ok))
 
+    def test_derniere_chance_phrase_un_peu_longue(self):
+        # 6 octobre 2026 : un seul texte avec une phrase de 33 mots a fait perdre l'épisode du jour
+        import texte_narration as tn
+        exemple = tn.EXEMPLE.read_text(encoding="utf-8")
+        ed = gp.lire_edition(sorted((gp.ROOT / "archives").glob("2026-10-03.html"))[0])
+        src = gp.texte_source(ed)
+        moyenne = "Voici une phrase un peu longue qui " + "continue avec des mots simples " * 5 + "puis finit."
+        n = len(moyenne.split())
+        self.assertTrue(tn.MOTS_PHRASE_MAX < n <= tn.MOTS_PHRASE_MAX_DERNIER_ESSAI, n)
+        texte = exemple + "\n" + moyenne
+        strict = [x for x in tn.verifier(texte, src) if "phrases trop longues" in x]
+        self.assertTrue(strict)
+        self.assertIn("à couper en deux", strict[0])                       # la phrase fautive est citée au modèle
+        self.assertFalse(any("phrases trop longues" in x for x in tn.verifier(texte, src, dernier_essai=True)))
+
     def test_pedagogie_phrases_courtes_et_accueil(self):
         import texte_narration as tn
         exemple = tn.EXEMPLE.read_text(encoding="utf-8")
