@@ -44,12 +44,12 @@ jobs:
           # n'a pas répondu en 480 s, le run a échoué après 8 minutes sans
           # preview (même cause le 5 octobre au matin). Premier essai avec un
           # délai plus court, puis UN seul repli sur le modèle de secours
-          # (SONNET_5_BACKUP dans generate_fallback_brief.py) — jamais plus,
+          # (Gemini 3.7 Flash, peu coûteux, déjà utilisé pour la rédaction) — jamais plus,
           # pour garder le coût maîtrisé.
           OPENROUTER_API_KEY="${{ secrets.OPENROUTER_API_KEY }}" python3 generate_fallback_brief.py --date "$TOMORROW" --timeout 240 2>&1 | tee /tmp/phase1.log
           if [ ${PIPESTATUS[0]} -ne 0 ]; then
             echo "⚠️ Phase 1 : échec du modèle par défaut, repli sur le modèle de secours"
-            OPENROUTER_API_KEY="${{ secrets.OPENROUTER_API_KEY }}" python3 generate_fallback_brief.py --date "$TOMORROW" --model anthropic/claude-sonnet-5 --timeout 400 2>&1 | tee -a /tmp/phase1.log
+            OPENROUTER_API_KEY="${{ secrets.OPENROUTER_API_KEY }}" python3 generate_fallback_brief.py --date "$TOMORROW" --model google/gemini-3.7-flash --timeout 400 2>&1 | tee -a /tmp/phase1.log
             if [ ${PIPESTATUS[0]} -ne 0 ]; then
               echo "❌ Phase 1 failed (modèle par défaut puis modèle de secours)"
               exit 1
