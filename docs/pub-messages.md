@@ -1040,6 +1040,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-10-05 (archives/2026-10-05.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-10-06
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 93 incidents
+- message: Avec 93 incidents de sabotage recensés en 2025 par la police allemande, la guerre hybride s'installe durablement contre les transports européens.
+- attribution: — lesscenarios.fr, 6 octobre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-10-06.html
+
+*Phrase à retenir de l'édition du 2026-10-06 (archives/2026-10-06.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
