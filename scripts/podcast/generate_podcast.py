@@ -399,8 +399,20 @@ FILTRE_VOLUME = "loudnorm=I=-16:TP=-1.5:LRA=11"
 
 
 # Correction « clarté » pour une voix un peu étouffée (essai du 6 octobre 2026 sur Voxtral) : creux léger vers 250 Hz,
-# présence vers 3 kHz, aigus relevés au-dessus de 6 kHz. Réservée aux essais de voix, jamais appliquée aux épisodes.
+# présence vers 3 kHz, aigus relevés au-dessus de 6 kHz. Utilisée pour les essais de voix, et pour les épisodes quand le workflow quotidien demande « clair ».
 FILTRE_CLARTE = "equalizer=f=250:t=q:w=1:g=-2,equalizer=f=3000:t=q:w=0.8:g=2.5,highshelf=f=6000:g=4"
+
+
+def egaliser_pcm(pcm: bytes, filtre: str = FILTRE_CLARTE) -> bytes:
+    """Applique la correction « clarté » à la voix seule (PCM 16 bits mono), avant le mixage avec la musique.
+
+    Les aigus relevés pourraient écrêter une crête proche du maximum : le niveau baisse de 3 dB ici, le volume final
+    est de toute façon recalé par la normalisation. Sans ffmpeg, la voix est rendue telle quelle."""
+    if not shutil.which("ffmpeg"):
+        return pcm
+    cmd = ["ffmpeg", "-loglevel", "error", "-f", "s16le", "-ar", str(SAMPLE_RATE), "-ac", "1", "-i", "pipe:0",
+           "-af", filtre + ",volume=-3dB", "-f", "s16le", "-ar", str(SAMPLE_RATE), "-ac", "1", "pipe:1"]
+    return subprocess.run(cmd, input=pcm, capture_output=True, check=True).stdout
 
 
 def vers_mp3(wav: Path, mp3: Path, normaliser: bool = True, clair: bool = False) -> bool:

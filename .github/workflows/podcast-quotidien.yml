@@ -1,10 +1,15 @@
 name: Podcast — épisode du jour
 
 # Chaque jour, après « Rédaction et publication » : écrit le texte parlé de la dernière édition, le fait lire par la
-# voix Sulafat (Gemini) avec l'ouverture musicale, range le MP3 dans une Release GitHub et l'ajoute au flux
+# voix Marie « curious » (Voxtral, Mistral, corrigée « clair ») avec l'ouverture musicale, range le MP3 dans une Release GitHub et l'ajoute au flux
 # https://lesscenarios.fr/podcast.xml que Spotify relit. Décidé le 3 octobre 2026 (« on l'automatise pour demain »).
 # Idempotent : si la Release podcast-AAAA-MM-JJ existe déjà, il n'y a rien à faire (sauf « forcer »).
-# Secrets : OPENROUTER_API_KEY (écriture du texte) et GEMINI_API_KEY (voix).
+# Secrets : OPENROUTER_API_KEY (texte et voix) et GEMINI_API_KEY (contrôle du début de l'audio).
+#
+# VOIX PAR DÉFAUT : Voxtral fr_marie_curious + correction « clair », choisie le 6 octobre 2026 (essai à écouter le lendemain).
+# RETOUR EN ARRIÈRE (Gemini Sulafat) : modifier les trois lignes « RETOUR » de l'étape « Choisir l'édition » ci-dessous
+# (VOIX_DEFAUT=Sulafat, MODELE_DEFAUT=google/gemini-3.8-flash-tts, CLAIR_DEFAUT=false), ou lancer le workflow à la main
+# avec ces mêmes valeurs. Si Voxtral échoue, l'épisode est refait automatiquement avec Gemini Sulafat (repli).
 # Variable de dépôt facultative PODCAST_OWNER_EMAIL (sinon contact@lesscenarios.fr, voir build_feed.py).
 
 on:
@@ -31,9 +36,18 @@ on:
         required: false
         default: false
       voix:
-        description: "Voix du narrateur"
+        description: "Voix du narrateur (ex. fr_marie_curious pour Voxtral, Sulafat pour Gemini)"
         required: false
-        default: "Sulafat"
+        default: "fr_marie_curious"
+      modele_tts:
+        description: "Modèle de voix OpenRouter (mistralai/voxtral-mini-tts-2603 ou google/gemini-3.8-flash-tts)"
+        required: false
+        default: "mistralai/voxtral-mini-tts-2603"
+      clair:
+        description: "Relever les aigus de la voix (utile pour Voxtral, inutile pour Gemini)"
+        type: boolean
+        required: false
+        default: true
 
 permissions:
   contents: write
@@ -66,12 +80,23 @@ jobs:
         env:
           DATE: ${{ github.event.inputs.date }}
           VOIX: ${{ github.event.inputs.voix }}
+          MODELE: ${{ github.event.inputs.modele_tts }}
+          CLAIR: ${{ github.event.inputs.clair }}
           FORCER: ${{ github.event.inputs.forcer }}
           GH_TOKEN: ${{ github.token }}
         run: |
           case "$DATE" in ""|[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;; *) echo "Date invalide : $DATE" >&2; exit 1 ;; esac
-          [ -n "$VOIX" ] || VOIX=Sulafat
-          case "$VOIX" in *[!A-Za-z]*) echo "Voix invalide : $VOIX" >&2; exit 1 ;; esac
+          # RETOUR : valeurs utilisées pour les passages automatiques (sans saisie à la main). Pour revenir à Gemini :
+          # VOIX_DEFAUT=Sulafat, MODELE_DEFAUT=google/gemini-3.8-flash-tts, CLAIR_DEFAUT=false.
+          VOIX_DEFAUT=fr_marie_curious                      # RETOUR
+          MODELE_DEFAUT=mistralai/voxtral-mini-tts-2603     # RETOUR
+          CLAIR_DEFAUT=true                                 # RETOUR
+          [ -n "$VOIX" ] || VOIX="$VOIX_DEFAUT"
+          [ -n "$MODELE" ] || MODELE="$MODELE_DEFAUT"
+          [ -n "$CLAIR" ] || CLAIR="$CLAIR_DEFAUT"
+          case "$VOIX" in *[!A-Za-z_]*) echo "Voix invalide : $VOIX" >&2; exit 1 ;; esac
+          case "$MODELE" in *[!A-Za-z0-9._/-]*) echo "Modèle invalide : $MODELE" >&2; exit 1 ;; esac
+          case "$CLAIR" in true|false) ;; *) echo "Valeur invalide pour clair : $CLAIR" >&2; exit 1 ;; esac
           RATTRAPAGE=""
           if [ -z "$DATE" ]; then
             DATE=$(ls archives | grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}\.html$' | sort | tail -1 | sed 's/\.html$//')
@@ -90,6 +115,8 @@ jobs:
           fi
           echo "date=$DATE" >> "$GITHUB_OUTPUT"
           echo "voix=$VOIX" >> "$GITHUB_OUTPUT"
+          echo "modele=$MODELE" >> "$GITHUB_OUTPUT"
+          echo "clair=$CLAIR" >> "$GITHUB_OUTPUT"
           echo "rattrapage=$RATTRAPAGE" >> "$GITHUB_OUTPUT"
           if [ "$FORCER" != "true" ] && gh release view "podcast-$DATE" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
             echo "Épisode du $DATE déjà publié : rien à faire."
@@ -114,7 +141,16 @@ jobs:
             SOURCE="_texte/$DATE.txt"
           fi
           echo "Source du texte : $SOURCE"
-          python3 scripts/podcast/narration.py "$SOURCE" --date "$DATE" --voix "${{ steps.ed.outputs.voix }}" --ouverture
+          OPT=""
+          [ "${{ steps.ed.outputs.clair }}" = "true" ] && OPT="--clair"
+          if ! python3 scripts/podcast/narration.py "$SOURCE" --date "$DATE" --voix "${{ steps.ed.outputs.voix }}" \
+              --modele-tts "${{ steps.ed.outputs.modele }}" $OPT --ouverture; then
+            # Repli : si la voix choisie échoue (service indisponible, voix refusée), l'épisode du jour est quand même
+            # produit, avec Gemini Sulafat. Le texte déjà publié ou du dépôt est repris ; sinon il est réécrit.
+            echo "::warning::Voix ${{ steps.ed.outputs.voix }} en échec : repli sur Gemini Sulafat"
+            python3 scripts/podcast/narration.py "$SOURCE" --date "$DATE" --voix Sulafat \
+              --modele-tts google/gemini-3.8-flash-tts --ouverture
+          fi
           ls -la _podcast-out
 
       - name: Ranger dans une Release et ajouter au flux
