@@ -407,6 +407,18 @@ class TestFondContinu(unittest.TestCase):
         self.assertGreater(pause, 3.8)
         self.assertLess(pause, 4.8, "avant : plus de 6 s (pause de 5 s + silences de la synthèse + remontée lente)")
 
+    def test_mp3_volume_normalise(self):
+        """Le MP3 final passe par la normalisation du volume (-16 LUFS), sauf demande contraire."""
+        from unittest import mock
+        with mock.patch.object(gp.shutil, "which", return_value="/usr/bin/ffmpeg"), \
+                mock.patch.object(gp.subprocess, "run") as run:
+            gp.vers_mp3(Path("a.wav"), Path("a.mp3"))
+            gp.vers_mp3(Path("a.wav"), Path("b.mp3"), normaliser=False)
+        avec, sans = run.call_args_list[0].args[0], run.call_args_list[1].args[0]
+        self.assertIn("loudnorm=I=-16:TP=-1.5:LRA=11", avec)
+        self.assertIn("-ac", avec)
+        self.assertNotIn("-af", sans)
+
 
 if __name__ == "__main__":
     unittest.main()

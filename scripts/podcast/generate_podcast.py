@@ -394,10 +394,16 @@ def ecrire_wav(pcm: bytes, chemin: Path) -> None:
         w.writeframes(pcm)
 
 
-def vers_mp3(wav: Path, mp3: Path) -> bool:
+# Volume d'écoute des podcasts : environ -16 LUFS (norme usuelle des plateformes), crête vraie limitée à -1,5 dB.
+FILTRE_VOLUME = "loudnorm=I=-16:TP=-1.5:LRA=11"
+
+
+def vers_mp3(wav: Path, mp3: Path, normaliser: bool = True) -> bool:
+    """MP3 mono 24 kHz, 96 kb/s ; le volume est ramené à -16 LUFS pour que tous les épisodes aient le même niveau."""
     if not shutil.which("ffmpeg"):
         return False
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav), "-codec:a", "libmp3lame", "-b:a", "96k", str(mp3)], check=True)
+    filtre = ["-af", FILTRE_VOLUME, "-ar", str(SAMPLE_RATE), "-ac", "1"] if normaliser else []
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav), *filtre, "-codec:a", "libmp3lame", "-b:a", "96k", str(mp3)], check=True)
     return True
 
 
