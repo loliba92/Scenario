@@ -193,7 +193,7 @@ class TestJingles(unittest.TestCase):
         self.assertFalse(any("phrases trop longues" in x for x in tn.verifier(texte, src, dernier_essai=True)))
 
     def test_derniere_chance_texte_un_peu_long(self):
-        # 6 octobre 2026 : 1010, 981 puis 761 mots pour un maximum de 720 : épisode perdu deux fois
+        # 6 octobre 2026 : 1010, 981 puis 761 mots pour un maximum de 720 (relevé à 1000) : épisode perdu deux fois
         import texte_narration as tn
         exemple = tn.EXEMPLE.read_text(encoding="utf-8")
         ed = gp.lire_edition(sorted((gp.ROOT / "archives").glob("2026-10-03.html"))[0])
