@@ -15,7 +15,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import generate_podcast as gp  # noqa: E402
 
-MOTS_MIN, MOTS_MAX = 420, 720  # 3 à 5 minutes de lecture
+MOTS_MIN, MOTS_MAX = 420, 1000  # 3 à 7 minutes de lecture (« mieux vaut plus que moins », 6 octobre 2026 ; 720 mots au départ)
 SEPARATEUR = "---"
 MOTS_PHRASE_MAX, MOTS_PHRASE_MOYENNE = 32, 20   # pédagogie : phrases courtes à l'oral (textes validés : moyenne 13-15, maximum 28)
 # Sept accueils et sept fermetures, écrits à l'avance (jamais par le modèle) : on en tire un par jour pour que l'épisode
@@ -93,7 +93,7 @@ RÈGLES ABSOLUES
 - Pas de tableau d'indicateurs : ne récite pas les indicateurs chiffrés des scénarios. Garde peu de chiffres : ceux qui font comprendre le sujet, et les probabilités des scénarios, TOUJOURS dites en fractions parlées : « une chance sur quatre » pour 25 %, « une chance sur deux » pour 50 %, « trois chances sur quatre » pour 75 %, « une chance sur trois », « une chance sur cinq », « une chance sur dix ». JAMAIS « pour cent » ni le signe %, même si l'article donne des pourcentages ; arrondis à la fraction la plus proche.
 - Ne dis jamais « selon l'article », ne parle ni de toi ni de l'intelligence artificielle. Pas de « bonjour » ni de « bienvenue » ni d'au revoir : commence directement par la question, le script ajoute la fermeture.
 
-STRUCTURE (entre {MOTS_MIN} et {MOTS_MAX} mots, soit 3 à 5 minutes)
+STRUCTURE (entre {MOTS_MIN} et {MOTS_MAX} mots, soit 3 à 7 minutes)
 1. La question du jour, en une ou deux phrases.
 2. Ce que l'on sait : les faits qui posent la question, avec un ou deux exemples concrets.
 3. Le fond du problème : à quoi cherche-t-on à répondre, et pourquoi la réponse n'est pas évidente.
@@ -134,6 +134,7 @@ def phrases_brutes(texte: str) -> list[str]:
     return [p for p in re.split(r"(?<=[.!?])\s+|\n+", texte) if p.strip()]
 
 
+MOTS_MAX_DERNIER_ESSAI, MOTS_CIBLE = 1100, 850   # dernier essai : jusqu'à 1100 mots ; consigne de raccourcissement : viser 850 mots
 MOTS_PHRASE_MAX_DERNIER_ESSAI = 40   # dernier essai : une phrase un peu longue (33 à 40 mots) ne doit pas faire perdre l'épisode du jour
 
 
@@ -141,7 +142,11 @@ def verifier(texte: str, source: str, dernier_essai: bool = False) -> list[str]:
     problemes = []
     texte = "\n\n".join(parties(texte))  # les lignes --- ne sont ni des mots ni du Markdown
     mots = len(texte.split())
-    if not MOTS_MIN <= mots <= MOTS_MAX:
+    maxi = MOTS_MAX_DERNIER_ESSAI if dernier_essai else MOTS_MAX
+    if mots > maxi:
+        problemes.append(f"{mots} mots : trop long de {mots - MOTS_MAX} mots (maximum {MOTS_MAX}). Réécris plus court, vise environ {MOTS_CIBLE} mots : "
+                         "garde les trois scénarios et l'idée principale, supprime les détails secondaires et les chiffres en trop")
+    elif mots < MOTS_MIN:
         problemes.append(f"{mots} mots (attendu entre {MOTS_MIN} et {MOTS_MAX})")
     if "**" in texte or "http" in texte or re.search(r"^\s*[-*•]", texte, re.M):
         problemes.append("pas de Markdown, de liste ni d'adresse web")
@@ -181,7 +186,7 @@ def verifier(texte: str, source: str, dernier_essai: bool = False) -> list[str]:
     return problemes
 
 
-def generer(ed: dict, modele: str, cle: str, essais: int = 3) -> str:
+def generer(ed: dict, modele: str, cle: str, essais: int = 4) -> str:
     import enrich_sujets as en  # relais de modèles gratuits
 
     source = gp.texte_source(ed)
