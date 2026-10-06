@@ -419,6 +419,17 @@ class TestFondContinu(unittest.TestCase):
         self.assertIn("-ac", avec)
         self.assertNotIn("-af", sans)
 
+    def test_egalisation_de_la_voix_garde_la_duree(self):
+        import math
+        import shutil
+        if not shutil.which("ffmpeg"):
+            self.skipTest("ffmpeg absent")
+        voix = array("h", (int(30000 * math.sin(2 * math.pi * 440 * i / gp.SAMPLE_RATE)) for i in range(gp.SAMPLE_RATE)))
+        sortie = array("h")
+        sortie.frombytes(gp.egaliser_pcm(voix.tobytes()))
+        self.assertAlmostEqual(len(sortie), len(voix), delta=gp.SAMPLE_RATE // 50)
+        self.assertLess(max(abs(x) for x in sortie), 32767, "pas d'écrêtage après relèvement des aigus")
+
     def test_mp3_option_clarte_seulement_a_la_demande(self):
         from unittest import mock
         with mock.patch.object(gp.shutil, "which", return_value="/usr/bin/ffmpeg"), \
