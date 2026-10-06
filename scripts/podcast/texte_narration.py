@@ -134,6 +134,7 @@ def phrases_brutes(texte: str) -> list[str]:
     return [p for p in re.split(r"(?<=[.!?])\s+|\n+", texte) if p.strip()]
 
 
+MOTS_MAX_DERNIER_ESSAI, MOTS_CIBLE = 800, 620   # dernier essai : jusqu'à ~5 min 40 s ; consigne de raccourcissement : viser 620 mots
 MOTS_PHRASE_MAX_DERNIER_ESSAI = 40   # dernier essai : une phrase un peu longue (33 à 40 mots) ne doit pas faire perdre l'épisode du jour
 
 
@@ -141,7 +142,11 @@ def verifier(texte: str, source: str, dernier_essai: bool = False) -> list[str]:
     problemes = []
     texte = "\n\n".join(parties(texte))  # les lignes --- ne sont ni des mots ni du Markdown
     mots = len(texte.split())
-    if not MOTS_MIN <= mots <= MOTS_MAX:
+    maxi = MOTS_MAX_DERNIER_ESSAI if dernier_essai else MOTS_MAX
+    if mots > maxi:
+        problemes.append(f"{mots} mots : trop long de {mots - MOTS_MAX} mots (maximum {MOTS_MAX}). Réécris plus court, vise environ {MOTS_CIBLE} mots : "
+                         "garde les trois scénarios et l'idée principale, supprime les détails secondaires et les chiffres en trop")
+    elif mots < MOTS_MIN:
         problemes.append(f"{mots} mots (attendu entre {MOTS_MIN} et {MOTS_MAX})")
     if "**" in texte or "http" in texte or re.search(r"^\s*[-*•]", texte, re.M):
         problemes.append("pas de Markdown, de liste ni d'adresse web")
@@ -181,7 +186,7 @@ def verifier(texte: str, source: str, dernier_essai: bool = False) -> list[str]:
     return problemes
 
 
-def generer(ed: dict, modele: str, cle: str, essais: int = 3) -> str:
+def generer(ed: dict, modele: str, cle: str, essais: int = 4) -> str:
     import enrich_sujets as en  # relais de modèles gratuits
 
     source = gp.texte_source(ed)

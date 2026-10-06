@@ -192,6 +192,22 @@ class TestJingles(unittest.TestCase):
         self.assertIn("à couper en deux", strict[0])                       # la phrase fautive est citée au modèle
         self.assertFalse(any("phrases trop longues" in x for x in tn.verifier(texte, src, dernier_essai=True)))
 
+    def test_derniere_chance_texte_un_peu_long(self):
+        # 6 octobre 2026 : 1010, 981 puis 761 mots pour un maximum de 720 : épisode perdu deux fois
+        import texte_narration as tn
+        exemple = tn.EXEMPLE.read_text(encoding="utf-8")
+        ed = gp.lire_edition(sorted((gp.ROOT / "archives").glob("2026-10-03.html"))[0])
+        src = gp.texte_source(ed)
+        reste = tn.MOTS_MAX - len(exemple.split()) + 40
+        long = exemple + "\n\n" + ("Une phrase courte et claire sur le sujet du jour. " * (reste // 9 + 1))
+        n = len(tn.verifier(long, src, dernier_essai=True))
+        self.assertFalse(any("mots" in x and "trop long" in x for x in tn.verifier(long, src, dernier_essai=True)), n)
+        strict = [x for x in tn.verifier(long, src) if "trop long de" in x]
+        self.assertTrue(strict)
+        self.assertIn(str(tn.MOTS_CIBLE), strict[0])                       # le modèle reçoit un objectif chiffré
+        enorme = exemple + "\n\n" + ("Une phrase courte et claire sur le sujet du jour. " * 120)
+        self.assertTrue(any("trop long de" in x for x in tn.verifier(enorme, src, dernier_essai=True)))
+
     def test_pedagogie_phrases_courtes_et_accueil(self):
         import texte_narration as tn
         exemple = tn.EXEMPLE.read_text(encoding="utf-8")
