@@ -1,0 +1,370 @@
+{
+  "date": "2026-10-07",
+  "registre": "actualite_francaise",
+  "sujet": {
+    "titre_propose": "Déserts médicaux : trouvera-t-on encore un médecin près de chez soi ?",
+    "h1": "Déserts médicaux : trouvera-t-on encore un médecin près de chez soi ?",
+    "question_posee": "Déserts médicaux : trouvera-t-on encore un médecin près de chez soi ?",
+    "eyebrow": "Mercredi, actualité française",
+    "angle": "En automne 2026, l'entrée en vigueur des mesures du Pacte de lutte contre les déserts médicaux (docteurs juniors, stages obligatoires) affronte la vague de départs en retraite des généralistes et le blocage du Sénat sur la régulation de l'installation. Trois scénarios s'offrent à la France : la fracture s'inverse, elle se stabilise, ou elle s'aggrave.",
+    "tags": [
+      "sante",
+      "societe",
+      "politique"
+    ],
+    "domain": "politique-institutions",
+    "image_keywords": "doctor consultation rural france",
+    "complexite": 3,
+    "origine_prioritaire": "Déserts médicaux : trouvera-t-on encore un médecin près de chez soi ?",
+    "origine_id": "actualite-francaise-deserts-medicaux-trouvera-t-on-encore-un",
+    "point_de_depart": {
+      "id": "actualite-francaise-deserts-medicaux-trouvera-t-on-encore-un",
+      "registre": "actualite_francaise",
+      "titre": "Déserts médicaux : trouvera-t-on encore un médecin près de chez soi ?",
+      "question": "Déserts médicaux : trouvera-t-on encore un médecin près de chez soi ?",
+      "contexte": "~87 % Du territoire serait en « fragilité médicale », désormais jusque dans les villes moyennes. De nouvelles mesures arrivent (études de santé dans chaque département, 3 700 internes déployés en sept. 2026, débat sur la régulation de l'installation). → Favorable = les mesures freinent la fracture ; stable = ça n'empire plus mais ne s'améliore pas ; dégradé = les départs en retraite l'emportent, la fracture s'aggrave",
+      "rationnel": "La question : l'entrée en vigueur des mesures du Pacte (docteurs juniors, stages obligatoires) à l'automne 2026 suffira-t-elle à inverser la fracture médicale face à la vague de départs en retraite et au blocage de la régulation de l'installation au Sénat ? L'issue est ouverte car les 3 700 internes déployés pourraient compenser les 1 850 départs anticipés par la réforme du cumul emploi-retraite (scénario favorable), tandis que le rejet de la régulation au Sénat et l'opposition de l'Ordre risqueraient d'aggraver la pénurie (scénario dégradé), maintenant le territoire dans un statu quo fragile (scénario stable). Pour les 6,7 millions de Français dépourvus de médecin traitant, l'enjeu est de savoir s'ils pourront consulter près de chez eux dans les mois qui viennent sans renoncer aux soins.",
+      "mots_cles": [
+        "déserts médicaux",
+        "Pacte de lutte contre les déserts médicaux",
+        "docteurs juniors 3700",
+        "zones rouges 151",
+        "régulation installation médecins ARS",
+        "proposition de loi transpartisane déserts médicaux",
+        "cumul emploi-retraite médecins 2027",
+        "6,7 millions sans médecin traitant"
+      ],
+      "angle": null,
+      "a_verifier": "Nombre exact de docteurs juniors effectivement déployés à date (vs 3 700 annoncés) ; chiffre précis des départs en retraite de médecins généralistes en 2026 ; calendrier de reprise de l'examen de la proposition de loi au Sénat.",
+      "scenarios_brouillon": null,
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Pacte de lutte contre les déserts médicaux - Dossier de presse (25 avril 2025)",
+          "url": "https://www.info.gouv.fr/upload/media/content/0001/13/0f332cd5f6e3b38dcacebe3247423386667ae3b1.pdf"
+        },
+        {
+          "titre": "Cartes de France 2026 de l'accès aux soins - Fondation Jean-Jaurès",
+          "url": "https://www.jean-jaures.org/wp-content/uploads/2026/05/Cartes_France_2026.pdf"
+        },
+        {
+          "titre": "Proposition de loi visant à lutter contre les déserts médicaux - Sénat",
+          "url": "https://www.senat.fr/travaux-parlementaires/textes-legislatifs/la-loi-en-clair/proposition-de-loi-visant-a-lutter-contre-les-deserts-medicaux-dinitiative-transpartisane.html"
+        },
+        {
+          "titre": "Réforme du cumul emploi-retraite : près de 1 850 médecins anticipent leur départ - FranceSoir",
+          "url": "https://www.francesoir.fr/societe-sante/reforme-du-cumul-emploi-retraite-pres-de-1-850-medecins-anticipent-leur-depart-au"
+        }
+      ],
+      "tag": "santé & société",
+      "origine": null,
+      "note_editoriale": null,
+      "donnees_graphique": "[relevé du 2026-10-04] Docteurs juniors déployés en novembre 2026 (unité : nombre de médecins). Bretagne = 137 (novembre 2026) ; Normandie = 168 (novembre 2026) ; Centre-Val de Loire = 97 (novembre 2026) ; Nouvelle-Aquitaine = 300 (novembre 2026). Sources : https://www.letelegramme.fr/bretagne/toutes-les-infos/il-y-aura-137-docteurs-juniors-en-medecine-generale-debut-novembre-2026-en-bretagne-7128590.php ; https://www.normandie.ars.sante.fr/docteurs-juniors-un-levier-dattractivite-au-service-des-professionnels-et-des-territoires-1 ; https://france3-regions.franceinfo.fr/centre-val-de-loire/carte-ou-s-installeront-la-centaine-de-docteurs-juniors-arrivant-en-centre-val-de-loire-cet-automne-3386146.html ; https://toute-la.veille-acteurs-sante.fr/239557/pres-de-300-docteurs-juniors-est-pret-pour-2026-grace-a-une-mobilisation-forte-des-facultes-de-medecine-de-la-region-et-des-acteurs-des-soins-de-ville-dans-tous-les-territoires-communique/",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (2026-10-06, guerre hybride en Europe) sans recoupement. Registre actualité française : éditions récentes du même registre (2026-10-03 culture, 2026-10-02 sciences, 2026-09-30 politique-institutions, 2026-09-23 politique-institutions) sans sujet médical. Sujet inédit dans le registre."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "En 2026, environ 87 % du territoire français est classé en zone de « fragilité médicale », incluant des villes moyennes.",
+      "chiffre": "87 %",
+      "date_du_chiffre": "2026-05-01",
+      "sources": [
+        "fondation-jean-jaures-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "6,7 millions de Français ne disposent pas de médecin traitant.",
+      "chiffre": "6,7 millions",
+      "date_du_chiffre": null,
+      "sources": [
+        "info-gouv-pacte-2025"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "3 700 internes en médecine sont déployés à l'automne 2026 dans les zones de déserts médicaux.",
+      "chiffre": "3 700",
+      "date_du_chiffre": "2026-09-01",
+      "sources": [
+        "france-soir-cumul-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La réforme du cumul emploi-retraite incite environ 1 850 médecins généralistes à anticiper leur départ en 2026-2027.",
+      "chiffre": "1 850",
+      "date_du_chiffre": "2026-09-01",
+      "sources": [
+        "france-soir-cumul-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "151 zones dites « rouges » (aucun médecin généraliste sur certaines communes) sont recensées en France en 2026.",
+      "chiffre": "151",
+      "date_du_chiffre": "2026-05-01",
+      "sources": [
+        "fondation-jean-jaures-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La proposition de loi transpartisane visant à réguler l'installation des médecins est en débat au Sénat ; la régulation de l'installation reste bloquée.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "senat-pl-2026"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Ministère des Solidarités et de la Santé",
+      "role": "Pilote du Pacte de lutte contre les déserts médicaux, déploiement des docteurs juniors"
+    },
+    {
+      "nom": "Conseil national de l'Ordre des médecins",
+      "role": "Opposition à la régulation de l'installation, défend la liberté d'installation"
+    },
+    {
+      "nom": "Sénat français",
+      "role": "Examine la proposition de loi transpartisane sur la régulation de l'installation"
+    },
+    {
+      "nom": "Agence régionale de santé (ARS)",
+      "role": "Déploie les docteurs juniors dans les territoires, gère les zones de tension"
+    },
+    {
+      "nom": "Fondation Jean-Jaurès",
+      "role": "Produit les cartes de France de l'accès aux soins, documente la fragilité médicale"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2025-04-25",
+      "evenement": "Dossier de presse du Pacte de lutte contre les déserts médicaux publié"
+    },
+    {
+      "date": "2026-05-01",
+      "evenement": "Fondation Jean-Jaurès publie les cartes de France 2026 de l'accès aux soins (87 % du territoire en fragilité médicale)"
+    },
+    {
+      "date": "2026-09-01",
+      "evenement": "Déploiement de 3 700 internes en médecine dans les zones de déserts médicaux ; publication du chiffre de 1 850 départs anticipés liés au cumul emploi-retraite"
+    },
+    {
+      "date": "2026-11-01",
+      "evenement": "Entrée en vigueur effective des docteurs juniors dans plusieurs régions (Bretagne, Normandie, Centre-Val de Loire, Nouvelle-Aquitaine)"
+    },
+    {
+      "date": "2026-10-07",
+      "evenement": "Brief éditorial du jour — point de situation sur la fracture médicale"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Les 3 700 docteurs juniors compensent les 1 850 départs anticipés, la régulation de l'installation progresse au Sénat, et la fracture médicale commence à se résorber dans plusieurs régions.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Le déploiement des docteurs juniors stabilise la situation sans l'inverser : la proportion de territoires en fragilité médicale reste autour de 87 %, sans aggravation notable ni amélioration structurelle.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "Les départs en retraite l'emportent sur les arrivées, le Sénat rejette la régulation de l'installation, et la fracture médicale s'aggrave avec un nombre croissant de communes sans médecin généraliste.",
+      "probabilite_suggeree": 30
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Part du territoire en fragilité médicale",
+      "valeur": "87 %",
+      "tendance": "Stable à la hausse selon les dernières cartes de la Fondation Jean-Jaurès"
+    },
+    {
+      "label": "Français sans médecin traitant",
+      "valeur": "6,7 millions",
+      "tendance": "En légère hausse, selon le dossier de presse du Pacte"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série historique longue publique et continue sur la part du territoire en fragilité médicale ou le nombre de médecins par habitant sur une période de 5 ans minimum n'a été trouvée lors des recherches (sources consultées : Fondation Jean-Jaurès 2026, Info.gouv 2025, FranceSoir 2026). Seuls des points ponctuels en 2025-2026 sont disponibles, ce qui ne satisfait pas le critère de 5 points réels sur une période longue (critère 2 de la grille). Critère 1 non satisfait : pas de source publique fiable documentant l'historique complet.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Chiffres comparables disponibles dans les faits vérifiés : nombre de docteurs juniors prévus par région (Bretagne 137, Normandie 168, Centre-Val de Loire 97, Nouvelle-Aquitaine 300) et nombre de départs anticipés (1 850). Ces chiffres sont de même nature (effectifs de médecins) et permettent une comparaison territoriale.",
+    "barres": {
+      "aria_label": "Nombre de docteurs juniors prévus par région en novembre 2026",
+      "lead": "Quatre régions ont confirmé le déploiement de docteurs juniors pour l'automne 2026, avec des effectifs très inégaux.",
+      "caption": "Sources : Le Télégramme (Bretagne), Normandie ARS, France 3 Centre-Val de Loire, Toute la Veille Acteurs Santé (Nouvelle-Aquitaine), FranceSoir (départs anticipés). Données d'octobre 2026.",
+      "unite": "médecins",
+      "valeurs": [
+        {
+          "label": "Nouvelle-Aquitaine",
+          "valeur": 300,
+          "affichage": "300 médecins",
+          "mis_en_avant": true
+        },
+        {
+          "label": "Normandie",
+          "valeur": 168,
+          "affichage": "168 médecins",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Bretagne",
+          "valeur": 137,
+          "affichage": "137 médecins",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Centre-Val de Loire",
+          "valeur": 97,
+          "affichage": "97 médecins",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Départs anticipés (national)",
+          "valeur": 1850,
+          "affichage": "1 850 médecins",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Ce qu'est la « fragilité médicale » et comment elle se mesure",
+        "rattache_a": "fait fondation-jean-jaures-2026 (87 % du territoire en fragilité médicale)"
+      },
+      {
+        "focus": "Le mécanisme du Pacte : docteurs juniors, stages obligatoires et régulation de l'installation",
+        "rattache_a": "fait senat-pl-2026 (proposition de loi transpartisane bloquée au Sénat)"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le nombre exact de docteurs juniors effectivement déployés à ce jour (vs 3 700 annoncés) n'est pas confirmé par une source unique fiable.",
+    "Le calendrier précis de reprise de l'examen de la proposition de loi au Sénat n'est pas publié.",
+    "Le chiffre de 6,7 millions de Français sans médecin traitant provient du dossier de presse du Pacte (avril 2025) ; une donnée plus récente n'a pas été trouvée."
+  ],
+  "a_ne_pas_affirmer": [
+    "Que les 3 700 docteurs juniors seront tous en poste d'ici novembre 2026.",
+    "Que la proposition de loi transpartisane sera adoptée au Sénat dans les prochains mois.",
+    "Que la réforme du cumul emploi-retraite est la seule cause des départs anticipés de médecins."
+  ],
+  "sources": [
+    {
+      "id": "fondation-jean-jaures-2026",
+      "title": "Cartes de France 2026 de l'accès aux soins",
+      "source": "Fondation Jean-Jaurès",
+      "url": "https://www.jean-jaures.org/wp-content/uploads/2026/05/Cartes_France_2026.pdf",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Cartes de France de l'accès aux soins publiées en mai 2026, indiquant que 87 % du territoire est en fragilité médicale et recensant 151 zones rouges.",
+      "read_minutes": 3
+    },
+    {
+      "id": "info-gouv-pacte-2025",
+      "title": "Pacte de lutte contre les déserts médicaux - Dossier de presse (25 avril 2025)",
+      "source": "Info.gouv.fr",
+      "url": "https://www.info.gouv.fr/upload/media/content/0001/13/0f332cd5f6e3b38dcacebe3247423386667ae3b1.pdf",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Dossier de presse du gouvernement sur le Pacte de lutte contre les déserts médicaux, incluant le chiffre de 6,7 millions de Français sans médecin traitant et les mesures de déploiement des internes.",
+      "read_minutes": 4
+    },
+    {
+      "id": "france-soir-cumul-2026",
+      "title": "Réforme du cumul emploi-retraite : près de 1 850 médecins anticipent leur départ",
+      "source": "FranceSoir",
+      "url": "https://www.francesoir.fr/societe-sante/reforme-du-cumul-emploi-retraite-pres-de-1-850-medecins-anticipent-leur-depart-au",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Article de FranceSoir indiquant que la réforme du cumul emploi-retraite incite environ 1 850 médecins généralistes à anticiper leur départ en 2026-2027.",
+      "read_minutes": 2
+    },
+    {
+      "id": "senat-pl-2026",
+      "title": "Proposition de loi visant à lutter contre les déserts médicaux - Sénat",
+      "source": "Sénat français",
+      "url": "https://www.senat.fr/travaux-parlementaires/textes-legislatifs/la-loi-en-clair/proposition-de-loi-visant-a-lutter-contre-les-deserts-medicaux-dinitiative-transpartisane.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Page du Sénat sur la proposition de loi transpartisane visant à lutter contre les déserts médicaux, en examen au Sénat.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Docteurs juniors : un levier d'attractivité au service des professionnels et des territoires",
+      "source": "Normandie ARS",
+      "url": "https://www.normandie.ars.sante.fr/docteurs-juniors-un-levier-dattractivite-au-service-des-professionnels-et-des-territoires-1",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "La Normandie ARS présente le déploiement de 168 docteurs juniors comme levier d'attractivité pour les professionnels et les territoires.",
+      "read_minutes": 1
+    },
+    {
+      "title": "Carte : où s'installeront la centaine de docteurs juniors arrivant en Centre-Val de Loire cet automne",
+      "source": "France 3 Centre-Val de Loire",
+      "url": "https://france3-regions.franceinfo.fr/centre-val-de-loire/carte-ou-s-installeront-la-centaine-de-docteurs-juniors-arrivant-en-centre-val-de-loire-cet-automne-3386146.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "France 3 Centre-Val de Loire publie une carte des 97 docteurs juniors arrivant en Centre-Val de Loire à l'automne 2026.",
+      "read_minutes": 1
+    },
+    {
+      "title": "Pres de 300 docteurs juniors est pret pour 2026 grace a une mobilisation forte des facultes de medecine de la region et des acteurs des soins de ville dans tous les territoires",
+      "source": "Toute la Veille Acteurs Santé",
+      "url": "https://toute-la.veille-acteurs-sante.fr/239557/pres-de-300-docteurs-juniors-est-pret-pour-2026-grace-a-une-mobilisation-forte-des-facultes-de-medecine-de-la-region-et-des-acteurs-des-soins-de-ville-dans-tous-les-territoires-communique/",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Toute la Veille Acteurs Santé confirme que 300 docteurs juniors sont prêts pour 2026 en Nouvelle-Aquitaine, grâce à une mobilisation forte des facultés de médecine.",
+      "read_minutes": 1
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-16",
+      "titre": "Électricité : la fin de l'ARENH va-t-elle faire flamber ta facture ?",
+      "lien": "Politique de santé et politique énergétique : deux domaines où des mesures structurelles (ARENH, Pacte de lutte contre les déserts médicaux) impactent directement le quotidien des Français et où l'incertitude sur l'avenir des dispositifs est centrale."
+    },
+    {
+      "date": "2026-09-30",
+      "titre": "Plans sociaux : le chômage va-t-il repartir à la hausse ?",
+      "lien": "Enjeu de fracture territoriale et de précarité : les déserts médicaux aggravent l'accès aux soins dans les territoires fragiles, au même titre que les plans sociaux menacent le chômage dans certaines régions."
+    },
+    {
+      "date": "2026-09-13",
+      "titre": "Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?",
+      "lien": "Contexte politique commun : la réforme des déserts médicaux et le budget 2027 s'inscrivent dans la même période automnale, avec des enjeux de gouvernabilité et de compromis parlementaire."
+    }
+  ],
+  "recommandations_redaction": [
+    "Expliquer clairement ce qu'est la « fragilité médicale » et comment elle se mesure (indicateurs, seuils).",
+    "Présenter le mécanisme du Pacte de lutte contre les déserts médicaux : docteurs juniors, stages obligatoires, régulation de l'installation.",
+    "Mettre en perspective les 3 700 docteurs juniors annoncés avec les 1 850 départs anticipés liés au cumul emploi-retraite.",
+    "Signaler que la proposition de loi transpartisane sur la régulation de l'installation est en débat au Sénat et que son issue est incertaine.",
+    "Insister sur l'impact concret pour les 6,7 millions de Français sans médecin traitant.",
+    "Utiliser le graphique de barres pour comparer les effectifs de docteurs juniors par région (Nouvelle-Aquitaine, Normandie, Bretagne, Centre-Val de Loire) et les départs anticipés nationaux."
+  ]
+}
