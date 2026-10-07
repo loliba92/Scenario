@@ -58,5 +58,15 @@ class TestRappels(unittest.TestCase):
         self.assertEqual(bh._rappels_depuis_connexes({"articles_connexes": [{"date": "x", "titre": "T"}]}), [])
 
 
+class TestRenvoiInline(unittest.TestCase):
+    def test_phrase_de_renvoi_retiree(self):
+        dek = ("La dette grimpe. Un sujet similaire sur les passifs souverains a déjà été analysé dans nos "
+               'archives : <a href="archives/2026-08-27.html">voir l\'édition du 27 août</a>.')
+        hero = bh.build_hero({**CONTENT, "dek": [dek, "Deux.", "Trois."]}, "2026-10-08")
+        self.assertNotIn("sujet similaire", hero)
+        self.assertNotIn("voir l'édition", hero)
+        self.assertIn("La dette grimpe.", hero)
+
+
 if __name__ == "__main__":
     unittest.main()

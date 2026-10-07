@@ -71,36 +71,17 @@ recommandation du type « Lier explicitement à l'édition du {date} sur
 {sujet} », avec le titre exact et parfois l'angle qui distingue les deux
 éditions.
 
-Si (et seulement si) `recommandations_redaction` contient une telle
-recommandation de lien, l'ajouter dans le `dek` en suivant cette règle,
-jamais une autre formulation :
-- **Ne jamais fondre le lien dans la phrase factuelle elle-même** —
-  garder la phrase telle quelle, puis ajouter une courte relance
-  juste après, comme une remarque à part, **toujours impersonnelle,
-  jamais une adresse directe au lecteur** (ajusté le 23 septembre 2026 —
-  incident réel : l'ancienne formule « n'hésite pas à lire notre article »
-  a été signalée deux fois comme rupture de ton par la critique
-  automatique, docs/routine-prompt.md § « Jamais de rupture de registre »
-  documentait déjà cet incident sans que ce gabarit n'ait été corrigé en
-  conséquence) : « un sujet similaire a déjà été traité dans nos
-  archives : `<a href=\"archives/{AAAA-MM-JJ}.html\">lien</a>` » (adapter
-  la formulation autour du lien — ex. « analysé », « couvert » — mais
-  toujours à la troisième personne, jamais de tutoiement ni d'impératif
-  adressé au lecteur, et garder cet esprit de remarque en aparté, jamais
-  une clause intégrée à la phrase du fait).
-- **URL toujours au format `archives/{AAAA-MM-JJ}.html`** (perspective
-  `index.html`, à la racine) — jamais `../archives/...` ni
-  `{AAAA-MM-JJ}.html` seul : le script de post-édition réajuste déjà
-  automatiquement tous les liens relatifs du `dek` d'un niveau pour la
-  copie dans `archives/{date_du_jour}.html` (voir
-  `scripts/edition/generate_post_edition.py`), exactement comme pour
-  `.lex-ref` ou tout autre lien interne — écrire deux formes différentes
-  casserait ce mécanisme déjà en place.
-- Un seul lien de ce type par édition, même si plusieurs recoupements
-  sont notés — choisir le plus pertinent pour le lecteur si plusieurs
-  sont proposés, jamais en ajouter plusieurs qui alourdiraient le texte.
-- Guillemets échappés comme pour `.lex-ref` (à l'intérieur d'une chaîne
-  JSON, voir la règle d'échappement en tête de ce fichier).
+**Ne rien écrire dans le `dek` pour ce renvoi (changé le 7 octobre 2026).**
+Le renvoi vers une édition passée est désormais produit par le code, sous
+forme d'un petit encart « Déjà abordé sur Scénario » inséré entre deux
+paragraphes à partir de `articles_connexes` (voir `scripts/edition/build_html.py`,
+`_rappels_depuis_connexes`). Écrire en plus une phrase du type « un sujet
+similaire a déjà été traité dans nos archives : lien » dans le texte faisait
+apparaître deux fois le même renvoi (constaté sur la preview du 8 octobre).
+Donc : aucune phrase de renvoi, aucun lien `archives/...` dans le `dek`.
+Si une recommandation de lien existe, s'assurer seulement que l'article
+concerné figure bien dans `articles_connexes`. Le code retire de toute façon
+une telle phrase si elle subsiste.
 
 **`edition_precedente` et `corrections_a_appliquer` (ajoutés le 23 septembre
 2026, voir `scripts/edition/revise_brief.py` et `.github/workflows/
