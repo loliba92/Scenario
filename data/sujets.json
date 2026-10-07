@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "3615bcac2da0dd84fd6ee0eb4c8e7cc0db8b9544f00aefb7060490528399695e"
+    "md_sha256": "7ec36e660ec1e974ae270b3ec60f0191fd91a5fbde68f6139d2deb13f6882a10"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -2359,7 +2359,7 @@
           "titre": "Déserts médicaux : trouvera-t-on encore un médecin près de chez soi ?",
           "question": null,
           "tag": "santé & société",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "~87 % Du territoire serait en « fragilité médicale », désormais jusque dans les villes moyennes. De nouvelles mesures arrivent (études de santé dans chaque département, 3 700 internes déployés en sept. 2026, débat sur la régulation de l'installation). → Favorable = les mesures freinent la fracture ; stable = ça n'empire plus mais ne s'améliore pas ; dégradé = les départs en retraite l'emportent, la fracture s'aggrave",
           "rationnel": "La question : l'entrée en vigueur des mesures du Pacte (docteurs juniors, stages obligatoires) à l'automne 2026 suffira-t-elle à inverser la fracture médicale face à la vague de départs en retraite et au blocage de la régulation de l'installation au Sénat ? L'issue est ouverte car les 3 700 internes déployés pourraient compenser les 1 850 départs anticipés par la réforme du cumul emploi-retraite (scénario favorable), tandis que le rejet de la régulation au Sénat et l'opposition de l'Ordre risqueraient d'aggraver la pénurie (scénario dégradé), maintenant le territoire dans un statu quo fragile (scénario stable). Pour les 6,7 millions de Français dépourvus de médecin traitant, l'enjeu est de savoir s'ils pourront consulter près de chez eux dans les mois qui viennent sans renoncer aux soins.",
@@ -2398,8 +2398,8 @@
           "origine": null,
           "note": null,
           "ajoute_le": null,
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-10-07",
+          "edition": "2026-10-07",
           "enrichi_le": "2026-10-04",
           "donnees": "[relevé du 2026-10-04] Docteurs juniors déployés en novembre 2026 (unité : nombre de médecins). Bretagne = 137 (novembre 2026) ; Normandie = 168 (novembre 2026) ; Centre-Val de Loire = 97 (novembre 2026) ; Nouvelle-Aquitaine = 300 (novembre 2026). Sources : https://www.letelegramme.fr/bretagne/toutes-les-infos/il-y-aura-137-docteurs-juniors-en-medecine-generale-debut-novembre-2026-en-bretagne-7128590.php ; https://www.normandie.ars.sante.fr/docteurs-juniors-un-levier-dattractivite-au-service-des-professionnels-et-des-territoires-1 ; https://france3-regions.franceinfo.fr/centre-val-de-loire/carte-ou-s-installeront-la-centaine-de-docteurs-juniors-arrivant-en-centre-val-de-loire-cet-automne-3386146.html ; https://toute-la.veille-acteurs-sante.fr/239557/pres-de-300-docteurs-juniors-est-pret-pour-2026-grace-a-une-mobilisation-forte-des-facultes-de-medecine-de-la-region-et-des-acteurs-des-soins-de-ville-dans-tous-les-territoires-communique/"
         },
