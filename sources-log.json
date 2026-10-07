@@ -2,6 +2,41 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-07",
+      "articles": [
+        {
+          "title": "Docteurs juniors : un levier d'attractivité au service des professionnels et des territoires",
+          "source": "Normandie ARS",
+          "url": "https://www.normandie.ars.sante.fr/docteurs-juniors-un-levier-dattractivite-au-service-des-professionnels-et-des-territoires-1",
+          "image": null,
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "La Normandie ARS présente le déploiement de 168 docteurs juniors comme levier d'attractivité pour les professionnels et les territoires.",
+          "read_minutes": 1
+        },
+        {
+          "title": "Carte : où s'installeront la centaine de docteurs juniors arrivant en Centre-Val de Loire cet automne",
+          "source": "France 3 Centre-Val de Loire",
+          "url": "https://france3-regions.franceinfo.fr/centre-val-de-loire/carte-ou-s-installeront-la-centaine-de-docteurs-juniors-arrivant-en-centre-val-de-loire-cet-automne-3386146.html",
+          "image": null,
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "France 3 Centre-Val de Loire publie une carte des 97 docteurs juniors arrivant en Centre-Val de Loire à l'automne 2026.",
+          "read_minutes": 1
+        },
+        {
+          "title": "Pres de 300 docteurs juniors est pret pour 2026 grace a une mobilisation forte des facultes de medecine de la region et des acteurs des soins de ville dans tous les territoires",
+          "source": "Toute la Veille Acteurs Santé",
+          "url": "https://toute-la.veille-acteurs-sante.fr/239557/pres-de-300-docteurs-juniors-est-pret-pour-2026-grace-a-une-mobilisation-forte-des-facultes-de-medecine-de-la-region-et-des-acteurs-des-soins-de-ville-dans-tous-les-territoires-communique/",
+          "image": null,
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Toute la Veille Acteurs Santé confirme que 300 docteurs juniors sont prêts pour 2026 en Nouvelle-Aquitaine, grâce à une mobilisation forte des facultés de médecine.",
+          "read_minutes": 1
+        }
+      ]
+    },
+    {
       "date": "2026-10-05",
       "articles": [
         {
