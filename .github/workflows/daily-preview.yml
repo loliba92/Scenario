@@ -40,20 +40,29 @@ jobs:
           # Get tomorrow's date (YYYY-MM-DD)
           TOMORROW=$(date -u -d '+1 day' '+%Y-%m-%d')
           echo "Generating brief for $TOMORROW..."
-          # Incident du 6 octobre 2026 : le modèle économique (Solar Pro 4)
-          # n'a pas répondu en 480 s, le run a échoué après 8 minutes sans
-          # preview (même cause le 5 octobre au matin). Premier essai avec un
-          # délai plus court, puis UN seul repli sur le modèle de secours
-          # (Gemini 3.7 Flash, peu coûteux, déjà utilisé pour la rédaction) — jamais plus,
-          # pour garder le coût maîtrisé.
-          OPENROUTER_API_KEY="${{ secrets.OPENROUTER_API_KEY }}" python3 generate_fallback_brief.py --date "$TOMORROW" --timeout 240 2>&1 | tee /tmp/phase1.log
-          if [ ${PIPESTATUS[0]} -ne 0 ]; then
-            echo "⚠️ Phase 1 : échec du modèle par défaut, repli sur le modèle de secours"
-            OPENROUTER_API_KEY="${{ secrets.OPENROUTER_API_KEY }}" python3 generate_fallback_brief.py --date "$TOMORROW" --model google/gemini-3.7-flash --timeout 400 2>&1 | tee -a /tmp/phase1.log
-            if [ ${PIPESTATUS[0]} -ne 0 ]; then
-              echo "❌ Phase 1 failed (modèle par défaut puis modèle de secours)"
-              exit 1
+          # Incidents : le 6 octobre, le modèle économique (Solar Pro 4) n'a pas répondu en 480 s ; le 7 octobre, il a
+          # inventé des sources trois fois de suite (brief refusé), puis Gemini 3.7 Flash a été limité par son fournisseur
+          # (erreur 429/504, réponse vide) : aucun preview pour le lendemain. Chaîne de secours, un seul passage chacun,
+          # du moins cher au plus cher, jamais Sonnet : Solar Pro 4, Gemini 3.7 Flash (deux fois, la panne est souvent
+          # passagère), puis DeepSeek V4 Flash. On s'arrête au premier brief valide.
+          OK=false
+          for ESSAI in "defaut:240" "google/gemini-3.7-flash:400" "google/gemini-3.7-flash:400" "deepseek/deepseek-v4-flash:400"; do
+            MODELE="${ESSAI%%:*}"
+            DELAI="${ESSAI##*:}"
+            OPT_MODELE=""
+            [ "$MODELE" != "defaut" ] && OPT_MODELE="--model $MODELE"
+            echo "▶️ Phase 1 : essai avec ${MODELE} (délai ${DELAI} s)"
+            OPENROUTER_API_KEY="${{ secrets.OPENROUTER_API_KEY }}" python3 generate_fallback_brief.py --date "$TOMORROW" $OPT_MODELE --timeout "$DELAI" 2>&1 | tee -a /tmp/phase1.log
+            if [ ${PIPESTATUS[0]} -eq 0 ]; then
+              OK=true
+              break
             fi
+            echo "⚠️ Phase 1 : essai avec ${MODELE} en échec"
+            sleep 30
+          done
+          if [ "$OK" != true ]; then
+            echo "❌ Phase 1 failed (tous les essais de la chaîne de secours)"
+            exit 1
           fi
           echo "✅ Phase 1 successful"
 
