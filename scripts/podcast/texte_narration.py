@@ -33,7 +33,7 @@ OUVERTURES = (
     "Scénario, c'est une question d'actualité par jour, et trois évolutions possibles. Bienvenue, installez-vous : on commence.",
     "Bienvenue sur Scénario. Prenez un moment avec nous : une question d'actualité, trois évolutions possibles. Allons-y.",
 )
-RITUEL = "Prenez soin de vous. Rien n'est écrit à l'avance. À demain, pour un nouveau scénario."   # devise du site, dite chaque jour mot pour mot : « Rien n'est écrit à l'avance. »
+RITUEL = "Prenez soin de vous. Rien n'est écrit à l'avance. Ne l'oubliez pas. À demain, pour un nouveau scénario."   # devise du site, dite chaque jour mot pour mot (« Ne l'oubliez pas » ajouté le 7 octobre 2026, pour finir sur une note plus chaleureuse) : « Rien n'est écrit à l'avance. »
 FERMETURES = tuple(debut + " " + RITUEL for debut in (
     "Voilà pour aujourd'hui. Merci de nous avoir écoutés. L'édition complète est sur lesscenarios.fr.",
     "C'est tout pour aujourd'hui. Merci d'avoir été avec nous. Tout est sur lesscenarios.fr.",
