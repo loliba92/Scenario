@@ -1,15 +1,15 @@
 name: Podcast — épisode du jour
 
 # Chaque jour, après « Rédaction et publication » : écrit le texte parlé de la dernière édition, le fait lire par la
-# voix Marie « curious » (Voxtral, Mistral, corrigée « clair ») avec l'ouverture musicale, range le MP3 dans une Release GitHub et l'ajoute au flux
+# voix Sulafat (Gemini), sans correction ni normalisation avec l'ouverture musicale, range le MP3 dans une Release GitHub et l'ajoute au flux
 # https://lesscenarios.fr/podcast.xml que Spotify relit. Décidé le 3 octobre 2026 (« on l'automatise pour demain »).
 # Idempotent : si la Release podcast-AAAA-MM-JJ existe déjà, il n'y a rien à faire (sauf « forcer »).
 # Secrets : OPENROUTER_API_KEY (texte et voix) et GEMINI_API_KEY (contrôle du début de l'audio).
 #
-# VOIX PAR DÉFAUT : Voxtral fr_marie_curious + correction « clair », choisie le 6 octobre 2026 (essai à écouter le lendemain).
-# RETOUR EN ARRIÈRE (Gemini Sulafat) : modifier les trois lignes « RETOUR » de l'étape « Choisir l'édition » ci-dessous
-# (VOIX_DEFAUT=Sulafat, MODELE_DEFAUT=google/gemini-3.8-flash-tts, CLAIR_DEFAUT=false), ou lancer le workflow à la main
-# avec ces mêmes valeurs. Si Voxtral échoue, l'épisode est refait automatiquement avec Gemini Sulafat (repli).
+# VOIX PAR DÉFAUT : Gemini Sulafat, sans correction de voix ni normalisation du volume (retour du 7 octobre 2026 : Voxtral
+# avec correction sifflait). Pour essayer Voxtral : modifier les trois lignes « RETOUR » de l'étape « Choisir l'édition »
+# (VOIX_DEFAUT=fr_marie_curious, MODELE_DEFAUT=mistralai/voxtral-mini-tts-2603, CLAIR_DEFAUT=true), ou lancer le workflow
+# à la main avec ces valeurs. Si la voix choisie échoue, l'épisode est refait avec Gemini Sulafat (repli).
 # Variable de dépôt facultative PODCAST_OWNER_EMAIL (sinon contact@lesscenarios.fr, voir build_feed.py).
 
 on:
@@ -36,18 +36,18 @@ on:
         required: false
         default: false
       voix:
-        description: "Voix du narrateur (ex. fr_marie_curious pour Voxtral, Sulafat pour Gemini)"
+        description: "Voix du narrateur (ex. Sulafat pour Gemini, fr_marie_curious pour Voxtral)"
         required: false
-        default: "fr_marie_curious"
+        default: "Sulafat"
       modele_tts:
-        description: "Modèle de voix OpenRouter (mistralai/voxtral-mini-tts-2603 ou google/gemini-3.8-flash-tts)"
+        description: "Modèle de voix OpenRouter (google/gemini-3.8-flash-tts ou mistralai/voxtral-mini-tts-2603)"
         required: false
-        default: "mistralai/voxtral-mini-tts-2603"
+        default: "google/gemini-3.8-flash-tts"
       clair:
-        description: "Relever les aigus de la voix (utile pour Voxtral, inutile pour Gemini)"
+        description: "Corriger la voix (présence douce et anti-sifflantes, pour Voxtral ; inutile pour Gemini)"
         type: boolean
         required: false
-        default: true
+        default: false
 
 permissions:
   contents: write
@@ -86,11 +86,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           case "$DATE" in ""|[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;; *) echo "Date invalide : $DATE" >&2; exit 1 ;; esac
-          # RETOUR : valeurs utilisées pour les passages automatiques (sans saisie à la main). Pour revenir à Gemini :
-          # VOIX_DEFAUT=Sulafat, MODELE_DEFAUT=google/gemini-3.8-flash-tts, CLAIR_DEFAUT=false.
-          VOIX_DEFAUT=fr_marie_curious                      # RETOUR
-          MODELE_DEFAUT=mistralai/voxtral-mini-tts-2603     # RETOUR
-          CLAIR_DEFAUT=true                                 # RETOUR
+          # RETOUR : valeurs utilisées pour les passages automatiques (sans saisie à la main). Pour essayer Voxtral :
+          # VOIX_DEFAUT=fr_marie_curious, MODELE_DEFAUT=mistralai/voxtral-mini-tts-2603, CLAIR_DEFAUT=true.
+          VOIX_DEFAUT=Sulafat                               # RETOUR
+          MODELE_DEFAUT=google/gemini-3.8-flash-tts          # RETOUR
+          CLAIR_DEFAUT=false                                # RETOUR
           [ -n "$VOIX" ] || VOIX="$VOIX_DEFAUT"
           [ -n "$MODELE" ] || MODELE="$MODELE_DEFAUT"
           [ -n "$CLAIR" ] || CLAIR="$CLAIR_DEFAUT"

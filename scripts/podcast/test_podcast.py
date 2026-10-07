@@ -181,21 +181,28 @@ class TestJingles(unittest.TestCase):
         """7 octobre 2026 : 45 % dit « une chance sur deux » ; les trois probabilités faisaient 105 %."""
         import texte_narration as tn
         self.assertEqual([tn.fraction_parlee(p) for p in (25, 45, 30)],
-                         ["une chance sur quatre", "neuf chances sur vingt", "trois chances sur dix"])
+                         ["une chance sur quatre", "un peu moins d'une chance sur deux", "trois chances sur dix"])
         self.assertEqual(tn.fraction_parlee(50), "une chance sur deux")
-        self.assertEqual(tn.fraction_parlee(27), "vingt-sept chances sur cent")
-        self.assertEqual(tn.fraction_parlee(71), "soixante et onze chances sur cent")
+        self.assertEqual(tn.fraction_parlee(55), "un peu plus d'une chance sur deux")
+        self.assertEqual(tn.fraction_parlee(27), "un peu plus d'une chance sur quatre")
+        self.assertEqual(tn.fraction_parlee(71), "un peu plus de sept chances sur dix")
         probas = [25, 45, 30]
-        juste = ("Premier scénario : une chance sur quatre. Deuxième scénario : neuf chances sur vingt. "
+        juste = ("Premier scénario : une chance sur quatre. Deuxième scénario : un peu moins d'une chance sur deux. "
                  "Troisième scénario : trois chances sur dix. Les deux plus sombres font trois chances sur quatre.")
         self.assertEqual(tn.controle_probabilites(juste, probas), [])
-        arrondi = juste.replace("neuf chances sur vingt", "une chance sur deux")
+        self.assertEqual(tn.controle_probabilites(juste.replace("'", "\u2019"), probas), [])   # apostrophe typographique
+        arrondi = juste.replace("un peu moins d'une chance sur deux", "une chance sur deux")
         refus = tn.controle_probabilites(arrondi, probas)
         self.assertTrue(any("scénario deux" in x for x in refus), refus)
         self.assertTrue(any("une chance sur deux" in x for x in refus), refus)
         somme_fausse = juste.replace("trois chances sur quatre", "quatre chances sur cinq")
         self.assertTrue(tn.controle_probabilites(somme_fausse, probas))
         self.assertEqual(tn.controle_probabilites(arrondi, []), [])   # édition sans probabilités : pas de contrôle
+
+    def test_texte_du_7_octobre_corrige(self):
+        import texte_narration as tn
+        t = (ROOT / "podcast" / "textes" / "2026-10-07.txt").read_text(encoding="utf-8")
+        self.assertEqual(tn.controle_probabilites(t, [25, 45, 30]), [])
 
     def test_probabilites_lues_dans_l_edition(self):
         import texte_narration as tn
@@ -435,17 +442,26 @@ class TestFondContinu(unittest.TestCase):
         self.assertGreater(pause, 3.8)
         self.assertLess(pause, 4.8, "avant : plus de 6 s (pause de 5 s + silences de la synthèse + remontée lente)")
 
-    def test_mp3_volume_normalise(self):
-        """Le MP3 final passe par la normalisation du volume (-16 LUFS), sauf demande contraire."""
+    def test_mp3_sans_traitement_par_defaut(self):
+        """7 octobre 2026 : ni normalisation du volume ni correction de voix par défaut (la voix est lue telle qu'elle sort)."""
         from unittest import mock
         with mock.patch.object(gp.shutil, "which", return_value="/usr/bin/ffmpeg"), \
                 mock.patch.object(gp.subprocess, "run") as run:
             gp.vers_mp3(Path("a.wav"), Path("a.mp3"))
-            gp.vers_mp3(Path("a.wav"), Path("b.mp3"), normaliser=False)
-        avec, sans = run.call_args_list[0].args[0], run.call_args_list[1].args[0]
-        self.assertIn("loudnorm=I=-16:TP=-1.5:LRA=11", avec)
-        self.assertIn("-ac", avec)
-        self.assertNotIn("-af", sans)
+            gp.vers_mp3(Path("a.wav"), Path("b.mp3"), normaliser=True)
+        defaut, normalise = run.call_args_list[0].args[0], run.call_args_list[1].args[0]
+        self.assertNotIn("-af", defaut)
+        self.assertIn("loudnorm=I=-16:TP=-1.5:LRA=11", normalise)
+
+    def test_mp3_option_clarte_seulement_a_la_demande(self):
+        from unittest import mock
+        with mock.patch.object(gp.shutil, "which", return_value="/usr/bin/ffmpeg"), \
+                mock.patch.object(gp.subprocess, "run") as run:
+            gp.vers_mp3(Path("a.wav"), Path("b.mp3"), clair=True)
+        filtre = run.call_args_list[0].args[0]
+        filtre = filtre[filtre.index("-af") + 1]
+        self.assertIn("deesser", filtre)   # les « s » sont atténués ; plus de relèvement général des aigus (la voix sifflait)
+        self.assertNotIn("highshelf", filtre)
 
     def test_egalisation_de_la_voix_garde_la_duree(self):
         import math
@@ -458,18 +474,3 @@ class TestFondContinu(unittest.TestCase):
         self.assertAlmostEqual(len(sortie), len(voix), delta=gp.SAMPLE_RATE // 50)
         self.assertLess(max(abs(x) for x in sortie), 32767, "pas d'écrêtage après relèvement des aigus")
 
-    def test_mp3_option_clarte_seulement_a_la_demande(self):
-        from unittest import mock
-        with mock.patch.object(gp.shutil, "which", return_value="/usr/bin/ffmpeg"), \
-                mock.patch.object(gp.subprocess, "run") as run:
-            gp.vers_mp3(Path("a.wav"), Path("a.mp3"))
-            gp.vers_mp3(Path("a.wav"), Path("b.mp3"), clair=True)
-        normal, clair = (c.args[0][c.args[0].index("-af") + 1] for c in run.call_args_list)
-        self.assertNotIn("highshelf", normal)
-        self.assertIn("deesser", clair)   # les « s » sont atténués ; plus de relèvement général des aigus (la voix sifflait)
-        self.assertNotIn("highshelf", clair)
-        self.assertTrue(clair.startswith("equalizer=") and clair.endswith(gp.FILTRE_VOLUME))
-
-
-if __name__ == "__main__":
-    unittest.main()
