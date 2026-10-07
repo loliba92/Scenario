@@ -177,6 +177,34 @@ class TestJingles(unittest.TestCase):
         ok = tn.verifier(base + "Selon l'étude, 84 % des morceaux ont émergé en ligne. Une chance sur quatre.", src)
         self.assertFalse(any("fractions" in x for x in ok))
 
+    def test_probabilites_dites_exactement(self):
+        """7 octobre 2026 : 45 % dit « une chance sur deux » ; les trois probabilités faisaient 105 %."""
+        import texte_narration as tn
+        self.assertEqual([tn.fraction_parlee(p) for p in (25, 45, 30)],
+                         ["une chance sur quatre", "neuf chances sur vingt", "trois chances sur dix"])
+        self.assertEqual(tn.fraction_parlee(50), "une chance sur deux")
+        self.assertEqual(tn.fraction_parlee(27), "vingt-sept chances sur cent")
+        self.assertEqual(tn.fraction_parlee(71), "soixante et onze chances sur cent")
+        probas = [25, 45, 30]
+        juste = ("Premier scénario : une chance sur quatre. Deuxième scénario : neuf chances sur vingt. "
+                 "Troisième scénario : trois chances sur dix. Les deux plus sombres font trois chances sur quatre.")
+        self.assertEqual(tn.controle_probabilites(juste, probas), [])
+        arrondi = juste.replace("neuf chances sur vingt", "une chance sur deux")
+        refus = tn.controle_probabilites(arrondi, probas)
+        self.assertTrue(any("scénario deux" in x for x in refus), refus)
+        self.assertTrue(any("une chance sur deux" in x for x in refus), refus)
+        somme_fausse = juste.replace("trois chances sur quatre", "quatre chances sur cinq")
+        self.assertTrue(tn.controle_probabilites(somme_fausse, probas))
+        self.assertEqual(tn.controle_probabilites(arrondi, []), [])   # édition sans probabilités : pas de contrôle
+
+    def test_probabilites_lues_dans_l_edition(self):
+        import texte_narration as tn
+        ed = {"scenarios": [{"probabilite": "25"}, {"probabilite": "45"}, {"probabilite": "30"}]}
+        self.assertEqual(tn.probabilites_edition(ed), [25, 45, 30])
+        self.assertEqual(tn.probabilites_edition({"scenarios": []}), [])
+        ed["scenarios"][0]["probabilite"] = "n/a"
+        self.assertEqual(tn.probabilites_edition(ed), [])
+
     def test_derniere_chance_phrase_un_peu_longue(self):
         # 6 octobre 2026 : un seul texte avec une phrase de 33 mots a fait perdre l'épisode du jour
         import texte_narration as tn
@@ -438,6 +466,8 @@ class TestFondContinu(unittest.TestCase):
             gp.vers_mp3(Path("a.wav"), Path("b.mp3"), clair=True)
         normal, clair = (c.args[0][c.args[0].index("-af") + 1] for c in run.call_args_list)
         self.assertNotIn("highshelf", normal)
+        self.assertIn("deesser", clair)   # les « s » sont atténués ; plus de relèvement général des aigus (la voix sifflait)
+        self.assertNotIn("highshelf", clair)
         self.assertTrue(clair.startswith("equalizer=") and clair.endswith(gp.FILTRE_VOLUME))
 
 

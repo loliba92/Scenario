@@ -10,6 +10,8 @@ from __future__ import annotations
 import re
 import sys
 from datetime import date
+from fractions import Fraction
+from itertools import combinations
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -73,6 +75,15 @@ EXEMPLE = (Path(__file__).resolve().parents[2] / "podcast" / "textes" / "2026-10
 def construire_prompt(ed: dict, remarques: list[str] | None = None) -> str:
     exemple = EXEMPLE.read_text(encoding="utf-8").strip() if EXEMPLE.exists() else ""
     lexique = "\n".join(f"- {x['terme']} : {x['definition']}" for x in ed.get("lexique") or []) or "(aucun terme dans cette édition)"
+    probas = probabilites_edition(ed)
+    bloc_probas = ""
+    if probas:
+        bloc_probas = ("\n- PROBABILITÉS : dis-les EXACTEMENT ainsi, mot pour mot, sans jamais les arrondir ni les changer (leur somme fait 100 %) : "
+                       + " ; ".join(f"scénario {r} ({t}) : « {fraction_parlee(p)} »"
+                                    for r, t, p in zip(("un", "deux", "trois"), ("favorable", "stable", "dégradé"), probas))
+                       + ". Pour deux scénarios réunis, dis la somme exacte : "
+                       + ", ".join(f"« {fraction_parlee(a + b)} »" for a, b in combinations(probas, 2)) + " (dans l'ordre un+deux, un+trois, deux+trois). "
+                       "N'emploie aucune autre formule du type « une chance sur N ».")
     suite = ("\n\nTa version précédente a été refusée pour ces raisons, corrige-les :\n- " + "\n- ".join(remarques)) if remarques else ""
     return f"""Tu écris le texte parlé d'un court podcast quotidien du site d'actualité Scénario (lesscenarios.fr), à partir de l'édition du {gp.date_longue(ed['date'])} ci-dessous. Une seule voix, chaleureuse, qui parle à un ami curieux : un ton décontracté et naturel, comme on raconte l'actualité à quelqu'un qu'on apprécie.
 
@@ -97,7 +108,7 @@ RÈGLES ABSOLUES
   · mets une pause à l'endroit où l'on respire : un point plutôt qu'une virgule avant une idée nouvelle, un tiret ou deux-points avant la chute d'une explication ;
   · jamais de points de suspension, de majuscules d'insistance, ni de point d'exclamation (la voix les lit mal).
 - Du langage parlé : phrases courtes, tournures naturelles, pas de liste, pas de Markdown, pas d'adresse web.
-- Pas de tableau d'indicateurs : ne récite pas les indicateurs chiffrés des scénarios. Garde peu de chiffres : ceux qui font comprendre le sujet, et les probabilités des scénarios, TOUJOURS dites en fractions parlées : « une chance sur quatre » pour 25 %, « une chance sur deux » pour 50 %, « trois chances sur quatre » pour 75 %, « une chance sur trois », « une chance sur cinq », « une chance sur dix ». JAMAIS « pour cent » ni le signe %, même si l'article donne des pourcentages ; arrondis à la fraction la plus proche.
+- Pas de tableau d'indicateurs : ne récite pas les indicateurs chiffrés des scénarios. Garde peu de chiffres : ceux qui font comprendre le sujet, et les probabilités des scénarios, TOUJOURS dites en fractions parlées : « une chance sur quatre » pour 25 %, « une chance sur deux » pour 50 %, « trois chances sur quatre » pour 75 %, « une chance sur trois », « une chance sur cinq », « une chance sur dix ». JAMAIS « pour cent » ni le signe %, même si l'article donne des pourcentages. Ne les arrondis JAMAIS : les trois probabilités des scénarios doivent faire 100 % ensemble (voir PROBABILITÉS ci-dessous).{bloc_probas}
 - Ne dis jamais « selon l'article », ne parle ni de toi ni de l'intelligence artificielle. Pas de « bonjour » ni de « bienvenue » ni d'au revoir : commence directement par la question, le script ajoute la fermeture.
 
 STRUCTURE (entre {MOTS_MIN} et {MOTS_MAX} mots, soit 3 à 7 minutes)
@@ -137,6 +148,67 @@ MOTS_INTERDITS = (r"\b(gueules?|merdes?|merdique|putain|bordel|con|cons|conne|co
 SIGLES_PRONONCES = {"OTAN", "NASA", "UNESCO", "OPEP", "FIFA", "UEFA", "INSEE", "SMIC", "NATO", "ARENH"}
 
 
+_UNITES = ("zéro", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", "onze", "douze", "treize",
+           "quatorze", "quinze", "seize")
+_DIZAINES = {2: "vingt", 3: "trente", 4: "quarante", 5: "cinquante", 6: "soixante"}
+
+
+def en_lettres(n: int) -> str:
+    """Nombre de 0 à 100 écrit en toutes lettres (« soixante et onze », « quatre-vingt-dix-sept »)."""
+    if n < 17:
+        return _UNITES[n]
+    if n < 20:
+        return "dix-" + _UNITES[n - 10]
+    if n == 100:
+        return "cent"
+    if n < 70:
+        d, u = divmod(n, 10)
+        return _DIZAINES[d] if u == 0 else _DIZAINES[d] + (" et un" if u == 1 else "-" + _UNITES[u])
+    if n < 80:
+        return "soixante et onze" if n == 71 else "soixante-" + en_lettres(n - 60)
+    return "quatre-vingts" if n == 80 else "quatre-vingt-" + en_lettres(n - 80)
+
+
+def fraction_parlee(pct: int) -> str:
+    """Probabilité en pourcentage dite en fraction EXACTE (25 → « une chance sur quatre », 45 → « neuf chances sur vingt »).
+
+    Incident du 7 octobre 2026 : 45 % avait été dit « une chance sur deux » (soit 50 %), et les trois probabilités
+    annoncées faisaient 105 %. Les valeurs sont donc calculées ici, jamais arrondies par le modèle."""
+    f = Fraction(int(pct), 100)
+    num, den = f.numerator, f.denominator
+    return f"{'une chance' if num == 1 else en_lettres(num) + ' chances'} sur {en_lettres(den)}"
+
+
+def probabilites_edition(ed: dict) -> list[int]:
+    """Probabilités (en %) des trois scénarios de l'édition, dans l'ordre ; liste vide si elles sont absentes ou incohérentes."""
+    try:
+        valeurs = [int(str(sc["probabilite"]).strip().rstrip("%")) for sc in ed.get("scenarios") or []]
+    except (KeyError, ValueError):
+        return []
+    return valeurs if len(valeurs) == 3 and all(0 < v < 100 for v in valeurs) else []
+
+
+def phrases_probabilites_autorisees(probas: list[int]) -> list[str]:
+    """Les trois probabilités, plus la somme de deux scénarios (« les deux scénarios les plus sombres ensemble »)."""
+    return [fraction_parlee(p) for p in probas] + [fraction_parlee(a + b) for a, b in combinations(probas, 2)]
+
+
+def controle_probabilites(texte: str, probas: list[int]) -> list[str]:
+    """Chaque scénario doit citer SA probabilité exacte ; toute autre « chance(s) sur » est refusée (arrondi, invention)."""
+    if not probas:
+        return []
+    bas = re.sub(r"\s+", " ", texte.lower())
+    problemes = [f"dis la probabilité du scénario {rang} EXACTEMENT : « {fraction_parlee(p)} » (soit {p} %), sans l'arrondir"
+                 for rang, p in zip(("un", "deux", "trois"), probas) if fraction_parlee(p) not in bas]
+    for phrase in sorted(set(phrases_probabilites_autorisees(probas)), key=len, reverse=True):
+        bas = bas.replace(phrase, " ")
+    for m in re.finditer(r"(?:[\wéèêû-]+ ){0,2}chances? sur [\wéèêû-]+", bas):
+        problemes.append(f"probabilité inexacte « {m.group(0).strip()} » : les trois scénarios font {probas[0]} %, {probas[1]} %, {probas[2]} % ; "
+                         "dis exactement " + ", ".join(f"« {fraction_parlee(p)} »" for p in probas)
+                         + " (deux scénarios ensemble : la somme exacte, ex. « " + fraction_parlee(probas[1] + probas[2]) + " »)")
+    return problemes
+
+
 def phrases_brutes(texte: str) -> list[str]:
     return [p for p in re.split(r"(?<=[.!?])\s+|\n+", texte) if p.strip()]
 
@@ -145,7 +217,7 @@ MOTS_MAX_DERNIER_ESSAI, MOTS_CIBLE = 1100, 850   # dernier essai : jusqu'à 1100
 MOTS_PHRASE_MAX_DERNIER_ESSAI = 40   # dernier essai : une phrase un peu longue (33 à 40 mots) ne doit pas faire perdre l'épisode du jour
 
 
-def verifier(texte: str, source: str, dernier_essai: bool = False) -> list[str]:
+def verifier(texte: str, source: str, dernier_essai: bool = False, probas: list[int] | None = None) -> list[str]:
     problemes = []
     texte = "\n\n".join(parties(texte))  # les lignes --- ne sont ni des mots ni du Markdown
     mots = len(texte.split())
@@ -186,6 +258,7 @@ def verifier(texte: str, source: str, dernier_essai: bool = False) -> list[str]:
         problemes.append("phrase en chaîne (« …, ce qui …, ce qui … ») : une seule cause par phrase")
     if not re.search(r"\b(en clair|autrement dit|en d'autres termes|en deux mots)\b", texte, re.I):
         problemes.append("ajoute une phrase de reformulation (« En clair, … ») après la partie dense")
+    problemes += controle_probabilites(texte, probas or [])
     connus = gp.nombres(source)
     inconnus = sorted(n for n in gp.nombres(texte) if n not in connus and not (n.isdigit() and int(n) <= 10))
     if inconnus:
@@ -202,7 +275,7 @@ def generer(ed: dict, modele: str, cle: str, essais: int = 4) -> str:
         resultat, _ = en._appeler_avec_reprises(construire_prompt(ed, remarques or None), modele, cle,
                                                 temperature=0.6, max_tokens=12000, timeout=300)
         texte = re.sub(r"\n{3,}", "\n\n", str((resultat or {}).get("texte", "")).strip())
-        remarques = verifier(texte, source, dernier_essai=(n == essais))
+        remarques = verifier(texte, source, dernier_essai=(n == essais), probas=probabilites_edition(ed))
         print(f"  essai {n}/{essais} : {len(texte.split())} mots, {'conforme' if not remarques else '; '.join(remarques)}", flush=True)
         if not remarques:
             nb = len(parties(texte))

@@ -398,16 +398,18 @@ def ecrire_wav(pcm: bytes, chemin: Path) -> None:
 FILTRE_VOLUME = "loudnorm=I=-16:TP=-1.5:LRA=11"
 
 
-# Correction « clarté » pour une voix un peu étouffée (essai du 6 octobre 2026 sur Voxtral) : creux léger vers 250 Hz,
-# présence vers 3 kHz, aigus relevés au-dessus de 6 kHz. Utilisée pour les essais de voix, et pour les épisodes quand le workflow quotidien demande « clair ».
-FILTRE_CLARTE = "equalizer=f=250:t=q:w=1:g=-2,equalizer=f=3000:t=q:w=0.8:g=2.5,highshelf=f=6000:g=4"
+# Correction « clarté » pour une voix un peu étouffée (Voxtral). Première version du 6 octobre 2026 (aigus relevés de 4 dB
+# au-dessus de 6 kHz) : la voix sifflait (« s s s », constaté à l'écoute le 7 octobre ; mesuré : +4 dB d'énergie dans les
+# aigus et 25 % de moments très sifflants contre 22 % sans correction). Remplacée par : creux léger vers 250 Hz, présence
+# douce vers 3 kHz (+2 dB) et un correcteur de sifflantes (« deesser ») qui n'agit que sur les « s » (13 % de moments très
+# sifflants, contre 18 % pour Gemini). Utilisée pour les essais de voix et, si le workflow quotidien le demande, la voix des épisodes.
+FILTRE_CLARTE = "equalizer=f=250:t=q:w=1:g=-2,equalizer=f=3000:t=q:w=0.8:g=2,deesser=i=0.5:m=0.5:f=0.5"
 
 
 def egaliser_pcm(pcm: bytes, filtre: str = FILTRE_CLARTE) -> bytes:
     """Applique la correction « clarté » à la voix seule (PCM 16 bits mono), avant le mixage avec la musique.
 
-    Les aigus relevés pourraient écrêter une crête proche du maximum : le niveau baisse de 3 dB ici, le volume final
-    est de toute façon recalé par la normalisation. Sans ffmpeg, la voix est rendue telle quelle."""
+    Le niveau baisse de 3 dB ici par précaution contre l'écrêtage ; le volume final est de toute façon recalé par la normalisation. Sans ffmpeg, la voix est rendue telle quelle."""
     if not shutil.which("ffmpeg"):
         return pcm
     cmd = ["ffmpeg", "-loglevel", "error", "-f", "s16le", "-ar", str(SAMPLE_RATE), "-ac", "1", "-i", "pipe:0",
