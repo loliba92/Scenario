@@ -1296,22 +1296,29 @@
     fill: var(--degrade);
   }
   .rappel-edition{
-    font-size: 0.92rem;
+    font-size: 0.86rem;
+    line-height: 1.5;
     color: var(--paper-dim);
-    margin: 4px 0 18px;
-    padding-left: 12px;
-    border-left: 2px solid var(--hairline);
+    margin: 2px 0 22px;
+    padding: 7px 12px;
+    background: var(--surface);
+    border-radius: 4px;
   }
   .rappel-edition-label{
+    display: inline-block;
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.68rem;
+    font-size: 0.66rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    margin-right: 6px;
+    color: var(--gold);
+    margin-right: 10px;
   }
-  .rappel-edition a{ color: var(--paper); border-bottom: 1px solid var(--hairline); text-decoration: none; }
-  .rappel-edition a:hover{ border-bottom-color: var(--paper); }
+  .rappel-edition a{ color: var(--paper-dim); border-bottom: 1px dotted var(--paper-dim); text-decoration: none; }
+  .rappel-edition a:hover{ color: var(--paper); border-bottom-color: var(--paper); }
   .rappel-edition-date{ white-space: nowrap; }
+  @media (max-width: 600px){
+    .rappel-edition-label{ display: block; margin: 0 0 2px; }
+  }
 
   .indicator{
     display:flex;
@@ -2471,7 +2478,7 @@
 
     <p class="section-label">Les faits</p>
 
-    <p class="dek">Le 7 octobre 2026, la directrice générale du Fonds monétaire international<a class="lex-ref" href="#lex-fmi" aria-label="Voir la définition dans le lexique">*</a> (FMI), Kristalina Georgieva, a lancé une mise en garde solennelle depuis Singapour. Selon les projections de l'institution, le total de la <strong>dette publique mondiale va dépasser 100 % du PIB</strong> avant 2030, atteignant un niveau inédit depuis la fin de la Seconde Guerre mondiale. Durant dix-sept ans, les gouvernements ont profité de taux d'intérêt très bas pour financer leurs dépenses sans compter. Cette période d'argent facile est désormais terminée, car les banques centrales augmentent le coût du crédit pour calmer la hausse générale des prix. Un sujet similaire sur l'emballement des passifs souverains a déjà été analysé dans nos archives : <a href="archives/2026-08-27.html">voir l'édition du 27 août</a>.</p>
+    <p class="dek">Le 7 octobre 2026, la directrice générale du Fonds monétaire international<a class="lex-ref" href="#lex-fmi" aria-label="Voir la définition dans le lexique">*</a> (FMI), Kristalina Georgieva, a lancé une mise en garde solennelle depuis Singapour. Selon les projections de l'institution, le total de la <strong>dette publique mondiale va dépasser 100 % du PIB</strong> avant 2030, atteignant un niveau inédit depuis la fin de la Seconde Guerre mondiale. Durant dix-sept ans, les gouvernements ont profité de taux d'intérêt très bas pour financer leurs dépenses sans compter. Cette période d'argent facile est désormais terminée, car les banques centrales augmentent le coût du crédit pour calmer la hausse générale des prix.</p>
 
 <p class="dek">Pour la France, la situation financière devient particulièrement inconfortable. Le pays cumule désormais une dette de <strong>119 % du PIB</strong>, soit environ 3 595,5 milliards d'euros, avec un déficit annuel persistant. Les investisseurs qui prêtent aux États surveillent désormais chaque écart de gestion avec une sévérité accrue. Conséquence directe de cette inquiétude : le taux d'emprunt de l'État français à dix ans a frôlé la barre des <strong>4,96 %</strong> début octobre, atteignant un record depuis 2002. La France doit désormais payer des intérêts plus élevés que l'Italie pour emprunter sur les marchés, une bascule historique pour la deuxième puissance économique de la zone euro.</p>
 

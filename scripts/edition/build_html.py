@@ -488,6 +488,19 @@ def _rappels_depuis_connexes(brief, maximum=2):
     return rappels
 
 
+# Renvoi « Un sujet similaire a déjà été traité dans nos archives : <a>…</a>. » glissé dans le texte par la
+# rédaction : retiré mécaniquement (7 octobre 2026), l'encart « Déjà abordé sur Scénario » le remplace et un
+# même renvoi ne doit pas apparaître deux fois sur la page.
+_RENVOI_INLINE_RE = re.compile(
+    r'\s*Une?\s+sujets?\s+similaires?[^<:]*:\s*<a\s[^>]*href="[^"]*archives/[^"]*"[^>]*>[^<]*</a>\s*\.?',
+    re.IGNORECASE,
+)
+
+
+def _retirer_renvoi_inline(dek_html):
+    return _RENVOI_INLINE_RE.sub("", dek_html)
+
+
 def _rappel_edition_html(r):
     return (
         '<p class="rappel-edition"><span class="rappel-edition-label">Déjà abordé sur Scénario</span> '
@@ -521,6 +534,7 @@ def build_hero(content, date_str, photo=None, graphique_dc_chart=None, theme_lin
     jour, date_longue = format_date_fr(date_str)
     dek_blocks = []
     for i, dek_html in enumerate(content["dek"]):
+        dek_html = _retirer_renvoi_inline(dek_html)
         dek_blocks.append(f'<p class="dek">{_unwrap_own_tag(dek_html, "p", "dek")}</p>')
         for box in content.get("comprendre_box") or []:
             if box.get("apres_dek_index") == i:
