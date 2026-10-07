@@ -169,14 +169,31 @@ def en_lettres(n: int) -> str:
     return "quatre-vingts" if n == 80 else "quatre-vingt-" + en_lettres(n - 80)
 
 
-def fraction_parlee(pct: int) -> str:
-    """Probabilité en pourcentage dite en fraction EXACTE (25 → « une chance sur quatre », 45 → « neuf chances sur vingt »).
+# Fractions que l'oreille saisit tout de suite (en %). Une probabilité qui n'en fait pas partie est dite par rapport à la plus proche.
+_FRACTIONS_SIMPLES = {10: (1, 10), 20: (1, 5), 25: (1, 4), 30: (3, 10), 33: (1, 3), 40: (2, 5), 50: (1, 2),
+                      60: (3, 5), 67: (2, 3), 70: (7, 10), 75: (3, 4), 80: (4, 5), 90: (9, 10)}
 
-    Incident du 7 octobre 2026 : 45 % avait été dit « une chance sur deux » (soit 50 %), et les trois probabilités
-    annoncées faisaient 105 %. Les valeurs sont donc calculées ici, jamais arrondies par le modèle."""
-    f = Fraction(int(pct), 100)
-    num, den = f.numerator, f.denominator
+
+def _chances(num: int, den: int) -> str:
     return f"{'une chance' if num == 1 else en_lettres(num) + ' chances'} sur {en_lettres(den)}"
+
+
+def fraction_parlee(pct: int) -> str:
+    """Probabilité dite à l'oreille sans jamais être arrondie en silence.
+
+    25 → « une chance sur quatre », 30 → « trois chances sur dix » ; 45 → « un peu moins d'une chance sur deux »,
+    55 → « un peu plus d'une chance sur deux ». Décidé le 7 octobre 2026 : 45 % avait été dit « une chance sur deux »
+    (50 %) et les trois probabilités annoncées faisaient 105 % ; « neuf chances sur vingt » est exact mais difficile à
+    suivre à l'oreille, d'où cette formule. Les valeurs sont calculées ici, jamais choisies par le modèle."""
+    pct = int(pct)
+    f = Fraction(pct, 100)
+    if f.denominator in (2, 4, 5, 10):
+        return _chances(f.numerator, f.denominator)
+    proche = min(_FRACTIONS_SIMPLES, key=lambda v: (abs(v - pct), _FRACTIONS_SIMPLES[v][1]))   # à égalité, la plus simple : 45 et 55 → « une chance sur deux »
+    num, den = _FRACTIONS_SIMPLES[proche]
+    comparatif = "un peu moins" if pct < proche else "un peu plus"
+    chances = _chances(num, den)
+    return f"{comparatif} d'{chances}" if num == 1 else f"{comparatif} de {chances}"
 
 
 def probabilites_edition(ed: dict) -> list[int]:
@@ -197,7 +214,7 @@ def controle_probabilites(texte: str, probas: list[int]) -> list[str]:
     """Chaque scénario doit citer SA probabilité exacte ; toute autre « chance(s) sur » est refusée (arrondi, invention)."""
     if not probas:
         return []
-    bas = re.sub(r"\s+", " ", texte.lower())
+    bas = re.sub(r"\s+", " ", texte.lower().replace("’", "'"))
     problemes = [f"dis la probabilité du scénario {rang} EXACTEMENT : « {fraction_parlee(p)} » (soit {p} %), sans l'arrondir"
                  for rang, p in zip(("un", "deux", "trois"), probas) if fraction_parlee(p) not in bas]
     for phrase in sorted(set(phrases_probabilites_autorisees(probas)), key=len, reverse=True):

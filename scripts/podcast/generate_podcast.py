@@ -417,8 +417,10 @@ def egaliser_pcm(pcm: bytes, filtre: str = FILTRE_CLARTE) -> bytes:
     return subprocess.run(cmd, input=pcm, capture_output=True, check=True).stdout
 
 
-def vers_mp3(wav: Path, mp3: Path, normaliser: bool = True, clair: bool = False) -> bool:
-    """MP3 mono 24 kHz, 96 kb/s ; le volume est ramené à -16 LUFS pour que tous les épisodes aient le même niveau."""
+def vers_mp3(wav: Path, mp3: Path, normaliser: bool = False, clair: bool = False) -> bool:
+    """MP3 mono 24 kHz, 96 kb/s. Aucun traitement par défaut : le 7 octobre 2026, le propriétaire a demandé de retirer la
+    normalisation du volume (-16 LUFS) et la correction de voix, jugées pesantes (voix compressée, amplifiée, sifflante).
+    Elles restent disponibles à la demande (normaliser=True, clair=True)."""
     if not shutil.which("ffmpeg"):
         return False
     filtres = ([FILTRE_CLARTE] if clair else []) + ([FILTRE_VOLUME] if normaliser else [])
