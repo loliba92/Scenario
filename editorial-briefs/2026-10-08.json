@@ -1,0 +1,463 @@
+{
+  "date": "2026-10-08",
+  "registre": "economie-mondiale",
+  "sujet": {
+    "titre_propose": "Dette publique : le FMI sonne l'alarme, la France dans le viseur",
+    "h1": "Dette mondiale : le FMI appelle à l'austérité",
+    "question_posee": "La dette publique mondiale va dépasser 100 % du PIB, et la France emprunte plus cher que l'Italie : les États peuvent-ils regagner la confiance des marchés sans sacrifices ?",
+    "eyebrow": "Jeudi, économie & finance",
+    "angle": "Le 7 octobre 2026, Kristalina Georgieva, directrice du FMI, alerte depuis Singapour : la dette publique mondiale s'apprête à dépasser 100 % du PIB, du jamais-vu depuis l'après-guerre. Elle appelle les États endettés à des « choix politiques très difficiles » et à des plans crédibles d'assainissement budgétaire. La France est particulièrement visée : son OAT à 10 ans frôle les 5 %, le spread avec le Bund allemand a dépassé 150 points de base (plus haut depuis 2011), et elle emprunte désormais plus cher que l'Italie. Le budget 2027 prévoit 54 milliards d'euros d'économies, mais sans majorité parlementaire assurée à quelques mois de la présidentielle.",
+    "tags": [
+      "economie-mondiale",
+      "dette",
+      "fmi",
+      "france"
+    ],
+    "domain": "economie-mondiale",
+    "image_keywords": "government building paris treasury",
+    "complexite": 3,
+    "origine_prioritaire": null,
+    "origine_id": null,
+    "point_de_depart": null
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (07.10) : Déserts médicaux — aucun lien. Même registre (économie) : les 3 dernières éditions économie sont Bitcoin (01.10), BCE/Fed choc pétrolier (24.09), Dollar (17.09) — aucun partage de moteur causal. L'édition du 27.08 (Dette américaine) est à J+42, bien au-delà des 2-3 dernières occurrences ; son moteur était la trajectoire de la dette américaine spécifiquement, pas l'alerte mondiale du FMI ni le spread OAT/Bund français."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "La dette publique mondiale devrait dépasser 100 % du PIB avant 2030, son plus haut niveau depuis l'après-Seconde Guerre mondiale",
+      "chiffre": ">100 % du PIB",
+      "date_du_chiffre": "2026-10-07",
+      "sources": [
+        "euronews-fr",
+        "lefigaro-fmi"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le spread OAT-Bund à 10 ans a dépassé 150 points de base début octobre, un niveau inédit depuis la crise de la zone euro en 2011-2012",
+      "chiffre": ">150 points de base",
+      "date_du_chiffre": "2026-10-02",
+      "sources": [
+        "boursorama-spread",
+        "upside24"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La France emprunte désormais plus cher que l'Italie sur les marchés obligataires",
+      "chiffre": null,
+      "date_du_chiffre": "2026-10-03",
+      "sources": [
+        "upside24"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le rendement de l'OAT française à 10 ans a frôlé les 5 % début octobre, son plus haut niveau depuis 2002",
+      "chiffre": "4,96 %",
+      "date_du_chiffre": "2026-10-01",
+      "sources": [
+        "boursorama-spread",
+        "creditnews"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La dette publique française atteint près de 119 % du PIB, soit 3 595,5 milliards d'euros",
+      "chiffre": "119 % du PIB",
+      "date_du_chiffre": "2026-06-30",
+      "sources": [
+        "creditnews",
+        "upside24"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le budget 2027 prévoit 54 milliards d'euros d'économies au total, dont 43 milliards de mesures nouvelles",
+      "chiffre": "54 Md€",
+      "date_du_chiffre": "2026-10-01",
+      "sources": [
+        "budget-gouv",
+        "rfi"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La charge d'intérêts de la dette française devrait passer de 79,2 milliards d'euros en 2026 à 91,2 milliards en 2027",
+      "chiffre": "91,2 Md€",
+      "date_du_chiffre": "2026-10-01",
+      "sources": [
+        "budget-gouv"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le FMI estime que les États ont été « dorlotés ces 17 dernières années » par des taux d'intérêt inférieurs à la croissance, et que cette époque est révolue",
+      "chiffre": null,
+      "date_du_chiffre": "2026-10-07",
+      "sources": [
+        "bfmtv-fmi",
+        "euronews-fr"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La Fed a relevé son taux directeur de 25 points de base en septembre, le portant à 3,75-4,00 %, et la BCE a porté son taux de dépôt à 2,50 %",
+      "chiffre": "3,75-4,00 % (Fed), 2,50 % (BCE)",
+      "date_du_chiffre": "2026-09-16",
+      "sources": [
+        "boursorama-fed",
+        "banque-france-bce"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le Brent évolue autour de 100 dollars le baril, repassant au-dessus du seuil symbolique le 8 octobre",
+      "chiffre": "~100 $/baril",
+      "date_du_chiffre": "2026-10-08",
+      "sources": [
+        "connaissances-energies"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Kristalina Georgieva",
+      "role": "Directrice générale du FMI, a lancé l'alerte depuis Singapour le 7 octobre"
+    },
+    {
+      "nom": "FMI",
+      "role": "Institution financière internationale, publie ses prévisions et appelle à l'austérité"
+    },
+    {
+      "nom": "Emmanuel Moulin",
+      "role": "Gouverneur de la Banque de France, a réagi sur France Inter le 8 octobre"
+    },
+    {
+      "nom": "Sébastien Lecornu",
+      "role": "Premier ministre français, a présenté le budget 2027 le 1er octobre"
+    },
+    {
+      "nom": "Kevin Warsh",
+      "role": "Président de la Fed, a relevé les taux en septembre"
+    },
+    {
+      "nom": "BCE",
+      "role": "Banque centrale européenne, a relevé son taux de dépôt à 2,50 % le 10 septembre"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-09-10",
+      "evenement": "La BCE relève ses taux de 25 points de base (taux de dépôt à 2,50 %)"
+    },
+    {
+      "date": "2026-09-16",
+      "evenement": "La Fed relève ses taux de 25 points de base (fed funds à 3,75-4,00 %)"
+    },
+    {
+      "date": "2026-10-01",
+      "evenement": "Présentation du budget 2027 français : 54 Md€ d'économies, OAT à 4,96 % (plus haut depuis 2002)"
+    },
+    {
+      "date": "2026-10-02",
+      "evenement": "Spread OAT-Bund dépasse 150 points de base, plus haut depuis 2011"
+    },
+    {
+      "date": "2026-10-03",
+      "evenement": "La France emprunte désormais plus cher que l'Italie (spread à 159 pb)"
+    },
+    {
+      "date": "2026-10-07",
+      "evenement": "Discours de Kristalina Georgieva à Singapour : alerte sur la dette mondiale > 100 % du PIB"
+    },
+    {
+      "date": "2026-10-08",
+      "evenement": "Le Brent repasse au-dessus de 100 dollars, OAT repart en hausse à 4,90 %"
+    },
+    {
+      "date": "2026-10-28",
+      "evenement": "Prochaine réunion de la Fed (taux attendus inchangés)"
+    },
+    {
+      "date": "2026-10-29",
+      "evenement": "Prochaine réunion de la BCE"
+    },
+    {
+      "date": "2026-12-09",
+      "evenement": "Prochaine réunion de la BCE (hausse supplémentaire de 25 pb anticipée)"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Le budget 2027 est adopté, les marchés sont rassurés, le spread OAT-Bund reflue sous 100 pb, et la croissance mondiale portée par l'IA compense partiellement le choc énergétique.",
+      "probabilite_suggeree": 20
+    },
+    "stable": {
+      "resume": "Le budget 2027 passe in extremis (49.3 ou compromis), le spread se stabilise autour de 120-140 pb, la dette reste élevée mais tenable, et les banques centrales dosent leurs hausses de taux sans casser la croissance.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "Le budget 2027 est rejeté ou vidé de sa substance, la France voit son spread dépasser 200 pb, les agences de notation dégradent sa signature, la charge de la dette explose, et la BCE doit intervenir alors que l'économie mondiale entre en récession sous le double choc pétrolier et obligataire.",
+      "probabilite_suggeree": 35
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Dette publique mondiale / PIB",
+      "valeur": ">100 %",
+      "tendance": "haussière"
+    },
+    {
+      "label": "Spread OAT-Bund 10 ans",
+      "valeur": "159 points de base",
+      "tendance": "haussière (plus haut depuis 2011)"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Recherche effectuée : spread OAT-Bund historique disponible sur Bloomberg/Reuters (données depuis 2011), mais pas de série publique avec 5+ points réels vérifiables dans les sources consultées (Boursorama, Upside24, Creditnews — seulement des pics ponctuels : 130 pb, 150 pb, 159 pb). Critère (1) non satisfait : pas de source unique fiable donnant la série complète des spreads sur 10+ ans avec points intermédiaires vérifiés. Le graphique de repli (graphique_chiffres) est plus adapté.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "4 rendements obligataires souverains à 10 ans vérifiés (même unité : %), comparables entre eux, issus des sources Reuters/Bloomberg/Boursorama du 1er octobre 2026.",
+    "barres": {
+      "aria_label": "Rendements des obligations d'État à 10 ans dans quatre grandes économies, en pourcentage, au 1er octobre 2026",
+      "lead": "Rendements des emprunts d'État à 10 ans, début octobre 2026",
+      "caption": "Sources : Reuters, Bloomberg, Boursorama, 1er octobre 2026",
+      "unite": "%",
+      "valeurs": [
+        {
+          "label": "Royaume-Uni",
+          "valeur": 5.51,
+          "affichage": "5,51 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "États-Unis",
+          "valeur": 5.34,
+          "affichage": "5,34 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "France",
+          "valeur": 4.96,
+          "affichage": "4,96 %",
+          "mis_en_avant": true
+        },
+        {
+          "label": "Allemagne",
+          "valeur": 3.64,
+          "affichage": "3,64 %",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Le spread OAT-Bund : pourquoi la France paie plus cher que l'Allemagne",
+        "rattache_a": "Spread OAT-Bund à 159 pb, plus haut depuis 2011"
+      },
+      {
+        "focus": "Le piège de la charge de la dette : comment des taux élevés qui durent rendent la consolidation budgétaire plus difficile",
+        "rattache_a": "Charge d'intérêts qui passe de 79 à 91 Md€ entre 2026 et 2027"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le sort du budget 2027 au Parlement est encore inconnu (examen en commission commence le 8 octobre)",
+    "La décision de la Fed le 28 octobre pourrait être un statu quo ou une nouvelle hausse selon les données d'inflation de septembre à paraître",
+    "L'évolution du prix du pétrole dépend de la situation géopolitique à Ormuz, toujours incertaine"
+  ],
+  "a_ne_pas_affirmer": [
+    "Ne pas affirmer que la France est en défaut ou en risque de défaut — les CDS à 76 pb sont élevés mais loin d'un niveau de crise",
+    "Ne pas affirmer que le budget 2027 est déjà adopté ou rejeté — l'examen parlementaire commence tout juste",
+    "Ne pas affirmer que la BCE interviendra pour soutenir la France — le gouverneur de la BdF a exclu cette hypothèse pour l'instant"
+  ],
+  "sources": [
+    {
+      "id": "euronews-fr",
+      "title": "La patronne du FMI annonce le retour de l'austérité, la dette publique mondiale vers 100 % du PIB",
+      "source": "Euronews",
+      "url": "https://fr.euronews.com/2026/10/07/la-patronne-du-fmi-annonce-le-retour-de-lausterite-la-dette-publique-mondiale-vers-100-du",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-mondiale",
+      "summary": "Kristalina Georgieva alerte depuis Singapour : la dette publique mondiale va dépasser 100 % du PIB, les économies avancées sont les « pires contrevenants », et les États doivent adopter des plans crédibles de consolidation budgétaire.",
+      "read_minutes": 4
+    },
+    {
+      "id": "lefigaro-fmi",
+      "title": "« Des choix politiques très difficiles » : le FMI regrette l'absence d'« action décisive » sur la dette publique",
+      "source": "Le Figaro",
+      "url": "https://www.lefigaro.fr/conjoncture/des-choix-politiques-tres-difficiles-le-fmi-regrette-l-absence-d-action-decisive-sur-la-dette-publique-20261007",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-mondiale",
+      "summary": "La directrice du FMI pointe l'absence d'action décisive dans les économies avancées fortement endettées, appelant à des choix politiques très difficiles pour assainir les finances publiques.",
+      "read_minutes": 3
+    },
+    {
+      "id": "boursorama-spread",
+      "title": "TAUX-Les écarts de rendement entre l'Allemagne, la France et l'Italie à de nouveaux sommets pluriannuels",
+      "source": "Boursorama (Reuters)",
+      "url": "https://www.boursorama.com/bourse/actualites/taux-les-ecarts-de-rendement-entre-l-allemagne-la-france-et-l-italie-a-de-nouveaux-sommets-pluriannuels-835a60194a63a23aa7d9d0789e330791",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-mondiale",
+      "summary": "L'OAT à 10 ans frôle les 5 % (4,9629 %), le spread OAT-Bund dépasse 130 pb, plus haut depuis 2012. L'OAT enregistre sa plus forte hausse trimestrielle en près de 40 ans.",
+      "read_minutes": 3
+    },
+    {
+      "id": "upside24",
+      "title": "La France emprunte plus cher que l'Italie, spread OAT-Bund à 159 pb",
+      "source": "Upside24",
+      "url": "https://www.upside24.com/articles/la-france-emprunte-plus-cher-que-l-italie-spread-oat-bund-a-159-points-de-base-c-402192",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-mondiale",
+      "summary": "La France emprunte désormais plus cher que l'Italie. Spread OAT-Bund à 159 pb, CDS à 76,7 points. Dette publique à 119 % du PIB, déficit à 5,4 %. Budget 2027 : 54 Md€ d'économies sans majorité assurée.",
+      "read_minutes": 3
+    },
+    {
+      "id": "creditnews",
+      "title": "Marchés : la dette française inquiète les investisseurs et fait grimper le coût du crédit",
+      "source": "Creditnews",
+      "url": "https://www.creditnews.fr/marches-la-dette-francaise-inquiete-les-investisseurs-et-fait-grimper-le-cout-du-credit/",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-mondiale",
+      "summary": "Analyse détaillée de la défiance des marchés envers la France : OAT proche de 5 %, spread OAT-Bund > 150 pb, dette à 119 % du PIB, Agence France Trésor prévoit 340 Md€ d'émissions pour 2027.",
+      "read_minutes": 5
+    },
+    {
+      "id": "budget-gouv",
+      "title": "Projet de loi de finances pour 2027",
+      "source": "Budget.gouv.fr",
+      "url": "https://www.budget.gouv.fr/documentation/file-download/33478",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Le PLF 2027 prévoit 43 Md€ de mesures de redressement (54 Md€ avec les mesures antérieures), visant un déficit à 5 % du PIB. La charge d'intérêts passe de 79,2 à 91,2 Md€.",
+      "read_minutes": 8
+    },
+    {
+      "id": "bfmtv-fmi",
+      "title": "Les États « ont été dorlotés ces 17 dernières années » : le FMI appelle à « accepter certains sacrifices »",
+      "source": "BFM TV",
+      "url": "https://www.bfmtv.com/economie/les-etats-ont-ete-dorlotes-ces-17-dernieres-annees-le-fmi-appelle-les-pays-a-cooperer-sur-l-ia-et-a-accepter-certains-sacrifices-budgetaires-pour-assurer-la-croissance-de-demain_AD-202610070389.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-mondiale",
+      "summary": "Georgieva : les États ont été « dorlotés » par des taux bas pendant 17 ans, mais « avec la hausse actuelle des taux d'intérêt, c'est fini ». Elle appelle à des sacrifices pour assurer la croissance de demain.",
+      "read_minutes": 3
+    },
+    {
+      "id": "boursorama-fed",
+      "title": "Le compte-rendu de la Fed pourrait donner des précisions sur la décision de hausse des taux",
+      "source": "Boursorama (Reuters)",
+      "url": "https://www.boursorama.com/actualite-economique/actualites/le-compte-rendu-de-la-fed-pourrait-donner-des-precisions-sur-la-decision-de-hausse-des-taux-et-la-trajectoire-de-la-politique-monetaire-5d799335e88bf3e692be4382f82f81d9",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-mondiale",
+      "summary": "La Fed a relevé ses taux de 25 pb en septembre (fed funds à 3,75-4,00 %). Les investisseurs s'attendent à un statu quo le 28 octobre. Le compte-rendu de la réunion de septembre est attendu le 8 octobre.",
+      "read_minutes": 4
+    },
+    {
+      "id": "banque-france-bce",
+      "title": "Décisions de politique monétaire",
+      "source": "Banque de France / BCE",
+      "url": "https://www.banque-france.fr/fr/communiques-de-presse/decisions-de-politique-monetaire-27",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-mondiale",
+      "summary": "La BCE a relevé ses taux de 25 pb le 10 septembre : taux de dépôt à 2,50 %, refi à 2,65 %, prêt marginal à 2,90 %, applicables depuis le 16 septembre.",
+      "read_minutes": 2
+    },
+    {
+      "id": "connaissances-energies",
+      "title": "Le pétrole remonte face aux risques sur Ormuz",
+      "source": "Connaissance des Énergies (AFP)",
+      "url": "https://www.connaissancedesenergies.org/afp/le-petrole-monte-lattention-portee-sur-les-risques-au-moyen-orient-261007",
+      "image": null,
+      "lang": "fr",
+      "domain": "international",
+      "summary": "Le Brent repasse au-dessus de 100 dollars (101,95 $) le 8 octobre, sous l'effet des tensions persistantes à Ormuz et des attaques houthies en mer Rouge.",
+      "read_minutes": 2
+    },
+    {
+      "id": "rfi",
+      "title": "Tenir le déficit, faire des économies... l'équation difficile du budget 2027 de la France",
+      "source": "RFI",
+      "url": "https://www.rfi.fr/fr/%C3%A9conomie/20261001-tenir-le-d%C3%A9ficit-faire-des-%C3%A9conomies-l-%C3%A9quation-difficile-du-budget-2027-de-la-france",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Le gouvernement Lecornu a dévoilé son budget 2027 avec 54 Md€ d'économies. L'examen parlementaire s'annonce difficile à l'approche de la présidentielle.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "IMF chief signals austerity is back as global public debt heads for 100% of GDP",
+      "source": "Euronews (EN)",
+      "url": "https://www.euronews.com/2026/10/07/imf-chief-signals-austerity-is-back-as-global-public-debt-heads-for-100-of-gdp",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-mondiale",
+      "summary": "Version anglaise du discours de Georgieva à Singapour : les jours de l'argent facile sont finis, la dette publique mondiale s'apprête à dépasser 100 % du PIB.",
+      "read_minutes": 4
+    },
+    {
+      "title": "Le FMI appelle à coopérer sur l'IA, face au choc énergétique et aux dettes publiques",
+      "source": "La Gazette France",
+      "url": "https://www.lagazettefrance.fr/article/le-fmi-appelle-a-cooperer-sur-l-ia-face-au-choc-energetique-et-aux-dettes-publiques",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-mondiale",
+      "summary": "Georgieva : l'économie mondiale est tiraillée entre un choc négatif d'offre d'énergie et un choc positif de demande lié à l'IA. Les rendements obligataires à 10 ans aux US, Allemagne et Japon au plus haut depuis 2007, 2009 et 1996.",
+      "read_minutes": 3
+    },
+    {
+      "title": "TAUX-Les rendements des OAT repartent en flèche après un répit de courte durée",
+      "source": "Boursorama (Reuters)",
+      "url": "https://www.boursorama.com/bourse/actualites/taux-les-rendements-des-oat-repartent-en-fleche-apres-un-repit-de-courte-duree-3c0a19394c8091521618125fce52b713",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-mondiale",
+      "summary": "Le 7 octobre, l'OAT remonte à 4,90 %, effaçant la baisse de la veille. Le spread OAT-Bund repart à 139 pb. L'examen parlementaire du budget 2027 commence.",
+      "read_minutes": 3
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-08-27",
+      "titre": "Dette américaine : le mur des 40 000 milliards",
+      "lien": "Même thème de la dette souveraine et des taux obligataires — l'édition précédente traitait de la dette américaine, celle-ci élargit à l'échelle mondiale avec un focus France."
+    },
+    {
+      "date": "2026-09-24",
+      "titre": "Économie mondiale : BCE et Fed face au choc pétrolier",
+      "lien": "Même contexte macroéconomique de resserrement monétaire et de choc pétrolier — la politique des banques centrales détermine les taux auxquels les États empruntent."
+    },
+    {
+      "date": "2026-08-20",
+      "titre": "Taux : marche arrière",
+      "lien": "Même mécanisme des taux directeurs et des rendements obligataires — le suivi de ce dossier montre la remontée des taux que le FMI juge aujourd'hui nécessaire."
+    }
+  ],
+  "recommandations_redaction": [
+    "Ajouter un lien vers l'édition du 27 août (Dette américaine) dans « Les faits » pour montrer la continuité du thème dette souveraine.",
+    "Ajouter un lien vers l'édition du 24 septembre (BCE et Fed) pour le contexte de politique monétaire.",
+    "Le paradoxe central à faire ressortir : les mêmes taux élevés qui rassurent les marchés sur l'inflation aggravent la charge de la dette des États, créant un cercle vicieux budgétaire.",
+    "Pour le lecteur français : un spread à 159 pb signifie que la France paie ~1,6 % de plus que l'Allemagne pour emprunter sur 10 ans — soit des centaines de millions d'euros supplémentaires par an qui manquent pour les services publics."
+  ]
+}
