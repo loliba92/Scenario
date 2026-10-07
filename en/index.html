@@ -2293,6 +2293,12 @@
   .matiere-tile:hover, .matiere-tile:focus-visible{ border-color:var(--gold); background:var(--surface-2); outline:none; }
   .matiere-tile svg{ flex:none; width:20px; height:20px; color:var(--gold); }
   .matiere-tile small{ font-family:"JetBrains Mono", monospace; font-size:0.68rem; font-weight:400; color:var(--paper-dim); }
+  /* Ordinateur : les matières tiennent sur une seule ligne (6 octobre 2026) ; sur téléphone, retour à la ligne naturel */
+  @media (min-width: 920px){
+    .matiere-tiles{ flex-wrap:nowrap; gap:7px; }
+    .matiere-tile{ gap:7px; min-height:42px; padding:0 13px 0 10px; font-size:0.86rem; flex:0 1 auto; }
+    .matiere-tile svg{ width:18px; height:18px; }
+  }
 
   /* ---- Bas de page resserré (4 oct. 2026) : un seul filet, moins de vide, boutons de même taille ---- */
   section.share-block{ padding: 32px 0 28px; }
@@ -2324,7 +2330,7 @@
 <img alt="" class="brand-mark" src="../assets/logo.svg"/>
 <div class="wordmark">Scéna<span>rio</span></div>
 </div>
-<div class="edition">Edition of October 6, 2026 · No. 75</div>
+<div class="edition">Edition of October 7, 2026 · No. 76</div>
 </div>
 <div class="masthead-right">
 <a aria-label="Lire en français" class="masthead-lang-btn" href="../index.html" title="Lire en français">FR</a>
@@ -2364,14 +2370,14 @@
 <section class="featured-article">
 <div class="wrap">
 <p class="section-label">The latest edition</p>
-<a class="featured-article-link" href="archives/2026-10-06.html">
+<a class="featured-article-link" href="archives/2026-10-07.html">
 <div class="featured-article-image-wrap">
-<img alt="Hybrid warfare in Europe: is Russia sabotaging the EU?" class="featured-article-image" src="../assets/social/topic-images/2026-10-06.jpg"/>
+<img alt="Medical deserts: will patients still be able to find a doctor nearby?" class="featured-article-image" src="../assets/social/topic-images/2026-10-07.jpg"/>
 </div>
 <div>
-<span class="featured-article-date">International · Oct 6</span>
-<h2 class="featured-article-title">Hybrid warfare in Europe: is Russia sabotaging the EU?</h2>
-<p class="featured-article-question">Is the surge in sabotage across Europe a contained Russian hybrid war, or is the threshold for a NATO response about to be crossed?</p>
+<span class="featured-article-date">Politique &amp; institutions · Oct 7</span>
+<h2 class="featured-article-title">Medical deserts: will patients still be able to find a doctor nearby?</h2>
+<p class="featured-article-question">Medical deserts: will patients still be able to find a doctor nearby?</p>
 <span class="featured-article-cta">Read the edition →</span>
 </div>
 </a>
@@ -2395,6 +2401,13 @@
 <p class="section-label">Previous editions</p>
 <h2 class="section-title">Latest editions</h2>
 <ul class="related-articles-list">
+<li><a class="related-articles-item" href="archives/2026-10-06.html">
+<img alt="Hybrid warfare in Europe: is Russia sabotaging the EU?" class="related-articles-image" src="../assets/social/topic-images/2026-10-06.jpg"/>
+<div class="related-articles-content">
+<span class="related-articles-date">International · Oct 6</span>
+<span class="related-articles-title">Hybrid warfare in Europe: is Russia sabotaging the EU?</span>
+</div>
+</a></li>
 <li><a class="related-articles-item" href="archives/2026-10-05.html">
 <img alt="Can the World Do Without GPS?" class="related-articles-image" src="../assets/social/topic-images/2026-10-05.jpg"/>
 <div class="related-articles-content">
@@ -2428,13 +2441,6 @@
 <div class="related-articles-content">
 <span class="related-articles-date">World Economy · Oct 1</span>
 <span class="related-articles-title">Bitcoin: Is Bitcoin Becoming an Institutional Asset?</span>
-</div>
-</a></li>
-<li><a class="related-articles-item" href="archives/2026-09-30.html">
-<img alt="Mass layoffs: will unemployment start rising again?" class="related-articles-image" src="../assets/social/topic-images/2026-09-30.jpg"/>
-<div class="related-articles-content">
-<span class="related-articles-date">Politique &amp; institutions · Sep 30</span>
-<span class="related-articles-title">Mass layoffs: will unemployment start rising again?</span>
 </div>
 </a></li>
 </ul>
