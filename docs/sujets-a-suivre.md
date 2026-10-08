@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 08.10.2026 — [Dette mondiale : le FMI appelle à l'austérité](../archives/2026-10-08.html)
 - 07.10.2026 — [Déserts médicaux : trouvera-t-on encore un médecin près de chez soi ?](../archives/2026-10-07.html)
 - 06.10.2026 — [Guerre hybride en Europe : la Russie sabote-t-elle l'UE ?](../archives/2026-10-06.html)
 - 05.10.2026 — [GPS : le monde peut-il se passer du GPS ?](../archives/2026-10-05.html)

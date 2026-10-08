@@ -2,6 +2,41 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-08",
+      "articles": [
+        {
+          "title": "IMF chief signals austerity is back as global public debt heads for 100% of GDP",
+          "source": "Euronews (EN)",
+          "url": "https://www.euronews.com/2026/10/07/imf-chief-signals-austerity-is-back-as-global-public-debt-heads-for-100-of-gdp",
+          "image": null,
+          "lang": "en",
+          "domain": "economie-mondiale",
+          "summary": "Version anglaise du discours de Georgieva à Singapour : les jours de l'argent facile sont finis, la dette publique mondiale s'apprête à dépasser 100 % du PIB.",
+          "read_minutes": 4
+        },
+        {
+          "title": "Le FMI appelle à coopérer sur l'IA, face au choc énergétique et aux dettes publiques",
+          "source": "La Gazette France",
+          "url": "https://www.lagazettefrance.fr/article/le-fmi-appelle-a-cooperer-sur-l-ia-face-au-choc-energetique-et-aux-dettes-publiques",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie-mondiale",
+          "summary": "Georgieva : l'économie mondiale est tiraillée entre un choc négatif d'offre d'énergie et un choc positif de demande lié à l'IA. Les rendements obligataires à 10 ans aux US, Allemagne et Japon au plus haut depuis 2007, 2009 et 1996.",
+          "read_minutes": 3
+        },
+        {
+          "title": "TAUX-Les rendements des OAT repartent en flèche après un répit de courte durée",
+          "source": "Boursorama (Reuters)",
+          "url": "https://www.boursorama.com/bourse/actualites/taux-les-rendements-des-oat-repartent-en-fleche-apres-un-repit-de-courte-duree-3c0a19394c8091521618125fce52b713",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie-mondiale",
+          "summary": "Le 7 octobre, l'OAT remonte à 4,90 %, effaçant la baisse de la veille. Le spread OAT-Bund repart à 139 pb. L'examen parlementaire du budget 2027 commence.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-10-07",
       "articles": [
         {
