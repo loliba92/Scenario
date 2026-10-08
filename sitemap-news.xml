@@ -11,4 +11,15 @@
       <news:title>Medical deserts: will patients still be able to find a doctor nearby?</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-10-08.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-08T06:01:49+02:00</news:publication_date><news:title>Dette mondiale : le FMI appelle à l'austérité</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-10-08.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-08T06:01:49+02:00</news:publication_date><news:title>Dette mondiale : le FMI appelle à l'austérité</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-10-08.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-08T06:01:49+02:00</news:publication_date>
+      <news:title>Global Debt: The IMF Calls for Austerity</news:title>
+    </news:news>
+  </url>
+</urlset>
