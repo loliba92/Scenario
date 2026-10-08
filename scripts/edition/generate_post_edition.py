@@ -94,6 +94,7 @@ from bs4.formatter import HTMLFormatter
 import build_html
 import generate_seo_head
 from generate_daily_edition import estimate_word_count, load_brief, normalize_content_markdown
+from press_images import fill_missing_images
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 SOCIAL_DIR = REPO_ROOT / "scripts" / "social"
@@ -818,6 +819,8 @@ def build_sources_log_entry(brief):
     articles = []
     for src in brief.get("revue_de_presse") or []:
         articles.append({k: src.get(k) for k in _SOURCES_LOG_ARTICLE_FIELDS})
+    # Le modèle laisse `image` vide : on lit l'og:image de chaque article (voir press_images.py).
+    fill_missing_images(articles)
     return {"date": brief["date"], "articles": articles}
 
 
