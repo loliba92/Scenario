@@ -1,0 +1,322 @@
+{
+  "date": "2026-10-09",
+  "registre": "sciences",
+  "sujet": {
+    "titre_propose": "Cancer : les nouveaux traitements et les premiers vaccins anticancer laissent espérer d'en guérir beaucoup plus",
+    "h1": "Cancer : vaccins et nouveaux traitements, promesse réaliste ou espoir lointain ?",
+    "question_posee": "Les premiers vaccins anticancer à ARNm et les nouveaux traitements laissent-ils espérer guérir beaucoup plus de malades, ou reste-t-il des années d'essais ?",
+    "eyebrow": "Vendredi, sciences",
+    "angle": "L'été 2026 a livré deux annonces contradictoires majeures : un vaccin personnalisé à ARNm (mélanome) qui a atteint ses objectifs de phase III, et l'arrêt d'un essai sur le cancer colorectal pour surmortalité. La promesse est réelle mais inégale selon les types de tumeur.",
+    "tags": [
+      "médecine & santé",
+      "recherche",
+      "immunothérapie"
+    ],
+    "domain": "sciences",
+    "image_keywords": "cancer research laboratory scientist",
+    "complexite": 3,
+    "origine_prioritaire": "Cancer : les nouveaux traitements et les premiers vaccins anticancer laissent espérer d'en guérir beaucoup plus — promesse réaliste ou espoir encore lointain ?",
+    "origine_id": "sciences-cancer-les-nouveaux-traitements-et-les-premiers",
+    "point_de_depart": {
+      "id": "sciences-cancer-les-nouveaux-traitements-et-les-premiers",
+      "registre": "sciences",
+      "titre": "Cancer : les nouveaux traitements et les premiers vaccins anticancer laissent espérer d'en guérir beaucoup plus — promesse réaliste ou espoir encore lointain ?",
+      "question": "Cancer : les nouveaux traitements et les premiers vaccins anticancer laissent espérer d'en guérir beaucoup plus — promesse réaliste ou espoir encore lointain ?",
+      "contexte": "En France, 433 136 nouveaux cas de cancer ont été diagnostiqués en 2023 et 164 314 personnes en sont décédées, selon le Panorama des cancers 2026 publié par l'Institut national du cancer. Le 19 août 2026, Merck et Moderna ont annoncé des résultats positifs de phase III pour l'intismeran autogene (V940), un vaccin personnalisé à ARNm associé au pembrolizumab, chez 1 137 patients atteints d'un mélanome à haut risque après chirurgie : le critère principal de survie sans récidive et le critère secondaire de survie sans métastase à distance ont été atteints, une première pour une thérapie néoantigénique individualisée. En parallèle, le 28 août 2026, BioNTech et Genentech ont arrêté leur essai de phase II BNT122-01 sur le cancer colorectal après qu'un comité indépendant a constaté un déséquilibre numérique de survie globale défavorable au bras vaccin, soulignant la difficulté des tumeurs \"froides\" à répondre à l'immunothérapie. Des équipes suisses des HUG et de l'UNIGE ont obtenu le Prix Pfizer 2026 pour leur vaccin MVX-ONCO-1, testé avec succès chez 34 patients atteints de tumeurs solides avancées, avec plus de la moitié montrant un bénéfice clinique sans effet secondaire notable.",
+      "rationnel": "Ce sujet est brûlant d'actualité car l'été 2026 a été marqué par deux annonces contradictoires majeures : la première phase III positive pour un vaccin anticancer à ARNm (mélanome) et l'arrêt d'un essai pour cause de surmortalité dans le cancer colorectal, illustrant l'incertitude réelle de la promesse. L'issue reste ouverte car les succès sur le mélanome (tumeur 'chaude', immunogène) ne préjugent pas de l'efficacité sur les cancers plus fréquents comme le colorectal, le poumon ou le pancréas, où les obstacles biologiques et les coûts de production individualisée restent considérables. Pour un lecteur français, l'enjeu est direct : le cancer touche un Français sur deux, et les vaccins thérapeutiques pourraient transformer la prise en charge post-opératoire, mais les échecs récents rappellent que des années d'essais supplémentaires sont nécessaires avant une disponibilité grand public.",
+      "mots_cles": [
+        "vaccin anticancer ARNm",
+        "intismeran autogene V940",
+        "Moderna Merck phase 3 mélanome",
+        "BioNTech autogene cevumeran cancer colorectal arrêt",
+        "immunothérapie personnalisée néoantigènes",
+        "INCa Panorama des cancers 2026 France",
+        "MVX-ONCO-1 HUG Genève",
+        "essai clinique vaccin tumeur froide"
+      ],
+      "angle": null,
+      "a_verifier": "Chiffres précis de réduction du risque (HR) de l'essai INTerpath-001 (attendus lors d'un congrès médical à venir). Délais prévisionnels d'éventuelle homologation réglementaire (FDA/EMA) pour l'intismeran. Coût estimé par patient d'un vaccin personnalisé à ARNm. Position des autorités françaises (INCa, HAS) sur ces nouvelles approches.",
+      "scenarios_brouillon": null,
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Merck and Moderna Announce Phase 3 INTerpath-001 Trial of Intismeran Autogene Plus KEYTRUDA Met Endpoints",
+          "url": "https://www.merck.com/news/merck-and-moderna-announce-phase-3-interpath-001-trial-of-intismeran-autogene-plus-keytruda-met-endpoints-of-recurrence-free-survival-rfs-and-distant-metastasis-free-survival-dmfs-in-patient/"
+        },
+        {
+          "titre": "BioNTech Provides Update on Phase 2 Clinical Trial of Autogene Cevumeran in Resected Colorectal Cancer",
+          "url": "https://www.biontech.com/int/en/home/mediaroom/news/statements/2026/08/BioNTech-Provides-Update-on-Phase-2-Clinical-Trial-of-Autogene-Cevumeran-in-Resected-Colorectal-Cancer.html"
+        },
+        {
+          "titre": "Panorama des cancers en France, édition 2026 — Institut national du cancer",
+          "url": "https://www.cancer.fr/content/download/141527/file/PANOKFR2026_Panorama%20des%20cancers%202026.pdf?version=3"
+        },
+        {
+          "titre": "Vaccin thérapeutique personnalisé contre le cancer — HUG Genève (Prix Pfizer 2026)",
+          "url": "https://www.hug.ch/medias/communique-presse/vaccin-therapeutique-personnalise-contre-cancer-etude-genevoise"
+        }
+      ],
+      "tag": "médecine & santé",
+      "origine": null,
+      "note_editoriale": null,
+      "donnees_graphique": null,
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (2026-10-08) : Dette mondiale, registre économie — aucun recoupement. Même registre sciences : éditions récentes 2026-10-02 (dépistage cancer du sein, angle dépistage/IA, pas traitements/vaccins), 2026-09-25 (Ozempic/GLP-1, obésité, pas oncologie), 2026-09-18 (neuropathies, pas cancer), 2026-09-15 (fusion nucléaire). Aucun doublon thématique fort avec le sujet du jour."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "En France, 433 136 nouveaux cas de cancer ont été diagnostiqués en 2023 et 164 314 personnes en sont décédées.",
+      "chiffre": "433 136 nouveaux cas / 164 314 décès",
+      "date_du_chiffre": "2026-08-01",
+      "sources": [
+        "inca-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le 19 août 2026, Merck et Moderna ont annoncé des résultats positifs de phase III pour l'intismeran autogene (V940), un vaccin personnalisé à ARNm associé au pembrolizumab, chez 1 137 patients atteints d'un mélanome à haut risque après chirurgie.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "merck-moderna-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le critère principal de survie sans récidive (RFS) et le critère secondaire de survie sans métastase à distance (DMFS) ont été atteints dans l'essai INTerpath-001.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "merck-moderna-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le 28 août 2026, BioNTech et Genentech ont arrêté leur essai de phase II BNT122-01 sur le cancer colorectal après qu'un comité indépendant a constaté un déséquilibre numérique de survie globale défavorable au bras vaccin.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "biontech-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Des équipes suisses des HUG et de l'UNIGE ont obtenu le Prix Pfizer 2026 pour leur vaccin MVX-ONCO-1, testé avec succès chez 34 patients atteints de tumeurs solides avancées, avec plus de la moitié montrant un bénéfice clinique sans effet secondaire notable.",
+      "chiffre": "34 patients / plus de 50 % bénéfice clinique",
+      "date_du_chiffre": null,
+      "sources": [
+        "hug-2026"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Merck",
+      "role": "Laboratoire américain co-développeur du vaccin intismeran autogene (V940) avec Moderna"
+    },
+    {
+      "nom": "Moderna",
+      "role": "Laboratoire américain co-développeur du vaccin intismeran autogene (V940) avec Merck"
+    },
+    {
+      "nom": "BioNTech",
+      "role": "Laboratoire allemand ayant mené l'essai BNT122-01 sur le cancer colorectal avec Genentech"
+    },
+    {
+      "nom": "Genentech (Roche)",
+      "role": "Laboratoire américain partenaire de BioNTech sur l'essai colorectal"
+    },
+    {
+      "nom": "HUG (Hôpitaux universitaires de Genève)",
+      "role": "Équipe médicale suisse ayant développé le vaccin MVX-ONCO-1"
+    },
+    {
+      "nom": "UNIGE (Université de Genève)",
+      "role": "Partenaire académique suisse sur le vaccin MVX-ONCO-1"
+    },
+    {
+      "nom": "INCa (Institut national du cancer)",
+      "role": "Autorité française publiant le Panorama des cancers 2026"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2023-01-01",
+      "evenement": "433 136 nouveaux cas de cancer diagnostiqués en France (année de référence du Panorama 2026)"
+    },
+    {
+      "date": "2026-08-19",
+      "evenement": "Merck et Moderna annoncent des résultats positifs de phase III pour l'intismeran autogene (V940) dans le mélanome à haut risque (essai INTerpath-001, 1 137 patients)"
+    },
+    {
+      "date": "2026-08-28",
+      "evenement": "BioNTech et Genentech arrêtent l'essai de phase II BNT122-01 sur le cancer colorectal pour déséquilibre de survie globale défavorable au bras vaccin"
+    },
+    {
+      "date": "2026-09-01",
+      "evenement": "Les équipes des HUG et de l'UNIGE obtiennent le Prix Pfizer 2026 pour le vaccin MVX-ONCO-1 (34 patients, tumeurs solides avancées)"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Les vaccins personnalisés à ARNm atteignent leurs objectifs sur les tumeurs immunogènes (mélanome, tumeurs solides avancées) et étendent progressivement à d'autres cancers ; plusieurs vaccins obtiennent une autorisation de mise sur le marché (FDA/EMA) d'ici 3 à 5 ans, transformant la prise en charge post-opératoire pour une fraction de patients.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "Les succès sur le mélanome ne se généralisent pas rapidement : les cancers fréquents (colorectal, poumon, pancréas) restent difficiles à traiter par immunothérapie (tumeurs 'froides'), les essais continuent d'échouer ou de montrer des bénéfices marginaux, et les vaccins restent limités à des indications de niche avec des coûts élevés et des délais réglementaires longs.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "Les échecs répétés sur les cancers les plus fréquents (comme l'arrêt de l'essai colorectal) font reculer la confiance des investisseurs et des régulateurs, les essais sont retardés ou arrêtés, et les vaccins personnalisés restent un domaine de recherche coûteux sans application grand public à horizon 5 ans.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Nouveaux cas de cancer en France (2023)",
+      "valeur": "433 136 cas",
+      "tendance": "stable (chiffre de référence 2023)"
+    },
+    {
+      "label": "Décès par cancer en France (2023)",
+      "valeur": "164 314 décès",
+      "tendance": "stable (chiffre de référence 2023)"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série historique longue et publique vérifiée sur l'efficacité des vaccins anticancer à ARNm ou sur les essais cliniques dans ce domaine n'a été trouvée lors de la recherche (essais trop récents, données éparses, pas de source publique de série longue). Critère (1) non satisfait : pas de source publique fiable documentant l'historique complet.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres comparables (nombre de patients dans trois essais de vaccins anticancer à ARNm) trouvés lors de la recherche : 1 137 patients (INTerpath-001, mélanome, phase III), 34 patients (MVX-ONCO-1, tumeurs solides avancées, HUG/UNIGE), et essai BNT122-01 (colorectal, phase II, nombre de patients non précisé dans les sources — à vérifier).",
+    "barres": {
+      "aria_label": "Nombre de patients dans trois essais de vaccins anticancer à ARNm",
+      "lead": "Trois essais récents de vaccins personnalisés à ARNm ont mobilisé des effectifs très différents, illustrant la diversité des stades de développement.",
+      "caption": "Sources : communiqués Merck/Moderna (19 août 2026), HUG/UNIGE (Prix Pfizer 2026), BioNTech (28 août 2026)",
+      "unite": "patients",
+      "valeurs": [
+        {
+          "label": "INTerpath-001 (mélanome, phase III)",
+          "valeur": 1137,
+          "affichage": "1 137 patients",
+          "mis_en_avant": true
+        },
+        {
+          "label": "MVX-ONCO-1 (tumeurs solides, HUG/UNIGE)",
+          "valeur": 34,
+          "affichage": "34 patients",
+          "mis_en_avant": false
+        },
+        {
+          "label": "BNT122-01 (colorectal, phase II)",
+          "valeur": 0,
+          "affichage": "Non précisé",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Vaccin personnalisé à ARNm : comment fonctionne une thérapie néoantigénique individualisée",
+        "rattache_a": "fait Merck/Moderna INTerpath-001"
+      },
+      {
+        "focus": "Tumeurs 'froides' vs 'chaudes' : pourquoi le mélanome répond mieux que le colorectal à l'immunothérapie",
+        "rattache_a": "fait BioNTech BNT122-01 arrêté"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Chiffres précis de réduction du risque (hazard ratio) de l'essai INTerpath-001 non encore publiés — annoncés lors d'un congrès médical à venir.",
+    "Délais prévisionnels d'éventuelle homologation réglementaire (FDA/EMA) pour l'intismeran autogene non confirmés.",
+    "Coût estimé par patient d'un vaccin personnalisé à ARNm non disponible dans les sources consultées.",
+    "Position des autorités françaises (INCa, HAS) sur ces nouvelles approches non documentée dans les sources."
+  ],
+  "a_ne_pas_affirmer": [
+    "Les vaccins anticancer à ARNm sont déjà disponibles dans les hôpitaux français.",
+    "L'intismeran autogene (V940) a reçu une autorisation de mise sur le marché (FDA/EMA).",
+    "Le vaccin MVX-ONCO-1 est approuvé pour une utilisation clinique routine."
+  ],
+  "sources": [
+    {
+      "id": "merck-moderna-2026",
+      "title": "Merck and Moderna Announce Phase 3 INTerpath-001 Trial of Intismeran Autogene Plus KEYTRUDA Met Endpoints",
+      "source": "Merck Newsroom",
+      "url": "https://www.merck.com/news/merck-and-moderna-announce-phase-3-interpath-001-trial-of-intismeran-autogene-plus-keytruda-met-endpoints-of-recurrence-free-survival-rfs-and-distant-metastasis-free-survival-dmfs-in-patient/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences",
+      "summary": "Communiqué de Merck et Moderna du 19 août 2026 annonçant que l'essai de phase III INTerpath-001 du vaccin personnalisé intismeran autogene (V940) associé au pembrolizumab a atteint ses critères principaux de survie sans récidive et secondaires de survie sans métastase à distance chez 1 137 patients atteints d'un mélanome à haut risque après chirurgie.",
+      "read_minutes": 3
+    },
+    {
+      "id": "biontech-2026",
+      "title": "BioNTech Provides Update on Phase 2 Clinical Trial of Autogene Cevumeran in Resected Colorectal Cancer",
+      "source": "BioNTech",
+      "url": "https://www.biontech.com/int/en/home/mediaroom/news/statements/2026/08/BioNTech-Provides-Update-on-Phase-2-Clinical-Trial-of-Autogene-Cevumeran-in-Resected-Colorectal-Cancer.html",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences",
+      "summary": "Communiqué de BioNTech du 28 août 2026 indiquant que l'essai de phase II BNT122-01 sur l'autogene cevumeran (vaccin à ARNm personnalisé) dans le cancer colorectal réséqué a été arrêté après qu'un comité indépendant a constaté un déséquilibre numérique de survie globale défavorable au bras vaccin.",
+      "read_minutes": 3
+    },
+    {
+      "id": "inca-2026",
+      "title": "Panorama des cancers en France, édition 2026 — Institut national du cancer",
+      "source": "INCa",
+      "url": "https://www.cancer.fr/content/download/141527/file/PANOKFR2026_Panorama%20des%20cancers%202026.pdf?version=3",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Panorama des cancers en France publié par l'INCa en 2026 : 433 136 nouveaux cas de cancer diagnostiqués en 2023 et 164 314 décès la même année.",
+      "read_minutes": 5
+    },
+    {
+      "id": "hug-2026",
+      "title": "Vaccin thérapeutique personnalisé contre le cancer — HUG Genève (Prix Pfizer 2026)",
+      "source": "HUG",
+      "url": "https://www.hug.ch/medias/communique-presse/vaccin-therapeutique-personnalise-contre-cancer-etude-genevoise",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Communiqué des HUG et de l'UNIGE indiquant que leur vaccin thérapeutique personnalisé MVX-ONCO-1, testé avec succès chez 34 patients atteints de tumeurs solides avancées (plus de 50 % de bénéfice clinique sans effet secondaire notable), a reçu le Prix Pfizer 2026.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [],
+  "articles_connexes": [
+    {
+      "date": "2026-10-02",
+      "titre": "Dépistage du cancer du sein : le modèle va-t-il basculer ?",
+      "lien": "Cancer — même domaine oncologique, mais angle dépistage/IA en prévention, pas traitements/vaccins ; lien sur le thème large du cancer en France."
+    },
+    {
+      "date": "2026-09-25",
+      "titre": "Ozempic, Wegovy, Mounjaro : prix, efficacité et avenir des GLP-1",
+      "lien": "Médicament — nouveaux traitements innovants à haut coût et accès inégal, même tension sur la promesse thérapeutique vs réalité d'accès, mais domaine différent (obésité, pas oncologie)."
+    },
+    {
+      "date": "2026-09-18",
+      "titre": "Neuropathies : la recherche avance, les traitements stagnent",
+      "lien": "Recherche médicale — même tension éditoriale entre progrès de la recherche et stagnation des traitements disponibles, mais domaine différent (neuropathies, pas cancer)."
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser dès l'intro que les vaccins anticancer à ARNm sont des vaccins thérapeutiques (traitant un cancer existant) et non préventifs comme le vaccin contre le HPV.",
+    "Distinguer clairement les tumeurs 'chaudes' (immunogènes, ex. mélanome) des tumeurs 'froides' (ex. colorectal, pancréas) pour expliquer pourquoi les résultats sont inégaux.",
+    "Ne pas affirmer d'homologation réglementaire (FDA/EMA) pour l'intismeran autogene : les résultats de phase III sont positifs mais l'homologation n'est pas encore obtenue selon les sources consultées.",
+    "Mentionner que l'essai BioNTech/Genentech arrêté sur le colorectal illustre les limites actuelles sur les cancers fréquents, sans généraliser à tous les cancers.",
+    "Évoquer le coût et la complexité de production des vaccins personnalisés comme facteur clé pour l'accès futur, même si le chiffre exact n'est pas disponible."
+  ]
+}
