@@ -414,11 +414,10 @@ def _dc_chart_box_html(serie):
 # Le graphique en escalier (.dc-chart-box, ci-dessus) exige une longue série historique publique : presque jamais
 # réunie, donc plus aucun graphique dans les éditions. Ce second graphique compare 3 à 6 chiffres RÉELS déjà présents
 # dans les faits vérifiés du brief (brief["graphique_chiffres"]["barres"]) — jamais inventés. Même habillage que
-# .dc-chart-box, rendu serveur en SVG statique.
+# .dc-chart-box, rendu serveur en HTML/CSS (tailles de police réelles, cohérentes avec le reste de l'édition).
 # ---------------------------------------------------------------------------
-_BARRES_W = 700
-_BARRES_PAD_R = 170
-_BARRES_ROW_H = 58
+# Largeur de la plus longue barre, en % de l'encart (le reste laisse la place à la valeur).
+_BARRES_LARGEUR_MAX = 72
 
 
 def _barres_valides(b):
@@ -447,24 +446,23 @@ def _barres_box_html(b):
     nums = [float(v["valeur"]) for v in vals]
     vmax = max(nums)
     unite = str(b.get("unite", "")).strip()
-    plot_w = _BARRES_W - _BARRES_PAD_R
-    h = 8 + _BARRES_ROW_H * len(vals)
     parts = []
-    for i, (v, n) in enumerate(zip(vals, nums)):
-        top = 8 + i * _BARRES_ROW_H
-        largeur = max(2.0, round(n / vmax * plot_w, 1))
+    for v, n in zip(vals, nums):
+        largeur = max(2.0, round(n / vmax * _BARRES_LARGEUR_MAX, 1))
         cls = "dc-bar is-highlight" if v.get("mis_en_avant") else "dc-bar"
         affichage = str(v.get("affichage") or (_nombre_fr(n) + (f" {unite}" if unite else "")))
-        parts.append(f'<text x="0" y="{top + 16}" class="dc-bar-label">{v["label"]}</text>')
-        parts.append(f'<rect x="0" y="{top + 24}" width="{largeur}" height="20" rx="3" class="{cls}"/>')
-        parts.append(f'<text x="{round(largeur + 10, 1)}" y="{top + 40}" class="dc-bar-value">{affichage}</text>')
-    svg_inner = "\n      ".join(parts)
+        parts.append(
+            f'<div class="dc-bar-row"><span class="dc-bar-label">{v["label"]}</span>'
+            f'<div class="dc-bar-line"><span class="{cls}" style="width:{largeur}%"></span>'
+            f'<span class="dc-bar-value">{affichage}</span></div></div>'
+        )
+    lignes = "\n        ".join(parts)
     return f"""<div class="dc-chart-box">
       <span class="dc-chart-label">Les chiffres</span>
       <p class="dc-chart-lead">{b["lead"]}</p>
-      <svg viewBox="0 0 {_BARRES_W} {h}" preserveAspectRatio="xMinYMid meet" role="img" aria-label="{b["aria_label"]}">
-      {svg_inner}
-      </svg>
+      <div class="dc-bars" role="img" aria-label="{b["aria_label"]}">
+        {lignes}
+      </div>
       <p class="dc-chart-caption">{b["caption"]}</p>
     </div>"""
 
