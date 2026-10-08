@@ -257,10 +257,11 @@ def avec_ouverture_energique(voix_pcm: bytes, niveau: float = 0.7) -> bytes:
 DOSSIER_THEME = None  # défini par narration.py (racine du dépôt)
 
 
-def trouver_theme(racine) -> "Path | None":
+def trouver_theme(racine, nom: str = "ouverture") -> "Path | None":
+    """Fichier podcast/musique/<nom>.mp3 (ou .wav, .m4a) ; « ouverture » est le thème des épisodes quotidiens."""
     from pathlib import Path
     for ext in ("mp3", "wav", "m4a"):
-        p = Path(racine) / "podcast" / "musique" / f"ouverture.{ext}"
+        p = Path(racine) / "podcast" / "musique" / f"{nom}.{ext}"
         if p.exists():
             return p
     return None

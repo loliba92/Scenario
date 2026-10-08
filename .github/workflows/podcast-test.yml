@@ -42,6 +42,10 @@ on:
         description: "Modèle de voix OpenRouter (google/gemini-3.8-flash-tts, x-ai/grok-voice-tts-1.0…) — voix_unique doit être une voix de ce modèle"
         required: false
         default: "google/gemini-3.8-flash-tts"
+      theme:
+        description: "Thème musical de podcast/musique/ (ouverture = quotidien ; hebdo = récap, s'il existe)"
+        required: false
+        default: "ouverture"
       modele_dialogue:
         description: "Modèle(s) OpenRouter qui écrivent le dialogue, ou « gratuits » (vide = sélection de gemma d'abord)"
         required: false
@@ -79,6 +83,7 @@ jobs:
           TEXTE: ${{ github.event.inputs.texte }}
           VOIX_UNIQUE: ${{ github.event.inputs.voix_unique }}
           MODELE_TTS: ${{ github.event.inputs.modele_tts }}
+          THEME: ${{ github.event.inputs.theme }}
         run: |
           if [ -n "$TEXTE" ]; then
             case "$TEXTE" in auto|podcast/textes/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].txt|podcast/hebdo/methode-[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].txt) ;; *) echo "Texte invalide : $TEXTE" >&2; exit 1 ;; esac
@@ -90,6 +95,8 @@ jobs:
             [ -n "$MODELE_TTS" ] && NARR="$NARR --modele-tts $MODELE_TTS"
             [ -n "$DATE" ] && NARR="$NARR --date $DATE"
             [ -n "$MODELE" ] && NARR="$NARR --modele $MODELE"
+            case "$THEME" in *[!A-Za-z0-9_-]*) echo "Thème invalide : $THEME" >&2; exit 1 ;; esac
+            [ -n "$THEME" ] && NARR="$NARR --theme $THEME"
             [ "$MUSIQUE" = "false" ] || NARR="$NARR --ouverture"
             python3 scripts/podcast/narration.py "$TEXTE" $NARR
             exit $?
