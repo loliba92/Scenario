@@ -19,3 +19,9 @@ Réglages : `NIVEAU_FOND`, `NIVEAU_JINGLE`, `JINGLE_S` dans `scripts/podcast/mus
 
 Le fichier doit être libre de droits pour cet usage (musique créée par vous, par exemple avec Suno : vérifier que
 l'abonnement autorise l'usage commercial).
+
+## Thème distinct pour le récap hebdomadaire
+
+Les épisodes « méthode / récap de la semaine » (textes dans `podcast/hebdo/`) peuvent avoir leur propre thème, pour se
+distinguer du quotidien : déposer `podcast/musique/hebdo.mp3` (même format et mêmes règles de droits que ci-dessus), puis
+lancer l'essai avec le réglage `theme` = `hebdo`. Tant que ce fichier n'existe pas, c'est le thème `ouverture` qui est utilisé.

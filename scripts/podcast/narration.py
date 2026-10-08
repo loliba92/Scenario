@@ -33,6 +33,7 @@ def main(argv=None) -> int:
     ap.add_argument("--tts-models", default=",".join(gp.MODELES_TTS_NARRATION))
     ap.add_argument("--musique", action="store_true", help="ajouter l'ancien habillage musical de musique.py (désactivé par défaut)")
     ap.add_argument("--ouverture", action="store_true", help="ajouter le thème podcast/musique/ouverture.mp3 avant la voix, s'il existe (sinon : sans musique)")
+    ap.add_argument("--theme", default="ouverture", help="nom du thème musical dans podcast/musique/ (ex. hebdo) ; s'il n'existe pas, le thème « ouverture » est utilisé")
     ap.add_argument("--suffixe", default="", help="ajouté au nom du fichier (comparer plusieurs voix)")
     ap.add_argument("--out", default=str(gp.ROOT / "_podcast-out"))
     args = ap.parse_args(argv)
@@ -102,7 +103,10 @@ def main(argv=None) -> int:
     else:
         print(f"Contrôle du début : conforme (« {transcription[:90]}… »)", flush=True)
     import musique
-    theme = musique.trouver_theme(gp.ROOT) if args.ouverture else None
+    theme = musique.trouver_theme(gp.ROOT, args.theme) if args.ouverture else None
+    if args.ouverture and theme is None and args.theme != "ouverture":
+        print(f"Thème « {args.theme} » absent de podcast/musique/ : thème « ouverture » utilisé à la place.", flush=True)
+        theme = musique.trouver_theme(gp.ROOT)
     theme_complet = musique.decoder_theme(theme, 75.0) if theme else None
     if args.ouverture and theme is None:
         print("Pas de thème musical (podcast/musique/ouverture.mp3) : épisode sans musique.", flush=True)
