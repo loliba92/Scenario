@@ -81,7 +81,7 @@ jobs:
           MODELE_TTS: ${{ github.event.inputs.modele_tts }}
         run: |
           if [ -n "$TEXTE" ]; then
-            case "$TEXTE" in auto|podcast/textes/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].txt) ;; *) echo "Texte invalide : $TEXTE" >&2; exit 1 ;; esac
+            case "$TEXTE" in auto|podcast/textes/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].txt|podcast/hebdo/methode-[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].txt) ;; *) echo "Texte invalide : $TEXTE" >&2; exit 1 ;; esac
             case "$VOIX_UNIQUE" in *[!A-Za-z]*|"") echo "Voix invalide : $VOIX_UNIQUE" >&2; exit 1 ;; esac
             case "$DATE" in ""|[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;; *) echo "Date invalide : $DATE" >&2; exit 1 ;; esac
             case "$MODELE" in *[!A-Za-z0-9._:/,-]*) echo "Modèle invalide : $MODELE" >&2; exit 1 ;; esac
