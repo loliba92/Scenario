@@ -1235,18 +1235,30 @@
   }
 
   /* ---- Graphique « Les chiffres » (barres, repli du graphique en escalier) et rappel d'un article précédent. ---- */
-  .dc-bar{ fill: var(--paper-dim); opacity: 0.45; }
-  .dc-bar.is-highlight{ fill: var(--degrade); opacity: 1; }
+  .dc-bars{ display: flex; flex-direction: column; gap: 12px; }
   .dc-bar-label{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 17px;
-    fill: var(--paper);
+    display: block;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    color: var(--paper);
+    margin: 0 0 4px;
   }
+  .dc-bar-line{ display: flex; align-items: center; gap: 10px; }
+  .dc-bar{
+    display: block;
+    flex: none;
+    height: 12px;
+    border-radius: 3px;
+    background: var(--paper-dim);
+    opacity: 0.45;
+  }
+  .dc-bar.is-highlight{ background: var(--degrade); opacity: 1; }
   .dc-bar-value{
     font-family: "JetBrains Mono", monospace;
-    font-size: 17px;
+    font-size: 0.82rem;
     font-weight: 700;
-    fill: var(--degrade);
+    color: var(--degrade);
+    white-space: nowrap;
   }
   .rappel-edition{
     font-size: 0.86rem;
