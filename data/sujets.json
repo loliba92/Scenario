@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "c651adcc31566dbf389dd3c48cadfadb6dc49f5e6fd985b0ebb25dab27db4b8b"
+    "md_sha256": "cc83c7a882befc1e67a395ded3818072103a349ae12bdd17245cec56c76e4414"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -3150,7 +3150,7 @@
           "question": null,
           "tag": "IA & espace",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Le 1er octobre 2026, Google place en orbite (mission SpaceX Transporter-18) un satellite prototype embarquant ses puces TPU (Tensor Processing Units) pour tester le calcul d'IA dans l'espace. L'idée : en orbite basse, l'ensoleillement quasi constant fournit 8 fois plus d'énergie solaire qu'au sol, sans contrainte foncière ni refroidissement à l'eau. Le projet vise à évaluer la résistance aux radiations, au vide et aux cycles thermiques. La consommation électrique des centres de données IA double tous les 3-4 mois.",
           "rationnel": "La question : l'infrastructure d'IA à grande échelle va-t-elle partiellement quitter la Terre pour l'orbite basse d'ici 2030, résolvant la crise énergétique et foncière des data centers, ou les coûts de lancement, la maintenance impossible, la latence et le droit spatial (traité de 1967) en feront-ils une impasse ? L'issue est ouverte car Starship (SpaceX) promet de diviser par 10-20 le coût au kg, mais la fiabilité matérielle en orbite (radiations, débris) n'est pas prouvée à l'échelle. Pour la France (CNES, Thales, OVHcloud, Mistral), l'enjeu est de ne pas rater le virage de l'IA souveraine décentralisée.",
           "angle": null,
