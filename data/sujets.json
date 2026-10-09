@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "7ffe16d0719cf5c32d088ce5ccffdda1904fb10f89c84909b2cc5d32146f07b1"
+    "md_sha256": "c651adcc31566dbf389dd3c48cadfadb6dc49f5e6fd985b0ebb25dab27db4b8b"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -5496,7 +5496,7 @@
           "question": null,
           "tag": "économie & finance",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "L'Agence France Trésor a annoncé fin septembre 2026 un programme d'émissions 2027 de 340 Md€ d'OAT à moyen et long terme, niveau inédit. Le stock de dette atteint 3 596 Md€ (119 % du PIB) fin juin 2026. Le spread OAT/Bund dépasse 130 pb (plus haut depuis 2012). L'OAT 10 ans frôle 5 %. Les fonds de pension et assureurs, traditionnels acheteurs, réduisent leur exposition zone euro. Les hedge funds sont très actifs sur le repo OAT.",
           "rationnel": "La question : le marché primaire et secondaire des OAT peut-il digérer 340 Md€ de nouvelle dette en 2027 sans dislocation (enchères sous-couvertes, volatilité extrême, intervention BCE) ? L'issue est ouverte car la demande naturelle (assureurs, banques, BC) est contrainte par la réglementation (Solvabilité II, Bâle III) et la perte de rendement réel. La BCE a cessé ses achats nets (PEPP, APP). Pour un Français : taux du crédit, fiscalité future, risque de « faire faillite » silencieuse de l'État.",
           "angle": null,
