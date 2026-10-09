@@ -742,13 +742,18 @@ def build_update_block(version_n, date_maj, titles, prev_pcts, new_pcts, reasons
         f'<a href="{s["url"]}" target="_blank" rel="noopener noreferrer">{html.escape(s["name"])} ↗</a>'
         for s in sources
     )
-    return UPDATE_BLOCK_TMPL.format(
+    block = UPDATE_BLOCK_TMPL.format(
         n=version_n, date_maj=date_maj, fact_paragraph=fact_paragraph,
         scenario_cards="\n".join(cards), prev_label=prev_label,
         concl_emoji=titles[conclusion_kind]["emoji"], concl_verdict=verdict,
         concl_pct=new_pcts[conclusion_kind], concl_text=conclusion_text,
         sources_html=sources_html,
     )
+    # Garde-fou (9 octobre 2026) : un <div> fermé en trop dans un bloc ferme le conteneur de la page,
+    # et la version suivante s'affiche alors collée au bord de l'écran (cas réel de « Taux : marche arrière »).
+    if len(re.findall(r"<div\b", block)) != len(re.findall(r"</div>", block)):
+        raise DetectionError("bloc de mise à jour déséquilibré (<div> ouverts/fermés) — page non modifiée")
+    return block
 
 
 def build_v0_block(date_origine, titre_court, intro, pcts, v0_scenarios, conclusion_kind, conclusion_text):
