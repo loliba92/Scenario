@@ -23,6 +23,8 @@ on:
       - "scripts/edition/test_dates.py"
       - "scripts/edition/suivi_home.py"
       - "scripts/edition/test_suivi_home.py"
+      - "scripts/detection/test_suivi_pages.py"
+      - "suivi/**"
       - "scripts/seo/generate_archives_table.py"
       - "editorial-briefs/**"
       - "scripts/edition/fixtures/**"
@@ -34,6 +36,8 @@ on:
       - "scripts/edition/test_dates.py"
       - "scripts/edition/suivi_home.py"
       - "scripts/edition/test_suivi_home.py"
+      - "scripts/detection/test_suivi_pages.py"
+      - "suivi/**"
       - "scripts/seo/generate_archives_table.py"
       - "editorial-briefs/**"
       - "scripts/edition/fixtures/**"
@@ -63,3 +67,6 @@ jobs:
 
       - name: Tests du bloc « Le dernier suivi » de l'accueil
         run: python3 -m unittest discover -s scripts/edition -p "test_suivi_home.py" -v
+
+      - name: Structure des pages de suivi (aucune balise <div> en trop)
+        run: python3 -m unittest discover -s scripts/detection -p "test_suivi_pages.py" -v
