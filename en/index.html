@@ -1235,18 +1235,30 @@
   }
 
   /* ---- Graphique « Les chiffres » (barres, repli du graphique en escalier) et rappel d'un article précédent. ---- */
-  .dc-bar{ fill: var(--paper-dim); opacity: 0.45; }
-  .dc-bar.is-highlight{ fill: var(--degrade); opacity: 1; }
+  .dc-bars{ display: flex; flex-direction: column; gap: 12px; }
   .dc-bar-label{
-    font-family: "JetBrains Mono", monospace;
-    font-size: 17px;
-    fill: var(--paper);
+    display: block;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    color: var(--paper);
+    margin: 0 0 4px;
   }
+  .dc-bar-line{ display: flex; align-items: center; gap: 10px; }
+  .dc-bar{
+    display: block;
+    flex: none;
+    height: 12px;
+    border-radius: 3px;
+    background: var(--paper-dim);
+    opacity: 0.45;
+  }
+  .dc-bar.is-highlight{ background: var(--degrade); opacity: 1; }
   .dc-bar-value{
     font-family: "JetBrains Mono", monospace;
-    font-size: 17px;
+    font-size: 0.82rem;
     font-weight: 700;
-    fill: var(--degrade);
+    color: var(--degrade);
+    white-space: nowrap;
   }
   .rappel-edition{
     font-size: 0.86rem;
@@ -2361,7 +2373,7 @@
 <img alt="" class="brand-mark" src="../assets/logo.svg"/>
 <div class="wordmark">Scéna<span>rio</span></div>
 </div>
-<div class="edition">Edition of October 8, 2026 · No. 77</div>
+<div class="edition">Edition of October 9, 2026 · No. 78</div>
 </div>
 <div class="masthead-right">
 <a aria-label="Lire en français" class="masthead-lang-btn" href="../index.html" title="Lire en français">FR</a>
@@ -2401,14 +2413,14 @@
 <section class="featured-article">
 <div class="wrap">
 <p class="section-label">The latest edition</p>
-<a class="featured-article-link" href="archives/2026-10-08.html">
+<a class="featured-article-link" href="archives/2026-10-09.html">
 <div class="featured-article-image-wrap">
-<img alt="Global Debt: The IMF Calls for Austerity" class="featured-article-image" src="../assets/social/topic-images/2026-10-08.jpg"/>
+<img alt="Cancer: Vaccines and New Treatments, a Realistic Promise or Distant Hope?" class="featured-article-image" src="../assets/social/topic-images/2026-10-09.jpg"/>
 </div>
 <div>
-<span class="featured-article-date">World Economy · Oct 8</span>
-<h2 class="featured-article-title">Global Debt: The IMF Calls for Austerity</h2>
-<p class="featured-article-question">Global public debt is set to surpass 100% of GDP, and France is borrowing at higher rates than Italy: can governments regain market confidence…</p>
+<span class="featured-article-date">Science · Oct 9</span>
+<h2 class="featured-article-title">Cancer: Vaccines and New Treatments, a Realistic Promise or Distant Hope?</h2>
+<p class="featured-article-question">Do the first mRNA cancer vaccines and new treatments hold the promise of curing significantly more patients, or do years of trials still lie ahead?</p>
 <span class="featured-article-cta">Read the edition →</span>
 </div>
 </a>
@@ -2432,6 +2444,13 @@
 <p class="section-label">Previous editions</p>
 <h2 class="section-title">Latest editions</h2>
 <ul class="related-articles-list">
+<li><a class="related-articles-item" href="archives/2026-10-08.html">
+<img alt="Global Debt: The IMF Calls for Austerity" class="related-articles-image" src="../assets/social/topic-images/2026-10-08.jpg"/>
+<div class="related-articles-content">
+<span class="related-articles-date">World Economy · Oct 8</span>
+<span class="related-articles-title">Global Debt: The IMF Calls for Austerity</span>
+</div>
+</a></li>
 <li><a class="related-articles-item" href="archives/2026-10-07.html">
 <img alt="Medical deserts: will patients still be able to find a doctor nearby?" class="related-articles-image" src="../assets/social/topic-images/2026-10-07.jpg"/>
 <div class="related-articles-content">
@@ -2465,13 +2484,6 @@
 <div class="related-articles-content">
 <span class="related-articles-date">Culture · Oct 3</span>
 <span class="related-articles-title">Is organic virality an algorithmic illusion?</span>
-</div>
-</a></li>
-<li><a class="related-articles-item" href="archives/2026-10-02.html">
-<img alt="Breast cancer screening: is the model set to shift?" class="related-articles-image" src="../assets/social/topic-images/2026-10-02.jpg"/>
-<div class="related-articles-content">
-<span class="related-articles-date">Science · Oct 2</span>
-<span class="related-articles-title">Breast cancer screening: is the model set to shift?</span>
 </div>
 </a></li>
 </ul>
