@@ -397,7 +397,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 
 ## Actualité & politique française — mercredi
-- [ ] 🔍 Budget culture 2027 : le spectacle vivant peut-il survivre à une baisse de 4 % des crédits à la création ? [culture & budget]
+- [ ] Budget culture 2027 : le spectacle vivant peut-il survivre à une baisse de 4 % des crédits à la création ? [culture & budget]
   <!-- id: actualite-francaise-budget-culture-2027-le-spectacle-vivant-peut-il -->
   <!-- contexte: Le 2 octobre 2026, le PLF 2027 prévoit une baisse de 0,6 % du budget global de la Culture (–1,6 % hors annulations en cours d'année), mais de 4 % pour le volet création. La ministre Catherine Pégard promet d'amortir l'impact « au cas par cas ». Pourtant, 28 scènes nationales, théâtres et opéras n'ont toujours pas reçu 13 % de leur subvention 2026 (ex. 233 000 € pour la MAC de Créteil, 600 000 € pour Nanterre-Amandiers). Le Syndeac alerte sur un « démantèlement progressif du service public de la culture sur les territoires ». -->
   <!-- rationnel: La question : face à des subventions 2026 encore impayées et une coupe 2027 structurelle, le réseau du spectacle vivant public (scènes nationales, CDN, pôles cirque, compagnies conventionnées) va-t-il réduire la voilure (moins de créations, moins de tournée, suppressions de postes) ou l'État débloquera-t-il in extremis des fonds d'urgence ? L'issue est ouverte car le gouvernement assume l'effort budgétaire, mais la mobilisation du Festival d'Avignon a déjà obtenu un recul partiel en 2026 ; la trésorerie des structures est exsangue (salaires versés en retard). Pour un lecteur français, c'est l'accès à la culture de proximité qui est en jeu. -->

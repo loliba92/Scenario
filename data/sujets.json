@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "e76726e6dc9d72ea5bcd9b73e1c8caf9ba0fe57d9b949d37e2fb31eb8ea0577c"
+    "md_sha256": "73e0197a83c3ba9f2df76d5c5056a41f9f836e20b5d74f2ad009726173e49868"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -2031,7 +2031,7 @@
           "question": null,
           "tag": "culture & budget",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Le 2 octobre 2026, le PLF 2027 prévoit une baisse de 0,6 % du budget global de la Culture (–1,6 % hors annulations en cours d'année), mais de 4 % pour le volet création. La ministre Catherine Pégard promet d'amortir l'impact « au cas par cas ». Pourtant, 28 scènes nationales, théâtres et opéras n'ont toujours pas reçu 13 % de leur subvention 2026 (ex. 233 000 € pour la MAC de Créteil, 600 000 € pour Nanterre-Amandiers). Le Syndeac alerte sur un « démantèlement progressif du service public de la culture sur les territoires ».",
           "rationnel": "La question : face à des subventions 2026 encore impayées et une coupe 2027 structurelle, le réseau du spectacle vivant public (scènes nationales, CDN, pôles cirque, compagnies conventionnées) va-t-il réduire la voilure (moins de créations, moins de tournée, suppressions de postes) ou l'État débloquera-t-il in extremis des fonds d'urgence ? L'issue est ouverte car le gouvernement assume l'effort budgétaire, mais la mobilisation du Festival d'Avignon a déjà obtenu un recul partiel en 2026 ; la trésorerie des structures est exsangue (salaires versés en retard). Pour un lecteur français, c'est l'accès à la culture de proximité qui est en jeu.",
           "angle": null,
