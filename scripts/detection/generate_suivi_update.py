@@ -523,8 +523,36 @@ def build_search_prompt(candidate):
         "short_labels, conclusion_kind, conclusion_text, social_sentence, sources, "
         "closure_signal, closure_note" + (", slug, v0_intro, v0_scenarios, "
         "v0_conclusion_kind, v0_conclusion_text" if is_new else "") + ").",
+        # Format exact des sources (incident du 9 octobre 2026 : sans lui, le modèle choisissait ses
+        # propres clés et la construction de la page plantait, après des recherches déjà payées).
+        'Le champ "sources" est une liste de 2 à 4 objets de la forme '
+        '{"name": "nom du média", "url": "https://lien réel de l\'article"}.',
     ]
     return "\n".join(lines)
+
+
+def normalize_sources(raw):
+    """Ramène les sources renvoyées par le modèle à [{"name", "url"}, ...].
+
+    Le modèle peut nommer les clés autrement (title, titre, source, publisher…) ou renvoyer de
+    simples liens : on accepte ces variantes plutôt que de faire échouer tout le passage. Une
+    source sans lien http(s) valide est écartée (jamais de lien inventé)."""
+    out = []
+    for s in raw or []:
+        if isinstance(s, str):
+            s = {"url": s}
+        if not isinstance(s, dict):
+            continue
+        url = next((str(s[k]).strip() for k in ("url", "link", "href", "lien") if s.get(k)), "")
+        if not re.match(r"^https?://", url):
+            continue
+        name = next((str(s[k]).strip() for k in ("name", "nom", "title", "titre", "source", "publisher", "outlet", "media")
+                     if s.get(k)), "")
+        if not name:
+            host = re.sub(r"^https?://(www\.)?", "", url).split("/")[0]
+            name = host or url
+        out.append({"name": name, "url": url})
+    return out
 
 
 def search_and_reestimate(candidate, model, api_key):
@@ -574,6 +602,10 @@ def search_and_reestimate(candidate, model, api_key):
         raise GenerationError(f"conclusion_kind invalide pour {candidate['h1']!r} : {result.get('conclusion_kind')!r}")
 
     gap = max(abs(pct[k] - candidate["scenarios"][k]["pct"]) for k in KIND_ORDER)
+    sources = normalize_sources(result.get("sources"))
+    if not sources:
+        raise GenerationError(f"aucune source exploitable (lien http valide) pour {candidate['h1']!r}")
+    result["sources"] = sources
     result["percentages"] = pct
     result["gap"] = gap
     return result, usage
