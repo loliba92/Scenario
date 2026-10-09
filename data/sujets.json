@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "39f154b848636b61219f8490f14b4aded1b734ce1c994568de1d1063005ca0dc"
+    "md_sha256": "46a43ef5e1adc3b9f02f38f1d9dc7538c9a2db52a44222691d68a8104431451f"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -515,6 +515,37 @@
         {
           "type": "commentaire",
           "texte": "Registre scindé le 12 août (retour utilisateur) : la géopolitique dure (conflits, diplomatie, États) et l'économie mondiale (marchés, monnaies, dette, matières premières) partageaient jusque-là le même slot du lundi, ce qui tassait deux blocs très différents dans une seule file. L'économie mondiale a sa propre section dimanche (voir plus bas) — la case libérée vient de la fusion des deux jours culture (française + internationale) en un seul, samedi. **Règle de classement pour les sujets à cheval sur les deux** (ex. guerres commerciales, tarifs douaniers) : si l'enjeu central est un rapport de force entre États (qui menace qui, qui négocie quoi) → géopolitique/lundi ; si l'enjeu central est un indicateur chiffré ou un marché (prix, taux, dette, cours) → économie/dimanche. Cas tranchés le 12 août à titre d'exemple : \"Guerre commerciale USA-Chine\" reste ici (framing État contre État, guerre froide) ; \"Droits de douane de Trump\" part en économie (contenu réel = batailles judiciaires et chiffres de recettes tarifaires, pas un rapport de force diplomatique). Les vieilles éditions déjà publiées gardent leur tag d'origine (`geopolitique`), jamais retaggées rétroactivement — voir docs/tags.md."
+        },
+        {
+          "type": "sujet",
+          "id": "geopolitique-l-europe-peut-elle-se-defendre-sans-les-etats",
+          "titre": "L'Europe peut-elle se défendre sans les États-Unis ?",
+          "question": "L'Europe peut-elle assurer seule sa défense, sans le soutien des États-Unis, dans les années qui viennent ?",
+          "tag": "géopolitique & défense",
+          "statut": "a_traiter",
+          "validation": "valide",
+          "contexte": null,
+          "rationnel": "Le meilleur sujet de fond : il touche directement la France, les finances publiques, l'industrie de défense et l'avenir de l'OTAN. L'issue est ouverte : tout dépend de l'effort budgétaire des Européens, de leur capacité industrielle et de la position américaine.",
+          "angle": null,
+          "a_verifier": null,
+          "mots_cles": [
+            "défense européenne",
+            "OTAN",
+            "États-Unis",
+            "industrie de défense",
+            "budget de la défense",
+            "autonomie stratégique"
+          ],
+          "scenarios": null,
+          "echeance": null,
+          "sources": [],
+          "origine": "utilisateur",
+          "note": null,
+          "donnees": null,
+          "ajoute_le": "2026-10-09",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
         },
         {
           "type": "sujet",
@@ -5440,6 +5471,37 @@
         {
           "type": "commentaire",
           "texte": "Faire tourner les sous-thèmes : marchés financiers, monnaies (dollar, or, bitcoin), dette et taux d'intérêt, matières premières (pétrole, énergie), entreprises et secteurs à l'échelle mondiale, inégalités, démographie économique, luxe et consommation… Nouveau registre créé le 12 août (retour utilisateur), scindé de l'ancien slot \"Géopolitique / international — lundi\" qui mélangeait géopolitique dure et économie mondiale — voir la note dans la section Géopolitique — lundi pour la règle de classement des sujets à cheval sur les deux."
+        },
+        {
+          "type": "sujet",
+          "id": "economie-la-chine-peut-elle-utiliser-les-metaux",
+          "titre": "La Chine peut-elle utiliser les métaux critiques comme arme géopolitique ?",
+          "question": "La Chine peut-elle utiliser son contrôle des métaux critiques comme arme géopolitique contre l'Europe et les États-Unis ?",
+          "tag": "géopolitique & économie",
+          "statut": "a_traiter",
+          "validation": "valide",
+          "contexte": null,
+          "rationnel": "Un excellent pont entre géopolitique et économie, avec des indicateurs concrets : prix des matières premières, dépendance aux importations et production européenne. L'issue est ouverte : elle dépend des restrictions d'exportation chinoises et de la capacité des Occidentaux à diversifier leurs approvisionnements.",
+          "angle": null,
+          "a_verifier": null,
+          "mots_cles": [
+            "métaux critiques",
+            "terres rares",
+            "Chine",
+            "restrictions d'exportation",
+            "dépendance aux importations",
+            "prix des matières premières"
+          ],
+          "scenarios": null,
+          "echeance": null,
+          "sources": [],
+          "origine": "utilisateur",
+          "note": null,
+          "donnees": null,
+          "ajoute_le": "2026-10-09",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
         },
         {
           "type": "sujet",
