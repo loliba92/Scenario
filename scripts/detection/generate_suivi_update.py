@@ -594,23 +594,26 @@ def select_winner(eligible, model, api_key):
     ]
     for i, (cand, res) in enumerate(eligible):
         lines.append(f"{i}. {cand['h1']} — écart {res['gap']} points — {res['fact_paragraph']}")
-    lines.append('\nRenvoie {"chosen_index": N}.')
+    # Le mot « JSON » doit figurer dans la consigne : sans lui, OpenAI/Azure rejette la
+    # requête (HTTP 400, « must contain the word 'json' ») — c'est ce qui a fait échouer
+    # les passages des 28 septembre et 5 octobre 2026, après trois recherches déjà payées.
+    lines.append('\nRenvoie uniquement un objet JSON de la forme {"chosen_index": N}.')
     # Même bug que search_and_reestimate() (voir son commentaire) : content
     # est déjà un dict, jamais une chaîne JSON à reparser — avec le
     # json.loads(content) qu'il y avait ici, le except Exception attrapait
     # SYSTÉMATIQUEMENT un TypeError et ignorait silencieusement le choix
     # qualitatif du modèle, retombant à chaque fois sur le repli "plus gros
     # écart" plutôt que le choix réellement demandé.
-    result, usage = call_openrouter(
-        "\n".join(lines), model, api_key, temperature=0.2, max_tokens=200, timeout=60,
-    )
     try:
+        result, usage = call_openrouter(
+            "\n".join(lines), model, api_key, temperature=0.2, max_tokens=200, timeout=60,
+        )
         idx = result["chosen_index"]
         return eligible[int(idx)]
     except Exception:
         # Repli déterministe plutôt que planter sur un sujet par ailleurs
         # publiable — le plus gros écart, à défaut d'un choix qualitatif.
-        print("[detection] sélection du sujet gagnant : réponse illisible, repli sur l'écart le plus large", file=sys.stderr)
+        print("[detection] sélection du sujet gagnant : réponse illisible ou appel refusé, repli sur l'écart le plus large", file=sys.stderr)
         return max(eligible, key=lambda pair: pair[1]["gap"])
 
 
