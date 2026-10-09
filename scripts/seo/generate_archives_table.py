@@ -7,6 +7,7 @@ Ce script remplace le manuel archives.html par un tableau structuré:
 Idempotent — peut être relancé après chaque nouvel article pour mettre à jour le tableau.
 """
 import re
+import sys
 import html
 from pathlib import Path
 from datetime import datetime
@@ -86,6 +87,34 @@ ARCHIVES_TABLE_CSS = """
       padding: 28px 0 18px;
     }
   }
+
+  /* ---- Les derniers suivis (bande au-dessus du tableau, 9 octobre 2026) : même vocabulaire que
+     l'accueil — libellé de section doré, cartes sur fond « surface ». Données : suivi_home.py. */
+  .suivis-recents { padding: 22px 0 0; }
+  .suivis-label {
+    font-family: "JetBrains Mono", monospace; font-size: 0.74rem; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gold); margin: 0 0 12px;
+    border-left: 3px solid var(--gold); padding-left: 10px;
+  }
+  .suivis-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .suivi-card {
+    display: flex; flex-direction: column; gap: 8px; padding: 16px 18px;
+    background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px;
+    color: var(--paper); text-decoration: none;
+  }
+  .suivi-card:hover { border-color: var(--gold); }
+  .suivi-card-meta { display: flex; flex-wrap: wrap; gap: 2px 10px; }
+  .suivi-card-meta .nw { white-space: nowrap; }
+  .suivi-card-meta {
+    font-family: "JetBrains Mono", monospace; font-size: 0.68rem; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--paper-dim);
+  }
+  .suivi-card-title { font-family: "Fraunces", serif; font-weight: 600; font-size: 1.12rem; line-height: 1.25; }
+  .suivi-card-text { font-size: 0.88rem; line-height: 1.5; color: var(--paper-dim); }
+  .suivi-card-cta {
+    margin-top: auto; font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--gold);
+  }
+  @media (max-width: 860px) { .suivis-grid { grid-template-columns: 1fr; } }
 
   /* ---- Archives table (scripts/seo/generate_archives_table.py) ---- */
   .archives-table {
@@ -1651,6 +1680,15 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
 </head>
 """
 
+    # Bande « Les derniers suivis » : jamais bloquante (voir suivi_home.bloc_suivis_edition).
+    try:
+        sys.path.insert(0, str(ROOT / "scripts" / "edition"))
+        from suivi_home import bloc_suivis_edition
+        suivis_html = bloc_suivis_edition(3)
+    except Exception as e:  # noqa: BLE001
+        print(f"[archives] bande des suivis ignorée : {e}", file=sys.stderr)
+        suivis_html = ""
+
     body = f"""<body>
 
 {masthead_nav}
@@ -1660,6 +1698,8 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
     <h1>Toutes les éditions</h1>
   </div>
 </section>
+
+{suivis_html}
 
 <section class="listing">
   <div class="wrap">

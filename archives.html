@@ -441,6 +441,34 @@
     }
   }
 
+  /* ---- Les derniers suivis (bande au-dessus du tableau, 9 octobre 2026) : même vocabulaire que
+     l'accueil — libellé de section doré, cartes sur fond « surface ». Données : suivi_home.py. */
+  .suivis-recents { padding: 22px 0 0; }
+  .suivis-label {
+    font-family: "JetBrains Mono", monospace; font-size: 0.74rem; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gold); margin: 0 0 12px;
+    border-left: 3px solid var(--gold); padding-left: 10px;
+  }
+  .suivis-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .suivi-card {
+    display: flex; flex-direction: column; gap: 8px; padding: 16px 18px;
+    background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px;
+    color: var(--paper); text-decoration: none;
+  }
+  .suivi-card:hover { border-color: var(--gold); }
+  .suivi-card-meta { display: flex; flex-wrap: wrap; gap: 2px 10px; }
+  .suivi-card-meta .nw { white-space: nowrap; }
+  .suivi-card-meta {
+    font-family: "JetBrains Mono", monospace; font-size: 0.68rem; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--paper-dim);
+  }
+  .suivi-card-title { font-family: "Fraunces", serif; font-weight: 600; font-size: 1.12rem; line-height: 1.25; }
+  .suivi-card-text { font-size: 0.88rem; line-height: 1.5; color: var(--paper-dim); }
+  .suivi-card-cta {
+    margin-top: auto; font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--gold);
+  }
+  @media (max-width: 860px) { .suivis-grid { grid-template-columns: 1fr; } }
+
   /* ---- Archives table (scripts/seo/generate_archives_table.py) ---- */
   .archives-table {
     width: 100%;
@@ -1169,6 +1197,32 @@
 <section class="hero archives-hero">
   <div class="wrap">
     <h1>Toutes les éditions</h1>
+  </div>
+</section>
+
+<section class="suivis-recents" id="suivis">
+  <div class="wrap">
+    <p class="suivis-label">Les derniers suivis</p>
+    <div class="suivis-grid">
+      <a class="suivi-card" href="suivi/taux-marche-arriere.html">
+        <span class="suivi-card-meta"><span>Économie</span><span class="nw">mis à jour le 9 oct.</span></span>
+        <span class="suivi-card-title">Taux&nbsp;: marche arrière</span>
+        <span class="suivi-card-text">Depuis le 7 septembre 2026, la BCE a relevé ses trois taux directeurs de 25 points de base le 10 septembre, portant son taux de dépôt à 2,50 % à compter du 16 septembre.</span>
+        <span class="suivi-card-cta">Lire le suivi →</span>
+      </a>
+      <a class="suivi-card" href="suivi/islande.html">
+        <span class="suivi-card-meta"><span>Géopolitique</span><span class="nw">mis à jour le 12 sept.</span></span>
+        <span class="suivi-card-title">Islande&nbsp;: après le non à l'UE, qui va la protéger&nbsp;?</span>
+        <span class="suivi-card-text">Le 7 septembre 2026, Donald Trump a publié sur Truth Social, sans commentaire, une carte représentant le Canada, le Mexique, l'Islande, le Groenland et l'Amérique centrale recouverts du drapeau américain.</span>
+        <span class="suivi-card-cta">Lire le suivi →</span>
+      </a>
+      <a class="suivi-card" href="suivi/arabie-saoudite-sport.html">
+        <span class="suivi-card-meta"><span>Économie</span><span class="nw">mis à jour le 11 sept.</span></span>
+        <span class="suivi-card-title">Golf, foot, boxe&nbsp;: l'Arabie saoudite se retire-t-elle du sport&nbsp;?</span>
+        <span class="suivi-card-text">Coup de théâtre le 8 septembre 2026&nbsp;: LIV Golf a placé volontairement sa société sous protection du Chapter 11 auprès du tribunal des faillites du New Jersey…</span>
+        <span class="suivi-card-cta">Lire le suivi →</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -2456,17 +2510,17 @@
       <td class="col-title">
         <span class="title-row">
           <a href="archives/2026-08-20.html" title="Après huit mois d&#x27;immobilisme à la Fed et une première hausse de la BCE en trois ans, les banques centrales peuvent-elles encore promettre une vraie baisse durable des taux d&#x27;intérêt ?">Taux : marche arrière</a>
-          <a href="suivi/taux-marche-arriere.html" class="revised-badge" title="Sujet révisé le 07.09.2026 — voir le suivi">Révisé</a>
+          <a href="suivi/taux-marche-arriere.html" class="revised-badge" title="Sujet révisé le 09.10.2026 — voir le suivi">Révisé</a>
           <a href="en/archives/2026-08-20.html" title="Read in English" class="lang-link"><span aria-hidden="true">↗</span> EN</a>
         </span>
         <span class="card-q">Après huit mois d&#x27;immobilisme à la Fed et une première hausse de la BCE en trois ans, les banques centrales peuvent-elles encore promettre une vraie baisse durable des taux d&#x27;intérêt ?</span>
       </td>
       <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
-      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (50%) — Une nouvelle vague de hausses" aria-label="Notre scénario : Dégradé (50%) — Une nouvelle vague de hausses">
+      <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (90%) — Une nouvelle vague de hausses" aria-label="Notre scénario : Dégradé (90%) — Une nouvelle vague de hausses">
       <span class="eval-label">Dégradé</span>
-      <span class="eval-pct">50%</span>
+      <span class="eval-pct">90%</span>
     </span></td>
-      <td class="col-france" data-label="Impact France"><span class="france-scale" title="Assez défavorable" aria-label="Impact France : Assez défavorable"><span class="seg esp-degrade-extreme"></span><span class="seg esp-degrade-fort active"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
+      <td class="col-france" data-label="Impact France"><span class="france-scale" title="Très défavorable" aria-label="Impact France : Très défavorable"><span class="seg esp-degrade-extreme active"></span><span class="seg esp-degrade-fort"></span><span class="seg esp-degrade"></span><span class="seg esp-neutre"></span><span class="seg esp-favorable"></span><span class="seg esp-favorable-fort"></span><span class="seg esp-favorable-extreme"></span></span></td>
       <td class="col-reads" data-label="Lectures">
         <span class="reads-value">
           <span class="reads-num">—</span>

@@ -134,7 +134,8 @@ def lire_suivi(chemin: Path) -> dict | None:
     }
 
 
-def dernier_suivi(suivi_dir: Path = SUIVI_DIR) -> dict | None:
+def derniers_suivis(n: int = 3, suivi_dir: Path = SUIVI_DIR) -> list[dict]:
+    """Les `n` suivis mis à jour le plus récemment (du plus récent au plus ancien)."""
     trouves = []
     for chemin in sorted(suivi_dir.glob("*.html")):
         if chemin.name.startswith("_"):
@@ -146,13 +147,18 @@ def dernier_suivi(suivi_dir: Path = SUIVI_DIR) -> dict | None:
         if s:
             trouves.append(s)
     # Le plus récemment mis à jour ; à égalité, celui qui compte le plus de versions.
-    return max(trouves, key=lambda s: (s["date"], s["maj"])) if trouves else None
+    trouves.sort(key=lambda s: (s["date"], s["maj"]), reverse=True)
+    return trouves[:n]
+
+
+def dernier_suivi(suivi_dir: Path = SUIVI_DIR) -> dict | None:
+    """Le suivi mis à jour le plus récemment, ou None."""
+    liste = derniers_suivis(1, suivi_dir)
+    return liste[0] if liste else None
 
 
 def rendre(s: dict) -> str:
-    court = f"{s['date'].day} {MOIS_COURT[s['date'].month - 1]}"
-    ligne = (f"{s['rubrique']} · " if s["rubrique"] else "") + (
-        f"mis à jour le {court}" if s["maj"] else f"première analyse le {court}")
+    ligne = _ligne(s)
     image = (f'\n      <div class="featured-article-image-wrap">\n'
              f'        <img class="featured-article-image" src="{_html.escape(s["image"])}" alt="{_html.escape(s["titre"])}">\n'
              f'      </div>') if s["image"] else ""
@@ -172,6 +178,48 @@ def rendre(s: dict) -> str:
   </div>
 </section>
 {END}"""
+
+
+def _ligne(s: dict, insecable: bool = False) -> str:
+    """« Économie · mis à jour le 9 oct. ». insecable=True : la date reste d'un seul tenant
+    (retour à la ligne possible seulement avant elle), pour ne jamais couper « 12 / sept. »."""
+    court = f"{s['date'].day} {MOIS_COURT[s['date'].month - 1]}"
+    date_txt = f"mis à jour le {court}" if s["maj"] else f"première analyse le {court}"
+    rubrique = f"{s['rubrique']} · " if s["rubrique"] else ""
+    if not insecable:
+        return rubrique + date_txt
+    # Deux éléments côte à côte (sans « · » qui pourrait rester seul en bout de ligne) ; la date ne se coupe jamais.
+    rub = f"<span>{_html.escape(s['rubrique'])}</span>" if s["rubrique"] else ""
+    return rub + f'<span class="nw">{_html.escape(date_txt)}</span>'
+
+
+def rendre_suivis_edition(suivis: list[dict]) -> str:
+    """Bande « Les derniers suivis » de la page Éditions : une carte par suivi, sans image."""
+    cartes = "\n".join(
+        f"""      <a class="suivi-card" href="suivi/{s['slug']}.html">
+        <span class="suivi-card-meta">{_ligne(s, insecable=True)}</span>
+        <span class="suivi-card-title">{_typo(s['titre'])}</span>
+        <span class="suivi-card-text">{_typo(_debut(s['fait'], 170))}</span>
+        <span class="suivi-card-cta">Lire le suivi →</span>
+      </a>""" for s in suivis)
+    return f"""<section class="suivis-recents" id="suivis">
+  <div class="wrap">
+    <p class="suivis-label">Les derniers suivis</p>
+    <div class="suivis-grid">
+{cartes}
+    </div>
+  </div>
+</section>"""
+
+
+def bloc_suivis_edition(n: int = 3) -> str:
+    """Bande pour la page Éditions, ou "" au moindre problème (jamais d'exception)."""
+    try:
+        suivis = derniers_suivis(n)
+        return rendre_suivis_edition(suivis) if suivis else ""
+    except Exception as e:  # noqa: BLE001
+        print(f"[suivi_home] bande ignorée : {e}", file=sys.stderr)
+        return ""
 
 
 def bloc_dernier_suivi() -> str:
