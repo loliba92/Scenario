@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "73e0197a83c3ba9f2df76d5c5056a41f9f836e20b5d74f2ad009726173e49868"
+    "md_sha256": "85d2711c5d6a1b14c384e9495e9ffbf5ad4a7cbe836720c8526456898bf58442"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -3105,7 +3105,7 @@
           "question": null,
           "tag": "IA & recherche",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Le 2 octobre 2026, des chercheurs de l'université de Göteborg (Suède) publient un système d'IA en boucle fermée combinant plusieurs LLM, bases de données et robots de laboratoire physiques. L'IA a analysé 60 000 relations biologiques sur la levure, formulé 2 000 hypothèses testables, conçu les protocoles, piloté les robots, analysé les résultats et mis à jour ses hypothèses — avec une intervention humaine minimale. L'OMS publie simultanément des recommandations pour une recherche en santé par IA « responsable et au bénéfice de tous ».",
           "rationnel": "La question : l'automatisation complète du cycle scientifique (hypothèse → expérience → interprétation) va-t-elle multiplier les découvertes biomédicales (médicaments, thérapies géniques, bioproduction) ou créer une « science noire » non reproductible, non compréhensible par l'humain, et potentiellement dangereuse si elle s'applique à des pathogènes ou à l'environnement ? L'issue est ouverte car la reproductibilité, la traçabilité éthique et la responsabilité légale ne sont pas résolues. Pour la France (biotech, Sanofi, Institut Pasteur, CEA), l'enjeu est la souveraineté scientifique et la régulation.",
           "angle": null,

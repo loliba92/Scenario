@@ -581,7 +581,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 
 ## Sciences — vendredi (climat & écologie, espace, IA, médecine, énergie…)
-- [ ] 🔍 Un « scientifique IA » autonome conçoit et mène ses propres expériences : la recherche va-t-elle s'accélérer ou s'emballer ? [IA & recherche]
+- [ ] Un « scientifique IA » autonome conçoit et mène ses propres expériences : la recherche va-t-elle s'accélérer ou s'emballer ? [IA & recherche]
   <!-- id: sciences-un-scientifique-ia-autonome-concoit-et-mene-ses -->
   <!-- contexte: Le 2 octobre 2026, des chercheurs de l'université de Göteborg (Suède) publient un système d'IA en boucle fermée combinant plusieurs LLM, bases de données et robots de laboratoire physiques. L'IA a analysé 60 000 relations biologiques sur la levure, formulé 2 000 hypothèses testables, conçu les protocoles, piloté les robots, analysé les résultats et mis à jour ses hypothèses — avec une intervention humaine minimale. L'OMS publie simultanément des recommandations pour une recherche en santé par IA « responsable et au bénéfice de tous ». -->
   <!-- rationnel: La question : l'automatisation complète du cycle scientifique (hypothèse → expérience → interprétation) va-t-elle multiplier les découvertes biomédicales (médicaments, thérapies géniques, bioproduction) ou créer une « science noire » non reproductible, non compréhensible par l'humain, et potentiellement dangereuse si elle s'applique à des pathogènes ou à l'environnement ? L'issue est ouverte car la reproductibilité, la traçabilité éthique et la responsabilité légale ne sont pas résolues. Pour la France (biotech, Sanofi, Institut Pasteur, CEA), l'enjeu est la souveraineté scientifique et la régulation. -->
