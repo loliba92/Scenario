@@ -87,6 +87,23 @@ jobs:
           git pull --rebase origin main
           git push origin main
 
+      # « Le dernier suivi » de l'accueil (ajouté le 9 octobre 2026). Étape à part et non bloquante :
+      # si elle échoue (conflit avec la publication de l'édition du jour, par exemple), la mise à jour
+      # du suivi déjà poussée ci-dessus n'est jamais affectée ; l'édition suivante rafraîchit l'accueil.
+      - name: Mettre à jour « Le dernier suivi » sur l'accueil
+        if: github.event.inputs.dry_run != 'true'
+        continue-on-error: true
+        run: |
+          git pull --rebase origin main
+          python3 scripts/edition/suivi_home.py
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "Accueil déjà à jour."
+            exit 0
+          fi
+          git commit -m "[accueil] « Le dernier suivi » mis à jour"
+          git push origin main
+
       # Issue récapitulative — même principe que hot-topics.yml, ajouté le
       # 19 septembre 2026 (retour utilisateur, plus facile à suivre qu'en
       # rouvrant les logs). Toujours créée après une exécution réelle

@@ -21,6 +21,8 @@ on:
       - "scripts/edition/check_fixtures.py"
       - "scripts/edition/build_html.py"
       - "scripts/edition/test_dates.py"
+      - "scripts/edition/suivi_home.py"
+      - "scripts/edition/test_suivi_home.py"
       - "scripts/seo/generate_archives_table.py"
       - "editorial-briefs/**"
       - "scripts/edition/fixtures/**"
@@ -30,6 +32,8 @@ on:
       - "scripts/edition/check_fixtures.py"
       - "scripts/edition/build_html.py"
       - "scripts/edition/test_dates.py"
+      - "scripts/edition/suivi_home.py"
+      - "scripts/edition/test_suivi_home.py"
       - "scripts/seo/generate_archives_table.py"
       - "editorial-briefs/**"
       - "scripts/edition/fixtures/**"
@@ -56,3 +60,6 @@ jobs:
 
       - name: Tests du format court des dates (cartes)
         run: python3 -m unittest discover -s scripts/edition -p "test_dates.py" -v
+
+      - name: Tests du bloc « Le dernier suivi » de l'accueil
+        run: python3 -m unittest discover -s scripts/edition -p "test_suivi_home.py" -v
