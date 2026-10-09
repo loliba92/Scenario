@@ -241,7 +241,8 @@
   function carte(s) {
     var e = s.e;
     var badges = '<span class="badge">' + esc(nomSection(s.sec)) + "</span>";
-    if (s.prochain) badges += '<span class="badge next">Prochain</span>';
+    if (s.jourPrevu && document.getElementById("f-statut").value === "prochains") badges = '<span class="badge next">' + esc(s.jourPrevu) + "</span>" + badges;
+    else if (s.prochain) badges += '<span class="badge next">Prochain</span>';
     if (e.validation === "a_valider") badges += '<span class="badge warn">🔍 À valider</span>';
     if (e.statut === "publie") badges += '<span class="badge ok">Publié' + (e.edition ? " le " + esc(fmtDate(e.edition)) : "") + "</span>";
     if (s.manque.length && e.statut === "a_traiter") badges += '<span class="badge inc">Incomplet · ' + esc(s.manque.join(", ")) + "</span>";
@@ -286,16 +287,54 @@
       '<button type="button" class="btn" data-copier-id="' + esc(e.id) + '">Copier l\'identifiant</button></div></div></div></details>';
   }
 
+  // ---- les 10 prochains (miroir de sujets.py : sujet_du_jour) ----
+  // Chaque jour, la routine prend d'abord le premier sujet éligible de « Priorité absolue »,
+  // sinon le premier de la rubrique du jour de la semaine. On déroule les jours à venir.
+  var REGISTRE_DU_JOUR = ["geopolitique", "carte_blanche", "actualite_francaise", "economie", "sciences", "culture", "sport"]; // lundi → dimanche
+  var JOURS = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
+  function iso(d) { return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2); }
+  function eligible(s) { return s.e.statut === "a_traiter" && s.e.validation === "valide"; }
+  function prochainsSujets(n) {
+    var jour = new Date();
+    jour.setHours(12, 0, 0, 0);
+    // Édition du jour déjà publiée : on part de demain.
+    if (sujets.some(function (s) { return s.e.edition === iso(jour); })) jour.setDate(jour.getDate() + 1);
+    var pris = {}, res = [];
+    for (var k = 0; k < 60 && res.length < n; k++, jour.setDate(jour.getDate() + 1)) {
+      var rub = REGISTRE_DU_JOUR[(jour.getDay() + 6) % 7];
+      var choix = null;
+      ["priorite_absolue", rub].some(function (cle) {
+        return sujets.some(function (s) {
+          if (s.sec.cle === cle && eligible(s) && !pris[s.e.id]) { choix = s; return true; }
+          return false;
+        });
+      });
+      if (choix) {
+        pris[choix.e.id] = true;
+        res.push({ s: choix, jour: JOURS[jour.getDay()] + " " + jour.getDate() + " " + MOIS[jour.getMonth()] });
+      }
+    }
+    return res;
+  }
+
   // ---- liste filtrée ----
+  var prochainsOrdre = [];   // identifiants des 10 prochains, dans l'ordre de parution
   function filtrer() {
     var q = document.getElementById("q").value.trim();
     var reg = document.getElementById("f-registre").value;
     var st = document.getElementById("f-statut").value;
     var dos = document.getElementById("f-dossier").value;
 
+    var dates = null;
+    if (st === "prochains") {
+      dates = {};
+      prochainsOrdre = [];
+      prochainsSujets(10).forEach(function (x) { dates[x.s.e.id] = x.jour; prochainsOrdre.push(x.s.e.id); });
+    }
     var liste = sujets.filter(function (s) {
       if (reg && s.sec.cle !== reg) return false;
-      if (st !== "tous" && s.e.statut !== st) return false;
+      if (dates) { if (!dates[s.e.id]) return false; s.jourPrevu = dates[s.e.id]; }
+      else if (st !== "tous" && s.e.statut !== st) return false;
       if (dos === "incomplet" && !s.manque.length) return false;
       if (dos === "complet" && s.manque.length) return false;
       if (dos === "a_valider" && s.e.validation !== "a_valider") return false;
@@ -303,6 +342,7 @@
     });
 
     var ordonne = liste;
+    if (dates) ordonne = liste.sort(function (a, b) { return prochainsOrdre.indexOf(a.e.id) - prochainsOrdre.indexOf(b.e.id); });
     if (q && engine) {
       var res = engine.search(q, { flat: true, minRelated: 9 });
       var rang = {};
@@ -318,6 +358,7 @@
 
     var html = "", dernier = null;
     ordonne.forEach(function (s) {
+      if (dates) { html += carte(s); return; }
       if (!q && s.sec !== dernier) { html += '<h2 class="groupe">' + esc(nomSection(s.sec)) + "</h2>"; dernier = s.sec; }
       html += carte(s);
     });
