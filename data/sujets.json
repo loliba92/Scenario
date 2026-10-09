@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "869cecc333b88d9946fd97cffea3c4e0117212727904ca27b7afdf2946d221a1"
+    "md_sha256": "e76726e6dc9d72ea5bcd9b73e1c8caf9ba0fe57d9b949d37e2fb31eb8ea0577c"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -523,7 +523,7 @@
           "question": null,
           "tag": "géopolitique & énergie",
           "statut": "a_traiter",
-          "validation": "a_valider",
+          "validation": "valide",
           "contexte": "Le 3 octobre 2026, Volodymyr Zelensky annonce l'intensification des frappes ukrainiennes sur les raffineries russes (« passer à l'échelle supérieure »), en représailles aux attaques massives de drones russes sur Kiev et les infrastructures énergétiques ukrainiennes. La contre-offensive « Vivaldi » aurait repris 140 km² dans le Donbass. Moscou a appelé les diplomates à quitter Kiev, promettant des « frappes de représailles massives ». Les raffineries russes visées cet été avaient déjà provoqué une crise carburant en Russie.",
           "rationnel": "La question : l'escalade réciproque sur les infrastructures énergétiques (raffineries russes vs réseau électrique ukrainien) va-t-elle créer un choc pétrolier mondial, forcer la Russie à négocier, ou s'enliser dans une guerre d'usure énergétique sans vainqueur ? L'issue est ouverte car la capacité russe à absorber les pertes de raffinage est incertaine, l'hiver approche côté ukrainien, et les marchés pétroliers sont nerveux. Pour la France, l'enjeu est le prix du carburant, la sécurité d'approvisionnement et le risque d'élargissement du conflit.",
           "angle": null,
