@@ -61,6 +61,21 @@ class TestSuiviHome(unittest.TestCase):
         self.assertLess(un.index("Le dernier suivi"), un.index("hero"))
         self.assertEqual(sh.injecter(un, ""), sh.injecter(INDEX, ""))  # sans bloc : retrait propre
 
+    def test_bande_page_editions(self):
+        def suivi(slug, jour):
+            return {"slug": slug, "titre": f"Titre {slug} ?", "date": date(2026, 9, jour), "maj": 1,
+                    "fait": "Un fait. Un autre fait.", "image": "", "rubrique": "Économie"}
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            for nom, jour in (("a", "1 septembre 2026"), ("b", "5 septembre 2026"), ("c", "9 septembre 2026"), ("d", "12 septembre 2026")):
+                (tmp / f"{nom}.html").write_text(PAGE.format(d=jour), encoding="utf-8")
+            recents = sh.derniers_suivis(3, tmp)
+            self.assertEqual([s["slug"] for s in recents], ["d", "c", "b"])   # du plus récent au plus ancien
+        bande = sh.rendre_suivis_edition([suivi("x", 12), suivi("y", 5)])
+        self.assertEqual(bande.count('class="suivi-card"'), 2)
+        self.assertIn('<span class="nw">mis à jour le 12 sept.</span>', bande)   # la date ne se coupe jamais
+        self.assertIn("&nbsp;?", bande)
+
     def test_ne_leve_jamais(self):
         orig = sh.dernier_suivi
         sh.dernier_suivi = lambda *a, **k: (_ for _ in ()).throw(RuntimeError("panne"))
