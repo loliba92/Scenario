@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "46a43ef5e1adc3b9f02f38f1d9dc7538c9a2db52a44222691d68a8104431451f"
+    "md_sha256": "788f3a727173b6ef65907db792fdd0377c3c3894cbc55a465d596aaea3575b48"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -524,7 +524,7 @@
           "tag": "géopolitique & défense",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
+          "contexte": "Depuis février 2022, les États-Unis ont fourni 64 milliards d'euros d'aide militaire à l'Ukraine tandis que les alliés européens (y compris le Royaume-Uni) ont contribué 62 milliards d'euros, et en 2024 le soutien américain s'est élevé à 20 milliards d'euros sur un total de 42 milliards d'euros. Pour remplacer cet apport, des estimations indiquent que l'Europe devrait augmenter ses dépenses de défense d'environ 250 milliards d'euros par an, passant d'environ 2 % du PIB à près de 3,5 %, ce qui impliquerait pour Allemagne de porter son budget annuel de la défense de 80 à 140 milliards d'euros (≈3,5 % du PIB). Lors du sommet de l'OTAN à La Haye en 2025, les Alliés se sont engagés à atteindre 5 % du PIB pour la défense d'ici 2035, et le budget propre de l'OTAN est fixé à 4,6 milliards d'euros en 2025, devant atteindre 5,3 milliards d'euros en 2026. L'UE a lancé l'instrument de prêt SAFE (150 milliards d'euros) et a activé la clause d'échappement du Pacte de stabilité et de croissance pour permettre des hausses de dépenses de défense, tandis que l'Allemagne a modifié sa constitution au printemps 2025 pour lever le frein à l'endettement destiné à la défense.",
           "rationnel": "Le meilleur sujet de fond : il touche directement la France, les finances publiques, l'industrie de défense et l'avenir de l'OTAN. L'issue est ouverte : tout dépend de l'effort budgétaire des Européens, de leur capacité industrielle et de la position américaine.",
           "angle": null,
           "a_verifier": null,
@@ -538,14 +538,31 @@
           ],
           "scenarios": null,
           "echeance": null,
-          "sources": [],
+          "sources": [
+            {
+              "titre": "Defending Europe Without the United States: Costs and ...",
+              "url": "https://www.iiss.org/research-paper/2025/05/defending-europe-without--the-united-states-costs-and-consequences/"
+            },
+            {
+              "titre": "Defending Europe without the US: first estimates of what is needed",
+              "url": "https://www.bruegel.org/analysis/defending-europe-without-us-first-estimates-what-needed"
+            },
+            {
+              "titre": "Funding NATO | NATO Topic",
+              "url": "https://www.nato.int/en/what-we-do/introduction-to-nato/funding-nato"
+            },
+            {
+              "titre": "European Strategic Autonomy in a Transatlantic Security Context: From Dependence to Independence? | Springer Nature Link",
+              "url": "https://link.springer.com/chapter/10.1007/978-3-032-11892-9_10"
+            }
+          ],
           "origine": "utilisateur",
           "note": null,
           "donnees": null,
           "ajoute_le": "2026-10-09",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-09"
         },
         {
           "type": "sujet",
@@ -5480,7 +5497,7 @@
           "tag": "géopolitique & économie",
           "statut": "a_traiter",
           "validation": "valide",
-          "contexte": null,
+          "contexte": "En août 2023, la Chine a commencé à restreindre les exportations de gallium, germanium et antimoine, puis a instauré une interdiction totale vers les États-Unis en décembre 2024, avant de suspendre cette interdiction le 9 novembre 2025 tout en maintenant des contrôles licencés. En avril 2025, Pékin a ajouté sept terres rares moyennes et lourdes à sa liste de contrôle, et en octobre 2025 il a introduit des mesures globales reportées jusqu’au 10 novembre 2026. L’Union européenne a adopté le règlement (UE) 2024/1252 le 11 avril 2024 (en force depuis le 23 mai 2024) visant à garantir un approvisionnement sûr en matières premières critiques, tandis que les États-Unis restent à 100 % dépendants des importations pour douze minéraux critiques et à plus de 50 % pour vingt‑neuf autres, la Chine fournissant encore environ 71 % des composés et métaux de terres rares importés. En septembre 2026, l’oxyde de praséodyme‑néodyme se négociait autour de 97 $/kg, le germanium augmentant de près de 5 % en octobre, reflétant un marché encore tendu malgré la suspension actuelle des contrôles chinois.",
           "rationnel": "Un excellent pont entre géopolitique et économie, avec des indicateurs concrets : prix des matières premières, dépendance aux importations et production européenne. L'issue est ouverte : elle dépend des restrictions d'exportation chinoises et de la capacité des Occidentaux à diversifier leurs approvisionnements.",
           "angle": null,
           "a_verifier": null,
@@ -5493,15 +5510,35 @@
             "prix des matières premières"
           ],
           "scenarios": null,
-          "echeance": null,
-          "sources": [],
+          "echeance": {
+            "date": "2026-11-10",
+            "raison": "Date à laquelle la suspension des contrôles d’exportation chinois sur les terres rares et les métaux critiques expire, pouvant déclencher le rétablissement de restrictions."
+          },
+          "sources": [
+            {
+              "titre": "China halts ban on gallium, germanium, antimony exports to ...",
+              "url": "https://www.reuters.com/world/china/china-suspends-ban-exports-gallium-germanium-antimony-us-2025-11-09/"
+            },
+            {
+              "titre": "Le recours stratégique de la Chine aux contrôles commerciaux",
+              "url": "https://css.ethz.ch/content/dam/ethz/special-interest/gess/cis/center-for-securities-studies/pdfs/css-policybriefs-001-fr.pdf"
+            },
+            {
+              "titre": "Mineral Commodity Summaries 2026: Rare Earths - USGS.gov",
+              "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-rare-earths.pdf"
+            },
+            {
+              "titre": "EUR-Lex - 02024R1252-20240503 - EN - EUR-Lex",
+              "url": "https://eur-lex.europa.eu/eli/reg/2024/1252/2024-05-03"
+            }
+          ],
           "origine": "utilisateur",
           "note": null,
           "donnees": null,
           "ajoute_le": "2026-10-09",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-09"
         },
         {
           "type": "sujet",
