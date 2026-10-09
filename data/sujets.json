@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "7846246f522772e6f0c98de79543ee8a6070dfbb862f1252d41553ed3c350bf4"
+    "md_sha256": "869cecc333b88d9946fd97cffea3c4e0117212727904ca27b7afdf2946d221a1"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -3472,7 +3472,7 @@
           "titre": "Cancer : les nouveaux traitements et les premiers vaccins anticancer laissent espérer d'en guérir beaucoup plus — promesse réaliste ou espoir encore lointain ?",
           "question": null,
           "tag": "médecine & santé",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "En France, 433 136 nouveaux cas de cancer ont été diagnostiqués en 2023 et 164 314 personnes en sont décédées, selon le Panorama des cancers 2026 publié par l'Institut national du cancer. Le 19 août 2026, Merck et Moderna ont annoncé des résultats positifs de phase III pour l'intismeran autogene (V940), un vaccin personnalisé à ARNm associé au pembrolizumab, chez 1 137 patients atteints d'un mélanome à haut risque après chirurgie : le critère principal de survie sans récidive et le critère secondaire de survie sans métastase à distance ont été atteints, une première pour une thérapie néoantigénique individualisée. En parallèle, le 28 août 2026, BioNTech et Genentech ont arrêté leur essai de phase II BNT122-01 sur le cancer colorectal après qu'un comité indépendant a constaté un déséquilibre numérique de survie globale défavorable au bras vaccin, soulignant la difficulté des tumeurs \"froides\" à répondre à l'immunothérapie. Des équipes suisses des HUG et de l'UNIGE ont obtenu le Prix Pfizer 2026 pour leur vaccin MVX-ONCO-1, testé avec succès chez 34 patients atteints de tumeurs solides avancées, avec plus de la moitié montrant un bénéfice clinique sans effet secondaire notable.",
           "rationnel": "Ce sujet est brûlant d'actualité car l'été 2026 a été marqué par deux annonces contradictoires majeures : la première phase III positive pour un vaccin anticancer à ARNm (mélanome) et l'arrêt d'un essai pour cause de surmortalité dans le cancer colorectal, illustrant l'incertitude réelle de la promesse. L'issue reste ouverte car les succès sur le mélanome (tumeur 'chaude', immunogène) ne préjugent pas de l'efficacité sur les cancers plus fréquents comme le colorectal, le poumon ou le pancréas, où les obstacles biologiques et les coûts de production individualisée restent considérables. Pour un lecteur français, l'enjeu est direct : le cancer touche un Français sur deux, et les vaccins thérapeutiques pourraient transformer la prise en charge post-opératoire, mais les échecs récents rappellent que des années d'essais supplémentaires sont nécessaires avant une disponibilité grand public.",
@@ -3511,8 +3511,8 @@
           "origine": null,
           "note": null,
           "ajoute_le": null,
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-10-09",
+          "edition": "2026-10-09",
           "enrichi_le": "2026-10-08",
           "donnees": "[relevé du 2026-10-08] Hazard ratio (unitless). RFS HR = 0.51 (2026) ; DMFS HR = 0.411 (2026) ; OS HR = 0.471 (2026). Sources : https://www.merck.com/news/merck-and-moderna-announce-phase-3-interpath-001-trial-of-intismeran-autogene-plus-keytruda-met-endpoints-of-recurrence-free-survival-rfs-and-distant-metastasis-free-survival-dmfs-in-patient/ ; https://www.drugs.com/clinical_trials/moderna-merck-present-5-year-data-intismeran-autogene-combination-keytruda-pembrolizumab-patients-22469.html"
         },
