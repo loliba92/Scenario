@@ -129,6 +129,12 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Géopolitique — lundi
 <!-- Registre scindé le 12 août (retour utilisateur) : la géopolitique dure (conflits, diplomatie, États) et l'économie mondiale (marchés, monnaies, dette, matières premières) partageaient jusque-là le même slot du lundi, ce qui tassait deux blocs très différents dans une seule file. L'économie mondiale a sa propre section dimanche (voir plus bas) — la case libérée vient de la fusion des deux jours culture (française + internationale) en un seul, samedi. **Règle de classement pour les sujets à cheval sur les deux** (ex. guerres commerciales, tarifs douaniers) : si l'enjeu central est un rapport de force entre États (qui menace qui, qui négocie quoi) → géopolitique/lundi ; si l'enjeu central est un indicateur chiffré ou un marché (prix, taux, dette, cours) → économie/dimanche. Cas tranchés le 12 août à titre d'exemple : "Guerre commerciale USA-Chine" reste ici (framing État contre État, guerre froide) ; "Droits de douane de Trump" part en économie (contenu réel = batailles judiciaires et chiffres de recettes tarifaires, pas un rapport de force diplomatique). Les vieilles éditions déjà publiées gardent leur tag d'origine (`geopolitique`), jamais retaggées rétroactivement — voir docs/tags.md. -->
+- [ ] L'Europe peut-elle se défendre sans les États-Unis ? [géopolitique & défense]
+  <!-- id: geopolitique-l-europe-peut-elle-se-defendre-sans-les-etats -->
+  <!-- question: L'Europe peut-elle assurer seule sa défense, sans le soutien des États-Unis, dans les années qui viennent ? -->
+  <!-- rationnel: Le meilleur sujet de fond : il touche directement la France, les finances publiques, l'industrie de défense et l'avenir de l'OTAN. L'issue est ouverte : tout dépend de l'effort budgétaire des Européens, de leur capacité industrielle et de la position américaine. -->
+  <!-- mots-clés: défense européenne ; OTAN ; États-Unis ; industrie de défense ; budget de la défense ; autonomie stratégique -->
+  <!-- origine: utilisateur -->
 - [ ] Ukraine : l'intensification des frappes sur les raffineries russes peut-elle faire basculer la guerre énergétique ? [géopolitique & énergie]
   <!-- id: geopolitique-ukraine-l-intensification-des-frappes-sur-les -->
   <!-- contexte: Le 3 octobre 2026, Volodymyr Zelensky annonce l'intensification des frappes ukrainiennes sur les raffineries russes (« passer à l'échelle supérieure »), en représailles aux attaques massives de drones russes sur Kiev et les infrastructures énergétiques ukrainiennes. La contre-offensive « Vivaldi » aurait repris 140 km² dans le Donbass. Moscou a appelé les diplomates à quitter Kiev, promettant des « frappes de représailles massives ». Les raffineries russes visées cet été avaient déjà provoqué une crise carburant en Russie. -->
@@ -981,6 +987,12 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Économie & finance mondiale — jeudi
 <!-- Faire tourner les sous-thèmes : marchés financiers, monnaies (dollar, or, bitcoin), dette et taux d'intérêt, matières premières (pétrole, énergie), entreprises et secteurs à l'échelle mondiale, inégalités, démographie économique, luxe et consommation… Nouveau registre créé le 12 août (retour utilisateur), scindé de l'ancien slot "Géopolitique / international — lundi" qui mélangeait géopolitique dure et économie mondiale — voir la note dans la section Géopolitique — lundi pour la règle de classement des sujets à cheval sur les deux. -->
+- [ ] La Chine peut-elle utiliser les métaux critiques comme arme géopolitique ? [géopolitique & économie]
+  <!-- id: economie-la-chine-peut-elle-utiliser-les-metaux -->
+  <!-- question: La Chine peut-elle utiliser son contrôle des métaux critiques comme arme géopolitique contre l'Europe et les États-Unis ? -->
+  <!-- rationnel: Un excellent pont entre géopolitique et économie, avec des indicateurs concrets : prix des matières premières, dépendance aux importations et production européenne. L'issue est ouverte : elle dépend des restrictions d'exportation chinoises et de la capacité des Occidentaux à diversifier leurs approvisionnements. -->
+  <!-- mots-clés: métaux critiques ; terres rares ; Chine ; restrictions d'exportation ; dépendance aux importations ; prix des matières premières -->
+  <!-- origine: utilisateur -->
 - [ ] BCE : les marchés parient sur trois hausses de taux d'ici fin 2027 — l'inflation est-elle vraiment revenue ? [économie & finance]
   <!-- id: economie-bce-les-marches-parient-sur-trois-hausses-de -->
   <!-- contexte: Le 1er octobre 2026, au lendemain de la présentation du budget français, les rendements obligataires européens enregistrent leur plus forte hausse trimestrielle depuis 2022. Le Bund à 10 ans atteint 3,65 % (plus haut depuis 2009). Les marchés monétaires intègrent un taux de dépôt BCE à 2,81 % d'ici décembre 2026 (+25 pb) et 3,42 % fin 2027, soit trois hausses anticipées. L'inflation française est révisée à 2,5 % pour 2026 (Banque de France, juin). La crise énergétique (pétrole, gaz) et les dépenses indexées (retraites, obligations indexées) alimentent la boucle prix-salaires. -->
