@@ -507,6 +507,41 @@
       </div>
     </div>
 
+    <div class="version is-update">
+      <div class="version-head">
+        <span class="version-tag">V2 — Mise à jour</span>
+        <span class="version-date">9 octobre 2026</span>
+        <button type="button" class="version-toggle" aria-expanded="false" aria-controls="version-content-v2">Détails <span class="version-toggle-icon" aria-hidden="true">▾</span></button>
+      </div>
+      <div class="version-content" id="version-content-v2">
+        <div class="version-content-inner">
+        <p>Depuis le 7 septembre 2026, la BCE a relevé ses trois taux directeurs de 25 points de base le 10 septembre, portant son taux de dépôt à 2,50 % à compter du 16 septembre. La Fed a ensuite relevé sa fourchette de taux de 25 points de base, à 3,75 %-4,00 %, le 16 septembre. Les minutes publiées depuis confirment que la majorité des participants de la Fed jugeait vraisemblable une nouvelle hausse avant la fin de l’année, tandis que les comptes rendus de la BCE décrivent une inflation durablement au-dessus de la cible et des marchés intégrant d’autres relèvements.</p>
+        <div class="mini-scenarios">
+          <div class="mini-scenario" data-kind="favorable">
+            <p class="mini-scenario-title">📉 La baisse des taux reprend</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">3%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. 10% en V1)</span></p>
+            <p class="mini-scenario-text">La probabilité d’une reprise des baisses tombe de 10 % à 3 % : au lieu d’amorcer une détente, la BCE et la Fed ont toutes deux augmenté leurs taux en septembre, en invoquant une inflation encore trop élevée. Aucun fait postérieur au 7 septembre ne signale un retournement officiel vers des baisses.</p>
+          </div>
+          <div class="mini-scenario" data-kind="stable">
+            <p class="mini-scenario-title"> ⏸️ La pause continue des deux côtés</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">7%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. 40% en V1)</span></p>
+            <p class="mini-scenario-text">La probabilité d’une pause prolongée des deux côtés chute de 40 % à 7 % : cette pause a été matériellement interrompue par les relèvements de 25 points de base décidés par la BCE le 10 septembre et par la Fed le 16 septembre. Les banques centrales restent dépendantes des données, mais la pause simultanée n’est plus le scénario central.</p>
+          </div>
+          <div class="mini-scenario" data-kind="degrade">
+            <p class="mini-scenario-title">📈 Une nouvelle vague de hausses</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">90%</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">(vs. 50% en V1)</span></p>
+            <p class="mini-scenario-text">La probabilité d’une nouvelle vague de hausses monte de 50 % à 90 % : les deux banques centrales ont déjà relevé leurs taux depuis la date de référence. Les minutes de la Fed indiquent que la plupart de ses membres anticipaient encore une hausse avant fin 2026 ; à la BCE, l’inflation projetée reste au-dessus de 2 % jusqu’en 2028 dans le scénario central et les marchés intégraient deux à trois relèvements supplémentaires d’ici fin 2027.</p>
+          </div>
+        </div>
+        <div class="conclusion">
+          <span class="conclusion-label">Conclusion vs V1</span>
+          <p><strong>📈 Dégradé, +40 points (90%)</strong> — Le scénario dégradé devient dominant parce que le mouvement qu’il décrivait ne relève plus d’un risque anticipé : la BCE et la Fed ont toutes deux effectivement remonté leurs taux après le 7 septembre, avec des signaux officiels laissant ouverte la possibilité d’un durcissement supplémentaire..</p>
+        </div>
+        <p class="sources-note">Sources : <a href="https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp260910~314e508016.en.html" target="_blank" rel="noopener noreferrer">Banque centrale européenne ↗</a>, <a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm" target="_blank" rel="noopener noreferrer">Réserve fédérale américaine ↗</a>, <a href="https://www.federalreserve.gov/monetarypolicy/fomcminutes20260916.htm" target="_blank" rel="noopener noreferrer">Réserve fédérale américaine — procès-verbal du FOMC ↗</a>, <a href="https://www.ecb.europa.eu/press/accounts/2026/html/ecb.mg261008~a10153d090.en.html" target="_blank" rel="noopener noreferrer">Banque centrale européenne — compte rendu de la réunion de septembre ↗</a></p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -565,7 +600,8 @@
   try{
     var evoData = [
       { label: "V0", date: "20 août", favorable: 20, stable: 50, degrade: 30 },
-      { label: "V1", date: "7 sept.", favorable: 10, stable: 40, degrade: 50 }
+      { label: "V1", date: "7 sept.", favorable: 10, stable: 40, degrade: 50 },
+      { label: "V2", date: "9 oct.", favorable: 3, stable: 7, degrade: 90 }
     ];
 
     (function renderEvoChart(){

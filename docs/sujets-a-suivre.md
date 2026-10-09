@@ -150,7 +150,7 @@ mériter une page de suivi ou une mise à jour.
   décision de la Fed le 16 septembre 2026. À surveiller aussi : toute
   nouvelle évolution du trafic pétrolier dans le détroit d'Ormuz et des
   tensions Iran-États-Unis.
-  Dernière vérification : 7 septembre 2026 (V1).
+  Dernière vérification : 9 octobre 2026 (V2).
 
 - **Islande : après le non à l'UE, qui va la protéger ?** (édition du 31 août
   2026)
