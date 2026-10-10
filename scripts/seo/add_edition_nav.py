@@ -10,8 +10,7 @@ Les éditions sont chaînées par date (archives/AAAA-MM-JJ.html, version franç
 avant « Reste connecté » et délimité par des marqueurs : le script est idempotent et ne touche à rien d'autre.
 
 Utilisation :
-  python3 scripts/seo/add_edition_nav.py                      # éditions ayant déjà le bloc + les deux plus récentes
-  python3 scripts/seo/add_edition_nav.py --dates 2026-09-28,… # amorçage : ces éditions (+ les deux plus récentes)
+  python3 scripts/seo/add_edition_nav.py                      # toutes les éditions (seules celles dont un voisin change sont réécrites)
   python3 scripts/seo/add_edition_nav.py --dry-run
 Lancé par post-edition.yml après la publication, sans jamais la bloquer.
 """
@@ -93,13 +92,9 @@ def appliquer(texte, date, dates, dossier):
 
 def main(argv):
     dry = "--dry-run" in argv
-    amorce = set()
-    if "--dates" in argv:
-        amorce = {d for d in argv[argv.index("--dates") + 1].split(",") if re.fullmatch(r"\d{4}-\d{2}-\d{2}", d)}
     dossier = ROOT / "archives"
     dates = sorted(m.group(1) for p in dossier.glob("*.html") if (m := DATED.match(p.name)))
-    cibles = set(dates[-2:]) | (amorce & set(dates))
-    cibles |= {d for d in dates if DEBUT in (dossier / f"{d}.html").read_text(encoding="utf-8")}
+    cibles = set(dates)  # toutes les éditions : la chaîne doit être continue, indexées ou non (10 octobre 2026)
     changes = 0
     for d in sorted(cibles):
         chemin = dossier / f"{d}.html"
