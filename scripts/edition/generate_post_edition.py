@@ -1397,6 +1397,14 @@ def main():
     # manuelle), ni sources-log.json ni sources.html ne sont même écrits
     # dans le bac à sable — promote_to_real_repo() ne touche alors pas ces
     # deux fichiers du tout.
+    # 10 octobre 2026 : brief sans revue de presse (le modèle de repli la laisse souvent vide) -> recherche web
+    # dédiée, voir revue_de_presse.py. Seulement à la publication réelle ; jamais bloquant, jamais de lien inventé.
+    if not brief.get("revue_de_presse") and args.publish and os.environ.get("OPENROUTER_API_KEY"):
+        import revue_de_presse
+        brief["revue_de_presse"] = revue_de_presse.rechercher(brief, date_str, os.environ["OPENROUTER_API_KEY"])
+        if not brief["revue_de_presse"]:
+            print(f"::warning::Revue de presse vide pour {date_str} (brief sans revue et recherche dédiée sans résultat valable)")
+
     if brief.get("revue_de_presse"):
         # Même mirror_root que les étapes 6-7 : il a déjà glossaire.html,
         # le 2e fichier lu par generate_sources_page.py — rien de plus à
