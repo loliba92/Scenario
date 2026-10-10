@@ -106,13 +106,34 @@ class TestNarration(unittest.TestCase):
 
 
 
+def cadrer(texte):
+    """Le texte publié du 3 octobre date d'avant la mise en situation et la phrase finale chaleureuse (10 octobre 2026) :
+    on lui ajoute les deux, pour vérifier le reste du contrôle sans toucher à un texte publié."""
+    return ("Imaginez : vous ouvrez votre messagerie, et un message inattendu s'affiche.\n\n" + texte.strip()
+            + "\n\nLa prochaine fois que vous y repenserez, gardez en tête que rien n'est tranché.")
+
+
 class TestTexteNarration(unittest.TestCase):
+    def test_mise_en_situation_et_phrase_finale_exigees(self):
+        import texte_narration as tn
+        ed = gp.lire_edition(sorted((gp.ROOT / "archives").glob("2026-10-03.html"))[0])
+        src = gp.texte_source(ed)
+        brut = tn.EXEMPLE.read_text(encoding="utf-8")
+        self.assertEqual(tn.verifier(cadrer(brut), src), [])
+        sans_debut = [x for x in tn.verifier(brut + "\n\nLa prochaine fois que vous y repenserez, gardez cela en tête.", src) if "mise en situation" in x]
+        self.assertTrue(sans_debut, "texte qui commence directement par la question : refusé")
+        sans_fin = [x for x in tn.verifier("Imaginez : vous ouvrez votre messagerie, et un message s'affiche.\n\n" + brut, src) if "ramène le sujet" in x]
+        self.assertTrue(sans_fin, "texte sans phrase finale à la deuxième personne : refusé")
+        prompt = tn.construire_prompt(ed)
+        self.assertIn("MISE EN SITUATION", prompt.upper())
+        self.assertIn("La dernière phrase", prompt)
+
     def test_exemple_valide_et_defauts_refuses(self):
         import texte_narration as tn
         from pathlib import Path as P
         ed = gp.lire_edition(sorted((gp.ROOT / "archives").glob("2026-10-03.html"))[0])
         src = gp.texte_source(ed)
-        exemple = tn.EXEMPLE.read_text(encoding="utf-8")
+        exemple = cadrer(tn.EXEMPLE.read_text(encoding="utf-8"))
         self.assertEqual(tn.verifier(exemple, src), [])
         self.assertTrue(tn.verifier("Bonjour. " + exemple, src))          # formule d'accueil
         self.assertTrue(tn.verifier(exemple + " Le chiffre 4242 est faux.", src))  # nombre inventé
@@ -163,7 +184,7 @@ class TestJingles(unittest.TestCase):
         import texte_narration as tn
         txt = "Première partie.\n\nSuite.\n---\nDeuxième partie.\n  ---  \nTroisième."
         self.assertEqual(tn.parties(txt), ["Première partie.\n\nSuite.", "Deuxième partie.", "Troisième."])
-        exemple = tn.EXEMPLE.read_text(encoding="utf-8")
+        exemple = cadrer(tn.EXEMPLE.read_text(encoding="utf-8"))
         ed = gp.lire_edition(sorted((gp.ROOT / "archives").glob("2026-10-03.html"))[0])
         avec_sep = exemple.replace("\n\nAlors, que peut-il", "\n---\nAlors, que peut-il")
         self.assertEqual(tn.verifier(avec_sep, gp.texte_source(ed)), [])   # --- n'est pas du Markdown
@@ -215,7 +236,7 @@ class TestJingles(unittest.TestCase):
     def test_derniere_chance_phrase_un_peu_longue(self):
         # 6 octobre 2026 : un seul texte avec une phrase de 33 mots a fait perdre l'épisode du jour
         import texte_narration as tn
-        exemple = tn.EXEMPLE.read_text(encoding="utf-8")
+        exemple = cadrer(tn.EXEMPLE.read_text(encoding="utf-8"))
         ed = gp.lire_edition(sorted((gp.ROOT / "archives").glob("2026-10-03.html"))[0])
         src = gp.texte_source(ed)
         moyenne = "Voici une phrase un peu longue qui " + "continue avec des mots simples " * 5 + "puis finit."
@@ -230,7 +251,7 @@ class TestJingles(unittest.TestCase):
     def test_derniere_chance_texte_un_peu_long(self):
         # 6 octobre 2026 : 1010, 981 puis 761 mots pour un maximum de 720 (relevé à 1000) : épisode perdu deux fois
         import texte_narration as tn
-        exemple = tn.EXEMPLE.read_text(encoding="utf-8")
+        exemple = cadrer(tn.EXEMPLE.read_text(encoding="utf-8"))
         ed = gp.lire_edition(sorted((gp.ROOT / "archives").glob("2026-10-03.html"))[0])
         src = gp.texte_source(ed)
         reste = tn.MOTS_MAX - len(exemple.split()) + 40
@@ -245,7 +266,7 @@ class TestJingles(unittest.TestCase):
 
     def test_pedagogie_phrases_courtes_et_accueil(self):
         import texte_narration as tn
-        exemple = tn.EXEMPLE.read_text(encoding="utf-8")
+        exemple = cadrer(tn.EXEMPLE.read_text(encoding="utf-8"))
         ed = gp.lire_edition(sorted((gp.ROOT / "archives").glob("2026-10-03.html"))[0])
         src = gp.texte_source(ed)
         longue = "Voici une phrase interminable qui " + "continue encore et encore avec des mots " * 6 + "et finit."
@@ -275,7 +296,7 @@ class TestJingles(unittest.TestCase):
         import texte_narration as tn
         ed = gp.lire_edition(sorted((gp.ROOT / "archives").glob("2026-10-03.html"))[0])
         src = gp.texte_source(ed)
-        base = tn.EXEMPLE.read_text(encoding="utf-8")
+        base = cadrer(tn.EXEMPLE.read_text(encoding="utf-8"))
         self.assertEqual(tn.verifier(base, src), [])
         self.assertTrue(any("sigle" in x for x in tn.verifier(base + "\nLe protocole OSNMA protège les signaux.", src)))
         self.assertTrue(any("sigle" in x for x in tn.verifier(base + "\nLe système GLONASS est russe.", src)))
@@ -295,7 +316,8 @@ class TestJingles(unittest.TestCase):
             self.assertIn("Scénario", o)
             self.assertIn("trois évolutions possibles", o)
             self.assertNotIn("façons", o)
-            self.assertLess(len(o.split()), 24)
+            self.assertLess(len(o.split()), 30)
+        self.assertGreaterEqual(sum(bool(re.search(r"[Cc]omment allez-vous|vous allez bien", o)) for o in tn.OUVERTURES), 5, "accueils chaleureux")
         for f in tn.FERMETURES:
             self.assertIn("lesscenarios.fr", f)
             self.assertRegex(f, r"[Àà] demain, pour un nouveau scénario|à demain pour un nouveau scénario")
@@ -325,7 +347,7 @@ class TestJingles(unittest.TestCase):
             self.assertTrue(re.search(tn.MOTS_INTERDITS, mauvais, re.I), mauvais)
         for bon in ("Le public adhère très vite.", "C'est un pari audacieux, et pas évident.", "Le tournoi est accepté.", "Aucune fatigue nulle part."):
             self.assertFalse(re.search(tn.MOTS_INTERDITS, bon, re.I), bon)
-        exemple = tn.EXEMPLE.read_text(encoding="utf-8")
+        exemple = cadrer(tn.EXEMPLE.read_text(encoding="utf-8"))
         self.assertFalse(re.search(tn.MOTS_INTERDITS, exemple, re.I))
 
     def test_assemblage_avec_jingles(self):
