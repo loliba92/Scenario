@@ -68,28 +68,56 @@ def main(argv=None) -> int:
         nom = (m.group(0) if m else chemin.stem) + args.suffixe
     modeles = tuple(x.strip() for x in args.tts_models.split(",") if x.strip())
     import texte_narration
-    parts = texte_narration.parties(texte)
+    parts = texte_narration.regrouper(texte_narration.parties(texte))
     accueil = False
     if parts and not re.match(r"\s*bienvenue", parts[0], re.I):
         parts.insert(0, texte_narration.ouverture(nom))   # partie à part : la musique reprend 5 s entre l'accueil et la question
         accueil = True
     print(f"{len(texte.split())} mots, {len(parts)} partie(s), voix {args.voix}", flush=True)
-    parties_pcm = []
-    for i, partie in enumerate(parts, 1):
+    import fidelite
+
+    def lire(partie, i):
+        """Une lecture complète de la partie (plusieurs appels si elle est longue)."""
         pcms = []
         for morceau in gp.decouper_texte(partie, limite=2600):
             print(f"Synthèse vocale partie {i}/{len(parts)} ({len(morceau)} caractères)…", flush=True)
+            if args.moteur == "openrouter":
+                import voix_openrouter
+                pcm_voix = voix_openrouter.synthese_openrouter(morceau, args.modele_tts, args.voix, cle_or)
+                pcms.append(gp.egaliser_pcm(pcm_voix) if args.clair else pcm_voix)
+            else:
+                pcms.append(gp.synthese_unique(morceau, args.voix, modeles, cle))
+        return gp.assembler(pcms, silence_s=0.5)
+
+    parties_pcm = []
+    for i, partie in enumerate(parts, 1):
+        fidele = False
+        for essai in range(1, fidelite.ESSAIS + 1):
             try:
-                if args.moteur == "openrouter":
-                    import voix_openrouter
-                    pcm_voix = voix_openrouter.synthese_openrouter(morceau, args.modele_tts, args.voix, cle_or)
-                    pcms.append(gp.egaliser_pcm(pcm_voix) if args.clair else pcm_voix)
-                else:
-                    pcms.append(gp.synthese_unique(morceau, args.voix, modeles, cle))
+                pcm_partie = lire(partie, i)
             except gp.PodcastError as e:
                 print(f"ERREUR : {e}", file=sys.stderr)
                 return 1
-        parties_pcm.append(gp.assembler(pcms, silence_s=0.5))
+            if not cle:   # sans clé de transcription : pas de contrôle de fidélité
+                fidele = True
+                print("ATTENTION : GEMINI_API_KEY absent, fidélité de la voix non contrôlée.", flush=True)
+                break
+            ok, mesures, detail = fidelite.controler(pcm_partie, partie, cle)
+            if ok is None:   # contrôle impossible : on garde la partie, mais on le signale
+                fidele = True
+                print(f"::warning::Fidélité de la partie {i} non contrôlée (transcription impossible : {detail[:200]})", flush=True)
+                break
+            print(f"Contrôle de fidélité partie {i}/{len(parts)} (essai {essai}) : similarité {mesures['similarite']:.2f}, "
+                  f"{mesures['entendus']} mots entendus pour {mesures['attendus']} attendus : "
+                  f"{'conforme' if ok else 'INFIDÈLE'}", flush=True)
+            if ok:
+                fidele = True
+                break
+            print(f"::warning::Partie {i} infidèle (la voix a ajouté, changé ou répété des mots) : relecture. Entendu : « {detail[:240]}… »", flush=True)
+        if not fidele:
+            print(f"ERREUR : la partie {i} n'est pas lue fidèlement après {fidelite.ESSAIS} essais : l'épisode n'est pas produit.", file=sys.stderr)
+            return 1
+        parties_pcm.append(pcm_partie)
     if cle:
         ok, transcription = gp.verifier_debut(parties_pcm[0], parts[0], cle)
     else:

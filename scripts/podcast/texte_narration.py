@@ -112,7 +112,7 @@ RÈGLES ABSOLUES
 - Pas de tableau d'indicateurs : ne récite pas les indicateurs chiffrés des scénarios. Garde peu de chiffres : ceux qui font comprendre le sujet, et les probabilités des scénarios, TOUJOURS dites en fractions parlées : « une chance sur quatre » pour 25 %, « une chance sur deux » pour 50 %, « trois chances sur quatre » pour 75 %, « une chance sur trois », « une chance sur cinq », « une chance sur dix ». JAMAIS « pour cent » ni le signe %, même si l'article donne des pourcentages. Ne les arrondis JAMAIS : les trois probabilités des scénarios doivent faire 100 % ensemble (voir PROBABILITÉS ci-dessous).{bloc_probas}
 - Ne dis jamais « selon l'article », ne parle ni de toi ni de l'intelligence artificielle. Pas de « bonjour » ni de « bienvenue » ni d'au revoir : le script ajoute l'accueil avant ton texte et la fermeture après. Ton texte commence par la MISE EN SITUATION (voir STRUCTURE).
 
-STRUCTURE (entre {MOTS_MIN} et {MOTS_MAX} mots, soit 3 à 7 minutes)
+STRUCTURE (entre {MOTS_MIN} et {MOTS_MAX} mots, soit 3 à 7 minutes ; vise environ 850 mots : l'épisode idéal dure 6 à 8 minutes, la mise en situation et la phrase finale comptent dans ce total)
 1. La mise en situation, puis la question du jour. D'abord UNE ou DEUX phrases très courtes qui placent l'auditeur dans une scène de sa vie liée au sujet, à la deuxième personne (« Imaginez… », « Vous… »), concrète et sans chiffre ni nom propre, pour qu'il se sente concerné avant de réfléchir (par exemple, pour la pénurie de médecins : « Imaginez : vous êtes malade, vous appelez votre médecin, et personne ne peut vous recevoir. » ; pour la hausse des prix : « Vous remplissez votre caddie, et à la caisse, la note vous surprend. »). La scène est présentée comme imaginée, jamais comme un fait réel, et ne dit rien de faux sur le sujet. Ensuite, la question du jour, en une ou deux phrases. Ton chaleureux, humain, jamais dramatique.
 2. Ce que l'on sait : les faits qui posent la question, avec un ou deux exemples concrets.
 3. Le fond du problème : à quoi cherche-t-on à répondre, et pourquoi la réponse n'est pas évidente.
@@ -133,6 +133,26 @@ ARTICLE
 SÉPARATEURS : entre les grandes parties (1 | 2 | 3 | 4 | 5 | 6 ci-dessus), écris une ligne qui contient uniquement trois tirets (---). Un jingle musical y sera placé. Pas d'autre séparateur ; à l'intérieur d'une partie, les paragraphes sont séparés par une ligne vide.
 
 Réponds UNIQUEMENT avec un JSON : {{"texte": "le texte parlé, parties séparées par une ligne ---"}}"""
+
+
+MOTS_PARTIE_MIN = 100   # une partie plus courte est jointe à la précédente (pas de jingle ni d'appel de voix pour 30 mots)
+
+
+def regrouper(parts: list[str], minimum: int = MOTS_PARTIE_MIN) -> list[str]:
+    """Regroupe les parties trop courtes (10 octobre 2026). La première (l'accroche : mise en situation et question)
+    et la dernière (la fermeture, sous laquelle la musique est plus présente) restent seules ; les autres parties de
+    moins de `minimum` mots sont jointes à la précédente. Moins de jingles (9 faisaient 1 min 20 de musique) et moins
+    d'appels de voix : une petite partie lue seule est celle dont le ton varie le plus."""
+    if len(parts) <= 2:
+        return list(parts)
+    premier, *milieu, dernier = parts
+    sortie: list[str] = []
+    for p in milieu:
+        if sortie and len(p.split()) < minimum:
+            sortie[-1] = sortie[-1] + "\n\n" + p
+        else:
+            sortie.append(p)
+    return [premier, *sortie, dernier]
 
 
 def parties(texte: str) -> list[str]:
@@ -236,6 +256,35 @@ MOTS_MAX_DERNIER_ESSAI, MOTS_CIBLE = 1100, 850   # dernier essai : jusqu'à 1100
 MOTS_PHRASE_MAX_DERNIER_ESSAI = 40   # dernier essai : une phrase un peu longue (33 à 40 mots) ne doit pas faire perdre l'épisode du jour
 
 
+# Mots qui peuvent apparaître sans être dans l'article : la marque, et des noms communs très courants écrits avec une majuscule.
+TERMES_LIBRES = {"scenario", "france", "francais", "francaise", "francaises", "europe", "europeen", "europeenne", "etat", "etats"}
+
+
+def _sans_accents(t: str) -> str:
+    import unicodedata
+    return "".join(c for c in unicodedata.normalize("NFD", t.lower()) if unicodedata.category(c) != "Mn")
+
+
+def termes_hors_article(texte: str, source: str) -> list[str]:
+    """Sigles et noms propres du texte qui ne figurent pas dans l'article (10 octobre 2026 : « NFT », absent de l'édition).
+
+    Règle du propriétaire : s'appuyer sur l'édition, ne rien inventer. Sont contrôlés : les sigles en majuscules (2 à 6 lettres)
+    et les mots à majuscule au milieu d'une phrase (précédés d'un mot en minuscules), sans tenir compte des accents."""
+    connus = set(re.findall(r"[a-z0-9]+", _sans_accents(source)))
+    trouves: dict[str, None] = {}
+    for m in re.finditer(r"\b[A-ZÉÈÀ]{2,6}\b", texte):
+        if _sans_accents(m.group(0)) not in connus:
+            trouves[m.group(0)] = None
+    for m in re.finditer(r"(?<=[a-zàâçéèêëîïôûùüÿ,;] )([A-ZÉÈÀ][A-Za-zÀ-ÿ'’-]{2,})", texte):
+        mot = m.group(1)
+        base = _sans_accents(mot)
+        morceaux = re.findall(r"[a-z0-9]+", base)   # « Franche-Comté » : chaque morceau est cherché dans l'article
+        if base in TERMES_LIBRES or all(x in connus or re.sub(r"s$", "", x) in connus or x in TERMES_LIBRES for x in morceaux):
+            continue
+        trouves[mot] = None
+    return list(trouves)
+
+
 def verifier(texte: str, source: str, dernier_essai: bool = False, probas: list[int] | None = None) -> list[str]:
     problemes = []
     texte = "\n\n".join(parties(texte))  # les lignes --- ne sont ni des mots ni du Markdown
@@ -283,6 +332,10 @@ def verifier(texte: str, source: str, dernier_essai: bool = False, probas: list[
         problemes.append("phrase en chaîne (« …, ce qui …, ce qui … ») : une seule cause par phrase")
     if not re.search(r"\b(en clair|autrement dit|en d'autres termes|en deux mots)\b", texte, re.I):
         problemes.append("ajoute une phrase de reformulation (« En clair, … ») après la partie dense")
+    inventes = termes_hors_article(texte, source)
+    if inventes:
+        problemes.append("termes absents de l'article (rien ne doit être inventé, appuie-toi uniquement sur l'édition) : "
+                         + ", ".join(inventes) + " : supprime-les ou remplace-les par ce que dit l'article")
     problemes += controle_probabilites(texte, probas or [])
     connus = gp.nombres(source)
     inconnus = sorted(n for n in gp.nombres(texte) if n not in connus and not (n.isdigit() and int(n) <= 10))
