@@ -19,12 +19,14 @@ import difflib
 import json
 import re
 import subprocess
+import time
 import unicodedata
 import urllib.request
 
 SIMILARITE_MIN = 0.85
 RAPPORT_MIN, RAPPORT_MAX = 0.85, 1.15
 ESSAIS = 3
+TOURS_TRANSCRIPTION, ATTENTE_TOUR = 3, 15  # secondes d'attente : 15 puis 30
 SAMPLE_RATE = 24000
 
 
@@ -65,15 +67,20 @@ def transcrire(pcm: bytes, cle: str) -> tuple[str | None, str]:
         candidats = gp._modeles_transcription(cle)[:3]
     except Exception as e:  # noqa: BLE001
         return None, f"liste des modèles : {type(e).__name__}: {e}"
-    for modele in candidats:
-        req = urllib.request.Request(gp.GEMINI_URL.format(model=modele), data=corps, method="POST",
-                                     headers={"Content-Type": "application/json", "x-goog-api-key": cle})
-        try:
-            with urllib.request.urlopen(req, timeout=180) as r:
-                rep = json.loads(r.read())
-            return rep["candidates"][0]["content"]["parts"][0]["text"].strip(), modele
-        except Exception as e:  # noqa: BLE001
-            erreurs.append(f"{modele} : {type(e).__name__}: {e}")
+    # Service parfois indisponible (503, 13 h 11 le 10 octobre 2026) : on réessaie avec attente avant de renoncer.
+    for tour in range(TOURS_TRANSCRIPTION):
+        if tour:
+            time.sleep(ATTENTE_TOUR * tour)
+        erreurs = []
+        for modele in candidats:
+            req = urllib.request.Request(gp.GEMINI_URL.format(model=modele), data=corps, method="POST",
+                                         headers={"Content-Type": "application/json", "x-goog-api-key": cle})
+            try:
+                with urllib.request.urlopen(req, timeout=180) as r:
+                    rep = json.loads(r.read())
+                return rep["candidates"][0]["content"]["parts"][0]["text"].strip(), modele
+            except Exception as e:  # noqa: BLE001
+                erreurs.append(f"{modele} : {type(e).__name__}: {e}")
     return None, " ; ".join(erreurs) or "aucun modèle de transcription disponible"
 
 
