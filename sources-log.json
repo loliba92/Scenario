@@ -2,6 +2,76 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-10",
+      "articles": [
+        {
+          "title": "Un puissant séisme fait 27 blessés au Panama",
+          "source": "franceinfo",
+          "url": "https://www.franceinfo.fr/environnement/catastrophes-naturelles/seismes/un-puissant-seisme-fait-27-blesses-au-panama_8231524.html",
+          "image": "https://www.franceinfo.fr/pictures/EJ2vvwQodzvKfeEBSbCAS2uFc_E/0x0:1080x1920/fit-in/1500x843/filters:upscale():fill(blur)/2026/10/10/6aca17143adea025964661.png",
+          "lang": "fr",
+          "domain": "sciences-environnement",
+          "summary": "Un séisme de magnitude 7,7 a frappé le Panama le vendredi 9 octobre et a été ressenti dans tout le pays. Il a fait 27 blessés légers et endommagé de nombreux bâtiments.",
+          "read_minutes": 1
+        },
+        {
+          "title": "L'Irlande propose des coupes de 140 milliards d'euros dans le budget de l'Union européenne",
+          "source": "franceinfo (AFP)",
+          "url": "https://www.franceinfo.fr/monde/europe/l-irlande-propose-des-coupes-de-140-milliards-d-euros-dans-le-budget-de-l-ue_8231422.html",
+          "image": "https://www.franceinfo.fr/pictures/zggEy_ZQx684PgLWgcxE9s3JZfM/0x260:5000x3072/1500x843/2026/10/10/6aca0a5bcbcef815935914.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "L'Irlande, qui préside l'Union européenne, a présenté un projet de budget 2028-2034 réduit d'environ 140 milliards d'euros par rapport à la proposition de la Commission, avec 55 milliards d'euros de ressources propres supplémentaires. Le compromis doit être discuté lors d'un sommet la semaine suivante à Bruxelles.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Le Premier ministre Sébastien Lecornu annonce une nouvelle dotation de 50 millions pour les communes rurales",
+          "source": "franceinfo (AFP)",
+          "url": "https://www.franceinfo.fr/economie/automobile/essence/le-premier-ministre-sebastien-lecornu-annonce-une-nouvelle-dotation-de-50-millions-pour-les-communes-rurales_8231461.html",
+          "image": "https://www.franceinfo.fr/pictures/xZWlPWLMnfzJyclXwlQog9hAMZY/0x0:1024x576/1500x843/2026/10/10/6aca0e1484eff628935078.jpg",
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Dans une vidéo diffusée au congrès des maires ruraux à Auch, Sébastien Lecornu a annoncé une dotation de 50 millions d'euros pour 9 000 communes rurales. Il a aussi promis une réponse spécifique pour 339 stations-service isolées, après le déblocage de 10 millions de barils issus des stocks stratégiques.",
+          "read_minutes": 1
+        }
+      ]
+    },
+    {
+      "date": "2026-10-09",
+      "articles": [
+        {
+          "title": "La plateforme de vote pour la primaire de la gauche \"victime d'une cyberattaque\", le scrutin prolongé jusqu'à dimanche à 18 heures, annonce la commission d'organisation",
+          "source": "franceinfo",
+          "url": "https://www.franceinfo.fr/elections/presidentielle/la-plateforme-de-vote-pour-la-primaire-socialiste-victime-d-une-cyberattaque-depuis-son-ouverture-annonce-la-commission-d-organisation_8229811.html",
+          "image": "https://www.franceinfo.fr/pictures/K9pErQ6gECEFbiP7zpkP-ykESWo/0x66:1024x642/1500x843/2026/10/05/6ac3f877b585c031808225.jpg",
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "La plateforme e-votez, prestataire de la primaire organisée par le Parti socialiste et Place publique, a été victime d'une cyberattaque dès son ouverture le 9 octobre ; le scrutin est prolongé jusqu'à dimanche 18 h. À 19 h vendredi, 20 000 des 140 000 inscrits avaient voté, sans altération des votes relevée par les experts.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Autoroute A69 : l'ouverture officiellement repoussée à début novembre, annonce le concessionnaire",
+          "source": "franceinfo (ICI Occitanie)",
+          "url": "https://www.franceinfo.fr/environnement/crise-climatique/chantier-de-l-autoroute-a69/autoroute-a69-l-ouverture-officiellement-repoussee-a-debut-novembre-annonce-le-concessionnaire_8230573.html",
+          "image": "https://www.franceinfo.fr/pictures/3xt86jDi4tqI7fjPl-EoL86PIU8/0x675:4000x2925/1500x843/2026/06/29/6a42dec81e433379937832.jpg",
+          "lang": "fr",
+          "domain": "sciences-environnement",
+          "summary": "L'ouverture de l'A69 (Toulouse-Castres), prévue le 15 octobre, est reportée à la première semaine de novembre, selon le concessionnaire Atosca. Les travaux doivent être achevés la semaine suivante, puis des contrôles de sécurité se poursuivront pendant quinze jours.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Les Etats-Unis imposent des sanctions contre la Cour pénale internationale, l'institution dénonce une \"attaque contre l'Etat de droit\"",
+          "source": "franceinfo (AFP)",
+          "url": "https://www.franceinfo.fr/monde/usa/les-etats-unis-imposent-des-sanctions-contre-la-cour-penale-internationale-l-institution-denonce-une-attaque-contre-l-etat-de-droit_8230324.html",
+          "image": "https://www.franceinfo.fr/pictures/hM6ZZjSfzCGsKZ9c2OrKmf2LG5I/0x106:1024x682/1500x843/2026/10/09/6ac90118c81a0433036473.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Washington a annoncé le 9 octobre des sanctions contre la CPI, quelques heures après l'attribution du prix Nobel de la paix à l'ancienne juge sud-africaine Navi Pillay. La CPI dénonce une atteinte à l'État de droit ; Benyamin Nétanyahou, visé par un mandat d'arrêt de la CPI depuis 2024, salue la mesure.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-10-08",
       "articles": [
         {
