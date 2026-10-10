@@ -202,9 +202,10 @@ def rendre_suivis_edition(suivis: list[dict]) -> str:
         <span class="suivi-card-text">{_typo(_debut(s['fait'], 170))}</span>
         <span class="suivi-card-cta">Lire le suivi →</span>
       </a>""" for s in suivis)
+    libelle = "Le dernier suivi" if len(suivis) == 1 else "Les derniers suivis"
     return f"""<section class="suivis-recents" id="suivis">
   <div class="wrap">
-    <p class="suivis-label">Les derniers suivis</p>
+    <p class="suivis-label">{libelle}</p>
     <div class="suivis-grid">
 {cartes}
     </div>
@@ -212,8 +213,8 @@ def rendre_suivis_edition(suivis: list[dict]) -> str:
 </section>"""
 
 
-def bloc_suivis_edition(n: int = 3) -> str:
-    """Bande pour la page Éditions, ou "" au moindre problème (jamais d'exception)."""
+def bloc_suivis_edition(n: int = 1) -> str:
+    """Bande pour la page Éditions (le dernier suivi seulement : 10 oct. 2026), ou "" au moindre problème (jamais d'exception)."""
     try:
         suivis = derniers_suivis(n)
         return rendre_suivis_edition(suivis) if suivis else ""

@@ -449,7 +449,7 @@
     letter-spacing: 0.14em; color: var(--gold); margin: 0 0 12px;
     border-left: 3px solid var(--gold); padding-left: 10px;
   }
-  .suivis-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .suivis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
   .suivi-card {
     display: flex; flex-direction: column; gap: 8px; padding: 16px 18px;
     background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px;
@@ -467,7 +467,6 @@
   .suivi-card-cta {
     margin-top: auto; font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--gold);
   }
-  @media (min-width: 861px) { .suivi-card-meta { flex-direction: column; flex-wrap: nowrap; } }
   @media (max-width: 860px) { .suivis-grid { grid-template-columns: 1fr; } }
 
   /* ---- Archives table (scripts/seo/generate_archives_table.py) ---- */
@@ -1213,24 +1212,12 @@
 
 <section class="suivis-recents" id="suivis">
   <div class="wrap">
-    <p class="suivis-label">Les derniers suivis</p>
+    <p class="suivis-label">Le dernier suivi</p>
     <div class="suivis-grid">
       <a class="suivi-card" href="suivi/taux-marche-arriere.html">
         <span class="suivi-card-meta"><span>Économie</span><span class="nw">mis à jour le 9 oct.</span></span>
         <span class="suivi-card-title">Taux&nbsp;: marche arrière</span>
         <span class="suivi-card-text">Depuis le 7 septembre 2026, la BCE a relevé ses trois taux directeurs de 25 points de base le 10 septembre, portant son taux de dépôt à 2,50 % à compter du 16 septembre.</span>
-        <span class="suivi-card-cta">Lire le suivi →</span>
-      </a>
-      <a class="suivi-card" href="suivi/islande.html">
-        <span class="suivi-card-meta"><span>International</span><span class="nw">mis à jour le 12 sept.</span></span>
-        <span class="suivi-card-title">Islande&nbsp;: après le non à l'UE, qui va la protéger&nbsp;?</span>
-        <span class="suivi-card-text">Le 7 septembre 2026, Donald Trump a publié sur Truth Social, sans commentaire, une carte représentant le Canada, le Mexique, l'Islande, le Groenland et l'Amérique centrale recouverts du drapeau américain.</span>
-        <span class="suivi-card-cta">Lire le suivi →</span>
-      </a>
-      <a class="suivi-card" href="suivi/arabie-saoudite-sport.html">
-        <span class="suivi-card-meta"><span>Économie</span><span class="nw">mis à jour le 11 sept.</span></span>
-        <span class="suivi-card-title">Golf, foot, boxe&nbsp;: l'Arabie saoudite se retire-t-elle du sport&nbsp;?</span>
-        <span class="suivi-card-text">Coup de théâtre le 8 septembre 2026&nbsp;: LIV Golf a placé volontairement sa société sous protection du Chapter 11 auprès du tribunal des faillites du New Jersey…</span>
         <span class="suivi-card-cta">Lire le suivi →</span>
       </a>
     </div>
