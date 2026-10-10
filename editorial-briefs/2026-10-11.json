@@ -1,0 +1,295 @@
+{
+  "date": "2026-10-11",
+  "registre": "sport",
+  "sujet": {
+    "titre_propose": "Jeux d'hiver de Milan-Cortina : l'IA va-t-elle remplacer une partie du jugement sportif humain ?",
+    "h1": "Milan-Cortina 2026 : l'IA va-t-elle remplacer les juges olympiques ?",
+    "question_posee": "L'IA utilisée en soutien aux juges à Milan-Cortina restera-t-elle un outil d'aide ou deviendra-t-elle la référence principale dans le jugement sportif d'ici Los Angeles 2028 ?",
+    "eyebrow": "Dimanche, sport",
+    "angle": "L'expérimentation IA aux Jeux d'hiver de Milan-Cortina (février 2026) a montré les possibilités et les limites de l'intelligence artificielle dans le jugement olympique. La question centrale pour les Jeux de Los Angeles 2028 est de savoir si l'IA restera un simple outil d'aide à la décision humaine ou si elle deviendra la référence principale dans les disciplines à forte part de jugement humain.",
+    "tags": [
+      "sport",
+      "intelligence-artificielle",
+      "olympisme"
+    ],
+    "domain": "sport",
+    "image_keywords": "figure skating judges olympics",
+    "complexite": 3,
+    "origine_prioritaire": "Jeux d'hiver de Milan-Cortina : l'intelligence artificielle va-t-elle remplacer une partie du jugement sportif humain ?",
+    "origine_id": "sport-jeux-d-hiver-de-milan-cortina-l-intelligence",
+    "point_de_depart": {
+      "id": "sport-jeux-d-hiver-de-milan-cortina-l-intelligence",
+      "registre": "sport",
+      "titre": "Jeux d'hiver de Milan-Cortina : l'intelligence artificielle va-t-elle remplacer une partie du jugement sportif humain ?",
+      "question": "Jeux d'hiver de Milan-Cortina : l'intelligence artificielle va-t-elle remplacer une partie du jugement sportif humain ?",
+      "contexte": "Lors des Jeux olympiques d'hiver de Milan-Cortina (février 2026), le CIO a utilisé pour la première fois l'IA en soutien aux juges dans plusieurs disciplines à forte part de jugement humain (patinage artistique individuel et par équipes, big air, halfpipe, saut à ski) — comptage des rotations, mesure de la hauteur et de l'angle des sauts. L'expérimentation a déjà eu lieu, la vraie question porte sur la suite",
+      "rationnel": "La question : L'intelligence artificielle restera-t-elle un simple outil d'aide à la décision ou deviendra-t-elle la référence principale dans le jugement sportif des disciplines à forte part de jugement humain d'ici les Jeux olympiques de Los Angeles 2028 ? L'issue est ouverte parce que, d'un côté, le CIO, Omega Timing et des acteurs comme Jeremy Bloom poussent pour une IA toujours plus présente, mettant en avant son objectivité et sa transparence, tandis que de l'autre, athlètes, fédérations et experts soulignent les limites de l'IA pour évaluer la dimension artistique, le style et l'innovation, et craignent qu'une IA trop exacte pénalise des imperfections imperceptibles. Pour un lecteur français, l'enjeu est concret : le patinage artistique tricolore, directement concerné par ces évolutions (victoire de Cizeron‑Fournier Beaudry), voit dans ce débat la définition même de l'excellence sportive et la place de l'humain dans le sport de haut niveau.",
+      "mots_cles": [
+        "Milan-Cortina 2026",
+        "intelligence artificielle jugement sportif",
+        "Omega Timing Computer Vision",
+        "patinage artistique notation polémique",
+        "CIO Agenda IA",
+        "Owl AI Jeremy Bloom",
+        "remplacement juges humains IA",
+        "Los Angeles 2028 IA arbitrage"
+      ],
+      "angle": null,
+      "a_verifier": null,
+      "scenarios_brouillon": {
+        "favorable": "l'IA reste un outil d'aide à la décision, les juges humains gardent la décision finale, plus de transparence sans perte de confiance",
+        "stable": "usage qui s'étend prudemment discipline par discipline, sans généralisation ni recul",
+        "degrade": "l'IA devient la référence sur certains critères au détriment du jugement humain, contestations sur la légitimité et les valeurs du jugement sportif"
+      },
+      "echeance": {
+        "date": "2028-07-14",
+        "raison": "Prochains Jeux olympiques d'été à Los Angeles, où Omega Timing prévoit d'accroître le recours à l'IA dans le jugement sportif — une échéance qui cristallisera les décisions sur le rôle de l'IA."
+      },
+      "sources_pistes": [
+        {
+          "titre": "Quand l'IA s'invite dans le patinage aux JO de Milan-Cortina (L'Équipe)",
+          "url": "https://www.lequipe.fr/Jo-2026-milan-cortina/Patinage-artistique/Actualites/Quand-l-ia-s-invite-dans-le-patinage-aux-jo-de-milan-cortina/1641475"
+        },
+        {
+          "titre": "L'IA arrive dans le jugement olympique. Qu'est-ce qui pourrait (bien) se passer ? (The Conversation)",
+          "url": "https://theconversation.com/lia-arrive-dans-le-jugement-olympique-quest-ce-qui-pourrait-bien-se-passer-272405"
+        },
+        {
+          "titre": "JO 2026 : après les polémiques sur la notation en patinage, l'intelligence artificielle va-t-elle remplacer les juges ? (La Provence)",
+          "url": "https://www.laprovence.com/article/sports/7085375367978214/jo-2026-apres-les-polemiques-sur-la-notation-en-patinage-l-intelligence-artificielle-va-t-elle-remplacer-les-juges"
+        },
+        {
+          "titre": "JO 2026: et si on utilisait l'IA pour mettre fin aux polémiques sur la notation dans le patinage ? (RMC Sport)",
+          "url": "https://rmcsport.bfmtv.com/jeux-olympiques/jo-2026-et-si-on-utilisait-l-ia-pour-mettre-fin-aux-polemiques-sur-la-notation-dans-le-patinage_AV-202602140165.html"
+        }
+      ],
+      "tag": "sport & IA",
+      "origine": null,
+      "note_editoriale": null,
+      "donnees_graphique": null,
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille du 10/10 : Art : de l'œuvre à l'expérience (culture-divertissement) — aucun recoupement. Registre sport il y a 7 jours (04/10) : Championnat des Nations : le nouveau roi du rugby ? — rugby, aucun lien avec l'IA dans le jugement olympique. Édition sport du 27/09 : Mbappé, Ceuta et le tee-shirt polémique — sport et politique, aucun lien avec l'IA jugement. Édition sport du 20/09 : Basket : la NBA débarque en Europe — basketball, aucun lien. Édition sport du 30/07 : Golf, foot, boxe : l'Arabie saoudite se retire-t-elle du sport ? — investissement sportif, aucun lien avec l'IA jugement. Aucun doublon détecté."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Lors des Jeux olympiques d'hiver de Milan-Cortina (février 2026), l'IA a été utilisée en soutien aux juges dans plusieurs disciplines à forte part de jugement humain, notamment le patinage artistique, le big air et le halfpipe.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "lequipe-milan-cortina-ia-patinage"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'IA utilisée à Milan-Cortina permet notamment le comptage des rotations, la mesure de la hauteur et de l'angle des sauts en patinage artistique et en saut à ski.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "lequipe-milan-cortina-ia-patinage",
+        "conversation-ia-jugement-olympique"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Omega Timing, partenaire temps officiel du CIO, développe des technologies de computer vision pour assister le jugement sportif olympique.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "conversation-ia-jugement-olympique"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le CIO a publié un Agenda IA olympique qui prévoit un usage croissant de l'intelligence artificielle dans l'organisation et le jugement des Jeux.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "conversation-ia-jugement-olympique"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Des athlètes et experts soulignent que l'IA peine à évaluer la dimension artistique, le style et l'innovation en patinage artistique, et craignent qu'une IA trop exacte ne pénalise des imperfections imperceptibles.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "laprovence-ia-patinage-polemique",
+        "rmcsport-ia-patinage"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les prochains Jeux olympiques d'été de Los Angeles 2028 (du 14 au 30 juillet 2028) seront une échéance clé pour voir si le recours à l'IA dans le jugement sportif s'accentue.",
+      "chiffre": null,
+      "date_du_chiffre": "2028-07-14",
+      "sources": [
+        "conversation-ia-jugement-olympique"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "CIO (Comité International Olympique)",
+      "role": "Organisateur des Jeux olympiques, pilote l'Agenda IA et décide des usages de l'IA dans le jugement"
+    },
+    {
+      "nom": "Omega Timing",
+      "role": "Partenaire temps officiel du CIO, développe des technologies de computer vision pour assister le jugement"
+    },
+    {
+      "nom": "Jeremy Bloom",
+      "role": "Entrepreneur sportif et fondateur d'Owl AI, pousse pour un usage accru de l'IA dans le jugement sportif"
+    },
+    {
+      "nom": "Fédérations internationales (ISU, FIS, etc.)",
+      "role": "Responsables des disciplines olympiques, adoptent ou non les outils d'IA dans leurs systèmes de notation"
+    },
+    {
+      "nom": "Athlètes et experts du patinage artistique",
+      "role": "Directement concernés par les évolutions du jugement, certains soulignent les limites de l'IA pour évaluer le style et l'innovation"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-02-06",
+      "evenement": "Ouverture des Jeux olympiques d'hiver de Milan-Cortina"
+    },
+    {
+      "date": "2026-02-14",
+      "evenement": "Fin de la compétition de patinage artistique aux Jeux de Milan-Cortina, avec expérimentation de l'IA en soutien aux juges"
+    },
+    {
+      "date": "2026-07-14",
+      "evenement": "Prochains Jeux olympiques d'été de Los Angeles 2028, où Omega Timing prévoit d'accroître le recours à l'IA dans le jugement sportif"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "L'IA reste un outil d'aide à la décision : les juges humains gardent la décision finale, l'IA apporte plus de transparence et de précision sur des critères objectifs (rotations, hauteur, angles) sans remplacer le jugement artistique. La confiance dans le sport olympique se renforce grâce à cette hybridation.",
+      "probabilite_suggeree": 40
+    },
+    "stable": {
+      "resume": "L'usage de l'IA s'étend prudemment discipline par discipline, sans généralisation ni recul. Les fédérations testent les outils sur quelques disciplines à forte part de mesure objective, tout en maintenant les juges humains pour les aspects subjectifs. Le débat sur la place de l'IA dans le jugement reste ouvert sans basculement majeur d'ici 2028.",
+      "probabilite_suggeree": 35
+    },
+    "degrade": {
+      "resume": "L'IA devient la référence sur certains critères au détriment du jugement humain, notamment dans des disciplines où la mesure objective prime. Des contestations émergent sur la légitimité et les valeurs du jugement sportif, avec des athlètes et fédérations qui remettent en cause une notation trop exacte pénalisant les imperfections imperceptibles et la dimension artistique.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Disciplines olympiques avec expérimentation IA en soutien au jugement à Milan-Cortina 2026",
+      "valeur": "4 disciplines (patinage artistique individuel et par équipes, big air, halfpipe, saut à ski)",
+      "tendance": "Expérimentation initiale — à confirmer et étendre ou non pour Los Angeles 2028"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série historique longue et publique documentant l'évolution du recours à l'IA dans le jugement olympique sur au moins 5 points réels n'a été trouvée. La première expérimentation massive date de Milan-Cortina 2026, trop récente pour constituer une série historique. Critère (2) non satisfait : moins de 5 points réels disponibles.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "non",
+    "raison": "Moins de 3 chiffres comparables sur le recours à l'IA dans le jugement olympique (nombre de disciplines, nombre de Jeux, pourcentage d'usage) disponibles dans les sources vérifiées. Les sources parlent d'expérimentation à Milan-Cortina 2026 sans données chiffrées comparatives sur d'autres Jeux ou d'autres périodes.",
+    "barres": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Ce que l'IA mesure déjà en soutien aux juges olympiques : rotations, hauteur, angles — des critères objectifs et quantifiables, par opposition au jugement artistique qui reste humain.",
+        "rattache_a": "fait-ia-mesure-objectifs"
+      },
+      {
+        "focus": "Pourquoi le débat dépasse la technique : l'IA peut être trop exacte et pénaliser des imperfections imperceptibles, ce qui remet en cause la définition même de l'excellence sportive et la place de l'humain dans le jugement.",
+        "rattache_a": "fait-limites-ia-artistique"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le nombre exact de disciplines ayant bénéficié de l'IA en soutien aux juges à Milan-Cortina 2026 n'est pas uniformément rapporté — les sources citent le patinage artistique, le big air, le halfpipe et le saut à ski, mais sans liste officielle exhaustive vérifiée.",
+    "Les projets précis d'Omega Timing pour Los Angeles 2028 en matière d'IA dans le jugement sportif ne sont pas publiquement détaillés dans les sources consultées."
+  ],
+  "a_ne_pas_affirmer": [
+    "L'IA remplacera les juges humains dans toutes les disciplines olympiques d'ici 2028.",
+    "L'expérimentation de Milan-Cortina 2026 a déjà été un succès complet et sans controverse.",
+    "Omega Timing a officiellement annoncé un plan précis pour Los Angeles 2028."
+  ],
+  "sources": [
+    {
+      "id": "lequipe-milan-cortina-ia-patinage",
+      "title": "Quand l'IA s'invite dans le patinage aux JO de Milan-Cortina",
+      "source": "L'Équipe",
+      "url": "https://www.lequipe.fr/Jo-2026-milan-cortina/Patinage-artistique/Actualites/Quand-l-ia-s-invite-dans-le-patinage-aux-jo-de-milan-cortina/1641475",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Article de L'Équipe sur l'utilisation de l'IA lors des Jeux olympiques d'hiver de Milan-Cortina 2026 en soutien aux juges de patinage artistique, avec comptage des rotations et mesure de la hauteur et de l'angle des sauts.",
+      "read_minutes": 3
+    },
+    {
+      "id": "conversation-ia-jugement-olympique",
+      "title": "L'IA arrive dans le jugement olympique. Qu'est-ce qui pourrait (bien) se passer ?",
+      "source": "The Conversation",
+      "url": "https://theconversation.com/lia-arrive-dans-le-jugement-olympique-quest-ce-qui-pourrait-bien-se-passer-272405",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Analyse de The Conversation sur l'arrivée de l'IA dans le jugement olympique, ses possibilités (mesure objective, transparence) et ses limites (dimension artistique, style, innovation), avec le rôle d'Omega Timing et l'Agenda IA du CIO.",
+      "read_minutes": 5
+    },
+    {
+      "id": "laprovence-ia-patinage-polemique",
+      "title": "JO 2026 : après les polémiques sur la notation en patinage, l'intelligence artificielle va-t-elle remplacer les juges ?",
+      "source": "La Provence",
+      "url": "https://www.laprovence.com/article/sports/7085375367978214/jo-2026-apres-les-polemiques-sur-la-notation-en-patinage-l-intelligence-artificielle-va-t-elle-remplacer-les-juges",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Article de La Provence sur les polémiques de notation en patinage artistique lors de Milan-Cortina 2026 et la question de savoir si l'IA pourrait remplacer les juges humains, avec les arguments des partisans et des sceptiques.",
+      "read_minutes": 4
+    },
+    {
+      "id": "rmcsport-ia-patinage",
+      "title": "JO 2026 : et si on utilisait l'IA pour mettre fin aux polémiques sur la notation dans le patinage ?",
+      "source": "RMC Sport",
+      "url": "https://rmcsport.bfmtv.com/jeux-olympiques/jo-2026-et-si-on-utilisait-l-ia-pour-mettre-fin-aux-polemiques-sur-la-notation-dans-le-patinage_AV-202602140165.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Article de RMC Sport sur l'idée d'utiliser l'IA pour réduire les polémiques de notation en patinage artistique aux Jeux de Milan-Cortina 2026, avec les espoirs de transparence et les craintes sur la dimension artistique.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [],
+  "articles_connexes": [
+    {
+      "date": "2026-09-11",
+      "titre": "IA : le pari à 725 milliards de la tech américaine",
+      "lien": "Intelligence artificielle : même registre technologique, l'édition du 11 septembre traitait de l'investissement massif de la tech américaine dans l'IA, tandis que celle du dimanche aborde l'usage de l'IA dans le jugement sportif olympique — deux facettes de la même vague technologique."
+    },
+    {
+      "date": "2026-08-01",
+      "titre": "Musique : l'IA a-t-elle déjà gagné ?",
+      "lien": "Intelligence artificielle et création : l'édition du 1er août interrogeait la place de l'IA dans la musique et la création artistique, tandis que celle du dimanche interroge sa place dans le jugement sportif — deux domaines où l'IA fait évoluer un jugement humain traditionnel."
+    },
+    {
+      "date": "2026-09-06",
+      "titre": "Sport féminin : la loi oblige à partager l'argent",
+      "lien": "Sport et réforme institutionnelle : l'édition du 6 septembre traitait d'une réforme de la gouvernance du sport en France (partage financier entre sport masculin et féminin), tandis que celle du dimanche aborde une réforme potentielle du jugement sportif olympique par l'IA — deux questions sur la modernisation et l'équité dans le sport."
+    }
+  ],
+  "recommandations_redaction": [
+    "Insister sur la distinction entre ce que l'IA mesure déjà (rotations, hauteur, angles — critères objectifs) et ce qu'elle ne sait pas encore évaluer (style, artistique, innovation) pour expliquer pourquoi le débat est ouvert.",
+    "Mentionner que les Jeux de Los Angeles 2028 (juillet-août 2028) sont l'échéance clé pour voir si le recours à l'IA dans le jugement s'accentue, sans affirmer de projets précis non vérifiés.",
+    "Évoquer brièvement la polémique de notation en patinage artistique lors de Milan-Cortina 2026 comme contexte qui motive la recherche d'outils d'IA pour plus de transparence.",
+    "Préciser que le CIO a un Agenda IA qui prévoit un usage croissant de l'intelligence artificielle dans les Jeux, sans entrer dans des détails non vérifiés."
+  ]
+}
