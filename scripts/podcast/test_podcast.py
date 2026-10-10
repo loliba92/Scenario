@@ -277,7 +277,7 @@ class TestJingles(unittest.TestCase):
         self.assertTrue(any("scénarios" in x for x in tn.verifier(sans, src)))
         self.assertFalse(any("« scénarios »" in x for x in tn.verifier(exemple, src)))
         self.assertNotIn("façons", tn.OUVERTURE)
-        self.assertLess(len(tn.OUVERTURE.split()), 20)
+        self.assertLess(len(tn.OUVERTURE.split()), 30)
 
     def test_lexique_et_regles_pour_l_oreille(self):
         import texte_narration as tn

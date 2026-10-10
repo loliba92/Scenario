@@ -25,12 +25,12 @@ MOTS_PHRASE_MAX, MOTS_PHRASE_MOYENNE = 32, 20   # pédagogie : phrases courtes �
 # Les fermetures changent seulement au début : la fin est un rituel fixe (RITUEL), pour que la devise devienne celle du site. Le tirage dépend de la date (voir _rangs) : il se refait à l'identique si l'on
 # régénère un épisode.
 OUVERTURES = (
-    "Bonjour, comment allez-vous ? Installez-vous : bienvenue sur Scénario. Aujourd'hui, une question d'actualité et ses trois évolutions possibles.",
-    "Bonjour, et merci d'être là. Comment allez-vous aujourd'hui ? Bienvenue sur Scénario : une question d'actualité, trois évolutions possibles.",
+    "Bonjour, comment allez-vous ? Installez-vous : bienvenue sur Scénario. Comme chaque jour, une question d'actualité et ses trois évolutions possibles.",
+    "Bonjour, et merci d'être là. Comment allez-vous ? Bienvenue sur Scénario : comme chaque jour, une question d'actualité, trois évolutions possibles.",
     "Bonjour, ou bonsoir, selon le moment où vous nous écoutez. J'espère que vous allez bien. Bienvenue sur Scénario : une question, trois évolutions possibles.",
-    "Bienvenue sur Scénario. Prenez un moment pour vous, installez-vous. Aujourd'hui, une question d'actualité, et trois évolutions possibles.",
+    "Bienvenue sur Scénario. Prenez un moment pour vous, installez-vous. Comme chaque jour, une question d'actualité, et trois évolutions possibles.",
     "Bonjour à toutes et à tous, comment allez-vous ? Vous écoutez Scénario : ensemble, nous regardons trois évolutions possibles d'une question d'actualité.",
-    "Bienvenue sur Scénario, et merci de nous accorder quelques minutes. Comment allez-vous ? Aujourd'hui, une question d'actualité, trois évolutions possibles.",
+    "Bienvenue sur Scénario, et merci de nous accorder quelques minutes. Comment allez-vous ? Comme chaque jour, une question d'actualité, trois évolutions possibles.",
     "Bonjour, et bienvenue sur Scénario. Si vous avez un instant, installons-nous : une question d'actualité, trois évolutions possibles, et le temps de comprendre.",
 )
 RITUEL = "Prenez soin de vous. Rien n'est écrit à l'avance. Ne l'oubliez pas. À demain, pour un nouveau scénario."   # devise du site, dite chaque jour mot pour mot (« Ne l'oubliez pas » ajouté le 7 octobre 2026, pour finir sur une note plus chaleureuse) : « Rien n'est écrit à l'avance. »
