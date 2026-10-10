@@ -31,7 +31,7 @@ OUVERTURES = (
     "Bienvenue sur Scénario. Prenez un moment pour vous, installez-vous. Comme chaque jour, une question d'actualité, et trois évolutions possibles.",
     "Bonjour à toutes et à tous, comment allez-vous ? Vous écoutez Scénario : ensemble, nous regardons trois évolutions possibles d'une question d'actualité.",
     "Bienvenue sur Scénario, et merci de nous accorder quelques minutes. Comment allez-vous ? Comme chaque jour, une question d'actualité, trois évolutions possibles.",
-    "Bonjour, et bienvenue sur Scénario. Si vous avez un instant, installons-nous : une question d'actualité, trois évolutions possibles, et le temps de comprendre.",
+    "Bonjour, et bienvenue sur Scénario. Si vous avez un instant, installez-vous : une question d'actualité, trois évolutions possibles, et le temps de comprendre.",
 )
 RITUEL = "Prenez soin de vous. Rien n'est écrit à l'avance. Ne l'oubliez pas. À demain, pour un nouveau scénario."   # devise du site, dite chaque jour mot pour mot (« Ne l'oubliez pas » ajouté le 7 octobre 2026, pour finir sur une note plus chaleureuse) : « Rien n'est écrit à l'avance. »
 FERMETURES = tuple(debut + " " + RITUEL for debut in (
