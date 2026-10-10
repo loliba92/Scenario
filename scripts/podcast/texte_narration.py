@@ -31,7 +31,7 @@ OUVERTURES = (
     "Bienvenue sur Scénario. Prenez un moment pour vous, installez-vous. Comme chaque jour, une question d'actualité, et trois évolutions possibles.",
     "Bonjour à toutes et à tous, comment allez-vous ? Vous écoutez Scénario : ensemble, nous regardons trois évolutions possibles d'une question d'actualité.",
     "Bienvenue sur Scénario, et merci de nous accorder quelques minutes. Comment allez-vous ? Comme chaque jour, une question d'actualité, trois évolutions possibles.",
-    "Bonjour, et bienvenue sur Scénario. Si vous avez un instant, installons-nous : une question d'actualité, trois évolutions possibles, et le temps de comprendre.",
+    "Bonjour, et bienvenue sur Scénario. Si vous avez un instant, installez-vous : une question d'actualité, trois évolutions possibles, et le temps de comprendre.",
 )
 RITUEL = ("Prenez soin de vous, et de ceux qui vous entourent. Rien n'est écrit à l'avance, ne l'oubliez pas : "
           "la suite, c'est à nous de l'écrire. À demain, pour un nouveau scénario.")   # devise du site, dite chaque jour mot pour mot : « Rien n'est écrit à l'avance » ; « ne l'oubliez pas » est une idée du propriétaire (7 octobre 2026). Reformulée le 10 octobre 2026 en phrases qui coulent (quatre phrases courtes et sèches sonnaient robotiques), tournée vers l'auditeur et ses proches
