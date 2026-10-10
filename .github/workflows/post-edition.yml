@@ -421,6 +421,14 @@ jobs:
             exit 1
           fi
 
+      # 10 octobre 2026 : prévenir Bing et les moteurs compatibles IndexNow. Attente de 2 minutes : le site
+      # doit être en ligne avant que le moteur ne vienne lire la page. Jamais bloquant.
+      - name: Prévenir Bing (IndexNow)
+        if: steps.config.outputs.publish == 'true'
+        run: |
+          sleep 120
+          python3 scripts/seo/indexnow.py || echo "indexnow.py a échoué (non bloquant)"
+
       # sujets-prioritaires.md, séparé et sécurisé : check_off_priority_topic()
       # (voir generate_post_edition.py --recheck-priority-only) est bon marché
       # et idempotent — se rejoue sans souci après un pull frais, contrairement

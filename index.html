@@ -564,6 +564,19 @@
   .hero-cta:hover{ box-shadow: 0 6px 24px rgba(207, 157, 76, 0.28); }
   .hero-cta:hover span{ transform: translateX(3px); }
   .hero-cta:focus-visible{ outline: 2px solid var(--paper); outline-offset: 3px; }
+  .hero-actions{ display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; }
+  .hero-link{
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .hero-link span{ display: inline-block; transition: transform .15s ease; }
+  .hero-link:hover{ border-bottom-color: var(--gold); }
+  .hero-link:hover span{ transform: translateX(3px); }
+  .hero-link:focus-visible{ outline: 2px solid var(--paper); outline-offset: 3px; }
 
   /* Mobile : les 7 pastilles du masthead tenaient sur 352 px dans 342 px disponibles
      (la dernière, « accès privé », sortait de l'écran). */
@@ -2477,7 +2490,10 @@
       <li class="is-stable">Stable</li>
       <li class="is-degrade">Dégradé</li>
     </ul>
-    <a class="hero-cta" href="le-projet.html">Découvrir le projet <span aria-hidden="true">→</span></a>
+    <div class="hero-actions">
+      <a class="hero-cta" href="le-projet.html">Découvrir le projet <span aria-hidden="true">→</span></a>
+      <a class="hero-link" href="guide-pedagogique.html">Utiliser en classe : le guide pédagogique <span aria-hidden="true">→</span></a>
+    </div>
   </div>
 </section>
 
@@ -2528,6 +2544,27 @@
         <div class="related-articles-content">
           <span class="related-articles-date">Sport · 4 oct.</span>
           <span class="related-articles-title">Championnat des Nations&nbsp;: le nouveau roi du rugby&nbsp;?</span>
+        </div>
+      </a></li>
+      <li><a href="archives/2026-10-03.html" class="related-articles-item">
+        <img class="related-articles-image" src="assets/social/topic-images/2026-10-03.jpg" alt="La viralité organique est-elle une illusion algorithmique ?">
+        <div class="related-articles-content">
+          <span class="related-articles-date">Culture · 3 oct.</span>
+          <span class="related-articles-title">La viralité organique est-elle une illusion algorithmique&nbsp;?</span>
+        </div>
+      </a></li>
+      <li><a href="archives/2026-10-02.html" class="related-articles-item">
+        <img class="related-articles-image" src="assets/social/topic-images/2026-10-02.jpg" alt="Dépistage du cancer du sein&nbsp;: le modèle va-t-il basculer&nbsp;?">
+        <div class="related-articles-content">
+          <span class="related-articles-date">Sciences · 2 oct.</span>
+          <span class="related-articles-title">Dépistage du cancer du sein&nbsp;: le modèle va-t-il basculer&nbsp;?</span>
+        </div>
+      </a></li>
+      <li><a href="archives/2026-10-01.html" class="related-articles-item">
+        <img class="related-articles-image" src="assets/social/topic-images/2026-10-01.jpg" alt="Bitcoin : le bitcoin devient-il un actif institutionnel ?">
+        <div class="related-articles-content">
+          <span class="related-articles-date">Économie · 1 oct.</span>
+          <span class="related-articles-title">Bitcoin&nbsp;: le bitcoin devient-il un actif institutionnel&nbsp;?</span>
         </div>
       </a></li>
     </ul>
