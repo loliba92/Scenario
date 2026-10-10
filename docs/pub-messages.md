@@ -1080,6 +1080,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-10-09 (archives/2026-10-09.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-10-10
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 71 %
+- message: Les ventes aux enchères d'art physique ont bondi de 71 % au premier semestre 2026 à 6,7 milliards de dollars, prouvant la force de l'objet tangible face aux expériences immersives.
+- attribution: — lesscenarios.fr, 10 octobre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-10-10.html
+
+*Phrase à retenir de l'édition du 2026-10-10 (archives/2026-10-10.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
