@@ -377,7 +377,14 @@ sujet, en JSON**, est son point de départ : `id`, `registre`, `titre`, `questio
 - `sources` : au moins 1 élément ; chaque `id` référencé dans
   `faits_verifies[].sources` doit exister dans `sources`.
 - `revue_de_presse` : **pas** de minimum, absent ou `[]` valide (à
-  l'inverse de `sources` ci-dessus) — voir § dédié plus haut.
+  l'inverse de `sources` ci-dessus) — voir § dédié plus haut. **Depuis le
+  10 octobre 2026** : un brief à `[]` n'est plus la fin de l'histoire. À la
+  publication, `generate_post_edition.py` lance une recherche web dédiée
+  (`scripts/edition/revue_de_presse.py`, 3 à 5 articles du jour, liens
+  contrôlés, moins de 2 valables = rien) ; une revue encore vide laisse un
+  avertissement `::warning::` dans le journal du workflow. Cause d'origine :
+  le modèle du brief de repli laissait `[]` sans que rien ne relance la
+  recherche (revues du 6, 9 et 10 octobre absentes).
 - `sujet.complexite` : entier entre 1 et 5 (ajouté le 16 septembre 2026,
   voir § dédié plus haut).
 - `encarts_decides.comprendre_box` : le nombre requis dépend de

@@ -348,6 +348,8 @@ jobs:
         working-directory: scripts/edition
         env:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          # 10 octobre 2026 : recherche web dédiée de la revue de presse quand le brief n'en a pas (revue_de_presse.py)
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           ARGS="--brief ../../${{ steps.config.outputs.brief }} --content ../../_prototype-out/output.content.json"
           if [ "${{ steps.config.outputs.skip_photo }}" = "true" ]; then
