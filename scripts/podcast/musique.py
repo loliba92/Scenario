@@ -295,6 +295,44 @@ def _rms(pcm: array) -> float:
     return (sum(x * x for x in pcm) / max(1, len(pcm))) ** 0.5
 
 
+def niveau_voix(pcm: bytes, seuil: float = 0.02) -> float:
+    """Niveau efficace de la voix seule (échantillons au-dessus du seuil, pour ignorer les silences), de 0 à 1."""
+    a = array("h")
+    a.frombytes(pcm[: len(pcm) // 2 * 2])
+    actifs = [x / 32768 for x in a[::3] if abs(x) > seuil * 32768]
+    return (sum(x * x for x in actifs) / len(actifs)) ** 0.5 if actifs else 0.0
+
+
+def egaliser_niveaux(parties_pcm: list[bytes], ecart_max_db: float = 6.0) -> tuple[list[bytes], list[float]]:
+    """Ramène chaque partie lue au niveau médian des parties (simple gain, sans compression ni filtre).
+
+    Demandé le 10 octobre 2026 : le propriétaire entendait une voix « différente d'une partie à l'autre », chaque partie
+    étant lue par un appel distinct du moteur vocal, avec son propre volume. Le gain est limité à ±ecart_max_db et ne
+    dépasse jamais le seuil d'écrêtage. Renvoie (parties corrigées, gains appliqués en dB)."""
+    import math
+    niveaux = [niveau_voix(p) for p in parties_pcm]
+    valides = sorted(n for n in niveaux if n > 0)
+    if len(valides) < 2:
+        return list(parties_pcm), [0.0] * len(parties_pcm)
+    cible = valides[len(valides) // 2]
+    sortie, gains = [], []
+    for pcm, n in zip(parties_pcm, niveaux):
+        db = 0.0 if n <= 0 else max(-ecart_max_db, min(ecart_max_db, 20 * math.log10(cible / n)))
+        a = array("h")
+        a.frombytes(pcm[: len(pcm) // 2 * 2])
+        crete = max((abs(x) for x in a), default=0) / 32768
+        if crete > 0:
+            db = min(db, 20 * math.log10(0.95 / crete))   # jamais d'écrêtage
+        if abs(db) < 0.3:
+            sortie.append(pcm)
+            gains.append(0.0)
+            continue
+        g = 10 ** (db / 20)
+        sortie.append(array("h", (int(x * g) for x in a)).tobytes())
+        gains.append(round(db, 1))
+    return sortie, gains
+
+
 def melanger_theme(theme_pcm: bytes, voix_pcm: bytes, recouvrement_s: float = 2.0, rapport: float = 1.1,
                    fondu_s: float = 4.0, fondu_entree_s: float = 1.5, fin_pcm: bytes | None = None,
                    recouvrement_fin_s: float = 0.0, fondu_fin_entree_s: float = 1.2, fondu_fin_s: float = 5.0) -> bytes:
