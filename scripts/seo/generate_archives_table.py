@@ -97,6 +97,9 @@ ARCHIVES_TABLE_CSS = """
     border-left: 3px solid var(--gold); padding-left: 10px;
   }
   .suivis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .suivis-duo { grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+  .suivis-col { display: flex; flex-direction: column; }
+  .suivis-col .suivi-card { flex: 1; }
   .suivi-card {
     display: flex; flex-direction: column; gap: 8px; padding: 16px 18px;
     background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px;
@@ -114,7 +117,7 @@ ARCHIVES_TABLE_CSS = """
   .suivi-card-cta {
     margin-top: auto; font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--gold);
   }
-  @media (max-width: 860px) { .suivis-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 860px) { .suivis-grid, .suivis-duo { grid-template-columns: 1fr; } }
 
   /* ---- Archives table (scripts/seo/generate_archives_table.py) ---- */
   .archives-table {
@@ -1690,11 +1693,15 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
 </head>
 """
 
-    # Bande « Le dernier suivi » (un seul, comme sur l'accueil) : jamais bloquante (voir suivi_home.bloc_suivis_edition).
+    # Bande « La dernière édition » + « Le dernier suivi » (comme sur l'accueil) : jamais bloquante (voir suivi_home.bloc_suivis_edition).
     try:
         sys.path.insert(0, str(ROOT / "scripts" / "edition"))
         from suivi_home import bloc_suivis_edition
-        suivis_html = bloc_suivis_edition(1)
+        derniere = max(articles, key=lambda a: a["iso_date"]) if articles else None
+        edition = ({"iso_date": derniere["iso_date"], "titre": derniere["title"], "question": derniere.get("question") or "",
+                    "matiere": MATIERE_SHORT.get(derniere["domain"], DOMAIN_LABELS.get(derniere["domain"], ""))}
+                   if derniere else None)
+        suivis_html = bloc_suivis_edition(1, edition)
     except Exception as e:  # noqa: BLE001
         print(f"[archives] bande des suivis ignorée : {e}", file=sys.stderr)
         suivis_html = ""

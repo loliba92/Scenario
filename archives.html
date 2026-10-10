@@ -450,6 +450,9 @@
     border-left: 3px solid var(--gold); padding-left: 10px;
   }
   .suivis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .suivis-duo { grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+  .suivis-col { display: flex; flex-direction: column; }
+  .suivis-col .suivi-card { flex: 1; }
   .suivi-card {
     display: flex; flex-direction: column; gap: 8px; padding: 16px 18px;
     background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px;
@@ -467,7 +470,7 @@
   .suivi-card-cta {
     margin-top: auto; font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--gold);
   }
-  @media (max-width: 860px) { .suivis-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 860px) { .suivis-grid, .suivis-duo { grid-template-columns: 1fr; } }
 
   /* ---- Archives table (scripts/seo/generate_archives_table.py) ---- */
   .archives-table {
@@ -1212,14 +1215,25 @@
 
 <section class="suivis-recents" id="suivis">
   <div class="wrap">
-    <p class="suivis-label">Le dernier suivi</p>
-    <div class="suivis-grid">
+    <div class="suivis-grid suivis-duo">
+      <div class="suivis-col">
+        <p class="suivis-label">La dernière édition</p>
+      <a class="suivi-card" href="archives/2026-10-10.html">
+        <span class="suivi-card-meta"><span>Culture</span><span class="nw">édition du 10 oct.</span></span>
+        <span class="suivi-card-title">Art : de l'œuvre à l'expérience</span>
+        <span class="suivi-card-text">L'art passe-t-il d'une culture de l'œuvre durable à une culture de l'expérience éphémère&nbsp;?</span>
+        <span class="suivi-card-cta">Lire l'édition →</span>
+      </a>
+      </div>
+      <div class="suivis-col">
+        <p class="suivis-label">Le dernier suivi</p>
       <a class="suivi-card" href="suivi/taux-marche-arriere.html">
         <span class="suivi-card-meta"><span>Économie</span><span class="nw">mis à jour le 9 oct.</span></span>
         <span class="suivi-card-title">Taux&nbsp;: marche arrière</span>
         <span class="suivi-card-text">Depuis le 7 septembre 2026, la BCE a relevé ses trois taux directeurs de 25 points de base le 10 septembre, portant son taux de dépôt à 2,50 % à compter du 16 septembre.</span>
         <span class="suivi-card-cta">Lire le suivi →</span>
       </a>
+      </div>
     </div>
   </div>
 </section>
