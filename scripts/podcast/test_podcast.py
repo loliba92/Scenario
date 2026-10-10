@@ -549,3 +549,35 @@ class TestFondContinu(unittest.TestCase):
         self.assertAlmostEqual(len(sortie), len(voix), delta=gp.SAMPLE_RATE // 50)
         self.assertLess(max(abs(x) for x in sortie), 32767, "pas d'écrêtage après relèvement des aigus")
 
+
+
+class TestNiveaux(unittest.TestCase):
+    @staticmethod
+    def _voix(amp, n=24000):
+        import math
+        from array import array
+        return array("h", (int(amp * 32767 * math.sin(i / 7)) for i in range(n))).tobytes()
+
+    def test_parties_ramenees_au_meme_niveau(self):
+        import musique
+        parties = [self._voix(0.20), self._voix(0.10), self._voix(0.20), self._voix(0.40)]
+        sortie, gains = musique.egaliser_niveaux(parties)
+        niveaux = [musique.niveau_voix(p) for p in sortie]
+        self.assertLess(max(niveaux) / min(niveaux), 1.1)
+        self.assertGreater(gains[1], 5)     # la partie faible est montée
+        self.assertLess(gains[3], -5)       # la partie forte est baissée
+
+    def test_gain_limite_et_pas_d_ecretage(self):
+        import musique
+        from array import array
+        sortie, gains = musique.egaliser_niveaux([self._voix(0.02), self._voix(0.5), self._voix(0.5)])
+        self.assertLessEqual(max(gains), 6.0)
+        a = array("h"); a.frombytes(sortie[0])
+        self.assertLess(max(abs(x) for x in a), 32768 * 0.96)
+
+    def test_parties_deja_egales_inchangees(self):
+        import musique
+        p = self._voix(0.2)
+        sortie, gains = musique.egaliser_niveaux([p, p, p])
+        self.assertEqual(gains, [0.0, 0.0, 0.0])
+        self.assertEqual(sortie[0], p)

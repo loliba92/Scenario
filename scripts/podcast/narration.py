@@ -130,6 +130,8 @@ def main(argv=None) -> int:
     else:
         print(f"Contrôle du début : conforme (« {transcription[:90]}… »)", flush=True)
     import musique
+    parties_pcm, gains = musique.egaliser_niveaux(parties_pcm)
+    print('Volume des parties égalisé (gain en dB par partie) : ' + ', '.join(f'{g:+.1f}' for g in gains), flush=True)
     theme = musique.trouver_theme(gp.ROOT) if args.ouverture else None
     theme_complet = musique.decoder_theme(theme, 75.0) if theme else None
     if args.ouverture and theme is None:
