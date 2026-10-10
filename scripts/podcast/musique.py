@@ -258,7 +258,15 @@ DOSSIER_THEME = None  # défini par narration.py (racine du dépôt)
 
 
 def trouver_theme(racine) -> "Path | None":
+    """Thème officiel (ouverture.*), ou, pour un essai, le fichier de podcast/musique/ nommé par THEME_MUSIQUE."""
+    import os
     from pathlib import Path
+    essai = os.environ.get("THEME_MUSIQUE", "").strip()
+    if essai:
+        dossier = (Path(racine) / "podcast" / "musique").resolve()
+        p = (dossier / essai).resolve()
+        if dossier in p.parents and p.is_file():
+            return p
     for ext in ("mp3", "wav", "m4a"):
         p = Path(racine) / "podcast" / "musique" / f"ouverture.{ext}"
         if p.exists():
