@@ -1321,7 +1321,10 @@ def build_home_hero():
       <li class="is-stable">Stable</li>
       <li class="is-degrade">Dégradé</li>
     </ul>
-    <a class="hero-cta" href="le-projet.html">Découvrir le projet <span aria-hidden="true">→</span></a>
+    <div class="hero-actions">
+      <a class="hero-cta" href="le-projet.html">Découvrir le projet <span aria-hidden="true">→</span></a>
+      <a class="hero-link" href="guide-pedagogique.html">Utiliser en classe : le guide pédagogique <span aria-hidden="true">→</span></a>
+    </div>
   </div>
 </section>"""
 
@@ -1469,13 +1472,12 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
     featured_entry = today_all[0] if today_all else None
     other_today = today_all[1:]
 
-    # 7 au total pour les précédentes : la plus récente en avant (featured)
-    # + les 6 suivantes en cartes — jamais la même édition dans les deux
-    # blocs. 6 plutôt que 4 : la grille de cartes est fixée à 3 colonnes
-    # (voir le CSS .related-articles-list), donc 6 remplit deux lignes
-    # complètes là où 4 laissait une ligne à moitié vide.
+    # 10 au total pour les précédentes : la plus récente en avant (featured)
+    # + les 9 suivantes en cartes (10 octobre 2026 : 6 -> 9, plus de chemins vers les éditions récentes pour Google) — jamais la même édition dans les deux
+    # blocs. Un multiple de 3 : la grille de cartes est fixée à 3 colonnes
+    # (voir le CSS .related-articles-list), donc 9 remplit trois lignes complètes.
     previous = get_latest_archives(repo_root, before_date_str=date_str,
-                                    count=6 if featured_entry else 7,
+                                    count=9 if featured_entry else 10,
                                     archives_dir=archives_dir, image_path_prefix=image_path_prefix,
                                     domain_translator=domain_translator)
     if not featured_entry and previous:
@@ -1500,7 +1502,7 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
         section_label="Le même jour", section_title="Aussi aujourd'hui",
         cross_link_html="",
     ) if other_today else ""
-    cards = build_home_cards(previous[:6], lang)
+    cards = build_home_cards(previous[:9], lang)
 
     footer_html = f'<footer>\n  <div class="wrap">\n    <div class="footer-bottom">\n      <p class="devise-footer">Rien n\'est écrit à l\'avance.</p>\n      {shell["legal_links_html"]}\n    </div>\n  </div>\n</footer>'
 
