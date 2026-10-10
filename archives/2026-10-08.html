@@ -2436,6 +2436,20 @@
     font-size: 1.15rem; color: var(--gold);
   }
 </style>
+<style id="edition-nav-css">
+  .edition-nav{ padding: 28px 0 8px; }
+  .edition-nav-row{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+  .edition-nav-link{ display: block; padding: 14px 16px; border: 1px solid var(--border, rgba(128,128,128,.3)); border-radius: 10px; text-decoration: none; color: inherit; }
+  .edition-nav-link:hover{ border-color: var(--gold); }
+  .edition-nav-link.next{ text-align: right; grid-column: 2; }
+  .edition-nav-dir{ display: block; font-size: .8rem; color: var(--gold); margin-bottom: 4px; }
+  .edition-nav-title{ display: block; font-weight: 600; line-height: 1.35; }
+  @media (max-width: 600px){
+    .edition-nav-row{ grid-template-columns: 1fr; }
+    .edition-nav-link.next{ grid-column: auto; text-align: left; }
+  }
+  @media print{ .edition-nav{ display: none !important; } }
+</style>
 </head>
 <body>
 
@@ -2837,6 +2851,24 @@
 </section>
 
 
+
+<!-- edition-nav -->
+<nav class="edition-nav" aria-label="Autres éditions">
+  <div class="wrap">
+    <p class="section-label">Autres éditions</p>
+    <div class="edition-nav-row">
+      <a class="edition-nav-link prev" rel="prev" href="2026-10-07.html">
+        <span class="edition-nav-dir">← Édition précédente · 7 oct.</span>
+        <span class="edition-nav-title">Déserts médicaux&nbsp;: trouvera-t-on encore un médecin près de…</span>
+      </a>
+      <a class="edition-nav-link next" rel="next" href="2026-10-09.html">
+        <span class="edition-nav-dir">Édition suivante · 9 oct. →</span>
+        <span class="edition-nav-title">Cancer&nbsp;: les nouveaux traitements et les premiers vaccins…</span>
+      </a>
+    </div>
+  </div>
+</nav>
+<!-- /edition-nav -->
 
 <section class="share-block" id="nous-suivre">
   <div class="wrap">
