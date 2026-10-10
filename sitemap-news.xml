@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
-<url><loc>https://lesscenarios.fr/archives/2026-10-08.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-08T06:01:49+02:00</news:publication_date><news:title>Dette mondiale : le FMI appelle à l'austérité</news:title></news:news></url>  <url>
-    <loc>https://lesscenarios.fr/en/archives/2026-10-08.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Scénario</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-08T06:01:49+02:00</news:publication_date>
-      <news:title>Global Debt: The IMF Calls for Austerity</news:title>
-    </news:news>
-  </url>
-<url><loc>https://lesscenarios.fr/archives/2026-10-09.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-09T06:01:23+02:00</news:publication_date><news:title>Cancer : vaccins et nouveaux traitements, promesse réaliste ou espoir lointain ?</news:title></news:news></url>  <url>
+<url><loc>https://lesscenarios.fr/archives/2026-10-08.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-08T06:01:49+02:00</news:publication_date><news:title>Dette mondiale : le FMI appelle à l'austérité</news:title></news:news></url><url><loc>https://lesscenarios.fr/archives/2026-10-09.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-09T06:01:23+02:00</news:publication_date><news:title>Cancer : vaccins et nouveaux traitements, promesse réaliste ou espoir lointain ?</news:title></news:news></url>  <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-09.html</loc>
     <news:news>
       <news:publication>
@@ -22,4 +11,15 @@
       <news:title>Cancer: Vaccines and New Treatments, a Realistic Promise or Distant Hope?</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-10-10.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-10T06:01:25+02:00</news:publication_date><news:title>Art : de l'œuvre à l'expérience</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-10-10.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-10T06:01:25+02:00</news:publication_date><news:title>Art : de l'œuvre à l'expérience</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-10-10.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-10T06:01:25+02:00</news:publication_date>
+      <news:title>Art: from artwork to experience</news:title>
+    </news:news>
+  </url>
+</urlset>
