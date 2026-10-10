@@ -113,6 +113,59 @@ def cadrer(texte):
             + "\n\nLa prochaine fois que vous y repenserez, gardez en tête que rien n'est tranché.")
 
 
+class TestFidelite(unittest.TestCase):
+    """Incident du 10 octobre 2026 : la voix a inventé des phrases (« transaction NFT ») et répété des passages."""
+
+    TEXTE = ("Deuxième scénario : une alliance durable entre l'œuvre physique et la médiation immersive s'installe. "
+             "C'est un peu moins d'une chance sur deux que cela se produise. Les musées deviennent des lieux hybrides. "
+             "La contemplation d'un chef-d'œuvre est prolongée par des dispositifs de réalité virtuelle.")
+
+    def test_lecture_fidele_acceptee_meme_avec_quelques_erreurs_de_transcription(self):
+        import fidelite as fi
+        self.assertTrue(fi.conforme(fi.comparer(self.TEXTE, self.TEXTE)))
+        proche = self.TEXTE.replace("hybrides", "hybride").replace("virtuelle", "virtuel")
+        self.assertTrue(fi.conforme(fi.comparer(self.TEXTE, proche)))
+
+    def test_passage_repete_refuse(self):
+        import fidelite as fi
+        r = fi.comparer(self.TEXTE, self.TEXTE + " " + self.TEXTE)
+        self.assertGreater(r["rapport"], 1.9)
+        self.assertFalse(fi.conforme(r))
+
+    def test_passage_invente_refuse(self):
+        import fidelite as fi
+        invente = ("Un second scénario : la technologie se déploie massivement et l'art numérique devient universel. "
+                   "La valeur initiale se crée dans la transaction NFT. Les artistes digitaux sont de plus en plus visibles.")
+        self.assertFalse(fi.conforme(fi.comparer(self.TEXTE, invente)))
+        self.assertFalse(fi.conforme(fi.comparer(self.TEXTE, self.TEXTE + " " + invente)))
+
+    def test_controle_impossible_signale_sans_bloquer(self):
+        import fidelite as fi
+        ok, mesures, detail = fi.controler(b"", self.TEXTE, "cle", transcrire_fn=lambda pcm, cle: (None, "service indisponible"))
+        self.assertIsNone(ok)
+        self.assertIn("indisponible", detail)
+        ok, mesures, _ = fi.controler(b"", self.TEXTE, "cle", transcrire_fn=lambda pcm, cle: (self.TEXTE, "modele"))
+        self.assertTrue(ok)
+
+    def test_termes_absents_de_l_article_refuses(self):
+        import texte_narration as tn
+        source = "Au premier semestre, les ventes aux enchères d'art physique ont bondi de 71 %. Culturespaces gère l'Atelier des Lumières."
+        propre = "Imaginez un musée. Culturespaces gère l'Atelier des Lumières, et les ventes ont bondi."
+        self.assertEqual(tn.termes_hors_article(propre, source), [])
+        fautif = propre + " La valeur se crée dans la transaction NFT sur la plateforme Opensea."
+        self.assertEqual(tn.termes_hors_article(fautif, source), ["NFT", "Opensea"])
+        self.assertEqual(tn.termes_hors_article("Dans le Jura, en Franche-Comté.", "Le Jura et la Franche-Comté."), [])
+
+    def test_petites_parties_regroupees(self):
+        import texte_narration as tn
+        mots = lambda n: " ".join(["mot"] * n)
+        parts = [mots(59), mots(378), mots(162), mots(171), mots(165), mots(70), mots(30), mots(31), mots(49)]
+        r = tn.regrouper(parts)
+        self.assertEqual([len(x.split()) for x in r], [59, 378, 162, 171, 296, 49])   # accroche et fermeture restent seules
+        self.assertEqual(tn.regrouper(["a b", "c d"]), ["a b", "c d"])
+        self.assertEqual(tn.regrouper(["a b", "c d", "e f"]), ["a b", "c d", "e f"])
+
+
 class TestTexteNarration(unittest.TestCase):
     def test_mise_en_situation_et_phrase_finale_exigees(self):
         import texte_narration as tn
