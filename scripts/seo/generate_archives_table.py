@@ -96,13 +96,17 @@ ARCHIVES_TABLE_CSS = """
     letter-spacing: 0.14em; color: var(--gold); margin: 0 0 12px;
     border-left: 3px solid var(--gold); padding-left: 10px;
   }
-  .suivis-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .suivis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .suivis-duo { grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+  .suivis-col { display: flex; flex-direction: column; }
+  .suivis-col .suivi-card { flex: 1; }
   .suivi-card {
     display: flex; flex-direction: column; gap: 8px; padding: 16px 18px;
     background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px;
     color: var(--paper); text-decoration: none;
   }
   .suivi-card:hover { border-color: var(--gold); }
+  .suivi-card-image { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; margin-bottom: 4px; }
   .suivi-card-meta { display: flex; flex-wrap: wrap; gap: 2px 10px; }
   .suivi-card-meta .nw { white-space: nowrap; }
   .suivi-card-meta {
@@ -114,7 +118,7 @@ ARCHIVES_TABLE_CSS = """
   .suivi-card-cta {
     margin-top: auto; font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--gold);
   }
-  @media (max-width: 860px) { .suivis-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 860px) { .suivis-grid, .suivis-duo { grid-template-columns: 1fr; } }
 
   /* ---- Archives table (scripts/seo/generate_archives_table.py) ---- */
   .archives-table {
@@ -646,10 +650,14 @@ ARCHIVES_TABLE_CSS = """
     font-family:"JetBrains Mono", monospace; font-size:0.78rem; font-weight:700; padding:0 18px; cursor:pointer;
   }
   a.filter-chip{ text-decoration:none; display:inline-block; }
+  /* « Affiner la liste » : sur la ligne du libellé « Explorer par matière », à droite (10 oct. 2026), au lieu de
+     rester seul sur une ligne sous les pastilles. Le contenu déplié s'affiche en dessous, comme avant. */
+  .archives-filters{ position:relative; }
   .filters-more > summary{
-    list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px; align-self:flex-start;
-    font-family:"JetBrains Mono", monospace; font-size:0.76rem; color:var(--gold);
-    border:1px solid var(--hairline); border-radius:100px; padding:8px 16px;
+    list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
+    position:absolute; top:-8px; right:0;
+    font-family:"JetBrains Mono", monospace; font-size:0.74rem; color:var(--gold);
+    border:1px solid var(--hairline); border-radius:100px; padding:6px 14px;
   }
   .filters-more > summary::-webkit-details-marker{ display:none; }
   .filters-more > summary::after{ content:"+"; font-size:1rem; line-height:1; }
@@ -739,6 +747,12 @@ ARCHIVES_TABLE_CSS = """
     .matiere-tile{ gap:7px; min-height:42px; padding:0 13px 0 10px; font-size:0.86rem; flex:0 1 auto; }
     .matiere-tile svg{ display:none; }   /* avec les effectifs (« Économie 13 »), sans icône pour tenir sur une ligne */
     .matiere-tile{ padding:0 13px; }
+  }
+  /* Téléphone : grille de 2 colonnes régulière (plus de pastille seule sur une ligne : la dernière prend toute la largeur) */
+  @media (max-width: 919px){
+    .matiere-tiles{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .matiere-tile{ width:100%; justify-content:flex-start; box-sizing:border-box; }
+    .matiere-tiles li:last-child:nth-child(odd){ grid-column:1 / -1; }
   }
   /* Le tableau (desktop) comme les cartes (mobile, tr en display:flex)
      doivent tous deux disparaître complètement quand filtrés */
@@ -1237,7 +1251,7 @@ def get_scenario_label(kind):
 
 def render_table_row(article, featured=False):
     """Rend une ligne du tableau avec 5 colonnes: Date | Titre | Domaine | Notre scénario | Impact France."""
-    domain_label = DOMAIN_LABELS.get(article["domain"], article["domain"])
+    domain_label = MATIERE_SHORT.get(article["domain"], DOMAIN_LABELS.get(article["domain"], article["domain"]))  # mêmes libellés que les pastilles (10 oct. 2026)
 
     # Notre scénario : badge de couleur + % SEULEMENT (pas de texte du scénario)
     kind = article["scenario_kind"]
@@ -1680,11 +1694,17 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
 </head>
 """
 
-    # Bande « Les derniers suivis » : jamais bloquante (voir suivi_home.bloc_suivis_edition).
+    # Bande « La dernière édition » + « Le dernier suivi » (comme sur l'accueil) : jamais bloquante (voir suivi_home.bloc_suivis_edition).
     try:
         sys.path.insert(0, str(ROOT / "scripts" / "edition"))
         from suivi_home import bloc_suivis_edition
-        suivis_html = bloc_suivis_edition(3)
+        derniere = max(articles, key=lambda a: a["iso_date"]) if articles else None
+        edition = ({"iso_date": derniere["iso_date"], "titre": derniere["title"], "question": derniere.get("question") or "",
+                    "matiere": MATIERE_SHORT.get(derniere["domain"], DOMAIN_LABELS.get(derniere["domain"], "")),
+                    "image": (f"assets/social/topic-images/{derniere['iso_date']}.jpg"
+                              if (ROOT / "assets" / "social" / "topic-images" / f"{derniere['iso_date']}.jpg").is_file() else "")}
+                   if derniere else None)
+        suivis_html = bloc_suivis_edition(1, edition)
     except Exception as e:  # noqa: BLE001
         print(f"[archives] bande des suivis ignorée : {e}", file=sys.stderr)
         suivis_html = ""

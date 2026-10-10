@@ -75,6 +75,16 @@ class TestSuiviHome(unittest.TestCase):
         self.assertEqual(bande.count('class="suivi-card"'), 2)
         self.assertIn('<span class="nw">mis à jour le 12 sept.</span>', bande)   # la date ne se coupe jamais
         self.assertIn("&nbsp;?", bande)
+        self.assertIn("Les derniers suivis</p>", bande)
+        seul = sh.rendre_suivis_edition([suivi("x", 12)])   # page Éditions : un seul suivi, libellé au singulier
+        self.assertEqual(seul.count('class="suivi-card"'), 1)
+        self.assertIn("Le dernier suivi</p>", seul)
+        edition = {"iso_date": "2026-10-10", "titre": "Art\u00a0: de l'œuvre", "question": "Une question ?", "matiere": "Culture"}
+        duo = sh.rendre_suivis_edition([suivi("x", 12)], edition)   # dernière édition + dernier suivi
+        self.assertEqual(duo.count('class="suivi-card"'), 2)
+        self.assertIn("La dernière édition</p>", duo)
+        self.assertIn('href="archives/2026-10-10.html"', duo)
+        self.assertIn('<span class="nw">édition du 10 oct.</span>', duo)
 
     def test_ne_leve_jamais(self):
         orig = sh.dernier_suivi

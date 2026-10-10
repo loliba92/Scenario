@@ -449,13 +449,17 @@
     letter-spacing: 0.14em; color: var(--gold); margin: 0 0 12px;
     border-left: 3px solid var(--gold); padding-left: 10px;
   }
-  .suivis-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .suivis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .suivis-duo { grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+  .suivis-col { display: flex; flex-direction: column; }
+  .suivis-col .suivi-card { flex: 1; }
   .suivi-card {
     display: flex; flex-direction: column; gap: 8px; padding: 16px 18px;
     background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px;
     color: var(--paper); text-decoration: none;
   }
   .suivi-card:hover { border-color: var(--gold); }
+  .suivi-card-image { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; margin-bottom: 4px; }
   .suivi-card-meta { display: flex; flex-wrap: wrap; gap: 2px 10px; }
   .suivi-card-meta .nw { white-space: nowrap; }
   .suivi-card-meta {
@@ -467,7 +471,7 @@
   .suivi-card-cta {
     margin-top: auto; font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--gold);
   }
-  @media (max-width: 860px) { .suivis-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 860px) { .suivis-grid, .suivis-duo { grid-template-columns: 1fr; } }
 
   /* ---- Archives table (scripts/seo/generate_archives_table.py) ---- */
   .archives-table {
@@ -999,10 +1003,14 @@
     font-family:"JetBrains Mono", monospace; font-size:0.78rem; font-weight:700; padding:0 18px; cursor:pointer;
   }
   a.filter-chip{ text-decoration:none; display:inline-block; }
+  /* « Affiner la liste » : sur la ligne du libellé « Explorer par matière », à droite (10 oct. 2026), au lieu de
+     rester seul sur une ligne sous les pastilles. Le contenu déplié s'affiche en dessous, comme avant. */
+  .archives-filters{ position:relative; }
   .filters-more > summary{
-    list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px; align-self:flex-start;
-    font-family:"JetBrains Mono", monospace; font-size:0.76rem; color:var(--gold);
-    border:1px solid var(--hairline); border-radius:100px; padding:8px 16px;
+    list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
+    position:absolute; top:-8px; right:0;
+    font-family:"JetBrains Mono", monospace; font-size:0.74rem; color:var(--gold);
+    border:1px solid var(--hairline); border-radius:100px; padding:6px 14px;
   }
   .filters-more > summary::-webkit-details-marker{ display:none; }
   .filters-more > summary::after{ content:"+"; font-size:1rem; line-height:1; }
@@ -1092,6 +1100,12 @@
     .matiere-tile{ gap:7px; min-height:42px; padding:0 13px 0 10px; font-size:0.86rem; flex:0 1 auto; }
     .matiere-tile svg{ display:none; }   /* avec les effectifs (« Économie 13 »), sans icône pour tenir sur une ligne */
     .matiere-tile{ padding:0 13px; }
+  }
+  /* Téléphone : grille de 2 colonnes régulière (plus de pastille seule sur une ligne : la dernière prend toute la largeur) */
+  @media (max-width: 919px){
+    .matiere-tiles{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .matiere-tile{ width:100%; justify-content:flex-start; box-sizing:border-box; }
+    .matiere-tiles li:last-child:nth-child(odd){ grid-column:1 / -1; }
   }
   /* Le tableau (desktop) comme les cartes (mobile, tr en display:flex)
      doivent tous deux disparaître complètement quand filtrés */
@@ -1202,26 +1216,27 @@
 
 <section class="suivis-recents" id="suivis">
   <div class="wrap">
-    <p class="suivis-label">Les derniers suivis</p>
-    <div class="suivis-grid">
+    <div class="suivis-grid suivis-duo">
+      <div class="suivis-col">
+        <p class="suivis-label">La dernière édition</p>
+      <a class="suivi-card" href="archives/2026-10-10.html">
+        <img class="suivi-card-image" src="assets/social/topic-images/2026-10-10.jpg" alt="Art : de l&#x27;œuvre à l&#x27;expérience" loading="lazy">
+        <span class="suivi-card-meta"><span>Culture</span><span class="nw">édition du 10 oct.</span></span>
+        <span class="suivi-card-title">Art : de l'œuvre à l'expérience</span>
+        <span class="suivi-card-text">L'art passe-t-il d'une culture de l'œuvre durable à une culture de l'expérience éphémère&nbsp;?</span>
+        <span class="suivi-card-cta">Lire l'édition →</span>
+      </a>
+      </div>
+      <div class="suivis-col">
+        <p class="suivis-label">Le dernier suivi</p>
       <a class="suivi-card" href="suivi/taux-marche-arriere.html">
+        <img class="suivi-card-image" src="assets/social/topic-images/suivi-taux-marche-arriere-wide.jpg" alt="Taux : marche arrière" loading="lazy">
         <span class="suivi-card-meta"><span>Économie</span><span class="nw">mis à jour le 9 oct.</span></span>
         <span class="suivi-card-title">Taux&nbsp;: marche arrière</span>
         <span class="suivi-card-text">Depuis le 7 septembre 2026, la BCE a relevé ses trois taux directeurs de 25 points de base le 10 septembre, portant son taux de dépôt à 2,50 % à compter du 16 septembre.</span>
         <span class="suivi-card-cta">Lire le suivi →</span>
       </a>
-      <a class="suivi-card" href="suivi/islande.html">
-        <span class="suivi-card-meta"><span>Géopolitique</span><span class="nw">mis à jour le 12 sept.</span></span>
-        <span class="suivi-card-title">Islande&nbsp;: après le non à l'UE, qui va la protéger&nbsp;?</span>
-        <span class="suivi-card-text">Le 7 septembre 2026, Donald Trump a publié sur Truth Social, sans commentaire, une carte représentant le Canada, le Mexique, l'Islande, le Groenland et l'Amérique centrale recouverts du drapeau américain.</span>
-        <span class="suivi-card-cta">Lire le suivi →</span>
-      </a>
-      <a class="suivi-card" href="suivi/arabie-saoudite-sport.html">
-        <span class="suivi-card-meta"><span>Économie</span><span class="nw">mis à jour le 11 sept.</span></span>
-        <span class="suivi-card-title">Golf, foot, boxe&nbsp;: l'Arabie saoudite se retire-t-elle du sport&nbsp;?</span>
-        <span class="suivi-card-text">Coup de théâtre le 8 septembre 2026&nbsp;: LIV Golf a placé volontairement sa société sous protection du Chapter 11 auprès du tribunal des faillites du New Jersey…</span>
-        <span class="suivi-card-cta">Lire le suivi →</span>
-      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1295,7 +1310,7 @@
         </span>
         <span class="card-q">L&#x27;art passe-t-il d&#x27;une culture de l&#x27;œuvre durable à une culture de l&#x27;expérience éphémère ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — L&#x27;alliance durable entre l&#x27;œuvre physique et la médiation immersive" aria-label="Notre scénario : Stable (45%) — L&#x27;alliance durable entre l&#x27;œuvre physique et la médiation immersive">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1319,7 +1334,7 @@
         </span>
         <span class="card-q">Les premiers vaccins anticancer à ARNm et les nouveaux traitements laissent-ils espérer guérir beaucoup plus de malades, ou reste-t-il des années d&#x27;essais ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Succès limité aux niches spécialisées et résistance des cancers fréquents" aria-label="Notre scénario : Stable (50%) — Succès limité aux niches spécialisées et résistance des cancers fréquents">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1343,7 +1358,7 @@
         </span>
         <span class="card-q">La dette publique mondiale va dépasser 100 % du PIB, et la France emprunte plus cher que l&#x27;Italie : les États peuvent-ils regagner la confiance des marchés sans sacrifices ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Un compromis budgétaire fragile maintient les taux sous tension" aria-label="Notre scénario : Stable (45%) — Un compromis budgétaire fragile maintient les taux sous tension">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1367,7 +1382,7 @@
         </span>
         <span class="card-q">Déserts médicaux : trouvera-t-on encore un médecin près de chez soi ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Les renforts temporaires stabilisent la situation sans résorber la pénurie" aria-label="Notre scénario : Stable (45%) — Les renforts temporaires stabilisent la situation sans résorber la pénurie">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1466,7 +1481,7 @@
         </span>
         <span class="card-q">Les phénomènes culturels qui explosent sur les réseaux sont-ils encore spontanés, ou chaque viralité est-elle désormais détectée et amplifiée par des machines ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — La détection automatisée coexiste avec les surprises du public" aria-label="Notre scénario : Stable (50%) — La détection automatisée coexiste avec les surprises du public">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1490,7 +1505,7 @@
         </span>
         <span class="card-q">Face à la stagnation de la participation (45,7 % en 2024-2025) et à l&#x27;essor de l&#x27;IA et de la personnalisation du risque, le dépistage du cancer du sein en France bascule-t-il vers un nouveau modèle ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Coexistence prolongée du modèle classique et d&#x27;outils numériques d&#x27;aide" aria-label="Notre scénario : Stable (50%) — Coexistence prolongée du modèle classique et d&#x27;outils numériques d&#x27;aide">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1514,7 +1529,7 @@
         </span>
         <span class="card-q">Le bitcoin est-il en passe de devenir un actif institutionnel de référence, ou son adoption reste-t-elle un phénomène concentré et fragile ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Le bitcoin demeure un actif de diversification de niche" aria-label="Notre scénario : Stable (45%) — Le bitcoin demeure un actif de diversification de niche">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1538,7 +1553,7 @@
         </span>
         <span class="card-q">Une vague de fermetures et de plans sociaux menace-t-elle de faire remonter le chômage en France, ou la réindustrialisation absorbe-t-elle ces pertes ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Le chômage stagne sur un plateau sous l&#x27;effet de destructions continues" aria-label="Notre scénario : Stable (45%) — Le chômage stagne sur un plateau sous l&#x27;effet de destructions continues">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1562,7 +1577,7 @@
         </span>
         <span class="card-q">La glace des cratères polaires lunaires est-elle un réservoir stratégique à exploiter d&#x27;ici 2035, ou un piège scientifique et juridique ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — L&#x27;extraction reste un laboratoire scientifique coûteux sans débouché commercial" aria-label="Notre scénario : Stable (50%) — L&#x27;extraction reste un laboratoire scientifique coûteux sans débouché commercial">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1637,7 +1652,7 @@
         </span>
         <span class="card-q">Pékin peut-il produire des franchises capables de concurrencer Disney, Marvel, Nintendo ou Netflix, ou son modèle reste-t-il prisonnier de la censure et de la perception à l&#x27;étranger ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — La Chine domine son marché intérieur mais reste confinée à son espace régional" aria-label="Notre scénario : Stable (50%) — La Chine domine son marché intérieur mais reste confinée à son espace régional">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1661,7 +1676,7 @@
         </span>
         <span class="card-q">Les nouveaux traitements contre l&#x27;obésité (Ozempic, Wegovy, Mounjaro) peuvent-ils enrayer l&#x27;épidémie mondiale, ou resteront-ils réservés aux plus aisés ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Maintien de prix élevés et fracture sanitaire entre patients aisés et modestes" aria-label="Notre scénario : Stable (50%) — Maintien de prix élevés et fracture sanitaire entre patients aisés et modestes">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1685,7 +1700,7 @@
         </span>
         <span class="card-q">Face au Brent à plus de 100 $ et à la menace sur Ormuz, la BCE et la Fed peuvent-elles relâcher leur resserrement, ou le choc pétrolier les force-t-il à maintenir les taux élevés ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Plateau énergétique prolongé et taux directeurs figés à un niveau élevé" aria-label="Notre scénario : Stable (45%) — Plateau énergétique prolongé et taux directeurs figés à un niveau élevé">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -1709,7 +1724,7 @@
         </span>
         <span class="card-q">Le gouvernement peut-il éviter l&#x27;explosion sociale cet automne face au record des carburants et à la menace hybride russe ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Le gouvernement maintient sa ligne et canalise les protestations" aria-label="Notre scénario : Stable (50%) — Le gouvernement maintient sa ligne et canalise les protestations">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1808,7 +1823,7 @@
         </span>
         <span class="card-q">Après l&#x27;éviction de Macklemore, la tournée de Sheeran peut-elle survivre au boycott sans que sa carrière en paie durablement le prix ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — La tournée continue sans première partie, la polémique s&#x27;essouffle sans trancher" aria-label="Notre scénario : Stable (50%) — La tournée continue sans première partie, la polémique s&#x27;essouffle sans trancher">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1832,7 +1847,7 @@
         </span>
         <span class="card-q">Des dizaines d&#x27;essais cliniques sont en cours : un traitement qui arrête la maladie, plutôt qu&#x27;un calmant, peut-il arriver avant 2030 ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (55%) — La recherche progresse, les soins restent symptomatiques" aria-label="Notre scénario : Stable (55%) — La recherche progresse, les soins restent symptomatiques">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
@@ -1856,7 +1871,7 @@
         </span>
         <span class="card-q">Face à la dette record et à la ruée vers l&#x27;or des banques centrales, le dollar peut-il perdre son statut de monnaie de réserve mondiale ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Le recul lent du dollar se poursuit sans rupture" aria-label="Notre scénario : Stable (50%) — Le recul lent du dollar se poursuit sans rupture">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1880,7 +1895,7 @@
         </span>
         <span class="card-q">Depuis la fin de l&#x27;ARENH, le Versement Nucléaire Universel protège-t-il vraiment 30 millions de foyers d&#x27;une hausse des prix ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — La facture grimpe doucement, sans choc brutal" aria-label="Notre scénario : Stable (50%) — La facture grimpe doucement, sans choc brutal">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1904,7 +1919,7 @@
         </span>
         <span class="card-q">Après la première licence commerciale américaine (31 août) et un financement privé record, la fusion va-t-elle tenir sa promesse dans la décennie, ou repousser encore l&#x27;échéance comme ITER ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Les jalons avancent, mais avec des retards habituels" aria-label="Notre scénario : Stable (50%) — Les jalons avancent, mais avec des retards habituels">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -1955,7 +1970,7 @@
         </span>
         <span class="card-q">À quelques semaines du budget 2027, Lecornu peut-il obtenir un compromis, devra-t-il repasser par le 49.3, ou la bataille budgétaire fera-t-elle tomber son gouvernement ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (50%) — La censure fait tomber le gouvernement, ou bloque le budget" aria-label="Notre scénario : Dégradé (50%) — La censure fait tomber le gouvernement, ou bloque le budget">
       <span class="eval-label">Dégradé</span>
       <span class="eval-pct">50%</span>
@@ -1979,7 +1994,7 @@
         </span>
         <span class="card-q">En 2026, plusieurs suites à très gros budget ont flanché en salle pendant que des films inédits cartonnaient : le pari des franchises reste-t-il aussi sûr qu&#x27;avant ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (48%) — Les studios continuent de miser sur les suites malgré les échecs" aria-label="Notre scénario : Stable (48%) — Les studios continuent de miser sur les suites malgré les échecs">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">48%</span>
@@ -2003,7 +2018,7 @@
         </span>
         <span class="card-q">Les géants américains de la tech promettent des centaines de milliards de dollars à l&#x27;intelligence artificielle : la révolution rattrape-t-elle la dépense, ou les marchés sont-ils au bord d&#x27;un krach comme en 2000 ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/tech-numerique.html">Tech</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — La bulle continue de grossir, sans éclater tout de suite" aria-label="Notre scénario : Stable (45%) — La bulle continue de grossir, sans éclater tout de suite">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2027,7 +2042,7 @@
         </span>
         <span class="card-q">Quelques métropoles mondiales pèsent déjà plus lourd économiquement que des pays entiers : les États peuvent-ils reprendre la main, ou les villes vont-elles concentrer encore plus de pouvoir ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Les métropoles gardent l&#x27;avantage, sans nouvelle rupture" aria-label="Notre scénario : Stable (45%) — Les métropoles gardent l&#x27;avantage, sans nouvelle rupture">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2051,7 +2066,7 @@
         </span>
         <span class="card-q">Les métropoles concentrent la richesse, les banlieues restent bloquées malgré la proximité, le rural décroche : la France avance-t-elle encore comme un seul pays ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — L&#x27;écart ne se comble pas, mais n&#x27;empire pas non plus" aria-label="Notre scénario : Stable (45%) — L&#x27;écart ne se comble pas, mais n&#x27;empire pas non plus">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2075,7 +2090,7 @@
         </span>
         <span class="card-q">OpenAI vise 1 000 milliards de dollars pour son entrée en Bourse : ce pari se réalise-t-il, se fait-il au rabais, ou reste-t-il bloqué ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (55%) — L&#x27;entrée en Bourse glisse à 2027, sans rien changer au prix" aria-label="Notre scénario : Stable (55%) — L&#x27;entrée en Bourse glisse à 2027, sans rien changer au prix">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
@@ -2126,7 +2141,7 @@
         </span>
         <span class="card-q">La loi du 3 août 2026 impose une solidarité financière entre sport masculin et féminin, sans fixer de montant : l&#x27;écart de moyens va-t-il vraiment se réduire ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — L&#x27;obligation reste sans montant et les budgets bougent à peine" aria-label="Notre scénario : Stable (50%) — L&#x27;obligation reste sans montant et les budgets bougent à peine">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -2150,7 +2165,7 @@
         </span>
         <span class="card-q">Ventes record chez Christie&#x27;s et Sotheby&#x27;s, mais art émergent en chute depuis quatre ans : le marché de l&#x27;art change-t-il durablement d&#x27;époque ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (55%) — Le haut et le bas du marché continuent de diverger" aria-label="Notre scénario : Stable (55%) — Le haut et le bas du marché continuent de diverger">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
@@ -2174,7 +2189,7 @@
         </span>
         <span class="card-q">Après cinq reports depuis 2019, la NASA vise 2028 et la Chine 2030 pour ramener des humains sur la Lune : cette fois sera-t-elle la bonne ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Les essais avancent, le calendrier recule une fois de plus" aria-label="Notre scénario : Stable (50%) — Les essais avancent, le calendrier recule une fois de plus">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -2198,7 +2213,7 @@
         </span>
         <span class="card-q">Malgré un CAPE ratio au plus haut depuis 1999 et une dette sur marge record, Wall Street enchaîne les records : le rallye tient-il sur des bases solides ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Le marché reste cher, mais ne casse pas" aria-label="Notre scénario : Stable (45%) — Le marché reste cher, mais ne casse pas">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2222,7 +2237,7 @@
         </span>
         <span class="card-q">Saisie fin août 2026, l&#x27;Anses dispose de deux mois pour juger l&#x27;acétamipride et le flupyradifurone, bannis depuis 2018 : peut-elle vraiment leur dire non ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — L&#x27;Anses accorde la dérogation, mais seulement pour les filières prévues" aria-label="Notre scénario : Stable (45%) — L&#x27;Anses accorde la dérogation, mais seulement pour les filières prévues">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2246,7 +2261,7 @@
         </span>
         <span class="card-q">À huit mois du premier tour, Marine Le Pen domine tous les sondages (33-38 %) : la droite et la gauche, toujours divisées, peuvent-elles aligner un candidat capable de la battre au second tour ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Droite et gauche restent divisées, le RN l&#x27;emporte comme prévu" aria-label="Notre scénario : Stable (50%) — Droite et gauche restent divisées, le RN l&#x27;emporte comme prévu">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -2297,7 +2312,7 @@
         </span>
         <span class="card-q">Après l&#x27;effondrement des droits TV et la chute continue des ressources des clubs, la Ligue 1 va-t-elle retrouver un modèle économique stable, se maintenir tant bien que mal à ce niveau réduit, ou voir plusieurs clubs sombrer financièrement ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Ligue 1+ progresse, mais sans rattraper son retard" aria-label="Notre scénario : Stable (45%) — Ligue 1+ progresse, mais sans rattraper son retard">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2321,7 +2336,7 @@
         </span>
         <span class="card-q">Les studios ont fixé une nouvelle règle commune : 45 jours d&#x27;exclusivité en salle avant le streaming. Le box-office mondial vise sa meilleure année depuis 2019, mais les grandes chaînes de cinéma restent lourdement endettées et les plus jeunes spectateurs préfèrent de plus en plus attendre le streaming : cette trêve suffira-t-elle à sauver durablement les salles ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — L&#x27;accord des 45 jours se maintient, sans plus" aria-label="Notre scénario : Stable (45%) — L&#x27;accord des 45 jours se maintient, sans plus">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2345,7 +2360,7 @@
         </span>
         <span class="card-q">Avec un rythme de réduction des émissions trois fois trop lent et un Fonds vert divisé par trois en deux ans, la France a-t-elle encore les moyens de tenir son objectif de -50 % d&#x27;ici 2030 ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — La rallonge s&#x27;effrite en chemin" aria-label="Notre scénario : Stable (45%) — La rallonge s&#x27;effrite en chemin">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2369,7 +2384,7 @@
         </span>
         <span class="card-q">Alors que le taux des emprunts d&#x27;État américains à 30 ans a grimpé à son plus haut niveau depuis 2007 et que les trois grandes agences de notation ont désormais toutes dégradé la note des États-Unis, le marché obligataire le plus important au monde peut-il encaisser cette pression sans faire basculer la dette mondiale dans une vraie crise de confiance ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — La tension continue, sans rupture" aria-label="Notre scénario : Stable (50%) — La tension continue, sans rupture">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -2393,7 +2408,7 @@
         </span>
         <span class="card-q">Le dossier des retraites, suspendu par la loi jusqu&#x27;en janvier 2028, va-t-il rester gelé jusqu&#x27;à la présidentielle de 2027, ou s&#x27;invite-t-il déjà dans la campagne dès cet automne ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Le statu quo jusqu&#x27;à l&#x27;élection" aria-label="Notre scénario : Stable (50%) — Le statu quo jusqu&#x27;à l&#x27;élection">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -2417,7 +2432,7 @@
         </span>
         <span class="card-q">La Chine offre-t-elle vraiment ses modèles d&#x27;intelligence artificielle en libre accès sans arrière-pensée, ou ce cadeau ouvre-t-il la voie à une dépendance technologique difficile à inverser ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/tech-numerique.html">Tech</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — La dépendance s&#x27;installe doucement" aria-label="Notre scénario : Stable (45%) — La dépendance s&#x27;installe doucement">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2467,7 +2482,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Le 48 reste la norme" aria-label="Notre scénario : Stable (45%) — Le 48 reste la norme">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2491,7 +2506,7 @@
         </span>
         <span class="card-q">La Chine est devenue le premier marché mondial du cinéma, mais les studios américains n&#x27;y ont jamais pesé aussi peu — Hollywood peut-il reconquérir des spectateurs chinois, ou a-t-il durablement perdu l&#x27;accès à ce marché ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — La porte reste entrouverte" aria-label="Notre scénario : Stable (45%) — La porte reste entrouverte">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2515,7 +2530,7 @@
         </span>
         <span class="card-q">Le silence radio de l&#x27;univers veut-il dire que l&#x27;humanité a déjà passé son obstacle le plus dangereux, ou que le pire reste encore devant elle ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Le mystère reste entier" aria-label="Notre scénario : Stable (45%) — Le mystère reste entier">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2539,7 +2554,7 @@
         </span>
         <span class="card-q">Après huit mois d&#x27;immobilisme à la Fed et une première hausse de la BCE en trois ans, les banques centrales peuvent-elles encore promettre une vraie baisse durable des taux d&#x27;intérêt ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (90%) — Une nouvelle vague de hausses" aria-label="Notre scénario : Dégradé (90%) — Une nouvelle vague de hausses">
       <span class="eval-label">Dégradé</span>
       <span class="eval-pct">90%</span>
@@ -2563,7 +2578,7 @@
         </span>
         <span class="card-q">À huit mois du premier tour, entre piratages attribués à la Russie et soupçons sur l&#x27;algorithme de X d&#x27;Elon Musk, la France peut-elle protéger l&#x27;intégrité de la présidentielle sur ces deux fronts à la fois ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Le bruit de fond s&#x27;installe" aria-label="Notre scénario : Stable (50%) — Le bruit de fond s&#x27;installe">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -2587,7 +2602,7 @@
         </span>
         <span class="card-q">Cet été, des agents IA d&#x27;OpenAI, Anthropic, Meta et du chinois Moonshot AI ont chacun franchi les limites de leur bac à sable pour atteindre de vraies infrastructures : la régulation va-t-elle reprendre le dessus sur ces systèmes de plus en plus autonomes, ou l&#x27;écart avec leur encadrement va-t-il continuer de se creuser ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/tech-numerique.html">Tech</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Les labs colmatent, la loi patiente" aria-label="Notre scénario : Stable (45%) — Les labs colmatent, la loi patiente">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2638,7 +2653,7 @@
         </span>
         <span class="card-q">Le rugby affronte deux dossiers séparés sur la sécurité de ses joueurs. D&#x27;un côté, le plus grand procès de son histoire sur les commotions cérébrales, devant la justice britannique. De l&#x27;autre, une nouvelle règle qui abaisse la hauteur légale de plaquage — née en France, désormais obligatoire dans le monde amateur, mais pas encore chez les professionnels. Le rugby va-t-il réussir à rendre son jeu plus sûr sans se renier, ou les deux dossiers vont-ils déraper au même moment ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — Ni avancée ni rupture" aria-label="Notre scénario : Stable (45%) — Ni avancée ni rupture">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2662,7 +2677,7 @@
         </span>
         <span class="card-q">Depuis que Harlequin a basculé sa collection de romans à l&#x27;eau de rose vers la traduction automatique et que la loi censée mieux protéger les auteurs français reste bloquée au Parlement, le reste de l&#x27;édition va-t-il suivre le même chemin, ou les traducteurs et écrivains vont-ils réussir à préserver leur place face à l&#x27;IA ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — Harlequin reste un cas isolé" aria-label="Notre scénario : Stable (50%) — Harlequin reste un cas isolé">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -2686,7 +2701,7 @@
         </span>
         <span class="card-q">❓ Après un été qui a déjà coûté entre 10 et 15 milliards d&#x27;euros et fait au moins 5 764 morts en excès en deux semaines, le budget 2027 va-t-il enfin financer l&#x27;adaptation de la France à ces vagues de chaleur à répétition, ou le Fonds vert va-t-il rester bloqué à son plus bas niveau depuis sa création ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — ⚖️ Le rattrapage à moitié" aria-label="Notre scénario : Stable (45%) — ⚖️ Le rattrapage à moitié">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2710,7 +2725,7 @@
         </span>
         <span class="card-q">❓ Alors que la Fed se prépare à baisser ses taux en septembre et que la BCE, elle, vient de relever les siens pour la première fois en trois ans, le choc pétrolier provoqué par la guerre en Iran va-t-il relancer l&#x27;inflation mondiale, que la Banque mondiale évoquait déjà à 4,5 % dans son pire scénario ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — ⚖️ Le statu quo tendu" aria-label="Notre scénario : Stable (45%) — ⚖️ Le statu quo tendu">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2734,7 +2749,7 @@
         </span>
         <span class="card-q">❓ Alors que Marine Le Pen vient d&#x27;être reconnue éligible en appel et que le Rassemblement national caracole autour de 35 % dans les sondages, la droite et la gauche vont-elles réussir à se ranger chacune derrière un seul candidat d&#x27;ici le printemps, ou la présidentielle 2027 va-t-elle battre le record de fragmentation de 2002 (16 candidats) ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — 🧩 Chacun campe sur ses positions" aria-label="Notre scénario : Stable (45%) — 🧩 Chacun campe sur ses positions">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -2782,7 +2797,7 @@
         </span>
         <span class="card-q">❓ Alors que la guerre en Iran a fait grimper le baril à plus de 100 dollars cet été et laisse le détroit d&#x27;Ormuz quasiment paralysé, l&#x27;économie mondiale va-t-elle absorber le choc grâce au boom des investissements dans l&#x27;IA, ou la guerre va-t-elle finir par faire basculer la croissance vers la récession ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (55%) — ⚖️ La guerre s&#x27;enlise, le pétrole reste cher" aria-label="Notre scénario : Stable (55%) — ⚖️ La guerre s&#x27;enlise, le pétrole reste cher">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
@@ -2809,7 +2824,7 @@
         </span>
         <span class="card-q">❓ Alors que Sony réclame jusqu&#x27;à 9 milliards de dollars à Suno devant la justice américaine pendant qu&#x27;Universal et Warner ont préféré signer des accords de licence, et qu&#x27;une loi européenne impose depuis le 2 août l&#x27;étiquetage de toute musique générée par IA, la création musicale mondiale bascule-t-elle vers un marché sous licence, ou reste-t-elle prise entre procès interminables et flot incontrôlé ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (55%) — ⚖️ Le bras de fer s&#x27;installe dans la durée" aria-label="Notre scénario : Stable (55%) — ⚖️ Le bras de fer s&#x27;installe dans la durée">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">55%</span>
@@ -2833,7 +2848,7 @@
         </span>
         <span class="card-q">❓ Après une chute historique de la fréquentation en 2025 (-13,6 %, plus bas niveau depuis 1997 hors Covid), le rebond spectaculaire du début 2026 va-t-il tenir toute l&#x27;année, ou n&#x27;est-ce qu&#x27;un sursaut avant un nouveau recul ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-favorable" data-kind="favorable" title="Notre scénario : Favorable (58%) — 🎬 Le rebond tient jusqu&#x27;à la fin de l&#x27;année" aria-label="Notre scénario : Favorable (58%) — 🎬 Le rebond tient jusqu&#x27;à la fin de l&#x27;année">
       <span class="eval-label">Favorable</span>
       <span class="eval-pct">58%</span>
@@ -2857,7 +2872,7 @@
         </span>
         <span class="card-q">❓ Après avoir perdu deux procès antitrust d&#x27;affilée sur son moteur de recherche et sa régie publicitaire, Google va-t-il être vraiment démantelé, ou les géants de la tech vont-ils une fois de plus absorber le choc sans rien changer à leur pouvoir réel ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/tech-numerique.html">Tech & numérique</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/tech-numerique.html">Tech</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (50%) — 🏳️ La justice recule, Big Tech gagne" aria-label="Notre scénario : Dégradé (50%) — 🏳️ La justice recule, Big Tech gagne">
       <span class="eval-label">Dégradé</span>
       <span class="eval-pct">50%</span>
@@ -2881,7 +2896,7 @@
         </span>
         <span class="card-q">❓ Après avoir dû abandonner en catastrophe son projet de vendre un bout de la Coupe du monde à des investisseurs privés, Gianni Infantino peut-il regagner la confiance de l&#x27;UEFA et des autres fédérations avant l&#x27;élection à la présidence de la FIFA prévue le 18 mars 2027 ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (68%) — 🧊 La méfiance dure, Infantino reste" aria-label="Notre scénario : Stable (68%) — 🧊 La méfiance dure, Infantino reste">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">68%</span>
@@ -2905,7 +2920,7 @@
         </span>
         <span class="card-q">❓ Six nouveaux réacteurs nucléaires à 83 milliards d&#x27;euros, une enquête de Bruxelles sur les aides versées à EDF, et une décision finale attendue avant la fin de l&#x27;année : le programme EPR2 va-t-il tenir son calendrier, ou est-il en train de dérailler ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — ⏳ La décision glisse, le programme survit" aria-label="Notre scénario : Stable (50%) — ⏳ La décision glisse, le programme survit">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -2980,7 +2995,7 @@
         </span>
         <span class="card-q">❓ Netflix a augmenté son abonnement standard de 2 dollars en mars, Disney+ jusqu&#x27;à 3 dollars, et il faut désormais s&#x27;abonner à Netflix, Amazon Prime, Peacock et Disney+ à la fois pour voir tous les matchs de NFL : après avoir tué la télévision par câble en promettant moins cher et tout au même endroit, le streaming est-il en train de devenir exactement ce qu&#x27;il devait remplacer ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — ⚖️ Les gros gagnent, les petits trinquent" aria-label="Notre scénario : Stable (45%) — ⚖️ Les gros gagnent, les petits trinquent">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -3004,7 +3019,7 @@
         </span>
         <span class="card-q">❓ Alors que plus de la moitié des nouveaux titres envoyés chaque jour à Deezer sont désormais entièrement composés par une IA, et que la loi censée protéger les artistes est bloquée à l&#x27;Assemblée nationale, la musique faite par des humains peut-elle encore résister ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — ⚖️ Ni loi ni chaos, un flou qui dure" aria-label="Notre scénario : Stable (45%) — ⚖️ Ni loi ni chaos, un flou qui dure">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -3028,7 +3043,7 @@
         </span>
         <span class="card-q">❓ Après l&#x27;été le plus dévastateur en vingt ans, la France va-t-elle enfin construire un vrai plan contre les méga-feux, ou continuera-t-elle à réagir dans l&#x27;urgence, feu après feu ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences & environnement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/sciences-environnement.html">Sciences</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (47%) — 🚒 On répare, mais sans plan d&#x27;ensemble" aria-label="Notre scénario : Stable (47%) — 🚒 On répare, mais sans plan d&#x27;ensemble">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">47%</span>
@@ -3052,7 +3067,7 @@
         </span>
         <span class="card-q">❓ Après avoir dépensé des dizaines de milliards dans le sport mondial, l&#x27;Arabie saoudite est-elle en train de se retirer, de resserrer son emprise sur le football, ou va-t-elle au contraire l&#x27;étendre partout ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-degrade" data-kind="degrade" title="Notre scénario : Dégradé (75%) — 🔥 Le calendrier serré ne tient pas" aria-label="Notre scénario : Dégradé (75%) — 🔥 Le calendrier serré ne tient pas">
       <span class="eval-label">Dégradé</span>
       <span class="eval-pct">75%</span>
@@ -3076,7 +3091,7 @@
         </span>
         <span class="card-q">❓ Cet automne, le gouvernement de Sébastien Lecornu réussira-t-il à faire adopter un budget 2027, survivra-t-il de justesse à coups de 49.3 comme l&#x27;an dernier, ou tombera-t-il faute d&#x27;accord, à quelques mois de la présidentielle ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique & institutions</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/politique-institutions.html">Politique</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — ⚖️ Le 49.3 sauve la mise, sous tension" aria-label="Notre scénario : Stable (50%) — ⚖️ Le 49.3 sauve la mise, sous tension">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -3100,7 +3115,7 @@
         </span>
         <span class="card-q">❓ Alors que la fortune des milliardaires bat record sur record — plus de 20 000 milliards de dollars, en hausse de 4 000 milliards en un an —, la concentration des richesses va-t-elle être freinée par de nouveaux impôts, se poursuivre au rythme actuel, ou s&#x27;accélérer encore ?</span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie & entreprises</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/economie-entreprises.html">Économie</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (50%) — ⚖️ La fortune grimpe, la taxe reste bloquée" aria-label="Notre scénario : Stable (50%) — ⚖️ La fortune grimpe, la taxe reste bloquée">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">50%</span>
@@ -3147,7 +3162,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — ⏳ Le procès traîne, le deal est gelé" aria-label="Notre scénario : Stable (45%) — ⏳ Le procès traîne, le deal est gelé">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -3170,7 +3185,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-stable" data-kind="stable" title="Notre scénario : Stable (45%) — 🧩 La vente à la découpe continue" aria-label="Notre scénario : Stable (45%) — 🧩 La vente à la découpe continue">
       <span class="eval-label">Stable</span>
       <span class="eval-pct">45%</span>
@@ -3193,7 +3208,7 @@
           
         </span>
       </td>
-      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture & divertissement</a></td>
+      <td class="col-domain" data-label="Matière"><a href="themes/culture-divertissement.html">Culture</a></td>
       <td class="col-eval" data-label="Notre scénario"><span class="eval-badge eval-favorable" data-kind="favorable" title="Notre scénario : Favorable (72%) — 🍿 Le doublé parfait" aria-label="Notre scénario : Favorable (72%) — 🍿 Le doublé parfait">
       <span class="eval-label">Favorable</span>
       <span class="eval-pct">72%</span>

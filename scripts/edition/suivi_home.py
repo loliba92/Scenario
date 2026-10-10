@@ -39,7 +39,7 @@ MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août
 MOIS_COURT = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août",
               "sept.", "oct.", "nov.", "déc."]
 RUBRIQUES = {
-    "international": "Géopolitique",
+    "international": "International",
     "politique-institutions": "Politique",
     "economie-entreprises": "Économie",
     "sciences-environnement": "Sciences",
@@ -193,18 +193,55 @@ def _ligne(s: dict, insecable: bool = False) -> str:
     return rub + f'<span class="nw">{_html.escape(date_txt)}</span>'
 
 
-def rendre_suivis_edition(suivis: list[dict]) -> str:
-    """Bande « Les derniers suivis » de la page Éditions : une carte par suivi, sans image."""
-    cartes = "\n".join(
-        f"""      <a class="suivi-card" href="suivi/{s['slug']}.html">
+def _image(src: str, alt: str) -> str:
+    """Vignette en tête de carte (16/9, recadrée), ou rien si l'image est absente."""
+    return f'\n        <img class="suivi-card-image" src="{_html.escape(src)}" alt="{_html.escape(alt)}" loading="lazy">' if src else ""
+
+
+def carte_suivi(s: dict) -> str:
+    return f"""      <a class="suivi-card" href="suivi/{s['slug']}.html">{_image(s.get('image', ''), s['titre'])}
         <span class="suivi-card-meta">{_ligne(s, insecable=True)}</span>
         <span class="suivi-card-title">{_typo(s['titre'])}</span>
         <span class="suivi-card-text">{_typo(_debut(s['fait'], 170))}</span>
         <span class="suivi-card-cta">Lire le suivi →</span>
-      </a>""" for s in suivis)
+      </a>"""
+
+
+def carte_edition(e: dict) -> str:
+    """Carte de la dernière édition, même gabarit que celle du suivi. e : iso_date, matiere, titre, question, image (optionnelle)."""
+    jour = date.fromisoformat(e["iso_date"])
+    court = f"{jour.day} {MOIS_COURT[jour.month - 1]}"
+    question = f'\n        <span class="suivi-card-text">{_typo(e["question"])}</span>' if e.get("question") else ""
+    return f"""      <a class="suivi-card" href="archives/{e['iso_date']}.html">{_image(e.get('image', ''), e['titre'])}
+        <span class="suivi-card-meta"><span>{_html.escape(e['matiere'])}</span><span class="nw">édition du {court}</span></span>
+        <span class="suivi-card-title">{_typo(e['titre'])}</span>{question}
+        <span class="suivi-card-cta">Lire l'édition →</span>
+      </a>"""
+
+
+def rendre_suivis_edition(suivis: list[dict], edition: dict | None = None) -> str:
+    """Bande de la page Éditions, au-dessus de la liste. Sans `edition` : le suivi seul (ou « Les derniers suivis »
+    s'il y en a plusieurs). Avec `edition` : la dernière édition et le dernier suivi, côte à côte (10 octobre 2026)."""
+    if edition and suivis:
+        return f"""<section class="suivis-recents" id="suivis">
+  <div class="wrap">
+    <div class="suivis-grid suivis-duo">
+      <div class="suivis-col">
+        <p class="suivis-label">La dernière édition</p>
+{carte_edition(edition)}
+      </div>
+      <div class="suivis-col">
+        <p class="suivis-label">Le dernier suivi</p>
+{carte_suivi(suivis[0])}
+      </div>
+    </div>
+  </div>
+</section>"""
+    cartes = "\n".join(carte_suivi(s) for s in suivis)
+    libelle = "Le dernier suivi" if len(suivis) == 1 else "Les derniers suivis"
     return f"""<section class="suivis-recents" id="suivis">
   <div class="wrap">
-    <p class="suivis-label">Les derniers suivis</p>
+    <p class="suivis-label">{libelle}</p>
     <div class="suivis-grid">
 {cartes}
     </div>
@@ -212,11 +249,11 @@ def rendre_suivis_edition(suivis: list[dict]) -> str:
 </section>"""
 
 
-def bloc_suivis_edition(n: int = 3) -> str:
-    """Bande pour la page Éditions, ou "" au moindre problème (jamais d'exception)."""
+def bloc_suivis_edition(n: int = 1, edition: dict | None = None) -> str:
+    """Bande pour la page Éditions (dernier suivi, avec la dernière édition si fournie), ou "" au moindre problème."""
     try:
         suivis = derniers_suivis(n)
-        return rendre_suivis_edition(suivis) if suivis else ""
+        return rendre_suivis_edition(suivis, edition) if suivis else ""
     except Exception as e:  # noqa: BLE001
         print(f"[suivi_home] bande ignorée : {e}", file=sys.stderr)
         return ""
