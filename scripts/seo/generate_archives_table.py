@@ -114,6 +114,7 @@ ARCHIVES_TABLE_CSS = """
   .suivi-card-cta {
     margin-top: auto; font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--gold);
   }
+  @media (min-width: 861px) { .suivi-card-meta { flex-direction: column; flex-wrap: nowrap; } }
   @media (max-width: 860px) { .suivis-grid { grid-template-columns: 1fr; } }
 
   /* ---- Archives table (scripts/seo/generate_archives_table.py) ---- */
@@ -646,10 +647,14 @@ ARCHIVES_TABLE_CSS = """
     font-family:"JetBrains Mono", monospace; font-size:0.78rem; font-weight:700; padding:0 18px; cursor:pointer;
   }
   a.filter-chip{ text-decoration:none; display:inline-block; }
+  /* « Affiner la liste » : sur la ligne du libellé « Explorer par matière », à droite (10 oct. 2026), au lieu de
+     rester seul sur une ligne sous les pastilles. Le contenu déplié s'affiche en dessous, comme avant. */
+  .archives-filters{ position:relative; }
   .filters-more > summary{
-    list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px; align-self:flex-start;
-    font-family:"JetBrains Mono", monospace; font-size:0.76rem; color:var(--gold);
-    border:1px solid var(--hairline); border-radius:100px; padding:8px 16px;
+    list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
+    position:absolute; top:-8px; right:0;
+    font-family:"JetBrains Mono", monospace; font-size:0.74rem; color:var(--gold);
+    border:1px solid var(--hairline); border-radius:100px; padding:6px 14px;
   }
   .filters-more > summary::-webkit-details-marker{ display:none; }
   .filters-more > summary::after{ content:"+"; font-size:1rem; line-height:1; }
@@ -739,6 +744,12 @@ ARCHIVES_TABLE_CSS = """
     .matiere-tile{ gap:7px; min-height:42px; padding:0 13px 0 10px; font-size:0.86rem; flex:0 1 auto; }
     .matiere-tile svg{ display:none; }   /* avec les effectifs (« Économie 13 »), sans icône pour tenir sur une ligne */
     .matiere-tile{ padding:0 13px; }
+  }
+  /* Téléphone : grille de 2 colonnes régulière (plus de pastille seule sur une ligne : la dernière prend toute la largeur) */
+  @media (max-width: 919px){
+    .matiere-tiles{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .matiere-tile{ width:100%; justify-content:flex-start; box-sizing:border-box; }
+    .matiere-tiles li:last-child:nth-child(odd){ grid-column:1 / -1; }
   }
   /* Le tableau (desktop) comme les cartes (mobile, tr en display:flex)
      doivent tous deux disparaître complètement quand filtrés */
@@ -1237,7 +1248,7 @@ def get_scenario_label(kind):
 
 def render_table_row(article, featured=False):
     """Rend une ligne du tableau avec 5 colonnes: Date | Titre | Domaine | Notre scénario | Impact France."""
-    domain_label = DOMAIN_LABELS.get(article["domain"], article["domain"])
+    domain_label = MATIERE_SHORT.get(article["domain"], DOMAIN_LABELS.get(article["domain"], article["domain"]))  # mêmes libellés que les pastilles (10 oct. 2026)
 
     # Notre scénario : badge de couleur + % SEULEMENT (pas de texte du scénario)
     kind = article["scenario_kind"]

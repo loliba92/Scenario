@@ -39,7 +39,7 @@ MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août
 MOIS_COURT = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août",
               "sept.", "oct.", "nov.", "déc."]
 RUBRIQUES = {
-    "international": "Géopolitique",
+    "international": "International",
     "politique-institutions": "Politique",
     "economie-entreprises": "Économie",
     "sciences-environnement": "Sciences",
