@@ -364,6 +364,12 @@ jobs:
         if: steps.config.outputs.publish == 'true'
         run: python3 scripts/seo/freeze_old_editions.py || echo "freeze_old_editions.py a échoué (non bloquant)"
 
+      # 10 octobre 2026 : liens « Édition précédente / suivante » pour relier les éditions entre elles (SEO).
+      # Remet à jour les éditions qui ont déjà le bloc et les deux plus récentes. Jamais bloquant.
+      - name: Relier les éditions (précédente / suivante)
+        if: steps.config.outputs.publish == 'true'
+        run: python3 scripts/seo/add_edition_nav.py || echo "add_edition_nav.py a échoué (non bloquant)"
+
       # Même convention que translate-en.yml/reads.yml : commit d'abord,
       # rebase ensuite (git pull --rebase refuse de tourner avec des
       # changements déjà indexés). Rien à committer si generate_post_edition.py
