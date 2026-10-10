@@ -20,28 +20,28 @@ import generate_podcast as gp  # noqa: E402
 MOTS_MIN, MOTS_MAX = 420, 1000  # 3 à 7 minutes de lecture (« mieux vaut plus que moins », 6 octobre 2026 ; 720 mots au départ)
 SEPARATEUR = "---"
 MOTS_PHRASE_MAX, MOTS_PHRASE_MOYENNE = 32, 20   # pédagogie : phrases courtes à l'oral (textes validés : moyenne 13-15, maximum 28)
-# Sept accueils et sept fermetures, écrits à l'avance (jamais par le modèle) : on en tire un par jour pour que l'épisode
+# Sept accueils (plus chaleureux depuis le 10 octobre 2026 : « Comment allez-vous ? ») et sept fermetures, écrits à l'avance (jamais par le modèle) : on en tire un par jour pour que l'épisode
 # ne sonne pas toujours pareil. Règles communes : vouvoiement, « évolutions » seulement dans l'accueil, phrases courtes.
 # Les fermetures changent seulement au début : la fin est un rituel fixe (RITUEL), pour que la devise devienne celle du site. Le tirage dépend de la date (voir _rangs) : il se refait à l'identique si l'on
 # régénère un épisode.
 OUVERTURES = (
-    "Bienvenue sur Scénario. Chaque jour, une question d'actualité, et trois évolutions possibles. On y va !",
-    "Bonjour, et bienvenue sur Scénario. Une question d'actualité, trois évolutions possibles. Voyons cela ensemble.",
-    "Vous écoutez Scénario. Chaque jour, une question d'actualité, et trois évolutions possibles. C'est parti.",
-    "Bienvenue sur Scénario, le rendez-vous quotidien d'une question d'actualité et de ses trois évolutions possibles. Commençons.",
-    "Bonjour à toutes et à tous, bienvenue sur Scénario. Aujourd'hui encore, une question d'actualité, et trois évolutions possibles. Allons-y.",
-    "Scénario, c'est une question d'actualité par jour, et trois évolutions possibles. Bienvenue, installez-vous : on commence.",
-    "Bienvenue sur Scénario. Prenez un moment avec nous : une question d'actualité, trois évolutions possibles. Allons-y.",
+    "Bonjour, comment allez-vous ? Installez-vous : bienvenue sur Scénario. Comme chaque jour, une question d'actualité et ses trois évolutions possibles.",
+    "Bonjour, et merci d'être là. Comment allez-vous ? Bienvenue sur Scénario : comme chaque jour, une question d'actualité, trois évolutions possibles.",
+    "Bonjour, ou bonsoir, selon le moment où vous nous écoutez. J'espère que vous allez bien. Bienvenue sur Scénario : une question, trois évolutions possibles.",
+    "Bienvenue sur Scénario. Prenez un moment pour vous, installez-vous. Comme chaque jour, une question d'actualité, et trois évolutions possibles.",
+    "Bonjour à toutes et à tous, comment allez-vous ? Vous écoutez Scénario : ensemble, nous regardons trois évolutions possibles d'une question d'actualité.",
+    "Bienvenue sur Scénario, et merci de nous accorder quelques minutes. Comment allez-vous ? Comme chaque jour, une question d'actualité, trois évolutions possibles.",
+    "Bonjour, et bienvenue sur Scénario. Si vous avez un instant, installons-nous : une question d'actualité, trois évolutions possibles, et le temps de comprendre.",
 )
 RITUEL = "Prenez soin de vous. Rien n'est écrit à l'avance. Ne l'oubliez pas. À demain, pour un nouveau scénario."   # devise du site, dite chaque jour mot pour mot (« Ne l'oubliez pas » ajouté le 7 octobre 2026, pour finir sur une note plus chaleureuse) : « Rien n'est écrit à l'avance. »
 FERMETURES = tuple(debut + " " + RITUEL for debut in (
-    "Voilà pour aujourd'hui. Merci de nous avoir écoutés. L'édition complète est sur lesscenarios.fr.",
-    "C'est tout pour aujourd'hui. Merci d'avoir été avec nous. Tout est sur lesscenarios.fr.",
-    "Voilà qui conclut cette édition. Merci de votre attention. L'édition complète est sur lesscenarios.fr.",
-    "Merci d'avoir été là. Si le sujet vous a donné envie d'aller plus loin, tout est sur lesscenarios.fr.",
-    "Nous nous arrêtons ici. Merci de votre confiance. Retrouvez tout sur lesscenarios.fr.",
-    "C'est la fin de cet épisode. Merci de nous avoir suivis. Les sources sont sur lesscenarios.fr.",
-    "Merci de votre écoute, et belle journée à vous. L'édition complète est sur lesscenarios.fr.",
+    "Merci d'avoir passé ce moment avec nous. L'édition complète vous attend sur lesscenarios.fr.",
+    "Voilà, c'est la fin de ce rendez-vous. Merci de votre confiance : elle compte beaucoup pour nous. Tout est sur lesscenarios.fr.",
+    "Merci d'avoir été là, vraiment. Si le sujet vous a donné envie d'aller plus loin, tout est sur lesscenarios.fr.",
+    "C'est tout pour aujourd'hui. Merci de nous avoir écoutés avec autant d'attention. Les sources sont sur lesscenarios.fr.",
+    "Merci de votre écoute. Si vous en avez envie, parlez-en autour de vous : une question à plusieurs, c'est toujours plus riche. Retrouvez tout sur lesscenarios.fr.",
+    "Nous nous arrêtons ici. Merci de nous accorder votre temps : cela nous touche. Retrouvez tout sur lesscenarios.fr.",
+    "Voilà qui conclut cette édition. Merci d'être restés jusqu'au bout. L'édition complète est sur lesscenarios.fr.",
 ))
 OUVERTURE = OUVERTURES[0]   # accueil par défaut (tests, repli)
 FERMETURE = FERMETURES[0]
@@ -109,17 +109,18 @@ RÈGLES ABSOLUES
   · jamais de points de suspension, de majuscules d'insistance, ni de point d'exclamation (la voix les lit mal).
 - Du langage parlé : phrases courtes, tournures naturelles, pas de liste, pas de Markdown, pas d'adresse web.
 - Pas de tableau d'indicateurs : ne récite pas les indicateurs chiffrés des scénarios. Garde peu de chiffres : ceux qui font comprendre le sujet, et les probabilités des scénarios, TOUJOURS dites en fractions parlées : « une chance sur quatre » pour 25 %, « une chance sur deux » pour 50 %, « trois chances sur quatre » pour 75 %, « une chance sur trois », « une chance sur cinq », « une chance sur dix ». JAMAIS « pour cent » ni le signe %, même si l'article donne des pourcentages. Ne les arrondis JAMAIS : les trois probabilités des scénarios doivent faire 100 % ensemble (voir PROBABILITÉS ci-dessous).{bloc_probas}
-- Ne dis jamais « selon l'article », ne parle ni de toi ni de l'intelligence artificielle. Pas de « bonjour » ni de « bienvenue » ni d'au revoir : commence directement par la question, le script ajoute la fermeture.
+- Ne dis jamais « selon l'article », ne parle ni de toi ni de l'intelligence artificielle. Pas de « bonjour » ni de « bienvenue » ni d'au revoir : le script ajoute l'accueil avant ton texte et la fermeture après. Ton texte commence par la MISE EN SITUATION (voir STRUCTURE).
 
 STRUCTURE (entre {MOTS_MIN} et {MOTS_MAX} mots, soit 3 à 7 minutes)
-1. La question du jour, en une ou deux phrases.
+1. La mise en situation, puis la question du jour. D'abord UNE ou DEUX phrases très courtes qui placent l'auditeur dans une scène de sa vie liée au sujet, à la deuxième personne (« Imaginez… », « Vous… »), concrète et sans chiffre ni nom propre, pour qu'il se sente concerné avant de réfléchir (par exemple, pour la pénurie de médecins : « Imaginez : vous êtes malade, vous appelez votre médecin, et personne ne peut vous recevoir. » ; pour la hausse des prix : « Vous remplissez votre caddie, et à la caisse, la note vous surprend. »). La scène est présentée comme imaginée, jamais comme un fait réel, et ne dit rien de faux sur le sujet. Ensuite, la question du jour, en une ou deux phrases. Ton chaleureux, humain, jamais dramatique.
 2. Ce que l'on sait : les faits qui posent la question, avec un ou deux exemples concrets.
 3. Le fond du problème : à quoi cherche-t-on à répondre, et pourquoi la réponse n'est pas évidente.
 4. Les trois scénarios, un par un : le plus optimiste (favorable), le plus probable (stable, dis-le clairement), le plus sombre (dégradé), chacun avec sa probabilité, en trois ou quatre phrases courtes : l'idée centrale, puis ce que cela change concrètement pour les gens (un vol retardé, une coupure de courant…), jamais le mécanisme technique ni un nom de technologie.
 5. L'impact pour la France, en deux ou trois phrases.
 6. Ce qu'on surveillera pour savoir lequel se réalise.
+7. La dernière phrase, seule dans un court paragraphe : elle ramène le sujet à la vie de l'auditeur, avec chaleur, à la deuxième personne (« La prochaine fois que vous… », « Dans votre quotidien… »). Elle ne tranche pas et ne donne aucun chiffre : rien n'est écrit à l'avance. Elle ne dit ni « merci » ni « à demain » : le script ajoute la fermeture.
 
-EXEMPLE DE STYLE ATTENDU (autre édition, ne reprends AUCUN de ses faits) :
+EXEMPLE DE STYLE ATTENDU (autre édition, ne reprends AUCUN de ses faits ; il commence directement par la question, alors que ton texte, lui, commence par la mise en situation) :
 {exemple}
 
 LEXIQUE (termes à expliquer en mots simples à leur première mention, voir PÉDAGOGIE) :
@@ -248,6 +249,12 @@ def verifier(texte: str, source: str, dernier_essai: bool = False, probas: list[
         problemes.append("pas de Markdown, de liste ni d'adresse web")
     if re.search(r"\b(bonjour|bienvenue|au revoir)\b", texte, re.I):
         problemes.append("ni bonjour, ni bienvenue, ni au revoir")
+    if not re.search(r"\b(vous|votre|vos)\b", " ".join(texte.split()[-45:]), re.I):
+        problemes.append("termine par une phrase chaleureuse à la deuxième personne qui ramène le sujet à la vie de l'auditeur "
+                         "(« La prochaine fois que vous… »), sans « merci » ni « à demain » : le script ajoute la fermeture")
+    if not re.search(r"\b(imaginez|imaginons|vous|votre|vos|pensez|supposez)\b", " ".join(texte.split()[:45]), re.I):
+        problemes.append("commence par une mise en situation : une ou deux phrases courtes à la deuxième personne (« Imaginez : vous… ») "
+                         "qui placent l'auditeur dans une scène de sa vie liée au sujet, avant la question du jour")
     for phrase in re.split(r"(?<=[.!?])\s+", texte):   # un pourcentage de probabilité est refusé ; un chiffre factuel reste permis
         if re.search(r"pour\s*cent|%", phrase, re.I) and re.search(r"chance|probab|sc[ée]nario|trajectoire|optimiste|sombre", phrase, re.I):
             problemes.append("dis les probabilités en fractions (« une chance sur quatre »), pas en pourcentage")
