@@ -415,11 +415,11 @@
       </div>
       <div class="kpi-card">
         <p class="kpi-label">Moyenne par édition</p>
-        <div class="kpi-value">12,9</div>
-        <p class="kpi-sub">lectures/édition, sur les 73 éditions trackées depuis le 29 juillet 2026</p>
+        <div class="kpi-value">12,7</div>
+        <p class="kpi-sub">lectures/édition, sur les 74 éditions trackées depuis le 29 juillet 2026</p>
         <div class="kpi-breakdown">
-          <div class="kpi-breakdown-item"><span>Semaine</span><strong class="avg-week">9,0</strong></div>
-          <div class="kpi-breakdown-item"><span>Mois</span><strong class="avg-month">12,9</strong></div>
+          <div class="kpi-breakdown-item"><span>Semaine</span><strong class="avg-week">7,7</strong></div>
+          <div class="kpi-breakdown-item"><span>Mois</span><strong class="avg-month">12,4</strong></div>
         </div>
       </div>
     </div>
@@ -428,13 +428,13 @@
     <div class="kpi-grid">
       <div class="kpi-card kpi-card-cost kpi-card-wide">
         <p class="kpi-label">Coût OpenRouter cumulé</p>
-        <div class="kpi-value">37,04 $</div>
-        <p class="kpi-sub">solde restant : 22,96 $ — au 10 octobre 2026</p>
+        <div class="kpi-value">37,16 $</div>
+        <p class="kpi-sub">solde restant : 22,84 $ — au 10 octobre 2026</p>
         <div class="kpi-breakdown kpi-breakdown-4col">
-          <div class="kpi-breakdown-item"><span>Aujourd'hui</span><strong class="cost-today">0,00 $</strong></div>
+          <div class="kpi-breakdown-item"><span>Aujourd'hui</span><strong class="cost-today">0,12 $</strong></div>
           <div class="kpi-breakdown-item"><span>Hier</span><strong class="cost-yesterday">0,26 $</strong></div>
-          <div class="kpi-breakdown-item"><span>Cette semaine</span><strong class="cost-week">3,11 $</strong></div>
-          <div class="kpi-breakdown-item"><span>Ce mois</span><strong class="cost-month">12,17 $</strong></div>
+          <div class="kpi-breakdown-item"><span>Cette semaine</span><strong class="cost-week">3,23 $</strong></div>
+          <div class="kpi-breakdown-item"><span>Ce mois</span><strong class="cost-month">12,29 $</strong></div>
         </div>
       </div>
     </div>
@@ -452,7 +452,7 @@
       <span class="chart-label">Cumul depuis le lancement (repère de fond)</span>
       <p class="chart-lead">Toujours croissante par construction — utile pour le niveau atteint, pas pour juger d'un ralentissement. Même donnée que la section « La communauté grandit » de <a href="le-projet.html" style="color:var(--gold)">le-projet.html</a>.</p>
       <div class="chart-wrap">
-        <svg id="cumul-svg" viewBox="0 0 700 172" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Courbe de croissance des lectures cumulées d'éditions, de 0 le 29 juillet 2026 à 942 le 10 octobre 2026 — 78 éditions publiées au total depuis le lancement"></svg>
+        <svg id="cumul-svg" viewBox="0 0 700 172" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Courbe de croissance des lectures cumulées d'éditions, de 0 le 29 juillet 2026 à 942 le 10 octobre 2026 — 79 éditions publiées au total depuis le lancement"></svg>
         <div class="chart-tooltip" id="cumul-tooltip"><p class="chart-tooltip-date"></p><p class="chart-tooltip-value"></p></div>
       </div>
     </div>
@@ -510,7 +510,7 @@
         <li><span class="agenda-later-tag">Actu. française</span>Facturation électronique obligatoire (septembre 2026)&nbsp;: les entreprises sont-elles prêtes&nbsp;?</li>
         <li><span class="agenda-later-tag">Économie &amp; finance</span>BCE&nbsp;: les marchés parient sur trois hausses de taux d'ici fin 2027 — l'inflation est-elle vraiment revenue&nbsp;?</li>
         <li><span class="agenda-later-tag">Sciences</span>Google lance « Project Suncatcher&nbsp;»&nbsp;: les centres de données d'IA vont-ils migrer dans l'espace&nbsp;?</li>
-        <li><span class="agenda-later-tag">Culture</span>Sommes-nous en train de passer d'une culture de l'œuvre à une culture de l'expérience&nbsp;?</li>
+        <li><span class="agenda-later-tag">Culture</span>Plus l'art se numérise, plus l'original pourrait devenir précieux&nbsp;: le numérique va-t-il provoquer une…</li>
         <li><span class="agenda-later-tag">Sport</span>Pass Sport&nbsp;: l'aide à la pratique sportive des jeunes va-t-elle survivre aux prochains budgets&nbsp;?</li>
       </ul>
     </div>
@@ -544,7 +544,7 @@
           <tr><td>Sport</td><td class="num">8</td><td class="echeance" style="color:var(--stable)">~8 semaines</td></tr>
           <tr><td>Géopolitique</td><td class="num">12</td><td class="echeance" style="color:var(--favorable)">confortable</td></tr>
           <tr><td>Actu. française</td><td class="num">13</td><td class="echeance" style="color:var(--favorable)">confortable</td></tr>
-          <tr><td>Culture</td><td class="num">15</td><td class="echeance" style="color:var(--favorable)">confortable</td></tr>
+          <tr><td>Culture</td><td class="num">14</td><td class="echeance" style="color:var(--favorable)">confortable</td></tr>
           <tr><td>Sciences</td><td class="num">18</td><td class="echeance" style="color:var(--favorable)">confortable</td></tr>
           <tr><td>Économie &amp; finance</td><td class="num">33</td><td class="echeance" style="color:var(--favorable)">confortable</td></tr>
         </tbody>
@@ -816,7 +816,7 @@
     // juillet, pas les éditions elles-mêmes). Ajouté le 3 septembre,
     // retour utilisateur : "ajoute le nombre cumulé d'édition sur le
     // graphique".
-    var totalEditions = 78;
+    var totalEditions = 79;
 
     var W = 700, H = 172, padL = 30, padR = 12, padT = 24, padB = 22;
     var yMax = 950;
