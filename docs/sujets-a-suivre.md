@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 10.10.2026 — [Art : de l'œuvre à l'expérience](../archives/2026-10-10.html)
 - 09.10.2026 — [Cancer : vaccins et nouveaux traitements, promesse réaliste ou espoir lointain ?](../archives/2026-10-09.html)
 - 08.10.2026 — [Dette mondiale : le FMI appelle à l'austérité](../archives/2026-10-08.html)
 - 07.10.2026 — [Déserts médicaux : trouvera-t-on encore un médecin près de chez soi ?](../archives/2026-10-07.html)
