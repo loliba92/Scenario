@@ -30,6 +30,10 @@ on:
         type: boolean
         required: false
         default: true
+      theme:
+        description: "Essai d'une autre musique : fichier de podcast/musique/ (ex. essais/calm-loop.mp3). Vide = thème officiel (ouverture.mp3)"
+        required: false
+        default: ""
       texte:
         description: "Narration à une voix : « auto » (le texte est écrit à partir de l'édition) ou chemin d'un texte du dépôt (ex. podcast/textes/2026-10-03.txt). Vide = dialogue à deux voix"
         required: false
@@ -76,10 +80,12 @@ jobs:
           VOIX: ${{ github.event.inputs.voix }}
           MODELE: ${{ github.event.inputs.modele_dialogue }}
           MUSIQUE: ${{ github.event.inputs.musique }}
+          THEME_MUSIQUE: ${{ github.event.inputs.theme }}
           TEXTE: ${{ github.event.inputs.texte }}
           VOIX_UNIQUE: ${{ github.event.inputs.voix_unique }}
           MODELE_TTS: ${{ github.event.inputs.modele_tts }}
         run: |
+          case "$THEME_MUSIQUE" in *[!A-Za-z0-9._/-]*|*..*) echo "Thème invalide : $THEME_MUSIQUE" >&2; exit 1 ;; esac
           if [ -n "$TEXTE" ]; then
             case "$TEXTE" in auto|podcast/textes/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].txt|podcast/hebdo/methode-[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].txt) ;; *) echo "Texte invalide : $TEXTE" >&2; exit 1 ;; esac
             case "$VOIX_UNIQUE" in *[!A-Za-z]*|"") echo "Voix invalide : $VOIX_UNIQUE" >&2; exit 1 ;; esac

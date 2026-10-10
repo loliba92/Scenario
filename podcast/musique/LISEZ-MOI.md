@@ -19,3 +19,9 @@ Réglages : `NIVEAU_FOND`, `NIVEAU_JINGLE`, `JINGLE_S` dans `scripts/podcast/mus
 
 Le fichier doit être libre de droits pour cet usage (musique créée par vous, par exemple avec Suno : vérifier que
 l'abonnement autorise l'usage commercial).
+
+## Essais d'autres musiques
+Les morceaux à tester sont rangés dans `podcast/musique/essais/` (ils ne sont jamais utilisés par les épisodes publiés).
+Pour en écouter un : lancer le workflow « Podcast — épisode de test » et indiquer dans le champ `theme`
+le chemin relatif, par exemple `essais/calm-loop.mp3`. Le fichier audio est à télécharger sur la page du run.
+Pour l'adopter, il suffit de le copier sous le nom `ouverture.mp3`.
