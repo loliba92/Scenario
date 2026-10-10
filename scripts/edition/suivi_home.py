@@ -193,8 +193,13 @@ def _ligne(s: dict, insecable: bool = False) -> str:
     return rub + f'<span class="nw">{_html.escape(date_txt)}</span>'
 
 
+def _image(src: str, alt: str) -> str:
+    """Vignette en tête de carte (16/9, recadrée), ou rien si l'image est absente."""
+    return f'\n        <img class="suivi-card-image" src="{_html.escape(src)}" alt="{_html.escape(alt)}" loading="lazy">' if src else ""
+
+
 def carte_suivi(s: dict) -> str:
-    return f"""      <a class="suivi-card" href="suivi/{s['slug']}.html">
+    return f"""      <a class="suivi-card" href="suivi/{s['slug']}.html">{_image(s.get('image', ''), s['titre'])}
         <span class="suivi-card-meta">{_ligne(s, insecable=True)}</span>
         <span class="suivi-card-title">{_typo(s['titre'])}</span>
         <span class="suivi-card-text">{_typo(_debut(s['fait'], 170))}</span>
@@ -203,11 +208,11 @@ def carte_suivi(s: dict) -> str:
 
 
 def carte_edition(e: dict) -> str:
-    """Carte de la dernière édition, même gabarit que celle du suivi. e : iso_date, matiere, titre, question."""
+    """Carte de la dernière édition, même gabarit que celle du suivi. e : iso_date, matiere, titre, question, image (optionnelle)."""
     jour = date.fromisoformat(e["iso_date"])
     court = f"{jour.day} {MOIS_COURT[jour.month - 1]}"
     question = f'\n        <span class="suivi-card-text">{_typo(e["question"])}</span>' if e.get("question") else ""
-    return f"""      <a class="suivi-card" href="archives/{e['iso_date']}.html">
+    return f"""      <a class="suivi-card" href="archives/{e['iso_date']}.html">{_image(e.get('image', ''), e['titre'])}
         <span class="suivi-card-meta"><span>{_html.escape(e['matiere'])}</span><span class="nw">édition du {court}</span></span>
         <span class="suivi-card-title">{_typo(e['titre'])}</span>{question}
         <span class="suivi-card-cta">Lire l'édition →</span>

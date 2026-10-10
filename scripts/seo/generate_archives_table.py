@@ -106,6 +106,7 @@ ARCHIVES_TABLE_CSS = """
     color: var(--paper); text-decoration: none;
   }
   .suivi-card:hover { border-color: var(--gold); }
+  .suivi-card-image { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; margin-bottom: 4px; }
   .suivi-card-meta { display: flex; flex-wrap: wrap; gap: 2px 10px; }
   .suivi-card-meta .nw { white-space: nowrap; }
   .suivi-card-meta {
@@ -1699,7 +1700,9 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
         from suivi_home import bloc_suivis_edition
         derniere = max(articles, key=lambda a: a["iso_date"]) if articles else None
         edition = ({"iso_date": derniere["iso_date"], "titre": derniere["title"], "question": derniere.get("question") or "",
-                    "matiere": MATIERE_SHORT.get(derniere["domain"], DOMAIN_LABELS.get(derniere["domain"], ""))}
+                    "matiere": MATIERE_SHORT.get(derniere["domain"], DOMAIN_LABELS.get(derniere["domain"], "")),
+                    "image": (f"assets/social/topic-images/{derniere['iso_date']}.jpg"
+                              if (ROOT / "assets" / "social" / "topic-images" / f"{derniere['iso_date']}.jpg").is_file() else "")}
                    if derniere else None)
         suivis_html = bloc_suivis_edition(1, edition)
     except Exception as e:  # noqa: BLE001
