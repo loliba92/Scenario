@@ -377,7 +377,7 @@ def render_page(days, style_block, masthead_nav, follow_footer, tail_scripts):
 {days_html}
 {empty_state if all_articles else ""}
     <div class="sources-next"><span>Prochaine revue de presse demain, 7h</span></div>
-    <p style="margin-top:28px"><a href="index.html" style="color:var(--gold);text-decoration:none">← Retour à l'accueil</a></p>
+    <p style="margin-top:28px"><a href="/" style="color:var(--gold);text-decoration:none">← Retour à l'accueil</a></p>
   </div>
 </section>
 
