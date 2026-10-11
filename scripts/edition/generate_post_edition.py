@@ -115,11 +115,14 @@ DOMAIN_LABELS = {
     "sport": "Sport",
 }
 CARD_EMOJI = {"favorable": "🟢", "stable": "🔵", "degrade": "🔴"}
-# Approximation Europe/Paris (CEST, UTC+2) — même limite que le reste du
-# prototype (pas de dépendance à une base tz système), acceptable pour un
-# <pubDate>/<news:publication_date> de test, jamais utilisé tel quel en
-# production réelle sans vérifier le décalage hiver/été.
-PARIS_TZ = timezone(timedelta(hours=2))
+# Fuseau réel Europe/Paris (heure d'été et d'hiver) quand la base de fuseaux est disponible — le décalage fixe
+# +02:00 d'avant faussait <news:publication_date> à partir du passage à l'heure d'hiver (25 octobre 2026).
+# Repli sur UTC+2 seulement si la base n'est pas installée.
+try:
+    from zoneinfo import ZoneInfo
+    PARIS_TZ = ZoneInfo("Europe/Paris")
+except Exception:  # noqa: BLE001
+    PARIS_TZ = timezone(timedelta(hours=2))
 
 
 class PostEditionError(Exception):
@@ -642,7 +645,9 @@ def update_sitemap_news_xml(sitemap_news_text, edition_id, title):
     root = ET.fromstring(sitemap_news_text)
 
     now = datetime.now(PARIS_TZ)
-    cutoff = now - timedelta(hours=48)
+    # 46 h et non 48 h : le workflow tourne à quelques secondes près chaque jour ; avec 48 h pile, l'entrée d'avant-hier
+    # (publiée 2 secondes plus tard que le run du jour) survivait un jour de plus (constaté le 11 octobre 2026).
+    cutoff = now - timedelta(hours=46)
     for url_el in list(root.findall("sm:url", ns)):
         pub_el = url_el.find("news:news/news:publication_date", ns)
         if pub_el is None or pub_el.text is None:

@@ -170,6 +170,8 @@
   .todo-prio{ font-family:"JetBrains Mono",monospace; font-size:.7rem; text-transform:uppercase; letter-spacing:.1em; color:var(--accent); margin:0 0 4px; }
   .todo-item p{ margin:0; color:var(--paper); max-width:none; font-size:.95rem; }
   .todo-item .how{ color:var(--paper-dim); margin-top:6px; font-size:.88rem; }
+  .todo-item.st-corrige{ --accent:var(--favorable); } .todo-item.st-a_faire{ --accent:var(--gold); } .todo-item.st-proprietaire{ --accent:var(--degrade); } .todo-item.st-ecarte{ --accent:var(--paper-dim); }
+  .todo-prio .pill{ margin-right:10px; }
   .duo{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
   .col{ background:var(--surface); border:1px solid var(--hairline); border-top:3px solid var(--accent); border-radius:10px; padding:18px 20px; --accent:var(--favorable); }
   .col.is-bad{ --accent:var(--degrade); }
@@ -178,6 +180,7 @@
   .col li{ position:relative; padding-left:22px; color:var(--paper); font-size:.93rem; }
   .col li::before{ content:"✓"; position:absolute; left:0; color:var(--favorable); font-family:"JetBrains Mono",monospace; }
   .col.is-bad li::before{ content:"✕"; color:var(--degrade); }
+  .col.is-unknown{ --accent:var(--gold); } .col.is-unknown li::before{ content:"?"; color:var(--gold); }
   .col li.empty{ color:var(--paper-dim); } .col li.empty::before{ content:"–"; color:var(--paper-dim); }
   .list{ list-style:none; margin:0; padding:0; display:grid; gap:0; background:var(--surface); border:1px solid var(--hairline); border-radius:10px; overflow:hidden; }
   .list li{ display:grid; grid-template-columns:1fr auto; gap:6px 16px; padding:10px 16px; border-top:1px solid var(--hairline); font-size:.9rem; color:var(--paper); }

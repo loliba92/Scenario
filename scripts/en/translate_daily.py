@@ -1512,8 +1512,11 @@ def update_sitemap_news(date_str, title_en, pub_date):
     # dernières 48h, quelle que soit la langue — voir docs/routine-prompt.md
     # étape 7bis. La routine FR ne purge que ses propres entrées fr ; cette
     # étape purge tout le fichier pour ne pas dépendre de l'ordre des deux.
+    # Le motif accepte une indentation quelconque : les entrées françaises sont écrites sur une ligne
+    # par ElementTree, sans indentation (elles échappaient à cette purge — audit du 11 octobre 2026).
     import datetime
-    cutoff = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=48)
+    # 46 h (voir generate_post_edition.update_sitemap_news_xml) : marge contre la dérive de quelques secondes du run quotidien.
+    cutoff = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=46)
 
     def keep(match):
         pub = match.group(1)
@@ -1524,7 +1527,7 @@ def update_sitemap_news(date_str, title_en, pub_date):
         return match.group(0) if dt >= cutoff else ""
 
     xml = re.sub(
-        r"  <url>\s*<loc>.*?</loc>\s*<news:news>.*?<news:publication_date>([^<]+)</news:publication_date>.*?</news:news>\s*</url>\n",
+        r"[ \t]*<url>\s*<loc>.*?</loc>\s*<news:news>.*?<news:publication_date>([^<]+)</news:publication_date>.*?</news:news>\s*</url>\n?",
         keep,
         xml,
         flags=re.S,

@@ -19,7 +19,6 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-09-11 au 2026-10-08 
 
 - Le site apparaît (position moyenne 9,1) mais est très peu cliqué (1,4 %). **Action** : Retravailler les titres et descriptions des pages les plus vues. **Agent à envoyer** : seo-content. **Mission** : Proposer de nouveaux titres (≤ 59 caractères) et descriptions (100–160) plus incitatifs pour les pages les plus vues, dans le ton sobre de Scénario ; ne rien promettre.
 - 1 page : Google connaît l'adresse mais ne l'a pas encore explorée ou retenue (`/guide-pedagogique.html`). **Action** : Renforcer les liens internes vers la page, enrichir son contenu, demander l'indexation. **Agent à envoyer** : seo-content. **Mission** : Comprendre pourquoi Google retient ou écarte ces pages (profondeur, unicité, qualité perçue) et proposer des améliorations de contenu et de liens internes.
-- Éditions en français : 7 descriptions hors norme. **Action** : Corriger via les générateurs (voir .claude/seo-routage.md). **Mission** : Correction directe dans les générateurs (generate_seo_head.py, translate_daily.py), puis régénération et tests.
 
 ## À surveiller
 
@@ -34,7 +33,8 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-09-11 au 2026-10-08 
 - 5 pages principales indexées : `/`, `/archives.html`, `/le-projet.html`, `/sources.html`, `/glossaire.html`.
 - 5 éditions indexées par Google.
 - Plan du site `/sitemap.xml` lu par Google sans erreur (162 adresses envoyées).
-- Plan du site `/sitemap-news.xml` lu par Google sans erreur (10 adresses envoyées).
+- Plan du site `/sitemap-news.xml` lu par Google sans erreur (5 adresses envoyées).
+- Balises des 80 éditions en français conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.
 - Balises des 48 éditions en anglais conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.
 
 ## Ce qui ne fonctionne pas
@@ -48,6 +48,39 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-09-11 au 2026-10-08 
 - Dans Search Console, collez l'adresse de l'édition du jour dans la barre du haut, puis « Demander une indexation » (quota limité par jour) ; répétez pour les éditions inconnues les plus récentes.
 - Faites de même pour les pages principales « détectées, non indexées » (guide pédagogique, par exemple).
 - Relisez les recommandations des agents avant de valider tout changement de titres ou de contenu.
+
+## Conclusions des agents — 11 octobre 2026 : des éditions récentes inconnues de Google
+
+**Verdict** : Pas de blocage technique : Google explore rarement ce site jeune et peu cité, et il n'a pas relu la page Éditions depuis le 30 août. Les corrections de maillage et de balises sont faites ; le reste dépend de demandes d'indexation et du temps (mesurer à partir du 25 octobre).
+**Agents** : gsc-expert, seo-technical, seo-sitemap.
+
+- [Écarté] **Aucun blocage technique** (quasi certain) — robots.txt, noindex, canoniques, hreflang et données de page sont corrects ; les éditions indexées ont les mêmes réglages que celles qui ne le sont pas. **Action** : Rien à corriger de ce côté.
+- [Vous] **Google explore rarement le site** (probable (forte)) — Dernière exploration d'une édition : 28 septembre. La page Éditions, qui liste tout, n'a pas été relue depuis le 30 août. Site jeune (quelques mois), très peu de liens venant d'ailleurs. **Action** : Demander l'indexation dans Search Console, d'abord de /archives.html puis des éditions les plus récentes (voir « À faire par vous »).
+- [Corrigé] **L'accueil ne reliait que 10 éditions** (certain) — Les éditions de plus de 10 jours n'étaient accessibles que par la page Éditions, rarement explorée. **Action** : Fait : nouveau bloc « Les éditions du mois » sur l'accueil, avec un vrai lien HTML vers chaque édition des 30 derniers jours (21 éditions de plus). Ajouté aussi au générateur de l'accueil, donc il se maintient chaque jour.
+- [Corrigé] **Pas de lien entre éditions avant le 10 octobre** (certain) — Les liens « précédente / suivante » n'existaient pas avant le 10 octobre. **Action** : Déjà en place depuis le 10 octobre. Effet attendu après la prochaine exploration par Google (une à trois semaines, sans garantie).
+- [Corrigé] **Dates du plan du site trop uniformes** (certain) — J'avais mis la date du 11 octobre sur 58 éditions après la retouche de leurs balises : 65 pages portaient la même date, ce qui affaiblit ce champ pour Google, et les pages indiquaient une autre date que le plan. **Action** : Fait : chaque édition a retrouvé sa date de publication, cohérente avec la date inscrite dans la page. Un des agents préférait aligner les pages sur le 11 octobre ; j'ai retenu la solution qui ne touche pas au contenu des éditions figées. Règle à garder : ne pas faire bouger cette date pour une simple retouche de balises.
+- [Corrigé] **Plan Actualités mal purgé** (certain) — La purge à 48 heures exactes laissait survivre une entrée de quelques secondes ; le script anglais ne pouvait pas purger les entrées françaises ; le fuseau horaire était fixé à +02:00 (faux à partir du 25 octobre). **Action** : Fait : seuil de 46 heures, purge qui reconnaît toutes les entrées, vrai fuseau Europe/Paris, 3 tests. L'absence de l'édition anglaise du 9 octobre dans ce plan reste à expliquer (journal du workflow du 9 octobre).
+- [Corrigé] **Données structurées invalides sur 22 éditions de septembre** (certain) — Des valeurs étaient entourées de &#39; au lieu de guillemets, et des apostrophes mal codées : Google ignorait ces blocs ou lisait des signes parasites. **Action** : Fait : 22 fichiers réparés, uniquement à l'intérieur de leurs blocs de données structurées ; vérifié que rien d'autre n'a changé et qu'aucun bloc invalide ne subsiste sur 225.
+- [Corrigé] **Descriptions coupées par « … »** (certain) — Le générateur coupait les questions longues en plein milieu. **Action** : Fait : générateur corrigé (phrases complètes ou titre + complément), 7 éditions françaises réparées, 8 tests.
+- [Corrigé] **L'échantillon inspecté ne contenait que des pages françaises** (certain) — Les pages les plus vues sont pourtant anglaises (7 sur 8). **Action** : Fait : l'accueil anglais et les 6 dernières éditions anglaises sont maintenant inspectés chaque jour. Le compteur d'adresses du plan Actualités du rapport est aussi corrigé (5 et non 10).
+- [À faire] **Liens internes vers /index.html** (certain) — Des menus pointent vers index.html alors que la canonique de l'accueil est « / » : Google voit deux adresses. **Action** : Remplacer par « / » dans le modèle de l'accueil et le gabarit des futures éditions (impact faible, pas encore fait).
+- [À faire] **Pages anglaises déclarées en français** (certain) — Une balise de langue indique fr-FR sur les pages anglaises. **Action** : Corriger dans scripts/en/translate_daily.py pour les prochaines éditions (impact faible).
+- [Écarté] **changefreq et priority du plan du site** (certain) — Google ignore ces deux champs. **Action** : Aucun gain à les retirer ; on les laisse.
+
+À faire par le propriétaire :
+- Dans Search Console, demander l'indexation de /archives.html en priorité : c'est la page qui lie les 15 éditions inconnues.
+- Puis, à raison d'une dizaine par jour, des éditions du 4, 3, 2 et 1er octobre, puis du 30, 29, 24 et 23 septembre.
+- Ouvrir Paramètres puis « Statistiques sur l'exploration » : nombre de requêtes par jour depuis le 20 septembre, part d'erreurs, temps de réponse. C'est le seul moyen d'écarter un problème d'hébergement autour du 28 septembre.
+- Inspecter /archives/2026-09-28.html et lire « Page de provenance » : vous saurez par quel chemin Google a trouvé les éditions indexées.
+- Partager publiquement chaque édition (réseaux, newsletter) : quelques liens venant d'ailleurs aident plus que tout réglage. IndexNow ne prévient pas Google.
+
+Ce que l'on ne sait pas encore :
+- À quelle fréquence Google est passé sur l'accueil entre le 28 septembre et le 7 octobre.
+- Si une erreur du serveur a eu lieu autour du 28 septembre.
+- Comment Google a découvert les 5 éditions indexées (plan du site, accueil ou demande manuelle).
+- L'état des éditions anglaises : elles ne sont inspectées que depuis aujourd'hui.
+
+Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 
 ## Requêtes principales
 

@@ -84,7 +84,8 @@ Chaque jour, `.github/workflows/gsc.yml` met à jour `data/gsc/rapport.md`, la p
 2. Recouper leurs réponses avec les chiffres du rapport avant de conclure.
 3. **Corriger ce qui est dans le périmètre** (générateurs, pages vivantes, plan du site, balises d'éditions passées uniquement dans les conditions de la section 5), tests à l'appui, puis PR et fusion.
 4. Présenter au propriétaire : ce qui a été constaté, fait, et ce que lui seul peut faire (demande d'indexation dans Search Console, autorisations Google).
-5. Ne rien faire pour les problèmes « à surveiller » sauf demande ; ne jamais agir si les données ont plus de 3 jours (réparer d'abord la synchronisation).
+5. **Écrire les conclusions** dans `data/gsc/conclusions.json` (format dans `docs/routine-seo-hebdo.md`, étape 6) : elles s'affichent sur `seo.html`. Relire le dernier audit avant d'en commencer un autre.
+6. Ne rien faire pour les problèmes « à surveiller » sauf demande ; ne jamais agir si les données ont plus de 3 jours (réparer d'abord la synchronisation).
 
 Une routine hebdomadaire sur Claude fait ce travail automatiquement chaque lundi (voir `docs/routine-seo-hebdo.md`).
 

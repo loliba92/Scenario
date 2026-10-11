@@ -1,0 +1,114 @@
+{
+  "audits": [
+    {
+      "date": "2026-10-11",
+      "titre": "des éditions récentes inconnues de Google",
+      "verdict": "Pas de blocage technique : Google explore rarement ce site jeune et peu cité, et il n'a pas relu la page Éditions depuis le 30 août. Les corrections de maillage et de balises sont faites ; le reste dépend de demandes d'indexation et du temps (mesurer à partir du 25 octobre).",
+      "agents": [
+        "gsc-expert",
+        "seo-technical",
+        "seo-sitemap"
+      ],
+      "constats": [
+        {
+          "titre": "Aucun blocage technique",
+          "certitude": "quasi certain",
+          "statut": "ecarte",
+          "cause": "robots.txt, noindex, canoniques, hreflang et données de page sont corrects ; les éditions indexées ont les mêmes réglages que celles qui ne le sont pas.",
+          "action": "Rien à corriger de ce côté."
+        },
+        {
+          "titre": "Google explore rarement le site",
+          "certitude": "probable (forte)",
+          "statut": "proprietaire",
+          "cause": "Dernière exploration d'une édition : 28 septembre. La page Éditions, qui liste tout, n'a pas été relue depuis le 30 août. Site jeune (quelques mois), très peu de liens venant d'ailleurs.",
+          "action": "Demander l'indexation dans Search Console, d'abord de /archives.html puis des éditions les plus récentes (voir « À faire par vous »)."
+        },
+        {
+          "titre": "L'accueil ne reliait que 10 éditions",
+          "certitude": "certain",
+          "statut": "corrige",
+          "cause": "Les éditions de plus de 10 jours n'étaient accessibles que par la page Éditions, rarement explorée.",
+          "action": "Fait : nouveau bloc « Les éditions du mois » sur l'accueil, avec un vrai lien HTML vers chaque édition des 30 derniers jours (21 éditions de plus). Ajouté aussi au générateur de l'accueil, donc il se maintient chaque jour."
+        },
+        {
+          "titre": "Pas de lien entre éditions avant le 10 octobre",
+          "certitude": "certain",
+          "statut": "corrige",
+          "cause": "Les liens « précédente / suivante » n'existaient pas avant le 10 octobre.",
+          "action": "Déjà en place depuis le 10 octobre. Effet attendu après la prochaine exploration par Google (une à trois semaines, sans garantie)."
+        },
+        {
+          "titre": "Dates du plan du site trop uniformes",
+          "certitude": "certain",
+          "statut": "corrige",
+          "cause": "J'avais mis la date du 11 octobre sur 58 éditions après la retouche de leurs balises : 65 pages portaient la même date, ce qui affaiblit ce champ pour Google, et les pages indiquaient une autre date que le plan.",
+          "action": "Fait : chaque édition a retrouvé sa date de publication, cohérente avec la date inscrite dans la page. Un des agents préférait aligner les pages sur le 11 octobre ; j'ai retenu la solution qui ne touche pas au contenu des éditions figées. Règle à garder : ne pas faire bouger cette date pour une simple retouche de balises."
+        },
+        {
+          "titre": "Plan Actualités mal purgé",
+          "certitude": "certain",
+          "statut": "corrige",
+          "cause": "La purge à 48 heures exactes laissait survivre une entrée de quelques secondes ; le script anglais ne pouvait pas purger les entrées françaises ; le fuseau horaire était fixé à +02:00 (faux à partir du 25 octobre).",
+          "action": "Fait : seuil de 46 heures, purge qui reconnaît toutes les entrées, vrai fuseau Europe/Paris, 3 tests. L'absence de l'édition anglaise du 9 octobre dans ce plan reste à expliquer (journal du workflow du 9 octobre)."
+        },
+        {
+          "titre": "Données structurées invalides sur 22 éditions de septembre",
+          "certitude": "certain",
+          "statut": "corrige",
+          "cause": "Des valeurs étaient entourées de &#39; au lieu de guillemets, et des apostrophes mal codées : Google ignorait ces blocs ou lisait des signes parasites.",
+          "action": "Fait : 22 fichiers réparés, uniquement à l'intérieur de leurs blocs de données structurées ; vérifié que rien d'autre n'a changé et qu'aucun bloc invalide ne subsiste sur 225."
+        },
+        {
+          "titre": "Descriptions coupées par « … »",
+          "certitude": "certain",
+          "statut": "corrige",
+          "cause": "Le générateur coupait les questions longues en plein milieu.",
+          "action": "Fait : générateur corrigé (phrases complètes ou titre + complément), 7 éditions françaises réparées, 8 tests."
+        },
+        {
+          "titre": "L'échantillon inspecté ne contenait que des pages françaises",
+          "certitude": "certain",
+          "statut": "corrige",
+          "cause": "Les pages les plus vues sont pourtant anglaises (7 sur 8).",
+          "action": "Fait : l'accueil anglais et les 6 dernières éditions anglaises sont maintenant inspectés chaque jour. Le compteur d'adresses du plan Actualités du rapport est aussi corrigé (5 et non 10)."
+        },
+        {
+          "titre": "Liens internes vers /index.html",
+          "certitude": "certain",
+          "statut": "a_faire",
+          "cause": "Des menus pointent vers index.html alors que la canonique de l'accueil est « / » : Google voit deux adresses.",
+          "action": "Remplacer par « / » dans le modèle de l'accueil et le gabarit des futures éditions (impact faible, pas encore fait)."
+        },
+        {
+          "titre": "Pages anglaises déclarées en français",
+          "certitude": "certain",
+          "statut": "a_faire",
+          "cause": "Une balise de langue indique fr-FR sur les pages anglaises.",
+          "action": "Corriger dans scripts/en/translate_daily.py pour les prochaines éditions (impact faible)."
+        },
+        {
+          "titre": "changefreq et priority du plan du site",
+          "certitude": "certain",
+          "statut": "ecarte",
+          "cause": "Google ignore ces deux champs.",
+          "action": "Aucun gain à les retirer ; on les laisse."
+        }
+      ],
+      "proprietaire": [
+        "Dans Search Console, demander l'indexation de /archives.html en priorité : c'est la page qui lie les 15 éditions inconnues.",
+        "Puis, à raison d'une dizaine par jour, des éditions du 4, 3, 2 et 1er octobre, puis du 30, 29, 24 et 23 septembre.",
+        "Ouvrir Paramètres puis « Statistiques sur l'exploration » : nombre de requêtes par jour depuis le 20 septembre, part d'erreurs, temps de réponse. C'est le seul moyen d'écarter un problème d'hébergement autour du 28 septembre.",
+        "Inspecter /archives/2026-09-28.html et lire « Page de provenance » : vous saurez par quel chemin Google a trouvé les éditions indexées.",
+        "Partager publiquement chaque édition (réseaux, newsletter) : quelques liens venant d'ailleurs aident plus que tout réglage. IndexNow ne prévient pas Google."
+      ],
+      "inconnu": [
+        "À quelle fréquence Google est passé sur l'accueil entre le 28 septembre et le 7 octobre.",
+        "Si une erreur du serveur a eu lieu autour du 28 septembre.",
+        "Comment Google a découvert les 5 éditions indexées (plan du site, accueil ou demande manuelle).",
+        "L'état des éditions anglaises : elles ne sont inspectées que depuis aujourd'hui."
+      ],
+      "prochain_controle": "25 octobre 2026 (ne rien conclure avant)"
+    }
+  ]
+}

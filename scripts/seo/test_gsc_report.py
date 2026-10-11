@@ -50,6 +50,11 @@ class TestClassification(unittest.TestCase):
         self.assertEqual(r.page_age("https://lesscenarios.fr/archives/2026-10-01.html", AUJOURDHUI), 10)
         self.assertIsNone(r.page_age("https://lesscenarios.fr/archives.html", AUJOURDHUI))
 
+    def test_date_en_francais(self):
+        self.assertEqual(r.date_fr("2026-10-11"), "11 octobre 2026")
+        self.assertEqual(r.date_fr("2026-11-01"), "1er novembre 2026")
+        self.assertEqual(r.date_fr("pas une date"), "pas une date")
+
     def test_formats(self):
         self.assertEqual(r.fr(9.1), "9,1")
         self.assertEqual(r.pct(0.014), "1,4")
@@ -131,6 +136,48 @@ class TestAnalyse(unittest.TestCase):
         (self.root / "d" / "summary.json").write_text(json.dumps(s))
         A = r.analyser(self.root / "d", AUJOURDHUI, self.root)
         self.assertNotIn("<script>alert(1)</script>", r.rendre_html(A, "{{CONTENT}}"))
+
+
+class TestConclusions(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.root = Path(self.tmp.name)
+        (self.root / "archives").mkdir()
+        (self.root / "sitemap.xml").write_text("")
+        _donnees(self.root / "d")
+        (self.root / "d" / "conclusions.json").write_text(json.dumps({"audits": [
+            {"date": "2026-10-04", "titre": "ancien", "verdict": "v0", "agents": ["a"], "constats": []},
+            {"date": "2026-10-11", "titre": "éditions inconnues", "verdict": "Pas de blocage technique.", "agents": ["seo-technical", "gsc-expert"],
+             "constats": [{"titre": "Maillage", "certitude": "certain", "statut": "corrige", "cause": "L'accueil ne liait que 10 éditions.", "action": "Bloc ajouté."},
+                          {"titre": "Indexation manuelle", "certitude": "probable", "statut": "proprietaire", "cause": "c", "action": "Demander l'indexation."}],
+             "proprietaire": ["Demander l'indexation de /archives.html."], "inconnu": ["Erreur serveur ?"], "prochain_controle": "25 octobre 2026"}]}))
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def test_rendu_page_et_texte(self):
+        A = r.analyser(self.root / "d", AUJOURDHUI, self.root)
+        page = r.rendre_html(A, "{{CONTENT}}")
+        for morceau in ("Conclusions des agents", "Audit du 11 octobre 2026", "Pas de blocage technique.", "Corrigé", "Vous", "Maillage",
+                        "25 octobre 2026", "Erreur serveur ?", "À faire par vous"):
+            self.assertIn(morceau, page)
+        md = r.rendre_md(A)
+        self.assertIn("## Conclusions des agents — 11 octobre 2026", md)
+        self.assertIn("[Corrigé] **Maillage**", md)
+        self.assertLess(page.index("Audit du 11 octobre 2026"), page.index("Audit du 4 octobre 2026"))   # le plus récent d'abord
+
+    def test_sans_fichier_pas_de_section(self):
+        (self.root / "d" / "conclusions.json").unlink()
+        A = r.analyser(self.root / "d", AUJOURDHUI, self.root)
+        self.assertNotIn("Conclusions des agents", r.rendre_html(A, "{{CONTENT}}"))
+        self.assertNotIn("## Conclusions des agents", r.rendre_md(A))
+
+    def test_compteur_adresses_plan_actualites_non_double(self):
+        (self.root / "d" / "sitemaps.json").write_text(json.dumps({"plans": [
+            {"plan": "https://lesscenarios.fr/sitemap-news.xml", "derniere_lecture": "2026-10-10T00:00:00Z", "erreurs": "0", "avertissements": "0",
+             "contenus": [{"type": "web", "submitted": "5"}, {"type": "news", "submitted": "5"}]}]}))
+        A = r.analyser(self.root / "d", AUJOURDHUI, self.root)
+        self.assertEqual(A["plans"][0]["envoyees"], 5)
 
 
 class TestTableauDeBord(unittest.TestCase):
