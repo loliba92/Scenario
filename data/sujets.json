@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "30addd841aca14c6a98cffa3d094bca37df4dff68b19b10f7275c54e774778c6"
+    "md_sha256": "2efee40cc48cb751090ca658d866d3893c91b726c3d09c31f696d8db73739615"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -1790,7 +1790,7 @@
           "titre": "Jeux d'hiver de Milan-Cortina : l'intelligence artificielle va-t-elle remplacer une partie du jugement sportif humain ?",
           "question": null,
           "tag": "sport & IA",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "Lors des Jeux olympiques d'hiver de Milan-Cortina (février 2026), le CIO a utilisé pour la première fois l'IA en soutien aux juges dans plusieurs disciplines à forte part de jugement humain (patinage artistique individuel et par équipes, big air, halfpipe, saut à ski) — comptage des rotations, mesure de la hauteur et de l'angle des sauts. L'expérimentation a déjà eu lieu, la vraie question porte sur la suite",
           "rationnel": "La question : L'intelligence artificielle restera-t-elle un simple outil d'aide à la décision ou deviendra-t-elle la référence principale dans le jugement sportif des disciplines à forte part de jugement humain d'ici les Jeux olympiques de Los Angeles 2028 ? L'issue est ouverte parce que, d'un côté, le CIO, Omega Timing et des acteurs comme Jeremy Bloom poussent pour une IA toujours plus présente, mettant en avant son objectivité et sa transparence, tandis que de l'autre, athlètes, fédérations et experts soulignent les limites de l'IA pour évaluer la dimension artistique, le style et l'innovation, et craignent qu'une IA trop exacte pénalise des imperfections imperceptibles. Pour un lecteur français, l'enjeu est concret : le patinage artistique tricolore, directement concerné par ces évolutions (victoire de Cizeron‑Fournier Beaudry), voit dans ce débat la définition même de l'excellence sportive et la place de l'humain dans le sport de haut niveau.",
@@ -1836,8 +1836,8 @@
           "origine": null,
           "note": null,
           "ajoute_le": null,
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-10-11",
+          "edition": "2026-10-11",
           "enrichi_le": "2026-10-03",
           "donnees": null
         },
