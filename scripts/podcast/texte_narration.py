@@ -33,8 +33,8 @@ OUVERTURES = (
     "Bienvenue sur Scénario, et merci de nous accorder quelques minutes. Comment allez-vous ? Comme chaque jour, une question d'actualité, trois évolutions possibles.",
     "Bonjour, et bienvenue sur Scénario. Si vous avez un instant, installez-vous : une question d'actualité, trois évolutions possibles, et le temps de comprendre.",
 )
-RITUEL = ("Prenez soin de vous. Rien n'est écrit à l'avance, ne l'oubliez pas : "
-          "la suite, c'est à vous de l'écrire. À demain, pour un nouveau scénario.")   # devise du site, dite chaque jour mot pour mot : « Rien n'est écrit à l'avance » ; « ne l'oubliez pas » est une idée du propriétaire (7 octobre 2026). Reformulée le 10 octobre 2026 en phrases qui coulent (quatre phrases courtes et sèches sonnaient robotiques), tournée vers l'auditeur et ses proches
+RITUEL = ("Prenez soin de vous. Rien n'est écrit à l'avance, ne l'oubliez pas. "
+          "La suite, c'est à vous de l'écrire. À demain, pour un nouveau scénario.")   # devise du site, dite chaque jour mot pour mot : « Rien n'est écrit à l'avance » ; « ne l'oubliez pas » est une idée du propriétaire (7 octobre 2026). Reformulée le 10 octobre 2026 en phrases qui coulent (quatre phrases courtes et sèches sonnaient robotiques), tournée vers l'auditeur. Allégée le 11 octobre 2026 : plus de « ceux qui vous entourent » (trop lourd) et phrases courtes, car le texte est parlé
 FERMETURES = tuple(debut + " " + RITUEL for debut in (
     "Merci d'avoir passé ce moment avec nous. L'édition complète vous attend sur lesscenarios.fr.",
     "Voilà, c'est la fin de ce rendez-vous. Merci de votre confiance : elle compte beaucoup pour nous. Tout est sur lesscenarios.fr.",
