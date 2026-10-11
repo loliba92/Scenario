@@ -129,6 +129,8 @@ def main(argv=None) -> int:
         return 1
     else:
         print(f"Contrôle du début : conforme (« {transcription[:90]}… »)", flush=True)
+    if accueil:   # l'accueil, lu seul, sortait trop vite : on le ralentit (la question et la suite gardent leur rythme)
+        parties_pcm[0] = gp.ralentir_pcm(parties_pcm[0])
     import musique
     parties_pcm, gains = musique.egaliser_niveaux(parties_pcm)
     print('Volume des parties égalisé (gain en dB par partie) : ' + ', '.join(f'{g:+.1f}' for g in gains), flush=True)
