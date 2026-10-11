@@ -1,0 +1,395 @@
+{
+  "date": "2026-10-12",
+  "registre": "geopolitique",
+  "sujet": {
+    "titre_propose": "L'Europe peut-elle se défendre sans les États-Unis ?",
+    "h1": "Défense européenne : l'Europe peut-elle se passer des États-Unis ?",
+    "question_posee": "L'Europe peut-elle assurer seule sa défense, sans le soutien des États-Unis, dans les années qui viennent ?",
+    "eyebrow": "Lundi, géopolitique",
+    "angle": "Depuis le sommet de La Haye (juin 2025) qui a fixé l'objectif de 5 % du PIB pour 2035 et la création de l'instrument SAFE (150 milliards d'euros de prêts), l'Europe tente de se doter d'une autonomie de défense réelle. Mais les estimations coûtent cher : selon Bruegel et le Kiel Institute, remplacer les capacités militaires américaines nécessiterait 300 000 soldats supplémentaires et +250 milliards d'euros par an, avec des goulots d'étranglement industriels et de commandement. La question n'est pas seulement budgétaire : c'est celle de la capacité de l'Europe à se passer du parapluie nucléaire, du renseignement, de la logistique et du commandement américain.",
+    "tags": [
+      "défense",
+      "OTAN",
+      "autonomie stratégique",
+      "budget de la défense",
+      "Russie"
+    ],
+    "domain": "geopolitique",
+    "image_keywords": "European defence NATO flags military budget",
+    "complexite": 4,
+    "origine_prioritaire": "L'Europe peut-elle se défendre sans les États-Unis ?",
+    "origine_id": "geopolitique-l-europe-peut-elle-se-defendre-sans-les-etats",
+    "point_de_depart": {
+      "id": "geopolitique-l-europe-peut-elle-se-defendre-sans-les-etats",
+      "registre": "geopolitique",
+      "titre": "L'Europe peut-elle se défendre sans les États-Unis ?",
+      "question": "L'Europe peut-elle assurer seule sa défense, sans le soutien des États-Unis, dans les années qui viennent ?",
+      "contexte": "Depuis février 2022, les États-Unis ont fourni 64 milliards d'euros d'aide militaire à l'Ukraine tandis que les alliés européens (y compris le Royaume-Uni) ont contribué 62 milliards d'euros, et en 2024 le soutien américain s'est élevé à 20 milliards d'euros sur un total de 42 milliards d'euros. Pour remplacer cet apport, des estimations indiquent que l'Europe devrait augmenter ses dépenses de défense d'environ 250 milliards d'euros par an, passant d'environ 2 % du PIB à près de 3,5 %, ce qui impliquerait pour Allemagne de porter son budget annuel de la défense de 80 à 140 milliards d'euros (≈3,5 % du PIB). Lors du sommet de l'OTAN à La Haye en 2025, les Alliés se sont engagés à atteindre 5 % du PIB pour la défense d'ici 2035, et le budget propre de l'OTAN est fixé à 4,6 milliards d'euros en 2025, devant atteindre 5,3 milliards d'euros en 2026. L'UE a lancé l'instrument de prêt SAFE (150 milliards d'euros) et a activé la clause d'échappement du Pacte de stabilité et de croissance pour permettre des hausses de dépenses de défense, tandis que l'Allemagne a modifié sa constitution au printemps 2025 pour lever le frein à l'endettement destiné à la défense.",
+      "rationnel": "Le meilleur sujet de fond : il touche directement la France, les finances publiques, l'industrie de défense et l'avenir de l'OTAN. L'issue est ouverte : tout dépend de l'effort budgétaire des Européens, de leur capacité industrielle et de la position américaine.",
+      "mots_cles": [
+        "défense européenne",
+        "OTAN",
+        "États-Unis",
+        "industrie de défense",
+        "budget de la défense",
+        "autonomie stratégique"
+      ],
+      "angle": null,
+      "a_verifier": null,
+      "scenarios_brouillon": null,
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Defending Europe Without the United States: Costs and ...",
+          "url": "https://www.iiss.org/research-paper/2025/05/defending-europe-without--the-united-states-costs-and-consequences/"
+        },
+        {
+          "titre": "Defending Europe without the US: first estimates of what is needed",
+          "url": "https://www.bruegel.org/analysis/defending-europe-without-us-first-estimates-what-needed"
+        },
+        {
+          "titre": "Funding NATO | NATO Topic",
+          "url": "https://www.nato.int/en/what-we-do/introduction-to-nato/funding-nato"
+        },
+        {
+          "titre": "European Strategic Autonomy in a Transatlantic Security Context: From Dependence to Independence? | Springer Nature Link",
+          "url": "https://link.springer.com/chapter/10.1007/978-3-032-11892-9_10"
+        }
+      ],
+      "tag": "géopolitique & défense",
+      "origine": "utilisateur",
+      "note_editoriale": null,
+      "donnees_graphique": null,
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (11 octobre) : sujet sur l'IA olympique, aucun recoupement. Registre géopolitique : dernière occurrence le 28 septembre (Ordre mondial : la fin du règne occidental ?) — même thème large (ordre international, multipolarité) mais angle différent : celui du 28 septembre traite du déclin relatif de l'Occident et de la montée des puissances non occidentales, sans jamais aborder la question spécifique de la défense européenne sans les États-Unis, des budgets de l'OTAN, de l'instrument SAFE ou du sommet de La Haye. Mécanisme causal central différent : multipolarité vs autonomie de défense européenne. Aucun doublon bloquant."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "L'Union européenne a adopté l'instrument SAFE (Security Action for Europe), un mécanisme de prêts de 150 milliards d'euros pour financer des achats groupés de matériel de défense, le 27 mai 2025.",
+      "chiffre": "150 milliards d'euros",
+      "date_du_chiffre": "2025-05-27",
+      "sources": [
+        "safe-council-2025"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Lors du sommet de l'OTAN à La Haye le 25 juin 2025, les Alliés se sont engagés à porter leurs dépenses de défense à 5 % du PIB d'ici 2035, dont au moins 3,5 % pour les besoins de défense de base et jusqu'à 1,5 % pour la sécurité élargie.",
+      "chiffre": "5 % du PIB d'ici 2035 (3,5 % + 1,5 %)",
+      "date_du_chiffre": "2025-06-25",
+      "sources": [
+        "nato-hague-2025"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Selon une analyse de Bruegel et du Kiel Institute (mai 2025), l'Europe devrait augmenter ses dépenses de défense d'environ 250 milliards d'euros par an, passant d'environ 2 % du PIB à près de 3,5 %, pour remplacer les capacités militaires américaines.",
+      "chiffre": "+250 milliards d'euros par an (soit environ 3,5 % du PIB)",
+      "date_du_chiffre": "2025-05-15",
+      "sources": [
+        "bruegel-kiel-2025"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Pour l'Allemagne, cela impliquerait de porter son budget annuel de la défense de 80 à 140 milliards d'euros (environ 3,5 % du PIB).",
+      "chiffre": "80 à 140 milliards d'euros",
+      "date_du_chiffre": "2025-05-15",
+      "sources": [
+        "bruegel-kiel-2025"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'Allemagne a modifié sa constitution au printemps 2025 (vote du Bundestag le 18 mars 2025 et du Bundesrat le 21 mars 2025) pour lever le frein à l'endettement au-delà de 1 % du PIB pour les dépenses de défense et de sécurité.",
+      "chiffre": null,
+      "date_du_chiffre": "2025-03-18",
+      "sources": [
+        "allemagne-constitution-2025"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le budget direct commun de l'OTAN est fixé à environ 4,6 milliards d'euros en 2025 et à 5,3 milliards d'euros en 2026.",
+      "chiffre": "4,6 milliards d'euros (2025) ; 5,3 milliards d'euros (2026)",
+      "date_du_chiffre": "2025-12-16",
+      "sources": [
+        "nato-budget-2025-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Selon le rapport IISS de mai 2025, le coût pour les États européens de remplacer les capacités conventionnelles américaines actuelles (terrestres, maritimes, aériennes) se situerait entre 226 et 344 milliards de dollars, sans compter les capacités de renseignement, spatiales, cyber et nucléaires qui augmenteraient considérablement ce montant.",
+      "chiffre": "226 à 344 milliards de dollars (remplacement conventionnel uniquement)",
+      "date_du_chiffre": "2025-05-15",
+      "sources": [
+        "iiss-2025"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Union européenne (Commission européenne, Conseil)",
+      "role": "Initiateur de l'instrument SAFE (150 milliards d'euros) et du plan ReArm Europe / Readiness 2030"
+    },
+    {
+      "nom": "OTAN (Alliés)",
+      "role": "A fixé l'objectif de 5 % du PIB d'ici 2035 lors du sommet de La Haye (juin 2025)"
+    },
+    {
+      "nom": "Allemagne (Chancellerie, Bundestag)",
+      "role": "Principale économie européenne ; a modifié sa constitution en mars 2025 pour lever le frein à l'endettement au-delà de 1 % du PIB pour la défense"
+    },
+    {
+      "nom": "Russie",
+      "role": "Menace militaire principale à l'origine de l'accélération des dépenses de défense européennes"
+    },
+    {
+      "nom": "États-Unis",
+      "role": "Partenaire de sécurité historique de l'Europe via l'OTAN ; fournisseur de capacités conventionnelles, de renseignement, de commandement et de parapluie nucléaire"
+    },
+    {
+      "nom": "Bruegel / Kiel Institute",
+      "role": "Auteurs de l'étude de référence (mai 2025) sur les coûts et les besoins en troupes pour une défense européenne sans les États-Unis"
+    },
+    {
+      "nom": "IISS (International Institute for Strategic Studies)",
+      "role": "Auteur du rapport de référence (mai 2025) sur les coûts du remplacement des capacités conventionnelles américaines"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2022-02-24",
+      "evenement": "Invasion russe à grande échelle de l'Ukraine : début de l'accélération des dépenses de défense européennes et de la réflexion sur l'autonomie stratégique"
+    },
+    {
+      "date": "2025-03-18",
+      "evenement": "Le Bundestag allemand vote la réforme constitutionnelle du frein à l'endettement (dépenses de défense au-delà de 1 % du PIB exemptées)"
+    },
+    {
+      "date": "2025-05-27",
+      "evenement": "Le Conseil de l'UE adopte l'instrument SAFE (150 milliards d'euros de prêts pour achats groupés de défense)"
+    },
+    {
+      "date": "2025-06-25",
+      "evenement": "Sommet de l'OTAN à La Haye : les Alliés s'engagent à porter les dépenses de défense à 5 % du PIB d'ici 2035"
+    },
+    {
+      "date": "2025-12-16",
+      "evenement": "L'OTAN fixe ses budgets communs à 5,3 milliards d'euros pour 2026"
+    },
+    {
+      "date": "2029-01-01",
+      "evenement": "Réexamen de la trajectoire des dépenses fixée à La Haye, prévu dans la déclaration du sommet"
+    },
+    {
+      "date": "2035-01-01",
+      "evenement": "Échéance de l'objectif de 5 % du PIB pour la défense fixé par le sommet de La Haye"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "L'Europe parvient à lever les 250 milliards d'euros supplémentaires par an, à construire une industrie de défense commune capable de produire les équipements nécessaires (chars, avions, missiles, drones) et à mettre en place un commandement européen intégré qui remplace progressivement les capacités américaines. L'objectif de 5 % du PIB est atteint d'ici 2035, avec une industrialisation en chaîne et des commandes communes via SAFE. La Russie est dissuadée.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Les dépenses de défense augmentent significativement (vers 3,5 % du PIB) mais restent en deçà des objectifs de 5 %, avec des progrès inégaux selon les pays. L'Europe se dotent de capacités supplémentaires mais ne se substitue pas totalement aux États-Unis : elle maintient une dépendance partielle pour le renseignement, le commandement, certains équipements aériens et maritimes, et le parapluie nucléaire. La coopération via SAFE progresse mais lentement, avec des retards industriels et des divergences entre États membres.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "Les États membres ne parviennent pas à financer l'effort requis (250 milliards d'euros supplémentaires par an) faute de marge budgétaire ou de volonté politique. L'industrie de défense européenne ne parvient pas à produire à la cadence nécessaire (goulots d'étranglement, pénuries de main-d'œuvre, retards de commandes). L'Europe reste dépendante des États-Unis pour les capacités critiques, et la menace russe se renforce sans dissuasion européenne crédible. Le retrait américain de l'OTAN ou une diminution de son engagement rendrait la défense européenne vulnérable.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Dépenses de défense des États membres de l'UE (2025)",
+      "valeur": "381 milliards d'euros (environ 2,1 % du PIB)",
+      "tendance": "Hausse de 11 % en un an"
+    },
+    {
+      "label": "Objectif de dépenses de défense à l'horizon 2035 (sommet de La Haye)",
+      "valeur": "5 % du PIB (3,5 % + 1,5 %)",
+      "tendance": "En cours d'atteinte — révision prévue en 2029"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune source publique fiable ne documente une série historique longue et continue des dépenses de défense de l'UE dans son ensemble sur 10 ans ou plus avec au moins 5 points réels vérifiés. Les données disponibles (IISS Military Balance, SIPRI) sont dispersées par pays et par année, sans série agrégée européenne continue facilement accessible. Le critère (1) n'est pas satisfait.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres réels et comparables (même unité : milliards d'euros) sont disponibles dans les faits vérifiés et les sources : budget allemand actuel (80 Mds €), budget allemand cible (140 Mds €), et montant de l'instrument SAFE (150 Mds €). Ces trois chiffres illustrent l'échelle de l'effort requis.",
+    "barres": {
+      "aria_label": "Comparaison des principaux montants en jeu pour la défense européenne : budget allemand actuel, budget allemand cible et instrument SAFE",
+      "lead": "Trois ordres de grandeur pour mesurer l'enjeu budgétaire européen.",
+      "caption": "Bruegel/Kiel Institute (mai 2025) ; Conseil de l'UE (27 mai 2025)",
+      "unite": "milliards d'euros",
+      "valeurs": [
+        {
+          "label": "Budget allemand actuel",
+          "valeur": 80,
+          "affichage": "80 Mds €",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Budget allemand cible (3,5 % PIB)",
+          "valeur": 140,
+          "affichage": "140 Mds €",
+          "mis_en_avant": true
+        },
+        {
+          "label": "Instrument SAFE (prêts UE)",
+          "valeur": 150,
+          "affichage": "150 Mds €",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Ce que coûte vraiment le remplacement des États-Unis : au-delà des 250 milliards d'euros par an, il faut 300 000 soldats supplémentaires, 1 400 chars, 2 000 véhicules de combat, 1 million de obus de 155 mm, et une capacité industrielle à produire 2 000 drones longs rayons par an — des chiffres qui dépassent les stocks actuels combinés de France, Allemagne, Italie et Royaume-Uni.",
+        "rattache_a": "fait bruegel-kiel-2025"
+      },
+      {
+        "focus": "Ce que l'Europe ne peut pas encore remplacer : le commandement intégré (le commandant suprême OTAN est un général américain), le renseignement spatial et en temps réel, la logistique, les capacités aériennes et maritimes spécifiques (avions de chasse furtifs, porte-avions), et le parapluie nucléaire américain. Ces dépendances ne se réduisent pas avec l'argent seul.",
+        "rattache_a": "fait iiss-2025"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Les estimations de Bruegel/Kiel (250 milliards d'euros par an, 300 000 soldats) sont des ordres de grandeur pour un scénario de retrait américain complet — elles ne constituent pas une projection officielle ni un plan de financement réel.",
+    "La trajectoire des dépenses à 5 % du PIB d'ici 2035 sera révisée en 2029 : l'objectif pourrait être ajusté selon l'environnement stratégique.",
+    "Le rapport IISS (mai 2025) suppose un retrait américain à partir de mi-2025 et une fin de la guerre en Ukraine avec un cessez-le-feu — des hypothèses qui ne se sont pas réalisées telles quelles au moment du brief."
+  ],
+  "a_ne_pas_affirmer": [
+    "Que les États-Unis retirent effectivement leur soutien à l'OTAN ou à l'Ukraine — aucun retrait officiel n'a eu lieu au moment du brief.",
+    "Que l'objectif de 5 % du PIB sera atteint d'ici 2035 — c'est un engagement, pas une réalisation.",
+    "Que l'Europe peut ou ne peut pas se passer des États-Unis dans les années qui viennent — c'est précisément la question à laquelle les trois scénarios répondent."
+  ],
+  "sources": [
+    {
+      "id": "safe-council-2025",
+      "title": "SAFE: Council adopts €150 billion boost for joint procurement on European security and defence",
+      "source": "Conseil de l'Union européenne",
+      "url": "https://www.consilium.europa.eu/en/press/press-releases/2025/05/27/safe-council-adopts-150-billion-boost-for-joint-procurement-on-european-security-and-defence/",
+      "image": null,
+      "lang": "en",
+      "domain": "geopolitique",
+      "summary": "Le Conseil de l'UE adopte le 27 mai 2025 la régulation instituant l'instrument SAFE (Security Action for Europe) : jusqu'à 150 milliards d'euros de prêts à long terme pour financer des achats groupés de matériel de défense par les États membres.",
+      "read_minutes": 3
+    },
+    {
+      "id": "nato-hague-2025",
+      "title": "The Hague Summit Declaration",
+      "source": "OTAN",
+      "url": "https://www.nato.int/en/about-us/official-texts-and-resources/official-texts/2025/06/25/the-hague-summit-declaration",
+      "image": null,
+      "lang": "en",
+      "domain": "geopolitique",
+      "summary": "Déclaration du sommet de La Haye (25 juin 2025) : les Alliés s'engagent à investir 5 % du PIB annuellement dans la défense d'ici 2035, dont au moins 3,5 % pour les besoins de défense de base et jusqu'à 1,5 % pour la sécurité élargie.",
+      "read_minutes": 5
+    },
+    {
+      "id": "bruegel-kiel-2025",
+      "title": "Defending Europe without the US: first estimates of what is needed",
+      "source": "Bruegel / Kiel Institute for the World Economy",
+      "url": "https://www.bruegel.org/analysis/defending-europe-without-us-first-estimates-what-needed",
+      "image": null,
+      "lang": "en",
+      "domain": "geopolitique",
+      "summary": "Analyse de mai 2025 : pour remplacer les capacités militaires américaines, l'Europe aurait besoin de 300 000 soldats supplémentaires et d'une hausse de 250 milliards d'euros par an des dépenses de défense (soit environ 3,5 % du PIB). Pour l'Allemagne, cela impliquerait de passer de 80 à 140 milliards d'euros par an.",
+      "read_minutes": 8
+    },
+    {
+      "id": "iiss-2025",
+      "title": "Defending Europe Without the United States: Costs and Consequences",
+      "source": "International Institute for Strategic Studies (IISS)",
+      "url": "https://www.iiss.org/research-paper/2025/05/defending-europe-without--the-united-states-costs-and-consequences/",
+      "image": null,
+      "lang": "en",
+      "domain": "geopolitique",
+      "summary": "Rapport de mai 2025 : le coût pour les États européens de remplacer les capacités conventionnelles américaines (terrestres, maritimes, aériennes) se situe entre 226 et 344 milliards de dollars, sans compter les capacités de renseignement, spatiales, cyber et nucléaires. L'Europe aurait du mal à remplacer ces capacités dans la décennie.",
+      "read_minutes": 10
+    },
+    {
+      "id": "allemagne-constitution-2025",
+      "title": "Défense, infrastructures : le Parlement approuve une réforme du frein à l'endettement",
+      "source": "Ministère fédéral allemand des Affaires étrangères",
+      "url": "https://allemagneenfrance.diplo.de/fr-fr/actualites-nouvelles-d-allemagne/01-politiquefederale/2706316-2706316",
+      "image": null,
+      "lang": "fr",
+      "domain": "geopolitique",
+      "summary": "Le Bundestag vote le 18 mars 2025 et le Bundesrat le 21 mars 2025 une réforme constitutionnelle du frein à l'endettement : les dépenses de défense et de sécurité au-delà de 1 % du PIB sont désormais exemptées de la limite d'emprunt.",
+      "read_minutes": 3
+    },
+    {
+      "id": "nato-budget-2025-2026",
+      "title": "Funding NATO — NATO Topic",
+      "source": "OTAN",
+      "url": "https://www.nato.int/en/what-we-do/introduction-to-nato/funding-nato",
+      "image": null,
+      "lang": "en",
+      "domain": "geopolitique",
+      "summary": "Les budgets communs de l'OTAN s'élèvent à environ 4,6 milliards d'euros en 2025 et à 5,3 milliards d'euros en 2026, couvrant le commandement militaire, les infrastructures et les systèmes de communication.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Financer le réarmement de l'Europe. FED, EDIP, SAFE : les instruments budgétaires de l'Union européenne",
+      "source": "IFRI (Institut français des relations internationales)",
+      "url": "https://www.ifri.org/sites/default/files/2026-02/ifri_faure_instruments_financiers_ue_2026.pdf",
+      "image": null,
+      "lang": "fr",
+      "domain": "geopolitique",
+      "summary": "Note de l'IFRI de février 2026 analysant les instruments budgétaires de l'UE pour la défense (FED, EDIP, SAFE) et les défis de gouvernance qui les accompagnent.",
+      "read_minutes": 5
+    },
+    {
+      "title": "Réarmer l'Europe : relever le défi de l'intégration économique et de l'innovation",
+      "source": "Conseil d'analyse économique (CAE)",
+      "url": "https://cae-eco.fr/static/pdf/CAE088_Defense_260304.pdf",
+      "image": null,
+      "lang": "fr",
+      "domain": "geopolitique",
+      "summary": "Note du CAE de mars 2026 sur le réarmement européen : les dépenses de défense de l'UE approchent 2 % du PIB en 2025, avec une cible à 3,5 % d'ici 2035, et les défis industriels et technologiques à relever.",
+      "read_minutes": 5
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-24",
+      "titre": "Économie mondiale : BCE et Fed face au choc pétrolier",
+      "lien": "Même contexte géopolitique de crise énergétique et de tensions internationales (détroit d'Ormuz) qui motive la remise en question du soutien américain à l'Europe."
+    },
+    {
+      "date": "2026-09-28",
+      "titre": "Ordre mondial : la fin du règne occidental ?",
+      "lien": "Même registre géopolitique (lundi) et même thème large de remise en question de l'ordre international occidental, dont dépend la défense européenne."
+    },
+    {
+      "date": "2026-08-27",
+      "titre": "Dette américaine : le mur des 40 000 milliards",
+      "lien": "Même enjeu de la capacité des États-Unis à continuer de financer leur rôle de garant de la sécurité mondiale, facteur clé de l'autonomie européenne."
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser dès le premier paragraphe que le sujet porte sur l'Europe (UE + OTAN européenne) et non sur la France seule, même si la France est un acteur central.",
+    "Distinguer clairement les deux niveaux de dépenses : les budgets nationaux de défense (qui doivent atteindre 5 % du PIB) et le budget direct commun de l'OTAN (4,6-5,3 milliards d'euros, faible en proportion).",
+    "Mettre en perspective le chiffre de 250 milliards d'euros par an : c'est l'équivalent de la totalité du budget de la défense allemande actuelle (80 Mds €) plus celui de la France (environ 50 Mds €) plus celui de l'Italie, etc. — pour donner une idée concrète à un lecteur jeune.",
+    "Ne pas présenter l'instrument SAFE comme une solution miracle : c'est un mécanisme de prêts (à rembourser), pas un budget européen, et il ne finance que les achats groupés, pas les dépenses nationales de personnel ou d'infrastructure.",
+    "Insister sur le paradoxe central : l'Europe a les moyens financiers (0,12 % du PIB supplémentaire suffirait à remplacer l'aide américaine à l'Ukraine, selon Bruegel) mais pas les moyens industriels et de commandement pour se substituer aux États-Unis en cas de crise majeure.",
+    "Lier explicitement le sommet de La Haye (juin 2025) et l'instrument SAFE (mai 2025) comme les deux piliers institutionnels de la réponse européenne, sans les confondre."
+  ]
+}

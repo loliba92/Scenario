@@ -1,135 +1,184 @@
 {
-  "h1": "Milan-Cortina 2026 : l'IA va-t-elle remplacer les juges olympiques ?",
-  "question_text": "L'IA utilisée en soutien aux juges à Milan-Cortina restera-t-elle un outil d'aide ou deviendra-t-elle la référence principale dans le jugement sportif d'ici Los Angeles 2028 ?",
-  "section_title": "Arbitrage olympique : simple assistance ou prise de pouvoir des algorithmes ?",
+  "h1": "Défense européenne : l'Europe peut-elle se passer des États-Unis ?",
+  "question_text": "L'Europe peut-elle assurer seule sa défense, sans le soutien des États-Unis, dans les années qui viennent ?",
+  "section_title": "Trois trajectoires pour l'autonomie militaire du continent européen",
   "dek": [
-    "Les Jeux olympiques d'hiver de Milan-Cortina ont marqué un tournant dans l'histoire de l'arbitrage. Lors des épreuves sur glace et sur neige en février 2026, l'intelligence artificielle a fait ses premiers pas officiels dans les cabines de notation. Développée en étroite collaboration avec le chronométreur officiel Omega Timing, la technologie de vision par ordinateur<a class=\"lex-ref\" href=\"#lex-vision-par-ordinateur\" aria-label=\"Voir la définition dans le lexique\">*</a> a suivi les mouvements des athlètes grâce à 14 caméras haute fréquence déployées autour de la patinoire milanaise. Ce dispositif capte jusqu'à 40 000 images par seconde pour analyser la trajectoire exacte des patins. Loin d'être un simple gadget visuel pour les téléspectateurs du monde entier, cet outil a fourni aux panels officiels des données brutes en temps réel sur la hauteur des sauts, la vitesse d'élan et l'angle précis de chaque réception.",
-    "L'expérimentation a concerné <strong>4 disciplines olympiques</strong> majeures : le patinage artistique, le big air, le halfpipe et le saut à ski. Dans ces disciplines acrobatiques, les juges humains font face à un défi visuel considérable. Ils doivent évaluer des enchaînements de figures très rapides en une fraction de seconde, souvent avec un angle de vue restreint et sous une fatigue visuelle accumulée au fil des passages. Le système informatique permet de compter avec exactitude le nombre de rotations dans les airs et de repérer si une lame a touché la glace avant d'avoir bouclé son tour complet. Cette mesure automatique vise à éliminer les erreurs humaines involontaires et à réduire les contestations qui empoisonnent régulièrement les compétitions internationales de haut niveau.",
-    "La quête d'objectivité répond à un traumatisme récurrent dans l'histoire olympique. Les sports à appréciation humaine restent régulièrement marqués par des soupçons de favoritisme ou de corruption, à l'image du scandale retentissant des Jeux de Salt Lake City en 2002. Plus récemment, la finale du sol en gymnastique aux Jeux de Paris en 2024 a montré la fragilité des notations manuelles face aux réclamations d'entraîneurs sur des éléments techniques mal comptabilisés. À Milan-Cortina, le sacre en danse sur glace du duo français face aux rivaux américains a une nouvelle fois déclenché des accusations de chauvinisme sur les réseaux sociaux. Face à ces tensions incessantes, les instances sportives cherchent un arbitre impartial et incontestable pour préserver la confiance du public et des sponsors.",
-    "Le Comité International Olympique (CIO) a formalisé cette transition dans son Agenda IA olympique, une feuille de route institutionnelle qui planifie l'intégration progressive des algorithmes dans l'organisation et l'arbitrage des compétitions. Pour les promoteurs de ces logiciels, comme l'entrepreneur Jeremy Bloom à la tête de la start-up Owl AI, l'automatisation totale des critères physiques constitue le seul moyen de garantir une équité parfaite. Selon cette vision technologique, confier la détection des fautes techniques à des capteurs optiques libérerait les arbitres des calculs visuels complexes. Cela permettrait également de rendre le barème de notation immédiatement compréhensible pour les millions de téléspectateurs qui suivent les finales.",
-    "Mais cette irruption numérique soulève une opposition philosophique et sportive majeure parmi les spécialistes de la glace. Des patineurs et des entraîneurs de renom rappellent que le sport ne se résume pas à une succession de coordonnées géométriques. Une machine peut calculer une rotation au millimètre près, mais elle reste incapable de ressentir l'émotion artistique, l'interprétation musicale, la fluidité d'une transition ou l'originalité d'une chorégraphie. De plus, une sévérité algorithmique absolue risque de pénaliser des micro-imperfections totalement invisibles à l'œil nu, décourageant ainsi la prise de risque et uniformisant les styles au détriment du spectacle vivant.",
-    "L'échéance des Jeux d'été de Los Angeles 2028, programmés du 14 au 30 juillet 2028, servira de révélateur décisif pour la gouvernance mondiale du sport. Les fédérations internationales devront fixer la frontière exacte entre l'assistance numérique et la souveraineté humaine. Le débat oppose deux visions de la performance sportive : d'un côté, la recherche d'une vérité mathématique absolue garantie par des algorithmes infaillibles ; de l'autre, la défense de la sensibilité humaine et de l'esprit du jeu. Trois scénarios distincts se dessinent pour définir l'arbitrage des futures olympiades."
+    "Depuis la fin de la Seconde Guerre mondiale, la sécurité du continent européen repose sur une alliance militaire historique avec Washington. Les pays européens, réunis au sein de l'Union européenne et de l'OTAN, ont longtemps délégué une part essentielle de leur protection à l'armée américaine. Mais face aux tensions géopolitiques grandissantes et aux incertitudes politiques aux États-Unis, une question urgente se pose désormais à tous les dirigeants du continent : l'Europe peut-elle assurer seule sa défense face aux menaces extérieures, au premier rang desquelles figure la Russie ? La réponse à ce défi dépasse les simples déclarations de principe, car combler le retrait potentiel de la première puissance militaire mondiale exige des moyens colossaux.",
+    "Pour mesurer l'ampleur du défi, il faut d'abord regarder les budgets nationaux. Selon les analyses économiques de référence publiées par l'institut Bruegel et le Kiel Institute, remplacer l'ensemble des forces et du matériel américains déployés pour protéger l'Europe exigerait d'ajouter environ <strong>250 milliards d'euros par an</strong> aux dépenses militaires actuelles. Pour l'ensemble des pays européens, cela reviendrait à faire grimper l'effort de défense de 2,1 % à près de 3,5 % de leur produit intérieur brut. À titre d'exemple concret, une telle bascule obligerait l'Allemagne à faire passer son budget militaire annuel de <strong>80 à 140 milliards d'euros</strong>, soit une augmentation spectaculaire qui bouleverse totalement les équilibres des finances publiques traditionnelles.",
+    "Face à cette réalité, les capitales européennes ont commencé à réagir sur le plan institutionnel et financier. Le 27 mai 2025, l'Union européenne a officiellement adopté l'instrument SAFE<a class=\"lex-ref\" href=\"#lex-instrument-safe\" aria-label=\"Voir la définition dans le lexique\">*</a>, un mécanisme de prêts collectifs doté de <strong>150 milliards d'euros</strong> destiné à financer des achats groupés de matériel militaire entre pays membres. Dans la foulée, le 25 juin 2025 lors du sommet de La Haye, les pays alliés ont fixé un cap ambitieux en promettant de porter leurs dépenses globales à <strong>5 % du PIB d'ici 2035</strong>. L'Allemagne a même réformé sa propre constitution en mars 2025 en levant le frein à l'endettement<a class=\"lex-ref\" href=\"#lex-frein-a-lendettement\" aria-label=\"Voir la définition dans le lexique\">*</a> pour toutes les dépenses militaires dépassant 1 % du PIB.",
+    "Pourtant, la défense d'un continent ne se résume pas à signer des chèques ou à voter des lois de finances. Si l'argent permet de commander des armes, les usines européennes souffrent d'un manque criant de capacités industrielles pour fabriquer rapidement des milliers de blindés, des missiles ou des millions d'obus de gros calibre. Selon le centre d'études stratégiques IISS, le simple remplacement des équipements conventionnels américains coûterait entre <strong>226 et 344 milliards de dollars</strong>. À ces montants gigantesques s'ajoutent des pénuries de personnel militaire qualifié, les experts estimant qu'il faudrait recruter et former au moins 300 000 soldats professionnels supplémentaires pour compenser l'absence des troupes régulières américaines sur le sol européen.",
+    "Le verrou le plus difficile à faire sauter reste technique, technologique et stratégique. Les armées européennes dépendent étroitement de Washington pour le renseignement par satellite, la surveillance aérienne avancée, les transports logistiques lourds et le commandement intégré<a class=\"lex-ref\" href=\"#lex-commandement-integre\" aria-label=\"Voir la définition dans le lexique\">*</a> des opérations de grande envergure. De plus, la protection ultime du continent s'appuie depuis des décennies sur le parapluie nucléaire<a class=\"lex-ref\" href=\"#lex-parapluie-nucleaire\" aria-label=\"Voir la définition dans le lexique\">*</a> américain. Bien que la France et le Royaume-Uni possèdent leurs propres arsenaux atomiques indépendants, leurs doctrines nationales ne couvrent pas automatiquement l'ensemble des frontières de l'Est européen avec le même niveau d'engagement que le dispositif américain.",
+    "L'issue de ce réarmement massif demeure donc incertaine car elle dépend autant de la volonté politique des gouvernements que de la solidité des industries nationales. Les vingt-sept pays de l'Union européenne partagent-ils la même vision des priorités de sécurité, ou bien les divisions économiques freineront-elles les investissements communs ? Pour éclairer cette bifurcation historique qui redéfinit l'autonomie stratégique<a class=\"lex-ref\" href=\"#lex-autonomie-strategique\" aria-label=\"Voir la définition dans le lexique\">*</a> de notre continent, notre rédaction a modélisé trois scénarios prospectifs détaillés, allant de la réussite d'un pilier de défense européen autonome à une vulnérabilité critique en cas de désengagement soudain de Washington."
   ],
   "stakes_branches": {
-    "favorable": "L'IA demeure un copilote technique sous le contrôle souverain des juges humains.",
-    "stable": "Les fédérations déploient l'IA prudemment, au cas par cas selon les disciplines.",
-    "degrade": "L'algorithme devient la référence dominante au détriment de la création artistique."
+    "favorable": "L'Europe finance son autonomie, unifie sa production militaire et bâtit un bouclier commun crédible.",
+    "stable": "Les budgets progressent vers 3,5 % du PIB mais l'Europe conserve des dépendances critiques envers Washington.",
+    "degrade": "L'effort financier et industriel échoue, laissant le continent sans protection crédible face aux menaces."
   },
   "comprendre_box": [
     {
-      "lead": "L'IA sait mesurer les angles mais ignore la grâce.",
-      "text": "L'intelligence artificielle agit comme un radar de vitesse automatique sur une autoroute : elle calcule des chiffres bruts indiscutables, comme la hauteur d'un saut ou le nombre de tours en l'air. En revanche, elle est incapable d'apprécier la beauté d'un geste, la fluidité d'un mouvement sur la musique ou l'intensité dramatique qui fait toute l'émotion d'un programme olympique.",
+      "lead": "Remplacer l'armée américaine représente un gouffre matériel et humain sans précédent.",
+      "text": "Pour combler un départ complet des forces américaines, l'Europe ne doit pas seulement trouver 250 milliards d'euros par an. Elle devrait recruter 300 000 soldats supplémentaires et produire 1 400 chars lourds et 1 million d'obus par an. Cet effort colossal dépasse les capacités industrielles combinées actuelles de la France, de l'Allemagne et de l'Italie.",
       "apres_dek_index": 1
     },
     {
-      "lead": "Une précision chirurgicale qui menace l'audace.",
-      "text": "Si une caméra thermique pénalise le moindre millimètre d'écart sur une trajectoire, l'athlète préfère jouer la sécurité mathématique plutôt que de tenter une figure spectaculaire et risquée. L'excès de rigueur technologique risque de transformer le patinage en une équation sans âme, où chaque grain de poussière sur la glace devient une faute éliminatoire.",
+      "lead": "La technologie militaire et le renseignement ne s'achètent pas en quelques mois.",
+      "text": "Même avec des budgets records, l'Europe dépend des États-Unis pour les yeux et les oreilles de son armée : les satellites espions, le ravitaillement en vol et les systèmes informatiques de combat. Sans cet état-major américain qui coordonne tout le continent, les armées européennes ressemblent à des soldats sans réseau de communication unifié.",
       "apres_dek_index": 4
     }
   ],
   "list_box": null,
   "indicators": [
     {
-      "label": "Disciplines olympiques avec expérimentation IA en soutien au jugement à Milan-Cortina 2026",
-      "value": "4 disciplines",
-      "delta": "Patinage artistique, big air, halfpipe et saut à ski testés en 2026"
+      "label": "Dépenses de défense des États membres de l'UE (2025)",
+      "value": "381 milliards d'euros (environ 2,1 % du PIB)",
+      "delta": "Hausse de 11 % en un an"
+    },
+    {
+      "label": "Objectif de dépenses de défense à l'horizon 2035 (sommet de La Haye)",
+      "value": "5 % du PIB (3,5 % + 1,5 %)",
+      "delta": "En cours d'atteinte — révision prévue en 2029"
     }
   ],
   "cards": {
     "favorable": {
-      "pct": 40,
-      "gauge_word": "Probable",
-      "h3": "L'IA devient l'assistant technique officiel des juges humains",
+      "pct": 25,
+      "gauge_word": "Peu probable",
+      "h3": "L'Europe réussit son réarmement et construit un pilier militaire autonome",
       "why": [
-        "Dans ce premier scénario, les instances sportives internationales adoptent une hybridation équilibrée entre technologie et sensibilité humaine. Le système de vision par ordinateur développé par Omega Timing prend en charge le comptage mécanique des rotations, la mesure de la hauteur des envolées et le calcul précis des angles de carre. Ces informations objectives apparaissent instantanément sur les écrans des juges sous forme d'indicateurs d'aide à la décision. Les arbitres humains conservent l'intégralité du pouvoir de décision final et peuvent ajuster la note en cas de défaillance ponctuelle du capteur. Ils se concentrent pleinement sur l'évaluation des composantes artistiques, l'harmonie avec la musique et la qualité de la chorégraphie.",
-        "Cette formule d'assistance garantit une transparence maximale sans dénaturer l'essence même du spectacle olympique. Contrairement aux dérives d'une automatisation aveugle, la machine intervient uniquement pour trancher les litiges factuels rapides, à l'image de la technologie sur la ligne de but dans le football professionnel. La confiance du public et des athlètes envers le système de notation en sortirait grandie pour les Jeux de Los Angeles 2028, car les soupçons d'entente illicite entre délégations perdraient leur fondement technique tandis que la beauté du geste sportif resterait préservée par un regard d'expert humain."
+        "Dans ce premier scénario, les pays européens mobilisent avec succès les <strong>250 milliards d'euros supplémentaires par an</strong> nécessaires pour compenser le retrait des forces américaines. Les gouvernements utilisent pleinement les <strong>150 milliards d'euros</strong> de l'instrument SAFE pour passer des commandes massives et standardisées d'avions, de chars et de missiles auprès des industriels du continent. Cette impulsion politique inédite permet de recruter 300 000 nouveaux militaires professionnels, tandis que la France et le Royaume-Uni étendent officiellement leur garantie de dissuasion nucléaire à l'ensemble des pays alliés de l'Est.",
+        "Par rapport aux deux autres trajectoires, ce scénario suppose une cohésion politique totale et une montée en cadence industrielle sans aucun blocage technique ni retard de livraison. L'Union européenne transforme ainsi son économie pour atteindre sereinement la cible de <strong>5 % du PIB d'ici 2035</strong> fixée lors du sommet de La Haye. Ce saut qualitatif historique permettrait au continent de dissuader durablement toute agression extérieure sans dépendre des décisions électorales prises outre-Atlantique."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Disciplines olympiques avec assistance IA",
-          "evo_current": "8 à 10 disciplines en 2028",
+          "field_name": "Dépenses de défense de l'UE",
+          "evo_current": "520 milliards d'euros par an",
           "evo_arrow": "up",
-          "evo_prev": "4 disciplines en 2026"
+          "evo_prev": "381 Mds € (2025)"
+        },
+        {
+          "field_name": "Objectif horizon 2035 (La Haye)",
+          "evo_current": "Atteinte accélérée dès 2032",
+          "evo_arrow": "up",
+          "evo_prev": "Cible 5 % révisée en 2029"
         }
       ],
-      "france_line": "La France préserve son savoir-faire historique en chorégraphie tout en bénéficiant d'un arbitrage technique plus transparent.",
+      "france_line": "L'industrie d'armement française devient le principal moteur de la défense européenne et renforce son influence diplomatique.",
       "france_impact": "favorable"
     },
     "stable": {
-      "pct": 35,
+      "pct": 50,
       "gauge_word": "Probable",
-      "h3": "Déploiement fragmenté et prudent selon chaque fédération",
+      "h3": "Les budgets augmentent mais l'Europe conserve des dépendances clés",
       "why": [
-        "Dans ce deuxième scénario, l'intégration des outils numériques avance de manière très inégale sans doctrine globale du Comité International Olympique. Les fédérations gérant des sports purement acrobatiques, comme le snowboard freestyle ou le saut à ski, adoptent rapidement la modélisation 3D pour mesurer les trajectoires et valider les réceptions complexes. En revanche, les disciplines comportant une forte tradition artistique et des barèmes complexes, à l'instar du patinage artistique ou de la natation synchronisée, limitent l'utilisation de l'intelligence artificielle à de simples tests en arrière-salle sans impact direct sur la notation officielle. Le coût élevé des caméras spécialisées freine également l'adoption par les petites nations.",
-        "Cette disparité maintient un flou réglementaire persistant entre les différentes épreuves du programme olympique. Alors que le scénario d'hybridation générale apporte une règle claire et uniforme, cette approche par étapes engendre des incompréhensions chez les supporters et les délégations sportives. Les polémiques sur les écarts de notation entre juges humains continueraient d'alimenter les contestations d'après-course lors des grandes compétitions internationales, tout en reportant les décisions structurelles bien au-delà des Jeux d'été de Los Angeles 2028."
+        "Dans ce deuxième scénario, les pays européens augmentent nettement leurs efforts budgétaires pour atteindre environ 3,5 % de leur produit intérieur brut, mais restent en deçà de l'objectif global de 5 %. Les États membres modernisent leurs forces terrestres et renouvellent leurs stocks de munitions grâce aux achats groupés, mais des retards industriels persistants empêchent de combler rapidement les lacunes dans l'aviation furtive, la logistique lourde et le renseignement spatial. L'Europe renforce son bouclier conventionnel immédiat tout en continuant de s'appuyer sur l'état-major américain pour la coordination générale.",
+        "Contrairement au scénario de rupture complète, cette voie médiane maintient un partenariat opérationnel indispensable avec Washington tout en réduisant le fardeau porté par l'armée américaine. L'instrument SAFE de <strong>150 milliards d'euros</strong> produit des résultats concrets mais inégaux selon les nations, certaines capitales privilégiant encore leurs achats d'équipements sur étagère auprès de constructeurs américains. Cette dynamique pragmatique permettrait à l'Europe de consolider sa sécurité quotidienne sans toutefois parvenir à une indépendance stratégique intégrale."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Disciplines olympiques avec assistance IA",
-          "evo_current": "5 à 6 disciplines en 2028",
+          "field_name": "Dépenses de défense de l'UE",
+          "evo_current": "450 milliards d'euros par an",
           "evo_arrow": "up",
-          "evo_prev": "4 disciplines en 2026"
+          "evo_prev": "381 Mds € (2025)"
+        },
+        {
+          "field_name": "Objectif horizon 2035 (La Haye)",
+          "evo_current": "Stabilisation autour de 3,5 % du PIB",
+          "evo_arrow": "flat",
+          "evo_prev": "Cible 5 % révisée en 2029"
         }
       ],
-      "france_line": "Les athlètes tricolores doivent s'adapter à des règles d'arbitrage hétérogènes selon les épreuves sportives.",
+      "france_line": "La France augmente ses budgets militaires mais doit composer avec des partenaires européens qui achètent encore du matériel américain.",
       "france_impact": "degrade"
     },
     "degrade": {
       "pct": 25,
       "gauge_word": "Peu probable",
-      "h3": "L'algorithme s'impose comme référence et marginalise l'artistique",
+      "h3": "L'effort financier cale et laisse l'Europe vulnérable à un désengagement",
       "why": [
-        "Dans ce troisième scénario, la recherche obsessionnelle du zéro faute pousse les fédérations à confier la quasi-totalité de la note technique aux logiciels de vision numérique. Les scores calculés automatiquement par l'ordinateur deviennent la référence juridique prépondérante, réduisant le rôle des juges humains à une simple validation administrative sur tablette. Sous la pression de cette notation chirurgicale, les patineurs et gymnastes adaptent leurs programmes pour maximiser les critères géométriques détectés par les capteurs. Les athlètes abandonnent les prises de risques expressives et les chorégraphies audacieuses qui risquent d'entraîner des micro-pénalités invisibles à l'œil nu mais relevées par les machines.",
-        "Ce basculement technologique transforme les compétitions sportives en une démonstration d'exécution mécanique standardisée et stérile. À l'opposé du modèle d'aide à la décision, l'hégémonie de l'algorithme dépossède les arbitres de leur jugement contextuel et provoque une vague de contestations d'athlètes pénalisés pour des imperfections infinitésimales. Cette dérive mathématique pourrait dégoûter les passionnés de disciplines créatives d'ici Los Angeles 2028, en supprimant l'émotion humaine qui forge les grands moments de l'histoire olympique."
+        "Dans ce troisième scénario, les contraintes économiques et les désaccords politiques internes empêchent les pays européens de financer les <strong>250 milliards d'euros par an</strong> requis. Les pénuries de main-d'œuvre qualifiée et le manque de matières premières paralysent la montée en cadence des usines d'armement sur le continent. Alors que les budgets stagnent autour des niveaux actuels, l'Europe se retrouve incapable de remplacer les équipements américains estimés entre <strong>226 et 344 milliards de dollars</strong> par les experts de l'IISS, ce qui fragilise directement la protection des pays frontaliers de l'Est.",
+        "À l'opposé des scénarios de réarmement volontariste, cette trajectoire expose l'Europe à une crise de sécurité majeure si Washington décide de réduire brutalement sa présence militaire au sein de l'OTAN. Les divisions politiques entre pays du Sud et pays de l'Est bloquent les nouveaux mécanismes de solidarité financière après l'épuisement des premiers prêts de l'instrument SAFE. Une telle situation de faiblesse militaire risquerait d'affaiblir considérablement le pouvoir de dissuasion européen face aux pressions extérieures."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Disciplines olympiques avec assistance IA",
-          "evo_current": "12 disciplines en 2028",
-          "evo_arrow": "up",
-          "evo_prev": "4 disciplines en 2026"
+          "field_name": "Dépenses de défense de l'UE",
+          "evo_current": "395 milliards d'euros par an",
+          "evo_arrow": "flat",
+          "evo_prev": "381 Mds € (2025)"
+        },
+        {
+          "field_name": "Objectif horizon 2035 (La Haye)",
+          "evo_current": "Abandon de la cible lors du bilan 2029",
+          "evo_arrow": "down",
+          "evo_prev": "Cible 5 % révisée en 2029"
         }
       ],
-      "france_line": "L'école française, réputée pour sa créativité et son interprétation artistique, se trouve lourdement pénalisée par des barèmes robotisés.",
+      "france_line": "La France se retrouve isolée face à des coûts de défense croissants et une insécurité géopolitique accrue à ses frontières.",
       "france_impact": "degrade"
     }
   },
   "essentiel_box": [
-    "L'intelligence artificielle va-t-elle reléguer les juges sportifs au second plan d'ici les Jeux olympiques de Los Angeles 2028 ?",
-    "Aux Jeux d'hiver de Milan-Cortina en février 2026, l'IA a été expérimentée sur <strong>4 disciplines</strong> dont le patinage artistique, analysant jusqu'à 40 000 images par seconde pour mesurer les rotations et les angles de saut.",
-    "Non, l'IA ne remplacera pas les arbitres : notre scénario le plus probable (40 %) prévoit qu'elle restera un copilote technique pour les critères objectifs, laissant l'évaluation artistique aux humains — face à deux autres voies : un déploiement fragmenté par discipline (35 %) ou une hégémonie algorithmique contestée (25 %).",
-    "Signal à surveiller : les premières annonces officielles du CIO et des fédérations internationales lors des réunions préparatoires des Jeux de Los Angeles prévues à l'été 2028."
+    "L'Europe cherche à savoir si elle possède les moyens militaires, financiers et industriels nécessaires pour garantir sa propre sécurité sans dépendre du soutien des États-Unis.",
+    "Remplacer les capacités de l'armée américaine exigerait d'ajouter 250 milliards d'euros par an aux budgets européens actuels (381 milliards d'euros en 2025) et de mobiliser 300 000 soldats supplémentaires.",
+    "Pas totalement à court terme : notre scénario le plus probable (50 %) estime que l'Europe augmentera ses dépenses vers 3,5 % du PIB mais conservera des dépendances cruciales envers Washington — nos deux autres scénarios évaluent une autonomie réussie (25 %) ou un décrochage capacitaire (25 %).",
+    "Le rendez-vous clé aura lieu en 2029 lors du réexamen officiel des objectifs d'investissement fixés par les alliés lors du sommet de l'OTAN à La Haye."
   ],
   "delta_france": {
     "kind": "negatif",
-    "score": -0.2,
-    "word": "léger négatif",
-    "text": "l'avantage d'une aide technique objective pour les sportifs tricolores (40 %) est compensé par le risque d'un déploiement fragmenté (35 %) ou d'une robotisation des barèmes pénalisant la créativité française (25 %)."
+    "score": -0.5,
+    "word": "assez négatif",
+    "text": "la persistance de dépendances militaires envers les États-Unis dans le scénario central (50 %) et le risque de décrochage capacitaire (25 %) maintiennent une forte pression financière et stratégique sur le modèle de défense français."
   },
-  "phrase_a_retenir": "Expérimentée sur 4 disciplines à Milan-Cortina 2026, l'IA s'impose comme un outil d'aide aux juges olympiques sans remplacer l'évaluation humaine.",
-  "phrase_a_retenir_stat": "4 disciplines",
+  "phrase_a_retenir": "Remplacer l'armée américaine en Europe exigerait 250 milliards d'euros par an en plus et 300 000 soldats supplémentaires selon les experts.",
+  "phrase_a_retenir_stat": "250 milliards d'euros par an",
   "lexique": [
     {
-      "slug": "vision-par-ordinateur",
-      "terme": "vision par ordinateur",
-      "definition": "Technologie d'intelligence artificielle permettant à des caméras d'analyser automatiquement des mouvements et des trajectoires à haute vitesse."
+      "slug": "instrument-safe",
+      "terme": "instrument SAFE",
+      "definition": "Mécanisme financier européen adopté en mai 2025 prévoyant 150 milliards d'euros de prêts pour financer des achats groupés d'équipements militaires entre pays membres."
+    },
+    {
+      "slug": "frein-a-lendettement",
+      "terme": "frein à l'endettement",
+      "definition": "Règle constitutionnelle allemande limitant le déficit public, assouplie en mars 2025 pour autoriser des emprunts exceptionnels dédiés aux dépenses de défense."
+    },
+    {
+      "slug": "commandement-integre",
+      "terme": "commandement intégré",
+      "definition": "Structure militaire commune de l'OTAN dirigée traditionnellement par un général américain pour coordonner les armées alliées en cas de conflit armé."
+    },
+    {
+      "slug": "parapluie-nucleaire",
+      "terme": "parapluie nucléaire",
+      "definition": "Garantie de sécurité offerte par une puissance dotée de l'arme atomique, principalement les États-Unis dans l'OTAN, pour protéger ses alliés contre toute agression majeure."
+    },
+    {
+      "slug": "autonomie-strategique",
+      "terme": "autonomie stratégique",
+      "definition": "Capacité des pays européens à décider et agir militairement par eux-mêmes, sans dépendre des technologies ou des autorisations d'une puissance étrangère."
     }
   ],
   "sources_html": [
-    "<a href=\"https://www.lequipe.fr/Jo-2026-milan-cortina/Patinage-artistique/Actualites/Quand-l-ia-s-invite-dans-le-patinage-aux-jo-de-milan-cortina/1641475\" target=\"_blank\" rel=\"noopener noreferrer\">L'Équipe — Quand l'IA s'invite dans le patinage aux JO de Milan-Cortina ↗</a>",
-    "<a href=\"https://theconversation.com/lia-arrive-dans-le-jugement-olympique-quest-ce-qui-pourrait-bien-se-passer-272405\" target=\"_blank\" rel=\"noopener noreferrer\">The Conversation — L'IA arrive dans le jugement olympique. Qu'est-ce qui pourrait (bien) se passer ? ↗</a>",
-    "<a href=\"https://www.laprovence.com/article/sports/7085375367978214/jo-2026-apres-les-polemiques-sur-la-notation-en-patinage-l-intelligence-artificielle-va-t-elle-remplacer-les-juges\" target=\"_blank\" rel=\"noopener noreferrer\">La Provence — JO 2026 : après les polémiques sur la notation en patinage, l'intelligence artificielle va-t-elle remplacer les juges ? ↗</a>",
-    "<a href=\"https://rmcsport.bfmtv.com/jeux-olympiques/jo-2026-et-si-on-utilisait-l-ia-pour-mettre-fin-aux-polemiques-sur-la-notation-dans-le-patinage_AV-202602140165.html\" target=\"_blank\" rel=\"noopener noreferrer\">RMC Sport — JO 2026 : et si on utilisait l'IA pour mettre fin aux polémiques sur la notation dans le patinage ? ↗</a>"
+    "<a href=\"https://www.consilium.europa.eu/en/press/press-releases/2025/05/27/safe-council-adopts-150-billion-boost-for-joint-procurement-on-european-security-and-defence/\" target=\"_blank\" rel=\"noopener noreferrer\">Conseil de l'Union européenne — SAFE: Council adopts €150 billion boost for joint procurement on European security and defence ↗</a>",
+    "<a href=\"https://www.nato.int/en/about-us/official-texts-and-resources/official-texts/2025/06/25/the-hague-summit-declaration\" target=\"_blank\" rel=\"noopener noreferrer\">OTAN — The Hague Summit Declaration ↗</a>",
+    "<a href=\"https://www.bruegel.org/analysis/defending-europe-without-us-first-estimates-what-needed\" target=\"_blank\" rel=\"noopener noreferrer\">Bruegel / Kiel Institute for the World Economy — Defending Europe without the US: first estimates of what is needed ↗</a>",
+    "<a href=\"https://www.iiss.org/research-paper/2025/05/defending-europe-without--the-united-states-costs-and-consequences/\" target=\"_blank\" rel=\"noopener noreferrer\">International Institute for Strategic Studies (IISS) — Defending Europe Without the United States: Costs and Consequences ↗</a>",
+    "<a href=\"https://allemagneenfrance.diplo.de/fr-fr/actualites-nouvelles-d-allemagne/01-politiquefederale/2706316-2706316\" target=\"_blank\" rel=\"noopener noreferrer\">Ministère fédéral allemand des Affaires étrangères — Défense, infrastructures : le Parlement approuve une réforme du frein à l'endettement ↗</a>",
+    "<a href=\"https://www.nato.int/en/what-we-do/introduction-to-nato/funding-nato\" target=\"_blank\" rel=\"noopener noreferrer\">OTAN — Funding NATO — NATO Topic ↗</a>"
   ],
   "meta": {
-    "title": "Milan-Cortina 2026 : l'IA va-t-elle remplacer les juges...",
-    "meta_description": "Milan-Cortina 2026 : l'IA va-t-elle remplacer les juges olympiques ? 3 scénarios prospectifs pour 2030.",
-    "og_image_alt": "Patinoire olympique et caméras d'analyse de mouvements aux Jeux d'hiver",
+    "title": "Défense européenne : l'Europe peut-elle se passer des É...",
+    "meta_description": "Défense européenne : l'Europe peut-elle se passer des États-Unis ? Enjeux géopolitiques et scénarios prospectifs.",
+    "og_image_alt": "Drapeaux de l'OTAN et de l'Union européenne illustrant les enjeux de défense européenne",
     "keywords": [
-      "Milan",
-      "Cortina"
+      "géopolitique",
+      "tensions",
+      "international",
+      "Unis",
+      "Europe",
+      "alliances"
     ],
-    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-11.html\"\n  },\n  \"headline\": \"Milan-Cortina 2026 : l'IA va-t-elle remplacer les juges...\",\n  \"description\": \"Milan-Cortina 2026 : l'IA va-t-elle remplacer les juges olympiques ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-11.png\"\n  ],\n  \"datePublished\": \"2026-10-11T00:00:00\",\n  \"dateModified\": \"2026-10-11T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Milan, Cortina\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Sport\"\n}",
-    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Milan-Cortina 2026 : l'IA va-t-elle remplacer les juges olympiques ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-11.html\"\n    }\n  ]\n}"
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-12.html\"\n  },\n  \"headline\": \"Défense européenne : l'Europe peut-elle se passer des É...\",\n  \"description\": \"Défense européenne : l'Europe peut-elle se passer des États-Unis ? Enjeux géopolitiques et scénarios prospectifs.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-12.png\"\n  ],\n  \"datePublished\": \"2026-10-12T00:00:00\",\n  \"dateModified\": \"2026-10-12T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"géopolitique, tensions, international, Unis, Europe, alliances\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Géopolitique\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Défense européenne : l'Europe peut-elle se passer des États-Unis ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-12.html\"\n    }\n  ]\n}"
   }
 }
