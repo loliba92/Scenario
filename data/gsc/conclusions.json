@@ -83,9 +83,9 @@
         {
           "titre": "Liens internes vers /index.html",
           "certitude": "certain",
-          "statut": "a_faire",
+          "statut": "corrige",
           "cause": "Des menus pointent vers index.html alors que la canonique de l'accueil est « / » : Google voit deux adresses.",
-          "action": "Remplacer par « / » dans le modèle de l'accueil et le gabarit des futures éditions (impact faible, pas encore fait)."
+          "action": "Fait le 11 octobre (PR 344) : menus des pages vivantes, gabarit de l'accueil et générateurs pointent vers « / ». Éditions passées non touchées."
         },
         {
           "titre": "Pages anglaises déclarées en français",
