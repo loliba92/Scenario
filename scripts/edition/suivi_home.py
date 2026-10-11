@@ -123,8 +123,22 @@ def lire_suivi(chemin: Path) -> dict | None:
             mm = re.search(r'<meta name="domain" content="([^"]*)"', edition.read_text(encoding="utf-8"))
             rubrique = RUBRIQUES.get(mm.group(1), "") if mm else ""
 
+    # Probabilités : V0 (« à l'origine ») et dernière version (« aujourd'hui »), par scénario.
+    def _n(node):
+        m = re.search(r"\d+", node.get_text(" ", strip=True)) if node else None
+        return int(m.group(0)) if m else None
+    avant, apres = {}, {}
+    for kind, _nom in SCENARIOS:
+        v0 = _n(versions[0].select_one(f'.mini-scenario[data-kind="{kind}"] .mini-scenario-pct'))
+        fin = _n(derniere.select_one(f'.mini-scenario[data-kind="{kind}"] .evo-current')) if len(versions) > 1 else v0
+        if v0 is not None and fin is not None:
+            avant[kind], apres[kind] = v0, fin
+    probas = ({"avant": avant if len(versions) > 1 else {}, "apres": apres}
+              if len(apres) == len(SCENARIOS) else None)
+
     return {
         "slug": chemin.stem,
+        "probas": probas,
         "titre": h1.get_text(" ", strip=True),
         "date": d,
         "maj": len(mises_a_jour),
@@ -193,6 +207,33 @@ def _ligne(s: dict, insecable: bool = False) -> str:
     return rub + f'<span class="nw">{_html.escape(date_txt)}</span>'
 
 
+SCENARIOS = (("favorable", "Favorable"), ("stable", "Stable"), ("degrade", "Dégradé"))
+
+
+def _barres(apres: dict, avant: dict | None = None) -> str:
+    """Les trois probabilités en barres compactes (spans : la carte entière est un lien).
+    Avec `avant` : la barre donne la valeur d'aujourd'hui, le repère vertical celle d'origine.
+    Ajouté le 11 octobre 2026 (carte « avant / maintenant » du guide, version compacte)."""
+    if not apres or any(k not in apres for k, _ in SCENARIOS):
+        return ""
+    lignes = []
+    for kind, nom in SCENARIOS:
+        maintenant = apres[kind]
+        repere = ""
+        valeur = f"{maintenant}&nbsp;%"
+        if avant and kind in avant:
+            repere = f'<span class="mini-proba-tick" style="left:{avant[kind]}%"></span>'
+            valeur = f"{avant[kind]}&nbsp;→&nbsp;{maintenant}&nbsp;%"
+        lignes.append(
+            f'<span class="mini-proba" data-kind="{kind}"><span class="mini-proba-name">{nom}</span>'
+            f'<span class="mini-proba-track" aria-hidden="true"><span class="mini-proba-fill" style="width:{maintenant}%"></span>{repere}</span>'
+            f'<span class="mini-proba-val">{valeur}</span></span>')
+    legende = ("Barre : aujourd’hui · repère : à l’origine" if avant
+               else "Les trois scénarios, à la publication")
+    return (f'\n        <span class="mini-probas{'' if avant else ' is-simple'}"><span class="mini-probas-legend">{legende}</span>'
+            + "".join(lignes) + "</span>")
+
+
 def _image(src: str, alt: str) -> str:
     """Vignette en tête de carte (16/9, recadrée), ou rien si l'image est absente."""
     return f'\n        <img class="suivi-card-image" src="{_html.escape(src)}" alt="{_html.escape(alt)}" loading="lazy">' if src else ""
@@ -202,7 +243,7 @@ def carte_suivi(s: dict) -> str:
     return f"""      <a class="suivi-card" href="suivi/{s['slug']}.html">{_image(s.get('image', ''), s['titre'])}
         <span class="suivi-card-meta">{_ligne(s, insecable=True)}</span>
         <span class="suivi-card-title">{_typo(s['titre'])}</span>
-        <span class="suivi-card-text">{_typo(_debut(s['fait'], 170))}</span>
+        <span class="suivi-card-text">{_typo(_debut(s['fait'], 170))}</span>{_barres((s.get('probas') or {}).get('apres'), (s.get('probas') or {}).get('avant'))}
         <span class="suivi-card-cta">Lire le suivi →</span>
       </a>"""
 
@@ -214,7 +255,7 @@ def carte_edition(e: dict) -> str:
     question = f'\n        <span class="suivi-card-text">{_typo(e["question"])}</span>' if e.get("question") else ""
     return f"""      <a class="suivi-card" href="archives/{e['iso_date']}.html">{_image(e.get('image', ''), e['titre'])}
         <span class="suivi-card-meta"><span>{_html.escape(e['matiere'])}</span><span class="nw">édition du {court}</span></span>
-        <span class="suivi-card-title">{_typo(e['titre'])}</span>{question}
+        <span class="suivi-card-title">{_typo(e['titre'])}</span>{question}{_barres(e.get('probas'))}
         <span class="suivi-card-cta">Lire l'édition →</span>
       </a>"""
 

@@ -118,6 +118,20 @@ ARCHIVES_TABLE_CSS = """
   .suivi-card-cta {
     margin-top: auto; font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--gold);
   }
+  /* Barres de probabilités des deux cartes (11 octobre 2026) */
+  .mini-probas { display: flex; flex-direction: column; gap: 7px; margin: 6px 0 4px; padding-top: 10px; border-top: 1px solid var(--hairline); }
+  .mini-probas-legend { font-family: "JetBrains Mono", monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--paper-dim); }
+  .mini-proba { display: grid; grid-template-columns: 4.6rem 1fr 6.2rem; align-items: center; gap: 10px; }
+  .mini-proba[data-kind="favorable"] { --accent: var(--favorable); }
+  .mini-proba[data-kind="stable"] { --accent: var(--stable); }
+  .mini-proba[data-kind="degrade"] { --accent: var(--degrade); }
+  .mini-probas.is-simple .mini-proba { grid-template-columns: 4.6rem 1fr 3rem; }
+  .mini-proba-name { font-family: "JetBrains Mono", monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); }
+  .mini-proba-track { position: relative; display: block; height: 9px; background: var(--surface-2, var(--hairline)); border-radius: 100px; }
+  .mini-proba-fill { display: block; height: 100%; min-width: 4px; border-radius: 100px; background: var(--accent); }
+  .mini-proba-tick { position: absolute; top: -3px; bottom: -3px; width: 2px; margin-left: -1px; background: var(--paper); border-radius: 2px; }
+  .mini-proba-val { font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--paper); text-align: right; white-space: nowrap; }
+  @media (max-width: 480px) { .mini-proba { grid-template-columns: 4.2rem 1fr 5.6rem; gap: 8px; } }
   @media (max-width: 860px) { .suivis-grid, .suivis-duo { grid-template-columns: 1fr; } }
 
   /* ---- Archives table (scripts/seo/generate_archives_table.py) ---- */
@@ -1217,6 +1231,7 @@ def parse_article(file_path, suivi_mapping=None):
         "scenario_kind": kind,
         "scenario_pct": pct,
         "scenario_title": scenario_title,
+        "probas": {k: int(p) for k, p, _j, _t in scenarios},
         "france_esperance": esperance,
         "france_label": france_label,
         "france_css_class": france_css_class,
@@ -1701,6 +1716,7 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
         derniere = max(articles, key=lambda a: a["iso_date"]) if articles else None
         edition = ({"iso_date": derniere["iso_date"], "titre": derniere["title"], "question": derniere.get("question") or "",
                     "matiere": MATIERE_SHORT.get(derniere["domain"], DOMAIN_LABELS.get(derniere["domain"], "")),
+                    "probas": derniere.get("probas") or {},
                     "image": (f"assets/social/topic-images/{derniere['iso_date']}.jpg"
                               if (ROOT / "assets" / "social" / "topic-images" / f"{derniere['iso_date']}.jpg").is_file() else "")}
                    if derniere else None)
