@@ -80,7 +80,8 @@ def _build_title(brief: Dict[str, Any]) -> str:
     titre = brief.get("sujet", {}).get("titre_propose", "")
     if not titre:
         return SITE_NAME
-    return f"{_truncate_at_word_boundary(titre, 60)} — {SITE_NAME}"
+    # 59 + « — Scénario » (11) = 70 caractères au plus, la limite d'affichage de Google.
+    return f"{_truncate_at_word_boundary(titre, 59)} — {SITE_NAME}"
 
 
 def _truncate_at_word_boundary(text: str, max_len: int) -> str:
@@ -94,7 +95,22 @@ def _truncate_at_word_boundary(text: str, max_len: int) -> str:
     last_space = truncated.rfind(" ")
     if last_space > 0:
         truncated = truncated[:last_space]
-    return truncated.rstrip(",;:.-") + "…"
+    truncated = truncated.rstrip(",;:.-")
+    # Jamais de mot-outil en fin de phrase coupée (« …culture de l'œuvre à… »).
+    while True:
+        mots = truncated.split(" ")
+        dernier = mots[-1].lower().rstrip("'’")
+        if len(mots) > 3 and (dernier in _MOTS_OUTILS or mots[-1].lower().endswith(("l'", "d'", "l’", "d’"))):
+            truncated = " ".join(mots[:-1]).rstrip(",;:.-")
+        else:
+            break
+    return truncated + "…"
+
+
+_MOTS_OUTILS = {
+    "à", "a", "de", "du", "des", "d", "l", "la", "le", "les", "un", "une", "et", "ou", "en", "au", "aux",
+    "pour", "par", "sur", "dans", "que", "qui", "ce", "cet", "cette", "son", "sa", "ses", "est", "sont",
+}
 
 
 def _build_description(brief: Dict[str, Any]) -> str:
