@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "2efee40cc48cb751090ca658d866d3893c91b726c3d09c31f696d8db73739615"
+    "md_sha256": "5a07826bf254c390180a8ececa2b5664e13a78ace60f82dbc3d6a963632a2912"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -702,11 +702,11 @@
           ],
           "origine": "utilisateur",
           "note": null,
-          "donnees": null,
+          "donnees": "[relevé du 2026-10-11] Dépenses de défense des 27 États membres de l'UE (unité : milliards d'euros courants). 2024 = 343 (2024) ; 2025 = 418 (2025) ; 2026 = 454 (2026, projection). Sources : https://www.eda.europa.eu/docs/default-source/brochures/2025-eda_defencedata_web.pdf ; https://eda.europa.eu/docs/default-source/eda-publications/2026-eda_defencedata_webpublic.pdf",
           "ajoute_le": "2026-10-09",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": "2026-10-09"
+          "enrichi_le": "2026-10-11"
         },
         {
           "type": "sujet",
