@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "2d96a11564a36eb4069cfa3a4364e62700950843d604281b234448123f234b38"
+    "md_sha256": "30addd841aca14c6a98cffa3d094bca37df4dff68b19b10f7275c54e774778c6"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -90,6 +90,100 @@
         {
           "type": "commentaire",
           "texte": "Jour des lecteurs : recopier ici les meilleures suggestions reçues par email (scenariocontact75@gmail.com) — priorité absolue sur mardi, quel que soit le sujet proposé (pas besoin d'être un sujet \"Grand futur\"). À défaut (section vide ou tout coché) : auto-sélection sur le registre Grand futur (tendances à horizon long, 5-30 ans, tous domaines), voir docs/routine-prompt.md Étape 1 — changé le 4 septembre 2026, remplace l'ancien repli \"sujet le plus fort tous domaines confondus\"."
+        },
+        {
+          "type": "sujet",
+          "id": "carte-blanche-ethiopie-erythree-la-declaration-de-guerre-d",
+          "titre": "Éthiopie-Érythrée : la déclaration de guerre d'Addis-Abeba va-t-elle déclencher un nouveau conflit régional ?",
+          "question": "L'escalade militaire entre l'Éthiopie et l'Érythrée, après la rupture diplomatique du 1er octobre et les frappes de drones éthiopiens sur Adigrat, peut-elle être contenue ou dégénérer en guerre ouverte ?",
+          "tag": "géopolitique & Corne de l'Afrique",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Le 1er octobre 2026, l'Éthiopie a accusé l'Érythrée d'« agressions » et rompu ses relations diplomatiques. Le 10 octobre, l'Érythrée a saisi le Conseil de sécurité de l'ONU pour condamner la « déclaration de guerre déplorable » de son voisin. Des frappes de drones éthiopiens ont visé des positions érythréennes près d'Adigrat (40 km de la frontière) dans la nuit du 8 au 9 octobre. Le secrétaire général de l'ONU Antonio Guterres a mis en garde contre les risques d'escalade régionale. Le contentieux porte notamment sur le port d'Assab, que l'Éthiopie enclavée revendique.",
+          "rationnel": "La question : l'escalade éthiopo-érythréenne peut-elle être stoppée avant une guerre ouverte, ou la dynamique de riposte-réplique (frappes de drones, saisine de l'ONU, mobilisation des troupes frontalières) la rend-elle inévitable ? L'issue est ouverte car : 1) les deux pays sortent d'une guerre 2020-2022 (600 000 morts) et se méfient mutuellement ; 2) l'Érythrée a déployé des troupes au nord de l'Éthiopie selon Addis-Abeba ; 3) la médiation internationale (ONU, UA) est lente. Enjeu pour un lecteur français : stabilité de la Corne de l'Afrique, flux migratoires vers l'Europe, opérations Barkhane/UE dans la région.",
+          "angle": null,
+          "a_verifier": "Nombre exact de victimes des frappes de drones du 8-9 octobre ; position officielle de l'Union africaine ; calendrier d'une éventuelle réunion du Conseil de sécurité.",
+          "mots_cles": [
+            "Éthiopie",
+            "Érythrée",
+            "déclaration de guerre",
+            "Conseil de sécurité ONU",
+            "Adigrat",
+            "port d'Assab",
+            "TPLF",
+            "Antonio Guterres"
+          ],
+          "scenarios": {
+            "favorable": "Médiation rapide de l'UA et de l'ONU aboutissant à un cessez-le-feu et au retrait des troupes des zones frontalières, reprise du dialogue sur le port d'Assab sous égide internationale.",
+            "stable": "Gel des hostilités au niveau actuel (frappes ponctuelles, rhétorique guerrière) sans guerre ouverte, mais sans résolution politique ; statu quo tendu qui dure des mois.",
+            "degrade": "Guerre ouverte déclarée, offensives terrestres majeures, blocage du commerce régional, afflux massif de réfugiés vers le Soudan et l'Europe, implication de puissances extérieures (Émirats, Turquie, Russie)."
+          },
+          "echeance": {
+            "date": "2026-10-20",
+            "raison": "Échéance probable pour une réunion d'urgence du Conseil de sécurité de l'ONU sur la crise"
+          },
+          "sources": [
+            {
+              "titre": "L'Érythrée demande au Conseil de sécurité de l'ONU de condamner la \"déclaration de guerre\" éthiopienne",
+              "url": "https://www.boursorama.com/actualite-economique/actualites/l-erythree-demande-au-conseil-de-securite-de-l-onu-de-condamner-la-declaration-de-guerre-ethiopienne-aa92021aa53ba0c0f17731cad8df05f3"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-10-11 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Repéré en veille sur le registre Géopolitique, remonté ici pour son urgence.",
+          "donnees": null,
+          "ajoute_le": "2026-10-11",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
+        },
+        {
+          "type": "sujet",
+          "id": "carte-blanche-mobilisation-lyceenne-le-mouvement-peut-il",
+          "titre": "Mobilisation lycéenne : le mouvement peut-il obtenir la refonte de Parcoursup et des rythmes scolaires ?",
+          "question": "Après trois semaines de blocages (150+ lycées, 71 500 manifestants le 8 octobre) et l'annonce de 3 000 professeurs remplaçants, le gouvernement peut-il désamorcer la crise par des amendements budgétaires ou le mouvement va-t-il s'enliser dans la violence et l'usure ?",
+          "tag": "éducation & jeunesse",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Depuis le 17 septembre 2026, les lycéens bloquent des établissements contre les emplois du temps à trous (réforme Blanquer 2019), la sélection Parcoursup et l'état des bâtiments. Le 8 octobre (acte IV), 71 500 manifestants dont 24 500 à Paris, 504 interpellations, 48 forces de l'ordre blessées. Le ministre Édouard Geffray a annoncé 3 000 remplaçants déployés dans 500 lycées « rouges/oranges » identifiés par un nouveau logiciel. Une plateforme de concertation est en ligne. L'intersyndicale appelle à un acte V le 13 octobre. Ipsos : 54 % des Français approuvent le mouvement, 79 % condamnent les violences.",
+          "rationnel": "La question : la mobilisation lycéenne peut-elle arracher des concessions structurelles (réforme de Parcoursup, refonte des rythmes, rénovation massive) ou va-t-elle s'essouffler face à la répression, à la lassitude des parents et à l'approche des vacances de Toussaint ? L'issue est ouverte car : 1) les revendications touchent au cœur du système (Parcoursup, spécialités) ; 2) le budget 2027 est le seul levier financier immédiat ; 3) la violence marginale décrédibilise le mouvement auprès de l'opinion. Enjeu pour un lecteur français : avenir du bac et de l'orientation, conditions d'apprentissage de leurs enfants, précédent pour la conflictualité sociale sous la prochaine mandature.",
+          "angle": null,
+          "a_verifier": "Suivi du nombre de lycées bloqués au 13 octobre ; contenu précis des amendements budgétaires promis par Lecornu ; position des organisations lycéennes (UNL, FIDL) sur la poursuite ou l'arrêt.",
+          "mots_cles": [
+            "mobilisation lycéenne",
+            "Parcoursup",
+            "réforme Blanquer",
+            "Édouard Geffray",
+            "acte V",
+            "13 octobre",
+            "remplaçants",
+            "pacte enseignant"
+          ],
+          "scenarios": {
+            "favorable": "Gouvernement annonce une refonte de Parcoursup (transparence algorithmes, fin du classement) et un plan pluriannuel de rénovation thermique des lycées ; reprise des cours progressive.",
+            "stable": "Mesures palliatives (remplaçants, heures sup, concertation) sans réforme structurelle ; mouvement s'essouffle à la Toussaint ; frustrations reportées sur la présidentielle.",
+            "degrade": "Radicalisation (blocages durs, violences), fermetures administratives prolongées, année blanche partielle pour les terminales, crise de légitimité pour le ministre de l'Éducation."
+          },
+          "echeance": {
+            "date": "2026-10-13",
+            "raison": "Acte V national appelé par l'intersyndicale lycéenne et étudiante"
+          },
+          "sources": [
+            {
+              "titre": "Mobilisation des lycéens : 3 000 professeurs annoncés et un nouvel appel à manifester le 13 octobre",
+              "url": "https://www.france24.com/fr/france/20261008-mobilisation-lyc%C3%A9ens-3-000-professeurs-annonc%C3%A9s-nouvel-appel-manifestation-13-octobre"
+            },
+            {
+              "titre": "Blocus des lycées : Parcoursup, spécialités, bac… pourquoi la réforme Blanquer cristallise les critiques",
+              "url": "https://www.ouest-france.fr/education/blocus-des-lycees-parcoursup-specialites-bac-pourquoi-la-reforme-blanquer-cristallise-les-critiques-aujourdhui-c594f754-c2da-11f1-97ef-829bf84bf59f"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-10-11 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Repéré en veille sur le registre Actu. française, remonté ici pour son urgence.",
+          "donnees": null,
+          "ajoute_le": "2026-10-11",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
         },
         {
           "type": "sujet",
@@ -515,6 +609,56 @@
         {
           "type": "commentaire",
           "texte": "Registre scindé le 12 août (retour utilisateur) : la géopolitique dure (conflits, diplomatie, États) et l'économie mondiale (marchés, monnaies, dette, matières premières) partageaient jusque-là le même slot du lundi, ce qui tassait deux blocs très différents dans une seule file. L'économie mondiale a sa propre section dimanche (voir plus bas) — la case libérée vient de la fusion des deux jours culture (française + internationale) en un seul, samedi. **Règle de classement pour les sujets à cheval sur les deux** (ex. guerres commerciales, tarifs douaniers) : si l'enjeu central est un rapport de force entre États (qui menace qui, qui négocie quoi) → géopolitique/lundi ; si l'enjeu central est un indicateur chiffré ou un marché (prix, taux, dette, cours) → économie/dimanche. Cas tranchés le 12 août à titre d'exemple : \"Guerre commerciale USA-Chine\" reste ici (framing État contre État, guerre froide) ; \"Droits de douane de Trump\" part en économie (contenu réel = batailles judiciaires et chiffres de recettes tarifaires, pas un rapport de force diplomatique). Les vieilles éditions déjà publiées gardent leur tag d'origine (`geopolitique`), jamais retaggées rétroactivement — voir docs/tags.md."
+        },
+        {
+          "type": "sujet",
+          "id": "geopolitique-coree-du-nord-le-missile-a-ia-de-kim-jong-un",
+          "titre": "Corée du Nord : le missile à IA de Kim Jong-un change-t-il la donne stratégique face à Séoul et Washington ?",
+          "question": "Le test du 3 octobre d'un missile balistique hypersonique à portée intermédiaire (1 000 km) présenté comme intégrant de l'IA pour modifier sa trajectoire en vol rend-il les systèmes de défense antimissile sud-coréens, japonais et américains obsolètes ?",
+          "tag": "géopolitique & prolifération nucléaire",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Le 3 octobre 2026, la Corée du Nord a tiré un missile stratégique de portée intermédiaire depuis Wonsan vers la mer de l'Est. Pyongyang affirme qu'il intègre de l'IA pour modifier sa trajectoire à basse altitude (capacité hypersonique). Kim Jong-un a supervisé le tir le 4 octobre, appelant à renforcer la « létalité » de l'arsenal. Kim Yo-jong a affirmé que les systèmes de détection sud-coréen et japonais avaient échoué à suivre la trajectoire réelle (écart 700 km vs 1 000 km). La Corée du Sud a détecté le tir à 700 km. L'ONU condamne la violation des résolutions.",
+          "rationnel": "La question : l'intégration revendiquée d'IA dans les missiles nord-coréens constitue-t-elle une rupture technologique crédible qui neutralise les boucliers antimissiles (THAAD, Aegis, Patriot) ou une exagération de propagande ? L'issue est ouverte car : 1) les sanctions limitent l'accès aux puces avancées nécessaires ; 2) l'écart de mesure entre Séoul (700 km) et Pyongyang (1 000 km) alimente le doute technique ; 3) la Corée du Sud a testé sa propre arme hypersonique nationale le 10 octobre. Enjeu pour un lecteur français : prolifération technologique militaire, crédibilité de la dissuasion étendue US en Asie, précédent pour l'IA dans les armes nucléaires.",
+          "angle": null,
+          "a_verifier": "Validation technique indépendante des capacités d'IA embarquée ; réaction formelle du Commandement indo-pacifique US ; calendrier des prochains exercices conjoints Corée du Sud-US-Japon.",
+          "mots_cles": [
+            "Corée du Nord",
+            "missile hypersonique",
+            "IA militaire",
+            "Kim Jong-un",
+            "Kim Yo-jong",
+            "Wonsan",
+            "THAAD",
+            "Aegis",
+            "prolifération"
+          ],
+          "scenarios": {
+            "favorable": "Analyses techniques internationales confirment que l'IA embarquée est rudimentaire (leurres, pas guidage autonome) ; reprise du dialogue diplomatique via canaux arrière ; gel des tests nord-coréens.",
+            "stable": "Poursuite des tests graduels sans rupture technologique majeure ; course aux armements hypersoniques en Asie du Nord-Est ; sanctions maintenues sans effet décisif.",
+            "degrade": "Démonstration crédible d'un missile manœuvrant échappant à l'interception ; déploiement opérationnel rapide ; crise de crédibilité de la dissuasion US ; course au réarmement nucléaire au Japon et en Corée du Sud."
+          },
+          "echeance": {
+            "date": "2026-11-15",
+            "raison": "Prochains exercices militaires trilatéraux Freedom Edge qui provoqueront probablement une réponse nord-coréenne"
+          },
+          "sources": [
+            {
+              "titre": "La Corée du Nord affirme avoir lancé un missile balistique utilisant l'IA",
+              "url": "https://www.france24.com/fr/info-en-continu/20261003-la-cor%C3%A9e-du-nord-affirme-avoir-lanc%C3%A9-un-missile-balistique-utilisant-l-ia"
+            },
+            {
+              "titre": "(LEAD) Kim Jong-un supervise un tir de missile hypersonique et appelle à renforcer la dissuasion de guerre",
+              "url": "https://fr.yna.co.kr/view/AFR20261004000800884"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-10-11 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-10-11",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
         },
         {
           "type": "sujet",
@@ -3099,6 +3243,99 @@
       "entrees": [
         {
           "type": "sujet",
+          "id": "sciences-ia-et-cosmologie-l-analyse-de-100-millions-de",
+          "titre": "IA et cosmologie : l'analyse de 100 millions de galaxies par le CEA résout-elle le mystère de l'énergie sombre ?",
+          "question": "La nouvelle méthode hybride (statistiques cosmologiques + IA) appliquée aux données du Dark Energy Survey (100 M de galaxies) fournit-elle les contraintes les plus précises jamais obtenues sur la matière noire et l'énergie sombre, et peut-elle réconcilier les mesures divergentes entre lentilles gravitationnelles et rayonnement fossile Planck ?",
+          "tag": "astrophysique & IA",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Publié le 9 octobre 2026 par le CEA-Irfu : des chercheurs (CEA, Imperial College, UCL) ont développé une méthode d'analyse des lentilles gravitationnelles faibles combinant statistiques traditionnelles et IA. Appliquée aux données de la 3e année du DES (100 millions de galaxies sur 5 000 fois la pleine Lune), elle donne les contraintes cosmologiques les plus précises basées uniquement sur la lentille faible : densité de matière et intensité de l'agrégation cosmique. Les résultats sont cohérents avec le satellite Planck, résolvant une divergence persistante de plusieurs années entre méthodes d'observation.",
+          "rationnel": "La question : cette percée méthodologique (IA pour extraire l'information non-gaussienne des distorsions de galaxies) marque-t-elle le début d'une cosmologie de précision qui déterminera la nature de l'énergie sombre (constante cosmologique vs dynamique), ou les systématiques instrumentaux et théoriques limiteront-ils encore l'interprétation ? L'issue est ouverte car : 1) l'IA identifie des motifs que les statistiques classiques manquent ; 2) mais l'IA est une « boîte noire » dont la robustesse cosmologique doit être prouvée ; 3) les futurs relevés (Euclid, LSST/Rubin) multiplieront les données par 100. Enjeu pour un lecteur français : leadership scientifique français/européen (CEA, mission Euclid), compréhension fondamentale de l'Univers (95 % inconnu), retombées technologiques (IA, traitement big data).",
+          "angle": null,
+          "a_verifier": "Publication formelle (référence arXiv/revue) ; validation par la collaboration DES complète ; calendrier des premiers résultats Euclid (lancement 2023, données scientifiques 2025-2026).",
+          "mots_cles": [
+            "CEA-Irfu",
+            "Dark Energy Survey",
+            "lentille gravitationnelle faible",
+            "énergie sombre",
+            "matière noire",
+            "satellite Planck",
+            "IA cosmologie",
+            "Euclid",
+            "LSST"
+          ],
+          "scenarios": {
+            "favorable": "Méthode validée par la communauté ; Euclid + LSST confirment l'énergie sombre comme constante cosmologique (ΛCDM) avec précision < 1 % ; physique fondamentale stabilisée.",
+            "stable": "Méthode utile mais systématiques résiduels ; énergie sombre reste compatible avec ΛCDM et alternatives dynamiques ; débat prolongé 5-10 ans.",
+            "degrade": "Incohérence persistante entre sondes (lentilles, amas, supernovae, CMB) même avec l'IA ; nouvelle physique nécessaire (gravité modifiée, cinquième force) ; paradigme ΛCDM fissuré."
+          },
+          "echeance": {
+            "date": "2027-03-01",
+            "raison": "Premiers résultats cosmologiques majeurs attendus de la mission Euclid (ESA/CEA)"
+          },
+          "sources": [
+            {
+              "titre": "Une alliance entre IA et cosmologie pour mieux comprendre l'Univers sombre",
+              "url": "https://www.cea.fr/drf/Pages/Actualites/En-direct-des-labos/2026/une-alliance-entre-IA-et-cosmologie-pour-mieux-comprendre-l-Univers-sombre.aspx"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-10-11 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-10-11",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
+        },
+        {
+          "type": "sujet",
+          "id": "sciences-robot-chercheur-eve-l-ia-autonome-qui-decouvre",
+          "titre": "Robot-chercheur Eve : l'IA autonome qui découvre un effet protecteur inédit sur la levure préfigure-t-elle la fin de la recherche humaine ?",
+          "question": "Le système Eve (Chalmers/KTH, publié début octobre 2026 dans J. R. Soc. Interface) qui formule hypothèses, pilote des robots de laboratoire, analyse les métabolites et a découvert un effet protecteur de l'aminoadipate (+7 % croissance sous stress acide formique) jamais documenté, marque-t-il l'avènement du scientifique IA autonome ou reste-t-il un démonstrateur encadré ?",
+          "tag": "IA & recherche scientifique",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Début octobre 2026, des chercheurs de Chalmers (Göteborg) et KTH (Stockholm) publient une étude sur Eve, robot scientifique de 3e génération. Eve : base de connaissances 60 000 relations levure → 2 000 hypothèses → 3 agents LLM (GPT-4o) pour planifier, arbitrer, traduire en instructions robots → exécution en chémostats → métabolomique (spectrométrie de masse) → réinjection dans graphe de connaissances. Découverte : aminoadipate protège partiellement la levure sous stress acide formique (+7 %/mM), effet non prévu, non documenté. Humains encore nécessaires pour préparation matériaux, sécurité, validation.",
+          "rationnel": "La question : la boucle hypothèse-expérimentation-apprentissage close par une IA (avec échafaudage logique symbolique) peut-elle s'étendre au-delà de la levure (mammifères, clinique) et accélérer la découverte de médicaments, ou la complexité biologique et la régulation (sécurité, éthique) maintiendront-elles l'humain au centre ? L'issue est ouverte car : 1) démonstration sur un modèle simple (levure, métabolisme connu) ; 2) mais architecture générique (LLM + logique symbolique + robotique) transposable ; 3) course mondiale (USA, Chine) aux « AI scientists » (cf. Sakana AI, FutureHouse). Enjeu pour un lecteur français : souveraineté de la recherche française/européenne face aux Big Tech US/Chine ; emploi des chercheurs ; délais et coûts de la R&D pharma (10 ans, 2 Md$).",
+          "angle": null,
+          "a_verifier": "Reproductibilité par d'autres laboratoires ; extension à des modèles mammifères (cellules humaines, organoïdes) ; position de l'ANR/Horizon Europe sur le financement de tels systèmes.",
+          "mots_cles": [
+            "robot scientifique",
+            "Eve",
+            "Chalmers",
+            "KTH",
+            "IA autonome",
+            "découverte médicaments",
+            "levure",
+            "métabolomique",
+            "GPT-4o",
+            "logique symbolique"
+          ],
+          "scenarios": {
+            "favorable": "Essaim de robots IA (projet Genesis, 10 000 chémostats) découvre des candidats-médicaments validés in vivo en mois au lieu d'années ; pharma européenne rattrape son retard.",
+            "stable": "Eve reste un démonstrateur académique ; adoption lente par l'industrie (réglementation, validation, culture) ; gains marginaux sur étapes précoces (criblage, optimisation).",
+            "degrade": "Effet « boîte noire » : découvertes non reproductibles, biais cachés, perte de compréhension mécanistique ; crise de confiance dans la recherche automatisée ; gel réglementaire."
+          },
+          "echeance": {
+            "date": "2027-01-01",
+            "raison": "Lancement probable d'appels à projets européens/français sur l'IA pour la recherche (programme Horizon Europe 2027-2028)"
+          },
+          "sources": [
+            {
+              "titre": "IA scientifique : le robot Eve conçoit, mène et analyse seul ses expériences",
+              "url": "https://www.tech-connect.info/ia-scientifique-robot-eve-laboratoire-autonome/"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-10-11 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-10-11",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
+        },
+        {
+          "type": "sujet",
           "id": "sciences-un-scientifique-ia-autonome-concoit-et-mene-ses",
           "titre": "Un « scientifique IA » autonome conçoit et mène ses propres expériences : la recherche va-t-elle s'accélérer ou s'emballer ?",
           "question": null,
@@ -5488,6 +5725,105 @@
         {
           "type": "commentaire",
           "texte": "Faire tourner les sous-thèmes : marchés financiers, monnaies (dollar, or, bitcoin), dette et taux d'intérêt, matières premières (pétrole, énergie), entreprises et secteurs à l'échelle mondiale, inégalités, démographie économique, luxe et consommation… Nouveau registre créé le 12 août (retour utilisateur), scindé de l'ancien slot \"Géopolitique / international — lundi\" qui mélangeait géopolitique dure et économie mondiale — voir la note dans la section Géopolitique — lundi pour la règle de classement des sujets à cheval sur les deux."
+        },
+        {
+          "type": "sujet",
+          "id": "economie-bce-l-inflation-a-3-8-force-t-elle-une-hausse",
+          "titre": "BCE : l'inflation à 3,8 % force-t-elle une hausse des taux en décembre malgré la récession qui menace ?",
+          "question": "Avec l'inflation de la zone euro à 3,8 % en septembre (cible 2 %) et 90 % des économistes qui anticipent un relèvement à 2,75 % en décembre, la BCE peut-elle resserrer sans casser la croissance déjà à 0,9 % en 2026, ou le dilemme stagflation la paralysera-t-il ?",
+          "tag": "économie & banque centrale",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "Sondage Reuters du 5 au 8 octobre auprès de 73 économistes : tous sauf 3 prévoient un statu quo le 29 octobre (taux dépôt 2,50 %), mais 64 sur 73 (88 %) attendent une hausse de 25 pb en décembre. L'inflation totale devrait atteindre 3,7 % en moyenne ce trimestre (vs 3,3 % au T3). La croissance zone euro projetée à 0,9 % en 2026, 1,4 % en 2027. L'inversion de la courbe des taux souverains signale un risque de récession. Le conflit au Moyen-Orient maintient les prix de l'énergie hauts (gaz, raffinage).",
+          "rationnel": "La question : face à une inflation persistante (core à 2,4-2,6 %) et une croissance qui ralentit, la BCE va-t-elle privilégier la crédibilité anti-inflation (hausse décembre) ou la stabilité financière (pause) ? L'issue est ouverte car : 1) les effets de second tour (salaires, marges) sont incertains ; 2) la France et l'Italie sont fragiles face à la hausse des taux longs ; 3) la Fed américaine pourrait baisser ses taux, creusant l'écart de change. Enjeu pour un lecteur français : taux des crédits immobiliers et consommation, coût de la dette publique française (OAT), compétitivité des entreprises exportatrices.",
+          "angle": null,
+          "a_verifier": "Projections macroéconomiques BCE de décembre (publiées le 17) ; données d'inflation d'octobre (flash estimate fin octobre) ; décision de la Fed début novembre.",
+          "mots_cles": [
+            "BCE",
+            "Christine Lagarde",
+            "taux de dépôt",
+            "2,50 %",
+            "inflation 3,8 %",
+            "décembre 2026",
+            "stagflation",
+            "zone euro",
+            "OAT"
+          ],
+          "scenarios": {
+            "favorable": "Inflation core redescend vite (effets énergie dissipés) ; BCE hausse de 25 pb en décembre puis pause longue ; croissance résiliente grâce aux dépenses de défense allemandes et à l'investissement IA ; soft landing réussi.",
+            "stable": "BCE hausse en décembre à 2,75 % puis attend ; inflation stagne au-dessus de 2 % jusqu'à mi-2027 ; croissance atone (1 %) ; taux longs élevés pèsent sur l'immobilier et l'investissement.",
+            "degrade": "Choc énergétique supplémentaire (fermeture Ormuz) pousse l'inflation > 4 % ; BCE enchaîne hausses (3 % puis 3,25 %) ; récession technique zone euro T1 2027 ; crise de la dette française (spread OAT/Bund > 150 pb)."
+          },
+          "echeance": {
+            "date": "2026-12-17",
+            "raison": "Réunion de politique monétaire de la BCE avec nouvelles projections et décision sur les taux"
+          },
+          "sources": [
+            {
+              "titre": "La BCE devrait laisser ses taux inchangés en octobre et les relever en décembre",
+              "url": "https://www.boursorama.com/bourse/actualites/la-bce-devrait-laisser-ses-taux-inchanges-en-octobre-et-les-relever-en-decembre-c5e6d2cb87445d96622dcd1a7bd76c28"
+            },
+            {
+              "titre": "Les marchés obligataires de la zone euro annoncent-ils une récession face au ralentissement ?",
+              "url": "https://fr.euronews.com/2026/10/09/les-marches-obligataires-de-la-zone-euro-annoncent-ils-une-recession-face-au-ralentissemen"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-10-11 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-10-11",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
+        },
+        {
+          "type": "sujet",
+          "id": "economie-marches-obligataires-zone-euro-l-inversion-de",
+          "titre": "Marchés obligataires zone euro : l'inversion de la courbe des taux annonce-t-elle une récession en 2027 ?",
+          "question": "Avec des taux longs (10 ans) supérieurs au taux dépôt BCE (2,50 %) et l'horloge Eurostat signalant un net ralentissement fin T3 2026, le signal de récession des marchés obligataires est-il fiable ou la résilience de l'investissement IA et défense le démentira-t-il ?",
+          "tag": "économie & finance",
+          "statut": "a_traiter",
+          "validation": "a_valider",
+          "contexte": "L'Horloge des cycles économiques d'Eurostat montre un net ralentissement zone euro fin T3 2026. Les rendements obligataires 10 ans sont largement au-dessus du taux dépôt (2,50 %), les investisseurs anticipant encore des hausses. La BCE a relevé deux fois en 2026 (juin, septembre). BNP Paribas prévoit croissance 1,1 % en 2026 puis 1,5 % en 2027 porté par défense et IA. Mais l'inflation moyenne 3,1 % en 2026 force la BCE à rester restrictive. Le spread OAT/Bund dépasse 100 pb.",
+          "rationnel": "La question : l'inversion de la courbe des taux (court > long) est-elle un prédicteur fiable de récession dans le contexte inédit de choc d'offre énergétique + investissement massif IA/défense, ou la structure de l'économie a-t-elle changé ? L'issue est ouverte car : 1) les précédents historiques (2008, 2011, 2019) ont tous précédé une récession ; 2) mais les dépenses de défense allemandes (100 Md€ fonds spécial) et l'investissement IA créent une demande structurelle nouvelle ; 3) la BCE n'a jamais combattu l'inflation avec une courbe déjà inversée. Enjeu pour un lecteur français : emploi, épargne (assurance-vie, livrets), capacité de l'État à financer son déficit.",
+          "angle": null,
+          "a_verifier": "Données PMI flash octobre zone euro (sortie fin octobre) ; évolution du spread OAT/Bund jour par jour ; annonces budgétaires allemandes (projet de loi finances 2027).",
+          "mots_cles": [
+            "courbe des taux",
+            "inversion",
+            "Eurostat",
+            "récession",
+            "zone euro",
+            "investissement IA",
+            "défense allemande",
+            "spread OAT/Bund"
+          ],
+          "scenarios": {
+            "favorable": "PMI rebondit > 50 en novembre ; courbe se repentifie (longs baissent) ; récession évitée ; croissance 1,3-1,5 % en 2027.",
+            "stable": "PMI stagne 48-50 ; croissance molle 0,8-1,0 % ; BCE en pause ; marchés nerveux mais pas de crise.",
+            "degrade": "PMI < 45 ; contraction T4 2026-T1 2027 ; chômage remonte ; déficits publics dérapent ; BCE contrainte de baisser les taux en urgence (perte de crédibilité)."
+          },
+          "echeance": {
+            "date": "2026-11-05",
+            "raison": "Publication PMI flash octobre zone euro (indicateur avancé clé)"
+          },
+          "sources": [
+            {
+              "titre": "Les marchés obligataires de la zone euro annoncent-ils une récession face au ralentissement ?",
+              "url": "https://fr.euronews.com/2026/10/09/les-marches-obligataires-de-la-zone-euro-annoncent-ils-une-recession-face-au-ralentissemen"
+            },
+            {
+              "titre": "Le scénario, les nowcasts et les prévisions de la Recherche économique - 5 octobre 2026",
+              "url": "https://economic-research.bnpparibas.com/html/fr-FR/scenario-nowcasts-previsions-Recherche-economique-5-octobre-2026-05/10/2026,53825"
+            }
+          ],
+          "origine": "veille",
+          "note": "Ajouté automatiquement le 2026-10-11 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
+          "donnees": null,
+          "ajoute_le": "2026-10-11",
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": null
         },
         {
           "type": "sujet",

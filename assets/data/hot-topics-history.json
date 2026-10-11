@@ -1,5 +1,54 @@
 [
   {
+    "date": "2026-10-11",
+    "registre": "Géopolitique",
+    "section": "Carte blanche",
+    "accroche": "Éthiopie-Érythrée : la déclaration de guerre d'Addis-Abeba va-t-elle déclencher un nouveau conflit régional ?",
+    "tag": "géopolitique & Corne de l'Afrique"
+  },
+  {
+    "date": "2026-10-11",
+    "registre": "Géopolitique",
+    "section": "Géopolitique",
+    "accroche": "Corée du Nord : le missile à IA de Kim Jong-un change-t-il la donne stratégique face à Séoul et Washington ?",
+    "tag": "géopolitique & prolifération nucléaire"
+  },
+  {
+    "date": "2026-10-11",
+    "registre": "Actu. française",
+    "section": "Carte blanche",
+    "accroche": "Mobilisation lycéenne : le mouvement peut-il obtenir la refonte de Parcoursup et des rythmes scolaires ?",
+    "tag": "éducation & jeunesse"
+  },
+  {
+    "date": "2026-10-11",
+    "registre": "Économie & finance",
+    "section": "Économie & finance",
+    "accroche": "BCE : l'inflation à 3,8 % force-t-elle une hausse des taux en décembre malgré la récession qui menace ?",
+    "tag": "économie & banque centrale"
+  },
+  {
+    "date": "2026-10-11",
+    "registre": "Économie & finance",
+    "section": "Économie & finance",
+    "accroche": "Marchés obligataires zone euro : l'inversion de la courbe des taux annonce-t-elle une récession en 2027 ?",
+    "tag": "économie & finance"
+  },
+  {
+    "date": "2026-10-11",
+    "registre": "Sciences",
+    "section": "Sciences",
+    "accroche": "IA et cosmologie : l'analyse de 100 millions de galaxies par le CEA résout-elle le mystère de l'énergie sombre ?",
+    "tag": "astrophysique & IA"
+  },
+  {
+    "date": "2026-10-11",
+    "registre": "Sciences",
+    "section": "Sciences",
+    "accroche": "Robot-chercheur Eve : l'IA autonome qui découvre un effet protecteur inédit sur la levure préfigure-t-elle la fin de la recherche humaine ?",
+    "tag": "IA & recherche scientifique"
+  },
+  {
     "date": "2026-10-04",
     "registre": "Géopolitique",
     "section": "Carte blanche",
@@ -157,35 +206,5 @@
     "registre": "Géopolitique",
     "accroche": "Poutine joue-t-il son va-tout ? Entre élections législatives russes et menaces hybrides sur la Pologne, l'escalade avec l'OTAN est-elle inévitable ?",
     "tag": "géopolitique & sécurité"
-  },
-  {
-    "date": "2026-09-18",
-    "registre": "Actu. française",
-    "accroche": "Carburants à 3 € le litre, menaces russes : Macron réunit les candidats à l'Élysée — le gouvernement Lecornu peut-il éviter l'explosion sociale cet automne ?",
-    "tag": "politique & énergie"
-  },
-  {
-    "date": "2026-09-18",
-    "registre": "Économie & finance",
-    "accroche": "Spread OAT/Bund au-dessus de 100 points : la dette française devient-elle le maillon faible de la zone euro ?",
-    "tag": "économie & finance"
-  },
-  {
-    "date": "2026-09-18",
-    "registre": "Sciences",
-    "accroche": "Le télescope spatial Roman file vers L2 : la NASA va-t-elle découvrir des milliers de nouvelles planètes et percer le mystère de l'énergie sombre ?",
-    "tag": "espace & astrophysique"
-  },
-  {
-    "date": "2026-09-18",
-    "registre": "Culture",
-    "accroche": "La Techno Parade revient à Paris après deux ans d'absence : danser est-il devenu un acte politique sous la loi RIPOST ?",
-    "tag": "musique & société"
-  },
-  {
-    "date": "2026-09-18",
-    "registre": "Sport",
-    "accroche": "Zidane dévoile sa première liste des Bleus : cinq nouveaux, Tchouaméni et Kanté écartés — le pari du renouveau peut-il réussir dès la Ligue des nations ?",
-    "tag": "football"
   }
 ]
