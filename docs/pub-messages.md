@@ -1090,6 +1090,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-10-10 (archives/2026-10-10.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-10-11
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 4 disciplines
+- message: Expérimentée sur 4 disciplines à Milan-Cortina 2026, l'IA s'impose comme un outil d'aide aux juges olympiques sans remplacer l'évaluation humaine.
+- attribution: — lesscenarios.fr, 11 octobre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-10-11.html
+
+*Phrase à retenir de l'édition du 2026-10-11 (archives/2026-10-11.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
