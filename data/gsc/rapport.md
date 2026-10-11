@@ -56,6 +56,7 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-09-11 au 2026-10-08 
 
 - [Écarté] **Aucun blocage technique** (quasi certain) — robots.txt, noindex, canoniques, hreflang et données de page sont corrects ; les éditions indexées ont les mêmes réglages que celles qui ne le sont pas. **Action** : Rien à corriger de ce côté.
 - [Vous] **Google explore rarement le site** (probable (forte)) — Dernière exploration d'une édition : 28 septembre. La page Éditions, qui liste tout, n'a pas été relue depuis le 30 août. Site jeune (quelques mois), très peu de liens venant d'ailleurs. **Action** : Demander l'indexation dans Search Console, d'abord de /archives.html puis des éditions les plus récentes (voir « À faire par vous »).
+- [Vous] **Les éditions anglaises sont connues de Google, pas encore explorées** (certain (mesuré le 11 octobre)) — Sur les 6 dernières éditions anglaises inspectées, 5 sont « détectées, actuellement non indexées » et 1 (7 octobre) est indexée ; l'accueil anglais est indexé. Contrairement aux éditions françaises, Google connaît donc ces adresses (sans doute par le plan du site et les liens entre langues) mais ne les a pas encore lues. **Action** : Rien à corriger dans le site. Après /archives.html, une demande d'indexation de /en/archives/2026-10-11.html peut aider.
 - [Corrigé] **L'accueil ne reliait que 10 éditions** (certain) — Les éditions de plus de 10 jours n'étaient accessibles que par la page Éditions, rarement explorée. **Action** : Fait : nouveau bloc « Les éditions du mois » sur l'accueil, avec un vrai lien HTML vers chaque édition des 30 derniers jours (21 éditions de plus). Ajouté aussi au générateur de l'accueil, donc il se maintient chaque jour.
 - [Corrigé] **Pas de lien entre éditions avant le 10 octobre** (certain) — Les liens « précédente / suivante » n'existaient pas avant le 10 octobre. **Action** : Déjà en place depuis le 10 octobre. Effet attendu après la prochaine exploration par Google (une à trois semaines, sans garantie).
 - [Corrigé] **Dates du plan du site trop uniformes** (certain) — J'avais mis la date du 11 octobre sur 58 éditions après la retouche de leurs balises : 65 pages portaient la même date, ce qui affaiblit ce champ pour Google, et les pages indiquaient une autre date que le plan. **Action** : Fait : chaque édition a retrouvé sa date de publication, cohérente avec la date inscrite dans la page. Un des agents préférait aligner les pages sur le 11 octobre ; j'ai retenu la solution qui ne touche pas au contenu des éditions figées. Règle à garder : ne pas faire bouger cette date pour une simple retouche de balises.
@@ -78,7 +79,6 @@ Ce que l'on ne sait pas encore :
 - À quelle fréquence Google est passé sur l'accueil entre le 28 septembre et le 7 octobre.
 - Si une erreur du serveur a eu lieu autour du 28 septembre.
 - Comment Google a découvert les 5 éditions indexées (plan du site, accueil ou demande manuelle).
-- L'état des éditions anglaises : elles ne sont inspectées que depuis aujourd'hui.
 
 Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 

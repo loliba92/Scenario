@@ -25,6 +25,13 @@
           "action": "Demander l'indexation dans Search Console, d'abord de /archives.html puis des éditions les plus récentes (voir « À faire par vous »)."
         },
         {
+          "titre": "Les éditions anglaises sont connues de Google, pas encore explorées",
+          "certitude": "certain (mesuré le 11 octobre)",
+          "statut": "proprietaire",
+          "cause": "Sur les 6 dernières éditions anglaises inspectées, 5 sont « détectées, actuellement non indexées » et 1 (7 octobre) est indexée ; l'accueil anglais est indexé. Contrairement aux éditions françaises, Google connaît donc ces adresses (sans doute par le plan du site et les liens entre langues) mais ne les a pas encore lues.",
+          "action": "Rien à corriger dans le site. Après /archives.html, une demande d'indexation de /en/archives/2026-10-11.html peut aider."
+        },
+        {
           "titre": "L'accueil ne reliait que 10 éditions",
           "certitude": "certain",
           "statut": "corrige",
@@ -105,8 +112,7 @@
       "inconnu": [
         "À quelle fréquence Google est passé sur l'accueil entre le 28 septembre et le 7 octobre.",
         "Si une erreur du serveur a eu lieu autour du 28 septembre.",
-        "Comment Google a découvert les 5 éditions indexées (plan du site, accueil ou demande manuelle).",
-        "L'état des éditions anglaises : elles ne sont inspectées que depuis aujourd'hui."
+        "Comment Google a découvert les 5 éditions indexées (plan du site, accueil ou demande manuelle)."
       ],
       "prochain_controle": "25 octobre 2026 (ne rien conclure avant)"
     }
