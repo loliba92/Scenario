@@ -198,7 +198,7 @@
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    color: var(--paper-dim);
+    color: var(--gold);
     margin: 0 0 8px;
   }
 
@@ -265,18 +265,19 @@
   }
 
   .perks li{
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
+    position: relative;
+    padding-left: 26px;
     color: var(--paper-dim);
     font-size: 0.95rem;
   }
 
   .perks li::before{
     content: "✓";
+    position: absolute;
+    left: 2px;
+    top: 0;
     color: var(--favorable);
     font-family: "JetBrains Mono", monospace;
-    flex: none;
   }
 
   /* ---------- Étapes numérotées ---------- */
@@ -284,7 +285,6 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    max-width: 62ch;
     margin: 24px 0 0;
     padding: 0;
     list-style: none;
@@ -335,8 +335,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 12px;
-    margin: 24px 0 0;
-    max-width: 62ch;
+    margin: 16px 0 0;
   }
 
   .scenario-mini{
@@ -377,7 +376,6 @@
     border-radius: 8px;
     padding: 20px 22px;
     margin: 24px 0 0;
-    max-width: 62ch;
   }
 
   .classroom-block h3{
@@ -397,6 +395,7 @@
   }
 
   .classroom-block li{ margin-bottom: 8px; }
+  .classroom-block + .classroom-block{ margin-top: 16px; }
   .classroom-block li:last-child{ margin-bottom: 0; }
 
   footer{
@@ -472,7 +471,119 @@
     font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 1.05rem;
     color: var(--gold, #cf9d4c);
   }
+
+  /* ---------- Ajouts du guide (11 oct. 2026) ---------- */
+  section.body-section[id]{ scroll-margin-top: 16px; }
+
+  .body-section .perks + p{ margin-top: 28px; }
+
+  .sub-title{
+    font-family: "Fraunces", serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 32px 0 0;
+  }
+
+  @media (min-width: 760px){
+    .steps{ display: grid; grid-template-columns: 1fr 1fr; }
+  }
+
+  /* Exemple de lecture */
+  .example{
+    margin: 24px 0 20px;
+    padding: 20px 22px;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+  }
+  .example p{ max-width: none; }
+  .example-tag{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold) !important;
+    margin: 0 0 12px !important;
+  }
+  .example-question{
+    font-family: "Fraunces", serif;
+    font-size: 1.15rem;
+    color: var(--paper) !important;
+    margin: 0 0 18px !important;
+  }
+  .example-step{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    vertical-align: middle;
+  }
+  .example-bars{ list-style: none; margin: 0 0 18px; padding: 0; display: grid; gap: 10px; }
+  .example-bars li{
+    display: grid;
+    grid-template-columns: 8.5rem 1fr 4.5rem;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.92rem;
+  }
+  .example-name{ color: var(--paper); white-space: nowrap; }
+  .example-pct{ color: var(--paper); text-align: right; white-space: nowrap; }
+  .example-track{ height: 10px; background: var(--surface-2); border-radius: 100px; overflow: hidden; }
+  .example-fill{ display: block; height: 100%; border-radius: 100px; }
+  .example-bars .is-favorable .example-fill{ background: var(--favorable); }
+  .example-bars .is-stable .example-fill{ background: var(--stable); }
+  .example-bars .is-degrade .example-fill{ background: var(--degrade); }
+  .example-france{ color: var(--paper-dim); font-size: 0.9rem; margin: 0 !important; }
+
+  /* Erreurs de lecture */
+  .mistakes{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0 0; }
+  .mistake{
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .body-section .mistake p{ margin: 0; max-width: none; font-size: 0.9rem; }
+  .body-section .mistake .mistake-wrong{ color: var(--paper); font-style: italic; margin-bottom: 8px; }
+
+  /* Séance type */
+  .timeline{ list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .timeline li{ display: grid; grid-template-columns: 4.5rem 1fr; gap: 12px; margin: 0; font-size: 0.92rem; }
+  .timeline .time{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--gold);
+    padding-top: 2px;
+  }
+
+  @media (max-width: 759px){
+    .mistakes{ grid-template-columns: 1fr; }
+    .example-bars li{ grid-template-columns: 6.5rem 1fr 3.6rem; gap: 8px; font-size: 0.86rem; }
+    .example{ padding: 16px; }
+  }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Guide pédagogique — Scénario",
+  "url": "https://lesscenarios.fr/guide-pedagogique.html",
+  "description": "Méthode pour lire une édition de Scénario, comprendre une probabilité et l'utiliser en classe (HGGSP, SES).",
+  "inLanguage": "fr-FR",
+  "learningResourceType": "Guide pratique",
+  "educationalLevel": "Lycée, enseignement supérieur",
+  "teaches": ["Lire une probabilité", "Comparer plusieurs scénarios", "Distinguer un fait d'une estimation"],
+  "isPartOf": {"@type": "WebSite", "name": "Scénario", "url": "https://lesscenarios.fr"}
+}
+</script>
 </head>
 <body>
 
@@ -501,11 +612,12 @@
   <div class="wrap">
     <p class="eyebrow">Guide pédagogique</p>
     <h1>Lire un scénario, en classe ou seul</h1>
-    <p class="dek">Ce guide ne redit pas ce qu'est <strong>Scéna<span class="brand-rio">rio</span></strong> — c'est le rôle de la page <a href="le-projet.html">Le projet</a>. Il donne une méthode courte et concrète pour lire une édition, comprendre ses chiffres, et s'en servir en classe (HGGSP, SES) ou en autonomie.</p>
+    <p class="dek">Une méthode courte pour lire une édition de <strong>Scéna<span class="brand-rio">rio</span></strong>, comprendre ses chiffres et s'en servir en classe (HGGSP, SES) ou en autonomie. Pour savoir ce qu'est le site, voir <a href="le-projet.html">Le projet</a>.</p>
     <nav class="toc" aria-label="Sommaire de la page">
-      <a href="#lire">Lire une édition en 4 étapes</a>
-      <a href="#probabilite">Lire une probabilité</a>
-      <a href="#classe">Utiliser Scénario en classe</a>
+      <a href="#lire">4 étapes</a>
+      <a href="#exemple">Un exemple</a>
+      <a href="#probabilite">Les probabilités</a>
+      <a href="#classe">En classe</a>
       <a href="#aller-plus-loin">Aller plus loin</a>
     </nav>
   </div>
@@ -515,38 +627,69 @@
   <div class="wrap">
     <p class="section-label">Méthode</p>
     <h2 class="section-title">Lire une édition en 4 étapes</h2>
-    <p>Chaque édition suit toujours la même structure. Une fois qu'on la repère, la lecture va vite — et surtout, elle entraîne un vrai réflexe d'analyse, réutilisable bien au-delà de Scénario.</p>
+    <p>Chaque édition suit la même structure. Une fois qu'on la repère, la lecture va vite. Et ce réflexe d'analyse sert bien au-delà de Scénario.</p>
     <ol class="steps">
       <li>
         <div>
           <span class="step-title">La question posée</span>
-          <span class="step-body">En haut de l'édition, l'encart « Ce qu'on évalue » formule une question à issue ouverte. C'est elle, et seulement elle, que les trois scénarios évaluent ensuite — pas le sujet dans son ensemble.</span>
+          <span class="step-body">En haut de l'édition, l'encart «&nbsp;Ce qu'on évalue&nbsp;» pose une question ouverte. Les trois scénarios répondent à elle seule, pas au sujet dans son ensemble.</span>
         </div>
       </li>
       <li>
         <div>
           <span class="step-title">Les trois scénarios</span>
-          <span class="step-body">Favorable, stable, dégradé : trois façons dont la question peut se trancher. Aucun ne représente un « camp » — voir la section suivante pour ce que ces mots veulent dire précisément ici.</span>
+          <span class="step-body">Favorable, stable, dégradé&nbsp;: trois façons de trancher la question. Aucun ne représente un camp politique.</span>
         </div>
       </li>
       <li>
         <div>
           <span class="step-title">La probabilité de chacun</span>
-          <span class="step-body">Un pourcentage par scénario, qui totalise environ 100 % à eux trois. Ce n'est jamais une prédiction ferme — juste l'estimation la plus informée possible à la date de publication.</span>
+          <span class="step-body">Un pourcentage par scénario, pour un total proche de 100&nbsp;%. C'est la meilleure estimation à la date de publication, jamais une prédiction ferme.</span>
         </div>
       </li>
       <li>
         <div>
-          <span class="step-title">« Ce que ça change en France »</span>
-          <span class="step-body">La seule ligne de chaque carte qui prend un point de vue localisé : est-ce que ce scénario précis serait plutôt positif, négatif ou neutre pour la France ?</span>
+          <span class="step-title">«&nbsp;Ce que ça change en France&nbsp;»</span>
+          <span class="step-body">La seule ligne de chaque carte qui adopte un point de vue local&nbsp;: ce scénario serait-il plutôt positif, négatif ou neutre pour la France&nbsp;?</span>
         </div>
       </li>
     </ol>
     <div class="scenario-mini-grid">
       <div class="scenario-mini is-favorable"><span class="label">Favorable</span><p>La tension se résout plutôt bien, ou s'apaise nettement.</p></div>
-      <div class="scenario-mini is-stable"><span class="label">Stable</span><p>Rien ne se résout ni ne s'aggrave : le statu quo se prolonge.</p></div>
+      <div class="scenario-mini is-stable"><span class="label">Stable</span><p>Rien ne se résout ni ne s'aggrave&nbsp;: le statu quo se prolonge.</p></div>
       <div class="scenario-mini is-degrade"><span class="label">Dégradé</span><p>La situation se complique ou se détériore nettement.</p></div>
     </div>
+  </div>
+</section>
+
+<section class="body-section" id="exemple">
+  <div class="wrap">
+    <p class="section-label">Un exemple</p>
+    <h2 class="section-title">Une édition, lue pas à pas</h2>
+    <p>Voici une édition imaginaire, avec des chiffres inventés pour l'exercice. Les quatre étapes y sont repérées.</p>
+    <figure class="example" aria-labelledby="example-q">
+      <p class="example-tag">Exemple fictif</p>
+      <p class="example-question" id="example-q"><span class="example-step">1</span>Le télétravail va-t-il devenir la norme dans les grandes entreprises&nbsp;?</p>
+      <ul class="example-bars">
+        <li class="is-favorable">
+          <span class="example-name"><span class="example-step">2</span>Favorable</span>
+          <span class="example-track"><span class="example-fill" style="width:25%"></span></span>
+          <span class="example-pct"><span class="example-step">3</span>25&nbsp;%</span>
+        </li>
+        <li class="is-stable">
+          <span class="example-name"><span class="example-step">2</span>Stable</span>
+          <span class="example-track"><span class="example-fill" style="width:45%"></span></span>
+          <span class="example-pct"><span class="example-step">3</span>45&nbsp;%</span>
+        </li>
+        <li class="is-degrade">
+          <span class="example-name"><span class="example-step">2</span>Dégradé</span>
+          <span class="example-track"><span class="example-fill" style="width:30%"></span></span>
+          <span class="example-pct"><span class="example-step">3</span>30&nbsp;%</span>
+        </li>
+      </ul>
+      <p class="example-france"><span class="example-step">4</span>Ce que ça change en France&nbsp;: plutôt positif pour le scénario favorable, neutre pour le stable, négatif pour le dégradé.</p>
+    </figure>
+    <p><strong>Comment le lire&nbsp;?</strong> Le scénario stable est le plus probable, à 45&nbsp;%. Mais il laisse 55&nbsp;% de chances à une autre issue. L'écart entre les trois reste faible&nbsp;: la question est vraiment ouverte, et c'est déjà une information utile.</p>
   </div>
 </section>
 
@@ -554,12 +697,27 @@
   <div class="wrap">
     <p class="section-label">Notions de base</p>
     <h2 class="section-title">Lire une probabilité sans se tromper</h2>
-    <p>Le piège le plus fréquent : lire « 60 % » comme une quasi-certitude, et le reste comme négligeable. Un chiffre à 60 % veut dire que l'issue contraire reste réelle <strong>4 fois sur 10</strong> — pas un détail. Trois repères pour éviter le contresens :</p>
+    <p>Le piège le plus fréquent&nbsp;: lire «&nbsp;60&nbsp;%&nbsp;» comme une quasi-certitude. Or l'issue contraire reste réelle <strong>4 fois sur 10</strong>. Trois repères évitent le contresens&nbsp;:</p>
     <ul class="perks">
-      <li>Une probabilité se lit toujours par rapport aux deux autres — jamais isolément.</li>
-      <li>Elle décrit l'information disponible aujourd'hui, pas un verdict définitif : c'est pour ça que Scénario republie des <a href="#classe">pages de suivi</a> quand la situation évolue.</li>
-      <li>Plus l'écart entre les trois scénarios est faible, plus la question reste réellement ouverte — c'est une information en soi, pas un manque de précision.</li>
+      <li>Une probabilité se lit toujours par rapport aux deux autres, jamais isolément.</li>
+      <li>Elle décrit l'information disponible aujourd'hui, pas un verdict. C'est pourquoi Scénario publie des pages de suivi quand la situation évolue.</li>
+      <li>Plus l'écart entre les trois scénarios est faible, plus la question reste ouverte. Ce n'est pas un manque de précision.</li>
     </ul>
+    <h3 class="sub-title">Trois erreurs de lecture fréquentes</h3>
+    <div class="mistakes">
+      <div class="mistake">
+        <p class="mistake-wrong">«&nbsp;60&nbsp;%, donc ça va arriver.&nbsp;»</p>
+        <p class="mistake-right">Non. Dans 4 cas sur 10, c'est autre chose qui se produit.</p>
+      </div>
+      <div class="mistake">
+        <p class="mistake-wrong">«&nbsp;10&nbsp;%, donc c'est impossible.&nbsp;»</p>
+        <p class="mistake-right">Non. Un événement à 10&nbsp;% arrive en moyenne une fois sur dix.</p>
+      </div>
+      <div class="mistake">
+        <p class="mistake-wrong">«&nbsp;Le plus probable ne s'est pas produit, donc l'estimation était fausse.&nbsp;»</p>
+        <p class="mistake-right">Pas forcément. Une issue à 25&nbsp;% se produit une fois sur quatre&nbsp;: c'est la règle du jeu.</p>
+      </div>
+    </div>
     <a class="cross-link" href="le-projet.html#probabilite">La définition complète, avec l'exemple de la météo →</a>
   </div>
 </section>
@@ -568,17 +726,32 @@
   <div class="wrap">
     <p class="section-label">En classe</p>
     <h2 class="section-title">Utiliser Scénario en HGGSP, SES ou culture générale</h2>
-    <p>Scénario n'apporte pas une réponse toute faite : il entraîne à peser le pour et le contre, mesurer une incertitude, comparer plusieurs issues plutôt que d'en retenir une seule — exactement l'exercice attendu en HGGSP ou en SES. Quelques façons concrètes de s'en servir :</p>
+    <p>Scénario ne donne pas de réponse toute faite. Il entraîne à peser le pour et le contre, à mesurer une incertitude et à comparer plusieurs issues. C'est l'exercice attendu en HGGSP comme en SES.</p>
     <div class="classroom-block">
-      <h3>Pistes d'exercice</h3>
+      <h3>Séance type · 30 minutes</h3>
+      <ol class="timeline">
+        <li><span class="time">5 min</span><span><strong>Lecture individuelle.</strong> Chacun lit la question et les trois titres de scénarios.</span></li>
+        <li><span class="time">10 min</span><span><strong>Trois groupes.</strong> Chaque groupe prend un scénario et relève les indicateurs et les chiffres qui le soutiennent.</span></li>
+        <li><span class="time">10 min</span><span><strong>Mise en commun.</strong> Chaque groupe défend son scénario, les autres cherchent la faille.</span></li>
+        <li><span class="time">5 min</span><span><strong>Bilan.</strong> Chacun note sa propre estimation en pourcentages, puis la compare à celle de l'édition.</span></li>
+      </ol>
+    </div>
+    <div class="classroom-block">
+      <h3>Autres pistes d'exercice</h3>
       <ul>
-        <li><strong>Débat structuré</strong> — répartir la classe en trois groupes (favorable, stable, dégradé), chacun devant défendre les indicateurs qui rendraient « son » scénario le plus probable.</li>
-        <li><strong>Vérification a posteriori</strong> — reprendre une édition ancienne des <a href="archives.html">archives</a> et confronter les probabilités du jour avec ce qui s'est réellement passé depuis, via sa <a href="archives.html">page de suivi</a> si elle existe.</li>
-        <li><strong>Transposition</strong> — appliquer la méthode (question ouverte → 3 scénarios → indicateurs) à un sujet du programme, sans utiliser Scénario, pour tester la méthode plutôt que le contenu.</li>
-        <li><strong>Vocabulaire</strong> — utiliser le <a href="glossaire.html">glossaire</a> en amont d'une édition pour lever les termes techniques avant la lecture collective.</li>
+        <li><strong>Vérification a posteriori.</strong> Reprendre une édition ancienne des <a href="archives.html">archives</a> et comparer ses probabilités à ce qui s'est passé depuis. Quand une page de suivi existe, elle sert de corrigé.</li>
+        <li><strong>Transposition.</strong> Appliquer la méthode (question ouverte, trois scénarios, indicateurs) à un sujet du programme, sans utiliser Scénario.</li>
+        <li><strong>Vocabulaire.</strong> Passer par le <a href="glossaire.html">glossaire</a> avant la lecture pour lever les termes techniques.</li>
       </ul>
     </div>
-    <p>Un sujet à traiter en classe, ou une question de lecteur à transmettre ? La page <a href="contact.html">Contact</a> reste ouverte — le mardi est même le jour où le sujet du jour est choisi par les lecteurs.</p>
+    <h3 class="sub-title">Ce que les élèves s'entraînent à faire</h3>
+    <ul class="perks">
+      <li>Repérer une question ouverte et la distinguer d'un sujet large.</li>
+      <li>Séparer un fait établi d'une estimation.</li>
+      <li>Argumenter à partir d'indicateurs plutôt que d'opinions.</li>
+      <li>Exprimer une incertitude en chiffres, et accepter de la réviser.</li>
+    </ul>
+    <p>Un sujet à traiter en classe, ou une question à transmettre&nbsp;? La page <a href="contact.html">Contact</a> reste ouverte. Le mardi, le sujet du jour est choisi par les lecteurs.</p>
   </div>
 </section>
 
@@ -586,12 +759,12 @@
   <div class="wrap">
     <p class="section-label">Aller plus loin</p>
     <h2 class="section-title">Les autres ressources du site</h2>
-    <p>Ce guide reste volontairement court. Pour le reste — la méthode complète, le suivi des probabilités dans le temps, le vocabulaire — direction :</p>
     <ul class="perks">
-      <li><a href="le-projet.html">Le projet</a> — la méthode complète, qui fait Scénario, le rythme des 7 jours.</li>
-      <li><a href="glossaire.html">Glossaire</a> — tous les termes techniques expliqués, cherchables et filtrables.</li>
-      <li><a href="archives.html">Archives</a> — toutes les éditions passées, avec les pages de suivi quand une probabilité a été réévaluée.</li>
-      <li><a href="newsletter.html">Newsletter</a> — recevoir l'édition du jour directement par email.</li>
+      <li><span><a href="le-projet.html">Le projet</a> — la méthode complète, l'équipe, le rythme des 7 jours.</span></li>
+      <li><span><a href="glossaire.html">Glossaire</a> — tous les termes techniques, avec recherche et filtres.</span></li>
+      <li><span><a href="archives.html">Éditions</a> — toutes les éditions passées, avec les pages de suivi quand une probabilité a été réévaluée.</span></li>
+      <li><span><a href="newsletter.html">Newsletter</a> — l'édition du jour directement par e-mail.</span></li>
+      <li><span><a href="#nous-suivre">Podcast</a> — l'édition à écouter chaque jour, sur Spotify.</span></li>
     </ul>
   </div>
 </section>
