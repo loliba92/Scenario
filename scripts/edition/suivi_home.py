@@ -184,7 +184,7 @@ def rendre(s: dict) -> str:
     <a href="suivi/{s['slug']}.html" class="featured-article-link">{image}
       <div>
         <span class="featured-article-date">{_html.escape(ligne)}</span>
-        <h2 class="featured-article-title">{_typo(s['titre'])}</h2>{question}
+        <h2 class="featured-article-title">{_typo(s['titre'])}</h2>{question}{_barres((s.get('probas') or {}).get('apres'), (s.get('probas') or {}).get('avant'))}
         <span class="featured-article-cta">Lire le suivi →</span>
       </div>
     </a>

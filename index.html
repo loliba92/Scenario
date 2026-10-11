@@ -2290,6 +2290,19 @@
   }
 
   /* Featured article — CTA arrow animation */
+  /* Barres de probabilités du dernier suivi (11 octobre 2026) — même rendu que la page Éditions */
+  .mini-probas { display: flex; flex-direction: column; gap: 7px; margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--hairline); max-width: 34rem; }
+  .mini-probas-legend { font-family: "JetBrains Mono", monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--paper-dim); }
+  .mini-proba { display: grid; grid-template-columns: 4.6rem 1fr 6.2rem; align-items: center; gap: 10px; }
+  .mini-proba[data-kind="favorable"] { --accent: var(--favorable); }
+  .mini-proba[data-kind="stable"] { --accent: var(--stable); }
+  .mini-proba[data-kind="degrade"] { --accent: var(--degrade); }
+  .mini-proba-name { font-family: "JetBrains Mono", monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); }
+  .mini-proba-track { position: relative; display: block; height: 9px; background: var(--surface-2, var(--hairline)); border-radius: 100px; }
+  .mini-proba-fill { display: block; height: 100%; min-width: 4px; border-radius: 100px; background: var(--accent); }
+  .mini-proba-tick { position: absolute; top: -3px; bottom: -3px; width: 2px; margin-left: -1px; background: var(--paper); border-radius: 2px; }
+  .mini-proba-val { font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--paper); text-align: right; white-space: nowrap; }
+  @media (max-width: 480px) { .mini-proba { grid-template-columns: 4.2rem 1fr 5.6rem; gap: 8px; } }
   .featured-article-cta {
     display: inline-flex;
     align-items: center;
@@ -2457,6 +2470,7 @@
         <span class="featured-article-date">Économie · mis à jour le 9 oct.</span>
         <h2 class="featured-article-title">Taux&nbsp;: marche arrière</h2>
         <p class="featured-article-question">Depuis le 7 septembre 2026, la BCE a relevé ses trois taux directeurs de 25 points de base le 10 septembre, portant son taux de dépôt à 2,50 % à compter du 16 septembre.</p>
+        <span class="mini-probas"><span class="mini-probas-legend">Barre : aujourd’hui · repère : à l’origine</span><span class="mini-proba" data-kind="favorable"><span class="mini-proba-name">Favorable</span><span class="mini-proba-track" aria-hidden="true"><span class="mini-proba-fill" style="width:3%"></span><span class="mini-proba-tick" style="left:20%"></span></span><span class="mini-proba-val">20&nbsp;→&nbsp;3&nbsp;%</span></span><span class="mini-proba" data-kind="stable"><span class="mini-proba-name">Stable</span><span class="mini-proba-track" aria-hidden="true"><span class="mini-proba-fill" style="width:7%"></span><span class="mini-proba-tick" style="left:50%"></span></span><span class="mini-proba-val">50&nbsp;→&nbsp;7&nbsp;%</span></span><span class="mini-proba" data-kind="degrade"><span class="mini-proba-name">Dégradé</span><span class="mini-proba-track" aria-hidden="true"><span class="mini-proba-fill" style="width:90%"></span><span class="mini-proba-tick" style="left:30%"></span></span><span class="mini-proba-val">30&nbsp;→&nbsp;90&nbsp;%</span></span></span>
         <span class="featured-article-cta">Lire le suivi →</span>
       </div>
     </a>
@@ -2464,6 +2478,7 @@
   </div>
 </section>
 <!-- dernier-suivi:end -->
+
 
 <section class="matieres" id="matieres" aria-label="Parcourir par matière">
   <div class="wrap">
