@@ -20,7 +20,8 @@ Le propriétaire a autorisé de façon durable (11 octobre 2026) l'emploi des ag
 |---|---|---|
 | Audit technique de pages en ligne | `mcp__SEOmatic__site_audit` (jusqu'à 30 URL) | gratuit |
 | Note et problèmes d'une page | `mcp__SEOmatic__site_pages` (`analyze`, `crawl`) | gratuit |
-| Indexation réelle, requêtes, clics | `mcp__SEOmatic__gsc_*` | gratuit, **si Search Console est connectée** (ce n'était pas le cas le 11 octobre 2026 : le tester, et demander la connexion sinon) |
+| Indexation réelle, requêtes, clics (voie automatique) | fichiers `data/gsc/*.json`, alimentés chaque jour par `.github/workflows/gsc.yml` (`scripts/seo/gsc_sync.py`) | gratuit, **dès que le secret `GSC_SERVICE_ACCOUNT_JSON` est en place** (voir `docs/gsc-installation.md`). Lire d'abord `summary.json`, `indexation.json`, `sitemaps.json` ; si absents, le secret n'est pas installé |
+| Idem via SEOmatic | `mcp__SEOmatic__gsc_*` | gratuit, mais la liaison n'a jamais fonctionné (11 octobre 2026) : ne pas insister, préférer la ligne précédente |
 | Estimation de trafic et mots-clés | Semrush | **payant : ne pas utiliser** sans demande explicite |
 | Lecture d'une page en ligne | `WebFetch` | gratuit |
 
