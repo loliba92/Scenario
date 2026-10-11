@@ -153,6 +153,13 @@
     background: var(--gold); border-radius: 0 0 2px 2px; opacity: .55;
   }
   .kpi-card-cost::before{ background: var(--stable); }
+  .kpi-card-seo{ display:block; text-decoration:none; color:inherit; }
+  .kpi-card-seo::before{ background: var(--stable); }
+  .kpi-card-seo.is-critique::before{ background: var(--degrade); }
+  .kpi-card-seo.is-moyen::before{ background: var(--gold); }
+  .kpi-card-seo.is-bon::before{ background: var(--favorable); }
+  .kpi-card-seo:hover{ border-color: var(--gold); }
+  .kpi-card-seo .kpi-go{ font-family:"JetBrains Mono",monospace; font-size:.82rem; color:var(--gold); margin:14px 0 0; }
   .kpi-label{
     font-family: "JetBrains Mono", monospace;
     font-size: 0.7rem;
@@ -438,6 +445,24 @@
         </div>
       </div>
     </div>
+
+    <!-- SEO-CARD:START -->
+    <span class="chart-label" style="margin-top:24px; display:block;">Référencement Google (SEO)</span>
+    <div class="kpi-grid">
+      <a class="kpi-card kpi-card-seo kpi-card-wide is-critique" href="seo.html">
+        <p class="kpi-label">Tableau de bord SEO — 2026-10-11</p>
+        <div class="kpi-value">Critique</div>
+        <p class="kpi-sub">7 éditions de plus de 7 jours sont inconnues de Google (sur 26 pages inspectées). Demander l&#x27;indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours.</p>
+        <div class="kpi-breakdown kpi-breakdown-4col">
+          <div class="kpi-breakdown-item"><span>Clics (28 j)</span><strong>4</strong></div>
+          <div class="kpi-breakdown-item"><span>Impressions</span><strong>286</strong></div>
+          <div class="kpi-breakdown-item"><span>Pages indexées</span><strong>10 / 26</strong></div>
+          <div class="kpi-breakdown-item"><span>Problèmes à résoudre</span><strong>4</strong></div>
+        </div>
+        <p class="kpi-go">Ouvrir l'analyse complète, les recommandations et les agents à envoyer →</p>
+      </a>
+    </div>
+    <!-- SEO-CARD:END -->
 
     <div class="chart-box">
       <span class="chart-label">Lectures par semaine (non cumulé)</span>
