@@ -2,6 +2,61 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-11",
+      "articles": [
+        {
+          "title": "Baromètre des entreprises au T3 2026 : les difficultés perdurent malgré la hausse des créations",
+          "source": "Les Echos",
+          "url": "https://annonces-legales.lesechos.fr/actualites/actu-des-pros/barometre-des-entreprises-au-t3-2026-les-difficultes-perdurent-malgre-la-hausse-des-creations/",
+          "image": "https://annonces-legales-img.lesechos.fr/2026/10/20261006-barometre-entreprises-infogreffe-t3-2026-6ac4edf1bfe3d114522274.jpg?w=430&h=250&q=90&s=90d86ac91a8d9a018d8796a79c256da2",
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "Au troisième trimestre 2026, les immatriculations d'entreprises gagnent 15,2 % mais les sorties atteignent presque le même volume, avec 163 367 radiations enregistrées, soit 66,6 % de plus qu'au T3 2025. Les activités spécialisées, scientifiques et techniques affichent 52,8 % de créations supplémentaires, tandis que la finance-assurance recule de 15,5 %.",
+          "read_minutes": 3
+        },
+        {
+          "title": "« Pesticides à vie ? Non merci ! » : partout en France, des mobilisations contre un projet européen de dérégulation « dévastateur »",
+          "source": "Le Monde",
+          "url": "https://www.lemonde.fr/planete/article/2026/10/10/pesticides-a-vie-non-merci-partout-en-france-des-mobilisations-contre-un-projet-europeen-de-deregulation-devastateur_6790949_3244.html",
+          "image": null,
+          "lang": "fr",
+          "domain": "sciences-environnement",
+          "summary": "Une centaine d'organisations appellent à des rassemblements le samedi 10 et dimanche 11 octobre 2026 dans une cinquantaine de villes, dont Paris, Lyon et Marseille, pour protester contre l'omnibus X de la Commission européenne. Ce texte propose d'autoriser les pesticides de manière illimitée dans le temps, à l'exception des plus dangereux classés cancérogènes, mutagènes ou toxiques pour la reproduction.",
+          "read_minutes": 4
+        },
+        {
+          "title": "Russie : le cloud du géant de la tech Yandex affecté par une attaque de drone",
+          "source": "Le Figaro",
+          "url": "https://www.lefigaro.fr/international/russie-le-cloud-du-geant-de-la-tech-yandex-affecte-par-une-attaque-de-drone-20261011",
+          "image": "https://i.f1g.fr/media/cms/1200x630_crop/2026/10/11/333cfc0346461f4d98775737dd3f30631ea7a6bdad5b7569260f7e7acf5307c8.jpg",
+          "lang": "fr",
+          "domain": "tech-numerique",
+          "summary": "Yandex a indiqué dimanche 11 octobre 2026 que son infrastructure cloud était en panne après une attaque de drone ukrainienne sur son centre de données de Vladimir, à l'est de Moscou. L'entreprise a précisé que l'attaque n'avait fait aucune victime et que des réparations étaient en cours, après que ses centres de données de Kalouga et de Sassovo aient également été endommagés dans les jours précédents.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Lionel Messi marque ses premiers buts depuis sa retraite internationale",
+          "source": "Le Figaro",
+          "url": "https://www.lefigaro.fr/sports/lionel-messi-marque-ses-premiers-buts-depuis-sa-retraite-internationale-20261011",
+          "image": "https://i.f1g.fr/media/cms/1200x630_crop/2026/10/11/60df99c33e0bf1f06c53a09fb9509b6a468108935e6264d3a50eae5cdc1f9b13.jpg",
+          "lang": "fr",
+          "domain": "culture-divertissement",
+          "summary": "Lionel Messi a signé un doublé samedi 11 octobre 2026 pour contribuer à la victoire 4-0 de l'Inter Miami face au DC United en MLS, ses premiers buts depuis sa toute récente retraite internationale. L'Argentin de 39 ans, avec 23 buts, est le meilleur réalisateur de la ligue et pourrait être nommé meilleur joueur de la saison (MVP) pour la troisième saison consécutive.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Zelensky dénonce des « cadeaux à Poutine » après l'annonce par Trump d'un accord sur le diesel russe",
+          "source": "Euronews",
+          "url": "https://fr.euronews.com/2026/10/10/zelensky-denonce-des-cadeaux-a-poutine-apres-lannonce-par-trump-dun-accord-sur-le-diesel-r",
+          "image": "https://images.euronews.com/articles/stories/09/94/67/57/1200x675_cmsv2_5a1bf064-fd1e-59db-a559-2b22b95ce7f1-9946757.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Le président américain Donald Trump a déclaré vendredi 10 octobre 2026 que Vladimir Poutine avait accepté de fournir immédiatement plus de 300 000 tonnes de diesel aux marchés américain et mondial, puis 500 000 tonnes supplémentaires en novembre. Volodymyr Zelensky a réagi sur X en dénonçant des « cadeaux à Poutine » qui, selon lui, ne mèneront ni à la paix ni à aucun bénéfice pour le monde civilisé.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-10-10",
       "articles": [
         {
