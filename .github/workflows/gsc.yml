@@ -38,6 +38,11 @@ jobs:
         run: |
           git config user.name "scenario-gsc-bot"
           git config user.email "actions@users.noreply.github.com"
+          # Sans secret, le script n'écrit rien : le dossier n'existe pas, il n'y a rien à enregistrer.
+          if [ ! -d data/gsc ]; then
+            echo "Aucune donnée Search Console (secret GSC_SERVICE_ACCOUNT_JSON absent ?) — rien à committer."
+            exit 0
+          fi
           git add data/gsc
           if git diff --cached --quiet; then
             echo "Aucun changement — rien à committer."
