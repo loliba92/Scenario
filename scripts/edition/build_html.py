@@ -861,7 +861,7 @@ def build_related_articles(brief, repo_root=None):
             formatted_date = article_date
 
         article_html = f'''      <li><a href="archives/{article_date}.html" class="related-articles-item">
-        <img class="related-articles-image" src="assets/social/topic-images/{article_date}.jpg" alt="{title}">
+        <img class="related-articles-image" loading="lazy" decoding="async" src="assets/social/topic-images/{article_date}.jpg" alt="{title}">
         <div class="related-articles-content">
           <span class="related-articles-date">{formatted_date}</span>
           <span class="related-articles-title">{fr_typo(title)}</span>
@@ -908,7 +908,7 @@ def build_theme_more(brief, date_str, repo_root=None):
             continue
         d, title = a.groups()
         cards.append(f'''      <li><a href="archives/{d}.html" class="related-articles-item">
-        <img class="related-articles-image" src="assets/social/topic-images/{d}.jpg" alt="">
+        <img class="related-articles-image" loading="lazy" decoding="async" src="assets/social/topic-images/{d}.jpg" alt="">
         <div class="related-articles-content">
           <span class="related-articles-date">{int(d[8:10])} {MOIS_FR_ABBR[int(d[5:7]) - 1]}</span>
           <span class="related-articles-title">{fr_typo(title)}</span>
@@ -1131,7 +1131,7 @@ def build_home_cards(articles, lang="fr", section_id="dernieres-editions",
         return ""
     items = "\n".join(
         f'''      <li><a href="archives/{a.get("edition_id", a["date_str"])}.html" class="related-articles-item">
-        <img class="related-articles-image" src="{a["image_url"]}" alt="{a["title"]}">
+        <img class="related-articles-image" loading="lazy" decoding="async" src="{a["image_url"]}" alt="{a["title"]}">
         <div class="related-articles-content">
           <span class="related-articles-date">{(display_domain(a["domain"]) + " · ") if a.get("domain") else ""}{_format_date_short(a["date_str"], lang)}</span>
           <span class="related-articles-title">{fr_typo(a["title"], lang)}</span>
