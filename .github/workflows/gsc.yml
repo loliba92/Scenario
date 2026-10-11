@@ -19,6 +19,12 @@ on:
 permissions:
   contents: write
 
+# Une seule synchronisation à la fois : deux lancements simultanés modifiaient les mêmes fichiers de données
+# et le second échouait au moment de fusionner (run n° 3 du 11 octobre 2026).
+concurrency:
+  group: gsc-sync
+  cancel-in-progress: false
+
 jobs:
   sync-gsc:
     runs-on: ubuntu-latest
@@ -62,7 +68,9 @@ jobs:
             fi
             echo "Push rejeté (tentative $i/5), rebase et nouvel essai..."
             git fetch origin main
-            git rebase origin/main
+            # Les fichiers de ce workflow sont régénérés à chaque lancement : en cas de conflit, la version
+            # fraîchement calculée (« theirs » pendant un rebase) l'emporte ; sinon on abandonne ce rebase et on réessaie.
+            git rebase -X theirs origin/main || git rebase --abort
             sleep $((i * 3))
           done
           if [ "$pushed" != true ]; then
