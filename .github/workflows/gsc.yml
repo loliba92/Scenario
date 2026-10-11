@@ -2,7 +2,8 @@ name: Sync Search Console
 
 # Récupère chaque jour les données réelles de Google Search Console (clics, impressions, requêtes, pages,
 # indexation, état des plans du site) et les dépose dans data/gsc/. Tâche mécanique : aucune IA nécessaire.
-# Script : scripts/seo/gsc_sync.py. Installation (une fois) : docs/gsc-installation.md.
+# Scripts : scripts/seo/gsc_sync.py (récupération) puis scripts/seo/gsc_report.py (analyse : data/gsc/rapport.md,
+# page privée seo.html, carte « Référencement Google » du tableau de bord). Installation (une fois) : docs/gsc-installation.md.
 #
 # Secret requis (Settings → Secrets and variables → Actions) :
 #   GSC_SERVICE_ACCOUNT_JSON — contenu du fichier JSON du compte de service Google.
@@ -34,6 +35,9 @@ jobs:
           GSC_SITE: ${{ vars.GSC_SITE }}
         run: python3 scripts/seo/gsc_sync.py
 
+      - name: Analyser les données (rapport, page seo.html, carte du tableau de bord)
+        run: python3 scripts/seo/gsc_report.py
+
       - name: Committer et pousser seulement si des fichiers ont changé
         run: |
           git config user.name "scenario-gsc-bot"
@@ -43,7 +47,7 @@ jobs:
             echo "Aucune donnée Search Console (secret GSC_SERVICE_ACCOUNT_JSON absent ?) — rien à committer."
             exit 0
           fi
-          git add data/gsc
+          git add data/gsc seo.html dashboard.html
           if git diff --cached --quiet; then
             echo "Aucun changement — rien à committer."
             exit 0

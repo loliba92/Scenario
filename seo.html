@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tableau de bord SEO — Scénario</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#10151c">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #10151c;
+    --surface: #1a212b;
+    --surface-2: #212a35;
+    --hairline: #2c3644;
+    --paper: #ece7da;
+    --paper-dim: #a9a89c;
+    --gold: #cf9d4c;
+    --favorable: #5e9c78;
+    --stable: #6f8fae;
+    --degrade: #bd6248;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  ::selection{ background: var(--gold); color: var(--ink); }
+
+  :focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header.masthead{
+    border-bottom: 1px solid var(--hairline);
+    padding: 28px 0 22px;
+  }
+
+  .masthead-row{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .wordmark{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+
+  .wordmark span{ color: var(--gold); }
+
+  .brand-rio{ color: var(--gold); }
+
+  .brand{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .brand-row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 4px;
+    gap: 11px;
+  }
+
+
+  .brand-mark{
+    width: 30px;
+    height: 30px;
+    display: block;
+    flex: none;
+  }
+
+  nav.topnav{
+    background: var(--surface);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  nav.topnav .wrap{
+    display: flex;
+    gap: 16px;
+    padding: 12px 24px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  nav.topnav .wrap::-webkit-scrollbar{ display: none; }
+
+  .topnav a{ flex-shrink: 0; }
+
+  .topnav a{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+  }
+
+  .topnav a svg{ display: block; flex-shrink: 0; }
+
+  .topnav a:hover{ color: var(--paper); }
+
+  .topnav a[aria-current="page"]{
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  /* ---- Tableau de bord SEO (page privée générée par scripts/seo/gsc_report.py) ---- */
+  .hero{ padding: 48px 0 28px; border-bottom: 1px solid var(--hairline); }
+  .eyebrow{ font-family:"JetBrains Mono",monospace; font-size:.78rem; text-transform:uppercase; letter-spacing:.14em; color:var(--gold); margin:0 0 14px; }
+  h1{ font-family:"Fraunces",serif; font-weight:600; font-size:clamp(1.9rem,4.6vw,2.9rem); line-height:1.1; margin:0 0 12px; }
+  .dek{ color:var(--paper-dim); max-width:62ch; margin:0; font-size:1.02rem; }
+  .stamp{ font-family:"JetBrains Mono",monospace; font-size:.76rem; color:var(--paper-dim); margin:14px 0 0; }
+  section.block{ padding: 34px 0; border-bottom: 1px solid var(--hairline); }
+  section.block:last-of-type{ border-bottom:none; }
+  .label{ font-family:"JetBrains Mono",monospace; font-size:.78rem; text-transform:uppercase; letter-spacing:.14em; color:var(--gold); margin:0 0 8px; }
+  h2{ font-family:"Fraunces",serif; font-size:1.45rem; font-weight:600; margin:0 0 16px; }
+  p{ color:var(--paper-dim); margin:0 0 12px; max-width:70ch; }
+  strong{ color:var(--paper); font-weight:500; }
+  code{ font-family:"JetBrains Mono",monospace; font-size:.82em; color:var(--paper); background:var(--surface-2); padding:1px 5px; border-radius:4px; }
+  .verdict{ display:flex; gap:14px; align-items:flex-start; background:var(--surface); border:1px solid var(--hairline); border-left:4px solid var(--accent); border-radius:10px; padding:18px 20px; --accent:var(--stable); }
+  .verdict.is-critique{ --accent:var(--degrade); } .verdict.is-moyen{ --accent:var(--gold); } .verdict.is-bon{ --accent:var(--favorable); }
+  .verdict-tag{ font-family:"JetBrains Mono",monospace; font-size:.74rem; text-transform:uppercase; letter-spacing:.1em; color:var(--accent); white-space:nowrap; padding-top:3px; }
+  .verdict p{ margin:0; color:var(--paper); }
+  .kpis{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:0 0 4px; }
+  @media (min-width: 560px){ .kpis{ grid-template-columns:repeat(3,1fr); } }
+  @media (min-width: 980px){ .kpis{ grid-template-columns:repeat(6,1fr); } }
+  .kpi{ background:var(--surface); border:1px solid var(--hairline); border-radius:10px; padding:14px 16px; }
+  .kpi-val{ font-family:"Fraunces",serif; font-weight:700; font-size:1.7rem; line-height:1.1; color:var(--paper); }
+  .kpi-name{ font-family:"JetBrains Mono",monospace; font-size:.7rem; text-transform:uppercase; letter-spacing:.07em; color:var(--paper-dim); margin-top:6px; }
+  .kpi-note{ font-size:.78rem; color:var(--paper-dim); margin-top:4px; }
+  .kpi.is-bad .kpi-val{ color:var(--degrade); } .kpi.is-good .kpi-val{ color:var(--favorable); }
+  .todo{ display:grid; gap:12px; }
+  .todo-item{ background:var(--surface); border:1px solid var(--hairline); border-left:4px solid var(--accent); border-radius:10px; padding:14px 18px; --accent:var(--stable); }
+  .todo-item.p1{ --accent:var(--degrade); } .todo-item.p2{ --accent:var(--gold); }
+  .todo-prio{ font-family:"JetBrains Mono",monospace; font-size:.7rem; text-transform:uppercase; letter-spacing:.1em; color:var(--accent); margin:0 0 4px; }
+  .todo-item p{ margin:0; color:var(--paper); max-width:none; font-size:.95rem; }
+  .todo-item .how{ color:var(--paper-dim); margin-top:6px; font-size:.88rem; }
+  .duo{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .col{ background:var(--surface); border:1px solid var(--hairline); border-top:3px solid var(--accent); border-radius:10px; padding:18px 20px; --accent:var(--favorable); }
+  .col.is-bad{ --accent:var(--degrade); }
+  .col h3{ font-family:"JetBrains Mono",monospace; font-size:.78rem; text-transform:uppercase; letter-spacing:.1em; color:var(--accent); margin:0 0 12px; font-weight:500; }
+  .col ul{ list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+  .col li{ position:relative; padding-left:22px; color:var(--paper); font-size:.93rem; }
+  .col li::before{ content:"✓"; position:absolute; left:0; color:var(--favorable); font-family:"JetBrains Mono",monospace; }
+  .col.is-bad li::before{ content:"✕"; color:var(--degrade); }
+  .col li.empty{ color:var(--paper-dim); } .col li.empty::before{ content:"–"; color:var(--paper-dim); }
+  .list{ list-style:none; margin:0; padding:0; display:grid; gap:0; background:var(--surface); border:1px solid var(--hairline); border-radius:10px; overflow:hidden; }
+  .list li{ display:grid; grid-template-columns:1fr auto; gap:6px 16px; padding:10px 16px; border-top:1px solid var(--hairline); font-size:.9rem; color:var(--paper); }
+  .list li:first-child{ border-top:none; }
+  .list .meta{ font-family:"JetBrains Mono",monospace; font-size:.76rem; color:var(--paper-dim); white-space:nowrap; text-align:right; }
+  .list .url{ font-family:"JetBrains Mono",monospace; font-size:.8rem; overflow-wrap:anywhere; }
+  .pill{ display:inline-block; font-family:"JetBrains Mono",monospace; font-size:.68rem; text-transform:uppercase; letter-spacing:.06em; padding:2px 8px; border-radius:100px; border:1px solid var(--hairline); margin-right:8px; }
+  .pill.ok{ color:var(--favorable); border-color:var(--favorable); } .pill.bad{ color:var(--degrade); border-color:var(--degrade); } .pill.mid{ color:var(--gold); border-color:var(--gold); }
+  footer{ border-top:1px solid var(--hairline); padding:28px 0 44px; }
+  footer p{ font-size:.84rem; max-width:62ch; margin:0 0 8px; }
+  @media (max-width: 760px){ .duo{ grid-template-columns:1fr; } .verdict{ flex-direction:column; gap:6px; } .list li{ grid-template-columns:1fr; } .list .meta{ text-align:left; white-space:normal; } }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <div class="brand">
+      <div class="brand-row">
+        <img class="brand-mark" src="assets/logo.svg" alt="">
+        <a class="wordmark" href="index.html">Scéna<span>rio</span></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="index.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"/></svg> Accueil</a>
+    <a href="archives.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4.5" width="16" height="4" rx="1"/><path d="M5 8.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5"/><line x1="10" y1="13" x2="14" y2="13"/></svg> Éditions</a>
+    <a href="glossaire.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5c-1.6-1.2-3.7-1.7-6-1.7v13c2.3 0 4.4.5 6 1.7 1.6-1.2 3.7-1.7 6-1.7v-13c-2.3 0-4.4.5-6 1.7Z"/><line x1="12" y1="6.5" x2="12" y2="19.5"/></svg> Glossaire</a>
+    <a href="le-projet.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4.5-8 4.5-8-4.5Z"/><path d="m4 12 8 4.5 8-4.5"/><path d="m4 16.5 8 4.5 8-4.5"/></svg> Le projet</a>
+  </div>
+</nav>
+
+<main>
+<section class="hero"><div class="wrap">
+<p class="eyebrow">Tableau de bord SEO</p><h1>Où en est le référencement ?</h1>
+<p class="dek">Analyse automatique des données réelles de Google Search Console, mise à jour chaque jour : ce qui est critique, ce qui fonctionne et surtout ce qui ne fonctionne pas.</p>
+<p class="stamp">Données Google du 2026-09-11 au 2026-10-08 · synchronisées le 2026-10-11 · ~3 jours de retard côté Google</p>
+</div></section>
+<section class="block"><div class="wrap">
+<p class="label">Verdict</p>
+<div class="verdict is-critique"><span class="verdict-tag">Critique</span><p>7 éditions de plus de 7 jours sont inconnues de Google (sur 26 pages inspectées). Demander l&#x27;indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours.</p></div>
+</div></section>
+<section class="block"><div class="wrap"><p class="label">Chiffres</p><h2>28 derniers jours</h2><div class="kpis"><div class="kpi is-bad"><div class="kpi-val">4</div><div class="kpi-name">clics Google</div><div class="kpi-note">sur 28 jours</div></div><div class="kpi "><div class="kpi-val">286</div><div class="kpi-name">impressions</div><div class="kpi-note">161 contre 125 avant</div></div><div class="kpi is-bad"><div class="kpi-val">1,4 %</div><div class="kpi-name">taux de clic</div></div><div class="kpi is-good"><div class="kpi-val">9,1</div><div class="kpi-name">position moyenne</div><div class="kpi-note">plus petit = mieux</div></div><div class="kpi is-bad"><div class="kpi-val">10 / 26</div><div class="kpi-name">pages indexées</div><div class="kpi-note">échantillon inspecté</div></div><div class="kpi is-bad"><div class="kpi-val">7</div><div class="kpi-name">éditions inconnues</div><div class="kpi-note">publiées depuis plus de 7 jours</div></div></div></div></section>
+<section class="block"><div class="wrap"><p class="label">Priorités</p><h2>À résoudre, avec les recommandations</h2><div class="todo"><div class="todo-item p1"><p class="todo-prio">Critique</p><p>7 éditions de plus de 7 jours sont inconnues de Google (sur 26 pages inspectées).</p><p class="how"><strong>Recommandation :</strong> Demander l&#x27;indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours.</p><p class="how"><strong>Agent à envoyer :</strong> <code>seo-technical + seo-sitemap</code> — Diagnostiquer pourquoi ces éditions restent inconnues de Google : profondeur de clics depuis l&#x27;accueil, liens internes vers les éditions récentes, structure et dates du plan du site, robots.txt, vitesse. Rendre un plan correctif chiffré, classé par impact.</p></div><div class="todo-item p2"><p class="todo-prio">Important</p><p>Le site apparaît (position moyenne 9,1) mais est très peu cliqué (1,4 %).</p><p class="how"><strong>Recommandation :</strong> Retravailler les titres et descriptions des pages les plus vues.</p><p class="how"><strong>Agent à envoyer :</strong> <code>seo-content</code> — Proposer de nouveaux titres (≤ 59 caractères) et descriptions (100–160) plus incitatifs pour les pages les plus vues, dans le ton sobre de Scénario ; ne rien promettre.</p></div><div class="todo-item p2"><p class="todo-prio">Important</p><p>1 page : Google connaît l&#x27;adresse mais ne l&#x27;a pas encore explorée ou retenue (<code>/guide-pedagogique.html</code>).</p><p class="how"><strong>Recommandation :</strong> Renforcer les liens internes vers la page, enrichir son contenu, demander l&#x27;indexation.</p><p class="how"><strong>Agent à envoyer :</strong> <code>seo-content</code> — Comprendre pourquoi Google retient ou écarte ces pages (profondeur, unicité, qualité perçue) et proposer des améliorations de contenu et de liens internes.</p></div><div class="todo-item p2"><p class="todo-prio">Important</p><p>Éditions en français : 7 descriptions hors norme.</p><p class="how"><strong>Recommandation :</strong> Corriger via les générateurs (voir .claude/seo-routage.md).</p><p class="how"><strong>Mission :</strong> Correction directe dans les générateurs (generate_seo_head.py, translate_daily.py), puis régénération et tests.</p></div><div class="todo-item p3"><p class="todo-prio">À surveiller</p><p>Seulement 6 requêtes enregistrées.</p><p class="how"><strong>Recommandation :</strong> Trop peu pour piloter par mots-clés : viser d&#x27;abord l&#x27;indexation des éditions.</p><p class="how"><strong>Agent à envoyer :</strong> <code>seo-cluster</code> — Proposer des axes thématiques (matières, sujets récurrents) et un maillage interne pour élargir les requêtes, sans produire de pages en série.</p></div><div class="todo-item p3"><p class="todo-prio">À surveiller</p><p>Pages en première page de Google sans aucun clic : <code>/</code>, <code>/en/archives/2026-08-08.html</code>, <code>/en/archives/2026-09-11.html</code>, <code>/en/archives/2026-09-13.html</code>, <code>/en/archives/2026-09-15.html</code>.</p><p class="how"><strong>Recommandation :</strong> Titre ou description à rendre plus incitatif.</p><p class="how"><strong>Agent à envoyer :</strong> <code>seo-content</code> — Réécrire titre et description de ces pages (liste dans le rapport), puis vérifier la cohérence avec le contenu.</p></div><div class="todo-item p3"><p class="todo-prio">À surveiller</p><p>L&#x27;adresse <code>/index.html</code> apparaît dans Google en plus de <code>/</code>.</p><p class="how"><strong>Recommandation :</strong> Vérifier la balise canonique de l&#x27;accueil.</p><p class="how"><strong>Agent à envoyer :</strong> <code>seo-technical</code> — Vérifier la canonique de l&#x27;accueil, les redirections et les liens internes qui pointent vers /index.html.</p></div></div></div></section>
+<section class="block"><div class="wrap"><p class="label">Votre part</p><h2>Ce que seul vous pouvez faire</h2><div class="todo"><div class="todo-item p2"><p class="todo-prio">À faire par vous</p><p>Dans Search Console, collez l&#x27;adresse de l&#x27;édition du jour dans la barre du haut, puis « Demander une indexation » (quota limité par jour) ; répétez pour les éditions inconnues les plus récentes.</p></div><div class="todo-item p2"><p class="todo-prio">À faire par vous</p><p>Faites de même pour les pages principales « détectées, non indexées » (guide pédagogique, par exemple).</p></div><div class="todo-item p2"><p class="todo-prio">À faire par vous</p><p>Relisez les recommandations des agents avant de valider tout changement de titres ou de contenu.</p></div></div></div></section>
+<section class="block"><div class="wrap"><p class="label">Bilan</p><h2>Ce qui marche, ce qui ne marche pas</h2>
+<div class="duo"><div class="col "><h3>Ce qui fonctionne</h3><ul><li>Visibilité en hausse : 161 impressions sur les 14 derniers jours contre 125 avant.</li><li>Google affiche le site en position moyenne 9,1 (première page) sur 286 impressions.</li><li>5 pages principales indexées : <code>/</code>, <code>/archives.html</code>, <code>/le-projet.html</code>, <code>/sources.html</code>, <code>/glossaire.html</code>.</li><li>5 éditions indexées par Google.</li><li>Plan du site <code>/sitemap.xml</code> lu par Google sans erreur (162 adresses envoyées).</li><li>Plan du site <code>/sitemap-news.xml</code> lu par Google sans erreur (10 adresses envoyées).</li><li>Balises des 48 éditions en anglais conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.</li></ul></div><div class="col is-bad"><h3>Ce qui ne fonctionne pas</h3><ul><li>Presque aucune visite venue de Google : 4 clics en 28 jours.</li><li>Découverte trop lente : 7 éditions publiées depuis plus d’une semaine ne sont pas connues de Google.</li><li>Page principale non indexée : <code>/guide-pedagogique.html</code>.</li></ul></div></div></div></section>
+<section class="block"><div class="wrap"><p class="label">Indexation</p><h2>Page par page</h2><ul class="list"><li><span><span class="pill bad">Inconnue de Google</span><span class="url">/archives/2026-09-23.html</span></span><span class="meta">publiée il y a 18 j</span></li><li><span><span class="pill bad">Inconnue de Google</span><span class="url">/archives/2026-09-24.html</span></span><span class="meta">publiée il y a 17 j</span></li><li><span><span class="pill bad">Inconnue de Google</span><span class="url">/archives/2026-09-29.html</span></span><span class="meta">publiée il y a 12 j</span></li><li><span><span class="pill bad">Inconnue de Google</span><span class="url">/archives/2026-09-30.html</span></span><span class="meta">publiée il y a 11 j</span></li><li><span><span class="pill bad">Inconnue de Google</span><span class="url">/archives/2026-10-01.html</span></span><span class="meta">publiée il y a 10 j</span></li><li><span><span class="pill bad">Inconnue de Google</span><span class="url">/archives/2026-10-02.html</span></span><span class="meta">publiée il y a 9 j</span></li><li><span><span class="pill bad">Inconnue de Google</span><span class="url">/archives/2026-10-03.html</span></span><span class="meta">publiée il y a 8 j</span></li><li><span><span class="pill bad">Inconnue de Google</span><span class="url">/archives/2026-10-04.html</span></span><span class="meta">publiée il y a 7 j</span></li><li><span><span class="pill bad">Inconnue de Google</span><span class="url">/archives/2026-10-05.html</span></span><span class="meta">publiée il y a 6 j</span></li><li><span><span class="pill bad">Inconnue de Google</span><span class="url">/archives/2026-10-06.html</span></span><span class="meta">publiée il y a 5 j</span></li><li><span><span class="pill bad">Inconnue de Google</span><span class="url">/archives/2026-10-07.html</span></span><span class="meta">publiée il y a 4 j</span></li><li><span><span class="pill bad">Inconnue de Google</span><span class="url">/archives/2026-10-08.html</span></span><span class="meta">publiée il y a 3 j</span></li><li><span><span class="pill bad">Inconnue de Google</span><span class="url">/archives/2026-10-09.html</span></span><span class="meta">publiée il y a 2 j</span></li><li><span><span class="pill bad">Inconnue de Google</span><span class="url">/archives/2026-10-10.html</span></span><span class="meta">publiée il y a 1 j</span></li><li><span><span class="pill bad">Inconnue de Google</span><span class="url">/archives/2026-10-11.html</span></span><span class="meta">publiée il y a 0 j</span></li><li><span><span class="pill mid">Détectée, non indexée</span><span class="url">/guide-pedagogique.html</span></span><span class="meta">page principale</span></li><li><span><span class="pill ok">Indexée</span><span class="url">/</span></span><span class="meta">page principale · explorée le 2026-10-07</span></li><li><span><span class="pill ok">Indexée</span><span class="url">/archives.html</span></span><span class="meta">page principale · explorée le 2026-08-30</span></li><li><span><span class="pill ok">Indexée</span><span class="url">/archives/2026-09-22.html</span></span><span class="meta">publiée il y a 19 j · explorée le 2026-09-27</span></li><li><span><span class="pill ok">Indexée</span><span class="url">/archives/2026-09-25.html</span></span><span class="meta">publiée il y a 16 j · explorée le 2026-09-27</span></li><li><span><span class="pill ok">Indexée</span><span class="url">/archives/2026-09-26.html</span></span><span class="meta">publiée il y a 15 j · explorée le 2026-09-28</span></li><li><span><span class="pill ok">Indexée</span><span class="url">/archives/2026-09-27.html</span></span><span class="meta">publiée il y a 14 j · explorée le 2026-09-28</span></li><li><span><span class="pill ok">Indexée</span><span class="url">/archives/2026-09-28.html</span></span><span class="meta">publiée il y a 13 j · explorée le 2026-09-28</span></li><li><span><span class="pill ok">Indexée</span><span class="url">/glossaire.html</span></span><span class="meta">page principale · explorée le 2026-09-28</span></li><li><span><span class="pill ok">Indexée</span><span class="url">/le-projet.html</span></span><span class="meta">page principale · explorée le 2026-09-11</span></li><li><span><span class="pill ok">Indexée</span><span class="url">/sources.html</span></span><span class="meta">page principale · explorée le 2026-09-19</span></li></ul></div></section>
+<section class="block"><div class="wrap"><p class="label">Recherches</p><h2>Requêtes et pages vues</h2>
+<ul class="list"><li><span>« scénarios email »</span><span class="meta">0 clic(s) · 8 imp. · pos. 88,1</span></li><li><span>« ceutat »</span><span class="meta">0 clic(s) · 1 imp. · pos. 8</span></li><li><span>« las dos últimas »</span><span class="meta">0 clic(s) · 1 imp. · pos. 4</span></li><li><span>« les scénarios »</span><span class="meta">0 clic(s) · 1 imp. · pos. 47</span></li><li><span>« n&#x27;importe quoi »</span><span class="meta">0 clic(s) · 1 imp. · pos. 1</span></li><li><span>« oui »</span><span class="meta">0 clic(s) · 1 imp. · pos. 1</span></li></ul><p style="margin-top:14px"></p><ul class="list"><li><span class="url">/en/archives/2026-08-08.html</span><span class="meta">0 clic(s) · 81 imp. · pos. 7,0</span></li><li><span class="url">/en/archives/2026-09-21.html</span><span class="meta">0 clic(s) · 29 imp. · pos. 6,9</span></li><li><span class="url">/en/archives/2026-09-13.html</span><span class="meta">0 clic(s) · 23 imp. · pos. 5,6</span></li><li><span class="url">/en/archives/2026-08-30.html</span><span class="meta">1 clic(s) · 21 imp. · pos. 5,9</span></li><li><span class="url">/en/archives/2026-09-15.html</span><span class="meta">0 clic(s) · 16 imp. · pos. 7</span></li><li><span class="url">/le-projet.html</span><span class="meta">1 clic(s) · 15 imp. · pos. 8,7</span></li><li><span class="url">/newsletter.html</span><span class="meta">0 clic(s) · 14 imp. · pos. 52,2</span></li><li><span class="url">/en/archives/2026-09-11.html</span><span class="meta">0 clic(s) · 13 imp. · pos. 7,5</span></li></ul></div></section>
+<section class="block"><div class="wrap"><p class="label">Santé technique</p><h2>Plans du site et balises</h2>
+<ul class="list"><li><span class="url">/sitemap.xml</span><span class="meta">162 adresses · 0 erreur(s) · lu le 2026-10-09</span></li><li><span class="url">/sitemap-news.xml</span><span class="meta">10 adresses · 0 erreur(s) · lu le 2026-10-10</span></li><li><span><span class="pill mid">7 écart(s)</span>Éditions en français (80 pages)</span><span class="meta">titres, descriptions, titre principal, canonique, plan du site</span></li><li><span><span class="pill ok">Conforme</span>Éditions en anglais (48 pages)</span><span class="meta">titres, descriptions, titre principal, canonique, plan du site</span></li></ul>
+<p style="margin-top:14px">Le compteur « indexées » des plans du site est peu fiable : l'inspection page par page ci-dessus fait foi.</p></div></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Page privée (non indexée), générée automatiquement par <code>scripts/seo/gsc_report.py</code> après chaque synchronisation Search Console. Ne pas modifier à la main : les modifications seraient écrasées.</p>
+    <p class="devise">Rien n'est écrit à l'avance.</p>
+  </div>
+</footer>
+
+</body>
+</html>

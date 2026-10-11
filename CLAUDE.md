@@ -31,3 +31,4 @@ Toute modification visuelle se vérifie à l'écran avant de la livrer, pas seul
 ## SEO
 - Toute demande autour du référencement (titres, balises, Google, citation par les IA, trafic, indexation) : lire d'abord `.claude/seo-routage.md`. Il indique quel module (`.claude/skills/`) ou quel agent (`.claude/agents/`) appeler, dans quel ordre, et où corriger.
 - Les agents SEO peuvent être lancés sans redemander pour une demande SEO (autorisation durable du propriétaire). Mesurer d'abord (SEOmatic, gratuit) ; Semrush est payant : ne pas l'utiliser sans demande.
+- Search Console : `data/gsc/rapport.md` (mis à jour chaque jour, aussi en page privée `seo.html` et carte du tableau de bord) liste les problèmes avec l'agent à envoyer et sa mission. Problème critique ou important : envoyer ces agents sans redemander (`gsc-expert` d'abord pour les données et la connexion), corriger dans le périmètre, rendre compte. Procédure complète : `.claude/seo-routage.md`.
