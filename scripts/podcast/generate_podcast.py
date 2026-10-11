@@ -417,6 +417,21 @@ def egaliser_pcm(pcm: bytes, filtre: str = FILTRE_CLARTE) -> bytes:
     return subprocess.run(cmd, input=pcm, capture_output=True, check=True).stdout
 
 
+VITESSE_ACCUEIL = 0.88   # l'accueil est lu seul, en peu de mots : la voix de synthèse l'enchaîne trop vite (retour du 11 octobre 2026)
+
+
+def ralentir_pcm(pcm: bytes, vitesse: float = VITESSE_ACCUEIL) -> bytes:
+    """Ralentit la voix (PCM 16 bits mono) sans changer sa hauteur ; 0,88 = environ 12 % plus lent.
+
+    Sert à l'accueil seulement. Une consigne de lecture ne peut pas être ajoutée au texte (la voix la lirait à voix haute,
+    voir synthese_unique) : le rythme se règle donc sur le son. Sans ffmpeg, la voix est rendue telle quelle."""
+    if not pcm or vitesse >= 1 or not shutil.which("ffmpeg"):
+        return pcm
+    cmd = ["ffmpeg", "-loglevel", "error", "-f", "s16le", "-ar", str(SAMPLE_RATE), "-ac", "1", "-i", "pipe:0",
+           "-af", f"atempo={vitesse}", "-f", "s16le", "-ar", str(SAMPLE_RATE), "-ac", "1", "pipe:1"]
+    return subprocess.run(cmd, input=pcm, capture_output=True, check=True).stdout
+
+
 def vers_mp3(wav: Path, mp3: Path, normaliser: bool = False, clair: bool = False) -> bool:
     """MP3 mono 24 kHz, 96 kb/s. Aucun traitement par défaut : le 7 octobre 2026, le propriétaire a demandé de retirer la
     normalisation du volume (-16 LUFS) et la correction de voix, jugées pesantes (voix compressée, amplifiée, sifflante).

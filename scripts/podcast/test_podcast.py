@@ -58,6 +58,19 @@ class PodcastTest(unittest.TestCase):
         self.assertIn("intelligence artificielle", " ".join(l["texte"] for l in debut))
         self.assertIn("lesscenarios.fr", " ".join(l["texte"] for l in fin))
 
+    def test_accueil_ralenti_sans_changer_la_hauteur(self):
+        import math
+        voix = array("h", [int(8000 * math.sin(2 * math.pi * 220 * i / gp.SAMPLE_RATE)) for i in range(gp.SAMPLE_RATE * 3)]).tobytes()
+        lente = gp.ralentir_pcm(voix)
+        rapport = len(lente) / len(voix)
+        self.assertAlmostEqual(rapport, 1 / gp.VITESSE_ACCUEIL, delta=0.03, msg="durée allongée d'environ 14 %")
+        a = array("h")
+        a.frombytes(lente)
+        pas_de_zero = sum(1 for i in range(1, len(a)) if a[i - 1] < 0 <= a[i])
+        self.assertAlmostEqual(pas_de_zero / (len(a) / gp.SAMPLE_RATE), 220, delta=8, msg="hauteur inchangée (220 Hz)")
+        self.assertEqual(gp.ralentir_pcm(voix, 1.0), voix, "vitesse 1 : rien ne change")
+        self.assertEqual(gp.ralentir_pcm(b""), b"")
+
     def test_habillage_musical(self):
         voix = array("h", [int(8000 * (1 if (i // 40) % 2 else -1)) for i in range(mu.SR * 2)]).tobytes()
         sortie = mu.habiller(voix)
