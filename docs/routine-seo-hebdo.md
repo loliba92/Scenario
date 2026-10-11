@@ -39,7 +39,10 @@ Pour la modifier : changer ce fichier (la routine le relit à chaque lancement).
 ### 5. Livrer
 Pour chaque correction : tests (`scripts/edition`, `scripts/seo`, `scripts/podcast`), contrôle visuel sur ordinateur (~1100 px) et téléphone (~390 px) si l'interface change, PR claire, fusion une fois les tests au vert (règle de `CLAUDE.md`).
 
-### 6. Journaliser
+### 6. Conclure sur le site
+Ajouter l'audit de la semaine en tête de la liste `audits` de `data/gsc/conclusions.json` : date, titre, verdict, agents consultés, `constats` (titre, certitude, cause, `statut` parmi `corrige`, `a_faire`, `proprietaire`, `ecarte`, action), `proprietaire` (gestes que lui seul peut faire), `inconnu` (ce qui reste incertain), `prochain_controle`. Le fichier alimente la section « Conclusions des agents » de `seo.html` et de `data/gsc/rapport.md` (regénérés chaque jour). Ne garder que les trois derniers audits. Relire le dernier audit **avant** de diagnostiquer : ne pas refaire une analyse déjà conclue, vérifier si ses « à faire » ont bougé.
+
+### 7. Journaliser
 Ajouter à la fin de `data/gsc/journal-hebdo.md` (le créer si absent), **dans la même PR** ou, s'il n'y en a pas, dans une PR dédiée très courte :
 
 ```
@@ -51,7 +54,7 @@ Ajouter à la fin de `data/gsc/journal-hebdo.md` (le créer si absent), **dans l
 - Pour le propriétaire (Search Console) : …
 ```
 
-### 7. Rendre compte
+### 8. Rendre compte
 Résumé en français, vouvoiement, sans jargon : le verdict, ce qui a été constaté et corrigé, ce qui reste et que **seul le propriétaire** peut faire (demande d'indexation dans Search Console, autorisations Google). Ne jamais demander de coller un secret ou une clé.
 
 ---

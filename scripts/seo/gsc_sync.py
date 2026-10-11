@@ -50,8 +50,9 @@ API = "https://www.googleapis.com/webmasters/v3"
 INSPECT_API = "https://searchconsole.googleapis.com/v1/urlInspection/index:inspect"
 
 SITEMAPS = ("sitemap.xml", "sitemap-news.xml")
-KEY_PAGES = ("", "archives.html", "guide-pedagogique.html", "le-projet.html", "sources.html", "glossaire.html")
-LAST_EDITIONS = 20          # pages d'éditions inspectées (quota Google : 2000 par jour, on en utilise ~30)
+KEY_PAGES = ("", "archives.html", "guide-pedagogique.html", "le-projet.html", "sources.html", "glossaire.html", "en/")
+LAST_EDITIONS = 20          # éditions françaises inspectées (quota Google : 2000 par jour, on en utilise ~35)
+LAST_EDITIONS_EN = 6        # éditions anglaises inspectées (les pages anglaises sont les plus vues : audit du 11 octobre 2026)
 DATA_LAG_DAYS = 3           # Search Console publie ses chiffres avec ~2-3 jours de retard
 WINDOW_DAYS = 28
 ROW_LIMIT = 100
@@ -171,6 +172,8 @@ def pages_to_inspect(root: Path = ROOT) -> list[str]:
     urls = [f"{SITE_URL_PUBLIC}/{p}" for p in KEY_PAGES]
     editions = sorted((root / "archives").glob("2026-*.html"), reverse=True)[:LAST_EDITIONS]
     urls += [f"{SITE_URL_PUBLIC}/archives/{e.name}" for e in editions]
+    editions_en = sorted((root / "en" / "archives").glob("2026-*.html"), reverse=True)[:LAST_EDITIONS_EN]
+    urls += [f"{SITE_URL_PUBLIC}/en/archives/{e.name}" for e in editions_en]
     return urls
 
 

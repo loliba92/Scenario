@@ -12,6 +12,7 @@ Tout hardcodé (règles + données du brief) — aucun modèle AI.
 """
 import json
 import html
+import re
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, Any
@@ -113,9 +114,36 @@ _MOTS_OUTILS = {
 }
 
 
+_COMPLEMENTS = (
+    "Trois scénarios chiffrés — favorable, stable, dégradé — pour comprendre la suite.",
+    "Trois scénarios chiffrés, à court, moyen et long terme.",
+)
+
+
 def _build_description(brief: Dict[str, Any]) -> str:
-    """Meta description: question_posee (max 160 chars)."""
-    question = brief.get("sujet", {}).get("question_posee", "")
+    """Meta description : 100 à 160 caractères, sans coupure en plein milieu d'une phrase.
+
+    - question_posee telle quelle si elle tient en 160 caractères ;
+    - sinon les premières phrases complètes qui tiennent en 100 à 160 caractères ;
+    - sinon le titre h1 suivi d'un complément (« Trois scénarios chiffrés… ») ;
+    - en dernier recours seulement, troncature à la frontière de mot (« … »).
+    Constaté le 11 octobre 2026 : une question longue coupée par « … » laissait une description
+    inachevée dans les résultats de Google (7 éditions concernées, corrigées à part)."""
+    sujet = brief.get("sujet", {})
+    question = sujet.get("question_posee", "")
+    if len(question) <= 160:
+        return question
+    # Plus longue suite de phrases complètes qui tient en 160 caractères (« Bros. » n'est pas une fin de phrase :
+    # on ne s'arrête pas au premier point, on prend la dernière fin de phrase possible).
+    fins = [m.end() for m in re.finditer(r"[.?!](?=\s|$)", question) if 100 <= m.end() <= 160]
+    if fins:
+        return question[:fins[-1]].strip()
+    h1 = (sujet.get("h1") or "").replace("\xa0", " ").strip()
+    if h1:
+        base = h1 if h1[-1] in ".?!" else h1 + "."
+        for complement in _COMPLEMENTS:
+            if len(base) + 1 + len(complement) <= 160:
+                return f"{base} {complement}"
     return _truncate_at_word_boundary(question, 160)
 
 

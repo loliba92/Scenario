@@ -15,6 +15,7 @@ Mises à jour chaque jour par `.github/workflows/gsc.yml` (scripts `scripts/seo/
 | Fichier | Contenu |
 |---|---|
 | `data/gsc/rapport.md` | **Point de départ.** Verdict, problèmes classés, agents à envoyer, ce qui marche ou non |
+| `data/gsc/conclusions.json` | **Conclusions des audits précédents** (constats, statut corrigé / à faire / propriétaire / écarté, inconnues, prochain contrôle). À lire avant de diagnostiquer : ne pas refaire une analyse déjà conclue |
 | `data/gsc/summary.json` | 28 jours : totaux, 100 meilleures requêtes, 100 meilleures pages |
 | `data/gsc/history.json` | Un point par jour (clics, impressions, CTR, position), cumulé |
 | `data/gsc/indexation.json` | État d'indexation Google de ~26 pages (accueil, pages clés, 20 dernières éditions) |

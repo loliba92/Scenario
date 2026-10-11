@@ -83,11 +83,15 @@ class TestDonnees(unittest.TestCase):
     def test_pages_a_inspecter(self):
         with tempfile.TemporaryDirectory() as d:
             (Path(d) / "archives").mkdir()
+            (Path(d) / "en" / "archives").mkdir(parents=True)
             for day in ("2026-10-01", "2026-10-02", "2026-10-03"):
                 (Path(d) / "archives" / f"{day}.html").write_text("x")
+                (Path(d) / "en" / "archives" / f"{day}.html").write_text("x")
             urls = g.pages_to_inspect(Path(d))
         self.assertIn("https://lesscenarios.fr/", urls)
+        self.assertIn("https://lesscenarios.fr/en/", urls)
         self.assertEqual(urls[len(g.KEY_PAGES)], "https://lesscenarios.fr/archives/2026-10-03.html")  # la plus récente d'abord
+        self.assertEqual(urls[-3], "https://lesscenarios.fr/en/archives/2026-10-03.html")             # puis les éditions anglaises
 
 
 class TestExecution(unittest.TestCase):

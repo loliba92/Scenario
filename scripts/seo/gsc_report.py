@@ -74,6 +74,15 @@ def page_age(url, today):
     return (today - date(int(m.group(1)), int(m.group(2)), int(m.group(3)))).days if m else None
 
 
+MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
+
+
+def date_fr(iso):
+    """'2026-10-11' -> '11 octobre 2026' (texte inchangé si ce n'est pas une date ISO)."""
+    m = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", iso or "")
+    return f"{int(m.group(3))}{'er' if m.group(3) == '01' else ''} {MOIS[int(m.group(2)) - 1]} {m.group(1)}" if m else (iso or "")
+
+
 def fr(x):
     """Nombre à la française (virgule décimale)."""
     return str(x).replace(".", ",")
@@ -141,7 +150,7 @@ def analyser(dir_=DATA, today=None, root=ROOT):
     today = today or date.today()
     summary, indexation, sitemaps, history = (load(dir_, n) for n in
                                               ("summary.json", "indexation.json", "sitemaps.json", "history.json"))
-    A = {"date": today.isoformat(), "donnees": bool(summary), "critiques": [], "importants": [], "surveiller": [],
+    A = {"conclusions": load(dir_, "conclusions.json") or {"audits": []}, "date": today.isoformat(), "donnees": bool(summary), "critiques": [], "importants": [], "surveiller": [],
          "fonctionne": [], "ne_fonctionne_pas": [], "kpi": {}, "requetes": [], "pages": [], "indexation": [],
          "plans": [], "controles": {}, "verdict": ("moyen", "Aucune donnée Google pour l'instant.")}
     if not summary:
@@ -236,7 +245,8 @@ def analyser(dir_=DATA, today=None, root=ROOT):
     # plans du site
     for s in (sitemaps or {}).get("plans", []):
         nom = s["plan"].replace(PUBLIC, "")
-        envoyees = sum(int(c.get("submitted", 0)) for c in (s.get("contenus") or []))
+        # Un plan Actualités déclare ses adresses deux fois (« web » et « news ») : on prend le plus grand total, pas la somme.
+        envoyees = max([int(c.get("submitted", 0)) for c in (s.get("contenus") or [])] or [0])
         A["plans"].append({"plan": nom, "envoyees": envoyees, "erreurs": s.get("erreurs"), "avertissements": s.get("avertissements"),
                            "lecture": (s.get("derniere_lecture") or "")[:10], "erreur_api": s.get("erreur")})
         if s.get("erreur"):
@@ -302,6 +312,7 @@ def rendre_md(A):
         L += ["", f"## {titre}", ""] + ([f"- {m}" for m in A[cle]] or ["- Rien à signaler."])
     if A.get("a_faire_par_vous"):
         L += ["", "## Ce que seul le propriétaire peut faire", ""] + [f"- {x}" for x in A["a_faire_par_vous"]]
+    L += _conclusions_md(A)
     L += ["", "## Requêtes principales", ""] + [f"- « {q['requete']} » : {q['clicks']} clic(s), {q['impressions']} impression(s), position {fr(q['position'])}" for q in A["requetes"]]
     L += ["", "## Pages les plus vues", ""] + [f"- `{chemin(p['page'])}` : {p['impressions']} impressions, {p['clicks']} clic(s), position {fr(p['position'])}" for p in A["pages"]]
     L += ["", "## Indexation page par page", ""]
@@ -312,6 +323,28 @@ def rendre_md(A):
 
 
 # ------------------------------------------------------------------ rendu page
+STATUTS = {"corrige": ("Corrigé", "ok"), "a_faire": ("À faire", "mid"), "proprietaire": ("Vous", "bad"), "ecarte": ("Écarté", "")}
+
+
+def _audits(A):
+    return sorted((A.get("conclusions") or {}).get("audits", []), key=lambda a: a.get("date", ""), reverse=True)[:3]
+
+
+def _conclusions_md(A):
+    L = []
+    for a in _audits(A):
+        L += ["", f"## Conclusions des agents — {date_fr(a.get('date'))} : {a.get('titre', '')}", "",
+              f"**Verdict** : {a.get('verdict', '')}", f"**Agents** : {', '.join(a.get('agents', []))}.", ""]
+        for c in a.get("constats", []):
+            L.append(f"- [{STATUTS.get(c.get('statut'), ('?', ''))[0]}] **{c.get('titre')}** ({c.get('certitude', '')}) — {c.get('cause', '')} **Action** : {c.get('action', '')}")
+        for cle, titre in (("proprietaire", "À faire par le propriétaire"), ("inconnu", "Ce que l'on ne sait pas encore")):
+            if a.get(cle):
+                L += ["", f"{titre} :"] + [f"- {x}" for x in a[cle]]
+        if a.get("prochain_controle"):
+            L += ["", f"Prochain contrôle : {a['prochain_controle']}."]
+    return L
+
+
 def _code(s):
     return re.sub(r"`([^`]+)`", r"<code>\1</code>", _h.escape(s))
 
@@ -377,6 +410,24 @@ def rendre_html(A, tpl=None):
         pb = sum(v for kk, v in c.items() if kk != "pages")
         ctl += f'<li><span><span class="pill {"ok" if not pb else "mid"}">{"Conforme" if not pb else str(pb) + " écart(s)"}</span>Éditions en {"français" if nom == "fr" else "anglais"} ({c["pages"]} pages)</span><span class="meta">titres, descriptions, titre principal, canonique, plan du site</span></li>'
 
+    concl = ""
+    for audit in _audits(A):
+        cartes = ""
+        for c in audit.get("constats", []):
+            nom, cls = STATUTS.get(c.get("statut"), ("?", ""))
+            cartes += (f'<div class="todo-item st-{e(c.get("statut", ""))}"><p class="todo-prio"><span class="pill {cls}">{e(nom)}</span>{e(c.get("certitude", ""))}</p>'
+                       f'<p><strong>{_code(c.get("titre", ""))}</strong></p><p class="how">{_code(c.get("cause", ""))}</p>'
+                       f'<p class="how"><strong>Action :</strong> {_code(c.get("action", ""))}</p></div>')
+        listes = ""
+        for cle, titre in (("proprietaire", "À faire par vous"), ("inconnu", "Ce que l’on ne sait pas encore")):
+            if audit.get(cle):
+                listes += f'<div class="col {"is-bad" if cle == "proprietaire" else "is-unknown"}"><h3>{titre}</h3><ul>' + "".join(f"<li>{_code(x)}</li>" for x in audit[cle]) + "</ul></div>"
+        controle = f'<p style="margin-top:14px">Prochain contrôle : <strong>{e(audit["prochain_controle"])}</strong>.</p>' if audit.get("prochain_controle") else ""
+        concl += (f'<section class="block"><div class="wrap"><p class="label">Conclusions des agents</p><h2>Audit du {e(date_fr(audit.get("date", "")))} : {e(audit.get("titre", ""))}</h2>'
+                  f'<div class="verdict is-moyen"><span class="verdict-tag">Verdict</span><p>{_code(audit.get("verdict", ""))}</p></div>'
+                  f'<p class="stamp">Agents consultés : {e(", ".join(audit.get("agents", [])))}</p>'
+                  f'<div class="todo" style="margin-top:16px">{cartes}</div>'
+                  f'<div class="duo" style="margin-top:16px">{listes}</div>{controle}</div></section>')
     moi = ""
     if A.get("a_faire_par_vous"):
         moi = ('<section class="block"><div class="wrap"><p class="label">Votre part</p><h2>Ce que seul vous pouvez faire</h2><div class="todo">'
@@ -393,6 +444,7 @@ def rendre_html(A, tpl=None):
 <section class="block"><div class="wrap"><p class="label">Chiffres</p><h2>28 derniers jours</h2><div class="kpis">{kpis}</div></div></section>
 <section class="block"><div class="wrap"><p class="label">Priorités</p><h2>À résoudre, avec les recommandations</h2><div class="todo">{a_faire}</div></div></section>
 {moi}
+{concl}
 <section class="block"><div class="wrap"><p class="label">Bilan</p><h2>Ce qui marche, ce qui ne marche pas</h2>
 <div class="duo">{col(A["fonctionne"], "", "Ce qui fonctionne")}{col(A["ne_fonctionne_pas"], "is-bad", "Ce qui ne fonctionne pas")}</div></div></section>
 <section class="block"><div class="wrap"><p class="label">Indexation</p><h2>Page par page</h2><ul class="list">{lignes or "<li><span>Aucune inspection.</span></li>"}</ul></div></section>
