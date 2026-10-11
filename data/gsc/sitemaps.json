@@ -1,0 +1,36 @@
+{
+  "mis_a_jour": "2026-10-11",
+  "plans": [
+    {
+      "plan": "https://lesscenarios.fr/sitemap.xml",
+      "derniere_lecture": "2026-10-09T15:18:00.014Z",
+      "erreurs": "0",
+      "avertissements": "0",
+      "contenus": [
+        {
+          "type": "web",
+          "submitted": "162",
+          "indexed": "0"
+        }
+      ]
+    },
+    {
+      "plan": "https://lesscenarios.fr/sitemap-news.xml",
+      "derniere_lecture": "2026-10-10T14:45:29.697Z",
+      "erreurs": "0",
+      "avertissements": "0",
+      "contenus": [
+        {
+          "type": "web",
+          "submitted": "5",
+          "indexed": "0"
+        },
+        {
+          "type": "news",
+          "submitted": "5",
+          "indexed": "0"
+        }
+      ]
+    }
+  ]
+}
