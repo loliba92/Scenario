@@ -137,6 +137,7 @@ CHROME_TEXT = {
     "☕ Nous offrir un café": "☕ Buy us a coffee",
     "Voir tous les termes déjà expliqués → Glossaire": "See all terms explained so far → Glossary",
     "En savoir plus sur notre méthode →": "Learn more about our method →",
+    "Comment lire une probabilité →": "How to read a probability →",
     "Voir aussi la revue de presse du jour →": "See also today's press roundup →",
     "L'actu, oui. Et après ?": "The news, yes. Then what?",
     "Chaque jour, un sujet qui compte, décortiqué en trois scénarios chiffrés, avec une probabilité pour chacun. Jamais figée : elle évolue si la situation change.":
