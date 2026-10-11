@@ -29,7 +29,7 @@ séparément si la Phase 1 est validée.
 """
 import re
 import sys
-from datetime import date, datetime, timedelta
+from datetime import date
 from pathlib import Path
 
 from bs4 import BeautifulSoup
@@ -1151,36 +1151,6 @@ def build_home_cards(articles, lang="fr", section_id="dernieres-editions",
 </section>'''
 
 
-def build_editions_du_mois(articles, lang="fr"):
-    """Liste compacte, en HTML pur, des éditions des 30 derniers jours qui n'ont pas déjà une carte sur l'accueil.
-
-    Ajoutée le 11 octobre 2026 après l'audit SEO : Google n'avait plus exploré la page Éditions depuis le 30 août et
-    l'accueil ne liait que 10 éditions ; 15 éditions restaient inconnues de Google. Chaque édition du mois est
-    désormais à UN clic de l'accueil, par un vrai lien <a href> (jamais injecté par JavaScript). FR seulement."""
-    if not articles or lang != "fr":
-        return ""
-    items = "\n".join(
-        f'''      <li><a href="archives/{a.get("edition_id", a["date_str"])}.html"><span class="editions-mois-date">{_format_date_short(a["date_str"], lang)}</span><span class="editions-mois-title">{fr_typo(a["title"], lang)}</span></a></li>'''
-        for a in articles
-    )
-    return f'''<section class="editions-mois" id="editions-du-mois">
-  <div class="wrap">
-    <p class="section-label">Les éditions du mois</p>
-    <h2 class="section-title">Toutes les éditions des 30 derniers jours</h2>
-    <ul class="editions-mois-list">
-{items}
-    </ul>
-  </div>
-</section>'''
-
-
-def editions_du_mois_restantes(repo_root, date_str, deja_affichees, lang="fr", archives_dir="archives", jours=30):
-    """Éditions des `jours` derniers jours (antérieures à date_str) absentes de `deja_affichees` (ids d'édition)."""
-    limite = (datetime.strptime(date_str, "%Y-%m-%d") - timedelta(days=jours)).strftime("%Y-%m-%d")
-    recentes = get_latest_archives(repo_root, before_date_str=date_str, count=3 * jours, archives_dir=archives_dir)
-    return [a for a in recentes if a["date_str"] >= limite and a.get("edition_id", a["date_str"]) not in deja_affichees]
-
-
 def fr_typo(text, lang="fr"):
     """Typographie française pour un titre affiché : espace insécable avant
     « ? ! : ; » et à l'intérieur des guillemets « », pour qu'un signe de
@@ -1533,14 +1503,6 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
         cross_link_html="",
     ) if other_today else ""
     cards = build_home_cards(previous[:9], lang)
-    # « Les éditions du mois » : toutes les éditions des 30 derniers jours non déjà en carte (jamais bloquant).
-    editions_mois = ""
-    if lang == "fr":
-        try:
-            affichees = {e.get("edition_id", e["date_str"]) for e in ([featured_entry] if featured_entry else []) + previous[:9] + other_today}
-            editions_mois = build_editions_du_mois(editions_du_mois_restantes(repo_root, date_str, affichees, lang, archives_dir), lang)
-        except Exception as e:  # noqa: BLE001
-            print(f"[build_html] bloc « éditions du mois » ignoré : {e}", file=sys.stderr)
 
     footer_html = f'<footer>\n  <div class="wrap">\n    <div class="footer-bottom">\n      <p class="devise-footer">Rien n\'est écrit à l\'avance.</p>\n      {shell["legal_links_html"]}\n    </div>\n  </div>\n</footer>'
 
@@ -1570,8 +1532,6 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
 {also_today}
 
 {cards}
-
-{editions_mois}
 
 {_SHARE_BLOCK}
 
