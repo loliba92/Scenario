@@ -1758,7 +1758,7 @@ def render_page(articles, weekly_recaps, style_block, masthead_nav, follow_foote
         <dd>Nombre de lectures cumulées depuis la publication de l'édition, mis à jour chaque heure — la barre donne un repère visuel rapide (relative au maximum du tableau). 🔥 signale l'édition la plus lue du moment ; le filtre « Les plus lues » affiche le top 25% actuel, recalculé à chaque visite.</dd>
       </dl>
     </div>
-    <p style="margin-top:28px"><a href="index.html" style="color:var(--gold);text-decoration:none">← Retour à l'accueil</a></p>
+    <p style="margin-top:28px"><a href="/" style="color:var(--gold);text-decoration:none">← Retour à l'accueil</a></p>
   </div>
 </section>
 
