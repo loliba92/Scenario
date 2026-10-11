@@ -1,0 +1,62 @@
+name: Sync Search Console
+
+# Récupère chaque jour les données réelles de Google Search Console (clics, impressions, requêtes, pages,
+# indexation, état des plans du site) et les dépose dans data/gsc/. Tâche mécanique : aucune IA nécessaire.
+# Script : scripts/seo/gsc_sync.py. Installation (une fois) : docs/gsc-installation.md.
+#
+# Secret requis (Settings → Secrets and variables → Actions) :
+#   GSC_SERVICE_ACCOUNT_JSON — contenu du fichier JSON du compte de service Google.
+# Variable facultative (même page, onglet Variables) :
+#   GSC_SITE — sc-domain:lesscenarios.fr (défaut) ou https://lesscenarios.fr/ selon le type de propriété.
+# Tant que le secret est absent, le workflow se termine sans rien faire (pas d'erreur).
+
+on:
+  schedule:
+    - cron: '17 6 * * *'   # tous les jours à 06 h 17 UTC (les chiffres de Google ont ~3 jours de retard)
+  workflow_dispatch: {}    # bouton « Run workflow » pour tester tout de suite
+
+permissions:
+  contents: write
+
+jobs:
+  sync-gsc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Interroger Search Console et écrire data/gsc/
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_SITE: ${{ vars.GSC_SITE }}
+        run: python3 scripts/seo/gsc_sync.py
+
+      - name: Committer et pousser seulement si des fichiers ont changé
+        run: |
+          git config user.name "scenario-gsc-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/gsc
+          if git diff --cached --quiet; then
+            echo "Aucun changement — rien à committer."
+            exit 0
+          fi
+          git commit -m "[gsc] mise à jour automatique des données Search Console"
+          # Même mécanique que audience.yml : plusieurs workflows poussent sur main, on réessaie après rebase.
+          pushed=false
+          for i in 1 2 3 4 5; do
+            if git push origin main; then
+              pushed=true
+              break
+            fi
+            echo "Push rejeté (tentative $i/5), rebase et nouvel essai..."
+            git fetch origin main
+            git rebase origin/main
+            sleep $((i * 3))
+          done
+          if [ "$pushed" != true ]; then
+            echo "::error::Push impossible après 5 tentatives — données Search Console non enregistrées, à relancer."
+            exit 1
+          fi
