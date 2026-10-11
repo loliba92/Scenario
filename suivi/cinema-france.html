@@ -350,6 +350,25 @@
     font-family: "JetBrains Mono", monospace; font-size: 0.82rem; color: var(--gold);
     text-decoration: none; border-bottom: 1px dotted var(--gold); padding-bottom: 1px;
   }
+
+  .suivi-bilan{ margin: 0 0 16px; padding: 16px 18px; background: var(--ink, transparent); border: 1px solid var(--hairline); border-radius: 10px; }
+  .suivi-bilan-title{ font-family: "Fraunces", serif; font-weight: 600; font-size: 1.05rem; color: var(--paper) !important; margin: 0 0 4px !important; }
+  .suivi-bilan-legend{ font-family: "JetBrains Mono", monospace; font-size: 0.72rem; color: var(--paper-dim); margin: 0 0 14px !important; }
+  .suivi-row{ display: grid; grid-template-columns: 5.5rem 1fr; align-items: center; gap: 4px 14px; padding: 8px 0; border-top: 1px solid var(--hairline); }
+  .suivi-row-name{ font-family: "JetBrains Mono", monospace; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  .suivi-row[data-kind="favorable"]{ --accent: var(--favorable); }
+  .suivi-row[data-kind="stable"]{ --accent: var(--stable); }
+  .suivi-row[data-kind="degrade"]{ --accent: var(--degrade); }
+  .suivi-row-name{ color: var(--accent); }
+  .suivi-lines{ display: grid; gap: 5px; }
+  .suivi-line{ display: grid; grid-template-columns: 1fr 9rem; align-items: center; gap: 10px; }
+  .suivi-track{ height: 6px; background: var(--surface-2, var(--hairline)); border-radius: 100px; overflow: hidden; }
+  .suivi-line.is-now .suivi-track{ height: 12px; }
+  .suivi-fill{ display: block; height: 100%; border-radius: 100px; background: var(--accent); }
+  .suivi-line.is-before .suivi-fill{ opacity: 0.45; }
+  .suivi-val{ font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--paper-dim); white-space: nowrap; }
+  .suivi-line.is-now .suivi-val{ font-size: 0.9rem; font-weight: 700; color: var(--paper); }
+  .suivi-delta{ font-weight: 400; font-size: 0.72rem; margin-left: 6px; color: var(--paper-dim); }
   section.evolution, section.timeline{ scroll-margin-top: 12px; }
   section.suivi-statut, .suivi-changes{ scroll-margin-top: 12px; }
   @media (max-width: 640px){
@@ -358,6 +377,9 @@
     .suivi-chip-title, .suivi-chip-pct{ margin: 0; }
     .suivi-chip-pct{ white-space: nowrap; text-align: right; }
     .suivi-changes{ padding: 18px 16px; }
+    .suivi-row{ grid-template-columns: 1fr; gap: 6px; }
+    .suivi-line{ grid-template-columns: 1fr 8.2rem; }
+    .suivi-bilan{ padding: 14px; }
     .evo-axis-label{ font-size: 17px; }
     .evo-pct-label{ font-size: 22px; }
   }
@@ -799,17 +821,39 @@
           fact = txt(p); return !!fact;
         });
         var conc = txt(inner.querySelector('.conclusion p'));
-        var chips = Array.prototype.map.call(inner.querySelectorAll('.mini-scenario'), function(s){
+        var chipsOld = (function(){
+          return Array.prototype.map.call(inner.querySelectorAll('.mini-scenario'), function(s){
           var arrow = s.querySelector('.evo-arrow');
           return '<div class="suivi-chip" data-kind="' + esc(s.getAttribute('data-kind') || '') + '">' +
             '<p class="suivi-chip-title">' + esc(txt(s.querySelector('.mini-scenario-title'))) + '</p>' +
             '<p class="suivi-chip-pct">' + esc(txt(s.querySelector('.evo-current'))) + ' ' + esc(txt(arrow)) +
             ' <small>' + esc(txt(s.querySelector('.evo-prev'))) + '</small></p></div>';
         }).join('');
+        })();
+        var NOMS = {favorable:'Favorable', stable:'Stable', degrade:'Dégradé'};
+        function nb(n){ var m = (n ? n.textContent : '').match(/\d+/); return m ? parseInt(m[0], 10) : null; }
+        var rows = [], ok = versions.length > 1;
+        Array.prototype.forEach.call(inner.querySelectorAll('.mini-scenario'), function(s){
+          var k = s.getAttribute('data-kind') || '';
+          var avant = first ? nb(first.querySelector('.mini-scenario[data-kind="' + k + '"] .mini-scenario-pct')) : null;
+          var apres = nb(s.querySelector('.evo-current'));
+          if(avant === null || apres === null || !NOMS[k]){ ok = false; return; }
+          var d = apres - avant;
+          var delta = d === 0 ? 'stable' : (d > 0 ? '+' : '−') + Math.abs(d) + ' pts';
+          rows.push('<div class="suivi-row" data-kind="' + k + '"><span class="suivi-row-name">' + NOMS[k] + '</span>' +
+            '<div class="suivi-lines">' +
+            '<div class="suivi-line is-before"><span class="suivi-track" aria-hidden="true"><span class="suivi-fill" style="width:' + avant + '%"></span></span><span class="suivi-val">' + avant + '&nbsp;%</span></div>' +
+            '<div class="suivi-line is-now"><span class="suivi-track" aria-hidden="true"><span class="suivi-fill" style="width:' + apres + '%"></span></span><span class="suivi-val">' + apres + '&nbsp;%<span class="suivi-delta">' + delta + '</span></span></div>' +
+            '</div></div>');
+        });
+        var chips = (ok && rows.length === 3)
+          ? '<div class="suivi-bilan"><p class="suivi-bilan-title">Comment les probabilités ont bougé</p>' +
+            '<p class="suivi-bilan-legend">Trait fin : à l’origine (' + esc(court(dFirst)) + ') · trait épais : aujourd’hui (' + esc(court(dLast)) + ')</p>' + rows.join('') + '</div>'
+          : (chipsOld ? '<div class="suivi-chips">' + chipsOld + '</div>' : '');
         box.innerHTML = '<span class="suivi-changes-label">Dernière mise à jour · ' + esc(dLast) + ' · ' + esc(tag) + '</span>' +
           (title ? '<h2>' + esc(title) + '</h2>' : '') +
           (fact ? '<p>' + esc(debut(fact, 330)) + '</p>' : '') +
-          (chips ? '<div class="suivi-chips">' + chips + '</div>' : '') +
+          chips +
           (conc ? '<p class="suivi-conclusion"><strong>En clair :</strong> ' + esc(debut(conc, 220)) + '</p>' : '') +
           '<a class="suivi-more" href="#historique">Lire le détail et les sources ↓</a>';
       }
