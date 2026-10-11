@@ -27,3 +27,7 @@ Toute modification visuelle se vérifie à l'écran avant de la livrer, pas seul
 - Texte lu à l'oreille : phrases courtes, une idée par phrase, pas de sigles épelés, reformulation « En clair », devise finale « Rien n'est écrit à l'avance ».
 - Longueur du texte : 420 à 1000 mots (« mieux vaut plus que moins »).
 - Un épisode manquant le matin : lire le journal du workflow `podcast-quotidien.yml`, corriger la cause, relancer pour la date du jour.
+
+## SEO
+- Toute demande autour du référencement (titres, balises, Google, citation par les IA, trafic, indexation) : lire d'abord `.claude/seo-routage.md`. Il indique quel module (`.claude/skills/`) ou quel agent (`.claude/agents/`) appeler, dans quel ordre, et où corriger.
+- Les agents SEO peuvent être lancés sans redemander pour une demande SEO (autorisation durable du propriétaire). Mesurer d'abord (SEOmatic, gratuit) ; Semrush est payant : ne pas l'utiliser sans demande.
