@@ -1368,8 +1368,8 @@ def build_home_head(date_str, edition_number):
     WebSite + Organization seulement (pas de NewsArticle : cette page ne
     porte plus le contenu d'un article, BreadcrumbList non plus, une home
     n'a pas de fil d'ariane)."""
-    title = "Scénario — chaque jour, les trois scénarios de demain"
-    description = "Chaque jour, un sujet d'actualité clé et ses trois scénarios chiffrés : favorable, stable, dégradé."
+    title = "Scénario — l'actualité en trois scénarios chiffrés"
+    description = "Un sujet d'actualité par jour, analysé en trois scénarios chiffrés : favorable, stable, dégradé. Aussi en podcast quotidien et en anglais."
     return f"""<title>{title}</title>
 <link rel="canonical" href="https://lesscenarios.fr/">
 <meta name="description" content="{description}">

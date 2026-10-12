@@ -1,6 +1,46 @@
 {
   "audits": [
     {
+      "date": "2026-10-12",
+      "titre": "peu de clics malgré une première page",
+      "verdict": "Le site apparaît en position moyenne 9,1 mais n'obtient que 4 clics sur 291 impressions. Le classement n'est pas en cause : c'est l'aperçu dans Google qui n'incite pas à cliquer. Les trois pages vivantes concernées sont corrigées ; les balises des éditions passées attendent votre accord.",
+      "agents": [
+        "seo-content"
+      ],
+      "constats": [
+        {
+          "titre": "Les pages les plus vues sont des éditions anglaises passées",
+          "certitude": "certain (mesuré)",
+          "statut": "proprietaire",
+          "cause": "Sur les 13 pages les plus vues, 9 sont des éditions anglaises et 1 une édition française, toutes passées et figées. Elles sont en position 5 à 7,5 avec 0 clic ; la page cinéma du 8 août a 82 impressions sans aucun clic.",
+          "action": "Réécrire les balises (titre, description, og, twitter) de ces 10 éditions : propositions prêtes, à appliquer sur votre accord, en prouvant que rien d'autre ne change dans les fichiers."
+        },
+        {
+          "titre": "Les descriptions reprennent la question du titre",
+          "certitude": "certain (code lu)",
+          "statut": "a_faire",
+          "cause": "generate_seo_head.py renvoie la question posée telle quelle si elle tient en 160 caractères : la description répète le titre, sans chiffre clé ni mention des trois scénarios. Le titre est un simple extrait du sujet.",
+          "action": "Pour les prochaines éditions : description = un fait ou un chiffre, puis « trois scénarios » et la fourchette des issues, avec des fins variées pour éviter des métadonnées en série ; contrôler titre et description après traduction dans translate_daily.py."
+        },
+        {
+          "titre": "Accueil, Le projet et Newsletter : balises peu parlantes",
+          "certitude": "certain",
+          "statut": "corrige",
+          "cause": "« Le projet » et « Newsletter » ne disaient pas ce que la page apporte ; la page Newsletter est en position 52 et son titre ne contenait aucun mot de la requête « scénarios email ».",
+          "action": "Fait : nouveaux titres et descriptions (titre ≤ 61 caractères avec la marque, description 133 à 138), repris dans le générateur de l'accueil."
+        }
+      ],
+      "proprietaire": [
+        "Dire si l'on réécrit les balises des 10 éditions passées les plus vues (propositions disponibles).",
+        "Vérifier dans Search Console, à partir du 26 octobre, si le taux de clic de l'accueil, du projet et de la newsletter évolue."
+      ],
+      "inconnu": [
+        "Quel effet auront ces nouveaux titres sur le taux de clic : aucune garantie, et 291 impressions sur 28 jours sont un échantillon très faible.",
+        "Si la page Newsletter peut monter au-dessus de la position 52 : elle vise une requête rare."
+      ],
+      "prochain_controle": "2026-10-26"
+    },
+    {
       "date": "2026-10-11",
       "titre": "des éditions récentes inconnues de Google",
       "verdict": "Pas de blocage technique : Google explore rarement ce site jeune et peu cité, et il n'a pas relu la page Éditions depuis le 30 août. Les corrections de maillage et de balises sont faites ; le reste dépend de demandes d'indexation et du temps (mesurer à partir du 25 octobre).",
