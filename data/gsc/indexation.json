@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-10-11",
+  "mis_a_jour": "2026-10-12",
   "pages": [
     {
       "url": "https://lesscenarios.fr/",
@@ -23,13 +23,7 @@
     },
     {
       "url": "https://lesscenarios.fr/guide-pedagogique.html",
-      "verdict": "NEUTRAL",
-      "etat": "Détectée, actuellement non indexée",
-      "derniere_exploration": null,
-      "canonique_google": null,
-      "canonique_declaree": null,
-      "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexation": "INDEXING_STATE_UNSPECIFIED"
+      "erreur": "Erreur API (500) sur https://searchconsole.googleapis.com/v1/urlInspection/index:inspect : Internal error encountered."
     },
     {
       "url": "https://lesscenarios.fr/le-projet.html",
@@ -207,7 +201,7 @@
       "etat": "Envoyée et indexée",
       "derniere_exploration": "2026-09-28T19:07:35Z",
       "canonique_google": "https://lesscenarios.fr/archives/2026-09-28.html",
-      "canonique_declaree": "https://lesscenarios.fr/archives/2026-09-28.html",
+      "canonique_declaree": null,
       "robots": "ALLOWED",
       "indexation": "INDEXING_ALLOWED"
     },
@@ -284,7 +278,7 @@
     {
       "url": "https://lesscenarios.fr/en/archives/2026-10-10.html",
       "verdict": "NEUTRAL",
-      "etat": "Détectée, actuellement non indexée",
+      "etat": "Google ne reconnaît pas cette URL",
       "derniere_exploration": null,
       "canonique_google": null,
       "canonique_declaree": null,
