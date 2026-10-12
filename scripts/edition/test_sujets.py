@@ -287,6 +287,44 @@ class AjoutEtEnrichissementTest(unittest.TestCase):
         self.assertEqual([x["id"] for x in culture["entrees"] if x["type"] == "sujet"][0], ident)
         self.assertEqual(sj.deprioriser(d, [ident]), ([], [], [ident]), "plus en priorité : ignoré")
 
+    def test_monter_remonte_en_tete_de_son_registre(self):
+        d = sj.parse_md(mini_md())
+        complet = par_debut(d, "Sujet complet")          # 3e sujet de « Culture »
+        ident = complet["id"]
+        proposition = par_debut(d, "Proposition")         # 🔍 non validée
+        faits, inconnus, ignores = sj.monter(d, [proposition["id"], ident, "n-existe-pas"])
+        self.assertEqual((faits, inconnus, ignores), ([proposition["id"], ident], ["n-existe-pas"], []))
+        culture = next(s for s in d["sections"] if s["cle"] == "culture")
+        ordre = [x["id"] for x in culture["entrees"] if x["type"] == "sujet"]
+        self.assertEqual(ordre[:2], [ident, proposition["id"]], "le dernier remonté passe en tête")
+        self.assertEqual(culture["entrees"][0]["type"], "commentaire", "le commentaire d'intro reste en tête")
+        self.assertEqual((complet["validation"], proposition["validation"]), ("valide", "valide"), "validé du même coup")
+        prio = next(s for s in d["sections"] if s["cle"] == "priorite_absolue")
+        self.assertNotIn(ident, [x["id"] for x in prio["entrees"] if x["type"] == "sujet"], "jamais en priorité absolue")
+        self.assertEqual(sj.sujet_du_jour(d, "culture")[1]["id"], ident, "traité à la prochaine édition de ce registre")
+        self.assertNotEqual(sj.sujet_du_jour(d, "economie")[1]["id"], ident, "les autres registres ne changent pas")
+        self.assertEqual(verif(d), [])
+        d2 = sj.parse_md(sj.render_md(d))                  # la vue Markdown garde l'ordre
+        self.assertEqual([e["titre"] for s in d2["sections"] if s["cle"] == "culture" for e in s["entrees"] if e["type"] == "sujet"][0],
+                         complet["titre"])
+        self.assertEqual(sj.monter(d, [ident]), ([], [], [ident]), "déjà en tête et validé : ignoré")
+
+    def test_monter_ignore_publie_et_priorite_absolue(self):
+        d = sj.parse_md(mini_md())
+        publie = next(e for _, e in sj.sujets(d) if e["statut"] == "publie")
+        self.assertEqual(sj.monter(d, [publie["id"]]), ([], [], [publie["id"]]))
+        e = par_debut(d, "La Chine")
+        sj.prioriser(d, [e["id"]])
+        self.assertEqual(sj.monter(d, [e["id"]]), ([], [], [e["id"]]), "en priorité absolue : ignoré")
+
+    def test_monter_valide_un_sujet_deja_en_tete(self):
+        d = sj.parse_md(mini_md())
+        culture = next(s for s in d["sections"] if s["cle"] == "culture")
+        premier = next(x for x in culture["entrees"] if x["type"] == "sujet")
+        premier["validation"] = "a_valider"
+        self.assertEqual(sj.monter(d, [premier["id"]]), ([premier["id"]], [], []))
+        self.assertEqual(premier["validation"], "valide")
+
     def test_prioriser_ignore_un_sujet_publie(self):
         d = sj.parse_md(mini_md())
         publie = next(e for _, e in sj.sujets(d) if e["statut"] == "publie")
