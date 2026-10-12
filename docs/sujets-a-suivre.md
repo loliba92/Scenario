@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 12.10.2026 — [Défense européenne : l'Europe peut-elle se passer des États-Unis ?](../archives/2026-10-12.html)
 - 11.10.2026 — [Milan-Cortina 2026 : l'IA va-t-elle remplacer les juges olympiques ?](../archives/2026-10-11.html)
 - 10.10.2026 — [Art : de l'œuvre à l'expérience](../archives/2026-10-10.html)
 - 09.10.2026 — [Cancer : vaccins et nouveaux traitements, promesse réaliste ou espoir lointain ?](../archives/2026-10-09.html)

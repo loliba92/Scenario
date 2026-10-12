@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
-<url><loc>https://lesscenarios.fr/archives/2026-10-09.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-09T06:01:23+02:00</news:publication_date><news:title>Cancer : vaccins et nouveaux traitements, promesse réaliste ou espoir lointain ?</news:title></news:news></url><url><loc>https://lesscenarios.fr/archives/2026-10-10.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-10T06:01:25+02:00</news:publication_date><news:title>Art : de l'œuvre à l'expérience</news:title></news:news></url>  <url>
-    <loc>https://lesscenarios.fr/en/archives/2026-10-10.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Scénario</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-10T06:01:25+02:00</news:publication_date>
-      <news:title>Art: from artwork to experience</news:title>
-    </news:news>
-  </url>
 <url><loc>https://lesscenarios.fr/archives/2026-10-11.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-11T06:01:21+02:00</news:publication_date><news:title>Milan-Cortina 2026 : l'IA va-t-elle remplacer les juges olympiques ?</news:title></news:news></url>  <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-11.html</loc>
     <news:news>
@@ -22,4 +11,4 @@
       <news:title>Milan-Cortina 2026: Will AI replace Olympic judges?</news:title>
     </news:news>
   </url>
-</urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-10-12.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-12T06:01:36+02:00</news:publication_date><news:title>Défense européenne : l'Europe peut-elle se passer des États-Unis ?</news:title></news:news></url></urlset>

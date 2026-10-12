@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-12",
+      "articles": [
+        {
+          "title": "Financer le réarmement de l'Europe. FED, EDIP, SAFE : les instruments budgétaires de l'Union européenne",
+          "source": "IFRI (Institut français des relations internationales)",
+          "url": "https://www.ifri.org/sites/default/files/2026-02/ifri_faure_instruments_financiers_ue_2026.pdf",
+          "image": null,
+          "lang": "fr",
+          "domain": "geopolitique",
+          "summary": "Note de l'IFRI de février 2026 analysant les instruments budgétaires de l'UE pour la défense (FED, EDIP, SAFE) et les défis de gouvernance qui les accompagnent.",
+          "read_minutes": 5
+        },
+        {
+          "title": "Réarmer l'Europe : relever le défi de l'intégration économique et de l'innovation",
+          "source": "Conseil d'analyse économique (CAE)",
+          "url": "https://cae-eco.fr/static/pdf/CAE088_Defense_260304.pdf",
+          "image": null,
+          "lang": "fr",
+          "domain": "geopolitique",
+          "summary": "Note du CAE de mars 2026 sur le réarmement européen : les dépenses de défense de l'UE approchent 2 % du PIB en 2025, avec une cible à 3,5 % d'ici 2035, et les défis industriels et technologiques à relever.",
+          "read_minutes": 5
+        }
+      ]
+    },
+    {
       "date": "2026-10-11",
       "articles": [
         {
