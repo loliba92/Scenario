@@ -170,15 +170,15 @@
   ],
   "scenarios_prospectifs": {
     "favorable": {
-      "resume": "Les risques avérés (usages malveillants, dysfonctionnements) sont contenus par une régulation effective (AI Act, tests de sécurité, accords internationaux) et les systèmes actuels ne développent pas les capacités de perte de contrôle totale ; la crainte d'extinction s'avère exagérée.",
+      "resume": "Les garde-fous tiennent (AI Act appliqué, audits indépendants, essais bien isolés) : aucune perte de contrôle durable, l'humanité n'est pas menacée ; la crainte d'extinction s'avère exagérée.",
       "probabilite_suggeree": 35
     },
     "stable": {
-      "resume": "Les risques avérés continuent d'occasionner des incidents isolés, la régulation progresse mais reste en construction, et la question de la perte de contrôle à horizon long reste ouverte sans se concrétiser ni être écartée dans l'immédiat.",
+      "resume": "Des incidents réels surviennent (comme l'intrusion chez Hugging Face) mais restent maîtrisés : le danger est réel à court terme sans remettre en cause l'humanité telle que nous la connaissons d'ici 2030 ; la question d'une perte de contrôle plus tardive reste ouverte, sans être confirmée ni écartée.",
       "probabilite_suggeree": 45
     },
     "degrade": {
-      "resume": "Les incidents d'agents autonomes se multiplient, les mesures de précaution tardent à s'appliquer, et une perte de contrôle — même partielle — devient possible à horizon 5-15 ans, avec des conséquences graves pour l'humanité.",
+      "resume": "Les humains perdent la main ou la cèdent : par automatisation (délégation du travail, de la pensée, de la création et des décisions) ou par manque de contrôle de systèmes autonomes, éventuellement aggravé par une course militaire entre États. L'humanité que nous connaissons peut prendre fin ; la disparition de l'espèce reste l'hypothèse la plus extrême, non chiffrée.",
       "probabilite_suggeree": 20
     }
   },
@@ -219,11 +219,15 @@
   },
   "elements_incertains": [
     "La probabilité réelle et le calendrier d'une perte de contrôle totale restent très débattus entre les experts.",
-    "L'ampleur réelle des capacités des agents autonomes actuels à causer des dégâts graves est difficile à évaluer objectivement."
+    "L'ampleur réelle des capacités des agents autonomes actuels à causer des dégâts graves est difficile à évaluer objectivement.",
+    "Aucune source n'établit que les humains cesseraient d'apprendre ou de créer en déléguant aux machines : c'est une hypothèse éditoriale.",
+    "Le changement de l'humanité par délégation peut mener à un déclin ou à un renouveau : le texte ne tranche pas."
   ],
   "a_ne_pas_affirmer": [
     "L'IA détruira l'humanité à une date précise.",
-    "Les agents autonomes d'OpenAI ont causé des dégâts concrets et avérés en juillet 2026."
+    "Les agents autonomes d'OpenAI ont causé des dégâts concrets et avérés en juillet 2026.",
+    "Que la disparition de l'espèce humaine est probable ou chiffrée : seule une perte de contrôle durable ou un changement de l'humanité est évalué.",
+    "Que les exemples d'automatisation (travail, pensée, création, décisions déléguées aux machines) sont avérés : ce sont des hypothèses, présentées comme telles."
   ],
   "sources": [
     {
@@ -314,6 +318,9 @@
   "recommandations_redaction": [
     "Distinguer clairement les risques avérés (usages malveillants, dysfonctionnements) des scénarios d'extinction spéculatifs.",
     "Préciser que la perte de contrôle totale n'est pas encore une capacité des systèmes actuels selon le rapport Bengio 2026.",
-    "Mettre en perspective l'incident d'OpenAI de juillet 2026 comme un signal concret sans exagérer son ampleur."
+    "Mettre en perspective l'incident d'OpenAI de juillet 2026 comme un signal concret sans exagérer son ampleur.",
+    "Présenter quatre chemins distincts vers la fin de l'humanité : militarisation et usages malveillants (l'humain équipé d'IA), automatisation (l'humain cède la main), manque de contrôle (l'IA échappe à l'humain).",
+    "Distinguer quatre sens du mot « fin » : incident réparable, fin de la civilisation (pertes humaines, reconstruction possible), changement de l'humanité (déclin ou renouveau), extinction.",
+    "Rester concret et factuel, sans images ni métaphores : pas d'incendie ni d'étincelle."
   ]
 }
