@@ -1793,6 +1793,16 @@
     border-bottom-color: var(--paper-dim);
   }
 
+  /* ---------- Les éditions du mois (11 octobre 2026) : liste compacte, 2 colonnes (lecture de haut en bas) ---------- */
+  section.editions-mois{ padding: 36px 0 44px; border-top: 1px dashed var(--hairline); }
+  .editions-mois-list{ list-style: none; margin: 0; padding: 0; column-count: 2; column-gap: 36px; }
+  .editions-mois-list li{ border-bottom: 1px solid var(--hairline); break-inside: avoid; }
+  .editions-mois-list a{ display: grid; grid-template-columns: 4.4rem 1fr; gap: 12px; align-items: baseline; padding: 10px 0; text-decoration: none; color: var(--paper); }
+  .editions-mois-date{ font-family: "JetBrains Mono", monospace; font-size: 0.74rem; color: var(--paper-dim); white-space: nowrap; }
+  .editions-mois-title{ font-family: "Fraunces", serif; font-size: 0.97rem; line-height: 1.35; }
+  .editions-mois-list a:hover .editions-mois-title{ color: var(--gold); }
+  @media (max-width: 720px){ .editions-mois-list{ column-count: 1; } }
+
   /* ---------- Articles connexes ---------- */
 
   section.related-articles{
@@ -2290,6 +2300,19 @@
   }
 
   /* Featured article — CTA arrow animation */
+  /* Barres de probabilités du dernier suivi (11 octobre 2026) — même rendu que la page Éditions */
+  .mini-probas { display: flex; flex-direction: column; gap: 7px; margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--hairline); max-width: 34rem; }
+  .mini-probas-legend { font-family: "JetBrains Mono", monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--paper-dim); }
+  .mini-proba { display: grid; grid-template-columns: 4.6rem 1fr 6.2rem; align-items: center; gap: 10px; }
+  .mini-proba[data-kind="favorable"] { --accent: var(--favorable); }
+  .mini-proba[data-kind="stable"] { --accent: var(--stable); }
+  .mini-proba[data-kind="degrade"] { --accent: var(--degrade); }
+  .mini-proba-name { font-family: "JetBrains Mono", monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); }
+  .mini-proba-track { position: relative; display: block; height: 9px; background: var(--surface-2, var(--hairline)); border-radius: 100px; }
+  .mini-proba-fill { display: block; height: 100%; min-width: 4px; border-radius: 100px; background: var(--accent); }
+  .mini-proba-tick { position: absolute; top: -3px; bottom: -3px; width: 2px; margin-left: -1px; background: var(--paper); border-radius: 2px; }
+  .mini-proba-val { font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--paper); text-align: right; white-space: nowrap; }
+  @media (max-width: 480px) { .mini-proba { grid-template-columns: 4.2rem 1fr 5.6rem; gap: 8px; } }
   .featured-article-cta {
     display: inline-flex;
     align-items: center;
@@ -2386,7 +2409,7 @@
 <img alt="" class="brand-mark" src="../assets/logo.svg"/>
 <div class="wordmark">Scéna<span>rio</span></div>
 </div>
-<div class="edition">Edition of October 11, 2026 · No. 80</div>
+<div class="edition">Edition of October 12, 2026 · No. 81</div>
 </div>
 <div class="masthead-right">
 <a aria-label="Lire en français" class="masthead-lang-btn" href="../index.html" title="Lire en français">FR</a>
@@ -2394,7 +2417,7 @@
 <button aria-label="Print on 1 page" class="masthead-notif-btn" id="print-page" title="Print on 1 page" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M6.5 9V4.5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1V9"></path><rect height="7" rx="1.3" width="15" x="4.5" y="9"></rect><path d="M7 14h10v5.5a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V14Z"></path></svg></button>
 <span aria-hidden="true" class="masthead-divider"></span>
 <a aria-label="Updated topic" class="masthead-notif-btn" href="../archives.html?tag=revise" title="Updated topic"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8"></path><path d="M20 4v4h-4"></path><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16"></path><path d="M4 20v-4h4"></path></svg></a>
-<a aria-label="Weekly recap" class="masthead-notif-btn" href="../hebdo/2026-10-04.html" title="Weekly recap"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="15" rx="2" width="17" x="3.5" y="5"></rect><line x1="3.5" x2="20.5" y1="9.5" y2="9.5"></line><line x1="8" x2="8" y1="3" y2="7"></line><line x1="16" x2="16" y1="3" y2="7"></line></svg></a>
+<a aria-label="Weekly recap" class="masthead-notif-btn" href="../hebdo/2026-10-11.html" title="Weekly recap"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="15" rx="2" width="17" x="3.5" y="5"></rect><line x1="3.5" x2="20.5" y1="9.5" y2="9.5"></line><line x1="8" x2="8" y1="3" y2="7"></line><line x1="16" x2="16" y1="3" y2="7"></line></svg></a>
 <a aria-label="Press roundup" class="masthead-notif-btn" href="../sources.html" title="Press roundup"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="14" rx="1.5" width="13" x="3.5" y="5.5"></rect><path d="M16.5 8.5h2.5a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-13"></path><line x1="7" x2="13" y1="9.5" y2="9.5"></line><line x1="7" x2="13" y1="13" y2="13"></line><line x1="7" x2="11" y1="16.5" y2="16.5"></line></svg></a>
 <a aria-label="Écouter sur Spotify" class="masthead-notif-btn" href="https://open.spotify.com/show/1eycE00I2egdNO50oqeDFQ" rel="noopener noreferrer" target="_blank" title="Écouter sur Spotify"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><circle cx="12" cy="12" r="9.5"></circle><path d="M7 9.6c3.4-1 7-.7 10 1"></path><path d="M7.6 12.7c2.9-.8 5.7-.5 8.1.9"></path><path d="M8.2 15.5c2.2-.6 4.4-.4 6.2.7"></path></svg></a>
 <span aria-hidden="true" class="masthead-divider"></span>
@@ -2404,16 +2427,16 @@
 </header>
 <nav class="topnav">
 <div class="wrap">
-<a href="../index.html">Home</a>
+<a href="..//">Home</a>
 <a href="../archives.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><rect height="4" rx="1" width="16" x="4" y="4.5"></rect><path d="M5 8.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5"></path><line x1="10" x2="14" y1="13" y2="13"></line></svg> Éditions</a>
 <a href="../glossaire.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M12 6.5c-1.6-1.2-3.7-1.7-6-1.7v13c2.3 0 4.4.5 6 1.7 1.6-1.2 3.7-1.7 6-1.7v-13c-2.3 0-4.4.5-6 1.7Z"></path><line x1="12" x2="12" y1="6.5" y2="19.5"></line></svg>Glossary</a>
 <a href="../le-projet.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="m12 3 8 4.5-8 4.5-8-4.5Z"></path><path d="m4 12 8 4.5 8-4.5"></path><path d="m4 16.5 8 4.5 8-4.5"></path></svg>About</a>
 <a href="#nous-suivre"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"></path><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"></path></svg>Follow us</a>
 </div>
 </nav>
-<div class="weekly-banner" data-hebdo="2026-10-04" hidden="" id="weekly-banner">
+<div class="weekly-banner" data-hebdo="2026-10-11" hidden="" id="weekly-banner">
 <div class="wrap weekly-banner-inner">
-<a class="weekly-banner-link" href="../hebdo/2026-10-04.html" id="weekly-banner-link">
+<a class="weekly-banner-link" href="../hebdo/2026-10-11.html" id="weekly-banner-link">
 <svg aria-hidden="true" class="weekly-banner-icon" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="18"><rect height="15" rx="2" width="17" x="3.5" y="5"></rect><line x1="3.5" x2="20.5" y1="9.5" y2="9.5"></line><line x1="8" x2="8" y1="3" y2="7"></line><line x1="16" x2="16" y1="3" y2="7"></line></svg>
 <span class="weekly-banner-text">This week's recap is up — the 7 topics and their most likely scenario.</span>
 <span class="weekly-banner-cta">Read →</span>
@@ -2426,14 +2449,14 @@
 <section class="featured-article">
 <div class="wrap">
 <p class="section-label">The latest edition</p>
-<a class="featured-article-link" href="archives/2026-10-11.html">
+<a class="featured-article-link" href="archives/2026-10-12.html">
 <div class="featured-article-image-wrap">
-<img alt="Milan-Cortina 2026: Will AI replace Olympic judges?" class="featured-article-image" src="../assets/social/topic-images/2026-10-11.jpg"/>
+<img alt="Can Europe Defend Itself Without the United States?" class="featured-article-image" src="../assets/social/topic-images/2026-10-12.jpg"/>
 </div>
 <div>
-<span class="featured-article-date">Sports · Oct 11</span>
-<h2 class="featured-article-title">Milan-Cortina 2026: Will AI replace Olympic judges?</h2>
-<p class="featured-article-question">Will AI used to assist judges at Milan-Cortina remain a supportive tool, or will it become the primary benchmark in sports judging by…</p>
+<span class="featured-article-date">Geopolitique · Oct 12</span>
+<h2 class="featured-article-title">Can Europe Defend Itself Without the United States?</h2>
+<p class="featured-article-question">Can Europe ensure its own defense in the coming years without United States support?</p>
 <span class="featured-article-cta">Read the edition →</span>
 </div>
 </a>
@@ -2457,67 +2480,67 @@
 <p class="section-label">Previous editions</p>
 <h2 class="section-title">Latest editions</h2>
 <ul class="related-articles-list">
+<li><a class="related-articles-item" href="archives/2026-10-11.html">
+<img alt="Milan-Cortina 2026: Will AI replace Olympic judges?" class="related-articles-image" decoding="async" loading="lazy" src="../assets/social/topic-images/2026-10-11.jpg"/>
+<div class="related-articles-content">
+<span class="related-articles-date">Sports · Oct 11</span>
+<span class="related-articles-title">Milan-Cortina 2026: Will AI replace Olympic judges?</span>
+</div>
+</a></li>
 <li><a class="related-articles-item" href="archives/2026-10-10.html">
-<img alt="Art: from artwork to experience" class="related-articles-image" src="../assets/social/topic-images/2026-10-10.jpg"/>
+<img alt="Art: from artwork to experience" class="related-articles-image" decoding="async" loading="lazy" src="../assets/social/topic-images/2026-10-10.jpg"/>
 <div class="related-articles-content">
 <span class="related-articles-date">Culture &amp; divertissement · Oct 10</span>
 <span class="related-articles-title">Art: from artwork to experience</span>
 </div>
 </a></li>
 <li><a class="related-articles-item" href="archives/2026-10-09.html">
-<img alt="Cancer: Vaccines and New Treatments, a Realistic Promise or Distant Hope?" class="related-articles-image" src="../assets/social/topic-images/2026-10-09.jpg"/>
+<img alt="Cancer: Vaccines and New Treatments, Real Hope?" class="related-articles-image" decoding="async" loading="lazy" src="../assets/social/topic-images/2026-10-09.jpg"/>
 <div class="related-articles-content">
 <span class="related-articles-date">Science · Oct 9</span>
-<span class="related-articles-title">Cancer: Vaccines and New Treatments, a Realistic Promise or Distant Hope?</span>
+<span class="related-articles-title">Cancer: Vaccines and New Treatments, Real Hope?</span>
 </div>
 </a></li>
 <li><a class="related-articles-item" href="archives/2026-10-08.html">
-<img alt="Global Debt: The IMF Calls for Austerity" class="related-articles-image" src="../assets/social/topic-images/2026-10-08.jpg"/>
+<img alt="Global Debt: The IMF Calls for Austerity" class="related-articles-image" decoding="async" loading="lazy" src="../assets/social/topic-images/2026-10-08.jpg"/>
 <div class="related-articles-content">
 <span class="related-articles-date">World Economy · Oct 8</span>
 <span class="related-articles-title">Global Debt: The IMF Calls for Austerity</span>
 </div>
 </a></li>
 <li><a class="related-articles-item" href="archives/2026-10-07.html">
-<img alt="Medical deserts: will patients still be able to find a doctor nearby?" class="related-articles-image" src="../assets/social/topic-images/2026-10-07.jpg"/>
+<img alt="Medical Deserts: Will You Still Find a Doctor Nearby?" class="related-articles-image" decoding="async" loading="lazy" src="../assets/social/topic-images/2026-10-07.jpg"/>
 <div class="related-articles-content">
 <span class="related-articles-date">Politique &amp; institutions · Oct 7</span>
-<span class="related-articles-title">Medical deserts: will patients still be able to find a doctor nearby?</span>
+<span class="related-articles-title">Medical Deserts: Will You Still Find a Doctor Nearby?</span>
 </div>
 </a></li>
 <li><a class="related-articles-item" href="archives/2026-10-06.html">
-<img alt="Hybrid warfare in Europe: is Russia sabotaging the EU?" class="related-articles-image" src="../assets/social/topic-images/2026-10-06.jpg"/>
+<img alt="Hybrid warfare in Europe: is Russia sabotaging the EU?" class="related-articles-image" decoding="async" loading="lazy" src="../assets/social/topic-images/2026-10-06.jpg"/>
 <div class="related-articles-content">
 <span class="related-articles-date">International · Oct 6</span>
 <span class="related-articles-title">Hybrid warfare in Europe: is Russia sabotaging the EU?</span>
 </div>
 </a></li>
 <li><a class="related-articles-item" href="archives/2026-10-05.html">
-<img alt="Can the World Do Without GPS?" class="related-articles-image" src="../assets/social/topic-images/2026-10-05.jpg"/>
+<img alt="Can the World Do Without GPS?" class="related-articles-image" decoding="async" loading="lazy" src="../assets/social/topic-images/2026-10-05.jpg"/>
 <div class="related-articles-content">
 <span class="related-articles-date">International · Oct 5</span>
 <span class="related-articles-title">Can the World Do Without GPS?</span>
 </div>
 </a></li>
 <li><a class="related-articles-item" href="archives/2026-10-04.html">
-<img alt="Nations Championship: Rugby’s New King?" class="related-articles-image" src="../assets/social/topic-images/2026-10-04.jpg"/>
+<img alt="Nations Championship: Rugby’s New King?" class="related-articles-image" decoding="async" loading="lazy" src="../assets/social/topic-images/2026-10-04.jpg"/>
 <div class="related-articles-content">
 <span class="related-articles-date">Sports · Oct 4</span>
 <span class="related-articles-title">Nations Championship: Rugby’s New King?</span>
 </div>
 </a></li>
 <li><a class="related-articles-item" href="archives/2026-10-03.html">
-<img alt="Is organic virality an algorithmic illusion?" class="related-articles-image" src="../assets/social/topic-images/2026-10-03.jpg"/>
+<img alt="Is organic virality an algorithmic illusion?" class="related-articles-image" decoding="async" loading="lazy" src="../assets/social/topic-images/2026-10-03.jpg"/>
 <div class="related-articles-content">
 <span class="related-articles-date">Culture · Oct 3</span>
 <span class="related-articles-title">Is organic virality an algorithmic illusion?</span>
-</div>
-</a></li>
-<li><a class="related-articles-item" href="archives/2026-10-02.html">
-<img alt="Breast cancer screening: is the model set to shift?" class="related-articles-image" src="../assets/social/topic-images/2026-10-02.jpg"/>
-<div class="related-articles-content">
-<span class="related-articles-date">Science · Oct 2</span>
-<span class="related-articles-title">Breast cancer screening: is the model set to shift?</span>
 </div>
 </a></li>
 </ul>
