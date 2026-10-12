@@ -3,7 +3,7 @@
     {
       "date": "2026-10-12",
       "titre": "peu de clics malgré une première page",
-      "verdict": "Le site apparaît en position moyenne 9,1 mais n'obtient que 4 clics sur 291 impressions. Le classement n'est pas en cause : c'est l'aperçu dans Google qui n'incite pas à cliquer. Les trois pages vivantes concernées sont corrigées ; les balises des éditions passées attendent votre accord.",
+      "verdict": "Le site apparaît en position moyenne 9,1 mais n'obtient que 4 clics sur 291 impressions. Le classement n'est pas en cause : c'est l'aperçu dans Google qui n'incitait pas à cliquer. Les balises des trois pages vivantes et des 10 éditions les plus vues sont réécrites ; reste à mesurer l'effet.",
       "agents": [
         "seo-content"
       ],
@@ -11,9 +11,9 @@
         {
           "titre": "Les pages les plus vues sont des éditions anglaises passées",
           "certitude": "certain (mesuré)",
-          "statut": "proprietaire",
+          "statut": "corrige",
           "cause": "Sur les 13 pages les plus vues, 9 sont des éditions anglaises et 1 une édition française, toutes passées et figées. Elles sont en position 5 à 7,5 avec 0 clic ; la page cinéma du 8 août a 82 impressions sans aucun clic.",
-          "action": "Réécrire les balises (titre, description, og, twitter) de ces 10 éditions : propositions prêtes, à appliquer sur votre accord, en prouvant que rien d'autre ne change dans les fichiers."
+          "action": "Fait le 12 octobre, sur accord du propriétaire : titres, descriptions, og et twitter de ces 10 éditions réécrits (9 anglaises, 1 française), sans toucher à rien d'autre (vérifié ligne à ligne). Dates du plan du site inchangées."
         },
         {
           "titre": "Les descriptions reprennent la question du titre",
@@ -31,7 +31,6 @@
         }
       ],
       "proprietaire": [
-        "Dire si l'on réécrit les balises des 10 éditions passées les plus vues (propositions disponibles).",
         "Vérifier dans Search Console, à partir du 26 octobre, si le taux de clic de l'accueil, du projet et de la newsletter évolue."
       ],
       "inconnu": [
