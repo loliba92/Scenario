@@ -357,6 +357,19 @@ class TestJingles(unittest.TestCase):
                         "image du quotidien", "En clair,", "OSNMA : "):
             self.assertIn(attendu, prompt)
 
+    def test_annee_de_l_edition_permise_mais_pas_une_autre(self):
+        import texte_narration as tn
+        ed = gp.lire_edition(sorted((gp.ROOT / "archives").glob("2026-10-12.html"))[0])
+        base = cadrer(tn.EXEMPLE.read_text(encoding="utf-8"))
+
+        def absents(texte, src):   # nombres refusés comme « absents de l'article »
+            lignes = [x for x in tn.verifier(texte, src) if x.startswith("nombres absents")]
+            return lignes[0] if lignes else ""
+        src = tn.source_controlee(ed)
+        self.assertNotIn("2026", absents(base + "\nNous sommes en 2026.", src), "l'année de l'édition est permise")
+        self.assertIn("2031", absents(base + "\nCela viendra en 2031.", src), "une autre année reste refusée")
+        self.assertIn("2026", absents(base + "\nNous sommes en 2026.", gp.texte_source(ed)), "sans la date, 2026 était refusé")
+
     def test_controles_sigles_chaines_et_reformulation(self):
         import re
         import texte_narration as tn

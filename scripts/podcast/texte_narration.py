@@ -327,7 +327,8 @@ def verifier(texte: str, source: str, dernier_essai: bool = False, probas: list[
         problemes.append("ne parle pas des indicateurs")
     sigles = sorted({m for m in re.findall(r"\b[A-ZÉ]{4,}\b", texte) if m not in SIGLES_PRONONCES})
     if sigles:
-        problemes.append("sigle(s) épelé(s) à l'oral : " + ", ".join(sigles) + " : donne leur nom en mots (« le système antifraude de Galileo »)")
+        problemes.append("sigle(s) épelé(s) à l'oral : " + ", ".join(sigles) + " : n'écris pas le sigle, décris-le en mots avec ce que dit l'article "
+                         "(« le système antifraude de Galileo » pour OSNMA ; « l'instrument européen de prêts pour la défense » pour SAFE)")
     if any(len(re.findall(r"\bce qui\b", ph, re.I)) >= 2 for ph in phrases_brutes(texte)):
         problemes.append("phrase en chaîne (« …, ce qui …, ce qui … ») : une seule cause par phrase")
     if not re.search(r"\b(en clair|autrement dit|en d'autres termes|en deux mots)\b", texte, re.I):
@@ -344,10 +345,21 @@ def verifier(texte: str, source: str, dernier_essai: bool = False, probas: list[
     return problemes
 
 
+def source_controlee(ed: dict) -> str:
+    """Texte source + date de l'édition, pour le contrôle des nombres et des noms.
+
+    L'année de l'édition (« 2026 ») n'est pas dans le texte source mais le modèle l'écrit légitimement : sans elle, elle était refusée
+    comme « nombre absent de l'article » (12 octobre 2026 : huit essais refusés, aucun épisode)."""
+    source = gp.texte_source(ed)
+    if ed.get("date"):
+        source += f"\nDATE DE L'ÉDITION : {gp.date_longue(ed['date'])}"
+    return source
+
+
 def generer(ed: dict, modele: str, cle: str, essais: int = 4) -> str:
     import enrich_sujets as en  # relais de modèles gratuits
 
-    source = gp.texte_source(ed)
+    source = source_controlee(ed)
     remarques: list[str] = []
     for n in range(1, essais + 1):
         resultat, _ = en._appeler_avec_reprises(construire_prompt(ed, remarques or None), modele, cle,
