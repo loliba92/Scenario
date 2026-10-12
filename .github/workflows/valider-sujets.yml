@@ -4,7 +4,10 @@ name: Valider ou prioriser des sujets
 #   valider      sujet « à valider » (🔍) -> validé : éligible au brief du jour ;
 #   prioriser    sujet à traiter -> tête de « 🔥 Priorité absolue » (traité avant tout le reste,
 #                quel que soit le registre du jour), validé du même coup ;
-#   deprioriser  annule prioriser : le sujet retrouve la tête de son registre d'origine.
+#   deprioriser  annule prioriser : le sujet retrouve la tête de son registre d'origine ;
+#   monter       sujet à traiter -> tête de SON registre (traité à la prochaine édition de ce
+#                registre, le dimanche pour le sport), validé du même coup. Remplace « prioriser »
+#                sur la page de la file.
 # Déclenché par les boutons de la page cachée « File de sujets » (file-sujets.html), ou à la
 # main depuis l'onglet Actions.
 #
@@ -19,7 +22,7 @@ on:
       action:
         description: "Action à appliquer"
         type: choice
-        options: [valider, prioriser, deprioriser]
+        options: [valider, prioriser, deprioriser, monter]
         default: valider
       ids:
         description: "Identifiants des sujets, séparés par des virgules"
@@ -51,7 +54,7 @@ jobs:
           ACTION: ${{ github.event.inputs.action }}
         run: |
           case "$ACTION" in
-            valider|prioriser|deprioriser) ;;
+            valider|prioriser|deprioriser|monter) ;;
             *) echo "Action inconnue : $ACTION" >&2; exit 1 ;;
           esac
           git config user.name "scenario-topics-bot"

@@ -3,8 +3,8 @@
  *
  * Même porte d'accès que dashboard.html (clé en mémoire locale) : sans elle, la page
  * renvoie vers le tableau de bord. La page lit data/sujets.json ; la seule écriture est le
- * boutons d'un sujet — « Valider » (sujet « à valider »), « Passer en priorité absolue »,
- * « Retirer de la priorité » : ils déclenchent le workflow valider-sujets.yml par l'API GitHub, avec un jeton personnel saisi une fois et gardé dans ce navigateur
+ * boutons d'un sujet — « Valider » (sujet « à valider »), « Passer en tête de son registre »,
+ * « Retirer de la priorité » (pour les anciens sujets en priorité absolue) : ils déclenchent le workflow valider-sujets.yml par l'API GitHub, avec un jeton personnel saisi une fois et gardé dans ce navigateur
  * seulement. Pour le reste, on édite data/sujets.json (ou sujets-prioritaires.md, qui est
  * synchronisé) ; pour compléter les dossiers incomplets, on lance le workflow
  * « Enrichir les dossiers de sujets ».
@@ -85,14 +85,24 @@
   var TEXTES = {
     valider: { envoi: "Envoi de la validation…", ok: "Sujet validé." },
     prioriser: { envoi: "Envoi : passage en priorité absolue…", ok: "Sujet passé en priorité absolue : il sera traité avant tout le reste." },
-    deprioriser: { envoi: "Envoi : retrait de la priorité…", ok: "Sujet retiré de la priorité : il retrouve la tête de son registre." }
+    deprioriser: { envoi: "Envoi : retrait de la priorité…", ok: "Sujet retiré de la priorité : il retrouve la tête de son registre." },
+    monter: { envoi: "Envoi : remontée en tête de son registre…", ok: "Sujet remonté en tête de son registre et validé : il sera traité à la prochaine édition de ce registre." }
   };
   var CONFIRMATION = {
-    prioriser: "Passer ce sujet en priorité absolue ?\n\nIl sera traité en premier, quel que soit le registre du jour, avant tous les autres sujets."
+    prioriser: "Passer ce sujet en priorité absolue ?\n\nIl sera traité en premier, quel que soit le registre du jour, avant tous les autres sujets.",
+    monter: function (id) {
+      var s = sujets.filter(function (x) { return x.e.id === id; })[0];
+      if (!s) return "Remonter ce sujet en tête de son registre ?";
+      return "Remonter ce sujet en tête de « " + nomCourt(s.sec) + " » ?\n\nIl sera traité à la prochaine édition de ce registre (" + prochaineEdition(s.sec.cle) +
+        ").\nSi le brief de cette date est déjà préparé, il passera à l'édition suivante du registre." +
+        (s.e.validation === "a_valider" ? "\n\nIl sera validé du même coup." : "");
+    }
   };
 
   function agir(action, id, bouton) {
-    if (CONFIRMATION[action] && !window.confirm(CONFIRMATION[action])) return;
+    var conf = CONFIRMATION[action];
+    if (typeof conf === "function") conf = conf(id);
+    if (conf && !window.confirm(conf)) return;
     var jeton = lire(JETON_KEY) || demanderJeton();
     if (!jeton) { message("Action annulée : aucun jeton enregistré.", true); return; }
     bouton.disabled = true;
@@ -134,8 +144,20 @@
       return sec.cle !== "priorite_absolue" && id.indexOf(sec.cle.replace(/_/g, "-") + "-") === 0;
     })[0] || null;
   }
+  // Sujet remonté en tête de sa propre section (même règle que sujets.py : monter).
+  function remonter(s) {
+    var i = sujets.indexOf(s);
+    sujets.splice(i, 1);
+    var pos = sujets.findIndex(function (x) { return x.sec === s.sec; });
+    if (pos < 0) pos = sujets.length;
+    sujets.splice(pos, 0, s);
+  }
   function appliquer(s, action) {   // mêmes effets que sujets.py, sans attendre la publication du site
     if (action === "valider") s.e.validation = "valide";
+    if (action === "monter" && s.sec.cle !== "priorite_absolue" && s.e.statut === "a_traiter") {
+      s.e.validation = "valide";
+      remonter(s);
+    }
     if (action === "prioriser" && s.sec.cle !== "priorite_absolue" && s.e.statut === "a_traiter") {
       s.e.validation = "valide";
       deplacer(s, sections.filter(function (x) { return x.cle === "priorite_absolue"; })[0]);
@@ -214,9 +236,11 @@
     document.getElementById("registres").innerHTML = lignes.join("");
 
     var sel = document.getElementById("f-registre");
+    var choisi = sel.value;   // la liste est reconstruite après chaque action : on garde le registre choisi
     sel.innerHTML = '<option value="">Tous les registres</option>' + sections.map(function (sec) {
       return '<option value="' + esc(sec.cle) + '">' + esc(nomSection(sec)) + "</option>";
     }).join("");
+    sel.value = choisi;
   }
 
   // ---- carte d'un sujet ----
@@ -281,7 +305,7 @@
       '</div></summary><div class="corps">' + corps +
       '<div class="meta">' + meta + '<div class="actions">' +
       (e.validation === "a_valider" && e.statut === "a_traiter" ? '<button type="button" class="btn btn-valider" data-action="valider" data-id="' + esc(e.id) + '">✓ Valider ce sujet</button>' : "") +
-      (e.statut === "a_traiter" && s.sec.cle !== "priorite_absolue" ? '<button type="button" class="btn btn-prio" data-action="prioriser" data-id="' + esc(e.id) + '">🔥 Passer en priorité absolue</button>' : "") +
+      (e.statut === "a_traiter" && s.sec.cle !== "priorite_absolue" && !s.prochain ? '<button type="button" class="btn btn-prio" data-action="monter" data-id="' + esc(e.id) + '">⬆ Passer en tête du ' + esc(nomCourt(s.sec).toLowerCase()) + " · " + esc(prochaineEdition(s.sec.cle)) + "</button>" : "") +
       (e.statut === "a_traiter" && s.sec.cle === "priorite_absolue" && sectionOrigine(e.id) ? '<button type="button" class="btn" data-action="deprioriser" data-id="' + esc(e.id) + '">Retirer de la priorité</button>' : "") +
       '<button type="button" class="btn" data-copier="' + esc(e.id) + '">Copier le dossier</button>' +
       '<button type="button" class="btn" data-copier-id="' + esc(e.id) + '">Copier l\'identifiant</button></div></div></div></details>';
@@ -292,6 +316,17 @@
   // sinon le premier de la rubrique du jour de la semaine. On déroule les jours à venir.
   var REGISTRE_DU_JOUR = ["geopolitique", "carte_blanche", "actualite_francaise", "economie", "sciences", "culture", "sport"]; // lundi → dimanche
   var JOURS = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
+  function nomCourt(sec) { return nomSection(sec).replace(/ \(.*\)$/, ""); }
+  // Prochaine édition d'un registre (même point de départ que prochainsSujets : on part de demain si l'édition du jour est déjà publiée).
+  function prochaineEdition(cle) {
+    var jour = new Date();
+    jour.setHours(12, 0, 0, 0);
+    if (sujets.some(function (s) { return s.e.edition === iso(jour); })) jour.setDate(jour.getDate() + 1);
+    for (var k = 0; k < 8; k++, jour.setDate(jour.getDate() + 1)) {
+      if (REGISTRE_DU_JOUR[(jour.getDay() + 6) % 7] === cle) return JOURS[jour.getDay()] + " " + jour.getDate() + " " + MOIS[jour.getMonth()];
+    }
+    return "prochaine édition du registre";
+  }
   function iso(d) { return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2); }
   function eligible(s) { return s.e.statut === "a_traiter" && s.e.validation === "valide"; }
   function prochainsSujets(n) {

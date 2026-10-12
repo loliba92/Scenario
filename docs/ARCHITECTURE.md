@@ -244,6 +244,14 @@ fichier :
   (lundi = géopolitique, mardi = carte blanche lecteurs, etc.) est utilisée ;
 - une fois traité, le sujet est coché (`- [x]`) automatiquement.
 
+Pour reprioriser sans toucher au fichier, la page cachée `file-sujets.html` propose le
+bouton **« ⬆ Passer en tête du <registre> · <jour> »** (workflow `valider-sujets.yml`,
+action `monter`, `sujets.monter()`) : le sujet passe en tête de **son propre registre** et
+est validé du même coup, donc traité à la prochaine édition de ce registre (le dimanche
+pour le sport), sans passer avant les autres jours. Si le brief de cette date est déjà
+préparé, il passe à l'édition suivante du registre. L'ancienne action `prioriser` (priorité
+absolue, tous registres confondus) reste disponible par le workflow, mais n'a plus de bouton.
+
 Chaque ligne peut porter une **problématique + 3 scénarios pré-cadrés** en
 commentaire HTML (`<!-- ... -->`), pour figer l'angle à l'avance sans que ça
 s'affiche sur le site.
