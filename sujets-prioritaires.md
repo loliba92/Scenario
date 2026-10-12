@@ -616,7 +616,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 
 ## Sciences — vendredi (climat & écologie, espace, IA, médecine, énergie…)
-- [ ] 🔍 IA et cosmologie : l'analyse de 100 millions de galaxies par le CEA résout-elle le mystère de l'énergie sombre ? [astrophysique & IA]
+- [ ] IA et cosmologie : l'analyse de 100 millions de galaxies par le CEA résout-elle le mystère de l'énergie sombre ? [astrophysique & IA]
   <!-- id: sciences-ia-et-cosmologie-l-analyse-de-100-millions-de -->
   <!-- question: La nouvelle méthode hybride (statistiques cosmologiques + IA) appliquée aux données du Dark Energy Survey (100 M de galaxies) fournit-elle les contraintes les plus précises jamais obtenues sur la matière noire et l'énergie sombre, et peut-elle réconcilier les mesures divergentes entre lentilles gravitationnelles et rayonnement fossile Planck ? -->
   <!-- contexte: Publié le 9 octobre 2026 par le CEA-Irfu : des chercheurs (CEA, Imperial College, UCL) ont développé une méthode d'analyse des lentilles gravitationnelles faibles combinant statistiques traditionnelles et IA. Appliquée aux données de la 3e année du DES (100 millions de galaxies sur 5 000 fois la pleine Lune), elle donne les contraintes cosmologiques les plus précises basées uniquement sur la lentille faible : densité de matière et intensité de l'agrégation cosmique. Les résultats sont cohérents avec le satellite Planck, résolvant une divergence persistante de plusieurs années entre méthodes d'observation. -->
