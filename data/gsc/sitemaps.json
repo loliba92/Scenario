@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-10-12",
+  "mis_a_jour": "2026-10-13",
   "plans": [
     {
       "plan": "https://lesscenarios.fr/sitemap.xml",
@@ -16,18 +16,18 @@
     },
     {
       "plan": "https://lesscenarios.fr/sitemap-news.xml",
-      "derniere_lecture": "2026-10-12T03:32:33.989Z",
+      "derniere_lecture": "2026-10-12T15:38:18.266Z",
       "erreurs": "0",
       "avertissements": "0",
       "contenus": [
         {
           "type": "web",
-          "submitted": "5",
+          "submitted": "4",
           "indexed": "0"
         },
         {
           "type": "news",
-          "submitted": "5",
+          "submitted": "4",
           "indexed": "0"
         }
       ]

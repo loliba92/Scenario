@@ -172,5 +172,11 @@
     "impressions": 12,
     "ctr": 0,
     "position": 5.6
+  },
+  "2026-10-10": {
+    "clicks": 0,
+    "impressions": 8,
+    "ctr": 0,
+    "position": 12
   }
 }
