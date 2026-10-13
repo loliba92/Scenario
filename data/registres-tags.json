@@ -1,0 +1,12 @@
+{
+  "_note": "Domaine (registre) d'un sujet rangé en « Carte blanche », déduit de son étiquette (ex. « géopolitique & Russie »). Lu par scripts/edition/sujets.py (fonction monter) et par assets/file-sujets.js (bouton « Passer au prochain tour »). Mots sans accent, en minuscules, un mot par entrée ; le premier segment de l'étiquette (avant « & ») prime, puis les suivants ; les domaines sont testés dans l'ordre de « ordre ».",
+  "ordre": ["sport", "culture", "sciences", "economie", "geopolitique", "actualite_francaise"],
+  "mots": {
+    "sport": ["sport", "football", "rugby", "tennis", "olympique", "olympiques"],
+    "culture": ["culture", "culturelles", "art", "cinema", "musique", "jeu", "medias", "litterature", "patrimoine"],
+    "sciences": ["sciences", "science", "climat", "ecologie", "environnement", "espace", "astrophysique", "ia", "medecine", "sante", "energie", "technologie", "numerique"],
+    "economie": ["economie", "finance", "marches", "banque", "inflation", "assurance", "bourse", "monnaie"],
+    "geopolitique": ["geopolitique", "international", "defense", "guerre", "diplomatie", "otan", "conflit"],
+    "actualite_francaise": ["politique", "education", "societe", "securite", "emploi", "social", "justice", "immobilier", "agriculture", "entreprises", "budget"]
+  }
+}

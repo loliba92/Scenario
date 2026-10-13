@@ -19,6 +19,7 @@ on:
     branches: [main]
     paths:
       - "data/sujets.json"
+      - "data/registres-tags.json"
       - "sujets-prioritaires.md"
       - "scripts/edition/sujets.py"
       - "scripts/edition/test_sujets.py"
@@ -35,6 +36,7 @@ on:
   pull_request:
     paths:
       - "data/sujets.json"
+      - "data/registres-tags.json"
       - "sujets-prioritaires.md"
       - "scripts/edition/sujets.py"
       - "scripts/edition/test_sujets.py"

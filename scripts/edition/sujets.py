@@ -740,13 +740,43 @@ def deprioriser(data: dict, ids: list[str]) -> tuple[list[str], list[str], list[
     return faits, inconnus, ignores
 
 
+REGISTRES_TAGS_PATH = ROOT / "data" / "registres-tags.json"
+
+
+def charger_registres_tags(path: Path = REGISTRES_TAGS_PATH) -> dict:
+    """Table « mot de l'étiquette -> domaine » (data/registres-tags.json) ; vide si le fichier manque."""
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {"ordre": [], "mots": {}}
+
+
+def registre_du_sujet(e: dict, table: dict | None = None) -> str | None:
+    """Domaine (clé de section) d'un sujet d'après son étiquette (« géopolitique & Russie » -> geopolitique).
+
+    Sert aux sujets rangés en « Carte blanche », qui n'ont pas de domaine propre. Le premier segment de
+    l'étiquette (avant « & », « , » ou « / ») prime, puis les suivants. None si rien ne correspond."""
+    t = table if table is not None else charger_registres_tags()
+    mots = {cle: set(v) for cle, v in (t.get("mots") or {}).items()}
+    for segment in re.split(r"[&,/]", e.get("tag") or ""):
+        jetons = set(re.findall(r"[a-z0-9]+", deburr(segment)))
+        for cle in t.get("ordre") or []:
+            if jetons & mots.get(cle, set()):
+                return cle
+    return None
+
+
 def monter(data: dict, ids: list[str]) -> tuple[list[str], list[str], list[str]]:
-    """Remonte des sujets « à traiter » en tête de LEUR PROPRE registre : ils seront traités à la
-    prochaine édition de ce registre (le dimanche pour le sport, par exemple), sans passer avant
-    les autres registres. Le sujet est validé du même coup (sinon la routine ne le retiendrait pas).
-    Renvoie (ids déplacés, ids inconnus, ids ignorés : déjà publié, en « Priorité absolue », ou
-    déjà en tête et validé)."""
+    """Remonte des sujets « à traiter » en tête de la liste de leur domaine : ils seront traités à la
+    prochaine édition de ce domaine (le dimanche pour le sport, par exemple), sans passer avant les
+    autres jours. Un sujet rangé en « Carte blanche » (le mardi : sujets libres, tous domaines) passe
+    en tête du domaine déduit de son étiquette (voir `registre_du_sujet`) ; sans domaine reconnu, il est
+    ignoré (jamais rangé en carte blanche). Le sujet est validé du même coup (sinon la routine ne le
+    retiendrait pas). Renvoie (ids déplacés, ids inconnus, ids ignorés : déjà publié, en « Priorité
+    absolue », carte blanche sans domaine reconnu, ou déjà en tête et validé)."""
     par_id = {e["id"]: (sec, e) for sec, e in sujets(data)}
+    par_cle = {s["cle"]: s for s in data["sections"]}
+    table = charger_registres_tags()
     faits, inconnus, ignores = [], [], []
     for i in ids:
         if i not in par_id:
@@ -756,13 +786,20 @@ def monter(data: dict, ids: list[str]) -> tuple[list[str], list[str], list[str]]
         if sec["cle"] == "priorite_absolue" or e["statut"] != "a_traiter":
             ignores.append(i)
             continue
-        premier = next((x for x in sec["entrees"] if x["type"] == "sujet"), None)
-        if premier is e and e["validation"] == "valide":
+        cible = sec
+        if sec["cle"] == "carte_blanche":
+            domaine = par_cle.get(registre_du_sujet(e, table) or "")
+            if domaine is None or domaine["cle"] == "priorite_absolue":
+                ignores.append(i)
+                continue
+            cible = domaine
+        premier = next((x for x in cible["entrees"] if x["type"] == "sujet"), None)
+        if cible is sec and premier is e and e["validation"] == "valide":
             ignores.append(i)
             continue
         _retirer(data, i)
         e["validation"] = "valide"
-        _mettre_en_tete(sec, e)
+        _mettre_en_tete(cible, e)
         faits.append(i)
     return faits, inconnus, ignores
 
