@@ -69,14 +69,11 @@
     return null;
   }
   // Où le bouton « Passer au prochain tour » range le sujet : en tête de sa section, ou, pour la carte blanche,
-  // en tête du domaine déduit de son étiquette (sinon il reste en tête de la carte blanche).
+  // en tête du domaine déduit de son étiquette. null si le domaine est inconnu : pas de bouton (jamais de carte blanche).
   function cibleMonter(s) {
-    if (s.sec.cle === "carte_blanche") {
-      var cle = registreDuSujet(s.e);
-      var dom = sections.filter(function (x) { return x.cle === cle && x.cle !== "priorite_absolue"; })[0];
-      if (dom) return dom;
-    }
-    return s.sec;
+    if (s.sec.cle !== "carte_blanche") return s.sec;
+    var cle = registreDuSujet(s.e);
+    return sections.filter(function (x) { return x.cle === cle && x.cle !== "priorite_absolue"; })[0] || null;
   }
 
   // ---- validation par bouton (workflow valider-sujets.yml) ----
@@ -119,11 +116,11 @@
     monter: function (id) {
       var s = sujets.filter(function (x) { return x.e.id === id; })[0];
       if (!s) return "Passer ce sujet au prochain tour de son domaine ?";
-      var cible = cibleMonter(s), date = prochaineEdition(cible.cle);
-      var texte = cible === s.sec
-        ? "Passer ce sujet en tête de « " + nomCourt(cible) + " » ?\n\nProchain tour : " + date
-        : "Ce sujet est rangé en « Carte blanche » (le mardi : sujets libres, tous domaines).\n\nIl passera en tête de « " + nomCourt(cible) +
-          " ».\nProchain tour de ce domaine : " + date;
+      var cible = cibleMonter(s);
+      if (!cible) return "Ce sujet n'a pas de domaine reconnu.";
+      var date = prochaineEdition(cible.cle);
+      var texte = "Passer ce sujet en tête de « " + nomCourt(cible) + " » ?\n\nProchain tour : " + date +
+        (cible === s.sec ? "" : "\n(Il quitte la carte blanche du mardi.)");
       return texte + "\n\nSi le brief de cette date est déjà préparé, il passera au tour suivant de ce domaine." +
         (s.e.validation === "a_valider" ? "\n\nIl sera validé du même coup." : "");
     }
@@ -176,7 +173,7 @@
   }
   function appliquer(s, action) {   // mêmes effets que sujets.py, sans attendre la publication du site
     if (action === "valider") s.e.validation = "valide";
-    if (action === "monter" && s.sec.cle !== "priorite_absolue" && s.e.statut === "a_traiter") {
+    if (action === "monter" && s.sec.cle !== "priorite_absolue" && s.e.statut === "a_traiter" && cibleMonter(s)) {
       s.e.validation = "valide";
       deplacer(s, cibleMonter(s));
     }
@@ -327,7 +324,7 @@
       '</div></summary><div class="corps">' + corps +
       '<div class="meta">' + meta + '<div class="actions">' +
       (e.validation === "a_valider" && e.statut === "a_traiter" ? '<button type="button" class="btn btn-valider" data-action="valider" data-id="' + esc(e.id) + '">✓ Valider ce sujet</button>' : "") +
-      (e.statut === "a_traiter" && s.sec.cle !== "priorite_absolue" && !s.prochain ? '<button type="button" class="btn btn-prio" data-action="monter" data-id="' + esc(e.id) + '">⬆ Passer au prochain tour · ' + esc(nomCourt(cibleMonter(s))) + " · " + esc(prochaineEdition(cibleMonter(s).cle)) + "</button>" : "") +
+      (e.statut === "a_traiter" && s.sec.cle !== "priorite_absolue" && !s.prochain && cibleMonter(s) ? '<button type="button" class="btn btn-prio" data-action="monter" data-id="' + esc(e.id) + '">⬆ Passer au prochain tour · ' + esc(nomCourt(cibleMonter(s))) + " · " + esc(prochaineEdition(cibleMonter(s).cle)) + "</button>" : "") +
       (e.statut === "a_traiter" && s.sec.cle === "priorite_absolue" && sectionOrigine(e.id) ? '<button type="button" class="btn" data-action="deprioriser" data-id="' + esc(e.id) + '">Retirer de la priorité</button>' : "") +
       '<button type="button" class="btn" data-copier="' + esc(e.id) + '">Copier le dossier</button>' +
       '<button type="button" class="btn" data-copier-id="' + esc(e.id) + '">Copier l\'identifiant</button></div></div></div></details>';
@@ -418,7 +415,7 @@
       if (dates) { html += carte(s); return; }
       if (!q && s.sec !== dernier) {
         html += '<h2 class="groupe">' + esc(nomSection(s.sec)) + "</h2>";
-        if (s.sec.cle === "carte_blanche") html += '<p class="groupe-note">Le mardi n\'a pas de domaine imposé. On y range les sujets proposés par les lecteurs et les sujets très chauds repérés par la veille, qui ne peuvent pas attendre le tour de leur domaine. Le bouton « Passer au prochain tour » les renvoie en tête de leur domaine.</p>';
+        if (s.sec.cle === "carte_blanche") html += '<p class="groupe-note">Le mardi n\'a pas de domaine imposé. On y range les sujets proposés par les lecteurs et les sujets très chauds repérés par la veille, qui ne peuvent pas attendre le tour de leur domaine. Le bouton « Passer au prochain tour » les met en tête de leur domaine (il n’apparaît que si le domaine est reconnu).</p>';
         dernier = s.sec;
       }
       html += carte(s);

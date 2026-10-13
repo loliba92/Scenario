@@ -770,10 +770,10 @@ def monter(data: dict, ids: list[str]) -> tuple[list[str], list[str], list[str]]
     """Remonte des sujets « à traiter » en tête de la liste de leur domaine : ils seront traités à la
     prochaine édition de ce domaine (le dimanche pour le sport, par exemple), sans passer avant les
     autres jours. Un sujet rangé en « Carte blanche » (le mardi : sujets libres, tous domaines) passe
-    en tête du domaine déduit de son étiquette (voir `registre_du_sujet`) ; sans domaine reconnu, il
-    reste en tête de la carte blanche. Le sujet est validé du même coup (sinon la routine ne le
+    en tête du domaine déduit de son étiquette (voir `registre_du_sujet`) ; sans domaine reconnu, il est
+    ignoré (jamais rangé en carte blanche). Le sujet est validé du même coup (sinon la routine ne le
     retiendrait pas). Renvoie (ids déplacés, ids inconnus, ids ignorés : déjà publié, en « Priorité
-    absolue », ou déjà en tête et validé)."""
+    absolue », carte blanche sans domaine reconnu, ou déjà en tête et validé)."""
     par_id = {e["id"]: (sec, e) for sec, e in sujets(data)}
     par_cle = {s["cle"]: s for s in data["sections"]}
     table = charger_registres_tags()
@@ -789,8 +789,10 @@ def monter(data: dict, ids: list[str]) -> tuple[list[str], list[str], list[str]]
         cible = sec
         if sec["cle"] == "carte_blanche":
             domaine = par_cle.get(registre_du_sujet(e, table) or "")
-            if domaine is not None and domaine["cle"] != "priorite_absolue":
-                cible = domaine
+            if domaine is None or domaine["cle"] == "priorite_absolue":
+                ignores.append(i)
+                continue
+            cible = domaine
         premier = next((x for x in cible["entrees"] if x["type"] == "sujet"), None)
         if cible is sec and premier is e and e["validation"] == "valide":
             ignores.append(i)

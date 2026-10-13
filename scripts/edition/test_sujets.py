@@ -379,15 +379,16 @@ Texte d'en-tête.
         geo2 = next(s for s in d2["sections"] if s["cle"] == "geopolitique")
         self.assertEqual([x["titre"] for x in geo2["entrees"] if x["type"] == "sujet"][0], chaud["titre"])
 
-    def test_monter_une_carte_blanche_vers_un_autre_domaine_et_sans_domaine(self):
+    def test_monter_carte_blanche_autre_domaine_ou_ignore_sans_domaine(self):
         d = sj.parse_md(self.CARTE_BLANCHE_MD)
         lyceen, libre = par_debut(d, "Mobilisation"), par_debut(d, "Sujet libre")
         sj.monter(d, [lyceen["id"], libre["id"]])
         fr = next(s for s in d["sections"] if s["cle"] == "actualite_francaise")
         self.assertEqual([x["id"] for x in fr["entrees"] if x["type"] == "sujet"][0], lyceen["id"], "éducation -> actualité française")
         carte = next(s for s in d["sections"] if s["cle"] == "carte_blanche")
-        self.assertEqual([x["id"] for x in carte["entrees"] if x["type"] == "sujet"][0], libre["id"],
-                         "sans domaine reconnu : reste en tête de la carte blanche")
+        self.assertIn(libre["id"], [x["id"] for x in carte["entrees"] if x["type"] == "sujet"], "il n'a pas bougé")
+        self.assertNotIn(lyceen["id"], [x["id"] for x in carte["entrees"] if x["type"] == "sujet"])
+        self.assertEqual(sj.monter(d, [libre["id"]]), ([], [], [libre["id"]]), "sans domaine reconnu : ignoré, jamais rangé en carte blanche")
 
     def test_prioriser_ignore_un_sujet_publie(self):
         d = sj.parse_md(mini_md())
