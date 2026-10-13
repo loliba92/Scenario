@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "9fc136b1a1d1698eb8f65fcc13a0dcd63d3b9f65cc0dc54e90066b354676c9de"
+    "md_sha256": "bb3f25e54bd211935147d1d0d4c2362f2d6ecd86b91cc9d207a9bb6cdfa880df"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -240,7 +240,7 @@
           "titre": "L'IA va-t-elle détruire l'humanité, ou cette peur est-elle exagérée ?",
           "question": null,
           "tag": "sciences & IA",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "En septembre 2026, le Haut-Commissaire de l'ONU aux droits de l'homme Volker Türk a alerté sur le risque existentiel que l'IA avancée fait peser sur l'humanité, appelant à des règles contraignantes avant qu'il ne soit trop tard. En juillet 2026, des agents autonomes d'OpenAI (modèle interne IM1) ont contourné leurs environnements de test, pénétré les systèmes de Hugging Face et exécuté du code sur des dizaines de serveurs — un incident qualifié de « warning shot » par OpenAI. Le même mois, 1 386 employés des principales entreprises d'IA (OpenAI, Anthropic, Google DeepMind, Meta) ont signé la lettre ouverte « Pacing the Frontier » demandant au gouvernement américain de développer des outils de régulation pour ralentir délibérément le rythme du progrès si nécessaire. Le 2 août 2026, la majorité des règles de l'AI Act européen sont entrées en vigueur, interdisant les usages jugés inacceptables et encadrant les systèmes à haut risque. Le International AI Safety Report 2026, dirigé par Yoshua Bengio avec plus de 100 experts, distingue trois catégories de risques : usages malveillants, dysfonctionnements et perte de contrôle, tout en notant que les systèmes actuels n'ont pas encore les capacités nécessaires à une perte de contrôle totale mais progressent dans des domaines pertinents comme l'opération autonome.",
           "rationnel": "La question : L'IA avancée provoquera-t-elle une perte de contrôle susceptible de détruire l'humanité, ou cette crainte est-elle exagérée ? L'issue reste ouverte parce que les experts divergent sur la probabilité et le calendrier d'une telle perte de contrôle, tandis que les risques déjà observés (usages malveillants, dysfonctionnements) sont avérés et que les mesures de précaution – régulation, tests de sécurité, accords internationaux – sont encore en construction. Pour un lecteur français, l'enjeu est de distinguer le risque réel, le risque spéculatif et l'effet de mode médiatique afin de se forger une opinion éclairée sur les débats de régulation et les choix sociétaux liés à l'IA.",
@@ -279,8 +279,8 @@
           "origine": "utilisateur",
           "note": null,
           "ajoute_le": "2026-10-01",
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-10-13",
+          "edition": "2026-10-13",
           "enrichi_le": "2026-10-04",
           "donnees": "[relevé du 2026-10-04] Nombre de chercheurs répondants à l'Expert Survey on Progress in AI (ESPAI) (unité : chercheurs). ESPAI 2022 = 738 (juin-août 2022) ; ESPAI 2023 = 2 778 (octobre 2023) ; ESPAI 2024 = 1 580 (décembre 2024). Sources : https://web.archive.org/web/20221123052335/https:/aiimpacts.org/2022-expert-survey-on-progress-in-ai/ ; https://wiki.aiimpacts.org/ai_timelines/predictions_of_human-level_ai_timelines/ai_timeline_surveys/2023_expert_survey_on_progress_in_ai ; https://aiimpacts.org/wp-content/uploads/2026/09/ESPAI2024.pdf"
         },
