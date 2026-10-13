@@ -1,0 +1,167 @@
+{
+  "h1": "Assurance chômage : le système peut-il tenir sans nouvelles coupes ?",
+  "question_text": "Le régime d'assurance chômage peut-il atteindre l'équilibre financier d'ici le 1er janvier 2027 sans nouvelles coupes d'allocations ?",
+  "section_title": "Trois trajectoires financières pour l'assurance chômage d'ici 2027",
+  "dek": [
+    "Le modèle social français de protection contre la perte d'emploi traverse une nouvelle zone de fortes turbulences financières et politiques. Après une brève période d'embellie post-crise sanitaire, la dette nette gérée par l'Unédic<a class=\"lex-ref\" href=\"#lex-unedic\" aria-label=\"Voir la définition dans le lexique\">*</a> devrait grimper à <strong>61,5 milliards d'euros</strong> d'ici la fin de l'année 2026, contre 59,2 milliards d'euros fin 2025. Cette détérioration interrompt brutalement l'effort de désendettement engagé ces dernières années. Le gestionnaire de l'assurance chômage anticipe ainsi un déficit d'exploitation annuel de 2,3 milliards d'euros pour l'exercice en cours, marquant un net recul par rapport au léger excédent de 0,1 milliard d'euros observé en 2025.",
+    "La dégradation de la conjoncture macroéconomique pèse directement sur les comptes de l'organisme. Selon les dernières données publiées par l'Insee, le taux de chômage en France a progressé pour s'établir à <strong>8,3 %</strong> au deuxième trimestre 2026, marquant une hausse de 0,2 point par rapport aux trois mois précédents. Dans un climat marqué par le ralentissement de la croissance à 0,6 % et le recul de 55 000 emplois affiliés dans le secteur privé, le nombre de demandeurs d'emploi indemnisés demeure supérieur à 2,5 millions de personnes. Cette hausse mécanique des bénéficiaires propulse les dépenses globales du régime à 46,6 milliards d'euros sur l'ensemble de l'année 2026.",
+    "Au-delà des aléas économiques généraux, les ponctions budgétaires ordonnées par le pouvoir central aggravent considérablement le déséquilibre du régime. Les prélèvements de l'État<a class=\"lex-ref\" href=\"#lex-prelevements-de-letat\" aria-label=\"Voir la définition dans le lexique\">*</a>, combinés au financement obligatoire de France Travail à hauteur de 11 % des cotisations perçues, réduisent les recettes effectives de l'Unédic à 44,3 milliards d'euros en 2026. La question cruciale de la reconduction de ces prélèvements pour l'année 2027 a été portée au débat à l'Assemblée nationale le <strong>29 septembre 2026</strong>. Toutefois, le gouvernement n'a pas encore rendu son arbitrage officiel, maintenant une incertitude majeure sur les ressources dont disposera le régime.",
+    "Cette tension budgétaire aiguë paralyse le dialogue social traditionnel entre les représentants des salariés et les organisations d'employeurs. Lors du conseil d'administration réuni le 30 juin 2026, les organisations patronales ont catégoriquement rejeté toute hausse de cotisation ou surcoût financier pour les entreprises. En conséquence directe de ce désaccord, les allocations d'assurance chômage n'ont fait l'objet d'<strong>aucune revalorisation au 1er juillet 2026</strong>. Ce gel des montants journaliers entame le pouvoir d'achat des allocataires dans un contexte où les tensions sur les prix de l'énergie et des biens essentiels continuent de peser sur le quotidien des ménages.",
+    "Afin d'endiguer la progression des dépenses, un nouveau cadre réglementaire est entré en vigueur le <strong>1er septembre 2026</strong>. Issu d'un avenant conventionnel conclu entre les partenaires sociaux puis agréé par l'État, ce dispositif resserre les modalités d'indemnisation pour les salariés quittant leur entreprise par rupture conventionnelle<a class=\"lex-ref\" href=\"#lex-rupture-conventionnelle\" aria-label=\"Voir la définition dans le lexique\">*</a>. Bien que ces mesures visent à limiter le coût global des fins de contrat négociées, leurs économies restent progressives et ne suffiront pas, à elles seules, à compenser le renchérissement du service de la dette sous l'effet des taux d'intérêt actuels.",
+    "L'échéance du 1er janvier 2027 constitue désormais un carrefour financier décisif pour l'avenir de l'indemnisation chômage en France. Si l'État met fin à ses ponctions fiscales et laisse l'Unédic conserver l'intégralité de ses cotisations, le régime prévoit un retour aux bénéfices dès 2027 avec un excédent de 2,1 milliards d'euros. Dans le cas contraire, la reconduction des prélèvements publics forcera les gestionnaires à envisager de nouveaux coups de rabot sur les droits. Face à ces incertitudes budgétaires et politiques, trois scénarios prospectifs permettent d'évaluer les trajectoires financières possibles."
+  ],
+  "stakes_branches": {
+    "favorable": "L'État renonce à ponctionner l'Unédic en 2027 et permet au régime de dégager 2,1 milliards d'euros d'excédent sans nouvelles coupes.",
+    "stable": "Le déficit est piloté au fil de l'eau avec des prélèvements partiels, maintenant la dette à un niveau élevé sans réforme brutale.",
+    "degrade": "Le maintien intégral des ponctions étatiques creuse la dette au-delà de 61,5 milliards d'euros et force un durcissement des allocations."
+  },
+  "comprendre_box": [
+    {
+      "lead": "L'assurance chômage fonctionne comme une réserve mutuelle financée par le travail.",
+      "text": "Quand l'économie tourne à plein régime, les cotisations sur les salaires remplissent les caisses de l'Unédic et permettent d'effacer les dettes passées. En revanche, dès que les embauches ralentissent, les rentrées d'argent diminuent alors que les demandes d'indemnités augmentent. Pour continuer à verser chaque allocation sans retard, l'organisme emprunte sur les marchés financiers, ce qui alourdit sa dette globale.",
+      "apres_dek_index": 0
+    },
+    {
+      "lead": "Les nouvelles règles du 1er septembre 2026 encadrent plus strictement les départs négociés.",
+      "text": "Désormais, un salarié qui choisit de quitter son poste via une rupture amiable voit sa durée maximale d'indemnisation plafonnée plus sévèrement. Cette règle vise à réduire les dépenses de l'assurance chômage sur les fins de contrat volontaires, tout en maintenant des dérogations encadrées pour les allocataires âgés de 55 ans et plus qui recherchent activement un emploi.",
+      "apres_dek_index": 4
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Dette nette de l'assurance chômage (fin 2026)",
+      "value": "61,5 Md€",
+      "delta": "contre 59,2 Md€ fin 2025"
+    },
+    {
+      "label": "Taux de chômage en France (T2 2026)",
+      "value": "8,3 %",
+      "delta": "+0,2 point par rapport au trimestre précédent"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 30,
+      "gauge_word": "Probable",
+      "h3": "L'État cesse ses prélèvements et le régime renoue avec les excédents",
+      "why": [
+        "Dans ce premier scénario, le gouvernement décide de ne reconduire aucun prélèvement sur les recettes de l'Unédic pour l'exercice 2027, respectant sa promesse initiale d'autonomie financière du régime. Libérée de cette ponction publique de plusieurs milliards d'euros, l'assurance chômage voit ses recettes annuelles rebondir vigoureusement pour atteindre 49,6 milliards d'euros. Parallèlement, les partenaires sociaux finalisent un accord consensuel avant la fin de l'année 2026. Ce compromis capitalise sur les économies générées par l'encadrement des ruptures conventionnelles, sans imposer de restriction supplémentaire sur le montant ou la durée des droits des demandeurs d'emploi.",
+        "Cette trajectoire favorable se distingue nettement d'une gestion de crise au coup par coup en restaurant immédiatement la capacité d'autofinancement des comptes sociaux. D'après les prévisions officielles de l'Unédic, le régime dégagerait un solde positif de 2,1 milliards d'euros fin 2027, amorçant une baisse durable de la dette nette à <strong>59,4 milliards d'euros</strong>. La réussite de ce scénario dépendrait toutefois d'une stricte discipline budgétaire du gouvernement lors du vote de la loi de finances, ce qui pourrait offrir une bouffée d'oxygène durable au paritarisme social si la croissance économique se stabilise."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Dette nette de l'assurance chômage (fin 2026)",
+          "evo_current": "59,4 Md€ (fin 2027)",
+          "evo_arrow": "down",
+          "evo_prev": "61,5 Md€"
+        },
+        {
+          "field_name": "Taux de chômage en France (T2 2026)",
+          "evo_current": "8,1 %",
+          "evo_arrow": "down",
+          "evo_prev": "8,3 %"
+        }
+      ],
+      "france_line": "Le retour rapide aux excédents préserve le niveau de vie des chômeurs et assainit les comptes publics.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 45,
+      "gauge_word": "Probable",
+      "h3": "Le déficit est géré au fil de l'eau sans consensus ni coupes massives",
+      "why": [
+        "Notre scénario central privilégie une gestion pragmatique des contraintes à court terme. Sous la pression de ses propres engagements budgétaires, l'État reconduit partiellement ses prélèvements sur l'assurance chômage pour l'année 2027, tout en renonçant à une ponction maximale pour éviter un blocage politique. De leur côté, les organisations syndicales et patronales ne parviennent pas à bâtir une convention pluriannuelle ambitieuse et reconduisent les règles existantes par des avenants techniques. Les allocations d'assurance chômage ne subissent pas de nouvelles coupes directes, mais elles demeurent privées de revalorisation, absorbant silencieusement l'impact de l'inflation.",
+        "Contrairement au scénario de redressement rapide ou à une crise ouverte de financement, ce compromis par défaut repousse les choix structurels tout en maintenant une charge financière permanente sur le système. La dette nette de l'assurance chômage stagne autour de <strong>61,2 milliards d'euros</strong> à la fin de l'exercice 2027 sans parvenir à amorcer une réelle décrue. Le régime resterait ainsi à la merci du moindre retournement économique ou d'une hausse prolongée des taux d'emprunt, et cette situation intermédiaire pourrait progressivement fragiliser la gestion paritaire lors des prochaines négociations sociales."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Dette nette de l'assurance chômage (fin 2026)",
+          "evo_current": "61,2 Md€ (fin 2027)",
+          "evo_arrow": "flat",
+          "evo_prev": "61,5 Md€"
+        },
+        {
+          "field_name": "Taux de chômage en France (T2 2026)",
+          "evo_current": "8,3 %",
+          "evo_arrow": "flat",
+          "evo_prev": "8,3 %"
+        }
+      ],
+      "france_line": "Le pouvoir d'achat des bénéficiaires s'érode sans perspective de désendettement rapide pour le pays.",
+      "france_impact": "degrade"
+    },
+    "degrade": {
+      "pct": 25,
+      "gauge_word": "Peu probable",
+      "h3": "Le maintien des ponctions étatiques impose de nouvelles coupes d'allocations",
+      "why": [
+        "Dans cette hypothèse dégradée, le gouvernement maintient l'intégralité de ses prélèvements de recettes sur l'Unédic pour équilibrer le budget de l'État pour 2027. Privée de plusieurs milliards d'euros de ressources propres alors que le déficit annuel dépasse 2,3 milliards d'euros, l'assurance chômage se retrouve dans une impasse financière manifeste. Pour éviter une dérive incontrôlée des comptes, les négociations de fin 2026 débouchent sur un tour de vis réglementaire imposé par l'exécutif : réduction de la durée maximale d'indemnisation pour tous les profils, relèvement des conditions d'affiliation et gel pluriannuel des grilles d'indemnisation.",
+        "Ce dénouement rigoureux aggraverait nettement la situation sociale par rapport au scénario au fil de l'eau, en faisant supporter l'essentiel de l'effort budgétaire aux personnes privées d'emploi. Alors que le taux de chômage stagnerait au-dessus du seuil de <strong>8,3 %</strong>, la dette nette franchirait un record à 63 milliards d'euros avant de se stabiliser sous l'effet des coupes. Cette cure d'austérité forcée réduirait mécaniquement les dépenses du régime, mais elle risquerait de déclencher un vif mécontentement syndical et d'affaiblir la cohésion sociale dans les bassins d'emploi les plus fragiles."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Dette nette de l'assurance chômage (fin 2026)",
+          "evo_current": "63,0 Md€ (fin 2027)",
+          "evo_arrow": "up",
+          "evo_prev": "61,5 Md€"
+        },
+        {
+          "field_name": "Taux de chômage en France (T2 2026)",
+          "evo_current": "8,5 %",
+          "evo_arrow": "up",
+          "evo_prev": "8,3 %"
+        }
+      ],
+      "france_line": "Le durcissement drastique des règles réduirait la protection des chômeurs et accentuerait les fractures sociales.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "Le régime d'assurance chômage peut-il retrouver son équilibre financier d'ici le 1er janvier 2027 sans appliquer de nouvelles coupes d'allocations aux demandeurs d'emploi ?",
+    "Avec une dette nette atteignant <strong>61,5 milliards d'euros</strong> fin 2026 et un taux de chômage remonté à <strong>8,3 %</strong>, les comptes de l'Unédic replongent dans le rouge après le refus patronal de revaloriser les indemnités au 1er juillet 2026.",
+    "Non, l'équilibre parfait sans compromis douloureux paraît très difficile d'ici 2027. Notre scénario le plus probable (45 %) anticipe une gestion du déficit au fil de l'eau sans coupe directe mais sans hausse d'allocations — deux autres scénarios prévoient un retour aux excédents grâce à la fin des ponctions d'État (30 %) ou une rigueur imposée (25 %).",
+    "L'arbitrage du gouvernement sur la prolongation des prélèvements de l'État sur l'Unédic, attendu d'ici le 1er janvier 2027 lors du vote du budget national à l'Assemblée."
+  ],
+  "delta_france": {
+    "kind": "negatif",
+    "score": -0.4,
+    "word": "léger négatif",
+    "text": "les scénarios maintenant une dette sociale élevée ou instaurant de nouvelles restrictions d'indemnisation cumulent 70 % de probabilité contre 30 % pour un assainissement sans coupes."
+  },
+  "phrase_a_retenir": "La dette nette de l'assurance chômage atteint 61,5 milliards d'euros fin 2026, plongeant les comptes de l'Unédic dans un déficit de 2,3 milliards sous la pression d'un chômage à 8,3 %.",
+  "phrase_a_retenir_stat": "61,5 milliards d'euros",
+  "lexique": [
+    {
+      "slug": "unedic",
+      "terme": "Unédic",
+      "definition": "Organisme paritaire administré par les représentants des salariés et des employeurs, chargé de fixer les règles et de gérer les finances de l'assurance chômage en France."
+    },
+    {
+      "slug": "prelevements-de-letat",
+      "terme": "prélèvements de l'État",
+      "definition": "Ponctions financières décidées par le gouvernement sur les recettes de l'assurance chômage pour financer d'autres organismes publics de l'emploi, comme France Travail."
+    },
+    {
+      "slug": "rupture-conventionnelle",
+      "terme": "rupture conventionnelle",
+      "definition": "Modalité légale permettant à un salarié et à son employeur de convenir d'un commun accord de la fin d'un contrat de travail à durée indéterminée avec ouverture de droits au chômage."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://www.unedic.org/actualites/allocations-dassurance-chomage-pas-de-revalorisation-au-1er-juillet-2026\" target=\"_blank\" rel=\"noopener noreferrer\">Unédic — Allocations d'assurance chômage : pas de revalorisation au 1er juillet 2026 ↗</a>",
+    "<a href=\"https://www.unedic.org/publications/previsions-financieres-de-lunedic-juin-2026\" target=\"_blank\" rel=\"noopener noreferrer\">Unédic — Prévisions financières de l'Unédic - juin 2026 ↗</a>",
+    "<a href=\"https://www.insee.fr/fr/statistiques/9032359\" target=\"_blank\" rel=\"noopener noreferrer\">Insee — Au deuxième trimestre 2026, le taux de chômage augmente de 0,2 point et atteint 8,3 % ↗</a>",
+    "<a href=\"https://www.unedic.org/actualites/assurance-chomage-ce-qui-change-le-1er-septembre-2026\" target=\"_blank\" rel=\"noopener noreferrer\">Unédic — Assurance chômage : ce qui change le 1er septembre 2026 ↗</a>"
+  ],
+  "meta": {
+    "title": "Assurance chômage : le système peut-il tenir sans nouve...",
+    "meta_description": "Assurance chômage : le système peut-il tenir sans nouvelles coupes ? 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Bureaux de l'assurance chômage et demandeurs d'emploi en France",
+    "keywords": [
+      "Assurance"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-14.html\"\n  },\n  \"headline\": \"Assurance chômage : le système peut-il tenir sans nouve...\",\n  \"description\": \"Assurance chômage : le système peut-il tenir sans nouvelles coupes ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-14.png\"\n  ],\n  \"datePublished\": \"2026-10-14T00:00:00\",\n  \"dateModified\": \"2026-10-14T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Assurance\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Assurance chômage : le système peut-il tenir sans nouvelles coupes ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-14.html\"\n    }\n  ]\n}"
+  }
+}

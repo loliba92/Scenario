@@ -1,0 +1,310 @@
+{
+  "date": "2026-10-14",
+  "registre": "actualite_francaise",
+  "sujet": {
+    "titre_propose": "Assurance chômage : le système peut-il tenir sans nouvelles coupes ?",
+    "h1": "Assurance chômage : le système peut-il tenir sans nouvelles coupes ?",
+    "question_posee": "Le régime d'assurance chômage peut-il atteindre l'équilibre financier d'ici le 1er janvier 2027 sans nouvelles coupes d'allocations ?",
+    "eyebrow": "Mercredi, actualité française",
+    "angle": "Le déficit et l'endettement de l'Unédic s'aggravent tandis que les allocations ne sont pas revalorisées au 1er juillet 2026. Le gouvernement doit trancher avant fin 2026 sur la prolongation des prélèvements de l'État pour 2027 et sur les règles d'indemnisation — deux décisions qui déterminent si le système retourne à l'équilibre, gère son déficit au fil de l'eau, ou bascule dans une crise de financement.",
+    "tags": [
+      "emploi",
+      "finances-sociales",
+      "pouvoir-dachat"
+    ],
+    "domain": "politique-institutions",
+    "image_keywords": "unemployment office france, job seeker france",
+    "complexite": 3,
+    "origine_prioritaire": "Assurance chômage : le système peut-il tenir sans nouvelles coupes ?",
+    "origine_id": "actualite-francaise-assurance-chomage-le-systeme-peut-il-tenir-sans",
+    "point_de_depart": {
+      "id": "actualite-francaise-assurance-chomage-le-systeme-peut-il-tenir-sans",
+      "registre": "actualite_francaise",
+      "titre": "Assurance chômage : le système peut-il tenir sans nouvelles coupes ?",
+      "question": "Assurance chômage : le système peut-il tenir sans nouvelles coupes ?",
+      "contexte": "Déficit et endettement en hausse, pas de revalorisation des allocations au 1er juillet 2026 (refus du patronat). Enjeu de financement + pouvoir d'achat. → Favorable = retour vers l'équilibre ; stable = déficit géré au fil de l'eau ; dégradé = crise de financement et nouvelles coupes",
+      "rationnel": "La question : Le régime d'assurance chômage pourra-t-il atteindre l'équilibre financier d'ici le 1er janvier 2027 sans devoir procéder à de nouvelles coupes d'allocations ? L'issue dépend de la décision du gouvernement prise le 29 septembre 2026 concernant la prolongation ou non des prélèvements de l'État sur l'Unédic pour 2027 (dont le résultat n'est pas connu) et de la négociation sur les règles d'indemnisation prévue avant fin 2026, qui pourraient respectivement permettre un retour à l'équilibre, maintenir un déficit géré ou entraîner une crise de financement et de nouvelles réductions. Pour un lecteur français, l'enjeu concerne directement son pouvoir d'achat en cas de chômage (allocations non revalorisées) et la capacité du système à continuer d'amortir les chocs économiques sans aggraver la dette publique.",
+      "mots_cles": [
+        "Unédic",
+        "assurance chômage",
+        "déficit 2026",
+        "revalorisation allocations",
+        "prélèvement État",
+        "dette 61,5 Md€",
+        "taux chômage 8,3%",
+        "rupture conventionnelle plafonnement"
+      ],
+      "angle": null,
+      "a_verifier": "Confirmer si le gouvernement a pris position sur la prolongation ou non des prélèvements État pour 2027 (la question est posée à l'Assemblée nationale le 29 septembre 2026). Vérifier si une nouvelle négociation sur les règles d'indemnisation est prévue avant fin 2026.",
+      "scenarios_brouillon": null,
+      "echeance": {
+        "date": "2027-01-01",
+        "raison": "Le sort des prélèvements de l'État sur l'Unédic pour 2027 doit être tranché dans le cadre du budget de l'État, ce qui déterminera si le régime peut amorcer son désendettement ou s'il plonge davantage."
+      },
+      "sources_pistes": [
+        {
+          "titre": "Allocations d'assurance chômage : pas de revalorisation au 1er juillet 2026",
+          "url": "https://www.unedic.org/actualites/allocations-dassurance-chomage-pas-de-revalorisation-au-1er-juillet-2026"
+        },
+        {
+          "titre": "Prévisions financières de l'Unédic - juin 2026",
+          "url": "https://www.unedic.org/publications/previsions-financieres-de-lunedic-juin-2026"
+        },
+        {
+          "titre": "Au deuxième trimestre 2026, le taux de chômage augmente de 0,2 point et atteint 8,3 %",
+          "url": "https://www.insee.fr/fr/statistiques/9032359"
+        },
+        {
+          "titre": "Assurance chômage : ce qui change le 1er septembre 2026",
+          "url": "https://www.unedic.org/actualites/assurance-chomage-ce-qui-change-le-1er-septembre-2026"
+        }
+      ],
+      "tag": "emploi & finances sociales",
+      "origine": null,
+      "note_editoriale": null,
+      "donnees_graphique": "[relevé du 2026-10-07] Dette nette de l'Assurance chômage (unité : Md€). Fin 2025 = 59,2 (2025) ; Fin 2026 = 61,5 (2026) ; Fin 2027 = 59,4 (2027) ; Fin 2028 = 55,4 (2028). Sources : https://www.unedic.org/publications/previsions-financieres-de-lunedic-juin-2026 ; https://www.unedic.org/storage/uploads/2026/06/17/situation-financiere-assurance-chomage-a-horizon-2028-juin-2026_uid_6a32884bd3186.pdf",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (13/10) : IA risque d'extinction — aucun recoupement. Même registre (mercredi actualité française) : les 2-3 dernières éditions du mercredi sont sur l'IA (13/10), la défense européenne (12/10), Milan-Cortina (11/10) — aucun lien avec l'assurance chômage. Sujet inédit dans ce créneau."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Les allocations d'assurance chômage ne seront pas revalorisées au 1er juillet 2026, après le refus du patronat de contribuer à cette hausse.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "unedic-juillet"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La dette nette de l'assurance chômage atteint 61,5 milliards d'euros fin 2026 selon les prévisions de l'Unédic (juin 2026), contre 59,2 milliards fin 2025.",
+      "chiffre": "61,5 Md€",
+      "date_du_chiffre": "2026-06",
+      "sources": [
+        "unedic-previsions"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le taux de chômage en France atteint 8,3 % au deuxième trimestre 2026, en hausse de 0,2 point par rapport au trimestre précédent.",
+      "chiffre": "8,3 %",
+      "date_du_chiffre": "2026-07",
+      "sources": [
+        "insee-tchomage"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La question de la prolongation des prélèvements de l'État sur l'Unédic pour 2027 a été posée à l'Assemblée nationale le 29 septembre 2026 ; la décision du gouvernement n'est pas encore connue à la date du brief.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "unedic-septembre"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Unédic",
+      "role": "Organisme gestionnaire de l'assurance chômage en France"
+    },
+    {
+      "nom": "Gouvernement français",
+      "role": "Décideur sur les prélèvements de l'État et les réformes du régime"
+    },
+    {
+      "nom": "Conseil national des allocations familiales (CNAF)",
+      "role": "Partenaire social gestionnaire du régime avec l'Unédic"
+    },
+    {
+      "nom": "Patronat (MEDEF et organisations professionnelles)",
+      "role": "Partenaire social ayant refusé la revalorisation des allocations"
+    },
+    {
+      "nom": "Insee",
+      "role": "Producteur des statistiques officielles du chômage en France"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-07-01",
+      "evenement": "Pas de revalorisation des allocations d'assurance chômage (refus du patronat)"
+    },
+    {
+      "date": "2026-09-01",
+      "evenement": "Nouvelles règles d'indemnisation entrées en vigueur (plafonnement des revenus de remplacement)"
+    },
+    {
+      "date": "2026-09-29",
+      "evenement": "Question posée à l'Assemblée nationale sur la prolongation des prélèvements de l'État pour 2027"
+    },
+    {
+      "date": "2027-01-01",
+      "evenement": "Échéance : décision sur les prélèvements État pour 2027 dans le cadre du budget de l'État"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Le gouvernement prolonge les prélèvements de l'État sur l'Unédic pour 2027 et la négociation sur les règles d'indemnisation aboutit à un accord qui limite le déficit. Le régime commence à réduire sa dette d'ici fin 2027, les allocations restent stables sans nouvelle coupe.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "Le gouvernement ne prolonge pas les prélèvements ou les prolonge partiellement, et la négociation sur les règles d'indemnisation reste inconclusive. Le déficit est géré au fil de l'eau sans nouvelle réduction des allocations, mais la dette continue de croître modérément.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "Le gouvernement refuse la prolongation des prélèvements de l'État pour 2027 et la négociation sur les règles d'indemnisation aboutit à des restrictions supplémentaires. Le déficit s'aggrave, la dette dépasse 61,5 Md€, et de nouvelles coupes d'allocations sont nécessaires pour équilibrer le régime.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Dette nette de l'assurance chômage (fin 2026)",
+      "valeur": "61,5 Md€",
+      "tendance": "en hausse"
+    },
+    {
+      "label": "Taux de chômage en France (T2 2026)",
+      "valeur": "8,3 %",
+      "tendance": "en hausse (+0,2 point)"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "La série de la dette nette de l'assurance chômage n'a que 4 points (2025-2028) dans les prévisions Unédic de juin 2026 — insuffisant pour les 5 points minimum requis. Une source historique publique longue (ex. Insee, tableau de bord de l'Unédic) n'a pas été identifiée lors de la recherche pour compléter la série avant 2025.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres réels comparables (dette nette en Md€ aux différentes dates) sont disponibles dans les prévisions Unédic de juin 2026, confirmés par recherche.",
+    "barres": {
+      "aria_label": "Dette nette de l'assurance chômage en milliards d'euros aux différentes dates",
+      "lead": "La dette nette de l'assurance chômage évolue selon les prévisions de l'Unédic (juin 2026) :",
+      "caption": "Source : Unédic, Prévisions financières de l'Unédic — juin 2026",
+      "unite": "Md€",
+      "valeurs": [
+        {
+          "label": "Fin 2025",
+          "valeur": 59.2,
+          "affichage": "59,2 Md€",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Fin 2026",
+          "valeur": 61.5,
+          "affichage": "61,5 Md€",
+          "mis_en_avant": true
+        },
+        {
+          "label": "Fin 2027",
+          "valeur": 59.4,
+          "affichage": "59,4 Md€",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Fin 2028",
+          "valeur": 55.4,
+          "affichage": "55,4 Md€",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Comment l'Unédic est financé et pourquoi sa dette augmente",
+        "rattache_a": "fait dette 61,5 Md€"
+      },
+      {
+        "focus": "Ce qui change pour les allocataires au 1er septembre 2026 (plafonnement des revenus de remplacement)",
+        "rattache_a": "fait revalorisation pas au 1er juillet"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "La décision du gouvernement sur la prolongation des prélèvements de l'État pour 2027 n'est pas encore connue à la date du brief (question posée le 29 septembre 2026).",
+    "Le contenu exact de la négociation sur les règles d'indemnisation prévue avant fin 2026 n'est pas encore public."
+  ],
+  "a_ne_pas_affirmer": [
+    "Le gouvernement a décidé de prolonger ou non les prélèvements de l'État pour 2027 (décision non encore publiée).",
+    "Les nouvelles règles d'indemnisation négociées avant fin 2026 auront un impact précis sur le déficit."
+  ],
+  "sources": [
+    {
+      "id": "unedic-juillet",
+      "title": "Allocations d'assurance chômage : pas de revalorisation au 1er juillet 2026",
+      "source": "Unédic",
+      "url": "https://www.unedic.org/actualites/allocations-dassurance-chomage-pas-de-revalorisation-au-1er-juillet-2026",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "L'Unédic annonce que les allocations d'assurance chômage ne seront pas revalorisées au 1er juillet 2026, après le refus du patronat de participer au financement de cette hausse.",
+      "read_minutes": 2
+    },
+    {
+      "id": "unedic-previsions",
+      "title": "Prévisions financières de l'Unédic - juin 2026",
+      "source": "Unédic",
+      "url": "https://www.unedic.org/publications/previsions-financieres-de-lunedic-juin-2026",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "L'Unédic publie ses prévisions financières pour 2026-2028 : la dette nette devrait atteindre 61,5 milliards d'euros fin 2026, puis diminuer à 59,4 milliards fin 2027 et 55,4 milliards fin 2028 sous les scénarios de référence.",
+      "read_minutes": 3
+    },
+    {
+      "id": "insee-tchomage",
+      "title": "Au deuxième trimestre 2026, le taux de chômage augmente de 0,2 point et atteint 8,3 %",
+      "source": "Insee",
+      "url": "https://www.insee.fr/fr/statistiques/9032359",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "L'Insee publie les résultats du deuxième trimestre 2026 : le taux de chômage atteint 8,3 %, en hausse de 0,2 point par rapport au trimestre précédent, avec 2,6 millions de chômeurs.",
+      "read_minutes": 2
+    },
+    {
+      "id": "unedic-septembre",
+      "title": "Assurance chômage : ce qui change le 1er septembre 2026",
+      "source": "Unédic",
+      "url": "https://www.unedic.org/actualites/assurance-chomage-ce-qui-change-le-1er-septembre-2026",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "L'Unédic détaille les nouvelles règles entrées en vigueur au 1er septembre 2026, notamment le plafonnement des revenus de remplacement et les modifications de l'indemnisation.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [],
+  "articles_connexes": [
+    {
+      "date": "2026-09-30",
+      "titre": "Plans sociaux : le chômage va-t-il repartir à la hausse ?",
+      "lien": "Même enjeu du chômage en France et de son évolution — les plans sociaux pourraient augmenter le nombre de chômeurs, ce qui affecte directement le financement de l'assurance chômage."
+    },
+    {
+      "date": "2026-09-13",
+      "titre": "Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?",
+      "lien": "La décision sur les prélèvements de l'État pour 2027 est prise dans le cadre du budget de l'État ; cet article aborde la même échéance budgétaire et les incertitudes gouvernementales."
+    },
+    {
+      "date": "2026-09-16",
+      "titre": "Électricité : la fin de l'ARENH va-t-elle faire flamber ta facture ?",
+      "lien": "Même registre (actualité française) et même préoccupation de pouvoir d'achat des ménages — les deux sujets traitent d'une charge pour les Français (facture d'électricité / allocations chômage non revalorisées)."
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser que la question des prélèvements État pour 2027 a été posée à l'Assemblée nationale le 29 septembre 2026 mais que la décision n'est pas encore connue.",
+    "Lier le sujet à la négociation sur les règles d'indemnisation prévue avant fin 2026, en insistant sur l'incertitude qui l'entoure.",
+    "Mettre en perspective la hausse du chômage (8,3 % au T2 2026) avec l'aggravation de la dette Unédic.",
+    "Évoquer le refus du patronat comme facteur explicatif de l'absence de revalorisation au 1er juillet 2026."
+  ]
+}
