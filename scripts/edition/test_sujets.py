@@ -325,6 +325,70 @@ class AjoutEtEnrichissementTest(unittest.TestCase):
         self.assertEqual(sj.monter(d, [premier["id"]]), ([premier["id"]], [], []))
         self.assertEqual(premier["validation"], "valide")
 
+    CARTE_BLANCHE_MD = """# Sujets — Test
+
+Texte d'en-tête.
+
+---
+
+## Mardi — carte blanche aux lecteurs (tous registres au choix)
+- [ ] Sujet libre sans domaine connu ? [divers]
+- [ ] Sujet chaud de géopolitique ? [géopolitique & Russie]
+- [ ] Mobilisation lycéenne ? [éducation & jeunesse]
+
+## Géopolitique — lundi
+- [ ] Premier sujet du lundi ? [géopolitique]
+- [ ] Deuxième sujet du lundi ? [géopolitique]
+
+## Actualité & politique française — mercredi
+- [ ] Un sujet français ? [politique & budget]
+"""
+
+    def test_registre_du_sujet_d_apres_l_etiquette(self):
+        for tag, attendu in [("géopolitique & Russie", "geopolitique"), ("géopolitique & sécurité", "geopolitique"),
+                             ("politique & budget", "actualite_francaise"), ("éducation & jeunesse", "actualite_francaise"),
+                             ("sport & technologie", "sport"), ("IA", "sciences"), ("cinéma", "culture"),
+                             ("divers", None), (None, None), ("", None)]:
+            self.assertEqual(sj.registre_du_sujet({"tag": tag}), attendu, tag)
+        self.assertEqual(sj.registre_du_sujet({"tag": "divers & sport"}), "sport", "un segment suivant compte aussi")
+
+    def test_table_des_registres_est_coherente(self):
+        t = sj.charger_registres_tags()
+        domaines = set(sj.REGISTRE_DU_JOUR.values()) - {"carte_blanche"}
+        self.assertEqual(set(t["ordre"]), domaines, "tous les domaines, et seulement eux")
+        self.assertEqual(set(t["mots"]), domaines)
+        for cle, mots in t["mots"].items():
+            self.assertTrue(mots, cle)
+            for m in mots:
+                self.assertRegex(m, r"^[a-z0-9]+$", f"{cle} : mot sans accent, en minuscules, d'un seul mot")
+
+    def test_monter_une_carte_blanche_va_au_prochain_tour_de_son_domaine(self):
+        d = sj.parse_md(self.CARTE_BLANCHE_MD)
+        chaud = par_debut(d, "Sujet chaud")
+        faits, inconnus, ignores = sj.monter(d, [chaud["id"]])
+        self.assertEqual((faits, inconnus, ignores), ([chaud["id"]], [], []))
+        geo = next(s for s in d["sections"] if s["cle"] == "geopolitique")
+        self.assertEqual([x["id"] for x in geo["entrees"] if x["type"] == "sujet"][0], chaud["id"], "en tête du lundi")
+        carte = next(s for s in d["sections"] if s["cle"] == "carte_blanche")
+        self.assertNotIn(chaud["id"], [x["id"] for x in carte["entrees"] if x["type"] == "sujet"], "sorti de la carte blanche")
+        self.assertEqual(chaud["validation"], "valide")
+        self.assertEqual(sj.sujet_du_jour(d, "geopolitique")[1]["id"], chaud["id"], "traité au prochain lundi")
+        self.assertEqual(verif(d), [])
+        self.assertEqual(sj.monter(d, [chaud["id"]]), ([], [], [chaud["id"]]), "déjà en tête de son domaine : ignoré")
+        d2 = sj.parse_md(sj.render_md(d))   # la vue Markdown garde le sujet dans le lundi
+        geo2 = next(s for s in d2["sections"] if s["cle"] == "geopolitique")
+        self.assertEqual([x["titre"] for x in geo2["entrees"] if x["type"] == "sujet"][0], chaud["titre"])
+
+    def test_monter_une_carte_blanche_vers_un_autre_domaine_et_sans_domaine(self):
+        d = sj.parse_md(self.CARTE_BLANCHE_MD)
+        lyceen, libre = par_debut(d, "Mobilisation"), par_debut(d, "Sujet libre")
+        sj.monter(d, [lyceen["id"], libre["id"]])
+        fr = next(s for s in d["sections"] if s["cle"] == "actualite_francaise")
+        self.assertEqual([x["id"] for x in fr["entrees"] if x["type"] == "sujet"][0], lyceen["id"], "éducation -> actualité française")
+        carte = next(s for s in d["sections"] if s["cle"] == "carte_blanche")
+        self.assertEqual([x["id"] for x in carte["entrees"] if x["type"] == "sujet"][0], libre["id"],
+                         "sans domaine reconnu : reste en tête de la carte blanche")
+
     def test_prioriser_ignore_un_sujet_publie(self):
         d = sj.parse_md(mini_md())
         publie = next(e for _, e in sj.sujets(d) if e["statut"] == "publie")

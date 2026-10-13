@@ -48,10 +48,36 @@
   }
   function plur(n, mot) { return n + " " + mot + (n > 1 ? "s" : ""); }
 
-  var NOMS = { priorite_absolue: "Priorité absolue", carte_blanche: "Carte blanche (mardi)", geopolitique: "Géopolitique (lundi)",
+  var NOMS = { priorite_absolue: "Priorité absolue", carte_blanche: "Carte blanche (mardi, sujets libres)", geopolitique: "Géopolitique (lundi)",
     actualite_francaise: "Actu. française (mercredi)", economie: "Économie & finance (jeudi)", sciences: "Sciences (vendredi)",
     culture: "Culture (samedi)", sport: "Sport (dimanche)" };
   function nomSection(sec) { return NOMS[sec.cle] || sec.titre; }
+  // Domaine d'un sujet rangé en « Carte blanche », d'après son étiquette (même règle que sujets.py : registre_du_sujet).
+  var registresTags = { ordre: [], mots: {} };
+  function jetons(texte) {
+    return String(texte || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split(/[^a-z0-9]+/).filter(Boolean);
+  }
+  function registreDuSujet(e) {
+    var segments = String(e.tag || "").split(/[&,\/]/);
+    for (var i = 0; i < segments.length; i++) {
+      var mots = jetons(segments[i]);
+      for (var k = 0; k < registresTags.ordre.length; k++) {
+        var cle = registresTags.ordre[k], liste = registresTags.mots[cle] || [];
+        if (mots.some(function (m) { return liste.indexOf(m) >= 0; })) return cle;
+      }
+    }
+    return null;
+  }
+  // Où le bouton « Passer au prochain tour » range le sujet : en tête de sa section, ou, pour la carte blanche,
+  // en tête du domaine déduit de son étiquette (sinon il reste en tête de la carte blanche).
+  function cibleMonter(s) {
+    if (s.sec.cle === "carte_blanche") {
+      var cle = registreDuSujet(s.e);
+      var dom = sections.filter(function (x) { return x.cle === cle && x.cle !== "priorite_absolue"; })[0];
+      if (dom) return dom;
+    }
+    return s.sec;
+  }
 
   // ---- validation par bouton (workflow valider-sujets.yml) ----
   var DEPOT = "loliba92/Scenario", WORKFLOW = "valider-sujets.yml", BRANCHE = "main";
@@ -92,9 +118,13 @@
     prioriser: "Passer ce sujet en priorité absolue ?\n\nIl sera traité en premier, quel que soit le registre du jour, avant tous les autres sujets.",
     monter: function (id) {
       var s = sujets.filter(function (x) { return x.e.id === id; })[0];
-      if (!s) return "Remonter ce sujet en tête de son registre ?";
-      return "Remonter ce sujet en tête de « " + nomCourt(s.sec) + " » ?\n\nIl sera traité à la prochaine édition de ce registre (" + prochaineEdition(s.sec.cle) +
-        ").\nSi le brief de cette date est déjà préparé, il passera à l'édition suivante du registre." +
+      if (!s) return "Passer ce sujet au prochain tour de son domaine ?";
+      var cible = cibleMonter(s), date = prochaineEdition(cible.cle);
+      var texte = cible === s.sec
+        ? "Passer ce sujet en tête de « " + nomCourt(cible) + " » ?\n\nProchain tour : " + date
+        : "Ce sujet est rangé en « Carte blanche » (le mardi : sujets libres, tous domaines).\n\nIl passera en tête de « " + nomCourt(cible) +
+          " ».\nProchain tour de ce domaine : " + date;
+      return texte + "\n\nSi le brief de cette date est déjà préparé, il passera au tour suivant de ce domaine." +
         (s.e.validation === "a_valider" ? "\n\nIl sera validé du même coup." : "");
     }
   };
@@ -144,19 +174,11 @@
       return sec.cle !== "priorite_absolue" && id.indexOf(sec.cle.replace(/_/g, "-") + "-") === 0;
     })[0] || null;
   }
-  // Sujet remonté en tête de sa propre section (même règle que sujets.py : monter).
-  function remonter(s) {
-    var i = sujets.indexOf(s);
-    sujets.splice(i, 1);
-    var pos = sujets.findIndex(function (x) { return x.sec === s.sec; });
-    if (pos < 0) pos = sujets.length;
-    sujets.splice(pos, 0, s);
-  }
   function appliquer(s, action) {   // mêmes effets que sujets.py, sans attendre la publication du site
     if (action === "valider") s.e.validation = "valide";
     if (action === "monter" && s.sec.cle !== "priorite_absolue" && s.e.statut === "a_traiter") {
       s.e.validation = "valide";
-      remonter(s);
+      deplacer(s, cibleMonter(s));
     }
     if (action === "prioriser" && s.sec.cle !== "priorite_absolue" && s.e.statut === "a_traiter") {
       s.e.validation = "valide";
@@ -305,7 +327,7 @@
       '</div></summary><div class="corps">' + corps +
       '<div class="meta">' + meta + '<div class="actions">' +
       (e.validation === "a_valider" && e.statut === "a_traiter" ? '<button type="button" class="btn btn-valider" data-action="valider" data-id="' + esc(e.id) + '">✓ Valider ce sujet</button>' : "") +
-      (e.statut === "a_traiter" && s.sec.cle !== "priorite_absolue" && !s.prochain ? '<button type="button" class="btn btn-prio" data-action="monter" data-id="' + esc(e.id) + '">⬆ Passer en tête du ' + esc(nomCourt(s.sec).toLowerCase()) + " · " + esc(prochaineEdition(s.sec.cle)) + "</button>" : "") +
+      (e.statut === "a_traiter" && s.sec.cle !== "priorite_absolue" && !s.prochain ? '<button type="button" class="btn btn-prio" data-action="monter" data-id="' + esc(e.id) + '">⬆ Passer au prochain tour · ' + esc(nomCourt(cibleMonter(s))) + " · " + esc(prochaineEdition(cibleMonter(s).cle)) + "</button>" : "") +
       (e.statut === "a_traiter" && s.sec.cle === "priorite_absolue" && sectionOrigine(e.id) ? '<button type="button" class="btn" data-action="deprioriser" data-id="' + esc(e.id) + '">Retirer de la priorité</button>' : "") +
       '<button type="button" class="btn" data-copier="' + esc(e.id) + '">Copier le dossier</button>' +
       '<button type="button" class="btn" data-copier-id="' + esc(e.id) + '">Copier l\'identifiant</button></div></div></div></details>';
@@ -323,7 +345,7 @@
     jour.setHours(12, 0, 0, 0);
     if (sujets.some(function (s) { return s.e.edition === iso(jour); })) jour.setDate(jour.getDate() + 1);
     for (var k = 0; k < 8; k++, jour.setDate(jour.getDate() + 1)) {
-      if (REGISTRE_DU_JOUR[(jour.getDay() + 6) % 7] === cle) return JOURS[jour.getDay()] + " " + jour.getDate() + " " + MOIS[jour.getMonth()];
+      if (REGISTRE_DU_JOUR[(jour.getDay() + 6) % 7] === cle) return JOURS[jour.getDay()] + " " + jour.getDate() + "\u00a0" + MOIS[jour.getMonth()];
     }
     return "prochaine édition du registre";
   }
@@ -394,7 +416,11 @@
     var html = "", dernier = null;
     ordonne.forEach(function (s) {
       if (dates) { html += carte(s); return; }
-      if (!q && s.sec !== dernier) { html += '<h2 class="groupe">' + esc(nomSection(s.sec)) + "</h2>"; dernier = s.sec; }
+      if (!q && s.sec !== dernier) {
+        html += '<h2 class="groupe">' + esc(nomSection(s.sec)) + "</h2>";
+        if (s.sec.cle === "carte_blanche") html += '<p class="groupe-note">Le mardi n\'a pas de domaine imposé. On y range les sujets proposés par les lecteurs et les sujets très chauds repérés par la veille, qui ne peuvent pas attendre le tour de leur domaine. Le bouton « Passer au prochain tour » les renvoie en tête de leur domaine.</p>';
+        dernier = s.sec;
+      }
       html += carte(s);
     });
     zone.innerHTML = html;
@@ -420,9 +446,12 @@
   document.getElementById("q").addEventListener("input", function () { clearTimeout(minuteur); minuteur = setTimeout(filtrer, 150); });
 
   majPied();
+  var tags = fetch("data/registres-tags.json?v=" + Date.now()).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
   fetch("data/sujets.json?v=" + Date.now()).then(function (r) {
     if (!r.ok) throw new Error(r.status);
     return r.json();
+  }).then(function (data) {
+    return tags.then(function (t) { if (t && t.ordre && t.mots) registresTags = t; return data; });
   }).then(function (data) {
     preparer(data);
     rendreResume();
