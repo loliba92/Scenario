@@ -3,20 +3,20 @@
   "plans": [
     {
       "plan": "https://lesscenarios.fr/sitemap.xml",
-      "derniere_lecture": "2026-10-09T15:18:00.014Z",
+      "derniere_lecture": "2026-10-13T03:05:36.437Z",
       "erreurs": "0",
       "avertissements": "0",
       "contenus": [
         {
           "type": "web",
-          "submitted": "162",
+          "submitted": "169",
           "indexed": "0"
         }
       ]
     },
     {
       "plan": "https://lesscenarios.fr/sitemap-news.xml",
-      "derniere_lecture": "2026-10-12T15:38:18.266Z",
+      "derniere_lecture": "2026-10-13T03:05:36.411Z",
       "erreurs": "0",
       "avertissements": "0",
       "contenus": [
