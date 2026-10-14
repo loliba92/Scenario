@@ -1,0 +1,501 @@
+{
+  "date": "2026-10-15",
+  "registre": "economie-mondiale",
+  "sujet": {
+    "titre_propose": "La Chine peut-elle utiliser les métaux critiques comme arme géopolitique ?",
+    "h1": "Métaux rares : la Chine peut-elle bloquer l'Occident ?",
+    "question_posee": "La Chine contrôle 90 % du raffinage des terres rares et 94 % des aimants permanents mondiaux : peut-elle utiliser ce quasi-monopole comme arme de rétorsion contre l'Europe et les États-Unis ?",
+    "eyebrow": "Jeudi, économie & finance",
+    "angle": "La Chine a construit un arsenal de restrictions sur les métaux critiques (gallium, germanium, antimoine depuis 2023, terres rares lourdes depuis avril 2025) qui lui donne un levier inédit sur les chaînes d'approvisionnement occidentales. Mais la suspension jusqu'au 10 janvier 2027 des mesures les plus dures (règle extraterritoriale à 0,1 %) et l'accord UE-Chine du 9 octobre 2026 sur un « green channel » pour les licences d'exportation montrent que Pékin utilise ces contrôles comme outil de négociation plutôt que comme arme de destruction. La vraie question est : l'Occident peut-il réduire sa dépendance avant la prochaine échéance ?",
+    "tags": [
+      "economie-mondiale",
+      "geopolitique"
+    ],
+    "domain": "economie-mondiale",
+    "image_keywords": "rare earth minerals mining china",
+    "complexite": 3,
+    "origine_prioritaire": "La Chine peut-elle utiliser les métaux critiques comme arme géopolitique ?",
+    "origine_id": "economie-la-chine-peut-elle-utiliser-les-metaux",
+    "point_de_depart": {
+      "id": "economie-la-chine-peut-elle-utiliser-les-metaux",
+      "registre": "economie",
+      "titre": "La Chine peut-elle utiliser les métaux critiques comme arme géopolitique ?",
+      "question": "La Chine peut-elle utiliser son contrôle des métaux critiques comme arme géopolitique contre l'Europe et les États-Unis ?",
+      "contexte": "En août 2023, la Chine a commencé à restreindre les exportations de gallium, germanium et antimoine, puis a instauré une interdiction totale vers les États-Unis en décembre 2024, avant de suspendre cette interdiction le 9 novembre 2025 tout en maintenant des contrôles licencés. En avril 2025, Pékin a ajouté sept terres rares moyennes et lourdes à sa liste de contrôle, et en octobre 2025 il a introduit des mesures globales reportées jusqu’au 10 novembre 2026. L’Union européenne a adopté le règlement (UE) 2024/1252 le 11 avril 2024 (en force depuis le 23 mai 2024) visant à garantir un approvisionnement sûr en matières premières critiques, tandis que les États-Unis restent à 100 % dépendants des importations pour douze minéraux critiques et à plus de 50 % pour vingt‑neuf autres, la Chine fournissant encore environ 71 % des composés et métaux de terres rares importés. En septembre 2026, l’oxyde de praséodyme‑néodyme se négociait autour de 97 $/kg, le germanium augmentant de près de 5 % en octobre, reflétant un marché encore tendu malgré la suspension actuelle des contrôles chinois.",
+      "rationnel": "Un excellent pont entre géopolitique et économie, avec des indicateurs concrets : prix des matières premières, dépendance aux importations et production européenne. L'issue est ouverte : elle dépend des restrictions d'exportation chinoises et de la capacité des Occidentaux à diversifier leurs approvisionnements.",
+      "mots_cles": [
+        "métaux critiques",
+        "terres rares",
+        "Chine",
+        "restrictions d'exportation",
+        "dépendance aux importations",
+        "prix des matières premières"
+      ],
+      "angle": null,
+      "a_verifier": null,
+      "scenarios_brouillon": null,
+      "echeance": {
+        "date": "2026-11-10",
+        "raison": "Date à laquelle la suspension des contrôles d’exportation chinois sur les terres rares et les métaux critiques expire, pouvant déclencher le rétablissement de restrictions."
+      },
+      "sources_pistes": [
+        {
+          "titre": "China halts ban on gallium, germanium, antimony exports to ...",
+          "url": "https://www.reuters.com/world/china/china-suspends-ban-exports-gallium-germanium-antimony-us-2025-11-09/"
+        },
+        {
+          "titre": "Le recours stratégique de la Chine aux contrôles commerciaux",
+          "url": "https://css.ethz.ch/content/dam/ethz/special-interest/gess/cis/center-for-securities-studies/pdfs/css-policybriefs-001-fr.pdf"
+        },
+        {
+          "titre": "Mineral Commodity Summaries 2026: Rare Earths - USGS.gov",
+          "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-rare-earths.pdf"
+        },
+        {
+          "titre": "EUR-Lex - 02024R1252-20240503 - EN - EUR-Lex",
+          "url": "https://eur-lex.europa.eu/eli/reg/2024/1252/2024-05-03"
+        }
+      ],
+      "tag": "géopolitique & économie",
+      "origine": "utilisateur",
+      "note_editoriale": null,
+      "donnees_graphique": "[relevé du 2026-10-10] Prix de l'oxyde de praséodyme-néodyme (USD/tonne). Chine domestique sept 2026 = 110 373 (2026-09-30) ; Chine domestique sept 2025 = 79 007 (2025-09-30) ; Hors-Chine CIF Europe sept 2026 = 106 500 (2026-09). Sources : https://hub.claight.com/news/praseodymium-neodymium-oxide-price-china ; https://source.benchmarkminerals.com/article/ex-china-heavy-rare-earths-continue-to-surge-q3-2026-rare-earths-price-review",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (14/10, assurance chômage) : aucun lien. Même registre économie : 08/10 (dette FMI), 01/10 (Bitcoin), 24/09 (BCE/Fed/pétrole) — aucun recoupement avec métaux critiques chinois. Sujet inédit dans les archives."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "La Chine contrôle environ 60 % de la production mondiale de terres rares et 90 % de leur raffinage",
+      "chiffre": "60 % production, 90 % raffinage",
+      "date_du_chiffre": "2026-01-01",
+      "sources": [
+        "eprs-brief"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La Chine fabrique environ 94 % des aimants permanents mondiaux (NdFeB frittés)",
+      "chiffre": "94 %",
+      "date_du_chiffre": "2026-01-01",
+      "sources": [
+        "usgs-2026",
+        "eprs-brief"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'UE importe 100 % de ses terres rares lourdes et 85 % de ses terres rares légères depuis la Chine",
+      "chiffre": "100 % HREEs, 85 % LREEs",
+      "date_du_chiffre": "2024-01-01",
+      "sources": [
+        "eprs-brief"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les États-Unis étaient dépendants à 67 % des importations de composés et métaux de terres rares en 2025, dont 71 % depuis la Chine",
+      "chiffre": "67 % import reliance, 71 % from China",
+      "date_du_chiffre": "2025-12-31",
+      "sources": [
+        "usgs-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le 4 avril 2025, la Chine a imposé des contrôles à l'exportation sur 7 terres rares lourdes (samarium, gadolinium, terbium, dysprosium, lutétium, scandium, yttrium) avec licence obligatoire",
+      "chiffre": null,
+      "date_du_chiffre": "2025-04-04",
+      "sources": [
+        "reuters-april-2025",
+        "mofcom-18"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le 9 octobre 2025, la Chine a annoncé un second train de mesures incluant une règle extraterritoriale (0,1 % de valeur) suspendue depuis le 7 novembre 2025 jusqu'au 10 novembre 2026, puis prolongée au 10 janvier 2027",
+      "chiffre": "0.1 %",
+      "date_du_chiffre": "2026-09-28",
+      "sources": [
+        "hs-hardwares",
+        "rare-earth-mining"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les exportations chinoises d'yttrium, dysprosium et terbium vers les États-Unis ont chuté d'environ 50 % depuis les restrictions d'avril 2025",
+      "chiffre": "~50 % de baisse",
+      "date_du_chiffre": "2026-10-11",
+      "sources": [
+        "rare-earth-mining"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "Les 8 et 9 octobre 2026, l'UE et la Chine ont signé un accord à Pékin : la Chine maintient un « green channel » pour les licences d'exportation de terres rares et d'aimants vers l'UE, en échange de réductions tarifaires sur 4 milliards € d'exportations européennes",
+      "chiffre": "4 milliards €",
+      "date_du_chiffre": "2026-10-09",
+      "sources": [
+        "ec-joint-statement",
+        "eastasiabrief-oct13"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le 22 juin 2026, la Chine a placé MP Materials et USA Rare Earth parmi 10 entités américaines sur sa liste de contrôle des exportations",
+      "chiffre": null,
+      "date_du_chiffre": "2026-06-22",
+      "sources": [
+        "rare-earth-mining"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'oxyde de praséodyme-néodyme (NdPr) se négociait autour de 729,8-749,8 ¥/kg en Chine début octobre 2026, soit environ 97-106 $/kg",
+      "chiffre": "~97-106 $/kg",
+      "date_du_chiffre": "2026-10-09",
+      "sources": [
+        "rareearthexchanges"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Chine / Ministère du Commerce (Mofcom)",
+      "role": "Autorité qui impose et gère les restrictions d'exportation sur les métaux critiques et terres rares"
+    },
+    {
+      "nom": "Wang Wentao",
+      "role": "Ministre chinois du Commerce, co-président des consultations UE-Chine d'octobre 2026"
+    },
+    {
+      "nom": "Maroš Šefčovič",
+      "role": "Commissaire européen au Commerce et à la Sécurité économique, co-président des consultations"
+    },
+    {
+      "nom": "Union européenne",
+      "role": "Importateur dépendant à 100 % pour les terres rares lourdes, cherche à diversifier ses approvisionnements via le Critical Raw Materials Act (2024)"
+    },
+    {
+      "nom": "États-Unis",
+      "role": "Dépendant à 67 % des importations de terres rares, 71 % depuis la Chine ; tente de développer sa propre capacité de raffinage"
+    },
+    {
+      "nom": "MP Materials",
+      "role": "Principal producteur américain de terres rares (Mountain Pass, Californie), placé sur liste noire chinoise en juin 2026"
+    },
+    {
+      "nom": "Xi Jinping / Donald Trump",
+      "role": "Chefs d'État ayant négocié la suspension des mesures d'octobre 2025 en novembre 2025"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2023-08-01",
+      "evenement": "La Chine impose des contrôles à l'exportation sur le gallium et le germanium"
+    },
+    {
+      "date": "2024-08-15",
+      "evenement": "La Chine annonce des restrictions sur l'antimoine (en vigueur le 15 septembre)"
+    },
+    {
+      "date": "2024-12-03",
+      "evenement": "La Chine interdit totalement l'exportation de gallium, germanium et antimoine vers les États-Unis"
+    },
+    {
+      "date": "2025-04-04",
+      "evenement": "La Chine impose des licences d'exportation sur 7 terres rares lourdes (annonce n°18) en représailles aux tarifs Trump"
+    },
+    {
+      "date": "2025-10-09",
+      "evenement": "Second train de restrictions : 5 terres rares supplémentaires, règle extraterritoriale à 0,1 %, contrôle des technologies d'aimants"
+    },
+    {
+      "date": "2025-11-07",
+      "evenement": "Suspension du second train jusqu'au 10 novembre 2026 après l'accord Trump-Xi"
+    },
+    {
+      "date": "2026-06-22",
+      "evenement": "La Chine place MP Materials et 9 autres entités américaines sur sa liste de contrôle (annonce n°23)"
+    },
+    {
+      "date": "2026-09-28",
+      "evenement": "La Chine prolonge la suspension au 10 janvier 2027 (pas de mention des terres rares dans l'annonce)"
+    },
+    {
+      "date": "2026-10-08",
+      "evenement": "Deuxième consultation UE-Chine à Pékin : accord sur un green channel pour les licences de terres rares"
+    },
+    {
+      "date": "2026-10-13",
+      "evenement": "La Chine formalise le mécanisme de licences vertes lié à 4 milliards € de concessions tarifaires européennes"
+    },
+    {
+      "date": "2027-01-10",
+      "evenement": "Échéance de la suspension des mesures d'octobre 2025 (règle extraterritoriale incluse)"
+    },
+    {
+      "date": "2027-01-00",
+      "evenement": "Visioconférence ministérielle UE-Chine prévue"
+    },
+    {
+      "date": "2027-03-00",
+      "evenement": "Troisième consultation UE-Chine prévue à Bruxelles"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "L'Occident réduit sa dépendance : les projets de raffinage en Europe et aux États-Unis montent en puissance, la part de la Chine dans le raffinage tombe à 70-73 % d'ici 2035 (prévision IEA), et le green channel UE-Chine devient un cadre stable. Les prix des terres rares se stabilisent.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Le statu quo perdure : la suspension est régulièrement prolongée en échange de concessions commerciales, le régime de licences d'avril 2025 reste en place (ralentissant les flux sans les bloquer), et l'Occident progresse lentement mais insuffisamment dans sa diversification.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "La suspension expire le 10 janvier 2027 sans accord : la règle extraterritoriale à 0,1 % s'applique, les exportations de terres rares chinoises sont sévèrement restreintes, les prix grimpent (NdPr au-dessus de 150 $/kg), et les industries automobile, éolienne et de défense européennes et américaines subissent des pénuries.",
+      "probabilite_suggeree": 30
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Part de la Chine dans le raffinage mondial des terres rares",
+      "valeur": "90 %",
+      "tendance": "stable (85 % en 2025, 90 % en 2023)"
+    },
+    {
+      "label": "Prix de l'oxyde de NdPr (praséodyme-néodyme) en Chine",
+      "valeur": "~100 $/kg",
+      "tendance": "en légère hausse (69 $/kg en 2025, 55 $/kg en 2024)"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Recherche effectuée : pas de série historique longue et fiable (5+ points) sur le prix du NdPr ou la part de marché chinoise avec des points annuels réguliers. Les données USGS donnent des prix annuels pour NdPr oxide (2021: 92, 2022: 124, 2023: 75, 2024: 55, 2025: 69 $/kg) — seulement 5 points sur 5 ans, ce qui est juste au seuil, mais la série est trop courte pour un graphique en escalier pertinent. Critère (3) partiellement satisfait mais (1) et (2) insuffisants.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "3 à 6 chiffres comparables trouvés dans les faits vérifiés : prix du NdPr oxide sur plusieurs années (USGS) et parts de marché Chine/UE.",
+    "barres": {
+      "aria_label": "Prix de l'oxyde de praséodyme-néodyme (NdPr) aux États-Unis, en dollars par kilogramme, de 2021 à 2025",
+      "lead": "Le prix de l'oxyde de NdPr, baromètre du marché des terres rares, a chuté après le pic de 2022 avant de remonter légèrement en 2025.",
+      "caption": "Source : USGS Mineral Commodity Summaries 2026 (prix annuels moyens, dollars/kg)",
+      "unite": "$/kg",
+      "valeurs": [
+        {
+          "label": "2021",
+          "valeur": 92,
+          "affichage": "92 $/kg",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2022",
+          "valeur": 124,
+          "affichage": "124 $/kg",
+          "mis_en_avant": true
+        },
+        {
+          "label": "2023",
+          "valeur": 75,
+          "affichage": "75 $/kg",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2024",
+          "valeur": 55,
+          "affichage": "55 $/kg",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2025",
+          "valeur": 69,
+          "affichage": "69 $/kg",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Pourquoi les terres rares sont irremplaçables : des aimants NdFeB dans les moteurs de véhicules électriques et les éoliennes aux terres rares lourdes dans les lasers et les systèmes de guidage militaire — 17 éléments aux propriétés uniques, quasi impossibles à substituer.",
+        "rattache_a": "La Chine contrôle 90 % du raffinage"
+      },
+      {
+        "focus": "Comment fonctionne le régime de licences chinois : depuis avril 2025, tout exportateur de 7 terres rares lourdes doit obtenir une licence individuelle auprès du Mofcom, fournir un dossier d'end-user certifié, et attendre 45 jours ouvrés — un processus opaque que les entreprises jugent sélectif et dissuasif.",
+        "rattache_a": "Régime de licences d'avril 2025"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le prix exact du NdPr oxide au 15 octobre 2026 (données SMM du 14 octobre montrent une stabilisation autour de 729-749 ¥/kg côté chinois, mais les prix FOB hors Chine n'ont pas été mis à jour depuis le 7 octobre)",
+    "L'ampleur réelle de la baisse des exportations chinoises de terres rares vers l'UE depuis avril 2025 (les données douanières chinoises complètes pour 2026 ne sont pas encore publiées)"
+  ],
+  "a_ne_pas_affirmer": [
+    "Ne pas affirmer que la suspension du 10 janvier 2027 est déjà acquise ou déjà caduque — elle est toujours en vigueur et son issue est ouverte",
+    "Ne pas affirmer que le green channel UE-Chine garantit un approvisionnement — c'est une facilitation de procédure, pas une exemption de licence",
+    "Ne pas affirmer que l'Europe ou les États-Unis ont déjà réduit leur dépendance — les projets de raffinage sont en cours mais la part de la Chine reste dominante"
+  ],
+  "sources": [
+    {
+      "id": "eprs-brief",
+      "title": "China's rare-earth export restrictions - European Parliament EPRS",
+      "source": "European Parliament",
+      "url": "https://www.europarl.europa.eu/RegData/etudes/ATAG/2025/779220/EPRS_ATA%282025%29779220_EN.pdf",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-mondiale",
+      "summary": "Analyse du Parlement européen sur les restrictions chinoises aux terres rares : 60 % production, 90 % raffinage, 94 % aimants, dépendance UE à 100 % pour les HREEs et 85 % pour les LREEs.",
+      "read_minutes": 12
+    },
+    {
+      "id": "usgs-2026",
+      "title": "Mineral Commodity Summaries 2026: Rare Earths",
+      "source": "USGS",
+      "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-rare-earths_ver.1.2.pdf",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-mondiale",
+      "summary": "Données 2025 : production US de 51 000 t de REO, dépendance US aux importations à 67 %, 71 % des importations depuis la Chine. Prix annuels du NdPr oxide.",
+      "read_minutes": 8
+    },
+    {
+      "id": "reuters-april-2025",
+      "title": "China hits back at US tariffs with export controls on key rare earths",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/world/china-hits-back-us-tariffs-with-rare-earth-export-controls-2025-04-04/",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-mondiale",
+      "summary": "La Chine impose des contrôles à l'exportation sur 7 catégories de terres rares lourdes le 4 avril 2025, en représailles aux tarifs Trump.",
+      "read_minutes": 5
+    },
+    {
+      "id": "mofcom-18",
+      "title": "Announcement No.18 of 2025 — Export control on medium and heavy rare earth items",
+      "source": "Ministry of Commerce of China",
+      "url": "https://english.mofcom.gov.cn/Policies/AnnouncementsOrders/art/2025/art%5F0dd87cbee7b045bf93fabe6ab2faceee.html",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-mondiale",
+      "summary": "Texte officiel de l'annonce n°18 du 4 avril 2025 listant les 7 terres rares contrôlées (samarium, gadolinium, terbium, dysprosium, lutétium, scandium, yttrium) et leurs composés.",
+      "read_minutes": 10
+    },
+    {
+      "id": "hs-hardwares",
+      "title": "Suspension des contrôles à l'exportation des terres rares prolongée jusqu'en janvier 2027",
+      "source": "HS Hardwares",
+      "url": "https://www.hs-hardwares.com/fr/2026/10/09/rare-earth-export-controls-suspension",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie-mondiale",
+      "summary": "Analyse détaillée de la prolongation de la suspension au 10 janvier 2027 annoncée le 28 septembre 2026, distinguant les mesures suspendues (train d'octobre 2025) du régime de licences d'avril 2025 toujours en vigueur.",
+      "read_minutes": 8
+    },
+    {
+      "id": "rare-earth-mining",
+      "title": "Rare Earth Export Pause: 10 Nov Deadline and Key Outcomes",
+      "source": "Rare Earth Mining",
+      "url": "https://rare-earth-mining.com/rare-earth-export-pause-expiry-november-2026/",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-mondiale",
+      "summary": "Analyse des trois scénarios possibles pour l'expiration de la suspension : extension, rétablissement sélectif ou retour complet des mesures d'octobre 2025. Données sur la baisse de 50 % des exportations d'yttrium, dysprosium et terbium.",
+      "read_minutes": 7
+    },
+    {
+      "id": "ec-joint-statement",
+      "title": "Joint Statement at the second meeting of the EU-China Trade and Investment Consultations",
+      "source": "European Commission",
+      "url": "https://speechbrief.com/eu/eu-commission-press-release/2026-10-09/european-commission-reports-second-eu-china-trade-and-investment-consu-eu_presscorner:b796132a54dbeefdb21ee6e5",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-mondiale",
+      "summary": "Déclaration conjointe du 9 octobre 2026 : 16 points dont l'engagement chinois de faciliter les licences d'exportation de terres rares via un mécanisme de fast-track, et l'accord pour une troisième réunion ministérielle en mars 2027.",
+      "read_minutes": 10
+    },
+    {
+      "id": "eastasiabrief-oct13",
+      "title": "China ties rare earth permits to European trade concessions",
+      "source": "East Asia Brief",
+      "url": "https://eastasiabrief.com/energy-minerals/china-ties-rare-earth-permits-european-trade-concessions-697",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-mondiale",
+      "summary": "Le 13 octobre 2026, la Chine formalise le green channel pour les licences de terres rares lié à 4 milliards € de concessions tarifaires européennes (225 M€ d'économies annuelles).",
+      "read_minutes": 6
+    },
+    {
+      "id": "rareearthexchanges",
+      "title": "China Rare Earth Industry Association Reports 263.6 Index as NdPr Prices Rise",
+      "source": "Rare Earth Exchanges",
+      "url": "https://rareearthexchanges.com/news/china-rare-earth-price-index-ndpr-terbium/",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-mondiale",
+      "summary": "Indice des prix des terres rares à 263,6 au 9 octobre 2026, NdPr oxide à 729,8-749,8 ¥/kg. Prix FOB hors Chine stables.",
+      "read_minutes": 5
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "EU-China understanding opens compromises on hybrids and critical materials but does not yet rebalance trade",
+      "source": "2EU Brussels",
+      "url": "https://2eu.brussels/en/news/eu-china-understanding-opens-compromises-on-hybrids-and-critical-materials-but-does-not-yet-rebalance-trade",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-mondiale",
+      "summary": "Analyse de l'accord UE-Chine du 9 octobre : le green channel facilite les procédures mais ne supprime pas les licences, et le déficit commercial UE-Chine reste inchangé. Deux analyses Bruegel divergent sur la valeur réelle des concessions.",
+      "read_minutes": 8
+    },
+    {
+      "title": "US invests in critical minerals but China maintains grip",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/business/energy/us-invests-critical-minerals-china-maintains-grip--reeii-2026-09-14/",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-mondiale",
+      "summary": "Malgré les investissements américains, la part de la Chine dans le raffinage des terres rares n'est passée que de 90 % à 85 % entre 2023 et 2025. L'IEA prévoit 70-73 % d'ici 2035 même si tous les projets aboutissent.",
+      "read_minutes": 5
+    },
+    {
+      "title": "Chinese Customs Data Reveal Deeper US Dependence on Chinese Rare Earths",
+      "source": "Columbia University CGEP",
+      "url": "https://www.energypolicy.columbia.edu/chinese-customs-data-reveal-deeper-us-dependence-on-chinese-rare-earths/",
+      "image": null,
+      "lang": "en",
+      "domain": "economie-mondiale",
+      "summary": "Les données douanières chinoises montrent que les exportations d'aimants vers les États-Unis ont chuté de 22 % sur 12 mois, et que les exportations d'oxyde d'yttrium ont chuté de 75 % en 2025. La dépendance américaine est sous-estimée car elle n'inclut pas les aimants intégrés dans les produits finis importés.",
+      "read_minutes": 10
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-21",
+      "titre": "USA-Chine : la trêve commerciale au bord du gouffre",
+      "lien": "Même contexte de guerre commerciale USA-Chine : les restrictions chinoises sur les terres rares sont une réponse directe aux tarifs Trump, et le sommet Trump-Xi a conditionné la suspension des mesures d'octobre 2025."
+    },
+    {
+      "date": "2026-09-17",
+      "titre": "Dollar : la fin du règne ?",
+      "lien": "Même mécanisme de levier géopolitique chinois : Pékin utilise ses atouts économiques (réserves de change, contrôle des matières premières) comme arme de négociation face à Washington."
+    },
+    {
+      "date": "2026-08-25",
+      "titre": "IA chinoise : cadeau ou piège ?",
+      "lien": "Même acteur (Chine) et même mécanisme de dépendance technologique : Pékin offre un accès à ses technologies (IA, terres rares) en échange de concessions, créant une dépendance stratégique chez ses partenaires."
+    }
+  ],
+  "recommandations_redaction": [
+    "Ajouter un lien vers l'édition du 21 septembre 2026 (USA-Chine : la trêve commerciale) dans le premier paragraphe des faits, car le contexte tarifaire est le déclencheur direct des restrictions chinoises.",
+    "Ajouter un lien vers l'édition du 17 septembre 2026 (Dollar : la fin du règne ?) dans la section sur l'arme géopolitique chinoise.",
+    "Le green channel UE-Chine du 9 octobre 2026 est une actualité très récente (moins d'une semaine) : bien contextualiser qu'il ne s'agit pas d'une levée des restrictions mais d'une facilitation procédurale."
+  ]
+}
