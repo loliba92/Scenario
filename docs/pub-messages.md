@@ -1110,6 +1110,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-10-13 (archives/2026-10-13.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-10-14
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 61,5 milliards d'euros
+- message: La dette nette de l'assurance chômage atteint 61,5 milliards d'euros fin 2026, plongeant les comptes de l'Unédic dans un déficit de 2,3 milliards sous la pression d'un chômage à 8,3 %.
+- attribution: — lesscenarios.fr, 14 octobre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-10-14.html
+
+*Phrase à retenir de l'édition du 2026-10-14 (archives/2026-10-14.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
