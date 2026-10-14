@@ -417,6 +417,22 @@ def egaliser_pcm(pcm: bytes, filtre: str = FILTRE_CLARTE) -> bytes:
     return subprocess.run(cmd, input=pcm, capture_output=True, check=True).stdout
 
 
+# Aigus adoucis (retour du 14 octobre 2026) : la voix de synthèse siffle par moments (les « s »), surtout dans une voiture, où la
+# radio relève encore les aigus. Un creux de 3 dB autour de 7 kHz, sur la voix seule : aucun relèvement, ni compression, ni
+# normalisation (retirés le 7 octobre à la demande du propriétaire). Mesuré sur l'épisode du 14 octobre : 11,1 % de l'énergie
+# dans les aigus (5 à 11,5 kHz), contre 8,5 à 9,3 % les jours précédents.
+FILTRE_AIGUS = "equalizer=f=7000:t=q:w=1:g=-3"
+
+
+def adoucir_aigus_pcm(pcm: bytes, filtre: str = FILTRE_AIGUS) -> bytes:
+    """Adoucit les aigus de la voix seule (PCM 16 bits mono), avant le mixage avec la musique. Sans ffmpeg, la voix est rendue telle quelle."""
+    if not pcm or not shutil.which("ffmpeg"):
+        return pcm
+    cmd = ["ffmpeg", "-loglevel", "error", "-f", "s16le", "-ar", str(SAMPLE_RATE), "-ac", "1", "-i", "pipe:0",
+           "-af", filtre, "-f", "s16le", "-ar", str(SAMPLE_RATE), "-ac", "1", "pipe:1"]
+    return subprocess.run(cmd, input=pcm, capture_output=True, check=True).stdout
+
+
 VITESSE_ACCUEIL = 0.88   # l'accueil est lu seul, en peu de mots : la voix de synthèse l'enchaîne trop vite (retour du 11 octobre 2026)
 
 

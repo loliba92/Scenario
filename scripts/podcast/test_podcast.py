@@ -58,6 +58,18 @@ class PodcastTest(unittest.TestCase):
         self.assertIn("intelligence artificielle", " ".join(l["texte"] for l in debut))
         self.assertIn("lesscenarios.fr", " ".join(l["texte"] for l in fin))
 
+    def test_aigus_adoucis_sans_toucher_aux_graves(self):
+        import math
+        def rms_bande(pcm):
+            x = array("h"); x.frombytes(pcm)
+            return math.sqrt(sum(v * v for v in x) / len(x))
+        def sinus(f):
+            return array("h", [int(8000 * math.sin(2 * math.pi * f * i / gp.SAMPLE_RATE)) for i in range(gp.SAMPLE_RATE * 2)]).tobytes()
+        grave, aigu = sinus(300), sinus(7000)
+        self.assertAlmostEqual(rms_bande(gp.adoucir_aigus_pcm(grave)) / rms_bande(grave), 1.0, delta=0.03, msg="graves intacts")
+        self.assertLess(rms_bande(gp.adoucir_aigus_pcm(aigu)) / rms_bande(aigu), 0.78, "environ -3 dB à 7 kHz")
+        self.assertEqual(gp.adoucir_aigus_pcm(b""), b"")
+
     def test_accueil_ralenti_sans_changer_la_hauteur(self):
         import math
         voix = array("h", [int(8000 * math.sin(2 * math.pi * 220 * i / gp.SAMPLE_RATE)) for i in range(gp.SAMPLE_RATE * 3)]).tobytes()

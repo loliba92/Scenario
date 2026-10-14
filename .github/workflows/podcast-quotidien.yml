@@ -1,7 +1,7 @@
 name: Podcast — épisode du jour
 
 # Chaque jour, après « Rédaction et publication » : écrit le texte parlé de la dernière édition, le fait lire par la
-# voix Sulafat (Gemini), sans correction ni normalisation avec l'ouverture musicale, range le MP3 dans une Release GitHub et l'ajoute au flux
+# voix Sulafat (Gemini), aigus légèrement adoucis (depuis le 14 octobre 2026), sans normalisation avec l'ouverture musicale, range le MP3 dans une Release GitHub et l'ajoute au flux
 # https://lesscenarios.fr/podcast.xml que Spotify relit. Décidé le 3 octobre 2026 (« on l'automatise pour demain »).
 # Idempotent : si la Release podcast-AAAA-MM-JJ existe déjà, il n'y a rien à faire (sauf « forcer »).
 # Secrets : OPENROUTER_API_KEY (texte et voix) et GEMINI_API_KEY (contrôle du début de l'audio).
