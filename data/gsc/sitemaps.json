@@ -1,15 +1,15 @@
 {
-  "mis_a_jour": "2026-10-13",
+  "mis_a_jour": "2026-10-14",
   "plans": [
     {
       "plan": "https://lesscenarios.fr/sitemap.xml",
-      "derniere_lecture": "2026-10-13T03:05:36.437Z",
+      "derniere_lecture": "2026-10-13T14:20:15.064Z",
       "erreurs": "0",
       "avertissements": "0",
       "contenus": [
         {
           "type": "web",
-          "submitted": "169",
+          "submitted": "171",
           "indexed": "0"
         }
       ]
