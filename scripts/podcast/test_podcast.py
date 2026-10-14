@@ -402,7 +402,9 @@ class TestJingles(unittest.TestCase):
             self.assertRegex(f, r"[Àà] demain, pour un nouveau scénario|à demain pour un nouveau scénario")
             self.assertNotIn("évolution", f)
             self.assertTrue(f.endswith(tn.RITUEL), "rituel fixe : la devise du site, mot pour mot")
-            self.assertIn("Rien n'est écrit à l'avance, ne l'oubliez pas", f)   # la devise et « ne l'oubliez pas » (idée du propriétaire) restent
+            self.assertIn("Rien n'est écrit à l'avance. La suite, c'est à vous de l'écrire. Prenez soin de vous, et à demain", f)   # constat, invitation, adieu : dans cet ordre
+            self.assertNotIn("avoir été là", f)   # « merci de nous avoir écoutés » (retour d'écoute du 14 octobre 2026)
+            self.assertNotIn("oubliez", f)
             self.assertFalse(re.search(r"\b(tu|ton|ta|tes|toi|te)\b", f, re.I), "vouvoiement")
             self.assertFalse(re.search(tn.MOTS_INTERDITS, f, re.I))
             for phrase in re.split(r"[.!?]", f):
