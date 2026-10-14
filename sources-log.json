@@ -2,6 +2,61 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-14",
+      "articles": [
+        {
+          "title": "Le pape Léon XIV hospitalisé à Rome pour être opéré du poumon",
+          "source": "franceinfo",
+          "url": "https://www.franceinfo.fr/monde/vatican/pape-leon-xiv/le-pape-leon-xiv-est-hospitalise-dans-un-hopital-de-rome-pour-etre-opere-du-poumon_8235520.html",
+          "image": "https://www.franceinfo.fr/pictures/AWuINxmIq12Nh0k6f3HJBBZhKoo/0x0:6830x3841/1500x843/2026/10/13/6ace1b02e6251600905676.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Le pape Léon XIV a été admis mardi 13 octobre à l'hôpital Gemelli de Rome pour y subir une intervention visant à retirer un nodule pulmonaire. Cette opération, généralement considérée comme peu risquée, constitue la première alerte de santé pour le pontife de 71 ans depuis son élection le 8 mai 2025.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Nucléaire : plusieurs entreprises perquisitionnées pour des soupçons d'entente et de corruption « au détriment d'EDF », annonce le Parquet national financier",
+          "source": "Le Monde",
+          "url": "https://www.lemonde.fr/societe/article/2026/10/13/nucleaire-plusieurs-entreprises-perquisitionnees-pour-des-soupcons-d-entente-et-de-corruption-au-detriment-d-edf-annonce-le-parquet-national-financier_6793137_3224.html",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "Le Parquet national financier a perquisitionné mardi 13 octobre plusieurs entreprises du secteur de la maintenance nucléaire ainsi que des domiciles de salariés et agents EDF. Les investigations portent sur des soupçons de corruption en bande organisée et d'entente anticoncurrentielle au détriment d'EDF.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Mobilisation des lycéens : 36 enquêtes IGPN ouvertes depuis le début du mouvement",
+          "source": "franceinfo",
+          "url": "https://www.franceinfo.fr/societe/education/blocage-des-lycees/mobilisation-des-lyceens-36-enquetes-igpn-ouvertes-depuis-le-debut-du-mouvement_8235772.html",
+          "image": "https://www.franceinfo.fr/pictures/i7lNi-O_nOu_GoFmJcFtU73G3Ns/0x46:1024x622/1500x843/2026/10/13/6ace4ab473259926427196.jpg",
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Depuis le début du mouvement des lycéens, 36 enquêtes IGPN ont été ouvertes, selon une source proche du dossier citée mardi 13 octobre par franceinfo. Plus de 6 800 personnes, dont 86 % de mineurs, ont été placées en garde à vue et plus de 200 lycéens ainsi que plus de 800 policiers et gendarmes ont été blessés.",
+          "read_minutes": 2
+        },
+        {
+          "title": "La flambée des rendements obligataires met en évidence l'urgence d'un assainissement budgétaire - FMI",
+          "source": "Les Echos",
+          "url": "https://investir.lesechos.fr/marches-indices/economie-politique/la-flambee-des-rendements-obligataires-met-en-evidence-lurgence-dun-assainissement-budgetaire-fmi-2256749",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "Le FMI a exhorté mercredi 14 octobre les pays à prendre des mesures urgentes pour réduire les dépenses publiques, la dette mondiale moyenne étant sur le point d'atteindre 100 % du PIB. Le rendement moyen des obligations d'État des pays du G7 à 10 ans a progressé de plus de 110 points de base entre février et septembre, atteignant son plus haut niveau en près de vingt ans.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Lula, Bolsonaro ordered to call off attempts at online censorship",
+          "source": "AFP",
+          "url": "https://www.afp.com/en/lula-bolsonaro-ordered-call-attempts-online-censorship",
+          "image": null,
+          "lang": "en",
+          "domain": "politique-institutions",
+          "summary": "Le tribunal électoral brésilien a averti mardi le président Luiz Inacio Lula da Silva et le sénateur Flavio Bolsonaro de mettre fin à leur bataille judiciaire sur les réseaux sociaux. Le tribunal a enregistré 162 défis juridiques après le premier tour du 4 octobre, plus de trois fois le nombre pendant la même période avant les élections de 2022.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-10-13",
       "articles": [
         {

@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 14.10.2026 — [Assurance chômage : le système peut-il tenir sans nouvelles coupes ?](../archives/2026-10-14.html)
 - 13.10.2026 — [IA : risque d'extinction ou peur exagérée ?](../archives/2026-10-13.html)
 - 12.10.2026 — [Défense européenne : l'Europe peut-elle se passer des États-Unis ?](../archives/2026-10-12.html)
 - 11.10.2026 — [Milan-Cortina 2026 : l'IA va-t-elle remplacer les juges olympiques ?](../archives/2026-10-11.html)
