@@ -129,6 +129,7 @@ def main(argv=None) -> int:
         return 1
     else:
         print(f"Contrôle du début : conforme (« {transcription[:90]}… »)", flush=True)
+    parties_pcm = [gp.adoucir_aigus_pcm(x) for x in parties_pcm]   # voix seule, après les contrôles : la transcription porte sur le son brut
     if accueil:   # l'accueil, lu seul, sortait trop vite : on le ralentit (la question et la suite gardent leur rythme)
         parties_pcm[0] = gp.ralentir_pcm(parties_pcm[0])
     import musique
