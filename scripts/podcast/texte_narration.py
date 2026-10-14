@@ -33,13 +33,13 @@ OUVERTURES = (
     "Bienvenue sur Scénario, et merci de nous accorder quelques minutes. Comment allez-vous ? Comme chaque jour, une question d'actualité, trois évolutions possibles.",
     "Bonjour, et bienvenue sur Scénario. Si vous avez un instant, installez-vous : une question d'actualité, trois évolutions possibles, et le temps de comprendre.",
 )
-RITUEL = ("Prenez soin de vous. Rien n'est écrit à l'avance, ne l'oubliez pas. "
-          "La suite, c'est à vous de l'écrire. À demain, pour un nouveau scénario.")   # devise du site, dite chaque jour mot pour mot : « Rien n'est écrit à l'avance » ; « ne l'oubliez pas » est une idée du propriétaire (7 octobre 2026). Reformulée le 10 octobre 2026 en phrases qui coulent (quatre phrases courtes et sèches sonnaient robotiques), tournée vers l'auditeur. Allégée le 11 octobre 2026 : plus de « ceux qui vous entourent » (trop lourd) et phrases courtes, car le texte est parlé
+RITUEL = ("Rien n'est écrit à l'avance. La suite, c'est à vous de l'écrire. "
+          "Prenez soin de vous, et à demain pour un nouveau scénario.")   # devise du site, dite chaque jour mot pour mot : « Rien n'est écrit à l'avance ». Réécrit le 14 octobre 2026 après écoute : l'ancienne fin (« Prenez soin de vous. Rien n'est écrit à l'avance, ne l'oubliez pas. La suite, c'est à vous de l'écrire. À demain… ») ne coulait pas (adieu au milieu, rappel puis invitation sans lien). Ordre voulu : constat, invitation, adieu. « ne l'oubliez pas » (idée du 7 octobre) retiré à cette occasion.
 FERMETURES = tuple(debut + " " + RITUEL for debut in (
     "Merci d'avoir passé ce moment avec nous. L'édition complète vous attend sur lesscenarios.fr.",
     "Voilà, c'est la fin de ce rendez-vous. Merci de votre confiance : elle compte beaucoup pour nous. Tout est sur lesscenarios.fr.",
-    "Merci d'avoir été là, vraiment. Si le sujet vous a donné envie d'aller plus loin, tout est sur lesscenarios.fr.",
-    "C'est tout pour aujourd'hui. Merci de nous avoir écoutés avec autant d'attention. Les sources sont sur lesscenarios.fr.",
+    "Merci de nous avoir écoutés. Si le sujet vous a donné envie d'aller plus loin, tout est sur lesscenarios.fr.",
+    "C'est tout pour aujourd'hui. Merci pour votre attention. Les sources sont sur lesscenarios.fr.",
     "Merci de votre écoute. Si vous en avez envie, parlez-en autour de vous : une question à plusieurs, c'est toujours plus riche. Retrouvez tout sur lesscenarios.fr.",
     "Nous nous arrêtons ici. Merci de nous accorder votre temps : cela nous touche. Retrouvez tout sur lesscenarios.fr.",
     "Voilà qui conclut cette édition. Merci d'être restés jusqu'au bout. L'édition complète est sur lesscenarios.fr.",
