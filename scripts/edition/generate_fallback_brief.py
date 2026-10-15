@@ -422,6 +422,11 @@ brief, avec les faits qui ne reposaient que sur eux). Un fait que tu ne
 peux appuyer par aucun résultat de recherche réel n'entre pas dans
 `faits_verifies`.
 
+Limite stricte, contrôlée par le script : `sujet.question_posee` tient en 200
+caractères au maximum, espaces compris (vise 150). Une seule phrase nette ; le
+contexte va dans `sujet.angle`, jamais dans la question. Compte-les avant de répondre :
+un brief qui dépasse est rejeté en entier.
+
 Réponds UNIQUEMENT avec le JSON du brief — aucun texte avant ni après,
 aucune balise markdown autour, un objet JSON valide et rien d'autre.
 """
