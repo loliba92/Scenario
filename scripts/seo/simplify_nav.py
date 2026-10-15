@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Simplifie le menu du haut (FR) : 9 entrées → Accueil · Éditions · Glossaire · Le projet · Nous suivre.
+"""Simplifie le menu du haut (FR) : 9 entrées → Accueil · Éditions · Glossaire · Revue de presse · Le projet · Nous suivre.
 
 Demandé le 4 octobre 2026. « Matières » et « Recherche » sont atteintes depuis la page Éditions (archives.html) ; Newsletter et
 Soutenir rejoignent le bloc « Nous suivre », Contact rejoint le pied de page. Pages vivantes + gabarit (index.html) + édition du jour
@@ -17,7 +17,7 @@ NAV = re.compile(r'<nav class="topnav".*?</nav>', re.S)
 LINK = re.compile(r'<a href="([^"]*)"([^>]*)>(.*?)</a>', re.S)
 SVG = re.compile(r'<svg.*?</svg>', re.S)
 KEPT = [("index.html", "Accueil"), ("archives.html", "Éditions"), ("glossaire.html", "Glossaire"),
-        ("le-projet.html", "Le projet"), ("#nous-suivre", "Nous suivre")]
+        ("sources.html", "Revue de presse"), ("le-projet.html", "Le projet"), ("#nous-suivre", "Nous suivre")]
 LOUPE_A = re.compile(r'\n?\s*<a href="[^"]*recherche\.html" aria-label="Recherche"[^>]*>.*?</a>', re.S)
 
 
