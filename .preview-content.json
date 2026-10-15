@@ -1,178 +1,177 @@
 {
-  "h1": "Métaux rares : la Chine peut-elle bloquer l'Occident ?",
-  "question_text": "La Chine contrôle 90 % du raffinage des terres rares et 94 % des aimants permanents mondiaux : peut-elle utiliser ce quasi-monopole comme arme de rétorsion contre l'Europe et les États-Unis ?",
-  "section_title": "Trois trajectoires pour le bras de fer des métaux critiques",
+  "h1": "Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies",
+  "question_text": "La méthode IA du CEA sur 100 M de galaxies du DES donne-t-elle les contraintes les plus précises jamais obtenues sur matière noire et énergie sombre, et réconcilie-t-elle lentilles et Planck ?",
+  "section_title": "L'intelligence artificielle peut-elle lever le voile sur le côté obscur de l'Univers ?",
   "dek": [
-    "La domination chinoise sur les métaux stratégiques ne repose pas seulement sur l'extraction minière, mais sur une maîtrise industrielle écrasante de la transformation. Si la Chine extrait environ <strong>60 % de la production mondiale</strong> de terres rares<a class=\"lex-ref\" href=\"#lex-terres-rares\" aria-label=\"Voir la définition dans le lexique\">*</a>, elle assure surtout <strong>90 % de leur raffinage</strong> et fabrique près de <strong>94 % des aimants permanents</strong> au néodyme-fer-bore. Ces composants invisibles sont indispensables au fonctionnement des moteurs de voitures électriques, des génératrices d'éoliennes et des systèmes de guidage militaire. Sans eux, la transition énergétique et l'industrie de pointe occidentale se heurtent à un mur technique immédiat.",
-    "Cette suprématie place l'Europe et les États-Unis dans une position d'extrême vulnérabilité. L'Union européenne importe <strong>100 % de ses terres rares lourdes</strong> et <strong>85 % de ses terres rares légères</strong> depuis le territoire chinois. Côté américain, l'industrie dépend à <strong>67 % des importations</strong> pour ses besoins en composés de métaux critiques, dont <strong>71 % proviennent directement de Chine</strong>. Construire une usine de séparation chimique hors d'Asie exige entre sept et dix ans, des milliards d'euros d'investissements lourds et l'acceptation de normes environnementales complexes que peu de pays occidentaux ont jusqu'ici souhaité assumer chez eux.",
-    "Pour transformer cet avantage industriel en instrument politique, Pékin a mis en place un cadre réglementaire très strict. Le <strong>4 avril 2025</strong>, le ministère chinois du Commerce a instauré un régime de licences obligatoires sur <strong>7 terres rares lourdes</strong> stratégiques, comme le dysprosium<a class=\"lex-ref\" href=\"#lex-dysprosium\" aria-label=\"Voir la définition dans le lexique\">*</a> ou le terbium. Depuis cette décision, les exportations chinoises d'yttrium et de dysprosium vers les États-Unis ont accusé <strong>une baisse d'environ 50 %</strong>. Le <strong>22 juin 2026</strong>, Pékin a franchi un pas supplémentaire en plaçant dix entités américaines sur liste noire, dont le producteur MP Materials qui exploite la mine californienne de Mountain Pass.",
-    "Le pouvoir chinois teste ainsi en permanence le seuil de tolérance de ses partenaires commerciaux sans provoquer de rupture brutale. Le <strong>9 octobre 2025</strong>, Pékin avait dévoilé un second train de mesures redoutable, incluant une règle extraterritoriale<a class=\"lex-ref\" href=\"#lex-regle-extraterritoriale\" aria-label=\"Voir la définition dans le lexique\">*</a> ciblant tout produit étranger contenant au moins <strong>0,1 % de composants chinois</strong>. Face aux tensions, cette mesure a fait l'objet d'une suspension temporaire, récemment reconduite le <strong>28 septembre 2026</strong> jusqu'au <strong>10 janvier 2027</strong>. Cette pause montre que la Chine conçoit son monopole comme un puissant levier de négociation diplomatique plutôt que comme une arme de destruction économique immédiate.",
-    "La signature d'un compromis bilatéral entre Bruxelles et Pékin les <strong>8 et 9 octobre 2026</strong> illustre parfaitement cette stratégie de donnant-donnant. Les autorités chinoises ont accepté d'ouvrir un couloir vert d'exportation<a class=\"lex-ref\" href=\"#lex-couloir-vert-d-exportation\" aria-label=\"Voir la définition dans le lexique\">*</a> pour fluidifier l'octroi des licences vers les industriels européens. En contrepartie, l'Union européenne a accordé des allègements tarifaires ciblés portant sur <strong>4 milliards d'euros</strong> d'échanges commerciaux. Mais cet arrangement ne supprime pas le pouvoir discrétionnaire de Pékin : chaque cargaison reste soumise à une autorisation administrative révocable, maintenant une pression politique constante sur les gouvernements occidentaux.",
-    "L'issue de ce bras de fer dépend désormais de la vitesse à laquelle l'Occident parviendra à bâtir des filières alternatives indépendantes. Les projets miniers se multiplient en Amérique du Nord et en Australie, mais le coût de l'oxyde de praséodyme-néodyme s'établit autour de <strong>100 $ le kilo</strong> sur le marché chinois, un niveau qui complique la rentabilité des nouveaux acteurs émergents. Entre la menace d'un blocus complet aux conséquences industrielles dévastatrices et l'espoir d'une émancipation progressive d'ici la prochaine décennie, trois scénarios prospectifs se dessinent pour l'équilibre manufacturier mondial."
+    "Notre Univers observable cache une énigme vertigineuse que la science moderne tente d'élucider depuis plusieurs décennies. La matière ordinaire, celle qui constitue les étoiles, les planètes, le gaz interstellaire et notre corps humain, ne représente en réalité qu'environ <strong>5 %</strong> de la composition totale du cosmos. L'immense majorité restante, soit 95 %, se divise entre deux composantes invisibles : la matière noire<a class=\"lex-ref\" href=\"#lex-matiere-noire\" aria-label=\"Voir la définition dans le lexique\">*</a>, qui agit comme un ciment gravitationnel pour attirer et regrouper les galaxies, et l'énergie sombre<a class=\"lex-ref\" href=\"#lex-energie-sombre\" aria-label=\"Voir la définition dans le lexique\">*</a>, une force mystérieuse qui accélère l'expansion de l'espace à grande échelle. Comprendre ces forces invisibles constitue le défi majeur de l'astrophysique contemporaine.",
+    "Pour mesurer cette architecture cosmique invisible, les astronomes utilisent la technique dite de la lentille gravitationnelle faible<a class=\"lex-ref\" href=\"#lex-lentille-gravitationnelle-faible\" aria-label=\"Voir la définition dans le lexique\">*</a>. Lorsqu'un faisceau de lumière traverse l'Univers sur des milliards d'années, sa trajectoire est très légèrement déviée par la masse de la matière noire rencontrée en chemin. Cela déforme subtilement la forme apparente des galaxies d'arrière-plan, un peu comme regarder un paysage à travers une vitre imparfaite ou un fond de verre d'eau. En mesurant minutieusement ces déformations minuscules, les chercheurs peuvent cartographier la présence et l'épaisseur des masses invisibles disséminées dans le cosmos.",
+    "Le <strong>9 octobre 2026</strong>, l'Institut de recherche sur les lois fondamentales de l'Univers du CEA, le CEA-Irfu, en collaboration avec l'Imperial College London et l'University College London, a annoncé une avancée méthodologique majeure. L'équipe a développé un outil d'analyse hybride inédit, mariant les calculs statistiques classiques à des algorithmes d'intelligence artificielle avancés. Cette méthode a été appliquée aux données de la troisième année du Dark Energy Survey, un vaste relevé astronomique international capturé depuis le sol chilien, afin d'extraire des informations jusqu'alors inaccessibles aux outils de calcul standard.",
+    "Ce traitement algorithmique sans précédent a passé au crible un catalogue de <strong>100 millions</strong> de galaxies réparties sur une zone gigantesque du ciel, équivalente à <strong>5 000 fois</strong> la surface de la pleine Lune. Les approches statistiques conventionnelles se limitaient principalement aux corrélations simples entre deux points du ciel, laissant de côté les structures complexes en filaments ou en amas denses. En entraînant des réseaux de neurones profonds sur des simulations numériques de l'Univers, les chercheurs ont réussi à capter ces motifs non linéaires et à affiner drastiquement la précision des mesures de densité.",
+    "Les résultats obtenus livrent les contraintes cosmologiques les plus précises jamais calculées à partir uniquement des lentilles gravitationnelles faibles. Fait remarquable, ces mesures s'avèrent pleinement cohérentes avec les données de référence du satellite spatial Planck sur le fond diffus cosmologique<a class=\"lex-ref\" href=\"#lex-fond-diffus-cosmologique\" aria-label=\"Voir la définition dans le lexique\">*</a>, qui cartographie la première lumière émise par l'Univers il y a 13,8 milliards d'années. Cet accord historique contribue à réduire une tension persistante qui divisait la communauté scientifique entre les observations de l'Univers jeune et celles de l'Univers récent.",
+    "Cette percée technologique arrive à un moment stratégique pour l'Europe spatiale, alors que le télescope spatial Euclid de l'ESA, lancé en <strong>2023</strong> avec une forte implication du CEA, prépare ses premiers résultats majeurs attendus vers <strong>2027</strong>. Les futurs observatoires vont multiplier le volume de données astronomiques par cent dans les prochaines années. La méthode du CEA prouve que l'intelligence artificielle est devenue indispensable pour traiter cette avalanche d'informations, mais sa robustesse absolue face aux biais instrumentaux devra désormais être confirmée par l'ensemble des astrophysiciens mondiaux."
   ],
   "stakes_branches": {
-    "favorable": "L'Occident bâtit des usines de raffinage indépendantes et sécurise ses approvisionnements d'ici 2035.",
-    "stable": "Pékin maintient son régime de licences au compte-gouttes en échange de concessions commerciales régulières.",
-    "degrade": "La Chine active ses restrictions maximales début 2027 et provoque des pénuries massives en Occident."
+    "favorable": "L'IA valide le modèle cosmologique standard avec une précision record.",
+    "stable": "Les données progressent mais le mystère de l'énergie sombre reste ouvert.",
+    "degrade": "De nouveaux désaccords observationnels imposent de réécrire les lois de la gravité."
   },
   "comprendre_box": [
     {
-      "lead": "Les terres rares sont des vitamines indispensables à l'industrie moderne.",
-      "text": "Ces dix-sept métaux possèdent des propriétés magnétiques et optiques uniques au monde. Une infime pincée de dysprosium permet aux aimants de résister à la chaleur dans le moteur d'une voiture électrique ou le générateur d'une éolienne en mer. Sans ces éléments spécifiques, remplacer un composant exige de concevoir des moteurs beaucoup plus lourds, moins performants et technologiquement dépassés.",
-      "apres_dek_index": 0
+      "lead": "La lentille gravitationnelle fonctionne comme une vitre ondulée géante.",
+      "text": "Imaginez observer un lampadaire à travers une vitre de douche texturée. L'image de la lumière se déforme sans que le lampadaire ne change. Dans l'espace, la matière noire agit comme cette vitre : sa masse courbe l'espace et étire très légèrement la forme des galaxies lointaines situées derrière elle.",
+      "apres_dek_index": 1
     },
     {
-      "lead": "Le régime de licences fonctionne comme un péage administratif sélectif.",
-      "text": "Pour exporter une terre rare contrôlée, chaque entreprise doit déposer un dossier lourd détaillant le client final et patienter jusqu'à quarante-cinq jours ouvrés. Les autorités de Pékin conservent le droit de retarder ou de refuser chaque dossier sans justification publique, ce qui crée une incertitude permanente pour les usines européennes sans jamais décréter d'embargo officiel.",
-      "apres_dek_index": 2
+      "lead": "L'IA repère des motifs complexes invisibles aux statistiques classiques.",
+      "text": "Les statistiques de base mesurent seulement la distance moyenne entre deux grains de sable sur une plage. L'intelligence artificielle, elle, est capable de reconnaître la forme globale des châteaux de sable et des dunes. Elle extrait des détails cruciaux sur l'agglutinement de la matière noire que les formules mathématiques simples ignoraient.",
+      "apres_dek_index": 3
     }
   ],
   "list_box": null,
   "indicators": [
     {
-      "label": "Part de la Chine dans le raffinage mondial des terres rares",
-      "value": "90 %",
-      "delta": "stable (85 % en 2025, 90 % en 2023)"
+      "label": "Nombre de galaxies analysées par la méthode IA du CEA",
+      "value": "100 millions",
+      "delta": "Données 3e année du Dark Energy Survey"
     },
     {
-      "label": "Prix de l'oxyde de NdPr (praséodyme-néodyme) en Chine",
-      "value": "100 $/kg",
-      "delta": "en hausse par rapport à 69 $/kg en 2025 et 55 $/kg en 2024"
+      "label": "Surface du ciel couverte (équivalent pleine Lune)",
+      "value": "5 000 fois",
+      "delta": "Zone d'observation du Dark Energy Survey"
     }
   ],
   "cards": {
     "favorable": {
-      "pct": 25,
-      "gauge_word": "Peu probable",
-      "h3": "L'Occident accélère son raffinage et réduit sa dépendance",
+      "pct": 40,
+      "gauge_word": "Probable",
+      "h3": "Validation du modèle standard et confirmation de la constante cosmologique",
       "why": [
-        "Premier scénario : les États-Unis, l'Union européenne et leurs alliés parviennent à financer massivement des usines de séparation chimique sur leur propre sol pour briser le monopole de Pékin. Les projets miniers situés en Australie, au Canada et aux États-Unis franchissent enfin le cap du traitement industriel à grande échelle, réduisant progressivement la part chinoise du raffinage mondial vers 70 % à l'horizon 2035. Dans le même temps, le mécanisme de couloir vert négocié en octobre 2026 stabilise les flux commerciaux avec l'Europe, empêchant toute rupture critique pour les constructeurs automobiles et les fabricants d'éoliennes pendant la période de transition.",
-        "Contrairement aux perspectives de blocage unilatéral, cette option mise sur une réponse industrielle concrète plutôt que sur une simple négociation tarifaire défensive. Les gouvernements occidentaux garantissent des prix planchers d'achat pour amortir les coûts de production locaux face aux prix chinois plus compétitifs, ce qui sécurise la rentabilité des investissements privés. Si ce rééquilibrage progressif se confirmait, l'arme des métaux critiques perdrait une large part de son pouvoir de dissuasion stratégique face aux démocraties occidentales."
+        "Dans ce premier scénario, la méthode d'analyse développée par le CEA et ses partenaires britanniques est rapidement adoptée et validée par l'ensemble de la communauté scientifique internationale. Les vérifications croisées confirment que les réseaux de neurones ne génèrent aucun biais artificiel dans l'estimation de la masse invisible. Les futures données ultra-précises du télescope spatial Euclid et du grand observatoire terrestre Vera Rubin confirment alors pleinement que l'énergie sombre se comporte exactement comme une constante cosmologique<a class=\"lex-ref\" href=\"#lex-constante-cosmologique\" aria-label=\"Voir la définition dans le lexique\">*</a> immuable, validant avec éclat le modèle standard ΛCDM<a class=\"lex-ref\" href=\"#lex-modele-standard-lcdm\" aria-label=\"Voir la définition dans le lexique\">*</a>.",
+        "Cette trajectoire permettrait de clore des décennies de spéculations théoriques en démontrant que la relativité générale d'Albert Einstein s'applique sans faille à l'échelle de tout le cosmos observable. Contrairement au scénario stable où le doute persisterait faute de consensus mathématique, cette issue apporterait une confirmation définitive des paramètres de l'Univers avec une marge d'erreur inférieure à 1 %. La physique fondamentale consoliderait ainsi son socle théorique, même si la nature microscopique ultime du vide quantique pourrait encore susciter de nouveaux débats expérimentaux."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Part de la Chine dans le raffinage mondial",
-          "evo_current": "72 %",
-          "evo_arrow": "down",
-          "evo_prev": "90 %"
+          "field_name": "Nombre de galaxies analysées par la méthode IA",
+          "evo_current": "1,5 milliard",
+          "evo_arrow": "up",
+          "evo_prev": "100 millions (DES Y3)"
         },
         {
-          "field_name": "Prix de l'oxyde de NdPr en Chine",
-          "evo_current": "75 $/kg",
-          "evo_arrow": "down",
-          "evo_prev": "100 $/kg"
+          "field_name": "Surface du ciel couverte (équivalent pleine Lune)",
+          "evo_current": "30 000 fois",
+          "evo_arrow": "up",
+          "evo_prev": "5 000 fois"
         }
       ],
-      "france_line": "Les filières automobiles et aéronautiques françaises sécurisent leurs approvisionnements en aimants permanents à des tarifs prévisibles.",
+      "france_line": "Consécration du CEA comme leader mondial de l'analyse cosmologique par IA.",
       "france_impact": "favorable"
     },
     "stable": {
       "pct": 45,
       "gauge_word": "Probable",
-      "h3": "Le statu quo sous tension et les licences au compte-gouttes",
+      "h3": "Persistance des incertitudes méthodologiques et débats théoriques prolongés",
       "why": [
-        "Deuxième scénario : Pékin conserve son quasi-monopole sur la transformation et utilise ses contrôles à l'exportation comme un instrument de chantage douanier permanent. La suspension des mesures les plus restrictives est prolongée au-delà du 10 janvier 2027 en échange de concessions commerciales régulières de la part de Bruxelles et de Washington. Les autorisations de sortie restent gérées de manière discrétionnaire, maintenant une friction logistique permanente mais sans jamais couper totalement l'approvisionnement des usines européennes afin de préserver les débouchés économiques chinois.",
-        "Ce schéma intermédiaire diffère d'une guerre commerciale ouverte car il évite une flambée brutale des cours tout en empêchant l'Occident de se détacher réellement de l'écosystème manufacturier asiatique. Les projets de raffinage hors de Chine avancent trop lentement pour modifier l'équilibre des forces, freinés par des coûts environnementaux élevés et des délais administratifs persistants. Notre analyse estime que cette coexistence forcée sous haute surveillance administrative pourrait demeurer la norme dominante des échanges internationaux dans les prochaines années."
+        "Dans cette deuxième perspective, la méthode hybride combinant IA et statistiques est largement saluée pour son ingéniosité mais se heurte à des contestations techniques sur les biais instrumentaux et la modélisation des effets astrophysiques complexes. L'influence mal comprise des vents galactiques et des trous noirs supermassifs sur la matière ordinaire complique l'interprétation pure des lentilles faibles. Les mesures obtenues demeurent compatibles à la fois avec une constante cosmologique fixe et avec des théories concurrentes où l'énergie sombre évolue légèrement au fil des milliards d'années d'histoire cosmique.",
+        "Par rapport au scénario favorable qui trancherait immédiatement le débat, cette voie prolonge l'indécision des astrophysiciens pendant encore cinq à dix ans. Les données massives fournies par la mission spatiale Euclid à l'horizon 2027 et par les télescopes au sol apporteront des indices précieux, mais sans offrir le signal indiscutable capable d'éliminer définitivement les modèles alternatifs. La science progresserait alors par étapes prudentes et débats méthodologiques intenses, maintenant une saine rivalité entre les différentes équipes de recherche internationales."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Part de la Chine dans le raffinage mondial",
-          "evo_current": "88 %",
-          "evo_arrow": "flat",
-          "evo_prev": "90 %"
+          "field_name": "Nombre de galaxies analysées par la méthode IA",
+          "evo_current": "500 millions",
+          "evo_arrow": "up",
+          "evo_prev": "100 millions (DES Y3)"
         },
         {
-          "field_name": "Prix de l'oxyde de NdPr en Chine",
-          "evo_current": "105 $/kg",
-          "evo_arrow": "flat",
-          "evo_prev": "100 $/kg"
+          "field_name": "Surface du ciel couverte (équivalent pleine Lune)",
+          "evo_current": "15 000 fois",
+          "evo_arrow": "up",
+          "evo_prev": "5 000 fois"
         }
       ],
-      "france_line": "Les industriels français subissent des délais administratifs accrus et une vulnérabilité stratégique persistante face aux quotas chinois.",
-      "france_impact": "degrade"
+      "france_line": "Maintien d'un rôle scientifique de premier plan pour les laboratoires français.",
+      "france_impact": "favorable"
     },
     "degrade": {
-      "pct": 30,
-      "gauge_word": "Probable",
-      "h3": "L'expiration de la trêve et l'escalade des restrictions",
+      "pct": 15,
+      "gauge_word": "Peu probable",
+      "h3": "Résurgence de tensions observationnelles et remise en cause de la relativité générale",
       "why": [
-        "Troisième scénario : les négociations commerciales échouent et la Chine laisse expirer la suspension de ses sanctions le 10 janvier 2027 en réactivant la règle extraterritoriale à 0,1 %. Les exportations d'aimants permanents et de terres rares lourdes vers l'Europe et l'Amérique du Nord sont drastiquement réduites, provoquant une pénurie immédiate dans les chaînes d'assemblage de véhicules électriques et le secteur de la défense. Le cours de l'oxyde de praséodyme-néodyme s'envole au-delà des 150 dollars le kilo sur les marchés internationaux sous l'effet de la panique des acheteurs industriels.",
-        "À la différence du statu quo négocié, cette rupture frontale transformerait le levier minier en arme de représailles géopolitiques directes face aux hausses de droits de douane occidentaux. Les entreprises européennes, incapables de trouver des volumes de substitution à court terme, feraient face à des arrêts forcés de lignes d'assemblage et à des hausses de coûts de fabrication majeures. Une telle dégradation des relations commerciales plongerait les filières industrielles stratégiques dans une crise d'approvisionnement durable et coûteuse."
+        "Dans ce troisième scénario, l'extension des analyses par intelligence artificielle à des échantillons de données beaucoup plus vastes fait réapparaître des désaccords irréconciliables entre les différentes méthodes d'observation du cosmos. Alors que l'accord avec Planck semblait acquis sur l'échantillon du DES, des divergences marquées réémergent lorsque l'on croise la lentille gravitationnelle avec l'étude des supernovae lointaines ou les amas de galaxies. L'accumulation des données ne réduit pas les écarts mais prouve au contraire que le cadre théorique actuel est incomplet.",
+        "À l'opposé du scénario favorable où le modèle standard sortait conforté, cette crise de reproductibilité forcerait la physique contemporaine à envisager une rupture de paradigme majeure. Les chercheurs devraient abandonner la constante cosmologique simple pour explorer des théories de gravité modifiée, l'existence d'une cinquième force fondamentale ou des interactions exotiques au sein du secteur sombre. L'Univers se révélerait alors nettement plus complexe et déroutant que toutes les équations établies jusqu'à aujourd'hui."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Part de la Chine dans le raffinage mondial",
-          "evo_current": "92 %",
-          "evo_arrow": "up",
-          "evo_prev": "90 %"
+          "field_name": "Nombre de galaxies analysées par la méthode IA",
+          "evo_current": "100 millions",
+          "evo_arrow": "flat",
+          "evo_prev": "100 millions (DES Y3)"
         },
         {
-          "field_name": "Prix de l'oxyde de NdPr en Chine",
-          "evo_current": "165 $/kg",
-          "evo_arrow": "up",
-          "evo_prev": "100 $/kg"
+          "field_name": "Surface du ciel couverte (équivalent pleine Lune)",
+          "evo_current": "5 000 fois",
+          "evo_arrow": "flat",
+          "evo_prev": "5 000 fois"
         }
       ],
-      "france_line": "L'industrie automobile et le secteur militaire français font face à des pénuries directes d'aimants et à des hausses de coûts brutales.",
+      "france_line": "Nécessité de réorienter les programmes de recherche et les modèles théoriques nationaux.",
       "france_impact": "degrade"
     }
   },
   "essentiel_box": [
-    "La Chine peut-elle se servir de son quasi-monopole sur le raffinage des métaux critiques pour asphyxier les industries européennes et américaines ?",
-    "Pékin assure <strong>90 % du raffinage mondial</strong> des terres rares et <strong>94 % de la fabrication des aimants permanents</strong>, tout en soumettant ses ventes à des licences très strictes.",
-    "Pas sous la forme d'un blocus total : notre scénario le plus probable (45 %) montre que Pékin préfère doser ses exportations au compte-gouttes pour arracher des concessions commerciales, face à une rupture brutale (30 %) ou à une émancipation occidentale (25 %).",
-    "La date charnière du <strong>10 janvier 2027</strong> marquera l'expiration de la suspension du second train de restrictions chinoises et testera la solidité des accords bilatéraux."
+    "La méthode d'intelligence artificielle développée par le CEA permet-elle de fixer avec certitude les propriétés de l'énergie sombre et de clore les débats cosmologiques ?",
+    "Le CEA-Irfu a analysé 100 millions de galaxies du Dark Energy Survey grâce à une méthode hybride inédite mêlant statistiques et réseaux de neurones profonds, obtenant des contraintes records compatibles avec les données du satellite Planck.",
+    "Non, pas immédiatement : notre scénario le plus probable (45 %) prévoit que les incertitudes méthodologiques maintiendront le débat ouvert sur plusieurs années, face à une validation complète du modèle standard (40 %) ou une remise en cause théorique (15 %).",
+    "Le signal décisif à surveiller sera la publication des premiers résultats cosmologiques majeurs du télescope spatial Euclid de l'ESA, attendue autour de mars 2027."
   ],
   "delta_france": {
-    "kind": "negatif",
-    "score": -0.5,
-    "word": "assez négatif",
-    "text": "la probabilité cumulée de 75 % d'un statu quo sous pression ou d'un durcissement des restrictions chinoises expose directement la filière automobile et l'industrie de défense nationale."
+    "kind": "positif",
+    "score": 0.7,
+    "word": "assez positif",
+    "text": "la recherche française se place au cœur des futures découvertes spatiales avec 85 % de probabilité cumulée sur des scénarios renforçant son expertise en cosmologie et en intelligence artificielle."
   },
-  "phrase_a_retenir": "La Chine assure 90 % du raffinage des terres rares et 94 % des aimants mondiaux, un monopole qui lui permet de dicter ses conditions industrielles.",
-  "phrase_a_retenir_stat": "90 % du raffinage des terres rares et 94 % des aimants mondiaux",
+  "phrase_a_retenir": "Le CEA a analysé 100 millions de galaxies avec l'IA pour obtenir les mesures les plus précises sur l'énergie sombre.",
+  "phrase_a_retenir_stat": "100 millions",
   "lexique": [
     {
-      "slug": "terres-rares",
-      "terme": "terres rares",
-      "definition": "Groupe de dix-sept métaux aux propriétés électromagnétiques indispensables aux moteurs électriques, aux éoliennes et aux technologies de défense."
+      "slug": "matiere-noire",
+      "terme": "matière noire",
+      "definition": "Forme hypothétique de matière invisible qui ne diffuse ni n'émet de lumière, détectable uniquement par ses effets d'attraction gravitationnelle sur les galaxies."
     },
     {
-      "slug": "dysprosium",
-      "terme": "dysprosium",
-      "definition": "Terre rare lourde essentielle pour maintenir la puissance magnétique des aimants industriels soumis à de très fortes chaleurs."
+      "slug": "energie-sombre",
+      "terme": "énergie sombre",
+      "definition": "Composante mystérieuse et invisible de l'Univers responsable de l'accélération de l'expansion cosmique à grande échelle."
     },
     {
-      "slug": "regle-extraterritoriale",
-      "terme": "règle extraterritoriale",
-      "definition": "Mesure juridique imposant des autorisations chinoises sur des biens fabriqués à l'étranger contenant au moins 0,1 % de composants chinois."
+      "slug": "lentille-gravitationnelle-faible",
+      "terme": "lentille gravitationnelle faible",
+      "definition": "Déformation subtile de la forme apparente des galaxies lointaines provoquée par la courbure de l'espace sous l'effet de masses intermédiaires."
     },
     {
-      "slug": "couloir-vert-d-exportation",
-      "terme": "couloir vert d'exportation",
-      "definition": "Procédure administrative accélérée mise en place par la Chine pour faciliter la délivrance des licences commerciales à des partenaires choisis."
+      "slug": "fond-diffus-cosmologique",
+      "terme": "fond diffus cosmologique",
+      "definition": "Rayonnement fossile émis environ 380 000 ans après le Big Bang, constituant la plus ancienne image thermique de l'Univers observable."
+    },
+    {
+      "slug": "constante-cosmologique",
+      "terme": "constante cosmologique",
+      "definition": "Paramètre mathématique introduit par Albert Einstein représentant une densité d'énergie homogène et invariable associée au vide de l'espace."
+    },
+    {
+      "slug": "modele-standard-lcdm",
+      "terme": "modèle standard ΛCDM",
+      "definition": "Théorie de référence en cosmologie décrivant un Univers dominé par la constante cosmologique Lambda et la matière noire froide."
     }
   ],
   "sources_html": [
-    "<a href=\"https://www.europarl.europa.eu/RegData/etudes/ATAG/2025/779220/EPRS_ATA%282025%29779220_EN.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">European Parliament — China's rare-earth export restrictions - European Parliament EPRS ↗</a>",
-    "<a href=\"https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-rare-earths_ver.1.2.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">USGS — Mineral Commodity Summaries 2026: Rare Earths ↗</a>",
-    "<a href=\"https://www.reuters.com/world/china-hits-back-us-tariffs-with-rare-earth-export-controls-2025-04-04/\" target=\"_blank\" rel=\"noopener noreferrer\">Reuters — China hits back at US tariffs with export controls on key rare earths ↗</a>",
-    "<a href=\"https://english.mofcom.gov.cn/Policies/AnnouncementsOrders/art/2025/art%5F0dd87cbee7b045bf93fabe6ab2faceee.html\" target=\"_blank\" rel=\"noopener noreferrer\">Ministry of Commerce of China — Announcement No.18 of 2025 — Export control on medium and heavy rare earth items ↗</a>",
-    "<a href=\"https://www.hs-hardwares.com/fr/2026/10/09/rare-earth-export-controls-suspension\" target=\"_blank\" rel=\"noopener noreferrer\">HS Hardwares — Suspension des contrôles à l'exportation des terres rares prolongée jusqu'en janvier 2027 ↗</a>",
-    "<a href=\"https://rare-earth-mining.com/rare-earth-export-pause-expiry-november-2026/\" target=\"_blank\" rel=\"noopener noreferrer\">Rare Earth Mining — Rare Earth Export Pause: 10 Nov Deadline and Key Outcomes ↗</a>",
-    "<a href=\"https://speechbrief.com/eu/eu-commission-press-release/2026-10-09/european-commission-reports-second-eu-china-trade-and-investment-consu-eu_presscorner:b796132a54dbeefdb21ee6e5\" target=\"_blank\" rel=\"noopener noreferrer\">European Commission — Joint Statement at the second meeting of the EU-China Trade and Investment Consultations ↗</a>",
-    "<a href=\"https://eastasiabrief.com/energy-minerals/china-ties-rare-earth-permits-european-trade-concessions-697\" target=\"_blank\" rel=\"noopener noreferrer\">East Asia Brief — China ties rare earth permits to European trade concessions ↗</a>",
-    "<a href=\"https://rareearthexchanges.com/news/china-rare-earth-price-index-ndpr-terbium/\" target=\"_blank\" rel=\"noopener noreferrer\">Rare Earth Exchanges — China Rare Earth Industry Association Reports 263.6 Index as NdPr Prices Rise ↗</a>"
+    "<a href=\"https://www.cea.fr/drf/Pages/Actualites/En-direct-des-labos/2026/une-alliance-entre-IA-et-cosmologie-pour-mieux-comprendre-l-Univers-sombre.aspx\" target=\"_blank\" rel=\"noopener noreferrer\">CEA — Une alliance entre IA et cosmologie pour mieux comprendre l'Univers sombre ↗</a>"
   ],
   "meta": {
-    "title": "Métaux rares : la Chine peut-elle bloquer l'Occident ?",
-    "meta_description": "Métaux rares : la Chine peut-elle bloquer l'Occident ? 3 scénarios prospectifs pour 2030.",
-    "og_image_alt": "Extraction et raffinage de terres rares et métaux critiques dans un site industriel en Chine",
-    "keywords": [
-      "Occident",
-      "Chine"
-    ],
-    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-15.html\"\n  },\n  \"headline\": \"Métaux rares : la Chine peut-elle bloquer l'Occident ?\",\n  \"description\": \"Métaux rares : la Chine peut-elle bloquer l'Occident ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-15.png\"\n  ],\n  \"datePublished\": \"2026-10-15T00:00:00\",\n  \"dateModified\": \"2026-10-15T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Occident, Chine\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
-    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Métaux rares : la Chine peut-elle bloquer l'Occident ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-15.html\"\n    }\n  ]\n}"
+    "title": "Énergie sombre : l'IA du CEA cartographie 100 millions ...",
+    "meta_description": "Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Illustration scientifique de lentilles gravitationnelles et amas de galaxies dans l'Univers profond",
+    "keywords": [],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-16.html\"\n  },\n  \"headline\": \"Énergie sombre : l'IA du CEA cartographie 100 millions ...\",\n  \"description\": \"Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-16.png\"\n  ],\n  \"datePublished\": \"2026-10-16T00:00:00\",\n  \"dateModified\": \"2026-10-16T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-16.html\"\n    }\n  ]\n}"
   }
 }
