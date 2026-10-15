@@ -8,7 +8,7 @@
  * que depuis archives/, hebdo/ ou en/.
  *
  * 4 onglets directs (Accueil, Archives, Recherche, Le projet) + « Plus »
- * qui ouvre un petit panneau (Glossaire et les autres liens du menu du haut).
+ * qui ouvre un petit panneau (Revue de presse, Newsletter, Contact, Nous suivre, Soutenir).
  * Sur mobile, le menu du haut est masqué pour éviter un double menu ;
  * sur ordinateur, rien ne change.
  */
@@ -30,10 +30,10 @@
   var LANG = (document.documentElement.lang || "fr").slice(0, 2) === "en" ? "en" : "fr";
   var T = LANG === "en"
     ? { nav: "Main navigation", home: "Home", archives: "Archives", search: "Search", glossary: "Glossary", project: "The project",
-        more: "More", newsletter: "Newsletter", contact: "Contact", follow: "Follow us", support: "Support us",
+        more: "More", press: "Press review", newsletter: "Newsletter", contact: "Contact", follow: "Follow us", support: "Support us",
         close: "Close" }
     : { nav: "Navigation principale", home: "Accueil", archives: "Éditions", search: "Recherche", glossary: "Glossaire", project: "Le projet",
-        more: "Plus", newsletter: "Newsletter", contact: "Contact", follow: "Nous suivre", support: "Soutenir",
+        more: "Plus", press: "Revue de presse", newsletter: "Newsletter", contact: "Contact", follow: "Nous suivre", support: "Soutenir",
         close: "Fermer", themes: "Matières" };
 
   function svg(paths) {
@@ -49,6 +49,7 @@
     glossary: svg('<path d="M12 6.5c-1.6-1.2-3.7-1.7-6-1.7v13c2.3 0 4.4.5 6 1.7 1.6-1.2 3.7-1.7 6-1.7v-13c-2.3 0-4.4.5-6 1.7Z"/><line x1="12" y1="6.5" x2="12" y2="19.5"/>'),
     project: svg('<path d="m12 3 8 4.5-8 4.5-8-4.5Z"/><path d="m4 12 8 4.5 8-4.5"/><path d="m4 16.5 8 4.5 8-4.5"/>'),
     more: svg('<circle cx="5.5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="18.5" cy="12" r="1.3"/>'),
+    press: svg('<rect x="3.5" y="5.5" width="13" height="14" rx="1.5"/><path d="M16.5 8.5h2.5a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-13"/><line x1="7" y1="9.5" x2="13" y2="9.5"/><line x1="7" y1="13" x2="13" y2="13"/><line x1="7" y1="16.5" x2="11" y2="16.5"/>'),
     newsletter: svg('<rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M4.5 7 12 12.5 19.5 7"/>'),
     contact: svg('<path d="M4 6.5A1.5 1.5 0 0 1 5.5 5h13A1.5 1.5 0 0 1 20 6.5v8a1.5 1.5 0 0 1-1.5 1.5H10l-4 3.5V16H5.5A1.5 1.5 0 0 1 4 14.5Z"/>'),
     follow: svg('<path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"/><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"/>'),
@@ -67,7 +68,7 @@
   else if (file === "recherche.html") active = "archives";  // la recherche se lance depuis « Éditions »
   else if (file === "le-projet.html") active = "project";
   else if (file === "glossaire.html") active = "glossary";
-  else if (file === "newsletter.html" || file === "contact.html") active = "more";
+  else if (file === "newsletter.html" || file === "contact.html" || file === "sources.html") active = "more";
 
   var tabs = [
     { id: "home", href: root + "index.html", label: T.home },
@@ -76,6 +77,7 @@
     { id: "project", href: root + "le-projet.html", label: T.project }
   ];
   var more = [
+    { id: "press", href: root + "sources.html", label: T.press },
     { id: "newsletter", href: root + "newsletter.html", label: T.newsletter },
     { id: "contact", href: root + "contact.html", label: T.contact },
     { id: "follow", href: root + "index.html#nous-suivre", label: T.follow },
