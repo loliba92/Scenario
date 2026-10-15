@@ -214,8 +214,8 @@ def validate_brief(brief):
     question = brief.get("sujet", {}).get("question_posee", "")
     if not question:
         errors.append("sujet.question_posee manquant")
-    elif len(question) > 200:
-        errors.append(f"sujet.question_posee dépasse 200 caractères ({len(question)})")
+    elif len(question) > 300:
+        errors.append(f"sujet.question_posee dépasse 300 caractères ({len(question)})")
 
     # h1 obligatoire (champ structurel — un brief sans h1 est cassé). Sa
     # longueur/qualité (« court et percutant », jamais la reprise telle
