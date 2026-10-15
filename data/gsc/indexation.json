@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-10-14",
+  "mis_a_jour": "2026-10-15",
   "pages": [
     {
       "url": "https://lesscenarios.fr/",
@@ -24,7 +24,7 @@
     {
       "url": "https://lesscenarios.fr/guide-pedagogique.html",
       "verdict": "NEUTRAL",
-      "etat": "Détectée, actuellement non indexée",
+      "etat": "Google ne reconnaît pas cette URL",
       "derniere_exploration": null,
       "canonique_google": null,
       "canonique_declaree": null,
@@ -304,7 +304,7 @@
     {
       "url": "https://lesscenarios.fr/en/archives/2026-10-10.html",
       "verdict": "NEUTRAL",
-      "etat": "Google ne reconnaît pas cette URL",
+      "etat": "Détectée, actuellement non indexée",
       "derniere_exploration": null,
       "canonique_google": null,
       "canonique_declaree": null,

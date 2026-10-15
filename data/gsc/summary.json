@@ -1,9 +1,9 @@
 {
   "totaux": {
     "clicks": 3,
-    "impressions": 287,
-    "ctr": 0.0105,
-    "position": 9.3
+    "impressions": 295,
+    "ctr": 0.0102,
+    "position": 9.0
   },
   "requetes": [
     {
@@ -30,9 +30,9 @@
     {
       "requete": "scénarios email",
       "clicks": 0,
-      "impressions": 8,
+      "impressions": 7,
       "ctr": 0,
-      "position": 88.1
+      "position": 88.9
     }
   ],
   "pages": [
@@ -46,9 +46,9 @@
     {
       "page": "https://lesscenarios.fr/en/archives/2026-08-30.html",
       "clicks": 1,
-      "impressions": 18,
-      "ctr": 0.0556,
-      "position": 6.1
+      "impressions": 19,
+      "ctr": 0.0526,
+      "position": 5.8
     },
     {
       "page": "https://lesscenarios.fr/le-projet.html",
@@ -88,9 +88,9 @@
     {
       "page": "https://lesscenarios.fr/archives/2026-08-15.html",
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 9
+      "position": 6
     },
     {
       "page": "https://lesscenarios.fr/archives/2026-08-25.html",
@@ -151,9 +151,9 @@
     {
       "page": "https://lesscenarios.fr/en/archives/2026-08-08.html",
       "clicks": 0,
-      "impressions": 85,
+      "impressions": 86,
       "ctr": 0,
-      "position": 7.0
+      "position": 7.1
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-08-29.html",
@@ -207,9 +207,9 @@
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-19.html",
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 3,
       "ctr": 0,
-      "position": 6
+      "position": 7.3
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-20.html",
@@ -256,16 +256,16 @@
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-30.html",
       "clicks": 0,
-      "impressions": 19,
+      "impressions": 22,
       "ctr": 0,
-      "position": 5.6
+      "position": 5.3
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-10-07.html",
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 7,
       "ctr": 0,
-      "position": 4.6
+      "position": 6.4
     },
     {
       "page": "https://lesscenarios.fr/en/index.html",
@@ -298,15 +298,15 @@
     {
       "page": "https://lesscenarios.fr/newsletter.html",
       "clicks": 0,
-      "impressions": 11,
+      "impressions": 10,
       "ctr": 0,
-      "position": 65.5
+      "position": 63.7
     }
   ],
   "site": "sc-domain:lesscenarios.fr",
   "periode": {
-    "debut": "2026-09-14",
-    "fin": "2026-10-11"
+    "debut": "2026-09-15",
+    "fin": "2026-10-12"
   },
-  "mis_a_jour": "2026-10-14"
+  "mis_a_jour": "2026-10-15"
 }
