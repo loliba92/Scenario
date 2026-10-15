@@ -148,7 +148,7 @@ Ton adapté au registre, signature commune pour lecteur jeune : direct, comparai
 ### Étape 2 — La question posée
 Formuler en une phrase claire la question centrale à laquelle les trois scénarios répondent chacun. Visible dans un encart dédié (voir étape technique 3).
 
-**Limite de caractères : max 200 caractères (espaces compris).** Une problématique trop longue devient illisible dans le tableau archives et dans les résumés sociaux — une phrase concise et directe reste plus percutante. Si le sujet réclame plus de contexte, c'est le rôle du contexte/dek juste au-dessus, pas de la question elle-même. Reformuler jusqu'à atteindre une question qui tient en une phrase nette ≤ 200 caractères, jamais diluer cette limite en allongeant.
+**Limite de caractères : max 300 caractères (espaces compris).** Une problématique trop longue devient illisible dans le tableau archives et dans les résumés sociaux — une phrase concise et directe reste plus percutante. Si le sujet réclame plus de contexte, c'est le rôle du contexte/dek juste au-dessus, pas de la question elle-même. Reformuler jusqu'à atteindre une question qui tient en une phrase nette ≤ 300 caractères, jamais diluer cette limite en allongeant.
 
 **Le h1 et cette question ne doivent jamais être une simple reformulation cosmétique l'un de l'autre** — le h1 reste court et percutant, la question apporte une vraie information complémentaire (contexte/enjeu concret).
 

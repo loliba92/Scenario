@@ -422,7 +422,7 @@ brief, avec les faits qui ne reposaient que sur eux). Un fait que tu ne
 peux appuyer par aucun résultat de recherche réel n'entre pas dans
 `faits_verifies`.
 
-Limite stricte, contrôlée par le script : `sujet.question_posee` tient en 200
+Limite stricte, contrôlée par le script : `sujet.question_posee` tient en 300
 caractères au maximum, espaces compris (vise 150). Une seule phrase nette ; le
 contexte va dans `sujet.angle`, jamais dans la question. Compte-les avant de répondre :
 un brief qui dépasse est rejeté en entier.

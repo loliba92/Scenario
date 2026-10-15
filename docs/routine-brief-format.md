@@ -27,7 +27,7 @@ sur un fichier partagé entre deux process).
   "sujet": {
     "titre_propose": "string",
     "h1": "string",
-    "question_posee": "string, max 200 caractères",
+    "question_posee": "string, max 300 caractères",
     "eyebrow": "string, format '{Jour}, {registre}'",
     "angle": "string, 1-2 phrases",
     "tags": ["string"],
@@ -356,7 +356,7 @@ sujet, en JSON**, est son point de départ : `id`, `registre`, `titre`, `questio
 ## Règles de validité (vérifiées par `generate_daily_edition.py`)
 
 - `date` : format `AAAA-MM-JJ` valide.
-- `sujet.question_posee` : non vide, ≤ 200 caractères.
+- `sujet.question_posee` : non vide, ≤ 300 caractères.
 - `scenarios_prospectifs` : exactement les 3 clés `favorable`/`stable`/
   `degrade`, chacune avec `probabilite_suggeree` entre 0 et 100 ; la somme
   des 3 n'est **pas** forcée à 100 par le brief (ajustement possible en
