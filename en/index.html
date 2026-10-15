@@ -2887,8 +2887,7 @@
     }
 
     /* 3. Indicateurs — animation compteur au scroll */
-    function animateCount(el, end, suffix, duration) {
-      var start = 0;
+    function animateCount(node, end, suffix, duration, finalText) {
       var startTime = null;
       var num = parseFloat(end.replace(/[^0-9.,]/g, '').replace(',', '.'));
       if (isNaN(num)) return;
@@ -2899,9 +2898,9 @@
         var ease = 1 - Math.pow(1 - progress, 3);
         var cur = num * ease;
         var display = isFloat ? cur.toFixed(1).replace('.', ',') : Math.round(cur).toString();
-        el.textContent = display + suffix;
+        node.data = display + suffix;
         if (progress < 1) requestAnimationFrame(step);
-        else el.textContent = end;
+        else node.data = finalText;
       }
       requestAnimationFrame(step);
     }
@@ -2912,14 +2911,17 @@
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             var el = entry.target;
-            var raw = el.textContent.trim();
-            /* Extract suffix (everything after last digit) */
-            var match = raw.match(/^([+\-]?[0-9][0-9\s.,]*)\s*([^0-9]*)$/);
-            if (match) {
-              var numPart = match[1].replace(/\s/g, '');
-              var suffix = match[2] || '';
-              animateCount(el, numPart + suffix, '', 1200);
-              el.textContent = raw; /* will be overwritten but avoids flash */
+            /* On n'anime que le premier nœud texte (le nombre) : le <span class="delta"> qui suit
+               doit rester intact, et le texte d'origine (espaces compris) est restauré à la fin. */
+            var node = el.firstChild;
+            if (node && node.nodeType === 3) {
+              var original = node.data;
+              var match = original.trim().match(/^([+\-]?[0-9][0-9\s.,]*?)\s*([^0-9]*)$/);
+              if (match) {
+                var numPart = match[1].replace(/\s/g, '');
+                var suffix = match[2] ? ' ' + match[2] : '';
+                animateCount(node, numPart, suffix, 1200, original);
+              }
             }
             indObs.unobserve(el);
           }
