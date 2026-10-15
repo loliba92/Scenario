@@ -51,7 +51,7 @@ jobs:
           CLAIR: ${{ github.event.inputs.clair }}
         run: |
           case "$TEXTE" in *..*) echo "Texte invalide" >&2; exit 1 ;; esac
-          case "$TEXTE" in podcast/textes/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].txt|podcast/essais/avant.txt|podcast/essais/apres.txt|podcast/essais/ton-neutre.txt|podcast/essais/ton-consignes.txt|podcast/essais/ton-tags.txt) ;; *) echo "Texte invalide" >&2; exit 1 ;; esac
+          case "$TEXTE" in podcast/textes/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].txt|podcast/essais/avant.txt|podcast/essais/apres.txt) ;; *) echo "Texte invalide" >&2; exit 1 ;; esac
           case "$VOIX" in *[!A-Za-z0-9._:/|\ -]*) echo "Voix invalides" >&2; exit 1 ;; esac
           # shellcheck disable=SC2086
           case "$CAR" in ""|[0-9]|[0-9][0-9]|[0-9][0-9][0-9]) ;; *) echo "Nombre de caractères invalide" >&2; exit 1 ;; esac
