@@ -2,6 +2,41 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-15",
+      "articles": [
+        {
+          "title": "EU-China understanding opens compromises on hybrids and critical materials but does not yet rebalance trade",
+          "source": "2EU Brussels",
+          "url": "https://2eu.brussels/en/news/eu-china-understanding-opens-compromises-on-hybrids-and-critical-materials-but-does-not-yet-rebalance-trade",
+          "image": "https://2eu.brussels/media/8397/conversions/visit-of-maros-sefcovic-european-commissioner-to-china-800.jpg",
+          "lang": "en",
+          "domain": "economie-mondiale",
+          "summary": "Analyse de l'accord UE-Chine du 9 octobre : le green channel facilite les procédures mais ne supprime pas les licences, et le déficit commercial UE-Chine reste inchangé. Deux analyses Bruegel divergent sur la valeur réelle des concessions.",
+          "read_minutes": 8
+        },
+        {
+          "title": "US invests in critical minerals but China maintains grip",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/business/energy/us-invests-critical-minerals-china-maintains-grip--reeii-2026-09-14/",
+          "image": null,
+          "lang": "en",
+          "domain": "economie-mondiale",
+          "summary": "Malgré les investissements américains, la part de la Chine dans le raffinage des terres rares n'est passée que de 90 % à 85 % entre 2023 et 2025. L'IEA prévoit 70-73 % d'ici 2035 même si tous les projets aboutissent.",
+          "read_minutes": 5
+        },
+        {
+          "title": "Chinese Customs Data Reveal Deeper US Dependence on Chinese Rare Earths",
+          "source": "Columbia University CGEP",
+          "url": "https://www.energypolicy.columbia.edu/chinese-customs-data-reveal-deeper-us-dependence-on-chinese-rare-earths/",
+          "image": "https://www.energypolicy.columbia.edu/wp-content/uploads/2026/06/Image_Chinese-Customs-Data-Reveal-Deeper-US-Dependence-on-Chinese-Rare-Earths.png",
+          "lang": "en",
+          "domain": "economie-mondiale",
+          "summary": "Les données douanières chinoises montrent que les exportations d'aimants vers les États-Unis ont chuté de 22 % sur 12 mois, et que les exportations d'oxyde d'yttrium ont chuté de 75 % en 2025. La dépendance américaine est sous-estimée car elle n'inclut pas les aimants intégrés dans les produits finis importés.",
+          "read_minutes": 10
+        }
+      ]
+    },
+    {
       "date": "2026-10-14",
       "articles": [
         {
