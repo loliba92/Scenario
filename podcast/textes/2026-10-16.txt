@@ -1,0 +1,53 @@
+Imaginez une nuit sans lune, loin des villes. Vous levez les yeux, et vous voyez des milliers d'étoiles. Pourtant, ce que vous voyez ne représente qu'une toute petite part de l'Univers.
+
+Voilà la question du jour. Une nouvelle méthode, qui utilise l'intelligence artificielle, permet-elle enfin de savoir si notre explication de l'Univers tient la route.
+
+---
+
+Commençons par ce que l'on sait. Les étoiles, les planètes et notre propre corps sont faits de matière ordinaire. Elle ne représente qu'environ cinq pour cent de l'Univers.
+
+Le reste est invisible. Une partie est de la matière noire. On ne la voit pas, mais sa gravité retient les galaxies ensemble. L'autre partie, c'est l'énergie sombre. C'est une force inconnue qui fait grandir l'espace de plus en plus vite. Personne ne sait encore ce que sont ces deux ingrédients.
+
+Le 9 octobre 2026, une équipe du CEA, un grand organisme public français de recherche, a présenté une nouvelle méthode. Elle a étudié cent millions de galaxies. Des chercheurs de deux universités britanniques ont participé. Ils ont utilisé des images du Dark Energy Survey, un grand programme d'observation du ciel mené depuis le Chili.
+
+---
+
+Mais comment étudier ce que l'on ne voit pas. Eh bien, en observant ce que cela fait à la lumière.
+
+Imaginez un lampadaire vu à travers une vitre de douche. L'image se déforme, alors que le lampadaire ne change pas. Dans l'espace, la matière noire joue le rôle de la vitre. Elle déforme très légèrement la forme des galaxies lointaines. En mesurant ces petites déformations, on dessine une carte de la matière invisible.
+
+Voilà pour l'outil. Reste le vrai problème. On peut mesurer l'Univers de deux façons.
+
+Première façon : on part de la toute première lumière de l'Univers, vieille de treize virgule huit milliards d'années. Le satellite Planck l'a photographiée. On calcule alors ce que l'Univers devrait être aujourd'hui.
+
+Deuxième façon : on observe des galaxies, et on mesure comment la matière s'est regroupée depuis. C'est l'Univers plus récent.
+
+Depuis des années, ces deux résultats ne coïncident pas tout à fait. Si l'écart était réel, notre explication de l'Univers serait incomplète.
+
+C'est là qu'intervient la nouvelle méthode. Les statistiques classiques comparent seulement des paires de points du ciel. Elles passent à côté des formes plus riches, comme les longs filaments où la matière se concentre. L'équipe a donc entraîné une intelligence artificielle sur des simulations de l'Univers faites par ordinateur. Elle reconnaît ces formes dans les vraies données.
+
+Le résultat : les mesures les plus précises jamais obtenues avec cette technique. Elles sont compatibles avec celles du satellite Planck. L'écart se réduit. Mais il n'est pas effacé.
+
+En clair, deux façons de mesurer l'Univers s'accordent mieux qu'avant. Cela ne change rien à votre quotidien. L'enjeu est de comprendre de quoi l'Univers est fait.
+
+---
+
+Alors, que peut-il se passer. Voici les trois scénarios.
+
+Premier scénario, le plus favorable : deux chances sur cinq. D'autres équipes vérifient la méthode. Elles confirment que l'intelligence artificielle ne crée pas de faux signaux. Puis le télescope spatial européen Euclid et le télescope Vera Rubin, installé au Chili, livrent des mesures encore plus précises. L'énergie sombre ne change pas au cours du temps, et l'explication actuelle de l'Univers est confirmée. Concrètement, les lois de la gravité décrites par Albert Einstein fonctionneraient à l'échelle de tout l'Univers. La nature de la matière noire et de l'énergie sombre resterait pourtant un mystère.
+
+Deuxième scénario, le plus probable : un peu moins d'une chance sur deux. La méthode est saluée, mais d'autres chercheurs la critiquent. Ils craignent que l'intelligence artificielle ou les instruments faussent un peu les mesures. Les vents des galaxies et l'énergie des trous noirs géants compliquent aussi le calcul. Les mesures restent donc compatibles avec plusieurs théories. Concrètement, il faudrait encore cinq à dix ans de travail pour trancher. Ce n'est pas un échec. Ce n'est pas encore une réponse non plus.
+
+Troisième scénario, le plus sombre : un peu moins d'une chance sur cinq. Avec davantage de données, les écarts reviennent. Les lentilles, les explosions d'étoiles appelées supernovae et les groupes de galaxies ne donnent plus les mêmes résultats. Le désaccord avec Planck réapparaît. Les chercheurs en concluent que la théorie actuelle est incomplète. Concrètement, il faudrait chercher une nouvelle explication. Certaines pistes modifient la gravité elle-même. D'autres imaginent une cinquième force de la nature. Mais aucune preuve ne l'indique pour l'instant.
+
+En clair, dans le scénario le plus probable, le doute continue encore plusieurs années.
+
+---
+
+Et pour la France. Notre évaluation est assez positive. Le CEA est au cœur de ces travaux, et il participe aussi à Euclid.
+
+Ce que l'on surveillera : les premiers grands résultats d'Euclid, attendus vers mars 2027. Il faudra aussi que d'autres équipes vérifient la méthode. Pour l'instant, ces résultats viennent d'un communiqué du CEA.
+
+---
+
+La prochaine fois que vous lèverez les yeux vers les étoiles, souvenez-vous : nous n'en voyons qu'une toute petite part.
