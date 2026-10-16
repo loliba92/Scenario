@@ -213,6 +213,35 @@ Incident réel (édition du 1er octobre 2026) : 5 renvois sur 5 étaient \
 sans leur mot (« la * annuelle du bitcoin ») et la critique avait conclu \
 que l'édition était « rigoureuse » — un lecteur voit une phrase cassée.
 
+12. **Lecteur non spécialiste : jargon, enjeu absent, indicateurs sans \
+sens.** Relis l'édition comme une personne de 15 à 35 ans qui ne connaît \
+rien au sujet. Signale en gravité `bloquant` (categorie `jargon`) : \
+(a) tout terme technique, sigle, institution ou expression de spécialiste \
+employé sans être expliqué dans la MÊME phrase ou la suivante — le simple \
+renvoi au lexique (astérisque) ne suffit pas, le lecteur ne doit jamais \
+avoir à descendre en bas de page pour suivre une phrase (ex. « constante \
+cosmologique », « contraintes », « tension entre deux mesures », « Univers \
+jeune », « effets non linéaires ») ; (b) une phrase de plus de 25 mots ou \
+qui porte deux idées ; (c) un mot abstrait laissé tel quel (« paradigme », \
+« dynamique », « gouvernance », « trajectoire », « écosystème »...) au lieu \
+de ce qu'il désigne. \
+Signale en gravité `bloquant` (categorie `enjeu_absent`) : (d) un sujet \
+scientifique ou technique sans `enjeu_en_clair`, ou dont l'`enjeu_en_clair` \
+ne dit pas simplement de quoi on parle, quel est le problème et ce que cela \
+change (ou ne change pas) pour le lecteur — « rien ne change au quotidien » \
+est une réponse acceptable si elle est vraie. \
+Signale en gravité `important` (categorie `indicateurs_sans_sens`) : (e) des \
+`indicators` ou `indicateurs_touches` qui mesurent l'échelle de l'étude ou \
+de l'outil (nombre de galaxies, taille d'un échantillon, nombre de pages) \
+plutôt que ce qui est réellement en jeu pour le lecteur ; (f) un scénario \
+(`why`) sans aucune conséquence concrète compréhensible sans connaissance \
+préalable (que se passerait-il vraiment, pour qui). \
+Pour chaque constat, cite l'extrait exact et propose la reformulation \
+simple correspondante. \
+Incident réel (édition du 16 octobre 2026, cosmologie) : le lecteur n'a pas \
+compris l'enjeu, ni « Univers jeune / Univers récent », ni la plupart des \
+termes ; le contrôle automatique ne vérifiait alors aucun jargon.
+
 Pour chaque défaut trouvé, cite l'extrait exact concerné. Si un point n'a \
 rien à signaler, ne le mentionne pas — ne remplis jamais artificiellement \
 la liste des `findings` pour donner l'impression d'avoir travaillé.

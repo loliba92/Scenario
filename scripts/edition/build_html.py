@@ -307,6 +307,23 @@ def _comprendre_box_html(box):
     )
 
 
+def _enjeu_en_clair_html(box):
+    """Encadré « L'enjeu en clair » (ajouté le 16 octobre 2026, retour de
+    l'éditeur sur une édition de cosmologie : « je ne vois pas l'enjeu, ça
+    manque de pédagogie »). Affiché AVANT les faits : en 3 à 5 phrases
+    courtes, de quoi on parle, quel est le problème, et ce que ça change
+    (ou pas) pour le lecteur. Mêmes recette visuelle que .comprendre-box,
+    mais classes distinctes pour que la traduction anglaise (qui compte les
+    .comprendre-box) ne soit jamais décalée."""
+    return (
+        '<div class="enjeu-box">\n'
+        '  <span class="enjeu-label">L\'enjeu en clair</span>\n'
+        f'  <p class="enjeu-lead">{box["lead"]}</p>\n'
+        f'  <p class="enjeu-text">{box["text"]}</p>\n'
+        "</div>"
+    )
+
+
 # ---------------------------------------------------------------------------
 # .dc-chart-box — graphique en escalier pour série historique longue
 # (docs/routine-prompt.md, § « Graphique en escalier »). Jusqu'au 15
@@ -543,6 +560,7 @@ def build_hero(content, date_str, photo=None, graphique_dc_chart=None, theme_lin
             if i == 1 + 2 * k and i < len(content["dek"]) - 1:
                 dek_blocks.append(_rappel_edition_html(r))
     dek_html_full = "\n\n".join(dek_blocks)
+    enjeu_html = (_enjeu_en_clair_html(content["enjeu_en_clair"]) + "\n\n    ") if content.get("enjeu_en_clair") else ""
 
     list_box_html = _list_box_html(content["list_box"]) if content.get("list_box") else ""
     indicators_html = "\n".join(_kpi_indicator_html(ind) for ind in content["indicators"])
@@ -615,7 +633,7 @@ def build_hero(content, date_str, photo=None, graphique_dc_chart=None, theme_lin
 {theme_link_html}
     <p class="section-label">Les faits</p>
 
-    {dek_html_full}
+    {enjeu_html}{dek_html_full}
 
     {list_box_html}
 

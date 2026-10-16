@@ -196,6 +196,45 @@ ta propre rédaction :
     trajectoire budgétaire du pays, pas une transmission mécanique du
     prix du pétrole (les deux ne coexistaient que dans le même contexte
     de taux mondiaux élevés).
+- **Sujets scientifiques et techniques : exigence maximale** (ajouté le
+  16 octobre 2026, retour de l'éditeur sur une édition de cosmologie :
+  « je ne vois pas l'enjeu, ça manque de pédagogie, il faut penser qu'on
+  n'est pas des spécialistes »). Ces sujets sont traités au palier 4-5
+  quoi qu'en dise `sujet.complexite` (le script la relève à 4 pour la
+  rédaction). En plus des règles ci-dessus :
+  1. **Le renvoi au lexique (astérisque) ne remplace JAMAIS l'explication
+     dans le texte.** Chaque terme technique est expliqué dans la même
+     phrase ou la suivante (« la matière noire, une matière invisible dont
+     la gravité retient les galaxies ensemble »). Le lexique complète, il
+     ne dispense jamais d'expliquer sur place.
+  2. **Une expression de spécialiste qui n'a pas d'équivalent courant est
+     décrite par ce qu'elle fait**, pas nommée. Exemples à ne plus écrire
+     tels quels : « contraintes cosmologiques » (→ « des mesures plus
+     précises »), « tension entre l'Univers jeune et l'Univers récent »
+     (→ dire quelles sont les deux mesures qui ne s'accordent pas, et
+     pourquoi cela pose problème), « effets non linéaires », « secteur
+     sombre », « rupture de paradigme » (→ « il faudrait revoir la
+     théorie »).
+  3. **Dire à quoi sert la découverte, ou dire honnêtement qu'elle ne
+     change rien au quotidien.** Si la réponse est « rien ne change dans
+     la vie de tous les jours, l'enjeu est de comprendre X », l'écrire.
+  4. **Une scène ou un exemple chiffré proche du lecteur** dans chaque
+     explication de mécanisme (une vitre de douche, des châteaux de
+     sable...), jamais deux termes techniques dans la même phrase.
+- **Chaque scénario dit ce qui change concrètement** (ajouté le 16 octobre
+  2026). Après avoir annoncé le scénario, une phrase commençant par
+  « Concrètement, » dit ce qui se passerait, pour qui, et ce que le
+  lecteur peut en retenir. Un scénario du type « les scientifiques
+  s'accordent » sans conséquence compréhensible est incomplet.
+- **Les `indicators` et `indicateurs_touches` mesurent l'enjeu, pas la
+  taille de l'étude** (ajouté le 16 octobre 2026). Éviter « nombre de
+  galaxies analysées » ou « surface du ciel couverte », qui décrivent
+  l'outil et n'aident pas à juger. Choisir ce que le lecteur comprend :
+  un écart entre deux mesures, un délai, un coût, un nombre de personnes
+  concernées. Un indicateur qualitatif lisible (« Accord entre les deux
+  mesures : confirmé / débattu / de nouveau en désaccord ») est accepté
+  dans `indicateurs_touches` quand aucun chiffre honnête n'existe ;
+  `indicators` (bandeau du haut) reste toujours chiffré.
 - **Public 15-35 ans en priorité, sans exclure personne** : phrases
   directes, comparaisons concrètes, vocabulaire simple, une idée par
   phrase. Rigueur factuelle identique quel que soit l'âge du lecteur.
@@ -354,6 +393,17 @@ balises retirées et les espaces normalisés. Le minimum se calcule ainsi :
   ajouter du contenu réel (un chiffre du brief encore non utilisé, un
   acteur, une cause de fond, un précédent) plutôt que des mots de
   remplissage.
+
+### `enjeu_en_clair` (objet `{"lead", "text"}` — obligatoire sur un sujet scientifique/technique ou de complexité ≥ 3, ajouté le 16 octobre 2026)
+Encadré affiché AVANT les faits, sous le libellé « L'enjeu en clair ».
+`lead` : une phrase qui résume le problème (≤ 30 mots). `text` : 3 à 5
+phrases courtes (≤ 25 mots chacune), 40 à 130 mots au total avec `lead`,
+qui répondent dans l'ordre à : **(1) de quoi parle-t-on ? (2) quel est le
+problème ou le désaccord ? (3) pourquoi cela compte, ou, si c'est vrai,
+pourquoi cela ne change rien au quotidien et quel est alors l'enjeu ?**
+Aucun terme technique non expliqué, aucun sigle. Il ne répète pas le
+premier paragraphe du `dek` : il le prépare. Ne jamais y affirmer plus
+que le brief (`a_ne_pas_affirmer` reste valable).
 
 ### `stakes_branches` (objet à 3 clés : `favorable`, `stable`, `degrade`)
 Une phrase déclarative courte par branche, dans cet ordre, pour
@@ -583,6 +633,7 @@ reprend la substance de `question_text`.
   "question_text": "string",
   "section_title": "string",
   "dek": ["string", "..."],
+  "enjeu_en_clair": {"lead": "string", "text": "string"},
   "stakes_branches": {"favorable": "string", "stable": "string", "degrade": "string"},
   "comprendre_box": [{"lead": "string", "text": "string", "apres_dek_index": 0}],
   "list_box": null,
