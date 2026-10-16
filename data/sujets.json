@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "1272b096ce9ab126a7a0e71be850b99d352a0c2caafa192a55cc4a0614d5946a"
+    "md_sha256": "96e1d575d306ed644a5ef7b6d208127e5a85699d5e5987c311a04aef0776a296"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -3247,7 +3247,7 @@
           "titre": "IA et cosmologie : l'analyse de 100 millions de galaxies par le CEA résout-elle le mystère de l'énergie sombre ?",
           "question": "La nouvelle méthode hybride (statistiques cosmologiques + IA) appliquée aux données du Dark Energy Survey (100 M de galaxies) fournit-elle les contraintes les plus précises jamais obtenues sur la matière noire et l'énergie sombre, et peut-elle réconcilier les mesures divergentes entre lentilles gravitationnelles et rayonnement fossile Planck ?",
           "tag": "astrophysique & IA",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "Publié le 9 octobre 2026 par le CEA-Irfu : des chercheurs (CEA, Imperial College, UCL) ont développé une méthode d'analyse des lentilles gravitationnelles faibles combinant statistiques traditionnelles et IA. Appliquée aux données de la 3e année du DES (100 millions de galaxies sur 5 000 fois la pleine Lune), elle donne les contraintes cosmologiques les plus précises basées uniquement sur la lentille faible : densité de matière et intensité de l'agrégation cosmique. Les résultats sont cohérents avec le satellite Planck, résolvant une divergence persistante de plusieurs années entre méthodes d'observation.",
           "rationnel": "La question : cette percée méthodologique (IA pour extraire l'information non-gaussienne des distorsions de galaxies) marque-t-elle le début d'une cosmologie de précision qui déterminera la nature de l'énergie sombre (constante cosmologique vs dynamique), ou les systématiques instrumentaux et théoriques limiteront-ils encore l'interprétation ? L'issue est ouverte car : 1) l'IA identifie des motifs que les statistiques classiques manquent ; 2) mais l'IA est une « boîte noire » dont la robustesse cosmologique doit être prouvée ; 3) les futurs relevés (Euclid, LSST/Rubin) multiplieront les données par 100. Enjeu pour un lecteur français : leadership scientifique français/européen (CEA, mission Euclid), compréhension fondamentale de l'Univers (95 % inconnu), retombées technologiques (IA, traitement big data).",
@@ -3283,8 +3283,8 @@
           "note": "Ajouté automatiquement le 2026-10-11 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
           "donnees": null,
           "ajoute_le": "2026-10-11",
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-10-16",
+          "edition": "2026-10-16",
           "enrichi_le": null
         },
         {
