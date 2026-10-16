@@ -72,17 +72,30 @@ def _escape_json_string(s: str) -> str:
 
 
 def _build_title(brief: Dict[str, Any]) -> str:
-    """Title: titre_propose + " — Scénario". titre_propose est tronqué à 60
-    caractères (frontière de mot, voir _truncate_at_word_boundary) — sans
-    cap, les titres proposés par l'IA dépassaient couramment 100+
-    caractères (ex. 128 sur l'édition du 28 septembre 2026, repéré par
-    l'audit SEO SEOmatic), bien au-delà de la limite d'affichage de Google
-    dans les résultats de recherche (~60 caractères)."""
-    titre = brief.get("sujet", {}).get("titre_propose", "")
-    if not titre:
+    """Title de la page, jamais coupé par « … » tant qu'un titre complet existe.
+
+    Ordre :
+    1. `titre_propose` s'il tient en 59 caractères, suivi de « — Scénario » (70 au plus, limite d'affichage de Google) ;
+    2. sinon le `h1` (le titre court de l'édition, 43 à 68 caractères en pratique), entier : avec la marque s'il tient
+       en 59 caractères, sans la marque s'il tient en 70 (Google ajoute lui-même le nom du site) ;
+    3. en dernier recours seulement, `titre_propose` tronqué à la frontière de mot.
+    Constaté le 16 octobre 2026 (rapport Search Console, 6 pages) : les éditions du 13 au 16 octobre avaient un titre
+    coupé en plein milieu (« …ou cette peur… », « …peut-il tenir sans… »), parce que `titre_propose` dépasse presque
+    toujours 59 caractères alors que le h1 est déjà un titre court et complet. Avant, un titre proposé de 128
+    caractères (28 septembre 2026, audit SEOmatic) dépassait de loin la limite d'affichage de Google."""
+    sujet = brief.get("sujet", {})
+    titre = (sujet.get("titre_propose") or "").strip()
+    h1 = (sujet.get("h1") or "").replace("\xa0", " ").strip()
+    if not titre and not h1:
         return SITE_NAME
-    # 59 + « — Scénario » (11) = 70 caractères au plus, la limite d'affichage de Google.
-    return f"{_truncate_at_word_boundary(titre, 59)} — {SITE_NAME}"
+    if titre and len(titre) <= 59:
+        return f"{titre} — {SITE_NAME}"
+    if h1:
+        if len(h1) <= 59:
+            return f"{h1} — {SITE_NAME}"
+        if len(h1) <= 70:
+            return h1
+    return f"{_truncate_at_word_boundary(titre or h1, 59)} — {SITE_NAME}"
 
 
 def _truncate_at_word_boundary(text: str, max_len: int) -> str:

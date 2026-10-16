@@ -22,6 +22,18 @@ class TestTitre(unittest.TestCase):
         avant = t.split("… —")[0].split(" ")[-1].lower().rstrip("'’")
         self.assertNotIn(avant, g._MOTS_OUTILS)
 
+    def test_h1_complet_plutot_que_titre_coupe(self):
+        long = "IA et cosmologie : l'analyse de 100 millions de galaxies par le CEA résout-elle le mystère de l'énergie sombre ?"
+        t = g._build_title(brief(long, h1="Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies"))
+        self.assertNotIn("…", t)
+        self.assertEqual(t, "Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies")   # 66 caractères : sans la marque
+        self.assertLessEqual(len(t), 70)
+
+    def test_h1_court_garde_la_marque(self):
+        long = "L'IA va-t-elle détruire l'humanité, ou cette peur est-elle exagérée selon les chercheurs ?"
+        t = g._build_title(brief(long, h1="IA : risque d'extinction ou peur exagérée ?"))
+        self.assertEqual(t, "IA : risque d'extinction ou peur exagérée ? — Scénario")
+
 
 class TestDescription(unittest.TestCase):
     def test_question_courte_inchangee(self):

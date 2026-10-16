@@ -1237,6 +1237,11 @@ def build_en_soup(fr_soup, date_str, translations, memory, en_image_url, for_arc
         meta_desc["content"] = tr("meta_description", meta_desc.get("content", ""))
 
     soup.html["lang"] = "en"
+    # <meta name="language"> recopiée du français (« fr-FR ») : une page anglaise déclarait deux langues
+    # (relevé SEO du 11 octobre 2026, « pages anglaises déclarées en français »).
+    meta_language = soup.find("meta", attrs={"name": "language"})
+    if meta_language:
+        meta_language["content"] = "en-US"
 
     en_archive_url = f"https://lesscenarios.fr/en/archives/{date_str}.html"
     title_text = tr("title", soup.title.get_text() if soup.title else "")

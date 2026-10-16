@@ -1,6 +1,53 @@
 {
   "audits": [
     {
+      "date": "2026-10-16",
+      "titre": "titres coupés sur les éditions du 13 au 16 octobre",
+      "verdict": "Le problème « éditions inconnues de Google » est le même que celui conclu le 11 octobre : aucun blocage technique, Google explore rarement ce jeune site, et les correctifs de maillage sont déjà en place. Aucun nouvel audit n'a été lancé, les données n'ayant pas changé de nature ; il faut attendre le contrôle du 25 octobre. En revanche, une vraie cause nouvelle a été trouvée et corrigée : le générateur coupait les titres des éditions récentes en plein milieu d'une phrase.",
+      "agents": [
+        "gsc-expert (lecture des conclusions et du rapport, sans nouvel appel)"
+      ],
+      "constats": [
+        {
+          "titre": "Titres coupés par « … » sur 6 pages (éditions du 13 au 16 octobre, 4 en français, 2 en anglais)",
+          "certitude": "certain (code lu, pages relues)",
+          "statut": "corrige",
+          "cause": "generate_seo_head.py coupait le titre proposé (presque toujours plus long que 59 caractères) alors que le h1 de l'édition est déjà un titre court et complet. Résultat : « …ou cette peur… », « …peut-il tenir sans… ».",
+          "action": "Fait : le générateur prend désormais le h1 entier quand le titre proposé est trop long (avec la marque jusqu'à 59 caractères, sans la marque jusqu'à 70), et ne coupe qu'en dernier recours. 2 tests ajoutés. Titres, og:title et twitter:title corrigés sur les 6 pages (seules ces balises ont changé, vérifié ligne à ligne). Les titres anglais viennent de la traduction du titre français, donc les prochains seront corrects."
+        },
+        {
+          "titre": "Description anglaise trop courte (édition du 12 octobre, 84 caractères)",
+          "certitude": "certain",
+          "statut": "corrige",
+          "cause": "La description était la question traduite, sans le complément habituel.",
+          "action": "Fait : complément ajouté (146 caractères) dans description, og et twitter uniquement. Toutes les éditions en français et en anglais sont maintenant dans la norme (titre sans coupure, description de 100 à 160 caractères)."
+        },
+        {
+          "titre": "Pages anglaises déclarées en français",
+          "certitude": "certain",
+          "statut": "corrige",
+          "cause": "La balise « language » restait à fr-FR sur les pages anglaises (la langue du document et le JSON-LD étaient déjà en anglais).",
+          "action": "Fait : translate_daily.py la passe à en-US pour les prochaines éditions, et l'édition anglaise du jour est corrigée. Les anciennes éditions anglaises, figées, ne sont pas touchées (impact faible)."
+        },
+        {
+          "titre": "10 éditions de plus de 7 jours inconnues de Google",
+          "certitude": "mesuré, cause déjà établie le 11 octobre",
+          "statut": "proprietaire",
+          "cause": "Exploration rare d'un site jeune et peu cité ; correctifs de maillage déjà faits (bloc « Les éditions du mois », liens précédente/suivante). Aucun nouvel élément depuis le 11 octobre.",
+          "action": "Rien de nouveau à corriger dans le site. Les demandes d'indexation dans Search Console restent à faire par vous (voir ci-dessous)."
+        }
+      ],
+      "proprietaire": [
+        "Dans Search Console, demander l'indexation de /archives.html en priorité, puis de l'édition du jour et d'une dizaine d'éditions récentes par jour.",
+        "Demander aussi l'indexation de /guide-pedagogique.html, seule page principale encore « détectée, non indexée »."
+      ],
+      "inconnu": [
+        "Si les titres complets font monter le taux de clic : trop peu de données (299 impressions sur 28 jours) pour conclure avant plusieurs semaines.",
+        "Les liens « édition précédente » des pages déjà publiées affichent encore l'ancien titre coupé (pages figées, non modifiées)."
+      ],
+      "prochain_controle": "2026-10-25"
+    },
+    {
       "date": "2026-10-12",
       "titre": "peu de clics malgré une première page",
       "verdict": "Le site apparaît en position moyenne 9,1 mais n'obtient que 4 clics sur 291 impressions. Le classement n'est pas en cause : c'est l'aperçu dans Google qui n'incitait pas à cliquer. Les balises des trois pages vivantes et des 10 éditions les plus vues sont réécrites ; reste à mesurer l'effet.",

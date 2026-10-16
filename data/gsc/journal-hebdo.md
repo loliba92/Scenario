@@ -15,3 +15,10 @@
 - Corrigé : rien (aucune PR de correction).
 - À décider par le propriétaire : demandes d'indexation dans Search Console (d'abord /archives.html, puis les éditions récentes) ; consulter « Statistiques sur l'exploration ». Retravail des titres des pages anglaises les plus vues : à voir après le 25 octobre.
 - Prochain contrôle : lundi 19 octobre ; mesurer l'effet des corrections à partir du 25 octobre.
+
+## 2026-10-16 — verdict : critique (cause connue)
+- Chiffres : 3 clics, 299 impressions (28 j) ; 10 pages indexées sur 33 inspectées ; éditions inconnues > 7 j : 10.
+- Agents envoyés : aucun (le dernier audit, du 11 octobre, concluait déjà : pas de blocage technique, exploration rare ; contrôle prévu le 25 octobre).
+- Corrigé : titres coupés des éditions du 13 au 16 octobre (générateur + 6 pages), description anglaise du 12 octobre, balise de langue des pages anglaises.
+- À décider par le propriétaire : rien.
+- Pour le propriétaire (Search Console) : demander l'indexation de /archives.html, de l'édition du jour et de /guide-pedagogique.html.
