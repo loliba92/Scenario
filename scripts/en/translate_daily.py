@@ -125,6 +125,7 @@ CHROME_TEXT = {
     "Ajouter Scénario à vos sources Google": "Add Scénario to your Google sources",
     "Ce qu'on évalue": "What we're assessing",
     "Comprendre": "Understanding it",
+    "L'enjeu en clair": "The point, in plain terms",
     "Ne rate pas la prochaine édition :": "Don't miss the next edition:",
     "Indicateurs touchés": "Indicators affected",
     "Concrètement en France": "The France angle",
@@ -479,6 +480,17 @@ def collect_segments(soup):
             segments[f"comprendre_{i}_lead"] = inner_html(lead)
         if text:
             segments[f"comprendre_{i}_text"] = inner_html(text)
+
+    # « L'enjeu en clair » (ajouté le 16 octobre 2026) : 0 ou 1 par édition,
+    # classes distinctes de .comprendre-box pour ne pas décaler leur numérotation.
+    eb = soup.select_one(".enjeu-box")
+    if eb:
+        lead = eb.select_one(".enjeu-lead")
+        text = eb.select_one(".enjeu-text")
+        if lead:
+            segments["enjeu_lead"] = inner_html(lead)
+        if text:
+            segments["enjeu_text"] = inner_html(text)
 
     list_box = soup.select_one(".list-box")
     if list_box:
@@ -1389,6 +1401,15 @@ def build_en_soup(fr_soup, date_str, translations, memory, en_image_url, for_arc
             set_inner_html(lead, tr(f"comprendre_{i}_lead", inner_html(lead)))
         if text:
             set_inner_html(text, tr(f"comprendre_{i}_text", inner_html(text)))
+
+    eb = soup.select_one(".enjeu-box")
+    if eb:
+        lead = eb.select_one(".enjeu-lead")
+        text = eb.select_one(".enjeu-text")
+        if lead:
+            set_inner_html(lead, tr("enjeu_lead", inner_html(lead)))
+        if text:
+            set_inner_html(text, tr("enjeu_text", inner_html(text)))
 
     list_box = soup.select_one(".list-box")
     if list_box:

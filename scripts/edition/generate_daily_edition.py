@@ -54,6 +54,22 @@ SONNET_5_BACKUP = "anthropic/claude-sonnet-5"  # Rollback si besoin
 REDACTION_PROMPT_PATH = REPO_ROOT / "docs" / "routine-redaction-prompt.md"
 MIN_WORDS = 1100
 MIN_ESSENTIEL_WORDS = 110  # essentiel_box (4 paragraphes) — voir validate_content_schema()
+
+# « L'enjeu en clair » (ajouté le 16 octobre 2026, retour de l'éditeur sur une
+# édition de cosmologie : « je ne vois pas l'enjeu, il y a trop de jargon »).
+# Obligatoire sur tout sujet scientifique/technique ou de complexité >= 3.
+SCIENCE_DOMAINS = ("sciences", "sciences-environnement", "technologie", "tech", "sante")
+ENJEU_MIN_WORDS = 40
+ENJEU_MAX_WORDS = 130
+# Mots abstraits ou de spécialiste que la règle d'or interdit de laisser tels
+# quels (docs/routine-redaction-prompt.md) : signalés en avertissement, jamais
+# bloquants (simple message sur stderr) — le contrôle de lecture
+# (critique_preview.py, critère 12) tranche.
+JARGON_WATCHLIST = (
+    "paradigme", "non linéaire", "non linéaires", "dynamique", "gouvernance",
+    "écosystème", "trajectoire", "systémique", "robustesse", "contraintes cosmologiques",
+    "secteur sombre", "biais instrumentaux",
+)
 # phrase_a_retenir — même plafond que l'ancien CHIFFRE_MAX_CHARS de
 # scripts/pub/generate_daily_pub.py (gabarit d'image pub sans défilement,
 # voir validate_content_schema()).
@@ -193,6 +209,18 @@ def load_brief(path):
     errors = validate_brief(brief)
     if errors:
         raise GenerationError("Brief invalide :\n  - " + "\n  - ".join(errors))
+    # Plancher de pédagogie sur les sujets scientifiques/techniques (16 octobre
+    # 2026, retour de l'éditeur : « ces sujets demandent beaucoup de jargon que
+    # Monsieur Tout-le-Monde n'a pas »). Appliqué APRÈS validate_brief() : le
+    # nombre d'encadrés « Comprendre » décidé par la recherche reste vérifié
+    # sur sa propre note ; seule la rédaction voit la note relevée (palier 4 :
+    # analogie + enchaînement des causes explicité pas à pas).
+    sujet = brief.get("sujet", {})
+    note = sujet.get("complexite")
+    if sujet.get("domain") in SCIENCE_DOMAINS and isinstance(note, int) and not isinstance(note, bool) and note < 4:
+        sujet["complexite_recherche"] = note
+        sujet["complexite"] = 4
+        print(f"[brief] sujet scientifique/technique : complexité relevée de {note} à 4 pour la rédaction", file=sys.stderr)
     return brief
 
 
@@ -998,6 +1026,47 @@ def validate_content_schema(content, brief):
 
     if len(content["dek"]) < 3:
         errors.append(f"dek : {len(content['dek'])} paragraphes (minimum 3 attendu)")
+
+    # « L'enjeu en clair » : obligatoire sur un sujet scientifique/technique
+    # ou de complexité >= 3 (jamais exigé sur un sujet simple, où il ferait
+    # doublon avec le premier paragraphe).
+    sujet = brief.get("sujet", {})
+    complexite_effective = sujet.get("complexite")
+    besoin_enjeu = (
+        sujet.get("domain") in SCIENCE_DOMAINS
+        or sujet.get("registre") in SCIENCE_DOMAINS
+        or (isinstance(complexite_effective, int) and not isinstance(complexite_effective, bool) and complexite_effective >= 3)
+    )
+    enjeu = content.get("enjeu_en_clair")
+    if enjeu or besoin_enjeu:
+        if not isinstance(enjeu, dict) or not str(enjeu.get("lead", "")).strip() or not str(enjeu.get("text", "")).strip():
+            errors.append(
+                "enjeu_en_clair : objet {\"lead\", \"text\"} requis sur ce sujet (scientifique/technique ou "
+                "complexité >= 3) — 3 à 5 phrases courtes qui disent de quoi on parle, quel est le problème et "
+                "ce que ça change (ou pas) pour le lecteur"
+            )
+        else:
+            n_mots = len(re.sub(r"<[^>]+>", " ", enjeu["lead"] + " " + enjeu["text"]).split())
+            if not (ENJEU_MIN_WORDS <= n_mots <= ENJEU_MAX_WORDS):
+                errors.append(
+                    f"enjeu_en_clair : {n_mots} mots (entre {ENJEU_MIN_WORDS} et {ENJEU_MAX_WORDS} attendus)"
+                )
+
+    # Mots abstraits / de spécialiste laissés tels quels : avertissement seulement.
+    corpus = " ".join(
+        [" ".join(content.get("dek") or [])]
+        + [w for c in (content.get("cards") or {}).values() if isinstance(c, dict) for w in (c.get("why") or [])]
+        + [str(content.get("enjeu_en_clair") or "")]
+    ).lower()
+    for mot in JARGON_WATCHLIST:
+        if mot in corpus:
+            # Jamais dans `errors` : validate_content_schema() ne distingue pas
+            # les avertissements, tout ce qui y est ajouté bloque la génération.
+            print(
+                f"[edition] avertissement : « {mot} » est un mot abstrait ou de spécialiste — le remplacer par "
+                f"ce qu'il désigne concrètement, ou l'expliquer dans la même phrase",
+                file=sys.stderr,
+            )
 
     for kind in ("favorable", "stable", "degrade"):
         if kind not in content["stakes_branches"]:

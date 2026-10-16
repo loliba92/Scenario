@@ -26,6 +26,11 @@ Automated workflow generates and previews tomorrow's edition:
      consistency across sections, named attributions matching a listed
      source, tone breaks, lexical repetition, scenario-probability
      framing, chart consistency
+   - **Lecteur non spécialiste** (critère 12, ajouté le 16 octobre 2026) :
+     jargon non expliqué sur place, `enjeu_en_clair` absent ou
+     incompréhensible, indicateurs qui mesurent la taille de l'étude plutôt
+     que l'enjeu, scénario sans conséquence concrète — corrigé par la même
+     boucle de révision que les autres constats bloquants
    - Never blocks the pipeline — advisory only, runs with
      `continue-on-error: true`
    - Result posted as a **GitHub issue** (title prefixed ✅/⚠️/🛑/❌

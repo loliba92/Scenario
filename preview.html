@@ -921,7 +921,7 @@
      que .stakes-box (fond surface, filet doré à gauche, radius 4px),
      mais label "Comprendre" pour une explication de fond plutôt qu'une
      question ou un enjeu. */
-  .comprendre-box{
+  .comprendre-box, .enjeu-box{
     background: var(--surface);
     border-left: 3px solid var(--gold);
     border-radius: 4px;
@@ -930,7 +930,7 @@
     margin-left: -22px;
   }
 
-  .comprendre-label{
+  .comprendre-label, .enjeu-label{
     display: block;
     font-family: "JetBrains Mono", monospace;
     font-size: 0.72rem;
@@ -940,7 +940,7 @@
     margin: 0 0 8px;
   }
 
-  .comprendre-lead{
+  .comprendre-lead, .enjeu-lead{
     font-family: "Fraunces", serif;
     font-size: 1.1rem;
     font-weight: 500;
@@ -949,7 +949,7 @@
     color: var(--paper);
   }
 
-  .comprendre-text{
+  .comprendre-text, .enjeu-text{
     font-size: 0.95rem;
     line-height: 1.55;
     margin: 0;
@@ -2168,7 +2168,7 @@
     .dek{ margin-bottom: 10px; }
     .dek:last-of-type{ margin-bottom: 14px; }
     .stakes-box{ padding: 10px 14px; margin-top: 0; margin-bottom: 14px; }
-    .comprendre-box{ padding: 10px 14px; margin-top: 10px; margin-bottom: 10px; }
+    .comprendre-box, .enjeu-box{ padding: 10px 14px; margin-top: 10px; margin-bottom: 10px; }
     .dc-chart-box{ padding: 10px 14px; margin-top: 14px; }
     .list-box{ padding: 14px 16px 2px; margin-bottom: 14px; }
     .list-box-items li{ padding: 8px 0; }
@@ -2182,7 +2182,7 @@
     .essentiel-text + .essentiel-text{ margin-top: 8px; }
     .france-line{ padding: 8px 10px; }
     .retenir-box{ margin-top: 12px; padding: 14px 16px; }
-    .list-box, .comprendre-box, .dc-chart-box, .card, .essentiel-box, .retenir-box{
+    .list-box, .comprendre-box, .enjeu-box, .dc-chart-box, .card, .essentiel-box, .retenir-box{
       break-inside: avoid;
     }
     @page{ margin: 12mm; }

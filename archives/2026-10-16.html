@@ -946,7 +946,7 @@
      que .stakes-box (fond surface, filet doré à gauche, radius 4px),
      mais label "Comprendre" pour une explication de fond plutôt qu'une
      question ou un enjeu. */
-  .comprendre-box{
+  .comprendre-box, .enjeu-box{
     background: var(--surface);
     border-left: 3px solid var(--gold);
     border-radius: 4px;
@@ -955,7 +955,7 @@
     margin-left: -22px;
   }
 
-  .comprendre-label{
+  .comprendre-label, .enjeu-label{
     display: block;
     font-family: "JetBrains Mono", monospace;
     font-size: 0.72rem;
@@ -965,7 +965,7 @@
     margin: 0 0 8px;
   }
 
-  .comprendre-lead{
+  .comprendre-lead, .enjeu-lead{
     font-family: "Fraunces", serif;
     font-size: 1.1rem;
     font-weight: 500;
@@ -974,7 +974,7 @@
     color: var(--paper);
   }
 
-  .comprendre-text{
+  .comprendre-text, .enjeu-text{
     font-size: 0.95rem;
     line-height: 1.55;
     margin: 0;
@@ -2193,7 +2193,7 @@
     .dek{ margin-bottom: 10px; }
     .dek:last-of-type{ margin-bottom: 14px; }
     .stakes-box{ padding: 10px 14px; margin-top: 0; margin-bottom: 14px; }
-    .comprendre-box{ padding: 10px 14px; margin-top: 10px; margin-bottom: 10px; }
+    .comprendre-box, .enjeu-box{ padding: 10px 14px; margin-top: 10px; margin-bottom: 10px; }
     .dc-chart-box{ padding: 10px 14px; margin-top: 14px; }
     .list-box{ padding: 14px 16px 2px; margin-bottom: 14px; }
     .list-box-items li{ padding: 8px 0; }
@@ -2207,7 +2207,7 @@
     .essentiel-text + .essentiel-text{ margin-top: 8px; }
     .france-line{ padding: 8px 10px; }
     .retenir-box{ margin-top: 12px; padding: 14px 16px; }
-    .list-box, .comprendre-box, .dc-chart-box, .card, .essentiel-box, .retenir-box{
+    .list-box, .comprendre-box, .enjeu-box, .dc-chart-box, .card, .essentiel-box, .retenir-box{
       break-inside: avoid;
     }
     @page{ margin: 12mm; }
@@ -2564,7 +2564,7 @@
       <div class="article-image-overlay wrap">
         <p class="eyebrow">Vendredi, sciences</p>
         <h1>Énergie sombre&nbsp;: l'IA du CEA cartographie 100 millions de galaxies</h1>
-        <p class="question-text">La méthode IA du CEA sur 100 M de galaxies du DES donne-t-elle les contraintes les plus précises jamais obtenues sur matière noire et énergie sombre, et réconcilie-t-elle lentilles et Planck ?</p>
+        <p class="question-text">Une nouvelle méthode utilisant l'intelligence artificielle permet-elle enfin de savoir si notre explication de l'Univers tient la route ?</p>
         <p class="pubdate">Publié le 16 octobre 2026</p>
       </div>
     </div>
@@ -2590,44 +2590,52 @@
 
     <p class="section-label">Les faits</p>
 
-    <p class="dek">Notre Univers observable cache une énigme vertigineuse que la science moderne tente d'élucider depuis plusieurs décennies. La matière ordinaire, celle qui constitue les étoiles, les planètes, le gaz interstellaire et notre corps humain, ne représente en réalité qu'environ <strong>5 %</strong> de la composition totale du cosmos. L'immense majorité restante, soit 95 %, se divise entre deux composantes invisibles : la matière noire<a class="lex-ref" href="#lex-matiere-noire" aria-label="Voir la définition dans le lexique">*</a>, qui agit comme un ciment gravitationnel pour attirer et regrouper les galaxies, et l'énergie sombre<a class="lex-ref" href="#lex-energie-sombre" aria-label="Voir la définition dans le lexique">*</a>, une force mystérieuse qui accélère l'expansion de l'espace à grande échelle. Comprendre ces forces invisibles constitue le défi majeur de l'astrophysique contemporaine.</p>
+    <div class="enjeu-box">
+  <span class="enjeu-label">L'enjeu en clair</span>
+  <p class="enjeu-lead">Deux façons de mesurer l'Univers ne donnaient pas tout à fait le même résultat. Une nouvelle méthode les rapproche.</p>
+  <p class="enjeu-text">Première façon : on part de la toute première lumière de l'Univers, vieille de 13,8 milliards d'années. On calcule alors ce que l'Univers devrait être aujourd'hui. Deuxième façon : on observe des galaxies et on mesure comment la matière s'est regroupée depuis. C'est l'Univers plus récent. Depuis des années, ces deux résultats ne coïncident pas tout à fait. Si cet écart était réel, notre explication actuelle de l'Univers serait incomplète. Dans la vie de tous les jours, rien ne change. L'enjeu est de comprendre de quoi l'Univers est fait.</p>
+</div>
 
-<p class="dek">Pour mesurer cette architecture cosmique invisible, les astronomes utilisent la technique dite de la lentille gravitationnelle faible<a class="lex-ref" href="#lex-lentille-gravitationnelle-faible" aria-label="Voir la définition dans le lexique">*</a>. Lorsqu'un faisceau de lumière traverse l'Univers sur des milliards d'années, sa trajectoire est très légèrement déviée par la masse de la matière noire rencontrée en chemin. Cela déforme subtilement la forme apparente des galaxies d'arrière-plan, un peu comme regarder un paysage à travers une vitre imparfaite ou un fond de verre d'eau. En mesurant minutieusement ces déformations minuscules, les chercheurs peuvent cartographier la présence et l'épaisseur des masses invisibles disséminées dans le cosmos.</p>
+    <p class="dek">Les étoiles, les planètes et notre corps sont faits de matière ordinaire. Elle ne représente qu'environ <strong>5 %</strong> de ce qui compose l'Univers. Les 95 % restants sont invisibles. Une partie est de la matière noire<a class="lex-ref" href="#lex-matiere-noire" aria-label="Voir la définition dans le lexique">*</a>, une matière que l'on ne voit pas, mais dont la gravité retient les galaxies ensemble. L'autre est de l'énergie sombre<a class="lex-ref" href="#lex-energie-sombre" aria-label="Voir la définition dans le lexique">*</a>, une force inconnue qui fait grandir l'espace de plus en plus vite. Personne ne sait encore ce que sont réellement ces deux ingrédients.</p>
+
+<p class="dek">Comment étudier quelque chose d'invisible ? En observant ses effets sur la lumière. On parle de lentille gravitationnelle faible<a class="lex-ref" href="#lex-lentille-gravitationnelle-faible" aria-label="Voir la définition dans le lexique">*</a>. La lumière d'une galaxie lointaine voyage pendant des milliards d'années. En chemin, la matière noire la dévie très légèrement. La galaxie paraît alors un peu déformée. En mesurant ces petites déformations sur des millions de galaxies, on dessine une carte de la matière invisible.</p>
 
 <div class="comprendre-box">
   <span class="comprendre-label">Comprendre</span>
   <p class="comprendre-lead">La lentille gravitationnelle fonctionne comme une vitre ondulée géante.</p>
-  <p class="comprendre-text">Imaginez observer un lampadaire à travers une vitre de douche texturée. L'image de la lumière se déforme sans que le lampadaire ne change. Dans l'espace, la matière noire agit comme cette vitre : sa masse courbe l'espace et étire très légèrement la forme des galaxies lointaines situées derrière elle.</p>
+  <p class="comprendre-text">Imaginez observer un lampadaire à travers une vitre de douche texturée. L'image de la lumière se déforme, alors que le lampadaire ne change pas. Dans l'espace, la matière noire joue le rôle de la vitre : sa masse courbe l'espace et étire très légèrement la forme des galaxies situées derrière elle.</p>
 </div>
 
 <p class="rappel-edition"><span class="rappel-edition-label">Déjà abordé sur Scénario</span> <a href="../archives/2026-09-15.html">Fusion nucléaire&nbsp;: la promesse enfin tenue&nbsp;?</a> <span class="rappel-edition-date">(15 septembre)</span></p>
 
-<p class="dek">Le <strong>9 octobre 2026</strong>, l'Institut de recherche sur les lois fondamentales de l'Univers du CEA, le CEA-Irfu, en collaboration avec l'Imperial College London et l'University College London, a annoncé une avancée méthodologique majeure. L'équipe a développé un outil d'analyse hybride inédit, mariant les calculs statistiques classiques à des algorithmes d'intelligence artificielle avancés. Cette méthode a été appliquée aux données de la troisième année du Dark Energy Survey, un vaste relevé astronomique international capturé depuis le sol chilien, afin d'extraire des informations jusqu'alors inaccessibles aux outils de calcul standard.</p>
+<p class="dek">Le <strong>9 octobre 2026</strong>, une équipe du CEA-Irfu a présenté une nouvelle méthode. Le CEA est un grand organisme public français de recherche, et l'Irfu est son institut qui étudie l'Univers. Des chercheurs de deux universités britanniques, Imperial College London et University College London, ont participé au travail. Ils ont utilisé les données de la troisième année du Dark Energy Survey<a class="lex-ref" href="#lex-dark-energy-survey" aria-label="Voir la définition dans le lexique">*</a>, un grand programme d'observation du ciel mené depuis le Chili. Leur méthode mélange deux outils : des statistiques classiques et de l'intelligence artificielle.</p>
 
-<p class="dek">Ce traitement algorithmique sans précédent a passé au crible un catalogue de <strong>100 millions</strong> de galaxies réparties sur une zone gigantesque du ciel, équivalente à <strong>5 000 fois</strong> la surface de la pleine Lune. Les approches statistiques conventionnelles se limitaient principalement aux corrélations simples entre deux points du ciel, laissant de côté les structures complexes en filaments ou en amas denses. En entraînant des réseaux de neurones profonds sur des simulations numériques de l'Univers, les chercheurs ont réussi à capter ces motifs non linéaires et à affiner drastiquement la précision des mesures de densité.</p>
+<p class="dek">Ils ont étudié <strong>100 millions</strong> de galaxies, réparties sur une zone du ciel égale à <strong>5 000 fois</strong> la surface de la pleine Lune. Les statistiques classiques comparent seulement des paires de points du ciel : quelle distance les sépare, et comment leurs formes sont liées. Elles passent à côté de formes plus riches, comme les longs filaments et les amas où la matière se concentre. Pour les repérer, l'équipe a entraîné une intelligence artificielle sur des simulations de l'Univers faites par ordinateur. Ainsi formée, elle reconnaît ces formes complexes dans les vraies données.</p>
 
 <div class="comprendre-box">
   <span class="comprendre-label">Comprendre</span>
-  <p class="comprendre-lead">L'IA repère des motifs complexes invisibles aux statistiques classiques.</p>
-  <p class="comprendre-text">Les statistiques de base mesurent seulement la distance moyenne entre deux grains de sable sur une plage. L'intelligence artificielle, elle, est capable de reconnaître la forme globale des châteaux de sable et des dunes. Elle extrait des détails cruciaux sur l'agglutinement de la matière noire que les formules mathématiques simples ignoraient.</p>
+  <p class="comprendre-lead">L'IA repère des formes que les statistiques classiques ne voient pas.</p>
+  <p class="comprendre-text">Imaginez une plage. Une statistique simple mesure la distance moyenne entre deux grains de sable. L'IA, elle, reconnaît la forme d'un château ou d'une dune. Pour le ciel, c'est pareil : elle repère comment la matière noire s'est rassemblée en structures, ce que des formules simples ne voient pas.</p>
 </div>
 
 <p class="rappel-edition"><span class="rappel-edition-label">Déjà abordé sur Scénario</span> <a href="../archives/2026-09-18.html">Neuropathies&nbsp;: la recherche avance, les traitements stagnent</a> <span class="rappel-edition-date">(18 septembre)</span></p>
 
-<p class="dek">Les résultats obtenus livrent les contraintes cosmologiques les plus précises jamais calculées à partir uniquement des lentilles gravitationnelles faibles. Fait remarquable, ces mesures s'avèrent pleinement cohérentes avec les données de référence du satellite spatial Planck sur le fond diffus cosmologique<a class="lex-ref" href="#lex-fond-diffus-cosmologique" aria-label="Voir la définition dans le lexique">*</a>, qui cartographie la première lumière émise par l'Univers il y a 13,8 milliards d'années. Cet accord historique contribue à réduire une tension persistante qui divisait la communauté scientifique entre les observations de l'Univers jeune et celles de l'Univers récent.</p>
+<p class="dek">Résultat : ce sont les mesures les plus précises jamais obtenues avec la seule technique des lentilles. Elles sont compatibles avec celles du satellite Planck. Planck<a class="lex-ref" href="#lex-satellite-planck" aria-label="Voir la définition dans le lexique">*</a> a photographié la toute première lumière de l'Univers<a class="lex-ref" href="#lex-fond-diffus-cosmologique" aria-label="Voir la définition dans le lexique">*</a>, émise il y a 13,8 milliards d'années. C'est la première façon de mesurer dont nous parlions. Les deux méthodes s'accordent donc mieux qu'avant, ce qui réduit l'écart observé depuis plusieurs années. L'écart n'est pas pour autant effacé : il faudra d'autres mesures pour le confirmer.</p>
 
-<p class="dek">Cette percée technologique arrive à un moment stratégique pour l'Europe spatiale, alors que le télescope spatial Euclid de l'ESA, lancé en <strong>2023</strong> avec une forte implication du CEA, prépare ses premiers résultats majeurs attendus vers <strong>2027</strong>. Les futurs observatoires vont multiplier le volume de données astronomiques par cent dans les prochaines années. La méthode du CEA prouve que l'intelligence artificielle est devenue indispensable pour traiter cette avalanche d'informations, mais sa robustesse absolue face aux biais instrumentaux devra désormais être confirmée par l'ensemble des astrophysiciens mondiaux.</p>
+<p class="dek">Pourquoi cet écart compte-t-il ? Une bonne explication de l'Univers doit donner le même résultat, quelle que soit la façon de mesurer. Si deux mesures sérieuses se contredisent longtemps, il manque quelque chose : une erreur de mesure, ou un morceau de la théorie. Les chercheurs cherchent la réponse depuis des années. Ici, une meilleure précision permet d'écarter une partie des doutes. Elle ne suffit pas, à elle seule, pour conclure.</p>
+
+<p class="dek">Pourquoi maintenant ? Le télescope spatial Euclid, lancé en <strong>2023</strong> par l'Agence spatiale européenne avec une forte participation du CEA, doit livrer ses premiers grands résultats vers <strong>2027</strong>. Le télescope Vera Rubin, installé au Chili, doit lui aussi fournir de très nombreuses images du ciel. Ces instruments vont multiplier par cent la quantité de données à analyser. Trier tout cela à la main serait impossible, d'où l'intérêt de l'IA. Reste à prouver que l'IA ne crée pas de faux signaux. Les astrophysiciens du monde entier devront le vérifier. À ce stade, ces résultats viennent d'un communiqué du CEA : la publication scientifique complète n'a pas encore été vérifiée.</p>
 
     
 
     <div class="indicator-strip">
       <div class="indicator">
-  <span class="label">Nombre de galaxies analysées par la méthode IA du CEA</span>
-  <span class="value">100 millions <span class="delta">Données 3e année du Dark Energy Survey</span></span>
+  <span class="label">Galaxies étudiées par la nouvelle méthode</span>
+  <span class="value">100 millions <span class="delta">Données de la 3e année du Dark Energy Survey</span></span>
 </div>
 <div class="indicator">
-  <span class="label">Surface du ciel couverte (équivalent pleine Lune)</span>
-  <span class="value">5 000 fois <span class="delta">Zone d'observation du Dark Energy Survey</span></span>
+  <span class="label">Zone du ciel étudiée, en pleines Lunes</span>
+  <span class="value">5 000 fois <span class="delta">Zone observée par le Dark Energy Survey</span></span>
 </div>
     </div>
 
@@ -2668,14 +2676,14 @@
 <section class="scenarios" id="scenarios">
   <div class="wrap">
     <p class="section-label">Favorable, stable ou dégradé</p>
-    <h2 class="section-title">L'intelligence artificielle peut-elle lever le voile sur le côté obscur de l'Univers ?</h2>
+    <h2 class="section-title">L'IA peut-elle départager les deux façons de mesurer l'Univers ?</h2>
 
     <div class="stakes-box">
       <span class="stakes-label">Ce qu'on évalue</span>
       <ul class="stakes-branches">
-        <li data-kind="favorable"><span class="stakes-tag">Favorable</span>L'IA valide le modèle cosmologique standard avec une précision record.</li>
-<li data-kind="stable"><span class="stakes-tag">Stable</span>Les données progressent mais le mystère de l'énergie sombre reste ouvert.</li>
-<li data-kind="degrade"><span class="stakes-tag">Dégradé</span>De nouveaux désaccords observationnels imposent de réécrire les lois de la gravité.</li>
+        <li data-kind="favorable"><span class="stakes-tag">Favorable</span>La nouvelle méthode est confirmée et notre explication de l'Univers sort renforcée.</li>
+<li data-kind="stable"><span class="stakes-tag">Stable</span>La méthode est utile, mais le doute reste sur la nature de l'énergie sombre.</li>
+<li data-kind="degrade"><span class="stakes-tag">Dégradé</span>Les mesures divergent de nouveau et il faut revoir la théorie.</li>
       </ul>
     </div>
 
@@ -2692,28 +2700,28 @@
     <div class="gauge-num">40%</div>
   </div>
   <div class="gauge-word">Probable</div>
-  <h3>Validation du modèle standard et confirmation de la constante cosmologique</h3>
+  <h3>L'explication actuelle de l'Univers est confirmée</h3>
   </div>
   <div class="card-body">
-  <p class="why">Dans ce premier scénario, la méthode d'analyse développée par le CEA et ses partenaires britanniques est rapidement adoptée et validée par l'ensemble de la communauté scientifique internationale. Les vérifications croisées confirment que les réseaux de neurones ne génèrent aucun biais artificiel dans l'estimation de la masse invisible. Les futures données ultra-précises du télescope spatial Euclid et du grand observatoire terrestre Vera Rubin confirment alors pleinement que l'énergie sombre se comporte exactement comme une constante cosmologique<a class="lex-ref" href="#lex-constante-cosmologique" aria-label="Voir la définition dans le lexique">*</a> immuable, validant avec éclat le modèle standard ΛCDM<a class="lex-ref" href="#lex-modele-standard-lcdm" aria-label="Voir la définition dans le lexique">*</a>.</p>
-<p class="why">Cette trajectoire permettrait de clore des décennies de spéculations théoriques en démontrant que la relativité générale d'Albert Einstein s'applique sans faille à l'échelle de tout le cosmos observable. Contrairement au scénario stable où le doute persisterait faute de consensus mathématique, cette issue apporterait une confirmation définitive des paramètres de l'Univers avec une marge d'erreur inférieure à 1 %. La physique fondamentale consoliderait ainsi son socle théorique, même si la nature microscopique ultime du vide quantique pourrait encore susciter de nouveaux débats expérimentaux.</p>
+  <p class="why">Premier scénario : la méthode du CEA est vérifiée par d'autres équipes. Elles confirment que l'IA ne crée pas de faux signaux. Puis les télescopes Euclid et Vera Rubin livrent des mesures encore plus précises. Elles montrent que l'énergie sombre ne change pas au cours du temps. On parle de constante cosmologique<a class="lex-ref" href="#lex-constante-cosmologique" aria-label="Voir la définition dans le lexique">*</a>. Cela valide le modèle standard<a class="lex-ref" href="#lex-modele-standard-lcdm" aria-label="Voir la définition dans le lexique">*</a>, c'est-à-dire l'explication de référence actuelle de l'Univers.</p>
+<p class="why">Concrètement, les lois de la gravité décrites par Albert Einstein fonctionneraient à l'échelle de tout l'Univers. Les grandes mesures de l'Univers seraient connues avec moins de 1 % d'erreur. La vraie nature de la matière noire et de l'énergie sombre resterait pourtant un mystère.</p>
   <hr class="divider">
   <div class="field">
     <span class="field-label">Indicateurs touchés</span>
     <ul>
       <li>
-  <span class="field-name">Nombre de galaxies analysées par la méthode IA</span>
-  <span class="evo-current">1,5 milliard</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">100 millions (DES Y3)</span>
+  <span class="field-name">Accord entre les deux façons de mesurer</span>
+  <span class="evo-current">Confirmé</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">Compatible, à confirmer</span>
 </li>
 <li>
-  <span class="field-name">Surface du ciel couverte (équivalent pleine Lune)</span>
-  <span class="evo-current">30 000 fois</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">5 000 fois</span>
+  <span class="field-name">Notre explication actuelle de l'Univers</span>
+  <span class="evo-current">Renforcée</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">Solide, mais discutée</span>
 </li>
     </ul>
   </div>
   <div class="france-line" data-france-impact="favorable">
     <span class="field-label">Concrètement en France</span>
-    Consécration du CEA comme leader mondial de l'analyse cosmologique par IA. <span class="evo-arrow is-up">↑</span> Plutôt favorable pour la France.
+    Le CEA, aussi présent dans Euclid, confirme sa place de premier plan en cosmologie. <span class="evo-arrow is-up">↑</span> Plutôt favorable pour la France.
   </div>
   </div>
 </article>
@@ -2729,28 +2737,28 @@
     <div class="gauge-num">45%</div>
   </div>
   <div class="gauge-word">Probable</div>
-  <h3>Persistance des incertitudes méthodologiques et débats théoriques prolongés</h3>
+  <h3>La méthode est utile, mais le doute persiste</h3>
   </div>
   <div class="card-body">
-  <p class="why">Dans cette deuxième perspective, la méthode hybride combinant IA et statistiques est largement saluée pour son ingéniosité mais se heurte à des contestations techniques sur les biais instrumentaux et la modélisation des effets astrophysiques complexes. L'influence mal comprise des vents galactiques et des trous noirs supermassifs sur la matière ordinaire complique l'interprétation pure des lentilles faibles. Les mesures obtenues demeurent compatibles à la fois avec une constante cosmologique fixe et avec des théories concurrentes où l'énergie sombre évolue légèrement au fil des milliards d'années d'histoire cosmique.</p>
-<p class="why">Par rapport au scénario favorable qui trancherait immédiatement le débat, cette voie prolonge l'indécision des astrophysiciens pendant encore cinq à dix ans. Les données massives fournies par la mission spatiale Euclid à l'horizon 2027 et par les télescopes au sol apporteront des indices précieux, mais sans offrir le signal indiscutable capable d'éliminer définitivement les modèles alternatifs. La science progresserait alors par étapes prudentes et débats méthodologiques intenses, maintenant une saine rivalité entre les différentes équipes de recherche internationales.</p>
+  <p class="why">Deuxième scénario : la méthode est saluée, mais d'autres chercheurs la critiquent. Ils craignent que l'IA ou les instruments faussent un peu les mesures. Ils rappellent aussi que des phénomènes mal connus compliquent le calcul. Par exemple, les vents créés par les galaxies et l'énergie des trous noirs géants modifient la matière ordinaire. Les mesures restent alors compatibles avec une énergie sombre fixe, et avec des théories où elle évolue lentement.</p>
+<p class="why">Concrètement, il faudrait encore cinq à dix ans de travail pour trancher. Euclid et les autres télescopes apporteraient des indices précieux, mais pas de preuve définitive. Les équipes continueraient à comparer leurs méthodes.</p>
   <hr class="divider">
   <div class="field">
     <span class="field-label">Indicateurs touchés</span>
     <ul>
       <li>
-  <span class="field-name">Nombre de galaxies analysées par la méthode IA</span>
-  <span class="evo-current">500 millions</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">100 millions (DES Y3)</span>
+  <span class="field-name">Accord entre les deux façons de mesurer</span>
+  <span class="evo-current">Débattu</span> <span class="evo-arrow is-flat">→</span> <span class="evo-prev">Compatible, à confirmer</span>
 </li>
 <li>
-  <span class="field-name">Surface du ciel couverte (équivalent pleine Lune)</span>
-  <span class="evo-current">15 000 fois</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">5 000 fois</span>
+  <span class="field-name">Notre explication actuelle de l'Univers</span>
+  <span class="evo-current">Toujours discutée</span> <span class="evo-arrow is-flat">→</span> <span class="evo-prev">Solide, mais discutée</span>
 </li>
     </ul>
   </div>
   <div class="france-line" data-france-impact="favorable">
     <span class="field-label">Concrètement en France</span>
-    Maintien d'un rôle scientifique de premier plan pour les laboratoires français. <span class="evo-arrow is-up">↑</span> Plutôt favorable pour la France.
+    Les laboratoires français restent bien placés pour exploiter les résultats d'Euclid vers 2027. <span class="evo-arrow is-up">↑</span> Plutôt favorable pour la France.
   </div>
   </div>
 </article>
@@ -2766,28 +2774,28 @@
     <div class="gauge-num">15%</div>
   </div>
   <div class="gauge-word">Peu probable</div>
-  <h3>Résurgence de tensions observationnelles et remise en cause de la relativité générale</h3>
+  <h3>Les mesures divergent de nouveau et la théorie est à revoir</h3>
   </div>
   <div class="card-body">
-  <p class="why">Dans ce troisième scénario, l'extension des analyses par intelligence artificielle à des échantillons de données beaucoup plus vastes fait réapparaître des désaccords irréconciliables entre les différentes méthodes d'observation du cosmos. Alors que l'accord avec Planck semblait acquis sur l'échantillon du DES, des divergences marquées réémergent lorsque l'on croise la lentille gravitationnelle avec l'étude des supernovae lointaines ou les amas de galaxies. L'accumulation des données ne réduit pas les écarts mais prouve au contraire que le cadre théorique actuel est incomplet.</p>
-<p class="why">À l'opposé du scénario favorable où le modèle standard sortait conforté, cette crise de reproductibilité forcerait la physique contemporaine à envisager une rupture de paradigme majeure. Les chercheurs devraient abandonner la constante cosmologique simple pour explorer des théories de gravité modifiée, l'existence d'une cinquième force fondamentale ou des interactions exotiques au sein du secteur sombre. L'Univers se révélerait alors nettement plus complexe et déroutant que toutes les équations établies jusqu'à aujourd'hui.</p>
+  <p class="why">Troisième scénario : avec davantage de données, les écarts reviennent. Les lentilles, les supernovae et les amas de galaxies ne donneraient plus les mêmes résultats. Les supernovae sont des explosions d'étoiles qui servent de repères pour mesurer les distances. Les amas sont des groupes de milliers de galaxies. Le désaccord avec Planck pourrait réapparaître, et les chercheurs en concluraient que la théorie actuelle est incomplète.</p>
+<p class="why">Concrètement, il faudrait chercher une nouvelle explication. Certaines pistes modifient la gravité elle-même. D'autres imaginent une cinquième force de la nature, jamais observée jusqu'ici. Ce serait un changement profond de notre compréhension de l'Univers, mais aucune preuve ne l'indique pour l'instant.</p>
   <hr class="divider">
   <div class="field">
     <span class="field-label">Indicateurs touchés</span>
     <ul>
       <li>
-  <span class="field-name">Nombre de galaxies analysées par la méthode IA</span>
-  <span class="evo-current">100 millions</span> <span class="evo-arrow is-flat">→</span> <span class="evo-prev">100 millions (DES Y3)</span>
+  <span class="field-name">Accord entre les deux façons de mesurer</span>
+  <span class="evo-current">De nouveau en désaccord</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">Compatible, à confirmer</span>
 </li>
 <li>
-  <span class="field-name">Surface du ciel couverte (équivalent pleine Lune)</span>
-  <span class="evo-current">5 000 fois</span> <span class="evo-arrow is-flat">→</span> <span class="evo-prev">5 000 fois</span>
+  <span class="field-name">Notre explication actuelle de l'Univers</span>
+  <span class="evo-current">À revoir</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">Solide, mais discutée</span>
 </li>
     </ul>
   </div>
   <div class="france-line" data-france-impact="degrade">
     <span class="field-label">Concrètement en France</span>
-    Nécessité de réorienter les programmes de recherche et les modèles théoriques nationaux. <span class="evo-arrow is-down">↓</span> Plutôt défavorable pour la France.
+    Les équipes françaises devraient réorienter leurs travaux vers de nouvelles théories, ce qui prendrait des années. <span class="evo-arrow is-down">↓</span> Plutôt défavorable pour la France.
   </div>
   </div>
 </article>
@@ -2798,10 +2806,10 @@
 
     <div class="essentiel-box" id="essentiel">
       <span class="essentiel-label">L'essentiel</span>
-      <p class="essentiel-text">La méthode d'intelligence artificielle développée par le CEA permet-elle de fixer avec certitude les propriétés de l'énergie sombre et de clore les débats cosmologiques ?</p>
-<p class="essentiel-text">Le CEA-Irfu a analysé 100 millions de galaxies du Dark Energy Survey grâce à une méthode hybride inédite mêlant statistiques et réseaux de neurones profonds, obtenant des contraintes records compatibles avec les données du satellite Planck.</p>
-<p class="essentiel-text">Non, pas immédiatement : notre scénario le plus probable (45 %) prévoit que les incertitudes méthodologiques maintiendront le débat ouvert sur plusieurs années, face à une validation complète du modèle standard (40 %) ou une remise en cause théorique (15 %).</p>
-<p class="essentiel-text">Le signal décisif à surveiller sera la publication des premiers résultats cosmologiques majeurs du télescope spatial Euclid de l'ESA, attendue autour de mars 2027.</p>
+      <p class="essentiel-text">Une nouvelle méthode d'intelligence artificielle permet-elle de savoir si notre explication de l'Univers tient la route ?</p>
+<p class="essentiel-text">Une équipe du CEA a analysé 100 millions de galaxies avec une méthode qui mêle statistiques classiques et intelligence artificielle. Ses mesures sont les plus précises jamais obtenues avec la technique des lentilles gravitationnelles. Elles s'accordent avec celles du satellite Planck.</p>
+<p class="essentiel-text">Pas de façon définitive pour l'instant. Notre scénario le plus probable (45 %) est que la méthode soit utile mais discutée, et que le doute dure plusieurs années. Une confirmation complète de l'explication actuelle de l'Univers est possible (40 %). De nouveaux désaccords qui obligeraient à revoir la théorie sont peu probables (15 %).</p>
+<p class="essentiel-text">Le signal à surveiller : les premiers grands résultats du télescope spatial Euclid, attendus vers mars 2027.</p>
       <div class="delta-france" data-kind="positif">
         <div class="delta-gauge">
           <svg viewBox="0 0 108 64">
@@ -2817,13 +2825,13 @@
           </svg>
           <div class="delta-gauge-word">Assez positif</div>
         </div>
-        <p class="essentiel-text delta-text"><svg class="delta-flag" viewBox="0 0 21 15" width="16" height="11" aria-hidden="true"><rect x="0" y="0" width="7" height="15" fill="#2a4d8f"/><rect x="7" y="0" width="7" height="15" fill="#ece7da"/><rect x="14" y="0" width="7" height="15" fill="#bd6248"/></svg> <strong>Notre évaluation de l'impact pour la France : <span class="delta-word">assez positif</span>.</strong> la recherche française se place au cœur des futures découvertes spatiales avec 85 % de probabilité cumulée sur des scénarios renforçant son expertise en cosmologie et en intelligence artificielle.</p>
+        <p class="essentiel-text delta-text"><svg class="delta-flag" viewBox="0 0 21 15" width="16" height="11" aria-hidden="true"><rect x="0" y="0" width="7" height="15" fill="#2a4d8f"/><rect x="7" y="0" width="7" height="15" fill="#ece7da"/><rect x="14" y="0" width="7" height="15" fill="#bd6248"/></svg> <strong>Notre évaluation de l'impact pour la France : <span class="delta-word">assez positif</span>.</strong> la recherche française est au cœur de ces travaux, avec 85 % de probabilité cumulée sur les scénarios qui renforcent son rôle en cosmologie et en intelligence artificielle.</p>
       </div>
     </div>
 
     <div class="retenir-box" id="retenir" data-stat="100 millions">
       <span class="retenir-label">Si tu devais retenir 1 chose</span>
-      <p class="retenir-text">Le CEA a analysé <strong>100 millions</strong> de galaxies avec l'IA pour obtenir les mesures les plus précises sur l'énergie sombre.</p>
+      <p class="retenir-text">Une IA du CEA a étudié <strong>100 millions</strong> de galaxies : les deux façons de mesurer l'Univers s'accordent mieux, mais le doute n'est pas levé.</p>
     </div>
 
     <div class="follow-inline">
@@ -2842,17 +2850,21 @@
     <h2 class="section-title">Petit lexique</h2>
     <dl class="glossary">
       <dt id="lex-matiere-noire">matière noire</dt>
-<dd>Forme hypothétique de matière invisible qui ne diffuse ni n'émet de lumière, détectable uniquement par ses effets d'attraction gravitationnelle sur les galaxies.</dd>
+<dd>Matière invisible : elle n'émet ni ne renvoie de lumière. On sait qu'elle existe parce que sa gravité retient les galaxies ensemble.</dd>
 <dt id="lex-energie-sombre">énergie sombre</dt>
-<dd>Composante mystérieuse et invisible de l'Univers responsable de l'accélération de l'expansion cosmique à grande échelle.</dd>
+<dd>Force inconnue qui fait grandir l'espace de plus en plus vite. On ne connaît que son effet.</dd>
 <dt id="lex-lentille-gravitationnelle-faible">lentille gravitationnelle faible</dt>
-<dd>Déformation subtile de la forme apparente des galaxies lointaines provoquée par la courbure de l'espace sous l'effet de masses intermédiaires.</dd>
+<dd>Légère déformation de la forme des galaxies lointaines, causée par la matière qui se trouve sur le trajet de leur lumière. Elle sert à repérer la matière invisible.</dd>
 <dt id="lex-fond-diffus-cosmologique">fond diffus cosmologique</dt>
-<dd>Rayonnement fossile émis environ 380 000 ans après le Big Bang, constituant la plus ancienne image thermique de l'Univers observable.</dd>
+<dd>Toute première lumière de l'Univers, émise environ 380 000 ans après le Big Bang. Le satellite Planck l'a photographiée.</dd>
 <dt id="lex-constante-cosmologique">constante cosmologique</dt>
-<dd>Paramètre mathématique introduit par Albert Einstein représentant une densité d'énergie homogène et invariable associée au vide de l'espace.</dd>
+<dd>Idée d'Albert Einstein : le vide de l'espace contiendrait une énergie fixe, qui ne change pas avec le temps. C'est l'explication la plus simple de l'énergie sombre.</dd>
+<dt id="lex-satellite-planck">satellite Planck</dt>
+<dd>Satellite de l'Agence spatiale européenne qui a mesuré, entre 2009 et 2013, la toute première lumière de l'Univers avec une grande précision. Ses résultats servent de référence.</dd>
+<dt id="lex-dark-energy-survey">Dark Energy Survey</dt>
+<dd>Grand programme international d'observation du ciel, mené depuis un télescope installé au Chili. Il a photographié des millions de galaxies pour étudier l'énergie sombre.</dd>
 <dt id="lex-modele-standard-lcdm">modèle standard ΛCDM</dt>
-<dd>Théorie de référence en cosmologie décrivant un Univers dominé par la constante cosmologique Lambda et la matière noire froide.</dd>
+<dd>Explication de référence de l'Univers : 5 % de matière ordinaire, le reste de matière noire et d'énergie sombre. Dans ce modèle, l'énergie sombre ne change pas avec le temps.</dd>
     </dl>
     <a class="cross-link" href="../glossaire.html">Voir tous les termes déjà expliqués → Glossaire</a>
   </div>

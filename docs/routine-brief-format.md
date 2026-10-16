@@ -163,6 +163,15 @@ sujet sans effort ? »**
   (financier, juridique, scientifique) sans équivalent grand public
   immédiat.
 
+**Plancher pour les sujets scientifiques et techniques (16 octobre 2026) :**
+quand `sujet.domain` est `sciences`, `sciences-environnement`, `technologie`,
+`tech` ou `sante`, la recherche note au moins **4**, sans exception — le
+jargon de ces domaines n'a pas d'équivalent grand public. Si elle note moins,
+`generate_daily_edition.py` relève la note à 4 pour la rédaction (sans
+toucher au nombre d'encadrés « Comprendre » décidé par la recherche), et la
+rédaction doit alors produire `enjeu_en_clair` (voir
+`docs/routine-redaction-prompt.md`).
+
 **Ce champ pilote deux choses en aval, jamais à recalculer ailleurs :**
 - `encarts_decides.comprendre_box` : au moins 1 élément toujours requis ;
   **exactement 2 à partir de complexite ≥ 3** (voir § Règles de validité
