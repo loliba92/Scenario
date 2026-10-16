@@ -68,7 +68,7 @@ def main(argv=None) -> int:
         nom = (m.group(0) if m else chemin.stem) + args.suffixe
     modeles = tuple(x.strip() for x in args.tts_models.split(",") if x.strip())
     import texte_narration
-    parts = texte_narration.regrouper(texte_narration.parties(texte))
+    parts = texte_narration.regrouper(texte_narration.avec_fermeture(texte_narration.parties(texte), nom))
     accueil = False
     if parts and not re.match(r"\s*bienvenue", parts[0], re.I):
         parts.insert(0, texte_narration.ouverture(nom))   # partie à part : la musique reprend 5 s entre l'accueil et la question

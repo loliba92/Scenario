@@ -155,6 +155,18 @@ def regrouper(parts: list[str], minimum: int = MOTS_PARTIE_MIN) -> list[str]:
     return [premier, *sortie, dernier]
 
 
+def avec_fermeture(parts: list[str], date_str: str | None = None) -> list[str]:
+    """Garantit que l'épisode se termine par la fermeture et la devise (16 octobre 2026).
+
+    Incident : le texte du 16 octobre, déposé dans le dépôt sans sa fermeture, s'arrêtait sur une seule phrase, sans
+    « Rien n'est écrit à l'avance » ni au revoir. Le texte généré par le script contient déjà la fermeture (voir
+    generer) ; un texte écrit à la main, lui, peut l'oublier. Si la dernière partie ne contient pas la devise, la
+    fermeture du jour est ajoutée comme dernière partie."""
+    if parts and not re.search(r"écrit à l['’]avance", parts[-1], re.I):
+        return [*parts, fermeture(date_str)]
+    return list(parts)
+
+
 def parties(texte: str) -> list[str]:
     """Le texte découpé aux lignes « --- » (parties vides ignorées)."""
     return [p.strip() for p in re.split(r"(?m)^\s*---\s*$", texte) if p.strip()]

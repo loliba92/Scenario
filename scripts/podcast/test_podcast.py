@@ -397,6 +397,15 @@ class TestJingles(unittest.TestCase):
         sans_resume = re.sub(r"(?i)\b(en clair|autrement dit|en d'autres termes|en deux mots)\b", "Bref", base)
         self.assertTrue(any("reformulation" in x for x in tn.verifier(sans_resume, src)))
 
+    def test_fermeture_ajoutee_si_oubliee(self):
+        """Un texte déposé à la main sans sa fermeture se termine quand même par la devise (incident du 16 octobre 2026)."""
+        import texte_narration as tn
+        sans = ["Accroche.", "Corps.", "Dernière phrase."]
+        avec = tn.avec_fermeture(sans, "2026-10-16")
+        self.assertEqual(avec[:-1], sans)
+        self.assertIn("écrit à l'avance", avec[-1])
+        self.assertEqual(tn.avec_fermeture(avec, "2026-10-16"), avec, "pas de doublon si la fermeture est déjà là")
+
     def test_sept_accueils_et_sept_fermetures(self):
         import re
         from datetime import date, timedelta
