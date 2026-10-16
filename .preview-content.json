@@ -1,177 +1,172 @@
 {
-  "h1": "Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies",
-  "question_text": "La méthode IA du CEA sur 100 M de galaxies du DES donne-t-elle les contraintes les plus précises jamais obtenues sur matière noire et énergie sombre, et réconcilie-t-elle lentilles et Planck ?",
-  "section_title": "L'intelligence artificielle peut-elle lever le voile sur le côté obscur de l'Univers ?",
+  "h1": "Jeu vidéo : le premier art mondial ?",
+  "question_text": "Le jeu vidéo peut-il devenir le premier art mondial d'ici la sortie mondiale de GTA VI en novembre 2026 ?",
+  "section_title": "Trois trajectoires pour la consécration culturelle du jeu vidéo",
   "dek": [
-    "Notre Univers observable cache une énigme vertigineuse que la science moderne tente d'élucider depuis plusieurs décennies. La matière ordinaire, celle qui constitue les étoiles, les planètes, le gaz interstellaire et notre corps humain, ne représente en réalité qu'environ <strong>5 %</strong> de la composition totale du cosmos. L'immense majorité restante, soit 95 %, se divise entre deux composantes invisibles : la matière noire<a class=\"lex-ref\" href=\"#lex-matiere-noire\" aria-label=\"Voir la définition dans le lexique\">*</a>, qui agit comme un ciment gravitationnel pour attirer et regrouper les galaxies, et l'énergie sombre<a class=\"lex-ref\" href=\"#lex-energie-sombre\" aria-label=\"Voir la définition dans le lexique\">*</a>, une force mystérieuse qui accélère l'expansion de l'espace à grande échelle. Comprendre ces forces invisibles constitue le défi majeur de l'astrophysique contemporaine.",
-    "Pour mesurer cette architecture cosmique invisible, les astronomes utilisent la technique dite de la lentille gravitationnelle faible<a class=\"lex-ref\" href=\"#lex-lentille-gravitationnelle-faible\" aria-label=\"Voir la définition dans le lexique\">*</a>. Lorsqu'un faisceau de lumière traverse l'Univers sur des milliards d'années, sa trajectoire est très légèrement déviée par la masse de la matière noire rencontrée en chemin. Cela déforme subtilement la forme apparente des galaxies d'arrière-plan, un peu comme regarder un paysage à travers une vitre imparfaite ou un fond de verre d'eau. En mesurant minutieusement ces déformations minuscules, les chercheurs peuvent cartographier la présence et l'épaisseur des masses invisibles disséminées dans le cosmos.",
-    "Le <strong>9 octobre 2026</strong>, l'Institut de recherche sur les lois fondamentales de l'Univers du CEA, le CEA-Irfu, en collaboration avec l'Imperial College London et l'University College London, a annoncé une avancée méthodologique majeure. L'équipe a développé un outil d'analyse hybride inédit, mariant les calculs statistiques classiques à des algorithmes d'intelligence artificielle avancés. Cette méthode a été appliquée aux données de la troisième année du Dark Energy Survey, un vaste relevé astronomique international capturé depuis le sol chilien, afin d'extraire des informations jusqu'alors inaccessibles aux outils de calcul standard.",
-    "Ce traitement algorithmique sans précédent a passé au crible un catalogue de <strong>100 millions</strong> de galaxies réparties sur une zone gigantesque du ciel, équivalente à <strong>5 000 fois</strong> la surface de la pleine Lune. Les approches statistiques conventionnelles se limitaient principalement aux corrélations simples entre deux points du ciel, laissant de côté les structures complexes en filaments ou en amas denses. En entraînant des réseaux de neurones profonds sur des simulations numériques de l'Univers, les chercheurs ont réussi à capter ces motifs non linéaires et à affiner drastiquement la précision des mesures de densité.",
-    "Les résultats obtenus livrent les contraintes cosmologiques les plus précises jamais calculées à partir uniquement des lentilles gravitationnelles faibles. Fait remarquable, ces mesures s'avèrent pleinement cohérentes avec les données de référence du satellite spatial Planck sur le fond diffus cosmologique<a class=\"lex-ref\" href=\"#lex-fond-diffus-cosmologique\" aria-label=\"Voir la définition dans le lexique\">*</a>, qui cartographie la première lumière émise par l'Univers il y a 13,8 milliards d'années. Cet accord historique contribue à réduire une tension persistante qui divisait la communauté scientifique entre les observations de l'Univers jeune et celles de l'Univers récent.",
-    "Cette percée technologique arrive à un moment stratégique pour l'Europe spatiale, alors que le télescope spatial Euclid de l'ESA, lancé en <strong>2023</strong> avec une forte implication du CEA, prépare ses premiers résultats majeurs attendus vers <strong>2027</strong>. Les futurs observatoires vont multiplier le volume de données astronomiques par cent dans les prochaines années. La méthode du CEA prouve que l'intelligence artificielle est devenue indispensable pour traiter cette avalanche d'informations, mais sa robustesse absolue face aux biais instrumentaux devra désormais être confirmée par l'ensemble des astrophysiciens mondiaux."
+    "Une industrie culturelle a discrètement changé d'échelle financière sans toujours obtenir le prestige symbolique accordé aux disciplines traditionnelles. En 2025, le marché mondial du jeu vidéo a généré <strong>201,6 milliards USD</strong> de revenus selon les données publiées par l'institut d'analyse Newzoo. Ce montant vertigineux dépasse de très loin les recettes cumulées du cinéma en salles et de la musique enregistrée. Le secteur interactif ne se contente plus de divertir un public de passionnés dans des cercles restreints : il mobilise désormais des milliards de joueurs actifs sur smartphones, ordinateurs et consoles de salon à travers le globe.",
+    "La comparaison avec les autres piliers de la création internationale met en lumière un déséquilibre financier spectaculaire. Le box-office<a class=\"lex-ref\" href=\"#lex-box-office\" aria-label=\"Voir la définition dans le lexique\">*</a> mondial du cinéma a atteint <strong>33,55 milliards USD</strong> en 2025 d'après les chiffres arrêtés par Gower Street Analytics. Dans le même temps, les revenus mondiaux de la musique enregistrée ont représenté <strong>31,7 milliards USD</strong> selon le rapport annuel de la fédération IFPI. Le jeu vidéo génère ainsi plus de trois fois le chiffre d'affaires cumulé des salles obscures et des plateformes musicales, grâce à des modèles économiques diversifiés qui associent ventes physiques, abonnements et microtransactions permanentes.",
+    "Cette domination commerciale s'accompagne d'une reconnaissance institutionnelle qui franchit des étapes historiques dans plusieurs pays majeurs. En France, l'équipe de développement du titre indépendant Clair Obscur: Expedition 33 a été élevée au rang de Chevalier de l'Ordre des Arts et des Lettres<a class=\"lex-ref\" href=\"#lex-arts-et-lettres\" aria-label=\"Voir la définition dans le lexique\">*</a> par la ministre de la Culture Rachida Dati le <strong>6 février 2026</strong>. Cette distinction d'État salue une œuvre narrative et musicale saluée par la critique, démontrant que les pouvoirs publics intègrent désormais les créateurs de pixels au même niveau de considération officielle que les romanciers, cinéastes ou metteurs en scène dramatiques.",
+    "Le modèle de production des grands studios a lui-même épousé les standards artistiques les plus exigeants de notre époque contemporaine. Les budgets alloués aux superproductions interactives dépassent fréquemment les investissements des films de cinéma hollywoodiens les plus coûteux. Les studios recrutent des orchestres philharmoniques complets, des comédiens professionnels pour la capture de mouvement et des scénaristes issus du monde littéraire. En parallèle, les musées nationaux organisent des rétrospectives dédiées aux arts numériques, tandis que les banques centrales et les ministères des finances financent des dispositifs fiscaux pour attirer les équipes créatives.",
+    "Malgré ces succès indéniables, le statut de dixième art<a class=\"lex-ref\" href=\"#lex-dixieme-art\" aria-label=\"Voir la définition dans le lexique\">*</a> reste contesté par de nombreuses voix politiques et éducatives à travers le monde. Les débats récurrents sur l'addiction des jeunes, le temps passé devant les écrans et les représentations de la violence nourrissent des réticences tenaces au sommet des États. En France, des réflexions émergent régulièrement autour de restrictions d'accès pour les mineurs ou d'un encadrement plus sévère des contenus interactifs, menaçant de reléguer cette pratique au rang de simple produit commercial potentiellement nocif plutôt que d'œuvre d'émancipation culturelle.",
+    "Le calendrier de l'année 2026 place cette tension au centre de l'attention mondiale avec un événement industriel sans précédent. La sortie planétaire du jeu Grand Theft Auto VI par l'éditeur Rockstar Games est officiellement programmée pour le <strong>19 novembre 2026</strong>. Ce lancement hypermédiatisé servira de test grandeur nature pour mesurer la maturité du secteur. Il révélera si le média peut faire reconnaître sa force narrative et artistique auprès du grand public, ou s'il cristallisera à nouveau les critiques morales sur ses excès spectaculaires et son hégémonie commerciale."
   ],
+  "enjeu_en_clair": {
+    "lead": "Le jeu vidéo génère plus d'argent que le cinéma et la musique réunis, mais son statut d'art noble divise encore.",
+    "text": "Le secteur interactif a dépassé tous les autres loisirs en chiffre d'affaires mondial. Pourtant, les institutions hésitent encore à le traiter comme un art à part entière, entre décorations officielles et craintes pour la jeunesse. Ce débat décide de la place des créateurs dans les musées et des aides publiques accordées aux studios."
+  },
   "stakes_branches": {
-    "favorable": "L'IA valide le modèle cosmologique standard avec une précision record.",
-    "stable": "Les données progressent mais le mystère de l'énergie sombre reste ouvert.",
-    "degrade": "De nouveaux désaccords observationnels imposent de réécrire les lois de la gravité."
+    "favorable": "Le jeu vidéo obtient une légitimation culturelle complète, consolidée par les musées et le soutien public.",
+    "stable": "L'industrie conserve sa domination économique sans lever les réserves des institutions traditionnelles.",
+    "degrade": "Les soupçons politiques et les restrictions réglementaires freinent l'intégration artistique du média."
   },
   "comprendre_box": [
     {
-      "lead": "La lentille gravitationnelle fonctionne comme une vitre ondulée géante.",
-      "text": "Imaginez observer un lampadaire à travers une vitre de douche texturée. L'image de la lumière se déforme sans que le lampadaire ne change. Dans l'espace, la matière noire agit comme cette vitre : sa masse courbe l'espace et étire très légèrement la forme des galaxies lointaines situées derrière elle.",
+      "lead": "Un budget de superproduction qui rivalise avec les géants de Hollywood",
+      "text": "Produire un grand jeu vidéo d'aventure moderne ressemble au tournage d'un film de science-fiction complexe. Les créateurs écrivent des milliers de pages de dialogues, composent des symphonies originales et modélisent des villes entières. Cette complexité technique et humaine justifie pourquoi de nombreux critiques considèrent désormais ces univers virtuels comme des œuvres d'art totales.",
       "apres_dek_index": 1
     },
     {
-      "lead": "L'IA repère des motifs complexes invisibles aux statistiques classiques.",
-      "text": "Les statistiques de base mesurent seulement la distance moyenne entre deux grains de sable sur une plage. L'intelligence artificielle, elle, est capable de reconnaître la forme globale des châteaux de sable et des dunes. Elle extrait des détails cruciaux sur l'agglutinement de la matière noire que les formules mathématiques simples ignoraient.",
-      "apres_dek_index": 3
+      "lead": "Le fossé persistant entre succès commercial et respectabilité académique",
+      "text": "Le cinéma a mis près d'un demi-siècle avant d'être accepté dans les universités et les académies après ses débuts forains. Le jeu vidéo traverse une épreuve similaire : sa puissance financière attire les investisseurs, mais son interactivité heurte encore les critères classiques de l'art contemplatif, maintenant un doute sur sa valeur éducative.",
+      "apres_dek_index": 4
     }
   ],
   "list_box": null,
   "indicators": [
     {
-      "label": "Nombre de galaxies analysées par la méthode IA du CEA",
-      "value": "100 millions",
-      "delta": "Données 3e année du Dark Energy Survey"
+      "label": "Revenus mondiaux du jeu vidéo (2025)",
+      "value": "201,6 milliards USD",
+      "delta": "source Newzoo, dépassement des 200 Md$"
     },
     {
-      "label": "Surface du ciel couverte (équivalent pleine Lune)",
-      "value": "5 000 fois",
-      "delta": "Zone d'observation du Dark Energy Survey"
+      "label": "Box-office mondial du cinéma (2025)",
+      "value": "33,55 milliards USD",
+      "delta": "source Gower Street Analytics, bilan annuel"
     }
   ],
   "cards": {
     "favorable": {
-      "pct": 40,
+      "pct": 35,
       "gauge_word": "Probable",
-      "h3": "Validation du modèle standard et confirmation de la constante cosmologique",
+      "h3": "Consécration institutionnelle et statut artistique pleinement reconnu",
       "why": [
-        "Dans ce premier scénario, la méthode d'analyse développée par le CEA et ses partenaires britanniques est rapidement adoptée et validée par l'ensemble de la communauté scientifique internationale. Les vérifications croisées confirment que les réseaux de neurones ne génèrent aucun biais artificiel dans l'estimation de la masse invisible. Les futures données ultra-précises du télescope spatial Euclid et du grand observatoire terrestre Vera Rubin confirment alors pleinement que l'énergie sombre se comporte exactement comme une constante cosmologique<a class=\"lex-ref\" href=\"#lex-constante-cosmologique\" aria-label=\"Voir la définition dans le lexique\">*</a> immuable, validant avec éclat le modèle standard ΛCDM<a class=\"lex-ref\" href=\"#lex-modele-standard-lcdm\" aria-label=\"Voir la définition dans le lexique\">*</a>.",
-        "Cette trajectoire permettrait de clore des décennies de spéculations théoriques en démontrant que la relativité générale d'Albert Einstein s'applique sans faille à l'échelle de tout le cosmos observable. Contrairement au scénario stable où le doute persisterait faute de consensus mathématique, cette issue apporterait une confirmation définitive des paramètres de l'Univers avec une marge d'erreur inférieure à 1 %. La physique fondamentale consoliderait ainsi son socle théorique, même si la nature microscopique ultime du vide quantique pourrait encore susciter de nouveaux débats expérimentaux."
+        "Dans ce premier scénario, le jeu vidéo franchit un cap décisif dans sa reconnaissance par les élites culturelles et les institutions publiques internationales. La sortie mondiale de GTA VI le <strong>19 novembre 2026</strong> est saluée par la critique pour son écriture satirique et sa mise en scène, transformant l'événement commercial en consécration patrimoniale. Les grandes institutions muséales inaugurent des collections permanentes dédiées aux concepteurs de jeux, tandis que les festivals de cinéma ouvrent des sélections compétitives aux œuvres interactives. En France, le statut des créateurs est aligné sur celui des artistes auteurs, renforçant les dispositifs de soutien public du Centre national du cinéma.",
+        "Cette trajectoire favorable se distingue nettement des deux autres voies en transformant la puissance financière brute en légitimité symbolique durable. Contrairement au scénario stable où le secteur reste cantonné à son statut de produit de divertissement rentable, les pouvoirs publics choisissent ici d'intégrer pleinement la discipline dans leurs politiques d'éducation artistique. Ce mouvement dissipe les craintes morales qui dominent l'hypothèse dégradée et permettrait d'ancrer le jeu vidéo comme le centre de gravité de la culture contemporaine pour les prochaines décennies."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Nombre de galaxies analysées par la méthode IA",
-          "evo_current": "1,5 milliard",
+          "field_name": "Revenus mondiaux du jeu vidéo",
+          "evo_current": "215 milliards USD",
           "evo_arrow": "up",
-          "evo_prev": "100 millions (DES Y3)"
+          "evo_prev": "201,6 Md$ en 2025"
         },
         {
-          "field_name": "Surface du ciel couverte (équivalent pleine Lune)",
-          "evo_current": "30 000 fois",
+          "field_name": "Box-office mondial du cinéma",
+          "evo_current": "35 milliards USD",
           "evo_arrow": "up",
-          "evo_prev": "5 000 fois"
+          "evo_prev": "33,55 Md$ en 2025"
         }
       ],
-      "france_line": "Consécration du CEA comme leader mondial de l'analyse cosmologique par IA.",
+      "france_line": "Renforcement du crédit d'impôt jeu vidéo et création de bourses artistiques d'État pour les studios indépendants.",
       "france_impact": "favorable"
     },
     "stable": {
       "pct": 45,
       "gauge_word": "Probable",
-      "h3": "Persistance des incertitudes méthodologiques et débats théoriques prolongés",
+      "h3": "Croissance économique dominante sans rupture institutionnelle majeure",
       "why": [
-        "Dans cette deuxième perspective, la méthode hybride combinant IA et statistiques est largement saluée pour son ingéniosité mais se heurte à des contestations techniques sur les biais instrumentaux et la modélisation des effets astrophysiques complexes. L'influence mal comprise des vents galactiques et des trous noirs supermassifs sur la matière ordinaire complique l'interprétation pure des lentilles faibles. Les mesures obtenues demeurent compatibles à la fois avec une constante cosmologique fixe et avec des théories concurrentes où l'énergie sombre évolue légèrement au fil des milliards d'années d'histoire cosmique.",
-        "Par rapport au scénario favorable qui trancherait immédiatement le débat, cette voie prolonge l'indécision des astrophysiciens pendant encore cinq à dix ans. Les données massives fournies par la mission spatiale Euclid à l'horizon 2027 et par les télescopes au sol apporteront des indices précieux, mais sans offrir le signal indiscutable capable d'éliminer définitivement les modèles alternatifs. La science progresserait alors par étapes prudentes et débats méthodologiques intenses, maintenant une saine rivalité entre les différentes équipes de recherche internationales."
+        "Dans ce deuxième scénario, l'industrie interactive poursuit son expansion économique sans parvenir à modifier radicalement la perception des cercles culturels traditionnels. Le marché mondial conserve son avance écrasante sur le cinéma en salles et la musique enregistrée, porté par la consommation continue sur mobiles et consoles. La distinction de l'équipe de Clair Obscur: Expedition 33 en <strong>février 2026</strong> demeure un hommage ponctuel apprécié, mais elle ne déclenche pas de refonte globale du statut juridique des œuvres. Le grand public consomme massivement les productions narratives sans que les académies ne révisent leurs hiérarchies historiques.",
+        "Cette perspective médiane prolonge les équilibres observés depuis une décennie au lieu de provoquer un basculement symbolique ou une crise politique. À la différence du scénario favorable qui verrait le jeu vidéo sanctuarisé dans les programmes scolaires, le secteur continue de cohabiter avec une certaine indifférence des élites intellectuelles. Il évite néanmoins le durcissement réglementaire du scénario dégradé, assurant aux studios une stabilité commerciale qui pourrait maintenir le statu quo entre prospérité financière et reconnaissance esthétique partielle."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Nombre de galaxies analysées par la méthode IA",
-          "evo_current": "500 millions",
+          "field_name": "Revenus mondiaux du jeu vidéo",
+          "evo_current": "208 milliards USD",
           "evo_arrow": "up",
-          "evo_prev": "100 millions (DES Y3)"
+          "evo_prev": "201,6 Md$ en 2025"
         },
         {
-          "field_name": "Surface du ciel couverte (équivalent pleine Lune)",
-          "evo_current": "15 000 fois",
-          "evo_arrow": "up",
-          "evo_prev": "5 000 fois"
+          "field_name": "Box-office mondial du cinéma",
+          "evo_current": "34 milliards USD",
+          "evo_arrow": "flat",
+          "evo_prev": "33,55 Md$ en 2025"
         }
       ],
-      "france_line": "Maintien d'un rôle scientifique de premier plan pour les laboratoires français.",
+      "france_line": "Maintien des aides existantes du CNC sans extension majeure du statut d'auteur aux développeurs.",
       "france_impact": "favorable"
     },
     "degrade": {
-      "pct": 15,
+      "pct": 20,
       "gauge_word": "Peu probable",
-      "h3": "Résurgence de tensions observationnelles et remise en cause de la relativité générale",
+      "h3": "Réglementations renforcées et résurgence des controverses morales",
       "why": [
-        "Dans ce troisième scénario, l'extension des analyses par intelligence artificielle à des échantillons de données beaucoup plus vastes fait réapparaître des désaccords irréconciliables entre les différentes méthodes d'observation du cosmos. Alors que l'accord avec Planck semblait acquis sur l'échantillon du DES, des divergences marquées réémergent lorsque l'on croise la lentille gravitationnelle avec l'étude des supernovae lointaines ou les amas de galaxies. L'accumulation des données ne réduit pas les écarts mais prouve au contraire que le cadre théorique actuel est incomplet.",
-        "À l'opposé du scénario favorable où le modèle standard sortait conforté, cette crise de reproductibilité forcerait la physique contemporaine à envisager une rupture de paradigme majeure. Les chercheurs devraient abandonner la constante cosmologique simple pour explorer des théories de gravité modifiée, l'existence d'une cinquième force fondamentale ou des interactions exotiques au sein du secteur sombre. L'Univers se révélerait alors nettement plus complexe et déroutant que toutes les équations établies jusqu'à aujourd'hui."
+        "Dans ce troisième scénario, la montée en puissance du jeu vidéo suscite un contrecoup politique marqué par des mesures de restriction et de contrôle accru. Les polémiques entourant l'impact psychologique des écrans et la violence des jeux d'action reprennent de la vigueur à l'approche de la fin de l'année 2026. Plusieurs gouvernements européens étudient des vérifications d'âge obligatoires ou des limitations strictes du temps de jeu pour les mineurs. En France, les débats parlementaires remettent en question l'opportunité des crédits d'impôt publics accordés à des productions commerciales jugées trop lucratives.",
+        "Cette dégradation freine considérablement le processus d'acceptation culturelle observé dans les deux autres trajectoires. Alors que le scénario favorable valorise la dimension esthétique des créateurs, cette option replace le débat public sous l'angle exclusif de la santé publique et des risques comportementaux. Les studios doivent alors allouer des ressources considérables à la mise en conformité juridique plutôt qu'à l'expérimentation narrative, ce qui risquerait d'isoler l'industrie vidéoludique des circuits traditionnels de la politique culturelle."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Nombre de galaxies analysées par la méthode IA",
-          "evo_current": "100 millions",
-          "evo_arrow": "flat",
-          "evo_prev": "100 millions (DES Y3)"
+          "field_name": "Revenus mondiaux du jeu vidéo",
+          "evo_current": "195 milliards USD",
+          "evo_arrow": "down",
+          "evo_prev": "201,6 Md$ en 2025"
         },
         {
-          "field_name": "Surface du ciel couverte (équivalent pleine Lune)",
-          "evo_current": "5 000 fois",
+          "field_name": "Box-office mondial du cinéma",
+          "evo_current": "33 milliards USD",
           "evo_arrow": "flat",
-          "evo_prev": "5 000 fois"
+          "evo_prev": "33,55 Md$ en 2025"
         }
       ],
-      "france_line": "Nécessité de réorienter les programmes de recherche et les modèles théoriques nationaux.",
+      "france_line": "Menace sur les exonérations fiscales et durcissement des règles de distribution pour protéger les mineurs.",
       "france_impact": "degrade"
     }
   },
   "essentiel_box": [
-    "La méthode d'intelligence artificielle développée par le CEA permet-elle de fixer avec certitude les propriétés de l'énergie sombre et de clore les débats cosmologiques ?",
-    "Le CEA-Irfu a analysé 100 millions de galaxies du Dark Energy Survey grâce à une méthode hybride inédite mêlant statistiques et réseaux de neurones profonds, obtenant des contraintes records compatibles avec les données du satellite Planck.",
-    "Non, pas immédiatement : notre scénario le plus probable (45 %) prévoit que les incertitudes méthodologiques maintiendront le débat ouvert sur plusieurs années, face à une validation complète du modèle standard (40 %) ou une remise en cause théorique (15 %).",
-    "Le signal décisif à surveiller sera la publication des premiers résultats cosmologiques majeurs du télescope spatial Euclid de l'ESA, attendue autour de mars 2027."
+    "Le jeu vidéo peut-il devenir le premier art mondial d'ici la fin de l'année 2026 ?",
+    "Le marché du jeu vidéo a généré <strong>201,6 milliards USD</strong> en 2025, soit plus de trois fois le total combiné du cinéma et de la musique enregistrée.",
+    "Pas complètement sur le plan symbolique : notre scénario le plus probable (45 %) prévoit une domination économique continue sans bascule institutionnelle majeure — deux autres scénarios envisagent une consécration artistique complète (35 %) ou un durcissement politique restrictif (20 %).",
+    "Signal à surveiller : la réception critique et politique de la sortie de GTA VI le <strong>19 novembre 2026</strong>."
   ],
   "delta_france": {
     "kind": "positif",
-    "score": 0.7,
+    "score": 0.6,
     "word": "assez positif",
-    "text": "la recherche française se place au cœur des futures découvertes spatiales avec 85 % de probabilité cumulée sur des scénarios renforçant son expertise en cosmologie et en intelligence artificielle."
+    "text": "car la dynamique culturelle française bénéficie des retombées économiques et des aides publiques dans nos scénarios les plus probables (35 % favorable et 45 % stable)."
   },
-  "phrase_a_retenir": "Le CEA a analysé 100 millions de galaxies avec l'IA pour obtenir les mesures les plus précises sur l'énergie sombre.",
-  "phrase_a_retenir_stat": "100 millions",
+  "phrase_a_retenir": "Avec 201,6 milliards USD de revenus en 2025, le jeu vidéo pèse plus de trois fois le cinéma et la musique réunis.",
+  "phrase_a_retenir_stat": "201,6 milliards USD",
   "lexique": [
     {
-      "slug": "matiere-noire",
-      "terme": "matière noire",
-      "definition": "Forme hypothétique de matière invisible qui ne diffuse ni n'émet de lumière, détectable uniquement par ses effets d'attraction gravitationnelle sur les galaxies."
+      "slug": "box-office",
+      "terme": "box-office",
+      "definition": "Total des recettes financières générées par la vente des billets d'entrée dans les salles de cinéma."
     },
     {
-      "slug": "energie-sombre",
-      "terme": "énergie sombre",
-      "definition": "Composante mystérieuse et invisible de l'Univers responsable de l'accélération de l'expansion cosmique à grande échelle."
+      "slug": "arts-et-lettres",
+      "terme": "Ordre des Arts et des Lettres",
+      "definition": "Décoration honorifique de la République française récompensant les créateurs pour leur apport au rayonnement culturel."
     },
     {
-      "slug": "lentille-gravitationnelle-faible",
-      "terme": "lentille gravitationnelle faible",
-      "definition": "Déformation subtile de la forme apparente des galaxies lointaines provoquée par la courbure de l'espace sous l'effet de masses intermédiaires."
-    },
-    {
-      "slug": "fond-diffus-cosmologique",
-      "terme": "fond diffus cosmologique",
-      "definition": "Rayonnement fossile émis environ 380 000 ans après le Big Bang, constituant la plus ancienne image thermique de l'Univers observable."
-    },
-    {
-      "slug": "constante-cosmologique",
-      "terme": "constante cosmologique",
-      "definition": "Paramètre mathématique introduit par Albert Einstein représentant une densité d'énergie homogène et invariable associée au vide de l'espace."
-    },
-    {
-      "slug": "modele-standard-lcdm",
-      "terme": "modèle standard ΛCDM",
-      "definition": "Théorie de référence en cosmologie décrivant un Univers dominé par la constante cosmologique Lambda et la matière noire froide."
+      "slug": "dixieme-art",
+      "terme": "dixième art",
+      "definition": "Expression couramment utilisée par les critiques et les créateurs pour désigner le jeu vidéo dans la classification des arts."
     }
   ],
   "sources_html": [
-    "<a href=\"https://www.cea.fr/drf/Pages/Actualites/En-direct-des-labos/2026/une-alliance-entre-IA-et-cosmologie-pour-mieux-comprendre-l-Univers-sombre.aspx\" target=\"_blank\" rel=\"noopener noreferrer\">CEA — Une alliance entre IA et cosmologie pour mieux comprendre l'Univers sombre ↗</a>"
+    "<a href=\"https://newzoo.com/articles/global-games-market-2025/\" target=\"_blank\" rel=\"noopener noreferrer\">Newzoo — Global Games Market 2025 ↗</a>",
+    "<a href=\"https://gower.st/articles/highest-grossing-december-since-2019-3-5-billion-33-6-billion-global-total-2025/\" target=\"_blank\" rel=\"noopener noreferrer\">Gower Street Analytics — Highest grossing December since 2019: 3.5 billion, 33.6 billion global total 2025 ↗</a>",
+    "<a href=\"https://www.ifpi.org/global-music-report-2026-global-recorded-music-revenues-grow-6-4-as-record-companies-drive-innovation/\" target=\"_blank\" rel=\"noopener noreferrer\">IFPI — Global Music Report 2026: Global recorded music revenues grow 6.4% as record companies drive innovation ↗</a>",
+    "<a href=\"https://www.cnews.fr/jeux-video/2026-10-01/gta-6-voici-les-revenus-historiques-attendus-les-premiers-jours-de-la-sortie\" target=\"_blank\" rel=\"noopener noreferrer\">CNEWS — GTA 6 : voici les revenus historiques attendus les premiers jours de la sortie ↗</a>",
+    "<a href=\"https://www.lefigaro.fr/secteur/high-tech/les-developpeurs-du-jeu-video-clair-obscur-expedition-33-decoree-des-arts-et-des-lettres-par-rachida-dati-20260206\" target=\"_blank\" rel=\"noopener noreferrer\">Le Figaro — Les développeurs du jeu vidéo Clair Obscur: Expedition 33 décorés des Arts et des Lettres par Rachida Dati ↗</a>"
   ],
   "meta": {
-    "title": "Énergie sombre : l'IA du CEA cartographie 100 millions ...",
-    "meta_description": "Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies 3 scénarios prospectifs pour 2030.",
-    "og_image_alt": "Illustration scientifique de lentilles gravitationnelles et amas de galaxies dans l'Univers profond",
-    "keywords": [],
-    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-16.html\"\n  },\n  \"headline\": \"Énergie sombre : l'IA du CEA cartographie 100 millions ...\",\n  \"description\": \"Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-16.png\"\n  ],\n  \"datePublished\": \"2026-10-16T00:00:00\",\n  \"dateModified\": \"2026-10-16T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
-    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-16.html\"\n    }\n  ]\n}"
+    "title": "Jeu vidéo : le premier art mondial ?",
+    "meta_description": "Jeu vidéo : le premier art mondial ? 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Manette de jeu vidéo et symboles artistiques illustrant le débat culturel",
+    "keywords": [
+      "Jeu"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-17.html\"\n  },\n  \"headline\": \"Jeu vidéo : le premier art mondial ?\",\n  \"description\": \"Jeu vidéo : le premier art mondial ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-17.png\"\n  ],\n  \"datePublished\": \"2026-10-17T00:00:00\",\n  \"dateModified\": \"2026-10-17T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Jeu\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Jeu vidéo : le premier art mondial ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-17.html\"\n    }\n  ]\n}"
   }
 }
