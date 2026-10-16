@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 16.10.2026 — [Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies](../archives/2026-10-16.html)
 - 15.10.2026 — [Métaux rares : la Chine peut-elle bloquer l'Occident ?](../archives/2026-10-15.html)
 - 14.10.2026 — [Assurance chômage : le système peut-il tenir sans nouvelles coupes ?](../archives/2026-10-14.html)
 - 13.10.2026 — [IA : risque d'extinction ou peur exagérée ?](../archives/2026-10-13.html)
