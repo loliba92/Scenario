@@ -1,5 +1,9 @@
 name: Rédaction et publication
 
+# Nom affiché de l'exécution : « — répétition générale » quand publish=false, pour que le podcast l'ignore
+# (podcast-quotidien.yml) et que l'alerte d'échec la distingue d'une vraie publication (alerte-echec.yml).
+run-name: Rédaction et publication${{ github.event.inputs.publish == 'false' && ' — répétition générale' || '' }}
+
 # Chaîne complète : rédaction (OpenRouter) puis post-édition (photo,
 # image Instagram, feed.xml, sitemap.xml/sitemap-news.xml, glossaire.html,
 # archives.html, pages thématiques) — voir docs/BACKLOG.md

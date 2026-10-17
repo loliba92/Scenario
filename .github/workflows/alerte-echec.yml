@@ -1,0 +1,70 @@
+name: Alerte — échec d'une étape de publication
+
+# Quand une étape de la chaîne d'édition échoue, une « issue » GitHub est ouverte aussitôt et le propriétaire y est
+# mentionné : il reçoit la notification GitHub (courriel ou application) au lieu de découvrir la panne le matin.
+# Demandé le 17 octobre 2026, après deux pannes en une journée (publication du matin, aperçu du lendemain).
+# Une seule issue par workflow et par jour : une nouvelle panne du même jour s'y ajoute en commentaire.
+# Ne surveille que les workflows dont l'échec empêche une édition ou un épisode (pas les mises à jour de statistiques).
+
+on:
+  workflow_run:
+    workflows:
+      - "Rédaction et publication"
+      - "Générer preview édition"
+      - "Podcast — épisode du jour"
+      - "Traduction EN — filet de sécurité"
+      - "Répétition générale — publication de demain"
+    types: [completed]
+
+permissions:
+  issues: write
+  actions: read
+
+jobs:
+  alerter:
+    if: github.event.workflow_run.conclusion == 'failure'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const run = context.payload.workflow_run;
+            const jour = new Date().toISOString().slice(0, 10);
+            const repetition = (run.display_title || '').includes('répétition');
+            const nom = repetition ? 'Répétition générale de la publication de demain' : run.name;
+            const titre = `❌ ${nom} : échec du ${jour}`;
+
+            // Étapes en échec : donne la cause en un coup d'œil, sans ouvrir le journal.
+            const { data } = await github.rest.actions.listJobsForWorkflowRun({
+              owner: context.repo.owner, repo: context.repo.repo, run_id: run.id,
+            });
+            const etapes = [];
+            for (const job of data.jobs) {
+              for (const step of job.steps || []) {
+                if (step.conclusion === 'failure') etapes.push(`« ${step.name} » (travail « ${job.name} »)`);
+              }
+            }
+            const detail = etapes.length ? etapes.map(e => `- ${e}`).join('\n') : '- étape non identifiée, voir le journal';
+            const corps =
+              `@${context.repo.owner} ${repetition ? 'La répétition générale de ce soir a échoué : rien n\'a été publié, mais la publication de demain matin échouerait de la même façon.' : 'Le workflow **' + run.name + '** a échoué.'}\n\n` +
+              `**Déclenché** : ${run.display_title || run.name}\n` +
+              `**Étape(s) en échec** :\n${detail}\n\n` +
+              `**Journal** : ${run.html_url}\n\n` +
+              `Demandez à Claude : « ${run.name} a échoué, corrige » : il lit le journal et corrige.`;
+
+            const { data: ouvertes } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'alerte-automatique', per_page: 50,
+            });
+            const existante = ouvertes.find(i => i.title === titre);
+            if (existante) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: existante.number, body: corps,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title: titre, body: corps, labels: ['alerte-automatique'],
+              });
+            }

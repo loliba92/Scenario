@@ -1,0 +1,49 @@
+name: Répétition générale — publication de demain
+
+# Chaque soir, rejoue TOUTE la publication de l'édition de demain dans un dossier temporaire, sans rien publier :
+# si quelque chose casse, on le sait à 21 h et non à 4 h du matin. Demandé le 17 octobre 2026.
+#   1. vérifie que le brief ET l'aperçu de demain existent (sinon l'échec du soir le dit : l'aperçu n'a pas été créé) ;
+#   2. lance « Rédaction et publication » en publish=false sur le brief de demain : le contenu de l'aperçu est
+#      réutilisé, aucun appel payant à la rédaction, rien n'est écrit dans le dépôt.
+# Un échec ouvre une alerte (alerte-echec.yml). Gratuit : dépôt public, durée d'environ 3 minutes.
+
+on:
+  schedule:
+    - cron: "37 18 * * *"   # 20 h 37 à Paris l'été, 19 h 37 l'hiver
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  repeter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Vérifier que l'aperçu de demain existe
+        id: demain
+        run: |
+          DEMAIN=$(TZ=Europe/Paris date -d '+1 day' +%F)
+          # À partir de minuit, « demain » est déjà le lendemain réel : on prend alors le jour même.
+          if [ "$(TZ=Europe/Paris date +%H)" -lt 4 ]; then DEMAIN=$(TZ=Europe/Paris date +%F); fi
+          echo "demain=$DEMAIN" >> "$GITHUB_OUTPUT"
+          MANQUE=""
+          [ -f "editorial-briefs/$DEMAIN.json" ] || MANQUE="$MANQUE editorial-briefs/$DEMAIN.json"
+          [ -f "editorial-previews/$DEMAIN.content.json" ] || MANQUE="$MANQUE editorial-previews/$DEMAIN.content.json"
+          if [ -n "$MANQUE" ]; then
+            echo "::error::L'édition du $DEMAIN n'est pas prête : fichier(s) absent(s) :$MANQUE. L'aperçu du jour n'a pas été créé ou a échoué."
+            exit 1
+          fi
+          echo "Édition du $DEMAIN prête : brief et aperçu présents."
+
+      - name: Rejouer la publication sans rien publier
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          DEMAIN="${{ steps.demain.outputs.demain }}"
+          gh workflow run post-edition.yml --ref main \
+            -f brief="editorial-briefs/$DEMAIN.json" \
+            -f publish=false -f dry_run=false -f skip_photo=false
+          echo "Répétition lancée pour $DEMAIN (publish=false). Son échec éventuel ouvre une alerte."

@@ -58,7 +58,9 @@ concurrency:
 
 jobs:
   episode:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    # Une répétition générale (publish=false) ne publie rien : elle ne doit pas déclencher d'épisode, ni la liste de
+    # rattrapage (« ne pas republier un épisode sans demande explicite »).
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && !contains(github.event.workflow_run.display_title, 'répétition'))
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
