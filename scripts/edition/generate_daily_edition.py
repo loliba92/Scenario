@@ -203,12 +203,32 @@ def fetch_preview_image(image_keywords, timeout=25):
 # ---------------------------------------------------------------------------
 # Chargement brief + prompt
 # ---------------------------------------------------------------------------
+def _retirer_gras_markdown(obj):
+    """Retire les « ** » de toutes les chaînes d'un objet JSON (modifié sur place)."""
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            if isinstance(v, str):
+                obj[k] = v.replace("**", "")
+            else:
+                _retirer_gras_markdown(v)
+    elif isinstance(obj, list):
+        for i, v in enumerate(obj):
+            if isinstance(v, str):
+                obj[i] = v.replace("**", "")
+            else:
+                _retirer_gras_markdown(v)
+
+
 def load_brief(path):
     with open(path, encoding="utf-8") as f:
         brief = json.load(f)
     errors = validate_brief(brief)
     if errors:
         raise GenerationError("Brief invalide :\n  - " + "\n  - ".join(errors))
+    # Le brief est écrit par un autre modèle que la rédaction et plusieurs de ses champs finissent dans la page,
+    # y compris dans des titres et des balises où le HTML est échappé : les « ** » du Markdown y sont retirés
+    # (jamais convertis en <strong>), incident du 17 octobre 2026.
+    _retirer_gras_markdown(brief)
     # Plancher de pédagogie sur les sujets scientifiques/techniques (16 octobre
     # 2026, retour de l'éditeur : « ces sujets demandent beaucoup de jargon que
     # Monsieur Tout-le-Monde n'a pas »). Appliqué APRÈS validate_brief() : le
@@ -895,6 +915,22 @@ def normalize_content_markdown(content):
     if changed[0]:
         print(f"[edition] gras Markdown (**…**) converti en <strong> dans {changed[0]} champ(s)", file=sys.stderr)
     return content
+
+
+_SCRIPT_OU_STYLE_RE = re.compile(r"(<script\b.*?</script>|<style\b.*?</style>)", re.S | re.I)
+_TEXTE_ENTRE_BALISES_RE = re.compile(r">([^<>]*\*[^<>]*)<")
+
+
+def convert_markdown_bold_in_html(html_text):
+    """Dernier filet : convertit tout « **gras** » resté dans le texte visible du HTML assemblé (jamais dans les
+    <script> ni les <style>, où « ** » peut être légitime). Évite qu'un champ oublié en amont, par exemple
+    venu du brief, fasse échouer toute la génération (preview du 18 octobre 2026)."""
+    if "**" not in html_text:
+        return html_text
+    morceaux = _SCRIPT_OU_STYLE_RE.split(html_text)
+    for i in range(0, len(morceaux), 2):  # les indices pairs sont hors script/style
+        morceaux[i] = _TEXTE_ENTRE_BALISES_RE.sub(lambda m: ">" + convert_markdown_bold(m.group(1)) + "<", morceaux[i])
+    return "".join(morceaux)
 
 
 def normalize_content_lex_ref(content):
@@ -1692,6 +1728,7 @@ def main():
         # propre si un cas non prévu survient malgré tout.
         raise GenerationError(f"assemblage HTML échoué sur le contenu retenu ({e}), rien n'est produit") from e
 
+    html_text = convert_markdown_bold_in_html(html_text)
     html_errors = validate_assembled_html(html_text, content)
     if html_errors:
         print("[edition] validation du HTML assemblé échouée :", file=sys.stderr)
