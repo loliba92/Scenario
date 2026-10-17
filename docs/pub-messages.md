@@ -1140,6 +1140,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-10-16 (archives/2026-10-16.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-10-17
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 201,6 milliards USD
+- message: Avec 201,6 milliards USD de revenus en 2025, le jeu vidéo pèse plus de trois fois le cinéma et la musique réunis.
+- attribution: — lesscenarios.fr, 17 octobre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-10-17.html
+
+*Phrase à retenir de l'édition du 2026-10-17 (archives/2026-10-17.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
