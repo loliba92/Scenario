@@ -27,6 +27,7 @@ Limites connues, assumées pour la Phase 1 (prototype, voir
 Ces limites sont un choix explicite du prototype, pas un oubli — à traiter
 séparément si la Phase 1 est validée.
 """
+import html
 import re
 import sys
 from datetime import date, datetime, timedelta
@@ -1641,6 +1642,15 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
     # étape technique « Image du sujet », `.footer-photo-credit`.
     photo_credit_html = ""
     if photo:
+        # Source et licence : « Pexels » par défaut ; une photo choisie à la main (Wikimedia Commons...) indique sa
+        # propre source et sa licence, obligatoires pour une licence CC BY-SA (voir scripts/social/photo_manuelle.py).
+        source_label = html.escape(photo.get("source_label") or "Pexels")
+        licence_html = ""
+        if photo.get("licence"):
+            licence_html = html.escape(f' · {photo["licence"]}')
+            if photo.get("licence_url"):
+                licence_html = (f' · <a href="{html.escape(photo["licence_url"], quote=True)}" target="_blank" '
+                                f'rel="noopener noreferrer">{html.escape(photo["licence"])}</a>')
         photo_credit_html = (
             '\n    <p class="footer-photo-credit"><svg viewBox="0 0 24 24" width="14" height="14" '
             'fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" '
@@ -1648,7 +1658,7 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
             '1.5h2A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5Z"/>'
             '<circle cx="12" cy="12.5" r="3.2"/></svg> Photo d\'illustration. '
             f'{photo["photographer"]} / <a href="{photo["pexels_url"]}" target="_blank" '
-            'rel="noopener noreferrer">Pexels ↗</a></p>'
+            f'rel="noopener noreferrer">{source_label} ↗</a>{licence_html}</p>'
         )
 
     footer_html = f'<footer>\n  <div class="wrap">{photo_credit_html}\n    <div class="footer-bottom">\n      <p class="devise-footer">Rien n\'est écrit à l\'avance.</p>\n      {shell["legal_links_html"]}\n    </div>\n  </div>\n</footer>'

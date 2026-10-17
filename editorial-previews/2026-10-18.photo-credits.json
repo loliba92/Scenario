@@ -1,6 +1,13 @@
 {
-  "original_url": "https://images.pexels.com/photos/30689708/pexels-photo-30689708.jpeg",
-  "photographer": "TBD Traveller",
-  "pexels_url": "https://www.pexels.com/photo/gardener-maintains-parc-des-princes-field-in-paris-30689708/",
-  "query": "football stadium team France"
+  "source": "manuelle",
+  "local_file": "assets/social/photos-manuelles/2026-10-18-zidane.jpg",
+  "photographer": "Oleg Dubyna",
+  "source_label": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Zinedine_Zidane_(41758545214).jpg",
+  "licence": "CC BY-SA 2.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+  "focus_x": 0.55,
+  "focus_y": 0.35,
+  "query": "Zinedine Zidane",
+  "alt": "Zinedine Zidane souriant, un trophée de la Ligue des champions entre les mains"
 }
