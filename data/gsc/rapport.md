@@ -2,18 +2,18 @@
 
 Site `sc-domain:lesscenarios.fr` · données Google du 2026-09-17 au 2026-10-14 · synchronisé le 2026-10-17 (les chiffres de Google ont ~3 jours de retard).
 
-**Verdict : CRITIQUE** — 10 éditions de plus de 7 jours sont inconnues de Google (sur 33 pages inspectées). Demander l'indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours.
+**Verdict : CRITIQUE** — 8 éditions de plus de 7 jours sont inconnues de Google (sur 33 pages inspectées). Demander l'indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours.
 
 ## Chiffres (28 jours)
 
 - 3 clics, 294 impressions, taux de clic 1,0 %, position moyenne 8,9.
-- Pages indexées : 18 sur 33 inspectées ; éditions inconnues de Google : 12 (dont 10 de plus de 7 jours).
+- Pages indexées : 19 sur 33 inspectées ; éditions inconnues de Google : 11 (dont 8 de plus de 7 jours).
 - Requêtes : 4 (dont 2 avec le nom du site).
 - Tendance (14 jours, jusqu'au 2026-10-14) : impressions 146 contre 148, clics 0 contre 3.
 
 ## À résoudre — critique
 
-- 10 éditions de plus de 7 jours sont inconnues de Google (sur 33 pages inspectées). **Action** : Demander l'indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours. **Agent à envoyer** : seo-technical + seo-sitemap. **Mission** : Diagnostiquer pourquoi ces éditions restent inconnues de Google : profondeur de clics depuis l'accueil, liens internes vers les éditions récentes, structure et dates du plan du site, robots.txt, vitesse. Rendre un plan correctif chiffré, classé par impact.
+- 8 éditions de plus de 7 jours sont inconnues de Google (sur 33 pages inspectées). **Action** : Demander l'indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours. **Agent à envoyer** : seo-technical + seo-sitemap. **Mission** : Diagnostiquer pourquoi ces éditions restent inconnues de Google : profondeur de clics depuis l'accueil, liens internes vers les éditions récentes, structure et dates du plan du site, robots.txt, vitesse. Rendre un plan correctif chiffré, classé par impact.
 
 ## À résoudre — important
 
@@ -31,16 +31,16 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-09-17 au 2026-10-14 
 
 - Google affiche le site en position moyenne 8,9 (première page) sur 294 impressions.
 - 6 pages principales indexées : `/`, `/archives.html`, `/le-projet.html`, `/sources.html`, `/glossaire.html`, `/en/`.
-- 12 éditions indexées par Google.
+- 13 éditions indexées par Google.
 - Plan du site `/sitemap.xml` lu par Google sans erreur (176 adresses envoyées).
 - Plan du site `/sitemap-news.xml` lu par Google sans erreur (4 adresses envoyées).
-- Balises des 85 éditions en français conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.
-- Balises des 52 éditions en anglais conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.
+- Balises des 86 éditions en français conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.
+- Balises des 53 éditions en anglais conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.
 
 ## Ce qui ne fonctionne pas
 
 - Presque aucune visite venue de Google : 3 clics en 28 jours.
-- Découverte trop lente : 10 éditions publiées depuis plus d’une semaine ne sont pas connues de Google.
+- Découverte trop lente : 8 éditions publiées depuis plus d’une semaine ne sont pas connues de Google.
 
 ## Ce que seul le propriétaire peut faire
 
@@ -145,8 +145,9 @@ Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 - `/sources.html` : ok
 - `/glossaire.html` : ok
 - `/en/` : ok
+- `/archives/2026-10-17.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 0 j
 - `/archives/2026-10-16.html` : ok, publiée il y a 1 j
-- `/archives/2026-10-15.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 2 j
+- `/archives/2026-10-15.html` : ok, publiée il y a 2 j
 - `/archives/2026-10-14.html` : ok, publiée il y a 3 j
 - `/archives/2026-10-13.html` : ok, publiée il y a 4 j
 - `/archives/2026-10-12.html` : ok, publiée il y a 5 j
@@ -154,22 +155,21 @@ Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 - `/archives/2026-10-10.html` : exploree (Explorée, actuellement non indexée), publiée il y a 7 j
 - `/archives/2026-10-09.html` : ok, publiée il y a 8 j
 - `/archives/2026-10-08.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 9 j
-- `/archives/2026-10-07.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 10 j
+- `/archives/2026-10-07.html` : ok, publiée il y a 10 j
 - `/archives/2026-10-06.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 11 j
 - `/archives/2026-10-05.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 12 j
 - `/archives/2026-10-04.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 13 j
-- `/archives/2026-10-03.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 14 j
+- `/archives/2026-10-03.html` : ok, publiée il y a 14 j
 - `/archives/2026-10-02.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 15 j
 - `/archives/2026-10-01.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 16 j
 - `/archives/2026-09-30.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 17 j
 - `/archives/2026-09-29.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 18 j
 - `/archives/2026-09-28.html` : ok, publiée il y a 19 j
-- `/archives/2026-09-27.html` : ok, publiée il y a 20 j
+- `/en/archives/2026-10-17.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 0 j
 - `/en/archives/2026-10-16.html` : ok, publiée il y a 1 j
 - `/en/archives/2026-10-15.html` : ok, publiée il y a 2 j
 - `/en/archives/2026-10-13.html` : exploree (Explorée, actuellement non indexée), publiée il y a 4 j
 - `/en/archives/2026-10-12.html` : ok, publiée il y a 5 j
 - `/en/archives/2026-10-11.html` : decouverte (Détectée, actuellement non indexée), publiée il y a 6 j
-- `/en/archives/2026-10-10.html` : ok, publiée il y a 7 j
 
 Le compteur « indexées » des plans du site n'est pas fiable : l'inspection page par page fait foi.
