@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "160b299fabd26514d4c8064534506a417477c5a147114611729a340afc4fa10e"
+    "md_sha256": "c9bb54186f9b80bafe00455b1e4286c7385bc17ab84e0f252f9b9c00c6fb40e7"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -3243,6 +3243,59 @@
       "entrees": [
         {
           "type": "sujet",
+          "id": "sciences-eau-l-eau-devient-elle-la-prochaine-ressource",
+          "titre": "Eau : l'eau devient-elle la prochaine ressource stratégique ?",
+          "question": null,
+          "tag": "climat & écologie",
+          "statut": "a_traiter",
+          "validation": "valide",
+          "contexte": "L'eau s'impose comme un enjeu géopolitique majeur à travers plusieurs crises simultanées. Au Moyen-Orient, en mars 2026, des usines de dessalement ont été ciblées par des frappes de drones en Iran et à Bahreïn, marquant une première dans l'histoire des pays du Golfe où ces infrastructures vitales fournissent jusqu'à 90% de l'eau potable (Koweït) et 70% en Arabie saoudite. En Asie du Sud, l'Inde a suspendu en avril 2025 le traité des eaux de l'Indus (1960) après l'attentat de Pahalgam, et le ministre indien de l'Eau a confirmé en juin 2026 vouloir priver le Pakistan de l'eau des fleuves, ce qu'Islamabad qualifie d'acte de guerre. En Afrique, les tensions persistent entre l'Égypte et l'Éthiopie autour du barrage de la Renaissance sur le Nil, inauguré en septembre 2025. Parallèlement, l'OMM a publié en septembre 2026 un rapport indiquant que 2025 a été l'une des années les plus sèches depuis 35 ans en termes de débit fluvial, avec une perte de masse glaciaire cumulée de 1 400 gigatonnes entre 2023 et 2025. En France, l'été 2026 est marqué par une sécheresse précoce et sévère, avec près de 9 800 communes sous restriction fin août.",
+          "rationnel": "La question : L'eau va-t-elle s'imposer comme la prochaine ressource stratégique mondiale d'ici la Journée mondiale de l'eau 2027 ? L'issue demeure ouverte car la militarisation des usines de dessalement au Moyen‑Orient, le conflit autour du traité de l'Indus entre l'Inde et le Pakistan et le blocage des négociations sur le barrage de la Renaissance du Nil peuvent soit favoriser une coopération renforcée, soit déclencher une escalade de l'eau comme arme, tandis que le stress hydrique attesté par l'OMM et la sécheresse française de 2026 ajoutent une pression climatique. Pour un lecteur français, l'enjeu concret réside dans la vulnérabilité de l'approvisionnement en eau potable, illustrée par près de 9 800 communes sous restriction à l'été 2026, et la dépendance aux importations agricoles provenant de régions sous stress hydrique, susceptible de faire grimper les prix alimentaires.",
+          "angle": null,
+          "a_verifier": "Chiffre exact du nombre de communes françaises sous restriction fin septembre 2026 ; statut précis des négociations sur le Nil après les accusations de septembre 2026 ; évolution des capacités de stockage indiennes sur les rivières occidentales de l'Indus.",
+          "mots_cles": [
+            "géopolitique de l'eau",
+            "stress hydrique 2026",
+            "traité de l'Indus Inde Pakistan",
+            "usine de dessalement attaque drone",
+            "barrage de la Renaissance Nil",
+            "sécheresse France 2026 restrictions",
+            "eau arme de guerre",
+            "water scarcity geopolitics 2026"
+          ],
+          "scenarios": null,
+          "echeance": {
+            "date": "2027-03-22",
+            "raison": "Journée mondiale de l'eau, date de publication du prochain rapport mondial des Nations unies sur le développement des ressources en eau (WWDR)"
+          },
+          "sources": [
+            {
+              "titre": "L'Egypte hausse le ton face à l'Ethiopie sur le partage des eaux du Nil",
+              "url": "https://www.lemonde.fr/afrique/article/2026/09/30/l-egypte-hausse-le-ton-face-a-l-ethiopie-sur-le-partage-des-eaux-du-nil_6786058_3212.html"
+            },
+            {
+              "titre": "Inde-Pakistan: un tribunal international maintient un traité de partage des eaux",
+              "url": "https://www.rfi.fr/fr/asie-pacifique/20260831-inde-pakistan-un-tribunal-international-maintient-un-trait%C3%A9-de-partage-des-eaux"
+            },
+            {
+              "titre": "Guerre au Moyen-Orient: les usines de dessalement de l'eau, des infrastructures vitales et sensibles",
+              "url": "https://www.rfi.fr/fr/moyen-orient/20260308-guerre-au-moyen-orient-les-usines-de-dessalement-de-l-eau-des-infrastructures-vitales-et-sensibles"
+            },
+            {
+              "titre": "OMM: Les tendances hydrologiques récentes ont de graves implications pour l'avenir",
+              "url": "https://wmo.int/fr/news/media-centre/omm-les-tendances-hydrologiques-recentes-ont-de-graves-implications-pour-lavenir"
+            }
+          ],
+          "origine": null,
+          "note": null,
+          "ajoute_le": null,
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": "2026-10-03",
+          "donnees": null
+        },
+        {
+          "type": "sujet",
           "id": "sciences-ia-et-cosmologie-l-analyse-de-100-millions-de",
           "titre": "IA et cosmologie : l'analyse de 100 millions de galaxies par le CEA résout-elle le mystère de l'énergie sombre ?",
           "question": "La nouvelle méthode hybride (statistiques cosmologiques + IA) appliquée aux données du Dark Energy Survey (100 M de galaxies) fournit-elle les contraintes les plus précises jamais obtenues sur la matière noire et l'énergie sombre, et peut-elle réconcilier les mesures divergentes entre lentilles gravitationnelles et rayonnement fossile Planck ?",
@@ -4133,59 +4186,6 @@
             {
               "titre": "IEA : Global Energy Review 2026 – CO2 emissions",
               "url": "https://www.iea.org/reports/global-energy-review-2026/co2-emissions"
-            }
-          ],
-          "origine": null,
-          "note": null,
-          "ajoute_le": null,
-          "publie_le": null,
-          "edition": null,
-          "enrichi_le": "2026-10-03",
-          "donnees": null
-        },
-        {
-          "type": "sujet",
-          "id": "sciences-eau-l-eau-devient-elle-la-prochaine-ressource",
-          "titre": "Eau : l'eau devient-elle la prochaine ressource stratégique ?",
-          "question": null,
-          "tag": "climat & écologie",
-          "statut": "a_traiter",
-          "validation": "valide",
-          "contexte": "L'eau s'impose comme un enjeu géopolitique majeur à travers plusieurs crises simultanées. Au Moyen-Orient, en mars 2026, des usines de dessalement ont été ciblées par des frappes de drones en Iran et à Bahreïn, marquant une première dans l'histoire des pays du Golfe où ces infrastructures vitales fournissent jusqu'à 90% de l'eau potable (Koweït) et 70% en Arabie saoudite. En Asie du Sud, l'Inde a suspendu en avril 2025 le traité des eaux de l'Indus (1960) après l'attentat de Pahalgam, et le ministre indien de l'Eau a confirmé en juin 2026 vouloir priver le Pakistan de l'eau des fleuves, ce qu'Islamabad qualifie d'acte de guerre. En Afrique, les tensions persistent entre l'Égypte et l'Éthiopie autour du barrage de la Renaissance sur le Nil, inauguré en septembre 2025. Parallèlement, l'OMM a publié en septembre 2026 un rapport indiquant que 2025 a été l'une des années les plus sèches depuis 35 ans en termes de débit fluvial, avec une perte de masse glaciaire cumulée de 1 400 gigatonnes entre 2023 et 2025. En France, l'été 2026 est marqué par une sécheresse précoce et sévère, avec près de 9 800 communes sous restriction fin août.",
-          "rationnel": "La question : L'eau va-t-elle s'imposer comme la prochaine ressource stratégique mondiale d'ici la Journée mondiale de l'eau 2027 ? L'issue demeure ouverte car la militarisation des usines de dessalement au Moyen‑Orient, le conflit autour du traité de l'Indus entre l'Inde et le Pakistan et le blocage des négociations sur le barrage de la Renaissance du Nil peuvent soit favoriser une coopération renforcée, soit déclencher une escalade de l'eau comme arme, tandis que le stress hydrique attesté par l'OMM et la sécheresse française de 2026 ajoutent une pression climatique. Pour un lecteur français, l'enjeu concret réside dans la vulnérabilité de l'approvisionnement en eau potable, illustrée par près de 9 800 communes sous restriction à l'été 2026, et la dépendance aux importations agricoles provenant de régions sous stress hydrique, susceptible de faire grimper les prix alimentaires.",
-          "angle": null,
-          "a_verifier": "Chiffre exact du nombre de communes françaises sous restriction fin septembre 2026 ; statut précis des négociations sur le Nil après les accusations de septembre 2026 ; évolution des capacités de stockage indiennes sur les rivières occidentales de l'Indus.",
-          "mots_cles": [
-            "géopolitique de l'eau",
-            "stress hydrique 2026",
-            "traité de l'Indus Inde Pakistan",
-            "usine de dessalement attaque drone",
-            "barrage de la Renaissance Nil",
-            "sécheresse France 2026 restrictions",
-            "eau arme de guerre",
-            "water scarcity geopolitics 2026"
-          ],
-          "scenarios": null,
-          "echeance": {
-            "date": "2027-03-22",
-            "raison": "Journée mondiale de l'eau, date de publication du prochain rapport mondial des Nations unies sur le développement des ressources en eau (WWDR)"
-          },
-          "sources": [
-            {
-              "titre": "L'Egypte hausse le ton face à l'Ethiopie sur le partage des eaux du Nil",
-              "url": "https://www.lemonde.fr/afrique/article/2026/09/30/l-egypte-hausse-le-ton-face-a-l-ethiopie-sur-le-partage-des-eaux-du-nil_6786058_3212.html"
-            },
-            {
-              "titre": "Inde-Pakistan: un tribunal international maintient un traité de partage des eaux",
-              "url": "https://www.rfi.fr/fr/asie-pacifique/20260831-inde-pakistan-un-tribunal-international-maintient-un-trait%C3%A9-de-partage-des-eaux"
-            },
-            {
-              "titre": "Guerre au Moyen-Orient: les usines de dessalement de l'eau, des infrastructures vitales et sensibles",
-              "url": "https://www.rfi.fr/fr/moyen-orient/20260308-guerre-au-moyen-orient-les-usines-de-dessalement-de-l-eau-des-infrastructures-vitales-et-sensibles"
-            },
-            {
-              "titre": "OMM: Les tendances hydrologiques récentes ont de graves implications pour l'avenir",
-              "url": "https://wmo.int/fr/news/media-centre/omm-les-tendances-hydrologiques-recentes-ont-de-graves-implications-pour-lavenir"
             }
           ],
           "origine": null,
