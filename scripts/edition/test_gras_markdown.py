@@ -21,6 +21,22 @@ class GrasMarkdown(unittest.TestCase):
         self.assertIn("2**3", out)       # script intact
         self.assertIn("/** c */", out)   # style intact
 
+    def test_etoiles_separees_par_une_balise(self):
+        """« mot*<a class="lex-ref">*</a> » s'affiche « mot** » : les deux étoiles sont dans des blocs différents."""
+        from bs4 import BeautifulSoup
+        for html in (
+            '<p>un soft power*<a class="lex-ref" href="#lex-x">*</a> ici</p>',
+            '<p>un terme <em>mot*</em><a class="lex-ref" href="#lex-x">*</a></p>',
+            '<p><strong>Titre*</strong>*<sup>1</sup></p>',
+        ):
+            visible = BeautifulSoup(gde.convert_markdown_bold_in_html(html), "html.parser").get_text()
+            self.assertNotIn("**", visible, html)
+            self.assertEqual(visible.count("*"), 1, html)  # l'étoile du renvoi au lexique est conservée
+
+    def test_renvoi_au_lexique_seul_inchange(self):
+        html = '<p>un soft power<a class="lex-ref" href="#lex-x">*</a> ici</p>'
+        self.assertEqual(gde.convert_markdown_bold_in_html(html), html)
+
     def test_paire_mal_formee_supprimee(self):
         out = gde.convert_markdown_bold_in_html("<p>mot ** isolé</p>")
         self.assertNotIn("**", out)
