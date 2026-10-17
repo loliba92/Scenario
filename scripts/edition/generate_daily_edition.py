@@ -219,6 +219,20 @@ def _retirer_gras_markdown(obj):
                 _retirer_gras_markdown(v)
 
 
+def _garder_page_refusee(html_text, content):
+    """Garde une copie de la page refusée (dossier SCENARIO_REJETS, « /tmp/edition-rejete » par défaut) : le
+    workflow la dépose en pièce jointe, ce qui permet de voir la cause réelle au lieu de la deviner (aperçu du
+    18 octobre 2026). Ne fait jamais échouer la génération."""
+    try:
+        dossier = Path(os.environ.get("SCENARIO_REJETS", "/tmp/edition-rejete"))
+        dossier.mkdir(parents=True, exist_ok=True)
+        (dossier / "page-refusee.html").write_text(html_text, encoding="utf-8")
+        (dossier / "contenu-refuse.json").write_text(json.dumps(content, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"[edition] copie de la page refusée : {dossier}", file=sys.stderr)
+    except Exception as e:  # pragma: no cover
+        print(f"[edition] copie de la page refusée impossible : {e}", file=sys.stderr)
+
+
 def load_brief(path):
     with open(path, encoding="utf-8") as f:
         brief = json.load(f)
@@ -941,6 +955,34 @@ def convert_markdown_bold_in_html(html_text):
     return "".join(morceaux)
 
 
+# Le modèle écrit parfois les clés d'un indicateur en français (« valeur », « libellé »). Le sens est identique : on
+# renomme plutôt que de refuser et de payer un deuxième essai (aperçu du 18 octobre 2026, « valeur » au lieu de « value »).
+_INDICATEUR_ALIAS = {
+    "label": ("libelle", "libellé", "titre", "nom"),
+    "value": ("valeur", "chiffre", "montant", "val"),
+    "delta": ("variation", "evolution", "évolution", "contexte"),
+}
+
+
+def normalize_content_indicators(content):
+    """Renomme les clés d'indicateur connues sous un autre nom ; ne touche jamais une clé déjà remplie."""
+    renomme = 0
+    for ind in (content.get("indicators") or []) if isinstance(content, dict) else []:
+        if not isinstance(ind, dict):
+            continue
+        for cle, alias in _INDICATEUR_ALIAS.items():
+            if ind.get(cle):
+                continue
+            for a in alias:
+                if ind.get(a):
+                    ind[cle] = ind.pop(a)
+                    renomme += 1
+                    break
+    if renomme:
+        print(f"[edition] indicateurs : {renomme} clé(s) renommée(s) (valeur -> value, etc.)", file=sys.stderr)
+    return content
+
+
 def normalize_content_lex_ref(content):
     """Applique normalize_lex_ref_link_text() aux mêmes champs que ceux
     inspectés par validate_content_schema() pour la cohérence lex-ref <->
@@ -1595,6 +1637,7 @@ def main():
             usage_total["model"] = usage["model"]
 
         content = normalize_content_markdown(content)
+        content = normalize_content_indicators(content)
         content = normalize_content_lex_ref(content)
         errors = validate_content_schema(content, brief)
         attempts_history.append((content, errors))
@@ -1742,6 +1785,7 @@ def main():
         print("[edition] validation du HTML assemblé échouée :", file=sys.stderr)
         for e in html_errors:
             print(f"  - {e}", file=sys.stderr)
+        _garder_page_refusee(html_text, content)
         raise GenerationError("validation du HTML assemblé échouée, rien n'est écrit")
 
     out_path = Path(args.out) if args.out else REPO_ROOT / "_prototype-out" / f"{date_str}.html"

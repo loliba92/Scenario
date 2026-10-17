@@ -282,6 +282,17 @@ jobs:
               body,
             });
 
+      # Page refusée par la validation (copie écrite par generate_daily_edition.py) : permet de voir la cause réelle
+      # d'un échec au lieu de la deviner (aperçu du 18 octobre 2026). Absente si rien n'a été refusé.
+      - name: Garder la page refusée en pièce jointe
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: page-refusee-${{ github.run_id }}
+          path: /tmp/edition-rejete/
+          if-no-files-found: ignore
+          retention-days: 14
+
       - name: Success notification
         if: success()
         run: |
