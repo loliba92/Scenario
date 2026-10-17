@@ -55,5 +55,33 @@ class GrasMarkdown(unittest.TestCase):
         self.assertEqual(charge["sujet"]["h1"], "Le pass Sport survivra-t-il ?")
 
 
+class Reparations(unittest.TestCase):
+    def test_indicateur_cles_francaises_renommees(self):
+        contenu = {"indicators": [{"label": "Bilan", "valeur": "3 victoires", "delta": "1re place"}]}
+        gde.normalize_content_indicators(contenu)
+        self.assertEqual(contenu["indicators"][0], {"label": "Bilan", "value": "3 victoires", "delta": "1re place"})
+
+    def test_indicateur_cle_remplie_jamais_ecrasee(self):
+        contenu = {"indicators": [{"label": "A", "value": "10", "valeur": "autre", "delta": "d"}]}
+        gde.normalize_content_indicators(contenu)
+        self.assertEqual(contenu["indicators"][0]["value"], "10")
+
+    def test_indicateur_vide_reste_signale(self):
+        contenu = {"indicators": [{"label": "A", "delta": "d"}]}
+        gde.normalize_content_indicators(contenu)
+        self.assertNotIn("value", contenu["indicators"][0])  # la validation refusera : rien d'inventé
+
+    def test_page_refusee_conservee(self):
+        import os
+        with tempfile.TemporaryDirectory() as d:
+            os.environ["SCENARIO_REJETS"] = d
+            try:
+                gde._garder_page_refusee("<p>x</p>", {"a": 1})
+            finally:
+                del os.environ["SCENARIO_REJETS"]
+            self.assertTrue((Path(d) / "page-refusee.html").exists())
+            self.assertTrue((Path(d) / "contenu-refuse.json").exists())
+
+
 if __name__ == "__main__":
     unittest.main()
