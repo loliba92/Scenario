@@ -843,7 +843,7 @@ def extract_title(text):
     coupe) : s'il est tronqué, on affiche le <h1> de la page, qui porte le
     titre complet (bug du 2 octobre 2026 : « Octobre rose 2026 : le dépistage
     du cancer du sein va-t-il… » dans la liste des archives)."""
-    m = re.search(r"<title>([^<]+) — Scénario</title>", text)
+    m = re.search(r"<title>([^<]+?)(?: — Scénario)?</title>", text)
     title = html.unescape(m.group(1)) if m else None
     if title and title.endswith("…"):
         h1 = re.search(r"<h1[^>]*>(.*?)</h1>", text, re.DOTALL)
