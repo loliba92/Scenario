@@ -11,4 +11,15 @@
       <news:title>Dark Energy: CEA's AI Maps 100 Million Galaxies</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-10-17.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-17T07:50:47+02:00</news:publication_date><news:title>Jeu vidéo : le premier art mondial ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-10-17.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-17T07:50:47+02:00</news:publication_date><news:title>Jeu vidéo : le premier art mondial ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-10-17.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-17T07:50:47+02:00</news:publication_date>
+      <news:title>Video games: the world’s leading art form?</news:title>
+    </news:news>
+  </url>
+</urlset>

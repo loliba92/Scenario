@@ -875,7 +875,7 @@
      que .stakes-box (fond surface, filet doré à gauche, radius 4px),
      mais label "Comprendre" pour une explication de fond plutôt qu'une
      question ou un enjeu. */
-  .comprendre-box{
+  .comprendre-box, .enjeu-box{
     background: var(--surface);
     border-left: 3px solid var(--gold);
     border-radius: 4px;
@@ -884,7 +884,7 @@
     margin-left: -22px;
   }
 
-  .comprendre-label{
+  .comprendre-label, .enjeu-label{
     display: block;
     font-family: "JetBrains Mono", monospace;
     font-size: 0.72rem;
@@ -894,7 +894,7 @@
     margin: 0 0 8px;
   }
 
-  .comprendre-lead{
+  .comprendre-lead, .enjeu-lead{
     font-family: "Fraunces", serif;
     font-size: 1.1rem;
     font-weight: 500;
@@ -903,7 +903,7 @@
     color: var(--paper);
   }
 
-  .comprendre-text{
+  .comprendre-text, .enjeu-text{
     font-size: 0.95rem;
     line-height: 1.55;
     margin: 0;
@@ -2122,7 +2122,7 @@
     .dek{ margin-bottom: 10px; }
     .dek:last-of-type{ margin-bottom: 14px; }
     .stakes-box{ padding: 10px 14px; margin-top: 0; margin-bottom: 14px; }
-    .comprendre-box{ padding: 10px 14px; margin-top: 10px; margin-bottom: 10px; }
+    .comprendre-box, .enjeu-box{ padding: 10px 14px; margin-top: 10px; margin-bottom: 10px; }
     .dc-chart-box{ padding: 10px 14px; margin-top: 14px; }
     .list-box{ padding: 14px 16px 2px; margin-bottom: 14px; }
     .list-box-items li{ padding: 8px 0; }
@@ -2136,7 +2136,7 @@
     .essentiel-text + .essentiel-text{ margin-top: 8px; }
     .france-line{ padding: 8px 10px; }
     .retenir-box{ margin-top: 12px; padding: 14px 16px; }
-    .list-box, .comprendre-box, .dc-chart-box, .card, .essentiel-box, .retenir-box{
+    .list-box, .comprendre-box, .enjeu-box, .dc-chart-box, .card, .essentiel-box, .retenir-box{
       break-inside: avoid;
     }
     @page{ margin: 12mm; }
@@ -2409,10 +2409,10 @@
 <img alt="" class="brand-mark" src="../assets/logo.svg"/>
 <div class="wordmark">Scéna<span>rio</span></div>
 </div>
-<div class="edition">Edition of October 16, 2026 · No. 85</div>
+<div class="edition">Edition of October 17, 2026 · No. 86</div>
 </div>
 <div class="masthead-right">
-<a aria-label="Home" class="masthead-notif-btn masthead-home-btn" href="../" title="Home"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M4 11 12 4l8 7"></path><path d="M6 9.5V19a1 1 0 0 0 1 1h3.5v-5.5h3V20H17a1 1 0 0 0 1-1V9.5"></path></svg></a>
+<a aria-label="Home" class="masthead-notif-btn masthead-home-btn" href="..//" title="Home"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M4 11 12 4l8 7"></path><path d="M6 9.5V19a1 1 0 0 0 1 1h3.5v-5.5h3V20H17a1 1 0 0 0 1-1V9.5"></path></svg></a>
 <a aria-label="Lire en français" class="masthead-lang-btn" href="../index.html" title="Lire en français">FR</a>
 <button aria-label="Activate notifications" class="onesignal-subscribe-btn masthead-notif-btn" title="Activate notifications" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"></path><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"></path></svg></button>
 <button aria-label="Print on 1 page" class="masthead-notif-btn" id="print-page" title="Print on 1 page" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M6.5 9V4.5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1V9"></path><rect height="7" rx="1.3" width="15" x="4.5" y="9"></rect><path d="M7 14h10v5.5a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V14Z"></path></svg></button>
@@ -2451,14 +2451,14 @@
 <section class="featured-article">
 <div class="wrap">
 <p class="section-label">The latest edition</p>
-<a class="featured-article-link" href="archives/2026-10-16.html">
+<a class="featured-article-link" href="archives/2026-10-17.html">
 <div class="featured-article-image-wrap">
-<img alt="Dark Energy: CEA's AI Maps 100 Million Galaxies" class="featured-article-image" src="../assets/social/topic-images/2026-10-16.jpg"/>
+<img alt="Can video games become the world’s leading art form?" class="featured-article-image" src="../assets/social/topic-images/2026-10-17.jpg"/>
 </div>
 <div>
-<span class="featured-article-date">Sciences &amp; environnement · Oct 16</span>
-<h2 class="featured-article-title">Dark Energy: CEA's AI Maps 100 Million Galaxies</h2>
-<p class="featured-article-question">Dark Energy: CEA's AI maps 100 million galaxies. Three quantified scenarios—favorable, stable, degraded—to understand what comes next.</p>
+<span class="featured-article-date">Culture &amp; divertissement · Oct 17</span>
+<h2 class="featured-article-title">Can video games become the world’s leading art form?</h2>
+<p class="featured-article-question">Can video games become the world’s leading art form ahead of the global release of GTA VI in November 2026?</p>
 <span class="featured-article-cta">Read the edition →</span>
 </div>
 </a>
@@ -2482,11 +2482,18 @@
 <p class="section-label">Previous editions</p>
 <h2 class="section-title">Latest editions</h2>
 <ul class="related-articles-list">
+<li><a class="related-articles-item" href="archives/2026-10-16.html">
+<img alt="Dark Energy: CEA's AI Maps 100 Million Galaxies" class="related-articles-image" decoding="async" loading="lazy" src="../assets/social/topic-images/2026-10-16.jpg"/>
+<div class="related-articles-content">
+<span class="related-articles-date">Sciences &amp; environnement · Oct 16</span>
+<span class="related-articles-title">Dark Energy: CEA's AI Maps 100 Million Galaxies</span>
+</div>
+</a></li>
 <li><a class="related-articles-item" href="archives/2026-10-15.html">
-<img alt="Rare earths: can China cut off the West?" class="related-articles-image" decoding="async" loading="lazy" src="../assets/social/topic-images/2026-10-15.jpg"/>
+<img alt="Rare Earths: Can China Cut Off the West?" class="related-articles-image" decoding="async" loading="lazy" src="../assets/social/topic-images/2026-10-15.jpg"/>
 <div class="related-articles-content">
 <span class="related-articles-date">World Economy · Oct 15</span>
-<span class="related-articles-title">Rare earths: can China cut off the West?</span>
+<span class="related-articles-title">Rare Earths: Can China Cut Off the West?</span>
 </div>
 </a></li>
 <li><a class="related-articles-item" href="archives/2026-10-13.html">
@@ -2536,13 +2543,6 @@
 <div class="related-articles-content">
 <span class="related-articles-date">Politique &amp; institutions · Oct 7</span>
 <span class="related-articles-title">Medical Deserts: Will You Still Find a Doctor Nearby?</span>
-</div>
-</a></li>
-<li><a class="related-articles-item" href="archives/2026-10-06.html">
-<img alt="Hybrid warfare in Europe: is Russia sabotaging the EU?" class="related-articles-image" decoding="async" loading="lazy" src="../assets/social/topic-images/2026-10-06.jpg"/>
-<div class="related-articles-content">
-<span class="related-articles-date">International · Oct 6</span>
-<span class="related-articles-title">Hybrid warfare in Europe: is Russia sabotaging the EU?</span>
 </div>
 </a></li>
 </ul>
