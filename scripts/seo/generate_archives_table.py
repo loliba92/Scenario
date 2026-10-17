@@ -838,20 +838,25 @@ ARCHIVES_TABLE_CSS = """
 
 
 def extract_title(text):
-    """Extrait le titre de la balise <title>. Ce <title> est plafonné à 60
-    caractères pour le SEO (generate_seo_head._build_title, « … » en fin de
-    coupe) : s'il est tronqué, on affiche le <h1> de la page, qui porte le
-    titre complet (bug du 2 octobre 2026 : « Octobre rose 2026 : le dépistage
-    du cancer du sein va-t-il… » dans la liste des archives)."""
+    """Extrait le titre de l'édition. Le <title> est plafonné à 60 caractères
+    pour le SEO (generate_seo_head._build_title, « … » en fin de coupe) : s'il
+    est tronqué, on affiche le <h1> de la page, qui porte le titre complet
+    (bug du 2 octobre 2026 : « Octobre rose 2026 : le dépistage du cancer du
+    sein va-t-il… » dans la liste des archives).
+
+    Le suffixe « — Scénario » est facultatif (titres de 60 à 70 caractères
+    publiés sans la marque depuis le 16 octobre 2026), et la fonction ne
+    dépend plus d'un seul format : <title>, puis <h1> si le <title> manque.
+    Un échec ici avait bloqué la publication du 17 octobre 2026."""
     m = re.search(r"<title>([^<]+?)(?: — Scénario)?</title>", text)
-    title = html.unescape(m.group(1)) if m else None
-    if title and title.endswith("…"):
+    title = html.unescape(m.group(1)).strip() if m else None
+    if not title or title.endswith("…"):
         h1 = re.search(r"<h1[^>]*>(.*?)</h1>", text, re.DOTALL)
         if h1:
             full = html.unescape(re.sub(r"<[^>]+>", "", h1.group(1))).strip()
             if full:
                 return full
-    return title
+    return title or None
 
 
 def extract_question(text):
