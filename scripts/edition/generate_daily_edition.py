@@ -919,17 +919,25 @@ def normalize_content_markdown(content):
 
 _SCRIPT_OU_STYLE_RE = re.compile(r"(<script\b.*?</script>|<style\b.*?</style>)", re.S | re.I)
 _TEXTE_ENTRE_BALISES_RE = re.compile(r">([^<>]*\*[^<>]*)<")
+# Une étoile suivie, à travers d'éventuelles balises, d'une autre étoile : « mot*<a class="lex-ref">*</a> » s'affiche
+# « mot** » alors que les deux étoiles sont dans des blocs de texte différents (preview du 18 octobre 2026).
+_ETOILE_AVANT_ETOILE_RE = re.compile(r"\*(?=(?:\s|<[^>]*>)*\*)")
 
 
 def convert_markdown_bold_in_html(html_text):
     """Dernier filet : convertit tout « **gras** » resté dans le texte visible du HTML assemblé (jamais dans les
     <script> ni les <style>, où « ** » peut être légitime). Évite qu'un champ oublié en amont, par exemple
     venu du brief, fasse échouer toute la génération (preview du 18 octobre 2026)."""
-    if "**" not in html_text:
+    if "*" not in html_text:
         return html_text
     morceaux = _SCRIPT_OU_STYLE_RE.split(html_text)
     for i in range(0, len(morceaux), 2):  # les indices pairs sont hors script/style
         morceaux[i] = _TEXTE_ENTRE_BALISES_RE.sub(lambda m: ">" + convert_markdown_bold(m.group(1)) + "<", morceaux[i])
+        while True:  # garde la dernière étoile de chaque suite : c'est celle du renvoi au lexique, s'il y en a un
+            suivant = _ETOILE_AVANT_ETOILE_RE.sub("", morceaux[i])
+            if suivant == morceaux[i]:
+                break
+            morceaux[i] = suivant
     return "".join(morceaux)
 
 
