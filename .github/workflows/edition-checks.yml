@@ -21,6 +21,7 @@ on:
       - "scripts/edition/check_fixtures.py"
       - "scripts/edition/build_html.py"
       - "scripts/edition/test_dates.py"
+      - "scripts/edition/test_gras_markdown.py"
       - "scripts/edition/suivi_home.py"
       - "scripts/edition/test_suivi_home.py"
       - "scripts/detection/test_suivi_pages.py"
@@ -38,6 +39,7 @@ on:
       - "scripts/edition/check_fixtures.py"
       - "scripts/edition/build_html.py"
       - "scripts/edition/test_dates.py"
+      - "scripts/edition/test_gras_markdown.py"
       - "scripts/edition/suivi_home.py"
       - "scripts/edition/test_suivi_home.py"
       - "scripts/detection/test_suivi_pages.py"
@@ -83,3 +85,6 @@ jobs:
       # laisser chaque édition lisible par les générateurs (incident du 17 octobre 2026).
       - name: Éditions lisibles par les générateurs (titres, tableau des archives)
         run: python3 -m unittest discover -s scripts/seo -p "test_archives_lisibles.py" -v
+
+      - name: Aucun gras Markdown dans la page (préview du 18 octobre 2026)
+        run: python3 -m unittest discover -s scripts/edition -p "test_gras_markdown.py" -v
