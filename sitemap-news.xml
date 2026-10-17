@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
-<url><loc>https://lesscenarios.fr/archives/2026-10-15.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-15T06:01:43+02:00</news:publication_date><news:title>Métaux rares : la Chine peut-elle bloquer l'Occident ?</news:title></news:news></url>  <url>
-    <loc>https://lesscenarios.fr/en/archives/2026-10-15.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Scénario</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-15T06:01:43+02:00</news:publication_date>
-      <news:title>Rare earths: can China cut off the West?</news:title>
-    </news:news>
-  </url>
 <url><loc>https://lesscenarios.fr/archives/2026-10-16.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-16T06:01:45+02:00</news:publication_date><news:title>Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies</news:title></news:news></url>  <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-16.html</loc>
     <news:news>
@@ -22,4 +11,4 @@
       <news:title>Dark Energy: CEA's AI Maps 100 Million Galaxies</news:title>
     </news:news>
   </url>
-</urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-10-17.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-17T07:50:47+02:00</news:publication_date><news:title>Jeu vidéo : le premier art mondial ?</news:title></news:news></url></urlset>

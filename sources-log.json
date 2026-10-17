@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-17",
+      "articles": [
+        {
+          "title": "Gaming makes more money than global box office and recorded music — combined",
+          "source": "TheGlobalWow",
+          "url": "https://www.theglobalwow.com/gaming-bigger-than-movies-and-music/",
+          "image": "https://www.theglobalwow.com/api/og?stat=%24189B&title=Gaming%20makes%20more%20money%20than%20global%20box%20office%20and%20recorded%20music%20%E2%80%94%20combined&hook=The%20world%27s%20video%20game%20industry%20generates%20about%20three%20times%20the%20annual%20revenue%20of%20the%20global%20box%20office%20and%20recorded%20music%20industries%20put%20together.&cat=economy",
+          "lang": "en",
+          "domain": "culture-divertissement",
+          "summary": "Article comparant les revenus du jeu vidéo à ceux du cinéma et de la musique réunis, avec des chiffres qui varient selon les sources mais confirment l'écart de taille.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Le jeu vidéo dépasse les 200 milliards de $ en 2025",
+          "source": "Edition Multimédi@",
+          "url": "https://www.editionmultimedia.fr/2026/06/26/le-jeu-video-depasse-les-200-milliards-de-en-2025/",
+          "image": null,
+          "lang": "fr",
+          "domain": "culture-divertissement",
+          "summary": "Article français annonçant que le marché mondial du jeu vidéo a dépassé les 200 milliards de dollars en 2025, avec des détails sur la répartition par plateforme.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-10-16",
       "articles": [
         {
