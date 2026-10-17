@@ -32,7 +32,7 @@ DOMAINS = [
 
 def extract_title(text):
     """Extrait le titre de la balise <title>."""
-    m = re.search(r"<title>([^<]+) — Scénario</title>", text)
+    m = re.search(r"<title>([^<]+?)(?: — Scénario)?</title>", text)
     return html.unescape(m.group(1)) if m else None
 
 

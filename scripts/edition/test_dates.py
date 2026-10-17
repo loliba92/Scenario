@@ -68,6 +68,17 @@ class TitreComplet(unittest.TestCase):
                          "Dépistage du cancer du sein\xa0: le modèle va-t-il basculer\xa0?")
         self.assertEqual(gat.extract_title(PAGE_COMPLETE), "Un titre court")
 
+    def test_titre_sans_marque(self):
+        """Un titre de 60 à 70 caractères est publié sans « — Scénario » : le tableau des archives
+        ne doit pas le perdre (échec de la publication du 17 octobre 2026)."""
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "seo"))
+        import generate_archives_table as gat
+        import extract_article_data as ead
+        page = "<title>Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies</title>"
+        attendu = "Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies"
+        self.assertEqual(gat.extract_title(page), attendu)
+        self.assertEqual(ead.extract_title(page), attendu)
+
 
 if __name__ == "__main__":
     unittest.main()
