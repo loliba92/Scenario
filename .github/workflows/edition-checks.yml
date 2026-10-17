@@ -22,6 +22,10 @@ on:
       - "scripts/edition/build_html.py"
       - "scripts/edition/test_dates.py"
       - "scripts/edition/test_gras_markdown.py"
+      - "scripts/edition/test_photo_manuelle.py"
+      - "scripts/edition/generate_post_edition.py"
+      - "scripts/social/photo_manuelle.py"
+      - "scripts/social/use_topic_image.py"
       - "scripts/edition/suivi_home.py"
       - "scripts/edition/test_suivi_home.py"
       - "scripts/detection/test_suivi_pages.py"
@@ -40,6 +44,10 @@ on:
       - "scripts/edition/build_html.py"
       - "scripts/edition/test_dates.py"
       - "scripts/edition/test_gras_markdown.py"
+      - "scripts/edition/test_photo_manuelle.py"
+      - "scripts/edition/generate_post_edition.py"
+      - "scripts/social/photo_manuelle.py"
+      - "scripts/social/use_topic_image.py"
       - "scripts/edition/suivi_home.py"
       - "scripts/edition/test_suivi_home.py"
       - "scripts/detection/test_suivi_pages.py"
@@ -88,3 +96,8 @@ jobs:
 
       - name: Aucun gras Markdown dans la page (préview du 18 octobre 2026)
         run: python3 -m unittest discover -s scripts/edition -p "test_gras_markdown.py" -v
+
+      - name: Photo choisie à la main (recadrage, reprise à la publication, crédit)
+        run: |
+          pip install pillow
+          python3 -m unittest discover -s scripts/edition -p "test_photo_manuelle.py" -v

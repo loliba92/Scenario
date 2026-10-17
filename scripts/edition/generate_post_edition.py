@@ -325,6 +325,65 @@ def select_topic_photo(image_keywords, edition_id, sandbox_root, timeout=25):
     }
 
 
+def select_manual_photo(preview_credits, edition_id, sandbox_root, timeout=25):
+    """Photo choisie à la main par l'éditeur (hors Pexels), rangée dans le dépôt : voir scripts/social/photo_manuelle.py.
+    Recadre en local (carré + large, centrés sur le visage) puis passe par use_topic_image.py comme les autres
+    sources, pour que tout le reste de la chaîne (Instagram, vignettes, flux) fonctionne à l'identique.
+    Retourne None en cas d'échec : l'appelant retombe alors sur une recherche Pexels, jamais bloquant."""
+    sys.path.insert(0, str(SOCIAL_DIR))
+    import photo_manuelle  # noqa: PLC0415 — import tardif volontaire, comme fetch_topic_image ci-dessous
+
+    candidates_dir = sandbox_root / "topic-image-candidates"
+    candidates_dir.mkdir(parents=True, exist_ok=True)
+    try:
+        carre, large = photo_manuelle.produire_recadrages(preview_credits, REPO_ROOT, candidates_dir, "manuelle")
+    except Exception as e:
+        print(f"[post-edition] photo manuelle : recadrage impossible ({e}) — repli sur une recherche Pexels", file=sys.stderr)
+        return None
+
+    candidate_path = candidates_dir / "candidate-1.jpg"
+    shutil.copyfile(carre, candidate_path)
+    page = preview_credits.get("source_url") or ""
+    credits_path = candidates_dir / "credits.json"
+    credits_path.write_text(
+        json.dumps([{
+            "candidate": 1, "source": "manuelle", "file": str(candidate_path), "wide_file": str(large),
+            "photographer": preview_credits.get("photographer"),
+            "pexels_url": page,  # clé historique lue par la file de publications (generate_daily_pub.py)
+            "source_url": page, "source_label": preview_credits.get("source_label"),
+            "licence": preview_credits.get("licence"), "licence_url": preview_credits.get("licence_url"),
+            "query": preview_credits.get("query"),
+        }], ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    try:
+        subprocess.run(
+            [sys.executable, str(SOCIAL_DIR / "use_topic_image.py"), str(candidate_path), "--date", edition_id,
+             "--credits", str(credits_path), "--repo-root", str(sandbox_root)],
+            check=True, capture_output=True, text=True, timeout=timeout,
+        )
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as e:
+        print(f"[post-edition] use_topic_image.py a échoué (photo manuelle) : {e}", file=sys.stderr)
+        return None
+
+    topic_dir = sandbox_root / "assets" / "social" / "topic-images"
+    square_path = topic_dir / f"{edition_id}.jpg"
+    if not square_path.exists():
+        print(f"[post-edition] image carrée attendue introuvable : {square_path}", file=sys.stderr)
+        return None
+    wide_path = topic_dir / f"{edition_id}-wide.jpg"
+    return {
+        "square_path": square_path,
+        "wide_path": wide_path if wide_path.exists() else None,
+        "photographer": preview_credits.get("photographer") or "Photographe non identifié",
+        "pexels_url": page or "https://commons.wikimedia.org/",
+        "source_label": preview_credits.get("source_label"),
+        "licence": preview_credits.get("licence"),
+        "licence_url": preview_credits.get("licence_url"),
+        "query": preview_credits.get("query"),
+    }
+
+
 def select_topic_photo_from_preview(preview_credits, edition_id, sandbox_root, timeout=25):
     """Télécharge directement la photo Pexels déjà choisie et validée en
     preview (URL connue dans `preview_credits['original_url']`), sans
@@ -335,6 +394,9 @@ def select_topic_photo_from_preview(preview_credits, edition_id, sandbox_root, t
     texte, voir post-edition.yml — incident du 21 septembre 2026).
     Retourne None si le téléchargement échoue — l'appelant retombe alors
     sur select_topic_photo() (nouvelle recherche), jamais bloquant."""
+    if preview_credits.get("source") == "manuelle":
+        return select_manual_photo(preview_credits, edition_id, sandbox_root, timeout)
+
     original_url = preview_credits.get("original_url")
     if not original_url:
         print("[post-edition] preview_credits sans original_url — repli sur une recherche Pexels normale", file=sys.stderr)
@@ -1198,6 +1260,8 @@ def main():
             "photographer": photo_credits["photographer"],
             "pexels_url": photo_credits["pexels_url"],
             "square_path": photo_credits["square_path"],
+            # Photo hors Pexels (choisie à la main) : libellé de la source et licence, affichés dans le crédit.
+            **{k: photo_credits[k] for k in ("source_label", "licence", "licence_url") if photo_credits.get(k)},
         }
 
     # 2. HTML final (photo incluse) — DEUX copies distinctes, jamais

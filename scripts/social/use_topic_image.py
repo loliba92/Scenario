@@ -118,7 +118,17 @@ def main():
     wide_ok = False
     dest_wide = os.path.join(out_dir, f"{args.date}-wide.jpg")
 
-    if source == "pixabay":
+    if source == "manuelle":
+        # Photo choisie à la main (voir photo_manuelle.py) : le recadrage large, centré sur le visage, est déjà
+        # produit par l'appelant (`wide_file`) ; on le copie tel quel au lieu de le recalculer au centre.
+        wide_file = (credit_entry or {}).get("wide_file")
+        if wide_file and os.path.isfile(wide_file):
+            shutil.copyfile(wide_file, dest_wide)
+            wide_ok = True
+            print(f"Recadrage large (article) repris de la photo manuelle : {dest_wide}")
+        else:
+            print("  (pas de recadrage large -wide.jpg : wide_file absent de la fiche — pas bloquant)", file=sys.stderr)
+    elif source == "pixabay":
         raw_file = (credit_entry or {}).get("raw_file")
         if raw_file and os.path.isfile(raw_file):
             try:
