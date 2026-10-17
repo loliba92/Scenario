@@ -26,6 +26,10 @@ on:
       - "scripts/detection/test_suivi_pages.py"
       - "suivi/**"
       - "scripts/seo/generate_archives_table.py"
+      - "scripts/seo/extract_article_data.py"
+      - "scripts/seo/test_archives_lisibles.py"
+      - "scripts/edition/generate_seo_head.py"
+      - "archives/**"
       - "editorial-briefs/**"
       - "scripts/edition/fixtures/**"
   pull_request:
@@ -39,6 +43,10 @@ on:
       - "scripts/detection/test_suivi_pages.py"
       - "suivi/**"
       - "scripts/seo/generate_archives_table.py"
+      - "scripts/seo/extract_article_data.py"
+      - "scripts/seo/test_archives_lisibles.py"
+      - "scripts/edition/generate_seo_head.py"
+      - "archives/**"
       - "editorial-briefs/**"
       - "scripts/edition/fixtures/**"
 
@@ -70,3 +78,8 @@ jobs:
 
       - name: Structure des pages de suivi (aucune balise <div> en trop)
         run: python3 -m unittest discover -s scripts/detection -p "test_suivi_pages.py" -v
+
+      # Toute modification des titres, des balises ou du modèle des pages doit
+      # laisser chaque édition lisible par les générateurs (incident du 17 octobre 2026).
+      - name: Éditions lisibles par les générateurs (titres, tableau des archives)
+        run: python3 -m unittest discover -s scripts/seo -p "test_archives_lisibles.py" -v

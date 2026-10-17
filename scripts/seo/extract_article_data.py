@@ -31,9 +31,16 @@ DOMAINS = [
 
 
 def extract_title(text):
-    """Extrait le titre de la balise <title>."""
+    """Extrait le titre de la balise <title> (suffixe « — Scénario » facultatif),
+    ou à défaut du <h1>."""
     m = re.search(r"<title>([^<]+?)(?: — Scénario)?</title>", text)
-    return html.unescape(m.group(1)) if m else None
+    if m and m.group(1).strip():
+        return html.unescape(m.group(1)).strip()
+    h1 = re.search(r"<h1[^>]*>(.*?)</h1>", text, re.DOTALL)
+    if h1:
+        full = html.unescape(re.sub(r"<[^>]+>", "", h1.group(1))).strip()
+        return full or None
+    return None
 
 
 def extract_question(text):
