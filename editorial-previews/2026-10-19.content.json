@@ -1,0 +1,188 @@
+{
+  "h1": "Corée du Nord : le missile hypersonique à IA change-t-il la donne ?",
+  "question_text": "Le test du 3 octobre d'un missile balistique hypersonique présenté comme intégrant de l'IA pour modifier sa trajectoire en vol rend-il les systèmes de défense antimissile sud-coréens, japonais et américains obsolètes, ou s'agit-il d'une exagération de propagande ?",
+  "section_title": "Trois trajectoires pour l'équilibre stratégique en Asie du Nord-Est",
+  "dek": [
+    "Le 3 octobre 2026, la Corée du Nord a procédé au tir d'un missile balistique depuis la région côtière de Wonsan. Dès le lendemain, Kim Yo-jong, sœur du dirigeant nord-coréen Kim Jong-un, a revendiqué une avancée technologique majeure : l'intégration d'une intelligence artificielle capable de corriger la trajectoire de l'engin à basse altitude pour déjouer les boucliers radar. Pyongyang affirme que son projectile a parcouru <strong>1 000 km</strong> avant de frapper une cible maritime avec une précision de 30 centimètres, tandis que l'état-major interarmées sud-coréen n'a mesuré qu'un vol de <strong>700 km</strong>. Cette divergence immédiate illustre le flou entourant les véritables capacités militaires du régime communiste.",
+    "La course aux armements s'est immédiatement emballée dans la péninsule coréenne. En réponse directe à cette démonstration de force et à des tensions frontalières causées par des explosions de mines terrestres fin septembre, la Corée du Sud a testé le 8 octobre son propre planeur hypersonique<a class=\"lex-ref\" href=\"#lex-planeur-hypersonique\" aria-label=\"Voir la définition dans le lexique\">*</a>, sous les yeux du président Lee Jae-myung. Pyongyang a répliqué dès le 12 octobre par des tirs balistiques multiples, dont un projectile a franchi plus de <strong>900 km</strong>, avant d'annoncer des essais de torpilles autonomes et de missiles de croisière sous-marins. Ce rythme d'essais inédit marque une volonté claire de saturer l'espace informationnel et militaire régional.",
+    "Derrière la rhétorique nord-coréenne, la question de la réalité technique divise les spécialistes du renseignement militaire. Les experts internationaux estiment que la Corée du Nord manque d'infrastructures de calcul, de serveurs avancés et d'électricité stable pour faire fonctionner un véritable algorithme décisionnel autonome en plein vol à Mach 5. Le dispositif évoqué par Pyongyang s'apparenterait plutôt à un système basique de reconnaissance visuelle d'images couplé à une trajectoire préprogrammée. Selon plusieurs analystes, le programme hypersonique nord-coréen pourrait toutefois devenir pleinement opérationnel d'ici <strong>3 ans</strong> si les essais se poursuivent au rythme actuel.",
+    "L'inquiétude principale des stratèges occidentaux ne réside pas seulement dans les annonces de Pyongyang, mais dans l'accélération de son partenariat militaire avec Moscou. Dans le cadre de leur traité d'assistance mutuelle, la Russie transfère des technologies sensibles de guidage, d'optique et de défense aérienne en échange d'obus et de troupes déployées sur le front ukrainien. Cette aide extérieure permet à la Corée du Nord de brûler des étapes techniques qui lui auraient demandé des décennies d'ingénierie autonome. Les missiles balistiques testés pourraient à terme afficher une portée maximale supérieure à <strong>3 000 km</strong>, mettant directement à portée les bases américaines d'Okinawa et de Guam.",
+    "Face à cette menace mobile à basse altitude, l'architecture défensive alliée repose sur des systèmes sol-air éprouvés comme le Patriot, le bouclier THAAD et les frégates Aegis. Ces batteries antimissiles ont été conçues pour intercepter des tirs balistiques aux trajectoires en cloche prévisibles, ce qui complique la détection d'un planeur manœuvrant. Pour combler cette faille, le Pentagone développe un intercepteur<a class=\"lex-ref\" href=\"#lex-intercepteur\" aria-label=\"Voir la définition dans le lexique\">*</a> spécialisé pour la phase de vol plané, mais ce programme nommé GPI ne sera pas déployé avant <strong>2029</strong> au plus tôt, laissant une fenêtre de vulnérabilité tactique.",
+    "Le véritable objectif de Pyongyang semble autant politique que militaire : instiller le doute sur la dissuasion étendue<a class=\"lex-ref\" href=\"#lex-dissuasion-etendue\" aria-label=\"Voir la définition dans le lexique\">*</a> offerte par les États-Unis à leurs partenaires asiatiques. En affirmant que ses missiles sont désormais impossibles à intercepter, le régime cherche à convaincre Séoul et Tokyo que Washington ne risquera pas ses propres métropoles pour les défendre. Entre bluff technologique, progrès balistiques réels et contre-mesures technologiques, l'équilibre des forces autour du 38e parallèle entre dans une zone de turbulences accrues."
+  ],
+  "enjeu_en_clair": {
+    "lead": "La Corée du Nord prétend équiper ses missiles hypersoniques d'intelligence artificielle pour contourner les radars américains et sud-coréens.",
+    "text": "Pyongyang multiplie les tirs de missiles et affirme que son nouvel engin change de trajectoire tout seul grâce à l'IA. Les experts militaires pensent que le régime exagère grandement le niveau de son informatique, mais reconnaissent que ses armes deviennent plus rapides et imprévisibles grâce au soutien technique de la Russie. L'enjeu central est de savoir si le bouclier défensif protégeant le Japon et la Corée du Sud reste totalement efficace."
+  },
+  "stakes_branches": {
+    "favorable": "L'IA nord-coréenne s'avère rudimentaire, les défenses alliées s'adaptent et la diplomatie reprend timidement.",
+    "stable": "Une course aux armements hypersoniques s'installe en Asie du Nord-Est sans rupture technologique immédiate.",
+    "degrade": "Les transferts technologiques russes rendent les missiles nord-coréens insaisissables, fragilisant le parapluie américain."
+  },
+  "comprendre_box": [
+    {
+      "lead": "Pourquoi un missile hypersonique manœuvrant est-il si difficile à arrêter ?",
+      "text": "Un missile balistique classique monte très haut dans l'espace puis retombe selon une courbe en cloche facile à calculer pour un radar. À l'inverse, un planeur hypersonique vole à plus de Mach 5 en restant à basse altitude dans l'atmosphère et peut virer brusquement à gauche ou à droite. Cette vitesse combinée à une trajectoire imprévisible réduit le temps de réaction des défenseurs de plusieurs dizaines de minutes à seulement quelques secondes.",
+      "apres_dek_index": 2
+    },
+    {
+      "lead": "Comment les boucliers antimissiles alliés s'adaptent face à l'imprévisibilité",
+      "text": "Les systèmes Patriot et THAAD protègent des zones précises au sol en calculant le point d'impact futur du projectile ennemi. Quand un missile change de direction en vol, ces ordinateurs doivent recalculer sa trajectoire en permanence, ce qui use rapidement les stocks de missiles intercepteurs. Washington prépare donc une nouvelle génération de défenses spatiales et marines pour détruire les engins avant qu'ils n'entament leurs manœuvres.",
+      "apres_dek_index": 4
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Portée revendiquée du missile du 3 octobre",
+      "delta": "Écart de 300 km lors du test en mer de l'Est",
+      "value": "1 000 km (Pyongyang) / 700 km (Séoul)"
+    },
+    {
+      "label": "Portée maximale estimée Hwasong-16Na",
+      "delta": "Capacité théorique couvrant Okinawa et Guam",
+      "value": ">3 000 km"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 20,
+      "gauge_word": "Peu probable",
+      "h3": "L'analyse confirme une propagande exagérée et les défenses restent efficaces",
+      "why": [
+        "Dans ce premier scénario, les données techniques recueillies par les radars américains, sud-coréens et japonais démontrent que le missile nord-coréen n'a réalisé aucun calcul autonome complexe en vol. L'électronique embarquée se limite à un système optique rudimentaire incapable de compenser des brouillages ou de déjouer un tir de barrage. Les systèmes de défense sol-air Patriot PAC-3 et THAAD prouvent leur capacité à verrouiller ces cibles hypersoniques dès leur phase de rentrée atmosphérique. Concrètement, la menace immédiate reste contenue dans des limites tactiques parfaitement gérables pour les armées alliées stationnées dans la région.",
+        "Par rapport aux trajectoires d'escalade, cette issue repose sur l'efficacité des sanctions financières et des contrôles aux frontières pour freiner les livraisons de composants électroniques sophistiqués en provenance de Russie. Constatant que sa manœuvre de communication ne fracture pas l'alliance américano-asiatique, le pouvoir nord-coréen pourrait accepter de rouvrir des canaux de discussion militaires de crise avec Séoul afin d'éviter un incident frontalier incontrôlé."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Portée du tir du 3 octobre",
+          "evo_current": "700 km réels confirmés",
+          "evo_arrow": "down",
+          "evo_prev": "1 000 km / 700 km"
+        },
+        {
+          "field_name": "Portée maximale Hwasong-16Na",
+          "evo_current": "Plafond limité à 2 000 km sans aide",
+          "evo_arrow": "down",
+          "evo_prev": ">3 000 km"
+        }
+      ],
+      "france_line": "Un apaisement en Asie stabilise les routes maritimes commerciales et réduit les risques de prolifération technologique.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 50,
+      "gauge_word": "Probable",
+      "h3": "La course aux armements hypersoniques s'installe sans rupture immédiate",
+      "why": [
+        "Notre scénario central prévoit que Pyongyang poursuivra ses tirs d'essais réguliers en intégrant peu à peu du propergol solide<a class=\"lex-ref\" href=\"#lex-propergol-solide\" aria-label=\"Voir la définition dans le lexique\">*</a> et des algorithmes plus fiables, sans pour autant réussir de percée magique du jour au lendemain. Les ingénieurs nord-coréens mettront environ trois ans à fiabiliser la trajectoire basse de leurs planeurs. En face, la Corée du Sud et le Japon déploient leurs propres engins hypersoniques et renforcent leurs réseaux de capteurs maritimes et spatiaux. Concrètement, les deux blocs s'arment symétriquement, maintenant une tension permanente mais un équilibre dissuasif.",
+        "À la différence d'un effondrement des défenses ou d'une détente diplomatique, cette voie perpétue une friction continue où chaque tir nord-coréen pousse Séoul à commander davantage d'armements avancés. Les boucliers antimissiles conservent un taux de succès théorique élevé contre quelques tirs isolés mais verraient leur efficacité s'éroder face à une salve coordonnée. Les chancelleries régionales devraient alors s'accommoder d'une péninsule militarisée en permanence, excluant tout accord de paix global à moyen terme."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Portée du tir du 3 octobre",
+          "evo_current": "Vol stabilisé à 800-900 km",
+          "evo_arrow": "flat",
+          "evo_prev": "1 000 km / 700 km"
+        },
+        {
+          "field_name": "Portée maximale Hwasong-16Na",
+          "evo_current": ">3 000 km d'ici 3 ans",
+          "evo_arrow": "up",
+          "evo_prev": ">3 000 km"
+        }
+      ],
+      "france_line": "La persistance des tensions en Corée alimente l'instabilité géopolitique globale et accélère les dépenses militaires mondiales.",
+      "france_impact": "degrade"
+    },
+    "degrade": {
+      "pct": 30,
+      "gauge_word": "Probable",
+      "h3": "L'aide russe rend les missiles nord-coréens capables d'esquiver les boucliers",
+      "why": [
+        "Ce troisième scénario décrit une accélération brutale provoquée par des transferts directs de technologies russes en microélectronique et en matériaux composites de rentrée thermique. Pyongyang parvient à faire exécuter à son planeur hypersonique de véritables manœuvres d'évitement en zigzag à Mach 6, rendant les intercepteurs Patriot et THAAD incapables de calculer un point d'impact fiable. Concrètement, les bases militaires américaines de la région pacifique deviendraient vulnérables à une frappe préventive ultra-rapide sans préavis suffisant.",
+        "Contrairement au scénario stable où la défense s'adapte, une telle rupture technologique plongerait les capitales asiatiques dans une crise de sécurité existentielle majeure. Face au doute sur la capacité de Washington à les couvrir efficacement avant l'arrivée des intercepteurs GPI en 2029, la classe politique en Corée du Sud et au Japon exigerait le développement d'un arsenal nucléaire national indépendant, provoquant une crise de prolifération sans précédent en Asie."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Portée du tir du 3 octobre",
+          "evo_current": "1 000+ km manœuvrant validé",
+          "evo_arrow": "up",
+          "evo_prev": "1 000 km / 700 km"
+        },
+        {
+          "field_name": "Portée maximale Hwasong-16Na",
+          "evo_current": ">3 500 km opérationnel",
+          "evo_arrow": "up",
+          "evo_prev": ">3 000 km"
+        }
+      ],
+      "france_line": "Une crise de prolifération nucléaire en Asie fragiliserait l'ordre de sécurité mondial et les intérêts économiques français.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "La Corée du Nord prétend avoir réussi le tir d'un missile balistique hypersonique doté d'une IA capable de déjouer les boucliers antimissiles alliés.",
+    "Le test mené le 3 octobre depuis Wonsan a parcouru entre 700 et 1 000 km, déclenchant une réplique sud-coréenne avec son propre planeur hypersonique le 8 octobre.",
+    "Pas d'obsolescence immédiate : notre scénario central (50 %) estime que les revendications d'IA sont très exagérées, même si l'aide russe accélérera la menace d'ici 3 ans — deux alternatives : apaisement par faiblesse technique (20 %) ou rupture technologique déstabilisante (30 %).",
+    "Signal à surveiller : les résultats des prochains tests de tirs multiples nord-coréens et le déploiement du programme d'intercepteur américain GPI prévu d'ici 2029."
+  ],
+  "delta_france": {
+    "kind": "negatif",
+    "score": -0.6,
+    "word": "assez négatif",
+    "text": "la probabilité cumulée de 80 % de voir les tensions s'enkyster ou dégénérer en Asie entretient l'insécurité des routes maritimes et pousse à une prolifération technologique préjudiciable à la stabilité mondiale."
+  },
+  "phrase_a_retenir": "Pyongyang revendique 1 000 km de portée pour son tir du 3 octobre, mais Séoul n'a mesuré que 700 km lors du vol.",
+  "phrase_a_retenir_stat": "1 000 km",
+  "lexique": [
+    {
+      "slug": "planeur-hypersonique",
+      "terme": "planeur hypersonique",
+      "definition": "Ogive propulsée par une fusée qui se détache à haute altitude pour planer à plus de Mach 5 dans l'atmosphère en effectuant des virages pour éviter les défenses."
+    },
+    {
+      "slug": "intercepteur",
+      "terme": "intercepteur",
+      "definition": "Missile défensif conçu pour détruire en plein vol un projectile ennemi en le percutant directement ou en explosant à proximité immédiate."
+    },
+    {
+      "slug": "propergol-solide",
+      "terme": "propergol solide",
+      "definition": "Carburant chimique compact pré-chargé dans le moteur du missile, permettant un décollage instantané sans longue préparation au sol."
+    },
+    {
+      "slug": "dissuasion-etendue",
+      "terme": "dissuasion étendue",
+      "definition": "Garantie militaire accordée par une puissance nucléaire (ici les États-Unis) pour protéger ses alliés en promettant de riposter en cas d'attaque."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://www.afp.com/en/north-korea-says-test-intermediate-range-strategic-missile-included-use-ai-0\" target=\"_blank\" rel=\"noopener noreferrer\">AFP — North Korea says test of intermediate-range strategic missile included use of AI ↗</a>",
+    "<a href=\"https://fr.yna.co.kr/view/AFR20261004000100884\" target=\"_blank\" rel=\"noopener noreferrer\">Yonhap — Kim Jong-un supervise un tir de missile hypersonique et appelle à renforcer la dissuasion de guerre ↗</a>",
+    "<a href=\"https://www.france24.com/fr/asie-pacifique/20261003-la-cor%C3%A9e-du-nord-tire-un-missile-balistique-en-direction-de-la-mer-du-japon\" target=\"_blank\" rel=\"noopener noreferrer\">France 24 — La sœur de Kim Jong-un affirme que Pyongyang a testé un missile ayant impliqué l'utilisation de l'IA ↗</a>",
+    "<a href=\"https://www.straitstimes.com/asia/east-asia/north-korea-says-it-conducted-intermediate-range-strategic-missile-drill\" target=\"_blank\" rel=\"noopener noreferrer\">The Straits Times — North Korea's AI-guided missile launch overseen by Kim ↗</a>",
+    "<a href=\"https://apnews.com/article/south-korea-hypersonic-missile-lee-north-korea-c8e37daa47a28057d711d90852504d59\" target=\"_blank\" rel=\"noopener noreferrer\">AP News — South Korea tests first hypersonic weapon, boosting defense capabilities ↗</a>",
+    "<a href=\"https://en.yna.co.kr/view/AEN20261008008652315\" target=\"_blank\" rel=\"noopener noreferrer\">Yonhap — S. Korea conducts 1st test launch of hypersonic glide vehicle amid N.K. tensions ↗</a>",
+    "<a href=\"https://www.donga.com/en/article/all/20261005/6407302/1\" target=\"_blank\" rel=\"noopener noreferrer\">The Dong-A Ilbo — North Korea touts hypersonic missile to evade defenses ↗</a>",
+    "<a href=\"https://www.rfa.org/korean/in-focus/2026/10/06/north-korea-claims-ai-guided-missile-test/\" target=\"_blank\" rel=\"noopener noreferrer\">Radio Free Asia — 북한 'AI로 저고도서 궤도 변경'…전문가 'AI 기술 제한적' ↗</a>",
+    "<a href=\"https://en.sedaily.com/politics/2026/10/06/how-far-has-north-koreas-hypersonic-program-come-experts\" target=\"_blank\" rel=\"noopener noreferrer\">Seoul Economic Daily — How Far Has North Korea's Hypersonic Program Come? Experts See Completion Within Three Years ↗</a>",
+    "<a href=\"https://www.aljazeera.com/news/2026/10/12/north-korea-fires-multiple-ballistic-missiles-towards-the-sea\" target=\"_blank\" rel=\"noopener noreferrer\">Al Jazeera — North Korea fires multiple ballistic missiles towards the sea ↗</a>",
+    "<a href=\"https://news.northropgrumman.com/gpi/northrop-grumman-awarded-glide-phase-interceptor-development-modification-contract\" target=\"_blank\" rel=\"noopener noreferrer\">Northrop Grumman — Northrop Grumman Awarded Glide Phase Interceptor Development Modification Contract ↗</a>",
+    "<a href=\"https://www.everycrsreport.com/files/2026-09-18_IF12760_60b4f53703e3180c72d05b05928eb87c312144fc.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Congressional Research Service — Russia-North Korea Relations ↗</a>"
+  ],
+  "meta": {
+    "title": "Corée du Nord : le missile hypersonique à IA change-t-i...",
+    "meta_description": "Corée du Nord : le missile hypersonique à IA change-t-il la donne ? Enjeux géopolitiques et scénarios prospectifs.",
+    "og_image_alt": "Tir de missile balistique nord-coréen en mer de l'Est",
+    "keywords": [
+      "international",
+      "Nord",
+      "tensions",
+      "géopolitique",
+      "alliances"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-19.html\"\n  },\n  \"headline\": \"Corée du Nord : le missile hypersonique à IA change-t-i...\",\n  \"description\": \"Corée du Nord : le missile hypersonique à IA change-t-il la donne ? Enjeux géopolitiques et scénarios prospectifs.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-19.png\"\n  ],\n  \"datePublished\": \"2026-10-19T00:00:00\",\n  \"dateModified\": \"2026-10-19T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"international, Nord, tensions, géopolitique, alliances\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Géopolitique\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Corée du Nord : le missile hypersonique à IA change-t-il la donne ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-19.html\"\n    }\n  ]\n}"
+  }
+}
