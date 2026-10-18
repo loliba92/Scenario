@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "f9c3c02de5f123f2003d85f3f1d899b923eeb86fdf6ecc86eaa1f247b4f59c48"
+    "md_sha256": "bbae89e3e2e8a5cb54349d08aa1ce0ada3b77d72e40e3fae45a41ca3a0fcc685"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -1543,7 +1543,7 @@
           "titre": "Zidane dévoile sa première liste des Bleus : cinq nouveaux, Tchouaméni et Kanté écartés — le pari du renouveau peut-il réussir dès la Ligue des nations ?",
           "question": null,
           "tag": "football",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "Le 18 septembre 2026, Zinédine Zidane a dévoilé sa première liste de 23 joueurs en tant que sélectionneur de l'équipe de France, nommé le 28 juillet en remplacement de Didier Deschamps après l'élimination en demi-finales du Mondial-2026. Cinq nouveaux sont appelés : le gardien Guillaume Restes (Toulouse), les défenseurs Andy Diouf (Inter Milan) et Jérémy Jacquet (Liverpool), le milieu Lucas Da Cunha (Côme) et l'attaquant Esteban Lepaul (Rennes). Les absences notables incluent N'Golo Kanté (35 ans, « choix » assumé par Zidane), Aurélien Tchouaméni, Lucas Digne et Maghnes Akliouche. Zidane n'a convoqué que 23 joueurs pour quatre matches de Ligue des nations (Turquie, Belgique, Italie, Belgique) à partir du 25 septembre. Il a confirmé Kylian Mbappé comme capitaine et annoncé quatre vice-capitaines sans les nommer",
           "rationnel": "La question : Le pari du renouveau de Zidane — rajeunissement, jeu technique, sevrage des cadres Deschamps — peut-il porter ses fruits dès cette première campagne de Ligue des nations, jusqu'à la fin de la phase de groupes le 15 novembre ? Les deux victoires inaugurales, la solidité défensive et l'intégration des cinq nouveaux (Restes, Diouf, Jacquet, Da Cunha, Lepaul) plaident pour un scénario favorable, tandis que l'absence de Mbappé pour trois matches, le turn-over massif et l'adversité à venir (Italie, qui a battu la Turquie 4-1) laissent ouverte la possibilité d'un scénario stable ou dégradé. Pour le lecteur français, l'enjeu est de savoir si cette transition s'ancre durablement ou si les difficultés logistiques et sportives feront retomber l'état de grâce avant les qualifications pour l'Euro‑2028.",
@@ -1585,8 +1585,8 @@
           "origine": "veille",
           "note": "Ajouté automatiquement le 2026-09-18 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité",
           "ajoute_le": "2026-09-18",
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-10-18",
+          "edition": "2026-10-18",
           "enrichi_le": "2026-10-03",
           "donnees": null
         },
