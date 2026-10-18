@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "bbae89e3e2e8a5cb54349d08aa1ce0ada3b77d72e40e3fae45a41ca3a0fcc685"
+    "md_sha256": "a7cff484a3d384b934fbf5bd977b46647edfffeb93fd61c28de70c00791199ca"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -5776,8 +5776,8 @@
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": "2026-10-03",
-          "donnees": null
+          "enrichi_le": "2026-10-18",
+          "donnees": "[relevé du 2026-10-18] Capitalisation boursière de Nvidia (unité : milliards USD). Avril 2026 = 5040 (2026-04-26) ; Septembre 2026 = 5532 (2026-09-30) ; Octobre 2026 = 5170 (2026-10-16). Sources : https://businessquant.com/metrics/nvda/market-capitalization ; https://microtrends.org/nvidia/market-cap ; https://stockanalysis.com/stocks/nvda/market-cap/"
         },
         {
           "type": "sujet",
