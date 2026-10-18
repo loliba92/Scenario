@@ -1,9 +1,9 @@
 {
   "totaux": {
-    "clicks": 3,
-    "impressions": 294,
-    "ctr": 0.0102,
-    "position": 8.9
+    "clicks": 2,
+    "impressions": 295,
+    "ctr": 0.0068,
+    "position": 8.8
   },
   "requetes": [
     {
@@ -37,13 +37,6 @@
   ],
   "pages": [
     {
-      "page": "https://lesscenarios.fr/archives.html",
-      "clicks": 1,
-      "impressions": 2,
-      "ctr": 0.5,
-      "position": 3.5
-    },
-    {
       "page": "https://lesscenarios.fr/en/archives/2026-08-30.html",
       "clicks": 1,
       "impressions": 14,
@@ -55,14 +48,21 @@
       "clicks": 1,
       "impressions": 13,
       "ctr": 0.0769,
-      "position": 13
+      "position": 13.3
     },
     {
       "page": "https://lesscenarios.fr/",
       "clicks": 0,
       "impressions": 11,
       "ctr": 0,
-      "position": 6.6
+      "position": 6.4
+    },
+    {
+      "page": "https://lesscenarios.fr/archives.html",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
     },
     {
       "page": "https://lesscenarios.fr/archives/2026-08-04.html",
@@ -116,9 +116,9 @@
     {
       "page": "https://lesscenarios.fr/archives/2026-08-29.html",
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 3,
       "ctr": 0,
-      "position": 4.2
+      "position": 4.3
     },
     {
       "page": "https://lesscenarios.fr/archives/2026-08-30.html",
@@ -142,11 +142,18 @@
       "position": 6
     },
     {
+      "page": "https://lesscenarios.fr/cookies.html",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
       "page": "https://lesscenarios.fr/en/archives/2026-08-08.html",
       "clicks": 0,
       "impressions": 84,
       "ctr": 0,
-      "position": 7
+      "position": 7.1
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-08-29.html",
@@ -158,23 +165,30 @@
     {
       "page": "https://lesscenarios.fr/en/archives/2026-08-31.html",
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
       "position": 10
     },
     {
+      "page": "https://lesscenarios.fr/en/archives/2026-09-02.html",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 1.5
+    },
+    {
       "page": "https://lesscenarios.fr/en/archives/2026-09-11.html",
       "clicks": 0,
-      "impressions": 9,
+      "impressions": 10,
       "ctr": 0,
       "position": 6.9
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-13.html",
       "clicks": 0,
-      "impressions": 23,
+      "impressions": 22,
       "ctr": 0,
-      "position": 5.3
+      "position": 4.7
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-14.html",
@@ -186,86 +200,86 @@
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-15.html",
       "clicks": 0,
-      "impressions": 17,
+      "impressions": 16,
       "ctr": 0,
-      "position": 6.6
+      "position": 6.5
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-19.html",
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 5,
       "ctr": 0,
-      "position": 7.3
+      "position": 6.6
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-20.html",
       "clicks": 0,
-      "impressions": 11,
+      "impressions": 14,
       "ctr": 0,
-      "position": 10.5
+      "position": 9.3
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-21.html",
       "clicks": 0,
-      "impressions": 29,
+      "impressions": 30,
       "ctr": 0,
       "position": 6.9
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-22.html",
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 4,
       "ctr": 0,
-      "position": 3.7
+      "position": 3.8
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-26.html",
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 7,
       "ctr": 0,
-      "position": 7
+      "position": 6.4
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-27.html",
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 3,
       "ctr": 0,
-      "position": 8
+      "position": 7.3
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-28.html",
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 5,
       "ctr": 0,
-      "position": 10
+      "position": 8
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-09-30.html",
       "clicks": 0,
-      "impressions": 23,
+      "impressions": 29,
       "ctr": 0,
-      "position": 5.2
+      "position": 4.8
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-10-07.html",
       "clicks": 0,
-      "impressions": 9,
+      "impressions": 11,
       "ctr": 0,
-      "position": 5.4
+      "position": 5.6
     },
     {
       "page": "https://lesscenarios.fr/en/archives/2026-10-12.html",
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 3,
       "ctr": 0,
-      "position": 5
+      "position": 6.3
     },
     {
       "page": "https://lesscenarios.fr/en/index.html",
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 4,
       "ctr": 0,
-      "position": 2
+      "position": 1.8
     },
     {
       "page": "https://lesscenarios.fr/glossaire.html",
@@ -291,29 +305,50 @@
     {
       "page": "https://lesscenarios.fr/mentions-legales.html",
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 5,
       "ctr": 0,
-      "position": 2.7
+      "position": 3.6
     },
     {
       "page": "https://lesscenarios.fr/newsletter.html",
       "clicks": 0,
-      "impressions": 12,
+      "impressions": 11,
       "ctr": 0,
-      "position": 54.5
+      "position": 59
     },
     {
       "page": "https://lesscenarios.fr/politique-de-confidentialite.html",
       "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "page": "https://lesscenarios.fr/suivi/ceuta-schengen.html",
+      "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 6
+      "position": 10
+    },
+    {
+      "page": "https://lesscenarios.fr/themes/international.html",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "page": "https://lesscenarios.fr/themes/politique-institutions.html",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
     }
   ],
   "site": "sc-domain:lesscenarios.fr",
   "periode": {
-    "debut": "2026-09-17",
-    "fin": "2026-10-14"
+    "debut": "2026-09-18",
+    "fin": "2026-10-15"
   },
-  "mis_a_jour": "2026-10-17"
+  "mis_a_jour": "2026-10-18"
 }
