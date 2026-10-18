@@ -2,6 +2,41 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-18",
+      "articles": [
+        {
+          "title": "Ligue des nations 2026 : le calendrier complet et les enjeux",
+          "source": "France 24",
+          "url": "https://www.france24.com/fr/sports/20260918-%C3%A9quipe-de-france-zidane-d%C3%A9voile-sa-premi%C3%A8re-liste-des-bleus",
+          "image": "https://s.france24.com/media/display/531030a2-b14d-11f1-a12f-e59e88953996/w:1280/p:16x9/AP26209353516509.jpg",
+          "lang": "fr",
+          "domain": "sport",
+          "summary": "Article de France 24 du 18 septembre 2026 présentant le calendrier des matches de Ligue des nations pour la France (Turquie, Belgique, Italie, Belgique) et les enjeux de cette première trêve.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Zidane : les cinq nouveaux et les absences clés de la première liste",
+          "source": "DHNet",
+          "url": "https://www.dhnet.be/sports/football/nations-league/2026/09/18/les-choix-forts-de-zinedine-zidane-ma-facon-de-voir-le-football-vous-allez-la-voir-PA42VFFPWBGXJKNQTVIT4BLT3A/",
+          "image": "https://www.dhnet.be/resizer/v2/6TDXRXVADBBMJOCV2UTKN6HNRE.jpg?auth=ce4898011c8eed5478b2a9ca64bbd32b8a4bc7abcd2da0b8e199bb16c6560ce1&width=900&height=471&quality=85&focal=1791%2C1194",
+          "lang": "fr",
+          "domain": "sport",
+          "summary": "Article du 18 septembre 2026 analysant les choix de Zidane, les cinq nouveaux (Restes, Diouf, Jacquet, Da Cunha, Lepaul) et les absences de Kanté, Tchouaméni, Digne et Akliouche.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Équipe de France : la liste de Zidane, entre renouveau et choix contestés",
+          "source": "Foot Mercato",
+          "url": "https://www.footmercato.net/a4967940261241831711-equipe-de-france-la-premiere-liste-de-zinedine-zidane-avec-lepaul-jacquet-et-dautres-nouveaux",
+          "image": "https://assets-fr.imgfoot.com/media/cache/1200x675/epalivenine237567-1920x1080.jpg",
+          "lang": "fr",
+          "domain": "sport",
+          "summary": "Article du 18 septembre 2026 sur la première liste de Zidane, avec focus sur les nouveaux et les débats sur les absences.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-10-17",
       "articles": [
         {
