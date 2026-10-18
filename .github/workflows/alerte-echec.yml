@@ -4,7 +4,8 @@ name: Alerte — échec d'une étape de publication
 # mentionné : il reçoit la notification GitHub (courriel ou application) au lieu de découvrir la panne le matin.
 # Demandé le 17 octobre 2026, après deux pannes en une journée (publication du matin, aperçu du lendemain).
 # Une seule issue par workflow et par jour : une nouvelle panne du même jour s'y ajoute en commentaire.
-# Ne surveille que les workflows dont l'échec empêche une édition ou un épisode (pas les mises à jour de statistiques).
+# Ne surveille que les workflows dont l'échec empêche une édition ou un épisode, ou prive l'édition de ses sujets
+# (pas les mises à jour de statistiques). Le message dit la cause probable en clair et s'il faut agir (18 octobre 2026).
 
 on:
   workflow_run:
@@ -14,6 +15,9 @@ on:
       - "Podcast — épisode du jour"
       - "Traduction EN — filet de sécurité"
       - "Répétition générale — publication de demain"
+      - "Alimenter sujets-prioritaires.md"
+      - "Enrichir les dossiers de sujets"
+      - "Détection sujets à suivre"
     types: [completed]
 
 permissions:
@@ -45,9 +49,38 @@ jobs:
               }
             }
             const detail = etapes.length ? etapes.map(e => `- ${e}`).join('\n') : '- étape non identifiée, voir le journal';
+
+            // Cause probable, lue dans la fin du journal : le propriétaire sait tout de suite si c'est grave.
+            let journal = '';
+            try {
+              const failed = data.jobs.find(j => j.conclusion === 'failure');
+              if (failed) {
+                const rep = await github.rest.actions.downloadJobLogsForWorkflowRun({
+                  owner: context.repo.owner, repo: context.repo.repo, job_id: failed.id,
+                });
+                journal = String(rep.data).slice(-20000);
+              }
+            } catch (e) { /* journal illisible : on garde le diagnostic par défaut */ }
+            let cause = 'Cause non identifiée automatiquement : ouvrez le journal ou demandez à Claude.';
+            let action = 'À regarder';
+            if (/garde-fou|texte refusé/.test(journal)) {
+              cause = 'Le texte écrit par l\'IA a été refusé par les règles de contrôle (longueur, registre, probabilités…) à tous les essais.';
+              action = 'À corriger : demandez à Claude de lire le journal et d\'ajuster la règle ou le texte';
+            } else if (/HTTP (503|429|403|404|502)|aucun des \d+ modèle|délai global dépassé/.test(journal)) {
+              cause = 'Le service de rédaction (OpenRouter) ou le modèle choisi était indisponible ou saturé. Ce n\'est pas une erreur du site.';
+              action = 'Aucune action urgente : relancer le workflow plus tard (Actions, puis « Run workflow »)';
+            } else if (/rejected|non-fast-forward|failed to push/.test(journal)) {
+              cause = 'Le dépôt a changé pendant l\'exécution et l\'enregistrement a été refusé.';
+              action = 'Aucune action urgente : relancer le workflow';
+            } else if (/quota|RESOURCE_EXHAUSTED|rate limit/i.test(journal)) {
+              cause = 'Le quota gratuit du service de voix ou de texte est épuisé.';
+              action = 'Aucune action : une reprise automatique est prévue plus tard dans la journée';
+            }
             const corps =
               `@${context.repo.owner} ${repetition ? 'La répétition générale de ce soir a échoué : rien n\'a été publié, mais la publication de demain matin échouerait de la même façon.' : 'Le workflow **' + run.name + '** a échoué.'}\n\n` +
               `**Déclenché** : ${run.display_title || run.name}\n` +
+              `**Cause probable** : ${cause}\n` +
+              `**Faut-il agir ?** ${action}\n\n` +
               `**Étape(s) en échec** :\n${detail}\n\n` +
               `**Journal** : ${run.html_url}\n\n` +
               `Demandez à Claude : « ${run.name} a échoué, corrige » : il lit le journal et corrige.`;
