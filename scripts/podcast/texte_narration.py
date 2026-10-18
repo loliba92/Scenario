@@ -173,8 +173,9 @@ def parties(texte: str) -> list[str]:
 
 
 # Mots vulgaires ou péjoratifs refusés par le contrôle (le texte est alors réécrit).
+# « match nul » est un résultat sportif (édition du 18 octobre 2026), pas une insulte : seul « nul » employé seul est refusé.
 MOTS_INTERDITS = (r"\b(gueules?|merdes?|merdique|putain|bordel|con|cons|conne|connes|connard\w*|salop\w*|enfoir\w*|"
-                  r"débiles?|crétins?|idiot\w*|imbéciles?|stupides?|nul|nuls|pourri\w*|dégueu\w*|foutre|foutu\w*|"
+                  r"débiles?|crétins?|idiot\w*|imbéciles?|stupides?|(?<!match )(?<!matchs )(?<!matches )nuls?|pourri\w*|dégueu\w*|foutre|foutu\w*|"
                   r"bouffons?|minables?|ridicules?|pathétiques?|ringard\w*|naze\w*|chiant\w*|crevard\w*)\b")
 
 

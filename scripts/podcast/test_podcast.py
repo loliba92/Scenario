@@ -447,7 +447,7 @@ class TestJingles(unittest.TestCase):
         import texte_narration as tn
         for mauvais in ("Ça n'a pas de gueule.", "Un tournoi nul.", "Quelle merde.", "Des joueurs minables."):
             self.assertTrue(re.search(tn.MOTS_INTERDITS, mauvais, re.I), mauvais)
-        for bon in ("Le public adhère très vite.", "C'est un pari audacieux, et pas évident.", "Le tournoi est accepté.", "Aucune fatigue nulle part."):
+        for bon in ("Le public adhère très vite.", "C'est un pari audacieux, et pas évident.", "Le tournoi est accepté.", "Aucune fatigue nulle part.", "Deux victoires et des matches nuls.", "Un match nul à Lisbonne."):
             self.assertFalse(re.search(tn.MOTS_INTERDITS, bon, re.I), bon)
         exemple = cadrer(tn.EXEMPLE.read_text(encoding="utf-8"))
         self.assertFalse(re.search(tn.MOTS_INTERDITS, exemple, re.I))
