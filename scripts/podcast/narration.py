@@ -76,8 +76,19 @@ def main(argv=None) -> int:
     print(f"{len(texte.split())} mots, {len(parts)} partie(s), voix {args.voix}", flush=True)
     import fidelite
 
+    fermeture_i = len(parts) if re.search(r"écrit à l['’]avance", parts[-1], re.I) else 0   # numéro (à partir de 1) de la partie de fermeture
+
     def lire(partie, i):
         """Une lecture complète de la partie (plusieurs appels si elle est longue)."""
+        if i == fermeture_i:   # la devise est lue phrase par phrase, avec des silences (voir texte_narration.segments_fermeture)
+            blocs = []
+            for segment, pause in texte_narration.segments_fermeture(partie):
+                blocs.append(lire_texte(segment, i))
+                blocs.append(b"\x00\x00" * int(gp.SAMPLE_RATE * pause))
+            return b"".join(blocs)
+        return lire_texte(partie, i)
+
+    def lire_texte(partie, i):
         pcms = []
         for morceau in gp.decouper_texte(partie, limite=2600):
             print(f"Synthèse vocale partie {i}/{len(parts)} ({len(morceau)} caractères)…", flush=True)
@@ -130,8 +141,10 @@ def main(argv=None) -> int:
     else:
         print(f"Contrôle du début : conforme (« {transcription[:90]}… »)", flush=True)
     parties_pcm = [gp.adoucir_aigus_pcm(x) for x in parties_pcm]   # voix seule, après les contrôles : la transcription porte sur le son brut
-    if accueil:   # l'accueil, lu seul, sortait trop vite : on le ralentit (la question et la suite gardent leur rythme)
-        parties_pcm[0] = gp.ralentir_pcm(parties_pcm[0])
+    # Rythme : tout l'épisode est légèrement ralenti ; l'accueil (lu seul) et la fermeture (la devise) le sont davantage
+    vitesses = [gp.VITESSE_ACCUEIL if (accueil and k == 0) else gp.VITESSE_FERMETURE if k == fermeture_i - 1 else gp.VITESSE_VOIX
+                for k in range(len(parties_pcm))]
+    parties_pcm = [gp.ralentir_pcm(x, v) for x, v in zip(parties_pcm, vitesses)]
     import musique
     parties_pcm, gains = musique.egaliser_niveaux(parties_pcm)
     print('Volume des parties égalisé (gain en dB par partie) : ' + ', '.join(f'{g:+.1f}' for g in gains), flush=True)

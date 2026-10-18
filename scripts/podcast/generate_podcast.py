@@ -436,6 +436,10 @@ def adoucir_aigus_pcm(pcm: bytes, filtre: str = FILTRE_AIGUS) -> bytes:
 VITESSE_ACCUEIL = 0.88   # l'accueil est lu seul, en peu de mots : la voix de synthèse l'enchaîne trop vite (retour du 11 octobre 2026)
 
 
+VITESSE_VOIX = 0.95        # tout l'épisode : « très légèrement trop vite » (retour du 18 octobre 2026)
+VITESSE_FERMETURE = 0.88   # la fermeture et la devise : lues posément, avec plus de poids
+
+
 def ralentir_pcm(pcm: bytes, vitesse: float = VITESSE_ACCUEIL) -> bytes:
     """Ralentit la voix (PCM 16 bits mono) sans changer sa hauteur ; 0,88 = environ 12 % plus lent.
 

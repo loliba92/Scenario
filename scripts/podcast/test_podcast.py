@@ -22,6 +22,24 @@ class PodcastTest(unittest.TestCase):
         self.assertTrue(all(s["probabilite"] for s in ed["scenarios"]))
         self.assertIn("SCÉNARIO FAVORABLE", gp.texte_source(ed).upper())
 
+    def test_fermeture_decoupee_avec_silences(self):
+        import texte_narration as tn
+        fin = "Voilà, c'est la fin. Tout est sur lesscenarios.fr. Rien n'est écrit à l'avance. La suite, c'est à vous de l'écrire. Prenez soin de vous, et à demain pour un nouveau scénario."
+        segs = tn.segments_fermeture(fin)
+        self.assertEqual([x[0] for x in segs], ["Voilà, c'est la fin. Tout est sur lesscenarios.fr.", "Rien n'est écrit à l'avance.",
+                                                "La suite, c'est à vous de l'écrire.", "Prenez soin de vous, et à demain pour un nouveau scénario."])
+        self.assertEqual([x[1] for x in segs], [tn.PAUSE_AVANT_DEVISE, tn.PAUSE_ENTRE_DEVISE, tn.PAUSE_APRES_DEVISE, 0.0])
+        self.assertEqual(" ".join(x[0] for x in segs), fin, "aucun mot ajouté ni perdu : seule la pause change")
+        for jour in range(7):   # chacune des sept fermetures du site finit par la devise, donc est découpée
+            ferm = tn.fermeture(f"2026-10-{10 + jour:02d}")
+            self.assertEqual(" ".join(x[0] for x in tn.segments_fermeture(ferm)), ferm)
+        self.assertEqual(tn.segments_fermeture("Pas de devise ici."), [("Pas de devise ici.", 0.0)])
+
+    def test_vitesses(self):
+        self.assertLess(gp.VITESSE_FERMETURE, gp.VITESSE_VOIX)
+        self.assertLessEqual(gp.VITESSE_ACCUEIL, gp.VITESSE_VOIX)
+        self.assertGreaterEqual(gp.VITESSE_VOIX, 0.9, "ralentissement léger : la voix ne doit pas traîner")
+
     def test_nombres(self):
         self.assertEqual(gp.nombres("84 % et 31,4 % ; 120 tonnes ; 100 000 euros ; 30 50 20"),
                          {"84", "31.4", "120", "100000", "30", "50", "20"})
