@@ -167,6 +167,29 @@ def avec_fermeture(parts: list[str], date_str: str | None = None) -> list[str]:
     return list(parts)
 
 
+_DEVISE = re.compile(r"(Rien n['’]est écrit à l['’]avance\.)\s+(La suite, c['’]est à vous de l['’]écrire\.)", re.I)
+PAUSE_AVANT_DEVISE, PAUSE_ENTRE_DEVISE, PAUSE_APRES_DEVISE = 1.0, 1.3, 1.1   # secondes de silence (retour du 18 octobre 2026)
+
+
+def segments_fermeture(partie: str) -> list[tuple[str, float]]:
+    """Découpe la fermeture en morceaux lus séparément, avec le silence à laisser après chacun (18 octobre 2026).
+
+    Une consigne d'émotion ne peut pas être ajoutée au texte (la voix la lirait à voix haute, voir
+    generate_podcast.synthese_unique) : le poids de la devise vient donc du silence autour d'elle. Chaque morceau lu seul
+    retombe naturellement en fin de phrase. Sans devise dans la partie, elle est rendue d'un seul bloc, sans silence."""
+    m = _DEVISE.search(partie)
+    if not m:
+        return [(partie, 0.0)]
+    avant, apres = partie[:m.start()].strip(), partie[m.end():].strip()
+    segments = []
+    if avant:
+        segments.append((avant, PAUSE_AVANT_DEVISE))
+    segments += [(m.group(1), PAUSE_ENTRE_DEVISE), (m.group(2), PAUSE_APRES_DEVISE if apres else 0.0)]
+    if apres:
+        segments.append((apres, 0.0))
+    return segments
+
+
 def parties(texte: str) -> list[str]:
     """Le texte découpé aux lignes « --- » (parties vides ignorées)."""
     return [p.strip() for p in re.split(r"(?m)^\s*---\s*$", texte) if p.strip()]
