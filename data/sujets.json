@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "54215bda615f89789b81c3d253be7bb91dfcd89298977d60419e0978e1d89e16"
+    "md_sha256": "7c9556f791289b282c924dd53f8f1edbc76647e9e480810fd0e0a3d40c29f535"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -5728,6 +5728,59 @@
         },
         {
           "type": "sujet",
+          "id": "economie-inegalites-les-ecarts-sociaux-vont-ils-exploser",
+          "titre": "Inégalités : les écarts sociaux vont-ils exploser ?",
+          "question": null,
+          "tag": "économie & société",
+          "statut": "a_traiter",
+          "validation": "valide",
+          "contexte": "En France, le taux de pauvreté monétaire s'établit à 15,4 % en 2024, soit 9,8 millions de personnes vivant sous le seuil de 1 337 euros par mois, un niveau historiquement haut depuis 1996 (Insee, 2024). Parallèlement, la concentration des patrimoines s'accélère : les 10 % les plus fortunés détiennent 60 % du patrimoine net en 2024, et le 1 % le plus riche en possède 28 %, contre 20 % en 1994 (Observatoire des inégalités / WID, juin 2026). Le World Inequality Report 2026 confirme qu'au niveau mondial, le top 0,001 % (moins de 60 000 adultes) possède trois fois plus de richesses que la moitié la plus pauvre de l'humanité. En France, le débat budgétaire de 2026 a été marqué par le rejet de la taxe Zucman (impôt plancher de 2 % sur les patrimoines > 100 M€) à l'Assemblée nationale le 31 octobre 2025, malgré 86 % d'opinion favorable dans l'opinion (Oxfam, janvier 2026). Le gouvernement a adopté une taxe sur les holdings jugée insuffisante par la gauche, tandis que le Medef a mené une contre-offensive inédite contre toute hausse de la fiscalité des ultra-riches.",
+          "rationnel": "La question : Les écarts sociaux vont-ils exploser d'ici l'élection présidentielle de 2027 ? L'issue reste ouverte car, d'une part, le fort soutien populaire (86 %) et la campagne de Gabriel Zucman pour une taxation accrue des ultra‑riches pourraient entraîner un rééquilibrage fiscal limitant la concentration des patrimoines (scénario favorable), tandis que, d'autre part, le rejet de la taxe Zucman, la taxe sur les holdings jugée insuffisante et l'offensive du Medef contre toute hausse de la fiscalité des très hauts patrimoines risquent de maintenir ou d'accroître les écarts (scénario dégradé), et une poursuite des mesures actuelles pourrait aboutir à une situation stable. Pour un lecteur français, l'enjeu est de déterminer si la dynamique de concentration des richesses va se poursuivre ou être freinée par un rééquilibrage fiscal, et d'évaluer les conséquences sur le pouvoir d'achat et la cohésion sociale.",
+          "angle": null,
+          "a_verifier": "Vérifier le chiffrage exact de la taxe sur les holdings finalement adoptée dans le PLF 2026, et le montant précis des recettes attendues. Confirmer le taux d'imposition comparé milliardaires vs. Français moyen cité par Boris Vallaud (30 % vs 50 %).",
+          "mots_cles": [
+            "inégalités patrimoine France 2026",
+            "taxe Zucman",
+            "World Inequality Report 2026",
+            "Oxfam rapport inégalités 2026",
+            "taux pauvreté France Insee 2024",
+            "ISF IFI réforme fiscale",
+            "ultra-riches fiscalité",
+            "Gabriel Zucman impôt plancher"
+          ],
+          "scenarios": null,
+          "echeance": {
+            "date": "2027-05-01",
+            "raison": "Élection présidentielle française de 2027 : Gabriel Zucman a fait de la taxation des ultra-riches un enjeu central de la campagne, ce qui pourrait trancher la question de l'explosion des inégalités par le haut."
+          },
+          "sources": [
+            {
+              "titre": "World Inequality Report 2026 - Executive Summary",
+              "url": "https://wir2026.wid.world/insight/executive-summary/"
+            },
+            {
+              "titre": "Rapport Oxfam France 2026 : Résister au règne des plus riches",
+              "url": "https://www.oxfamfrance.org/rapports/rapport-sur-les-inegalites-2026-resister-au-regne-des-plus-riches/"
+            },
+            {
+              "titre": "Insee - Niveau de vie et pauvreté en 2024",
+              "url": "https://www.insee.fr/fr/statistiques/9019316"
+            },
+            {
+              "titre": "Budget 2026 : l'Assemblée rejette la taxe Zucman - TF1 Info",
+              "url": "https://www.tf1info.fr/politique/budget-2026-l-assemblee-nationale-rejette-la-taxe-zucman-sur-les-hauts-patrimoines-proposee-par-la-gauche-2403984.html"
+            }
+          ],
+          "origine": null,
+          "note": null,
+          "ajoute_le": null,
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": "2026-10-03",
+          "donnees": null
+        },
+        {
+          "type": "sujet",
           "id": "economie-bulle-de-l-ia-sur-les-marches-financiers-les",
           "titre": "Bulle de l'IA sur les marchés financiers : les valorisations liées à l'intelligence artificielle vont-elles corriger fortement ?",
           "question": null,
@@ -6432,59 +6485,6 @@
           ],
           "origine": null,
           "note": "Remplace le 3 septembre 2026 l'ancienne entrée \"Démographie : le vieillissement devient-il le défi majeur des économies développées ?\", jugée trop molle et trop centrée sur les seules économies développées — reformulée à l'issue d'un échange avec l'utilisateur sur \"le meilleur sujet Scénario possible\", retenue et validée telle quelle (\"go super\")",
-          "ajoute_le": null,
-          "publie_le": null,
-          "edition": null,
-          "enrichi_le": "2026-10-03",
-          "donnees": null
-        },
-        {
-          "type": "sujet",
-          "id": "economie-inegalites-les-ecarts-sociaux-vont-ils-exploser",
-          "titre": "Inégalités : les écarts sociaux vont-ils exploser ?",
-          "question": null,
-          "tag": "économie & société",
-          "statut": "a_traiter",
-          "validation": "valide",
-          "contexte": "En France, le taux de pauvreté monétaire s'établit à 15,4 % en 2024, soit 9,8 millions de personnes vivant sous le seuil de 1 337 euros par mois, un niveau historiquement haut depuis 1996 (Insee, 2024). Parallèlement, la concentration des patrimoines s'accélère : les 10 % les plus fortunés détiennent 60 % du patrimoine net en 2024, et le 1 % le plus riche en possède 28 %, contre 20 % en 1994 (Observatoire des inégalités / WID, juin 2026). Le World Inequality Report 2026 confirme qu'au niveau mondial, le top 0,001 % (moins de 60 000 adultes) possède trois fois plus de richesses que la moitié la plus pauvre de l'humanité. En France, le débat budgétaire de 2026 a été marqué par le rejet de la taxe Zucman (impôt plancher de 2 % sur les patrimoines > 100 M€) à l'Assemblée nationale le 31 octobre 2025, malgré 86 % d'opinion favorable dans l'opinion (Oxfam, janvier 2026). Le gouvernement a adopté une taxe sur les holdings jugée insuffisante par la gauche, tandis que le Medef a mené une contre-offensive inédite contre toute hausse de la fiscalité des ultra-riches.",
-          "rationnel": "La question : Les écarts sociaux vont-ils exploser d'ici l'élection présidentielle de 2027 ? L'issue reste ouverte car, d'une part, le fort soutien populaire (86 %) et la campagne de Gabriel Zucman pour une taxation accrue des ultra‑riches pourraient entraîner un rééquilibrage fiscal limitant la concentration des patrimoines (scénario favorable), tandis que, d'autre part, le rejet de la taxe Zucman, la taxe sur les holdings jugée insuffisante et l'offensive du Medef contre toute hausse de la fiscalité des très hauts patrimoines risquent de maintenir ou d'accroître les écarts (scénario dégradé), et une poursuite des mesures actuelles pourrait aboutir à une situation stable. Pour un lecteur français, l'enjeu est de déterminer si la dynamique de concentration des richesses va se poursuivre ou être freinée par un rééquilibrage fiscal, et d'évaluer les conséquences sur le pouvoir d'achat et la cohésion sociale.",
-          "angle": null,
-          "a_verifier": "Vérifier le chiffrage exact de la taxe sur les holdings finalement adoptée dans le PLF 2026, et le montant précis des recettes attendues. Confirmer le taux d'imposition comparé milliardaires vs. Français moyen cité par Boris Vallaud (30 % vs 50 %).",
-          "mots_cles": [
-            "inégalités patrimoine France 2026",
-            "taxe Zucman",
-            "World Inequality Report 2026",
-            "Oxfam rapport inégalités 2026",
-            "taux pauvreté France Insee 2024",
-            "ISF IFI réforme fiscale",
-            "ultra-riches fiscalité",
-            "Gabriel Zucman impôt plancher"
-          ],
-          "scenarios": null,
-          "echeance": {
-            "date": "2027-05-01",
-            "raison": "Élection présidentielle française de 2027 : Gabriel Zucman a fait de la taxation des ultra-riches un enjeu central de la campagne, ce qui pourrait trancher la question de l'explosion des inégalités par le haut."
-          },
-          "sources": [
-            {
-              "titre": "World Inequality Report 2026 - Executive Summary",
-              "url": "https://wir2026.wid.world/insight/executive-summary/"
-            },
-            {
-              "titre": "Rapport Oxfam France 2026 : Résister au règne des plus riches",
-              "url": "https://www.oxfamfrance.org/rapports/rapport-sur-les-inegalites-2026-resister-au-regne-des-plus-riches/"
-            },
-            {
-              "titre": "Insee - Niveau de vie et pauvreté en 2024",
-              "url": "https://www.insee.fr/fr/statistiques/9019316"
-            },
-            {
-              "titre": "Budget 2026 : l'Assemblée rejette la taxe Zucman - TF1 Info",
-              "url": "https://www.tf1info.fr/politique/budget-2026-l-assemblee-nationale-rejette-la-taxe-zucman-sur-les-hauts-patrimoines-proposee-par-la-gauche-2403984.html"
-            }
-          ],
-          "origine": null,
-          "note": null,
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
