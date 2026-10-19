@@ -73,7 +73,7 @@ mériter une page de suivi ou une mise à jour.
   À surveiller aussi : l'entrée en lice d'un candidat de poids soutenu
   par l'UEFA (Montagliani, Ceferin...), et toute suite donnée au scandale
   du paiement UEFA à une ex-employée.
-  Dernière vérification : 5 septembre 2026 (V2).
+  Dernière vérification : 19 octobre 2026 (V3).
 
 - **Iran–États-Unis : la trêve tient-elle encore ?** (édition du 27
   juillet 2026)

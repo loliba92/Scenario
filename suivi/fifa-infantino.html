@@ -569,6 +569,41 @@
       </div>
     </div>
 
+    <div class="version is-update">
+      <div class="version-head">
+        <span class="version-tag">V3 — Mise à jour</span>
+        <span class="version-date">19 octobre 2026</span>
+        <button type="button" class="version-toggle" aria-expanded="false" aria-controls="version-content-v3">Détails <span class="version-toggle-icon" aria-hidden="true">▾</span></button>
+      </div>
+      <div class="version-content" id="version-content-v3">
+        <div class="version-content-inner">
+        <p>Depuis le 5 septembre 2026, la crise s’est concrètement durcie : le 10 septembre, la Fédération française de football a retiré son soutien à Gianni Infantino pour l’élection de mars 2027 ; le 25 septembre, les quatre grands championnats européens ont demandé une réforme profonde de la gouvernance de la FIFA ; et, le 15 octobre, après les excuses d’Infantino devant le Conseil de la FIFA sur le projet FIFA Forward Enterprise, les délégués européens ont jugé ses réponses insuffisantes. L’UEFA poursuit en parallèle une démarche judiciaire aux Etats-Unis pour obtenir des documents en vue d’une plainte pénale envisagée en Suisse.</p>
+        <div class="mini-scenarios">
+          <div class="mini-scenario" data-kind="favorable">
+            <p class="mini-scenario-title">🤝 Infantino regagne la confiance</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">7%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. 14% en V2)</span></p>
+            <p class="mini-scenario-text">La probabilité baisse nettement car les excuses présentées par Gianni Infantino le 15 octobre n’ont pas rétabli la confiance des délégués européens : ils disent n’avoir reçu ni documents ni réponses satisfaisantes sur le projet FIFA Forward Enterprise et l’affaire Balogun. Aucun fait depuis le 5 septembre ne montre un ralliement significatif à sa présidence.</p>
+          </div>
+          <div class="mini-scenario" data-kind="stable">
+            <p class="mini-scenario-title">🧊 La méfiance dure, Infantino reste</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">52%</span> <span class="evo-arrow is-down">↓</span> <span class="evo-prev">(vs. 68% en V2)</span></p>
+            <p class="mini-scenario-text">La probabilité baisse, mais reste la plus élevée, car l’UEFA n’a pas encore déclenché de motion de défiance : sa priorité affichée demeure la recherche d’un candidat avant la date limite de dépôt des candidatures du 18 novembre 2026. Infantino reste président, candidat à sa réélection et conserve des soutiens hors d’Europe.</p>
+          </div>
+          <div class="mini-scenario" data-kind="degrade">
+            <p class="mini-scenario-title">⚡ L'UEFA déclenche la motion de défiance</p>
+            <p class="mini-scenario-evolution"><span class="evo-current">41%</span> <span class="evo-arrow is-up">↑</span> <span class="evo-prev">(vs. 18% en V2)</span></p>
+            <p class="mini-scenario-text">La probabilité monte fortement car la contestation européenne s’est élargie et institutionnalisée : retrait du soutien de la FFF, intervention commune des quatre grands championnats, maintien de l’offensive de l’UEFA après la réunion du Conseil du 15 octobre et procédure de collecte de preuves visant une plainte pénale. Ces faits rendent plus crédible le passage à une procédure de défiance si la voie électorale n’aboutit pas.</p>
+          </div>
+        </div>
+        <div class="conclusion">
+          <span class="conclusion-label">Conclusion vs V2</span>
+          <p><strong>⚡ Dégradé, +23 points (41%)</strong> — C’est le scénario qui progresse le plus, car la contestation ne se limite plus aux déclarations de l’UEFA : elle rassemble désormais la FFF, les principaux championnats européens et une démarche judiciaire, tandis que les explications d’Infantino n’ont pas désamorcé le conflit..</p>
+        </div>
+        <p class="sources-note">Sources : <a href="https://apnews.com/article/fifa-council-president-election-infantino-uefa-03f294aeb44d5229c4911080d164b820" target="_blank" rel="noopener noreferrer">Associated Press ↗</a>, <a href="https://www.lemonde.fr/sport/article/2026/09/10/la-federation-francaise-de-football-retire-son-soutien-a-gianni-infantino-le-president-fragilise-de-la-fifa_6769724_3242.html" target="_blank" rel="noopener noreferrer">Le Monde ↗</a>, <a href="https://fr.euronews.com/2026/09/25/les-quatre-grandes-ligues-europeennes-accentuent-la-pression-sur-infantino-et-reclament-un" target="_blank" rel="noopener noreferrer">Euronews ↗</a>, <a href="https://www.theguardian.com/football/2026/sep/29/fifa-accuses-uefa-misinformation-campaign-gianni-infantino-influence-election" target="_blank" rel="noopener noreferrer">The Guardian ↗</a></p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -629,7 +664,8 @@
     var evoData = [
       { label: "V0", date: "6 août", favorable: 20, stable: 45, degrade: 35 },
       { label: "V1", date: "8 août", favorable: 10, stable: 50, degrade: 40 },
-      { label: "V2", date: "5 sept.", favorable: 14, stable: 68, degrade: 18 }
+      { label: "V2", date: "5 sept.", favorable: 14, stable: 68, degrade: 18 },
+      { label: "V3", date: "19 oct.", favorable: 7, stable: 52, degrade: 41 }
     ];
 
     (function renderEvoChart(){
