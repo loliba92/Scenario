@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "8ca768b07db26a38aa3019ba1978585443401c47d1f7c7b263bc54897e46ce25"
+    "md_sha256": "54215bda615f89789b81c3d253be7bb91dfcd89298977d60419e0978e1d89e16"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -2218,6 +2218,56 @@
       "entrees": [
         {
           "type": "sujet",
+          "id": "actualite-francaise-police-justice-l-etat-peut-il-garantir-la",
+          "titre": "Police & justice : l'État peut-il garantir la sécurité ?",
+          "question": null,
+          "tag": "sécurité & justice",
+          "statut": "a_traiter",
+          "validation": "valide",
+          "contexte": "Au 2 octobre 2026, la France fait face à une vague de blocages lycéens émaillée de violences urbaines : 1 747 interpellations rien que ce vendredi, plus de 5 000 depuis le 17 septembre, selon le ministre de l'Intérieur Laurent Nuñez. L'usage de LBD a blessé plusieurs adolescents, déclenchant des enquêtes de l'IGPN et une saisine du Défenseur des droits. Le garde des Sceaux Gérald Darmanin a adressé une circulaire aux procureurs pour une réponse pénale « ferme et immédiate », ciblant aussi la responsabilité civile des parents. En parallèle, la Cour des comptes (mars 2026) note une hausse de 6,5 % des faits constatés entre 2016 et 2024, tandis que la police judiciaire subit une crise d'effectifs (700 ETP supplémentaires prévus en 2026) et un stock de 3,5 millions de procédures en attente, avec des taux d'élucidation en baisse.",
+          "rationnel": "La question : l'État peut-il garantir la sécurité face à la montée des violences urbaines et à l'engorgement de la chaîne pénale d'ici la fin de l'année 2026 ? L'issue est ouverte car, tandis que le gouvernement déploie 700 enquêteurs supplémentaires et applique la loi justice criminelle de juillet 2026, la police judiciaire manque encore d'effectifs spécialisés, les taux d'élucidation sont en baisse et l'usage de la LBD provoque des controverses sur la proportionnalité de la force. L'enjeu concret pour le lecteur français est d'évaluer si la police et la justice pourront réellement protéger les citoyens et traiter les affaires dans des délais raisonnables malgré ces tensions.",
+          "angle": null,
+          "a_verifier": "⚠ Temps : les blocages lycéens et interpellations sont en cours au 2 octobre 2026 ; la situation évolue quotidiennement. À vérifier : chiffre exact des effectifs police/gendarmerie 2026, date de mise en œuvre complète du plan investigation, prochaines échéances législatives (budget 2027).",
+          "mots_cles": [
+            "police nationale",
+            "police judiciaire",
+            "justice criminelle",
+            "Laurent Nuñez",
+            "Gérald Darmanin",
+            "blocage lycées octobre 2026",
+            "taux d'élucidation",
+            "plan investigation"
+          ],
+          "scenarios": null,
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "Blocage des lycées : un vendredi sous haute tension, syndicats et lycéens reçus par le ministre",
+              "url": "https://www.france24.com/fr/info-en-continu/20261002-blocage-des-lyc%C3%A9es-un-vendredi-sous-haute-tension-les-syndicats-re%C3%A7us-par-le-ministre"
+            },
+            {
+              "titre": "Jeune blessé lors du blocus des lycées : le Défenseur des droits se saisit, une enquête ouverte",
+              "url": "https://www.lefigaro.fr/faits-divers/jeune-blesse-lors-du-blocus-des-lycees-le-defenseur-des-droits-se-saisit-une-enquete-ouverte-20261002"
+            },
+            {
+              "titre": "Blocage des lycées : face aux débordements, une réponse pénale « ferme et immédiate » qui cible aussi les parents",
+              "url": "https://www.sudouest.fr/societe/greves-et-manifestations/blocage-des-lycees-face-aux-debordements-une-reponse-penale-ferme-et-immediate-qui-cible-aussi-les-parents-30889817.php"
+            },
+            {
+              "titre": "Police judiciaire : quelles réponses à la crise des effectifs",
+              "url": "https://questions.assemblee-nationale.fr/q17/17-11782QE.htm"
+            }
+          ],
+          "origine": null,
+          "note": null,
+          "ajoute_le": null,
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": "2026-10-03",
+          "donnees": null
+        },
+        {
+          "type": "sujet",
           "id": "actualite-francaise-carburants-a-prix-record-et-menaces-hybrides",
           "titre": "Carburants à prix record et menaces hybrides : Macron réunit les candidats à l'Élysée — le gouvernement peut-il éviter l'explosion sociale cet automne ?",
           "question": null,
@@ -3170,56 +3220,6 @@
             {
               "titre": "Attentat déjoué contre Bank of America à Paris : un mineur remis en liberté sous bracelet — RTL (2 octobre 2026)",
               "url": "https://www.rtl.fr/actu/justice-faits-divers/attentat-dejoue-contre-bank-of-america-a-paris-un-mineur-remis-en-liberte-sous-bracelet-7900679859"
-            }
-          ],
-          "origine": null,
-          "note": null,
-          "ajoute_le": null,
-          "publie_le": null,
-          "edition": null,
-          "enrichi_le": "2026-10-03",
-          "donnees": null
-        },
-        {
-          "type": "sujet",
-          "id": "actualite-francaise-police-justice-l-etat-peut-il-garantir-la",
-          "titre": "Police & justice : l'État peut-il garantir la sécurité ?",
-          "question": null,
-          "tag": "sécurité & justice",
-          "statut": "a_traiter",
-          "validation": "valide",
-          "contexte": "Au 2 octobre 2026, la France fait face à une vague de blocages lycéens émaillée de violences urbaines : 1 747 interpellations rien que ce vendredi, plus de 5 000 depuis le 17 septembre, selon le ministre de l'Intérieur Laurent Nuñez. L'usage de LBD a blessé plusieurs adolescents, déclenchant des enquêtes de l'IGPN et une saisine du Défenseur des droits. Le garde des Sceaux Gérald Darmanin a adressé une circulaire aux procureurs pour une réponse pénale « ferme et immédiate », ciblant aussi la responsabilité civile des parents. En parallèle, la Cour des comptes (mars 2026) note une hausse de 6,5 % des faits constatés entre 2016 et 2024, tandis que la police judiciaire subit une crise d'effectifs (700 ETP supplémentaires prévus en 2026) et un stock de 3,5 millions de procédures en attente, avec des taux d'élucidation en baisse.",
-          "rationnel": "La question : l'État peut-il garantir la sécurité face à la montée des violences urbaines et à l'engorgement de la chaîne pénale d'ici la fin de l'année 2026 ? L'issue est ouverte car, tandis que le gouvernement déploie 700 enquêteurs supplémentaires et applique la loi justice criminelle de juillet 2026, la police judiciaire manque encore d'effectifs spécialisés, les taux d'élucidation sont en baisse et l'usage de la LBD provoque des controverses sur la proportionnalité de la force. L'enjeu concret pour le lecteur français est d'évaluer si la police et la justice pourront réellement protéger les citoyens et traiter les affaires dans des délais raisonnables malgré ces tensions.",
-          "angle": null,
-          "a_verifier": "⚠ Temps : les blocages lycéens et interpellations sont en cours au 2 octobre 2026 ; la situation évolue quotidiennement. À vérifier : chiffre exact des effectifs police/gendarmerie 2026, date de mise en œuvre complète du plan investigation, prochaines échéances législatives (budget 2027).",
-          "mots_cles": [
-            "police nationale",
-            "police judiciaire",
-            "justice criminelle",
-            "Laurent Nuñez",
-            "Gérald Darmanin",
-            "blocage lycées octobre 2026",
-            "taux d'élucidation",
-            "plan investigation"
-          ],
-          "scenarios": null,
-          "echeance": null,
-          "sources": [
-            {
-              "titre": "Blocage des lycées : un vendredi sous haute tension, syndicats et lycéens reçus par le ministre",
-              "url": "https://www.france24.com/fr/info-en-continu/20261002-blocage-des-lyc%C3%A9es-un-vendredi-sous-haute-tension-les-syndicats-re%C3%A7us-par-le-ministre"
-            },
-            {
-              "titre": "Jeune blessé lors du blocus des lycées : le Défenseur des droits se saisit, une enquête ouverte",
-              "url": "https://www.lefigaro.fr/faits-divers/jeune-blesse-lors-du-blocus-des-lycees-le-defenseur-des-droits-se-saisit-une-enquete-ouverte-20261002"
-            },
-            {
-              "titre": "Blocage des lycées : face aux débordements, une réponse pénale « ferme et immédiate » qui cible aussi les parents",
-              "url": "https://www.sudouest.fr/societe/greves-et-manifestations/blocage-des-lycees-face-aux-debordements-une-reponse-penale-ferme-et-immediate-qui-cible-aussi-les-parents-30889817.php"
-            },
-            {
-              "titre": "Police judiciaire : quelles réponses à la crise des effectifs",
-              "url": "https://questions.assemblee-nationale.fr/q17/17-11782QE.htm"
             }
           ],
           "origine": null,
