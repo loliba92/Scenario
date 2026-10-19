@@ -11,4 +11,15 @@
       <news:title>Zidane: five newcomers in the Bleus squad, Tchouaméni and Kanté dropped</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-10-19.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-19T06:01:31+02:00</news:publication_date><news:title>Corée du Nord : le missile hypersonique à IA change-t-il la donne ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-10-19.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-19T06:01:31+02:00</news:publication_date><news:title>Corée du Nord : le missile hypersonique à IA change-t-il la donne ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-10-19.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-19T06:01:31+02:00</news:publication_date>
+      <news:title>North Korea: Is the AI-powered hypersonic missile a game changer?</news:title>
+    </news:news>
+  </url>
+</urlset>
