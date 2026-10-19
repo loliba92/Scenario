@@ -1,188 +1,174 @@
 {
-  "h1": "Corée du Nord : le missile hypersonique à IA change-t-il la donne ?",
-  "question_text": "Le test du 3 octobre d'un missile balistique hypersonique présenté comme intégrant de l'IA pour modifier sa trajectoire en vol rend-il les systèmes de défense antimissile sud-coréens, japonais et américains obsolètes, ou s'agit-il d'une exagération de propagande ?",
-  "section_title": "Trois trajectoires pour l'équilibre stratégique en Asie du Nord-Est",
+  "h1": "Mobilisation lycéenne : le mouvement peut-il arracher une refonte de Parcoursup ?",
+  "question_text": "Après trois semaines de blocages (150+ lycées, 71 500 manifestants le 8 octobre) et l'annonce de 3 000 professeurs remplaçants, le gouvernement peut-il désamorcer la crise par des amendements budgétaires ou le mouvement va-t-il s'enliser dans la violence et l'usure ?",
+  "section_title": "Trois issues pour la colère des lycées avant les vacances",
   "dek": [
-    "Le 3 octobre 2026, la Corée du Nord a procédé au tir d'un missile balistique depuis la région côtière de Wonsan. Dès le lendemain, Kim Yo-jong, sœur du dirigeant nord-coréen Kim Jong-un, a revendiqué une avancée technologique majeure : l'intégration d'une intelligence artificielle capable de corriger la trajectoire de l'engin à basse altitude pour déjouer les boucliers radar. Pyongyang affirme que son projectile a parcouru <strong>1 000 km</strong> avant de frapper une cible maritime avec une précision de 30 centimètres, tandis que l'état-major interarmées sud-coréen n'a mesuré qu'un vol de <strong>700 km</strong>. Cette divergence immédiate illustre le flou entourant les véritables capacités militaires du régime communiste.",
-    "La course aux armements s'est immédiatement emballée dans la péninsule coréenne. En réponse directe à cette démonstration de force et à des tensions frontalières causées par des explosions de mines terrestres fin septembre, la Corée du Sud a testé le 8 octobre son propre planeur hypersonique<a class=\"lex-ref\" href=\"#lex-planeur-hypersonique\" aria-label=\"Voir la définition dans le lexique\">*</a>, sous les yeux du président Lee Jae-myung. Pyongyang a répliqué dès le 12 octobre par des tirs balistiques multiples, dont un projectile a franchi plus de <strong>900 km</strong>, avant d'annoncer des essais de torpilles autonomes et de missiles de croisière sous-marins. Ce rythme d'essais inédit marque une volonté claire de saturer l'espace informationnel et militaire régional.",
-    "Derrière la rhétorique nord-coréenne, la question de la réalité technique divise les spécialistes du renseignement militaire. Les experts internationaux estiment que la Corée du Nord manque d'infrastructures de calcul, de serveurs avancés et d'électricité stable pour faire fonctionner un véritable algorithme décisionnel autonome en plein vol à Mach 5. Le dispositif évoqué par Pyongyang s'apparenterait plutôt à un système basique de reconnaissance visuelle d'images couplé à une trajectoire préprogrammée. Selon plusieurs analystes, le programme hypersonique nord-coréen pourrait toutefois devenir pleinement opérationnel d'ici <strong>3 ans</strong> si les essais se poursuivent au rythme actuel.",
-    "L'inquiétude principale des stratèges occidentaux ne réside pas seulement dans les annonces de Pyongyang, mais dans l'accélération de son partenariat militaire avec Moscou. Dans le cadre de leur traité d'assistance mutuelle, la Russie transfère des technologies sensibles de guidage, d'optique et de défense aérienne en échange d'obus et de troupes déployées sur le front ukrainien. Cette aide extérieure permet à la Corée du Nord de brûler des étapes techniques qui lui auraient demandé des décennies d'ingénierie autonome. Les missiles balistiques testés pourraient à terme afficher une portée maximale supérieure à <strong>3 000 km</strong>, mettant directement à portée les bases américaines d'Okinawa et de Guam.",
-    "Face à cette menace mobile à basse altitude, l'architecture défensive alliée repose sur des systèmes sol-air éprouvés comme le Patriot, le bouclier THAAD et les frégates Aegis. Ces batteries antimissiles ont été conçues pour intercepter des tirs balistiques aux trajectoires en cloche prévisibles, ce qui complique la détection d'un planeur manœuvrant. Pour combler cette faille, le Pentagone développe un intercepteur<a class=\"lex-ref\" href=\"#lex-intercepteur\" aria-label=\"Voir la définition dans le lexique\">*</a> spécialisé pour la phase de vol plané, mais ce programme nommé GPI ne sera pas déployé avant <strong>2029</strong> au plus tôt, laissant une fenêtre de vulnérabilité tactique.",
-    "Le véritable objectif de Pyongyang semble autant politique que militaire : instiller le doute sur la dissuasion étendue<a class=\"lex-ref\" href=\"#lex-dissuasion-etendue\" aria-label=\"Voir la définition dans le lexique\">*</a> offerte par les États-Unis à leurs partenaires asiatiques. En affirmant que ses missiles sont désormais impossibles à intercepter, le régime cherche à convaincre Séoul et Tokyo que Washington ne risquera pas ses propres métropoles pour les défendre. Entre bluff technologique, progrès balistiques réels et contre-mesures technologiques, l'équilibre des forces autour du 38e parallèle entre dans une zone de turbulences accrues."
+    "Depuis la mi-septembre 2026, la jeunesse française multiplie les journées d'action dans les grandes villes et devant les établissements scolaires. Les élèves dénoncent un quotidien dégradé par des emplois du temps morcelés, des absences de professeurs non remplacées et une angoisse persistante liée à l'orientation dans l'enseignement supérieur. Le pic des blocages a été franchi le 6 octobre avec <strong>800 lycées bloqués</strong> sur tout le territoire national, avant une stabilisation relative autour de deux cents établissements perturbés lors des journées d'action suivantes. Pour les syndicats lycéens, la colère actuelle dépasse la simple contestation d'une rentrée difficile : elle cible directement l'organisation générale des études secondaires.",
+    "Au cœur des revendications figure le fonctionnement de la plateforme d'admission post-baccalauréat, Parcoursup<a class=\"lex-ref\" href=\"#lex-parcoursup\" aria-label=\"Voir la définition dans le lexique\">*</a>. Les organisations de jeunesse réclament la fin du tri algorithmique et une transparence totale sur les critères de sélection des filières universitaires. La contestation porte également sur les effets de la réforme Blanquer<a class=\"lex-ref\" href=\"#lex-reforme-blanquer\" aria-label=\"Voir la définition dans le lexique\">*</a> de 2019, qui a remplacé les filières traditionnelles par des spécialités à la carte. Ce système génère de nombreux « trous » de plusieurs heures dans les journées de cours et complique la gestion quotidienne des salles de classe, tandis que l'état matériel des bâtiments scolaires suscite une exaspération croissante chez les élèves comme chez les enseignants.",
+    "Face à cette pression, le ministre de l'Éducation nationale Édouard Geffray a réagi lors de l'acte IV du 8 octobre en annonçant le déploiement d'urgence de <strong>3 000 professeurs remplaçants</strong> dans cinq cents établissements identifiés comme prioritaires. Le ministère s'appuie sur un nouvel outil informatique pour repérer cent quatorze lycées classés « rouges » et quatre cents classés « oranges » selon leur taux d'absences non couvertes. Le gouvernement promet également d'autoriser les rectorats à recruter des contractuels supplémentaires et de débloquer plusieurs centaines de milliers d'heures rémunérées pour permettre des remplacements internes de courte durée.",
+    "Cependant, cette réponse administrative est jugée insuffisante par l'intersyndicale lycéenne et étudiante, qui réclame des engagements financiers massifs et des réformes de fond. Le Premier ministre Sébastien Lecornu a évoqué l'ouverture d'une plateforme de concertation en ligne et le dépôt d'amendements au projet de loi de finances<a class=\"lex-ref\" href=\"#lex-projet-de-loi-de-finances\" aria-label=\"Voir la définition dans le lexique\">*</a> pour 2027 afin de pérenniser certains moyens. Mais le cadre budgétaire très strict limite considérablement la marge de manœuvre de l'exécutif pour répondre aux demandes globales de création de postes et de rénovation lourde du bâti scolaire.",
+    "La mobilisation se heurte par ailleurs à une tension croissante sur le terrain sécuritaire. Le 8 octobre, la journée de manifestations a rassemblé <strong>71 500 manifestants</strong> dans le pays, dont 24 500 à Paris, mais elle s'est soldée par <strong>504 interpellations</strong> et quarante-huit blessés parmi les forces de l'ordre. Si l'opinion publique soutient largement le fond des revendications — avec <strong>54 % d'approbation</strong> selon les enquêtes d'opinion —, elle rejette très nettement les dégradations et les heurts urbains, condamnés par 79 % des Français. Cette fracture fragilise la capacité du mouvement à élargir son assise auprès des familles.",
+    "L'approche des vacances scolaires d'automne constitue une échéance décisive pour l'ensemble des acteurs. Trois trajectoires se dessinent désormais pour les semaines à venir. Le gouvernement pourrait choisir de négocier une révision tangible de l'orientation pour éteindre la contestation, parier sur l'essoufflement naturel du mouvement grâce aux vacances et aux mesures d'urgence, ou affronter un durcissement des blocages sous l'effet d'une minorité radicalisée qui perturberait l'année scolaire des classes de terminale."
   ],
   "enjeu_en_clair": {
-    "lead": "La Corée du Nord prétend équiper ses missiles hypersoniques d'intelligence artificielle pour contourner les radars américains et sud-coréens.",
-    "text": "Pyongyang multiplie les tirs de missiles et affirme que son nouvel engin change de trajectoire tout seul grâce à l'IA. Les experts militaires pensent que le régime exagère grandement le niveau de son informatique, mais reconnaissent que ses armes deviennent plus rapides et imprévisibles grâce au soutien technique de la Russie. L'enjeu central est de savoir si le bouclier défensif protégeant le Japon et la Corée du Sud reste totalement efficace."
+    "lead": "Les lycéens bloquent des établissements pour réclamer la fin de la sélection sur Parcoursup et de meilleurs emplois du temps.",
+    "text": "La contestation réunit des dizaines de milliers d'élèves excédés par le manque d'enseignants et l'angoisse de l'orientation post-bac. Le gouvernement propose des remplaçants d'urgence, mais refuse pour l'instant de revoir le fonctionnement des examens. L'enjeu est de savoir si l'exécutif va transformer cette crise en réforme ou attendre que la fatigue et les vacances scolaires vident les piquets de grève."
   },
   "stakes_branches": {
-    "favorable": "L'IA nord-coréenne s'avère rudimentaire, les défenses alliées s'adaptent et la diplomatie reprend timidement.",
-    "stable": "Une course aux armements hypersoniques s'installe en Asie du Nord-Est sans rupture technologique immédiate.",
-    "degrade": "Les transferts technologiques russes rendent les missiles nord-coréens insaisissables, fragilisant le parapluie américain."
+    "favorable": "Le gouvernement modifie Parcoursup et injecte des crédits dans le budget 2027.",
+    "stable": "Les renforts d'urgence calment le jeu sans qu'aucune réforme de fond ne soit votée.",
+    "degrade": "Les affrontements se multiplient et bloquent durablement les lycées jusqu'à l'hiver."
   },
   "comprendre_box": [
     {
-      "lead": "Pourquoi un missile hypersonique manœuvrant est-il si difficile à arrêter ?",
-      "text": "Un missile balistique classique monte très haut dans l'espace puis retombe selon une courbe en cloche facile à calculer pour un radar. À l'inverse, un planeur hypersonique vole à plus de Mach 5 en restant à basse altitude dans l'atmosphère et peut virer brusquement à gauche ou à droite. Cette vitesse combinée à une trajectoire imprévisible réduit le temps de réaction des défenseurs de plusieurs dizaines de minutes à seulement quelques secondes.",
-      "apres_dek_index": 2
+      "lead": "Parcoursup : pourquoi le tri des dossiers inquiète autant les élèves",
+      "text": "Créée pour répartir les bacheliers dans les études supérieures, la plateforme utilise des critères d'examen propres à chaque formation. Les lycéens comparent souvent ce système à une boîte noire : ils ne connaissent pas le poids exact de leurs notes par rapport à leur lycée d'origine. Cette incertitude crée une angoisse forte dès le premier trimestre de terminale.",
+      "apres_dek_index": 1
     },
     {
-      "lead": "Comment les boucliers antimissiles alliés s'adaptent face à l'imprévisibilité",
-      "text": "Les systèmes Patriot et THAAD protègent des zones précises au sol en calculant le point d'impact futur du projectile ennemi. Quand un missile change de direction en vol, ces ordinateurs doivent recalculer sa trajectoire en permanence, ce qui use rapidement les stocks de missiles intercepteurs. Washington prépare donc une nouvelle génération de défenses spatiales et marines pour détruire les engins avant qu'ils n'entament leurs manœuvres.",
-      "apres_dek_index": 4
+      "lead": "Le plan d'urgence du ministère : des renforts ciblés par algorithme",
+      "text": "Le ministère utilise désormais un logiciel de repérage pour classer les lycées en deux catégories de tension, rouge ou orange, selon le nombre d'heures de cours perdues. L'envoi de 3 000 remplaçants agit comme un pansement rapide pour éteindre les foyers les plus critiques, mais ne crée aucun nouveau poste de titulaire.",
+      "apres_dek_index": 2
     }
   ],
   "list_box": null,
   "indicators": [
     {
-      "label": "Portée revendiquée du missile du 3 octobre",
-      "delta": "Écart de 300 km lors du test en mer de l'Est",
-      "value": "1 000 km (Pyongyang) / 700 km (Séoul)"
+      "label": "Lycées bloqués (pic acte IV)",
+      "value": "800 lycées (6 octobre 2026)",
+      "delta": "214 lycées recensés le 13 octobre"
     },
     {
-      "label": "Portée maximale estimée Hwasong-16Na",
-      "delta": "Capacité théorique couvrant Okinawa et Guam",
-      "value": ">3 000 km"
+      "label": "Manifestants acte IV",
+      "value": "71 500 (24 500 à Paris)",
+      "delta": "504 interpellations le 8 octobre"
     }
   ],
   "cards": {
     "favorable": {
-      "pct": 20,
+      "pct": 25,
       "gauge_word": "Peu probable",
-      "h3": "L'analyse confirme une propagande exagérée et les défenses restent efficaces",
+      "h3": "Le gouvernement concède une refonte de Parcoursup et vote des crédits",
       "why": [
-        "Dans ce premier scénario, les données techniques recueillies par les radars américains, sud-coréens et japonais démontrent que le missile nord-coréen n'a réalisé aucun calcul autonome complexe en vol. L'électronique embarquée se limite à un système optique rudimentaire incapable de compenser des brouillages ou de déjouer un tir de barrage. Les systèmes de défense sol-air Patriot PAC-3 et THAAD prouvent leur capacité à verrouiller ces cibles hypersoniques dès leur phase de rentrée atmosphérique. Concrètement, la menace immédiate reste contenue dans des limites tactiques parfaitement gérables pour les armées alliées stationnées dans la région.",
-        "Par rapport aux trajectoires d'escalade, cette issue repose sur l'efficacité des sanctions financières et des contrôles aux frontières pour freiner les livraisons de composants électroniques sophistiqués en provenance de Russie. Constatant que sa manœuvre de communication ne fracture pas l'alliance américano-asiatique, le pouvoir nord-coréen pourrait accepter de rouvrir des canaux de discussion militaires de crise avec Séoul afin d'éviter un incident frontalier incontrôlé."
+        "Dans ce premier scénario, la pression conjointe des syndicats de jeunesse, des fédérations de parents d'élèves et de l'opinion publique pousse l'exécutif à ouvrir de véritables négociations structurelles. Le ministère de l'Éducation nationale et le ministère de l'Enseignement supérieur acceptent de réviser les algorithmes de la plateforme Parcoursup pour garantir une transparence complète sur les classements des candidats. Concrètement, le Premier ministre Sébastien Lecornu dépose des amendements au projet de budget 2027 pour sanctuariser un plan de rénovation thermique des bâtiments scolaires et pérenniser les recrutements de remplaçants. Les organisations lycéennes saluent ces avancées concrètes et appellent à la levée générale des blocages avant les congés de la Toussaint.",
+        "Cette issue favorable permettrait de pacifier durablement le climat scolaire en traitant les causes profondes de l'exaspération étudiante. Toutefois, notre évaluation n'accorde que 25 % de probabilité à cette trajectoire, car elle exigerait des concessions budgétaires importantes que le gouvernement hésite à accorder dans le contexte actuel des finances publiques. Ce scénario s'éloigne de la gestion traditionnelle des crises éducatives, qui privilégie d'ordinaire des aides d'urgence ponctuelles plutôt qu'une remise en chantier immédiate des grandes lois scolaires."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Portée du tir du 3 octobre",
-          "evo_current": "700 km réels confirmés",
+          "field_name": "Lycées bloqués",
+          "evo_current": "0 lycée bloqué",
           "evo_arrow": "down",
-          "evo_prev": "1 000 km / 700 km"
+          "evo_prev": "800 au pic"
         },
         {
-          "field_name": "Portée maximale Hwasong-16Na",
-          "evo_current": "Plafond limité à 2 000 km sans aide",
+          "field_name": "Manifestants nationaux",
+          "evo_current": "Retour au calme complet",
           "evo_arrow": "down",
-          "evo_prev": ">3 000 km"
+          "evo_prev": "71 500 le 8 octobre"
         }
       ],
-      "france_line": "Un apaisement en Asie stabilise les routes maritimes commerciales et réduit les risques de prolifération technologique.",
+      "france_line": "La fin négociée du conflit rassure les familles et modernise l'accès aux études supérieures.",
       "france_impact": "favorable"
     },
     "stable": {
-      "pct": 50,
-      "gauge_word": "Probable",
-      "h3": "La course aux armements hypersoniques s'installe sans rupture immédiate",
+      "nature": "stable",
+      "pct": 55,
+      "gauge_word": "Assez probable",
+      "h3": "Les mesures d'urgence éteignent la contestation sans réforme de fond",
       "why": [
-        "Notre scénario central prévoit que Pyongyang poursuivra ses tirs d'essais réguliers en intégrant peu à peu du propergol solide<a class=\"lex-ref\" href=\"#lex-propergol-solide\" aria-label=\"Voir la définition dans le lexique\">*</a> et des algorithmes plus fiables, sans pour autant réussir de percée magique du jour au lendemain. Les ingénieurs nord-coréens mettront environ trois ans à fiabiliser la trajectoire basse de leurs planeurs. En face, la Corée du Sud et le Japon déploient leurs propres engins hypersoniques et renforcent leurs réseaux de capteurs maritimes et spatiaux. Concrètement, les deux blocs s'arment symétriquement, maintenant une tension permanente mais un équilibre dissuasif.",
-        "À la différence d'un effondrement des défenses ou d'une détente diplomatique, cette voie perpétue une friction continue où chaque tir nord-coréen pousse Séoul à commander davantage d'armements avancés. Les boucliers antimissiles conservent un taux de succès théorique élevé contre quelques tirs isolés mais verraient leur efficacité s'éroder face à une salve coordonnée. Les chancelleries régionales devraient alors s'accommoder d'une péninsule militarisée en permanence, excluant tout accord de paix global à moyen terme."
+        "Dans ce deuxième scénario, le gouvernement maintient sa stratégie d'apaisement technique sans toucher à l'architecture du baccalauréat ni à la sélection universitaire. L'arrivée effective des 3 000 enseignants remplaçants dans les cinq cents lycées prioritaires réduit le nombre de cours non assurés et désamorce les griefs les plus urgents des familles. Concrètement, les blocages refluent progressivement sous l'effet de la lassitude des élèves, de la réprobation des violences urbaines par 79 % des Français et de la coupure naturelle des vacances scolaires de Toussaint. La plateforme de concertation absorbe les doléances sans déboucher sur une refonte législative majeure avant l'année 2027.",
+        "Notre scénario le plus probable (55 %) anticipe ainsi un retour progressif à la normale, mais au prix d'un sentiment d'inachevé persistant au sein de la communauté éducative. Contrairement au scénario de réforme négociée (25 %) ou à celui d'une crise violente prolongée (20 %), cette option évite une paralysie prolongée des cours sans pour autant résoudre la crise d'attractivité du métier d'enseignant. Le mécontentement des jeunes et des équipes pédagogiques resterait latent, prêt à resurgir lors des débats politiques de l'élection présidentielle de 2027."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Portée du tir du 3 octobre",
-          "evo_current": "Vol stabilisé à 800-900 km",
-          "evo_arrow": "flat",
-          "evo_prev": "1 000 km / 700 km"
+          "field_name": "Lycées bloqués",
+          "evo_current": "Moins de 50 lycées résiduels",
+          "evo_arrow": "down",
+          "evo_prev": "800 au pic"
         },
         {
-          "field_name": "Portée maximale Hwasong-16Na",
-          "evo_current": ">3 000 km d'ici 3 ans",
-          "evo_arrow": "up",
-          "evo_prev": ">3 000 km"
+          "field_name": "Manifestants nationaux",
+          "evo_current": "Moins de 10 000 jeunes mobilisés",
+          "evo_arrow": "down",
+          "evo_prev": "71 500 le 8 octobre"
         }
       ],
-      "france_line": "La persistance des tensions en Corée alimente l'instabilité géopolitique globale et accélère les dépenses militaires mondiales.",
+      "france_line": "L'école retrouve son fonctionnement habituel mais les frustrations sur l'orientation demeurent intactes.",
       "france_impact": "degrade"
     },
     "degrade": {
-      "pct": 30,
-      "gauge_word": "Probable",
-      "h3": "L'aide russe rend les missiles nord-coréens capables d'esquiver les boucliers",
+      "nature": "degrade",
+      "pct": 20,
+      "gauge_word": "Peu probable",
+      "h3": "Les blocages se radicalisent et perturbent l'année scolaire",
       "why": [
-        "Ce troisième scénario décrit une accélération brutale provoquée par des transferts directs de technologies russes en microélectronique et en matériaux composites de rentrée thermique. Pyongyang parvient à faire exécuter à son planeur hypersonique de véritables manœuvres d'évitement en zigzag à Mach 6, rendant les intercepteurs Patriot et THAAD incapables de calculer un point d'impact fiable. Concrètement, les bases militaires américaines de la région pacifique deviendraient vulnérables à une frappe préventive ultra-rapide sans préavis suffisant.",
-        "Contrairement au scénario stable où la défense s'adapte, une telle rupture technologique plongerait les capitales asiatiques dans une crise de sécurité existentielle majeure. Face au doute sur la capacité de Washington à les couvrir efficacement avant l'arrivée des intercepteurs GPI en 2029, la classe politique en Corée du Sud et au Japon exigerait le développement d'un arsenal nucléaire national indépendant, provoquant une crise de prolifération sans précédent en Asie."
+        "Dans ce troisième scénario, le refus de l'exécutif d'engager des réformes institutionnelles provoque la colère des franges les plus déterminées de la jeunesse. Les cortèges sont marqués par de nouveaux affrontements avec les forces de l'ordre, entraînant des fermetures administratives préventives décidées par les rectorats pour protéger les personnels. Concrètement, les élèves de terminale subissent des retards importants dans le programme du baccalauréat, tandis que la direction des établissements scolaires, déjà fragilisée par 147 personnels blessés depuis septembre, se met en retrait des consignes ministérielles. L'autorité du ministre de l'Éducation se retrouve directement contestée au Parlement.",
+        "Cette trajectoire dégradée entraînerait une fracture sévère entre l'institution scolaire et une partie de la jeunesse scolarisée. Nous évaluons ce risque à 20 % de probabilité, car la lassitude des élèves et la volonté des familles de préserver les examens de fin d'année constituent un frein puissant à une grève générale illimitée. Si ce scénario prenait le dessus face à l'essoufflement attendu (55 %), le gouvernement serait contraint de durcir sa réponse policière au détriment du dialogue pédagogique."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Portée du tir du 3 octobre",
-          "evo_current": "1 000+ km manœuvrant validé",
+          "field_name": "Lycées bloqués",
+          "evo_current": "Plus de 300 lycées fermés",
           "evo_arrow": "up",
-          "evo_prev": "1 000 km / 700 km"
+          "evo_prev": "800 au pic"
         },
         {
-          "field_name": "Portée maximale Hwasong-16Na",
-          "evo_current": ">3 500 km opérationnel",
+          "field_name": "Manifestants nationaux",
+          "evo_current": "Regain au-dessus de 100 000 manifestants",
           "evo_arrow": "up",
-          "evo_prev": ">3 000 km"
+          "evo_prev": "71 500 le 8 octobre"
         }
       ],
-      "france_line": "Une crise de prolifération nucléaire en Asie fragiliserait l'ordre de sécurité mondial et les intérêts économiques français.",
+      "france_line": "La détérioration du climat scolaire pénalise les apprentissages et fragilise le ministère.",
       "france_impact": "degrade"
     }
   },
   "essentiel_box": [
-    "La Corée du Nord prétend avoir réussi le tir d'un missile balistique hypersonique doté d'une IA capable de déjouer les boucliers antimissiles alliés.",
-    "Le test mené le 3 octobre depuis Wonsan a parcouru entre 700 et 1 000 km, déclenchant une réplique sud-coréenne avec son propre planeur hypersonique le 8 octobre.",
-    "Pas d'obsolescence immédiate : notre scénario central (50 %) estime que les revendications d'IA sont très exagérées, même si l'aide russe accélérera la menace d'ici 3 ans — deux alternatives : apaisement par faiblesse technique (20 %) ou rupture technologique déstabilisante (30 %).",
-    "Signal à surveiller : les résultats des prochains tests de tirs multiples nord-coréens et le déploiement du programme d'intercepteur américain GPI prévu d'ici 2029."
+    "La mobilisation lycéenne peut-elle contraindre le gouvernement à revoir Parcoursup et les emplois du temps avant les vacances d'automne ?",
+    "Après un pic à 800 lycées bloqués début octobre et 71 500 manifestants le 8 octobre, le ministre Édouard Geffray a déployé 3 000 professeurs remplaçants d'urgence dans 500 établissements prioritaires.",
+    "Pas vraiment sur le fond : notre scénario le plus probable (55 %) anticipe un essoufflement de la contestation grâce aux renforts d'urgence et aux congés scolaires, face à deux autres voies : la refonte négociée (25 %) et le pourrissement violent (20 %).",
+    "Le vote des amendements au budget 2027 à l'Assemblée nationale et le niveau de participation aux assemblées générales lycéennes à la veille de la Toussaint."
   ],
   "delta_france": {
     "kind": "negatif",
-    "score": -0.6,
+    "score": -0.5,
     "word": "assez négatif",
-    "text": "la probabilité cumulée de 80 % de voir les tensions s'enkyster ou dégénérer en Asie entretient l'insécurité des routes maritimes et pousse à une prolifération technologique préjudiciable à la stabilité mondiale."
+    "text": "la probabilité cumulée de 75 % d'un simple replâtrage temporaire ou d'un pourrissement des tensions scolaires maintient l'anxiété des familles sans régler le manque structurel d'enseignants."
   },
-  "phrase_a_retenir": "Pyongyang revendique 1 000 km de portée pour son tir du 3 octobre, mais Séoul n'a mesuré que 700 km lors du vol.",
-  "phrase_a_retenir_stat": "1 000 km",
+  "phrase_a_retenir": "Avec 800 lycées bloqués au pic de la crise et 71 500 manifestants le 8 octobre, la contestation pousse le gouvernement à déployer 3 000 remplaçants d'urgence mais laisse entière la colère sur Parcoursup.",
+  "phrase_a_retenir_stat": "800 lycées bloqués",
   "lexique": [
     {
-      "slug": "planeur-hypersonique",
-      "terme": "planeur hypersonique",
-      "definition": "Ogive propulsée par une fusée qui se détache à haute altitude pour planer à plus de Mach 5 dans l'atmosphère en effectuant des virages pour éviter les défenses."
+      "slug": "parcoursup",
+      "terme": "Parcoursup",
+      "definition": "Plateforme nationale sur laquelle les élèves de terminale enregistrent leurs vœux pour entrer dans l'enseignement supérieur."
     },
     {
-      "slug": "intercepteur",
-      "terme": "intercepteur",
-      "definition": "Missile défensif conçu pour détruire en plein vol un projectile ennemi en le percutant directement ou en explosant à proximité immédiate."
+      "slug": "reforme-blanquer",
+      "terme": "réforme Blanquer",
+      "definition": "Transformation du lycée mise en place en 2019, qui a remplacé les séries générales par des choix de matières appelées spécialités."
     },
     {
-      "slug": "propergol-solide",
-      "terme": "propergol solide",
-      "definition": "Carburant chimique compact pré-chargé dans le moteur du missile, permettant un décollage instantané sans longue préparation au sol."
-    },
-    {
-      "slug": "dissuasion-etendue",
-      "terme": "dissuasion étendue",
-      "definition": "Garantie militaire accordée par une puissance nucléaire (ici les États-Unis) pour protéger ses alliés en promettant de riposter en cas d'attaque."
+      "slug": "projet-de-loi-de-finances",
+      "terme": "projet de loi de finances",
+      "definition": "Texte législatif voté chaque automne par le Parlement pour fixer les dépenses et les recettes de l'État pour l'année suivante."
     }
   ],
   "sources_html": [
-    "<a href=\"https://www.afp.com/en/north-korea-says-test-intermediate-range-strategic-missile-included-use-ai-0\" target=\"_blank\" rel=\"noopener noreferrer\">AFP — North Korea says test of intermediate-range strategic missile included use of AI ↗</a>",
-    "<a href=\"https://fr.yna.co.kr/view/AFR20261004000100884\" target=\"_blank\" rel=\"noopener noreferrer\">Yonhap — Kim Jong-un supervise un tir de missile hypersonique et appelle à renforcer la dissuasion de guerre ↗</a>",
-    "<a href=\"https://www.france24.com/fr/asie-pacifique/20261003-la-cor%C3%A9e-du-nord-tire-un-missile-balistique-en-direction-de-la-mer-du-japon\" target=\"_blank\" rel=\"noopener noreferrer\">France 24 — La sœur de Kim Jong-un affirme que Pyongyang a testé un missile ayant impliqué l'utilisation de l'IA ↗</a>",
-    "<a href=\"https://www.straitstimes.com/asia/east-asia/north-korea-says-it-conducted-intermediate-range-strategic-missile-drill\" target=\"_blank\" rel=\"noopener noreferrer\">The Straits Times — North Korea's AI-guided missile launch overseen by Kim ↗</a>",
-    "<a href=\"https://apnews.com/article/south-korea-hypersonic-missile-lee-north-korea-c8e37daa47a28057d711d90852504d59\" target=\"_blank\" rel=\"noopener noreferrer\">AP News — South Korea tests first hypersonic weapon, boosting defense capabilities ↗</a>",
-    "<a href=\"https://en.yna.co.kr/view/AEN20261008008652315\" target=\"_blank\" rel=\"noopener noreferrer\">Yonhap — S. Korea conducts 1st test launch of hypersonic glide vehicle amid N.K. tensions ↗</a>",
-    "<a href=\"https://www.donga.com/en/article/all/20261005/6407302/1\" target=\"_blank\" rel=\"noopener noreferrer\">The Dong-A Ilbo — North Korea touts hypersonic missile to evade defenses ↗</a>",
-    "<a href=\"https://www.rfa.org/korean/in-focus/2026/10/06/north-korea-claims-ai-guided-missile-test/\" target=\"_blank\" rel=\"noopener noreferrer\">Radio Free Asia — 북한 'AI로 저고도서 궤도 변경'…전문가 'AI 기술 제한적' ↗</a>",
-    "<a href=\"https://en.sedaily.com/politics/2026/10/06/how-far-has-north-koreas-hypersonic-program-come-experts\" target=\"_blank\" rel=\"noopener noreferrer\">Seoul Economic Daily — How Far Has North Korea's Hypersonic Program Come? Experts See Completion Within Three Years ↗</a>",
-    "<a href=\"https://www.aljazeera.com/news/2026/10/12/north-korea-fires-multiple-ballistic-missiles-towards-the-sea\" target=\"_blank\" rel=\"noopener noreferrer\">Al Jazeera — North Korea fires multiple ballistic missiles towards the sea ↗</a>",
-    "<a href=\"https://news.northropgrumman.com/gpi/northrop-grumman-awarded-glide-phase-interceptor-development-modification-contract\" target=\"_blank\" rel=\"noopener noreferrer\">Northrop Grumman — Northrop Grumman Awarded Glide Phase Interceptor Development Modification Contract ↗</a>",
-    "<a href=\"https://www.everycrsreport.com/files/2026-09-18_IF12760_60b4f53703e3180c72d05b05928eb87c312144fc.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Congressional Research Service — Russia-North Korea Relations ↗</a>"
+    "<a href=\"https://www.france24.com/fr/france/20261008-mobilisation-lyc%C3%A9ens-3-000-professeurs-annonc%C3%A9s-nouvel-appel-manifestation-13-octobre\" target=\"_blank\" rel=\"noopener noreferrer\">France 24 — Mobilisation des lycéens : 3 000 professeurs annoncés et un nouvel appel à manifester le 13 octobre ↗</a>",
+    "<a href=\"https://www.ouest-france.fr/education/blocus-des-lycees-parcoursup-specialites-bac-pourquoi-la-reforme-blanquer-cristallise-les-critiques-aujourdhui-c594f754-c2da-11f1-97ef-829bf84bf59f\" target=\"_blank\" rel=\"noopener noreferrer\">Ouest-France — Blocus des lycées : Parcoursup, spécialités, bac… pourquoi la réforme Blanquer cristallise les critiques ↗</a>",
+    "<a href=\"https://www.la-croix.com/societe/en-direct-manifestation-mardi-13-octobre-blocus-lycees-mobilisation-lyceen-aujourdhui-20261013\" target=\"_blank\" rel=\"noopener noreferrer\">La Croix — Manifestation mardi 13 octobre : blocus des lycées, mobilisation lycéenne ↗</a>",
+    "<a href=\"https://www.boursorama.com/impots/actualites/en-direct-france-nouvelle-mobilisation-des-lyceens-et-etudiants-avec-le-soutien-de-greta-thunberg-c3c3fbe3cde99d337e81d7f085c666e6\" target=\"_blank\" rel=\"noopener noreferrer\">Boursorama — En direct : France, nouvelle mobilisation des lycéens et étudiants avec le soutien de Greta Thunberg ↗</a>"
   ],
   "meta": {
-    "title": "Corée du Nord : le missile hypersonique à IA change-t-i...",
-    "meta_description": "Corée du Nord : le missile hypersonique à IA change-t-il la donne ? Enjeux géopolitiques et scénarios prospectifs.",
-    "og_image_alt": "Tir de missile balistique nord-coréen en mer de l'Est",
+    "title": "Mobilisation lycéenne : le mouvement peut-il arracher u...",
+    "meta_description": "Mobilisation lycéenne : le mouvement peut-il arracher une refonte de Parcoursup  3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Manifestation de lycéens en France avec banderoles contre la réforme scolaire",
     "keywords": [
-      "international",
-      "Nord",
-      "tensions",
-      "géopolitique",
-      "alliances"
+      "Parcoursup",
+      "Mobilisation"
     ],
-    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-19.html\"\n  },\n  \"headline\": \"Corée du Nord : le missile hypersonique à IA change-t-i...\",\n  \"description\": \"Corée du Nord : le missile hypersonique à IA change-t-il la donne ? Enjeux géopolitiques et scénarios prospectifs.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-19.png\"\n  ],\n  \"datePublished\": \"2026-10-19T00:00:00\",\n  \"dateModified\": \"2026-10-19T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"international, Nord, tensions, géopolitique, alliances\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Géopolitique\"\n}",
-    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Corée du Nord : le missile hypersonique à IA change-t-il la donne ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-19.html\"\n    }\n  ]\n}"
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-20.html\"\n  },\n  \"headline\": \"Mobilisation lycéenne : le mouvement peut-il arracher u...\",\n  \"description\": \"Mobilisation lycéenne : le mouvement peut-il arracher une refonte de Parcoursup  3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-20.png\"\n  ],\n  \"datePublished\": \"2026-10-20T00:00:00\",\n  \"dateModified\": \"2026-10-20T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Parcoursup, Mobilisation\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Mobilisation lycéenne : le mouvement peut-il arracher une refonte de Parcoursup ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-20.html\"\n    }\n  ]\n}"
   }
 }

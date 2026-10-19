@@ -1,0 +1,330 @@
+{
+  "date": "2026-10-20",
+  "registre": "carte_blanche",
+  "sujet": {
+    "titre_propose": "Mobilisation lycéenne : le mouvement peut-il obtenir la refonte de Parcoursup et des rythmes scolaires ?",
+    "h1": "Mobilisation lycéenne : le mouvement peut-il arracher une refonte de Parcoursup ?",
+    "question_posee": "Après trois semaines de blocages (150+ lycées, 71 500 manifestants le 8 octobre) et l'annonce de 3 000 professeurs remplaçants, le gouvernement peut-il désamorcer la crise par des amendements budgétaires ou le mouvement va-t-il s'enliser dans la violence et l'usure ?",
+    "eyebrow": "Mardi, carte blanche",
+    "angle": "La mobilisation lycéenne teste la capacité du gouvernement à transformer une crise scolaire en réforme structurelle (Parcoursup, rythmes, rénovation) avant les vacances de Toussaint, ou la violence marginale et la lassitude des parents vont l'essouffler.",
+    "tags": [
+      "éducation",
+      "jeunesse",
+      "grève",
+      "réforme"
+    ],
+    "domain": "politique-institutions",
+    "image_keywords": "high school students protest france",
+    "complexite": 3,
+    "origine_prioritaire": "Mobilisation lycéenne : le mouvement peut-il obtenir la refonte de Parcoursup et des rythmes scolaires ?",
+    "origine_id": "carte-blanche-mobilisation-lyceenne-le-mouvement-peut-il",
+    "point_de_depart": {
+      "id": "carte-blanche-mobilisation-lyceenne-le-mouvement-peut-il",
+      "registre": "carte_blanche",
+      "titre": "Mobilisation lycéenne : le mouvement peut-il obtenir la refonte de Parcoursup et des rythmes scolaires ?",
+      "question": "Après trois semaines de blocages (150+ lycées, 71 500 manifestants le 8 octobre) et l'annonce de 3 000 professeurs remplaçants, le gouvernement peut-il désamorcer la crise par des amendements budgétaires ou le mouvement va-t-il s'enliser dans la violence et l'usure ?",
+      "contexte": "Depuis le 17 septembre 2026, les lycéens bloquent des établissements contre les emplois du temps à trous (réforme Blanquer 2019), la sélection Parcoursup et l'état des bâtiments. Le 8 octobre (acte IV), 71 500 manifestants dont 24 500 à Paris, 504 interpellations, 48 forces de l'ordre blessées. Le ministre Édouard Geffray a annoncé 3 000 remplaçants déployés dans 500 lycées « rouges/oranges » identifiés par un nouveau logiciel. Une plateforme de concertation est en ligne. L'intersyndicale appelle à un acte V le 13 octobre. Ipsos : 54 % des Français approuvent le mouvement, 79 % condamnent les violences.",
+      "rationnel": "La question : la mobilisation lycéenne peut-elle arracher des concessions structurelles (réforme de Parcoursup, refonte des rythmes, rénovation massive) ou va-t-elle s'essouffler face à la répression, à la lassitude des parents et à l'approche des vacances de Toussaint ? L'issue est ouverte car : 1) les revendications touchent au cœur du système (Parcoursup, spécialités) ; 2) le budget 2027 est le seul levier financier immédiat ; 3) la violence marginale décrédibilise le mouvement auprès de l'opinion. Enjeu pour un lecteur français : avenir du bac et de l'orientation, conditions d'apprentissage de leurs enfants, précédent pour la conflictualité sociale sous la prochaine mandature.",
+      "mots_cles": [
+        "mobilisation lycéenne",
+        "Parcoursup",
+        "réforme Blanquer",
+        "Édouard Geffray",
+        "acte V",
+        "13 octobre",
+        "remplaçants",
+        "pacte enseignant"
+      ],
+      "angle": null,
+      "a_verifier": "Suivi du nombre de lycées bloqués au 13 octobre ; contenu précis des amendements budgétaires promis par Lecornu ; position des organisations lycéennes (UNL, FIDL) sur la poursuite ou l'arrêt.",
+      "scenarios_brouillon": {
+        "favorable": "Gouvernement annonce une refonte de Parcoursup (transparence algorithmes, fin du classement) et un plan pluriannuel de rénovation thermique des lycées ; reprise des cours progressive.",
+        "stable": "Mesures palliatives (remplaçants, heures sup, concertation) sans réforme structurelle ; mouvement s'essouffle à la Toussaint ; frustrations reportées sur la présidentielle.",
+        "degrade": "Radicalisation (blocages durs, violences), fermetures administratives prolongées, année blanche partielle pour les terminales, crise de légitimité pour le ministre de l'Éducation."
+      },
+      "echeance": {
+        "date": "2026-10-13",
+        "raison": "Acte V national appelé par l'intersyndicale lycéenne et étudiante"
+      },
+      "sources_pistes": [
+        {
+          "titre": "Mobilisation des lycéens : 3 000 professeurs annoncés et un nouvel appel à manifester le 13 octobre",
+          "url": "https://www.france24.com/fr/france/20261008-mobilisation-lyc%C3%A9ens-3-000-professeurs-annonc%C3%A9s-nouvel-appel-manifestation-13-octobre"
+        },
+        {
+          "titre": "Blocus des lycées : Parcoursup, spécialités, bac… pourquoi la réforme Blanquer cristallise les critiques",
+          "url": "https://www.ouest-france.fr/education/blocus-des-lycees-parcoursup-specialites-bac-pourquoi-la-reforme-blanquer-cristallise-les-critiques-aujourdhui-c594f754-c2da-11f1-97ef-829bf84bf59f"
+        }
+      ],
+      "tag": "éducation & jeunesse",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-10-11 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Repéré en veille sur le registre Actu. française, remonté ici pour son urgence.",
+      "donnees_graphique": "[relevé du 2026-10-13] Lycées fermés selon le ministère de l'Éducation nationale (nombre d'établissements). 6 octobre 2026 (pic) = 800 (2026-10-06) ; 8 octobre 2026 (acte IV) = 224 (2026-10-08) ; 13 octobre 2026 (acte V) = 214 (2026-10-13). Sources : https://www.boursorama.com/impots/actualites/en-direct-france-nouvelle-mobilisation-des-lyceens-et-etudiants-avec-le-soutien-de-greta-thunberg-c3c3fbe3cde99d337e81d7f085c666e6 ; https://www.la-croix.com/societe/en-direct-manifestation-mardi-13-octobre-blocus-lycees-mobilisation-lyceen-aujourdhui-20261013",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (19/10) : Corée du Nord missile hypersonique à IA — aucun recoupement. Registre carte_blanche : aucune édition précédente du même registre dans les 2-3 dernières occurrences (dernier sujet carte_blanche non trouvé dans archives récentes, à vérifier)."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le 8 octobre 2026, l'acte IV de la mobilisation lycéenne a réuni environ 71 500 manifestants dont 24 500 à Paris, avec 504 interpellations et 48 blessés dans les forces de l'ordre.",
+      "chiffre": "71 500 manifestants (24 500 à Paris), 504 interpellations, 48 blessés",
+      "date_du_chiffre": "2026-10-08",
+      "sources": [
+        "france24-20261008"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le ministre de l'Éducation nationale Édouard Geffray a annoncé le déploiement de 3 000 professeurs remplaçants dans 500 lycées identifiés comme « rouges » ou « oranges » par un nouveau logiciel de repérage.",
+      "chiffre": "3 000 remplaçants, 500 lycées",
+      "date_du_chiffre": "2026-10-08",
+      "sources": [
+        "france24-20261008"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Selon un sondage Ipsos, 54 % des Français approuvent le mouvement lycéen tandis que 79 % condamnent les violences.",
+      "chiffre": "54 % d'approbation, 79 % de condamnation des violences",
+      "date_du_chiffre": "2026-10-08",
+      "sources": [
+        "france24-20261008"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'intersyndicale lycéenne et étudiante a appelé à un acte V le 13 octobre 2026, date à laquelle le nombre de lycées bloqués était de 214 selon les données du ministère.",
+      "chiffre": "214 lycées bloqués le 13 octobre",
+      "date_du_chiffre": "2026-10-13",
+      "sources": [
+        "la-croix-20261013",
+        "boursorama-20261013"
+      ],
+      "confiance": "moyenne"
+    },
+    {
+      "affirmation": "La réforme Blanquer de 2019 (spécialités au bac, emplois du temps à trous) est au cœur des critiques des lycéens, avec des établissements dégradés et des emplois du temps incomplets.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "ouest-france-20261008"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Édouard Geffray",
+      "role": "Ministre de l'Éducation nationale"
+    },
+    {
+      "nom": "Intersyndicale lycéenne et étudiante",
+      "role": "Côté mouvement : coordination des organisations lycéennes (UNL, FIDL) et étudiantes"
+    },
+    {
+      "nom": "Sébastien Lecornu",
+      "role": "Premier ministre, responsable du budget 2027"
+    },
+    {
+      "nom": "Parents d'élèves / opinion publique",
+      "role": "Appui ou désapprobation du mouvement selon les violences"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-09-17",
+      "evenement": "Début de la mobilisation lycéenne (acte I), blocages de lycées contre les emplois du temps à trous et Parcoursup"
+    },
+    {
+      "date": "2026-10-08",
+      "evenement": "Acte IV : 71 500 manifestants, 24 500 à Paris, 504 interpellations, 48 blessés dans les forces de l'ordre"
+    },
+    {
+      "date": "2026-10-08",
+      "evenement": "Annonce de 3 000 professeurs remplaçants et d'un nouveau logiciel de repérage des lycées prioritaires"
+    },
+    {
+      "date": "2026-10-13",
+      "evenement": "Acte V appelé par l'intersyndicale ; 214 lycées bloqués selon le ministère"
+    },
+    {
+      "date": "2026-10-13",
+      "evenement": "Approche des vacances de Toussaint (fin octobre) : échéance naturelle de l'essoufflement ou de la radicalisation"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Le gouvernement accepte une refonte de Parcoursup (transparence des algorithmes, fin du classement) et un plan pluriannuel de rénovation des lycées, financé par des amendements budgétaires 2027. Le mouvement se disperse après des concessions structurelles.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Des mesures palliatives (remplaçants, heures supplémentaires, plateforme de concertation) sont déployées sans réforme structurelle. Le mouvement s'essouffle à la Toussaint, les frustrations sont reportées sur la présidentielle 2027.",
+      "probabilite_suggeree": 55
+    },
+    "degrade": {
+      "resume": "Radicalisation des blocages, violences répétées, fermetures administratives prolongées. Une partie de l'année scolaire est perturbée pour les terminales, le ministre de l'Éducation perd en légitimité, et le gouvernement harde sa ligne.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Lycées bloqués (pic acte IV)",
+      "valeur": "800 lycées (6 octobre 2026)",
+      "tendance": "en baisse après le pic du 6 octobre"
+    },
+    {
+      "label": "Manifestants acte IV",
+      "valeur": "71 500 (24 500 à Paris)",
+      "tendance": "mobilisation massive mais violence marginale"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série historique longue et publique du nombre de lycées bloqués n'a été trouvée. Les données disponibles (800 le 6 octobre, 224 le 8 octobre, 214 le 13 octobre) ne forment qu'un très court échantillon de 3 points, insuffisant pour les 3 critères du graphique en escalier (source historique complète, ≥5 points, éclairage direct de la question).",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres comparables (nombre de lycées bloqués à trois dates) existent dans les sources vérifiées, permettant un graphique en barres de repli.",
+    "barres": {
+      "aria_label": "Nombre de lycées bloqués lors de la mobilisation de 2026",
+      "lead": "Évolution du nombre de lycées bloqués lors de la mobilisation lycéenne d'automne 2026.",
+      "caption": "Ministère de l'Éducation nationale, via La Croix et Boursorama, octobre 2026",
+      "unite": "lycées",
+      "valeurs": [
+        {
+          "label": "6 octobre (pic)",
+          "valeur": 800,
+          "affichage": "800 lycées",
+          "mis_en_avant": true
+        },
+        {
+          "label": "8 octobre (acte IV)",
+          "valeur": 224,
+          "affichage": "224 lycées"
+        },
+        {
+          "label": "13 octobre (acte V)",
+          "valeur": 214,
+          "affichage": "214 lycées"
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Parcoursup : comment fonctionne la sélection actuelle et pourquoi les lycéens la contestent",
+        "rattache_a": "fait sur la réforme Blanquer et les critiques de Parcoursup"
+      },
+      {
+        "focus": "Les 3 000 remplaçants et le logiciel de repérage : ce que le gouvernement a réellement annoncé",
+        "rattache_a": "fait sur l'annonce de Geffray"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le contenu précis des amendements budgétaires promis par le gouvernement pour la crise lycéenne n'est pas encore connu de façon vérifiée.",
+    "La position exacte de l'intersyndicale (UNL, FIDL) sur la poursuite ou l'arrêt du mouvement après l'acte V reste à confirmer."
+  ],
+  "a_ne_pas_affirmer": [
+    "Le gouvernement n'a pas encore annoncé de réforme structurelle de Parcoursup ou des rythmes scolaires.",
+    "L'acte V du 13 octobre a eu lieu mais son ampleur exacte et les éventuelles concessions gouvernementales ne sont pas encore documentées."
+  ],
+  "sources": [
+    {
+      "id": "france24-20261008",
+      "title": "Mobilisation des lycéens : 3 000 professeurs annoncés et un nouvel appel à manifester le 13 octobre",
+      "source": "France 24",
+      "url": "https://www.france24.com/fr/france/20261008-mobilisation-lyc%C3%A9ens-3-000-professeurs-annonc%C3%A9s-nouvel-appel-manifestation-13-octobre",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Annonce de 3 000 professeurs remplaçants, nouvel appel à la manifestation le 13 octobre, chiffres de l'acte IV (71 500 manifestants, 504 interpellations, 48 blessés), sondage Ipsos (54 % d'approbation, 79 % de condamnation des violences).",
+      "read_minutes": 3
+    },
+    {
+      "id": "ouest-france-20261008",
+      "title": "Blocus des lycées : Parcoursup, spécialités, bac… pourquoi la réforme Blanquer cristallise les critiques",
+      "source": "Ouest-France",
+      "url": "https://www.ouest-france.fr/education/blocus-des-lycees-parcoursup-specialites-bac-pourquoi-la-reforme-blanquer-cristallise-les-critiques-aujourdhui-c594f754-c2da-11f1-97ef-829bf84bf59f",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Explication des revendications lycéennes : emplois du temps à trous issus de la réforme Blanquer 2019, sélection Parcoursup, état des bâtiments, et contexte de la réforme des spécialités au bac.",
+      "read_minutes": 4
+    },
+    {
+      "id": "la-croix-20261013",
+      "title": "Manifestation mardi 13 octobre : blocus des lycées, mobilisation lycéenne",
+      "source": "La Croix",
+      "url": "https://www.la-croix.com/societe/en-direct-manifestation-mardi-13-octobre-blocus-lycees-mobilisation-lyceen-aujourdhui-20261013",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Acte V du 13 octobre : 214 lycées bloqués selon le ministère, bilan de la mobilisation, contexte des revendications.",
+      "read_minutes": 3
+    },
+    {
+      "id": "boursorama-20261013",
+      "title": "En direct : France, nouvelle mobilisation des lycéens et étudiants avec le soutien de Greta Thunberg",
+      "source": "Boursorama",
+      "url": "https://www.boursorama.com/impots/actualites/en-direct-france-nouvelle-mobilisation-des-lyceens-et-etudiants-avec-le-soutien-de-greta-thunberg-c3c3fbe3cde99d337e81d7f085c666e6",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Chiffres des lycées bloqués : 800 le 6 octobre (pic), 224 le 8 octobre, 214 le 13 octobre, avec mention du soutien de Greta Thunberg.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Mobilisation des lycéens : 3 000 professeurs annoncés et un nouvel appel à manifester le 13 octobre",
+      "source": "France 24",
+      "url": "https://www.france24.com/fr/france/20261008-mobilisation-lyc%C3%A9ens-3-000-professeurs-annonc%C3%A9s-nouvel-appel-manifestation-13-octobre",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Annonce de 3 000 professeurs remplaçants, appel à la manifestation du 13 octobre, chiffres de l'acte IV et sondage Ipsos.",
+      "read_minutes": 3
+    },
+    {
+      "title": "Blocus des lycées : Parcoursup, spécialités, bac… pourquoi la réforme Blanquer cristallise les critiques",
+      "source": "Ouest-France",
+      "url": "https://www.ouest-france.fr/education/blocus-des-lycees-parcoursup-specialites-bac-pourquoi-la-reforme-blanquer-cristallise-les-critiques-aujourdhui-c594f754-c2da-11f1-97ef-829bf84bf59f",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Analyse des revendications lycéennes et du contexte de la réforme Blanquer 2019.",
+      "read_minutes": 4
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-23",
+      "titre": "Carburants, menaces hybrides : Macron réunit les candidats",
+      "lien": "Même contexte politique d'automne 2026 : crise sociale et rassemblement des candidats à l'Élysée, avec un gouvernement Lecornu sous pression."
+    },
+    {
+      "date": "2026-09-13",
+      "titre": "Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?",
+      "lien": "Le budget 2027 est le seul levier financier immédiat pour répondre à la crise lycéenne ; même acteur (Lecornu) et même période."
+    },
+    {
+      "date": "2026-09-16",
+      "titre": "Électricité : la fin de l'ARENH va-t-elle faire flamber ta facture ?",
+      "lien": "Sujet éducatif/jeunesse indirect : l'ARENH touche les familles, et la crise lycéenne interroge aussi les conditions d'apprentissage et le financement du système éducatif."
+    }
+  ],
+  "recommandations_redaction": [
+    "Insister sur le fait que les 3 000 remplaçants et le logiciel de repérage sont des mesures palliatives, pas des réformes structurelles.",
+    "Préciser que l'acte V du 13 octobre a eu lieu mais que son ampleur exacte et les réponses gouvernementales ne sont pas encore documentées de façon vérifiée.",
+    "Lier la crise lycéenne au budget 2027 (Lecornu) comme seul levier financier immédiat, sans supposer d'amendements non annoncés.",
+    "Mentionner le soutien de Greta Thunberg comme élément de visibilité internationale, sans en faire un fait central."
+  ]
+}
