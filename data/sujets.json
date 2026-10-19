@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "a7e00541f07f356ad6c6334571d93dc3da913a1f6b383e9b0cffd39a3218c3e9"
+    "md_sha256": "8ca768b07db26a38aa3019ba1978585443401c47d1f7c7b263bc54897e46ce25"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -609,6 +609,56 @@
         {
           "type": "commentaire",
           "texte": "Registre scindé le 12 août (retour utilisateur) : la géopolitique dure (conflits, diplomatie, États) et l'économie mondiale (marchés, monnaies, dette, matières premières) partageaient jusque-là le même slot du lundi, ce qui tassait deux blocs très différents dans une seule file. L'économie mondiale a sa propre section dimanche (voir plus bas) — la case libérée vient de la fusion des deux jours culture (française + internationale) en un seul, samedi. **Règle de classement pour les sujets à cheval sur les deux** (ex. guerres commerciales, tarifs douaniers) : si l'enjeu central est un rapport de force entre États (qui menace qui, qui négocie quoi) → géopolitique/lundi ; si l'enjeu central est un indicateur chiffré ou un marché (prix, taux, dette, cours) → économie/dimanche. Cas tranchés le 12 août à titre d'exemple : \"Guerre commerciale USA-Chine\" reste ici (framing État contre État, guerre froide) ; \"Droits de douane de Trump\" part en économie (contenu réel = batailles judiciaires et chiffres de recettes tarifaires, pas un rapport de force diplomatique). Les vieilles éditions déjà publiées gardent leur tag d'origine (`geopolitique`), jamais retaggées rétroactivement — voir docs/tags.md."
+        },
+        {
+          "type": "sujet",
+          "id": "geopolitique-le-climat-va-t-il-redessiner-les-frontieres-du",
+          "titre": "Le climat va-t-il redessiner les frontières du monde ?",
+          "question": null,
+          "tag": "géopolitique & climat",
+          "statut": "a_traiter",
+          "validation": "valide",
+          "contexte": "Fonte de l'Arctique, nouvelles routes maritimes navigables, terres rendues inhabitables, déplacements de population à grande échelle : les frontières géopolitiques de 2050 seront-elles vraiment celles que nous connaissons aujourd'hui ?",
+          "rationnel": "La question : le changement climatique va-t-il redessiner les frontières du monde d'ici 2050, entre l'ouverture de nouvelles routes arctiques, les revendications de plateau continental et les migrations climatiques ? L'issue est ouverte car trois dynamiques convergent sans mécanisme de règlement contraignant : la fonte accélérée de l'Arctique rend les routes maritimes commercialement viables, les revendications de plateau continental s'intensifient (Russie, Canada, Danemark) avec des dépôts russes amendés jusqu'en mars 2026, et l'OTAN lance Arctic Sentry avec des forces en Finlande, tandis que les migrations climatiques pourraient concerner 44 à 216 millions de personnes selon les choix politiques actuels. Pour un lecteur français, l'enjeu est double : la France, membre de l'OTAN, est concernée par la sécurité européenne dans le Grand Nord, et les flux migratoires climatiques toucheront aussi l'Europe.",
+          "angle": null,
+          "a_verifier": "État des revendications arctiques à l'ONU (Commission des limites du plateau continental), trafic maritime réel sur les nouvelles routes arctiques, projections de zones inhabitables et déplacements associés (GIEC, sources désagrégées par région)",
+          "mots_cles": [
+            "Commission des limites du plateau continental ONU Arctique",
+            "Northern Sea Route trafic 2025 2026 transit",
+            "revendications Russie Canada Danemark Lomonosov Ridge",
+            "Arctic Sentry OTAN 2026",
+            "migrations climatiques 2050 projections GIEC Banque mondiale",
+            "zones inhabitables chaleur extrême seuil habitabilité",
+            "Groenland indépendance Danemark États-Unis sécurité",
+            "climate migration internal displacement 2050 projections"
+          ],
+          "scenarios": null,
+          "echeance": null,
+          "sources": [
+            {
+              "titre": "Main Results of NSR Transit Navigation in 2025 - CHNL",
+              "url": "https://chnl.no/news/main-results-of-nsr-transit-navigation-in-2025/"
+            },
+            {
+              "titre": "Arctic security - NATO Topic",
+              "url": "https://www.nato.int/en/what-we-do/deterrence-and-defence/arctic-security"
+            },
+            {
+              "titre": "The Continental Shelf in the Arctic Ocean - Cambridge / AJIL",
+              "url": "https://www.cambridge.org/core/journals/american-journal-of-international-law/article/continental-shelf-in-the-arctic-ocean/4C5B5917E396AB3CD135CDC14594E857"
+            },
+            {
+              "titre": "Evidence Summary on Climate Change and the Future of Human Mobility - IOM",
+              "url": "https://environmentalmigration.iom.int/sites/g/files/tmzbdl1411/files/documents/IOM%20Global%20Data%20Institute%20Thematic%20Brief%20%231%20-%20Evidence%20Summary%20on%20Climate%20Change%20and%20the%20Future%20of%20Human%20Mobility.pdf"
+            }
+          ],
+          "origine": null,
+          "note": "Terrain réel et déjà documenté (revendications concurrentes de plateau continental arctique entre Russie/Canada/Danemark auprès de l'ONU, ouverture progressive de la route maritime du Nord, tensions militaires croissantes dans le Grand Nord)",
+          "ajoute_le": null,
+          "publie_le": null,
+          "edition": null,
+          "enrichi_le": "2026-10-03",
+          "donnees": null
         },
         {
           "type": "sujet",
@@ -1417,56 +1467,6 @@
           ],
           "origine": null,
           "note": "Précédent déjà nommé comme tel par l'UE (crise Biélorussie-Pologne, 2021, qualifiée officiellement de guerre hybride par des responsables européens) — pas une hypothèse en l'air. **Lien explicite obligatoire à la rédaction vers l'édition déjà publiée sur la crise de Ceuta** (archives/2026-08-03.html) — celle-ci traitait la capacité de l'Espagne/la France à absorber la pression migratoire, pas la question d'un éventuel volontarisme derrière ; vérifier avant rédaction si un rôle actif marocain a été documenté ou seulement allégué dans cet épisode précis, sans l'affirmer sans source solide",
-          "ajoute_le": null,
-          "publie_le": null,
-          "edition": null,
-          "enrichi_le": "2026-10-03",
-          "donnees": null
-        },
-        {
-          "type": "sujet",
-          "id": "geopolitique-le-climat-va-t-il-redessiner-les-frontieres-du",
-          "titre": "Le climat va-t-il redessiner les frontières du monde ?",
-          "question": null,
-          "tag": "géopolitique & climat",
-          "statut": "a_traiter",
-          "validation": "valide",
-          "contexte": "Fonte de l'Arctique, nouvelles routes maritimes navigables, terres rendues inhabitables, déplacements de population à grande échelle : les frontières géopolitiques de 2050 seront-elles vraiment celles que nous connaissons aujourd'hui ?",
-          "rationnel": "La question : le changement climatique va-t-il redessiner les frontières du monde d'ici 2050, entre l'ouverture de nouvelles routes arctiques, les revendications de plateau continental et les migrations climatiques ? L'issue est ouverte car trois dynamiques convergent sans mécanisme de règlement contraignant : la fonte accélérée de l'Arctique rend les routes maritimes commercialement viables, les revendications de plateau continental s'intensifient (Russie, Canada, Danemark) avec des dépôts russes amendés jusqu'en mars 2026, et l'OTAN lance Arctic Sentry avec des forces en Finlande, tandis que les migrations climatiques pourraient concerner 44 à 216 millions de personnes selon les choix politiques actuels. Pour un lecteur français, l'enjeu est double : la France, membre de l'OTAN, est concernée par la sécurité européenne dans le Grand Nord, et les flux migratoires climatiques toucheront aussi l'Europe.",
-          "angle": null,
-          "a_verifier": "État des revendications arctiques à l'ONU (Commission des limites du plateau continental), trafic maritime réel sur les nouvelles routes arctiques, projections de zones inhabitables et déplacements associés (GIEC, sources désagrégées par région)",
-          "mots_cles": [
-            "Commission des limites du plateau continental ONU Arctique",
-            "Northern Sea Route trafic 2025 2026 transit",
-            "revendications Russie Canada Danemark Lomonosov Ridge",
-            "Arctic Sentry OTAN 2026",
-            "migrations climatiques 2050 projections GIEC Banque mondiale",
-            "zones inhabitables chaleur extrême seuil habitabilité",
-            "Groenland indépendance Danemark États-Unis sécurité",
-            "climate migration internal displacement 2050 projections"
-          ],
-          "scenarios": null,
-          "echeance": null,
-          "sources": [
-            {
-              "titre": "Main Results of NSR Transit Navigation in 2025 - CHNL",
-              "url": "https://chnl.no/news/main-results-of-nsr-transit-navigation-in-2025/"
-            },
-            {
-              "titre": "Arctic security - NATO Topic",
-              "url": "https://www.nato.int/en/what-we-do/deterrence-and-defence/arctic-security"
-            },
-            {
-              "titre": "The Continental Shelf in the Arctic Ocean - Cambridge / AJIL",
-              "url": "https://www.cambridge.org/core/journals/american-journal-of-international-law/article/continental-shelf-in-the-arctic-ocean/4C5B5917E396AB3CD135CDC14594E857"
-            },
-            {
-              "titre": "Evidence Summary on Climate Change and the Future of Human Mobility - IOM",
-              "url": "https://environmentalmigration.iom.int/sites/g/files/tmzbdl1411/files/documents/IOM%20Global%20Data%20Institute%20Thematic%20Brief%20%231%20-%20Evidence%20Summary%20on%20Climate%20Change%20and%20the%20Future%20of%20Human%20Mobility.pdf"
-            }
-          ],
-          "origine": null,
-          "note": "Terrain réel et déjà documenté (revendications concurrentes de plateau continental arctique entre Russie/Canada/Danemark auprès de l'ONU, ouverture progressive de la route maritime du Nord, tensions militaires croissantes dans le Grand Nord)",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
