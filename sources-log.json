@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-19",
+      "articles": [
+        {
+          "title": "North Korea's military partnership with Russia has consequences far beyond Ukraine",
+          "source": "Chatham House",
+          "url": "https://www.chathamhouse.org/2026/09/north-koreas-military-partnership-russia-has-consequences-far-beyond-ukraine",
+          "image": null,
+          "lang": "en",
+          "domain": "geopolitique",
+          "summary": "Le partenariat militaire entre la Russie et la Corée du Nord a des conséquences qui dépassent largement l'Ukraine : la Corée du Nord gagne des ressources économiques, des technologies militaires et une expérience du combat moderne.",
+          "read_minutes": 8
+        },
+        {
+          "title": "The Intent Behind North Korea's AI Missile Launch: Mocking Detection Networks",
+          "source": "EAI Global",
+          "url": "https://global.eai.or.kr/en/reports/990778",
+          "image": null,
+          "lang": "en",
+          "domain": "geopolitique",
+          "summary": "Analyse de la stratégie de communication nord-coréenne : en attaquant la crédibilité des systèmes de détection sud-coréens et japonais via la divergence des mesures, Pyongyang cherche à saper la coopération ROK-US-Japon plutôt qu'à démontrer une réelle capacité technique.",
+          "read_minutes": 5
+        }
+      ]
+    },
+    {
       "date": "2026-10-18",
       "articles": [
         {
