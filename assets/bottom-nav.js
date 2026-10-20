@@ -24,6 +24,13 @@
       if ((all[i].getAttribute("src") || "").indexOf("bottom-nav.js") !== -1) script = all[i];
     }
   }
+  // Application installée sur Android récent : la page s'étend sous la barre système. Sans « viewport-fit=cover »,
+  // la marge de sécurité du bas reste à zéro et la barre est dessinée à moitié sous la barre système (libellés coupés).
+  var vp = document.querySelector('meta[name="viewport"]');
+  if (vp && !/viewport-fit/.test(vp.getAttribute("content") || "")) {
+    vp.setAttribute("content", vp.getAttribute("content") + ", viewport-fit=cover");
+  }
+
   var src = script ? script.getAttribute("src") || "" : "";
   var root = src.replace(/assets\/bottom-nav\.js.*$/, "");
 

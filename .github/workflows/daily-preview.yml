@@ -97,7 +97,10 @@ jobs:
             # trouvée pour ce preview (voir fetch_preview_image()) — jamais
             # bloquant si absent, post-edition.yml retombera alors sur une
             # recherche Pexels normale.
-            if [ -f "_prototype-out/$TOMORROW.photo-credits.json" ]; then
+            # Une photo choisie à la main (« source »: « manuelle ») n'est jamais remplacée par la recherche Pexels.
+            if grep -q '"source": "manuelle"' "editorial-previews/$TOMORROW.photo-credits.json" 2>/dev/null; then
+              echo "ℹ️ Photo manuelle déjà enregistrée pour $TOMORROW — conservée"
+            elif [ -f "_prototype-out/$TOMORROW.photo-credits.json" ]; then
               cp "_prototype-out/$TOMORROW.photo-credits.json" "editorial-previews/$TOMORROW.photo-credits.json"
             fi
             echo "✅ Preview files copied"
