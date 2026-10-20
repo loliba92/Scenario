@@ -83,7 +83,7 @@ def main(argv=None) -> int:
         if i == fermeture_i:   # la devise est lue phrase par phrase, avec des silences (voir texte_narration.segments_fermeture)
             blocs = []
             for segment, pause in texte_narration.segments_fermeture(partie):
-                blocs.append(lire_texte(segment, i))
+                blocs.append(gp.rogner_pcm(lire_texte(segment, i)))   # sans le blanc de la synthèse : seule la pause voulue reste
                 blocs.append(b"\x00\x00" * int(gp.SAMPLE_RATE * pause))
             return b"".join(blocs)
         return lire_texte(partie, i)

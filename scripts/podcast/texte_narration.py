@@ -168,7 +168,7 @@ def avec_fermeture(parts: list[str], date_str: str | None = None) -> list[str]:
 
 
 _DEVISE = re.compile(r"(Rien n['’]est écrit à l['’]avance\.)\s+(La suite, c['’]est à vous de l['’]écrire\.)", re.I)
-PAUSE_AVANT_DEVISE, PAUSE_ENTRE_DEVISE, PAUSE_APRES_DEVISE = 1.0, 1.3, 1.1   # secondes de silence (retour du 18 octobre 2026)
+PAUSE_AVANT_DEVISE, PAUSE_ENTRE_DEVISE, PAUSE_APRES_DEVISE = 0.4, 0.5, 0.4   # secondes de silence (18 octobre : 1,0 / 1,3 / 1,1 ; 20 octobre : « trop de silence »)
 
 
 def segments_fermeture(partie: str) -> list[tuple[str, float]]:
