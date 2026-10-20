@@ -360,7 +360,7 @@ def generate_seo_head(brief_dict: Dict[str, Any]) -> str:
     head_parts = [
         "<head>",
         '<meta charset="UTF-8">',
-        '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+        '<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">',
         f"<title>{html.escape(title)}</title>",
         f'<link rel="canonical" href="{canonical}">',
         f'<link rel="alternate" hreflang="fr" href="{canonical}">',
