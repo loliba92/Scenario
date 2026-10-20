@@ -78,7 +78,8 @@ def _build_title(brief: Dict[str, Any]) -> str:
     1. `titre_propose` s'il tient en 59 caractères, suivi de « — Scénario » (70 au plus, limite d'affichage de Google) ;
     2. sinon le `h1` (le titre court de l'édition, 43 à 68 caractères en pratique), entier : avec la marque s'il tient
        en 59 caractères, sans la marque s'il tient en 70 (Google ajoute lui-même le nom du site) ;
-    3. en dernier recours seulement, `titre_propose` tronqué à la frontière de mot.
+    3. un h1 de 71 à 90 caractères est gardé entier, sans la marque ;
+    4. en dernier recours seulement, `titre_propose` tronqué à la frontière de mot.
     Constaté le 16 octobre 2026 (rapport Search Console, 6 pages) : les éditions du 13 au 16 octobre avaient un titre
     coupé en plein milieu (« …ou cette peur… », « …peut-il tenir sans… »), parce que `titre_propose` dépasse presque
     toujours 59 caractères alors que le h1 est déjà un titre court et complet. Avant, un titre proposé de 128
@@ -95,6 +96,8 @@ def _build_title(brief: Dict[str, Any]) -> str:
             return f"{h1} — {SITE_NAME}"
         if len(h1) <= 70:
             return h1
+        if len(h1) <= 90:   # h1 un peu long : gardé entier, sans marque (Google le raccourcit lui-même) plutôt que coupé par « … »
+            return h1       # (éditions des 18 et 20 octobre 2026 : h1 de 76 et 80 caractères, titre coupé, contrôle rouge)
     return f"{_truncate_at_word_boundary(titre or h1, 59)} — {SITE_NAME}"
 
 

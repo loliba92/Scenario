@@ -29,6 +29,11 @@ class TestTitre(unittest.TestCase):
         self.assertEqual(t, "Énergie sombre : l'IA du CEA cartographie 100 millions de galaxies")   # 66 caractères : sans la marque
         self.assertLessEqual(len(t), 70)
 
+    def test_h1_un_peu_long_garde_entier(self):
+        long = "Mobilisation lycéenne : le mouvement peut-il obtenir la refonte de Parcoursup et des rythmes scolaires ?"
+        h1 = "Mobilisation lycéenne : le mouvement peut-il arracher une refonte de Parcoursup ?"   # 80 caractères
+        self.assertEqual(g._build_title(brief(long, h1=h1)), h1)
+
     def test_h1_court_garde_la_marque(self):
         long = "L'IA va-t-elle détruire l'humanité, ou cette peur est-elle exagérée selon les chercheurs ?"
         t = g._build_title(brief(long, h1="IA : risque d'extinction ou peur exagérée ?"))
