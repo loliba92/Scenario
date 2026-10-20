@@ -179,6 +179,24 @@
   document.body.appendChild(nav);
   document.documentElement.classList.add("has-bottom-nav");
 
+  // Recalage sur la zone réellement visible : au défilement, la barre d'adresse ou la barre système apparaît et disparaît,
+  // et une barre « fixe » reste alors décalée vers le bas (libellés coupés quand on descend, retour du 20 octobre 2026).
+  // `d` = ce qui dépasse sous la zone visible ; on remonte la barre (et son menu) d'autant. Zoom au pincement : on ne touche à rien.
+  var vv = window.visualViewport;
+  function recaler() {
+    var d = vv && vv.scale <= 1.01 ? document.documentElement.clientHeight - (vv.height + vv.offsetTop) : 0;
+    var t = d > 0.5 ? "translateY(" + (-Math.round(d)) + "px)" : "";
+    nav.style.transform = t;
+    sheet.style.transform = t;
+  }
+  if (vv) {
+    vv.addEventListener("resize", recaler);
+    vv.addEventListener("scroll", recaler);
+    window.addEventListener("scroll", recaler, { passive: true });
+    window.addEventListener("resize", recaler);
+    recaler();
+  }
+
   var btn = document.getElementById("bottom-nav-more");
   btn.addEventListener("click", function () { setOpen(!sheet.classList.contains("is-open")); });
   backdrop.addEventListener("click", function () { setOpen(false); });
