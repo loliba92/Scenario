@@ -275,7 +275,7 @@ def render_page(domain, entries, style_block, masthead_nav, follow_footer, tail_
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>{title}</title>
 <link rel="canonical" href="{url}">
 <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">

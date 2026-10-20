@@ -1567,7 +1567,7 @@ def assemble_home_page(shell, date_str, edition_number, repo_root, today_entry=N
 <html lang="{lang}">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 {head_dynamic}
 {shell['head_static']}
 {shell['style_block']}
@@ -1667,7 +1667,7 @@ def assemble_index_html(shell, content, brief, date_str, photo=None):
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 {head_dynamic}
 {shell['head_static']}
 {shell['style_block']}

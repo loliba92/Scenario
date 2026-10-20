@@ -31,6 +31,16 @@
     vp.setAttribute("content", vp.getAttribute("content") + ", viewport-fit=cover");
   }
 
+  // Filet de sécurité : si le téléphone ne signale aucune marge en bas alors que l'application est installée
+  // (fenêtre étendue sous la barre système), on en réserve une nous-mêmes (retour du 20 octobre 2026, libellés coupés).
+  var sonde = document.createElement("div");
+  sonde.style.cssText = "position:fixed;left:0;bottom:0;visibility:hidden;pointer-events:none;padding-bottom:env(safe-area-inset-bottom,0px)";
+  document.documentElement.appendChild(sonde);
+  var marge = parseFloat(getComputedStyle(sonde).paddingBottom) || 0;
+  document.documentElement.removeChild(sonde);
+  var installee = (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) || window.navigator.standalone === true;
+  document.documentElement.style.setProperty("--bn-safe", marge > 0 ? marge + "px" : installee ? "20px" : "0px");
+
   var src = script ? script.getAttribute("src") || "" : "";
   var root = src.replace(/assets\/bottom-nav\.js.*$/, "");
 
@@ -95,10 +105,10 @@
     "#bottom-nav,#bottom-nav-sheet,#bottom-nav-backdrop{display:none}" +
     "@media (max-width:720px){" +
     "html.has-bottom-nav nav.topnav{display:none}" +
-    "html.has-bottom-nav body{padding-bottom:calc(68px + env(safe-area-inset-bottom,0px))}" +
+    "html.has-bottom-nav body{padding-bottom:calc(68px + var(--bn-safe,0px))}" +
     "#bottom-nav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:9000;" +
     "background:#1a212b;border-top:1px solid #2c3644;" +
-    "padding:0 4px env(safe-area-inset-bottom,0px);font-family:inherit}" +
+    "padding:0 4px var(--bn-safe,0px);font-family:inherit}" +
     "#bottom-nav a,#bottom-nav button{flex:1 1 0;min-width:0;height:62px;display:flex;flex-direction:column;" +
     "align-items:center;justify-content:center;gap:4px;position:relative;background:none;border:0;margin:0;" +
     "padding:0;color:#a9a89c;text-decoration:none;font:inherit;cursor:pointer;" +
@@ -112,7 +122,7 @@
     "#bottom-nav-backdrop{position:fixed;inset:0;z-index:8990;background:rgba(0,0,0,.45)}" +
     "#bottom-nav-backdrop.is-open{display:block}" +
     "#bottom-nav-sheet{position:fixed;left:12px;right:12px;z-index:8995;" +
-    "bottom:calc(72px + env(safe-area-inset-bottom,0px));background:#1a212b;border:1px solid #2c3644;" +
+    "bottom:calc(72px + var(--bn-safe,0px));background:#1a212b;border:1px solid #2c3644;" +
     "border-top:3px solid #cf9d4c;border-radius:12px;padding:6px;box-shadow:0 10px 30px rgba(0,0,0,.5);" +
     "font-family:inherit}" +
     "#bottom-nav-sheet.is-open{display:block}" +
@@ -123,7 +133,7 @@
     "#bottom-nav-sheet a.is-gold{color:#cf9d4c}" +
     "#bottom-nav-sheet a[aria-current='page']{color:#cf9d4c}" +
     // Le bandeau « Installer l'application » ne doit pas passer sous la barre.
-    "html.has-bottom-nav .pwa-install-banner{margin-bottom:calc(68px + env(safe-area-inset-bottom,0px))}" +
+    "html.has-bottom-nav .pwa-install-banner{margin-bottom:calc(68px + var(--bn-safe,0px))}" +
     "}" +
     "@media print{#bottom-nav,#bottom-nav-sheet,#bottom-nav-backdrop{display:none!important}}";
 
