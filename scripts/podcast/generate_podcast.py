@@ -437,7 +437,26 @@ VITESSE_ACCUEIL = 0.88   # l'accueil est lu seul, en peu de mots : la voix de sy
 
 
 VITESSE_VOIX = 0.95        # tout l'épisode : « très légèrement trop vite » (retour du 18 octobre 2026)
-VITESSE_FERMETURE = 0.88   # la fermeture et la devise : lues posément, avec plus de poids
+VITESSE_FERMETURE = 0.95   # la fermeture et la devise : même rythme que l'épisode (0,88 jugé « beaucoup trop lent », retour du 20 octobre 2026)
+
+
+def rogner_pcm(pcm: bytes, marge_s: float = 0.1, seuil: float = 0.006) -> bytes:
+    """Retire le blanc que la synthèse vocale laisse avant et après un morceau (PCM 16 bits mono), en gardant une marge
+    courte : sans cela ce blanc s'ajoute aux pauses voulues (fermeture trop lente, retour du 20 octobre 2026)."""
+    from array import array
+    a = array("h")
+    a.frombytes(pcm[:len(pcm) - len(pcm) % 2])
+    crete = max((abs(x) for x in a), default=0)
+    if not crete:
+        return pcm
+    lim = seuil * crete
+    i, j = 0, len(a)
+    while i < j and abs(a[i]) < lim:
+        i += 1
+    while j > i and abs(a[j - 1]) < lim:
+        j -= 1
+    marge = int(SAMPLE_RATE * marge_s)
+    return a[max(0, i - marge):min(len(a), j + marge)].tobytes()
 
 
 def ralentir_pcm(pcm: bytes, vitesse: float = VITESSE_ACCUEIL) -> bytes:

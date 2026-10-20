@@ -36,9 +36,24 @@ class PodcastTest(unittest.TestCase):
         self.assertEqual(tn.segments_fermeture("Pas de devise ici."), [("Pas de devise ici.", 0.0)])
 
     def test_vitesses(self):
-        self.assertLess(gp.VITESSE_FERMETURE, gp.VITESSE_VOIX)
+        self.assertLessEqual(gp.VITESSE_FERMETURE, gp.VITESSE_VOIX)
+        self.assertGreaterEqual(gp.VITESSE_FERMETURE, 0.93, "la fermeture ne doit pas traîner (retour du 20 octobre 2026)")
         self.assertLessEqual(gp.VITESSE_ACCUEIL, gp.VITESSE_VOIX)
         self.assertGreaterEqual(gp.VITESSE_VOIX, 0.9, "ralentissement léger : la voix ne doit pas traîner")
+
+    def test_pauses_fermeture_courtes(self):
+        import texte_narration as tn
+        self.assertLessEqual(tn.PAUSE_AVANT_DEVISE + tn.PAUSE_ENTRE_DEVISE + tn.PAUSE_APRES_DEVISE, 1.6)
+
+    def test_rogner_pcm(self):
+        sr = gp.SAMPLE_RATE
+        voix = array("h", [8000, -8000] * (sr // 2)).tobytes()              # 1 s de voix
+        blanc = b"\x00\x00" * sr                                           # 1 s de silence
+        sortie = gp.rogner_pcm(blanc + voix + blanc)
+        duree = len(sortie) / 2 / sr
+        self.assertAlmostEqual(duree, 1.0 + 2 * 0.1, delta=0.02)
+        self.assertEqual(gp.rogner_pcm(b""), b"")
+        self.assertEqual(gp.rogner_pcm(blanc), blanc)
 
     def test_nombres(self):
         self.assertEqual(gp.nombres("84 % et 31,4 % ; 120 tonnes ; 100 000 euros ; 30 50 20"),
