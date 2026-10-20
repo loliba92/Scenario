@@ -11,4 +11,15 @@
       <news:title>North Korea: Is the AI-powered hypersonic missile a game changer?</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-10-20.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-20T06:01:35+02:00</news:publication_date><news:title>Mobilisation lycéenne : le mouvement peut-il arracher une refonte de Parcoursup ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-10-20.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-20T06:01:35+02:00</news:publication_date><news:title>Mobilisation lycéenne : le mouvement peut-il arracher une refonte de Parcoursup ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-10-20.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-20T06:01:35+02:00</news:publication_date>
+      <news:title>High school protests: Can the movement force an overhaul of Parcoursup?</news:title>
+    </news:news>
+  </url>
+</urlset>
