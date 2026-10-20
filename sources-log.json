@@ -2,6 +2,31 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-20",
+      "articles": [
+        {
+          "title": "Mobilisation des lycéens : 3 000 professeurs annoncés et un nouvel appel à manifester le 13 octobre",
+          "source": "France 24",
+          "url": "https://www.france24.com/fr/france/20261008-mobilisation-lyc%C3%A9ens-3-000-professeurs-annonc%C3%A9s-nouvel-appel-manifestation-13-octobre",
+          "image": "https://s.france24.com/media/display/c30eaa82-c31d-11f1-af1b-c55799ef8309/w:1280/p:16x9/2026-10-08T132513Z-1427703183-RC21ZNA7VQ0C-RTRMADP-3-FRANCE-PROTEST.jpg",
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Annonce de 3 000 professeurs remplaçants, appel à la manifestation du 13 octobre, chiffres de l'acte IV et sondage Ipsos.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Blocus des lycées : Parcoursup, spécialités, bac… pourquoi la réforme Blanquer cristallise les critiques",
+          "source": "Ouest-France",
+          "url": "https://www.ouest-france.fr/education/blocus-des-lycees-parcoursup-specialites-bac-pourquoi-la-reforme-blanquer-cristallise-les-critiques-aujourdhui-c594f754-c2da-11f1-97ef-829bf84bf59f",
+          "image": null,
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Analyse des revendications lycéennes et du contexte de la réforme Blanquer 2019.",
+          "read_minutes": 4
+        }
+      ]
+    },
+    {
       "date": "2026-10-19",
       "articles": [
         {

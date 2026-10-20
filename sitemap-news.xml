@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
-<url><loc>https://lesscenarios.fr/archives/2026-10-18.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-18T06:01:30+02:00</news:publication_date><news:title>Zidane : cinq nouveaux dans la liste des Bleus, Tchouaméni et Kanté écartés</news:title></news:news></url>  <url>
-    <loc>https://lesscenarios.fr/en/archives/2026-10-18.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Scénario</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-10-18T06:01:30+02:00</news:publication_date>
-      <news:title>Zidane: five newcomers in the Bleus squad, Tchouaméni and Kanté dropped</news:title>
-    </news:news>
-  </url>
 <url><loc>https://lesscenarios.fr/archives/2026-10-19.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-19T06:01:31+02:00</news:publication_date><news:title>Corée du Nord : le missile hypersonique à IA change-t-il la donne ?</news:title></news:news></url>  <url>
     <loc>https://lesscenarios.fr/en/archives/2026-10-19.html</loc>
     <news:news>
@@ -22,4 +11,4 @@
       <news:title>North Korea: Is the AI-powered hypersonic missile a game changer?</news:title>
     </news:news>
   </url>
-</urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-10-20.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-20T06:01:35+02:00</news:publication_date><news:title>Mobilisation lycéenne : le mouvement peut-il arracher une refonte de Parcoursup ?</news:title></news:news></url></urlset>
