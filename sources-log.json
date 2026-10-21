@@ -2,6 +2,41 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-21",
+      "articles": [
+        {
+          "title": "Public Sénat : budget 2027, Lecornu propose un effort de 54 milliards d'euros",
+          "source": "Public Sénat",
+          "url": "https://www.publicsenat.fr/actualites/politique/budget-2027-sebastien-lecornu-propose-un-effort-de-54-milliards-deuros",
+          "image": "https://www.publicsenat.fr/app/uploads/2026/09/SIPA_01292906_000078-scaled.jpg",
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Le Premier ministre Sébastien Lecornu présente un effort de 54 milliards d'euros pour ramener le déficit à 5 % du PIB en 2027, avec un dépôt à l'Assemblée au plus tard le 6 octobre.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Public Sénat : 17 octobre, le mouvement s'organise (entre 250 et 1 000 actions)",
+          "source": "Public Sénat",
+          "url": "https://www.publicsenat.fr/actualites/societe/17-octobre-le-mouvement-sorganise-peu-a-peu-entre-250-et-1000-actions-prevues-dans-toute-la-france",
+          "image": "https://www.publicsenat.fr/app/uploads/2026/10/SIPA_01305636_000001-1200x630.jpg",
+          "lang": "fr",
+          "domain": "societe",
+          "summary": "La journée de mobilisation du 17 octobre sur les carburants compte entre 250 et 1 000 actions prévues dans toute la France, dans la continuité des blocages lycéens.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Noovo : le Kremlin n'exclut pas une reprise des négociations trilatérales avec l'Ukraine en octobre 2026",
+          "source": "Noovo",
+          "url": "https://www.noovo.info/nouvelles/international/article/le-kremlin-nexclut-pas-une-reprise-des-negociations-trilaterales-avec-lukraine-en-octobre-2026/",
+          "image": "https://www.noovo.info/resizer/v2/ZTBXMDNMN4DE6VP7E5XFMOPFAM.jpg?smart=true&auth=f10dff0f6f65cdff7fbf4b1e4e44f867b6f7daa0fd6c673b624a45c13e769808&width=1200&height=630",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Le Kremlin n'exclut pas une reprise des négociations trilatérales sur l'Ukraine en octobre 2026, après un gel des pourparlers lié à la guerre en Iran.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-10-20",
       "articles": [
         {

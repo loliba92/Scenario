@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 21.10.2026 — [France : six fragilités, un été 2027 sous tension](../archives/2026-10-21.html)
 - 20.10.2026 — [Mobilisation lycéenne : le mouvement peut-il arracher une refonte de Parcoursup ?](../archives/2026-10-20.html)
 - 19.10.2026 — [Corée du Nord : le missile hypersonique à IA change-t-il la donne ?](../archives/2026-10-19.html)
 - 18.10.2026 — [Zidane : cinq nouveaux dans la liste des Bleus, Tchouaméni et Kanté écartés](../archives/2026-10-18.html)
