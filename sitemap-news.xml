@@ -11,4 +11,15 @@
       <news:title>High school protests: Can the movement force an overhaul of Parcoursup?</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-10-21.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-21T06:01:32+02:00</news:publication_date><news:title>France : six fragilités, un été 2027 sous tension</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-10-21.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-21T06:01:32+02:00</news:publication_date><news:title>France : six fragilités, un été 2027 sous tension</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-10-21.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-21T06:01:32+02:00</news:publication_date>
+      <news:title>France: six vulnerabilities, a high-tension summer 2027</news:title>
+    </news:news>
+  </url>
+</urlset>
