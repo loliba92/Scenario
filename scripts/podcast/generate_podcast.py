@@ -459,6 +459,33 @@ def rogner_pcm(pcm: bytes, marge_s: float = 0.1, seuil: float = 0.006) -> bytes:
     return a[max(0, i - marge):min(len(a), j + marge)].tobytes()
 
 
+RYTHME_FERMETURE = 2.6    # mots par seconde visés pour chaque phrase de la fermeture ; le corps de l'épisode est lu à environ 3,4
+ACCELERATION_MAX = 1.6    # au-delà, la voix devient artificielle : on préfère une phrase un peu lente à une voix déformée
+
+
+def facteur_rythme(mots: int, pcm: bytes, cible: float = RYTHME_FERMETURE, vitesse_ensuite: float = VITESSE_FERMETURE) -> float:
+    """Accélération à appliquer à une phrase isolée (PCM déjà rogné) pour qu'elle soit dite au rythme visé.
+
+    Mesuré sur l'épisode du 21 octobre 2026 : lues une par une, les phrases de la devise sortaient de la synthèse à 1,1 à
+    2,2 mots par seconde (le corps de l'épisode : 3,4), d'où « la conclusion est toujours un peu lente » malgré des
+    silences courts. `vitesse_ensuite` : le ralentissement appliqué ensuite à toute la partie, dont il faut tenir compte.
+    Renvoie 1,0 (aucun changement) si la phrase est déjà assez rapide."""
+    duree = len(pcm) / 2 / SAMPLE_RATE - 0.2   # sans les 2 × 0,1 s de marge laissées par rogner_pcm
+    if mots <= 0 or duree <= 0.3:
+        return 1.0
+    rythme = mots / duree * vitesse_ensuite
+    return min(max(cible / rythme, 1.0), ACCELERATION_MAX)
+
+
+def accelerer_pcm(pcm: bytes, facteur: float) -> bytes:
+    """Accélère la voix (PCM 16 bits mono) sans changer sa hauteur. Sans ffmpeg, ou facteur ≤ 1, la voix est rendue telle quelle."""
+    if not pcm or facteur <= 1.0 or not shutil.which("ffmpeg"):
+        return pcm
+    cmd = ["ffmpeg", "-loglevel", "error", "-f", "s16le", "-ar", str(SAMPLE_RATE), "-ac", "1", "-i", "pipe:0",
+           "-af", f"atempo={facteur:.3f}", "-f", "s16le", "-ar", str(SAMPLE_RATE), "-ac", "1", "pipe:1"]
+    return subprocess.run(cmd, input=pcm, capture_output=True, check=True).stdout
+
+
 def ralentir_pcm(pcm: bytes, vitesse: float = VITESSE_ACCUEIL) -> bytes:
     """Ralentit la voix (PCM 16 bits mono) sans changer sa hauteur ; 0,88 = environ 12 % plus lent.
 

@@ -41,6 +41,30 @@ class PodcastTest(unittest.TestCase):
         self.assertLessEqual(gp.VITESSE_ACCUEIL, gp.VITESSE_VOIX)
         self.assertGreaterEqual(gp.VITESSE_VOIX, 0.9, "ralentissement léger : la voix ne doit pas traîner")
 
+    def test_rythme_fermeture(self):
+        sr = gp.SAMPLE_RATE
+        def pcm(secondes):   # voix factice : secondes de parole + 0,2 s de marge, comme après rogner_pcm
+            return array("h", [3000, -3000] * int(sr * (secondes + 0.2) / 2)).tobytes()
+        # 5 mots en 2,9 s (mesuré le 21 octobre) : trop lent, accélération plafonnée entre 1 et le maximum
+        f = gp.facteur_rythme(5, pcm(2.9))
+        self.assertGreater(f, 1.3)
+        self.assertLessEqual(f, gp.ACCELERATION_MAX)
+        # 11 mots en 9,9 s : bien plus lent encore, donc plafonné
+        self.assertEqual(gp.facteur_rythme(11, pcm(9.9)), gp.ACCELERATION_MAX)
+        # déjà assez rapide : aucun changement ; cas limites sans erreur
+        self.assertEqual(gp.facteur_rythme(10, pcm(2.0)), 1.0)
+        self.assertEqual(gp.facteur_rythme(0, pcm(2.0)), 1.0)
+        self.assertEqual(gp.facteur_rythme(5, b""), 1.0)
+
+    def test_accelerer_pcm(self):
+        sr = gp.SAMPLE_RATE
+        voix = array("h", [3000, -3000] * sr).tobytes()   # 2 s
+        self.assertEqual(gp.accelerer_pcm(voix, 1.0), voix)
+        self.assertEqual(gp.accelerer_pcm(b"", 1.5), b"")
+        if gp.shutil.which("ffmpeg"):
+            plus_vite = gp.accelerer_pcm(voix, 1.5)
+            self.assertAlmostEqual(len(plus_vite) / 2 / sr, 2 / 1.5, delta=0.15)
+
     def test_pauses_fermeture_courtes(self):
         import texte_narration as tn
         self.assertLessEqual(tn.PAUSE_AVANT_DEVISE + tn.PAUSE_ENTRE_DEVISE + tn.PAUSE_APRES_DEVISE, 1.6)
