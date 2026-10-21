@@ -1,0 +1,352 @@
+{
+  "date": "2026-10-22",
+  "registre": "economie",
+  "sujet": {
+    "titre_propose": "Inégalités : les écarts sociaux vont-ils exploser ?",
+    "h1": "Inégalités : les écarts sociaux vont-ils exploser ?",
+    "question_posee": "En France, le taux de pauvreté monétaire a atteint 15,4 % en 2024 et les 10 % les plus riches détiennent 60 % du patrimoine net : les écarts sociaux vont-ils s'aggraver jusqu'à l'élection présidentielle de 2027, ou un rééquilibrage fiscal est-il possible ?",
+    "eyebrow": "Jeudi, économie & finance",
+    "angle": "La France affiche un taux de pauvreté historiquement élevé depuis 1996 et une concentration des patrimoines qui s'accélère, tandis que le débat budgétaire de 2026 a rejeté la taxe Zucman malgré une opinion publique largement favorable. Entre la campagne de Gabriel Zucman pour une taxation des ultra-riches et la contre-offensive du Medef, l'issue de la concentration des richesses reste ouverte avant 2027.",
+    "tags": [
+      "inegalites",
+      "patrimoine",
+      "fiscalite",
+      "pauvrete",
+      "France"
+    ],
+    "domain": "economie",
+    "image_keywords": "wealth inequality france, social gap, financial divide",
+    "complexite": 3,
+    "origine_prioritaire": "Inégalités : les écarts sociaux vont-ils exploser ?",
+    "origine_id": "economie-inegalites-les-ecarts-sociaux-vont-ils-exploser",
+    "point_de_depart": {
+      "id": "economie-inegalites-les-ecarts-sociaux-vont-ils-exploser",
+      "registre": "economie",
+      "titre": "Inégalités : les écarts sociaux vont-ils exploser ?",
+      "question": "Inégalités : les écarts sociaux vont-ils exploser ?",
+      "contexte": "En France, le taux de pauvreté monétaire s'établit à 15,4 % en 2024, soit 9,8 millions de personnes vivant sous le seuil de 1 337 euros par mois, un niveau historiquement haut depuis 1996 (Insee, 2024). Parallèlement, la concentration des patrimoines s'accélère : les 10 % les plus fortunés détiennent 60 % du patrimoine net en 2024, et le 1 % le plus riche en possède 28 %, contre 20 % en 1994 (Observatoire des inégalités / WID, juin 2026). Le World Inequality Report 2026 confirme qu'au niveau mondial, le top 0,001 % (moins de 60 000 adultes) possède trois fois plus de richesses que la moitié la plus pauvre de l'humanité. En France, le débat budgétaire de 2026 a été marqué par le rejet de la taxe Zucman (impôt plancher de 2 % sur les patrimoines > 100 M€) à l'Assemblée nationale le 31 octobre 2025, malgré 86 % d'opinion favorable dans l'opinion (Oxfam, janvier 2026). Le gouvernement a adopté une taxe sur les holdings jugée insuffisante par la gauche, tandis que le Medef a mené une contre-offensive inédite contre toute hausse de la fiscalité des ultra-riches.",
+      "rationnel": "La question : Les écarts sociaux vont-ils exploser d'ici l'élection présidentielle de 2027 ? L'issue reste ouverte car, d'une part, le fort soutien populaire (86 %) et la campagne de Gabriel Zucman pour une taxation accrue des ultra‑riches pourraient entraîner un rééquilibrage fiscal limitant la concentration des patrimoines (scénario favorable), tandis que, d'autre part, le rejet de la taxe Zucman, la taxe sur les holdings jugée insuffisante et l'offensive du Medef contre toute hausse de la fiscalité des très hauts patrimoines risquent de maintenir ou d'accroître les écarts (scénario dégradé), et une poursuite des mesures actuelles pourrait aboutir à une situation stable. Pour un lecteur français, l'enjeu est de déterminer si la dynamique de concentration des richesses va se poursuivre ou être freinée par un rééquilibrage fiscal, et d'évaluer les conséquences sur le pouvoir d'achat et la cohésion sociale.",
+      "mots_cles": [
+        "inégalités patrimoine France 2026",
+        "taxe Zucman",
+        "World Inequality Report 2026",
+        "Oxfam rapport inégalités 2026",
+        "taux pauvreté France Insee 2024",
+        "ISF IFI réforme fiscale",
+        "ultra-riches fiscalité",
+        "Gabriel Zucman impôt plancher"
+      ],
+      "angle": null,
+      "a_verifier": "Vérifier le chiffrage exact de la taxe sur les holdings finalement adoptée dans le PLF 2026, et le montant précis des recettes attendues. Confirmer le taux d'imposition comparé milliardaires vs. Français moyen cité par Boris Vallaud (30 % vs 50 %).",
+      "scenarios_brouillon": null,
+      "echeance": {
+        "date": "2027-05-01",
+        "raison": "Élection présidentielle française de 2027 : Gabriel Zucman a fait de la taxation des ultra-riches un enjeu central de la campagne, ce qui pourrait trancher la question de l'explosion des inégalités par le haut."
+      },
+      "sources_pistes": [
+        {
+          "titre": "World Inequality Report 2026 - Executive Summary",
+          "url": "https://wir2026.wid.world/insight/executive-summary/"
+        },
+        {
+          "titre": "Rapport Oxfam France 2026 : Résister au règne des plus riches",
+          "url": "https://www.oxfamfrance.org/rapports/rapport-sur-les-inegalites-2026-resister-au-regne-des-plus-riches/"
+        },
+        {
+          "titre": "Insee - Niveau de vie et pauvreté en 2024",
+          "url": "https://www.insee.fr/fr/statistiques/9019316"
+        },
+        {
+          "titre": "Budget 2026 : l'Assemblée rejette la taxe Zucman - TF1 Info",
+          "url": "https://www.tf1info.fr/politique/budget-2026-l-assemblee-nationale-rejette-la-taxe-zucman-sur-les-hauts-patrimoines-proposee-par-la-gauche-2403984.html"
+        }
+      ],
+      "tag": "économie & société",
+      "origine": null,
+      "note_editoriale": null,
+      "donnees_graphique": null,
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (21/10) : sujet sur les six fragilités de la France, angles budgétaires et sociaux, sans recoupement direct sur la concentration des patrimoines et la fiscalité des ultra-riches. Même registre économie : éditions récentes du jeudi (24/09 choc pétrolier BCE/Fed, 15/10 métaux rares Chine, 08/10 dette mondiale FMI) traitent d'autres mécanismes — pas de chevauchement avec la fiscalité des inégalités patrimoniales."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le taux de pauvreté monétaire en France atteint 15,4 % en 2024, soit 9,8 millions de personnes sous le seuil de 1 337 euros par mois, un niveau historiquement élevé depuis 1996.",
+      "chiffre": "15,4 %",
+      "date_du_chiffre": "2024-12-31",
+      "sources": [
+        "insee-pauvrete-2024"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les 10 % les plus riches détiennent 60 % du patrimoine net en France en 2024, et le 1 % le plus riche en possède 28 %, contre 20 % en 1994.",
+      "chiffre": "60 % / 28 %",
+      "date_du_chiffre": "2024-12-31",
+      "sources": [
+        "wid-2026",
+        "oxfam-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le World Inequality Report 2026 indique que le top 0,001 % (moins de 60 000 adultes) possède trois fois plus de richesses que la moitié la plus pauvre de l'humanité au niveau mondial.",
+      "chiffre": "3x",
+      "date_du_chiffre": "2026-06-30",
+      "sources": [
+        "wid-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La taxe Zucman, un impôt plancher de 2 % sur les patrimoines supérieurs à 100 millions d'euros, a été rejetée par l'Assemblée nationale le 31 octobre 2025.",
+      "chiffre": "2 %",
+      "date_du_chiffre": "2025-10-31",
+      "sources": [
+        "tf1-taxe-zucman"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "86 % des Français sont favorables à une taxation accrue des ultra-riches, selon un sondage Oxfam de janvier 2026.",
+      "chiffre": "86 %",
+      "date_du_chiffre": "2026-01-31",
+      "sources": [
+        "oxfam-2026"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Gabriel Zucman",
+      "role": "Économiste, propose la taxe Zucman (impôt plancher de 2 % sur les patrimoines > 100 M€) et fait de la taxation des ultra-riches un enjeu central de la campagne présidentielle 2027"
+    },
+    {
+      "nom": "Medef",
+      "role": "Principal syndicat patronal français, mène une contre-offensive contre toute hausse de la fiscalité des ultra-riches"
+    },
+    {
+      "nom": "Gouvernement français (Lecornu)",
+      "role": "A adopté une taxe sur les holdings jugée insuffisante par la gauche, après le rejet de la taxe Zucman à l'Assemblée"
+    },
+    {
+      "nom": "Observatoire des inégalités / WID",
+      "role": "Source des données sur la concentration des patrimoines en France (10 % = 60 %, 1 % = 28 %)"
+    },
+    {
+      "nom": "Oxfam France",
+      "role": "Publie le rapport sur les inégalités 2026 et le sondage à 86 % de favorables à une taxation des ultra-riches"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2024-12-31",
+      "evenement": "Publication des données Insee : taux de pauvreté monétaire à 15,4 % en 2024, niveau historiquement élevé depuis 1996"
+    },
+    {
+      "date": "2025-10-31",
+      "evenement": "Rejet de la taxe Zucman (impôt plancher 2 % sur les patrimoines > 100 M€) à l'Assemblée nationale"
+    },
+    {
+      "date": "2026-01-31",
+      "evenement": "Sondage Oxfam : 86 % des Français favorables à une taxation accrue des ultra-riches"
+    },
+    {
+      "date": "2026-06-30",
+      "evenement": "Publication du World Inequality Report 2026 : le top 0,001 % possède 3 fois plus de richesses que la moitié la plus pauvre de l'humanité"
+    },
+    {
+      "date": "2027-05-01",
+      "evenement": "Élection présidentielle française : enjeu central de la taxation des ultra-riches, avec Gabriel Zucman comme figure de la campagne"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "La pression populaire (86 % favorables) et la campagne de Gabriel Zucman aboutissent à l'adoption d'une fiscalité plus progressiste avant 2027, réduisant la concentration des patrimoines et freinant la hausse des écarts sociaux.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Le gouvernement maintient les mesures actuelles (taxe sur les holdings jugée insuffisante), sans nouvelle hausse fiscale majeure ni réduction notable des inégalités : les écarts sociaux restent à un niveau élevé mais stable.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "Le rejet de la taxe Zucman, la contre-offensive du Medef et l'absence de rééquilibrage fiscal conduisent à une poursuite de la concentration des patrimoines, avec un taux de pauvreté qui reste élevé ou augmente, et des écarts sociaux qui s'aggravent avant 2027.",
+      "probabilite_suggeree": 30
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Taux de pauvreté monétaire en France",
+      "valeur": "15,4 %",
+      "tendance": "en hausse depuis 1996 (niveau historiquement élevé)"
+    },
+    {
+      "label": "Part du patrimoine net détenu par les 10 % les plus riches",
+      "valeur": "60 %",
+      "tendance": "en hausse (contre 20 % pour le 1 % en 1994)"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série historique longue et publique vérifiée n'a été trouvée pour le taux de pauvreté monétaire ou la part de patrimoine des 10 % les plus riches sur une période suffisante (au moins 5 points réels sur une période longue) lors de la recherche web. Les données Insee et WID disponibles couvrent des instantanés (2024, 1994) sans série continue accessible publiquement.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres réels et comparables ont été vérifiés lors de la recherche : taux de pauvreté 15,4 % (Insee 2024), part du patrimoine des 10 % les plus riches 60 % (WID 2024), et part du 1 % le plus riche 28 % (WID 2024). Ces trois mesures sont de même nature (pourcentages de concentration/pauvreté) et permettent une comparaison visuelle.",
+    "barres": {
+      "aria_label": "Graphique comparatif des inégalités en France : taux de pauvreté 15,4 %, part du patrimoine des 10 % les plus riches 60 %, part du 1 % le plus riche 28 %",
+      "lead": "Trois indicateurs clés des écarts sociaux en France en 2024 : pauvreté monétaire et concentration des patrimoines.",
+      "caption": "Sources : Insee (taux de pauvreté 2024), World Inequality Database / Observatoire des inégalités (parts de patrimoine 2024)",
+      "unite": "%",
+      "valeurs": [
+        {
+          "label": "Taux de pauvreté monétaire",
+          "valeur": 15.4,
+          "affichage": "15,4 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "10 % les plus riches (patrimoine net)",
+          "valeur": 60.0,
+          "affichage": "60 %",
+          "mis_en_avant": true
+        },
+        {
+          "label": "1 % le plus riche (patrimoine net)",
+          "valeur": 28.0,
+          "affichage": "28 %",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Comment se mesure la pauvreté monétaire en France ?",
+        "rattache_a": "fait Insee : taux de pauvreté 15,4 % en 2024"
+      },
+      {
+        "focus": "Qui sont les ultra-riches et comment leurs patrimoines sont-ils taxés aujourd'hui ?",
+        "rattache_a": "fait taxe Zucman rejetée et taxe sur les holdings"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le chiffrage exact de la taxe sur les holdings adoptée dans le PLF 2026 et le montant précis des recettes attendues n'ont pas été confirmés par une source unique fiable lors de la recherche.",
+    "Le taux d'imposition comparé milliardaires vs Français moyen (30 % vs 50 %) cité par Boris Vallaud n'a pas été vérifié indépendamment."
+  ],
+  "a_ne_pas_affirmer": [
+    "La taxe sur les holdings adoptée en 2026 génère des recettes précises et suffisantes pour réduire les inégalités — le montant exact n'a pas été vérifié.",
+    "Le scénario favorable (adoption d'une fiscalité plus progressiste) est certain avant 2027 — les probabilités restent hypothétiques."
+  ],
+  "sources": [
+    {
+      "id": "insee-pauvrete-2024",
+      "title": "Niveau de vie et pauvreté en 2024",
+      "source": "Insee",
+      "url": "https://www.insee.fr/fr/statistiques/9019316",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie",
+      "summary": "Publication des données Insee sur le niveau de vie et la pauvreté en 2024 : taux de pauvreté monétaire à 15,4 %, soit 9,8 millions de personnes sous le seuil de 1 337 euros par mois, un niveau historiquement élevé depuis 1996.",
+      "read_minutes": 5
+    },
+    {
+      "id": "wid-2026",
+      "title": "World Inequality Report 2026 - Executive Summary",
+      "source": "World Inequality Database",
+      "url": "https://wir2026.wid.world/insight/executive-summary/",
+      "image": null,
+      "lang": "en",
+      "domain": "economie",
+      "summary": "Rapport sur les inégalités mondiales 2026 : le top 0,001 % (moins de 60 000 adultes) possède trois fois plus de richesses que la moitié la plus pauvre de l'humanité. En France, les 10 % les plus riches détiennent 60 % du patrimoine net en 2024, et le 1 % le plus riche en possède 28 %.",
+      "read_minutes": 8
+    },
+    {
+      "id": "oxfam-2026",
+      "title": "Rapport Oxfam France 2026 : Résister au règne des plus riches",
+      "source": "Oxfam France",
+      "url": "https://www.oxfamfrance.org/rapports/rapport-sur-les-inegalites-2026-resister-au-regne-des-plus-riches/",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie",
+      "summary": "Rapport Oxfam sur les inégalités 2026 : concentration des patrimoines en France (10 % = 60 %, 1 % = 28 %), et sondage montrant 86 % des Français favorables à une taxation accrue des ultra-riches.",
+      "read_minutes": 6
+    },
+    {
+      "id": "tf1-taxe-zucman",
+      "title": "Budget 2026 : l'Assemblée rejette la taxe Zucman",
+      "source": "TF1 Info",
+      "url": "https://www.tf1info.fr/politique/budget-2026-l-assemblee-nationale-rejette-la-taxe-zucman-sur-les-hauts-patrimoines-proposee-par-la-gauche-2403984.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie",
+      "summary": "L'Assemblée nationale a rejeté le 31 octobre 2025 la taxe Zucman, un impôt plancher de 2 % sur les patrimoines supérieurs à 100 millions d'euros, proposée par la gauche.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "World Inequality Report 2026 - Executive Summary",
+      "source": "World Inequality Database",
+      "url": "https://wir2026.wid.world/insight/executive-summary/",
+      "image": null,
+      "lang": "en",
+      "domain": "economie",
+      "summary": "Rapport annuel sur les inégalités mondiales : concentration des richesses, évolution des parts patrimoniales par groupe de population, et comparaisons internationales.",
+      "read_minutes": 8
+    },
+    {
+      "title": "Rapport Oxfam France 2026 : Résister au règne des plus riches",
+      "source": "Oxfam France",
+      "url": "https://www.oxfamfrance.org/rapports/rapport-sur-les-inegalites-2026-resister-au-regne-des-plus-riches/",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie",
+      "summary": "Analyse des inégalités en France et dans le monde, avec des données sur la concentration des patrimoines et les inégalités de revenus, ainsi qu'un sondage d'opinion sur la fiscalité des ultra-riches.",
+      "read_minutes": 6
+    },
+    {
+      "title": "Insee - Niveau de vie et pauvreté en 2024",
+      "source": "Insee",
+      "url": "https://www.insee.fr/fr/statistiques/9019316",
+      "image": null,
+      "lang": "fr",
+      "domain": "economie",
+      "summary": "Publication statistique officielle sur le niveau de vie et la pauvreté en France en 2024, avec le taux de pauvreté monétaire et l'évolution depuis 1996.",
+      "read_minutes": 5
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-09-24",
+      "titre": "Économie mondiale : BCE et Fed face au choc pétrolier",
+      "lien": "Même registre économie & finance (jeudi) : deux éditions sur des enjeux macroéconomiques majeurs avec des acteurs institutionnels (banques centrales) et des conséquences sociales directes."
+    },
+    {
+      "date": "2026-08-27",
+      "titre": "Dette américaine : le mur des 40 000 milliards",
+      "lien": "Concentration des inégalités financières à l'échelle mondiale : la dette publique américaine et la fiscalité des ultra-riches sont deux facettes de la même question sur la répartition des richesses et la capacité des États à financer les politiques sociales."
+    },
+    {
+      "date": "2026-07-28",
+      "titre": "Milliardaires : la richesse du monde peut-elle encore se partager ?",
+      "lien": "Sujet directement lié : les milliardaires et la concentration des richesses mondiales, avec les mêmes acteurs (ultra-riches, Oxfam, World Inequality Report) et la même question sur la possibilité d'un rééquilibrage fiscal."
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser la différence entre pauvreté monétaire (Insee, seuil de 1 337 euros/mois) et pauvreté réelle (incluant les prestations sociales) pour aider le lecteur à comprendre le chiffre de 15,4 %.",
+    "Expliquer le mécanisme de la taxe Zucman (impôt plancher de 2 % sur les patrimoines > 100 M€) et pourquoi elle a été rejetée, en contrastant avec la taxe sur les holdings adoptée.",
+    "Mettre en perspective la concentration des patrimoines en France (10 % = 60 %, 1 % = 28 %) avec les données mondiales du World Inequality Report 2026 (top 0,001 % = 3x la moitié la plus pauvre).",
+    "Souligner le rôle de Gabriel Zucman comme figure centrale de la campagne sur la taxation des ultra-riches pour l'élection présidentielle 2027.",
+    "Lien avec l'édition du 28/07/2026 sur les milliardaires : rappeler que la concentration des richesses mondiales est un sujet récurrent et que la France n'est pas isolée sur cette question."
+  ]
+}

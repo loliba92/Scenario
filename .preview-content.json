@@ -1,178 +1,180 @@
 {
-  "h1": "France : six fragilités, un été 2027 sous tension",
-  "question_text": "Budget sous tension, colères sociales, chocs extérieurs et retard technologique : la France peut-elle éviter le décrochage d'ici l'été 2027, ou les six fragilités vont-elles s'entretenir ?",
-  "section_title": "La France face au risque d'engrenage d'ici l'été 2027",
+  "h1": "Inégalités : les écarts sociaux vont-ils exploser ?",
+  "question_text": "En France, le taux de pauvreté monétaire a atteint 15,4 % en 2024 et les 10 % les plus riches détiennent 60 % du patrimoine net : les écarts sociaux vont-ils s'aggraver jusqu'à l'élection présidentielle de 2027, ou un rééquilibrage fiscal est-il possible ?",
+  "section_title": "Trois trajectoires pour la fracture sociale française d'ici 2027",
   "dek": [
-    "Pour comprendre la situation financière de la France, il faut d'abord distinguer deux notions souvent confondues par le grand public. Le déficit public<a class=\"lex-ref\" href=\"#lex-deficit-public\" aria-label=\"Voir la définition dans le lexique\">*</a> représente le trou financier creusé sur une seule année, quand les dépenses de l'État dépassent ses recettes fiscales. La dette publique<a class=\"lex-ref\" href=\"#lex-dette-publique\" aria-label=\"Voir la définition dans le lexique\">*</a>, elle, mesure le cumul de tous ces emprunts passés non remboursés. En 2026, le déficit de la France devrait atteindre <strong>5,4 % du PIB</strong>, soit une nette aggravation par rapport aux 5,1 % de 2025. En face, la dette totale frôle désormais 120 % de la richesse nationale, ce qui place le pays sous la surveillance étroite des marchés financiers mondiaux.",
-    "Cette trajectoire budgétaire isole la France au sein de l'Union européenne. Alors que l'Allemagne affiche un déficit contenu à <strong>1,0 % du PIB</strong> et l'Espagne à 2,6 %, Paris présente le trou budgétaire le plus lourd des grandes économies de la zone euro, derrière l'Italie à 4,2 %. Pour freiner cette dérive, le gouvernement dirigé par Sébastien Lecornu a présenté un projet de budget pour 2027 prévoyant un effort global de <strong>54 milliards d'euros</strong>. L'objectif officiel est de ramener le déficit annuel à 5 % du PIB. Sans ces coupes dans les dépenses et ces hausses d'impôts, le déficit spontané menacerait de déraper vers 6,5 % du PIB, un niveau intenable pour la signature financière du pays.",
-    "Le deuxième front concerne l'activité économique réelle, qui montre de nets signes de ralentissement. L'Insee a récemment révisé à la baisse sa prévision de croissance pour 2026, la ramenant de 0,7 % à seulement <strong>0,4 % de croissance</strong>. L'activité fait du surplace au fil des trimestres, pénalisée par une inflation<a class=\"lex-ref\" href=\"#lex-inflation\" aria-label=\"Voir la définition dans le lexique\">*</a> attendue à 2,9 % en fin d'année et un pouvoir d'achat des ménages en recul de 0,4 %. Ce tassement pèse lourdement sur l'emploi, notamment chez les plus jeunes. Le chômage des 15-24 ans a grimpé à <strong>21,6 %</strong> au deuxième trimestre 2026, alimentant un fort sentiment de précarité et de blocage d'avenir parmi les nouvelles générations.",
-    "Ce climat économique morose nourrit une exaspération sociale grandissante dans tout le pays. Selon un sondage Odoxa, <strong>88 % des Français</strong> jugent possible l'explosion d'une nouvelle contestation d'ampleur comparable à celle des gilets jaunes. Après le blocage des lycées entamé le 17 septembre 2026, la hausse des prix à la pompe cristallise les rancoeurs des ménages dépendants de leur voiture pour travailler. Près d'un Français sur deux déclare ressentir durement le coût du carburant dans ses dépenses quotidiennes. L'exécutif se retrouve pris en étau entre la demande populaire de boucliers tarifaires et l'obligation stricte de réduire les dépenses de l'État.",
-    "À ces tensions internes s'ajoute un choc énergétique mondial venu de l'étranger. La Banque mondiale anticipe une flambée de <strong>+24 %</strong> sur les prix de l'énergie en 2026, sous l'effet direct de la guerre en Iran et des blocages de navires dans le détroit d'Ormuz<a class=\"lex-ref\" href=\"#lex-detroit-d-ormuz\" aria-label=\"Voir la définition dans le lexique\">*</a>. Ce passage maritime stratégique voit transiter un cinquième du pétrole brut mondial. Comme la France importe la quasi-totalité de ses hydrocarbures, chaque montée des cours mondiaux renchérit les importations, alimente la hausse des prix à la consommation et réduit les marges des entreprises, ce qui freine directement les investissements productifs sur le territoire.",
-    "Enfin, la compétitivité future du pays souffre d'un retard d'équipement technologique préoccupant. Selon une étude menée par Cisco, seulement <strong>4 % des entreprises françaises</strong> se disent pleinement prêtes à intégrer l'intelligence artificielle, contre 8 % en moyenne en Europe et 22 % en Suède. Cette faiblesse structurelle menace les gains de productivité de long terme. Alors que le premier tour de l'élection présidentielle approche pour le 18 avril 2027, la France avance sur une ligne de crête : un parlement sans majorité absolue complique le vote des réformes, tandis que la charge de la dette absorbe des milliards d'euros indispensables aux services publics."
+    "La France traverse une fracture sociale mesurable. Selon l'Insee, le taux de pauvreté monétaire<a class=\"lex-ref\" href=\"#lex-pauvrete-monetaire\" aria-label=\"Voir la définition dans le lexique\">*</a> a atteint <strong>15,4 %</strong> de la population en 2024. Ce pourcentage représente 9,8 millions de personnes vivant sous le seuil officiel de 1 337 euros par mois pour une personne seule. Il s'agit d'un niveau historiquement élevé que le pays n'avait plus enregistré depuis 1996. Même si l'emploi résiste et si certaines prestations ont augmenté, l'inflation cumulée sur l'énergie et la nourriture a durement entamé le budget des ménages modestes. Pour ces familles, la moindre dépense imprévue devient un obstacle insurmontable au quotidien.",
+    "À l'autre extrémité de l'échelle, les capitaux n'ont jamais été aussi concentrés. D'après les calculs du World Inequality Database<a class=\"lex-ref\" href=\"#lex-wid\" aria-label=\"Voir la définition dans le lexique\">*</a>, les 10 % les plus riches possèdent désormais <strong>60 %</strong> du patrimoine net en France. Le plus haut centile, c'est-à-dire le 1 % le plus fortuné, détient à lui seul 28 % de tous les biens, actions et logements du pays. Cette part atteignait 20 % en 1994. En trente ans, la propriété s'est donc polarisée au bénéfice des plus gros détenteurs d'actifs financiers. Ce mouvement français reflète une tendance mondiale : moins de 60 000 adultes possèdent trois fois plus de richesses que la moitié la plus modeste du globe.",
+    "Cette divergence croissante nourrit une vive controverse politique sur la fiscalité. L'économiste Gabriel Zucman a conçu une taxe Zucman<a class=\"lex-ref\" href=\"#lex-taxe-zucman\" aria-label=\"Voir la définition dans le lexique\">*</a>, un impôt plancher ciblé de <strong>2 %</strong> sur les patrimoines supérieurs à 100 millions d'euros. Ses partisans voulaient contraindre les grandes fortunes à payer une contribution minimale effective, souvent éludée grâce aux sociétés écrans ou aux plus-values non distribuées. Mais le 31 octobre 2025, l'Assemblée nationale a rejeté cette proposition par 228 voix contre 172. La majorité relative et la droite ont refusé un prélèvement jugé pénalisant pour l'attractivité économique et l'investissement des entreprises.",
+    "Face à ce refus législatif, le gouvernement a préféré adopter un dispositif plus restreint portant sur les sociétés financières intermédiaires, appelées holding patrimoniale<a class=\"lex-ref\" href=\"#lex-holding-patrimoniale\" aria-label=\"Voir la définition dans le lexique\">*</a>. Cette mesure vise les structures familiales créées pour loger des placements à l'abri de l'impôt sur le revenu. Cependant, les forces de gauche et plusieurs collectifs sociaux ont immédiatement qualifié cet ajustement d'insuffisant pour combler le déficit ou réduire l'écart des richesses. De son côté, le patronat réuni au sein du Medef s'oppose formellement à tout prélèvement exceptionnel supplémentaire. L'organisation patronale soutient que des impôts plus lourds provoqueraient des délocalisations de capitaux et affaibliraient la création d'emplois privés.",
+    "L'opinion publique manifeste pourtant une attente très nette de justice fiscale. Une enquête réalisée par l'ONG Oxfam en janvier 2026 révèle que <strong>86 %</strong> des citoyens interrogés souhaitent une taxation accrue des ultra-riches. Ce décalage entre les choix parlementaires et le sentiment des électeurs installe une forte tension politique. La perception d'un système à deux vitesses, où les salaires du bas subissent l'impôt à la source pendant que les immenses fortunes optimisent leurs revenus, alimente un profond ressentiment social. Les associations de solidarité constatent déjà un découragement grandissant parmi les bénéficiaires de minima sociaux.",
+    "L'élection présidentielle prévue au printemps 2027 servira d'arbitre pour ce duel économique. Les programmes politiques se construisent déjà autour de ce dilemme. D'un côté, la gauche et les partisans de Gabriel Zucman veulent imposer une redistribution musclée du capital pour refinancer les services publics dégradés. De l'autre, les défenseurs de la politique de l'offre privilégient la compétitivité des entreprises et la stabilité des règles fiscales. Entre un durcissement de l'impôt, un statu quo prudent et une aggravation mécanique des disparités, trois scénarios prospectifs se dessinent pour la société française."
   ],
   "enjeu_en_clair": {
-    "lead": "La France combine un déficit record, une croissance au ralenti et une colère sociale grandissante avant la présidentielle de 2027.",
-    "text": "L'État français dépense beaucoup plus d'argent qu'il n'en gagne, avec un déficit de 5,4 % du PIB bien supérieur à celui de ses voisins européens. Le gouvernement cherche à économiser 54 milliards d'euros, mais l'inflation et le coût du carburant pèsent lourdement sur les ménages. Si le budget bloque ou si les taux d'intérêt s'envolent, le pays devra payer plus cher sa dette au lieu de financer les écoles ou les hôpitaux."
+    "lead": "La pauvreté atteint un record depuis 1996 en France, tandis que le patrimoine s'accumule massivement au sommet.",
+    "text": "L'Insee comptabilise près de dix millions de personnes vivant avec moins de 1 337 euros par mois. Dans le même temps, les dix pour cent les plus fortunés détiennent soixante pour cent de tous les biens du pays. Le débat sur une surtaxe des grandes fortunes a été repoussé au Parlement. L'enjeu direct pour les citoyens est de savoir si l'État trouvera des recettes chez les plus riches pour financer les hôpitaux et les écoles, ou si le fardeau budgétaire pèsera sur les ménages ordinaires."
   },
   "stakes_branches": {
-    "favorable": "Un compromis budgétaire et une détente sur le pétrole stabilisent les comptes avant 2027.",
-    "stable": "Un budget voté de justesse évite la crise financière sans régler les blocages de fond.",
-    "degrade": "Le blocage politique et la flambée des taux d'intérêt précipitent le pays dans la récession."
+    "favorable": "Une réforme fiscale d'ici 2027 prélève les ultra-riches pour financer les services publics et stabiliser la pauvreté.",
+    "stable": "L'exécutif conserve les règles actuelles avec des ajustements mineurs, maintenant des disparités élevées sans rupture.",
+    "degrade": "L'absence de nouveau prélèvement sur le capital accélère l'accumulation au sommet et creuse le fossé social."
   },
   "comprendre_box": [
     {
-      "lead": "Comment un déficit public de 5,4 % se traduit-il dans la vie quotidienne des Français ?",
-      "text": "Un déficit élevé ressemble au budget d'un ménage qui emprunterait chaque mois pour payer ses courses. Pour combler ce trou de 5,4 % du PIB, l'État doit emprunter sur les marchés financiers. Quand les taux montent, le remboursement des seuls intérêts coûte 10 milliards d'euros de plus par an, privant les services publics de moyens utiles.",
-      "apres_dek_index": 1
+      "lead": "Comment se calcule précisément la pauvreté monétaire en France ?",
+      "text": "L'Insee mesure la pauvreté par rapport au niveau de vie médian de l'ensemble de la population, qui sépare les Français en deux groupes égaux. Le seuil retenu se situe à 60 % de ce revenu médian, soit exactement 1 337 euros par mois pour une personne isolée en 2024. Ce calcul prend en compte les salaires, les retraites, mais aussi les allocations et les impôts directs. Si les prix augmentent plus vite que les petits revenus, le nombre de ménages passant sous cette ligne grandit aussitôt.",
+      "apres_dek_index": 0
     },
     {
-      "lead": "Pourquoi les tensions dans le détroit d'Ormuz touchent-elles directement la pompe à essence en France ?",
-      "text": "Le détroit d'Ormuz est une étroite voie maritime par où passe 20 % du pétrole de la planète. Lorsqu'un conflit bloque ce passage, le brut disponible se raréfie instantanément dans le monde. Les cours grimpent, et les raffineries françaises répercutent ce surcoût sur le prix du litre de gazole dans chaque station-service.",
-      "apres_dek_index": 4
+      "lead": "Comment les très grands patrimoines sont-ils imposés aujourd'hui ?",
+      "text": "Les patrimoines professionnels sont pour l'essentiel exonérés de l'impôt sur la fortune immobilière, qui ne cible que la pierre. Les grandes fortunes placent souvent leurs actions au sein de holdings familiales, des entreprises dont le seul but est de gérer leurs parts. Les bénéfices restent investis dans la société sans être versés sous forme de dividendes personnels, ce qui permet d'éviter l'impôt sur le revenu. Sans mécanisme plancher, un milliardaire peut payer un taux effectif d'impôt inférieur à celui d'un salarié moyen.",
+      "apres_dek_index": 3
     }
   ],
   "list_box": null,
   "indicators": [
     {
-      "label": "Déficit public 2026 (projection)",
-      "value": "5,4 % du PIB",
-      "delta": "En hausse vs 5,1 % en 2025"
+      "label": "Taux de pauvreté monétaire en France",
+      "value": "15,4 %",
+      "delta": "9,8 millions de personnes sous 1 337 €/mois (plus haut niveau depuis 1996)"
     },
     {
-      "label": "Croissance France 2026 (révision Insee)",
-      "value": "0,4 %",
-      "delta": "Révisée à la baisse (0,7 % → 0,4 %)"
+      "label": "Part du patrimoine net détenu par les 10 % les plus riches",
+      "value": "60 %",
+      "delta": "28 % pour le top 1 % (contre 20 % en 1994)"
     }
   ],
   "cards": {
     "favorable": {
       "pct": 25,
-      "gauge_word": "Probable",
-      "h3": "Un compromis budgétaire est trouvé et le choc pétrolier s'atténue",
+      "gauge_word": "Peu probable",
+      "h3": "Adoption d'une fiscalité sur le capital et redistribution ciblée",
       "why": [
-        "Premier scénario : le gouvernement parvient à faire voter son budget 2027 à l'Assemblée nationale grâce à des concessions ciblées avec les oppositions, sans subir de motion de censure fatale. Concrètement, les mesures d'économies de 54 milliards d'euros sont appliquées pour l'essentiel, ce qui rassure les investisseurs internationaux et stabilise les taux d'emprunt français. Dans le même temps, les tensions géopolitiques au Moyen-Orient retombent après un accord diplomatique sur l'Iran, permettant une baisse rapide des prix du baril de pétrole. L'inflation repasse sous la barre des 2 %, redonnant du pouvoir d'achat aux ménages et désamorçant la contestation sociale sur les carburants.",
-        "Par rapport aux deux autres trajectoires, cette issue favorable repose sur un alignement d'éléments positifs à la fois nationaux et mondiaux. Elle évite la spirale de défiance qui menace les finances publiques et permet à la croissance de rebondir vers 0,9 % au premier semestre 2027. Ce scénario resterait toutefois fragile, car il dépend fortement de la diplomatie internationale et d'une trêve politique provisoire à l'approche de l'élection présidentielle."
+        "Premier scénario : la contestation sociale et la pression politique imposent un impôt exceptionnel sur la fortune avant 2027. Dans cette hypothèse, le mécontentement populaire s'appuie sur le soutien de <strong>86 %</strong> des citoyens à une taxation renforcée des grandes fortunes. Des majorités parlementaires de circonstance finissent par voter une taxe minimale proche du projet de Gabriel Zucman sur les actifs supérieurs à 100 millions d'euros. Concrètement, cette recette nouvelle de plusieurs milliards d'euros permet à l'État de financer des revalorisations immédiates des minimas sociaux et de renforcer les budgets de la santé. Le pouvoir d'achat des classes populaires se redresse, amortissant le choc de la précarité pour les foyers fragiles.",
+        "Ce schéma redistributif se démarque radicalement des deux autres options par sa volonté de casser l'accumulation patrimoniale au sommet. Contrairement au scénario central qui temporise et à la dégradation qui protège les rendements financiers, cette voie fait le choix d'un rééquilibrage volontariste. Le patronat et le Medef dénoncent un risque majeur de fuite des cerveaux et de délocalisation des sièges sociaux, mais l'adhésion populaire reste très forte. Cette trajectoire exige néanmoins un consensus politique particulièrement rare dans une Assemblée nationale fragmentée. Une telle transformation budgétaire ne pourrait réellement s'imposer qu'à la faveur d'une crise sociale aiguë poussant l'exécutif à céder avant le scrutin présidentiel."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Déficit public 2026 (projection)",
-          "evo_current": "5,0 % du PIB",
+          "field_name": "Taux de pauvreté monétaire en France",
+          "evo_current": "14,8 %",
           "evo_arrow": "down",
-          "evo_prev": "5,4 % du PIB"
+          "evo_prev": "15,4 % en 2024"
         },
         {
-          "field_name": "Croissance France 2026 (révision Insee)",
-          "evo_current": "0,9 %",
-          "evo_arrow": "up",
-          "evo_prev": "0,4 %"
+          "field_name": "Part du patrimoine net des 10 % les plus riches",
+          "evo_current": "57 %",
+          "evo_arrow": "down",
+          "evo_prev": "60 % en 2024"
         }
       ],
-      "france_line": "L'effort budgétaire est partagé, la facture d'énergie baisse et la France préserve sa crédibilité financière.",
+      "france_line": "Un renforcement de la cohésion sociale et une bouffée d'oxygène pour les ménages les plus précaires.",
       "france_impact": "favorable"
     },
     "stable": {
       "pct": 45,
       "gauge_word": "Probable",
-      "h3": "Le budget passe de justesse mais les fragilités économiques persistent",
+      "h3": "Maintien du statu quo fiscal et retouches techniques limitées",
       "why": [
-        "Deuxième scénario : le texte budgétaire est adopté tardivement après de longues négociations parlementaires, mais au prix d'un rabotage important des économies initialement prévues. Concrètement, le déficit public ne redescend que très lentement, restant au-dessus de 5,1 % du PIB, tandis que la dette continue de gonfler vers 121 % de la richesse nationale. Les prix de l'énergie demeurent élevés sans exploser davantage, maintenant l'inflation autour de 2,5 %. Des mouvements de grève et des blocages de ronds-points éclatent de manière sporadique sans parvenir à paralyser l'activité du pays, pendant que les entreprises limitent leurs embauches de jeunes.",
-        "Contrairement au scénario de crise ouverte, la France évite une panique bancaire et continue de lever des fonds sur les marchés à des taux d'intérêt supportables, bien que plus élevés que ceux de l'Allemagne. Ce scénario médian reflète une économie qui tourne au ralenti, avec une croissance calée entre 0,5 % et 0,7 % par an. Le pays repousserait ainsi les arbitrages les plus douloureux après l'échéance présidentielle d'avril 2027."
+        "Deuxième scénario : le gouvernement s'en tient à des réglages techniques sans toucher à la structure globale des impôts. Dans cette trajectoire médiane, l'exécutif applique la taxe sur les holdings patrimoniales pour montrer qu'il agit, mais refuse catégoriquement tout prélèvement général sur les grandes fortunes. Concrètement, les recettes fiscales supplémentaires restent modestes et ne suffisent pas à transformer les services publics. La pauvreté monétaire oscille autour de <strong>15,4 %</strong>, contenue de justesse par les mécanismes habituels de redistribution comme le revenu de solidarité active et les aides au logement. Les classes moyennes continuent de supporter l'essentiel de l'effort fiscal sans voir leur quotidien s'améliorer.",
+        "Par rapport à une refonte fiscale ambitieuse ou à une dérégulation agressive, ce scénario prolonge la politique actuelle d'évitement des conflits frontaux avec le monde économique. Il évite le risque de panique des marchés financiers tout en neutralisant les menaces de délocalisation agitées par le patronat. En revanche, il laisse intact le moteur de la concentration des richesses, puisque les portefeuilles financiers des plus aisés continuent de croître au rythme des marchés boursiers. L'écart entre les très hauts patrimoines et le reste du pays demeure gelé à des sommets historiques. L'équilibre politique resterait toutefois fragile et pourrait basculer à la moindre étincelle sociale lors du débat présidentiel."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Déficit public 2026 (projection)",
-          "evo_current": "5,2 % du PIB",
-          "evo_arrow": "down",
-          "evo_prev": "5,4 % du PIB"
+          "field_name": "Taux de pauvreté monétaire en France",
+          "evo_current": "15,5 %",
+          "evo_arrow": "flat",
+          "evo_prev": "15,4 % en 2024"
         },
         {
-          "field_name": "Croissance France 2026 (révision Insee)",
-          "evo_current": "0,6 %",
-          "evo_arrow": "up",
-          "evo_prev": "0,4 %"
+          "field_name": "Part du patrimoine net des 10 % les plus riches",
+          "evo_current": "60 %",
+          "evo_arrow": "flat",
+          "evo_prev": "60 % en 2024"
         }
       ],
-      "france_line": "Le pays évite la rupture financière immédiate mais accumule des retards d'investissement lourds pour l'avenir.",
+      "france_line": "Une stagnation des inégalités à un niveau record qui entretient la défiance démocratique.",
       "france_impact": "degrade"
     },
     "degrade": {
       "pct": 30,
       "gauge_word": "Probable",
-      "h3": "Censure du gouvernement, flambée des taux et paralysie par la rue",
+      "h3": "Accélération de la concentration et aggravation du décrochage populaire",
       "why": [
-        "Troisième scénario : l'Assemblée nationale censure le gouvernement sur le budget 2027, plongeant l'État dans une crise institutionnelle sans précédent qui oblige à recourir à des lois de finances d'urgence. Concrètement, les agences de notation dégradent la note souveraine de la France, propulsant les taux d'emprunt à 10 ans au-dessus de 5 % et alourdissant immédiatement la charge de la dette. Dans la rue, la colère contre la hausse des carburants se transforme en une mobilisation générale de type gilets jaunes, bloquant les dépôts pétroliers et les axes routiers majeurs dans un contexte de pétrole durablement cher.",
-        "À la différence des deux autres hypothèses, ce choc politique et social précipite l'économie française dans une récession marquée avec des faillites d'entreprises en cascade. L'incertitude gèle les embauches et porte le chômage global au-delà de 9 %, tandis que la campagne présidentielle de 2027 s'ouvre dans un climat de défiance totale envers les institutions. Une telle dégradation pourrait contraindre les autorités à des coupes d'urgence encore plus brutales dans les budgets publics."
+        "Troisième scénario : l'absence totale de frein fiscal combinée à la baisse des dépenses publiques accélère l'écartement des revenus et des patrimoines. Dans cette hypothèse, la droite et le camp présidentiel bloquent tout nouvel impôt sur le capital, tandis que les contraintes budgétaires forcent l'État à raboter les prestations sociales. Concrètement, les ménages modestes voient leurs remboursements de soins et leurs aides au logement diminuer, ce qui fait grimper le nombre de personnes sous le seuil de pauvreté au-delà de 16 %. Dans le même temps, les détenteurs de portefeuilles boursiers accumulent des plus-values records. La part du patrimoine national captée par les 10 % les plus fortunés franchit alors <strong>62 %</strong>.",
+        "Cette trajectoire se distingue de la stagnation par un décrochage visible de la moitié inférieure du pays, dont les revenus nets régressent en valeur réelle. Contrairement au scénario favorable qui tentait d'apaiser les esprits par l'impôt, cette polarisation renforce le sentiment d'abandon des territoires ruraux et des banlieues populaires. Les rapports internationaux comme le World Inequality Report confirment alors le rattrapage par la France des niveaux d'inégalités anglo-saxons. Ce déchirement du tissu national priverait les services de l'État de moyens indispensables. Une telle dérive aggraverait lourdement les tensions politiques et deviendrait le carburant principal d'une crise électorale majeure en 2027."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Déficit public 2026 (projection)",
-          "evo_current": "6,2 % du PIB",
+          "field_name": "Taux de pauvreté monétaire en France",
+          "evo_current": "16,2 %",
           "evo_arrow": "up",
-          "evo_prev": "5,4 % du PIB"
+          "evo_prev": "15,4 % en 2024"
         },
         {
-          "field_name": "Croissance France 2026 (révision Insee)",
-          "evo_current": "-0,3 %",
-          "evo_arrow": "down",
-          "evo_prev": "0,4 %"
+          "field_name": "Part du patrimoine net des 10 % les plus riches",
+          "evo_current": "62 %",
+          "evo_arrow": "up",
+          "evo_prev": "60 % en 2024"
         }
       ],
-      "france_line": "Une crise budgétaire majeure et des blocages durables dégradent le pouvoir d'achat et l'emploi de millions de foyers.",
+      "france_line": "Une explosion du dénuement et une fracture sociale sans précédent depuis plusieurs décennies.",
       "france_impact": "degrade"
     }
   },
   "essentiel_box": [
-    "La France doit décider si elle peut redresser ses finances publiques et calmer la contestation sociale avant l'élection présidentielle de 2027, ou si ses déséquilibres vont s'aggraver.",
-    "Le déficit public atteint 5,4 % du PIB en 2026 pour une croissance ralentie à 0,4 %, tandis que le chômage des jeunes culmine à 21,6 % et que l'énergie grimpe de 24 % sous l'effet des tensions internationales.",
-    "Pas vraiment de redressement rapide : notre scénario le plus probable (45 %) voit le budget voté dans la douleur et le déficit rester au-dessus de 5 %, face à un scénario de crise ouverte (30 %) et un scénario d'apaisement (25 %).",
-    "Le vote solennel du projet de loi de finances au Parlement d'ici le 31 décembre 2026 et l'évolution des prix à la pompe serviront de test décisif pour la stabilité du pays."
+    "Les écarts de richesse et la précarité financière menacent-ils de provoquer une rupture sociale majeure en France d'ici le vote présidentiel de 2027 ?",
+    "En France, la pauvreté monétaire touche désormais 15,4 % de la population, tandis que les 10 % les plus aisés accaparent 60 % de l'ensemble du patrimoine.",
+    "Pas vraiment de rééquilibrage à court terme : notre scénario le plus probable (45 %) anticipe un maintien du statu quo fiscal et des disparités, face à deux autres voies évaluant une aggravation de la fracture (30 %) ou une taxation accrue (25 %).",
+    "Le débat d'arbitrage budgétaire à l'Assemblée nationale à l'automne 2026 servira d'indicateur décisif pour mesurer la capacité des oppositions à imposer une taxe sur le capital."
   ],
   "delta_france": {
     "kind": "negatif",
     "score": -0.5,
     "word": "assez négatif",
-    "text": "parce que les scénarios de blocage politique et de stagnation budgétaire représentent ensemble 75 % de probabilité d'ici l'été 2027."
+    "text": "la probabilité cumulée de 75 % d'un statu quo ou d'une dégradation maintient la précarité à des niveaux critiques sans répondre aux attentes de justice fiscale."
   },
-  "phrase_a_retenir": "Avec un déficit public attendu à 5,4 % du PIB en 2026 et une croissance ralentie à 0,4 %, la France cherche à économiser 54 milliards d'euros pour éviter un décrochage financier.",
-  "phrase_a_retenir_stat": "5,4 % du PIB",
+  "phrase_a_retenir": "En France, 15,4 % de la population vit sous le seuil de pauvreté tandis que les 10 % les plus riches concentrent 60 % du patrimoine net.",
+  "phrase_a_retenir_stat": "15,4 %",
   "lexique": [
     {
-      "slug": "deficit-public",
-      "terme": "déficit public",
-      "definition": "Écart négatif constaté sur une année entre les dépenses et les recettes de l'ensemble des administrations publiques."
+      "slug": "pauvrete-monetaire",
+      "terme": "pauvreté monétaire",
+      "definition": "Situation d'un ménage dont les revenus disponibles sont inférieurs à 60 % du niveau de vie médian national, soit 1 337 euros par mois pour une personne seule."
     },
     {
-      "slug": "dette-publique",
-      "terme": "dette publique",
-      "definition": "Montant total cumulé des emprunts contractés au fil du temps par l'État et la Sécurité sociale pour financer leurs déficits."
+      "slug": "wid",
+      "terme": "World Inequality Database",
+      "definition": "Base de données internationale de référence animée par des économistes pour mesurer l'évolution historique des revenus et des patrimoines dans le monde."
     },
     {
-      "slug": "inflation",
-      "terme": "inflation",
-      "definition": "Hausse générale et continue des prix des biens et des services, qui réduit la quantité de choses qu'une somme d'argent permet d'acheter."
+      "slug": "taxe-zucman",
+      "terme": "taxe Zucman",
+      "definition": "Proposition fiscale prévoyant un impôt annuel minimum de 2 % sur la fortune nette des contribuables possédant plus de 100 millions d'euros d'actifs."
     },
     {
-      "slug": "detroit-d-ormuz",
-      "terme": "détroit d'Ormuz",
-      "definition": "Bras de mer stratégique situé au Moyen-Orient reliant le golfe Persique à l'océan, par lequel transite un cinquième du pétrole brut mondial."
+      "slug": "holding-patrimoniale",
+      "terme": "holding patrimoniale",
+      "definition": "Société privée créée par une famille fortunée pour regrouper ses placements financiers et immobiliers afin d'en optimiser la transmission et la fiscalité."
     }
   ],
   "sources_html": [
-    "<a href=\"https://fr.euronews.com/2026/10/01/le-gouvernement-francais-presente-son-budget-sur-fond-de-dette-record\" target=\"_blank\" rel=\"noopener noreferrer\">Euronews — Le gouvernement français présente son budget sur fond de dette record ↗</a>",
-    "<a href=\"https://www.lafinancepourtous.com/2026/09/15/leconomie-francaise-decroche-baisse-de-la-croissance-inflation-en-hausse-et-retour-du-chomage/\" target=\"_blank\" rel=\"noopener noreferrer\">La Finance pour tous — L'économie française décroche : baisse de la croissance, inflation en hausse et retour du chômage ↗</a>",
-    "<a href=\"https://www.insee.fr/fr/statistiques/9032359\" target=\"_blank\" rel=\"noopener noreferrer\">Insee — Chômage au 2e trimestre 2026 : jeunes et NEET ↗</a>",
-    "<a href=\"https://www.journaldeleconomie.fr/?p=49359\" target=\"_blank\" rel=\"noopener noreferrer\">Journal de l'économie — 88 % des Français pensent qu'une nouvelle colère est possible (Odoxa) ↗</a>",
-    "<a href=\"https://fr.euronews.com/2026/04/28/guerre-en-iran-la-banque-mondiale-prevoit-la-plus-forte-hausse-des-prix-de-lenergie-depuis\" target=\"_blank\" rel=\"noopener noreferrer\">Euronews — Guerre en Iran : la Banque mondiale prévoit la plus forte hausse des prix de l'énergie ↗</a>",
-    "<a href=\"https://www.cbnews.fr/etudes/image-entreprises-francaises-retard-ia-cisco-80471\" target=\"_blank\" rel=\"noopener noreferrer\">CB News — Les entreprises françaises en retard sur l'IA selon Cisco ↗</a>"
+    "<a href=\"https://www.insee.fr/fr/statistiques/9019316\" target=\"_blank\" rel=\"noopener noreferrer\">Insee — Niveau de vie et pauvreté en 2024 ↗</a>",
+    "<a href=\"https://wir2026.wid.world/insight/executive-summary/\" target=\"_blank\" rel=\"noopener noreferrer\">World Inequality Database — World Inequality Report 2026 - Executive Summary ↗</a>",
+    "<a href=\"https://www.oxfamfrance.org/rapports/rapport-sur-les-inegalites-2026-resister-au-regne-des-plus-riches/\" target=\"_blank\" rel=\"noopener noreferrer\">Oxfam France — Rapport Oxfam France 2026 : Résister au règne des plus riches ↗</a>",
+    "<a href=\"https://www.tf1info.fr/politique/budget-2026-l-assemblee-nationale-rejette-la-taxe-zucman-sur-les-hauts-patrimoines-proposee-par-la-gauche-2403984.html\" target=\"_blank\" rel=\"noopener noreferrer\">TF1 Info — Budget 2026 : l'Assemblée rejette la taxe Zucman ↗</a>"
   ],
   "meta": {
-    "title": "France : six fragilités, un été 2027 sous tension",
-    "meta_description": "France : six fragilités, un été 2027 sous tension 3 scénarios prospectifs pour 2030.",
-    "og_image_alt": "Façade d'un bâtiment officiel du gouvernement français à Paris sous tension politique et économique",
+    "title": "Inégalités : les écarts sociaux vont-ils exploser ?",
+    "meta_description": "Inégalités : les écarts sociaux vont-ils exploser ? Analyse économique et scénarios.",
+    "og_image_alt": "Illustration des contrastes économiques et de la concentration du patrimoine en France",
     "keywords": [
-      "France"
+      "économie",
+      "prix",
+      "inflation",
+      "marché",
+      "investissement"
     ],
-    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-21.html\"\n  },\n  \"headline\": \"France : six fragilités, un été 2027 sous tension\",\n  \"description\": \"France : six fragilités, un été 2027 sous tension 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-21.png\"\n  ],\n  \"datePublished\": \"2026-10-21T00:00:00\",\n  \"dateModified\": \"2026-10-21T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"France\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
-    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"France : six fragilités, un été 2027 sous tension\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-21.html\"\n    }\n  ]\n}"
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-22.html\"\n  },\n  \"headline\": \"Inégalités : les écarts sociaux vont-ils exploser ?\",\n  \"description\": \"Inégalités : les écarts sociaux vont-ils exploser ? Analyse économique et scénarios.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-22.png\"\n  ],\n  \"datePublished\": \"2026-10-22T00:00:00\",\n  \"dateModified\": \"2026-10-22T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"économie, prix, inflation, marché, investissement\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Économie\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Inégalités : les écarts sociaux vont-ils exploser ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-22.html\"\n    }\n  ]\n}"
   }
 }
