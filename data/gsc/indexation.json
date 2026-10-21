@@ -15,7 +15,7 @@
       "url": "https://lesscenarios.fr/archives.html",
       "verdict": "PASS",
       "etat": "Envoyée et indexée",
-      "derniere_exploration": "2026-08-30T11:02:58Z",
+      "derniere_exploration": "2026-10-21T03:51:16Z",
       "canonique_google": "https://lesscenarios.fr/archives.html",
       "canonique_declaree": "https://lesscenarios.fr/archives.html",
       "robots": "ALLOWED",
@@ -70,6 +70,16 @@
       "canonique_declaree": "https://lesscenarios.fr/en/",
       "robots": "ALLOWED",
       "indexation": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://lesscenarios.fr/archives/2026-10-21.html",
+      "verdict": "NEUTRAL",
+      "etat": "Google ne reconnaît pas cette URL",
+      "derniere_exploration": null,
+      "canonique_google": null,
+      "canonique_declaree": null,
+      "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexation": "INDEXING_STATE_UNSPECIFIED"
     },
     {
       "url": "https://lesscenarios.fr/archives/2026-10-20.html",
@@ -262,14 +272,14 @@
       "indexation": "INDEXING_STATE_UNSPECIFIED"
     },
     {
-      "url": "https://lesscenarios.fr/archives/2026-10-01.html",
-      "verdict": "NEUTRAL",
-      "etat": "Google ne reconnaît pas cette URL",
-      "derniere_exploration": null,
-      "canonique_google": null,
-      "canonique_declaree": null,
-      "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexation": "INDEXING_STATE_UNSPECIFIED"
+      "url": "https://lesscenarios.fr/en/archives/2026-10-21.html",
+      "verdict": "PASS",
+      "etat": "Envoyée et indexée",
+      "derniere_exploration": "2026-10-21T10:15:26Z",
+      "canonique_google": "https://lesscenarios.fr/en/archives/2026-10-21.html",
+      "canonique_declaree": "https://lesscenarios.fr/en/archives/2026-10-21.html",
+      "robots": "ALLOWED",
+      "indexation": "INDEXING_ALLOWED"
     },
     {
       "url": "https://lesscenarios.fr/en/archives/2026-10-20.html",
@@ -318,16 +328,6 @@
       "derniere_exploration": "2026-10-16T12:10:23Z",
       "canonique_google": "https://lesscenarios.fr/en/archives/2026-10-16.html",
       "canonique_declaree": "https://lesscenarios.fr/en/archives/2026-10-16.html",
-      "robots": "ALLOWED",
-      "indexation": "INDEXING_ALLOWED"
-    },
-    {
-      "url": "https://lesscenarios.fr/en/archives/2026-10-15.html",
-      "verdict": "PASS",
-      "etat": "Envoyée et indexée",
-      "derniere_exploration": "2026-10-15T12:01:32Z",
-      "canonique_google": "https://lesscenarios.fr/en/archives/2026-10-15.html",
-      "canonique_declaree": "https://lesscenarios.fr/en/archives/2026-10-15.html",
       "robots": "ALLOWED",
       "indexation": "INDEXING_ALLOWED"
     }
