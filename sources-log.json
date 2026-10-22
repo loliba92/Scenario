@@ -2,6 +2,41 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-22",
+      "articles": [
+        {
+          "title": "World Inequality Report 2026 - Executive Summary",
+          "source": "World Inequality Database",
+          "url": "https://wir2026.wid.world/insight/executive-summary/",
+          "image": "https://wir2026.wid.world/www-site/uploads/2025/11/Image_Partage-scaled.jpg",
+          "lang": "en",
+          "domain": "economie",
+          "summary": "Rapport annuel sur les inégalités mondiales : concentration des richesses, évolution des parts patrimoniales par groupe de population, et comparaisons internationales.",
+          "read_minutes": 8
+        },
+        {
+          "title": "Rapport Oxfam France 2026 : Résister au règne des plus riches",
+          "source": "Oxfam France",
+          "url": "https://www.oxfamfrance.org/rapports/rapport-sur-les-inegalites-2026-resister-au-regne-des-plus-riches/",
+          "image": "https://www.oxfamfrance.org/app/uploads/2026/01/amir-hanna-KjWMGF0PYuE-unsplash-copie-scaled-e1768776461903.jpg",
+          "lang": "fr",
+          "domain": "economie",
+          "summary": "Analyse des inégalités en France et dans le monde, avec des données sur la concentration des patrimoines et les inégalités de revenus, ainsi qu'un sondage d'opinion sur la fiscalité des ultra-riches.",
+          "read_minutes": 6
+        },
+        {
+          "title": "Insee - Niveau de vie et pauvreté en 2024",
+          "source": "Insee",
+          "url": "https://www.insee.fr/fr/statistiques/9019316",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie",
+          "summary": "Publication statistique officielle sur le niveau de vie et la pauvreté en France en 2024, avec le taux de pauvreté monétaire et l'évolution depuis 1996.",
+          "read_minutes": 5
+        }
+      ]
+    },
+    {
       "date": "2026-10-21",
       "articles": [
         {
