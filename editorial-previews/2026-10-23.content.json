@@ -1,0 +1,210 @@
+{
+  "h1": "Eau : la prochaine ressource stratégique ?",
+  "question_text": "Entre attaques d'usines de dessalement au Moyen-Orient, tensions sur le Nil et l'Indus, et sécheresse record en France : l'eau est-elle en train de devenir une arme et un enjeu de sécurité mondiale, ou la coopération peut-elle encore l'emporter ?",
+  "section_title": "Trois scénarios pour l'avenir de l'or bleu mondial",
+  "dek": [
+    "L'eau douce ressemble à un compte d'épargne naturel que la planète vide peu à peu sans parvenir à le renflouer. Selon le rapport de l'Organisation météorologique mondiale<a class=\"lex-ref\" href=\"#lex-omm\" aria-label=\"Voir la définition dans le lexique\">*</a> publié à l'automne 2026, l'année 2025 s'est imposée comme l'une des plus arides des trente-cinq dernières années. Pas moins de <strong>36 % des bassins hydrographiques mondiaux</strong> ont affiché un débit nettement inférieur à leur moyenne habituelle. Dans le même temps, les glaciers terrestres ont fondu à un rythme affolant, avec une perte de masse cumulée atteignant <strong>1 400 gigatonnes</strong> d'eau en seulement trois ans. Cette raréfaction physique assèche les sols et fragilise directement la production d'électricité comme les récoltes agricoles.",
+    "Cette tension climatique se heurte désormais à une réalité géopolitique brûlante : plus de <strong>60 %</strong> des cours d'eau douce de la planète traversent au moins une frontière nationale. Quand un fleuve coule d'un pays vers un autre, le voisin situé en amont détient un pouvoir immense sur celui qui vit en aval. L'eau douce n'est plus seulement une question de météo ou d'environnement quotidien. Elle devient un levier de pression diplomatique, voire un instrument de chantage militaire entre nations rivales. Les fleuves partagés et les usines de traitement se retrouvent au centre des calculs de sécurité nationale.",
+    "Au Moyen-Orient, un seuil critique a été franchi en mars 2026 lorsque des attaques de drones ont directement visé des usines de dessalement<a class=\"lex-ref\" href=\"#lex-dessalement\" aria-label=\"Voir la définition dans le lexique\">*</a> à Bahreïn ainsi que sur l'île iranienne de Qeshm. Dans cette région désertique qui concentre les deux tiers des capacités de traitement marin du globe, ces infrastructures sont vitales. Un pays comme le Koweït dépend par exemple à <strong>93 %</strong> du dessalement pour alimenter ses robinets en eau potable. Frapper ces installations revient à couper l'eau courante de millions de civils en quelques minutes, transformant une infrastructure industrielle en cible de guerre.",
+    "En Asie du Sud, c'est l'un des plus vieux accords diplomatiques de la planète qui vacille dangereusement. Le traité des eaux de l'Indus<a class=\"lex-ref\" href=\"#lex-traite-indus\" aria-label=\"Voir la définition dans le lexique\">*</a>, signé en 1960 entre l'Inde et le Pakistan, régissait jusqu'ici le partage pacifique du fleuve malgré plusieurs guerres ouvertes. Mais après sa mise en suspens unilatérale par New Delhi, le Premier ministre pakistanais Shehbaz Sharif a formellement prévenu en octobre 2026 que toute violation du débit par l'Inde constituerait un véritable <strong>acte de guerre</strong>. Pour Islamabad, le fleuve irrigue 80 % des terres cultivées du pays et conditionne la survie alimentaire de sa population.",
+    "Sur le continent africain, le fleuve Nil cristallise une confrontation similaire entre l'Égypte et l'Éthiopie. La mise en service du gigantesque barrage de la Renaissance<a class=\"lex-ref\" href=\"#lex-barrage-renaissance\" aria-label=\"Voir la définition dans le lexique\">*</a> par Addis-Abeba a provoqué l'expulsion croisée de diplomates au début du mois d'octobre 2026. L'Égypte, dont 95 % des besoins hydriques dépendent exclusivement des flots du Nil, craint de voir son agriculture asphyxiée lors des années de sécheresse. Pour contourner ce blocage, Le Caire a riposté le 14 octobre 2026 en finançant <strong>36 projets</strong> d'infrastructures hydrauliques chez les voisins situés encore plus en amont, cherchant à nouer des alliances pour sécuriser son débit vital.",
+    "Même les pays tempérés subissent désormais ce stress hydrique<a class=\"lex-ref\" href=\"#lex-stress-hydrique\" aria-label=\"Voir la définition dans le lexique\">*</a> grandissant. En France, au 13 octobre 2026, 95 départements faisaient l'objet de restrictions d'usage, dont <strong>79 départements au niveau de crise</strong> maximale. L'eau douce impose partout des arbitrages douloureux entre la consommation des foyers, l'arrosage des cultures et le refroidissement des centrales. Alors que la conférence internationale de l'ONU sur l'eau doit s'ouvrir à Abu Dhabi du 8 au 10 décembre 2026, la communauté internationale doit trancher : l'or bleu deviendra-t-il le déclencheur de nouveaux conflits armés ou le moteur d'une solidarité mondiale renouvelée ?"
+  ],
+  "enjeu_en_clair": {
+    "lead": "L'eau douce se raréfie sous l'effet du climat tandis que les fleuves partagés et les usines de traitement deviennent des cibles géopolitiques.",
+    "text": "L'eau potable et l'irrigation dépendent de fleuves qui traversent souvent plusieurs frontières. Avec la fonte record des glaciers et la baisse des débits, les pays situés en amont gardent l'eau pour leurs barrages, ce qui menace directement les pays situés en aval. Au Moyen-Orient, des usines de dessalement ont même été visées par des drones. Cet enjeu conditionne notre sécurité alimentaire, le prix des récoltes et la stabilité politique internationale."
+  },
+  "stakes_branches": {
+    "favorable": "Un accord diplomatique à Abu Dhabi encadre le partage des fleuves et sanctuarise les usines d'eau.",
+    "stable": "Les tensions diplomatiques et les restrictions d'eau restent permanentes sans dégénérer en conflit militaire.",
+    "degrade": "Une coupure d'eau volontaire ou une frappe sur un barrage déclenche une riposte armée régionale."
+  },
+  "comprendre_box": [
+    {
+      "lead": "Pourquoi le dessalement de l'eau de mer est-il devenu une cible militaire prioritaire ?",
+      "text": "Dans les pays arides du Golfe, l'eau potable ne vient pas des nappes souterraines mais de gigantesques usines qui retirent le sel de l'eau de mer. Ces sites complexes fonctionnent en continu grâce au gaz et à l'électricité. Si des drones détruisent ces installations, des métropoles entières se retrouvent sans une goutte d'eau potable en quelques heures, sans aucune solution de secours immédiate.",
+      "apres_dek_index": 2
+    },
+    {
+      "lead": "Comment un accord signé en 1960 sur le fleuve Indus est-il devenu une ligne rouge ?",
+      "text": "Le traité de l'Indus attribue la gestion de trois rivières au Pakistan et de trois autres à l'Inde. Le Pakistan dépend de ce débit pour nourrir sa population. Lorsque l'Inde construit de nouveaux barrages en amont et suspend le dialogue, Islamabad y voit une menace vitale capable d'assécher ses champs, assimilant toute coupure d'eau à une déclaration de guerre.",
+      "apres_dek_index": 3
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Départements français en crise sécheresse",
+      "value": "79 départements",
+      "delta": "sur 95 sous restriction à la mi-octobre 2026"
+    },
+    {
+      "label": "Part de l'eau douce mondiale qui traverse des frontières",
+      "value": "60 %",
+      "delta": "soumise à des rivalités entre États voisins"
+    },
+    {
+      "label": "Perte de masse glaciaire cumulée (2023-2025)",
+      "value": "1 400 gigatonnes",
+      "delta": "selon le rapport mondial de l'OMM en 2026"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 20,
+      "gauge_word": "Peu probable",
+      "h3": "La diplomatie de l'eau s'impose lors du sommet d'Abu Dhabi",
+      "why": [
+        "Premier scénario : la communauté internationale profite du sommet mondial de l'ONU à Abu Dhabi en décembre 2026 pour créer un cadre de protection inédit. Face au risque d'embrasement, l'Égypte et l'Éthiopie acceptent une médiation africaine pour fixer des débits minimaux obligatoires sur le Nil. L'Inde reprend les réunions bilatérales avec le Pakistan sous la supervision de la Banque mondiale, garantissant l'accès aux eaux de l'Indus. Les grandes puissances s'accordent pour interdire formellement toute frappe militaire contre les usines de dessalement et les barrages civils.",
+        "Contrairement aux deux autres scénarios qui laissent la pénurie dicter les rapports de force, cette issue transforme la rareté de l'eau en moteur de coopération régionale. Les investissements massifs dans le recyclage de l'eau et la modernisation de l'irrigation agricole permettraient de réduire les gaspillages sans léser les populations aval. L'apaisement diplomatique réduirait alors nettement les risques de flambée des prix agricoles mondiaux, même si le stress climatique de fond continuerait de peser sur les réserves naturelles."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Départements en crise sécheresse",
+          "evo_current": "45 départements",
+          "evo_arrow": "down",
+          "evo_prev": "79 en 2026"
+        },
+        {
+          "field_name": "Eau transfrontalière sous tension",
+          "evo_current": "35 %",
+          "evo_arrow": "down",
+          "evo_prev": "60 %"
+        },
+        {
+          "field_name": "Perte de masse glaciaire annuelle",
+          "evo_current": "350 Gt/an",
+          "evo_arrow": "flat",
+          "evo_prev": "466 Gt/an"
+        }
+      ],
+      "france_line": "La France sécurise ses importations alimentaires et exporte ses technologies d'ingénierie de l'eau.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 45,
+      "gauge_word": "Probable",
+      "h3": "Une guerre froide de l'or bleu sans affrontement militaire direct",
+      "why": [
+        "Deuxième scénario : les États riverains maintiennent une confrontation permanente mais évitent le passage à l'acte militaire ouvert. L'Inde poursuit la construction de ses barrages hydroélectriques sans officialiser la rupture définitive du traité de l'Indus, tandis que le Pakistan multiplie les recours juridiques. Autour du Nil, l'Égypte et l'Éthiopie continuent de s'échanger des invectives diplomatiques et de financer des projets rivaux sans qu'aucun tir ne soit échangé. Les usines de dessalement du Golfe renforcent leur défense antiaérienne face à la menace des drones.",
+        "Ce statu quo sous haute tension se distingue de l'apaisement par le maintien d'une incertitude économique lourde et durable. Les États consacrent des budgets colossaux à sécuriser leurs canaux et leurs usines au lieu d'investir dans la transition écologique. En Europe et en France, les sécheresses répétées imposent des restrictions d'arrosage chroniques de l'été jusqu'à la fin de l'automne, obligeant les filières agricoles à réduire leur production sans déclencher de panique généralisée."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Départements en crise sécheresse",
+          "evo_current": "75 départements",
+          "evo_arrow": "flat",
+          "evo_prev": "79 en 2026"
+        },
+        {
+          "field_name": "Eau transfrontalière sous tension",
+          "evo_current": "60 %",
+          "evo_arrow": "flat",
+          "evo_prev": "60 %"
+        },
+        {
+          "field_name": "Perte de masse glaciaire annuelle",
+          "evo_current": "480 Gt/an",
+          "evo_arrow": "up",
+          "evo_prev": "466 Gt/an"
+        }
+      ],
+      "france_line": "Des restrictions d'eau chroniques pèsent sur l'agriculture et les centrales électriques françaises.",
+      "france_impact": "degrade"
+    },
+    "degrade": {
+      "pct": 35,
+      "gauge_word": "Probable",
+      "h3": "L'arme de l'eau déclenche des frappes armées régionales",
+      "why": [
+        "Troisième scénario : un incident majeur fait basculer la compétition pour l'eau dans le conflit armé direct. Une retenue d'eau contestée en amont de l'Indus pousse l'armée pakistanaise à mener des frappes de représailles contre des infrastructures indiennes. Au Moyen-Orient, une attaque coordonnée par drones détruit une usine majeure de dessalement, privant d'eau potable une capitale du Golfe et provoquant un exode urbain d'urgence. Sur le Nil, des sabotages ciblent les installations électriques du barrage éthiopien, déclenchant des ripostes armées régionales.",
+        "Ce basculement tragique rompt définitivement avec le statu quo en faisant de l'eau une arme de destruction massive indirecte. La destruction des réseaux hydrauliques détruit les récoltes à grande échelle, provoquant des pénuries alimentaires mondiales et des déplacements massifs de réfugiés climatiques. Sur le marché mondial, le prix des céréales et des denrées de base flamberait brutalement, déstabilisant les économies importatrices et fragilisant la sécurité des approvisionnements internationaux."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Départements en crise sécheresse",
+          "evo_current": "88 départements",
+          "evo_arrow": "up",
+          "evo_prev": "79 en 2026"
+        },
+        {
+          "field_name": "Eau transfrontalière sous tension",
+          "evo_current": "85 %",
+          "evo_arrow": "up",
+          "evo_prev": "60 %"
+        },
+        {
+          "field_name": "Perte de masse glaciaire annuelle",
+          "evo_current": "520 Gt/an",
+          "evo_arrow": "up",
+          "evo_prev": "466 Gt/an"
+        }
+      ],
+      "france_line": "Flambée brutale des prix alimentaires et choc géopolitique majeur pour les approvisionnements nationaux.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "Entre attaques d'usines de dessalement au Moyen-Orient et querelles autour du Nil et de l'Indus, l'accès à l'eau douce devient un enjeu de sécurité militaire pour de nombreux États.",
+    "La planète a perdu 1 400 gigatonnes de glace en trois ans et 79 départements français ont atteint le niveau de crise sécheresse à la mi-octobre 2026.",
+    "Notre scénario le plus probable (45 %) évalue que les pays maintiendront une guerre froide hydraulique tendue sans basculer dans un conflit armé direct — face aux alternatives d'une coopération internationale (20 %) ou d'une escalade militaire ouverte (35 %).",
+    "Signal à surveiller : les résolutions de la conférence ONU Eau d'Abu Dhabi du 8 au 10 décembre 2026 sur la protection des infrastructures civiles."
+  ],
+  "delta_france": {
+    "kind": "negatif",
+    "score": -0.6,
+    "word": "assez négatif",
+    "text": "avec 80 % de probabilité cumulée sur des scénarios de blocage ou d'escalade armée, la France subira des tensions prolongées sur ses récoltes et une hausse des cours agricoles mondiaux."
+  },
+  "phrase_a_retenir": "Avec 79 départements en crise sécheresse en France et 1 400 gigatonnes de glaciers perdus en trois ans, l'eau devient un levier géopolitique sous haute tension.",
+  "phrase_a_retenir_stat": "79 départements",
+  "lexique": [
+    {
+      "slug": "omm",
+      "terme": "Organisation météorologique mondiale",
+      "definition": "Agence spécialisée des Nations unies chargée de surveiller l'atmosphère, le climat et les ressources en eau de la planète."
+    },
+    {
+      "slug": "dessalement",
+      "terme": "dessalement",
+      "definition": "Procédé industriel qui extrait le sel de l'eau de mer pour la rendre propre à la consommation humaine et à l'agriculture."
+    },
+    {
+      "slug": "traite-indus",
+      "terme": "traité des eaux de l'Indus",
+      "definition": "Accord diplomatique signé en 1960 organisant le partage des six rivières du bassin de l'Indus entre l'Inde et le Pakistan."
+    },
+    {
+      "slug": "barrage-renaissance",
+      "terme": "barrage de la Renaissance",
+      "definition": "Gigantesque ouvrage hydroélectrique construit par l'Éthiopie sur le Nil Bleu, contesté par l'Égypte qui craint pour son débit."
+    },
+    {
+      "slug": "stress-hydrique",
+      "terme": "stress hydrique",
+      "definition": "Situation critique où la demande humaine et agricole en eau dépasse les ressources naturelles disponibles dans une région."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://wmo.int/fr/news/media-centre/omm-les-tendances-hydrologiques-recentes-ont-de-graves-implications-pour-lavenir\" target=\"_blank\" rel=\"noopener noreferrer\">Organisation météorologique mondiale (OMM) — OMM : Les tendances hydrologiques récentes ont de graves implications pour l'avenir ↗</a>",
+    "<a href=\"https://www.aljazeera.com/news/2026/3/8/bahrain-says-water-desalination-plant-damaged-in-iranian-drone-attack\" target=\"_blank\" rel=\"noopener noreferrer\">Al Jazeera — Bahrain says water desalination plant damaged in Iranian drone attack ↗</a>",
+    "<a href=\"https://www.rfi.fr/fr/moyen-orient/20260308-guerre-au-moyen-orient-les-usines-de-dessalement-de-l-eau-des-infrastructures-vitales-et-sensibles\" target=\"_blank\" rel=\"noopener noreferrer\">RFI — Guerre au Moyen-Orient: les usines de dessalement de l'eau, des infrastructures vitales et sensibles ↗</a>",
+    "<a href=\"https://www.reuters.com/business/energy/india-must-uphold-water-sharing-treaty-with-pakistan-arbitration-court-says-2026-08-31/\" target=\"_blank\" rel=\"noopener noreferrer\">Reuters — India must uphold water-sharing treaty with Pakistan, international court says ↗</a>",
+    "<a href=\"https://apnews.com/article/pakistan-india-water-treaty-hague-arbitration-1af8defb6de801b19676656a6224ce30\" target=\"_blank\" rel=\"noopener noreferrer\">AP News — India-Pakistan water-sharing treaty upheld by international panel ↗</a>",
+    "<a href=\"https://www.arabnews.pk/pakistan/pakistan-says-water-is-red-line-as-india-keeps-indus-treaty-in-abeyance-3004845\" target=\"_blank\" rel=\"noopener noreferrer\">Arab News Pakistan — Pakistan says water is 'red line' as India keeps Indus treaty in abeyance ↗</a>",
+    "<a href=\"https://fr.apanews.net/diplomacy/egypte-ethiopie-nouvelle-crispation-autour-du-nil/\" target=\"_blank\" rel=\"noopener noreferrer\">APAnews — Egypte-Ethiopie : nouvelle crispation autour du Nil ↗</a>",
+    "<a href=\"https://africanova.info/?p=35139\" target=\"_blank\" rel=\"noopener noreferrer\">Africanova — Sécurité hydrique du Bassin du Nil : Le Caire déploie des financements majeurs pour 36 projets d'infrastructures dans les pays amonts ↗</a>",
+    "<a href=\"https://www.eaufrance.fr/actualites/bulletin-national-de-situation-hydrologique-doctobre-2026\" target=\"_blank\" rel=\"noopener noreferrer\">Eaufrance — Bulletin national de situation hydrologique d'octobre 2026 ↗</a>",
+    "<a href=\"https://sdgs.un.org/conferences/water2026\" target=\"_blank\" rel=\"noopener noreferrer\">United Nations — 2026 UN Water Conference ↗</a>"
+  ],
+  "meta": {
+    "title": "Eau : la prochaine ressource stratégique ?",
+    "meta_description": "Eau : la prochaine ressource stratégique ? 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Lit de rivière asséché et craquelé sous un soleil de plomb illustrant la pénurie mondiale d'eau douce",
+    "keywords": [
+      "Eau"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-23.html\"\n  },\n  \"headline\": \"Eau : la prochaine ressource stratégique ?\",\n  \"description\": \"Eau : la prochaine ressource stratégique ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-23.png\"\n  ],\n  \"datePublished\": \"2026-10-23T00:00:00\",\n  \"dateModified\": \"2026-10-23T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Eau\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Eau : la prochaine ressource stratégique ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-23.html\"\n    }\n  ]\n}"
+  }
+}

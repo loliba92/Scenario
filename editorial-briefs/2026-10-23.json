@@ -1,0 +1,504 @@
+{
+  "date": "2026-10-23",
+  "registre": "sciences",
+  "sujet": {
+    "titre_propose": "Eau : l'eau devient-elle la prochaine ressource stratégique ?",
+    "h1": "Eau : la prochaine ressource stratégique ?",
+    "question_posee": "Entre attaques d'usines de dessalement au Moyen-Orient, tensions sur le Nil et l'Indus, et sécheresse record en France : l'eau est-elle en train de devenir une arme et un enjeu de sécurité mondiale, ou la coopération peut-elle encore l'emporter ?",
+    "eyebrow": "Vendredi, sciences",
+    "angle": "L'eau douce se raréfie sous l'effet du changement climatique (2025, une des années les plus sèches depuis 35 ans selon l'OMM), tandis que les infrastructures hydriques deviennent des cibles militaires. Au Moyen-Orient, des usines de dessalement ont été frappées par des drones en mars 2026. En Asie, le traité de l'Indus (1960) est en crise après la décision indienne de le suspendre. Sur le Nil, Égypte et Éthiopie ont échangé des expulsions de diplomates en octobre 2026. En France, 79 départements sont en crise sécheresse. La conférence ONU Eau d'Abu Dhabi (8-10 décembre 2026) sera un test de la capacité à transformer cette rareté en coopération plutôt qu'en conflit.",
+    "tags": [
+      "sciences",
+      "climat-ecologie",
+      "geopolitique"
+    ],
+    "domain": "sciences-environnement",
+    "image_keywords": "water scarcity drought dry riverbed",
+    "complexite": 4,
+    "origine_prioritaire": "Eau : l'eau devient-elle la prochaine ressource stratégique ?",
+    "origine_id": "sciences-eau-l-eau-devient-elle-la-prochaine-ressource",
+    "point_de_depart": {
+      "id": "sciences-eau-l-eau-devient-elle-la-prochaine-ressource",
+      "registre": "sciences",
+      "titre": "Eau : l'eau devient-elle la prochaine ressource stratégique ?",
+      "question": "Eau : l'eau devient-elle la prochaine ressource stratégique ?",
+      "contexte": "L'eau s'impose comme un enjeu géopolitique majeur à travers plusieurs crises simultanées. Au Moyen-Orient, en mars 2026, des usines de dessalement ont été ciblées par des frappes de drones en Iran et à Bahreïn, marquant une première dans l'histoire des pays du Golfe où ces infrastructures vitales fournissent jusqu'à 90% de l'eau potable (Koweït) et 70% en Arabie saoudite. En Asie du Sud, l'Inde a suspendu en avril 2025 le traité des eaux de l'Indus (1960) après l'attentat de Pahalgam, et le ministre indien de l'Eau a confirmé en juin 2026 vouloir priver le Pakistan de l'eau des fleuves, ce qu'Islamabad qualifie d'acte de guerre. En Afrique, les tensions persistent entre l'Égypte et l'Éthiopie autour du barrage de la Renaissance sur le Nil, inauguré en septembre 2025. Parallèlement, l'OMM a publié en septembre 2026 un rapport indiquant que 2025 a été l'une des années les plus sèches depuis 35 ans en termes de débit fluvial, avec une perte de masse glaciaire cumulée de 1 400 gigatonnes entre 2023 et 2025. En France, l'été 2026 est marqué par une sécheresse précoce et sévère, avec près de 9 800 communes sous restriction fin août.",
+      "rationnel": "La question : L'eau va-t-elle s'imposer comme la prochaine ressource stratégique mondiale d'ici la Journée mondiale de l'eau 2027 ? L'issue demeure ouverte car la militarisation des usines de dessalement au Moyen‑Orient, le conflit autour du traité de l'Indus entre l'Inde et le Pakistan et le blocage des négociations sur le barrage de la Renaissance du Nil peuvent soit favoriser une coopération renforcée, soit déclencher une escalade de l'eau comme arme, tandis que le stress hydrique attesté par l'OMM et la sécheresse française de 2026 ajoutent une pression climatique. Pour un lecteur français, l'enjeu concret réside dans la vulnérabilité de l'approvisionnement en eau potable, illustrée par près de 9 800 communes sous restriction à l'été 2026, et la dépendance aux importations agricoles provenant de régions sous stress hydrique, susceptible de faire grimper les prix alimentaires.",
+      "mots_cles": [
+        "géopolitique de l'eau",
+        "stress hydrique 2026",
+        "traité de l'Indus Inde Pakistan",
+        "usine de dessalement attaque drone",
+        "barrage de la Renaissance Nil",
+        "sécheresse France 2026 restrictions",
+        "eau arme de guerre",
+        "water scarcity geopolitics 2026"
+      ],
+      "angle": null,
+      "a_verifier": "Chiffre exact du nombre de communes françaises sous restriction fin septembre 2026 ; statut précis des négociations sur le Nil après les accusations de septembre 2026 ; évolution des capacités de stockage indiennes sur les rivières occidentales de l'Indus.",
+      "scenarios_brouillon": null,
+      "echeance": {
+        "date": "2027-03-22",
+        "raison": "Journée mondiale de l'eau, date de publication du prochain rapport mondial des Nations unies sur le développement des ressources en eau (WWDR)"
+      },
+      "sources_pistes": [
+        {
+          "titre": "L'Egypte hausse le ton face à l'Ethiopie sur le partage des eaux du Nil",
+          "url": "https://www.lemonde.fr/afrique/article/2026/09/30/l-egypte-hausse-le-ton-face-a-l-ethiopie-sur-le-partage-des-eaux-du-nil_6786058_3212.html"
+        },
+        {
+          "titre": "Inde-Pakistan: un tribunal international maintient un traité de partage des eaux",
+          "url": "https://www.rfi.fr/fr/asie-pacifique/20260831-inde-pakistan-un-tribunal-international-maintient-un-trait%C3%A9-de-partage-des-eaux"
+        },
+        {
+          "titre": "Guerre au Moyen-Orient: les usines de dessalement de l'eau, des infrastructures vitales et sensibles",
+          "url": "https://www.rfi.fr/fr/moyen-orient/20260308-guerre-au-moyen-orient-les-usines-de-dessalement-de-l-eau-des-infrastructures-vitales-et-sensibles"
+        },
+        {
+          "titre": "OMM: Les tendances hydrologiques récentes ont de graves implications pour l'avenir",
+          "url": "https://wmo.int/fr/news/media-centre/omm-les-tendances-hydrologiques-recentes-ont-de-graves-implications-pour-lavenir"
+        }
+      ],
+      "tag": "climat & écologie",
+      "origine": null,
+      "note_editoriale": null,
+      "donnees_graphique": null,
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (22.10, inégalités) sans lien. Registre sciences : aucune des éditions récentes (énergie sombre 16.10, IA risque extinction 13.10, cancer vaccins 09.10, dépistage 02.10, Lune eau glacée 29.09, Ozempic 25.09, neuropathies 18.09, fusion 15.09) ne porte sur l'eau comme ressource stratégique. L'édition 'Lune : la course à l'eau glacée' (29.09) traite de l'eau lunaire, pas de l'eau terrestre/géopolitique — lien faible. 'Canicules à répétition' (14.08) et 'Climat 2030' (28.08) touchent le climat mais pas l'eau comme arme/ressource stratégique."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "L'OMM a publié le 17 septembre 2026 son rapport sur l'état des ressources en eau dans le monde, indiquant que 2025 a été l'une des années les plus sèches depuis 35 ans en termes de débit fluvial",
+      "chiffre": "36 % des bassins hydrographiques mondiaux en débit inférieur à la normale",
+      "date_du_chiffre": "2025-12-31",
+      "sources": [
+        "wmo-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La perte de masse glaciaire cumulée entre 2023 et 2025 atteint 1 400 gigatonnes d'eau",
+      "chiffre": "1 400 gigatonnes",
+      "date_du_chiffre": "2025-12-31",
+      "sources": [
+        "wmo-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "En mars 2026, des usines de dessalement ont été attaquées par drone à Bahreïn (par l'Iran) et à Qeshm en Iran (par les États-Unis, selon Téhéran)",
+      "chiffre": null,
+      "date_du_chiffre": "2026-03-08",
+      "sources": [
+        "aljazeera-desal",
+        "rfi-desal"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les pays du Golfe concentrent environ les deux tiers des capacités mondiales de dessalement ; le Koweït dépend à 93 % du dessalement pour son eau douce",
+      "chiffre": "93 %",
+      "date_du_chiffre": "2026-03-01",
+      "sources": [
+        "rfi-desal"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La Cour permanente d'arbitrage de La Haye a statué le 31 août 2026 que le traité des eaux de l'Indus (1960) reste en vigueur et que l'Inde ne peut le suspendre unilatéralement",
+      "chiffre": null,
+      "date_du_chiffre": "2026-08-31",
+      "sources": [
+        "reuters-indus",
+        "ap-indus"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le 21 octobre 2026, le Premier ministre pakistanais Shehbaz Sharif a déclaré que toute violation du traité de l'Indus par l'Inde serait considérée comme un acte de guerre",
+      "chiffre": null,
+      "date_du_chiffre": "2026-10-21",
+      "sources": [
+        "arabnews-pakistan"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Début octobre 2026, l'Égypte et l'Éthiopie ont expulsé réciproquement des diplomates, dans un contexte de tensions autour du barrage de la Renaissance",
+      "chiffre": null,
+      "date_du_chiffre": "2026-10-01",
+      "sources": [
+        "apanews-nil"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'Égypte a annoncé le 14 octobre 2026 le financement de 36 projets d'infrastructures hydrauliques dans les pays amonts du bassin du Nil",
+      "chiffre": "36 projets",
+      "date_du_chiffre": "2026-10-14",
+      "sources": [
+        "africanova-egypte"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "En France, au 13 octobre 2026, 95 départements sont concernés par des restrictions d'eau, dont 79 au niveau de crise",
+      "chiffre": "79 départements en crise",
+      "date_du_chiffre": "2026-10-13",
+      "sources": [
+        "eaufrance-octobre"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La conférence ONU Eau 2026 se tiendra à Abu Dhabi du 8 au 10 décembre 2026, co-organisée par les Émirats arabes unis et le Sénégal",
+      "chiffre": null,
+      "date_du_chiffre": "2026-12-08",
+      "sources": [
+        "un-water-conference"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Inde",
+      "role": "A suspendu le traité de l'Indus en avril 2025 ; construit des barrages hydroélectriques contestés sur les rivières occidentales"
+    },
+    {
+      "nom": "Pakistan",
+      "role": "État riverain aval de l'Indus, dépendant du fleuve pour 80 % de son agriculture ; considère toute violation comme un acte de guerre"
+    },
+    {
+      "nom": "Égypte",
+      "role": "État riverain aval du Nil, dépendant à 95 % du fleuve pour ses ressources en eau ; conteste le barrage de la Renaissance"
+    },
+    {
+      "nom": "Éthiopie",
+      "role": "A inauguré le barrage de la Renaissance en septembre 2025 ; annonce trois nouveaux barrages ; expulse des diplomates égyptiens"
+    },
+    {
+      "nom": "Iran",
+      "role": "A attaqué une usine de dessalement à Bahreïn en mars 2026 ; accuse les États-Unis d'avoir frappé ses propres installations"
+    },
+    {
+      "nom": "Bahreïn",
+      "role": "État insulaire du Golfe dont l'approvisionnement en eau dépend quasi totalement du dessalement"
+    },
+    {
+      "nom": "OMM (Organisation météorologique mondiale)",
+      "role": "A publié le rapport 2026 sur l'état des ressources en eau dans le monde"
+    },
+    {
+      "nom": "ONU",
+      "role": "Organise la conférence mondiale sur l'eau à Abu Dhabi en décembre 2026"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "1960-09-19",
+      "evenement": "Signature du traité des eaux de l'Indus entre l'Inde et le Pakistan"
+    },
+    {
+      "date": "2011-03-01",
+      "evenement": "Début de la construction du barrage de la Renaissance (GERD) en Éthiopie"
+    },
+    {
+      "date": "2025-04-23",
+      "evenement": "L'Inde suspend unilatéralement le traité de l'Indus après l'attentat de Pahalgam"
+    },
+    {
+      "date": "2025-09-01",
+      "evenement": "Inauguration du barrage de la Renaissance en Éthiopie"
+    },
+    {
+      "date": "2026-03-08",
+      "evenement": "Attaques de drones sur des usines de dessalement à Bahreïn et en Iran"
+    },
+    {
+      "date": "2026-08-31",
+      "evenement": "La Cour d'arbitrage de La Haye maintient le traité de l'Indus en vigueur"
+    },
+    {
+      "date": "2026-09-17",
+      "evenement": "Publication du rapport OMM sur l'état des ressources en eau dans le monde (année 2025)"
+    },
+    {
+      "date": "2026-10-01",
+      "evenement": "Expulsions réciproques de diplomates entre l'Égypte et l'Éthiopie"
+    },
+    {
+      "date": "2026-10-14",
+      "evenement": "L'Égypte annonce le financement de 36 projets hydrauliques dans les pays amonts du Nil"
+    },
+    {
+      "date": "2026-10-21",
+      "evenement": "Le Pakistan déclare que toute violation du traité de l'Indus sera un acte de guerre"
+    },
+    {
+      "date": "2026-12-08",
+      "evenement": "Conférence ONU Eau à Abu Dhabi (8-10 décembre)"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "La conférence ONU Eau d'Abu Dhabi (décembre 2026) relance une dynamique de coopération : l'Égypte et l'Éthiopie acceptent un médiateur international sur le GERD, l'Inde revient à la table des négociations sur l'Indus sous pression de la communauté internationale, et un protocole de protection des infrastructures hydriques est intégré au droit humanitaire. Le stress hydrique reste élevé mais les conflits ouverts sont évités.",
+      "probabilite_suggeree": 20
+    },
+    "stable": {
+      "resume": "Les tensions restent vives sans basculer dans le conflit ouvert. L'Inde continue de contourner la décision de la Cour d'arbitrage sans officialiser la rupture du traité de l'Indus. L'Égypte et l'Éthiopie maintiennent leur confrontation diplomatique sans passage à l'acte militaire. Les usines de dessalement restent vulnérables mais plus attaquées directement. La sécheresse française s'aggrave en hiver, avec des restrictions qui s'étendent.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "L'escalade sur l'Indus ou le Nil franchit un seuil militaire : un incident sur un barrage (sabotage, frappe) déclenche une riposte armée entre l'Inde et le Pakistan, ou l'Égypte passe d'une menace à une action limitée contre les infrastructures éthiopiennes. Au Golfe, une nouvelle attaque sur une usine de dessalement prive une grande ville d'eau potable, provoquant une crise humanitaire régionale. L'eau devient officiellement une arme de guerre.",
+      "probabilite_suggeree": 35
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Départements français en crise sécheresse",
+      "valeur": "79 départements",
+      "tendance": "hausse"
+    },
+    {
+      "label": "Part de l'eau douce mondiale qui traverse des frontières",
+      "valeur": "60 %",
+      "tendance": "stable"
+    },
+    {
+      "label": "Perte de masse glaciaire cumulée (2023-2025)",
+      "valeur": "1 400 gigatonnes",
+      "tendance": "hausse"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Recherche sur EIA et OMM pour série historique de débit fluvial mondial : les données OMM couvrent 1991-2025 mais les mesures sont en pourcentage de bassins anormaux, pas une série numérique continue exploitable en points. Pas de série longue et fiable d'un indicateur unique (débit fluvial mondial, capacité de dessalement cumulée) avec au moins 5 points réels vérifiés sur une source publique unique. Critère (1) non satisfait.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "3 chiffres comparables (départements français sous restriction) disponibles dans faits_verifies : 22 départements en 2024, 53 en 2025, 79 en 2026 (niveau crise) — même unité (départements), même source (Eaufrance), même mesure.",
+    "barres": {
+      "aria_label": "Graphique comparant le nombre de départements français en niveau crise sécheresse en 2024, 2025 et 2026",
+      "lead": "Départements français en niveau crise sécheresse, mi-octobre",
+      "caption": "Source : Eaufrance, bulletins nationaux de situation hydrologique (2024-2026)",
+      "unite": "départements",
+      "valeurs": [
+        {
+          "label": "2024",
+          "valeur": 22,
+          "affichage": "22 départements",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2025",
+          "valeur": 53,
+          "affichage": "53 départements",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2026",
+          "valeur": 79,
+          "affichage": "79 départements",
+          "mis_en_avant": true
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Pourquoi le dessalement est-il devenu une cible militaire ? Les usines de dessalement du Golfe produisent 40 % de l'eau dessalée mondiale et sont vitales pour des pays comme le Koweït (93 % de l'eau potable), Bahreïn ou les Émirats. Co-localisées avec des centrales électriques, leur destruction peut priver des millions de personnes d'eau potable du jour au lendemain. Les attaques de mars 2026 ont créé un précédent : ces infrastructures civiles sont désormais des cibles stratégiques.",
+        "rattache_a": "Attaques d'usines de dessalement en mars 2026"
+      },
+      {
+        "focus": "Comment un traité vieux de 66 ans peut-il devenir une ligne rouge militaire ? Le traité de l'Indus (1960) attribue 80 % des eaux des rivières occidentales au Pakistan, qui en dépend pour son agriculture. L'Inde l'a suspendu en avril 2025 après un attentat au Cachemire. La Cour d'arbitrage de La Haye a maintenu le traité en août 2026, mais l'Inde continue de construire des barrages contestés. Le Pakistan considère désormais toute violation comme un acte de guerre.",
+        "rattache_a": "Tensions sur le traité de l'Indus"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Position exacte de l'Inde après la décision de la Cour d'arbitrage d'août 2026 : l'Inde n'a pas officiellement renoncé à sa suspension du traité, mais n'a pas non plus dénoncé formellement la décision",
+    "Calendrier exact du remplissage du GERD et impact réel sur les débits du Nil à l'aval (données éthiopiennes non partagées)",
+    "Nombre exact de communes françaises sous restriction fin octobre 2026 (le chiffre de 9 800 du dossier initial date de fin août, le bulletin Eaufrance du 20 octobre donne 95 départements concernés sans décompte communal)"
+  ],
+  "a_ne_pas_affirmer": [
+    "Ne pas affirmer que l'eau est déjà devenue une arme de guerre généralisée — les attaques sur les infrastructures restent localisées et le droit humanitaire les interdit",
+    "Ne pas affirmer que la conférence ONU Eau d'Abu Dhabi va résoudre les tensions — elle n'a pas de mandat contraignant",
+    "Ne pas affirmer que l'Inde a officiellement dénoncé le traité de l'Indus — elle l'a mis en suspens ('abeyance'), pas formellement dénoncé",
+    "Ne pas affirmer que la sécheresse française est la pire de l'histoire — elle est sévère mais le bulletin compare à 2024 et 2025 uniquement"
+  ],
+  "sources": [
+    {
+      "id": "wmo-2026",
+      "title": "OMM : Les tendances hydrologiques récentes ont de graves implications pour l'avenir",
+      "source": "Organisation météorologique mondiale (OMM)",
+      "url": "https://wmo.int/fr/news/media-centre/omm-les-tendances-hydrologiques-recentes-ont-de-graves-implications-pour-lavenir",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences-environnement",
+      "summary": "Rapport 2026 de l'OMM sur l'état des ressources en eau dans le monde : 2025 est l'une des années les plus sèches depuis 35 ans, perte de masse glaciaire cumulée de 1 400 Gt entre 2023 et 2025.",
+      "read_minutes": 5
+    },
+    {
+      "id": "aljazeera-desal",
+      "title": "Bahrain says water desalination plant damaged in Iranian drone attack",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/3/8/bahrain-says-water-desalination-plant-damaged-in-iranian-drone-attack",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Le 8 mars 2026, une attaque de drone iranien endommage une usine de dessalement à Bahreïn. L'Iran accuse les États-Unis d'avoir attaqué une usine similaire à Qeshm la veille.",
+      "read_minutes": 3
+    },
+    {
+      "id": "rfi-desal",
+      "title": "Guerre au Moyen-Orient: les usines de dessalement de l'eau, des infrastructures vitales et sensibles",
+      "source": "RFI",
+      "url": "https://www.rfi.fr/fr/moyen-orient/20260308-guerre-au-moyen-orient-les-usines-de-dessalement-de-l-eau-des-infrastructures-vitales-et-sensibles",
+      "image": null,
+      "lang": "fr",
+      "domain": "international",
+      "summary": "Analyse de la vulnérabilité des usines de dessalement du Golfe : 93 % de l'eau du Koweït, la moitié de celle du Qatar et des Émirats, et plus de la moitié de celle d'Arabie saoudite proviennent du dessalement.",
+      "read_minutes": 4
+    },
+    {
+      "id": "reuters-indus",
+      "title": "India must uphold water-sharing treaty with Pakistan, international court says",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/business/energy/india-must-uphold-water-sharing-treaty-with-pakistan-arbitration-court-says-2026-08-31/",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "La Cour permanente d'arbitrage de La Haye statue le 31 août 2026 que le traité de l'Indus reste en vigueur et que l'Inde ne peut le suspendre unilatéralement.",
+      "read_minutes": 3
+    },
+    {
+      "id": "ap-indus",
+      "title": "India-Pakistan water-sharing treaty upheld by international panel",
+      "source": "AP News",
+      "url": "https://apnews.com/article/pakistan-india-water-treaty-hague-arbitration-1af8defb6de801b19676656a6224ce30",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Le panel d'arbitrage rejette les arguments de l'Inde et confirme que le traité ne peut être suspendu ou terminé unilatéralement.",
+      "read_minutes": 3
+    },
+    {
+      "id": "arabnews-pakistan",
+      "title": "Pakistan says water is 'red line' as India keeps Indus treaty in abeyance",
+      "source": "Arab News Pakistan",
+      "url": "https://www.arabnews.pk/pakistan/pakistan-says-water-is-red-line-as-india-keeps-indus-treaty-in-abeyance-3004845",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "Le 21 octobre 2026, le Premier ministre pakistanais Shehbaz Sharif déclare que toute violation du traité de l'Indus sera considérée comme un acte de guerre.",
+      "read_minutes": 4
+    },
+    {
+      "id": "apanews-nil",
+      "title": "Egypte-Ethiopie : nouvelle crispation autour du Nil",
+      "source": "APAnews",
+      "url": "https://fr.apanews.net/diplomacy/egypte-ethiopie-nouvelle-crispation-autour-du-nil/",
+      "image": null,
+      "lang": "fr",
+      "domain": "international",
+      "summary": "Début octobre 2026, expulsion réciproque de diplomates entre l'Égypte et l'Éthiopie. L'Égypte, l'Érythrée, le Soudan et la Somalie forment une alliance régionale.",
+      "read_minutes": 4
+    },
+    {
+      "id": "africanova-egypte",
+      "title": "Sécurité hydrique du Bassin du Nil : Le Caire déploie des financements majeurs pour 36 projets d'infrastructures dans les pays amonts",
+      "source": "Africanova",
+      "url": "https://africanova.info/?p=35139",
+      "image": null,
+      "lang": "fr",
+      "domain": "international",
+      "summary": "L'Égypte annonce le 14 octobre 2026 le financement de 36 projets hydrauliques et agricoles dans les États amonts du bassin du Nil.",
+      "read_minutes": 3
+    },
+    {
+      "id": "eaufrance-octobre",
+      "title": "Bulletin national de situation hydrologique d'octobre 2026",
+      "source": "Eaufrance",
+      "url": "https://www.eaufrance.fr/actualites/bulletin-national-de-situation-hydrologique-doctobre-2026",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences-environnement",
+      "summary": "Au 13 octobre 2026, 95 départements français sont concernés par des restrictions d'eau, dont 79 au niveau crise. Septembre 2026 = 3e mois de septembre le moins arrosé.",
+      "read_minutes": 3
+    },
+    {
+      "id": "un-water-conference",
+      "title": "2026 UN Water Conference",
+      "source": "United Nations",
+      "url": "https://sdgs.un.org/conferences/water2026",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "La conférence ONU Eau 2026 se tiendra à Abu Dhabi du 8 au 10 décembre, co-organisée par les Émirats arabes unis et le Sénégal.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "De la désalinisation à l'irrigation: Comment les pays s'adaptent à la pénurie d'eau",
+      "source": "Euronews",
+      "url": "https://fr.euronews.com/2026/10/06/de-la-desalinisation-a-lirrigation-comment-les-pays-sadaptent-a-la-penurie-deau",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences-environnement",
+      "summary": "Reportage sur les stratégies d'adaptation à la pénurie d'eau : dessalement aux Émirats, modernisation de l'irrigation en Ouzbékistan. La moitié de la population mondiale connaît une grave pénurie d'eau au moins une partie de l'année.",
+      "read_minutes": 5
+    },
+    {
+      "title": "Egypt, Sudan eye October water cooperation deal, advance Jebel Aulia rehabilitation",
+      "source": "Ahram Online",
+      "url": "https://english.ahram.org.eg/NewsContent/1/1234/576788/Egypt/Foreign-Affairs/Egypt,-Sudan-eye-October-water-cooperation-deal,-a.aspx",
+      "image": null,
+      "lang": "en",
+      "domain": "international",
+      "summary": "L'Égypte et le Soudan préparent un protocole de coopération sur l'eau, couvrant la protection contre les inondations, la collecte des eaux de pluie et les eaux souterraines, à signer pendant la Cairo Water Week (25-29 octobre).",
+      "read_minutes": 3
+    },
+    {
+      "title": "Les régies publiques de l'eau appellent à l'anticipation des prochaines crises liées aux sécheresses",
+      "source": "L'Info Durable",
+      "url": "https://www.linfodurable.fr/les-regies-publiques-de-leau-appellent-lanticipation-des-prochaines-crises-liees-aux-secheresses",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Après un été historiquement sec, un réseau de régies publiques de l'eau alerte sur la nécessité d'anticiper les crises et de préparer la sobriété avant la prochaine sécheresse.",
+      "read_minutes": 3
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-08-14",
+      "titre": "Canicules à répétition : qui paie l'addition ?",
+      "lien": "Même filière climat/sécheresse : l'édition d'août traitait du coût des canicules et de l'adaptation, complément direct sur le volet eau de la crise climatique"
+    },
+    {
+      "date": "2026-08-11",
+      "titre": "L'Éthiopie veut sa mer, au risque de la guerre",
+      "lien": "Même région (Corne de l'Afrique) et même enjeu de partage des eaux du Nil : l'éthiopienne voulait un accès à la mer, l'Égypte y voyait une menace sur sa sécurité hydrique"
+    },
+    {
+      "date": "2026-08-28",
+      "titre": "Climat 2030 : la France peut-elle encore tenir parole ?",
+      "lien": "Même filière politique climatique : l'édition d'août traitait des objectifs climatiques français, dont la gestion de l'eau est un volet central"
+    }
+  ],
+  "recommandations_redaction": [
+    "Contraste utile entre les trois théâtres de conflit (Golfe, Indus, Nil) et la situation française — montrer que l'eau est un enjei à la fois local et global",
+    "La conférence ONU Eau d'Abu Dhabi (décembre 2026) peut servir d'échéance structurante pour les trois scénarios",
+    "Lien possible avec l'édition 'Canicules à répétition' (14.08) et 'Climat 2030' (28.08) pour les lecteurs qui ont suivi ces sujets"
+  ]
+}
