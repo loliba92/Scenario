@@ -1190,6 +1190,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-10-21 (archives/2026-10-21.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-10-22
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 15,4 %
+- message: En France, 15,4 % de la population vit sous le seuil de pauvreté tandis que les 10 % les plus riches concentrent 60 % du patrimoine net.
+- attribution: — lesscenarios.fr, 22 octobre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-10-22.html
+
+*Phrase à retenir de l'édition du 2026-10-22 (archives/2026-10-22.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
