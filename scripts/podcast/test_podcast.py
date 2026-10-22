@@ -1,5 +1,6 @@
 """Tests du podcast (sans réseau)."""
 import io
+import re
 import sys
 import unittest
 import wave
@@ -22,62 +23,37 @@ class PodcastTest(unittest.TestCase):
         self.assertTrue(all(s["probabilite"] for s in ed["scenarios"]))
         self.assertIn("SCÉNARIO FAVORABLE", gp.texte_source(ed).upper())
 
-    def test_fermeture_decoupee_avec_silences(self):
+    def test_conclusion_lue_en_un_seul_bloc(self):
+        """La dernière phrase et la fermeture sont lues d'un seul appel de voix (retour du 22 octobre 2026 : plusieurs voix, plusieurs tons)."""
         import texte_narration as tn
-        fin = "Voilà, c'est la fin. Tout est sur lesscenarios.fr. Rien n'est écrit à l'avance. La suite, c'est à vous de l'écrire. Prenez soin de vous, et à demain pour un nouveau scénario."
-        segs = tn.segments_fermeture(fin)
-        self.assertEqual([x[0] for x in segs], ["Voilà, c'est la fin. Tout est sur lesscenarios.fr.", "Rien n'est écrit à l'avance.",
-                                                "La suite, c'est à vous de l'écrire.", "Prenez soin de vous, et à demain pour un nouveau scénario."])
-        self.assertEqual([x[1] for x in segs], [tn.PAUSE_AVANT_DEVISE, tn.PAUSE_ENTRE_DEVISE, tn.PAUSE_APRES_DEVISE, 0.0])
-        self.assertEqual(" ".join(x[0] for x in segs), fin, "aucun mot ajouté ni perdu : seule la pause change")
-        for jour in range(7):   # chacune des sept fermetures du site finit par la devise, donc est découpée
-            ferm = tn.fermeture(f"2026-10-{10 + jour:02d}")
-            self.assertEqual(" ".join(x[0] for x in tn.segments_fermeture(ferm)), ferm)
-        self.assertEqual(tn.segments_fermeture("Pas de devise ici."), [("Pas de devise ici.", 0.0)])
+        ferm = tn.fermeture("2026-10-22")
+        fin = "La prochaine fois que vous faites le plein, pensez-y."
+        # la dernière phrase est seule dans sa partie : elle passe entièrement dans la fermeture
+        joint = tn.joindre_conclusion(["Accroche.", "Corps.", fin, ferm])
+        self.assertEqual(joint, ["Accroche.", "Corps.", fin + "\n\n" + ferm])
+        # elle a été jointe à la partie précédente par regrouper : seule elle est déplacée, le reste est conservé
+        joint = tn.joindre_conclusion(["Accroche.", "Corps.", "Ce que l'on surveillera : le budget.\n\n" + fin, ferm])
+        self.assertEqual(joint, ["Accroche.", "Corps.", "Ce que l'on surveillera : le budget.", fin + "\n\n" + ferm])
+        # rien n'est joint sans devise, avec une seule partie avant la fermeture, ou si le paragraphe est long
+        self.assertEqual(tn.joindre_conclusion(["Accroche.", "Corps.", "Fin sans devise."]), ["Accroche.", "Corps.", "Fin sans devise."])
+        self.assertEqual(tn.joindre_conclusion(["Accroche.", ferm]), ["Accroche.", ferm])
+        longue = " ".join(["mot"] * 80)
+        self.assertEqual(tn.joindre_conclusion(["Accroche.", "Corps.", longue, ferm]), ["Accroche.", "Corps.", longue, ferm])
+
+    def test_fermetures_une_phrase_puis_la_devise(self):
+        """Une seule phrase d'introduction (liée par « : » et des virgules), puis la devise dans un paragraphe à part."""
+        import texte_narration as tn
+        for f in tn.FERMETURES:
+            intro, devise = f.split("\n\n")
+            self.assertEqual(devise, tn.RITUEL)
+            self.assertEqual(len(re.findall(r"[.!?](?=\s|$)", intro)), 1, "une seule phrase avant la devise : « " + intro + " »")
+            self.assertLessEqual(len(intro.split()), 28)
 
     def test_vitesses(self):
         self.assertLessEqual(gp.VITESSE_FERMETURE, gp.VITESSE_VOIX)
         self.assertGreaterEqual(gp.VITESSE_FERMETURE, 0.93, "la fermeture ne doit pas traîner (retour du 20 octobre 2026)")
         self.assertLessEqual(gp.VITESSE_ACCUEIL, gp.VITESSE_VOIX)
         self.assertGreaterEqual(gp.VITESSE_VOIX, 0.9, "ralentissement léger : la voix ne doit pas traîner")
-
-    def test_rythme_fermeture(self):
-        sr = gp.SAMPLE_RATE
-        def pcm(secondes):   # voix factice : secondes de parole + 0,2 s de marge, comme après rogner_pcm
-            return array("h", [3000, -3000] * int(sr * (secondes + 0.2) / 2)).tobytes()
-        # 5 mots en 2,9 s (mesuré le 21 octobre) : trop lent, accélération plafonnée entre 1 et le maximum
-        f = gp.facteur_rythme(5, pcm(2.9))
-        self.assertGreater(f, 1.3)
-        self.assertLessEqual(f, gp.ACCELERATION_MAX)
-        # 11 mots en 9,9 s : bien plus lent encore, donc plafonné
-        self.assertEqual(gp.facteur_rythme(11, pcm(9.9)), gp.ACCELERATION_MAX)
-        # déjà assez rapide : aucun changement ; cas limites sans erreur
-        self.assertEqual(gp.facteur_rythme(10, pcm(2.0)), 1.0)
-        self.assertEqual(gp.facteur_rythme(0, pcm(2.0)), 1.0)
-        self.assertEqual(gp.facteur_rythme(5, b""), 1.0)
-
-    def test_accelerer_pcm(self):
-        sr = gp.SAMPLE_RATE
-        voix = array("h", [3000, -3000] * sr).tobytes()   # 2 s
-        self.assertEqual(gp.accelerer_pcm(voix, 1.0), voix)
-        self.assertEqual(gp.accelerer_pcm(b"", 1.5), b"")
-        if gp.shutil.which("ffmpeg"):
-            plus_vite = gp.accelerer_pcm(voix, 1.5)
-            self.assertAlmostEqual(len(plus_vite) / 2 / sr, 2 / 1.5, delta=0.15)
-
-    def test_pauses_fermeture_courtes(self):
-        import texte_narration as tn
-        self.assertLessEqual(tn.PAUSE_AVANT_DEVISE + tn.PAUSE_ENTRE_DEVISE + tn.PAUSE_APRES_DEVISE, 1.6)
-
-    def test_rogner_pcm(self):
-        sr = gp.SAMPLE_RATE
-        voix = array("h", [8000, -8000] * (sr // 2)).tobytes()              # 1 s de voix
-        blanc = b"\x00\x00" * sr                                           # 1 s de silence
-        sortie = gp.rogner_pcm(blanc + voix + blanc)
-        duree = len(sortie) / 2 / sr
-        self.assertAlmostEqual(duree, 1.0 + 2 * 0.1, delta=0.02)
-        self.assertEqual(gp.rogner_pcm(b""), b"")
-        self.assertEqual(gp.rogner_pcm(blanc), blanc)
 
     def test_nombres(self):
         self.assertEqual(gp.nombres("84 % et 31,4 % ; 120 tonnes ; 100 000 euros ; 30 50 20"),
