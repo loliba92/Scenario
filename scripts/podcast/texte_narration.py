@@ -33,8 +33,8 @@ OUVERTURES = (
     "Bienvenue sur Scénario, et merci de nous accorder quelques minutes. Comment allez-vous ? Comme chaque jour, une question d'actualité, trois évolutions possibles.",
     "Bonjour, et bienvenue sur Scénario. Si vous avez un instant, installez-vous : une question d'actualité, trois évolutions possibles, et le temps de comprendre.",
 )
-RITUEL = ("Rien n'est écrit à l'avance. La suite, c'est à vous de l'écrire. "
-          "Prenez soin de vous, et à demain pour un nouveau scénario.")   # devise du site, dite chaque jour mot pour mot : « Rien n'est écrit à l'avance ». Réécrit le 14 octobre 2026 après écoute : l'ancienne fin (« Prenez soin de vous. Rien n'est écrit à l'avance, ne l'oubliez pas. La suite, c'est à vous de l'écrire. À demain… ») ne coulait pas (adieu au milieu, rappel puis invitation sans lien). Ordre voulu : constat, invitation, adieu. « ne l'oubliez pas » (idée du 7 octobre) retiré à cette occasion.
+RITUEL = ("Rien n'est écrit à l'avance, ne l'oubliez pas. La suite, c'est à vous de l'écrire. "
+          "Prenez soin de vous, et à demain pour un nouveau scénario.")   # devise du site, dite chaque jour mot pour mot : « Rien n'est écrit à l'avance, ne l'oubliez pas. La suite, c'est à vous de l'écrire. » « ne l'oubliez pas » rétabli le 22 octobre 2026 à la demande du propriétaire (retiré le 14 octobre avec l'ancien ordre, où l'adieu venait avant la devise : l'ordre actuel est constat, invitation, adieu).
 FERMETURES = tuple(debut + "\n\n" + RITUEL for debut in (   # lues d'un seul tenant (une seule voix, un seul ton), avec la devise dans un paragraphe à part
     "Merci d'avoir passé ce moment avec nous : l'édition complète vous attend sur lesscenarios.fr.",
     "Voilà, c'est la fin de ce rendez-vous : merci de votre confiance, elle compte beaucoup pour nous, et tout est sur lesscenarios.fr.",
