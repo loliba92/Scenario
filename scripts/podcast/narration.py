@@ -68,7 +68,7 @@ def main(argv=None) -> int:
         nom = (m.group(0) if m else chemin.stem) + args.suffixe
     modeles = tuple(x.strip() for x in args.tts_models.split(",") if x.strip())
     import texte_narration
-    parts = texte_narration.regrouper(texte_narration.avec_fermeture(texte_narration.parties(texte), nom))
+    parts = texte_narration.joindre_conclusion(texte_narration.regrouper(texte_narration.avec_fermeture(texte_narration.parties(texte), nom)))
     accueil = False
     if parts and not re.match(r"\s*bienvenue", parts[0], re.I):
         parts.insert(0, texte_narration.ouverture(nom))   # partie à part : la musique reprend 5 s entre l'accueil et la question
@@ -79,20 +79,6 @@ def main(argv=None) -> int:
     fermeture_i = len(parts) if re.search(r"écrit à l['’]avance", parts[-1], re.I) else 0   # numéro (à partir de 1) de la partie de fermeture
 
     def lire(partie, i):
-        """Une lecture complète de la partie (plusieurs appels si elle est longue)."""
-        if i == fermeture_i:   # la devise est lue phrase par phrase, avec des silences (voir texte_narration.segments_fermeture)
-            blocs = []
-            for segment, pause in texte_narration.segments_fermeture(partie):
-                pcm = gp.rogner_pcm(lire_texte(segment, i))   # sans le blanc de la synthèse : seule la pause voulue reste
-                facteur = gp.facteur_rythme(len(segment.split()), pcm)   # une phrase lue seule sort de la synthèse trop lentement
-                if facteur > 1.01:
-                    print(f"Fermeture : phrase accélérée x{facteur:.2f} (« {segment[:40]}… »)", flush=True)
-                blocs.append(gp.accelerer_pcm(pcm, facteur))
-                blocs.append(b"\x00\x00" * int(gp.SAMPLE_RATE * pause))
-            return b"".join(blocs)
-        return lire_texte(partie, i)
-
-    def lire_texte(partie, i):
         pcms = []
         for morceau in gp.decouper_texte(partie, limite=2600):
             print(f"Synthèse vocale partie {i}/{len(parts)} ({len(morceau)} caractères)…", flush=True)

@@ -35,14 +35,14 @@ OUVERTURES = (
 )
 RITUEL = ("Rien n'est écrit à l'avance. La suite, c'est à vous de l'écrire. "
           "Prenez soin de vous, et à demain pour un nouveau scénario.")   # devise du site, dite chaque jour mot pour mot : « Rien n'est écrit à l'avance ». Réécrit le 14 octobre 2026 après écoute : l'ancienne fin (« Prenez soin de vous. Rien n'est écrit à l'avance, ne l'oubliez pas. La suite, c'est à vous de l'écrire. À demain… ») ne coulait pas (adieu au milieu, rappel puis invitation sans lien). Ordre voulu : constat, invitation, adieu. « ne l'oubliez pas » (idée du 7 octobre) retiré à cette occasion.
-FERMETURES = tuple(debut + " " + RITUEL for debut in (
-    "Merci d'avoir passé ce moment avec nous. L'édition complète vous attend sur lesscenarios.fr.",
-    "Voilà, c'est la fin de ce rendez-vous. Merci de votre confiance : elle compte beaucoup pour nous. Tout est sur lesscenarios.fr.",
-    "Merci de nous avoir écoutés. Si le sujet vous a donné envie d'aller plus loin, tout est sur lesscenarios.fr.",
-    "C'est tout pour aujourd'hui. Merci pour votre attention. Les sources sont sur lesscenarios.fr.",
-    "Merci de votre écoute. Si vous en avez envie, parlez-en autour de vous : une question à plusieurs, c'est toujours plus riche. Retrouvez tout sur lesscenarios.fr.",
-    "Nous nous arrêtons ici. Merci de nous accorder votre temps : cela nous touche. Retrouvez tout sur lesscenarios.fr.",
-    "Voilà qui conclut cette édition. Merci d'être restés jusqu'au bout. L'édition complète est sur lesscenarios.fr.",
+FERMETURES = tuple(debut + "\n\n" + RITUEL for debut in (   # lues d'un seul tenant (une seule voix, un seul ton), avec la devise dans un paragraphe à part
+    "Merci d'avoir passé ce moment avec nous : l'édition complète vous attend sur lesscenarios.fr.",
+    "Voilà, c'est la fin de ce rendez-vous : merci de votre confiance, elle compte beaucoup pour nous, et tout est sur lesscenarios.fr.",
+    "Merci de nous avoir écoutés : si le sujet vous a donné envie d'aller plus loin, tout est sur lesscenarios.fr.",
+    "C'est tout pour aujourd'hui : merci pour votre attention, et retrouvez les sources sur lesscenarios.fr.",
+    "Merci de votre écoute : si vous en avez envie, parlez-en autour de vous, une question à plusieurs, c'est toujours plus riche, et retrouvez tout sur lesscenarios.fr.",
+    "Nous nous arrêtons ici : merci de nous accorder votre temps, cela nous touche, et retrouvez tout sur lesscenarios.fr.",
+    "Voilà qui conclut cette édition : merci d'être restés jusqu'au bout, l'édition complète est sur lesscenarios.fr.",
 ))
 OUVERTURE = OUVERTURES[0]   # accueil par défaut (tests, repli)
 FERMETURE = FERMETURES[0]
@@ -119,7 +119,7 @@ STRUCTURE (entre {MOTS_MIN} et {MOTS_MAX} mots, soit 3 à 7 minutes ; vise envir
 4. Les trois scénarios, un par un : le plus optimiste (favorable), le plus probable (stable, dis-le clairement), le plus sombre (dégradé), chacun avec sa probabilité, en trois ou quatre phrases courtes : l'idée centrale, puis ce que cela change concrètement pour les gens (un vol retardé, une coupure de courant…), jamais le mécanisme technique ni un nom de technologie.
 5. L'impact pour la France, en deux ou trois phrases.
 6. Ce qu'on surveillera pour savoir lequel se réalise.
-7. La dernière phrase, seule dans un court paragraphe : elle ramène le sujet à la vie de l'auditeur, avec chaleur, à la deuxième personne (« La prochaine fois que vous… », « Dans votre quotidien… »). Elle ne tranche pas et ne donne aucun chiffre : rien n'est écrit à l'avance. Elle ne dit ni « merci » ni « à demain » : le script ajoute la fermeture.
+7. La dernière phrase, seule dans un court paragraphe, qui enchaîne directement sur la fermeture : UNE seule phrase simple, dite d'un seul souffle (une virgule au plus), qui commence par « La prochaine fois que vous… » ou « Quand vous… » et ramène le sujet à un geste de la vie de l'auditeur, avec chaleur. Pas de tournure double comme « Dans votre quotidien, la prochaine fois que… ». Elle ne tranche pas et ne donne aucun chiffre : rien n'est écrit à l'avance. Elle ne dit ni « merci » ni « à demain » : le script ajoute la fermeture.
 
 EXEMPLE DE STYLE ATTENDU (autre édition, ne reprends AUCUN de ses faits ; il commence directement par la question, alors que ton texte, lui, commence par la mise en situation) :
 {exemple}
@@ -167,27 +167,26 @@ def avec_fermeture(parts: list[str], date_str: str | None = None) -> list[str]:
     return list(parts)
 
 
-_DEVISE = re.compile(r"(Rien n['’]est écrit à l['’]avance\.)\s+(La suite, c['’]est à vous de l['’]écrire\.)", re.I)
-PAUSE_AVANT_DEVISE, PAUSE_ENTRE_DEVISE, PAUSE_APRES_DEVISE = 0.4, 0.5, 0.4   # secondes de silence (18 octobre : 1,0 / 1,3 / 1,1 ; 20 octobre : « trop de silence »)
+def joindre_conclusion(parts: list[str], maximum: int = 60) -> list[str]:
+    """Le dernier paragraphe du texte (la phrase qui ramène à la vie de l'auditeur) et la fermeture forment UN seul bloc,
+    lu d'un seul appel de voix (22 octobre 2026).
 
+    Retour du propriétaire : « on dirait plusieurs voix, plusieurs tons, très décousu ». Mesuré sur l'épisode du 22 octobre :
+    la conclusion était lue en plusieurs appels (introduction, deux phrases de la devise, adieu), chacun avec sa propre
+    hauteur de voix (186 à 219 Hz contre 188 pour le corps) et son propre volume. Un seul appel garde une voix et un ton
+    constants (mesure : 175 à 205 Hz). Une consigne d'émotion ne peut pas être ajoutée au texte (la voix la lirait à voix
+    haute, voir generate_podcast.synthese_unique) : le ton vient du texte et de sa ponctuation.
 
-def segments_fermeture(partie: str) -> list[tuple[str, float]]:
-    """Découpe la fermeture en morceaux lus séparément, avec le silence à laisser après chacun (18 octobre 2026).
-
-    Une consigne d'émotion ne peut pas être ajoutée au texte (la voix la lirait à voix haute, voir
-    generate_podcast.synthese_unique) : le poids de la devise vient donc du silence autour d'elle. Chaque morceau lu seul
-    retombe naturellement en fin de phrase. Sans devise dans la partie, elle est rendue d'un seul bloc, sans silence."""
-    m = _DEVISE.search(partie)
-    if not m:
-        return [(partie, 0.0)]
-    avant, apres = partie[:m.start()].strip(), partie[m.end():].strip()
-    segments = []
-    if avant:
-        segments.append((avant, PAUSE_AVANT_DEVISE))
-    segments += [(m.group(1), PAUSE_ENTRE_DEVISE), (m.group(2), PAUSE_APRES_DEVISE if apres else 0.0)]
-    if apres:
-        segments.append((apres, 0.0))
-    return segments
+    Le paragraphe est pris à la fin de l'avant-dernière partie (`regrouper` a pu l'y joindre) ; ce qui reste de cette partie
+    est conservé. Rien n'est joint sans devise dans la dernière partie, avec moins de trois parties (l'accroche reste
+    seule), ou si ce paragraphe dépasse `maximum` mots."""
+    if len(parts) < 3 or not re.search(r"écrit à l['’]avance", parts[-1], re.I):
+        return list(parts)
+    *debut_partie, dernier = parts[-2].split("\n\n")
+    if len(dernier.split()) > maximum:
+        return list(parts)
+    reste = "\n\n".join(debut_partie).strip()
+    return [*parts[:-2], *([reste] if reste else []), dernier + "\n\n" + parts[-1]]
 
 
 def parties(texte: str) -> list[str]:
