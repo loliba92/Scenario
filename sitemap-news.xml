@@ -11,4 +11,15 @@
       <news:title>Inequality: Are social divides about to explode?</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-10-23.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-23T06:01:34+02:00</news:publication_date><news:title>Eau : la prochaine ressource stratégique ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-10-23.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-23T06:01:34+02:00</news:publication_date><news:title>Eau : la prochaine ressource stratégique ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-10-23.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-23T06:01:34+02:00</news:publication_date>
+      <news:title>Water: The next strategic resource?</news:title>
+    </news:news>
+  </url>
+</urlset>
