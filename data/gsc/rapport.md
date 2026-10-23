@@ -7,7 +7,7 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-09-23 au 2026-10-20 
 ## Chiffres (28 jours)
 
 - 1 clics, 341 impressions, taux de clic 0,3 %, position moyenne 8,9.
-- Pages indexées : 23 sur 33 inspectées ; éditions inconnues de Google : 8 (dont 3 de plus de 7 jours).
+- Pages indexées : 24 sur 33 inspectées ; éditions inconnues de Google : 7 (dont 3 de plus de 7 jours).
 - Requêtes : 10 (dont 2 avec le nom du site).
 - Tendance (14 jours, jusqu'au 2026-10-20) : impressions 185 contre 156, clics 1 contre 0.
 
@@ -33,10 +33,10 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-09-23 au 2026-10-20 
 - Visibilité en hausse : 185 impressions sur les 14 derniers jours contre 156 avant.
 - Google affiche le site en position moyenne 8,9 (première page) sur 341 impressions.
 - 6 pages principales indexées : `/`, `/archives.html`, `/le-projet.html`, `/sources.html`, `/glossaire.html`, `/en/`.
-- 17 éditions indexées par Google.
+- 18 éditions indexées par Google.
 - Plan du site `/sitemap.xml` lu par Google sans erreur (189 adresses envoyées).
 - Plan du site `/sitemap-news.xml` lu par Google sans erreur (4 adresses envoyées).
-- Balises des 91 éditions en français conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.
+- Balises des 92 éditions en français conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.
 
 ## Ce qui ne fonctionne pas
 
@@ -152,6 +152,7 @@ Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 - `/sources.html` : ok
 - `/glossaire.html` : ok
 - `/en/` : ok
+- `/archives/2026-10-23.html` : ok, publiée il y a 0 j
 - `/archives/2026-10-22.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 1 j
 - `/archives/2026-10-21.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 2 j
 - `/archives/2026-10-20.html` : ok, publiée il y a 3 j
@@ -171,12 +172,11 @@ Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 - `/archives/2026-10-06.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 17 j
 - `/archives/2026-10-05.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 18 j
 - `/archives/2026-10-04.html` : ok, publiée il y a 19 j
-- `/archives/2026-10-03.html` : ok, publiée il y a 20 j
+- `/en/archives/2026-10-23.html` : ok, publiée il y a 0 j
 - `/en/archives/2026-10-22.html` : ok, publiée il y a 1 j
 - `/en/archives/2026-10-21.html` : ok, publiée il y a 2 j
 - `/en/archives/2026-10-20.html` : ok, publiée il y a 3 j
 - `/en/archives/2026-10-19.html` : ok, publiée il y a 4 j
-- `/en/archives/2026-10-18.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 5 j
-- `/en/archives/2026-10-17.html` : ok, publiée il y a 6 j
+- `/en/archives/2026-10-18.html` : ok, publiée il y a 5 j
 
 Le compteur « indexées » des plans du site n'est pas fiable : l'inspection page par page fait foi.
