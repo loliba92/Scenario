@@ -369,7 +369,9 @@ class TestJingles(unittest.TestCase):
         long = exemple + "\n\n" + ("Une phrase courte et claire sur le sujet du jour. " * (reste // 9 + 1))
         n = len(tn.verifier(long, src, dernier_essai=True))
         self.assertFalse(any("mots" in x and "trop long" in x for x in tn.verifier(long, src, dernier_essai=True)), n)
-        strict = [x for x in tn.verifier(long, src) if "trop long de" in x]
+        self.assertFalse([x for x in tn.verifier(long, src) if "trop long de" in x], "marge : pas de refus sous 1100 mots")   # 23 octobre 2026
+        trop = exemple + "\n\n" + ("Une phrase courte et claire sur le sujet du jour. " * ((tn.MOTS_MAX_TOLERE - len(exemple.split())) // 9 + 5))
+        strict = [x for x in tn.verifier(trop, src) if "trop long de" in x]
         self.assertTrue(strict)
         self.assertIn(str(tn.MOTS_CIBLE), strict[0])                       # le modèle reçoit un objectif chiffré
         enorme = exemple + "\n\n" + ("Une phrase courte et claire sur le sujet du jour. " * 120)
