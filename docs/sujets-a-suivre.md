@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 23.10.2026 — [Eau : la prochaine ressource stratégique ?](../archives/2026-10-23.html)
 - 22.10.2026 — [Inégalités : les écarts sociaux vont-ils exploser ?](../archives/2026-10-22.html)
 - 21.10.2026 — [France : six fragilités, un été 2027 sous tension](../archives/2026-10-21.html)
 - 20.10.2026 — [Mobilisation lycéenne : le mouvement peut-il arracher une refonte de Parcoursup ?](../archives/2026-10-20.html)

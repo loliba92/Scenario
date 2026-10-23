@@ -2,6 +2,41 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-23",
+      "articles": [
+        {
+          "title": "De la désalinisation à l'irrigation: Comment les pays s'adaptent à la pénurie d'eau",
+          "source": "Euronews",
+          "url": "https://fr.euronews.com/2026/10/06/de-la-desalinisation-a-lirrigation-comment-les-pays-sadaptent-a-la-penurie-deau",
+          "image": "https://images.euronews.com/articles/stories/09/87/75/50/1200x675_cmsv2_d9e6692a-e4ba-599c-b0a8-b5cbb7ef6e07-9877550.jpg",
+          "lang": "fr",
+          "domain": "sciences-environnement",
+          "summary": "Reportage sur les stratégies d'adaptation à la pénurie d'eau : dessalement aux Émirats, modernisation de l'irrigation en Ouzbékistan. La moitié de la population mondiale connaît une grave pénurie d'eau au moins une partie de l'année.",
+          "read_minutes": 5
+        },
+        {
+          "title": "Egypt, Sudan eye October water cooperation deal, advance Jebel Aulia rehabilitation",
+          "source": "Ahram Online",
+          "url": "https://english.ahram.org.eg/NewsContent/1/1234/576788/Egypt/Foreign-Affairs/Egypt,-Sudan-eye-October-water-cooperation-deal,-a.aspx",
+          "image": null,
+          "lang": "en",
+          "domain": "international",
+          "summary": "L'Égypte et le Soudan préparent un protocole de coopération sur l'eau, couvrant la protection contre les inondations, la collecte des eaux de pluie et les eaux souterraines, à signer pendant la Cairo Water Week (25-29 octobre).",
+          "read_minutes": 3
+        },
+        {
+          "title": "Les régies publiques de l'eau appellent à l'anticipation des prochaines crises liées aux sécheresses",
+          "source": "L'Info Durable",
+          "url": "https://www.linfodurable.fr/les-regies-publiques-de-leau-appellent-lanticipation-des-prochaines-crises-liees-aux-secheresses",
+          "image": null,
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Après un été historiquement sec, un réseau de régies publiques de l'eau alerte sur la nécessité d'anticiper les crises et de préparer la sobriété avant la prochaine sécheresse.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-10-22",
       "articles": [
         {
