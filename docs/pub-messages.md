@@ -1200,6 +1200,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-10-22 (archives/2026-10-22.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-10-23
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 79 départements
+- message: Avec 79 départements en crise sécheresse en France et 1 400 gigatonnes de glaciers perdus en trois ans, l'eau devient un levier géopolitique sous haute tension.
+- attribution: — lesscenarios.fr, 23 octobre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-10-23.html
+
+*Phrase à retenir de l'édition du 2026-10-23 (archives/2026-10-23.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
