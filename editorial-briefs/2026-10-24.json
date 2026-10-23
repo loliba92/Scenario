@@ -1,0 +1,417 @@
+{
+  "date": "2026-10-24",
+  "registre": "culture",
+  "sujet": {
+    "titre_propose": "Spotify peut-il tuer l'album ?",
+    "h1": "Spotify : l'album en sursis ?",
+    "question_posee": "L'algorithme de Spotify, qui récompense les singles réguliers et pénalise les albums d'un seul coup, peut-il rendre le format album obsolète pour les artistes, ou le vinyle et les aides publiques le sauvent-ils ?",
+    "eyebrow": "Samedi, culture",
+    "angle": "L'économie du streaming musical récompense l'écoute répétée de morceaux isolés plutôt que l'écoute d'albums complets. Les artistes émergents voient leurs streams divisés par trois sur un album par rapport à un single, et l'algorithme Spotify favorise les sorties régulières. Pourtant, le vinyle bat des records (113 M€ en 2025), les aides du CNM exigent 5 titres minimum, et certains artistes prouvent que l'album peut encore dominer les charts. Le format album est-il condamné à disparaître ou en train de muter ?",
+    "tags": [
+      "culture",
+      "musique"
+    ],
+    "domain": "culture-divertissement",
+    "image_keywords": "music studio headphones vinyl record",
+    "complexite": 2,
+    "origine_prioritaire": "Spotify peut-il tuer l'album ?",
+    "origine_id": "culture-spotify-peut-il-tuer-l-album",
+    "point_de_depart": {
+      "id": "culture-spotify-peut-il-tuer-l-album",
+      "registre": "culture",
+      "titre": "Spotify peut-il tuer l'album ?",
+      "question": "Spotify peut-il tuer l'album ?",
+      "contexte": "Si l'économie du streaming récompense l'écoute répétée et les morceaux isolés plutôt que les longues œuvres, l'album comme objet artistique peut-il survivre ?",
+      "rationnel": "La question : Spotify peut-il tuer l'album d'ici la fin 2026 ? Pourquoi l'issue est ouverte : d'un côté, l'économie du streaming et l'UX des plateformes favorisent les singles et fragmentent l'écoute, poussant les artistes émergents vers des morceaux isolés ; de l'autre, le vinyle connaît un boom, les aides publiques françaises (CNM, crédit d'impôt) soutiennent les projets de cinq titres ou plus, et certains artistes démontrent que l'album peut encore dominer les ventes. L'enjeu concret pour un lecteur français est de savoir si le format album restera viable culturellement et comment les artistes locaux pourront financer de tels projets face à un algorithme qui les pénalise.",
+      "mots_cles": [
+        "Spotify album mort",
+        "album vs singles 2026",
+        "algorithme Spotify rétention 2025",
+        "stratégie waterfall album",
+        "SNEP top albums 2026",
+        "vinyle France 113 millions 2025",
+        "CNM aide album 5 titres",
+        "Chartmetric singles-first croissance"
+      ],
+      "angle": null,
+      "a_verifier": "Chiffre exact du taux de pénétration du streaming en France en 2026 (27,1% fin 2025 selon Le Point, à actualiser). Données précises de Spotify sur la part des streams albums vs singles en 2025-2026. Impact chiffré du seuil de 1000 streams sur les albums d'artistes indépendants français.",
+      "scenarios_brouillon": null,
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Album ou singles en 2026 ? La meilleure stratégie (Muzisecur)",
+          "url": "https://www.muzisecur.fr/blog/album-vs-singles-strategie-sortie-musique-2026/"
+        },
+        {
+          "titre": "Comment le streaming n'a pas (encore) tué l'album (Trends Le Vif)",
+          "url": "https://trends.levif.be/opinions/chroniques/comment-le-streaming-na-pas-encore-tue-lalbum/"
+        },
+        {
+          "titre": "Musique enregistrée : Bilan du marché français au 1er semestre 2026 (SNEP)",
+          "url": "https://snepmusique.com/communiques-dossiers-de-presse/bilan-1er-semestre-2026/"
+        },
+        {
+          "titre": "EP vs Single vs Album : quel format choisir ? (MusicPulse)",
+          "url": "https://www.musicpulse.app/fr/blog/ep-vs-single-vs-album-what-release-format-works-best-for-growth"
+        }
+      ],
+      "tag": "musique",
+      "origine": null,
+      "note_editoriale": null,
+      "donnees_graphique": "[relevé du 2026-10-22] Streams moyens par piste (premiers 30 jours, artistes indés) (unité : streams). Single = 2 800 (2025) ; EP = 1 900 (2025) ; Album = 1 100 (2025). Sources : https://www.musicpulse.app/blog/ep-vs-single-vs-album-what-release-format-works-best-for-growth",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (23/10, eau) sans lien. Registre culture : 17/10 (jeu vidéo), 10/10 (art contemporain), 3/10 (viralité algorithmique) — aucun ne traite du format album ni de l'économie du streaming musical. Édition du 9/08 (Musique IA) et 1/08 (Musique IA) traitent de l'IA générative dans la musique, pas du format album face à l'algorithme Spotify. Sujet inédit."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le marché français de la musique enregistrée a atteint 449 M€ au 1er semestre 2026, en hausse de 3,5%",
+      "chiffre": "449 M€",
+      "date_du_chiffre": "2026-09-08",
+      "sources": [
+        "snep-h1-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les abonnements streaming représentent 65% des revenus physiques et numériques en France, avec 291,5 M€ au S1 2026",
+      "chiffre": "65% (291,5 M€)",
+      "date_du_chiffre": "2026-09-08",
+      "sources": [
+        "snep-h1-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le vinyle a atteint 113 M€ de chiffre d'affaires en France en 2025, en hausse de près de 15%",
+      "chiffre": "113 M€",
+      "date_du_chiffre": "2026-03-18",
+      "sources": [
+        "snep-2025"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les moins de 35 ans représentent 41% des acheteurs de vinyles en France",
+      "chiffre": "41%",
+      "date_du_chiffre": "2026-03-18",
+      "sources": [
+        "snep-2025"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Spotify comptait 306 millions d'abonnés Premium et 788 millions d'utilisateurs actifs mensuels au Q3 2026",
+      "chiffre": "306 M (Premium), 788 M (MAU)",
+      "date_du_chiffre": "2026-10-22",
+      "sources": [
+        "spotify-q3-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les titres sortis en single ont 34% de chances supplémentaires de déclencher un placement en playlist algorithmique dans les 7 premiers jours vs les titres d'un album",
+      "chiffre": "34%",
+      "date_du_chiffre": "2025-01-01",
+      "sources": [
+        "musicpulse-format"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les artistes indépendants qui sortent 8+ singles par an voient leur nombre d'auditeurs mensuels croître 3,1 fois plus vite que ceux qui misent sur des albums",
+      "chiffre": "3,1x",
+      "date_du_chiffre": "2025-01-01",
+      "sources": [
+        "musicpulse-format"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les productions françaises représentent 72% du Top 200 Albums au S1 2026",
+      "chiffre": "72%",
+      "date_du_chiffre": "2026-09-08",
+      "sources": [
+        "snep-h1-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'aide à la production phonographique du CNM exige un projet d'au moins 5 phonogrammes musicaux (ou 20 min cumulées)",
+      "chiffre": "5 titres minimum",
+      "date_du_chiffre": null,
+      "sources": [
+        "cnm-aide"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le crédit d'impôt production phonographique est de 20% (40% pour TPE/PME) des dépenses, plafonné à 700 000 € par enregistrement",
+      "chiffre": "20-40%",
+      "date_du_chiffre": null,
+      "sources": [
+        "cnm-credit-impot"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Spotify",
+      "role": "Plateforme de streaming dominante (306 M abonnés), dont l'algorithme favorise les singles"
+    },
+    {
+      "nom": "SNEP",
+      "role": "Syndicat national de l'édition phonographique, publie les bilans du marché français"
+    },
+    {
+      "nom": "CNM",
+      "role": "Centre national de la musique, gère les aides à la production phonographique"
+    },
+    {
+      "nom": "Artistes indépendants",
+      "role": "Premiers concernés par le changement de format, moins de 25 000 auditeurs mensuels pour la plupart"
+    },
+    {
+      "nom": "Olivia Dean",
+      "role": "Artiste britannique dont l'album 'The Art of Loving' a démontré que l'album peut encore générer des streams profonds"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2025-01-01",
+      "evenement": "Publication du rapport Loud & Clear de Spotify confirmant que les singles ont 34% plus de chances de placement algorithmique"
+    },
+    {
+      "date": "2025-03-18",
+      "evenement": "Bilan SNEP 2025 : le vinyle atteint 113 M€, plus haut depuis 25 ans"
+    },
+    {
+      "date": "2026-05-21",
+      "evenement": "Investor Day Spotify : 761 M MAU, 10 milliards de playlists créées"
+    },
+    {
+      "date": "2026-09-08",
+      "evenement": "Bilan SNEP S1 2026 : marché à 449 M€, streaming abonnement = 65% des revenus"
+    },
+    {
+      "date": "2026-10-22",
+      "evenement": "Spotify Q3 2026 : 306 M abonnés Premium, 788 M MAU, 5,0 Md€ de revenus"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "L'album se réinvente : porté par le vinyle, les aides publiques et une nouvelle génération d'artistes qui utilisent la stratégie waterfall (singles menant à un album), le format album survit et trouve un nouvel équilibre. Les artistes établis continuent de sortir des albums, les émergents adoptent le modèle singles→EP→album. L'algorithme s'adapte avec des outils comme les Countdown Pages qui valorisent les projets longs.",
+      "probabilite_suggeree": 35
+    },
+    "stable": {
+      "resume": "La fragmentation s'installe : les albums existent mais ne sont plus le format par défaut. Les artistes établis (25 000+ auditeurs) continuent d'en sortir, les émergents se concentrent sur les singles et EPs. Le marché du vinyle soutient l'album comme objet collector, tandis que le streaming reste dominé par les morceaux isolés. Deux économies parallèles coexistent.",
+      "probabilite_suggeree": 40
+    },
+    "degrade": {
+      "resume": "L'album devient un format de niche : l'algorithme Spotify et les autres plateformes continuent de pénaliser les sorties longues, les artistes émergents abandonnent massivement le format. Seuls les très gros artistes (Taylor Swift, Bad Bunny) et les genres spécifiques (classique, jazz) maintiennent l'album. Le mot 'album' disparaît des stratégies de sortie pour les nouveaux artistes.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Marché musique enregistrée France S1 2026",
+      "valeur": "449 M€",
+      "tendance": "hausse (+3,5%)"
+    },
+    {
+      "label": "Abonnés Premium Spotify",
+      "valeur": "306 millions",
+      "tendance": "hausse (+9% sur un an)"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Recherche effectuée : pas de série historique longue et publique sur la part des streams albums vs singles sur Spotify. Les données disponibles (MusicPulse, Chartmetric) sont des instantanés 2025-2026, pas une série temporelle de 5+ points. Le critère (1) échoue : aucune source publique fiable ne documente l'historique complet de cette métrique sur plusieurs années.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Données comparables disponibles : streams moyens par piste (premiers 30 jours, artistes indés) pour single (2 800), EP (1 900) et album (1 100) — même unité (streams), même période, même type d'artistes. Source : MusicPulse (données Luminate 2025, Chartmetric Q3 2025, Spotify Loud & Clear 2025).",
+    "barres": {
+      "aria_label": "Streams moyens par piste dans les 30 premiers jours selon le format de sortie, pour les artistes indépendants",
+      "lead": "Streams moyens par piste (30 premiers jours) selon le format de sortie",
+      "caption": "Sources : Luminate 2025, Chartmetric Q3 2025, Spotify Loud & Clear 2025 — via MusicPulse",
+      "unite": "streams",
+      "valeurs": [
+        {
+          "label": "Single",
+          "valeur": 2800,
+          "affichage": "2 800 streams",
+          "mis_en_avant": false
+        },
+        {
+          "label": "EP (4-6 titres)",
+          "valeur": 1900,
+          "affichage": "1 900 streams",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Album (7+ titres)",
+          "valeur": 1100,
+          "affichage": "1 100 streams",
+          "mis_en_avant": true
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Comment l'algorithme Spotify favorise les singles : Release Radar, Discover Weekly et le système de pitch unique — pourquoi un album de 12 titres dilue l'engagement sur 12 morceaux tandis qu'un single concentre tout sur un seul.",
+        "rattache_a": "faits_verifies[5] : 34% de chances supplémentaires de placement algorithmique pour les singles"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Données précises de Spotify sur la part des streams albums vs singles en 2025-2026 non trouvées dans les sources publiques (Spotify ne publie pas cette métrique)",
+    "Impact chiffré exact du seuil de 1000 streams sur les albums d'artistes indépendants français — données par artiste non disponibles publiquement"
+  ],
+  "a_ne_pas_affirmer": [
+    "Ne pas affirmer que 'l'album est mort' — les données montrent une transformation, pas une disparition",
+    "Ne pas affirmer que Spotify 'veut' tuer l'album — l'effet est une conséquence de son architecture produit, pas une intention déclarée",
+    "Ne pas généraliser les données américaines au marché français sans le préciser"
+  ],
+  "sources": [
+    {
+      "id": "snep-h1-2026",
+      "title": "Musique enregistrée : Bilan du marché français au 1er semestre 2026",
+      "source": "SNEP",
+      "url": "https://snepmusique.com/communiques-dossiers-de-presse/bilan-1er-semestre-2026/",
+      "image": null,
+      "lang": "fr",
+      "domain": "culture-divertissement",
+      "summary": "Le SNEP publie son bilan semestriel : marché à 449 M€, streaming abonnement à 291,5 M€ (65% des revenus), vinyle en hausse de 5,8%, productions françaises à 72% du Top 200 Albums.",
+      "read_minutes": 5
+    },
+    {
+      "id": "snep-2025",
+      "title": "BILAN 2025 DU MARCHÉ DE LA MUSIQUE ENREGISTRÉE",
+      "source": "SNEP",
+      "url": "https://snepmusique.com/communiques-dossiers-de-presse/bilan-2025-snep/",
+      "image": null,
+      "lang": "fr",
+      "domain": "culture-divertissement",
+      "summary": "Marché à 1,071 Md€ en 2025 (+3,9%), vinyle à 113 M€ (+15%), meilleure performance physique en 25 ans. Les moins de 35 ans représentent 41% des acheteurs de vinyles.",
+      "read_minutes": 5
+    },
+    {
+      "id": "spotify-q3-2026",
+      "title": "Spotify Reports Third Quarter 2026 Earnings",
+      "source": "Spotify Newsroom",
+      "url": "https://newsroom.spotify.com/2026-10-22/spotify-q3-2026-earnings/",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Spotify atteint 306 M d'abonnés Premium (+9% sur un an) et 788 M de MAU (+11%). Revenus totaux de 5,0 Md€ (+16%), marge brute à 33,0%.",
+      "read_minutes": 4
+    },
+    {
+      "id": "musicpulse-format",
+      "title": "EP vs Single vs Album : quel format choisir ?",
+      "source": "MusicPulse",
+      "url": "https://www.musicpulse.app/fr/blog/ep-vs-single-vs-album-what-release-format-works-best-for-growth",
+      "image": null,
+      "lang": "fr",
+      "domain": "culture-divertissement",
+      "summary": "Analyse comparative des formats de sortie : streams par piste (single 2 800, EP 1 900, album 1 100), taux de déclenchement algorithmique (34% pour les singles), taux de sauvegarde. Données issues de Luminate 2025, Chartmetric Q3 2025 et Spotify Loud & Clear 2025.",
+      "read_minutes": 8
+    },
+    {
+      "id": "cnm-aide",
+      "title": "Aide à la production phonographique",
+      "source": "CNM",
+      "url": "https://cnm.fr/aides-financieres/aide-a-la-production-phonographique-3/",
+      "image": null,
+      "lang": "fr",
+      "domain": "culture-divertissement",
+      "summary": "Conditions d'éligibilité : projet d'au moins 5 phonogrammes musicaux ou 20 min cumulées, 50% de masters inédits, plafond de 20 000 € par projet, 100 000 € par an par entité.",
+      "read_minutes": 4
+    },
+    {
+      "id": "cnm-credit-impot",
+      "title": "Crédit d'impôt en faveur de la production phonographique",
+      "source": "CNM",
+      "url": "https://cnm.fr/aides-financieres/credit-dimpot-en-faveur-de-la-production-phonographique/",
+      "image": null,
+      "lang": "fr",
+      "domain": "culture-divertissement",
+      "summary": "Crédit d'impôt de 20% (40% pour TPE/PME) des dépenses de production, plafonné à 700 000 € par enregistrement. Réservé aux nouveaux talents (moins de 100 000 équivalents-ventes).",
+      "read_minutes": 4
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Overanalysing our 2025 Spotify Wrapped: what MIDiA's stats say about the industry",
+      "source": "MIDiA Research",
+      "url": "https://www.midiaresearch.com/blog/overanalysing-our-2025-spotify-wrapped-what-midias-stats-say-about-the-industry",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "L'utilisateur moyen écoute 28 albums par an (2,3 par mois). L'album représente seulement 1,7% du temps d'écoute annuel. Mais l'album n'est pas mort : certains écoutent plus de vinyles et moins de Spotify.",
+      "read_minutes": 5
+    },
+    {
+      "title": "Are Albums Obsolete in the Streaming Era? A Statistical Analysis",
+      "source": "Statsignificant",
+      "url": "https://www.statsignificant.com/p/are-albums-obsolete-in-the-streaming",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Analyse statistique : 90% des dépenses musicales sont concentrées au niveau du morceau. Près de 75% des chansons d'un album captent 5% ou moins des streams totaux de l'album. Le nombre moyen de titres par sortie a diminué depuis 2000.",
+      "read_minutes": 8
+    },
+    {
+      "title": "Why Spotify Keeps Pushing Songs Instead of Albums — And What That Means for Artists",
+      "source": "Unidark",
+      "url": "https://unidark.substack.com/p/why-spotify-keeps-pushing-songs-instead",
+      "image": null,
+      "lang": "en",
+      "domain": "culture-divertissement",
+      "summary": "Analyse de l'architecture produit de Spotify : le système de playlists, Release Radar et Discover Weekly est organisé autour du morceau individuel. Quand un artiste soumet un EP ou album, Spotify lui demande de choisir UNE chanson à pitcher. L'album reste disponible mais les mécanismes de découverte sont conçus pour en extraire des morceaux.",
+      "read_minutes": 7
+    },
+    {
+      "title": "Album ou singles en 2026 ? La meilleure stratégie",
+      "source": "Muzisecur",
+      "url": "https://www.muzisecur.fr/blog/album-vs-singles-strategie-sortie-musique-2026/",
+      "image": null,
+      "lang": "fr",
+      "domain": "culture-divertissement",
+      "summary": "Guide stratégique pour les artistes : l'algorithme Spotify priorise désormais les métriques de rétention (save rate, ratio de réécoute, taux de skip) 3 fois plus que le volume brut. Recommandation waterfall pour les artistes en croissance.",
+      "read_minutes": 6
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-08-09",
+      "titre": "Musique IA : la note grimpe à 9 milliards",
+      "lien": "Même industrie musicale et même plateforme de streaming — l'économie de la musique enregistrée à l'ère du streaming et des algorithmes"
+    },
+    {
+      "date": "2026-08-01",
+      "titre": "Musique : l'IA a-t-elle déjà gagné ?",
+      "lien": "Même filière musicale — impact de la technologie (IA, algorithmes) sur la création et la consommation musicale"
+    },
+    {
+      "date": "2026-10-03",
+      "titre": "La viralité organique est-elle une illusion algorithmique ?",
+      "lien": "Même mécanisme de fond — comment les algorithmes des plateformes influencent ce qui est créé et consommé"
+    }
+  ],
+  "recommandations_redaction": [
+    "Ajouter un lien vers l'édition du 9 août 2026 (Musique IA) dans 'Les faits' pour contextualiser l'économie du streaming musical",
+    "Ajouter un lien vers l'édition du 1er août 2026 (Musique : l'IA a-t-elle déjà gagné ?) pour le parallèle avec l'impact technologique sur la création",
+    "Ajouter un lien vers l'édition du 3 octobre 2026 (viralité algorithmique) pour le parallèle sur l'influence des algorithmes sur la culture"
+  ]
+}

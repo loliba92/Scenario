@@ -1,0 +1,173 @@
+{
+  "h1": "Spotify : l'album en sursis ?",
+  "question_text": "L'algorithme de Spotify, qui récompense les singles réguliers et pénalise les albums d'un seul coup, peut-il rendre le format album obsolète pour les artistes, ou le vinyle et les aides publiques le sauvent-ils ?",
+  "section_title": "Trois avenirs possibles pour le format album face au streaming",
+  "dek": [
+    "La musique enregistrée traverse une mutation profonde tirée par les plateformes numériques. En France, le marché global de la musique enregistrée a généré <strong>449 M€</strong> de chiffre d'affaires au premier semestre 2026, marquant une progression de 3,5 %. Les abonnements payants au streaming<a class=\"lex-ref\" href=\"#lex-streaming\" aria-label=\"Voir la définition dans le lexique\">*</a> constituent désormais le cœur battant du secteur : ils représentent à eux seuls <strong>65 % des revenus</strong> physiques et numériques, soit 291,5 M€. Au niveau mondial, le géant suédois Spotify rassemble plus de <strong>306 millions d'abonnés Premium</strong> et 788 millions d'utilisateurs actifs mensuels. Cette domination du modèle d'écoute à la demande transforme directement la manière dont la musique est pensée, produite et distribuée par les créateurs.",
+    "Au cœur de cette transformation se trouve la mécanique même des algorithmes de recommandation. Sur Spotify, un titre sorti sous la forme d'un single<a class=\"lex-ref\" href=\"#lex-single\" aria-label=\"Voir la définition dans le lexique\">*</a> bénéficie de <strong>34 % de chances supplémentaires</strong> d'intégrer une playlist algorithmique automatisée dès ses sept premiers jours, par rapport à une chanson publiée au sein d'un album classique. La raison technique est simple : lorsqu'un artiste publie dix morceaux en une seule fois, l'attention de ses auditeurs se disperse entre tous les titres. À l'inverse, la sortie d'un morceau unique concentre l'ensemble des écoutes, des partages et des sauvegardes sur un seul point, envoyant un signal de popularité maximal aux robots de tri.",
+    "Pour les artistes émergents, cette logique mathématique modifie radicalement les chances de succès commercial. Les musiciens indépendants qui choisissent de sortir au moins huit singles par an voient leur audience d'auditeurs mensuels progresser <strong>3,1 fois plus vite</strong> que ceux qui restent fidèles au calendrier traditionnel des albums. Dans les trente premiers jours suivant une parution, un single indépendant enregistre en moyenne 2 800 streams par titre, contre seulement 1 100 streams pour chaque piste d'un album complet. Publier un projet long sans disposer d'une base de fans gigantesque revient ainsi à diviser son impact algorithmique par trois dès le jour du lancement.",
+    "Pourtant, le format physique historique refuse de s'éteindre et connaît une véritable renaissance auprès du grand public. En France, les ventes de disques vinyles ont atteint <strong>113 M€</strong> de chiffre d'affaires sur l'ensemble de l'année 2025, affichant une insolente croissance annuelle de près de 15 %. Fait remarquable qui bouscule les idées reçues, les jeunes de <strong>moins de 35 ans</strong> représentent désormais 41 % de ces acheteurs physiques. Pour cette génération connectée, le vinyle ne sert pas seulement à écouter de la musique, mais devient un objet de collection tangible, une œuvre artistique complète dotée d'une pochette soignée et d'un livret illustré que le flux numérique ne peut pas remplacer.",
+    "L'exception culturelle française et les mécanismes de soutien public jouent également un rôle déterminant de rempart protecteur pour le format long. Le Centre national de la musique conditionne son aide financière à la production phonographique à la réalisation de projets comprenant au moins <strong>5 titres minimum</strong> ou vingt minutes de musique continue. Parallèlement, le crédit d'impôt phonographique offre une déduction fiscale de <strong>20 à 40 %</strong> des dépenses de production pour les jeunes talents, avec un plafond fixé à 700 000 € par projet. Ce cadre institutionnel incite directement les maisons de disques et les labels indépendants à financer des œuvres structurées et cohérentes plutôt que de simples suites de morceaux éphémères.",
+    "Le marché musical se retrouve ainsi scindé entre deux forces contradictoires mais puissantes. D'un côté, la logique du streaming pousse à la publication continue de titres courts pour alimenter les flux hebdomadaires et capter l'attention volatile des utilisateurs. De l'autre côté, les aides publiques, le prestige culturel et le marché florissant du vinyle continuent de valoriser l'album comme le sommet de l'accomplissement artistique. Savoir si l'album restera la norme de l'industrie, deviendra un simple objet de luxe pour collectionneurs ou s'adaptera sous une forme hybride constitue aujourd'hui le grand dilemme de la création contemporaine."
+  ],
+  "enjeu_en_clair": {
+    "lead": "L'écoute par morceau sur les plateformes menace la survie du format album traditionnel.",
+    "text": "Les plateformes comme Spotify favorisent la publication fréquente de morceaux isolés plutôt que de disques complets. Pour un jeune artiste, sortir un album entier divise souvent ses écoutes par trois par rapport à plusieurs sorties régulières. Pourtant, les aides publiques françaises et l'engouement des jeunes pour le vinyle maintiennent l'album en vie comme un objet d'art."
+  },
+  "stakes_branches": {
+    "favorable": "L'album survit en adoptant une stratégie hybride mêlant singles successifs et disques vinyles collector.",
+    "stable": "Une industrie à deux vitesses s'installe, réservant l'album aux stars et le single aux artistes émergents.",
+    "degrade": "L'album devient un format de niche marginalisé au profit exclusif d'un flux continu de singles."
+  },
+  "comprendre_box": [
+    {
+      "lead": "Pourquoi l'algorithme de tri privilégie les sorties de singles réguliers",
+      "text": "L'algorithme<a class=\"lex-ref\" href=\"#lex-algorithme\" aria-label=\"Voir la définition dans le lexique\">*</a> de Spotify fonctionne comme un tamis : il mesure le pourcentage d'auditeurs qui écoutent un morceau jusqu'au bout sans le zapper et l'ajoutent à leurs favoris. Quand un artiste sort un single unique, tous ses fans écoutent le même titre, ce qui déclenche immédiatement les recommandations automatiques. Avec un album de douze titres, les écoutes se dispersent entre les pistes, affaiblissant le signal envoyé aux robots.",
+      "apres_dek_index": 1
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Marché musique enregistrée France S1 2026",
+      "value": "449 M€",
+      "delta": "+3,5 % sur un an"
+    },
+    {
+      "label": "Abonnés Premium Spotify",
+      "value": "306 millions",
+      "delta": "+9 % sur un an"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 35,
+      "gauge_word": "Probable",
+      "h3": "L'album se réinvente grâce au modèle hybride et au vinyle",
+      "why": [
+        "Premier scénario : les artistes et les producteurs adaptent leur méthode de diffusion sans renoncer au projet long. Plutôt que de publier un album surprise d'un seul bloc, les musiciens adoptent la méthode dite en cascade, qui consiste à sortir quatre ou cinq singles étalés sur plusieurs mois avant de réunir l'ensemble dans un disque complet. Cette approche permet de cumuler la visibilité algorithmique maximale sur chaque titre individuel tout en construisant progressivement l'attente d'une œuvre globale. Les plateformes de streaming accompagnent ce mouvement en développant des outils dédiés, comme les comptes à rebours de sortie qui incitent les auditeurs à préenregistrer les disques complets.",
+        "Ce scénario préserve l'intégrité narrative de l'album tout en tirant parti de la puissance économique du streaming payant, qui pèse déjà 291,5 M€ en France. Contrairement à une disparition pure et simple du format, cette évolution réconcilie les impératifs des algorithmes avec le marché du vinyle à 113 M€, qui offre une seconde vie commerciale lucrative aux projets aboutis. L'équilibre entre création artistique et distribution numérique pourrait ainsi se stabiliser durablement autour de ce modèle mixte."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Marché musique enregistrée France S1 2026",
+          "evo_current": "470 M€",
+          "evo_arrow": "up",
+          "evo_prev": "449 M€"
+        },
+        {
+          "field_name": "Abonnés Premium Spotify",
+          "evo_current": "325 millions",
+          "evo_arrow": "up",
+          "evo_prev": "306 millions"
+        }
+      ],
+      "france_line": "Les labels français maximisent les aides du CNM tout en profitant de l'essor des ventes physiques de vinyles.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 40,
+      "gauge_word": "Probable",
+      "h3": "Une industrie coupée en deux entre têtes d'affiche et nouveaux talents",
+      "why": [
+        "Deuxième scénario : le marché musical se scinde définitivement en deux réalités économiques totalement étanches. D'un côté, les stars internationales et les figures établies continuent de concevoir de grands albums conceptuels, car leur notoriété garantit des millions d'écoutes immédiates et des tournées massives en stades. De l'autre côté, les jeunes artistes indépendants renoncent presque totalement à concevoir des disques longs de dix ou douze pistes, préférant enchaîner sans interruption des singles ou des formats courts comme l'EP<a class=\"lex-ref\" href=\"#lex-ep\" aria-label=\"Voir la définition dans le lexique\">*</a> pour maintenir leur visibilité en ligne.",
+        "Notre évaluation considère cette issue comme la plus probable (40 %), car elle reflète fidèlement la logique financière actuelle des plateformes numériques face aux coûts réels de fabrication. Alors que le scénario hybride demande une coordination marketing lourde et que l'abandon total pénaliserait le marché physique, cette séparation de fait permet à chaque catégorie d'artistes d'optimiser ses revenus selon ses moyens. L'album deviendrait alors un privilège réservé aux artistes déjà installés financièrement."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Marché musique enregistrée France S1 2026",
+          "evo_current": "455 M€",
+          "evo_arrow": "up",
+          "evo_prev": "449 M€"
+        },
+        {
+          "field_name": "Abonnés Premium Spotify",
+          "evo_current": "315 millions",
+          "evo_arrow": "up",
+          "evo_prev": "306 millions"
+        }
+      ],
+      "france_line": "La production française maintient son rang mais les jeunes talents peinent à financer des projets d'envergure.",
+      "france_impact": "degrade"
+    },
+    "degrade": {
+      "pct": 25,
+      "gauge_word": "Peu probable",
+      "h3": "L'album devient un objet de collection marginalisé par les flux",
+      "why": [
+        "Troisième scénario : la pression des recommandations automatisées finit par marginaliser complètement le format album dans les usages courants. Avec plus de 120 000 nouveaux titres mis en ligne chaque jour sur les serveurs des plateformes, l'attention du public se fragmente à l'extrême autour de micro-tendances éphémères. Les créateurs sont contraints de publier un nouveau morceau toutes les trois semaines sous peine de disparaître instantanément des radars d'écoute, ce qui rend la conception d'un recueil musical de quarante minutes financièrement intenable pour la grande majorité du secteur.",
+        "Cette trajectoire marquerait une rupture profonde par rapport aux décennies précédentes en reléguant l'album au statut de curiosité pour mélomanes fortunés, comparable au marché du livre d'art en édition limitée. Si les aides publiques françaises amortiraient temporairement ce choc pour les artistes locaux, la pression mondiale exercée par les 306 millions d'abonnés de Spotify orienterait inexorablement l'ensemble de la création musicale vers une suite ininterrompue de morceaux indépendants."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Marché musique enregistrée France S1 2026",
+          "evo_current": "440 M€",
+          "evo_arrow": "down",
+          "evo_prev": "449 M€"
+        },
+        {
+          "field_name": "Abonnés Premium Spotify",
+          "evo_current": "330 millions",
+          "evo_arrow": "up",
+          "evo_prev": "306 millions"
+        }
+      ],
+      "france_line": "Le modèle de soutien du CNM fondé sur les projets longs se retrouve en décalage avec les pratiques du public.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "L'essor des plateformes de streaming musical remet en cause l'existence même du format album au profit de la parution régulière de morceaux individuels.",
+    "Alors que les singles génèrent 3,1 fois plus de croissance d'auditeurs sur Spotify pour les indépendants, le vinyle progresse de 15 % en France pour atteindre 113 M€.",
+    "Non, l'album ne disparaîtra pas à court terme : notre scénario le plus probable (40 %) anticipe une industrie à deux vitesses où l'album devient l'apanage des artistes confirmés, tandis que deux autres scénarios envisagent une réinvention hybride (35 %) ou une marginalisation en format de niche (25 %).",
+    "Le prochain bilan annuel du marché de la musique par le SNEP au printemps permettra de mesurer si les ventes de vinyles et les écoutes d'albums maintiennent leur dynamique."
+  ],
+  "delta_france": {
+    "kind": "negatif",
+    "score": -0.3,
+    "word": "léger négatif",
+    "text": "la probabilité cumulée de 65 % pour une fragmentation ou une marginalisation du format menace le modèle traditionnel de financement de la création musicale française."
+  },
+  "phrase_a_retenir": "Les artistes indépendants publiant des singles réguliers voient leurs auditeurs croître 3,1 fois plus vite que ceux misant sur un album complet.",
+  "phrase_a_retenir_stat": "3,1 fois plus vite",
+  "lexique": [
+    {
+      "slug": "streaming",
+      "terme": "streaming",
+      "definition": "Technologie de diffusion permettant d'écouter de la musique en direct via Internet sans avoir à télécharger les fichiers audio sur son appareil."
+    },
+    {
+      "slug": "single",
+      "terme": "single",
+      "definition": "Morceau de musique commercialisé de manière isolée, parfois accompagné d'une ou deux pistes secondaires, servant souvent de titre promotionnel."
+    },
+    {
+      "slug": "ep",
+      "terme": "EP",
+      "definition": "Format de disque court comprenant généralement entre quatre et six morceaux, d'une durée totale inférieure à trente minutes."
+    },
+    {
+      "slug": "algorithme",
+      "terme": "algorithme",
+      "definition": "Ensemble de règles mathématiques et logiques utilisé par une plateforme pour analyser les comportements d'écoute et recommander des morceaux."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://snepmusique.com/communiques-dossiers-de-presse/bilan-1er-semestre-2026/\" target=\"_blank\" rel=\"noopener noreferrer\">SNEP — Musique enregistrée : Bilan du marché français au 1er semestre 2026 ↗</a>",
+    "<a href=\"https://snepmusique.com/communiques-dossiers-de-presse/bilan-2025-snep/\" target=\"_blank\" rel=\"noopener noreferrer\">SNEP — BILAN 2025 DU MARCHÉ DE LA MUSIQUE ENREGISTRÉE ↗</a>",
+    "<a href=\"https://newsroom.spotify.com/2026-10-22/spotify-q3-2026-earnings/\" target=\"_blank\" rel=\"noopener noreferrer\">Spotify Newsroom — Spotify Reports Third Quarter 2026 Earnings ↗</a>",
+    "<a href=\"https://www.musicpulse.app/fr/blog/ep-vs-single-vs-album-what-release-format-works-best-for-growth\" target=\"_blank\" rel=\"noopener noreferrer\">MusicPulse — EP vs Single vs Album : quel format choisir ? ↗</a>",
+    "<a href=\"https://cnm.fr/aides-financieres/aide-a-la-production-phonographique-3/\" target=\"_blank\" rel=\"noopener noreferrer\">CNM — Aide à la production phonographique ↗</a>",
+    "<a href=\"https://cnm.fr/aides-financieres/credit-dimpot-en-faveur-de-la-production-phonographique/\" target=\"_blank\" rel=\"noopener noreferrer\">CNM — Crédit d'impôt en faveur de la production phonographique ↗</a>"
+  ],
+  "meta": {
+    "title": "Spotify : l'album en sursis ?",
+    "meta_description": "Spotify : l'album en sursis ? 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Casque audio en studio posé à côté d'un disque vinyle en cours de lecture",
+    "keywords": [
+      "Spotify"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-24.html\"\n  },\n  \"headline\": \"Spotify : l'album en sursis ?\",\n  \"description\": \"Spotify : l'album en sursis ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-24.png\"\n  ],\n  \"datePublished\": \"2026-10-24T00:00:00\",\n  \"dateModified\": \"2026-10-24T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Spotify\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Spotify : l'album en sursis ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-24.html\"\n    }\n  ]\n}"
+  }
+}
