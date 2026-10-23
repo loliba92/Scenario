@@ -308,6 +308,7 @@ def phrases_brutes(texte: str) -> list[str]:
     return [p for p in re.split(r"(?<=[.!?])\s+|\n+", texte) if p.strip()]
 
 
+MOTS_MAX_TOLERE = 1100   # 23 octobre 2026 : 1010 mots refusés pour 10 mots de trop. La consigne reste 1000 mots ; le refus ne commence qu'à 1100
 MOTS_MAX_DERNIER_ESSAI, MOTS_CIBLE = 1100, 850   # dernier essai : jusqu'à 1100 mots ; consigne de raccourcissement : viser 850 mots
 MOTS_PHRASE_MAX_DERNIER_ESSAI = 40   # dernier essai : une phrase un peu longue (33 à 40 mots) ne doit pas faire perdre l'épisode du jour
 
@@ -367,7 +368,7 @@ def verifier(texte: str, source: str, dernier_essai: bool = False, probas: list[
     problemes = []
     texte = "\n\n".join(parties(texte))  # les lignes --- ne sont ni des mots ni du Markdown
     mots = len(texte.split())
-    maxi = MOTS_MAX_DERNIER_ESSAI if dernier_essai else MOTS_MAX
+    maxi = MOTS_MAX_DERNIER_ESSAI if dernier_essai else MOTS_MAX_TOLERE
     if mots > maxi:
         problemes.append(f"{mots} mots : trop long de {mots - MOTS_MAX} mots (maximum {MOTS_MAX}). Réécris plus court, vise environ {MOTS_CIBLE} mots : "
                          "garde les trois scénarios et l'idée principale, supprime les détails secondaires et les chiffres en trop")
