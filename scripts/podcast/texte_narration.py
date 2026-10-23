@@ -86,7 +86,7 @@ def noms_propres_article(source: str) -> list[str]:
     return list(vus)
 
 
-def construire_prompt(ed: dict, remarques: list[str] | None = None, refuses: list[str] | None = None) -> str:
+def construire_prompt(ed: dict, remarques: list[str] | None = None, refuses: list[str] | None = None, precedent: str = "") -> str:
     exemple = EXEMPLE.read_text(encoding="utf-8").strip() if EXEMPLE.exists() else ""
     lexique = "\n".join(f"- {x['terme']} : {x['definition']}" for x in ed.get("lexique") or []) or "(aucun terme dans cette édition)"
     probas = probabilites_edition(ed)
@@ -103,6 +103,10 @@ def construire_prompt(ed: dict, remarques: list[str] | None = None, refuses: lis
                  "(« Moyen-Orient » ne devient pas un pays, un fleuve ne devient pas un continent). Aucune année ni aucun nombre qui ne soit dans l'article."
                  + (" Déjà refusés dans tes essais précédents, n'y reviens pas : " + ", ".join(refuses) + "." if refuses else ""))
     suite = ("\n\nTa version précédente a été refusée pour ces raisons, corrige-les :\n- " + "\n- ".join(remarques)) if remarques else ""
+    if remarques and precedent:   # 23 octobre 2026 : réécrire de zéro faisait osciller la longueur (768 → 1109 mots) et ramenait les termes refusés
+        suite += ("\n\nVOICI TA VERSION PRÉCÉDENTE. Ne la réécris pas : reprends-la telle quelle et ne modifie que ce qu'il faut pour corriger les raisons ci-dessus "
+                  "(retire ou remplace seulement les phrases concernées, coupe une phrase trop longue en deux, ajoute la phrase « En clair, … » si elle manque). "
+                  "Garde les parties, les séparateurs --- et tout le reste mot pour mot :\n" + precedent)
     return f"""Tu écris le texte parlé d'un court podcast quotidien du site d'actualité Scénario (lesscenarios.fr), à partir de l'édition du {gp.date_longue(ed['date'])} ci-dessous. Une seule voix, chaleureuse, qui parle à un ami curieux : un ton décontracté et naturel, comme on raconte l'actualité à quelqu'un qu'on apprécie.
 
 RÈGLES ABSOLUES
@@ -435,11 +439,13 @@ def generer(ed: dict, modele: str, cle: str, essais: int = 4) -> str:
     source = source_controlee(ed)
     probas = probabilites_edition(ed)
     remarques: list[str] = []
+    texte_precedent = ""
     refuses: list[str] = []   # noms et nombres déjà refusés : rappelés à chaque essai pour éviter qu'ils reviennent
     for n in range(1, essais + 1):
-        resultat, _ = en._appeler_avec_reprises(construire_prompt(ed, remarques or None, refuses), modele, cle,
+        resultat, _ = en._appeler_avec_reprises(construire_prompt(ed, remarques or None, refuses, texte_precedent), modele, cle,
                                                 temperature=0.6, max_tokens=12000, timeout=300)
         texte = re.sub(r"\n{3,}", "\n\n", str((resultat or {}).get("texte", "")).strip())
+        texte_precedent = texte
         dernier = n == essais
         remarques = verifier(texte, source, dernier_essai=dernier, probas=probas)
         refuses += [x for x in [*termes_hors_article(texte, source), *nombres_hors_article(texte, source)] if x not in refuses]
