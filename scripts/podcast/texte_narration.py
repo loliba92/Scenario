@@ -73,7 +73,20 @@ def fermeture(date_str: str | None = None) -> str:
 EXEMPLE = (Path(__file__).resolve().parents[2] / "podcast" / "textes" / "2026-10-03.txt")
 
 
-def construire_prompt(ed: dict, remarques: list[str] | None = None) -> str:
+ENTETES_SOURCE = {"TITRE", "FAITS", "LES", "POUR", "POSÉE", "DATE", "DE", "LA", "STABLE", "FAVORABLE", "DÉGRADÉ", "SCÉNARIO"}   # intitulés de gp.texte_source
+
+
+def noms_propres_article(source: str) -> list[str]:
+    """Noms propres et sigles de l'article, pour que le modèle n'en ajoute pas d'autres (23 octobre 2026)."""
+    vus: dict[str, None] = {}
+    for m in re.finditer(r"(?<=[a-zàâçéèêëîïôûùüÿ,;:] )([A-ZÉÈÀ][A-Za-zÀ-ÿ'’-]{2,})|(?<=['’])([A-ZÉÈÀ][a-zà-ÿ-]{2,})|\b([A-ZÉÈÀ]{2,6})\b", source):
+        mot = m.group(1) or m.group(2) or m.group(3)
+        if mot not in ENTETES_SOURCE:
+            vus[mot] = None
+    return list(vus)
+
+
+def construire_prompt(ed: dict, remarques: list[str] | None = None, refuses: list[str] | None = None) -> str:
     exemple = EXEMPLE.read_text(encoding="utf-8").strip() if EXEMPLE.exists() else ""
     lexique = "\n".join(f"- {x['terme']} : {x['definition']}" for x in ed.get("lexique") or []) or "(aucun terme dans cette édition)"
     probas = probabilites_edition(ed)
@@ -85,6 +98,10 @@ def construire_prompt(ed: dict, remarques: list[str] | None = None) -> str:
                        + ". Pour deux scénarios réunis, dis la somme exacte : "
                        + ", ".join(f"« {fraction_parlee(a + b)} »" for a, b in combinations(probas, 2)) + " (dans l'ordre un+deux, un+trois, deux+trois). "
                        "N'emploie aucune autre formule du type « une chance sur N ».")
+    bloc_noms = ("\n- NOMS PROPRES : les seuls pays, régions, fleuves, villes, organisations et sigles que tu peux nommer sont ceux-ci, tirés de l'article : "
+                 + ", ".join(noms_propres_article(gp.texte_source(ed))) + ". N'en cite aucun autre : ne déduis jamais un pays ou un continent d'un lieu "
+                 "(« Moyen-Orient » ne devient pas un pays, un fleuve ne devient pas un continent). Aucune année ni aucun nombre qui ne soit dans l'article."
+                 + (" Déjà refusés dans tes essais précédents, n'y reviens pas : " + ", ".join(refuses) + "." if refuses else ""))
     suite = ("\n\nTa version précédente a été refusée pour ces raisons, corrige-les :\n- " + "\n- ".join(remarques)) if remarques else ""
     return f"""Tu écris le texte parlé d'un court podcast quotidien du site d'actualité Scénario (lesscenarios.fr), à partir de l'édition du {gp.date_longue(ed['date'])} ci-dessous. Une seule voix, chaleureuse, qui parle à un ami curieux : un ton décontracté et naturel, comme on raconte l'actualité à quelqu'un qu'on apprécie.
 
@@ -109,7 +126,7 @@ RÈGLES ABSOLUES
   · mets une pause à l'endroit où l'on respire : un point plutôt qu'une virgule avant une idée nouvelle, un tiret ou deux-points avant la chute d'une explication ;
   · jamais de points de suspension, de majuscules d'insistance, ni de point d'exclamation (la voix les lit mal).
 - Du langage parlé : phrases courtes, tournures naturelles, pas de liste, pas de Markdown, pas d'adresse web.
-- Pas de tableau d'indicateurs : ne récite pas les indicateurs chiffrés des scénarios. Garde peu de chiffres : ceux qui font comprendre le sujet, et les probabilités des scénarios, TOUJOURS dites en fractions parlées : « une chance sur quatre » pour 25 %, « une chance sur deux » pour 50 %, « trois chances sur quatre » pour 75 %, « une chance sur trois », « une chance sur cinq », « une chance sur dix ». JAMAIS « pour cent » ni le signe %, même si l'article donne des pourcentages. Ne les arrondis JAMAIS : les trois probabilités des scénarios doivent faire 100 % ensemble (voir PROBABILITÉS ci-dessous).{bloc_probas}
+- Pas de tableau d'indicateurs : ne récite pas les indicateurs chiffrés des scénarios. Garde peu de chiffres : ceux qui font comprendre le sujet, et les probabilités des scénarios, TOUJOURS dites en fractions parlées : « une chance sur quatre » pour 25 %, « une chance sur deux » pour 50 %, « trois chances sur quatre » pour 75 %, « une chance sur trois », « une chance sur cinq », « une chance sur dix ». JAMAIS « pour cent » ni le signe %, même si l'article donne des pourcentages. Ne les arrondis JAMAIS : les trois probabilités des scénarios doivent faire 100 % ensemble (voir PROBABILITÉS ci-dessous).{bloc_probas}{bloc_noms}
 - Ne dis jamais « selon l'article », ne parle ni de toi ni de l'intelligence artificielle. Pas de « bonjour » ni de « bienvenue » ni d'au revoir : le script ajoute l'accueil avant ton texte et la fermeture après. Ton texte commence par la MISE EN SITUATION (voir STRUCTURE).
 
 STRUCTURE (entre {MOTS_MIN} et {MOTS_MAX} mots, soit 3 à 7 minutes ; vise environ 850 mots : l'épisode idéal dure 6 à 8 minutes, la mise en situation et la phrase finale comptent dans ce total)
@@ -320,6 +337,28 @@ def termes_hors_article(texte: str, source: str) -> list[str]:
     return list(trouves)
 
 
+def nombres_hors_article(texte: str, source: str) -> list[str]:
+    connus = gp.nombres(source)
+    return sorted(n for n in gp.nombres(texte) if n not in connus and not (n.isdigit() and int(n) <= 10))
+
+
+def retirer_phrases_inventees(texte: str, source: str) -> str:
+    """Dernier recours (23 octobre 2026 : « Iran », « Afrique », « 2027 », « 90 » ajoutés par le modèle à chaque essai, aucun épisode).
+
+    Retire seulement les phrases qui contiennent un nom propre ou un nombre absent de l'article ; le reste du texte, les
+    séparateurs et les paragraphes sont conservés. Le résultat repasse ensuite par `verifier`."""
+    interdits = [re.escape(x) for x in [*termes_hors_article(texte, source), *nombres_hors_article(texte, source)]]
+    if not interdits:
+        return texte
+    motif = re.compile(r"(?<![\w])(?:" + "|".join(interdits) + r")(?![\w])")
+    paragraphes = []
+    for para in texte.split("\n"):
+        phrases = re.split(r"(?<=[.!?])\s+", para)
+        gardees = [ph for ph in phrases if not motif.search(ph)]
+        paragraphes.append(" ".join(gardees))
+    return re.sub(r"\n{3,}", "\n\n", "\n".join(paragraphes)).strip()
+
+
 def verifier(texte: str, source: str, dernier_essai: bool = False, probas: list[int] | None = None) -> list[str]:
     problemes = []
     texte = "\n\n".join(parties(texte))  # les lignes --- ne sont ni des mots ni du Markdown
@@ -373,8 +412,7 @@ def verifier(texte: str, source: str, dernier_essai: bool = False, probas: list[
         problemes.append("termes absents de l'article (rien ne doit être inventé, appuie-toi uniquement sur l'édition) : "
                          + ", ".join(inventes) + " : supprime-les ou remplace-les par ce que dit l'article")
     problemes += controle_probabilites(texte, probas or [])
-    connus = gp.nombres(source)
-    inconnus = sorted(n for n in gp.nombres(texte) if n not in connus and not (n.isdigit() and int(n) <= 10))
+    inconnus = nombres_hors_article(texte, source)
     if inconnus:
         problemes.append("nombres absents de l'article : " + ", ".join(inconnus))
     return problemes
@@ -395,12 +433,24 @@ def generer(ed: dict, modele: str, cle: str, essais: int = 4) -> str:
     import enrich_sujets as en  # relais de modèles gratuits
 
     source = source_controlee(ed)
+    probas = probabilites_edition(ed)
     remarques: list[str] = []
+    refuses: list[str] = []   # noms et nombres déjà refusés : rappelés à chaque essai pour éviter qu'ils reviennent
     for n in range(1, essais + 1):
-        resultat, _ = en._appeler_avec_reprises(construire_prompt(ed, remarques or None), modele, cle,
+        resultat, _ = en._appeler_avec_reprises(construire_prompt(ed, remarques or None, refuses), modele, cle,
                                                 temperature=0.6, max_tokens=12000, timeout=300)
         texte = re.sub(r"\n{3,}", "\n\n", str((resultat or {}).get("texte", "")).strip())
-        remarques = verifier(texte, source, dernier_essai=(n == essais), probas=probabilites_edition(ed))
+        dernier = n == essais
+        remarques = verifier(texte, source, dernier_essai=dernier, probas=probas)
+        refuses += [x for x in [*termes_hors_article(texte, source), *nombres_hors_article(texte, source)] if x not in refuses]
+        if remarques and dernier:
+            nettoye = retirer_phrases_inventees(texte, source)
+            if nettoye != texte:
+                reste = verifier(nettoye, source, dernier_essai=True, probas=probas)
+                print(f"  dernier recours : phrases à contenu inventé retirées ({len(texte.split())} → {len(nettoye.split())} mots), "
+                      f"{'conforme' if not reste else '; '.join(reste)}", flush=True)
+                if not reste:
+                    texte, remarques = nettoye, []
         print(f"  essai {n}/{essais} : {len(texte.split())} mots, {'conforme' if not remarques else '; '.join(remarques)}", flush=True)
         if not remarques:
             nb = len(parties(texte))
