@@ -402,6 +402,20 @@ class TestJingles(unittest.TestCase):
                         "image du quotidien", "En clair,", "OSNMA : "):
             self.assertIn(attendu, prompt)
 
+    def test_dernier_recours_retire_les_phrases_inventees(self):
+        # 23 octobre 2026 : « Iran », « Afrique », « 2027 » ajoutés à chaque essai, aucun épisode produit
+        import texte_narration as tn
+        ed = gp.lire_edition(gp.ROOT / "archives" / "2026-10-23.html")
+        src = tn.source_controlee(ed)
+        texte = "Imaginez : vous ouvrez le robinet. En Iran, la sécheresse dure. L'Égypte dépend du Nil.\n\nEn 2027, tout change. Rien de plus."
+        net = tn.retirer_phrases_inventees(texte, src)
+        for absent in ("Iran", "2027", "tout change"):
+            self.assertNotIn(absent, net)
+        for present in ("robinet", "Égypte", "Rien de plus"):
+            self.assertIn(present, net)
+        self.assertIn("Égypte", tn.construire_prompt(ed))   # noms propres autorisés donnés au modèle
+        self.assertIn("Iran", tn.construire_prompt(ed, None, ["Iran"]))   # termes déjà refusés rappelés
+
     def test_annee_de_l_edition_permise_mais_pas_une_autre(self):
         import texte_narration as tn
         ed = gp.lire_edition(sorted((gp.ROOT / "archives").glob("2026-10-12.html"))[0])
