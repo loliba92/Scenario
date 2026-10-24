@@ -418,6 +418,19 @@ class TestJingles(unittest.TestCase):
         self.assertIn("Égypte", tn.construire_prompt(ed))   # noms propres autorisés donnés au modèle
         self.assertIn("Iran", tn.construire_prompt(ed, None, ["Iran"]))   # termes déjà refusés rappelés
 
+    def test_pourcentage_de_probabilite_cite_puis_retire_au_dernier_recours(self):
+        # 24 octobre 2026 : quatre essais refusés pour « pourcentage », sans que le modèle sache quelle phrase corriger
+        import texte_narration as tn
+        ed = gp.lire_edition(gp.ROOT / "archives" / "2026-10-23.html")
+        src = tn.source_controlee(ed)
+        texte = "Imaginez : vous ouvrez le robinet. Le scénario le plus sombre a 25 % de chances. Rien de plus."
+        remarques = tn.verifier(texte, src)
+        self.assertTrue(any("pourcentage" in r and "scénario le plus sombre" in r for r in remarques))
+        net = tn.retirer_phrases_inventees(texte, src)
+        self.assertNotIn("25 %", net)
+        self.assertIn("robinet", net)
+        self.assertIn("Rien de plus", net)
+
     def test_annee_de_l_edition_permise_mais_pas_une_autre(self):
         import texte_narration as tn
         ed = gp.lire_edition(sorted((gp.ROOT / "archives").glob("2026-10-12.html"))[0])
