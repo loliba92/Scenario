@@ -11,4 +11,15 @@
       <news:title>Water: The next strategic resource?</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-10-24.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-24T06:01:36+02:00</news:publication_date><news:title>Spotify : l'album en sursis ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-10-24.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-24T06:01:36+02:00</news:publication_date><news:title>Spotify : l'album en sursis ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-10-24.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-24T06:01:36+02:00</news:publication_date>
+      <news:title>Spotify: Is the album on borrowed time?</news:title>
+    </news:news>
+  </url>
+</urlset>
