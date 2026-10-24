@@ -1,0 +1,308 @@
+{
+  "date": "2026-10-25",
+  "registre": "sport",
+  "sujet": {
+    "titre_propose": "Pass Sport : l'aide à la pratique sportive des jeunes va-t-elle survivre aux prochains budgets ?",
+    "h1": "Pass Sport : l'aide aux jeunes va-t-elle survivre aux budgets ?",
+    "question_posee": "Pass Sport : l'aide à la pratique sportive des jeunes va-t-elle survivre aux prochains budgets ?",
+    "eyebrow": "Dimanche, sport",
+    "angle": "Le Pass Sport, transféré aux CAF dans le PLF 2027, sera-t-il maintenu à 50 € pour les 6-13 ans ou fera-t-il l'objet d'une nouvelle réduction, d'une suppression ou d'un élargissement ?",
+    "tags": [
+      "sport",
+      "budget",
+      "jeunes",
+      "CAF",
+      "France"
+    ],
+    "domain": "sport",
+    "image_keywords": "children playing football in park",
+    "complexite": 3,
+    "origine_prioritaire": "Pass Sport : l'aide à la pratique sportive des jeunes va-t-elle survivre aux prochains budgets ?",
+    "origine_id": "sport-pass-sport-l-aide-a-la-pratique-sportive-des",
+    "point_de_depart": {
+      "id": "sport-pass-sport-l-aide-a-la-pratique-sportive-des",
+      "registre": "sport",
+      "titre": "Pass Sport : l'aide à la pratique sportive des jeunes va-t-elle survivre aux prochains budgets ?",
+      "question": "Pass Sport : l'aide à la pratique sportive des jeunes va-t-elle survivre aux prochains budgets ?",
+      "contexte": "Le PLF 2026 prévoyait une coupe de 36 M€ (-50%) sur les crédits du Pass Sport, qui aurait exclu durablement les 6-13 ans (81% des bénéficiaires actuels). Sous la pression des élus locaux et du monde sportif face à la baisse des inscriptions, un amendement porté par la ministre des Sports Marina Ferrari a rétabli l'aide pour les 6-13 ans (financée sur crédits Cnaf), montant maintenu à 70€ pour 2026-2027. Le dispositif vient d'être sauvé de justesse une fois — rien ne dit qu'il le sera à nouveau l'an prochain",
+      "rationnel": "La question : Le Pass Sport, transféré aux CAF dans le PLF 2027, sera‑t‑il maintenu à 50 € pour les 6‑13 ans afin de garantir leur accès à la pratique sportive pour la saison 2027‑2028, ou fera‑t‑il l’objet d’une nouvelle réduction, d’une suppression ou d’un élargissement ? L’issue demeure ouverte car, malgré le transfert, le dispositif dépend encore d’amendements de dernière minute soutenus par les élus locaux et le monde sportif, tandis que le contexte budgétaire reste tendu (déficit à 5,4 % du PIB en 2026, objectif 5 % en 2027) et que l’aide a déjà été réduite de 70 à 50 €. Pour un lecteur français, l’enjeu concret est l’accès à la pratique sportive des jeunes de milieux modestes, dans un pays où le coût d’une licence sportive (entre 150 et 250 €) constitue un obstacle pour de nombreuses familles.",
+      "mots_cles": [
+        "Pass'Sport",
+        "Pass Sport",
+        "PLF 2026",
+        "PLF 2027",
+        "Marina Ferrari",
+        "6-13 ans",
+        "quotient familial 699€",
+        "CNAF",
+        "aide à la licence sportive",
+        "budget sports 2027",
+        "49.3 budget",
+        "Sébastien Lecornu"
+      ],
+      "angle": null,
+      "a_verifier": "Chiffre exact du budget Pass'Sport dans le PLF 2027 après transfert aux CAF (40 M€ évoqués par Le Monde) ; nombre de bénéficiaires 2026-2027 vs 2025-2026 ; taux de recours exact du dispositif ; position des fédérations sportives sur la baisse à 50€",
+      "scenarios_brouillon": {
+        "favorable": "le Pass Sport est sanctuarisé et même élargi (ex. relevé d'âge, comme certaines collectivités le font déjà localement)",
+        "stable": "l'aide se maintient d'année en année via des amendements de dernière minute, jamais vraiment sécurisée",
+        "degrade": "la coupe initiale finit par passer, les 6-13 ans sortent durablement du dispositif"
+      },
+      "echeance": {
+        "date": "2026-12-31",
+        "raison": "Fin de la campagne d'activation du Pass Sport 2026-2027 ; le PLF 2027 devra être voté d'ici fin décembre 2026 pour déterminer le sort du dispositif pour la saison suivante"
+      },
+      "sources_pistes": [
+        {
+          "titre": "Le Monde - Un budget des sports stable, les JO 2030 préservés",
+          "url": "https://www.lemonde.fr/sport/article/2026/10/01/un-budget-des-sports-stable-les-jeux-olympiques-et-paralympiques-2030-preserves-de-la-cure-d-austerite_6786555_3242.html"
+        },
+        {
+          "titre": "Ministère des Sports - Le dispositif pass Sport de retour pour la rentrée 2026",
+          "url": "https://www.sports.gouv.fr/le-dispositif-pass-sport-de-retour-pour-la-rentree-2026-10272"
+        },
+        {
+          "titre": "L'Équipe - Le Pass Sport de nouveau accessible aux enfants dans le PLF 2026",
+          "url": "https://www.lequipe.fr/Tous-sports/Actualites/Le-pass-sport-de-nouveau-accessible-aux-enfants-dans-le-projet-de-loi-de-finances-2026/1636229"
+        },
+        {
+          "titre": "Service Public - Le pass Sport est étendu pour la saison 2026-2027",
+          "url": "https://www.service-public.gouv.fr/particuliers/actualites/A15850"
+        }
+      ],
+      "tag": "sport & financement",
+      "origine": null,
+      "note_editoriale": null,
+      "donnees_graphique": null,
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Vérifié : édition du 24/10 (Spotify) sans lien ; éditions sport précédentes (Zidane 18/10, Milan-Cortina 11/10, Championnat des Nations 04/10, NBA Europe 20/09, Mbappé/Ceuta 27/09) sans recoupement sur le Pass Sport ou le financement des licences sportives jeunes."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le Pass Sport est un bon de 50 € attribué aux 6-13 ans (et 15-17 ans sous conditions) pour aider au paiement d'une licence sportive, transféré aux CAF pour la campagne 2026-2027.",
+      "chiffre": "50 €",
+      "date_du_chiffre": "2026-10-01",
+      "sources": [
+        "lemonde-budget-sports-2026",
+        "service-public-pass-sport-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La campagne d'activation du Pass Sport 2026-2027 s'achève le 31 décembre 2026 ; le PLF 2027 devra déterminer le sort du dispositif pour la saison 2027-2028.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "sports-gouv-pass-sport-2026",
+        "service-public-pass-sport-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le PLF 2026 prévoyait initialement une réduction des crédits Pass Sport, ramenant l'aide de 70 € à 50 € pour les 6-13 ans, avant qu'un amendement de la ministre des Sports ne rétablisse l'aide pour cette tranche d'âge.",
+      "chiffre": "70 € → 50 €",
+      "date_du_chiffre": "2026-10-01",
+      "sources": [
+        "lemonde-budget-sports-2026"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le déficit public français était évalué à 5,4 % du PIB en 2026, avec un objectif de 5 % en 2027, dans un contexte de tension budgétaire.",
+      "chiffre": "5,4 % du PIB",
+      "date_du_chiffre": "2026-10-01",
+      "sources": [
+        "lemonde-budget-sports-2026"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Marina Ferrari",
+      "role": "Ministre des Sports, auteure de l'amendement rétablissant l'aide Pass Sport pour les 6-13 ans"
+    },
+    {
+      "nom": "CAF (Caisse d'Allocations Familiales)",
+      "role": "Nouveau gestionnaire du Pass Sport pour la campagne 2026-2027"
+    },
+    {
+      "nom": "Sébastien Lecornu",
+      "role": "Premier ministre, responsable du PLF 2027 qui déterminera le financement futur du Pass Sport"
+    },
+    {
+      "nom": "Fédérations sportives",
+      "role": "Parties prenantes défendant le maintien de l'aide à la licence sportive pour les jeunes"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-10-01",
+      "evenement": "Publication du budget des sports 2026 : maintien du Pass Sport à 50 € pour les 6-13 ans après amendement, transfert aux CAF"
+    },
+    {
+      "date": "2026-12-31",
+      "evenement": "Fin de la campagne d'activation du Pass Sport 2026-2027"
+    },
+    {
+      "date": "2026-12-31",
+      "evenement": "Échéance de vote du PLF 2027, qui déterminera le sort du Pass Sport pour la saison 2027-2028"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Le Pass Sport est sanctuarisé dans le PLF 2027 et même élargi (relevé d'âge, montant maintenu ou augmenté), garantissant l'accès à la pratique sportive pour les 6-13 ans modestes.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "L'aide se maintient d'année en année via des amendements de dernière minute, jamais vraiment sécurisée budgétairement, avec un montant qui pourrait rester à 50 € ou osciller.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "La réduction initiale finit par passer : le montant tombe ou le dispositif est supprimé pour les 6-13 ans, les excluant durablement de la pratique sportive structurée.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Montant de l'aide Pass Sport pour les 6-13 ans (campagne 2026-2027)",
+      "valeur": "50 €",
+      "tendance": "en baisse par rapport aux 70 € de la campagne précédente"
+    },
+    {
+      "label": "Déficit public français (2026)",
+      "valeur": "5,4 % du PIB",
+      "tendance": "au-dessus de l'objectif 5 % en 2027"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune série historique publique longue et vérifiée du montant de l'aide Pass Sport ou du budget dédié n'a été trouvée : le dispositif a été créé en 2020 et ses montants ont changé chaque année (70 € puis 50 €), sans série continue accessible (EIA, banque centrale, INSEE, site sports.gouv.fr consultés). Critère (1) non satisfait.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres comparables (montant de l'aide) existent dans les sources vérifiées : 70 € (campagne précédente), 50 € (campagne 2026-2027), et le coût d'une licence sportive moyenne (150-250 €) pour contextualiser l'obstacle.",
+    "barres": {
+      "aria_label": "Comparaison des montants de l'aide Pass Sport et du coût moyen d'une licence sportive",
+      "lead": "Le Pass Sport couvre une partie du coût d'une licence sportive, mais le reste à charge reste significatif pour les familles modestes.",
+      "caption": "Sources : Le Monde (01/10/2026), Service Public (2026), L'Équipe (2026)",
+      "unite": "€",
+      "valeurs": [
+        {
+          "label": "Aide Pass Sport 2025-2026",
+          "valeur": 70,
+          "affichage": "70 €",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Aide Pass Sport 2026-2027",
+          "valeur": 50,
+          "affichage": "50 €",
+          "mis_en_avant": true
+        },
+        {
+          "label": "Licence sportive moyenne (France)",
+          "valeur": 200,
+          "affichage": "200 € (est.)",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Comment fonctionne le Pass Sport et qui en profite ?",
+        "rattache_a": "fait sur le montant de 50 € et la tranche d'âge 6-13 ans"
+      },
+      {
+        "focus": "Pourquoi le budget des sports est-il sous tension en 2027 ?",
+        "rattache_a": "fait sur le déficit public à 5,4 % du PIB et le PLF 2027"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le montant exact du budget Pass Sport dans le PLF 2027 après transfert aux CAF (40 M€ évoqués par Le Monde non confirmés par une seconde source)",
+    "Le nombre exact de bénéficiaires 2026-2027 vs 2025-2026",
+    "La position officielle des fédérations sportives sur la baisse à 50 €"
+  ],
+  "a_ne_pas_affirmer": [
+    "Le PLF 2027 maintiendra ou réduira le Pass Sport — l'issue est ouverte et dépendra des amendements de dernière minute",
+    "Le Pass Sport sera élargi à d'autres tranches d'âge en 2027-2028"
+  ],
+  "sources": [
+    {
+      "id": "lemonde-budget-sports-2026",
+      "title": "Un budget des sports stable, les JO 2030 préservés",
+      "source": "Le Monde",
+      "url": "https://www.lemonde.fr/sport/article/2026/10/01/un-budget-des-sports-stable-les-jeux-olympiques-et-paralympiques-2030-preserves-de-la-cure-d-austerite_6786555_3242.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Le Monde analyse le budget des sports 2026, notant le maintien du Pass Sport à 50 € pour les 6-13 ans après un amendement de la ministre des Sports, dans un contexte de déficit public à 5,4 % du PIB.",
+      "read_minutes": 3
+    },
+    {
+      "id": "sports-gouv-pass-sport-2026",
+      "title": "Le dispositif pass Sport de retour pour la rentrée 2026",
+      "source": "Ministère des Sports",
+      "url": "https://www.sports.gouv.fr/le-dispositif-pass-sport-de-retour-pour-la-rentree-2026-10272",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Le ministère des Sports confirme le retour du Pass Sport pour la rentrée 2026, avec les modalités d'attribution et les conditions d'éligibilité.",
+      "read_minutes": 2
+    },
+    {
+      "id": "service-public-pass-sport-2026",
+      "title": "Le pass Sport est étendu pour la saison 2026-2027",
+      "source": "Service Public",
+      "url": "https://www.service-public.gouv.fr/particuliers/actualites/A15850",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Le Service Public informe les citoyens sur l'extension du Pass Sport pour la saison 2026-2027, les conditions d'attribution et les montants en vigueur.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Budget des sports 2026 : les JO 2030 préservés, le Pass Sport maintenu",
+      "source": "Le Monde",
+      "url": "https://www.lemonde.fr/sport/article/2026/10/01/un-budget-des-sports-stable-les-jeux-olympiques-et-paralympiques-2030-preserves-de-la-cure-d-austerite_6786555_3242.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Le budget des sports 2026 maintient les crédits pour les JO 2030 et le Pass Sport, malgré la pression budgétaire générale.",
+      "read_minutes": 3
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-10-18",
+      "titre": "Zidane : cinq nouveaux dans la liste des Bleus, Tchouaméni et Kanté écartés",
+      "lien": "Sport — enjeu de la pratique sportive des jeunes et du renouveau des sélections françaises, même registre sport"
+    },
+    {
+      "date": "2026-09-06",
+      "titre": "Sport féminin : la loi oblige à partager l'argent",
+      "lien": "Sport — financement du sport et répartition des ressources entre les disciplines, même enjeu de budget sportif"
+    },
+    {
+      "date": "2026-09-13",
+      "titre": "Budget 2027 : le gouvernement Lecornu va-t-il tenir cet automne ?",
+      "lien": "Politique — le PLF 2027 déterminera le sort du Pass Sport, même échéance budgétaire"
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser que le Pass Sport a été créé en 2020 et que son montant a déjà changé (70 € puis 50 €) pour contextualiser la volatilité du dispositif",
+    "Mettre en lien avec l'édition du 13/09 sur le budget 2027 pour montrer que le PLF 2027 est l'enjeu central",
+    "Évoquer le coût moyen d'une licence sportive (150-250 €) pour illustrer l'obstacle que le Pass Sport partiellement réduit"
+  ]
+}
