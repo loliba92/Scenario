@@ -7,7 +7,7 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-09-24 au 2026-10-21 
 ## Chiffres (28 jours)
 
 - 1 clics, 353 impressions, taux de clic 0,3 %, position moyenne 8,9.
-- Pages indexées : 23 sur 33 inspectées ; éditions inconnues de Google : 7 (dont 3 de plus de 7 jours).
+- Pages indexées : 23 sur 33 inspectées ; éditions inconnues de Google : 8 (dont 3 de plus de 7 jours).
 - Requêtes : 10 (dont 2 avec le nom du site).
 - Tendance (14 jours, jusqu'au 2026-10-21) : impressions 162 contre 191, clics 1 contre 0.
 
@@ -26,7 +26,7 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-09-24 au 2026-10-21 
 - Seulement 10 requêtes enregistrées. **Action** : Trop peu pour piloter par mots-clés : viser d'abord l'indexation des éditions. **Agent à envoyer** : seo-cluster. **Mission** : Proposer des axes thématiques (matières, sujets récurrents) et un maillage interne pour élargir les requêtes, sans produire de pages en série.
 - Pages en première page de Google sans aucun clic : `/en/archives/2026-08-08.html`, `/en/archives/2026-08-30.html`, `/en/archives/2026-09-11.html`, `/en/archives/2026-09-13.html`, `/en/archives/2026-09-15.html`. **Action** : Titre ou description à rendre plus incitatif. **Agent à envoyer** : seo-content. **Mission** : Réécrire titre et description de ces pages (liste dans le rapport), puis vérifier la cohérence avec le contenu.
 - L'adresse `/index.html` apparaît dans Google en plus de `/`. **Action** : Vérifier la balise canonique de l'accueil. **Agent à envoyer** : seo-technical. **Mission** : Vérifier la canonique de l'accueil, les redirections et les liens internes qui pointent vers /index.html.
-- 2 pages : Google a lu la page et a décidé de ne pas l'indexer (qualité ou doublon perçu) (`/archives/2026-10-16.html`, `/archives/2026-10-10.html`). **Action** : Apporter de la valeur propre (analyse, chiffres, sources) et vérifier les doublons. **Agent à envoyer** : seo-content. **Mission** : Comprendre pourquoi Google retient ou écarte ces pages (profondeur, unicité, qualité perçue) et proposer des améliorations de contenu et de liens internes.
+- 1 page : Google a lu la page et a décidé de ne pas l'indexer (qualité ou doublon perçu) (`/archives/2026-10-10.html`). **Action** : Apporter de la valeur propre (analyse, chiffres, sources) et vérifier les doublons. **Agent à envoyer** : seo-content. **Mission** : Comprendre pourquoi Google retient ou écarte ces pages (profondeur, unicité, qualité perçue) et proposer des améliorations de contenu et de liens internes.
 
 ## Ce qui fonctionne
 
@@ -35,7 +35,7 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-09-24 au 2026-10-21 
 - 17 éditions indexées par Google.
 - Plan du site `/sitemap.xml` lu par Google sans erreur (191 adresses envoyées).
 - Plan du site `/sitemap-news.xml` lu par Google sans erreur (4 adresses envoyées).
-- Balises des 92 éditions en français conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.
+- Balises des 93 éditions en français conformes : titres sans coupure, descriptions de 100 à 160 caractères, un seul titre principal, canonique présente, toutes dans le plan du site.
 
 ## Ce qui ne fonctionne pas
 
@@ -151,6 +151,7 @@ Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 - `/sources.html` : ok
 - `/glossaire.html` : ok
 - `/en/` : ok
+- `/archives/2026-10-24.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 0 j
 - `/archives/2026-10-23.html` : ok, publiée il y a 1 j
 - `/archives/2026-10-22.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 2 j
 - `/archives/2026-10-21.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 3 j
@@ -158,7 +159,7 @@ Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 - `/archives/2026-10-19.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 5 j
 - `/archives/2026-10-18.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 6 j
 - `/archives/2026-10-17.html` : ok, publiée il y a 7 j
-- `/archives/2026-10-16.html` : exploree (Explorée, actuellement non indexée), publiée il y a 8 j
+- `/archives/2026-10-16.html` : ok, publiée il y a 8 j
 - `/archives/2026-10-15.html` : ok, publiée il y a 9 j
 - `/archives/2026-10-14.html` : ok, publiée il y a 10 j
 - `/archives/2026-10-13.html` : ok, publiée il y a 11 j
@@ -170,12 +171,11 @@ Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 - `/archives/2026-10-07.html` : ok, publiée il y a 17 j
 - `/archives/2026-10-06.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 18 j
 - `/archives/2026-10-05.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 19 j
-- `/archives/2026-10-04.html` : ok, publiée il y a 20 j
+- `/en/archives/2026-10-24.html` : ok, publiée il y a 0 j
 - `/en/archives/2026-10-23.html` : ok, publiée il y a 1 j
 - `/en/archives/2026-10-22.html` : ok, publiée il y a 2 j
 - `/en/archives/2026-10-21.html` : ok, publiée il y a 3 j
 - `/en/archives/2026-10-20.html` : ok, publiée il y a 4 j
 - `/en/archives/2026-10-19.html` : ok, publiée il y a 5 j
-- `/en/archives/2026-10-18.html` : ok, publiée il y a 6 j
 
 Le compteur « indexées » des plans du site n'est pas fiable : l'inspection page par page fait foi.
