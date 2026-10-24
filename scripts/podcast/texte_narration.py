@@ -350,18 +350,22 @@ def nombres_hors_article(texte: str, source: str) -> list[str]:
 def retirer_phrases_inventees(texte: str, source: str) -> str:
     """Dernier recours (23 octobre 2026 : « Iran », « Afrique », « 2027 », « 90 » ajoutés par le modèle à chaque essai, aucun épisode).
 
-    Retire seulement les phrases qui contiennent un nom propre ou un nombre absent de l'article ; le reste du texte, les
+    Retire seulement les phrases qui contiennent un nom propre ou un nombre absent de l'article, ou un pourcentage de probabilité ; le reste du texte, les
     séparateurs et les paragraphes sont conservés. Le résultat repasse ensuite par `verifier`."""
     interdits = [re.escape(x) for x in [*termes_hors_article(texte, source), *nombres_hors_article(texte, source)]]
-    if not interdits:
-        return texte
-    motif = re.compile(r"(?<![\w])(?:" + "|".join(interdits) + r")(?![\w])")
+    motif = re.compile(r"(?<![\w])(?:" + "|".join(interdits) + r")(?![\w])") if interdits else None
     paragraphes = []
     for para in texte.split("\n"):
         phrases = re.split(r"(?<=[.!?])\s+", para)
-        gardees = [ph for ph in phrases if not motif.search(ph)]
+        gardees = [ph for ph in phrases if not (motif and motif.search(ph)) and not est_pourcentage_probabilite(ph)]
         paragraphes.append(" ".join(gardees))
     return re.sub(r"\n{3,}", "\n\n", "\n".join(paragraphes)).strip()
+
+
+def est_pourcentage_probabilite(phrase: str) -> bool:
+    """Une phrase qui donne un pourcentage à côté d'un mot de scénario ou de probabilité (un chiffre factuel isolé reste permis)."""
+    return bool(re.search(r"pour\s*cent|%", phrase, re.I)
+                and re.search(r"chance|probab|sc[ée]nario|trajectoire|optimiste|sombre", phrase, re.I))
 
 
 def verifier(texte: str, source: str, dernier_essai: bool = False, probas: list[int] | None = None) -> list[str]:
@@ -385,8 +389,10 @@ def verifier(texte: str, source: str, dernier_essai: bool = False, probas: list[
         problemes.append("commence par une mise en situation : une ou deux phrases courtes à la deuxième personne (« Imaginez : vous… ») "
                          "qui placent l'auditeur dans une scène de sa vie liée au sujet, avant la question du jour")
     for phrase in re.split(r"(?<=[.!?])\s+", texte):   # un pourcentage de probabilité est refusé ; un chiffre factuel reste permis
-        if re.search(r"pour\s*cent|%", phrase, re.I) and re.search(r"chance|probab|sc[ée]nario|trajectoire|optimiste|sombre", phrase, re.I):
-            problemes.append("dis les probabilités en fractions (« une chance sur quatre »), pas en pourcentage")
+        if est_pourcentage_probabilite(phrase):
+            # la phrase est citée : le 24 octobre 2026, quatre essais de suite ont gardé le même pourcentage sans savoir où il était
+            problemes.append("dis les probabilités en fractions (« une chance sur quatre »), pas en pourcentage : supprime ou "
+                             f"reformule la phrase « {' '.join(phrase.split())[:140]} »")
             break
     if re.search(MOTS_INTERDITS, texte, re.I):
         problemes.append("registre : aucun mot vulgaire ni péjoratif")
