@@ -2,6 +2,51 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-24",
+      "articles": [
+        {
+          "title": "Overanalysing our 2025 Spotify Wrapped: what MIDiA's stats say about the industry",
+          "source": "MIDiA Research",
+          "url": "https://www.midiaresearch.com/blog/overanalysing-our-2025-spotify-wrapped-what-midias-stats-say-about-the-industry",
+          "image": "https://www.midiaresearch.com/storage/uploads/blog/featured/2567/cover_image-1765457151.png",
+          "lang": "en",
+          "domain": "culture-divertissement",
+          "summary": "L'utilisateur moyen écoute 28 albums par an (2,3 par mois). L'album représente seulement 1,7% du temps d'écoute annuel. Mais l'album n'est pas mort : certains écoutent plus de vinyles et moins de Spotify.",
+          "read_minutes": 5
+        },
+        {
+          "title": "Are Albums Obsolete in the Streaming Era? A Statistical Analysis",
+          "source": "Statsignificant",
+          "url": "https://www.statsignificant.com/p/are-albums-obsolete-in-the-streaming",
+          "image": "https://substackcdn.com/image/fetch/$s_!Ev6R!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F17e82c16-8ba6-4e0d-ae01-d88071e2cc31_5539x3693.jpeg",
+          "lang": "en",
+          "domain": "culture-divertissement",
+          "summary": "Analyse statistique : 90% des dépenses musicales sont concentrées au niveau du morceau. Près de 75% des chansons d'un album captent 5% ou moins des streams totaux de l'album. Le nombre moyen de titres par sortie a diminué depuis 2000.",
+          "read_minutes": 8
+        },
+        {
+          "title": "Why Spotify Keeps Pushing Songs Instead of Albums — And What That Means for Artists",
+          "source": "Unidark",
+          "url": "https://unidark.substack.com/p/why-spotify-keeps-pushing-songs-instead",
+          "image": null,
+          "lang": "en",
+          "domain": "culture-divertissement",
+          "summary": "Analyse de l'architecture produit de Spotify : le système de playlists, Release Radar et Discover Weekly est organisé autour du morceau individuel. Quand un artiste soumet un EP ou album, Spotify lui demande de choisir UNE chanson à pitcher. L'album reste disponible mais les mécanismes de découverte sont conçus pour en extraire des morceaux.",
+          "read_minutes": 7
+        },
+        {
+          "title": "Album ou singles en 2026 ? La meilleure stratégie",
+          "source": "Muzisecur",
+          "url": "https://www.muzisecur.fr/blog/album-vs-singles-strategie-sortie-musique-2026/",
+          "image": "https://www.muzisecur.fr/images/hero/album-vs-singles-strategie-sortie-musique-2026.webp",
+          "lang": "fr",
+          "domain": "culture-divertissement",
+          "summary": "Guide stratégique pour les artistes : l'algorithme Spotify priorise désormais les métriques de rétention (save rate, ratio de réécoute, taux de skip) 3 fois plus que le volume brut. Recommandation waterfall pour les artistes en croissance.",
+          "read_minutes": 6
+        }
+      ]
+    },
+    {
       "date": "2026-10-23",
       "articles": [
         {
