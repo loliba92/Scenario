@@ -882,7 +882,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
 
 ## Culture — samedi
 <!-- Faire tourner les domaines : cinéma, musique, jeux vidéo, littérature, spectacle, séries, art… Registre fusionné le 12 août (retour utilisateur) : "Culture française" (samedi) et "Culture internationale" (dimanche) couvraient les mêmes domaines avec une frontière souvent artificielle (un sujet français a presque toujours une dimension internationale, et inversement) et étaient tous les deux clairsemés — fusionnés en un seul registre plus riche, sans distinction française/internationale à l'entrée. La case libérée par la fusion sert au nouveau registre "Économie & finance mondiale — dimanche" (voir plus bas). -->
-- [ ] Spotify peut-il tuer l'album ? [musique]
+- [x] Spotify peut-il tuer l'album ? [musique]
   <!-- id: culture-spotify-peut-il-tuer-l-album -->
   <!-- contexte: Si l'économie du streaming récompense l'écoute répétée et les morceaux isolés plutôt que les longues œuvres, l'album comme objet artistique peut-il survivre ? -->
   <!-- rationnel: La question : Spotify peut-il tuer l'album d'ici la fin 2026 ? Pourquoi l'issue est ouverte : d'un côté, l'économie du streaming et l'UX des plateformes favorisent les singles et fragmentent l'écoute, poussant les artistes émergents vers des morceaux isolés ; de l'autre, le vinyle connaît un boom, les aides publiques françaises (CNM, crédit d'impôt) soutiennent les projets de cinq titres ou plus, et certains artistes démontrent que l'album peut encore dominer les ventes. L'enjeu concret pour un lecteur français est de savoir si le format album restera viable culturellement et comment les artistes locaux pourront financer de tels projets face à un algorithme qui les pénalise. -->
