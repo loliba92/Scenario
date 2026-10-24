@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-10-23",
+  "mis_a_jour": "2026-10-24",
   "pages": [
     {
       "url": "https://lesscenarios.fr/",
@@ -143,8 +143,8 @@
     },
     {
       "url": "https://lesscenarios.fr/archives/2026-10-16.html",
-      "verdict": "PASS",
-      "etat": "Envoyée et indexée",
+      "verdict": "NEUTRAL",
+      "etat": "Explorée, actuellement non indexée",
       "derniere_exploration": "2026-10-16T12:52:23Z",
       "canonique_google": "https://lesscenarios.fr/archives/2026-10-16.html",
       "canonique_declaree": "https://lesscenarios.fr/archives/2026-10-16.html",
