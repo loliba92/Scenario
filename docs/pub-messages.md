@@ -1220,6 +1220,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-10-24 (archives/2026-10-24.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-10-25
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 50 €
+- message: Fixé à 50 € après avoir atteint 70 €, le Pass Sport des 6-13 ans reste menacé par les économies de l'État face à un déficit public de 5,4 % du PIB.
+- attribution: — lesscenarios.fr, 25 octobre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-10-25.html
+
+*Phrase à retenir de l'édition du 2026-10-25 (archives/2026-10-25.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
