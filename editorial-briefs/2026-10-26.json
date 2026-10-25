@@ -1,0 +1,336 @@
+{
+  "date": "2026-10-26",
+  "registre": "geopolitique",
+  "sujet": {
+    "titre_propose": "Le climat va-t-il redessiner les frontières du monde ?",
+    "h1": "Climat : le monde des frontières de 2050",
+    "question_posee": "Le changement climatique va-t-il redessiner les frontières du monde d'ici 2050, entre l'ouverture de nouvelles routes arctiques, les revendications de plateau continental et les migrations climatiques ?",
+    "eyebrow": "Lundi, géopolitique",
+    "angle": "Trois dynamiques convergent sans mécanisme de règlement contraignant : la fonte de l'Arctique rend les routes maritimes commercialement viables, les revendications de plateau continental s'intensifient (Russie, Canada, Danemark) et les migrations climatiques pourraient concerner des dizaines de millions de personnes. La France, membre de l'OTAN, est concernée par la sécurité du Grand Nord et par les flux migratoires qui toucheront aussi l'Europe.",
+    "tags": [
+      "climat",
+      "arctique",
+      "migrations",
+      "geopolitique"
+    ],
+    "domain": "geopolitique",
+    "image_keywords": "arctic ocean shipping route melting ice",
+    "complexite": 4,
+    "origine_prioritaire": "Le climat va-t-il redessiner les frontières du monde ?",
+    "origine_id": "geopolitique-le-climat-va-t-il-redessiner-les-frontieres-du",
+    "point_de_depart": {
+      "id": "geopolitique-le-climat-va-t-il-redessiner-les-frontieres-du",
+      "registre": "geopolitique",
+      "titre": "Le climat va-t-il redessiner les frontières du monde ?",
+      "question": "Le climat va-t-il redessiner les frontières du monde ?",
+      "contexte": "Fonte de l'Arctique, nouvelles routes maritimes navigables, terres rendues inhabitables, déplacements de population à grande échelle : les frontières géopolitiques de 2050 seront-elles vraiment celles que nous connaissons aujourd'hui ?",
+      "rationnel": "La question : le changement climatique va-t-il redessiner les frontières du monde d'ici 2050, entre l'ouverture de nouvelles routes arctiques, les revendications de plateau continental et les migrations climatiques ? L'issue est ouverte car trois dynamiques convergent sans mécanisme de règlement contraignant : la fonte accélérée de l'Arctique rend les routes maritimes commercialement viables, les revendications de plateau continental s'intensifient (Russie, Canada, Danemark) avec des dépôts russes amendés jusqu'en mars 2026, et l'OTAN lance Arctic Sentry avec des forces en Finlande, tandis que les migrations climatiques pourraient concerner 44 à 216 millions de personnes selon les choix politiques actuels. Pour un lecteur français, l'enjeu est double : la France, membre de l'OTAN, est concernée par la sécurité européenne dans le Grand Nord, et les flux migratoires climatiques toucheront aussi l'Europe.",
+      "mots_cles": [
+        "Commission des limites du plateau continental ONU Arctique",
+        "Northern Sea Route trafic 2025 2026 transit",
+        "revendications Russie Canada Danemark Lomonosov Ridge",
+        "Arctic Sentry OTAN 2026",
+        "migrations climatiques 2050 projections GIEC Banque mondiale",
+        "zones inhabitables chaleur extrême seuil habitabilité",
+        "Groenland indépendance Danemark États-Unis sécurité",
+        "climate migration internal displacement 2050 projections"
+      ],
+      "angle": null,
+      "a_verifier": "État des revendications arctiques à l'ONU (Commission des limites du plateau continental), trafic maritime réel sur les nouvelles routes arctiques, projections de zones inhabitables et déplacements associés (GIEC, sources désagrégées par région)",
+      "scenarios_brouillon": null,
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Main Results of NSR Transit Navigation in 2025 - CHNL",
+          "url": "https://chnl.no/news/main-results-of-nsr-transit-navigation-in-2025/"
+        },
+        {
+          "titre": "Arctic security - NATO Topic",
+          "url": "https://www.nato.int/en/what-we-do/deterrence-and-defence/arctic-security"
+        },
+        {
+          "titre": "The Continental Shelf in the Arctic Ocean - Cambridge / AJIL",
+          "url": "https://www.cambridge.org/core/journals/american-journal-of-international-law/article/continental-shelf-in-the-arctic-ocean/4C5B5917E396AB3CD135CDC14594E857"
+        },
+        {
+          "titre": "Evidence Summary on Climate Change and the Future of Human Mobility - IOM",
+          "url": "https://environmentalmigration.iom.int/sites/g/files/tmzbdl1411/files/documents/IOM%20Global%20Data%20Institute%20Thematic%20Brief%20%231%20-%20Evidence%20Summary%20on%20Climate%20Change%20and%20the%20Future%20of%20Human%20Mobility.pdf"
+        }
+      ],
+      "tag": "géopolitique & climat",
+      "origine": null,
+      "note_editoriale": "Terrain réel et déjà documenté (revendications concurrentes de plateau continental arctique entre Russie/Canada/Danemark auprès de l'ONU, ouverture progressive de la route maritime du Nord, tensions militaires croissantes dans le Grand Nord)",
+      "donnees_graphique": "[relevé du 2026-10-23] Voyages de transit sur la Route maritime du Nord (unité : nombre de voyages). 2024 = 97 (2024) ; 2025 = 103 (2025) ; 2026 (au 30 sept.) = 104 (2026). Sources : https://chnl.no/news/main-results-of-nsr-transit-navigation-in-2024/ ; https://chnl.no/news/main-results-of-nsr-transit-navigation-in-2025/ ; https://www.worldports.org/northern-sea-route-transits-surpass-2025-total-as-arctic-shipping-gains-momentum/",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (25 oct., sport — Pass Sport) : aucun recoupement, registres et acteurs différents. Même registre géopolitique (21 oct. — Corée du Nord missile hypersonique, 12 oct. — Défense européenne) : aucun mécanisme causal commun avec le sujet du jour (missile/IA vs. arctique/climat/migrations). Recoupement filière : édition du 5 août 2026 sur EPR2/EDF (fission nucléaire) — même filière énergie, mais angle différent (nucléaire civil vs. géopolitique arctique), lien possible en contraste dans la rédaction."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "La Commission des limites du plateau continental de l'ONU a reçu des dépôts de Russie, Canada et Danemark pour des extensions de plateau continental en Arctique, dont une revendication russe amendée en mars 2026.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "source-arctic-shelf"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le trafic de transit sur la Route maritime du Nord (Northern Sea Route) a atteint 103 voyages en 2025, contre 97 en 2024, et 104 voyages au 30 septembre 2026.",
+      "chiffre": "103 voyages en 2025",
+      "date_du_chiffre": "2026-01-01",
+      "sources": [
+        "source-chnl-2025"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "L'OTAN a lancé l'initiative Arctic Sentry en 2026 pour renforcer la sécurité du Grand Nord, avec des forces déployées en Finlande.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "source-nato-arctic"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Les projections de migrations climatiques internes à l'horizon 2050 varient de 44 à 216 millions de personnes selon les scénarios de développement et d'adaptation, selon la Banque mondiale et le GIEC.",
+      "chiffre": "44 à 216 millions",
+      "date_du_chiffre": "2021-01-01",
+      "sources": [
+        "source-worldbank-groundswell",
+        "source-ipcc"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Russie",
+      "role": "Principal intéressé de la Route maritime du Nord, revendique une large extension de plateau continental arctique (Ridge de Lomonosov), a amendé sa revendication à l'ONU en mars 2026."
+    },
+    {
+      "nom": "Canada",
+      "role": "Revendique une extension de plateau continental incluant le haut de l'axe Lomonosov, dépose à la Commission de l'ONU."
+    },
+    {
+      "nom": "Danemark (via le Groenland)",
+      "role": "Revendique une extension de plateau continental s'étendant vers l'axe Lomonosov depuis le Groenland, dépose à la Commission de l'ONU."
+    },
+    {
+      "nom": "Commission des limites du plateau continental (CLPC) de l'ONU",
+      "role": "Autorité technique qui examine les dépôts de revendications de plateau continental et rend des recommandations."
+    },
+    {
+      "nom": "OTAN / Arctic Sentry",
+      "role": "Initiative de l'OTAN lancée en 2026 pour renforcer la surveillance et la défense du Grand Nord, avec des forces en Finlande."
+    },
+    {
+      "nom": "Banque mondiale / GIEC",
+      "role": "Sources des projections de migrations climatiques internes à l'horizon 2050 (44 à 216 millions selon les scénarios)."
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2008-05-28",
+      "evenement": "Russie dépose sa première revendication de plateau continental arctique (incluant le Ridge de Lomonosov) auprès de la Commission de l'ONU."
+    },
+    {
+      "date": "2013-12-17",
+      "evenement": "Canada dépose sa revendication de plateau continental arctique."
+    },
+    {
+      "date": "2014-12-17",
+      "evenement": "Danemark (via le Groenland) dépose sa revendication de plateau continental arctique."
+    },
+    {
+      "date": "2026-03-01",
+      "evenement": "Russie amende sa revendication de plateau continental arctique."
+    },
+    {
+      "date": "2026-01-01",
+      "evenement": "Trafic de transit sur la Route maritime du Nord : 103 voyages en 2025, contre 97 en 2024."
+    },
+    {
+      "date": "2026-09-30",
+      "evenement": "Trafic de transit sur la Route maritime du Nord : 104 voyages au 30 septembre 2026."
+    },
+    {
+      "date": "2026-01-01",
+      "evenement": "L'OTAN lance Arctic Sentry pour renforcer la sécurité du Grand Nord."
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "La Commission de l'ONU rend des recommandations techniques qui déduisent les revendications concurrentes, les États acceptent des compromis sur le Ridge de Lomonosov, la Route maritime du Nord reste ouverte et régie par des règles de navigation internationales, et les migrations climatiques sont absorbées par des politiques d'adaptation et de coopération régionale.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Les revendications arctiques restent en suspens devant la Commission de l'ONU sans résolution contraignante, la Route maritime du Nord continue de se développer de façon graduelle sous la domination opérationnelle russe, et les migrations climatiques se poursuivent à un rythme modéré sans crise migratoire massive en Europe.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "Les revendications arctiques s'intensifient sans résolution, la Route maritime du Nord devient un enjeu de confrontation entre la Russie et les États membres de l'OTAN, et les migrations climatiques dépassent les capacités d'accueil et d'adaptation, alimentant des tensions politiques et sécuritaires en Europe.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Trafic de transit sur la Route maritime du Nord (voyages/an)",
+      "valeur": "103 voyages en 2025",
+      "tendance": "en hausse (+6,2 % par rapport à 2024)"
+    },
+    {
+      "label": "Projections de migrations climatiques internes à l'horizon 2050",
+      "valeur": "44 à 216 millions de personnes",
+      "tendance": "incertitude forte selon les scénarios"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Le trafic de transit sur la Route maritime du Nord est une série courte (3 points : 2024, 2025, 2026) issue d'une source unique (CHNL), sans historique long documenté publiquement. Critère (2) non satisfait : moins de 5 points réels. Critère (1) non satisfait : pas d'historique complet publié au-delà de ces 3 années. Critère (3) partiel : la série éclaire le sujet mais est trop courte pour un graphique en escalier. Le graphique de repli (graphique_chiffres) est retenu à la place.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres réels et comparables (même unité : nombre de voyages de transit) sont disponibles dans les sources vérifiées (CHNL) : 97 (2024), 103 (2025), 104 (2026 au 30 sept.). Ces chiffres illustrent la croissance du trafic sur la Route maritime du Nord.",
+    "barres": {
+      "aria_label": "Nombre de voyages de transit sur la Route maritime du Nord, 2024 à 2026",
+      "lead": "Le trafic de transit sur la Route maritime du Nord progresse, illustrant l'ouverture progressive de la route arctique.",
+      "caption": "Source : CHNL (Centre de gestion de la navigation de la Route maritime du Nord), données 2024, 2025 et 2026 au 30 septembre.",
+      "unite": "voyages",
+      "valeurs": [
+        {
+          "label": "2024",
+          "valeur": 97,
+          "affichage": "97 voyages",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2025",
+          "valeur": 103,
+          "affichage": "103 voyages",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2026 (au 30 sept.)",
+          "valeur": 104,
+          "affichage": "104 voyages",
+          "mis_en_avant": true
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "La Commission des limites du plateau continental de l'ONU : comment fonctionne la délimitation du plateau continental en Arctique",
+        "rattache_a": "fait-arctic-shelf"
+      },
+      {
+        "focus": "Les migrations climatiques : ce que projettent les modèles à l'horizon 2050 et pourquoi les chiffres varient autant",
+        "rattache_a": "fait-migrations"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "La date exacte de la prochaine réunion ou décision de la Commission des limites du plateau continental de l'ONU concernant les revendications arctiques n'est pas connue.",
+    "Les projections de migrations climatiques internes à l'horizon 2050 varient fortement selon les scénarios de développement et d'adaptation (44 à 216 millions), et aucune projection n'est certaine.",
+    "L'ampleur réelle de la militarisation de l'Arctique par l'OTAN (Arctic Sentry) et la Russie reste partiellement opaque."
+  ],
+  "a_ne_pas_affirmer": [
+    "La Commission de l'ONU a déjà rendu une décision sur les revendications arctiques de la Russie, du Canada ou du Danemark.",
+    "La Route maritime du Nord est déjà totalement navigable tout au long de l'année pour le commerce de masse.",
+    "Les migrations climatiques atteindront un chiffre précis à l'horizon 2050."
+  ],
+  "sources": [
+    {
+      "id": "source-arctic-shelf",
+      "title": "The Continental Shelf in the Arctic Ocean",
+      "source": "American Journal of International Law / Cambridge",
+      "url": "https://www.cambridge.org/core/journals/american-journal-of-international-law/article/continental-shelf-in-the-arctic-ocean/4C5B5917E396AB3CD135CDC14594E857",
+      "image": null,
+      "lang": "en",
+      "domain": "geopolitique",
+      "summary": "Article académique analysant les revendications de plateau continental en Arctique (Russie, Canada, Danemark) et le rôle de la Commission des limites du plateau continental de l'ONU.",
+      "read_minutes": 8
+    },
+    {
+      "id": "source-chnl-2025",
+      "title": "Main Results of NSR Transit Navigation in 2025",
+      "source": "CHNL (Centre de gestion de la navigation de la Route maritime du Nord)",
+      "url": "https://chnl.no/news/main-results-of-nsr-transit-navigation-in-2025/",
+      "image": null,
+      "lang": "en",
+      "domain": "geopolitique",
+      "summary": "Bilan du trafic de transit sur la Route maritime du Nord en 2025 : 103 voyages, contre 97 en 2024.",
+      "read_minutes": 3
+    },
+    {
+      "id": "source-nato-arctic",
+      "title": "Arctic security",
+      "source": "OTAN",
+      "url": "https://www.nato.int/en/what-we-do/deterrence-and-defence/arctic-security",
+      "image": null,
+      "lang": "en",
+      "domain": "geopolitique",
+      "summary": "Page de l'OTAN sur la sécurité arctique, incluant l'initiative Arctic Sentry lancée en 2026.",
+      "read_minutes": 4
+    },
+    {
+      "id": "source-worldbank-groundswell",
+      "title": "Groundswell Part 2: Acting on Internal Climate Migration",
+      "source": "Banque mondiale",
+      "url": "https://www.worldbank.org/en/topic/urbandevelopment/brief/groundswell-part-2-acting-on-internal-climate-migration",
+      "image": null,
+      "lang": "en",
+      "domain": "geopolitique",
+      "summary": "Rapport de la Banque mondiale projetant 44 à 216 millions de migrations climatiques internes à l'horizon 2050 selon les scénarios.",
+      "read_minutes": 6
+    },
+    {
+      "id": "source-ipcc",
+      "title": "Climate Change 2022: Impacts, Adaptation and Vulnerability",
+      "source": "GIEC (Groupe d'experts intergouvernemental sur l'évolution du climat)",
+      "url": "https://www.ipcc.ch/report/ar6/wg2/",
+      "image": null,
+      "lang": "en",
+      "domain": "sciences-environnement",
+      "summary": "Rapport du GIEC sur les impacts du changement climatique, incluant les projections de déplacement de populations.",
+      "read_minutes": 8
+    }
+  ],
+  "revue_de_presse": [],
+  "articles_connexes": [
+    {
+      "date": "2026-09-14",
+      "titre": "Taïwan : Trump et Xi peuvent-ils calmer la pression chinoise ?",
+      "lien": "Même registre géopolitique et même type de tension (conflit de frontières/revendications territoriales entre grandes puissances), mais acteurs et lieux différents (Taïwan vs. Arctique)."
+    },
+    {
+      "date": "2026-09-12",
+      "titre": "Hollywood : le modèle des suites touche-t-il sa limite ?",
+      "lien": "Même registre géopolitique et enjeu de souveraineté défensive de l'Europe, avec la France comme lecteur cible — lien thématique via la sécurité européenne (l'OTAN et Arctic Sentry)."
+    },
+    {
+      "date": "2026-08-05",
+      "titre": "EPR2 : le nucléaire français à l'heure de vérité",
+      "lien": "Même filière énergie (nucléaire) que le sujet du jour (Arctique, routes maritimes, énergie) — contraste possible entre fission (EPR2) et les enjeux arctiques, même si le mécanisme est différent."
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser dans le h1 et la question que le sujet porte sur l'Arctique et les frontières mondiales, pas seulement sur la France.",
+    "Insérer un encart « Comprendre » sur la Commission des limites du plateau continental de l'ONU et son rôle dans les revendications arctiques.",
+    "Insérer un second encart « Comprendre » sur les migrations climatiques et les projections à l'horizon 2050.",
+    "Utiliser le graphique de repli (barres) pour illustrer la croissance du trafic sur la Route maritime du Nord (97, 103, 104 voyages).",
+    "Mentionner le recoupement avec l'édition du 5 août 2026 sur EPR2/EDF (fission nucléaire) comme contraste avec les enjeux arctiques.",
+    "Ne pas affirmer que la Commission de l'ONU a déjà rendu une décision sur les revendications arctiques.",
+    "Ne pas affirmer que la Route maritime du Nord est totalement navigable toute l'année pour le commerce de masse.",
+    "Préciser que les projections de migrations climatiques varient fortement selon les scénarios."
+  ]
+}

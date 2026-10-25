@@ -1,170 +1,186 @@
 {
-  "h1": "Pass Sport : l'aide aux jeunes va-t-elle survivre aux budgets ?",
-  "question_text": "Pass Sport : l'aide à la pratique sportive des jeunes va-t-elle survivre aux prochains budgets ?",
-  "section_title": "Trois trajectoires budgétaires pour l'avenir du Pass Sport",
+  "h1": "Climat : le monde des frontières de 2050",
+  "question_text": "Le changement climatique va-t-il redessiner les frontières du monde d'ici 2050, entre l'ouverture de nouvelles routes arctiques, les revendications de plateau continental et les migrations climatiques ?",
+  "section_title": "Trois scénarios pour les frontières mondiales et l'Arctique d'ici 2050",
   "dek": [
-    "Le Pass Sport est une aide financière directe versée par l'État pour aider les familles modestes à inscrire leurs enfants dans un club sportif associatif. Concrètement, le dispositif prend la forme d'un coupon individuel qui permet de réduire immédiatement le coût d'une licence ou d'une adhésion annuelle. Créée à l'origine en 2020 lors de la relance post-crise sanitaire, cette subvention publique vise à encourager la pratique physique régulière chez les plus jeunes. Elle s'adresse en priorité aux foyers dont les revenus sont limités, afin d'éviter que les frais d'inscription ne deviennent une barrière infranchissable.",
-    "Pour la campagne sportive 2026-2027, le montant officiel de l'aide a été fixé à <strong>50 €</strong> par enfant bénéficiaire. Ce niveau marque toutefois un recul par rapport aux années précédentes, où le chèque atteignait <strong>70 €</strong>. Le dispositif a été réintégré pour les enfants âgés de 6 à 13 ans grâce à un amendement parlementaire porté par la ministre des Sports, Marina Ferrari. Sans cette modification de dernière minute votée lors des débats budgétaires, cette tranche d'âge charnière aurait été purement et simplement exclue du dispositif pour des raisons d'économies.",
-    "La gestion administrative du mécanisme vient également de basculer vers les Caisses d'allocations familiales, connues sous le sigle des CAF. Cette bascule permet de cibler les ménages selon leur quotient familial<a class=\"lex-ref\" href=\"#lex-quotient-familial\" aria-label=\"Voir la définition dans le lexique\">*</a>, c'est-à-dire le niveau de revenus réels calculé en fonction du nombre de personnes dans le foyer. Désormais, le plafond retenu s'élève à 700 € de revenu mensuel par part. Ce nouveau filtre administratif resserre l'accès aux ménages qui en ont le plus besoin, tout en simplifiant la transmission automatique des codes d'activation par courrier électronique.",
-    "L'avenir financier du dispositif reste pourtant suspendu aux prochains arbitrages budgétaires de l'exécutif national. Le gouvernement conduit par le Premier ministre Sébastien Lecornu doit présenter son projet de loi de finances<a class=\"lex-ref\" href=\"#lex-projet-de-loi-de-finances\" aria-label=\"Voir la définition dans le lexique\">*</a> pour l'année suivante dans un climat de forte restriction des dépenses. Alors que le déficit public<a class=\"lex-ref\" href=\"#lex-deficit-public\" aria-label=\"Voir la définition dans le lexique\">*</a> français s'élevait à <strong>5,4 % du PIB</strong> en 2026, l'État s'est engagé à le ramener vers la barre des 5 % dès 2027. Chaque ligne de dépense non obligatoire fait l'objet d'un examen minutieux à Bercy.",
-    "Sur le terrain, les clubs amateurs et les fédérations sportives alertent sur le risque de décrochage durable des jeunes licenciés. En France, le tarif d'une licence sportive annuelle varie couramment entre 150 € et 250 € selon la discipline et le matériel requis. Dans ce contexte d'inflation des cotisations associatives, un rabotage ou une disparition de l'aide publique obligerait de nombreuses familles défavorisées à renoncer purement et simplement à l'inscription en club. Les structures locales craignent ainsi une chute mécanique de leurs effectifs bénévoles et de leurs rentrées financières.",
-    "La campagne d'utilisation actuelle s'achève le <strong>31 décembre 2026</strong>, date limite pour faire valoir le coupon auprès des associations agréées. Dans le même temps, le Parlement doit adopter le budget de l'État pour l'année à venir avant cette même échéance de fin d'année. Le sort réservé au Pass Sport illustre la tension directe entre la volonté d'encourager la santé publique des mineurs et l'impératif de réduction de la dette nationale. Trois scénarios distincts se dessinent pour l'avenir de cette politique sportive jeunesse."
+    "La fonte accélérée de la banquise transforme l'océan Arctique en un nouvel espace de rivalités directes entre grandes puissances. Longtemps inaccessible sous une épaisse couche de glace, le pôle Nord devient une zone navigable plusieurs mois par an. Cette transformation physique suscite l'intérêt de riverains majeurs comme la Russie, le Canada et le Danemark, mais aussi de l'Organisation du traité de l'Atlantique nord<a class=\"lex-ref\" href=\"#lex-otan\" aria-label=\"Voir la définition dans le lexique\">*</a>, l'alliance militaire occidentale connue sous le sigle OTAN. Chacun cherche à sécuriser des ressources sous-marines et des couloirs stratégiques. L'équilibre géopolitique mondial se déplace ainsi vers le Grand Nord, une région où les frontières maritimes restent largement contestées faute de traités définitifs.",
+    "L'ouverture des glaces libère notamment la Route maritime du Nord<a class=\"lex-ref\" href=\"#lex-route-maritime-du-nord\" aria-label=\"Voir la définition dans le lexique\">*</a>, une voie navigable longeant les côtes sibériennes entre l'Europe et l'Asie. Pour les navires marchands, ce trajet permet de raccourcir de près de dix jours le voyage par rapport au passage habituel par le canal de Suez. Les chiffres confirment cet essor commercial : le trafic de transit y a atteint <strong>103 voyages en 2025</strong>, contre 97 en 2024, et enregistrait déjà <strong>104 voyages au 30 septembre 2026</strong>. Moscou contrôle étroitement ce couloir en imposant ses brise-glaces payants et ses autorisations préalables. Cette mainmise russe inquiète les puissances occidentales, qui réclament la liberté absolue de circulation dans les eaux internationales.",
+    "Sous l'eau, une autre bataille silencieuse se joue sur le plancher océanique pour l'accès aux minerais et aux hydrocarbures. Selon le droit maritime, un pays côtier peut étendre ses droits exclusifs sur les fonds s'il prouve que son territoire terrestre se prolonge sous la mer. C'est le principe du plateau continental étendu<a class=\"lex-ref\" href=\"#lex-plateau-continental\" aria-label=\"Voir la définition dans le lexique\">*</a>. En mars 2026, la Russie a déposé un dossier technique révisé auprès de l'ONU pour revendiquer la dorsale de Lomonossov, une immense chaîne de montagnes sous-marine. Or, le Canada et le Danemark, via le Groenland, affirment également que cette même structure géologique leur appartient. La commission onusienne compétente doit trancher, mais ses avis scientifiques ne valent pas accord frontalier automatique.",
+    "Face aux prétentions russes et à la présence croissante d'intérêts chinois, les pays occidentaux renforcent leur dispositif défensif dans la région. L'alliance atlantique a lancé en 2026 l'initiative Arctic Sentry<a class=\"lex-ref\" href=\"#lex-arctic-sentry\" aria-label=\"Voir la définition dans le lexique\">*</a>, une mission conjointe de surveillance et de coordination militaire dans le Grand Nord. Des troupes multinationales stationnent désormais en Finlande et en Norvège pour protéger le flanc nord européen. Ce déploiement marque une rupture avec des décennies de coopération scientifique pacifique. La frontière arctique devient une ligne de contact armée où chaque manœuvre navale ou aérienne risque d'entraîner des incidents diplomatiques graves entre le bloc occidental et Moscou.",
+    "À l'autre extrémité du problème, le dérèglement du climat bouleverse aussi la géographie humaine bien au-delà des pôles gelés. L'élévation du niveau de la mer et la multiplication des sécheresses extrêmes rendent certaines terres agricoles inhabitables en Afrique ou en Asie du Sud. D'après les projections de la Banque mondiale et du Groupe d'experts intergouvernemental sur l'évolution du climat<a class=\"lex-ref\" href=\"#lex-giec\" aria-label=\"Voir la définition dans le lexique\">*</a>, connu sous le sigle GIEC, entre <strong>44 et 216 millions de personnes</strong> pourraient devoir migrer à l'intérieur de leur propre pays d'ici 2050. Si ces déplacements internes échouent à être résorbés par des investissements locaux, ils déborderont inévitablement vers les frontières régionales et internationales.",
+    "Ces trois transformations physiques – nouvelles routes marchandes, partage des fonds sous-marins et déplacements de populations – arrivent au même moment historique. Aucun traité global contraignant ne régit à la fois le climat et les contestations territoriales nées du réchauffement. Le droit international repose sur le consentement des États, mais les grandes puissances préfèrent souvent le rapport de force aux compromis négociés. Dès lors, les trente prochaines années détermineront si la planète gérera ces nouvelles frontières par le dialogue multilatéral ou par une succession de crises territoriales et sécuritaires aiguës. Trois scénarios permettent de dessiner l'avenir de cette carte mondiale en pleine refonte."
   ],
   "enjeu_en_clair": {
-    "lead": "L'aide publique de 50 € versée aux familles pour payer le sport de leurs enfants est menacée par les économies budgétaires de l'État.",
-    "text": "Le Pass Sport aide les ménages modestes à financer l'inscription de leurs enfants dans un club. Face à un déficit public élevé, le gouvernement cherche à réduire ses dépenses. Si l'aide disparaît ou diminue encore, des milliers de jeunes risquent de quitter les clubs sportifs faute de moyens financiers."
+    "lead": "La fonte des glaces polaires et les dérèglements climatiques transforment la géographie mondiale et réveillent de vives rivalités territoriales.",
+    "text": "De quoi parle-t-on ? Le réchauffement ouvre de nouveaux passages maritimes au pôle Nord et rend les sols habitables plus rares au Sud. Quel est le problème ? Plusieurs grandes puissances comme la Russie, le Canada et le Danemark revendiquent les mêmes fonds marins sous l'Arctique. Dans le même temps, des millions d'habitants devront déménager à l'intérieur de leur pays à cause des sécheresses ou des crues. Pourquoi cela compte ? Ces mouvements bousculent le droit maritime international, menacent la stabilité des frontières et obligent l'Europe à revoir sa sécurité collective."
   },
   "stakes_branches": {
-    "favorable": "Le Pass Sport est sanctuarisé dans la loi de finances avec un montant revalorisé et un public élargi.",
-    "stable": "Le dispositif survit d'année en année grâce à des compromis temporaires et conserve son aide de 50 €.",
-    "degrade": "Les contraintes budgétaires conduisent à une réduction drastique de l'enveloppe ou à la suppression du programme pour les jeunes."
+    "favorable": "Un accord technique à l'ONU délimite les fonds marins et le trafic arctique respecte le droit international.",
+    "stable": "Les revendications restent gelées sans accord global et la Russie conserve le contrôle de la route nordique.",
+    "degrade": "Les litiges en Arctique tournent à la confrontation militaire et les flux migratoires saturent les frontières."
   },
   "comprendre_box": [
     {
-      "lead": "Un coup de pouce direct pour payer l'adhésion en club",
-      "text": "Le Pass Sport fonctionne comme un bon d'achat immédiat. Lors de l'inscription de son enfant au judo ou au football, la famille transmet son code individuel au club. L'association déduit immédiatement 50 € de la facture, puis l'État lui rembourse directement cette somme quelques semaines plus tard.",
-      "apres_dek_index": 1
+      "lead": "Comment l'ONU délimite les frontières sous-marines en Arctique",
+      "text": "Imaginons une table dont on voudrait rallonger les pieds sous une nappe. La Commission des limites du plateau continental de l'ONU examine des données géologiques pour vérifier si le sol sous-marin prolonge naturellement le territoire d'un pays. Si c'est prouvé, l'État obtient des droits exclusifs sur les ressources du fond jusqu'à 350 milles marins, sans toutefois posséder l'eau au-dessus.",
+      "apres_dek_index": 2
     },
     {
-      "lead": "Pourquoi le sport amateur subit les coupes budgétaires",
-      "text": "Quand l'État doit réduire son déficit public, les budgets dits non obligatoires sont les premiers ciblés. Contrairement aux retraites ou aux salaires des fonctionnaires, les subventions d'incitation comme le Pass Sport peuvent être modifiées ou supprimées chaque automne lors du vote de la loi de finances.",
-      "apres_dek_index": 3
+      "lead": "Pourquoi les chiffres des migrations climatiques varient autant",
+      "text": "Estimer le nombre de déplacés climatiques ressemble à une prévision météo sur trente ans. L'écart entre 44 et 216 millions de personnes dépend directement de la rapidité de la transition écologique mondiale. Si les États construisent des digues et des réseaux d'irrigation, les habitants restent chez eux ; sans investissement, des régions entières doivent partir.",
+      "apres_dek_index": 4
     }
   ],
   "list_box": null,
   "indicators": [
     {
-      "label": "Montant de l'aide Pass Sport pour les 6-13 ans (campagne 2026-2027)",
-      "value": "50 €",
-      "delta": "70 € en 2025-2026"
+      "label": "Trafic de transit sur la Route maritime du Nord (voyages/an)",
+      "value": "103 voyages en 2025",
+      "delta": "en hausse (+6,2 % par rapport à 2024)"
     },
     {
-      "label": "Déficit public français (2026)",
-      "value": "5,4 % du PIB",
-      "delta": "objectif de 5 % en 2027"
+      "label": "Projections de migrations climatiques internes à l'horizon 2050",
+      "value": "44 à 216 millions de personnes",
+      "delta": "fourchette selon les scénarios du GIEC et de la Banque mondiale"
     }
   ],
   "cards": {
     "favorable": {
-      "pct": 30,
-      "gauge_word": "Probable",
-      "h3": "Le Pass Sport est sanctuarisé dans la loi et élargi aux collégiens",
+      "pct": 25,
+      "gauge_word": "Peu probable",
+      "h3": "Partage négocié des fonds marins et libre passage en Arctique",
       "why": [
-        "Premier scénario : le Parlement décide d'inscrire durablement le Pass Sport dans les dépenses pérennes de l'État lors du débat budgétaire. Concrètement, le montant de l'aide remonte vers son niveau historique de 70 € ou se stabilise à <strong>50 €</strong> avec une garantie pluriannuelle. Le soutien complémentaire versé par les Caisses d'allocations familiales pour financer l'équipement sportif des jeunes est généralisé à l'ensemble des bénéficiaires. Les clubs amateurs retrouvent une visibilité financière sur le long terme et voient leurs effectifs de jeunes progresser régulièrement.",
-        "Ce scénario s'oppose directement à la logique de réduction purement comptable en faisant du sport un investissement de santé préventive prioritaire. Contrairement à la précarité du scénario d'amendements au coup par coup, cette trajectoire sanctuarise les crédits face aux arbitrages de Bercy. Même avec un déficit public à <strong>5,4 % du PIB</strong>, les parlementaires choisiraient de protéger l'accès populaire aux associations sportives locales. Une telle stabilisation durable pourrait s'imposer si la mobilisation des fédérations sportives et des élus territoriaux parvient à faire reculer les partisans d'une coupe budgétaire sèche."
+        "Dans ce scénario, la Commission de l'ONU parvient à émettre des recommandations techniques précises que la Russie, le Canada et le Danemark acceptent de négocier pacifiquement. Les gouvernements s'accordent sur un tracé partagé de la dorsale de Lomonossov en évitant toute escalade militaire. La Route maritime du Nord s'ouvre sous un régime international transparent garantissant la liberté de navigation pour toutes les flottes commerciales. Concrètement, les armateurs occidentaux et asiatiques empruntent ce couloir sans subir de péages abusifs ni de pressions politiques russes. Dans le même temps, des financements massifs pour l'adaptation climatique réduisent les déplacements de populations vers le bas de la fourchette de 44 millions de personnes.",
+        "Par rapport aux deux autres trajectoires, cette option mise sur un sursaut diplomatique multilatéral rare dans le contexte géopolitique actuel. Elle suppose que Moscou accepte de partager la gestion d'un espace qu'elle considère aujourd'hui comme son sanctuaire souverain exclusif. Ce dénouement pacifique nécessiterait un apaisement durable des relations entre l'OTAN et la Russie, ce qui limiterait fortement les risques de confrontation armée aux frontières nordiques de l'Europe."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Montant de l'aide Pass Sport pour les 6-13 ans",
-          "evo_current": "70 €",
+          "field_name": "Trafic de transit sur la Route maritime du Nord",
+          "evo_current": "plus de 250 voyages par an",
           "evo_arrow": "up",
-          "evo_prev": "50 € en 2026-2027"
+          "evo_prev": "103 voyages en 2025"
         },
         {
-          "field_name": "Déficit public français",
-          "evo_current": "5,2 % du PIB",
+          "field_name": "Migrations climatiques internes à l'horizon 2050",
+          "evo_current": "44 millions de personnes (scénario bas)",
           "evo_arrow": "down",
-          "evo_prev": "5,4 % du PIB en 2026"
+          "evo_prev": "44 à 216 millions"
         }
       ],
-      "france_line": "L'accès au sport des enfants modestes est protégé et les clubs associatifs stabilisent leurs effectifs de licenciés.",
+      "france_line": "La sécurisation des routes maritimes abaisse le coût du fret et protège les intérêts maritimes français.",
       "france_impact": "favorable"
     },
     "stable": {
-      "pct": 45,
+      "pct": 50,
       "gauge_word": "Probable",
-      "h3": "L'aide survit au coup par coup grâce à des compromis annuels",
+      "h3": "Statu quo contesté et contrôle russe de la route nordique",
       "why": [
-        "Deuxième scénario : le dispositif est reconduit in extremis chaque automne sans jamais obtenir de garantie budgétaire définitive. Concrètement, le ministère des Sports doit déposer des amendements de rattrapage en séance pour préserver le montant de <strong>50 €</strong> pour la tranche d'âge des 6 à 13 ans. Les critères d'éligibilité restent très stricts, cantonnés à un quotient familial inférieur à 700 € afin de contenir l'enveloppe globale sous un plafond rigide. Les familles modestes continuent de toucher l'aide, mais les clubs restent dans l'incertitude d'une saison à l'autre.",
-        "Ce scénario intermédiaire reflète l'équilibre précaire d'un gouvernement contraint par des finances publiques très dégradées. À la différence d'une sanctuarisation protectrice ou d'un arrêt brutal, cette trajectoire maintient le mécanisme sous perfusion politique constante. L'objectif de ramener le déficit public de <strong>5,4 % du PIB</strong> vers 5 % empêche toute hausse de l'aide, sans pour autant oser supprimer un dispositif populaire auprès des familles. Cette reconduction annuelle sur le fil du rasoir deviendrait le compromis par défaut si aucun consensus politique plus large n'émergeait au Parlement."
+        "Dans ce scénario central, la Commission de l'ONU accumule les expertises sans parvenir à faire accepter un compromis global aux trois États riverains. Les dossiers de revendications restent en suspens juridique pendant des années. Sur le terrain maritime, la Russie maintient une surveillance étroite sur la Route maritime du Nord en fixant unilatéralement ses tarifs d'escorte et ses règles de passage. Concrètement, le transit progresse de manière continue sans explosion spectaculaire, atteignant environ 150 à 200 voyages par an d'ici 2035, principalement opérés par des partenaires de Moscou comme la Chine. Les migrations climatiques se poursuivent à un rythme intermédiaire sans provoquer d'effondrement frontalier immédiat.",
+        "Contrairement à une rupture ouverte ou à une conciliation idéale, cette voie prolonge les rivalités actuelles sous un seuil d'affrontement direct contrôlé. L'alliance atlantique maintient sa mission Arctic Sentry pour surveiller les mouvements russes sans chercher le blocus naval. Cette situation intermédiaire préserverait un équilibre précaire mais pourrait s'effriter dès le premier incident maritime non maîtrisé dans les eaux glacées."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Montant de l'aide Pass Sport pour les 6-13 ans",
-          "evo_current": "50 €",
-          "evo_arrow": "flat",
-          "evo_prev": "50 € en 2026-2027"
+          "field_name": "Trafic de transit sur la Route maritime du Nord",
+          "evo_current": "150 à 180 voyages par an",
+          "evo_arrow": "up",
+          "evo_prev": "103 voyages en 2025"
         },
         {
-          "field_name": "Déficit public français",
-          "evo_current": "5,0 % du PIB",
-          "evo_arrow": "down",
-          "evo_prev": "5,4 % du PIB en 2026"
+          "field_name": "Migrations climatiques internes à l'horizon 2050",
+          "evo_current": "autour de 120 millions de personnes",
+          "evo_arrow": "flat",
+          "evo_prev": "44 à 216 millions"
         }
       ],
-      "france_line": "Le soutien financier aux jeunes reste maintenu mais la précarité du dispositif complique la planification des clubs.",
-      "france_impact": "favorable"
+      "france_line": "La France doit maintenir une présence militaire permanente dans le Grand Nord au sein de l'OTAN.",
+      "france_impact": "degrade"
     },
     "degrade": {
       "pct": 25,
-      "gauge_word": "Probable",
-      "h3": "Le dispositif subit de nouvelles coupes ou disparaît pour les plus jeunes",
+      "gauge_word": "Peu probable",
+      "h3": "Militarisation du pôle Nord et crise migratoire aux frontières",
       "why": [
-        "Troisième scénario : l'exécutif applique l'ensemble des réductions de crédits prévues initialement dans le projet de loi de finances. Concrètement, le Pass Sport est supprimé pour les enfants de 6 à 13 ans ou voit son montant réduit sous la barre des 30 €, ne couvrant plus qu'une fraction marginale d'une cotisation moyenne de 200 €. Les familles à faibles revenus se retrouvent contraintes de désinscrire leurs enfants des clubs d'athlétisme, de gymnastique ou de sports collectifs. Les associations sportives de quartier perdent alors une part significative de leurs adhérents réguliers.",
-        "Ce scénario de rupture traduit une logique d'austérité budgétaire stricte où les aides facultatives de l'État sont sacrifiées en priorité. Contrairement aux deux autres trajectoires qui préservent l'accompagnement des enfants, cette option efface les gains d'adhésion sportive accumulés depuis 2020. L'effort imposé pour redresser un déficit public mesuré à <strong>5,4 % du PIB</strong> l'emporterait sur les objectifs d'inclusion sociale par la pratique physique. Une telle suppression progressive glisserait vers la réalité si les pressions budgétaires forçaient le gouvernement à abandonner ses compromis parlementaires."
+        "Dans cette perspective dégradée, la Russie rejette toute contestation de ses frontières arctiques et militarise massivement ses bases côtières. Moscou impose des restrictions d'accès sévères aux navires battant pavillon des pays de l'OTAN, transformant le détroit en zone de friction permanente. En réponse, les forces occidentales multiplient les patrouilles navales de souveraineté dans les zones contestées du plateau continental. Concrètement, le commerce maritime mondial se fragmente et les tensions militaires gèlent tout espoir de gouvernance partagée. Parallèlement, l'inaction climatique précipite plus de 200 millions de déplacés internes dans les pays du Sud, créant de fortes pressions migratoires sur le pourtour méditerranéen et en Europe.",
+        "Par rapport au statu quo, ce scénario combine une crise sécuritaire aux frontières boréales et une instabilité politique aiguë aux frontières méridionales. La diplomatie onusienne se trouverait totalement marginalisée par la logique des blocs armés. Ce basculement transformerait durablement la géographie stratégique du continent européen et fragiliserait la stabilité des démocraties occidentales."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Montant de l'aide Pass Sport pour les 6-13 ans",
-          "evo_current": "0 € à 30 €",
+          "field_name": "Trafic de transit sur la Route maritime du Nord",
+          "evo_current": "moins de 50 voyages commerciaux",
           "evo_arrow": "down",
-          "evo_prev": "50 € en 2026-2027"
+          "evo_prev": "103 voyages en 2025"
         },
         {
-          "field_name": "Déficit public français",
-          "evo_current": "4,9 % du PIB",
-          "evo_arrow": "down",
-          "evo_prev": "5,4 % du PIB en 2026"
+          "field_name": "Migrations climatiques internes à l'horizon 2050",
+          "evo_current": "plus de 210 millions de personnes (scénario haut)",
+          "evo_arrow": "up",
+          "evo_prev": "44 à 216 millions"
         }
       ],
-      "france_line": "La fin de l'aide publique éloigne les enfants de milieux modestes des clubs sportifs et fragilise le bénévolat associatif.",
+      "france_line": "L'armée française serait contrainte d'augmenter son budget polaire face à la menace russe et aux flux migratoires.",
       "france_impact": "degrade"
     }
   },
   "essentiel_box": [
-    "Le Pass Sport, subvention publique de 50 € dédiée à l'inscription en club des enfants de 6 à 13 ans, survivra-t-il aux futures coupes budgétaires de l'État ?",
-    "Le montant de l'aide a déjà été ramené de 70 € à 50 € pour la campagne 2026-2027, sur fond d'un déficit public français élevé à 5,4 % du PIB.",
-    "Oui, mais de justesse : notre scénario le plus probable (45 %) prévoit un maintien d'année en année via des amendements politiques, face à une sanctuarisation (30 %) ou un abandon (25 %).",
-    "Le 31 décembre 2026 marquera la fin de la campagne d'activation du coupon et le vote final du budget de l'État déterminant les crédits pour 2027."
+    "Le réchauffement climatique et la fonte des glaces polaires vont-ils forcer les grandes puissances à redessiner les frontières mondiales d'ici 2050 ?",
+    "Le trafic sur la Route maritime du Nord a atteint <strong>103 voyages en 2025</strong> et <strong>104 voyages au 30 septembre 2026</strong>, tandis que la Russie, le Canada et le Danemark se disputent le plateau continental de l'Arctique devant l'ONU.",
+    "Non, pas par des traités officiels : notre scénario le plus probable (50 %) prévoit un statu quo conflictuel où la Russie garde le contrôle de fait de la route nordique — deux autres issues restent possibles : accord multilatéral (25 %) ou confrontation militaire ouverte (25 %).",
+    "Le signal à surveiller sera la publication des prochaines recommandations techniques de la Commission de l'ONU sur la dorsale de Lomonossov et les manœuvres de la mission Arctic Sentry de l'OTAN."
   ],
   "delta_france": {
-    "kind": "positif",
-    "score": 0.5,
-    "word": "assez positif",
-    "text": "la préservation de l'aide sportive pour les jeunes reste la trajectoire dominante avec 75 % de probabilités cumulées entre reconduction précaire et sanctuarisation légale."
+    "kind": "negatif",
+    "score": -0.5,
+    "word": "assez négatif",
+    "text": "en raison d'une probabilité cumulée de 75 % que les tensions arctiques persistent ou s'aggravent, imposant un coût sécuritaire accru à nos armées."
   },
-  "phrase_a_retenir": "Fixé à 50 € après avoir atteint 70 €, le Pass Sport des 6-13 ans reste menacé par les économies de l'État face à un déficit public de 5,4 % du PIB.",
-  "phrase_a_retenir_stat": "50 €",
+  "phrase_a_retenir": "Le trafic sur la Route maritime du Nord a atteint 103 voyages en 2025, illustrant la pression géopolitique grandissante sur les frontières de l'Arctique.",
+  "phrase_a_retenir_stat": "103 voyages en 2025",
   "lexique": [
     {
-      "slug": "quotient-familial",
-      "terme": "quotient familial",
-      "definition": "Outil de mesure utilisé par les administrations sociales pour évaluer les ressources financières d'un foyer en tenant compte du nombre de personnes à charge."
+      "slug": "otan",
+      "terme": "Organisation du traité de l'Atlantique nord",
+      "definition": "Alliance militaire défensive réunissant des pays d'Europe et d'Amérique du Nord, dont la France."
     },
     {
-      "slug": "projet-de-loi-de-finances",
-      "terme": "projet de loi de finances",
-      "definition": "Texte de loi annuel par lequel le Parlement examine, modifie et vote l'ensemble des recettes et des dépenses prévues par l'État pour l'année suivante."
+      "slug": "route-maritime-du-nord",
+      "terme": "Route maritime du Nord",
+      "definition": "Voie de navigation maritime longeant le littoral arctique russe, reliant l'océan Atlantique à l'océan Pacifique."
     },
     {
-      "slug": "deficit-public",
-      "terme": "déficit public",
-      "definition": "Situation financière où les dépenses totales de l'État et des administrations publiques dépassent l'ensemble de leurs rentrées fiscales et de leurs recettes annuelles."
+      "slug": "plateau-continental",
+      "terme": "plateau continental étendu",
+      "definition": "Prolongement sous-marin du territoire d'un pays sur lequel l'État peut exercer des droits exclusifs sur les ressources du sol."
+    },
+    {
+      "slug": "arctic-sentry",
+      "terme": "Arctic Sentry",
+      "definition": "Mission militaire de surveillance et de dissuasion lancée par l'OTAN en 2026 pour sécuriser le Grand Nord."
+    },
+    {
+      "slug": "giec",
+      "terme": "Groupe d'experts intergouvernemental sur l'évolution du climat",
+      "definition": "Organisme scientifique international chargé d'évaluer les connaissances sur le réchauffement climatique."
     }
   ],
   "sources_html": [
-    "<a href=\"https://www.lemonde.fr/sport/article/2026/10/01/un-budget-des-sports-stable-les-jeux-olympiques-et-paralympiques-2030-preserves-de-la-cure-d-austerite_6786555_3242.html\" target=\"_blank\" rel=\"noopener noreferrer\">Le Monde — Un budget des sports stable, les JO 2030 préservés ↗</a>",
-    "<a href=\"https://www.sports.gouv.fr/le-dispositif-pass-sport-de-retour-pour-la-rentree-2026-10272\" target=\"_blank\" rel=\"noopener noreferrer\">Ministère des Sports — Le dispositif pass Sport de retour pour la rentrée 2026 ↗</a>",
-    "<a href=\"https://www.service-public.gouv.fr/particuliers/actualites/A15850\" target=\"_blank\" rel=\"noopener noreferrer\">Service Public — Le pass Sport est étendu pour la saison 2026-2027 ↗</a>"
+    "<a href=\"https://www.cambridge.org/core/journals/american-journal-of-international-law/article/continental-shelf-in-the-arctic-ocean/4C5B5917E396AB3CD135CDC14594E857\" target=\"_blank\" rel=\"noopener noreferrer\">American Journal of International Law / Cambridge — The Continental Shelf in the Arctic Ocean ↗</a>",
+    "<a href=\"https://chnl.no/news/main-results-of-nsr-transit-navigation-in-2025/\" target=\"_blank\" rel=\"noopener noreferrer\">CHNL (Centre de gestion de la navigation de la Route maritime du Nord) — Main Results of NSR Transit Navigation in 2025 ↗</a>",
+    "<a href=\"https://www.nato.int/en/what-we-do/deterrence-and-defence/arctic-security\" target=\"_blank\" rel=\"noopener noreferrer\">OTAN — Arctic security ↗</a>",
+    "<a href=\"https://www.worldbank.org/en/topic/urbandevelopment/brief/groundswell-part-2-acting-on-internal-climate-migration\" target=\"_blank\" rel=\"noopener noreferrer\">Banque mondiale — Groundswell Part 2: Acting on Internal Climate Migration ↗</a>",
+    "<a href=\"https://www.ipcc.ch/report/ar6/wg2/\" target=\"_blank\" rel=\"noopener noreferrer\">GIEC (Groupe d'experts intergouvernemental sur l'évolution du climat) — Climate Change 2022: Impacts, Adaptation and Vulnerability ↗</a>"
   ],
   "meta": {
-    "title": "Pass Sport : l'aide aux jeunes va-t-elle survivre aux b...",
-    "meta_description": "Pass Sport : l'aide à la pratique sportive des jeunes va-t-elle survivre aux prochains budgets ? 3 scénarios prospectifs pour 2030.",
-    "og_image_alt": "Enfants jouant au football dans un parc",
+    "title": "Climat : le monde des frontières de 2050",
+    "meta_description": "Climat : le monde des frontières de 2050 Enjeux géopolitiques et scénarios prospectifs.",
+    "og_image_alt": "Carte géopolitique de l'océan Arctique et des nouvelles routes maritimes ouvertes par la fonte des glaces",
     "keywords": [
-      "Pass Sport"
+      "tensions",
+      "alliances",
+      "international",
+      "géopolitique",
+      "Climat"
     ],
-    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-25.html\"\n  },\n  \"headline\": \"Pass Sport : l'aide aux jeunes va-t-elle survivre aux b...\",\n  \"description\": \"Pass Sport : l'aide à la pratique sportive des jeunes va-t-elle survivre aux prochains budgets ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-25.png\"\n  ],\n  \"datePublished\": \"2026-10-25T00:00:00\",\n  \"dateModified\": \"2026-10-25T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Pass Sport\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Sport\"\n}",
-    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Pass Sport : l'aide aux jeunes va-t-elle survivre aux budgets ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-25.html\"\n    }\n  ]\n}"
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-26.html\"\n  },\n  \"headline\": \"Climat : le monde des frontières de 2050\",\n  \"description\": \"Climat : le monde des frontières de 2050 Enjeux géopolitiques et scénarios prospectifs.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-26.png\"\n  ],\n  \"datePublished\": \"2026-10-26T00:00:00\",\n  \"dateModified\": \"2026-10-26T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"tensions, alliances, international, géopolitique, Climat\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Géopolitique\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Climat : le monde des frontières de 2050\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-26.html\"\n    }\n  ]\n}"
   }
 }
