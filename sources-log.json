@@ -2,6 +2,21 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-25",
+      "articles": [
+        {
+          "title": "Budget des sports 2026 : les JO 2030 préservés, le Pass Sport maintenu",
+          "source": "Le Monde",
+          "url": "https://www.lemonde.fr/sport/article/2026/10/01/un-budget-des-sports-stable-les-jeux-olympiques-et-paralympiques-2030-preserves-de-la-cure-d-austerite_6786555_3242.html",
+          "image": null,
+          "lang": "fr",
+          "domain": "sport",
+          "summary": "Le budget des sports 2026 maintient les crédits pour les JO 2030 et le Pass Sport, malgré la pression budgétaire générale.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-10-24",
       "articles": [
         {
