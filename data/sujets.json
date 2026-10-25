@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "e16a976991971b853ddf0d2f9d7050ac0e33dd2df0b4a57c6db12d5a90a86960"
+    "md_sha256": "e5007829341b42f4d1d4a93cc3c563541211609990c738c52c75cc09ed29989e"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -1900,7 +1900,7 @@
           "titre": "Pass Sport : l'aide à la pratique sportive des jeunes va-t-elle survivre aux prochains budgets ?",
           "question": null,
           "tag": "sport & financement",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "Le PLF 2026 prévoyait une coupe de 36 M€ (-50%) sur les crédits du Pass Sport, qui aurait exclu durablement les 6-13 ans (81% des bénéficiaires actuels). Sous la pression des élus locaux et du monde sportif face à la baisse des inscriptions, un amendement porté par la ministre des Sports Marina Ferrari a rétabli l'aide pour les 6-13 ans (financée sur crédits Cnaf), montant maintenu à 70€ pour 2026-2027. Le dispositif vient d'être sauvé de justesse une fois — rien ne dit qu'il le sera à nouveau l'an prochain",
           "rationnel": "La question : Le Pass Sport, transféré aux CAF dans le PLF 2027, sera‑t‑il maintenu à 50 € pour les 6‑13 ans afin de garantir leur accès à la pratique sportive pour la saison 2027‑2028, ou fera‑t‑il l’objet d’une nouvelle réduction, d’une suppression ou d’un élargissement ? L’issue demeure ouverte car, malgré le transfert, le dispositif dépend encore d’amendements de dernière minute soutenus par les élus locaux et le monde sportif, tandis que le contexte budgétaire reste tendu (déficit à 5,4 % du PIB en 2026, objectif 5 % en 2027) et que l’aide a déjà été réduite de 70 à 50 €. Pour un lecteur français, l’enjeu concret est l’accès à la pratique sportive des jeunes de milieux modestes, dans un pays où le coût d’une licence sportive (entre 150 et 250 €) constitue un obstacle pour de nombreuses familles.",
@@ -1951,8 +1951,8 @@
           "note": null,
           "donnees": null,
           "ajoute_le": null,
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-10-25",
+          "edition": "2026-10-25",
           "enrichi_le": "2026-10-03"
         },
         {
