@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "258519d7a4370099740e2775d09c9f8110bca8103b62bef80eb5a580d29fa0de"
+    "md_sha256": "9235312c295ef4a21757de54f52682b246905ed564929d5095acc83fa0d79e6d"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -1948,11 +1948,11 @@
           ],
           "origine": null,
           "note": "Fusionne 3 idées du même lot posant la même question sous des angles proches : \"compétition équitable ?\", \"le sport devient-il une compétition entre technologies (chaussures, vélos, combinaisons, IA d'entraînement) plutôt qu'entre athlètes ?\", et \"le record a-t-il encore un sens dans un sport technologiquement optimisé (mesure-t-il les limites du corps ou de la technologie disponible) ?\" — ce dernier point à garder comme illustration concrète (records battus en série grâce à l'équipement plutôt qu'au corps) plutôt qu'à traiter séparément. 3 scénarios de l'utilisateur, déjà propres, gardés presque tels quels : favorable = la technologie est régulée (plafonds, homologations, catégories d'équipement encadrées) ; stable = deux catégories de sport s'installent durablement, \"augmenté\" et \"non augmenté\", sans que l'une supplante l'autre ; dégradé = aucune régulation efficace, les athlètes/pays/clubs les mieux financés prennent un avantage technologique définitif",
-          "donnees": null,
+          "donnees": "[relevé du 2026-10-25] Dépenses nationales coordonnées pour le sport d'élite 2023 (unité : millions d'euros). Pologne = 446 (2023) ; Hongrie = 382 (2023) ; Royaume-Uni = 202 (2023) ; Pays-Bas = 89 (2023) ; Suède = 37 (2023) ; Belgique-Wallonie = 14 (2023). Sources : https://spliss.research.vub.be/sites/default/files/2024-10/SPLISS%20evaluatie%20Parijs%20Olympische%20Spelen_V2-final%20pdf_0.pdf",
           "ajoute_le": null,
           "publie_le": null,
           "edition": null,
-          "enrichi_le": "2026-10-03"
+          "enrichi_le": "2026-10-25"
         },
         {
           "type": "sujet",
