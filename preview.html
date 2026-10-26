@@ -359,6 +359,55 @@
 
   .topnav a:hover{ color: var(--paper); }
 
+  /* Menu « Plus » (ajouté le 26 octobre 2026) : regroupe les liens secondaires de l'ancienne barre d'icônes,
+     chacun avec son libellé. Hors du défilement horizontal de la nav, pour que le panneau ne soit jamais coupé. */
+  nav.topnav .wrap{ padding-right: 96px; }
+  .topnav-more{ position: absolute; top: 0; right: 24px; bottom: 0; display: flex; align-items: center; z-index: 2; }
+  .topnav-more summary{
+    list-style: none;
+    cursor: pointer;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+  }
+  .topnav-more summary::-webkit-details-marker{ display: none; }
+  .topnav-more summary::after{ content: " \25BE"; }
+  .topnav-more summary:hover, .topnav-more[open] summary{ color: var(--paper); }
+  .topnav-more-panel{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    padding: 6px 0;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 4px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  }
+  .topnav-more-panel a, .topnav-more-panel button{
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-align: left;
+    color: var(--paper-dim);
+    text-decoration: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+  .topnav-more-panel a:hover, .topnav-more-panel button:hover{ color: var(--paper); background: rgba(255, 255, 255, 0.04); }
+  @media (max-width: 720px){ .topnav-more{ display: none; } }
+
   .topnav a[aria-current="page"]{
     color: var(--gold);
     border-bottom-color: var(--gold);
@@ -1303,7 +1352,7 @@
     color: var(--paper);
     margin: 0 0 4px;
   }
-  .dc-bar-line{ display: flex; align-items: center; gap: 10px; }
+  .dc-bar-line{ display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
   .dc-bar{
     display: block;
     flex: none;
@@ -2460,17 +2509,7 @@
 <div class="edition">Édition du 27 octobre 2026 · N°96</div>
 </div>
 <div class="masthead-right">
-<a aria-label="Accueil" class="masthead-notif-btn masthead-home-btn" href="/" title="Accueil"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M4 11 12 4l8 7"></path><path d="M6 9.5V19a1 1 0 0 0 1 1h3.5v-5.5h3V20H17a1 1 0 0 0 1-1V9.5"></path></svg></a>
 <a aria-label="Read this edition in English" class="masthead-lang-btn" href="en/index.html" title="Read this edition in English">EN</a>
-<button aria-label="Activer les notifications" class="onesignal-subscribe-btn masthead-notif-btn" title="Activer les notifications" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"></path><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"></path></svg></button>
-<button aria-label="Imprimer en 1 page" class="masthead-notif-btn" id="print-page" title="Imprimer en 1 page" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M6.5 9V4.5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1V9"></path><rect height="7" rx="1.3" width="15" x="4.5" y="9"></rect><path d="M7 14h10v5.5a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V14Z"></path></svg></button>
-<span aria-hidden="true" class="masthead-divider"></span>
-<a aria-label="Sujet révisé" class="masthead-notif-btn" href="archives.html?tag=revise" title="Sujet révisé"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8"></path><path d="M20 4v4h-4"></path><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16"></path><path d="M4 20v-4h4"></path></svg></a>
-<a aria-label="Récap de la semaine" class="masthead-notif-btn" href="hebdo/2026-10-25.html" title="Récap de la semaine"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="15" rx="2" width="17" x="3.5" y="5"></rect><line x1="3.5" x2="20.5" y1="9.5" y2="9.5"></line><line x1="8" x2="8" y1="3" y2="7"></line><line x1="16" x2="16" y1="3" y2="7"></line></svg></a>
-<a aria-label="Revue de presse" class="masthead-notif-btn" href="sources.html" title="Revue de presse"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="14" rx="1.5" width="13" x="3.5" y="5.5"></rect><path d="M16.5 8.5h2.5a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-13"></path><line x1="7" x2="13" y1="9.5" y2="9.5"></line><line x1="7" x2="13" y1="13" y2="13"></line><line x1="7" x2="11" y1="16.5" y2="16.5"></line></svg></a>
-<a aria-label="Écouter sur Spotify" class="masthead-notif-btn" href="https://open.spotify.com/show/1eycE00I2egdNO50oqeDFQ" rel="noopener noreferrer" target="_blank" title="Écouter sur Spotify"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><circle cx="12" cy="12" r="9.5"></circle><path d="M7 9.6c3.4-1 7-.7 10 1"></path><path d="M7.6 12.7c2.9-.8 5.7-.5 8.1.9"></path><path d="M8.2 15.5c2.2-.6 4.4-.4 6.2.7"></path></svg></a>
-<span aria-hidden="true" class="masthead-divider"></span>
-<a aria-label="Accès privé" class="masthead-notif-btn" href="dashboard.html" title="Accès privé"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16"><rect height="9" rx="2" width="14" x="5" y="11"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></a>
 </div>
 </div>
 </header>
@@ -2484,6 +2523,16 @@
 <a href="le-projet.html"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="m12 3 8 4.5-8 4.5-8-4.5Z"></path><path d="m4 12 8 4.5 8-4.5"></path><path d="m4 16.5 8 4.5 8-4.5"></path></svg> Le projet</a>
 <a href="#nous-suivre"><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="14"><path d="M6 10.5a6 6 0 0 1 12 0c0 3.2 1 4.7 1.5 5.3H4.5C5 15.2 6 13.7 6 10.5Z"></path><path d="M10.3 18.5a1.8 1.8 0 0 0 3.4 0"></path></svg> Nous suivre</a>
 </div>
+<details class="topnav-more">
+<summary>Plus</summary>
+<div class="topnav-more-panel">
+<a id="recap-link" href="hebdo/2026-10-25.html">Récap de la semaine</a>
+<a href="archives.html?tag=revise">Sujet révisé</a>
+<a href="https://open.spotify.com/show/1eycE00I2egdNO50oqeDFQ" rel="noopener noreferrer" target="_blank">Écouter sur Spotify</a>
+<button id="print-page" type="button">Imprimer en 1 page</button>
+<a href="dashboard.html">Accès privé</a>
+</div>
+</details>
 </nav>
 
 <div class="weekly-banner" data-hebdo="2026-10-25" hidden="" id="weekly-banner">

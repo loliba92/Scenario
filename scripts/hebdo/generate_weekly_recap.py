@@ -825,8 +825,8 @@ def update_index_html(sunday):
         return text, False
 
     text = _replace_attr_in_tag(
-        text, r'<a\b', ['class="masthead-notif-btn"', 'aria-label="Récap de la semaine"'],
-        'href', f'hebdo/{old_date}.html', f'hebdo/{date_str}.html', 'lien masthead-notif-btn',
+        text, r'<a\b', ['id="recap-link"'],
+        'href', f'hebdo/{old_date}.html', f'hebdo/{date_str}.html', 'lien recap-link (menu Plus)',
     )
     text = _replace_attr_in_tag(
         text, r'<div\b', ['id="weekly-banner"'],
