@@ -19,35 +19,25 @@ from typing import Optional
 
 def generate_seo_title(h1: str, domain: str, keywords: list[str]) -> str:
     """
-    Génère un titre SEO optimisé.
+    Génère le titre SEO d'une édition à partir de son h1 court (celui affiché sur la page).
 
-    Stratégie :
-      - Si H1 est court (< 50 chars) : H1 + mots-clés pertinents du domaine
-      - Si H1 est long : utiliser H1 tel quel (déjà optimisé)
-      - Format max : 60 caractères (limite Google, tail cut après)
+    Règle partagée avec generate_seo_head.py (titre_depuis_h1) : jusqu'à 59 caractères avec la marque,
+    jusqu'à 90 sans, jamais de coupure « … » en plein mot au-delà.
 
     Args:
-        h1: Le titre principal de l'article (H1)
-        domain: Catégorie de l'article (ex: "sciences", "politique")
-        keywords: Liste de mots-clés du contenu
+        h1: Le titre principal affiché sur la page
+        domain: Catégorie de l'article (non utilisée pour l'instant)
+        keywords: Liste de mots-clés du contenu (non utilisée pour l'instant)
 
     Returns:
-        Titre SEO optimisé (60 car max)
+        Titre SEO
     """
-    # Si H1 contient déjà plusieurs noms propres (marques), l'utiliser tel quel
-    if len(h1) <= 58:
-        return h1
+    from generate_seo_head import SITE_NAME, _truncate_at_word_boundary, titre_depuis_h1
 
-    # Si H1 est trop long, le raccourcir intelligemment
-    # Stratégie : garder jusqu'au 1er point d'interrogation / ponctuation majeure
-    for punct in ["?", " — ", " | "]:
-        if punct in h1:
-            short = h1.split(punct)[0].strip()
-            if len(short) <= 58:
-                return short
-
-    # Dernier recours : truncate à 55 chars + "..."
-    return (h1[:55] + "...") if len(h1) > 58 else h1
+    du_h1 = titre_depuis_h1(h1)
+    if du_h1:
+        return du_h1
+    return f"{_truncate_at_word_boundary(h1.strip(), 59)} — {SITE_NAME}"
 
 
 def generate_seo_description(
@@ -246,6 +236,7 @@ def generate_breadcrumb_json(
 def generate_seo_metadata(
     brief: dict,
     domain: str,
+    h1_court: Optional[str] = None,
 ) -> dict:
     """
     Fonction principale : prend le brief éditorial et retourne toutes
@@ -254,6 +245,7 @@ def generate_seo_metadata(
     Args:
         brief: Dictionnaire du brief (structure editorial standard de generate_daily_edition.py)
         domain: Catégorie (sciences, politique, etc.)
+        h1_court: h1 affiché sur la page (content["h1"]) : sert de titre SEO s'il existe, sinon le h1 du brief
 
     Returns:
         dict {
@@ -289,7 +281,7 @@ def generate_seo_metadata(
     content = " ".join(content_parts)
 
     # Générer chaque composant
-    title = generate_seo_title(h1, domain, [])
+    title = generate_seo_title(h1_court or h1, domain, [])
     keywords = generate_keywords(h1, domain, content[:500])
     description = generate_seo_description(h1, section_title, question, keywords, domain)
 
