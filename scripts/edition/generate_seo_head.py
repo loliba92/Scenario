@@ -15,7 +15,7 @@ import html
 import re
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 BRIEFS_DIR = REPO_ROOT / "editorial-briefs"
@@ -89,16 +89,31 @@ def _build_title(brief: Dict[str, Any]) -> str:
     h1 = (sujet.get("h1") or "").replace("\xa0", " ").strip()
     if not titre and not h1:
         return SITE_NAME
+    # Le h1 court de l'édition est le titre affiché sur la page : il passe avant la question (titre_propose),
+    # plus longue et souvent coupée.
+    if h1:
+        du_h1 = titre_depuis_h1(h1)
+        if du_h1:
+            return du_h1
     if titre and len(titre) <= 59:
         return f"{titre} — {SITE_NAME}"
-    if h1:
-        if len(h1) <= 59:
-            return f"{h1} — {SITE_NAME}"
-        if len(h1) <= 70:
-            return h1
-        if len(h1) <= 90:   # h1 un peu long : gardé entier, sans marque (Google le raccourcit lui-même) plutôt que coupé par « … »
-            return h1       # (éditions des 18 et 20 octobre 2026 : h1 de 76 et 80 caractères, titre coupé, contrôle rouge)
     return f"{_truncate_at_word_boundary(titre or h1, 59)} — {SITE_NAME}"
+
+
+def titre_depuis_h1(h1: str) -> Optional[str]:
+    """Titre de page tiré du h1 court de l'édition, sans coupure ; None si le h1 dépasse 90 caractères.
+
+    - 59 caractères au plus : avec la marque « — Scénario » ;
+    - 60 à 70 : sans la marque (Google ajoute lui-même le nom du site) ;
+    - 71 à 90 : gardé entier, sans la marque (éditions des 18 et 20 octobre 2026, titre coupé à tort).
+    Constaté le 26 octobre 2026 : seo_optimizer coupait le titre de l'édition du 27 octobre à 55 caractères
+    (« Éthiopie-Érythrée : la déclaration de guerre d'Addis-Ab... ») alors que le h1 affiché tient en 56."""
+    h1 = h1.replace("\xa0", " ").strip()
+    if len(h1) <= 59:
+        return f"{h1} — {SITE_NAME}"
+    if len(h1) <= 90:
+        return h1
+    return None
 
 
 def _truncate_at_word_boundary(text: str, max_len: int) -> str:

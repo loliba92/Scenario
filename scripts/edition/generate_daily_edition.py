@@ -1736,7 +1736,7 @@ def main():
     # Appelé après validation du contenu, avant build_html.assemble_index_html()
     domain = brief.get("sujet", {}).get("domain", "sciences")
     try:
-        seo_data = generate_seo_metadata(brief, domain)
+        seo_data = generate_seo_metadata(brief, domain, h1_court=content.get("h1"))
         # Injecter dans content["meta"] pour que build_html.py le consume
         if "meta" not in content:
             content["meta"] = {}

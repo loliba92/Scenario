@@ -40,6 +40,31 @@ class TestTitre(unittest.TestCase):
         self.assertEqual(t, "IA : risque d'extinction ou peur exagérée ? — Scénario")
 
 
+class TestTitreDepuisH1(unittest.TestCase):
+    """Le h1 court de l'édition est le titre de la page, avant la question (titre_propose)."""
+
+    ADDIS_QUESTION = ("Éthiopie-Érythrée : la déclaration de guerre d'Addis-Abeba va-t-elle déclencher "
+                      "un nouveau conflit régional ?")
+    ADDIS_H1 = "Éthiopie-Érythrée : vers une nouvelle guerre régionale ?"
+
+    def test_h1_court_passe_avant_la_question(self):
+        t = g._build_title(brief(self.ADDIS_QUESTION, h1=self.ADDIS_H1))
+        self.assertEqual(t, self.ADDIS_H1 + " — Scénario")   # 56 caractères : la marque tient encore
+        self.assertNotIn("…", t)
+
+    def test_titre_depuis_h1_sans_coupure(self):
+        for h1 in ["Court titre ?", "Un titre de longueur moyenne qui tient en soixante-six caractères ici ?",
+                   "Un h1 un peu plus long que la moyenne, gardé entier sans la marque, sans rien couper"]:
+            t = g.titre_depuis_h1(h1)
+            self.assertIsNotNone(t)
+            self.assertNotIn("…", t)
+
+    def test_h1_trop_long_laisse_la_main_au_titre_propose(self):
+        self.assertIsNone(g.titre_depuis_h1("x" * 91))
+        t = g._build_title(brief("Art : de l'œuvre à l'expérience", h1="x" * 91))
+        self.assertEqual(t, "Art : de l'œuvre à l'expérience — Scénario")
+
+
 class TestDescription(unittest.TestCase):
     def test_question_courte_inchangee(self):
         q = "L'art passe-t-il d'une culture de l'œuvre à une culture de l'expérience ?"
@@ -73,3 +98,21 @@ class TestDescription(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestSeoOptimizerTitre(unittest.TestCase):
+    """seo_optimizer reprend le même titre : h1 court de l'édition, jamais coupé en plein mot."""
+
+    def test_titre_du_h1_affiche(self):
+        import seo_optimizer as so
+        h1 = "Éthiopie-Érythrée : vers une nouvelle guerre régionale ?"
+        b = {"date": "2026-10-27", "sujet": {"h1": "Éthiopie-Érythrée : la déclaration de guerre d'Addis-Abeba va-t-elle déclencher un nouveau conflit régional ?", "question_posee": "Question ?"}}
+        self.assertEqual(so.generate_seo_metadata(b, "geopolitique", h1_court=h1)["title"], h1 + " — Scénario")
+
+    def test_secours_sans_coupure_en_plein_mot(self):
+        import seo_optimizer as so
+        h1 = "Éthiopie-Érythrée : la déclaration de guerre d'Addis-Abeba va-t-elle déclencher un nouveau conflit régional"
+        t = so.generate_seo_title(h1, "geopolitique", [])
+        corps = t.split(" — ")[0]
+        self.assertTrue(corps.endswith("…"))
+        self.assertEqual(h1[len(corps) - 1], " ")   # la coupure tombe à la fin d'un mot, jamais au milieu

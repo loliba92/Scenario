@@ -1275,7 +1275,10 @@ def main():
     # 2bis. SEO Head injection — remplace le <head> par un head optimisé
     # généré déterministiquement à partir du brief (title, og:*, twitter:*,
     # Schema.org BreadcrumbList/WebSite/NewsArticle/Organization).
-    html_text = inject_seo_head(html_text, brief)
+    # Le head reprend le h1 affiché sur la page (content["h1"]), court et sans coupure, plutôt que le h1 du brief
+    # (souvent une question de plus de 100 caractères, coupée dans le titre Google). Même règle que generate_daily_edition.
+    brief_affiche = {**brief, "sujet": {**brief.get("sujet", {}), "h1": content["h1"]}}
+    html_text = inject_seo_head(html_text, brief_affiche)
     print(f"[post-edition] <head> SEO optimisé injecté (title, og:*, twitter:*, Schema.org)")
 
     # GARDE-FOU final, juste avant écriture sur disque : dernier filet avant
