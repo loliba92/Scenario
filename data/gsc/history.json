@@ -250,5 +250,11 @@
     "impressions": 14,
     "ctr": 0,
     "position": 6.8
+  },
+  "2026-10-23": {
+    "clicks": 1,
+    "impressions": 17,
+    "ctr": 0.0588,
+    "position": 9
   }
 }
