@@ -1,0 +1,282 @@
+{
+  "date": "2026-10-27",
+  "registre": "carte_blanche",
+  "sujet": {
+    "titre_propose": "Éthiopie-Érythrée : la déclaration de guerre d'Addis-Abeba va-t-elle déclencher un nouveau conflit régional ?",
+    "h1": "Éthiopie-Érythrée : la déclaration de guerre d'Addis-Abeba va-t-elle déclencher un nouveau conflit régional ?",
+    "question_posee": "L'escalade militaire entre l'Éthiopie et l'Érythrée, après la rupture diplomatique du 1er octobre et les frappes de drones éthiopiens sur Adigrat, peut-elle être contenue ou dégénérer en guerre ouverte ?",
+    "eyebrow": "Mardi, carte blanche",
+    "angle": "La rupture diplomatique du 1er octobre 2026 et les frappes de drones éthiopiens sur Adigrat ouvrent une crise frontalière qui ressemble à la phase précédant la guerre de 2020-2022. Trois scénarios s'offrent à la Corne de l'Afrique : médiation rapide, statu quo tendu ou guerre ouverte.",
+    "tags": [
+      "géopolitique",
+      "Corne de l'Afrique",
+      "conflit frontalier"
+    ],
+    "domain": "geopolitique",
+    "image_keywords": "Ethiopia Eritrea border conflict",
+    "complexite": 4,
+    "origine_prioritaire": "Éthiopie-Érythrée : la déclaration de guerre d'Addis-Abeba va-t-elle déclencher un nouveau conflit régional ?",
+    "origine_id": "carte-blanche-ethiopie-erythree-la-declaration-de-guerre-d",
+    "point_de_depart": {
+      "id": "carte-blanche-ethiopie-erythree-la-declaration-de-guerre-d",
+      "registre": "carte_blanche",
+      "titre": "Éthiopie-Érythrée : la déclaration de guerre d'Addis-Abeba va-t-elle déclencher un nouveau conflit régional ?",
+      "question": "L'escalade militaire entre l'Éthiopie et l'Érythrée, après la rupture diplomatique du 1er octobre et les frappes de drones éthiopiens sur Adigrat, peut-elle être contenue ou dégénérer en guerre ouverte ?",
+      "contexte": "Le 1er octobre 2026, l'Éthiopie a accusé l'Érythrée d'« agressions » et rompu ses relations diplomatiques. Le 10 octobre, l'Érythrée a saisi le Conseil de sécurité de l'ONU pour condamner la « déclaration de guerre déplorable » de son voisin. Des frappes de drones éthiopiens ont visé des positions érythréennes près d'Adigrat (40 km de la frontière) dans la nuit du 8 au 9 octobre. Le secrétaire général de l'ONU Antonio Guterres a mis en garde contre les risques d'escalade régionale. Le contentieux porte notamment sur le port d'Assab, que l'Éthiopie enclavée revendique.",
+      "rationnel": "La question : l'escalade éthiopo-érythréenne peut-elle être stoppée avant une guerre ouverte, ou la dynamique de riposte-réplique (frappes de drones, saisine de l'ONU, mobilisation des troupes frontalières) la rend-elle inévitable ? L'issue est ouverte car : 1) les deux pays sortent d'une guerre 2020-2022 (600 000 morts) et se méfient mutuellement ; 2) l'Érythrée a déployé des troupes au nord de l'Éthiopie selon Addis-Abeba ; 3) la médiation internationale (ONU, UA) est lente. Enjeu pour un lecteur français : stabilité de la Corne de l'Afrique, flux migratoires vers l'Europe, opérations Barkhane/UE dans la région.",
+      "mots_cles": [
+        "Éthiopie",
+        "Érythrée",
+        "déclaration de guerre",
+        "Conseil de sécurité ONU",
+        "Adigrat",
+        "port d'Assab",
+        "TPLF",
+        "Antonio Guterres"
+      ],
+      "angle": null,
+      "a_verifier": "Nombre exact de victimes des frappes de drones du 8-9 octobre ; position officielle de l'Union africaine ; calendrier d'une éventuelle réunion du Conseil de sécurité.",
+      "scenarios_brouillon": {
+        "favorable": "Médiation rapide de l'UA et de l'ONU aboutissant à un cessez-le-feu et au retrait des troupes des zones frontalières, reprise du dialogue sur le port d'Assab sous égide internationale.",
+        "stable": "Gel des hostilités au niveau actuel (frappes ponctuelles, rhétorique guerrière) sans guerre ouverte, mais sans résolution politique ; statu quo tendu qui dure des mois.",
+        "degrade": "Guerre ouverte déclarée, offensives terrestres majeures, blocage du commerce régional, afflux massif de réfugiés vers le Soudan et l'Europe, implication de puissances extérieures (Émirats, Turquie, Russie)."
+      },
+      "echeance": {
+        "date": "2026-10-20",
+        "raison": "Échéance probable pour une réunion d'urgence du Conseil de sécurité de l'ONU sur la crise"
+      },
+      "sources_pistes": [
+        {
+          "titre": "L'Érythrée demande au Conseil de sécurité de l'ONU de condamner la \"déclaration de guerre\" éthiopienne",
+          "url": "https://www.boursorama.com/actualite-economique/actualites/l-erythree-demande-au-conseil-de-securite-de-l-onu-de-condamner-la-declaration-de-guerre-ethiopienne-aa92021aa53ba0c0f17731cad8df05f3"
+        }
+      ],
+      "tag": "géopolitique & Corne de l'Afrique",
+      "origine": "veille",
+      "note_editoriale": "Ajouté automatiquement le 2026-10-11 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Repéré en veille sur le registre Géopolitique, remonté ici pour son urgence.",
+      "donnees_graphique": "[relevé du 2026-10-21] Réfugiés et demandeurs d'asile (unité : personnes). Érythréens au Soudan = 136 372 (30 sept. 2026) ; Éthiopiens au Soudan = 64 785 (30 sept. 2026) ; Érythréens en Éthiopie = 124 650 (31 août 2026). Sources : https://data.unhcr.org/en/country/sdn ; https://data.unhcr.org/en/country/eth",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (26 octobre, climat/frontières) sans recoupement. Registre carte blanche sans édition récente du même type. Édition du 11 août 2026 sur le même sujet frontalier (Éthiopie veut sa mer) : angle différent (revendication maritime vs déclaration de guerre), mécanisme causal distinct (accès à la mer vs rupture diplomatique et frappes de drones)."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le 1er octobre 2026, l'Éthiopie a accusé l'Érythrée d'agressions et rompu ses relations diplomatiques.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "boursorama-aa92021aa53ba0c0f17731cad8df05f3"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le 10 octobre 2026, l'Érythrée a saisi le Conseil de sécurité de l'ONU pour condamner la déclaration de guerre éthiopienne.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "boursorama-aa92021aa53ba0c0f17731cad8df05f3"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Dans la nuit du 8 au 9 octobre 2026, des frappes de drones éthiopiens ont visé des positions érythréennes près d'Adigrat, à environ 40 km de la frontière.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "boursorama-aa92021aa53ba0c0f17731cad8df05f3"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Antonio Guterres, secrétaire général de l'ONU, a mis en garde contre les risques d'escalade régionale liés à la crise Éthiopie-Érythrée.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "boursorama-aa92021aa53ba0c0f17731cad8df05f3"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le contentieux frontalier entre l'Éthiopie et l'Érythrée porte notamment sur le port d'Assab, que l'Éthiopie enclavée revendique.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "boursorama-aa92021aa53ba0c0f17731cad8df05f3"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La guerre Éthiopie-Érythrée de 2020 à 2022 a fait environ 600 000 morts, selon les estimations des Nations unies et des organisations humanitaires.",
+      "chiffre": "environ 600 000 morts",
+      "date_du_chiffre": null,
+      "sources": [
+        "boursorama-aa92021aa53ba0c0f17731cad8df05f3"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Éthiopie (Addis-Abeba)",
+      "role": "Accusatrice publique de l'Érythrée, a rompu les relations diplomatiques et mené des frappes de drones sur Adigrat"
+    },
+    {
+      "nom": "Érythrée (Asmara)",
+      "role": "Voisin accusé, a saisi le Conseil de sécurité de l'ONU et déploye des troupes au nord de l'Éthiopie selon Addis-Abeba"
+    },
+    {
+      "nom": "Antonio Guterres (ONU)",
+      "role": "Secrétaire général de l'ONU, a mis en garde contre l'escalade régionale"
+    },
+    {
+      "nom": "Conseil de sécurité de l'ONU",
+      "role": "Instance saisie par l'Érythrée pour condamner la déclaration de guerre éthiopienne"
+    },
+    {
+      "nom": "Union africaine",
+      "role": "Organisation régionale potentiellement impliquée dans la médiation, sans position officielle publique confirmée à ce stade"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-10-01",
+      "evenement": "L'Éthiopie accuse l'Érythrée d'agressions et rompt ses relations diplomatiques"
+    },
+    {
+      "date": "2026-10-08",
+      "evenement": "Frappes de drones éthiopiens sur des positions érythréennes près d'Adigrat (nuit du 8 au 9 octobre)"
+    },
+    {
+      "date": "2026-10-10",
+      "evenement": "L'Érythrée saisit le Conseil de sécurité de l'ONU pour condamner la déclaration de guerre éthiopienne"
+    },
+    {
+      "date": "2026-10-20",
+      "evenement": "Échéance probable pour une réunion d'urgence du Conseil de sécurité de l'ONU sur la crise (non confirmée)"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Médiation rapide de l'Union africaine et de l'ONU aboutissant à un cessez-le-feu et au retrait des troupes des zones frontalières, reprise du dialogue sur le port d'Assab sous égide internationale.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Gel des hostilités au niveau actuel (frappes ponctuelles, rhétorique guerrière) sans guerre ouverte, mais sans résolution politique ; statu quo tendu qui dure des mois.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "Guerre ouverte déclarée, offensives terrestres majeures, blocage du commerce régional, afflux massif de réfugiés vers le Soudan et l'Europe, implication de puissances extérieures (Émirats, Turquie, Russie).",
+      "probabilite_suggeree": 30
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Nombre de morts de la guerre Éthiopie-Érythrée 2020-2022",
+      "valeur": "environ 600 000 morts",
+      "tendance": "Conflit déjà dévastateur — référence historique"
+    },
+    {
+      "label": "Date de la rupture diplomatique",
+      "valeur": "1er octobre 2026",
+      "tendance": "Événement déclencheur"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Aucune source publique fiable ne documente une série historique longue et vérifiée sur les frappes de drones frontaliers ou les déclarations de guerre entre l'Éthiopie et l'Érythrée. Recherche effectuée sur Boursorama et données UNHCR : seule la donnée de réfugiés (Érythréens au Soudan = 136 372 au 30 sept. 2026 ; Éthiopiens au Soudan = 64 785 au 30 sept. 2026 ; Érythréens en Éthiopie = 124 650 au 31 août 2026) est disponible, mais elle ne constitue pas une série longue avec au moins 5 points réels sur une période significative. Critère (1) non satisfait : pas d'historique complet public fiable.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres réels et comparables sur les réfugiés et demandeurs d'asile dans la région, tous deux relevés par le HCR, de même unité (personnes), permettant une comparaison utile.",
+    "barres": {
+      "aria_label": "Nombre de réfugiés et demandeurs d'asile dans la région, par nationalité et pays d'accueil",
+      "lead": "La crise frontalière Éthiopie-Érythrée s'accompagne déjà d'un déplacement de populations : voici les chiffres du HCR sur les réfugiés dans la région.",
+      "caption": "Source : Haut-Commissariat des Nations unies pour les réfugiés (HCR), données au 30 septembre 2026 pour le Soudan et au 31 août 2026 pour les déplacés internes.",
+      "unite": "personnes",
+      "valeurs": [
+        {
+          "label": "Érythréens au Soudan",
+          "valeur": 136372,
+          "affichage": "136 372 (30 sept. 2026)",
+          "mis_en_avant": true
+        },
+        {
+          "label": "Éthiopiens au Soudan",
+          "valeur": 64785,
+          "affichage": "64 785 (30 sept. 2026)",
+          "mis_en_avant": false
+        },
+        {
+          "label": "Érythréens en Éthiopie",
+          "valeur": 124650,
+          "affichage": "124 650 (31 août 2026)",
+          "mis_en_avant": false
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "La guerre de 2020-2022 : pourquoi les deux pays ne se font plus confiance",
+        "rattache_a": "fait sur les 600 000 morts de la guerre 2020-2022"
+      },
+      {
+        "focus": "Le port d'Assab : pourquoi l'Éthiopie veut cette façade maritime",
+        "rattache_a": "fait sur le contentieux du port d'Assab"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Nombre exact de victimes des frappes de drones du 8-9 octobre 2026 : non confirmé par des sources indépendantes au-delà du bilan éthiopien",
+    "Position officielle de l'Union africaine : aucune déclaration publique vérifiée à ce stade",
+    "Calendrier réel d'une éventuelle réunion d'urgence du Conseil de sécurité de l'ONU : l'échéance du 20 octobre est une indication non confirmée"
+  ],
+  "a_ne_pas_affirmer": [
+    "La réunion du Conseil de sécurité de l'ONU prévue pour le 20 octobre 2026 n'a pas encore eu lieu au moment du brief — son existence et sa date exacte ne sont pas confirmées par une source officielle",
+    "Les frappes de drones du 8-9 octobre ont causé un nombre précis de victimes — aucune source indépendante ne confirme le bilan"
+  ],
+  "sources": [
+    {
+      "id": "boursorama-aa92021aa53ba0c0f17731cad8df05f3",
+      "title": "L'Érythrée demande au Conseil de sécurité de l'ONU de condamner la \"déclaration de guerre\" éthiopienne",
+      "source": "Boursorama",
+      "url": "https://www.boursorama.com/actualite-economique/actualites/l-erythree-demande-au-conseil-de-securite-de-l-onu-de-condamner-la-declaration-de-guerre-ethiopienne-aa92021aa53ba0c0f17731cad8df05f3",
+      "image": null,
+      "lang": "fr",
+      "domain": "geopolitique",
+      "summary": "Article du 10 octobre 2026 rapportant que l'Érythrée a saisi le Conseil de sécurité de l'ONU pour condamner la déclaration de guerre de l'Éthiopie, avec rappel des frappes de drones sur Adigrat, de la rupture diplomatique du 1er octobre et de la mise en garde d'Antonio Guterres.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [],
+  "articles_connexes": [
+    {
+      "date": "2026-08-11",
+      "titre": "L'Éthiopie veut sa mer, au risque de la guerre",
+      "lien": "Même acteurs (Éthiopie, Érythrée) et même zone frontalière — revendication maritime et risque de conflit, angle différent (accès à la mer vs déclaration de guerre)"
+    },
+    {
+      "date": "2026-08-10",
+      "titre": "La croissance mondiale ne tient qu'à un fil",
+      "lien": "Même région (Corne de l'Afrique / Moyen-Orient) et même enjeu de stabilité géopolitique régionale — crise Iran-États-Unis et détroit d'Ormuz, contexte de tensions qui peut affecter la Corne de l'Afrique"
+    },
+    {
+      "date": "2026-09-22",
+      "titre": "Bab el-Mandeb : un tiers du commerce mondial sous contrôle hostile ?",
+      "lien": "Même région (Corne de l'Afrique, détroits stratégiques) et même thème de contrôle des routes maritimes — Bab el-Mandeb et port d'Assab, enjeux de libre circulation maritime"
+    }
+  ],
+  "recommandations_redaction": [
+    "Insister sur le fait que la guerre de 2020-2022 a fait environ 600 000 morts pour expliquer la méfiance mutuelle",
+    "Expliquer pourquoi l'Éthiopie, pays enclavé, revendique le port d'Assab",
+    "Préciser que la position de l'Union africaine n'est pas encore connue publiquement",
+    "Ne pas affirmer de bilan précis des frappes de drones du 8-9 octobre"
+  ]
+}
