@@ -16,6 +16,17 @@
       <itunes:email>contact@lesscenarios.fr</itunes:email>
     </itunes:owner>
     <item>
+      <title>Climat : le monde des frontières de 2050</title>
+      <link>https://lesscenarios.fr/archives/2026-10-26.html</link>
+      <guid isPermaLink="false">scenario-podcast-2026-10-26</guid>
+      <pubDate>Mon, 26 Oct 2026 07:00:00 +0000</pubDate>
+      <description>Climat : le monde des frontières de 2050 Épisode lu par une voix de synthèse (intelligence artificielle), à partir de l'édition du 2026-10-26. Version écrite : https://lesscenarios.fr/archives/2026-10-26.html Rien n'est écrit à l'avance.</description>
+      <enclosure url="https://github.com/loliba92/Scenario/releases/download/podcast-2026-10-26/2026-10-26.mp3" length="5649741" type="audio/mpeg"/>
+      <itunes:duration>00:07:50</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://lesscenarios.fr/podcast/episodes/2026-10-26.jpg"/>
+    </item>
+    <item>
       <title>Pass Sport : l'aide aux jeunes va-t-elle survivre aux budgets ?</title>
       <link>https://lesscenarios.fr/archives/2026-10-25.html</link>
       <guid isPermaLink="false">scenario-podcast-2026-10-25</guid>
