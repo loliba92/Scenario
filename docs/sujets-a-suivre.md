@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 26.10.2026 — [Climat : le monde des frontières de 2050](../archives/2026-10-26.html)
 - 25.10.2026 — [Pass Sport : l'aide aux jeunes va-t-elle survivre aux budgets ?](../archives/2026-10-25.html)
 - 24.10.2026 — [Spotify : l'album en sursis ?](../archives/2026-10-24.html)
 - 23.10.2026 — [Eau : la prochaine ressource stratégique ?](../archives/2026-10-23.html)

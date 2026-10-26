@@ -2,6 +2,61 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-26",
+      "articles": [
+        {
+          "title": "Contre toute attente, Lula décroche un quatrième mandat inédit, le Brésil reste à gauche",
+          "source": "Le Figaro",
+          "url": "https://www.lefigaro.fr/international/contre-toute-attente-lula-decroche-un-quatrieme-mandat-inedit-le-bresil-reste-a-gauche-20261026",
+          "image": "https://i.f1g.fr/media/cms/1200x630_crop/2026/10/26/eca65d761fa6db5fe85ac07581a8d2d9e540f4f5a72af341e26318db11f974ad.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Luiz Inácio Lula da Silva a été réélu dimanche 25 octobre avec 51,76 % des voix contre 48,24 % pour Flavio Bolsonaro, obtenant un quatrième mandat inédit à presque 81 ans.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Trump assure qu'un accord commercial avec le Canada arrivera «rapidement»",
+          "source": "Le Figaro",
+          "url": "https://www.lefigaro.fr/international/trump-assure-qu-un-accord-commercial-avec-le-canada-arrivera-rapidement-20261026",
+          "image": "https://i.f1g.fr/media/cms/1200x630_crop/2026/10/26/0e8194f349a36a92d83e8f60e42247516062460c76402bd65f2c1d25240b4b6c.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Donald Trump a affirmé dimanche 26 octobre lors d'un meeting au Michigan qu'un accord commercial avec le Canada allait intervenir «rapidement», après l'imposition d'une surtaxe de 20 milliards de dollars sur les produits canadiens.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Storms batter Europe hitting power supplies, flights and phones",
+          "source": "AFP",
+          "url": "https://www.afp.com/en/storms-batter-europe-hitting-power-supplies-flights-and-phones-0",
+          "image": null,
+          "lang": "en",
+          "domain": "sciences-environnement",
+          "summary": "Les tempêtes Boelo et Austen ont frappé l'Europe du nord dimanche 26 octobre, coupant l'électricité à plus de 150 000 foyers (82 000 au Royaume-Uni, 60 000 en France, 10 000 en Allemagne) et perturbant des centaines de vols.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Brazil's President Lula da Silva beats Flavio Bolsonaro to win re-election",
+          "source": "France 24",
+          "url": "https://www.france24.com/en/americas/20261026-brazil-s-president-lula-da-silva-beats-flavio-bolsonaro-to-win-re-election",
+          "image": "https://s.france24.com/media/display/d08bd462-d0d0-11f1-ab21-bdb9616e85cf/w:1280/p:16x9/2026-10-25T220534Z-34599975-RC2KAOAZJ6YN-RTRMADP-3-BRAZIL-ELECTION.jpg",
+          "lang": "en",
+          "domain": "international",
+          "summary": "Luiz Inacio Lula da Silva a remporté 51,7 % des voix contre 48,2 % pour Flavio Bolsonaro lors du second tour du 25 octobre, décrochant un quatrième mandat inédit à 81 ans.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Doncic dominates for Lakers as James' Sixers fall to Pistons",
+          "source": "France 24",
+          "url": "https://www.france24.com/en/live-news/20261026-doncic-dominates-for-lakers-as-james-sixers-fall-to-pistons",
+          "image": "https://s.france24.com/media/display/d1e88ff2-d0e5-11f1-83b9-5b4a75578ebb/w:1280/p:16x9/Part-GTY-2301571051-1-1-0.jpg",
+          "lang": "en",
+          "domain": "culture-divertissement",
+          "summary": "Luka Doncic a marqué 52 points et donné 10 passes décisives pour les Los Angeles Lakers (132-123) face au Utah Jazz le 26 octobre, tandis que les Philadelphia 76ers de LeBron James ont perdu 106-93 contre les Detroit Pistons.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-10-25",
       "articles": [
         {
