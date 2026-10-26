@@ -1,0 +1,36 @@
+[
+  {
+    "id": "budget-2027-vote-assemblee",
+    "libelle": "Vote du budget 2027 à l'Assemblée sans motion de censure",
+    "date_limite": "2026-12-31",
+    "editions": ["archives/2026-09-13.html"],
+    "si_concretise": {
+      "effet": "Le budget est adopté, la visibilité politique revient pour l'exécutif.",
+      "renforce": "stable"
+    },
+    "si_non_concretise": {
+      "effet": "Le vote est reporté ou une motion aboutit : crise budgétaire.",
+      "renforce": "degrade"
+    },
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  },
+  {
+    "id": "ethiopie-erythree-cessez-le-feu",
+    "libelle": "Annonce d'un cessez-le-feu entre l'Éthiopie et l'Érythrée sous médiation régionale",
+    "date_limite": "2026-11-30",
+    "editions": ["archives/2026-10-27.html"],
+    "si_concretise": {
+      "effet": "Une médiation régionale ouvre une désescalade, sans règlement du fond.",
+      "renforce": "stable"
+    },
+    "si_non_concretise": {
+      "effet": "Les combats reprennent ou s'étendent à une troisième partie.",
+      "renforce": "degrade"
+    },
+    "statut": "en_attente",
+    "source": null,
+    "conclusion": null
+  }
+]
