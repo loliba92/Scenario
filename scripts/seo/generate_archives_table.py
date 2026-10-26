@@ -1053,6 +1053,22 @@ def parse_french_date(text):
     return f"{year}-{month:02d}-{int(day):02d}"
 
 
+def extract_suivi_title(suivi_path):
+    """Titre de la page de suivi (son <h1>, plus récent que le titre de l'édition d'origine).
+
+    Affiché à la place du titre de l'édition dans la liste : un lecteur qui clique « Sujet révisé »
+    retrouve ainsi le titre qu'il voit sur l'accueil (« Le dernier suivi »), au lieu d'un titre d'août.
+    Ajouté le 26 octobre 2026 (retour : l'article FIFA révisé était présent mais introuvable sous son titre d'accueil)."""
+    try:
+        text = suivi_path.read_text(encoding="utf-8")
+    except OSError:
+        return None
+    m = re.search(r"<h1[^>]*>(.*?)</h1>", text, re.DOTALL)
+    if not m:
+        return None
+    return html.unescape(re.sub(r"<[^>]+>", "", m.group(1))).strip() or None
+
+
 def build_suivi_mapping():
     """Scanne suivi/*.html (hors _gabarit) et retourne {edition_id origine: Path du suivi},
     où edition_id est le nom de fichier d'archive sans ".html"
@@ -1193,6 +1209,7 @@ def parse_article(file_path, suivi_mapping=None):
     revised_on = extract_revised(text)
 
     suivi_path = (suivi_mapping or {}).get(iso_date)
+    suivi_title = extract_suivi_title(suivi_path) if suivi_path else None
     if suivi_path:
         suivi_date, updated_pcts = extract_latest_suivi_version(suivi_path)
         if updated_pcts:
@@ -1244,6 +1261,7 @@ def parse_article(file_path, suivi_mapping=None):
         "domain": domain,
         "revised_on": revised_on,
         "suivi_slug": suivi_path.stem if suivi_path else None,
+        "suivi_title": suivi_title,
     }
 
 
@@ -1350,7 +1368,7 @@ def render_table_row(article, featured=False):
       <td class="col-date" data-label="Date">{format_date_display(article["iso_date"])}</td>
       <td class="col-title">
         <span class="title-row">
-          <a href="archives/{article["iso_date"]}.html"{question_attr}>{html.escape(article["title"])}</a>
+          <a href="archives/{article["iso_date"]}.html"{question_attr}>{html.escape(article["suivi_title"] or article["title"])}</a>
           {revised_badge}
           {en_link}
         </span>{question_html}
