@@ -2,6 +2,61 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-27",
+      "articles": [
+        {
+          "title": "Ukraine : la trêve à Olechky a commencé pour mener une opération humanitaire",
+          "source": "France 24",
+          "url": "https://www.france24.com/fr/europe/20261027-ukraine-treve-olechky-commence-operation-humanitaire-russie",
+          "image": "https://s.france24.com/media/display/bf28808a-d1b1-11f1-8350-bba4eee3dc72/w:1280/p:16x9/AP26290229245515.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Un cessez-le-feu localisé à Olechky (région de Kherson) a débuté mardi 27 octobre à 4h00 heure de Moscou, annoncé par le ministère de la Défense russe et le délégué ukrainien Dmytro Loubinets. Cette trêve, initiée à la demande de Melania Trump, vise à permettre une opération humanitaire et l'évacuation d'habitants dans une ville dont la population est passée de 24 000 à environ 2 000.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Otan : les cinq puissances militaires européennes prêtes à assumer une \"responsabilité accrue\"",
+          "source": "France 24",
+          "url": "https://www.france24.com/fr/europe/20261027-otan-france-allemange-italie-pologne-royaume-uni-pretes-assumer-responsabilite-accrue-etats-unis",
+          "image": "https://s.france24.com/media/display/6b4974be-d19e-11f1-bf1c-4d317af013fd/w:1280/p:16x9/000-D4GV6MN.jpg",
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Lundi 26 octobre, les ministres de la Défense de la France, de l'Allemagne, de l'Italie, de la Pologne et du Royaume-Uni (groupe E5) ont signé une déclaration commune à Paris affirmant que l'Europe doit assumer une plus grande part de responsabilité pour sa propre sécurité au sein de l'Otan. La ministre française Catherine Vautrin a annoncé qu'une prochaine réunion du groupe E5 se tiendrait en mars prochain à Rome.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Israël: premières législatives depuis le 7-Octobre, Netanyahu à l'épreuve des urnes",
+          "source": "France 24",
+          "url": "https://www.france24.com/fr/info-en-continu/20261027-isra%C3%ABl-premi%C3%A8res-l%C3%A9gislatives-depuis-le-7-octobre-netanyahu-%C3%A0-l-%C3%A9preuve-des-urnes",
+          "image": "https://s.france24.com/media/display/cee7326e-cddd-11f1-8a31-8bea73bbe173/w:1280/p:16x9/d1a840293ce4d59a84215c0c7a7bd89c947118d8.jpg",
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Plus de 7 millions d'Israéliens sont appelés aux urnes mardi 27 octobre pour les premières élections législatives depuis le 7-Octobre. Selon les derniers sondages, la coalition de droite de Benjamin Netanyahu et le bloc de l'opposition mené par Gadi Eisenkot sont au coude-à-coude, aucun des deux ne semblant capable d'obtenir la majorité des 61 sièges à la Knesset.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Au Brésil, le parti de Flávio Bolsonaro reconnaît la réélection de Lula à la présidence",
+          "source": "Le Figaro",
+          "url": "https://www.lefigaro.fr/international/au-bresil-le-parti-de-flavio-bolsonaro-reconnait-la-reelection-de-lula-a-la-presidence-20261027",
+          "image": "https://i.f1g.fr/media/cms/1200x630_crop/2026/10/27/547fd60c1344413a40020dac0be6ae9d65eb70ceb1d66baf3699019403d87e2a.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Le parti de Flavio Bolsonaro a reconnu lundi 26 octobre la réélection de Luiz Inacio Lula da Silva, qui a décroché un quatrième mandat inédit en devançant de quatre points le candidat de droite. Les marchés brésiliens ont chuté de près de 14 % lundi à l'ouverture, et Flavio Bolsonaro a annoncé avoir été sommé de remettre ses passeports aux autorités.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Tech firms track Wall St rally on mixed day for Asian markets",
+          "source": "AFP",
+          "url": "https://www.afp.com/en/tech-firms-track-wall-st-rally-mixed-day-asian-markets",
+          "image": null,
+          "lang": "en",
+          "domain": "economie-entreprises",
+          "summary": "Les entreprises technologiques ont progressé mardi 27 octobre après la déclaration de l'introduction en bourse d'Anthropic, dont le chiffre d'affaires a bondi d'environ 1 300 % sur un an. Le indice sud-coréen KOSPI a gagné plus de 4 % et le Nikkei japonais 1,9 %, tandis que le Brent reculait de 1,0 % à 114,68 dollars le baril.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-10-26",
       "articles": [
         {
