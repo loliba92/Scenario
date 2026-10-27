@@ -56,7 +56,7 @@ faits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py pr
   <!-- origine: veille -->
   <!-- enrichi: 2026-10-13 -->
   <!-- note: Ajouté automatiquement le 2026-10-11 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité. Repéré en veille sur le registre Actu. française, remonté ici pour son urgence. -->
-- [ ] Éthiopie-Érythrée : la déclaration de guerre d'Addis-Abeba va-t-elle déclencher un nouveau conflit régional ? [géopolitique & Corne de l'Afrique]
+- [x] Éthiopie-Érythrée : la déclaration de guerre d'Addis-Abeba va-t-elle déclencher un nouveau conflit régional ? [géopolitique & Corne de l'Afrique]
   <!-- id: carte-blanche-ethiopie-erythree-la-declaration-de-guerre-d -->
   <!-- question: L'escalade militaire entre l'Éthiopie et l'Érythrée, après la rupture diplomatique du 1er octobre et les frappes de drones éthiopiens sur Adigrat, peut-elle être contenue ou dégénérer en guerre ouverte ? -->
   <!-- contexte: Le 1er octobre 2026, l'Éthiopie a accusé l'Érythrée d'« agressions » et rompu ses relations diplomatiques. Le 10 octobre, l'Érythrée a saisi le Conseil de sécurité de l'ONU pour condamner la « déclaration de guerre déplorable » de son voisin. Des frappes de drones éthiopiens ont visé des positions érythréennes près d'Adigrat (40 km de la frontière) dans la nuit du 8 au 9 octobre. Le secrétaire général de l'ONU Antonio Guterres a mis en garde contre les risques d'escalade régionale. Le contentieux porte notamment sur le port d'Assab, que l'Éthiopie enclavée revendique. -->
