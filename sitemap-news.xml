@@ -11,4 +11,15 @@
       <news:title>Climate: world borders in 2050</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-10-27.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-27T06:02:03+01:00</news:publication_date><news:title>Éthiopie-Érythrée : vers une nouvelle guerre régionale ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-10-27.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-27T06:02:03+01:00</news:publication_date><news:title>Éthiopie-Érythrée : vers une nouvelle guerre régionale ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-10-27.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-27T06:02:03+01:00</news:publication_date>
+      <news:title>Ethiopia-Eritrea: Heading Towards a New Regional War?</news:title>
+    </news:news>
+  </url>
+</urlset>
