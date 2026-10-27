@@ -1,23 +1,24 @@
 # Rapport Search Console
 
-Site `sc-domain:lesscenarios.fr` · données Google du 2026-09-26 au 2026-10-23 · synchronisé le 2026-10-26 (les chiffres de Google ont ~3 jours de retard).
+Site `sc-domain:lesscenarios.fr` · données Google du 2026-09-27 au 2026-10-24 · synchronisé le 2026-10-27 (les chiffres de Google ont ~3 jours de retard).
 
-**Verdict : CRITIQUE** — 2 éditions de plus de 7 jours sont inconnues de Google (sur 33 pages inspectées). Demander l'indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours.
+**Verdict : CRITIQUE** — 3 éditions de plus de 7 jours sont inconnues de Google (sur 33 pages inspectées). Demander l'indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours.
 
 ## Chiffres (28 jours)
 
-- 2 clics, 333 impressions, taux de clic 0,6 %, position moyenne 9,2.
-- Pages indexées : 23 sur 33 inspectées ; éditions inconnues de Google : 9 (dont 2 de plus de 7 jours).
+- 2 clics, 327 impressions, taux de clic 0,6 %, position moyenne 9,6.
+- Pages indexées : 23 sur 33 inspectées ; éditions inconnues de Google : 8 (dont 3 de plus de 7 jours).
 - Requêtes : 11 (dont 2 avec le nom du site).
-- Tendance (14 jours, jusqu'au 2026-10-23) : impressions 177 contre 156, clics 2 contre 0.
+- Tendance (14 jours, jusqu'au 2026-10-24) : impressions 180 contre 147, clics 2 contre 0.
 
 ## À résoudre — critique
 
-- 2 éditions de plus de 7 jours sont inconnues de Google (sur 33 pages inspectées). **Action** : Demander l'indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours. **Agent à envoyer** : seo-technical + seo-sitemap. **Mission** : Diagnostiquer pourquoi ces éditions restent inconnues de Google : profondeur de clics depuis l'accueil, liens internes vers les éditions récentes, structure et dates du plan du site, robots.txt, vitesse. Rendre un plan correctif chiffré, classé par impact.
+- 3 éditions de plus de 7 jours sont inconnues de Google (sur 33 pages inspectées). **Action** : Demander l'indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours. **Agent à envoyer** : seo-technical + seo-sitemap. **Mission** : Diagnostiquer pourquoi ces éditions restent inconnues de Google : profondeur de clics depuis l'accueil, liens internes vers les éditions récentes, structure et dates du plan du site, robots.txt, vitesse. Rendre un plan correctif chiffré, classé par impact.
 
 ## À résoudre — important
 
-- Le site apparaît (position moyenne 9,2) mais est très peu cliqué (0,6 %). **Action** : Retravailler les titres et descriptions des pages les plus vues. **Agent à envoyer** : seo-content. **Mission** : Proposer de nouveaux titres (≤ 59 caractères) et descriptions (100–160) plus incitatifs pour les pages les plus vues, dans le ton sobre de Scénario ; ne rien promettre.
+- Le site apparaît (position moyenne 9,6) mais est très peu cliqué (0,6 %). **Action** : Retravailler les titres et descriptions des pages les plus vues. **Agent à envoyer** : seo-content. **Mission** : Proposer de nouveaux titres (≤ 59 caractères) et descriptions (100–160) plus incitatifs pour les pages les plus vues, dans le ton sobre de Scénario ; ne rien promettre.
+- 1 page : Google connaît l'adresse mais ne l'a pas encore explorée ou retenue (`/guide-pedagogique.html`). **Action** : Renforcer les liens internes vers la page, enrichir son contenu, demander l'indexation. **Agent à envoyer** : seo-content. **Mission** : Comprendre pourquoi Google retient ou écarte ces pages (profondeur, unicité, qualité perçue) et proposer des améliorations de contenu et de liens internes.
 - Éditions en français : 1 descriptions hors norme. **Action** : Corriger via les générateurs (voir .claude/seo-routage.md). **Mission** : Correction directe dans les générateurs (generate_seo_head.py, translate_daily.py), puis régénération et tests.
 - Éditions en anglais : 2 titres coupés, 1 descriptions hors norme. **Action** : Corriger via les générateurs (voir .claude/seo-routage.md). **Mission** : Correction directe dans les générateurs (generate_seo_head.py, translate_daily.py), puis régénération et tests.
 
@@ -30,20 +31,23 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-09-26 au 2026-10-23 
 
 ## Ce qui fonctionne
 
-- Google affiche le site en position moyenne 9,2 (première page) sur 333 impressions.
+- Visibilité en hausse : 180 impressions sur les 14 derniers jours contre 147 avant.
+- Google affiche le site en position moyenne 9,6 (première page) sur 327 impressions.
 - 6 pages principales indexées : `/`, `/archives.html`, `/le-projet.html`, `/sources.html`, `/glossaire.html`, `/en/`.
 - 17 éditions indexées par Google.
-- Plan du site `/sitemap.xml` lu par Google sans erreur (196 adresses envoyées).
-- Plan du site `/sitemap-news.xml` lu par Google sans erreur (4 adresses envoyées).
+- Plan du site `/sitemap.xml` lu par Google sans erreur (197 adresses envoyées).
+- Plan du site `/sitemap-news.xml` lu par Google sans erreur (3 adresses envoyées).
 
 ## Ce qui ne fonctionne pas
 
 - Presque aucune visite venue de Google : 2 clics en 28 jours.
-- Découverte trop lente : 2 éditions publiées depuis plus d’une semaine ne sont pas connues de Google.
+- Découverte trop lente : 3 éditions publiées depuis plus d’une semaine ne sont pas connues de Google.
+- Page principale non indexée : `/guide-pedagogique.html`.
 
 ## Ce que seul le propriétaire peut faire
 
 - Dans Search Console, collez l'adresse de l'édition du jour dans la barre du haut, puis « Demander une indexation » (quota limité par jour) ; répétez pour les éditions inconnues les plus récentes.
+- Faites de même pour les pages principales « détectées, non indexées » (guide pédagogique, par exemple).
 - Relisez les recommandations des agents avant de valider tout changement de titres ou de contenu.
 
 ## Conclusions des agents — 16 octobre 2026 : titres coupés sur les éditions du 13 au 16 octobre
@@ -120,9 +124,9 @@ Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 ## Requêtes principales
 
 - « "budget 2027" "49.3" censure lecornu » : 0 clic(s), 16 impression(s), position 6,2
-- « scénarios email » : 0 clic(s), 7 impression(s), position 90,3
+- « scénarios email » : 0 clic(s), 8 impression(s), position 86,9
 - « les scénarios » : 0 clic(s), 4 impression(s), position 27,8
-- « viralité organique dirigée » : 0 clic(s), 2 impression(s), position 32
+- « viralité organique dirigée » : 0 clic(s), 3 impression(s), position 33,3
 - « ceutat » : 0 clic(s), 1 impression(s), position 8
 - « china pop culture » : 0 clic(s), 1 impression(s), position 41
 - « fallout day » : 0 clic(s), 1 impression(s), position 9
@@ -130,49 +134,49 @@ Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 
 ## Pages les plus vues
 
-- `/en/archives/2026-08-08.html` : 88 impressions, 0 clic(s), position 7,0
+- `/en/archives/2026-08-08.html` : 82 impressions, 0 clic(s), position 7,1
 - `/en/archives/2026-09-13.html` : 38 impressions, 0 clic(s), position 5,2
 - `/en/archives/2026-09-30.html` : 29 impressions, 0 clic(s), position 4,8
-- `/en/archives/2026-10-07.html` : 19 impressions, 0 clic(s), position 5,4
-- `/en/archives/2026-08-30.html` : 15 impressions, 0 clic(s), position 4,6
+- `/en/archives/2026-10-07.html` : 25 impressions, 0 clic(s), position 6,0
 - `/en/archives/2026-09-20.html` : 15 impressions, 0 clic(s), position 8,9
-- `/en/archives/2026-09-15.html` : 14 impressions, 0 clic(s), position 6,4
+- `/en/archives/2026-08-30.html` : 13 impressions, 0 clic(s), position 5,4
+- `/en/archives/2026-09-15.html` : 12 impressions, 0 clic(s), position 6,2
 - `/en/archives/2026-09-26.html` : 12 impressions, 0 clic(s), position 11,7
 
 ## Indexation page par page
 
 - `/` : ok
 - `/archives.html` : ok
-- `/guide-pedagogique.html` : inconnue (Google ne reconnaît pas cette URL)
+- `/guide-pedagogique.html` : decouverte (Détectée, actuellement non indexée)
 - `/le-projet.html` : ok
 - `/sources.html` : ok
 - `/glossaire.html` : ok
 - `/en/` : ok
-- `/archives/2026-10-26.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 0 j
-- `/archives/2026-10-25.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 1 j
-- `/archives/2026-10-24.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 2 j
-- `/archives/2026-10-23.html` : ok, publiée il y a 3 j
-- `/archives/2026-10-22.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 4 j
-- `/archives/2026-10-21.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 5 j
-- `/archives/2026-10-20.html` : ok, publiée il y a 6 j
-- `/archives/2026-10-19.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 7 j
-- `/archives/2026-10-18.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 8 j
-- `/archives/2026-10-17.html` : ok, publiée il y a 9 j
-- `/archives/2026-10-16.html` : ok, publiée il y a 10 j
-- `/archives/2026-10-15.html` : ok, publiée il y a 11 j
-- `/archives/2026-10-14.html` : ok, publiée il y a 12 j
-- `/archives/2026-10-13.html` : ok, publiée il y a 13 j
-- `/archives/2026-10-12.html` : ok, publiée il y a 14 j
-- `/archives/2026-10-11.html` : ok, publiée il y a 15 j
-- `/archives/2026-10-10.html` : exploree (Explorée, actuellement non indexée), publiée il y a 16 j
-- `/archives/2026-10-09.html` : ok, publiée il y a 17 j
-- `/archives/2026-10-08.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 18 j
-- `/archives/2026-10-07.html` : ok, publiée il y a 19 j
-- `/en/archives/2026-10-25.html` : ok, publiée il y a 1 j
-- `/en/archives/2026-10-24.html` : ok, publiée il y a 2 j
-- `/en/archives/2026-10-23.html` : ok, publiée il y a 3 j
-- `/en/archives/2026-10-22.html` : ok, publiée il y a 4 j
-- `/en/archives/2026-10-21.html` : ok, publiée il y a 5 j
-- `/en/archives/2026-10-20.html` : ok, publiée il y a 6 j
+- `/archives/2026-10-26.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 1 j
+- `/archives/2026-10-25.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 2 j
+- `/archives/2026-10-24.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 3 j
+- `/archives/2026-10-23.html` : ok, publiée il y a 4 j
+- `/archives/2026-10-22.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 5 j
+- `/archives/2026-10-21.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 6 j
+- `/archives/2026-10-20.html` : ok, publiée il y a 7 j
+- `/archives/2026-10-19.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 8 j
+- `/archives/2026-10-18.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 9 j
+- `/archives/2026-10-17.html` : ok, publiée il y a 10 j
+- `/archives/2026-10-16.html` : ok, publiée il y a 11 j
+- `/archives/2026-10-15.html` : ok, publiée il y a 12 j
+- `/archives/2026-10-14.html` : ok, publiée il y a 13 j
+- `/archives/2026-10-13.html` : ok, publiée il y a 14 j
+- `/archives/2026-10-12.html` : ok, publiée il y a 15 j
+- `/archives/2026-10-11.html` : ok, publiée il y a 16 j
+- `/archives/2026-10-10.html` : exploree (Explorée, actuellement non indexée), publiée il y a 17 j
+- `/archives/2026-10-09.html` : ok, publiée il y a 18 j
+- `/archives/2026-10-08.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 19 j
+- `/archives/2026-10-07.html` : ok, publiée il y a 20 j
+- `/en/archives/2026-10-26.html` : ok, publiée il y a 1 j
+- `/en/archives/2026-10-25.html` : ok, publiée il y a 2 j
+- `/en/archives/2026-10-24.html` : ok, publiée il y a 3 j
+- `/en/archives/2026-10-23.html` : ok, publiée il y a 4 j
+- `/en/archives/2026-10-22.html` : ok, publiée il y a 5 j
+- `/en/archives/2026-10-21.html` : ok, publiée il y a 6 j
 
 Le compteur « indexées » des plans du site n'est pas fiable : l'inspection page par page fait foi.
