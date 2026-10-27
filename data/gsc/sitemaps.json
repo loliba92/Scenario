@@ -3,31 +3,31 @@
   "plans": [
     {
       "plan": "https://lesscenarios.fr/sitemap.xml",
-      "derniere_lecture": "2026-10-26T13:13:55.117Z",
+      "derniere_lecture": "2026-10-27T04:05:46.148Z",
       "erreurs": "0",
       "avertissements": "0",
       "contenus": [
         {
           "type": "web",
-          "submitted": "197",
+          "submitted": "198",
           "indexed": "0"
         }
       ]
     },
     {
       "plan": "https://lesscenarios.fr/sitemap-news.xml",
-      "derniere_lecture": "2026-10-26T13:13:55.212Z",
+      "derniere_lecture": "2026-10-27T04:05:46.137Z",
       "erreurs": "0",
       "avertissements": "0",
       "contenus": [
         {
           "type": "web",
-          "submitted": "3",
+          "submitted": "4",
           "indexed": "0"
         },
         {
           "type": "news",
-          "submitted": "3",
+          "submitted": "4",
           "indexed": "0"
         }
       ]
