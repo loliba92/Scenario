@@ -1,0 +1,189 @@
+{
+  "h1": "Police & justice : l'État peut-il garantir la sécurité ?",
+  "question_text": "Face à la vague de blocages lycéens et aux violences urbaines, la police et la justice françaises disposent-elles des moyens de protéger les citoyens et de traiter les affaires dans des délais raisonnables ?",
+  "section_title": "Trois trajectoires pour la sécurité et la justice face aux violences urbaines",
+  "dek": [
+    "Depuis la mi-septembre 2026, la France fait face à une contestation lycéenne d'une rare intensité. Partie de blocages contre la sélection scolaire, la mobilisation a rapidement débordé des cours d'école pour provoquer des violences urbaines répétées. Le ministre de l'Intérieur, Laurent Nuñez, a ainsi dénombré 158 établissements touchés par des dégradations graves au plus fort de la crise. Pour tenter de reprendre le contrôle de la rue, les forces de l'ordre ont multiplié les opérations de dispersion et les arrestations massives. Pour la seule journée du vendredi 2 octobre 2026, les forces de sécurité ont procédé à <strong>1 747 interpellations</strong>, portant le bilan provisoire à <strong>plus de 5 000 interpellations</strong> en une seule semaine de mobilisation.",
+    "Cette réponse policière sans précédent met en lumière une tension majeure sur le maintien de l'ordre républicain. L'usage des armes intermédiaires suscite de vives contestations, notamment après plusieurs blessures graves causées par des tirs de lanceurs de balles de défense<a class=\"lex-ref\" href=\"#lex-lanceur-de-balles-de-defense\" aria-label=\"Voir la définition dans le lexique\">*</a>. À Saint-Ouen-l'Aumône, un mineur de 14 ans a subi une double fracture de la mâchoire lors d'une intervention policière. L'Inspection générale de la police nationale<a class=\"lex-ref\" href=\"#lex-inspection-generale-de-la-police-nationale\" aria-label=\"Voir la définition dans le lexique\">*</a> a été saisie de plusieurs enquêtes distinctes pour examiner la proportionnalité des tirs. Le Défenseur des droits<a class=\"lex-ref\" href=\"#lex-defenseur-des-droits\" aria-label=\"Voir la définition dans le lexique\">*</a> s'est également autosaisi afin de vérifier le respect de la déontologie, illustrant la fracture grandissante entre la jeunesse mobilisée et les institutions chargées de sa sécurité.",
+    "Derrière l'urgence du terrain, c'est l'ensemble de la chaîne pénale qui se retrouve sous une pression maximale. Face à l'afflux de gardes à vue, le garde des Sceaux, Gérald Darmanin, a adressé une circulaire très ferme aux procureurs le 2 octobre 2026. Ce texte ordonne des poursuites judiciaires immédiates contre les auteurs d'infractions, la saisie systématique des téléphones portables en cas d'agressions filmées et le recours accru à la responsabilité civile des parents<a class=\"lex-ref\" href=\"#lex-responsabilite-civile-des-parents\" aria-label=\"Voir la définition dans le lexique\">*</a>. Au 9 octobre 2026, le ministère de la Justice recensait déjà <strong>6 877 gardes à vue</strong>, dont 86 % concernaient des mineurs, débouchant sur <strong>2 376 poursuites</strong> judiciaires. Les magistrats doivent traiter ces dossiers en urgence alors même que les tribunaux manquent de personnel.",
+    "Cette mobilisation brutale des effectifs vers les violences urbaines aggrave une fragilité plus ancienne de la police judiciaire. Quand les policiers et les greffiers sont absorbés par la gestion des flagrants délits et des manifestations, les enquêtes de fond sur les infractions du quotidien prennent un retard considérable. Selon le bilan statistique officiel de la sécurité intérieure, le taux d'élucidation<a class=\"lex-ref\" href=\"#lex-taux-delucidation\" aria-label=\"Voir la définition dans le lexique\">*</a> à un an des escroqueries et des abus de confiance est tombé de <strong>31 % en 2017 à 15 % en 2023</strong>. En six ans, la capacité des enquêteurs à résoudre ces délits très fréquents a ainsi été divisée par deux, laissant des milliers de victimes sans réponse judiciaire rapide.",
+    "Pour tenter de colmater ces brèches, le gouvernement tente de réformer ses services d'investigation et ses procédures. Laurent Nuñez a annoncé le recrutement de <strong>700 enquêteurs supplémentaires</strong> pour renforcer la filière investigation, tandis que la loi du 23 juillet 2026 sur la justice criminelle et le respect des victimes prépare de nouvelles règles qui entreront partiellement en vigueur au 1er janvier 2027. Cependant, former des officiers de police judiciaire et adapter l'organisation des tribunaux prend plusieurs années. Entre l'urgence de sécuriser les lycées et la nécessité de traiter les plaintes courantes, les arbitrages budgétaires et humains de l'État atteignent une limite critique.",
+    "L'équilibre de la sécurité publique en France dépend désormais de la capacité des pouvoirs publics à éteindre la contestation sans briser la confiance citoyenne. Si le gouvernement promet un retour rapide au calme, l'engorgement des tribunaux et l'épuisement des forces de l'ordre rendent toute sortie de crise incertaine. Trois scénarios se dessinent d'ici la fin de l'année : un apaisement progressif obtenu par le dialogue politique et la dissuasion financière, un enlisement sous haute tension où la justice traite l'urgence au détriment des dossiers du quotidien, ou une escalade des violences urbaines qui submergerait durablement la police et les tribunaux."
+  ],
+  "enjeu_en_clair": {
+    "lead": "La police et la justice françaises font face à un double défi : contenir des blocages lycéens violents tout en traitant les plaintes du quotidien.",
+    "text": "D'un côté, les forces de l'ordre multiplient les interpellations massives pour empêcher les dégradations autour des lycées. De l'autre, cette mobilisation d'urgence sature les commissariats et les tribunaux, retardant les enquêtes classiques. Pour le citoyen, l'enjeu est direct : savoir si l'État peut maintenir l'ordre public sans aggraver les délais d'attente pour toutes les autres victimes d'infractions."
+  },
+  "stakes_branches": {
+    "favorable": "Le dialogue politique calme la rue et les sanctions financières parentales freinent rapidement les dégradations.",
+    "stable": "Les blocages persistent sous contrôle policier mais l'engorgement judiciaire continue de retarder les dossiers courants.",
+    "degrade": "De nouvelles violences graves embrasent les quartiers et saturent complètement les commissariats et les tribunaux."
+  },
+  "comprendre_box": [
+    {
+      "lead": "La responsabilité civile des parents : faire payer les dégâts causés par les mineurs",
+      "text": "En droit français, les parents sont automatiquement responsables des dommages provoqués par leurs enfants mineurs sous leur toit. Si un lycéen casse du mobilier urbain ou incendie une poubelle, la justice peut contraindre sa famille à rembourser intégralement les frais de réparation à la mairie ou aux victimes.",
+      "apres_dek_index": 2
+    },
+    {
+      "lead": "Le taux d'élucidation : mesurer les affaires que la police parvient à résoudre",
+      "text": "Ce chiffre compare le nombre d'enquêtes résolues avec auteur identifié au nombre total de plaintes déposées. Quand ce taux chute de 31 % à 15 %, cela signifie que sur cent escroqueries dénoncées, la police n'en résout désormais que quinze au cours de l'année, faute de temps et d'enquêteurs disponibles.",
+      "apres_dek_index": 3
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Interpellations cumulées au pic de la semaine du 2 octobre 2026",
+      "value": "plus de 5 000 interpellations",
+      "delta": "dont 1 747 sur la seule journée du vendredi 2 octobre 2026"
+    },
+    {
+      "label": "Taux d'élucidation à un an des escroqueries et abus de confiance",
+      "value": "15 % en 2023",
+      "delta": "contre 31 % en 2017 (perte de 16 points en six ans)"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 25,
+      "gauge_word": "Peu probable",
+      "h3": "L'apaisement politique ramène le calme et la justice accélère",
+      "why": [
+        "Dans ce premier scénario, les négociations menées à Matignon et au ministère de l'Éducation nationale aboutissent à des compromis concrets sur les conditions d'examen et les moyens alloués aux établissements scolaires. Les assemblées générales lycéennes votent la levée des piquets de grève, ce qui entraîne une chute immédiate des attroupements et des dégradations aux abords des 158 établissements sensibles. La mise en application stricte de la responsabilité financière des familles produit un effet dissuasif rapide, incitant les parents à encadrer davantage les mineurs en soirée. Les forces de l'ordre réduisent leurs déploiements d'urgence et les commissariats retrouvent une activité normale.",
+        "Notre évaluation attribue 25 % de probabilité à cette trajectoire, car les colères lycéennes restent profondément ancrées et difficiles à désamorcer par de simples promesses administratives. Si ce scénario se réalisait, il permettrait aux 700 nouveaux enquêteurs promis par le plan d'investigation de se consacrer pleinement au traitement des plaintes en attente. Les tribunaux absorberaient les 2 376 poursuites issues de la crise sans bloquer les autres affaires civiles et pénales. L'efficacité globale de l'institution judiciaire pourrait alors rebondir progressivement dès le début de l'année 2027.",
+        "Concrètement, les cours reprendraient sans interruption dans tous les lycées, et les victimes de délits du quotidien verraient leurs plaintes traitées plus rapidement par des commissariats désengorgés."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Interpellations hebdomadaires",
+          "evo_current": "Retour sous 200 par semaine",
+          "evo_arrow": "down",
+          "evo_prev": "plus de 5 000 en semaine de crise"
+        },
+        {
+          "field_name": "Taux d'élucidation des escroqueries",
+          "evo_current": "Remontée visée vers 20 %",
+          "evo_arrow": "up",
+          "evo_prev": "15 % en 2023"
+        }
+      ],
+      "france_line": "Le retour de la sérénité scolaire protège le budget des mairies et permet à la justice de résorber son retard.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 50,
+      "gauge_word": "Probable",
+      "h3": "La contestation s'installe sous contrôle policier mais sature les tribunaux",
+      "why": [
+        "Dans ce deuxième scénario, les blocages d'établissements et les échauffourées se poursuivent par vagues intermittentes dans les grandes agglomérations. Le ministère de l'Intérieur maintient un niveau de présence policière très élevé, ce qui permet d'éviter les scènes de saccage généralisé mais génère des centaines d'interpellations chaque semaine. Les magistrats continuent d'appliquer la circulaire de fermeté en traitant les dossiers de violences urbaines en comparution immédiate ou en audiences forcées pour mineurs. Cette gestion au jour le jour monopolise les effectifs de sécurité et paralyse les réformes de fond de la police judiciaire.",
+        "Le scénario le plus probable (50 %) décrit un statu quo sous haute tension où l'État parvient à contenir la rue mais sans régler l'engorgement de ses institutions pénales — les deux autres scénarios étant l'apaisement négocié (25 %) et l'embrasement incontrôlé (25 %). Les policiers de terrain restent mobilisés sur la voie publique au détriment des investigations sur les délits quotidiens. Le taux d'élucidation des infractions financières et des cambriolages stagne à son plancher historique de 15 %, tandis que les délais de jugement pour les litiges courants s'allongent de plusieurs mois supplémentaires.",
+        "Concrètement, les lycées resteraient surveillés par des cordons de police, et les citoyens ordinaires devraient patienter encore plus longtemps pour obtenir le jugement d'un cambriolage ou d'une escroquerie."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Interpellations hebdomadaires",
+          "evo_current": "Maintien entre 800 et 1 500 par semaine",
+          "evo_arrow": "flat",
+          "evo_prev": "plus de 5 000 en semaine de crise"
+        },
+        {
+          "field_name": "Taux d'élucidation des escroqueries",
+          "evo_current": "Stagnation autour de 15 %",
+          "evo_arrow": "flat",
+          "evo_prev": "15 % en 2023"
+        }
+      ],
+      "france_line": "L'ordre est maintenu au prix d'une justice ralentie pour toutes les victimes d'infractions courantes.",
+      "france_impact": "degrade"
+    },
+    "degrade": {
+      "pct": 25,
+      "gauge_word": "Peu probable",
+      "h3": "L'escalade des violences urbaines submerge les forces de l'ordre et la justice",
+      "why": [
+        "Dans ce troisième scénario, la survenue de nouvelles blessures graves causées par des tirs de maintien de l'ordre ou des attaques au mortier d'artifice déclenche une flambée de violences dans plusieurs banlieues. La contestation étudiante et syndicale se greffe sur les blocages lycéens, multipliant les foyers de tension simultanés sur le territoire. Les forces de l'ordre, épuisées par des semaines de maintien de l'ordre ininterrompu, peinent à sécuriser les centres urbains et les transports. Les gardes à vue dépassent les capacités d'accueil des commissariats, forçant les procureurs à classer sans suite de nombreux délits faute de moyens matériels pour les instruire.",
+        "Nous évaluons à 25 % le risque d'une telle rupture institutionnelle si les enquêtes de l'Inspection générale de la police nationale ou du Défenseur des droits devaient révéler des fautes systémiques attisant la rancœur populaire. Dans cette hypothèse, les tribunaux seraient totalement débordés par le traitement des émeutes, suspendant de fait les audiences ordinaires. Le sentiment d'impunité grandirait pour la délinquance du quotidien, accélérant la défiance envers la justice et plongeant l'autorité publique dans une crise de légitimité durable.",
+        "Concrètement, les dégradations matérielles augmenteraient fortement dans les villes, et les commissariats saturés ne pourraient plus enregistrer efficacement les plaintes des particuliers."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Interpellations hebdomadaires",
+          "evo_current": "Flambée au-delà de 3 000 par semaine",
+          "evo_arrow": "up",
+          "evo_prev": "plus de 5 000 en semaine de crise"
+        },
+        {
+          "field_name": "Taux d'élucidation des escroqueries",
+          "evo_current": "Nouvelle chute vers 10 %",
+          "evo_arrow": "down",
+          "evo_prev": "15 % en 2023"
+        }
+      ],
+      "france_line": "Une crise sécuritaire aiguë fragiliserait l'économie urbaine et paralyserait durablement les tribunaux.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "Face aux violences urbaines nées des blocages de lycées, la police et la justice françaises peuvent-elles assurer la sécurité publique tout en garantissant des délais de traitement acceptables pour l'ensemble des justiciables ?",
+    "La mobilisation a conduit à 1 747 interpellations le 2 octobre 2026 et plus de 6 877 gardes à vue en trois semaines, tandis que le taux d'élucidation des délits du quotidien comme les escroqueries a déjà chuté de 31 % à 15 % entre 2017 et 2023.",
+    "Pas totalement : notre scénario le plus probable (50 %) montre que l'État parviendra à contenir la rue par une présence policière massive, mais au prix d'un engorgement judiciaire prolongé qui retardera le traitement des plaintes ordinaires — deux autres scénarios restent possibles : apaisement négocié (25 %) ou embrasement incontrôlé (25 %).",
+    "Le signal à surveiller réside dans l'évolution hebdomadaire du nombre de gardes à vue de mineurs et les conclusions des enquêtes de l'IGPN sur l'usage des LBD d'ici la mi-novembre 2026."
+  ],
+  "delta_france": {
+    "kind": "negatif",
+    "score": -0.5,
+    "word": "assez négatif",
+    "text": "la probabilité cumulée de 75 % d'un maintien des tensions ou d'une escalade fait peser une charge excessive sur les tribunaux et dégrade le traitement des plaintes du quotidien pour les citoyens."
+  },
+  "phrase_a_retenir": "Avec plus de 5 000 interpellations en une semaine et un taux d'élucidation des escroqueries tombé à 15 %, la police et la justice françaises sont sous tension maximale.",
+  "phrase_a_retenir_stat": "plus de 5 000 interpellations",
+  "lexique": [
+    {
+      "slug": "lanceur-de-balles-de-defense",
+      "terme": "lanceurs de balles de défense",
+      "definition": "Arme non létale utilisée par les forces de l'ordre pour tirer des projectiles en caoutchouc destinés à neutraliser un individu à distance."
+    },
+    {
+      "slug": "inspection-generale-de-la-police-nationale",
+      "terme": "Inspection générale de la police nationale",
+      "definition": "Service interne chargé de contrôler les pratiques des policiers et d'enquêter sur les éventuelles fautes professionnelles ou violences illégitimes."
+    },
+    {
+      "slug": "defenseur-des-droits",
+      "terme": "Défenseur des droits",
+      "definition": "Autorité constitutionnelle indépendante qui veille au respect des libertés publiques, des droits des usagers et de la déontologie de la sécurité."
+    },
+    {
+      "slug": "responsabilite-civile-des-parents",
+      "terme": "responsabilité civile des parents",
+      "definition": "Obligation légale imposant aux parents de réparer financièrement les dégradations et dommages matériels commis par leurs enfants mineurs."
+    },
+    {
+      "slug": "taux-delucidation",
+      "terme": "taux d'élucidation",
+      "definition": "Pourcentage d'infractions constatées pour lesquelles les enquêteurs de police ou de gendarmerie parviennent à identifier et poursuivre l'auteur."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://www.franceinfo.fr/societe/education/blocage-des-lycees/direct-mobilisation-dans-les-lycees-le-gouvernement-evoque-une-man-uvre-organisee-par-lfi-manuel-bompard-l-accuse-de-sombrer-dans-le-complotisme_8219182.html\" target=\"_blank\" rel=\"noopener noreferrer\">franceinfo — Blocages des lycées : 1 747 personnes interpellées vendredi, annonce Laurent Nuñez, plus de 5 000 depuis lundi ↗</a>",
+    "<a href=\"https://www.lefigaro.fr/actualite-france/en-direct-blocus-des-lycees-les-autorites-espere-l-apaisement-apres-les-violences-d-une-extreme-gravite-400-etablissements-fermes-20261002\" target=\"_blank\" rel=\"noopener noreferrer\">Le Figaro — Blocus des lycées : 1747 interpellations ce vendredi, plus de 5000 depuis lundi ↗</a>",
+    "<a href=\"https://www.justice.gouv.fr/sites/default/files/2026-10/CP%20-%20Mouvement%20lyc%C3%A9en%20-%2009102026.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Ministère de la Justice — COMMUNIQUÉ DE PRESSE — Bilan judiciaire des violences urbaines en marge du mouvement lycéen ↗</a>",
+    "<a href=\"https://www.labase-lextenso.fr/gazette-du-palais/2026-n31/manifestations-lyceennes-appel-a-la-fermete-de-gerald-darmanin-GPL495f0\" target=\"_blank\" rel=\"noopener noreferrer\">La Base Lextenso — Manifestations lycéennes : appel à la fermeté de Gérald Darmanin ↗</a>",
+    "<a href=\"https://www.franceinfo.fr/societe/education/blocage-des-lycees/le-defenseur-des-droits-se-saisit-de-la-blessure-d-un-jeune-lors-du-blocage-des-lycees_8218918.html\" target=\"_blank\" rel=\"noopener noreferrer\">franceinfo — Le Défenseur des droits se saisit de la blessure d'un jeune lors du blocage des lycées ↗</a>",
+    "<a href=\"https://www.leparisien.fr/val-d-oise-95/saint-ouen-l-aumone-95310/mineur-blesse-par-un-tir-policier-lors-dun-blocus-de-lycee-dans-le-val-doise-le-defenseur-des-droits-se-saisit-du-dossier-01-10-2026-2BANV5A4OBELXCYMPF563FRJIM.php\" target=\"_blank\" rel=\"noopener noreferrer\">Le Parisien — Mineur blessé par un tir policier lors d'un blocus de lycée dans le Val-d'Oise : le Défenseur des droits se saisit du dossier ↗</a>",
+    "<a href=\"https://www.interieur.gouv.fr/fr/content/download/138329/1093108/file/SSMSI-BA2024.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Ministère de l'Intérieur — Insecurity et délinquance en 2024 : bilan statistique (SSMSI) ↗</a>",
+    "<a href=\"https://www.ouest-france.fr/societe/police/700-enqueteurs-supplementaires-pour-la-filiere-investigation-de-la-police-annonce-laurent-nunez-bf665b0a-140e-11f1-8725-6cea811c3c37\" target=\"_blank\" rel=\"noopener noreferrer\">Ouest-France — 700 enquêteurs supplémentaires pour la filière investigation de la police, annonce Laurent Nuñez ↗</a>",
+    "<a href=\"https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054470584\" target=\"_blank\" rel=\"noopener noreferrer\">Légifrance — LOI n° 2026-651 du 23 juillet 2026 sur la justice criminelle et le respect des victimes ↗</a>"
+  ],
+  "meta": {
+    "title": "Police & justice : l'État peut-il garantir la sécurité ? — Scénario",
+    "meta_description": "Police & justice : l'État peut-il garantir la sécurité ? 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Forces de l'ordre déployées devant un établissement scolaire en France",
+    "keywords": [
+      "Police"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-28.html\"\n  },\n  \"headline\": \"Police & justice : l'État peut-il garantir la sécurité ? — Scénario\",\n  \"description\": \"Police & justice : l'État peut-il garantir la sécurité ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-28.png\"\n  ],\n  \"datePublished\": \"2026-10-28T00:00:00\",\n  \"dateModified\": \"2026-10-28T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Police\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Police & justice : l'État peut-il garantir la sécurité ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-28.html\"\n    }\n  ]\n}"
+  }
+}

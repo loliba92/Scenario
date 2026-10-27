@@ -1,0 +1,440 @@
+{
+  "date": "2026-10-28",
+  "registre": "actualite_francaise",
+  "sujet": {
+    "titre_propose": "Police & justice : l'État peut-il garantir la sécurité ?",
+    "h1": "Police & justice : l'État peut-il garantir la sécurité ?",
+    "question_posee": "Face à la vague de blocages lycéens et aux violences urbaines, la police et la justice françaises disposent-elles des moyens de protéger les citoyens et de traiter les affaires dans des délais raisonnables ?",
+    "eyebrow": "Mercredi, actualité française",
+    "angle": "La France traverse une crise simultanée de la répression des violences urbaines et de la chaîne pénale : des interpellations en masse, des blessés par LBD, une circulaire pour une réponse pénale ferme ciblant aussi les parents, et en parallèle une police judiciaire sous-effectivée avec un stock de procédures en attente et des taux d'élucidation en baisse. Le sujet explore si l'État peut tenir ses promesses de sécurité et de justice d'ici la fin de l'année 2026.",
+    "tags": [
+      "sécurité",
+      "justice",
+      "police",
+      "blocages lycéens"
+    ],
+    "domain": "politique-institutions",
+    "image_keywords": "police france protest demonstration",
+    "complexite": 4,
+    "origine_prioritaire": "Police & justice : l'État peut-il garantir la sécurité ?",
+    "origine_id": "actualite-francaise-police-justice-l-etat-peut-il-garantir-la",
+    "point_de_depart": {
+      "id": "actualite-francaise-police-justice-l-etat-peut-il-garantir-la",
+      "registre": "actualite_francaise",
+      "titre": "Police & justice : l'État peut-il garantir la sécurité ?",
+      "question": "Police & justice : l'État peut-il garantir la sécurité ?",
+      "contexte": "Au 2 octobre 2026, la France fait face à une vague de blocages lycéens émaillée de violences urbaines : 1 747 interpellations rien que ce vendredi, plus de 5 000 depuis le 17 septembre, selon le ministre de l'Intérieur Laurent Nuñez. L'usage de LBD a blessé plusieurs adolescents, déclenchant des enquêtes de l'IGPN et une saisine du Défenseur des droits. Le garde des Sceaux Gérald Darmanin a adressé une circulaire aux procureurs pour une réponse pénale « ferme et immédiate », ciblant aussi la responsabilité civile des parents. En parallèle, la Cour des comptes (mars 2026) note une hausse de 6,5 % des faits constatés entre 2016 et 2024, tandis que la police judiciaire subit une crise d'effectifs (700 ETP supplémentaires prévus en 2026) et un stock de 3,5 millions de procédures en attente, avec des taux d'élucidation en baisse.",
+      "rationnel": "La question : l'État peut-il garantir la sécurité face à la montée des violences urbaines et à l'engorgement de la chaîne pénale d'ici la fin de l'année 2026 ? L'issue est ouverte car, tandis que le gouvernement déploie 700 enquêteurs supplémentaires et applique la loi justice criminelle de juillet 2026, la police judiciaire manque encore d'effectifs spécialisés, les taux d'élucidation sont en baisse et l'usage de la LBD provoque des controverses sur la proportionnalité de la force. L'enjeu concret pour le lecteur français est d'évaluer si la police et la justice pourront réellement protéger les citoyens et traiter les affaires dans des délais raisonnables malgré ces tensions.",
+      "mots_cles": [
+        "police nationale",
+        "police judiciaire",
+        "justice criminelle",
+        "Laurent Nuñez",
+        "Gérald Darmanin",
+        "blocage lycées octobre 2026",
+        "taux d'élucidation",
+        "plan investigation"
+      ],
+      "angle": null,
+      "a_verifier": "⚠ Temps : les blocages lycéens et interpellations sont en cours au 2 octobre 2026 ; la situation évolue quotidiennement. À vérifier : chiffre exact des effectifs police/gendarmerie 2026, date de mise en œuvre complète du plan investigation, prochaines échéances législatives (budget 2027).",
+      "scenarios_brouillon": null,
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Blocage des lycées : un vendredi sous haute tension, syndicats et lycéens reçus par le ministre",
+          "url": "https://www.france24.com/fr/info-en-continu/20261002-blocage-des-lyc%C3%A9es-un-vendredi-sous-haute-tension-les-syndicats-re%C3%A7us-par-le-ministre"
+        },
+        {
+          "titre": "Jeune blessé lors du blocus des lycées : le Défenseur des droits se saisit, une enquête ouverte",
+          "url": "https://www.lefigaro.fr/faits-divers/jeune-blesse-lors-du-blocus-des-lycees-le-defenseur-des-droits-se-saisit-une-enquete-ouverte-20261002"
+        },
+        {
+          "titre": "Blocage des lycées : face aux débordements, une réponse pénale « ferme et immédiate » qui cible aussi les parents",
+          "url": "https://www.sudouest.fr/societe/greves-et-manifestations/blocage-des-lycees-face-aux-debordements-une-reponse-penale-ferme-et-immediate-qui-cible-aussi-les-parents-30889817.php"
+        },
+        {
+          "titre": "Police judiciaire : quelles réponses à la crise des effectifs",
+          "url": "https://questions.assemblee-nationale.fr/q17/17-11782QE.htm"
+        }
+      ],
+      "tag": "sécurité & justice",
+      "origine": null,
+      "note_editoriale": null,
+      "donnees_graphique": "[relevé du 2026-10-19] Taux d'élucidation à un an des escroqueries et abus de confiance (unité : %). 2017 = 31 % (2017) ; 2019 = 25 % (2019) ; 2021 = 17 % (2021) ; 2022 = 16 % (2022) ; 2023 = 15 % (2023). Sources : https://www.interieur.gouv.fr/fr/content/download/138329/1093108/file/SSMSI-BA2024.pdf",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (27 octobre, Éthiopie-Érythrée, géopolitique) sans recoupement. Registre actualité française : éditions récentes du même registre (20 octobre, mobilisation lycéenne/Parcoursup ; 21 octobre, six fragilités France ; 14 octobre, assurance chômage) ne partagent pas le même moteur de fond (police/justice pénale). Aucun doublon fort détecté."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le ministre de l'Intérieur Laurent Nuñez a annoncé 1 747 interpellations pour le seul vendredi 2 octobre 2026 et plus de 5 000 depuis le début de la semaine, avec des violences urbaines à proximité de 158 établissements.",
+      "chiffre": "1 747 interpellations le 2 octobre ; plus de 5 000 depuis lundi",
+      "date_du_chiffre": "2026-10-02",
+      "sources": [
+        "s1",
+        "s2"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le garde des Sceaux Gérald Darmanin a adressé une circulaire aux procureurs le 2 octobre 2026 pour une réponse pénale « ferme et immédiate », ciblant notamment la responsabilité civile des parents et la saisie des téléphones en cas de happy slapping.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-10-02",
+      "sources": [
+        "s3",
+        "s4"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Un mineur de 14 ans a été blessé au visage par un tir de LBD à Saint-Ouen-l'Aumône le lundi 29 septembre 2026, avec une double fracture de la mâchoire ; le Défenseur des droits s'est autosaisi le 1er octobre 2026 et l'IGPN enquête.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-10-01",
+      "sources": [
+        "s5",
+        "s6"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le taux d'élucidation à un an des escroqueries et abus de confiance est passé de 31 % en 2017 à 15 % en 2023, soit une baisse de 16 points, selon le bilan statistique SSMSI 2024.",
+      "chiffre": "31 % (2017) → 15 % (2023), -16 points",
+      "date_du_chiffre": "2024-01-01",
+      "sources": [
+        "s7"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Laurent Nuñez a annoncé le 27 février 2026 le recrutement de 700 enquêteurs supplémentaires dans le cadre d'un plan investigation pour la police judiciaire.",
+      "chiffre": "700 enquêteurs supplémentaires",
+      "date_du_chiffre": "2026-02-27",
+      "sources": [
+        "s8"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La loi n° 2026-651 du 23 juillet 2026 sur la justice criminelle et le respect des victimes a été promulguée, avec une entrée en vigueur partielle au 1er janvier 2027.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-07-23",
+      "sources": [
+        "s9"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Laurent Nuñez",
+      "role": "ministre de l'Intérieur"
+    },
+    {
+      "nom": "Gérald Darmanin",
+      "role": "gardien des Sceaux, ministre de la Justice"
+    },
+    {
+      "nom": "Édouard Geffray",
+      "role": "ministre de l'Éducation nationale"
+    },
+    {
+      "nom": "Sébastien Lecornu",
+      "role": "Premier ministre"
+    },
+    {
+      "nom": "Défenseur des droits",
+      "role": "autorité administrative indépendante chargée de veiller au respect des droits et de la déontologie de la sécurité"
+    },
+    {
+      "nom": "IGPN",
+      "role": "Inspection générale de la police nationale, enquête sur les usages de la force"
+    },
+    {
+      "nom": "Parents d'élèves / lycéens",
+      "role": "partie civile potentielle et public visé par la réponse pénale"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-09-17",
+      "evenement": "Début des blocages lycéens à Créteil (lycée Saint-Exupéry), premier mouvement"
+    },
+    {
+      "date": "2026-09-28",
+      "evenement": "164 interpellations enregistrées"
+    },
+    {
+      "date": "2026-09-29",
+      "evenement": "440 interpellations ; 410 actions recensées dans les lycées"
+    },
+    {
+      "date": "2026-09-30",
+      "evenement": "625 interpellations"
+    },
+    {
+      "date": "2026-10-01",
+      "evenement": "1 949 interpellations ; blessure d'un mineur de 14 ans à Saint-Ouen-l'Aumône par tir de LBD ; Défenseur des droits saisi le 1er octobre"
+    },
+    {
+      "date": "2026-10-02",
+      "evenement": "1 747 interpellations ; plus de 5 000 depuis lundi ; circulaire Darmanin du 2 octobre pour une réponse pénale ferme ciblant les parents"
+    },
+    {
+      "date": "2026-10-09",
+      "evenement": "Communiqué de la Justice : 6 877 gardes à vue depuis le début du mouvement (86 % de mineurs), 2 376 poursuites"
+    },
+    {
+      "date": "2026-10-13",
+      "evenement": "À Tours, un policier mis en examen pour violences aggravées après un tir de LBD ayant privé un lycéen de 16 ans de son œil"
+    },
+    {
+      "date": "2026-10-28",
+      "evenement": "Date du brief — le mouvement continue, le gouvernement cherche des réponses politiques et pénales"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Le mouvement s'apaise après les réponses politiques (rencontres à Matignon, annonces sur Parcoursup et les moyens des lycées), les interpellations tombent, les poursuites pénales et la responsabilité civile des parents font écho et dissuadent les débordements, tandis que le plan investigation et la loi de juillet 2026 commencent à dégrossir le stock de procédures.",
+      "probabilite_suggeree": 25
+    },
+    "stable": {
+      "resume": "Le mouvement se poursuit à un niveau élevé mais contrôlé : des interpellations restent nombreuses, des blessures par LBD continuent d'alimenter les saisines de l'IGPN et du Défenseur des droits, la justice applique la fermeté sans réduire le stock de procédures, et le débat sur les moyens des lycées reste ouvert sans rupture ni apaisement complet.",
+      "probabilite_suggeree": 50
+    },
+    "degrade": {
+      "resume": "Les violences urbaines s'intensifient, de nouveaux blessés par LBD ou mortiers déclenchent des crises politiques et des tensions sur la proportionnalité de la force, le stock de procédures explose davantage, les taux d'élucidation continuent de baisser, et la crédibilité de la police et de la justice est écornée, avec des risques de désordre social plus large.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Interpellations cumulées depuis le début du mouvement (fin semaine du 2 octobre)",
+      "valeur": "plus de 5 000 interpellations",
+      "tendance": "en hausse jusqu'au 2 octobre, puis à confirmer selon l'évolution du mouvement"
+    },
+    {
+      "label": "Taux d'élucidation à un an des escroqueries et abus de confiance",
+      "valeur": "15 % en 2023 (contre 31 % en 2017)",
+      "tendance": "en baisse de 16 points entre 2017 et 2023"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Le taux d'élucidation des escroqueries et abus de confiance est disponible sous forme de série annuelle (2017-2023 : 31, 30, 25, 22, 17, 16, 15 %) dans le SSMSI 2024, mais le sujet du jour porte sur la crise actuelle de la police/justice pénale et non sur l'histoire longue de ce taux ; le graphique en escalier ne satisfait pas le critère (3) — il n'éclaire pas directement la question du jour (peut-on garantir la sécurité face aux blocages et à l'engorgement pénal). Aucun autre indicateur de la crise (interpellations, stock de procédures) n'a de série historique longue et publique vérifiée. Donc non.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres comparables existent dans les faits vérifiés : taux d'élucidation des escroqueries/abus de confiance 2017 (31 %), 2021 (17 %), 2023 (15 %) — même unité (%), même indicateur, trois dates. Ces trois points sont réels, sourcés (SSMSI 2024), et illustrent la dégradation de la police judiciaire.",
+    "barres": {
+      "aria_label": "Taux d'élucidation à un an des escroqueries et abus de confiance en France, 2017-2023",
+      "lead": "La police judiciaire élude de moins en moins vite les escroqueries et abus de confiance : le taux à un an a chuté de 16 points en six ans.",
+      "caption": "Source : SSMSI, Bilan statistique de la sécurité intérieure 2024 (Ministère de l'Intérieur), données 2017-2023.",
+      "unite": "%",
+      "valeurs": [
+        {
+          "label": "2017",
+          "valeur": 31,
+          "affichage": "31 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2021",
+          "valeur": 17,
+          "affichage": "17 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "2023",
+          "valeur": 15,
+          "affichage": "15 %",
+          "mis_en_avant": true
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Ce qu'est l'élucidation et pourquoi ce taux baisse",
+        "rattache_a": "fait sur le taux d'élucidation des escroqueries (31 % en 2017 → 15 % en 2023)"
+      },
+      {
+        "focus": "La responsabilité civile des parents : comment la justice peut faire payer les dégâts aux parents d'un mineur",
+        "rattache_a": "circulaire du 2 octobre 2026 de Gérald Darmanin ciblant les parents"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Le chiffre exact des effectifs police/gendarmerie 2026 et la date de mise en œuvre complète du plan investigation (700 enquêteurs) ne sont pas confirmés par une source récente au moment du brief.",
+    "Le bilan total des interpellations et des blessés évolue quotidiennement ; les chiffres du 2 octobre sont ceux du 2 octobre, à mettre à jour selon l'actualité.",
+    "La part réelle de lycéens parmi les interpellés et la proportion de violences commises par des lycéens vs. des casseurs extérieurs restent débattues (Nuñez indique 85 % de mineurs, mais pas tous lycéens des établissements concernés)."
+  ],
+  "a_ne_pas_affirmer": [
+    "La hausse de 6,5 % des faits constatés entre 2016 et 2024 mentionnée dans le contexte du sujet n'a pas pu être vérifiée par une source accessible au moment du brief — elle est donc retirée des faits vérifiés.",
+    "Le stock de 3,5 millions de procédures en attente n'a pas pu être vérifié par une source récente accessible — il est également retiré des faits vérifiés.",
+    "La mise en œuvre effective du plan investigation (700 enquêteurs) et son impact sur le stock de procédures ne sont pas encore observables au moment du brief."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Blocages des lycées : 1 747 personnes interpellées vendredi, annonce Laurent Nuñez, plus de 5 000 depuis lundi",
+      "source": "franceinfo",
+      "url": "https://www.franceinfo.fr/societe/education/blocage-des-lycees/direct-mobilisation-dans-les-lycees-le-gouvernement-evoque-une-man-uvre-organisee-par-lfi-manuel-bompard-l-accuse-de-sombrer-dans-le-complotisme_8219182.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Direct franceinfo du 2 octobre 2026 : Laurent Nuñez annonce 1 747 interpellations pour le vendredi 2 octobre et plus de 5 000 depuis lundi, avec des violences urbaines à proximité de 158 établissements.",
+      "read_minutes": 3
+    },
+    {
+      "id": "s2",
+      "title": "Blocus des lycées : 1747 interpellations ce vendredi, plus de 5000 depuis lundi",
+      "source": "Le Figaro",
+      "url": "https://www.lefigaro.fr/actualite-france/en-direct-blocus-des-lycees-les-autorites-espere-l-apaisement-apres-les-violences-d-une-extreme-gravite-400-etablissements-fermes-20261002",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Article Le Figaro du 2 octobre 2026 confirmant 1 747 interpellations ce vendredi et plus de 5 000 depuis lundi, avec 735 établissements perturbés et 158 établissements touchés par des violences urbaines.",
+      "read_minutes": 3
+    },
+    {
+      "id": "s3",
+      "title": "COMMUNIQUÉ DE PRESSE — Bilan judiciaire des violences urbaines en marge du mouvement lycéen",
+      "source": "Ministère de la Justice",
+      "url": "https://www.justice.gouv.fr/sites/default/files/2026-10/CP%20-%20Mouvement%20lyc%C3%A9en%20-%2009102026.pdf",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Communiqué du 9 octobre 2026 : 6 877 gardes à vue depuis le début du mouvement (86 % de mineurs), 2 376 poursuites, 21 détentions provisoires, 1 897 mesures alternatives. Darmanin a réuni les procureurs et adressé une circulaire pour une réponse pénale ferme.",
+      "read_minutes": 4
+    },
+    {
+      "id": "s4",
+      "title": "Manifestations lycéennes : appel à la fermeté de Gérald Darmanin",
+      "source": "La Base Lextenso",
+      "url": "https://www.labase-lextenso.fr/gazette-du-palais/2026-n31/manifestations-lyceennes-appel-a-la-fermete-de-gerald-darmanin-GPL495f0",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Article du 6 octobre 2026 décrivant la circulaire du 2 octobre 2026 de Darmanin aux procureurs : réponse pénale ferme, responsabilité civile des parents, saisie des téléphones en cas de happy slapping.",
+      "read_minutes": 3
+    },
+    {
+      "id": "s5",
+      "title": "Le Défenseur des droits se saisit de la blessure d'un jeune lors du blocage des lycées",
+      "source": "franceinfo",
+      "url": "https://www.franceinfo.fr/societe/education/blocage-des-lycees/le-defenseur-des-droits-se-saisit-de-la-blessure-d-un-jeune-lors-du-blocage-des-lycees_8218918.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Article du 1er octobre 2026 : un mineur de 14 ans blessé au visage par un tir de LBD à Saint-Ouen-l'Aumône (double fracture de la mâchoire) ; le Défenseur des droits s'est autosaisi et l'IGPN enquête.",
+      "read_minutes": 3
+    },
+    {
+      "id": "s6",
+      "title": "Mineur blessé par un tir policier lors d'un blocus de lycée dans le Val-d'Oise : le Défenseur des droits se saisit du dossier",
+      "source": "Le Parisien",
+      "url": "https://www.leparisien.fr/val-d-oise-95/saint-ouen-l-aumone-95310/mineur-blesse-par-un-tir-policier-lors-dun-blocus-de-lycee-dans-le-val-doise-le-defenseur-des-droits-se-saisit-du-dossier-01-10-2026-2BANV5A4OBELXCYMPF563FRJIM.php",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Article du 1er octobre 2026 confirmant la blessure d'un mineur de 14 ans par tir de LBD, l'autosaisine du Défenseur des droits et les trois enquêtes de l'IGPN (Saint-Ouen-l'Aumône, Sevran, Tours).",
+      "read_minutes": 3
+    },
+    {
+      "id": "s7",
+      "title": "Insecurity et délinquance en 2024 : bilan statistique (SSMSI)",
+      "source": "Ministère de l'Intérieur",
+      "url": "https://www.interieur.gouv.fr/fr/content/download/138329/1093108/file/SSMSI-BA2024.pdf",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Bilan statistique 2024 du SSMSI : taux d'élucidation à un an des escroqueries et abus de confiance passe de 31 % en 2017 à 15 % en 2023, soit -16 points.",
+      "read_minutes": 5
+    },
+    {
+      "id": "s8",
+      "title": "700 enquêteurs supplémentaires pour la filière investigation de la police, annonce Laurent Nuñez",
+      "source": "Ouest-France",
+      "url": "https://www.ouest-france.fr/societe/police/700-enqueteurs-supplementaires-pour-la-filiere-investigation-de-la-police-annonce-laurent-nunez-bf665b0a-140e-11f1-8725-6cea811c3c37",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Article du 27 février 2026 : Laurent Nuñez annonce le recrutement de 700 enquêteurs supplémentaires dans le cadre d'un plan investigation pour la police judiciaire.",
+      "read_minutes": 3
+    },
+    {
+      "id": "s9",
+      "title": "LOI n° 2026-651 du 23 juillet 2026 sur la justice criminelle et le respect des victimes",
+      "source": "Légifrance",
+      "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054470584",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Texte de la loi promulguée le 23 juillet 2026, avec entrée en vigueur partielle au 1er janvier 2027. Décision du Conseil constitutionnel n° 2026-909 DC du 23 juillet 2026 (partiellement conforme).",
+      "read_minutes": 4
+    }
+  ],
+  "revue_de_presse": [
+    {
+      "title": "Interpellation controversée au lycée Paul-Éluard : le lycéen arrêté lundi à Saint-Denis pour « outrage à agents »",
+      "source": "franceinfo",
+      "url": "https://www.franceinfo.fr/societe/education/blocage-des-lycees/interpellation-controversee-au-lycee-paul-eluard-le-lyceen-arrete-lundi-a-saint-denis-pour-outrage-a-agents_8246092.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Article du 20 octobre 2026 : un lycéen de seconde interpellé dans le tram à Saint-Denis pour outrage à agents, après une intervention controversée des forces de l'ordre dans son lycée le 15 octobre.",
+      "read_minutes": 2
+    },
+    {
+      "title": "DIRECT. Mobilisation lycéenne : sur près de 8 000 gardes à vue depuis le début du mouvement, 2 735 ont donné lieu à des poursuites",
+      "source": "franceinfo",
+      "url": "https://www.franceinfo.fr/societe/education/blocage-des-lycees/direct-mobilisation-lyceenne-des-etablissements-toujours-bloques-aucune-perturbation-dans-les-trois-quarts-des-departements-ajoute-edouard-geffray_8236774.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Direct du 14 octobre 2026 : 7 950 gardes à vue (1 177 majeurs, 6 773 mineurs) depuis le début du mouvement, 2 735 poursuites, 1 263 classements sans suite, 26 détentions provisoires.",
+      "read_minutes": 2
+    },
+    {
+      "title": "Mobilisations lycéennes — Défenseur des droits",
+      "source": "Défenseur des droits",
+      "url": "https://www.defenseurdesdroits.fr/mobilisations-lyceennes-1252",
+      "image": null,
+      "lang": "fr",
+      "domain": "politique-institutions",
+      "summary": "Note du 10 octobre 2026 : le Défenseur des droits se saisit d'office des faits de Saint-Ouen-l'Aumône (mineur de 14 ans blessé par LBD) et a reçu 28 saisines individuelles depuis le début des mobilisations.",
+      "read_minutes": 2
+    }
+  ],
+  "articles_connexes": [
+    {
+      "date": "2026-10-20",
+      "titre": "Mobilisation lycéenne : le mouvement peut-il arracher une refonte de Parcoursup ?",
+      "lien": "Même mouvement de blocages lycéens (début septembre 2026), mêmes acteurs (lycéens, gouvernement, Matignon), même période — l'édition du 20 octobre traite la réponse politique au mouvement, celle du 28 octobre traite la réponse pénale et policière."
+    },
+    {
+      "date": "2026-10-21",
+      "titre": "La France est-elle au bord du gouffre ?",
+      "lien": "Même période et même contexte de tensions sociales et institutionnelles en France (budget, colères sociales, fragilités) — le sujet du 28 octobre en est une facette précise (sécurité et justice pénale)."
+    },
+    {
+      "date": "2026-09-16",
+      "titre": "Électricité : la fin de l'ARENH va-t-elle faire flamber ta facture ?",
+      "lien": "Même registre politique-institutions et même période (automne 2026) avec une question de politique publique française à enjeux chiffrés pour le lecteur — lien de registre et de contexte, pas de sujet identique."
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser que les chiffres d'interpellations du 2 octobre sont ceux du 2 octobre et qu'ils ont évolué depuis (à journer selon l'actualité si disponible).",
+    "Ne pas reprendre les chiffres non vérifiés de 6,5 % de hausse des faits constatés et de 3,5 millions de procédures en attente — ils ne sont pas confirmés par une source accessible.",
+    "Expliquer le mécanisme de la responsabilité civile des parents (article 1242 du Code civil, loi du 23 juin 2025 sur le délit de soustraction par un parent à ses obligations) sans le présenter comme une nouveauté non vérifiée.",
+    "Lier le graphique de repli (taux d'élucidation des escroqueries) au fait vérifié correspondant et au contexte de la crise de la police judiciaire.",
+    "Mentionner que la loi du 23 juillet 2026 sur la justice criminelle est en vigueur partielle au 1er janvier 2027, sans affirmer qu'elle résoudra la crise des effectifs."
+  ]
+}
