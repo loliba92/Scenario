@@ -11,4 +11,15 @@
       <news:title>Ethiopia-Eritrea: Heading Towards a New Regional War?</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-10-28.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-28T06:01:38+01:00</news:publication_date><news:title>Police &amp; justice : l'État peut-il garantir la sécurité ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-10-28.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-28T06:01:38+01:00</news:publication_date><news:title>Police &amp; justice : l'État peut-il garantir la sécurité ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-10-28.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-28T06:01:38+01:00</news:publication_date>
+      <news:title>Police &amp; Justice: Can the State Guarantee Public Security?</news:title>
+    </news:news>
+  </url>
+</urlset>
