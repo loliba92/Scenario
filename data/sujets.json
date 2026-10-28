@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "76bb42ced6b440a905165778f545c2f14164643aa4186449b4543028cda7d034"
+    "md_sha256": "cda8bff7b18abb310c5777189bcbd19a888bf39d5cd442ca21cbc50ce9bcc96e"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -2167,7 +2167,7 @@
           "titre": "Police & justice : l'État peut-il garantir la sécurité ?",
           "question": null,
           "tag": "sécurité & justice",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "Au 2 octobre 2026, la France fait face à une vague de blocages lycéens émaillée de violences urbaines : 1 747 interpellations rien que ce vendredi, plus de 5 000 depuis le 17 septembre, selon le ministre de l'Intérieur Laurent Nuñez. L'usage de LBD a blessé plusieurs adolescents, déclenchant des enquêtes de l'IGPN et une saisine du Défenseur des droits. Le garde des Sceaux Gérald Darmanin a adressé une circulaire aux procureurs pour une réponse pénale « ferme et immédiate », ciblant aussi la responsabilité civile des parents. En parallèle, la Cour des comptes (mars 2026) note une hausse de 6,5 % des faits constatés entre 2016 et 2024, tandis que la police judiciaire subit une crise d'effectifs (700 ETP supplémentaires prévus en 2026) et un stock de 3,5 millions de procédures en attente, avec des taux d'élucidation en baisse.",
           "rationnel": "La question : l'État peut-il garantir la sécurité face à la montée des violences urbaines et à l'engorgement de la chaîne pénale d'ici la fin de l'année 2026 ? L'issue est ouverte car, tandis que le gouvernement déploie 700 enquêteurs supplémentaires et applique la loi justice criminelle de juillet 2026, la police judiciaire manque encore d'effectifs spécialisés, les taux d'élucidation sont en baisse et l'usage de la LBD provoque des controverses sur la proportionnalité de la force. L'enjeu concret pour le lecteur français est d'évaluer si la police et la justice pourront réellement protéger les citoyens et traiter les affaires dans des délais raisonnables malgré ces tensions.",
@@ -2207,8 +2207,8 @@
           "note": null,
           "donnees": "[relevé du 2026-10-19] Taux d'élucidation à un an des escroqueries et abus de confiance (unité : %). 2017 = 31 % (2017) ; 2019 = 25 % (2019) ; 2021 = 17 % (2021) ; 2022 = 16 % (2022) ; 2023 = 15 % (2023). Sources : https://www.interieur.gouv.fr/fr/content/download/138329/1093108/file/SSMSI-BA2024.pdf",
           "ajoute_le": null,
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-10-28",
+          "edition": "2026-10-28",
           "enrichi_le": "2026-10-19"
         },
         {
