@@ -2,6 +2,41 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-28",
+      "articles": [
+        {
+          "title": "Interpellation controversée au lycée Paul-Éluard : le lycéen arrêté lundi à Saint-Denis pour « outrage à agents »",
+          "source": "franceinfo",
+          "url": "https://www.franceinfo.fr/societe/education/blocage-des-lycees/interpellation-controversee-au-lycee-paul-eluard-le-lyceen-arrete-lundi-a-saint-denis-pour-outrage-a-agents_8246092.html",
+          "image": "https://www.franceinfo.fr/pictures/i_A-vWgaNqD6xiIn69kEftYNeJs/0x185:4300x2604/1500x843/2020/09/30/phpZjjsDX.jpg",
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Article du 20 octobre 2026 : un lycéen de seconde interpellé dans le tram à Saint-Denis pour outrage à agents, après une intervention controversée des forces de l'ordre dans son lycée le 15 octobre.",
+          "read_minutes": 2
+        },
+        {
+          "title": "DIRECT. Mobilisation lycéenne : sur près de 8 000 gardes à vue depuis le début du mouvement, 2 735 ont donné lieu à des poursuites",
+          "source": "franceinfo",
+          "url": "https://www.franceinfo.fr/societe/education/blocage-des-lycees/direct-mobilisation-lyceenne-des-etablissements-toujours-bloques-aucune-perturbation-dans-les-trois-quarts-des-departements-ajoute-edouard-geffray_8236774.html",
+          "image": "https://www.franceinfo.fr/pictures/kqUzjV25RUKZFKHPR-C9PJXnQQo/0x289:5635x3459/1500x843/2026/10/14/6acf974bbcced120733089.jpg",
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Direct du 14 octobre 2026 : 7 950 gardes à vue (1 177 majeurs, 6 773 mineurs) depuis le début du mouvement, 2 735 poursuites, 1 263 classements sans suite, 26 détentions provisoires.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Mobilisations lycéennes — Défenseur des droits",
+          "source": "Défenseur des droits",
+          "url": "https://www.defenseurdesdroits.fr/mobilisations-lyceennes-1252",
+          "image": null,
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Note du 10 octobre 2026 : le Défenseur des droits se saisit d'office des faits de Saint-Ouen-l'Aumône (mineur de 14 ans blessé par LBD) et a reçu 28 saisines individuelles depuis le début des mobilisations.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-10-27",
       "articles": [
         {
