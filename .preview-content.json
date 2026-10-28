@@ -1,189 +1,186 @@
 {
-  "h1": "Police & justice : l'État peut-il garantir la sécurité ?",
-  "question_text": "Face à la vague de blocages lycéens et aux violences urbaines, la police et la justice françaises disposent-elles des moyens de protéger les citoyens et de traiter les affaires dans des délais raisonnables ?",
-  "section_title": "Trois trajectoires pour la sécurité et la justice face aux violences urbaines",
+  "h1": "Bulle de l'IA : les valorisations tech vont-elles corriger fortement ?",
+  "question_text": "Les valorisations des actions liées à l'intelligence artificielle vont-elles connaître une correction significative d'ici fin 2027 ?",
+  "section_title": "Trois trajectoires pour les valorisations de l'intelligence artificielle",
   "dek": [
-    "Depuis la mi-septembre 2026, la France fait face à une contestation lycéenne d'une rare intensité. Partie de blocages contre la sélection scolaire, la mobilisation a rapidement débordé des cours d'école pour provoquer des violences urbaines répétées. Le ministre de l'Intérieur, Laurent Nuñez, a ainsi dénombré 158 établissements touchés par des dégradations graves au plus fort de la crise. Pour tenter de reprendre le contrôle de la rue, les forces de l'ordre ont multiplié les opérations de dispersion et les arrestations massives. Pour la seule journée du vendredi 2 octobre 2026, les forces de sécurité ont procédé à <strong>1 747 interpellations</strong>, portant le bilan provisoire à <strong>plus de 5 000 interpellations</strong> en une seule semaine de mobilisation.",
-    "Cette réponse policière sans précédent met en lumière une tension majeure sur le maintien de l'ordre républicain. L'usage des armes intermédiaires suscite de vives contestations, notamment après plusieurs blessures graves causées par des tirs de lanceurs de balles de défense<a class=\"lex-ref\" href=\"#lex-lanceur-de-balles-de-defense\" aria-label=\"Voir la définition dans le lexique\">*</a>. À Saint-Ouen-l'Aumône, un mineur de 14 ans a subi une double fracture de la mâchoire lors d'une intervention policière. L'Inspection générale de la police nationale<a class=\"lex-ref\" href=\"#lex-inspection-generale-de-la-police-nationale\" aria-label=\"Voir la définition dans le lexique\">*</a> a été saisie de plusieurs enquêtes distinctes pour examiner la proportionnalité des tirs. Le Défenseur des droits<a class=\"lex-ref\" href=\"#lex-defenseur-des-droits\" aria-label=\"Voir la définition dans le lexique\">*</a> s'est également autosaisi afin de vérifier le respect de la déontologie, illustrant la fracture grandissante entre la jeunesse mobilisée et les institutions chargées de sa sécurité.",
-    "Derrière l'urgence du terrain, c'est l'ensemble de la chaîne pénale qui se retrouve sous une pression maximale. Face à l'afflux de gardes à vue, le garde des Sceaux, Gérald Darmanin, a adressé une circulaire très ferme aux procureurs le 2 octobre 2026. Ce texte ordonne des poursuites judiciaires immédiates contre les auteurs d'infractions, la saisie systématique des téléphones portables en cas d'agressions filmées et le recours accru à la responsabilité civile des parents<a class=\"lex-ref\" href=\"#lex-responsabilite-civile-des-parents\" aria-label=\"Voir la définition dans le lexique\">*</a>. Au 9 octobre 2026, le ministère de la Justice recensait déjà <strong>6 877 gardes à vue</strong>, dont 86 % concernaient des mineurs, débouchant sur <strong>2 376 poursuites</strong> judiciaires. Les magistrats doivent traiter ces dossiers en urgence alors même que les tribunaux manquent de personnel.",
-    "Cette mobilisation brutale des effectifs vers les violences urbaines aggrave une fragilité plus ancienne de la police judiciaire. Quand les policiers et les greffiers sont absorbés par la gestion des flagrants délits et des manifestations, les enquêtes de fond sur les infractions du quotidien prennent un retard considérable. Selon le bilan statistique officiel de la sécurité intérieure, le taux d'élucidation<a class=\"lex-ref\" href=\"#lex-taux-delucidation\" aria-label=\"Voir la définition dans le lexique\">*</a> à un an des escroqueries et des abus de confiance est tombé de <strong>31 % en 2017 à 15 % en 2023</strong>. En six ans, la capacité des enquêteurs à résoudre ces délits très fréquents a ainsi été divisée par deux, laissant des milliers de victimes sans réponse judiciaire rapide.",
-    "Pour tenter de colmater ces brèches, le gouvernement tente de réformer ses services d'investigation et ses procédures. Laurent Nuñez a annoncé le recrutement de <strong>700 enquêteurs supplémentaires</strong> pour renforcer la filière investigation, tandis que la loi du 23 juillet 2026 sur la justice criminelle et le respect des victimes prépare de nouvelles règles qui entreront partiellement en vigueur au 1er janvier 2027. Cependant, former des officiers de police judiciaire et adapter l'organisation des tribunaux prend plusieurs années. Entre l'urgence de sécuriser les lycées et la nécessité de traiter les plaintes courantes, les arbitrages budgétaires et humains de l'État atteignent une limite critique.",
-    "L'équilibre de la sécurité publique en France dépend désormais de la capacité des pouvoirs publics à éteindre la contestation sans briser la confiance citoyenne. Si le gouvernement promet un retour rapide au calme, l'engorgement des tribunaux et l'épuisement des forces de l'ordre rendent toute sortie de crise incertaine. Trois scénarios se dessinent d'ici la fin de l'année : un apaisement progressif obtenu par le dialogue politique et la dissuasion financière, un enlisement sous haute tension où la justice traite l'urgence au détriment des dossiers du quotidien, ou une escalade des violences urbaines qui submergerait durablement la police et les tribunaux."
+    "Les marchés financiers vivent une envolée spectaculaire tirée par l'intelligence artificielle. Les cinq plus grandes entreprises cotées de la planète appartiennent désormais toutes au secteur technologique. En tête de file, le concepteur américain de puces électroniques Nvidia a vu sa capitalisation boursière<a class=\"lex-ref\" href=\"#lex-capitalisation-boursiere\" aria-label=\"Voir la définition dans le lexique\">*</a> franchir les 5 000 milliards de dollars en avril 2026, avant de dépasser <strong>5 400 milliards USD</strong> à l'automne. Une telle concentration de valeur au sommet des indices boursiers mondiaux n'avait plus été observée depuis le tournant des années 2000. Derrière ces géants, des investissements colossaux s'accumulent dans l'espoir de dominer les technologies de demain.",
+    "Cette ascension repose sur des moteurs financiers bien réels mais suscite une vive controverse. Contrairement aux jeunes pousses déficitaires de la bulle Internet de 1999, Nvidia dégage des profits massifs, avec <strong>193 milliards USD</strong> de bénéfices réels enregistrés sur un an. Les entreprises achètent ses processeurs à un rythme effréné pour équiper d'immenses centres de calcul. Les géants du numérique prévoient de dépenser plusieurs centaines de milliards de dollars par an dans ces infrastructures. Pourtant, le doute grandit sur la capacité des entreprises clientes à rentabiliser rapidement de tels montants grâce aux seuls logiciels d'intelligence artificielle.",
+    "L'alerte a pris une tournure officielle au cœur de l'été 2026. Le 17 août 2026, la Banque centrale européenne a publié une mise en garde formelle dans un article de blog. L'institution monétaire y souligne qu'une correction boursière<a class=\"lex-ref\" href=\"#lex-correction-boursiere\" aria-label=\"Voir la définition dans le lexique\">*</a> devient probable à moyen terme. Selon ses analystes, les ratios cours/bénéfices<a class=\"lex-ref\" href=\"#lex-ratio-cours-benefices\" aria-label=\"Voir la définition dans le lexique\">*</a> actuels, qui mesurent le prix d'une action par rapport aux gains générés par l'entreprise, flirtent avec les records historiques observés juste avant le krach des valeurs technologiques de l'an 2000.",
+    "Le trouble gagne désormais les acteurs technologiques eux-mêmes. Le 14 septembre 2026, les dirigeants des laboratoires d'IA Anthropic et OpenAI ont publiquement appelé à ralentir le rythme de développement des modèles les plus avancés au nom de la sécurité. Cette prise de parole inédite a immédiatement provoqué une chute de <strong>10 à 13 %</strong> du cours de SoftBank à la Bourse de Tokyo, le conglomérat japonais étant l'un des principaux bailleurs de fonds du secteur. Dans le même temps, OpenAI a choisi de repousser son projet d'introduction en Bourse au-delà de 2026, tout en cherchant une valorisation privée de <strong>1 400 milliards USD</strong>.",
+    "Cette surchauffe boursière ne concerne pas seulement les courtiers de Wall Street ou les fonds spéculatifs. Les particuliers européens se trouvent directement exposés à ces variations sans toujours en mesurer l'ampleur. Les ménages de la zone euro détiennent aujourd'hui près de <strong>440 milliards EUR</strong> d'engagements financiers sur les sept géants américains de la tech, désignés sous le terme de Magnificent Seven<a class=\"lex-ref\" href=\"#lex-magnificent-seven\" aria-label=\"Voir la définition dans le lexique\">*</a>. Cet argent est principalement investi à travers des fonds indiciels cotés ou ETF<a class=\"lex-ref\" href=\"#lex-etf\" aria-label=\"Voir la définition dans le lexique\">*</a>, très populaires dans les plans d'épargne en actions et les contrats d'assurance-vie.",
+    "Face à ces tensions entre résultats records et valorisations vertigineuses, l'avenir boursier de l'intelligence artificielle d'ici la fin de l'année 2027 reste ouvert. Trois voies prospectives se dessinent nettement. Le secteur peut poursuivre sa croissance si l'adoption des outils génère des revenus commerciaux massifs capables de justifier les cours actuels. Le marché peut également connaître un atterrissage en douceur avec une respiration modérée des prix. Enfin, une rupture brutale des cours reste possible si la rentabilité tarde à venir, entraînant des pertes sèches pour les épargnants internationaux."
   ],
   "enjeu_en_clair": {
-    "lead": "La police et la justice françaises font face à un double défi : contenir des blocages lycéens violents tout en traitant les plaintes du quotidien.",
-    "text": "D'un côté, les forces de l'ordre multiplient les interpellations massives pour empêcher les dégradations autour des lycées. De l'autre, cette mobilisation d'urgence sature les commissariats et les tribunaux, retardant les enquêtes classiques. Pour le citoyen, l'enjeu est direct : savoir si l'État peut maintenir l'ordre public sans aggraver les délais d'attente pour toutes les autres victimes d'infractions."
+    "lead": "Les actions des géants de l'intelligence artificielle atteignent des sommets historiques, suscitant des craintes de bulle financière.",
+    "text": "L'enjeu concerne la valorisation boursière exceptionnelle de champions comme Nvidia et la sécurité de l'épargne mondiale. Les régulateurs craignent que les entreprises n'aient trop investi par rapport aux gains réels générés par les outils d'intelligence artificielle. Si les cours boursiers chutent lourdement, les ménages européens perdront une partie de la valeur de leurs placements financiers et de leurs retraites complémentaires."
   },
   "stakes_branches": {
-    "favorable": "Le dialogue politique calme la rue et les sanctions financières parentales freinent rapidement les dégradations.",
-    "stable": "Les blocages persistent sous contrôle policier mais l'engorgement judiciaire continue de retarder les dossiers courants.",
-    "degrade": "De nouvelles violences graves embrasent les quartiers et saturent complètement les commissariats et les tribunaux."
+    "favorable": "Les bénéfices réels des géants technologiques continuent d'augmenter et valident les cours actuels sans baisse majeure des marchés.",
+    "stable": "Une respiration ordonnée des marchés fait baisser les cours de 10 à 15 % sans provoquer de crise financière systémique.",
+    "degrade": "Un dégonflement brutal de 20 à 30 % frappe les actions technologiques et entame l'épargne investie par les ménages européens."
   },
   "comprendre_box": [
     {
-      "lead": "La responsabilité civile des parents : faire payer les dégâts causés par les mineurs",
-      "text": "En droit français, les parents sont automatiquement responsables des dommages provoqués par leurs enfants mineurs sous leur toit. Si un lycéen casse du mobilier urbain ou incendie une poubelle, la justice peut contraindre sa famille à rembourser intégralement les frais de réparation à la mairie ou aux victimes.",
+      "lead": "Comprendre les ratios cours/bénéfices : un indicateur de cherté boursière",
+      "text": "Le ratio cours/bénéfices ressemble au prix d'achat d'un appartement rapporté aux loyers qu'il rapporte chaque année. Quand un logement coûte quarante années de loyers, l'acheteur parie sur une hausse gigantesque des revenus futurs. Sur les marchés d'actions, payer très cher les bénéfices actuels d'une entreprise technologique signifie que les investisseurs anticipent une explosion sans précédent de ses profits futurs.",
       "apres_dek_index": 2
     },
     {
-      "lead": "Le taux d'élucidation : mesurer les affaires que la police parvient à résoudre",
-      "text": "Ce chiffre compare le nombre d'enquêtes résolues avec auteur identifié au nombre total de plaintes déposées. Quand ce taux chute de 31 % à 15 %, cela signifie que sur cent escroqueries dénoncées, la police n'en résout désormais que quinze au cours de l'année, faute de temps et d'enquêteurs disponibles.",
-      "apres_dek_index": 3
+      "lead": "Comprendre l'exposition des ménages via les ETF et l'épargne indicielle",
+      "text": "Investir dans un ETF ressemble à l'achat d'un panier composé automatiquement de centaines de fruits du marché. Quand quelques fruits géants prennent la moitié de la place dans le panier, la moindre avarie sur l'un d'eux gâte l'ensemble de la récolte. Les épargnants européens qui achètent des indices boursiers mondiaux deviennent ainsi très dépendants de la santé financière des quelques géants américains de la tech.",
+      "apres_dek_index": 4
     }
   ],
   "list_box": null,
   "indicators": [
     {
-      "label": "Interpellations cumulées au pic de la semaine du 2 octobre 2026",
-      "value": "plus de 5 000 interpellations",
-      "delta": "dont 1 747 sur la seule journée du vendredi 2 octobre 2026"
+      "label": "Capitalisation boursière de Nvidia",
+      "value": "5 400 milliards USD",
+      "delta": "Sommet historique atteint en septembre 2026 après le franchissement des 5 000 Mds en avril 2026"
     },
     {
-      "label": "Taux d'élucidation à un an des escroqueries et abus de confiance",
-      "value": "15 % en 2023",
-      "delta": "contre 31 % en 2017 (perte de 16 points en six ans)"
+      "label": "Exposition des ménages euro aux Magnificent Seven",
+      "value": "440 milliards EUR",
+      "delta": "Montant estimé par la BCE en août 2026, principalement logé dans des ETF"
     }
   ],
   "cards": {
     "favorable": {
       "pct": 25,
       "gauge_word": "Peu probable",
-      "h3": "L'apaisement politique ramène le calme et la justice accélère",
+      "h3": "La croissance des profits réels valide durablement les cours boursiers",
       "why": [
-        "Dans ce premier scénario, les négociations menées à Matignon et au ministère de l'Éducation nationale aboutissent à des compromis concrets sur les conditions d'examen et les moyens alloués aux établissements scolaires. Les assemblées générales lycéennes votent la levée des piquets de grève, ce qui entraîne une chute immédiate des attroupements et des dégradations aux abords des 158 établissements sensibles. La mise en application stricte de la responsabilité financière des familles produit un effet dissuasif rapide, incitant les parents à encadrer davantage les mineurs en soirée. Les forces de l'ordre réduisent leurs déploiements d'urgence et les commissariats retrouvent une activité normale.",
-        "Notre évaluation attribue 25 % de probabilité à cette trajectoire, car les colères lycéennes restent profondément ancrées et difficiles à désamorcer par de simples promesses administratives. Si ce scénario se réalisait, il permettrait aux 700 nouveaux enquêteurs promis par le plan d'investigation de se consacrer pleinement au traitement des plaintes en attente. Les tribunaux absorberaient les 2 376 poursuites issues de la crise sans bloquer les autres affaires civiles et pénales. L'efficacité globale de l'institution judiciaire pourrait alors rebondir progressivement dès le début de l'année 2027.",
-        "Concrètement, les cours reprendraient sans interruption dans tous les lycées, et les victimes de délits du quotidien verraient leurs plaintes traitées plus rapidement par des commissariats désengorgés."
+        "Premier scénario : les entreprises clientes parviennent à transformer très vite l'intelligence artificielle en gains de productivité mesurables et en nouveaux services payants. Les investissements colossaux consentis par Microsoft, Amazon ou Alphabet génèrent des flux de trésorerie suffisants pour rentabiliser l'achat massif de serveurs. Dans ce cadre, les bénéfices de fabricants de semi-conducteurs comme Nvidia progressent encore au-delà des 193 milliards de dollars annuels, ce qui stabilise mécaniquement les ratios de valorisation financière sans nécessiter de baisse des cours des actions. Les indices boursiers internationaux poursuivent leur trajectoire ascendante de manière sereine.",
+        "Ce scénario suppose toutefois une rentabilité immédiate et généralisée que peu de révolutions industrielles passées ont connue au cours de leurs premières années de déploiement. Par rapport à l'hypothèse d'une correction modérée ou d'un krach brutal, cette voie écarte tout ralentissement réglementaire ou technique dans le développement des logiciels. Concrètement, les portefeuilles d'épargne des particuliers conserveraient l'intégralité de leurs gains accumulés sans secousse. Mais une telle trajectoire d'expansion perpétuelle sans pause technique deviendrait plus difficile à maintenir si les entreprises réduisaient leurs dépenses d'équipement."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Interpellations hebdomadaires",
-          "evo_current": "Retour sous 200 par semaine",
-          "evo_arrow": "down",
-          "evo_prev": "plus de 5 000 en semaine de crise"
+          "field_name": "Capitalisation boursière de Nvidia",
+          "evo_current": "6 000 milliards USD",
+          "evo_arrow": "up",
+          "evo_prev": "5 400 Mds USD"
         },
         {
-          "field_name": "Taux d'élucidation des escroqueries",
-          "evo_current": "Remontée visée vers 20 %",
+          "field_name": "Exposition des ménages euro aux Magnificent Seven",
+          "evo_current": "490 milliards EUR",
           "evo_arrow": "up",
-          "evo_prev": "15 % en 2023"
+          "evo_prev": "440 Mds EUR"
         }
       ],
-      "france_line": "Le retour de la sérénité scolaire protège le budget des mairies et permet à la justice de résorber son retard.",
+      "france_line": "Les épargnants français conservent leurs plus-values sur leurs plans d'épargne en actions et leurs contrats d'assurance-vie.",
       "france_impact": "favorable"
     },
     "stable": {
-      "pct": 50,
+      "pct": 45,
       "gauge_word": "Probable",
-      "h3": "La contestation s'installe sous contrôle policier mais sature les tribunaux",
+      "h3": "Une respiration modérée des cours technologiques assainit les valorisations",
       "why": [
-        "Dans ce deuxième scénario, les blocages d'établissements et les échauffourées se poursuivent par vagues intermittentes dans les grandes agglomérations. Le ministère de l'Intérieur maintient un niveau de présence policière très élevé, ce qui permet d'éviter les scènes de saccage généralisé mais génère des centaines d'interpellations chaque semaine. Les magistrats continuent d'appliquer la circulaire de fermeté en traitant les dossiers de violences urbaines en comparution immédiate ou en audiences forcées pour mineurs. Cette gestion au jour le jour monopolise les effectifs de sécurité et paralyse les réformes de fond de la police judiciaire.",
-        "Le scénario le plus probable (50 %) décrit un statu quo sous haute tension où l'État parvient à contenir la rue mais sans régler l'engorgement de ses institutions pénales — les deux autres scénarios étant l'apaisement négocié (25 %) et l'embrasement incontrôlé (25 %). Les policiers de terrain restent mobilisés sur la voie publique au détriment des investigations sur les délits quotidiens. Le taux d'élucidation des infractions financières et des cambriolages stagne à son plancher historique de 15 %, tandis que les délais de jugement pour les litiges courants s'allongent de plusieurs mois supplémentaires.",
-        "Concrètement, les lycées resteraient surveillés par des cordons de police, et les citoyens ordinaires devraient patienter encore plus longtemps pour obtenir le jugement d'un cambriolage ou d'une escroquerie."
+        "Deuxième scénario : les marchés boursiers réalisent un atterrissage en douceur avec une baisse comprise entre 10 et 15 % sur les grandes valeurs technologiques. Les investisseurs ajustent leurs attentes après les alertes lancées par les régulateurs monétaires et les dirigeants du secteur comme OpenAI ou Anthropic. Cette correction mesurée permet d'effacer les excès spéculatifs les plus évidents sans provoquer de panique financière. Les entreprises poursuivent leurs investissements technologiques à un rythme plus soutenu et plus réaliste, tandis que les bénéfices réels des fabricants de puces continuent de servir de socle solide aux cours.",
+        "Cet ajustement ordonné se distingue nettement d'une crise systémique car les banques et les grandes institutions financières absorbent le repli sans détresse de liquidité. Contrairement au scénario d'une envolée continue, les multiples de valorisation reviennent vers des moyennes historiques plus rassurantes pour les banques centrales. Concrètement, la valeur des portefeuilles indiciels des particuliers reculerait de quelques pourcents sans entamer leur capital de long terme. La valorisation globale des géants technologiques pourrait alors trouver un point d'équilibre durable d'ici la fin de l'année 2027."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Interpellations hebdomadaires",
-          "evo_current": "Maintien entre 800 et 1 500 par semaine",
-          "evo_arrow": "flat",
-          "evo_prev": "plus de 5 000 en semaine de crise"
+          "field_name": "Capitalisation boursière de Nvidia",
+          "evo_current": "4 700 milliards USD",
+          "evo_arrow": "down",
+          "evo_prev": "5 400 Mds USD"
         },
         {
-          "field_name": "Taux d'élucidation des escroqueries",
-          "evo_current": "Stagnation autour de 15 %",
-          "evo_arrow": "flat",
-          "evo_prev": "15 % en 2023"
+          "field_name": "Exposition des ménages euro aux Magnificent Seven",
+          "evo_current": "390 milliards EUR",
+          "evo_arrow": "down",
+          "evo_prev": "440 Mds EUR"
         }
       ],
-      "france_line": "L'ordre est maintenu au prix d'une justice ralentie pour toutes les victimes d'infractions courantes.",
+      "france_line": "Un repli contenu des valorisations limite les pertes des ménages français sans menacer le système bancaire national.",
       "france_impact": "degrade"
     },
     "degrade": {
-      "pct": 25,
-      "gauge_word": "Peu probable",
-      "h3": "L'escalade des violences urbaines submerge les forces de l'ordre et la justice",
+      "pct": 30,
+      "gauge_word": "Probable",
+      "h3": "Un dégonflement brutal frappe les valeurs technologiques et l'épargne mondiale",
       "why": [
-        "Dans ce troisième scénario, la survenue de nouvelles blessures graves causées par des tirs de maintien de l'ordre ou des attaques au mortier d'artifice déclenche une flambée de violences dans plusieurs banlieues. La contestation étudiante et syndicale se greffe sur les blocages lycéens, multipliant les foyers de tension simultanés sur le territoire. Les forces de l'ordre, épuisées par des semaines de maintien de l'ordre ininterrompu, peinent à sécuriser les centres urbains et les transports. Les gardes à vue dépassent les capacités d'accueil des commissariats, forçant les procureurs à classer sans suite de nombreux délits faute de moyens matériels pour les instruire.",
-        "Nous évaluons à 25 % le risque d'une telle rupture institutionnelle si les enquêtes de l'Inspection générale de la police nationale ou du Défenseur des droits devaient révéler des fautes systémiques attisant la rancœur populaire. Dans cette hypothèse, les tribunaux seraient totalement débordés par le traitement des émeutes, suspendant de fait les audiences ordinaires. Le sentiment d'impunité grandirait pour la délinquance du quotidien, accélérant la défiance envers la justice et plongeant l'autorité publique dans une crise de légitimité durable.",
-        "Concrètement, les dégradations matérielles augmenteraient fortement dans les villes, et les commissariats saturés ne pourraient plus enregistrer efficacement les plaintes des particuliers."
+        "Troisième scénario : les marchés financiers subissent une chute sévère de 20 à 30 % sur les valeurs technologiques, rappelant l'éclatement de la bulle Internet de l'an 2000. Les entreprises clientes constatent que les gains de productivité réels ne compensent pas les centaines de milliards de dollars de factures d'infrastructure informatique et gèlent brutalement leurs commandes de serveurs. Les commandes passées auprès de Nvidia ralentissent, remettant en cause le niveau de ses bénéfices futurs. Les investisseurs vendent massivement leurs actions, entraînant dans leur sillage l'ensemble des indices mondiaux.",
+        "Cette baisse généralisée frapperait de plein fouet les particuliers ayant placé leurs économies sur des fonds indiciels répliquant les marchés américains. Contrairement à une respiration passagère, ce dégonflement détruirait des dizaines de milliards d'euros de valeur patrimoniale pour les ménages de la zone euro. Les banques centrales et la Banque centrale européenne devraient alors surveiller étroitement le risque de contagion au crédit bancaire et à la consommation des ménages. Une telle spirale baissière glisserait vers un ralentissement économique mondial plus marqué si le secteur technologique coupait brutalement ses investissements."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Interpellations hebdomadaires",
-          "evo_current": "Flambée au-delà de 3 000 par semaine",
-          "evo_arrow": "up",
-          "evo_prev": "plus de 5 000 en semaine de crise"
+          "field_name": "Capitalisation boursière de Nvidia",
+          "evo_current": "3 800 milliards USD",
+          "evo_arrow": "down",
+          "evo_prev": "5 400 Mds USD"
         },
         {
-          "field_name": "Taux d'élucidation des escroqueries",
-          "evo_current": "Nouvelle chute vers 10 %",
+          "field_name": "Exposition des ménages euro aux Magnificent Seven",
+          "evo_current": "310 milliards EUR",
           "evo_arrow": "down",
-          "evo_prev": "15 % en 2023"
+          "evo_prev": "440 Mds EUR"
         }
       ],
-      "france_line": "Une crise sécuritaire aiguë fragiliserait l'économie urbaine et paralyserait durablement les tribunaux.",
+      "france_line": "La chute marquée des ETF pèse directement sur les contrats d'assurance-vie et l'épargne retraite des foyers français.",
       "france_impact": "degrade"
     }
   },
   "essentiel_box": [
-    "Face aux violences urbaines nées des blocages de lycées, la police et la justice françaises peuvent-elles assurer la sécurité publique tout en garantissant des délais de traitement acceptables pour l'ensemble des justiciables ?",
-    "La mobilisation a conduit à 1 747 interpellations le 2 octobre 2026 et plus de 6 877 gardes à vue en trois semaines, tandis que le taux d'élucidation des délits du quotidien comme les escroqueries a déjà chuté de 31 % à 15 % entre 2017 et 2023.",
-    "Pas totalement : notre scénario le plus probable (50 %) montre que l'État parviendra à contenir la rue par une présence policière massive, mais au prix d'un engorgement judiciaire prolongé qui retardera le traitement des plaintes ordinaires — deux autres scénarios restent possibles : apaisement négocié (25 %) ou embrasement incontrôlé (25 %).",
-    "Le signal à surveiller réside dans l'évolution hebdomadaire du nombre de gardes à vue de mineurs et les conclusions des enquêtes de l'IGPN sur l'usage des LBD d'ici la mi-novembre 2026."
+    "Les valorisations boursières exceptionnelles des entreprises de l'intelligence artificielle risquent-elles de subir une correction d'ampleur d'ici la fin 2027 ?",
+    "La capitalisation boursière de Nvidia a culminé au-delà de 5 400 milliards USD et les ménages de la zone euro détiennent 440 milliards EUR d'exposition aux géants technologiques américains, alors que la BCE met en garde contre des niveaux de prix proches de la bulle de l'an 2000.",
+    "Oui, une baisse des cours est attendue mais notre scénario le plus probable (45 %) privilégie une correction modérée de 10 à 15 %, tandis qu'un dégonflement brutal similaire à 2000 reste évalué à 30 % et qu'une poursuite de la hausse sans accroc est estimée à 25 %.",
+    "Le prochain point d'inflexion réside dans les publications trimestrielles des résultats des géants du cloud au premier semestre 2027 et le niveau de leurs commandes réelles de puces d'infrastructure."
   ],
   "delta_france": {
     "kind": "negatif",
     "score": -0.5,
     "word": "assez négatif",
-    "text": "la probabilité cumulée de 75 % d'un maintien des tensions ou d'une escalade fait peser une charge excessive sur les tribunaux et dégrade le traitement des plaintes du quotidien pour les citoyens."
+    "text": "la probabilité cumulée de 75 % d'un repli des marchés boursiers exposerait les 440 milliards d'euros placés par les ménages européens sur les géants technologiques à des pertes en capital sur leur épargne financière."
   },
-  "phrase_a_retenir": "Avec plus de 5 000 interpellations en une semaine et un taux d'élucidation des escroqueries tombé à 15 %, la police et la justice françaises sont sous tension maximale.",
-  "phrase_a_retenir_stat": "plus de 5 000 interpellations",
+  "phrase_a_retenir": "Les ménages de la zone euro détiennent 440 milliards EUR d'exposition aux géants américains de la tech via leur épargne indicielle, les rendant très vulnérables à une correction boursière sur l'intelligence artificielle.",
+  "phrase_a_retenir_stat": "440 milliards EUR",
   "lexique": [
     {
-      "slug": "lanceur-de-balles-de-defense",
-      "terme": "lanceurs de balles de défense",
-      "definition": "Arme non létale utilisée par les forces de l'ordre pour tirer des projectiles en caoutchouc destinés à neutraliser un individu à distance."
+      "slug": "capitalisation-boursiere",
+      "terme": "capitalisation boursière",
+      "definition": "Valeur totale sur le marché financier de toutes les actions en circulation émises par une entreprise cotée."
     },
     {
-      "slug": "inspection-generale-de-la-police-nationale",
-      "terme": "Inspection générale de la police nationale",
-      "definition": "Service interne chargé de contrôler les pratiques des policiers et d'enquêter sur les éventuelles fautes professionnelles ou violences illégitimes."
+      "slug": "correction-boursiere",
+      "terme": "correction boursière",
+      "definition": "Baisse temporaire d'au moins 10 % du cours d'un actif financier ou d'un indice boursier par rapport à son récent sommet."
     },
     {
-      "slug": "defenseur-des-droits",
-      "terme": "Défenseur des droits",
-      "definition": "Autorité constitutionnelle indépendante qui veille au respect des libertés publiques, des droits des usagers et de la déontologie de la sécurité."
+      "slug": "ratio-cours-benefices",
+      "terme": "ratios cours/bénéfices",
+      "definition": "Mesure financière comparant le prix de l'action d'une entreprise au montant du bénéfice net qu'elle dégage par action."
     },
     {
-      "slug": "responsabilite-civile-des-parents",
-      "terme": "responsabilité civile des parents",
-      "definition": "Obligation légale imposant aux parents de réparer financièrement les dégradations et dommages matériels commis par leurs enfants mineurs."
+      "slug": "magnificent-seven",
+      "terme": "Magnificent Seven",
+      "definition": "Groupe désignant les sept géants technologiques américains dominant Wall Street : Alphabet, Amazon, Apple, Meta, Microsoft, Nvidia et Tesla."
     },
     {
-      "slug": "taux-delucidation",
-      "terme": "taux d'élucidation",
-      "definition": "Pourcentage d'infractions constatées pour lesquelles les enquêteurs de police ou de gendarmerie parviennent à identifier et poursuivre l'auteur."
+      "slug": "etf",
+      "terme": "ETF",
+      "definition": "Fonds d'investissement coté en Bourse dont l'objectif est de répliquer fidèlement la performance d'un indice financier de référence."
     }
   ],
   "sources_html": [
-    "<a href=\"https://www.franceinfo.fr/societe/education/blocage-des-lycees/direct-mobilisation-dans-les-lycees-le-gouvernement-evoque-une-man-uvre-organisee-par-lfi-manuel-bompard-l-accuse-de-sombrer-dans-le-complotisme_8219182.html\" target=\"_blank\" rel=\"noopener noreferrer\">franceinfo — Blocages des lycées : 1 747 personnes interpellées vendredi, annonce Laurent Nuñez, plus de 5 000 depuis lundi ↗</a>",
-    "<a href=\"https://www.lefigaro.fr/actualite-france/en-direct-blocus-des-lycees-les-autorites-espere-l-apaisement-apres-les-violences-d-une-extreme-gravite-400-etablissements-fermes-20261002\" target=\"_blank\" rel=\"noopener noreferrer\">Le Figaro — Blocus des lycées : 1747 interpellations ce vendredi, plus de 5000 depuis lundi ↗</a>",
-    "<a href=\"https://www.justice.gouv.fr/sites/default/files/2026-10/CP%20-%20Mouvement%20lyc%C3%A9en%20-%2009102026.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Ministère de la Justice — COMMUNIQUÉ DE PRESSE — Bilan judiciaire des violences urbaines en marge du mouvement lycéen ↗</a>",
-    "<a href=\"https://www.labase-lextenso.fr/gazette-du-palais/2026-n31/manifestations-lyceennes-appel-a-la-fermete-de-gerald-darmanin-GPL495f0\" target=\"_blank\" rel=\"noopener noreferrer\">La Base Lextenso — Manifestations lycéennes : appel à la fermeté de Gérald Darmanin ↗</a>",
-    "<a href=\"https://www.franceinfo.fr/societe/education/blocage-des-lycees/le-defenseur-des-droits-se-saisit-de-la-blessure-d-un-jeune-lors-du-blocage-des-lycees_8218918.html\" target=\"_blank\" rel=\"noopener noreferrer\">franceinfo — Le Défenseur des droits se saisit de la blessure d'un jeune lors du blocage des lycées ↗</a>",
-    "<a href=\"https://www.leparisien.fr/val-d-oise-95/saint-ouen-l-aumone-95310/mineur-blesse-par-un-tir-policier-lors-dun-blocus-de-lycee-dans-le-val-doise-le-defenseur-des-droits-se-saisit-du-dossier-01-10-2026-2BANV5A4OBELXCYMPF563FRJIM.php\" target=\"_blank\" rel=\"noopener noreferrer\">Le Parisien — Mineur blessé par un tir policier lors d'un blocus de lycée dans le Val-d'Oise : le Défenseur des droits se saisit du dossier ↗</a>",
-    "<a href=\"https://www.interieur.gouv.fr/fr/content/download/138329/1093108/file/SSMSI-BA2024.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Ministère de l'Intérieur — Insecurity et délinquance en 2024 : bilan statistique (SSMSI) ↗</a>",
-    "<a href=\"https://www.ouest-france.fr/societe/police/700-enqueteurs-supplementaires-pour-la-filiere-investigation-de-la-police-annonce-laurent-nunez-bf665b0a-140e-11f1-8725-6cea811c3c37\" target=\"_blank\" rel=\"noopener noreferrer\">Ouest-France — 700 enquêteurs supplémentaires pour la filière investigation de la police, annonce Laurent Nuñez ↗</a>",
-    "<a href=\"https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054470584\" target=\"_blank\" rel=\"noopener noreferrer\">Légifrance — LOI n° 2026-651 du 23 juillet 2026 sur la justice criminelle et le respect des victimes ↗</a>"
+    "<a href=\"https://www.boursorama.com/bourse/actualites/nvidia-depasse-les-5-000-milliards-de-dollars-de-valorisation-aa6075be03f9d1923b67a31941bbdf9f\" target=\"_blank\" rel=\"noopener noreferrer\">Boursorama — Nvidia dépasse les 5 000 milliards de dollars de valorisation ↗</a>",
+    "<a href=\"https://www.ecb.europa.eu/press/blog/date/2026/html/ecb.blog20260817~754a8a4418.en.html\" target=\"_blank\" rel=\"noopener noreferrer\">Banque centrale européenne — The AI boom: rational enthusiasm or the next dot-com bubble? - BCE ↗</a>",
+    "<a href=\"https://www.alternatives-economiques.fr/faut-il-redouter-un-eclatement-de-la-bulle-de-l-ia_14-09-2026\" target=\"_blank\" rel=\"noopener noreferrer\">Alternatives Économiques — Faut-il redouter un éclatement de la bulle de l'IA ↗</a>",
+    "<a href=\"https://fr.euronews.com/2026/09/14/laction-softbank-chute-avec-la-montee-des-appels-a-freiner-lia\" target=\"_blank\" rel=\"noopener noreferrer\">Euronews — SoftBank chute de 10% après les appels à ralentir l'IA ↗</a>"
   ],
   "meta": {
-    "title": "Police & justice : l'État peut-il garantir la sécurité ? — Scénario",
-    "meta_description": "Police & justice : l'État peut-il garantir la sécurité ? 3 scénarios prospectifs pour 2030.",
-    "og_image_alt": "Forces de l'ordre déployées devant un établissement scolaire en France",
+    "title": "Bulle de l'IA : les valorisations tech vont-elles corriger fortement ?",
+    "meta_description": "Bulle de l'IA : les valorisations tech vont-elles corriger fortement ? Analyse économique et scénarios.",
+    "og_image_alt": "Graphique des valorisations financières et de la bulle boursière de l'intelligence artificielle",
     "keywords": [
-      "Police"
+      "inflation",
+      "Bulle",
+      "investissement",
+      "prix",
+      "économie",
+      "marché"
     ],
-    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-28.html\"\n  },\n  \"headline\": \"Police & justice : l'État peut-il garantir la sécurité ? — Scénario\",\n  \"description\": \"Police & justice : l'État peut-il garantir la sécurité ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-28.png\"\n  ],\n  \"datePublished\": \"2026-10-28T00:00:00\",\n  \"dateModified\": \"2026-10-28T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Police\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
-    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Police & justice : l'État peut-il garantir la sécurité ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-28.html\"\n    }\n  ]\n}"
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-29.html\"\n  },\n  \"headline\": \"Bulle de l'IA : les valorisations tech vont-elles corriger fortement ?\",\n  \"description\": \"Bulle de l'IA : les valorisations tech vont-elles corriger fortement ? Analyse économique et scénarios.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-29.png\"\n  ],\n  \"datePublished\": \"2026-10-29T00:00:00\",\n  \"dateModified\": \"2026-10-29T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"inflation, Bulle, investissement, prix, économie, marché\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Économie\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Bulle de l'IA : les valorisations tech vont-elles corriger fortement ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-29.html\"\n    }\n  ]\n}"
   }
 }
