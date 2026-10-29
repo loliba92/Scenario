@@ -667,7 +667,10 @@ def main():
         return 0
 
     if total == 0:
-        print(f"Aucun sujet retenu ce passage-ci{dup_suffix} — fichier inchangé.")
+        print(f"Aucun sujet retenu ce passage-ci{dup_suffix} — file inchangée.")
+        # La date « Dernier passage » avance même sans ajout.
+        history = update_hot_topics_history([])
+        update_dashboard_card(today, history)
         return 0
 
     ids_ajoutes = []
