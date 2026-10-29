@@ -371,6 +371,50 @@
   }
   .dash-back:hover{ color: var(--gold); }
   .dash-back svg{ display: block; }
+  /* ---------- Points de vérification et sections repliables ---------- */
+  .dact{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 16px; }
+  .dbtn{ display:inline-flex; align-items:center; gap:6px; min-height:40px; padding:0 14px; border:1px solid var(--hairline); border-radius:6px; background:var(--surface); color:var(--paper); text-decoration:none; font-weight:600; font-size:.88rem; }
+  .dbtn:hover{ border-color:var(--gold); }
+  .dbtn svg{ width:14px; height:14px; flex:none; }
+  .dbtn-main{ background:var(--gold); border-color:var(--gold); color:var(--ink); }
+  .dbtn-main:hover{ opacity:.9; }
+  .chart-box.dsec{ padding:0; }
+  .chk, .dsec{ background:var(--surface); border:1px solid var(--hairline); border-radius:8px; margin:0 0 12px; }
+  .chk-sum, .dsec > summary{ display:flex; align-items:center; gap:12px; min-height:52px; padding:8px 16px; cursor:pointer; list-style:none; }
+  .chk-sum::-webkit-details-marker, .dsec > summary::-webkit-details-marker{ display:none; }
+  .chk-t{ display:grid; gap:1px; min-width:0; flex:1; }
+  .chk-e, .dsec-t{ font-family:"JetBrains Mono",monospace; font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); font-weight:600; }
+  .chk-s{ font-weight:600; font-size:.95rem; line-height:1.3; }
+  .dsec > summary .chart-label{ margin:0; }
+  .dsec-info{ flex:1; min-width:0; text-align:right; color:var(--paper-dim); font-size:.84rem; }
+  .dsec-info[data-state="alerte"]{ color:var(--degrade); }
+  .dsec-info[data-state="attention"]{ color:var(--gold); }
+  .dsec-f{ width:9px; height:9px; flex:none; margin:0 4px 3px 0; border:solid var(--paper-dim); border-width:0 2px 2px 0; transform:rotate(45deg); transition:transform .2s; }
+  details[open] > summary > .dsec-f{ transform:rotate(-135deg); margin-bottom:-3px; }
+  .chk-sum:focus-visible, .dsec > summary:focus-visible, .chk-l a:focus-visible, .dbtn:focus-visible{ outline:3px solid var(--gold); outline-offset:2px; }
+  .dsec-body{ padding:4px 16px 16px; }
+  .dsec-body .kpi-grid{ grid-template-columns:repeat(4,1fr); }
+  @media (max-width:760px){ .dsec-body .kpi-grid{ grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); } }
+  .dsec-body .kpi-grid:last-child{ margin-bottom:0; }
+  .dsec-body .chart-box.dsec-plain{ border:0; background:none; padding:12px 0 0; margin:0; }
+  .dsec-body .chart-lead:empty{ display:none; }
+  .pt{ width:10px; height:10px; flex:none; border-radius:50%; background:var(--paper-dim); }
+  .pt-ok{ background:#4cc16f; } .pt-warn{ background:#e0a23c; } .pt-ko{ background:#e0604f; }
+  .pt-run{ background:var(--gold); animation:dpouls 1.2s ease-in-out infinite; }
+  @keyframes dpouls{ 50%{ opacity:.35; } }
+  .chk-l{ list-style:none; margin:0; padding:0 6px 6px; border-top:1px solid var(--hairline); }
+  .chk-l li{ margin:0; }
+  .chk-l a{ display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; column-gap:10px; min-height:44px; padding:6px 10px; border-radius:4px; color:var(--paper); text-decoration:none; font-size:.9rem; }
+  .chk-l a:hover{ background:var(--surface-2); }
+  .chk-n{ font-weight:600; }
+  .chk-q{ color:var(--paper-dim); font-size:.84rem; text-align:right; }
+  .chk-ko .chk-q{ color:#f2a0a8; } .chk-warn .chk-q{ color:#e8b86b; }
+  @media (max-width:560px){
+    .chk-l a{ grid-template-columns:auto minmax(0,1fr); row-gap:0; }
+    .chk-q{ grid-column:2; text-align:left; }
+    .dsec-info{ display:none; }
+    .dsec-body{ padding:4px 12px 14px; }
+  }
 </style>
 </head>
 <body>
@@ -391,13 +435,24 @@
   <div class="wrap">
     <div class="dash-header">
       <a class="dash-back" href="/"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg> Retour au site</a>
-      <p class="dash-eyebrow">Usage interne — pas destiné aux lecteurs</p>
+      <p class="dash-eyebrow">Usage interne</p>
       <h1 class="dash-title">Tableau de bord Scénario</h1>
       <p class="dash-meta">Données au 29 octobre 2026 — mesure d'audience GoatCounter, mise à jour chaque jour par un GitHub Action.</p>
     </div>
 
-    <span class="chart-label">Cadence d'édition</span>
-    <div class="kpi-grid">
+    <div class="dact">
+      <a class="dbtn dbtn-main" href="preview.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Ouvrir le preview</a>
+      <a class="dbtn" href="seo.html">Analyse SEO</a>
+      <a class="dbtn" href="file-sujets.html">File de sujets</a>
+      <a class="dbtn" href="https://github.com/loliba92/Scenario/actions" target="_blank" rel="noopener noreferrer">Actions GitHub</a>
+    </div>
+
+    <details class="chk" id="chk" open>
+      <summary class="chk-sum"><span class="pt" aria-hidden="true"></span><span class="chk-t"><span class="chk-e">Points de vérification</span><span class="chk-s" id="chk-etat">Vérification en cours…</span></span><span class="dsec-f" aria-hidden="true"></span></summary>
+      <ul class="chk-l" id="chk-l"></ul>
+    </details>
+    
+    <details class="chart-box dsec"><summary><span class="dsec-t">Audience</span><span class="dsec-info" data-info="aud"></span><span class="dsec-f" aria-hidden="true"></span></summary><div class="dsec-body"><div class="kpi-grid">
       <div class="kpi-card">
         <p class="kpi-label">Lectures d'éditions cumulées</p>
         <div class="kpi-value-row">
@@ -430,9 +485,21 @@
         </div>
       </div>
     </div>
-
-    <span class="chart-label" style="margin-top:24px; display:block;">Coûts OpenRouter</span>
-    <div class="kpi-grid">
+<div class="chart-box dsec-plain">
+      <span class="chart-label">Par semaine</span>
+      <div class="chart-wrap">
+        <svg id="weekly-svg" viewBox="0 0 700 200" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Lectures d'éditions par semaine, de 78 la semaine du 10 août 2026 à 15 la semaine précédente, semaine en cours 5 lectures, jusqu'au 29 octobre 2026"></svg>
+        <div class="chart-tooltip" id="weekly-tooltip"><p class="chart-tooltip-date"></p><p class="chart-tooltip-value"></p></div>
+      </div>
+    </div>
+<div class="chart-box dsec-plain">
+      <span class="chart-label">Cumul</span>
+      <div class="chart-wrap">
+        <svg id="cumul-svg" viewBox="0 0 700 172" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Courbe de croissance des lectures cumulées d'éditions, de 0 le 29 juillet 2026 à 973 le 29 octobre 2026 — 98 éditions publiées au total depuis le lancement"></svg>
+        <div class="chart-tooltip" id="cumul-tooltip"><p class="chart-tooltip-date"></p><p class="chart-tooltip-value"></p></div>
+      </div>
+    </div></div></details>
+    <details class="chart-box dsec"><summary><span class="dsec-t">Coûts</span><span class="dsec-info" data-info="cout"></span><span class="dsec-f" aria-hidden="true"></span></summary><div class="dsec-body"><div class="kpi-grid">
       <div class="kpi-card kpi-card-cost kpi-card-wide">
         <p class="kpi-label">Coût OpenRouter cumulé</p>
         <div class="kpi-value">48,54 $</div>
@@ -444,51 +511,23 @@
           <div class="kpi-breakdown-item"><span>Ce mois</span><strong class="cost-month">23,47 $</strong></div>
         </div>
       </div>
-    </div>
-
-    <!-- SEO-CARD:START -->
-    <span class="chart-label" style="margin-top:24px; display:block;">Référencement Google (SEO)</span>
+    </div></div></details>
+    <details class="chart-box dsec"><summary><span class="dsec-t">Référencement Google</span><span class="dsec-info" data-info="seo"></span><span class="dsec-f" aria-hidden="true"></span></summary><div class="dsec-body"><!-- SEO-CARD:START -->
     <div class="kpi-grid">
       <a class="kpi-card kpi-card-seo kpi-card-wide is-critique" href="seo.html">
-        <p class="kpi-label">Tableau de bord SEO — 2026-10-29</p>
+        <p class="kpi-label">Données du 2026-10-29</p>
         <div class="kpi-value">Critique</div>
-        <p class="kpi-sub">3 éditions de plus de 7 jours sont inconnues de Google (sur 33 pages inspectées). Demander l&#x27;indexation dans Search Console, vérifier un lien interne depuis une page déjà indexée, patienter si la page a moins de 7 jours.</p>
         <div class="kpi-breakdown kpi-breakdown-4col">
           <div class="kpi-breakdown-item"><span>Clics (28 j)</span><strong>2</strong></div>
           <div class="kpi-breakdown-item"><span>Impressions</span><strong>334</strong></div>
           <div class="kpi-breakdown-item"><span>Pages indexées</span><strong>21 / 33</strong></div>
           <div class="kpi-breakdown-item"><span>Problèmes à résoudre</span><strong>5</strong></div>
         </div>
-        <p class="kpi-go">Ouvrir l'analyse complète, les recommandations et les agents à envoyer →</p>
+        <p class="kpi-go">Ouvrir l'analyse SEO →</p>
       </a>
     </div>
-    <!-- SEO-CARD:END -->
-
-    <div class="chart-box">
-      <span class="chart-label">Lectures par semaine (non cumulé)</span>
-      <p class="chart-lead">Le signal qui compte vraiment : contrairement au cumul ci-dessous, cette série peut monter ou descendre — c'est elle qui répond à « est-ce que ça avance ». Semaines <strong>lundi → dimanche</strong>. Première et dernière barre = semaines partielles (lancement le mercredi 29 juillet, semaine en cours pas terminée).</p>
-      <div class="chart-wrap">
-        <svg id="weekly-svg" viewBox="0 0 700 200" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Lectures d'éditions par semaine, de 78 la semaine du 10 août 2026 à 15 la semaine précédente, semaine en cours 5 lectures, jusqu'au 29 octobre 2026"></svg>
-        <div class="chart-tooltip" id="weekly-tooltip"><p class="chart-tooltip-date"></p><p class="chart-tooltip-value"></p></div>
-      </div>
-    </div>
-
-    <div class="chart-box">
-      <span class="chart-label">Cumul depuis le lancement (repère de fond)</span>
-      <p class="chart-lead">Toujours croissante par construction — utile pour le niveau atteint, pas pour juger d'un ralentissement. Même donnée que la section « La communauté grandit » de <a href="le-projet.html" style="color:var(--gold)">le-projet.html</a>.</p>
-      <div class="chart-wrap">
-        <svg id="cumul-svg" viewBox="0 0 700 172" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Courbe de croissance des lectures cumulées d'éditions, de 0 le 29 juillet 2026 à 973 le 29 octobre 2026 — 98 éditions publiées au total depuis le lancement"></svg>
-        <div class="chart-tooltip" id="cumul-tooltip"><p class="chart-tooltip-date"></p><p class="chart-tooltip-value"></p></div>
-      </div>
-    </div>
-
-    <div class="chart-box">
-      <span class="chart-label">File d'attente éditoriale</span>
-      <p class="chart-lead">Prochain sujet en tête de chaque registre dans <code>data/sujets.json</code>, à date du 29 octobre 2026. Chaque registre a un jour fixe de la semaine (Sciences = vendredi, etc.), <strong>mais pas forcément cette semaine-ci</strong> : ce n'est pas une date engagée — un sujet « priorité absolue » ou une contrainte éditoriale peut faire passer un autre sujet avant celui-ci. <strong>Carte blanche</strong>&nbsp;: le mardi n'a pas de domaine imposé. On y range les sujets proposés par les lecteurs et les sujets très chauds repérés par la veille, qui ne peuvent pas attendre le tour de leur domaine.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:0 10px">
-<a href="preview.html" class="preview-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Voir le preview de demain</a>
-<a href="file-sujets.html" class="preview-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></svg>Voir la file de sujets</a>
-</div>
+    <!-- SEO-CARD:END --></div></details>
+    <details class="chart-box dsec"><summary><span class="chart-label">File d'attente éditoriale</span><span class="dsec-info" data-info="file"></span><span class="dsec-f" aria-hidden="true"></span></summary><div class="dsec-body">
       <div class="agenda-grid">
         <div class="agenda-card">
           <p class="agenda-day">Demain · Vendredi</p>
@@ -528,7 +567,7 @@
       </div>
       <p class="kpi-sub" style="margin-top:12px;">🔥 Priorité absolue : aucun sujet en file d'urgence actuellement — la routine suit l'ordre normal des registres ci-dessus.</p>
 
-      <p class="chart-lead" style="margin-top:18px;"><strong>Ensuite</strong> — le 2ᵉ sujet en attente dans chaque registre (sans date, même réserve que ci-dessus) :</p>
+      <p class="chart-lead" style="margin-top:18px;"><strong>Ensuite</strong></p>
       <ul class="agenda-later-list">
         <li><span class="agenda-later-tag">Géopolitique</span>Mondialisation et numérique devaient effacer les frontières&nbsp;: les États sont-ils en train de les rétablir&nbsp;?</li>
         <li><span class="agenda-later-tag">Carte blanche</span>Élections législatives russes&nbsp;: Poutine peut-il encore verrouiller le pouvoir sans provoquer de fissure&nbsp;?</li>
@@ -538,11 +577,9 @@
         <li><span class="agenda-later-tag">Culture</span>Budget culture 2027&nbsp;: le spectacle vivant peut-il survivre à une baisse de 4 % des crédits à la création&nbsp;?</li>
         <li><span class="agenda-later-tag">Sport</span>Le sport professionnel peut-il rester humain&nbsp;?</li>
       </ul>
-    </div>
-
-    <div class="chart-box">
-      <span class="chart-label">🔥 Derniers sujets identifiés</span>
-      <p class="chart-lead">Sujets ajoutés automatiquement à <code>data/sujets.json</code> par la routine de veille (mardi/vendredi, voir <code>scripts/edition/generate_hot_topics.py</code>) — à valider avant de passer en priorité. Une issue GitHub récapitulative est aussi créée à chaque passage. Dernier passage : <!-- HOT-TOPICS:DATE_START -->11 octobre 2026<!-- HOT-TOPICS:DATE_END --><!-- HOT-TOPICS:STALE_START --> <strong style="color:var(--degrade)">⚠️ 18 jours sans passage — vérifier que la tâche cron-job.org pour ce workflow existe toujours</strong><!-- HOT-TOPICS:STALE_END -->.</p>
+    </div></details>
+    <details class="chart-box dsec"><summary><span class="chart-label">🔥 Derniers sujets identifiés</span><span class="dsec-info" data-info="veille"></span><span class="dsec-f" aria-hidden="true"></span></summary><div class="dsec-body">
+      <p class="chart-lead">Dernier passage : <!-- HOT-TOPICS:DATE_START -->25 octobre 2026<!-- HOT-TOPICS:DATE_END --><!-- HOT-TOPICS:STALE_START --><!-- HOT-TOPICS:STALE_END --></p>
       <ul class="agenda-later-list">
         <!-- HOT-TOPICS:LIST_START -->
         <li><span class="agenda-later-tag">Carte blanche</span>Éthiopie-Érythrée : la déclaration de guerre d'Addis-Abeba va-t-elle déclencher un nouveau conflit régional ? <span class="agenda-later-empty">(11/10)</span></li>
@@ -557,11 +594,8 @@
         <li><span class="agenda-later-tag">Culture</span>Budget culture 2027 : le spectacle vivant peut-il survivre à une baisse de 4 % des crédits à la création ? <span class="agenda-later-empty">(04/10)</span></li>
         <!-- HOT-TOPICS:LIST_END -->
       </ul>
-    </div>
-
-    <div class="chart-box">
-      <span class="chart-label">Autonomie par registre — sujets non cochés</span>
-      <p class="chart-lead">Nombre de sujets en attente (non cochés) par section de <code>data/sujets.json</code>, à date du 29 octobre 2026. Chaque registre n'est consommé qu'<strong>une fois par semaine</strong> (édition quotidienne, un registre fixe par jour) — le nombre de semaines d'autonomie s'en déduit directement. Trié par autonomie croissante (le plus en tension en premier). Régénéré chaque jour par un GitHub Action, comme le reste du dashboard.</p>
+    </div></details>
+    <details class="chart-box dsec"><summary><span class="chart-label">Autonomie par registre — sujets non cochés</span><span class="dsec-info" data-info="auto"></span><span class="dsec-f" aria-hidden="true"></span></summary><div class="dsec-body">
       <table class="rank-table">
         <thead><tr><th>Registre</th><th>Non cochés</th><th>Autonomie</th></tr></thead>
         <tbody>
@@ -575,11 +609,7 @@
         </tbody>
       </table>
       <p class="kpi-sub" style="margin-top:12px;">Carte blanche (⚠️ ~2 semaines) : relayer les suggestions des lecteurs (<a href="mailto:scenariocontact75@gmail.com" style="color:var(--paper-dim)">scenariocontact75@gmail.com</a>) reste le moyen normal de réalimenter ce(s) registre(s).</p>
-    </div>
-
-    <p class="dash-note">
-      Pas encore là : abonnés newsletter (dépend de la migration Buttondown → OneSignal), abonnés réseaux sociaux (une intégration par plateforme), calibration/score historique (bloqués par le volume de suivis clôturés). Détail et priorités dans <a href="https://github.com/loliba92/Scenario/blob/main/docs/BACKLOG.md">docs/BACKLOG.md</a>, entrée « Dashboard de pilotage interne ».
-    </p>
+    </div></details>
   </div>
 </main>
 
@@ -927,5 +957,128 @@
 })();
 </script>
 
+<script>
+(function () {
+  // Points de vérification : dernier passage réel de chaque tâche automatique (API publique GitHub, gardée 5 min).
+  var REPO = 'loliba92/Scenario';
+  var TACHES = [
+    ['post-edition.yml', 'Rédaction et publication', 30],
+    ['podcast-quotidien.yml', 'Podcast du jour', 30],
+    ['gsc.yml', 'Search Console', 30],
+    ['audience.yml', 'Audience', 12],
+    ['hot-topics.yml', 'Veille des sujets', 9 * 24],
+    ['enrich-sujets.yml', 'Enrichissement des sujets', 30],
+    ['hebdo.yml', 'Récap hebdomadaire', 9 * 24]
+  ];
+  var CLE = 'scenario-dash-taches-v1';
+
+  function depuis(d) {
+    var m = Math.max(0, Math.round((Date.now() - d.getTime()) / 60000));
+    if (m < 2) return "à l'instant";
+    if (m < 60) return 'il y a ' + m + ' min';
+    if (m < 36 * 60) return 'il y a ' + Math.round(m / 60) + ' h';
+    return 'il y a ' + Math.round(m / 1440) + ' jours';
+  }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  function lire(f) {
+    return fetch('https://api.github.com/repos/' + REPO + '/actions/workflows/' + f + '/runs?per_page=6')
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (j) {
+        var runs = (j.workflow_runs || []).filter(function (x) {
+          return x.status !== 'completed' || x.conclusion === 'success' || x.conclusion === 'failure' || x.conclusion === 'timed_out';
+        });
+        var x = runs[0];
+        return x ? { st: x.status, c: x.conclusion, t: x.status === 'completed' ? x.updated_at : x.run_started_at, u: x.html_url } : null;
+      });
+  }
+
+  function lignesTaches(res) {
+    return TACHES.map(function (t, i) {
+      var r = res[i], cls, q;
+      if (r === false) { cls = 'pt'; q = 'lecture impossible'; }
+      else if (!r) { cls = 'pt'; q = 'aucun passage trouvé'; }
+      else {
+        var d = new Date(r.t), age = (Date.now() - d.getTime()) / 3600000;
+        if (r.st !== 'completed') { cls = 'run'; q = 'en cours'; }
+        else if (r.c !== 'success') { cls = 'ko'; q = 'a échoué ' + depuis(d); }
+        else if (age > t[2]) { cls = 'warn'; q = 'en retard : ' + depuis(d); }
+        else { cls = 'ok'; q = depuis(d); }
+      }
+      return { cls: cls, nom: t[1], q: q, u: r ? r.u : 'https://github.com/' + REPO + '/actions/workflows/' + t[0] };
+    });
+  }
+
+  function lignesPage() {
+    var out = [];
+    var seo = document.querySelector('.kpi-card-seo');
+    if (seo) {
+      var niv = /is-critique/.test(seo.className) ? 'ko' : /is-moyen/.test(seo.className) ? 'warn' : 'ok';
+      var v = seo.querySelector('.kpi-value'), it = seo.querySelectorAll('.kpi-breakdown-item strong');
+      var n = it.length ? it[it.length - 1].textContent : '';
+      out.push({ cls: niv, nom: 'Référencement Google', q: (v ? v.textContent : '') + (n ? ' · ' + n + ' à résoudre' : ''), u: 'seo.html', interne: true });
+    }
+    var tens = document.querySelectorAll('.rank-table .echeance[style*="--degrade"]');
+    out.push({ cls: tens.length ? 'warn' : 'ok', nom: 'File de sujets', q: tens.length ? tens.length + ' registre' + (tens.length > 1 ? 's' : '') + ' presque vide' + (tens.length > 1 ? 's' : '') : 'assez de sujets partout', u: 'file-sujets.html', interne: true });
+    return out;
+  }
+
+  function afficher(taches) {
+    var tout = lignesPage().concat(taches);
+    var ul = document.getElementById('chk-l');
+    ul.innerHTML = tout.map(function (l) {
+      return '<li class="chk-' + l.cls + '"><a href="' + esc(l.u) + '"' + (l.interne ? '' : ' target="_blank" rel="noopener noreferrer"') + '>'
+        + '<span class="pt pt-' + l.cls + '" aria-hidden="true"></span><span class="chk-n">' + esc(l.nom) + '</span><span class="chk-q">' + esc(l.q) + '</span></a></li>';
+    }).join('');
+    var ko = tout.filter(function (l) { return l.cls === 'ko'; }).length;
+    var warn = tout.filter(function (l) { return l.cls === 'warn'; }).length;
+    var run = tout.filter(function (l) { return l.cls === 'run'; }).length;
+    var pt = document.querySelector('#chk .chk-sum .pt');
+    var etat = ko ? ko + ' à corriger' + (warn ? ', ' + warn + ' à surveiller' : '') : warn ? warn + ' à surveiller' : run ? 'Tout va bien, une tâche en cours' : 'Tout est en ordre';
+    document.getElementById('chk-etat').textContent = etat;
+    pt.className = 'pt ' + (ko ? 'pt-ko' : warn ? 'pt-warn' : 'pt-ok');
+  }
+
+  function charger() {
+    var cache = null;
+    try { cache = JSON.parse(sessionStorage.getItem(CLE) || 'null'); } catch (e) {}
+    if (cache && Date.now() - cache.t < 300000) { afficher(lignesTaches(cache.res)); return; }
+    afficher([]);
+    Promise.all(TACHES.map(function (t) { return lire(t[0]).catch(function () { return false; }); })).then(function (res) {
+      if (res.every(function (r) { return r === false; })) {
+        document.getElementById('chk-etat').textContent = 'Tâches automatiques : GitHub injoignable';
+        return;
+      }
+      try { sessionStorage.setItem(CLE, JSON.stringify({ t: Date.now(), res: res })); } catch (e) {}
+      afficher(lignesTaches(res));
+    });
+  }
+
+  // Résumé d'une ligne à droite de chaque section repliée
+  function txt(el) { return el ? el.textContent.replace(/\s+/g, ' ').trim() : ''; }
+  function infos() {
+    var q = function (s, r) { return (r || document).querySelector(s); };
+    var set = function (k, t, etat) {
+      var e = q('[data-info="' + k + '"]'); if (!e) return;
+      e.textContent = t; if (etat) e.setAttribute('data-state', etat);
+    };
+    var aud = q('[data-info="aud"]'); aud = aud && aud.closest('details');
+    if (aud) { var kv = aud.querySelectorAll('.kpi-value'); set('aud', txt(kv[0]) + ' lectures · ' + txt(kv[1]) + ' sur 7 jours'); }
+    set('cout', txt(q('.kpi-card-cost .kpi-value')) + ' · ' + txt(q('.cost-today')) + " aujourd'hui");
+    var seo = q('.kpi-card-seo');
+    if (seo) set('seo', txt(q('.kpi-value', seo)), /is-critique/.test(seo.className) ? 'alerte' : /is-moyen/.test(seo.className) ? 'attention' : '');
+    var j = q('.agenda-card'); if (j) set('file', txt(q('.agenda-day', j)) + ' · ' + txt(q('.agenda-registre', j)));
+    var nb = document.querySelectorAll('.agenda-later-list').length ? (document.querySelectorAll('.agenda-later-list')[1] || { children: [] }).children.length : 0;
+    set('veille', nb ? nb + ' sujets récents' : 'aucun sujet récent');
+    var tens = document.querySelectorAll('.rank-table .echeance[style*="--degrade"]');
+    set('auto', tens.length ? tens.length + ' en tension' : 'rien à signaler', tens.length ? 'attention' : '');
+  }
+
+  function demarrer() { infos(); charger(); }
+  var dash = document.getElementById('dashboard');
+  if (!dash.hidden) demarrer();
+  else new MutationObserver(function (m, o) { if (!dash.hidden) { o.disconnect(); demarrer(); } }).observe(dash, { attributes: true, attributeFilter: ['hidden'] });
+})();
+</script>
 </body>
 </html>
