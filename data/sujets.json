@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "e5f6ea8e284277fdd3416ec58ca950dbfbb40a144e3f1f6e374e016fd2b87755"
+    "md_sha256": "8a880d2b2ad10263dfe377edfd1f134330e7102a05ff295b337429f4b6f53e75"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -5962,11 +5962,11 @@
           ],
           "origine": "veille",
           "note": "Ajouté automatiquement le 2026-10-11 (recherche OpenRouter, voir scripts/edition/generate_hot_topics.py) — à valider avant de passer en priorité.",
-          "donnees": null,
+          "donnees": "[relevé du 2026-10-29] Inflation annuelle IPCH zone euro (unité : %). Septembre 2025 = 2,2 % (2025-09) ; Avril 2026 = 3,0 % (2026-04) ; Mai 2026 = 3,2 % (2026-05) ; Juin 2026 = 2,8 % (2026-06) ; Juillet 2026 = 2,9 % (2026-07) ; Août 2026 = 3,2 % (2026-08) ; Septembre 2026 = 3,8 % (2026-09). Sources : https://ec.europa.eu/eurostat/en/web/products-euro-indicators/w/2-02102026-ap ; https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-16102026-ap",
           "ajoute_le": "2026-10-11",
           "publie_le": null,
           "edition": null,
-          "enrichi_le": null
+          "enrichi_le": "2026-10-29"
         },
         {
           "type": "sujet",
