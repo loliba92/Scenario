@@ -1,0 +1,174 @@
+{
+  "h1": "IA et emploi : transformer ou détruire le travail ?",
+  "question_text": "L'IA va-t-elle provoquer une destruction nette d'emplois ou principalement transformer le travail d'ici 2 à 5 ans ?",
+  "section_title": "Trois trajectoires pour l'emploi face à l'intelligence artificielle",
+  "dek": [
+    "Depuis deux ans, les outils d'intelligence artificielle se diffusent à une vitesse record dans notre quotidien. En France, près d'un habitant sur deux utilise désormais une IA générative<a class=\"lex-ref\" href=\"#lex-ia-generative\" aria-label=\"Voir la définition dans le lexique\">*</a>, un logiciel capable de rédiger du texte ou de créer des images sur commande. Cette adoption va plus vite que celle du smartphone en son temps. L'usage reste d'abord personnel pour 42 % des Français, mais il pénètre aussi les bureaux. Près de 85 % des 18-24 ans s'en servent déjà régulièrement. Cette révolution technique bouscule les repères du monde du travail et soulève une question immédiate : les machines vont-elles remplacer les salariés ou simplement modifier leurs tâches de tous les jours ?",
+    "Le débat public oppose souvent deux visions très tranchées. D'un côté, certains prédisent une vague massive de licenciements dans les bureaux. De l'autre, des observateurs annoncent un simple gain de temps qui rendra les travailleurs plus efficaces sans détruire de postes. En réalité, la situation actuelle est plus nuancée. Selon la note Trésor-Éco<a class=\"lex-ref\" href=\"#lex-tresor-eco\" aria-label=\"Voir la définition dans le lexique\">*</a> n°391 publiée en juin 2026, aucun effet agrégé significatif sur l'emploi global n'est mesurable pour l'instant. L'économie française continue de créer et de détruire des emplois selon ses cycles habituels. L'impact global de la technologie reste donc pour le moment invisible dans les statistiques nationales de l'emploi.",
+    "Pourtant, une nouvelle génération d'outils arrive dans les entreprises et change la donne technique : l'IA agentique<a class=\"lex-ref\" href=\"#lex-ia-agentique\" aria-label=\"Voir la définition dans le lexique\">*</a>. Contrairement à un simple robot conversationnel qui attend une consigne pour répondre, un agent autonome peut planifier plusieurs actions tout seul. Il peut corriger du code informatique, réserver des billets ou trier des dossiers sans intervention humaine continue. Selon le rapport d'information du Sénat intitulé « L'entreprise 5.0 » paru en avril 2026, <strong>16,3 % de l'emploi français</strong>, soit près de <strong>5 millions de personnes</strong>, est exposé à cette technologie à un horizon de deux à cinq ans.",
+    "Cette exposition technique touche directement des métiers autrefois très protégés. Les cadres, les juristes, les développeurs informatiques et les consultants voient une partie de leurs tâches quotidiennes automatisée par ces logiciels. Dans le même temps, le marché de l'emploi montre des signes de fragilité ciblés. Le taux de chômage des jeunes de 15 à 24 ans en France a progressé, passant de <strong>19,1 % au premier trimestre 2025</strong> à <strong>21,6 % au deuxième trimestre 2026</strong> selon l'INSEE. Si cette hausse dépend de la conjoncture économique globale, elle interroge sur l'insertion des débutants dans des secteurs où les tâches d'apprentissage sont désormais confiées à des algorithmes.",
+    "Pour amortir ce choc et éviter des fractures sociales, les pouvoirs publics tentent d'organiser la riposte par la formation continue. Le gouvernement a ainsi lancé le 22 septembre 2026 le plan national « Impulsion IA 2027 ». Doté de <strong>80 millions d'euros</strong>, ce programme public affiche l'objectif très ambitieux de former <strong>30 millions d'actifs</strong> aux outils numériques. L'État veut déployer une plateforme d'apprentissage gratuite baptisée « Explore IA » et intégrer des certifications dans les centres de formation d'apprentis dès 2027. La réussite de ce plan reste toutefois incertaine face à l'ampleur du chantier et à la rapidité des évolutions techniques.",
+    "L'avenir du travail dépendra de la vitesse d'adoption réelle de ces outils par les entreprises et de la capacité des salariés à monter en compétences. Trois scénarios distincts se dessinent pour les deux à cinq prochaines années. Une adaptation réussie transformerait les métiers sans détruire d'emplois nets, portée par de nouveaux gains de productivité. Une transition inégale concentrerait les pertes dans certains secteurs qualifiés tout en créant des postes ailleurs. Enfin, un décrochage rapide verrait l'automatisation détruire des postes plus vite que l'économie ne peut en inventer."
+  ],
+  "enjeu_en_clair": {
+    "lead": "L'arrivée des agents autonomes d'intelligence artificielle menace d'automatiser des millions de tâches de bureau.",
+    "text": "Les nouveaux outils d'intelligence artificielle ne se contentent plus de répondre à des questions. Ils exécutent désormais des séries de tâches complexes en toute autonomie. Près de 5 millions de travailleurs en France voient leur métier directement concerné. L'enjeu n'est pas la fin du travail, mais la vitesse à laquelle les salariés et les entreprises parviendront à s'adapter pour éviter des pertes d'emplois massives."
+  },
+  "stakes_branches": {
+    "favorable": "L'IA transforme les métiers sans détruire d'emplois nets grâce aux gains d'efficacité.",
+    "stable": "Les suppressions de postes restent localisées dans le conseil et l'ingénierie sans déséquilibre global.",
+    "degrade": "L'automatisation rapide supprime des postes qualifiés plus vite que la création d'emplois."
+  },
+  "comprendre_box": [
+    {
+      "lead": "L'IA agentique fonctionne comme un assistant qui prend des initiatives.",
+      "text": "Une IA générative classique ressemble à un dictionnaire interactif : elle répond quand on l'interroge. L'IA agentique ressemble plutôt à un stagiaire autonome. On lui donne un objectif général, comme organiser un planning ou vérifier des factures, et le logiciel décompose lui-même les étapes, utilise plusieurs programmes et corrige ses propres erreurs sans aide.",
+      "apres_dek_index": 2
+    },
+    {
+      "lead": "Être exposé à une technologie ne signifie pas voir son poste supprimé.",
+      "text": "Dire qu'un métier est exposé à 16,3 % signifie seulement qu'une partie de ses tâches quotidiennes peut être réalisée par une machine. Un comptable utilise déjà un tableur sans que son emploi ne disparaisse. L'outil supprime des gestes répétitifs pour libérer du temps sur le conseil, transformant le contenu du travail sans détruire le contrat d'embauche.",
+      "apres_dek_index": 3
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Part de l'emploi français exposé à l'IA agentique (estimation Sénat)",
+      "value": "16,3 % (5 millions de personnes)",
+      "delta": "Projection à 2-5 ans, rapport Sénat avril 2026"
+    },
+    {
+      "label": "Taux de chômage des 15-24 ans en France",
+      "value": "21,6 %",
+      "delta": "+2,5 points par rapport au T1 2025 (19,1 %)"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 30,
+      "gauge_word": "Probable",
+      "h3": "L'IA transforme le contenu des métiers sans détruire d'emplois à grande échelle",
+      "why": [
+        "Dans ce premier scénario, les entreprises intègrent les outils intelligents pour assister leurs équipes plutôt que pour remplacer des salariés. Les employés délèguent la rédaction de comptes-rendus, le tri de données et la recherche documentaire à des logiciels autonomes. Ce gain de temps permet aux salariés de se concentrer sur des missions relationnelles, créatives ou stratégiques à plus forte valeur. Les entreprises gagnent en productivité globale, ce qui stimule l'activité économique et encourage de nouveaux recrutements dans le conseil, la cybersécurité et la gestion de projets techniques.",
+        "Contrairement aux perspectives de rupture brutale, ce chemin repose sur une diffusion progressive des outils freinée par des règles de sécurité et le coût des infrastructures. Le plan public « Impulsion IA 2027 » permet de former rapidement les actifs, évitant ainsi un décrochage des compétences. L'économie absorberait alors cette vague technologique comme les précédentes révolutions informatiques, sans provoquer de hausse durable du chômage généralisé."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Part de l'emploi français exposé à l'IA agentique",
+          "evo_current": "16,3 %",
+          "evo_arrow": "flat",
+          "evo_prev": "Tâches absorbées sans perte de postes"
+        },
+        {
+          "field_name": "Taux de chômage des 15-24 ans en France",
+          "evo_current": "19,5 %",
+          "evo_arrow": "down",
+          "evo_prev": "Stabilisation puis recul vers le niveau de 2025"
+        }
+      ],
+      "france_line": "La montée en compétences des salariés préserve l'équilibre global de l'emploi et renforce la productivité des entreprises françaises.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 45,
+      "gauge_word": "Probable",
+      "h3": "Des suppressions de postes ciblées apparaissent dans le numérique et le conseil",
+      "why": [
+        "Dans ce deuxième scénario, l'effet de l'intelligence artificielle se fragmente selon les secteurs et les niveaux de qualification. Les métiers du développement informatique de base, du conseil junior, de la traduction et de la gestion administrative subissent des réductions d'effectifs directes. Les entreprises recrutent moins de jeunes diplômés pour traiter les tâches d'exécution simples, car les agents logiciels effectuent ce travail plus vite et pour un coût dérisoire. En revanche, les métiers manuels, les services à la personne, l'artisanat et l'industrie ne subissent aucun impact négatif.",
+        "Par rapport au scénario favorable, l'équilibre macroéconomique global reste stable mais cache de fortes disparités individuelles et territoriales. La note Trésor-Éco de juin 2026 observe déjà cette absence d'impact agrégé sur le total national, malgré des tensions localisées. Les dispositifs de formation publique atténueraient les difficultés des personnes touchées, mais le marché de l'emploi pourrait devenir durablement plus difficile d'accès pour les jeunes entrants sans expérience."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Part de l'emploi français exposé à l'IA agentique",
+          "evo_current": "16,3 %",
+          "evo_arrow": "up",
+          "evo_prev": "Tensions concentrées sur 5 millions d'actifs"
+        },
+        {
+          "field_name": "Taux de chômage des 15-24 ans en France",
+          "evo_current": "22,0 %",
+          "evo_arrow": "up",
+          "evo_prev": "Maintien à un niveau élevé pour les jeunes diplômés"
+        }
+      ],
+      "france_line": "Des reconversions obligatoires pénalisent certains secteurs tertiaires sans déstabiliser l'ensemble de l'économie nationale.",
+      "france_impact": "degrade"
+    },
+    "degrade": {
+      "pct": 25,
+      "gauge_word": "Probable",
+      "h3": "L'automatisation rapide provoque des pertes nettes d'emplois dans les services",
+      "why": [
+        "Dans ce troisième scénario, la performance des agents autonomes progresse beaucoup plus vite que la capacité des entreprises et des salariés à s'adapter. Les directions réduisent massivement leurs équipes de support, de gestion juridique, de comptabilité et de service client pour préserver leurs marges. Les suppressions de postes dépassent largement le rythme de création des nouveaux métiers de l'intelligence artificielle. Les jeunes professionnels peinent à trouver un premier emploi car les postes juniors sont directement supprimés ou automatisés dès leur ouverture.",
+        "À la différence des deux autres hypothèses, le système de formation professionnelle et le budget de 80 millions d'euros du plan étatique se révèlent insuffisants face à l'ampleur du choc. Les reconversions prennent plusieurs années alors que le déploiement des logiciels ne prend que quelques mois. Le taux de chômage des jeunes et des professions intermédiaires s'installerait alors durablement à la hausse, provoquant une crise sociale majeure dans les métiers intellectuels."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Part de l'emploi français exposé à l'IA agentique",
+          "evo_current": "20,0 %",
+          "evo_arrow": "up",
+          "evo_prev": "Extension de l'exposition au-delà des 5 millions d'actifs"
+        },
+        {
+          "field_name": "Taux de chômage des 15-24 ans en France",
+          "evo_current": "24,5 %",
+          "evo_arrow": "up",
+          "evo_prev": "Forte dégradation due au gel des embauches juniors"
+        }
+      ],
+      "france_line": "La disparition rapide de postes qualifiés pèse lourdement sur les comptes sociaux et freine l'insertion des jeunes diplômés.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "L'arrivée de l'intelligence artificielle autonome pose la question d'une destruction nette d'emplois ou d'une simple transformation des méthodes de travail d'ici deux à cinq ans.",
+    "Le rapport du Sénat estime que 16,3 % des emplois en France, soit près de 5 millions d'actifs, sont directement exposés, tandis que le chômage des 15-24 ans atteint 21,6 % au deuxième trimestre 2026.",
+    "Principalement une transformation : notre scénario le plus probable (45 %) anticipe des pertes localisées dans les services qualifiés mais sans effondrement global du marché du travail.",
+    "Le déploiement concret de la plateforme publique Explore IA et des formations du plan Impulsion IA 2027 prévu au premier semestre 2027 servira de test pour mesurer la capacité d'adaptation des salariés."
+  ],
+  "delta_france": {
+    "kind": "negatif",
+    "score": -0.4,
+    "word": "léger négatif",
+    "text": "notre scénario central de transition inégale (45 %) et le risque de destruction nette (25 %) l'emportent sur une adaptation sans heurts (30 %), signalant des tensions réelles sur l'emploi qualifié et l'insertion des jeunes."
+  },
+  "phrase_a_retenir": "En France, 16,3 % de l'emploi, soit près de 5 millions de personnes, est exposé à l'IA agentique d'ici deux à cinq ans selon le rapport du Sénat.",
+  "phrase_a_retenir_stat": "16,3 %",
+  "lexique": [
+    {
+      "slug": "ia-generative",
+      "terme": "IA générative",
+      "definition": "Technologie informatique capable de créer des textes, du code, des images ou des sons à partir de consignes rédigées en langage ordinaire."
+    },
+    {
+      "slug": "ia-agentique",
+      "terme": "IA agentique",
+      "definition": "Système d'intelligence artificielle capable d'exécuter de manière autonome une suite complexe de tâches pour atteindre un objectif fixé sans guidage pas à pas."
+    },
+    {
+      "slug": "tresor-eco",
+      "terme": "Trésor-Éco",
+      "definition": "Publication d'analyse économique réalisée par la Direction générale du Trésor pour éclairer les politiques publiques du ministère de l'Économie."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://www.senat.fr/rap/r25-572/r25-5724.html\" target=\"_blank\" rel=\"noopener noreferrer\">Sénat français — Rapport d'information n°572 – L'entreprise 5.0 : impact de l'IA sur les entreprises ↗</a>",
+    "<a href=\"https://www.tresor.economie.gouv.fr/Articles/895c28b4-dca6-4ca6-b03b-88058fc4ce87/files/a0c9e9a1-6c53-4f2e-ad5d-f603fd5c456d\" target=\"_blank\" rel=\"noopener noreferrer\">Direction générale du Trésor — Trésor-Éco n°391 – L'intelligence artificielle, quels effets sur l'emploi ? ↗</a>",
+    "<a href=\"https://www.insee.fr/fr/statistiques/2532173\" target=\"_blank\" rel=\"noopener noreferrer\">INSEE — Taux de chômage des 15-24 ans en France (séries trimestrielles) ↗</a>",
+    "<a href=\"https://www.juritravail.com/Actualite/lia-dans-le-monde-du-travail-ce-que-prevoit-le-gouvernement-dans-son-plan-impulsion-ia-2027/Id/378600\" target=\"_blank\" rel=\"noopener noreferrer\">Jurif travail (article de presse) — Plan Impulsion IA 2027 – Ministère du Travail ↗</a>"
+  ],
+  "meta": {
+    "title": "IA et emploi : transformer ou détruire le travail ? — Scénario",
+    "meta_description": "IA et emploi : transformer ou détruire le travail ? Analyse fondée sur données scientifiques.",
+    "og_image_alt": "Illustration conceptuelle sur l'impact de l'intelligence artificielle sur le monde du travail",
+    "keywords": [
+      "recherche",
+      "santé",
+      "innovation",
+      "étude scientifique"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-30.html\"\n  },\n  \"headline\": \"IA et emploi : transformer ou détruire le travail ? — Scénario\",\n  \"description\": \"IA et emploi : transformer ou détruire le travail ? Analyse fondée sur données scientifiques.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-30.png\"\n  ],\n  \"datePublished\": \"2026-10-30T00:00:00\",\n  \"dateModified\": \"2026-10-30T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"recherche, santé, innovation, étude scientifique\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Sciences\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"IA et emploi : transformer ou détruire le travail ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-30.html\"\n    }\n  ]\n}"
+  }
+}

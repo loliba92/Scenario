@@ -1,0 +1,307 @@
+{
+  "date": "2026-10-30",
+  "registre": "sciences",
+  "sujet": {
+    "titre_propose": "IA et emploi : l'intelligence artificielle va-t-elle détruire ou transformer le travail ?",
+    "h1": "IA et emploi : transformer ou détruire le travail ?",
+    "question_posee": "L'IA va-t-elle provoquer une destruction nette d'emplois ou principalement transformer le travail d'ici 2 à 5 ans ?",
+    "eyebrow": "Vendredi, sciences",
+    "angle": "En France, le rapport Sénat 'Entreprise 5.0' estime que 16,3 % de l'emploi (5 millions de personnes) est exposé à l'IA agentique à 2-5 ans, mais sans effet agrégé mesurable à court terme selon Trésor-Éco. Des réductions d'effectifs sont pourtant signalées dans le numérique, l'ingénierie et le conseil, tandis que le plan Impulsion IA 2027 (80 M€, 30 millions d'actifs à former) et les freins à l'adoption pourraient orienter vers une transformation plutôt qu'une destruction.",
+    "tags": [
+      "ia",
+      "emploi",
+      "travail",
+      "formation"
+    ],
+    "domain": "sciences",
+    "image_keywords": "artificial intelligence workplace technology",
+    "complexite": 4,
+    "origine_prioritaire": "IA et emploi : l'intelligence artificielle va-t-elle détruire ou transformer le travail ?",
+    "origine_id": "sciences-ia-et-emploi-l-intelligence-artificielle-va-t",
+    "point_de_depart": {
+      "id": "sciences-ia-et-emploi-l-intelligence-artificielle-va-t",
+      "registre": "sciences",
+      "titre": "IA et emploi : l'intelligence artificielle va-t-elle détruire ou transformer le travail ?",
+      "question": "IA et emploi : l'intelligence artificielle va-t-elle détruire ou transformer le travail ?",
+      "contexte": "L'essor de l'IA générative depuis 2022 suscite un débat intense sur son impact sur l'emploi. En France, le rapport d'information du Sénat 'L'entreprise 5.0' (avril 2026) estime que 16,3 % de l'emploi français, soit près de 5 millions de personnes, pourrait être menacé à horizon 2-5 ans avec le déploiement de l'IA agentique, mais précise qu'il s'agit d'une exposition technique des tâches et non d'une destruction nette annoncée. La note Trésor-Éco n°391 (juin 2026) indique qu'aucun effet agrégé significatif de l'IA sur l'emploi n'est mesurable à ce stade, mais que des destructions localisées sont observées : le taux de chômage des 15-24 ans est passé de 19,1 % à 21,1 % entre le T1 2025 et le T1 2026, et 7 % des entreprises du numérique, de l'ingénierie et du conseil déclarent avoir réduit leurs effectifs à cause de l'IA (baromètre Opiiec, mars 2026). Parallèlement, le gouvernement a lancé le 22 septembre 2026 le plan 'Impulsion IA 2027', doté de 80 millions d'euros, visant à former 30 millions d'actifs à l'IA via une plateforme publique, une certification nationale et un accompagnement des TPE-PME. Une étude BCG (avril 2026) estime qu'aux États-Unis, 50 à 55 % des emplois seront transformés d'ici trois ans, tandis que 10 à 15 % pourraient disparaître à cinq ans.",
+      "rationnel": "La question : L'IA va-t-elle provoquer une destruction nette d'emplois ou principalement transformer le travail d'ici 2 à 5 ans ? Les forces techniques de l'IA agentive et les annonces de réductions d'effectifs (7 % des entreprises du numérique, de l'ingénierie et du conseil) poussent vers un scénario dégradé, tandis que les études empiriques (Trésor-Éco n°391, BCG) ne montrent pas d'effet net négatif à l'échelle macroéconomique, les gains de productivité pouvant créer de nouveaux besoins de main‑d'œuvre et l'adoption étant freinée par des contraintes techniques et organisationnelles, sans oublier le plan Impulsion IA 2027 (80 M€, 30 millions d'actifs à former) qui pourrait orienter vers un scénario favorable ou stable. Pour un lecteur français, l'enjeu concerne les millions d'emplois qualifiés (ingénierie, droit, finance, création) potentiellement exposés et dépend de la mise en œuvre effective des politiques de formation et d'accompagnement actuellement en cours.",
+      "mots_cles": [
+        "IA générative emploi France 2026",
+        "substitution IA travail",
+        "Trésor-Éco IA emploi",
+        "rapport Sénat entreprise 5.0 IA",
+        "Impulsion IA 2027 formation",
+        "Coface OEM 5 millions emplois",
+        "Opiiec baromètre IA effectifs",
+        "BCG AI reshape jobs 2026"
+      ],
+      "angle": null,
+      "a_verifier": "Chiffres précis des suppressions de postes attribuées à l'IA en France en 2026 (entreprises, secteurs) ; données actualisées du taux de chômage des jeunes au T3 2026 ; état d'avancement des mesures du plan Impulsion IA 2027 à date d'octobre 2026.",
+      "scenarios_brouillon": null,
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "Trésor-Éco n°391 – L'intelligence artificielle, quels effets sur l'emploi ? (juin 2026)",
+          "url": "https://www.tresor.economie.gouv.fr/Articles/895c28b4-dca6-4ca6-b03b-88058fc4ce87/files/a0c9e9a1-6c53-4f2e-ad5d-f603fd5c456d"
+        },
+        {
+          "titre": "Rapport d'information Sénat n°572 – L'entreprise 5.0 : impact de l'IA sur les entreprises (avril 2026)",
+          "url": "https://www.senat.fr/rap/r25-572/r25-5724.html"
+        },
+        {
+          "titre": "BCG – AI Will Reshape More Jobs Than It Replaces (avril 2026)",
+          "url": "https://www.bcg.com/press/8april2026-intelligence-artificielle-plus-d-un-emplois-sur-deux-transformed-ici-trois-ans"
+        },
+        {
+          "titre": "Plan Impulsion IA 2027 – Ministère du Travail (septembre 2026)",
+          "url": "https://www.juritravail.com/Actualite/lia-dans-le-monde-du-travail-ce-que-prevoit-le-gouvernement-dans-son-plan-impulsion-ia-2027/Id/378600"
+        }
+      ],
+      "tag": "IA & numérique",
+      "origine": null,
+      "note_editoriale": null,
+      "donnees_graphique": "[relevé du 2026-10-28] Taux de chômage des 15-24 ans en France (unité : %). T1 2025 = 19,1 % (2025-T1) ; T1 2026 = 21,2 % (2026-T1) ; T2 2026 = 21,6 % (2026-T2). Sources : https://www.insee.fr/fr/statistiques/2532173",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Veille (29/10) : sujet sur les valorisations tech/IA, pas de recoupement fort avec l'emploi. Même registre sciences : éditions récentes sur IA (13/10 risque extinction, 16/10 énergie sombre, 11/10 Milan-Cortina juges IA, 19/10 Corée missile IA) traitent d'autres angles (sécurité, astrophysique, sport, géopolitique) sans lien avec l'emploi. Sujet inédit dans cette perspective."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Le rapport d'information du Sénat 'L'entreprise 5.0' (avril 2026) estime que 16,3 % de l'emploi français, soit près de 5 millions de personnes, pourrait être exposé à l'IA agentique à horizon 2-5 ans.",
+      "chiffre": "16,3 % (5 millions de personnes)",
+      "date_du_chiffre": "2026-04",
+      "sources": [
+        "senat-entreprise-5-0"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "La note Trésor-Éco n°391 (juin 2026) indique qu'aucun effet agrégé significatif de l'IA sur l'emploi n'est mesurable à ce stade.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "tresoreco-391"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le taux de chômage des 15-24 ans en France est passé de 19,1 % au T1 2025 à 21,2 % au T1 2026, puis à 21,6 % au T2 2026.",
+      "chiffre": "19,1 % (T1 2025) → 21,2 % (T1 2026) → 21,6 % (T2 2026)",
+      "date_du_chiffre": "2026-08",
+      "sources": [
+        "insee-chomage-jeunes"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "Le gouvernement a lancé le 22 septembre 2026 le plan 'Impulsion IA 2027', doté de 80 millions d'euros, visant à former 30 millions d'actifs à l'IA.",
+      "chiffre": "80 millions d'euros ; 30 millions d'actifs",
+      "date_du_chiffre": "2026-09-22",
+      "sources": [
+        "impulsion-ia-2027"
+      ],
+      "confiance": "moyenne"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "Sénat français",
+      "role": "Auteur du rapport d'information 'L'entreprise 5.0' sur l'impact de l'IA sur les entreprises"
+    },
+    {
+      "nom": "Trésor-Éco (Direction générale du Trésor)",
+      "role": "Éditeur de la note n°391 sur les effets de l'IA sur l'emploi"
+    },
+    {
+      "nom": "INSEE",
+      "role": "Source des données sur le taux de chômage des 15-24 ans"
+    },
+    {
+      "nom": "Gouvernement français (Ministère du Travail)",
+      "role": "Lanceur du plan Impulsion IA 2027 de formation à l'IA"
+    },
+    {
+      "nom": "Opiiec",
+      "role": "Organisme de surveillance de l'emploi dans les métiers de l'ingénierie, du numérique et du conseil"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2022",
+      "evenement": "Début de l'essor de l'IA générative"
+    },
+    {
+      "date": "2026-04",
+      "evenement": "Publication du rapport Sénat 'L'entreprise 5.0' estimant 16,3 % d'emplois exposés à l'IA agentique"
+    },
+    {
+      "date": "2026-06",
+      "evenement": "Publication de la note Trésor-Éco n°391 sur les effets de l'IA sur l'emploi"
+    },
+    {
+      "date": "2026-09-22",
+      "evenement": "Lancement du plan Impulsion IA 2027 (80 M€, 30 millions d'actifs à former)"
+    },
+    {
+      "date": "2026-10-30",
+      "evenement": "Date du brief — état des lieux à ce jour"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "L'IA transforme principalement les tâches sans destruction nette d'emplois à l'échelle macroéconomique. Les gains de productivité créent de nouveaux besoins de main-d'œuvre, l'adoption est freinée par des contraintes techniques et organisationnelles, et le plan Impulsion IA 2027 permet une transition accompagnée. Le taux de chômage des jeunes se stabilise ou recule.",
+      "probabilite_suggeree": 30
+    },
+    "stable": {
+      "resume": "L'IA provoque des destructions localisées dans certains métiers (numérique, ingénierie, conseil) mais des créations compensatrices dans d'autres secteurs. L'effet net à l'échelle de l'économie reste faible, mais les inégalités de transition se creusent entre métiers exposés et non exposés. Le plan de formation atténue les ruptures mais ne les annule pas.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "L'IA agentique entraîne une destruction nette d'emplois dans les métiers qualifiés (ingénierie, droit, finance, création) plus rapide que la création de nouveaux emplois. Les réductions d'effectifs se généralisent, le chômage des jeunes continue de grimper, et les politiques de formation peinent à compenser la vitesse du changement technique.",
+      "probabilite_suggeree": 25
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Part de l'emploi français exposé à l'IA agentique (estimation Sénat)",
+      "valeur": "16,3 % (5 millions de personnes)",
+      "tendance": "Exposition à la hausse avec le déploiement de l'IA agentique"
+    },
+    {
+      "label": "Taux de chômage des 15-24 ans en France",
+      "valeur": "21,6 % (T2 2026)",
+      "tendance": "En hausse depuis le T1 2025 (19,1 %)"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Le taux de chômage des 15-24 ans est une série mensuelle publique (INSEE, enquête Emploi) mais les points disponibles sur une période longue ne satisfont pas le critère (2) : la série ne couvre pas une période longue par rapport à l'âge du sujet (l'IA générative n'existe qu depuis 2022). La source INSEE a été vérifiée (https://www.insee.fr/fr/statistiques/2532173) : données trimestrielles disponibles, mais moins de 5 points réels sur une période longue éclairant directement la question du jour. Critère (1) partiellement satisfait, (2) non satisfait, (3) partiellement satisfait.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "oui",
+    "raison": "Trois chiffres réels et comparables (taux de chômage des 15-24 ans à trois dates) sont disponibles dans les faits vérifiés et la source INSEE. Même unité (%), même indicateur, trois dates — comparaison avant/après pertinente pour le sujet.",
+    "barres": {
+      "aria_label": "Taux de chômage des 15-24 ans en France, T1 2025 à T2 2026",
+      "lead": "Le taux de chômage des 15-24 ans en France a progressé entre le premier trimestre 2025 et le deuxième trimestre 2026.",
+      "caption": "Source : INSEE, enquête Emploi (https://www.insee.fr/fr/statistiques/2532173)",
+      "unite": "%",
+      "valeurs": [
+        {
+          "label": "T1 2025",
+          "valeur": 19.1,
+          "affichage": "19,1 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "T1 2026",
+          "valeur": 21.2,
+          "affichage": "21,2 %",
+          "mis_en_avant": false
+        },
+        {
+          "label": "T2 2026",
+          "valeur": 21.6,
+          "affichage": "21,6 %",
+          "mis_en_avant": true
+        }
+      ]
+    }
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Ce qu'est l'IA agentique et pourquoi elle change la donne par rapport aux IA précédentes",
+        "rattache_a": "fait Sénat : 16,3 % d'emplois exposés à l'IA agentique"
+      },
+      {
+        "focus": "Pourquoi un chiffre d'exposition (16,3 %) n'est pas un chiffre de destruction d'emplois",
+        "rattache_a": "fait Sénat et fait Trésor-Éco : exposition vs effet agrégé"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "L'ampleur réelle des suppressions de postes attribuées à l'IA en France en 2026 (le baromètre Opiiec de mars 2026 signalant 7 % d'entreprises du numérique, de l'ingénierie et du conseil ayant réduit leurs effectifs n'a pas pu être vérifié via une source accessible — à confirmer ou nuancer)",
+    "L'état d'avancement effectif des mesures du plan Impulsion IA 2027 à la date du brief (détails non vérifiés)"
+  ],
+  "a_ne_pas_affirmer": [
+    "Que 7 % des entreprises du numérique, de l'ingénierie et du conseil ont réduit leurs effectifs à cause de l'IA (chiffre Opiiec de mars 2026 non vérifié via une source accessible)",
+    "Que l'étude BCG d'avril 2026 estime que 50 à 55 % des emplois américains seront transformés d'ici trois ans et 10 à 15 % disparaîtront à cinq ans (source non vérifiée via une URL accessible)"
+  ],
+  "sources": [
+    {
+      "id": "senat-entreprise-5-0",
+      "title": "Rapport d'information n°572 – L'entreprise 5.0 : impact de l'IA sur les entreprises",
+      "source": "Sénat français",
+      "url": "https://www.senat.fr/rap/r25-572/r25-5724.html",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Rapport d'information du Sénat de avril 2026 sur l'impact de l'intelligence artificielle sur les entreprises, estimant que 16,3 % de l'emploi français (environ 5 millions de personnes) pourrait être exposé à l'IA agentique à horizon 2-5 ans.",
+      "read_minutes": 5
+    },
+    {
+      "id": "tresoreco-391",
+      "title": "Trésor-Éco n°391 – L'intelligence artificielle, quels effets sur l'emploi ?",
+      "source": "Direction générale du Trésor",
+      "url": "https://www.tresor.economie.gouv.fr/Articles/895c28b4-dca6-4ca6-b03b-88058fc4ce87/files/a0c9e9a1-6c53-4f2e-ad5d-f603fd5c456d",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Note de juin 2026 de la Direction générale du Trésor indiquant qu'aucun effet agrégé significatif de l'IA sur l'emploi n'est mesurable à ce stade, tout en notant des destructions localisées.",
+      "read_minutes": 5
+    },
+    {
+      "id": "insee-chomage-jeunes",
+      "title": "Taux de chômage des 15-24 ans en France (séries trimestrielles)",
+      "source": "INSEE",
+      "url": "https://www.insee.fr/fr/statistiques/2532173",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Série trimestrielle du taux de chômage des 15-24 ans en France : 19,1 % au T1 2025, 21,2 % au T1 2026, 21,6 % au T2 2026.",
+      "read_minutes": 2
+    },
+    {
+      "id": "impulsion-ia-2027",
+      "title": "Plan Impulsion IA 2027 – Ministère du Travail",
+      "source": "Jurif travail (article de presse)",
+      "url": "https://www.juritravail.com/Actualite/lia-dans-le-monde-du-travail-ce-que-prevoit-le-gouvernement-dans-son-plan-impulsion-ia-2027/Id/378600",
+      "image": null,
+      "lang": "fr",
+      "domain": "sciences",
+      "summary": "Article de septembre 2026 présentant le plan Impulsion IA 2027 lancé le 22 septembre 2026, doté de 80 millions d'euros, visant à former 30 millions d'actifs à l'IA via une plateforme publique, une certification nationale et un accompagnement des TPE-PME.",
+      "read_minutes": 3
+    }
+  ],
+  "revue_de_presse": [],
+  "articles_connexes": [
+    {
+      "date": "2026-10-13",
+      "titre": "IA : risque d'extinction ou peur exagérée ?",
+      "lien": "Même sujet central (intelligence artificielle) mais angle différent : risque existentiel vs impact sur l'emploi — les deux éditions traitent de l'IA mais sur des questions distinctes, utile pour le lecteur qui veut comprendre la pluralité des débats sur l'IA."
+    },
+    {
+      "date": "2026-09-11",
+      "titre": "IA : le pari à 725 milliards de la tech américaine",
+      "lien": "Même filière technologique (IA) et même période : les investissements massifs de la tech américaine dans l'IA sont le contexte économique qui rend possible le déploiement de l'IA agentique et donc l'exposition de l'emploi."
+    },
+    {
+      "date": "2026-10-01",
+      "titre": "Bitcoin : le bitcoin devient-il un actif institutionnel ?",
+      "lien": "Lien thématique indirect : transformation du travail et des actifs par les technologies numériques — les deux éditions abordent la question de la transformation structurelle induite par une technologie (IA ou crypto) et de son impact sur les acteurs économiques."
+    }
+  ],
+  "recommandations_redaction": [
+    "Préciser dès le départ la distinction entre exposition des tâches (16,3 %) et destruction nette d'emplois — c'est la tension centrale du sujet.",
+    "Nuancer le chiffre Opiiec (7 % d'entreprises ayant réduit leurs effectifs) : il n'a pas été vérifié via une source accessible, le traiter comme une indication non confirmée ou le retirer si aucune source n'est trouvée.",
+    "L'étude BCG (50-55 % d'emplois transformés, 10-15 % disparus) n'a pas pu être vérifiée via une URL accessible : ne pas l'utiliser comme fait vérifié, la mentionner comme étude non confirmée ou la retirer.",
+    "Insister sur le plan Impulsion IA 2027 comme facteur incertain : son ampleur (30 millions d'actifs) est ambitieuse, son effet réel sur la transition dépend de la mise en œuvre effective.",
+    "Utiliser le graphique de repli (taux de chômage des 15-24 ans) pour illustrer la tendance au chômage des jeunes, sans lui faire dire plus que ce qu'il montre (corrélation, pas causalité avec l'IA)."
+  ]
+}
