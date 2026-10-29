@@ -470,19 +470,17 @@ def maj_dashboard(A, chemin_dash):
     nom = {"critique": "Critique", "moyen": "À améliorer", "bon": "Bon état"}[niveau]
     n_prob = len(A["critiques"]) + len(A["importants"])
     carte = f"""
-    <span class="chart-label" style="margin-top:24px; display:block;">Référencement Google (SEO)</span>
     <div class="kpi-grid">
       <a class="kpi-card kpi-card-seo kpi-card-wide is-{niveau}" href="seo.html">
-        <p class="kpi-label">Tableau de bord SEO — {e(A['synchro'])}</p>
+        <p class="kpi-label">Données du {e(A['synchro'])}</p>
         <div class="kpi-value">{nom}</div>
-        <p class="kpi-sub">{e(texte.replace('`', ''))[:230]}</p>
         <div class="kpi-breakdown kpi-breakdown-4col">
           <div class="kpi-breakdown-item"><span>Clics (28 j)</span><strong>{k['clics']}</strong></div>
           <div class="kpi-breakdown-item"><span>Impressions</span><strong>{k['impressions']}</strong></div>
           <div class="kpi-breakdown-item"><span>Pages indexées</span><strong>{k.get('indexees', 0)} / {k.get('inspectees', 0)}</strong></div>
           <div class="kpi-breakdown-item"><span>Problèmes à résoudre</span><strong>{n_prob}</strong></div>
         </div>
-        <p class="kpi-go">Ouvrir l'analyse complète, les recommandations et les agents à envoyer →</p>
+        <p class="kpi-go">Ouvrir l'analyse SEO →</p>
       </a>
     </div>
     """

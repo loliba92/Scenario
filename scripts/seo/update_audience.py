@@ -818,7 +818,7 @@ def update_dashboard(cumulative, weekly, kpis, end_date, agenda_cards, agenda_la
         if days_late > 10:
             stale_html = (
                 f' <strong style="color:var(--degrade)">⚠️ {days_late} jours sans passage — '
-                f"vérifier que la tâche cron-job.org pour ce workflow existe toujours</strong>"
+                f"voir la tâche « Veille des sujets » en haut de la page</strong>"
             )
     html = re.sub(
         r"(<!-- HOT-TOPICS:STALE_START -->).*?(<!-- HOT-TOPICS:STALE_END -->)",
