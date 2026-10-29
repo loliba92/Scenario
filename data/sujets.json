@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "7c5bbcd7b68a92474df01eb75b26baa2850c42793001d6059810a11c3e4c16f5"
+    "md_sha256": "e5f6ea8e284277fdd3416ec58ca950dbfbb40a144e3f1f6e374e016fd2b87755"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -5871,7 +5871,7 @@
           "titre": "Bulle de l'IA sur les marchés financiers : les valorisations liées à l'intelligence artificielle vont-elles corriger fortement ?",
           "question": null,
           "tag": "économie & finance",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "Depuis le début 2026, les valorisations boursières des géants technologiques liés à l'intelligence artificielle atteignent des sommets historiques. Nvidia a franchi le cap des 5 000 milliards de dollars de capitalisation en avril 2026, dépassant 5 400 milliards en septembre, soit plus que l'ensemble de l'indice Russell 2000 réuni. Les cinq plus grandes capitalisations mondiales sont désormais des entreprises technologiques (Nvidia, Apple, Alphabet, Microsoft, Amazon). Le 17 août 2026, la Banque centrale européenne a publié un article de blog avertissant qu'une correction des valorisations boursières actuelles est probable, les ratios cours/bénéfices étant proches des sommets de la bulle Internet de 1999-2000. Le 14 septembre 2026, les dirigeants d'Anthropic et d'OpenAI ont appelé à ralentir le développement de l'IA pour des raisons de sécurité, provoquant une chute de 10 à 13 % de l'action SoftBank à Tokyo et des reculs sur les places asiatiques. OpenAI a repoussé son introduction en Bourse au-delà de 2026, tout en cherchant une levée de fonds à 1 400 milliards de dollars de valorisation. Les ménages de la zone euro détiennent environ 440 milliards d'euros d'exposition aux actions des 'Magnificent Seven' (Alphabet, Amazon, Apple, Meta, Microsoft, Nvidia, Tesla), principalement via des ETF, selon la BCE.",
           "rationnel": "La question : La valorisation des actions liées à l'intelligence artificielle va-t-elle connaître une correction significative d'ici fin 2027 ? D'une part, les bénéfices réels de Nvidia (193 milliards de dollars sur un an) et l'adoption massive de l'IA soutiennent une partie des valorisations actuelles ; d'autre part, les ratios cours/bénéfices historiquement tendus, les reports d'introductions en Bourse et les risques réglementaires soulignés par la BCE et par les dirigeants d'Anthropic et d'OpenAI créent une incertitude majeure. Pour un lecteur français, l'enjeu est concret : les ménages de la zone euro détiennent environ 440 milliards d'euros d'exposition aux valeurs technologiques américaines (Magnificent Seven) principalement via des ETF et des fonds de pension, de sorte qu'une correction pourrait impacter l'épargne retraite et la stabilité financière en zone euro.",
@@ -5914,8 +5914,8 @@
           "note": null,
           "donnees": "[relevé du 2026-10-18] Capitalisation boursière de Nvidia (unité : milliards USD). Avril 2026 = 5040 (2026-04-26) ; Septembre 2026 = 5532 (2026-09-30) ; Octobre 2026 = 5170 (2026-10-16). Sources : https://businessquant.com/metrics/nvda/market-capitalization ; https://microtrends.org/nvidia/market-cap ; https://stockanalysis.com/stocks/nvda/market-cap/",
           "ajoute_le": null,
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-10-29",
+          "edition": "2026-10-29",
           "enrichi_le": "2026-10-18"
         },
         {
