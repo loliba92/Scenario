@@ -2,6 +2,61 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-29",
+      "articles": [
+        {
+          "title": "Sánchez pledges tough line on possible safety failures after Toledo train crash",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/10/29/sanchez-pledges-tough-line-on-possible-safety-failures-after-toledo-train-crash",
+          "image": "https://images.euronews.com/articles/stories/09/97/06/03/1200x675_cmsv2_c3350c81-372e-576a-bcd0-cf740cb1bd2f-9970603.jpg",
+          "lang": "en",
+          "domain": "international",
+          "summary": "Spanish Prime Minister Pedro Sánchez announced three days of national mourning after a high-speed train collision near Toledo on 28 October killed 68 people and injured more than 100. He pledged a firm response if safety system failures are confirmed, as the Rail Accident Investigation Commission and courts examine the cause.",
+          "read_minutes": 3
+        },
+        {
+          "title": "L'UE et le Canada entament un sommet pour sceller un rapprochement inédit",
+          "source": "France 24",
+          "url": "https://www.france24.com/fr/europe/20261029-ue-canada-entament-sommet-rapprochement-inedit-von-der-leyen-mark-carney",
+          "image": "https://s.france24.com/media/display/de478f98-d32c-11f1-b496-47de50b3c1e4/w:1280/p:16x9/AP26264053021764.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Un sommet de deux jours s'ouvre jeudi 29 octobre à Montréal entre l'Union européenne et le Canada pour étendre la coopération aux minerais stratégiques, au commerce numérique et à la mobilité des jeunes. Ursula von der Leyen a évoqué un statut de \"membre associé\" pour le Canada, mais Bruxelles devrait renoncer à ce terme face aux réticences de certains États membres.",
+          "read_minutes": 3
+        },
+        {
+          "title": "En France, le Sénat vote l'imprescriptibilité des crimes sexuels commis sur les mineurs",
+          "source": "France 24",
+          "url": "https://www.france24.com/fr/france/20261029-en-france-le-s%C3%A9nat-vote-l-imprescriptibilit%C3%A9-des-crimes-sexuels-commis-sur-les-mineurs",
+          "image": "https://s.france24.com/media/display/743004ea-d32d-11f1-9579-811458fcf026/w:1280/p:16x9/ddebad9cb4c4927230c7519fa204074a8cd1a885.jpg",
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Le Sénat a voté mercredi 28 octobre pour l'imprescriptibilité des crimes sexuels commis sur les mineurs, avec 252 voix pour et 80 contre. Cette mesure, déjà approuvée par l'Assemblée nationale, s'étend jusqu'ici réservée aux crimes contre l'humanité et ouvrira la voie à un changement majeur dans la justice française.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Dans la rue, au Parlement et dans les médias, le climat politique se tend à six mois de la présidentielle",
+          "source": "France 24",
+          "url": "https://www.france24.com/fr/info-en-continu/20261029-dans-la-rue-au-parlement-et-dans-les-m%C3%A9dias-le-climat-politique-se-tend-%C3%A0-six-mois-de-la-pr%C3%A9sidentielle",
+          "image": "https://s.france24.com/media/display/564929c6-d32c-11f1-b333-a7bbbeea0b20/w:1280/p:16x9/e9541a96a5a90915233f0208720d7169fe92ec49.jpg",
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Emmanuel Macron a dénoncé mercredi 28 octobre une \"désinhibition\" du débat politique lors d'une interview sur la chaîne Youtube de HugoDécrypte. Le climat politique s'est tendu à six mois de la présidentielle, marqué par la mobilisation lycéenne, l'attentat de Trappes et des passes d'armes entre partis et médias.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Le prix européen du gaz dépasse les 100 euros le mégawattheure, une première depuis 2022",
+          "source": "Les Echos",
+          "url": "https://www.lesechos.fr/industrie-services/energie-environnement/le-prix-europeen-du-gaz-depasse-les-100-euros-le-megawattheure-une-premiere-depuis-2022-2259640",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "Le contrat à terme du TTF néerlandais, référence du gaz européen, a dépassé les 100 euros le mégawattheure mercredi 28 octobre, atteignant 100,45 euros, une première depuis la crise de 2022. Cette flambée, en hausse de plus de 250 % depuis le début de l'année, est dopée par la guerre au Moyen-Orient et des stocks européens plus bas que l'an dernier.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-10-28",
       "articles": [
         {

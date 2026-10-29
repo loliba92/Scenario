@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 29.10.2026 — [Bulle de l'IA : les valorisations tech vont-elles corriger fortement ?](../archives/2026-10-29.html)
 - 28.10.2026 — [Police & justice : l'État peut-il garantir la sécurité ?](../archives/2026-10-28.html)
 - 27.10.2026 — [Éthiopie-Érythrée : vers une nouvelle guerre régionale ?](../archives/2026-10-27.html)
 - 26.10.2026 — [Climat : le monde des frontières de 2050](../archives/2026-10-26.html)
