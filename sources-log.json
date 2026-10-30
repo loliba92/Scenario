@@ -2,6 +2,61 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-30",
+      "articles": [
+        {
+          "title": "Rubio reçoit ses pairs du G20 en plein désordre mondial",
+          "source": "France 24",
+          "url": "https://www.france24.com/fr/info-en-continu/20261030-rubio-re%C3%A7oit-ses-pairs-du-g20-en-plein-d%C3%A9sordre-mondial",
+          "image": "https://s.france24.com/media/display/7c060198-d417-11f1-a73f-bf1914cabd52/w:1280/p:16x9/58c42a6aa1bf9faf072a5b8e16b7fb01649578a3.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Les États-Unis accueillent vendredi 30 octobre 2026 une réunion des ministres des Affaires étrangères du G20 à Atlanta, avec la présence du chef de la diplomatie russe Sergueï Lavrov, au moment où l'impasse régne sur les dossiers Iran et Ukraine et où les prix du pétrole montent à quelques jours des élections de mi-mandat américaines.",
+          "read_minutes": 4
+        },
+        {
+          "title": "La Corée du Nord teste des drones d'attaque, Kim Jong-un veut acquérir une \"supériorité absolue\"",
+          "source": "France 24",
+          "url": "https://www.france24.com/fr/asie-pacifique/20261029-coree-nord-teste-drones-missiles-attaque-kim-jong-un-veut-acquerir-superiorite-absolue-seoul-kcna",
+          "image": "https://s.france24.com/media/display/8f840fcc-d3f3-11f1-bc65-1beafce15fea/w:1280/p:16x9/2026-10-29T230502Z-1125020976-RC29DOAMMSDH-RTRMADP-3-NORTHKOREA-ARMS.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "L'agence de presse officielle KCNA a annoncé le 30 octobre 2026 que la Corée du Nord a testé des drones d'attaque explosifs, des drones polyvalents, des missiles de croisière et un lance-roquettes multiples, avec un appel du dirigeant Kim Jong-un à accélérer le développement des drones et de l'intelligence artificielle pour acquérir une supériorité absolue.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Forest destruction tests Armenia-Azerbaijan peace push",
+          "source": "France 24",
+          "url": "https://www.france24.com/en/live-news/20261030-forest-destruction-tests-armenia-azerbaijan-peace-push",
+          "image": "https://s.france24.com/media/display/d2ae4ae2-d407-11f1-af2f-d18c5759e759/w:1280/p:16x9/bc93065dc044ab7a9b1695e2411da01dbbd6d3d9.jpg",
+          "lang": "en",
+          "domain": "sciences-environnement",
+          "summary": "Un article publié le 30 octobre 2026 par AFP relate que l'armée azerbaïdjanaise a déboisé des forêts dans la réserve naturelle de Shikahogh en Arménie, avec une analyse satellite estimant l'abattage de 14 000 à 16 000 mètres cubes de bois sur environ 60 hectares de forêt, dans un contexte de tensions persistantes entre les deux pays.",
+          "read_minutes": 5
+        },
+        {
+          "title": "La Syrie et la Jordanie privilégient l'apaisement, après des frictions provoquées par des frappes du royaume hachémite sur le sud de la Syrie",
+          "source": "Le Monde",
+          "url": "https://www.lemonde.fr/international/article/2026/10/29/la-syrie-et-la-jordanie-privilegient-l-apaisement-apres-des-frictions-provoquees-par-des-frappes-du-royaume-hachemite-sur-le-sud-de-la-syrie_6802327_3210.html",
+          "image": null,
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Publié le 29 octobre 2026, l'article rapporte qu'Amman et Damas ont annoncé dans la soirée du mardi 27 octobre leur intention d'étudier ensemble les circonstances des frappes jordaniennes du lundi 26 octobre sur le sud de la Syrie, qui avaient tué plus de 20 combattants de l'EI selon la Jordanie avant qu'elle ne reconnaisse des pertes civiles, dont une femme et trois enfants.",
+          "read_minutes": 4
+        },
+        {
+          "title": "L'Union européenne veut renforcer l'agence Frontex et élargir ses pouvoirs d'expulsion de personnes exilées",
+          "source": "franceinfo",
+          "url": "https://www.franceinfo.fr/monde/europe/union-europeenne/l-union-europeenne-veut-renforcer-frontex-et-elargir-ses-pouvoirs-d-expulsion-de-migrants_8255833.html",
+          "image": "https://www.franceinfo.fr/pictures/j55gCpuVY2qbs5Eov66c9c_Wc24/0x50:1024x626/1500x843/2026/10/27/6ae0d5a86c571148597108.jpg",
+          "lang": "fr",
+          "domain": "politique-institutions",
+          "summary": "Publié le 27 octobre 2026 et mis à jour le 27 octobre 2026, l'article indique que l'UE propose de porter le nombre de gardes-frontières de Frontex à 30 000 d'ici quinze ans, avec une réserve de 17 000 agents, et de donner à l'agence un rôle central dans l'expulsion des migrants, dont le transfert de personnes hors de l'UE vers des centres dont le premier devrait ouvrir au Rwanda.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-10-29",
       "articles": [
         {

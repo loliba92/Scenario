@@ -192,6 +192,7 @@ liste à la main (seul l'ordre/l'ajout automatique compte), sauf pour rayer
 un sujet devenu manifestement sans suite (voir marche à suivre dans
 `docs/ARCHITECTURE.md`).
 
+- 30.10.2026 — [IA et emploi : transformer ou détruire le travail ?](../archives/2026-10-30.html)
 - 29.10.2026 — [Bulle de l'IA : les valorisations tech vont-elles corriger fortement ?](../archives/2026-10-29.html)
 - 28.10.2026 — [Police & justice : l'État peut-il garantir la sécurité ?](../archives/2026-10-28.html)
 - 27.10.2026 — [Éthiopie-Érythrée : vers une nouvelle guerre régionale ?](../archives/2026-10-27.html)
