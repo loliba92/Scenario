@@ -7,7 +7,7 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-09-30 au 2026-10-27 
 ## Chiffres (28 jours)
 
 - 2 clics, 349 impressions, taux de clic 0,6 %, position moyenne 10,5.
-- Pages indexées : 21 sur 33 inspectées ; éditions inconnues de Google : 10 (dont 4 de plus de 7 jours).
+- Pages indexées : 21 sur 33 inspectées ; éditions inconnues de Google : 11 (dont 4 de plus de 7 jours).
 - Requêtes : 15 (dont 3 avec le nom du site).
 - Tendance (14 jours, jusqu'au 2026-10-27) : impressions 197 contre 152, clics 2 contre 0.
 
@@ -20,14 +20,13 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-09-30 au 2026-10-27 
 - Le site apparaît (position moyenne 10,5) mais est très peu cliqué (0,6 %). **Action** : Retravailler les titres et descriptions des pages les plus vues. **Agent à envoyer** : seo-content. **Mission** : Proposer de nouveaux titres (≤ 59 caractères) et descriptions (100–160) plus incitatifs pour les pages les plus vues, dans le ton sobre de Scénario ; ne rien promettre.
 - 1 page : Google connaît l'adresse mais ne l'a pas encore explorée ou retenue (`/guide-pedagogique.html`). **Action** : Renforcer les liens internes vers la page, enrichir son contenu, demander l'indexation. **Agent à envoyer** : seo-content. **Mission** : Comprendre pourquoi Google retient ou écarte ces pages (profondeur, unicité, qualité perçue) et proposer des améliorations de contenu et de liens internes.
 - Éditions en français : 1 descriptions hors norme. **Action** : Corriger via les générateurs (voir .claude/seo-routage.md). **Mission** : Correction directe dans les générateurs (generate_seo_head.py, translate_daily.py), puis régénération et tests.
-- Éditions en anglais : 2 titres coupés, 2 descriptions hors norme. **Action** : Corriger via les générateurs (voir .claude/seo-routage.md). **Mission** : Correction directe dans les générateurs (generate_seo_head.py, translate_daily.py), puis régénération et tests.
+- Éditions en anglais : 2 titres coupés, 3 descriptions hors norme. **Action** : Corriger via les générateurs (voir .claude/seo-routage.md). **Mission** : Correction directe dans les générateurs (generate_seo_head.py, translate_daily.py), puis régénération et tests.
 
 ## À surveiller
 
 - Seulement 15 requêtes enregistrées. **Action** : Trop peu pour piloter par mots-clés : viser d'abord l'indexation des éditions. **Agent à envoyer** : seo-cluster. **Mission** : Proposer des axes thématiques (matières, sujets récurrents) et un maillage interne pour élargir les requêtes, sans produire de pages en série.
 - Pages en première page de Google sans aucun clic : `/en/archives/2026-08-08.html`, `/en/archives/2026-08-30.html`, `/en/archives/2026-09-13.html`, `/en/archives/2026-09-20.html`, `/en/archives/2026-09-30.html`. **Action** : Titre ou description à rendre plus incitatif. **Agent à envoyer** : seo-content. **Mission** : Réécrire titre et description de ces pages (liste dans le rapport), puis vérifier la cohérence avec le contenu.
 - L'adresse `/index.html` apparaît dans Google en plus de `/`. **Action** : Vérifier la balise canonique de l'accueil. **Agent à envoyer** : seo-technical. **Mission** : Vérifier la canonique de l'accueil, les redirections et les liens internes qui pointent vers /index.html.
-- 1 page : Google a lu la page et a décidé de ne pas l'indexer (qualité ou doublon perçu) (`/archives/2026-10-10.html`). **Action** : Apporter de la valeur propre (analyse, chiffres, sources) et vérifier les doublons. **Agent à envoyer** : seo-content. **Mission** : Comprendre pourquoi Google retient ou écarte ces pages (profondeur, unicité, qualité perçue) et proposer des améliorations de contenu et de liens internes.
 
 ## Ce qui fonctionne
 
@@ -151,6 +150,7 @@ Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 - `/sources.html` : ok
 - `/glossaire.html` : ok
 - `/en/` : ok
+- `/archives/2026-10-30.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 0 j
 - `/archives/2026-10-29.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 1 j
 - `/archives/2026-10-28.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 2 j
 - `/archives/2026-10-27.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 3 j
@@ -170,12 +170,11 @@ Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 - `/archives/2026-10-13.html` : ok, publiée il y a 17 j
 - `/archives/2026-10-12.html` : ok, publiée il y a 18 j
 - `/archives/2026-10-11.html` : ok, publiée il y a 19 j
-- `/archives/2026-10-10.html` : exploree (Explorée, actuellement non indexée), publiée il y a 20 j
+- `/en/archives/2026-10-30.html` : ok, publiée il y a 0 j
 - `/en/archives/2026-10-29.html` : ok, publiée il y a 1 j
 - `/en/archives/2026-10-28.html` : ok, publiée il y a 2 j
 - `/en/archives/2026-10-27.html` : ok, publiée il y a 3 j
 - `/en/archives/2026-10-26.html` : ok, publiée il y a 4 j
 - `/en/archives/2026-10-25.html` : ok, publiée il y a 5 j
-- `/en/archives/2026-10-24.html` : ok, publiée il y a 6 j
 
 Le compteur « indexées » des plans du site n'est pas fiable : l'inspection page par page fait foi.

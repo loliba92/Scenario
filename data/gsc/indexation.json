@@ -72,6 +72,16 @@
       "indexation": "INDEXING_ALLOWED"
     },
     {
+      "url": "https://lesscenarios.fr/archives/2026-10-30.html",
+      "verdict": "NEUTRAL",
+      "etat": "Google ne reconnaît pas cette URL",
+      "derniere_exploration": null,
+      "canonique_google": null,
+      "canonique_declaree": null,
+      "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexation": "INDEXING_STATE_UNSPECIFIED"
+    },
+    {
       "url": "https://lesscenarios.fr/archives/2026-10-29.html",
       "verdict": "NEUTRAL",
       "etat": "Google ne reconnaît pas cette URL",
@@ -262,12 +272,12 @@
       "indexation": "INDEXING_ALLOWED"
     },
     {
-      "url": "https://lesscenarios.fr/archives/2026-10-10.html",
-      "verdict": "NEUTRAL",
-      "etat": "Explorée, actuellement non indexée",
-      "derniere_exploration": "2026-10-16T16:20:29Z",
-      "canonique_google": "https://lesscenarios.fr/archives/2026-10-10.html",
-      "canonique_declaree": "https://lesscenarios.fr/archives/2026-10-10.html",
+      "url": "https://lesscenarios.fr/en/archives/2026-10-30.html",
+      "verdict": "PASS",
+      "etat": "Envoyée et indexée",
+      "derniere_exploration": "2026-10-30T11:31:43Z",
+      "canonique_google": "https://lesscenarios.fr/en/archives/2026-10-30.html",
+      "canonique_declaree": "https://lesscenarios.fr/en/archives/2026-10-30.html",
       "robots": "ALLOWED",
       "indexation": "INDEXING_ALLOWED"
     },
@@ -318,16 +328,6 @@
       "derniere_exploration": "2026-10-25T11:04:54Z",
       "canonique_google": "https://lesscenarios.fr/en/archives/2026-10-25.html",
       "canonique_declaree": "https://lesscenarios.fr/en/archives/2026-10-25.html",
-      "robots": "ALLOWED",
-      "indexation": "INDEXING_ALLOWED"
-    },
-    {
-      "url": "https://lesscenarios.fr/en/archives/2026-10-24.html",
-      "verdict": "PASS",
-      "etat": "Envoyée et indexée",
-      "derniere_exploration": "2026-10-24T10:57:11Z",
-      "canonique_google": "https://lesscenarios.fr/en/archives/2026-10-24.html",
-      "canonique_declaree": "https://lesscenarios.fr/en/archives/2026-10-24.html",
       "robots": "ALLOWED",
       "indexation": "INDEXING_ALLOWED"
     }
