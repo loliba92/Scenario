@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "md_sha256": "8a880d2b2ad10263dfe377edfd1f134330e7102a05ff295b337429f4b6f53e75"
+    "md_sha256": "019800598f907b2885fb5b0c35da1b20acbca1bcb6673a94816e8417e2619432"
   },
   "preambule": "# Sujets prioritaires — Scénario\n\nCe fichier pilote le choix des sujets. **Avant l'auto-sélection**, la routine lit ce fichier :\nelle prend le **premier sujet non coché** de la section qui correspond au **registre du jour**,\nle traite (en gardant le format et les restrictions habituelles), puis **coche la case**.\nSi la section du jour est vide ou tout est coché → elle repasse en **auto-sélection normale**.\n\n**Comment l'utiliser :**\n- L'ordre = l'ordre de priorité (le sujet le plus haut est traité en premier).\n- `- [ ]` = à traiter · `- [x]` = déjà publié (la routine coche toute seule).\n- Ajoute / réordonne / supprime des lignes quand tu veux.\n- Une ligne dans « 🔥 Priorité absolue » passe **avant tout**, quel que soit le jour.\n\n> **Règle d'or — ne jamais l'oublier.** Chaque sujet est une **problématique à issue ouverte**, avec **3 scénarios derrière** (favorable / stable / dégradé). L'accroche peut être courte et percutante pour attraper le lecteur, mais la question posée doit **toujours pouvoir se trancher en trois scénarios chiffrés** — sinon, ce n'est pas un sujet pour Scénario.\n\n**Chaque sujet est un DOSSIER** (depuis le 1er octobre 2026) : sous sa ligne, des commentaires étiquetés donnent son\n`id`, son `contexte` (ce qui se passe, à vérifier), son `rationnel` (pourquoi ce sujet, pourquoi l'issue est ouverte),\nses `mots-clés` (de quoi chercher les articles), ses scénarios en brouillon, ses pistes de sources. Quand tu retiens un\nsujet : recopie son `id` exact dans `sujet.origine_id` du brief, lance tes recherches avec ses mots-clés, et vérifie ses\nfaits (jamais recopiés sans confirmation). `python scripts/edition/sujets.py prochain` affiche le dossier du sujet du jour.\n\n---",
   "sections": [
@@ -3333,7 +3333,7 @@
           "titre": "IA et emploi : l'intelligence artificielle va-t-elle détruire ou transformer le travail ?",
           "question": null,
           "tag": "IA & numérique",
-          "statut": "a_traiter",
+          "statut": "publie",
           "validation": "valide",
           "contexte": "L'essor de l'IA générative depuis 2022 suscite un débat intense sur son impact sur l'emploi. En France, le rapport d'information du Sénat 'L'entreprise 5.0' (avril 2026) estime que 16,3 % de l'emploi français, soit près de 5 millions de personnes, pourrait être menacé à horizon 2-5 ans avec le déploiement de l'IA agentique, mais précise qu'il s'agit d'une exposition technique des tâches et non d'une destruction nette annoncée. La note Trésor-Éco n°391 (juin 2026) indique qu'aucun effet agrégé significatif de l'IA sur l'emploi n'est mesurable à ce stade, mais que des destructions localisées sont observées : le taux de chômage des 15-24 ans est passé de 19,1 % à 21,1 % entre le T1 2025 et le T1 2026, et 7 % des entreprises du numérique, de l'ingénierie et du conseil déclarent avoir réduit leurs effectifs à cause de l'IA (baromètre Opiiec, mars 2026). Parallèlement, le gouvernement a lancé le 22 septembre 2026 le plan 'Impulsion IA 2027', doté de 80 millions d'euros, visant à former 30 millions d'actifs à l'IA via une plateforme publique, une certification nationale et un accompagnement des TPE-PME. Une étude BCG (avril 2026) estime qu'aux États-Unis, 50 à 55 % des emplois seront transformés d'ici trois ans, tandis que 10 à 15 % pourraient disparaître à cinq ans.",
           "rationnel": "La question : L'IA va-t-elle provoquer une destruction nette d'emplois ou principalement transformer le travail d'ici 2 à 5 ans ? Les forces techniques de l'IA agentive et les annonces de réductions d'effectifs (7 % des entreprises du numérique, de l'ingénierie et du conseil) poussent vers un scénario dégradé, tandis que les études empiriques (Trésor-Éco n°391, BCG) ne montrent pas d'effet net négatif à l'échelle macroéconomique, les gains de productivité pouvant créer de nouveaux besoins de main‑d'œuvre et l'adoption étant freinée par des contraintes techniques et organisationnelles, sans oublier le plan Impulsion IA 2027 (80 M€, 30 millions d'actifs à former) qui pourrait orienter vers un scénario favorable ou stable. Pour un lecteur français, l'enjeu concerne les millions d'emplois qualifiés (ingénierie, droit, finance, création) potentiellement exposés et dépend de la mise en œuvre effective des politiques de formation et d'accompagnement actuellement en cours.",
@@ -3373,8 +3373,8 @@
           "note": null,
           "donnees": "[relevé du 2026-10-28] Taux de chômage des 15-24 ans en France (unité : %). T1 2025 = 19,1 % (2025-T1) ; T1 2026 = 21,2 % (2026-T1) ; T2 2026 = 21,6 % (2026-T2). Sources : https://www.insee.fr/fr/statistiques/2532173",
           "ajoute_le": null,
-          "publie_le": null,
-          "edition": null,
+          "publie_le": "2026-10-30",
+          "edition": "2026-10-30",
           "enrichi_le": "2026-10-28"
         },
         {
