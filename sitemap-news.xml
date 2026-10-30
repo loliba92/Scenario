@@ -11,4 +11,15 @@
       <news:title>AI bubble: are tech valuations heading for a sharp correction?</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-10-30.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-30T06:01:42+01:00</news:publication_date><news:title>IA et emploi : transformer ou détruire le travail ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-10-30.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-30T06:01:42+01:00</news:publication_date><news:title>IA et emploi : transformer ou détruire le travail ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-10-30.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-30T06:01:42+01:00</news:publication_date>
+      <news:title>AI and Employment: Transforming or Destroying Jobs?</news:title>
+    </news:news>
+  </url>
+</urlset>
