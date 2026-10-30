@@ -1,174 +1,166 @@
 {
-  "h1": "IA et emploi : transformer ou détruire le travail ?",
-  "question_text": "L'IA va-t-elle provoquer une destruction nette d'emplois ou principalement transformer le travail d'ici 2 à 5 ans ?",
-  "section_title": "Trois trajectoires pour l'emploi face à l'intelligence artificielle",
+  "h1": "Art numérique : l'original pourrait-il redevenir le luxe ultime ?",
+  "question_text": "La numérisation parfaite de l'art ne provoque-t-elle pas, par contraste, une renaissance de l'objet original, plus précieux que jamais ?",
+  "section_title": "La copie numérique parfaite va-t-elle faire grimper la valeur de l'œuvre originale ?",
   "dek": [
-    "Depuis deux ans, les outils d'intelligence artificielle se diffusent à une vitesse record dans notre quotidien. En France, près d'un habitant sur deux utilise désormais une IA générative<a class=\"lex-ref\" href=\"#lex-ia-generative\" aria-label=\"Voir la définition dans le lexique\">*</a>, un logiciel capable de rédiger du texte ou de créer des images sur commande. Cette adoption va plus vite que celle du smartphone en son temps. L'usage reste d'abord personnel pour 42 % des Français, mais il pénètre aussi les bureaux. Près de 85 % des 18-24 ans s'en servent déjà régulièrement. Cette révolution technique bouscule les repères du monde du travail et soulève une question immédiate : les machines vont-elles remplacer les salariés ou simplement modifier leurs tâches de tous les jours ?",
-    "Le débat public oppose souvent deux visions très tranchées. D'un côté, certains prédisent une vague massive de licenciements dans les bureaux. De l'autre, des observateurs annoncent un simple gain de temps qui rendra les travailleurs plus efficaces sans détruire de postes. En réalité, la situation actuelle est plus nuancée. Selon la note Trésor-Éco<a class=\"lex-ref\" href=\"#lex-tresor-eco\" aria-label=\"Voir la définition dans le lexique\">*</a> n°391 publiée en juin 2026, aucun effet agrégé significatif sur l'emploi global n'est mesurable pour l'instant. L'économie française continue de créer et de détruire des emplois selon ses cycles habituels. L'impact global de la technologie reste donc pour le moment invisible dans les statistiques nationales de l'emploi.",
-    "Pourtant, une nouvelle génération d'outils arrive dans les entreprises et change la donne technique : l'IA agentique<a class=\"lex-ref\" href=\"#lex-ia-agentique\" aria-label=\"Voir la définition dans le lexique\">*</a>. Contrairement à un simple robot conversationnel qui attend une consigne pour répondre, un agent autonome peut planifier plusieurs actions tout seul. Il peut corriger du code informatique, réserver des billets ou trier des dossiers sans intervention humaine continue. Selon le rapport d'information du Sénat intitulé « L'entreprise 5.0 » paru en avril 2026, <strong>16,3 % de l'emploi français</strong>, soit près de <strong>5 millions de personnes</strong>, est exposé à cette technologie à un horizon de deux à cinq ans.",
-    "Cette exposition technique touche directement des métiers autrefois très protégés. Les cadres, les juristes, les développeurs informatiques et les consultants voient une partie de leurs tâches quotidiennes automatisée par ces logiciels. Dans le même temps, le marché de l'emploi montre des signes de fragilité ciblés. Le taux de chômage des jeunes de 15 à 24 ans en France a progressé, passant de <strong>19,1 % au premier trimestre 2025</strong> à <strong>21,6 % au deuxième trimestre 2026</strong> selon l'INSEE. Si cette hausse dépend de la conjoncture économique globale, elle interroge sur l'insertion des débutants dans des secteurs où les tâches d'apprentissage sont désormais confiées à des algorithmes.",
-    "Pour amortir ce choc et éviter des fractures sociales, les pouvoirs publics tentent d'organiser la riposte par la formation continue. Le gouvernement a ainsi lancé le 22 septembre 2026 le plan national « Impulsion IA 2027 ». Doté de <strong>80 millions d'euros</strong>, ce programme public affiche l'objectif très ambitieux de former <strong>30 millions d'actifs</strong> aux outils numériques. L'État veut déployer une plateforme d'apprentissage gratuite baptisée « Explore IA » et intégrer des certifications dans les centres de formation d'apprentis dès 2027. La réussite de ce plan reste toutefois incertaine face à l'ampleur du chantier et à la rapidité des évolutions techniques.",
-    "L'avenir du travail dépendra de la vitesse d'adoption réelle de ces outils par les entreprises et de la capacité des salariés à monter en compétences. Trois scénarios distincts se dessinent pour les deux à cinq prochaines années. Une adaptation réussie transformerait les métiers sans détruire d'emplois nets, portée par de nouveaux gains de productivité. Une transition inégale concentrerait les pertes dans certains secteurs qualifiés tout en créant des postes ailleurs. Enfin, un décrochage rapide verrait l'automatisation détruire des postes plus vite que l'économie ne peut en inventer."
+    "Pendant des années, le monde de la culture a pensé que les écrans allaient remplacer les toiles et les sculptures dans le cœur du public. Les visites virtuelles en très haute définition et la folie spéculative autour des certificats numériques semblaient annoncer la fin du musée traditionnel. Pourtant, les faits récents montrent le chemin inverse. En 2025, le musée du Louvre a accueilli <strong>9 millions de visiteurs</strong>, enregistrant une hausse de sa fréquentation malgré des tarifs en augmentation. Face à des répliques visibles partout sur nos téléphones en un glissement de doigt, les foules continuent de faire la queue pour observer la matière réelle, les couches de vernis et les défauts minuscules que le numérique ne sait pas transmettre.",
+    "Ce retour vers la matière physique s'exprime avec une force éclatante sur le marché financier des œuvres d'art. Selon le rapport annuel de référence publié par la foire Art Basel et la banque suisse UBS, le marché mondial de l'art physique a atteint <strong>59,6 milliards de dollars</strong> en 2025, affichant un rebond net de 4 % après deux années consécutives de baisse. Cette reprise a été tirée par les ventes aux enchères publiques de très haut niveau, qui ont progressé de 9 % pour atteindre 20,7 milliards de dollars. Les grands collectionneurs de la planète recherchent activement des pièces matérielles irremplaçables pour sécuriser leur patrimoine face aux incertitudes économiques mondiales.",
+    "Le contraste est encore plus saisissant lorsqu'on examine ce que sont devenues les promesses des objets purement virtuels. Le marché des jetons non fongibles<a class=\"lex-ref\" href=\"#lex-jeton-non-fongible\" aria-label=\"Voir la définition dans le lexique\">*</a>, ou NFT, qui prétendait créer une rareté artificielle sur internet, s'est littéralement effondré. Alors qu'il pesait <strong>2,9 milliards de dollars</strong> lors de son pic historique en 2021, ce marché a dégringolé jusqu'à seulement <strong>23,8 millions de dollars</strong> au premier trimestre 2025 d'après la plateforme de suivi DappRadar. Les acheteurs ont découvert qu'une ligne de code informatique ne remplace pas l'émotion physique suscitée par un tableau ou une sculpture authentique dans une pièce.",
+    "Au sommet du marché mondial, les grandes maisons de vente aux enchères enregistrent des sommets spectaculaires qui confirment cette soif d'œuvres physiques majeures. Au début de l'année 2026, la prestigieuse maison Christie's a ainsi adjugé un tableau historique de Jackson Pollock pour la somme colossale de <strong>181 millions de dollars</strong>. Lors de ce même semestre exceptionnel, les ventes mondiales de Christie's ont bondi de 71 % par rapport à l'année précédente pour atteindre 3,5 milliards de dollars. Les acheteurs des jeunes générations Y et Z représentent désormais 47 % des nouveaux clients de ces ventes prestigieuses, prouvant que l'attachement aux objets physiques traverse toutes les tranches d'âge.",
+    "Cette tension entre reproduction et création originale rappelle une célèbre analyse du philosophe Walter Benjamin sur l'aura<a class=\"lex-ref\" href=\"#lex-aura\" aria-label=\"Voir la définition dans le lexique\">*</a> d'une œuvre. Il y a un siècle, ce penseur estimait que la diffusion industrielle d'images allait détruire le caractère sacré et unique de l'original. Aujourd'hui, le monde numérique produit exactement l'effet inverse : plus une image circule gratuitement et se multiplie à l'infini sur les réseaux sociaux, plus l'objet physique unique dont elle provient gagne en prestige et en valeur symbolique. La copie parfaite ne détruit pas le tableau d'origine, elle agit au contraire comme une immense campagne publicitaire permanente.",
+    "Pour autant, l'avenir de cette relation entre l'art physique et les technologies numériques reste profondément ouvert à plusieurs évolutions distinctes. Trois trajectoires se dessinent désormais pour les années à venir : une valorisation sans précédent de l'objet physique unique poussée par la satiété des écrans, une simple coexistence équilibrée où chacun conserve son public sans bouleversement majeur, ou une lente banalisation de l'art causée par la prolifération de copies parfaites générées par ordinateur. Comprendre laquelle de ces voies va l'emporter permet de mesurer l'impact culturel et économique de notre transition numérique."
   ],
   "enjeu_en_clair": {
-    "lead": "L'arrivée des agents autonomes d'intelligence artificielle menace d'automatiser des millions de tâches de bureau.",
-    "text": "Les nouveaux outils d'intelligence artificielle ne se contentent plus de répondre à des questions. Ils exécutent désormais des séries de tâches complexes en toute autonomie. Près de 5 millions de travailleurs en France voient leur métier directement concerné. L'enjeu n'est pas la fin du travail, mais la vitesse à laquelle les salariés et les entreprises parviendront à s'adapter pour éviter des pertes d'emplois massives."
+    "lead": "La copie numérique parfaite d'un tableau ne détruit pas sa valeur mais renforce au contraire le désir de voir l'original physique.",
+    "text": "La multiplication des images numériques sur nos écrans devait rendre les musées physiques inutiles. C'est l'inverse qui se produit : les musées comme le Louvre font le plein et les ventes de tableaux battent des records. Quand une image est partout gratuitement, posséder ou admirer l'objet réel et unique devient un luxe exceptionnel. Ce phénomène change la manière dont notre société accorde de la valeur à la création artistique."
   },
   "stakes_branches": {
-    "favorable": "L'IA transforme les métiers sans détruire d'emplois nets grâce aux gains d'efficacité.",
-    "stable": "Les suppressions de postes restent localisées dans le conseil et l'ingénierie sans déséquilibre global.",
-    "degrade": "L'automatisation rapide supprime des postes qualifiés plus vite que la création d'emplois."
+    "favorable": "La surabondance numérique démultiplie le prestige et la valeur économique des œuvres physiques originales.",
+    "stable": "L'art physique et les créations numériques coexistent sur des marchés séparés sans s'influencer fortement.",
+    "degrade": "La prolifération de copies numériques parfaites finit par banaliser les œuvres et réduire l'intérêt pour les originaux."
   },
   "comprendre_box": [
     {
-      "lead": "L'IA agentique fonctionne comme un assistant qui prend des initiatives.",
-      "text": "Une IA générative classique ressemble à un dictionnaire interactif : elle répond quand on l'interroge. L'IA agentique ressemble plutôt à un stagiaire autonome. On lui donne un objectif général, comme organiser un planning ou vérifier des factures, et le logiciel décompose lui-même les étapes, utilise plusieurs programmes et corrige ses propres erreurs sans aide.",
-      "apres_dek_index": 2
+      "lead": "Pourquoi écouter un morceau sur son téléphone donne-t-il envie d'aller au concert ?",
+      "text": "Imaginez la musique : vous pouvez écouter n'importe quel titre en streaming gratuitement et avec un son parfait. Pourtant, les gens payent des centaines d'euros pour aller voir l'artiste en concert. Dans l'art, c'est identique : voir une photo parfaite d'un tableau sur écran ne remplace jamais le contact direct avec la matière réelle de la toile.",
+      "apres_dek_index": 0
     },
     {
-      "lead": "Être exposé à une technologie ne signifie pas voir son poste supprimé.",
-      "text": "Dire qu'un métier est exposé à 16,3 % signifie seulement qu'une partie de ses tâches quotidiennes peut être réalisée par une machine. Un comptable utilise déjà un tableur sans que son emploi ne disparaisse. L'outil supprime des gestes répétitifs pour libérer du temps sur le conseil, transformant le contenu du travail sans détruire le contrat d'embauche.",
-      "apres_dek_index": 3
+      "lead": "La différence fondamentale entre un fichier informatique et un objet unique",
+      "text": "Un fichier numérique peut être dupliqué à l'infini sans jamais perdre en qualité, ce qui rend sa rareté artificielle très fragile. À l'inverse, un tableau peint à la main est un objet physique irremplaçable, façonné à un moment précis de l'histoire, ce qui lui confère une valeur refuge durable pour les collectionneurs du monde entier.",
+      "apres_dek_index": 2
     }
   ],
   "list_box": null,
   "indicators": [
     {
-      "label": "Part de l'emploi français exposé à l'IA agentique (estimation Sénat)",
-      "value": "16,3 % (5 millions de personnes)",
-      "delta": "Projection à 2-5 ans, rapport Sénat avril 2026"
+      "label": "Fréquentation du Louvre (2025)",
+      "value": "9 millions de visiteurs",
+      "delta": "vs 8,7 millions en 2024"
     },
     {
-      "label": "Taux de chômage des 15-24 ans en France",
-      "value": "21,6 %",
-      "delta": "+2,5 points par rapport au T1 2025 (19,1 %)"
+      "label": "Valeur du marché de l'art physique (2025)",
+      "value": "59,6 milliards de dollars",
+      "delta": "+4 % par rapport à 2024"
     }
   ],
   "cards": {
     "favorable": {
-      "pct": 30,
+      "pct": 40,
       "gauge_word": "Probable",
-      "h3": "L'IA transforme le contenu des métiers sans détruire d'emplois à grande échelle",
+      "h3": "La copie numérique parfaite démultiplie la valeur et l'attrait de l'original",
       "why": [
-        "Dans ce premier scénario, les entreprises intègrent les outils intelligents pour assister leurs équipes plutôt que pour remplacer des salariés. Les employés délèguent la rédaction de comptes-rendus, le tri de données et la recherche documentaire à des logiciels autonomes. Ce gain de temps permet aux salariés de se concentrer sur des missions relationnelles, créatives ou stratégiques à plus forte valeur. Les entreprises gagnent en productivité globale, ce qui stimule l'activité économique et encourage de nouveaux recrutements dans le conseil, la cybersécurité et la gestion de projets techniques.",
-        "Contrairement aux perspectives de rupture brutale, ce chemin repose sur une diffusion progressive des outils freinée par des règles de sécurité et le coût des infrastructures. Le plan public « Impulsion IA 2027 » permet de former rapidement les actifs, évitant ainsi un décrochage des compétences. L'économie absorberait alors cette vague technologique comme les précédentes révolutions informatiques, sans provoquer de hausse durable du chômage généralisé."
+        "Premier scénario : la prolifération de reproductions numériques gratuites et parfaites agit comme un amplificateur sans précédent pour l'objet physique. Dans cette hypothèse, plus une peinture ou une sculpture est partagée et admirée sous forme de pixels à travers le monde, plus le désir d'en faire l'expérience sensorielle directe devient puissant chez les amateurs. Concrètement, les institutions culturelles comme le musée du Louvre voient leur fréquentation internationale se maintenir à des sommets, tandis que le marché de l'art physique franchit de nouveaux records de valorisation sous l'afflux de capitaux cherchant des biens authentiques et tangibles.",
+        "Ce scénario se distingue nettement d'une simple stagnation du marché ou d'une crise de fréquentation, car il repose sur un effet de contraste psychologique direct chez le spectateur. Alors que les scénarios alternatifs envisagent une indifférence croissante du public face aux musées ou une séparation étanche des pratiques, cette dynamique transforme l'omniprésence du numérique en un tremplin commercial pour les œuvres réelles. L'original physique cesserait ainsi d'être un simple support matériel pour devenir l'étalon suprême du luxe culturel, ce qui pourrait concentrer une part toujours plus massive de la valeur financière mondiale sur un nombre restreint de chefs-d'œuvre historiques."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Part de l'emploi français exposé à l'IA agentique",
-          "evo_current": "16,3 %",
-          "evo_arrow": "flat",
-          "evo_prev": "Tâches absorbées sans perte de postes"
+          "field_name": "Fréquentation du Louvre",
+          "evo_current": "10,5 millions de visiteurs",
+          "evo_arrow": "up",
+          "evo_prev": "9 millions en 2025"
         },
         {
-          "field_name": "Taux de chômage des 15-24 ans en France",
-          "evo_current": "19,5 %",
-          "evo_arrow": "down",
-          "evo_prev": "Stabilisation puis recul vers le niveau de 2025"
+          "field_name": "Marché de l'art physique",
+          "evo_current": "68 milliards de dollars",
+          "evo_arrow": "up",
+          "evo_prev": "59,6 Md$ en 2025"
         }
       ],
-      "france_line": "La montée en compétences des salariés préserve l'équilibre global de l'emploi et renforce la productivité des entreprises françaises.",
+      "france_line": "Le patrimoine muséal et les galeries françaises profitent massivement de l'afflux touristique et des enchères internationales.",
       "france_impact": "favorable"
     },
     "stable": {
-      "pct": 45,
+      "pct": 40,
       "gauge_word": "Probable",
-      "h3": "Des suppressions de postes ciblées apparaissent dans le numérique et le conseil",
+      "h3": "L'art physique et les créations numériques coexistent sans influence mutuelle",
       "why": [
-        "Dans ce deuxième scénario, l'effet de l'intelligence artificielle se fragmente selon les secteurs et les niveaux de qualification. Les métiers du développement informatique de base, du conseil junior, de la traduction et de la gestion administrative subissent des réductions d'effectifs directes. Les entreprises recrutent moins de jeunes diplômés pour traiter les tâches d'exécution simples, car les agents logiciels effectuent ce travail plus vite et pour un coût dérisoire. En revanche, les métiers manuels, les services à la personne, l'artisanat et l'industrie ne subissent aucun impact négatif.",
-        "Par rapport au scénario favorable, l'équilibre macroéconomique global reste stable mais cache de fortes disparités individuelles et territoriales. La note Trésor-Éco de juin 2026 observe déjà cette absence d'impact agrégé sur le total national, malgré des tensions localisées. Les dispositifs de formation publique atténueraient les difficultés des personnes touchées, mais le marché de l'emploi pourrait devenir durablement plus difficile d'accès pour les jeunes entrants sans expérience."
+        "Deuxième scénario : le marché de l'art physique maintient sa trajectoire solide mais sans connaître de renaissance spectaculaire alimentée par le numérique. Dans cette configuration, les collectionneurs traditionnels continuent d'acheter des toiles et des sculptures pour décorer leurs résidences ou diversifier leurs investissements, pendant que les amateurs de technologies consomment des créations virtuelles sur leurs écrans sans passerelle majeure entre les deux mondes. Concrètement, les musées conservent des niveaux de fréquentation réguliers guidés par le tourisme mondial, sans que la numérisation des collections ne modifie profondément les comportements du grand public.",
+        "À la différence du scénario d'essor où le numérique agit comme un dopant culturel, cette trajectoire montre que les habitudes d'achat et de visite obéissent avant tout à des facteurs économiques classiques comme le pouvoir d'achat, le coût des billets ou les taux d'intérêt. Contrairement à l'hypothèse pessimiste d'une désaffection générale, l'art physique ne subit aucune dépréciation face aux copies virtuelles, mais il ne bénéficie pas non plus d'un regain de ferveur exceptionnel. L'équilibre actuel perdurerait de manière stable, ce qui conduirait les deux univers à se développer en parallèle sans jamais fusionner ni se cannibaliser."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Part de l'emploi français exposé à l'IA agentique",
-          "evo_current": "16,3 %",
-          "evo_arrow": "up",
-          "evo_prev": "Tensions concentrées sur 5 millions d'actifs"
+          "field_name": "Fréquentation du Louvre",
+          "evo_current": "9,1 millions de visiteurs",
+          "evo_arrow": "flat",
+          "evo_prev": "9 millions en 2025"
         },
         {
-          "field_name": "Taux de chômage des 15-24 ans en France",
-          "evo_current": "22,0 %",
+          "field_name": "Marché de l'art physique",
+          "evo_current": "60,5 milliards de dollars",
           "evo_arrow": "up",
-          "evo_prev": "Maintien à un niveau élevé pour les jeunes diplômés"
+          "evo_prev": "59,6 Md$ en 2025"
         }
       ],
-      "france_line": "Des reconversions obligatoires pénalisent certains secteurs tertiaires sans déstabiliser l'ensemble de l'économie nationale.",
-      "france_impact": "degrade"
+      "france_line": "La France préserve ses recettes touristiques et son rang sur le marché de l'art sans accélération majeure.",
+      "france_impact": "favorable"
     },
     "degrade": {
-      "pct": 25,
-      "gauge_word": "Probable",
-      "h3": "L'automatisation rapide provoque des pertes nettes d'emplois dans les services",
+      "pct": 20,
+      "gauge_word": "Peu probable",
+      "h3": "L'abondance de répliques virtuelles parfaites banalise l'accès aux œuvres",
       "why": [
-        "Dans ce troisième scénario, la performance des agents autonomes progresse beaucoup plus vite que la capacité des entreprises et des salariés à s'adapter. Les directions réduisent massivement leurs équipes de support, de gestion juridique, de comptabilité et de service client pour préserver leurs marges. Les suppressions de postes dépassent largement le rythme de création des nouveaux métiers de l'intelligence artificielle. Les jeunes professionnels peinent à trouver un premier emploi car les postes juniors sont directement supprimés ou automatisés dès leur ouverture.",
-        "À la différence des deux autres hypothèses, le système de formation professionnelle et le budget de 80 millions d'euros du plan étatique se révèlent insuffisants face à l'ampleur du choc. Les reconversions prennent plusieurs années alors que le déploiement des logiciels ne prend que quelques mois. Le taux de chômage des jeunes et des professions intermédiaires s'installerait alors durablement à la hausse, provoquant une crise sociale majeure dans les métiers intellectuels."
+        "Troisième scénario : la diffusion massive et gratuite de doubles numériques en ultra-haute résolution finit par saturer l'intérêt des spectateurs et désensibiliser le public. Dans cette hypothèse défavorable, la possibilité d'examiner chaque détail d'un tableau depuis son salon avec des casques immersifs réduit l'envie d'affronter les files d'attente et le coût élevé des musées réels. Concrètement, la fréquentation des grandes institutions culturelles commence à s'éroder chez les jeunes générations habituées à l'immédiateté des écrans, ce qui fragilise l'économie des musées et pèse sur les ventes des galeries intermédiaires.",
+        "Cette trajectoire s'oppose frontalement aux deux premières options qui pariaient sur la résilience ou le triomphe de la matière physique. Au lieu de susciter une fascination renouvelée pour l'authenticité historique, la perfection technique des reproductions générées par ordinateur rendrait la visite physique superflue pour une partie croissante de la population mondiale. L'original perdrait alors son pouvoir d'attraction démocratique pour ne rester qu'un objet de spéculation financière réservé à une poignée d'initiés, ce qui pourrait affaiblir durablement le modèle économique des grandes institutions publiques."
       ],
       "indicateurs_touches": [
         {
-          "field_name": "Part de l'emploi français exposé à l'IA agentique",
-          "evo_current": "20,0 %",
-          "evo_arrow": "up",
-          "evo_prev": "Extension de l'exposition au-delà des 5 millions d'actifs"
+          "field_name": "Fréquentation du Louvre",
+          "evo_current": "7,8 millions de visiteurs",
+          "evo_arrow": "down",
+          "evo_prev": "9 millions en 2025"
         },
         {
-          "field_name": "Taux de chômage des 15-24 ans en France",
-          "evo_current": "24,5 %",
-          "evo_arrow": "up",
-          "evo_prev": "Forte dégradation due au gel des embauches juniors"
+          "field_name": "Marché de l'art physique",
+          "evo_current": "51 milliards de dollars",
+          "evo_arrow": "down",
+          "evo_prev": "59,6 Md$ en 2025"
         }
       ],
-      "france_line": "La disparition rapide de postes qualifiés pèse lourdement sur les comptes sociaux et freine l'insertion des jeunes diplômés.",
+      "france_line": "Une baisse des visites étrangères impacterait directement les ressources financières des musées nationaux français.",
       "france_impact": "degrade"
     }
   },
   "essentiel_box": [
-    "L'arrivée de l'intelligence artificielle autonome pose la question d'une destruction nette d'emplois ou d'une simple transformation des méthodes de travail d'ici deux à cinq ans.",
-    "Le rapport du Sénat estime que 16,3 % des emplois en France, soit près de 5 millions d'actifs, sont directement exposés, tandis que le chômage des 15-24 ans atteint 21,6 % au deuxième trimestre 2026.",
-    "Principalement une transformation : notre scénario le plus probable (45 %) anticipe des pertes localisées dans les services qualifiés mais sans effondrement global du marché du travail.",
-    "Le déploiement concret de la plateforme publique Explore IA et des formations du plan Impulsion IA 2027 prévu au premier semestre 2027 servira de test pour mesurer la capacité d'adaptation des salariés."
+    "La diffusion massive de reproductions numériques parfaites va-t-elle rendre les œuvres d'art originales plus précieuses ou au contraire les banaliser auprès du grand public ?",
+    "En 2025, le marché de l'art physique a rebondi à 59,6 milliards de dollars et le Louvre a attiré 9 millions de visiteurs, alors que le marché des NFT s'est effondré à 23,8 millions.",
+    "Oui, notre analyse évalue à 40 % la probabilité que le numérique renforce la valeur de l'original, à égalité avec une simple coexistence stable (40 %), contre seulement 20 % pour une banalisation.",
+    "La fréquentation consolidée des grands musées parisiens et les résultats des grandes ventes d'automne à New York en novembre 2026 serviront de révélateurs."
   ],
   "delta_france": {
-    "kind": "negatif",
-    "score": -0.4,
-    "word": "léger négatif",
-    "text": "notre scénario central de transition inégale (45 %) et le risque de destruction nette (25 %) l'emportent sur une adaptation sans heurts (30 %), signalant des tensions réelles sur l'emploi qualifié et l'insertion des jeunes."
+    "kind": "positif",
+    "score": 0.6,
+    "word": "assez positif",
+    "text": "la France, première destination muséale mondiale avec les 9 millions de visiteurs du Louvre, bénéficie directement de la survalorisation de l'art physique dans nos scénarios favorables et stables représentant 80 % des probabilités."
   },
-  "phrase_a_retenir": "En France, 16,3 % de l'emploi, soit près de 5 millions de personnes, est exposé à l'IA agentique d'ici deux à cinq ans selon le rapport du Sénat.",
-  "phrase_a_retenir_stat": "16,3 %",
+  "phrase_a_retenir": "Tandis que le marché des NFT d'art s'est effondré à 23,8 millions de dollars en 2025, le marché de l'art physique a rebondi à 59,6 milliards de dollars la même année.",
+  "phrase_a_retenir_stat": "59,6 milliards de dollars",
   "lexique": [
     {
-      "slug": "ia-generative",
-      "terme": "IA générative",
-      "definition": "Technologie informatique capable de créer des textes, du code, des images ou des sons à partir de consignes rédigées en langage ordinaire."
+      "slug": "jeton-non-fongible",
+      "terme": "jetons non fongibles",
+      "definition": "Titre de propriété numérique infalsifiable inscrit sur une chaîne de blocs, utilisé pour authentifier des fichiers ou des œuvres virtuelles."
     },
     {
-      "slug": "ia-agentique",
-      "terme": "IA agentique",
-      "definition": "Système d'intelligence artificielle capable d'exécuter de manière autonome une suite complexe de tâches pour atteindre un objectif fixé sans guidage pas à pas."
-    },
-    {
-      "slug": "tresor-eco",
-      "terme": "Trésor-Éco",
-      "definition": "Publication d'analyse économique réalisée par la Direction générale du Trésor pour éclairer les politiques publiques du ministère de l'Économie."
+      "slug": "aura",
+      "terme": "aura",
+      "definition": "Caractère unique, authentique et presque sacré d'une œuvre d'art originale lié à sa présence physique dans un lieu et un temps précis."
     }
   ],
   "sources_html": [
-    "<a href=\"https://www.senat.fr/rap/r25-572/r25-5724.html\" target=\"_blank\" rel=\"noopener noreferrer\">Sénat français — Rapport d'information n°572 – L'entreprise 5.0 : impact de l'IA sur les entreprises ↗</a>",
-    "<a href=\"https://www.tresor.economie.gouv.fr/Articles/895c28b4-dca6-4ca6-b03b-88058fc4ce87/files/a0c9e9a1-6c53-4f2e-ad5d-f603fd5c456d\" target=\"_blank\" rel=\"noopener noreferrer\">Direction générale du Trésor — Trésor-Éco n°391 – L'intelligence artificielle, quels effets sur l'emploi ? ↗</a>",
-    "<a href=\"https://www.insee.fr/fr/statistiques/2532173\" target=\"_blank\" rel=\"noopener noreferrer\">INSEE — Taux de chômage des 15-24 ans en France (séries trimestrielles) ↗</a>",
-    "<a href=\"https://www.juritravail.com/Actualite/lia-dans-le-monde-du-travail-ce-que-prevoit-le-gouvernement-dans-son-plan-impulsion-ia-2027/Id/378600\" target=\"_blank\" rel=\"noopener noreferrer\">Jurif travail (article de presse) — Plan Impulsion IA 2027 – Ministère du Travail ↗</a>"
+    "<a href=\"https://www.franceinfo.fr/culture/arts-expos/louvre/frequentation-du-louvre-en-legere-hausse-en-2025-avec-9-millions-de-visiteurs-et-succes-des-monuments-francais_7721917.html\" target=\"_blank\" rel=\"noopener noreferrer\">Franceinfo — Fréquentation du Louvre en légère hausse en 2025 avec 9 millions de visiteurs ↗</a>",
+    "<a href=\"https://mylittlemoney.com/2026/03/17/le-marche-de-lart-rebondit-a-596-milliards-en-2025-ce-que-revele-le-rapport-art-basel-ubs-2026/\" target=\"_blank\" rel=\"noopener noreferrer\">My Little Money — Le marché de l'art rebondit à 59,6 milliards de dollars en 2025 (Art Basel/UBS) ↗</a>",
+    "<a href=\"https://dappradar.com/blog/nft-arts-shocking-collapse-from-2-9-billion-boom-to-23-8-million-bust-what-went-wrong\" target=\"_blank\" rel=\"noopener noreferrer\">DappRadar — NFT Art's Shocking Collapse: From $2.9 Billion Boom to $23.8 Million Bust ↗</a>",
+    "<a href=\"https://press.christies.com/christies-leads-resurgent-market-484465/\" target=\"_blank\" rel=\"noopener noreferrer\">Christie's Press — Christie's en tête d'un marché en plein rebond (1er semestre 2026) ↗</a>"
   ],
   "meta": {
-    "title": "IA et emploi : transformer ou détruire le travail ? — Scénario",
-    "meta_description": "IA et emploi : transformer ou détruire le travail ? Analyse fondée sur données scientifiques.",
-    "og_image_alt": "Illustration conceptuelle sur l'impact de l'intelligence artificielle sur le monde du travail",
+    "title": "Art numérique : l'original pourrait-il redevenir le luxe ultime ?",
+    "meta_description": "Art numérique : l'original pourrait-il redevenir le luxe ? 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Tableau de maître exposé dans une galerie de musée avec des visiteurs observant la toile originale.",
     "keywords": [
-      "recherche",
-      "santé",
-      "innovation",
-      "étude scientifique"
+      "Art"
     ],
-    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-30.html\"\n  },\n  \"headline\": \"IA et emploi : transformer ou détruire le travail ? — Scénario\",\n  \"description\": \"IA et emploi : transformer ou détruire le travail ? Analyse fondée sur données scientifiques.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-30.png\"\n  ],\n  \"datePublished\": \"2026-10-30T00:00:00\",\n  \"dateModified\": \"2026-10-30T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"recherche, santé, innovation, étude scientifique\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Sciences\"\n}",
-    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"IA et emploi : transformer ou détruire le travail ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-30.html\"\n    }\n  ]\n}"
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-31.html\"\n  },\n  \"headline\": \"Art numérique : l'original pourrait-il redevenir le luxe ultime ?\",\n  \"description\": \"Art numérique : l'original pourrait-il redevenir le luxe ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-31.png\"\n  ],\n  \"datePublished\": \"2026-10-31T00:00:00\",\n  \"dateModified\": \"2026-10-31T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Art\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Art numérique : l'original pourrait-il redevenir le luxe ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-31.html\"\n    }\n  ]\n}"
   }
 }

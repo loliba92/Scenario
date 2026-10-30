@@ -1,0 +1,166 @@
+{
+  "h1": "Art numérique : l'original pourrait-il redevenir le luxe ultime ?",
+  "question_text": "La numérisation parfaite de l'art ne provoque-t-elle pas, par contraste, une renaissance de l'objet original, plus précieux que jamais ?",
+  "section_title": "La copie numérique parfaite va-t-elle faire grimper la valeur de l'œuvre originale ?",
+  "dek": [
+    "Pendant des années, le monde de la culture a pensé que les écrans allaient remplacer les toiles et les sculptures dans le cœur du public. Les visites virtuelles en très haute définition et la folie spéculative autour des certificats numériques semblaient annoncer la fin du musée traditionnel. Pourtant, les faits récents montrent le chemin inverse. En 2025, le musée du Louvre a accueilli <strong>9 millions de visiteurs</strong>, enregistrant une hausse de sa fréquentation malgré des tarifs en augmentation. Face à des répliques visibles partout sur nos téléphones en un glissement de doigt, les foules continuent de faire la queue pour observer la matière réelle, les couches de vernis et les défauts minuscules que le numérique ne sait pas transmettre.",
+    "Ce retour vers la matière physique s'exprime avec une force éclatante sur le marché financier des œuvres d'art. Selon le rapport annuel de référence publié par la foire Art Basel et la banque suisse UBS, le marché mondial de l'art physique a atteint <strong>59,6 milliards de dollars</strong> en 2025, affichant un rebond net de 4 % après deux années consécutives de baisse. Cette reprise a été tirée par les ventes aux enchères publiques de très haut niveau, qui ont progressé de 9 % pour atteindre 20,7 milliards de dollars. Les grands collectionneurs de la planète recherchent activement des pièces matérielles irremplaçables pour sécuriser leur patrimoine face aux incertitudes économiques mondiales.",
+    "Le contraste est encore plus saisissant lorsqu'on examine ce que sont devenues les promesses des objets purement virtuels. Le marché des jetons non fongibles<a class=\"lex-ref\" href=\"#lex-jeton-non-fongible\" aria-label=\"Voir la définition dans le lexique\">*</a>, ou NFT, qui prétendait créer une rareté artificielle sur internet, s'est littéralement effondré. Alors qu'il pesait <strong>2,9 milliards de dollars</strong> lors de son pic historique en 2021, ce marché a dégringolé jusqu'à seulement <strong>23,8 millions de dollars</strong> au premier trimestre 2025 d'après la plateforme de suivi DappRadar. Les acheteurs ont découvert qu'une ligne de code informatique ne remplace pas l'émotion physique suscitée par un tableau ou une sculpture authentique dans une pièce.",
+    "Au sommet du marché mondial, les grandes maisons de vente aux enchères enregistrent des sommets spectaculaires qui confirment cette soif d'œuvres physiques majeures. Au début de l'année 2026, la prestigieuse maison Christie's a ainsi adjugé un tableau historique de Jackson Pollock pour la somme colossale de <strong>181 millions de dollars</strong>. Lors de ce même semestre exceptionnel, les ventes mondiales de Christie's ont bondi de 71 % par rapport à l'année précédente pour atteindre 3,5 milliards de dollars. Les acheteurs des jeunes générations Y et Z représentent désormais 47 % des nouveaux clients de ces ventes prestigieuses, prouvant que l'attachement aux objets physiques traverse toutes les tranches d'âge.",
+    "Cette tension entre reproduction et création originale rappelle une célèbre analyse du philosophe Walter Benjamin sur l'aura<a class=\"lex-ref\" href=\"#lex-aura\" aria-label=\"Voir la définition dans le lexique\">*</a> d'une œuvre. Il y a un siècle, ce penseur estimait que la diffusion industrielle d'images allait détruire le caractère sacré et unique de l'original. Aujourd'hui, le monde numérique produit exactement l'effet inverse : plus une image circule gratuitement et se multiplie à l'infini sur les réseaux sociaux, plus l'objet physique unique dont elle provient gagne en prestige et en valeur symbolique. La copie parfaite ne détruit pas le tableau d'origine, elle agit au contraire comme une immense campagne publicitaire permanente.",
+    "Pour autant, l'avenir de cette relation entre l'art physique et les technologies numériques reste profondément ouvert à plusieurs évolutions distinctes. Trois trajectoires se dessinent désormais pour les années à venir : une valorisation sans précédent de l'objet physique unique poussée par la satiété des écrans, une simple coexistence équilibrée où chacun conserve son public sans bouleversement majeur, ou une lente banalisation de l'art causée par la prolifération de copies parfaites générées par ordinateur. Comprendre laquelle de ces voies va l'emporter permet de mesurer l'impact culturel et économique de notre transition numérique."
+  ],
+  "enjeu_en_clair": {
+    "lead": "La copie numérique parfaite d'un tableau ne détruit pas sa valeur mais renforce au contraire le désir de voir l'original physique.",
+    "text": "La multiplication des images numériques sur nos écrans devait rendre les musées physiques inutiles. C'est l'inverse qui se produit : les musées comme le Louvre font le plein et les ventes de tableaux battent des records. Quand une image est partout gratuitement, posséder ou admirer l'objet réel et unique devient un luxe exceptionnel. Ce phénomène change la manière dont notre société accorde de la valeur à la création artistique."
+  },
+  "stakes_branches": {
+    "favorable": "La surabondance numérique démultiplie le prestige et la valeur économique des œuvres physiques originales.",
+    "stable": "L'art physique et les créations numériques coexistent sur des marchés séparés sans s'influencer fortement.",
+    "degrade": "La prolifération de copies numériques parfaites finit par banaliser les œuvres et réduire l'intérêt pour les originaux."
+  },
+  "comprendre_box": [
+    {
+      "lead": "Pourquoi écouter un morceau sur son téléphone donne-t-il envie d'aller au concert ?",
+      "text": "Imaginez la musique : vous pouvez écouter n'importe quel titre en streaming gratuitement et avec un son parfait. Pourtant, les gens payent des centaines d'euros pour aller voir l'artiste en concert. Dans l'art, c'est identique : voir une photo parfaite d'un tableau sur écran ne remplace jamais le contact direct avec la matière réelle de la toile.",
+      "apres_dek_index": 0
+    },
+    {
+      "lead": "La différence fondamentale entre un fichier informatique et un objet unique",
+      "text": "Un fichier numérique peut être dupliqué à l'infini sans jamais perdre en qualité, ce qui rend sa rareté artificielle très fragile. À l'inverse, un tableau peint à la main est un objet physique irremplaçable, façonné à un moment précis de l'histoire, ce qui lui confère une valeur refuge durable pour les collectionneurs du monde entier.",
+      "apres_dek_index": 2
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Fréquentation du Louvre (2025)",
+      "value": "9 millions de visiteurs",
+      "delta": "vs 8,7 millions en 2024"
+    },
+    {
+      "label": "Valeur du marché de l'art physique (2025)",
+      "value": "59,6 milliards de dollars",
+      "delta": "+4 % par rapport à 2024"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 40,
+      "gauge_word": "Probable",
+      "h3": "La copie numérique parfaite démultiplie la valeur et l'attrait de l'original",
+      "why": [
+        "Premier scénario : la prolifération de reproductions numériques gratuites et parfaites agit comme un amplificateur sans précédent pour l'objet physique. Dans cette hypothèse, plus une peinture ou une sculpture est partagée et admirée sous forme de pixels à travers le monde, plus le désir d'en faire l'expérience sensorielle directe devient puissant chez les amateurs. Concrètement, les institutions culturelles comme le musée du Louvre voient leur fréquentation internationale se maintenir à des sommets, tandis que le marché de l'art physique franchit de nouveaux records de valorisation sous l'afflux de capitaux cherchant des biens authentiques et tangibles.",
+        "Ce scénario se distingue nettement d'une simple stagnation du marché ou d'une crise de fréquentation, car il repose sur un effet de contraste psychologique direct chez le spectateur. Alors que les scénarios alternatifs envisagent une indifférence croissante du public face aux musées ou une séparation étanche des pratiques, cette dynamique transforme l'omniprésence du numérique en un tremplin commercial pour les œuvres réelles. L'original physique cesserait ainsi d'être un simple support matériel pour devenir l'étalon suprême du luxe culturel, ce qui pourrait concentrer une part toujours plus massive de la valeur financière mondiale sur un nombre restreint de chefs-d'œuvre historiques."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Fréquentation du Louvre",
+          "evo_current": "10,5 millions de visiteurs",
+          "evo_arrow": "up",
+          "evo_prev": "9 millions en 2025"
+        },
+        {
+          "field_name": "Marché de l'art physique",
+          "evo_current": "68 milliards de dollars",
+          "evo_arrow": "up",
+          "evo_prev": "59,6 Md$ en 2025"
+        }
+      ],
+      "france_line": "Le patrimoine muséal et les galeries françaises profitent massivement de l'afflux touristique et des enchères internationales.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 40,
+      "gauge_word": "Probable",
+      "h3": "L'art physique et les créations numériques coexistent sans influence mutuelle",
+      "why": [
+        "Deuxième scénario : le marché de l'art physique maintient sa trajectoire solide mais sans connaître de renaissance spectaculaire alimentée par le numérique. Dans cette configuration, les collectionneurs traditionnels continuent d'acheter des toiles et des sculptures pour décorer leurs résidences ou diversifier leurs investissements, pendant que les amateurs de technologies consomment des créations virtuelles sur leurs écrans sans passerelle majeure entre les deux mondes. Concrètement, les musées conservent des niveaux de fréquentation réguliers guidés par le tourisme mondial, sans que la numérisation des collections ne modifie profondément les comportements du grand public.",
+        "À la différence du scénario d'essor où le numérique agit comme un dopant culturel, cette trajectoire montre que les habitudes d'achat et de visite obéissent avant tout à des facteurs économiques classiques comme le pouvoir d'achat, le coût des billets ou les taux d'intérêt. Contrairement à l'hypothèse pessimiste d'une désaffection générale, l'art physique ne subit aucune dépréciation face aux copies virtuelles, mais il ne bénéficie pas non plus d'un regain de ferveur exceptionnel. L'équilibre actuel perdurerait de manière stable, ce qui conduirait les deux univers à se développer en parallèle sans jamais fusionner ni se cannibaliser."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Fréquentation du Louvre",
+          "evo_current": "9,1 millions de visiteurs",
+          "evo_arrow": "flat",
+          "evo_prev": "9 millions en 2025"
+        },
+        {
+          "field_name": "Marché de l'art physique",
+          "evo_current": "60,5 milliards de dollars",
+          "evo_arrow": "up",
+          "evo_prev": "59,6 Md$ en 2025"
+        }
+      ],
+      "france_line": "La France préserve ses recettes touristiques et son rang sur le marché de l'art sans accélération majeure.",
+      "france_impact": "favorable"
+    },
+    "degrade": {
+      "pct": 20,
+      "gauge_word": "Peu probable",
+      "h3": "L'abondance de répliques virtuelles parfaites banalise l'accès aux œuvres",
+      "why": [
+        "Troisième scénario : la diffusion massive et gratuite de doubles numériques en ultra-haute résolution finit par saturer l'intérêt des spectateurs et désensibiliser le public. Dans cette hypothèse défavorable, la possibilité d'examiner chaque détail d'un tableau depuis son salon avec des casques immersifs réduit l'envie d'affronter les files d'attente et le coût élevé des musées réels. Concrètement, la fréquentation des grandes institutions culturelles commence à s'éroder chez les jeunes générations habituées à l'immédiateté des écrans, ce qui fragilise l'économie des musées et pèse sur les ventes des galeries intermédiaires.",
+        "Cette trajectoire s'oppose frontalement aux deux premières options qui pariaient sur la résilience ou le triomphe de la matière physique. Au lieu de susciter une fascination renouvelée pour l'authenticité historique, la perfection technique des reproductions générées par ordinateur rendrait la visite physique superflue pour une partie croissante de la population mondiale. L'original perdrait alors son pouvoir d'attraction démocratique pour ne rester qu'un objet de spéculation financière réservé à une poignée d'initiés, ce qui pourrait affaiblir durablement le modèle économique des grandes institutions publiques."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Fréquentation du Louvre",
+          "evo_current": "7,8 millions de visiteurs",
+          "evo_arrow": "down",
+          "evo_prev": "9 millions en 2025"
+        },
+        {
+          "field_name": "Marché de l'art physique",
+          "evo_current": "51 milliards de dollars",
+          "evo_arrow": "down",
+          "evo_prev": "59,6 Md$ en 2025"
+        }
+      ],
+      "france_line": "Une baisse des visites étrangères impacterait directement les ressources financières des musées nationaux français.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "La diffusion massive de reproductions numériques parfaites va-t-elle rendre les œuvres d'art originales plus précieuses ou au contraire les banaliser auprès du grand public ?",
+    "En 2025, le marché de l'art physique a rebondi à 59,6 milliards de dollars et le Louvre a attiré 9 millions de visiteurs, alors que le marché des NFT s'est effondré à 23,8 millions.",
+    "Oui, notre analyse évalue à 40 % la probabilité que le numérique renforce la valeur de l'original, à égalité avec une simple coexistence stable (40 %), contre seulement 20 % pour une banalisation.",
+    "La fréquentation consolidée des grands musées parisiens et les résultats des grandes ventes d'automne à New York en novembre 2026 serviront de révélateurs."
+  ],
+  "delta_france": {
+    "kind": "positif",
+    "score": 0.6,
+    "word": "assez positif",
+    "text": "la France, première destination muséale mondiale avec les 9 millions de visiteurs du Louvre, bénéficie directement de la survalorisation de l'art physique dans nos scénarios favorables et stables représentant 80 % des probabilités."
+  },
+  "phrase_a_retenir": "Tandis que le marché des NFT d'art s'est effondré à 23,8 millions de dollars en 2025, le marché de l'art physique a rebondi à 59,6 milliards de dollars la même année.",
+  "phrase_a_retenir_stat": "59,6 milliards de dollars",
+  "lexique": [
+    {
+      "slug": "jeton-non-fongible",
+      "terme": "jetons non fongibles",
+      "definition": "Titre de propriété numérique infalsifiable inscrit sur une chaîne de blocs, utilisé pour authentifier des fichiers ou des œuvres virtuelles."
+    },
+    {
+      "slug": "aura",
+      "terme": "aura",
+      "definition": "Caractère unique, authentique et presque sacré d'une œuvre d'art originale lié à sa présence physique dans un lieu et un temps précis."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://www.franceinfo.fr/culture/arts-expos/louvre/frequentation-du-louvre-en-legere-hausse-en-2025-avec-9-millions-de-visiteurs-et-succes-des-monuments-francais_7721917.html\" target=\"_blank\" rel=\"noopener noreferrer\">Franceinfo — Fréquentation du Louvre en légère hausse en 2025 avec 9 millions de visiteurs ↗</a>",
+    "<a href=\"https://mylittlemoney.com/2026/03/17/le-marche-de-lart-rebondit-a-596-milliards-en-2025-ce-que-revele-le-rapport-art-basel-ubs-2026/\" target=\"_blank\" rel=\"noopener noreferrer\">My Little Money — Le marché de l'art rebondit à 59,6 milliards de dollars en 2025 (Art Basel/UBS) ↗</a>",
+    "<a href=\"https://dappradar.com/blog/nft-arts-shocking-collapse-from-2-9-billion-boom-to-23-8-million-bust-what-went-wrong\" target=\"_blank\" rel=\"noopener noreferrer\">DappRadar — NFT Art's Shocking Collapse: From $2.9 Billion Boom to $23.8 Million Bust ↗</a>",
+    "<a href=\"https://press.christies.com/christies-leads-resurgent-market-484465/\" target=\"_blank\" rel=\"noopener noreferrer\">Christie's Press — Christie's en tête d'un marché en plein rebond (1er semestre 2026) ↗</a>"
+  ],
+  "meta": {
+    "title": "Art numérique : l'original pourrait-il redevenir le luxe ultime ?",
+    "meta_description": "Art numérique : l'original pourrait-il redevenir le luxe ? 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Tableau de maître exposé dans une galerie de musée avec des visiteurs observant la toile originale.",
+    "keywords": [
+      "Art"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-10-31.html\"\n  },\n  \"headline\": \"Art numérique : l'original pourrait-il redevenir le luxe ultime ?\",\n  \"description\": \"Art numérique : l'original pourrait-il redevenir le luxe ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-10-31.png\"\n  ],\n  \"datePublished\": \"2026-10-31T00:00:00\",\n  \"dateModified\": \"2026-10-31T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Art\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Actualité\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Art numérique : l'original pourrait-il redevenir le luxe ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-10-31.html\"\n    }\n  ]\n}"
+  }
+}
