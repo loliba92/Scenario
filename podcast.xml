@@ -16,6 +16,17 @@
       <itunes:email>contact@lesscenarios.fr</itunes:email>
     </itunes:owner>
     <item>
+      <title>IA et emploi : transformer ou détruire le travail ?</title>
+      <link>https://lesscenarios.fr/archives/2026-10-30.html</link>
+      <guid isPermaLink="false">scenario-podcast-2026-10-30</guid>
+      <pubDate>Fri, 30 Oct 2026 07:00:00 +0000</pubDate>
+      <description>IA et emploi : transformer ou détruire le travail ? Épisode lu par une voix de synthèse (intelligence artificielle), à partir de l'édition du 2026-10-30. Version écrite : https://lesscenarios.fr/archives/2026-10-30.html Rien n'est écrit à l'avance.</description>
+      <enclosure url="https://github.com/loliba92/Scenario/releases/download/podcast-2026-10-30/2026-10-30.mp3" length="5264685" type="audio/mpeg"/>
+      <itunes:duration>00:07:18</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://lesscenarios.fr/podcast/episodes/2026-10-30.jpg"/>
+    </item>
+    <item>
       <title>Bulle de l'IA : les valorisations tech vont-elles corriger fortement ?</title>
       <link>https://lesscenarios.fr/archives/2026-10-29.html</link>
       <guid isPermaLink="false">scenario-podcast-2026-10-29</guid>
