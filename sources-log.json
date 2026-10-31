@@ -2,6 +2,61 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-10-31",
+      "articles": [
+        {
+          "title": "IA : OpenAI, Google, Microsoft et Anthropic promettent aux médias un bouton anti-aspiration de leur contenu",
+          "source": "Le Figaro",
+          "url": "https://www.lefigaro.fr/secteur/high-tech/ia-openai-google-microsoft-et-anthropic-promettent-aux-medias-un-bouton-anti-aspiration-de-leur-contenu-20261031",
+          "image": "https://i.f1g.fr/media/cms/1200x630_crop/2026/10/31/2d74f0f49dd850e4e43935a8db11c2b632023a33196b0a7943f43f4bc9d92e4b.jpg",
+          "lang": "fr",
+          "domain": "tech-numerique",
+          "summary": "Les géants de l'IA OpenAI, Google, Microsoft et Anthropic ont promis vendredi 31 octobre 2026 aux médias un moyen unique d'empêcher l'aspiration de leurs contenus pour l'entraînement des modèles. Microsoft prendra en compte ce réglage à partir du 1er février 2027 et Google en 2027, tandis qu'OpenAI évoque les prochains mois.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Un navire frappé par un «projectile d'origine inconnue» au large de l'Iran",
+          "source": "Le Figaro",
+          "url": "https://www.lefigaro.fr/international/un-navire-frappe-par-un-projectile-d-origine-inconnue-au-large-de-l-iran-20261031",
+          "image": "https://i.f1g.fr/media/cms/1200x630_crop/2026/10/31/014497309e3df3e0f3dd52239ec37930aadf69e246a916710d5352a6e9538e75.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Un navire a été frappé vendredi 31 octobre 2026 par un projectile d'origine inconnue provoquant un incendie à bord, à 40 milles marins au sud de l'île de Lavan en Iran, selon l'agence de sécurité maritime britannique UKMTO. L'équipage a été signalé sain et sauf et aucun impact environnemental n'a été rapporté à ce stade.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Nations commit to get nature goals back on track",
+          "source": "AFP",
+          "url": "https://www.afp.com/en/nations-commit-get-nature-goals-back-track",
+          "image": null,
+          "lang": "en",
+          "domain": "sciences-environnement",
+          "summary": "Nearly 200 nations struck hard-fought agreements on Friday 31 October 2026 at a UN biodiversity summit (COP17) in Yerevan, Armenia, hoping to revive the 2030 commitment to halt nature destruction. The agreed global review had still not been published hours after adoption, with an estimated $700 billion more needed annually for conservation.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Fears of violence as France braces for Halloween protests",
+          "source": "AFP",
+          "url": "https://www.afp.com/en/fears-violence-france-braces-halloween-protests",
+          "image": null,
+          "lang": "en",
+          "domain": "politique-institutions",
+          "summary": "France braced on Saturday 31 October 2026 for a third weekend of protests coinciding with Halloween, with around 70,000 security personnel deployed to prevent a repeat of the October 17 unrest. President Emmanuel Macron said it was \"not normal\" for France to be in such a state of \"turmoil\" six months before the presidential election.",
+          "read_minutes": 3
+        },
+        {
+          "title": "Crypto platform Binance confirms 'complex' $6.3 bn hack",
+          "source": "AFP",
+          "url": "https://www.afp.com/en/crypto-platform-binance-confirms-complex-63-bn-hack",
+          "image": null,
+          "lang": "en",
+          "domain": "economie-entreprises",
+          "summary": "Crypto exchange Binance confirmed on October 30, 2026 a \"complex\" hack worth $6.3 billion, thought to be the biggest ever crypto heist. Investigators are pointing to hackers linked to the platform as the perpetrators of the attack.",
+          "read_minutes": 2
+        }
+      ]
+    },
+    {
       "date": "2026-10-30",
       "articles": [
         {
