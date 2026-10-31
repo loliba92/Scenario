@@ -16,6 +16,17 @@
       <itunes:email>contact@lesscenarios.fr</itunes:email>
     </itunes:owner>
     <item>
+      <title>Art numérique : l'original pourrait-il redevenir le luxe ultime ?</title>
+      <link>https://lesscenarios.fr/archives/2026-10-31.html</link>
+      <guid isPermaLink="false">scenario-podcast-2026-10-31</guid>
+      <pubDate>Sat, 31 Oct 2026 07:00:00 +0000</pubDate>
+      <description>Art numérique : l'original pourrait-il redevenir le luxe ultime ? Épisode lu par une voix de synthèse (intelligence artificielle), à partir de l'édition du 2026-10-31. Version écrite : https://lesscenarios.fr/archives/2026-10-31.html Rien n'est écrit à l'avance.</description>
+      <enclosure url="https://github.com/loliba92/Scenario/releases/download/podcast-2026-10-31/2026-10-31.mp3" length="4615821" type="audio/mpeg"/>
+      <itunes:duration>00:06:24</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://lesscenarios.fr/podcast/episodes/2026-10-31.jpg"/>
+    </item>
+    <item>
       <title>IA et emploi : transformer ou détruire le travail ?</title>
       <link>https://lesscenarios.fr/archives/2026-10-30.html</link>
       <guid isPermaLink="false">scenario-podcast-2026-10-30</guid>
