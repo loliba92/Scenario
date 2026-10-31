@@ -11,4 +11,15 @@
       <news:title>AI and Employment: Transforming or Destroying Jobs?</news:title>
     </news:news>
   </url>
-<url><loc>https://lesscenarios.fr/archives/2026-10-31.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-31T06:01:38+01:00</news:publication_date><news:title>Art numérique : l'original pourrait-il redevenir le luxe ultime ?</news:title></news:news></url></urlset>
+<url><loc>https://lesscenarios.fr/archives/2026-10-31.html</loc><news:news><news:publication><news:name>Scénario</news:name><news:language>fr</news:language></news:publication><news:publication_date>2026-10-31T06:01:38+01:00</news:publication_date><news:title>Art numérique : l'original pourrait-il redevenir le luxe ultime ?</news:title></news:news></url>  <url>
+    <loc>https://lesscenarios.fr/en/archives/2026-10-31.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Scénario</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-31T06:01:38+01:00</news:publication_date>
+      <news:title>Digital Art: Could the Original Become the Ultimate Luxury Again?</news:title>
+    </news:news>
+  </url>
+</urlset>
