@@ -1280,6 +1280,16 @@ préférée pour son registre déjà simplifié.*
 
 *Phrase à retenir de l'édition du 2026-10-30 (archives/2026-10-30.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
 
+### chiffre-2026-10-31
+- eyebrow: LE SAVIEZ-VOUS
+- stat: 59,6 milliards de dollars
+- message: Tandis que le marché des NFT d'art s'est effondré à 23,8 millions de dollars en 2025, le marché de l'art physique a rebondi à 59,6 milliards de dollars la même année.
+- attribution: — lesscenarios.fr, 31 octobre 2026
+- cta: 👉 Abonne-toi, un chiffre qui marque chaque jour
+- source: https://lesscenarios.fr/archives/2026-10-31.html
+
+*Phrase à retenir de l'édition du 2026-10-31 (archives/2026-10-31.html), reprise mot pour mot — voir docs/ARCHITECTURE.md, script scripts/pub/generate_daily_pub.py.*
+
 ## 6. Soutenez Scénario — Buy Me a Coffee `[repliée dans manifeste le 18 août]`
 
 *Créée le 18 août comme catégorie séparée (samedi), puis repliée le même
