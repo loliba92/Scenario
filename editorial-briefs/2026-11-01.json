@@ -1,0 +1,215 @@
+{
+  "date": "2026-11-01",
+  "registre": "sport",
+  "sujet": {
+    "titre_propose": "Le sport peut-il encore être une compétition équitable ?",
+    "h1": "Sport : la compétition équitable est-elle encore possible ?",
+    "question_posee": "Le sport peut-il encore être une compétition équitable, avec l'influence des technologies, des moyens financiers et des réglementations ?",
+    "eyebrow": "Dimanche, sport",
+    "angle": "Entre plafonds techniques imposés par les fédérations, écarts de budgets entre nations et compétitions privées non régulées, la question de l'équité se pose avec urgence.",
+    "tags": [
+      "sport",
+      "technologie",
+      "équité"
+    ],
+    "domain": "sport",
+    "image_keywords": "athletic competition track field",
+    "complexite": 3,
+    "origine_prioritaire": "Le sport peut-il encore être une compétition équitable ?",
+    "origine_id": "sport-le-sport-peut-il-encore-etre-une-competition",
+    "point_de_depart": {
+      "id": "sport-le-sport-peut-il-encore-etre-une-competition",
+      "registre": "sport",
+      "titre": "Le sport peut-il encore être une compétition équitable ?",
+      "question": "Le sport peut-il encore être une compétition équitable ?",
+      "contexte": "Matériel, données, IA, préparation scientifique, moyens financiers : les écarts entre athlètes se creusent de plus en plus loin du seul talent.",
+      "rationnel": "La question : Le sport peut-il encore être une compétition équitable d'ici la fin 2026, compte tenu de l'influence des technologies, des moyens financiers et des réglementations ? D'un côté les fédérations renforcent les règles techniques (World Athletics, UCI, World Aquatics) ; de l'autre les écarts de moyens entre nations et clubs s'accentuent tandis que des compétitions privées non régulées, comme les Enhanced Games de mai 2026, se développent sans démontrer une supériorité écrasante du dopage technologique. Pour un lecteur français, l'enjeu concerne la position de la France dans la hiérarchie sportive mondiale après la réduction des budgets post‑JO 2024 et le risque de voir se instaurer un sport à deux vitesses réservé aux athlètes les mieux financés.",
+      "mots_cles": [
+        "Enhanced Games 2026 Las Vegas",
+        "World Athletics chaussures régulation 2026 semelle 20mm",
+        "combinaison polyuréthane interdite natation",
+        "dopage technologique équipement sportif",
+        "inégalités budgets sportifs nations JO",
+        "UCI règlement technique vélo 2026",
+        "prothèses carbone paralympiques régulation",
+        "Kristian Gkolomeev 50m 20.81"
+      ],
+      "angle": null,
+      "a_verifier": "Cas récents de contestation d'équipement (combinaisons, prothèses, chaussures à plaque carbone...), règles de régulation déjà en place ou en débat par fédération, écarts de moyens documentés entre programmes sportifs nationaux/clubs",
+      "scenarios_brouillon": null,
+      "echeance": null,
+      "sources_pistes": [
+        {
+          "titre": "World Athletics – Athletic Shoe Regulations (effective 20 April 2026)",
+          "url": "https://worldathletics.org/download/download?filename=61b09e88-36c9-4782-8563-2adce1e15ff0.pdf&urlslug=C2.1A+%E2%80%93+Athletic+Shoe+Regulations+%28effective+from+20+April+2026%29"
+        },
+        {
+          "titre": "Enhanced Games : récit de la nuit la plus controversée du sport – Euronews",
+          "url": "https://fr.euronews.com/2026/05/26/enhanced-games-recit-de-la-nuit-la-plus-controversee-du-sport"
+        },
+        {
+          "titre": "Pourquoi les Enhanced Games sont un flop – Le Parisien",
+          "url": "https://www.leparisien.fr/sports/un-seul-record-battu-des-non-dopes-sacres-audiences-faiblardes-pourquoi-les-enhanced-games-sont-un-flop-25-05-2026-KUBLBLFQD5AUPHG6C67EVPTRWM.php"
+        },
+        {
+          "titre": "Paris 2024: Evaluation of the elite sport expenditure and success of 17 nations – SPLISS",
+          "url": "https://patrickbayeux.com/actualites/jop-paris2024-evaluation-des-depenses-en-faveur-du-sport-delite-et-des-resultats-de-17-nations/"
+        }
+      ],
+      "tag": "sport & technologie",
+      "origine": null,
+      "note_editoriale": "Fusionne 3 idées du même lot posant la même question sous des angles proches : \"compétition équitable ?\", \"le sport devient-il une compétition entre technologies (chaussures, vélos, combinaisons, IA d'entraînement) plutôt qu'entre athlètes ?\", et \"le record a-t-il encore un sens dans un sport technologiquement optimisé (mesure-t-il les limites du corps ou de la technologie disponible) ?\" — ce dernier point à garder comme illustration concrète (records battus en série grâce à l'équipement plutôt qu'au corps) plutôt qu'à traiter séparément. 3 scénarios de l'utilisateur, déjà propres, gardés presque tels quels : favorable = la technologie est régulée (plafonds, homologations, catégories d'équipement encadrées) ; stable = deux catégories de sport s'installent durablement, \"augmenté\" et \"non augmenté\", sans que l'une supplante l'autre ; dégradé = aucune régulation efficace, les athlètes/pays/clubs les mieux financés prennent un avantage technologique définitif",
+      "donnees_graphique": "[relevé du 2026-10-25] Dépenses nationales coordonnées pour le sport d'élite 2023 (unité : millions d'euros). Pologne = 446 (2023) ; Hongrie = 382 (2023) ; Royaume-Uni = 202 (2023) ; Pays-Bas = 89 (2023) ; Suède = 37 (2023) ; Belgique-Wallonie = 14 (2023). Sources : https://spliss.research.vub.be/sites/default/files/2024-10/SPLISS%20evaluatie%20Parijs%20Olympische%20Spelen_V2-final%20pdf_0.pdf",
+      "dossier_incomplet": []
+    }
+  },
+  "anti_doublon": {
+    "veille_ok": true,
+    "meme_registre_ok": true,
+    "notes": "Vérifié : édition du 01/10/2026 (Bitcoin) et du 25/10/2026 (Pass Sport) ne recoupent pas le sujet. Registre sport du dimanche, dernier sport le 18/10/2026 (Zidane) sans lien."
+  },
+  "faits_verifies": [
+    {
+      "affirmation": "Les Enhanced Games, compétition privée promettant des records sans restrictions antidopage, ont eu lieu à Las Vegas en mai 2026.",
+      "chiffre": null,
+      "date_du_chiffre": null,
+      "sources": [
+        "enhanced_games_euronews"
+      ],
+      "confiance": "haute"
+    },
+    {
+      "affirmation": "World Athletics a publié des régulations sur les chaussures de course, entrées en vigueur le 20 avril 2026.",
+      "chiffre": null,
+      "date_du_chiffre": "2026-04-20",
+      "sources": [
+        "world_athletics_regulations"
+      ],
+      "confiance": "haute"
+    }
+  ],
+  "acteurs": [
+    {
+      "nom": "World Athletics",
+      "role": "Fédération internationale d'athlétisme, régule le matériel"
+    },
+    {
+      "nom": "Enhanced Games",
+      "role": "Compétition privée sans restrictions antidopage"
+    },
+    {
+      "nom": "UCI",
+      "role": "Fédération cycliste, régule le matériel vélo"
+    },
+    {
+      "nom": "World Aquatics",
+      "role": "Fédération internationale de natation"
+    }
+  ],
+  "chronologie_cle": [
+    {
+      "date": "2026-04-20",
+      "evenement": "Entrée en vigueur des nouvelles régulations World Athletics sur les chaussures"
+    },
+    {
+      "date": "2026-05-25",
+      "evenement": "Enhanced Games à Las Vegas"
+    }
+  ],
+  "scenarios_prospectifs": {
+    "favorable": {
+      "resume": "Les fédérations renforcent les règles techniques et les plafonds, maintenant l'équité.",
+      "probabilite_suggeree": 35
+    },
+    "stable": {
+      "resume": "Deux catégories de sport coexistent : sport augmenté et sport non augmenté.",
+      "probabilite_suggeree": 45
+    },
+    "degrade": {
+      "resume": "Aucune régulation efficace, les athlètes les mieux financés prennent un avantage technologique définitif.",
+      "probabilite_suggeree": 20
+    }
+  },
+  "indicateurs_kpi": [
+    {
+      "label": "Records battus lors des Enhanced Games",
+      "valeur": "1 record",
+      "tendance": "limitée"
+    }
+  ],
+  "graphique_dc_chart": {
+    "decision": "non",
+    "raison": "Pas de série historique longue et publique vérifiée sur l'équité sportive.",
+    "serie": null
+  },
+  "graphique_chiffres": {
+    "decision": "non",
+    "raison": "Moins de 3 chiffres comparables vérifiés.",
+    "barres": null
+  },
+  "encarts_decides": {
+    "comprendre_box": [
+      {
+        "focus": "Régulation du matériel sportif",
+        "rattache_a": "World Athletics chaussures"
+      },
+      {
+        "focus": "Compétitions privées vs fédérations",
+        "rattache_a": "Enhanced Games"
+      }
+    ],
+    "list_box": null
+  },
+  "elements_incertains": [
+    "Impact réel des Enhanced Games sur la compétition traditionnelle"
+  ],
+  "a_ne_pas_affirmer": [
+    "Les Enhanced Games ont prouvé la supériorité du dopage technologique"
+  ],
+  "sources": [
+    {
+      "id": "enhanced_games_euronews",
+      "title": "Enhanced Games : récit de la nuit la plus controversée du sport",
+      "source": "Euronews",
+      "url": "https://fr.euronews.com/2026/05/26/enhanced-games-recit-de-la-nuit-la-plus-controversee-du-sport",
+      "image": null,
+      "lang": "fr",
+      "domain": "sport",
+      "summary": "Reportage sur les Enhanced Games de mai 2026 à Las Vegas, compétition privée sans restrictions antidopage.",
+      "read_minutes": 3
+    },
+    {
+      "id": "world_athletics_regulations",
+      "title": "World Athletics – Athletic Shoe Regulations (effective 20 April 2026)",
+      "source": "World Athletics",
+      "url": "https://worldathletics.org/download/download?filename=61b09e88-36c9-4782-8563-2adce1e15ff0.pdf&urlslug=C2.1A+%E2%80%93+Athletic+Shoe+Regulations+%28effective+from+20+April+2026%29",
+      "image": null,
+      "lang": "en",
+      "domain": "sport",
+      "summary": "Régulations officielles sur les chaussures de course, entrées en vigueur le 20 avril 2026.",
+      "read_minutes": 2
+    }
+  ],
+  "revue_de_presse": [],
+  "articles_connexes": [
+    {
+      "date": "2026-10-18",
+      "titre": "Zidane : cinq nouveaux dans la liste des Bleus, Tchouaméni et Kanté écartés",
+      "lien": "Sport français — sélection de l'équipe de France, enjeu de performance et de renouvellement"
+    },
+    {
+      "date": "2026-10-11",
+      "titre": "Milan-Cortina : l'IA va-t-elle remplacer les juges ?",
+      "lien": "Sport et technologie — usage de l'IA dans le jugement sportif"
+    },
+    {
+      "date": "2026-09-20",
+      "titre": "Basket : la NBA débarque en Europe",
+      "lien": "Sport professionnel — expansion internationale et enjeux économiques"
+    }
+  ],
+  "recommandations_redaction": [
+    "Insister sur la tension entre régulation fédérale et compétitions privées",
+    "Évoquer les records battus grâce à l'équipement plutôt qu'au corps"
+  ]
+}

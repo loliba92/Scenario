@@ -1,0 +1,146 @@
+{
+  "h1": "Sport : la compétition équitable est-elle encore possible ?",
+  "question_text": "Le sport peut-il encore être une compétition équitable, avec l'influence des technologies, des moyens financiers et des réglementations ?",
+  "section_title": "Trois trajectoires pour l'avenir de l'équité sportive",
+  "dek": [
+    "Le sport moderne repose sur une promesse fondamentale et universelle : celle d'une compétition juste où seuls le talent, le travail et la volonté individuelle départagent les athlètes sur la ligne de départ. Pourtant, cette vision idéale se heurte aujourd'hui à une réalité bien plus complexe, marquée par une envolée spectaculaire des investissements financiers et des innovations matérielles de pointe. Des combinaisons aquatiques aux chaussures de course à semelles rebondissantes en mousse spéciale, l'équipement transforme profondément la performance physique pure. Les écarts économiques abyssaux entre les grandes nations sportives et les pays aux budgets modestes créent une première fracture majeure sur les pistes mondiales, remettant directement en cause l'égalité des chances dès le coup d'envoi.",
+    "Face à cette escalade technologique permanente, les instances dirigeantes traditionnelles tentent tant bien que mal de fixer des limites claires pour préserver l'esprit originel du jeu. C'est le cas de l'institution internationale World Athletics<a class=\"lex-ref\" href=\"#lex-world-athletics\" aria-label=\"Voir la définition dans le lexique\">*</a>, qui a publié de nouvelles règles strictes sur les chaussures de course à pied, entrées en vigueur le <strong>20 avril 2026</strong>. Ces textes encadrent rigoureusement l'épaisseur des semelles et l'insertion de lames en fibre de carbone, cherchant à éviter qu'un avantage mécanique démesuré ne supplante l'effort musculaire. D'autres fédérations mondiales, comme l'Union cycliste internationale ou World Aquatics, ajustent également leurs critères pour empêcher que les laboratoires de recherche industrielle ne dictent entièrement les classements sportifs.",
+    "Dans le même temps, un modèle radicalement opposé a vu le jour sur le Strip de Las Vegas avec la tenue des Enhanced Games<a class=\"lex-ref\" href=\"#lex-enhanced-games\" aria-label=\"Voir la définition dans le lexique\">*</a>, organisés le <strong>25 mai 2026</strong>. Cette compétition privée et non officielle, financée par de richissimes investisseurs, a fait le choix délibéré de lever toutes les restrictions de l'Agence mondiale antidopage. Promettant une pluie de records artificiellement dopés et des primes massives de <strong>250 000 dollars</strong> par victoire avec un bonus de <strong>1 million de dollars</strong> par record battu, l'événement voulait prouver que la pharmacologie et la biotechnologie représentaient l'avenir inéluctable du spectacle sportif planétaire.",
+    "Pourtant, le bilan sportif de cette soirée de Las Vegas a largement tempéré ces ambitions futuristes en démontrant les limites du dopage chimique pur. Sur la piste d'athlétisme, le sprinteur américain Fred Kerley, qui concourait sans produit dopant, a remporté l'épreuve reine du 100 mètres en <strong>9’’97</strong>, un chrono très modeste loin de son record olympique. Seul le nageur grec Kristian Gkolomeev a signé un record non homologué en <strong>20’’81</strong> sur 50 mètres nage libre avec une combinaison en polyuréthane bannie, améliorant le temps mondial légal de seulement <strong>0,07 seconde</strong>. Au total, <strong>1 seul record</strong> a été enregistré, prouvant que la chimie ne remplace pas automatiquement la maîtrise technique.",
+    "L'incertitude quant à l'avenir du sport s'est donc considérablement accrue, car le fossé entre les partisans d'une régulation stricte et les promoteurs de la performance augmentée s'élargit chaque jour. Les athlètes eux-mêmes sont désormais confrontés à des choix éthiques et financiers cruciaux, tiraillés entre le prestige des titres olympiques officiels et l'attrait financier des ligues privées dérégulées. La notion même d'équité sportive<a class=\"lex-ref\" href=\"#lex-equite-sportive\" aria-label=\"Voir la définition dans le lexique\">*</a> devient mouvante, selon que l'on considère la technologie comme un simple outil d'aide à l'entraînement ou comme une triche institutionnalisée inaccessible à la majorité des compétiteurs de la planète.",
+    "Cette tension croissante entre éthique sportive, progrès scientifique et intérêts commerciaux ouvre ainsi trois trajectoires bien distinctes pour les prochaines décennies. D'un côté, les fédérations historiques peuvent réussir à imposer des standards stricts pour maintenir une égalité relative des armes entre tous les concurrents. De l'autre, le monde sportif pourrait se scinder durablement en deux univers parallèles, isolant les épreuves naturelles du spectacle augmenté. Enfin, le risque subsiste d'une dérégulation totale où les moyens financiers écrasants des plus riches confisqueraient définitivement la victoire, transformant chaque podium en un simple concours de puissance industrielle et biomédicale."
+  ],
+  "enjeu_en_clair": {
+    "lead": "L'accès inégal aux technologies de pointe et aux financements menace de fausser les résultats des compétitions sportives.",
+    "text": "Le sujet pose la question de savoir si les victoires dépendent encore des athlètes ou de leurs équipements scientifiques. Les fédérations veulent brider le matériel pour garder des règles justes, mais des ligues privées autorisent désormais toutes les substances. Pour le grand public, cela ne change rien à la pratique du dimanche, mais cela transforme profondément les compétitions que nous regardons à la télévision."
+  },
+  "stakes_branches": {
+    "favorable": "Les fédérations sportives imposent des règles strictes sur le matériel et protègent une compétition équitable.",
+    "stable": "Le sport officiel coexiste avec des spectacles privés d'athlètes augmentés aux règles totalement libres.",
+    "degrade": "Les écarts de richesse et de technologie écrasent les règles, réservant la victoire aux plus fortunés."
+  },
+  "comprendre_box": [
+    {
+      "lead": "Réguler le matériel sportif ressemble aux limitations imposées aux moteurs en Formule 1.",
+      "text": "Pour éviter qu'une seule écurie ne domine grâce à des millions d'euros, les organisateurs fixent des limites techniques identiques pour tout le monde. Les règles de World Athletics sur les semelles de chaussures suivent exactement ce principe pour préserver le rôle de l'effort physique humain.",
+      "apres_dek_index": 1
+    },
+    {
+      "lead": "Les ligues privées dérégulées fonctionnent comme des spectacles hors du cadre officiel.",
+      "text": "À la manière des cascades de cinéma comparées à la conduite réelle, les compétitions privées cherchent le sensationnalisme sans respecter les règles de santé de l'Agence mondiale antidopage. Elles créent un divertissement commercial distinct du sport traditionnel.",
+      "apres_dek_index": 2
+    }
+  ],
+  "list_box": null,
+  "indicators": [
+    {
+      "label": "Records battus lors des Enhanced Games",
+      "value": "1 record",
+      "delta": "mai 2026 à Las Vegas (50 m nage libre)"
+    }
+  ],
+  "cards": {
+    "favorable": {
+      "pct": 35,
+      "gauge_word": "Probable",
+      "h3": "Les fédérations renforcent les règles techniques et préservent l'équité",
+      "why": [
+        "Premier scénario : les grandes institutions sportives internationales parviennent à reprendre le contrôle total des règles du jeu en limitant strictement les innovations matérielles. En s'appuyant sur des protocoles scientifiques standardisés, comme les régulations sur les chaussures appliquées par World Athletics le <strong>20 avril 2026</strong>, les fédérations bloquent toute dérive technologique disproportionnée. Les équipements autorisés doivent être accessibles commercialement à tous les compétiteurs à un tarif régulé, empêchant les nations fortunées de monopoliser des prototypes secrets. Les contrôles antidopage sont également renforcés pour garantir une compétition saine où le travail physique reste le premier facteur de succès.",
+        "Contrairement au scénario d'une scission durable ou d'un laisser-faire destructeur, cette hypothèse fait le pari que le public et les sponsors majeurs resteront fidèles aux valeurs olympiques authentiques. La relative déception sportive des compétitions dérégulées à Las Vegas, où <strong>1 seul record</strong> a été battu malgré l'usage de substances chimiques, prouve que le spectacle artificiel ne garantit pas des performances légendaires. Si les instances maintiennent une gouvernance vigilante et transparente, la confiance universelle dans les classements officiels pourrait sortir durablement consolidée face aux dérives commerciales."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Records battus lors des Enhanced Games",
+          "evo_current": "0 record homologué",
+          "evo_arrow": "down",
+          "evo_prev": "1 record officieux à Las Vegas"
+        }
+      ],
+      "france_line": "Les athlètes français bénéficient d'un cadre régulé qui valorise la formation et le suivi médical éthique.",
+      "france_impact": "favorable"
+    },
+    "stable": {
+      "pct": 45,
+      "gauge_word": "Probable",
+      "h3": "Le sport officiel et les compétitions augmentées coexistent en parallèle",
+      "why": [
+        "Deuxième scénario : le paysage mondial se fracture en deux circuits hermétiques répondant à des attentes de divertissement et d'éthique totalement distinctes. D'un côté, le mouvement olympique et les fédérations officielles maintiennent des règles antidopage rigoureuses pour sacrer les meilleurs sportifs naturels de la planète. De l'autre, des ligues privées comme les Enhanced Games organisées le <strong>25 mai 2026</strong> s'installent dans le paysage médiatique avec des primes de <strong>250 000 dollars</strong> par victoire, assumant pleinement le recours à la pharmacologie et aux combinaisons techniques pour créer un show spectaculaire.",
+        "Par rapport à l'illusion d'une régulation mondiale unifiée ou à l'écroulement complet des valeurs sportives, ce modèle dualiste reflète la réalité d'un marché du spectacle avide de sensations fortes. Les deux univers ne s'affrontent plus directement sur les mêmes pistes mais attirent des publics complémentaires, évitant ainsi de fausser les palmarès historiques traditionnels. Cette coexistence pragmatique pourrait néanmoins créer des tensions éthiques permanentes si les salaires du circuit augmenté attiraient massivement de jeunes talents hors des filières fédérales."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Records battus lors des Enhanced Games",
+          "evo_current": "1 à 3 records officieux",
+          "evo_arrow": "flat",
+          "evo_prev": "1 record en mai 2026"
+        }
+      ],
+      "france_line": "Le modèle sportif français refuse les épreuves augmentées mais perd en visibilité médiatique mondiale.",
+      "france_impact": "degrade"
+    },
+    "degrade": {
+      "pct": 20,
+      "gauge_word": "Peu probable",
+      "h3": "L'absence de régulation efficace réserve la victoire aux athlètes les plus fortunés",
+      "why": [
+        "Troisième scénario : les fédérations internationales perdent totalement la course contre la montre face aux innovations technologiques et aux laboratoires biomédicaux privés. Les réglementations de matériel deviennent impossibles à faire respecter en raison du coût des contrôles et de la sophistication croissante des équipements sur mesure. Les équipes et les pays disposant de budgets colossaux prennent un avantage mécanique et physiologique insurmontable, reléguant les sportifs des nations modestes au simple rôle de figurants sur les podiums internationaux majeurs.",
+        "À l'inverse des deux autres scénarios qui préservent au moins un espace d'équité relative, cette trajectoire signe la mort de l'idéal universel de la méritocratie sportive. L'échec des régulations transformerait les Jeux olympiques en une vitrine commerciale où la puissance financière des sponsors écraserait la dimension humaine de l'effort athlétique. Le public risquerait alors de se détourner massivement de compétitions prévisibles et inégales, dont les résultats dépendraient uniquement du montant des investissements de recherche et développement."
+      ],
+      "indicateurs_touches": [
+        {
+          "field_name": "Records battus lors des Enhanced Games",
+          "evo_current": "Multiples records privés",
+          "evo_arrow": "up",
+          "evo_prev": "1 record en mai 2026"
+        }
+      ],
+      "france_line": "Les fédérations tricolores ne peuvent pas suivre l'inflation des coûts technologiques mondiaux.",
+      "france_impact": "degrade"
+    }
+  },
+  "essentiel_box": [
+    "La compétition sportive peut-elle rester véritablement équitable face à la montée en puissance des technologies de pointe, des budgets colossaux et des ligues privées dérégulées ?",
+    "L'entrée en vigueur des nouvelles règles de World Athletics sur les chaussures de course le 20 avril 2026 et la tenue des Enhanced Games à Las Vegas en mai 2026 illustrent une fracture grandissante.",
+    "Pas totalement : notre scénario le plus probable (45 %) prévoit une division durable entre le sport officiel régulé et des spectacles privés augmentés, devant une régulation réussie (35 %) et une dérive financière totale (20 %).",
+    "Signal à surveiller : les prochaines décisions des fédérations internationales sur l'autorisation des nouveaux équipements de natation et d'athlétisme lors des championnats du monde 2027."
+  ],
+  "delta_france": {
+    "kind": "negatif",
+    "score": -0.3,
+    "word": "léger négatif",
+    "text": "la coexistence probable avec des ligues privées augmentées (45 %) et le risque de dérive technologique (20 %) fragilisent le modèle fédéral français axé sur la santé et l'éthique."
+  },
+  "phrase_a_retenir": "Lors des Enhanced Games de Las Vegas en mai 2026, 1 record non officiel seulement a été battu malgré l'usage de substances dopantes et de combinaisons bannies.",
+  "phrase_a_retenir_stat": "1 record",
+  "lexique": [
+    {
+      "slug": "world-athletics",
+      "terme": "World Athletics",
+      "definition": "L'organisation sportive internationale qui gère l'athlétisme mondial et fixe les règles techniques des équipements autorisés en compétition officielle."
+    },
+    {
+      "slug": "enhanced-games",
+      "terme": "Enhanced Games",
+      "definition": "Une compétition sportive privée et commerciale créée en 2026 qui autorise ouvertement le dopage et les équipements technologiques interdits."
+    },
+    {
+      "slug": "equite-sportive",
+      "terme": "équité sportive",
+      "definition": "Le principe selon lequel chaque participant doit disposer des mêmes chances de victoire au départ, sous des règles identiques et équitables."
+    }
+  ],
+  "sources_html": [
+    "<a href=\"https://fr.euronews.com/2026/05/26/enhanced-games-recit-de-la-nuit-la-plus-controversee-du-sport\" target=\"_blank\" rel=\"noopener noreferrer\">Euronews — Enhanced Games : récit de la nuit la plus controversée du sport ↗</a>",
+    "<a href=\"https://worldathletics.org/download/download?filename=61b09e88-36c9-4782-8563-2adce1e15ff0.pdf&urlslug=C2.1A+%E2%80%93+Athletic+Shoe+Regulations+%28effective+from+20+April+2026%29\" target=\"_blank\" rel=\"noopener noreferrer\">World Athletics — World Athletics – Athletic Shoe Regulations (effective 20 April 2026) ↗</a>"
+  ],
+  "meta": {
+    "title": "Sport : la compétition équitable est-elle encore possible ? — Scénario",
+    "meta_description": "Sport : la compétition équitable est-elle encore possible ? 3 scénarios prospectifs pour 2030.",
+    "og_image_alt": "Piste d'athlétisme avec des coureurs en pleine compétition sportive",
+    "keywords": [
+      "Sport"
+    ],
+    "seo_newsarticle_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"NewsArticle\",\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://lesscenarios.fr/archives/2026-11-01.html\"\n  },\n  \"headline\": \"Sport : la compétition équitable est-elle encore possible ? — Scénario\",\n  \"description\": \"Sport : la compétition équitable est-elle encore possible ? 3 scénarios prospectifs pour 2030.\",\n  \"image\": [\n    \"https://lesscenarios.fr/assets/social/instagram/2026-11-01.png\"\n  ],\n  \"datePublished\": \"2026-11-01T00:00:00\",\n  \"dateModified\": \"2026-11-01T00:00:00\",\n  \"inLanguage\": \"fr-FR\",\n  \"keywords\": \"Sport\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Olivier Bertrand\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Scénario\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://lesscenarios.fr/assets/logo-512.png\",\n      \"width\": 512,\n      \"height\": 512\n    }\n  },\n  \"articleSection\": \"Sport\"\n}",
+    "seo_breadcrumb_json": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Scénario\",\n      \"item\": \"https://lesscenarios.fr/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Archives\",\n      \"item\": \"https://lesscenarios.fr/archives.html\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Sport : la compétition équitable est-elle encore possible ?\",\n      \"item\": \"https://lesscenarios.fr/archives/2026-11-01.html\"\n    }\n  ]\n}"
+  }
+}
