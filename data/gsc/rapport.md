@@ -7,7 +7,7 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-10-02 au 2026-10-29 
 ## Chiffres (28 jours)
 
 - 2 clics, 381 impressions, taux de clic 0,5 %, position moyenne 10,6.
-- Pages indexées : 20 sur 33 inspectées ; éditions inconnues de Google : 12 (dont 5 de plus de 7 jours).
+- Pages indexées : 19 sur 33 inspectées ; éditions inconnues de Google : 13 (dont 5 de plus de 7 jours).
 - Requêtes : 15 (dont 3 avec le nom du site).
 - Tendance (14 jours, jusqu'au 2026-10-29) : impressions 232 contre 149, clics 2 contre 0.
 
@@ -32,7 +32,7 @@ Site `sc-domain:lesscenarios.fr` · données Google du 2026-10-02 au 2026-10-29 
 
 - Visibilité en hausse : 232 impressions sur les 14 derniers jours contre 149 avant.
 - 6 pages principales indexées : `/`, `/archives.html`, `/le-projet.html`, `/sources.html`, `/glossaire.html`, `/en/`.
-- 14 éditions indexées par Google.
+- 13 éditions indexées par Google.
 - Plan du site `/sitemap.xml` lu par Google sans erreur (208 adresses envoyées).
 - Plan du site `/sitemap-news.xml` lu par Google sans erreur (4 adresses envoyées).
 
@@ -150,6 +150,7 @@ Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 - `/sources.html` : ok
 - `/glossaire.html` : ok
 - `/en/` : ok
+- `/archives/2026-11-01.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 0 j
 - `/archives/2026-10-31.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 1 j
 - `/archives/2026-10-30.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 2 j
 - `/archives/2026-10-29.html` : inconnue (Google ne reconnaît pas cette URL), publiée il y a 3 j
@@ -169,12 +170,11 @@ Prochain contrôle : 25 octobre 2026 (ne rien conclure avant).
 - `/archives/2026-10-15.html` : ok, publiée il y a 17 j
 - `/archives/2026-10-14.html` : ok, publiée il y a 18 j
 - `/archives/2026-10-13.html` : ok, publiée il y a 19 j
-- `/archives/2026-10-12.html` : ok, publiée il y a 20 j
+- `/en/archives/2026-11-01.html` : ok, publiée il y a 0 j
 - `/en/archives/2026-10-31.html` : ok, publiée il y a 1 j
 - `/en/archives/2026-10-30.html` : ok, publiée il y a 2 j
 - `/en/archives/2026-10-29.html` : ok, publiée il y a 3 j
 - `/en/archives/2026-10-28.html` : ok, publiée il y a 4 j
 - `/en/archives/2026-10-27.html` : ok, publiée il y a 5 j
-- `/en/archives/2026-10-26.html` : ok, publiée il y a 6 j
 
 Le compteur « indexées » des plans du site n'est pas fiable : l'inspection page par page fait foi.
