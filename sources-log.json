@@ -2,6 +2,61 @@
   "_comment": "Revue de presse — un objet par jour, articles croisés pendant la recherche éditoriale (docs/routine-prompt.md, étape 3), jamais liés au sujet du jour lui-même. Champ 'image' = og:image du média d'origine (hotlink assumé, jamais téléchargée/hébergée chez nous — voir docs/routine-prompt.md pour le choix et ses limites) ; laisser vide si l'article n'a pas d'image exploitable. Régénère sources.html avec scripts/seo/generate_sources_page.py après chaque ajout. Domaines : voir la liste fermée de docs/tags.md.",
   "days": [
     {
+      "date": "2026-11-01",
+      "articles": [
+        {
+          "title": "La Corée du Nord teste des armes à sous-munitions",
+          "source": "Le Figaro",
+          "url": "https://www.lefigaro.fr/international/la-coree-du-nord-teste-des-armes-a-sous-munitions-20261101",
+          "image": "https://i.f1g.fr/media/cms/1200x630_crop/2026/11/01/339a51e8fe1f74e1a0b84a80f68474080db765558408e67a874e45c3777cedbc.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "La Corée du Nord a testé des ogives à sous-munitions afin que son armée puisse «utiliser tous ces types» d'armements d'ici à la fin de l'année, a annoncé dimanche l'agence de presse officielle de Pyongyang (KCNA). Selon des responsables, cette arme «est capable de réduire en cendres une zone de 12 à 13 hectares à sa puissance maximale».",
+          "read_minutes": 2
+        },
+        {
+          "title": "Trump affirme que les États-Unis doivent encore «s'occuper» d'une ou deux cibles en Iran",
+          "source": "Le Figaro",
+          "url": "https://www.lefigaro.fr/international/trump-affirme-que-les-etats-unis-doivent-encore-s-occuper-d-une-ou-deux-cibles-en-iran-20261101",
+          "image": "https://i.f1g.fr/media/cms/1200x630_crop/2026/11/01/84c65593ec27b6542bf4fd35b807d55e058770ba71a80afcf74cf1c77edd46ef.jpg",
+          "lang": "fr",
+          "domain": "international",
+          "summary": "Le président américain, Donald Trump, a affirmé samedi que les États-Unis devaient encore «s'occuper» d'une ou deux cibles en Iran, notamment le mont Kolang, soupçonné d'abriter un complexe nucléaire. «Nous avons neutralisé leurs capacités nucléaires. Il nous reste encore à nous occuper, je dirais, d'un ou deux sites, mais nous pouvons faire ça en dix minutes», a-t-il déclaré à des journalistes dans sa résidence en F",
+          "read_minutes": 2
+        },
+        {
+          "title": "Bolivie: le président décrète l'état d'urgence en raison d'un «super El Niño»",
+          "source": "Le Figaro",
+          "url": "https://www.lefigaro.fr/international/bolivie-le-president-decrete-l-etat-d-urgence-en-raison-d-un-super-el-nino-20261101",
+          "image": "https://i.f1g.fr/media/cms/1200x630_crop/2026/11/01/6ca46590f2d7d465e812dc5e886148c07185de5dd307c21ea62f0a9c3bac1215.jpg",
+          "lang": "fr",
+          "domain": "sciences-environnement",
+          "summary": "Le président bolivien, Rodrigo Paz, a annoncé samedi avoir décrété l'état d'urgence en Bolivie pour faire face aux sécheresses et aux inondations liées au «super El Niño». La sécheresse touche un peu plus de 78 000 familles dans six des neuf départements du pays et a provoqué la perte de plus de 75 000 têtes de bétail.",
+          "read_minutes": 2
+        },
+        {
+          "title": "Prix du gazole et du gaz, retraites, petits colis, découverts bancaires… Ce qui change au 1er novembre",
+          "source": "Les Echos",
+          "url": "https://www.lesechos.fr/economie-france/social/prix-du-gazole-et-du-gaz-retraites-petits-colis-decouverts-bancaires-ce-qui-change-au-1er-novembre-2260302",
+          "image": null,
+          "lang": "fr",
+          "domain": "economie-entreprises",
+          "summary": "La Commission de régulation de l'énergie (CRE) a annoncé que le prix repère de vente de gaz va augmenter de 6,6 % TTC, à 194,90 euros TTC par MWh, contre 182,88 euros par MWh au 1er octobre. Les retraites complémentaires Agirc-Arrco des 14 millions de retraités du privé vont augmenter de 1,4 % au 1er novembre, et Bruxelles renforce son arsenal avec l'entrée en vigueur de «frais de traitement» à hauteur de 2 euros sur",
+          "read_minutes": 3
+        },
+        {
+          "title": "Hungría lanza una app comunitaria para rastrear en tiempo real el estado de sus bosques",
+          "source": "Euronews",
+          "url": "https://es.euronews.com/2026/11/01/hungria-lanza-una-app-comunitaria-para-rastrear-en-tiempo-real-el-estado-de-sus-bosques",
+          "image": "https://images.euronews.com/articles/stories/09/96/74/94/1200x675_cmsv2_bb0d007b-917c-55c3-bb20-b9c26e749b8a-9967494.jpg",
+          "lang": "other",
+          "domain": "sciences-environnement",
+          "summary": "La plataforma de mapa comunitario Kéreg cruza datos satelitales con fotografías de excursionistas para alertar de cambios en la masa forestal húngara. En este 2026, la herramienta gratuita supera las 84 000 visitas y prepara el lanzamiento de sus versiones móviles para iOS y Android.",
+          "read_minutes": 3
+        }
+      ]
+    },
+    {
       "date": "2026-10-31",
       "articles": [
         {
